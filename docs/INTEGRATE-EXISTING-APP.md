@@ -186,8 +186,7 @@ is the primary surface.
   the local CLI does the integration. No bridge process is needed to connect the
   two.
 
-**MCP server — built (2026-09-19), layered on the CLI exactly as planned;
-publishes to npm at launch.** `molecule-mcp` is a thin structured wrapper over
+**MCP server — on npm as `molecule-mcp`, layered on the CLI.** `molecule-mcp` is a thin structured wrapper over
 these same `mlcl` operations: a local stdio mode (full tool set, wraps the
 local CLI — what `mlcl mcp install` registers) and a hosted read-only HTTP
 mode at `https://mcp.molecule.dev/mcp` (search/templates/docs/conventions;

@@ -31,7 +31,7 @@
     "node": ">=22"
   },
   "bin": {
-    "mlcl": "./bin/run.js"
+    "mlcl": "bin/run.js"
   },
   "main": "dist/index.js",
   "types": "dist/index.d.ts",

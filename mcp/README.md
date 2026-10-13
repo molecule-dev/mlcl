@@ -5,9 +5,8 @@ The [Molecule.dev](https://molecule.dev) MCP server — structured tools over th
 fleet, list flagship app templates, scaffold projects, add/wire packages, swap
 providers, and read package docs.
 
-> **Status:** built and tested; publishes to npm at launch. The `npx -y
-molecule-mcp` entries below are the install-time interface. The
-> `@molecule/*` packages themselves are public on npm today.
+> On npm as `molecule-mcp`: the `npx -y molecule-mcp` entries below run as
+> written.
 
 Also ships the molecule doctrine as a resource (`molecule://conventions`) and
 an `agent_init` tool that writes the convention files your harness reads — so

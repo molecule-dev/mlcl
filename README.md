@@ -24,10 +24,8 @@ npm install -g mlcl   # or just use npx mlcl … everywhere
 
 Node.js ≥ 22.
 
-> **Status:** `mlcl` (and `molecule-mcp`) publish to npm at launch — the
-> `npx mlcl …` commands throughout this README are the install-time interface.
-> Until then, run from a repo checkout: `node mlcl/bin/run.js …`. The
-> `@molecule/*` packages themselves are public on npm today.
+> `mlcl` and `molecule-mcp` are on npm — every `npx mlcl …` and
+> `npx -y molecule-mcp` below runs as written, as do the `@molecule/*` packages.
 
 ## Quickstart (60 seconds)
 

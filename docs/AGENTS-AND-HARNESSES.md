@@ -4,10 +4,8 @@ Molecule is built agent-first: the CLI is non-interactive by flag, emits JSON,
 and every scaffolded project teaches your agent its conventions. This guide
 covers every supported harness and every wiring method, with examples.
 
-> **Status:** `mlcl` and `molecule-mcp` publish to npm at launch — until then
-> run from a repo checkout (`node mlcl/bin/run.js …`) and point the MCP server
-> at it via `MOLECULE_MCP_CLI`. The `@molecule/*` packages themselves are
-> public on npm today.
+> `mlcl` and `molecule-mcp` are on npm, along with every `@molecule/*`
+> package; the commands below run as written.
 
 **The one-paragraph version:** run `npx mlcl agent init` (context) and
 `npx mlcl mcp install` (tools) — or install the Claude Code plugin, or just
