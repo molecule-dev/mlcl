@@ -34,19 +34,33 @@ const pkgs = MANIFESTS.map((m) => ({
   dir: dirname(join(ROOT, m)),
   ...JSON.parse(readFileSync(join(ROOT, m), 'utf8')),
 }))
+// `--retrust <name>`: re-send an EXISTING package's trust link with the
+// permissions below. A link made with `npm trust github` lacked them, and CI's
+// publish then failed `403 OIDC permission denied for this action` (mlcl v2,
+// 2026-10-13) although the OIDC login itself succeeded.
+const ri = process.argv.indexOf('--retrust')
+const retrust = ri >= 0 ? pkgs.filter((p) => p.name === process.argv[ri + 1]) : []
+if (ri >= 0 && !retrust.length) {
+  console.error(
+    `--retrust names none of this repo's packages (${pkgs.map((p) => p.name).join(', ')})`,
+  )
+  process.exit(1)
+}
 const missing = []
-for (const pkg of pkgs) {
+for (const pkg of retrust.length ? [] : pkgs) {
   const res = await fetch(`https://registry.npmjs.org/${pkg.name.replace('/', '%2f')}`, {
     signal: AbortSignal.timeout(20_000),
   })
   if (res.status === 404) missing.push(pkg)
   else if (!res.ok) throw new Error(`npm registry answered ${res.status} for ${pkg.name}`)
 }
-if (!missing.length) {
+if (!missing.length && !retrust.length) {
   console.log(`Nothing to do: npm already has ${pkgs.map((p) => p.name).join(', ')}.`)
   process.exit(0)
 }
-console.log(`Never published: ${missing.map((p) => `${p.name}@${p.version}`).join(', ')}`)
+if (missing.length)
+  console.log(`Never published: ${missing.map((p) => `${p.name}@${p.version}`).join(', ')}`)
+if (retrust.length) console.log(`Re-trusting: ${retrust.map((p) => p.name).join(', ')}`)
 if (process.argv.includes('--list')) process.exit(0)
 if (!process.stdin.isTTY) {
   console.error('No terminal for the 2FA prompt — run `npm run trust:new` from a shell.')
@@ -142,6 +156,10 @@ async function trust(pkg) {
 }
 
 let failed = false
+for (const pkg of retrust) {
+  if (await trust(pkg)) console.log(`✓ ${pkg.name} trusts ${REPO} ${WORKFLOW}`)
+  else failed = true
+}
 for (const pkg of missing) {
   if (!(await publishFirst(pkg))) {
     console.error(`✗ ${pkg.name}: the first publish failed — nothing was trusted`)
