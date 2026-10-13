@@ -134,6 +134,19 @@ describe('content rules', () => {
 })
 
 describe('provenance', () => {
+  it('a post without transcripts says, on its page, that a person wrote it', async () => {
+    // With no transcript the post is 100% human and the page says so — not
+    // "authorship unknown" or "could not be checked": no transcript means no
+    // AI words to attribute (X0 retest, 2026-10-13: two builds rewrote this
+    // line into a hedge and failed the post's acceptance check).
+    const root = appWith({ 'plain.md': post('Plain', '2026-01-02') })
+    const outDir = mkdtempSync(join(tmpdir(), 'thin-dist-'))
+    await buildSite({ root, outDir })
+    const text = readFileSync(join(outDir, 'plain', 'index.html'), 'utf8').replace(/<[^>]+>/g, ' ')
+    expect(text).toMatch(/written by a person/i)
+    expect(text).not.toMatch(/unknown|could not be (checked|verified)|unverified/i)
+  })
+
   it('splits a post into top-level blocks, keeping code fences whole', () => {
     const blocks = markdownBlocks('---\ntitle: x\n---\n\nOne.\n\n```\na\n\nb\n```\n\n## Two\n')
     expect(blocks).toEqual(['One.', '```\na\n\nb\n```', '## Two'])
