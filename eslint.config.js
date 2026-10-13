@@ -119,6 +119,7 @@ export default tseslint.config(
         process: 'readonly',
         fetch: 'readonly',
         AbortController: 'readonly',
+        AbortSignal: 'readonly',
         setTimeout: 'readonly',
         clearTimeout: 'readonly',
         URL: 'readonly',

@@ -1,25 +1,18 @@
 name: Release
 
-# ⛔ ON HOLD (owner decision, 2026-09-30): mlcl v2 does NOT release until the
-# owner lifts the hold. Release order when lifting (owner, 2026-10-01):
-# publish BOTH packages back-to-back — molecule-mcp first, then mlcl v2 —
-# so `npx mlcl mcp install` resolves the moment v2 is announceable:
+# Hold lifted 2026-10-13 (owner): the repo is public and v2 ships. First
+# release of a package npm has never seen (molecule-mcp ships with mlcl v2,
+# so `npx mlcl mcp install` resolves the moment v2 is out):
 #
-#   1. molecule-mcp's FIRST publish, from the OWNER session (no OIDC path for
-#      a name npm has never seen — npm/cli#8544; there is also no NPM_TOKEN
-#      secret on this repo, so CI cannot do it either):
-#        cd mcp
-#        npm run build
-#        node -e "const p=require('./package.json'); delete p.private; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n')"
-#        npm publish --access public
-#        git checkout package.json          # restore the private:true guard
-#        npm trust github molecule-mcp --repo molecule-dev/mlcl --file release.yml -y
-#      (every LATER molecule-mcp version publishes from CI over OIDC.)
-#   2. mlcl v2 — the OIDC trust link exists and is verified (github /
-#      release.yml / molecule-dev/mlcl, `npm trust list mlcl`):
-#        gh workflow run release.yml -R molecule-dev/mlcl -f mcp_publish=false
-#      mcp_publish=false because CI has nothing left to publish for mcp —
-#      true would go red re-publishing 0.2.0 after mlcl is already out.
+#   1. Trust molecule-mcp BEFORE its first publish — from the owner's shell,
+#      one 2FA code: `npm run trust:new` (scripts/trust-new-packages.mjs). It
+#      sends the trust link with `createStagedPackage`, which npm accepts for a
+#      name it has never seen, so even the first version publishes over OIDC.
+#      (No local `npm publish`; same mechanism as molecule's `trust:new`.)
+#   2. Dispatch this workflow with mcp_publish=true — it publishes mlcl v2
+#      (its trust link exists: github / release.yml / molecule-dev/mlcl) and
+#      molecule-mcp in the same run:
+#        gh workflow run release.yml -R molecule-dev/mlcl -f mcp_publish=true
 #
 # Pre-flight status at hold-lift: mlcl@2.1.0 gates all green (0bef0c866+);
 # molecule-mcp packs clean at 0.2.0 (19 files, 28.1 kB, smoke green).

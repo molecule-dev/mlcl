@@ -162,6 +162,7 @@
     "prepare": "husky",
     "registry:check": "node bin/run.js sync-registry --check",
     "sync-docs:changed": "tsx scripts/regen-molecule-docs.mjs --changed",
+    "trust:new": "node scripts/trust-new-packages.mjs",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
     "test:visual": "playwright test",
