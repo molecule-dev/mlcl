@@ -24245,6 +24245,124 @@
         "full text typesense"
       ]
     },
+    "@molecule/api-screenshots": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "screenshots",
+      "label": "Screenshots",
+      "description": "Screenshot capture core interface for molecule.dev",
+      "stack": "api",
+      "exports": [
+        "ScreenshotFormat",
+        "CaptureSource",
+        "ScreenshotOptions",
+        "ScreenshotProvider",
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "capture"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "path": "packages/api/core/screenshots",
+      "intentHints": [
+        "screenshot a url",
+        "capture a page screenshot",
+        "og image generation",
+        "render html to an image",
+        "website thumbnail"
+      ]
+    },
+    "@molecule/api-screenshots-puppeteer": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "screenshots",
+      "label": "Puppeteer (screenshots)",
+      "description": "Puppeteer screenshot capture provider for molecule.dev",
+      "stack": "api",
+      "implements": "@molecule/api-screenshots",
+      "exports": [
+        "createProvider",
+        "provider",
+        "PuppeteerScreenshotsConfig",
+        "SCREENSHOT_LIMITS",
+        "imageDimensions"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-screenshots",
+        "puppeteer"
+      ],
+      "moleculePeers": [
+        "@molecule/api-screenshots"
+      ],
+      "path": "packages/api/bonds/screenshots/puppeteer",
+      "intentHints": [
+        "self-hosted screenshots",
+        "local screenshot capture",
+        "screenshot without a service"
+      ],
+      "egressHosts": [
+        "storage.googleapis.com"
+      ]
+    },
+    "@molecule/api-screenshots-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "screenshots",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted screenshot capture — URL or HTML to image, billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-screenshots",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "SCREENSHOT_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeScreenshotProvider",
+        "ScreenshotResult",
+        "createProvider",
+        "screenshotsMoleculeSecretDefinitions",
+        "MoleculeScreenshotsConfig"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-screenshots",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-screenshots",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/screenshots/molecule",
+      "intentHints": [
+        "hosted screenshots",
+        "screenshot a website without a browser",
+        "og image without a browser"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/api-secrets": {
       "language": "typescript",
       "runtime": "node",
@@ -59047,7 +59165,7 @@
       "@molecule/api-resource-activity-feed": "1.0.3",
       "@molecule/api-resource-address": "1.0.2",
       "@molecule/api-resource-ai-conversation": "1.0.3",
-      "@molecule/api-resource-ai-models": "1.15.2",
+      "@molecule/api-resource-ai-models": "1.16.0",
       "@molecule/api-resource-api-key": "1.0.2",
       "@molecule/api-resource-booking": "1.0.2",
       "@molecule/api-resource-bookmark": "1.0.3",

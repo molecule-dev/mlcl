@@ -283,7 +283,8 @@ const text = (t: string) => ({ content: [{ type: 'text' as const, text: t }] })
  *
  * The tools whose description promises the output "never overwritten"
  * (`render_pdf`, `merge_pdfs`, `watermark_pdf`, `transform_image`,
- * `generate_image`) check `existsSync(target)` BEFORE their call to the hosted
+ * `generate_image`, `capture_screenshot`) check `existsSync(target)` BEFORE
+ * their call to the hosted
  * service — and that check is not atomic with the write: the round-trip
  * (seconds, for an image or a PDF) sits between them, so two overlapping calls
  * with the same `output_file` both saw "does not exist" and the second write
@@ -2485,6 +2486,116 @@ server.registerTool(
         count: files.length,
         ...(result.model ? { model: result.model } : {}),
         ...(images[0]?.revisedPrompt ? { revisedPrompt: images[0].revisedPrompt } : {}),
+      })
+    }),
+  ),
+)
+
+server.registerTool(
+  'capture_screenshot',
+  {
+    title: 'Capture a screenshot with molecule.dev',
+    description:
+      'Screenshot capture on molecule.dev (headless Chrome, self-hosted, no vendor account; metered per capture to the project whose MOLECULE_API_KEY is used). Captures a URL or an HTML string and writes a PNG/JPEG to output_file (never overwritten). Viewport size, full page, device scale, settle delay; the renderer fetches HTTP(S) targets from public addresses only. The same service backs @molecule/api-screenshots-molecule in app code.',
+    inputSchema: {
+      url: z.string().max(2048).optional().describe('The page to capture (http/https)'),
+      html: z
+        .string()
+        .min(1)
+        .max(2_000_000)
+        .optional()
+        .describe('The HTML to render and capture (instead of url)'),
+      output_file: z.string().describe('Where to write the image (must not exist yet)'),
+      width: z
+        .number()
+        .int()
+        .min(16)
+        .max(3840)
+        .optional()
+        .describe('Viewport width (default 1280)'),
+      height: z
+        .number()
+        .int()
+        .min(16)
+        .max(3840)
+        .optional()
+        .describe('Viewport height (default 800)'),
+      full_page: z
+        .boolean()
+        .optional()
+        .describe('Capture the whole scrollable page (capped at 20,000 px)'),
+      format: z.enum(['png', 'jpeg']).optional(),
+      quality: z
+        .number()
+        .int()
+        .min(1)
+        .max(100)
+        .optional()
+        .describe('JPEG quality (ignored for png)'),
+      scale: z
+        .number()
+        .min(1)
+        .max(3)
+        .optional()
+        .describe('Device scale factor — 2 captures at twice the pixel density'),
+      delay_ms: z
+        .number()
+        .int()
+        .min(0)
+        .max(5000)
+        .optional()
+        .describe('Milliseconds to wait after load before capturing (default 0)'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('capture_screenshot', async ({ url, html, output_file, directory, ...opts }) =>
+    serviceResult(async () => {
+      if ((url !== undefined) === (html !== undefined)) {
+        throw new ServiceCallError('Pass exactly one of url or html.')
+      }
+      const format = opts.format ?? 'png'
+      const target = resolve(output_file)
+      const ext = extname(target).toLowerCase()
+      const okExt = format === 'png' ? ext === '.png' : ext === '.jpg' || ext === '.jpeg'
+      if (!okExt) {
+        throw new ServiceCallError(
+          `output_file must end in ${format === 'png' ? '.png' : '.jpg or .jpeg'} — the service returns ${format} bytes.`,
+        )
+      }
+      requireWritableParent(target)
+      if (existsSync(target)) {
+        throw new ServiceCallError(
+          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+        )
+      }
+      const options: Record<string, unknown> = {}
+      if (opts.width !== undefined) options.width = opts.width
+      if (opts.height !== undefined) options.height = opts.height
+      if (opts.full_page !== undefined) options.fullPage = opts.full_page
+      if (opts.format !== undefined) options.format = opts.format
+      if (opts.quality !== undefined) options.quality = opts.quality
+      if (opts.scale !== undefined) options.scale = opts.scale
+      if (opts.delay_ms !== undefined) options.delayMs = opts.delay_ms
+      const result = (await callHostedService(
+        'screenshots',
+        'capture',
+        {
+          ...(url !== undefined ? { url } : { html }),
+          ...(Object.keys(options).length > 0 ? { options } : {}),
+        },
+        directory,
+      )) as { data?: string; mimeType?: string; width?: number; height?: number }
+      const imageBytes = decodeServicePayload(result.data, 'image')
+      writeNewFileSync(target, imageBytes, 0o644)
+      return JSON.stringify({
+        file: target,
+        mimeType: result.mimeType,
+        width: result.width,
+        height: result.height,
+        bytes: imageBytes.length,
       })
     }),
   ),
