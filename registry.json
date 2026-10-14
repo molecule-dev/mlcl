@@ -59459,7 +59459,7 @@
       "@molecule/app-icons-molecule": "1.0.2",
       "@molecule/app-ide": "1.0.2",
       "@molecule/app-ide-default": "1.0.2",
-      "@molecule/app-ide-react": "1.20.5",
+      "@molecule/app-ide-react": "1.21.0",
       "@molecule/app-image-crop": "1.0.2",
       "@molecule/app-image-crop-cropperjs": "1.0.2",
       "@molecule/app-image-gallery-editor-react": "1.0.3",
@@ -59837,7 +59837,7 @@
       "@molecule/api-ai-embeddings-gemini": "1.0.0",
       "@molecule/api-ai-decisions-kev": "1.0.0",
       "@molecule/api-push-notifications-molecule": "1.1.0",
-      "@molecule/api-agent-runtime-pi": "1.0.2",
+      "@molecule/api-agent-runtime-pi": "1.0.3",
       "@molecule/api-ai-decisions-liquid-d1": "1.1.1",
       "@molecule/api-ai-video-generation-kandinsky": "1.2.2",
       "@molecule/api-ai-video-generation-ltx": "1.1.2",
@@ -59845,7 +59845,10 @@
       "@molecule/api-analytics-http": "1.0.3",
       "@molecule/api-ai-speech-whistle": "1.1.2",
       "@molecule/app-ai-voice-whistle": "1.1.2",
-      "@molecule/api-pdf-molecule": "1.1.0"
+      "@molecule/api-pdf-molecule": "1.1.0",
+      "@molecule/api-screenshots": "1.1.0",
+      "@molecule/api-screenshots-molecule": "1.1.0",
+      "@molecule/api-screenshots-puppeteer": "1.1.0"
     }
   }
 }
