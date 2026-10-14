@@ -62,6 +62,29 @@ describe('ensureBaseHandlersIndex', () => {
     expect(after.indexOf(`import handlers`)).toBeLessThan(after.indexOf(`router.use(handlers)`))
   })
 
+  it('mounts the app handlers BEFORE the built-in routes, so an app route wins a conflict', async () => {
+    await ensureBaseHandlersIndex(apiPath)
+
+    const after = await readFile(routerPath, 'utf-8')
+    // Express answers with the first match: mounted after `POST /users`, an app's
+    // own signup at that path never ran.
+    expect(after.indexOf(`router.use(handlers)`)).toBeLessThan(
+      after.indexOf(`router.post(\`/users\``),
+    )
+    expect(after).toContain('takes precedence over a built-in route below')
+  })
+
+  it('appends the mount when the router has no routes yet', async () => {
+    await writeFile(
+      routerPath,
+      `import { Router } from 'express'\n\nexport const router = Router()\n`,
+    )
+    await ensureBaseHandlersIndex(apiPath)
+
+    const after = await readFile(routerPath, 'utf-8')
+    expect(after.trimEnd().endsWith('router.use(handlers)')).toBe(true)
+  })
+
   it('does not overwrite an existing handlers/index.ts', async () => {
     await mkdir(join(apiPath, 'src', 'handlers'), { recursive: true })
     await writeFile(handlersIndexPath, '// template-supplied handlers\nexport default {}\n')

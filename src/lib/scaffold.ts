@@ -4192,8 +4192,29 @@ export async function ensureBaseHandlersIndex(apiPath: string): Promise<void> {
     routerContent = `${importLine}\n\n${routerContent}`
   }
 
-  if (!routerContent.endsWith('\n')) routerContent += '\n'
-  routerContent += `\nrouter.use(handlers)\n`
+  // The app's own routes are mounted BEFORE the built-in resource routes:
+  // Express answers with the first match, so mounted last, a handler for a path
+  // a built-in already has (a spec's own `POST /users` signup) never ran and the
+  // built-in answered in its place. Mounted first, the app's route wins on a
+  // conflict, and every request it does not handle falls through to the
+  // built-ins as before. It goes after the router-wide middleware
+  // (`router.use(…verifyMiddleware())`) so handlers still see the session.
+  const mount =
+    `// The app's own routes come first: Express answers with the first match, so a route\n` +
+    `// in ../handlers takes precedence over a built-in route below at the same path.\n` +
+    `router.use(handlers)\n`
+  const routeLines = routerContent.split('\n')
+  const firstRoute = routeLines.findIndex((line) =>
+    /^router\.(get|post|put|patch|delete|all)\(/.test(line),
+  )
+  if (firstRoute >= 0) {
+    routeLines.splice(firstRoute, 0, ...mount.trimEnd().split('\n'), '')
+    routerContent = routeLines.join('\n')
+    if (!routerContent.endsWith('\n')) routerContent += '\n'
+  } else {
+    if (!routerContent.endsWith('\n')) routerContent += '\n'
+    routerContent += `\n${mount}`
+  }
 
   // Guarded, same policy as wireTemplateApiRouters above: the router pre-exists,
   // and a failed write must not leave a truncated route table behind.
