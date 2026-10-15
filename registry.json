@@ -3269,6 +3269,7 @@
       "exports": [
         "createLocalBackend",
         "createSandboxBackend",
+        "ToolInputError",
         "NormalizableSchema",
         "NormalizedInput",
         "GuardOptions",
@@ -3297,6 +3298,7 @@
         "outputIsWithheldUntilExit",
         "checkBlockedCommand",
         "resolvePath",
+        "isOutsideRoot",
         "isValidGlob",
         "pathArgError",
         "directoryReadHint",
