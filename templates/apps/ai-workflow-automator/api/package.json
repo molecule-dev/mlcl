@@ -88,7 +88,7 @@
     "@molecule/api-uploads-s3": "1.1.1",
     "@molecule/api-utilities-validation": "1.0.2",
     "@molecule/api-workflow": "1.0.3",
-    "@molecule/api-workflow-database": "1.0.2",
+    "@molecule/api-workflow-database": "1.0.3",
     "bcryptjs": "3.0.3",
     "connect-busboy": "1.0.0",
     "cookie-parser": "1.4.7",
