@@ -20415,6 +20415,11 @@
       "description": "Threaded comments on any resource with polymorphic attachment and pagination",
       "stack": "api",
       "exports": [
+        "NumberedComment",
+        "numberComment",
+        "createNumberedComment",
+        "getCommentByNumber",
+        "commentNumbers",
         "requestHandlerMap",
         "routes",
         "createComment",
@@ -20487,6 +20492,10 @@
       ],
       "tables": [
         {
+          "name": "comment_numbers",
+          "sqlFile": "src/__setup__/comment_numbers.sql"
+        },
+        {
           "name": "comments",
           "sqlFile": "src/__setup__/comments.sql"
         }
@@ -20495,7 +20504,9 @@
       "intentHints": [
         "comments backend",
         "threaded comments",
-        "comment persistence"
+        "comment persistence",
+        "integer comment ids",
+        "numbered comments"
       ]
     },
     "@molecule/api-resource-course": {
