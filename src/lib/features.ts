@@ -144,6 +144,10 @@ export function collectFeaturePackages(
  * dropped. Folding the full transitive closure into the selected set fixes that:
  * every companion becomes a selected package the injector then resolves.
  *
+ * One companion class is held back: a PROVIDER peer whose core the selection
+ * already provides (see the guard in the loop) — wiring two providers for one
+ * singleton core makes the last setup call win, silently.
+ *
  * @param selectedNames - Currently selected package names.
  * @param allPackages - All registry packages.
  * @returns The transitive @molecule peer companions not already selected.
@@ -196,13 +200,38 @@ export function resolveTransitivePeers(
   const selected = new Set(selectedNames)
   const all = new Set(selected)
   const queue = [...selected]
+  // A transitive PROVIDER peer only when the core it implements has no
+  // provider yet: @molecule/api-bonds-default-express peers on every default
+  // provider its setup re-exports, so a selection that already chose SQLite
+  // (or meilisearch search, or S3 uploads) also gained Postgres — and every
+  // extra provider the injector wires adds a second setup call for the same
+  // singleton core, the LAST call winning the pool. A live project shipped
+  // with both database bonds wired and an agent burned minutes deciding which
+  // database was real (X0 run xr-molecule-flash-m23). Same rule as the
+  // defaultProvider guards in ensureMoleculePeerClosure (scaffold.ts) and
+  // resolveDefaultProviders below; framework bindings (e.g. app-ui-react)
+  // implement their core but are not bond providers, so they pass through.
+  // The skipped package stays INSTALLED — create.ts closes the manifests with
+  // ensureMoleculePeerClosure after injection, so the aggregate's static
+  // imports of every provider keep resolving; it just never gets a bond.
+  const providedCoreOf = (name: string): string | undefined => {
+    const m = byName.get(name)?.molecule
+    return m?.implements && m.type !== 'framework' ? m.implements : undefined
+  }
+  const providedCores = new Set<string>()
+  for (const name of all) {
+    const core = providedCoreOf(name)
+    if (core) providedCores.add(core)
+  }
   while (queue.length > 0) {
     const name = queue.shift()!
     for (const peer of moleculePeersOf(name)) {
-      if (!all.has(peer)) {
-        all.add(peer)
-        queue.push(peer)
-      }
+      if (all.has(peer)) continue
+      const core = providedCoreOf(peer)
+      if (core && providedCores.has(core)) continue
+      all.add(peer)
+      if (core) providedCores.add(core)
+      queue.push(peer)
     }
   }
   return [...all].filter((name) => !selected.has(name))

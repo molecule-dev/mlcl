@@ -784,6 +784,30 @@ export default class Create extends Command {
       await createApiProject(projectPath, projectName, 'express', npmOverrides)
     }
 
+    // Close the @molecule dependency set in the written manifests — the same
+    // guarantee the --template path gets inside copyTemplateInstance. The
+    // selected set above deliberately withholds a transitive PROVIDER peer
+    // whose core it already provides (resolveTransitivePeers: wiring two
+    // providers for one singleton core makes the last setup call win, X0 run
+    // xr-molecule-flash-m23), but a package like api-bonds-default-express
+    // STATICALLY imports every provider it can re-export, so the withheld one
+    // must still be declared for the install to resolve. No-op when the
+    // closure adds nothing.
+    {
+      const { ensureMoleculePeerClosure } = await import('../lib/scaffold.js')
+      const added = await ensureMoleculePeerClosure(projectPath)
+      const addedCount = Object.values(added).reduce((n, names) => n + names.length, 0)
+      if (addedCount > 0) {
+        log(
+          `Manifest peer closure re-added ${addedCount} bond-withheld provider peer(s): ${Object.values(
+            added,
+          )
+            .flat()
+            .join(', ')}`,
+        )
+      }
+    }
+
     // Secure-by-default scanning (SEC3) for every custom build, written once at
     // the true project root (so a full-stack monorepo's api/app sub-projects
     // never get a duplicate nested copy). The flagship `--template` fast path
