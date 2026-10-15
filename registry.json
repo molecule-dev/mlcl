@@ -15113,10 +15113,10 @@
       "description": "Zod-based request validation middleware (body, params, query) with structured 400 error responses.",
       "stack": "api",
       "exports": [
-        "validate",
-        "validateBody",
-        "validateParams",
-        "validateQuery",
+        "PaginatedResponse",
+        "paginated",
+        "success",
+        "error",
         "paginationSchema",
         "idParamSchema",
         "searchQuerySchema",
@@ -15124,11 +15124,12 @@
         "SearchQuery",
         "ValidationSchema",
         "ValidationError",
+        "ValidateOptions",
         "ValidationResult",
-        "PaginatedResponse",
-        "paginated",
-        "success",
-        "error"
+        "validate",
+        "validateBody",
+        "validateParams",
+        "validateQuery"
       ],
       "secrets": [],
       "runtimeDependencies": [
