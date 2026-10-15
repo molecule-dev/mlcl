@@ -60098,7 +60098,7 @@
       "@molecule/app-whiteboard-canvas-react": "1.0.2",
       "@molecule/app-wiki-page-header-react": "1.0.2",
       "@molecule/app-word-cloud-react": "1.0.2",
-      "@molecule/api-agent-transcript-autodetect": "1.2.3",
+      "@molecule/api-agent-transcript-autodetect": "1.2.2",
       "@molecule/api-ai-decisions-jev": "1.1.0",
       "@molecule/api-ai-decisions-laya": "1.1.1",
       "@molecule/api-agent-transcript-pi": "1.0.0",
