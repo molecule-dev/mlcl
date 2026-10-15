@@ -2681,9 +2681,18 @@ export async function ensureMoleculePeerClosure(
       const name = queue.shift()!
       const entry = registryPackages.get(name)
       if (!entry) continue
+      // A core's default bond only when nothing in the manifest already provides
+      // its category: an app on SQLite also got Postgres, and its bond index then
+      // wired both database providers (X1 run sol-m08 read that as a broken
+      // scaffold and rewrote every migration).
+      // (Same rule as resolveDefaultProviders in ./features.ts.)
+      const provided = [...have].some((n) => {
+        const m = registryPackages.get(n)?.molecule
+        return m?.implements === name && m.type !== 'framework'
+      })
       const next = [
         ...(entry.molecule?.moleculePeers ?? []),
-        ...(entry.molecule?.defaultProvider ? [entry.molecule.defaultProvider] : []),
+        ...(entry.molecule?.defaultProvider && !provided ? [entry.molecule.defaultProvider] : []),
       ]
       for (const peer of next) {
         if (have.has(peer) || !registryPackages.has(peer)) continue
