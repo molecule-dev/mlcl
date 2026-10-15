@@ -19866,6 +19866,144 @@
         "developer keys"
       ]
     },
+    "@molecule/api-resource-article": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "resource",
+      "category": "articles",
+      "label": "Articles",
+      "description": "Articles and blog posts: unique slugs, tags, favorites, a followed-authors feed, and filtered, paginated lists",
+      "stack": "api",
+      "exports": [
+        "create",
+        "list",
+        "feed",
+        "tags",
+        "read",
+        "update",
+        "del",
+        "favorite",
+        "unfavorite",
+        "requestHandlerMap",
+        "routes",
+        "ARTICLE_RESOURCE_TYPE",
+        "FAVORITE_REACTION",
+        "RESERVED_ARTICLE_SLUGS",
+        "MAX_ARTICLES_PAGE",
+        "hydrateArticles",
+        "createArticle",
+        "findArticleRow",
+        "getArticleBySlug",
+        "listArticles",
+        "getFeed",
+        "AuthorChange",
+        "updateArticle",
+        "deleteArticle",
+        "setFavorite",
+        "popularTags",
+        "ArticleRow",
+        "Article",
+        "CreateArticleInput",
+        "UpdateArticleInput",
+        "ListArticlesOptions",
+        "PaginatedArticles",
+        "TagCount",
+        "createArticleSchema",
+        "updateArticleSchema"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger",
+        "@molecule/api-resource",
+        "@molecule/api-resource-follow",
+        "@molecule/api-resource-reaction",
+        "@molecule/api-slug",
+        "zod"
+      ],
+      "moleculePeers": [
+        "@molecule/api-resource-follow",
+        "@molecule/api-resource-reaction",
+        "@molecule/api-slug"
+      ],
+      "routes": [
+        {
+          "method": "post",
+          "path": "/articles",
+          "handler": "create",
+          "middlewares": []
+        },
+        {
+          "method": "get",
+          "path": "/articles",
+          "handler": "list",
+          "middlewares": []
+        },
+        {
+          "method": "get",
+          "path": "/articles/feed",
+          "handler": "feed",
+          "middlewares": []
+        },
+        {
+          "method": "get",
+          "path": "/articles/tags",
+          "handler": "tags",
+          "middlewares": []
+        },
+        {
+          "method": "get",
+          "path": "/articles/:slug",
+          "handler": "read",
+          "middlewares": []
+        },
+        {
+          "method": "put",
+          "path": "/articles/:slug",
+          "handler": "update",
+          "middlewares": []
+        },
+        {
+          "method": "delete",
+          "path": "/articles/:slug",
+          "handler": "del",
+          "middlewares": []
+        },
+        {
+          "method": "post",
+          "path": "/articles/:slug/favorite",
+          "handler": "favorite",
+          "middlewares": []
+        },
+        {
+          "method": "delete",
+          "path": "/articles/:slug/favorite",
+          "handler": "unfavorite",
+          "middlewares": []
+        }
+      ],
+      "tables": [
+        {
+          "name": "articles",
+          "sqlFile": "src/__setup__/articles.sql"
+        },
+        {
+          "name": "article_tags",
+          "sqlFile": "src/__setup__/articles.sql"
+        }
+      ],
+      "path": "packages/api/resources/article",
+      "intentHints": [
+        "articles backend",
+        "blog posts backend",
+        "article favorites",
+        "followed authors feed",
+        "article tags",
+        "medium-style blog",
+        "realworld conduit"
+      ]
+    },
     "@molecule/api-resource-booking": {
       "language": "typescript",
       "runtime": "node",
@@ -24867,6 +25005,35 @@
         "sitemap xml",
         "seo sitemap",
         "xml sitemap"
+      ]
+    },
+    "@molecule/api-slug": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "utility",
+      "category": "slug",
+      "label": "Slugs",
+      "description": "URL slugs from titles and names: accent-folding slugify, and unique slugs checked against your store (a table column or any lookup).",
+      "stack": "api",
+      "exports": [
+        "slugify",
+        "SlugifyOptions",
+        "UniqueSlugOptions",
+        "uniqueSlug",
+        "uniqueSlugInTable"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-database"
+      ],
+      "moleculePeers": [],
+      "path": "packages/api/utilities/slug",
+      "intentHints": [
+        "url slug",
+        "slugify",
+        "unique slug",
+        "permalink",
+        "pretty urls"
       ]
     },
     "@molecule/api-sms": {
