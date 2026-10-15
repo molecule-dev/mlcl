@@ -34,7 +34,7 @@ import { ThankYou } from './pages/ThankYou.js'
 export function App() {
   return (
     <RootErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter useTransitions={false}>
         <MoleculeProvider
           auth={authClient}
           http={getHttpClient()}

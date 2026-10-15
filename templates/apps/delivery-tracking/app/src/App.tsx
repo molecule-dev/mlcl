@@ -34,7 +34,7 @@ import { Webhooks } from './pages/Webhooks.js'
 export function App() {
   return (
     <RootErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter useTransitions={false}>
         <MoleculeProvider
           auth={authClient}
           http={getHttpClient()}

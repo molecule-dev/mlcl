@@ -35,7 +35,7 @@ import { Terms } from './pages/Terms.js'
 import { WishlistPage } from './pages/WishlistPage.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

@@ -33,7 +33,7 @@ import { Topics } from './pages/Topics.js'
 export function App() {
   return (
     <RootErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter useTransitions={false}>
         <MoleculeProvider
           auth={authClient}
           http={getHttpClient()}

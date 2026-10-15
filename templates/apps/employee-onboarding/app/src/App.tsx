@@ -33,7 +33,7 @@ import { Training } from './pages/Training.js'
 import { TrainingModule } from './pages/TrainingModule.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

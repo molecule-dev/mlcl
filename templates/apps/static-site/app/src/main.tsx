@@ -29,7 +29,7 @@ function Mounted() {
 const root = document.getElementById('root')!
 const tree = (
   <StrictMode>
-    <BrowserRouter basename={ROUTER_BASENAME}>
+    <BrowserRouter basename={ROUTER_BASENAME} useTransitions={false}>
       <App />
       <Mounted />
     </BrowserRouter>

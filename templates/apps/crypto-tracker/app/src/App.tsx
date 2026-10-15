@@ -33,7 +33,7 @@ import { Watchlist } from './pages/Watchlist.js'
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

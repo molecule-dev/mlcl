@@ -34,7 +34,7 @@ import { Terms } from './pages/Terms.js'
 import { Voters } from './pages/Voters.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

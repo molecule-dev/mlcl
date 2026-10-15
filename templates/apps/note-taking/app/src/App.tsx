@@ -28,7 +28,7 @@ import { Terms } from './pages/Terms.js'
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

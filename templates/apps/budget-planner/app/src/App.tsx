@@ -37,7 +37,7 @@ import { TransactionDetail } from './pages/TransactionDetail.js'
 import { Transactions } from './pages/Transactions.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

@@ -30,7 +30,7 @@ import { Vendors } from './pages/Vendors.js'
 export function App() {
   return (
     <RootErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter useTransitions={false}>
         <MoleculeProvider
           auth={authClient}
           http={getHttpClient()}

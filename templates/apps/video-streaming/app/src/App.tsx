@@ -33,7 +33,7 @@ import { Upload } from './pages/Upload.js'
 import { Watch } from './pages/Watch.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

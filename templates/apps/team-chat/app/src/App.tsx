@@ -24,7 +24,7 @@ import { Terms } from './pages/Terms.js'
 import { ThreadPage } from './pages/Thread.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

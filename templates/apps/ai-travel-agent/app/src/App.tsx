@@ -29,7 +29,7 @@ import { TripDetail } from './pages/TripDetail.js'
 import { Trips } from './pages/Trips.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

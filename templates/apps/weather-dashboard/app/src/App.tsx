@@ -31,7 +31,7 @@ import { Trends } from './pages/Trends.js'
 export function App() {
   return (
     <RootErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter useTransitions={false}>
         <MoleculeProvider
           auth={authClient}
           http={getHttpClient()}

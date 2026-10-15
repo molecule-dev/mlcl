@@ -34,7 +34,7 @@ import { WonAuctionCheckout } from './pages/WonAuctionCheckout.js'
 export function App() {
   return (
     <RootErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter useTransitions={false}>
         <MoleculeProvider
           auth={authClient}
           http={getHttpClient()}

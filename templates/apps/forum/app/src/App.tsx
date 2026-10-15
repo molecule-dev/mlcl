@@ -31,7 +31,7 @@ import { Terms } from './pages/Terms.js'
 import { ThreadView } from './pages/ThreadView.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

@@ -37,7 +37,7 @@ import { VisitDetail } from './pages/VisitDetail.js'
 import { Visits } from './pages/Visits.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

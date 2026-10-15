@@ -35,7 +35,7 @@ import { VendorStorefront } from './pages/VendorStorefront.js'
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

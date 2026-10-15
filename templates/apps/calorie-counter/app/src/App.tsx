@@ -31,7 +31,7 @@ import { Today } from './pages/Today.js'
 import { WeightTracking } from './pages/WeightTracking.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

@@ -38,7 +38,7 @@ import { Wishlist } from './pages/Wishlist.js'
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

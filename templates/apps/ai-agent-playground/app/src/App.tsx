@@ -35,7 +35,7 @@ import { Terms } from './pages/Terms.js'
 import { ToolLibrary } from './pages/ToolLibrary.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

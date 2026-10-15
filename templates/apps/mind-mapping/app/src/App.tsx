@@ -35,7 +35,7 @@ import { VersionHistory } from './pages/VersionHistory.js'
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

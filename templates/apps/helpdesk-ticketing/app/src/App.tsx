@@ -29,7 +29,7 @@ import { TicketNewPage } from './pages/TicketNew.js'
 import { TicketsPage } from './pages/Tickets.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

@@ -38,7 +38,7 @@ import { Terms } from './pages/Terms.js'
 export function App() {
   return (
     <RootErrorBoundary>
-      <BrowserRouter>
+      <BrowserRouter useTransitions={false}>
         <MoleculeProvider
           auth={authClient}
           http={httpClient}

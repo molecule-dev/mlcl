@@ -32,7 +32,7 @@ import { Terms } from './pages/Terms.js'
 import { WriteReview } from './pages/WriteReview.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

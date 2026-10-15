@@ -32,7 +32,7 @@ import { UserProfile } from './pages/UserProfile.js'
 
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

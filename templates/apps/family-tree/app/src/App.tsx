@@ -27,7 +27,7 @@ import { Terms } from './pages/Terms.js'
 import { Tree } from './pages/Tree.js'
 export function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter useTransitions={false}>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}
