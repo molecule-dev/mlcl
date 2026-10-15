@@ -55,6 +55,17 @@ let moleculePackages: string[] = []
 // the fix ships with the dep and is never hardcoded here.
 const declaredOptimizeIncludes: string[] = []
 const optimizeResolver = createRequire(import.meta.url)
+// `react`/`react-dom` pinned to the one copy this app resolves: an install
+// inside the app otherwise leaves a second React beside the one the @molecule
+// packages resolve, and the page goes blank with "Invalid hook call".
+const singleReactAliases: Record<string, string> = {}
+for (const name of ['react', 'react-dom']) {
+  try {
+    singleReactAliases[name] = dirname(optimizeResolver.resolve(`${name}/package.json`))
+  } catch (_error) {
+    // Not installed: nothing to pin.
+  }
+}
 const findMoleculeDir = (): string | null => {
   let dir = dirname(fileURLToPath(import.meta.url))
   for (let i = 0; i < 8; i++) {
@@ -199,7 +210,8 @@ export default defineConfig(({ command }) => ({
   ],
   resolve: {
     preserveSymlinks: true,
-    dedupe: ['react', 'react-dom', 'react-router'],
+    dedupe: ['react', 'react-dom', 'react-router', 'react-router-dom'],
+    alias: singleReactAliases,
   },
   optimizeDeps: {
     exclude: moleculePackages.filter((name) => !isLocaleBondPackage(name)),
@@ -210,7 +222,6 @@ export default defineConfig(({ command }) => ({
       'react-dom/client',
       'react/jsx-runtime',
       'react/jsx-dev-runtime',
-      'void-elements',
       'html-parse-stringify',
       'use-sync-external-store',
       'use-sync-external-store/shim',

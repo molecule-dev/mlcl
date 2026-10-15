@@ -33,6 +33,18 @@ const declaredOptimizeIncludes: string[] = []
 // only installed ones are force-included (an unresolvable entry makes vite
 // re-scan endlessly — see the include filter below).
 const optimizeResolver = createRequire(import.meta.url)
+// `react`/`react-dom` pinned to the one copy this app resolves: an install
+// inside the app otherwise leaves a second React beside the one the @molecule
+// packages resolve, and the preview goes blank with "Invalid hook call"
+// (`dedupe` alone did not prevent it).
+const singleReactAliases: Record<string, string> = {}
+for (const name of ['react', 'react-dom']) {
+  try {
+    singleReactAliases[name] = dirname(optimizeResolver.resolve(`${name}/package.json`))
+  } catch (_error) {
+    // Not installed for this app (a non-React framework): nothing to pin.
+  }
+}
 const findMoleculeDir = (): string | null => {
   let dir = dirname(fileURLToPath(import.meta.url))
   for (let i = 0; i < 8; i++) {
@@ -193,6 +205,7 @@ export default defineConfig({
   resolve: {
     preserveSymlinks: true,
     dedupe: ['react', 'react-dom', 'react-router-dom', 'react-router'],
+    alias: singleReactAliases,
   },
   optimizeDeps: {
     exclude: moleculePackages,
@@ -203,8 +216,8 @@ export default defineConfig({
     // pre-bundles with proper CJS→ESM interop.
     //
     // FILTERED to specifiers that actually resolve: an entry here that is NOT
-    // installed (e.g. `void-elements` when the app pulls in no i18n path that
-    // needs it) makes vite log "Failed to resolve dependency … present in
+    // installed (e.g. `html-parse-stringify` when the app pulls in no i18n
+    // path that needs it) makes vite log "Failed to resolve dependency … present in
     // optimizeDeps.include" and re-scan on every client discovery, which can
     // briefly drop the dev server mid-reoptimize. Only list what is present,
     // so the set self-adapts to each app's real dependency tree.
@@ -214,7 +227,6 @@ export default defineConfig({
       'react-dom/client',
       'react/jsx-runtime',
       'react/jsx-dev-runtime',
-      'void-elements',
       'html-parse-stringify',
       'use-sync-external-store',
       'use-sync-external-store/shim',
