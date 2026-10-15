@@ -6973,15 +6973,12 @@
       "intentHints": [
         "database",
         "sql database",
-        "persist data",
         "data persistence",
         "relational database",
         "store records",
         "database queries",
         "sql queries",
-        "database transaction",
-        "atomic writes",
-        "all-or-nothing writes"
+        "database transaction"
       ]
     },
     "@molecule/api-database-d1": {
