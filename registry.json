@@ -6936,11 +6936,11 @@
         "query",
         "connect",
         "end",
-        "DataStore",
         "WhereCondition",
         "OrderBy",
         "FindManyOptions",
         "MutationResult",
+        "DataStore",
         "setStore",
         "getStore",
         "hasStore",
@@ -6952,7 +6952,9 @@
         "updateById",
         "updateMany",
         "deleteById",
-        "deleteMany"
+        "deleteMany",
+        "getActiveTransaction",
+        "withTransaction"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -6975,7 +6977,10 @@
         "relational database",
         "store records",
         "database queries",
-        "sql queries"
+        "sql queries",
+        "database transaction",
+        "atomic writes",
+        "all-or-nothing writes"
       ]
     },
     "@molecule/api-database-d1": {
@@ -58461,6 +58466,8 @@
       "stack": "app",
       "exports": [
         "DefaultViteConfigBranding",
+        "singleReactAliases",
+        "isInstalled",
         "createDefaultViteConfig",
         "PUSH_SW_FILENAME",
         "PUSH_SW_SOURCE",
