@@ -284,7 +284,7 @@
       "path": "packages/api/bonds/agent-transcript/aider",
       "intentHints": [
         "aider chat history",
-        ".aider.chat.history.md"
+        "aider chat history file"
       ]
     },
     "@molecule/api-agent-transcript-autodetect": {
@@ -379,7 +379,7 @@
       "path": "packages/api/bonds/agent-transcript/cline",
       "intentHints": [
         "cline task history",
-        "roo code ui_messages.json"
+        "roo code ui messages json"
       ]
     },
     "@molecule/api-agent-transcript-codex": {
@@ -2158,7 +2158,7 @@
         "vllm-omni",
         "vllm images",
         "qwen-image",
-        "qwen image 2.1",
+        "qwen image",
         "self-hosted image generation",
         "open weights image generation",
         "image editing with reference images",
@@ -2730,7 +2730,7 @@
         "mandarin transcription",
         "streaming chinese speech to text",
         "low latency voice agent transcription",
-        "self-hosted streaming asr"
+        "audio8 streaming asr"
       ]
     },
     "@molecule/api-ai-speech-confucius4": {
@@ -2814,7 +2814,7 @@
         "live captions that never change",
         "stable streaming captions",
         "hotword speech recognition",
-        "self-hosted streaming asr"
+        "confucius4 streaming asr"
       ]
     },
     "@molecule/api-ai-speech-elevenlabs": {
@@ -3016,15 +3016,12 @@
       "intentHints": [
         "speaker diarization",
         "who spoke when",
-        "who said what",
         "diarized transcript",
         "streaming speech to text",
-        "real-time transcription",
         "live captions",
         "nemo speech",
         "nemotron diarization",
-        "self-hosted speech to text",
-        "meeting transcription with speakers"
+        "self-hosted speech to text"
       ]
     },
     "@molecule/api-ai-speech-openai": {
@@ -3164,7 +3161,6 @@
         "whistle transcription",
         "keyword biasing transcription",
         "word timestamps transcription",
-        "self-hosted speech to text",
         "speech to text without an api key"
       ],
       "egressHosts": [
@@ -3247,15 +3243,13 @@
       "path": "packages/api/bonds/ai-summarization/llm",
       "intentHints": [
         "summarize",
-        "summarization",
         "tldr",
         "condense text",
         "tldr per section",
         "one sentence summary",
         "summary word limit",
         "build time summaries",
-        "cache summaries by hash",
-        "ai generated summaries"
+        "cache summaries by hash"
       ]
     },
     "@molecule/api-ai-tools": {
@@ -3560,9 +3554,8 @@
       "path": "packages/api/bonds/ai-translation/llm",
       "intentHints": [
         "llm translation",
-        "ai translation",
         "translate with ai model",
-        "self-hosted translation"
+        "translate with any chat model"
       ]
     },
     "@molecule/api-ai-translation-madlad": {
@@ -3600,9 +3593,9 @@
       "intentHints": [
         "madlad",
         "madlad-400",
-        "self-hosted translation",
         "translate 400 languages",
-        "low-resource language translation"
+        "low-resource language translation",
+        "ctranslate2 translation"
       ]
     },
     "@molecule/api-ai-translation-molecule": {
@@ -3642,8 +3635,8 @@
       "intentHints": [
         "molecule translation",
         "hosted translation",
-        "translate without api key",
-        "molecule.dev translation"
+        "molecule dev translation",
+        "translation without a vendor account"
       ],
       "egressHosts": [
         "api.molecule.dev"
@@ -6023,6 +6016,13 @@
         "@molecule/api-i18n"
       ],
       "path": "packages/api/bonds/code-sandbox/e2b",
+      "intentHints": [
+        "e2b",
+        "e2b sandbox",
+        "firecracker microvm on e2b",
+        "sandbox with pause and resume",
+        "golden template sandbox"
+      ],
       "egressHosts": [
         "*.e2b.app",
         "api.e2b.app"
@@ -6215,7 +6215,7 @@
       ],
       "path": "packages/api/bonds/code-sandbox/flyio",
       "intentHints": [
-        "fly.io sandbox",
+        "fly sandbox",
         "fly machines sandbox",
         "firecracker microvm sandbox",
         "scale to zero sandbox",
@@ -6282,6 +6282,13 @@
         "@molecule/api-i18n"
       ],
       "path": "packages/api/bonds/code-sandbox/flyio-sprites",
+      "intentHints": [
+        "fly sprites sandbox",
+        "sprite sandbox",
+        "persistent sandbox filesystem",
+        "sandbox that sleeps and wakes",
+        "hardware isolated sandbox"
+      ],
       "egressHosts": [
         "api.sprites.dev"
       ]
@@ -6465,7 +6472,14 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
-      "path": "packages/api/core/content"
+      "path": "packages/api/core/content",
+      "intentHints": [
+        "read content directory",
+        "front matter content",
+        "typed content records",
+        "content files into records",
+        "content provider contract"
+      ]
     },
     "@molecule/api-content-markdown": {
       "language": "typescript",
@@ -6493,7 +6507,15 @@
       "moleculePeers": [
         "@molecule/api-content"
       ],
-      "path": "packages/api/bonds/content/markdown"
+      "path": "packages/api/bonds/content/markdown",
+      "intentHints": [
+        "front matter markdown",
+        "markdown blog posts",
+        "docs pages from markdown files",
+        "changelog entries from markdown",
+        "content without a database",
+        "markdown content files"
+      ]
     },
     "@molecule/api-content-moderation": {
       "language": "typescript",
@@ -6981,7 +7003,14 @@
       "moleculePeers": [
         "@molecule/api-database"
       ],
-      "path": "packages/api/bonds/database/d1"
+      "path": "packages/api/bonds/database/d1",
+      "intentHints": [
+        "cloudflare d1",
+        "d1 database",
+        "d1",
+        "sqlite on workers",
+        "database on cloudflare workers"
+      ]
     },
     "@molecule/api-database-mysql": {
       "language": "typescript",
@@ -8905,11 +8934,9 @@
         "feature toggles",
         "ab flags",
         "a/b testing flags",
-        "ab test variant",
         "canary rollout",
-        "gradual rollout",
-        "percentage rollout",
-        "release flags"
+        "release flags",
+        "database backed flags"
       ]
     },
     "@molecule/api-feed-podcast": {
@@ -9619,7 +9646,14 @@
       "secrets": [],
       "runtimeDependencies": [],
       "moleculePeers": [],
-      "path": "packages/api/core/git-provider"
+      "path": "packages/api/core/git-provider",
+      "intentHints": [
+        "git hosting",
+        "git provider bond",
+        "oauth for git hosts",
+        "list git repositories",
+        "git account connection"
+      ]
     },
     "@molecule/api-git-provider-gitea": {
       "language": "typescript",
@@ -9643,6 +9677,12 @@
         "@molecule/api-http"
       ],
       "path": "packages/api/bonds/git-provider/gitea",
+      "intentHints": [
+        "gitea",
+        "gitea oauth",
+        "gitea repositories",
+        "sign in with gitea"
+      ],
       "egressHosts": [
         "gitea.com"
       ]
@@ -9669,6 +9709,13 @@
         "@molecule/api-http"
       ],
       "path": "packages/api/bonds/git-provider/github",
+      "intentHints": [
+        "github",
+        "github repositories",
+        "connect a github account",
+        "list github repos",
+        "github repo listing"
+      ],
       "egressHosts": [
         "api.github.com",
         "github.com"
@@ -9696,6 +9743,13 @@
         "@molecule/api-http"
       ],
       "path": "packages/api/bonds/git-provider/gitlab",
+      "intentHints": [
+        "gitlab",
+        "gitlab repositories",
+        "connect a gitlab account",
+        "list gitlab repos",
+        "gitlab repo listing"
+      ],
       "egressHosts": [
         "gitlab.com"
       ]
@@ -9722,6 +9776,12 @@
         "@molecule/api-http"
       ],
       "path": "packages/api/bonds/git-provider/smolforge",
+      "intentHints": [
+        "smolforge",
+        "smol forge",
+        "smol ai git hosting",
+        "forge smol ai"
+      ],
       "egressHosts": [
         "forge.smol.ai"
       ]
@@ -14546,8 +14606,7 @@
         "log levels",
         "application logging",
         "json logs",
-        "backend logging",
-        "request logging"
+        "backend logging"
       ]
     },
     "@molecule/api-logger-axiom": {
@@ -14817,8 +14876,9 @@
       "path": "packages/api/bonds/media-streaming/hls",
       "intentHints": [
         "hls streaming",
-        "video streaming",
-        "live video"
+        "live video",
+        "m3u8 playlist generation",
+        "ffmpeg hls transcoding"
       ]
     },
     "@molecule/api-middleware-analytics": {
@@ -15226,7 +15286,14 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
-      "path": "packages/api/core/model-hosting"
+      "path": "packages/api/core/model-hosting",
+      "intentHints": [
+        "model hosting",
+        "host a model server",
+        "deploy a model container",
+        "run a model on a gpu",
+        "model endpoint with auth headers"
+      ]
     },
     "@molecule/api-model-hosting-cloud-run": {
       "language": "typescript",
@@ -15290,6 +15357,13 @@
         "@molecule/api-secrets"
       ],
       "path": "packages/api/bonds/model-hosting/cloud-run",
+      "intentHints": [
+        "cloud run model hosting",
+        "cloud run gpu",
+        "google cloud run models",
+        "scale to zero model server",
+        "free tier cpu model hosting"
+      ],
       "egressHosts": [
         "run.googleapis.com",
         "oauth2.googleapis.com"
@@ -15351,7 +15425,14 @@
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/model-hosting/docker"
+      "path": "packages/api/bonds/model-hosting/docker",
+      "intentHints": [
+        "docker model hosting",
+        "self-hosted model server",
+        "model server on my own gpu",
+        "docker gpu inference container",
+        "local model hosting"
+      ]
     },
     "@molecule/api-model-hosting-koyeb": {
       "language": "typescript",
@@ -15401,7 +15482,13 @@
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/model-hosting/koyeb"
+      "path": "packages/api/bonds/model-hosting/koyeb",
+      "intentHints": [
+        "koyeb",
+        "koyeb model hosting",
+        "koyeb gpu",
+        "eu gpu model hosting"
+      ]
     },
     "@molecule/api-model-hosting-modal": {
       "language": "typescript",
@@ -15487,7 +15574,13 @@
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/model-hosting/modal"
+      "path": "packages/api/bonds/model-hosting/modal",
+      "intentHints": [
+        "modal",
+        "modal model hosting",
+        "modal gpu",
+        "per-second gpu billing"
+      ]
     },
     "@molecule/api-model-hosting-runpod": {
       "language": "typescript",
@@ -15537,7 +15630,13 @@
         "@molecule/api-model-hosting",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/model-hosting/runpod"
+      "path": "packages/api/bonds/model-hosting/runpod",
+      "intentHints": [
+        "runpod",
+        "runpod model hosting",
+        "runpod serverless models",
+        "runpod gpu endpoint"
+      ]
     },
     "@molecule/api-monitoring": {
       "language": "typescript",
@@ -18008,7 +18107,13 @@
       "moleculePeers": [
         "@molecule/api-project-archive"
       ],
-      "path": "packages/api/bonds/project-archive-external-state/d1"
+      "path": "packages/api/bonds/project-archive-external-state/d1",
+      "intentHints": [
+        "archive d1 databases",
+        "d1 backup during archive",
+        "wrangler d1 export",
+        "restore d1 data"
+      ]
     },
     "@molecule/api-project-archive-external-state-mysql": {
       "language": "typescript",
@@ -18314,7 +18419,7 @@
         "http proxy",
         "outbound proxy",
         "egress proxy",
-        "no_proxy"
+        "no proxy env"
       ]
     },
     "@molecule/api-push-capture": {
@@ -20771,7 +20876,7 @@
       ],
       "path": "packages/api/resources/feature-flag",
       "intentHints": [
-        "feature flag",
+        "feature flag admin page",
         "feature toggle",
         "ab testing",
         "rollout percentage",
@@ -20971,6 +21076,7 @@
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-slug",
         "express",
         "zod"
       ],
@@ -20978,7 +21084,8 @@
         "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-middleware-validation"
+        "@molecule/api-middleware-validation",
+        "@molecule/api-slug"
       ],
       "tables": [
         {
@@ -22058,11 +22165,13 @@
         "@molecule/api-locales-product",
         "@molecule/api-logger",
         "@molecule/api-permissions",
-        "@molecule/api-resource"
+        "@molecule/api-resource",
+        "@molecule/api-slug"
       ],
       "moleculePeers": [
         "@molecule/api-i18n",
-        "@molecule/api-locales-product"
+        "@molecule/api-locales-product",
+        "@molecule/api-slug"
       ],
       "routes": [
         {
@@ -22164,12 +22273,14 @@
         "@molecule/api-i18n",
         "@molecule/api-locales-project",
         "@molecule/api-logger",
-        "@molecule/api-resource"
+        "@molecule/api-resource",
+        "@molecule/api-slug"
       ],
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n",
-        "@molecule/api-locales-project"
+        "@molecule/api-locales-project",
+        "@molecule/api-slug"
       ],
       "routes": [
         {
@@ -22253,11 +22364,13 @@
         "@molecule/api-i18n",
         "@molecule/api-locales-property",
         "@molecule/api-logger",
-        "@molecule/api-resource"
+        "@molecule/api-resource",
+        "@molecule/api-slug"
       ],
       "moleculePeers": [
         "@molecule/api-i18n",
-        "@molecule/api-locales-property"
+        "@molecule/api-locales-property",
+        "@molecule/api-slug"
       ],
       "routes": [
         {
@@ -22418,7 +22531,9 @@
         "emoji reaction",
         "like",
         "heart",
-        "thumbs up"
+        "thumbs up",
+        "favorites backend",
+        "like button backend"
       ]
     },
     "@molecule/api-resource-readings": {
@@ -23079,11 +23194,13 @@
         "@molecule/api-locales-tag",
         "@molecule/api-logger",
         "@molecule/api-permissions",
-        "@molecule/api-resource"
+        "@molecule/api-resource",
+        "@molecule/api-slug"
       ],
       "moleculePeers": [
         "@molecule/api-i18n",
-        "@molecule/api-locales-tag"
+        "@molecule/api-locales-tag",
+        "@molecule/api-slug"
       ],
       "routes": [
         {
@@ -23874,6 +23991,7 @@
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
         "@molecule/api-search",
+        "@molecule/api-slug",
         "express",
         "zod"
       ],
@@ -23882,7 +24000,8 @@
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
-        "@molecule/api-search"
+        "@molecule/api-search",
+        "@molecule/api-slug"
       ],
       "tables": [
         {
@@ -23954,9 +24073,12 @@
         "@molecule/api-i18n",
         "@molecule/api-logger",
         "@molecule/api-resource",
+        "@molecule/api-slug",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-slug"
+      ],
       "routes": [
         {
           "method": "post",
@@ -24118,7 +24240,13 @@
         "@molecule/api-bond",
         "@molecule/api-scheduler"
       ],
-      "path": "packages/api/bonds/scheduler/cloudflare"
+      "path": "packages/api/bonds/scheduler/cloudflare",
+      "intentHints": [
+        "cloudflare cron triggers",
+        "cron jobs on workers",
+        "cloudflare workers scheduler",
+        "scheduled handler tasks"
+      ]
     },
     "@molecule/api-scheduler-default": {
       "language": "typescript",
@@ -28003,11 +28131,11 @@
       ],
       "path": "packages/app/bonds/ai-voice/parakeet",
       "intentHints": [
-        "on-device speech to text",
-        "offline voice input",
         "parakeet transcription in browser",
         "high accuracy dictation",
-        "private voice recognition"
+        "parakeet on-device speech to text",
+        "parakeet offline voice input",
+        "parakeet private voice recognition"
       ]
     },
     "@molecule/app-ai-voice-whisper": {
@@ -28036,11 +28164,11 @@
       ],
       "path": "packages/app/bonds/ai-voice/whisper",
       "intentHints": [
-        "on-device speech to text",
-        "offline voice input",
         "whisper transcription in browser",
         "dictation without cloud services",
-        "private voice recognition"
+        "whisper on-device speech to text",
+        "whisper offline voice input",
+        "whisper private voice recognition"
       ]
     },
     "@molecule/app-ai-voice-whistle": {
@@ -28084,12 +28212,12 @@
       ],
       "path": "packages/app/bonds/ai-voice/whistle",
       "intentHints": [
-        "on-device speech to text",
-        "offline voice input",
         "whistle transcription in browser",
         "small stt model download",
         "cpu speech recognition",
-        "private voice recognition"
+        "whistle on-device speech to text",
+        "whistle offline voice input",
+        "whistle private voice recognition"
       ]
     },
     "@molecule/app-amount-input-react": {
@@ -29822,8 +29950,7 @@
       ],
       "path": "packages/app/bonds/charts/chartjs",
       "intentHints": [
-        "charts",
-        "chart.js",
+        "chartjs",
         "real charts",
         "render charts",
         "data visualization provider",
@@ -31497,7 +31624,6 @@
         "end-to-end tests",
         "playwright tests",
         "browser tests",
-        "test the live preview",
         "ui tests",
         "integration tests in the browser",
         "test the app end to end"
@@ -31550,8 +31676,6 @@
       ],
       "path": "packages/app/features/e2e-fixtures-default",
       "intentHints": [
-        "e2e tests",
-        "end-to-end tests",
         "playwright fixtures",
         "browser console error guard",
         "fail on console errors",
@@ -33124,7 +33248,6 @@
       "path": "packages/app/bonds/fonts/dm-sans",
       "intentHints": [
         "dm sans font",
-        "sans font",
         "dm sans typography"
       ]
     },
@@ -33162,7 +33285,6 @@
       "path": "packages/app/bonds/fonts/dm-serif-display",
       "intentHints": [
         "dm serif display font",
-        "serif font",
         "dm serif display typography"
       ]
     },
@@ -33243,7 +33365,6 @@
       "path": "packages/app/bonds/fonts/ibm-plex-sans",
       "intentHints": [
         "ibm plex sans font",
-        "sans font",
         "ibm plex sans typography"
       ]
     },
@@ -33381,7 +33502,6 @@
       "path": "packages/app/bonds/fonts/lato",
       "intentHints": [
         "lato font",
-        "sans font",
         "lato typography"
       ]
     },
@@ -33420,7 +33540,6 @@
       "path": "packages/app/bonds/fonts/lora",
       "intentHints": [
         "lora font",
-        "serif font",
         "lora typography"
       ]
     },
@@ -33459,7 +33578,6 @@
       "path": "packages/app/bonds/fonts/manrope",
       "intentHints": [
         "manrope font",
-        "sans font",
         "manrope typography"
       ]
     },
@@ -33538,7 +33656,6 @@
       "path": "packages/app/bonds/fonts/merriweather",
       "intentHints": [
         "merriweather font",
-        "serif font",
         "merriweather typography"
       ]
     },
@@ -33577,7 +33694,6 @@
       "path": "packages/app/bonds/fonts/newsreader",
       "intentHints": [
         "newsreader font",
-        "serif font",
         "newsreader typography"
       ]
     },
@@ -33616,7 +33732,6 @@
       "path": "packages/app/bonds/fonts/playfair-display",
       "intentHints": [
         "playfair display font",
-        "serif font",
         "playfair display typography"
       ]
     },
@@ -33655,7 +33770,6 @@
       "path": "packages/app/bonds/fonts/plus-jakarta-sans",
       "intentHints": [
         "plus jakarta sans font",
-        "sans font",
         "plus jakarta sans typography"
       ]
     },
@@ -33694,7 +33808,6 @@
       "path": "packages/app/bonds/fonts/source-serif-4",
       "intentHints": [
         "source serif 4 font",
-        "serif font",
         "source serif 4 typography"
       ]
     },
@@ -33733,7 +33846,6 @@
       "path": "packages/app/bonds/fonts/space-grotesk",
       "intentHints": [
         "space grotesk font",
-        "sans font",
         "space grotesk typography"
       ]
     },
@@ -51765,7 +51877,6 @@
         "map with markers",
         "leaflet",
         "openstreetmap",
-        "location map",
         "pins on a map"
       ]
     },
@@ -51804,20 +51915,12 @@
       ],
       "path": "packages/app/features/margin-notes-html",
       "intentHints": [
-        "margin notes",
-        "sidenotes",
-        "notes beside paragraphs",
-        "annotated essay",
-        "reading layout with a notes column",
-        "gutter notes",
-        "summary beside each section",
-        "show the prompt behind each paragraph",
-        "which paragraphs the ai wrote",
-        "ai provenance reading view",
-        "toggle summaries and prompts",
         "margin notes in a static site",
         "reading layout without react",
-        "html string margin notes"
+        "html string margin notes",
+        "margin notes without a framework",
+        "server rendered margin notes",
+        "sidenotes in plain html"
       ]
     },
     "@molecule/app-margin-notes-react": {
@@ -51859,10 +51962,7 @@
         "annotated essay",
         "reading layout with a notes column",
         "gutter notes",
-        "summary beside each section",
         "show the prompt behind each paragraph",
-        "which paragraphs the ai wrote",
-        "ai provenance reading view",
         "toggle summaries and prompts"
       ]
     },
@@ -51928,7 +52028,15 @@
       "moleculePeers": [
         "@molecule/app-markdown"
       ],
-      "path": "packages/app/bonds/markdown/marked"
+      "path": "packages/app/bonds/markdown/marked",
+      "intentHints": [
+        "sanitized markdown",
+        "marked",
+        "build time markdown",
+        "markdown to sanitized html",
+        "markdown in node",
+        "static site markdown rendering"
+      ]
     },
     "@molecule/app-markdown-react-markdown": {
       "language": "typescript",
@@ -51960,7 +52068,9 @@
       "intentHints": [
         "markdown renderer",
         "markdown display",
-        "render markdown"
+        "render markdown",
+        "markdown articles",
+        "markdown docs"
       ]
     },
     "@molecule/app-medication-row-react": {
@@ -56589,8 +56699,7 @@
         "keywords input",
         "chip input",
         "token input",
-        "tag editor",
-        "multi-value input"
+        "tag editor"
       ]
     },
     "@molecule/app-theme": {
@@ -57471,16 +57580,8 @@
         "tooltip",
         "toast notification",
         "alert banner",
-        "status badge",
-        "avatar",
         "tabs",
-        "accordion",
-        "dropdown menu",
-        "loading spinner",
         "skeleton loader",
-        "progress bar",
-        "select dropdown",
-        "checkbox",
         "toggle switch"
       ]
     },
@@ -58245,9 +58346,8 @@
         "video streaming",
         "live stream",
         "m3u8",
-        "adaptive bitrate",
         "play a stream",
-        "hls.js",
+        "hlsjs",
         "stream video"
       ]
     },
