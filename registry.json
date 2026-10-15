@@ -3290,6 +3290,7 @@
         "isEnvFilePath",
         "declaredBudgetSeconds",
         "outputIsWithheldUntilExit",
+        "outputRedirectTarget",
         "streamingBackgroundCommand",
         "checkBlockedCommand",
         "resolvePath",
