@@ -240,7 +240,7 @@
     "@molecule/api-realtime-sse": "1.0.2",
     "@molecule/api-resource": "1.0.2",
     "@molecule/api-resource-api-key": "1.0.2",
-    "@molecule/api-resource-user": "1.4.11",
+    "@molecule/api-resource-user": "1.4.12",
     "@molecule/api-search": "1.0.3",
     "@molecule/api-search-meilisearch": "1.0.2",
     "@molecule/api-secrets": "1.0.2",
