@@ -5,13 +5,14 @@ import { z } from 'zod'
 import { getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
 import {
-  connect,
   count,
   create,
   findById,
   findMany,
   findOne,
+  query,
   updateById,
+  withTransaction,
 } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
@@ -20,6 +21,16 @@ import { validateBody, validateQuery } from '@molecule/api-middleware-validation
 import type { InventoryManagementLimits } from '../tiers.js'
 
 const router = Router()
+
+/** A request refused inside its transaction: rolled back, then answered with this. */
+class Refused extends Error {
+  constructor(
+    readonly status: number,
+    readonly body: Record<string, unknown>,
+  ) {
+    super(String(body.error))
+  }
+}
 
 function unauthorized(res: Response): Response {
   return res
@@ -228,79 +239,74 @@ router.post('/:id/complete', async (req: Request, res: Response) => {
     // missing source row silently credited the destination from nothing. We run
     // the whole thing in ONE transaction and debit the source with a single
     // CONDITIONAL UPDATE that affects 0 rows when stock is insufficient, rolling
-    // the entire completion back. The abstract DataStore has no atomic decrement
-    // or transaction primitive, so we use the database bond's raw connection.
-    const conn = await connect()
+    // the entire completion back. The DataStore has no atomic decrement, so the
+    // conditional UPDATEs are raw SQL; withTransaction makes every query() inside
+    // it one transaction.
     let updatedTransfer: Record<string, unknown> | undefined
     try {
-      await conn.query('BEGIN')
+      updatedTransfer = await withTransaction(async () => {
+        for (const item of items) {
+          const productId = String(item.product_id)
+          const qty = Number(item.quantity)
 
-      for (const item of items) {
-        const productId = String(item.product_id)
-        const qty = Number(item.quantity)
-
-        const dec = await conn.query<{ quantity: number }>(
-          `UPDATE stock_levels
+          const dec = await query<{ quantity: number }>(
+            `UPDATE stock_levels
              SET quantity = quantity - $1, updated_at = now()
            WHERE product_id = $2 AND warehouse_id = $3 AND quantity >= $1
            RETURNING quantity`,
-          [qty, productId, String(transfer.from_warehouse_id)],
-        )
-        if (dec.rowCount === 0 || dec.rows.length === 0) {
-          await conn.query('ROLLBACK')
-          res.status(409).json({
-            error: t(
-              'transfers.insufficientStock',
-              {},
-              { defaultValue: 'Insufficient stock at source warehouse' },
-            ),
-          })
-          return
-        }
+            [qty, productId, String(transfer.from_warehouse_id)],
+          )
+          if (dec.rowCount === 0 || dec.rows.length === 0) {
+            throw new Refused(409, {
+              error: t(
+                'transfers.insufficientStock',
+                {},
+                { defaultValue: 'Insufficient stock at source warehouse' },
+              ),
+            })
+          }
 
-        const inc = await conn.query(
-          `UPDATE stock_levels
+          const inc = await query(
+            `UPDATE stock_levels
              SET quantity = quantity + $1, updated_at = now()
            WHERE product_id = $2 AND warehouse_id = $3`,
-          [qty, productId, String(transfer.to_warehouse_id)],
-        )
-        if (inc.rowCount === 0) {
-          await conn.query(
-            `INSERT INTO stock_levels (product_id, warehouse_id, quantity)
+            [qty, productId, String(transfer.to_warehouse_id)],
+          )
+          if (inc.rowCount === 0) {
+            await query(
+              `INSERT INTO stock_levels (product_id, warehouse_id, quantity)
              VALUES ($1, $2, $3)`,
-            [productId, String(transfer.to_warehouse_id), qty],
+              [productId, String(transfer.to_warehouse_id), qty],
+            )
+          }
+
+          await query(
+            `INSERT INTO stock_movements
+             (product_id, warehouse_id, quantity_change, reason, reference, performed_by)
+           VALUES ($1, $2, $3, 'transfer_out', $4, $5)`,
+            [productId, String(transfer.from_warehouse_id), -qty, `transfer:${id}`, userId],
+          )
+          await query(
+            `INSERT INTO stock_movements
+             (product_id, warehouse_id, quantity_change, reason, reference, performed_by)
+           VALUES ($1, $2, $3, 'transfer_in', $4, $5)`,
+            [productId, String(transfer.to_warehouse_id), qty, `transfer:${id}`, userId],
           )
         }
 
-        await conn.query(
-          `INSERT INTO stock_movements
-             (product_id, warehouse_id, quantity_change, reason, reference, performed_by)
-           VALUES ($1, $2, $3, 'transfer_out', $4, $5)`,
-          [productId, String(transfer.from_warehouse_id), -qty, `transfer:${id}`, userId],
-        )
-        await conn.query(
-          `INSERT INTO stock_movements
-             (product_id, warehouse_id, quantity_change, reason, reference, performed_by)
-           VALUES ($1, $2, $3, 'transfer_in', $4, $5)`,
-          [productId, String(transfer.to_warehouse_id), qty, `transfer:${id}`, userId],
-        )
-      }
-
-      const completed = await conn.query<Record<string, unknown>>(
-        `UPDATE stock_transfers
+        const completed = await query<Record<string, unknown>>(
+          `UPDATE stock_transfers
            SET status = 'completed', completed_at = now(), updated_at = now()
          WHERE id = $1
          RETURNING *`,
-        [id],
-      )
-      updatedTransfer = completed.rows[0]
-
-      await conn.query('COMMIT')
+          [id],
+        )
+        return completed.rows[0]
+      })
     } catch (err) {
-      await conn.query('ROLLBACK').catch(() => {})
-      throw err
-    } finally {
-      conn.release()
+      if (!(err instanceof Refused)) throw err
+      res.status(err.status).json(err.body)
+      return
     }
 
     res.json(updatedTransfer)

@@ -6,16 +6,18 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 // modifier reached provider.generate. Both generation paths now bake the negative
 // into the prompt text (the image APIs expose no separate negative param).
 
-const conn = { query: vi.fn(), release: vi.fn() }
+// The queries reserveCredit runs inside its withTransaction().
+const conn = { query: vi.fn() }
 const db = {
-  connect: vi.fn(async () => conn),
+  withTransaction: vi.fn(async (fn: () => Promise<unknown>) => fn()),
   create: vi.fn(),
   findById: vi.fn(),
   findMany: vi.fn(),
   updateById: vi.fn(),
 }
 vi.mock('@molecule/api-database', () => ({
-  connect: () => db.connect(),
+  query: (...a: unknown[]) => conn.query(...a),
+  withTransaction: (fn: () => Promise<unknown>) => db.withTransaction(fn),
   create: (...a: unknown[]) => db.create(...a),
   findById: (...a: unknown[]) => db.findById(...a),
   findMany: (...a: unknown[]) => db.findMany(...a),
@@ -69,14 +71,12 @@ const makeRes = (): { statusCode: number; body: unknown; status: unknown; json: 
 }
 const promptSent = (): string => generate.mock.calls[0]?.[0]?.prompt ?? ''
 
-// reserveCredit's transaction: BEGIN, advisory lock, SUM(balance), INSERT RETURNING, COMMIT
+// reserveCredit's transaction: advisory lock, SUM(balance), INSERT RETURNING
 function primeReserve(): void {
   conn.query
     .mockResolvedValueOnce({ rows: [], rowCount: null })
-    .mockResolvedValueOnce({ rows: [], rowCount: null })
     .mockResolvedValueOnce({ rows: [{ balance: 1000 }], rowCount: 1 })
     .mockResolvedValueOnce({ rows: [{ id: 'led-1' }], rowCount: 1 })
-    .mockResolvedValueOnce({ rows: [], rowCount: null })
 }
 
 beforeEach(() => {

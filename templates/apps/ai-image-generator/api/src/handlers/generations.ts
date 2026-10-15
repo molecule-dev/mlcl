@@ -27,7 +27,14 @@ import {
 } from '@molecule/api-ai-image-generation'
 import { getUserId, idParamSchema } from '@molecule/api-bonds-default-express'
 import type { OrderBy, WhereCondition } from '@molecule/api-database'
-import { connect, create, findById, findMany, updateById } from '@molecule/api-database'
+import {
+  create,
+  findById,
+  findMany,
+  query,
+  updateById,
+  withTransaction,
+} from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
@@ -68,33 +75,23 @@ export async function reserveCredit(
   cost: number,
   reason: string,
 ): Promise<{ ok: boolean; balance: number; ledgerId: string | null }> {
-  const conn = await connect()
-  try {
-    await conn.query('BEGIN')
-    // Transaction-scoped, per-user lock (released on COMMIT/ROLLBACK); namespaced so it
+  return withTransaction(async () => {
+    // Transaction-scoped, per-user lock (released when the transaction ends); namespaced so it
     // can't collide with any other advisory lock the app might take.
-    await conn.query('SELECT pg_advisory_xact_lock(hashtext($1))', [`aig-credits:${userId}`])
-    const balRes = await conn.query<{ balance: number }>(
+    await query('SELECT pg_advisory_xact_lock(hashtext($1))', [`aig-credits:${userId}`])
+    const balRes = await query<{ balance: number }>(
       `SELECT COALESCE(SUM(delta), 0)::int AS balance FROM credit_ledger WHERE user_id = $1`,
       [userId],
     )
     const balance = balRes.rows[0]?.balance ?? 0
-    if (balance < cost) {
-      await conn.query('ROLLBACK')
-      return { ok: false, balance, ledgerId: null }
-    }
-    const ins = await conn.query<{ id: string }>(
+    // Nothing is written on a refusal, so the transaction commits nothing.
+    if (balance < cost) return { ok: false, balance, ledgerId: null }
+    const ins = await query<{ id: string }>(
       `INSERT INTO credit_ledger (user_id, delta, reason) VALUES ($1, $2, $3) RETURNING id`,
       [userId, -cost, reason],
     )
-    await conn.query('COMMIT')
     return { ok: true, balance, ledgerId: ins.rows[0]?.id ?? null }
-  } catch (err) {
-    await conn.query('ROLLBACK').catch(() => {})
-    throw err
-  } finally {
-    conn.release()
-  }
+  })
 }
 
 /** Refund a previously-reserved credit hold when the paid-for work then failed. */

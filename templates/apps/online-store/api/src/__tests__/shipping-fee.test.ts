@@ -11,7 +11,6 @@ const db = {
   findMany: vi.fn(),
   findById: vi.fn(),
   findOne: vi.fn(),
-  connect: vi.fn(),
   deleteMany: vi.fn(),
   query: vi.fn(),
 }
@@ -19,7 +18,7 @@ vi.mock('@molecule/api-database', () => ({
   findMany: (...a: unknown[]) => db.findMany(...a),
   findById: (...a: unknown[]) => db.findById(...a),
   findOne: (...a: unknown[]) => db.findOne(...a),
-  connect: (...a: unknown[]) => db.connect(...a),
+  withTransaction: (fn: () => Promise<unknown>) => fn(),
   deleteMany: (...a: unknown[]) => db.deleteMany(...a),
   query: (...a: unknown[]) => db.query(...a),
 }))
@@ -147,17 +146,13 @@ describe('POST /orders persists the shipping in the charged total', () => {
     )
     db.findOne.mockResolvedValue({ available: 10 }) // inventory
     db.deleteMany.mockResolvedValue({})
-    const conn = {
-      query: vi.fn((sql: string) => {
-        if (/UPDATE inventory/.test(sql))
-          return Promise.resolve({ rowCount: 1, rows: [{ available: 7 }] })
-        if (/INSERT INTO orders/.test(sql)) return Promise.resolve({ rows: [{ id: 'o1' }] })
-        return Promise.resolve({ rowCount: 1, rows: [] })
-      }),
-      release: vi.fn(),
-    }
-    db.connect.mockResolvedValue(conn)
-    ;(db.connect as unknown as { conn: typeof conn }).conn = conn
+    // The checkout's transaction queries.
+    db.query.mockImplementation((sql: string) => {
+      if (/UPDATE inventory/.test(sql))
+        return Promise.resolve({ rowCount: 1, rows: [{ available: 7 }] })
+      if (/INSERT INTO orders/.test(sql)) return Promise.resolve({ rows: [{ id: 'o1' }] })
+      return Promise.resolve({ rowCount: 1, rows: [] })
+    })
   })
 
   it('inserts shipping and folds it into the order total', async () => {
@@ -168,8 +163,7 @@ describe('POST /orders persists the shipping in the charged total', () => {
       'post',
     )({ body: { shippingAddress: { line1: 'x' } } } as unknown as Request, res)
     expect(res.statusCode).toBe(201)
-    const conn = (db.connect as unknown as { conn: { query: ReturnType<typeof vi.fn> } }).conn
-    const insert = conn.query.mock.calls.find((c) => /INSERT INTO orders/.test(String(c[0])))
+    const insert = db.query.mock.calls.find((c) => /INSERT INTO orders/.test(String(c[0])))
     expect(insert).toBeDefined()
     // params: [userId, status, subtotal, tax, shipping, total, ...]
     // subtotal $30 (3000¢) < $75 → shipping 599¢; tax 8% default = 240¢; total = 3000+240+599.

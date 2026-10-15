@@ -4,16 +4,18 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 // The "4 variations" button posts { count: 4 }, but the handler ignored count — it made ONE
 // variation and charged 1× credit. It must now produce `count` variations and reserve count× cost.
 
-const conn = { query: vi.fn(), release: vi.fn() }
+// The queries reserveCredit runs inside its withTransaction().
+const conn = { query: vi.fn() }
 const db = {
-  connect: vi.fn(async () => conn),
+  withTransaction: vi.fn(async (fn: () => Promise<unknown>) => fn()),
   create: vi.fn(),
   findById: vi.fn(),
   findMany: vi.fn(),
   updateById: vi.fn(),
 }
 vi.mock('@molecule/api-database', () => ({
-  connect: () => db.connect(),
+  query: (...a: unknown[]) => conn.query(...a),
+  withTransaction: (fn: () => Promise<unknown>) => db.withTransaction(fn),
   create: (...a: unknown[]) => db.create(...a),
   findById: (...a: unknown[]) => db.findById(...a),
   findMany: (...a: unknown[]) => db.findMany(...a),
@@ -82,13 +84,11 @@ beforeEach(() => {
   db.create.mockResolvedValue({ data: { id: 'var-x', status: 'succeeded' } })
   db.updateById.mockResolvedValue({ data: {} })
   generate.mockResolvedValue({ images: [{ url: 'https://img/x.png' }] })
-  // reserveCredit's transaction: BEGIN, advisory lock, SUM(balance high), INSERT RETURNING, COMMIT
+  // reserveCredit's transaction: advisory lock, SUM(balance high), INSERT RETURNING
   conn.query
-    .mockResolvedValueOnce({ rows: [], rowCount: null })
     .mockResolvedValueOnce({ rows: [], rowCount: null })
     .mockResolvedValueOnce({ rows: [{ balance: 1000 }], rowCount: 1 })
     .mockResolvedValueOnce({ rows: [{ id: 'led-1' }], rowCount: 1 })
-    .mockResolvedValueOnce({ rows: [], rowCount: null })
 })
 
 describe('variations honor count', () => {

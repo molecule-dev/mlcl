@@ -12,7 +12,6 @@ const create = vi.fn()
 const updateById = vi.fn()
 const query = vi.fn()
 const count = vi.fn()
-const connect = vi.fn()
 const deleteMany = vi.fn()
 vi.mock('@molecule/api-database', () => ({
   findById: (...a: unknown[]) => findById(...a),
@@ -22,7 +21,7 @@ vi.mock('@molecule/api-database', () => ({
   updateById: (...a: unknown[]) => updateById(...a),
   query: (...a: unknown[]) => query(...a),
   count: (...a: unknown[]) => count(...a),
-  connect: (...a: unknown[]) => connect(...a),
+  withTransaction: (fn: () => Promise<unknown>) => fn(),
   deleteMany: (...a: unknown[]) => deleteMany(...a),
 }))
 vi.mock('@molecule/api-i18n', () => ({ t: (key: string) => key }))

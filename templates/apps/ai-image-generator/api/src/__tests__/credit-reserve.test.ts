@@ -3,18 +3,21 @@ import { beforeEach, describe, expect, it, vi } from 'vitest'
 // reserveCredit MUST atomically check + debit the credit balance so two concurrent
 // generations can't both pass a stale balance check and overspend. It serializes per
 // user with a transaction-scoped advisory lock, then checks SUM(delta) and inserts the
-// debit as one unit — or ROLLBACKs (no debit) when the balance is insufficient.
+// debit as one unit, in one withTransaction() — and writes nothing when the balance is
+// insufficient.
 
-const conn = { query: vi.fn(), release: vi.fn() }
+// The queries reserveCredit runs inside its withTransaction().
+const conn = { query: vi.fn() }
 const db = {
-  connect: vi.fn(async () => conn),
+  withTransaction: vi.fn(async (fn: () => Promise<unknown>) => fn()),
   create: vi.fn(),
   findById: vi.fn(),
   findMany: vi.fn(),
   updateById: vi.fn(),
 }
 vi.mock('@molecule/api-database', () => ({
-  connect: () => db.connect(),
+  query: (...a: unknown[]) => conn.query(...a),
+  withTransaction: (fn: () => Promise<unknown>) => db.withTransaction(fn),
   create: (...a: unknown[]) => db.create(...a),
   findById: (...a: unknown[]) => db.findById(...a),
   findMany: (...a: unknown[]) => db.findMany(...a),
@@ -45,16 +48,13 @@ const calls = (): string[] => conn.query.mock.calls.map((c) => String(c[0]))
 describe('ai-image-generator credit reservation', () => {
   beforeEach(() => {
     vi.clearAllMocks()
-    db.connect.mockResolvedValue(conn)
   })
 
-  it('reserves atomically when the balance is sufficient (lock → check → insert → commit)', async () => {
+  it('reserves atomically when the balance is sufficient (lock → check → insert, one transaction)', async () => {
     conn.query
-      .mockResolvedValueOnce({ rows: [], rowCount: null }) // BEGIN
       .mockResolvedValueOnce({ rows: [], rowCount: null }) // advisory lock
       .mockResolvedValueOnce({ rows: [{ balance: 30 }], rowCount: 1 }) // SUM
       .mockResolvedValueOnce({ rows: [{ id: 'led-1' }], rowCount: 1 }) // INSERT ... RETURNING
-      .mockResolvedValueOnce({ rows: [], rowCount: null }) // COMMIT
 
     const r = await reserveCredit('u1', 10, 'generation')
 
@@ -63,23 +63,19 @@ describe('ai-image-generator credit reservation', () => {
     const insert = conn.query.mock.calls.find((c) => /INSERT INTO credit_ledger/.test(String(c[0])))
     expect(insert).toBeDefined()
     expect((insert?.[1] as unknown[])?.[1]).toBe(-10) // debits the cost (negative delta)
-    expect(calls().some((q) => /COMMIT/.test(q))).toBe(true)
-    expect(conn.release).toHaveBeenCalledTimes(1)
+    expect(db.withTransaction).toHaveBeenCalledTimes(1)
   })
 
-  it('rejects + rolls back with NO debit when the balance is insufficient', async () => {
+  it('rejects with NO debit when the balance is insufficient', async () => {
     conn.query
-      .mockResolvedValueOnce({ rows: [], rowCount: null }) // BEGIN
       .mockResolvedValueOnce({ rows: [], rowCount: null }) // advisory lock
       .mockResolvedValueOnce({ rows: [{ balance: 5 }], rowCount: 1 }) // SUM (< 10)
-      .mockResolvedValueOnce({ rows: [], rowCount: null }) // ROLLBACK
 
     const r = await reserveCredit('u1', 10, 'generation')
 
     expect(r.ok).toBe(false)
     expect(r.balance).toBe(5)
     expect(calls().some((q) => /INSERT INTO credit_ledger/.test(q))).toBe(false)
-    expect(calls().some((q) => /ROLLBACK/.test(q))).toBe(true)
-    expect(conn.release).toHaveBeenCalledTimes(1)
+    expect(db.withTransaction).toHaveBeenCalledTimes(1)
   })
 })

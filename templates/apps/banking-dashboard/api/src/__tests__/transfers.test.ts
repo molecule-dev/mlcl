@@ -12,7 +12,7 @@
  * The fix runs the debit + credit + ledger inserts inside ONE DB transaction
  * and performs the debit as a single CONDITIONAL UPDATE
  * (`... WHERE available_cents >= $amt`) that affects 0 rows when funds are
- * insufficient. This test drives the handler through a fake DB connection whose
+ * insufficient. This test drives the handler through a fake `query()` whose
  * `UPDATE ... WHERE available_cents >= $amt` mutates a shared in-memory balance
  * atomically, and asserts:
  *   1. a legitimate transfer succeeds and moves money once, and
@@ -50,7 +50,8 @@ const dbMock = vi.hoisted(() => ({
   create: vi.fn() as ReturnType<typeof vi.fn>,
   findById: vi.fn() as ReturnType<typeof vi.fn>,
   findMany: vi.fn() as ReturnType<typeof vi.fn>,
-  connect: vi.fn() as ReturnType<typeof vi.fn>,
+  query: vi.fn() as ReturnType<typeof vi.fn>,
+  withTransaction: vi.fn() as ReturnType<typeof vi.fn>,
 }))
 
 vi.mock('@molecule/api-database', () => dbMock)
@@ -169,7 +170,10 @@ beforeEach(() => {
     data: { id: 'scheduled_1', ...data },
     affected: 1,
   }))
-  dbMock.connect.mockImplementation(async () => makeConnection())
+  // Every query() inside withTransaction() runs on the fake connection.
+  const conn = makeConnection()
+  dbMock.query.mockImplementation((text: string, values?: unknown[]) => conn.query(text, values))
+  dbMock.withTransaction.mockImplementation(async (fn: () => Promise<unknown>) => fn())
 })
 
 afterEach(async () => {
@@ -199,8 +203,9 @@ describe('POST /transfers — atomic ledger (L2-1)', () => {
     expect(state.accounts.get('A')?.available_cents).toBe(5000)
     expect(state.accounts.get('B')?.available_cents).toBe(5000)
     // The fix MUST go through the conditional atomic debit, not a stale-read
-    // absolute updateById. If the handler reverts to updateById, connect() is
-    // never called and no such guarded query is recorded.
+    // absolute updateById. If the handler reverts to updateById, no such
+    // guarded query is recorded.
+    expect(dbMock.withTransaction).toHaveBeenCalledTimes(1)
     expect(state.queries.some((q) => /available_cents >= \$1/i.test(q))).toBe(true)
   })
 

@@ -3,7 +3,6 @@ import { z } from 'zod'
 
 import type { WhereCondition } from '@molecule/api-database'
 import {
-  connect,
   count,
   deleteMany,
   findById,
@@ -11,6 +10,7 @@ import {
   findOne,
   query,
   updateById,
+  withTransaction,
 } from '@molecule/api-database'
 import { sendMail } from '@molecule/api-emails'
 import { t } from '@molecule/api-i18n'
@@ -86,6 +86,16 @@ const refundSchema = z.object({
 })
 
 const router = Router()
+
+/** A request refused inside its transaction: rolled back, then answered with this. */
+class Refused extends Error {
+  constructor(
+    readonly status: number,
+    readonly body: Record<string, unknown>,
+  ) {
+    super(String(body.error))
+  }
+}
 
 // List user's orders
 router.get('/', async (req, res) => {
@@ -261,85 +271,80 @@ router.post('/', validateBody(createOrderSchema), async (req, res) => {
     // product (negative real stock, more units sold than exist). We run the
     // whole mutation in ONE transaction and decrement each product with a
     // single CONDITIONAL UPDATE (`... WHERE available >= $qty`) that affects 0
-    // rows when stock is gone, rolling the entire order back. The abstract
-    // DataStore has no atomic decrement or transaction primitive, so we use the
-    // database bond's raw connection here.
-    const conn = await connect()
+    // rows when stock is gone, rolling the entire order back. The DataStore has no atomic decrement, so the
+    // conditional UPDATEs are raw SQL; withTransaction makes every query() inside
+    // it one transaction.
     let createdOrder: Record<string, unknown>
     try {
-      await conn.query('BEGIN')
-
-      for (const item of orderItems) {
-        const dec = await conn.query<{ available: number }>(
-          `UPDATE inventory
+      createdOrder = await withTransaction(async () => {
+        for (const item of orderItems) {
+          const dec = await query<{ available: number }>(
+            `UPDATE inventory
              SET available = available - $1, updated_at = now()
            WHERE product_id = $2 AND available >= $1
            RETURNING available`,
-          [item.quantity, item.product_id],
-        )
-        if (dec.rowCount === 0 || dec.rows.length === 0) {
-          await conn.query('ROLLBACK')
-          return res.status(409).json({
-            error: t(
-              'order.insufficientStock',
-              { product: String(item.name) },
-              { defaultValue: `Insufficient stock for ${String(item.name)}` },
-            ),
-          })
+            [item.quantity, item.product_id],
+          )
+          if (dec.rowCount === 0 || dec.rows.length === 0) {
+            throw new Refused(409, {
+              error: t(
+                'order.insufficientStock',
+                { product: String(item.name) },
+                { defaultValue: `Insufficient stock for ${String(item.name)}` },
+              ),
+            })
+          }
+          // Keep the Bestsellers counter in step with the sale: products.total_sold drives
+          // GET /storefront/bestsellers (ORDER BY total_sold) but was never incremented, so the
+          // ranking stayed frozen at 0. Atomic add in the same transaction as the stock decrement.
+          await query(
+            `UPDATE products SET total_sold = total_sold + $1, updated_at = now() WHERE id = $2`,
+            [item.quantity, item.product_id],
+          )
         }
-        // Keep the Bestsellers counter in step with the sale: products.total_sold drives
-        // GET /storefront/bestsellers (ORDER BY total_sold) but was never incremented, so the
-        // ranking stayed frozen at 0. Atomic add in the same transaction as the stock decrement.
-        await conn.query(
-          `UPDATE products SET total_sold = total_sold + $1, updated_at = now() WHERE id = $2`,
-          [item.quantity, item.product_id],
-        )
-      }
 
-      const orderIns = await conn.query<Record<string, unknown>>(
-        `INSERT INTO orders
+        const orderIns = await query<Record<string, unknown>>(
+          `INSERT INTO orders
            (user_id, status, subtotal, tax, shipping, total, currency,
             shipping_address, billing_address, payment_method_id, created_at, updated_at)
          VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, now(), now())
          RETURNING *`,
-        [
-          userId,
-          'confirmed',
-          subtotal,
-          tax,
-          shipping,
-          total,
-          process.env.STORE_CURRENCY || 'USD',
-          JSON.stringify(shippingAddress),
-          JSON.stringify(billingAddress),
-          paymentMethodId,
-        ],
-      )
-      createdOrder = orderIns.rows[0]
-      const orderId = createdOrder.id as string
-
-      for (const item of orderItems) {
-        await conn.query(
-          `INSERT INTO order_items
-             (order_id, product_id, variant_id, quantity, unit_price, name, created_at)
-           VALUES ($1, $2, $3, $4, $5, $6, now())`,
           [
-            orderId,
-            item.product_id,
-            item.variant_id ?? null,
-            item.quantity,
-            item.unit_price,
-            item.name,
+            userId,
+            'confirmed',
+            subtotal,
+            tax,
+            shipping,
+            total,
+            process.env.STORE_CURRENCY || 'USD',
+            JSON.stringify(shippingAddress),
+            JSON.stringify(billingAddress),
+            paymentMethodId,
           ],
         )
-      }
+        const inserted = orderIns.rows[0]
+        const orderId = inserted.id as string
 
-      await conn.query('COMMIT')
+        for (const item of orderItems) {
+          await query(
+            `INSERT INTO order_items
+             (order_id, product_id, variant_id, quantity, unit_price, name, created_at)
+           VALUES ($1, $2, $3, $4, $5, $6, now())`,
+            [
+              orderId,
+              item.product_id,
+              item.variant_id ?? null,
+              item.quantity,
+              item.unit_price,
+              item.name,
+            ],
+          )
+        }
+        return inserted
+      })
     } catch (err) {
-      await conn.query('ROLLBACK').catch(() => {})
+      if (err instanceof Refused) return res.status(err.status).json(err.body)
       throw err
-    } finally {
-      conn.release()
     }
 
     const orderId = createdOrder.id as string

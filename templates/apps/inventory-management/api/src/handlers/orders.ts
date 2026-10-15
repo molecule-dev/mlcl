@@ -4,13 +4,30 @@ import { z } from 'zod'
 
 import { getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
-import { connect, create, findById, findMany, updateById } from '@molecule/api-database'
+import {
+  create,
+  findById,
+  findMany,
+  query,
+  updateById,
+  withTransaction,
+} from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
 
 import { seedDemoForUserSafe } from './_seed.js'
 
 const router = Router()
+
+/** A request refused inside its transaction: rolled back, then answered with this. */
+class Refused extends Error {
+  constructor(
+    readonly status: number,
+    readonly body: Record<string, unknown>,
+  ) {
+    super(String(body.error))
+  }
+}
 
 function unauthorized(res: Response): Response {
   return res
@@ -226,99 +243,93 @@ router.post('/:id/receive', async (req: Request, res: Response) => {
     // double-applied the movements. We run it in ONE transaction: first CLAIM
     // the order with a conditional status flip (0 rows ⇒ already terminal/raced),
     // then debit shipments with a guarded conditional UPDATE (0 rows ⇒
-    // insufficient stock ⇒ roll the whole order back). The abstract DataStore
-    // has no atomic decrement or transaction primitive, so we use the database
-    // bond's raw connection.
-    const conn = await connect()
+    // insufficient stock ⇒ roll the whole order back). The DataStore has no atomic decrement, so the
+    // conditional UPDATEs are raw SQL; withTransaction makes every query() inside
+    // it one transaction.
     let updatedOrder: Record<string, unknown> | undefined
     try {
-      await conn.query('BEGIN')
-
-      const claim = await conn.query<Record<string, unknown>>(
-        `UPDATE orders
+      updatedOrder = await withTransaction(async () => {
+        const claim = await query<Record<string, unknown>>(
+          `UPDATE orders
            SET status = $1, received_at = now(), updated_at = now()
          WHERE id = $2 AND user_id = $3
            AND status NOT IN ('received', 'shipped', 'cancelled')
          RETURNING *`,
-        [newStatus, id, userId],
-      )
-      if (claim.rowCount === 0 || claim.rows.length === 0) {
-        await conn.query('ROLLBACK')
-        res.status(400).json({
-          error: t(
-            'orders.cannotReceive',
-            { status: String(order.status) },
-            { defaultValue: 'Order is already in terminal status: {{status}}' },
-          ),
-        })
-        return
-      }
-      updatedOrder = claim.rows[0]
+          [newStatus, id, userId],
+        )
+        if (claim.rowCount === 0 || claim.rows.length === 0) {
+          throw new Refused(400, {
+            error: t(
+              'orders.cannotReceive',
+              { status: String(order.status) },
+              { defaultValue: 'Order is already in terminal status: {{status}}' },
+            ),
+          })
+        }
+        const claimed = claim.rows[0]
 
-      for (const item of items) {
-        if (!item.product_id) continue
-        const productId = String(item.product_id)
-        const warehouseId = String(order.warehouse_id ?? '')
-        if (!warehouseId) continue
-        const qty = Number(item.expected_quantity)
+        for (const item of items) {
+          if (!item.product_id) continue
+          const productId = String(item.product_id)
+          const warehouseId = String(order.warehouse_id ?? '')
+          if (!warehouseId) continue
+          const qty = Number(item.expected_quantity)
 
-        if (direction > 0) {
-          // Inbound: atomic add, upsert when the row is absent.
-          const inc = await conn.query(
-            `UPDATE stock_levels
+          if (direction > 0) {
+            // Inbound: atomic add, upsert when the row is absent.
+            const inc = await query(
+              `UPDATE stock_levels
                SET quantity = quantity + $1, updated_at = now()
              WHERE product_id = $2 AND warehouse_id = $3`,
-            [qty, productId, warehouseId],
-          )
-          if (inc.rowCount === 0) {
-            await conn.query(
-              `INSERT INTO stock_levels (product_id, warehouse_id, quantity)
-               VALUES ($1, $2, $3)`,
-              [productId, warehouseId, qty],
+              [qty, productId, warehouseId],
             )
-          }
-        } else {
-          // Outbound: guarded atomic debit — fail (and roll the whole shipment
-          // back) when the warehouse lacks the stock.
-          const dec = await conn.query<{ quantity: number }>(
-            `UPDATE stock_levels
+            if (inc.rowCount === 0) {
+              await query(
+                `INSERT INTO stock_levels (product_id, warehouse_id, quantity)
+               VALUES ($1, $2, $3)`,
+                [productId, warehouseId, qty],
+              )
+            }
+          } else {
+            // Outbound: guarded atomic debit — fail (and roll the whole shipment
+            // back) when the warehouse lacks the stock.
+            const dec = await query<{ quantity: number }>(
+              `UPDATE stock_levels
                SET quantity = quantity - $1, updated_at = now()
              WHERE product_id = $2 AND warehouse_id = $3 AND quantity >= $1
              RETURNING quantity`,
-            [qty, productId, warehouseId],
-          )
-          if (dec.rowCount === 0 || dec.rows.length === 0) {
-            await conn.query('ROLLBACK')
-            res.status(409).json({
-              error: t(
-                'orders.insufficientStock',
-                {},
-                { defaultValue: 'Insufficient stock to ship this order' },
-              ),
-            })
-            return
+              [qty, productId, warehouseId],
+            )
+            if (dec.rowCount === 0 || dec.rows.length === 0) {
+              throw new Refused(409, {
+                error: t(
+                  'orders.insufficientStock',
+                  {},
+                  { defaultValue: 'Insufficient stock to ship this order' },
+                ),
+              })
+            }
           }
-        }
 
-        await conn.query(
-          `INSERT INTO stock_movements
+          await query(
+            `INSERT INTO stock_movements
              (product_id, warehouse_id, quantity_change, reason, reference, performed_by)
            VALUES ($1, $2, $3, $4, $5, $6)`,
-          [productId, warehouseId, direction * qty, reason, `order:${id}`, userId],
-        )
+            [productId, warehouseId, direction * qty, reason, `order:${id}`, userId],
+          )
 
-        await conn.query(`UPDATE order_items SET received_quantity = $1 WHERE id = $2`, [
-          qty,
-          String(item.id),
-        ])
-      }
+          await query(`UPDATE order_items SET received_quantity = $1 WHERE id = $2`, [
+            qty,
+            String(item.id),
+          ])
+        }
 
-      await conn.query('COMMIT')
+        return claimed
+      })
     } catch (err) {
-      await conn.query('ROLLBACK').catch(() => {})
-      throw err
-    } finally {
-      conn.release()
+      if (!(err instanceof Refused)) throw err
+      res.status(err.status).json(err.body)
+      return
     }
 
     // Append a notification so /notifications reflects it (best-effort, post-commit)

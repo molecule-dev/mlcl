@@ -9,7 +9,6 @@ const db = {
   findMany: vi.fn(),
   findById: vi.fn(),
   findOne: vi.fn(),
-  connect: vi.fn(),
   deleteMany: vi.fn(),
   query: vi.fn(),
 }
@@ -17,7 +16,7 @@ vi.mock('@molecule/api-database', () => ({
   findMany: (...a: unknown[]) => db.findMany(...a),
   findById: (...a: unknown[]) => db.findById(...a),
   findOne: (...a: unknown[]) => db.findOne(...a),
-  connect: (...a: unknown[]) => db.connect(...a),
+  withTransaction: (fn: () => Promise<unknown>) => fn(),
   deleteMany: (...a: unknown[]) => db.deleteMany(...a),
   query: (...a: unknown[]) => db.query(...a),
 }))
@@ -74,17 +73,13 @@ beforeEach(() => {
   )
   db.findOne.mockResolvedValue({ available: 10 }) // inventory
   db.deleteMany.mockResolvedValue({})
-  const conn = {
-    query: vi.fn((sql: string) => {
-      if (/UPDATE inventory/.test(sql))
-        return Promise.resolve({ rowCount: 1, rows: [{ available: 7 }] })
-      if (/INSERT INTO orders/.test(sql)) return Promise.resolve({ rows: [{ id: 'o1' }] })
-      return Promise.resolve({ rowCount: 1, rows: [] })
-    }),
-    release: vi.fn(),
-  }
-  db.connect.mockResolvedValue(conn)
-  ;(db.connect as unknown as { conn: typeof conn }).conn = conn
+  // The checkout's transaction queries.
+  db.query.mockImplementation((sql: string) => {
+    if (/UPDATE inventory/.test(sql))
+      return Promise.resolve({ rowCount: 1, rows: [{ available: 7 }] })
+    if (/INSERT INTO orders/.test(sql)) return Promise.resolve({ rows: [{ id: 'o1' }] })
+    return Promise.resolve({ rowCount: 1, rows: [] })
+  })
 })
 
 describe('checkout increments products.total_sold', () => {
@@ -94,8 +89,7 @@ describe('checkout increments products.total_sold', () => {
       { body: { shippingAddress: { line1: 'x' } } } as unknown as Request,
       res,
     )
-    const conn = (db.connect as unknown as { conn: { query: ReturnType<typeof vi.fn> } }).conn
-    const inc = conn.query.mock.calls.find((c) =>
+    const inc = db.query.mock.calls.find((c) =>
       /UPDATE products SET total_sold = total_sold \+ \$1/.test(String(c[0])),
     )
     expect(inc).toBeDefined()

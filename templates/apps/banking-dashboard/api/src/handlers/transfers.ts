@@ -16,7 +16,7 @@ import { z } from 'zod'
 import { log } from '@molecule/api-audit'
 import { getParamId, getUserId } from '@molecule/api-bonds-default-express'
 import type { WhereCondition } from '@molecule/api-database'
-import { connect, count, create, findById, findMany } from '@molecule/api-database'
+import { count, create, findById, findMany, query, withTransaction } from '@molecule/api-database'
 import { sendMail } from '@molecule/api-emails'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
@@ -26,6 +26,16 @@ import { validateBody } from '@molecule/api-middleware-validation'
 import type { BankingDashboardLimits } from '../tiers.js'
 
 const router = Router()
+
+/** A transfer refused inside its transaction: rolled back, answered with this status. */
+class TransferRefused extends Error {
+  constructor(
+    readonly status: number,
+    readonly key: string,
+  ) {
+    super(key)
+  }
+}
 
 const createTransferSchema = z.object({
   from_account_id: z.string().min(1),
@@ -145,109 +155,106 @@ router.post(
         // the read-check-write (TOCTOU) gap entirely — concurrent requests
         // serialize on the row, and the second one fails the
         // `available_cents >= $amt` guard instead of overwriting a stale-base
-        // absolute value (double-spend / overdraft). The abstract DataStore has
-        // no atomic-decrement or transaction primitive, so we use the database
-        // bond's raw connection/transaction path here.
-        const conn = await connect()
+        // absolute value (double-spend / overdraft). The DataStore has no
+        // atomic decrement, so the conditional UPDATE is raw SQL; withTransaction
+        // makes every query() inside it (and any CRUD helper) one transaction,
+        // committed when the callback returns and rolled back when it throws.
         try {
-          await conn.query('BEGIN')
-          const now = new Date()
+          transferRow = await withTransaction(async () => {
+            const now = new Date()
 
-          const debit = await conn.query<{ balance_cents: number; available_cents: number }>(
-            `UPDATE bank_accounts
+            const debit = await query<{ balance_cents: number; available_cents: number }>(
+              `UPDATE bank_accounts
                SET balance_cents = balance_cents - $1, available_cents = available_cents - $1
              WHERE id = $2 AND user_id = $3 AND available_cents >= $1
              RETURNING balance_cents, available_cents`,
-            [amount_cents, from_account_id, userId],
-          )
-          if (debit.rowCount === 0 || debit.rows.length === 0) {
-            await conn.query('ROLLBACK')
-            return res.status(400).json({ error: t('transfers.insufficientFunds') })
-          }
-          const newFromAvailable = Number(debit.rows[0].available_cents)
+              [amount_cents, from_account_id, userId],
+            )
+            if (debit.rowCount === 0 || debit.rows.length === 0) {
+              throw new TransferRefused(400, 'transfers.insufficientFunds')
+            }
+            const newFromAvailable = Number(debit.rows[0].available_cents)
 
-          let newToAvailable: number | null = null
-          if (toAccount) {
-            const credit = await conn.query<{ available_cents: number }>(
-              `UPDATE bank_accounts
+            let newToAvailable: number | null = null
+            if (toAccount) {
+              const credit = await query<{ available_cents: number }>(
+                `UPDATE bank_accounts
                  SET balance_cents = balance_cents + $1, available_cents = available_cents + $1
                WHERE id = $2 AND user_id = $3
                RETURNING available_cents`,
-              [amount_cents, to_account_id, userId],
-            )
-            if (credit.rowCount === 0 || credit.rows.length === 0) {
-              await conn.query('ROLLBACK')
-              return res.status(404).json({ error: t('transfers.destinationNotFound') })
+                [amount_cents, to_account_id, userId],
+              )
+              if (credit.rowCount === 0 || credit.rows.length === 0) {
+                throw new TransferRefused(404, 'transfers.destinationNotFound')
+              }
+              newToAvailable = Number(credit.rows[0].available_cents)
             }
-            newToAvailable = Number(credit.rows[0].available_cents)
-          }
 
-          const inserted = await conn.query<Record<string, unknown>>(
-            `INSERT INTO transfers
+            const inserted = await query<Record<string, unknown>>(
+              `INSERT INTO transfers
                (user_id, from_account_id, to_account_id, recipient_id, amount_cents,
                 description, status, scheduled_date, completed_at, created_at)
              VALUES ($1, $2, $3, $4, $5, $6, $7, NULL, $8, $9)
              RETURNING *`,
-            [
-              userId,
-              from_account_id,
-              to_account_id ?? null,
-              recipient_id ?? null,
-              amount_cents,
-              description ?? null,
-              'completed',
-              now,
-              now,
-            ],
-          )
-          transferRow = inserted.rows[0]
+              [
+                userId,
+                from_account_id,
+                to_account_id ?? null,
+                recipient_id ?? null,
+                amount_cents,
+                description ?? null,
+                'completed',
+                now,
+                now,
+              ],
+            )
 
-          await conn.query(
-            `INSERT INTO bank_transactions
+            await query(
+              `INSERT INTO bank_transactions
                (user_id, account_id, amount_cents, merchant, category, method,
                 status, posted_at, running_balance_cents, created_at)
              VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
-            [
-              userId,
-              from_account_id,
-              -Math.abs(amount_cents),
-              description ?? 'Transfer',
-              'transfer',
-              'transfer',
-              'posted',
-              now,
-              newFromAvailable,
-              now,
-            ],
-          )
-
-          if (toAccount) {
-            await conn.query(
-              `INSERT INTO bank_transactions
-                 (user_id, account_id, amount_cents, merchant, category, method,
-                  status, posted_at, running_balance_cents, created_at)
-               VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
               [
                 userId,
-                to_account_id,
-                Math.abs(amount_cents),
+                from_account_id,
+                -Math.abs(amount_cents),
                 description ?? 'Transfer',
                 'transfer',
                 'transfer',
                 'posted',
                 now,
-                newToAvailable,
+                newFromAvailable,
                 now,
               ],
             )
-          }
 
-          await conn.query('COMMIT')
+            if (toAccount) {
+              await query(
+                `INSERT INTO bank_transactions
+                 (user_id, account_id, amount_cents, merchant, category, method,
+                  status, posted_at, running_balance_cents, created_at)
+               VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10)`,
+                [
+                  userId,
+                  to_account_id,
+                  Math.abs(amount_cents),
+                  description ?? 'Transfer',
+                  'transfer',
+                  'transfer',
+                  'posted',
+                  now,
+                  newToAvailable,
+                  now,
+                ],
+              )
+            }
+
+            return inserted.rows[0]
+          })
         } catch (err) {
-          await conn.query('ROLLBACK').catch(() => {})
+          if (err instanceof TransferRefused)
+            return res.status(err.status).json({ error: t(err.key) })
           throw err
-        } finally {
-          conn.release()
         }
       }
 
