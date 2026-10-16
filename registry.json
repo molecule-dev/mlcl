@@ -7026,6 +7026,7 @@
       "stack": "api",
       "implements": "@molecule/api-database",
       "exports": [
+        "MIGRATION_LEDGER",
         "createMigrator",
         "createPool",
         "pool",
@@ -7084,6 +7085,7 @@
         "releaseInstance",
         "PgliteMigration",
         "isIdempotencyError",
+        "MIGRATION_LEDGER",
         "applyMigrations",
         "createMigrator",
         "createPool",
@@ -7138,6 +7140,7 @@
         "createPool",
         "store",
         "setup",
+        "MIGRATION_LEDGER",
         "createMigrator",
         "databasePostgresqlSecretDefinitions",
         "isLocalUrl",
@@ -7261,6 +7264,7 @@
       "exports": [
         "pool",
         "store",
+        "MIGRATION_LEDGER",
         "createMigrator",
         "createPool",
         "databaseSqliteSecretDefinitions",
