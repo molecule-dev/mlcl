@@ -3311,6 +3311,7 @@
         "DEFAULT_SEARCH_EXCLUDED_DIRS",
         "truncate",
         "truncateMiddle",
+        "failureBlocks",
         "whitespaceTolerantReplace",
         "PARSE_CHECKABLE",
         "parseCheckCommand",
