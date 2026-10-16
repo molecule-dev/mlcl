@@ -6,6 +6,7 @@ import { afterEach, describe, expect, it } from 'vitest'
 
 import {
   type CheckPackage,
+  type CheckStepResult,
   discoverPackages,
   extractStepErrors,
   formatCheckReport,
@@ -243,5 +244,35 @@ describe('formatCheckReport', () => {
     expect(lines.findIndex((l) => l.startsWith('PASS'))).toBeLessThan(
       lines.findIndex((l) => l.startsWith('SKIP')),
     )
+  })
+
+  /**
+   * X0 flash-m99 (2026-10-17): `check` printed `full log: /tmp/mol-check/…` under a
+   * step whose every error it had ALREADY listed, and the model went after the file
+   * twice (a `read_file` refused as outside the workspace, then a `cat`) for the same
+   * five lines. The pointer is for what the report could not fit.
+   */
+  it('names the log only for the errors the report could not list', () => {
+    const step = (errorTotal: number, errors: string[]): CheckStepResult => ({
+      kind: 'lint',
+      name: 'lint',
+      status: 'failed',
+      durationMs: 800,
+      errors,
+      errorTotal,
+      logPath: '/tmp/mol-check/lint.log',
+    })
+    const all = formatCheckReport([step(1, ['src/a.ts:1: boom'])], 2000)
+    expect(all).toContain('src/a.ts:1: boom')
+    expect(all).not.toContain('full log')
+
+    const cut = formatCheckReport([step(4, ['src/a.ts:1: boom'])], 2000)
+    expect(cut).toContain('4 errors (first 1)')
+    expect(cut).toContain('  3 more in the full log: /tmp/mol-check/lint.log')
+
+    // A step that failed with no parsed error line: the log is all there is, so it is
+    // named without a count.
+    const silent = formatCheckReport([step(0, [])], 2000)
+    expect(silent).toContain('  full log: /tmp/mol-check/lint.log')
   })
 })

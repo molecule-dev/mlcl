@@ -668,7 +668,13 @@ export function formatCheckReport(results: readonly CheckStepResult[], totalMs: 
     )
     if (r.status !== 'passed') {
       for (const e of r.errors) out.push(`  ${e}`)
-      out.push(`  full log: ${r.logPath}`)
+      // The log ONLY when the list above is not all of it — a pointer under a step
+      // whose every error is already printed sends the reader after a file that
+      // repeats them (X0 flash-m99 read the log for the five lines it had just
+      // been given, twice over: `read_file` refused the path, then a `cat`).
+      const omitted = Math.max(0, r.errorTotal - r.errors.length)
+      if (omitted > 0) out.push(`  ${omitted} more in the full log: ${r.logPath}`)
+      else if (r.errors.length === 0) out.push(`  full log: ${r.logPath}`)
     }
   }
   return out.join('\n')
