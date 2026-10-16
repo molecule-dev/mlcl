@@ -325,6 +325,23 @@ export const MoleculeMetadata = z.object({
     .optional()
     .describe('Override export name for the provider (when not "provider")'),
 
+  // The setter a provider bond for this package must call to register itself —
+  // e.g. app-http's `setClient`, api-logger's `setLogger`, api-emails'
+  // `setTransport`. Scanned from source by `sync-registry --scan-exports`
+  // (`scanBondSetter`): it is the exported set*/register* function that ACCEPTS
+  // the provider interface (the object-typed parameter, never the function-typed
+  // one such as app-http's `setAuthGate`, nor a primitive/closed-union one such
+  // as api-logger's `setLevel`). Never guess it from export order — the bond
+  // wiring and the generated README both used to, and picked `setAuthGate` for
+  // every scaffold shipping `@molecule/app-http-axios` (TS2345 in the scaffold's
+  // own `app/src/bonds/app-http-axios.ts`).
+  bondSetter: z
+    .string()
+    .optional()
+    .describe(
+      'The setter a provider bond calls to register itself (e.g. setClient) — scanned from source',
+    ),
+
   // Self-describing service registration metadata (resource packages)
   services: z
     .array(
@@ -649,6 +666,12 @@ export const RegistryEntry = z.object({
     .string()
     .optional()
     .describe('Override export name for the provider (when not "provider")'),
+  bondSetter: z
+    .string()
+    .optional()
+    .describe(
+      'The setter a provider bond calls to register itself (e.g. setClient) — scanned from source by sync-registry --scan-exports',
+    ),
   services: z
     .array(
       z.object({

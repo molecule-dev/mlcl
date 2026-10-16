@@ -1597,15 +1597,30 @@ function sortObject<T extends Record<string, unknown>>(obj: T): T {
  * whose derived name does NOT match any other bond export — because 'provider' is the
  * correctly-typed export for that setter. This avoids pairing e.g. setJsonParserFactory
  * with 'provider' (a Middleware) when setBodyParser is the right match.
+ *
+ * `declaredSetter` (the interface package's registry `bondSetter`, derived from
+ * source by `sync-registry --scan-exports`) decides every case the order-based
+ * heuristics below would otherwise GUESS: the setter whose parameter is the
+ * provider interface the bond implements. It is consulted after the derived-name
+ * match — a bond that names the concern it wants (`classMap` → setClassMap,
+ * `pool` → setPool) still wins, so cores with several real provider setters keep
+ * working — and before any "first setter that survived" fallback. Without it,
+ * `@molecule/app-http` growing `setAuthGate(next: (() => Promise<void>) | null)`
+ * made app-http-axios bonds emit `setAuthGate(provider)`: a TS2345 in every fresh
+ * scaffold (2026-10-17).
  */
 async function findSetterExport(
   interfacePackagePath: string,
   bondExports?: string[],
+  declaredSetter?: string | null,
 ): Promise<string | null> {
   const exports = await scanExportsFromPath(interfacePackagePath)
   const setters = exports.filter((e) => /^(set|register)[A-Z]/.test(e))
 
   if (setters.length === 0) return null
+  // Only a setter the interface package actually EXPORTS can be imported —
+  // a stale registry value must never become a TS2305 in generated code.
+  const declared = declaredSetter && setters.includes(declaredSetter) ? declaredSetter : null
   if (setters.length === 1 || !bondExports || bondExports.length === 0) return setters[0]
 
   // A provider bond (exports `provider` or a `createProvider` factory) is wired via the
@@ -1633,11 +1648,16 @@ async function findSetterExport(
       return !bondExports.includes(derivedExport) || derivedExport === 'provider'
     })
     if (simpleSetters.length > 0) {
-      // Several "simple" setters can survive the filter when the core has
-      // multiple non-provider setters (logger: setLevel + setLogger — neither
-      // derives to a bond export). Prefer the one named after the core itself
-      // (set<PascalCase(core dir)> — logger → setLogger); simpleSetters[0] is
-      // registry/scan order and picked setLevel(provider), a type error.
+      // The registry-declared setter decides this case. Several "simple" setters
+      // survive when the core has multiple non-provider setters (app-http:
+      // setAuthGate + setClient — neither derives to a bond export), and
+      // simpleSetters[0] is registry/scan order, which picked
+      // `setAuthGate(provider)`, a type error.
+      if (declared && simpleSetters.includes(declared)) return declared
+      // Legacy fallback for an interface package the registry has no bondSetter
+      // for (an npm-installed bond whose core predates the scan, a third-party
+      // interface): prefer the setter named after the core itself
+      // (set<PascalCase(core dir)> — logger → setLogger).
       let coreBase = interfacePackagePath.split('/').filter(Boolean).pop() ?? ''
       // When resolved through node_modules, the last segment is the full package
       // name (e.g. 'api-logger' not 'logger'). Strip the api-/app- stack prefix
@@ -1661,7 +1681,9 @@ async function findSetterExport(
     if (bondExports.includes(derivedExport)) return setter
   }
 
-  return setters[0]
+  // No bond export named a concern: the registry-declared setter (the one whose
+  // parameter is the provider interface) decides, before export order does.
+  return declared ?? setters[0]
 }
 
 /**
@@ -2133,7 +2155,10 @@ export function setup${pascal}(): void {
   }
 
   // Singleton bonds: find setter in interface package
-  // Pass bond exports so findSetterExport can pick the right setter when multiple exist
+  // Pass bond exports so findSetterExport can pick the right setter when multiple exist,
+  // and the interface package's registry `bondSetter` — the setter whose parameter is
+  // the provider interface — so a core that grew a second setter (app-http's
+  // setAuthGate beside setClient) can never be resolved by export order.
   const bondExports = pkg.exports.length > 0 ? pkg.exports : await scanExportsFromPath(pkg.path)
   // Try projectPath first, then resolve from the bond package's real location
   // (handles monorepo dev where interface packages may not be in project's node_modules yet)
@@ -2142,7 +2167,10 @@ export function setup${pascal}(): void {
     const resolvedBondPath = await realpath(pkg.path).catch(() => pkg.path)
     interfacePath = await findMoleculePackage(interfacePackage, resolvedBondPath)
   }
-  const setter = interfacePath ? await findSetterExport(interfacePath, bondExports) : null
+  const declaredSetter = findRegistryPackage(interfacePackage)?.molecule?.bondSetter ?? null
+  const setter = interfacePath
+    ? await findSetterExport(interfacePath, bondExports, declaredSetter)
+    : null
 
   // Find the provider export from the bond package (pass setter name for smarter matching)
   const registryMeta = pkg.molecule as Record<string, unknown> | undefined

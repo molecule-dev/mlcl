@@ -30,7 +30,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/activity"
+      "path": "packages/api/core/activity",
+      "bondSetter": "setSink"
     },
     "@molecule/api-activity-console": {
       "language": "typescript",
@@ -137,7 +138,8 @@
         "unattended coding agent",
         "agent run on my repo",
         "let an ai agent fix issues"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-agent-runtime-claude-code": {
       "language": "typescript",
@@ -257,7 +259,8 @@
         "agent conversation log",
         "ai session export",
         "which files the agent wrote"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-agent-transcript-aider": {
       "language": "typescript",
@@ -658,7 +661,8 @@
         "generate text with ai",
         "language model api",
         "llm provider"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-agents": {
       "language": "typescript",
@@ -702,7 +706,8 @@
         "llm agent",
         "ai task automation",
         "agent execution"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-agents-llm": {
       "language": "typescript",
@@ -889,7 +894,8 @@
         "content moderation labels",
         "auto-tag content",
         "spam detection"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-classification-llm": {
       "language": "typescript",
@@ -974,7 +980,8 @@
         "yes no question about text",
         "rate urgency",
         "guardrail check"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-decisions-intern-decision": {
       "language": "typescript",
@@ -1596,7 +1603,8 @@
         "semantic similarity",
         "embedding api",
         "embedding model"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-embeddings-embeddinggemma": {
       "language": "typescript",
@@ -1924,7 +1932,8 @@
         "image upscaling",
         "ai image editing",
         "image synthesis"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-image-generation-molecule": {
       "language": "typescript",
@@ -2522,7 +2531,8 @@
         "retrieval pipeline",
         "answer questions from documents",
         "knowledge base search"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-rag-llm": {
       "language": "typescript",
@@ -2657,7 +2667,8 @@
         "speech to text api",
         "voice synthesis",
         "stt"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-speech-audio8": {
       "language": "typescript",
@@ -3210,7 +3221,8 @@
         "generate summaries",
         "ai summary",
         "shorten long text"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-summarization-llm": {
       "language": "typescript",
@@ -3440,7 +3452,8 @@
         "ai translation",
         "translate content",
         "detect language"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-translation-bergamot": {
       "language": "typescript",
@@ -3754,7 +3767,8 @@
         "vector database",
         "store embeddings",
         "nearest neighbor search"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-vector-store-chroma": {
       "language": "typescript",
@@ -3932,7 +3946,8 @@
         "generate video clips",
         "video with audio generation",
         "video synthesis backend"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ai-video-generation-kandinsky": {
       "language": "typescript",
@@ -4268,7 +4283,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/analytics"
+      "path": "packages/api/core/analytics",
+      "bondSetter": "setProvider"
     },
     "@molecule/api-analytics-axiom": {
       "language": "typescript",
@@ -4634,7 +4650,8 @@
         "compliance logging",
         "track admin actions",
         "change history"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-audit-database": {
       "language": "typescript",
@@ -5143,7 +5160,8 @@
         "cache layer",
         "speed up responses",
         "store computed results"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-cache-memcached": {
       "language": "typescript",
@@ -5316,7 +5334,8 @@
         "check availability",
         "find free time slots",
         "scheduling availability"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-calendar-google": {
       "language": "typescript",
@@ -5556,7 +5575,8 @@
         "chatops",
         "team chat notifications",
         "send message to channel"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-channel-capture": {
       "language": "typescript",
@@ -5993,7 +6013,8 @@
         "run code securely",
         "ephemeral environment",
         "container execution"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-code-sandbox-docker": {
       "language": "typescript",
@@ -6418,7 +6439,8 @@
         "privacy regulations",
         "ccpa",
         "data processing log"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-compliance-gdpr": {
       "language": "typescript",
@@ -6486,7 +6508,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/config"
+      "path": "packages/api/core/config",
+      "bondSetter": "setProvider"
     },
     "@molecule/api-config-env": {
       "language": "typescript",
@@ -6554,7 +6577,8 @@
         "typed content records",
         "content files into records",
         "content provider contract"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-content-markdown": {
       "language": "typescript",
@@ -6642,7 +6666,8 @@
         "abuse reports",
         "moderate user content",
         "toxicity detection"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-content-moderation-molecule": {
       "language": "typescript",
@@ -6782,7 +6807,8 @@
         "run on a schedule",
         "cron expressions",
         "daily scheduled job"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-cron-bullmq": {
       "language": "typescript",
@@ -6899,7 +6925,8 @@
         "crypto market data",
         "historical coin prices",
         "digital asset prices"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-crypto-prices-coingecko": {
       "language": "typescript",
@@ -7053,7 +7080,8 @@
         "database queries",
         "sql queries",
         "database transaction"
-      ]
+      ],
+      "bondSetter": "setPool"
     },
     "@molecule/api-database-d1": {
       "language": "typescript",
@@ -7422,7 +7450,8 @@
         "publish build output",
         "switch hosting provider",
         "static site hosting"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-deploy-target-s3": {
       "language": "typescript",
@@ -7507,7 +7536,8 @@
         "medication catalog",
         "drug ingredients",
         "pill lookup"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-drug-database-rxnorm": {
       "language": "typescript",
@@ -7585,7 +7615,8 @@
         "welcome email template",
         "email subject and body",
         "templated emails"
-      ]
+      ],
+      "bondSetter": "registerTemplate"
     },
     "@molecule/api-emails": {
       "language": "typescript",
@@ -7628,7 +7659,8 @@
         "email delivery",
         "notify users by email",
         "smtp email"
-      ]
+      ],
+      "bondSetter": "setTransport"
     },
     "@molecule/api-emails-capture": {
       "language": "typescript",
@@ -7700,7 +7732,8 @@
         "incoming email webhook",
         "parse inbound email",
         "support inbox from email"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-emails-inbound-agentmail": {
       "language": "typescript",
@@ -8290,7 +8323,8 @@
         "key rotation",
         "data encryption at rest",
         "encrypt user data"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-encryption-aes": {
       "language": "typescript",
@@ -8395,7 +8429,8 @@
         "feature gating by plan",
         "quota enforcement",
         "plan-based limits"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-equity-prices": {
       "language": "typescript",
@@ -8443,7 +8478,8 @@
         "ticker lookup",
         "stock fundamentals",
         "share price lookup"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-equity-prices-alpha-vantage": {
       "language": "typescript",
@@ -8628,7 +8664,8 @@
         "track server errors",
         "error alerts",
         "unhandled exception capture"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-error-tracking-console": {
       "language": "typescript",
@@ -8762,7 +8799,8 @@
         "document signing",
         "digital signature workflow",
         "collect signatures"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-esign-hellosign": {
       "language": "typescript",
@@ -8897,7 +8935,8 @@
         "platform auth token",
         "verify user jwt",
         "existing auth provider"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-external-auth-supabase": {
       "language": "typescript",
@@ -8983,7 +9022,8 @@
         "enable feature for users",
         "kill switch",
         "experiment flags"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-feature-flags-database": {
       "language": "typescript",
@@ -9197,7 +9237,8 @@
         "search for flights",
         "flight pricing",
         "trip flights"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-flights-amadeus": {
       "language": "typescript",
@@ -9371,7 +9412,8 @@
         "currency exchange rate",
         "multi-currency",
         "forex rates"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-fx-rates-ecb": {
       "language": "typescript",
@@ -9504,7 +9546,8 @@
         "latitude longitude lookup",
         "timezone lookup",
         "place search"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-geolocation-google": {
       "language": "typescript",
@@ -9734,7 +9777,8 @@
         "oauth for git hosts",
         "list git repositories",
         "git account connection"
-      ]
+      ],
+      "bondSetter": "registerGitProvider"
     },
     "@molecule/api-git-provider-gitea": {
       "language": "typescript",
@@ -9960,7 +10004,8 @@
         "room availability",
         "hotel prices",
         "lodging search"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-hotels-amadeus": {
       "language": "typescript",
@@ -10053,7 +10098,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/http"
+      "path": "packages/api/core/http",
+      "bondSetter": "setClient"
     },
     "@molecule/api-http-axios": {
       "language": "typescript",
@@ -10241,7 +10287,8 @@
         "backend i18n",
         "locale formatting",
         "pluralization rules"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-i18n-simple": {
       "language": "typescript",
@@ -10319,7 +10366,8 @@
         "convert image formats",
         "compress images",
         "server-side image manipulation"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-image-compositor": {
       "language": "typescript",
@@ -10603,7 +10651,8 @@
         "export to excel",
         "import csv data",
         "export json data"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-import-export-csv": {
       "language": "typescript",
@@ -10690,7 +10739,8 @@
         "sign and verify tokens",
         "bearer tokens",
         "access token"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-jwt-jsonwebtoken": {
       "language": "typescript",
@@ -10785,7 +10835,8 @@
         "aml compliance",
         "government id check",
         "kyc onboarding"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-kyc-stripe-identity": {
       "language": "typescript",
@@ -14688,7 +14739,8 @@
         "application logging",
         "json logs",
         "backend logging"
-      ]
+      ],
+      "bondSetter": "setLogger"
     },
     "@molecule/api-logger-axiom": {
       "language": "typescript",
@@ -14925,7 +14977,8 @@
         "audio streaming",
         "video on demand",
         "vod"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-media-streaming-hls": {
       "language": "typescript",
@@ -15374,7 +15427,8 @@
         "deploy a model container",
         "run a model on a gpu",
         "model endpoint with auth headers"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-model-hosting-cloud-run": {
       "language": "typescript",
@@ -15769,7 +15823,8 @@
         "service health",
         "health endpoint",
         "liveness probe"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-monitoring-default": {
       "language": "typescript",
@@ -15850,7 +15905,8 @@
         "per tenant data isolation",
         "tenant context",
         "saas workspaces"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-multi-tenancy-schema": {
       "language": "typescript",
@@ -15930,7 +15986,8 @@
         "send in-app notifications",
         "notification history",
         "per user notifications"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-notification-center-database": {
       "language": "typescript",
@@ -16002,7 +16059,8 @@
         "broadcast alerts",
         "alerting channels",
         "notify all channels"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-notifications-preferences": {
       "language": "typescript",
@@ -16203,7 +16261,8 @@
         "macro nutrients",
         "scan food barcode",
         "meal nutrition info"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-nutrition-database-open-food-facts": {
       "language": "typescript",
@@ -16426,7 +16485,8 @@
         "third-party api authorization",
         "api token refresh",
         "connect external service oauth"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-oauth-client-generic": {
       "language": "typescript",
@@ -16878,7 +16938,8 @@
         "image to text",
         "read text in a screenshot",
         "scan a document"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-ocr-llm": {
       "language": "typescript",
@@ -17194,7 +17255,8 @@
         "credential hashing",
         "salt passwords",
         "store passwords securely"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-password-bcrypt": {
       "language": "typescript",
@@ -17903,7 +17965,8 @@
         "pdf report",
         "pdf watermark",
         "pdf from template"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-pdf-molecule": {
       "language": "typescript",
@@ -18062,7 +18125,8 @@
         "permission checks",
         "grant and revoke permissions",
         "admin roles"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-permissions-casbin": {
       "language": "typescript",
@@ -18168,7 +18232,8 @@
         "hibernate project to storage",
         "restore archived project",
         "reduce idle project cost"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-project-archive-external-state-d1": {
       "language": "typescript",
@@ -18578,7 +18643,8 @@
         "vapid keys",
         "push messaging",
         "server push notifications"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-push-notifications-molecule": {
       "language": "typescript",
@@ -18770,7 +18836,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/queue"
+      "path": "packages/api/core/queue",
+      "bondSetter": "setProvider"
     },
     "@molecule/api-queue-memory": {
       "language": "typescript",
@@ -19110,7 +19177,8 @@
         "request quota",
         "abuse prevention",
         "brute force protection"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-rate-limit-memory": {
       "language": "typescript",
@@ -19245,7 +19313,8 @@
         "live events server",
         "socket connections",
         "real time backend"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-realtime-rooms": {
       "language": "typescript",
@@ -19529,7 +19598,8 @@
         "scheduled reports",
         "report export",
         "business metrics"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-reporting-database": {
       "language": "typescript",
@@ -24327,7 +24397,8 @@
         "recurring tasks",
         "run jobs on a schedule",
         "job scheduling"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-scheduler-cloudflare": {
       "language": "typescript",
@@ -24425,7 +24496,8 @@
         "og image generation",
         "render html to an image",
         "website thumbnail"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-screenshots-molecule": {
       "language": "typescript",
@@ -24561,7 +24633,8 @@
         "autocomplete suggestions",
         "search api",
         "fuzzy search"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-search-elasticsearch": {
       "language": "typescript",
@@ -24801,7 +24874,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/secrets"
+      "path": "packages/api/core/secrets",
+      "bondSetter": "setProvider"
     },
     "@molecule/api-secrets-doppler": {
       "language": "typescript",
@@ -25064,7 +25138,8 @@
         "carrier rates",
         "print shipping label",
         "delivery estimates"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-shipping-easypost": {
       "language": "typescript",
@@ -25211,7 +25286,8 @@
         "rss",
         "syndication feed",
         "search engine indexing"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-sitemap-xml": {
       "language": "typescript",
@@ -25317,7 +25393,8 @@
         "bulk sms",
         "sms delivery status",
         "phone number messaging"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-sms-capture": {
       "language": "typescript",
@@ -25593,7 +25670,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/staging"
+      "path": "packages/api/core/staging",
+      "bondSetter": "setProvider"
     },
     "@molecule/api-staging-docker-compose": {
       "language": "typescript",
@@ -25777,7 +25855,8 @@
         "template helpers and partials",
         "string interpolation templates",
         "html templates"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-templating-handlebars": {
       "language": "typescript",
@@ -25906,7 +25985,8 @@
         "prompt behind each paragraph",
         "human or ai authorship",
         "written with ai disclosure"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-text-provenance-overlap": {
       "language": "typescript",
@@ -26055,7 +26135,8 @@
         "car rental search",
         "book flights and hotels",
         "travel itinerary"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-travel-amadeus": {
       "language": "typescript",
@@ -26157,7 +26238,8 @@
         "one-time login code",
         "authenticator app code",
         "login verification code"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-two-factor-otplib": {
       "language": "typescript",
@@ -26229,7 +26311,8 @@
         "handle file uploads",
         "attachments",
         "profile picture upload"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-uploads-encrypted": {
       "language": "typescript",
@@ -26524,7 +26607,8 @@
         "scheduled video calls",
         "meeting join url",
         "video call scheduling"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-video-meetings-zoom": {
       "language": "typescript",
@@ -26707,7 +26791,8 @@
         "video chat rooms",
         "meeting room tokens",
         "cloud call recordings"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-video-rooms-daily-co": {
       "language": "typescript",
@@ -26918,7 +27003,8 @@
         "sleep tracking",
         "heart rate",
         "step count"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-wearable-fitbit": {
       "language": "typescript",
@@ -27097,7 +27183,8 @@
         "weather data api",
         "weather conditions",
         "temperature forecast"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-weather-open-meteo": {
       "language": "typescript",
@@ -27210,7 +27297,8 @@
         "web search",
         "ground answers in search results",
         "find sources online"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-web-search-brave": {
       "language": "typescript",
@@ -27350,7 +27438,8 @@
         "event callbacks",
         "notify external systems",
         "manage webhook endpoints"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-webhook-capture": {
       "language": "typescript",
@@ -27496,7 +27585,8 @@
         "multi-step process",
         "transition states",
         "track workflow history"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/api-workflow-database": {
       "language": "typescript",
@@ -27842,7 +27932,8 @@
         "ai suggestions panel",
         "contextual ai help",
         "embedded ai assistant"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-ai-assistant-default": {
       "language": "typescript",
@@ -27916,7 +28007,8 @@
         "streaming chat ui",
         "chatbot ui",
         "ai chat interface"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-ai-chat-http": {
       "language": "typescript",
@@ -27985,7 +28077,8 @@
         "editor ai suggestions",
         "ghost text",
         "ai pair programmer"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-ai-copilot-default": {
       "language": "typescript",
@@ -28059,7 +28152,8 @@
         "picture generator",
         "in-app image generation",
         "ai art generator"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-ai-image-generator-default": {
       "language": "typescript",
@@ -28183,7 +28277,8 @@
         "speak to type",
         "read text aloud",
         "voice interaction"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-ai-voice-default": {
       "language": "typescript",
@@ -28402,7 +28497,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/app/core/analytics"
+      "path": "packages/app/core/analytics",
+      "bondSetter": "setProvider"
     },
     "@molecule/app-analytics-mixpanel": {
       "language": "typescript",
@@ -28691,7 +28787,8 @@
         "sound playback",
         "play music",
         "in-app sounds"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-audio-howler": {
       "language": "typescript",
@@ -28893,7 +28990,8 @@
         "password reset flow",
         "login session",
         "register account"
-      ]
+      ],
+      "bondSetter": "setClient"
     },
     "@molecule/app-auth-brand-header-react": {
       "language": "typescript",
@@ -29734,7 +29832,8 @@
         "agenda view",
         "drag and drop events",
         "calendar widget"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-calendar-fullcalendar": {
       "language": "typescript",
@@ -30040,7 +30139,8 @@
         "bar chart",
         "pie chart",
         "chart library"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-charts-chartjs": {
       "language": "typescript",
@@ -30225,7 +30325,8 @@
         "filter as you type",
         "fuzzy search box",
         "field filter query syntax"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-client-search-minisearch": {
       "language": "typescript",
@@ -30351,7 +30452,8 @@
         "read clipboard text",
         "copy text button",
         "clipboard access"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-clipboard-react-native": {
       "language": "typescript",
@@ -30486,7 +30588,8 @@
         "embedded editor",
         "editor tabs",
         "editor component"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-code-editor-monaco": {
       "language": "typescript",
@@ -30589,7 +30692,8 @@
         "color selection ui",
         "rgb color",
         "eyedropper"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-color-picker-default": {
       "language": "typescript",
@@ -30729,7 +30833,8 @@
         "fuzzy command search",
         "action palette",
         "quick switcher"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-command-palette-cmdk": {
       "language": "typescript",
@@ -31039,7 +31144,8 @@
         "flag icons",
         "national flags",
         "country flag svg"
-      ]
+      ],
+      "bondSetter": "setCountryFlags"
     },
     "@molecule/app-country-flags-country-flag-icons": {
       "language": "typescript",
@@ -31181,7 +31287,8 @@
         "row selection",
         "table sorting and filtering",
         "paginated table"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-data-table-tanstack": {
       "language": "typescript",
@@ -31290,7 +31397,8 @@
         "start and end date",
         "pick a date range",
         "date filter"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-date-range-picker-default": {
       "language": "typescript",
@@ -31474,7 +31582,8 @@
         "screen size detection",
         "os detection",
         "feature detection"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-device-calendar": {
       "language": "typescript",
@@ -31610,7 +31719,8 @@
         "dnd",
         "kanban drag",
         "drag handles"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-drag-drop-dndkit": {
       "language": "typescript",
@@ -31743,7 +31853,8 @@
         "ui tests",
         "integration tests in the browser",
         "test the app end to end"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-e2e-fixtures-default": {
       "language": "typescript",
@@ -32984,7 +33095,8 @@
         "file validation on upload",
         "attach files",
         "upload queue"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-file-upload-filepond": {
       "language": "typescript",
@@ -33280,7 +33392,8 @@
         "typeface configuration",
         "change app font",
         "heading and body fonts"
-      ]
+      ],
+      "bondSetter": "setFont"
     },
     "@molecule/app-fonts-arimo": {
       "language": "typescript",
@@ -34119,7 +34232,8 @@
         "register form fields",
         "validation rules",
         "form errors"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-forum-thread-row-react": {
       "language": "typescript",
@@ -34185,7 +34299,8 @@
         "swipe through images",
         "browse photos",
         "picture gallery"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-gallery-photoswipe": {
       "language": "typescript",
@@ -34677,7 +34792,8 @@
         "http requests from app",
         "api client",
         "response interceptors"
-      ]
+      ],
+      "bondSetter": "setClient"
     },
     "@molecule/app-http-axios": {
       "language": "typescript",
@@ -34826,7 +34942,8 @@
         "localization",
         "locale switching",
         "multilingual app"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-i18n-default-react": {
       "language": "typescript",
@@ -35046,7 +35163,8 @@
         "icon components",
         "icon pack",
         "iconography"
-      ]
+      ],
+      "bondSetter": "setIconSet"
     },
     "@molecule/app-icons-molecule": {
       "language": "typescript",
@@ -35115,7 +35233,8 @@
         "coding environment",
         "in-browser ide",
         "workspace layout"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-ide-default": {
       "language": "typescript",
@@ -35278,7 +35397,8 @@
         "photo cropping ui",
         "crop uploaded image",
         "zoom and crop"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-image-crop-cropperjs": {
       "language": "typescript",
@@ -35612,7 +35732,8 @@
         "sprint board",
         "kanban workflow",
         "cards and columns"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-kanban-board-react": {
       "language": "typescript",
@@ -35739,7 +35860,8 @@
         "keyboard show event",
         "dismiss keyboard",
         "keyboard height adjustment"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-keyboard-react-native": {
       "language": "typescript",
@@ -35805,7 +35927,8 @@
         "key combos",
         "keymap",
         "keyboard shortcut manager"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-keyboard-shortcuts-hotkeys": {
       "language": "typescript",
@@ -36103,7 +36226,8 @@
         "app foreground background",
         "app state changes",
         "resume pause app events"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-lifecycle-react-native": {
       "language": "typescript",
@@ -36248,7 +36372,8 @@
         "mobile preview frame",
         "preview window",
         "hot reload preview"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-live-preview-iframe": {
       "language": "typescript",
@@ -51866,7 +51991,8 @@
         "log to server",
         "remote logging",
         "debug logs"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-loyalty-tier-badge-react": {
       "language": "typescript",
@@ -52009,7 +52135,8 @@
         "interactive map",
         "geolocation map",
         "location map"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-maps-leaflet": {
       "language": "typescript",
@@ -52163,7 +52290,8 @@
         "markdown viewer",
         "markdown content",
         "table of contents from markdown"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-markdown-marked": {
       "language": "typescript",
@@ -52654,7 +52782,8 @@
         "check internet connection",
         "connectivity state",
         "detect wifi or cellular"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-network-react-native": {
       "language": "typescript",
@@ -52926,7 +53055,8 @@
         "realtime notification updates",
         "notification bell icon",
         "paginated notification list"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-notification-center-default": {
       "language": "typescript",
@@ -53797,7 +53927,8 @@
         "device notification interface",
         "in-app push messages",
         "subscribe to push"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-push-react-native": {
       "language": "typescript",
@@ -53937,7 +54068,8 @@
         "prefetch on hover",
         "instant page navigation",
         "cached fetch"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-query-memory": {
       "language": "typescript",
@@ -54348,7 +54480,8 @@
         "subscribe to live events",
         "real time frontend",
         "live data in ui"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-realtime-socketio": {
       "language": "typescript",
@@ -54573,7 +54706,8 @@
         "text formatting",
         "prose editor",
         "content editor"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-rich-text-quill": {
       "language": "typescript",
@@ -54698,7 +54832,8 @@
         "url routing",
         "route params",
         "protected routes"
-      ]
+      ],
+      "bondSetter": "setRouter"
     },
     "@molecule/app-routing-next": {
       "language": "typescript",
@@ -55720,7 +55855,8 @@
         "hide launch screen",
         "startup loading screen",
         "control splash screen"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-splash-screen-react-native": {
       "language": "typescript",
@@ -55893,7 +56029,8 @@
         "client state",
         "manage application state",
         "reactive state"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-state-jotai": {
       "language": "typescript",
@@ -56108,7 +56245,8 @@
         "status bar color",
         "hide status bar mobile",
         "light dark status bar"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-status-bar-react-native": {
       "language": "typescript",
@@ -56184,7 +56322,8 @@
         "system health dashboard",
         "downtime incidents",
         "service availability page"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-status-dashboard-http": {
       "language": "typescript",
@@ -56317,7 +56456,8 @@
         "step indicator",
         "guided flow",
         "onboarding wizard"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-stepper-default": {
       "language": "typescript",
@@ -56425,7 +56565,8 @@
         "store data locally",
         "save user preferences",
         "session storage"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-storage-async-storage": {
       "language": "typescript",
@@ -56922,7 +57063,8 @@
         "design tokens",
         "app theming",
         "dark mode toggle"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-theme-css-variables": {
       "language": "typescript",
@@ -57131,7 +57273,8 @@
         "vertical timeline",
         "timeline ui",
         "milestones timeline"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-timeline-default": {
       "language": "typescript",
@@ -57267,7 +57410,8 @@
         "interactive tutorial",
         "first-time user guide",
         "intro tour"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-tour-shepherd": {
       "language": "typescript",
@@ -57411,7 +57555,8 @@
         "directory tree",
         "nested folders ui",
         "treeview"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-tree-view-default": {
       "language": "typescript",
@@ -57649,7 +57794,8 @@
         "reusable components",
         "buttons modals forms",
         "prebuilt ui elements"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-ui-angular": {
       "language": "typescript",
@@ -58397,7 +58543,8 @@
         "version checker",
         "refresh to update banner",
         "detect new deployment"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-video": {
       "language": "typescript",
@@ -58445,7 +58592,8 @@
         "video core interface",
         "video playback bond",
         "embedded video"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-video-call-controls-react": {
       "language": "typescript",
@@ -58582,7 +58730,8 @@
         "render large lists efficiently",
         "infinite scrolling list",
         "scroll performance"
-      ]
+      ],
+      "bondSetter": "setProvider"
     },
     "@molecule/app-virtual-scroll-tanstack": {
       "language": "typescript",

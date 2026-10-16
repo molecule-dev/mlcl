@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Registry export- and route-drift gate.
+ * Registry export-, route- and bond-setter-drift gate.
  *
  * `registry.json` records each package's public exports, but the source of truth
  * — the actual `export`s in `molecule/packages/<path>/src` — lives in a SEPARATE
@@ -18,10 +18,18 @@
  * for months → `Project.authenticate` TS2339 in every scaffold; 47 resources
  * carried no routes at all.)
  *
- * This script is the gate that catches both. It re-runs the exact comparisons
- * `sync-registry --scan-exports` / `--scan-routes` use (scan `src`, compare the
- * SORTED export sets; compare the ORDERED route lists) and exits non-zero on any
- * drift, naming the fix command.
+ * And for `bondSetter` — the setter a provider bond calls to register itself.
+ * Its whole reason for existing is that the answer is NOT derivable from the
+ * export list a consumer sees: `@molecule/app-http` exports `setAuthGate` and
+ * `setClient`, and picking by order emitted `setAuthGate(provider)` into the
+ * bond file of every scaffold shipping `app-http-axios`. A stale value here is
+ * a broken import or a wrong registration in generated code, so a core whose
+ * setter is renamed (or whose source grows one) has to fail THIS gate.
+ *
+ * This script is the gate that catches all three. It re-runs the exact
+ * comparisons `sync-registry --scan-exports` / `--scan-routes` use (scan `src`,
+ * compare the SORTED export sets; compare the ORDERED route lists; compare the
+ * scanned bond setter) and exits non-zero on any drift, naming the fix command.
  *
  * Usage:
  *   node scripts/check-registry-exports.mjs
@@ -46,8 +54,10 @@ import { fileURLToPath } from 'node:url'
 
 import { getRawRegistry, getRegistryPath } from '../src/lib/registry.js'
 import {
+  bondSetterScope,
   ROUTE_SCANNED_TYPES,
   routesSignature,
+  scanBondSetter,
   scanExports,
   scanForRoutes,
 } from '../src/lib/scanner.js'
@@ -70,6 +80,8 @@ const scopePaths = new Set(process.argv.slice(2).map((p) => p.replace(/\/+$/, ''
 
 const drifted = []
 const routeDrifted = []
+const setterDrifted = []
+const bondSetterNames = bondSetterScope(registry.packages)
 let checked = 0
 let skipped = 0
 
@@ -103,6 +115,15 @@ for (const [name, entry] of Object.entries(registry.packages)) {
       routeDrifted.push({ name, have: entry.routes?.length ?? 0, want: scannedRoutes.length })
     }
   }
+
+  // bondSetter — same scope and scan as sync-registry's refreshExports, so a
+  // core whose provider setter appears, moves or is renamed cannot slip through
+  // with a stale (or missing) registry value.
+  if (bondSetterNames.has(name) && existsSync(srcPath)) {
+    const scannedSetter = await scanBondSetter(srcPath, scanned)
+    const have = entry.bondSetter ?? null
+    if (have !== scannedSetter) setterDrifted.push({ name, have, want: scannedSetter })
+  }
 }
 
 if (drifted.length > 0) {
@@ -124,10 +145,25 @@ if (routeDrifted.length > 0) {
   console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-routes`)
 }
 
-if (drifted.length > 0 || routeDrifted.length > 0) {
+if (setterDrifted.length > 0) {
+  console.error(
+    `\n✗ registry.json bond setters are out of sync (${setterDrifted.length} package(s)):\n`,
+  )
+  for (const { name, have, want } of setterDrifted) {
+    console.error(
+      `  ${name}: registry has ${have === null ? 'none' : `"${have}"`}, src yields ` +
+        `${want === null ? 'none' : `"${want}"`}`,
+    )
+  }
+  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
+}
+
+if (drifted.length > 0 || routeDrifted.length > 0 || setterDrifted.length > 0) {
   console.error(`Then commit ${registryPath}\n`)
   process.exit(1)
 }
 
 const scope = scopePaths.size > 0 ? `${checked} scoped` : `${checked}`
-console.log(`✓ registry exports + routes in sync (${scope} package(s) checked, ${skipped} skipped)`)
+console.log(
+  `✓ registry exports + routes + bond setters in sync (${scope} package(s) checked, ${skipped} skipped)`,
+)

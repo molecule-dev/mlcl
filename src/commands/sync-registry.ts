@@ -8,8 +8,10 @@ import chalk from 'chalk'
 
 import { getRawRegistry, getRegistryPath } from '../lib/registry.js'
 import {
+  bondSetterScope,
   ROUTE_SCANNED_TYPES,
   routesSignature,
+  scanBondSetter,
   scanExports,
   scanForRoutes,
   scanForTables,
@@ -529,6 +531,7 @@ export default class SyncRegistry extends Command {
       : join(__dir, '..', '..', '..', 'molecule')
 
     const packageNames = Object.keys(registry.packages)
+    const bondSetterNames = bondSetterScope(registry.packages)
 
     let updated = 0
     let unchanged = 0
@@ -550,6 +553,30 @@ export default class SyncRegistry extends Command {
         if (JSON.stringify(oldSorted) !== JSON.stringify(newSorted)) {
           entry.exports = scanned
           changed = true
+        }
+
+        // bondSetter — the setter a provider bond calls to register itself
+        // (app-http → setClient, api-logger → setLogger, api-emails →
+        // setTransport). Consumers used to pick it by export ORDER, which broke
+        // the moment a core grew a second setter: app-http's setAuthGate made
+        // every fresh scaffold shipping app-http-axios emit `setAuthGate(provider)`
+        // — a TS2345 in the scaffold's own app/src/bonds/ file. Scope and rule
+        // live in scanner.ts (bondSetterScope / scanBondSetter).
+        //
+        // Only touched when the package's `src/` is actually present: a sync run
+        // in a checkout without the molecule sibling (or scoped to nothing) must
+        // never ERASE values it cannot re-derive. An absent candidate in a
+        // package whose source IS present does clear the field — a stale setter
+        // name is a wrong import, and the legacy heuristics are the safe landing.
+        if (existsSync(srcPath) && bondSetterNames.has(name)) {
+          const setter = await scanBondSetter(srcPath, entry.exports ?? [])
+          if (setter && entry.bondSetter !== setter) {
+            entry.bondSetter = setter
+            changed = true
+          } else if (!setter && entry.bondSetter) {
+            delete entry.bondSetter
+            changed = true
+          }
         }
 
         // runtimeDependencies mirrors the package's OWN package.json dependencies.

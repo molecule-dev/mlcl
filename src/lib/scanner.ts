@@ -543,6 +543,315 @@ async function findTypeScriptFiles(dir: string): Promise<string[]> {
   return files
 }
 
+/** Type shapes that decide whether a setter can receive a provider object. */
+type ParamShape = 'object' | 'primitive' | 'function' | 'array'
+
+/** Type keywords that are never a provider interface. */
+const PRIMITIVE_TYPE_NAMES = new Set([
+  'string',
+  'number',
+  'boolean',
+  'bigint',
+  'symbol',
+  'object',
+  'unknown',
+  'any',
+  'never',
+  'void',
+  'undefined',
+  'null',
+  'true',
+  'false',
+])
+
+/** Index of the delimiter closing the one at `open`, or -1 when unbalanced. */
+function matchingDelimiter(text: string, open: number): number {
+  const openChar = text[open]
+  const closeChar = openChar === '(' ? ')' : openChar === '{' ? '}' : openChar === '[' ? ']' : '>'
+  let depth = 0
+  for (let i = open; i < text.length; i++) {
+    const c = text[i]
+    if (c === openChar) depth++
+    else if (c === closeChar) {
+      depth--
+      if (depth === 0) return i
+    }
+  }
+  return -1
+}
+
+/** Cut a parameter at its top-level default value, keeping the `=>` of a type intact. */
+function stripDefaultValue(text: string): string {
+  let depth = 0
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i]
+    if (c === '(' || c === '<' || c === '[' || c === '{') depth++
+    else if (c === ')' || c === '>' || c === ']' || c === '}') depth--
+    else if (c === '=' && depth === 0 && text[i + 1] !== '>') return text.slice(0, i)
+  }
+  return text
+}
+
+/**
+ * Read a type expression from `start` to the end of its statement — the first
+ * `;` or newline at bracket depth 0. Multi-line declarations continue while a
+ * bracket is open, so `type Middleware = (\n  req: Req,\n) => void` keeps its
+ * `=>` (classifying only the first line would read it as an object type and
+ * make a function-shaped provider look like a provider interface).
+ *
+ * `<`/`>` are deliberately NOT depth-tracked: in `=>` the `>` would close an
+ * unopened generic and corrupt the depth. Generics never span a statement end.
+ */
+function readTypeExpression(source: string, start: number): string {
+  let depth = 0
+  let text = ''
+  for (let i = start; i < Math.min(source.length, start + 600); i++) {
+    const c = source[i]
+    if (c === '(' || c === '[' || c === '{') depth++
+    else if (c === ')' || c === ']' || c === '}') depth--
+    else if (depth === 0 && (c === ';' || c === '\n')) break
+    text += c
+  }
+  return text
+}
+
+/** Split `text` on top-level `separator` occurrences (depth-aware). */
+function splitTopLevel(text: string, separator: string): string[] {
+  const parts: string[] = []
+  let depth = 0
+  let start = 0
+  for (let i = 0; i < text.length; i++) {
+    const c = text[i]
+    if (c === '(' || c === '<' || c === '[' || c === '{') depth++
+    else if (c === ')' || c === '>' || c === ']' || c === '}') depth--
+    else if (c === separator && depth === 0) {
+      parts.push(text.slice(start, i))
+      start = i + 1
+    }
+  }
+  parts.push(text.slice(start))
+  return parts
+}
+
+/**
+ * Classify a parameter's type as written, so a setter that could never accept a
+ * provider object is skipped. `kinds` resolves type aliases declared in the same
+ * package (`LogLevel` → a string-literal union → primitive), which is what tells
+ * api-logger's `setLogger(logger: Logger)` apart from its `setLevel(level: LogLevel)`.
+ */
+function classifyParamType(text: string, kinds: Map<string, ParamShape>): ParamShape {
+  const type = text.trim().replace(/[;,]$/, '')
+  if (type === '') return 'primitive'
+  if (type.includes('=>')) return 'function'
+  const members = type
+    .split('|')
+    .map((m) => m.trim())
+    .filter((m) => m !== '' && m !== 'null' && m !== 'undefined')
+  if (members.length === 0) return 'primitive'
+  const shapes = members.map((member): ParamShape => {
+    if (/^['"`]/.test(member) || /^[-\d]/.test(member)) return 'primitive'
+    if (PRIMITIVE_TYPE_NAMES.has(member)) return 'primitive'
+    if (/^[A-Za-z_$][\w$]*$/.test(member)) return kinds.get(member) ?? 'object'
+    if (/\[\]$/.test(member) || /^(Readonly)?Array</.test(member)) return 'array'
+    if (/^\{[\s\S]*\}$/.test(member)) return 'object'
+    // `Record<K, V>`, `Partial<T>`, tuples, mapped types: not a plain provider
+    // interface, but not provably primitive either — treated as an object.
+    return 'object'
+  })
+  if (shapes.every((s) => s === 'primitive')) return 'primitive'
+  if (shapes.every((s) => s === 'array')) return 'array'
+  if (shapes.includes('object')) return 'object'
+  if (shapes.includes('function')) return 'function'
+  return 'array'
+}
+
+/**
+ * Collect the parameter-type texts of every `export const`/`export function`
+ * declaration in the source, keyed by name (overloads keep every signature).
+ *
+ * The parameter list is found by walking delimiters rather than by regex: a
+ * regex stop at the first `)` truncates exactly the case that matters —
+ * `setAuthGate(next: (() => Promise<void>) | null)` — leaving `next: ((`, which
+ * reads as a parameter that is not function-typed.
+ */
+function collectDeclaredParamTypes(source: string): Map<string, string[]> {
+  const declared = new Map<string, string[]>()
+  const declRe = /export\s+(?:async\s+)?(?:const|function)\s+([A-Za-z_$][\w$]*)/g
+  for (const match of source.matchAll(declRe)) {
+    const name = match[1]
+    let i = match.index + match[0].length
+    if (source[i] === '<') {
+      const generics = matchingDelimiter(source, i)
+      i = generics === -1 ? i : generics + 1
+    }
+    while (/\s/.test(source[i] ?? '')) i++
+    if (source[i] !== '(') {
+      // A type annotation and/or initializer before the parameter list.
+      const rest = source.slice(i, i + 400)
+      const eq = rest.indexOf('=')
+      if (eq === -1) continue
+      i += eq + 1
+      while (/\s/.test(source[i] ?? '')) i++
+      // `setProvider = <TLimits = unknown>(provider: …) => …` — a generic
+      // parameter list may sit between the `=` and the parameters.
+      if (source[i] === '<') {
+        const generics = matchingDelimiter(source, i)
+        if (generics === -1) continue
+        i = generics + 1
+        while (/\s/.test(source[i] ?? '')) i++
+      }
+      if (source[i] !== '(') continue
+    }
+    const close = matchingDelimiter(source, i)
+    if (close === -1) continue
+    const params = source.slice(i + 1, close)
+    // A parenthesised expression is only a parameter list in a function
+    // declaration or an arrow function — never in a call initializer.
+    let after = close + 1
+    while (/\s/.test(source[after] ?? '')) after++
+    if (source[after] === ':') {
+      const tail = source.slice(after + 1, after + 200)
+      const end = tail.search(/=>|\{|;/)
+      after = end === -1 ? after : after + 1 + end
+      while (/\s/.test(source[after] ?? '')) after++
+    }
+    if (source.slice(after, after + 2) !== '=>' && source[after] !== '{') continue
+
+    const types: string[] = []
+    for (const rawParam of splitTopLevel(params, ',')) {
+      const param = rawParam.trim()
+      if (param === '') continue
+      if (param.startsWith('...')) continue
+      const colon = splitTopLevel(param, ':')
+      if (colon.length < 2) continue
+      types.push(stripDefaultValue(colon.slice(1).join(':')).trim())
+    }
+    const previous = declared.get(name) ?? []
+    declared.set(name, [...previous, ...types])
+  }
+  return declared
+}
+
+/**
+ * The registry entries whose `bondSetter` is derived from source: every core,
+ * plus every package some other package declares as its `implements` target —
+ * a middleware or native package can be a bond interface too
+ * (`@molecule/api-middleware-body-parser`, `@molecule/app-clipboard`), and the
+ * bond-file generator consults the field for whichever package is the interface.
+ *
+ * Shared by `sync-registry --scan-exports` (which fills the field) and the
+ * drift gate (`scripts/check-registry-exports.mjs`), so the two can never
+ * disagree about which entries must carry it.
+ *
+ * @param packages - the registry's `packages` map.
+ * @returns the package names whose `bondSetter` the scan must keep current.
+ */
+export function bondSetterScope(
+  packages: Record<string, { type?: string; implements?: string }>,
+): Set<string> {
+  const scope = new Set<string>()
+  for (const [name, entry] of Object.entries(packages)) {
+    if (entry.type === 'core') scope.add(name)
+    if (entry.implements) scope.add(entry.implements)
+  }
+  return scope
+}
+
+/**
+ * Derive the setter a provider bond for this package must call to register
+ * itself — the name recorded as `bondSetter` in the registry and consumed by the
+ * bond-file generator and the README generator.
+ *
+ * Nothing in an export list says which `set*` a provider bond belongs to, so
+ * every consumer that picked one by export ORDER got it wrong the moment a core
+ * grew a second setter: `@molecule/app-http` gaining
+ * `setAuthGate(next: (() => Promise<void>) | null)` made every fresh scaffold
+ * shipping `@molecule/app-http-axios` import `setAuthGate` and call it with the
+ * provider — a TS2345 in the scaffold's own `app/src/bonds/app-http-axios.ts`,
+ * with the starter app registering no HTTP client at all (2026-10-17).
+ *
+ * The rule, in order:
+ * 1. `setProvider` when exported — the canonical "this is the bond's entry point".
+ * 2. Otherwise the candidate paired with a getter of the same name
+ *    (`setClient` with `getClient(): HttpClient`) — the typed provider accessor.
+ * 3. Otherwise the only candidate left.
+ * 4. Otherwise `null` — no confident answer, so callers keep their legacy
+ *    heuristics rather than acting on a guess.
+ *
+ * A candidate is an exported `set*`/`register*` function with at least one
+ * parameter typed as an OBJECT. That excludes the two shapes no provider can be
+ * passed to: a function-typed parameter (`setAuthGate`, body-parser's
+ * `Middleware`) and a primitive or closed string-literal union (`setLevel`'s
+ * `LogLevel = 'debug' | …`). The parameter's POSITION is not fixed — a
+ * named-provider core takes `setProvider(name, provider)`.
+ *
+ * Scoped to the package's own `src/` — the source of truth the registry mirrors.
+ * Reads declarations textually (same level as `scanExports`), never a type
+ * checker: the shapes involved are our own generated-style accessors, and a
+ * shape it cannot parse simply yields no candidate rather than a wrong one.
+ *
+ * @param srcPath - the package's `src/` directory.
+ * @param exportedNames - the package's public exports, so a module-local setter
+ *   that no consumer can import is never proposed.
+ * @returns the setter's export name, or null when none can be named confidently.
+ */
+export async function scanBondSetter(
+  srcPath: string,
+  exportedNames: readonly string[],
+): Promise<string | null> {
+  const setters = exportedNames.filter((name) => /^(set|register)[A-Z]/.test(name))
+  if (setters.length === 0) return null
+
+  const files = (await findTypeScriptFiles(srcPath)).filter(
+    (file) => !file.includes('__tests__') && !/\.(test|spec)\./.test(file),
+  )
+  let source = ''
+  for (const file of files) {
+    try {
+      source += `\n${stripComments(await readFile(file, 'utf-8'))}`
+    } catch (_error) {
+      // Unreadable file: skip it. The scan then sees fewer declarations, which
+      // can only cost a candidate (→ null → legacy heuristics), never invent one.
+    }
+  }
+  if (source === '') return null
+
+  // Type-alias shapes, resolved in two passes so `type A = B` reaches B's shape.
+  const kinds = new Map<string, ParamShape>()
+  for (const match of source.matchAll(/export\s+interface\s+([A-Za-z_$][\w$]*)/g)) {
+    kinds.set(match[1], 'object')
+  }
+  for (const match of source.matchAll(/export\s+(?:abstract\s+)?class\s+([A-Za-z_$][\w$]*)/g)) {
+    kinds.set(match[1], 'object')
+  }
+  for (const match of source.matchAll(/export\s+enum\s+([A-Za-z_$][\w$]*)/g)) {
+    kinds.set(match[1], 'primitive')
+  }
+  const aliases = [...source.matchAll(/export\s+type\s+([A-Za-z_$][\w$]*)\s*(?:<[^>]*>)?\s*=\s*/g)]
+    .map((match) => ({
+      name: match[1],
+      rhs: readTypeExpression(source, match.index + match[0].length),
+    }))
+    .filter((alias) => !kinds.has(alias.name))
+  for (let pass = 0; pass < 2; pass++) {
+    for (const alias of aliases) kinds.set(alias.name, classifyParamType(alias.rhs, kinds))
+  }
+
+  const declared = collectDeclaredParamTypes(source)
+  const candidates = setters.filter((name) =>
+    (declared.get(name) ?? []).some((type) => classifyParamType(type, kinds) === 'object'),
+  )
+  if (candidates.length === 0) return null
+  if (candidates.includes('setProvider')) return 'setProvider'
+
+  const paired = candidates.filter((setter) =>
+    exportedNames.includes(`get${setter.replace(/^(set|register)/, '')}`),
+  )
+  if (paired.length > 0) return paired[0]
+  if (candidates.length === 1) return candidates[0]
+  return null
+}
+
 /**
  * Mapping from molecule.type metadata values to the expected PackageType (directory-based).
  * molecule.type uses "provider" while the directory-based system uses "bond".
