@@ -113,7 +113,11 @@ async function loadE2EBridge(): Promise<E2EBridge | null> {
   try {
     const preview = await import('@molecule/app-e2e-preview')
     const runtime = await import('@molecule/app-e2e-fixtures-default/runtime')
-    const runtimeScript = `;(${String(runtime.installE2ERuntime)})();`
+    // The bytes — the locator runtime and the header that says what it is — come from the
+    // package, so this server and the Vite plugin serve the same script; a copy of the
+    // package older than that export still gets the bare runtime.
+    const runtimeScript =
+      preview.E2E_PREVIEW_RUNTIME_SCRIPT ?? `;(${String(runtime.installE2ERuntime)})();`
     return {
       attach: (server) => void preview.attachE2EHub(server),
       inject: (html) => preview.injectE2EClientTag(html, site.basePath),
