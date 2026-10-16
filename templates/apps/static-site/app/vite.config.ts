@@ -1,6 +1,13 @@
 /// <reference types="vitest/config" />
 import type { IncomingMessage } from 'node:http'
-import { appendFileSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import {
+  appendFileSync,
+  existsSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs'
 import { createRequire } from 'node:module'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -198,6 +205,24 @@ const previewConsoleLogPlugin: Plugin = {
   },
 }
 
+// ── Dev-server watcher: poll the site tree in a molecule sandbox ──
+//
+// chokidar's inotify watch is pinned to the INODE of each directory it walks. Replace a
+// directory inside the served tree (`rm -rf src` + recreate — a restore, a checkout, a tool
+// that rewrites a tree, and in a sandbox the platform's own operations) and that watch
+// points at a dead inode: edits, touches and new files then produce NO event, chokidar
+// reports NO error, and it never re-arms — the dev server keeps serving the modules it
+// transformed before the swap while the files on disk are current, with nothing in its log
+// to say so (reproduced against vite 8.1.5, 2026-10-16; flash-m79 lost 3.5 minutes and a
+// 1.6-minute run to it). A stat-based polling watcher has no inode to lose, and the tree it
+// walks is the site's own source, with `node_modules`, `.git`, `dist` and `test-results`
+// excluded. `/etc/mol` exists in every molecule sandbox; `VITE_WATCH_POLLING=0|1` overrides
+// either way.
+const watchPolling =
+  process.env.VITE_WATCH_POLLING === undefined
+    ? existsSync('/etc/mol')
+    : process.env.VITE_WATCH_POLLING !== '0' && process.env.VITE_WATCH_POLLING !== 'false'
+
 export default defineConfig(({ command }) => ({
   base: BASE_PATH,
   plugins: [
@@ -246,6 +271,8 @@ export default defineConfig(({ command }) => ({
     fs: {
       strict: false,
     },
+    // Sandbox-only: a replaced directory cannot kill a stat-based watcher (see above).
+    ...(watchPolling ? { watch: { usePolling: true, interval: 500, binaryInterval: 1000 } } : {}),
     warmup: {
       clientFiles: ['src/main.tsx', 'src/App.tsx', 'src/bonds/*.ts'],
     },

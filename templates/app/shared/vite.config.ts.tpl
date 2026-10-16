@@ -1,7 +1,7 @@
 /// <reference types="vitest/config" />
 import type { IncomingMessage } from 'node:http'
 import { createRequire } from 'node:module'
-import { appendFileSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import { appendFileSync, existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -200,6 +200,24 @@ const previewConsoleLogPlugin: Plugin = {
   },
 }
 
+// ── Dev-server watcher: poll the app tree in a molecule sandbox ──
+//
+// chokidar's inotify watch is pinned to the INODE of each directory it walks. Replace a
+// directory inside the served tree (`rm -rf src` + recreate — a restore, a checkout, a tool
+// that rewrites a tree, and in a sandbox the platform's own operations) and that watch
+// points at a dead inode: edits, touches and new files then produce NO event, chokidar
+// reports NO error, and it never re-arms — the dev server keeps serving the modules it
+// transformed before the swap while the files on disk are current, and nothing in its log
+// says so (reproduced against vite 8.1.5, 2026-10-16; X1 flash-m79 lost 3.5 minutes and a
+// 1.6-minute Playwright run to it). A stat-based polling watcher has no inode to lose, so in
+// a sandbox it is the correct trade: the tree walked is the app's own source, with
+// `node_modules`, `.git`, `dist` and `test-results` excluded. `/etc/mol` exists in every
+// molecule sandbox; `VITE_WATCH_POLLING=0|1` overrides either way.
+const watchPolling =
+  process.env.VITE_WATCH_POLLING === undefined
+    ? existsSync('/etc/mol')
+    : process.env.VITE_WATCH_POLLING !== '0' && process.env.VITE_WATCH_POLLING !== 'false'
+
 export default defineConfig({
   plugins: [{{VITE_PLUGINS}}, previewConsoleLogPlugin, stripPreviewBridgePlugin()],{{RESOLVE_EXTENSIONS}}
   resolve: {
@@ -274,6 +292,8 @@ export default defineConfig({
     fs: {
       strict: false,
     },
+    // Sandbox-only: a replaced directory cannot kill a stat-based watcher (see above).
+    ...(watchPolling ? { watch: { usePolling: true, interval: 500, binaryInterval: 1000 } } : {}),
     proxy: {
       // Proxy target precedence: explicit VITE_API_URL > $PORT (the API
       // server's listen port, set by `npm run dev` so api + proxy line up
