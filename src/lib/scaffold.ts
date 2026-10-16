@@ -34,6 +34,12 @@ import type { InferredMetadata } from './infer.js'
 import { injectLogo } from './logo-injector.js'
 import { ensureMigrateRunnerImports, refreshMigrateRunnerForManifest } from './migrate-runner.js'
 import {
+  databasePackageOf,
+  migrationDialectHeader,
+  projectDatabasePackage,
+  stampMigrationDialect,
+} from './migration-dialect.js'
+import {
   detectAppFramework,
   getMoleculeVersion,
   getRawRegistry,
@@ -2538,6 +2544,20 @@ export async function copyTemplateInstance(
       mlclDebug(`[scaffold] copySqlSetupScripts skipped: ${msg}`)
     }
 
+    // The template's OWN api/migrations/*.sql arrived with the tree copy above,
+    // unstamped. They are Postgres dialect whatever the app runs (148 of the 150
+    // flagship templates declare api-database-postgresql; the two that also name
+    // pglite are the same dialect), and a non-Postgres bond rewrites them as it
+    // applies them — so a SQLite/MySQL app's copy carries the same header
+    // {@link copySqlSetupScripts} writes, naming the database its migrations run
+    // on. Without it X1 flash-m69 read these very files as the convention to
+    // follow ('the existing `users` migration uses `uuid`/`timestamptz` too') and
+    // wrote its own schema in Postgres dialect for a SQLite app (+05:14).
+    await stampMigrationDialect(
+      join(apiPathForSetup, 'migrations'),
+      await projectDatabasePackage(apiPathForSetup),
+    )
+
     // Overwrite the template's checked-in api/src/scripts/migrate.ts with
     // the canonical migrate.ts.tpl. Most flagship templates were captured
     // before migrate.ts.tpl learned to replay __setup__/*.sql after
@@ -3699,15 +3719,23 @@ export async function copyTemplateDomainFiles(
   // The base scaffold ships migrations for users / devices / payments
   // only; flagships with app-specific resource tables (accounts /
   // transactions / posts / tickets / etc.) ship their own SQL here.
+  //
+  // The SQL is Postgres dialect whatever the app runs, and a non-Postgres bond
+  // rewrites it as it applies the file, so each copy is preceded by
+  // {@link migrationDialectHeader} naming the app's database. X1 flash-m69 read
+  // these files in a SQLite-bonded app and wrote its own schema the same way,
+  // then had to detect the dialect itself 36 s later (the finding's +05:14 path).
   const migrationsDir = join(templateDir, 'api', 'migrations')
   if (apiPath && existsSync(migrationsDir)) {
     const migrationsDestDir = join(apiPath, 'migrations')
     await mkdir(migrationsDestDir, { recursive: true })
+    const dialectHeader = migrationDialectHeader(await projectDatabasePackage(apiPath))
     const files = await readdir(migrationsDir)
     for (const file of files) {
       const src = join(migrationsDir, file)
       if (statSync(src).isFile() && file.endsWith('.sql')) {
-        await copyFile(src, join(migrationsDestDir, file))
+        const sql = await readFile(src, 'utf-8')
+        await writeFile(join(migrationsDestDir, file), `${dialectHeader}${sql}`)
       }
     }
     mlclDebug(`[scaffold] Copied ${files.length} template migrations`)
@@ -6642,6 +6670,12 @@ function sortKeys(obj: Record<string, string>): Record<string, string> {
  * back to the package's source path on disk so `mlcl create --skip-install`
  * still ships the table SQL — without it, every flagship missing SQL files
  * boots with empty schemas for resource packages it depends on.
+ *
+ * Each copy is preceded by {@link migrationDialectHeader} for the bond the
+ * selection names, so the file an agent opens in a SQLite/MySQL app says which
+ * database it runs on and that this published Postgres-dialect SQL applies as
+ * it is (X1 flash-m69 re-transcribed four packages' schemas after reading one of
+ * these files as broken).
  */
 export async function copySqlSetupScripts(
   projectPath: string,
@@ -6649,6 +6683,7 @@ export async function copySqlSetupScripts(
   allPackages: InferredPackage[],
 ): Promise<void> {
   const copiedFiles = new Set<string>()
+  const dialectHeader = migrationDialectHeader(databasePackageOf(selectedPackageNames))
 
   for (const pkgName of selectedPackageNames) {
     const pkg = allPackages.find((p) => p.name === pkgName)
@@ -6682,7 +6717,8 @@ export async function copySqlSetupScripts(
       })
       for (const source of candidates) {
         try {
-          await copyFile(source, join(projectPath, '__setup__', fileName))
+          const sql = await readFile(source, 'utf-8')
+          await writeFile(join(projectPath, '__setup__', fileName), `${dialectHeader}${sql}`)
           copiedFiles.add(table.sqlFile)
           break
         } catch (_error) {

@@ -91,6 +91,7 @@ import { sortImportStatements } from './format.js'
 import { t } from './i18n.js'
 import { generateLocaleArrayCode } from './locales.js'
 import { readMigrateRunner } from './migrate-runner.js'
+import { migrationDialectHeader, projectDatabasePackage } from './migration-dialect.js'
 import {
   findRegistryPackage,
   getMoleculeVersion,
@@ -555,6 +556,13 @@ async function planResourceInjection(
   // used to get the same Date.now(), so the files sorted by NAME, and
   // `comment_numbers` (a foreign key to `comments`) ran first and failed on a fresh
   // Postgres database: the API never booted (X1 flash-m38, 2026-10-16).
+  //
+  // The package's SQL is published in Postgres dialect and a non-Postgres bond rewrites
+  // it as the file is applied, so the file is written verbatim — preceded by a header
+  // naming the app's database (see {@link migrationDialectHeader}). Without it the only
+  // migration in a scaffolded SQLite app is a Postgres-dialect file the agent reads as
+  // broken and rewrites by hand (X1 flash-m69).
+  const dialectHeader = migrationDialectHeader(await projectDatabasePackage(projectPath))
   const baseTimestamp = Date.now()
   let tableIndex = 0
   for (const table of await tablesInDependencyOrder(pkg.tables)) {
@@ -591,7 +599,7 @@ async function planResourceInjection(
         } else {
           plan.migrations.push({
             name: migrationName,
-            content: sqlContent,
+            content: `${dialectHeader}${sqlContent}`,
             tableName: table.name,
           })
         }
