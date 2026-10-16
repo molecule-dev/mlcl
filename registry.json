@@ -20104,6 +20104,10 @@
         {
           "name": "article_tags",
           "sqlFile": "src/__setup__/articles.sql"
+        },
+        {
+          "name": "article_tags",
+          "sqlFile": "src/__setup__/articles_position.sql"
         }
       ],
       "path": "packages/api/resources/article",
