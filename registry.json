@@ -6159,6 +6159,7 @@
         "mapMachineState",
         "isFailedState",
         "isTransientExecPrecondition",
+        "isMachineWarmingUp",
         "createProvider",
         "DEFAULT_TEMPLATE_PREFIX",
         "DEFAULT_TEMPLATE_REGION",
