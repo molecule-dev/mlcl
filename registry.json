@@ -20119,6 +20119,14 @@
         {
           "name": "article_tags",
           "sqlFile": "src/__setup__/articles_position.sql"
+        },
+        {
+          "name": "follows",
+          "sqlFile": "src/__setup__/follows.sql"
+        },
+        {
+          "name": "reactions",
+          "sqlFile": "src/__setup__/reactions.sql"
         }
       ],
       "path": "packages/api/resources/article",
