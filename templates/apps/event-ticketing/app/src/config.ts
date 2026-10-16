@@ -8,6 +8,9 @@ export const authConfig = {
   registerEndpoint: '/users',
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
+  // The session-restore call: repoint it with the others when the app serves its own current
+  // user, or its 401 signs the user out right after a successful login.
+  currentUserEndpoint: '/users/me',
   // storage omitted → secure in-memory default; a localStorage bearer copy is XSS-exfiltratable and defeats the httpOnly session cookie [M1-1]
   autoRefresh: true,
 }

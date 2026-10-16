@@ -9,6 +9,9 @@ export const authConfig = {
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
   changePasswordEndpoint: '/users/me/password',
+  // The session-restore call: repoint it with the others when the app serves its own current
+  // user, or its 401 signs the user out right after a successful login.
+  currentUserEndpoint: '/users/me',
   // [M1-1] The auth client's own logout() only POSTs to logoutEndpoint while
   // it still holds the in-memory bearer token — which is gone after any full
   // page load. So instead of relying on it (and to avoid a redundant/duplicate

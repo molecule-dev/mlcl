@@ -9,6 +9,9 @@ export const authConfig = {
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
   changePasswordEndpoint: '/users/me/password',
+  // The session-restore call: repoint it with the others when the app serves its own current
+  // user, or its 401 signs the user out right after a successful login.
+  currentUserEndpoint: '/users/me',
   // JWT logout is purely client-side (clear the token). The backend has
   // no token-revocation list to update, so an empty string skips the
   // POST to the non-existent /auth/logout endpoint and avoids the 404.
