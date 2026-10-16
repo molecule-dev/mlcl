@@ -7,7 +7,7 @@
  * @module
  */
 
-import { join } from 'node:path'
+import { join, sep } from 'node:path'
 
 import {
   type ExportedDeclarations,
@@ -41,8 +41,45 @@ export interface ExtractedExport {
   /** @returns JSDoc text (separate from returnType which is the TS type) */
   returnDescription?: string
   deprecated?: boolean
-  /** For `export * as ns` namespaces: the members re-exported under the namespace. */
-  members?: { name: string; kind: ExtractedExport['kind']; description?: string }[]
+  /**
+   * The file declaring this export, relative to the package's `src/`
+   * (e.g. `authorization.ts`). Carried so a README block that had to be
+   * truncated can point at the one place the full text survives in an
+   * installed package: `dist/<same path>.d.ts`.
+   *
+   * Undefined when the declaration lives OUTSIDE the package's own `src/` —
+   * i.e. it is a third-party module the package re-exports.
+   */
+  sourceFile?: string
+  /**
+   * For a declaration that lives outside the package — a re-exported
+   * dependency's type — its path below `node_modules` (e.g.
+   * `@playwright/test/types/types.d.ts`). The truncation pointer prefers this
+   * over the package's own `dist/`, which does not contain those types.
+   */
+  externalSource?: string
+  /**
+   * For a namespace that re-exports a THIRD-PARTY module (`export { z }` of
+   * `import { z } from 'zod'`), the module's name. Such a namespace is a door
+   * to someone else's API, not this package's surface — inlining its several
+   * hundred members buries the package's own docs.
+   */
+  externalModule?: string
+  /**
+   * For `export * as ns` namespaces: the members re-exported under the
+   * namespace, with the SAME detail as a top-level export (signature,
+   * declaration, `@param`/`@returns`). A bare name+kind+first-line list forces
+   * the reader to go read the .d.ts for anything beyond a summary.
+   */
+  members?: ExtractedExport[]
+}
+
+/** Extraction context threaded through a declaration and its namespace members. */
+interface ExtractContext {
+  /** Absolute path of the package's `src/`. A declaration outside it is a third-party re-export. */
+  srcDir: string
+  /** 0 for a top-level export, 1 for a namespace member (members do not recurse further). */
+  depth: number
 }
 
 export interface ExtractedModule {
@@ -115,7 +152,7 @@ export function extractPackageApi(packageDir: string): ExtractedModule {
   const moduleJsDoc = extractModuleJsDoc(indexFile)
 
   // Extract all public exports
-  const exports = extractExports(indexFile, project)
+  const exports = extractExports(indexFile, project, srcDir)
 
   return {
     description: moduleJsDoc.description,
@@ -298,10 +335,24 @@ function parseJsDocFromNode(jsDoc: JSDoc): ModuleJsDoc {
 // ============================================================================
 
 /**
+ * Sort key placing a declaration in SOURCE order: its file path, then its
+ * character offset in that file. Two exports from the same file keep the order
+ * a reader meets them in while scrolling it; exports from different files group
+ * by file instead of interleaving alphabetically.
+ */
+function sourceOrderKey(declaration: ExportedDeclarations): string {
+  return `${declaration.getSourceFile().getFilePath()}\u0000${String(declaration.getStart()).padStart(12, '0')}`
+}
+
+/**
  * Extract all public exports from the index file, following re-exports.
  */
-function extractExports(indexFile: SourceFile, _project: Project): ExtractedExport[] {
-  const exports: ExtractedExport[] = []
+function extractExports(
+  indexFile: SourceFile,
+  _project: Project,
+  srcDir: string,
+): ExtractedExport[] {
+  const collected: Array<{ exp: ExtractedExport; order: string }> = []
   const seen = new Set<string>()
 
   const exportedDeclarations = indexFile.getExportedDeclarations()
@@ -314,13 +365,15 @@ function extractExports(indexFile: SourceFile, _project: Project): ExtractedExpo
     if (declarations.length === 0) continue
 
     const declaration = declarations[0]
-    const extracted = extractDeclaration(name, declaration)
+    const extracted = extractDeclaration(name, declaration, { srcDir, depth: 0 })
     if (extracted) {
-      exports.push(extracted)
+      collected.push({ exp: extracted, order: sourceOrderKey(declaration) })
     }
   }
 
-  // Sort: interfaces first, then types, then functions, then constants, then enums
+  // Group by kind (interfaces, then types, then functions, then constants, then
+  // enums), and WITHIN a group keep SOURCE order — a package's own file layout
+  // is the order a reader expects, and it keeps related exports together.
   const kindOrder: Record<string, number> = {
     interface: 0,
     type: 1,
@@ -331,47 +384,71 @@ function extractExports(indexFile: SourceFile, _project: Project): ExtractedExpo
     namespace: 6,
   }
 
-  exports.sort((a, b) => {
-    const orderA = kindOrder[a.kind] ?? 99
-    const orderB = kindOrder[b.kind] ?? 99
+  collected.sort((a, b) => {
+    const orderA = kindOrder[a.exp.kind] ?? 99
+    const orderB = kindOrder[b.exp.kind] ?? 99
     if (orderA !== orderB) return orderA - orderB
-    return a.name.localeCompare(b.name)
+    return a.order < b.order ? -1 : a.order > b.order ? 1 : 0
   })
 
-  return exports
+  return collected.map((c) => c.exp)
 }
 
 /**
  * Extract information about a single exported declaration.
+ *
+ * @param name - The exported name.
+ * @param declaration - The declaration node the name resolves to.
+ * @param ctx - The package's `src/` (to tell own code from a re-exported third-party
+ *   module) and the nesting depth (members are extracted at depth 1 and do not recurse).
  */
 function extractDeclaration(
   name: string,
   declaration: ExportedDeclarations,
+  ctx: ExtractContext,
 ): ExtractedExport | null {
   const kind = getDeclarationKind(declaration)
   if (!kind) return null
 
   const result: ExtractedExport = { name, kind }
 
+  const sourceFile = sourceFileOf(declaration, ctx.srcDir)
+  if (sourceFile) result.sourceFile = sourceFile
+  else {
+    const externalSource = externalSourceOf(declaration.getSourceFile().getFilePath())
+    if (externalSource) result.externalSource = externalSource
+  }
+
   // `export * as ns from './file'` — the declaration is the re-exported SourceFile.
-  // Capture its members so the generator lists them instead of an empty header.
-  if (kind === 'namespace' && Node.isSourceFile(declaration)) {
-    const members: NonNullable<ExtractedExport['members']> = []
-    const memberSeen = new Set<string>()
-    for (const [memberName, memberDecls] of declaration.getExportedDeclarations()) {
-      if (memberSeen.has(memberName) || memberDecls.length === 0) continue
-      memberSeen.add(memberName)
-      const memberKind = getDeclarationKind(memberDecls[0])
-      if (!memberKind) continue
-      const memberDoc = getDeclarationJsDoc(memberDecls[0])
-      const memberDesc = memberDoc?.getDescription().trim()
-      members.push({
-        name: memberName,
-        kind: memberKind,
-        ...(memberDesc ? { description: memberDesc } : {}),
-      })
+  // Capture its members with full detail (signature, declaration, JSDoc,
+  // @param/@returns) so the namespaced API is as documented as the top-level one;
+  // a one-line name list sends the reader to the .d.ts for everything else.
+  //
+  // A namespace whose source is NOT this package (zod under `export { z }`) is
+  // the exception: its members are another library's public API, hundreds of
+  // them, and expanding them buries the package's own docs. Name the module
+  // instead — the reader can install and read that one directly.
+  if (kind === 'namespace' && Node.isSourceFile(declaration) && ctx.depth === 0) {
+    if (!sourceFile) {
+      if (result.externalSource) result.externalModule = moduleNameOf(result.externalSource)
+    } else {
+      const members: ExtractedExport[] = []
+      const memberOrder: Array<{ exp: ExtractedExport; order: string }> = []
+      const memberSeen = new Set<string>()
+      for (const [memberName, memberDecls] of declaration.getExportedDeclarations()) {
+        if (memberSeen.has(memberName) || memberDecls.length === 0) continue
+        memberSeen.add(memberName)
+        const member = extractDeclaration(memberName, memberDecls[0], {
+          srcDir: ctx.srcDir,
+          depth: ctx.depth + 1,
+        })
+        if (!member) continue
+        memberOrder.push({ exp: member, order: sourceOrderKey(memberDecls[0]) })
+      }
+      memberOrder.sort((a, b) => (a.order < b.order ? -1 : a.order > b.order ? 1 : 0))
+      for (const m of memberOrder) members.push(m.exp)
+      if (members.length > 0) result.members = members
     }
-    if (members.length > 0) result.members = members
   }
 
   // Get JSDoc
@@ -385,20 +462,20 @@ function extractDeclaration(
       result.deprecated = true
     }
 
-    // Get params and return description for functions
-    if (kind === 'function') {
-      const paramTags = jsDoc.getTags().filter((tag) => tag.getTagName() === 'param')
-      if (paramTags.length > 0) {
-        result.params = paramTags
-          .map((tag) => extractParamFromTag(tag))
-          .filter(Boolean) as ExtractedParam[]
-      }
+    // @param / @returns are read for EVERY kind, not just functions: a class
+    // documents its constructor args at class level, and a const holding a
+    // callable (a provider factory, a middleware) carries the same tags.
+    const paramTags = jsDoc.getTags().filter((tag) => tag.getTagName() === 'param')
+    if (paramTags.length > 0) {
+      result.params = paramTags
+        .map((tag) => extractParamFromTag(tag))
+        .filter(Boolean) as ExtractedParam[]
+    }
 
-      // Get @returns description text (separate from the actual TS return type)
-      const returnTag = jsDoc.getTags().find((tag) => tag.getTagName() === 'returns')
-      if (returnTag) {
-        result.returnDescription = unwrapJsdocProse(getTagText(returnTag))
-      }
+    // Get @returns description text (separate from the actual TS return type)
+    const returnTag = jsDoc.getTags().find((tag) => tag.getTagName() === 'returns')
+    if (returnTag) {
+      result.returnDescription = unwrapJsdocProse(getTagText(returnTag))
     }
   }
 
@@ -419,6 +496,57 @@ function extractDeclaration(
   }
 
   return result
+}
+
+/**
+ * The file declaring an export, relative to the package's own `src/` directory
+ * (e.g. `authorization.ts`). Undefined when the declaration lives anywhere else —
+ * a package's dependency, or the TypeScript lib — which is how a third-party
+ * re-export is told apart from the package's own API.
+ *
+ * @param declaration - The declaration node.
+ * @param srcDir - Absolute path of the package's `src/`.
+ * @returns The `src/`-relative path, or undefined when the declaration is not the package's own.
+ */
+function sourceFileOf(declaration: ExportedDeclarations, srcDir: string): string | undefined {
+  const filePath = declaration.getSourceFile().getFilePath()
+  const prefix = srcDir.endsWith(sep) ? srcDir : srcDir + sep
+  return filePath.startsWith(prefix) ? filePath.slice(prefix.length) : undefined
+}
+
+/**
+ * The path of a declaration's file BELOW `node_modules` — `zod/v4/classic/external.d.ts`
+ * for `…/node_modules/zod/v4/classic/external.d.ts`.
+ *
+ * A truncated README block names this path so the reader can open the file the
+ * documentation was cut from. Without it the pointer degrades to a directory,
+ * which is exactly the "go grep the .d.ts yourself" step the README exists to
+ * remove.
+ *
+ * @param filePath - Absolute path of the declaration's source file.
+ * @returns The node_modules-relative path, or undefined when the file is not under one.
+ */
+function externalSourceOf(filePath: string): string | undefined {
+  const marker = `${sep}node_modules${sep}`
+  // Last occurrence wins: a dependency's own nested node_modules is the closest owner.
+  const idx = filePath.lastIndexOf(marker)
+  if (idx < 0) return undefined
+  return filePath.slice(idx + marker.length) || undefined
+}
+
+/**
+ * The package name of a module living under `node_modules` — `zod` for
+ * `zod/v4/classic/external.d.ts`, `@playwright/test` for a scoped one.
+ *
+ * @param externalSource - A path below `node_modules` (see {@link externalSourceOf}).
+ * @returns The module name.
+ */
+function moduleNameOf(externalSource: string): string {
+  const segments = externalSource.split(sep)
+  if (segments[0]?.startsWith('@') && segments.length > 1) {
+    return `${segments[0]}/${segments[1]}`
+  }
+  return segments[0] ?? externalSource
 }
 
 /**
@@ -538,6 +666,23 @@ function getSignature(
       return undefined
     }
 
+    case 'class': {
+      if (Node.isClassDeclaration(declaration)) {
+        const typeParams = declaration.getTypeParameters()
+        const typeParamsStr =
+          typeParams.length > 0 ? `<${typeParams.map((tp) => tp.getText()).join(', ')}>` : ''
+        const ext = declaration.getExtends()
+        const impls = declaration.getImplements()
+        let heritage = ''
+        if (ext) heritage += ` extends ${simplifyType(ext.getExpression().getText())}`
+        if (impls.length > 0) {
+          heritage += ` implements ${impls.map((i) => simplifyType(i.getText())).join(', ')}`
+        }
+        return `class ${name}${typeParamsStr}${heritage}`
+      }
+      return undefined
+    }
+
     case 'const': {
       if (Node.isVariableDeclaration(declaration)) {
         const type = declaration.getType().getText(declaration)
@@ -557,7 +702,8 @@ function getSignature(
 
 /**
  * Extract the full TypeScript declaration text for rendering in code blocks.
- * For interfaces, types, and enums: uses the raw source text (preserves member JSDoc).
+ * For interfaces, types, enums, and classes: uses the raw source text (preserves
+ * member JSDoc — a class's methods and their docs are the class's API).
  * For functions: builds a clean function declaration from the AST.
  * For constants: builds a const declaration from the resolved type.
  */
@@ -566,11 +712,12 @@ function extractDeclarationText(
   kind: ExtractedExport['kind'],
   declaration: ExportedDeclarations,
 ): string | undefined {
-  // For interfaces, types, and enums: extract raw source text
+  // For interfaces, types, enums, and classes: extract raw source text
   if (
     Node.isInterfaceDeclaration(declaration) ||
     Node.isTypeAliasDeclaration(declaration) ||
-    Node.isEnumDeclaration(declaration)
+    Node.isEnumDeclaration(declaration) ||
+    Node.isClassDeclaration(declaration)
   ) {
     return extractSourceText(declaration)
   }

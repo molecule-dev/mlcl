@@ -192,7 +192,7 @@ function generateStandardMd(
 
   // 6. API (from exports)
   if (extracted.exports.length > 0) {
-    sections.push(generateApiSection(extracted.exports))
+    sections.push(generateApiSection(extracted.exports, pkg.name))
   }
 
   // 7. Available Providers — ANY package with registered providers lists them,
@@ -385,64 +385,165 @@ function generateUsageSection(examples: string[]): string {
   return `## Quick Start\n\n${blocks.join('\n\n')}`
 }
 
-function generateApiSection(exports: ExtractedExport[]): string {
+/**
+ * Per-export prose cap. A README is the whole reference a reader gets — the
+ * point is that every export carries its description, not that any one export
+ * carries all of it. Past this, a block is cut at a line boundary and pointed
+ * at the source, so the document stays scannable and no export is dropped.
+ */
+const MAX_EXPORT_DESCRIPTION_CHARS = 1500
+
+/**
+ * Per-export declaration cap. A re-export of an external library's types
+ * (`export * from '@playwright/test'`) otherwise inlines a 270 KB interface —
+ * one such block dwarfs the rest of the fleet's docs combined. Long blocks are
+ * cut at a line boundary and pointed at the `.d.ts` that ships the full text.
+ *
+ * Set high enough that an ordinary interface or class — the ones a reader
+ * actually needs whole — fits: across the fleet only ~20 of 1031 packages have
+ * a single declaration longer than this.
+ */
+const MAX_DECLARATION_CHARS = 8000
+
+/**
+ * Where an export's untruncated text lives once the package is installed.
+ *
+ * The package's own `src/x.ts` compiles to `dist/x.d.ts`, which ships in the
+ * tarball. A re-exported dependency's type did NOT compile into that dist —
+ * it lives in the dependency's own files — so that case points at the
+ * dependency instead of at a file the truncated text was never in.
+ *
+ * @param packageName - The package being documented (`@molecule/...`).
+ * @param exp - The export whose block had to be cut.
+ * @returns A path the reader can open from a project root.
+ */
+function installedDeclarationPath(packageName: string, exp: ExtractedExport): string {
+  if (exp.sourceFile) {
+    return `node_modules/${packageName}/dist/${exp.sourceFile.replace(/\.tsx?$/, '.d.ts')}`
+  }
+  if (exp.externalSource) return `node_modules/${exp.externalSource}`
+  return `node_modules/${packageName}/dist`
+}
+
+/**
+ * Cut text to a character budget at the last line boundary, so a truncated
+ * block never ends mid-token.
+ *
+ * @param text - The text to bound.
+ * @param limit - Maximum characters to keep.
+ * @returns The kept text and whether anything was dropped.
+ */
+function capText(text: string, limit: number): { text: string; truncated: boolean } {
+  if (text.length <= limit) return { text, truncated: false }
+  const cut = text.slice(0, limit)
+  const lastNewline = cut.lastIndexOf('\n')
+  // Only honour a line boundary that keeps most of the budget — a single very
+  // long line (a one-line type alias) still gets cut mid-line rather than
+  // losing almost everything.
+  const kept = lastNewline > limit * 0.5 ? cut.slice(0, lastNewline) : cut
+  return { text: kept.trimEnd(), truncated: true }
+}
+
+/** Capping context for one export block: heading level, package name, name prefix. */
+interface ExportBlockContext {
+  /** Markdown heading level — 4 for a top-level export, 5 for a namespace member. */
+  level: number
+  /** Package name, used to point a truncated declaration at the installed `.d.ts`. */
+  packageName: string
+  /** Dotted namespace prefix for a member (e.g. `authorization`); absent at top level. */
+  prefix?: string
+}
+
+/**
+ * Render one export as a single self-contained block: heading, description,
+ * TypeScript signature, `@param` lines, `@returns` line.
+ *
+ * @param exp - The extracted export.
+ * @param ctx - Heading level, package name, and namespace prefix.
+ * @returns The markdown block.
+ */
+function formatExportBlock(exp: ExtractedExport, ctx: ExportBlockContext): string {
+  switch (exp.kind) {
+    case 'function':
+      return formatFunctionExportDetailed(exp, ctx)
+    case 'const':
+      return formatConstantExport(exp, ctx)
+    case 'namespace':
+      return formatNamespaceExport(exp, ctx)
+    default:
+      return formatDeclarationExport(exp, ctx)
+  }
+}
+
+/** The name to show in a heading: `ns.member` for a namespace member. */
+function displayName(exp: ExtractedExport, ctx: ExportBlockContext): string {
+  return ctx.prefix ? `${ctx.prefix}.${exp.name}` : exp.name
+}
+
+/**
+ * The description paragraph for an export, bounded and — when cut — followed by
+ * a pointer to the file that still has the whole text.
+ */
+function boundedDescription(exp: ExtractedExport, ctx: ExportBlockContext): string | undefined {
+  if (!exp.description) return undefined
+  const { text, truncated } = capText(exp.description, MAX_EXPORT_DESCRIPTION_CHARS)
+  if (!truncated) return text
+  return `${text}\n\n*(description truncated — read the full text in \`${installedDeclarationPath(ctx.packageName, exp)}\`.)*`
+}
+
+/** The signature code block for an export, bounded, with a pointer when cut. */
+function declarationBlock(exp: ExtractedExport, ctx: ExportBlockContext): string | undefined {
+  const source = exp.declaration ?? exp.signature
+  if (!source) return undefined
+  const { text, truncated } = capText(source, MAX_DECLARATION_CHARS)
+  const body = truncated
+    ? `${text}\n// … truncated — the full declaration is in ${installedDeclarationPath(ctx.packageName, exp)}`
+    : text
+  return `\`\`\`typescript\n${body}\n\`\`\``
+}
+
+/**
+ * The `@param` and `@returns` lines for an export. `@param` entries describing
+ * fields of a destructured object (`props.children`) stay listed here — they
+ * belong to the single object param and are what the caller needs to fill in.
+ */
+function paramAndReturnLines(fn: ExtractedExport): string | undefined {
+  const parts: string[] = []
+
+  const describedParams = fn.params?.filter((p) => p.description)
+  if (describedParams && describedParams.length > 0) {
+    parts.push(describedParams.map((p) => `- \`${p.name}\` — ${p.description}`).join('\n'))
+  }
+
+  if (fn.returnDescription) {
+    parts.push(`**Returns:** ${fn.returnDescription}`)
+  }
+
+  return parts.length > 0 ? parts.join('\n\n') : undefined
+}
+
+function generateApiSection(exports: ExtractedExport[], packageName: string): string {
   const sections: string[] = ['## API']
+  const ctx: ExportBlockContext = { level: 4, packageName }
 
-  // Group by kind
-  const interfaces = exports.filter((e) => e.kind === 'interface')
-  const types = exports.filter((e) => e.kind === 'type')
-  const enums = exports.filter((e) => e.kind === 'enum')
-  const functions = exports.filter((e) => e.kind === 'function')
-  const constants = exports.filter((e) => e.kind === 'const')
-  const classes = exports.filter((e) => e.kind === 'class')
-  const namespaces = exports.filter((e) => e.kind === 'namespace')
+  // Group by kind — the order the reader looks for things in, and the order the
+  // extractor already sorted each group into (source order within the kind).
+  const groups: Array<{ title: string; kind: ExtractedExport['kind'] }> = [
+    { title: '### Interfaces', kind: 'interface' },
+    { title: '### Types', kind: 'type' },
+    { title: '### Classes', kind: 'class' },
+    { title: '### Enums', kind: 'enum' },
+    { title: '### Functions', kind: 'function' },
+    { title: '### Constants', kind: 'const' },
+    { title: '### Namespaces', kind: 'namespace' },
+  ]
 
-  if (interfaces.length > 0) {
-    sections.push('### Interfaces')
-    for (const iface of interfaces) {
-      sections.push(formatDeclarationExport(iface))
-    }
-  }
-
-  if (types.length > 0) {
-    sections.push('### Types')
-    for (const type of types) {
-      sections.push(formatDeclarationExport(type))
-    }
-  }
-
-  if (classes.length > 0) {
-    sections.push('### Classes')
-    for (const cls of classes) {
-      sections.push(formatDeclarationExport(cls))
-    }
-  }
-
-  if (enums.length > 0) {
-    sections.push('### Enums')
-    for (const enumDecl of enums) {
-      sections.push(formatDeclarationExport(enumDecl))
-    }
-  }
-
-  if (functions.length > 0) {
-    sections.push('### Functions')
-    for (const fn of functions) {
-      sections.push(formatFunctionExportDetailed(fn))
-    }
-  }
-
-  if (constants.length > 0) {
-    sections.push('### Constants')
-    for (const constant of constants) {
-      sections.push(formatConstantExport(constant))
-    }
-  }
-
-  if (namespaces.length > 0) {
-    sections.push('### Namespaces')
-    for (const ns of namespaces) {
-      sections.push(formatNamespaceExport(ns))
+  for (const group of groups) {
+    const matching = exports.filter((e) => e.kind === group.kind)
+    if (matching.length === 0) continue
+    sections.push(group.title)
+    for (const exp of matching) {
+      sections.push(formatExportBlock(exp, ctx))
     }
   }
 
@@ -452,18 +553,25 @@ function generateApiSection(exports: ExtractedExport[]): string {
 /**
  * Format an interface, type alias, enum, or class export with full declaration code block.
  */
-function formatDeclarationExport(exp: ExtractedExport): string {
+function formatDeclarationExport(exp: ExtractedExport, ctx: ExportBlockContext): string {
   const parts: string[] = []
   const deprecated = exp.deprecated ? ' *(deprecated)*' : ''
 
-  parts.push(`#### \`${exp.name}\`${deprecated}`)
+  parts.push(`${'#'.repeat(ctx.level)} \`${displayName(exp, ctx)}\`${deprecated}`)
 
-  if (exp.description) {
-    parts.push(exp.description)
+  const description = boundedDescription(exp, ctx)
+  if (description) {
+    parts.push(description)
   }
 
-  if (exp.declaration) {
-    parts.push(`\`\`\`typescript\n${exp.declaration}\n\`\`\``)
+  const declaration = declarationBlock(exp, ctx)
+  if (declaration) {
+    parts.push(declaration)
+  }
+
+  const paramsAndReturn = paramAndReturnLines(exp)
+  if (paramsAndReturn) {
+    parts.push(paramsAndReturn)
   }
 
   return parts.join('\n\n')
@@ -472,7 +580,7 @@ function formatDeclarationExport(exp: ExtractedExport): string {
 /**
  * Format a function export with signature code block, param descriptions, and return info.
  */
-function formatFunctionExportDetailed(fn: ExtractedExport): string {
+function formatFunctionExportDetailed(fn: ExtractedExport, ctx: ExportBlockContext): string {
   const parts: string[] = []
   const deprecated = fn.deprecated ? ' *(deprecated)*' : ''
 
@@ -485,27 +593,22 @@ function formatFunctionExportDetailed(fn: ExtractedExport): string {
   if (!paramNames && fn.params?.some((p) => p.name.includes('.'))) {
     paramNames = 'props'
   }
-  parts.push(`#### \`${fn.name}(${paramNames})\`${deprecated}`)
+  parts.push(`${'#'.repeat(ctx.level)} \`${displayName(fn, ctx)}(${paramNames})\`${deprecated}`)
 
-  if (fn.description) {
-    parts.push(fn.description)
+  const description = boundedDescription(fn, ctx)
+  if (description) {
+    parts.push(description)
   }
 
   // Full function signature in code block
-  if (fn.declaration) {
-    parts.push(`\`\`\`typescript\n${fn.declaration}\n\`\`\``)
+  const declaration = declarationBlock(fn, ctx)
+  if (declaration) {
+    parts.push(declaration)
   }
 
-  // Param descriptions (only if any param has a description from JSDoc)
-  const describedParams = fn.params?.filter((p) => p.description)
-  if (describedParams && describedParams.length > 0) {
-    const paramLines = describedParams.map((p) => `- \`${p.name}\` — ${p.description}`)
-    parts.push(paramLines.join('\n'))
-  }
-
-  // Return description from @returns JSDoc
-  if (fn.returnDescription) {
-    parts.push(`**Returns:** ${fn.returnDescription}`)
+  const paramsAndReturn = paramAndReturnLines(fn)
+  if (paramsAndReturn) {
+    parts.push(paramsAndReturn)
   }
 
   return parts.join('\n\n')
@@ -514,41 +617,83 @@ function formatFunctionExportDetailed(fn: ExtractedExport): string {
 /**
  * Format a constant export with type declaration.
  */
-function formatConstantExport(c: ExtractedExport): string {
+function formatConstantExport(c: ExtractedExport, ctx: ExportBlockContext): string {
   const parts: string[] = []
   const deprecated = c.deprecated ? ' *(deprecated)*' : ''
 
-  parts.push(`#### \`${c.name}\`${deprecated}`)
+  parts.push(`${'#'.repeat(ctx.level)} \`${displayName(c, ctx)}\`${deprecated}`)
 
-  if (c.description) {
-    parts.push(c.description)
+  const description = boundedDescription(c, ctx)
+  if (description) {
+    parts.push(description)
   }
 
-  if (c.declaration) {
-    parts.push(`\`\`\`typescript\n${c.declaration}\n\`\`\``)
+  const declaration = declarationBlock(c, ctx)
+  if (declaration) {
+    parts.push(declaration)
+  }
+
+  const paramsAndReturn = paramAndReturnLines(c)
+  if (paramsAndReturn) {
+    parts.push(paramsAndReturn)
   }
 
   return parts.join('\n\n')
 }
 
 /**
- * Format a namespace export.
+ * Format a namespace export — `export * as ns from './file'`.
+ *
+ * Each member gets its OWN block at the same depth as a top-level export, with
+ * its signature, description, `@param` lines and `@returns` line, because the
+ * namespace is the only place those members appear. A bare `name — kind: first
+ * line` list reads as documentation while leaving the reader to grep the
+ * `.d.ts` for anything actionable (what a function takes, what it returns).
+ *
+ * The one exception is a namespace that re-exports a THIRD-PARTY module
+ * (`export { z }` of zod): its members are that library's API, several hundred
+ * of them, and expanding them would push this package's own exports out of
+ * sight. That one is summarized and pointed at the module.
  */
-function formatNamespaceExport(ns: ExtractedExport): string {
+function formatNamespaceExport(ns: ExtractedExport, ctx: ExportBlockContext): string {
   const parts: string[] = []
-  parts.push(`#### \`${ns.name}\``)
-  if (ns.description) {
-    parts.push(ns.description)
+  const deprecated = ns.deprecated ? ' *(deprecated)*' : ''
+
+  parts.push(`${'#'.repeat(ctx.level)} \`${displayName(ns, ctx)}\`${deprecated}`)
+
+  const description = boundedDescription(ns, ctx)
+  if (description) {
+    parts.push(description)
   }
-  // `export * as ns` re-exports a whole module; list its members so the namespaced
-  // API (e.g. `schema.validate`, `types.Resource`) is discoverable rather than empty.
-  if (ns.members && ns.members.length > 0) {
-    const rows = ns.members.map((m) => {
-      const label = `\`${ns.name}.${m.name}\` — ${m.kind}`
-      return m.description ? `- ${label}: ${m.description.split('\n')[0]}` : `- ${label}`
-    })
-    parts.push(`Members:\n\n${rows.join('\n')}`)
+
+  if (ns.externalModule) {
+    parts.push(
+      `Re-exports the \`${ns.externalModule}\` module — \`${displayName(ns, ctx)}.<name>\` is exactly ` +
+        `\`${ns.externalModule}.<name>\`, documented by that package (installed at ` +
+        `\`node_modules/${ns.externalModule}\`).`,
+    )
+    return parts.join('\n\n')
   }
+
+  if (!ns.members || ns.members.length === 0) {
+    // Nothing to expand — fall back to whatever declaration we have.
+    const declaration = declarationBlock(ns, ctx)
+    if (declaration) parts.push(declaration)
+    return parts.join('\n\n')
+  }
+
+  const memberCtx: ExportBlockContext = {
+    ...ctx,
+    level: Math.min(ctx.level + 1, 6),
+    prefix: displayName(ns, ctx),
+  }
+  parts.push(
+    `Re-exported as a namespace — reach every member below through it (e.g. \`${displayName(ns, ctx)}.<name>\`).`,
+  )
+  for (const member of ns.members) {
+    parts.push(formatExportBlock(member, memberCtx))
+  }
+
   return parts.join('\n\n')
 }
 

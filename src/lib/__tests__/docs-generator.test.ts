@@ -752,3 +752,220 @@ describe('generateMoleculeMd — function formatting', () => {
     expect(result).toContain('*(deprecated)*')
   })
 })
+
+// ============================================================================
+// Namespace members
+// ============================================================================
+describe('generateMoleculeMd — namespace members', () => {
+  function namespaceExport(): ExtractedExport {
+    return {
+      name: 'authorization',
+      kind: 'namespace',
+      sourceFile: 'authorization.ts',
+      members: [
+        {
+          name: 'invalidateDeviceExistsCache',
+          kind: 'function',
+          sourceFile: 'authorization.ts',
+          description: 'Evict a single device’s positive entry from the cache.',
+          declaration: 'function invalidateDeviceExistsCache(deviceId: string): void',
+          params: [{ name: 'deviceId', type: 'string', description: 'The device id to drop.' }],
+          returnDescription: 'Nothing.',
+        },
+      ],
+    }
+  }
+
+  it('renders each member as a full block, not a one-line summary', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({ exports: [namespaceExport()] }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/api-resource-user' }),
+      makeOptions(),
+    )
+    // Heading with the member's parameter list, reachable through the namespace.
+    expect(result).toContain('##### `authorization.invalidateDeviceExistsCache(deviceId)`')
+    // The description is the member's own, complete — not its first line.
+    expect(result).toContain('Evict a single device’s positive entry from the cache.')
+    // The TypeScript signature, the @param line, and the @returns line.
+    expect(result).toContain('function invalidateDeviceExistsCache(deviceId: string): void')
+    expect(result).toContain('- `deviceId` — The device id to drop.')
+    expect(result).toContain('**Returns:** Nothing.')
+    // The old one-line form is gone.
+    expect(result).not.toContain('— function:')
+    expect(result).not.toContain('Members:')
+  })
+
+  it('expands an interface member with its declaration', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [
+          {
+            name: 'types',
+            kind: 'namespace',
+            members: [
+              {
+                name: 'Session',
+                kind: 'interface',
+                description: 'A signed-in session.',
+                declaration: 'interface Session {\n  userId: string\n}',
+              },
+            ],
+          },
+        ],
+      }),
+      makeRegistryEntry(),
+      makePackageJson(),
+      makeOptions(),
+    )
+    expect(result).toContain('##### `types.Session`')
+    expect(result).toContain('interface Session {')
+  })
+
+  it('summarizes a namespace that re-exports a third-party module instead of expanding it', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [
+          {
+            name: 'z',
+            kind: 'namespace',
+            externalModule: 'zod',
+            members: [{ name: 'string', kind: 'const', declaration: 'const string: ZodString' }],
+          },
+        ],
+      }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/api-resource-user' }),
+      makeOptions(),
+    )
+    expect(result).toContain('Re-exports the `zod` module')
+    expect(result).toContain('node_modules/zod')
+    // The other library's several hundred members are not inlined.
+    expect(result).not.toContain('##### `z.string`')
+  })
+})
+
+// ============================================================================
+// Class exports
+// ============================================================================
+describe('generateMoleculeMd — class exports', () => {
+  it('renders a class with its declaration and constructor params', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [
+          {
+            name: 'DatabaseClient',
+            kind: 'class',
+            description: 'A pooled database client.',
+            declaration: 'class DatabaseClient {\n  constructor(config: DatabaseConfig)\n}',
+            params: [
+              { name: 'config', type: 'DatabaseConfig', description: 'Connection options.' },
+            ],
+            returnDescription: 'A new client.',
+          },
+        ],
+      }),
+      makeRegistryEntry(),
+      makePackageJson(),
+      makeOptions(),
+    )
+    expect(result).toContain('#### `DatabaseClient`')
+    expect(result).toContain('```typescript\nclass DatabaseClient {')
+    expect(result).toContain('- `config` — Connection options.')
+    expect(result).toContain('**Returns:** A new client.')
+  })
+})
+
+// ============================================================================
+// Size bounds
+// ============================================================================
+describe('generateMoleculeMd — size bounds', () => {
+  function exportWithDescription(length: number): ExtractedExport {
+    return {
+      name: 'longDoc',
+      kind: 'function',
+      sourceFile: 'long-doc.ts',
+      description: Array.from(
+        { length },
+        (_, i) => `line ${i} of a description that runs well past the cap`,
+      ).join('\n'),
+      declaration: 'function longDoc(): void',
+    }
+  }
+
+  it('caps a very long description and points at the source that has it all', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({ exports: [exportWithDescription(600)] }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/api-database' }),
+      makeOptions(),
+    )
+    expect(result).toContain('description truncated')
+    expect(result).toContain('node_modules/@molecule/api-database/dist/long-doc.d.ts')
+    // Bounded: nowhere near the ~600 lines that went in.
+    expect(result.split('\n').length).toBeLessThan(80)
+  })
+
+  it('caps a huge declaration at a line boundary and names the installed .d.ts', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [
+          {
+            name: 'Page',
+            kind: 'interface',
+            sourceFile: 'page.ts',
+            declaration: `interface Page {\n${Array.from({ length: 4000 }, (_, i) => `  member${i}: string`).join('\n')}\n}`,
+          },
+        ],
+      }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/api-e2e' }),
+      makeOptions(),
+    )
+    expect(result).toContain('… truncated — the full declaration is in')
+    expect(result).toContain('node_modules/@molecule/api-e2e/dist/page.d.ts')
+    expect(result).not.toContain('member3999')
+  })
+
+  it('points a truncated re-exported type at the dependency, not this package’s dist', () => {
+    // A type re-exported from a dependency never compiles into this package's
+    // dist/ — a pointer there is a dead end.
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [
+          {
+            name: 'Page',
+            kind: 'interface',
+            externalSource: '@playwright/test/types/types.d.ts',
+            declaration: `interface Page {\n${Array.from({ length: 4000 }, (_, i) => `  member${i}: string`).join('\n')}\n}`,
+          },
+        ],
+      }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/app-e2e-fixtures-default' }),
+      makeOptions(),
+    )
+    expect(result).toContain('node_modules/@playwright/test/types/types.d.ts')
+    expect(result).not.toContain('node_modules/@molecule/app-e2e-fixtures-default/dist')
+  })
+
+  it('leaves a normal-sized description and declaration untouched', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [
+          {
+            name: 'query',
+            kind: 'function',
+            description: 'Executes a parameterized SQL query.',
+            declaration: 'function query(): void',
+          },
+        ],
+      }),
+      makeRegistryEntry(),
+      makePackageJson(),
+      makeOptions(),
+    )
+    expect(result).not.toContain('truncated')
+    expect(result).toContain('Executes a parameterized SQL query.')
+  })
+})

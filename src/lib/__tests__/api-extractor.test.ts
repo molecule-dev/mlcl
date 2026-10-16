@@ -11,12 +11,17 @@ import { extractPackageApi } from '../api-extractor.js'
 // ---------------------------------------------------------------------------
 const tempDirs: string[] = []
 
-async function createTempPackage(prefix: string, indexContent: string): Promise<string> {
+/** A fresh temp package directory with an empty `src/`, cleaned up after the suite. */
+async function createTempDir(prefix: string): Promise<string> {
   const dir = await mkdtemp(join(tmpdir(), `api-extractor-test-${prefix}-`))
   tempDirs.push(dir)
-  const srcDir = join(dir, 'src')
-  await mkdir(srcDir, { recursive: true })
-  await writeFile(join(srcDir, 'index.ts'), indexContent)
+  await mkdir(join(dir, 'src'), { recursive: true })
+  return dir
+}
+
+async function createTempPackage(prefix: string, indexContent: string): Promise<string> {
+  const dir = await createTempDir(prefix)
+  await writeFile(join(dir, 'src', 'index.ts'), indexContent)
   return dir
 }
 
@@ -401,5 +406,105 @@ export function ToastProvider({
     expect(iface!.declaration).toBeDefined()
     expect(iface!.declaration).toContain('timeout: number')
     expect(iface!.declaration).toContain('retries?: number')
+  })
+
+  it('extracts a class with its declaration and constructor params', async () => {
+    const dir = await createTempPackage(
+      'class',
+      `/**
+ * A pooled client.
+ * @param url - Where to connect.
+ * @returns A ready client.
+ */
+export class Client {
+  constructor(url: string) {}
+}
+`,
+    )
+
+    const result = extractPackageApi(dir)
+    const cls = result.exports.find((e) => e.name === 'Client')
+    expect(cls).toBeDefined()
+    expect(cls!.kind).toBe('class')
+    expect(cls!.signature).toBe('class Client')
+    // A class's methods ARE its API, so the raw declaration is carried.
+    expect(cls!.declaration).toContain('constructor(url: string)')
+    expect(cls!.params![0].description).toBe('Where to connect.')
+    expect(cls!.returnDescription).toBe('A ready client.')
+  })
+
+  it('extracts namespace members with the same detail as top-level exports', async () => {
+    const dir = await createTempDir('ns-members')
+    await writeFile(
+      join(dir, 'src', 'authorization.ts'),
+      `/**
+ * Evict one device from the exists-cache.
+ * @param deviceId - The device id to drop.
+ * @returns Nothing.
+ */
+export const invalidateDeviceExistsCache = (deviceId: string): void => {}
+
+/** A session. */
+export interface Session {
+  userId: string
+}
+`,
+    )
+    await writeFile(
+      join(dir, 'src', 'index.ts'),
+      `export * as authorization from './authorization.js'
+`,
+    )
+
+    const result = extractPackageApi(dir)
+    const ns = result.exports.find((e) => e.name === 'authorization')
+    expect(ns).toBeDefined()
+    expect(ns!.kind).toBe('namespace')
+
+    const evict = ns!.members!.find((m) => m.name === 'invalidateDeviceExistsCache')
+    expect(evict).toBeDefined()
+    expect(evict!.description).toBe('Evict one device from the exists-cache.')
+    expect(evict!.declaration).toContain('invalidateDeviceExistsCache')
+    expect(evict!.params![0].description).toBe('The device id to drop.')
+    expect(evict!.returnDescription).toBe('Nothing.')
+    expect(evict!.sourceFile).toBe('authorization.ts')
+
+    const session = ns!.members!.find((m) => m.name === 'Session')
+    expect(session!.kind).toBe('interface')
+    expect(session!.description).toBe('A session.')
+    expect(session!.declaration).toContain('userId: string')
+  })
+
+  it('names the module a namespace re-exports when its source is outside the package', async () => {
+    const dir = await createTempPackage('external-ns', 'export * as zod from "fakelib"\n')
+    // A minimal installed dependency for ts-morph to resolve the re-export to.
+    const libDir = join(dir, 'node_modules', 'fakelib')
+    await mkdir(libDir, { recursive: true })
+    await writeFile(
+      join(libDir, 'package.json'),
+      JSON.stringify({ name: 'fakelib', version: '1.0.0', types: 'index.d.ts' }),
+    )
+    await writeFile(join(libDir, 'index.d.ts'), 'export declare const thing: string\n')
+
+    const result = extractPackageApi(dir)
+    const ns = result.exports.find((e) => e.name === 'zod')
+    expect(ns).toBeDefined()
+    expect(ns!.externalModule).toBe('fakelib')
+    // Its members are the dependency's API — not expanded into this package's docs.
+    expect(ns!.members).toBeUndefined()
+  })
+
+  it('orders exports of one kind by source position, not alphabetically', async () => {
+    const dir = await createTempPackage(
+      'source-order',
+      `export function zebra(): void {}
+export function alpha(): void {}
+export function middle(): void {}
+`,
+    )
+
+    const result = extractPackageApi(dir)
+    const names = result.exports.filter((e) => e.kind === 'function').map((e) => e.name)
+    expect(names).toEqual(['zebra', 'alpha', 'middle'])
   })
 })
