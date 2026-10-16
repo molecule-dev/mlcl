@@ -494,6 +494,53 @@ export async function planInjection(
 }
 
 /**
+ * A package's tables ordered so each comes after the tables its SQL references
+ * (`REFERENCES "other"`). A table whose file cannot be read keeps its place; the
+ * caller reports it. A cycle keeps the listed order.
+ *
+ * @param tables - The package's tables.
+ * @returns The same tables, dependencies first.
+ */
+export async function tablesInDependencyOrder<T extends { name: string; sqlFile?: string }>(
+  tables: readonly T[],
+): Promise<T[]> {
+  const names = new Set(tables.map((t) => t.name))
+  const refs = new Map<string, string[]>()
+  for (const table of tables) {
+    let sql = ''
+    if (table.sqlFile) {
+      try {
+        sql = await readFile(table.sqlFile, 'utf-8')
+      } catch (_error) {
+        // Unreadable here: the migration loop reports it with its reason.
+        sql = ''
+      }
+    }
+    refs.set(
+      table.name,
+      [...sql.matchAll(/REFERENCES\s+["`]?([A-Za-z_][A-Za-z0-9_]*)["`]?/gi)]
+        .map((m) => m[1])
+        .filter((n) => n !== table.name && names.has(n)),
+    )
+  }
+  const ordered: T[] = []
+  const state = new Map<string, 'visiting' | 'done'>()
+  const byName = new Map(tables.map((t) => [t.name, t]))
+  const visit = (table: T): void => {
+    if (state.get(table.name)) return
+    state.set(table.name, 'visiting')
+    for (const dep of refs.get(table.name) ?? []) {
+      const next = byName.get(dep)
+      if (next && !state.get(dep)) visit(next)
+    }
+    state.set(table.name, 'done')
+    ordered.push(table)
+  }
+  tables.forEach(visit)
+  return ordered
+}
+
+/**
  * Plan injection for a Resource type molecule
  */
 async function planResourceInjection(
@@ -504,8 +551,13 @@ async function planResourceInjection(
   // Resource wrappers and router wiring are handled by synthesizeProjectFiles().
   // This function only plans SQL migrations.
 
-  // Plan SQL migrations
-  for (const table of pkg.tables) {
+  // Plan SQL migrations — in dependency order, each with its own timestamp. Every table
+  // used to get the same Date.now(), so the files sorted by NAME, and
+  // `comment_numbers` (a foreign key to `comments`) ran first and failed on a fresh
+  // Postgres database: the API never booted (X1 flash-m38, 2026-10-16).
+  const baseTimestamp = Date.now()
+  let tableIndex = 0
+  for (const table of await tablesInDependencyOrder(pkg.tables)) {
     if (table.sqlFile) {
       // The SQL path is metadata too (see {@link isInside}), and it is read and
       // then written into the project as a migration: a `../…` escape copies a
@@ -521,7 +573,7 @@ async function planResourceInjection(
       }
       try {
         const sqlContent = await readFile(table.sqlFile, 'utf-8')
-        const timestamp = Date.now()
+        const timestamp = baseTimestamp + tableIndex++
         // The table name is interpolated into a FILE NAME below; flatten any
         // path separator in it so the migration stays inside `migrations/`
         // (see {@link migrationFileTableSegment}).
