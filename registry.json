@@ -17137,15 +17137,18 @@
       "type": "provider",
       "category": "password",
       "label": "bcrypt",
-      "description": "Password provider using bcryptjs for molecule.dev",
+      "description": "Password provider using native bcrypt, falling back to bcryptjs, for molecule.dev",
       "stack": "api",
       "implements": "@molecule/api-password",
       "exports": [
+        "NativeBcrypt",
+        "loadNativeBcrypt",
         "provider"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/api-password",
+        "bcrypt",
         "bcryptjs"
       ],
       "moleculePeers": [
