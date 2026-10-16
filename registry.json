@@ -21912,6 +21912,7 @@
         "STATUS_TRANSITIONS",
         "MERCHANT_STATES",
         "BUYER_ALLOWED_TRANSITIONS",
+        "ORDER_ITEMS_IN_ORDER",
         "toOrderItem",
         "toOrderEvent",
         "assembleOrder",
@@ -21984,6 +21985,10 @@
         {
           "name": "order_events",
           "sqlFile": "src/__setup__/orders.sql"
+        },
+        {
+          "name": "order_items",
+          "sqlFile": "src/__setup__/orders_position.sql"
         }
       ],
       "path": "packages/api/resources/order",
