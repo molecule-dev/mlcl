@@ -1,4 +1,4 @@
-import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -195,6 +195,71 @@ describe('generateMoleculeMd — standard packages', () => {
     expect(result).toContain('### Types')
     expect(result).toContain('### Functions')
     expect(result).toContain('### Constants')
+  })
+
+  it('gives every export its own heading — every kind the extractor can emit', () => {
+    // `read_molecule_doc` answers a `section` by matching a HEADING (a symbol named
+    // with a guessed argument list included — flash-m98 asked for `setAuthGate(gate)`
+    // where the generator wrote `#### \`setAuthGate(next)\``), so an export the
+    // generator renders without a heading of its own can only be found by the code
+    // span inside a fence. The extractor's kind union and the `## API` groups here
+    // must stay in step: a kind in one and not the other documents a symbol nowhere.
+    const kinds: Array<ExtractedExport['kind']> = [
+      'interface',
+      'type',
+      'class',
+      'enum',
+      'function',
+      'const',
+      'namespace',
+    ]
+    const exports: ExtractedExport[] = kinds.map((kind) => ({
+      name: `Sample${kind}`,
+      kind,
+      declaration: `declare const Sample${kind}: unknown`,
+      members:
+        kind === 'namespace'
+          ? [{ name: 'member', kind: 'function', declaration: 'function member(): void' }]
+          : undefined,
+    }))
+    const result = generateMoleculeMd(
+      makeExtracted({ exports }),
+      makeRegistryEntry(),
+      makePackageJson(),
+      makeOptions(),
+    )
+    for (const kind of kinds) {
+      expect(result, kind).toContain(`#### \`Sample${kind}`)
+    }
+    // A namespace member is documented where it lives, under its own heading, named
+    // the way a caller reaches it (`ns.member`) — not left to the namespace's body.
+    expect(result).toContain('##### `Samplenamespace.member(')
+  })
+
+  it('keeps the `## API` groups in step with the extractor’s kind union', async () => {
+    // The extractor's kind union is a TYPE, so both sides are read from source. A kind
+    // the extractor can emit and the groups above do not list renders an export with no
+    // block at all — documented nowhere, findable by no `section`.
+    const generatorSrc = await readFile(
+      join(import.meta.dirname, '..', 'docs-generator.ts'),
+      'utf-8',
+    )
+    const extractorSrc = await readFile(
+      join(import.meta.dirname, '..', 'api-extractor.ts'),
+      'utf-8',
+    )
+    const groups = [...generatorSrc.matchAll(/\{ title: '### [^']+', kind: '([a-z]+)' \}/g)].map(
+      (m) => m[1],
+    )
+    const union = /\n\s*kind: ('[a-z]+'(?:\s*\|\s*'[a-z]+')+)/.exec(extractorSrc)?.[1] ?? ''
+    const kinds = [...union.matchAll(/'([a-z]+)'/g)].map((m) => m[1])
+    expect(kinds.length, 'extractor kind union not found — regex stale?').toBeGreaterThan(4)
+    expect(groups.length, 'generator group list not found — regex stale?').toBeGreaterThan(4)
+    const uncovered = (groupKinds: string[], kindUnion: string[]): string[] =>
+      kindUnion.filter((kind) => !groupKinds.includes(kind))
+    expect(uncovered(groups, kinds), 'a kind the extractor emits has no `### ` group').toEqual([])
+    // The check itself, on known-bad input: drop one group and it names the gap.
+    expect(uncovered(groups.slice(0, -1), kinds)).toContain(kinds[kinds.length - 1])
   })
 
   it('collapses destructured-member params in the compact function heading', () => {
