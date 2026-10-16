@@ -629,6 +629,8 @@
         "TokenUsage",
         "AiRateLimitEvent",
         "AiRateLimitCallback",
+        "AiStreamStallEvent",
+        "AiStreamStallCallback",
         "JSONSchema",
         "AITool",
         "ServerTool",
@@ -1430,6 +1432,7 @@
       "implements": "@molecule/api-ai",
       "exports": [
         "provider",
+        "DEFAULT_FIRST_TOKEN_TIMEOUT_MS",
         "DeepseekAIProvider",
         "createProvider",
         "aiDeepseekSecretDefinitions",
