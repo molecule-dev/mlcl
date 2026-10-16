@@ -113,7 +113,11 @@ router.post('/github', validateBody(githubPayloadSchema), async (req: Request, r
     // round-trip JSON.stringify() doesn't reorder keys / strip whitespace.
     const reqWithRaw = req as Request & { rawBody?: string }
     const rawBody = reqWithRaw.rawBody ?? JSON.stringify(payload)
-    const secret = repo.webhook_secret_encrypted ?? process.env.GITHUB_WEBHOOK_SECRET ?? ''
+    // No fallback key: an app that signs or verifies with a literal ships that
+    // literal to every deployment (flash-m86 sent `'conduit-realworld-…'` to
+    // production as the live JWT key this way). An unset secret means the
+    // signature cannot be trusted, which the branch below already says.
+    const secret = repo.webhook_secret_encrypted ?? process.env.GITHUB_WEBHOOK_SECRET
     const sigValid = secret ? await verifyGithubHmac(rawBody, signature, secret) : false
 
     // Always audit-log the delivery — even invalid signatures are
