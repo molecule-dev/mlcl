@@ -6,7 +6,6 @@ import { z } from 'zod'
 import { create, deleteById, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
-import { authorization } from '@molecule/api-resource-user'
 
 import { asyncHandler } from '../lib/asyncHandler.js'
 import { requireSurveyChildOwnership, requireSurveyOwnership } from '../lib/authz.js'
@@ -19,8 +18,6 @@ const createShareLinkSchema = z.object({
   expires_at: z.string().datetime().optional().nullable(),
   max_responses: z.number().int().min(1).max(1_000_000).optional().nullable(),
 })
-
-router.use(authorization.verifyMiddleware())
 
 // List share links for a survey — owner-only.
 router.get(

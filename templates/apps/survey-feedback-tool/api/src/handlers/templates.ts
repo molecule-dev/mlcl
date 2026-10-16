@@ -5,7 +5,6 @@ import { count, create, deleteById, findMany, updateById } from '@molecule/api-d
 import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
-import { authorization } from '@molecule/api-resource-user'
 
 import { asyncHandler } from '../lib/asyncHandler.js'
 import { requireTemplateOwnershipOrPublic } from '../lib/authz.js'
@@ -135,8 +134,6 @@ const updateTemplateSchema = z.object({
   kind: z.string().max(40).optional(),
   questions: z.array(z.unknown()).optional(),
 })
-
-router.use(authorization.verifyMiddleware())
 
 // List templates: returns owner-private + public/system templates.
 router.get(

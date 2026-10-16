@@ -6,7 +6,6 @@ import { count, create, deleteById, findMany, findOne, updateById } from '@molec
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
-import { authorization } from '@molecule/api-resource-user'
 
 import { asyncHandler } from '../lib/asyncHandler.js'
 import { findPublishedSurveyBySlug, requireSurveyOwnership } from '../lib/authz.js'
@@ -30,8 +29,6 @@ const updateSurveySchema = z.object({
   status: z.enum(['draft', 'published', 'closed', 'archived']).optional(),
   settings: z.record(z.string(), z.unknown()).optional(),
 })
-
-router.use(authorization.verifyMiddleware())
 
 // Public lookup by slug — no auth, but only `published` surveys are visible.
 router.get(

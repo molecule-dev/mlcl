@@ -4,7 +4,6 @@ import { z } from 'zod'
 import { create, deleteById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
-import { authorization } from '@molecule/api-resource-user'
 
 import { asyncHandler } from '../lib/asyncHandler.js'
 import { requireSurveyChildOwnership, requireSurveyOwnership } from '../lib/authz.js'
@@ -47,8 +46,6 @@ const updateQuestionSchema = z.object({
   position: z.number().int().min(0).max(10000).optional(),
   conditional_logic: z.unknown().optional().nullable(),
 })
-
-router.use(authorization.verifyMiddleware())
 
 // List questions — caller must own the parent survey.
 router.get(

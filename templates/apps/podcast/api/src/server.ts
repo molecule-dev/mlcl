@@ -7,7 +7,6 @@ import { logger } from '@molecule/api-logger'
 import { bodyParser as bodyParserMiddleware } from '@molecule/api-middleware-body-parser'
 import { cookieParser as cookieParserMiddleware } from '@molecule/api-middleware-cookie-parser'
 import { cors as corsMiddleware } from '@molecule/api-middleware-cors'
-import { authorization as userAuthorization } from '@molecule/api-resource-user'
 
 import { setupBonds } from './bonds/index.js'
 import { runMigrations } from './scripts/migrate.js'
@@ -37,7 +36,6 @@ export const create = async (
 
   // Import router after bonds are set up — handler maps are built at module
   // evaluation time, so bond-conditional handlers need providers registered first.
-  const contentHandlers = (await import('./handlers/index.js')).default
   const { router } = await import('./App/router.js')
 
   const app = express()
@@ -47,35 +45,11 @@ export const create = async (
   app.use(cookieParserMiddleware)
   app.use(corsMiddleware)
 
-  // Run JWT verification BEFORE any /api handlers so res.locals.session is
-  // populated for both the per-app content routes and the molecule resource
-  // routes (users, devices). Without this the content-handler
-  // `getUserId(res)` always returns null and every authed POST short-circuits
-  // to 401 even with a valid Bearer/cookie.
-  app.use('/api', userAuthorization.verifyMiddleware())
-
-  // Seed per-user demo content (subscriptions, queue, saved, notifications)
-  // on first authenticated request. seedDemoForUserOnce() de-dupes per
-  // process via a promise cache — concurrent authed requests for the same
-  // user share one seed run. Subsequent requests resolve instantly. We
-  // AWAIT (not fire-and-forget) because the next request after signup is
-  // typically the Library page loading /api/subscriptions/shows, which
-  // needs to see the seeded rows. The first authed request pays a small
-  // one-time cost; everything after is free.
-  const { seedDemoForUserOnce } = await import('./handlers/_seed.js')
-  app.use('/api', async (_req, res, next) => {
-    const userId = (res.locals.session as { userId?: string } | undefined)?.userId
-    if (userId) {
-      try {
-        await seedDemoForUserOnce(userId)
-      } catch (error) {
-        logger.error(error)
-      }
-    }
-    next()
-  })
-
-  app.use('/api', contentHandlers)
+  // The session middleware, the per-user seeding and the content handlers are
+  // mounted in App/router.ts — one place, where the app's own auth options
+  // apply. Do not mount a session middleware here: a mount in this file runs
+  // BEFORE the router, so the options the app sets on the router's mount would
+  // never see a headerless request (X1 flash-m70).
   app.use('/api', router)
 
   app.get('/health', (_req, res) => {

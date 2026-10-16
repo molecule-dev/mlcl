@@ -6,7 +6,6 @@ import { count, create, deleteById, findById, findMany, updateById } from '@mole
 import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
-import { authorization } from '@molecule/api-resource-user'
 
 import { asyncHandler } from '../lib/asyncHandler.js'
 import {
@@ -44,8 +43,6 @@ const submitResponseSchema = z.object({
   answers: z.record(z.string(), z.unknown()),
   score: z.number().nullable().optional(),
 })
-
-router.use(authorization.verifyMiddleware())
 
 // Public submission — anonymous respondents POST to /api/responses with
 // either survey_id (when the survey is published) or slug.

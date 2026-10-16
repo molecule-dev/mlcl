@@ -4,7 +4,6 @@ import { z } from 'zod'
 import { count, deleteById, findMany, updateById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
-import { authorization } from '@molecule/api-resource-user'
 
 import { asyncHandler } from '../lib/asyncHandler.js'
 import { requireNotificationOwnership } from '../lib/authz.js'
@@ -14,8 +13,6 @@ const router = Router()
 const markReadSchema = z.object({
   read: z.boolean().optional().default(true),
 })
-
-router.use(authorization.verifyMiddleware())
 
 // List notifications for the calling user.
 router.get(
