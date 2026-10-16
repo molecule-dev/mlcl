@@ -12,6 +12,7 @@ import {
   findMoleculePackage,
   generateBondSetupCode,
   generateBondsIndexContent,
+  GENERATED_TEST_MARKER,
   planInjection,
   synthesizeAppProjectFiles,
   synthesizeProjectFiles,
@@ -772,6 +773,44 @@ describe('synthesizeProjectFiles', () => {
     const routeTest = files.find((f) => f.targetPath.includes('routes.test.ts'))
     expect(routeTest).toBeDefined()
     expect(routeTest!.content).toContain('requestHandlerMap')
+  })
+
+  it('opens both generated smoke tests with the GENERATED SCAFFOLDING banner', async () => {
+    // X1 flash-m53: the routes test is one `vi.mock()` per package plus one
+    // `toContain('<starter handler key>')` per starter route, and nothing said
+    // it was scaffold output — so an app whose whole job is replacing that API
+    // surface read it as the project's own suite and hand-repaired thousands of
+    // lines of starter expectations (+02:11 → +04:42, more projected). The
+    // banner is what lets it rewrite or delete the file instead, and
+    // molecule-dev's run_tests note matches this exact phrase (keep the two in
+    // step: `GENERATED_TEST_MARKER` in api/src/ai/run-tests-tool.ts).
+    const files = await synthesizeProjectFiles(
+      [userPlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource'],
+      tempDir,
+      registryPackages,
+    )
+
+    const cases = [
+      ['server.test.ts', files.find((f) => f.targetPath.includes('server.test.ts'))],
+      ['routes.test.ts', files.find((f) => f.targetPath.includes('routes.test.ts'))],
+    ] as const
+    for (const [name, file] of cases) {
+      const content = file?.content ?? ''
+      expect(
+        content.startsWith(`// ${GENERATED_TEST_MARKER}`),
+        `${name} opens with the banner`,
+      ).toBe(true)
+      // And it STAYS first: the import sort must not hoist the imports over it.
+      expect(
+        content.indexOf("from 'vitest'"),
+        `${name}'s banner precedes its imports`,
+      ).toBeGreaterThan(content.indexOf(`// ${GENERATED_TEST_MARKER}`))
+      // The banner says what to do with the file, not just that it is generated.
+      expect(content, `${name} says the file may be rewritten or deleted`).toContain(
+        'rewrite or delete this file',
+      )
+    }
   })
 
   it('applies User authorization middleware globally', async () => {

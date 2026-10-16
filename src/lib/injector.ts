@@ -3947,6 +3947,49 @@ function generateMoleculeViMocksHeuristic(
 }
 
 /**
+ * The marker line both generated smoke tests open with. It is the file's own
+ * statement that it is scaffold output, and the platform reads it back: the
+ * `run_tests` note that tells an executor a failing generated test is not a
+ * regression (`GENERATED_TEST_MARKER` in molecule-dev's
+ * `api/src/ai/run-tests-tool.ts`) matches this phrase. Change them together.
+ */
+export const GENERATED_TEST_MARKER = 'GENERATED SCAFFOLDING'
+
+/**
+ * The header on the generated route smoke test — what it pins, and that the app
+ * may replace it.
+ *
+ * Without it the file reads as "the project's own test suite": it is one
+ * `vi.mock()` per package plus one `toContain('<starter handler key>')` per
+ * starter route, and it carries no mark that it was written by the scaffold
+ * rather than by the app. An execute-and-fix agent whose whole premise is
+ * replacing that API surface then treats it as a suite it must not break and
+ * hand-repairs thousands of lines of starter expectations (X1 flash-m53 spent
+ * three reads and two edit rounds on it, +02:11 → +04:42, with more projected).
+ * The header costs the reader one sentence and makes deleting the file the
+ * obvious move instead.
+ */
+export const GENERATED_ROUTES_TEST_BANNER = [
+  `// ${GENERATED_TEST_MARKER} — written when this project was scaffolded.`,
+  "// It smoke-tests the STARTER's App/Resource/* wiring: the package mocks and the",
+  '// expected handler keys below describe the STARTER, not your app. If you replace',
+  '// the resource wiring or the route table, rewrite or delete this file; nothing',
+  '// depends on it but `npm test`.',
+].join('\n')
+
+/**
+ * The header on the generated server smoke test. Same job as
+ * {@link GENERATED_ROUTES_TEST_BANNER} — this one pins the starter's server
+ * entry points and router rather than its resources.
+ */
+export const GENERATED_SERVER_TEST_BANNER = [
+  `// ${GENERATED_TEST_MARKER} — written when this project was scaffolded.`,
+  "// It smoke-tests the STARTER's server wiring: the `create` export, the bonds it",
+  "// sets up and the router the starter's App/router.ts exports, not your app's. If",
+  '// you replace them, rewrite or delete this file; nothing depends on it but `npm test`.',
+].join('\n')
+
+/**
  * Generate server smoke test that verifies:
  * - Server creates without crashing
  * - Health endpoint responds
@@ -3978,7 +4021,9 @@ function generateServerSmokeTest(
     return `vi.mock('../middleware/${shortName}.js', () => ({ ${camelName}Middleware: ${noopMiddleware} }))`
   })
 
-  return `import { describe, it, expect, vi } from 'vitest'
+  return `${GENERATED_SERVER_TEST_BANNER}
+
+import { describe, it, expect, vi } from 'vitest'
 
 // Mock bonds to avoid requiring real connections when server.ts is imported
 // below. The bonds/index block further down reads the REAL module through
@@ -4043,6 +4088,8 @@ function generateRouteSmokeTest(resourcePlans: InjectionPlan[], moleculeMocks = 
 
   const lines: string[] = []
 
+  lines.push(GENERATED_ROUTES_TEST_BANNER)
+  lines.push('')
   lines.push(`import { describe, it, expect, vi } from 'vitest'`)
   lines.push('')
   lines.push('// Mock bonds and all @molecule/* dependencies')

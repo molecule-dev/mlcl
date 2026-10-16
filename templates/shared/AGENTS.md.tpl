@@ -52,3 +52,10 @@ to delete it) — do not "clean it up".
   fails after your change, fix the code — do not edit, invert or delete the
   test to match what you built. Change a shipped test only when the user asks
   for different behavior, and say which test you changed and why.
+  - The exception is the scaffold's generated smoke tests —
+    `api/src/__tests__/routes.test.ts` and `api/src/__tests__/server.test.ts`,
+    whose first line is `// GENERATED SCAFFOLDING`. They pin the STARTER's
+    resources and routes, so the moment your app owns the route table they are
+    testing the wrong app. Rewrite them for your own routes or delete them —
+    that is not "editing a test to match what you built", and hand-repairing
+    their starter expectations is wasted work.
