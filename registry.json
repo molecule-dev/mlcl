@@ -3316,7 +3316,8 @@
         "whitespaceTolerantReplace",
         "PARSE_CHECKABLE",
         "parseCheckCommand",
-        "parseCheckProblem"
+        "parseCheckProblem",
+        "fusedLine"
       ],
       "secrets": [],
       "runtimeDependencies": [
