@@ -322,6 +322,17 @@ Run regeneration yourself only for:
 > not by bolting another rule onto molecule-dev's `system-prompt.ts`. See the
 > workspace `AGENTS.md` → "Where executor-facing guidance lives" for the full
 > routing (package JSDoc vs scaffold self-doc header vs skill vs prompt).
+>
+> **Where in the module JSDoc decides whether it is read at all.** A whole-README
+> `read_molecule_doc` is capped (~16 KB) and the `## E2E Tests` section is
+> appended, so anything past the cap is delivered only when asked for by
+> `section`. `@remarks` renders LAST — inside `## Injection Notes`, after the
+> entire API reference — so a `@remarks` note is absent from every truncated
+> whole-doc read. A fact the executor must not miss (a second table and the
+> column that joins it, the id a row is keyed by, a column that does NOT exist)
+> belongs in the module **description**, before the first `@tag`: it renders
+> directly under the title and survives every truncation. Keep `@remarks` for
+> notes that are useful once the reader is already in the package.
 
 ### What is and isn't captured per-export
 
