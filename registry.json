@@ -3266,6 +3266,9 @@
       "exports": [
         "createLocalBackend",
         "createSandboxBackend",
+        "CommandSegment",
+        "commandSegments",
+        "runsInCommandPosition",
         "ToolInputError",
         "NormalizableSchema",
         "NormalizedInput",
