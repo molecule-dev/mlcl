@@ -21,6 +21,7 @@
  * @module
  */
 
+import { existsSync } from 'node:fs'
 import { mkdtemp, readFile, rm, stat, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -30,6 +31,7 @@ import { fileURLToPath } from 'node:url'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import {
+  createAppProject,
   injectPreviewInteractBridge,
   injectPreviewLivenessBridge,
   injectPreviewNavBridge,
@@ -230,5 +232,59 @@ describe('a scaffolded entry document references the bridges instead of carrying
         )
       }
     }
+  })
+})
+
+// X0 flash-m86 (+19:50): the dev app 404'd the platform's OWN bridge scripts —
+// `preview-bridge.js` and `interact-bridge.js` — and `screenshot_preview` reported
+// those 404s as the app's errors, 24 s and one dead liveness/interact bridge for
+// that project's sandbox.
+//
+// The cause is the call site, not the injector: `createAppProject` reads the static
+// dir from the registry, where it is a NAME (`schema.ts`: "Static assets directory
+// name"), and passed it straight to injectors that join it into a path. `public`
+// is then RELATIVE, and `writeFile` resolves it against the PROCESS CWD — so a
+// custom build wrote its five bridge scripts into `<cwd>/public/__mol/bridges/`
+// while `index.html` referenced them at `/__mol/bridges/`. Flagship templates were
+// never hit: `copyTemplateInstance` passes no dir at all and the injector's own
+// fallback resolves against the document's folder.
+//
+// Both halves are asserted here — the failure and the guard that makes the next
+// one loud.
+describe('the bridge assets belong to the PROJECT, not to the process cwd (flash-m86)', () => {
+  it('createAppProject writes every bridge beside the document it references', async () => {
+    // The real entry point, the way the platform calls it — not the injector with
+    // a resolved dir, which is the shape the rest of this file uses and the shape
+    // that hid the bug.
+    const projectPath = join(await mkdtemp(join(tmpdir(), 'mlcl-cap-')), 'my-app')
+    // The cwd is where the pre-fix code wrote them (the mlcl checkout, for the
+    // platform), so its state is read before and after rather than asserted
+    // absolutely — a sibling test that happens to create it must not fail this one.
+    const outside = join(process.cwd(), 'public', '__mol', 'bridges', 'nav-bridge.js')
+    const outsideBefore = existsSync(outside)
+    await createAppProject(projectPath, 'cap-app', 'react')
+
+    for (const name of BRIDGES) {
+      expect(
+        existsSync(join(projectPath, 'public', '__mol', 'bridges', `${name}.js`)),
+        `${name}.js beside the app's own static dir`,
+      ).toBe(true)
+    }
+    const document = await readFile(join(projectPath, 'index.html'), 'utf-8')
+    for (const name of BRIDGES)
+      expect(document, `${name} reference`).toContain(`<script src="/__mol/bridges/${name}.js">`)
+    expect(existsSync(outside), 'nothing written outside the project').toBe(outsideBefore)
+  })
+
+  it('refuses a bare directory name, so the next caller cannot misplace them silently', async () => {
+    const path = join(dir, 'index.html')
+    await writeFile(path, await renderSharedTemplate())
+    // The registry NAME, unresolved — the exact value that used to reach this code.
+    await expect(injectPreviewNavBridge(path, 'public')).rejects.toThrow(
+      /publicDir must be an absolute path/,
+    )
+    // The resolved form is accepted, and lands inside the project.
+    await injectPreviewNavBridge(path, join(dir, 'public'))
+    expect((await stat(assetPath('nav-bridge'))).size).toBeGreaterThan(1024)
   })
 })

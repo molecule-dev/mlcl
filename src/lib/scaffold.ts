@@ -587,12 +587,38 @@ function bridgeScriptBody(literal: string): string {
  * passes it; otherwise the directory the app already has is used, so the files
  * land beside the app's other static assets rather than in a new tree.
  *
+ * `publicDir` IS A PATH, and it MUST be absolute. The registry states the same
+ * field as a NAME (`schema.ts`: "Static assets directory name"), so a caller
+ * holding `fwConfig.publicDir` has to resolve it against its own project root
+ * first — `createAppProject` passes `join(projectPath, publicDir)`. Passing the
+ * bare name joined a relative path that `writeFile` resolved against the
+ * PROCESS CWD, so every custom build wrote its five bridge scripts into
+ * `<cwd>/public/__mol/bridges/` while its `index.html` referenced them at
+ * `/__mol/bridges/` — the document loaded scripts the app never had. X0
+ * flash-m86 (+19:50) paid 24 s for that: its dev server 404'd
+ * `preview-bridge.js` and `interact-bridge.js` (the two molecule-dev does not
+ * re-inject at the edge), `screenshot_preview` reported the 404s as the app's
+ * own errors, and the platform's liveness + interact bridges were dead for that
+ * project for the life of the sandbox. The guard below makes that loud rather
+ * than silent: a relative dir is a caller bug, and a scaffold that fails beats a
+ * sandbox whose preview is quietly broken.
+ *
  * @param htmlPath - Absolute path to the scaffolded HTML entry file.
- * @param publicDir - The framework's configured public dir, when the caller knows it.
+ * @param publicDir - The framework's configured static dir, ABSOLUTE, when the caller knows it.
  * @returns The absolute directory for the bridge scripts.
+ * @throws {Error} When `publicDir` is a relative path (a bare directory name).
  */
 function previewBridgeAssetDir(htmlPath: string, publicDir?: string): string {
-  if (publicDir) return join(publicDir, PREVIEW_BRIDGE_ASSET_DIR)
+  if (publicDir) {
+    if (!isAbsolute(publicDir))
+      throw new Error(
+        `previewBridgeAssetDir: publicDir must be an absolute path, got "${publicDir}" — the ` +
+          'registry states it as a directory NAME, so the caller resolves it (join(projectPath, ' +
+          'publicDir)) before passing it here; a relative path would write the bridge scripts ' +
+          'into the process cwd instead of the app.',
+      )
+    return join(publicDir, PREVIEW_BRIDGE_ASSET_DIR)
+  }
   const appDir = dirname(htmlPath)
   for (const name of ['public', 'static']) {
     const candidate = join(appDir, name)
@@ -4537,7 +4563,12 @@ export async function createAppProject(
   const sharedSubdir = fwConfig.sharedCodeDir // e.g. "lib" for SvelteKit
   const sharedDir = sharedSubdir ? join(projectPath, 'src', sharedSubdir) : join(projectPath, 'src')
   const ext = fwConfig.fileExtension ?? 'tsx'
+  // A NAME from the registry (`schema.ts`: "Static assets directory name"), resolved
+  // against this project here. Everything below joins it with `projectPath`, EXCEPT
+  // the preview-bridge injectors, which take a directory: those get
+  // `publicDirPath` (see {@link previewBridgeAssetDir} for what a bare name cost).
   const publicDir = fwConfig.publicDir ?? 'public'
+  const publicDirPath = join(projectPath, publicDir)
   const htmlFile = fwConfig.htmlTemplate ?? 'index.html'
   const gitignoreTpl = fwConfig.gitignoreTemplate ?? 'app/shared/gitignore.tpl'
   const brandingImportPath = sharedSubdir
@@ -4760,26 +4791,26 @@ export async function createAppProject(
   // else is index.html at the project root. Idempotent — see injectPreviewNavBridge.
   const htmlEntryPath =
     htmlFile === 'app.html' ? join(projectPath, 'src', htmlFile) : join(projectPath, htmlFile)
-  await injectPreviewNavBridge(htmlEntryPath, publicDir)
+  await injectPreviewNavBridge(htmlEntryPath, publicDirPath)
 
   // Inject the snapshot + self-healing-readiness bridge (P2-16 blurred last-good
   // frame + P2-15 stuck-overlay self-heal) right after the nav bridge, into the
   // same freshly written HTML entry. Idempotent — see injectPreviewSnapshotBridge.
-  await injectPreviewSnapshotBridge(htmlEntryPath, publicDir)
+  await injectPreviewSnapshotBridge(htmlEntryPath, publicDirPath)
 
   // Inject the runtime-failure-detection bridge (heartbeat → freeze detection,
   // runtime-error forwarding, blank-render signal). This is a CUSTOM build, so there
   // is no baked sender — this injection is its ONLY runtime detection. Idempotent.
-  await injectPreviewRuntimeBridge(htmlEntryPath, publicDir)
+  await injectPreviewRuntimeBridge(htmlEntryPath, publicDirPath)
 
   // Inject the live-preview control bridge (Synthase reads/clicks the preview UI to
   // verify a feature end-to-end). This is a CUSTOM build with no proxy bundle, so this
   // injection is its ONLY interaction channel. Idempotent — see injectPreviewInteractBridge.
-  await injectPreviewInteractBridge(htmlEntryPath, publicDir)
+  await injectPreviewInteractBridge(htmlEntryPath, publicDirPath)
 
   // Move the baked liveness bridge out of the freshly written entry (13 KB of it)
   // into the app's static directory. Idempotent — see injectPreviewLivenessBridge.
-  await injectPreviewLivenessBridge(htmlEntryPath, publicDir)
+  await injectPreviewLivenessBridge(htmlEntryPath, publicDirPath)
 
   // Framework-specific entry point and App component (from templates)
   await copyTemplateFiles(projectPath, framework, projectName, extraVars)
