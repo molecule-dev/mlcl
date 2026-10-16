@@ -7,7 +7,7 @@
  * @module
  */
 
-import { join, sep } from 'node:path'
+import { basename, dirname, isAbsolute, join, relative, sep } from 'node:path'
 
 import {
   type ExportedDeclarations,
@@ -78,6 +78,8 @@ export interface ExtractedExport {
 interface ExtractContext {
   /** Absolute path of the package's `src/`. A declaration outside it is a third-party re-export. */
   srcDir: string
+  /** Root of the tree being documented — the anchor for {@link sourceOrderKey}. */
+  rootDir: string
   /** 0 for a top-level export, 1 for a namespace member (members do not recurse further). */
   depth: number
 }
@@ -107,11 +109,19 @@ export interface ExtractedModule {
  * Extract the public API surface of a molecule package.
  *
  * @param packageDir - Absolute path to the package root (containing package.json)
+ * @param options - `rootDir` is the root of the tree being documented (molecule's
+ *   own root). It anchors the export order only — see {@link sourceOrderKey} — so
+ *   passing the real root keeps a `git archive` export's output byte-identical to
+ *   the live checkout's. Derived from `packageDir` when omitted.
  * @returns Extracted module information including exports and module-level JSDoc
  */
-export function extractPackageApi(packageDir: string): ExtractedModule {
+export function extractPackageApi(
+  packageDir: string,
+  options: { rootDir?: string } = {},
+): ExtractedModule {
   const srcDir = join(packageDir, 'src')
   const indexPath = join(srcDir, 'index.ts')
+  const rootDir = options.rootDir ?? packageTreeRoot(packageDir) ?? packageDir
 
   const project = new Project({
     compilerOptions: {
@@ -152,7 +162,7 @@ export function extractPackageApi(packageDir: string): ExtractedModule {
   const moduleJsDoc = extractModuleJsDoc(indexFile)
 
   // Extract all public exports
-  const exports = extractExports(indexFile, project, srcDir)
+  const exports = extractExports(indexFile, project, srcDir, rootDir)
 
   return {
     description: moduleJsDoc.description,
@@ -335,22 +345,88 @@ function parseJsDocFromNode(jsDoc: JSDoc): ModuleJsDoc {
 // ============================================================================
 
 /**
- * Sort key placing a declaration in SOURCE order: its file path, then its
- * character offset in that file. Two exports from the same file keep the order
- * a reader meets them in while scrolling it; exports from different files group
- * by file instead of interleaving alphabetically.
+ * Sort key placing a declaration in SOURCE order: the file it lives in, then its
+ * character offset in that file. Two exports from the same file keep the order a
+ * reader meets them in while scrolling it; exports from different files group by
+ * file instead of interleaving alphabetically.
+ *
+ * The file is keyed by its path relative to the tree being documented, never by
+ * its absolute path. An absolute path made the generated README depend on where
+ * the checkout happens to live on disk: the same commit produced a different
+ * section order in a `git archive` export than in the live checkout, so the
+ * release's docs gate — which generates from the COMMITTED tree and compares the
+ * result against the committed README — reported packages as stale that a live
+ * run found in sync (release-L54/L55, three `api-resources/*.md`). Layout-free
+ * keys make the order a pure function of the source layout.
+ *
+ * @param declaration - The exported declaration to key.
+ * @param rootDir - Root of the tree being documented (see {@link extractPackageApi}).
+ * @returns A lexicographic sort key.
  */
-function sourceOrderKey(declaration: ExportedDeclarations): string {
-  return `${declaration.getSourceFile().getFilePath()}\u0000${String(declaration.getStart()).padStart(12, '0')}`
+function sourceOrderKey(declaration: ExportedDeclarations, rootDir: string): string {
+  const file = declaration.getSourceFile().getFilePath()
+  const start = String(declaration.getStart()).padStart(12, '0')
+  return `${treeRelativePath(file, rootDir)}\u0000${start}`
+}
+
+/**
+ * A file's path relative to the tree being documented, for a file inside it, and
+ * the same shape recovered from the path itself for one outside it.
+ *
+ * A declaration resolves outside the tree whenever it comes from a dependency's
+ * `.d.ts` — and, when generating from a `git archive` export, also from a sibling
+ * molecule package reached through a symlink in the live `node_modules`. Those
+ * paths still key identically in both trees: an installed module keys from its
+ * `node_modules`-relative path, and a sibling package from the root of the tree it
+ * lives in. Keying both by their absolute path is what made the export and the
+ * live checkout disagree.
+ *
+ * @param file - Absolute path of the declaration's source file.
+ * @param rootDir - Root of the tree being documented.
+ * @returns The tree-relative key.
+ */
+function treeRelativePath(file: string, rootDir: string): string {
+  const rel = relative(rootDir, file)
+  if (rel && !rel.startsWith(`..${sep}`) && rel !== '..' && !isAbsolute(rel)) return rel
+  const external = externalSourceOf(file)
+  if (external) return `node_modules${sep}${external}`
+  const ownRoot = packageTreeRoot(file)
+  return ownRoot ? relative(ownRoot, file) : file
+}
+
+/**
+ * The root of the tree a path belongs to — the parent of the `packages/`
+ * directory it sits under, or undefined when it sits under none.
+ *
+ * Found by walking the path's own ancestors rather than by pattern-matching the
+ * string, so a directory that merely mentions `packages` higher up is never
+ * mistaken for the packages root.
+ *
+ * @param path - An absolute path inside the tree.
+ * @returns The tree root, or undefined.
+ */
+function packageTreeRoot(path: string): string | undefined {
+  let dir = path
+  for (;;) {
+    const parent = dirname(dir)
+    if (parent === dir) return undefined
+    if (basename(dir) === 'packages') return parent
+    dir = parent
+  }
 }
 
 /**
  * Extract all public exports from the index file, following re-exports.
+ *
+ * @param indexFile - The package's `src/index.ts`.
+ * @param srcDir - Absolute path of the package's `src/`.
+ * @param rootDir - Root of the tree being documented (see {@link sourceOrderKey}).
  */
 function extractExports(
   indexFile: SourceFile,
   _project: Project,
   srcDir: string,
+  rootDir: string,
 ): ExtractedExport[] {
   const collected: Array<{ exp: ExtractedExport; order: string }> = []
   const seen = new Set<string>()
@@ -365,9 +441,9 @@ function extractExports(
     if (declarations.length === 0) continue
 
     const declaration = declarations[0]
-    const extracted = extractDeclaration(name, declaration, { srcDir, depth: 0 })
+    const extracted = extractDeclaration(name, declaration, { srcDir, rootDir, depth: 0 })
     if (extracted) {
-      collected.push({ exp: extracted, order: sourceOrderKey(declaration) })
+      collected.push({ exp: extracted, order: sourceOrderKey(declaration, rootDir) })
     }
   }
 
@@ -440,10 +516,11 @@ function extractDeclaration(
         memberSeen.add(memberName)
         const member = extractDeclaration(memberName, memberDecls[0], {
           srcDir: ctx.srcDir,
+          rootDir: ctx.rootDir,
           depth: ctx.depth + 1,
         })
         if (!member) continue
-        memberOrder.push({ exp: member, order: sourceOrderKey(memberDecls[0]) })
+        memberOrder.push({ exp: member, order: sourceOrderKey(memberDecls[0], ctx.rootDir) })
       }
       memberOrder.sort((a, b) => (a.order < b.order ? -1 : a.order > b.order ? 1 : 0))
       for (const m of memberOrder) members.push(m.exp)

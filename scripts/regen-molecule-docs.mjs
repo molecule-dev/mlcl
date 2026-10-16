@@ -48,7 +48,7 @@ import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { stripGeneratedTimestamp } from '../src/lib/docs-generator.js'
-import { companionLocaleFor, generateDocs } from '../src/lib/docs-sync.js'
+import { companionLocaleFor, discoverReexporters, generateDocs } from '../src/lib/docs-sync.js'
 import { getRawRegistry } from '../src/lib/registry.js'
 
 const __dir = dirname(fileURLToPath(import.meta.url))
@@ -140,48 +140,11 @@ for (const [name, entry] of Object.entries(registry.packages)) {
 // '@molecule/app-react'`; api-resource's utilities barrel re-exports
 // api-utilities-validation) — so a change to the re-exported package changes
 // the re-exporter's doc without touching its worktree. That is how
-// react-native/README.md drifted past the hook on 2026-08-29. Discover the
-// relation from source via git grep (~0.1s, --untracked so a brand-new
-// package counts). Line-based, so a multi-line named re-export is not seen;
-// the only fleet occurrences of that shape are provider→core type re-exports,
-// which the core/provider expansion below already covers.
-const reexportersByTarget = new Map()
-{
-  let grepOut = ''
-  try {
-    grepOut = execFileSync(
-      'git',
-      [
-        '-C',
-        moleculeDir,
-        'grep',
-        '--untracked',
-        '-oE',
-        String.raw`export (\* (as [A-Za-z0-9_]+ )?|(type )?\{[^}]*\} )?from '@molecule/[a-z0-9-]+'`,
-        '--',
-        'packages',
-      ],
-      { encoding: 'utf8' },
-    )
-  } catch (err) {
-    // git grep exits 1 on zero matches — that is a valid (empty) relation.
-    // Anything else is a real failure; swallowing it would silently weaken
-    // the --check gate.
-    if (err.status !== 1) throw err
-  }
-  for (const line of grepOut.split('\n')) {
-    const sep = line.indexOf(':')
-    if (sep === -1) continue
-    const file = line.slice(0, sep)
-    if (!file.includes('/src/')) continue
-    const target = line.slice(sep + 1).match(/'(@molecule\/[a-z0-9-]+)'/)?.[1]
-    const reexporter = nameByPath.get(file.replace(/\/src\/.*$/, ''))
-    if (!target || !reexporter || target === reexporter || !registry.packages[target]) continue
-    const list = reexportersByTarget.get(target) ?? []
-    if (!list.includes(reexporter)) list.push(reexporter)
-    reexportersByTarget.set(target, list)
-  }
-}
+// react-native/README.md drifted past the hook on 2026-08-29. The relation is
+// discovered from source, in the tree being documented — see
+// `discoverReexporters` for why that is a filesystem walk rather than a
+// `git grep` (the release's gates generate from an export with no `.git`).
+const reexportersByTarget = discoverReexporters(registry, moleculeDir)
 
 // Re-export closure FIRST (transitive: A re-exports B re-exports C — a C
 // change reaches A), so the added re-exporters get the single-pass expansion
