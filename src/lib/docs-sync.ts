@@ -97,9 +97,20 @@ const REEXPORT_SKIP_DIRS = new Set(['node_modules', 'dist'])
  * export sat outside any repo. Reading the sources has neither failure mode, and
  * costs ~0.3s over the fleet (22k files).
  *
- * Line-based, so a multi-line named re-export is not seen; the only fleet
- * occurrences of that shape are provider→core type re-exports, which the
- * core/provider expansion covers.
+ * Line-based, so a multi-line named re-export is not seen; the fleet occurrences
+ * of that shape are provider→core type re-exports, which the core/provider
+ * expansion covers.
+ *
+ * What this CANNOT see is the other way a README embeds another package's API: a
+ * package whose exported signatures REFERENCE its types without re-exporting them
+ * — `@molecule/app-react` imports `HttpClient` from `@molecule/app-http` and
+ * publishes it in its own context types, so app-http's API is documented in
+ * react's README with no `export … from` anywhere. Only generation finds that
+ * relation, which is why a changed CORE can leave its consumers' READMEs stale
+ * until the full fleet check runs (the nightly lint-health cron, and the release's
+ * own fallback to a full check). Widening this scan to imports would not help —
+ * the dependency is a type reference, not an import of the documented surface —
+ * and would balloon a pre-commit scope to every consumer of a core.
  *
  * @param registry - Full raw registry (package name → repo-relative path).
  * @param moleculeDir - Absolute path of the molecule tree to read.
