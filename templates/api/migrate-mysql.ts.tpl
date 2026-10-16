@@ -11,7 +11,7 @@
  * via: npm run db:setup
  */
 
-import { existsSync } from 'fs'
+import { existsSync, readdirSync } from 'fs'
 import { join } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -26,8 +26,9 @@ const setupDir = join(here, '../../__setup__')
 
 export async function runMigrations(): Promise<void> {
   await createMigrator(migrationsDir)()
-  // Replay idempotent resource-package DDL after the app migrations.
-  if (existsSync(setupDir)) {
+  // Resource-package DDL after the app migrations. Only when __setup__/ holds SQL: an
+  // empty one printed "No migration files found." on every healthy boot (X1 flash-m42).
+  if (existsSync(setupDir) && readdirSync(setupDir).some((f) => f.endsWith('.sql'))) {
     await createMigrator(setupDir)()
   }
 }

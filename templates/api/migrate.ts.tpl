@@ -279,13 +279,38 @@ export async function runMigrations(): Promise<void> {
           .sort()
       : []
 
+    // Each file runs once: `_molecule_migrations` records it (the same table the database
+    // bonds keep), so a DROP or a backfill in a migration never repeats on a later boot. A
+    // database migrated before this record existed is adopted: its files are recorded on
+    // the first boot that finds them already applied.
+    const ledger = '"_molecule_migrations"'
+    const hadLedger =
+      (await client.query(`SELECT to_regclass('${ledger}') AS t`))?.rows?.[0]?.t != null
+    const otherTables = Number(
+      (
+        await client.query(
+          "SELECT count(*)::int AS n FROM information_schema.tables WHERE table_schema = current_schema() AND table_type = 'BASE TABLE'",
+        )
+      )?.rows?.[0]?.n ?? 0,
+    )
+    const adopting = !hadLedger && otherTables > 0
+    await client.query(
+      `CREATE TABLE IF NOT EXISTS ${ledger} ("file" TEXT PRIMARY KEY, "applied_at" TIMESTAMPTZ NOT NULL DEFAULT now())`,
+    )
+    const applied = new Set(
+      ((await client.query(`SELECT "file" FROM ${ledger}`))?.rows ?? []).map((r) => String(r.file)),
+    )
+    const recordSql = `INSERT INTO ${ledger} ("file") VALUES ($1) ON CONFLICT DO NOTHING`
+
     if (sqlFiles.length === 0) {
       console.log('No migration files found.')
     } else {
       for (const file of sqlFiles) {
+        if (applied.has(file)) continue
         const sql = readFileSync(join(migrationsDir, file), 'utf-8')
         try {
           await client.query(sql)
+          await client.query(recordSql, [file])
           console.log(`✓ ${file}`)
         } catch (err) {
           // An already-applied migration fails its re-run with one of the
@@ -296,7 +321,15 @@ export async function runMigrations(): Promise<void> {
           // exit 0 with the schema broken.
           if (!isBenignMigrationError(err)) throw err
           const msg = err instanceof Error ? err.message : String(err)
-          console.warn(`⚠ ${file}: ${msg} (already applied — continuing)`)
+          if (adopting) {
+            await client.query(recordSql, [file])
+            console.warn(`⚠ ${file}: ${msg} (applied before; now recorded)`)
+          } else {
+            // The file ran as one transaction and rolled back; not recorded, so it is retried.
+            console.warn(
+              `⚠ ${file}: ${msg} — nothing in this file was applied; an object it creates already exists, so remove that statement or move the rest to a new migration file`,
+            )
+          }
         }
       }
     }
@@ -309,9 +342,12 @@ export async function runMigrations(): Promise<void> {
         .filter((f) => f.endsWith('.sql'))
         .sort()
       for (const file of setupFiles) {
+        const key = `__setup__/${file}`
+        if (applied.has(key)) continue
         const sql = readFileSync(join(setupDir, file), 'utf-8')
         try {
           await client.query(sql)
+          await client.query(recordSql, [key])
           console.log(`✓ __setup__/${file}`)
         } catch (err) {
           // Same gate as step 2 (see isBenignMigrationError): an already-applied
@@ -324,7 +360,9 @@ export async function runMigrations(): Promise<void> {
           // cause.
           if (!isBenignMigrationError(err)) throw err
           const msg = err instanceof Error ? err.message : String(err)
-          console.warn(`⚠ __setup__/${file}: ${msg} (already applied — continuing)`)
+          // The app migration may already own these tables: the setup file's end state holds.
+          await client.query(recordSql, [key])
+          console.warn(`⚠ __setup__/${file}: ${msg} (already applied — recorded)`)
         }
       }
     }

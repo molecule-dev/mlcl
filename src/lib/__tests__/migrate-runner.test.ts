@@ -560,9 +560,13 @@ describe('migration failure semantics', () => {
       'readFileSync',
       'join',
       'setupDir',
-      'client',
+      'rawClient',
       'console',
-      `${jsHelper}; return (async () => { ${blockSource} })()`,
+      // The applied-file record (step 2 sets it up): nothing recorded yet, and its inserts
+      // are answered here so the stub sees only the setup files.
+      "const applied = new Set(); const recordSql = 'RECORD'; " +
+        'const client = { query: (s, p) => (s === recordSql ? Promise.resolve() : rawClient.query(s)) }; ' +
+        `${jsHelper}; return (async () => { ${blockSource} })()`,
     ) as (
       ...args: [
         existsSync: (path: string) => boolean,
@@ -748,7 +752,14 @@ describe('admin connection lifecycle', () => {
         clients.push(this)
       }
       connect = stub.connect
-      query = stub.query
+      // The applied-file record's own queries are answered here, so each stub sees only the
+      // migration files it scripts.
+      query = (sql: string, params?: unknown[]): Promise<unknown> =>
+        /_molecule_migrations|information_schema\.tables|to_regclass/.test(sql)
+          ? Promise.resolve({ rows: [] })
+          : params === undefined
+            ? stub.query(sql)
+            : (stub.query as (s: string, p: unknown[]) => Promise<unknown>)(sql, params)
       end = async (): Promise<void> => {
         this.ends++
         await stub.end()
@@ -891,7 +902,14 @@ describe('migration connection lifecycle', () => {
         clients.push(this)
       }
       connect = stub.connect
-      query = stub.query
+      // The applied-file record's own queries are answered here, so each stub sees only the
+      // migration files it scripts.
+      query = (sql: string, params?: unknown[]): Promise<unknown> =>
+        /_molecule_migrations|information_schema\.tables|to_regclass/.test(sql)
+          ? Promise.resolve({ rows: [] })
+          : params === undefined
+            ? stub.query(sql)
+            : (stub.query as (s: string, p: unknown[]) => Promise<unknown>)(sql, params)
       end = async (): Promise<void> => {
         this.ends++
         await stub.end()
@@ -1004,7 +1022,8 @@ describe('migration connection lifecycle', () => {
       },
       clients,
     )
-    expect(warns.some((w) => w.includes('already applied'))).toBe(true)
+    // No record and no other tables: not an adopted database, so the file is retried, and said so.
+    expect(warns.some((w) => w.includes('nothing in this file was applied'))).toBe(true)
     expect(logs).toContain('✓ __setup__/payments.sql')
     expect(clients[0]?.ends).toBe(1)
   })
