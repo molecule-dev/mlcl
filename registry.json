@@ -3286,6 +3286,7 @@
         "scopedRerunCommand",
         "SuiteRunInFlight",
         "suiteRunInTheWay",
+        "isDiagnosisRun",
         "DiscoveredSkill",
         "discoverSkills",
         "buildAgentPrompt",
