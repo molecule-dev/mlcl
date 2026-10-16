@@ -14,6 +14,7 @@ import { t } from '../lib/i18n.js'
 import {
   executeInjection,
   filterExcludedPeerDependencies,
+  GENERATED_SMOKE_TEST_PATHS,
   type InjectionPlan,
   planInjection,
   resolveDefaultProvidersFromPlans,
@@ -687,11 +688,28 @@ export default class Inject extends Command {
           // the command exited 0 over a failed injection: exactly the failure
           // the exit-status check exists to prevent (an agent or CI job reads
           // the status, not the spinner line).
+          const generatedSmokeFailure = GENERATED_SMOKE_TEST_PATHS.find((path) =>
+            testResult.output?.includes(path),
+          )
           errors.push(
-            testResult.output
+            (testResult.output
               ? `Smoke tests failed:\n${testResult.output}`
               : 'Smoke tests failed — the test run was killed or produced no output to quote. ' +
-                  'Run `npm test` in the project to see why.',
+                'Run `npm test` in the project to see why.') +
+              // The run failed either way — that is the point above. But a
+              // failure the GENERATED smoke tests own is not wiring to repair:
+              // they assert the STARTER's resources (see
+              // `generateRouteSmokeTest` in lib/injector.ts), so an app that has
+              // replaced its API surface fails them by existing. Say which
+              // failure this is, or the reader repairs thousands of lines of
+              // starter expectations instead of deleting the file (X1
+              // flash-m53, +02:11 → +04:42).
+              (generatedSmokeFailure
+                ? `\n  ${generatedSmokeFailure} is a GENERATED smoke test — it pins the STARTER's ` +
+                  "resources and routes, not your app's. If your app owns the route table, " +
+                  'rewrite it for your own routes or delete it; that is not an injection ' +
+                  'failure and not a test to repair.'
+                : ''),
           )
         }
       }

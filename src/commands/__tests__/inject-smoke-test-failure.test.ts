@@ -174,4 +174,52 @@ describe('mlcl inject reports a smoke-test failure even when it captured no outp
     expect(logs.join('\n')).toContain('Tests  2 failed (2)')
     expect(thrown).toMatchObject({ oclif: { exit: 1 } })
   })
+
+  describe('a failure the generated smoke tests own', () => {
+    /**
+     * `src/__tests__/routes.test.ts` and `server.test.ts` assert the STARTER's
+     * resources — every app that replaces its API surface fails them by
+     * existing. The run still fails the command (an injection whose wiring
+     * broke IS a failed injection), but the summary has to say WHICH failure
+     * this is: told only "Smoke tests failed", an executor hand-repairs
+     * thousands of lines of starter expectations instead of deleting the file
+     * it outgrew (X1 flash-m53, +02:11 → +04:42).
+     */
+    it('names the generated file and says it may be rewritten or deleted', async () => {
+      const project = await writeApiProjectWithTests()
+      execaMock.mockRejectedValue(
+        Object.assign(new Error('tests failed'), {
+          stdout:
+            'FAIL  src/__tests__/routes.test.ts > Resource: User > requestHandlerMap\n' +
+            'Error: Cannot find module ../App/Resource/User/index.js',
+        }),
+      )
+      const { cmd, logs } = await makeCmd(project)
+
+      const thrown = await runToSettlement(cmd)
+
+      const joined = logs.join('\n')
+      expect(joined).toContain('src/__tests__/routes.test.ts')
+      expect(joined).toMatch(/GENERATED smoke test/)
+      expect(joined).toMatch(/rewrite it for your own routes or delete it/)
+      expect(joined).toMatch(/not an injection failure/)
+      expect(thrown, 'the exit status still reports the failed run').toMatchObject({
+        oclif: { exit: 1 },
+      })
+    })
+
+    it('says nothing of the sort for a failure in a test the app wrote', async () => {
+      const project = await writeApiProjectWithTests()
+      execaMock.mockRejectedValue(
+        Object.assign(new Error('tests failed'), {
+          stdout: 'FAIL  src/handlers/articles.test.ts > lists articles',
+        }),
+      )
+      const { cmd, logs } = await makeCmd(project)
+
+      await runToSettlement(cmd)
+
+      expect(logs.join('\n')).not.toContain('GENERATED smoke test')
+    })
+  })
 })

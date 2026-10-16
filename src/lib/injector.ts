@@ -2513,7 +2513,7 @@ export function setupEntitlements(): void {
   const moleculeMocks = await generateMoleculeViMocks(allMolecules, resourcePlans)
   files.push({
     action: 'create',
-    targetPath: join(projectPath, 'src', '__tests__', 'server.test.ts'),
+    targetPath: join(projectPath, GENERATED_SMOKE_TEST_PATHS[1]),
     content: generateServerSmokeTest(allMolecules, registryPackages, moleculeMocks),
     description: 'Generate server smoke tests',
   })
@@ -2522,7 +2522,7 @@ export function setupEntitlements(): void {
   if (routeTestContent) {
     files.push({
       action: 'create',
-      targetPath: join(projectPath, 'src', '__tests__', 'routes.test.ts'),
+      targetPath: join(projectPath, GENERATED_SMOKE_TEST_PATHS[0]),
       content: routeTestContent,
       description: 'Generate route smoke tests',
     })
@@ -3954,6 +3954,24 @@ function generateMoleculeViMocksHeuristic(
  * `api/src/ai/run-tests-tool.ts`) matches this phrase. Change them together.
  */
 export const GENERATED_TEST_MARKER = 'GENERATED SCAFFOLDING'
+
+/**
+ * Where the two generated smoke tests live, relative to an API project dir —
+ * where {@link synthesizeProjectFiles} writes them, and what the inject
+ * command's smoke run names when one of them fails.
+ *
+ * The `inject` command's own summary already replies to a failing run with
+ * "Smoke tests failed" and exit 1 (an injection whose wiring broke IS a failed
+ * injection), and that is right — but a failure the GENERATED tests own says
+ * nothing about the injection: they run assertions written for the STARTER, so
+ * an app that has replaced its API surface fails them by existing. Naming the
+ * files is what turns "the project's tests are red" into "delete or rewrite
+ * the generated ones", the read that saves the hand-repair (X1 flash-m53).
+ */
+export const GENERATED_SMOKE_TEST_PATHS = [
+  'src/__tests__/routes.test.ts',
+  'src/__tests__/server.test.ts',
+] as const
 
 /**
  * The header on the generated route smoke test — what it pins, and that the app
