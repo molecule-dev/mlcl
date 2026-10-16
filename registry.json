@@ -31770,6 +31770,7 @@
       "implements": "@molecule/app-e2e",
       "exports": [
         "E2E_PREVIEW_CLIENT_SCRIPT",
+        "E2E_DRIVER_BANNER",
         "provider",
         "connectPreview",
         "listPreviewPages",
