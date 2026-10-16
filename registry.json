@@ -34629,6 +34629,8 @@
       "stack": "app",
       "alwaysInclude": true,
       "exports": [
+        "setAuthGate",
+        "awaitAuthGate",
         "HttpClient",
         "HttpClientConfig",
         "RequestInterceptor",
