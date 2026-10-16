@@ -3164,11 +3164,23 @@ export async function createApiProject(
     type: 'module',
     scripts: {
       // migrations/ is watched too: a new migration applies on the restart it causes (X1 flash-m41).
-      dev: "tsx watch --include 'migrations/*.sql' src/server.ts",
+      //
+      // `--env-file` on all three is the TEMPLATE fleet's exact line (150/150
+      // `templates/apps/*/api/package.json`), and it is load-bearing: without it an
+      // api/.env the executor writes is dead in the dev server. The platform's
+      // `/etc/mol/env` is sourced into the process env before `npm run dev`
+      // (dev-server-cmd.ts SOURCE_PLATFORM_ENV_CMD), so platform values still WIN
+      // (a real env var beats `--env-file`); in-process, only the keys named in
+      // `bonds/index.ts` reach the app via `@molecule/api-secrets-env`. An executor
+      // appending a debug variable to `.env` therefore saw it never arrive (X1
+      // flash-m64 spent 4 min 26 s on exactly that, reading it as a JWT key
+      // mismatch). `mlcl/src/lib/__tests__/scaffold-api-dev-script.test.ts` pins
+      // these three lines against the templates so they cannot drift again.
+      dev: "tsx watch --include 'migrations/*.sql' --env-file=.env src/server.ts",
       build: 'tsc',
-      start: 'node dist/server.js',
+      start: 'node --env-file-if-exists=.env dist/server.js',
       test: 'vitest run',
-      'db:setup': 'tsx src/scripts/migrate.ts',
+      'db:setup': 'tsx --env-file=.env src/scripts/migrate.ts',
       typecheck: 'tsc --noEmit',
       lint: 'eslint src/',
       'lint:fix': 'eslint src/ --fix',

@@ -113,6 +113,6 @@ describe('custom-create migration-runner wiring', () => {
     const pkg = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8')) as {
       scripts: Record<string, string>
     }
-    expect(pkg.scripts['db:setup']).toBe('tsx src/scripts/migrate.ts')
+    expect(pkg.scripts['db:setup']).toBe('tsx --env-file=.env src/scripts/migrate.ts')
   })
 })
