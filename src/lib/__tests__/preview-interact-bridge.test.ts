@@ -34,6 +34,7 @@ import {
   injectPreviewRuntimeBridge,
   injectPreviewSnapshotBridge,
 } from '../scaffold.js'
+import { inlinePreviewBridgeScripts } from './preview-bridge-test-utils.js'
 
 interface UiResult {
   type?: string
@@ -74,12 +75,17 @@ afterEach(async () => {
   await rm(dir, { recursive: true, force: true })
 })
 
-/** Write `html` to a temp index.html, run the scaffold injector, return the result. */
+/**
+ * Write `html` to a temp index.html, run the scaffold injector, and return the
+ * document a browser would EXECUTE — the injected bridge reference inlined from
+ * the file the injector wrote next to it (jsdom fetches no subresources; see
+ * {@link inlinePreviewBridgeScripts}).
+ */
 async function scaffoldHtml(html: string, name = 'index.html'): Promise<string> {
   const path = join(dir, name)
   await writeFile(path, html)
   await injectPreviewInteractBridge(path)
-  return readFile(path, 'utf-8')
+  return inlinePreviewBridgeScripts(await readFile(path, 'utf-8'), dir)
 }
 
 interface PreviewHarness {

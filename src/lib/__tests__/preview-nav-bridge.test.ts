@@ -38,6 +38,7 @@ import { JSDOM } from 'jsdom'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { injectPreviewNavBridge } from '../scaffold.js'
+import { inlinePreviewBridgeScripts } from './preview-bridge-test-utils.js'
 
 interface PreviewMessage {
   type?: string
@@ -78,12 +79,17 @@ afterEach(async () => {
   await rm(dir, { recursive: true, force: true })
 })
 
-/** Write `html` to a temp index.html, run the scaffold injector, return the result. */
+/**
+ * Write `html` to a temp index.html, run the scaffold injector, and return the
+ * document a browser would EXECUTE — the injected bridge reference inlined from
+ * the file the injector wrote next to it (jsdom fetches no subresources; see
+ * {@link inlinePreviewBridgeScripts}).
+ */
 async function scaffoldHtml(html: string, name = 'index.html'): Promise<string> {
   const path = join(dir, name)
   await writeFile(path, html)
   await injectPreviewNavBridge(path)
-  return readFile(path, 'utf-8')
+  return inlinePreviewBridgeScripts(await readFile(path, 'utf-8'), dir)
 }
 
 /**
@@ -194,8 +200,12 @@ describe('injectPreviewNavBridge', () => {
     // never in question.
     expect(out.match(/mol:nav-bridge/g)).toHaveLength(1)
     // Both senders survive one injection: the history patch and the link intent.
-    expect(out).toContain('isReplace: !!isReplace')
-    expect(out).toContain('isIntent: true')
+    // They live in the file the reference loads (the entry document carries only
+    // the reference), which is what the browser executes — see
+    // preview-bridge-test-utils.ts.
+    const script = await readFile(join(dir, 'public', '__mol', 'bridges', 'nav-bridge.js'), 'utf-8')
+    expect(script).toContain('isReplace: !!isReplace')
+    expect(script).toContain('isIntent: true')
   })
 
   it('still injects when prose merely mentions "molecule:navigate" but the sentinel is absent', async () => {

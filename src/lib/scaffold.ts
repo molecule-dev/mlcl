@@ -528,6 +528,183 @@ const PREVIEW_NAV_BRIDGE_SCRIPT = `    <!-- mol:nav-bridge -->
     </script>
 `
 
+// ---------------------------------------------------------------------------
+// The preview bridges are FILES the entry document references, not code inlined
+// into it.
+//
+// WHY: the five bridges are ~59 KB of platform plumbing (liveness 13 KB, nav 5 KB,
+// snapshot 10 KB, runtime 5 KB, interact 26 KB), and writing them into
+// `app/index.html` made the entry document of a DEFAULT scaffold 63 KB — a
+// document the executor reads as soon as it looks at the app shell, and one it
+// must never edit (the scripts belong to the platform). X0 flash-m77 lost ~3
+// minutes of its plan phase to it: the 63 KB read (plus the 175 KB suite read
+// before it) took the transcript to ~446 K chars (≈111 K tokens) against a 120 K
+// context cap, the trim cut the oldest reads down to summaries, and the model
+// read the whole e2e suite again — twice (findings, +01:23 and +02:56).
+//
+// A bridge written to `<publicDir>/__mol/bridges/<name>.js` and referenced by one
+// `<script src>` keeps the entry document at ~6 KB while the browser loads the
+// same script, at the same point in the document, before the app's own module —
+// a classic blocking `<script src>` executes in document order exactly as the
+// inline `<script>` it replaces did. No behaviour changes; only where the bytes
+// live.
+//
+// `publicDir` is Vite's static directory: the files are served at the app root in
+// `vite dev` and `vite preview` with no plugin involvement. Production stays
+// bridge-free: the strip plugin removes the referencing tags on `vite build` AND
+// deletes the now-unreferenced files from the build output (see
+// templates/app/shared/vite-preview-bridge-plugin.ts.tpl).
+//
+// The bridge LITERALS stay whole (sentinel comment + `<script>` tags + body): the
+// sentinel is what keeps the injectors idempotent, and molecule-dev keeps
+// byte-identical copies of some of them behind a drift guard. Only the body
+// between the tags is written to the file.
+// ---------------------------------------------------------------------------
+
+/** Directory under the app's Vite `publicDir` holding the bridge scripts. */
+const PREVIEW_BRIDGE_ASSET_DIR = '__mol/bridges'
+
+/** URL prefix those files are served under (no trailing slash). */
+const PREVIEW_BRIDGE_ASSET_URL = '/__mol/bridges'
+
+/**
+ * The JavaScript a bridge script literal actually executes — everything between
+ * its opening `<script>` and its closing `</script>`.
+ *
+ * @param literal - The bridge literal (sentinel comment + script tags + body).
+ * @returns The executable body, or the literal unchanged when it holds no tag.
+ */
+function bridgeScriptBody(literal: string): string {
+  return /<script[^>]*>([\s\S]*)<\/script>/.exec(literal)?.[1] ?? literal
+}
+
+/**
+ * The directory a scaffolded entry document's bridge files belong in.
+ *
+ * The app's Vite static directory is `public` for every framework in the
+ * registry except SvelteKit, whose entry document also lives elsewhere
+ * (`src/app.html`). A caller that already resolved the framework's `publicDir`
+ * passes it; otherwise the directory the app already has is used, so the files
+ * land beside the app's other static assets rather than in a new tree.
+ *
+ * @param htmlPath - Absolute path to the scaffolded HTML entry file.
+ * @param publicDir - The framework's configured public dir, when the caller knows it.
+ * @returns The absolute directory for the bridge scripts.
+ */
+function previewBridgeAssetDir(htmlPath: string, publicDir?: string): string {
+  if (publicDir) return join(publicDir, PREVIEW_BRIDGE_ASSET_DIR)
+  const appDir = dirname(htmlPath)
+  for (const name of ['public', 'static']) {
+    const candidate = join(appDir, name)
+    if (existsSync(candidate)) return join(candidate, PREVIEW_BRIDGE_ASSET_DIR)
+  }
+  return join(appDir, 'public', PREVIEW_BRIDGE_ASSET_DIR)
+}
+
+/**
+ * Write a bridge's script to its file and return the two-line reference that
+ * loads it, sentinel comment first.
+ *
+ * @param htmlPath - Absolute path to the scaffolded HTML entry file.
+ * @param publicDir - The framework's configured public dir, when the caller knows it.
+ * @param name - The bridge's sentinel name (`nav-bridge`, `interact-bridge`, …).
+ * @param literal - The bridge literal whose `<script>` body is the file's content.
+ * @returns The reference markup to insert into the entry document.
+ */
+async function writePreviewBridgeAsset(
+  htmlPath: string,
+  publicDir: string | undefined,
+  name: string,
+  literal: string,
+): Promise<string> {
+  const dir = previewBridgeAssetDir(htmlPath, publicDir)
+  await mkdir(dir, { recursive: true })
+  await writeGuarded(join(dir, `${name}.js`), bridgeScriptBody(literal))
+  return bridgeReference(name)
+}
+
+/**
+ * The two lines a scaffolded document carries in place of a bridge: the sentinel
+ * comment the injectors key on, then the one tag that loads the script.
+ *
+ * @param name - The bridge's sentinel name (`nav-bridge`, `interact-bridge`, …).
+ * @returns The reference markup.
+ */
+function bridgeReference(name: string): string {
+  return (
+    `    <!-- mol:${name} -->\n` +
+    `    <script src="${PREVIEW_BRIDGE_ASSET_URL}/${name}.js"></script>\n`
+  )
+}
+
+/**
+ * The OLD form of a bridge — sentinel comment plus the inline `<script>` (no
+ * `src`) that was inlined into the document until this split.
+ *
+ * A template whose scaffold predates the split carries this, and so does a
+ * project scaffolded by an older mlcl; both are moved out rather than left in
+ * place, so the entry document of any scaffold this runs over ends up small.
+ *
+ * @param name - The bridge's sentinel name.
+ * @returns The regex matching the inline block, sentinel through `</script>`.
+ */
+function inlineBridgeBlock(name: string): RegExp {
+  return new RegExp(
+    `[ \\t]*<!--\\s*mol:${name}\\s*-->\\s*<script(?![^>]*\\bsrc=)[^>]*>[\\s\\S]*?</script>[ \\t]*\\n?`,
+  )
+}
+
+/**
+ * Make a scaffolded HTML entry file REFERENCE a bridge instead of carrying it:
+ * write the bridge to its file, then either move an inline copy out or insert the
+ * reference before `</body>`.
+ *
+ * Idempotency is keyed on the bridge's sentinel name (`mol:nav-bridge`) as
+ * before, but "already there" now means "already a reference": an inline copy is
+ * not skipped, it is moved. The file always gets the scaffold's CURRENT literal
+ * for that bridge (never the copy found in the document), so a project scaffolded
+ * by an older version picks up the current one.
+ *
+ * @param htmlPath - Absolute path to the scaffolded HTML entry file.
+ * @param publicDir - The framework's configured public dir, when the caller knows it.
+ * @param name - The bridge's sentinel name (`nav-bridge`, `interact-bridge`, …).
+ * @param literal - The bridge literal whose body becomes the referenced file.
+ * @returns Whether the document was rewritten.
+ */
+async function injectPreviewBridge(
+  htmlPath: string,
+  publicDir: string | undefined,
+  name: string,
+  literal: string,
+): Promise<boolean> {
+  if (!existsSync(htmlPath)) return false
+  const html = await readFile(htmlPath, 'utf-8')
+  const reference = bridgeReference(name)
+  const inline = inlineBridgeBlock(name).exec(html)
+  if (inline) {
+    await writePreviewBridgeAsset(htmlPath, publicDir, name, literal)
+    await writeGuarded(
+      htmlPath,
+      html.slice(0, inline.index) + reference + html.slice(inline.index + inline[0].length),
+    )
+    return true
+  }
+  // Already a reference to the bridge's file — nothing to do.
+  if (html.includes(`mol:${name}`)) return false
+  const closingBodyIndex = html.lastIndexOf('</body>')
+  if (closingBodyIndex === -1) {
+    // No </body> to anchor against — not a document we can safely augment.
+    mlclDebug(`[scaffold] injectPreview${name}: no </body> in ${htmlPath}; skipped`)
+    return false
+  }
+  await writePreviewBridgeAsset(htmlPath, publicDir, name, literal)
+  const next = html.slice(0, closingBodyIndex) + reference + html.slice(closingBodyIndex)
+  // A read-modify-write of the entry document that already exists: guarded,
+  // so a failed write restores its bytes instead of truncating index.html.
+  await writeGuarded(htmlPath, next)
+  return true
+}
+
 /**
  * Idempotently insert {@link PREVIEW_NAV_BRIDGE_SCRIPT} into a scaffolded HTML
  * entry file (`index.html`, or SvelteKit's `src/app.html`) so the running preview
@@ -537,31 +714,22 @@ const PREVIEW_NAV_BRIDGE_SCRIPT = `    <!-- mol:nav-bridge -->
  * Called from BOTH scaffold paths so the sender reaches every app from one place:
  * `copyTemplateInstance` (the flagship templates ship a static index.html that
  * predates this protocol) and `createAppProject` (custom builds written from
- * `index.html.tpl`). The bridge is inserted immediately before the closing
- * `</body>`; it is a no-op when already present (a re-run, or a future template
- * that bakes it in) or when the file is missing / has no `</body>`.
+ * `index.html.tpl`). The reference is inserted immediately before the closing
+ * `</body>`; it is a no-op when already present (a re-run, or a document that
+ * still carries the older inline copy) or when the file is missing / has no
+ * `</body>`.
  *
  * @param htmlPath - Absolute path to the scaffolded HTML entry file.
- * @returns Whether the bridge was inserted.
+ * @param publicDir - The app's configured static dir, when the caller knows it.
+ * @returns Whether the reference was inserted.
  */
-export async function injectPreviewNavBridge(htmlPath: string): Promise<boolean> {
-  if (!existsSync(htmlPath)) return false
-  const html = await readFile(htmlPath, 'utf-8')
+export async function injectPreviewNavBridge(
+  htmlPath: string,
+  publicDir?: string,
+): Promise<boolean> {
   // Idempotency keyed on the injected sentinel, NOT the substring "molecule:navigate"
   // (which also appears in the index.html.tpl prose comment that points here).
-  if (html.includes('mol:nav-bridge')) return false
-  const closingBodyIndex = html.lastIndexOf('</body>')
-  if (closingBodyIndex === -1) {
-    // No </body> to anchor against — not a document we can safely augment.
-    mlclDebug(`[scaffold] injectPreviewNavBridge: no </body> in ${htmlPath}; skipped`)
-    return false
-  }
-  const next =
-    html.slice(0, closingBodyIndex) + PREVIEW_NAV_BRIDGE_SCRIPT + html.slice(closingBodyIndex)
-  // A read-modify-write of the entry document that already exists: guarded,
-  // so a failed write restores its bytes instead of truncating index.html.
-  await writeGuarded(htmlPath, next)
-  return true
+  return injectPreviewBridge(htmlPath, publicDir, 'nav-bridge', PREVIEW_NAV_BRIDGE_SCRIPT)
 }
 
 // ---------------------------------------------------------------------------
@@ -846,24 +1014,13 @@ const PREVIEW_SNAPSHOT_BRIDGE_SCRIPT = `    <!-- mol:snapshot-bridge -->
  * @param htmlPath - Absolute path to the scaffolded HTML entry file.
  * @returns Whether the bridge was inserted.
  */
-export async function injectPreviewSnapshotBridge(htmlPath: string): Promise<boolean> {
-  if (!existsSync(htmlPath)) return false
-  const html = await readFile(htmlPath, 'utf-8')
+export async function injectPreviewSnapshotBridge(
+  htmlPath: string,
+  publicDir?: string,
+): Promise<boolean> {
   // Idempotency keyed on the injected sentinel, NOT the substring "molecule:snapshot"
   // (which may also appear in prose comments that point here).
-  if (html.includes('mol:snapshot-bridge')) return false
-  const closingBodyIndex = html.lastIndexOf('</body>')
-  if (closingBodyIndex === -1) {
-    // No </body> to anchor against — not a document we can safely augment.
-    mlclDebug(`[scaffold] injectPreviewSnapshotBridge: no </body> in ${htmlPath}; skipped`)
-    return false
-  }
-  const next =
-    html.slice(0, closingBodyIndex) + PREVIEW_SNAPSHOT_BRIDGE_SCRIPT + html.slice(closingBodyIndex)
-  // A read-modify-write of the entry document that already exists: guarded,
-  // so a failed write restores its bytes instead of truncating index.html.
-  await writeGuarded(htmlPath, next)
-  return true
+  return injectPreviewBridge(htmlPath, publicDir, 'snapshot-bridge', PREVIEW_SNAPSHOT_BRIDGE_SCRIPT)
 }
 
 // ---------------------------------------------------------------------------
@@ -1013,23 +1170,12 @@ const PREVIEW_RUNTIME_BRIDGE_SCRIPT = `    <!-- mol:runtime-bridge -->
  * @param htmlPath - Absolute path to the scaffolded HTML entry file.
  * @returns Whether the bridge was inserted.
  */
-export async function injectPreviewRuntimeBridge(htmlPath: string): Promise<boolean> {
-  if (!existsSync(htmlPath)) return false
-  const html = await readFile(htmlPath, 'utf-8')
+export async function injectPreviewRuntimeBridge(
+  htmlPath: string,
+  publicDir?: string,
+): Promise<boolean> {
   // Idempotency keyed on the injected sentinel.
-  if (html.includes('mol:runtime-bridge')) return false
-  const closingBodyIndex = html.lastIndexOf('</body>')
-  if (closingBodyIndex === -1) {
-    // No </body> to anchor against — not a document we can safely augment.
-    mlclDebug(`[scaffold] injectPreviewRuntimeBridge: no </body> in ${htmlPath}; skipped`)
-    return false
-  }
-  const next =
-    html.slice(0, closingBodyIndex) + PREVIEW_RUNTIME_BRIDGE_SCRIPT + html.slice(closingBodyIndex)
-  // A read-modify-write of the entry document that already exists: guarded,
-  // so a failed write restores its bytes instead of truncating index.html.
-  await writeGuarded(htmlPath, next)
-  return true
+  return injectPreviewBridge(htmlPath, publicDir, 'runtime-bridge', PREVIEW_RUNTIME_BRIDGE_SCRIPT)
 }
 
 /**
@@ -1491,21 +1637,60 @@ const PREVIEW_INTERACT_BRIDGE_SCRIPT = `    <!-- mol:interact-bridge -->
  * @param htmlPath - Absolute path to the scaffolded HTML entry file.
  * @returns Whether the bridge was inserted.
  */
-export async function injectPreviewInteractBridge(htmlPath: string): Promise<boolean> {
+export async function injectPreviewInteractBridge(
+  htmlPath: string,
+  publicDir?: string,
+): Promise<boolean> {
+  // Idempotency keyed on the injected sentinel.
+  return injectPreviewBridge(htmlPath, publicDir, 'interact-bridge', PREVIEW_INTERACT_BRIDGE_SCRIPT)
+}
+
+// ---------------------------------------------------------------------------
+// The LIVENESS bridge — the one preview script that is not injected here.
+//
+// It is BAKED into each template's `index.html` (and the shared
+// `index.html.tpl`), delimited by `mol:preview-bridge:start` / `:end`, because it
+// is the script that tells the IDE's preview panel the app rendered, crashed or
+// recovered — the signal the panel's overlay waits on, and the one thing that
+// must be in place even for a document the scarfolder never touches. Being baked
+// is also why it was the largest thing in the entry document (13 KB of the 63 KB
+// flash-m77 read).
+//
+// So the injector does not ADD it: it MOVES the baked copy into the app's static
+// directory and replaces the delimited region with the one-line reference that
+// loads it. The script text is taken from the document itself (the baked copy is
+// the single source of it), so the site, the templates and this code cannot
+// drift. A document without the region is left exactly as it is — a template that
+// never carried the liveness bridge does not suddenly start posting to the IDE.
+// ---------------------------------------------------------------------------
+
+/** The baked liveness region, with the markup between its delimiters captured. */
+const PREVIEW_LIVENESS_REGION =
+  /[ \t]*<!--\s*mol:preview-bridge:start\s*-->([\s\S]*?)<!--\s*mol:preview-bridge:end\s*-->[ \t]*\n?/
+
+/** A `<script>` tag with NO `src` — i.e. still an inline copy, not a reference. */
+const INLINE_SCRIPT_BODY = /<script(?![^>]*\bsrc=)[^>]*>([\s\S]*?)<\/script>/
+
+/**
+ * Move the baked liveness bridge out of an HTML entry document and into the app's
+ * static directory, leaving the reference that loads it. Idempotent: a document
+ * whose region already holds the reference is left alone.
+ *
+ * @param htmlPath - Absolute path to the scaffolded HTML entry file.
+ * @param publicDir - The app's configured static dir, when the caller knows it.
+ * @returns Whether the document was rewritten.
+ */
+export async function injectPreviewLivenessBridge(
+  htmlPath: string,
+  publicDir?: string,
+): Promise<boolean> {
   if (!existsSync(htmlPath)) return false
   const html = await readFile(htmlPath, 'utf-8')
-  // Idempotency keyed on the injected sentinel.
-  if (html.includes('mol:interact-bridge')) return false
-  const closingBodyIndex = html.lastIndexOf('</body>')
-  if (closingBodyIndex === -1) {
-    // No </body> to anchor against — not a document we can safely augment.
-    mlclDebug(`[scaffold] injectPreviewInteractBridge: no </body> in ${htmlPath}; skipped`)
-    return false
-  }
-  const next =
-    html.slice(0, closingBodyIndex) + PREVIEW_INTERACT_BRIDGE_SCRIPT + html.slice(closingBodyIndex)
-  // A read-modify-write of the entry document that already exists: guarded,
-  // so a failed write restores its bytes instead of truncating index.html.
+  const region = PREVIEW_LIVENESS_REGION.exec(html)
+  if (!region) return false
+  if (!INLINE_SCRIPT_BODY.test(region[1])) return false
+  const reference = await writePreviewBridgeAsset(htmlPath, publicDir, 'preview-bridge', region[1])
+  const next = html.slice(0, region.index) + reference + html.slice(region.index + region[0].length)
   await writeGuarded(htmlPath, next)
   return true
 }
@@ -2479,6 +2664,12 @@ export async function copyTemplateInstance(
   // rule as the other bridges — one place reaches every flagship. Idempotent;
   // no-op outside the IDE. Mirrors molecule-dev's imported-app proxy bundle.
   await injectPreviewInteractBridge(indexHtmlPath)
+
+  // Move the LIVENESS bridge each template bakes into its index.html (13 KB of
+  // the document, sentinel-delimited) into the app's static directory and leave
+  // the one-line reference. Runs FIRST of the two bridge groups in terms of what
+  // the executor sees, and never adds the bridge to a template that lacks it.
+  await injectPreviewLivenessBridge(indexHtmlPath)
 
   // Wire the IDE8 activity-capture PRODUCER into the copied API boot so a
   // captured email/webhook/push fired in a molecule.dev sandbox surfaces in the
@@ -4569,22 +4760,26 @@ export async function createAppProject(
   // else is index.html at the project root. Idempotent — see injectPreviewNavBridge.
   const htmlEntryPath =
     htmlFile === 'app.html' ? join(projectPath, 'src', htmlFile) : join(projectPath, htmlFile)
-  await injectPreviewNavBridge(htmlEntryPath)
+  await injectPreviewNavBridge(htmlEntryPath, publicDir)
 
   // Inject the snapshot + self-healing-readiness bridge (P2-16 blurred last-good
   // frame + P2-15 stuck-overlay self-heal) right after the nav bridge, into the
   // same freshly written HTML entry. Idempotent — see injectPreviewSnapshotBridge.
-  await injectPreviewSnapshotBridge(htmlEntryPath)
+  await injectPreviewSnapshotBridge(htmlEntryPath, publicDir)
 
   // Inject the runtime-failure-detection bridge (heartbeat → freeze detection,
   // runtime-error forwarding, blank-render signal). This is a CUSTOM build, so there
   // is no baked sender — this injection is its ONLY runtime detection. Idempotent.
-  await injectPreviewRuntimeBridge(htmlEntryPath)
+  await injectPreviewRuntimeBridge(htmlEntryPath, publicDir)
 
   // Inject the live-preview control bridge (Synthase reads/clicks the preview UI to
   // verify a feature end-to-end). This is a CUSTOM build with no proxy bundle, so this
   // injection is its ONLY interaction channel. Idempotent — see injectPreviewInteractBridge.
-  await injectPreviewInteractBridge(htmlEntryPath)
+  await injectPreviewInteractBridge(htmlEntryPath, publicDir)
+
+  // Move the baked liveness bridge out of the freshly written entry (13 KB of it)
+  // into the app's static directory. Idempotent — see injectPreviewLivenessBridge.
+  await injectPreviewLivenessBridge(htmlEntryPath, publicDir)
 
   // Framework-specific entry point and App component (from templates)
   await copyTemplateFiles(projectPath, framework, projectName, extraVars)

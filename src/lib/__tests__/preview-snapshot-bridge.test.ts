@@ -33,6 +33,7 @@ import { JSDOM } from 'jsdom'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { injectPreviewNavBridge, injectPreviewSnapshotBridge } from '../scaffold.js'
+import { inlinePreviewBridgeScripts } from './preview-bridge-test-utils.js'
 
 interface PreviewMessage {
   type?: string
@@ -78,12 +79,17 @@ afterEach(async () => {
   await rm(dir, { recursive: true, force: true })
 })
 
-/** Write `html` to a temp index.html, run the scaffold injector, return the result. */
+/**
+ * Write `html` to a temp index.html, run the scaffold injector, and return the
+ * document a browser would EXECUTE — the injected bridge reference inlined from
+ * the file the injector wrote next to it (jsdom fetches no subresources; see
+ * {@link inlinePreviewBridgeScripts}).
+ */
 async function scaffoldHtml(html: string, name = 'index.html'): Promise<string> {
   const path = join(dir, name)
   await writeFile(path, html)
   await injectPreviewSnapshotBridge(path)
-  return readFile(path, 'utf-8')
+  return inlinePreviewBridgeScripts(await readFile(path, 'utf-8'), dir)
 }
 
 interface PreviewHarness {
@@ -206,7 +212,13 @@ describe('injectPreviewSnapshotBridge (injection mechanics)', () => {
     expect(await injectPreviewSnapshotBridge(path)).toBe(false)
     const out = await readFile(path, 'utf-8')
     expect(out.match(/mol:snapshot-bridge/g)).toHaveLength(1)
-    expect(out.match(/type: 'molecule:snapshot'/g)).toHaveLength(1)
+    // The protocol lives in the file the reference loads — counted there, so a
+    // second injection that wrote the bridge twice still fails this.
+    const script = await readFile(
+      join(dir, 'public', '__mol', 'bridges', 'snapshot-bridge.js'),
+      'utf-8',
+    )
+    expect(script.match(/type: 'molecule:snapshot'/g)).toHaveLength(1)
   })
 
   it('coexists with the nav bridge (both inject independently)', async () => {
@@ -217,8 +229,16 @@ describe('injectPreviewSnapshotBridge (injection mechanics)', () => {
     const out = await readFile(path, 'utf-8')
     expect(out).toContain('mol:nav-bridge')
     expect(out).toContain('mol:snapshot-bridge')
-    expect(out).toContain("type: 'molecule:navigate'")
-    expect(out).toContain("type: 'molecule:snapshot'")
+    // Each reference loads its own script, and neither bridge's body is in the
+    // document itself any more: that is the whole point of the split.
+    expect(out).not.toContain("type: 'molecule:navigate'")
+    expect(out).not.toContain("type: 'molecule:snapshot'")
+    expect(
+      await readFile(join(dir, 'public', '__mol', 'bridges', 'nav-bridge.js'), 'utf-8'),
+    ).toContain("type: 'molecule:navigate'")
+    expect(
+      await readFile(join(dir, 'public', '__mol', 'bridges', 'snapshot-bridge.js'), 'utf-8'),
+    ).toContain("type: 'molecule:snapshot'")
   })
 
   it('returns false for a missing file', async () => {

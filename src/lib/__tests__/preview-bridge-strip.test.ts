@@ -25,7 +25,8 @@
  * @module
  */
 
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { existsSync } from 'node:fs'
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -35,6 +36,7 @@ import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import {
   injectPreviewInteractBridge,
+  injectPreviewLivenessBridge,
   injectPreviewNavBridge,
   injectPreviewRuntimeBridge,
   injectPreviewSnapshotBridge,
@@ -48,6 +50,10 @@ const SCAFFOLD_SRC = join(MLCL_ROOT, 'src', 'lib', 'scaffold.ts')
 
 /** The strip entry point, loaded from the SHIPPED template rather than a copy. */
 let stripPreviewBridges: (html: string) => string
+/** The build-output asset drop, from the same shipped module. */
+let dropBridgeAssets: (outDir: string) => void
+/** The shipped plugin list, so the drop is proven to be WIRED, not just exported. */
+let pluginNames: string[] = []
 /** The index.html a real scaffold produces, with every bridge injected. */
 let scaffoldedHtml = ''
 let dir = ''
@@ -56,10 +62,11 @@ let dir = ''
  * Load the shipped `.tpl` as a module.
  *
  * The template is what users get, so the test must run THAT file — not a
- * re-implementation. Its two imports (`vite` for a type, `@molecule/app-e2e-preview`
- * for the sibling plugin) are irrelevant to stripping and are stubbed out; the
- * replacements are asserted, so a change to the template's import shape fails
- * here instead of silently testing nothing.
+ * re-implementation. Its imports of `vite` (a type) and of
+ * `@molecule/app-e2e-preview` (the sibling plugin) are irrelevant to stripping
+ * and are stubbed out; the replacements are asserted, so a change to the
+ * template's import shape fails here instead of silently testing nothing. Its
+ * `node:fs` / `node:path` imports are real and left alone.
  *
  * @param outDir - Directory to write the transpiled module into.
  * @returns The template module's `stripPreviewBridges`.
@@ -84,8 +91,13 @@ const loadShippedPlugin = async (outDir: string): Promise<(html: string) => stri
 
   const mod = (await import(pathToFileURL(modulePath).href)) as {
     stripPreviewBridges?: (html: string) => string
+    dropBridgeAssets?: (outDir: string) => void
+    stripPreviewBridgePlugin?: () => Array<{ name: string }>
   }
   expect(typeof mod.stripPreviewBridges, 'template exports stripPreviewBridges').toBe('function')
+  expect(typeof mod.dropBridgeAssets, 'template exports dropBridgeAssets').toBe('function')
+  pluginNames = (mod.stripPreviewBridgePlugin?.() ?? []).map((p) => p.name)
+  dropBridgeAssets = mod.dropBridgeAssets as (outDir: string) => void
   return mod.stripPreviewBridges as (html: string) => string
 }
 
@@ -129,6 +141,10 @@ beforeAll(async () => {
     injectPreviewSnapshotBridge,
     injectPreviewRuntimeBridge,
     injectPreviewInteractBridge,
+    // The liveness bridge is MOVED (it is baked into the template) rather than
+    // appended, and it is the biggest one — the fixture must carry its reference
+    // form too, or the strip would be proven only for the smaller four.
+    injectPreviewLivenessBridge,
   ]) {
     expect(await inject(htmlPath), `${inject.name} injected its bridge`).toBe(true)
   }
@@ -148,7 +164,21 @@ describe('vite-preview-bridge-plugin — strips every bridge from a build', () =
     for (const sentinel of injected) {
       expect(scaffoldedHtml, `fixture carries ${sentinel}`).toContain(`<!-- ${sentinel} -->`)
     }
-    expect(scaffoldedHtml).toContain('<!-- mol:preview-bridge:start -->')
+    // Every bridge is present in the form a scaffold actually emits now: a
+    // reference to its file, not the script itself.
+    expect(scaffoldedHtml).toContain('<!-- mol:preview-bridge -->')
+    for (const name of [
+      'preview-bridge',
+      'nav-bridge',
+      'snapshot-bridge',
+      'runtime-bridge',
+      'interact-bridge',
+    ]) {
+      expect(scaffoldedHtml, `fixture references ${name}`).toContain(
+        `<script src="/__mol/bridges/${name}.js"></script>`,
+      )
+    }
+    expect(scaffoldedHtml.match(/<script src="\/__mol\/bridges\//g)).toHaveLength(5)
   })
 
   it('leaves no bridge sentinel behind — including ones added after this test', async () => {
@@ -237,6 +267,40 @@ describe('vite-preview-bridge-plugin — strips every bridge from a build', () =
     const once = stripPreviewBridges(scaffoldedHtml)
 
     expect(stripPreviewBridges(once)).toBe(once)
+  })
+
+  it('drops the bridges’ script files from the build output, and nothing else', async () => {
+    // Stripping the tags is only half: Vite also copies publicDir into the build
+    // output, so the bridge FILES would ship as unreachable scripts — the same
+    // ~59 KB of dev-only plumbing the strip exists to keep out of production.
+    const outDir = join(dir, 'dist')
+    await mkdir(join(outDir, '__mol', 'bridges'), { recursive: true })
+    await mkdir(join(outDir, 'icons'), { recursive: true })
+    await writeFile(join(outDir, '__mol', 'bridges', 'interact-bridge.js'), 'bridge code')
+    await writeFile(join(outDir, 'icons', 'icon-192.svg'), '<svg/>')
+    await writeFile(join(outDir, 'index.html'), '<!doctype html>')
+
+    dropBridgeAssets(outDir)
+
+    expect(existsSync(join(outDir, '__mol')), 'bridge assets removed').toBe(false)
+    // The app's own static output is untouched.
+    expect(existsSync(join(outDir, 'icons', 'icon-192.svg'))).toBe(true)
+    expect(existsSync(join(outDir, 'index.html'))).toBe(true)
+  })
+
+  it('runs the asset drop as part of the shipped plugin list', () => {
+    // An exported function nobody registers would leave the files in the build.
+    expect(pluginNames).toContain('molecule-strip-preview-bridge')
+    expect(pluginNames).toContain('molecule-drop-preview-bridge-assets')
+  })
+
+  it('is a no-op when there are no bridge assets to drop', async () => {
+    const outDir = join(dir, 'dist-empty')
+    await mkdir(outDir, { recursive: true })
+    await writeFile(join(outDir, 'index.html'), '<!doctype html>')
+
+    expect(() => dropBridgeAssets(outDir)).not.toThrow()
+    expect(existsSync(join(outDir, 'index.html'))).toBe(true)
   })
 })
 
