@@ -6131,6 +6131,7 @@
         "appNameForProject",
         "mapMachineState",
         "isFailedState",
+        "isTransientExecPrecondition",
         "createProvider",
         "DEFAULT_TEMPLATE_PREFIX",
         "DEFAULT_TEMPLATE_REGION",
