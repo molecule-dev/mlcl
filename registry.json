@@ -31774,6 +31774,7 @@
         "provider",
         "connectPreview",
         "listPreviewPages",
+        "E2E_PREVIEW_RUNTIME_SCRIPT",
         "UpgradeCapableServer",
         "E2EHub",
         "attachE2EHub",
