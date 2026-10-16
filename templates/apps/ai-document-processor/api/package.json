@@ -45,7 +45,7 @@
     "@molecule/api-import-export": "1.0.3",
     "@molecule/api-import-export-csv": "1.0.2",
     "@molecule/api-jwt": "1.0.3",
-    "@molecule/api-jwt-jsonwebtoken": "1.0.2",
+    "@molecule/api-jwt-jsonwebtoken": "1.0.3",
     "@molecule/api-locales-ai-anthropic": "1.0.2",
     "@molecule/api-locales-body-parser": "1.0.2",
     "@molecule/api-locales-config": "1.0.2",
