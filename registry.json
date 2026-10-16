@@ -3287,6 +3287,7 @@
         "stripControlChars",
         "redactSecrets",
         "redactSecretsInCode",
+        "printsOnlySource",
         "isEnvFilePath",
         "declaredBudgetSeconds",
         "outputIsWithheldUntilExit",
