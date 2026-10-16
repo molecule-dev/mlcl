@@ -118,28 +118,32 @@ export function stripGeneratedTimestamp(md: string): string {
     .join('\n')
 }
 
-/** Rendered note, immediately under the title, explaining what this document is. */
+/**
+ * Rendered note explaining what this document is. It renders AFTER the module
+ * description — never between the title and it — because the description is the
+ * package's own summary and the note is the generator's boilerplate: every
+ * truncation of a README (the `read_molecule_doc` cap, and the context fitter's
+ * digest of an older read) keeps the TOP of the document, so boilerplate above
+ * the description spends the whole budget on "this file is generated" and
+ * carries none of what the package documents. X0 flash-m98 (2026-10-17) lost ten
+ * minutes to exactly that: the 600-character digest of `@molecule/api-resource-user`
+ * was the banner comment, the title and this note, while the paragraph that
+ * explained its bug sat at character 1,157.
+ */
 const GENERATED_NOTE = `> **Auto-generated, AI-first package reference** for the [molecule.dev](https://molecule.dev) ecosystem.
 > It is written to be read by coding agents as much as by people, and is generated from this
 > package's source — edit \`src/index.ts\` JSDoc, not this file.`
 
 /**
- * Prepend the generated-file banner and insert the reader-facing note under the
- * document title.
+ * Prepend the generated-file banner. The reader-facing note ({@link GENERATED_NOTE})
+ * is a section the body generators place, after the description.
  *
  * @param md - The generated document body, whose first line is the `# title`.
- * @returns The document with banner and note applied.
+ * @returns The document with the banner applied.
  */
 function withGeneratedBanner(md: string): string {
   const banner = `${GENERATED_COMMENT_PREFIX}\n${GENERATED_AT_PREFIX}${new Date().toISOString()}\n-->`
-  const lines = md.split('\n')
-  const titleIndex = lines.findIndex((line) => line.startsWith('# '))
-  if (titleIndex === -1) {
-    // No title to anchor to — still mark it generated rather than silently skipping.
-    return `${banner}\n\n${md}`
-  }
-  lines.splice(titleIndex + 1, 0, '', GENERATED_NOTE)
-  return `${banner}\n\n${lines.join('\n')}`
+  return `${banner}\n\n${md}`
 }
 
 export function generateMoleculeMd(
@@ -171,11 +175,16 @@ function generateStandardMd(
   // 1. Title
   sections.push(`# ${pkg.name}`)
 
-  // 2. Description
+  // 2. Description — the package's own summary, and the first text after the
+  // title. It is the one part of a README every truncation keeps (see
+  // GENERATED_NOTE), so nothing the generator writes may precede it.
   const description = extracted.description || entry.description
   if (description) {
     sections.push(description)
   }
+
+  // 2b. What this document is — the generator's boilerplate, after the summary.
+  sections.push(GENERATED_NOTE)
 
   // 3. Quick Start (from module-level @example) — promoted above metadata
   // and API so the FIRST code block a reader / weaker AI model sees is
@@ -258,11 +267,15 @@ function generateLocaleMd(
   // 1. Title
   sections.push(`# ${pkg.name}`)
 
-  // 2. Description
+  // 2. Description — first text after the title; the note goes after it (see
+  // the standard generator for why).
   const description = extracted.description || entry.description
   if (description) {
     sections.push(description)
   }
+
+  // 2b. What this document is.
+  sections.push(GENERATED_NOTE)
 
   // 3. Purpose — determine which package this translates
   const translatesPackage = inferTranslatedPackage(pkg.name, options.knownPackages)
@@ -924,15 +937,19 @@ function generateBondWiringSection(
     // Find matching exports for each setter
     const pairs: Array<{ setter: string; provider: string }> = []
 
-    // The PRIMARY setter registers the provider itself. Prefer `setProvider`,
-    // then `set<PascalCase(category)>` (logger → setLogger, cors → setCors) —
-    // without this, concept-pairing below either misses it (middleware bonds
-    // rendered a factory-only setup that never registers the provider) or the
-    // fallback picks setters[0] (logger bonds rendered the type-error
-    // `setLevel(provider)`).
+    // The PRIMARY setter registers the provider itself. The core's registry
+    // `bondSetter` — the setter whose parameter is the provider interface,
+    // scanned from source — decides this; without it, a core that grew a second
+    // setter is resolved by order and the README documents a call that cannot
+    // compile (app-http-axios rendered `setAuthGate(provider)` beside a core
+    // whose bond setter is setClient). Then `setProvider`, then
+    // `set<PascalCase(category)>` (logger → setLogger, cors → setCors).
+    const declared = options.coreInterfaceEntry?.bondSetter
     const categoryPascal = toPascalCase(entry.category ?? '')
     const primary =
-      setters.find((s) => s === 'setProvider') ?? setters.find((s) => s === `set${categoryPascal}`)
+      (declared && setters.includes(declared) ? declared : undefined) ??
+      setters.find((s) => s === 'setProvider') ??
+      setters.find((s) => s === `set${categoryPascal}`)
     if (primary) {
       pairs.push({ setter: primary, provider: providerExport })
     }
