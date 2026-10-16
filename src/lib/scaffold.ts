@@ -3163,7 +3163,8 @@ export async function createApiProject(
     private: true,
     type: 'module',
     scripts: {
-      dev: 'tsx watch src/server.ts',
+      // migrations/ is watched too: a new migration applies on the restart it causes (X1 flash-m41).
+      dev: "tsx watch --include 'migrations/*.sql' src/server.ts",
       build: 'tsc',
       start: 'node dist/server.js',
       test: 'vitest run',
