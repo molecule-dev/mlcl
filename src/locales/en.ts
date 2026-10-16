@@ -364,6 +364,12 @@ export const messages: LocaleMessages = {
     "Could not find molecule package. Run 'npm install {name}' first.",
   'lib.injector.errors.scanFailed': 'Failed to scan molecule package: {error}',
   'lib.injector.errors.migrationExists': "Migration for table '{table}' already exists",
+  'lib.injector.errors.migrationDuplicateOther':
+    "Migration for table '{table}' was already planned for {name} in this run — the two packages ship the same setup SQL, so only one file is written",
+  'lib.injector.errors.migrationDuplicateSelf':
+    "{name} declares table '{table}' twice in its own setup metadata — only one migration is written",
+  'lib.injector.errors.migrationTableConflict':
+    "table '{table}' is declared by both {first} and {second} with DIFFERENT SQL — two migrations for one table were refused; reconcile the two packages' setup SQL",
   'lib.injector.descriptions.createBond': 'Create bond setup for {name}',
   'lib.injector.descriptions.addBondExport': 'Add {name} export to bonds index',
   'lib.injector.descriptions.createMiddleware': 'Create middleware setup for {name}',

@@ -12,6 +12,7 @@ import { collectSecrets, resolveLocalePackages } from '../lib/features.js'
 import { formatGeneratedFiles } from '../lib/format.js'
 import { t } from '../lib/i18n.js'
 import {
+  dedupePlannedMigrations,
   executeInjection,
   filterExcludedPeerDependencies,
   GENERATED_SMOKE_TEST_PATHS,
@@ -248,6 +249,15 @@ export default class Inject extends Command {
     // manifest-derived migration runner is safe to write in that state (see
     // `filesToWrite` below).
     const holisticSynthesisAllowed = resolutionFailures.length === 0
+
+    // One migration per table across the whole run. Every plan was built before
+    // anything was written, so the planner's own check against `migrations/` saw
+    // an empty folder for all of them and two packages shipping the same table
+    // (article ships the `follows`/`reactions` DDL follow/reaction also ship)
+    // each planned a file for it — X0 flash-m93 scaffolded both pairs. Runs
+    // before the failures below are collected, so a pair whose SQL DISAGREES
+    // fails the request through the same channel an unreadable file does.
+    dedupePlannedMigrations(plans)
 
     // A migration whose SQL the package could not provide fails the request
     // too (its table would be missing at runtime), but it does NOT gate the

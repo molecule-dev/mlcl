@@ -1209,6 +1209,108 @@ export function filterExcludedPeerDependencies(
   }
 }
 
+/**
+ * One migration per table across the WHOLE plan set — the second package that
+ * declares a table another package already planned loses its migration.
+ *
+ * Every plan is built before any of them is executed (`mlcl inject` plans the
+ * registry selection, then the default providers, then the locale packages, and
+ * only then writes), so {@link checkMigrationExists} — which reads the target
+ * project's `migrations/` DIRECTORY — sees an empty folder for all of them, and
+ * two packages that ship the same table each passed it. X0 flash-m93 (2026-10-16)
+ * scaffolded a Conduit app with twelve migrations, two of them byte-identical
+ * pairs for one table:
+ *
+ * ```
+ * 1792182879056_create_follows_table.sql      ← @molecule/api-resource-article
+ * 1792182879064_create_follows_table.sql      ← @molecule/api-resource-follow
+ * 1792182879057_create_reactions_table.sql    ← @molecule/api-resource-article
+ * 1792182879069_create_reactions_table.sql    ← @molecule/api-resource-reaction
+ * ```
+ *
+ * `article` ships the `follows`/`reactions` DDL its own queries read (the m75
+ * fix) BESIDE the packages that own them, so the pair is the normal shape for a
+ * request that installs both. The reviewer's model then saw the duplicate pair,
+ * ran `rm -f` on BOTH `create_follows_table.sql` files, and left the app with no
+ * `follows` table at all — a class of problem the scaffold should never have
+ * handed it.
+ *
+ * Two migrations that create one table are a conflict whatever their text:
+ * `CREATE TABLE IF NOT EXISTS` makes the second a silent no-op, and the package
+ * whose queries expect ITS columns then fails at runtime on a column the other
+ * file's shape does not have. So:
+ *
+ * - identical content (the duplicated package SQL above) is a `migrationExists`
+ *   conflict with resolution `skip` — the first plan keeps the file, and the
+ *   second is dropped, naming the package that already planned it.
+ * - different content is a real conflict between two packages: the second
+ *   migration is dropped the same way (`IF NOT EXISTS` would leave the first
+ *   file's shape in place anyway) AND a `migrationFailures` entry names both
+ *   packages and the table, so the injection FAILS loudly instead of leaving a
+ *   package silently short of the columns it reads.
+ *
+ * Table names are compared exactly, the same comparison
+ * {@link checkMigrationExists} makes against the filesystem: two spellings that
+ * differ in case are two different quoted identifiers, not one table.
+ *
+ * Mutates the plans in place (like {@link filterExcludedPeerDependencies}); the
+ * inject command calls it after planning and before execution.
+ *
+ * @param plans - Every plan of one inject run, in the order they were planned.
+ */
+export function dedupePlannedMigrations(plans: readonly InjectionPlan[]): void {
+  // Table name → the migration that claimed it and the package that planned it.
+  const claimed = new Map<string, { molecule: string; name: string; content: string }>()
+  for (const plan of plans) {
+    const kept: MigrationFile[] = []
+    for (const migration of plan.migrations) {
+      const prior = claimed.get(migration.tableName)
+      if (!prior) {
+        claimed.set(migration.tableName, {
+          molecule: plan.molecule,
+          name: migration.name,
+          content: migration.content,
+        })
+        kept.push(migration)
+        continue
+      }
+      if (prior.molecule === plan.molecule) {
+        // One package declaring a table twice in its own `tables` metadata: the
+        // first entry wins, the same reason as the cross-package case below.
+        plan.conflicts.push({
+          path: migration.name,
+          message: t('lib.injector.errors.migrationDuplicateSelf', {
+            table: migration.tableName,
+            name: plan.molecule,
+          }),
+          resolution: 'skip',
+        })
+        continue
+      }
+      if (prior.content === migration.content) {
+        plan.conflicts.push({
+          path: migration.name,
+          message: t('lib.injector.errors.migrationDuplicateOther', {
+            table: migration.tableName,
+            name: prior.molecule,
+          }),
+          resolution: 'skip',
+        })
+        continue
+      }
+      plan.migrationFailures = [
+        ...(plan.migrationFailures ?? []),
+        t('lib.injector.errors.migrationTableConflict', {
+          table: migration.tableName,
+          first: prior.molecule,
+          second: plan.molecule,
+        }),
+      ]
+    }
+    plan.migrations = kept
+  }
+}
+
 // Helper functions
 
 /**
