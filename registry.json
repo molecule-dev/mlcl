@@ -33525,7 +33525,9 @@
         "ionicons font",
         "ionicons 2 icon font",
         "ionicons glyph classes",
-        "conduit ionicons icons"
+        "conduit ionicons icons",
+        "ion- glyph classes",
+        "conduit realworld frontend glyph icons"
       ]
     },
     "@molecule/app-fonts-jetbrains-mono": {
