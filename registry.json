@@ -3293,6 +3293,8 @@
         "outputIsWithheldUntilExit",
         "outputRedirectTarget",
         "streamingBackgroundCommand",
+        "isSuiteRunCommand",
+        "suiteRunPriorityLaunch",
         "checkBlockedCommand",
         "resolvePath",
         "isOutsideRoot",
