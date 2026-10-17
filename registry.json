@@ -3440,6 +3440,7 @@
         "earlyReturnCause",
         "matchingExcludedTitles",
         "FailureCause",
+        "CausePageErrors",
         "failuresByCause",
         "failureCausesNote",
         "rerunOfRunningSuite",
