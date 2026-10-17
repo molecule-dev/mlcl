@@ -3319,6 +3319,8 @@
         "leadingSleepPeek",
         "withoutHeredocs",
         "suiteCommandTarget",
+        "namesSuiteConfig",
+        "withSuiteConfig",
         "scopedRerunCommand",
         "SuiteRunInFlight",
         "suiteRunInTheWay",
