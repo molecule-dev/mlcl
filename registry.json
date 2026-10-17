@@ -28994,12 +28994,24 @@
       "stack": "app",
       "alwaysInclude": true,
       "exports": [
+        "BrowserStorageKind",
+        "BrowserStorageAdapterOptions",
+        "createBrowserStorageAdapter",
+        "createJWTAuthClient",
+        "setClient",
+        "getClient",
+        "hasClient",
+        "createTokenStorage",
+        "parseJWT",
+        "isTokenExpired",
+        "getTokenExpiration",
         "UserProfile",
         "LoginCredentials",
         "RegisterData",
         "AuthResult",
         "PasswordResetRequest",
         "PasswordResetConfirm",
+        "AuthStatus",
         "AuthState",
         "AuthEvent",
         "AuthEventListener",
@@ -29007,22 +29019,11 @@
         "StorageAdapter",
         "AuthClientConfig",
         "TokenStorage",
-        "createTokenStorage",
-        "parseJWT",
-        "isTokenExpired",
-        "getTokenExpiration",
-        "createJWTAuthClient",
-        "setClient",
-        "getClient",
-        "hasClient",
         "isAuthenticated",
         "getUser",
         "login",
         "logout",
-        "register",
-        "BrowserStorageKind",
-        "BrowserStorageAdapterOptions",
-        "createBrowserStorageAdapter"
+        "register"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -29056,6 +29057,12 @@
         ],
         "configExtend": [
           "storage: createBrowserStorageAdapter()"
+        ],
+        "header": [
+          "This file is the app's ONE session store — never add a second one beside it.",
+          "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is already `loading` | `authenticated` | `unauthenticated` | `unavailable`, and `state.user` is the current user.",
+          "`initialize()` restores before the first render; `validateSession()` re-checks a restored session in the background (a 4xx clears it, a network/5xx failure keeps it as `unavailable`).",
+          "A token another tool reads at its own key (an e2e suite's `localStorage.jwtToken`) is the factory's `tokenKey`, not a mirrored copy in a second store."
         ]
       },
       "intentHints": [
@@ -54504,7 +54511,14 @@
         "@molecule/app-settings-panel-react",
         "@molecule/app-pwa-default"
       ],
-      "path": "packages/app/frameworks/react"
+      "path": "packages/app/frameworks/react",
+      "intentHints": [
+        "auth state hook",
+        "useAuth session",
+        "current user hook",
+        "login state react",
+        "session store react"
+      ]
     },
     "@molecule/app-react-native": {
       "language": "typescript",

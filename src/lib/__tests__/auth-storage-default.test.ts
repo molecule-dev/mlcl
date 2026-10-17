@@ -134,6 +134,43 @@ describe('the scaffolded app keeps its session across a reload (flash-m98)', () 
     expect(content).toContain('storage: createBrowserStorageAdapter(),')
   })
 
+  it('gives the generated bond the registry header: one store, useAuth, tokenKey', () => {
+    // The bond file is what the executor is told to edit, so the doc at its top is where the
+    // "do not add a second store" instruction has to be (X1 m134 added one at +08:55).
+    const plan: InjectionPlan = {
+      molecule: '@molecule/app-auth',
+      moleculePackage: {
+        name: '@molecule/app-auth',
+        version: '1.0.0',
+        type: 'core',
+        routes: [],
+        tables: [],
+        exports: [],
+        path: '/tmp/test-app',
+      },
+      files: [],
+      dependencies: [],
+      migrations: [],
+      bondSetup: null,
+      conflicts: [],
+    }
+    const files = synthesizeAppProjectFiles(
+      [plan],
+      ['@molecule/app-auth'],
+      '/tmp/test-app',
+      loadRegistry(),
+    )
+    const content = files.find((f) => f.targetPath.endsWith('bonds/auth-default.ts'))?.content ?? ''
+
+    expect(content).toContain("the app's ONE session store")
+    expect(content).toContain('`useAuth()` from `@molecule/app-react`')
+    expect(content).toContain('`state.status`')
+    expect(content).toContain('`validateSession()`')
+    expect(content).toContain('`tokenKey`')
+    // The generic sentence is replaced, not duplicated.
+    expect(content).not.toContain('Swap to a different')
+  })
+
   it('writes no browser-storage module of its own — the app imports the package export', () => {
     const plan: InjectionPlan = {
       molecule: '@molecule/app-auth',

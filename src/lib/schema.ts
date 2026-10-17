@@ -746,6 +746,14 @@ export const RegistryEntry = z.object({
           'Extra named values to spread into the config object (must be imported via extraImports). ' +
             'When set, factory call becomes factory({ ...configImport, field1, field2 })',
         ),
+      header: z
+        .array(z.string())
+        .optional()
+        .describe(
+          'Doc-comment lines for the generated bond file, shown to the executor that edits it ' +
+            '(the calls that replace a second implementation, the one store the file is). ' +
+            'Defaults to the generic factory/setter sentence.',
+        ),
     })
     .optional()
     .describe('How to generate a default bond setup when no explicit provider is selected'),

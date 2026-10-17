@@ -2840,6 +2840,7 @@ export function synthesizeAppProjectFiles(
             configImports?: string[]
             extraImports?: Array<{ names: string[]; from: string }>
             configExtend?: string[]
+            header?: string[]
           }
         | undefined
       if (!setupMeta) continue
@@ -3067,6 +3068,7 @@ function generateDefaultBondSetup(
     configImports?: string[]
     extraImports?: Array<{ names: string[]; from: string }>
     configExtend?: string[]
+    header?: string[]
   },
   pascal: string,
   category: string,
@@ -3106,6 +3108,18 @@ function generateDefaultBondSetup(
     imports.push(`import { ${imp.names.join(', ')} } from '${imp.from}'`)
   }
 
+  // The file's own header is the doc an executor reads when it opens the bond it is told to edit.
+  // A `header` in the registry (app-auth) names the one store the file IS and the calls that
+  // replace a second one; the default stays the generic two lines.
+  const headerLines =
+    setup.header && setup.header.length > 0
+      ? setup.header
+      : [
+          `Uses the built-in ${setup.factory} from ${packageName}.`,
+          `Swap to a different ${category} provider by replacing this bond.`,
+        ]
+  const header = headerLines.map((line) => (line ? ` * ${line}` : ' *')).join('\n')
+
   // i18n generatorType needs locale-specific template
   if (appBondSetup?.generatorType === 'i18n') {
     const exportName = appBondSetup.exportName ?? `${category}Provider`
@@ -3116,8 +3130,7 @@ function generateDefaultBondSetup(
     return `/**
  * Default ${category} bond setup
  *
- * Uses the built-in ${setup.factory} from ${packageName}.
- * Swap to a different ${category} provider by replacing this bond.
+${header}
  */
 
 ${i18nImports.join('\n')}
@@ -3185,8 +3198,7 @@ export function setup${pascal}(): void {
   return `/**
  * Default ${category} bond setup
  *
- * Uses the built-in ${setup.factory} from ${packageName}.
- * Swap to a different ${category} provider by replacing this bond.
+${header}
  */
 
 ${imports.join('\n')}
