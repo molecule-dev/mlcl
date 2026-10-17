@@ -5,6 +5,7 @@ import { dirname, join, resolve, sep } from 'node:path'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { disableAI } from '../ai.js'
+import { sortImportStatements } from '../format.js'
 import type { BondSetup, InjectionPlan } from '../injector.js'
 import {
   executeInjection,
@@ -12,6 +13,7 @@ import {
   findMoleculePackage,
   generateBondSetupCode,
   generateBondsIndexContent,
+  GENERATED_ROUTER_MARKER,
   GENERATED_TEST_MARKER,
   planInjection,
   synthesizeAppProjectFiles,
@@ -866,6 +868,115 @@ describe('synthesizeProjectFiles', () => {
     expect(router!.content).toContain('Project.authUser')
     expect(router!.content).toContain('Project.create')
     expect(router!.content).toContain('Project.list')
+  })
+
+  /**
+   * X1 xr-molecule-flash-m133: the generated router carried no statement of what it was or
+   * what its mounts served, the model replaced it, and `POST
+   * /api/articles/:slug/comments` 404'd for a whole Hurl cycle.
+   */
+  it('stamps the generated router with what it mounts and where to add a route', async () => {
+    const files = await synthesizeProjectFiles(
+      [userPlan, devicePlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource-device', '@molecule/api-resource'],
+      tempDir,
+      registryPackages,
+    )
+
+    const router = files.find((f) => f.targetPath.includes('router.ts'))
+    expect(router).toBeDefined()
+    const content = router!.content
+    expect(content.startsWith(GENERATED_ROUTER_MARKER)).toBe(true)
+    // What it mounts, at the /api prefix server.ts gives this router.
+    expect(content).toContain('server.ts mounts this router at /api')
+    expect(content).toContain('@molecule/api-resource-user (User):')
+    expect(content).toContain('@molecule/api-resource-device (Device):')
+    expect(content).toContain('POST /users')
+    expect(content).toContain('GET /devices')
+    // How to ADD a route instead of replacing the file.
+    expect(content).toContain('api/src/handlers/index.ts')
+    expect(content).toContain('instead of replacing this file')
+    // And the header SURVIVES the import sort the write path applies.
+    expect(sortImportStatements(content).startsWith(GENERATED_ROUTER_MARKER)).toBe(true)
+  })
+
+  it('leaves a generated router alone when the package mounts did not change', async () => {
+    const projectDir = join(tempDir, 'router-keeps-app-edits')
+    const routerPath = join(projectDir, 'src', 'App', 'router.ts')
+    const plans = [userPlan, devicePlan]
+    const molecules = [
+      '@molecule/api-resource-user',
+      '@molecule/api-resource-device',
+      '@molecule/api-resource',
+    ]
+
+    const first = await synthesizeProjectFiles(plans, molecules, projectDir, registryPackages)
+    const generated = first.find((f) => f.targetPath === routerPath)
+    expect(generated).toBeDefined()
+    // The app's own edit beside the mounts, as the executor is told to write it.
+    await mkdir(dirname(routerPath), { recursive: true })
+    await writeFile(routerPath, `${generated!.content}\n// the app's own note\n`)
+
+    const next = await synthesizeProjectFiles(plans, molecules, projectDir, registryPackages)
+    expect(next.find((f) => f.targetPath === routerPath)).toBeUndefined()
+  })
+
+  it('rewrites the generated router when the package list changes', async () => {
+    const projectDir = join(tempDir, 'router-package-change')
+    const routerPath = join(projectDir, 'src', 'App', 'router.ts')
+
+    // On disk: the router generated for User alone.
+    const one = await synthesizeProjectFiles(
+      [userPlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource'],
+      projectDir,
+      registryPackages,
+    )
+    await mkdir(dirname(routerPath), { recursive: true })
+    await writeFile(routerPath, one.find((f) => f.targetPath === routerPath)!.content)
+
+    // A later inject adds Device: the mount set changed, so the file is rewritten.
+    const next = await synthesizeProjectFiles(
+      [userPlan, devicePlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource-device', '@molecule/api-resource'],
+      projectDir,
+      registryPackages,
+    )
+    const rewritten = next.find((f) => f.targetPath === routerPath)
+    expect(rewritten).toBeDefined()
+    expect(rewritten!.content).toContain('requestHandlerMap as Device')
+  })
+
+  it('writes the untouched placeholder, but never overwrites a router the app owns', async () => {
+    const placeholderDir = join(tempDir, 'router-placeholder')
+    const placeholderPath = join(placeholderDir, 'src', 'App', 'router.ts')
+    await mkdir(dirname(placeholderPath), { recursive: true })
+    await writeFile(
+      placeholderPath,
+      "import { Router } from 'express'\n\nexport const router = Router()\n",
+    )
+    const placeholder = await synthesizeProjectFiles(
+      [userPlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource'],
+      placeholderDir,
+      registryPackages,
+    )
+    expect(placeholder.find((f) => f.targetPath === placeholderPath)).toBeDefined()
+
+    const appOwnedDir = join(tempDir, 'router-app-owned')
+    const appOwnedPath = join(appOwnedDir, 'src', 'App', 'router.ts')
+    await mkdir(dirname(appOwnedPath), { recursive: true })
+    await writeFile(
+      appOwnedPath,
+      "import { Router } from 'express'\n\nexport const router = Router()\nrouter.use(app)\n",
+    )
+    const appOwned = await synthesizeProjectFiles(
+      [userPlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource'],
+      appOwnedDir,
+      registryPackages,
+    )
+    expect(appOwned.find((f) => f.targetPath === appOwnedPath)).toBeUndefined()
   })
 })
 
