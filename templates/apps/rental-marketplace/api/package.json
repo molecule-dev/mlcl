@@ -70,7 +70,7 @@
     "@molecule/api-rate-limit-memory": "1.0.2",
     "@molecule/api-realtime": "1.0.3",
     "@molecule/api-realtime-socketio": "1.0.3",
-    "@molecule/api-resource": "1.0.4",
+    "@molecule/api-resource": "1.0.5",
     "@molecule/api-resource-booking": "1.0.3",
     "@molecule/api-resource-bookmark": "1.0.4",
     "@molecule/api-resource-comment": "1.1.3",

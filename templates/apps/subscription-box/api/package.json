@@ -70,7 +70,7 @@
     "@molecule/api-queue-memory": "1.0.3",
     "@molecule/api-rate-limit": "1.0.3",
     "@molecule/api-rate-limit-memory": "1.0.2",
-    "@molecule/api-resource": "1.0.4",
+    "@molecule/api-resource": "1.0.5",
     "@molecule/api-resource-device": "1.0.7",
     "@molecule/api-resource-order": "1.1.4",
     "@molecule/api-resource-payment": "1.0.2",

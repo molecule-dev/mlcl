@@ -238,7 +238,7 @@
     "@molecule/api-realtime": "1.0.3",
     "@molecule/api-realtime-socketio": "1.0.3",
     "@molecule/api-realtime-sse": "1.0.2",
-    "@molecule/api-resource": "1.0.4",
+    "@molecule/api-resource": "1.0.5",
     "@molecule/api-resource-api-key": "1.0.2",
     "@molecule/api-resource-user": "1.5.6",
     "@molecule/api-search": "1.0.3",
