@@ -5996,6 +5996,7 @@
         "hasProvider",
         "requireProvider",
         "SandboxResources",
+        "SandboxIdleAction",
         "SandboxConfig",
         "ExecResult",
         "ExecOptions",
