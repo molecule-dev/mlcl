@@ -3402,6 +3402,8 @@
         "repeatingFailure",
         "REPEATING_FAILURE_LISTED",
         "FAILURE_CAUSES_LISTED",
+        "FAILURE_CAUSES_CHARS",
+        "TOOL_RESULT_CHARS",
         "FAILURE_CAUSE_TESTS_LISTED",
         "UNIVERSAL_CAUSE_FILES",
         "UniversalCause",
