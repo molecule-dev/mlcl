@@ -155,8 +155,11 @@ const THEME_CSS_HEADER_TEMPLATE = `/* ==========================================
  * Related, for a COMPLETE rebrand (these are separate from the UI palette above):
  *   • Logo / favicon / PWA manifest color → BRAND_COLOR in app/src/branding.ts
  *     (drives the generated logo SVG, app icons, and <meta theme-color>).
- *   • Font → set --font-family below AND load the family in app/index.html's
- *     Google Fonts <link> (a font not loaded there silently falls back).
+ *   • Font → set --font-family below and load the family LOCALLY: the
+ *     @molecule/app-fonts-* bonds ship 20 families (Source Sans Pro is
+ *     source-sans-3, plus Inter, Lora, IBM Plex, …) and setFont(font) injects
+ *     the @font-face — do NOT npm install a webfont package for a covered family.
+ *     A family with no bond goes in app/index.html's <!-- mol:fonts --> block.
  * ============================================================================= */
 `
 

@@ -33433,7 +33433,7 @@
       "type": "core",
       "category": "fonts",
       "label": "Fonts",
-      "description": "Font loading and typography provider system",
+      "description": "Font loading and typography — 20 self-hosted families ship as provider bonds (check here before npm-installing a webfont)",
       "stack": "app",
       "defaultProvider": "@molecule/app-fonts-arimo",
       "alwaysInclude": true,
@@ -33475,7 +33475,7 @@
         "typography",
         "font loading",
         "typeface configuration",
-        "change app font",
+        "self-hosted font families",
         "heading and body fonts"
       ]
     },
