@@ -45,7 +45,10 @@ npm install @molecule/api-middleware-validation --workspace=api
 
 The session itself is issued by the app's existing user-resource auth
 (`@molecule/api-bonds-default-express` + the device bond) — already wired in any
-app with login, so there is nothing extra to install for it.
+app with login. The device id is minted through its typed accessor,
+`get<DeviceService>('device')` — the `DeviceService` interface comes from
+`@molecule/api-resource-device`, which the device bond already brings in — so
+there is nothing extra to install for it.
 
 ## Database migration
 

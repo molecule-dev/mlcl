@@ -11,6 +11,7 @@ import { t } from '@molecule/api-i18n'
 import { validateBody } from '@molecule/api-middleware-validation'
 import { consume } from '@molecule/api-rate-limit'
 import type { MoleculeRequest } from '@molecule/api-resource'
+import type { DeviceService } from '@molecule/api-resource-device'
 
 const router = Router()
 
@@ -160,9 +161,13 @@ router.get('/verify', async (req: MoleculeRequest, res: Response) => {
   // JWT and writes the httpOnly `token` cookie that the global verifyMiddleware
   // reads. Signing a bespoke cookie by hand would NOT be recognized — the app
   // would treat the user as logged out on the very next request.
-  const deviceId = await get<{
-    createOrUpdate(userId: string, deviceName: string): Promise<string | null>
-  }>('device')?.createOrUpdate(user.id, 'Magic link')
+  //
+  // `get<DeviceService>('device')` is the TYPED accessor and createOrUpdate
+  // RESOLVES TO THE DEVICE ID STRING (null when the row could not be written) —
+  // never hand-type a `get<{ createOrUpdate(): … }>('device')` generic: a wrong
+  // one compiles, and `device.id` off it is `undefined`, which signs a token
+  // that every later request answers 401.
+  const deviceId = await get<DeviceService>('device')?.createOrUpdate(user.id, 'Magic link')
 
   if (!deviceId) {
     res.status(500).json({

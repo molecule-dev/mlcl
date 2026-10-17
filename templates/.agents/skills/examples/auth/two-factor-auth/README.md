@@ -22,6 +22,8 @@ cd /workspace
 npm install @molecule/api-two-factor @molecule/api-two-factor-otplib --workspace=api
 npm install @molecule/api-rate-limit @molecule/api-rate-limit-memory --workspace=api   # brute-force cap on /verify
 # No extra app package needed — the QR code data URL is generated server-side by @molecule/api-two-factor.
+# The page re-posts the credentials + code to `POST /api/users/log-in`, served by
+# @molecule/api-resource-user — already wired in every scaffolded app with login.
 ```
 
 ## Bond wiring (api/src/bonds/index.ts — call from setupBonds())
