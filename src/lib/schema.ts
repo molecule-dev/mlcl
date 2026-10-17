@@ -735,27 +735,6 @@ export const RegistryEntry = z.object({
           'Extra named values to spread into the config object (must be imported via extraImports). ' +
             'When set, factory call becomes factory({ ...configImport, field1, field2 })',
         ),
-      appFiles: z
-        .array(
-          z.object({
-            target: z
-              .string()
-              .describe(
-                'Path under the app source root to write (e.g. "browser-storage.ts", beside config.ts)',
-              ),
-            template: z
-              .string()
-              .describe(
-                'Template under mlcl templates/ (e.g. "app/shared/browser-storage.ts.tpl")',
-              ),
-          }),
-        )
-        .optional()
-        .describe(
-          'App source files the generated bond imports with a relative specifier (its extraImports ' +
-            'entry names the module). Written whenever the bond is generated, so a project the ' +
-            'package is ADDED to gets the module too — without it the import does not resolve (TS2307)',
-        ),
     })
     .optional()
     .describe('How to generate a default bond setup when no explicit provider is selected'),

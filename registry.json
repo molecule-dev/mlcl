@@ -29009,17 +29009,11 @@
             "names": [
               "createBrowserStorageAdapter"
             ],
-            "from": "../browser-storage.js"
+            "from": "@molecule/app-auth"
           }
         ],
         "configExtend": [
           "storage: createBrowserStorageAdapter()"
-        ],
-        "appFiles": [
-          {
-            "target": "browser-storage.ts",
-            "template": "app/shared/browser-storage.ts.tpl"
-          }
         ]
       },
       "intentHints": [

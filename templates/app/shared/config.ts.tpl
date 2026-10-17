@@ -10,10 +10,11 @@ export const authConfig = {
   resetPasswordEndpoint: '/users/reset-password',
   changePasswordEndpoint: '/users/password',
   // Token storage is NOT set here — it is wiring, so the generated auth bond
-  // (`src/bonds/auth-default.ts`) passes `createBrowserStorageAdapter()`, which keeps
-  // the session across a page reload. Change it there: `src/browser-storage.ts` has the
-  // trade (Web Storage is script-readable) and the stronger alternative (an httpOnly
-  // session cookie the API sets, paired with the client's in-memory default).
+  // (`src/bonds/auth-default.ts`) passes `createBrowserStorageAdapter()` from
+  // `@molecule/app-auth`, which keeps the session across a page reload. Change it
+  // there: that export's JSDoc has the trade (Web Storage is script-readable) and
+  // the stronger alternative (an httpOnly session cookie the API sets, paired with
+  // the client's in-memory default).
   autoRefresh: true,
 }
 

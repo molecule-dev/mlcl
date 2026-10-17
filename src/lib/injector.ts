@@ -26,14 +26,6 @@ import {
 import { dirname, isAbsolute, join, relative, sep } from 'node:path'
 
 /**
- * The scaffold templates, beside `dist/` (`templates/` ships in the published
- * package's `files`). The same resolution `getTemplatesDir()` makes in
- * scaffold.ts — kept local because scaffold.ts imports this module's callers and
- * a round trip through it would couple the injector to the whole scaffolder.
- */
-const TEMPLATES_DIR = join(import.meta.dirname, '..', '..', 'templates')
-
-/**
  * Whether `candidate` resolves to a path INSIDE `baseDir` (the directory itself
  * counts as outside — it is not a file).
  *
@@ -2786,7 +2778,6 @@ export function synthesizeAppProjectFiles(
             configImport?: string
             extraImports?: Array<{ names: string[]; from: string }>
             configExtend?: string[]
-            appFiles?: Array<{ target: string; template: string }>
           }
         | undefined
       if (!setupMeta) continue
@@ -2805,23 +2796,6 @@ export function synthesizeAppProjectFiles(
         content: generateDefaultBondSetup(pkg.name, setupMeta, pascal, cat!, coreAppSetup),
         description: `Generate default ${cat} bond setup`,
       })
-
-      // The app source modules that bond imports with a relative specifier. Emitted
-      // HERE, with the bond, so every path that generates it gets them: `create` also
-      // writes the shared templates, but `mlcl add @molecule/app-auth` to an existing
-      // project does not — and a bond importing `../browser-storage.js` with no such
-      // file is a TS2307 in a scaffolded file nobody wrote (caught by the scaffold
-      // compile gate the same day the storage wiring landed, 2026-10-17).
-      for (const appFile of setupMeta.appFiles ?? []) {
-        const target = join(projectPath, sharedSrcDir, appFile.target)
-        if (existsSync(target)) continue
-        files.push({
-          action: 'create',
-          targetPath: target,
-          content: readFileSync(join(TEMPLATES_DIR, appFile.template), 'utf-8'),
-          description: `Generate ${cat} ${appFile.target}`,
-        })
-      }
     }
   }
 
@@ -3004,6 +2978,16 @@ ${setupCalls.join('\n') || '  // No providers configured'}
 }
 
 /**
+ * Sort two named import specifiers the way the scaffold's
+ * `simple-import-sort`/`sortImportStatements` does: by lowercased name, so
+ * `createBrowserStorageAdapter` precedes `createJWTAuthClient` precedes
+ * `setClient`.
+ */
+function bySpecifierName(a: string, b: string): number {
+  return a.toLowerCase().localeCompare(b.toLowerCase())
+}
+
+/**
  * Generate a default bond setup file from registry `defaultBondSetup` metadata.
  *
  * Emitted when a core package declares `defaultBond` and `defaultBondSetup` in
@@ -3026,11 +3010,27 @@ function generateDefaultBondSetup(
   appBondSetup?: { exportName?: string; reExport?: boolean; generatorType?: string } | null,
 ): string {
   const imports: string[] = []
-  imports.push(`import { ${setup.factory}, ${setup.setter} } from '${packageName}'`)
+  // An extraImport FROM the bond's own package is not a second module: it names
+  // exports of the same import, so it merges into the one statement instead of
+  // emitting `import { createBrowserStorageAdapter } from '@molecule/app-auth'`
+  // beneath `import { createJWTAuthClient, setClient } from '@molecule/app-auth'`
+  // (two imports of one module — what the scaffold's own lint rejects, and what
+  // `sortImportStatements` would not join back together).
+  const ownNames = [
+    ...new Set([
+      ...(setup.extraImports ?? [])
+        .filter((imp) => imp.from === packageName)
+        .flatMap((imp) => imp.names),
+      setup.factory,
+      setup.setter,
+    ]),
+  ].sort(bySpecifierName)
+  imports.push(`import { ${ownNames.join(', ')} } from '${packageName}'`)
   if (setup.configImport) {
     imports.push(`import { ${setup.configImport} } from '../config.js'`)
   }
   for (const imp of setup.extraImports ?? []) {
+    if (imp.from === packageName) continue
     imports.push(`import { ${imp.names.join(', ')} } from '${imp.from}'`)
   }
 
