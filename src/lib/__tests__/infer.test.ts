@@ -77,7 +77,7 @@ const REGISTRY: InferredPackage[] = [
   makePackage({
     name: '@molecule/api-resource-user',
     type: 'resource',
-    tables: [{ name: 'users', sqlFile: 'setup/users.sql' }],
+    tables: [{ name: 'users', sqlFile: 'src/__setup__/users.sql' }],
     molecule: { type: 'resource', category: 'auth', label: 'Users', secrets: [] },
   }),
   makePackage({

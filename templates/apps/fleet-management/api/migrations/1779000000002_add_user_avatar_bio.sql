@@ -2,7 +2,7 @@
 -- "avatar" and "bio" on signup and backfills both on later logins, and its
 -- update handler accepts both from the profile endpoint — but this template's
 -- own users DDL declared neither, and only api/migrations/*.sql is applied, so
--- the package's setup/users.sql (CREATE TABLE IF NOT EXISTS) was shadowed and
+-- the package's src/__setup__/users.sql (CREATE TABLE IF NOT EXISTS) was shadowed and
 -- the write failed the whole statement with 42703.
 --
 -- Idempotent ALTERs, the same shape and reason as

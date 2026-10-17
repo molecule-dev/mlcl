@@ -103,7 +103,7 @@ src/routes.ts              → Declarative route definitions
 src/requestHandlerMap.ts   → Maps names → handlers, conditional on bonds
 src/handlers/              → DataStore methods, never raw queries
 src/authorizers/           → Auth middleware
-setup/                     → SQL from resource packages (legacy: src/__setup__/)
+src/__setup__/             → SQL from resource packages
 README.md / package.json
 ```
 

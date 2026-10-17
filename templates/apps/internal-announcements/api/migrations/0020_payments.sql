@@ -1,5 +1,5 @@
 -- Payments table for @molecule/api-resource-payment.
--- Mirrors molecule/packages/api/resources/payment/setup/payments.sql.
+-- Mirrors molecule/packages/api/resources/payment/src/__setup__/payments.sql.
 -- Required for the Stripe billing routes (POST /api/billing/checkout,
 -- POST /api/billing/cancel) and the payment-notification webhook
 -- (POST /api/users/payment-notification/stripe) to record subscription

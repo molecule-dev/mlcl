@@ -177,7 +177,9 @@ export const MoleculeMetadata = z.object({
     .array(
       z.object({
         name: z.string(),
-        sqlFile: z.string().describe('Relative path within package, e.g. "setup/users.sql"'),
+        sqlFile: z
+          .string()
+          .describe('Relative path within package, e.g. "src/__setup__/users.sql"'),
       }),
     )
     .optional()
@@ -570,7 +572,9 @@ export const RegistryEntry = z.object({
     .array(
       z.object({
         name: z.string(),
-        sqlFile: z.string().describe('Relative path within package, e.g. "setup/users.sql"'),
+        sqlFile: z
+          .string()
+          .describe('Relative path within package, e.g. "src/__setup__/users.sql"'),
       }),
     )
     .optional()

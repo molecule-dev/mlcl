@@ -384,8 +384,11 @@ function inferRouteFromHandler(handlerName: string, resourceName: string): Infer
 export async function scanForTables(packagePath: string): Promise<InferredTable[]> {
   const tables: InferredTable[] = []
 
-  // Look in setup/ directory first (new convention), then src/__setup__/ (legacy)
-  const setupPaths = [join(packagePath, 'setup'), join(packagePath, 'src', '__setup__')]
+  // Resource and utility packages ship setup SQL in `src/__setup__/` (the one
+  // convention every `@molecule/api-resource-*` package follows). The root
+  // `setup/` form is kept for bond packages that ship SQL beside their source —
+  // @molecule/api-bonds-audit-database's `audit_log.sql` is the one left.
+  const setupPaths = [join(packagePath, 'src', '__setup__'), join(packagePath, 'setup')]
 
   for (const setupPath of setupPaths) {
     try {

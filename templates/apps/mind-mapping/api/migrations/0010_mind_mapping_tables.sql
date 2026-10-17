@@ -554,7 +554,7 @@ ALTER TABLE ONLY public.resource_tags
 --
 -- Name: payments; Type: TABLE; Schema: public; Owner: -
 --
--- Mirrors @molecule/api-resource-payment/setup/payments.sql so the squashed
+-- Mirrors @molecule/api-resource-payment/src/__setup__/payments.sql so the squashed
 -- migration brings the payments table even when the per-app migrate.ts in
 -- this template predates the workspace's __setup__/*.sql replay step
 -- (mlcl/templates/api/migrate.ts.tpl). Stripe webhook handlers in

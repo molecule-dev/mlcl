@@ -17,7 +17,7 @@ The CLI must NEVER hardcode stack-specific knowledge. All package metadata and f
 4. **Feature multi-select** determined by registry entry's `multiSelect` flag
 5. **Secrets** collected from selected packages' `secrets` arrays in the registry
 6. **Base packages** determined by registry entry's `alwaysInclude: true`
-7. **SQL files** discovered by scanner from `setup/*.sql` or `src/__setup__/*.sql`
+7. **SQL files** discovered by scanner from `src/__setup__/*.sql`
 8. **Project templates** live in template files (`templates/`), not as string literals in code
 9. **`mlcl init`** auto-creates registry entries when scaffolding new packages
 10. **`mlcl sync-registry`** syncs toolchain versions, framework versions, and export lists with source packages
@@ -120,7 +120,7 @@ The `*Heuristic()` functions contain the deterministic fallback logic. The AI fu
 
 1. Handlers NEVER import concrete drivers — only abstract core interfaces
 2. All data access uses DataStore — NEVER raw queries in handlers
-3. Database schemas live in `setup/` or `__setup__/` files
+3. Database schemas live in `src/__setup__/` files
 4. Routes are declarative — `{ method, path, handler, middlewares }`
 5. Optional features use `get.xxx()` at request time (may return undefined)
 6. Handler maps use `isBonded.xxx()` at startup to conditionally include routes

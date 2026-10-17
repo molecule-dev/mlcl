@@ -482,7 +482,7 @@ CREATE INDEX users_username_index ON public.users USING btree (username);
 
 
 -- payments table for @molecule/api-resource-payment / @molecule/api-payments-stripe
--- (see molecule/packages/api/resources/payment/setup/payments.sql).
+-- (see molecule/packages/api/resources/payment/src/__setup__/payments.sql).
 CREATE TABLE IF NOT EXISTS "payments" (
   "id" uuid UNIQUE PRIMARY KEY NOT NULL,
   "createdAt" timestamptz DEFAULT current_timestamp NOT NULL,

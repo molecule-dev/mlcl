@@ -268,7 +268,7 @@ src/routes.ts              → Declarative route definitions
 src/requestHandlerMap.ts   → Maps names → handlers
 src/handlers/              → DataStore methods, never raw queries
 src/authorizers/           → Auth middleware
-setup/                     → SQL migrations (or src/__setup__/ legacy)
+src/__setup__/              → SQL migrations
 README.md / package.json
 ```
 

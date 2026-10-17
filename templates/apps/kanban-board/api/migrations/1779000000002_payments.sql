@@ -1,6 +1,6 @@
 -- payments: the table @molecule/api-resource-payment reads and writes (payment
 -- records, the customer id the billing webhooks look users up by). Same DDL as
--- that package's setup/payments.sql, which a scaffold also replays from
+-- that package's src/__setup__/payments.sql, which a scaffold also replays from
 -- __setup__/; every statement is IF NOT EXISTS, so running both is a no-op.
 CREATE TABLE IF NOT EXISTS "payments" (
   "id" uuid UNIQUE PRIMARY KEY NOT NULL,

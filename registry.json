@@ -20167,7 +20167,7 @@
       "tables": [
         {
           "name": "api_keys",
-          "sqlFile": "setup/api_keys.sql"
+          "sqlFile": "src/__setup__/api_keys.sql"
         }
       ],
       "path": "packages/api/resources/api-key",
@@ -20916,7 +20916,7 @@
       "tables": [
         {
           "name": "devices",
-          "sqlFile": "setup/devices.sql"
+          "sqlFile": "src/__setup__/devices.sql"
         }
       ],
       "services": [
@@ -22254,7 +22254,7 @@
       "tables": [
         {
           "name": "payments",
-          "sqlFile": "setup/payments.sql"
+          "sqlFile": "src/__setup__/payments.sql"
         }
       ],
       "services": [
@@ -23259,20 +23259,20 @@
       ],
       "tables": [
         {
-          "name": "services",
-          "sqlFile": "setup/services.sql"
-        },
-        {
           "name": "checks",
-          "sqlFile": "setup/checks.sql"
+          "sqlFile": "src/__setup__/checks.sql"
         },
         {
           "name": "incidents",
-          "sqlFile": "setup/incidents.sql"
+          "sqlFile": "src/__setup__/incidents.sql"
+        },
+        {
+          "name": "services",
+          "sqlFile": "src/__setup__/services.sql"
         },
         {
           "name": "uptimeWindows",
-          "sqlFile": "setup/uptimeWindows.sql"
+          "sqlFile": "src/__setup__/uptimeWindows.sql"
         }
       ],
       "path": "packages/api/resources/status-page",
@@ -24067,11 +24067,11 @@
       "tables": [
         {
           "name": "users",
-          "sqlFile": "setup/users.sql"
+          "sqlFile": "src/__setup__/users.sql"
         },
         {
           "name": "usersSecrets",
-          "sqlFile": "setup/usersSecrets.sql"
+          "sqlFile": "src/__setup__/usersSecrets.sql"
         }
       ],
       "reExports": [

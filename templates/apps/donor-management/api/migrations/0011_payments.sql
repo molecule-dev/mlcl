@@ -1,6 +1,6 @@
 -- Adds the payments table required by @molecule/api-resource-payment.
 -- This is the same schema scaffolded into other flagship apps from
--- molecule/packages/api/resources/payment/setup/payments.sql.
+-- molecule/packages/api/resources/payment/src/__setup__/payments.sql.
 
 CREATE TABLE IF NOT EXISTS public.payments (
     id uuid NOT NULL,

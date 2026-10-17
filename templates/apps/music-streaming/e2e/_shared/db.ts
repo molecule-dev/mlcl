@@ -133,7 +133,7 @@ export function dbNameForSlug(slug: string): string {
 
 /**
  * The `payments` table comes from `@molecule/api-resource-payment`'s
- * `setup/payments.sql` rather than from per-app migrations. The flagship
+ * `src/__setup__/payments.sql` rather than from per-app migrations. The flagship
  * baseline migrations don't include it. Specs that touch the payments
  * table (e.g. `billing-webhook.spec.ts`) call this once in `beforeAll`
  * so the table exists without requiring every flagship's 0010 migration

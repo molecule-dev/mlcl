@@ -51,7 +51,7 @@ export default class SyncRegistry extends Command {
     }),
     'scan-tables': Flags.boolean({
       description:
-        "Scan each package's setup/ + src/__setup__/ SQL and update the registry tables field",
+        "Scan each package's src/__setup__/ SQL (and setup/ for a bond package that ships it beside its source) and update the registry tables field",
       default: false,
     }),
     'scan-routes': Flags.boolean({

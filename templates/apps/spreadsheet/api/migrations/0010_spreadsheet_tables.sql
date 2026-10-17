@@ -108,7 +108,7 @@ CREATE TABLE public.notifications (
 --
 -- Name: payments; Type: TABLE; Schema: public; Owner: -
 --
--- Mirrors @molecule/api-resource-payment/setup/payments.sql so the squashed
+-- Mirrors @molecule/api-resource-payment/src/__setup__/payments.sql so the squashed
 -- migration brings the payments table even when this template's migrate.ts
 -- predates the workspace's __setup__/*.sql replay step. Stripe webhook
 -- handlers in @molecule/api-payments-stripe call payments.findByUserId on
