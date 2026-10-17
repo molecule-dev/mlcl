@@ -146,7 +146,7 @@
     }
   },
   "scripts": {
-    "build": "shx rm -rf dist && tsc -b",
+    "build": "node scripts/build.mjs",
     "dev": "tsc -b --watch",
     "docs:check": "node bin/run.js sync-docs --check",
     "docs:check:ci": "node scripts/docs-check-ci.mjs",

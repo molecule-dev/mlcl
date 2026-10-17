@@ -3,6 +3,9 @@ node_modules
 
 # build output
 dist
+# scripts/build.mjs compiles beside dist/, then swaps it in
+dist.build-*/
+dist.old-*/
 *.tsbuildinfo
 oclif.manifest.json
 
