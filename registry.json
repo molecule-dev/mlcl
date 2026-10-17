@@ -28746,7 +28746,8 @@
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
-        "@molecule/app-ui-angular"
+        "@molecule/app-ui-angular",
+        "@molecule/app-pwa-default"
       ],
       "path": "packages/app/frameworks/angular"
     },
@@ -54499,7 +54500,8 @@
         "@molecule/app-header-react",
         "@molecule/app-shell-layout-react",
         "@molecule/app-auth-ui-react",
-        "@molecule/app-settings-panel-react"
+        "@molecule/app-settings-panel-react",
+        "@molecule/app-pwa-default"
       ],
       "path": "packages/app/frameworks/react"
     },
@@ -55869,7 +55871,8 @@
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
-        "@molecule/app-ui-solid"
+        "@molecule/app-ui-solid",
+        "@molecule/app-pwa-default"
       ],
       "path": "packages/app/frameworks/solid"
     },
@@ -57060,7 +57063,8 @@
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
-        "@molecule/app-ui-svelte"
+        "@molecule/app-ui-svelte",
+        "@molecule/app-pwa-default"
       ],
       "path": "packages/app/frameworks/svelte"
     },
@@ -59037,7 +59041,8 @@
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
-        "@molecule/app-ui-vue"
+        "@molecule/app-ui-vue",
+        "@molecule/app-pwa-default"
       ],
       "path": "packages/app/frameworks/vue"
     },
@@ -59485,7 +59490,8 @@
         "@molecule/app-ui",
         "@molecule/app-styling",
         "@molecule/app-ui-react-native",
-        "@molecule/app-routing-react-router"
+        "@molecule/app-routing-react-router",
+        "@molecule/app-pwa-default"
       ],
       "excludePeerDependencies": [
         "react-native"

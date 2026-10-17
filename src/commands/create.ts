@@ -44,21 +44,27 @@ import { ui } from '../lib/ui.js'
 /**
  * Package families a `static` site never ships: nobody logs in (auth, OAuth,
  * the settings panel), and a static host serves plain files (no service
- * worker — version/update checks and web push both generate one). Matched by
- * registry category and by the `generates` flag, so a new bond in one of these
- * families is excluded without a code change.
+ * worker — version/update checks, web push and the PWA registration packet all
+ * generate one). Matched by registry category and by the `generates` flag, so a
+ * new bond in one of these families is excluded without a code change.
  */
 const STATIC_EXCLUDED_CATEGORIES = new Set([
   'auth',
   'auth-shell',
   'oauth-buttons',
   'oauth-logos',
+  'pwa-default',
   'settings-panel',
   'version',
 ])
 
-/** Whether a package is excluded from a `static` site's package set. */
-function isStaticExcluded(pkg: InferredPackage | undefined): boolean {
+/**
+ * Whether a package is excluded from a `static` site's package set.
+ *
+ * @param pkg - A registry package, or `undefined` for a name the registry does not carry.
+ * @returns True when a static site must not ship it.
+ */
+export function isStaticExcluded(pkg: InferredPackage | undefined): boolean {
   if (!pkg?.molecule) return false
   if (STATIC_EXCLUDED_CATEGORIES.has(pkg.molecule.category)) return true
   return (pkg.molecule.generates ?? []).some((g) => g.startsWith('service-worker'))
