@@ -3334,6 +3334,7 @@
         "declaredBudgetSeconds",
         "outputIsWithheldUntilExit",
         "outputRedirectTarget",
+        "PLAYWRIGHT_FAILURES_INLINE_ENV",
         "streamingBackgroundCommand",
         "isSuiteRunCommand",
         "isPlaywrightRunCommand",
