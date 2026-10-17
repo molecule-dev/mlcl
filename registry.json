@@ -33423,6 +33423,8 @@
       "alwaysInclude": true,
       "exports": [
         "resolveFontBasePath",
+        "isAbsoluteFontFileUrl",
+        "resolveFontFaceUrl",
         "setFont",
         "getFont",
         "hasFont",
