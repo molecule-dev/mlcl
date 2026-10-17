@@ -218,6 +218,42 @@ const watchPolling =
     ? existsSync('/etc/mol')
     : process.env.VITE_WATCH_POLLING !== '0' && process.env.VITE_WATCH_POLLING !== 'false'
 
+// ── The API routes BOTH servers forward ──
+//
+// One table for the dev server (`server.proxy`) and the production preview
+// (`preview.proxy`). `vite preview` serves `dist/` the way a deploy does, and the
+// platform's local production walk runs the browser suite against it; with no proxy
+// there, a relative `/api` call gets Vite's SPA fallback — `index.html` with a 200 —
+// and the app resolves an HTML string where it expected JSON
+// (xr-molecule-flash-m126: the scaffold's `API_BASE_URL` default is `/api`, so every
+// API call from a built app hit this). One const, so the two servers cannot drift.
+//
+// Proxy target precedence: explicit VITE_API_URL > $PORT (the API server's listen
+// port, set by `npm run dev` so api + proxy line up even when PORT is overridden for
+// parallel multi-app smoke runs) > 4000 default. Avoids hard-coding 4000 which
+// silently breaks any setup where the api binds to a non-default port.
+const apiTarget =
+  process.env.VITE_API_URL?.replace(/\/api$/, '') || `http://localhost:${process.env.PORT || 4000}`
+const apiProxy = {
+  '/api': {
+    target: apiTarget,
+    changeOrigin: true,
+  },
+  '/health': {
+    target: apiTarget,
+    changeOrigin: true,
+  },
+  // Socket.io realtime shares the API's HTTP server at /socket.io/ (the
+  // realtime bond attaches there). `ws: true` forwards the WebSocket upgrade
+  // so realtime works through the dev server / sandbox preview — without it
+  // the client's /socket.io connection 404s and messages never deliver.
+  '/socket.io': {
+    target: apiTarget,
+    changeOrigin: true,
+    ws: true,
+  },
+}
+
 export default defineConfig({
   plugins: [{{VITE_PLUGINS}}, previewConsoleLogPlugin, stripPreviewBridgePlugin()],{{RESOLVE_EXTENSIONS}}
   resolve: {
@@ -294,36 +330,7 @@ export default defineConfig({
     },
     // Sandbox-only: a replaced directory cannot kill a stat-based watcher (see above).
     ...(watchPolling ? { watch: { usePolling: true, interval: 500, binaryInterval: 1000 } } : {}),
-    proxy: {
-      // Proxy target precedence: explicit VITE_API_URL > $PORT (the API
-      // server's listen port, set by `npm run dev` so api + proxy line up
-      // even when PORT is overridden for parallel multi-app smoke runs)
-      // > 4000 default. Avoids hard-coding 4000 which silently breaks any
-      // setup where the api binds to a non-default port.
-      '/api': {
-        target:
-          process.env.VITE_API_URL?.replace(/\/api$/, '') ||
-          `http://localhost:${process.env.PORT || 4000}`,
-        changeOrigin: true,
-      },
-      '/health': {
-        target:
-          process.env.VITE_API_URL?.replace(/\/api$/, '') ||
-          `http://localhost:${process.env.PORT || 4000}`,
-        changeOrigin: true,
-      },
-      // Socket.io realtime shares the API's HTTP server at /socket.io/ (the
-      // realtime bond attaches there). `ws: true` forwards the WebSocket upgrade
-      // so realtime works through the dev server / sandbox preview — without it
-      // the client's /socket.io connection 404s and messages never deliver.
-      '/socket.io': {
-        target:
-          process.env.VITE_API_URL?.replace(/\/api$/, '') ||
-          `http://localhost:${process.env.PORT || 4000}`,
-        changeOrigin: true,
-        ws: true,
-      },
-    },
+    proxy: apiProxy,
     warmup: {
       clientFiles: ['src/main.tsx', 'src/App.tsx', 'src/bonds/*.ts'],
     },
@@ -336,6 +343,12 @@ export default defineConfig({
     // served-preview path — an origin with an inconsistent OAC value is ignored by
     // the browser. Harmless when the app runs standalone.
     headers: { 'Origin-Agent-Cluster': '?1' },
+    // The same API routes as the dev server: the platform's local production walk
+    // (`npm run build` + `vite preview`, then the browser suite) hits `/api` from
+    // the built app, and a relative call with no proxy here gets the SPA's
+    // `index.html` with a 200 — the app then fails on `undefined` fields instead of
+    // reaching the API (xr-molecule-flash-m126 +28:14).
+    proxy: apiProxy,
   },
   build: {
     outDir: 'dist',
