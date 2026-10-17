@@ -9,7 +9,11 @@ export const authConfig = {
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
   changePasswordEndpoint: '/users/password',
-  // storage omitted → secure in-memory default; a localStorage bearer copy is XSS-exfiltratable and defeats the httpOnly session cookie [M1-1]
+  // Token storage is NOT set here — it is wiring, so the generated auth bond
+  // (`src/bonds/auth-default.ts`) passes `createBrowserStorageAdapter()`, which keeps
+  // the session across a page reload. Change it there: `src/browser-storage.ts` has the
+  // trade (Web Storage is script-readable) and the stronger alternative (an httpOnly
+  // session cookie the API sets, paired with the client's in-memory default).
   autoRefresh: true,
 }
 
