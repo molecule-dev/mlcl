@@ -3357,6 +3357,7 @@
         "isStaticAssetRequest",
         "failedRequest",
         "unansweredRequest",
+        "stalledDocumentSubresource",
         "failureTraceNote",
         "suiteRecordsTraces",
         "DIAGNOSIS_TRACE_FLAG",
