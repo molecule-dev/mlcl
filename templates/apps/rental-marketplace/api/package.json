@@ -73,7 +73,7 @@
     "@molecule/api-resource": "1.0.5",
     "@molecule/api-resource-booking": "1.0.3",
     "@molecule/api-resource-bookmark": "1.0.4",
-    "@molecule/api-resource-comment": "1.1.3",
+    "@molecule/api-resource-comment": "1.1.4",
     "@molecule/api-resource-device": "1.0.8",
     "@molecule/api-resource-payment": "1.0.3",
     "@molecule/api-resource-review": "1.0.5",
