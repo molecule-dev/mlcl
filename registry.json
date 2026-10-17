@@ -20160,6 +20160,7 @@
         "updateArticle",
         "deleteArticle",
         "setFavorite",
+        "allTags",
         "popularTags",
         "ArticleRow",
         "Article",
