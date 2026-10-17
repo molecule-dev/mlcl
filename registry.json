@@ -3284,6 +3284,7 @@
         "commandSegments",
         "LocatedCommandSegment",
         "locatedCommandSegments",
+        "statementArgumentEnd",
         "commandTimeoutSeconds",
         "runsInCommandPosition",
         "CUT_AT_BUDGET",
