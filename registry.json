@@ -28962,7 +28962,10 @@
         "getUser",
         "login",
         "logout",
-        "register"
+        "register",
+        "BrowserStorageKind",
+        "BrowserStorageAdapterOptions",
+        "createBrowserStorageAdapter"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -28984,7 +28987,18 @@
       "defaultBondSetup": {
         "factory": "createJWTAuthClient",
         "setter": "setClient",
-        "configImport": "authConfig"
+        "configImport": "authConfig",
+        "extraImports": [
+          {
+            "names": [
+              "createBrowserStorageAdapter"
+            ],
+            "from": "../browser-storage.js"
+          }
+        ],
+        "configExtend": [
+          "storage: createBrowserStorageAdapter()"
+        ]
       },
       "intentHints": [
         "user login",
@@ -34758,7 +34772,6 @@
         "createFetchClient",
         "HttpMethod",
         "RequestConfig",
-        "AuthGateRequest",
         "FullRequestConfig",
         "HttpResponse",
         "HttpError",
@@ -34771,7 +34784,8 @@
         "put",
         "patch",
         "del",
-        "fetchClient"
+        "fetchClient",
+        "AuthGateRequest"
       ],
       "secrets": [],
       "runtimeDependencies": [
