@@ -4420,7 +4420,12 @@ export async function ensureBaseHandlersIndex(apiPath: string): Promise<void> {
       handlersIndex,
       `import { Router } from 'express'\n\n` +
         `/**\n` +
-        ` * Feature handler aggregator. Add a per-feature router here as the app grows:\n` +
+        ` * Feature handler aggregator. Every router below is mounted at the prefix on its\n` +
+        ` * \`router.use('/x', router)\` line, and the paths inside it are RELATIVE to that mount:\n` +
+        ` * \`router.post('/users', …)\` in a router mounted at \`/users\` answers at \`/users/users\`,\n` +
+        ` * not \`/users\` — declare \`router.post('/', …)\` there, or change its mount line here.\n` +
+        ` *\n` +
+        ` * Add a per-feature router here as the app grows:\n` +
         ` *   import widgets from './widgets.js'\n` +
         ` *   router.use('/widgets', widgets)\n` +
         ` */\n` +

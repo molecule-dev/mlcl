@@ -51,6 +51,19 @@ describe('ensureBaseHandlersIndex', () => {
     expect(handlers).toContain(`export default router`)
   })
 
+  it('states in its header that a router’s routes are relative to its mount', async () => {
+    // The generated aggregator is the file the executor edits to register a feature router,
+    // and the one mistake it must not make is repeating the mount prefix in the routes
+    // (flash-m108 declared `router.post('/users', …)` in a router mounted at `/users`, then
+    // rewrote the app's router three times looking for the missing `/api/users` route).
+    await ensureBaseHandlersIndex(apiPath)
+
+    const handlers = await readFile(handlersIndexPath, 'utf-8')
+    expect(handlers).toContain('RELATIVE to that mount')
+    expect(handlers).toContain('answers at `/users/users`')
+    expect(handlers).toContain('change its mount line here')
+  })
+
   it('imports and mounts the handlers router in App/router.ts', async () => {
     await ensureBaseHandlersIndex(apiPath)
 
