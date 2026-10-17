@@ -3319,6 +3319,21 @@
         "moleculeDistReadNote",
         "installedPackageWriteRefusal",
         "buildTools",
+        "TraceRequest",
+        "TraceArtifact",
+        "MAX_TRACE_ARTIFACTS",
+        "MAX_TRACED_REQUESTS",
+        "MAX_TRACED_CONSOLE",
+        "MAX_TRACE_NOTE_TESTS",
+        "MAX_TRACE_NOTE_REQUESTS",
+        "TRACE_NOTE_URL_CHARS",
+        "traceArtifactsScript",
+        "parseTraceArtifacts",
+        "failureTraceNote",
+        "suiteRecordsTraces",
+        "DIAGNOSIS_TRACE_FLAG",
+        "DiagnosisTraceRewrite",
+        "diagnosisTraceCommand",
         "ExecutionBackend",
         "ToolBuildConfig",
         "FileDiffEvent",
@@ -3389,6 +3404,7 @@
         "UNIVERSAL_CAUSE_FILES",
         "UniversalCause",
         "universalCause",
+        "earlyReturnCause",
         "FailureCause",
         "failuresByCause",
         "failureCausesNote",
@@ -28998,6 +29014,12 @@
         ],
         "configExtend": [
           "storage: createBrowserStorageAdapter()"
+        ],
+        "appFiles": [
+          {
+            "target": "browser-storage.ts",
+            "template": "app/shared/browser-storage.ts.tpl"
+          }
         ]
       },
       "intentHints": [
