@@ -3312,6 +3312,7 @@
         "guardToolExecute",
         "guardAITool",
         "commandRunsNoTests",
+        "pipelineExitCodeNote",
         "ToolSchema",
         "TOOL_SCHEMAS",
         "MIN_PEEK_SLEEP_SECONDS",
