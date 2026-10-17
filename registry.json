@@ -30,8 +30,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/activity",
-      "bondSetter": "setSink"
+      "bondSetter": "setSink",
+      "path": "packages/api/core/activity"
     },
     "@molecule/api-activity-console": {
       "language": "typescript",
@@ -132,14 +132,14 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/agent-run",
       "intentHints": [
         "run an agent unattended",
         "unattended coding agent",
         "agent run on my repo",
         "let an ai agent fix issues"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-agent-runtime-claude-code": {
       "language": "typescript",
@@ -250,6 +250,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/agent-transcript",
       "intentHints": [
         "read a claude code export",
@@ -259,8 +260,7 @@
         "agent conversation log",
         "ai session export",
         "which files the agent wrote"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-agent-transcript-aider": {
       "language": "typescript",
@@ -651,6 +651,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai",
       "intentHints": [
         "llm",
@@ -661,8 +662,7 @@
         "generate text with ai",
         "language model api",
         "llm provider"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-agents": {
       "language": "typescript",
@@ -697,6 +697,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-agents",
       "intentHints": [
         "run ai agents",
@@ -706,8 +707,7 @@
         "llm agent",
         "ai task automation",
         "agent execution"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-agents-llm": {
       "language": "typescript",
@@ -885,6 +885,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-classification",
       "intentHints": [
         "text classification",
@@ -894,8 +895,7 @@
         "content moderation labels",
         "auto-tag content",
         "spam detection"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-classification-llm": {
       "language": "typescript",
@@ -970,6 +970,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-decisions",
       "intentHints": [
         "typed decisions",
@@ -980,8 +981,7 @@
         "yes no question about text",
         "rate urgency",
         "guardrail check"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-decisions-intern-decision": {
       "language": "typescript",
@@ -1594,6 +1594,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-embeddings",
       "intentHints": [
         "embeddings",
@@ -1603,8 +1604,7 @@
         "semantic similarity",
         "embedding api",
         "embedding model"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-embeddings-embeddinggemma": {
       "language": "typescript",
@@ -1924,6 +1924,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-image-generation",
       "intentHints": [
         "image generation api",
@@ -1932,8 +1933,7 @@
         "image upscaling",
         "ai image editing",
         "image synthesis"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-image-generation-molecule": {
       "language": "typescript",
@@ -2523,6 +2523,7 @@
         "@molecule/api-i18n",
         "@molecule/api-semantic-search"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-rag",
       "intentHints": [
         "chat with documents",
@@ -2531,8 +2532,7 @@
         "retrieval pipeline",
         "answer questions from documents",
         "knowledge base search"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-rag-llm": {
       "language": "typescript",
@@ -2657,6 +2657,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-speech",
       "intentHints": [
         "text to speech",
@@ -2667,8 +2668,7 @@
         "speech to text api",
         "voice synthesis",
         "stt"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-speech-audio8": {
       "language": "typescript",
@@ -3213,6 +3213,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-summarization",
       "intentHints": [
         "summarize text",
@@ -3221,8 +3222,7 @@
         "generate summaries",
         "ai summary",
         "shorten long text"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-summarization-llm": {
       "language": "typescript",
@@ -3472,6 +3472,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-translation",
       "intentHints": [
         "translate text",
@@ -3480,8 +3481,7 @@
         "ai translation",
         "translate content",
         "detect language"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-translation-bergamot": {
       "language": "typescript",
@@ -3789,14 +3789,14 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-vector-store",
       "intentHints": [
         "vector store",
         "vector database",
         "store embeddings",
         "nearest neighbor search"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-vector-store-chroma": {
       "language": "typescript",
@@ -3965,6 +3965,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ai-video-generation",
       "intentHints": [
         "ai video generation",
@@ -3974,8 +3975,7 @@
         "generate video clips",
         "video with audio generation",
         "video synthesis backend"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ai-video-generation-kandinsky": {
       "language": "typescript",
@@ -4311,8 +4311,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/analytics",
-      "bondSetter": "setProvider"
+      "bondSetter": "setProvider",
+      "path": "packages/api/core/analytics"
     },
     "@molecule/api-analytics-axiom": {
       "language": "typescript",
@@ -4671,6 +4671,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/audit",
       "intentHints": [
         "audit logging",
@@ -4678,8 +4679,7 @@
         "compliance logging",
         "track admin actions",
         "change history"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-audit-database": {
       "language": "typescript",
@@ -5178,6 +5178,7 @@
       "ui": {
         "order": 8
       },
+      "bondSetter": "setProvider",
       "path": "packages/api/core/cache",
       "intentHints": [
         "cache",
@@ -5188,8 +5189,7 @@
         "cache layer",
         "speed up responses",
         "store computed results"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-cache-memcached": {
       "language": "typescript",
@@ -5352,6 +5352,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/calendar",
       "intentHints": [
         "calendar api",
@@ -5362,8 +5363,7 @@
         "check availability",
         "find free time slots",
         "scheduling availability"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-calendar-google": {
       "language": "typescript",
@@ -5593,6 +5593,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/channel",
       "intentHints": [
         "messaging channel",
@@ -5603,8 +5604,7 @@
         "chatops",
         "team chat notifications",
         "send message to channel"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-channel-capture": {
       "language": "typescript",
@@ -6032,6 +6032,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/code-sandbox",
       "intentHints": [
         "code sandbox",
@@ -6042,8 +6043,7 @@
         "run code securely",
         "ephemeral environment",
         "container execution"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-code-sandbox-docker": {
       "language": "typescript",
@@ -6458,6 +6458,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/compliance",
       "intentHints": [
         "gdpr",
@@ -6468,8 +6469,7 @@
         "privacy regulations",
         "ccpa",
         "data processing log"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-compliance-gdpr": {
       "language": "typescript",
@@ -6537,8 +6537,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/config",
-      "bondSetter": "setProvider"
+      "bondSetter": "setProvider",
+      "path": "packages/api/core/config"
     },
     "@molecule/api-config-env": {
       "language": "typescript",
@@ -6599,6 +6599,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/content",
       "intentHints": [
         "read content directory",
@@ -6606,8 +6607,7 @@
         "typed content records",
         "content files into records",
         "content provider contract"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-content-markdown": {
       "language": "typescript",
@@ -6687,6 +6687,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/moderation",
       "intentHints": [
         "flag inappropriate content",
@@ -6695,8 +6696,7 @@
         "abuse reports",
         "moderate user content",
         "toxicity detection"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-content-moderation-molecule": {
       "language": "typescript",
@@ -6826,6 +6826,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/cron",
       "intentHints": [
         "cron",
@@ -6836,8 +6837,7 @@
         "run on a schedule",
         "cron expressions",
         "daily scheduled job"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-cron-bullmq": {
       "language": "typescript",
@@ -6944,6 +6944,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/crypto-prices",
       "intentHints": [
         "crypto prices",
@@ -6954,8 +6955,7 @@
         "crypto market data",
         "historical coin prices",
         "digital asset prices"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-crypto-prices-coingecko": {
       "language": "typescript",
@@ -7099,6 +7099,7 @@
       "ui": {
         "order": 1
       },
+      "bondSetter": "setPool",
       "path": "packages/api/core/database",
       "intentHints": [
         "database",
@@ -7109,8 +7110,7 @@
         "database queries",
         "sql queries",
         "database transaction"
-      ],
-      "bondSetter": "setPool"
+      ]
     },
     "@molecule/api-database-d1": {
       "language": "typescript",
@@ -7472,6 +7472,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/deploy-target",
       "intentHints": [
         "deploy target",
@@ -7479,8 +7480,7 @@
         "publish build output",
         "switch hosting provider",
         "static site hosting"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-deploy-target-s3": {
       "language": "typescript",
@@ -7555,6 +7555,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/drug-database",
       "intentHints": [
         "drug database",
@@ -7565,8 +7566,7 @@
         "medication catalog",
         "drug ingredients",
         "pill lookup"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-drug-database-rxnorm": {
       "language": "typescript",
@@ -7634,6 +7634,7 @@
         "@molecule/api-emails",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "registerTemplate",
       "path": "packages/api/core/email-templates",
       "intentHints": [
         "email templates",
@@ -7644,8 +7645,7 @@
         "welcome email template",
         "email subject and body",
         "templated emails"
-      ],
-      "bondSetter": "registerTemplate"
+      ]
     },
     "@molecule/api-emails": {
       "language": "typescript",
@@ -7678,6 +7678,7 @@
       "ui": {
         "order": 4
       },
+      "bondSetter": "setTransport",
       "path": "packages/api/core/emails",
       "intentHints": [
         "send email",
@@ -7688,8 +7689,7 @@
         "email delivery",
         "notify users by email",
         "smtp email"
-      ],
-      "bondSetter": "setTransport"
+      ]
     },
     "@molecule/api-emails-capture": {
       "language": "typescript",
@@ -7751,6 +7751,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/emails-inbound",
       "intentHints": [
         "inbound email",
@@ -7761,8 +7762,7 @@
         "incoming email webhook",
         "parse inbound email",
         "support inbox from email"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-emails-inbound-agentmail": {
       "language": "typescript",
@@ -8342,6 +8342,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/encryption",
       "intentHints": [
         "encrypt data",
@@ -8352,8 +8353,7 @@
         "key rotation",
         "data encryption at rest",
         "encrypt user data"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-encryption-aes": {
       "language": "typescript",
@@ -8448,6 +8448,7 @@
         "@molecule/api-i18n",
         "@molecule/api-rate-limit"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/entitlements",
       "intentHints": [
         "entitlements",
@@ -8458,8 +8459,7 @@
         "feature gating by plan",
         "quota enforcement",
         "plan-based limits"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-equity-prices": {
       "language": "typescript",
@@ -8497,6 +8497,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/equity-prices",
       "intentHints": [
         "stock prices",
@@ -8507,8 +8508,7 @@
         "ticker lookup",
         "stock fundamentals",
         "share price lookup"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-equity-prices-alpha-vantage": {
       "language": "typescript",
@@ -8683,6 +8683,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/error-tracking",
       "intentHints": [
         "error tracking",
@@ -8693,8 +8694,7 @@
         "track server errors",
         "error alerts",
         "unhandled exception capture"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-error-tracking-console": {
       "language": "typescript",
@@ -8818,6 +8818,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/esign",
       "intentHints": [
         "e-signature",
@@ -8828,8 +8829,7 @@
         "document signing",
         "digital signature workflow",
         "collect signatures"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-esign-hellosign": {
       "language": "typescript",
@@ -8956,6 +8956,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/external-auth",
       "intentHints": [
         "verify user token",
@@ -8964,8 +8965,7 @@
         "platform auth token",
         "verify user jwt",
         "existing auth provider"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-external-auth-supabase": {
       "language": "typescript",
@@ -9042,6 +9042,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/feature-flags",
       "intentHints": [
         "toggle features",
@@ -9051,8 +9052,7 @@
         "enable feature for users",
         "kill switch",
         "experiment flags"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-feature-flags-database": {
       "language": "typescript",
@@ -9256,6 +9256,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/flights",
       "intentHints": [
         "flight search",
@@ -9266,8 +9267,7 @@
         "search for flights",
         "flight pricing",
         "trip flights"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-flights-amadeus": {
       "language": "typescript",
@@ -9431,6 +9431,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/fx-rates",
       "intentHints": [
         "exchange rates",
@@ -9441,8 +9442,7 @@
         "currency exchange rate",
         "multi-currency",
         "forex rates"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-fx-rates-ecb": {
       "language": "typescript",
@@ -9565,6 +9565,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/geolocation",
       "intentHints": [
         "geocoding",
@@ -9575,8 +9576,7 @@
         "latitude longitude lookup",
         "timezone lookup",
         "place search"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-geolocation-google": {
       "language": "typescript",
@@ -9799,6 +9799,7 @@
       "secrets": [],
       "runtimeDependencies": [],
       "moleculePeers": [],
+      "bondSetter": "registerGitProvider",
       "path": "packages/api/core/git-provider",
       "intentHints": [
         "git hosting",
@@ -9806,8 +9807,7 @@
         "oauth for git hosts",
         "list git repositories",
         "git account connection"
-      ],
-      "bondSetter": "registerGitProvider"
+      ]
     },
     "@molecule/api-git-provider-gitea": {
       "language": "typescript",
@@ -10023,6 +10023,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/hotels",
       "intentHints": [
         "hotel search",
@@ -10033,8 +10034,7 @@
         "room availability",
         "hotel prices",
         "lodging search"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-hotels-amadeus": {
       "language": "typescript",
@@ -10127,8 +10127,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/http",
-      "bondSetter": "setClient"
+      "bondSetter": "setClient",
+      "path": "packages/api/core/http"
     },
     "@molecule/api-http-axios": {
       "language": "typescript",
@@ -10306,6 +10306,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/i18n",
       "intentHints": [
         "internationalization",
@@ -10316,8 +10317,7 @@
         "backend i18n",
         "locale formatting",
         "pluralization rules"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-i18n-simple": {
       "language": "typescript",
@@ -10385,6 +10385,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/image",
       "intentHints": [
         "image processing",
@@ -10395,8 +10396,7 @@
         "convert image formats",
         "compress images",
         "server-side image manipulation"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-image-compositor": {
       "language": "typescript",
@@ -10670,6 +10670,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/import-export",
       "intentHints": [
         "data import",
@@ -10680,8 +10681,7 @@
         "export to excel",
         "import csv data",
         "export json data"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-import-export-csv": {
       "language": "typescript",
@@ -10757,6 +10757,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "cliHint": "generate-jwt-keys",
       "path": "packages/api/core/jwt",
       "intentHints": [
@@ -10768,8 +10769,7 @@
         "sign and verify tokens",
         "bearer tokens",
         "access token"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-jwt-jsonwebtoken": {
       "language": "typescript",
@@ -10854,6 +10854,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/kyc",
       "intentHints": [
         "kyc",
@@ -10864,8 +10865,7 @@
         "aml compliance",
         "government id check",
         "kyc onboarding"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-kyc-stripe-identity": {
       "language": "typescript",
@@ -14756,6 +14756,7 @@
       "ui": {
         "order": 5
       },
+      "bondSetter": "setLogger",
       "path": "packages/api/core/logger",
       "testMock": {
         "logger": "{ info: vi.fn(), warn: vi.fn(), error: vi.fn(), debug: vi.fn(), trace: vi.fn() }"
@@ -14768,8 +14769,7 @@
         "application logging",
         "json logs",
         "backend logging"
-      ],
-      "bondSetter": "setLogger"
+      ]
     },
     "@molecule/api-logger-axiom": {
       "language": "typescript",
@@ -14996,6 +14996,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/media-streaming",
       "intentHints": [
         "media streaming",
@@ -15006,8 +15007,7 @@
         "audio streaming",
         "video on demand",
         "vod"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-media-streaming-hls": {
       "language": "typescript",
@@ -15449,6 +15449,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/model-hosting",
       "intentHints": [
         "model hosting",
@@ -15456,8 +15457,7 @@
         "deploy a model container",
         "run a model on a gpu",
         "model endpoint with auth headers"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-model-hosting-cloud-run": {
       "language": "typescript",
@@ -15843,6 +15843,7 @@
       "ui": {
         "order": 9
       },
+      "bondSetter": "setProvider",
       "path": "packages/api/core/monitoring",
       "intentHints": [
         "health checks",
@@ -15852,8 +15853,7 @@
         "service health",
         "health endpoint",
         "liveness probe"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-monitoring-default": {
       "language": "typescript",
@@ -15924,6 +15924,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/multi-tenancy",
       "intentHints": [
         "multi tenancy",
@@ -15934,8 +15935,7 @@
         "per tenant data isolation",
         "tenant context",
         "saas workspaces"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-multi-tenancy-schema": {
       "language": "typescript",
@@ -16006,6 +16006,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/notification-center",
       "intentHints": [
         "notification inbox api",
@@ -16015,8 +16016,7 @@
         "send in-app notifications",
         "notification history",
         "per user notifications"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-notification-center-database": {
       "language": "typescript",
@@ -16078,6 +16078,7 @@
       "ui": {
         "order": 10
       },
+      "bondSetter": "setProvider",
       "path": "packages/api/core/notifications",
       "intentHints": [
         "send notifications",
@@ -16088,8 +16089,7 @@
         "broadcast alerts",
         "alerting channels",
         "notify all channels"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-notifications-preferences": {
       "language": "typescript",
@@ -16280,6 +16280,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/nutrition-database",
       "intentHints": [
         "nutrition lookup",
@@ -16290,8 +16291,7 @@
         "macro nutrients",
         "scan food barcode",
         "meal nutrition info"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-nutrition-database-open-food-facts": {
       "language": "typescript",
@@ -16504,6 +16504,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/oauth-client",
       "intentHints": [
         "oauth2",
@@ -16514,8 +16515,7 @@
         "third-party api authorization",
         "api token refresh",
         "connect external service oauth"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-oauth-client-generic": {
       "language": "typescript",
@@ -16960,6 +16960,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/ocr",
       "intentHints": [
         "extract text from an image",
@@ -16967,8 +16968,7 @@
         "image to text",
         "read text in a screenshot",
         "scan a document"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-ocr-llm": {
       "language": "typescript",
@@ -17274,6 +17274,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/password",
       "intentHints": [
         "hash passwords",
@@ -17284,8 +17285,7 @@
         "credential hashing",
         "salt passwords",
         "store passwords securely"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-password-bcrypt": {
       "language": "typescript",
@@ -17985,6 +17985,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/pdf",
       "intentHints": [
         "generate pdf",
@@ -17994,8 +17995,7 @@
         "pdf report",
         "pdf watermark",
         "pdf from template"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-pdf-molecule": {
       "language": "typescript",
@@ -18144,6 +18144,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/permissions",
       "intentHints": [
         "roles and permissions",
@@ -18154,8 +18155,7 @@
         "permission checks",
         "grant and revoke permissions",
         "admin roles"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-permissions-casbin": {
       "language": "typescript",
@@ -18254,6 +18254,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/project-archive",
       "intentHints": [
         "archive dormant projects",
@@ -18261,8 +18262,7 @@
         "hibernate project to storage",
         "restore archived project",
         "reduce idle project cost"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-project-archive-external-state-d1": {
       "language": "typescript",
@@ -18662,6 +18662,7 @@
       "moleculePeers": [
         "@molecule/api-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/push-notifications",
       "intentHints": [
         "send push notifications",
@@ -18672,8 +18673,7 @@
         "vapid keys",
         "push messaging",
         "server push notifications"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-push-notifications-molecule": {
       "language": "typescript",
@@ -18865,8 +18865,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/queue",
-      "bondSetter": "setProvider"
+      "bondSetter": "setProvider",
+      "path": "packages/api/core/queue"
     },
     "@molecule/api-queue-memory": {
       "language": "typescript",
@@ -19196,6 +19196,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/rate-limit",
       "intentHints": [
         "rate limit",
@@ -19206,8 +19207,7 @@
         "request quota",
         "abuse prevention",
         "brute force protection"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-rate-limit-memory": {
       "language": "typescript",
@@ -19332,6 +19332,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/realtime",
       "intentHints": [
         "websocket server",
@@ -19342,8 +19343,7 @@
         "live events server",
         "socket connections",
         "real time backend"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-realtime-rooms": {
       "language": "typescript",
@@ -19617,6 +19617,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/reporting",
       "intentHints": [
         "reporting",
@@ -19627,8 +19628,7 @@
         "scheduled reports",
         "report export",
         "business metrics"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-reporting-database": {
       "language": "typescript",
@@ -24423,14 +24423,14 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/scheduler",
       "intentHints": [
         "schedule recurring jobs",
         "recurring tasks",
         "run jobs on a schedule",
         "job scheduling"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-scheduler-cloudflare": {
       "language": "typescript",
@@ -24521,6 +24521,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/screenshots",
       "intentHints": [
         "screenshot a url",
@@ -24528,8 +24529,7 @@
         "og image generation",
         "render html to an image",
         "website thumbnail"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-screenshots-molecule": {
       "language": "typescript",
@@ -24656,6 +24656,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/search",
       "intentHints": [
         "full-text search",
@@ -24665,8 +24666,7 @@
         "autocomplete suggestions",
         "search api",
         "fuzzy search"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-search-elasticsearch": {
       "language": "typescript",
@@ -24906,8 +24906,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/secrets",
-      "bondSetter": "setProvider"
+      "bondSetter": "setProvider",
+      "path": "packages/api/core/secrets"
     },
     "@molecule/api-secrets-doppler": {
       "language": "typescript",
@@ -25160,6 +25160,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/shipping",
       "intentHints": [
         "shipping",
@@ -25170,8 +25171,7 @@
         "carrier rates",
         "print shipping label",
         "delivery estimates"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-shipping-easypost": {
       "language": "typescript",
@@ -25311,6 +25311,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/sitemap",
       "intentHints": [
         "sitemap",
@@ -25318,8 +25319,7 @@
         "rss",
         "syndication feed",
         "search engine indexing"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-sitemap-xml": {
       "language": "typescript",
@@ -25415,6 +25415,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/sms",
       "intentHints": [
         "sms",
@@ -25425,8 +25426,7 @@
         "bulk sms",
         "sms delivery status",
         "phone number messaging"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-sms-capture": {
       "language": "typescript",
@@ -25702,8 +25702,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/api/core/staging",
-      "bondSetter": "setProvider"
+      "bondSetter": "setProvider",
+      "path": "packages/api/core/staging"
     },
     "@molecule/api-staging-docker-compose": {
       "language": "typescript",
@@ -25878,6 +25878,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/templating",
       "intentHints": [
         "template rendering",
@@ -25887,8 +25888,7 @@
         "template helpers and partials",
         "string interpolation templates",
         "html templates"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-templating-handlebars": {
       "language": "typescript",
@@ -26007,6 +26007,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/text-provenance",
       "intentHints": [
         "which paragraphs the ai wrote",
@@ -26017,8 +26018,7 @@
         "prompt behind each paragraph",
         "human or ai authorship",
         "written with ai disclosure"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-text-provenance-overlap": {
       "language": "typescript",
@@ -26160,6 +26160,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/travel",
       "intentHints": [
         "travel booking",
@@ -26167,8 +26168,7 @@
         "car rental search",
         "book flights and hotels",
         "travel itinerary"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-travel-amadeus": {
       "language": "typescript",
@@ -26260,6 +26260,7 @@
       "ui": {
         "order": 3
       },
+      "bondSetter": "setProvider",
       "path": "packages/api/core/two-factor",
       "intentHints": [
         "two-factor auth",
@@ -26270,8 +26271,7 @@
         "one-time login code",
         "authenticator app code",
         "login verification code"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-two-factor-otplib": {
       "language": "typescript",
@@ -26335,6 +26335,7 @@
       "ui": {
         "order": 7
       },
+      "bondSetter": "setProvider",
       "path": "packages/api/core/uploads",
       "intentHints": [
         "file uploads",
@@ -26343,8 +26344,7 @@
         "handle file uploads",
         "attachments",
         "profile picture upload"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-uploads-encrypted": {
       "language": "typescript",
@@ -26630,6 +26630,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/video-meetings",
       "intentHints": [
         "video meetings",
@@ -26639,8 +26640,7 @@
         "scheduled video calls",
         "meeting join url",
         "video call scheduling"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-video-meetings-zoom": {
       "language": "typescript",
@@ -26813,6 +26813,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/video-rooms",
       "intentHints": [
         "video rooms",
@@ -26823,8 +26824,7 @@
         "video chat rooms",
         "meeting room tokens",
         "cloud call recordings"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-video-rooms-daily-co": {
       "language": "typescript",
@@ -27028,6 +27028,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/wearable",
       "intentHints": [
         "wearable",
@@ -27035,8 +27036,7 @@
         "sleep tracking",
         "heart rate",
         "step count"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-wearable-fitbit": {
       "language": "typescript",
@@ -27206,6 +27206,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/weather",
       "intentHints": [
         "weather",
@@ -27215,8 +27216,7 @@
         "weather data api",
         "weather conditions",
         "temperature forecast"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-weather-open-meteo": {
       "language": "typescript",
@@ -27323,14 +27323,14 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/web-search",
       "intentHints": [
         "search the web",
         "web search",
         "ground answers in search results",
         "find sources online"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-web-search-brave": {
       "language": "typescript",
@@ -27460,6 +27460,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/webhook",
       "intentHints": [
         "webhooks",
@@ -27470,8 +27471,7 @@
         "event callbacks",
         "notify external systems",
         "manage webhook endpoints"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-webhook-capture": {
       "language": "typescript",
@@ -27608,6 +27608,7 @@
         "@molecule/api-bond",
         "@molecule/api-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/workflow",
       "intentHints": [
         "state transitions",
@@ -27617,8 +27618,7 @@
         "multi-step process",
         "transition states",
         "track workflow history"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/api-workflow-database": {
       "language": "typescript",
@@ -27956,6 +27956,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/ai-assistant",
       "intentHints": [
         "ai assistant",
@@ -27964,8 +27965,7 @@
         "ai suggestions panel",
         "contextual ai help",
         "embedded ai assistant"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-ai-assistant-default": {
       "language": "typescript",
@@ -28031,6 +28031,7 @@
         "@molecule/app-bond",
         "@molecule/app-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/ai-chat",
       "intentHints": [
         "ai chat",
@@ -28039,8 +28040,7 @@
         "streaming chat ui",
         "chatbot ui",
         "ai chat interface"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-ai-chat-http": {
       "language": "typescript",
@@ -28100,6 +28100,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/ai-copilot",
       "intentHints": [
         "ai copilot",
@@ -28109,8 +28110,7 @@
         "editor ai suggestions",
         "ghost text",
         "ai pair programmer"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-ai-copilot-default": {
       "language": "typescript",
@@ -28175,6 +28175,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/ai-image-generator",
       "intentHints": [
         "image generator ui",
@@ -28184,8 +28185,7 @@
         "picture generator",
         "in-app image generation",
         "ai art generator"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-ai-image-generator-default": {
       "language": "typescript",
@@ -28300,6 +28300,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/ai-voice",
       "intentHints": [
         "voice commands",
@@ -28309,8 +28310,7 @@
         "speak to type",
         "read text aloud",
         "voice interaction"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-ai-voice-default": {
       "language": "typescript",
@@ -28529,8 +28529,8 @@
       "ui": {
         "hidden": true
       },
-      "path": "packages/app/core/analytics",
-      "bondSetter": "setProvider"
+      "bondSetter": "setProvider",
+      "path": "packages/app/core/analytics"
     },
     "@molecule/app-analytics-mixpanel": {
       "language": "typescript",
@@ -28813,14 +28813,14 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/audio",
       "intentHints": [
         "play audio",
         "sound playback",
         "play music",
         "in-app sounds"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-audio-howler": {
       "language": "typescript",
@@ -29010,6 +29010,7 @@
         "exportName": "authClient",
         "reExport": true
       },
+      "bondSetter": "setClient",
       "path": "packages/app/core/auth",
       "defaultBond": "auth-default",
       "defaultBondSetup": {
@@ -29036,8 +29037,7 @@
         "password reset flow",
         "login session",
         "register account"
-      ],
-      "bondSetter": "setClient"
+      ]
     },
     "@molecule/app-auth-brand-header-react": {
       "language": "typescript",
@@ -29869,6 +29869,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/calendar",
       "intentHints": [
         "calendar view",
@@ -29878,8 +29879,7 @@
         "agenda view",
         "drag and drop events",
         "calendar widget"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-calendar-fullcalendar": {
       "language": "typescript",
@@ -30177,6 +30177,7 @@
       "ui": {
         "order": 50
       },
+      "bondSetter": "setProvider",
       "path": "packages/app/features/charts",
       "intentHints": [
         "charts",
@@ -30185,8 +30186,7 @@
         "bar chart",
         "pie chart",
         "chart library"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-charts-chartjs": {
       "language": "typescript",
@@ -30364,6 +30364,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/client-search",
       "intentHints": [
         "client-side search",
@@ -30371,8 +30372,7 @@
         "filter as you type",
         "fuzzy search box",
         "field filter query syntax"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-client-search-minisearch": {
       "language": "typescript",
@@ -30491,6 +30491,7 @@
         "@molecule/app-i18n",
         "@molecule/app-logger"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/native/clipboard",
       "intentHints": [
         "copy text to clipboard",
@@ -30498,8 +30499,7 @@
         "read clipboard text",
         "copy text button",
         "clipboard access"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-clipboard-react-native": {
       "language": "typescript",
@@ -30625,6 +30625,7 @@
         "@molecule/app-bond",
         "@molecule/app-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/code-editor",
       "intentHints": [
         "edit code",
@@ -30634,8 +30635,7 @@
         "embedded editor",
         "editor tabs",
         "editor component"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-code-editor-monaco": {
       "language": "typescript",
@@ -30729,6 +30729,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/color-picker",
       "intentHints": [
         "choose color",
@@ -30738,8 +30739,7 @@
         "color selection ui",
         "rgb color",
         "eyedropper"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-color-picker-default": {
       "language": "typescript",
@@ -30869,6 +30869,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/command-palette",
       "intentHints": [
         "cmd k",
@@ -30879,8 +30880,7 @@
         "fuzzy command search",
         "action palette",
         "quick switcher"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-command-palette-cmdk": {
       "language": "typescript",
@@ -31183,6 +31183,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setCountryFlags",
       "path": "packages/app/core/country-flags",
       "intentHints": [
         "country flags",
@@ -31190,8 +31191,7 @@
         "flag icons",
         "national flags",
         "country flag svg"
-      ],
-      "bondSetter": "setCountryFlags"
+      ]
     },
     "@molecule/app-country-flags-country-flag-icons": {
       "language": "typescript",
@@ -31326,6 +31326,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/data-table",
       "intentHints": [
         "table with pagination",
@@ -31333,8 +31334,7 @@
         "row selection",
         "table sorting and filtering",
         "paginated table"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-data-table-tanstack": {
       "language": "typescript",
@@ -31433,6 +31433,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/date-range-picker",
       "intentHints": [
         "date range",
@@ -31443,8 +31444,7 @@
         "start and end date",
         "pick a date range",
         "date filter"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-date-range-picker-default": {
       "language": "typescript",
@@ -31618,6 +31618,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/device",
       "intentHints": [
         "device detection",
@@ -31628,8 +31629,7 @@
         "screen size detection",
         "os detection",
         "feature detection"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-device-calendar": {
       "language": "typescript",
@@ -31756,6 +31756,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/drag-drop",
       "intentHints": [
         "drag-and-drop",
@@ -31765,8 +31766,7 @@
         "dnd",
         "kanban drag",
         "drag handles"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-drag-drop-dndkit": {
       "language": "typescript",
@@ -31890,6 +31890,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/e2e",
       "intentHints": [
         "e2e tests",
@@ -31899,8 +31900,7 @@
         "ui tests",
         "integration tests in the browser",
         "test the app end to end"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-e2e-fixtures-default": {
       "language": "typescript",
@@ -33132,6 +33132,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/file-upload",
       "intentHints": [
         "upload files",
@@ -33141,8 +33142,7 @@
         "file validation on upload",
         "attach files",
         "upload queue"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-file-upload-filepond": {
       "language": "typescript",
@@ -33428,6 +33428,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setFont",
       "path": "packages/app/core/fonts",
       "intentHints": [
         "fonts",
@@ -33438,8 +33439,7 @@
         "typeface configuration",
         "change app font",
         "heading and body fonts"
-      ],
-      "bondSetter": "setFont"
+      ]
     },
     "@molecule/app-fonts-arimo": {
       "language": "typescript",
@@ -34092,6 +34092,47 @@
         "plus jakarta sans typography"
       ]
     },
+    "@molecule/app-fonts-source-sans-3": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "fonts",
+      "label": "Source Sans Pro (Source Sans 3)",
+      "description": "Source Sans Pro (Source Sans 3) — local, self-hosted font (no external CDN)",
+      "stack": "app",
+      "implements": "@molecule/app-fonts",
+      "exports": [
+        "font"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-fonts"
+      ],
+      "moleculePeers": [
+        "@molecule/app-fonts"
+      ],
+      "font": {
+        "role": "sans",
+        "family": "Source Sans Pro",
+        "source": "local",
+        "fontsDir": "fonts",
+        "faces": [
+          {
+            "file": "SourceSans3-VariableFont.ttf",
+            "weight": "200 900",
+            "variable": true
+          }
+        ]
+      },
+      "path": "packages/app/bonds/fonts/source-sans-3",
+      "intentHints": [
+        "source sans 3 font",
+        "source sans pro font",
+        "source sans 3 typography",
+        "adobe source sans",
+        "conduit body font"
+      ]
+    },
     "@molecule/app-fonts-source-serif-4": {
       "language": "typescript",
       "runtime": "node",
@@ -34268,6 +34309,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/forms",
       "intentHints": [
         "forms",
@@ -34278,8 +34320,7 @@
         "register form fields",
         "validation rules",
         "form errors"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-forum-thread-row-react": {
       "language": "typescript",
@@ -34337,6 +34378,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/gallery",
       "intentHints": [
         "gallery",
@@ -34345,8 +34387,7 @@
         "swipe through images",
         "browse photos",
         "picture gallery"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-gallery-photoswipe": {
       "language": "typescript",
@@ -34829,6 +34870,7 @@
       "ui": {
         "order": 10
       },
+      "bondSetter": "setClient",
       "path": "packages/app/core/http",
       "intentHints": [
         "http client",
@@ -34839,8 +34881,7 @@
         "http requests from app",
         "api client",
         "response interceptors"
-      ],
-      "bondSetter": "setClient"
+      ]
     },
     "@molecule/app-http-axios": {
       "language": "typescript",
@@ -34965,6 +35006,7 @@
         "reExport": true,
         "generatorType": "i18n"
       },
+      "bondSetter": "setProvider",
       "path": "packages/app/core/i18n",
       "defaultBond": "i18n-default",
       "defaultBondSetup": {
@@ -34989,8 +35031,7 @@
         "localization",
         "locale switching",
         "multilingual app"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-i18n-default-react": {
       "language": "typescript",
@@ -35200,6 +35241,7 @@
         "@molecule/app-bond",
         "@molecule/app-i18n"
       ],
+      "bondSetter": "setIconSet",
       "path": "packages/app/core/icons",
       "intentHints": [
         "icons",
@@ -35210,8 +35252,7 @@
         "icon components",
         "icon pack",
         "iconography"
-      ],
-      "bondSetter": "setIconSet"
+      ]
     },
     "@molecule/app-icons-molecule": {
       "language": "typescript",
@@ -35271,6 +35312,7 @@
         "@molecule/app-bond",
         "@molecule/app-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/ide",
       "intentHints": [
         "ide",
@@ -35280,8 +35322,7 @@
         "coding environment",
         "in-browser ide",
         "workspace layout"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-ide-default": {
       "language": "typescript",
@@ -35434,6 +35475,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/image-crop",
       "intentHints": [
         "image cropper",
@@ -35444,8 +35486,7 @@
         "photo cropping ui",
         "crop uploaded image",
         "zoom and crop"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-image-crop-cropperjs": {
       "language": "typescript",
@@ -35771,6 +35812,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/kanban",
       "intentHints": [
         "drag cards between columns",
@@ -35779,8 +35821,7 @@
         "sprint board",
         "kanban workflow",
         "cards and columns"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-kanban-board-react": {
       "language": "typescript",
@@ -35900,6 +35941,7 @@
         "@molecule/app-i18n",
         "@molecule/app-logger"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/native/keyboard",
       "intentHints": [
         "on-screen keyboard handling",
@@ -35907,8 +35949,7 @@
         "keyboard show event",
         "dismiss keyboard",
         "keyboard height adjustment"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-keyboard-react-native": {
       "language": "typescript",
@@ -35965,6 +36006,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/keyboard-shortcuts",
       "intentHints": [
         "keybindings",
@@ -35974,8 +36016,7 @@
         "key combos",
         "keymap",
         "keyboard shortcut manager"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-keyboard-shortcuts-hotkeys": {
       "language": "typescript",
@@ -36267,14 +36308,14 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/native/lifecycle",
       "intentHints": [
         "app lifecycle",
         "app foreground background",
         "app state changes",
         "resume pause app events"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-lifecycle-react-native": {
       "language": "typescript",
@@ -36409,6 +36450,7 @@
         "@molecule/app-bond",
         "@molecule/app-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/live-preview",
       "intentHints": [
         "preview panel",
@@ -36419,8 +36461,7 @@
         "mobile preview frame",
         "preview window",
         "hot reload preview"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-live-preview-iframe": {
       "language": "typescript",
@@ -52029,6 +52070,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/logger",
       "intentHints": [
         "frontend logging",
@@ -52038,8 +52080,7 @@
         "log to server",
         "remote logging",
         "debug logs"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-loyalty-tier-badge-react": {
       "language": "typescript",
@@ -52175,6 +52216,7 @@
       "ui": {
         "order": 52
       },
+      "bondSetter": "setProvider",
       "path": "packages/app/features/maps",
       "intentHints": [
         "maps",
@@ -52182,8 +52224,7 @@
         "interactive map",
         "geolocation map",
         "location map"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-maps-leaflet": {
       "language": "typescript",
@@ -52327,6 +52368,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/markdown",
       "intentHints": [
         "markdown",
@@ -52337,8 +52379,7 @@
         "markdown viewer",
         "markdown content",
         "table of contents from markdown"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-markdown-marked": {
       "language": "typescript",
@@ -52822,6 +52863,7 @@
         "@molecule/app-bond",
         "@molecule/app-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/native/network",
       "intentHints": [
         "network status",
@@ -52829,8 +52871,7 @@
         "check internet connection",
         "connectivity state",
         "detect wifi or cellular"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-network-react-native": {
       "language": "typescript",
@@ -53095,6 +53136,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/notification-center",
       "intentHints": [
         "notification bell",
@@ -53102,8 +53144,7 @@
         "realtime notification updates",
         "notification bell icon",
         "paginated notification list"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-notification-center-default": {
       "language": "typescript",
@@ -53964,6 +54005,7 @@
         "@molecule/app-bond",
         "@molecule/app-i18n"
       ],
+      "bondSetter": "setProvider",
       "generates": [
         "service-worker-push"
       ],
@@ -53974,8 +54016,7 @@
         "device notification interface",
         "in-app push messages",
         "subscribe to push"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-push-react-native": {
       "language": "typescript",
@@ -54109,14 +54150,14 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/query",
       "intentHints": [
         "client-side data cache",
         "prefetch on hover",
         "instant page navigation",
         "cached fetch"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-query-memory": {
       "language": "typescript",
@@ -54517,6 +54558,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/realtime",
       "intentHints": [
         "websocket client",
@@ -54527,8 +54569,7 @@
         "subscribe to live events",
         "real time frontend",
         "live data in ui"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-realtime-socketio": {
       "language": "typescript",
@@ -54746,6 +54787,7 @@
       "ui": {
         "order": 53
       },
+      "bondSetter": "setProvider",
       "path": "packages/app/features/rich-text",
       "intentHints": [
         "rich text editor",
@@ -54753,8 +54795,7 @@
         "text formatting",
         "prose editor",
         "content editor"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-rich-text-quill": {
       "language": "typescript",
@@ -54869,6 +54910,7 @@
       "ui": {
         "order": 25
       },
+      "bondSetter": "setRouter",
       "path": "packages/app/core/routing",
       "intentHints": [
         "routing",
@@ -54879,8 +54921,7 @@
         "url routing",
         "route params",
         "protected routes"
-      ],
-      "bondSetter": "setRouter"
+      ]
     },
     "@molecule/app-routing-next": {
       "language": "typescript",
@@ -55896,14 +55937,14 @@
         "@molecule/app-i18n",
         "@molecule/app-logger"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/native/splash-screen",
       "intentHints": [
         "app splash screen",
         "hide launch screen",
         "startup loading screen",
         "control splash screen"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-splash-screen-react-native": {
       "language": "typescript",
@@ -56066,6 +56107,7 @@
       "ui": {
         "order": 30
       },
+      "bondSetter": "setProvider",
       "path": "packages/app/core/state",
       "intentHints": [
         "state management",
@@ -56076,8 +56118,7 @@
         "client state",
         "manage application state",
         "reactive state"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-state-jotai": {
       "language": "typescript",
@@ -56285,6 +56326,7 @@
         "@molecule/app-bond",
         "@molecule/app-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/native/status-bar",
       "intentHints": [
         "status bar style",
@@ -56292,8 +56334,7 @@
         "status bar color",
         "hide status bar mobile",
         "light dark status bar"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-status-bar-react-native": {
       "language": "typescript",
@@ -56361,6 +56402,7 @@
         "@molecule/app-bond",
         "@molecule/app-i18n"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/status-dashboard",
       "intentHints": [
         "uptime dashboard",
@@ -56369,8 +56411,7 @@
         "system health dashboard",
         "downtime incidents",
         "service availability page"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-status-dashboard-http": {
       "language": "typescript",
@@ -56493,6 +56534,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/stepper",
       "intentHints": [
         "wizard",
@@ -56503,8 +56545,7 @@
         "step indicator",
         "guided flow",
         "onboarding wizard"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-stepper-default": {
       "language": "typescript",
@@ -56603,6 +56644,7 @@
       "ui": {
         "order": 15
       },
+      "bondSetter": "setProvider",
       "path": "packages/app/core/storage",
       "intentHints": [
         "key-value storage",
@@ -56612,8 +56654,7 @@
         "store data locally",
         "save user preferences",
         "session storage"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-storage-async-storage": {
       "language": "typescript",
@@ -57100,6 +57141,7 @@
       "ui": {
         "order": 20
       },
+      "bondSetter": "setProvider",
       "path": "packages/app/core/theme",
       "intentHints": [
         "dark mode",
@@ -57110,8 +57152,7 @@
         "design tokens",
         "app theming",
         "dark mode toggle"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-theme-css-variables": {
       "language": "typescript",
@@ -57314,14 +57355,14 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/timeline",
       "intentHints": [
         "timeline component",
         "vertical timeline",
         "timeline ui",
         "milestones timeline"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-timeline-default": {
       "language": "typescript",
@@ -57447,6 +57488,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/tour",
       "intentHints": [
         "product tour",
@@ -57457,8 +57499,7 @@
         "interactive tutorial",
         "first-time user guide",
         "intro tour"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-tour-shepherd": {
       "language": "typescript",
@@ -57592,6 +57633,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/tree-view",
       "intentHints": [
         "tree component",
@@ -57602,8 +57644,7 @@
         "directory tree",
         "nested folders ui",
         "treeview"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-tree-view-default": {
       "language": "typescript",
@@ -57831,6 +57872,7 @@
       "ui": {
         "order": 35
       },
+      "bondSetter": "setProvider",
       "path": "packages/app/core/ui",
       "intentHints": [
         "ui components",
@@ -57841,8 +57883,7 @@
         "reusable components",
         "buttons modals forms",
         "prebuilt ui elements"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-ui-angular": {
       "language": "typescript",
@@ -58577,6 +58618,7 @@
           "workbox-strategies": "7.4.1"
         }
       },
+      "bondSetter": "setProvider",
       "generates": [
         "service-worker"
       ],
@@ -58590,8 +58632,7 @@
         "version checker",
         "refresh to update banner",
         "detect new deployment"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-video": {
       "language": "typescript",
@@ -58633,14 +58674,14 @@
       "ui": {
         "order": 54
       },
+      "bondSetter": "setProvider",
       "path": "packages/app/features/video",
       "intentHints": [
         "video controls",
         "video core interface",
         "video playback bond",
         "embedded video"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-video-call-controls-react": {
       "language": "typescript",
@@ -58768,6 +58809,7 @@
       "moleculePeers": [
         "@molecule/app-bond"
       ],
+      "bondSetter": "setProvider",
       "path": "packages/app/core/virtual-scroll",
       "intentHints": [
         "virtualized list",
@@ -58777,8 +58819,7 @@
         "render large lists efficiently",
         "infinite scrolling list",
         "scroll performance"
-      ],
-      "bondSetter": "setProvider"
+      ]
     },
     "@molecule/app-virtual-scroll-tanstack": {
       "language": "typescript",
