@@ -2776,7 +2776,6 @@ export function synthesizeAppProjectFiles(
             factory: string
             setter: string
             configImport?: string
-            configImports?: string[]
             extraImports?: Array<{ names: string[]; from: string }>
             configExtend?: string[]
           }
@@ -3003,7 +3002,6 @@ function generateDefaultBondSetup(
     factory: string
     setter: string
     configImport?: string
-    configImports?: string[]
     extraImports?: Array<{ names: string[]; from: string }>
     configExtend?: string[]
   },
@@ -3028,17 +3026,8 @@ function generateDefaultBondSetup(
     ]),
   ].sort(bySpecifierName)
   imports.push(`import { ${ownNames.join(', ')} } from '${packageName}'`)
-  // `configImport` is spread into the factory call; `configImports` are names a
-  // `configExtend` entry reads without being spread (`baseURL: API_BASE_URL`). Both
-  // come from the app's own `../config.js`, so they share one import statement.
-  const configNames = [
-    ...new Set([
-      ...(setup.configImports ?? []),
-      ...(setup.configImport ? [setup.configImport] : []),
-    ]),
-  ].sort(bySpecifierName)
-  if (configNames.length > 0) {
-    imports.push(`import { ${configNames.join(', ')} } from '../config.js'`)
+  if (setup.configImport) {
+    imports.push(`import { ${setup.configImport} } from '../config.js'`)
   }
   for (const imp of setup.extraImports ?? []) {
     if (imp.from === packageName) continue

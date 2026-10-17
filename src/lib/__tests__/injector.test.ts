@@ -1389,30 +1389,6 @@ describe('synthesizeAppProjectFiles', () => {
     // @molecule/app-auth has defaultBond: 'auth-default' and appBondSetup.exportName: 'authClient'
     expect(bondsFile!.content).toContain("export { authClient } from './auth-default.js'")
   })
-
-  it('bonds the shared http client with the app API prefix', () => {
-    // Without a bond, `getClient()` mints a client with `baseURL: ''`, so
-    // `getClient().get('/articles')` requests the PAGE origin — Vite answers its
-    // own index.html with a 200 and the HTML arrives as `data` (xr-molecule-flash-m126
-    // spent 6.5 minutes and 22 probe scripts on exactly that). The scaffold's API
-    // mounts under `/api` and its config already exports `API_BASE_URL`, so the
-    // generated bond reads it instead of hardcoding a prefix.
-    const files = synthesizeAppProjectFiles(
-      [],
-      ['@molecule/app-http'],
-      '/tmp/test-app',
-      registryPackages,
-    )
-
-    const bond = files.find((f) => f.targetPath.endsWith(join('bonds', 'http-default.ts')))
-    expect(bond, 'a default http bond is generated').toBeDefined()
-    expect(bond!.content).toContain("import { API_BASE_URL } from '../config.js'")
-    expect(bond!.content).toContain('baseURL: API_BASE_URL')
-
-    const bondsFile = files.find((f) => f.targetPath.endsWith('bonds/index.ts'))
-    expect(bondsFile!.content).toContain("import { setupHttpDefault } from './http-default.js'")
-    expect(bondsFile!.content).toContain('setupHttpDefault()')
-  })
 })
 
 // ============================================================================

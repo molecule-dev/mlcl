@@ -74,6 +74,12 @@ export default tseslint.config(
         },
       ],
       '@typescript-eslint/no-explicit-any': 'warn',
+      // A `declare global { namespace Express { … } }` augmentation (or a
+      // `declare module 'express-serve-static-core'`) is the standard way to
+      // type `req.<field>`. It is a type-only declaration, not the runtime
+      // namespacing this rule exists to discourage, so it is allowed; every
+      // other namespace is still an error.
+      '@typescript-eslint/no-namespace': ['error', { allowDeclarations: true }],
       '@typescript-eslint/consistent-type-imports': [
         'warn',
         { prefer: 'type-imports', fixStyle: 'inline-type-imports' },

@@ -715,13 +715,6 @@ export const RegistryEntry = z.object({
       factory: z.string().describe('Factory function to call'),
       setter: z.string().describe('Setter function to call with result'),
       configImport: z.string().optional().describe('Config variable to import from ../config.js'),
-      configImports: z
-        .array(z.string())
-        .optional()
-        .describe(
-          'More names to import from ../config.js WITHOUT spreading them into the factory call ' +
-            '(use for a value a configExtend entry reads, e.g. "baseURL: API_BASE_URL")',
-        ),
       extraImports: z
         .array(
           z.object({

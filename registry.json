@@ -34898,18 +34898,6 @@
       },
       "bondSetter": "setClient",
       "path": "packages/app/core/http",
-      "defaultBond": "http-default",
-      "defaultBondSetup": {
-        "factory": "createFetchClient",
-        "setter": "setClient",
-        "configImports": [
-          "API_BASE_URL"
-        ],
-        "configExtend": [
-          "baseURL: API_BASE_URL",
-          "withCredentials: true"
-        ]
-      },
       "intentHints": [
         "http client",
         "api requests",
