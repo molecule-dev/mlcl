@@ -3352,6 +3352,7 @@
         "TRACE_NOTE_URL_CHARS",
         "TRACE_NOTE_SENT_CHARS",
         "TRACE_NOTE_GOT_CHARS",
+        "TRACE_NOTE_LEAD_GOT_CHARS",
         "traceArtifactsScript",
         "parseTraceArtifacts",
         "isStaticAssetRequest",
