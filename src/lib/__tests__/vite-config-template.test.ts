@@ -2,12 +2,12 @@
  * The scaffold's `vite.config` gives `vite preview` the SAME API proxy as the dev server
  * (../scaffold.ts `loadTemplate('app/shared/vite.config.ts.tpl')`).
  *
- * X1 xr-molecule-flash-m126 (+27:13 → +28:45): the platform's local production walk builds the app
- * and serves `dist/` with `vite preview`, and the built app's relative `/api` calls — the
- * scaffold's own `API_BASE_URL` default is `/api` — came back as Vite's SPA fallback: `index.html`
- * with a 200. The preview block carried only the origin-isolation header, so every API call from
- * the production build got HTML instead of JSON. `server.proxy` and `preview.proxy` are one const
- * so the two servers cannot drift.
+ * X1 xr-molecule-flash-m126 (+27:13 → +28:45) walked the production build with `vite preview` and
+ * the platform needs that preview to reach the API on every route the dev server forwards. Vite 8
+ * already falls back to `server.proxy` when `preview.proxy` is absent, but that is a version
+ * default the config does not state; `@molecule/app-vite-config-default` names the table on both
+ * servers for the flagship apps, and the custom scaffold template must say the same. `server.proxy`
+ * and `preview.proxy` are one const so the two servers cannot drift.
  */
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'

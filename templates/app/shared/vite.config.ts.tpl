@@ -222,11 +222,14 @@ const watchPolling =
 //
 // One table for the dev server (`server.proxy`) and the production preview
 // (`preview.proxy`). `vite preview` serves `dist/` the way a deploy does, and the
-// platform's local production walk runs the browser suite against it; with no proxy
-// there, a relative `/api` call gets Vite's SPA fallback — `index.html` with a 200 —
-// and the app resolves an HTML string where it expected JSON
-// (xr-molecule-flash-m126: the scaffold's `API_BASE_URL` default is `/api`, so every
-// API call from a built app hit this). One const, so the two servers cannot drift.
+// platform's local production walk runs the browser suite against it, so the built
+// app's relative `/api` calls must reach the API from there too. Vite 8 already
+// falls back to `server.proxy` when `preview.proxy` is absent
+// (`resolvePreviewOptions`: `preview?.proxy ?? server.proxy`), but that is a VERSION
+// default the config does not state — name the table on both servers, the same way
+// `@molecule/app-vite-config-default` does for the flagship apps, so the two
+// scaffolds cannot diverge and a future Vite default cannot silently drop the
+// preview's API route. One const, so the two servers cannot drift.
 //
 // Proxy target precedence: explicit VITE_API_URL > $PORT (the API server's listen
 // port, set by `npm run dev` so api + proxy line up even when PORT is overridden for
@@ -343,11 +346,10 @@ export default defineConfig({
     // served-preview path — an origin with an inconsistent OAC value is ignored by
     // the browser. Harmless when the app runs standalone.
     headers: { 'Origin-Agent-Cluster': '?1' },
-    // The same API routes as the dev server: the platform's local production walk
-    // (`npm run build` + `vite preview`, then the browser suite) hits `/api` from
-    // the built app, and a relative call with no proxy here gets the SPA's
-    // `index.html` with a 200 — the app then fails on `undefined` fields instead of
-    // reaching the API (xr-molecule-flash-m126 +28:14).
+    // The same API routes as the dev server, stated here rather than left to Vite's
+    // `preview.proxy ?? server.proxy` fallback: the platform's local production walk
+    // (`npm run build` + `vite preview`, then the browser suite) hits `/api` from the
+    // built app, and this block is where a reader looks to confirm that route exists.
     proxy: apiProxy,
   },
   build: {
