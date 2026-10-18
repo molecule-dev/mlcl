@@ -1524,6 +1524,48 @@ describe('synthesizeAppProjectFiles', () => {
     expect(bondsFile!.content).toContain("import { setupHttpDefault } from './http-default.js'")
     expect(bondsFile!.content).toContain('setupHttpDefault()')
   })
+
+  it('attaches the auth token and the restore gate to the shared http client', () => {
+    // xr-molecule-flash-m152 (+11:36 → +13:34): the generated `http-default.ts` created a
+    // bare `createFetchClient` and only called `setClient`. Signup succeeded, `GET
+    // /api/user` (made by the auth client itself) carried `Authorization`, and
+    // `POST /api/articles` did not — 401 `{"errors":{"token":["is missing"]}}`. The run
+    // spent ~2 minutes, edited the SERVER to disable cookie sessions, and only then added
+    // an interceptor reading `authClient.getAccessToken()` plus `setAuthGate`. `setAuthGate`
+    // alone waits; it attaches nothing. Both halves are generated with the client.
+    const files = synthesizeAppProjectFiles(
+      [],
+      ['@molecule/app-http', '@molecule/app-auth'],
+      '/tmp/test-app',
+      registryPackages,
+    )
+
+    const bond = files.find((f) => f.targetPath.endsWith(join('bonds', 'http-default.ts')))
+    expect(bond, 'a default http bond is generated').toBeDefined()
+    expect(bond!.content).toContain("import { authClient } from './auth-default.js'")
+    expect(bond!.content).toContain('authClient.getAccessToken()')
+    expect(bond!.content).toContain('${authConfig.authScheme} ${token}')
+    expect(bond!.content).toContain(
+      'setAuthGate(() => authClient.whenRestored?.() ?? Promise.resolve())',
+    )
+    // The doc the executor reads when it rewrites this file names the wiring it must keep.
+    expect(bond!.content).toContain('createDefaultHttpClientWithAuthBearer')
+  })
+
+  it('imports no auth bond when the scaffold has none', () => {
+    // The generated file must never name a module the same run did not write.
+    const files = synthesizeAppProjectFiles(
+      [],
+      ['@molecule/app-http'],
+      '/tmp/test-app',
+      registryPackages,
+    )
+
+    const bond = files.find((f) => f.targetPath.endsWith(join('bonds', 'http-default.ts')))
+    expect(bond).toBeDefined()
+    expect(bond!.content).not.toContain('./auth-default.js')
+    expect(bond!.content).not.toContain('addRequestInterceptor')
+  })
 })
 
 // ============================================================================

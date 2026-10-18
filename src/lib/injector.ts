@@ -2813,6 +2813,11 @@ export function synthesizeAppProjectFiles(
   // Generate default bond setups for core packages that declare defaultBond in the registry
   const registry = getRawRegistry()
   if (registryPackages) {
+    // A PROVIDER bond for a category is already wired at this point; a default one is added
+    // later in this loop (registry order). Snapshot the provider set so a bond that bridges
+    // to another default bond (the HTTP client → the auth client) can tell whether that file
+    // is going to exist, whichever entry the loop reaches first.
+    const providerBondCategories = new Set(bondCategories.keys())
     for (const pkg of registryPackages) {
       if (!allMolecules.includes(pkg.name)) continue
       const meta = pkg.molecule as Record<string, unknown> | undefined
@@ -2841,9 +2846,26 @@ export function synthesizeAppProjectFiles(
             extraImports?: Array<{ names: string[]; from: string }>
             configExtend?: string[]
             header?: string[]
+            authBridge?: { package: string; bond: string; client: string; schemeConfig: string }
           }
         | undefined
       if (!setupMeta) continue
+
+      // The bridged bond's file is only on disk when its package is in this scaffold and no
+      // provider bond replaced its default — otherwise the import would name a module the
+      // same run never wrote. Drop the bridge instead of generating a broken file.
+      const bridged = setupMeta.authBridge
+        ? registryPackages.find((p) => p.name === setupMeta.authBridge!.package)
+        : undefined
+      const bridgedMeta = bridged?.molecule as Record<string, unknown> | undefined
+      const authBridge =
+        setupMeta.authBridge &&
+        bridged &&
+        allMolecules.includes(bridged.name) &&
+        bridgedMeta?.defaultBond === setupMeta.authBridge.bond &&
+        !providerBondCategories.has(String(bridgedMeta?.category ?? ''))
+          ? setupMeta.authBridge
+          : undefined
 
       bondNames.push(defaultBond)
       bondCategories.set(cat, defaultBond)
@@ -2856,7 +2878,13 @@ export function synthesizeAppProjectFiles(
       files.push({
         action: 'create',
         targetPath: join(bondsDir, `${defaultBond}.ts`),
-        content: generateDefaultBondSetup(pkg.name, setupMeta, pascal, cat!, coreAppSetup),
+        content: generateDefaultBondSetup(
+          pkg.name,
+          { ...setupMeta, authBridge },
+          pascal,
+          cat!,
+          coreAppSetup,
+        ),
         description: `Generate default ${cat} bond setup`,
       })
     }
@@ -3069,6 +3097,12 @@ function generateDefaultBondSetup(
     extraImports?: Array<{ names: string[]; from: string }>
     configExtend?: string[]
     header?: string[]
+    /**
+     * The auth bond this setup has to carry a token from. Absent when the app has no auth
+     * bond in the same run (the caller drops it), so the generated file never imports a
+     * module the scaffold did not write.
+     */
+    authBridge?: { package: string; bond: string; client: string; schemeConfig: string }
   },
   pascal: string,
   category: string,
@@ -3083,6 +3117,7 @@ function generateDefaultBondSetup(
   // `sortImportStatements` would not join back together).
   const ownNames = [
     ...new Set([
+      ...(setup.authBridge ? ['setAuthGate'] : []),
       ...(setup.extraImports ?? [])
         .filter((imp) => imp.from === packageName)
         .flatMap((imp) => imp.names),
@@ -3096,6 +3131,7 @@ function generateDefaultBondSetup(
   // come from the app's own `../config.js`, so they share one import statement.
   const configNames = [
     ...new Set([
+      ...(setup.authBridge ? [setup.authBridge.schemeConfig] : []),
       ...(setup.configImports ?? []),
       ...(setup.configImport ? [setup.configImport] : []),
     ]),
@@ -3106,6 +3142,9 @@ function generateDefaultBondSetup(
   for (const imp of setup.extraImports ?? []) {
     if (imp.from === packageName) continue
     imports.push(`import { ${imp.names.join(', ')} } from '${imp.from}'`)
+  }
+  if (setup.authBridge) {
+    imports.push(`import { ${setup.authBridge.client} } from './${setup.authBridge.bond}.js'`)
   }
 
   // The file's own header is the doc an executor reads when it opens the bond it is told to edit.
@@ -3195,6 +3234,30 @@ export function setup${pascal}(): void {
   } else {
     declaration = `export const ${instanceName} = ${setup.factory}(${setup.configImport ?? ''})`
   }
+  // `setAuthGate` alone only DELAYS a request — it attaches nothing, so a client created
+  // beside the auth bond sent every authed request bare and the API answered
+  // `401 {"errors":{"token":["is missing"]}}` (xr-molecule-flash-m152; the run edited the
+  // SERVER before finding this). Both halves are generated together: the token read on each
+  // request (so it is there after the restore and fresh after a refresh) and the gate.
+  const bridge = setup.authBridge
+    ? `
+
+// Read the token on EVERY request: the auth client restores asynchronously, so a token
+// captured at boot is absent before the restore settles and stale after a refresh.
+${instanceName}.addRequestInterceptor((config) => {
+  const token = ${setup.authBridge.client}.getAccessToken()
+  if (token) {
+    config.headers = {
+      ...config.headers,
+      Authorization: \`\${${setup.authBridge.schemeConfig}.authScheme} \${token}\`,
+    }
+  }
+  return config
+})`
+    : ''
+  const gate = setup.authBridge
+    ? `\n  setAuthGate(() => ${setup.authBridge.client}.whenRestored?.() ?? Promise.resolve())`
+    : ''
   return `/**
  * Default ${category} bond setup
  *
@@ -3203,10 +3266,10 @@ ${header}
 
 ${imports.join('\n')}
 
-${declaration}
+${declaration}${bridge}
 
 export function setup${pascal}(): void {
-  ${setup.setter}(${instanceName})
+  ${setup.setter}(${instanceName})${gate}
 }
 `
 }

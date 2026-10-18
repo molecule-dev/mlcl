@@ -34929,6 +34929,17 @@
         "configExtend": [
           "baseURL: API_BASE_URL",
           "withCredentials: true"
+        ],
+        "authBridge": {
+          "package": "@molecule/app-auth",
+          "bond": "auth-default",
+          "client": "authClient",
+          "schemeConfig": "authConfig"
+        },
+        "header": [
+          "This is the app's ONE HTTP client — every page call goes through it.",
+          "It sends the auth client's token on every request (`Authorization: <authConfig.authScheme> <token>`) and holds each request until the session restore settles (`setAuthGate(() => authClient.whenRestored())`).",
+          "Replacing it means keeping BOTH: waiting for the restore does NOT attach a token — use `createDefaultHttpClientWithAuthBearer({ baseURL, getToken: () => authClient.getAccessToken(), authScheme })` from `@molecule/app-bonds-default-react` instead of a bare `createFetchClient`."
         ]
       },
       "intentHints": [

@@ -754,6 +754,22 @@ export const RegistryEntry = z.object({
             '(the calls that replace a second implementation, the one store the file is). ' +
             'Defaults to the generic factory/setter sentence.',
         ),
+      authBridge: z
+        .object({
+          package: z.string().describe('The package whose bond file holds the auth client'),
+          bond: z.string().describe('That bond’s file name, imported as `./<bond>.js`'),
+          client: z.string().describe('The auth client export read on every request'),
+          schemeConfig: z
+            .string()
+            .describe('The `../config.js` export whose `authScheme` names the header scheme'),
+        })
+        .optional()
+        .describe(
+          'Emit the auth wiring a separate HTTP client needs: read the auth bond’s token ' +
+            'on every request, send it with the configured Authorization scheme, and register ' +
+            'the restore as the client’s gate. Dropped when that bond is not generated in ' +
+            'the same scaffold (a provider bond replaced it), so no import names a missing file.',
+        ),
     })
     .optional()
     .describe('How to generate a default bond setup when no explicit provider is selected'),
