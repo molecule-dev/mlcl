@@ -14,8 +14,12 @@ export const authConfig = {
   // session-restore + logout silently fail (every authed page redirects to /login).
   currentUserEndpoint: '/api/users/me',
   logoutEndpoint: '/api/users/logout',
-  // storage omitted → secure in-memory default; a localStorage bearer copy is XSS-exfiltratable and defeats the httpOnly session cookie [M1-1]
-  // An external contract that reads the token at its own key (an e2e suite's `localStorage.jwtToken`) opts in HERE — `storage: createBrowserStorageAdapter()` plus `tokenKey: 'jwtToken'`; never a second store
+  // storage: 'memory' EXPLICITLY — the client's browser default is Web Storage, and a
+  // localStorage bearer copy is XSS-exfiltratable and defeats the httpOnly session cookie
+  // [M1-1]. An external contract that reads the token at its own key (an e2e suite's
+  // `localStorage.jwtToken`) is `storage: createBrowserStorageAdapter()` plus
+  // `tokenKey: 'jwtToken'`; never a second store.
+  storage: 'memory' as const,
   // This API issues no refresh token — the durable session is an httpOnly cookie
   // the server refreshes — so there is nothing for the client to refresh. Set this
   // true only for an API with a refresh endpoint that returns refresh tokens.
