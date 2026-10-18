@@ -28,6 +28,7 @@ export default async function globalSetup(config: FullConfig): Promise<void> {
         '`npm run build && npm run preview` for the built site — or point the specs at a ' +
         'running server with APP_BASE=http://localhost:<port>. Inside a molecule sandbox the ' +
         'dev server is already running on port 5173.',
+      { cause: error },
     )
   } finally {
     clearTimeout(timer)
