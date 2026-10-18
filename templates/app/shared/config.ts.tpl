@@ -18,7 +18,10 @@ export const authConfig = {
   // An external contract that reads the token at its own key (an e2e suite's
   // `localStorage.jwtToken`) is the client's `tokenKey` — set `tokenKey: 'jwtToken'`
   // beside the bond's `storage: createBrowserStorageAdapter()`, never a second store.
-  autoRefresh: true,
+  // This API issues no refresh token — the durable session is an httpOnly cookie
+  // the server refreshes — so there is nothing for the client to refresh. Set this
+  // true only for an API with a refresh endpoint that returns refresh tokens.
+  autoRefresh: false,
 }
 
 export const oauthConfig = {
