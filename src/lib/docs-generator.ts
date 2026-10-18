@@ -457,6 +457,36 @@ function capText(text: string, limit: number): { text: string; truncated: boolea
   return { text: kept.trimEnd(), truncated: true }
 }
 
+/** A line that may open or close a code fence: a run of 3+ backticks or tildes. */
+const CODE_FENCE_LINE = /^(`{3,}|~{3,})(.*)$/
+
+/**
+ * The delimiter that closes the code fence `text` ends inside, if any —
+ * following CommonMark §4.5, where a closer is the SAME character as the
+ * opener, at least as long, and carries no info string.
+ *
+ * A truncated description is cut at a line boundary, which can land mid-block:
+ * the kept text then ends inside an open fence, and the "description
+ * truncated" marker and the signature block after it are parsed as code.
+ * Prettier repairs the document by widening the fence, which is how
+ * `@molecule/app-auth`'s README got a ```ts fence that swallowed every heading
+ * after it (xr-molecule-flash-m158).
+ *
+ * @param text - Markdown that may end inside a code block.
+ * @returns The closing delimiter (` ``` `, ` ```` `, `~~~`), or `undefined`
+ *   when every fence in the text is closed.
+ */
+function closingFenceFor(text: string): string | undefined {
+  let open: { char: string; length: number } | undefined
+  for (const line of text.split('\n')) {
+    const m = CODE_FENCE_LINE.exec(line.trimStart())
+    if (!m) continue
+    if (!open) open = { char: m[1][0], length: m[1].length }
+    else if (m[1][0] === open.char && m[1].length >= open.length && !m[2].trim()) open = undefined
+  }
+  return open ? open.char.repeat(open.length) : undefined
+}
+
 /** Capping context for one export block: heading level, package name, name prefix. */
 interface ExportBlockContext {
   /** Markdown heading level — 4 for a top-level export, 5 for a namespace member. */
@@ -501,7 +531,10 @@ function boundedDescription(exp: ExtractedExport, ctx: ExportBlockContext): stri
   if (!exp.description) return undefined
   const { text, truncated } = capText(exp.description, MAX_EXPORT_DESCRIPTION_CHARS)
   if (!truncated) return text
-  return `${text}\n\n*(description truncated — read the full text in \`${installedDeclarationPath(ctx.packageName, exp)}\`.)*`
+  // Close a fence the cut landed inside, so the marker and the signature block
+  // that follows stay prose instead of being swallowed as code.
+  const close = closingFenceFor(text)
+  return `${text}${close ? `\n${close}` : ''}\n\n*(description truncated — read the full text in \`${installedDeclarationPath(ctx.packageName, exp)}\`.)*`
 }
 
 /** The signature code block for an export, bounded, with a pointer when cut. */

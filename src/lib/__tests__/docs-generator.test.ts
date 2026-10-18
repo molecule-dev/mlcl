@@ -1025,6 +1025,51 @@ describe('generateMoleculeMd — size bounds', () => {
     expect(result.split('\n').length).toBeLessThan(80)
   })
 
+  /**
+   * The m158 shape: the cap lands inside a fenced block, so the kept text ends
+   * with an open fence and the marker is written inside it. Prettier then widens
+   * the fence to cover the signature block, and every heading after that reads as
+   * fenced to read_molecule_doc (`@molecule/app-auth` 1.5.2).
+   */
+  function exportWithFencedDescription(fence: string): ExtractedExport {
+    return {
+      name: 'fencedDoc',
+      kind: 'function',
+      sourceFile: 'fenced-doc.ts',
+      description: [
+        'Intro prose.',
+        '',
+        `${fence}ts`,
+        ...Array.from({ length: 200 }, (_, i) => `const line${i} = ${i}`),
+        fence,
+      ].join('\n'),
+      declaration: 'function fencedDoc(): void',
+    }
+  }
+
+  it('closes an open ``` fence before the truncation marker', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({ exports: [exportWithFencedDescription('```')] }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/api-database' }),
+      makeOptions(),
+    )
+    expect(result).toContain('description truncated')
+    expect(result).toContain('\n```\n\n*(description truncated')
+  })
+
+  it('closes an open ```` fence with a run at least as long', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({ exports: [exportWithFencedDescription('````')] }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/api-database' }),
+      makeOptions(),
+    )
+    expect(result).toContain('\n````\n\n*(description truncated')
+    // A 3-backtick run inside the 4-backtick block is content, not a closer.
+    expect(result).not.toContain('\n```\n\n*(description truncated')
+  })
+
   it('caps a huge declaration at a line boundary and names the installed .d.ts', () => {
     const result = generateMoleculeMd(
       makeExtracted({
