@@ -21,13 +21,13 @@ export const authConfig = {
   changePasswordEndpoint: '/users/password',
   // Token storage is NOT set here — it is wiring, so the generated auth bond
   // (`src/bonds/auth-default.ts`) passes `createBrowserStorageAdapter()` from
-  // `@molecule/app-auth`, which keeps the session across a page reload. Change it
-  // there: that export's JSDoc has the trade (Web Storage is script-readable) and
-  // the stronger alternative (an httpOnly session cookie the API sets, paired with
-  // the client's in-memory default).
+  // `@molecule/app-auth`, which keeps the session across a page reload (in a browser
+  // that adapter is also the client's default). To keep the bearer token out of
+  // script-reachable storage when your API sets an httpOnly session cookie, pass
+  // `storage: 'memory'` in the bond instead — the stronger route.
   // An external contract that reads the token at its own key (an e2e suite's
-  // `localStorage.jwtToken`) is the client's `tokenKey` — set `tokenKey: 'jwtToken'`
-  // beside the bond's `storage: createBrowserStorageAdapter()`, never a second store.
+  // `localStorage.jwtToken`) is `tokenKey: 'jwtToken'` in this config, paired with the
+  // bond's `storage: createBrowserStorageAdapter()`; never a second store.
   // This API issues no refresh token — the durable session is an httpOnly cookie
   // the server refreshes — so there is nothing for the client to refresh. Set this
   // true only for an API with a refresh endpoint that returns refresh tokens.

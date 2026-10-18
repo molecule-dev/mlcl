@@ -9,20 +9,21 @@
  * The executor hand-rolled a token store, a header wrapper and a restore probe, and ran out
  * the clock inside its own invention.
  *
- * The fix is wiring, not a package default (`@molecule/app-auth` keeps `'memory'`, and its
- * storage must stay the app's choice): the generated auth bond passes
- * `createBrowserStorageAdapter()` — imported from `@molecule/app-auth` itself, which
- * exports it from 1.3.0 — to the client. The flagship templates do the opposite on
- * purpose — their APIs are the platform's `@molecule/api-resource-user`, which sets an
- * httpOnly session cookie, and the in-memory default paired with that cookie is the
- * STRONGER configuration (script cannot read the cookie). So this file pins both facts
- * against drift:
+ * The fix has two halves. `@molecule/app-auth` now defaults a BROWSER client to Web
+ * Storage (xr-molecule-flash-m158: a memory default lost the session on every full page
+ * load), and the generated auth bond still passes `createBrowserStorageAdapter()`
+ * explicitly — imported from `@molecule/app-auth` itself, which exports it from 1.3.0.
+ * The flagship templates do the opposite on purpose — their APIs are the platform's
+ * `@molecule/api-resource-user`, which sets an httpOnly session cookie, and an explicit
+ * `storage: 'memory'` paired with that cookie is the STRONGER configuration (script cannot
+ * read the cookie). So this file pins both facts against drift:
  *
  * 1. the base custom-scaffold template wires the persistent adapter (a reload keeps the
  *    session out of the box), importing it from the package rather than shipping a
  *    hand-written copy of it, and
- * 2. no scaffolded `authConfig` hardcodes a Web Storage area of its own — one adapter
- *    exists, at one path, so swapping it is one edit.
+ * 2. every flagship authConfig PINS `storage: 'memory'` explicitly — omitting it now means
+ *    the package's Web Storage default, which would put their bearer token within reach of
+ *    any script — and no scaffolded `authConfig` hardcodes a Web Storage area of its own.
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -321,14 +322,17 @@ describe('scaffolded auth token storage (M1-1 / L1-1)', () => {
     ).toEqual([])
   })
 
-  it('the flagship templates leave storage to the httpOnly cookie session, which is the stronger route', () => {
+  it('the flagship templates keep the token in memory explicitly, beside their httpOnly cookie session', () => {
     const appsDir = join(TEMPLATES, 'apps')
-    const offenders = readdirSync(appsDir)
+    const configs = readdirSync(appsDir)
       .map((app) => join(appsDir, app, 'app', 'src', 'config.ts'))
-      .filter((cfg) => existsSync(cfg) && /(^|\s)storage\s*:/.test(authConfigBlock(cfg)))
+      .filter((cfg) => existsSync(cfg) && authConfigBlock(cfg).length > 0)
+    const offenders = configs.filter(
+      (cfg) => !/storage\s*:\s*'memory'\s+as\s+const/.test(authConfigBlock(cfg)),
+    )
     expect(
       offenders,
-      `these flagship configs set auth token storage; their API sets an httpOnly session cookie, so the in-memory default is stronger:\n${offenders.join(
+      `these flagship configs do not pin auth token storage to 'memory'; their API sets an httpOnly session cookie, and omitting storage now takes the package's Web Storage default:\n${offenders.join(
         '\n',
       )}`,
     ).toEqual([])
