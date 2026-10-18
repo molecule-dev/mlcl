@@ -3338,6 +3338,7 @@
         "SuiteRunInFlight",
         "suiteRunInTheWay",
         "isDiagnosisRun",
+        "DiagnosisRunContext",
         "DiscoveredSkill",
         "discoverSkills",
         "buildAgentPrompt",
