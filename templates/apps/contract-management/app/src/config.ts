@@ -20,6 +20,7 @@ export const authConfig = {
   // (POST /api/users/logout — the route IS mounted by mountDefaultUserAuthRoutes).
   logoutEndpoint: '',
   // storage omitted → secure in-memory default; a localStorage bearer copy is XSS-exfiltratable and defeats the httpOnly session cookie [M1-1]
+  // An external contract that reads the token at its own key (an e2e suite's `localStorage.jwtToken`) opts in HERE — `storage: createBrowserStorageAdapter()` plus `tokenKey: 'jwtToken'`; never a second store
   autoRefresh: true,
 }
 

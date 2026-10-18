@@ -15,6 +15,9 @@ export const authConfig = {
   // there: that export's JSDoc has the trade (Web Storage is script-readable) and
   // the stronger alternative (an httpOnly session cookie the API sets, paired with
   // the client's in-memory default).
+  // An external contract that reads the token at its own key (an e2e suite's
+  // `localStorage.jwtToken`) is the client's `tokenKey` — set `tokenKey: 'jwtToken'`
+  // beside the bond's `storage: createBrowserStorageAdapter()`, never a second store.
   autoRefresh: true,
 }
 
