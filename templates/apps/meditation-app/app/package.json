@@ -25,7 +25,7 @@
     "@molecule/app-analytics-react": "1.0.2",
     "@molecule/app-audio": "1.0.2",
     "@molecule/app-audio-howler": "1.0.2",
-    "@molecule/app-auth": "1.5.2",
+    "@molecule/app-auth": "1.5.3",
     "@molecule/app-auth-shell-react": "1.0.4",
     "@molecule/app-auth-ui-react": "1.0.2",
     "@molecule/app-bond": "1.0.3",
