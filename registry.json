@@ -3399,6 +3399,7 @@
         "streamingBackgroundCommand",
         "suiteRunStatements",
         "isSuiteRunCommand",
+        "repeatedSuiteRunError",
         "withoutSuiteTimeout",
         "isPlaywrightRunCommand",
         "SuiteFilterStrip",
