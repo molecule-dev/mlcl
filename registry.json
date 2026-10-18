@@ -29074,6 +29074,9 @@
           "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is already `loading` | `authenticated` | `unauthenticated` | `unavailable`, and `state.user` is the current user.",
           "`initialize()` restores before the first render; `validateSession()` re-checks a restored session in the background (a 4xx clears it, a network/5xx failure keeps it as `unavailable`).",
           "A token another tool reads at its own key (an e2e suite's `localStorage.jwtToken`) is the factory's `tokenKey`, not a mirrored copy in a second store."
+        ],
+        "setupAfter": [
+          "@molecule/app-http"
         ]
       },
       "intentHints": [
@@ -59648,7 +59651,7 @@
       "@molecule/api-ai-speech-openai": "1.0.3",
       "@molecule/api-ai-summarization": "1.1.0",
       "@molecule/api-ai-summarization-llm": "1.1.1",
-      "@molecule/api-ai-tools": "1.9.12",
+      "@molecule/api-ai-tools": "1.9.13",
       "@molecule/api-ai-translation": "1.1.0",
       "@molecule/api-ai-translation-bergamot": "1.1.1",
       "@molecule/api-ai-translation-deepl": "1.1.0",
@@ -60058,7 +60061,7 @@
       "@molecule/app-audio-player-react": "1.0.2",
       "@molecule/app-audio-recorder-react": "1.0.3",
       "@molecule/app-audit-log-row-react": "1.0.2",
-      "@molecule/app-auth": "1.5.1",
+      "@molecule/app-auth": "1.5.2",
       "@molecule/app-auth-brand-header-react": "1.0.3",
       "@molecule/app-auth-modal-react": "1.1.1",
       "@molecule/app-auth-shell-react": "1.0.4",
@@ -60199,7 +60202,7 @@
       "@molecule/app-help-button-react": "1.0.2",
       "@molecule/app-hero-metric-card-react": "1.0.2",
       "@molecule/app-home-page-react": "1.0.2",
-      "@molecule/app-http": "1.1.5",
+      "@molecule/app-http": "1.1.6",
       "@molecule/app-http-axios": "1.0.5",
       "@molecule/app-http-inspector-react": "1.0.2",
       "@molecule/app-i18n": "1.0.3",
