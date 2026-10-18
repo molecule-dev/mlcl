@@ -3388,6 +3388,7 @@
         "outputRedirectTarget",
         "PLAYWRIGHT_FAILURES_INLINE_ENV",
         "streamingBackgroundCommand",
+        "suiteRunStatements",
         "isSuiteRunCommand",
         "withoutSuiteTimeout",
         "isPlaywrightRunCommand",
