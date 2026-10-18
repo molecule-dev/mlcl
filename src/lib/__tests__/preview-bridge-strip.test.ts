@@ -52,7 +52,11 @@ const SCAFFOLD_SRC = join(MLCL_ROOT, 'src', 'lib', 'scaffold.ts')
 let stripPreviewBridges: (html: string) => string
 /** The build-output asset drop, from the same shipped module. */
 let dropBridgeAssets: (outDir: string) => void
-/** The shipped plugin list, so the drop is proven to be WIRED, not just exported. */
+/** The build-time guard against a surviving `/__mol/` reference. */
+let assertNoBridgeReferences: (outDir: string) => void
+/** The shipped plugin list, so registration and hooks are proven, not just exported. */
+let plugins: Array<{ name: string; writeBundle?: unknown }> = []
+/** The shipped plugin names, in order. */
 let pluginNames: string[] = []
 /** The index.html a real scaffold produces, with every bridge injected. */
 let scaffoldedHtml = ''
@@ -92,12 +96,18 @@ const loadShippedPlugin = async (outDir: string): Promise<(html: string) => stri
   const mod = (await import(pathToFileURL(modulePath).href)) as {
     stripPreviewBridges?: (html: string) => string
     dropBridgeAssets?: (outDir: string) => void
-    stripPreviewBridgePlugin?: () => Array<{ name: string }>
+    assertNoBridgeReferences?: (outDir: string) => void
+    stripPreviewBridgePlugin?: () => Array<{ name: string; writeBundle?: unknown }>
   }
   expect(typeof mod.stripPreviewBridges, 'template exports stripPreviewBridges').toBe('function')
   expect(typeof mod.dropBridgeAssets, 'template exports dropBridgeAssets').toBe('function')
-  pluginNames = (mod.stripPreviewBridgePlugin?.() ?? []).map((p) => p.name)
+  expect(typeof mod.assertNoBridgeReferences, 'template exports assertNoBridgeReferences').toBe(
+    'function',
+  )
+  plugins = mod.stripPreviewBridgePlugin?.() ?? []
+  pluginNames = plugins.map((p) => p.name)
   dropBridgeAssets = mod.dropBridgeAssets as (outDir: string) => void
+  assertNoBridgeReferences = mod.assertNoBridgeReferences as (outDir: string) => void
   return mod.stripPreviewBridges as (html: string) => string
 }
 
@@ -247,6 +257,48 @@ describe('vite-preview-bridge-plugin — strips every bridge from a build', () =
     expect(stripped).toContain('<div id="root"></div>')
   })
 
+  it('strips every bridge script when an edit inserts one between a sentinel and its tag (m179)', () => {
+    // X0 flash-m179: `<!-- mol:nav-bridge -->` used to own exactly one tag. An
+    // edit inserted preview-bridge.js between the sentinel and nav-bridge.js, so a
+    // sentinel-pair rule removed only the inserted tag — the nav bridge survived
+    // and, because dropBridgeAssets deletes the whole dist/__mol tree, its URL
+    // loaded the SPA fallback as JavaScript (`Unexpected token '<'`).
+    const html = [
+      '<!doctype html>',
+      '<html><body>',
+      '<div id="root"></div>',
+      '    <!-- mol:nav-bridge -->',
+      '    <script src="/__mol/bridges/preview-bridge.js"></script>',
+      '    <script src="/__mol/bridges/nav-bridge.js"></script>',
+      '    <script type="module" src="/src/main.tsx"></script>',
+      '</body></html>',
+    ].join('\n')
+
+    const stripped = stripPreviewBridges(html)
+
+    // The production document carries no reference into the deleted asset tree.
+    expect(stripped).not.toContain('/__mol/')
+    expect(stripped).not.toContain('mol:nav-bridge')
+    // The app's own script and markup are untouched.
+    expect(stripped).toContain('<script type="module" src="/src/main.tsx"></script>')
+    expect(stripped).toContain('<div id="root"></div>')
+    expect(stripped).toContain('</html>')
+  })
+
+  it('leaves a plain page byte-for-byte unchanged, including its own scripts', () => {
+    const html = [
+      '<!doctype html>',
+      '<html><head>',
+      '<script src="/assets/mol-analytics.js"></script>',
+      '</head><body>',
+      '<div id="root"></div>',
+      '<script type="module" src="/src/main.tsx"></script>',
+      '</body></html>',
+    ].join('\n')
+
+    expect(stripPreviewBridges(html)).toBe(html)
+  })
+
   it('does not swallow the document when a mol: marker is not a bridge', () => {
     const html = [
       '<!doctype html>',
@@ -288,10 +340,14 @@ describe('vite-preview-bridge-plugin — strips every bridge from a build', () =
     expect(existsSync(join(outDir, 'index.html'))).toBe(true)
   })
 
-  it('runs the asset drop as part of the shipped plugin list', () => {
-    // An exported function nobody registers would leave the files in the build.
+  it('runs the asset drop and the reference guard as part of the shipped plugin list', () => {
+    // An exported function nobody registers would leave the files in the build,
+    // and an unregistered guard would let a leaked reference reach production.
     expect(pluginNames).toContain('molecule-strip-preview-bridge')
     expect(pluginNames).toContain('molecule-drop-preview-bridge-assets')
+    const guard = plugins.find((p) => p.name === 'molecule-assert-no-bridge-references')
+    expect(guard, 'the reference guard is registered').toBeDefined()
+    expect(typeof guard?.writeBundle, 'the guard runs at writeBundle').toBe('function')
   })
 
   it('is a no-op when there are no bridge assets to drop', async () => {
@@ -301,6 +357,36 @@ describe('vite-preview-bridge-plugin — strips every bridge from a build', () =
 
     expect(() => dropBridgeAssets(outDir)).not.toThrow()
     expect(existsSync(join(outDir, 'index.html'))).toBe(true)
+  })
+})
+
+describe('vite-preview-bridge-plugin — the build fails on a surviving bridge reference', () => {
+  it('names the emitted HTML file that still points into /__mol/', async () => {
+    const outDir = join(dir, 'dist-bridge-leak')
+    await mkdir(join(outDir, 'nested'), { recursive: true })
+    await writeFile(
+      join(outDir, 'index.html'),
+      '<script src="/__mol/bridges/nav-bridge.js"></script>',
+    )
+    await writeFile(
+      join(outDir, 'nested', 'nested.html'),
+      '<script src="/__mol/bridges/x.js"></script>',
+    )
+    await writeFile(join(outDir, 'nested', 'other.html'), '<p>ok</p>')
+
+    // The file name is the actionable part: it tells the author which documents
+    // still reference assets that dropBridgeAssets deletes.
+    expect(() => assertNoBridgeReferences(outDir)).toThrow(/index\.html/)
+    expect(() => assertNoBridgeReferences(outDir)).toThrow(/nested[\\/]nested\.html/)
+  })
+
+  it('passes a build whose HTML has no bridge reference, and a missing output dir', async () => {
+    const outDir = join(dir, 'dist-clean')
+    await mkdir(outDir, { recursive: true })
+    await writeFile(join(outDir, 'index.html'), '<div id="root"></div>')
+
+    expect(() => assertNoBridgeReferences(outDir)).not.toThrow()
+    expect(() => assertNoBridgeReferences(join(dir, 'never-built'))).not.toThrow()
   })
 })
 

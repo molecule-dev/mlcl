@@ -1,5 +1,5 @@
-import { rmSync } from 'node:fs'
-import { join, resolve } from 'node:path'
+import { type Dirent, readFileSync, readdirSync, rmSync } from 'node:fs'
+import { join, relative, resolve } from 'node:path'
 
 import type { Plugin } from 'vite'
 
@@ -70,6 +70,18 @@ import { molE2EPreviewPlugin } from '@molecule/app-e2e-preview/vite'
  * The script form requires the `<script>` to FOLLOW the sentinel directly, so
  * unrelated molecule markers that are not preview plumbing (`mol:fonts`,
  * `mol:design-resources`) can never be swallowed.
+ *
+ * A BRIDGE SCRIPT REFERENCE is stripped by its `src`, not by its position. The
+ * bridges are files under `/__mol/bridges/`, and a tag can end up separated from
+ * the sentinel that used to own it — on X0 flash-m179 an edit inserted a second
+ * bridge tag between `<!-- mol:nav-bridge -->` and the tag that followed it, the
+ * sentinel-pair rule consumed only the inserted one, and the surviving
+ * `nav-bridge.js` tag pointed at a file `dropBridgeAssets` deletes. The deployed
+ * page then loaded the SPA fallback as JavaScript (`SyntaxError: Unexpected
+ * token '<'`) and needed a second deploy. Every `<script>` whose `src` resolves
+ * under the platform-owned `/__mol/` tree is now removed wherever it sits, and
+ * the sentinel comments are removed independently of what follows them. An
+ * app's own scripts never match — they do not point into `__mol`.
  */
 
 /** A molecule preview-plumbing sentinel name: `mol:<name>-bridge` / `-shim`. */
@@ -81,14 +93,42 @@ const DELIMITED_REGION = new RegExp(
   'g',
 )
 
-/** `<!-- mol:x-bridge -->` plus the single inline `<script>` that follows it. */
-const SENTINEL_SCRIPT = new RegExp(
-  String.raw`[ \t]*<!--\s*${SENTINEL}\s*-->\s*<script\b[^>]*>[\s\S]*?<\/script>[ \t]*\n?`,
+/**
+ * `<!-- mol:x-bridge -->` plus the single INLINE `<script>` (no `src`) that
+ * follows it directly — the older bridge form.
+ *
+ * A following `<script src>` is NOT part of this pair: it is handled by
+ * {@link BRIDGE_SCRIPT} on its own, so it is never consumed by a sentinel that
+ * did not refer to it.
+ */
+const SENTINEL_INLINE_SCRIPT = new RegExp(
+  String.raw`[ \t]*<!--\s*${SENTINEL}\s*-->\s*<script\b(?![^>]*\bsrc\s*=)[^>]*>[\s\S]*?<\/script>[ \t]*\n?`,
   'g',
 )
 
 /**
+ * Any `<script>` whose `src` resolves under the platform-owned `__mol` tree
+ * (`/__mol/bridges/<name>.js`), wherever it sits relative to a sentinel comment.
+ *
+ * The path test is on the WHOLE `__mol` directory, not only `bridges`, because
+ * {@link dropBridgeAssets} deletes the whole directory: any surviving reference
+ * into it loads the production SPA fallback as JavaScript.
+ */
+const BRIDGE_SCRIPT = new RegExp(
+  String.raw`[ \t]*<script\b[^>]*\bsrc\s*=\s*["'](?:[^"']*\/)?__mol\/[^"']*["'][^>]*>[\s\S]*?<\/script>[ \t]*\n?`,
+  'gi',
+)
+
+/** A bridge sentinel comment left without a script (or after both were removed). */
+const SENTINEL_COMMENT = new RegExp(String.raw`[ \t]*<!--\s*${SENTINEL}\s*-->[ \t]*\n?`, 'g')
+
+/**
  * Remove every molecule preview bridge from an HTML document.
+ *
+ * Order matters: delimited regions, then the legacy sentinel + inline-script
+ * pair, then EVERY bridge script reference by `src` (an inserted tag can leave a
+ * sentinel owning a tag it no longer describes), then any sentinel comments left
+ * over. The `src` pass is what makes stripping independent of document order.
  *
  * Exported so a build can be asserted on directly (see the test that feeds it a
  * document carrying every sentinel and requires that none survive).
@@ -97,7 +137,11 @@ const SENTINEL_SCRIPT = new RegExp(
  * @returns The document with every bridge region and bridge script removed.
  */
 export const stripPreviewBridges = (html: string): string =>
-  html.replace(DELIMITED_REGION, '').replace(SENTINEL_SCRIPT, '')
+  html
+    .replace(DELIMITED_REGION, '')
+    .replace(SENTINEL_INLINE_SCRIPT, '')
+    .replace(BRIDGE_SCRIPT, '')
+    .replace(SENTINEL_COMMENT, '')
 
 const stripBridgesOnBuild: Plugin = {
   name: 'molecule-strip-preview-bridge',
@@ -136,6 +180,66 @@ export const dropBridgeAssets = (outDir: string): void => {
   rmSync(join(outDir, BRIDGE_ASSET_DIR), { recursive: true, force: true })
 }
 
+/** The URL prefix whose references must never survive into production HTML. */
+const BRIDGE_URL_MARKER = '/__mol/'
+
+/**
+ * Fail the build when an emitted HTML document still points into `__mol`.
+ *
+ * `dropBridgeAssets` deletes the whole tree, so a surviving reference is not a
+ * stale asset — it is a URL the deployed server answers with the SPA fallback,
+ * whose HTML the browser then parses as JavaScript (`SyntaxError: Unexpected
+ * token '<'`). That shipped once (X0 flash-m179) and cost a second deploy. The
+ * strip above is the fix; this is the gate that makes a future leak fail the
+ * build, by file name, instead of the production page.
+ *
+ * Exported so a build can be asserted on directly.
+ *
+ * @param outDir - Absolute path to the build output directory.
+ * @throws {Error} Naming every emitted `.html` file that still references `/__mol/`.
+ */
+export const assertNoBridgeReferences = (outDir: string): void => {
+  const offenders: string[] = []
+  const walk = (dir: string): void => {
+    let entries: Dirent[]
+    try {
+      entries = readdirSync(dir, { withFileTypes: true })
+    } catch (_error) {
+      // The output directory does not exist — nothing was emitted to check.
+      return
+    }
+    for (const entry of entries) {
+      const full = join(dir, entry.name)
+      if (entry.isDirectory()) {
+        walk(full)
+      } else if (/\.html?$/i.test(entry.name)) {
+        if (readFileSync(full, 'utf8').includes(BRIDGE_URL_MARKER)) {
+          offenders.push(relative(outDir, full))
+        }
+      }
+    }
+  }
+  walk(outDir)
+  if (offenders.length > 0) {
+    throw new Error(
+      `Production HTML still references /__mol/ (${offenders.join(', ')}). The bridge scripts ` +
+        'are deleted from the build output, so these URLs would return the SPA fallback and be ' +
+        'parsed as JavaScript. stripPreviewBridges must remove every bridge script and sentinel.',
+    )
+  }
+}
+
+const assertNoBridgeReferencesOnBuild: Plugin = {
+  name: 'molecule-assert-no-bridge-references',
+  apply: 'build',
+  configResolved(config) {
+    buildOutDir = resolve(config.root, config.build.outDir)
+  },
+  writeBundle() {
+    assertNoBridgeReferences(buildOutDir)
+  },
+}
+
 const dropBridgeAssetsOnBuild: Plugin = {
   name: 'molecule-drop-preview-bridge-assets',
   apply: 'build',
@@ -154,6 +258,7 @@ const dropBridgeAssetsOnBuild: Plugin = {
  */
 export const stripPreviewBridgePlugin = (): Plugin[] => [
   stripBridgesOnBuild,
+  assertNoBridgeReferencesOnBuild,
   dropBridgeAssetsOnBuild,
   molE2EPreviewPlugin(),
 ]
