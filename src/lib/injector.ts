@@ -4683,9 +4683,13 @@ function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string
       if (/^(set|register)[A-Z]/.test(exp)) {
         mockEntries.push(`  ${exp}: vi.fn()`)
       } else if (/^create[A-Z]/.test(exp)) {
-        // Factory — return object with common methods mocked
+        // Factory — return an object with the methods the generated bond setups call on it.
+        // `http-default.ts` attaches the auth token through `createFetchClient(...).addRequestInterceptor`
+        // (mlcl 1e2186afd); a mock without it made EVERY full-stack scaffold's own bonds.test.ts
+        // throw "addRequestInterceptor is not a function" (found 2026-10-18 while gating a template
+        // change). The interceptor registrars return their unsubscribe function, so `vi.fn(() => vi.fn())`.
         mockEntries.push(
-          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() }))`,
+          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
         )
       } else if (/^(get|is|has|use)[A-Z]/.test(exp)) {
         mockEntries.push(`  ${exp}: vi.fn()`)

@@ -1256,6 +1256,20 @@ describe('synthesizeAppProjectFiles', () => {
     expect(written).toContain(join('/tmp/test-app', 'src', 'lib', 'bonds', 'index.ts'))
   })
 
+  it('mocks the HTTP client methods the generated bond setups call', () => {
+    // `http-default.ts` attaches the token with
+    // `createFetchClient(...).addRequestInterceptor(...)`. The factory mock returned only
+    // `onLocaleChange`/`initialize`, so every full-stack scaffold's own bonds.test.ts threw
+    // "addRequestInterceptor is not a function" and the scaffold gate failed on a fresh app.
+    const files = synthesizeAppProjectFiles([], ['@molecule/app-http'], '/tmp/test-app', [
+      ...(registryPackages ?? []),
+    ])
+    const smoke = files.find((f) => f.targetPath.endsWith('bonds.test.ts'))
+    expect(smoke, 'the smoke test is synthesized').toBeDefined()
+    expect(smoke!.content).toContain('addRequestInterceptor')
+    expect(smoke!.content).toContain('addResponseInterceptor')
+  })
+
   it('rewrites the named-provider list in the shared config the scaffold writes', async () => {
     // Same root again: `copyTemplateFiles` puts config.ts under `src/lib` for
     // SvelteKit. The rewrite read `src/config.ts`, hit ENOENT and its catch
