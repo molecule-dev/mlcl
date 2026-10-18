@@ -754,6 +754,15 @@ export const RegistryEntry = z.object({
             '(the calls that replace a second implementation, the one store the file is). ' +
             'Defaults to the generic factory/setter sentence.',
         ),
+      setupAfter: z
+        .array(z.string())
+        .optional()
+        .describe(
+          'Packages whose bond setup must run BEFORE this bond’s setup in the generated ' +
+            'bonds/index.ts (a topological order, not registry order). Declare it when the setup ' +
+            'reads another bond: app-auth mirrors the auth token into the HTTP client, so it ' +
+            'names @molecule/app-http.',
+        ),
       authBridge: z
         .object({
           package: z.string().describe('The package whose bond file holds the auth client'),

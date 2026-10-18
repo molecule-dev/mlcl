@@ -2796,6 +2796,18 @@ export function synthesizeAppProjectFiles(
   const bondSetups = plans.filter((p) => p.bondSetup).map((p) => p.bondSetup!)
   const bondNames = bondSetups.map((b) => extractBondName(b.providerPackage))
 
+  // Which bond FILE each package emitted, and which packages a bond's setup must
+  // follow — the inputs of the setup-call order below. A bond that reads another
+  // bond's setup (app-auth mirrors the auth client's token into the HTTP client)
+  // names it in registry `defaultBondSetup.setupAfter`, so the order comes from the
+  // registry rather than from registry ITERATION order (which put auth before http
+  // and made the auth setup keep a client the scaffold replaced — xr-molecule-flash-m156).
+  const bondFileByPackage = new Map<string, string>()
+  const setupAfterByPackage = new Map<string, string[]>()
+  for (const setup of bondSetups) {
+    bondFileByPackage.set(setup.providerPackage, extractBondName(setup.providerPackage))
+  }
+
   // Detect bond categories and appBondSetup metadata for re-exports
   const bondCategories = new Map<string, string>()
   const bondAppSetup = new Map<string, { exportName: string; reExport?: boolean }>()
@@ -2846,6 +2858,8 @@ export function synthesizeAppProjectFiles(
             extraImports?: Array<{ names: string[]; from: string }>
             configExtend?: string[]
             header?: string[]
+            /** Packages whose setup must run before this bond's setup (see `bondFileByPackage`). */
+            setupAfter?: string[]
             authBridge?: { package: string; bond: string; client: string; schemeConfig: string }
           }
         | undefined
@@ -2869,6 +2883,8 @@ export function synthesizeAppProjectFiles(
 
       bondNames.push(defaultBond)
       bondCategories.set(cat, defaultBond)
+      bondFileByPackage.set(pkg.name, defaultBond)
+      if (setupMeta.setupAfter?.length) setupAfterByPackage.set(pkg.name, setupMeta.setupAfter)
 
       // Capture appBondSetup from core package for re-exports (only if no provider override)
       const coreAppSetup = meta?.appBondSetup as
@@ -2893,7 +2909,7 @@ export function synthesizeAppProjectFiles(
   const imports: string[] = []
   const setupCalls: string[] = []
 
-  for (const bondName of bondNames) {
+  for (const bondName of orderBondSetups(bondNames, bondFileByPackage, setupAfterByPackage)) {
     const pascal = bondNameToPascal(bondName)
     imports.push(`import { setup${pascal} } from './${bondName}.js'`)
     setupCalls.push(`  setup${pascal}()`)
@@ -3066,6 +3082,58 @@ ${setupCalls.join('\n') || '  // No providers configured'}
   }
 
   return files
+}
+
+/**
+ * Orders the `setupProviders()` calls so a bond whose setup reads another bond runs after it.
+ *
+ * A core package's registry `defaultBondSetup.setupAfter` names the PACKAGES whose setup must
+ * have run first; each is resolved to the bond file that package emitted in this scaffold (a
+ * provider bond replaces its core's default bond, and is found the same way). Registry order
+ * alone is not enough: it puts `@molecule/app-auth` before `@molecule/app-http`, so the auth
+ * bond's setup ran while no HTTP client was bonded, kept the no-baseURL fallback, and every
+ * request after a reload went out without `Authorization` (xr-molecule-flash-m156, 401
+ * `{"errors":{"token":["is missing"]}}`).
+ *
+ * Stable for bonds that declare nothing, so an unrelated scaffold's order does not move. A
+ * dependency on a package that emitted no bond here is satisfied by construction (not in this
+ * scaffold), and a cycle is broken by emitting the first remaining bond rather than failing a
+ * scaffold over its own metadata.
+ *
+ * @param bondNames - The bond file names, in the order the scaffold discovered them.
+ * @param bondFileByPackage - The bond file each package emitted.
+ * @param setupAfterByPackage - The packages a bond's setup must follow (`defaultBondSetup.setupAfter`).
+ * @returns The same names, ordered so every declared dependency precedes its dependant.
+ */
+function orderBondSetups(
+  bondNames: readonly string[],
+  bondFileByPackage: ReadonlyMap<string, string>,
+  setupAfterByPackage: ReadonlyMap<string, readonly string[]>,
+): string[] {
+  const packageByBondFile = new Map<string, string>()
+  for (const [pkg, bondFile] of bondFileByPackage) packageByBondFile.set(bondFile, pkg)
+
+  const remaining = [...bondNames]
+  const emitted = new Set<string>()
+  const ordered: string[] = []
+  while (remaining.length > 0) {
+    const ready = remaining.findIndex((bondName) => {
+      const packages = setupAfterByPackage.get(packageByBondFile.get(bondName) ?? '') ?? []
+      return packages.every((dependency) => {
+        const dependencyFile = bondFileByPackage.get(dependency)
+        // Not emitted by this scaffold, or this bond itself: nothing to wait for.
+        return (
+          dependencyFile === undefined || dependencyFile === bondName || emitted.has(dependencyFile)
+        )
+      })
+    })
+    // `ready === -1` means a dependency cycle: emit in the original order and move on.
+    const [next] = remaining.splice(ready === -1 ? 0 : ready, 1)
+    if (!next) break
+    emitted.add(next)
+    ordered.push(next)
+  }
+  return ordered
 }
 
 /**

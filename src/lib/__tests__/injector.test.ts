@@ -1552,6 +1552,30 @@ describe('synthesizeAppProjectFiles', () => {
     expect(bond!.content).toContain('createDefaultHttpClientWithAuthBearer')
   })
 
+  it('runs the HTTP bond setup before the auth bond that mirrors its token into it', () => {
+    // xr-molecule-flash-m156 (+16:15): 14 of 15 Playwright failures were one 401. The
+    // registry lists app-auth before app-http, and setup calls were emitted in that
+    // order — `setupAuthDefault()` read `getClient()` while nothing was bonded, kept
+    // the no-baseURL fallback, and mirrored the restored token into it; the scaffold's
+    // real client was bonded afterwards and every request went out with no
+    // `Authorization` header. `defaultBondSetup.setupAfter` states the dependency, and
+    // the setup order is a topological sort over it.
+    const files = synthesizeAppProjectFiles(
+      [],
+      ['@molecule/app-http', '@molecule/app-auth'],
+      '/tmp/test-app',
+      registryPackages,
+    )
+
+    const bondsFile = files.find((f) => f.targetPath.endsWith('bonds/index.ts'))
+    const content = bondsFile!.content
+    const http = content.indexOf('setupHttpDefault()')
+    const auth = content.indexOf('setupAuthDefault()')
+    expect(http).toBeGreaterThanOrEqual(0)
+    expect(auth).toBeGreaterThanOrEqual(0)
+    expect(http).toBeLessThan(auth)
+  })
+
   it('imports no auth bond when the scaffold has none', () => {
     // The generated file must never name a module the same run did not write.
     const files = synthesizeAppProjectFiles(

@@ -34893,11 +34893,13 @@
         "createFetchClient",
         "HttpMethod",
         "RequestConfig",
+        "AuthGateRequest",
         "FullRequestConfig",
         "HttpResponse",
         "HttpError",
         "unwrapList",
         "unwrapSingle",
+        "setAuthTokenSource",
         "setClient",
         "getClient",
         "get",
@@ -34905,8 +34907,7 @@
         "put",
         "patch",
         "del",
-        "fetchClient",
-        "AuthGateRequest"
+        "fetchClient"
       ],
       "secrets": [],
       "runtimeDependencies": [
