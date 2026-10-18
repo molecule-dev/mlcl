@@ -29044,6 +29044,7 @@
         "AuthState",
         "AuthEvent",
         "AuthEventListener",
+        "AuthSessionSeed",
         "AuthClient",
         "StorageAdapter",
         "AuthClientConfig",
