@@ -3335,6 +3335,8 @@
         "namesSuiteConfig",
         "withSuiteConfig",
         "scopedRerunCommand",
+        "RunEnvSetting",
+        "withRunEnv",
         "SuiteRunInFlight",
         "suiteRunInTheWay",
         "DiagnosisRunContext",
