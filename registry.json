@@ -24098,7 +24098,11 @@
       "intentHints": [
         "user resource",
         "user accounts backend",
-        "user crud backend"
+        "user crud backend",
+        "authorization header token",
+        "realworld token auth",
+        "jwt api authentication",
+        "token in response body"
       ]
     },
     "@molecule/api-resource-version-history": {
