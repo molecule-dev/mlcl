@@ -59670,7 +59670,7 @@
       "@molecule/api-ai-speech-openai": "1.0.3",
       "@molecule/api-ai-summarization": "1.1.0",
       "@molecule/api-ai-summarization-llm": "1.1.1",
-      "@molecule/api-ai-tools": "1.9.16",
+      "@molecule/api-ai-tools": "1.9.18",
       "@molecule/api-ai-translation": "1.1.0",
       "@molecule/api-ai-translation-bergamot": "1.1.1",
       "@molecule/api-ai-translation-deepl": "1.1.0",
@@ -59946,7 +59946,7 @@
       "@molecule/api-resource-cart": "1.0.3",
       "@molecule/api-resource-comment": "1.1.4",
       "@molecule/api-resource-course": "1.0.3",
-      "@molecule/api-resource-device": "1.0.8",
+      "@molecule/api-resource-device": "1.1.0",
       "@molecule/api-resource-device-auth-token": "1.0.2",
       "@molecule/api-resource-event-type": "1.0.3",
       "@molecule/api-resource-feature-flag": "1.0.4",
@@ -59978,7 +59978,7 @@
       "@molecule/api-resource-task": "1.0.4",
       "@molecule/api-resource-template": "1.0.5",
       "@molecule/api-resource-thread": "1.0.5",
-      "@molecule/api-resource-user": "1.5.7",
+      "@molecule/api-resource-user": "1.6.0",
       "@molecule/api-resource-version-history": "1.0.5",
       "@molecule/api-resource-wiki-page": "1.0.5",
       "@molecule/api-resource-workspace": "1.0.6",
@@ -60623,7 +60623,10 @@
       "@molecule/api-resource-article": "1.1.2",
       "@molecule/app-fonts-ionicons": "1.1.1",
       "@molecule/app-fonts-source-sans-3": "1.1.2",
-      "@molecule/app-locales-margin-notes": "1.0.2"
+      "@molecule/app-locales-margin-notes": "1.0.2",
+      "@molecule/app-query": "1.0.2",
+      "@molecule/app-query-memory": "1.0.2",
+      "@molecule/app-query-react": "1.0.2"
     }
   }
 }
