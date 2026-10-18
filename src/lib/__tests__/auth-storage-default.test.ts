@@ -168,6 +168,15 @@ describe('the scaffolded app keeps its session across a reload (flash-m98)', () 
     expect(content).toContain('`state.status`')
     expect(content).toContain('`validateSession()`')
     expect(content).toContain('`tokenKey`')
+    // The optimistic first render is the rule the executor has to follow: a
+    // stored token AND user are `authenticated` on the FIRST render, and only a
+    // 401/403 from the background re-check clears the session
+    // (xr-molecule-flash-m177).
+    expect(content).toContain('already `authenticated` on the FIRST render')
+    expect(content).toContain('never gate a page on a current-user request')
+    expect(content).toContain('only a 401/403 clears the session')
+    // The old, wrong classification ("a 4xx clears it") is gone.
+    expect(content).not.toContain('a 4xx clears it')
     // The generic sentence is replaced, not duplicated.
     expect(content).not.toContain('Swap to a different')
   })

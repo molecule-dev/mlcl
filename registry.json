@@ -29092,7 +29092,8 @@
         "header": [
           "This file is the app's ONE session store — never add a second one beside it.",
           "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is already `loading` | `authenticated` | `unauthenticated` | `unavailable`, and `state.user` is the current user.",
-          "`initialize()` restores before the first render; `validateSession()` re-checks a restored session in the background (a 4xx clears it, a network/5xx failure keeps it as `unavailable`).",
+          "`initialize()` restores before the first render: a stored token AND user are already `authenticated` on the FIRST render, so never gate a page on a current-user request — wait only while `state.status === 'loading'`.",
+          "`validateSession()` is the background re-check: only a 401/403 clears the session, while a network/5xx failure or a wrong `currentUserEndpoint` (404) keeps it as `unavailable`.",
           "A token another tool reads at its own key (an e2e suite's `localStorage.jwtToken`) is the factory's `tokenKey`, not a mirrored copy in a second store."
         ],
         "setupAfter": [

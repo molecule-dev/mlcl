@@ -7,10 +7,13 @@ const { t } = useTranslation()
 const { state, isAuthenticated } = useAuth()
 const router = useRouter()
 
+// `status`, not `initialized`: a stored token AND user make the FIRST render
+// 'authenticated' (the client restores synchronously), so a protected page must
+// not wait for the background verification. Only 'loading' means no decision.
 watch(
-  () => ({ initialized: state.value.initialized, authenticated: isAuthenticated.value }),
-  ({ initialized, authenticated }) => {
-    if (initialized && !authenticated) {
+  () => ({ status: state.value.status, authenticated: isAuthenticated.value }),
+  ({ status, authenticated }) => {
+    if (status !== 'loading' && !authenticated) {
       router.replace({ path: '/login', query: { from: router.currentRoute.value.fullPath } })
     }
   },
@@ -19,6 +22,6 @@ watch(
 </script>
 
 <template>
-  <div v-if="!state.initialized">{{ t('common.loading') }}</div>
+  <div v-if="state.status === 'loading'">{{ t('common.loading') }}</div>
   <RouterView v-else-if="isAuthenticated" />
 </template>

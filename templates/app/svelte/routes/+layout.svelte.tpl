@@ -38,14 +38,17 @@
 
   const publicRoutes = ['/login', '/signup', '/about', '/forgot-password', '/reset-password']
 
+  // `status`, not `initialized`: a stored token AND user make the FIRST render
+  // 'authenticated' (the client restores synchronously), so a protected page must
+  // not wait for the background verification. Only 'loading' means no decision.
   $effect(() => {
-    if ($authState.initialized && !$isAuthenticated && !publicRoutes.includes($page.url.pathname)) {
+    if ($authState.status !== 'loading' && !$isAuthenticated && !publicRoutes.includes($page.url.pathname)) {
       goto('/login')
     }
   })
 </script>
 
-{#if !$authState.initialized}
+{#if $authState.status === 'loading'}
   <div class={cm.cn(getFlexClasses({ align: 'center', justify: 'center' }), cm.page)}>
     <p class={cm.textMuted}>{$t('common.loading')}</p>
   </div>

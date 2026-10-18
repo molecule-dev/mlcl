@@ -355,6 +355,10 @@ describe('SvelteKit template structure', () => {
     expect(content).toContain("from '$lib/branding.js'")
     expect(content).toContain('logout')
     expect(content).toContain('toggleTheme')
+    // The loading gate is `status === 'loading'`, not `initialized` — a stored
+    // token AND user make the first render 'authenticated' (xr-molecule-flash-m177).
+    expect(content).toContain("$authState.status === 'loading'")
+    expect(content).not.toContain('$authState.initialized')
   })
 
   it('+page.svelte shows user greeting (Home)', async () => {
@@ -409,6 +413,10 @@ describe('Framework-specific patterns', () => {
     const guard = await readTemplate('vue', 'components', 'AuthGuard.vue.tpl')
     expect(guard).toContain('useRouter')
     expect(guard).toContain('RouterView')
+    // The guard waits on `status === 'loading'`, not `initialized`: a stored
+    // token AND user make the first render 'authenticated' (xr-molecule-flash-m177).
+    expect(guard).toContain("state.status === 'loading'")
+    expect(guard).not.toContain('state.initialized')
   })
 
   it('Svelte uses SvelteKit file-based routing', async () => {
@@ -431,6 +439,10 @@ describe('Framework-specific patterns', () => {
     const guard = await readTemplate('solid', 'components', 'AuthGuard.tsx.tpl')
     expect(guard).toContain('Navigate')
     expect(guard).toContain('ParentProps')
+    // Same rule as the other framework guards: `status === 'loading'` decides the
+    // fallback, so a restored session paints on the first render.
+    expect(guard).toContain("state().status !== 'loading'")
+    expect(guard).not.toContain('state().initialized')
   })
 
   it('Angular uses @angular/router for routing', async () => {
@@ -442,6 +454,15 @@ describe('Framework-specific patterns', () => {
     const guard = await readTemplate('angular', 'components', 'auth.guard.ts.tpl')
     expect(guard).toContain('CanActivateFn')
     expect(guard).toContain('MoleculeAuthService')
+    // It waits only while `status === 'loading'`, so a restored session is not
+    // bounced to /login before the client finishes restoring (xr-molecule-flash-m177).
+    expect(guard).toContain("state.status !== 'loading'")
+  })
+
+  it('React Native Web guard waits on the session status, not `initialized`', async () => {
+    const guard = await readTemplate('react-native-web', 'components', 'AuthGuard.tsx.tpl')
+    expect(guard).toContain("status === 'loading'")
+    expect(guard).not.toContain('state.initialized')
   })
 })
 
