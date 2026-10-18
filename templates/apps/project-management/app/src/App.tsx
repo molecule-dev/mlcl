@@ -1,3 +1,4 @@
+import { lazy, Suspense } from 'react'
 import { BrowserRouter, Navigate, Route, Routes } from 'react-router'
 import { useParams } from 'react-router'
 
@@ -9,21 +10,38 @@ import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { AuthGuard } from '@molecule/app-ui-react'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
-import { About } from './pages/About.js'
-import { BoardPage } from './pages/Board.js'
-import { DashboardPage } from './pages/Dashboard.js'
-import { ForgotPassword } from './pages/ForgotPassword.js'
-import { Help } from './pages/Help.js'
-import { Login } from './pages/Login.js'
-import { PlanUpdated } from './pages/PlanUpdated.js'
-import { Pricing } from './pages/Pricing.js'
-import { Privacy } from './pages/Privacy.js'
-import { ResetPassword } from './pages/ResetPassword.js'
-import { Settings } from './pages/Settings.js'
-import { Signup } from './pages/Signup.js'
-import { TaskListPage } from './pages/TaskList.js'
-import { Terms } from './pages/Terms.js'
-import { TimelinePage } from './pages/Timeline.js'
+
+// Route-level code splitting: every page is its own chunk, so a full page load
+// downloads the framework plus only the page it shows. The `*Route` helpers
+// below render these components from inside <Routes>, so they sit under the
+// Suspense boundary too.
+const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const BoardPage = lazy(() => import('./pages/Board.js').then((m) => ({ default: m.BoardPage })))
+const DashboardPage = lazy(() =>
+  import('./pages/Dashboard.js').then((m) => ({ default: m.DashboardPage })),
+)
+const ForgotPassword = lazy(() =>
+  import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
+)
+const Help = lazy(() => import('./pages/Help.js').then((m) => ({ default: m.Help })))
+const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const PlanUpdated = lazy(() =>
+  import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
+)
+const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const ResetPassword = lazy(() =>
+  import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
+)
+const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
+const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const TaskListPage = lazy(() =>
+  import('./pages/TaskList.js').then((m) => ({ default: m.TaskListPage })),
+)
+const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const TimelinePage = lazy(() =>
+  import('./pages/Timeline.js').then((m) => ({ default: m.TimelinePage })),
+)
 /** Extracts :projectId from the URL and passes it to the BoardPage */
 function BoardRoute() {
   const { projectId } = useParams<{ projectId: string }>()
@@ -54,48 +72,50 @@ export function App() {
       >
         <AnalyticsRouteListener />
         <RootErrorBoundary>
-          <Routes>
-            {/* Auth routes — outside project layout */}
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
+          <Suspense fallback={null}>
+            <Routes>
+              {/* Auth routes — outside project layout */}
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
 
-            {/* Authenticated project routes */}
-            <Route element={<AuthGuard />}>
-              {/* Dashboard — top-level overview */}
-              <Route index element={<DashboardPage />} />
-              <Route path="/dashboard" element={<DashboardPage />} />
+              {/* Authenticated project routes */}
+              <Route element={<AuthGuard />}>
+                {/* Dashboard — top-level overview */}
+                <Route index element={<DashboardPage />} />
+                <Route path="/dashboard" element={<DashboardPage />} />
 
-              {/* Project views with :projectId param */}
-              <Route path="/projects/:projectId/board" element={<BoardRoute />} />
-              <Route path="/projects/:projectId/tasks" element={<TaskListRoute />} />
-              <Route path="/projects/:projectId/tasks/:taskId" element={<TaskListRoute />} />
-              <Route path="/projects/:projectId/timeline" element={<TimelineRoute />} />
-              <Route path="/projects/:projectId/calendar" element={<TimelineRoute />} />
+                {/* Project views with :projectId param */}
+                <Route path="/projects/:projectId/board" element={<BoardRoute />} />
+                <Route path="/projects/:projectId/tasks" element={<TaskListRoute />} />
+                <Route path="/projects/:projectId/tasks/:taskId" element={<TaskListRoute />} />
+                <Route path="/projects/:projectId/timeline" element={<TimelineRoute />} />
+                <Route path="/projects/:projectId/calendar" element={<TimelineRoute />} />
 
-              {/* Top-level views (no project scope) */}
-              <Route path="/my-tasks" element={<TaskListPage projectId="" />} />
-              <Route path="/tasks" element={<TaskListPage projectId="" />} />
-              <Route path="/list" element={<TaskListPage projectId="" />} />
-              <Route path="/calendar" element={<TimelinePage projectId="" />} />
-              <Route path="/timeline" element={<TimelinePage projectId="" />} />
-              <Route path="/board" element={<BoardPage projectId="" />} />
-              <Route path="/projects" element={<DashboardPage />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/plan-updated" element={<PlanUpdated />} />
-            </Route>
+                {/* Top-level views (no project scope) */}
+                <Route path="/my-tasks" element={<TaskListPage projectId="" />} />
+                <Route path="/tasks" element={<TaskListPage projectId="" />} />
+                <Route path="/list" element={<TaskListPage projectId="" />} />
+                <Route path="/calendar" element={<TimelinePage projectId="" />} />
+                <Route path="/timeline" element={<TimelinePage projectId="" />} />
+                <Route path="/board" element={<BoardPage projectId="" />} />
+                <Route path="/projects" element={<DashboardPage />} />
+                <Route path="/settings" element={<Settings />} />
+                <Route path="/plan-updated" element={<PlanUpdated />} />
+              </Route>
 
-            {/* Public pricing page — outside AuthGuard so anonymous visitors can see plans */}
-            <Route path="/pricing" element={<Pricing />} />
+              {/* Public pricing page — outside AuthGuard so anonymous visitors can see plans */}
+              <Route path="/pricing" element={<Pricing />} />
 
-            {/* Public marketing + legal pages */}
-            <Route path="/about" element={<About />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+              {/* Public marketing + legal pages */}
+              <Route path="/about" element={<About />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
         </RootErrorBoundary>
       </MoleculeProvider>
     </BrowserRouter>

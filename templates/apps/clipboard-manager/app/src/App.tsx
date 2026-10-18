@@ -5,28 +5,40 @@ import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { RootErrorBoundary } from '@molecule/app-root-error-boundary-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
+import { lazy, Suspense } from 'react'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { YankShellLayout } from './components/YankShellLayout.js'
-import { About } from './pages/About.js'
-import { Billing } from './pages/Billing.js'
-import { Categories } from './pages/Categories.js'
-import { Clips } from './pages/Clips.js'
-import { CommandPalette } from './pages/CommandPalette.js'
-import { Devices } from './pages/Devices.js'
-import { ForgotPassword } from './pages/ForgotPassword.js'
-import { Landing } from './pages/Landing.js'
-import { Login } from './pages/Login.js'
-import { NotFound } from './pages/NotFound.js'
-import { PlanUpdated } from './pages/PlanUpdated.js'
-import { Pricing } from './pages/Pricing.js'
-import { Privacy } from './pages/Privacy.js'
-import { Profile } from './pages/Profile.js'
-import { ResetPassword } from './pages/ResetPassword.js'
-import { Settings } from './pages/Settings.js'
-import { Signup } from './pages/Signup.js'
-import { Terms } from './pages/Terms.js'
+
+const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Billing = lazy(() => import('./pages/Billing.js').then((m) => ({ default: m.Billing })))
+const Categories = lazy(() =>
+  import('./pages/Categories.js').then((m) => ({ default: m.Categories })),
+)
+const Clips = lazy(() => import('./pages/Clips.js').then((m) => ({ default: m.Clips })))
+const CommandPalette = lazy(() =>
+  import('./pages/CommandPalette.js').then((m) => ({ default: m.CommandPalette })),
+)
+const Devices = lazy(() => import('./pages/Devices.js').then((m) => ({ default: m.Devices })))
+const ForgotPassword = lazy(() =>
+  import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
+)
+const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const NotFound = lazy(() => import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })))
+const PlanUpdated = lazy(() =>
+  import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
+)
+const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const Profile = lazy(() => import('./pages/Profile.js').then((m) => ({ default: m.Profile })))
+const ResetPassword = lazy(() =>
+  import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
+)
+const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
+const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
 export function App() {
   return (
     <BrowserRouter useTransitions={false}>
@@ -39,30 +51,32 @@ export function App() {
       >
         <RootErrorBoundary>
           <AnalyticsRouteListener />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/plan-updated" element={<PlanUpdated />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route element={<AuthGuard />}>
-              <Route element={<YankShellLayout />}>
-                <Route path="/clips" element={<Clips />} />
-                <Route path="/command-palette" element={<CommandPalette />} />
-                <Route path="/categories" element={<Categories />} />
-                <Route path="/devices" element={<Devices />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/billing" element={<Billing />} />
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/plan-updated" element={<PlanUpdated />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route element={<AuthGuard />}>
+                <Route element={<YankShellLayout />}>
+                  <Route path="/clips" element={<Clips />} />
+                  <Route path="/command-palette" element={<CommandPalette />} />
+                  <Route path="/categories" element={<Categories />} />
+                  <Route path="/devices" element={<Devices />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/billing" element={<Billing />} />
+                </Route>
               </Route>
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </RootErrorBoundary>
       </MoleculeProvider>
     </BrowserRouter>

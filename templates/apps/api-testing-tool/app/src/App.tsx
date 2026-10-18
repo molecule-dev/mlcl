@@ -4,31 +4,45 @@ import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
+import { lazy, Suspense } from 'react'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { PylonShell } from './components/PylonShell.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
-import { About } from './pages/About.js'
-import { Collections } from './pages/Collections.js'
-import { Environments } from './pages/Environments.js'
-import { ForgotPassword } from './pages/ForgotPassword.js'
-import { History } from './pages/History.js'
-import { Landing } from './pages/Landing.js'
-import { Login } from './pages/Login.js'
-import { Mocks } from './pages/Mocks.js'
-import { Monitors } from './pages/Monitors.js'
-import { NotFound } from './pages/NotFound.js'
-import { PlanUpdated } from './pages/PlanUpdated.js'
-import { Pricing } from './pages/Pricing.js'
-import { Privacy } from './pages/Privacy.js'
-import { Profile } from './pages/Profile.js'
-import { ResetPassword } from './pages/ResetPassword.js'
-import { Settings } from './pages/Settings.js'
-import { Signup } from './pages/Signup.js'
-import { Terms } from './pages/Terms.js'
-import { TestRunner } from './pages/TestRunner.js'
-import { Workspace } from './pages/Workspace.js'
+
+const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Collections = lazy(() =>
+  import('./pages/Collections.js').then((m) => ({ default: m.Collections })),
+)
+const Environments = lazy(() =>
+  import('./pages/Environments.js').then((m) => ({ default: m.Environments })),
+)
+const ForgotPassword = lazy(() =>
+  import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
+)
+const History = lazy(() => import('./pages/History.js').then((m) => ({ default: m.History })))
+const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Mocks = lazy(() => import('./pages/Mocks.js').then((m) => ({ default: m.Mocks })))
+const Monitors = lazy(() => import('./pages/Monitors.js').then((m) => ({ default: m.Monitors })))
+const NotFound = lazy(() => import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })))
+const PlanUpdated = lazy(() =>
+  import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
+)
+const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const Profile = lazy(() => import('./pages/Profile.js').then((m) => ({ default: m.Profile })))
+const ResetPassword = lazy(() =>
+  import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
+)
+const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
+const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const TestRunner = lazy(() =>
+  import('./pages/TestRunner.js').then((m) => ({ default: m.TestRunner })),
+)
+const Workspace = lazy(() => import('./pages/Workspace.js').then((m) => ({ default: m.Workspace })))
 export function App() {
   return (
     <RootErrorBoundary>
@@ -41,32 +55,34 @@ export function App() {
           i18n={i18nProvider}
         >
           <AnalyticsRouteListener />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/plan-updated" element={<PlanUpdated />} />
-            <Route element={<AuthGuard />}>
-              <Route element={<PylonShell />}>
-                <Route path="/workspace" element={<Workspace />} />
-                <Route path="/collections" element={<Collections />} />
-                <Route path="/environments" element={<Environments />} />
-                <Route path="/history" element={<History />} />
-                <Route path="/mocks" element={<Mocks />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/tests" element={<TestRunner />} />
-                <Route path="/monitors" element={<Monitors />} />
-                <Route path="/profile" element={<Profile />} />
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/plan-updated" element={<PlanUpdated />} />
+              <Route element={<AuthGuard />}>
+                <Route element={<PylonShell />}>
+                  <Route path="/workspace" element={<Workspace />} />
+                  <Route path="/collections" element={<Collections />} />
+                  <Route path="/environments" element={<Environments />} />
+                  <Route path="/history" element={<History />} />
+                  <Route path="/mocks" element={<Mocks />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/tests" element={<TestRunner />} />
+                  <Route path="/monitors" element={<Monitors />} />
+                  <Route path="/profile" element={<Profile />} />
+                </Route>
               </Route>
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </MoleculeProvider>
       </BrowserRouter>
     </RootErrorBoundary>

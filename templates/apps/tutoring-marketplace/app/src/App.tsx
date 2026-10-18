@@ -4,31 +4,49 @@ import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
+import { lazy, Suspense } from 'react'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AppLayout } from './components/AppLayout.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
-import { About } from './pages/About.js'
-import { Account } from './pages/Account.js'
-import { BecomeTutor } from './pages/BecomeTutor.js'
-import { Booking } from './pages/Booking.js'
-import { BookingConfirmation } from './pages/BookingConfirmation.js'
-import { ForgotPassword } from './pages/ForgotPassword.js'
-import { Landing } from './pages/Landing.js'
-import { Login } from './pages/Login.js'
-import { Messages } from './pages/Messages.js'
-import { PlanUpdated } from './pages/PlanUpdated.js'
-import { Pricing } from './pages/Pricing.js'
-import { Privacy } from './pages/Privacy.js'
-import { ResetPassword } from './pages/ResetPassword.js'
-import { Search } from './pages/Search.js'
-import { SessionDetail } from './pages/SessionDetail.js'
-import { Sessions } from './pages/Sessions.js'
-import { Signup } from './pages/Signup.js'
-import { Terms } from './pages/Terms.js'
-import { TutorDashboard } from './pages/TutorDashboard.js'
-import { TutorProfile } from './pages/TutorProfile.js'
+
+const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Account = lazy(() => import('./pages/Account.js').then((m) => ({ default: m.Account })))
+const BecomeTutor = lazy(() =>
+  import('./pages/BecomeTutor.js').then((m) => ({ default: m.BecomeTutor })),
+)
+const Booking = lazy(() => import('./pages/Booking.js').then((m) => ({ default: m.Booking })))
+const BookingConfirmation = lazy(() =>
+  import('./pages/BookingConfirmation.js').then((m) => ({ default: m.BookingConfirmation })),
+)
+const ForgotPassword = lazy(() =>
+  import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
+)
+const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Messages = lazy(() => import('./pages/Messages.js').then((m) => ({ default: m.Messages })))
+const PlanUpdated = lazy(() =>
+  import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
+)
+const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const ResetPassword = lazy(() =>
+  import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
+)
+const Search = lazy(() => import('./pages/Search.js').then((m) => ({ default: m.Search })))
+const SessionDetail = lazy(() =>
+  import('./pages/SessionDetail.js').then((m) => ({ default: m.SessionDetail })),
+)
+const Sessions = lazy(() => import('./pages/Sessions.js').then((m) => ({ default: m.Sessions })))
+const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const TutorDashboard = lazy(() =>
+  import('./pages/TutorDashboard.js').then((m) => ({ default: m.TutorDashboard })),
+)
+const TutorProfile = lazy(() =>
+  import('./pages/TutorProfile.js').then((m) => ({ default: m.TutorProfile })),
+)
 
 export function App() {
   return (
@@ -42,38 +60,40 @@ export function App() {
       >
         <RootErrorBoundary>
           <AnalyticsRouteListener />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
 
-            <Route element={<AppLayout />}>
-              <Route path="/search" element={<Search />} />
-              <Route path="/tutor/:id" element={<TutorProfile />} />
-              <Route path="/book/:tutorId" element={<Booking />} />
-            </Route>
-
-            <Route element={<AuthGuard />}>
               <Route element={<AppLayout />}>
-                <Route path="/dashboard" element={<TutorDashboard />} />
-                <Route path="/book/:tutorId/confirm" element={<BookingConfirmation />} />
-                <Route path="/sessions" element={<Sessions />} />
-                <Route path="/sessions/:id" element={<SessionDetail />} />
-                <Route path="/messages" element={<Messages />} />
-                <Route path="/account" element={<Account />} />
-                <Route path="/become-tutor" element={<BecomeTutor />} />
-                <Route path="/plan-updated" element={<PlanUpdated />} />
+                <Route path="/search" element={<Search />} />
+                <Route path="/tutor/:id" element={<TutorProfile />} />
+                <Route path="/book/:tutorId" element={<Booking />} />
               </Route>
-            </Route>
 
-            <Route path="*" element={<Navigate to="/" replace />} />
-          </Routes>
+              <Route element={<AuthGuard />}>
+                <Route element={<AppLayout />}>
+                  <Route path="/dashboard" element={<TutorDashboard />} />
+                  <Route path="/book/:tutorId/confirm" element={<BookingConfirmation />} />
+                  <Route path="/sessions" element={<Sessions />} />
+                  <Route path="/sessions/:id" element={<SessionDetail />} />
+                  <Route path="/messages" element={<Messages />} />
+                  <Route path="/account" element={<Account />} />
+                  <Route path="/become-tutor" element={<BecomeTutor />} />
+                  <Route path="/plan-updated" element={<PlanUpdated />} />
+                </Route>
+              </Route>
+
+              <Route path="*" element={<Navigate to="/" replace />} />
+            </Routes>
+          </Suspense>
         </RootErrorBoundary>
       </MoleculeProvider>
     </BrowserRouter>

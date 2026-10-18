@@ -4,29 +4,37 @@ import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
+import { lazy, Suspense } from 'react'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { EnergyMonitoringLayout } from './components/EnergyMonitoringLayout.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
-import { About } from './pages/About.js'
-import { AlertRule } from './pages/AlertRule.js'
-import { Alerts } from './pages/Alerts.js'
-import { Billing } from './pages/Billing.js'
-import { Dashboard } from './pages/Dashboard.js'
-import { DeviceDetail } from './pages/DeviceDetail.js'
-import { Devices } from './pages/Devices.js'
-import { ForgotPassword } from './pages/ForgotPassword.js'
-import { Landing } from './pages/Landing.js'
-import { Login } from './pages/Login.js'
-import { Pricing } from './pages/Pricing.js'
-import { Privacy } from './pages/Privacy.js'
-import { Profile } from './pages/Profile.js'
-import { Reports } from './pages/Reports.js'
-import { ResetPassword } from './pages/ResetPassword.js'
-import { Settings } from './pages/Settings.js'
-import { Signup } from './pages/Signup.js'
-import { Terms } from './pages/Terms.js'
+
+const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const AlertRule = lazy(() => import('./pages/AlertRule.js').then((m) => ({ default: m.AlertRule })))
+const Alerts = lazy(() => import('./pages/Alerts.js').then((m) => ({ default: m.Alerts })))
+const Billing = lazy(() => import('./pages/Billing.js').then((m) => ({ default: m.Billing })))
+const Dashboard = lazy(() => import('./pages/Dashboard.js').then((m) => ({ default: m.Dashboard })))
+const DeviceDetail = lazy(() =>
+  import('./pages/DeviceDetail.js').then((m) => ({ default: m.DeviceDetail })),
+)
+const Devices = lazy(() => import('./pages/Devices.js').then((m) => ({ default: m.Devices })))
+const ForgotPassword = lazy(() =>
+  import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
+)
+const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const Profile = lazy(() => import('./pages/Profile.js').then((m) => ({ default: m.Profile })))
+const Reports = lazy(() => import('./pages/Reports.js').then((m) => ({ default: m.Reports })))
+const ResetPassword = lazy(() =>
+  import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
+)
+const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
+const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
 
 export function App() {
   return (
@@ -40,30 +48,32 @@ export function App() {
           i18n={i18nProvider}
         >
           <AnalyticsRouteListener />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route element={<AuthGuard />}>
-              <Route element={<EnergyMonitoringLayout />}>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/devices" element={<Devices />} />
-                <Route path="/devices/:id" element={<DeviceDetail />} />
-                <Route path="/reports" element={<Reports />} />
-                <Route path="/alerts" element={<Alerts />} />
-                <Route path="/alerts/rules/new" element={<AlertRule />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/billing" element={<Billing />} />
-                <Route path="/settings" element={<Settings />} />
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route element={<AuthGuard />}>
+                <Route element={<EnergyMonitoringLayout />}>
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/devices" element={<Devices />} />
+                  <Route path="/devices/:id" element={<DeviceDetail />} />
+                  <Route path="/reports" element={<Reports />} />
+                  <Route path="/alerts" element={<Alerts />} />
+                  <Route path="/alerts/rules/new" element={<AlertRule />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/billing" element={<Billing />} />
+                  <Route path="/settings" element={<Settings />} />
+                </Route>
               </Route>
-            </Route>
-          </Routes>
+            </Routes>
+          </Suspense>
         </MoleculeProvider>
       </BrowserRouter>
     </RootErrorBoundary>

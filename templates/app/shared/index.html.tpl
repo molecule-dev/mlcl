@@ -36,8 +36,20 @@
     <!-- mol:design-resources -->
     <link href="https://fonts.googleapis.com" rel="preconnect" />
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
-    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet" />
+    <!--
+      Webfonts load without blocking the first paint: a stylesheet link in the
+      head is render-blocking, so the whole document waited on fonts.googleapis.com
+      before the app's own JS could even start. `preload` + `onload` swaps the
+      link to a stylesheet once it arrives; `noscript` keeps the plain link for
+      browsers with JS off. `display=swap`/`display=block` keep text and glyphs
+      rendering with the fallback font until it lands.
+    -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript>
+      <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet" />
+      <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block" rel="stylesheet" />
+    </noscript>
     <!-- /mol:design-resources -->
 {{FONT_LINKS}}
     <link rel="apple-touch-icon" href="/icons/icon-192.svg" />

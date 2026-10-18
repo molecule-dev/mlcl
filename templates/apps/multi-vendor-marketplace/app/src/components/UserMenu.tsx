@@ -1,10 +1,14 @@
+import { lazy, Suspense } from 'react'
+
 import { Link } from 'react-router'
 
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { usePanelClose, UserMenu as MoleculeUserMenu } from '@molecule/app-ui-react'
 
-import { SettingsPanel } from './SettingsPanel.js'
+const SettingsPanel = lazy(() =>
+  import('./SettingsPanel.js').then((m) => ({ default: m.SettingsPanel })),
+)
 
 function UserMenuPanel() {
   const cm = getClassMap()
@@ -30,7 +34,9 @@ function UserMenuPanel() {
           {t('userMenu.marketplaceSettings', {}, { defaultValue: 'Marketplace settings' })}
         </Link>
       </div>
-      <SettingsPanel onClose={close} />
+      <Suspense fallback={null}>
+        <SettingsPanel onClose={close} />
+      </Suspense>
     </>
   )
 }

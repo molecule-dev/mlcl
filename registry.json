@@ -3440,6 +3440,7 @@
         "FAILURE_CAUSE_TESTS_LISTED",
         "UNIVERSAL_CAUSE_FILES",
         "UniversalCause",
+        "EMPTY_PAGE_CAUSE_TESTS",
         "CONNECTION_CAUSE_TESTS",
         "specFilesSelected",
         "universalCause",
@@ -35096,6 +35097,7 @@
       "exports": [
         "LanguageDefinition",
         "LANGUAGE_DEFINITIONS",
+        "PackageLocaleLoader",
         "PackageLocaleBond",
         "SetupI18nDefaultOptions",
         "setupI18nDefault"

@@ -4,30 +4,38 @@ import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
+import { lazy, Suspense } from 'react'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
 import { SignetLayout } from './components/SignetLayout.js'
-import { About } from './pages/About.js'
-import { Analytics } from './pages/Analytics.js'
-import { Billing } from './pages/Billing.js'
-import { Compose } from './pages/Compose.js'
-import { Dashboard } from './pages/Dashboard.js'
-import { ForgotPassword } from './pages/ForgotPassword.js'
-import { Inbox } from './pages/Inbox.js'
-import { Landing } from './pages/Landing.js'
-import { Login } from './pages/Login.js'
-import { NotFound } from './pages/NotFound.js'
-import { PlanUpdated } from './pages/PlanUpdated.js'
-import { Pricing } from './pages/Pricing.js'
-import { Privacy } from './pages/Privacy.js'
-import { Profile } from './pages/Profile.js'
-import { ResetPassword } from './pages/ResetPassword.js'
-import { Settings } from './pages/Settings.js'
-import { Signup } from './pages/Signup.js'
-import { Templates } from './pages/Templates.js'
-import { Terms } from './pages/Terms.js'
+
+const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Analytics = lazy(() => import('./pages/Analytics.js').then((m) => ({ default: m.Analytics })))
+const Billing = lazy(() => import('./pages/Billing.js').then((m) => ({ default: m.Billing })))
+const Compose = lazy(() => import('./pages/Compose.js').then((m) => ({ default: m.Compose })))
+const Dashboard = lazy(() => import('./pages/Dashboard.js').then((m) => ({ default: m.Dashboard })))
+const ForgotPassword = lazy(() =>
+  import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
+)
+const Inbox = lazy(() => import('./pages/Inbox.js').then((m) => ({ default: m.Inbox })))
+const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const NotFound = lazy(() => import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })))
+const PlanUpdated = lazy(() =>
+  import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
+)
+const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const Profile = lazy(() => import('./pages/Profile.js').then((m) => ({ default: m.Profile })))
+const ResetPassword = lazy(() =>
+  import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
+)
+const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
+const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Templates = lazy(() => import('./pages/Templates.js').then((m) => ({ default: m.Templates })))
+const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
 export function App() {
   return (
     <RootErrorBoundary>
@@ -40,31 +48,33 @@ export function App() {
           i18n={i18nProvider}
         >
           <AnalyticsRouteListener />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route element={<AuthGuard />}>
-              <Route element={<SignetLayout />}>
-                <Route path="/dashboard" element={<Dashboard />} />
-                <Route path="/inbox" element={<Inbox />} />
-                <Route path="/compose" element={<Compose />} />
-                <Route path="/templates" element={<Templates />} />
-                <Route path="/analytics" element={<Analytics />} />
-                <Route path="/profile" element={<Profile />} />
-                <Route path="/billing" element={<Billing />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/plan-updated" element={<PlanUpdated />} />
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route element={<AuthGuard />}>
+                <Route element={<SignetLayout />}>
+                  <Route path="/dashboard" element={<Dashboard />} />
+                  <Route path="/inbox" element={<Inbox />} />
+                  <Route path="/compose" element={<Compose />} />
+                  <Route path="/templates" element={<Templates />} />
+                  <Route path="/analytics" element={<Analytics />} />
+                  <Route path="/profile" element={<Profile />} />
+                  <Route path="/billing" element={<Billing />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/plan-updated" element={<PlanUpdated />} />
+                </Route>
               </Route>
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </MoleculeProvider>
       </BrowserRouter>
     </RootErrorBoundary>

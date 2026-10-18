@@ -51,6 +51,7 @@
     "@molecule/app-live-preview": "1.0.2",
     "@molecule/app-locales-ai-chat": "1.0.2",
     "@molecule/app-locales-auth": "1.0.2",
+    "@molecule/app-locales-auth-shell": "1.0.2",
     "@molecule/app-locales-calendar": "1.0.2",
     "@molecule/app-locales-charts": "1.0.2",
     "@molecule/app-locales-code-editor": "1.0.2",

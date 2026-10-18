@@ -5,28 +5,42 @@ import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { RootErrorBoundary } from '@molecule/app-root-error-boundary-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
+import { lazy, Suspense } from 'react'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { TravelBookingLayout } from './components/TravelBookingLayout.js'
-import { About } from './pages/About.js'
-import { Account } from './pages/Account.js'
-import { Booking } from './pages/Booking.js'
-import { Favorites } from './pages/Favorites.js'
-import { ForgotPassword } from './pages/ForgotPassword.js'
-import { Landing } from './pages/Landing.js'
-import { Login } from './pages/Login.js'
-import { Notifications } from './pages/Notifications.js'
-import { PlanUpdated } from './pages/PlanUpdated.js'
-import { Pricing } from './pages/Pricing.js'
-import { Privacy } from './pages/Privacy.js'
-import { PropertyDetail } from './pages/PropertyDetail.js'
-import { ResetPassword } from './pages/ResetPassword.js'
-import { Search } from './pages/Search.js'
-import { Signup } from './pages/Signup.js'
-import { Terms } from './pages/Terms.js'
-import { TripDetail } from './pages/TripDetail.js'
-import { Trips } from './pages/Trips.js'
+
+const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Account = lazy(() => import('./pages/Account.js').then((m) => ({ default: m.Account })))
+const Booking = lazy(() => import('./pages/Booking.js').then((m) => ({ default: m.Booking })))
+const Favorites = lazy(() => import('./pages/Favorites.js').then((m) => ({ default: m.Favorites })))
+const ForgotPassword = lazy(() =>
+  import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
+)
+const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Notifications = lazy(() =>
+  import('./pages/Notifications.js').then((m) => ({ default: m.Notifications })),
+)
+const PlanUpdated = lazy(() =>
+  import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
+)
+const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const PropertyDetail = lazy(() =>
+  import('./pages/PropertyDetail.js').then((m) => ({ default: m.PropertyDetail })),
+)
+const ResetPassword = lazy(() =>
+  import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
+)
+const Search = lazy(() => import('./pages/Search.js').then((m) => ({ default: m.Search })))
+const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const TripDetail = lazy(() =>
+  import('./pages/TripDetail.js').then((m) => ({ default: m.TripDetail })),
+)
+const Trips = lazy(() => import('./pages/Trips.js').then((m) => ({ default: m.Trips })))
 
 export function App() {
   return (
@@ -40,33 +54,35 @@ export function App() {
       >
         <RootErrorBoundary>
           <AnalyticsRouteListener />
-          <Routes>
-            {/* Public routes (no auth) */}
-            <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/plan-updated" element={<PlanUpdated />} />
+          <Suspense fallback={null}>
+            <Routes>
+              {/* Public routes (no auth) */}
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/about" element={<About />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/plan-updated" element={<PlanUpdated />} />
 
-            {/* Authenticated routes — wrapped in TravelBookingLayout via AuthGuard */}
-            <Route element={<AuthGuard />}>
-              <Route element={<TravelBookingLayout />}>
-                <Route path="/search" element={<Search />} />
-                <Route path="/property/:id" element={<PropertyDetail />} />
-                <Route path="/booking/:id" element={<Booking />} />
-                <Route path="/trips" element={<Trips />} />
-                <Route path="/trips/:id" element={<TripDetail />} />
-                <Route path="/favorites" element={<Favorites />} />
-                <Route path="/notifications" element={<Notifications />} />
-                <Route path="/account" element={<Account />} />
+              {/* Authenticated routes — wrapped in TravelBookingLayout via AuthGuard */}
+              <Route element={<AuthGuard />}>
+                <Route element={<TravelBookingLayout />}>
+                  <Route path="/search" element={<Search />} />
+                  <Route path="/property/:id" element={<PropertyDetail />} />
+                  <Route path="/booking/:id" element={<Booking />} />
+                  <Route path="/trips" element={<Trips />} />
+                  <Route path="/trips/:id" element={<TripDetail />} />
+                  <Route path="/favorites" element={<Favorites />} />
+                  <Route path="/notifications" element={<Notifications />} />
+                  <Route path="/account" element={<Account />} />
+                </Route>
               </Route>
-            </Route>
-          </Routes>
+            </Routes>
+          </Suspense>
         </RootErrorBoundary>
       </MoleculeProvider>
     </BrowserRouter>

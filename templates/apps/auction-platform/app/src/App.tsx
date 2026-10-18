@@ -4,33 +4,55 @@ import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
+import { lazy, Suspense } from 'react'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AuctionPlatformLayout } from './components/AuctionPlatformLayout.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
-import { About } from './pages/About.js'
-import { AuctionDetail } from './pages/AuctionDetail.js'
-import { BrowseAuctions } from './pages/BrowseAuctions.js'
-import { ForgotPassword } from './pages/ForgotPassword.js'
-import { Help } from './pages/Help.js'
-import { Landing } from './pages/Landing.js'
-import { Login } from './pages/Login.js'
-import { MyBids } from './pages/MyBids.js'
-import { NotFound } from './pages/NotFound.js'
-import { Notifications } from './pages/Notifications.js'
-import { PlanUpdated } from './pages/PlanUpdated.js'
-import { Pricing } from './pages/Pricing.js'
-import { Privacy } from './pages/Privacy.js'
-import { ResetPassword } from './pages/ResetPassword.js'
-import { SellerDashboard } from './pages/SellerDashboard.js'
-import { SellerProfile } from './pages/SellerProfile.js'
-import { SellListing } from './pages/SellListing.js'
-import { Settings } from './pages/Settings.js'
-import { Signup } from './pages/Signup.js'
-import { Terms } from './pages/Terms.js'
-import { Watchlist } from './pages/Watchlist.js'
-import { WonAuctionCheckout } from './pages/WonAuctionCheckout.js'
+
+const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const AuctionDetail = lazy(() =>
+  import('./pages/AuctionDetail.js').then((m) => ({ default: m.AuctionDetail })),
+)
+const BrowseAuctions = lazy(() =>
+  import('./pages/BrowseAuctions.js').then((m) => ({ default: m.BrowseAuctions })),
+)
+const ForgotPassword = lazy(() =>
+  import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
+)
+const Help = lazy(() => import('./pages/Help.js').then((m) => ({ default: m.Help })))
+const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const MyBids = lazy(() => import('./pages/MyBids.js').then((m) => ({ default: m.MyBids })))
+const NotFound = lazy(() => import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })))
+const Notifications = lazy(() =>
+  import('./pages/Notifications.js').then((m) => ({ default: m.Notifications })),
+)
+const PlanUpdated = lazy(() =>
+  import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
+)
+const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const ResetPassword = lazy(() =>
+  import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
+)
+const SellerDashboard = lazy(() =>
+  import('./pages/SellerDashboard.js').then((m) => ({ default: m.SellerDashboard })),
+)
+const SellerProfile = lazy(() =>
+  import('./pages/SellerProfile.js').then((m) => ({ default: m.SellerProfile })),
+)
+const SellListing = lazy(() =>
+  import('./pages/SellListing.js').then((m) => ({ default: m.SellListing })),
+)
+const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
+const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const Watchlist = lazy(() => import('./pages/Watchlist.js').then((m) => ({ default: m.Watchlist })))
+const WonAuctionCheckout = lazy(() =>
+  import('./pages/WonAuctionCheckout.js').then((m) => ({ default: m.WonAuctionCheckout })),
+)
 export function App() {
   return (
     <RootErrorBoundary>
@@ -43,34 +65,36 @@ export function App() {
           i18n={i18nProvider}
         >
           <AnalyticsRouteListener />
-          <Routes>
-            <Route path="/" element={<Landing />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route path="/pricing" element={<Pricing />} />
-            <Route path="/terms" element={<Terms />} />
-            <Route path="/privacy" element={<Privacy />} />
-            <Route path="/help" element={<Help />} />
-            <Route path="/about" element={<About />} />
-            <Route element={<AuthGuard />}>
-              <Route element={<AuctionPlatformLayout />}>
-                <Route path="/auctions" element={<BrowseAuctions />} />
-                <Route path="/auctions/:id" element={<AuctionDetail />} />
-                <Route path="/my-bids" element={<MyBids />} />
-                <Route path="/my-bids/won/:id/checkout" element={<WonAuctionCheckout />} />
-                <Route path="/sell/new" element={<SellListing />} />
-                <Route path="/watchlist" element={<Watchlist />} />
-                <Route path="/seller" element={<SellerDashboard />} />
-                <Route path="/sellers/:handle" element={<SellerProfile />} />
-                <Route path="/notifications" element={<Notifications />} />
-                <Route path="/settings" element={<Settings />} />
-                <Route path="/plan-updated" element={<PlanUpdated />} />
+          <Suspense fallback={null}>
+            <Routes>
+              <Route path="/" element={<Landing />} />
+              <Route path="/login" element={<Login />} />
+              <Route path="/signup" element={<Signup />} />
+              <Route path="/forgot-password" element={<ForgotPassword />} />
+              <Route path="/reset-password" element={<ResetPassword />} />
+              <Route path="/pricing" element={<Pricing />} />
+              <Route path="/terms" element={<Terms />} />
+              <Route path="/privacy" element={<Privacy />} />
+              <Route path="/help" element={<Help />} />
+              <Route path="/about" element={<About />} />
+              <Route element={<AuthGuard />}>
+                <Route element={<AuctionPlatformLayout />}>
+                  <Route path="/auctions" element={<BrowseAuctions />} />
+                  <Route path="/auctions/:id" element={<AuctionDetail />} />
+                  <Route path="/my-bids" element={<MyBids />} />
+                  <Route path="/my-bids/won/:id/checkout" element={<WonAuctionCheckout />} />
+                  <Route path="/sell/new" element={<SellListing />} />
+                  <Route path="/watchlist" element={<Watchlist />} />
+                  <Route path="/seller" element={<SellerDashboard />} />
+                  <Route path="/sellers/:handle" element={<SellerProfile />} />
+                  <Route path="/notifications" element={<Notifications />} />
+                  <Route path="/settings" element={<Settings />} />
+                  <Route path="/plan-updated" element={<PlanUpdated />} />
+                </Route>
               </Route>
-            </Route>
-            <Route path="*" element={<NotFound />} />
-          </Routes>
+              <Route path="*" element={<NotFound />} />
+            </Routes>
+          </Suspense>
         </MoleculeProvider>
       </BrowserRouter>
     </RootErrorBoundary>
