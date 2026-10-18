@@ -32,7 +32,7 @@
     "@molecule/api-sitemap-xml": "1.0.2",
     "@molecule/api-text-provenance": "1.0.2",
     "@molecule/api-text-provenance-overlap": "1.0.1",
-    "@molecule/app-bond": "1.0.2",
+    "@molecule/app-bond": "1.0.3",
     "@molecule/app-i18n": "1.0.3",
     "@molecule/app-logger": "1.0.2",
     "@molecule/app-margin-notes-html": "1.0.8",
