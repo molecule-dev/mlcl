@@ -3344,6 +3344,7 @@
         "installedPackageWriteRefusal",
         "buildTools",
         "TraceRequest",
+        "TraceLastAction",
         "TraceAction",
         "TraceArtifact",
         "MAX_TRACE_ARTIFACTS",
