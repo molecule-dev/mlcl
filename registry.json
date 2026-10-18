@@ -60044,7 +60044,7 @@
       "@molecule/app-audio-player-react": "1.0.2",
       "@molecule/app-audio-recorder-react": "1.0.3",
       "@molecule/app-audit-log-row-react": "1.0.2",
-      "@molecule/app-auth": "1.4.1",
+      "@molecule/app-auth": "1.5.0",
       "@molecule/app-auth-brand-header-react": "1.0.3",
       "@molecule/app-auth-modal-react": "1.1.1",
       "@molecule/app-auth-shell-react": "1.0.4",
