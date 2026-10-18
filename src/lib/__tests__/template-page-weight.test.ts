@@ -4,9 +4,16 @@
  * A built scaffold used to download the framework plus every page, every
  * companion locale dictionary and the settings panel before it could paint —
  * 172 KB gzip in a fresh custom scaffold, 1.7 MB gzip in a flagship. These
- * assertions pin the three fixes that move that weight out of the entry:
- * route-level code splitting, lazy companion-locale bonds, and a service
- * worker that precaches the shell instead of the whole app.
+ * assertions pin the fixes that move that weight out of the entry: lazy
+ * companion-locale bonds, a service worker that precaches the shell instead of
+ * the whole app, and — for the custom scaffold — NO route-level splitting.
+ *
+ * Route splitting was measured and rejected for the custom scaffold: its page
+ * set is small, a `lazy()` page adds a serial chunk request, and React holds a
+ * suspended commit for 300 ms after it has shown a fallback, so cold TTI rose
+ * 402 → 688 ms and warm navigation 372 → 512 ms at 150 ms RTT. Every route can
+ * be the first paint of a full document load, so none of them can be split.
+ * The flagship templates keep splitting: their entry was 1.8 MB gzip before.
  *
  * @module
  */
@@ -23,10 +30,9 @@ const FLAGSHIPS = join(ROOT, 'templates', 'apps')
 const read = (...parts: string[]): string => readFileSync(join(APP_TEMPLATES, ...parts), 'utf8')
 const flagshipApps = (): string[] => readdirSync(FLAGSHIPS).sort()
 
-describe('custom scaffold: the router splits every page', () => {
-  it('imports no page statically — each is a lazy() declaration', () => {
+describe('custom scaffold: pages are imported statically (splitting measured slower)', () => {
+  it('imports every page statically — no lazy() route, no route Suspense boundary', () => {
     const app = read('react', 'App.tsx.tpl')
-    expect(app).not.toMatch(/^import \{ \w+ \} from '\.\/pages\//m)
     for (const page of [
       'About',
       'ForgotPassword',
@@ -36,19 +42,22 @@ describe('custom scaffold: the router splits every page', () => {
       'ResetPassword',
       'Signup',
     ]) {
-      expect(app).toContain(`const ${page} = lazy(`)
-      expect(app).toContain(`import('./pages/${page}.js')`)
+      expect(app).toMatch(new RegExp(`^import \\{ ${page} \\} from '\\./pages/${page}\\.js'$`, 'm'))
+      expect(app).not.toContain(`const ${page} = lazy(`)
     }
+    // A lazy route is what re-introduces React's 300 ms Suspense-fallback
+    // throttle on a full page load: no lazy() declaration and no route
+    // Suspense boundary (the comment above the code may still name both).
+    expect(app).not.toMatch(/= lazy\(/)
+    expect(app).not.toMatch(/import\('\.\/pages\//)
+    expect(app).not.toContain('<Suspense')
   })
 
-  it('wraps the route tree in a Suspense boundary', () => {
+  it('documents the measured decision beside the static imports', () => {
+    // The next agent to add a page must find the reason, not just the shape.
     const app = read('react', 'App.tsx.tpl')
-    const suspense = app.indexOf('<Suspense')
-    const routes = app.indexOf('<Routes>')
-    const close = app.indexOf('</Suspense>')
-    expect(suspense).toBeGreaterThan(-1)
-    expect(routes).toBeGreaterThan(suspense)
-    expect(close).toBeGreaterThan(routes)
+    expect(app).toContain('measured decision')
+    expect(app).toContain('SUSPENSE_FALLBACK_THROTTLE')
   })
 
   it('loads the settings panel only when the drawer opens', () => {
