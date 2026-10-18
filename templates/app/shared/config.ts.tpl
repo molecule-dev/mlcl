@@ -10,6 +10,12 @@ export const authConfig = {
   authScheme: 'Bearer',
   loginEndpoint: '/users/log-in',
   registerEndpoint: '/users',
+  // The current-user route. `validateSession()` calls it on reload to confirm the
+  // stored session, and `initialize()` uses it to restore the session from the
+  // httpOnly cookie. Point it at your API's own current-user route when you serve
+  // one: the `/users/me` default answers 404 there, and the auth client then keeps
+  // the stored token but leaves the session unconfirmed.
+  currentUserEndpoint: '/users/me',
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
   changePasswordEndpoint: '/users/password',

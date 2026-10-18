@@ -61,6 +61,20 @@ describe('Template file inventory', () => {
     expect(content).not.toContain('createSimpleI18nProvider')
   })
 
+  it('emits currentUserEndpoint beside the other auth endpoints (xr-molecule-flash-m159)', async () => {
+    // m159: an app rewrote its authConfig with loginEndpoint/registerEndpoint and
+    // omitted the current-user route, so the client's `/users/me` default answered
+    // 404 on reload. Emitting the route in the scaffolded config — named as the
+    // route `validateSession()` calls — keeps it in view when the file is rewritten.
+    const content = await readFile(join(TEMPLATES, 'shared', 'config.ts.tpl'), 'utf-8')
+    expect(content).toContain("currentUserEndpoint: '/users/me'")
+    const at = content.indexOf('currentUserEndpoint:')
+    // Inside the authConfig object, beside login/register (not somewhere else).
+    expect(at).toBeGreaterThan(content.indexOf('loginEndpoint:'))
+    expect(at).toBeLessThan(content.indexOf('autoRefresh'))
+    expect(content.slice(0, at)).toContain('validateSession()')
+  })
+
   it('React has 19 template files', async () => {
     const files = await listTemplateFiles('react')
     expect(files).toEqual([
