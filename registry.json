@@ -3376,6 +3376,7 @@
         "stalledDocumentSubresource",
         "TraceRunFailure",
         "TraceRunReport",
+        "isCredentialExchangePath",
         "failureTraceNote",
         "suiteRecordsTraces",
         "DIAGNOSIS_TRACE_FLAG",
