@@ -3347,6 +3347,7 @@
         "TraceLastAction",
         "TraceAction",
         "TraceContextEvidence",
+        "TraceMissingText",
         "TraceArtifact",
         "MAX_TRACE_ARTIFACTS",
         "MAX_TRACED_REQUESTS",
