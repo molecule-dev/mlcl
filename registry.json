@@ -3315,6 +3315,8 @@
         "guardAITool",
         "diffLineCount",
         "commandRunsNoTests",
+        "RunnerOutputFilter",
+        "outputFilterAfterRunner",
         "pipelineExitCodeNote",
         "ToolSchema",
         "TOOL_SCHEMAS",
@@ -60584,7 +60586,8 @@
       "@molecule/api-screenshots-puppeteer": "1.1.1",
       "@molecule/api-resource-article": "1.1.2",
       "@molecule/app-fonts-ionicons": "1.1.1",
-      "@molecule/app-fonts-source-sans-3": "1.1.2"
+      "@molecule/app-fonts-source-sans-3": "1.1.2",
+      "@molecule/app-locales-margin-notes": "1.0.2"
     }
   }
 }
