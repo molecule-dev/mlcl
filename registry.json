@@ -3313,6 +3313,7 @@
         "missingParamError",
         "guardToolExecute",
         "guardAITool",
+        "diffLineCount",
         "commandRunsNoTests",
         "pipelineExitCodeNote",
         "ToolSchema",
