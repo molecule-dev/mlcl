@@ -13,7 +13,7 @@ export { authClient, i18nProvider }
  * Initialize all providers.
  * Call this during application startup, before mounting the app.
  */
-export function setupProviders(): void {
+export async function setupProviders(): Promise<void> {
   setupAllDefaultBonds()
   // setupAllDefaultBonds() wires the default (blue) theme — override it with
   // this app's custom theme. Must run after setupAllDefaultBonds().
@@ -22,5 +22,5 @@ export function setupProviders(): void {
   // default bond's ClassMap — must run after setupAllDefaultBonds().
   setupAppUiTailwind()
   setupAuthDefault()
-  setupAppAnalytics()
+  await setupAppAnalytics()
 }

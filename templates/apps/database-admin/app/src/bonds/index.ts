@@ -20,5 +20,5 @@ export async function setupProviders(): Promise<void> {
   setupAuthDefault()
   // Analytics: env-driven (VITE_POSTHOG_KEY) + auto-tracked auth/route/http
   // events. Silent no-op when no key is configured — never breaks the app.
-  setupAppAnalytics()
+  await setupAppAnalytics()
 }

@@ -18,5 +18,5 @@ export async function setupProviders(): Promise<void> {
   setupAppThemeCssVariables()
   await setupAppRealtimeSocketio()
   setupAuthDefault()
-  setupAppAnalytics()
+  await setupAppAnalytics()
 }

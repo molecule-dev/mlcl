@@ -16,5 +16,5 @@ export async function setupProviders(): Promise<void> {
   setupAllDefaultBonds()
   setupAppThemeCssVariables()
   setupAuthDefault()
-  setupAppAnalytics()
+  await setupAppAnalytics()
 }

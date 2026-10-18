@@ -16,7 +16,7 @@ export { i18nProvider } from './i18n-default.js'
  * Initialize all providers.
  * Call this during application startup, before mounting the app.
  */
-export function setupProviders(): void {
+export async function setupProviders(): Promise<void> {
   setupAppFontsArimo()
   setupAppIconsMolecule()
   setupAppMarkdownMarked()
@@ -28,5 +28,5 @@ export function setupProviders(): void {
   setupI18nDefault()
   // Last: it reads the routing bond wired above (getRouter) and captures the
   // analytics provider once at setup time.
-  setupAppAnalytics()
+  await setupAppAnalytics()
 }

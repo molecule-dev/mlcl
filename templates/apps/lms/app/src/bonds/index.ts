@@ -13,12 +13,12 @@ export { authClient, i18nProvider }
  * Initialize all providers.
  * Call this during application startup, before mounting the app.
  */
-export function setupProviders(): void {
+export async function setupProviders(): Promise<void> {
   setupAllDefaultBonds()
   setupAppThemeCssVariables()
   // http BEFORE auth: setupAuthDefault hydrates/subscribes via
   // `getHttpClient()`, which must already be the client the pages use.
   setupHttpDefault()
   setupAuthDefault()
-  setupAppAnalytics()
+  await setupAppAnalytics()
 }

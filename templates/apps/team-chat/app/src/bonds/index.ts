@@ -23,5 +23,5 @@ export async function setupProviders(): Promise<void> {
   await setupAppRealtimeSocketio()
   setupAuthDefault()
   setupHttpDefault()
-  setupAppAnalytics()
+  await setupAppAnalytics()
 }

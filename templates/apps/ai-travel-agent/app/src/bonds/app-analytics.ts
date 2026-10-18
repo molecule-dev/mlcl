@@ -17,7 +17,6 @@
  */
 
 import { setProvider, setupAutoTracking } from '@molecule/app-analytics'
-import { createProvider as createPostHogProvider } from '@molecule/app-analytics-posthog'
 import { getClient } from '@molecule/app-http'
 import { getRouter } from '@molecule/app-routing'
 
@@ -25,11 +24,15 @@ import { authClient } from './auth-default.js'
 
 let cleanupAutoTracking: (() => void) | undefined
 
-export function setupAppAnalytics(): void {
+export async function setupAppAnalytics(): Promise<void> {
   const apiKey = import.meta.env?.VITE_POSTHOG_KEY as string | undefined
   const host = import.meta.env?.VITE_POSTHOG_HOST as string | undefined
   if (apiKey) {
-    setProvider(createPostHogProvider({ apiKey, ...(host ? { host } : {}) }))
+    // posthog-js is ~230 KB of source: importing it here pulls the whole SDK
+    // into the app's entry chunk on every load, even when no key is set and
+    // the provider is never bonded.
+    const { createProvider } = await import('@molecule/app-analytics-posthog')
+    setProvider(createProvider({ apiKey, ...(host ? { host } : {}) }))
   }
   cleanupAutoTracking = setupAutoTracking({
     authClient,

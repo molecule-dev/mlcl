@@ -106,6 +106,36 @@ describe('flagship templates: the router splits every page', () => {
     expect(offenders).toEqual([])
   })
 
+  it('every flagship analytics bond loads the PostHog SDK on demand', () => {
+    // posthog-js is ~230 KB of source. A static provider import put it in the
+    // entry chunk of every page load, in apps that never configured a key.
+    const offenders: string[] = []
+    for (const app of flagshipApps()) {
+      const bondFile = join(FLAGSHIPS, app, 'app', 'src', 'bonds', 'app-analytics.ts')
+      let bond: string
+      try {
+        bond = readFileSync(bondFile, 'utf8')
+      } catch (_error) {
+        continue
+      }
+      if (/^import \{[^}]*\} from '@molecule\/app-analytics-posthog'/m.test(bond)) {
+        offenders.push(`${app}: static posthog provider import`)
+      }
+      if (!/await import\('@molecule\/app-analytics-posthog'\)/.test(bond)) {
+        offenders.push(`${app}: provider not dynamically imported`)
+      }
+      if (!/export async function setupAppAnalytics\(\): Promise<void>/.test(bond)) {
+        offenders.push(`${app}: setupAppAnalytics is not async`)
+      }
+      const indexFile = join(FLAGSHIPS, app, 'app', 'src', 'bonds', 'index.ts')
+      const index = readFileSync(indexFile, 'utf8')
+      if (!/await setupAppAnalytics\(\)/.test(index)) {
+        offenders.push(`${app}: setupProviders does not await analytics`)
+      }
+    }
+    expect(offenders).toEqual([])
+  })
+
   it('every flagship i18n bond loads companion bonds lazily, never through the barrel', () => {
     const offenders: string[] = []
     for (const app of flagshipApps()) {

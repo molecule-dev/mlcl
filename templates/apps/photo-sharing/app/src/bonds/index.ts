@@ -14,7 +14,7 @@ export { authClient, i18nProvider }
  * Initialize all providers.
  * Call this during application startup, before mounting the app.
  */
-export function setupProviders(): void {
+export async function setupProviders(): Promise<void> {
   setupAllDefaultBonds()
   setupAppThemeCssVariables()
   setupAppGalleryPhotoswipe()
@@ -22,5 +22,5 @@ export function setupProviders(): void {
   setupHttpDefault()
   // Analytics: env-driven (VITE_POSTHOG_KEY) + auto-tracked auth/route/http
   // events. Silent no-op when no key is configured — never breaks the app.
-  setupAppAnalytics()
+  await setupAppAnalytics()
 }
