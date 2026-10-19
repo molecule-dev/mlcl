@@ -1367,6 +1367,20 @@ const PREVIEW_INTERACT_BRIDGE_SCRIPT = `    <!-- mol:interact-bridge -->
             return out.length ? out.slice(-3) : undefined;
           } catch (e) { return undefined; }
         }
+        function recentPageErrors() {
+          // Uncaught page errors captured by the log shim, with the frame they threw at and
+          // the React component that was rendering. A blank snapshot with only "nothing
+          // rendered" cost xr-molecule-flash-m208 three calls and a hand-written probe.
+          try {
+            var ring = window.__molPageErrors || [], out = [];
+            for (var i = 0; i < ring.length; i++) {
+              var item = ring[i];
+              if (Date.now() - item.t > 60000) continue;
+              out.push('page error: ' + item.text + (item.where ? ' at ' + item.where : '') + (item.component ? ' (in <' + item.component + '>)' : ''));
+            }
+            return out.length ? out.slice(-3) : undefined;
+          } catch (e) { return undefined; }
+        }
         function findByText(txt) {
           var want = String(txt).replace(/\\s+/g, ' ').trim().toLowerCase();
           if (!want) return null;
@@ -1534,6 +1548,9 @@ const PREVIEW_INTERACT_BRIDGE_SCRIPT = `    <!-- mol:interact-bridge -->
           obj.type = 'molecule:ui-result'; obj.id = id;
           var rn = recentNet();
           if (rn) obj.recentNetworkErrors = rn;
+          // Where the page threw, if it did — the snapshot alone cannot say.
+          var pe = recentPageErrors();
+          if (pe) obj.pageErrors = pe;
           // Set by the log bridge when a dynamic app-module import failed on this page
           // (see noteDeadPage): the DOM below may be a non-interactive leftover shell.
           try {
