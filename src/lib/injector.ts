@@ -265,7 +265,10 @@ export interface DependencyChange {
 export interface MigrationFile {
   name: string
   content: string
+  /** The table the file is named after — the first one it creates. */
   tableName: string
+  /** Every table the file creates; absent on plans built before this field existed. */
+  tables?: string[]
 }
 
 export interface BondSetup {
@@ -495,6 +498,34 @@ export async function planInjection(
 }
 
 /**
+ * The tables a package SQL file creates, in the order its `CREATE TABLE`
+ * statements appear.
+ *
+ * One SQL file commonly ships several tables (`articles.sql` creates
+ * `articles` AND `article_tags`), and a package's `tables` metadata names the
+ * file once per table. Planning one migration per TABLE entry copied the whole
+ * file once per table — two byte-identical migrations for one schema file (X0
+ * xr-molecule-flash-l03: the restored pair told the model to delete either
+ * copy, and obeying both left the app with no `articles`). The migration is
+ * named after the FIRST table the file creates, and covers the rest.
+ *
+ * `--` comments are stripped first: a note that mentions a `CREATE TABLE` must
+ * not decide the filename.
+ *
+ * @param sql - The SQL file's text.
+ * @returns The created table names, first occurrence only.
+ */
+export function tablesCreatedBySql(sql: string): string[] {
+  const withoutComments = sql.replace(/--[^\n]*/g, '')
+  const names = new Set<string>()
+  for (const match of withoutComments.matchAll(
+    /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?(?:["`]?[A-Za-z_][A-Za-z0-9_]*["`]?\s*\.\s*)?["`]?([A-Za-z_][A-Za-z0-9_]*)["`]?/gi,
+  ))
+    names.add(match[1])
+  return [...names]
+}
+
+/**
  * A package's tables ordered so each comes after the tables its SQL references
  * (`REFERENCES "other"`). A table whose file cannot be read keeps its place; the
  * caller reports it. A cycle keeps the listed order.
@@ -506,6 +537,12 @@ export async function tablesInDependencyOrder<T extends { name: string; sqlFile?
   tables: readonly T[],
 ): Promise<T[]> {
   const names = new Set(tables.map((t) => t.name))
+  // Two entries can name the same table and be different things — the scaffold
+  // lists `article_tags` twice, once from the file that creates it and once from
+  // the file that only adds a column (`articles_position.sql`). Keyed by NAME
+  // alone, the second entry was silently dropped (its `state` was already set),
+  // so the upgrade SQL never reached the plan. Identity is the entry: name + file.
+  const key = (table: T): string => `${table.name}\u0000${table.sqlFile ?? ''}`
   const refs = new Map<string, string[]>()
   for (const table of tables) {
     let sql = ''
@@ -518,7 +555,7 @@ export async function tablesInDependencyOrder<T extends { name: string; sqlFile?
       }
     }
     refs.set(
-      table.name,
+      key(table),
       [...sql.matchAll(/REFERENCES\s+["`]?([A-Za-z_][A-Za-z0-9_]*)["`]?/gi)]
         .map((m) => m[1])
         .filter((n) => n !== table.name && names.has(n)),
@@ -526,15 +563,18 @@ export async function tablesInDependencyOrder<T extends { name: string; sqlFile?
   }
   const ordered: T[] = []
   const state = new Map<string, 'visiting' | 'done'>()
-  const byName = new Map(tables.map((t) => [t.name, t]))
+  // A reference names a TABLE, not an entry: the first entry for it carries the
+  // dependency, and either order between two entries of the same name is safe.
+  const byName = new Map<string, T>()
+  for (const table of tables) if (!byName.has(table.name)) byName.set(table.name, table)
   const visit = (table: T): void => {
-    if (state.get(table.name)) return
-    state.set(table.name, 'visiting')
-    for (const dep of refs.get(table.name) ?? []) {
+    if (state.get(key(table))) return
+    state.set(key(table), 'visiting')
+    for (const dep of refs.get(key(table)) ?? []) {
       const next = byName.get(dep)
-      if (next && !state.get(dep)) visit(next)
+      if (next && !state.get(key(next))) visit(next)
     }
-    state.set(table.name, 'done')
+    state.set(key(table), 'done')
     ordered.push(table)
   }
   tables.forEach(visit)
@@ -557,6 +597,14 @@ async function planResourceInjection(
   // `comment_numbers` (a foreign key to `comments`) ran first and failed on a fresh
   // Postgres database: the API never booted (X1 flash-m38, 2026-10-16).
   //
+  // ONE migration per distinct SQL FILE, not per table entry. A package's `tables`
+  // metadata names a multi-table file once per table (`articles.sql` → `articles`
+  // AND `article_tags`), and the per-table loop copied the whole file once per
+  // entry — two byte-identical migrations for one schema file (X0
+  // xr-molecule-flash-l03: the restored pair each told the model the other was the
+  // creator and to delete it, and obeying both left the app with no `articles`).
+  // The file is named after the FIRST table it creates and covers the rest.
+  //
   // The package's SQL is published in Postgres dialect and a non-Postgres bond rewrites
   // it as the file is applied, so the file is written verbatim — preceded by a header
   // naming the app's database (see {@link migrationDialectHeader}). Without it the only
@@ -564,57 +612,76 @@ async function planResourceInjection(
   // broken and rewrites by hand (X1 flash-m69).
   const dialectHeader = migrationDialectHeader(await projectDatabasePackage(projectPath))
   const baseTimestamp = Date.now()
-  let tableIndex = 0
-  for (const table of await tablesInDependencyOrder(pkg.tables)) {
-    if (table.sqlFile) {
-      // The SQL path is metadata too (see {@link isInside}), and it is read and
-      // then written into the project as a migration: a `../…` escape copies a
-      // file from OUTSIDE the package — `/etc/passwd`, another project's
-      // `.env` — into the user's repo, where it is committed. Refuse it as the
-      // unreadable-SQL failure it is (the migration cannot be produced).
-      if (!isInside(pkg.path, table.sqlFile)) {
-        plan.migrationFailures = [
-          ...(plan.migrationFailures ?? []),
-          `${table.name}: ${table.sqlFile} is outside ${pkg.path} — refusing to read it`,
-        ]
-        continue
-      }
-      try {
-        const sqlContent = await readFile(table.sqlFile, 'utf-8')
-        const timestamp = baseTimestamp + tableIndex++
-        // The table name is interpolated into a FILE NAME below; flatten any
-        // path separator in it so the migration stays inside `migrations/`
-        // (see {@link migrationFileTableSegment}).
-        const migrationName = `${timestamp}_create_${migrationFileTableSegment(table.name)}_table.sql`
+  let fileIndex = 0
+  // sqlFile → every table entry the package declares for it, in metadata order.
+  const tablesByFile = new Map<string, typeof pkg.tables>()
+  for (const table of pkg.tables) {
+    if (!table.sqlFile) continue
+    tablesByFile.set(table.sqlFile, [...(tablesByFile.get(table.sqlFile) ?? []), table])
+  }
+  // Dependency order across FILES: a package's `tables` order is not enough, and with
+  // several entries pointing at one file the same file must not be ordered twice.
+  const byFile = [...tablesByFile.values()].map((tables) => tables[0])
+  for (const first of await tablesInDependencyOrder(byFile)) {
+    const sqlFile = first.sqlFile
+    if (!sqlFile) continue
+    const group = tablesByFile.get(sqlFile) ?? [first]
+    // The SQL path is metadata too (see {@link isInside}), and it is read and
+    // then written into the project as a migration: a `../…` escape copies a
+    // file from OUTSIDE the package — `/etc/passwd`, another project's
+    // `.env` — into the user's repo, where it is committed. Refuse it as the
+    // unreadable-SQL failure it is (the migration cannot be produced).
+    if (!isInside(pkg.path, sqlFile)) {
+      plan.migrationFailures = [
+        ...(plan.migrationFailures ?? []),
+        `${group.map((t) => t.name).join(', ')}: ${sqlFile} is outside ${pkg.path} — refusing to read it`,
+      ]
+      continue
+    }
+    try {
+      const sqlContent = await readFile(sqlFile, 'utf-8')
+      // The file's own first CREATE TABLE names the migration; metadata order is
+      // only the fallback for SQL the parser cannot read. Every table the SQL
+      // creates is checked for an existing migration, so a re-run recognizes the
+      // single file it wrote.
+      const created = tablesCreatedBySql(sqlContent)
+      const tableName = created[0] ?? group[0].name
+      const covered = [...new Set([...created, ...group.map((t) => t.name)])]
+      const timestamp = baseTimestamp + fileIndex++
+      // The table name is interpolated into a FILE NAME below; flatten any
+      // path separator in it so the migration stays inside `migrations/`
+      // (see {@link migrationFileTableSegment}).
+      const migrationName = `${timestamp}_create_${migrationFileTableSegment(tableName)}_table.sql`
 
-        // Check for existing migration
-        const migrationsDir = join(projectPath, 'migrations')
-        const existingMigration = await checkMigrationExists(migrationsDir, table.name)
-        if (existingMigration) {
-          plan.conflicts.push({
-            path: existingMigration,
-            message: t('lib.injector.errors.migrationExists', { table: table.name }),
-            resolution: 'skip',
-          })
-        } else {
-          plan.migrations.push({
-            name: migrationName,
-            content: `${dialectHeader}${sqlContent}`,
-            tableName: table.name,
-          })
-        }
-      } catch (error) {
-        // A migration whose SQL file cannot be read must not vanish into a
-        // console.warn: the preview omits it, the injection exits 0, and the
-        // resource's table is missing at runtime ("relation does not exist").
-        // Record it on the plan — the inject command warns on each entry and
-        // fails the request with exit 1, the same policy an unresolvable
-        // package gets.
-        plan.migrationFailures = [
-          ...(plan.migrationFailures ?? []),
-          `${table.name}: could not read ${table.sqlFile} — ${String(error)}`,
-        ]
+      // Check for an existing migration — against EVERY table the file creates,
+      // not only the one it is named after.
+      const migrationsDir = join(projectPath, 'migrations')
+      const existingMigration = await existingMigrationCovering(migrationsDir, covered)
+      if (existingMigration) {
+        plan.conflicts.push({
+          path: existingMigration.file,
+          message: t('lib.injector.errors.migrationExists', { table: existingMigration.table }),
+          resolution: 'skip',
+        })
+      } else {
+        plan.migrations.push({
+          name: migrationName,
+          content: `${dialectHeader}${sqlContent}`,
+          tableName,
+          tables: covered,
+        })
       }
+    } catch (error) {
+      // A migration whose SQL file cannot be read must not vanish into a
+      // console.warn: the preview omits it, the injection exits 0, and the
+      // resource's table is missing at runtime ("relation does not exist").
+      // Record it on the plan — the inject command warns on each entry and
+      // fails the request with exit 1, the same policy an unresolvable
+      // package gets.
+      plan.migrationFailures = [
+        ...(plan.migrationFailures ?? []),
+        `${group.map((t) => t.name).join(', ')}: could not read ${sqlFile} — ${String(error)}`,
+      ]
     }
   }
 }
@@ -1253,6 +1320,12 @@ export function filterExcludedPeerDependencies(
  * {@link checkMigrationExists} makes against the filesystem: two spellings that
  * differ in case are two different quoted identifiers, not one table.
  *
+ * A migration covers EVERY table its SQL file creates ({@link MigrationFile.tables}).
+ * The same package may plan two files that touch one table and they are both kept:
+ * `articles.sql` creates `article_tags` and `articles_position.sql` adds a column to
+ * it, and only their combination is the package's schema. Dropping the second as a
+ * "duplicate" is how the scaffold used to lose the upgrade.
+ *
  * Mutates the plans in place (like {@link filterExcludedPeerDependencies}); the
  * inject command calls it after planning and before execution.
  *
@@ -1264,27 +1337,23 @@ export function dedupePlannedMigrations(plans: readonly InjectionPlan[]): void {
   for (const plan of plans) {
     const kept: MigrationFile[] = []
     for (const migration of plan.migrations) {
-      const prior = claimed.get(migration.tableName)
+      const tables = migration.tables ?? [migration.tableName]
+      // A table claimed by ANOTHER package is the duplicate this pass exists for.
+      // A same-package claim is a second file of one package's schema, planned on
+      // purpose (`articles.sql` + `articles_position.sql`).
+      const prior = tables
+        .map((table) => claimed.get(table))
+        .find((claim) => claim !== undefined && claim.molecule !== plan.molecule)
       if (!prior) {
-        claimed.set(migration.tableName, {
-          molecule: plan.molecule,
-          name: migration.name,
-          content: migration.content,
-        })
+        for (const table of tables) {
+          if (!claimed.has(table))
+            claimed.set(table, {
+              molecule: plan.molecule,
+              name: migration.name,
+              content: migration.content,
+            })
+        }
         kept.push(migration)
-        continue
-      }
-      if (prior.molecule === plan.molecule) {
-        // One package declaring a table twice in its own `tables` metadata: the
-        // first entry wins, the same reason as the cross-package case below.
-        plan.conflicts.push({
-          path: migration.name,
-          message: t('lib.injector.errors.migrationDuplicateSelf', {
-            table: migration.tableName,
-            name: plan.molecule,
-          }),
-          resolution: 'skip',
-        })
         continue
       }
       if (prior.content === migration.content) {
@@ -1528,17 +1597,42 @@ export async function checkMigrationExists(
   migrationsDir: string,
   tableName: string,
 ): Promise<string | null> {
+  return (await existingMigrationCovering(migrationsDir, [tableName]))?.file ?? null
+}
+
+/**
+ * Find an existing migration covering ANY of the tables one planned file creates.
+ *
+ * A migration is written once per SQL FILE now, so a file that creates several
+ * tables is covered when the folder already holds a migration for any of them —
+ * checking only the table it is named after missed a hand-renamed or older
+ * per-table file for the others and planned the same schema a second time.
+ *
+ * @param migrationsDir - The project's `migrations/` directory.
+ * @param tableNames - Every table the planned file creates.
+ * @returns The matching file and the table it covers, or null.
+ */
+async function existingMigrationCovering(
+  migrationsDir: string,
+  tableNames: readonly string[],
+): Promise<{ file: string; table: string } | null> {
   // The segment is transformed exactly like the filename the planner writes
   // (`migrationFileTableSegment`), or a table name carrying a separator would
   // never match the migration derived from it and every re-run would plan a
   // duplicate.
-  const canonical = new RegExp(
-    `_create_${escapeRegExp(migrationFileTableSegment(tableName))}_table\\.sql$`,
-  )
+  const canonical = tableNames.map((tableName) => ({
+    table: tableName,
+    pattern: new RegExp(
+      `_create_${escapeRegExp(migrationFileTableSegment(tableName))}_table\\.sql$`,
+    ),
+  }))
   try {
     const files = await readdir(migrationsDir)
-    const existing = files.find((f) => canonical.test(f))
-    return existing ? join(migrationsDir, existing) : null
+    for (const { table, pattern } of canonical) {
+      const existing = files.find((f) => pattern.test(f))
+      if (existing) return { file: join(migrationsDir, existing), table }
+    }
+    return null
   } catch (error) {
     // ONLY `ENOENT` means "there is no migrations directory yet" — the first
     // inject into a project that has none, which is the case this returned null
