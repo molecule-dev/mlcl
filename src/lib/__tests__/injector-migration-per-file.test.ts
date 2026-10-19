@@ -50,6 +50,16 @@ CREATE TABLE IF NOT EXISTS "article_tags" (
 ALTER TABLE "article_tags" ADD COLUMN IF NOT EXISTS "position" INTEGER NOT NULL DEFAULT 0;
 `
 
+const WIDGETS_SQL = `CREATE TABLE IF NOT EXISTS "widgets" (
+  "id" UUID PRIMARY KEY
+);
+
+CREATE TABLE IF NOT EXISTS "widget_parts" (
+  "id" UUID PRIMARY KEY,
+  "widgetId" UUID NOT NULL REFERENCES "widgets"("id")
+);
+`
+
 describe('one migration per package SQL file', () => {
   let dir: string
 
@@ -126,6 +136,30 @@ describe('one migration per package SQL file', () => {
 
     expect(plan.migrations).toEqual([])
     expect(plan.conflicts.map((c) => c.path)).toContain(join(dir, 'migrations', older))
+  })
+
+  it('collapses the entries a published package gets from its SQL scan', async () => {
+    // A package that declares no `tables` metadata (every published @molecule
+    // package: the registry copy is not in its package.json) gets one entry per
+    // CREATE TABLE from `scanForTables` — the same duplicate shape.
+    const scanned = '@molecule/api-resource-scanned'
+    const pkgDir = join(dir, 'node_modules', '@molecule', 'api-resource-scanned')
+    mkdirSync(join(pkgDir, 'src', '__setup__'), { recursive: true })
+    writeFileSync(
+      join(pkgDir, 'package.json'),
+      JSON.stringify({
+        name: scanned,
+        version: '1.0.0',
+        molecule: { type: 'resource', category: 'test', label: 'Scanned resource' },
+      }),
+    )
+    writeFileSync(join(pkgDir, 'src', '__setup__', 'widgets.sql'), WIDGETS_SQL)
+
+    const plan = await planInjection(scanned, dir)
+
+    expect(plan.migrations).toHaveLength(1)
+    expect(plan.migrations[0]?.name).toMatch(/_create_widgets_table\.sql$/)
+    expect(plan.migrations[0]?.tables).toEqual(['widgets', 'widget_parts'])
   })
 })
 
