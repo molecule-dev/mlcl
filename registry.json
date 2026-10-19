@@ -5272,8 +5272,11 @@
       "stack": "api",
       "implements": "@molecule/api-cache",
       "exports": [
+        "registerLifecycleIntegration",
         "createProvider",
         "provider",
+        "defaultProviderCreated",
+        "closeDefaultProvider",
         "cacheMemcachedSecretDefinitions",
         "ProcessEnv",
         "MemcachedOptions"
@@ -5346,8 +5349,11 @@
       "stack": "api",
       "implements": "@molecule/api-cache",
       "exports": [
+        "registerLifecycleIntegration",
         "createProvider",
         "provider",
+        "defaultProviderCreated",
+        "closeDefaultProvider",
         "createClient",
         "cacheRedisSecretDefinitions",
         "ProcessEnv",
@@ -7227,10 +7233,13 @@
       "stack": "api",
       "implements": "@molecule/api-database",
       "exports": [
+        "registerLifecycleIntegration",
         "MIGRATION_LEDGER",
         "createMigrator",
         "createPool",
         "pool",
+        "defaultPoolCreated",
+        "closeDefaultPool",
         "databaseMysqlSecretDefinitions",
         "createStore",
         "store",
@@ -7338,6 +7347,8 @@
       "implements": "@molecule/api-database",
       "exports": [
         "pool",
+        "defaultPoolCreated",
+        "closeDefaultPool",
         "createPool",
         "store",
         "setup",
@@ -7346,7 +7357,8 @@
         "databasePostgresqlSecretDefinitions",
         "isLocalUrl",
         "deriveSsl",
-        "createStore"
+        "createStore",
+        "registerLifecycleIntegration"
       ],
       "secrets": [
         {
@@ -7464,7 +7476,10 @@
       "implements": "@molecule/api-database",
       "exports": [
         "pool",
+        "defaultPoolCreated",
+        "closeDefaultPool",
         "store",
+        "registerLifecycleIntegration",
         "MIGRATION_LEDGER",
         "createMigrator",
         "createPool",
@@ -18296,6 +18311,20 @@
       "defaultProvider": "@molecule/api-process-lifecycle-express",
       "alwaysInclude": true,
       "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "resetRegistrationsForTests",
+        "registerReadinessCheck",
+        "registerLivenessCheck",
+        "registerShutdownHook",
+        "isReady",
+        "isLive",
+        "isDraining",
+        "startDraining",
+        "beginRequest",
+        "inFlightRequests",
+        "runShutdownHooks",
         "ProcessLifecycleState",
         "LifecycleCheckOutcome",
         "LifecycleCheckResult",
@@ -18306,20 +18335,7 @@
         "ShutdownHook",
         "ShutdownHookReport",
         "ShutdownReport",
-        "ProcessLifecycleProvider",
-        "setProvider",
-        "getProvider",
-        "hasProvider",
-        "registerReadinessCheck",
-        "registerLivenessCheck",
-        "registerShutdownHook",
-        "isReady",
-        "isLive",
-        "isDraining",
-        "startDraining",
-        "beginRequest",
-        "inFlightRequests",
-        "runShutdownHooks"
+        "ProcessLifecycleProvider"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -19084,6 +19100,7 @@
       "stack": "api",
       "implements": "@molecule/api-queue",
       "exports": [
+        "registerLifecycleIntegration",
         "createProvider",
         "connect",
         "provider",
@@ -19131,8 +19148,11 @@
       "stack": "api",
       "implements": "@molecule/api-queue",
       "exports": [
+        "registerLifecycleIntegration",
         "createProvider",
         "provider",
+        "defaultProviderCreated",
+        "closeDefaultProvider",
         "queueRedisSecretDefinitions",
         "ProcessEnv",
         "RedisQueueOptions"
@@ -24587,6 +24607,7 @@
         "start",
         "stop",
         "ScheduledTask",
+        "SchedulerTaskRunLock",
         "TaskStatus",
         "SchedulerProvider"
       ],
@@ -26577,6 +26598,7 @@
       "stack": "api",
       "implements": "@molecule/api-uploads",
       "exports": [
+        "registerLifecycleIntegration",
         "uploadPath",
         "upload",
         "abortUpload",
@@ -26654,6 +26676,7 @@
       "stack": "api",
       "implements": "@molecule/api-uploads",
       "exports": [
+        "registerLifecycleIntegration",
         "S3FileHead",
         "BucketProtection",
         "bucketProtectionMeets",
@@ -26661,6 +26684,8 @@
         "configFromEnv",
         "createProvider",
         "s3Client",
+        "defaultProviderCreated",
+        "closeDefaultProvider",
         "upload",
         "abortUpload",
         "deleteFile",
@@ -35037,6 +35062,14 @@
         "ResponseInterceptor",
         "ErrorInterceptor",
         "createFetchClient",
+        "RetryOptions",
+        "DEFAULT_RETRY_OPTIONS",
+        "RetryDecisionInput",
+        "isIdempotentRequest",
+        "isTransientConnectionError",
+        "parseRetryAfter",
+        "shouldRetryRequest",
+        "retryDelayMs",
         "HttpMethod",
         "RequestConfig",
         "AuthGateRequest",
