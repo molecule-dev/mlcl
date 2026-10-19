@@ -85,7 +85,7 @@
     "@molecule/api-search-postgres": "1.0.2",
     "@molecule/api-secrets": "1.0.2",
     "@molecule/api-secrets-env": "1.0.2",
-    "@molecule/api-server-default-express": "1.0.4",
+    "@molecule/api-server-default-express": "1.1.0",
     "@molecule/api-sms": "1.0.3",
     "@molecule/api-sms-capture": "1.0.3",
     "@molecule/api-sms-twilio": "1.0.2",
