@@ -18285,107 +18285,6 @@
         "custom acl"
       ]
     },
-    "@molecule/api-process-lifecycle": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "core",
-      "category": "process-lifecycle",
-      "label": "Process Lifecycle",
-      "description": "Readiness and liveness checks with per-check timeouts and criticality, a drain state, in-flight request tracking, and ordered shutdown hooks for an API process.",
-      "stack": "api",
-      "defaultProvider": "@molecule/api-process-lifecycle-express",
-      "alwaysInclude": true,
-      "exports": [
-        "ProcessLifecycleState",
-        "LifecycleCheckOutcome",
-        "LifecycleCheckResult",
-        "LifecycleCheck",
-        "LifecycleCheckReport",
-        "ReadinessReport",
-        "LivenessReport",
-        "ShutdownHook",
-        "ShutdownHookReport",
-        "ShutdownReport",
-        "ProcessLifecycleProvider",
-        "setProvider",
-        "getProvider",
-        "hasProvider",
-        "registerReadinessCheck",
-        "registerLivenessCheck",
-        "registerShutdownHook",
-        "isReady",
-        "isLive",
-        "isDraining",
-        "startDraining",
-        "beginRequest",
-        "inFlightRequests",
-        "runShutdownHooks"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/api-bond"
-      ],
-      "moleculePeers": [
-        "@molecule/api-bond"
-      ],
-      "bondSetter": "setProvider",
-      "path": "packages/api/core/process-lifecycle",
-      "intentHints": [
-        "graceful shutdown",
-        "readiness probe",
-        "liveness probe",
-        "health check endpoints",
-        "drain connections",
-        "shutdown hooks",
-        "zero downtime deploy"
-      ]
-    },
-    "@molecule/api-process-lifecycle-express": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "process-lifecycle",
-      "label": "Express",
-      "description": "Express/Node process-lifecycle provider: GET /health/live and /health/ready, request tracking with Connection: close while draining, and SIGTERM/SIGINT graceful shutdown with ordered hooks.",
-      "stack": "api",
-      "implements": "@molecule/api-process-lifecycle",
-      "alwaysInclude": true,
-      "exports": [
-        "ClosableServer",
-        "LifecycleLogger",
-        "ProcessLifecycleOptions",
-        "GracefulShutdownOptions",
-        "GracefulShutdownHandle",
-        "ExpressLifecycleOptions",
-        "ExpressLifecycleHandle",
-        "LivenessResponse",
-        "ReadinessResponse",
-        "createProcessLifecycleProvider",
-        "provider",
-        "createLifecycleMiddleware",
-        "mountLifecycleRoutes",
-        "installExpressLifecycle",
-        "resolveLifecycleNumber",
-        "installGracefulShutdown"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/api-config",
-        "@molecule/api-process-lifecycle",
-        "express"
-      ],
-      "moleculePeers": [
-        "@molecule/api-process-lifecycle"
-      ],
-      "path": "packages/api/bonds/process-lifecycle/express",
-      "intentHints": [
-        "express health endpoints",
-        "sigterm handler",
-        "graceful shutdown express",
-        "readiness endpoint",
-        "liveness endpoint"
-      ]
-    },
     "@molecule/api-project-archive": {
       "language": "typescript",
       "runtime": "node",
@@ -25264,7 +25163,6 @@
         "classifyTaggedError",
         "errorMiddleware",
         "CreateServerOptions",
-        "ServerLifecycleOptions",
         "registerServerCreatedHook",
         "securityHeadersMiddleware",
         "createServerFactory"
@@ -25276,8 +25174,6 @@
         "@molecule/api-middleware-body-parser",
         "@molecule/api-middleware-cookie-parser",
         "@molecule/api-middleware-cors",
-        "@molecule/api-process-lifecycle",
-        "@molecule/api-process-lifecycle-express",
         "@molecule/api-secrets",
         "express",
         "pem"
@@ -35114,6 +35010,9 @@
       "description": "Axios HTTP client provider for @molecule/app-http",
       "stack": "app",
       "implements": "@molecule/app-http",
+      "appBondSetup": {
+        "generatorType": "http"
+      },
       "exports": [
         "createAxiosClient",
         "provider",
@@ -35128,9 +35027,6 @@
       "moleculePeers": [
         "@molecule/app-http"
       ],
-      "appBondSetup": {
-        "generatorType": "http"
-      },
       "path": "packages/app/bonds/http/axios",
       "intentHints": [
         "axios http client",
@@ -59801,7 +59697,7 @@
       "@molecule/api-ai-speech-openai": "1.0.3",
       "@molecule/api-ai-summarization": "1.1.0",
       "@molecule/api-ai-summarization-llm": "1.1.1",
-      "@molecule/api-ai-tools": "1.10.6",
+      "@molecule/api-ai-tools": "1.10.5",
       "@molecule/api-ai-translation": "1.1.0",
       "@molecule/api-ai-translation-bergamot": "1.1.1",
       "@molecule/api-ai-translation-deepl": "1.1.0",
