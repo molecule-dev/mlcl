@@ -25,7 +25,7 @@
     "@molecule/app-analytics": "1.0.2",
     "@molecule/app-analytics-posthog": "1.0.2",
     "@molecule/app-analytics-react": "1.0.2",
-    "@molecule/app-auth": "1.5.5",
+    "@molecule/app-auth": "1.5.6",
     "@molecule/app-auth-shell-react": "1.0.4",
     "@molecule/app-auth-ui-react": "1.0.2",
     "@molecule/app-billing-react": "1.0.4",
