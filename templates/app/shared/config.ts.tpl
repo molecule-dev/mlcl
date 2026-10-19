@@ -2,6 +2,22 @@ import { getProvider as getI18nProvider, registerContent } from '@molecule/app-i
 
 export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
 
+// When your API returns more than the base profile (`id`/`name`/`avatar`), give
+// this config the app's user type ONCE and reuse it everywhere:
+//
+//   import type { AuthClientConfig, UserProfile } from '@molecule/app-auth'
+//   interface AppUser extends UserProfile { username: string; image: string }
+//   export const authConfig: AuthClientConfig<AppUser> = { /* … */ }
+//   createDefaultAuthClient<AppUser>(authConfig)   // in src/bonds/auth-default.ts
+//   useAuth<AppUser>()                             // in components
+//
+// `mapAuthResponse` (below, when the API wraps its auth answer) is then
+// type-checked against `AppUser`: a mapper that omits a required custom field is
+// a compile error, not a signed-in page that renders `undefined`. Keep every
+// field the pages read — spread the wire user and ADD the base fields
+// (`user: { ...wire, id: wire.username, name: wire.username, avatar: wire.image }`)
+// rather than rebuilding it field by field. Never silence the check with
+// `as unknown as AppUser`.
 export const authConfig = {
   baseURL: API_BASE_URL,
   // The scheme the auth and HTTP clients send the token with: `Bearer` unless the API
