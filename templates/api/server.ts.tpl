@@ -30,6 +30,18 @@ export const create = async (port: number = Number(process.env.PORT) || 4000) =>
   // Mount the process lifecycle before any route: in-flight request tracking,
   // GET /health/live + GET /health/ready, and SIGTERM/SIGINT graceful shutdown
   // (drain bound SHUTDOWN_TIMEOUT_MS, default 25 s; hooks run in order; exit 0).
+  //
+  // ZERO-DOWNTIME ROLLING DEPLOYS — declare the load balancer's check cadence:
+  // set LB_HEALTHCHECK_INTERVAL_MS and LB_HEALTHCHECK_TIMEOUT_MS in the deploy
+  // environment (Fly does not expose [http_service.checks] to the process, so
+  // this is the only way the app can know it). The package then derives the
+  // shutdown flip window as 3 x interval + timeout + 2 s: readiness answers 503
+  // from the first SIGTERM instant, the listener stays open that long so the
+  // proxy can observe the failed checks and re-route, then idle keep-alive
+  // sockets are dropped and in-flight requests finish. INVARIANT: the flip
+  // window must be at least 2 x interval + timeout, or the proxy is still
+  // routing here when the listener closes and a rolling restart drops
+  // requests. A window that violates it logs one warning at boot.
   // The import specifier is a variable on purpose: a project scaffolded before
   // this package was installed must still compile, and simply skips the
   // lifecycle wiring at runtime.
