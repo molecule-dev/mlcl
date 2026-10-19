@@ -3407,6 +3407,7 @@
         "isSuiteRunCommand",
         "repeatedSuiteRunError",
         "suiteRunBudgetCommand",
+        "suiteRunConfigCommand",
         "withoutSuiteTimeout",
         "isPlaywrightRunCommand",
         "SuiteFilterStrip",
