@@ -1,8 +1,11 @@
 /**
  * The dialect the scaffold's migration files are in, and the header that says so.
  *
- * Every `@molecule/api-resource-*` package publishes ONE setup SQL per table,
- * authored in Postgres dialect (`uuid`, `timestamptz`, `DEFAULT now()`,
+ * Every `@molecule/api-resource-*` package publishes its setup SQL per table —
+ * usually one file per table, and one file for several related tables
+ * (`articles.sql` creates `articles` and `article_tags`; `tags.sql` creates
+ * `tags` and `resource_tags`), each written once as a migration — authored in
+ * Postgres dialect (`uuid`, `timestamptz`, `DEFAULT now()`,
  * `gen_random_uuid()`), and the DATABASE BONDS are what make it portable: the
  * migrator of each non-Postgres bond rewrites the Postgres constructs as it
  * applies every file (`translateDdlToSqlite` in `@molecule/api-database-sqlite`,

@@ -1,8 +1,9 @@
 /**
  * A scaffolded migration file has to say which database it runs on.
  *
- * The resource packages publish ONE setup SQL per table, in POSTGRES dialect
- * (`uuid`, `timestamptz`, `DEFAULT now()`, `gen_random_uuid()`), and the
+ * The resource packages publish their setup SQL per table — usually one file
+ * per table, sometimes one file for several (`articles.sql`) — in POSTGRES
+ * dialect (`uuid`, `timestamptz`, `DEFAULT now()`, `gen_random_uuid()`), and the
  * non-Postgres bonds translate it as they apply each file — so the SQL is right
  * for every bond and the scaffold writes it verbatim. What the file does not
  * say is which database the app actually runs, and X1 flash-m69 read one in a
@@ -13,7 +14,7 @@
  * it is.
  */
 import { existsSync } from 'node:fs'
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -228,7 +229,17 @@ describe.runIf(HAVE_MOLECULE_TREE)('an injected resource migration names the app
     dir = await mkdtemp(join(tmpdir(), 'mlcl-dialect-inject-pg-'))
     const contents = await planned(await project('pg-app', POSTGRES))
     expect(contents.length).toBeGreaterThan(0)
-    for (const content of contents) expect(content.startsWith('CREATE TABLE')).toBe(true)
+    // No header is prepended: every migration is one of the package's own SQL
+    // files, byte for byte. (StartsWith('CREATE TABLE') stopped being a proxy for
+    // that once one SQL file began with a `--` comment — and one file now serves
+    // several tables, so `articles_position.sql` is planned as itself.)
+    const setupDir = join(ARTICLE_PATH as string, 'src', '__setup__')
+    const published = await Promise.all(
+      (await readdir(setupDir))
+        .filter((file) => file.endsWith('.sql'))
+        .map((file) => readFile(join(setupDir, file), 'utf-8')),
+    )
+    for (const content of contents) expect(published).toContain(content)
   })
 })
 

@@ -233,10 +233,10 @@ export interface InjectionPlan {
   conflicts: Conflict[]
   /**
    * Resource migrations that could NOT be planned because the package's SQL
-   * file could not be read — one message per table. A migration absent from
-   * `migrations` for this reason must surface as a FAILED injection (the
-   * resource's table would be missing at runtime), not a silent success; the
-   * inject command warns on each and exits 1.
+   * file could not be read — one message per file (naming every table it
+   * serves). A migration absent from `migrations` for this reason must surface
+   * as a FAILED injection (the resource's table would be missing at runtime),
+   * not a silent success; the inject command warns on each and exits 1.
    */
   migrationFailures?: string[]
 }
