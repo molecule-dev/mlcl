@@ -48,7 +48,12 @@ describe('generateBondSetupCode — the interface package picks the setter', () 
     const code = await generateBondSetupCode(pkg, 'app-http-axios', '@molecule/app-http', mlclRoot)
 
     // The regression: export order put setAuthGate first.
-    expect(code).toContain('setClient(provider)')
+    expect(code).toContain('setClient(createAxiosClient({ baseURL: API_BASE_URL }))')
+    // xr-molecule-flash-m206: the provider's factory defaults to `baseURL: ''`, so a page's
+    // `getClient().get('/tags')` requested the PAGE origin and read the front's `index.html`.
+    // The bond passes the app's own `/api` prefix instead, and page code calls the route.
+    expect(code).toContain("import { API_BASE_URL } from '../config.js'")
+    expect(code).not.toContain('setClient(provider)')
     expect(code).not.toContain('setAuthGate')
   })
 

@@ -293,17 +293,20 @@ export const MoleculeMetadata = z.object({
     .object({
       exportName: z
         .string()
+        .optional()
         .describe(
-          'Variable name exported from the bond setup file (e.g. themeProvider, i18nProvider, authClient)',
+          'Variable name the bond setup file exports (e.g. themeProvider, i18nProvider, authClient); required when reExport is true',
         ),
       reExport: z
         .boolean()
         .optional()
         .describe('Whether bonds/index.js should re-export this for framework templates'),
       generatorType: z
-        .enum(['theme', 'i18n', 'generic'])
+        .enum(['theme', 'i18n', 'http', 'generic'])
         .optional()
-        .describe('Which code generator to use. Omit for default bond setup pattern.'),
+        .describe(
+          'Which code generator to use (theme, i18n, http — the client bond carries the API base URL — or generic). Omit for the default bond setup pattern.',
+        ),
     })
     .optional()
     .describe('App-side bond setup metadata for framework template integration'),
@@ -641,17 +644,20 @@ export const RegistryEntry = z.object({
     .object({
       exportName: z
         .string()
+        .optional()
         .describe(
-          'Variable name exported from the bond setup file (e.g. themeProvider, i18nProvider, authClient)',
+          'Variable name the bond setup file exports (e.g. themeProvider, i18nProvider, authClient); required when reExport is true',
         ),
       reExport: z
         .boolean()
         .optional()
         .describe('Whether bonds/index.js should re-export this for framework templates'),
       generatorType: z
-        .enum(['theme', 'i18n', 'generic'])
+        .enum(['theme', 'i18n', 'http', 'generic'])
         .optional()
-        .describe('Which code generator to use. Omit for default bond setup pattern.'),
+        .describe(
+          'Which code generator to use (theme, i18n, http — the client bond carries the API base URL — or generic). Omit for the default bond setup pattern.',
+        ),
     })
     .optional()
     .describe('App-side bond setup metadata for framework template integration'),

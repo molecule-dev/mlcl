@@ -2155,6 +2155,57 @@ export function setup${pascal}(): void {
 }
 
 /**
+ * Generate the app's HTTP client bond with the API base URL both the dev proxy and the
+ * deployed front serve.
+ *
+ * A provider bond whose factory defaults to `baseURL: ''` leaves `getClient().get('/articles')`
+ * pointing at the PAGE origin: Vite/the front answers its own `index.html` with a 200, so the
+ * page receives HTML where it expects JSON. xr-molecule-flash-m206 (+19:08 → +20:46) lost
+ * ~1.7 minutes to exactly that — the deploy's render check printed only `Cannot read properties
+ * of undefined (reading 'length')`, the run guessed at the tag list twice, and only a
+ * hand-written browser probe showed that `GET /tags` had never reached the API. The scaffold's
+ * own `config.ts` already exports `API_BASE_URL` (`VITE_API_URL` or `/api`), and the auth bond
+ * uses it, so the shared client reads the same value instead of carrying no base at all.
+ *
+ * The header is the guidance an executor reads before replacing this file (m208): page code
+ * calls routes (`/articles`), never `/api/articles`, and a replacement bond must keep the base.
+ *
+ * @param pkg - The HTTP provider package (`@molecule/app-http-axios`).
+ * @param pascal - The bond name in PascalCase (`AppHttpAxios`).
+ * @param interfacePackage - The core package that exports the setter (`@molecule/app-http`).
+ * @returns The bond file's source, or null when the provider exports no `create*` factory the
+ *   base URL could be passed to (the generic generator then wires its `provider` instance).
+ */
+function generateAppHttpBondSetup(
+  pkg: InferredPackage,
+  pascal: string,
+  interfacePackage: string,
+): string | null {
+  const factory = pkg.exports.find((name) => /^create[A-Z]/.test(name))
+  if (!factory) return null
+  return `/**
+ * ${pascal} bond setup
+ *
+ * This is the app's ONE HTTP client. Its base URL is \`API_BASE_URL\` (\`/api\` unless
+ * \`VITE_API_URL\` names another one), so \`getClient().get('/articles')\` requests
+ * \`/api/articles\` — call the API with the route, not with an \`/api\` prefix.
+ *
+ * Keep the base URL when you replace this bond: a client without one sends page requests to
+ * the page origin, whose \`index.html\` answers them with a 200 and the page reads HTML.
+ */
+
+import { setClient } from '${interfacePackage}'
+import { ${factory} } from '${pkg.name}'
+
+import { API_BASE_URL } from '../config.js'
+
+export function setup${pascal}(): void {
+  setClient(${factory}({ baseURL: API_BASE_URL }))
+}
+`
+}
+
+/**
  * Heuristic bond setup code generation (fallback when AI is unavailable).
  *
  * For named bond categories (oauth, payments), uses the bond registry directly:
@@ -2185,6 +2236,11 @@ async function generateBondSetupCodeHeuristic(
   if (appSetup?.generatorType === 'i18n') {
     const appI18nSetup = generateAppI18nBondSetup(pkg, pascal, interfacePackage)
     if (appI18nSetup) return appI18nSetup
+  }
+
+  if (appSetup?.generatorType === 'http') {
+    const appHttpSetup = generateAppHttpBondSetup(pkg, pascal, interfacePackage)
+    if (appHttpSetup) return appHttpSetup
   }
 
   // Check for bondWiring metadata (self-describing named bonds)

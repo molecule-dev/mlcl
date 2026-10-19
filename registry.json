@@ -35009,6 +35009,9 @@
       "description": "Axios HTTP client provider for @molecule/app-http",
       "stack": "app",
       "implements": "@molecule/app-http",
+      "appBondSetup": {
+        "generatorType": "http"
+      },
       "exports": [
         "createAxiosClient",
         "provider",
