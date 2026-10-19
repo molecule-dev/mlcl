@@ -59687,7 +59687,7 @@
       "@molecule/api-ai-speech-openai": "1.0.3",
       "@molecule/api-ai-summarization": "1.1.0",
       "@molecule/api-ai-summarization-llm": "1.1.1",
-      "@molecule/api-ai-tools": "1.10.2",
+      "@molecule/api-ai-tools": "1.10.3",
       "@molecule/api-ai-translation": "1.1.0",
       "@molecule/api-ai-translation-bergamot": "1.1.1",
       "@molecule/api-ai-translation-deepl": "1.1.0",
