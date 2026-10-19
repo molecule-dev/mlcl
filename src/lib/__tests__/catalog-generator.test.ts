@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest'
 
 import { buildCatalog } from '../catalog-generator.js'
 import { getRawRegistry } from '../registry.js'
+import type { Registry } from '../schema.js'
 
 describe('catalog-generator', () => {
   const registry = getRawRegistry()
@@ -36,8 +37,38 @@ describe('catalog-generator', () => {
   })
 
   it('lists feature packages without hints in the reference section', () => {
-    const out = buildCatalog({ registry, framework: 'react', stack: 'full-stack' })
+    // The live registry declares a hint for every feature package now, so the
+    // section is legitimately absent there; the behavior under test is the
+    // fallback a registry with an unhinted feature package still gets.
+    const fixture = {
+      version: 1,
+      apiFrameworks: {},
+      appFrameworks: {},
+      packages: {
+        '@molecule/app-unhinted-react': {
+          type: 'feature',
+          category: 'test',
+          stack: 'app',
+          label: 'Unhinted',
+          description: 'No intent hint',
+        },
+        '@molecule/app-hinted-react': {
+          type: 'feature',
+          category: 'test',
+          stack: 'app',
+          label: 'Hinted',
+          intentHints: ['something'],
+        },
+      },
+    } as unknown as Registry
+    const out = buildCatalog({ registry: fixture, framework: 'react', stack: 'full-stack' })
     expect(out).toContain('## Packages without declared intent (reference)')
+    expect(out).toMatch(
+      /## Packages without declared intent \(reference\)[\s\S]*app-unhinted-react/,
+    )
+    expect(out).not.toMatch(
+      /## Packages without declared intent \(reference\)[\s\S]*app-hinted-react/,
+    )
   })
 
   it('stack=api excludes app-stack packages', () => {
