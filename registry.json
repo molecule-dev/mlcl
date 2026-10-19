@@ -7524,6 +7524,164 @@
         "sqlite3"
       ]
     },
+    "@molecule/api-deploy-rollout": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "deploy-rollout",
+      "label": "Deploy Rollout",
+      "description": "Deploy-rollout core interface for molecule.dev: replace a deployment's running instances without downtime, grow-then-shrink or in place, with a capacity floor, soak, reverse rollback and idempotent resume.",
+      "stack": "api",
+      "defaultProvider": "@molecule/api-deploy-rollout-default",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "runRollout",
+        "runInPlaceRollout",
+        "RolloutInstance",
+        "InstanceProvider",
+        "InPlaceInstanceProvider",
+        "RolloutPolicy",
+        "RolloutStep",
+        "RolloutFailure",
+        "RolloutOutcome",
+        "InPlaceRolloutOutcome",
+        "RolloutOptions",
+        "DeployRolloutProvider",
+        "InPlaceRolloutOptions"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond"
+      ],
+      "path": "packages/api/core/deploy-rollout",
+      "intentHints": [
+        "rolling application deploy",
+        "replace instances without downtime"
+      ],
+      "bondSetter": "setProvider",
+      "moleculePeers": [
+        "@molecule/api-bond"
+      ]
+    },
+    "@molecule/api-deploy-rollout-default": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "deploy-rollout",
+      "label": "Default",
+      "description": "Default deploy-rollout provider for molecule.dev: grow-then-shrink and in-place instance replacement with a capacity floor, continuous soak, reverse rollback and idempotent resume.",
+      "stack": "api",
+      "implements": "@molecule/api-deploy-rollout",
+      "exports": [
+        "DEFAULT_ROLLOUT_DRAIN_MS",
+        "DEFAULT_ROLLOUT_READINESS_TIMEOUT_MS",
+        "DEFAULT_SOAK_PROBE_MS",
+        "DEFAULT_MIN_HEALTHY",
+        "RolloutCancelProbe",
+        "ResolvedRolloutPolicy",
+        "RolloutAbortedError",
+        "resolveRolloutPolicy",
+        "runGrowThenShrink",
+        "runInPlace",
+        "provider",
+        "createProvider",
+        "describeRolloutResult"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-deploy-rollout"
+      ],
+      "path": "packages/api/bonds/deploy-rollout/default",
+      "intentHints": [
+        "rolling deploy state machine",
+        "capacity guarded rollout"
+      ],
+      "moleculePeers": [
+        "@molecule/api-deploy-rollout"
+      ]
+    },
+    "@molecule/api-deploy-rollout-fly": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "deploy-rollout",
+      "label": "Fly Machines",
+      "description": "Fly Machines provider bond for @molecule/api-deploy-rollout: in-place restarts with a restore path and grow-then-shrink clones, over an injected flyctl runner.",
+      "stack": "api",
+      "implements": "@molecule/api-deploy-rollout",
+      "exports": [
+        "FlyMachine",
+        "FlyCommandResult",
+        "FlyCommandRunner",
+        "flyctlRunner",
+        "parseFlyDurationMs",
+        "serviceCheckGraceMs",
+        "parseFlyMachineList",
+        "assertHomogeneousFlyMachines",
+        "FlyMachinesOptions",
+        "listFlyMachines",
+        "FlyInPlaceOptions",
+        "restartFlyMachine",
+        "createFlyInPlaceProvider",
+        "FlyInstanceOptions",
+        "createFlyInstanceProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-deploy-rollout"
+      ],
+      "bondWiring": {
+        "type": "none",
+        "bondCategory": "deploy-rollout"
+      },
+      "path": "packages/api/bonds/deploy-rollout/fly",
+      "intentHints": [
+        "rolling fly machine replacement",
+        "fly rollout adapter"
+      ],
+      "moleculePeers": [
+        "@molecule/api-deploy-rollout"
+      ]
+    },
+    "@molecule/api-deploy-rollout-sandbox": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "deploy-rollout",
+      "label": "Sandbox",
+      "description": "Sandbox provider bond for @molecule/api-deploy-rollout: grow-then-shrink rolling deploys over any @molecule/api-code-sandbox provider (E2B, Docker, Fly).",
+      "stack": "api",
+      "implements": "@molecule/api-deploy-rollout",
+      "exports": [
+        "SandboxInstance",
+        "SandboxInstanceOptions",
+        "sigtermNodeProcessesCommand",
+        "probeSandboxReadiness",
+        "DEFAULT_SANDBOX_READINESS_TIMEOUT_MS",
+        "DEFAULT_SANDBOX_READINESS_POLL_MS",
+        "createSandboxInstanceProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-code-sandbox",
+        "@molecule/api-deploy-rollout"
+      ],
+      "bondWiring": {
+        "type": "none",
+        "bondCategory": "deploy-rollout"
+      },
+      "path": "packages/api/bonds/deploy-rollout/sandbox",
+      "intentHints": [
+        "rolling sandbox replacement",
+        "sandbox rollout adapter"
+      ],
+      "moleculePeers": [
+        "@molecule/api-code-sandbox",
+        "@molecule/api-deploy-rollout"
+      ]
+    },
     "@molecule/api-deploy-target": {
       "language": "typescript",
       "runtime": "node",
@@ -10801,6 +10959,83 @@
         "csv export",
         "csv import",
         "spreadsheet export"
+      ]
+    },
+    "@molecule/api-instance-leadership": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "instance-leadership",
+      "label": "Instance Leadership",
+      "description": "Instance-leadership core interface for molecule.dev: elect one API instance to run platform-wide singleton work, with demotion and takeover when the holder's connection is lost.",
+      "stack": "api",
+      "defaultProvider": "@molecule/api-instance-leadership-postgresql",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "isLeader",
+        "leadershipState",
+        "acquireLeadership",
+        "releaseLeadership",
+        "LeadershipState",
+        "LeaderLockSession",
+        "LeaderLockFactory",
+        "AcquireLeadershipOptions",
+        "InstanceLeadershipProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond"
+      ],
+      "path": "packages/api/core/instance-leadership",
+      "intentHints": [
+        "elect api leader",
+        "singleton background jobs"
+      ],
+      "bondSetter": "setProvider",
+      "moleculePeers": [
+        "@molecule/api-bond"
+      ]
+    },
+    "@molecule/api-instance-leadership-postgresql": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "instance-leadership",
+      "label": "PostgreSQL",
+      "description": "PostgreSQL provider for @molecule/api-instance-leadership: one leader across every API instance via a session advisory lock on a dedicated connection, with demotion when the connection is lost.",
+      "stack": "api",
+      "implements": "@molecule/api-instance-leadership",
+      "exports": [
+        "PostgresLeaderLockOptions",
+        "PgLeaderLockSession",
+        "createPostgresLockFactory",
+        "PostgresLeadershipProviderOptions",
+        "createProvider",
+        "provider"
+      ],
+      "secrets": [
+        {
+          "name": "DATABASE_URL",
+          "required": true,
+          "label": "PostgreSQL connection string",
+          "instructions": "Use a direct connection or a session-mode pooler; transaction-mode pooling cannot retain advisory locks."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-instance-leadership",
+        "pg"
+      ],
+      "path": "packages/api/bonds/instance-leadership/postgresql",
+      "intentHints": [
+        "postgresql leader election",
+        "postgres advisory leader lock"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-instance-leadership"
       ]
     },
     "@molecule/api-jwt": {
@@ -24716,6 +24951,45 @@
         "in process scheduler"
       ]
     },
+    "@molecule/api-scheduler-postgresql": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "scheduler",
+      "label": "PostgreSQL",
+      "description": "PostgreSQL-coordinated scheduler provider for @molecule/api-scheduler: in-process timers that take a per-task advisory lock so a scheduled task runs ONCE across every API instance.",
+      "stack": "api",
+      "implements": "@molecule/api-scheduler",
+      "exports": [
+        "PostgresTaskRunLock",
+        "advisoryKeyForTask",
+        "createPostgresTaskRunLock",
+        "createProvider",
+        "PostgresSchedulerOptions"
+      ],
+      "secrets": [
+        {
+          "name": "DATABASE_URL",
+          "required": true,
+          "label": "PostgreSQL connection string",
+          "instructions": "Use a direct connection or a session-mode pooler; transaction-mode pooling cannot retain advisory locks."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-scheduler",
+        "pg"
+      ],
+      "path": "packages/api/bonds/scheduler/postgresql",
+      "intentHints": [
+        "postgresql task scheduling",
+        "coordinate scheduled tasks across instances"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-scheduler"
+      ]
+    },
     "@molecule/api-screenshots": {
       "language": "typescript",
       "runtime": "node",
@@ -26794,6 +27068,74 @@
       ],
       "egressHosts": [
         "*.amazonaws.com"
+      ]
+    },
+    "@molecule/api-upstream-balancer": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "upstream-balancer",
+      "label": "Upstream Balancer",
+      "description": "Upstream-balancer core interface for molecule.dev: choose which instance of a multi-instance deployment one request goes to — health-aware round-robin, failure cooldown, retry elsewhere, drain-aware.",
+      "stack": "api",
+      "defaultProvider": "@molecule/api-upstream-balancer-default",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "pickUpstream",
+        "pickRetryUpstream",
+        "noteUpstreamFailure",
+        "noteUpstreamSuccess",
+        "upstreamSuspect",
+        "markUpstreamDraining",
+        "clearUpstreamDraining",
+        "upstreamDraining",
+        "resetUpstreamBalancerForTest",
+        "UpstreamMember",
+        "UpstreamBalancerPolicy",
+        "UpstreamBalancerProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond"
+      ],
+      "path": "packages/api/core/upstream-balancer",
+      "intentHints": [
+        "select healthy upstream",
+        "balance requests across replicas"
+      ],
+      "bondSetter": "setProvider",
+      "moleculePeers": [
+        "@molecule/api-bond"
+      ]
+    },
+    "@molecule/api-upstream-balancer-default": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "upstream-balancer",
+      "label": "Default",
+      "description": "Default upstream-balancer provider for molecule.dev: per-host round-robin with a passive failure cooldown, retry elsewhere and drain-awareness.",
+      "stack": "api",
+      "implements": "@molecule/api-upstream-balancer",
+      "exports": [
+        "DEFAULT_UPSTREAM_FAILURE_COOLDOWN_MS",
+        "upstreamKey",
+        "createProvider",
+        "provider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-upstream-balancer"
+      ],
+      "path": "packages/api/bonds/upstream-balancer/default",
+      "intentHints": [
+        "round robin upstream selection",
+        "passive upstream failure cooldown"
+      ],
+      "moleculePeers": [
+        "@molecule/api-upstream-balancer"
       ]
     },
     "@molecule/api-utilities-validation": {
