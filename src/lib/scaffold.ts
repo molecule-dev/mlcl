@@ -4427,6 +4427,8 @@ export async function ensureBaseHandlersIndex(apiPath: string): Promise<void> {
         ` * \`router.use('/x', router)\` line, and the paths inside it are RELATIVE to that mount:\n` +
         ` * \`router.post('/users', …)\` in a router mounted at \`/users\` answers at \`/users/users\`,\n` +
         ` * not \`/users\` — declare \`router.post('/', …)\` there, or change its mount line here.\n` +
+        ` * Everything here is served under \`/api\`: a route the client or a suite calls at\n` +
+        ` * \`/api/users\` is declared as \`/users\`. Do not add a prefix of your own.\n` +
         ` *\n` +
         ` * Add a per-feature router here as the app grows:\n` +
         ` *   import widgets from './widgets.js'\n` +

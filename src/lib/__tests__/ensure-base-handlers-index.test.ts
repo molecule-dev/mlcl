@@ -62,6 +62,11 @@ describe('ensureBaseHandlersIndex', () => {
     expect(handlers).toContain('RELATIVE to that mount')
     expect(handlers).toContain('answers at `/users/users`')
     expect(handlers).toContain('change its mount line here')
+    // …and that the API's own mount is `/api`, so the route declared here is `/users`, not
+    // `/api/users` or a prefix of the executor's own (xr-molecule-flash-m197 planned every
+    // route under an invented `/rw/` and the later rename broke 15 route lines).
+    expect(handlers).toContain('Everything here is served under `/api`')
+    expect(handlers).toContain('is declared as `/users`. Do not add a prefix of your own.')
   })
 
   it('imports and mounts the handlers router in App/router.ts', async () => {
