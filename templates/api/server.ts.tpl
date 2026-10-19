@@ -3,6 +3,8 @@ import { appendFileSync } from 'fs'
 import express from 'express'
 import { fileURLToPath } from 'url'
 
+import { installExpressLifecycle } from '@molecule/api-process-lifecycle-express'
+
 import { setupBonds } from './bonds/index.js'
 
 // Capture runtime errors and write to a well-known file so the IDE's
@@ -27,6 +29,10 @@ export const create = async (port: number = Number(process.env.PORT) || 4000) =>
   const { router } = await import('./App/router.js')
 
   const app = express()
+  // Mount the process lifecycle before any route: in-flight request tracking,
+  // GET /health/live + GET /health/ready, and SIGTERM/SIGINT graceful shutdown
+  // (drain bound SHUTDOWN_TIMEOUT_MS, default 25 s; hooks run in order; exit 0).
+  const lifecycle = installExpressLifecycle({ app })
   app.use(express.json())
   app.use('/api', router)
 
@@ -46,8 +52,13 @@ export const create = async (port: number = Number(process.env.PORT) || 4000) =>
   })
 
   const listener = app.listen(port, () => {
+    // Boot is complete and the port is owned: /health/ready answers 200 from here.
+    lifecycle.markReady()
     console.log(`Server running on port ${port}`)
   })
+  // Signal handlers are installed before any request is served, so a SIGTERM
+  // arriving during boot still drains instead of killing the process mid-boot.
+  lifecycle.attachServer(listener)
 
   // A realtime provider bonded with deferAttach (the socketio/ws/sse bond
   // stubs) binds no port of its own — attach it to the API's HTTP server so

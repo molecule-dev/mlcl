@@ -4039,9 +4039,7 @@ function generateServerContentHeuristic(
   lines.push(...externalImports)
 
   // @molecule/ imports
-  if (hasLogger || hasMonitoring) {
-    lines.push('')
-  }
+  lines.push('')
   if (hasLogger) {
     lines.push(`import { logger } from '${loggerPackageName}'`)
   }
@@ -4049,6 +4047,14 @@ function generateServerContentHeuristic(
     lines.push(
       `import { getOptionalProvider as getMonitoringProvider, runAll as runMonitoringChecks } from '${monitoringPkg!.name}'`,
     )
+  }
+  // The lifecycle packages are `alwaysInclude` in the registry, so every
+  // generated API has them. `inject` may also run against a project created
+  // before they existed, so the wiring is emitted only when the selected
+  // package list actually carries the bond.
+  const hasLifecycle = allMolecules.includes('@molecule/api-process-lifecycle-express')
+  if (hasLifecycle) {
+    lines.push(`import { installExpressLifecycle } from '@molecule/api-process-lifecycle-express'`)
   }
 
   // Local imports (alphabetical) — router is NOT imported statically; it must be
@@ -4090,6 +4096,13 @@ function generateServerContentHeuristic(
   lines.push(`  const app = ${fw.serverCreate}`)
   lines.push(`  app.disable('x-powered-by')`)
   lines.push(``)
+  if (hasLifecycle) {
+    lines.push(`  // Mount the process lifecycle before any route: in-flight request tracking,`)
+    lines.push(`  // GET /health/live + GET /health/ready, and SIGTERM/SIGINT graceful shutdown`)
+    lines.push(`  // (drain bound SHUTDOWN_TIMEOUT_MS, default 25 s; hooks run in order; exit 0).`)
+    lines.push(`  const lifecycle = installExpressLifecycle({ app })`)
+    lines.push(``)
+  }
 
   for (const mw of middlewareNames) {
     if (mw.mountPath) continue
@@ -4180,11 +4193,20 @@ function generateServerContentHeuristic(
   lines.push(`  }`)
   lines.push(``)
   lines.push(`  const listener = server.listen(port, () => {`)
+  if (hasLifecycle) {
+    lines.push(`    lifecycle.markReady()`)
+  }
   lines.push(
     `    ${logInfo}(\`Started \${process.env.NODE_ENV} \${process.env.HTTPS ? 'HTTPS' : 'HTTP'} server on port \${port}.\`)`,
   )
   lines.push(`  })`)
   lines.push(``)
+  if (hasLifecycle) {
+    lines.push(`  // Signal handlers are installed before any request is served, so a SIGTERM`)
+    lines.push(`  // arriving during boot still drains instead of killing the process mid-boot.`)
+    lines.push(`  lifecycle.attachServer(listener)`)
+    lines.push(``)
+  }
   lines.push(`  // A realtime provider bonded with deferAttach (the socketio/ws/sse bond`)
   lines.push(`  // stubs) binds no port of its own — attach it to the API's HTTP server so`)
   lines.push(`  // realtime shares the API port (e.g. /socket.io, /sse) instead of a`)

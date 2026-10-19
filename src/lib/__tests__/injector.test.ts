@@ -527,6 +527,47 @@ describe('synthesizeProjectFiles', () => {
     expect(server!.content).not.toContain('corsMiddleware')
   })
 
+  it('mounts the process lifecycle before routes when the bond is selected', async () => {
+    const files = await synthesizeProjectFiles(
+      [userPlan],
+      [
+        '@molecule/api-resource-user',
+        '@molecule/api-resource',
+        '@molecule/api-process-lifecycle',
+        '@molecule/api-process-lifecycle-express',
+      ],
+      tempDir,
+      registryPackages,
+    )
+
+    const server = files.find((f) => f.targetPath.includes('server.ts'))
+    expect(server).toBeDefined()
+    expect(server!.content).toContain(
+      "import { installExpressLifecycle } from '@molecule/api-process-lifecycle-express'",
+    )
+    expect(server!.content).toContain('const lifecycle = installExpressLifecycle({ app })')
+    expect(server!.content).toContain('lifecycle.markReady()')
+    expect(server!.content).toContain('lifecycle.attachServer(listener)')
+    // The middleware must be mounted BEFORE the /api router, or requests it
+    // never sees cannot be drained.
+    expect(server!.content.indexOf('installExpressLifecycle({ app })')).toBeLessThan(
+      server!.content.indexOf("app.use('/api', router)"),
+    )
+  })
+
+  it('leaves a project without the lifecycle bond untouched (legacy inject)', async () => {
+    const files = await synthesizeProjectFiles(
+      [userPlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource'],
+      tempDir,
+      registryPackages,
+    )
+
+    const server = files.find((f) => f.targetPath.includes('server.ts'))
+    expect(server!.content).not.toContain('api-process-lifecycle-express')
+    expect(server!.content).not.toContain('installExpressLifecycle')
+  })
+
   // Security regression (finding L1-2): the generated error handler must never
   // delegate to Express's default finalhandler, which leaks err.stack (absolute
   // file paths, dependency internals, error text) to clients whenever
