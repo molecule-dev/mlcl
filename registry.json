@@ -7488,6 +7488,7 @@
         "store",
         "registerLifecycleIntegration",
         "MIGRATION_LEDGER",
+        "MigrationOptions",
         "createMigrator",
         "createPool",
         "databaseSqliteSecretDefinitions",

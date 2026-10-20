@@ -19,7 +19,12 @@ afterEach(async () => {
 async function runFixture(
   source: string,
   layout: string,
-  options: { escapedPath?: boolean; empty?: boolean; withoutManifest?: boolean } = {},
+  options: {
+    escapedPath?: boolean
+    empty?: boolean
+    withoutManifest?: boolean
+    recordNamespaces?: boolean
+  } = {},
 ): Promise<string[]> {
   const root = await mkdtemp(join(tmpdir(), 'mlcl-migration-layout-'))
   temporary.push(root)
@@ -33,9 +38,15 @@ async function runFixture(
   const trace = join(root, 'queries.jsonl')
   const transport = `
     import { appendFileSync, existsSync, readdirSync, readFileSync } from 'node:fs';
-    import { join } from 'node:path';
+    import { basename, join } from 'node:path';
     function record(sql) { appendFileSync(process.env.FIXTURE_TRACE, JSON.stringify(sql) + '\\n'); }
-    export function createMigrator(dir) { return async () => {
+    export function createMigrator(dir, options) { return async () => {
+      if (process.env.FIXTURE_NAMESPACES === 'true')
+        record('fixture options ' + JSON.stringify({
+          directory: basename(dir),
+          namespace: options?.namespace,
+          legacyDirectories: options?.legacyDirectories?.map(directory => basename(directory)),
+        }));
       if (!existsSync(dir)) return;
       for (const file of readdirSync(dir).filter(f => f.endsWith('.sql')).sort())
         record(readFileSync(join(dir, file), 'utf8'));
@@ -82,7 +93,11 @@ async function runFixture(
           compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
         }).outputText,
   )
-  const env: NodeJS.ProcessEnv = { ...process.env, FIXTURE_TRACE: trace }
+  const env: NodeJS.ProcessEnv = {
+    ...process.env,
+    FIXTURE_TRACE: trace,
+    FIXTURE_NAMESPACES: String(options.recordNamespaces ?? false),
+  }
   // Exercise .env lookup without relying on the launcher working directory.
   delete env.DATABASE_URL
   delete env.MOL_BOND_PROFILE
@@ -100,6 +115,16 @@ async function runFixture(
 }
 
 describe('migration runner runtime layouts', () => {
+  it('SQLite wires independent setup identities and both legacy source directories', async () => {
+    const source = await readMigrateRunner(['@molecule/api-database-sqlite'])
+    expect(await runFixture(source, 'dist/src/scripts', { recordNamespaces: true })).toEqual([
+      'fixture options {"directory":"migrations","legacyDirectories":["__setup__"]}',
+      'fixture migration',
+      'fixture options {"directory":"__setup__","namespace":"__setup__","legacyDirectories":["migrations"]}',
+      'fixture setup',
+    ])
+  })
+
   for (const provider of ['postgresql', 'pglite', 'sqlite', 'mysql']) {
     for (const layout of ['src/scripts', 'dist/scripts', 'dist/src/scripts']) {
       it(`${provider}: reads API migrations and setup from ${layout}`, async () => {
