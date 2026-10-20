@@ -27996,8 +27996,7 @@
         "read pages locally without a service",
         "extract articles in-process",
         "readability without an api key"
-      ],
-      "egressHosts": []
+      ]
     },
     "@molecule/api-web-search": {
       "language": "typescript",

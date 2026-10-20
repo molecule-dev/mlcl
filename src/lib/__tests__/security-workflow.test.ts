@@ -98,7 +98,11 @@ async function expectSecurityArtifacts(root: string, label: string): Promise<voi
   // Verbatim canonical scanner: dependency-free, scans only STAGED added lines,
   // and carries the high-confidence secret rules.
   expect(scannerText, `${label}: scanner is dependency-free`).toContain("from 'node:child_process'")
-  expect(scannerText).toContain('git diff --cached')
+  // The scanner passes its git argv as an array (the MOL_PRECOMMIT_BASE pin
+  // made the base conditional), so the staged-only property lives in the
+  // individual flags, not in one `git diff --cached` string.
+  expect(scannerText).toContain("'--cached'")
+  expect(scannerText).toContain("'--diff-filter=ACM'")
   expect(scannerText).toMatch(/Anthropic API key/)
   // Hook runs the scanner (husky v9 plain-command format).
   expect(await readFile(hook, 'utf-8')).toContain('node scripts/precommit-secret-scan.mjs')
