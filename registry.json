@@ -27872,6 +27872,133 @@
         "api.openweathermap.org"
       ]
     },
+    "@molecule/api-web-content": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "web-content",
+      "label": "Web Content",
+      "description": "Abstract web content interface — fetch a page or extract readable content (markdown/text) — bond Readability or molecule.dev’s hosted service",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "fetchContent",
+        "extractContent",
+        "WebContentFormat",
+        "WebContentMode",
+        "WebContentSource",
+        "WebContentOptions",
+        "WebContentLink",
+        "WebContentResult",
+        "WebContentProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "bondSetter": "setProvider",
+      "path": "packages/api/core/web-content",
+      "intentHints": [
+        "read a web page",
+        "fetch a url as markdown",
+        "extract article text from a page",
+        "readable page content",
+        "turn a web page into markdown"
+      ]
+    },
+    "@molecule/api-web-content-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "web-content",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted web content — fetch a page or extract readable content, billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-web-content",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "WEB_CONTENT_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeWebContentProvider",
+        "createProvider",
+        "webContentMoleculeSecretDefinitions",
+        "MoleculeWebContentConfig"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-web-content",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-web-content",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/web-content/molecule",
+      "intentHints": [
+        "hosted web content reader",
+        "read a page without an api key",
+        "fetch a page as markdown without a vendor account",
+        "extract article text billed to my project"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
+    "@molecule/api-web-content-readability": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "web-content",
+      "label": "Readability (web content)",
+      "description": "Mozilla Readability web content provider for molecule.dev — fetch a page or extract readable content in this process",
+      "stack": "api",
+      "implements": "@molecule/api-web-content",
+      "exports": [
+        "provider",
+        "createProvider",
+        "extractReadable",
+        "ExtractedContent",
+        "WEB_CONTENT_LIMITS",
+        "FETCH_LIMITS",
+        "ReadabilityWebContentConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-web-content",
+        "@mozilla/readability",
+        "jsdom",
+        "turndown",
+        "turndown-plugin-gfm"
+      ],
+      "moleculePeers": [
+        "@molecule/api-web-content"
+      ],
+      "path": "packages/api/bonds/web-content/readability",
+      "intentHints": [
+        "self-hosted web content extraction",
+        "read pages locally without a service",
+        "extract articles in-process",
+        "readability without an api key"
+      ],
+      "egressHosts": []
+    },
     "@molecule/api-web-search": {
       "language": "typescript",
       "runtime": "node",
