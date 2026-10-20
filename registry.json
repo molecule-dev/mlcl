@@ -7563,14 +7563,14 @@
       "runtimeDependencies": [
         "@molecule/api-bond"
       ],
+      "moleculePeers": [
+        "@molecule/api-bond"
+      ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/deploy-rollout",
       "intentHints": [
         "rolling application deploy",
         "replace instances without downtime"
-      ],
-      "bondSetter": "setProvider",
-      "moleculePeers": [
-        "@molecule/api-bond"
       ]
     },
     "@molecule/api-deploy-rollout-default": {
@@ -7601,13 +7601,13 @@
       "runtimeDependencies": [
         "@molecule/api-deploy-rollout"
       ],
+      "moleculePeers": [
+        "@molecule/api-deploy-rollout"
+      ],
       "path": "packages/api/bonds/deploy-rollout/default",
       "intentHints": [
         "rolling deploy state machine",
         "capacity guarded rollout"
-      ],
-      "moleculePeers": [
-        "@molecule/api-deploy-rollout"
       ]
     },
     "@molecule/api-deploy-rollout-fly": {
@@ -7640,6 +7640,9 @@
       "runtimeDependencies": [
         "@molecule/api-deploy-rollout"
       ],
+      "moleculePeers": [
+        "@molecule/api-deploy-rollout"
+      ],
       "bondWiring": {
         "type": "none",
         "bondCategory": "deploy-rollout"
@@ -7648,9 +7651,6 @@
       "intentHints": [
         "rolling fly machine replacement",
         "fly rollout adapter"
-      ],
-      "moleculePeers": [
-        "@molecule/api-deploy-rollout"
       ]
     },
     "@molecule/api-deploy-rollout-sandbox": {
@@ -7676,6 +7676,10 @@
         "@molecule/api-code-sandbox",
         "@molecule/api-deploy-rollout"
       ],
+      "moleculePeers": [
+        "@molecule/api-code-sandbox",
+        "@molecule/api-deploy-rollout"
+      ],
       "bondWiring": {
         "type": "none",
         "bondCategory": "deploy-rollout"
@@ -7684,10 +7688,6 @@
       "intentHints": [
         "rolling sandbox replacement",
         "sandbox rollout adapter"
-      ],
-      "moleculePeers": [
-        "@molecule/api-code-sandbox",
-        "@molecule/api-deploy-rollout"
       ]
     },
     "@molecule/api-deploy-target": {
@@ -10996,14 +10996,14 @@
       "runtimeDependencies": [
         "@molecule/api-bond"
       ],
+      "moleculePeers": [
+        "@molecule/api-bond"
+      ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/instance-leadership",
       "intentHints": [
         "elect api leader",
         "singleton background jobs"
-      ],
-      "bondSetter": "setProvider",
-      "moleculePeers": [
-        "@molecule/api-bond"
       ]
     },
     "@molecule/api-instance-leadership-postgresql": {
@@ -11036,14 +11036,14 @@
         "@molecule/api-instance-leadership",
         "pg"
       ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-instance-leadership"
+      ],
       "path": "packages/api/bonds/instance-leadership/postgresql",
       "intentHints": [
         "postgresql leader election",
         "postgres advisory leader lock"
-      ],
-      "moleculePeers": [
-        "@molecule/api-bond",
-        "@molecule/api-instance-leadership"
       ]
     },
     "@molecule/api-jwt": {
@@ -24988,14 +24988,14 @@
         "@molecule/api-scheduler",
         "pg"
       ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-scheduler"
+      ],
       "path": "packages/api/bonds/scheduler/postgresql",
       "intentHints": [
         "postgresql task scheduling",
         "coordinate scheduled tasks across instances"
-      ],
-      "moleculePeers": [
-        "@molecule/api-bond",
-        "@molecule/api-scheduler"
       ]
     },
     "@molecule/api-screenshots": {
@@ -27108,14 +27108,14 @@
       "runtimeDependencies": [
         "@molecule/api-bond"
       ],
+      "moleculePeers": [
+        "@molecule/api-bond"
+      ],
+      "bondSetter": "setProvider",
       "path": "packages/api/core/upstream-balancer",
       "intentHints": [
         "select healthy upstream",
         "balance requests across replicas"
-      ],
-      "bondSetter": "setProvider",
-      "moleculePeers": [
-        "@molecule/api-bond"
       ]
     },
     "@molecule/api-upstream-balancer-default": {
@@ -27137,13 +27137,13 @@
       "runtimeDependencies": [
         "@molecule/api-upstream-balancer"
       ],
+      "moleculePeers": [
+        "@molecule/api-upstream-balancer"
+      ],
       "path": "packages/api/bonds/upstream-balancer/default",
       "intentHints": [
         "round robin upstream selection",
         "passive upstream failure cooldown"
-      ],
-      "moleculePeers": [
-        "@molecule/api-upstream-balancer"
       ]
     },
     "@molecule/api-utilities-validation": {
@@ -28713,6 +28713,11 @@
         "hasProvider",
         "requireProvider",
         "BackgroundTaskState",
+        "ContextCategoryId",
+        "ContextCategory",
+        "ContextComposition",
+        "ContextUsage",
+        "ContextCompaction",
         "MessageBlock",
         "CardEvent",
         "ChatAttachment",
