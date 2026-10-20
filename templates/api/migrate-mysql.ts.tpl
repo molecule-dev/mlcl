@@ -12,17 +12,25 @@
  */
 
 import { existsSync, readdirSync } from 'fs'
-import { join } from 'path'
+import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
 import { createMigrator } from '@molecule/api-database-mysql'
 
-const here = new URL('.', import.meta.url).pathname
-const migrationsDir = join(here, '../../migrations')
+// Resolve assets from the API package, independent of the compiler's rootDir.
+// fileURLToPath also preserves spaces and URL-significant characters in paths.
+let apiDir = dirname(fileURLToPath(import.meta.url))
+while (!existsSync(join(apiDir, 'package.json'))) {
+  const parent = dirname(apiDir)
+  if (parent === apiDir) throw new Error('Cannot locate the API package.json for migrations')
+  apiDir = parent
+}
+
+const migrationsDir = join(apiDir, 'migrations')
 // `__setup__/` is populated at scaffold time from registry-known table SQL
 // (see mlcl scaffold.ts copySqlSetupScripts) so resource packages bring their
 // own DDL even when the squashed app migration omits it.
-const setupDir = join(here, '../../__setup__')
+const setupDir = join(apiDir, '__setup__')
 
 export async function runMigrations(): Promise<void> {
   await createMigrator(migrationsDir)()

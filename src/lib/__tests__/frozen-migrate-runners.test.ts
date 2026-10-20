@@ -83,4 +83,25 @@ describe('frozen migration runners', () => {
     // Non-vacuousness: the fleet carries at least one rendered-shape copy.
     expect(checked.length).toBeGreaterThanOrEqual(1)
   })
+
+  it('legacy delegates use canonical package-relative asset lookup', async () => {
+    const checked: string[] = []
+    for (const app of (await readdir(TEMPLATES_DIR)).sort()) {
+      const apiDir = join(TEMPLATES_DIR, app, 'api')
+      let source: string
+      try {
+        source = await readFile(join(apiDir, 'src/scripts/migrate.ts'), 'utf8')
+      } catch (_error) {
+        continue
+      }
+      if (source.includes('const BROWSER_PROFILE')) continue
+      const canonical = await readMigrateRunnerForManifest(apiDir)
+      const root = canonical.match(/\/\/ Resolve assets from the API package,[\s\S]*?\n}/)?.[0]
+      expect(root, app).toBeTruthy()
+      expect(source, app).toContain(root)
+      expect(source, app).toContain("const migrationsDir = join(apiDir, 'migrations')")
+      checked.push(app)
+    }
+    expect(checked.length).toBeGreaterThanOrEqual(149)
+  })
 })

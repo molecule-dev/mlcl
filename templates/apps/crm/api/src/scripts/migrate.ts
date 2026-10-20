@@ -6,12 +6,22 @@
  * or directly via: npm run db:setup
  */
 
-import { join } from 'path'
+import { existsSync } from 'fs'
+import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
 import { createMigrator } from '@molecule/api-bonds-default-express'
 
-const migrationsDir = join(new URL('.', import.meta.url).pathname, '../../migrations')
+// Resolve assets from the API package, independent of the compiler's rootDir.
+// fileURLToPath also preserves spaces and URL-significant characters in paths.
+let apiDir = dirname(fileURLToPath(import.meta.url))
+while (!existsSync(join(apiDir, 'package.json'))) {
+  const parent = dirname(apiDir)
+  if (parent === apiDir) throw new Error('Cannot locate the API package.json for migrations')
+  apiDir = parent
+}
+
+const migrationsDir = join(apiDir, 'migrations')
 
 export const runMigrations = createMigrator(migrationsDir)
 

@@ -6,10 +6,11 @@
  * or directly via: npm run db:setup
  */
 
+import { existsSync } from 'fs'
 {{#MIGRATE_POSTGRES}}
-import { existsSync, readdirSync, readFileSync } from 'fs'
+import { readdirSync, readFileSync } from 'fs'
 {{/MIGRATE_POSTGRES}}
-import { join } from 'path'
+import { dirname, join } from 'path'
 {{#MIGRATE_POSTGRES}}
 import pg from 'pg'
 {{/MIGRATE_POSTGRES}}
@@ -19,6 +20,15 @@ import { createMigratorPglite } from '@molecule/api-bonds-default-express'
 {{#MIGRATE_POSTGRES}}
 import { deriveSsl } from '@molecule/api-database-postgresql'
 {{/MIGRATE_POSTGRES}}
+
+// Resolve assets from the API package, independent of the compiler's rootDir.
+// fileURLToPath also preserves spaces and URL-significant characters in paths.
+let apiDir = dirname(fileURLToPath(import.meta.url))
+while (!existsSync(join(apiDir, 'package.json'))) {
+  const parent = dirname(apiDir)
+  if (parent === apiDir) throw new Error('Cannot locate the API package.json for migrations')
+  apiDir = parent
+}
 {{#MIGRATE_POSTGRES}}
 
 /**
@@ -32,10 +42,7 @@ import { deriveSsl } from '@molecule/api-database-postgresql'
  */
 function resolveDatabaseUrl(): string {
   if (process.env.DATABASE_URL) return process.env.DATABASE_URL
-  const candidates = [
-    join(process.cwd(), '.env'),
-    join(new URL('.', import.meta.url).pathname, '../../.env'),
-  ]
+  const candidates = [join(process.cwd(), '.env'), join(apiDir, '.env')]
   for (const envPath of candidates) {
     try {
       const line = readFileSync(envPath, 'utf8')
@@ -159,11 +166,11 @@ const BROWSER_PROFILE = {{MIGRATE_BROWSER_PROFILE}}
 
 const DATABASE_URL = BROWSER_PROFILE ? '' : resolveDatabaseUrl()
 {{/MIGRATE_POSTGRES}}
-const migrationsDir = join(new URL('.', import.meta.url).pathname, '../../migrations')
+const migrationsDir = join(apiDir, 'migrations')
 // `__setup__/` is populated at scaffold time from registry-known table SQL
 // (see mlcl scaffold.ts copySqlSetupScripts) so resource packages bring
 // their own DDL even when the squashed app migration forgets to include it.
-const setupDir = join(new URL('.', import.meta.url).pathname, '../../__setup__')
+const setupDir = join(apiDir, '__setup__')
 {{#MIGRATE_POSTGRES}}
 
 // SSL is verify-by-default via the postgresql bond's shared `deriveSsl` helper:
