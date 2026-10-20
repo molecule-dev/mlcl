@@ -60,6 +60,36 @@ afterEach(async () => {
 })
 
 describe('the shared scaffold eslint config', () => {
+  it('autofixes a storage catch once without changing its fallback', async () => {
+    const source = [
+      'export function readToken(): string | null {',
+      '  try {',
+      "    const token = window.localStorage.getItem('token')",
+      "    return token && token.trim() !== '' ? token : null",
+      '  } catch /* storage may be unavailable */ {',
+      '    return null',
+      '  }',
+      '}',
+      '',
+    ].join('\n')
+    const [before] = await eslint.lintText(source, { filePath: 'storage.ts' })
+    expect(before.messages.map((message) => message.ruleId)).toContain(
+      'molecule-local/require-catch-binding',
+    )
+    const fixer = new ESLint({
+      cwd: dir,
+      overrideConfigFile: join(dir, 'eslint.config.mjs'),
+      overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
+      fix: true,
+    })
+    const [fixed] = await fixer.lintText(source, { filePath: 'storage.ts' })
+    expect(fixed.messages).toEqual([])
+    expect(fixed.output).toBe(source.replace('catch /*', 'catch (_error) /*'))
+    const [again] = await fixer.lintText(fixed.output!, { filePath: 'storage.ts' })
+    expect(again.messages).toEqual([])
+    expect(again.output).toBeUndefined()
+  })
+
   it('allows both standard Express Request augmentations', async () => {
     const [result] = await eslint.lintText(
       [
