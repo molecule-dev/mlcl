@@ -3287,6 +3287,7 @@
         "browserProbeOverBudgetAdvice",
         "CommandSegment",
         "durationSeconds",
+        "endsInBackground",
         "commandSegments",
         "LocatedCommandSegment",
         "locatedCommandSegments",
