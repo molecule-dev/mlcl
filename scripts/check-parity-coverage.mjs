@@ -83,7 +83,11 @@ function routeCovered(route) {
 const uncovered = [...routes].filter((r) => !routeCovered(r)).sort()
 
 // ── 4. Report ────────────────────────────────────────────────────────────────
-const gaps = paritySrc.split('\n').filter((l) => l.includes('| gap |') || l.includes('⬜')).length
+const gaps = paritySrc
+  .split('\n')
+  .filter(
+    (line) => line.startsWith('|') && (line.includes('| gap |') || line.includes('⬜')),
+  ).length
 
 console.log(`platform routes: ${routes.size}`)
 console.log(`decisions in PARITY.md: ${decisions.length} fragments`)
