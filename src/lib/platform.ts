@@ -445,12 +445,30 @@ export interface SandboxStatus {
   [k: string]: unknown
 }
 
+/**
+ * How long the CLI waits for `sandbox start` / `sandbox restart`. Unlike a
+ * read or a stop, the platform answers these two only once the sandbox has
+ * booted, and it gives one boot up to `SANDBOX_START_DEADLINE_MS` of work
+ * (5 minutes by default on the server). The generic 30 s request budget
+ * aborted valid cold boots while they were still running. Twice the server's
+ * own deadline lets the platform's answer — or its own deadline error — arrive
+ * before the client gives up, while keeping the wait bounded.
+ */
+export const SANDBOX_LIFECYCLE_TIMEOUT_MS = 10 * 60_000
+
 export function sandboxAction(
   projectId: string,
   action: 'start' | 'stop' | 'restart',
   token?: string,
 ): Promise<SandboxStatus> {
-  return request(`/projects/${projectId}/sandbox/${action}`, { method: 'POST', body: {}, token })
+  return request(`/projects/${projectId}/sandbox/${action}`, {
+    method: 'POST',
+    body: {},
+    token,
+    // Only the booting actions hold the request open; a stop answers at once
+    // and keeps the short default budget.
+    ...(action === 'stop' ? {} : { timeoutMs: SANDBOX_LIFECYCLE_TIMEOUT_MS }),
+  })
 }
 
 export function getSandboxStatus(projectId: string, token?: string): Promise<SandboxStatus> {
