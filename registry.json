@@ -3289,6 +3289,8 @@
         "durationSeconds",
         "endsInBackground",
         "commandSegments",
+        "ExecutedCommand",
+        "executedCommands",
         "LocatedCommandSegment",
         "locatedCommandSegments",
         "statementArgumentEnd",
