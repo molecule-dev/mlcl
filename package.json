@@ -260,7 +260,7 @@
     "@molecule/app-analytics": "1.0.2",
     "@molecule/app-analytics-posthog": "1.0.2",
     "@molecule/app-analytics-react": "1.0.2",
-    "@molecule/app-auth": "1.5.7",
+    "@molecule/app-auth": "1.5.8",
     "@molecule/app-auth-shell-react": "1.0.4",
     "@molecule/app-billing-react": "1.0.4",
     "@molecule/app-bond": "1.0.3",
