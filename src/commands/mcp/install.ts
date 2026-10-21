@@ -239,11 +239,7 @@ export default class McpInstall extends Command {
       this.log(
         ui.check(`Registered with ${ui.id(cli.bin)} (${stdout.trim().split('\n').pop() || 'ok'})`),
       )
-      this.log(
-        ui.dim(
-          '\nVerify inside the harness (e.g. /mcp) — tools appear once molecule-mcp publishes.',
-        ),
-      )
+      this.log(ui.dim('\nVerify the connection inside the harness (e.g. /mcp).'))
       return
     }
 
@@ -265,8 +261,6 @@ export default class McpInstall extends Command {
         ? ui.ok(`Already registered → ${path}`)
         : `${ui.check(result === 'created' ? 'Wrote' : 'Updated')} ${ui.id(path)} ${ui.dim('(molecule server added)')}`,
     )
-    this.log(
-      ui.dim('\nRestart the harness to pick it up — tools appear once molecule-mcp publishes.'),
-    )
+    this.log(ui.dim('\nRestart the harness to load the Molecule tools.'))
   }
 }
