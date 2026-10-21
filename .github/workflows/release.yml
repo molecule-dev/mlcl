@@ -1,25 +1,10 @@
 name: Release
+run-name: 'Release (${{ inputs.requester }})'
 
-# Hold lifted 2026-10-13 (owner): the repo is public and v2 ships. First
-# release of a package npm has never seen (molecule-mcp ships with mlcl v2,
-# so `npx mlcl mcp install` resolves the moment v2 is out):
-#
-#   1. molecule-mcp's FIRST version, from the owner's shell: `npm run trust:new`
-#      (scripts/trust-new-packages.mjs). npm's trust endpoint needs the package
-#      to exist (a new name answers 404), so it publishes the first version with
-#      the owner's npm login + 2FA code, then trusts this workflow — the same as
-#      molecule's trust:new. Every later molecule-mcp version publishes from CI.
-#   2. mlcl v2 (its trust link exists: github / release.yml / molecule-dev/mlcl):
-#        gh workflow run release.yml -R molecule-dev/mlcl -f mcp_publish=false
-#      mcp_publish=false while molecule-mcp's version is the one step 1 published.
-#
-# Pre-flight at hold-lift (2026-10-13): mlcl@2.1.0 and molecule-mcp@0.2.0 packed,
-# installed clean outside the workspace, scaffold/build/test/deploy all green.
-#
 # PUBLISH-ONLY — publishes mlcl (and molecule-mcp if staged) via CI, never from
-# a laptop. Versioning is a LOCAL step (bump package.json + commit + push).
-# Then dispatch this workflow: it builds, runs the full gate suite, and
-# publishes what package.json declares and npm is missing.
+# a laptop. Version package.json and commit before using the guarded workspace
+# release runner's publish-mlcl stage. It verifies the exact version on npm,
+# dispatches with a requester identity and commit, and watches only that run.
 #
 # Gates that MUST pass before publish (in order):
 #   1. npm run build (TypeScript compiles clean)
@@ -36,6 +21,14 @@ name: Release
 on:
   workflow_dispatch:
     inputs:
+      requester:
+        description: 'Identity of the guarded release invocation'
+        required: true
+        type: string
+      expected_sha:
+        description: 'Full commit SHA authorized for publication'
+        required: true
+        type: string
       mcp_publish:
         description: 'Also publish molecule-mcp (flips its private flag in this run only)'
         required: false
@@ -53,6 +46,15 @@ jobs:
       contents: read
       id-token: write # npm provenance (signed attestations)
     steps:
+      - name: Verify publication commit
+        env:
+          EXPECTED_SHA: ${{ inputs.expected_sha }}
+        run: |
+          if [[ ! "$EXPECTED_SHA" =~ ^[0-9a-f]{40}$ || "$GITHUB_SHA" != "$EXPECTED_SHA" ]]; then
+            echo "::error::The release ref does not match the authorized publication commit."
+            exit 1
+          fi
+
       - name: Assert an npm auth path exists
         env:
           OIDC_ON: ${{ vars.NPM_TRUSTED_PUBLISHING }}
