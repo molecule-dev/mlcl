@@ -101,7 +101,7 @@ const FRAMEWORK_DEPS: Record<
 
 /** Shared devDependencies for all frameworks */
 const SHARED_DEV_DEPS: Record<string, string> = {
-  vite: '7.3.1',
+  vite: '7.3.7',
   tailwindcss: '4.1.18',
   '@tailwindcss/vite': '4.1.18',
   typescript: '5.9.3',
