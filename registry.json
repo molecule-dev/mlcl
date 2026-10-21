@@ -29703,6 +29703,7 @@
         "AuthState",
         "AuthEvent",
         "AuthEventListener",
+        "AuthError",
         "AuthSessionSeed",
         "AuthClient",
         "StorageAdapter",
