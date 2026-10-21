@@ -29698,6 +29698,7 @@
         "getTokenExpiration",
         "UserProfile",
         "LoginCredentials",
+        "RegisterExtraShape",
         "RegisterData",
         "AuthResult",
         "PasswordResetRequest",
