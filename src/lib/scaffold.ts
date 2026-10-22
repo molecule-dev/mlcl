@@ -7044,7 +7044,7 @@ export async function createStatusPageEdgeProject(
         '@cloudflare/workers-types': '5.20260730.1',
         '@molecule/api-monitoring': getMoleculeVersion('@molecule/api-monitoring'),
         typescript: toolchain.shared.typescript || '6.0.3',
-        vitest: toolchain.api.vitest || '4.1.11',
+        vitest: toolchain.api.vitest || '4.1.12',
         wrangler: '4.115.0',
       },
     }
