@@ -16,7 +16,10 @@
  *         e.g. from molecule's pre-commit hook with the staged package dirs.
  *   node scripts/regen-molecule-docs.mjs --changed
  *       → regenerate every package with uncommitted (staged, unstaged, or
- *         untracked) changes under its src/ or to its package.json.
+ *         untracked) changes under its src/ or to its package.json. A dirty
+ *         manifest selects its package only when the edit can change a
+ *         generation input (see doc-inputs.ts) — a test-tool pin
+ *         cannot, so a fleet-wide vitest bump does not regenerate the fleet.
  *   ... --check
  *       → write nothing; exit 1 if anything would change (verification).
  *
@@ -47,6 +50,7 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import { manifestChangeAffectsDocs } from '../src/lib/doc-inputs.js'
 import { stripGeneratedTimestamp } from '../src/lib/docs-generator.js'
 import { companionLocaleFor, discoverReexporters, generateDocs } from '../src/lib/docs-sync.js'
 import { getRawRegistry } from '../src/lib/registry.js'
@@ -99,7 +103,28 @@ if (useChanged) {
     const rest = line.slice(3)
     const file = rest.includes(' -> ') ? rest.split(' -> ').pop() : rest
     const dir = packageDirOf(file)
-    if (dir) scopePaths.add(dir)
+    if (!dir) continue
+    // A dirty manifest selects its package only when the edit can change a
+    // generation input. A test-tool pin cannot, and this is the dirty-tree
+    // consumer — `sync-docs:changed` — so a fleet-wide vitest bump must not
+    // regenerate the fleet. The comparison is worktree-against-HEAD BY DESIGN
+    // here: uncommitted work is exactly what --changed exists to see. Any
+    // unreadable side (added/deleted package) stays in scope.
+    if (file.endsWith('/package.json')) {
+      let before
+      try {
+        before = execFileSync('git', ['-C', moleculeDir, 'show', `HEAD:${file}`], {
+          encoding: 'utf8',
+          stdio: ['ignore', 'pipe', 'ignore'],
+        })
+      } catch (_error) {
+        before = null
+      }
+      const afterPath = join(moleculeDir, file)
+      const after = existsSync(afterPath) ? readFileSync(afterPath, 'utf8') : null
+      if (!manifestChangeAffectsDocs(before, after)) continue
+    }
+    scopePaths.add(dir)
   }
 } else {
   scopePaths = new Set(pathArgs)
