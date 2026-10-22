@@ -58,27 +58,37 @@ const TEST_TOOL_SCOPE = '@vitest/'
  *
  * @param raw - A package.json document.
  * @returns The canonical projection string.
- * @throws When `raw` is not valid JSON.
+ * @throws When `raw` is not a JSON object, or its `devDependencies` is not an
+ *   object — a shape this predicate cannot reason about, so the caller keeps
+ *   the package in scope.
  */
 function docInputProjection(raw: string): string {
-  const manifest = JSON.parse(raw) as Record<string, unknown>
+  const parsed: unknown = JSON.parse(raw)
+  if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new TypeError('package.json must be a JSON object')
+  }
+  const manifest = parsed as Record<string, unknown>
   const devDependencies = manifest.devDependencies
 
-  let relevantDevDependencies: Record<string, unknown> = {}
+  // A malformed devDependencies is not provably inert: refuse to reason about
+  // the manifest at all rather than comparing a shape the generator could not
+  // have produced. The predicate catches this and keeps the package in scope.
   if (
-    devDependencies !== null &&
-    typeof devDependencies === 'object' &&
     devDependencies !== undefined &&
-    !Array.isArray(devDependencies)
+    (devDependencies === null ||
+      typeof devDependencies !== 'object' ||
+      Array.isArray(devDependencies))
   ) {
+    throw new TypeError('devDependencies must be a JSON object')
+  }
+
+  let relevantDevDependencies: Record<string, unknown> = {}
+  if (devDependencies !== undefined) {
     relevantDevDependencies = Object.fromEntries(
       Object.entries(devDependencies as Record<string, unknown>).filter(
         ([name]) => !TEST_TOOL_DEPENDENCIES.has(name) && !name.startsWith(TEST_TOOL_SCOPE),
       ),
     )
-  } else if (devDependencies !== undefined) {
-    // Not an object: leave it untouched so a malformed value is never assumed inert.
-    return JSON.stringify(manifest)
   }
 
   // Delete before assigning so the key always lands in the SAME position whether
@@ -138,10 +148,14 @@ const NON_DOC_REGISTRY_SECTIONS = ['toolchain', 'moleculeVersions']
  *
  * @param raw - A registry.json document.
  * @returns The canonical projection string.
- * @throws When `raw` is not valid JSON.
+ * @throws When `raw` is not a JSON object.
  */
 function registryProjection(raw: string): string {
-  const registry = JSON.parse(raw) as Record<string, unknown>
+  const parsed: unknown = JSON.parse(raw)
+  if (parsed === null || typeof parsed !== 'object' || Array.isArray(parsed)) {
+    throw new TypeError('registry.json must be a JSON object')
+  }
+  const registry = parsed as Record<string, unknown>
   for (const section of NON_DOC_REGISTRY_SECTIONS) delete registry[section]
   return JSON.stringify(registry)
 }

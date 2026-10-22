@@ -82,6 +82,10 @@ function readBlob(rev, path) {
   try {
     return execFileSync('git', ['-C', repo, 'show', `${rev}:${path}`], {
       encoding: 'utf8',
+      // registry.json is ~1.6 MB; execFileSync's default 1 MB cap raised
+      // ENOBUFS and made every comparison read as unreadable (the safe
+      // direction, but it forced a full docs check on every pin bump).
+      maxBuffer: 64 * 1024 * 1024,
       stdio: ['ignore', 'pipe', 'ignore'],
     })
   } catch (_error) {
