@@ -9,10 +9,11 @@
  */
 
 import { existsSync, readFileSync } from 'node:fs'
-import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, rm, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
+import { Project } from 'ts-morph'
 import { afterAll, describe, expect, it } from 'vitest'
 
 import { resolvePackageDirectory } from '../scaffold.js'
@@ -607,6 +608,149 @@ describe('export scanning', () => {
     expect(exports).toContain('helper') // from the .ts (unchanged)
     expect(exports).not.toContain('*') // everything resolved — no placeholder
   })
+
+  it('resolves nested barrels, cycles, type aliases and namespaces using public export semantics', async () => {
+    const dir = await createTempDir('nested-exports')
+    await mkdir(join(dir, 'hooks'))
+    await writeFile(join(dir, 'index.ts'), `export * from './hooks/index.js'`)
+    await writeFile(
+      join(dir, 'hooks/index.ts'),
+      `export * from './values.js'
+export type { Shape as PublicShape } from './values.js'
+export * as helpers from './values.js'
+export * from '../index.js'`,
+    )
+    await writeFile(
+      join(dir, 'hooks/values.ts'),
+      `// export const phantomComment = 1
+const text = 'export function phantomString() {}'
+export const { value: renamed } = { value: 1 }, second = 2
+export let mutable = 3
+export async function useValue() { return text }
+export interface Shape { value: number }
+export namespace PublicNamespace { export const privateMember = 1 }
+export default function hiddenDefault() {}`,
+    )
+    expect((await scanExports(dir)).sort()).toEqual(
+      [
+        'PublicNamespace',
+        'PublicShape',
+        'Shape',
+        'helpers',
+        'mutable',
+        'renamed',
+        'second',
+        'useValue',
+      ].sort(),
+    )
+  })
+
+  it('resolves extensionless directory barrels and type-only stars through TSX', async () => {
+    const dir = await createTempDir('directory-exports')
+    await mkdir(join(dir, 'views'))
+    await writeFile(join(dir, 'index.ts'), `export * from './views'`)
+    await writeFile(join(dir, 'views/index.ts'), `export type * from './Widget.js'`)
+    await writeFile(join(dir, 'views/Widget.tsx'), `export interface WidgetProps { title: string }`)
+    expect(await scanExports(dir)).toEqual(['WidgetProps'])
+  })
+
+  it('excludes ambient members, comments and export-shaped strings from the module surface', async () => {
+    const dir = await createTempDir('public-scope-exports')
+    await writeFile(
+      join(dir, 'index.ts'),
+      `/** export const commentOnly = 1 */
+const note = 'export function stringOnly() {}'
+declare global { namespace NodeJS { export interface ProcessEnv { NAME: string } } }
+export const actual = note
+export namespace helpers { export const nestedOnly = 1 }`,
+    )
+    expect((await scanExports(dir)).sort()).toEqual(['actual', 'helpers'])
+  })
+
+  it('marks nested unresolved and external stars unknown without reading dependency exports', async () => {
+    const dir = await createTempDir('unknown-nested-exports')
+    await mkdir(join(dir, 'nested'))
+    await mkdir(join(dir, 'node_modules/external'), { recursive: true })
+    await writeFile(join(dir, 'node_modules/external/index.d.ts'), `export const dependencyOnly: 1`)
+    await writeFile(join(dir, 'index.ts'), `export * from './nested/index.js'`)
+    await writeFile(
+      join(dir, 'nested/index.ts'),
+      `export const known = 1
+export * from './missing.js'
+export * from 'external'
+export * as namespaceOnly from 'external'
+export type { ExternalType as KnownAlias } from 'external'`,
+    )
+    expect((await scanExports(dir)).sort()).toEqual(['*', 'KnownAlias', 'known', 'namespaceOnly'])
+  })
+
+  it('does not follow a star outside the scanned source directory', async () => {
+    const dir = await createTempDir('outside-exports')
+    await mkdir(join(dir, 'src'))
+    await writeFile(join(dir, 'outside.ts'), `export const outside = 1`)
+    await writeFile(
+      join(dir, 'src/index.ts'),
+      `export const inside = 1; export * from '../outside.js'`,
+    )
+    expect((await scanExports(join(dir, 'src'))).sort()).toEqual(['*', 'inside'])
+  })
+
+  it('does not read a symlinked dependency outside the source boundary', async () => {
+    const dir = await createTempDir('symlink-exports')
+    await mkdir(join(dir, 'src'))
+    await writeFile(join(dir, 'outside.ts'), `export const outside = 1`)
+    await symlink(join(dir, 'outside.ts'), join(dir, 'src/linked.ts'))
+    await writeFile(join(dir, 'src/index.ts'), `export * from './linked.js'`)
+    expect(await scanExports(join(dir, 'src'))).toEqual(['*'])
+  })
+
+  it('does not parse an entry larger than the source byte budget', async () => {
+    const dir = await createTempDir('oversized-exports')
+    await writeFile(
+      join(dir, 'index.ts'),
+      `export const before = 1; /*${' '.repeat(8 * 1024 * 1024)}*/`,
+    )
+    expect(await scanExports(dir)).toEqual(['*'])
+  })
+
+  it('marks a bounded source graph incomplete instead of silently dropping remaining exports', async () => {
+    const dir = await createTempDir('bounded-exports')
+    await writeFile(
+      join(dir, 'index.ts'),
+      Array.from({ length: 260 }, (_, i) => `export * from './part${i}.js'`).join('\n'),
+    )
+    await Promise.all(
+      Array.from({ length: 260 }, (_, i) =>
+        writeFile(join(dir, `part${i}.ts`), `export const part${i} = ${i}`),
+      ),
+    )
+    const names = await scanExports(dir)
+    expect(names).toContain('*')
+    expect(names).toContain('part0')
+    expect(names).not.toContain('part259')
+  })
+
+  for (const framework of ['react', 'vue']) {
+    itWithSibling(
+      `matches the compiler's complete public exports for the real ${framework} framework`,
+      async () => {
+        const dir = join(PACKAGES_ROOT, 'app/frameworks', framework, 'src')
+        const project = new Project({
+          skipAddingFilesFromTsConfig: true,
+          compilerOptions: { noLib: true, types: [] },
+        })
+        project.addSourceFilesAtPaths(join(dir, '**/*.{ts,tsx}'))
+        const expected = [
+          ...project.getSourceFileOrThrow(join(dir, 'index.ts')).getExportedDeclarations().keys(),
+        ]
+        const scanned = await scanExports(dir)
+        expect(scanned.sort()).toEqual(expected.filter((name) => name !== 'default').sort())
+        expect(scanned).toContain('useAuth')
+        expect(scanned).toContain('useHttp')
+        expect(scanned).not.toContain('*')
+      },
+    )
+  }
 })
 
 // ============================================================================

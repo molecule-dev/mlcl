@@ -11,8 +11,11 @@
  * @module
  */
 
+import { readFileSync, realpathSync, statSync } from 'node:fs'
 import { access, readdir, readFile } from 'node:fs/promises'
-import { basename, dirname, join } from 'node:path'
+import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path'
+
+import { ts } from 'ts-morph'
 
 import { getRawRegistry } from './registry.js'
 import type { InferredPackage, InferredTable, PackageType } from './schema.js'
@@ -423,93 +426,138 @@ export async function scanForTables(packagePath: string): Promise<InferredTable[
 }
 
 /**
- * Strip block and line comments so the export regexes below never match text
- * inside JSDoc/comments (e.g. a module `@remarks` line reading "the export
- * function is `auditExport`" scans as `export function is` otherwise, and any
- * `export const …` inside an `@example` block becomes a phantom export).
- * Regex-level stripping is adequate here: these files are our own generated
- * barrel/module sources, not arbitrary code with comment-lookalike strings.
+ * Strip comments for the generated hook-category metadata scan below.
+ * Public exports use the TypeScript compiler, not this textual approximation.
  */
 function stripComments(source: string): string {
   return source.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^[ \t]*\/\/.*$/gm, '')
 }
 
 /**
- * Scan index.ts for named exports
+ * Read the public named exports of index.ts using TypeScript's module checker.
+ *
+ * Only this source directory participates: dependencies, sibling packages and
+ * ambient libraries are not loaded. The compiler owns barrel recursion, cycles,
+ * aliases, type-only exports and TSX resolution. A public star whose source is
+ * unavailable remains `*` (unknown), including when the 256-file/8-MiB budget is
+ * exhausted. No source is executed and no package build is required.
  */
 export async function scanExports(srcPath: string): Promise<string[]> {
-  const exports: string[] = []
-
+  let root: string
   try {
-    const indexPath = join(srcPath, 'index.ts')
-    const content = stripComments(await readFile(indexPath, 'utf-8'))
-
-    // Match: export { foo, bar } from './module' or export { X as Y }
-    const reExports = content.matchAll(/export\s*\{([^}]+)\}/g)
-    for (const match of reExports) {
-      exports.push(...namedExportSpecifiers(match[1]))
-    }
-
-    // Match: export const foo = ... / export async function bar = ...
-    const constExports = content.matchAll(
-      /export\s+(?:async\s+)?(?:const|function|class|interface|type|enum)\s+(\w+)/g,
-    )
-    for (const match of constExports) {
-      exports.push(match[1])
-    }
-
-    // Match: export * as name from './module' — namespace re-exports
-    const namespaceReExports = content.matchAll(/export\s+\*\s+as\s+(\w+)\s+from\s+['"][^'"]+['"]/g)
-    for (const match of namespaceReExports) {
-      exports.push(match[1])
-    }
-
-    // Match: export * from './module' — follow re-exports to find concrete names
-    const starReExports = content.matchAll(/export\s+\*\s+from\s+['"]([^'"]+)['"]/g)
-    for (const match of starReExports) {
-      const modulePath = match[1]
-      if (modulePath.startsWith('.')) {
-        // Resolve the relative module to its source, trying .ts THEN .tsx. Component
-        // packages (app/features/*) re-export their public API from .tsx files
-        // (`export * from './Foo.js'` → Foo.tsx); resolving only .ts left those exports
-        // unscanned and the package showed a bare '*' (the same gap api-extractor.ts
-        // fixed for sync-docs by globbing .{ts,tsx}).
-        const base = join(dirname(indexPath), modulePath.replace(/\.js$/, ''))
-        let moduleContent: string | null = null
-        for (const ext of ['.ts', '.tsx']) {
-          try {
-            moduleContent = stripComments(await readFile(base + ext, 'utf-8'))
-            break
-          } catch (_error) {
-            // Not this extension — try the next.
-          }
-        }
-        if (moduleContent === null) {
-          // Genuinely unresolvable re-export; '*' signals "has exports we couldn't scan".
-          exports.push('*')
-          continue
-        }
-        // Named declarations: export [async] const/function/class/interface/type/enum Name
-        const moduleConstExports = moduleContent.matchAll(
-          /export\s+(?:async\s+)?(?:const|function|class|interface|type|enum)\s+(\w+)/g,
-        )
-        for (const m of moduleConstExports) {
-          exports.push(m[1])
-        }
-        // Named re-exports: export { X as Y } or export { X }
-        const moduleNamedExports = moduleContent.matchAll(/export\s*\{([^}]+)\}/g)
-        for (const m of moduleNamedExports) {
-          exports.push(...namedExportSpecifiers(m[1]))
-        }
-      } else {
-        exports.push('*')
-      }
-    }
+    root = realpathSync(resolve(srcPath))
   } catch (_error) {
-    // Safe to ignore: index.ts is optional; exports default to []
+    // Optional source directory is absent/unreadable; there is no entry to scan.
+    return []
   }
-
-  return [...new Set(exports)] // Dedupe
+  const inside = (path: string): boolean => {
+    const rel = relative(root, path)
+    return rel !== '..' && !rel.startsWith(`..${sep}`) && !isAbsolute(rel)
+  }
+  const localPath = (path: string): string | undefined => {
+    if (!inside(resolve(path))) return undefined
+    try {
+      const canonical = realpathSync(path)
+      return inside(canonical) ? canonical : undefined
+    } catch (_error) {
+      // Missing optional module candidate; TypeScript tries its other candidates.
+      return undefined
+    }
+  }
+  const texts = new Map<string, string | undefined>()
+  let bytes = 0
+  let files = 0
+  let limited = false
+  const readSource = (path: string): string | undefined => {
+    const canonical = localPath(path)
+    if (!canonical) return undefined
+    if (texts.has(canonical)) return texts.get(canonical)
+    let text: string | undefined
+    try {
+      const size = statSync(canonical).size
+      if (files >= 256 || bytes + size > 8 * 1024 * 1024) limited = true
+      else {
+        text = readFileSync(canonical, 'utf8')
+        files++
+        bytes += size
+      }
+    } catch (_error) {
+      // Unreadable module is unavailable; public star traversal reports unknown.
+    }
+    texts.set(canonical, text)
+    return text
+  }
+  const indexPath = join(root, 'index.ts')
+  if (readSource(indexPath) === undefined) return limited ? ['*'] : []
+  const options: ts.CompilerOptions = {
+    target: ts.ScriptTarget.ESNext,
+    module: ts.ModuleKind.ESNext,
+    moduleResolution: ts.ModuleResolutionKind.Bundler,
+    jsx: ts.JsxEmit.Preserve,
+    noLib: true,
+    types: [],
+  }
+  const host = ts.createCompilerHost(options)
+  host.readFile = readSource
+  host.fileExists = (path) => {
+    const canonical = localPath(path)
+    return canonical !== undefined && ts.sys.fileExists(canonical)
+  }
+  host.directoryExists = (path) => {
+    const canonical = localPath(path)
+    return canonical !== undefined && ts.sys.directoryExists(canonical)
+  }
+  host.getSourceFile = (path, languageVersion) => {
+    const text = readSource(path)
+    return text === undefined ? undefined : ts.createSourceFile(path, text, languageVersion, true)
+  }
+  const modules = new Map<string, ts.ResolvedModuleFull | undefined>()
+  const resolveModule = (name: string, from: string): ts.ResolvedModuleFull | undefined => {
+    const key = `${from}\0${name}`
+    if (!modules.has(key)) {
+      // Explicit named external exports stay named; external stars stay unknown.
+      const resolved = name.startsWith('.')
+        ? ts.resolveModuleName(name, from, options, host).resolvedModule
+        : undefined
+      const canonical = resolved && localPath(resolved.resolvedFileName)
+      modules.set(
+        key,
+        resolved && canonical ? { ...resolved, resolvedFileName: canonical } : undefined,
+      )
+    }
+    return modules.get(key)
+  }
+  host.resolveModuleNames = (names, from) => names.map((name) => resolveModule(name, from))
+  const program = ts.createProgram([indexPath], options, host)
+  const checker = program.getTypeChecker()
+  const entry = program.getSourceFile(indexPath)!
+  const symbol = checker.getSymbolAtLocation(entry)
+  const names = new Set(
+    symbol ? checker.getExportsOfModule(symbol).map((item) => item.getName()) : [],
+  )
+  names.delete('default') // Star exports never expose another module's default.
+  const visited = new Set<ts.SourceFile>()
+  const pending = [entry]
+  while (pending.length) {
+    const file = pending.pop()!
+    if (visited.has(file)) continue
+    visited.add(file)
+    for (const statement of file.statements) {
+      if (
+        !ts.isExportDeclaration(statement) ||
+        statement.exportClause ||
+        !statement.moduleSpecifier ||
+        !ts.isStringLiteral(statement.moduleSpecifier)
+      )
+        continue
+      const resolved = resolveModule(statement.moduleSpecifier.text, file.fileName)
+      const source = resolved && program.getSourceFile(resolved.resolvedFileName)
+      if (source) pending.push(source)
+      else names.add('*')
+    }
+  }
+  if (limited) names.add('*')
+  return [...names]
 }
 
 /**
@@ -937,23 +985,4 @@ export async function findMoleculePackages(packagesDir: string): Promise<string[
 
   await scan(packagesDir)
   return packages
-}
-
-/**
- * The exported names in an `export { … }` specifier list: the alias when one
- * is given, and never the inline `type` modifier (`export { a, type B as C }`
- * exports `a` and `C`). A bare `type` token used to be recorded as part of the
- * name and then emitted verbatim into generated code.
- */
-function namedExportSpecifiers(list: string): string[] {
-  return list
-    .split(',')
-    .map((n) => {
-      const parts = n
-        .trim()
-        .replace(/^type\s+/, '')
-        .split(/\s+as\s+/)
-      return (parts[1] ?? parts[0]).trim()
-    })
-    .filter((n) => n && !n.startsWith('*'))
 }
