@@ -620,9 +620,14 @@ export default class Create extends Command {
     }
     const spinner = nonInteractive ? null : p.spinner()
 
+    // This caller creates the configured Vite index.html below. Svelte's
+    // app.html and non-Vite callers retain the static-copy asset contract.
+    const fontFramework = framework ? loadAppFrameworks()[framework] : undefined
+    const fontAssetMode =
+      fontFramework?.vitePlugin && !fontFramework.htmlTemplate ? 'module' : 'copy'
     // Generate font HTML (local @font-face styles or CDN links) from package metadata
     const fontResult = framework
-      ? generateFontHtml(selectedPackageNames, allPackages)
+      ? generateFontHtml(selectedPackageNames, allPackages, fontAssetMode)
       : { html: '', fontFiles: [] }
     const fontLinks = fontResult.html
 
@@ -762,6 +767,7 @@ export default class Create extends Command {
         buildTooling,
         'express',
         npmOverrides,
+        fontAssetMode,
       )
     } else if (isStatic) {
       await createStaticProject(
@@ -773,6 +779,7 @@ export default class Create extends Command {
         uniquePackages,
         buildTooling,
         npmOverrides,
+        fontAssetMode,
       )
     } else if (projectType === 'app') {
       await createAppProject(
@@ -785,6 +792,7 @@ export default class Create extends Command {
         uniquePackages,
         buildTooling,
         npmOverrides,
+        fontAssetMode,
       )
     } else {
       await createApiProject(projectPath, projectName, 'express', npmOverrides)

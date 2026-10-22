@@ -3580,6 +3580,8 @@ export function collectNpmOverrides(
  *
  * Generates a root monorepo package.json with npm workspaces,
  * then scaffolds both the API and App sub-projects.
+ * `fontAssetMode` defaults to legacy copying. A caller generating Vite
+ * index.html may explicitly select module URLs, persisted for later sync.
  */
 export async function createFullStackProject(
   projectPath: string,
@@ -3591,6 +3593,7 @@ export async function createFullStackProject(
   buildTooling?: BuildTooling,
   apiFramework: string = 'express',
   npmOverrides: Record<string, string> = {},
+  fontAssetMode: 'copy' | 'module' = 'copy',
 ): Promise<void> {
   await mkdir(projectPath, { recursive: true })
   mlclDebug(`[scaffold] createFullStackProject: ${projectPath}`)
@@ -3642,6 +3645,8 @@ export async function createFullStackProject(
     extraVars,
     selectedPackages,
     buildTooling,
+    {},
+    fontAssetMode,
   )
 
   // Now that app/src/branding.ts exists, derive the root package.json description
@@ -3707,6 +3712,7 @@ const STATIC_SITE_DROPPED_DEV_DEPS = [
  * @param selectedPackages - Selected `@molecule/*` packages (app stack).
  * @param buildTooling - Styling build tooling (Tailwind) from the registry.
  * @param npmOverrides - Root-level npm `overrides` required by selected bonds.
+ * @param fontAssetMode - Caller-declared font asset handling; module URLs require a Vite index.html.
  */
 export async function createStaticProject(
   projectPath: string,
@@ -3717,6 +3723,7 @@ export async function createStaticProject(
   selectedPackages: string[] = [],
   buildTooling?: BuildTooling,
   npmOverrides: Record<string, string> = {},
+  fontAssetMode: 'copy' | 'module' = 'copy',
 ): Promise<void> {
   if (framework !== 'react') {
     throw new Error(`static projects support the react framework only (got "${framework}")`)
@@ -3756,6 +3763,8 @@ export async function createStaticProject(
     extraVars,
     selectedPackages,
     buildTooling,
+    {},
+    fontAssetMode,
   )
   await applyStaticSiteOverlay(appPath, projectName, extraVars, buildTooling)
   await syncIdentityFromBranding(projectPath, projectName)
@@ -4573,6 +4582,9 @@ export function buildExtraUiSourceScans(selectedPackages: string[], nmPrefix: st
 
 /**
  * Create an App project skeleton (Vite frontend).
+ *
+ * `fontAssetMode` is caller-declared: the default preserves public font copies;
+ * module mode requires Vite index.html and persists that choice for asset sync.
  */
 export async function createAppProject(
   projectPath: string,
@@ -4584,6 +4596,7 @@ export async function createAppProject(
   selectedPackages: string[] = [],
   buildTooling?: BuildTooling,
   npmOverrides: Record<string, string> = {},
+  fontAssetMode: 'copy' | 'module' = 'copy',
 ): Promise<void> {
   mlclDebug(`[scaffold] createAppProject: ${projectPath} (framework: ${framework})`)
 
@@ -4591,6 +4604,9 @@ export async function createAppProject(
   // there uses the platform WebSocket, not the Node-only `ws` package, so npm
   // `overrides` for `ws` are inapplicable — not forwarded to the RN scaffolder.
   if (framework === 'react-native') {
+    if (fontAssetMode === 'module') {
+      throw new Error('Module font assets require a caller-configured Vite index.html project')
+    }
     await createReactNativeAppProject(
       projectPath,
       projectName,
@@ -4604,6 +4620,9 @@ export async function createAppProject(
   // Framework-specific config from registry
   const appFrameworks = loadAppFrameworks()
   const fwConfig = appFrameworks[framework] ?? { dependencies: {}, devDependencies: {} }
+  if (fontAssetMode === 'module' && (!fwConfig.vitePlugin || fwConfig.htmlTemplate)) {
+    throw new Error('Module font assets require a caller-configured Vite index.html project')
+  }
   const toolchain = loadToolchain()
 
   // Framework-specific paths derived from registry config
@@ -4735,6 +4754,9 @@ export async function createAppProject(
     molecule: {
       projectType: 'app',
       framework,
+      // Persist the caller's asset contract; inject/swap must not infer it from
+      // framework dependencies or recreate public copies on a later sync.
+      ...(fontAssetMode === 'module' ? { fontAssetMode } : {}),
     },
   }
 
@@ -5150,10 +5172,26 @@ const ICON_GATE_CSS = `      /* mol:icon-gate — icons stay invisible from FIRS
       }
 `
 
+/**
+ * Render first-paint font markup and the files the caller must copy.
+ *
+ * Module mode is for a caller-known Vite index.html pipeline: package font
+ * exports are resolved by Vite and shared with runtime font imports, so the
+ * returned copy list is empty. Other callers keep the default public paths.
+ *
+ * @param selectedPackageNames - Selected font providers.
+ * @param allPackages - Available package metadata.
+ * @param fontAssetMode - Explicit module assets or legacy public copying.
+ * @returns Font markup and any required public font copies.
+ */
 export function generateFontHtml(
   selectedPackageNames: string[],
   allPackages: InferredPackage[],
+  fontAssetMode: 'copy' | 'module' = 'copy',
 ): { html: string; fontFiles: FontFileToCopy[] } {
+  if (fontAssetMode !== 'copy' && fontAssetMode !== 'module') {
+    throw new Error('Font asset mode must be copy or module')
+  }
   // Find font providers with font metadata
   const fontProviders = allPackages.filter(
     (p) => p.molecule?.category === 'fonts' && p.molecule?.type === 'provider' && p.molecule?.font,
@@ -5193,24 +5231,34 @@ export function generateFontHtml(
     // The values below are interpolated into index.html verbatim — the same
     // untrusted metadata the copy paths are containment-checked against (see
     // assertSafeFontMeta). Refused here, the scaffold fails naming the package.
-    assertSafeFontMeta(font, pkg.name)
+    assertSafeFontMeta(font, pkg.name, fontAssetMode)
     if (font.source === 'system') continue
 
     if (font.source === 'local' && font.faces) {
       for (const face of font.faces) {
-        if (face.file.endsWith('.woff2') && !font.utilityCss) preloadFaces.push(face.file)
-        fontFiles.push({
-          packageName: pkg.name,
-          fontsDir: font.fontsDir ?? 'fonts',
-          file: face.file,
-        })
+        const fileUrl =
+          fontAssetMode === 'module'
+            ? `${pkg.name}/${font.fontsDir ?? 'fonts'}/${face.file}`
+            : `/fonts/${face.file}`
+        // Vite resolves inline CSS asset URLs, but not bare package URLs in
+        // preload hrefs. Module mode relies on the first-paint face declaration
+        // instead of issuing a broken preload; legacy public preloads stay intact.
+        if (fontAssetMode === 'copy' && face.file.endsWith('.woff2') && !font.utilityCss)
+          preloadFaces.push(fileUrl)
+        if (fontAssetMode === 'copy') {
+          fontFiles.push({
+            packageName: pkg.name,
+            fontsDir: font.fontsDir ?? 'fonts',
+            file: face.file,
+          })
+        }
 
         const style = face.style ?? 'normal'
         const format = inferFontFormat(face.file)
         const localNames = deriveLocalNames(font.family, face.weight, face.variable)
         const srcParts = [
           ...localNames.map((n) => `local('${n}')`),
-          `url('/fonts/${face.file}')${format ? ` format('${format}')` : ''}`,
+          `url('${fileUrl}')${format ? ` format('${format}')` : ''}`,
         ]
 
         // Variable faces go inside @supports — need deeper indentation (8/10 vs 6/8)
@@ -5277,9 +5325,7 @@ export function generateFontHtml(
 
   // Local font style block
   for (const file of preloadFaces) {
-    lines.push(
-      `    <link rel="preload" href="/fonts/${file}" as="font" type="font/woff2" crossorigin />`,
-    )
+    lines.push(`    <link rel="preload" href="${file}" as="font" type="font/woff2" crossorigin />`)
   }
 
   if (staticFaces.length > 0 || variableFaces.length > 0 || utilityCssBlocks.length > 0) {
@@ -5374,6 +5420,8 @@ const FONT_META_SHAPES = {
   family: /^[A-Za-z0-9][A-Za-z0-9 _-]*$/,
   /** A font file name within `fontsDir` — no separators, no quotes, no markup. */
   faceFile: /^[A-Za-z0-9][A-Za-z0-9._,-]*$/,
+  /** An npm package name used as part of a module asset URL. */
+  packageName: /^(?:@[a-z0-9][a-z0-9._-]*\/)?[a-z0-9][a-z0-9._-]*$/i,
   /** A CSS font-weight: a number, a variable range like `100 1000`, or a keyword `deriveLocalNames` maps. */
   weight: /^(\d{1,4}( \d{1,4})?|normal|bold)$/,
   /** A CSS font-style. */
@@ -5394,18 +5442,21 @@ const FONT_META_SHAPES = {
  *
  * @param font - The `molecule.font` metadata being rendered.
  * @param packageName - The package the metadata came from, for the error.
+ * @param fontAssetMode - Module mode also validates the package asset path segments.
  * @throws When any value could break out of the markup it renders into.
  */
 export function assertSafeFontMeta(
   font: {
     family?: string
     source: string
+    fontsDir?: string
     faces?: Array<{ file: string; weight: number | string; style?: string; variable?: boolean }>
     url?: string
     preconnect?: string[]
     utilityCss?: string
   },
   packageName: string,
+  fontAssetMode: 'copy' | 'module' = 'copy',
 ): void {
   const refuse = (field: string, value: unknown): never => {
     throw new Error(
@@ -5415,6 +5466,10 @@ export function assertSafeFontMeta(
     )
   }
   if (font.source === 'system') return
+  if (fontAssetMode === 'module' && font.source === 'local') {
+    if (!FONT_META_SHAPES.packageName.test(packageName)) refuse('packageName', packageName)
+    if (!FONT_META_SHAPES.faceFile.test(font.fontsDir ?? 'fonts')) refuse('fontsDir', font.fontsDir)
+  }
   if (font.family !== undefined && !FONT_META_SHAPES.family.test(font.family))
     refuse('family', font.family)
   for (const face of font.faces ?? []) {
@@ -5512,6 +5567,10 @@ export async function copyFontFiles(
  * 1. Copies font files to `public/fonts/`
  * 2. Updates the font `<style>` block in index.html (or app.html for Svelte)
  *
+ * A project explicitly created with `molecule.fontAssetMode: 'module'` instead
+ * retains package asset URLs without copying or removing public files. Missing
+ * metadata preserves legacy copying; the framework alone never opts a project in.
+ *
  * This is intentionally generic — it reads metadata declared by packages
  * rather than hardcoding knowledge about any specific package. Adding a new
  * font provider to a project requires zero CLI code changes.
@@ -5537,7 +5596,11 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
   if (moleculeDeps.length === 0) return
 
   // Detect framework to determine static assets directory
-  const moleculeMeta = packageJson.molecule as { framework?: string } | undefined
+  const moleculeMeta = packageJson.molecule as
+    { framework?: string; fontAssetMode?: 'copy' | 'module' } | undefined
+  // Only an explicit creation/caller contract opts into module assets. Older
+  // projects and custom/Svelte HTML keep their existing static-copy behavior.
+  const fontAssetMode = moleculeMeta?.fontAssetMode === 'module' ? 'module' : 'copy'
   const framework = detectAppFramework(deps, moleculeMeta)
   const appFrameworks = loadAppFrameworks()
   const publicDir = (framework && appFrameworks[framework]?.publicDir) ?? 'public'
@@ -5627,7 +5690,7 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
   // produce a file (the font package absent from every node_modules candidate, an
   // unwritable target) left the project with that file GONE — public/fonts
   // emptied, the @font-face block still pointing at files that no longer exist.
-  if (fontFiles.length > 0) {
+  if (fontFiles.length > 0 && fontAssetMode === 'copy') {
     await copyFontFiles(projectPath, fontFiles, publicDir)
   }
 
@@ -5641,9 +5704,10 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
   // {@link updateHtmlFontBlock}) and the merged document decides what is still
   // referenced, so the block write runs BEFORE the cleanup — and a failed block
   // write (a full disk) throws out of here with every file still in place.
-  const html = fontMetas.length > 0 ? await updateHtmlFontBlock(projectPath, fontMetas) : null
+  const html =
+    fontMetas.length > 0 ? await updateHtmlFontBlock(projectPath, fontMetas, fontAssetMode) : null
 
-  if (fontFiles.length > 0) {
+  if (fontFiles.length > 0 && fontAssetMode === 'copy') {
     const fontsDir = join(projectPath, publicDir, 'fonts')
     // The basenames of the faces whose metadata segments (`fontsDir`, `file`)
     // carry no path separators — exactly the guard copyFontFiles copies under,
@@ -5828,6 +5892,7 @@ function cssRulePresent(document: string, css: string): boolean {
  *
  * @param projectPath - The app workspace (the directory holding index.html).
  * @param fontMetas - The font metadata of the project's declared font packages.
+ * @param fontAssetMode - The project's explicit asset contract; legacy copy by default.
  * @returns The document's final content, or null when no HTML file was found
  *   (so the caller knows there is nothing whose references could protect a file).
  */
@@ -5837,11 +5902,13 @@ async function updateHtmlFontBlock(
     packageName: string
     family: string
     source: string
+    fontsDir?: string
     faces?: Array<{ file: string; weight: number | string; style?: string; variable?: boolean }>
     url?: string
     preconnect?: string[]
     utilityCss?: string
   }>,
+  fontAssetMode: 'copy' | 'module' = 'copy',
 ): Promise<string | null> {
   // Try index.html first, then src/app.html (Svelte)
   const candidates = [join(projectPath, 'index.html'), join(projectPath, 'src', 'app.html')]
@@ -5859,6 +5926,9 @@ async function updateHtmlFontBlock(
   }
 
   if (!htmlPath || !htmlContent) return null
+  if (fontAssetMode === 'module' && htmlPath !== candidates[0]) {
+    throw new Error('Module font assets require Vite index.html; app.html must use copy mode')
+  }
 
   // Build the new font block
   const lines: string[] = []
@@ -5874,18 +5944,25 @@ async function updateHtmlFontBlock(
     // untrusted metadata the copy paths are containment-checked against (see
     // assertSafeFontMeta). The throw surfaces as the caller's "Asset sync
     // skipped" warning, naming the package whose declaration cannot render.
-    assertSafeFontMeta(font, font.packageName)
+    assertSafeFontMeta(font, font.packageName, fontAssetMode)
     if (font.source === 'system') continue
 
     if (font.source === 'local' && font.faces) {
       for (const face of font.faces) {
-        if (face.file.endsWith('.woff2') && !font.utilityCss) preloadFaces.push(face.file)
+        const fileUrl =
+          fontAssetMode === 'module'
+            ? `${font.packageName}/${font.fontsDir ?? 'fonts'}/${face.file}`
+            : `/fonts/${face.file}`
+        // Match create-time module handling: Vite does not rewrite a package
+        // preload href, so only copy mode emits public preload links.
+        if (fontAssetMode === 'copy' && face.file.endsWith('.woff2') && !font.utilityCss)
+          preloadFaces.push(fileUrl)
         const style = face.style ?? 'normal'
         const format = inferFontFormat(face.file)
         const localNames = deriveLocalNames(font.family, face.weight, face.variable)
         const srcParts = [
           ...localNames.map((n) => `local('${n}')`),
-          `url('/fonts/${face.file}')${format ? ` format('${format}')` : ''}`,
+          `url('${fileUrl}')${format ? ` format('${format}')` : ''}`,
         ]
 
         // Variable faces go inside @supports — need deeper indentation (8/10 vs 6/8)
@@ -5941,9 +6018,7 @@ async function updateHtmlFontBlock(
   }
 
   for (const file of preloadFaces) {
-    lines.push(
-      `    <link rel="preload" href="/fonts/${file}" as="font" type="font/woff2" crossorigin />`,
-    )
+    lines.push(`    <link rel="preload" href="${file}" as="font" type="font/woff2" crossorigin />`)
   }
 
   const iconFaces = utilityCssBlocks.some((css) => css.includes('material-symbols-outlined'))
