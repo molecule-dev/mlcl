@@ -2844,6 +2844,11 @@ const E2E_PACKAGES = [
  * `@molecule/app-e2e` (Playwright's test/expect/page with the browser as a
  * swappable bond), the preview + playwright bonds, `@playwright/test` (the
  * runner — it never downloads browsers on install) and a `test:e2e` script.
+ * Each package ends up with ONE owning declaration: a pin already present in
+ * `dependencies` is left there untouched and is not mirrored into
+ * `devDependencies`, and an existing duplicate is reduced to the runtime copy
+ * (the same policy as {@link ensureMoleculePeerClosure}/`addPackages` — a
+ * declared package counts as present and its pin is never rewritten).
  * Idempotent; one place for custom apps AND every template.
  */
 export async function ensureE2EManifest(appPath: string): Promise<void> {
@@ -2851,6 +2856,7 @@ export async function ensureE2EManifest(appPath: string): Promise<void> {
   if (!existsSync(manifestPath)) return
   const manifest = JSON.parse(await readFile(manifestPath, 'utf8')) as {
     scripts?: Record<string, string>
+    dependencies?: Record<string, string>
     devDependencies?: Record<string, string>
   }
   manifest.scripts = { ...(manifest.scripts ?? {}) }
@@ -2864,9 +2870,23 @@ export async function ensureE2EManifest(appPath: string): Promise<void> {
       'playwright test --only-changed --list && playwright test --only-changed'
   }
   const dev = { ...(manifest.devDependencies ?? {}) }
-  for (const name of E2E_PACKAGES) if (!dev[name]) dev[name] = getMoleculeVersion(name)
-  const playwrightVersion = loadToolchain().app['@playwright/test']
-  if (!dev['@playwright/test'] && playwrightVersion) dev['@playwright/test'] = playwrightVersion
+  const runtime = manifest.dependencies ?? {}
+  const tooling: Array<[name: string, version: string | undefined]> = E2E_PACKAGES.map((name) => [
+    name,
+    getMoleculeVersion(name),
+  ])
+  tooling.push(['@playwright/test', loadToolchain().app['@playwright/test']])
+  for (const [name, version] of tooling) {
+    // Consult BOTH dependency sections before adding anything. A runtime
+    // declaration owns the pin: npm installs both sections, so writing a dev
+    // copy at the newer registry version left the manifest pinning two versions
+    // of the same package and the executed tooling disagreeing with it.
+    if (runtime[name] !== undefined) {
+      delete dev[name]
+      continue
+    }
+    if (!dev[name] && version) dev[name] = version
+  }
   manifest.devDependencies = Object.fromEntries(
     Object.entries(dev).sort(([a], [b]) => a.localeCompare(b)),
   )

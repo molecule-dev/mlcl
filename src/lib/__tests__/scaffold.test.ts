@@ -7,7 +7,7 @@ import { fileURLToPath } from 'node:url'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
-import { getMoleculeVersion, loadRegistry } from '../registry.js'
+import { getMoleculeVersion, loadRegistry, loadToolchain } from '../registry.js'
 import {
   addPackages,
   buildExtraUiSourceScans,
@@ -782,6 +782,124 @@ describe('scaffold', () => {
       } finally {
         await rm(dir, { recursive: true, force: true })
       }
+    })
+
+    type Manifest = {
+      dependencies?: Record<string, string>
+      devDependencies?: Record<string, string>
+    }
+    const readManifest = async (dir: string): Promise<Manifest> =>
+      JSON.parse(await readFile(join(dir, 'package.json'), 'utf8')) as Manifest
+
+    const withManifest = async (
+      manifest: Record<string, unknown>,
+      run: (dir: string) => Promise<void>,
+    ): Promise<void> => {
+      const dir = await mkdtemp(join(tmpdir(), 'mlcl-e2e-manifest-pins-'))
+      try {
+        await writeFile(join(dir, 'package.json'), JSON.stringify(manifest))
+        await run(dir)
+      } finally {
+        await rm(dir, { recursive: true, force: true })
+      }
+    }
+
+    it('keeps a runtime-section e2e pin and never adds a conflicting dev pin', async () => {
+      const e2e = '@molecule/app-e2e-fixtures-default'
+      const runtime = { [e2e]: '0.9.0', '@playwright/test': '0.9.1', 'some-runtime-lib': '2.0.0' }
+      await withManifest(
+        { name: 'x', dependencies: runtime, devDependencies: { typescript: '5.0.0' } },
+        async (dir) => {
+          await ensureE2EManifest(dir)
+          const manifest = await readManifest(dir)
+          // The runtime pin is untouched (never upgraded from the registry) and
+          // OWNS the declaration: a devDependencies copy would install a
+          // different version than the one the manifest appears to pin.
+          expect(manifest.dependencies).toEqual(runtime)
+          expect(manifest.devDependencies?.[e2e]).toBeUndefined()
+          expect(manifest.devDependencies?.['@playwright/test']).toBeUndefined()
+          expect(manifest.devDependencies?.typescript).toBe('5.0.0')
+          // Tooling it did not have is still added, in the dev section.
+          expect(manifest.devDependencies?.['@molecule/app-e2e']).toBe(
+            getMoleculeVersion('@molecule/app-e2e'),
+          )
+        },
+      )
+    })
+
+    it('normalizes an identical duplicate to a single runtime declaration', async () => {
+      const e2e = '@molecule/app-e2e'
+      await withManifest(
+        { name: 'x', dependencies: { [e2e]: '0.9.0' }, devDependencies: { [e2e]: '0.9.0' } },
+        async (dir) => {
+          await ensureE2EManifest(dir)
+          const manifest = await readManifest(dir)
+          expect(manifest.dependencies?.[e2e]).toBe('0.9.0')
+          expect(manifest.devDependencies?.[e2e]).toBeUndefined()
+        },
+      )
+    })
+
+    it('normalizes conflicting duplicates to the existing runtime pin', async () => {
+      const e2e = '@molecule/app-e2e'
+      await withManifest(
+        { name: 'x', dependencies: { [e2e]: '0.9.0' }, devDependencies: { [e2e]: '9.9.9' } },
+        async (dir) => {
+          await ensureE2EManifest(dir)
+          const manifest = await readManifest(dir)
+          expect(manifest.dependencies?.[e2e]).toBe('0.9.0')
+          expect(manifest.devDependencies?.[e2e]).toBeUndefined()
+        },
+      )
+    })
+
+    it('preserves an explicit dev-only e2e pin', async () => {
+      const e2e = '@molecule/app-e2e-playwright'
+      await withManifest({ name: 'x', devDependencies: { [e2e]: '0.0.1-devpin' } }, async (dir) => {
+        await ensureE2EManifest(dir)
+        const manifest = await readManifest(dir)
+        expect(manifest.devDependencies?.[e2e]).toBe('0.0.1-devpin')
+        expect(manifest.dependencies?.[e2e]).toBeUndefined()
+      })
+    })
+
+    it('adds missing e2e tooling at the registry pin in devDependencies', async () => {
+      await withManifest({ name: 'x' }, async (dir) => {
+        await ensureE2EManifest(dir)
+        const manifest = await readManifest(dir)
+        for (const name of [
+          '@molecule/app-e2e',
+          '@molecule/app-e2e-fixtures-default',
+          '@molecule/app-e2e-playwright',
+          '@molecule/app-e2e-preview',
+        ]) {
+          expect(manifest.devDependencies?.[name]).toBe(getMoleculeVersion(name))
+        }
+        expect(manifest.devDependencies?.['@playwright/test']).toBe(
+          loadToolchain().app['@playwright/test'],
+        )
+        expect(manifest.dependencies).toBeUndefined()
+      })
+    })
+
+    it('leaves the manifest unchanged on a repeated call', async () => {
+      await withManifest(
+        {
+          name: 'x',
+          dependencies: { '@molecule/app-e2e': '0.9.0' },
+          devDependencies: {
+            '@molecule/app-e2e': '0.9.0',
+            '@molecule/app-e2e-preview': '0.0.1-devpin',
+            typescript: '5.0.0',
+          },
+        },
+        async (dir) => {
+          await ensureE2EManifest(dir)
+          const first = await readFile(join(dir, 'package.json'), 'utf8')
+          await ensureE2EManifest(dir)
+          expect(await readFile(join(dir, 'package.json'), 'utf8')).toBe(first)
+        },
+      )
     })
   })
 
