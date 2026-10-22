@@ -49,6 +49,7 @@ interface RegistryEntry {
   category?: string
   label?: string
   intentHints?: string[]
+  exports?: string[]
 }
 
 const cache = new Map<string, { at: number; data: unknown }>()
@@ -377,12 +378,58 @@ async function fetchJsonUncached<T>(
   return data
 }
 
-/** Same scoring shape as `mlcl search` — name match dominates, intent/category tokens follow. */
+/**
+ * The canonical `mlcl search` scoring contract (src/commands/search.ts).
+ * This server builds and runs alone, without the CLI or its dependencies; a
+ * source import across those separate TypeScript rootDir/package boundaries
+ * would break that closure. Actual-protocol parity controls compare both
+ * scorers on the same registry so a CLI improvement cannot silently miss MCP.
+ */
 function scoreEntry(name: string, entry: RegistryEntry, q: string): number {
   const short = name.replace('@molecule/', '')
   const tokens = q.toLowerCase().split(/\s+/).filter(Boolean)
   if (tokens.length === 0) return 0
   let score = 0
+  const phrase = (value: string): string =>
+    value
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, ' ')
+      .trim()
+  const query = phrase(q)
+  const symbolQuery = q.trim().replace(/\(\)$/, '').toLowerCase()
+  const exactSymbol =
+    /^[\p{L}_$][\p{L}\p{N}_$]*$/u.test(symbolQuery) &&
+    Array.isArray(entry.exports) &&
+    entry.exports.some(
+      (symbol) => typeof symbol === 'string' && symbol.toLowerCase() === symbolQuery,
+    )
+  if (!query && !exactSymbol) return 0
+  const containsPhrase = (text: string, candidate: string): boolean =>
+    ` ${text} `.includes(` ${candidate} `)
+  const hints = (entry.intentHints ?? []).map(phrase)
+  if (
+    q.trim().toLowerCase() === name.toLowerCase() ||
+    q.trim().toLowerCase() === short.toLowerCase()
+  )
+    score += 400
+  if (exactSymbol) score += 160
+  if (entry.category && phrase(entry.category) === query) score += 160
+  if (query.includes(' ')) {
+    if (hints.includes(query)) score += 120
+    else if (
+      hints.some(
+        (hint) =>
+          hint.includes(' ') && (containsPhrase(query, hint) || containsPhrase(hint, query)),
+      )
+    )
+      score += 80
+    else if (
+      [short, entry.category, entry.label, entry.description].some(
+        (field) => field && containsPhrase(phrase(field), query),
+      )
+    )
+      score += 60
+  }
   for (const tok of tokens) {
     if (short === tok) score += 40
     else if (short.includes(tok)) score += 20
