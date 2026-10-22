@@ -253,10 +253,15 @@ describe('registryChangeAffectsDocs — version pins are not doc inputs', () => 
 })
 
 describe('main acceptance: malformed document shapes stay in scope', () => {
-  it.each(['[]', '"string"', '1', 'true', '{"devDependencies":[]}', '{"devDependencies":null}'])(
-    'refuses to skip %s',
-    (before) => {
-      expect(manifestChangeAffectsDocs(before, ' ' + before)).toBe(true)
-    },
-  )
+  it.each([
+    '[]',
+    '"string"',
+    '1',
+    'true',
+    '{"devDependencies":[]}',
+    '{"devDependencies":null}',
+    '{"devDependencies":{"vitest":1}}',
+  ])('refuses to skip %s', (before) => {
+    expect(manifestChangeAffectsDocs(before, ' ' + before)).toBe(true)
+  })
 })
