@@ -3294,6 +3294,7 @@
         "LocatedCommandSegment",
         "locatedCommandSegments",
         "statementArgumentEnd",
+        "statementBoundary",
         "commandTimeoutSeconds",
         "withoutTimeoutWrapper",
         "runsInCommandPosition",
