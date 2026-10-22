@@ -15,15 +15,64 @@ interface SearchHit {
 
 /**
  * Score a package against the query tokens. Higher = more relevant.
- * Exact/substring name matches dominate (an agent usually knows roughly what
- * it wants: "database", "payments"); intentHints and the category/description
- * tokens catch capability phrasing ("social login", "send emails").
+ * Exact names, exported symbols and complete capability phrases outrank
+ * incidental name substrings ("form" in "formula"). The existing token scores
+ * remain useful for partial package names and broad category/provider queries.
+ *
+ * @param pkg - A package from the canonical registry.
+ * @param q - Package name, exported symbol or natural capability query.
+ * @returns Relevance score; zero means no match.
  */
-function scorePackage(pkg: Awaited<ReturnType<typeof loadRegistry>>[number], q: string): number {
+export function scorePackage(
+  pkg: Awaited<ReturnType<typeof loadRegistry>>[number],
+  q: string,
+): number {
   const name = pkg.name.replace('@molecule/', '')
   const tokens = q.toLowerCase().split(/\s+/).filter(Boolean)
   if (tokens.length === 0) return 0
   let score = 0
+  const phrase = (value: string): string =>
+    value
+      .toLowerCase()
+      .replace(/[^\p{L}\p{N}]+/gu, ' ')
+      .trim()
+  const query = phrase(q)
+  const symbolQuery = q.trim().replace(/\(\)$/, '').toLowerCase()
+  const exactSymbol =
+    /^[\p{L}_$][\p{L}\p{N}_$]*$/u.test(symbolQuery) &&
+    pkg.exports.some((symbol) => symbol.toLowerCase() === symbolQuery)
+  if (!query && !exactSymbol) return 0
+  const containsPhrase = (text: string, candidate: string): boolean =>
+    ` ${text} `.includes(` ${candidate} `)
+  const hints = (pkg.molecule?.intentHints ?? []).map(phrase)
+  if (
+    q.trim().toLowerCase() === pkg.name.toLowerCase() ||
+    q.trim().toLowerCase() === name.toLowerCase()
+  ) {
+    score += 400
+  }
+  // Match the WHOLE symbol, never its prefix/substring; e.g. "use" must not
+  // match every hook, and "useProfileFormState" must not match useProfileForm.
+  if (exactSymbol) score += 160
+  // A short query can name both a category and a common export (e.g. query).
+  // Keep that category and its providers ahead of unrelated symbol owners.
+  if (pkg.molecule?.category && phrase(pkg.molecule.category) === query) score += 160
+  if (query.includes(' ')) {
+    if (hints.includes(query)) score += 120
+    else if (
+      hints.some(
+        (hint) =>
+          hint.includes(' ') && (containsPhrase(query, hint) || containsPhrase(hint, query)),
+      )
+    )
+      score += 80
+    else if (
+      [name, pkg.molecule?.category, pkg.molecule?.label, pkg.description].some(
+        (field) => field && containsPhrase(phrase(field), query),
+      )
+    )
+      score += 60
+  }
   for (const tok of tokens) {
     if (name === tok) score += 40
     else if (name.includes(tok)) score += 20
