@@ -41,6 +41,8 @@ npm install @molecule/api-middleware-validation --workspace=api   # validateBody
 npm install @molecule/api-emails-mailgun --workspace=api   # for verification + reset emails
 ```
 
+Run the user resource's `src/__setup__/users.sql` and `src/__setup__/usersSecrets.sql` migrations through the app's migration runner before mounting these routes. A scaffold that already includes the user resource has these migrations; preserve its existing copies.
+
 ## Wiring the routes (App/router.ts)
 
 ```ts

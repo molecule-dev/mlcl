@@ -38,7 +38,7 @@ export default defineConfig({
   // scaffolded Vite config; it applies identically here, because these tests
   // render real components out of those packages.
   resolve: {
-    dedupe: ['react', 'react-dom'],
+    dedupe: ['react', 'react-dom', 'react-router'],
     // `dedupe` is advisory for anything Vite does not process, and the stack
     // trace proves it was not enough on its own: react-dom loaded from
     // `<root>/node_modules` while the hook's `useMemo` came from
@@ -46,6 +46,10 @@ export default defineConfig({
     alias: {
       react: packageDir('react'),
       'react-dom': packageDir('react-dom'),
+      // Routing hooks and their mounted router must also share one context.
+      // Linked molecule bonds otherwise find molecule/node_modules/react-router,
+      // whose externalized React bypasses the aliases above.
+      'react-router': packageDir('react-router'),
     },
   },
   test: {

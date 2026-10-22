@@ -32,6 +32,7 @@
 
 import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
+import { MemoryRouter } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 // ---------------------------------------------------------------------------
@@ -465,7 +466,7 @@ describe('file-attachments — a partly-failed upload still refreshes the list',
 
 describe('paginated-user-list — a failed page change leaves no stale page behind', () => {
   it('shows the error with no rows from the page the user left', async () => {
-    await mount(createElement(UsersPage, {}))
+    await mount(createElement(MemoryRouter, {}, createElement(UsersPage, {})))
     await act(async () => {
       httpCalls.calls[0]?.resolve({
         data: {
@@ -498,7 +499,7 @@ describe('paginated-user-list — a failed page change leaves no stale page behi
   })
 
   it('the retry control re-requests the failed page and renders its rows', async () => {
-    await mount(createElement(UsersPage, {}))
+    await mount(createElement(MemoryRouter, {}, createElement(UsersPage, {})))
     await act(async () => {
       httpCalls.calls[0]?.resolve({
         data: {
@@ -546,7 +547,7 @@ describe('paginated-user-list — a failed page change leaves no stale page behi
   })
 
   it('a 2xx that is not a page is a failed load, not a blank page', async () => {
-    await mount(createElement(UsersPage, {}))
+    await mount(createElement(MemoryRouter, {}, createElement(UsersPage, {})))
     await act(async () => {
       // The mock API server answers 200 `{}` for an endpoint with no fixture. Read
       // as a page, `data.data.map` threw during render — a white screen instead of

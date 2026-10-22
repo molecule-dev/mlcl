@@ -2,14 +2,15 @@
  * UsersPage — paginated user list with PaginationBar.
  *
  * Pattern for any paginated list: fetch with useHttpClient, render rows,
- * mount <PaginationBar /> at the bottom. URL query state lives in
- * useState here for simplicity; in production you may want to sync to
- * URL params via @molecule/app-routing so deep-links work.
+ * mount <PaginationBar /> at the bottom. useListRoute owns the page in
+ * the URL, preserving path parameters and other filters through page
+ * changes, direct links, reloads and Back/Forward.
  */
-import { useEffect, useState } from 'react'
+import { type JSX, useEffect, useState } from 'react'
 
 import { PaginationBar } from '@molecule/app-pagination-bar-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 interface User {
@@ -41,11 +42,11 @@ const isUser = (row: unknown): row is User =>
 
 const PAGE_SIZE = 20
 
-export default function UsersPage() {
+export default function UsersPage(): JSX.Element {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [page, setPage] = useState(1)
+  const { page, setPage } = useListRoute({ pageSize: PAGE_SIZE })
   const [data, setData] = useState<UsersResponse | null>(null)
   const [loading, setLoading] = useState(true)
   const [loadFailed, setLoadFailed] = useState(false)

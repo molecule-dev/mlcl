@@ -21,6 +21,8 @@ cd /workspace
 npm install @molecule/api-resource-api-key --workspace=api  # hashed tokens, verify, revoke, rotate
 ```
 
+Run the resource's `src/__setup__/api_keys.sql` migration through the app's migration runner before using its handlers. The table is not created by installing the package.
+
 ## Files in this example
 
 | Path                             | What it does                                                                                                                                                                                      |

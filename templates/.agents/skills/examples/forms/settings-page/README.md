@@ -23,6 +23,8 @@ npm install @molecule/api-resource-user --workspace=api
 # Form primitives are in @molecule/app-ui-react (already in every project)
 ```
 
+Run the user resource's `src/__setup__/users.sql` and `src/__setup__/usersSecrets.sql` migrations through the app's migration runner before using these handlers. Keep the scaffold's existing migrations when it already includes the user resource, and add a migration for the example's app-specific `timezone` column.
+
 ## Files in this example
 
 | Path                         | What it does                                                                         |

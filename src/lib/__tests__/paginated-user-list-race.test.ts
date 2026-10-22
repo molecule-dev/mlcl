@@ -23,6 +23,7 @@
 
 import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
+import { MemoryRouter } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 interface User {
@@ -113,7 +114,7 @@ async function mount(): Promise<void> {
   document.body.appendChild(container)
   root = createRoot(container)
   await act(async () => {
-    root.render(createElement(UsersPage, {}))
+    root.render(createElement(MemoryRouter, {}, createElement(UsersPage, {})))
   })
   await flush()
 }

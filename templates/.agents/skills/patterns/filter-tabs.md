@@ -1,39 +1,61 @@
 ---
 id: filter-tabs
 intent: list-fetch
-title: Active-tab state filters the rendered list
-hooks: [useState]
+title: URL-backed filter and selection links
+hooks: [useListRoute]
 ---
 
-# Wire filter tabs / chips / segment controls to data
+# Make list filters and selected views share the URL
 
-**When to use:** any list page with tabs like "All | Published | Draft | Archived" or chips like "Programming | Design | AI". The tabs' active state should drive a `.filter()` on the rendered array.
+**When to use:** a React Router page with filter tabs/chips or path-selected
+views. Use `useListRoute` from `@molecule/app-routing-react-router`; its URL
+state stays correct on direct visits, reloads, links and Back/Forward.
 
 ```tsx
-const [filter, setFilter] = useState<'all' | 'published' | 'draft'>('all')
-const filtered = filter === 'all' ? items : items.filter((item) => item.status === filter)
+import { Link } from 'react-router'
+import { useListRoute } from '@molecule/app-routing-react-router'
 
-// UI:
+const list = useListRoute({
+  filters: { status: { query: 'status', defaultValue: 'all' } },
+})
+
 {
-  ;(['all', 'published', 'draft'] as const).map((key) => (
-    <button
-      key={key}
-      role="tab"
-      aria-selected={filter === key}
-      onClick={() => setFilter(key)}
-      className={filter === key ? activeClass : inactiveClass}
+  ;(['all', 'published', 'draft'] as const).map((status) => (
+    <Link
+      key={status}
+      to={list.href({ filters: { status } })}
+      aria-current={list.filters.status === status ? 'page' : undefined}
     >
-      {key}
-    </button>
+      {t(`list.status.${status}`, undefined, { defaultValue: status })}
+    </Link>
   ))
 }
-{
-  filtered.map((item) => <ItemCard key={item.id} item={item} />)
-}
+// Request with list.filters.status, list.pageSize and list.offset.
+// For a complete local dataset, filter the loaded array by list.filters.status.
 ```
 
-**Anti-patterns:**
+When a view has its own route, declare the app's paths explicitly:
 
-- Don't fire a new HTTP request on every tab click; filter the already-fetched array unless the dataset is huge.
-- Don't forget to combine with search (filter first by tab, then by search, in that order) — both should be independent.
-- If a tab has no matching items, render an empty-state hint ("No draft posts yet") — not a blank scrolled area.
+```tsx
+const list = useListRoute({
+  selections: {
+    authored: { path: '/members/:member' },
+    saved: { path: '/members/:member/saved' },
+  },
+})
+// list.href({ selection: 'saved' }) keeps the current :member and resets page.
+// list.href({ page: 2 }) stays on that saved view.
+// Derive API filters from list.selection and list.params.member separately.
+```
+
+Query-selected views use `query` constraints on each selection. A protected view
+sets `requiresAuth: true` and the hook receives
+`auth: { status, redirectTo: '/sign-in' }`. It waits through session restoration;
+a confirmed signed-out visit redirects. Pass `null` to `useQuery` while
+`list.canLoad` is false. Include the signed-in principal in the query key.
+Always render a reachable link to the public view in protected empty states.
+
+Do not mirror selected view in `useState` or auto-select a private view when
+auth changes: an explicit public URL stays public. Filter/selection links reset
+page one atomically. Browser paths and API filters are separate contracts; an
+API's filter name does not determine a path-selected view's browser URL.

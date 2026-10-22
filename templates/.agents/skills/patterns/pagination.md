@@ -1,41 +1,48 @@
 ---
 id: pagination
 intent: list-fetch
-title: Paginate the rendered list with current-page state
-hooks: [useState]
+title: URL-backed pagination that preserves filters and history
+hooks: [useListRoute]
 ---
 
-# Wire pagination controls to slice the list
+# Paginate from the current URL
 
-**When to use:** any list page with Next/Previous buttons or numbered pages. The buttons must actually change what the user sees.
+**When to use:** a React Router list with Next/Previous buttons or numbered pages.
+`useListRoute` from `@molecule/app-routing-react-router` owns page/filter/view state;
+`PaginationBar` renders the controls. It works inside ordinary `BrowserRouter`.
 
 ```tsx
-const PAGE_SIZE = 10
-const [page, setPage] = useState(1)
-const total = filtered.length
-const pageCount = Math.max(1, Math.ceil(total / PAGE_SIZE))
-const paged = filtered.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE)
+import { Link } from 'react-router'
+import { PaginationBar } from '@molecule/app-pagination-bar-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 
-// UI:
-{
-  paged.map((item) => <ItemCard key={item.id} item={item} />)
-}
+const list = useListRoute({ pageSize: 20 })
+// API request: { limit: list.pageSize, offset: list.offset }.
+// Include list.page and every effective filter in the data-query key.
+const totalPages = Math.max(1, Math.ceil(total / list.pageSize))
 
-;<nav aria-label="Pagination">
-  <button onClick={() => setPage((p) => Math.max(1, p - 1))} disabled={page === 1}>
-    Previous
-  </button>
-  <span>
-    Page {page} of {pageCount}
-  </span>
-  <button onClick={() => setPage((p) => Math.min(pageCount, p + 1))} disabled={page >= pageCount}>
-    Next
-  </button>
-</nav>
+<PaginationBar
+  page={list.page}
+  pageSize={list.pageSize}
+  total={total}
+  totalPages={totalPages}
+  onPageChange={list.setPage}
+/>
+// Custom navigation uses real links, keeping the current path and query:
+<Link to={list.href({ page: 2 })}>{t('list.pageTwo', undefined, { defaultValue: 'Page 2' })}</Link>
 ```
 
-**Anti-patterns:**
+For filters, add `filters: { status: { query: 'status' } }`, then call
+`list.setFilters({ status: next })`: it updates the filter and resets page one
+in one navigation. A path-owned filter uses `path: '/topics/:topic'` and
+`filters: { topic: { param: 'topic' } }`; paging keeps that path without adding
+a redundant query filter. Named path/query views use `selections`; read the
+package's `useListRoute` example for protected views and `useQuery` composition.
 
-- Don't hardcode page indicator text; compute from state.
-- Reset to page 1 when the filter or search changes (otherwise user sees "page 3 of 2").
-- Don't forget `disabled` on the edge buttons — a disabled Previous on page 1 is the standard affordance.
+Use server pagination for a server-paged list. For an already-loaded small list,
+render `filtered.slice(list.offset, list.offset + list.pageSize)` instead.
+Keep loading/error states and retry controls available when a page load fails.
+
+**Verify:** open page two directly, click another page, use Back/Forward, then
+change a filter. The URL and rendered data must agree, and the filter change
+must return to page one while preserving unrelated query values and path params.

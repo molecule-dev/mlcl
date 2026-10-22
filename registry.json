@@ -55161,6 +55161,9 @@
         "WorkspaceContext",
         "EditorContext",
         "PreviewContext",
+        "UseProfileFormOptions",
+        "UseProfileFormResult",
+        "useProfileForm",
         "StateProvider",
         "AuthProvider",
         "ThemeProvider",
@@ -55820,7 +55823,7 @@
       "type": "provider",
       "category": "routing",
       "label": "React Router",
-      "description": "React Router v7 provider for @molecule/app-routing",
+      "description": "React Router provider with URL-backed list pagination, filters, path/query selections and auth readiness",
       "stack": "app",
       "implements": "@molecule/app-routing",
       "exports": [
@@ -55830,10 +55833,17 @@
         "useIsActive",
         "useMoleculeNavigate",
         "useMoleculeQuery",
+        "ListRouteFilter",
+        "ListRouteSelection",
+        "ListRouteAuth",
+        "ListRouteOptions",
+        "ListRouteChange",
+        "ListRouteResult",
         "createReactRouter",
         "provider",
         "ReactRouterConfig",
         "ReactRouterHooks",
+        "useListRoute",
         "parseSearchParams",
         "stringifyQuery",
         "matchPath",
@@ -55858,7 +55868,8 @@
         "react router",
         "client side routing react",
         "page navigation react router",
-        "url routes react"
+        "url routes react",
+        "url backed pagination filters"
       ]
     },
     "@molecule/app-routing-vue-router": {

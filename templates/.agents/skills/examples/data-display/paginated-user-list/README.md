@@ -20,7 +20,7 @@ list page.
 
 ```bash
 cd /workspace
-npm install @molecule/app-pagination-bar-react --workspace=app
+npm install @molecule/app-pagination-bar-react @molecule/app-routing-react-router --workspace=app
 # Plus a data table package if you want sortable columns:
 npm install @molecule/app-data-table-ui-react --workspace=app
 # API side: validateQuery() + paginationSchema for the paginated handler
@@ -43,7 +43,9 @@ on the API side — it gives you the User type + handler scaffolding.
 1. Copy the three files. Rename `users` → your resource (e.g. `orders`,
    `tickets`).
 2. In `api/src/App/router.ts`, register the handler: `router.use('/users', usersHandler)`.
-3. Drop `<UsersPage />` into your routing.
+3. Drop `<UsersPage />` into your React Router routing. `useListRoute` reads
+   the current `?page=` directly; it works under `BrowserRouter` without a
+   data router or an additional provider.
 4. Use `getClassMap()` for any custom styling — never inline Tailwind.
 
 ## Anti-patterns (do NOT do these)
@@ -55,6 +57,10 @@ on the API side — it gives you the User type + handler scaffolding.
   `limit` + `offset` to the database call.
 - Do not invent `@molecule/app-pagination-react` — the real package
   is `@molecule/app-pagination-bar-react`.
+- Do not mirror page/filter state in `useState` or rebuild page links from API
+  filters. `useListRoute` preserves the current path and unrelated query values.
+  For filtered views, declare its `filters` and `selections`, then pass
+  `list.setPage` to `PaginationBar` and use `list.href` for ordinary links.
 
 ## Verify it works
 
