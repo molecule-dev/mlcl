@@ -85,7 +85,7 @@ for (const [name, entry] of Object.entries(registry.packages)) {
 /** Reduce a repo-relative file path to its package dir, or null if it isn't a doc input. */
 const packageDirOf = (file) => {
   if (!file.startsWith('packages/')) return null
-  const stripped = file.replace(/\/src\/.*$/, '').replace(/\/package\.json$/, '')
+  const stripped = file.replace(/\/src\/.*$/, '').replace(/\/(?:package\.json|README\.md)$/, '')
   return stripped === file ? null : stripped
 }
 

@@ -84,6 +84,9 @@ function docInputProjection(raw: string): string {
 
   let relevantDevDependencies: Record<string, unknown> = {}
   if (devDependencies !== undefined) {
+    if (!Object.values(devDependencies).every((value) => typeof value === 'string')) {
+      throw new Error('Unknown dependency version shape')
+    }
     relevantDevDependencies = Object.fromEntries(
       Object.entries(devDependencies as Record<string, unknown>).filter(
         ([name]) => !TEST_TOOL_DEPENDENCIES.has(name) && !name.startsWith(TEST_TOOL_SCOPE),
