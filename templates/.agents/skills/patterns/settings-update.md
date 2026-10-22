@@ -2,55 +2,61 @@
 id: settings-update
 intent: form-submit
 title: Settings / profile update form
-hooks: [useHttpClient, useAuth, useState, useEffect]
+hooks: [useProfileForm, useTranslation]
 ---
 
-# Settings update (PATCH /api/users/:id)
+# Settings / profile update
 
-**When to use:** the `Settings` screen and any profile / preferences page that reads current user data and persists changes.
+**When to use:** an account form that loads the signed-in user's profile and saves edits.
+
+`useProfileForm` from `@molecule/app-react` owns hydration, dirty fields, submit snapshots, validation and the shared saved user. It composes the bonded forms and auth clients. Configure the API route, method and request envelope once in `authConfig` (`profileEndpoint`, `profileUpdateMethod`, `profileRequestBody`); `updateProfile` already maps, persists and publishes the server response.
 
 ```tsx
-import { useEffect, useState } from 'react'
-import { useAuth, useHttpClient } from '@molecule/app-react'
+import type { UserProfile } from '@molecule/app-auth'
+import { useProfileForm, useTranslation } from '@molecule/app-react'
+
+interface AppUser extends UserProfile {
+  bio: string | null
+}
+type Fields = { name: string; bio: string; password: string }
 
 export function Settings() {
-  const { user } = useAuth()
-  const http = useHttpClient()
-  const [name, setName] = useState('')
-  const [bio, setBio] = useState('')
-  const [saving, setSaving] = useState(false)
-  const [savedAt, setSavedAt] = useState<number | null>(null)
+  const { t } = useTranslation()
+  const profile = useProfileForm<AppUser, Fields>({
+    defaultValues: { name: '', bio: '', password: '' },
+    getIdentity: (user) => user.id,
+    toValues: (user) => ({ name: user.name ?? '', bio: user.bio ?? '', password: '' }),
+    toPatch: ({ password, ...changes }) => ({
+      ...changes,
+      ...(password?.trim() ? { password } : {}),
+    }),
+    onSaved: async (user) => {
+      // Set/invalidate the app's profile query keys from THIS saved response.
+      // Navigate only after the cache writes complete.
+    },
+  })
 
-  useEffect(() => {
-    if (user) {
-      setName(user.name || '')
-      setBio((user as any).bio || '')
-    }
-  }, [user])
-
-  async function handleSave() {
-    if (!user) return
-    setSaving(true)
-    try {
-      // The molecule user resource updates via PATCH /api/users/:id — NOT PUT /api/user.
-      await http.patch(`/api/users/${(user as { id: string }).id}`, { name, bio })
-      setSavedAt(Date.now())
-    } finally {
-      setSaving(false)
-    }
-  }
-
-  function handleCancel() {
-    if (user) {
-      setName(user.name || '')
-      setBio((user as any).bio || '')
-    }
-  }
-  // ... controlled inputs + Save / Cancel buttons. Show "Saved" badge when savedAt is recent.
+  return (
+    <form {...profile.formProps}>
+      <input {...profile.register('name', { required: true })} />
+      <textarea {...profile.register('bio')} />
+      <input {...profile.register('password')} type="password" autoComplete="new-password" />
+      {profile.error ? (
+        <p role="alert">{t('settings.saveFailed', undefined, { defaultValue: 'Save failed' })}</p>
+      ) : null}
+      <button type="submit" disabled={!profile.ready || profile.isSubmitting}>
+        {t('settings.save', undefined, { defaultValue: 'Save changes' })}
+      </button>
+      <button type="button" onClick={profile.reset}>
+        {t('common.cancel', undefined, { defaultValue: 'Cancel' })}
+      </button>
+    </form>
+  )
 }
 ```
 
-**Anti-patterns:**
+Keep every control in `defaultValues` and `toValues`; normalize nullable text to `''` there. `toPatch` receives only changed fields and the complete submit-time value snapshot as its second argument. Preserve omitted fields. Convert an explicitly cleared field to null only if the API requires null. An API with a separate password-change endpoint uses `useChangePassword` in its security form; the optional password above is for APIs that accept it in the profile patch.
 
-- Don't forget to hydrate from `user` on mount.
-- Don't leave Cancel unwired — it resets to current `user` values.
+Attach `formProps` to the actual native `<form>` and pass `register` props to the actual input/textarea. A custom button must forward `type="submit"`. Display `profile.formState.errors` for validation failures and `profile.error` for save failures. `onSaved` is awaited; a failed cache propagation can be retried without repeating the accepted mutation.
+
+**Verify:** load the form, edit a field, let a background user refresh finish, submit, and assert the request contains the typed value. Read the saved value independently from the API, visit the profile/header, then reload the form. Include an omitted optional password and an explicitly cleared field. A 200 response alone does not prove the intended values were submitted or persisted.
