@@ -26791,7 +26791,11 @@
         "ComposeContainerStatus",
         "isContainerHealthy",
         "containerStatus",
-        "provider"
+        "provider",
+        "ApiDeploymentArtifactOptions",
+        "ApiDeploymentArtifacts",
+        "NODE_DEPLOYMENT_IMAGE",
+        "generateApiDeploymentArtifacts"
       ],
       "secrets": [],
       "runtimeDependencies": [
