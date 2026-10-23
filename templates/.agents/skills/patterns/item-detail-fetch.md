@@ -1,19 +1,22 @@
 ---
 id: item-detail-fetch
 intent: item-detail-fetch
-title: Fetch a single entity by ID from the URL
-hooks: [useParams, useHttpClient, useEffect, useState]
+title: Load the current route's entity before rendering its actions
+hooks: [useParams, useQuery, useHttpClient, useTranslation]
 ---
 
 # Single-item detail fetch
 
-**When to use:** detail pages (`PostDetail`, `BotEditor`, `TicketDetail`) that receive `:id` via the route.
+**When to use:** a detail page that receives `:id` from its route. The React
+scaffold wires the query provider; keep the resource and its readiness in that
+query rather than separate local data/loading state.
 
 ```tsx
-import { useEffect, useState } from 'react'
-import { useParams, useNavigate } from 'react-router'
+import { Link, useParams } from 'react-router'
 import { unwrapSingle } from '@molecule/app-http'
-import { useHttpClient } from '@molecule/app-react'
+import { getQueryClient } from '@molecule/app-query'
+import { useQuery } from '@molecule/app-query-react'
+import { useHttpClient, useTranslation } from '@molecule/app-react'
 
 interface Post {
   id: string
@@ -24,43 +27,76 @@ interface Post {
 export function PostDetail() {
   const { id } = useParams<{ id: string }>()
   const http = useHttpClient()
-  const navigate = useNavigate()
-  const [post, setPost] = useState<Post | null>(null)
-  const [loading, setLoading] = useState(true)
+  const { t } = useTranslation()
+  const options = {
+    key: [http.baseURL, 'post', id],
+    fetch: async (signal: AbortSignal) =>
+      unwrapSingle<Post>(
+        await http.get<Post>(`/posts/${encodeURIComponent(id ?? '')}`, { signal }),
+      ),
+  }
+  const query = useQuery(id ? options : null)
+  const post = query.data
 
-  useEffect(() => {
-    if (!id) return
-    let active = true
-    http
-      .get<Post>(`/api/posts/${id}`)
-      // unwrapSingle pulls the entity off the HttpResponse (handles `.data` + envelopes), returns Post | null.
-      .then((res) => active && setPost(unwrapSingle<Post>(res)))
-      .catch(() => active && navigate('/'))
-      .finally(() => active && setLoading(false))
-    return () => {
-      active = false
+  if (!id || (query.status === 'success' && post == null)) {
+    return <p>{t('posts.notFound', undefined, { defaultValue: 'Post not found.' })}</p>
+  }
+  if (post == null) {
+    if (query.status === 'error') {
+      return (
+        <div role="alert">
+          <p>{t('posts.loadFailed', undefined, { defaultValue: 'Unable to load this post.' })}</p>
+          <button
+            type="button"
+            onClick={() => {
+              void getQueryClient()
+                .fetch(options)
+                .catch((_error) => {
+                  // useQuery exposes the retry failure through status/error.
+                })
+            }}
+          >
+            {t('common.retry', undefined, { defaultValue: 'Retry' })}
+          </button>
+        </div>
+      )
     }
-  }, [id, http, navigate])
+    return <p role="status">{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
+  }
 
-  if (loading) return <p>Loading…</p>
-  if (!post) return null
-  // ... render post.title, post.body — every hardcoded string in the
-  // stitch baseline should be replaced by post.field or sensible fallbacks.
+  return (
+    <article>
+      {query.isFetching ? (
+        <p role="status">{t('common.refreshing', undefined, { defaultValue: 'Refreshing…' })}</p>
+      ) : null}
+      <h1>{post.title}</h1>
+      <p>{post.body}</p>
+      <Link to={`/posts/${encodeURIComponent(post.id)}/edit`}>
+        {t('posts.edit', undefined, { defaultValue: 'Edit post' })}
+      </Link>
+    </article>
+  )
 }
 ```
 
-**IMPORTANT:** After wiring the fetch, walk every child component this detail
-page renders (`PostDetailHero`, `PostDetailContent`, etc.) and either
+The edit control and any other resource-dependent controls belong after the
+data check, or inside child components that receive the loaded `post`. Do not
+render an enabled action on the first paint with a handler that returns while
+the resource is missing: the early click is lost. Cached data stays visible
+and actionable during refresh. A key change observes the new key's state;
+include all identity inputs in that key, including the viewer for personalized
+responses. A boundary given old data cannot discover a missing key dependency.
 
-- pass `post` down as a prop and replace their hardcoded text/image/date
-  values with `post.*` references, OR
-- move the fetch into the specific section that needs it.
+`null` is a loaded missing record; `undefined` is not yet loaded. Check those
+explicitly rather than treating valid `0` or `false` data as missing in other
+resource shapes. Use the error/retry and empty states above instead of rendering
+a placeholder action. Strings and fallbacks remain owned by the app's i18n.
 
-Do NOT leave the parent fetching `post` but children still rendering
-stitch's static text — that's the most common "looks wired but isn't" bug.
+Thread the loaded object through every child that renders it; do not leave
+static placeholder text beside the real fetched record. To publish a mutation,
+set its saved server response into this query key and invalidate related keys.
 
-**Anti-patterns:**
-
-- Don't forget to 404 / redirect on fetch failure.
-- Don't put the fetch in a parent and then forget to thread `post` down to children.
-- Don't leave fallback stitch text unwrapped in defaults; pass `item.title ?? 'Untitled'` so the real data shows when present.
+**Verify:** hold the GET response, attempt the resource action, and assert it is
+unavailable. Release the response, perform one action and check its real effect.
+Then change `:id` while the next GET is pending: no old record action should
+remain. Also exercise cached/background refresh, failure/retry and missing data.
