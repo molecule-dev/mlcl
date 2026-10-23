@@ -18898,6 +18898,7 @@
       "implements": "@molecule/api-process-lifecycle",
       "alwaysInclude": true,
       "exports": [
+        "applyDrainingResponseHeaders",
         "createDrainHeaderMiddleware",
         "createLifecycleMiddleware",
         "mountLifecycleRoutes",
@@ -55901,6 +55902,7 @@
       "label": "Query Cache",
       "description": "Client-side data cache and prefetch core interface for molecule.dev — fetch once, read synchronously, warm ahead of navigation; the cache engine is a bond",
       "stack": "app",
+      "defaultProvider": "@molecule/app-query-memory",
       "exports": [
         "hashQueryKey",
         "keyStartsWith",
@@ -55928,7 +55930,6 @@
         "@molecule/app-bond"
       ],
       "bondSetter": "setProvider",
-      "defaultProvider": "@molecule/app-query-memory",
       "path": "packages/app/core/query",
       "intentHints": [
         "client-side data cache",
