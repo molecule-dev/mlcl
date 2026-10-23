@@ -17,8 +17,17 @@
  *      consciously.
  */
 import { execFileSync } from 'node:child_process'
-import { existsSync, readFileSync } from 'node:fs'
-import { extname } from 'node:path'
+import { existsSync, mkdtempSync, readFileSync, realpathSync, rmSync, statSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { extname, isAbsolute, join, resolve, sep } from 'node:path'
+
+const args = process.argv.slice(2)
+if (args.length && (args.length !== 2 || args[0] !== '--tarball')) {
+  console.error('Usage: prepublish-verify.mjs [--tarball <packed-file.tgz>]')
+  process.exit(1)
+}
+const tarball = args.length ? resolve(args[1]) : null
+let contentRoot = process.cwd()
 
 const BINARY_EXT = new Set([
   '.png',
@@ -106,10 +115,14 @@ if (!process.env.MLCL_ALLOW_PUBLISH) {
 
 // ── 1. required files ────────────────────────────────────────────────────────
 console.log('required files:')
-for (const f of ['LICENSE', 'README.md', 'bin/run.js']) {
-  if (existsSync(f)) ok(f)
-  else fail(`${f} missing`)
+/** Check mandatory files in the package being inspected. @param {string} root - Package root. */
+function requiredFiles(root) {
+  for (const f of ['LICENSE', 'README.md', 'bin/run.js']) {
+    if (existsSync(join(root, f))) ok(f)
+    else fail(`${f} missing`)
+  }
 }
+if (!tarball) requiredFiles(contentRoot)
 
 // ── 2. tarball structure ─────────────────────────────────────────────────────
 console.log('tarball contents:')
@@ -121,10 +134,14 @@ console.log('tarball contents:')
 // why slicing the FIRST '[' grabbed the nested "files": [ array). Walk
 // candidate '{' and '[' positions; accept the first that yields a parseable
 // document with the expected shape.
-const rawPack = execFileSync('npm', ['pack', '--dry-run', '--json'], {
-  encoding: 'utf8',
-  maxBuffer: 1 << 28,
-})
+const rawPack = execFileSync(
+  'npm',
+  ['pack', ...(tarball ? [tarball, '--ignore-scripts'] : []), '--dry-run', '--json'],
+  {
+    encoding: 'utf8',
+    maxBuffer: 1 << 28,
+  },
+)
 
 /**
  * Extract the balanced JSON document starting at `start`, honoring string
@@ -182,6 +199,10 @@ if (!pack) {
 const files = pack.files.map((f) => f.path)
 let structural = true
 for (const p of files) {
+  if (isAbsolute(p) || p.split(/[\\/]/).includes('..')) {
+    fail(`tarball contains an escaping path: ${p}`)
+    structural = false
+  }
   if (FORBIDDEN_TARBALL_PATHS.some((re) => re.test(p)) || isForbiddenEnvFile(p)) {
     fail(`tarball contains internal path: ${p}`)
     structural = false
@@ -193,8 +214,21 @@ for (const p of files) {
 }
 if (structural)
   ok(
-    `${files.length} files, no internal/machine paths (${(pack.size / 1e6).toFixed(1)} MB unpacked)`,
+    `${files.length} files, no internal/machine paths (${(pack.unpackedSize / 1e6).toFixed(1)} MB unpacked)`,
   )
+
+if (tarball) {
+  if (!structural) process.exit(1)
+  // npm's own pack manifest above and the standard tar extractor inspect the
+  // archived bytes, including files postpack removed from the working tree.
+  const scratch = mkdtempSync(join(tmpdir(), 'mlcl-prepublish-'))
+  process.on('exit', () => rmSync(scratch, { recursive: true, force: true }))
+  execFileSync('tar', ['-xzf', tarball, '-C', scratch, '--no-same-owner', '--no-same-permissions'])
+  contentRoot = join(scratch, 'package')
+  if (!realpathSync(contentRoot).startsWith(`${realpathSync(scratch)}${sep}`))
+    throw new Error('packed package root escapes the extraction directory')
+  requiredFiles(contentRoot)
+}
 
 // ── 3. content sweep of shipped files ────────────────────────────────────────
 console.log('content sweep:')
@@ -204,10 +238,17 @@ for (const p of files) {
   if (BINARY_EXT.has(extname(p).toLowerCase())) continue
   let content
   try {
-    const st = execFileSync('stat', ['-c', '%s', p], { encoding: 'utf8' })
-    if (parseInt(st, 10) > 3_000_000) continue
-    content = readFileSync(p, 'latin1')
+    const file = join(contentRoot, p)
+    if (tarball && !realpathSync(file).startsWith(`${realpathSync(contentRoot)}${sep}`))
+      throw new Error('packed file escapes the archive')
+    const st = statSync(file)
+    if (!st.isFile() || st.size > 3_000_000) continue
+    content = readFileSync(file, 'latin1')
   } catch (_error) {
+    if (tarball) {
+      fail(`cannot inspect packed file: ${p}`)
+      contentClean = false
+    }
     // Intentional skip: pack file lists can include directory rows that have
     // no readable content — nothing to sweep there.
     continue

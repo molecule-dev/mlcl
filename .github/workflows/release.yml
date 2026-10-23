@@ -110,7 +110,15 @@ jobs:
 
       # ---- GATE 3: Prepublish verification (tarball hygiene) ----------------
       - name: Prepublish gate
-        run: node scripts/prepublish-verify.mjs
+        id: package-artifact
+        run: |
+          PACK_DIR="$(mktemp -d "$RUNNER_TEMP/mlcl-publish.XXXXXX")"
+          TARBALL="$PACK_DIR/mlcl-$(node -p 'require("./package.json").version').tgz"
+          npm pack --json --pack-destination "$PACK_DIR" > "$PACK_DIR/pack.json"
+          TARBALL_SHA256="$(sha256sum "$TARBALL" | cut -d ' ' -f 1)"
+          node scripts/prepublish-verify.mjs --tarball "$TARBALL"
+          printf '%s  %s\n' "$TARBALL_SHA256" "$TARBALL" | sha256sum --strict --check
+          printf 'tarball=%s\nsha256=%s\n' "$TARBALL" "$TARBALL_SHA256" >> "$GITHUB_OUTPUT"
         working-directory: mlcl
         env:
           MLCL_ALLOW_PUBLISH: '1' # CI IS the authorized publish path
@@ -137,11 +145,15 @@ jobs:
       # ---- PUBLISH mlcl ------------------------------------------------------
       - name: Publish mlcl
         working-directory: mlcl
-        run: npm publish --provenance --access public
+        run: |
+          printf '%s  %s\n' "$TARBALL_SHA256" "$TARBALL" | sha256sum --strict --check
+          npm publish "$TARBALL" --provenance --access public
         env:
+          TARBALL: ${{ steps.package-artifact.outputs.tarball }}
+          TARBALL_SHA256: ${{ steps.package-artifact.outputs.sha256 }}
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
-          # package.json's prepublishOnly re-runs prepublish-verify.mjs — the
-          # same authorized-CI-publisher + history switches GATE 3 sets.
+          # The verified tarball is published unchanged; npm does not repack a
+          # tarball. Ordinary folder publication retains prepublishOnly protection.
           MLCL_ALLOW_PUBLISH: '1'
           MLCL_ALLOW_DEEP_HISTORY: '1'
 
