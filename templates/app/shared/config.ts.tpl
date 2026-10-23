@@ -32,6 +32,9 @@ export const authConfig = {
   // one: the `/users/me` default answers 404 there, and the auth client then keeps
   // the stored token but leaves the session unconfirmed.
   currentUserEndpoint: '/users/me',
+  // The write route comes from the API user resource contract, independently of the GET above.
+  // Keep this with its method when adapting the app to a different API.
+{{PROFILE_UPDATE_CONFIG}}
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
   changePasswordEndpoint: '/users/password',
