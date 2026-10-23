@@ -12,7 +12,7 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 
-import { extractPackageApi } from './api-extractor.js'
+import { type ExtractedModule, extractPackageApi } from './api-extractor.js'
 import { generateMoleculeMd, type PackageJson } from './docs-generator.js'
 import { stripFrameworkSuffix } from './features.js'
 import { formatGeneratedMarkdown } from './format.js'
@@ -217,18 +217,17 @@ export async function generateDocs(
   // framework-suffixed) feature they translate.
   const knownPackages = new Set(Object.keys(registry.packages))
 
-  // Lazily-extracted module-level @e2e text from core interface packages,
-  // keyed by core package name. Providers inherit their category's E2E
-  // guidance without each bond duplicating the text in its own JSDoc.
-  const coreE2eCache = new Map<string, string | undefined>()
-  const getCoreE2e = (coreName: string, coreEntry: RegistryEntry): string | undefined => {
-    if (!coreE2eCache.has(coreName)) {
-      coreE2eCache.set(
-        coreName,
-        extractPackageApi(join(moleculeDir, coreEntry.path), { rootDir: moleculeDir }).e2e,
-      )
+  // One read-only generation needs each package's API only once: its own
+  // README and providers inheriting its @e2e text use the same extraction.
+  // Keep this Map local so the next generation observes changed source.
+  const extractedByPath = new Map<string, ExtractedModule>()
+  const getExtracted = (entry: RegistryEntry): ExtractedModule => {
+    let extracted = extractedByPath.get(entry.path)
+    if (!extracted) {
+      extracted = extractPackageApi(join(moleculeDir, entry.path), { rootDir: moleculeDir })
+      extractedByPath.set(entry.path, extracted)
     }
-    return coreE2eCache.get(coreName)
+    return extracted
   }
 
   const docs: GeneratedDoc[] = []
@@ -244,7 +243,7 @@ export async function generateDocs(
     // Extract API from source. `rootDir` is the tree being documented (molecule's
     // own root): it anchors the section ORDER only, so generating from a
     // `git archive` export yields the same bytes as the live checkout.
-    const extracted = extractPackageApi(pkgDir, { rootDir: moleculeDir })
+    const extracted = getExtracted(entry)
 
     const companionLocale = companionLocaleFor(name, entry, registry)
 
@@ -262,7 +261,7 @@ export async function generateDocs(
     // Providers without their own @e2e inherit the core interface's
     const coreE2e =
       !extracted.e2e && coreInterfaceName && coreInterfaceEntry
-        ? getCoreE2e(coreInterfaceName, coreInterfaceEntry)
+        ? getExtracted(coreInterfaceEntry).e2e
         : undefined
 
     const md = generateMoleculeMd(extracted, entry, pkgJson, {
