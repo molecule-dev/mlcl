@@ -3244,6 +3244,8 @@
         "createFileSummaryCache",
         "summarizeCached",
         "provider",
+        "createProvider",
+        "LlmSummarizationConfig",
         "countWords",
         "cleanSummary",
         "firstSentences",
@@ -3270,6 +3272,55 @@
         "summary word limit",
         "build time summaries",
         "cache summaries by hash"
+      ]
+    },
+    "@molecule/api-ai-summarization-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-summarization",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted AI summarization \u2014 summaries with hard word caps enforced in code, billed to your molecule project",
+      "stack": "api",
+      "implements": "@molecule/api-ai-summarization",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "SUMMARIZATION_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeSummarizationProvider",
+        "createProvider",
+        "aiSummarizationMoleculeSecretDefinitions",
+        "MoleculeSummarizationConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-summarization",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-summarization",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-summarization/molecule",
+      "intentHints": [
+        "hosted ai summarization",
+        "summarize text without an api key",
+        "tldr without a vendor account",
+        "shorten text with a word cap"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
       ]
     },
     "@molecule/api-ai-tools": {

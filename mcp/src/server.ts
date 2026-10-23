@@ -2142,6 +2142,90 @@ server.registerTool(
   ),
 )
 
+/**
+ * The output cap `summarize_text` returns through a chat result, with the cut
+ * named — a summary is short by contract, but a huge `maxLength` plus a
+ * model that ignores hints must not flood the transcript.
+ */
+const SUMMARIZE_MAX_RESULT_CHARS = 20_000
+
+server.registerTool(
+  'summarize_text',
+  {
+    title: 'Summarize text with molecule.dev',
+    description:
+      'AI summarization on molecule.dev (no AI-vendor account; metered per request to the project whose MOLECULE_API_KEY is used). Turn a block of text into a concise paragraph, a bulleted list or a one-sentence TL;DR — with a hard word cap enforced in code (whole sentences, re-asks when long, never a cut-off summary). The same service backs @molecule/api-ai-summarization-molecule in app code.',
+    inputSchema: {
+      text: z.string().min(1).max(100000).describe('The source text to summarize'),
+      format: z
+        .enum(['paragraph', 'bullets', 'tldr'])
+        .optional()
+        .describe('Output shape. Defaults to paragraph; tldr gives one sentence'),
+      max_words: z
+        .number()
+        .int()
+        .min(1)
+        .max(500)
+        .optional()
+        .describe(
+          'HARD cap in words, enforced by the service (whole sentences, re-asks when long)',
+        ),
+      max_length: z
+        .number()
+        .int()
+        .min(1)
+        .max(1000)
+        .optional()
+        .describe('Approximate target length in words (a hint to the model, not enforced)'),
+      sentences: z
+        .number()
+        .int()
+        .min(1)
+        .max(10)
+        .optional()
+        .describe('How many sentences the summary may have (defaults to 1 for tldr)'),
+      focus: z
+        .string()
+        .max(2000)
+        .optional()
+        .describe('Optional angle or extra instructions to steer the summary'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked(
+    'summarize_text',
+    async ({ text, format, max_words, max_length, sentences, focus, directory }) =>
+      serviceResult(async () => {
+        const result = (await callHostedService(
+          'summarization',
+          'summarize',
+          {
+            text,
+            ...(format !== undefined ? { format } : {}),
+            ...(max_words !== undefined ? { maxWords: max_words } : {}),
+            ...(max_length !== undefined ? { maxLength: max_length } : {}),
+            ...(sentences !== undefined ? { sentences } : {}),
+            ...(focus !== undefined ? { focus } : {}),
+          },
+          directory,
+        )) as { summary?: string }
+        const summary = result.summary ?? ''
+        if (summary.length > SUMMARIZE_MAX_RESULT_CHARS) {
+          return JSON.stringify({
+            ...result,
+            summary: summary.slice(0, SUMMARIZE_MAX_RESULT_CHARS),
+            truncated: true,
+            omittedChars: summary.length - SUMMARIZE_MAX_RESULT_CHARS,
+          })
+        }
+        return JSON.stringify(result)
+      }),
+  ),
+)
+
 /** The input cap `transform_image` advertises. */
 const TRANSFORM_MAX_INPUT_BYTES = 8 * 1024 * 1024
 
