@@ -26,6 +26,19 @@
       "severity": "high",
       "expires": "2027-01-03",
       "reason": "max-stale handling can disclose cross-user cached responses (advisory on http-cache-semantics <= 4.2.0 with NO patched release — every version ever published is in range). Reached only through the oclif devDependency (oclif -> got 13 -> cacheable-request 10 -> http-cache-semantics 4.1.x), which mlcl uses at development time for its own CLI tooling; the published mlcl package carries none of it (@oclif/core and plugin-help, the runtime deps, pull no got). The disclosure requires a SHARED HTTP cache across users on one machine with crafted max-stale responses — not a shape oclif update checks produce. npm reports the only remediation as a downgrade to oclif 1.16.1 (2018), which is an older tree without got, not a fixed chain. Residual risk: a future refactor adding runtime HTTP caching through got would re-expose it; the gate goes red again at expiry so the decision gets remade. Re-check at expiry for a patched http-cache-semantics or a cacheable-request release without it, bump, and drop this entry."
+    },
+    {
+      "package": "dompurify (via @molecule/app-rich-text-quill 1.0.5 and monaco-editor <= 0.56.0 — both devDependencies: the template-example test surface, nothing mlcl ships)",
+      "advisories": [
+        "GHSA-p98j-92pf-mc4p",
+        "GHSA-6688-9rhm-gjv2",
+        "GHSA-cg2g-xh64-v4q7",
+        "GHSA-mrv2-3pqr-j5jr",
+        "GHSA-c6gr-qvv4-5v3f"
+      ],
+      "severity": "critical",
+      "expires": "2026-11-06",
+      "reason": "DOMPurify XSS class fixed in 3.4.17 (published 2026-10-12); the advisory range is <= 3.4.16. The fix is ALREADY LANDED in molecule (2dada4b2a pins dompurify 3.4.17 in the rich-text quill bond, publishing in this same release wave) — but mlcl CI resolves the last PUBLISHED quill 1.0.5, which still pins dompurify <= 3.4.16, and monaco-editor <= 0.56.0 depends on the vulnerable range. Dev-only reachability: the chain lives in the template-example test toolchain; mlcl ships no runtime dependency on dompurify or monaco. Expires in two weeks: the quill 1.0.6 pin sweep (and a monaco 0.57 bump if still needed) must drop this entry; the gate goes red at expiry to force that re-check."
     }
   ]
 }
