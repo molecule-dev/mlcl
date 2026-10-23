@@ -244,7 +244,7 @@
     "@molecule/api-search": "1.0.3",
     "@molecule/api-search-meilisearch": "1.0.2",
     "@molecule/api-secrets": "1.0.2",
-    "@molecule/api-server-default-express": "1.2.0",
+    "@molecule/api-server-default-express": "1.2.1",
     "@molecule/api-sms": "1.0.3",
     "@molecule/api-sms-capture": "1.0.3",
     "@molecule/api-sms-twilio": "1.0.2",
