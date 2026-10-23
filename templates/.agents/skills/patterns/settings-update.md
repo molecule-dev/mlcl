@@ -24,7 +24,6 @@ export function Settings() {
   const { t } = useTranslation()
   const profile = useProfileForm<AppUser, Fields>({
     defaultValues: { name: '', bio: '', password: '' },
-    getIdentity: (user) => user.id,
     toValues: (user) => ({ name: user.name ?? '', bio: user.bio ?? '', password: '' }),
     toPatch: ({ password, ...changes }) => ({
       ...changes,
@@ -54,6 +53,8 @@ export function Settings() {
   )
 }
 ```
+
+The built-in auth client provides session ownership through `getSessionRevision()`, so the default form needs no `getIdentity`. For a legacy or custom provider without that capability, supply `getIdentity` with an immutable account identifier; an editable username or email is not stable enough.
 
 Keep every control in `defaultValues` and `toValues`; normalize nullable text to `''` there. `toPatch` receives only changed fields and the complete submit-time value snapshot as its second argument. Preserve omitted fields. Convert an explicitly cleared field to null only if the API requires null. An API with a separate password-change endpoint uses `useChangePassword` in its security form; the optional password above is for APIs that accept it in the profile patch.
 
