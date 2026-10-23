@@ -13,14 +13,15 @@
  */
 import { execFileSync } from 'node:child_process'
 import { existsSync, readFileSync } from 'node:fs'
-import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, rm, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { describe, expect, it } from 'vitest'
 
-import { discoverReexporters } from '../docs-sync.js'
+import { stripGeneratedTimestamp } from '../docs-generator.js'
+import { discoverReexporters, generateDocs } from '../docs-sync.js'
 import type { Registry, RegistryEntry } from '../schema.js'
 
 const MLCL_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..')
@@ -131,48 +132,129 @@ describe('discoverReexporters', () => {
     expect(() => discoverReexporters(registryOf({}), empty)).toThrow(/no packages\/ directory/)
   })
 
+  it('refreshes the scoped README of a wrapper that locally re-exports an imported public type', async () => {
+    const root = await tempDir('local-public-types')
+    const core = '@molecule/api-source'
+    const wrapper = '@molecule/api-wrapper'
+    const privateImporter = '@molecule/api-private-importer'
+    const unrelated = '@molecule/api-unrelated'
+    const registry = registryOf({
+      [core]: 'packages/api/source',
+      [wrapper]: 'packages/api/wrapper',
+      [privateImporter]: 'packages/api/private-importer',
+      [unrelated]: 'packages/api/unrelated',
+    })
+    await writeTree(root, {
+      'packages/api/source/src/index.ts':
+        '/** Core. @module */\nexport interface Client { value: string }\n',
+      'packages/api/wrapper/src/index.ts': `/** Wrapper. @module */
+import type { Client as CoreClient } from '@molecule/api-source'
+export type {
+  CoreClient as Client,
+}
+export function getClient(): CoreClient { throw new Error('Fixture only') }
+`,
+      'packages/api/private-importer/src/index.ts': `/** Private import. @module */
+import type { Client } from '@molecule/api-source'
+const privateClient: Client | null = null
+export const ready = true
+`,
+      'packages/api/unrelated/src/index.ts': '/** Unrelated. @module */\nexport const value = 1\n',
+    })
+    for (const [name, entry] of Object.entries(registry.packages)) {
+      await writeFile(
+        join(root, entry.path, 'package.json'),
+        JSON.stringify({
+          name,
+          version: '1.0.0',
+          type: 'module',
+          types: './src/index.ts',
+        }),
+      )
+    }
+    await mkdir(join(root, 'node_modules/@molecule'), { recursive: true })
+    await symlink(
+      join(root, 'packages/api/source'),
+      join(root, 'node_modules/@molecule/api-source'),
+    )
+    const initial = (await generateDocs(registry, root)).find((doc) => doc.name === wrapper)!
+    await writeFile(initial.readmePath, initial.md)
+    await writeFile(
+      join(root, 'packages/api/source/src/index.ts'),
+      '/** Core. @module */\nexport interface Client { value: string; revision(): number }\n',
+    )
+    const names = [core, ...(discoverReexporters(registry, root).get(core) ?? [])]
+    const scoped = await generateDocs(registry, root, names)
+    const current = (await generateDocs(registry, root)).find((doc) => doc.name === wrapper)!
+    expect(current.md).toContain('revision(): number')
+    expect(stripGeneratedTimestamp(current.md)).not.toBe(stripGeneratedTimestamp(initial.md))
+    expect(names).not.toContain(privateImporter)
+    expect(names).not.toContain(unrelated)
+    const refreshed = scoped.find((doc) => doc.name === wrapper)
+    expect(
+      refreshed,
+      'Core changed, but the wrapper README remains stale outside the selected scope',
+    ).toBeDefined()
+    expect(stripGeneratedTimestamp(refreshed!.md)).toBe(stripGeneratedTimestamp(current.md))
+  })
+
   // The live fleet is the only tree that can answer "did the rewrite lose
   // anything?" — 33 re-export lines across ~22k files. Skipped in a checkout
   // without the sibling molecule repo (isolated mlcl CI).
-  it.skipIf(!moleculePresent)('matches what git grep finds in the live checkout', () => {
-    const registry = JSON.parse(readFileSync(join(MLCL_ROOT, 'registry.json'), 'utf8')) as Registry
+  it.skipIf(!moleculePresent)(
+    'preserves direct re-exports and adds local imported types in the live checkout',
+    () => {
+      const registry = JSON.parse(
+        readFileSync(join(MLCL_ROOT, 'registry.json'), 'utf8'),
+      ) as Registry
 
-    const viaWalk = discoverReexporters(registry, MOLECULE_ROOT)
-    const viaGit = new Map<string, string[]>()
-    const out = execFileSync(
-      'git',
-      [
-        '-C',
-        MOLECULE_ROOT,
-        'grep',
-        '--untracked',
-        '-oE',
-        String.raw`export (\* (as [A-Za-z0-9_]+ )?|(type )?\{[^}]*\} )?from '@molecule/[a-z0-9-]+'`,
-        '--',
-        'packages',
-      ],
-      { encoding: 'utf8', maxBuffer: 1 << 26 },
-    )
-    const nameByPath = new Map<string, string>()
-    for (const [name, entry] of Object.entries(registry.packages)) {
-      nameByPath.set(entry.path.replace(/\/+$/, ''), name)
-    }
-    for (const line of out.split('\n')) {
-      const sep = line.indexOf(':')
-      if (sep === -1) continue
-      const file = line.slice(0, sep)
-      if (!file.includes('/src/')) continue
-      const target = line.slice(sep + 1).match(/'(@molecule\/[a-z0-9-]+)'/)?.[1]
-      const reexporter = nameByPath.get(file.replace(/\/src\/.*$/, ''))
-      if (!target || !reexporter || target === reexporter || !registry.packages[target]) continue
-      const list = viaGit.get(target) ?? []
-      if (!list.includes(reexporter)) list.push(reexporter)
-      viaGit.set(target, list)
-    }
+      const viaWalk = discoverReexporters(registry, MOLECULE_ROOT)
+      const viaGit = new Map<string, string[]>()
+      const out = execFileSync(
+        'git',
+        [
+          '-C',
+          MOLECULE_ROOT,
+          'grep',
+          '--untracked',
+          '-oE',
+          String.raw`export (\* (as [A-Za-z0-9_]+ )?|(type )?\{[^}]*\} )?from '@molecule/[a-z0-9-]+'`,
+          '--',
+          'packages',
+        ],
+        { encoding: 'utf8', maxBuffer: 1 << 26 },
+      )
+      const nameByPath = new Map<string, string>()
+      for (const [name, entry] of Object.entries(registry.packages)) {
+        nameByPath.set(entry.path.replace(/\/+$/, ''), name)
+      }
+      for (const line of out.split('\n')) {
+        const sep = line.indexOf(':')
+        if (sep === -1) continue
+        const file = line.slice(0, sep)
+        if (!file.includes('/src/')) continue
+        const target = line.slice(sep + 1).match(/'(@molecule\/[a-z0-9-]+)'/)?.[1]
+        const reexporter = nameByPath.get(file.replace(/\/src\/.*$/, ''))
+        if (!target || !reexporter || target === reexporter || !registry.packages[target]) continue
+        const list = viaGit.get(target) ?? []
+        if (!list.includes(reexporter)) list.push(reexporter)
+        viaGit.set(target, list)
+      }
 
-    expect(viaGit.size).toBeGreaterThan(0)
-    expect([...viaWalk].sort()).toEqual([...viaGit].sort())
-  })
+      expect(viaGit.size).toBeGreaterThan(0)
+      for (const [target, reexporters] of viaGit) {
+        expect(viaWalk.get(target)).toEqual(expect.arrayContaining(reexporters))
+      }
+      expect(viaWalk.get('@molecule/app-auth')).toEqual(
+        expect.arrayContaining([
+          '@molecule/app-angular',
+          '@molecule/app-solid',
+          '@molecule/app-svelte',
+          '@molecule/app-vue',
+        ]),
+      )
+    },
+  )
 })
 
 // Cleanup runs last so a failing assertion still leaves nothing behind.

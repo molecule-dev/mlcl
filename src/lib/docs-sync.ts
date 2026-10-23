@@ -12,6 +12,8 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 
+import ts from 'typescript'
+
 import { type ExtractedModule, extractPackageApi } from './api-extractor.js'
 import { generateMoleculeMd, type PackageJson } from './docs-generator.js'
 import { stripFrameworkSuffix } from './features.js'
@@ -71,10 +73,6 @@ export function companionLocaleFor(
   return undefined
 }
 
-/** The export syntax that embeds another molecule package's API in this one's README. */
-const REEXPORT_RE =
-  /export (\* (as [A-Za-z0-9_]+ )?|(type )?\{[^}]*\} )?from '(@molecule\/[a-z0-9-]+)'/
-
 /** Directories never scanned for re-exports: generated output and installed packages. */
 const REEXPORT_SKIP_DIRS = new Set(['node_modules', 'dist'])
 
@@ -95,22 +93,13 @@ const REEXPORT_SKIP_DIRS = new Set(['node_modules', 'dist'])
  * directory) and reported zero re-exports instead of failing, silently narrowing
  * the gate — and outright crashing with `fatal: not a git repository` when the
  * export sat outside any repo. Reading the sources has neither failure mode, and
- * costs ~0.3s over the fleet (22k files).
+ * uses the existing single filesystem walk over the source tree.
  *
- * Line-based, so a multi-line named re-export is not seen; the fleet occurrences
- * of that shape are provider→core type re-exports, which the core/provider
- * expansion covers.
- *
- * What this CANNOT see is the other way a README embeds another package's API: a
- * package whose exported signatures REFERENCE its types without re-exporting them
- * — `@molecule/app-react` imports `HttpClient` from `@molecule/app-http` and
- * publishes it in its own context types, so app-http's API is documented in
- * react's README with no `export … from` anywhere. Only generation finds that
- * relation, which is why a changed CORE can leave its consumers' READMEs stale
- * until the full fleet check runs (the nightly lint-health cron, and the release's
- * own fallback to a full check). Widening this scan to imports would not help —
- * the dependency is a type reference, not an import of the documented surface —
- * and would balloon a pre-commit scope to every consumer of a core.
+ * TypeScript's parser also resolves the ordinary import-then-local-export shape:
+ * `import type { Client } from '@molecule/app-auth'; export type { Client }`.
+ * Framework bindings use this shape to publish core interfaces in their own
+ * READMEs. Named aliases and multiline exports retain the same dependency.
+ * Private imports do not add dependencies: only actual export declarations do.
  *
  * @param registry - Full raw registry (package name → repo-relative path).
  * @param moleculeDir - Absolute path of the molecule tree to read.
@@ -156,9 +145,35 @@ export function discoverReexporters(
         .replace(/\\/g, '/'),
     )
     if (!reexporter) continue
-    for (const line of readFileSync(file, 'utf-8').split('\n')) {
-      if (!line.includes("from '@molecule/")) continue
-      const target = line.match(REEXPORT_RE)?.[4]
+    const text = readFileSync(file, 'utf-8')
+    if (!text.includes('@molecule/')) continue
+    const source = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true)
+    const imports = new Map<string, string>()
+    for (const statement of source.statements) {
+      if (!ts.isImportDeclaration(statement) || !ts.isStringLiteral(statement.moduleSpecifier))
+        continue
+      const target = statement.moduleSpecifier.text
+      if (!registry.packages[target]) continue
+      const clause = statement.importClause
+      if (clause?.name) imports.set(clause.name.text, target)
+      const bindings = clause?.namedBindings
+      if (bindings && ts.isNamespaceImport(bindings)) imports.set(bindings.name.text, target)
+      if (bindings && ts.isNamedImports(bindings))
+        for (const binding of bindings.elements) imports.set(binding.name.text, target)
+    }
+    const targets = new Set<string>()
+    for (const statement of source.statements) {
+      if (!ts.isExportDeclaration(statement)) continue
+      if (statement.moduleSpecifier && ts.isStringLiteral(statement.moduleSpecifier)) {
+        targets.add(statement.moduleSpecifier.text)
+      } else if (statement.exportClause && ts.isNamedExports(statement.exportClause)) {
+        for (const binding of statement.exportClause.elements) {
+          const target = imports.get((binding.propertyName ?? binding.name).text)
+          if (target) targets.add(target)
+        }
+      }
+    }
+    for (const target of targets) {
       if (!target || target === reexporter || !registry.packages[target]) continue
       const list: string[] = byTarget.get(target) ?? []
       if (!list.includes(reexporter)) list.push(reexporter)
