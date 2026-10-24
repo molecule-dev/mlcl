@@ -53104,8 +53104,6 @@
       "description": "Translations for @molecule/app-version in 79 languages",
       "stack": "app",
       "exports": [
-        "VersionTranslationKey",
-        "VersionTranslations",
         "af",
         "am",
         "ar",
@@ -53177,6 +53175,9 @@
         "te",
         "th",
         "tr",
+        "VersionTranslationKey",
+        "VersionPluralFormKey",
+        "VersionTranslations",
         "uk",
         "ur",
         "uz",
@@ -56068,11 +56069,13 @@
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-logger",
+        "@molecule/app-version",
         "vite-plugin-pwa"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
-        "@molecule/app-logger"
+        "@molecule/app-logger",
+        "@molecule/app-version"
       ],
       "path": "packages/app/features/pwa-default",
       "intentHints": [
@@ -61687,16 +61690,6 @@
       "stack": "app",
       "alwaysInclude": true,
       "exports": [
-        "VersionInfo",
-        "VersionState",
-        "ServiceWorkerController",
-        "UpdateCheckOptions",
-        "VersionEvent",
-        "VersionEventHandler",
-        "VersionProvider",
-        "DEFAULT_CHECK_INTERVAL",
-        "DEFAULT_VERSION_URL",
-        "createServiceWorkerController",
         "createVersionChecker",
         "createWebVersionProvider",
         "setProvider",
@@ -61709,8 +61702,28 @@
         "getServiceWorker",
         "applyUpdate",
         "dismissUpdate",
+        "getRunningBuildTime",
+        "summarizeReleaseNotes",
+        "fetchReleaseNotes",
+        "getUpdateSummary",
+        "createServiceWorkerController",
+        "generateServiceWorkerTemplate",
         "ServiceWorkerTemplateOptions",
-        "generateServiceWorkerTemplate"
+        "VersionInfo",
+        "VersionState",
+        "ServiceWorkerController",
+        "UpdateCheckOptions",
+        "VersionEvent",
+        "VersionEventHandler",
+        "VersionProvider",
+        "ReleaseNoteType",
+        "ReleaseNoteEntry",
+        "ReleaseNotes",
+        "UpdateSummary",
+        "DEFAULT_CHECK_INTERVAL",
+        "DEFAULT_VERSION_URL",
+        "RELEASE_NOTES_FILENAME",
+        "BUILD_TIME_META_NAME"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -61983,12 +61996,15 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-version",
         "@tailwindcss/vite",
         "@vitejs/plugin-react",
         "vite",
         "vite-plugin-pwa"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-version"
+      ],
       "path": "packages/app/features/vite-config-default",
       "intentHints": [
         "vite config",
