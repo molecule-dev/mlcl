@@ -1200,6 +1200,20 @@ server.registerTool(
 )
 
 /**
+ * Error for a "one text or a list of texts" union. zod 4 answers a union whose
+ * branches all failed with a bare "Invalid input", which hides the bound the
+ * caller broke (zod 3 surfaced it); report the first issue of the branch the
+ * value was meant for — the list branch for an array, the single text otherwise.
+ *
+ * @param issue - The union's raw issue.
+ * @returns That branch's first issue message, or undefined for zod's default.
+ */
+const textOrListError = (issue: z.core.$ZodRawIssue): string | undefined =>
+  issue.code === 'invalid_union'
+    ? issue.errors?.[Array.isArray(issue.input) ? 1 : 0]?.[0]?.message
+    : undefined
+
+/**
  * The input budget `embed_text` enforces — the hosted embeddings service's own
  * limits (the API's `HostedServices/embeddings.ts` `EMBED_LIMITS`), which are
  * the real contract: an input past them was buffered WHOLE in this process,
@@ -1231,14 +1245,17 @@ server.registerTool(
       // nothing (the same doomed round trip the string branch's `.min(1)`
       // already refuses).
       input: z
-        .union([
-          z.string().min(1).max(EMBED_MAX_CHARS_PER_TEXT),
-          z
-            .array(z.string().min(1).max(EMBED_MAX_CHARS_PER_TEXT))
-            .min(1)
-            .max(EMBED_MAX_TEXTS)
-            .describe('Up to 256 texts'),
-        ])
+        .union(
+          [
+            z.string().min(1).max(EMBED_MAX_CHARS_PER_TEXT),
+            z
+              .array(z.string().min(1).max(EMBED_MAX_CHARS_PER_TEXT))
+              .min(1)
+              .max(EMBED_MAX_TEXTS)
+              .describe('Up to 256 texts'),
+          ],
+          { error: textOrListError },
+        )
         .describe('Text or list of texts'),
       model: z.enum(['text-embedding-3-small', 'text-embedding-3-large']).optional(),
       dimensions: z.number().int().min(1).max(3072).optional(),
@@ -1340,7 +1357,9 @@ server.registerTool(
       // JSON Schema); the TOTAL is checked in the handler, the same split
       // `merge_pdfs` uses for its per-file cap versus its per-set total.
       text: z
-        .union([z.string(), z.array(z.string()).max(TRANSLATE_MAX_TEXTS)])
+        .union([z.string(), z.array(z.string()).max(TRANSLATE_MAX_TEXTS)], {
+          error: textOrListError,
+        })
         .describe('Text or list of texts'),
       // Bounded like every other field of this call that rides the outbound
       // body — see TRANSLATE_MAX_LANG_CHARS. These are the two remaining
