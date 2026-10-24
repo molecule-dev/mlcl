@@ -35,7 +35,7 @@ import { readdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
 /** A database dialect a scaffolded migration's SQL has to run on. */
-export type MigrationDialect = 'sqlite' | 'postgresql' | 'mysql'
+export type MigrationDialect = 'sqlite' | 'postgresql' | 'mysql' | 'duckdb'
 
 /**
  * The dialect each registry database provider runs.
@@ -43,7 +43,12 @@ export type MigrationDialect = 'sqlite' | 'postgresql' | 'mysql'
  * PGlite is Postgres compiled to wasm, so it shares the Postgres dialect and
  * needs no translation; D1 is SQLite (Cloudflare's distributed SQLite) and its
  * bond applies migrations out of band, but a file it applies is still SQLite
- * DDL. Both are covered by the registry test in
+ * DDL. DuckDB is its OWN dialect, not Postgres: its bond accepts most Postgres
+ * DDL but rejects `jsonb` (it has `JSON`) and indexes take no `USING <method>`
+ * clause, which is why `translateDdlToDuckdb` exists — labeling it Postgres
+ * here would suppress the header that tells the writer those two constructs are
+ * rewritten. MotherDuck runs the same engine against a hosted database, so it
+ * shares the DuckDB dialect. Every entry is covered by the registry test in
  * `src/lib/__tests__/migration-dialect.test.ts`: a database provider added to
  * the registry without a dialect here would otherwise ship scaffolded SQL
  * written for the wrong database, silently.
@@ -54,6 +59,8 @@ export const DATABASE_DIALECTS: ReadonlyMap<string, MigrationDialect> = new Map(
   ['@molecule/api-database-pglite', 'postgresql'],
   ['@molecule/api-database-mysql', 'mysql'],
   ['@molecule/api-database-d1', 'sqlite'],
+  ['@molecule/api-database-duckdb', 'duckdb'],
+  ['@molecule/api-database-motherduck', 'duckdb'],
 ])
 
 /**
@@ -92,6 +99,22 @@ const HEADERS: ReadonlyMap<MigrationDialect, (database: string) => string> = new
       '-- by the MySQL bond as it applies this file, so they apply here unchanged. Copy a package schema\n' +
       '-- as it is — never hand-write a MySQL version of it: a typed-out copy drifts from the schema\n' +
       '-- its own queries expect.\n',
+  ],
+  [
+    'duckdb',
+    (database) =>
+      `-- This app's database is DuckDB (\`${database}\`), and this file is a migration it runs.\n` +
+      '-- Applied as written: Postgres type names, `gen_random_uuid()`, `now()`, `::casts`,\n' +
+      '-- `ADD COLUMN IF NOT EXISTS`, `DROP COLUMN IF EXISTS`.\n' +
+      '-- Rewritten by the DuckDB migrator as it applies the file: `jsonb` becomes `json`; an\n' +
+      "-- index's `USING <method>` is dropped; and a partial index's `WHERE` becomes a plain\n" +
+      '-- index on the same columns, or — for a UNIQUE partial index — a UNIQUE index over\n' +
+      '-- `CASE WHEN <predicate> THEN <column> END`, so exactly the same rows stay constrained.\n' +
+      '-- Not supported: a foreign-key referential action (`ON DELETE`/`ON UPDATE` `CASCADE`,\n' +
+      '-- `SET NULL`, `SET DEFAULT`). DuckDB rejects it and cannot reproduce the cascade.\n' +
+      '-- The generated runner rejects unsupported SQL and names its file and construct.\n' +
+      '-- Never delete a cascade to make a file apply: that silently turns a cascading delete into one that\n' +
+      '-- refuses while child rows still exist.\n',
   ],
 ])
 
@@ -192,11 +215,29 @@ export async function stampMigrationDialect(dir: string, database: string | null
  * files are written for. A set naming only Postgres — every flagship template —
  * returns that provider, whose header is empty.
  *
+ * MotherDuck is checked before any other non-Postgres bond, and specifically
+ * before DuckDB. The two are the same engine, and a MotherDuck project ALWAYS
+ * declares the local DuckDB bond too: `ensureMoleculePeerClosure` writes
+ * MotherDuck's `moleculePeers` — which include
+ * `@molecule/api-database-duckdb` — into every manifest it closes. Picking by
+ * iteration order therefore named the local bond (the manifest's keys are
+ * sorted, so `…-duckdb` comes first) and stamped DuckDB's header on a hosted
+ * database; the header named a bond the app does not run. A project declaring
+ * BOTH without MotherDuck's closure having put it there (a swap that predates
+ * the peer cleanup) still resolves to MotherDuck, which is the hosted database
+ * such a project is meant to use — the same precedence `migrateTemplateFor`
+ * documents.
+ *
  * @param names - `@molecule/*` package names (the selection, or a manifest's keys).
  * @returns The database package name, or null when the set names none.
  */
 export function databasePackageOf(names: Iterable<string>): string | null {
   const providers = [...names].filter((name) => DATABASE_DIALECTS.has(name))
+  // `providers.includes` rather than a first-match `find`: the rule is about
+  // the SET, not the order the manifest happens to list it in.
+  if (providers.includes('@molecule/api-database-motherduck')) {
+    return '@molecule/api-database-motherduck'
+  }
   return (
     providers.find((name) => dialectOfDatabasePackage(name) !== 'postgresql') ??
     providers[0] ??

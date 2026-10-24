@@ -67,6 +67,12 @@ async function runFixture(
     '@molecule/api-database-postgresql',
     '@molecule/api-database-sqlite',
     '@molecule/api-database-mysql',
+    // DuckDB and MotherDuck renderers import their OWN bond's `createMigrator`
+    // at the top level, so their runners execute against these stubs exactly
+    // like the SQLite/MySQL ones. Without the stubs the emitted runner cannot
+    // even load, which is how an unpinned namespace used to stay invisible.
+    '@molecule/api-database-duckdb',
+    '@molecule/api-database-motherduck',
   ]) {
     const dir = join(api, 'node_modules', pkg)
     await mkdir(dir, { recursive: true })
@@ -115,6 +121,23 @@ async function runFixture(
 }
 
 describe('migration runner runtime layouts', () => {
+  // The resource-setup replay keeps its OWN ledger namespace. Dropping
+  // `{ namespace: '__setup__' }` from either template leaves the suite green
+  // everywhere else (the content assertions only look for the call shape), so
+  // the namespace is pinned here by RUNNING the runner and reading the options
+  // the bond's `createMigrator` receives.
+  for (const provider of ['duckdb', 'motherduck']) {
+    it(`${provider}: replays __setup__ under its own namespace`, async () => {
+      const source = await readMigrateRunner([`@molecule/api-database-${provider}`])
+      expect(await runFixture(source, 'dist/src/scripts', { recordNamespaces: true })).toEqual([
+        'fixture options {"directory":"migrations"}',
+        'fixture migration',
+        'fixture options {"directory":"__setup__","namespace":"__setup__"}',
+        'fixture setup',
+      ])
+    })
+  }
+
   it('SQLite wires independent setup identities and both legacy source directories', async () => {
     const source = await readMigrateRunner(['@molecule/api-database-sqlite'])
     expect(await runFixture(source, 'dist/src/scripts', { recordNamespaces: true })).toEqual([
@@ -125,7 +148,7 @@ describe('migration runner runtime layouts', () => {
     ])
   })
 
-  for (const provider of ['postgresql', 'pglite', 'sqlite', 'mysql']) {
+  for (const provider of ['postgresql', 'pglite', 'sqlite', 'mysql', 'duckdb', 'motherduck']) {
     for (const layout of ['src/scripts', 'dist/scripts', 'dist/src/scripts']) {
       it(`${provider}: reads API migrations and setup from ${layout}`, async () => {
         const source = await readMigrateRunner([`@molecule/api-database-${provider}`])

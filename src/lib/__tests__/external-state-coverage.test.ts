@@ -44,6 +44,8 @@ const REGISTRY = join(MLCL_ROOT, 'registry.json')
 
 /** Where external-state bonds live, relative to the molecule repo root. */
 const BOND_DIR = 'packages/api/bonds/project-archive-external-state'
+/** Package-name prefix every external-state bond carries. */
+const EXTERNAL_STATE_PREFIX = '@molecule/api-project-archive-external-state-'
 
 const workDir = mkdtempSync(join(tmpdir(), 'mlcl-external-state-'))
 
@@ -113,7 +115,12 @@ interface BondFixture {
  *
  * None is category-wide: every one captures with its provider's own tooling
  * (`pg_dump` cannot dump MySQL; `wrangler d1 export` is the only thing that can
- * read a Cloudflare D1 database), so none depends on `@molecule/api-database`.
+ * read a Cloudflare D1 database; DuckDB's file is byte-copied with its `.wal`),
+ * so none depends on `@molecule/api-database`. The list mirrors `registry.json`
+ * exactly, and the first test in "a registry row is not coverage" holds it to
+ * that: a bond added to the registry must be added here too, or every negative
+ * control below would fail for a phantom directory instead of the defect it
+ * was written to prove.
  *
  * A category-wide bond — one written against a CORE interface, covering every
  * provider of it — is still a shape the gate supports and refuses to accept
@@ -124,6 +131,8 @@ interface BondFixture {
  */
 const REAL_BONDS: Record<string, string[]> = {
   d1: [],
+  duckdb: [],
+  motherduck: [],
   mysql: [],
   postgresql: [],
   pglite: [],
@@ -338,6 +347,26 @@ describe('project-archive external-state coverage', () => {
   // ==========================================================================
 
   describe('a registry row is not coverage', () => {
+    it('the fixture describes every external-state bond the registry ships', () => {
+      // The fixture builder models a molecule checkout, so it must hold the tree
+      // registry.json describes. A bond registered there but absent here makes
+      // EVERY negative control below fail on a directory only the fixture is
+      // missing — the opposite of what they exist to prove, and where the
+      // DuckDB/MotherDuck archive bonds left them on 2026-10-24.
+      const registry = JSON.parse(readFileSync(REGISTRY, 'utf8')) as {
+        packages: Record<string, unknown>
+      }
+      const registered = Object.keys(registry.packages)
+        .filter((name) => name.startsWith(EXTERNAL_STATE_PREFIX))
+        .map((name) => name.slice(EXTERNAL_STATE_PREFIX.length))
+        .sort()
+      expect(registered.length).toBeGreaterThan(0)
+      expect(
+        Object.keys(REAL_BONDS).sort(),
+        'REAL_BONDS must list every external-state bond registry.json registers',
+      ).toEqual(registered)
+    })
+
     it('fails when the covering package does not exist on disk', () => {
       // The whole bypass is one registry edit: name a bond that was never
       // written. Name-only matching marked MongoDB covered and exited 0.

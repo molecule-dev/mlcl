@@ -37,6 +37,8 @@ const SQLITE = '@molecule/api-database-sqlite'
 const MYSQL = '@molecule/api-database-mysql'
 const POSTGRES = '@molecule/api-database-postgresql'
 const PGLITE = '@molecule/api-database-pglite'
+const DUCKDB = '@molecule/api-database-duckdb'
+const MOTHERDUCK = '@molecule/api-database-motherduck'
 
 let dir: string | null = null
 afterEach(async () => {
@@ -72,6 +74,39 @@ describe('migrationDialectHeader', () => {
     expect(header).toMatch(/never hand-write a MySQL version/i)
   })
 
+  it('names DuckDB as its own dialect and states exactly what the bond applies, translates and refuses', () => {
+    const header = migrationDialectHeader(DUCKDB)
+    // A SQL comment: the file is still the migration SQL.
+    for (const line of header.trimEnd().split('\n')) expect(line.startsWith('--')).toBe(true)
+    expect(header).toContain(DUCKDB)
+    expect(header).toContain('DuckDB')
+    // What the bond does, stated as three separate facts (the contract in
+    // @molecule/api-database/sql-compatibility.js + mlcl's sql-requirements.ts).
+    expect(header).toContain('Applied as written')
+    expect(header).toContain('gen_random_uuid()')
+    expect(header).toMatch(/Rewritten by the DuckDB migrator/i)
+    expect(header).toContain('jsonb')
+    expect(header).toContain('USING <method>')
+    expect(header).toContain('CASE WHEN')
+    expect(header).toMatch(/Not supported/i)
+    expect(header).toContain('ON DELETE')
+    expect(header).toContain('CASCADE')
+    expect(header).toContain('SET NULL')
+    expect(header).toMatch(/generated runner rejects unsupported SQL/i)
+    expect(header).not.toMatch(/refuses to generate an app/i)
+    // Never the old blanket claims, and never advice that changes semantics.
+    expect(header).not.toMatch(/apply here unchanged/i)
+    expect(header).not.toMatch(/never hand-write a DuckDB version/i)
+    const prose = header.replace(/^-- ?/gm, '').replace(/\s+/g, ' ')
+    expect(prose).toMatch(/Never delete a cascade/i)
+    // MotherDuck is the same engine hosted, so the same warning names ITS bond.
+    const hosted = migrationDialectHeader(MOTHERDUCK)
+    expect(hosted).toContain(MOTHERDUCK)
+    expect(hosted).toContain('DuckDB')
+    expect(hosted).toContain('CASE WHEN')
+    expect(hosted).toMatch(/Not supported/i)
+  })
+
   it('is empty where the published dialect IS the app dialect', () => {
     // Postgres and PGlite run the dialect the packages are published in — every
     // flagship template would otherwise carry a header on every migration file
@@ -103,6 +138,16 @@ describe('dialectOfDatabasePackage', () => {
     expect(dialectOfDatabasePackage(null)).toBeNull()
   })
 
+  it('maps DuckDB and MotherDuck to the DuckDB dialect, not Postgres', () => {
+    // DuckDB accepts most Postgres DDL but has its own JSON type and no index
+    // access methods — `translateDdlToDuckdb` is the contract that proves the
+    // difference. Calling it Postgres here would suppress the header entirely,
+    // leaving a writer to hand-translate a schema for no reason.
+    expect(dialectOfDatabasePackage(DUCKDB)).toBe('duckdb')
+    expect(dialectOfDatabasePackage(MOTHERDUCK)).toBe('duckdb')
+    expect(dialectOfDatabasePackage(DUCKDB)).not.toBe('postgresql')
+  })
+
   it('covers every database provider the registry declares', () => {
     const dbProviders = loadRegistry('api')
       .filter((p) => p.molecule?.category === 'database' && p.type === 'provider')
@@ -120,6 +165,24 @@ describe('databasePackageOf', () => {
     expect(databasePackageOf([SQLITE, POSTGRES])).toBe(SQLITE)
     expect(databasePackageOf([POSTGRES])).toBe(POSTGRES)
     expect(databasePackageOf(['@molecule/api-resource-article'])).toBeNull()
+  })
+
+  it('finds a DuckDB bond in a mixed set instead of falling back to Postgres', () => {
+    // A DuckDB app that also carries a Postgres bond must still be identified
+    // as DuckDB: otherwise its migrations are stamped with no header at all
+    // (the Postgres path) and the dialect warning never reaches the file.
+    expect(databasePackageOf([DUCKDB, POSTGRES])).toBe(DUCKDB)
+    expect(databasePackageOf([MOTHERDUCK])).toBe(MOTHERDUCK)
+  })
+
+  it('resolves MotherDuck ahead of the local DuckDB bond its closure always pins', () => {
+    // `ensureMoleculePeerClosure` writes MotherDuck's `moleculePeers` — which
+    // include `@molecule/api-database-duckdb` — into every MotherDuck manifest,
+    // and the keys are sorted, so iteration order puts `…-duckdb` first. The
+    // app runs the HOSTED bond; naming the local peer would stamp DuckDB's
+    // header with a bond the project does not run.
+    expect(databasePackageOf([DUCKDB, MOTHERDUCK])).toBe(MOTHERDUCK)
+    expect(databasePackageOf([MOTHERDUCK, DUCKDB, POSTGRES])).toBe(MOTHERDUCK)
   })
 })
 
@@ -266,6 +329,25 @@ describe('stampMigrationDialect', () => {
     // A migration describes the database it ran on, so the header is a SQL comment.
     expect(written.split('\n').at(-2)).toBe(');')
     expect(await readFile(join(migrations, 'README.md'), 'utf8')).toBe('not a migration\n')
+  })
+
+  it('stamps a DuckDB app’s migrations with the DuckDB header', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-stamp-duckdb-'))
+    const migrations = join(dir, 'api', 'migrations')
+    await mkdir(migrations, { recursive: true })
+    await writeFile(join(migrations, '1777_create_users_table.sql'), USERS_SQL)
+
+    expect(await stampMigrationDialect(migrations, DUCKDB)).toBe(1)
+    const written = await readFile(join(migrations, '1777_create_users_table.sql'), 'utf8')
+    expect(written).toBe(`${migrationDialectHeader(DUCKDB)}${USERS_SQL}`)
+    // And the reverse control: a MotherDuck app is stamped too, naming its bond.
+    const hosted = join(dir, 'api', 'motherduck-migrations')
+    await mkdir(hosted, { recursive: true })
+    await writeFile(join(hosted, '1777_create_users_table.sql'), USERS_SQL)
+    expect(await stampMigrationDialect(hosted, MOTHERDUCK)).toBe(1)
+    expect(await readFile(join(hosted, '1777_create_users_table.sql'), 'utf8')).toContain(
+      MOTHERDUCK,
+    )
   })
 
   it('does nothing for a Postgres app, whose migrations are already its dialect', async () => {

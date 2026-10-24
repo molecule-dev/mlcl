@@ -48,6 +48,8 @@ export const MIGRATE_RUNNER_PROVIDERS: readonly string[] = [
   '@molecule/api-database-sqlite',
   '@molecule/api-database-mysql',
   '@molecule/api-database-d1',
+  '@molecule/api-database-duckdb',
+  '@molecule/api-database-motherduck',
 ]
 
 /**
@@ -67,6 +69,10 @@ const POSTGRES_TEMPLATE_PROVIDERS: readonly string[] = [
 ]
 
 const POSTGRES_PACKAGE = '@molecule/api-database-postgresql'
+/** The local DuckDB bond — renders its own file-backed runner. */
+const DUCKDB_PACKAGE = '@molecule/api-database-duckdb'
+/** The hosted MotherDuck bond — deploys DuckDB, but connects to a remote database. */
+const MOTHERDUCK_PACKAGE = '@molecule/api-database-motherduck'
 
 /** The bond whose browser-profile branch the Postgres runner migrates PGlite through. */
 const PGLITE_PACKAGE = '@molecule/api-database-pglite'
@@ -236,19 +242,27 @@ async function manifestDeclaredPackages(manifestPath: string): Promise<Set<strin
  * Pick the migration-runner template for a project's packages. The default is
  * Postgres (pg.Client + CREATE DATABASE); SQLite needs no server-side database
  * and applies files via better-sqlite3 `exec()`; MySQL creates the schema and
- * applies files over a multi-statement connection. PGlite shares the Postgres
- * template — its browser-profile branch is the PGlite half. An out-of-band
- * provider (D1) wins over everything: its bond runs where no filesystem
- * migrator exists, so it must not inherit a runner that opens a local driver.
- * Each of the others delegates to its bond's `createMigrator`.
+ * applies files over a multi-statement connection; DuckDB needs no server-side
+ * database either (the file is created on first open) and applies Postgres-
+ * dialect files through its bond's `createMigrator`, which rewrites the two
+ * constructs DuckDB rejects (`jsonb` → `json`, index `USING <method>`); its
+ * MotherDuck bond is the same engine against a HOSTED database, so it renders
+ * its own runner around the same migrator instead of opening a local file.
+ * PGlite shares the Postgres template — its browser-profile branch is the
+ * PGlite half. An out-of-band provider (D1) wins over everything: its bond
+ * runs where no filesystem migrator exists, so it must not inherit a runner
+ * that opens a local driver. Each of the others delegates to its bond's
+ * `createMigrator`.
  *
  * Only the Postgres template carries a SECOND database's branch in one runner
- * (PGlite's, behind the browser-profile gate) — the SQLite/MySQL/D1 templates
- * each cover their one database. A package set that mixes template-
- * incompatible server databases therefore resolves to a single database's
- * runner by the precedence above (D1 > SQLite > MySQL > Postgres): the
- * highest-precedence database in the set wins, whether it was declared first
- * or injected last. Injecting SQLite into a Postgres project re-points the
+ * (PGlite's, behind the browser-profile gate) — the SQLite/MySQL/D1/DuckDB/
+ * MotherDuck templates each cover their one database. A package set that mixes
+ * template-incompatible server databases therefore resolves to a single
+ * database's runner by the precedence above (D1 > SQLite > MySQL > MotherDuck
+ * > DuckDB > Postgres): the highest-precedence database in the set wins,
+ * whether it was declared first or injected last. MotherDuck is checked before
+ * DuckDB because its bond connects to the hosted database a project declaring
+ * both is meant to use. Injecting SQLite into a Postgres project re-points the
  * runner at the SQLite file; injecting Postgres into a SQLite project leaves
  * the runner on the SQLite file the injected wiring no longer reads (`mlcl
  * add` does not guard a second server database). Rewriting the runner AND the
@@ -263,6 +277,8 @@ export function migrateTemplateFor(packageNames: readonly string[]): string {
   }
   if (packageNames.includes('@molecule/api-database-sqlite')) return 'api/migrate-sqlite.ts.tpl'
   if (packageNames.includes('@molecule/api-database-mysql')) return 'api/migrate-mysql.ts.tpl'
+  if (packageNames.includes(MOTHERDUCK_PACKAGE)) return 'api/migrate-motherduck.ts.tpl'
+  if (packageNames.includes(DUCKDB_PACKAGE)) return 'api/migrate-duckdb.ts.tpl'
   return 'api/migrate.ts.tpl'
 }
 

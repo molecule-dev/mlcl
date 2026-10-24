@@ -214,6 +214,53 @@ describe('migrateTemplateFor', () => {
       migrateTemplateFor(['@molecule/api-database-mysql', '@molecule/api-database-sqlite']),
     ).toBe('api/migrate-sqlite.ts.tpl')
   })
+
+  it('picks the DuckDB runner, and MotherDuck’s when the hosted bond is declared too', () => {
+    // Each DuckDB bond renders its own runner: the local bond opens a FILE
+    // (DUCKDB_PATH), the hosted bond connects to MotherDuck, so neither may
+    // inherit the Postgres runner's `pg` machinery or the other's pool.
+    expect(migrateTemplateFor(['@molecule/api-database-duckdb'])).toBe('api/migrate-duckdb.ts.tpl')
+    expect(migrateTemplateFor(['@molecule/api-database-motherduck'])).toBe(
+      'api/migrate-motherduck.ts.tpl',
+    )
+    // MotherDuck is checked first: a project declaring both is meant to use
+    // the hosted database, and the precedence winner must be documented, not
+    // decided by the order the packages happen to be listed in.
+    expect(
+      migrateTemplateFor(['@molecule/api-database-duckdb', '@molecule/api-database-motherduck']),
+    ).toBe('api/migrate-motherduck.ts.tpl')
+    // A declared DuckDB bond beats the Postgres default, exactly as SQLite and
+    // MySQL do.
+    expect(
+      migrateTemplateFor(['@molecule/api-database-postgresql', '@molecule/api-database-duckdb']),
+    ).toBe('api/migrate-duckdb.ts.tpl')
+  })
+})
+
+describe('DuckDB migration runners', () => {
+  it('renders the local runner against the DuckDB bond only', async () => {
+    const runner = await readMigrateRunner(['@molecule/api-database-duckdb'])
+    expect(runner).toContain("from '@molecule/api-database-duckdb'")
+    // No Postgres machinery: no driver, no CREATE DATABASE, no PGlite branch.
+    expect(runner).not.toContain("from 'pg'")
+    expect(runner).not.toContain('CREATE DATABASE')
+    expect(runner).not.toContain('BROWSER_PROFILE')
+    expect(runner).not.toContain('{{')
+    // The resource-package replay keeps its own ledger namespace, so a file
+    // present in both directories is recorded twice instead of skipped.
+    expect(runner).toContain("createMigrator(setupDir, { namespace: '__setup__' })")
+  })
+
+  it('renders the MotherDuck runner against the hosted bond, not the local one', async () => {
+    const runner = await readMigrateRunner(['@molecule/api-database-motherduck'])
+    expect(runner).toContain("from '@molecule/api-database-motherduck'")
+    // The local bond's package is what the hosted one builds on, but the
+    // runner must not open a local database file in its place.
+    expect(runner).not.toContain("from '@molecule/api-database-duckdb'")
+    expect(runner).not.toContain('CREATE DATABASE')
+    expect(runner).not.toContain('BROWSER_PROFILE')
+    expect(runner).not.toContain('{{')
+  })
 })
 
 describe('renderMigrateRunner', () => {
@@ -1169,6 +1216,28 @@ describe('ensureMigrateRunnerImports', () => {
     expect(manifest.devDependencies?.['@molecule/api-database-postgresql']).toBeUndefined()
   })
 
+  it('backs a DuckDB runner’s only import, moving its devDependencies pin into production', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    // `mlcl add --dev @molecule/api-database-duckdb --inject` (or a swap out of
+    // the dev key) leaves the runner importing the bond statically, so a
+    // production `--omit=dev` deploy would prune it into a boot-time
+    // ERR_MODULE_NOT_FOUND unless the pin is promoted.
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      await readMigrateRunner(['@molecule/api-database-duckdb']),
+    )
+    await writeFile(
+      join(dir, 'package.json'),
+      JSON.stringify({ devDependencies: { '@molecule/api-database-duckdb': '1.1.0' } }),
+    )
+    expect(await ensureMigrateRunnerImports(dir)).toEqual(['@molecule/api-database-duckdb'])
+    const manifest = await readManifest()
+    // The pin MOVED with the version the manifest already carried.
+    expect(manifest.dependencies['@molecule/api-database-duckdb']).toBe('1.1.0')
+    expect(manifest.devDependencies?.['@molecule/api-database-duckdb']).toBeUndefined()
+  })
+
   it('backs every bond a dual render emitted from devDependencies, wrapper included', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
@@ -1461,6 +1530,33 @@ describe('syncMigrateRunner', () => {
     expect(swapped.dependencies['@molecule/api-bonds-default-express']).toBe(
       getMoleculeVersion('@molecule/api-bonds-default-express'),
     )
+  })
+
+  it('rewrites a Postgres runner for DuckDB — the removed bond’s machinery is gone and the new import is backed', async () => {
+    const project = await projectWithRunner('@molecule/api-database-postgresql')
+    // What applyBondSwap leaves behind on postgresql → duckdb.
+    await writeManifest({ '@molecule/api-database-duckdb': '1.1.0' })
+    expect((await syncMigrateRunner(project, '@molecule/api-database-duckdb'))?.updated).toBe(true)
+    const runner = await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')
+    expect(runner).toContain("from '@molecule/api-database-duckdb'")
+    expect(runner).not.toContain("from '@molecule/api-database-postgresql'")
+    expect(runner).not.toContain("from 'pg'")
+    expect(runner).not.toContain('CREATE DATABASE')
+    expect((await readManifest()).dependencies['@molecule/api-database-duckdb']).toBe('1.1.0')
+  })
+
+  it('rewrites a Postgres runner for MotherDuck — hosted bond, not the local file', async () => {
+    const project = await projectWithRunner('@molecule/api-database-postgresql')
+    await writeManifest({ '@molecule/api-database-motherduck': '1.1.0' })
+    expect((await syncMigrateRunner(project, '@molecule/api-database-motherduck'))?.updated).toBe(
+      true,
+    )
+    const runner = await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')
+    expect(runner).toContain("from '@molecule/api-database-motherduck'")
+    expect(runner).not.toContain("from '@molecule/api-database-duckdb'")
+    expect(runner).not.toContain("from '@molecule/api-database-postgresql'")
+    expect(runner).not.toContain("from 'pg'")
+    expect((await readManifest()).dependencies['@molecule/api-database-motherduck']).toBe('1.1.0')
   })
 
   it('swaps onto D1 ship the out-of-band runner — no import of the removed bond survives', async () => {
