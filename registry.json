@@ -29854,11 +29854,10 @@
       "description": "Frontend analytics interface for molecule.dev",
       "stack": "app",
       "exports": [
-        "AnalyticsUserProps",
-        "AnalyticsEvent",
-        "AnalyticsPageView",
-        "AnalyticsProvider",
+        "AnalyticsAuthUser",
+        "IdentifyUser",
         "AutoTrackingOptions",
+        "setupAutoTracking",
         "setProvider",
         "getProvider",
         "hasProvider",
@@ -29868,7 +29867,10 @@
         "group",
         "reset",
         "flush",
-        "setupAutoTracking"
+        "AnalyticsUserProps",
+        "AnalyticsEvent",
+        "AnalyticsPageView",
+        "AnalyticsProvider"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -30392,6 +30394,8 @@
         "isTokenExpired",
         "getTokenExpiration",
         "UserProfile",
+        "AuthProfileShape",
+        "AuthProfileGuard",
         "LoginCredentials",
         "RegisterExtraShape",
         "RegisterData",
@@ -30407,6 +30411,7 @@
         "AuthClient",
         "StorageAdapter",
         "AuthClientConfig",
+        "AuthClientConfigOptions",
         "TokenStorage",
         "isAuthenticated",
         "getUser",
