@@ -63778,7 +63778,11 @@
       "@molecule/api-slug": "1.0.2",
       "@molecule/api-text-provenance-overlap": "1.0.2",
       "@molecule/app-clipboard-web": "1.0.2",
-      "@molecule/app-query-tanstack": "1.0.2"
+      "@molecule/app-query-tanstack": "1.0.2",
+      "@molecule/api-database-duckdb": "1.1.1",
+      "@molecule/api-database-motherduck": "1.1.1",
+      "@molecule/api-project-archive-external-state-duckdb": "1.1.0",
+      "@molecule/api-project-archive-external-state-motherduck": "1.1.0"
     }
   }
 }
