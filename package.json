@@ -377,6 +377,12 @@
     "brace-expansion": "5.0.12",
     "undici": "8.12.3",
     "dompurify": "3.4.17",
-    "body-parser": "2.4.0"
+    "body-parser": "2.4.0",
+    "eslint-plugin-jsx-a11y": {
+      "brace-expansion": "1.1.21"
+    },
+    "filelist": {
+      "brace-expansion": "2.1.7"
+    }
   }
 }
