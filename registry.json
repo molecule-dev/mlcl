@@ -7360,6 +7360,150 @@
         "database on cloudflare workers"
       ]
     },
+    "@molecule/api-database-duckdb": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "database",
+      "label": "DuckDB",
+      "description": "DuckDB database provider for molecule.dev — embedded analytical SQL engine that queries Parquet, CSV and JSON files in-process",
+      "stack": "api",
+      "implements": "@molecule/api-database",
+      "exports": [
+        "pool",
+        "defaultPoolCreated",
+        "closeDefaultPool",
+        "store",
+        "instanceOptionsFor",
+        "choosePath",
+        "acquireInstance",
+        "releaseInstance",
+        "MEMORY_PATH",
+        "DEFAULT_DUCKDB_PATH",
+        "DEFAULT_MEMORY_LIMIT",
+        "DEFAULT_THREADS",
+        "DuckdbInstanceHandle",
+        "registerLifecycleIntegration",
+        "isIdempotencyError",
+        "applyMigrations",
+        "createMigrator",
+        "MIGRATION_LEDGER",
+        "MigratablePool",
+        "MigrationOptions",
+        "runDuckdbQuery",
+        "createPool",
+        "ConnectionLock",
+        "databaseDuckdbSecretDefinitions",
+        "createStore",
+        "DuckdbConfig",
+        "ProcessEnv",
+        "translateDdlToDuckdb",
+        "coerceDuckdbParam",
+        "normalizeDuckdbRows",
+        "parseJsonColumns"
+      ],
+      "secrets": [
+        {
+          "name": "DUCKDB_PATH",
+          "required": false,
+          "default": "./data/app.duckdb",
+          "label": "DuckDB database path",
+          "instructions": "Filesystem path of the DuckDB database file (created on first run), or :memory:.",
+          "example": "./data/app.duckdb"
+        }
+      ],
+      "runtimeDependencies": [
+        "@duckdb/node-api",
+        "@molecule/api-bond",
+        "@molecule/api-database",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/database/duckdb",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-database",
+        "@molecule/api-secrets"
+      ],
+      "providerExportName": "pool",
+      "intentHints": [
+        "duckdb",
+        "duckdb database",
+        "embedded analytics database",
+        "olap database",
+        "query parquet files",
+        "analyze csv files with sql"
+      ]
+    },
+    "@molecule/api-database-motherduck": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "database",
+      "label": "MotherDuck",
+      "description": "MotherDuck hosted DuckDB database provider for molecule.dev — the same DuckDB SQL in the cloud, reached with an md: connection string",
+      "stack": "api",
+      "implements": "@molecule/api-database",
+      "exports": [
+        "pool",
+        "defaultPoolCreated",
+        "closeDefaultPool",
+        "store",
+        "runMigrationsOn",
+        "createMigrator",
+        "MigrationOptions",
+        "chooseConnectionString",
+        "resolveToken",
+        "DEFAULT_TOKEN_ENV",
+        "createPool",
+        "databaseMotherduckSecretDefinitions",
+        "createStore",
+        "MotherduckConfig",
+        "ProcessEnv"
+      ],
+      "secrets": [
+        {
+          "name": "MOTHERDUCK_TOKEN",
+          "required": true,
+          "label": "MotherDuck token",
+          "setupUrl": "https://motherduck.com/docs/key-tasks/authenticating-and-connecting-to-motherduck/authenticating-to-motherduck",
+          "instructions": "Create one in the MotherDuck UI (app.motherduck.com): Settings → \"+ Create token\". Read/Write by default, or Read Scaling; expiry optional.",
+          "example": "eyJhbGciOi... (the token the UI shows once at creation)"
+        },
+        {
+          "name": "MOTHERDUCK_DATABASE",
+          "required": false,
+          "default": "md:",
+          "label": "MotherDuck database",
+          "instructions": "The md: connection string: \"md:\" for the default database, or \"md:my_db\".",
+          "example": "md:my_db"
+        }
+      ],
+      "runtimeDependencies": [
+        "@duckdb/node-api",
+        "@molecule/api-bond",
+        "@molecule/api-database",
+        "@molecule/api-database-duckdb",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/database/motherduck",
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-database",
+        "@molecule/api-database-duckdb",
+        "@molecule/api-secrets"
+      ],
+      "providerExportName": "pool",
+      "egressHosts": [
+        "app.motherduck.com"
+      ],
+      "intentHints": [
+        "motherduck",
+        "motherduck database",
+        "hosted duckdb",
+        "cloud duckdb",
+        "cloud analytics database"
+      ]
+    },
     "@molecule/api-database-mysql": {
       "language": "typescript",
       "runtime": "node",
@@ -19028,6 +19172,76 @@
         "d1 backup during archive",
         "wrangler d1 export",
         "restore d1 data"
+      ]
+    },
+    "@molecule/api-project-archive-external-state-duckdb": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "project-archive-external-state",
+      "label": "DuckDB Database File",
+      "description": "DuckDB external-state capture for project archives — copies a project's configured .duckdb database files (and their .wal siblings) into the archive and writes them back on restore",
+      "stack": "api",
+      "implements": "@molecule/api-project-archive",
+      "exports": [
+        "createDuckdbExternalStateProvider",
+        "KIND",
+        "DuckdbExternalStateConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-project-archive"
+      ],
+      "path": "packages/api/bonds/project-archive-external-state/duckdb",
+      "moleculePeers": [
+        "@molecule/api-project-archive"
+      ],
+      "intentHints": [
+        "back up my duckdb database",
+        "archive project duckdb database",
+        "restore project duckdb data",
+        "snapshot duckdb database file"
+      ]
+    },
+    "@molecule/api-project-archive-external-state-motherduck": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "project-archive-external-state",
+      "label": "MotherDuck Databases",
+      "description": "MotherDuck external-state capture for project archives — exports a project's configured MotherDuck databases (DuckDB EXPORT DATABASE, parquet) into the archive and imports them back on restore",
+      "stack": "api",
+      "implements": "@molecule/api-project-archive",
+      "exports": [
+        "createMotherduckExternalStateProvider",
+        "KIND",
+        "MotherduckExternalStateConfig"
+      ],
+      "secrets": [
+        {
+          "name": "MOTHERDUCK_TOKEN",
+          "required": false,
+          "label": "MotherDuck token",
+          "setupUrl": "https://motherduck.com/docs/key-tasks/authenticating-and-connecting-to-motherduck/authenticating-to-motherduck",
+          "instructions": "Needed only when a project owns MotherDuck databases. Create one in the MotherDuck UI: Settings → \"+ Create token\".",
+          "example": "eyJhbGciOi... (the token the UI shows once at creation)"
+        }
+      ],
+      "runtimeDependencies": [
+        "@duckdb/node-api",
+        "@molecule/api-project-archive"
+      ],
+      "path": "packages/api/bonds/project-archive-external-state/motherduck",
+      "moleculePeers": [
+        "@molecule/api-project-archive"
+      ],
+      "egressHosts": [
+        "app.motherduck.com"
+      ],
+      "intentHints": [
+        "back up my motherduck databases",
+        "archive project motherduck data",
+        "restore motherduck databases"
       ]
     },
     "@molecule/api-project-archive-external-state-mysql": {
