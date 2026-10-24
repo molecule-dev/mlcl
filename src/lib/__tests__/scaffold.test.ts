@@ -377,11 +377,11 @@ describe('scaffold', () => {
       for (const name of ['@molecule/api-realtime-socketio', '@molecule/app-realtime-socketio']) {
         const pkg = all.find((p) => p.name === name)
         expect(pkg, `${name} missing from registry`).toBeDefined()
-        expect(pkg!.molecule?.npmOverrides?.ws).toBe('8.21.1')
+        expect(pkg!.molecule?.npmOverrides?.ws).toBe('8.22.0')
       }
       // End-to-end: selecting the bond through the real registry produces the pin.
       expect(collectNpmOverrides(['@molecule/api-realtime-socketio'], all)).toEqual({
-        ws: '8.21.1',
+        ws: '8.22.0',
       })
     })
 
@@ -400,9 +400,44 @@ describe('scaffold', () => {
         if (!wiresSocketio) continue
         checked++
         const pkg = JSON.parse(readFileSync(rootPkgPath, 'utf8'))
-        expect(pkg.overrides?.ws, `${app} root package.json missing ws override`).toBe('8.21.1')
+        expect(pkg.overrides?.ws, `${app} root package.json missing ws override`).toBe('8.22.0')
       }
       // Guard: the sweep actually found socket.io templates (not a no-op pass).
+      expect(checked).toBeGreaterThan(0)
+    })
+  })
+
+  // Regression: @tailwindcss/typography 0.5.20 pins postcss-selector-parser 6.0.10
+  // EXACTLY, inside GHSA-rj75-hqrm-r3gf (quadratic selector parsing, fixed in 7.1.6).
+  // Only an install-root override reaches it, so every app that installs typography
+  // carries one: custom scaffolds through the styling bond's npmOverrides, flagship
+  // templates in their own root package.json.
+  describe('postcss-selector-parser override for @tailwindcss/typography', () => {
+    it('the styling bond that adds typography to custom scaffolds carries the override', () => {
+      const all = loadRegistry()
+      expect(collectNpmOverrides(['@molecule/app-styling-tailwind'], all)).toEqual({
+        'postcss-selector-parser': '7.1.6',
+      })
+    })
+
+    it('every flagship template whose app installs typography pins it at its root', () => {
+      const appsDir = join(MLCL_ROOT, 'templates', 'apps')
+      let checked = 0
+      for (const app of readdirSync(appsDir, { withFileTypes: true })) {
+        if (!app.isDirectory()) continue
+        const appPkgPath = join(appsDir, app.name, 'app', 'package.json')
+        const rootPkgPath = join(appsDir, app.name, 'package.json')
+        if (!existsSync(appPkgPath) || !existsSync(rootPkgPath)) continue
+        const appPkg = JSON.parse(readFileSync(appPkgPath, 'utf8'))
+        const deps = { ...appPkg.dependencies, ...appPkg.devDependencies }
+        if (!deps['@tailwindcss/typography']) continue
+        checked++
+        const root = JSON.parse(readFileSync(rootPkgPath, 'utf8'))
+        expect(
+          root.overrides?.['postcss-selector-parser'],
+          `${app.name} root package.json missing the postcss-selector-parser override`,
+        ).toBe('7.1.6')
+      }
       expect(checked).toBeGreaterThan(0)
     })
   })

@@ -20436,7 +20436,7 @@
         "socketio transport"
       ],
       "npmOverrides": {
-        "ws": "8.21.1"
+        "ws": "8.22.0"
       }
     },
     "@molecule/api-realtime-sse": {
@@ -56748,7 +56748,7 @@
         "live connection socket io"
       ],
       "npmOverrides": {
-        "ws": "8.21.1"
+        "ws": "8.22.0"
       }
     },
     "@molecule/app-related-items-card-react": {
@@ -59207,7 +59207,10 @@
         "tailwind cn cva",
         "tailwind class variants",
         "style with tailwind classes"
-      ]
+      ],
+      "npmOverrides": {
+        "postcss-selector-parser": "7.1.6"
+      }
     },
     "@molecule/app-subscription-plan-card-react": {
       "language": "typescript",

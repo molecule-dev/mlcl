@@ -18,5 +18,8 @@
     "test": "npm run test --workspace=api && npm run test --workspace=app",
     "test:api": "npm run test --workspace=api",
     "test:app": "npm run test --workspace=app"
+  },
+  "overrides": {
+    "postcss-selector-parser": "7.1.6"
   }
 }

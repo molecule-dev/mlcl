@@ -8,7 +8,8 @@
     "app"
   ],
   "overrides": {
-    "ws": "8.21.1"
+    "ws": "8.22.0",
+    "postcss-selector-parser": "7.1.6"
   },
   "scripts": {
     "dev": "npm run dev:api & npm run dev:app",

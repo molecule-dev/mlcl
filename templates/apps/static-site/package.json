@@ -13,5 +13,8 @@
     "test": "npm run test --workspace=app",
     "typecheck": "npm run typecheck --workspace=app",
     "lint": "npm run lint --workspace=app"
+  },
+  "overrides": {
+    "postcss-selector-parser": "7.1.6"
   }
 }
