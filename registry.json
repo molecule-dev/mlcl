@@ -3518,6 +3518,7 @@
         "checkBlockedCommand",
         "resolvePath",
         "isOutsideRoot",
+        "commandStartsWithCdInto",
         "isValidGlob",
         "expandBraceGlob",
         "findPatternArgs",
