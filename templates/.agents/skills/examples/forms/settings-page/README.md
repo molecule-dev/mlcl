@@ -15,6 +15,27 @@ keywords: [settings, preferences, account, profile, edit, update]
 account info" page. Same pattern works for org settings,
 notification preferences, etc.
 
+## Use the shared profile form first
+
+A molecule app already bonds the auth client (`src/bonds/auth-default.ts`, handed to
+`MoleculeProvider`). For the signed-in user's OWN profile, use `useProfileForm` from
+`@molecule/app-react` instead of the hand-written state in this slice: it fills pristine
+fields when the user arrives without replacing edits, submits only the changed fields
+through the bonded client, and publishes the saved user to every `useAuth()`. The default
+user resource answers a save with the changed fields only, so keep the page's `onSaved`
+merge. `.agents/skills/patterns/settings-update.md` shows the form.
+
+The client sends the save to `authConfig.profileEndpoint` in `src/config.ts`. An app from
+the default scaffold already routes it to the user resource (`PATCH /users/:id`), and its
+`app/src/pages/Settings.tsx` is that form. An app from a template has no
+`profileEndpoint`: add it first (the pattern shows the two lines), or the save goes to the
+client's built-in `/auth/profile`, which no molecule resource serves. A Settings page that
+does not call `useProfileForm` is a different page.
+
+Copy this slice only when the app edits a profile the shared client does NOT own — a
+different user's record, an org profile, or an API whose write route is not the user
+resource — or as a reference for the save/error/dirty-state treatment.
+
 ## What you'll install
 
 ```bash
@@ -37,6 +58,9 @@ Run the user resource's `src/__setup__/users.sql` and `src/__setup__/usersSecret
 
 - Do not invent `@molecule/app-settings`. Settings is a normal form
   on top of the user resource.
+- Do not fill the signed-in user's profile from a `useEffect([user])`. That effect
+  re-runs when a background refresh lands and overwrites what was typed; the submit then
+  sends the overwritten values. Use `useProfileForm` for that form (above).
 - Do not write a single giant settings page with 30 fields. Group
   into tabs (Profile, Security, Notifications) — each tab is its
   own form.

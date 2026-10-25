@@ -1,3 +1,12 @@
+/**
+ * A profile form for a record the shared auth client does NOT own (another user, an org).
+ *
+ * For the SIGNED-IN user's own profile, do not copy this hand-written load/dirty/save:
+ * a molecule app already bonds the auth client, so `useProfileForm` from
+ * `@molecule/app-react` owns that lifecycle — it keeps dirty fields across a background
+ * user refresh and publishes the saved user. The README names the `authConfig` route it
+ * needs and the default scaffold's page that already uses it.
+ */
 import { type FormEvent, useEffect, useMemo, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'

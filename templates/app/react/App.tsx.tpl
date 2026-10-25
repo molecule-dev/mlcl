@@ -11,6 +11,7 @@ import { Home } from './pages/Home.js'
 import { Login } from './pages/Login.js'
 import { PlanUpdated } from './pages/PlanUpdated.js'
 import { ResetPassword } from './pages/ResetPassword.js'
+import { Settings } from './pages/Settings.js'
 import { Signup } from './pages/Signup.js'
 
 // Pages are imported STATICALLY, and that is a measured decision, not an
@@ -47,6 +48,7 @@ export function App() {
           <Route element={<AuthGuard />}>
             <Route element={<AppLayout />}>
               <Route path="/" element={<Home />} />
+              <Route path="/settings" element={<Settings />} />
               <Route path="/plan-updated" element={<PlanUpdated />} />
             </Route>
           </Route>

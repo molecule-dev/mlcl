@@ -3658,10 +3658,12 @@ export async function createFullStackProject(
 
 /**
  * Files the standard app scaffold writes that a static site has no use for:
- * the auth pages and the user menu (nobody logs in to a static site), the
- * settings panel, the PWA registration (no service worker — a static host
- * serves plain files). Removed after `createAppProject` so the static
- * overlay never has to know what the app scaffold might add next.
+ * the auth pages, the signed-in profile page and the user menu (nobody logs in
+ * to a static site), the settings panel, the PWA registration (no service
+ * worker — a static host serves plain files). Removed after `createAppProject`
+ * so the static overlay never has to know how the app scaffold writes them.
+ * Every app page the static set does not provide must be listed here
+ * (`create.test.ts` checks it).
  */
 const STATIC_SITE_REMOVES = [
   'src/pages/Login.tsx',
@@ -3669,6 +3671,7 @@ const STATIC_SITE_REMOVES = [
   'src/pages/ForgotPassword.tsx',
   'src/pages/ResetPassword.tsx',
   'src/pages/PlanUpdated.tsx',
+  'src/pages/Settings.tsx',
   'src/components/AuthGuard.tsx',
   'src/components/AppLayout.tsx',
   'src/components/UserMenu.tsx',

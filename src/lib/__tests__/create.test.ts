@@ -75,7 +75,7 @@ describe('Template file inventory', () => {
     expect(content.slice(0, at)).toContain('validateSession()')
   })
 
-  it('React has 19 template files', async () => {
+  it('React has 20 template files', async () => {
     const files = await listTemplateFiles('react')
     expect(files).toEqual([
       'App.tsx.tpl',
@@ -96,8 +96,28 @@ describe('Template file inventory', () => {
       'pages/Login.tsx.tpl',
       'pages/PlanUpdated.tsx.tpl',
       'pages/ResetPassword.tsx.tpl',
+      'pages/Settings.tsx.tpl',
       'pages/Signup.tsx.tpl',
     ])
+  })
+
+  it('a static site removes every React app page it does not provide itself', async () => {
+    // `applyStaticSiteOverlay` copies the static pages over the app scaffold's, then deletes
+    // STATIC_SITE_REMOVES. An app page in neither set ships in every static site, unrouted,
+    // importing the auth client.
+    const scaffold = await readFile(join(ROOT, 'src', 'lib', 'scaffold.ts'), 'utf-8')
+    const start = scaffold.indexOf('const STATIC_SITE_REMOVES = [')
+    expect(start).toBeGreaterThan(-1)
+    const removes = scaffold.slice(start, scaffold.indexOf(']', start))
+    const staticPages = await readdir(join(ROOT, 'templates', 'static', 'react', 'pages'))
+    const appPages = (await listTemplateFiles('react')).filter((file) => file.startsWith('pages/'))
+    expect(appPages.length).toBeGreaterThan(0)
+    const shipped = appPages.filter(
+      (file) =>
+        !staticPages.includes(file.slice('pages/'.length)) &&
+        !removes.includes(`'src/${file.replace(/\.tpl$/, '')}'`),
+    )
+    expect(shipped).toEqual([])
   })
 
   it('Vue has 19 template files', async () => {

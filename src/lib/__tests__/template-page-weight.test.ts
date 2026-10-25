@@ -40,6 +40,7 @@ describe('custom scaffold: pages are imported statically (splitting measured slo
       'Login',
       'PlanUpdated',
       'ResetPassword',
+      'Settings',
       'Signup',
     ]) {
       expect(app).toMatch(new RegExp(`^import \\{ ${page} \\} from '\\./pages/${page}\\.js'$`, 'm'))
