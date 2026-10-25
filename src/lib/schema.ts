@@ -9,6 +9,8 @@
 
 import { z } from 'zod'
 
+import { SQL_FEATURES } from './sql-requirements.js'
+
 // ============================================================================
 // Inferred Package Info (from scanning molecule packages)
 // ============================================================================
@@ -57,6 +59,24 @@ export const InferredTable = z.object({
 
 export type InferredTable = z.infer<typeof InferredTable>
 
+/**
+ * The exact bytes of a package's setup SQL, keyed by the package-relative path
+ * its `tables[].sqlFile` declares.
+ *
+ * The registry already distributes a package's table METADATA; this carries the
+ * SQL itself so a scaffold can copy (and the compatibility preflight can judge)
+ * the real DDL before any install exists — `mlcl create --skip-install` on a
+ * host with no molecule checkout. It is generated from source by
+ * `sync-registry --scan-tables`, never hand-written, and the drift gate fails
+ * when it differs from the package's files. An installed or source copy on disk
+ * still wins at read time; this is the fallback for when neither exists.
+ */
+export const SetupSqlBundle = z
+  .record(z.string(), z.string())
+  .describe(
+    'Exact setup SQL bytes, keyed by package-relative path (e.g. "src/__setup__/users.sql")',
+  )
+
 // ============================================================================
 // Molecule Metadata (from centralized registry)
 // ============================================================================
@@ -102,6 +122,31 @@ export const MoleculeSecret = z.object({
 })
 
 export type MoleculeSecret = z.infer<typeof MoleculeSecret>
+
+/**
+ * How a database provider handles each semantically significant PostgreSQL
+ * construct — the shared provider/resource compatibility contract, typed at
+ * `@molecule/api-database/sql-compatibility.js` (the vocabulary) and mirrored
+ * into the provider's registry entry so the CLI needs no provider install.
+ * Defined once and used by BOTH schemas: `RegistrySchema.parse` drops unknown
+ * keys, so a field present on only one of them silently disappears when the
+ * registry is loaded.
+ */
+export const SqlSupportSchema = z.enum(['native', 'translated', 'unsupported'])
+
+export const SqlCapabilitiesSchema = z.partialRecord(
+  z.enum(SQL_FEATURES),
+  z.object({
+    support: SqlSupportSchema,
+    note: z.string().optional(),
+  }),
+)
+
+/** How a provider handles one SQL feature. */
+export type SqlSupport = z.infer<typeof SqlSupportSchema>
+
+/** One provider's declared SQL capability map (the registry copy of the bond's export). */
+export type SqlCapabilitiesValue = z.infer<typeof SqlCapabilitiesSchema>
 
 /**
  * Package metadata from the centralized registry (registry.json).
@@ -153,6 +198,13 @@ export const MoleculeMetadata = z.object({
         ' oauth-logos) is always installed; kept in the registry so no molecule' +
         ' source checkout is needed at scaffold time (prod has none).',
     ),
+  sqlCapabilities: SqlCapabilitiesSchema.optional().describe(
+    'How THIS database provider handles each semantically significant PostgreSQL' +
+      ' construct — the shared provider/resource compatibility contract published by the' +
+      ' bond itself. mlcl refuses to scaffold a project whose selected packages need a' +
+      ' feature the provider marks `unsupported`, or that the provider does not declare' +
+      ' at all — absence is never read as support.',
+  ),
   stack: z
     .enum(['api', 'app'])
     .optional()
@@ -184,6 +236,18 @@ export const MoleculeMetadata = z.object({
     )
     .optional()
     .describe('SQL table setup files (pre-computed from __setup__/)'),
+  setupSql: SetupSqlBundle.optional().describe(
+    'Exact setup SQL bytes for every declared tables[].sqlFile (pre-computed from __setup__/)',
+  ),
+  setupSqlVersion: z
+    .string()
+    .optional()
+    .describe(
+      'The package version whose package.json the bundled setupSql bytes were read from' +
+        ' (scanned with the bytes; see scanSetupSqlBundle). The bundle is usable ONLY at' +
+        ' this exact version — a scaffold resolving another version refuses rather than' +
+        ' copy another version’s schema.',
+    ),
   exports: z.array(z.string()).optional().describe('Named exports from index.ts (pre-computed)'),
   font: z
     .object({
@@ -556,6 +620,11 @@ export const RegistryEntry = z.object({
         ' oauth-logos) is always installed; kept in the registry so no molecule' +
         ' source checkout is needed at scaffold time (prod has none).',
     ),
+  sqlCapabilities: SqlCapabilitiesSchema.optional().describe(
+    'How this database provider handles each semantically significant PostgreSQL' +
+      ' construct — the shared provider/resource compatibility contract, mirrored from' +
+      ' the bond source so the CLI can preflight a selection without installing it.',
+  ),
   framework: z
     .enum(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'])
     .optional()
@@ -582,6 +651,19 @@ export const RegistryEntry = z.object({
     )
     .optional()
     .describe('SQL table setup files'),
+  setupSql: SetupSqlBundle.optional().describe(
+    'Exact setup SQL bytes for every declared tables[].sqlFile — bundled so a' +
+      ' scaffold can copy and preflight the real DDL before any install exists' +
+      ' (a --skip-install create on a host with no molecule checkout)',
+  ),
+  setupSqlVersion: z
+    .string()
+    .optional()
+    .describe(
+      'The package version the bundled setupSql bytes belong to. A bundle is only' +
+        ' usable for a selection that pins exactly this version; anything else must' +
+        ' resolve an installed/source copy of the intended version or refuse.',
+    ),
   font: FontMetadata.optional().describe(
     'Font metadata for CLI font style generation (font provider packages only)',
   ),

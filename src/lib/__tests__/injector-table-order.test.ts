@@ -52,4 +52,44 @@ describe('tablesInDependencyOrder', () => {
       ).length,
     ).toBe(2)
   })
+
+  it('orders by the bytes the caller will write, not by the copy on disk', async () => {
+    // The copy on disk is a stale ancestor that predates `comment_numbers.sql`:
+    // reading IT hides the foreign key and leaves the metadata order
+    // (`comment_numbers` first), the order that never boots (r10 review, F1).
+    dir = mkdtempSync(join(tmpdir(), 'mol-order-'))
+    const comments = join(dir, 'comments.sql')
+    const numbers = join(dir, 'comment_numbers.sql')
+    writeFileSync(comments, 'CREATE TABLE IF NOT EXISTS "comments" ("id" UUID PRIMARY KEY);')
+    const pinned: Record<string, string> = {
+      [comments]: 'CREATE TABLE IF NOT EXISTS "comments" ("id" UUID PRIMARY KEY);',
+      [numbers]:
+        'CREATE TABLE IF NOT EXISTS "comment_numbers" ("commentId" UUID REFERENCES "comments"("id"));',
+    }
+    const ordered = await tablesInDependencyOrder(
+      [
+        { name: 'comment_numbers', sqlFile: numbers },
+        { name: 'comments', sqlFile: comments },
+      ],
+      async (sqlFile) => {
+        const sql = pinned[sqlFile]
+        if (sql === undefined) throw new Error('not at this version')
+        return sql
+      },
+    )
+    expect(ordered.map((t) => t.name)).toEqual(['comments', 'comment_numbers'])
+  })
+
+  it('keeps a file the caller cannot resolve in its place (the writer reports it)', async () => {
+    const ordered = await tablesInDependencyOrder(
+      [
+        { name: 'comment_numbers', sqlFile: '/absent/comment_numbers.sql' },
+        { name: 'comments', sqlFile: '/absent/comments.sql' },
+      ],
+      async () => {
+        throw new Error('no copy at this version')
+      },
+    )
+    expect(ordered.map((t) => t.name)).toEqual(['comment_numbers', 'comments'])
+  })
 })

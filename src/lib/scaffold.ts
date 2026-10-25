@@ -28,6 +28,7 @@ import { basename, dirname, isAbsolute, join, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { filterEnvSecrets, renderEnvSecretLines, resolveDatabaseUrlValue } from './env-file.js'
+import { isExactVersion } from './exact-version.js'
 import { collectSecrets } from './features.js'
 import { sortImportStatements } from './format.js'
 import type { InferredMetadata } from './infer.js'
@@ -50,6 +51,14 @@ import {
 } from './registry.js'
 import type { BuildTooling, InferredPackage, InferredRoute, MoleculeSecret } from './schema.js'
 import { generateSecretValues } from './secret-generate.js'
+import {
+  describeSetupSqlDestinationConflict,
+  describeSetupSqlExistingFileConflict,
+  planSetupSqlDestinations,
+  readSetupSqlFiles,
+  resolveSetupSqlSources,
+  setupSqlFileContent,
+} from './setup-sql.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -2499,11 +2508,17 @@ async function addHuskyToPackageJson(packageJsonPath: string): Promise<void> {
  * @param destDir - Target user project directory.
  * @param projectName - The user-supplied project name; used in package.json `name`
  *                      and the DATABASE_URL db slot.
+ * @param setupSqlVersions - The exact version intended for each package the
+ *   template declares, computed by the caller from the SAME template manifest
+ *   `create --template` preflighted with. Required whenever the template ships
+ *   setup SQL: the copier resolves against the TARGET project and must bind to
+ *   the versions the preflight judged, not to whatever a walk-up happens to find.
  */
 export async function copyTemplateInstance(
   templateDir: string,
   destDir: string,
   projectName: string,
+  setupSqlVersions: Readonly<Record<string, string | undefined>>,
 ): Promise<void> {
   if (!existsSync(templateDir)) {
     throw new Error(`Template directory not found: ${templateDir}`)
@@ -2774,11 +2789,21 @@ export async function copyTemplateInstance(
         // create the directory itself (the registry-driven scaffold path
         // mkdirs it earlier); ensure it exists for the template fast path.
         await mkdir(join(apiPathForSetup, '__setup__'), { recursive: true })
-        await copySqlSetupScripts(apiPathForSetup, templatePackages, allApiPackages)
+        await copySqlSetupScripts(
+          apiPathForSetup,
+          templatePackages,
+          allApiPackages,
+          setupSqlVersions,
+        )
       }
     } catch (err) {
+      // The preflight in `create` already refused a template whose SQL cannot be
+      // resolved; if the copy still cannot read a declared file, an app missing
+      // those tables is the failure this step exists to prevent — refuse instead
+      // of logging and continuing with an empty/partial `__setup__/`.
       const msg = err instanceof Error ? err.message : String(err)
-      mlclDebug(`[scaffold] copySqlSetupScripts skipped: ${msg}`)
+      mlclDebug(`[scaffold] copySqlSetupScripts failed: ${msg}`)
+      throw err
     }
 
     // The template's OWN api/migrations/*.sql arrived with the tree copy above,
@@ -3291,12 +3316,62 @@ async function declareTemplatePackages(
  * entry. Returns `[]` for plain scaffolds without a template.json (their
  * package.json is authoritative).
  */
-async function readTemplatePackages(templateDir: string): Promise<string[]> {
+/**
+ * The `@molecule/*` packages a template declares in its `template.json`.
+ *
+ * Exported so `mlcl create --template` can preflight the template's own SQL set
+ * with the SAME list `copyTemplateInstance` later copies.
+ *
+ * @param templateDir - The template instance directory.
+ * @returns The declared package names (empty when there is no manifest).
+ */
+export async function readTemplatePackages(templateDir: string): Promise<string[]> {
   const candidate = join(templateDir, 'template.json')
   if (!existsSync(candidate)) return []
   const raw = await readFile(candidate, 'utf-8')
   const parsed = JSON.parse(raw) as { packages?: string[] }
   return Array.isArray(parsed.packages) ? parsed.packages : []
+}
+
+/**
+ * The exact version intended for each package a template declares.
+ *
+ * `--template` copies the template's own `api/`+`app/` manifests, so those pins
+ * are what the generated project will install; a package listed only in
+ * `template.json` is added by {@link declareTemplatePackages} at the registry's
+ * lockstep version. This computes exactly the version {@link copyTemplateInstance}
+ * will pin, so the preflight in `create --template` and the copier judge and
+ * write the SAME package/version/SQL tuple. The copy runs against the TARGET
+ * project (F4): a nested install beside the template source must never decide
+ * which bytes a scaffolded app receives.
+ *
+ * @param templateDir - The template instance directory.
+ * @returns Package name → exact version, for the template's declared packages.
+ */
+export async function readTemplateSetupSqlVersions(
+  templateDir: string,
+): Promise<Record<string, string>> {
+  const versions: Record<string, string> = {}
+  for (const sub of ['api', 'app'] as const) {
+    const manifestPath = join(templateDir, sub, 'package.json')
+    if (!existsSync(manifestPath)) continue
+    const manifest = JSON.parse(await readFile(manifestPath, 'utf-8')) as {
+      dependencies?: Record<string, string>
+      devDependencies?: Record<string, string>
+    }
+    for (const [name, pin] of Object.entries({
+      ...manifest.dependencies,
+      ...manifest.devDependencies,
+    })) {
+      if (name.startsWith('@molecule/') && isExactVersion(pin)) versions[name] = pin
+    }
+  }
+  for (const name of await readTemplatePackages(templateDir)) {
+    // A template.json-only package is declared by `declareTemplatePackages` at
+    // the registry's pin; an exact manifest pin already recorded above wins.
+    versions[name] ??= getMoleculeVersion(name)
+  }
+  return versions
 }
 
 /**
@@ -7045,66 +7120,103 @@ function sortKeys(obj: Record<string, string>): Record<string, string> {
 
 /**
  * Copy SQL setup scripts from registry table metadata.
- * Tries node_modules first (when packages are installed via npm) and falls
- * back to the package's source path on disk so `mlcl create --skip-install`
- * still ships the table SQL — without it, every flagship missing SQL files
- * boots with empty schemas for resource packages it depends on.
+ *
+ * The bytes come from `resolveSetupSqlSources` — the SAME resolver the
+ * compatibility preflight judges with: the installed copy found by Node's own
+ * walk-up, then the molecule source tree, then the exact SQL `sync-registry`
+ * bundled into the registry for a host with neither. Resolving separately is
+ * how a production `--skip-install` scaffold passed its preflight and still
+ * wrote an EMPTY `__setup__/`: the preflight walked the fleet install above the
+ * project and this copier only looked inside the project. The same resolver also
+ * binds the bytes to `versions` — the exact package versions this scaffold is
+ * pinning — so the preflight and this copy can never judge/read one release and
+ * write another.
+ *
+ * A declared file whose bytes cannot be resolved is an ERROR, not a skipped
+ * copy: an app that boots without its tables fails exactly like one that cannot
+ * migrate, and the refusal names every missing file.
  *
  * Each copy is preceded by {@link migrationDialectHeader} for the bond the
  * selection names, so the file an agent opens in a SQLite/MySQL app says which
  * database it runs on and that this published Postgres-dialect SQL applies as
  * it is (X1 flash-m69 re-transcribed four packages' schemas after reading one of
  * these files as broken).
+ *
+ * @param projectPath - The api workspace receiving `__setup__/`.
+ * @param selectedPackageNames - The packages whose setup SQL this scaffold copies.
+ * @param allPackages - Registry entries to resolve those names against.
+ * @param versions - The exact version intended for each selected package (the
+ *   versions this scaffold is pinning). Required: the bytes cannot be bound
+ *   without it, and a wrong-version copy is the failure this prevents.
  */
 export async function copySqlSetupScripts(
   projectPath: string,
   selectedPackageNames: string[],
   allPackages: InferredPackage[],
+  versions: Readonly<Record<string, string | undefined>>,
 ): Promise<void> {
-  const copiedFiles = new Set<string>()
   const dialectHeader = migrationDialectHeader(databasePackageOf(selectedPackageNames))
+  const { sources, problems } = await resolveSetupSqlSources({
+    projectPath,
+    packageNames: selectedPackageNames,
+    versions,
+    packages: allPackages,
+  })
 
-  for (const pkgName of selectedPackageNames) {
-    const pkg = allPackages.find((p) => p.name === pkgName)
-    if (!pkg || pkg.tables.length === 0) continue
+  if (problems.length > 0) {
+    throw new Error(
+      [
+        'Cannot copy the database setup SQL this project needs:',
+        ...problems.map((problem) => `  - ${problem.message}`),
+      ].join('\n'),
+    )
+  }
 
-    for (const table of pkg.tables) {
-      if (copiedFiles.has(table.sqlFile)) continue
-
-      const fileName = basename(table.sqlFile)
-      // Each candidate source must stay INSIDE the package it is declared for.
-      // `table.sqlFile` and `pkgName` are metadata (`join()` resolves `../`
-      // happily), and whatever lands here is replayed as SQL by the generated
-      // migration runner's `__setup__/` step — the same untrusted-metadata rule
-      // the font copies apply through isInsideDir. A refusing path is skipped
-      // with a warning, the same non-fatal treatment a merely-absent file gets.
-      const packageRoots = [
-        join(projectPath, 'node_modules', pkgName),
-        // Source-tree fallback for --skip-install / monorepo layouts
-        // where node_modules isn't populated when scaffolding runs.
-        pkg.path,
-      ]
-      const candidates = packageRoots.flatMap((root) => {
-        const source = join(root, table.sqlFile)
-        if (!isInsideDir(root, source)) {
-          console.warn(
-            `[scaffold] skipping sqlFile outside its package: ${pkgName} declares ${JSON.stringify(table.sqlFile)}`,
-          )
-          return []
-        }
-        return [source]
-      })
-      for (const source of candidates) {
-        try {
-          const sql = await readFile(source, 'utf-8')
-          await writeFile(join(projectPath, '__setup__', fileName), `${dialectHeader}${sql}`)
-          copiedFiles.add(table.sqlFile)
-          break
-        } catch (_error) {
-          // Safe to try next: SQL file absent from this candidate path (node_modules or source tree)
-        }
-      }
-    }
+  // The writer names the destination by BASENAME, so two declarations can target
+  // one file even when their package-relative paths differ (`src/__setup__/x.sql`
+  // and `setup/x.sql`). Identical bytes are the same file written twice, which is
+  // harmless; DIFFERENT bytes are a silent overwrite — the app would get one
+  // package's schema and the other's table would be missing. The inject command's
+  // setup writer shares this planner, so the rule cannot hold for one writer and
+  // not the other (r6 acceptance review F8; r7 review L1). Today's registry has
+  // one such pair (article/follow `follows.sql`) and both copies are
+  // byte-identical.
+  //
+  // The files ALREADY in `__setup__/` are part of the same decision (r10
+  // acceptance review, F6): a template fast path copies a tree that may hold them,
+  // and a second scaffold into the same directory must not erase another
+  // package's schema. Same bytes are left alone; the same package's own earlier
+  // file (its header line records the owner) is upgraded in place; anything else
+  // is refused before either file is touched.
+  const { destinations, conflicts, existingConflicts } = planSetupSqlDestinations(sources, {
+    header: dialectHeader,
+    existing: await readSetupSqlFiles(join(projectPath, '__setup__')),
+  })
+  if (conflicts.length > 0) {
+    throw new Error(
+      [
+        'Cannot copy the database setup SQL this project needs:',
+        ...conflicts.map((conflict) => `  - ${describeSetupSqlDestinationConflict(conflict)}`),
+      ].join('\n'),
+    )
+  }
+  if (existingConflicts.length > 0) {
+    throw new Error(
+      [
+        'Cannot copy the database setup SQL this project needs:',
+        ...existingConflicts.map(
+          (conflict) => `  - ${describeSetupSqlExistingFileConflict(conflict)}`,
+        ),
+      ].join('\n'),
+    )
+  }
+  // Validate every destination BEFORE writing: a conflict must leave `__setup__/`
+  // untouched, not half-written.
+  for (const destination of destinations) {
+    await writeFile(
+      join(projectPath, '__setup__', destination.destination),
+      setupSqlFileContent(destination, dialectHeader),
+    )
   }
 
   // The migration runner statically imports its PGlite migrator from

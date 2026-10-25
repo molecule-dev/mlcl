@@ -32,6 +32,7 @@ import {
 import { loadRegistry } from '../registry.js'
 import { copySqlSetupScripts, copyTemplateDomainFiles, copyTemplateInstance } from '../scaffold.js'
 import type { InferredPackage } from '../schema.js'
+import { readSetupSqlFileOwner } from '../setup-sql.js'
 
 const SQLITE = '@molecule/api-database-sqlite'
 const MYSQL = '@molecule/api-database-mysql'
@@ -92,8 +93,7 @@ describe('migrationDialectHeader', () => {
     expect(header).toContain('ON DELETE')
     expect(header).toContain('CASCADE')
     expect(header).toContain('SET NULL')
-    expect(header).toMatch(/generated runner rejects unsupported SQL/i)
-    expect(header).not.toMatch(/refuses to generate an app/i)
+    expect(header).toMatch(/refuses to generate an app/i)
     // Never the old blanket claims, and never advice that changes semantics.
     expect(header).not.toMatch(/apply here unchanged/i)
     expect(header).not.toMatch(/never hand-write a DuckDB version/i)
@@ -204,12 +204,18 @@ describe('projectDatabasePackage', () => {
 })
 
 describe('the scaffold writes migrations in the bonded dialect', () => {
+  const DEMO_SQL =
+    'CREATE TABLE IF NOT EXISTS "demo" (\n  "id" uuid PRIMARY KEY DEFAULT gen_random_uuid()\n);\n'
+
   /** A resource package shipping one setup SQL, laid out like the published ones. */
   const resourcePackage = async (path: string): Promise<InferredPackage> => {
     await mkdir(join(path, 'src', '__setup__'), { recursive: true })
+    await writeFile(join(path, 'src', '__setup__', 'demo.sql'), DEMO_SQL)
+    // The copier binds bytes to the version the package declares, so an
+    // installed-shaped fixture needs its own manifest.
     await writeFile(
-      join(path, 'src', '__setup__', 'demo.sql'),
-      'CREATE TABLE IF NOT EXISTS "demo" (\n  "id" uuid PRIMARY KEY DEFAULT gen_random_uuid()\n);\n',
+      join(path, 'package.json'),
+      `${JSON.stringify({ name: '@molecule/api-demo', version: '1.0.0' }, null, 2)}\n`,
     )
     return {
       name: '@molecule/api-demo',
@@ -231,18 +237,31 @@ describe('the scaffold writes migrations in the bonded dialect', () => {
     await mkdir(join(projectPath, '__setup__'), { recursive: true })
     const pkg = await resourcePackage(join(dir, 'pkgs', 'demo'))
 
-    await copySqlSetupScripts(projectPath, [pkg.name, SQLITE], [pkg])
+    await copySqlSetupScripts(projectPath, [pkg.name, SQLITE], [pkg], {
+      '@molecule/api-demo': '1.0.0',
+    })
     const written = await readFile(join(projectPath, '__setup__', 'demo.sql'), 'utf8')
     expect(migrationDialectHeader(SQLITE)).not.toBe('')
-    expect(written.startsWith(migrationDialectHeader(SQLITE))).toBe(true)
+    // The owner line comes first (so a later run knows whose file it is — r10
+    // review, F6), then the dialect header, then the package's own bytes.
+    expect(readSetupSqlFileOwner(written)?.packageName).toBe(pkg.name)
+    expect(written.endsWith(`${migrationDialectHeader(SQLITE)}${DEMO_SQL}`)).toBe(true)
     // The DDL itself is untouched — the bond translates it as it applies.
     expect(written).toContain('DEFAULT gen_random_uuid()')
 
-    // A Postgres app's copy is the published file, byte for byte.
+    // A Postgres app's copy carries the owner line and the published file,
+    // byte for byte after it — there is no dialect header to explain.
     const pgProject = join(dir, 'pg')
     await mkdir(join(pgProject, '__setup__'), { recursive: true })
-    await copySqlSetupScripts(pgProject, [pkg.name, POSTGRES], [pkg])
-    expect(await readFile(join(pgProject, '__setup__', 'demo.sql'), 'utf8')).not.toContain('--')
+    await copySqlSetupScripts(pgProject, [pkg.name, POSTGRES], [pkg], {
+      '@molecule/api-demo': '1.0.0',
+    })
+    const pgWritten = await readFile(join(pgProject, '__setup__', 'demo.sql'), 'utf8')
+    expect(readSetupSqlFileOwner(pgWritten)?.packageName).toBe(pkg.name)
+    expect(pgWritten.endsWith(DEMO_SQL)).toBe(true)
+    expect(pgWritten).not.toContain(migrationDialectHeader(SQLITE))
+    expect(pgWritten).not.toContain(migrationDialectHeader(MYSQL))
+    expect(pgWritten).not.toContain(migrationDialectHeader(DUCKDB))
   })
 })
 
@@ -429,7 +448,7 @@ describe('the template fast path stamps the migrations it copies', () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {})
     const { templateDir, destDir } = await makeTemplateInstance(SQLITE)
 
-    await copyTemplateInstance(templateDir, destDir, 'my-project')
+    await copyTemplateInstance(templateDir, destDir, 'my-project', {})
 
     const copied = await readFile(
       join(destDir, 'api', 'migrations', '1777471797397_create_users_table.sql'),
@@ -446,7 +465,7 @@ describe('the template fast path stamps the migrations it copies', () => {
     vi.spyOn(console, 'warn').mockImplementation(() => {})
     const { templateDir, destDir } = await makeTemplateInstance(POSTGRES)
 
-    await copyTemplateInstance(templateDir, destDir, 'my-project')
+    await copyTemplateInstance(templateDir, destDir, 'my-project', {})
 
     const copied = await readFile(
       join(destDir, 'api', 'migrations', '1777471797397_create_users_table.sql'),

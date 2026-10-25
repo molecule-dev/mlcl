@@ -6,6 +6,7 @@ import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { appendSecretsToEnvFile, type EnvAppendResult } from '../lib/env-file.js'
 import { collectSecrets } from '../lib/features.js'
 import { formatGeneratedFiles } from '../lib/format.js'
@@ -199,6 +200,29 @@ export default class Swap extends Command {
     //    src/bonds). Shared with the executor below so the preview matches reality.
     const paths = await resolveBondPaths(projectPath, oldPkg.name, newName)
     const rel = (abs: string): string => relative(projectPath, abs)
+
+    // 4b. A database swap re-renders the runner that replays the SQL already on
+    // disk — `__setup__/*.sql` and `migrations/*.sql` — so the target database
+    // must be able to run exactly those files. Refuse BEFORE anything is
+    // modified: a swap onto a database that cannot honour `ON DELETE CASCADE`
+    // in the app's schema produces an app whose boot migrations never finish.
+    // Manifest keys are not the source set: a transitive peer's SQL may never
+    // have been copied, and judging it refuses SQL nothing will replay.
+    if (newPkg.molecule?.category === 'database') {
+      try {
+        await assertDdlCompatibility({
+          projectPath,
+          sqlDirs: [join(projectPath, '__setup__'), join(projectPath, 'migrations')],
+          // The manifest still declares the database being REPLACED, so name
+          // the target explicitly — the swap's verdict is the target's.
+          database: newName,
+        })
+      } catch (error) {
+        spinner.stop()
+        p.cancel(error instanceof Error ? error.message : String(error))
+        this.exit(1)
+      }
+    }
 
     // The new provider's credentials will be appended to .env after the swap
     // (same commented format as `mlcl create`/`mlcl inject`; existing keys are

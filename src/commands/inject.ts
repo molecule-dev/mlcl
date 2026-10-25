@@ -1,5 +1,5 @@
 import { existsSync } from 'node:fs'
-import { access, readFile } from 'node:fs/promises'
+import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
 import * as p from '@clack/prompts'
@@ -7,6 +7,8 @@ import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { assertDdlCompatibility } from '../lib/database-compatibility.js'
+import { DDL_INCOMPATIBLE_EXIT } from '../lib/ddl-exit.js'
 import { appendSecretsToEnvFile, type EnvAppendResult } from '../lib/env-file.js'
 import { collectSecrets, resolveLocalePackages } from '../lib/features.js'
 import { formatGeneratedFiles } from '../lib/format.js'
@@ -18,6 +20,7 @@ import {
   GENERATED_SMOKE_TEST_PATHS,
   type InjectionPlan,
   planInjection,
+  type PlanInjectionOptions,
   resolveDefaultProvidersFromPlans,
   synthesizeAppProjectFiles,
   synthesizeProjectFiles,
@@ -25,14 +28,31 @@ import {
 } from '../lib/injector.js'
 import { ensureMigrateRunnerImports } from '../lib/migrate-runner.js'
 import {
+  databasePackageOf,
+  migrationDialectHeader,
+  projectDatabasePackage,
+} from '../lib/migration-dialect.js'
+import {
   detectAppFramework,
+  findRegistryPackage,
   getAppFrameworkDeps,
+  getMoleculeVersion,
   getPackageStack,
   getSharedCodeDir,
   loadAppFrameworks,
   loadRegistry,
 } from '../lib/registry.js'
 import { syncProjectAssets } from '../lib/scaffold.js'
+import type { IntendedVersionBinding, SetupSqlProblem, SetupSqlSource } from '../lib/setup-sql.js'
+import {
+  bindIntendedVersion,
+  describeSetupSqlDestinationConflict,
+  describeSetupSqlExistingFileConflict,
+  planSetupSqlDestinations,
+  readSetupSqlFiles,
+  resolveSetupSqlSources,
+  setupSqlFileContent,
+} from '../lib/setup-sql.js'
 import { validateInjectionOutput } from '../lib/validator.js'
 
 /**
@@ -168,6 +188,45 @@ export default class Inject extends Command {
       )
     }
     const projectDeps = { ...projectPkg.dependencies, ...projectPkg.devDependencies }
+    // The exact version this PROJECT pins for `name`. The injector's migration
+    // planner reads the package copy it resolves and writes that copy's SQL into
+    // the project; binding it to the manifest's own pin is what keeps a stale
+    // fleet install above the project from contributing ANOTHER release's schema
+    // (r7 acceptance review, N1).
+    //
+    // A RANGE names a set, not nothing: it binds to the copy Node resolves for
+    // the project when that copy is inside the range (the version the app runs
+    // today), else to the registry's own pin when that is inside it — and is
+    // refused when nothing available satisfies it, instead of silently writing
+    // whichever release is on disk (P18 r11 review, R11-6). A spec that names no
+    // evaluable version (`file:`, `workspace:*`, a dist-tag) stays UNBOUND and
+    // keeps the nearest-copy behaviour (r10 review, K10/K11).
+    const pinBindings = new Map<string, IntendedVersionBinding>()
+    const bindingFor = (name: string): IntendedVersionBinding => {
+      const cached = pinBindings.get(name)
+      if (cached) return cached
+      const binding = bindIntendedVersion({
+        packageName: name,
+        pin: projectDeps[name],
+        projectPath,
+        registryPin: findRegistryPackage(name) ? getMoleculeVersion(name) : undefined,
+      })
+      pinBindings.set(name, binding)
+      return binding
+    }
+    const pinnedVersion = (name: string): string | undefined => {
+      const binding = bindingFor(name)
+      return binding.kind === 'bound' ? binding.version : undefined
+    }
+    // What the planner should bind to: the exact version a bound pin selects,
+    // the raw range for a refused one (the planner re-binds it and refuses with
+    // the same actionable message), or nothing when the pin names no version.
+    const schemaPin = (name: string): string | undefined => {
+      const binding = bindingFor(name)
+      if (binding.kind === 'bound') return binding.version
+      if (binding.kind === 'refused') return projectDeps[name]
+      return undefined
+    }
     const framework = detectAppFramework(projectDeps, projectPkg.molecule)
     const sharedSubdir = framework ? getSharedCodeDir(framework) : undefined
     const bondsBase = sharedSubdir
@@ -177,9 +236,12 @@ export default class Inject extends Command {
     // Step 3: Generate per-molecule injection plans
     spinner.start(t('commands.inject.spinners.planning'))
 
+    const planOptions = (name: string): PlanInjectionOptions => ({
+      versions: { [name]: schemaPin(name) },
+    })
     const plans: InjectionPlan[] = []
     for (const molecule of molecules) {
-      const plan = await planInjection(molecule, projectPath, sharedSubdir)
+      const plan = await planInjection(molecule, projectPath, sharedSubdir, planOptions(molecule))
       plans.push(plan)
     }
 
@@ -192,7 +254,7 @@ export default class Inject extends Command {
     for (const dp of defaultProviderMolecules) {
       if (!molecules.includes(dp)) {
         molecules.push(dp)
-        plans.push(await planInjection(dp, projectPath, sharedSubdir))
+        plans.push(await planInjection(dp, projectPath, sharedSubdir, planOptions(dp)))
       }
     }
 
@@ -205,7 +267,7 @@ export default class Inject extends Command {
     for (const lp of localeMolecules) {
       if (!molecules.includes(lp)) {
         molecules.push(lp)
-        plans.push(await planInjection(lp, projectPath, sharedSubdir))
+        plans.push(await planInjection(lp, projectPath, sharedSubdir, planOptions(lp)))
       }
     }
 
@@ -224,22 +286,44 @@ export default class Inject extends Command {
     // a declared-but-unresolved package. `mlcl add --dev <database> --no-install`
     // (or a failed install) leaves exactly that state, and the runner has to
     // land and be backed there or the project does not boot.
-    const resolutionFailures: string[] = []
+    const resolutionFailures: { molecule: string; detail: string }[] = []
     const resolvablePlans = plans.filter((plan) => {
       if (plan.moleculePackage) return true
-      resolutionFailures.push(
-        plan.conflicts.map((c) => `${c.path}: ${c.message}`).join('; ') || plan.molecule,
-      )
+      resolutionFailures.push({
+        molecule: plan.molecule,
+        detail: plan.conflicts.map((c) => `${c.path}: ${c.message}`).join('; ') || plan.molecule,
+      })
       return false
     })
     plans.length = 0
     plans.push(...resolvablePlans)
     for (const failure of resolutionFailures) {
+      // An explicit `-m` selection that is neither installed nor pinned has no
+      // version to bind to, and `inject` has no version flag to bind it with (r7
+      // review, L3). The action that CAN resolve one is `mlcl add`, which writes
+      // the registry pin; telling the operator to run `npm install` would be
+      // advice about a package the manifest does not name.
+      const unpinnedSelection =
+        flags.molecule === failure.molecule && bindingFor(failure.molecule).kind === 'unbound'
       this.warn(
-        `Could not resolve ${failure} — its files, dependencies and bond wiring were NOT injected. ` +
-          'Install it (npm install) and re-run `mlcl inject`.',
+        unpinnedSelection
+          ? t('commands.inject.messages.packageNotInstalled', {
+              name: failure.molecule,
+              command: chalk.cyan(`mlcl add ${failure.molecule}`),
+            })
+          : `Could not resolve ${failure.detail} — its files, dependencies and bond wiring were NOT injected. ` +
+              'Install it (npm install) and re-run `mlcl inject`.',
       )
     }
+
+    // Plan-level notes are warnings, not failures: a stale installed copy whose
+    // own dependency metadata was therefore not written still injects. They go
+    // through `this.warn` (stderr) rather than the summary block so `create`,
+    // which runs this command as a CHILD with `stdio: 'pipe'`, can forward them
+    // — a silent gap on a successful scaffold is how a 2.0.0 pin ended up beside
+    // a 1.0.0 copy's peers (r10 acceptance review, F11).
+    for (const warning of plans.flatMap((plan) => plan.warnings ?? [])) this.warn(warning)
+
     // With a request unresolved, the holistic files are NOT regenerated:
     // router.ts is synthesized from the resource PLANS and bonds/index.ts from
     // the PLANS' bond setups, so regenerating them from a plan set missing a
@@ -258,6 +342,165 @@ export default class Inject extends Command {
     // before the failures below are collected, so a pair whose SQL DISAGREES
     // fails the request through the same channel an unreadable file does.
     dedupePlannedMigrations(plans)
+
+    // Refuse a database bond that cannot apply the SQL this run will WRITE,
+    // BEFORE any file is written. The generated `server.ts` awaits
+    // `runMigrations()` at boot, so an unsupported combination is not a degraded
+    // app — it is an API that never starts, discovered long after this command
+    // reported success. `database-compatibility.ts` names the file and the
+    // construct; nothing is dropped or rewritten to fit.
+    //
+    // The bytes judged are the bytes this run writes: the migration CONTENTS
+    // already planned (`plan.migrations`) plus the on-disk `__setup__/` and
+    // `migrations/` copies a boot replays. Manifest KEYS are never a source set —
+    // a transitive peer gets a pin without its setup SQL being copied anywhere,
+    // and judging that refused every later inject on DuckDB over SQL nothing
+    // replays (r6 acceptance review, F1). Judging the planned contents also ends
+    // the third resolution: `planInjection` reads the package it resolved, so a
+    // second lookup here could judge a different copy (F7). An explicitly
+    // selected package whose setup SQL the injector does NOT migrate (a bond /
+    // feature / utility with `tables`, or a mounted resource) is resolved through
+    // the shared resolver, judged with everything else, and written into
+    // `__setup__/` after the preflight passes — so the judged set and the written
+    // set are one list (F10).
+    if (!isAppProject) {
+      const selectedPackages = flags.molecule ? [flags.molecule] : []
+      const registryPackages = loadRegistry()
+      const planFor = (name: string): InjectionPlan | undefined =>
+        plans.find((plan) => plan.molecule === name)
+      // The version this invocation is pinning: the exact version the project's
+      // pin selects (a range binds to the copy it selects, or to the registry pin
+      // inside it), else the version of the copy the injector resolved (a `-m`
+      // package the manifest does not carry yet). A refused range is reported
+      // as a problem rather than passed on as the copy's version.
+      const intendedVersion = (name: string): string | undefined =>
+        pinnedVersion(name) ?? planFor(name)?.moleculePackage?.version
+
+      const extraSetup: SetupSqlSource[] = []
+      const setupProblems: SetupSqlProblem[] = []
+      for (const name of selectedPackages) {
+        const entry = registryPackages.find((pkg) => pkg.name === name)
+        const plan = planFor(name)
+        if (!entry || entry.tables.length === 0) continue
+        const binding = bindingFor(name)
+        if (binding.kind === 'refused') {
+          setupProblems.push({ source: name, packageName: name, message: binding.message })
+          continue
+        }
+        // The injector's own migration planner covers resource packages; an
+        // existing migration already covering their tables means nothing is
+        // written for them here either.
+        if (
+          plan &&
+          (plan.migrations.length > 0 ||
+            plan.conflicts.some((conflict) => conflict.resolution === 'skip'))
+        ) {
+          continue
+        }
+        const resolution = await resolveSetupSqlSources({
+          projectPath,
+          packageNames: [name],
+          versions: { [name]: intendedVersion(name) },
+          packages: registryPackages,
+        })
+        setupProblems.push(...resolution.problems)
+        extraSetup.push(...resolution.sources)
+      }
+      if (setupProblems.length > 0) {
+        spinner.stop()
+        p.cancel(
+          [
+            'Cannot write the database setup SQL this injection needs:',
+            ...setupProblems.map((problem) => `  - ${problem.message}`),
+          ].join('\n'),
+        )
+        this.exit(1)
+      }
+
+      // The destination rule is the copier's, shared (r7 review, L1): this writer
+      // names files by basename too, so two declarations can target one file.
+      // Identical bytes are one file written once; different bytes are a silent
+      // overwrite. Decide every destination BEFORE the preflight and before the
+      // first write, so a conflict leaves `__setup__/` untouched.
+      //
+      // The directory is not empty on a SECOND run, so the files already there
+      // are part of the same decision (r10 acceptance review, F6): an earlier
+      // `inject -m util-a` wrote `__setup__/shared.sql`, and a later
+      // `inject -m util-b` shipping a different `shared.sql` used to erase it
+      // silently. Same bytes are left alone; the same package replacing its OWN
+      // earlier file (the header line records the owner) is an upgrade; anything
+      // else is refused before either file is touched.
+      const setupHeader = extraSetup.length
+        ? migrationDialectHeader(await projectDatabasePackage(projectPath))
+        : ''
+      const setupDestinations = planSetupSqlDestinations(extraSetup, {
+        header: setupHeader,
+        existing: await readSetupSqlFiles(join(projectPath, '__setup__')),
+      })
+      const setupDestinationConflicts = [
+        ...setupDestinations.conflicts.map((conflict) =>
+          describeSetupSqlDestinationConflict(conflict),
+        ),
+        ...setupDestinations.existingConflicts.map((conflict) =>
+          describeSetupSqlExistingFileConflict(conflict),
+        ),
+      ]
+      if (setupDestinationConflicts.length > 0) {
+        spinner.stop()
+        p.cancel(
+          [
+            'Cannot write the database setup SQL this injection needs:',
+            ...setupDestinationConflicts.map((conflict) => `  - ${conflict}`),
+          ].join('\n'),
+        )
+        this.exit(1)
+      }
+
+      const plannedSources: SetupSqlSource[] = plans.flatMap((plan) =>
+        plan.migrations.map((migration) => ({
+          source: `${plan.molecule}:${migration.name}`,
+          packageName: plan.molecule,
+          sqlFile: migration.name,
+          sql: migration.content,
+          origin: 'planned' as const,
+        })),
+      )
+
+      try {
+        await assertDdlCompatibility({
+          projectPath,
+          sqlDirs: [join(projectPath, '__setup__'), join(projectPath, 'migrations')],
+          sqlSources: [...plannedSources, ...extraSetup],
+          packages: registryPackages,
+          // The database comes from the MANIFEST, not from `-m`: an inject of
+          // one resource package must be judged against the database the app
+          // is bonded to (the same manifest ∪ caller union
+          // `readMigrateRunner` renders from).
+          database: databasePackageOf([...molecules, ...Object.keys(projectDeps)]) ?? undefined,
+        })
+      } catch (error) {
+        spinner.stop()
+        p.cancel(error instanceof Error ? error.message : String(error))
+        // A DDL refusal is not one of the failures a partial inject may carry on
+        // from: the app would never boot. A dedicated status lets `create` (which
+        // runs this command as a CHILD) fail the scaffold without reading prose.
+        this.exit(DDL_INCOMPATIBLE_EXIT)
+      }
+
+      // Only after the preflight passed. Additive and idempotent: the runner
+      // replays `__setup__/*.sql` after `migrations/`, and the same bytes are
+      // judged from disk on the next run. The content includes the owner line
+      // the planner read above, so the next run recognizes this package's file.
+      if (setupDestinations.destinations.length > 0) {
+        await mkdir(join(projectPath, '__setup__'), { recursive: true })
+        for (const destination of setupDestinations.destinations) {
+          await writeFile(
+            join(projectPath, '__setup__', destination.destination),
+            setupSqlFileContent(destination, setupHeader),
+          )
+        }
+      }
+    }
 
     // A migration whose SQL the package could not provide fails the request
     // too (its table would be missing at runtime), but it does NOT gate the
@@ -740,7 +983,7 @@ export default class Inject extends Command {
     // the survivors' holistic files are correct without the unresolved plan (it
     // contributed nothing to them) — so the survivors still synthesize, and the
     // exit status still says the request failed.
-    errors.push(...resolutionFailures)
+    errors.push(...resolutionFailures.map((failure) => failure.detail))
     errors.push(...migrationFailures)
 
     if (errors.length > 0) {

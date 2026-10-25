@@ -24,7 +24,11 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import { copyTemplateInstance, scaffoldSecurityWorkflow } from '../scaffold.js'
+import {
+  copyTemplateInstance,
+  readTemplateSetupSqlVersions,
+  scaffoldSecurityWorkflow,
+} from '../scaffold.js'
 
 const ROOT = join(import.meta.dirname, '..', '..', '..')
 const TEMPLATES_APPS = join(ROOT, 'templates', 'apps')
@@ -139,7 +143,13 @@ describe('SEC3 — scaffolded security scanning', () => {
     expect(slug, 'at least one flagship template must exist').toBeTruthy()
 
     const dest = join(workdir, 'tpl-project')
-    await copyTemplateInstance(join(TEMPLATES_APPS, slug!), dest, 'tpl-project')
+    const templateDir = join(TEMPLATES_APPS, slug!)
+    await copyTemplateInstance(
+      templateDir,
+      dest,
+      'tpl-project',
+      await readTemplateSetupSqlVersions(templateDir),
+    )
     await expectSecurityArtifacts(dest, `copyTemplateInstance(${slug!})`)
     // The flagship root package.json gets husky + prepare wired in.
     await expectHuskyWired(dest, `copyTemplateInstance(${slug!})`)

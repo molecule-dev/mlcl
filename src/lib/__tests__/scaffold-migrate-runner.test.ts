@@ -50,7 +50,7 @@ describe('custom-create migration-runner wiring', () => {
       }),
     )
 
-    await copySqlSetupScripts(dir, [], [])
+    await copySqlSetupScripts(dir, [], [], {})
 
     const manifest = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
@@ -79,7 +79,7 @@ describe('custom-create migration-runner wiring', () => {
       }),
     )
 
-    await copySqlSetupScripts(dir, [], [])
+    await copySqlSetupScripts(dir, [], [], {})
 
     const manifest = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
@@ -95,7 +95,7 @@ describe('custom-create migration-runner wiring', () => {
       join(dir, 'package.json'),
       JSON.stringify({ name: 'demo-api', dependencies: {} }),
     )
-    await copySqlSetupScripts(dir, [], [])
+    await copySqlSetupScripts(dir, [], [], {})
     const manifest = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
     }

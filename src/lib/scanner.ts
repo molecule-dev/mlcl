@@ -11,14 +11,15 @@
  * @module
  */
 
-import { readFileSync, realpathSync, statSync } from 'node:fs'
+import { existsSync, readFileSync, realpathSync, statSync } from 'node:fs'
 import { access, readdir, readFile } from 'node:fs/promises'
 import { basename, dirname, isAbsolute, join, relative, resolve, sep } from 'node:path'
 
 import { ts } from 'ts-morph'
 
+import { isExactVersion } from './exact-version.js'
 import { getRawRegistry } from './registry.js'
-import type { InferredPackage, InferredTable, PackageType } from './schema.js'
+import type { InferredPackage, InferredTable, PackageType, SqlSupport } from './schema.js'
 import { InferredRoute, MoleculeMetadata } from './schema.js'
 
 /**
@@ -382,47 +383,142 @@ function inferRouteFromHandler(handlerName: string, resourceName: string): Infer
 }
 
 /**
+ * The directory a package keeps its setup SQL in, or null when it ships none.
+ *
+ * Resource and utility packages ship setup SQL in `src/__setup__/` (the one
+ * convention every `@molecule/api-resource-*` package follows). The root
+ * `setup/` form is kept for bond packages that ship SQL beside their source —
+ * @molecule/api-bonds-audit-database's `audit_log.sql` is the one left. The
+ * first directory that actually declares a table wins; a directory holding SQL
+ * with no `CREATE TABLE` (a comment-only file) does not stop the search, which
+ * is the order {@link scanForTables} has always applied.
+ *
+ * @param packagePath - The package root.
+ * @returns The setup directory, or null.
+ */
+async function resolveSetupDir(packagePath: string): Promise<string | null> {
+  const setupPaths = [join(packagePath, 'src', '__setup__'), join(packagePath, 'setup')]
+  const createTable = /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?["']?(\w+)["']?/gi
+
+  for (const setupPath of setupPaths) {
+    let files: string[]
+    try {
+      files = (await readdir(setupPath)).filter((file) => file.endsWith('.sql')).sort()
+    } catch (_error) {
+      // Safe to ignore: setup dir is optional; not all packages have SQL setup files
+      continue
+    }
+    for (const file of files) {
+      const content = await readFile(join(setupPath, file), 'utf-8')
+      if ([...content.matchAll(createTable)].length > 0) return setupPath
+    }
+  }
+  return null
+}
+
+/**
  * Scan for SQL setup files
  */
 export async function scanForTables(packagePath: string): Promise<InferredTable[]> {
+  const setupPath = await resolveSetupDir(packagePath)
+  if (setupPath === null) return []
+
   const tables: InferredTable[] = []
+  const files = (await readdir(setupPath)).filter((file) => file.endsWith('.sql')).sort()
+  for (const file of files) {
+    const sqlPath = join(setupPath, file)
+    const content = await readFile(sqlPath, 'utf-8')
 
-  // Resource and utility packages ship setup SQL in `src/__setup__/` (the one
-  // convention every `@molecule/api-resource-*` package follows). The root
-  // `setup/` form is kept for bond packages that ship SQL beside their source —
-  // @molecule/api-bonds-audit-database's `audit_log.sql` is the one left.
-  const setupPaths = [join(packagePath, 'src', '__setup__'), join(packagePath, 'setup')]
-
-  for (const setupPath of setupPaths) {
-    try {
-      const files = await readdir(setupPath)
-
-      for (const file of files) {
-        if (file.endsWith('.sql')) {
-          const sqlPath = join(setupPath, file)
-          const content = await readFile(sqlPath, 'utf-8')
-
-          // Extract table names from CREATE TABLE statements
-          const tableMatches = content.matchAll(
-            /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?["']?(\w+)["']?/gi,
-          )
-          for (const match of tableMatches) {
-            tables.push({
-              name: match[1],
-              sqlFile: sqlPath,
-            })
-          }
-        }
-      }
-
-      // If we found tables in this directory, don't check the other
-      if (tables.length > 0) break
-    } catch (_error) {
-      // Safe to ignore: setup dir is optional; not all packages have SQL setup files
+    // Extract table names from CREATE TABLE statements
+    const tableMatches = content.matchAll(
+      /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?["']?(\w+)["']?/gi,
+    )
+    for (const match of tableMatches) {
+      tables.push({
+        name: match[1],
+        sqlFile: sqlPath,
+      })
     }
   }
 
   return tables
+}
+
+/**
+ * Read the EXACT bytes of every setup SQL file a package declares, keyed by the
+ * package-relative path `tables[].sqlFile` uses, TOGETHER with the package
+ * version those bytes belong to.
+ *
+ * `sync-registry --scan-tables` bundles this into the registry entry as
+ * `setupSql` + `setupSqlVersion`. The two are one value on purpose: the bytes
+ * are the DDL of ONE version, and a scaffold that pins another version must not
+ * copy them (a schema can gain or change a file between releases — `comment_
+ * numbers.sql` did). A selection can only use the bundle when its intended
+ * version equals {@link SetupSqlScan.version}; otherwise it resolves a copy of
+ * the intended version or refuses before writing.
+ *
+ * The version is read from the package's OWN `package.json` in the same pass as
+ * the bytes, so the tag cannot disagree with the files. A package with setup SQL
+ * but no readable exact `version` is an error: an untagged bundle is unusable,
+ * and writing one silently would defer the failure to scaffold time.
+ *
+ * It is derived from the same directory {@link scanForTables} reads, so the
+ * declared paths and the bytes can never drift within one scan.
+ *
+ * @param packagePath - The package root.
+ * @returns The version + path→SQL map (sorted by path), or null when the
+ *   package ships no setup SQL.
+ */
+export async function scanSetupSqlBundle(
+  packagePath: string,
+): Promise<{ version: string; files: Record<string, string> } | null> {
+  const setupPath = await resolveSetupDir(packagePath)
+  if (setupPath === null) return null
+
+  const files = (await readdir(setupPath)).filter((file) => file.endsWith('.sql')).sort()
+  const bundle: Record<string, string> = {}
+  for (const file of files) {
+    const sqlPath = join(setupPath, file)
+    bundle[relative(packagePath, sqlPath)] = await readFile(sqlPath, 'utf-8')
+  }
+  if (Object.keys(bundle).length === 0) return null
+
+  const manifestPath = join(packagePath, 'package.json')
+  let version: unknown
+  try {
+    version = (JSON.parse(readFileSync(manifestPath, 'utf-8')) as { version?: unknown }).version
+  } catch (error) {
+    throw new Error(
+      `${packagePath} ships setup SQL but its ${manifestPath} cannot be read/parsed ` +
+        `(${String(error)}) — the bundle cannot be tagged with the version it belongs to.`,
+      { cause: error },
+    )
+  }
+  if (typeof version !== 'string' || !isExactVersion(version)) {
+    throw new Error(
+      `${packagePath} ships setup SQL but its package.json declares no exact version ` +
+        `(${JSON.stringify(version)}) — the bundle cannot be tagged with the version it belongs to.`,
+    )
+  }
+  return { version, files: bundle }
+}
+
+/**
+ * Read the EXACT bytes of every setup SQL file a package declares, keyed by the
+ * package-relative path `tables[].sqlFile` uses.
+ *
+ * This is the byte map alone. {@link scanSetupSqlBundle} is the value
+ * `sync-registry --scan-tables` writes, because the bytes are only meaningful at
+ * the exact package version they came from.
+ *
+ * @param packagePath - The package root.
+ * @returns The path→SQL map (sorted by path), or null when the package ships no
+ *   setup SQL.
+ */
+export async function scanSetupSqlFiles(
+  packagePath: string,
+): Promise<Record<string, string> | null> {
+  return (await scanSetupSqlBundle(packagePath))?.files ?? null
 }
 
 /**
@@ -901,6 +997,151 @@ export async function scanBondSetter(
   if (paired.length > 0) return paired[0]
   if (candidates.length === 1) return candidates[0]
   return null
+}
+
+/** The SQL capability map a database bond declares in `src/capabilities.ts`. */
+export type ScannedSqlCapabilities = Record<string, { support: SqlSupport; note?: string }>
+
+/** The closed set of support values the contract defines. */
+const SQL_SUPPORTS: readonly string[] = ['native', 'translated', 'unsupported']
+
+/**
+ * Read a string-valued expression from the AST.
+ *
+ * Handles the shapes the provider declarations actually use: a plain string
+ * literal, a no-substitution template literal, parentheses, and the `+`
+ * concatenation the long provider notes are written with. Anything else yields
+ * null, so an unreadable note can never be mistaken for a different one.
+ *
+ * @param node - The expression node.
+ * @returns The string value, or null when the expression is not a constant string.
+ */
+function readStringExpression(node: ts.Node): string | null {
+  if (ts.isStringLiteral(node) || ts.isNoSubstitutionTemplateLiteral(node)) return node.text
+  if (ts.isParenthesizedExpression(node)) return readStringExpression(node.expression)
+  if (ts.isBinaryExpression(node) && node.operatorToken.kind === ts.SyntaxKind.PlusToken) {
+    const left = readStringExpression(node.left)
+    const right = readStringExpression(node.right)
+    return left === null || right === null ? null : left + right
+  }
+  return null
+}
+
+/**
+ * Convert a capability-map object literal to plain data.
+ *
+ * @param literal - The `{ … }` initializer.
+ * @returns The map, or null when any entry is not a literal `{ support, note? }`.
+ */
+function readCapabilityMap(literal: ts.ObjectLiteralExpression): ScannedSqlCapabilities | null {
+  const map: ScannedSqlCapabilities = {}
+  for (const property of literal.properties) {
+    if (!ts.isPropertyAssignment(property)) return null
+    const key =
+      ts.isStringLiteral(property.name) || ts.isIdentifier(property.name)
+        ? property.name.text
+        : null
+    if (!key) return null
+    let value: ts.Expression = property.initializer
+    while (ts.isParenthesizedExpression(value)) value = value.expression
+    if (!ts.isObjectLiteralExpression(value)) return null
+    let support: string | null = null
+    let note: string | undefined
+    for (const entry of value.properties) {
+      if (!ts.isPropertyAssignment(entry)) continue
+      const name =
+        ts.isStringLiteral(entry.name) || ts.isIdentifier(entry.name) ? entry.name.text : ''
+      if (name === 'support') support = readStringExpression(entry.initializer)
+      if (name === 'note') note = readStringExpression(entry.initializer) ?? undefined
+    }
+    if (!support || !SQL_SUPPORTS.includes(support)) return null
+    map[key] =
+      note === undefined
+        ? { support: support as SqlSupport }
+        : { support: support as SqlSupport, note }
+  }
+  return Object.keys(map).length > 0 ? map : null
+}
+
+/**
+ * Derive a database bond's `sqlCapabilities` from its OWN `src/capabilities.ts`.
+ *
+ * The map is read as SOURCE, never imported: the declaration imports only the
+ * contract TYPE (and, for MotherDuck, another bond's constant), and evaluating
+ * it could pull engine code into a registry scan that must stay dependency-free.
+ * The two shapes the seven providers use are both handled — an object literal
+ * (with `+`-concatenated notes) and an import alias re-exporting another
+ * provider's constant, resolved through `resolvePackageSrc`.
+ *
+ * Shared by `sync-registry --scan-exports` (which writes the field) and
+ * `sync-registry --check`, so the registry can never drift from the bond that
+ * publishes the contract.
+ *
+ * @param srcPath - The package's `src/` directory.
+ * @param resolvePackageSrc - Maps a package name to its `src/` directory, for a
+ *   re-exported declaration (MotherDuck → DuckDB).
+ * @returns The capability map, or null when the package declares none.
+ */
+export function scanSqlCapabilities(
+  srcPath: string,
+  resolvePackageSrc?: (packageName: string) => string | null,
+): ScannedSqlCapabilities | null {
+  const file = join(srcPath, 'capabilities.ts')
+  if (!existsSync(file)) return null
+  let text: string
+  try {
+    text = readFileSync(file, 'utf-8')
+  } catch (_error) {
+    // Unreadable source cannot be scanned; the caller keeps the recorded value.
+    return null
+  }
+  const source = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true)
+  const imports = new Map<string, string>()
+  const found: {
+    capabilities: ScannedSqlCapabilities | null
+    reexport: { module: string; name: string } | null
+  } = { capabilities: null, reexport: null }
+  source.forEachChild((node) => {
+    if (
+      ts.isImportDeclaration(node) &&
+      node.importClause &&
+      ts.isStringLiteral(node.moduleSpecifier)
+    ) {
+      const bindings = node.importClause.namedBindings
+      if (bindings && ts.isNamedImports(bindings)) {
+        for (const element of bindings.elements) {
+          imports.set(element.name.text, node.moduleSpecifier.text)
+        }
+      }
+      return
+    }
+    if (!ts.isVariableStatement(node)) return
+    for (const declaration of node.declarationList.declarations) {
+      if (!ts.isIdentifier(declaration.name) || declaration.name.text !== 'sqlCapabilities')
+        continue
+      let initializer: ts.Expression | undefined = declaration.initializer
+      while (initializer && ts.isParenthesizedExpression(initializer)) {
+        initializer = initializer.expression
+      }
+      if (initializer && ts.isObjectLiteralExpression(initializer)) {
+        found.capabilities = readCapabilityMap(initializer)
+      } else if (initializer && ts.isIdentifier(initializer)) {
+        const module = imports.get(initializer.text)
+        if (module) found.reexport = { module, name: initializer.text }
+      }
+    }
+  })
+  if (found.capabilities) return found.capabilities
+  if (!found.reexport || !resolvePackageSrc) return null
+  // The import specifier may carry a subpath (`…-duckdb/capabilities.js`);
+  // resolution is by PACKAGE, so strip everything after the package name.
+  const specifier = found.reexport.module
+  const packageName = specifier.startsWith('@')
+    ? specifier.split('/').slice(0, 2).join('/')
+    : specifier.split('/')[0]
+  const target = resolvePackageSrc(packageName)
+  if (!target) return null
+  return scanSqlCapabilities(target, resolvePackageSrc)
 }
 
 /**

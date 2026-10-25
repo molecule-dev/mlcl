@@ -54,6 +54,8 @@ export const messages: LocaleMessages = {
     'Scaffold into a directory that already holds a project (existing files are overwritten)',
   'commands.create.errors.projectExists':
     '{path} already holds a project (found {found}). Creating here would overwrite your code and .env. Pick another name, or pass --force if you mean to overwrite it.',
+  'commands.create.errors.injectDdlIncompatible':
+    'The database cannot run the SQL this project needs, so the app would never boot. The project was created but not injected — run {command} to see the exact file and construct.',
   'commands.add.errors.workspaceUnknown':
     'This is a full-stack project root, and {name} is not an api or app package, so it is unclear which of api/ and app/ it belongs in. Run the command from inside that folder.',
   'commands.add.errors.notFound':
@@ -193,6 +195,8 @@ export const messages: LocaleMessages = {
   'commands.inject.spinners.found': 'Found {count} molecule(s)',
   'commands.inject.messages.noMolecules': 'No molecules to inject',
   'commands.inject.messages.addHint': 'Add a molecule with: {command}',
+  'commands.inject.messages.packageNotInstalled':
+    "{name} is neither installed here nor pinned in this project's manifest. Run {command} (it resolves the registry pin), then re-run.",
   'commands.inject.spinners.planning': 'Planning injection...',
   'commands.inject.spinners.planned': 'Injection planned',
   'commands.inject.labels.injectionPlan': 'Injection Plan:',
@@ -362,8 +366,19 @@ export const messages: LocaleMessages = {
   // ─── lib/injector ───────────────────────────────────────────────
   'lib.injector.errors.packageNotFound':
     "Could not find molecule package. Run 'npm install {name}' first.",
+  'lib.injector.errors.packageVersionNotFound':
+    "No copy of {name}@{version} is reachable from this project (found: {found}). Refusing to inject another version's schema — run 'npm install' so {name}@{version} is the copy on disk, then re-run.",
+  'lib.injector.errors.packageVersionNotExact':
+    '{name} is pinned at {version}, which is not an exact version — the migrations it declares cannot be bound to one schema. Pin an exact version or install the version you mean, then re-run.',
+  'lib.injector.errors.setupSqlUnavailable':
+    'No copy or bundled setup SQL supplies {file} at {name}@{version}; run `mlcl sync-registry --scan-tables` or install that exact version before injecting.',
+  'lib.injector.errors.setupSqlVersionSkewed':
+    "{name} is pinned at {version}, but the only copy mlcl could read is {copyVersion} ({path}) and registry.json bundles no setup SQL for it — writing that copy's schema would run one release's DDL beside another release's code. Install {name}@{version} (`npm install`) or inject the version the project pins, then re-run.",
+  'lib.injector.errors.unknownVersion': 'of unknown version',
   'lib.injector.errors.scanFailed': 'Failed to scan molecule package: {error}',
   'lib.injector.errors.migrationExists': "Migration for table '{table}' already exists",
+  'lib.injector.warnings.versionSkewedDependencies':
+    '{name} is pinned at {version} but the copy mlcl read is {copyVersion} ({path}), so its third-party dependencies and peer requirements were NOT copied — they describe {copyVersion}. Its @molecule peers came from registry.json at the pin. Run `npm install` so {name}@{version} is the copy on disk, then re-run `mlcl inject`.{sql}',
   'lib.injector.errors.migrationDuplicateOther':
     "Migration for table '{table}' was already planned for {name} in this run — the two packages ship the same setup SQL, so only one file is written",
   'lib.injector.errors.migrationTableConflict':

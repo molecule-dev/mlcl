@@ -2323,6 +2323,10 @@
           "sqlFile": "src/__setup__/moderation_audit_log.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/moderation_audit_log.sql": "CREATE TABLE IF NOT EXISTS \"moderation_audit_log\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"owner_id\" uuid,\n  \"content_excerpt\" text NOT NULL,\n  \"decision\" varchar(20) NOT NULL,\n  \"matched_category\" varchar(40),\n  \"scores\" jsonb NOT NULL DEFAULT '[]',\n  \"reasoning\" text,\n  \"resource_type\" varchar(80),\n  \"resource_id\" varchar(255),\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"moderation_audit_log_owner_id_index\" ON \"moderation_audit_log\" (\"owner_id\");\nCREATE INDEX IF NOT EXISTS \"moderation_audit_log_resource_index\" ON \"moderation_audit_log\" (\"resource_type\", \"resource_id\");\nCREATE INDEX IF NOT EXISTS \"moderation_audit_log_created_at_index\" ON \"moderation_audit_log\" (\"created_at\" DESC);\nCREATE INDEX IF NOT EXISTS \"moderation_audit_log_decision_index\" ON \"moderation_audit_log\" (\"decision\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/ai/moderation-pipeline",
       "intentHints": [
         "content moderation",
@@ -4889,6 +4893,10 @@
           "sqlFile": "setup/audit_log.sql"
         }
       ],
+      "setupSql": {
+        "setup/audit_log.sql": "CREATE TABLE IF NOT EXISTS \"audit_log\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"actor\" text NOT NULL,\n  \"action\" text NOT NULL,\n  \"resource\" text NOT NULL,\n  \"resource_id\" text,\n  \"details\" text,\n  \"ip\" text,\n  \"user_agent\" text,\n  \"timestamp\" timestamptz DEFAULT current_timestamp NOT NULL\n);\nCREATE INDEX IF NOT EXISTS \"audit_log_actor_index\" ON \"audit_log\" (\"actor\");\nCREATE INDEX IF NOT EXISTS \"audit_log_action_index\" ON \"audit_log\" (\"action\");\nCREATE INDEX IF NOT EXISTS \"audit_log_resource_index\" ON \"audit_log\" (\"resource\");\nCREATE INDEX IF NOT EXISTS \"audit_log_timestamp_index\" ON \"audit_log\" (\"timestamp\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/bonds/audit/database",
       "intentHints": [
         "audit log database",
@@ -7362,6 +7370,20 @@
       "moleculePeers": [
         "@molecule/api-database"
       ],
+      "sqlCapabilities": {
+        "fk-referential-action": {
+          "support": "native",
+          "note": "D1 runs SQLite, whose engine enforces the action; D1 schema is applied out of band with `wrangler d1 migrations apply`, so the bond itself sets no pragma."
+        },
+        "partial-index": {
+          "support": "native",
+          "note": "D1 runs SQLite and supports partial indexes; the statement applies as written."
+        },
+        "unique-partial-index": {
+          "support": "native",
+          "note": "D1 runs SQLite and supports UNIQUE partial indexes; only rows matching the predicate are constrained."
+        }
+      },
       "path": "packages/api/bonds/database/d1",
       "intentHints": [
         "cloudflare d1",
@@ -7432,13 +7454,27 @@
         "@molecule/api-database",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/database/duckdb",
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-database",
         "@molecule/api-secrets"
       ],
+      "sqlCapabilities": {
+        "fk-referential-action": {
+          "support": "unsupported",
+          "note": "DuckDB rejects ON DELETE and ON UPDATE CASCADE, SET NULL and SET DEFAULT at parse time and has no triggers, so a cascading or nulling delete cannot be reproduced. Select a database provider that enforces referential actions, or remove the resource whose schema needs them."
+        },
+        "partial-index": {
+          "support": "translated",
+          "note": "Applied as a full index on the same columns. The WHERE clause only narrows which rows the index covers, so query results are identical without it."
+        },
+        "unique-partial-index": {
+          "support": "translated",
+          "note": "Applied as a UNIQUE index over CASE WHEN <predicate> THEN <column> END for each indexed column. Rows outside the predicate get NULL keys, which DuckDB keeps distinct, so exactly the rows PostgreSQL would constrain are constrained."
+        }
+      },
       "providerExportName": "pool",
+      "path": "packages/api/bonds/database/duckdb",
       "intentHints": [
         "duckdb",
         "duckdb database",
@@ -7500,23 +7536,37 @@
         "@molecule/api-database-duckdb",
         "@molecule/api-secrets"
       ],
-      "path": "packages/api/bonds/database/motherduck",
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-database",
         "@molecule/api-database-duckdb",
         "@molecule/api-secrets"
       ],
+      "sqlCapabilities": {
+        "fk-referential-action": {
+          "support": "unsupported",
+          "note": "DuckDB rejects ON DELETE and ON UPDATE CASCADE, SET NULL and SET DEFAULT at parse time and has no triggers, so a cascading or nulling delete cannot be reproduced. Select a database provider that enforces referential actions, or remove the resource whose schema needs them."
+        },
+        "partial-index": {
+          "support": "translated",
+          "note": "Applied as a full index on the same columns. The WHERE clause only narrows which rows the index covers, so query results are identical without it."
+        },
+        "unique-partial-index": {
+          "support": "translated",
+          "note": "Applied as a UNIQUE index over CASE WHEN <predicate> THEN <column> END for each indexed column. Rows outside the predicate get NULL keys, which DuckDB keeps distinct, so exactly the rows PostgreSQL would constrain are constrained."
+        }
+      },
       "providerExportName": "pool",
-      "egressHosts": [
-        "app.motherduck.com"
-      ],
+      "path": "packages/api/bonds/database/motherduck",
       "intentHints": [
         "motherduck",
         "motherduck database",
         "hosted duckdb",
         "cloud duckdb",
         "cloud analytics database"
+      ],
+      "egressHosts": [
+        "app.motherduck.com"
       ]
     },
     "@molecule/api-database-mysql": {
@@ -7571,6 +7621,20 @@
         "@molecule/api-database",
         "@molecule/api-secrets"
       ],
+      "sqlCapabilities": {
+        "fk-referential-action": {
+          "support": "native",
+          "note": "The translator hoists an inline REFERENCES into a table-level FOREIGN KEY and keeps ON DELETE/ON UPDATE, which InnoDB enforces (CASCADE, SET NULL, RESTRICT, NO ACTION). InnoDB does not implement SET DEFAULT."
+        },
+        "partial-index": {
+          "support": "translated",
+          "note": "MySQL has no partial indexes; the bond applies a full index on the same columns. The WHERE clause only narrows which rows the index covers, so query results are unchanged."
+        },
+        "unique-partial-index": {
+          "support": "unsupported",
+          "note": "MySQL has no partial indexes, and rebuilding this UNIQUE index from its column list would forbid rows PostgreSQL allows (for example a second non-default payment method). The bond refuses this construct before running the migration; select PostgreSQL, PGlite or SQLite, or remove the resource whose schema needs it."
+        }
+      },
       "providerExportName": "pool",
       "path": "packages/api/bonds/database/mysql",
       "intentHints": [
@@ -7634,6 +7698,20 @@
         "@molecule/api-database",
         "@molecule/api-secrets"
       ],
+      "sqlCapabilities": {
+        "fk-referential-action": {
+          "support": "native",
+          "note": "PGlite is PostgreSQL compiled to WebAssembly; the bond applies the statement as written and the engine enforces the action."
+        },
+        "partial-index": {
+          "support": "native",
+          "note": "PGlite is PostgreSQL and supports partial indexes; the statement is applied as written."
+        },
+        "unique-partial-index": {
+          "support": "native",
+          "note": "PGlite is PostgreSQL and supports UNIQUE partial indexes; the statement is applied as written, so only rows matching the predicate are constrained."
+        }
+      },
       "providerExportName": "pool",
       "path": "packages/api/bonds/database/pglite",
       "intentHints": [
@@ -7691,6 +7769,20 @@
         "@molecule/api-database",
         "@molecule/api-secrets"
       ],
+      "sqlCapabilities": {
+        "fk-referential-action": {
+          "support": "native",
+          "note": "PostgreSQL is the dialect this setup library is authored in; the bond applies the statement as written and the engine enforces the action."
+        },
+        "partial-index": {
+          "support": "native",
+          "note": "PostgreSQL supports partial indexes; the bond applies the statement as written."
+        },
+        "unique-partial-index": {
+          "support": "native",
+          "note": "PostgreSQL supports UNIQUE partial indexes; the bond applies the statement as written, so only rows matching the predicate are constrained."
+        }
+      },
       "providerExportName": "pool",
       "path": "packages/api/bonds/database/postgresql",
       "testMock": {
@@ -7824,6 +7916,20 @@
         "@molecule/api-database",
         "@molecule/api-secrets"
       ],
+      "sqlCapabilities": {
+        "fk-referential-action": {
+          "support": "native",
+          "note": "SQLite enforces the action when PRAGMA foreign_keys = ON, which this bond sets on every connection; ON DELETE CASCADE was verified on the real engine."
+        },
+        "partial-index": {
+          "support": "native",
+          "note": "SQLite supports partial indexes; the bond passes the statement through with only Postgres type/function syntax translated."
+        },
+        "unique-partial-index": {
+          "support": "native",
+          "note": "SQLite supports UNIQUE partial indexes; only rows matching the predicate are constrained, verified on the real engine."
+        }
+      },
       "providerExportName": "pool",
       "path": "packages/api/bonds/database/sqlite",
       "intentHints": [
@@ -11650,6 +11756,10 @@
           "sqlFile": "src/__setup__/leaderboard_events.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/leaderboard_events.sql": "-- Schema for @molecule/api-leaderboard.\n--\n-- Portable by design: this DDL is standard SQL that runs UNCHANGED on\n-- PostgreSQL and SQLite, matching the service's dialect-agnostic contract\n-- (the service touches the database only through @molecule/api-database's\n-- abstract DataStore — no raw SQL). It deliberately uses NO dialect-only\n-- functions:\n--   * Row ids are generated by the DataStore's `create()` (which injects a\n--     UUID when the caller omits one) — NOT a DB-side `gen_random_uuid()`,\n--     which SQLite lacks. So the `id` columns carry no DB default.\n--   * Timestamp defaults use the standard `CURRENT_TIMESTAMP`, not Postgres's\n--     `now()` (also absent on SQLite).\n-- The `UUID`/`TIMESTAMPTZ` type names and the partial index below are\n-- PostgreSQL-native and accepted by SQLite via type affinity. MySQL's stricter\n-- parser has them normalised automatically by the @molecule/api-database-mysql\n-- bond at migrate time (UUID→CHAR(36), TIMESTAMPTZ→TIMESTAMP, partial-index\n-- predicate dropped) — so no manual porting is required on any of the three\n-- official database bonds.\n\nCREATE TABLE IF NOT EXISTS \"leaderboard_events\" (\n  \"id\" UUID PRIMARY KEY,\n  \"user_id\" UUID NOT NULL,\n  \"metric\" VARCHAR(64) NOT NULL,\n  \"value\" DOUBLE PRECISION NOT NULL,\n  \"scope_key\" VARCHAR(128),\n  \"occurred_at\" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_leaderboard_events_metric\" ON \"leaderboard_events\" (\"metric\");\nCREATE INDEX IF NOT EXISTS \"idx_leaderboard_events_user\" ON \"leaderboard_events\" (\"user_id\");\nCREATE INDEX IF NOT EXISTS \"idx_leaderboard_events_metric_occurred_at\"\n  ON \"leaderboard_events\" (\"metric\", \"occurred_at\");\nCREATE INDEX IF NOT EXISTS \"idx_leaderboard_events_scope\"\n  ON \"leaderboard_events\" (\"metric\", \"scope_key\", \"occurred_at\")\n  WHERE \"scope_key\" IS NOT NULL;\n\nCREATE TABLE IF NOT EXISTS \"leaderboard_rollups\" (\n  \"id\" UUID PRIMARY KEY,\n  \"metric\" VARCHAR(64) NOT NULL,\n  \"window_kind\" VARCHAR(16) NOT NULL,\n  \"window_start\" TIMESTAMPTZ NOT NULL,\n  \"window_end\" TIMESTAMPTZ NOT NULL,\n  \"scope_key\" VARCHAR(128),\n  \"user_id\" UUID NOT NULL,\n  \"score\" DOUBLE PRECISION NOT NULL DEFAULT 0,\n  \"rank\" INTEGER NOT NULL DEFAULT 0,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT CURRENT_TIMESTAMP,\n  UNIQUE (\"metric\", \"window_kind\", \"window_start\", \"scope_key\", \"user_id\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_leaderboard_rollups_lookup\"\n  ON \"leaderboard_rollups\" (\"metric\", \"window_kind\", \"window_start\", \"scope_key\", \"rank\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/utilities/leaderboard",
       "intentHints": [
         "leaderboard",
@@ -16868,6 +16978,10 @@
           "sqlFile": "src/__setup__/notifications_preferences.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/notifications_preferences.sql": "CREATE TABLE IF NOT EXISTS \"notifications_preferences\" (\n  \"userId\" UUID PRIMARY KEY,\n  \"preferences\" JSONB NOT NULL DEFAULT '{}'::jsonb,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_notifications_preferences_preferences\"\n  ON \"notifications_preferences\" USING GIN (\"preferences\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/resources/notifications-preferences",
       "intentHints": [
         "notification preferences",
@@ -19211,10 +19325,10 @@
       "runtimeDependencies": [
         "@molecule/api-project-archive"
       ],
-      "path": "packages/api/bonds/project-archive-external-state/duckdb",
       "moleculePeers": [
         "@molecule/api-project-archive"
       ],
+      "path": "packages/api/bonds/project-archive-external-state/duckdb",
       "intentHints": [
         "back up my duckdb database",
         "archive project duckdb database",
@@ -19250,17 +19364,17 @@
         "@duckdb/node-api",
         "@molecule/api-project-archive"
       ],
-      "path": "packages/api/bonds/project-archive-external-state/motherduck",
       "moleculePeers": [
         "@molecule/api-project-archive"
       ],
-      "egressHosts": [
-        "app.motherduck.com"
-      ],
+      "path": "packages/api/bonds/project-archive-external-state/motherduck",
       "intentHints": [
         "back up my motherduck databases",
         "archive project motherduck data",
         "restore motherduck databases"
+      ],
+      "egressHosts": [
+        "app.motherduck.com"
       ]
     },
     "@molecule/api-project-archive-external-state-mysql": {
@@ -20394,6 +20508,10 @@
           "sqlFile": "src/__setup__/realtime_rooms.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/realtime_rooms.sql": "-- Schema for @molecule/api-realtime-rooms.\n--\n-- Rooms are app-level pub/sub channels with persisted membership and\n-- role-based authorisation. Membership rows fix the IDOR pattern in\n-- flagship realtime apps: handlers MUST consult `realtime_room_members`\n-- (via assertCanAct()) before broadcasting / subscribing.\n\nCREATE TABLE IF NOT EXISTS \"realtime_rooms\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"kind\" VARCHAR(64) NOT NULL,\n  \"owner_id\" UUID NOT NULL,\n  \"capacity\" INTEGER,\n  \"join_code\" VARCHAR(64),\n  \"is_public\" BOOLEAN NOT NULL DEFAULT TRUE,\n  \"created_at\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_realtime_rooms_kind\" ON \"realtime_rooms\" (\"kind\");\nCREATE INDEX IF NOT EXISTS \"idx_realtime_rooms_owner\" ON \"realtime_rooms\" (\"owner_id\");\n\nCREATE TABLE IF NOT EXISTS \"realtime_room_members\" (\n  \"room_id\" UUID NOT NULL REFERENCES \"realtime_rooms\" (\"id\") ON DELETE CASCADE,\n  \"user_id\" UUID NOT NULL,\n  \"role\" VARCHAR(16) NOT NULL CHECK (\"role\" IN ('host', 'guest')),\n  \"joined_at\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  PRIMARY KEY (\"room_id\", \"user_id\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_realtime_room_members_room\"\n  ON \"realtime_room_members\" (\"room_id\");\nCREATE INDEX IF NOT EXISTS \"idx_realtime_room_members_user\"\n  ON \"realtime_room_members\" (\"user_id\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/utilities/realtime-rooms",
       "intentHints": [
         "realtime rooms",
@@ -20747,6 +20865,12 @@
           "sqlFile": "src/__setup__/reputation_scores.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/badges.sql": "CREATE TABLE IF NOT EXISTS \"badges\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),\n  \"userId\" uuid NOT NULL,\n  \"kind\" varchar(64) NOT NULL,\n  \"awardedAt\" timestamptz NOT NULL DEFAULT current_timestamp,\n  UNIQUE (\"userId\", \"kind\")\n);\n\nCREATE INDEX IF NOT EXISTS \"badges_userId_index\" ON \"badges\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"badges_kind_index\" ON \"badges\" (\"kind\");\nCREATE INDEX IF NOT EXISTS \"badges_awardedAt_index\" ON \"badges\" (\"awardedAt\");\n",
+        "src/__setup__/reputation_events.sql": "CREATE TABLE IF NOT EXISTS \"reputation_events\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),\n  \"userId\" uuid NOT NULL,\n  \"kind\" varchar(64) NOT NULL,\n  \"delta\" integer NOT NULL,\n  \"sourceId\" text,\n  \"metadata\" jsonb,\n  \"createdAt\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"reputation_events_userId_index\" ON \"reputation_events\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"reputation_events_kind_index\" ON \"reputation_events\" (\"kind\");\nCREATE INDEX IF NOT EXISTS \"reputation_events_sourceId_index\" ON \"reputation_events\" (\"sourceId\");\nCREATE INDEX IF NOT EXISTS \"reputation_events_createdAt_index\" ON \"reputation_events\" (\"createdAt\");\n",
+        "src/__setup__/reputation_scores.sql": "CREATE TABLE IF NOT EXISTS \"reputation_scores\" (\n  \"userId\" uuid PRIMARY KEY NOT NULL,\n  \"score\" integer NOT NULL DEFAULT 0,\n  \"level\" integer NOT NULL DEFAULT 0,\n  \"updatedAt\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"reputation_scores_score_index\" ON \"reputation_scores\" (\"score\");\nCREATE INDEX IF NOT EXISTS \"reputation_scores_level_index\" ON \"reputation_scores\" (\"level\");\nCREATE INDEX IF NOT EXISTS \"reputation_scores_updatedAt_index\" ON \"reputation_scores\" (\"updatedAt\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/resources/reputation",
       "intentHints": [
         "reputation",
@@ -20890,6 +21014,10 @@
           "sqlFile": "src/__setup__/activity-feeds.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/activity-feeds.sql": "CREATE TABLE IF NOT EXISTS \"activities\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"actorId\" VARCHAR(255) NOT NULL,\n  \"action\" VARCHAR(255) NOT NULL,\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"metadata\" JSONB,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_activities_createdAt\" ON \"activities\" (\"createdAt\" DESC);\nCREATE INDEX IF NOT EXISTS \"idx_activities_resource\" ON \"activities\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_activities_actor\" ON \"activities\" (\"actorId\");\n\nCREATE TABLE IF NOT EXISTS \"activity_seen_status\" (\n  \"userId\" VARCHAR(255) PRIMARY KEY,\n  \"lastSeenActivityId\" UUID NOT NULL,\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/activity-feed",
       "intentHints": [
         "activity stream",
@@ -20984,6 +21112,10 @@
           "sqlFile": "src/__setup__/addresses.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/addresses.sql": "CREATE TABLE IF NOT EXISTS \"addresses\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" UUID NOT NULL,\n  \"label\" VARCHAR(100),\n  \"recipientName\" VARCHAR(255) NOT NULL,\n  \"line1\" VARCHAR(255) NOT NULL,\n  \"line2\" VARCHAR(255),\n  \"city\" VARCHAR(255) NOT NULL,\n  \"region\" VARCHAR(255),\n  \"postalCode\" VARCHAR(32) NOT NULL,\n  \"countryIso\" CHAR(2) NOT NULL,\n  \"phone\" VARCHAR(64),\n  \"isDefaultShipping\" BOOLEAN NOT NULL DEFAULT FALSE,\n  \"isDefaultBilling\" BOOLEAN NOT NULL DEFAULT FALSE,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_addresses_user\" ON \"addresses\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_addresses_user_default_shipping\"\n  ON \"addresses\" (\"userId\") WHERE \"isDefaultShipping\" = TRUE;\nCREATE INDEX IF NOT EXISTS \"idx_addresses_user_default_billing\"\n  ON \"addresses\" (\"userId\") WHERE \"isDefaultBilling\" = TRUE;\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/resources/address",
       "intentHints": [
         "address",
@@ -21064,6 +21196,10 @@
           "sqlFile": "src/__setup__/conversations.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/conversations.sql": "CREATE TABLE IF NOT EXISTS \"conversations\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"projectId\" UUID NOT NULL REFERENCES \"projects\"(\"id\") ON DELETE CASCADE,\n  \"messages\" JSONB NOT NULL DEFAULT '[]',\n  \"aiContext\" JSONB NOT NULL DEFAULT '{}',\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/ai-conversation",
       "intentHints": [
         "ai conversation",
@@ -21178,6 +21314,10 @@
           "sqlFile": "src/__setup__/api_keys.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/api_keys.sql": "CREATE TABLE IF NOT EXISTS \"api_keys\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"userId\" uuid NOT NULL,\n  \"name\" text NOT NULL,\n  \"hashedToken\" text UNIQUE NOT NULL,\n  \"masked\" text NOT NULL,\n  \"scopes\" jsonb NOT NULL DEFAULT '[]'::jsonb,\n  \"lastUsedAt\" timestamptz,\n  \"expiresAt\" timestamptz,\n  \"revokedAt\" timestamptz,\n  \"version\" integer NOT NULL DEFAULT 1\n);\nCREATE INDEX IF NOT EXISTS \"api_keys_userId_index\" ON \"api_keys\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"api_keys_hashedToken_index\" ON \"api_keys\" (\"hashedToken\");\nCREATE INDEX IF NOT EXISTS \"api_keys_revokedAt_index\" ON \"api_keys\" (\"revokedAt\");\nCREATE INDEX IF NOT EXISTS \"api_keys_expiresAt_index\" ON \"api_keys\" (\"expiresAt\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/resources/api-key",
       "intentHints": [
         "api key",
@@ -21326,6 +21466,13 @@
           "sqlFile": "src/__setup__/reactions.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/articles.sql": "CREATE TABLE IF NOT EXISTS \"articles\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"slug\" VARCHAR(255) NOT NULL UNIQUE,\n  \"title\" VARCHAR(300) NOT NULL,\n  \"description\" TEXT NOT NULL DEFAULT '',\n  \"body\" TEXT NOT NULL,\n  \"tagList\" TEXT NOT NULL DEFAULT '[]',\n  \"authorId\" UUID NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_articles_author\" ON \"articles\" (\"authorId\");\nCREATE INDEX IF NOT EXISTS \"idx_articles_created\" ON \"articles\" (\"createdAt\");\n\nCREATE TABLE IF NOT EXISTS \"article_tags\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"articleId\" UUID NOT NULL REFERENCES \"articles\"(\"id\") ON DELETE CASCADE,\n  \"tag\" VARCHAR(100) NOT NULL,\n  -- The order the tag was given in (0-based). Without it a reader of this table\n  -- gets the tags in whatever order the database returns rows, which is not the\n  -- order the article was submitted with.\n  \"position\" INTEGER NOT NULL DEFAULT 0,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"articleId\", \"tag\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_article_tags_tag\" ON \"article_tags\" (\"tag\");\n",
+        "src/__setup__/articles_position.sql": "-- Tag order on an article: the column \"article_tags\".\"position\" keeps the order\n-- the tags were given in, so a reader of the join table (a tag filter, an app's\n-- own query) gets them in that order instead of the database's arbitrary row\n-- order.\n--\n-- Why this is its own file: a database that already applied articles.sql never\n-- re-runs it — \"_molecule_migrations\" records each setup file once — so the\n-- column cannot be delivered by editing that file alone. This file is new, so it\n-- runs on every database that has the table, whether it was created before or\n-- after the column existed.\n--\n-- The CREATE repeats articles.sql's \"article_tags\" (see the test that keeps the\n-- two in step). In a scaffolded app it is a no-op — articles.sql sorts first and\n-- has already created the table, so the column below is what this file is for —\n-- and it is what lets the scaffolding tool find the file at all: a setup file is\n-- copied into a project through the table it declares.\nCREATE TABLE IF NOT EXISTS \"article_tags\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"articleId\" UUID NOT NULL REFERENCES \"articles\"(\"id\") ON DELETE CASCADE,\n  \"tag\" VARCHAR(100) NOT NULL,\n  \"position\" INTEGER NOT NULL DEFAULT 0,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"articleId\", \"tag\")\n);\n\n-- The upgrade for a database whose \"article_tags\" predates the column. Every\n-- database bond accepts this form: Postgres and PGlite take the clause natively,\n-- and the SQLite and MySQL bonds apply the statement only when the column is not\n-- there yet.\nALTER TABLE \"article_tags\" ADD COLUMN IF NOT EXISTS \"position\" INTEGER NOT NULL DEFAULT 0;\n",
+        "src/__setup__/follows.sql": "CREATE TABLE IF NOT EXISTS \"follows\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"followerId\" UUID NOT NULL,\n  \"targetType\" VARCHAR(255) NOT NULL,\n  \"targetId\" VARCHAR(255) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"followerId\", \"targetType\", \"targetId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_follows_follower\" ON \"follows\" (\"followerId\");\nCREATE INDEX IF NOT EXISTS \"idx_follows_target\" ON \"follows\" (\"targetType\", \"targetId\");\n",
+        "src/__setup__/reactions.sql": "CREATE TABLE IF NOT EXISTS \"reactions\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"type\" VARCHAR(50) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"resourceType\", \"resourceId\", \"userId\", \"type\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_reactions_resource\" ON \"reactions\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_reactions_user\" ON \"reactions\" (\"userId\");\n"
+      },
+      "setupSqlVersion": "1.1.5",
       "path": "packages/api/resources/article",
       "intentHints": [
         "articles backend",
@@ -21439,6 +21586,10 @@
           "sqlFile": "src/__setup__/bookings.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/bookings.sql": "CREATE TABLE IF NOT EXISTS \"bookings\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" TEXT NOT NULL,\n  \"resourceType\" TEXT NOT NULL,\n  \"resourceId\" TEXT NOT NULL,\n  \"status\" TEXT NOT NULL DEFAULT 'pending',\n  \"startTime\" TIMESTAMPTZ NOT NULL,\n  \"endTime\" TIMESTAMPTZ NOT NULL,\n  \"duration\" INTEGER NOT NULL,\n  \"notes\" TEXT,\n  \"metadata\" JSONB,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_bookings_userId\" ON \"bookings\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_bookings_resource\" ON \"bookings\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_bookings_status\" ON \"bookings\" (\"status\");\nCREATE INDEX IF NOT EXISTS \"idx_bookings_startTime\" ON \"bookings\" (\"startTime\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/resources/booking",
       "intentHints": [
         "booking",
@@ -21520,6 +21671,10 @@
           "sqlFile": "src/__setup__/bookmarks.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/bookmarks.sql": "CREATE TABLE IF NOT EXISTS \"bookmarks\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" UUID NOT NULL,\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"folder\" VARCHAR(255),\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"userId\", \"resourceType\", \"resourceId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_bookmarks_user\" ON \"bookmarks\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_bookmarks_resource\" ON \"bookmarks\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_bookmarks_folder\" ON \"bookmarks\" (\"userId\", \"folder\");\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/bookmark",
       "intentHints": [
         "bookmark",
@@ -21634,6 +21789,10 @@
           "sqlFile": "src/__setup__/carts.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/carts.sql": "CREATE TABLE IF NOT EXISTS \"carts\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" TEXT NOT NULL,\n  \"coupon\" JSONB,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"carts_userId_idx\" ON \"carts\" (\"userId\");\n\nCREATE TABLE IF NOT EXISTS \"cart_items\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"cartId\" UUID NOT NULL REFERENCES \"carts\"(\"id\") ON DELETE CASCADE,\n  \"productId\" TEXT NOT NULL,\n  \"variantId\" TEXT,\n  \"name\" TEXT NOT NULL,\n  \"price\" NUMERIC(10, 2) NOT NULL,\n  \"quantity\" INTEGER NOT NULL DEFAULT 1,\n  \"image\" TEXT,\n  \"metadata\" JSONB,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"cart_items_cartId_idx\" ON \"cart_items\" (\"cartId\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/resources/cart",
       "intentHints": [
         "shopping cart",
@@ -21743,6 +21902,11 @@
           "sqlFile": "src/__setup__/comments.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/comment_numbers.sql": "-- Sequential integer numbers for comments, for APIs whose clients address a\n-- comment by an integer id (RealWorld's `comment.id` is an integer).\n-- createComment() / createNumberedComment() write this row with the comment;\n-- numberComment(id) numbers a row that was inserted without them. The comment\n-- keeps its UUID either way.\nCREATE TABLE IF NOT EXISTS \"comment_numbers\" (\n  \"number\" INTEGER PRIMARY KEY,\n  \"commentId\" UUID NOT NULL UNIQUE REFERENCES \"comments\"(\"id\") ON DELETE CASCADE\n);\n",
+        "src/__setup__/comments.sql": "CREATE TABLE IF NOT EXISTS \"comments\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"parentId\" UUID REFERENCES \"comments\"(\"id\") ON DELETE CASCADE,\n  \"body\" TEXT NOT NULL,\n  \"editedAt\" TIMESTAMPTZ,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_comments_resource\" ON \"comments\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_comments_parent\" ON \"comments\" (\"parentId\");\nCREATE INDEX IF NOT EXISTS \"idx_comments_user\" ON \"comments\" (\"userId\");\n"
+      },
+      "setupSqlVersion": "1.2.2",
       "path": "packages/api/resources/comment",
       "intentHints": [
         "comments backend",
@@ -21836,6 +22000,10 @@
           "sqlFile": "src/__setup__/courses.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/courses.sql": "-- Course resource schema.\n--\n-- Tables: courses, course_modules, course_module_items, course_enrollments.\n-- The `org_id` column is set by the multi-tenancy bond at insert time; in\n-- single-tenant deployments it can be a fixed platform-org id.\n\nCREATE TABLE IF NOT EXISTS \"courses\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"org_id\" UUID NOT NULL,\n  \"title\" TEXT NOT NULL,\n  \"description\" TEXT,\n  \"slug\" TEXT,\n  \"status\" TEXT NOT NULL DEFAULT 'draft',\n  \"created_by\" UUID NOT NULL,\n  \"created_at\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updated_at\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\nCREATE UNIQUE INDEX IF NOT EXISTS \"courses_org_slug_idx\"\n  ON \"courses\" (\"org_id\", \"slug\")\n  WHERE \"slug\" IS NOT NULL;\nCREATE INDEX IF NOT EXISTS \"courses_org_status_idx\"\n  ON \"courses\" (\"org_id\", \"status\");\n\nCREATE TABLE IF NOT EXISTS \"course_modules\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"course_id\" UUID NOT NULL REFERENCES \"courses\"(\"id\") ON DELETE CASCADE,\n  \"title\" TEXT NOT NULL,\n  \"sort_order\" INTEGER NOT NULL DEFAULT 0,\n  \"created_at\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updated_at\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\nCREATE INDEX IF NOT EXISTS \"course_modules_course_idx\"\n  ON \"course_modules\" (\"course_id\", \"sort_order\");\n\nCREATE TABLE IF NOT EXISTS \"course_module_items\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"module_id\" UUID NOT NULL REFERENCES \"course_modules\"(\"id\") ON DELETE CASCADE,\n  \"kind\" TEXT NOT NULL,\n  \"payload\" JSONB NOT NULL DEFAULT '{}',\n  \"sort_order\" INTEGER NOT NULL DEFAULT 0,\n  \"created_at\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updated_at\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\nCREATE INDEX IF NOT EXISTS \"course_module_items_module_idx\"\n  ON \"course_module_items\" (\"module_id\", \"sort_order\");\n\nCREATE TABLE IF NOT EXISTS \"course_enrollments\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"user_id\" UUID NOT NULL,\n  \"course_id\" UUID NOT NULL REFERENCES \"courses\"(\"id\") ON DELETE CASCADE,\n  \"role\" TEXT NOT NULL DEFAULT 'student',\n  \"status\" TEXT NOT NULL DEFAULT 'active',\n  \"enrolled_at\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updated_at\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\nCREATE UNIQUE INDEX IF NOT EXISTS \"course_enrollments_user_course_idx\"\n  ON \"course_enrollments\" (\"user_id\", \"course_id\");\nCREATE INDEX IF NOT EXISTS \"course_enrollments_course_role_idx\"\n  ON \"course_enrollments\" (\"course_id\", \"role\", \"status\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/resources/course",
       "intentHints": [
         "course",
@@ -21947,6 +22115,10 @@
           "sqlFile": "src/__setup__/devices.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/devices.sql": "CREATE TABLE IF NOT EXISTS \"devices\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"updatedAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"userId\" uuid NOT NULL,\n  \"name\" text,\n  \"pushPlatform\" text,\n  \"pushSubscription\" jsonb,\n  \"hasPushSubscription\" boolean\n);\nCREATE INDEX IF NOT EXISTS \"devices_createdAt_index\" ON \"devices\" (\"createdAt\");\nCREATE INDEX IF NOT EXISTS \"devices_updatedAt_index\" ON \"devices\" (\"updatedAt\");\nCREATE INDEX IF NOT EXISTS \"devices_userId_index\" ON \"devices\" (\"userId\");\n"
+      },
+      "setupSqlVersion": "1.1.1",
       "services": [
         {
           "export": "deviceService",
@@ -22008,6 +22180,10 @@
           "sqlFile": "src/__setup__/device_auth_tokens.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/device_auth_tokens.sql": "CREATE TABLE IF NOT EXISTS \"device_auth_tokens\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL DEFAULT gen_random_uuid(),\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"deviceId\" uuid NOT NULL,\n  \"hashedToken\" text UNIQUE NOT NULL,\n  \"masked\" text NOT NULL,\n  \"scopes\" jsonb NOT NULL DEFAULT '[]'::jsonb,\n  \"lastUsedAt\" timestamptz,\n  \"lastUsedIp\" text,\n  \"expiresAt\" timestamptz,\n  \"revokedAt\" timestamptz,\n  \"version\" integer NOT NULL DEFAULT 1\n);\nCREATE INDEX IF NOT EXISTS \"device_auth_tokens_deviceId_index\" ON \"device_auth_tokens\" (\"deviceId\");\nCREATE INDEX IF NOT EXISTS \"device_auth_tokens_hashedToken_index\" ON \"device_auth_tokens\" (\"hashedToken\");\nCREATE INDEX IF NOT EXISTS \"device_auth_tokens_revokedAt_index\" ON \"device_auth_tokens\" (\"revokedAt\");\nCREATE INDEX IF NOT EXISTS \"device_auth_tokens_expiresAt_index\" ON \"device_auth_tokens\" (\"expiresAt\");\n"
+      },
+      "setupSqlVersion": "1.0.3",
       "path": "packages/api/resources/device-auth-token",
       "intentHints": [
         "device token",
@@ -22072,6 +22248,10 @@
           "sqlFile": "src/__setup__/event_types.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/event_types.sql": "CREATE TABLE IF NOT EXISTS \"event_types\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"owner_id\" uuid NOT NULL,\n  \"name\" varchar(120) NOT NULL,\n  \"slug\" varchar(80) NOT NULL UNIQUE,\n  \"description\" text,\n  \"duration_minutes\" integer NOT NULL DEFAULT 30,\n  \"location_kind\" varchar(20) NOT NULL DEFAULT 'video',\n  \"location_value\" jsonb,\n  \"buffer_before_minutes\" integer NOT NULL DEFAULT 0,\n  \"buffer_after_minutes\" integer NOT NULL DEFAULT 0,\n  \"min_notice_minutes\" integer NOT NULL DEFAULT 240,\n  \"max_per_day\" integer,\n  \"requires_confirmation\" boolean NOT NULL DEFAULT false,\n  \"color\" varchar(40),\n  \"is_active\" boolean NOT NULL DEFAULT true,\n  \"position\" integer NOT NULL DEFAULT 0,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"event_types_owner_id_index\" ON \"event_types\" (\"owner_id\");\nCREATE INDEX IF NOT EXISTS \"event_types_is_active_index\" ON \"event_types\" (\"is_active\");\n\nCREATE TABLE IF NOT EXISTS \"availability_rules\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"user_id\" uuid NOT NULL,\n  \"day_of_week\" smallint NOT NULL,\n  \"start_minute\" integer NOT NULL,\n  \"end_minute\" integer NOT NULL,\n  \"timezone\" varchar(80) NOT NULL DEFAULT 'UTC',\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  CHECK (\"day_of_week\" >= 0 AND \"day_of_week\" <= 6),\n  CHECK (\"start_minute\" >= 0 AND \"start_minute\" <= 1439),\n  CHECK (\"end_minute\" > \"start_minute\" AND \"end_minute\" <= 1440)\n);\n\nCREATE INDEX IF NOT EXISTS \"availability_rules_user_id_index\" ON \"availability_rules\" (\"user_id\");\nCREATE INDEX IF NOT EXISTS \"availability_rules_day_of_week_index\" ON \"availability_rules\" (\"day_of_week\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/resources/event-type",
       "intentHints": [
         "scheduling",
@@ -22135,6 +22315,10 @@
           "sqlFile": "src/__setup__/feature_flags.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/feature_flags.sql": "CREATE TABLE IF NOT EXISTS \"feature_flags\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"user_id\" uuid NOT NULL,\n  \"project_id\" uuid,\n  \"key\" varchar(120) NOT NULL,\n  \"name\" varchar(255) NOT NULL,\n  \"description\" text,\n  \"flag_type\" varchar(32) NOT NULL DEFAULT 'boolean',\n  \"default_value\" jsonb,\n  \"rollout_percentage\" smallint NOT NULL DEFAULT 0,\n  \"is_enabled\" boolean NOT NULL DEFAULT false,\n  \"state\" varchar(20) NOT NULL DEFAULT 'off',\n  \"environment\" varchar(64) NOT NULL DEFAULT 'production',\n  \"stale_days\" smallint NOT NULL DEFAULT 30,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  UNIQUE (\"user_id\", \"project_id\", \"key\", \"environment\")\n);\n\nCREATE INDEX IF NOT EXISTS \"feature_flags_user_id_index\" ON \"feature_flags\" (\"user_id\");\nCREATE INDEX IF NOT EXISTS \"feature_flags_project_id_index\" ON \"feature_flags\" (\"project_id\");\nCREATE INDEX IF NOT EXISTS \"feature_flags_state_index\" ON \"feature_flags\" (\"state\");\nCREATE INDEX IF NOT EXISTS \"feature_flags_environment_index\" ON \"feature_flags\" (\"environment\");\n\nCREATE TABLE IF NOT EXISTS \"feature_flag_targeting_rules\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"flag_id\" uuid NOT NULL REFERENCES \"feature_flags\"(\"id\") ON DELETE CASCADE,\n  \"attribute\" varchar(120) NOT NULL,\n  \"operator\" varchar(40) NOT NULL,\n  \"value\" jsonb,\n  \"serve_value\" jsonb,\n  \"priority\" integer NOT NULL DEFAULT 100,\n  \"description\" text,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"feature_flag_targeting_rules_flag_id_index\" ON \"feature_flag_targeting_rules\" (\"flag_id\");\nCREATE INDEX IF NOT EXISTS \"feature_flag_targeting_rules_priority_index\" ON \"feature_flag_targeting_rules\" (\"priority\");\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/feature-flag",
       "intentHints": [
         "feature flag admin page",
@@ -22214,6 +22398,10 @@
           "sqlFile": "src/__setup__/firmware.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/firmware.sql": "-- @molecule/api-resource-firmware — schema setup\n\nCREATE TABLE IF NOT EXISTS firmware_versions (\n  id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  owner_id      UUID NOT NULL,\n  version       TEXT NOT NULL,\n  device_type   TEXT NOT NULL,\n  release_notes TEXT NOT NULL DEFAULT '',\n  download_url  TEXT,\n  checksum      TEXT,\n  file_size     BIGINT NOT NULL DEFAULT 0,\n  status        TEXT NOT NULL DEFAULT 'draft',\n  released_at   TIMESTAMPTZ,\n  created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  updated_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX IF NOT EXISTS idx_firmware_versions_owner_status\n  ON firmware_versions (owner_id, status);\n\nCREATE TABLE IF NOT EXISTS firmware_rollouts (\n  id                UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  owner_id          UUID NOT NULL,\n  firmware_id       UUID NOT NULL,\n  fleet_id          UUID,\n  device_ids        JSONB NOT NULL DEFAULT '[]'::jsonb,\n  strategy          TEXT NOT NULL DEFAULT 'immediate',\n  status            TEXT NOT NULL DEFAULT 'active',\n  target_count      INTEGER NOT NULL DEFAULT 0,\n  completed_count   INTEGER NOT NULL DEFAULT 0,\n  failed_count      INTEGER NOT NULL DEFAULT 0,\n  progress_percent  INTEGER NOT NULL DEFAULT 0,\n  created_at        TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  updated_at        TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX IF NOT EXISTS idx_firmware_rollouts_owner_status\n  ON firmware_rollouts (owner_id, status);\n\nCREATE TABLE IF NOT EXISTS firmware_update_tasks (\n  id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  rollout_id    UUID NOT NULL,\n  firmware_id   UUID NOT NULL,\n  device_id     UUID NOT NULL,\n  status        TEXT NOT NULL DEFAULT 'pending',\n  error_message TEXT,\n  completed_at  TIMESTAMPTZ,\n  created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  updated_at    TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX IF NOT EXISTS idx_firmware_tasks_rollout\n  ON firmware_update_tasks (rollout_id);\nCREATE INDEX IF NOT EXISTS idx_firmware_tasks_device\n  ON firmware_update_tasks (device_id);\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/firmware",
       "intentHints": [
         "firmware",
@@ -22296,6 +22484,10 @@
           "sqlFile": "src/__setup__/follows.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/follows.sql": "CREATE TABLE IF NOT EXISTS \"follows\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"followerId\" UUID NOT NULL,\n  \"targetType\" VARCHAR(255) NOT NULL,\n  \"targetId\" VARCHAR(255) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"followerId\", \"targetType\", \"targetId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_follows_follower\" ON \"follows\" (\"followerId\");\nCREATE INDEX IF NOT EXISTS \"idx_follows_target\" ON \"follows\" (\"targetType\", \"targetId\");\n"
+      },
+      "setupSqlVersion": "1.0.10",
       "path": "packages/api/resources/follow",
       "intentHints": [
         "follow",
@@ -22367,6 +22559,10 @@
           "sqlFile": "src/__setup__/forum_threads.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/forum_threads.sql": "CREATE TABLE IF NOT EXISTS \"forum_threads\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"author_id\" uuid NOT NULL,\n  \"category_id\" uuid,\n  \"title\" varchar(255) NOT NULL,\n  \"body\" text NOT NULL,\n  \"slug\" varchar(120) NOT NULL,\n  \"status\" varchar(20) NOT NULL DEFAULT 'open',\n  \"is_pinned\" boolean NOT NULL DEFAULT false,\n  \"vote_score\" integer NOT NULL DEFAULT 0,\n  \"reply_count\" integer NOT NULL DEFAULT 0,\n  \"view_count\" integer NOT NULL DEFAULT 0,\n  \"last_activity_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"forum_threads_author_id_index\" ON \"forum_threads\" (\"author_id\");\nCREATE INDEX IF NOT EXISTS \"forum_threads_category_id_index\" ON \"forum_threads\" (\"category_id\");\nCREATE INDEX IF NOT EXISTS \"forum_threads_status_index\" ON \"forum_threads\" (\"status\");\nCREATE INDEX IF NOT EXISTS \"forum_threads_last_activity_index\" ON \"forum_threads\" (\"last_activity_at\" DESC);\nCREATE INDEX IF NOT EXISTS \"forum_threads_vote_score_index\" ON \"forum_threads\" (\"vote_score\" DESC);\n\nCREATE TABLE IF NOT EXISTS \"forum_replies\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"thread_id\" uuid NOT NULL REFERENCES \"forum_threads\"(\"id\") ON DELETE CASCADE,\n  \"parent_reply_id\" uuid REFERENCES \"forum_replies\"(\"id\") ON DELETE CASCADE,\n  \"author_id\" uuid NOT NULL,\n  \"body\" text NOT NULL,\n  \"vote_score\" integer NOT NULL DEFAULT 0,\n  \"is_deleted\" boolean NOT NULL DEFAULT false,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"forum_replies_thread_id_index\" ON \"forum_replies\" (\"thread_id\");\nCREATE INDEX IF NOT EXISTS \"forum_replies_parent_reply_id_index\" ON \"forum_replies\" (\"parent_reply_id\");\n\nCREATE TABLE IF NOT EXISTS \"forum_votes\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"user_id\" uuid NOT NULL,\n  \"target_type\" varchar(20) NOT NULL,\n  \"target_id\" uuid NOT NULL,\n  \"value\" smallint NOT NULL,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  UNIQUE (\"user_id\", \"target_type\", \"target_id\")\n);\n\nCREATE INDEX IF NOT EXISTS \"forum_votes_target_index\" ON \"forum_votes\" (\"target_type\", \"target_id\");\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/forum-thread",
       "intentHints": [
         "forum",
@@ -22506,6 +22702,10 @@
           "sqlFile": "src/__setup__/grades.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/grades.sql": "CREATE TABLE IF NOT EXISTS \"grades\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"enrollmentId\" UUID NOT NULL,\n  \"assignmentId\" UUID NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"courseId\" UUID NOT NULL,\n  \"scorePoints\" DOUBLE PRECISION NOT NULL,\n  \"maxPoints\" DOUBLE PRECISION NOT NULL,\n  \"letter\" VARCHAR(8),\n  \"comment\" TEXT,\n  \"postedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"enrollmentId\", \"assignmentId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_grades_enrollmentId\" ON \"grades\" (\"enrollmentId\");\nCREATE INDEX IF NOT EXISTS \"idx_grades_userId\" ON \"grades\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_grades_courseId\" ON \"grades\" (\"courseId\");\nCREATE INDEX IF NOT EXISTS \"idx_grades_assignmentId\" ON \"grades\" (\"assignmentId\");\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/grade",
       "intentHints": [
         "grade",
@@ -22644,6 +22844,10 @@
           "sqlFile": "src/__setup__/inventory.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/inventory.sql": "CREATE TABLE IF NOT EXISTS \"inventory_stock\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"productId\" TEXT NOT NULL,\n  \"variantId\" TEXT,\n  \"total\" INTEGER NOT NULL DEFAULT 0,\n  \"reserved\" INTEGER NOT NULL DEFAULT 0,\n  \"lowStockThreshold\" INTEGER NOT NULL DEFAULT 10,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"productId\", \"variantId\")\n);\n\nCREATE TABLE IF NOT EXISTS \"inventory_reservations\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"productId\" TEXT NOT NULL,\n  \"variantId\" TEXT,\n  \"quantity\" INTEGER NOT NULL,\n  \"orderId\" TEXT NOT NULL,\n  -- The authenticated user who created this reservation. Bound at reserve time\n  -- so release/confirm can verify ownership (owner or admin) — a reservation is\n  -- tied to a caller's cart/order, not the shared catalog.\n  \"userId\" TEXT,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE TABLE IF NOT EXISTS \"inventory_movements\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"productId\" TEXT NOT NULL,\n  \"variantId\" TEXT,\n  \"type\" TEXT NOT NULL,\n  \"quantity\" INTEGER NOT NULL,\n  \"reason\" TEXT,\n  \"referenceId\" TEXT,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/inventory",
       "intentHints": [
         "inventory",
@@ -22702,6 +22906,10 @@
           "sqlFile": "src/__setup__/invoices.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/invoices.sql": "CREATE TABLE IF NOT EXISTS \"invoices\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"user_id\" uuid NOT NULL,\n  \"client_id\" varchar(255) NOT NULL,\n  \"number\" varchar(64) NOT NULL,\n  \"status\" varchar(20) NOT NULL DEFAULT 'draft',\n  \"items\" jsonb NOT NULL DEFAULT '[]',\n  \"subtotal\" numeric(12, 2) NOT NULL DEFAULT 0,\n  \"tax_rate\" numeric(5, 2) NOT NULL DEFAULT 0,\n  \"tax_amount\" numeric(12, 2) NOT NULL DEFAULT 0,\n  \"total\" numeric(12, 2) NOT NULL DEFAULT 0,\n  \"amount_paid\" numeric(12, 2) NOT NULL DEFAULT 0,\n  \"currency\" varchar(8) NOT NULL DEFAULT 'USD',\n  \"issue_date\" date NOT NULL DEFAULT CURRENT_DATE,\n  \"due_date\" date,\n  \"paid_at\" timestamptz,\n  \"notes\" text,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"invoices_user_id_index\" ON \"invoices\" (\"user_id\");\nCREATE INDEX IF NOT EXISTS \"invoices_client_id_index\" ON \"invoices\" (\"client_id\");\nCREATE INDEX IF NOT EXISTS \"invoices_status_index\" ON \"invoices\" (\"status\");\nCREATE INDEX IF NOT EXISTS \"invoices_issue_date_index\" ON \"invoices\" (\"issue_date\");\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "middlewareMountPath": "/api/invoices",
       "middlewareSetup": {
         "expression": "createInvoiceRouter()"
@@ -22778,6 +22986,10 @@
           "sqlFile": "src/__setup__/journal_entries.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/journal_entries.sql": "-- @molecule/api-resource-journal-entry — schema setup\n--\n-- `journal_entries` holds owner-scoped diary entries with optional\n-- at-rest encryption (body_encrypted set when @molecule/api-encryption\n-- is bonded). `mood_entries` is a sibling table for mood scoring,\n-- linked back via `journal_entries.mood_id`.\n\nCREATE TABLE IF NOT EXISTS journal_entries (\n  id            UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  user_id       UUID NOT NULL,\n  written_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  title         TEXT,\n  body          TEXT,\n  body_encrypted TEXT,\n  body_iv       TEXT,\n  mood_id       UUID,\n  prompt_id     UUID,\n  activity_ids  JSONB NOT NULL DEFAULT '[]'::jsonb,\n  tags          JSONB NOT NULL DEFAULT '[]'::jsonb,\n  word_count    INTEGER NOT NULL DEFAULT 0,\n  ai_summary    TEXT,\n  ai_themes     JSONB,\n  is_private    BOOLEAN NOT NULL DEFAULT TRUE,\n  created_at    TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  updated_at    TIMESTAMPTZ\n);\n\nCREATE INDEX IF NOT EXISTS idx_journal_entries_user_written\n  ON journal_entries (user_id, written_at DESC);\n\nCREATE TABLE IF NOT EXISTS mood_entries (\n  id              UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  user_id         UUID NOT NULL,\n  recorded_at     TIMESTAMPTZ NOT NULL DEFAULT NOW(),\n  score           INTEGER NOT NULL,\n  energy          INTEGER,\n  anxiety         INTEGER,\n  label           TEXT,\n  activities      JSONB NOT NULL DEFAULT '[]'::jsonb,\n  notes           TEXT,\n  journal_entry_id UUID,\n  created_at      TIMESTAMPTZ NOT NULL DEFAULT NOW()\n);\n\nCREATE INDEX IF NOT EXISTS idx_mood_entries_user_recorded\n  ON mood_entries (user_id, recorded_at DESC);\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/journal-entry",
       "intentHints": [
         "journal",
@@ -22839,6 +23051,10 @@
           "sqlFile": "src/__setup__/medications.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/medications.sql": "CREATE TABLE IF NOT EXISTS \"medications\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"owner_id\" uuid NOT NULL,\n  \"name\" varchar(255) NOT NULL,\n  \"generic_name\" varchar(255),\n  \"dosage\" varchar(80) NOT NULL,\n  \"unit\" varchar(40),\n  \"frequency\" varchar(40) NOT NULL DEFAULT 'daily',\n  \"times_of_day\" jsonb NOT NULL DEFAULT '[]',\n  \"start_date\" date,\n  \"end_date\" date,\n  \"notes\" text,\n  \"is_active\" boolean NOT NULL DEFAULT true,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"medications_owner_id_index\" ON \"medications\" (\"owner_id\");\nCREATE INDEX IF NOT EXISTS \"medications_is_active_index\" ON \"medications\" (\"is_active\");\n\nCREATE TABLE IF NOT EXISTS \"medication_logs\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"medication_id\" uuid NOT NULL REFERENCES \"medications\"(\"id\") ON DELETE CASCADE,\n  \"owner_id\" uuid NOT NULL,\n  \"taken_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"status\" varchar(20) NOT NULL DEFAULT 'taken',\n  \"notes\" text,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"medication_logs_medication_id_index\" ON \"medication_logs\" (\"medication_id\");\nCREATE INDEX IF NOT EXISTS \"medication_logs_owner_taken_at_index\" ON \"medication_logs\" (\"owner_id\", \"taken_at\" DESC);\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/medication",
       "intentHints": [
         "medication tracker",
@@ -22901,6 +23117,10 @@
           "sqlFile": "src/__setup__/meetings.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/meetings.sql": "CREATE TABLE IF NOT EXISTS \"meetings\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"owner_id\" uuid NOT NULL,\n  \"title\" varchar(255) NOT NULL,\n  \"description\" text,\n  \"status\" varchar(20) NOT NULL DEFAULT 'scheduled',\n  \"scheduled_at\" timestamptz,\n  \"started_at\" timestamptz,\n  \"ended_at\" timestamptz,\n  \"duration_seconds\" integer NOT NULL DEFAULT 0,\n  \"recording_url\" text,\n  \"transcript\" text,\n  \"summary\" text,\n  \"attendees\" jsonb NOT NULL DEFAULT '[]',\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"meetings_owner_id_index\" ON \"meetings\" (\"owner_id\");\nCREATE INDEX IF NOT EXISTS \"meetings_status_index\" ON \"meetings\" (\"status\");\nCREATE INDEX IF NOT EXISTS \"meetings_scheduled_at_index\" ON \"meetings\" (\"scheduled_at\" DESC);\n\nCREATE TABLE IF NOT EXISTS \"meeting_action_items\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"meeting_id\" uuid NOT NULL REFERENCES \"meetings\"(\"id\") ON DELETE CASCADE,\n  \"description\" text NOT NULL,\n  \"assignee\" varchar(255),\n  \"due_date\" date,\n  \"is_completed\" boolean NOT NULL DEFAULT false,\n  \"source_excerpt\" text,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"meeting_action_items_meeting_id_index\" ON \"meeting_action_items\" (\"meeting_id\");\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/meeting",
       "intentHints": [
         "meeting notes",
@@ -23032,6 +23252,10 @@
           "sqlFile": "src/__setup__/messages.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/messages.sql": "CREATE TABLE IF NOT EXISTS \"message_threads\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"participantAId\" UUID NOT NULL,\n  \"participantBId\" UUID NOT NULL,\n  \"lastMessageAt\" TIMESTAMPTZ,\n  \"unreadCountA\" INTEGER NOT NULL DEFAULT 0,\n  \"unreadCountB\" INTEGER NOT NULL DEFAULT 0,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  CONSTRAINT \"message_threads_distinct_participants\" CHECK (\"participantAId\" <> \"participantBId\"),\n  CONSTRAINT \"message_threads_canonical_order\" CHECK (\"participantAId\" < \"participantBId\"),\n  CONSTRAINT \"message_threads_pair_unique\" UNIQUE (\"participantAId\", \"participantBId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_message_threads_a\" ON \"message_threads\" (\"participantAId\");\nCREATE INDEX IF NOT EXISTS \"idx_message_threads_b\" ON \"message_threads\" (\"participantBId\");\nCREATE INDEX IF NOT EXISTS \"idx_message_threads_last_message\"\n  ON \"message_threads\" (\"lastMessageAt\" DESC);\n\nCREATE TABLE IF NOT EXISTS \"messages\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"threadId\" UUID NOT NULL REFERENCES \"message_threads\"(\"id\") ON DELETE CASCADE,\n  \"senderId\" UUID NOT NULL,\n  \"body\" TEXT NOT NULL,\n  \"attachments\" JSONB NOT NULL DEFAULT '[]'::jsonb,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"editedAt\" TIMESTAMPTZ,\n  \"deletedAt\" TIMESTAMPTZ\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_messages_thread_created\"\n  ON \"messages\" (\"threadId\", \"createdAt\" DESC);\nCREATE INDEX IF NOT EXISTS \"idx_messages_sender\" ON \"messages\" (\"senderId\");\n"
+      },
+      "setupSqlVersion": "1.0.7",
       "path": "packages/api/resources/message",
       "intentHints": [
         "message",
@@ -23128,6 +23352,10 @@
           "sqlFile": "src/__setup__/notifications.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/notifications.sql": "-- Table for the notification-center database provider\n-- (@molecule/api-notification-center-database). Column names are snake_case to\n-- match that provider's contract: it create()s { user_id, type, title, body,\n-- read, data, channels, created_at } and findMany()s WHERE user_id / read / type\n-- ORDER BY created_at, and maps rows back via row.user_id / row.created_at. A\n-- previous stub shipped only id + camelCase \"createdAt\"/\"updatedAt\", so\n-- GET /api/notifications 500'd at runtime (\"column ... does not exist\") on every\n-- out-of-the-box build. `channels` is REQUIRED too: the provider's send()\n-- always writes it (JSON-serialized delivery channels, null default) — without\n-- the column every create() fails with \"column channels does not exist\".\nCREATE TABLE IF NOT EXISTS \"notifications\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"user_id\" UUID NOT NULL,\n  \"type\" TEXT NOT NULL,\n  \"title\" TEXT NOT NULL,\n  \"body\" TEXT NOT NULL,\n  \"read\" BOOLEAN NOT NULL DEFAULT false,\n  \"data\" JSONB,\n  \"channels\" JSONB,\n  \"created_at\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updated_at\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"notifications_user_id_idx\" ON \"notifications\" (\"user_id\");\nCREATE INDEX IF NOT EXISTS \"notifications_user_id_read_idx\" ON \"notifications\" (\"user_id\", \"read\");\n\n-- Preferences table for the same provider (its getPreferences/setPreferences):\n-- one row per user with per-channel booleans + a JSON `channels` map of\n-- per-type overrides. Nothing else in the fleet creates this table, so without\n-- it GET /api/notifications/preferences 500s out of the box.\nCREATE TABLE IF NOT EXISTS \"notification_preferences\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"user_id\" UUID NOT NULL UNIQUE,\n  \"email\" BOOLEAN NOT NULL DEFAULT true,\n  \"push\" BOOLEAN NOT NULL DEFAULT true,\n  \"sms\" BOOLEAN NOT NULL DEFAULT false,\n  \"channels\" JSONB,\n  \"created_at\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updated_at\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/notification",
       "intentHints": [
         "notification",
@@ -23259,6 +23487,11 @@
           "sqlFile": "src/__setup__/orders_position.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/orders.sql": "CREATE TABLE IF NOT EXISTS \"orders\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" UUID NOT NULL,\n  \"status\" VARCHAR(20) NOT NULL DEFAULT 'pending',\n  \"subtotal\" NUMERIC(12,2) NOT NULL DEFAULT 0,\n  \"tax\" NUMERIC(12,2) NOT NULL DEFAULT 0,\n  \"shipping\" NUMERIC(12,2) NOT NULL DEFAULT 0,\n  \"discount\" NUMERIC(12,2) NOT NULL DEFAULT 0,\n  \"total\" NUMERIC(12,2) NOT NULL DEFAULT 0,\n  \"shippingAddress\" JSONB,\n  \"billingAddress\" JSONB,\n  \"paymentId\" VARCHAR(255),\n  \"notes\" TEXT,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_orders_userId\" ON \"orders\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_orders_status\" ON \"orders\" (\"status\");\nCREATE INDEX IF NOT EXISTS \"idx_orders_createdAt\" ON \"orders\" (\"createdAt\" DESC);\n\nCREATE TABLE IF NOT EXISTS \"order_items\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"orderId\" UUID NOT NULL REFERENCES \"orders\" (\"id\") ON DELETE CASCADE,\n  \"productId\" VARCHAR(255) NOT NULL,\n  \"variantId\" VARCHAR(255),\n  \"name\" VARCHAR(255) NOT NULL,\n  \"price\" NUMERIC(12,2) NOT NULL,\n  \"quantity\" INTEGER NOT NULL DEFAULT 1,\n  \"image\" TEXT,\n  -- The order the line was submitted in (0-based). Without it a reader of this\n  -- table gets the items in whatever order the database returns rows — and\n  -- `where \"orderId\" = ?` is an INDEXED lookup, so that is the index's order,\n  -- not the order the customer submitted.\n  \"position\" INTEGER NOT NULL DEFAULT 0\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_order_items_orderId\" ON \"order_items\" (\"orderId\");\n\nCREATE TABLE IF NOT EXISTS \"order_events\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"orderId\" UUID NOT NULL REFERENCES \"orders\" (\"id\") ON DELETE CASCADE,\n  \"status\" VARCHAR(20) NOT NULL,\n  \"metadata\" JSONB,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_order_events_orderId\" ON \"order_events\" (\"orderId\");\n",
+        "src/__setup__/orders_position.sql": "-- Line-item order on an order: the column \"order_items\".\"position\" keeps the\n-- order the items were submitted in, so a reader of this table (the read/list/\n-- cancel/updateStatus handlers, an app's own query) gets them in that order\n-- instead of the database's arbitrary row order. `where \"orderId\" = ?` hits\n-- \"idx_order_items_orderId\", so without this column the rows come back in the\n-- index's order — not the order the customer submitted.\n--\n-- Why this is its own file: a database that already applied orders.sql never\n-- re-runs it — \"_molecule_migrations\" records each setup file once — so the\n-- column cannot be delivered by editing that file alone. This file is new, so it\n-- runs on every database that has the table, whether it was created before or\n-- after the column existed.\n--\n-- The CREATE repeats orders.sql's \"order_items\" (see the test that keeps the two\n-- in step). In a scaffolded app it is a no-op — orders.sql sorts first and has\n-- already created the table, so the column below is what this file is for — and\n-- it is what lets the scaffolding tool find the file at all: a setup file is\n-- copied into a project through the table it declares.\nCREATE TABLE IF NOT EXISTS \"order_items\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"orderId\" UUID NOT NULL REFERENCES \"orders\" (\"id\") ON DELETE CASCADE,\n  \"productId\" VARCHAR(255) NOT NULL,\n  \"variantId\" VARCHAR(255),\n  \"name\" VARCHAR(255) NOT NULL,\n  \"price\" NUMERIC(12,2) NOT NULL,\n  \"quantity\" INTEGER NOT NULL DEFAULT 1,\n  \"image\" TEXT,\n  \"position\" INTEGER NOT NULL DEFAULT 0\n);\n\n-- The upgrade for a database whose \"order_items\" predates the column. Every\n-- database bond accepts this form: Postgres and PGlite take the clause natively,\n-- and the SQLite and MySQL bonds apply the statement only when the column is not\n-- there yet.\nALTER TABLE \"order_items\" ADD COLUMN IF NOT EXISTS \"position\" INTEGER NOT NULL DEFAULT 0;\n"
+      },
+      "setupSqlVersion": "1.1.5",
       "path": "packages/api/resources/order",
       "intentHints": [
         "order",
@@ -23326,6 +23559,10 @@
           "sqlFile": "src/__setup__/payments.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/payments.sql": "CREATE TABLE IF NOT EXISTS \"payments\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"updatedAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"userId\" uuid NOT NULL,\n  \"transactionId\" text,\n  \"productId\" text,\n  \"platformKey\" text,\n  \"data\" jsonb,\n  \"receipt\" text\n);\nCREATE INDEX IF NOT EXISTS \"payments_createdAt_index\" ON \"payments\" (\"createdAt\");\nCREATE INDEX IF NOT EXISTS \"payments_updatedAt_index\" ON \"payments\" (\"updatedAt\");\nCREATE INDEX IF NOT EXISTS \"payments_userId_index\" ON \"payments\" (\"userId\");\n-- A platform transaction must bind to exactly ONE account (first-claim-wins).\n-- This UNIQUE index is the race-safe backstop for receipt/subscription replay\n-- (R2-1): a second account inserting the same (platformKey, transactionId)\n-- fails, so it can never be granted the plan. Also serves the transactionId\n-- lookup the plain index used to. NULL transactionIds are allowed/non-unique.\nCREATE UNIQUE INDEX IF NOT EXISTS \"payments_platformKey_transactionId_unique\" ON \"payments\" (\"platformKey\", \"transactionId\");\nCREATE INDEX IF NOT EXISTS \"payments_productId_index\" ON \"payments\" (\"productId\");\nCREATE INDEX IF NOT EXISTS \"payments_platformKey_index\" ON \"payments\" (\"platformKey\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "services": [
         {
           "export": "planService",
@@ -23432,6 +23669,10 @@
           "sqlFile": "src/__setup__/payment_methods.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/payment_methods.sql": "CREATE TABLE IF NOT EXISTS \"payment_methods\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" UUID NOT NULL,\n  \"provider\" TEXT NOT NULL,\n  \"providerCustomerId\" TEXT NOT NULL,\n  \"providerPaymentMethodId\" TEXT NOT NULL,\n  \"last4\" TEXT NOT NULL,\n  \"brand\" TEXT NOT NULL,\n  \"expMonth\" INTEGER NOT NULL,\n  \"expYear\" INTEGER NOT NULL,\n  \"isDefault\" BOOLEAN NOT NULL DEFAULT false,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"payment_methods_userId_idx\" ON \"payment_methods\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"payment_methods_provider_idx\" ON \"payment_methods\" (\"provider\");\nCREATE UNIQUE INDEX IF NOT EXISTS \"payment_methods_providerPaymentMethodId_idx\"\n  ON \"payment_methods\" (\"providerPaymentMethodId\");\nCREATE UNIQUE INDEX IF NOT EXISTS \"payment_methods_userId_default_idx\"\n  ON \"payment_methods\" (\"userId\") WHERE \"isDefault\" = true;\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/payment-method",
       "intentHints": [
         "payment method",
@@ -23549,6 +23790,10 @@
           "sqlFile": "src/__setup__/products.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/products.sql": "CREATE TABLE IF NOT EXISTS \"products\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"name\" VARCHAR(255) NOT NULL,\n  \"slug\" VARCHAR(255) NOT NULL UNIQUE,\n  \"description\" TEXT,\n  \"price\" BIGINT NOT NULL DEFAULT 0,\n  \"currency\" VARCHAR(3) NOT NULL DEFAULT 'USD',\n  \"status\" VARCHAR(20) NOT NULL DEFAULT 'draft',\n  \"imageUrl\" TEXT,\n  \"sku\" VARCHAR(100),\n  \"inventory\" INTEGER,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"deletedAt\" TIMESTAMPTZ\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_products_slug\" ON \"products\" (\"slug\");\nCREATE INDEX IF NOT EXISTS \"idx_products_status\" ON \"products\" (\"status\") WHERE \"deletedAt\" IS NULL;\nCREATE INDEX IF NOT EXISTS \"idx_products_sku\" ON \"products\" (\"sku\") WHERE \"sku\" IS NOT NULL;\n\nCREATE TABLE IF NOT EXISTS \"product_variants\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"productId\" UUID NOT NULL REFERENCES \"products\" (\"id\") ON DELETE CASCADE,\n  \"name\" VARCHAR(255) NOT NULL,\n  \"sku\" VARCHAR(100),\n  \"price\" BIGINT,\n  \"inventory\" INTEGER,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_product_variants_productId\" ON \"product_variants\" (\"productId\");\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/product",
       "intentHints": [
         "product",
@@ -23641,6 +23886,10 @@
           "sqlFile": "src/__setup__/projects.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/projects.sql": "CREATE TABLE IF NOT EXISTS \"projects\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" UUID NOT NULL REFERENCES \"users\"(\"id\") ON DELETE CASCADE,\n  \"name\" TEXT NOT NULL,\n  \"slug\" TEXT NOT NULL UNIQUE,\n  \"projectType\" TEXT NOT NULL DEFAULT 'api',\n  \"framework\" TEXT,\n  \"packages\" JSONB NOT NULL DEFAULT '[]',\n  \"templateSlug\" TEXT,\n  \"brandingSpec\" JSONB,\n  \"envVars\" JSONB NOT NULL DEFAULT '{}',\n  \"sandboxId\" TEXT,\n  \"sandboxStatus\" TEXT DEFAULT 'stopped',\n  \"lastActiveAt\" TIMESTAMPTZ,\n  \"settings\" JSONB NOT NULL DEFAULT '{}',\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n"
+      },
+      "setupSqlVersion": "1.0.8",
       "path": "packages/api/resources/project",
       "intentHints": [
         "project",
@@ -23784,6 +24033,10 @@
           "sqlFile": "src/__setup__/properties.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/properties.sql": "CREATE TABLE IF NOT EXISTS \"properties\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"ownerId\" TEXT,\n  \"name\" VARCHAR(255) NOT NULL,\n  \"slug\" VARCHAR(255) NOT NULL UNIQUE,\n  \"description\" TEXT,\n  \"type\" VARCHAR(20) NOT NULL DEFAULT 'apartment',\n  \"status\" VARCHAR(20) NOT NULL DEFAULT 'draft',\n  \"addressLine1\" VARCHAR(255) NOT NULL,\n  \"addressLine2\" VARCHAR(255),\n  \"city\" VARCHAR(120) NOT NULL,\n  \"region\" VARCHAR(120),\n  \"postalCode\" VARCHAR(32),\n  \"countryCode\" VARCHAR(2) NOT NULL,\n  \"latitude\" DOUBLE PRECISION,\n  \"longitude\" DOUBLE PRECISION,\n  \"unitCount\" INTEGER NOT NULL DEFAULT 0,\n  \"coverImageUrl\" TEXT,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"deletedAt\" TIMESTAMPTZ\n);\n\n-- Tenant-scoping: associate each property with the user who created it.\n-- Added via ALTER for databases whose \"properties\" table predates this column.\nALTER TABLE \"properties\" ADD COLUMN IF NOT EXISTS \"ownerId\" TEXT;\n\nCREATE INDEX IF NOT EXISTS \"idx_properties_ownerId\" ON \"properties\" (\"ownerId\");\nCREATE INDEX IF NOT EXISTS \"idx_properties_slug\" ON \"properties\" (\"slug\");\nCREATE INDEX IF NOT EXISTS \"idx_properties_status\" ON \"properties\" (\"status\") WHERE \"deletedAt\" IS NULL;\nCREATE INDEX IF NOT EXISTS \"idx_properties_type\" ON \"properties\" (\"type\") WHERE \"deletedAt\" IS NULL;\nCREATE INDEX IF NOT EXISTS \"idx_properties_city\" ON \"properties\" (\"city\") WHERE \"deletedAt\" IS NULL;\n\nCREATE TABLE IF NOT EXISTS \"property_units\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"propertyId\" UUID NOT NULL REFERENCES \"properties\" (\"id\") ON DELETE CASCADE,\n  \"name\" VARCHAR(120) NOT NULL,\n  \"description\" TEXT,\n  \"floor\" INTEGER,\n  \"bedrooms\" INTEGER,\n  \"bathrooms\" INTEGER,\n  \"maxOccupancy\" INTEGER,\n  \"areaSquareMetres\" DOUBLE PRECISION,\n  \"isAvailable\" BOOLEAN NOT NULL DEFAULT TRUE,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_property_units_propertyId\" ON \"property_units\" (\"propertyId\");\n\nCREATE TABLE IF NOT EXISTS \"property_photos\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"propertyId\" UUID NOT NULL REFERENCES \"properties\" (\"id\") ON DELETE CASCADE,\n  \"url\" TEXT NOT NULL,\n  \"caption\" TEXT,\n  \"position\" INTEGER NOT NULL DEFAULT 0,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_property_photos_propertyId\" ON \"property_photos\" (\"propertyId\");\n\nCREATE TABLE IF NOT EXISTS \"property_amenities\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"propertyId\" UUID NOT NULL REFERENCES \"properties\" (\"id\") ON DELETE CASCADE,\n  \"code\" VARCHAR(64) NOT NULL,\n  \"label\" VARCHAR(160) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"propertyId\", \"code\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_property_amenities_propertyId\" ON \"property_amenities\" (\"propertyId\");\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/property",
       "intentHints": [
         "property",
@@ -23854,6 +24107,10 @@
           "sqlFile": "src/__setup__/reactions.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/reactions.sql": "CREATE TABLE IF NOT EXISTS \"reactions\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"type\" VARCHAR(50) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"resourceType\", \"resourceId\", \"userId\", \"type\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_reactions_resource\" ON \"reactions\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_reactions_user\" ON \"reactions\" (\"userId\");\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/reaction",
       "intentHints": [
         "reaction",
@@ -23910,6 +24167,10 @@
           "sqlFile": "src/__setup__/readings.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/readings.sql": "CREATE TABLE IF NOT EXISTS \"readings\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"owner_id\" uuid NOT NULL,\n  \"sensor_id\" varchar(120) NOT NULL,\n  \"metric\" varchar(80) NOT NULL,\n  \"value\" double precision NOT NULL,\n  \"unit\" varchar(40),\n  \"recorded_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"metadata\" jsonb\n);\n\nCREATE INDEX IF NOT EXISTS \"readings_owner_sensor_metric_index\" ON \"readings\" (\"owner_id\", \"sensor_id\", \"metric\");\nCREATE INDEX IF NOT EXISTS \"readings_recorded_at_index\" ON \"readings\" (\"recorded_at\" DESC);\nCREATE INDEX IF NOT EXISTS \"readings_owner_metric_recorded_at_index\" ON \"readings\" (\"owner_id\", \"metric\", \"recorded_at\" DESC);\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/readings",
       "intentHints": [
         "time series",
@@ -24018,6 +24279,10 @@
           "sqlFile": "src/__setup__/reviews.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/reviews.sql": "CREATE TABLE IF NOT EXISTS \"reviews\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"rating\" INTEGER NOT NULL CHECK (\"rating\" >= 1 AND \"rating\" <= 5),\n  \"title\" VARCHAR(200) NOT NULL,\n  \"body\" TEXT NOT NULL,\n  \"helpful\" INTEGER NOT NULL DEFAULT 0,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"resourceType\", \"resourceId\", \"userId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_reviews_resource\" ON \"reviews\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_reviews_user\" ON \"reviews\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_reviews_rating\" ON \"reviews\" (\"resourceType\", \"resourceId\", \"rating\");\n\nCREATE TABLE IF NOT EXISTS \"review_helpful\" (\n  \"reviewId\" UUID NOT NULL REFERENCES \"reviews\"(\"id\") ON DELETE CASCADE,\n  \"userId\" UUID NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  PRIMARY KEY (\"reviewId\", \"userId\")\n);\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/review",
       "intentHints": [
         "review",
@@ -24117,6 +24382,10 @@
           "sqlFile": "src/__setup__/room-types.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/room-types.sql": "CREATE TABLE IF NOT EXISTS \"room_types\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"propertyId\" TEXT NOT NULL,\n  \"name\" TEXT NOT NULL,\n  \"description\" TEXT,\n  \"capacity\" INTEGER NOT NULL,\n  \"baseRateCents\" INTEGER NOT NULL,\n  \"currency\" TEXT NOT NULL,\n  \"amenities\" JSONB,\n  \"photos\" JSONB,\n  \"totalUnits\" INTEGER NOT NULL DEFAULT 0,\n  \"active\" BOOLEAN NOT NULL DEFAULT TRUE,\n  \"metadata\" JSONB,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_room_types_propertyId\" ON \"room_types\" (\"propertyId\");\nCREATE INDEX IF NOT EXISTS \"idx_room_types_active\" ON \"room_types\" (\"active\");\nCREATE INDEX IF NOT EXISTS \"idx_room_types_capacity\" ON \"room_types\" (\"capacity\");\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/room-type",
       "intentHints": [
         "room type",
@@ -24228,6 +24497,11 @@
           "sqlFile": "src/__setup__/resource-shares.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/resource-share-links.sql": "CREATE TABLE IF NOT EXISTS \"resource-share-links\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"slug\" VARCHAR(64) NOT NULL UNIQUE,\n  \"role\" VARCHAR(32) NOT NULL,\n  \"createdBy\" UUID,\n  \"expiresAt\" TIMESTAMPTZ,\n  \"revokedAt\" TIMESTAMPTZ,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_resource_share_links_resource\"\n  ON \"resource-share-links\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_resource_share_links_slug\"\n  ON \"resource-share-links\" (\"slug\");\n",
+        "src/__setup__/resource-shares.sql": "CREATE TABLE IF NOT EXISTS \"resource-shares\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"principalType\" VARCHAR(32) NOT NULL,\n  \"principalId\" VARCHAR(255) NOT NULL,\n  \"role\" VARCHAR(32) NOT NULL,\n  \"grantedBy\" UUID,\n  \"expiresAt\" TIMESTAMPTZ,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"resourceType\", \"resourceId\", \"principalType\", \"principalId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_resource_shares_resource\"\n  ON \"resource-shares\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_resource_shares_principal\"\n  ON \"resource-shares\" (\"principalType\", \"principalId\");\nCREATE INDEX IF NOT EXISTS \"idx_resource_shares_expiry\"\n  ON \"resource-shares\" (\"expiresAt\");\n"
+      },
+      "setupSqlVersion": "1.0.7",
       "path": "packages/api/resources/share",
       "intentHints": [
         "share",
@@ -24387,6 +24661,13 @@
           "sqlFile": "src/__setup__/uptimeWindows.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/checks.sql": "CREATE TABLE IF NOT EXISTS \"checks\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"serviceId\" uuid NOT NULL REFERENCES \"services\"(\"id\") ON DELETE CASCADE,\n  \"status\" varchar(20) NOT NULL,\n  \"httpStatus\" integer,\n  \"latencyMs\" integer,\n  \"error\" text,\n  \"checkedAt\" timestamptz DEFAULT current_timestamp NOT NULL\n);\nCREATE INDEX IF NOT EXISTS \"checks_serviceId_index\" ON \"checks\" (\"serviceId\");\nCREATE INDEX IF NOT EXISTS \"checks_checkedAt_index\" ON \"checks\" (\"checkedAt\");\nCREATE INDEX IF NOT EXISTS \"checks_serviceId_checkedAt_index\" ON \"checks\" (\"serviceId\", \"checkedAt\" DESC);\n",
+        "src/__setup__/incidents.sql": "CREATE TABLE IF NOT EXISTS \"incidents\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"updatedAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"serviceId\" uuid NOT NULL REFERENCES \"services\"(\"id\") ON DELETE CASCADE,\n  \"title\" varchar(500) NOT NULL,\n  \"description\" text,\n  \"severity\" varchar(20) NOT NULL,\n  \"status\" varchar(20) NOT NULL,\n  \"autoDetected\" boolean DEFAULT false NOT NULL,\n  \"startedAt\" timestamptz NOT NULL,\n  \"resolvedAt\" timestamptz\n);\nCREATE INDEX IF NOT EXISTS \"incidents_serviceId_index\" ON \"incidents\" (\"serviceId\");\nCREATE INDEX IF NOT EXISTS \"incidents_status_index\" ON \"incidents\" (\"status\");\nCREATE INDEX IF NOT EXISTS \"incidents_startedAt_index\" ON \"incidents\" (\"startedAt\" DESC);\n",
+        "src/__setup__/services.sql": "CREATE TABLE IF NOT EXISTS \"services\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"updatedAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"name\" varchar(255) NOT NULL,\n  \"url\" text NOT NULL,\n  \"method\" varchar(10) DEFAULT 'GET' NOT NULL,\n  \"expectedStatus\" integer DEFAULT 200 NOT NULL,\n  \"timeoutMs\" integer DEFAULT 10000 NOT NULL,\n  \"intervalMs\" integer DEFAULT 60000 NOT NULL,\n  \"groupName\" varchar(255),\n  \"enabled\" boolean DEFAULT true NOT NULL\n);\nCREATE INDEX IF NOT EXISTS \"services_name_index\" ON \"services\" (\"name\");\nCREATE INDEX IF NOT EXISTS \"services_enabled_index\" ON \"services\" (\"enabled\");\n",
+        "src/__setup__/uptimeWindows.sql": "CREATE TABLE IF NOT EXISTS \"uptimeWindows\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"serviceId\" uuid NOT NULL REFERENCES \"services\"(\"id\") ON DELETE CASCADE,\n  \"window\" varchar(10) NOT NULL,\n  \"uptimePct\" numeric(6,3) NOT NULL,\n  \"totalChecks\" integer NOT NULL,\n  \"upChecks\" integer NOT NULL,\n  \"avgLatencyMs\" numeric(10,2) NOT NULL\n);\nCREATE INDEX IF NOT EXISTS \"uptimeWindows_serviceId_index\" ON \"uptimeWindows\" (\"serviceId\");\nCREATE UNIQUE INDEX IF NOT EXISTS \"uptimeWindows_serviceId_window_index\" ON \"uptimeWindows\" (\"serviceId\", \"window\");\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/status-page",
       "intentHints": [
         "status page",
@@ -24496,6 +24777,10 @@
           "sqlFile": "src/__setup__/subscribers.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/subscribers.sql": "CREATE TABLE IF NOT EXISTS \"subscribers\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"channel\" TEXT NOT NULL,\n  \"address\" TEXT NOT NULL,\n  \"topic\" TEXT,\n  \"status\" TEXT NOT NULL DEFAULT 'pending',\n  \"confirmToken\" TEXT NOT NULL,\n  \"unsubscribeToken\" TEXT NOT NULL,\n  \"metadata\" JSONB,\n  \"confirmedAt\" TIMESTAMPTZ,\n  \"unsubscribedAt\" TIMESTAMPTZ,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE UNIQUE INDEX IF NOT EXISTS \"idx_subscribers_channel_address_topic\"\n  ON \"subscribers\" (\"channel\", \"address\", COALESCE(\"topic\", ''));\nCREATE UNIQUE INDEX IF NOT EXISTS \"idx_subscribers_confirmToken\" ON \"subscribers\" (\"confirmToken\");\nCREATE UNIQUE INDEX IF NOT EXISTS \"idx_subscribers_unsubscribeToken\"\n  ON \"subscribers\" (\"unsubscribeToken\");\nCREATE INDEX IF NOT EXISTS \"idx_subscribers_status\" ON \"subscribers\" (\"status\");\nCREATE INDEX IF NOT EXISTS \"idx_subscribers_topic\" ON \"subscribers\" (\"topic\");\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/subscriber",
       "intentHints": [
         "subscriber",
@@ -24630,6 +24915,10 @@
           "sqlFile": "src/__setup__/tags.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/tags.sql": "CREATE TABLE IF NOT EXISTS \"tags\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"name\" VARCHAR(100) NOT NULL,\n  \"slug\" VARCHAR(120) NOT NULL UNIQUE,\n  \"color\" VARCHAR(7),\n  \"description\" TEXT,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE TABLE IF NOT EXISTS \"resource_tags\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"tagId\" UUID NOT NULL REFERENCES \"tags\"(\"id\") ON DELETE CASCADE,\n  \"resourceType\" VARCHAR(50) NOT NULL,\n  \"resourceId\" UUID NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE(\"tagId\", \"resourceType\", \"resourceId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_resource_tags_resource\" ON \"resource_tags\"(\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_resource_tags_tag\" ON \"resource_tags\"(\"tagId\");\nCREATE INDEX IF NOT EXISTS \"idx_tags_slug\" ON \"tags\"(\"slug\");\n"
+      },
+      "setupSqlVersion": "1.0.7",
       "path": "packages/api/resources/tag",
       "intentHints": [
         "tag",
@@ -24686,6 +24975,10 @@
           "sqlFile": "src/__setup__/tasks.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/tasks.sql": "CREATE TABLE IF NOT EXISTS \"tasks\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"owner_id\" uuid NOT NULL,\n  \"parent_id\" uuid,\n  \"title\" varchar(1000) NOT NULL,\n  \"description\" text,\n  \"priority\" smallint NOT NULL DEFAULT 4,\n  \"due_date\" date,\n  \"due_time\" varchar(8),\n  \"recurrence_rule\" varchar(255),\n  \"position\" numeric NOT NULL DEFAULT 0,\n  \"is_completed\" boolean NOT NULL DEFAULT false,\n  \"completed_at\" timestamptz,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"tasks_owner_id_index\" ON \"tasks\" (\"owner_id\");\nCREATE INDEX IF NOT EXISTS \"tasks_parent_id_index\" ON \"tasks\" (\"parent_id\");\nCREATE INDEX IF NOT EXISTS \"tasks_due_date_index\" ON \"tasks\" (\"due_date\");\nCREATE INDEX IF NOT EXISTS \"tasks_is_completed_index\" ON \"tasks\" (\"is_completed\");\nCREATE INDEX IF NOT EXISTS \"tasks_owner_completed_position_index\" ON \"tasks\" (\"owner_id\", \"is_completed\", \"position\");\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/task",
       "intentHints": [
         "todo list",
@@ -24791,6 +25084,10 @@
           "sqlFile": "src/__setup__/resource-templates.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/resource-templates.sql": "CREATE TABLE IF NOT EXISTS \"resource-templates\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"slug\" VARCHAR(255) NOT NULL,\n  \"name\" VARCHAR(255) NOT NULL,\n  \"description\" TEXT,\n  \"snapshot\" JSONB NOT NULL,\n  \"variables\" JSONB NOT NULL DEFAULT '[]'::jsonb,\n  \"tags\" JSONB NOT NULL DEFAULT '[]'::jsonb,\n  \"version\" INTEGER NOT NULL DEFAULT 1,\n  \"isPublic\" BOOLEAN NOT NULL DEFAULT FALSE,\n  \"createdBy\" UUID,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"resourceType\", \"slug\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_resource_templates_type\"\n  ON \"resource-templates\" (\"resourceType\");\nCREATE INDEX IF NOT EXISTS \"idx_resource_templates_creator\"\n  ON \"resource-templates\" (\"createdBy\");\nCREATE INDEX IF NOT EXISTS \"idx_resource_templates_public\"\n  ON \"resource-templates\" (\"isPublic\");\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/template",
       "intentHints": [
         "template",
@@ -24939,6 +25236,10 @@
           "sqlFile": "src/__setup__/threads.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/threads.sql": "CREATE TABLE IF NOT EXISTS \"threads\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"title\" VARCHAR(500) NOT NULL,\n  \"creatorId\" UUID NOT NULL,\n  \"resourceType\" VARCHAR(255),\n  \"resourceId\" VARCHAR(255),\n  \"closed\" BOOLEAN NOT NULL DEFAULT false,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_threads_creator\" ON \"threads\" (\"creatorId\");\nCREATE INDEX IF NOT EXISTS \"idx_threads_resource\" ON \"threads\" (\"resourceType\", \"resourceId\");\n\nCREATE TABLE IF NOT EXISTS \"thread_messages\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"threadId\" UUID NOT NULL REFERENCES \"threads\"(\"id\") ON DELETE CASCADE,\n  \"userId\" UUID NOT NULL,\n  \"body\" TEXT NOT NULL,\n  \"editedAt\" TIMESTAMPTZ,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_thread_messages_thread\" ON \"thread_messages\" (\"threadId\");\nCREATE INDEX IF NOT EXISTS \"idx_thread_messages_user\" ON \"thread_messages\" (\"userId\");\n\nCREATE TABLE IF NOT EXISTS \"thread_read_status\" (\n  \"threadId\" UUID NOT NULL REFERENCES \"threads\"(\"id\") ON DELETE CASCADE,\n  \"userId\" UUID NOT NULL,\n  \"lastReadMessageId\" UUID NOT NULL REFERENCES \"thread_messages\"(\"id\") ON DELETE CASCADE,\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  PRIMARY KEY (\"threadId\", \"userId\")\n);\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/thread",
       "intentHints": [
         "thread",
@@ -25209,6 +25510,11 @@
           "sqlFile": "src/__setup__/usersSecrets.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/users.sql": "CREATE TABLE IF NOT EXISTS \"users\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"updatedAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"username\" varchar(255),\n  \"name\" text,\n  \"email\" varchar(1023) UNIQUE,\n  \"emailVerified\" boolean DEFAULT false NOT NULL,\n  \"avatar\" text,\n  \"bio\" text,\n  \"twoFactorEnabled\" boolean DEFAULT false,\n  \"oauthServer\" text,\n  \"oauthId\" text,\n  \"oauthData\" jsonb,\n  \"planKey\" text,\n  \"planExpiresAt\" timestamptz,\n  \"planAutoRenews\" boolean DEFAULT false\n);\nCREATE INDEX IF NOT EXISTS \"users_createdAt_index\" ON \"users\" (\"createdAt\");\nCREATE INDEX IF NOT EXISTS \"users_updatedAt_index\" ON \"users\" (\"updatedAt\");\nCREATE INDEX IF NOT EXISTS \"users_username_index\" ON \"users\" (\"username\");\nCREATE INDEX IF NOT EXISTS \"users_email_index\" ON \"users\" (\"email\");\n",
+        "src/__setup__/usersSecrets.sql": "CREATE TABLE IF NOT EXISTS \"usersSecrets\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"passwordHash\" text,\n  \"passwordResetToken\" text,\n  \"passwordResetTokenAt\" timestamptz,\n  \"pendingTwoFactorSecret\" text,\n  \"twoFactorSecret\" text,\n  \"lastTwoFactorTimeStep\" integer\n);\n"
+      },
+      "setupSqlVersion": "1.7.4",
       "reExports": [
         "authorization"
       ],
@@ -25338,6 +25644,10 @@
           "sqlFile": "src/__setup__/versions.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/versions.sql": "CREATE TABLE IF NOT EXISTS \"versions\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"version\" INTEGER NOT NULL,\n  \"userId\" UUID,\n  \"snapshot\" JSONB NOT NULL,\n  \"changes\" JSONB,\n  \"reason\" TEXT,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  CONSTRAINT \"uq_versions_resource_version\" UNIQUE (\"resourceType\", \"resourceId\", \"version\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_versions_resource\" ON \"versions\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_versions_created\" ON \"versions\" (\"createdAt\");\nCREATE INDEX IF NOT EXISTS \"idx_versions_user\" ON \"versions\" (\"userId\");\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/version-history",
       "intentHints": [
         "version history",
@@ -25403,6 +25713,10 @@
           "sqlFile": "src/__setup__/wiki_pages.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/wiki_pages.sql": "CREATE TABLE IF NOT EXISTS \"wiki_spaces\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"owner_id\" uuid NOT NULL,\n  \"name\" varchar(255) NOT NULL,\n  \"slug\" varchar(120) NOT NULL UNIQUE,\n  \"is_public\" boolean NOT NULL DEFAULT false,\n  \"visibility\" varchar(20) NOT NULL DEFAULT 'private',\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp\n);\n\nCREATE INDEX IF NOT EXISTS \"wiki_spaces_owner_id_index\" ON \"wiki_spaces\" (\"owner_id\");\n\nCREATE TABLE IF NOT EXISTS \"wiki_pages\" (\n  \"id\" uuid UNIQUE PRIMARY KEY DEFAULT gen_random_uuid() NOT NULL,\n  \"space_id\" uuid NOT NULL REFERENCES \"wiki_spaces\"(\"id\") ON DELETE CASCADE,\n  \"parent_id\" uuid REFERENCES \"wiki_pages\"(\"id\") ON DELETE CASCADE,\n  \"slug\" varchar(120) NOT NULL,\n  \"title\" varchar(255) NOT NULL,\n  \"body\" text NOT NULL DEFAULT '',\n  \"position\" integer NOT NULL DEFAULT 0,\n  \"is_published\" boolean NOT NULL DEFAULT false,\n  \"created_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  \"updated_at\" timestamptz NOT NULL DEFAULT current_timestamp,\n  UNIQUE (\"space_id\", \"slug\")\n);\n\nCREATE INDEX IF NOT EXISTS \"wiki_pages_space_id_index\" ON \"wiki_pages\" (\"space_id\");\nCREATE INDEX IF NOT EXISTS \"wiki_pages_parent_id_index\" ON \"wiki_pages\" (\"parent_id\");\nCREATE INDEX IF NOT EXISTS \"wiki_pages_position_index\" ON \"wiki_pages\" (\"space_id\", \"position\");\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/wiki-page",
       "intentHints": [
         "wiki",
@@ -25569,6 +25883,10 @@
           "sqlFile": "src/__setup__/workspaces.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/workspaces.sql": "CREATE TABLE IF NOT EXISTS \"workspaces\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"ownerId\" UUID NOT NULL,\n  \"name\" VARCHAR(255) NOT NULL,\n  \"slug\" VARCHAR(255) NOT NULL UNIQUE,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"deletedAt\" TIMESTAMPTZ\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_workspaces_owner\" ON \"workspaces\" (\"ownerId\");\nCREATE INDEX IF NOT EXISTS \"idx_workspaces_slug\" ON \"workspaces\" (\"slug\");\n\nCREATE TABLE IF NOT EXISTS \"workspace_members\" (\n  \"workspaceId\" UUID NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"role\" VARCHAR(16) NOT NULL,\n  \"joinedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  PRIMARY KEY (\"workspaceId\", \"userId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_workspace_members_user\" ON \"workspace_members\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_workspace_members_workspace\" ON \"workspace_members\" (\"workspaceId\");\n\nCREATE TABLE IF NOT EXISTS \"workspace_invites\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"workspaceId\" UUID NOT NULL,\n  \"email\" VARCHAR(255) NOT NULL,\n  \"role\" VARCHAR(16) NOT NULL,\n  \"token\" VARCHAR(128) NOT NULL UNIQUE,\n  \"expiresAt\" TIMESTAMPTZ NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"acceptedAt\" TIMESTAMPTZ\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_workspace_invites_workspace\" ON \"workspace_invites\" (\"workspaceId\");\nCREATE INDEX IF NOT EXISTS \"idx_workspace_invites_email\" ON \"workspace_invites\" (\"email\");\nCREATE INDEX IF NOT EXISTS \"idx_workspace_invites_token\" ON \"workspace_invites\" (\"token\");\n"
+      },
+      "setupSqlVersion": "1.0.7",
       "path": "packages/api/resources/workspace",
       "intentHints": [
         "workspace",
@@ -27145,6 +27463,10 @@
           "sqlFile": "src/__setup__/streaks.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/streaks.sql": "CREATE TABLE IF NOT EXISTS \"streaks\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"user_id\" UUID NOT NULL,\n  \"activity_kind\" VARCHAR(64) NOT NULL,\n  \"current_streak\" INTEGER NOT NULL DEFAULT 0,\n  \"longest_streak\" INTEGER NOT NULL DEFAULT 0,\n  \"last_activity_date\" TIMESTAMPTZ,\n  \"freezes_used\" INTEGER NOT NULL DEFAULT 0,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"user_id\", \"activity_kind\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_streaks_user\" ON \"streaks\" (\"user_id\");\nCREATE INDEX IF NOT EXISTS \"idx_streaks_activity\" ON \"streaks\" (\"activity_kind\");\n"
+      },
+      "setupSqlVersion": "1.0.5",
       "path": "packages/api/resources/streak",
       "intentHints": [
         "streak",
@@ -27458,6 +27780,10 @@
           "sqlFile": "src/__setup__/trashedItems.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/trashedItems.sql": "CREATE TABLE IF NOT EXISTS \"trashedItems\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID,\n  \"snapshot\" JSONB NOT NULL,\n  \"reason\" TEXT,\n  \"trashedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"expiresAt\" TIMESTAMPTZ,\n  \"restoredAt\" TIMESTAMPTZ,\n  \"restoredBy\" UUID,\n  \"purgedAt\" TIMESTAMPTZ,\n  CONSTRAINT \"uq_trashed_items_resource_active\" UNIQUE (\"resourceType\", \"resourceId\", \"trashedAt\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_trashed_items_resource\" ON \"trashedItems\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_trashed_items_user\" ON \"trashedItems\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_trashed_items_trashed_at\" ON \"trashedItems\" (\"trashedAt\");\nCREATE INDEX IF NOT EXISTS \"idx_trashed_items_expires_at\" ON \"trashedItems\" (\"expiresAt\");\nCREATE INDEX IF NOT EXISTS \"idx_trashed_items_restored_at\" ON \"trashedItems\" (\"restoredAt\");\nCREATE INDEX IF NOT EXISTS \"idx_trashed_items_purged_at\" ON \"trashedItems\" (\"purgedAt\");\n"
+      },
+      "setupSqlVersion": "1.0.6",
       "path": "packages/api/resources/trash",
       "intentHints": [
         "soft delete",
@@ -29253,6 +29579,10 @@
           "sqlFile": "src/__setup__/workflow.sql"
         }
       ],
+      "setupSql": {
+        "src/__setup__/workflow.sql": "CREATE TABLE IF NOT EXISTS \"workflows\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"name\" TEXT NOT NULL,\n  \"initialState\" TEXT NOT NULL,\n  \"states\" JSONB NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_workflows_name\" ON \"workflows\" (\"name\");\n\nCREATE TABLE IF NOT EXISTS \"workflow_instances\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"workflowId\" UUID NOT NULL REFERENCES \"workflows\"(\"id\") ON DELETE CASCADE,\n  \"state\" TEXT NOT NULL,\n  \"data\" JSONB NOT NULL DEFAULT '{}',\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_workflow_instances_workflowId\" ON \"workflow_instances\" (\"workflowId\");\nCREATE INDEX IF NOT EXISTS \"idx_workflow_instances_state\" ON \"workflow_instances\" (\"state\");\n\nCREATE TABLE IF NOT EXISTS \"workflow_events\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"instanceId\" UUID NOT NULL REFERENCES \"workflow_instances\"(\"id\") ON DELETE CASCADE,\n  \"action\" TEXT NOT NULL,\n  \"fromState\" TEXT NOT NULL,\n  \"toState\" TEXT NOT NULL,\n  \"data\" JSONB,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_workflow_events_instanceId\" ON \"workflow_events\" (\"instanceId\");\n"
+      },
+      "setupSqlVersion": "1.0.4",
       "path": "packages/api/bonds/workflow/database",
       "intentHints": [
         "workflow persistence",

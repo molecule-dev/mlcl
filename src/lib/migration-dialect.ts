@@ -111,9 +111,10 @@ const HEADERS: ReadonlyMap<MigrationDialect, (database: string) => string> = new
       '-- index on the same columns, or — for a UNIQUE partial index — a UNIQUE index over\n' +
       '-- `CASE WHEN <predicate> THEN <column> END`, so exactly the same rows stay constrained.\n' +
       '-- Not supported: a foreign-key referential action (`ON DELETE`/`ON UPDATE` `CASCADE`,\n' +
-      '-- `SET NULL`, `SET DEFAULT`). DuckDB rejects it and cannot reproduce the cascade.\n' +
-      '-- The generated runner rejects unsupported SQL and names its file and construct.\n' +
-      '-- Never delete a cascade to make a file apply: that silently turns a cascading delete into one that\n' +
+      '-- `SET NULL`, `SET DEFAULT`). DuckDB rejects it and cannot reproduce the cascade, so\n' +
+      '-- mlcl refuses to generate an app whose setup SQL needs one, and the runner throws\n' +
+      '-- naming the file and the construct if such SQL reaches it anyway. Never delete a\n' +
+      '-- cascade to make a file apply: that silently turns a cascading delete into one that\n' +
       '-- refuses while child rows still exist.\n',
   ],
 ])

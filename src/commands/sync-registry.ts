@@ -6,7 +6,7 @@ import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
-import { getRawRegistry, getRegistryPath } from '../lib/registry.js'
+import { getMoleculeVersion, getRawRegistry, getRegistryPath } from '../lib/registry.js'
 import {
   bondSetterScope,
   ROUTE_SCANNED_TYPES,
@@ -15,7 +15,11 @@ import {
   scanExports,
   scanForRoutes,
   scanForTables,
+  scanSetupSqlBundle,
+  scanSqlCapabilities,
 } from '../lib/scanner.js'
+import { readPackageVersion } from '../lib/setup-sql.js'
+import { planSetupSqlEntrySync } from '../lib/setup-sql-version.js'
 
 export default class SyncRegistry extends Command {
   // Internal maintenance command — hidden from the public CLI surface (still
@@ -579,6 +583,27 @@ export default class SyncRegistry extends Command {
           }
         }
 
+        // sqlCapabilities — the provider/resource compatibility contract a
+        // `database` provider publishes. Derived from the bond's own
+        // `src/capabilities.ts` (never a hand-maintained table), so the CLI
+        // preflight, the registry and the bond cannot disagree. The scan reads
+        // source, not an import: the declaration carries notes the refusal text
+        // shows verbatim, and a re-export (MotherDuck → DuckDB) is followed to
+        // the sibling package's source.
+        if (entry.category === 'database' && entry.type === 'provider' && existsSync(srcPath)) {
+          const capabilities = scanSqlCapabilities(srcPath, (moduleName) => {
+            const target = registry.packages[moduleName]
+            return target ? join(moleculeDir, target.path, 'src') : null
+          })
+          if (
+            capabilities &&
+            JSON.stringify(entry.sqlCapabilities) !== JSON.stringify(capabilities)
+          ) {
+            entry.sqlCapabilities = capabilities
+            changed = true
+          }
+        }
+
         // runtimeDependencies mirrors the package's OWN package.json dependencies.
         // This is the data that lets molecule-dev derive "which third-party libs does
         // molecule wrap?" (pg → api-database-postgresql, stripe → api-payments-stripe,
@@ -673,17 +698,29 @@ export default class SyncRegistry extends Command {
 
   /**
    * Re-scan every package's `setup/` + `src/__setup__/` SQL and update the
-   * registry `tables` field. `tables` was previously written only at
-   * `mlcl init`, so it drifted: many resource packages had `__setup__` SQL on
-   * disk but an empty/absent `tables` entry, which made `copySqlSetupScripts()`
-   * skip their DDL — custom/assembled projects then 500'd on those resource
-   * endpoints because the table was never created. This keeps `tables` in sync
-   * the same way `--scan-exports` keeps `exports` in sync (and lets `--check`
-   * catch future drift in CI).
+   * registry `tables` and `setupSql` fields. `tables` was previously written
+   * only at `mlcl init`, so it drifted: many resource packages had `__setup__`
+   * SQL on disk but an empty/absent `tables` entry, which made
+   * `copySqlSetupScripts()` skip their DDL — custom/assembled projects then
+   * 500'd on those resource endpoints because the table was never created.
+   *
+   * `setupSql` carries the exact bytes of each declared file, and
+   * `setupSqlVersion` the package version those bytes were read from (its own
+   * `package.json`, in the same scan). The registry already distributes the table
+   * METADATA; bundling the SQL itself is what lets a `--skip-install` scaffold on
+   * a host with no molecule checkout copy (and preflight) the real DDL before any
+   * install exists. The version tag is what makes that safe: the bundle is usable
+   * ONLY by a selection that pins exactly that version, so a stale CLI cannot
+   * write one release's schema beside another release's code. The two are scanned
+   * from the same directory in one pass, so they cannot disagree, and a version
+   * bump alone is reported as drift (a re-scan is required).
+   *
+   * This keeps both in sync the same way `--scan-exports` keeps `exports` in
+   * sync (and lets `--check` catch future drift in CI).
    *
    * @param dryRun - When true, report changes without writing.
    * @param standalone - When true, print a standalone summary + outro.
-   * @returns Number of packages whose `tables` changed.
+   * @returns Number of packages whose `tables`/`setupSql` changed.
    */
   private async refreshTables(dryRun: boolean, standalone = true): Promise<number> {
     const spinner = p.spinner()
@@ -698,16 +735,11 @@ export default class SyncRegistry extends Command {
 
     const packageNames = Object.keys(registry.packages)
 
-    const norm = (ts: Array<{ name: string; sqlFile: string }> | undefined): string =>
-      JSON.stringify(
-        [...(ts ?? [])]
-          .map((t) => ({ name: t.name, sqlFile: t.sqlFile }))
-          .sort((a, b) => `${a.name}|${a.sqlFile}`.localeCompare(`${b.name}|${b.sqlFile}`)),
-      )
-
     let updated = 0
     let unchanged = 0
     let failed = 0
+    const held: string[] = []
+    const unresolved: string[] = []
 
     for (const name of packageNames) {
       const entry = registry.packages[name]
@@ -719,12 +751,39 @@ export default class SyncRegistry extends Command {
           name: t.name,
           sqlFile: relative(fullPath, t.sqlFile),
         }))
-
-        if (norm(entry.tables) !== norm(newTables)) {
-          entry.tables = newTables
+        const newBundle = await scanSetupSqlBundle(fullPath)
+        // The bytes and the version they belong to are ONE value: a bundle is
+        // only usable by a selection that pins exactly this version, so a
+        // version bump without a re-scan is drift even when no byte changed.
+        //
+        // The decision itself is the shared pin-aware rule (`planSetupSqlEntrySync`),
+        // the SAME one `registry.test.ts` applies: a package whose checkout is
+        // ahead of its registry pin is HELD — kept as the pinned release
+        // recorded it, never retagged from a release the pin does not name. A
+        // version-only bump used to count as drift here while the test skipped
+        // it, so no registry state passed both (P18 r11 review, R11-1).
+        const plan = planSetupSqlEntrySync({
+          name,
+          entry,
+          sibling: { tables: newTables, bundle: newBundle, version: readPackageVersion(fullPath) },
+          pinned: getMoleculeVersion(name),
+        })
+        if (plan.kind === 'update') {
+          entry.tables = plan.tables
+          if (plan.setupSql) {
+            entry.setupSql = plan.setupSql
+            entry.setupSqlVersion = plan.setupSqlVersion!
+          } else {
+            delete entry.setupSql
+            delete entry.setupSqlVersion
+          }
           updated++
-        } else {
+        } else if (plan.kind === 'in-sync') {
           unchanged++
+        } else if (plan.kind === 'held') {
+          held.push(plan.detail)
+        } else {
+          unresolved.push(plan.detail)
         }
       } catch (_error) {
         // safe to skip: package dir missing or scan failed; counted as failed
@@ -741,13 +800,26 @@ export default class SyncRegistry extends Command {
 
     spinner.stop(updated > 0 ? `Tables: ${updated} updated` : chalk.dim('Tables: up to date'))
 
+    // A held package is named, never silently ignored: it is the state a
+    // held/blocked/off-map release leaves, and the operator needs to see that
+    // the entry was NOT re-scanned. `--check` (which runs this non-standalone)
+    // must say so too.
+    if (!standalone) {
+      for (const detail of held) p.log.info(`Held (sibling ahead of the pin): ${detail}`)
+      for (const detail of unresolved) p.log.error(detail)
+    }
+
     if (standalone) {
       p.note(
         [
-          `${chalk.cyan('Registry:')}   ${registryPath}`,
-          `${chalk.yellow('Updated:')}    ${updated} packages`,
-          `${chalk.dim('Unchanged:')}  ${unchanged} packages`,
-          failed > 0 ? `${chalk.red('Skipped:')}    ${failed} packages` : null,
+          `${chalk.cyan('Registry:')}     ${registryPath}`,
+          `${chalk.yellow('Updated:')}      ${updated} packages`,
+          `${chalk.dim('Unchanged:')}    ${unchanged} packages`,
+          held.length > 0
+            ? `${chalk.cyan('Held:')}         ${held.join('; ')} ${chalk.dim('(kept at the pin)')}`
+            : null,
+          unresolved.length > 0 ? `${chalk.red('Unresolved:')}   ${unresolved.join('; ')}` : null,
+          failed > 0 ? `${chalk.red('Skipped:')}      ${failed} packages` : null,
           dryRun ? chalk.yellow('\n⚠ Dry run — no changes written') : null,
         ]
           .filter(Boolean)
@@ -756,15 +828,23 @@ export default class SyncRegistry extends Command {
       )
 
       p.outro(
-        dryRun
-          ? chalk.yellow('Run without --dry-run to write changes')
-          : updated > 0
-            ? chalk.green(`Updated tables for ${updated} packages`)
-            : chalk.green('All tables are up to date'),
+        unresolved.length > 0
+          ? chalk.red(
+              `${unresolved.length} package(s) cannot be synced from this checkout — see Unresolved above`,
+            )
+          : dryRun
+            ? chalk.yellow('Run without --dry-run to write changes')
+            : updated > 0
+              ? chalk.green(`Updated tables for ${updated} packages`)
+              : chalk.green('All tables are up to date'),
       )
     }
 
-    return updated
+    if (unresolved.length > 0 && !dryRun) this.exit(1)
+
+    // Unresolved counts as drift for `--check` (the caller sums this value),
+    // and as work this command cannot do in write mode (it exits non-zero).
+    return updated + unresolved.length
   }
 
   /**

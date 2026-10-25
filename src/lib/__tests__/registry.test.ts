@@ -1,8 +1,9 @@
 import { existsSync, readdirSync } from 'node:fs'
-import { dirname, join } from 'node:path'
+import { dirname, join, relative } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
+import { compareVersions } from '../package-upgrades.js'
 import {
   clearRegistryCache,
   findPackageByRole,
@@ -23,7 +24,11 @@ import {
   ROUTE_SCANNED_TYPES,
   routesSignature,
   scanForRoutes,
+  scanForTables,
+  scanSetupSqlBundle,
 } from '../scanner.js'
+import { readPackageVersion } from '../setup-sql.js'
+import { planSetupSqlEntrySync } from '../setup-sql-version.js'
 
 describe('registry', () => {
   // These tests use the real registry.json
@@ -77,13 +82,25 @@ describe('registry', () => {
     // 500'd at runtime ("column ... does not exist"). `tables` is now kept in sync
     // by `mlcl sync-registry --scan-tables`. This asserts the invariant holds: any
     // package shipping setup SQL must declare its tables so the scaffold copies them.
+    //
+    // A package whose checkout is AHEAD of its registry pin is skipped and named:
+    // the entry describes the PINNED release, which may have shipped no SQL at
+    // all, so requiring tables here made "the sibling gained setup SQL" a state no
+    // registry could satisfy (P18 r11 review, R11-2).
     it('every package with setup SQL on disk declares non-empty tables', () => {
       const registry = getRawRegistry()
       const moleculeDir = join(dirname(getRegistryPath()), '..', 'molecule')
       const missing: string[] = []
+      const skipped: string[] = []
 
       for (const [name, entry] of Object.entries(registry.packages)) {
         const base = join(moleculeDir, entry.path)
+        const sourceVersion = readPackageVersion(base)
+        const pinned = getMoleculeVersion(name)
+        if (sourceVersion !== null && compareVersions(sourceVersion, pinned) > 0) {
+          skipped.push(`${name} (source ${sourceVersion}, pinned ${pinned})`)
+          continue
+        }
         const setupDir = existsSync(join(base, 'setup'))
           ? join(base, 'setup')
           : join(base, 'src', '__setup__')
@@ -99,7 +116,70 @@ describe('registry', () => {
 
       expect(
         missing,
-        `packages with setup SQL but empty registry tables — run \`mlcl sync-registry --scan-tables\`: ${missing.join(', ')}`,
+        `packages with setup SQL but empty registry tables — run \`mlcl sync-registry --scan-tables\`: ${missing.join(', ')}` +
+          (skipped.length ? `; skipped (sibling ahead of the pin): ${skipped.join(', ')}` : ''),
+      ).toEqual([])
+    })
+
+    // `setupSql` is the registry's copy of the BYTES each declared file carries,
+    // and `setupSqlVersion` the package version they belong to. It is what lets
+    // a `--skip-install` scaffold (no molecule checkout, no installed fleet)
+    // copy and preflight the real DDL — the production path that used to ship an
+    // empty `__setup__/`. A stale copy is worse than none, so it must equal the
+    // package's source byte for byte AND carry the source's own version: bytes
+    // from another release are another schema. Both sides are derived here,
+    // never listed by hand.
+    //
+    // The sibling comparison is tied to the PIN, and it is the SAME rule
+    // `sync-registry --scan-tables`/`--check` applies (`planSetupSqlEntrySync`),
+    // so a package cannot pass one gate and fail the other. Between a release's
+    // `pins` push and the next `version` commit, a package can be AHEAD of the
+    // version the registry pins — held by npm, blocked by an unserved dependency,
+    // or simply not pinned yet. Its bundle then belongs to the older release the
+    // pin names and no sibling bytes can match, so that entry keeps the pinned
+    // release's metadata and is named as skipped, never silently ignored.
+    // "Ahead" is decided from the sibling's OWN package.json version, so a
+    // package that gained or dropped setup SQL is still recognized as ahead
+    // (P18 r11 review, R11-2).
+    it('every entry records the PINNED release’s setup SQL, byte-for-byte and tagged', async () => {
+      const registry = getRawRegistry()
+      const moleculeDir = join(dirname(getRegistryPath()), '..', 'molecule')
+      const drifted: string[] = []
+      const held: string[] = []
+      const unresolved: string[] = []
+
+      for (const [name, entry] of Object.entries(registry.packages)) {
+        const base = join(moleculeDir, entry.path)
+        // Standalone mlcl checkout: no molecule sibling to scan. The workspace
+        // run covers this, and the zod schema still validates the shape.
+        if (!existsSync(base)) continue
+        const tables = (await scanForTables(base)).map((table) => ({
+          name: table.name,
+          sqlFile: relative(base, table.sqlFile),
+        }))
+        const plan = planSetupSqlEntrySync({
+          name,
+          entry,
+          sibling: {
+            tables,
+            bundle: await scanSetupSqlBundle(base),
+            version: readPackageVersion(base),
+          },
+          pinned: getMoleculeVersion(name),
+        })
+        if (plan.kind === 'update') drifted.push(name)
+        else if (plan.kind === 'held') held.push(plan.detail)
+        else if (plan.kind === 'unresolved') unresolved.push(plan.detail)
+      }
+
+      expect(
+        unresolved,
+        `the registry cannot record the pinned release's setup SQL — fix the entry (or check out the pin) before releasing: ${unresolved.join('; ')}`,
+      ).toEqual([])
+      expect(
+        drifted,
+        `registry setupSql/setupSqlVersion differs from the pinned package sources — run \`mlcl sync-registry --scan-tables\`: ${drifted.join(', ')}` +
+          (held.length ? `; held (sibling ahead of the pin): ${held.join(', ')}` : ''),
       ).toEqual([])
     })
   })

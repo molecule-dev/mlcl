@@ -15,6 +15,7 @@
 import { access, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
+import { isExactVersion } from './exact-version.js'
 import { t } from './i18n.js'
 import { bondNameToPascal, extractBondName, generateBondSetupCode } from './injector.js'
 import {
@@ -22,11 +23,12 @@ import {
   findRegistryPackage,
   getMoleculeVersion,
   getSharedCodeDir,
+  loadRegistry,
 } from './registry.js'
 import type { InferredPackage } from './schema.js'
 
 /** Which source produced the version chosen by {@link resolveAddVersion}. */
-export type AddVersionSource = 'npm' | 'registry' | 'fallback'
+export type AddVersionSource = 'npm' | 'registry' | 'requested' | 'fallback'
 
 /** Result of resolving the version to pin for an added package. */
 export interface ResolvedAddVersion {
@@ -36,15 +38,56 @@ export interface ResolvedAddVersion {
   source: AddVersionSource
 }
 
+/** A `mlcl add` argument split into the package name and an optional pin. */
+export interface AddArgument {
+  /** The npm package name (`@molecule/api-resource-user`, `express`). */
+  name: string
+  /** The exact version the operator asked for, when one was given. */
+  requestedVersion?: string
+}
+
+/**
+ * Split `mlcl add`'s argument into a package name and an optional `@version`.
+ *
+ * A scoped name begins with `@`, so the separator is the LAST `@` past index 0:
+ * `@molecule/api-resource-user@1.2.2` → name + `1.2.2`, while
+ * `@molecule/api-resource-user` stays one name. An explicit version is honoured
+ * only when it names ONE version (see {@link resolveAddVersion}); a range or tag
+ * is refused rather than handed to npm as a floating pin.
+ *
+ * @param spec - The raw argument.
+ * @returns The name and, when present, the requested version.
+ */
+export function parseAddArgument(spec: string): AddArgument {
+  const at = spec.lastIndexOf('@')
+  if (at > 0) {
+    const name = spec.slice(0, at)
+    const requestedVersion = spec.slice(at + 1)
+    if (name && requestedVersion) return { name, requestedVersion }
+  }
+  return { name: spec }
+}
+
 /**
  * Resolve the exact version to pin for a molecule package being added to a project.
  *
  * Resolution order (first that yields a non-empty version wins):
- * 1. `npm` — the published version from the npm registry (via `npmView`).
- * 2. `registry` — the exact lockstep version from the local molecule registry.
- *    Used when the package is not published to a public registry (the MVP state)
- *    or npm is unreachable (offline / private registry).
- * 3. `fallback` — `'latest'`, for a non-`@molecule/*` package with no registry
+ * 1. `requested` — a version the operator named explicitly
+ *    (`mlcl add pkg@1.2.3`). It must be exact: a range or tag does not name one
+ *    schema, and the preflight that follows cannot bind the package's setup SQL
+ *    to it, so it is refused before the manifest is touched.
+ * 2. `registry` — the exact lockstep version from the local molecule registry,
+ *    for a REGISTERED `@molecule/*` package. This is what `create` pins and what
+ *    the registry's shipped metadata (`sqlCapabilities`, `setupSql` +
+ *    `setupSqlVersion`) describes, so the preflight judges the version that will
+ *    actually be installed. npm `latest` is deliberately NOT consulted first: on
+ *    any CLI older than the newest molecule publish it names a version whose
+ *    bytes this registry does not carry — judging one release and pinning
+ *    another is exactly the bug this ordering removes.
+ * 3. `npm` — the published version, for a package the registry does not know
+ *    (a third-party dependency, or a `@molecule/*` package published before it
+ *    was registered).
+ * 4. `fallback` — `'latest'`, for a non-`@molecule/*` package with no registry
  *    entry whose npm lookup also failed.
  *
  * Never throws on an unresolved npm lookup — the whole point is to keep the
@@ -52,23 +95,50 @@ export interface ResolvedAddVersion {
  *
  * @param name - Package name to resolve (e.g. `@molecule/api-logger`).
  * @param npmView - Returns the published version, or throws when unresolvable.
+ * @param options - Optional explicit version the operator requested.
+ * @param options.requestedVersion - An exact version to pin, or a value that
+ *   cannot name one (refused).
  * @returns the resolved version plus which source produced it.
+ * @throws {Error} when an explicitly requested version is not exact — see above.
  */
 export async function resolveAddVersion(
   name: string,
   npmView: (name: string) => Promise<string>,
+  options: { requestedVersion?: string } = {},
 ): Promise<ResolvedAddVersion> {
+  if (options.requestedVersion !== undefined) {
+    if (!isExactVersion(options.requestedVersion)) {
+      // Two audiences, two remedies: a registry package's setup SQL is checked
+      // against the pin the registry carries, while a third-party package has no
+      // registry entry, no setup SQL and no pin to fall back to — telling its
+      // user about either is advice about a mechanism that does not exist
+      // (P18 r11 review, R11-14).
+      throw new Error(
+        findRegistryPackage(name)
+          ? `${name}@${options.requestedVersion} does not name one exact version — ` +
+              "a range, tag, path or URL cannot be checked against the registry's setup SQL. " +
+              'Request an exact version (e.g. @1.2.3) or let mlcl use the registry pin.'
+          : `${name}@${options.requestedVersion} does not name one exact version — mlcl pins ` +
+              'exact versions. Request the release you mean (e.g. ' +
+              `${name}@1.2.3, see \`npm view ${name} version\`), or omit the version to pin ` +
+              "npm's latest published release.",
+      )
+    }
+    return { version: options.requestedVersion, source: 'requested' }
+  }
+
+  if (name.startsWith('@molecule/') && findRegistryPackage(name)) {
+    return { version: getMoleculeVersion(name), source: 'registry' }
+  }
+
   try {
     const version = (await npmView(name)).trim()
     if (version) return { version, source: 'npm' }
   } catch (_error) {
     // npm registry lookup failed (404 for an unpublished package, offline, or a
-    // private registry). This is expected in the external-app MVP flow — fall
-    // through to the local registry instead of surfacing an opaque npm error.
-  }
-
-  if (name.startsWith('@molecule/') && findRegistryPackage(name)) {
-    return { version: getMoleculeVersion(name), source: 'registry' }
+    // private registry). This is expected in the external-app MVP flow — the
+    // caller falls back to the registry/latest policy below instead of surfacing
+    // an opaque npm error.
   }
 
   return { version: 'latest', source: 'fallback' }
@@ -225,6 +295,82 @@ export interface BondSwapResult extends BondPaths {
 }
 
 /**
+ * The manifest dependencies that exist ONLY as the replaced provider's molecule
+ * peers — the closure {@link ensureMoleculePeerClosure} (`scaffold.ts`) writes
+ * into every `mlcl create` manifest.
+ *
+ * A peer pin is not an app selection: it is there because the provider the
+ * swap just removed needs it. Once that provider is gone, a peer that no
+ * remaining package names stops being required, and leaving it in the manifest
+ * lets it outrank the bond the swap actually wired — the later renders
+ * (`migrateTemplateFor`, `databasePackageOf`, `readMigrateRunnerForManifest`)
+ * all read this manifest, so a leftover `@molecule/api-database-duckdb` pin
+ * from a MotherDuck app decided the runner and the migration header after a
+ * swap to PostgreSQL, PGlite, SQLite or MySQL.
+ *
+ * The rule is the closure's own contract, not a provider list: a candidate peer
+ * (a `moleculePeers` entry of the replaced provider that the manifest still
+ * pins) is dropped only when neither the remaining packages nor the swap target
+ * needs it — directly, transitively, or as the `defaultProvider` of a category
+ * nothing else in the manifest provides (the same condition
+ * `ensureMoleculePeerClosure` applies). A peer another installed package still
+ * requires, and the swap target itself, are always kept; a package the app
+ * declared for reasons the manifest cannot see is never in the candidate set.
+ *
+ * @param manifest - The manifest AFTER the swap target was added and the
+ *   replaced provider removed.
+ * @param replaced - Registry entry of the provider being removed.
+ * @param newName - Package name of the provider being added.
+ * @returns The dependency names to remove from whichever key holds them.
+ */
+function peerOnlyDependencies(
+  manifest: { dependencies?: Record<string, string>; devDependencies?: Record<string, string> },
+  replaced: InferredPackage,
+  newName: string,
+): string[] {
+  const peers = replaced.molecule?.moleculePeers ?? []
+  if (peers.length === 0) return []
+  const declared = new Set([
+    ...Object.keys(manifest.dependencies ?? {}),
+    ...Object.keys(manifest.devDependencies ?? {}),
+  ])
+  const candidates = peers.filter(
+    (name) => name !== newName && name !== replaced.name && declared.has(name),
+  )
+  if (candidates.length === 0) return []
+
+  const registry = new Map(loadRegistry().map((pkg) => [pkg.name, pkg]))
+  // Everything the manifest still holds apart from the candidates: the app's
+  // own selections and the peers of the databases/resources it keeps.
+  const kept = [...declared].filter((name) => name !== replaced.name && !candidates.includes(name))
+  const queue = [...kept, newName]
+  // A core's defaultProvider is part of the closure only when nothing else in
+  // the manifest provides its category — mirror `ensureMoleculePeerClosure` so
+  // a candidate that IS something's default provider is not dropped. (A swap
+  // onto another database provides the `database` category, so the leftover
+  // DuckDB bond is not a default provider here either.)
+  for (const name of [...kept, newName]) {
+    const fallback = registry.get(name)?.molecule?.defaultProvider
+    if (!fallback) continue
+    const provided = [...kept, newName].some((other) => {
+      const meta = registry.get(other)?.molecule
+      return meta?.implements === name && meta.type !== 'framework'
+    })
+    if (!provided) queue.push(fallback)
+  }
+  // Transitive closure over the same `moleculePeers` edges the scaffold
+  // writes: a peer of a peer is required too.
+  const required = new Set<string>()
+  while (queue.length > 0) {
+    const name = queue.shift()!
+    if (required.has(name)) continue
+    required.add(name)
+    for (const peer of registry.get(name)?.molecule?.moleculePeers ?? []) queue.push(peer)
+  }
+  return candidates.filter((name) => !required.has(name))
+}
+
+/**
  * Apply a provider swap to an existing project's bond wiring, atomically.
  *
  * This is the destructive core behind `mlcl swap`, extracted so it can be tested
@@ -245,6 +391,11 @@ export interface BondSwapResult extends BondPaths {
  *
  * The bonds directory is resolved via {@link resolveBondPaths} (framework-aware),
  * not a hardcoded `src/bonds`.
+ *
+ * The package.json rewrite also drops pins that existed only as the replaced
+ * provider's molecule peers ({@link peerOnlyDependencies}) — e.g. the local
+ * DuckDB bond a MotherDuck manifest carries — so the manifest every later
+ * render reads names the database the swap actually wired.
  *
  * @param input - The packages, versions, and project to swap within.
  * @returns the resolved paths plus whether the setup call was rewritten.
@@ -315,6 +466,21 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
   packageJson[depKey] = packageJson[depKey] ?? {}
   delete packageJson[depKey][oldPkg.name]
   packageJson[depKey][newName] = newVersion
+  // 3b. Drop the pins that existed ONLY as the replaced provider's molecule
+  // peers. `mlcl create` closes every manifest over the registry's
+  // `moleculePeers` graph, so a provider can carry dependencies the app never
+  // selected — MotherDuck's peers include `@molecule/api-database-duckdb`, and
+  // every MotherDuck manifest therefore pins the local DuckDB bond too. Left
+  // behind by a swap, that pin outranks the database the bond index now wires:
+  // every later render reads THIS manifest, so `migrateTemplateFor` re-rendered
+  // the DuckDB runner (migrating a local file while the app reads an unmigrated
+  // PostgreSQL database) and `databasePackageOf` stamped the DuckDB header on
+  // SQLite/MySQL apps. The set is computed from the same closure contract, not
+  // a provider list — see {@link peerOnlyDependencies}.
+  for (const orphan of peerOnlyDependencies(packageJson, oldPkg, newName)) {
+    delete packageJson.dependencies?.[orphan]
+    delete packageJson.devDependencies?.[orphan]
+  }
   const sorted: Record<string, string> = {}
   for (const key of Object.keys(packageJson[depKey]).sort()) {
     sorted[key] = packageJson[depKey][key]

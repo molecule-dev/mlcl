@@ -8,8 +8,10 @@ import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { t } from '../lib/i18n.js'
-import { resolveAddVersion } from '../lib/integrate.js'
+import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../lib/integrate.js'
+import { databasePackageOf } from '../lib/migration-dialect.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 
 const execAsync = promisify(exec)
@@ -49,7 +51,9 @@ export default class Add extends Command {
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Add)
     setTelemetryContext({ packages: args.molecule })
-    const moleculeName = args.molecule
+    // `pkg@1.2.3` names one exact version; a bare name uses the registry pin for
+    // a registered `@molecule/*` package (see `resolveAddVersion`).
+    const { name: moleculeName, requestedVersion } = parseAddArgument(args.molecule)
 
     p.intro(chalk.bgCyan(` ${t('commands.add.labels.intro')} `))
 
@@ -102,27 +106,74 @@ export default class Add extends Command {
       // Read package.json
       const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
 
-      // Resolve the exact version to pin. Prefers the published npm version, then
-      // falls back to the local molecule registry (packages may not be published
-      // in the external-app MVP flow), never throwing an opaque npm error.
-      const { version: resolvedVersion, source } = await resolveAddVersion(
-        moleculeName,
-        async (name) => {
-          // Array form — the package name is never shell-interpolated (same
-          // shape as check-package-upgrades.ts's npmViewFetcher).
-          const { stdout } = await execa('npm', ['view', name, 'version'], {
-            timeout: 20_000,
-            reject: true,
-          })
-          return stdout
-        },
-      )
+      // Resolve the exact version to pin. A registered `@molecule/*` package
+      // uses the registry's own lockstep pin (what `create` writes and what the
+      // registry's `setupSql`/`setupSqlVersion` describe), so the preflight below
+      // judges the bytes of the version this command writes. An explicit
+      // `pkg@version` must name exactly one version; a third-party package still
+      // resolves from npm, and nothing here ever throws an opaque npm error.
+      let resolvedVersion: string
+      let source: AddVersionSource
+      try {
+        ;({ version: resolvedVersion, source } = await resolveAddVersion(
+          moleculeName,
+          async (name) => {
+            // Array form — the package name is never shell-interpolated (same
+            // shape as check-package-upgrades.ts's npmViewFetcher).
+            const { stdout } = await execa('npm', ['view', name, 'version'], {
+              timeout: 20_000,
+              reject: true,
+            })
+            return stdout
+          },
+          { requestedVersion },
+        ))
+      } catch (error) {
+        spinner.stop(t('commands.add.spinners.addFailed'))
+        p.cancel(error instanceof Error ? error.message : String(error))
+        this.exit(1)
+      }
 
       if (source === 'fallback') {
         // Neither npm nor the registry knows the name: writing `latest` would break the exact-pin rule
         // and the next `npm install` would 404.
         spinner.stop(t('commands.add.spinners.addFailed'))
         this.error(t('commands.add.errors.notFound', { name: moleculeName }), { exit: 1 })
+      }
+
+      // --inject hands off to `mlcl inject`, which refuses a database that
+      // cannot replay this project's SQL. That refusal used to arrive AFTER the
+      // pin was written (and installed), so the app was left with a dependency
+      // that broke every later inject and looked like the user's change. Judge
+      // it HERE, before the manifest is touched: the pin and the install are
+      // the only writes `add` performs, so this is the last safe moment.
+      //
+      // The SQL set is the one the runner replays (`__setup__/` + `migrations/`)
+      // plus the package being added. Its bytes come from the shared resolver
+      // (`resolveSetupSqlSources`): an installed copy, the molecule source tree,
+      // or the exact SQL bundled in `registry.json` — so a standalone CLI that
+      // has not installed the package YET can still judge it. "Not installed" is
+      // not an input to defer: the vendor package publishes its setup SQL, and
+      // the registry carries those bytes.
+      if (flags.inject) {
+        const projectDeps = { ...packageJson.dependencies, ...packageJson.devDependencies }
+        try {
+          await assertDdlCompatibility({
+            projectPath: workDir,
+            packageNames: [moleculeName],
+            // The version this command is about to write. A registered package
+            // resolves to the registry pin (the version whose capability/setup
+            // metadata ships here); an explicit `pkg@x.y.z` binds to that exact
+            // version and refuses when no copy/bundle of it exists.
+            versions: { [moleculeName]: resolvedVersion },
+            sqlDirs: [join(workDir, '__setup__'), join(workDir, 'migrations')],
+            database: databasePackageOf([...Object.keys(projectDeps), moleculeName]) ?? undefined,
+          })
+        } catch (error) {
+          spinner.stop()
+          p.cancel(error instanceof Error ? error.message : String(error))
+          this.exit(1)
+        }
       }
 
       const depKey = flags.dev ? 'devDependencies' : 'dependencies'
@@ -164,10 +215,19 @@ export default class Add extends Command {
       }
 
       // --inject: hand off to `mlcl inject`, which wires the package into the
-      // project's bonds. inject prints its own summary and next steps.
+      // project's bonds. inject prints its own summary and next steps. Its own
+      // `install` flag defaults to true, so `--no-install` must be FORWARDED —
+      // otherwise a command that promised not to install started an `npm install`
+      // (r6 acceptance review, F11).
       if (flags.inject) {
         p.outro(chalk.green(`✓ ${t('commands.add.messages.success', { name: moleculeName })}`))
-        await this.config.runCommand('inject', ['--molecule', moleculeName, '-p', workDir])
+        await this.config.runCommand('inject', [
+          '--molecule',
+          moleculeName,
+          '-p',
+          workDir,
+          ...(flags['no-install'] ? ['--no-install'] : []),
+        ])
         return
       }
 

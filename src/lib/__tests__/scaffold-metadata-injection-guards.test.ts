@@ -38,6 +38,21 @@ import {
   resolvePackageDirectory,
 } from '../scaffold.js'
 import type { InferredPackage } from '../schema.js'
+import { readSetupSqlFileOwner } from '../setup-sql.js'
+
+/**
+ * The bytes below the owner line mlcl prepends to every `__setup__/` file.
+ *
+ * The owner line is how the next run knows whose file it is (r10 review, F6);
+ * the SQL payload after it is what replays, and it must be the package's own.
+ *
+ * @param content - A written `__setup__/` file.
+ * @returns Its SQL payload.
+ */
+function sqlPayload(content: string): string {
+  if (!readSetupSqlFileOwner(content)) return content
+  return content.slice(content.indexOf('\n') + 1)
+}
 
 const fontPackage = (font: Record<string, unknown>): InferredPackage[] => [
   {
@@ -194,44 +209,211 @@ describe('a declared sqlFile is only read from inside its own package', () => {
     dir = null
   })
 
-  it('copies a contained sqlFile and skips one that escapes the package', async () => {
+  /** A project + one source-tree package, with the given table declarations. */
+  async function fixture(
+    tables: { name: string; sqlFile: string }[],
+  ): Promise<{ projectPath: string; pkg: InferredPackage }> {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-sqlsetup-'))
     const projectPath = join(dir, 'app')
     const pkgPath = join(dir, 'pkgs', 'demo')
     await mkdir(join(projectPath, '__setup__'), { recursive: true })
     await mkdir(join(pkgPath, 'src', '__setup__'), { recursive: true })
-    const contained = 'CREATE TABLE contained();\n'
-    const outside = 'CREATE TABLE outside();\n'
-    await writeFile(join(pkgPath, 'src', '__setup__', 'demo.sql'), contained)
-    await writeFile(join(dir, 'outside.sql'), outside)
-
-    const pkg: InferredPackage = {
-      name: '@molecule/api-demo',
-      version: '1.0.0',
-      type: 'resource' as never,
-      dependencies: {},
-      peerDependencies: {},
-      routes: [],
-      tables: [
-        { name: 'demo', sqlFile: 'src/__setup__/demo.sql' },
-        { name: 'evil', sqlFile: '../../../outside.sql' },
-      ],
-      exports: [],
-      path: pkgPath,
-      molecule: {} as never,
+    await writeFile(join(pkgPath, 'src', '__setup__', 'demo.sql'), 'CREATE TABLE contained();\n')
+    await writeFile(
+      join(pkgPath, 'package.json'),
+      `${JSON.stringify({ name: '@molecule/api-demo', version: '1.0.0' }, null, 2)}\n`,
+    )
+    await writeFile(join(dir, 'outside.sql'), 'CREATE TABLE outside();\n')
+    return {
+      projectPath,
+      pkg: {
+        name: '@molecule/api-demo',
+        version: '1.0.0',
+        type: 'resource' as never,
+        dependencies: {},
+        peerDependencies: {},
+        routes: [],
+        tables,
+        exports: [],
+        path: pkgPath,
+        molecule: {} as never,
+      },
     }
-    await copySqlSetupScripts(projectPath, [pkg.name], [pkg])
+  }
 
-    // The legitimate declaration is still copied…
-    expect(await readFile(join(projectPath, '__setup__', 'demo.sql'), 'utf8')).toBe(contained)
-    // …and the escaping one never lands in the directory the runner replays.
-    await expect(readFile(join(projectPath, '__setup__', 'outside.sql'), 'utf8')).rejects.toThrow()
-    const copied: string[] = []
+  it('copies a contained sqlFile', async () => {
+    const { projectPath, pkg } = await fixture([
+      { name: 'demo', sqlFile: 'src/__setup__/demo.sql' },
+    ])
+    await copySqlSetupScripts(projectPath, [pkg.name], [pkg], { '@molecule/api-demo': '1.0.0' })
+    expect(sqlPayload(await readFile(join(projectPath, '__setup__', 'demo.sql'), 'utf8'))).toBe(
+      'CREATE TABLE contained();\n',
+    )
+  })
+
+  it('refuses a declaration that escapes its package, writing nothing at all', async () => {
+    const { projectPath, pkg } = await fixture([
+      { name: 'demo', sqlFile: 'src/__setup__/demo.sql' },
+      { name: 'evil', sqlFile: '../../../outside.sql' },
+    ])
+
+    // The preflight reports the same problem before `create` writes anything;
+    // the copier refuses too, so a corrupt declaration can never leave an app
+    // with a partial `__setup__/` (the contained file is not copied either).
+    await expect(
+      copySqlSetupScripts(projectPath, [pkg.name], [pkg], { '@molecule/api-demo': '1.0.0' }),
+    ).rejects.toThrow(/outside its package/)
     const { readdir } = await import('node:fs/promises')
-    for (const entry of await readdir(join(projectPath, '__setup__'))) {
-      copied.push(entry)
-      const body = await readFile(join(projectPath, '__setup__', entry), 'utf8')
-      expect(body, `${entry} must not carry the escaped file's bytes`).not.toBe(outside)
+    expect(await readdir(join(projectPath, '__setup__'))).toEqual([])
+  })
+})
+
+describe('copySqlSetupScripts and the compatibility preflight share one resolver', () => {
+  let dir: string | null = null
+
+  afterEach(async () => {
+    if (dir) await rm(dir, { recursive: true, force: true })
+    dir = null
+  })
+
+  const SQL = 'CREATE TABLE "addresses" ("id" UUID PRIMARY KEY);\n'
+  const VERSION = '1.0.0'
+  const VERSIONS = { '@molecule/api-resource-address': VERSION }
+
+  /** A project with an empty `__setup__/`, plus its own (absent) package root. */
+  async function project(): Promise<{ projectPath: string }> {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-sqlsetup-source-'))
+    const projectPath = join(dir, 'app', 'api')
+    await mkdir(join(projectPath, '__setup__'), { recursive: true })
+    return { projectPath }
+  }
+
+  const pkg = (path: string, molecule: Record<string, unknown> = {}): InferredPackage => ({
+    name: '@molecule/api-resource-address',
+    version: '1.0.0',
+    type: 'resource' as never,
+    dependencies: {},
+    peerDependencies: {},
+    routes: [],
+    tables: [{ name: 'addresses', sqlFile: 'src/__setup__/addresses.sql' }],
+    exports: [],
+    path,
+    molecule: molecule as never,
+  })
+
+  it('writes the SQL of a package installed ABOVE the project (production layout)', async () => {
+    // `mlcl create --skip-install` on the platform host: no molecule checkout,
+    // one fleet install above the project. The preflight always walked this
+    // chain; the copier only looked INSIDE the project, so the generated app
+    // shipped an empty `__setup__/`.
+    const { projectPath } = await project()
+    const fleetPackage = join(dir!, 'node_modules', '@molecule', 'api-resource-address')
+    await mkdir(join(fleetPackage, 'src', '__setup__'), { recursive: true })
+    await writeFile(join(fleetPackage, 'src', '__setup__', 'addresses.sql'), SQL)
+    // A real installed package declares the version its SQL belongs to; the
+    // copier binds to it instead of taking the first directory it finds.
+    await writeFile(
+      join(fleetPackage, 'package.json'),
+      `${JSON.stringify({ name: '@molecule/api-resource-address', version: VERSION }, null, 2)}\n`,
+    )
+
+    await copySqlSetupScripts(
+      projectPath,
+      ['@molecule/api-resource-address'],
+      [pkg('/nonexistent/molecule/checkout')],
+      VERSIONS,
+    )
+
+    expect(
+      sqlPayload(await readFile(join(projectPath, '__setup__', 'addresses.sql'), 'utf8')),
+    ).toBe(SQL)
+  })
+
+  it('writes the registry’s bundled SQL when no copy exists anywhere', async () => {
+    const { projectPath } = await project()
+    await copySqlSetupScripts(
+      projectPath,
+      ['@molecule/api-resource-address'],
+      [
+        pkg('/nonexistent/molecule/checkout', {
+          setupSql: { 'src/__setup__/addresses.sql': SQL },
+          setupSqlVersion: VERSION,
+        }),
+      ],
+      VERSIONS,
+    )
+    expect(
+      sqlPayload(await readFile(join(projectPath, '__setup__', 'addresses.sql'), 'utf8')),
+    ).toBe(SQL)
+  })
+
+  it('refuses, writing nothing, when neither a copy nor bundled SQL exists', async () => {
+    const { projectPath } = await project()
+    await expect(
+      copySqlSetupScripts(
+        projectPath,
+        ['@molecule/api-resource-address'],
+        [pkg('/nonexistent/molecule/checkout')],
+        VERSIONS,
+      ),
+    ).rejects.toThrow(/bundles no setup SQL/)
+    const { readdir } = await import('node:fs/promises')
+    expect(await readdir(join(projectPath, '__setup__'))).toEqual([])
+  })
+
+  it('refuses two packages that would write one destination with different bytes (F8)', async () => {
+    // The writer names the destination by BASENAME, so `src/__setup__/x.sql` and
+    // `setup/x.sql` collide. Different bytes used to be a silent overwrite: one
+    // package's schema shipped and the other's table was simply missing.
+    const { projectPath } = await project()
+    const first: InferredPackage = {
+      ...pkg('/nonexistent/checkout-a', {
+        setupSql: { 'src/__setup__/shared.sql': 'CREATE TABLE a (id int);\n' },
+        setupSqlVersion: VERSION,
+      }),
+      tables: [{ name: 'a', sqlFile: 'src/__setup__/shared.sql' }],
     }
+    const second: InferredPackage = {
+      ...pkg('/nonexistent/checkout-b', {
+        setupSql: { 'setup/shared.sql': 'CREATE TABLE b (id int);\n' },
+        setupSqlVersion: VERSION,
+      }),
+      name: '@molecule/api-other',
+      tables: [{ name: 'b', sqlFile: 'setup/shared.sql' }],
+    }
+    const versions = { [first.name]: VERSION, [second.name]: VERSION }
+    await expect(
+      copySqlSetupScripts(projectPath, [first.name, second.name], [first, second], versions),
+    ).rejects.toThrow(/DIFFERENT bytes/)
+    const { readdir } = await import('node:fs/promises')
+    // Refused BEFORE writing — not a partial `__setup__/`.
+    expect(await readdir(join(projectPath, '__setup__'))).toEqual([])
+  })
+
+  it('writes one file when two packages declare the same destination with identical bytes (F8 control)', async () => {
+    const { projectPath } = await project()
+    const sql = 'CREATE TABLE a (id int);\n'
+    const first: InferredPackage = {
+      ...pkg('/nonexistent/checkout-a', {
+        setupSql: { 'src/__setup__/shared.sql': sql },
+        setupSqlVersion: VERSION,
+      }),
+      tables: [{ name: 'a', sqlFile: 'src/__setup__/shared.sql' }],
+    }
+    const second: InferredPackage = {
+      ...pkg('/nonexistent/checkout-b', {
+        setupSql: { 'setup/shared.sql': sql },
+        setupSqlVersion: VERSION,
+      }),
+      name: '@molecule/api-other',
+      tables: [{ name: 'a', sqlFile: 'setup/shared.sql' }],
+    }
+    const versions = { [first.name]: VERSION, [second.name]: VERSION }
+    await copySqlSetupScripts(projectPath, [first.name, second.name], [first, second], versions)
+    const { readdir } = await import('node:fs/promises')
+    expect(await readdir(join(projectPath, '__setup__'))).toEqual(['shared.sql'])
+    expect(sqlPayload(await readFile(join(projectPath, '__setup__', 'shared.sql'), 'utf8'))).toBe(
+      sql,
+    )
   })
 })

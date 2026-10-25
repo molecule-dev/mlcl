@@ -5,6 +5,8 @@ import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { assertDdlCompatibility } from '../lib/database-compatibility.js'
+import { DDL_INCOMPATIBLE_EXIT, isDdlCompatibilityFailure } from '../lib/ddl-exit.js'
 import {
   buildFeatureMenu,
   collectFeaturePackages,
@@ -18,6 +20,7 @@ import {
 import { formatGeneratedFiles } from '../lib/format.js'
 import { t } from '../lib/i18n.js'
 import {
+  getMoleculeVersion,
   getPackageStack,
   loadAppFrameworks,
   loadRegistry,
@@ -68,6 +71,54 @@ export function isStaticExcluded(pkg: InferredPackage | undefined): boolean {
   if (!pkg?.molecule) return false
   if (STATIC_EXCLUDED_CATEGORIES.has(pkg.molecule.category)) return true
   return (pkg.molecule.generates ?? []).some((g) => g.startsWith('service-worker'))
+}
+
+/**
+ * The injector's warning lines from a captured child `stderr`.
+ *
+ * `create` runs `inject` as a CHILD with `stdio: 'pipe'`, so on success the
+ * child's output is never shown. The injector raises everything advisory
+ * through oclif's `this.warn`, which writes `… Warning: <message>` to stderr —
+ * the one channel a successful scaffold must not drop, because a silent gap
+ * (say, a stale copy's dependency metadata not written) is exactly what
+ * `--skip-install` beside an older fleet install used to produce (r10
+ * acceptance review, F11).
+ *
+ * oclif WRAPS a long message over several ` ›   ` lines, so a warning is the
+ * `Warning:` line plus every continuation line until the next non-continuation
+ * line. Spinner frames, progress lines and ordinary output stay captured.
+ *
+ * @param stderr - The child's captured stderr.
+ * @returns One message per warning, prefix, colour and wrapping removed.
+ */
+export function injectWarningLines(stderr: string): string[] {
+  const warnings: string[] = []
+  let current: string | null = null
+  const flush = (): void => {
+    if (current !== null) warnings.push(current)
+    current = null
+  }
+  for (const raw of `${stderr ?? ''}`.split('\n')) {
+    const clean = raw
+      // eslint-disable-next-line no-control-regex
+      .replace(/\x1B\[[0-9;]*m/g, '')
+      .trimEnd()
+    const marker = clean.indexOf('Warning: ')
+    if (marker >= 0) {
+      flush()
+      current = clean.slice(marker + 'Warning: '.length).trim()
+      continue
+    }
+    const continuation = /^\s*›\s+(.*)$/.exec(clean)
+    if (current !== null && continuation) {
+      current = `${current} ${continuation[1]!.trim()}`.trim()
+      continue
+    }
+    // Any other line belongs to the spinner/progress output.
+    flush()
+  }
+  flush()
+  return warnings.map((warning) => warning.replace(/\s+/g, ' ').trim())
 }
 
 export default class Create extends Command {
@@ -326,9 +377,49 @@ export default class Create extends Command {
           ensureAgentsMd,
           ensureReadmeMd,
           ensureRootNpmrc,
+          readTemplatePackages,
+          readTemplateSetupSqlVersions,
           stampMoleculeMetadata,
         } = await import('../lib/scaffold.js')
-        await copyTemplateInstance(templateInstanceDir, projectPath, projectName)
+
+        // Refuse a template whose OWN database provider cannot apply its SQL —
+        // BEFORE the tree copy, so no half-built project is left behind.
+        //
+        // `--template` ignores `--packages`, but the template still declares its
+        // own provider (its `api/package.json`) and its own `api/migrations/*.sql`,
+        // and the scaffold copies the declared packages' setup SQL into
+        // `api/__setup__/`. Judging only the caller's package list would leave
+        // every template unchecked — the same class of boot failure the custom
+        // path refuses (a DuckDB template with a cascading FK never migrates).
+        //
+        // The resolution is the TARGET's, not the template source's: the copier
+        // runs against `<project>/api` (F4), so this walk-up starts there too and
+        // both see the same node_modules chain. The version map comes from the
+        // template's own manifests (what the copied project will pin), and the
+        // registry slice is the API one — exactly what `copyTemplateInstance`
+        // passes to the same resolver. A nested install beside the template
+        // source can therefore never supply the bytes a scaffolded app receives.
+        const templateApiPath = join(templateInstanceDir, 'api')
+        const setupSqlVersions = await readTemplateSetupSqlVersions(templateInstanceDir)
+        {
+          try {
+            const { projectDatabasePackage } = await import('../lib/migration-dialect.js')
+            await assertDdlCompatibility({
+              projectPath: join(projectPath, 'api'),
+              packageNames: await readTemplatePackages(templateInstanceDir),
+              versions: setupSqlVersions,
+              packages: loadRegistry('api'),
+              // The template's OWN migrations are the bytes the tree copy lands;
+              // the target has none until that copy has happened.
+              sqlDirs: [join(templateApiPath, 'migrations')],
+              database: (await projectDatabasePackage(templateApiPath)) ?? undefined,
+            })
+          } catch (error) {
+            this.error(error instanceof Error ? error.message : String(error))
+          }
+        }
+
+        await copyTemplateInstance(templateInstanceDir, projectPath, projectName, setupSqlVersions)
         await ensureAgentsMd(projectPath)
         await ensureRootNpmrc(projectPath)
         await ensureReadmeMd(projectPath, projectName, flags.type ?? 'full-stack', flags.framework)
@@ -735,6 +826,16 @@ export default class Create extends Command {
     const uniquePackages = [...new Set(selectedPackageNames)]
     log(`Total unique packages: ${uniquePackages.length}`)
 
+    // The exact version this scaffold is pinning for every selected package
+    // (`addPackages` writes `getMoleculeVersion`). Computed ONCE and handed to
+    // both the Step 8b preflight and the Step 11 copier, so the bytes judged and
+    // the bytes written are the same package/version/SQL tuples by construction —
+    // a parent fleet install or a sibling checkout of another version is not the
+    // input either of them may use.
+    const setupSqlVersions: Record<string, string> = Object.fromEntries(
+      uniquePackages.map((name) => [name, getMoleculeVersion(name)]),
+    )
+
     // Extract build tooling from any selected provider that declares it
     const buildToolingProvider = allPackages.find(
       (p) => uniquePackages.includes(p.name) && p.molecule?.buildTooling,
@@ -751,6 +852,35 @@ export default class Create extends Command {
     const npmOverrides = collectNpmOverrides(uniquePackages, allPackages)
     if (Object.keys(npmOverrides).length > 0) {
       log(`npm overrides (root): ${JSON.stringify(npmOverrides)}`)
+    }
+
+    // Step 8b: Refuse a database bond that cannot apply the setup SQL this
+    // selection ships — BEFORE the scaffold writes anything, so a refused
+    // combination leaves no directory at all. Without this check the app is
+    // generated, `server.ts` awaits `runMigrations()` at boot, and the API never
+    // starts (DuckDB rejects foreign-key referential actions and partial indexes,
+    // which 21 of 46 registry resource packages use). The SQL is resolved through
+    // Node's own walk-up (`installedPackageRoot` in `database-compatibility.ts`),
+    // bound to the exact version this scaffold pins and STEP 11's copier uses, so
+    // the bytes judged are the bytes the generated app will import.
+    {
+      const apiPath = isFullStack
+        ? join(projectPath, 'api')
+        : projectType === 'api'
+          ? projectPath
+          : null
+      if (apiPath) {
+        try {
+          await assertDdlCompatibility({
+            projectPath: apiPath,
+            packageNames: uniquePackages,
+            versions: setupSqlVersions,
+            packages: allPackages,
+          })
+        } catch (error) {
+          this.error(error instanceof Error ? error.message : String(error))
+        }
+      }
     }
 
     spinner?.start(t('commands.create.spinners.creating'))
@@ -970,6 +1100,20 @@ export default class Create extends Command {
           spinner?.stop(t('commands.create.spinners.injected', { workspace }))
           log(t('commands.create.spinners.injected', { workspace }))
         } catch (e) {
+          // The injector refused DDL compatibility (its dedicated exit status):
+          // the app could never migrate at boot, so the scaffold FAILS rather
+          // than reporting success over an un-injected project (r7 review, N1).
+          // Every other inject failure keeps the warn-and-continue treatment a
+          // `--skip-install` scaffold needs.
+          if (isDdlCompatibilityFailure(e)) {
+            spinner?.stop(chalk.red(t('commands.create.spinners.injectSkipped', { workspace })))
+            this.error(
+              t('commands.create.errors.injectDdlIncompatible', {
+                command: chalk.cyan(`mlcl inject -p ${wsPath}`),
+              }),
+              { exit: DDL_INCOMPATIBLE_EXIT },
+            )
+          }
           spinner?.stop(chalk.yellow(t('commands.create.spinners.injectSkipped', { workspace })))
           log(t('commands.create.spinners.injectSkipped', { workspace }))
           log(`  Inject error: ${e instanceof Error ? e.message : String(e)}`)
@@ -978,11 +1122,22 @@ export default class Create extends Command {
     } else {
       spinner?.start(t('commands.create.spinners.injectingSingle'))
       log(t('commands.create.spinners.injectingSingle'))
+      const injectPath = hasAppSubdir ? join(projectPath, 'app') : projectPath
       try {
-        await this.runInject(hasAppSubdir ? join(projectPath, 'app') : projectPath, fastInject)
+        await this.runInject(injectPath, fastInject)
         spinner?.stop(t('commands.create.spinners.injectedSingle'))
         log(t('commands.create.spinners.injectedSingle'))
       } catch (e) {
+        // Same rule as the full-stack branch: an injector DDL refusal is fatal.
+        if (isDdlCompatibilityFailure(e)) {
+          spinner?.stop(chalk.red(t('commands.create.spinners.injectSkippedSingle')))
+          this.error(
+            t('commands.create.errors.injectDdlIncompatible', {
+              command: chalk.cyan(`mlcl inject -p ${injectPath}`),
+            }),
+            { exit: DDL_INCOMPATIBLE_EXIT },
+          )
+        }
         spinner?.stop(chalk.yellow(t('commands.create.spinners.injectSkippedSingle')))
         log(t('commands.create.spinners.injectSkippedSingle'))
         log(`  Inject error: ${e instanceof Error ? e.message : String(e)}`)
@@ -1065,10 +1220,10 @@ export default class Create extends Command {
     // Step 11: Copy SQL setup scripts (API and full-stack)
     if (isFullStack) {
       const apiPath = join(projectPath, 'api')
-      await copySqlSetupScripts(apiPath, uniquePackages, allPackages)
+      await copySqlSetupScripts(apiPath, uniquePackages, allPackages, setupSqlVersions)
       log(t('commands.create.messages.sqlCopied'))
     } else if (projectType === 'api') {
-      await copySqlSetupScripts(projectPath, uniquePackages, allPackages)
+      await copySqlSetupScripts(projectPath, uniquePackages, allPackages, setupSqlVersions)
       log(t('commands.create.messages.sqlCopied'))
     }
 
@@ -1297,8 +1452,15 @@ export default class Create extends Command {
     if (fast) {
       args.push('--no-test', '--no-format', '--no-ai')
     }
-    await execa('node', args, {
+    const result = await execa('node', args, {
       stdio: 'pipe',
     })
+    // `stdio: 'pipe'` keeps the child's output invisible on success, and the
+    // injector's WARNINGS are exactly the part a scaffold must not lose: a stale
+    // installed copy whose dependency metadata was therefore not written, or a
+    // migration that could not be planned. They all go through oclif's
+    // `this.warn` (stderr, `Warning: …`), so forward those lines and leave the
+    // spinners and progress output captured.
+    for (const warning of injectWarningLines(result.stderr ?? '')) this.warn(warning)
   }
 }

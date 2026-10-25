@@ -87,6 +87,7 @@ import { execa } from 'execa'
 
 import { generateCode, isAIAvailable } from './ai.js'
 import { buildPackageContext, loadMoleculeMdBatch } from './ai-context.js'
+import { isExactVersion } from './exact-version.js'
 import { sortImportStatements } from './format.js'
 import { t } from './i18n.js'
 import { generateLocaleArrayCode } from './locales.js'
@@ -103,6 +104,13 @@ import {
 } from './registry.js'
 import { scanPackage } from './scanner.js'
 import type { InferredPackage } from './schema.js'
+import {
+  bindIntendedVersion,
+  installedPackageRoots,
+  isInsideDir,
+  readPackageVersion,
+  resolveSetupSqlSources,
+} from './setup-sql.js'
 
 // =============================================================================
 // API Framework Configuration
@@ -239,6 +247,13 @@ export interface InjectionPlan {
    * not a silent success; the inject command warns on each and exits 1.
    */
   migrationFailures?: string[]
+  /**
+   * Operator-facing notes that are NOT failures — one per condition the run
+   * carried on through (for example a stale installed copy whose own dependency
+   * metadata was therefore not written). The inject command prints each under
+   * its warnings heading; the exit status is unaffected.
+   */
+  warnings?: string[]
 }
 
 export interface FileOperation {
@@ -299,45 +314,107 @@ export interface InjectionOptions {
   verbose?: boolean
 }
 
+/** The package root a plan may read, plus the copies it had to skip. */
+export interface MoleculePackageLookup {
+  /** The usable root, or null when no copy qualifies. */
+  path: string | null
+  /** Versions of copies that exist but do not declare the intended version. */
+  foundVersions: string[]
+}
+
 /**
  * Find molecule package path in node_modules or via file: protocol paths.
  * Walks up the directory tree to handle npm workspaces where packages
  * are hoisted to the workspace root's node_modules. Also checks the
  * project's package.json for file: protocol entries (monorepo dev).
+ *
+ * @param moleculeName - The `@molecule/*` package to locate.
+ * @param projectPath - The api workspace whose manifest declares it.
+ * @returns The package root, or null when it is not reachable.
  */
 export async function findMoleculePackage(
   moleculeName: string,
   projectPath: string,
 ): Promise<string | null> {
-  // Check node_modules (walk up for workspace hoisting)
-  let current = projectPath
-  const root = dirname(current) === current ? current : '/'
+  return (await resolveMoleculePackage(moleculeName, projectPath)).path
+}
 
-  while (current !== root) {
-    const candidate = join(current, 'node_modules', moleculeName)
-    try {
-      await access(candidate)
-      return candidate
-    } catch (_error) {
-      // access() throws when the candidate doesn't exist — safe to walk up
-    }
-    const parent = dirname(current)
-    if (parent === current) break
-    current = parent
+/**
+ * Locate the copy of `moleculeName` a plan may read, bound to the EXACT version
+ * the invocation is pinning when it knows one.
+ *
+ * The injector is the third writer of a package's SQL. The preflight and the
+ * `__setup__/` copier both resolve bytes through {@link resolveSetupSqlSources},
+ * which refuses a root whose own `package.json` is not the intended version;
+ * this planner used to take the NEAREST walk-up copy whatever its version, so a
+ * `--skip-install` scaffold beside an older fleet install wrote that release's
+ * migrations beside the pinned release's code (`__setup__/` came from 1.0.4, the
+ * migration replaying before it came from 1.0.0). The same contract applies
+ * here: an installed/source/registry root must declare the intended version to
+ * be usable, a matching copy further up still counts, and nothing matching is a
+ * refusal — never another version's schema.
+ *
+ * Without an exact version to bind to (an un-pinned manifest, a `file:` pin the
+ * project declared itself), the nearest copy is what the app will run, so it is
+ * used as before.
+ *
+ * @param moleculeName - The `@molecule/*` package to locate.
+ * @param projectPath - The api workspace whose manifest declares it.
+ * @param version - The exact version the caller is pinning, when it knows one.
+ * @returns The usable root (or null) and the versions that were found instead.
+ */
+export async function resolveMoleculePackage(
+  moleculeName: string,
+  projectPath: string,
+  version?: string,
+): Promise<MoleculePackageLookup> {
+  const foundVersions: string[] = []
+  const exact = isExactVersion(version)
+  const matches = (root: string): boolean => {
+    const declared = readPackageVersion(root)
+    if (declared === version) return true
+    foundVersions.push(declared ?? 'of unknown version')
+    return false
   }
 
-  // Check file: protocol paths in package.json (for --skip-install / monorepo dev)
+  if (exact) {
+    // The SAME roots the setup-SQL preflight walks (Node's own resolution), so
+    // the planner and the copier can only ever read a matching root.
+    for (const root of installedPackageRoots(projectPath, moleculeName)) {
+      if (matches(root)) return { path: root, foundVersions }
+    }
+  } else {
+    // No exact version to bind to: the nearest copy is what the app will run.
+    let current = projectPath
+    const stop = dirname(current) === current ? current : '/'
+    while (current !== stop) {
+      const candidate = join(current, 'node_modules', moleculeName)
+      try {
+        await access(candidate)
+        return { path: candidate, foundVersions }
+      } catch (_error) {
+        // access() throws when the candidate doesn't exist — safe to walk up
+      }
+      const parent = dirname(current)
+      if (parent === current) break
+      current = parent
+    }
+  }
+
+  // Check file: protocol paths in package.json (for --skip-install / monorepo
+  // dev). An explicit local dependency is what the project declared, so it wins
+  // — but when the caller names a version it must still declare that version.
   try {
     const packageJsonPath = join(projectPath, 'package.json')
     const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
-    const version =
+    const declared =
       packageJson.dependencies?.[moleculeName] ?? packageJson.devDependencies?.[moleculeName]
-    if (version && version.startsWith('file:')) {
-      const filePath = version.slice(5) // Remove 'file:' prefix
+    if (typeof declared === 'string' && declared.startsWith('file:')) {
+      const filePath = declared.slice(5) // Remove 'file:' prefix
       const resolved = filePath.startsWith('/') ? filePath : join(projectPath, filePath)
       try {
         await access(resolved)
-        return resolved
+        if (!exact || matches(resolved)) return { path: resolved, foundVersions }
       } catch (_error) {
         // file: path not accessible — safe to skip, other resolution paths follow
       }
@@ -374,7 +451,7 @@ export async function findMoleculePackage(
       if (entry?.path) {
         try {
           await access(entry.path)
-          return entry.path
+          if (!exact || matches(entry.path)) return { path: entry.path, foundVersions }
         } catch (_error) {
           // registry path not accessible (unusual — registry is sync'd); safe to fall through
         }
@@ -384,16 +461,43 @@ export async function findMoleculePackage(
     }
   }
 
-  return null
+  return { path: null, foundVersions }
+}
+
+/** What a caller knows about the versions it is pinning — see {@link planInjection}. */
+export interface PlanInjectionOptions {
+  /**
+   * The exact version this invocation is pinning for each molecule: the
+   * project manifest's own pin, the selection `create`/`add` is about to write.
+   * A molecule with an entry here has its setup SQL read from the version-bound
+   * resolver at exactly that version — an installed/source copy that declares
+   * it, else the registry's bundled bytes for it. Absent or `undefined` keeps
+   * the previous behaviour (read the copy on disk).
+   */
+  versions?: Readonly<Record<string, string | undefined>>
+  /**
+   * The registry slice to resolve bundled setup SQL against. Defaults to
+   * {@link loadRegistry}; tests pass their own so a fixture package can declare
+   * `setupSql` without touching the real registry.
+   */
+  packages?: readonly InferredPackage[]
 }
 
 /**
  * Plan injection for a molecule
+ *
+ * @param moleculeName - The package to inject.
+ * @param projectPath - The api workspace to inject into.
+ * @param sharedCodeDir - Framework shared-code subdirectory, when any.
+ * @param options - The exact versions this invocation is pinning, when known.
+ * @returns The plan; a plan whose package could not be resolved contributes
+ *   nothing and carries the reason in `conflicts`.
  */
 export async function planInjection(
   moleculeName: string,
   projectPath: string,
   sharedCodeDir?: string,
+  options?: PlanInjectionOptions,
 ): Promise<InjectionPlan> {
   const plan: InjectionPlan = {
     molecule: moleculeName,
@@ -420,12 +524,56 @@ export async function planInjection(
     return plan
   }
 
-  // Find the molecule package
-  const packagePath = await findMoleculePackage(moleculeName, projectPath)
+  // The version this invocation is pinning. An exact pin IS that version. A
+  // version RANGE still names the set the app accepts, so it binds to the copy
+  // Node resolves for the project when that copy is inside the range, else to
+  // the registry's own pin when THAT is inside it; a range nothing available
+  // satisfies is refused naming what was found, and a spec that names no
+  // evaluable version at all (`file:`, `workspace:*`, a dist-tag) stays unbound
+  // and keeps the nearest-copy contract (P18 r11 review, R11-6).
+  const binding = bindIntendedVersion({
+    packageName: moleculeName,
+    pin: options?.versions?.[moleculeName],
+    projectPath,
+    // Only a package the DEPLOYED registry knows has a pin to fall back to; a
+    // fixture or third-party registry entry names no version the CLI ships.
+    registryPin: findRegistryPackage(moleculeName) ? getMoleculeVersion(moleculeName) : undefined,
+  })
+  if (binding.kind === 'refused') {
+    plan.conflicts.push({ path: moleculeName, message: binding.message })
+    return plan
+  }
+  const intendedVersion = binding.kind === 'bound' ? binding.version : undefined
+
+  // Find the molecule package. A copy at the intended exact version is what the
+  // app will run, so it supplies the package metadata (routes, exports, type).
+  // When there is none, the nearest copy still describes the package well enough
+  // to generate code from — but it may be ANOTHER release, so its SQL is never
+  // used; the bytes come from the version-bound resolver below.
+  const lookup = await resolveMoleculePackage(moleculeName, projectPath, intendedVersion)
+  let packagePath = lookup.path
+  if (!packagePath && intendedVersion !== undefined) {
+    // No copy at the pinned version (a `--skip-install` scaffold beside an older
+    // fleet install, a stale project install). The nearest copy is the one the
+    // app would run if nothing installed, and its metadata is what code
+    // generation needs; only the SQL is bound (see `readSetupSql`). The pin
+    // below stays at the intended version either way, so the plan cannot
+    // replace the project's dependency pin with a stale copy's version.
+    const fallback = await resolveMoleculePackage(moleculeName, projectPath)
+    if (fallback.path) {
+      packagePath = fallback.path
+    }
+  }
   if (!packagePath) {
     plan.conflicts.push({
       path: moleculeName,
-      message: t('lib.injector.errors.packageNotFound', { name: moleculeName }),
+      message: intendedVersion
+        ? t('lib.injector.errors.packageVersionNotFound', {
+            name: moleculeName,
+            version: intendedVersion,
+            found: [...new Set(lookup.foundVersions)].join(', ') || 'no copy',
+          })
+        : t('lib.injector.errors.packageNotFound', { name: moleculeName }),
     })
     return plan
   }
@@ -459,6 +607,89 @@ export async function planInjection(
     return plan
   }
 
+  // The SQL this plan writes into `migrations/` comes from the SAME version-bound
+  // resolver the preflight and `__setup__/` copier use, at the exact version the
+  // caller is pinning: an installed/source copy that declares it, else the
+  // registry's bundled bytes for it, else a problem (never another release's
+  // bytes). Resolved lazily, per file, so a file whose migration already exists
+  // is never resolved or judged (r6 acceptance review, F1: nothing replays a
+  // plan that writes nothing).
+  //
+  // A package the registry does not describe (`registry.json` has no entry, or
+  // declares no SQL for it: a test fixture's, a third party's, a package whose
+  // SQL metadata predates this registry) has no bundle and no declared file list
+  // to resolve against — so its own copy on disk is the only source. That copy
+  // is NOT necessarily the pinned release: `resolveMoleculePackage` falls back to
+  // the nearest one for the METADATA, which is safe to read and unsafe to copy.
+  // The fallback reader below therefore re-checks the copy's own version for
+  // every file and refuses rather than writing another release's schema beside
+  // the pinned code (P18 r11 review, R11-5).
+  const registryEntry = (options?.packages ?? loadRegistry()).find(
+    (entry) => entry.name === moleculeName,
+  )
+  const packageRoot = packagePath
+  let setupSqlResolution: Awaited<ReturnType<typeof resolveSetupSqlSources>> | undefined
+  const readSetupSql =
+    intendedVersion === undefined
+      ? undefined
+      : registryEntry && registryEntry.tables.length > 0
+        ? async (relativeFile: string): Promise<{ sql: string } | { problem: string }> => {
+            setupSqlResolution ??= await resolveSetupSqlSources({
+              projectPath,
+              packageNames: [moleculeName],
+              versions: { [moleculeName]: intendedVersion },
+              packages: options?.packages,
+            })
+            const normalized = relativeFile.split(sep).join('/')
+            const source = setupSqlResolution.sources.find(
+              (candidate) => candidate.sqlFile === normalized || candidate.sqlFile === relativeFile,
+            )
+            if (source) return { sql: source.sql }
+            const problem = setupSqlResolution.problems.find(
+              (candidate) =>
+                candidate.sqlFile === undefined ||
+                candidate.sqlFile === normalized ||
+                candidate.sqlFile === relativeFile,
+            )
+            return {
+              problem:
+                problem?.message ??
+                t('lib.injector.errors.setupSqlUnavailable', {
+                  name: moleculeName,
+                  file: relativeFile,
+                  version: intendedVersion,
+                }),
+            }
+          }
+        : async (relativeFile: string): Promise<{ sql: string } | { problem: string }> => {
+            const copyVersion = readPackageVersion(packageRoot)
+            if (copyVersion !== intendedVersion)
+              return {
+                problem: t('lib.injector.errors.setupSqlVersionSkewed', {
+                  name: moleculeName,
+                  version: intendedVersion,
+                  copyVersion: copyVersion ?? t('lib.injector.errors.unknownVersion'),
+                  path: packageRoot,
+                }),
+              }
+            const file = join(packageRoot, relativeFile)
+            if (!isInsideDir(packageRoot, file))
+              return {
+                problem:
+                  `${moleculeName} declares ${relativeFile} outside ${packageRoot} — refusing to ` +
+                  'read it; fix the package metadata.',
+              }
+            try {
+              return { sql: await readFile(file, 'utf-8') }
+            } catch (error) {
+              return {
+                problem:
+                  `Cannot read ${moleculeName}:${relativeFile} from ${packageRoot} (${String(error)}) — ` +
+                  'reinstall the package and re-run.',
+              }
+            }
+          }
+
   // Plan file operations based on package type
   if (pkg.type === 'resource' && pkg.molecule?.middlewareMountPath) {
     // Router-factory resource (e.g. api-resource-invoice's createInvoiceRouter):
@@ -466,7 +697,7 @@ export async function planInjection(
     // middleware — the App/Resource requestHandlerMap convention doesn't apply.
     await planMiddlewareInjection(plan, pkg, projectPath)
   } else if (pkg.type === 'resource') {
-    await planResourceInjection(plan, pkg, projectPath)
+    await planResourceInjection(plan, pkg, projectPath, readSetupSql)
   } else if (pkg.type === 'bond') {
     await planBondInjection(plan, pkg, projectPath, sharedCodeDir)
   } else if (pkg.type === 'middleware') {
@@ -475,26 +706,150 @@ export async function planInjection(
     // Generic package - just add as dependency
   }
 
-  // Add the main package as dependency
+  // Add the main package as dependency. The pin is the INTENDED exact version
+  // when the caller named one: a copy of another release must never replace the
+  // dependency the project asked for, even where its code is safe to read.
   plan.dependencies.push({
     name: pkg.name,
-    version: `${pkg.version}`,
+    version: pkg.name === moleculeName && intendedVersion ? intendedVersion : `${pkg.version}`,
     type: 'dependency',
   })
 
+  // Whose dependency metadata may be written. `pkg` is the copy the walk-up
+  // found, and it is only that release's manifest: when it is NOT the pinned
+  // release, its `dependencies`/`peerDependencies` describe a different version —
+  // a 1.0.0 copy's `left-pad 1.0.0` beside a 2.0.0 pin installs a dependency the
+  // pinned code never declared. Ask for the pinned release's own manifest when one
+  // is reachable; when there is none, write no dependency metadata and say so
+  // (r10 acceptance review, F11).
+  const versionSkewed =
+    intendedVersion !== undefined &&
+    pkg.name === moleculeName &&
+    `${pkg.version}` !== intendedVersion
+  const pinnedMetadata = versionSkewed
+    ? await readDependencyMetadataAtVersion(
+        moleculeName,
+        intendedVersion,
+        projectPath,
+        registryEntry?.path,
+      )
+    : undefined
+  const dependencyMetadata = versionSkewed ? (pinnedMetadata?.dependencies ?? {}) : pkg.dependencies
+  const peerMetadata = versionSkewed
+    ? (pinnedMetadata?.peerDependencies ?? {})
+    : pkg.peerDependencies
+
   // Add dependencies from package.json (non-molecule ones)
-  for (const [name, version] of Object.entries(pkg.dependencies)) {
+  for (const [name, version] of Object.entries(dependencyMetadata)) {
     if (!name.startsWith('@molecule/')) {
       plan.dependencies.push({ name, version: version as string, type: 'dependency' })
     }
   }
 
   // Add peer dependencies
-  for (const [name, version] of Object.entries(pkg.peerDependencies)) {
+  for (const [name, version] of Object.entries(peerMetadata)) {
     plan.dependencies.push({ name, version: version as string, type: 'peerDependency' })
   }
 
+  if (versionSkewed && !pinnedMetadata) {
+    // The pinned release's manifest is not on disk, so its third-party peers
+    // cannot be named. The @molecule peers CAN be: registry.json records each
+    // package's REQUIRED molecule peers together with the version it pins (the
+    // same list `ensureMoleculePeerClosure` closes a scaffold with), so core and
+    // bond peers still land at their registry pins.
+    for (const peer of registryEntry?.molecule?.moleculePeers ?? []) {
+      plan.dependencies.push({
+        name: peer,
+        version: getMoleculeVersion(peer),
+        type: 'peerDependency',
+      })
+    }
+    plan.warnings = [
+      ...(plan.warnings ?? []),
+      t('lib.injector.warnings.versionSkewedDependencies', {
+        name: moleculeName,
+        version: intendedVersion!,
+        copyVersion: `${pkg.version}` || 'of unknown version',
+        path: packagePath,
+        // What this plan did about the copy's own SQL. Saying nothing was how a
+        // stale release's schema could be called "not copied" while it was
+        // (P18 r11 review, R11-5).
+        sql:
+          registryEntry && registryEntry.tables.length > 0
+            ? registryEntry.molecule?.setupSqlVersion === intendedVersion
+              ? " Its setup SQL is bound to the pin — a copy at exactly that version, or registry.json's bundle for it — never this copy's."
+              : " No copy or bundle of the pin's setup SQL is reachable, so its migration is refused rather than written from this copy."
+            : '',
+      }),
+    ]
+  }
+
   return plan
+}
+
+/**
+ * The dependency metadata a package's own manifest declares at `version`.
+ *
+ * Used only when the copy the injector scanned is another release: the manifest
+ * at the PIN is the one whose dependencies the pinned code was written against.
+ * Every root the setup-SQL resolver walks is consulted, plus the registry's
+ * source path, and a root that does not declare `version` is never a candidate —
+ * so this can only ever return the pinned release's own words, never a
+ * neighbouring release's.
+ *
+ * @param name - The package.
+ * @param version - The exact (intended) version.
+ * @param projectPath - The api workspace (for Node's walk-up).
+ * @param registryPath - The registry's source path for the package, if it has one.
+ * @returns Its dependency maps and root, or null when no such copy is reachable.
+ */
+async function readDependencyMetadataAtVersion(
+  name: string,
+  version: string,
+  projectPath: string,
+  registryPath: string | undefined,
+): Promise<{
+  dependencies: Record<string, string>
+  peerDependencies: Record<string, string>
+  path: string
+} | null> {
+  const roots = [
+    ...new Set([
+      ...installedPackageRoots(projectPath, name),
+      ...(registryPath ? [registryPath] : []),
+    ]),
+  ]
+  for (const root of roots) {
+    if (readPackageVersion(root) !== version) continue
+    try {
+      const manifest = JSON.parse(await readFile(join(root, 'package.json'), 'utf-8')) as {
+        dependencies?: Record<string, unknown>
+        peerDependencies?: Record<string, unknown>
+      }
+      return {
+        dependencies: stringRecord(manifest.dependencies),
+        peerDependencies: stringRecord(manifest.peerDependencies),
+        path: root,
+      }
+    } catch (_error) {
+      // An unreadable manifest cannot be shown to be the pinned release's.
+    }
+  }
+  return null
+}
+
+/**
+ * A manifest field as `name → version`, dropping anything not a string.
+ *
+ * @param value - The parsed manifest field.
+ * @returns The entries that are string values.
+ */
+function stringRecord(value: Record<string, unknown> | undefined): Record<string, string> {
+  const record: Record<string, string> = {}
+  for (const [key, entry] of Object.entries(value ?? {})) {
+    if (typeof entry === 'string') record[key] = entry
+  }
+  return record
 }
 
 /**
@@ -530,11 +885,23 @@ export function tablesCreatedBySql(sql: string): string[] {
  * (`REFERENCES "other"`). A table whose file cannot be read keeps its place; the
  * caller reports it. A cycle keeps the listed order.
  *
+ * `readSql` is how the caller makes the ORDER come from the same bytes the
+ * migrations will be written from. Without it each file is read from disk at
+ * `sqlFile` — the copy the walk-up found, which may be another release: a stale
+ * ancestor that lacks a newer file reads as `''`, its `REFERENCES` are invisible,
+ * and the file that needs the referenced table is planned first (r10 acceptance
+ * review, F1). The versioned writer therefore passes the same resolver it writes
+ * from, and an unresolvable file reads as `''` here too — the writer then refuses
+ * it, so no wrong-order app is ever produced silently.
+ *
  * @param tables - The package's tables.
+ * @param readSql - Reads one table's SQL (absolute `sqlFile` in, SQL out), or
+ *   absent to read the file from disk.
  * @returns The same tables, dependencies first.
  */
 export async function tablesInDependencyOrder<T extends { name: string; sqlFile?: string }>(
   tables: readonly T[],
+  readSql?: (sqlFile: string) => Promise<string>,
 ): Promise<T[]> {
   const names = new Set(tables.map((t) => t.name))
   // Two entries can name the same table and be different things — the scaffold
@@ -548,7 +915,7 @@ export async function tablesInDependencyOrder<T extends { name: string; sqlFile?
     let sql = ''
     if (table.sqlFile) {
       try {
-        sql = await readFile(table.sqlFile, 'utf-8')
+        sql = readSql ? await readSql(table.sqlFile) : await readFile(table.sqlFile, 'utf-8')
       } catch (_error) {
         // Unreadable here: the migration loop reports it with its reason.
         sql = ''
@@ -582,12 +949,26 @@ export async function tablesInDependencyOrder<T extends { name: string; sqlFile?
 }
 
 /**
+ * A setup file's bytes, bound to the exact version the caller is pinning.
+ *
+ * Returns its SQL, or the resolver's problem when no copy/bundle at that
+ * version supplies it — never another release's bytes.
+ */
+type SetupSqlReader = (relativeFile: string) => Promise<{ sql: string } | { problem: string }>
+
+/**
  * Plan injection for a Resource type molecule
+ *
+ * @param plan - The plan to add migrations to.
+ * @param pkg - The scanned package (metadata; its own SQL is used only when `readSetupSql` is absent).
+ * @param projectPath - The api workspace receiving `migrations/`.
+ * @param readSetupSql - The version-bound byte reader, when the caller names a version.
  */
 async function planResourceInjection(
   plan: InjectionPlan,
   pkg: InferredPackage,
   projectPath: string,
+  readSetupSql?: SetupSqlReader,
 ): Promise<void> {
   // Resource wrappers and router wiring are handled by synthesizeProjectFiles().
   // This function only plans SQL migrations.
@@ -621,8 +1002,20 @@ async function planResourceInjection(
   }
   // Dependency order across FILES: a package's `tables` order is not enough, and with
   // several entries pointing at one file the same file must not be ordered twice.
+  //
+  // The order is derived from the SAME bytes this plan writes. Reading the copy on
+  // disk orders by a possibly different release: a stale ancestor that lacks a
+  // newer file reads it as `''`, its `REFERENCES` vanish, and the referencing file
+  // is emitted first — the app exits 0 at create and then never boots
+  // (r10 acceptance review, F1 / X1 flash-m38).
+  const readOrderedSql = readSetupSql
+    ? async (sqlFile: string): Promise<string> => {
+        const resolved = await readSetupSql(relative(pkg.path, sqlFile))
+        return 'sql' in resolved ? resolved.sql : ''
+      }
+    : undefined
   const byFile = [...tablesByFile.values()].map((tables) => tables[0])
-  for (const first of await tablesInDependencyOrder(byFile)) {
+  for (const first of await tablesInDependencyOrder(byFile, readOrderedSql)) {
     const sqlFile = first.sqlFile
     if (!sqlFile) continue
     const group = tablesByFile.get(sqlFile) ?? [first]
@@ -639,7 +1032,24 @@ async function planResourceInjection(
       continue
     }
     try {
-      const sqlContent = await readFile(sqlFile, 'utf-8')
+      // The bytes are the ones the project PINS, not whichever copy the walk-up
+      // found: the same version-bound resolver the preflight and copier use.
+      // Without an intended version (an un-pinned project, a `file:` dependency
+      // the project declared itself) the copy the app will run is read as before.
+      let sqlContent: string
+      if (readSetupSql) {
+        const resolved = await readSetupSql(relative(pkg.path, sqlFile))
+        if ('problem' in resolved) {
+          plan.migrationFailures = [
+            ...(plan.migrationFailures ?? []),
+            `${group.map((t) => t.name).join(', ')}: ${resolved.problem}`,
+          ]
+          continue
+        }
+        sqlContent = resolved.sql
+      } else {
+        sqlContent = await readFile(sqlFile, 'utf-8')
+      }
       // The file's own first CREATE TABLE names the migration; metadata order is
       // only the fallback for SQL the parser cannot read. Every table the SQL
       // creates is checked for an existing migration, so a re-run recognizes the

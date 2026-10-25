@@ -85,7 +85,7 @@ describe('copyTemplateInstance — template-supplied paths and brand values', ()
     })
     const warn = vi.spyOn(console, 'warn').mockImplementation(() => {})
 
-    await copyTemplateInstance(templateDir, destDir, 'my-project')
+    await copyTemplateInstance(templateDir, destDir, 'my-project', {})
 
     // The legitimate entry lands where the template says…
     expect(existsSync(join(destDir, 'app', 'public', 'fonts', 'Fixture-Regular.woff2'))).toBe(true)
@@ -106,7 +106,7 @@ describe('copyTemplateInstance — template-supplied paths and brand values', ()
         '<meta property="og:title" content="placeholder"></head><body></body></html>',
     })
 
-    await copyTemplateInstance(templateDir, destDir, 'my-project')
+    await copyTemplateInstance(templateDir, destDir, 'my-project', {})
 
     const html = await readFile(join(destDir, 'app', 'index.html'), 'utf-8')
     // The title carries the brand verbatim — no re-spliced match, no collapsed `$$`.
