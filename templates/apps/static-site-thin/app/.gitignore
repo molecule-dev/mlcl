@@ -1,16 +1,16 @@
 node_modules/
-dist/
+/dist/
 # The dev server's build (scripts/dev.ts) — regenerated on every change — and
 # the directories a build writes into before it swaps them in (src/build.ts)
-.site-dev/
-*.building-*/
+/.site-dev/
+/*.building-*/
 .env*
 !.env.example
 *.log
 .DS_Store
-coverage/
-test-results/
-playwright-report/
+/coverage/
+/test-results/
+/playwright-report/
 
 # molecule.dev platform runtime markers written into the project root by the
 # sandbox (.mol-install-*, .mol-boot-timeline.log, ...) — never project source

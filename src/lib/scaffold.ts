@@ -7725,11 +7725,11 @@ export function setupBonds(): void {
   await writeFile(
     join(projectPath, '.gitignore'),
     `node_modules/
-dist/
+/dist/
 ${ENV_SECRETS_GITIGNORE}
-.expo/
-ios/
-android/
+/.expo/
+/ios/
+/android/
 *.tsbuildinfo
 
 # molecule.dev platform runtime markers written into the project root by the
