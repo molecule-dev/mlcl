@@ -3521,7 +3521,16 @@ export function synthesizeAppProjectFiles(
 
   const reExportBlock = reExports.length > 0 ? `\n${reExports.join('\n')}\n` : ''
 
-  const bondsContent = `${imports.join('\n')}
+  const bondsContent = `/**
+ * Use the installed packages' public interfaces and this provider wiring first.
+ * Build the feature and verify the app's end-to-end behavior; do not audit
+ * package internals or duplicate their implementation tests before using them.
+ * Investigate a package when an observed failure contradicts its contract or
+ * the feature needs a capability the public interface does not provide.
+ * Configure or compose existing bonds; use a typed adapter/provider for custom
+ * behavior, and retain a minimal reproducer when a shared package needs a fix.
+ */
+${imports.join('\n')}
 ${reExportBlock}
 /**
  * Initialize all providers.
@@ -4773,7 +4782,16 @@ export async function setupBonds(): Promise<void> {
     : ''
   const entitlementsCall = hasEntitlements ? `\n  setupEntitlements()` : ''
 
-  return `import { resolveAll } from '${secretsPkg}'
+  return `/**
+ * Use the installed packages' public interfaces and this provider wiring first.
+ * Build the feature and verify the app's end-to-end behavior; do not audit
+ * package internals or duplicate their implementation tests before using them.
+ * Investigate a package when an observed failure contradicts its contract or
+ * the feature needs a capability the public interface does not provide.
+ * Configure or compose existing bonds; use a typed adapter/provider for custom
+ * behavior, and retain a minimal reproducer when a shared package needs a fix.
+ */
+import { resolveAll } from '${secretsPkg}'
 ${monitoringImport}${entitlementsImport}${imports}
 
 /**
