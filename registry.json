@@ -25514,7 +25514,7 @@
         "src/__setup__/users.sql": "CREATE TABLE IF NOT EXISTS \"users\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"updatedAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"username\" varchar(255),\n  \"name\" text,\n  \"email\" varchar(1023) UNIQUE,\n  \"emailVerified\" boolean DEFAULT false NOT NULL,\n  \"avatar\" text,\n  \"bio\" text,\n  \"twoFactorEnabled\" boolean DEFAULT false,\n  \"oauthServer\" text,\n  \"oauthId\" text,\n  \"oauthData\" jsonb,\n  \"planKey\" text,\n  \"planExpiresAt\" timestamptz,\n  \"planAutoRenews\" boolean DEFAULT false\n);\nCREATE INDEX IF NOT EXISTS \"users_createdAt_index\" ON \"users\" (\"createdAt\");\nCREATE INDEX IF NOT EXISTS \"users_updatedAt_index\" ON \"users\" (\"updatedAt\");\nCREATE INDEX IF NOT EXISTS \"users_username_index\" ON \"users\" (\"username\");\nCREATE INDEX IF NOT EXISTS \"users_email_index\" ON \"users\" (\"email\");\n",
         "src/__setup__/usersSecrets.sql": "CREATE TABLE IF NOT EXISTS \"usersSecrets\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"passwordHash\" text,\n  \"passwordResetToken\" text,\n  \"passwordResetTokenAt\" timestamptz,\n  \"pendingTwoFactorSecret\" text,\n  \"twoFactorSecret\" text,\n  \"lastTwoFactorTimeStep\" integer\n);\n"
       },
-      "setupSqlVersion": "1.7.4",
+      "setupSqlVersion": "1.7.5",
       "reExports": [
         "authorization"
       ],
