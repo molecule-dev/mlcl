@@ -14,6 +14,7 @@
 import { mkdir, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
+import ts from 'typescript'
 import { afterAll, describe, expect, it } from 'vitest'
 
 // ---------------------------------------------------------------------------
@@ -47,6 +48,29 @@ async function listTemplateFiles(framework: string): Promise<string[]> {
   return files.sort()
 }
 
+/** Check executable factory calls; package guidance may show the same calls in comments. */
+function providerCreationCalls(content: string): string[] {
+  const factories = new Set([
+    'createJWTAuthClient',
+    'createCSSVariablesThemeProvider',
+    'createSimpleI18nProvider',
+  ])
+  const calls: string[] = []
+  const source = ts.createSourceFile('config.ts', content, ts.ScriptTarget.ES2022, true)
+  function visit(node: ts.Node): void {
+    if (
+      ts.isCallExpression(node) &&
+      ts.isIdentifier(node.expression) &&
+      factories.has(node.expression.text)
+    ) {
+      calls.push(node.expression.text)
+    }
+    ts.forEachChild(node, visit)
+  }
+  visit(source)
+  return calls
+}
+
 // ---------------------------------------------------------------------------
 // Template inventory tests
 // ---------------------------------------------------------------------------
@@ -56,9 +80,7 @@ describe('Template file inventory', () => {
     const content = await readFile(join(TEMPLATES, 'shared', 'config.ts.tpl'), 'utf-8')
     expect(content).toContain('authConfig')
     // Auth, theme, and i18n providers are all in bond setup files, not config
-    expect(content).not.toContain('createJWTAuthClient')
-    expect(content).not.toContain('createCSSVariablesThemeProvider')
-    expect(content).not.toContain('createSimpleI18nProvider')
+    expect(providerCreationCalls(content)).toEqual([])
   })
 
   it('emits currentUserEndpoint beside the other auth endpoints (xr-molecule-flash-m159)', async () => {
@@ -495,9 +517,7 @@ describe('Template variable substitution', () => {
     const content = await readFile(join(TEMPLATES, 'shared', 'config.ts.tpl'), 'utf-8')
     expect(content).toContain('authConfig')
     // Config should not create any providers — those are in bond setup files
-    expect(content).not.toContain('createJWTAuthClient')
-    expect(content).not.toContain('createCSSVariablesThemeProvider')
-    expect(content).not.toContain('createSimpleI18nProvider')
+    expect(providerCreationCalls(content)).toEqual([])
   })
 
   it('shared branding.ts.tpl uses {{PROJECT_NAME}} and documents generate-icons', async () => {
@@ -860,7 +880,7 @@ describe('Create pipeline simulation', () => {
     // Verify output — config.ts has pure config values (providers moved to bond setups)
     const config = await readFile(join(projectDir, 'src', 'config.ts'), 'utf-8')
     expect(config).toContain('authConfig')
-    expect(config).not.toContain('createJWTAuthClient')
+    expect(providerCreationCalls(config)).toEqual([])
     expect(config).not.toContain('{{PROJECT_NAME}}')
 
     // Branding has the substituted project name
@@ -913,7 +933,7 @@ describe('Create pipeline simulation', () => {
     // Verify SvelteKit structure — config.ts has pure config, providers in bonds
     const config = await readFile(join(projectDir, 'src', 'lib', 'config.ts'), 'utf-8')
     expect(config).toContain('authConfig')
-    expect(config).not.toContain('createJWTAuthClient')
+    expect(providerCreationCalls(config)).toEqual([])
     expect(config).not.toContain('{{PROJECT_NAME}}')
 
     const hooks = await readFile(join(projectDir, 'src', 'hooks.client.ts'), 'utf-8')
