@@ -56517,6 +56517,8 @@
         "UseThemeResult",
         "UseRouterResult",
         "UseTranslationResult",
+        "UseTShorthandOptions",
+        "UseTFunction",
         "UseChatOptions",
         "SendMessageOptions",
         "UseChatResult",
