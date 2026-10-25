@@ -3456,6 +3456,7 @@
         "countMismatchNote",
         "failureTraceNote",
         "suiteRecordsTraces",
+        "namesNoRetries",
         "diagnosisTraceCommand",
         "TraceRequest",
         "TraceLastAction",
