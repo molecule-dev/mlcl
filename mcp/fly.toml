@@ -4,6 +4,11 @@
 app = "molecule-mcp"
 primary_region = "iad"
 
+# Keep the current listener until its checked replacement can receive traffic.
+# MCP is stateless and has no attached volumes; extra Machines are temporary.
+[deploy]
+  strategy = "bluegreen"
+
 [http_service]
   internal_port = 3000
   force_https = true
@@ -17,7 +22,7 @@ primary_region = "iad"
     hard_limit = 200
 
   [[http_service.checks]]
-    grace_period = "10s"
+    grace_period = "0s"
     interval = "30s"
     method = "GET"
     path = "/health"
