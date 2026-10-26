@@ -28334,129 +28334,129 @@
       ]
     },
     "@molecule/api-uptime": {
-    "language": "typescript",
-    "runtime": "node",
-    "type": "core",
-    "category": "uptime",
-    "label": "Uptime",
-    "description": "Abstract uptime interface — probe an http(s) URL for status, latency and TLS expiry — bond in-process fetch or molecule.dev’s hosted service",
-    "stack": "api",
-    "exports": [
-      "setProvider",
-      "getProvider",
-      "hasProvider",
-      "probe",
-      "UptimeStatus",
-      "UptimeMethod",
-      "UptimeTlsInfo",
-      "UptimeProbeSpec",
-      "UptimeProbeResult",
-      "UptimeProvider",
-      "UPTIME_LIMITS",
-      "NormalizedUptimeProbeSpec",
-      "ProbeObservation",
-      "validateProbeSpec",
-      "deriveProbeStatus",
-      "isPublicIpv4",
-      "ipv6ToBytes",
-      "isPublicIpv6",
-      "isDialable",
-      "resolvePublicAddress"
-    ],
-    "secrets": [],
-    "runtimeDependencies": [
-      "@molecule/api-bond",
-      "@molecule/api-i18n"
-    ],
-    "moleculePeers": [
-      "@molecule/api-bond",
-      "@molecule/api-i18n"
-    ],
-    "bondSetter": "setProvider",
-    "path": "packages/api/core/uptime",
-    "intentHints": [
-      "check if a site is up",
-      "probe a url",
-      "uptime check",
-      "monitor url availability",
-      "check tls certificate expiry"
-    ]
-  },
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "uptime",
+      "label": "Uptime",
+      "description": "Abstract uptime interface — probe an http(s) URL for status, latency and TLS expiry — bond in-process fetch or molecule.dev’s hosted service",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "probe",
+        "UptimeStatus",
+        "UptimeMethod",
+        "UptimeTlsInfo",
+        "UptimeProbeSpec",
+        "UptimeProbeResult",
+        "UptimeProvider",
+        "UPTIME_LIMITS",
+        "NormalizedUptimeProbeSpec",
+        "ProbeObservation",
+        "validateProbeSpec",
+        "deriveProbeStatus",
+        "isPublicIpv4",
+        "ipv6ToBytes",
+        "isPublicIpv6",
+        "isDialable",
+        "resolvePublicAddress"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "bondSetter": "setProvider",
+      "path": "packages/api/core/uptime",
+      "intentHints": [
+        "check if a site is up",
+        "probe a url",
+        "uptime check",
+        "monitor url availability",
+        "check tls certificate expiry"
+      ]
+    },
     "@molecule/api-uptime-fetch": {
-    "language": "typescript",
-    "runtime": "node",
-    "type": "provider",
-    "category": "uptime",
-    "label": "Fetch (uptime)",
-    "description": "In-process uptime provider for molecule.dev — probe a URL with verified public dialing, status assertions and TLS inspection",
-    "stack": "api",
-    "implements": "@molecule/api-uptime",
-    "exports": [
-      "provider",
-      "createProvider",
-      "UptimeFetchConfig"
-    ],
-    "secrets": [],
-    "runtimeDependencies": [
-      "@molecule/api-uptime"
-    ],
-    "moleculePeers": [
-      "@molecule/api-uptime"
-    ],
-    "path": "packages/api/bonds/uptime/fetch",
-    "intentHints": [
-      "probe a url from my own server",
-      "self-hosted uptime check",
-      "check a url without a vendor account"
-    ]
-  },
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "uptime",
+      "label": "Fetch (uptime)",
+      "description": "In-process uptime provider for molecule.dev — probe a URL with verified public dialing, status assertions and TLS inspection",
+      "stack": "api",
+      "implements": "@molecule/api-uptime",
+      "exports": [
+        "provider",
+        "createProvider",
+        "UptimeFetchConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-uptime"
+      ],
+      "moleculePeers": [
+        "@molecule/api-uptime"
+      ],
+      "path": "packages/api/bonds/uptime/fetch",
+      "intentHints": [
+        "probe a url from my own server",
+        "self-hosted uptime check",
+        "check a url without a vendor account"
+      ]
+    },
     "@molecule/api-uptime-molecule": {
-    "language": "typescript",
-    "runtime": "node",
-    "type": "provider",
-    "category": "uptime",
-    "label": "Molecule (hosted)",
-    "description": "molecule.dev hosted uptime — probe a URL from molecule’s vantage point, billed to your project, no vendor account",
-    "stack": "api",
-    "implements": "@molecule/api-uptime",
-    "exports": [
-      "provider",
-      "DEFAULT_SERVICES_URL",
-      "MoleculeServiceError",
-      "MoleculeUptimeProvider",
-      "createProvider",
-      "uptimeMoleculeSecretDefinitions",
-      "MoleculeUptimeConfig"
-    ],
-    "secrets": [
-      {
-        "name": "MOLECULE_API_KEY",
-        "required": true,
-        "label": "molecule.dev project API key",
-        "setupUrl": "https://www.molecule.dev",
-        "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
-        "example": "mk_..."
-      }
-    ],
-    "runtimeDependencies": [
-      "@molecule/api-uptime",
-      "@molecule/api-secrets"
-    ],
-    "moleculePeers": [
-      "@molecule/api-uptime",
-      "@molecule/api-secrets"
-    ],
-    "path": "packages/api/bonds/uptime/molecule",
-    "intentHints": [
-      "hosted uptime check",
-      "probe a url without a vendor account",
-      "check site availability billed to my project",
-      "monitor a url from outside my network"
-    ],
-    "egressHosts": [
-      "api.molecule.dev"
-    ]
-  },
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "uptime",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted uptime — probe a URL from molecule’s vantage point, billed to your project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-uptime",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "MoleculeServiceError",
+        "MoleculeUptimeProvider",
+        "createProvider",
+        "uptimeMoleculeSecretDefinitions",
+        "MoleculeUptimeConfig"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-uptime",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-uptime",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/uptime/molecule",
+      "intentHints": [
+        "hosted uptime check",
+        "probe a url without a vendor account",
+        "check site availability billed to my project",
+        "monitor a url from outside my network"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
     "@molecule/api-utilities-validation": {
       "language": "typescript",
       "runtime": "node",
@@ -63680,7 +63680,7 @@
       "@molecule/app-audio-player-react": "2.0.0",
       "@molecule/app-audio-recorder-react": "2.0.0",
       "@molecule/app-audit-log-row-react": "2.0.0",
-      "@molecule/app-auth": "3.0.0",
+      "@molecule/app-auth": "3.0.1",
       "@molecule/app-auth-brand-header-react": "2.0.0",
       "@molecule/app-auth-modal-react": "2.0.0",
       "@molecule/app-auth-shell-react": "2.0.0",
@@ -64075,7 +64075,7 @@
       "@molecule/app-quiz-card-react": "2.0.0",
       "@molecule/app-rating-display-react": "2.0.0",
       "@molecule/app-rating-form-react": "2.0.0",
-      "@molecule/app-react": "2.0.0",
+      "@molecule/app-react": "2.0.1",
       "@molecule/app-react-native": "2.0.0",
       "@molecule/app-reading-progress-bar-react": "2.0.0",
       "@molecule/app-realtime": "1.0.4",
