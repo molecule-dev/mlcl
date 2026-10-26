@@ -55,6 +55,23 @@ describe('the scaffolded pwa.ts is @molecule/app-pwa-default, not a copy', () =>
     expect(template).not.toContain('addEventListener')
   })
 
+  it('the canonical Vite config leaves registration to the web app startup', async () => {
+    const vite = await readFile(join(TEMPLATES, 'app', 'shared', 'vite.config.ts.tpl'), 'utf-8')
+    expect(vite).toContain('injectRegister: false as const')
+    for (const entry of [
+      'react/main.tsx.tpl',
+      'react-native-web/main.tsx.tpl',
+      'vue/main.ts.tpl',
+      'solid/main.tsx.tpl',
+      'angular/main.ts.tpl',
+      'svelte/hooks.client.ts.tpl',
+    ]) {
+      const startup = await readFile(join(TEMPLATES, 'app', entry), 'utf-8')
+      expect(startup, entry).toMatch(/import \{ registerPWA \} from ['"].*\/pwa\.js['"]/)
+      expect(startup.match(/^registerPWA\(\)$/gm), entry).toHaveLength(1)
+    }
+  })
+
   it('every framework whose scaffold writes src/pwa.ts requires the package', () => {
     const registry = loadRegistry('app')
     const frameworks = loadAppFrameworks()
