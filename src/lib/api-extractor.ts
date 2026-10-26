@@ -10,12 +10,17 @@
 import { basename, dirname, isAbsolute, join, relative, sep } from 'node:path'
 
 import {
+  type ArrowFunction,
   type ExportedDeclarations,
+  type FunctionDeclaration,
+  type FunctionExpression,
   type JSDoc,
   type JSDocTag,
   Node,
+  type ParameterDeclaration,
   Project,
   type SourceFile,
+  type VariableDeclaration,
 } from 'ts-morph'
 
 // ============================================================================
@@ -676,6 +681,29 @@ function getDeclarationJsDoc(declaration: ExportedDeclarations): JSDoc | null {
   return null
 }
 
+/** Explicit API annotations are authored identities; only unannotated nodes need inference.
+ * Resolving an imported generic can expand its default parameters in an installed tree while
+ * an isolated committed export prints the original name. The TypeNode is stable in both.
+ */
+function documentedType(node: ParameterDeclaration | VariableDeclaration): string {
+  return node.getTypeNode()?.getText() ?? node.getType().getText(node)
+}
+
+type DocumentedFunction = FunctionDeclaration | ArrowFunction | FunctionExpression
+
+/** Preserve explicit return aliases while retaining TypeScript inference when omitted. */
+function documentedReturnType(node: DocumentedFunction): string {
+  return node.getReturnTypeNode()?.getText() ?? node.getReturnType().getText(node)
+}
+
+/** Generic parameters belong to the callable signature, including defaults and constraints. */
+function functionTypeParameters(node: DocumentedFunction): string {
+  const parameters = node.getTypeParameters()
+  return parameters.length
+    ? `<${parameters.map((parameter) => parameter.getText()).join(', ')}>`
+    : ''
+}
+
 /**
  * Generate a concise type signature for a declaration.
  */
@@ -689,24 +717,24 @@ function getSignature(
       if (Node.isFunctionDeclaration(declaration)) {
         const params = declaration.getParameters().map((p) => {
           const paramName = p.getName()
-          const paramType = p.getType().getText(p)
+          const paramType = documentedType(p)
           const optional = p.isOptional() ? '?' : ''
           return `${paramName}${optional}: ${paramType}`
         })
-        const returnType = declaration.getReturnType().getText(declaration)
-        return `(${params.join(', ')}) => ${simplifyType(returnType)}`
+        const returnType = documentedReturnType(declaration)
+        return `${functionTypeParameters(declaration)}(${params.join(', ')}) => ${simplifyType(returnType)}`
       }
       if (Node.isVariableDeclaration(declaration)) {
         const init = declaration.getInitializer()
         if (init && (Node.isArrowFunction(init) || Node.isFunctionExpression(init))) {
           const params = init.getParameters().map((p) => {
             const paramName = p.getName()
-            const paramType = p.getType().getText(p)
+            const paramType = documentedType(p)
             const optional = p.isOptional() ? '?' : ''
             return `${paramName}${optional}: ${paramType}`
           })
-          const returnType = init.getReturnType().getText(init)
-          return `(${params.join(', ')}) => ${simplifyType(returnType)}`
+          const returnType = documentedReturnType(init)
+          return `${functionTypeParameters(init)}(${params.join(', ')}) => ${simplifyType(returnType)}`
         }
       }
       return undefined
@@ -762,7 +790,7 @@ function getSignature(
 
     case 'const': {
       if (Node.isVariableDeclaration(declaration)) {
-        const type = declaration.getType().getText(declaration)
+        const type = documentedType(declaration)
         return simplifyType(type)
       }
       return undefined
@@ -806,7 +834,7 @@ function extractDeclarationText(
 
   // For constants: build const name: type
   if (kind === 'const' && Node.isVariableDeclaration(declaration)) {
-    const type = simplifyType(declaration.getType().getText(declaration))
+    const type = simplifyType(documentedType(declaration))
     return `const ${name}: ${type}`
   }
 
@@ -840,27 +868,26 @@ function extractSourceText(declaration: ExportedDeclarations): string {
  * Produces: function name(param?: Type): ReturnType
  */
 function buildFunctionDeclaration(name: string, declaration: ExportedDeclarations): string {
-  let params: Array<{
-    getName(): string
-    getType(): { getText(node?: unknown): string }
-    isOptional(): boolean
-  }> = []
+  let params: ParameterDeclaration[] = []
   let returnType = 'void'
+  let typeParameters = ''
 
   if (Node.isFunctionDeclaration(declaration)) {
     params = declaration.getParameters()
-    returnType = simplifyType(declaration.getReturnType().getText(declaration))
+    typeParameters = functionTypeParameters(declaration)
+    returnType = simplifyType(documentedReturnType(declaration))
   } else if (Node.isVariableDeclaration(declaration)) {
     const init = declaration.getInitializer()
     if (init && (Node.isArrowFunction(init) || Node.isFunctionExpression(init))) {
       params = init.getParameters()
-      returnType = simplifyType(init.getReturnType().getText(init))
+      typeParameters = functionTypeParameters(init)
+      returnType = simplifyType(documentedReturnType(init))
     }
   }
 
   const paramStrs = params.map((p) => {
     const pName = p.getName()
-    let pType = simplifyType(p.getType().getText(p))
+    let pType = simplifyType(documentedType(p))
     const optional = p.isOptional()
     // Strip | undefined when the param is already marked optional
     if (optional) {
@@ -869,7 +896,7 @@ function buildFunctionDeclaration(name: string, declaration: ExportedDeclaration
     return `${pName}${optional ? '?' : ''}: ${pType}`
   })
 
-  return `function ${name}(${paramStrs.join(', ')}): ${returnType}`
+  return `function ${name}${typeParameters}(${paramStrs.join(', ')}): ${returnType}`
 }
 
 // ============================================================================
@@ -930,11 +957,7 @@ function extractParamFromTag(tag: JSDocTag): ExtractedParam | null {
 function extractParamsFromDeclaration(
   declaration: ExportedDeclarations,
 ): ExtractedParam[] | undefined {
-  let params: Array<{
-    getName(): string
-    getType(): { getText(node?: unknown): string }
-    isOptional(): boolean
-  }> = []
+  let params: ParameterDeclaration[] = []
 
   if (Node.isFunctionDeclaration(declaration)) {
     params = declaration.getParameters()
@@ -957,7 +980,7 @@ function extractParamsFromDeclaration(
       /^[{[]/.test(raw) || /^(?:root\d+|__\d+|__namedParameters)$/.test(raw) ? 'props' : raw
     return {
       name,
-      type: simplifyType(p.getType().getText(p)),
+      type: simplifyType(documentedType(p)),
       optional: p.isOptional() || undefined,
     }
   })
@@ -968,12 +991,12 @@ function extractParamsFromDeclaration(
  */
 function extractReturnType(declaration: ExportedDeclarations): string | undefined {
   if (Node.isFunctionDeclaration(declaration)) {
-    return simplifyType(declaration.getReturnType().getText(declaration))
+    return simplifyType(documentedReturnType(declaration))
   }
   if (Node.isVariableDeclaration(declaration)) {
     const init = declaration.getInitializer()
     if (init && (Node.isArrowFunction(init) || Node.isFunctionExpression(init))) {
-      return simplifyType(init.getReturnType().getText(init))
+      return simplifyType(documentedReturnType(init))
     }
   }
   return undefined

@@ -35,6 +35,68 @@ afterAll(async () => {
 // extractPackageApi
 // ============================================================================
 describe('extractPackageApi', () => {
+  it.each([false, true])(
+    'retains authored types with dependency declarations installed=%s',
+    async (installed) => {
+      const dir = await createTempPackage('authored-types', "export * from './public.js'\n")
+      await writeFile(
+        join(dir, 'src/public.ts'),
+        `
+import type { Box } from 'foreign-doc-types'
+export function own(value: Box): Box { return value }
+export const arrow = (value: Box): Box => value
+export const typed: Box = {} as Box
+export const inferred = (value = 1) => ({ value, label: 'ok' })
+`,
+      )
+      if (installed) {
+        const dependency = join(dir, 'node_modules/foreign-doc-types')
+        await mkdir(dependency, { recursive: true })
+        await writeFile(
+          join(dependency, 'package.json'),
+          JSON.stringify({ name: 'foreign-doc-types', types: 'index.d.ts' }),
+        )
+        await writeFile(
+          join(dependency, 'index.d.ts'),
+          'export interface Events { changed: true }\nexport interface Box<T = Events> { value: T }\nexport declare const foreignOnly: string\n',
+        )
+      }
+      const result = extractPackageApi(dir)
+      expect(result.exports.map((item) => item.name)).not.toContain('foreignOnly')
+      for (const name of ['own', 'arrow']) {
+        const item = result.exports.find((entry) => entry.name === name)!
+        expect(item.signature).toBe('(value: Box) => Box')
+        expect(item.declaration).toBe(`function ${name}(value: Box): Box`)
+        expect(item.params?.[0].type).toBe('Box')
+        expect(item.returnType).toBe('Box')
+        expect(item.sourceFile).toBe('public.ts')
+      }
+      expect(result.exports.find((item) => item.name === 'typed')?.declaration).toBe(
+        'const typed: Box',
+      )
+      const inferred = result.exports.find((item) => item.name === 'inferred')!
+      expect(inferred.params?.[0].type).toBe('number')
+      expect(inferred.returnType).toContain('value: number')
+      expect(inferred.returnType).toContain('label: string')
+    },
+  )
+
+  it('retains callable generic constraints and defaults for functions and arrows', async () => {
+    const dir = await createTempPackage(
+      'callable-generics',
+      `
+export function identity<T extends string = string>(value: T): T { return value }
+export const arrow = <T extends string = string>(value: T): T => value
+`,
+    )
+    const result = extractPackageApi(dir)
+    for (const name of ['identity', 'arrow']) {
+      const item = result.exports.find((entry) => entry.name === name)!
+      expect(item.signature).toBe('<T extends string = string>(value: T) => T')
+      expect(item.declaration).toBe(`function ${name}<T extends string = string>(value: T): T`)
+    }
+  })
+
   it('returns empty exports when index.ts does not exist', () => {
     const result = extractPackageApi('/nonexistent/path')
     expect(result.exports).toEqual([])
