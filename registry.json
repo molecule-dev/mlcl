@@ -64233,7 +64233,7 @@
       "@molecule/api-deploy-rollout-fly": "2.0.1",
       "@molecule/api-deploy-rollout-sandbox": "1.1.1",
       "@molecule/api-instance-leadership": "1.1.1",
-      "@molecule/api-instance-leadership-postgresql": "1.1.1",
+      "@molecule/api-instance-leadership-postgresql": "1.1.2",
       "@molecule/api-scheduler-postgresql": "1.1.2",
       "@molecule/api-upstream-balancer": "1.1.2",
       "@molecule/api-upstream-balancer-default": "1.1.1",
