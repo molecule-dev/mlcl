@@ -50,6 +50,14 @@ afterEach(async () => {
   dir = null
 })
 
+/** The version of the real source copy used by these compatibility fixtures. */
+async function fixtureVersion(name: string): Promise<string> {
+  const entry = loadRegistry().find((pkg) => pkg.name === name)
+  if (!entry || !existsSync(entry.path)) throw new Error(`Missing fixture source: ${name}`)
+  const manifest = JSON.parse(await readFile(join(entry.path, 'package.json'), 'utf-8')) as { version: string }
+  return manifest.version
+}
+
 /** An api project on `database`, with `@molecule/api-resource-comment` declared. */
 async function writeApiProject(
   database: string,
@@ -72,8 +80,8 @@ async function writeApiProject(
         private: true,
         type: 'module',
         dependencies: {
-          [database]: '1.1.0',
-          ...(options.comment === false ? {} : { [COMMENT]: '1.2.2' }),
+          [database]: await fixtureVersion(database),
+          ...(options.comment === false ? {} : { [COMMENT]: await fixtureVersion(COMMENT) }),
           ...options.dependencies,
         },
       },
@@ -178,7 +186,7 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
     // The command exits non-zero (oclif's ExitError) instead of reporting a
     // green inject over an app whose boot migrations cannot apply.
     expect(outcome).toBeDefined()
-    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit).toBe(DDL_INCOMPATIBLE_EXIT)
+    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit, output).toBe(DDL_INCOMPATIBLE_EXIT)
     expect(output).toContain(DUCKDB)
     expect(output).toMatch(/cannot run this project's database setup/)
     // The refusal names the bytes this run would WRITE (the planned migration),
@@ -207,22 +215,22 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
     // clear it. The judged set is the SQL on disk plus the packages THIS run
     // adds.
     const project = await writeApiProject(DUCKDB, {
-      dependencies: { [ADDRESS]: '1.0.4', [WORKFLOW]: '1.0.4' },
+      dependencies: { [ADDRESS]: await fixtureVersion(ADDRESS), [WORKFLOW]: await fixtureVersion(WORKFLOW) },
     })
     const { outcome, output } = await runInject(project, ADDRESS)
     expect(output).not.toContain("cannot run this project's database setup")
-    expect((outcome as { oclif?: { exit?: number } } | undefined)?.oclif?.exit).toBeUndefined()
+    expect((outcome as { oclif?: { exit?: number } } | undefined)?.oclif?.exit, output).toBeUndefined()
   })
 
   it('refuses setup SQL the runner WILL replay from the project’s own __setup__ copy', async () => {
     // The create-time copy is what the generated runner applies at boot, so it
     // is judged even though no manifest key carries it any more.
     const project = await writeApiProject(DUCKDB, {
-      dependencies: { [ADDRESS]: '1.0.4' },
+      dependencies: { [ADDRESS]: await fixtureVersion(ADDRESS) },
       setupSql: { 'posts.sql': CASCADE_SQL },
     })
     const { outcome, output } = await runInject(project, ADDRESS)
-    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit).toBe(DDL_INCOMPATIBLE_EXIT)
+    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit, output).toBe(DDL_INCOMPATIBLE_EXIT)
     expect(output).toContain(DUCKDB)
     expect(output).toContain('__setup__/posts.sql')
     expect(output).toContain('ON DELETE CASCADE')
@@ -232,11 +240,11 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
 
   it('refuses the app’s own migrations the same way', async () => {
     const project = await writeApiProject(DUCKDB, {
-      dependencies: { [ADDRESS]: '1.0.4' },
+      dependencies: { [ADDRESS]: await fixtureVersion(ADDRESS) },
       migrations: { '0001_posts.sql': CASCADE_SQL },
     })
     const { outcome, output } = await runInject(project, ADDRESS)
-    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit).toBe(DDL_INCOMPATIBLE_EXIT)
+    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit, output).toBe(DDL_INCOMPATIBLE_EXIT)
     expect(output).toContain('migrations/0001_posts.sql')
     expect(output).toContain('ON DELETE CASCADE')
   })
@@ -252,12 +260,12 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
     // is driven here with no `-m`: the supported resource's own SQL may be
     // written by this run (so it is judged), the peer's may not (so it is not).
     const project = await writeApiProject(DUCKDB, {
-      dependencies: { [ADDRESS]: '1.0.4', [WORKFLOW]: '1.0.4' },
+      dependencies: { [ADDRESS]: await fixtureVersion(ADDRESS), [WORKFLOW]: await fixtureVersion(WORKFLOW) },
       comment: false,
     })
     const { outcome, output } = await runInject(project, null)
     expect(output).not.toContain("cannot run this project's database setup")
-    expect((outcome as { oclif?: { exit?: number } } | undefined)?.oclif?.exit).toBeUndefined()
+    expect((outcome as { oclif?: { exit?: number } } | undefined)?.oclif?.exit, output).toBeUndefined()
     // The on-disk SQL a boot WILL replay is still judged on this path.
     expect(output).not.toContain('bundles no setup SQL')
   })
@@ -266,12 +274,12 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
     // The other half of the same rule: `workflow.sql` ON DISK is what the runner
     // replays, so it is judged regardless of which manifest key names it.
     const project = await writeApiProject(DUCKDB, {
-      dependencies: { [ADDRESS]: '1.0.4', [WORKFLOW]: '1.0.4' },
+      dependencies: { [ADDRESS]: await fixtureVersion(ADDRESS), [WORKFLOW]: await fixtureVersion(WORKFLOW) },
       setupSql: { 'workflow.sql': CASCADE_SQL },
       comment: false,
     })
     const { outcome, output } = await runInject(project, null)
-    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit).toBe(DDL_INCOMPATIBLE_EXIT)
+    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit, output).toBe(DDL_INCOMPATIBLE_EXIT)
     expect(output).toContain('__setup__/workflow.sql')
     expect(output).toContain('ON DELETE CASCADE')
     // Nothing generated.
@@ -286,15 +294,15 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
     // unsupported cascade — was what got written. Judging the planned contents
     // closes that gap; the relative path is the exact shape that hid it.
     const project = await writeApiProject(DUCKDB, {
-      dependencies: { [ADDRESS]: '1.0.4' },
+      dependencies: { [ADDRESS]: await fixtureVersion(ADDRESS) },
       comment: false,
     })
     await installPackage(project, ADDRESS, {
-      version: '1.0.4',
+      version: await fixtureVersion(ADDRESS),
       sql: { file: 'addresses.sql', text: CASCADE_SQL },
     })
     const { outcome, output } = await runInject(project, ADDRESS, relative(process.cwd(), project))
-    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit).toBe(DDL_INCOMPATIBLE_EXIT)
+    expect((outcome as { oclif?: { exit?: number } }).oclif?.exit, output).toBe(DDL_INCOMPATIBLE_EXIT)
     expect(output).toContain('ON DELETE CASCADE')
     // Nothing was written.
     expect(await readdir(join(project, 'src'))).toEqual([])
@@ -308,12 +316,12 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
     // through the shared resolver, judged with everything else, and written into
     // `__setup__/` (the step the runner replays) after the preflight passes.
     const project = await writeApiProject(POSTGRESQL, {
-      dependencies: { [WORKFLOW]: '1.0.4' },
+      dependencies: { [WORKFLOW]: await fixtureVersion(WORKFLOW) },
       comment: false,
     })
-    await installPackage(project, WORKFLOW, { version: '1.0.4' })
+    await installPackage(project, WORKFLOW, { version: await fixtureVersion(WORKFLOW) })
     const { outcome, output } = await runInject(project, WORKFLOW)
-    expect((outcome as { oclif?: { exit?: number } } | undefined)?.oclif?.exit).toBeUndefined()
+    expect((outcome as { oclif?: { exit?: number } } | undefined)?.oclif?.exit, output).toBeUndefined()
     expect(output).not.toContain("cannot run this project's database setup")
     const written = await readFile(join(project, '__setup__', 'workflow.sql'), 'utf-8')
     expect(written).toContain('CREATE TABLE')
