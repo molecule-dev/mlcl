@@ -2883,6 +2883,96 @@ server.registerTool(
 )
 
 server.registerTool(
+  'probe_url',
+  {
+    title: 'Probe a URL with molecule.dev',
+    description:
+      'Probe an http(s) URL from molecule.dev and get an uptime verdict (operational/degraded/down) with latency, the final HTTP status, redirect count and the TLS certificate\u2019s remaining lifetime — the view from OUTSIDE your network, for availability checks and status pages. No vendor account; metered per probe to the project whose MOLECULE_API_KEY is used. Optional assertions: expect_status (only that status is operational), expect_text (must appear in the first 1 MB of the body; GET only), degraded_latency_ms (slower operational probes degrade). A down site is a successful probe: the result says "down" with the reason — an error means the probe itself could not run. Targets must resolve to public addresses. The same service backs @molecule/api-uptime-molecule in app code.',
+    inputSchema: {
+      url: z.string().max(2048).describe('The URL to probe (http/https)'),
+      method: z.enum(['GET', 'HEAD']).optional().describe('HTTP method (default GET)'),
+      timeout_ms: z
+        .number()
+        .int()
+        .min(1000)
+        .max(30000)
+        .optional()
+        .describe('Whole-probe budget in milliseconds (default 10000)'),
+      expect_status: z
+        .number()
+        .int()
+        .min(100)
+        .max(599)
+        .optional()
+        .describe('Only this status counts as operational'),
+      expect_text: z
+        .string()
+        .min(1)
+        .max(256)
+        .optional()
+        .describe('Text that must appear in the body (GET only)'),
+      degraded_latency_ms: z
+        .number()
+        .int()
+        .min(0)
+        .max(30000)
+        .optional()
+        .describe('Operational probes slower than this degrade (default 2000)'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked(
+    'probe_url',
+    async ({
+      url,
+      method,
+      timeout_ms,
+      expect_status,
+      expect_text,
+      degraded_latency_ms,
+      directory,
+    }) =>
+      serviceResult(async () => {
+        const spec: Record<string, unknown> = { url }
+        if (method !== undefined) spec.method = method
+        if (timeout_ms !== undefined) spec.timeoutMs = timeout_ms
+        if (expect_status !== undefined) spec.expectStatus = expect_status
+        if (expect_text !== undefined) spec.expectText = expect_text
+        if (degraded_latency_ms !== undefined) spec.degradedLatencyMs = degraded_latency_ms
+        const result = (await callHostedService('uptime', 'probe', spec, directory)) as {
+          status?: string
+          checkedAt?: string
+          httpStatus?: number
+          latencyMs?: number
+          finalUrl?: string
+          redirects?: number
+          tls?: { subject?: string; issuer?: string; validTo?: string; daysRemaining?: number }
+          message?: string
+          expectTextMatched?: boolean
+        }
+        if (typeof result.status !== 'string') {
+          throw new ServiceCallError('molecule.dev returned no probe verdict.')
+        }
+        return JSON.stringify({
+          status: result.status,
+          ...(result.httpStatus !== undefined ? { httpStatus: result.httpStatus } : {}),
+          ...(result.latencyMs !== undefined ? { latencyMs: result.latencyMs } : {}),
+          ...(result.finalUrl !== undefined ? { finalUrl: result.finalUrl } : {}),
+          ...(result.redirects !== undefined ? { redirects: result.redirects } : {}),
+          ...(result.tls !== undefined ? { tls: result.tls } : {}),
+          ...(result.message !== undefined ? { message: result.message } : {}),
+          ...(result.expectTextMatched !== undefined
+            ? { expectTextMatched: result.expectTextMatched }
+            : {}),
+        })
+      }),
+  ),
+)
+
+server.registerTool(
   'submit_agent_run',
   {
     title: 'Submit an unattended agent run (molecule.dev)',
