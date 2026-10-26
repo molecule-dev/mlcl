@@ -2,14 +2,14 @@
 id: settings-update
 intent: form-submit
 title: Settings / profile update form
-hooks: [useProfileForm, useAuthClient, useI18nError, useTranslation]
+hooks: [useProfileForm, useI18nError, useTranslation]
 ---
 
 # Settings / profile update
 
 **When to use:** an account form that loads the signed-in user's profile and saves edits.
 
-`useProfileForm` from `@molecule/app-react` owns hydration, dirty fields, submit snapshots, validation and the shared saved user. It composes the bonded forms and auth clients; `updateProfile` sends the patch and stores the server answer as the signed-in user. The default user resource (`PATCH /users/:id`) answers a save with the CHANGED fields only (`{ props: { bio } }`), so `onSaved` merges that answer onto the profile the save was sent for — without it the form, every `useAuth()` reader and the next save route lose every field the save did not touch.
+`useProfileForm` from `@molecule/app-react` owns hydration, dirty fields, submit snapshots, validation and the shared saved user. The scaffold uses `createJWTAuthClient`: its `updateProfile` applies a changed-fields answer onto the current signed-in profile, stores and publishes that merged profile, and RETURNS the same profile. This works with or without an `id`; omitted and `undefined` fields are kept, while `null` clears a field. `useProfileForm` rebases its fields and passes that returned profile to `onSaved`, so no page-level merge or `setUser` call is needed. Use `onSaved` for additional post-save work, such as cache propagation or navigation.
 
 Configure the API route, method and request envelope once in `authConfig` in `src/config.ts` (`profileEndpoint`, `profileUpdateMethod`, `profileRequestBody`). An app from the default scaffold already routes the save to the user resource, and its `app/src/pages/Settings.tsx` is the form below. Without a `profileEndpoint` (apps from a template have none) the client sends the save to its built-in `/auth/profile`, which no molecule resource serves, so add the user resource's route first. A Settings page that does not call `useProfileForm` is a different page.
 
@@ -23,10 +23,8 @@ export const authConfig = {
 ```
 
 ```tsx
-import { useRef } from 'react'
-
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuthClient, useI18nError, useProfileForm, useTranslation } from '@molecule/app-react'
+import { useI18nError, useProfileForm, useTranslation } from '@molecule/app-react'
 
 interface AppUser extends UserProfile {
   bio: string | null
@@ -35,26 +33,15 @@ type Fields = { name: string; bio: string; password: string }
 
 export function Settings() {
   const { t } = useTranslation()
-  const client = useAuthClient<AppUser>()
-  // The signed-in profile a save was sent for: `toPatch` runs right before the request.
-  const savedFrom = useRef<AppUser | null>(null)
   const profile = useProfileForm<AppUser, Fields>({
     defaultValues: { name: '', bio: '', password: '' },
     toValues: (user) => ({ name: user.name ?? '', bio: user.bio ?? '', password: '' }),
-    toPatch: ({ password, ...changes }) => {
-      savedFrom.current = client.getUser()
-      return { ...changes, ...(password?.trim() ? { password } : {}) }
-    },
-    onSaved: async (saved) => {
-      // A changed-fields answer carries no `id`: merge it onto the profile it was saved from.
-      const answer: Partial<AppUser> = saved
-      const from = savedFrom.current
-      savedFrom.current = null
-      const user = from && answer.id === undefined ? { ...from, ...answer } : saved
-      if (user !== saved) client.setUser(user)
-      // Then set/invalidate the app's profile query keys from `user` (never from `saved` or
-      // the submitted patch). Navigate only after the cache writes complete.
-    },
+    toPatch: ({ password, ...changes }) => ({
+      ...changes,
+      ...(password?.trim() ? { password } : {}),
+    }),
+    // Optional: add onSaved(saved) for other cache writes or navigation.
+    // Its saved profile is already merged; no setUser or page merge is needed.
   })
   const reason = useI18nError(profile.error instanceof Error ? profile.error : null)
 
@@ -79,6 +66,8 @@ export function Settings() {
   )
 }
 ```
+
+For an older or custom auth provider, follow its installed return contract: `useProfileForm` forwards the value returned by that provider's `updateProfile`; the hook does not merge raw deltas itself. If a provider returns a partial wire response, normalize, merge and publish it in that provider or its adapter before returning the saved profile. An `onSaved` workaround runs after the form has already rebased. Keep custom extensions where the API requires them.
 
 The built-in auth client provides session ownership through `getSessionRevision()`, so the default form needs no `getIdentity`. For a legacy or custom provider without that capability, supply `getIdentity` with an immutable account identifier; an editable username or email is not stable enough.
 

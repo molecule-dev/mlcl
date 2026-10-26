@@ -8,9 +8,10 @@
  * sends only the fields that changed, and publishes the saved user to every `useAuth()`.
  *
  * The API's user resource answers a save with the CHANGED fields only (`{ props: { bio } }`),
- * and the auth client stores that answer as the signed-in user. `onSaved` below puts the rest
- * of the profile back, so the form, every `useAuth()` reader and the next save's route keep
- * the fields this save did not touch. Keep it when you adapt the page.
+ * which the scaffold's JWT auth client merges onto the current signed-in profile before
+ * storing, publishing and returning it. The hook receives that merged profile too, so
+ * no page-level merge is needed. Optional `onSaved` work uses it for other caches/navigation.
+ * A custom provider must return its saved profile; the hook does not merge raw deltas.
  *
  * Adapt it to this app's profile:
  * - widen `AppUser` and `Fields` with the app's own columns, and map them in `toValues`;
@@ -25,10 +26,10 @@
  * `data-mol-id`. Control ids come from `useId()`: the header drawer's account section is
  * mounted over this page and has its own name field.
  */
-import { type JSX, useId, useRef } from 'react'
+import { type JSX, useId } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuthClient, useI18nError, useProfileForm, useTranslation } from '@molecule/app-react'
+import { useI18nError, useProfileForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 /** The app's profile shape: the shared base fields plus the columns this app serves. */
@@ -54,10 +55,7 @@ const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
 export function Settings(): JSX.Element {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const client = useAuthClient<AppUser>()
   const id = useId()
-  // The signed-in profile a save was sent for: `toPatch` runs right before the request.
-  const savedFrom = useRef<AppUser | null>(null)
   const profile = useProfileForm<AppUser, Fields>({
     defaultValues: EMPTY,
     toValues: (user) => ({
@@ -66,18 +64,7 @@ export function Settings(): JSX.Element {
       bio: user.bio ?? '',
       avatar: user.avatar ?? '',
     }),
-    toPatch: (changes) => {
-      savedFrom.current = client.getUser()
-      return changes
-    },
-    onSaved: (saved) => {
-      // A changed-fields answer carries no `id`: merge it onto the profile it was saved from.
-      // The hook calls this only while that same session still owns the page.
-      const answer: Partial<AppUser> = saved
-      const from = savedFrom.current
-      savedFrom.current = null
-      if (from && answer.id === undefined) client.setUser({ ...from, ...answer })
-    },
+    toPatch: (changes) => changes,
   })
   // `profile.error` is `unknown`; the auth client rejects a save with an `I18nError` (the
   // server's reason key), which this translates in the current locale.
