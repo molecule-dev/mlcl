@@ -626,6 +626,7 @@
         "getAllProviders",
         "hasProvider",
         "requireProvider",
+        "estimateImageInputTokens",
         "ChatMessage",
         "ContentBlock",
         "ProviderResponseMeta",
@@ -639,6 +640,8 @@
         "AITool",
         "ServerTool",
         "ChatParams",
+        "ImageInputSize",
+        "ImageInputTokenEstimate",
         "AIProvider",
         "AIConfig"
       ],
