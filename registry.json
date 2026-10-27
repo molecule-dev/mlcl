@@ -18111,6 +18111,78 @@
         "swagger ui"
       ]
     },
+    "@molecule/api-paracrine": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "paracrine",
+      "label": "Paracrine",
+      "description": "Paracrine core interface — messages between the AI agents sharing one machine: send, receive, ack, reads, purge over a bonded store.",
+      "stack": "api",
+      "exports": [
+        "PARACRINE_BOND_TYPE",
+        "PARACRINE_AGENT_ID",
+        "PARACRINE_BROADCAST",
+        "isParacrineAgentId",
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "requireProvider",
+        "ParacrineAgentId",
+        "ParacrineMessage",
+        "ParacrineSendInput",
+        "ParacrineQuery",
+        "ParacrineRead",
+        "ParacrinePurgeOptions",
+        "ParacrineProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond"
+      ],
+      "bondSetter": "setProvider",
+      "path": "packages/api/core/paracrine",
+      "intentHints": [
+        "agent-to-agent communication",
+        "message between ai agents",
+        "ask another agent a question",
+        "agent mailbox",
+        "broadcast to all agents",
+        "agent coordination"
+      ]
+    },
+    "@molecule/api-paracrine-file": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "paracrine",
+      "label": "Paracrine File",
+      "description": "Zero-config file-backed paracrine store — messages between the AI agents on one machine in one directory (PARACRINE_DIR or ~/.agents/paracrine), with a paracrine CLI any harness can use.",
+      "stack": "api",
+      "implements": "@molecule/api-paracrine",
+      "exports": [
+        "ParacrineFileConfig",
+        "createProvider",
+        "runCli"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-paracrine"
+      ],
+      "moleculePeers": [
+        "@molecule/api-paracrine"
+      ],
+      "path": "packages/api/bonds/paracrine/file",
+      "intentHints": [
+        "file-backed agent messages",
+        "paracrine cli",
+        "zero-config agent mailbox",
+        "local agent communication store"
+      ]
+    },
     "@molecule/api-password": {
       "language": "typescript",
       "runtime": "node",
