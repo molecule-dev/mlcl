@@ -197,7 +197,13 @@ export default defineConfig(({ command }) => ({
   plugins: [{{VITE_PLUGINS}}, staticSitePlugin(), previewConsoleLogPlugin, stripPreviewBridgePlugin()],{{RESOLVE_EXTENSIONS}}
   resolve: {
     preserveSymlinks: true,
-    dedupe: ['react', 'react-dom', 'react-router'],
+    // One module identity per @molecule package, whichever install path an
+    // importer reaches it through — two identities would mean two bond
+    // registries. Dedupe resolves each listed package from the project root
+    // through Vite's normal package resolution, so exports maps, conditions
+    // and subpaths still apply (an alias that rewrites a specifier to a
+    // directory would bypass them).
+    dedupe: ['react', 'react-dom', 'react-router', ...moleculePackages],
   },
   optimizeDeps: {
     exclude: moleculePackages.filter((name) => !isLocaleBondPackage(name)),

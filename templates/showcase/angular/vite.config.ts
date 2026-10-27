@@ -11,6 +11,9 @@ export default defineConfig({
   resolve: {
     preserveSymlinks: true,
     mainFields: ['module'],
+    // One module identity per @molecule package (see moleculePackages above):
+    // two identities mean two bond registries.
+    dedupe: [...moleculePackages],
   },
   optimizeDeps: {
     exclude: moleculePackages,

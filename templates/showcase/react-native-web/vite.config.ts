@@ -20,7 +20,9 @@ export default defineConfig({
       'react-native': resolve(__dirname, 'src/rn-web-shim.tsx'),
     },
     preserveSymlinks: true,
-    dedupe: ['react', 'react-dom'],
+    // One module identity per @molecule package (see moleculePackages above):
+    // two identities mean two bond registries.
+    dedupe: ['react', 'react-dom', ...moleculePackages],
   },
   optimizeDeps: {
     exclude: moleculePackages,

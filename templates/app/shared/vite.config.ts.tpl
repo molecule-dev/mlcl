@@ -269,7 +269,17 @@ export default defineConfig({
   plugins: [{{VITE_PLUGINS}}, previewConsoleLogPlugin, stripPreviewBridgePlugin()],{{RESOLVE_EXTENSIONS}}
   resolve: {
     preserveSymlinks: true,
-    dedupe: ['react', 'react-dom', 'react-router-dom', 'react-router'],
+    // One module identity per @molecule package, whichever install path an
+    // importer reaches it through. `preserveSymlinks` keeps each importer's
+    // path, so the same install reached two ways (a `node_modules/node_modules`
+    // self-link, a nested copy, a bind-mounted workspace) loads as two modules
+    // — two bond registries, so `setProvider()` in the app's copy is invisible
+    // to `getQueryClient()` in the other ("No provider bonded" right after a
+    // setup that ran), and React contexts duplicate the same way. Dedupe
+    // resolves each listed package from the project root through Vite's normal
+    // package resolution, so exports maps, conditions and subpaths still apply.
+    // React keeps its absolute alias below.
+    dedupe: ['react', 'react-dom', 'react-router-dom', 'react-router', ...moleculePackages],
     alias: singleReactAliases,
   },
   optimizeDeps: {

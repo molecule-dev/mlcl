@@ -13,6 +13,9 @@ export default defineConfig({
   plugins: [svelte(), tailwindcss()],
   resolve: {
     preserveSymlinks: true,
+    // One module identity per @molecule package (see moleculePackages above):
+    // two identities mean two bond registries.
+    dedupe: [...moleculePackages],
   },
   optimizeDeps: {
     exclude: moleculePackages,

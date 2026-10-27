@@ -13,7 +13,9 @@ export default defineConfig({
   plugins: [react(), tailwindcss()],
   resolve: {
     preserveSymlinks: true,
-    dedupe: ['react', 'react-dom'],
+    // One module identity per @molecule package (see moleculePackages above):
+    // two identities mean two bond registries.
+    dedupe: ['react', 'react-dom', ...moleculePackages],
   },
   optimizeDeps: {
     exclude: moleculePackages,

@@ -37,7 +37,9 @@ export default defineConfig({
   plugins: [resolveSolidJsx(), solid(), tailwindcss()],
   resolve: {
     preserveSymlinks: true,
-    dedupe: ['solid-js'],
+    // One module identity per @molecule package (see moleculePackages above):
+    // two identities mean two bond registries.
+    dedupe: ['solid-js', ...moleculePackages],
   },
   optimizeDeps: {
     exclude: moleculePackages,

@@ -10,7 +10,9 @@ export default defineConfig({
   plugins: [vue(), tailwindcss()],
   resolve: {
     preserveSymlinks: true,
-    dedupe: ['vue'],
+    // One module identity per @molecule package (see moleculePackages above):
+    // two identities mean two bond registries.
+    dedupe: ['vue', ...moleculePackages],
   },
   optimizeDeps: {
     exclude: moleculePackages,
