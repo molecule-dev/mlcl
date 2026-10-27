@@ -18,6 +18,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import ts from 'typescript'
 import { describe, expect, it } from 'vitest'
 
 import { stripGeneratedTimestamp } from '../docs-generator.js'
@@ -84,6 +85,72 @@ export const nothing = 1
 `,
 }
 
+/**
+ * Independent Git-enumerated direct-declaration subset of the filesystem discovery.
+ * Git locates candidates; TypeScript distinguishes declarations from fixture text.
+ *
+ * @param registry - Package identities and paths for this tree.
+ * @param moleculeRoot - Checkout whose sources Git reads.
+ * @returns Direct re-export relationships declared in those sources.
+ */
+function directReexportersFromGit(registry: Registry, moleculeRoot: string): Map<string, string[]> {
+  const viaGit = new Map<string, string[]>()
+  const out = execFileSync(
+    'git',
+    [
+      '-C',
+      moleculeRoot,
+      'grep',
+      '--untracked',
+      '-oE',
+      String.raw`export (\* (as [A-Za-z0-9_]+ )?|(type )?\{[^}]*\} )?from '@molecule/[a-z0-9-]+'`,
+      '--',
+      'packages',
+    ],
+    { encoding: 'utf8', maxBuffer: 1 << 26 },
+  )
+  const nameByPath = new Map<string, string>()
+  for (const [name, entry] of Object.entries(registry.packages)) {
+    nameByPath.set(entry.path.replace(/\/+$/, ''), name)
+  }
+  const declaredByFile = new Map<string, Set<string>>()
+  for (const line of out.split('\n')) {
+    const sep = line.indexOf(':')
+    if (sep === -1) continue
+    const file = line.slice(0, sep)
+    if (!file.includes('/src/') || !/\.tsx?$/.test(file)) continue
+    const target = line.slice(sep + 1).match(/'(@molecule\/[a-z0-9-]+)'/)?.[1]
+    const reexporter = nameByPath.get(file.replace(/\/src\/.*$/, ''))
+    if (!target || !reexporter || target === reexporter || !registry.packages[target]) continue
+    let declared = declaredByFile.get(file)
+    if (!declared) {
+      declared = new Set<string>()
+      const source = ts.createSourceFile(
+        file,
+        readFileSync(join(moleculeRoot, file), 'utf8'),
+        ts.ScriptTarget.Latest,
+        true,
+      )
+      for (const statement of source.statements) {
+        if (
+          ts.isExportDeclaration(statement) &&
+          statement.moduleSpecifier &&
+          ts.isStringLiteral(statement.moduleSpecifier)
+        ) {
+          declared.add(statement.moduleSpecifier.text)
+        }
+      }
+      declaredByFile.set(file, declared)
+    }
+    if (!declared.has(target)) continue
+    const list = viaGit.get(target) ?? []
+    if (!list.includes(reexporter)) list.push(reexporter)
+    viaGit.set(target, list)
+  }
+
+  return viaGit
+}
+
 describe('discoverReexporters', () => {
   it('keys the packages that re-export a package, and nothing else', async () => {
     const root = await tempDir('live')
@@ -100,6 +167,29 @@ describe('discoverReexporters', () => {
 
     expect(found.get('@molecule/api-source')).toEqual(['@molecule/api-embedder'])
     expect(found.size).toBe(1)
+  })
+
+  it('counts direct declarations without treating fixture strings or comments as re-exports', async () => {
+    const root = await tempDir('git-oracle')
+    const core = '@molecule/api-source'
+    const wrapper = '@molecule/api-embedder'
+    const fixtureOnly = '@molecule/api-fixture-only'
+    const commentOnly = '@molecule/api-comment-only'
+    const registry = registryOf({
+      [core]: 'packages/api/source',
+      [wrapper]: 'packages/api/embedder',
+      [fixtureOnly]: 'packages/api/fixture-only',
+      [commentOnly]: 'packages/api/comment-only',
+    })
+    await writeTree(root, {
+      ...FILES,
+      'packages/api/fixture-only/src/control.test.ts': `export const fixture = "export * from '@molecule/api-source'"\n`,
+      'packages/api/comment-only/src/index.ts': `/*\nexport * from '@molecule/api-source'\n*/\nexport const ready = true\n`,
+    })
+    execFileSync('git', ['init', '-q'], { cwd: root })
+    const direct = directReexportersFromGit(registry, root)
+    expect(direct.get(core)).toEqual([wrapper])
+    expect(discoverReexporters(registry, root)).toEqual(direct)
   })
 
   it('finds the same relation in a `git archive` export, which has no .git', async () => {
@@ -209,37 +299,7 @@ export const ready = true
       ) as Registry
 
       const viaWalk = discoverReexporters(registry, MOLECULE_ROOT)
-      const viaGit = new Map<string, string[]>()
-      const out = execFileSync(
-        'git',
-        [
-          '-C',
-          MOLECULE_ROOT,
-          'grep',
-          '--untracked',
-          '-oE',
-          String.raw`export (\* (as [A-Za-z0-9_]+ )?|(type )?\{[^}]*\} )?from '@molecule/[a-z0-9-]+'`,
-          '--',
-          'packages',
-        ],
-        { encoding: 'utf8', maxBuffer: 1 << 26 },
-      )
-      const nameByPath = new Map<string, string>()
-      for (const [name, entry] of Object.entries(registry.packages)) {
-        nameByPath.set(entry.path.replace(/\/+$/, ''), name)
-      }
-      for (const line of out.split('\n')) {
-        const sep = line.indexOf(':')
-        if (sep === -1) continue
-        const file = line.slice(0, sep)
-        if (!file.includes('/src/')) continue
-        const target = line.slice(sep + 1).match(/'(@molecule\/[a-z0-9-]+)'/)?.[1]
-        const reexporter = nameByPath.get(file.replace(/\/src\/.*$/, ''))
-        if (!target || !reexporter || target === reexporter || !registry.packages[target]) continue
-        const list = viaGit.get(target) ?? []
-        if (!list.includes(reexporter)) list.push(reexporter)
-        viaGit.set(target, list)
-      }
+      const viaGit = directReexportersFromGit(registry, MOLECULE_ROOT)
 
       expect(viaGit.size).toBeGreaterThan(0)
       for (const [target, reexporters] of viaGit) {
