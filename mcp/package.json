@@ -21,6 +21,7 @@
   ],
   "scripts": {
     "build": "shx rm -rf dist && tsc -b",
+    "gen:package-search": "node ../scripts/generate-mcp-package-search.mjs",
     "smoke": "node scripts/smoke.mjs",
     "serve": "node dist/http.js"
   },

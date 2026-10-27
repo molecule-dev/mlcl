@@ -93,9 +93,10 @@ your agent can read as context.
 
 ```jsonc
 // search_packages — capability search, agent-side package discovery
-{ "query": "payments", "limit": 3 }
+{ "query": "payments", "stack": "api", "limit": 3 }
 // → [{"name":"@molecule/api-payments-stripe","stack":"api","category":"payments",
-//      "description":"Stripe payment provider…","install":"mlcl add @molecule/api-payments-stripe --inject"}, …]
+//      "label":"Stripe","description":"Stripe payment provider…",
+//      "install":"mlcl add @molecule/api-payments-stripe --inject"}, …]
 
 // scaffold_project — unattended scaffold, JSON result
 { "name": "my-store", "template": "online-store", "skip_install": false }

@@ -1,87 +1,45 @@
 import { Args, Command, Flags } from '@oclif/core'
 
+import { scoreSearchEntry, searchPackages, type SearchSourceEntry } from '../lib/package-search.js'
 import { loadRegistry } from '../lib/registry.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 import { ui } from '../lib/ui.js'
 
-interface SearchHit {
-  name: string
-  stack: 'api' | 'app'
-  category: string
-  label: string
-  description: string
-  score: number
+/** A package as loaded by {@link loadRegistry}. */
+type RegistryPackage = Awaited<ReturnType<typeof loadRegistry>>[number]
+
+/**
+ * Adapt a loaded registry package to the shared search contract's input —
+ * `InferredPackage` keeps its molecule metadata under `molecule`, while the
+ * hosted MCP reads it straight off the raw registry entry.
+ *
+ * @param pkg - A package from the canonical registry.
+ * @returns The same package in the shared owner's loose entry shape.
+ */
+function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
+  return {
+    name: pkg.name,
+    stack: pkg.molecule?.stack,
+    category: pkg.molecule?.category,
+    label: pkg.molecule?.label,
+    description: pkg.description,
+    exports: pkg.exports,
+    intentHints: pkg.molecule?.intentHints,
+  }
 }
 
 /**
  * Score a package against the query tokens. Higher = more relevant.
- * Exact names, exported symbols and complete capability phrases outrank
- * incidental name substrings ("form" in "formula"). The existing token scores
- * remain useful for partial package names and broad category/provider queries.
+ *
+ * Delegates to the shared owner (`lib/package-search.ts`) so `mlcl search`, the
+ * stdio MCP (which runs this CLI) and the hosted MCP cannot rank differently.
  *
  * @param pkg - A package from the canonical registry.
  * @param q - Package name, exported symbol or natural capability query.
  * @returns Relevance score; zero means no match.
  */
-export function scorePackage(
-  pkg: Awaited<ReturnType<typeof loadRegistry>>[number],
-  q: string,
-): number {
-  const name = pkg.name.replace('@molecule/', '')
-  const tokens = q.toLowerCase().split(/\s+/).filter(Boolean)
-  if (tokens.length === 0) return 0
-  let score = 0
-  const phrase = (value: string): string =>
-    value
-      .toLowerCase()
-      .replace(/[^\p{L}\p{N}]+/gu, ' ')
-      .trim()
-  const query = phrase(q)
-  const symbolQuery = q.trim().replace(/\(\)$/, '').toLowerCase()
-  const exactSymbol =
-    /^[\p{L}_$][\p{L}\p{N}_$]*$/u.test(symbolQuery) &&
-    pkg.exports.some((symbol) => symbol.toLowerCase() === symbolQuery)
-  if (!query && !exactSymbol) return 0
-  const containsPhrase = (text: string, candidate: string): boolean =>
-    ` ${text} `.includes(` ${candidate} `)
-  const hints = (pkg.molecule?.intentHints ?? []).map(phrase)
-  if (
-    q.trim().toLowerCase() === pkg.name.toLowerCase() ||
-    q.trim().toLowerCase() === name.toLowerCase()
-  ) {
-    score += 400
-  }
-  // Match the WHOLE symbol, never its prefix/substring; e.g. "use" must not
-  // match every hook, and "useProfileFormState" must not match useProfileForm.
-  if (exactSymbol) score += 160
-  // A short query can name both a category and a common export (e.g. query).
-  // Keep that category and its providers ahead of unrelated symbol owners.
-  if (pkg.molecule?.category && phrase(pkg.molecule.category) === query) score += 160
-  if (query.includes(' ')) {
-    if (hints.includes(query)) score += 120
-    else if (
-      hints.some(
-        (hint) =>
-          hint.includes(' ') && (containsPhrase(query, hint) || containsPhrase(hint, query)),
-      )
-    )
-      score += 80
-    else if (
-      [name, pkg.molecule?.category, pkg.molecule?.label, pkg.description].some(
-        (field) => field && containsPhrase(phrase(field), query),
-      )
-    )
-      score += 60
-  }
-  for (const tok of tokens) {
-    if (name === tok) score += 40
-    else if (name.includes(tok)) score += 20
-    if (pkg.molecule?.category?.includes(tok)) score += 8
-    if (pkg.molecule?.intentHints?.some((h) => h.includes(tok) || tok.includes(h))) score += 6
-    if (pkg.description?.toLowerCase().includes(tok)) score += 3
-    if (pkg.molecule?.label?.toLowerCase().includes(tok)) score += 3
-  }
-  return score
+export function scorePackage(pkg: RegistryPackage, q: string): number {
+  return scoreSearchEntry(toSearchEntry(pkg), q)
 }
 
 export default class Search extends Command {
@@ -119,29 +77,18 @@ export default class Search extends Command {
     const q = (args.query ?? '').trim()
     if (!q) this.error('Provide a search query, e.g. mlcl search payments')
 
-    const pool = loadRegistry(flags.stack as 'api' | 'app' | undefined)
-
-    const hits: SearchHit[] = pool
-      .map((pkg) => {
-        const name = pkg.name
-        const stack = pkg.molecule?.stack ?? (name.includes('/app-') ? 'app' : 'api')
-        return {
-          name,
-          stack,
-          category: pkg.molecule?.category ?? '',
-          label: pkg.molecule?.label ?? name,
-          description: pkg.description ?? '',
-          score: scorePackage(pkg, q),
-        }
-      })
-      .filter((h) => h.score > 0)
-      .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
-      .slice(0, flags.limit)
+    // The shared owner applies the stack filter BEFORE ranking/truncation and
+    // emits the DTO both transports expose (the hosted MCP imports the same
+    // logic as generated standalone code — see lib/package-search.ts).
+    const hits = searchPackages(loadRegistry().map(toSearchEntry), q, {
+      stack: flags.stack as 'api' | 'app' | undefined,
+      limit: flags.limit,
+    })
 
     if (flags.json) {
       this.log(
         JSON.stringify(
-          hits.map(({ score: _score, ...hit }) => ({
+          hits.map((hit) => ({
             ...hit,
             install: `mlcl add ${hit.name} --inject`,
           })),

@@ -18,6 +18,7 @@ import { readFileSync } from 'node:fs'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 
+import { searchPackages, type SearchSourceEntry } from './package-search.js'
 import { serverVersion, tracked } from './telemetry.js'
 
 const REGISTRY_URL =
@@ -378,68 +379,12 @@ async function fetchJsonUncached<T>(
   return data
 }
 
-/**
- * The canonical `mlcl search` scoring contract (src/commands/search.ts).
- * This server builds and runs alone, without the CLI or its dependencies; a
- * source import across those separate TypeScript rootDir/package boundaries
- * would break that closure. Actual-protocol parity controls compare both
- * scorers on the same registry so a CLI improvement cannot silently miss MCP.
- */
-function scoreEntry(name: string, entry: RegistryEntry, q: string): number {
-  const short = name.replace('@molecule/', '')
-  const tokens = q.toLowerCase().split(/\s+/).filter(Boolean)
-  if (tokens.length === 0) return 0
-  let score = 0
-  const phrase = (value: string): string =>
-    value
-      .toLowerCase()
-      .replace(/[^\p{L}\p{N}]+/gu, ' ')
-      .trim()
-  const query = phrase(q)
-  const symbolQuery = q.trim().replace(/\(\)$/, '').toLowerCase()
-  const exactSymbol =
-    /^[\p{L}_$][\p{L}\p{N}_$]*$/u.test(symbolQuery) &&
-    Array.isArray(entry.exports) &&
-    entry.exports.some(
-      (symbol) => typeof symbol === 'string' && symbol.toLowerCase() === symbolQuery,
-    )
-  if (!query && !exactSymbol) return 0
-  const containsPhrase = (text: string, candidate: string): boolean =>
-    ` ${text} `.includes(` ${candidate} `)
-  const hints = (entry.intentHints ?? []).map(phrase)
-  if (
-    q.trim().toLowerCase() === name.toLowerCase() ||
-    q.trim().toLowerCase() === short.toLowerCase()
-  )
-    score += 400
-  if (exactSymbol) score += 160
-  if (entry.category && phrase(entry.category) === query) score += 160
-  if (query.includes(' ')) {
-    if (hints.includes(query)) score += 120
-    else if (
-      hints.some(
-        (hint) =>
-          hint.includes(' ') && (containsPhrase(query, hint) || containsPhrase(hint, query)),
-      )
-    )
-      score += 80
-    else if (
-      [short, entry.category, entry.label, entry.description].some(
-        (field) => field && containsPhrase(phrase(field), query),
-      )
-    )
-      score += 60
-  }
-  for (const tok of tokens) {
-    if (short === tok) score += 40
-    else if (short.includes(tok)) score += 20
-    if (entry.category?.includes(tok)) score += 8
-    if (entry.intentHints?.some((h) => h.includes(tok) || tok.includes(h))) score += 6
-    if (entry.description?.toLowerCase().includes(tok)) score += 3
-    if (entry.label?.toLowerCase().includes(tok)) score += 3
-  }
-  return score
-}
+// Ranking, stack filtering and the result DTO live in `./package-search.js` — a
+// GENERATED verbatim copy of the canonical owner
+// (`mlcl/src/lib/package-search.ts`) shared with `mlcl search` and the stdio
+// MCP. The copy is what keeps this server buildable from the `mcp/` package
+// alone (mcp/Dockerfile + scripts/deploy-remote.sh ship no CLI); a drift test
+// fails if the copy and the owner diverge.
 
 const text = (t: string): { content: Array<{ type: 'text'; text: string }> } => ({
   content: [{ type: 'text' as const, text: t }],
@@ -456,20 +401,25 @@ export function buildRemoteServer(): McpServer {
     {
       title: 'Search @molecule packages',
       description:
-        'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, and install command. Prefer an existing package over hand-rolling any capability.',
+        'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, label, description and the install command; `stack` restricts results to one stack. Prefer an existing package over hand-rolling any capability.',
       inputSchema: {
-        // Bounded: `scoreEntry` splits the query on whitespace and runs one
-        // pass over EVERY fleet package (~900) for each token, so the work one
+        // Bounded: the scorer splits the query on whitespace and runs one pass
+        // over EVERY fleet package (~900) for each token, so the work one
         // request costs is (tokens × packages). With no cap, an 800 KB body of
         // whitespace-separated words (a few hundred thousand tokens, well under
         // the 1 MB body limit) pinned a core of this public, single-threaded
         // server for minutes — a per-address rate budget does not bound the
         // work a single allowed request may do. A capability query is a phrase.
         query: z.string().max(200).describe('Capability or package-name query'),
+        // Same contract as the stdio server and `mlcl search --stack`, and
+        // applied by the shared owner BEFORE ranking/truncation: an api-only
+        // caller on a crowded query must not lose its matches to app packages
+        // filling the limit window.
+        stack: z.enum(['api', 'app']).optional().describe('Restrict results to one stack'),
         limit: z.number().int().min(1).max(100).optional(),
       },
     },
-    tracked('search_packages', async ({ query, limit }) => {
+    tracked('search_packages', async ({ query, stack, limit }) => {
       // `isRegistryPayload` is the gate the type below cannot provide on its
       // own: without it a body carrying no `packages` map reached
       // `Object.entries(undefined)` and the client was told "Cannot convert
@@ -481,21 +431,14 @@ export function buildRemoteServer(): McpServer {
         isRegistryPayload,
       )
       const packages = registry.packages
-      const hits = Object.entries(packages)
-        .map(([name, entry]) => ({
-          name,
-          stack: entry.stack ?? (name.includes('/app-') ? 'app' : 'api'),
-          category: entry.category ?? '',
-          description: entry.description ?? '',
-          score: scoreEntry(name, entry, query),
-        }))
-        .filter((h) => h.score > 0)
-        .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
-        .slice(0, limit ?? 20)
-        .map(({ score: _score, ...hit }) => ({
-          ...hit,
-          install: `npx mlcl add ${hit.name} --inject`,
-        }))
+      const hits = searchPackages(
+        Object.entries(packages).map(([name, entry]): SearchSourceEntry => ({ ...entry, name })),
+        query,
+        { stack, limit },
+      ).map((hit) => ({
+        ...hit,
+        install: `npx mlcl add ${hit.name} --inject`,
+      }))
       return text(JSON.stringify(hits, null, 2))
     }),
   )

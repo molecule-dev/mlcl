@@ -24,15 +24,45 @@ const oldOptOut = process.env.DO_NOT_TRACK
 let dir: string
 let registryFile: string
 let clearCaches: () => void
-let call: (query: string) => Promise<string[]>
+/** One hosted hit as a client reads it (the JSON text the tool returns). */
+interface HostedHit {
+  name: string
+  stack: 'api' | 'app'
+  category: string
+  label: string
+  description: string
+  install: string
+}
+interface CallArgs {
+  query: string
+  stack?: 'api' | 'app'
+  limit?: number
+}
+let callHits: (args: CallArgs) => Promise<HostedHit[]>
+let callTool: (args: Record<string, unknown>) => Promise<{
+  isError?: boolean
+  content?: Array<{ type: string; text?: string }>
+}>
 let close: () => Promise<void>
+const call = async (query: string): Promise<string[]> =>
+  (await callHits({ query })).map((hit) => hit.name)
 
-function expected(pool: InferredPackage[], query: string): string[] {
+/**
+ * The CLI pipeline the hosted transport must reproduce, computed independently
+ * of the hosted server: `loadRegistry(<stack>)`'s declared-stack filter, the
+ * canonical scorer, then ranking and the limit window.
+ */
+function expected(
+  pool: InferredPackage[],
+  query: string,
+  options: { stack?: 'api' | 'app'; limit?: number } = {},
+): string[] {
   return pool
+    .filter((pkg) => !options.stack || pkg.molecule?.stack === options.stack)
     .map((pkg) => ({ name: pkg.name, score: scorePackage(pkg, query) }))
     .filter((hit) => hit.score > 0)
     .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
-    .slice(0, 20)
+    .slice(0, options.limit ?? 20)
     .map((hit) => hit.name)
 }
 
@@ -72,18 +102,18 @@ beforeAll(async () => {
   const client = new Client({ name: 'search-relevance-controls', version: '0.0.0' })
   await client.connect(a)
   close = () => client.close()
-  call = async (query) => {
-    const result = await client.callTool({ name: 'search_packages', arguments: { query } })
+  callTool = (args) =>
+    client.callTool({ name: 'search_packages', arguments: args }) as ReturnType<typeof callTool>
+  callHits = async (args) => {
+    const result = await callTool(args)
     expect(result.isError).not.toBe(true)
     const content = result.content as Array<{ type: string; text?: string }>
-    return (
-      JSON.parse(
-        content
-          .filter((part) => part.type === 'text')
-          .map((part) => part.text)
-          .join('\n'),
-      ) as Array<{ name: string }>
-    ).map((hit) => hit.name)
+    return JSON.parse(
+      content
+        .filter((part) => part.type === 'text')
+        .map((part) => part.text)
+        .join('\n'),
+    ) as HostedHit[]
   }
 })
 
@@ -169,5 +199,112 @@ describe.skipIf(!available)('hosted MCP search — actual protocol parity with t
     expect(await call('useRecordEditor')).toEqual([])
     expect(await call('record')).toEqual(['@molecule/app-records'])
     expect(await call('document')).toEqual(['@molecule/app-documents'])
+  })
+
+  it('applies stack before ranking and truncation on a crowded query', async () => {
+    // 25 app packages that score 40 for "form" (name + category + hint +
+    // description + label), plus one api package that scores 20 (name only) —
+    // a genuine same-stack match ranked past the default 20-result cutoff.
+    const pool: InferredPackage[] = []
+    for (let i = 0; i < 25; i += 1) {
+      const suffix = String(i).padStart(2, '0')
+      pool.push({
+        ...seed,
+        name: `@molecule/app-form-widget-${suffix}`,
+        description: 'form widget for building forms',
+        exports: [],
+        molecule: {
+          ...seed.molecule!,
+          stack: 'app',
+          category: 'forms',
+          label: `Form Widget ${i}`,
+          intentHints: ['form builder', 'form widget'],
+        },
+      })
+    }
+    pool.push({
+      ...seed,
+      name: '@molecule/api-form-schema',
+      description: 'schema validation helpers',
+      exports: [],
+      molecule: {
+        ...seed.molecule!,
+        stack: 'api',
+        category: 'validation',
+        label: 'Schema',
+        intentHints: [],
+      },
+    })
+    useRegistry(pool)
+
+    // Countercase: unfiltered, the api match is genuinely pushed out by the
+    // limit window — the CLI drops it too, so this is the starting point both
+    // transports share, not a hosted-only defect.
+    const unfiltered = await callHits({ query: 'form' })
+    expect(unfiltered.map((hit) => hit.name)).toEqual(expected(pool, 'form'))
+    expect(unfiltered).toHaveLength(20)
+    expect(unfiltered.map((hit) => hit.name)).not.toContain('@molecule/api-form-schema')
+
+    // Filtering FIRST keeps the same-stack match the limit window would hide.
+    const api = await callHits({ query: 'form', stack: 'api' })
+    expect(api.map((hit) => hit.name)).toEqual(['@molecule/api-form-schema'])
+    expect(api.map((hit) => hit.name)).toEqual(expected(pool, 'form', { stack: 'api' }))
+    expect(api[0]).toMatchObject({
+      stack: 'api',
+      category: 'validation',
+      label: 'Schema',
+      description: 'schema validation helpers',
+      install: 'npx mlcl add @molecule/api-form-schema --inject',
+    })
+    expect(api[0]).not.toHaveProperty('score')
+
+    // The app side is filtered before the cutoff as well, and the limit applies
+    // after it.
+    const app = await callHits({ query: 'form', stack: 'app', limit: 5 })
+    expect(app.map((hit) => hit.name)).toEqual(expected(pool, 'form', { stack: 'app', limit: 5 }))
+    expect(app.every((hit) => hit.stack === 'app')).toBe(true)
+  })
+
+  it('returns the CLI/stdio DTO — label included — from the real registry', async () => {
+    writeFileSync(registryFile, JSON.stringify(registry))
+    clearCaches()
+    const target = '@molecule/api-activity-console'
+    const entry = registry.packages[target] as {
+      label: string
+      category: string
+      description: string
+    }
+    const hits = await callHits({ query: target })
+    expect(hits.map((hit) => hit.name)).toEqual([target])
+    expect(hits[0]).toMatchObject({
+      name: target,
+      stack: 'api',
+      category: entry.category,
+      label: entry.label,
+      description: entry.description,
+      install: `npx mlcl add ${target} --inject`,
+    })
+    expect(Object.keys(hits[0]).sort()).toEqual(
+      ['name', 'stack', 'category', 'label', 'description', 'install'].sort(),
+    )
+  })
+
+  it('refuses invalid stack/limit inputs and still serves a valid call', async () => {
+    writeFileSync(registryFile, JSON.stringify(registry))
+    clearCaches()
+    const refused = (args: Record<string, unknown>): Promise<boolean> =>
+      callTool(args)
+        .then((result) => result.isError === true)
+        // Some SDK versions reject an input-schema violation instead of
+        // returning `isError` — either is a refusal.
+        .catch(() => true)
+
+    expect(await refused({ query: 'payments', stack: 'web' })).toBe(true)
+    expect(await refused({ query: 'payments', limit: 0 })).toBe(true)
+    expect(await refused({ query: 'payments', limit: 101 })).toBe(true)
+    expect(await refused({ query: 'payments '.repeat(30) })).toBe(true)
+
+    // …and an ordinary call still works (the bounds are not over-tight).
+    expect((await callHits({ query: 'payments', limit: 1 })).length).toBe(1)
   })
 })
