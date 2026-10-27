@@ -3,7 +3,8 @@ import React from 'react'
 import * as UI from '@molecule/app-ui-react-native'
 import { generateCombinations, showcaseComponents } from '@molecule/app-ui-showcase'
 
-const components = UI as Record<string, React.ComponentType<Record<string, unknown>>>
+// The showcase catalogue supplies each component's own props at this dynamic boundary.
+const components = UI as unknown as Record<string, React.ComponentType<Record<string, unknown>>>
 
 export function Showcase(): React.ReactNode {
   return (

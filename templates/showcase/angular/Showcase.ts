@@ -2,8 +2,8 @@ import { NgComponentOutlet } from '@angular/common'
 import { ChangeDetectionStrategy, Component, type Type } from '@angular/core'
 import type { DomSanitizer, SafeHtml } from '@angular/platform-browser'
 
-import { getIcon } from '@molecule/app-icons'
-import { getClassMap, type UIClassMap } from '@molecule/app-ui'
+import { getIcon, type IconName } from '@molecule/app-icons'
+import { type ColorVariant, getClassMap, type Size, type UIClassMap } from '@molecule/app-ui'
 import {
   MoleculeAlert,
   MoleculeBadge,
@@ -52,7 +52,7 @@ interface SpecRender {
   children: string | false | undefined
 }
 
-function buildIconSvg(iconName: string, className: string): string {
+function buildIconSvg(iconName: IconName, className: string): string {
   const icon = getIcon(iconName)
   const viewBox = icon.viewBox || '0 0 20 20'
   const fill = icon.fill || 'currentColor'
@@ -415,14 +415,16 @@ export class ShowcaseComponent {
     const variant = cardVariantMap[props['variant'] as string] || 'default'
     return this.cm.cn(
       this.cm.card({ variant: variant as 'default' | 'outline' | 'elevated' }),
-      this.cm.cardPadding(props['padding']),
+      this.cm.cardPadding(props['padding'] as Size | 'none' | undefined),
     )
   }
 
   // ── Separator ────────────────────────────────────────────────────────
 
   separatorClass(props: Record<string, unknown>): string {
-    return this.cm.separator({ orientation: props['orientation'] })
+    return this.cm.separator({
+      orientation: props['orientation'] as 'horizontal' | 'vertical' | undefined,
+    })
   }
 
   // ── Textarea ─────────────────────────────────────────────────────────
@@ -434,7 +436,7 @@ export class ShowcaseComponent {
   // ── Avatar ───────────────────────────────────────────────────────────
 
   avatarClass(props: Record<string, unknown>): string {
-    return this.cm.avatar({ size: props['size'] })
+    return this.cm.avatar({ size: props['size'] as Size | undefined })
   }
 
   initials(name: unknown): string {
@@ -450,11 +452,14 @@ export class ShowcaseComponent {
   // ── Progress ─────────────────────────────────────────────────────────
 
   progressClass(props: Record<string, unknown>): string {
-    return this.cm.cn(this.cm.progress(), this.cm.progressHeight(props['size']))
+    return this.cm.cn(this.cm.progress(), this.cm.progressHeight(props['size'] as Size | undefined))
   }
 
   progressBarClass(props: Record<string, unknown>): string {
-    return this.cm.cn(this.cm.progressBar(), this.cm.progressColor(props['color']))
+    return this.cm.cn(
+      this.cm.progressBar(),
+      this.cm.progressColor(props['color'] as ColorVariant | undefined),
+    )
   }
 
   progressTransform(props: Record<string, unknown>): string {
@@ -489,14 +494,14 @@ export class ShowcaseComponent {
   // ── Table ────────────────────────────────────────────────────────────
 
   tableClass(props: Record<string, unknown>): string {
-    return this.cm.cn(this.cm.table, props['bordered'] && this.cm.tableBordered)
+    return this.cm.cn(this.cm.table, !!props['bordered'] && this.cm.tableBordered)
   }
 
   tableRowClass(props: Record<string, unknown>, index: number): string {
     return this.cm.cn(
       this.cm.tableRow,
-      props['striped'] && index % 2 === 1 && this.cm.tableRowStriped,
-      props['hoverable'] && this.cm.tableRowHoverable,
+      !!props['striped'] && index % 2 === 1 && this.cm.tableRowStriped,
+      !!props['hoverable'] && this.cm.tableRowHoverable,
     )
   }
 
@@ -519,11 +524,11 @@ export class ShowcaseComponent {
   // ── Tabs ─────────────────────────────────────────────────────────────
 
   tabsListClass(props: Record<string, unknown>): string {
-    return this.cm.cn(this.cm.tabsList, props['fitted'] && this.cm.tabsFitted)
+    return this.cm.cn(this.cm.tabsList(), !!props['fitted'] && this.cm.tabsFitted)
   }
 
   tabsTriggerClass(props: Record<string, unknown>): string {
-    return this.cm.cn(this.cm.tabsTrigger, props['fitted'] && this.cm.tabTriggerFitted)
+    return this.cm.cn(this.cm.tabsTrigger(), !!props['fitted'] && this.cm.tabTriggerFitted)
   }
 
   activeTabValue(props: Record<string, unknown>): string {
@@ -554,7 +559,7 @@ export class ShowcaseComponent {
 
   pgItemClass(active: boolean, size: unknown): string {
     return this.cm.cn(
-      this.cm.pagination({ active, size: (size as string) || 'md' }),
+      this.cm.pagination({ active, size: (size as Size | undefined) || 'md' }),
       this.cm.paginationInteractive,
     )
   }
@@ -573,7 +578,7 @@ export class ShowcaseComponent {
     return Array.isArray(val) ? val : []
   }
 
-  private trustSvg(iconName: string, className: string): SafeHtml {
+  private trustSvg(iconName: IconName, className: string): SafeHtml {
     return this.sanitizer.bypassSecurityTrustHtml(buildIconSvg(iconName, className))
   }
 }

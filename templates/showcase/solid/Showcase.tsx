@@ -4,7 +4,8 @@ import { For, Show } from 'solid-js'
 import { generateCombinations, showcaseComponents } from '@molecule/app-ui-showcase'
 import * as UI from '@molecule/app-ui-solid'
 
-const components = UI as Record<string, Component<Record<string, unknown>>>
+// The showcase catalogue supplies each component's own props at this dynamic boundary.
+const components = UI as unknown as Record<string, Component<Record<string, unknown>>>
 
 export const Showcase: Component = () => {
   return (
