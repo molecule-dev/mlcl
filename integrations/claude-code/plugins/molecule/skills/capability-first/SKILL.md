@@ -6,9 +6,9 @@ description: Use BEFORE implementing any capability — a feature, an integratio
 # Capability first
 
 A capability is anything you are about to implement: a feature for this app, an
-integration, a background job, a script, a piece of tooling. Molecule exists so
-each of those is built ONCE as a shared package or bond and then reused
-everywhere. Work the order below before writing new code — including when the
+integration, a background job, a script, a piece of tooling. Reuse shared
+contracts so capabilities can improve once and benefit every consumer.
+Work the order below before writing new code — including when the
 work looks like a quick script or an internal tool.
 
 ## 1. Inspect — what already provides this?
@@ -19,9 +19,10 @@ work looks like a quick script or an internal tool.
   `search_packages` over MCP). The `molecule-packages` skill is this workspace's
   catalog.
 - **Read the installed contract, not your memory of it.** A package's
-  `README.md` — generated from its `src/index.ts` JSDoc, so it cannot be stale —
-  documents its interface, required methods and wiring:
-  `node_modules/@molecule/<name>/README.md`.
+  `README.md` documents its interface, required methods and wiring:
+  `node_modules/@molecule/<name>/README.md`. Check its installed types and exports
+  when behavior is unclear. Improve package documentation at its authored
+  `src/index.ts` JSDoc; the README is generated.
 - **Look at what is already wired.** The `src/bonds/` files name every provider
   this project already uses, and `get`/`require` from the bond package name the
   ones you can call.
@@ -68,6 +69,6 @@ anywhere else is coupling.
 ## Verify
 
 Prove the consumer path, not the mechanism: the app builds and its own tests run,
-or the script runs end to end against the real provider. A mock of your own
-interface proves nothing. Then check the counterexample — the case where the
+or the script runs end to end against the real provider. An interface mock alone
+does not establish that the real consumer is wired correctly. Then check the counterexample — the case where the
 shared path does not apply still takes the local path.
