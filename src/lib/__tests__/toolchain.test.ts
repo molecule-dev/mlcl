@@ -55,6 +55,18 @@ for (const fw of Object.values(registry.appFrameworks ?? {})) {
 }
 
 describe('toolchain version sync', () => {
+  it('keeps the Angular router aligned with its exact runtime peers', () => {
+    const angular = registry.appFrameworks?.angular?.dependencies ?? {}
+    expect(angular['@angular/router']).toBeTypeOf('string')
+    // Angular router publishes exact peer requirements for these runtime packages.
+    // A stale router pin made a generated showcase fail npm resolution before build.
+    for (const name of ['@angular/core', '@angular/common', '@angular/platform-browser']) {
+      expect(angular[name], `${name} must match the router release`).toBe(
+        angular['@angular/router'],
+      )
+    }
+  })
+
   it('shared toolchain versions match mlcl package.json', () => {
     const shared = registry.toolchain?.shared ?? {}
     const mismatches: string[] = []
