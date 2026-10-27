@@ -3442,6 +3442,7 @@
         "createDeferredToolCatalog",
         "DeferredToolCatalogOptions",
         "DeferredToolCatalog",
+        "readPlaywrightRunReport",
         "taskStopCommand",
         "moleculeDistReadNote",
         "registeredTaskLogCommand",
@@ -6246,6 +6247,7 @@
         "VolumeInfo",
         "ListVolumesOptions",
         "SandboxCapacity",
+        "ProductionHostingCapabilities",
         "SandboxProvider",
         "SandboxProviderStaysBackwardCompatible",
         "SandboxStaysBackwardCompatible"
