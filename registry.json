@@ -59433,16 +59433,20 @@
       "defaultProvider": "@molecule/app-storage-localstorage",
       "alwaysInclude": true,
       "exports": [
-        "StorageProvider",
+        "createMemoryStorageProvider",
+        "createPreferenceStore",
+        "getPreferenceStore",
         "setProvider",
         "getProvider",
         "hasProvider",
+        "StorageProvider",
+        "PreferenceListener",
+        "PreferenceStore",
         "get",
         "set",
         "remove",
         "clear",
-        "keys",
-        "createMemoryStorageProvider"
+        "keys"
       ],
       "secrets": [],
       "runtimeDependencies": [
