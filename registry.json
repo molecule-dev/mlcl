@@ -59438,7 +59438,7 @@
       "exports": [
         "createMemoryStorageProvider",
         "createPreferenceStore",
-        "createRawStringCodec",
+        "createStringCodec",
         "getPreferenceStore",
         "setProvider",
         "getProvider",
