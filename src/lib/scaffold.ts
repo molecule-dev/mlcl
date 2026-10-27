@@ -27,6 +27,11 @@ import {
 import { basename, dirname, isAbsolute, join, relative, sep } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import {
+  buildLocalAgentSkillFiles,
+  ensureClaudeSkillsLink,
+  writeAgentSkillFiles,
+} from './agent-skills.js'
 import { filterEnvSecrets, renderEnvSecretLines, resolveDatabaseUrlValue } from './env-file.js'
 import { isExactVersion } from './exact-version.js'
 import { collectSecrets } from './features.js'
@@ -2276,6 +2281,41 @@ export async function ensureAgentsMd(projectRoot: string): Promise<void> {
   const { existsSync } = await import('node:fs')
   if (existsSync(target)) return
   await writeFile(target, await loadTemplate('shared/AGENTS.md.tpl'))
+}
+
+/**
+ * Write the project's agent skills — the canonical shared skills and the
+ * framework-scoped `@molecule` package catalog — under `.agents/skills/`, and
+ * link `.claude` at `.agents` when the user has no `.claude` of their own.
+ *
+ * Both create paths call this (the flagship `--template` fast path and the
+ * package-driven custom build), so a project scaffolded on a developer's
+ * machine carries the same workflow and catalog a molecule-dev sandbox project
+ * carries. The text is authored once — `agent-skills.ts` owns the enumeration
+ * and reuses the existing catalog renderer.
+ *
+ * Idempotent and non-destructive: an existing skill file (user-written, or
+ * edited after an earlier scaffold) is never overwritten, the same policy
+ * {@link ensureAgentsMd} applies to `AGENTS.md`.
+ *
+ * @param projectRoot - Absolute path to the project root.
+ * @param opts.projectType - The scaffolded project shape (`api`, `app`,
+ *   `full-stack`, `static`, `status-page`, `status-page-edge`).
+ * @param opts.framework - The app framework, when the project has one.
+ */
+export async function ensureAgentSkills(
+  projectRoot: string,
+  opts: { projectType: string; framework?: string | null },
+): Promise<void> {
+  const files = buildLocalAgentSkillFiles({
+    templatesDir: getTemplatesDir(),
+    registry: getRawRegistry(),
+    projectType: opts.projectType,
+    framework: opts.framework,
+  })
+  const { written, skipped } = await writeAgentSkillFiles(projectRoot, files)
+  await ensureClaudeSkillsLink(projectRoot)
+  mlclDebug(`agent skills: ${written.length} written, ${skipped.length} kept`)
 }
 
 /**

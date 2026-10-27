@@ -375,6 +375,7 @@ export default class Create extends Command {
         const {
           copyTemplateInstance,
           ensureAgentsMd,
+          ensureAgentSkills,
           ensureReadmeMd,
           ensureRootNpmrc,
           readTemplatePackages,
@@ -421,6 +422,12 @@ export default class Create extends Command {
 
         await copyTemplateInstance(templateInstanceDir, projectPath, projectName, setupSqlVersions)
         await ensureAgentsMd(projectPath)
+        // The template is copied as built, so its own shape decides the catalog
+        // scope — `flags.type` was filled from the template above.
+        await ensureAgentSkills(projectPath, {
+          projectType: flags.type ?? 'full-stack',
+          framework: flags.framework,
+        })
         await ensureRootNpmrc(projectPath)
         await ensureReadmeMd(projectPath, projectName, flags.type ?? 'full-stack', flags.framework)
         await stampMoleculeMetadata(projectPath)
@@ -962,9 +969,15 @@ export default class Create extends Command {
     // the molecule conventions in context on project open. The .npmrc carries
     // legacy-peer-deps so a default `npm install` resolves (see its comment).
     {
-      const { ensureAgentsMd, ensureRootNpmrc, ensureReadmeMd, stampMoleculeMetadata } =
-        await import('../lib/scaffold.js')
+      const {
+        ensureAgentsMd,
+        ensureAgentSkills,
+        ensureRootNpmrc,
+        ensureReadmeMd,
+        stampMoleculeMetadata,
+      } = await import('../lib/scaffold.js')
       await ensureAgentsMd(projectPath)
+      await ensureAgentSkills(projectPath, { projectType, framework })
       await ensureRootNpmrc(projectPath)
       await ensureReadmeMd(projectPath, projectName, projectType, framework)
       await stampMoleculeMetadata(projectPath)
