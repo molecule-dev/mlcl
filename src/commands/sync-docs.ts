@@ -6,6 +6,7 @@ import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
+import { checkDocs } from '../lib/docs-check.js'
 import { stripGeneratedTimestamp } from '../lib/docs-generator.js'
 import { generateDocs } from '../lib/docs-sync.js'
 import {
@@ -36,6 +37,13 @@ export default class SyncDocs extends Command {
   ]
 
   static override flags = {
+    jobs: Flags.integer({
+      description: 'README check processes (1 or 2; single-package checks stay in process)',
+      default: 1,
+      min: 1,
+      max: 2,
+      env: 'MLCL_DOCS_JOBS',
+    }),
     check: Flags.boolean({
       description: 'CI mode: exit non-zero if any README.md differs from generated output',
       default: false,
@@ -56,6 +64,8 @@ export default class SyncDocs extends Command {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(SyncDocs)
+
+    if (flags.jobs !== 1 && !flags.check) this.error('--jobs=2 requires --check')
 
     p.intro(chalk.bgCyan(' sync-docs '))
 
@@ -211,7 +221,7 @@ export default class SyncDocs extends Command {
   private async runGenerate(
     registry: Registry,
     moleculeDir: string,
-    flags: { check: boolean; generate: boolean; package?: string },
+    flags: { check: boolean; generate: boolean; package?: string; jobs?: number },
   ): Promise<void> {
     const spinner = p.spinner()
     spinner.start(flags.check ? 'Checking README.md files...' : 'Generating README.md files...')
@@ -225,6 +235,37 @@ export default class SyncDocs extends Command {
         `Package "${flags.package}" is not in the registry. ` +
           `Check the name, or register the package (mlcl init --force) before syncing its docs.`,
       )
+    }
+
+    if (flags.check && flags.jobs === 2 && !flags.package) {
+      const controller = new AbortController()
+      const cancel = (): void => controller.abort(new Error('README check cancelled'))
+      process.prependOnceListener('SIGINT', cancel)
+      process.prependOnceListener('SIGTERM', cancel)
+      try {
+        const result = await checkDocs(registry, moleculeDir, undefined, {
+          jobs: 2,
+          signal: controller.signal,
+        })
+        spinner.stop(
+          result.different.length
+            ? `${result.different.length} file(s) differ from generated output`
+            : `All ${result.checked.length} README.md files match generated output`,
+        )
+        for (const name of result.different) p.log.warn(chalk.yellow(`  ${name}`))
+        if (result.different.length) {
+          p.outro(chalk.red(`Run 'mlcl sync-docs --generate' to regenerate`))
+          this.exit(1)
+        }
+        p.outro(chalk.green('All README.md files are in sync'))
+      } catch (error) {
+        spinner.stop('README check failed')
+        throw error
+      } finally {
+        process.removeListener('SIGINT', cancel)
+        process.removeListener('SIGTERM', cancel)
+      }
+      return
     }
 
     const docs = await generateDocs(
