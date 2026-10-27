@@ -108,7 +108,7 @@
     "@molecule/app-version": "1.1.1",
     "@molecule/app-virtual-scroll": "1.0.4",
     "@molecule/app-virtual-scroll-tanstack": "1.0.3",
-    "@molecule/app-vite-config-default": "1.2.2",
+    "@molecule/app-vite-config-default": "1.2.3",
     "monaco-editor": "0.56.0",
     "react": "19.3.1",
     "react-dom": "19.3.1",
