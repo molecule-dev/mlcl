@@ -23,7 +23,7 @@
  * @module
  */
 
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { mkdir, symlink, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 
@@ -196,6 +196,13 @@ export async function writeAgentSkillFiles(
 ): Promise<AgentSkillWriteResult> {
   const written: string[] = []
   const skipped: string[] = []
+  // A regular FILE named `.agents` is a broken project state, not a delivery
+  // target: writing under it would throw ENOTDIR and fail the whole scaffold.
+  // Guidance never blocks a build, so report every file as skipped instead.
+  const agentsRoot = join(projectRoot, '.agents')
+  if (existsSync(agentsRoot) && !statSync(agentsRoot).isDirectory()) {
+    return { written, skipped: Object.keys(files).map((rel) => join(AGENT_SKILLS_DIR, rel)) }
+  }
   for (const [relativePath, content] of Object.entries(files)) {
     const target = join(projectRoot, AGENT_SKILLS_DIR, ...relativePath.split('/'))
     await mkdir(dirname(target), { recursive: true })
@@ -228,6 +235,10 @@ export async function ensureClaudeSkillsLink(
 ): Promise<'linked' | 'present' | 'unavailable'> {
   const linkPath = join(projectRoot, '.claude')
   if (existsSync(linkPath)) return 'present'
+  // Only a real directory is worth pointing at (see writeAgentSkillFiles: a
+  // regular file named `.agents` is skipped, never linked).
+  const agentsRoot = join(projectRoot, '.agents')
+  if (!existsSync(agentsRoot) || !statSync(agentsRoot).isDirectory()) return 'unavailable'
   try {
     await symlink('.agents', linkPath, 'dir')
     return 'linked'

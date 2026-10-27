@@ -232,16 +232,34 @@ describe('writeAgentSkillFiles — non-destructive by construction', () => {
     expect(again.written).toEqual([])
     expect(again.skipped).toEqual([join(AGENT_SKILLS_DIR, 'capability-first/SKILL.md')])
   })
+
+  it('skips instead of failing when `.agents` is a regular file', async () => {
+    // Guidance never blocks a build: a broken `.agents` (a file, not a
+    // directory) would make the write throw ENOTDIR and fail the scaffold.
+    const projectRoot = tempProject()
+    writeFileSync(join(projectRoot, '.agents'), 'not a directory\n')
+
+    const result = await writeAgentSkillFiles(projectRoot, {
+      'capability-first/SKILL.md': 'body\n',
+    })
+
+    expect(result.written).toEqual([])
+    expect(result.skipped).toEqual([join(AGENT_SKILLS_DIR, 'capability-first/SKILL.md')])
+    expect(readFileSync(join(projectRoot, '.agents'), 'utf8')).toBe('not a directory\n')
+    // …and nothing links `.claude` at a regular file.
+    expect(await ensureClaudeSkillsLink(projectRoot)).toBe('unavailable')
+  })
 })
 
 describe('ensureClaudeSkillsLink', () => {
   it('links .claude at .agents so harness skills discovery sees the delivered files', async () => {
     const projectRoot = tempProject()
+    // The real order: write the tree, then link it.
+    await writeAgentSkillFiles(projectRoot, { 'capability-first/SKILL.md': 'through the link\n' })
     expect(await ensureClaudeSkillsLink(projectRoot)).toBe('linked')
     expect(lstatSync(join(projectRoot, '.claude')).isSymbolicLink()).toBe(true)
     expect(readlinkSync(join(projectRoot, '.claude'))).toBe('.agents')
 
-    await writeAgentSkillFiles(projectRoot, { 'capability-first/SKILL.md': 'through the link\n' })
     expect(
       await readFile(
         join(projectRoot, '.claude', 'skills', 'capability-first', 'SKILL.md'),
