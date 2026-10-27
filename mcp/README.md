@@ -130,6 +130,24 @@ project, through that project's API key:
 3. Service tools (`embed_text`, `text_to_speech`, `transcribe_audio`, …) read the key from that `.env` (pass
    `directory`) or from `MOLECULE_API_KEY` in this server's environment.
 
+Key resolution and `env_file` share one rule — the only names either side
+accepts are `.env` and `.env.<variant>` (e.g. `.env.local`); placeholder
+variants such as `.env.example`, `.env.schema` and `.env.template` are
+refused on write and never read. Given a `directory`, resolution checks, in
+order:
+
+1. `MOLECULE_API_KEY` in this server's environment (always wins);
+2. `directory/.env`, then every `directory/.env.<variant>` in byte order,
+   then the same set in `directory/api`;
+3. the same two locations in each parent, up to two parents.
+
+Inside one file the ordinary dotenv rules apply (Node's `util.parseEnv`):
+inline `#` comments, single/double quotes, an `export` prefix and multi-line
+quoted values are handled, and a duplicate assignment resolves to the last
+one. `create_api_key` rewrites the key's assignment line — dropping older
+duplicates — so the key it mints is always the one a later service call
+reads.
+
 The same HTTP API (`POST https://api.molecule.dev/api/v1/services/<service>/<operation>`,
 catalog at `GET …/v1/services`) backs the `@molecule/*-molecule` bonds, so
 app code reaches the same service through a normal, swappable bond.

@@ -977,7 +977,7 @@ server.registerTool(
       env_file: z
         .string()
         .describe(
-          'Path of the dotenv file to write, e.g. /path/to/app/api/.env (named .env or .env.<x>)',
+          'Path of the dotenv file to write, e.g. /path/to/app/api/.env or /path/to/app/.env.local. Must be named .env or .env.<name> (.env.example-style placeholders are refused); the service tools search the project directory and its api/ folder for exactly these names.',
         ),
       name: z.string().optional().describe('Label for the key (default mcp)'),
       scopes: z

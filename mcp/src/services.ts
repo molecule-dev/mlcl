@@ -6,12 +6,14 @@
  *     projects, mint a project API key;
  *   - a PROJECT API key (`mk_…`) pays for service calls, metered and billed to
  *     that project exactly like a deployed app calling the same URL. It is read
- *     from MOLECULE_API_KEY, else from the project's `.env` (the same place the
- *     app's `@molecule/*-molecule` bonds read it), so the key never has to pass
- *     through the chat transcript.
+ *     from MOLECULE_API_KEY, else from the project's dotenv files (`.env`, then
+ *     `.env.<variant>`, in the project root and its `api/` directory — the same
+ *     place the app's `@molecule/*-molecule` bonds read it), so the key never
+ *     has to pass through the chat transcript.
  */
-import { chmodSync, existsSync, readFileSync, writeFileSync } from 'node:fs'
+import { chmodSync, existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
+import { parseEnv } from 'node:util'
 
 import { apiBase, sessionToken } from './auth.js'
 
@@ -21,20 +23,105 @@ export interface ServiceKey {
   source: string
 }
 
-/** Parse one variable out of a dotenv file; undefined when absent. */
-function readDotenvVar(file: string, name: string): string | undefined {
-  if (!existsSync(file)) return undefined
-  for (const line of readFileSync(file, 'utf8').split('\n')) {
-    const m = line.match(/^\s*(?:export\s+)?([A-Za-z_][A-Za-z0-9_]*)\s*=\s*(.*?)\s*$/)
-    if (m && m[1] === name) return m[2].replace(/^(['"])(.*)\1$/, '$2') || undefined
-  }
-  return undefined
+/**
+ * The dotenv file names this server treats as project env files — the names
+ * `create_api_key` may write and the names key resolution reads. The SAME
+ * predicate on both sides is what keeps a written key discoverable.
+ */
+const ENV_FILE_NAME_RE = /^\.env(?:\.([A-Za-z0-9_-]+))?$/
+
+/**
+ * Variants that hold placeholders or tool bookkeeping, never credentials
+ * (`.env.example`, `.env.schema`, `.env.vault`, …). Auto-loading one would
+ * send a placeholder as the bearer key, so neither side accepts them.
+ * Compared case-insensitively.
+ */
+const PLACEHOLDER_ENV_VARIANTS = new Set([
+  'example',
+  'sample',
+  'schema',
+  'template',
+  'tmpl',
+  'dist',
+  'vault',
+  'keys',
+])
+
+/**
+ * Whether a dotenv basename is a project env file: `.env`, or `.env.<variant>`
+ * where the variant is not a placeholder.
+ *
+ * @param name - A dotenv file's basename.
+ * @returns True when the file may hold — and be written with — the project key.
+ */
+function isProjectEnvFileName(name: string): boolean {
+  const match = ENV_FILE_NAME_RE.exec(name)
+  if (!match) return false
+  return match[1] === undefined || !PLACEHOLDER_ENV_VARIANTS.has(match[1].toLowerCase())
 }
 
 /**
- * The project API key for service calls: MOLECULE_API_KEY from the server's
- * environment, else `MOLECULE_API_KEY` in `.env` at `directory` or up to two
- * parents (a full-stack project keeps it in `api/.env` or the root).
+ * Parse one variable out of a dotenv file with Node's own dotenv parser
+ * (`util.parseEnv`), so inline comments, single/double quoting, `export`
+ * prefixes, duplicate assignments (last wins) and multi-line quoted values
+ * follow exactly the rules `node --env-file` applies — not a lookalike regex.
+ *
+ * @param file - Dotenv file to read.
+ * @param name - Variable name.
+ * @returns The parsed non-blank value, or undefined when absent.
+ */
+function readDotenvVar(file: string, name: string): string | undefined {
+  if (!existsSync(file)) return undefined
+  // A BOM would otherwise become part of the first variable's NAME.
+  const content = readFileSync(file, 'utf8')
+  const parsed = parseEnv(content.charCodeAt(0) === 0xfeff ? content.slice(1) : content)
+  const value = parsed[name]
+  return typeof value === 'string' && value.trim() ? value : undefined
+}
+
+/**
+ * The dotenv files in one directory that may hold the project key, in
+ * precedence order: `.env` first, then `.env.<variant>` byte-sorted — a fixed
+ * order across filesystems, so the same tree always resolves the same file.
+ *
+ * @param dir - Directory to list.
+ * @returns Candidate paths (empty when `dir` is not a readable directory).
+ */
+function dotenvCandidates(dir: string): string[] {
+  let entries: string[]
+  try {
+    entries = readdirSync(dir)
+  } catch (_error) {
+    // Not a directory, or not readable: this location has no candidates.
+    return []
+  }
+  return entries
+    .filter(isProjectEnvFileName)
+    .sort((a, b) => {
+      if (a === b) return 0
+      if (a === '.env') return -1
+      if (b === '.env') return 1
+      return a < b ? -1 : 1
+    })
+    .map((name) => join(dir, name))
+}
+
+/**
+ * The project API key for service calls, resolved in this documented order:
+ *
+ *   1. `MOLECULE_API_KEY` in this server's environment (always wins);
+ *   2. `.env`, then every `.env.<variant>` (byte-sorted), in `directory` —
+ *      then the same set in `directory/api`;
+ *   3. the same two locations in each parent, up to two parents.
+ *
+ * Inside one file, Node's dotenv rules apply: the LAST assignment wins, and
+ * inline comments / quoting are honoured. A file that does not define a
+ * non-blank MOLECULE_API_KEY is skipped, and placeholder variants
+ * (`.env.example`, `.env.schema`, …) are never read. Because `create_api_key`
+ * writes only these names through the same predicate, a key it writes at
+ * `<dir>/.env[.<variant>]` or `<dir>/api/.env[.<variant>]` is found by a later
+ * service call whose `directory` is that project directory (or up to two
+ * levels below it).
  *
  * @param directory - Project directory to search (default cwd).
  * @returns The key and where it came from, or null.
@@ -44,10 +131,12 @@ export function resolveServiceKey(directory?: string): ServiceKey | null {
     return { key: process.env.MOLECULE_API_KEY, source: 'MOLECULE_API_KEY env' }
   }
   let dir = resolve(directory ?? process.cwd())
-  for (let i = 0; i < 3; i++) {
-    for (const file of [join(dir, '.env'), join(dir, 'api', '.env')]) {
-      const key = readDotenvVar(file, 'MOLECULE_API_KEY')
-      if (key) return { key, source: file }
+  for (let level = 0; level < 3; level++) {
+    for (const location of [dir, join(dir, 'api')]) {
+      for (const file of dotenvCandidates(location)) {
+        const key = readDotenvVar(file, 'MOLECULE_API_KEY')
+        if (key) return { key, source: file }
+      }
     }
     const parent = dirname(dir)
     if (parent === dir) break
@@ -97,7 +186,7 @@ export async function callHostedService(
   const found = resolveServiceKey(directory)
   if (!found) {
     throw new ServiceCallError(
-      'No molecule project API key. Call create_api_key (it writes MOLECULE_API_KEY into the project .env), or set MOLECULE_API_KEY for this server.',
+      'No molecule project API key. Call create_api_key (it writes MOLECULE_API_KEY into the project .env or .env.<name>), or set MOLECULE_API_KEY for this server.',
     )
   }
   const response = await fetch(`${apiBase()}/v1/services/${service}/${operation}`, {
@@ -194,9 +283,6 @@ export async function listProjects(): Promise<McpProject[]> {
   })
 }
 
-/** The only files create_api_key will write: a dotenv file by name. */
-const ENV_FILE_RE = /^\.env(\.[A-Za-z0-9_-]+)?$/
-
 /** What create_api_key reports (never the plaintext). */
 export interface CreatedKey {
   id: string
@@ -208,8 +294,14 @@ export interface CreatedKey {
 
 /**
  * Mint a project API key and write it into a dotenv file as
- * MOLECULE_API_KEY, replacing an existing line. The plaintext is returned by
- * the platform exactly once and is never echoed back to the agent.
+ * MOLECULE_API_KEY, replacing an existing assignment and dropping duplicate
+ * ones. The plaintext is returned by the platform exactly once and is never
+ * echoed back to the agent.
+ *
+ * The destination is validated BEFORE the platform is asked to mint anything,
+ * and only names `resolveServiceKey` reads are accepted (`.env` or
+ * `.env.<variant>`, never a placeholder like `.env.example`) — so a written
+ * key is always discoverable by the service tools that follow.
  *
  * @param projectId - The project the key bills to.
  * @param name - A label shown in the project's key list.
@@ -224,8 +316,10 @@ export async function createApiKeyIntoEnv(
   scopes?: string[],
 ): Promise<CreatedKey> {
   const target = resolve(envFile)
-  if (!ENV_FILE_RE.test(basename(target))) {
-    throw new ServiceCallError('env_file must be a dotenv file named .env or .env.<name>.')
+  if (!isProjectEnvFileName(basename(target))) {
+    throw new ServiceCallError(
+      'env_file must be a dotenv file named .env or .env.<name>; placeholder files such as .env.example are never read for credentials.',
+    )
   }
   if (!existsSync(dirname(target))) {
     throw new ServiceCallError(`Directory ${dirname(target)} does not exist.`)
@@ -244,13 +338,28 @@ export async function createApiKeyIntoEnv(
   const line = `MOLECULE_API_KEY=${minted.token}`
   const existed = existsSync(target)
   const lines = existed ? readFileSync(target, 'utf8').split('\n') : []
-  const at = lines.findIndex((l) => /^\s*(?:export\s+)?MOLECULE_API_KEY\s*=/.test(l))
-  if (at >= 0) lines[at] = line
-  else {
-    if (lines.length && lines[lines.length - 1] === '') lines.pop()
-    lines.push(line, '')
+  // Rewrite the FIRST assignment and drop any later ones: Node's dotenv parser
+  // takes the LAST assignment in a file, so leaving an older line below the new
+  // one would keep the superseded key in force and every service call would use
+  // it. Only assignment lines are matched (a commented-out `# KEY=` is not one).
+  const assignment = /^\s*(?:export\s+)?MOLECULE_API_KEY\s*=/
+  const next: string[] = []
+  let written = false
+  for (const current of lines) {
+    if (!assignment.test(current)) {
+      next.push(current)
+      continue
+    }
+    if (!written) {
+      next.push(line)
+      written = true
+    }
   }
-  writeFileSync(target, lines.join('\n'), { mode: 0o600 })
+  if (!written) {
+    if (next.length && next[next.length - 1] === '') next.pop()
+    next.push(line, '')
+  }
+  writeFileSync(target, next.join('\n'), { mode: 0o600 })
   // The file now holds a secret: owner-only even if it existed with wider bits.
   chmodSync(target, 0o600)
 
