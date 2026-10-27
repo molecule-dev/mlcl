@@ -115,7 +115,7 @@
         {spec.name}{specs.filter(s => s.name === spec.name).length > 1 ? ` (${specIndex})` : ''}
       </h2>
       <div style="display: flex; flex-wrap: wrap; gap: 8px; align-items: flex-start">
-        {#each combos as combo}
+        {#each combos as combo, comboIndex}
           {@const props = { ...(spec.defaultProps || {}), ...combo }}
 
           {#if spec.name === 'Button'}
@@ -175,12 +175,13 @@
           {:else if spec.name === 'Input'}
             <div class={getInputWrapperClass()}>
               {#if props.label}
-                <label class={getInputLabelClasses({ required: !!props.required })}>
+                <label for={`showcase-input-${specIndex}-${comboIndex}`} class={getInputLabelClasses({ required: !!props.required })}>
                   {props.label}
                 </label>
               {/if}
               <div class={getInputInnerClass()}>
                 <input
+                  id={`showcase-input-${specIndex}-${comboIndex}`}
                   class={getInputClasses({ size: props.size, error: props.error })}
                   placeholder={String(props.placeholder || '')}
                 />
@@ -232,6 +233,7 @@
               <button
                 type="button"
                 role="switch"
+                aria-label={String(props.label || spec.name)}
                 aria-checked={!!props.checked}
                 data-state={props.checked ? 'checked' : 'unchecked'}
                 class={getSwitchClasses({ size: props.size })}
@@ -331,7 +333,7 @@
             {@const totalPages = Number(props.totalPages) || 1}
             {@const size = String(props.size || 'md')}
             {@const range = generatePaginationRange(page, totalPages, 1, 1)}
-            <nav role="navigation" class={getPaginationClasses()}>
+            <nav class={getPaginationClasses()}>
               <ul class={getPaginationContentClass()}>
                 {#if props.showFirstLast}
                   <li>
