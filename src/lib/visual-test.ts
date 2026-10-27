@@ -13,6 +13,8 @@ import { cp, mkdir, readdir, readFile, symlink, writeFile } from 'node:fs/promis
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
+import { getRawRegistry, loadAppFrameworks, loadToolchain } from './registry.js'
+
 /** Supported frameworks for visual testing */
 export const VISUAL_TEST_FRAMEWORKS = [
   'react',
@@ -28,84 +30,6 @@ export type VisualTestFramework = (typeof VISUAL_TEST_FRAMEWORKS)[number]
 const MLCL_ROOT = join(import.meta.dirname, '..', '..')
 const TEMPLATES_DIR = join(MLCL_ROOT, 'templates', 'showcase')
 const MOLECULE_PACKAGES = join(MLCL_ROOT, '..', 'molecule', 'packages')
-
-/** Framework-specific npm dependencies (exact pinned versions from registry.json) */
-const FRAMEWORK_DEPS: Record<
-  VisualTestFramework,
-  {
-    dependencies: Record<string, string>
-    devDependencies: Record<string, string>
-  }
-> = {
-  react: {
-    dependencies: {
-      react: '19.2.4',
-      'react-dom': '19.2.4',
-    },
-    devDependencies: {
-      '@vitejs/plugin-react': '5.1.4',
-      '@types/react': '19.2.14',
-      '@types/react-dom': '19.2.3',
-    },
-  },
-  vue: {
-    dependencies: {
-      vue: '3.5.28',
-    },
-    devDependencies: {
-      '@vitejs/plugin-vue': '6.0.4',
-    },
-  },
-  svelte: {
-    dependencies: {},
-    devDependencies: {
-      svelte: '5.53.2',
-      '@sveltejs/vite-plugin-svelte': '6.2.4',
-    },
-  },
-  solid: {
-    dependencies: {
-      'solid-js': '1.9.11',
-    },
-    devDependencies: {
-      'vite-plugin-solid': '2.11.10',
-    },
-  },
-  angular: {
-    dependencies: {
-      '@angular/common': '21.1.5',
-      '@angular/core': '21.1.5',
-      '@angular/compiler': '21.1.5',
-      '@angular/platform-browser': '21.1.5',
-      rxjs: '7.8.2',
-      'zone.js': '0.16.1',
-    },
-    devDependencies: {
-      '@analogjs/vite-plugin-angular': '2.2.3',
-      '@angular/build': '21.1.5',
-      '@angular/compiler-cli': '21.1.5',
-    },
-  },
-  'react-native-web': {
-    dependencies: {
-      react: '19.2.4',
-      'react-dom': '19.2.4',
-    },
-    devDependencies: {
-      '@vitejs/plugin-react': '5.1.4',
-      '@types/react': '19.2.14',
-      '@types/react-dom': '19.2.3',
-    },
-  },
-}
-
-/** Shared devDependencies for all frameworks */
-const SHARED_DEV_DEPS: Record<string, string> = {
-  vite: '7.3.7',
-  tailwindcss: '4.1.18',
-  '@tailwindcss/vite': '4.1.18',
-  typescript: '5.9.3',
-}
 
 /**
  * Recursively find all @molecule/* packages in a directory.
@@ -169,6 +93,13 @@ export async function createShowcaseProject(
   framework: VisualTestFramework,
   baseDir: string,
 ): Promise<string> {
+  const fwDeps = loadAppFrameworks()[framework]
+  if (!fwDeps) throw new Error(`No registered showcase framework: ${framework}`)
+  const toolchain = loadToolchain()
+  const styling = getRawRegistry().packages?.['@molecule/app-styling-tailwind']?.buildTooling
+  if (!toolchain.app.vite || !toolchain.shared.typescript || !styling?.devDependencies) {
+    throw new Error('Showcase build tooling is missing from the registry')
+  }
   const dir = join(baseDir, `showcase-${framework}`)
   const srcDir = join(dir, 'src')
   await mkdir(srcDir, { recursive: true })
@@ -203,7 +134,6 @@ export async function createShowcaseProject(
   }
 
   // 3. Write package.json
-  const fwDeps = FRAMEWORK_DEPS[framework]
   await writeFile(
     join(dir, 'package.json'),
     JSON.stringify(
@@ -216,7 +146,9 @@ export async function createShowcaseProject(
           ...fwDeps.dependencies,
         },
         devDependencies: {
-          ...SHARED_DEV_DEPS,
+          vite: toolchain.app.vite,
+          typescript: toolchain.shared.typescript,
+          ...styling.devDependencies,
           ...fwDeps.devDependencies,
         },
       },
