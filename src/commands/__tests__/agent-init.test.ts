@@ -106,6 +106,49 @@ describe('mlcl agent init', () => {
     expect(skill).toContain('node_modules/@molecule/<name>/README.md')
   })
 
+  it('carries the capability-first order into the written instructions', async () => {
+    // The host loading path for the shared workflow: this section IS what
+    // `mlcl agent init` writes into AGENTS.md, the cursor/windsurf rules, the
+    // gemini extension and `.claude/skills/molecule/SKILL.md`, and
+    // `mcp/assets/conventions.md` serves the same bytes. An agent that never
+    // sees the order re-implements a capability the fleet already ships.
+    await run()
+    const agents = await readFile(join(dir, 'AGENTS.md'), 'utf8')
+    expect(agents).toContain('**Before you build a capability**')
+    // The four steps, in order, each naming its own action — a weak model reads
+    // the headings as the procedure.
+    const order = [
+      '**Inspect.**',
+      '**Reuse.**',
+      '**Adapt.**',
+      '**Create only for a reusable gap.**',
+    ]
+    const positions = order.map((step) => agents.indexOf(step))
+    for (const [i, pos] of positions.entries()) {
+      expect(pos, `the section names ${order[i]}`).toBeGreaterThan(-1)
+    }
+    expect(positions).toEqual([...positions].sort((a, b) => a - b))
+    // The counterexample half: without it, "create a package" reads as the
+    // answer for a one-off helper too.
+    expect(agents).toMatch(/one-off scripts stay local/)
+    // And the discovery command the first step depends on.
+    expect(agents).toContain('npx mlcl search <capability>')
+  })
+
+  it('the MCP conventions copy is the same text agent init writes', async () => {
+    // `molecule-mcp` serves a bundled COPY of the section template, so the two
+    // can drift silently: an MCP client would keep reading yesterday's
+    // conventions after a host-side edit. This is the invariant mlcl/AGENTS.md
+    // states in prose ("update both together"); here it is enforced.
+    const { readFileSync } = await import('node:fs')
+    const template = readFileSync(
+      join(MLCL_ROOT, 'templates', 'shared', 'agent-init-section.md.tpl'),
+      'utf8',
+    )
+    const conventions = readFileSync(join(MLCL_ROOT, 'mcp', 'assets', 'conventions.md'), 'utf8')
+    expect(conventions).toBe(template)
+  })
+
   it('adds a gemini extension when .gemini/ exists', async () => {
     await mkdir(join(dir, '.gemini'), { recursive: true })
     await run()
