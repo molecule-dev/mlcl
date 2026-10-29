@@ -3429,6 +3429,7 @@
         "withSuiteConfig",
         "scopedRerunCommand",
         "withRunEnv",
+        "resolvePlaywrightSelectionPaths",
         "suiteRunInTheWay",
         "isPlatformProofLaunch",
         "isDiagnosisRun",
