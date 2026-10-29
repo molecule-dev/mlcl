@@ -28496,12 +28496,16 @@
       "implements": "@molecule/api-uptime",
       "exports": [
         "provider",
+        "createProvider",
         "DEFAULT_SERVICES_URL",
+        "MONITOR_LIMITS",
         "MoleculeServiceError",
         "MoleculeUptimeProvider",
-        "createProvider",
         "uptimeMoleculeSecretDefinitions",
-        "MoleculeUptimeConfig"
+        "MoleculeUptimeConfig",
+        "UptimeMonitorView",
+        "ScheduleMonitorInput",
+        "UptimeCheckView"
       ],
       "secrets": [
         {
