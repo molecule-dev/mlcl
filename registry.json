@@ -2351,6 +2351,7 @@
         "provider",
         "createProvider",
         "aiMoonshotSecretDefinitions",
+        "MoonshotRateLimitRetries",
         "MoonshotConfig",
         "ProcessEnv"
       ],
