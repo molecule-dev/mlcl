@@ -143,11 +143,19 @@ jobs:
           fi
 
       # ---- PUBLISH mlcl ------------------------------------------------------
+      # Idempotent: a dispatch that only moves molecule-mcp (same mlcl version
+      # already on npm) must not die on EPUBLISHCONFLICT before it reaches the
+      # mcp step below.
       - name: Publish mlcl
         working-directory: mlcl
         run: |
-          printf '%s  %s\n' "$TARBALL_SHA256" "$TARBALL" | sha256sum --strict --check
-          npm publish "$TARBALL" --provenance --access public
+          VERSION="$(node -p 'require("./package.json").version')"
+          if npm view mlcl@"$VERSION" version >/dev/null 2>&1; then
+            echo "mlcl@$VERSION is already on npm — nothing to publish"
+          else
+            printf '%s  %s\n' "$TARBALL_SHA256" "$TARBALL" | sha256sum --strict --check
+            npm publish "$TARBALL" --provenance --access public
+          fi
         env:
           TARBALL: ${{ steps.package-artifact.outputs.tarball }}
           TARBALL_SHA256: ${{ steps.package-artifact.outputs.sha256 }}
@@ -158,15 +166,24 @@ jobs:
           MLCL_ALLOW_DEEP_HISTORY: '1'
 
       # ---- PUBLISH molecule-mcp (optional) ------------------------------------
+      # OIDC trusted publishing — the repo has no NPM_TOKEN secret. The publish
+      # authenticates through the workflow's id-token once the package's
+      # trusted-publisher link on npmjs.com names molecule-dev/mlcl +
+      # release.yml (npm requires the owner's OTP to add it).
       - name: Publish molecule-mcp
         if: inputs.mcp_publish
         working-directory: mlcl/mcp
         run: |
-          # Flip private → publishable for this run only (no commit needed).
-          node -e "const p=require('./package.json'); delete p.private; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n')"
-          npm install
-          npm run build
-          npm publish --access public
+          VERSION="$(node -p 'require("./package.json").version')"
+          if npm view molecule-mcp@"$VERSION" version >/dev/null 2>&1; then
+            echo "molecule-mcp@$VERSION is already on npm — nothing to publish"
+          else
+            # Flip private → publishable for this run only (no commit needed).
+            node -e "const p=require('./package.json'); delete p.private; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n')"
+            npm install
+            npm run build
+            npm publish --provenance --access public
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
