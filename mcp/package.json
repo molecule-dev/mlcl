@@ -1,6 +1,6 @@
 {
   "name": "molecule-mcp",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "description": "MCP server exposing the Molecule.dev package ecosystem — search, templates, scaffolding — to any MCP-capable coding agent",
   "author": "Molecule Dev, Inc. (https://molecule.dev)",
   "license": "Apache-2.0",
