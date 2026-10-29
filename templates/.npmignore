@@ -1,0 +1,12 @@
+# Monorepo-only flagship authoring state. The package.json files allowlist
+# includes /templates, so these files need an npm-local exclusion even though
+# copyTemplateInstance never exposes them to a scaffolded project.
+apps/*/.polish/
+apps/*/.polish-complete
+apps/*/.stitch-complete
+apps/*/screen-map.json
+
+# One-shot source rewrites from the 3d-model-viewer polish session, not CLI
+# runtime inputs or reusable scaffold scripts.
+apps/3d-model-viewer/scripts/fix-classmap-types.mjs
+apps/3d-model-viewer/scripts/fix-tailwind-classnames.mjs
