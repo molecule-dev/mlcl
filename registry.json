@@ -64366,7 +64366,7 @@
       "@molecule/api-ai-decisions-kev": "1.0.2",
       "@molecule/api-uptime": "1.1.0",
       "@molecule/api-uptime-fetch": "1.1.0",
-      "@molecule/api-uptime-molecule": "1.1.0",
+      "@molecule/api-uptime-molecule": "1.2.0",
       "@molecule/api-paracrine-file": "1.1.0",
       "@molecule/api-paracrine": "1.1.0"
     }
