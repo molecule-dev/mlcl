@@ -71,7 +71,7 @@
     "@molecule/api-resource": "1.0.7",
     "@molecule/api-resource-device": "1.1.2",
     "@molecule/api-resource-payment": "1.0.4",
-    "@molecule/api-resource-project": "1.0.8",
+    "@molecule/api-resource-project": "1.0.9",
     "@molecule/api-resource-user": "1.8.1",
     "@molecule/api-search": "1.0.4",
     "@molecule/api-search-meilisearch": "1.0.3",
