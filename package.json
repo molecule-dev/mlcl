@@ -1,6 +1,6 @@
 {
   "name": "mlcl",
-  "version": "2.1.21",
+  "version": "2.1.22",
   "description": "The Molecule.dev CLI — scaffold and manage production full-stack apps from a composable, swappable @molecule/* package library",
   "author": "Molecule Dev, Inc. (https://molecule.dev)",
   "license": "Apache-2.0",
