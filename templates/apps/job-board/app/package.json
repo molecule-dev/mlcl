@@ -84,7 +84,7 @@
     "@molecule/app-platform": "1.0.4",
     "@molecule/app-push": "1.0.3",
     "@molecule/app-pwa-default": "1.1.0",
-    "@molecule/app-react": "3.0.1",
+    "@molecule/app-react": "3.0.2",
     "@molecule/app-root-error-boundary-react": "1.0.3",
     "@molecule/app-routing": "1.0.5",
     "@molecule/app-routing-react-router": "1.1.3",

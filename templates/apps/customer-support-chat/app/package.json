@@ -79,7 +79,7 @@
     "@molecule/app-platform": "1.0.4",
     "@molecule/app-push": "1.0.3",
     "@molecule/app-pwa-default": "1.1.0",
-    "@molecule/app-react": "3.0.1",
+    "@molecule/app-react": "3.0.2",
     "@molecule/app-realtime": "1.0.4",
     "@molecule/app-realtime-socketio": "1.1.1",
     "@molecule/app-root-error-boundary-react": "1.0.3",
