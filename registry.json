@@ -37152,8 +37152,8 @@
         ],
         "header": [
           "This is the app's ONE HTTP client — every page call goes through it.",
-          "It sends the auth client's token on every request (`Authorization: <authConfig.authScheme> <token>`) and holds each request until the session restore settles (`setAuthGate(() => authClient.whenRestored())`).",
-          "Replacing it means keeping BOTH: waiting for the restore does NOT attach a token — use `createDefaultHttpClientWithAuthBearer({ baseURL, getToken: () => authClient.getAccessToken(), authScheme })` from `@molecule/app-bonds-default-react` instead of a bare `createFetchClient`."
+          "It reads the auth client's token through `setAuthTokenSource(() => authClient.getAccessToken())`, so this client AND one bonded later send the current session token with their configured `authScheme`; it also holds requests until session restore settles (`setAuthGate(() => authClient.whenRestored())`).",
+          "Keep BOTH halves when replacing this file: waiting for restore does NOT attach a token. Prefer the shared source over a one-client interceptor, and pass `authConfig.authScheme` to the transport constructor."
         ],
         "authBridge": {
           "package": "@molecule/app-auth",

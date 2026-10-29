@@ -3754,7 +3754,7 @@ function generateDefaultBondSetup(
   // `sortImportStatements` would not join back together).
   const ownNames = [
     ...new Set([
-      ...(setup.authBridge ? ['setAuthGate'] : []),
+      ...(setup.authBridge ? ['setAuthGate', 'setAuthTokenSource'] : []),
       ...(setup.extraImports ?? [])
         .filter((imp) => imp.from === packageName)
         .flatMap((imp) => imp.names),
@@ -3862,6 +3862,7 @@ export function setup${pascal}(): void {
     const entries = [
       ...(setup.configImport ? [`...${setup.configImport}`] : []),
       ...setup.configExtend,
+      ...(setup.authBridge ? [`authScheme: ${setup.authBridge.schemeConfig}.authScheme`] : []),
     ]
     const inline = `export const ${instanceName} = ${setup.factory}({ ${entries.join(', ')} })`
     declaration =
@@ -3874,23 +3875,13 @@ export function setup${pascal}(): void {
   // `setAuthGate` alone only DELAYS a request — it attaches nothing, so a client created
   // beside the auth bond sent every authed request bare and the API answered
   // `401 {"errors":{"token":["is missing"]}}` (xr-molecule-flash-m152; the run edited the
-  // SERVER before finding this). Both halves are generated together: the token read on each
-  // request (so it is there after the restore and fresh after a refresh) and the gate.
+  // SERVER before finding this). Both halves are generated together: the shared token source
+  // hydrates the current client and every client bonded later, and the gate waits for restore.
   const bridge = setup.authBridge
     ? `
 
-// Read the token on EVERY request: the auth client restores asynchronously, so a token
-// captured at boot is absent before the restore settles and stale after a refresh.
-${instanceName}.addRequestInterceptor((config) => {
-  const token = ${setup.authBridge.client}.getAccessToken()
-  if (token) {
-    config.headers = {
-      ...config.headers,
-      Authorization: \`\${${setup.authBridge.schemeConfig}.authScheme} \${token}\`,
-    }
-  }
-  return config
-})`
+// The transport reads this source on every request and owns the Authorization scheme.
+setAuthTokenSource(() => ${setup.authBridge.client}.getAccessToken())`
     : ''
   const gate = setup.authBridge
     ? `\n  setAuthGate(() => ${setup.authBridge.client}.whenRestored?.() ?? Promise.resolve())`
@@ -5284,12 +5275,10 @@ function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string
         mockEntries.push(`  ${exp}: vi.fn()`)
       } else if (/^create[A-Z]/.test(exp)) {
         // Factory — return an object with the methods the generated bond setups call on it.
-        // `http-default.ts` attaches the auth token through `createFetchClient(...).addRequestInterceptor`
-        // (mlcl 1e2186afd); a mock without it made EVERY full-stack scaffold's own bonds.test.ts
-        // throw "addRequestInterceptor is not a function" (found 2026-10-18 while gating a template
-        // change). The interceptor registrars return their unsubscribe function, so `vi.fn(() => vi.fn())`.
+        // HTTP token synchronization calls setAuthToken on clients hydrated by the shared source;
+        // interceptor registrars return their unsubscribe function, hence `vi.fn(() => vi.fn())`.
         mockEntries.push(
-          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
+          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), setAuthToken: vi.fn(), setAuthTokenResolver: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
         )
       } else if (/^(get|is|has|use)[A-Z]/.test(exp)) {
         mockEntries.push(`  ${exp}: vi.fn()`)

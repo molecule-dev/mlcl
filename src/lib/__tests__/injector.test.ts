@@ -1580,14 +1580,12 @@ describe('synthesizeAppProjectFiles', () => {
     expect(bondsFile!.content).toContain('setupHttpDefault()')
   })
 
-  it('attaches the auth token and the restore gate to the shared http client', () => {
-    // xr-molecule-flash-m152 (+11:36 → +13:34): the generated `http-default.ts` created a
-    // bare `createFetchClient` and only called `setClient`. Signup succeeded, `GET
-    // /api/user` (made by the auth client itself) carried `Authorization`, and
-    // `POST /api/articles` did not — 401 `{"errors":{"token":["is missing"]}}`. The run
-    // spent ~2 minutes, edited the SERVER to disable cookie sessions, and only then added
-    // an interceptor reading `authClient.getAccessToken()` plus `setAuthGate`. `setAuthGate`
-    // alone waits; it attaches nothing. Both halves are generated with the client.
+  it('attaches the live auth token source and restore gate to every bonded http client', () => {
+    // The generated bond used a private interceptor on only the client created in this file.
+    // A provider/client bonded later missed the session token entirely, even though app-http's
+    // public setAuthTokenSource contract already handles current AND later clients. The source
+    // belongs in the generated setup; the transport (not a second header writer) owns the
+    // configured Authorization scheme.
     const files = synthesizeAppProjectFiles(
       [],
       ['@molecule/app-http', '@molecule/app-auth'],
@@ -1598,13 +1596,12 @@ describe('synthesizeAppProjectFiles', () => {
     const bond = files.find((f) => f.targetPath.endsWith(join('bonds', 'http-default.ts')))
     expect(bond, 'a default http bond is generated').toBeDefined()
     expect(bond!.content).toContain("import { authClient } from './auth-default.js'")
-    expect(bond!.content).toContain('authClient.getAccessToken()')
-    expect(bond!.content).toContain('${authConfig.authScheme} ${token}')
+    expect(bond!.content).toContain('setAuthTokenSource(() => authClient.getAccessToken())')
+    expect(bond!.content).toContain('authScheme: authConfig.authScheme')
     expect(bond!.content).toContain(
       'setAuthGate(() => authClient.whenRestored?.() ?? Promise.resolve())',
     )
-    // The doc the executor reads when it rewrites this file names the wiring it must keep.
-    expect(bond!.content).toContain('createDefaultHttpClientWithAuthBearer')
+    expect(bond!.content).not.toContain('addRequestInterceptor')
   })
 
   it('runs the HTTP bond setup before the auth bond that mirrors its token into it', () => {
@@ -1644,6 +1641,11 @@ describe('synthesizeAppProjectFiles', () => {
     expect(bond).toBeDefined()
     expect(bond!.content).not.toContain('./auth-default.js')
     expect(bond!.content).not.toContain('addRequestInterceptor')
+    const executableBond = bond!.content
+      .replace(/\/\*[\s\S]*?\*\//g, '')
+      .replace(/^\s*\/\/.*$/gm, '')
+    expect(executableBond).not.toContain('setAuthTokenSource')
+    expect(bond!.content).not.toContain('authScheme: authConfig.authScheme')
   })
 })
 
