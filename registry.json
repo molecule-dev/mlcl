@@ -23900,7 +23900,10 @@
         "i18nRegistered",
         "requestHandlerMap",
         "routes",
+        "isProjectType",
         "BrandingSpec",
+        "PROJECT_TYPES",
+        "ProjectType",
         "Project",
         "CreateProjectInput",
         "UpdateProjectInput"
