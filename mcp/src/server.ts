@@ -2973,6 +2973,223 @@ server.registerTool(
 )
 
 server.registerTool(
+  'schedule_probe',
+  {
+    title: 'Schedule a recurring uptime probe (molecule.dev)',
+    description:
+      'Schedule a recurring uptime probe on molecule.dev: the platform runs it on your interval (60 s\u201324 h, at most 10 monitors per project) from OUTSIDE your network and stores every verdict \u2014 read them with probe_history. Optionally attach a web-push subscription (subscribed with molecule.dev\u2019s VAPID key from push_public_key) for down/recovery alerts. Metered per executed probe at zero upstream cost, to the project whose MOLECULE_API_KEY is used. Pass id to update an existing monitor instead of creating one. The same service backs @molecule/api-uptime-molecule in app code.',
+    inputSchema: {
+      url: z.string().max(2048).describe('The URL to probe (http/https)'),
+      interval_seconds: z
+        .number()
+        .int()
+        .min(60)
+        .max(86400)
+        .describe('Whole seconds between probe runs (60\u201386400)'),
+      method: z.enum(['GET', 'HEAD']).optional().describe('HTTP method (default GET)'),
+      timeout_ms: z
+        .number()
+        .int()
+        .min(1000)
+        .max(30000)
+        .optional()
+        .describe('Whole-probe budget in milliseconds (default 10000)'),
+      expect_status: z
+        .number()
+        .int()
+        .min(100)
+        .max(599)
+        .optional()
+        .describe('Only this status counts as operational'),
+      expect_text: z
+        .string()
+        .min(1)
+        .max(256)
+        .optional()
+        .describe('Text that must appear in the body (GET only)'),
+      degraded_latency_ms: z
+        .number()
+        .int()
+        .min(0)
+        .max(30000)
+        .optional()
+        .describe('Operational probes slower than this degrade (default 2000)'),
+      id: z.string().optional().describe('Update this monitor instead of creating one'),
+      paused: z.boolean().optional().describe('Create or leave the monitor paused'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked(
+    'schedule_probe',
+    async ({
+      url,
+      interval_seconds,
+      method,
+      timeout_ms,
+      expect_status,
+      expect_text,
+      degraded_latency_ms,
+      id,
+      paused,
+      directory,
+    }) =>
+      serviceResult(async () => {
+        const spec: Record<string, unknown> = { url, intervalSeconds: interval_seconds }
+        if (method !== undefined) spec.method = method
+        if (timeout_ms !== undefined) spec.timeoutMs = timeout_ms
+        if (expect_status !== undefined) spec.expectStatus = expect_status
+        if (expect_text !== undefined) spec.expectText = expect_text
+        if (degraded_latency_ms !== undefined) spec.degradedLatencyMs = degraded_latency_ms
+        if (id !== undefined) spec.id = id
+        if (paused !== undefined) spec.paused = paused
+        const result = (await callHostedService('uptime', 'schedule', spec, directory)) as {
+          monitor?: { id?: string; nextRunAt?: string; alerting?: boolean }
+        }
+        if (!result.monitor?.id) {
+          throw new ServiceCallError('molecule.dev returned no monitor.')
+        }
+        return JSON.stringify({
+          monitorId: result.monitor.id,
+          ...(result.monitor.nextRunAt !== undefined
+            ? { nextRunAt: result.monitor.nextRunAt }
+            : {}),
+          alerting: result.monitor.alerting === true,
+        })
+      }),
+  ),
+)
+
+server.registerTool(
+  'list_probes',
+  {
+    title: 'List scheduled uptime probes (molecule.dev)',
+    description:
+      'List this project\u2019s scheduled uptime monitors on molecule.dev: target, interval, paused state, the latest verdict (operational/degraded/down), when each was last checked and when it runs next. The same service backs @molecule/api-uptime-molecule in app code.',
+    inputSchema: {
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('list_probes', async ({ directory }) =>
+    serviceResult(async () => {
+      const result = (await callHostedService('uptime', 'monitors', {}, directory)) as {
+        monitors?: Array<{
+          id: string
+          url: string
+          intervalSeconds: number
+          alerting?: boolean
+          paused?: boolean
+          lastStatus?: string | null
+          lastCheckedAt?: string | null
+          nextRunAt?: string
+          consecutiveFails?: number
+        }>
+      }
+      return JSON.stringify({
+        monitors: (result.monitors ?? []).map((m) => ({
+          id: m.id,
+          url: m.url,
+          intervalSeconds: m.intervalSeconds,
+          ...(m.paused !== undefined ? { paused: m.paused } : {}),
+          ...(m.lastStatus !== undefined && m.lastStatus !== null
+            ? { lastStatus: m.lastStatus }
+            : {}),
+          ...(m.lastCheckedAt !== undefined && m.lastCheckedAt !== null
+            ? { lastCheckedAt: m.lastCheckedAt }
+            : {}),
+          ...(m.nextRunAt !== undefined ? { nextRunAt: m.nextRunAt } : {}),
+          ...(m.consecutiveFails !== undefined ? { consecutiveFails: m.consecutiveFails } : {}),
+        })),
+      })
+    }),
+  ),
+)
+
+server.registerTool(
+  'probe_history',
+  {
+    title: 'Read a scheduled probe\u2019s stored checks (molecule.dev)',
+    description:
+      'Read a scheduled uptime monitor\u2019s stored checks on molecule.dev (newest first, default 100, at most 500) with an uptime summary over the returned window: counts per verdict and the share of operational checks. Checks are kept 30 days. The same service backs @molecule/api-uptime-molecule in app code.',
+    inputSchema: {
+      monitor_id: z.string().min(1).describe('The monitor id (from list_probes or schedule_probe)'),
+      limit: z
+        .number()
+        .int()
+        .min(1)
+        .max(500)
+        .optional()
+        .describe('How many checks to return (default 100, at most 500)'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('probe_history', async ({ monitor_id, limit, directory }) =>
+    serviceResult(async () => {
+      const result = (await callHostedService(
+        'uptime',
+        'history',
+        limit === undefined ? { monitorId: monitor_id } : { monitorId: monitor_id, limit },
+        directory,
+      )) as {
+        checks?: Array<{
+          checkedAt?: string
+          status?: string
+          latencyMs?: number | null
+          httpStatus?: number | null
+          message?: string | null
+        }>
+        summary?: {
+          total?: number
+          operational?: number
+          degraded?: number
+          down?: number
+          uptimePercent?: number | null
+        }
+      }
+      if (!Array.isArray(result.checks)) {
+        throw new ServiceCallError('molecule.dev returned no checks.')
+      }
+      return JSON.stringify({
+        checks: result.checks,
+        ...(result.summary !== undefined ? { summary: result.summary } : {}),
+      })
+    }),
+  ),
+)
+
+server.registerTool(
+  'delete_probe',
+  {
+    title: 'Delete a scheduled uptime probe (molecule.dev)',
+    description:
+      'Delete a scheduled uptime monitor on molecule.dev and its stored checks. The same service backs @molecule/api-uptime-molecule in app code.',
+    inputSchema: {
+      id: z.string().min(1).describe('The monitor id (from list_probes or schedule_probe)'),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked('delete_probe', async ({ id, directory }) =>
+    serviceResult(async () => {
+      const result = (await callHostedService('uptime', 'remove', { id }, directory)) as {
+        removed?: boolean
+      }
+      return JSON.stringify({ removed: result.removed === true, id })
+    }),
+  ),
+)
+
+server.registerTool(
   'submit_agent_run',
   {
     title: 'Submit an unattended agent run (molecule.dev)',
