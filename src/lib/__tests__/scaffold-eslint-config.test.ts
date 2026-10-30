@@ -157,12 +157,15 @@ describe('the shared scaffold eslint config', () => {
       expect(transpiled.diagnostics).toEqual([])
     }
 
-    const expectReportedWithoutFix = async (source: string): Promise<void> => {
+    const expectReportedWithoutFix = async (
+      source: string,
+      message = 'namespace uses are not tracked',
+    ): Promise<void> => {
       const [before] = await eslint.lintText(source, { filePath: 'app.tsx' })
       const messages = before.messages.filter((message) => message.ruleId === ruleId)
       expect(messages).toHaveLength(1)
       expect(messages[0]).not.toHaveProperty('fix')
-      expect(messages[0]?.message).toContain('namespace uses are not tracked')
+      expect(messages[0]?.message).toContain(message)
       const [fixed] = await fixer().lintText(source, { filePath: 'app.tsx' })
       expect(fixed.output).toBeUndefined()
     }
@@ -244,9 +247,36 @@ describe('the shared scaffold eslint config', () => {
       },
     )
 
-    it('leaves non-router react-router imports untouched', async () => {
+    it.each(['react-router', 'react-router-dom', 'react-router/dom'])(
+      'redirects named router re-exports from %s and preserves aliases and other exports',
+      async (entryPoint) => {
+        await expectFixed(
+          `export { BrowserRouter as B, Link, RouterProvider } from '${entryPoint}'\n`,
+          `export { BrowserRouter as B, RouterProvider } from '${bond}'\nexport { Link } from '${entryPoint}'\n`,
+        )
+      },
+    )
+
+    it.each(['react-router', 'react-router-dom', 'react-router/dom'])(
+      'reports export-all from %s without a fix',
+      async (entryPoint) => {
+        await expectReportedWithoutFix(`export * from '${entryPoint}'\n`)
+      },
+    )
+
+    it.each(['react-router', 'react-router-dom', 'react-router/dom'])(
+      'reports a dynamic import of %s without a fix',
+      async (entryPoint) => {
+        await expectReportedWithoutFix(
+          `const { BrowserRouter } = await import('${entryPoint}')\nexport const app = <BrowserRouter />\n`,
+          'dynamic module uses are not tracked',
+        )
+      },
+    )
+
+    it('leaves non-router imports, re-exports, and dynamic imports untouched', async () => {
       await expectNoRouterReport(
-        "import { Link, Routes, useNavigate } from 'react-router'\nexport { Link, Routes, useNavigate }\n",
+        "import { Link, Routes, useNavigate } from 'react-router'\nexport { Link, Routes, useNavigate }\nexport { Link as AnotherLink } from 'react-router'\nexport * from './local-router.js'\nconst local = await import('./local-router.js')\nexport { local }\n",
       )
     })
 
@@ -256,9 +286,9 @@ describe('the shared scaffold eslint config', () => {
       )
     })
 
-    it('leaves type-only router imports untouched', async () => {
+    it('leaves type-only router imports and re-exports untouched', async () => {
       await expectNoRouterReport(
-        "import type { BrowserRouter } from 'react-router'\nimport { type RouterProvider, Routes } from 'react-router/dom'\nexport type { BrowserRouter, RouterProvider }\nexport { Routes }\n",
+        "import type * as RR from 'react-router'\nimport type { BrowserRouter } from 'react-router'\nimport { type RouterProvider, Routes } from 'react-router/dom'\nexport type { BrowserRouter, BrowserRouterProps } from 'react-router'\nexport { type RouterProvider, type RouterProviderProps } from 'react-router/dom'\nexport type * from 'react-router-dom'\nexport type Props = RR.BrowserRouterProps\nexport type { BrowserRouter, RouterProvider }\nexport { Routes }\n",
       )
     })
 

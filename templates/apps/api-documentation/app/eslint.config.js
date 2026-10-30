@@ -35,6 +35,8 @@ const moleculeLocal = {
             "Import this router from '@molecule/app-routing-react-router', whose wrapper sets useTransitions={false} so the URL and rendered page change together.",
           namespace:
             "Import router components directly from '@molecule/app-routing-react-router' instead of a React Router namespace (namespace uses are not tracked), because its wrappers set useTransitions={false} so the URL and rendered page change together.",
+          dynamic:
+            "Import router components directly from '@molecule/app-routing-react-router' instead of a dynamic React Router import (dynamic module uses are not tracked), because its wrappers set useTransitions={false} so the URL and rendered page change together.",
         },
       },
       create(context) {
@@ -59,16 +61,17 @@ const moleculeLocal = {
             parts.push(`{ ${named.map((specifier) => source.getText(specifier)).join(', ')} }`)
           return `import ${parts.join(', ')} from '${module}'${semicolon}`
         }
+        const exportDeclaration = (specifiers, module, semicolon) =>
+          `export { ${specifiers.map((specifier) => source.getText(specifier)).join(', ')} } from '${module}'${semicolon}`
         return {
           ImportDeclaration(node) {
-            if (!packages.has(node.source.value)) return
+            if (!packages.has(node.source.value) || node.importKind === 'type') return
             if (
               node.specifiers.some((specifier) => specifier.type === 'ImportNamespaceSpecifier')
             ) {
               context.report({ node, messageId: 'namespace' })
               return
             }
-            if (node.importKind === 'type') return
             const moved = node.specifiers.filter(
               (specifier) =>
                 specifier.type === 'ImportSpecifier' &&
@@ -90,6 +93,39 @@ const moleculeLocal = {
                 return fixer.replaceText(node, replacement)
               },
             })
+          },
+          ExportNamedDeclaration(node) {
+            if (!node.source || !packages.has(node.source.value) || node.exportKind === 'type')
+              return
+            const moved = node.specifiers.filter(
+              (specifier) =>
+                specifier.type === 'ExportSpecifier' &&
+                specifier.exportKind !== 'type' &&
+                routers.has(specifier.local.name ?? specifier.local.value),
+            )
+            if (moved.length === 0) return
+            context.report({
+              node: moved[0],
+              messageId: 'synchronous',
+              fix(fixer) {
+                const semicolon = source.getText(node).trimEnd().endsWith(';') ? ';' : ''
+                const bondExport = exportDeclaration(moved, bond, semicolon)
+                const remaining = node.specifiers.filter((specifier) => !moved.includes(specifier))
+                const replacement =
+                  remaining.length === 0
+                    ? bondExport
+                    : `${exportDeclaration(remaining, node.source.value, semicolon)}\n${bondExport}`
+                return fixer.replaceText(node, replacement)
+              },
+            })
+          },
+          ExportAllDeclaration(node) {
+            if (!packages.has(node.source.value) || node.exportKind === 'type') return
+            context.report({ node, messageId: 'namespace' })
+          },
+          ImportExpression(node) {
+            if (node.source.type !== 'Literal' || !packages.has(node.source.value)) return
+            context.report({ node, messageId: 'dynamic' })
           },
         }
       },
