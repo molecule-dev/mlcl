@@ -28,6 +28,28 @@ if [ -n "$E2E_SLUGS" ]; then
   node scripts/verify-template-e2e-demo-data.mjs $E2E_SLUGS || exit 1
 fi
 
+# Template lint, scoped to the templates this commit touches, with each one's OWN
+# config (the eslint step below cannot lint templates). `mlcl create` copies them
+# verbatim, so a dirty template fails the user's first `npm run lint`. CI cannot
+# run this (it checks mlcl out alone, without the templates' dependencies), which
+# is how 300 warnings from one fleet-wide commit stood for twelve days. A staged
+# shared eslint config re-lints the whole fleet (~1 min). Needs the workspace
+# install; skipped in a standalone clone.
+if [ -x ../node_modules/.bin/eslint ]; then
+  LINT_STAGED=$(git diff --cached --name-only --diff-filter=ACMR)
+  if echo "$LINT_STAGED" | grep -qx 'templates/shared/eslint\.config\.js\.tpl'; then
+    node scripts/verify-template-lint.mjs || exit 1
+  else
+    LINT_SLUGS=$(echo "$LINT_STAGED" |
+      grep -E '^templates/apps/[^/]+/(app|api)/(src/|eslint\.config\.js$)' |
+      cut -d/ -f3 | sort -u)
+    if [ -n "$LINT_SLUGS" ]; then
+      # shellcheck disable=SC2086
+      node scripts/verify-template-lint.mjs $LINT_SLUGS || exit 1
+    fi
+  fi
+fi
+
 # Format + lint, SCOPED TO STAGED FILES — the same commands `npm run
 # format:check` / `npm run lint` run, with the same rigor, over the files this
 # commit actually touches.
