@@ -61181,7 +61181,11 @@
         "alert banner",
         "tabs",
         "skeleton loader",
-        "toggle switch"
+        "toggle switch",
+        "protected route",
+        "auth route guard",
+        "authenticated route",
+        "protect routes"
       ]
     },
     "@molecule/app-ui-react-native": {
