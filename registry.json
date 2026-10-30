@@ -36561,10 +36561,12 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/app-bond"
+        "@molecule/app-bond",
+        "@molecule/app-i18n"
       ],
       "moleculePeers": [
-        "@molecule/app-bond"
+        "@molecule/app-bond",
+        "@molecule/app-i18n"
       ],
       "bondSetter": "setProvider",
       "path": "packages/app/core/forms",
