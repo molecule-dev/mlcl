@@ -23,126 +23,98 @@ import tseslint from 'typescript-eslint'
  */
 const moleculeLocal = {
   rules: {
+    // This checks one file at a time: a router reaching JSX through a local
+    // re-export is not seen, because cross-module resolution needs type information.
     'router-commits-with-url': {
       meta: {
         type: 'problem',
         fixable: 'code',
-        docs: {
-          description:
-            'Require React Router state updates to commit with the URL instead of in a later transition',
-        },
         schema: [],
         messages: {
           synchronous:
             'React Router would change the URL before the new page renders, so code and tests that check the page right after a navigation see the old one; set `useTransitions={false}`.',
-          reexport:
-            'render the router where it is imported from React Router so the lint rule can check it.',
         },
       },
       create(context) {
         const source = context.sourceCode
-        const routerPackages = new Set(['react-router', 'react-router-dom', 'react-router/dom'])
-        const routerComponents = new Set([
-          'BrowserRouter',
-          'HashRouter',
-          'MemoryRouter',
-          'Router',
-          'RouterProvider',
-        ])
-        const originalName = (specifier) => {
-          const identifier = specifier.imported ?? specifier.local
-          return identifier.name ?? identifier.value
-        }
-        const isRouterBinding = (node, name, component) => {
+        const packages = new Set(['react-router', 'react-router-dom'])
+        const routers = new Set(['BrowserRouter', 'HashRouter', 'MemoryRouter', 'RouterProvider'])
+        const wrappers = /^(TSAs|TSSatisfies|TSNonNull|Parenthesized)Expression$/
+        const isRouter = (node, name, member) => {
           for (let scope = source.getScope(node); scope; scope = scope.upper) {
             const variable = scope.set.get(name)
-            if (!variable) continue
-            return variable.defs.some(({ type, parent, node: specifier }) => {
-              if (type !== 'ImportBinding' || !routerPackages.has(parent.source.value)) return false
-              if (component)
-                return (
-                  specifier.type === 'ImportNamespaceSpecifier' && routerComponents.has(component)
-                )
-              return (
-                specifier.type === 'ImportSpecifier' &&
-                routerComponents.has(originalName(specifier))
-              )
-            })
+            if (!variable?.isValueVariable) continue
+            return variable.defs.some(
+              ({ type, parent, node: specifier }) =>
+                type === 'ImportBinding' &&
+                parent.importKind !== 'type' &&
+                specifier.importKind !== 'type' &&
+                packages.has(parent.source.value) &&
+                routers.has(member ?? specifier.imported?.name ?? specifier.imported?.value) &&
+                (member
+                  ? specifier.type === 'ImportNamespaceSpecifier'
+                  : specifier.type === 'ImportSpecifier'),
+            )
           }
           return false
         }
-        const commitsWithUrl = (attribute) => {
+        const isFalse = (attribute) => {
           let expression = attribute.value?.expression
-          while (
-            [
-              'TSAsExpression',
-              'TSSatisfiesExpression',
-              'TSNonNullExpression',
-              'ParenthesizedExpression',
-            ].includes(expression?.type)
-          )
+          while (wrappers.test(expression?.type)) {
+            if (
+              expression.type === 'TSAsExpression' &&
+              source.getText(expression.typeAnnotation) !== 'const'
+            )
+              return false
             expression = expression.expression
+          }
           return expression?.type === 'Literal' && expression.value === false
         }
+        const safeSpread = ({ argument }) =>
+          argument.type === 'ObjectExpression' &&
+          argument.properties.every(
+            (property) =>
+              property.type === 'Property' &&
+              (!property.computed || property.key.type === 'Literal') &&
+              (property.key.name ?? property.key.value) !== 'useTransitions',
+          )
         return {
-          Program(program) {
-            for (const node of program.body) {
-              if (node.exportKind === 'type' || !routerPackages.has(node.source?.value)) continue
-              if (
-                node.type === 'ExportAllDeclaration' ||
-                (node.type === 'ExportNamedDeclaration' &&
-                  node.specifiers.some(
-                    (specifier) =>
-                      specifier.exportKind !== 'type' &&
-                      routerComponents.has(originalName(specifier)),
-                  ))
-              )
-                context.report({ node: node.source, messageId: 'reexport' })
-            }
-          },
           JSXOpeningElement(node) {
             const name = node.name
-            const direct = name.type === 'JSXIdentifier'
-            const member =
+            let binding, member
+            if (name.type === 'JSXIdentifier' && /^[A-Z]/.test(name.name)) binding = name.name
+            else if (
               name.type === 'JSXMemberExpression' &&
               name.object.type === 'JSXIdentifier' &&
               name.property.type === 'JSXIdentifier'
-            if (!direct && !member) return
-            if (
-              !isRouterBinding(
-                node,
-                direct ? name.name : name.object.name,
-                member ? name.property.name : undefined,
-              )
-            )
-              return
-            const isTransitionProp = (attribute) =>
-              attribute.type === 'JSXAttribute' &&
-              attribute.name.type === 'JSXIdentifier' &&
-              attribute.name.name === 'useTransitions'
-            const lastProp = node.attributes.findLastIndex(isTransitionProp)
-            const lastSpread = node.attributes.findLastIndex(
-              (attribute) => attribute.type === 'JSXSpreadAttribute',
-            )
-            if (lastProp > lastSpread && commitsWithUrl(node.attributes[lastProp])) return
+            ) {
+              binding = name.object.name
+              member = name.property.name
+            } else return
+            if (!isRouter(node, binding, member)) return
+            const isTransition = (attribute) =>
+              attribute.type === 'JSXAttribute' && attribute.name.name === 'useTransitions'
+            const index = node.attributes.findLastIndex(isTransition)
+            const attribute = node.attributes[index]
+            const overridden = node.attributes
+              .slice(index + 1)
+              .some((a) => a.type === 'JSXSpreadAttribute' && !safeSpread(a))
+            if (attribute && isFalse(attribute) && !overridden) return
+            const anchor = node.attributes.at(-1) ?? node.name
             context.report({
-              node: node.attributes[lastProp] ?? node.name,
+              node: attribute ?? node.name,
               messageId: 'synchronous',
               fix(fixer) {
-                const fixes = node.attributes.filter(isTransitionProp).map((attribute) => {
-                  const before = source.getTokenBefore(attribute)
-                  return fixer.removeRange([
-                    before?.range[1] ?? attribute.range[0],
-                    attribute.range[1],
-                  ])
-                })
-                fixes.push(
-                  fixer.insertTextAfter(
-                    node.attributes.at(-1) ?? node.name,
-                    ' useTransitions={false}',
-                  ),
+                if (!attribute) return fixer.insertTextAfter(anchor, ' useTransitions={false}')
+                if (overridden) return null
+                const value = attribute.value
+                const literal = value?.type === 'JSXExpressionContainer' ? value.expression : value
+                if (
+                  literal?.type !== 'Literal' ||
+                  !['boolean', 'string', 'number'].includes(typeof literal.value)
                 )
-                return fixes
+                  return null
+                return fixer.replaceText(value, '{false}')
               },
             })
           },
