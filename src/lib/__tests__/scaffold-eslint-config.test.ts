@@ -15,7 +15,7 @@
  * @module
  */
 
-import { copyFile, mkdtemp, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -125,15 +125,25 @@ describe('the shared scaffold eslint config', () => {
 
   describe('molecule-local/router-commits-with-url', () => {
     const ruleId = 'molecule-local/router-commits-with-url'
+    const bond = '@molecule/app-routing-react-router'
 
-    const expectFixed = async (source: string, output: string): Promise<void> => {
-      const fixer = new ESLint({
+    const fixer = (): ESLint =>
+      new ESLint({
         cwd: dir,
         overrideConfigFile: join(dir, 'eslint.config.mjs'),
         overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
         fix: true,
       })
-      const [fixed] = await fixer.lintText(source, { filePath: 'app.tsx' })
+
+    const expectFixed = async (source: string, output: string): Promise<void> => {
+      const [before] = await eslint.lintText(source, { filePath: 'app.tsx' })
+      const messages = before.messages.filter((message) => message.ruleId === ruleId)
+      expect(messages).toHaveLength(1)
+      expect(messages[0]).toMatchObject({ severity: 2 })
+      expect(messages[0]?.message).toContain(bond)
+      expect(messages[0]?.message).toContain('URL and rendered page')
+
+      const [fixed] = await fixer().lintText(source, { filePath: 'app.tsx' })
       expect(fixed.output).toBe(output)
       expect(fixed.messages).toEqual([])
 
@@ -152,340 +162,112 @@ describe('the shared scaffold eslint config', () => {
       const messages = before.messages.filter((message) => message.ruleId === ruleId)
       expect(messages).toHaveLength(1)
       expect(messages[0]).not.toHaveProperty('fix')
-      const fixer = new ESLint({
-        cwd: dir,
-        overrideConfigFile: join(dir, 'eslint.config.mjs'),
-        overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
-        fix: true,
-      })
-      const [fixed] = await fixer.lintText(source, { filePath: 'app.tsx' })
+      expect(messages[0]?.message).toContain('namespace uses are not tracked')
+      const [fixed] = await fixer().lintText(source, { filePath: 'app.tsx' })
       expect(fixed.output).toBeUndefined()
     }
 
-    describe('Sol regressions', () => {
-      it('1: does not report a safe router re-export barrel', async () => {
-        const [barrel] = await eslint.lintText("export { BrowserRouter } from 'react-router'\n", {
-          filePath: 'routing.ts',
-        })
-        const [app] = await eslint.lintText(
-          "import { BrowserRouter } from './routing'\nexport const app = <BrowserRouter useTransitions={false} />\n",
-          { filePath: 'app.tsx' },
-        )
-        expect(barrel.messages).toEqual([])
-        expect(app.messages).toEqual([])
-      })
+    const expectNoRouterReport = async (source: string): Promise<void> => {
+      const [result] = await eslint.lintText(source, { filePath: 'app.tsx' })
+      expect(result.messages.filter((message) => message.ruleId === ruleId)).toEqual([])
+    }
 
-      it('2: allows a false prop followed by a harmless object-literal spread', async () => {
-        const [result] = await eslint.lintText(
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} {...{ basename: '/app' }} />\n",
-          { filePath: 'app.tsx' },
-        )
-        expect(result.messages).toEqual([])
-      })
-
-      it('3: replaces a literal value without joining the next attribute to the router name', async () => {
+    describe('Sol regressions on 670e25510', () => {
+      it('1: moves the import without corrupting JSX type arguments', async () => {
         await expectFixed(
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={true}basename='/app' />\n",
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false}basename='/app' />\n",
+          "import { BrowserRouter } from 'react-router'; // @ts-expect-error -- generic JSX regression\nexport const app = <BrowserRouter<unknown> />\n",
+          `import { BrowserRouter } from '${bond}'; // @ts-expect-error -- generic JSX regression\nexport const app = <BrowserRouter<unknown> />\n`,
         )
       })
 
-      it('4: walks past a type parameter to the outer runtime router import', async () => {
+      it('2: moves RouterProvider from react-router/dom', async () => {
         await expectFixed(
-          "import { BrowserRouter } from 'react-router'\nexport function App<BrowserRouter>(value: BrowserRouter) { return <BrowserRouter>{String(value)}</BrowserRouter> }\n",
-          "import { BrowserRouter } from 'react-router'\nexport function App<BrowserRouter>(value: BrowserRouter) { return <BrowserRouter useTransitions={false}>{String(value)}</BrowserRouter> }\n",
+          "import { RouterProvider } from 'react-router/dom';\nexport const app = <RouterProvider router={router} />\n",
+          `import { RouterProvider } from '${bond}';\nexport const app = <RouterProvider router={router} />\n`,
         )
       })
 
-      it('5: does not autofix an effectful expression', async () => {
+      it('3: moves the import used through a const alias', async () => {
+        await expectFixed(
+          "import { BrowserRouter } from 'react-router';\nconst AppRouter = BrowserRouter;\nexport const app = <AppRouter />\n",
+          `import { BrowserRouter } from '${bond}';\nconst AppRouter = BrowserRouter;\nexport const app = <AppRouter />\n`,
+        )
+      })
+
+      it.each(['_Router', '$Router', 'ÉRouter'])(
+        '4: preserves the %s import alias',
+        async (alias) => {
+          await expectFixed(
+            `import { BrowserRouter as ${alias} } from 'react-router'\nexport const app = <${alias} />\n`,
+            `import { BrowserRouter as ${alias} } from '${bond}'\nexport const app = <${alias} />\n`,
+          )
+        },
+      )
+
+      it('5: moves the import without inspecting a computed spread key', async () => {
+        await expectFixed(
+          "import { BrowserRouter } from 'react-router'\nRegExp.prototype.toString = () => 'useTransitions'\nexport const app = <BrowserRouter useTransitions={false} {...{ [/x/]: true }} />\n",
+          `import { BrowserRouter } from '${bond}'\nRegExp.prototype.toString = () => 'useTransitions'\nexport const app = <BrowserRouter useTransitions={false} {...{ [/x/]: true }} />\n`,
+        )
+      })
+    })
+
+    it('splits a mixed import and moves only router specifiers in order', async () => {
+      await expectFixed(
+        "import { BrowserRouter as B, Link, RouterProvider, Routes, useNavigate } from 'react-router'\nexport const app = <B><Routes /></B>\nexport { Link, RouterProvider, useNavigate }\n",
+        `import { Link, Routes, useNavigate } from 'react-router'\n\nimport { BrowserRouter as B, RouterProvider } from '${bond}'\nexport const app = <B><Routes /></B>\nexport { Link, RouterProvider, useNavigate }\n`,
+      )
+    })
+
+    it.each([
+      'HashRouter',
+      'MemoryRouter',
+      'Router',
+      'RouterProvider',
+      'HydratedRouter',
+      'unstable_HistoryRouter',
+    ])('moves %s from every supported react-router entry point', async (component) => {
+      for (const entryPoint of ['react-router', 'react-router-dom', 'react-router/dom']) {
+        await expectFixed(
+          `import { ${component} } from '${entryPoint}'\nexport { ${component} }\n`,
+          `import { ${component} } from '${bond}'\nexport { ${component} }\n`,
+        )
+      }
+    })
+
+    it.each(['react-router', 'react-router-dom', 'react-router/dom'])(
+      'reports a namespace import from %s without a fix',
+      async (entryPoint) => {
         await expectReportedWithoutFix(
-          "import { BrowserRouter } from 'react-router'\nconst seen: string[] = []\nexport const app = <BrowserRouter useTransitions={(seen.push('nav'), false)} basename={'/' + seen.length} />\n",
+          `import * as RR from '${entryPoint}'\nexport const app = <RR.BrowserRouter />\n`,
         )
-      })
+      },
+    )
 
-      it('6: never treats a lowercase JSX tag as a router alias', async () => {
-        const [result] = await eslint.lintText(
-          'import { BrowserRouter as a } from \'react-router\'\nexport { a }\nexport const link = <a href="/">Home</a>\n',
-          { filePath: 'app.tsx' },
-        )
-        expect(result.messages).toEqual([])
-      })
+    it('leaves non-router react-router imports untouched', async () => {
+      await expectNoRouterReport(
+        "import { Link, Routes, useNavigate } from 'react-router'\nexport { Link, Routes, useNavigate }\n",
+      )
     })
 
-    it.each([
-      {
-        name: 'a BrowserRouter with no prop',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter />\n",
-      },
-      {
-        name: 'an aliased router import',
-        source: "import { BrowserRouter as R } from 'react-router'\nexport const app = <R />\n",
-      },
-      {
-        name: 'a RouterProvider with no prop',
-        source:
-          "import { RouterProvider } from 'react-router'\nexport const app = <RouterProvider />\n",
-      },
-      {
-        name: 'useTransitions={true}',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={true} />\n",
-      },
-      {
-        name: 'a bare useTransitions prop',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions />\n",
-      },
-      {
-        name: 'a react-router-dom import',
-        source:
-          "import { BrowserRouter } from 'react-router-dom'\nexport const app = <BrowserRouter />\n",
-      },
-      {
-        name: 'a spread after the false prop',
-        source:
-          "import { BrowserRouter } from 'react-router'\nconst props = { useTransitions: true }\nexport const app = <BrowserRouter useTransitions={false} {...props} />\n",
-      },
-      {
-        name: 'a spread with no explicit prop',
-        source:
-          "import { BrowserRouter } from 'react-router'\nconst props = { useTransitions: true }\nexport const app = <BrowserRouter {...props} />\n",
-      },
-      {
-        name: 'a namespaced BrowserRouter',
-        source: "import * as RR from 'react-router'\nexport const app = <RR.BrowserRouter />\n",
-      },
-      {
-        name: 'a HashRouter with no prop',
-        source: "import { HashRouter } from 'react-router'\nexport const app = <HashRouter />\n",
-      },
-      {
-        name: 'a namespaced MemoryRouter from react-router-dom',
-        source: "import * as RR from 'react-router-dom'\nexport const app = <RR.MemoryRouter />\n",
-      },
-    ])('reports $name at error severity', async ({ source }) => {
-      const [result] = await eslint.lintText(source, { filePath: 'app.tsx' })
-      expect(result.messages).toHaveLength(1)
-      expect(result.messages[0]).toMatchObject({
-        ruleId: 'molecule-local/router-commits-with-url',
-        severity: 2,
-      })
-      expect(result.messages[0]?.message).toContain('URL')
-      expect(result.messages[0]?.message).toContain('useTransitions={false}')
+    it('leaves a local component named BrowserRouter untouched', async () => {
+      await expectNoRouterReport(
+        'const BrowserRouter = () => <div />\nexport const router = <BrowserRouter />\n',
+      )
     })
 
-    it.each([
-      {
-        name: 'useTransitions={false}',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'a Router from another package',
-        source: "import { Router } from 'wouter'\nexport const router = <Router />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'a local component named BrowserRouter',
-        source: 'const BrowserRouter = () => <div />\nexport const router = <BrowserRouter />\n',
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'a generic Router imported from react-router',
-        source: "import { Router } from 'react-router'\nexport const router = <Router />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'a namespace import from react-router/dom',
-        source:
-          "import * as RR from 'react-router/dom'\nexport const app = <RR.RouterProvider />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'a type-only router import',
-        source:
-          "import type { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'a type-only named router specifier',
-        source:
-          "import { type BrowserRouter, Routes } from 'react-router'\nexport const app = <Routes><BrowserRouter /></Routes>\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'a .ts API file',
-        source: "export function readRouter(): string {\n  return 'ready'\n}\n",
-        filePath: 'api.ts',
-      },
-      {
-        name: 'useTransitions={false} after a spread',
-        source:
-          "import { BrowserRouter } from 'react-router'\nconst props = { useTransitions: true }\nexport const app = <BrowserRouter {...props} useTransitions={false} />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'useTransitions={false as const}',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false as const} />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'useTransitions={false satisfies boolean}',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false satisfies boolean} />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'useTransitions={(false)}',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={(false)} />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'useTransitions={false!}',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false!} />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'a namespace import from another package',
-        source: "import * as W from 'wouter'\nexport const router = <W.Router />\n",
-        filePath: 'app.tsx',
-      },
-      {
-        name: 'a non-router re-export',
-        source: "export { useNavigate } from 'react-router'\n",
-        filePath: 'routing.ts',
-      },
-    ])('allows $name', async ({ source, filePath }) => {
-      const [result] = await eslint.lintText(source, { filePath })
-      expect(result.messages).toEqual([])
+    it('leaves type-only router imports untouched', async () => {
+      await expectNoRouterReport(
+        "import type { BrowserRouter } from 'react-router'\nimport { type RouterProvider, Routes } from 'react-router/dom'\nexport type { BrowserRouter, RouterProvider }\nexport { Routes }\n",
+      )
     })
 
-    it.each([
-      {
-        name: 'a function parameter shadowing BrowserRouter',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const root = <BrowserRouter useTransitions={false} />\nexport function Local({ BrowserRouter }: { BrowserRouter: () => null }) { return <BrowserRouter /> }\n",
-      },
-      {
-        name: 'a function parameter shadowing a router namespace',
-        source:
-          "import * as RR from 'react-router'\nexport const root = <RR.BrowserRouter useTransitions={false} />\nexport function Local({ RR }: { RR: { BrowserRouter: () => null } }) { return <RR.BrowserRouter /> }\n",
-      },
-    ])('allows $name', async ({ source }) => {
-      const [result] = await eslint.lintText(source, { filePath: 'app.tsx' })
-      expect(
-        result.messages.filter(
-          (message) => message.ruleId === 'molecule-local/router-commits-with-url',
-        ),
-      ).toEqual([])
-    })
-
-    it.each([
-      "export { BrowserRouter } from 'react-router'\n",
-      "export { BrowserRouter as AppRouter } from 'react-router-dom'\n",
-      "export { RouterProvider } from 'react-router/dom'\n",
-      "export * from 'react-router'\n",
-      "export * from 'react-router-dom'\n",
-      "export * from 'react-router/dom'\n",
-    ])('ignores export declarations: %s', async (source) => {
-      const [result] = await eslint.lintText(source, { filePath: 'routing.ts' })
-      expect(result.messages).toEqual([])
-    })
-
-    it.each([
-      {
-        name: 'a missing prop',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter />\n",
-        output:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} />\n",
-      },
-      {
-        name: 'a missing prop after another attribute',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter basename='/app' />\n",
-        output:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter basename='/app' useTransitions={false} />\n",
-      },
-      {
-        name: 'a literal true',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={true} />\n",
-        output:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} />\n",
-      },
-      {
-        name: 'a string literal',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions='yes' />\n",
-        output:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} />\n",
-      },
-      {
-        name: 'a number literal',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={1} />\n",
-        output:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} />\n",
-      },
-      {
-        name: 'a missing prop after a spread',
-        source:
-          "import { BrowserRouter } from 'react-router'\nconst props = { useTransitions: true }\nexport const app = <BrowserRouter {...props} />\n",
-        output:
-          "import { BrowserRouter } from 'react-router'\nconst props = { useTransitions: true }\nexport const app = <BrowserRouter {...props} useTransitions={false} />\n",
-      },
-      {
-        name: 'a literal before a harmless spread',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={true} {...{ basename: '/app' }} />\n",
-        output:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} {...{ basename: '/app' }} />\n",
-      },
-      {
-        name: 'the plain l539 BrowserRouter shape',
-        source:
-          "import { BrowserRouter, Route, Routes } from 'react-router'\nexport const app = <BrowserRouter><Routes><Route path='/' element={<div />} /></Routes></BrowserRouter>\n",
-        output:
-          "import { BrowserRouter, Route, Routes } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false}><Routes><Route path='/' element={<div />} /></Routes></BrowserRouter>\n",
-      },
-    ])('autofixes $name and reparses the output', async ({ source, output }) => {
-      await expectFixed(source, output)
-    })
-
-    it.each([
-      {
-        name: 'a bare prop',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions />\n",
-      },
-      {
-        name: 'a non-literal value',
-        source:
-          "import { BrowserRouter } from 'react-router'\nconst props = { useTransitions: true }\nexport const app = <BrowserRouter useTransitions={props.useTransitions} />\n",
-      },
-      {
-        name: 'a literal value followed by an overriding spread',
-        source:
-          "import { BrowserRouter } from 'react-router'\nconst props = { useTransitions: true }\nexport const app = <BrowserRouter useTransitions={true} {...props} />\n",
-      },
-      {
-        name: 'false followed by an overriding spread',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} {...{ useTransitions: true }} />\n",
-      },
-      {
-        name: 'a non-const assertion',
-        source:
-          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false as boolean} />\n",
-      },
-    ])('reports $name without an autofix', async ({ source }) => {
-      await expectReportedWithoutFix(source)
+    it('does not report a template that does not use react-router', async () => {
+      const source = await readFile(
+        fileURLToPath(new URL('../../../templates/app/vue/main.ts.tpl', import.meta.url)),
+        'utf8',
+      )
+      await expectNoRouterReport(source)
     })
   })
 })

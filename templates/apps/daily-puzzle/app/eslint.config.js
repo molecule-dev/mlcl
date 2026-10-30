@@ -23,8 +23,8 @@ import tseslint from 'typescript-eslint'
  */
 const moleculeLocal = {
   rules: {
-    // This checks one file at a time: a router reaching JSX through a local
-    // re-export is not seen, because cross-module resolution needs type information.
+    // The bond owns the runtime setting, so this rule only moves router imports.
+    // Type-only imports cannot render a router and are deliberately left alone.
     'router-commits-with-url': {
       meta: {
         type: 'problem',
@@ -32,89 +32,62 @@ const moleculeLocal = {
         schema: [],
         messages: {
           synchronous:
-            'React Router would change the URL before the new page renders, so code and tests that check the page right after a navigation see the old one; set `useTransitions={false}`.',
+            "Import this router from '@molecule/app-routing-react-router', whose wrapper sets useTransitions={false} so the URL and rendered page change together.",
+          namespace:
+            "Import router components directly from '@molecule/app-routing-react-router' instead of a React Router namespace (namespace uses are not tracked), because its wrappers set useTransitions={false} so the URL and rendered page change together.",
         },
       },
       create(context) {
         const source = context.sourceCode
-        const packages = new Set(['react-router', 'react-router-dom'])
-        const routers = new Set(['BrowserRouter', 'HashRouter', 'MemoryRouter', 'RouterProvider'])
-        const wrappers = /^(TSAs|TSSatisfies|TSNonNull|Parenthesized)Expression$/
-        const isRouter = (node, name, member) => {
-          for (let scope = source.getScope(node); scope; scope = scope.upper) {
-            const variable = scope.set.get(name)
-            if (!variable?.isValueVariable) continue
-            return variable.defs.some(
-              ({ type, parent, node: specifier }) =>
-                type === 'ImportBinding' &&
-                parent.importKind !== 'type' &&
-                specifier.importKind !== 'type' &&
-                packages.has(parent.source.value) &&
-                routers.has(member ?? specifier.imported?.name ?? specifier.imported?.value) &&
-                (member
-                  ? specifier.type === 'ImportNamespaceSpecifier'
-                  : specifier.type === 'ImportSpecifier'),
-            )
-          }
-          return false
+        const packages = new Set(['react-router', 'react-router-dom', 'react-router/dom'])
+        const routers = new Set([
+          'BrowserRouter',
+          'HashRouter',
+          'MemoryRouter',
+          'Router',
+          'RouterProvider',
+          'HydratedRouter',
+          'unstable_HistoryRouter',
+        ])
+        const bond = '@molecule/app-routing-react-router'
+        const declaration = (specifiers, module, semicolon) => {
+          const parts = specifiers
+            .filter((specifier) => specifier.type !== 'ImportSpecifier')
+            .map((specifier) => source.getText(specifier))
+          const named = specifiers.filter((specifier) => specifier.type === 'ImportSpecifier')
+          if (named.length > 0)
+            parts.push(`{ ${named.map((specifier) => source.getText(specifier)).join(', ')} }`)
+          return `import ${parts.join(', ')} from '${module}'${semicolon}`
         }
-        const isFalse = (attribute) => {
-          let expression = attribute.value?.expression
-          while (wrappers.test(expression?.type)) {
-            if (
-              expression.type === 'TSAsExpression' &&
-              source.getText(expression.typeAnnotation) !== 'const'
-            )
-              return false
-            expression = expression.expression
-          }
-          return expression?.type === 'Literal' && expression.value === false
-        }
-        const safeSpread = ({ argument }) =>
-          argument.type === 'ObjectExpression' &&
-          argument.properties.every(
-            (property) =>
-              property.type === 'Property' &&
-              (!property.computed || property.key.type === 'Literal') &&
-              (property.key.name ?? property.key.value) !== 'useTransitions',
-          )
         return {
-          JSXOpeningElement(node) {
-            const name = node.name
-            let binding, member
-            if (name.type === 'JSXIdentifier' && /^[A-Z]/.test(name.name)) binding = name.name
-            else if (
-              name.type === 'JSXMemberExpression' &&
-              name.object.type === 'JSXIdentifier' &&
-              name.property.type === 'JSXIdentifier'
+          ImportDeclaration(node) {
+            if (!packages.has(node.source.value)) return
+            if (
+              node.specifiers.some((specifier) => specifier.type === 'ImportNamespaceSpecifier')
             ) {
-              binding = name.object.name
-              member = name.property.name
-            } else return
-            if (!isRouter(node, binding, member)) return
-            const isTransition = (attribute) =>
-              attribute.type === 'JSXAttribute' && attribute.name.name === 'useTransitions'
-            const index = node.attributes.findLastIndex(isTransition)
-            const attribute = node.attributes[index]
-            const overridden = node.attributes
-              .slice(index + 1)
-              .some((a) => a.type === 'JSXSpreadAttribute' && !safeSpread(a))
-            if (attribute && isFalse(attribute) && !overridden) return
-            const anchor = node.attributes.at(-1) ?? node.name
+              context.report({ node, messageId: 'namespace' })
+              return
+            }
+            if (node.importKind === 'type') return
+            const moved = node.specifiers.filter(
+              (specifier) =>
+                specifier.type === 'ImportSpecifier' &&
+                specifier.importKind !== 'type' &&
+                routers.has(specifier.imported.name ?? specifier.imported.value),
+            )
+            if (moved.length === 0) return
             context.report({
-              node: attribute ?? node.name,
+              node: moved[0],
               messageId: 'synchronous',
               fix(fixer) {
-                if (!attribute) return fixer.insertTextAfter(anchor, ' useTransitions={false}')
-                if (overridden) return null
-                const value = attribute.value
-                const literal = value?.type === 'JSXExpressionContainer' ? value.expression : value
-                if (
-                  literal?.type !== 'Literal' ||
-                  !['boolean', 'string', 'number'].includes(typeof literal.value)
-                )
-                  return null
-                return fixer.replaceText(value, '{false}')
+                const semicolon = source.getText(node).trimEnd().endsWith(';') ? ';' : ''
+                const bondImport = declaration(moved, bond, semicolon)
+                const remaining = node.specifiers.filter((specifier) => !moved.includes(specifier))
+                const replacement =
+                  remaining.length === 0
+                    ? bondImport
+                    : `${declaration(remaining, node.source.value, semicolon)}\n${bondImport}`
+                return fixer.replaceText(node, replacement)
               },
             })
           },
