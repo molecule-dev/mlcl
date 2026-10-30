@@ -35,10 +35,12 @@ const moleculeLocal = {
         messages: {
           synchronous:
             'React Router would change the URL before the new page renders, so code and tests that check the page right after a navigation see the old one; set `useTransitions={false}`.',
+          reexport:
+            'render the router where it is imported from React Router so the lint rule can check it.',
         },
       },
       create(context) {
-        const routerBindings = new Set()
+        const source = context.sourceCode
         const routerPackages = new Set(['react-router', 'react-router-dom', 'react-router/dom'])
         const routerComponents = new Set([
           'BrowserRouter',
@@ -47,53 +49,102 @@ const moleculeLocal = {
           'Router',
           'RouterProvider',
         ])
-        const commitsWithUrl = (attribute) =>
-          attribute.value?.type === 'JSXExpressionContainer' &&
-          attribute.value.expression.type === 'Literal' &&
-          attribute.value.expression.value === false
+        const originalName = (specifier) => {
+          const identifier = specifier.imported ?? specifier.local
+          return identifier.name ?? identifier.value
+        }
+        const isRouterBinding = (node, name, component) => {
+          for (let scope = source.getScope(node); scope; scope = scope.upper) {
+            const variable = scope.set.get(name)
+            if (!variable) continue
+            return variable.defs.some(({ type, parent, node: specifier }) => {
+              if (type !== 'ImportBinding' || !routerPackages.has(parent.source.value)) return false
+              if (component)
+                return (
+                  specifier.type === 'ImportNamespaceSpecifier' && routerComponents.has(component)
+                )
+              return (
+                specifier.type === 'ImportSpecifier' &&
+                routerComponents.has(originalName(specifier))
+              )
+            })
+          }
+          return false
+        }
+        const commitsWithUrl = (attribute) => {
+          let expression = attribute.value?.expression
+          while (
+            [
+              'TSAsExpression',
+              'TSSatisfiesExpression',
+              'TSNonNullExpression',
+              'ParenthesizedExpression',
+            ].includes(expression?.type)
+          )
+            expression = expression.expression
+          return expression?.type === 'Literal' && expression.value === false
+        }
         return {
           Program(program) {
-            for (const statement of program.body) {
+            for (const node of program.body) {
+              if (node.exportKind === 'type' || !routerPackages.has(node.source?.value)) continue
               if (
-                statement.type !== 'ImportDeclaration' ||
-                !routerPackages.has(statement.source.value)
+                node.type === 'ExportAllDeclaration' ||
+                (node.type === 'ExportNamedDeclaration' &&
+                  node.specifiers.some(
+                    (specifier) =>
+                      specifier.exportKind !== 'type' &&
+                      routerComponents.has(originalName(specifier)),
+                  ))
               )
-                continue
-              for (const specifier of statement.specifiers) {
-                if (specifier.type !== 'ImportSpecifier') continue
-                const imported =
-                  specifier.imported.type === 'Identifier'
-                    ? specifier.imported.name
-                    : specifier.imported.value
-                if (routerComponents.has(imported)) routerBindings.add(specifier.local.name)
-              }
+                context.report({ node: node.source, messageId: 'reexport' })
             }
           },
           JSXOpeningElement(node) {
-            if (node.name.type !== 'JSXIdentifier' || !routerBindings.has(node.name.name)) return
-            const attributes = node.attributes.filter(
-              (attribute) =>
-                attribute.type === 'JSXAttribute' &&
-                attribute.name.type === 'JSXIdentifier' &&
-                attribute.name.name === 'useTransitions',
+            const name = node.name
+            const direct = name.type === 'JSXIdentifier'
+            const member =
+              name.type === 'JSXMemberExpression' &&
+              name.object.type === 'JSXIdentifier' &&
+              name.property.type === 'JSXIdentifier'
+            if (!direct && !member) return
+            if (
+              !isRouterBinding(
+                node,
+                direct ? name.name : name.object.name,
+                member ? name.property.name : undefined,
+              )
             )
-            const incorrect = attributes.find((attribute) => !commitsWithUrl(attribute))
-            if (incorrect) {
-              context.report({
-                node: incorrect,
-                messageId: 'synchronous',
-                fix(fixer) {
-                  if (!incorrect.value) return fixer.insertTextAfter(incorrect.name, '={false}')
-                  return fixer.replaceText(incorrect.value, '{false}')
-                },
-              })
-            } else if (attributes.length === 0) {
-              context.report({
-                node: node.name,
-                messageId: 'synchronous',
-                fix: (fixer) => fixer.insertTextAfter(node.name, ' useTransitions={false}'),
-              })
-            }
+              return
+            const isTransitionProp = (attribute) =>
+              attribute.type === 'JSXAttribute' &&
+              attribute.name.type === 'JSXIdentifier' &&
+              attribute.name.name === 'useTransitions'
+            const lastProp = node.attributes.findLastIndex(isTransitionProp)
+            const lastSpread = node.attributes.findLastIndex(
+              (attribute) => attribute.type === 'JSXSpreadAttribute',
+            )
+            if (lastProp > lastSpread && commitsWithUrl(node.attributes[lastProp])) return
+            context.report({
+              node: node.attributes[lastProp] ?? node.name,
+              messageId: 'synchronous',
+              fix(fixer) {
+                const fixes = node.attributes.filter(isTransitionProp).map((attribute) => {
+                  const before = source.getTokenBefore(attribute)
+                  return fixer.removeRange([
+                    before?.range[1] ?? attribute.range[0],
+                    attribute.range[1],
+                  ])
+                })
+                fixes.push(
+                  fixer.insertTextAfter(
+                    node.attributes.at(-1) ?? node.name,
+                    ' useTransitions={false}',
+                  ),
+                )
+                return fixes
+              },
+            })
           },
         }
       },

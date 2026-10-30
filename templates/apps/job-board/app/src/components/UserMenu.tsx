@@ -1,5 +1,4 @@
 import { lazy, Suspense } from 'react'
-
 import { Link } from 'react-router'
 
 import { useIsAuthenticated, useTranslation } from '@molecule/app-react'
