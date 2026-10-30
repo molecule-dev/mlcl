@@ -1,9 +1,9 @@
+import { lazy, Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { MoleculeProvider } from '@molecule/app-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
-import { lazy, Suspense } from 'react'
 
 import { i18nProvider, themeProvider } from './bonds/index.js'
 import { SiteLayout } from './components/SiteLayout.js'
