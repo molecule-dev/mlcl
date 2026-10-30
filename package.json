@@ -276,7 +276,7 @@
     "@molecule/app-feature-thread-tree-react": "3.0.0",
     "@molecule/app-file-dropzone-react": "3.0.0",
     "@molecule/app-footer-react": "3.0.0",
-    "@molecule/app-forms": "2.1.0",
+    "@molecule/app-forms": "2.1.1",
     "@molecule/app-header-react": "3.0.0",
     "@molecule/app-http": "1.5.1",
     "@molecule/app-i18n": "1.1.2",

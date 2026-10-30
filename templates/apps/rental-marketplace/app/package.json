@@ -35,7 +35,7 @@
     "@molecule/app-fonts": "1.2.2",
     "@molecule/app-fonts-arimo": "1.0.5",
     "@molecule/app-footer-react": "3.0.0",
-    "@molecule/app-forms": "2.1.0",
+    "@molecule/app-forms": "2.1.1",
     "@molecule/app-gallery": "1.0.3",
     "@molecule/app-header-react": "3.0.0",
     "@molecule/app-http": "1.5.1",
