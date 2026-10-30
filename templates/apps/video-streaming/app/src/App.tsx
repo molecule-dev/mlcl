@@ -47,7 +47,11 @@ const Upload = lazy(() => import('./pages/Upload.js').then((m) => ({ default: m.
 const Watch = lazy(() => import('./pages/Watch.js').then((m) => ({ default: m.Watch })))
 export function App() {
   return (
-    <BrowserRouter useTransitions={false}>
+    <BrowserRouter
+      // Keep this: React Router 8 otherwise changes the URL before the new page renders,
+      // so code and tests that check the page right after a navigation see the old one.
+      useTransitions={false}
+    >
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

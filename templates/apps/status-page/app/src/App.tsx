@@ -63,7 +63,11 @@ const Team = lazy(() => import('./pages/Team.js').then((m) => ({ default: m.Team
 const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
 export function App() {
   return (
-    <BrowserRouter useTransitions={false}>
+    <BrowserRouter
+      // Keep this: React Router 8 otherwise changes the URL before the new page renders,
+      // so code and tests that check the page right after a navigation see the old one.
+      useTransitions={false}
+    >
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}
