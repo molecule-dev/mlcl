@@ -37884,6 +37884,7 @@
         "foldOtherRunEvent",
         "liveOtherRuns",
         "showOtherRun",
+        "mergeTestRunResults",
         "presentOtherRun",
         "settleOwnRun",
         "keepLiveOtherRuns",
