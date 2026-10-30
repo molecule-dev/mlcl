@@ -23,6 +23,81 @@ import tseslint from 'typescript-eslint'
  */
 const moleculeLocal = {
   rules: {
+    'router-commits-with-url': {
+      meta: {
+        type: 'problem',
+        fixable: 'code',
+        docs: {
+          description:
+            'Require React Router state updates to commit with the URL instead of in a later transition',
+        },
+        schema: [],
+        messages: {
+          synchronous:
+            'React Router would change the URL before the new page renders, so code and tests that check the page right after a navigation see the old one; set `useTransitions={false}`.',
+        },
+      },
+      create(context) {
+        const routerBindings = new Set()
+        const routerPackages = new Set(['react-router', 'react-router-dom', 'react-router/dom'])
+        const routerComponents = new Set([
+          'BrowserRouter',
+          'HashRouter',
+          'MemoryRouter',
+          'Router',
+          'RouterProvider',
+        ])
+        const commitsWithUrl = (attribute) =>
+          attribute.value?.type === 'JSXExpressionContainer' &&
+          attribute.value.expression.type === 'Literal' &&
+          attribute.value.expression.value === false
+        return {
+          Program(program) {
+            for (const statement of program.body) {
+              if (
+                statement.type !== 'ImportDeclaration' ||
+                !routerPackages.has(statement.source.value)
+              )
+                continue
+              for (const specifier of statement.specifiers) {
+                if (specifier.type !== 'ImportSpecifier') continue
+                const imported =
+                  specifier.imported.type === 'Identifier'
+                    ? specifier.imported.name
+                    : specifier.imported.value
+                if (routerComponents.has(imported)) routerBindings.add(specifier.local.name)
+              }
+            }
+          },
+          JSXOpeningElement(node) {
+            if (node.name.type !== 'JSXIdentifier' || !routerBindings.has(node.name.name)) return
+            const attributes = node.attributes.filter(
+              (attribute) =>
+                attribute.type === 'JSXAttribute' &&
+                attribute.name.type === 'JSXIdentifier' &&
+                attribute.name.name === 'useTransitions',
+            )
+            const incorrect = attributes.find((attribute) => !commitsWithUrl(attribute))
+            if (incorrect) {
+              context.report({
+                node: incorrect,
+                messageId: 'synchronous',
+                fix(fixer) {
+                  if (!incorrect.value) return fixer.insertTextAfter(incorrect.name, '={false}')
+                  return fixer.replaceText(incorrect.value, '{false}')
+                },
+              })
+            } else if (attributes.length === 0) {
+              context.report({
+                node: node.name,
+                messageId: 'synchronous',
+                fix: (fixer) => fixer.insertTextAfter(node.name, ' useTransitions={false}'),
+              })
+            }
+          },
+        }
+      },
+    },
     'require-catch-binding': {
       meta: {
         type: 'problem',
@@ -87,6 +162,7 @@ export default tseslint.config(
       'molecule-local': moleculeLocal,
     },
     rules: {
+      'molecule-local/router-commits-with-url': 'error',
       'molecule-local/require-catch-binding': 'warn',
       '@typescript-eslint/no-unused-vars': [
         'warn',

@@ -121,4 +121,108 @@ describe('the shared scaffold eslint config', () => {
     })
     expect(result.messages.map((m) => m.ruleId)).toContain('@typescript-eslint/no-namespace')
   })
+
+  describe('molecule-local/router-commits-with-url', () => {
+    it.each([
+      {
+        name: 'a BrowserRouter with no prop',
+        source:
+          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter />\n",
+      },
+      {
+        name: 'an aliased router import',
+        source: "import { BrowserRouter as R } from 'react-router'\nexport const app = <R />\n",
+      },
+      {
+        name: 'a RouterProvider with no prop',
+        source:
+          "import { RouterProvider } from 'react-router'\nexport const app = <RouterProvider />\n",
+      },
+      {
+        name: 'useTransitions={true}',
+        source:
+          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={true} />\n",
+      },
+      {
+        name: 'a bare useTransitions prop',
+        source:
+          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions />\n",
+      },
+      {
+        name: 'a react-router-dom import',
+        source:
+          "import { BrowserRouter } from 'react-router-dom'\nexport const app = <BrowserRouter />\n",
+      },
+    ])('reports $name at error severity', async ({ source }) => {
+      const [result] = await eslint.lintText(source, { filePath: 'app.tsx' })
+      expect(result.messages).toHaveLength(1)
+      expect(result.messages[0]).toMatchObject({
+        ruleId: 'molecule-local/router-commits-with-url',
+        severity: 2,
+      })
+      expect(result.messages[0]?.message).toContain('URL')
+      expect(result.messages[0]?.message).toContain('useTransitions={false}')
+    })
+
+    it.each([
+      {
+        name: 'useTransitions={false}',
+        source:
+          "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} />\n",
+        filePath: 'app.tsx',
+      },
+      {
+        name: 'a Router from another package',
+        source: "import { Router } from 'wouter'\nexport const router = <Router />\n",
+        filePath: 'app.tsx',
+      },
+      {
+        name: 'a local component named Router',
+        source: 'const Router = () => <div />\nexport const router = <Router />\n',
+        filePath: 'app.tsx',
+      },
+      {
+        name: 'a .ts API file',
+        source: "export function readRouter(): string {\n  return 'ready'\n}\n",
+        filePath: 'api.ts',
+      },
+    ])('allows $name', async ({ source, filePath }) => {
+      const [result] = await eslint.lintText(source, { filePath })
+      expect(result.messages).toEqual([])
+    })
+
+    it('autofixes missing and incorrect useTransitions values', async () => {
+      const fixer = new ESLint({
+        cwd: dir,
+        overrideConfigFile: join(dir, 'eslint.config.mjs'),
+        overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
+        fix: true,
+      })
+      const cases = [
+        {
+          source:
+            "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter />\n",
+          output:
+            "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} />\n",
+        },
+        {
+          source:
+            "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={true} />\n",
+          output:
+            "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} />\n",
+        },
+        {
+          source:
+            "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions />\n",
+          output:
+            "import { BrowserRouter } from 'react-router'\nexport const app = <BrowserRouter useTransitions={false} />\n",
+        },
+      ]
+      for (const { source, output } of cases) {
+        const [fixed] = await fixer.lintText(source, { filePath: 'app.tsx' })
+        expect(fixed.output).toBe(output)
+        expect(fixed.messages).toEqual([])
+      }
+    })
+  })
 })
