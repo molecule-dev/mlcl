@@ -335,37 +335,57 @@ export default {
         return []
       }
       // A destructuring export exposes the selected property, not its whole initializer.
-      const patternTarget = (pattern, init, name) => {
-        if (!pattern || !init) return null
-        if (pattern.type === 'Identifier') return pattern.name === name ? init : null
-        if (pattern.type === 'AssignmentPattern') return patternTarget(pattern.left, init, name)
+      const patternTargets = (pattern, init, name) => {
+        if (!pattern || !init) return []
+        if (pattern.type === 'Identifier') return pattern.name === name ? [init] : []
+        if (pattern.type === 'AssignmentPattern') return patternTargets(pattern.left, init, name)
         if (pattern.type === 'ObjectPattern') {
+          const targets = []
+          const excluded = new Set()
+          const resolved = value(init)
+          // Object rest copies every property not selected by a sibling binding. A
+          // spread or unresolved key makes that set unknowable, so expose nothing.
+          const exactRest =
+            resolved?.type === 'ObjectExpression' &&
+            resolved.properties.every((prop) => prop.type === 'Property' && key(prop) !== null) &&
+            pattern.properties.every((prop) => prop.type === 'RestElement' || key(prop) !== null)
           for (const prop of pattern.properties) {
-            if (prop.type !== 'Property') continue
-            const selected = property(init, key(prop), new Set(), true)
-            const target = patternTarget(prop.value, selected, name)
-            if (target) return target
+            if (prop.type === 'Property') {
+              const propertyName = key(prop)
+              if (propertyName !== null) excluded.add(propertyName)
+              const selected = property(init, propertyName, new Set(), true)
+              targets.push(...patternTargets(prop.value, selected, name))
+            } else if (exactRest) {
+              for (const candidate of resolved.properties)
+                if (!excluded.has(key(candidate)))
+                  targets.push(...patternTargets(prop.argument, candidate.value, name))
+            }
           }
+          return targets
         }
         if (pattern.type === 'ArrayPattern') {
+          const targets = []
           const resolved = value(init)
-          if (resolved?.type === 'ArrayExpression')
-            for (const [index, element] of pattern.elements.entries()) {
-              const target = patternTarget(element, resolved.elements[index], name)
-              if (target) return target
-            }
+          // A spread can have any length; indexes after it are not creation-site facts.
+          if (
+            resolved?.type === 'ArrayExpression' &&
+            !resolved.elements.some((element) => element?.type === 'SpreadElement')
+          )
+            for (const [index, element] of pattern.elements.entries())
+              targets.push(...patternTargets(element, resolved.elements[index], name))
+          return targets
         }
-        return null
+        return []
       }
       const addBinding = (id) => {
         for (const definition of variable(id)?.defs ?? []) {
           if (definition.type === 'Variable' && definition.node.init) {
             const declarator = definition.node
-            const target =
-              declarator.id.type === 'Identifier'
-                ? declarator.init
-                : patternTarget(declarator.id, declarator.init, definition.name.name)
-            if (target) targets.push(target)
+            targets.push(
+              ...(declarator.id.type === 'Identifier'
+                ? [declarator.init]
+                : patternTargets(declarator.id, declarator.init, definition.name.name)),
+            )
           }
           if (definition.type === 'FunctionName') targets.push(definition.node)
         }
@@ -386,7 +406,24 @@ export default {
         if (!target || seen.has(target)) return
         seen.add(target)
         if (target.type === 'Identifier') {
-          for (const definition of variable(target)?.defs ?? [])
+          const binding = variable(target)
+          const definition = binding?.defs[0]
+          if (
+            binding?.defs.length === 1 &&
+            definition.type === 'Variable' &&
+            definition.node.id.type !== 'Identifier' &&
+            definition.node.init &&
+            !binding.references.some((ref) => ref.isWrite() && !ref.init)
+          ) {
+            for (const selected of patternTargets(
+              definition.node.id,
+              definition.node.init,
+              definition.name.name,
+            ))
+              expose(selected, seen)
+            return
+          }
+          for (const definition of binding?.defs ?? [])
             if (definition.type === 'FunctionName') expose(definition.node, seen)
           expose(value(target), seen)
           return
@@ -438,8 +475,10 @@ export default {
             method = key(callee)
         }
       }
-      if (method === 'default' || method === 'request')
+      if (method === 'default' || method === 'request') {
+        if (args.length === 1) return 0
         return value(args[0])?.type === 'ObjectExpression' ? 0 : 1
+      }
       return method === null ? null : (AXIOS_CONFIG.get(method) ?? null)
     }
     return {
