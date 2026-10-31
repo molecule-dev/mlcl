@@ -1,7 +1,7 @@
-import { getIcon } from '@molecule/app-icons'
+import { getIcon, type IconName } from '@molecule/app-icons'
 
 interface IconProps {
-  name: string
+  name: IconName
   size?: number
   className?: string
 }
