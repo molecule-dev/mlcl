@@ -500,4 +500,21 @@ describe('copyTemplateDomainFiles stamps the migrations it copies', () => {
     expect(copied.startsWith(migrationDialectHeader(SQLITE))).toBe(true)
     expect(copied).toContain('gen_random_uuid()')
   })
+
+  it('does not promote a dead root app/bonds.ts into the compiled bond directory', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-domain-bonds-'))
+    const cliRoot = join(dir, 'cli')
+    const templateDir = join(cliRoot, 'templates', 'apps', 'fixture-app')
+    const appPath = join(dir, 'project', 'app')
+    await mkdir(join(templateDir, 'app'), { recursive: true })
+    await mkdir(join(appPath, 'src', 'bonds'), { recursive: true })
+    await writeFile(
+      join(templateDir, 'app', 'bonds.ts'),
+      "import { provider } from '@molecule/app-command-palette'\n",
+    )
+
+    await copyTemplateDomainFiles('fixture-app', 'react', appPath, null, cliRoot)
+
+    expect(existsSync(join(appPath, 'src', 'bonds', 'app-bonds.ts'))).toBe(false)
+  })
 })

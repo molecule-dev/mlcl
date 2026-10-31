@@ -4253,13 +4253,6 @@ export async function copyTemplateDomainFiles(
     mlclDebug(`[scaffold] Copied ${files.length} template-specific lib files`)
   }
 
-  // Copy app bonds override (merges with scaffold default)
-  const appBonds = join(templateDir, 'app', 'bonds.ts')
-  if (existsSync(appBonds)) {
-    await copyFile(appBonds, join(appPath, 'src', 'bonds', 'app-bonds.ts'))
-    mlclDebug(`[scaffold] Copied template app bonds`)
-  }
-
   // Copy theme.css — prepend the self-documenting "recolor here, not the bond"
   // header so the executor that opens it to recolor sees the truth in-file.
   //
