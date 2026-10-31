@@ -93,7 +93,7 @@ export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
 export const authConfig = {
   baseURL: API_BASE_URL,
   // The scheme the auth and HTTP clients send the token with: `Bearer` unless the API
-  // reads another one (`Token` for an API shaped like RealWorld's). Both read THIS value —
+  // reads another one (some APIs read the bare `Token` scheme). Both read THIS value —
   // never set it on a built client (that is a type error and changes no header).
   authScheme: 'Bearer',
   loginEndpoint: '/users/log-in',
