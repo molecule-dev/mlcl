@@ -971,20 +971,8 @@ export default class Create extends Command {
     // the molecule conventions in context on project open. The .npmrc carries
     // legacy-peer-deps so a default `npm install` resolves (see its comment).
     {
-      const {
-        ensureAgentsMd,
-        ensureAgentSkills,
-        ensureRootNpmrc,
-        ensureReadmeMd,
-        stampMoleculeMetadata,
-      } = await import('../lib/scaffold.js')
-      await ensureAgentsMd(
-        projectPath,
-        uniquePackages.map((name) => ({
-          name,
-          workspace: isFullStack ? (getPackageStack(name) === 'app' ? 'app' : 'api') : '',
-        })),
-      )
+      const { ensureAgentSkills, ensureRootNpmrc, ensureReadmeMd, stampMoleculeMetadata } =
+        await import('../lib/scaffold.js')
       await ensureAgentSkills(projectPath, { projectType, framework })
       await ensureRootNpmrc(projectPath)
       await ensureReadmeMd(projectPath, projectName, projectType, framework)
@@ -1199,6 +1187,19 @@ export default class Create extends Command {
       if (customApiPath) {
         await ensureBaseHandlersIndex(customApiPath)
       }
+    }
+
+    // Describe wiring only after injection and template overrides have written it.
+    // ensureAgentsMd preserves a user-owned file from an earlier run.
+    {
+      const { ensureAgentsMd } = await import('../lib/scaffold.js')
+      await ensureAgentsMd(
+        projectPath,
+        uniquePackages.map((name) => ({
+          name,
+          workspace: isFullStack ? (getPackageStack(name) === 'app' ? 'app' : 'api') : '',
+        })),
+      )
     }
 
     // Wire the IDE8 activity-capture PRODUCER into the just-generated API boot

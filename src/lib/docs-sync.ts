@@ -12,7 +12,7 @@
 import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative, sep } from 'node:path'
 
-import ts from 'typescript'
+import { ts } from 'ts-morph'
 
 import { type ExtractedModule, extractPackageApi } from './api-extractor.js'
 import { generateMoleculeMd, type PackageJson } from './docs-generator.js'

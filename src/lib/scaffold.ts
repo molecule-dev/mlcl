@@ -33,7 +33,6 @@ import {
   writeAgentSkillFiles,
 } from './agent-skills.js'
 import {
-  buildCapabilityMap,
   type DeclaredPackage,
   readProjectCapabilityMap,
   renderCapabilityMap,
@@ -2321,9 +2320,7 @@ export async function ensureAgentsMd(
   const { existsSync } = await import('node:fs')
   if (existsSync(target)) return
   const template = await loadTemplate('shared/AGENTS.md.tpl')
-  const entries = declared
-    ? buildCapabilityMap(getRawRegistry(), declared)
-    : await readProjectCapabilityMap(projectRoot)
+  const entries = await readProjectCapabilityMap(projectRoot, getRawRegistry(), declared)
   const capabilityMap = renderCapabilityMap(entries)
   await writeFile(target, capabilityMap ? `${template.trimEnd()}\n\n${capabilityMap}\n` : template)
 }

@@ -6,8 +6,10 @@
  * @module
  */
 
-import { readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { readdir, readFile, writeFile } from 'node:fs/promises'
+import { join, posix } from 'node:path'
+
+import { ts } from 'ts-morph'
 
 import { getRawRegistry } from './registry.js'
 import type { Registry, RegistryEntry } from './schema.js'
@@ -29,6 +31,10 @@ export interface CapabilityMapEntry {
   guidance: string[]
   workspaces: string[]
   defaultBond?: string
+  /** Existing bond files with imported, called capability factories or setters. */
+  wiredBonds?: string[]
+  /** Existing configuration files beside the declaring workspace's bonds. */
+  configFiles?: Array<{ path: string; names: string[] }>
   configNames: string[]
   documentation: string
 }
@@ -54,6 +60,7 @@ export function capabilityEntryFromRegistry(
   name: string,
   entry: RegistryEntry | undefined,
   workspaces: readonly string[] = [''],
+  bindings: readonly string[] = [],
 ): CapabilityMapEntry | null {
   const configuration = entry?.decisionGuide?.configuration
   if (!entry || !configuration?.length) return null
@@ -74,7 +81,10 @@ export function capabilityEntryFromRegistry(
         ? [...entry.intentHints]
         : [entry.description],
     configuration: [...configuration],
-    guidance: [...(setup?.header ?? [])],
+    guidance: [
+      ...(setup?.header ?? []),
+      ...bindings.flatMap((binding) => entry.decisionGuide?.bindingGuidance?.[binding] ?? []),
+    ],
     workspaces: [...new Set(workspaces.map(workspaceOf))].sort(),
     defaultBond: entry.defaultBond,
     configNames,
@@ -102,9 +112,22 @@ export function buildCapabilityMap(
   }
   return [...workspacesByPackage]
     .sort(([a], [b]) => a.localeCompare(b))
-    .map(([name, workspaces]) =>
-      capabilityEntryFromRegistry(name, registry.packages[name], [...workspaces]),
-    )
+    .map(([name, workspaces]) => {
+      const entry = capabilityEntryFromRegistry(name, registry.packages[name], [...workspaces])
+      if (!entry) return null
+      for (const workspace of entry.workspaces) {
+        for (const [binding, bindingWorkspaces] of workspacesByPackage) {
+          if (!bindingWorkspaces.has(workspace)) continue
+          const guidance = registry.packages[name]?.decisionGuide?.bindingGuidance?.[binding] ?? []
+          entry.guidance.push(
+            ...guidance.map((line) =>
+              entry.workspaces.length > 1 ? `In \`${workspace || '.'}\`: ${line}` : line,
+            ),
+          )
+        }
+      }
+      return entry
+    })
     .filter((entry): entry is CapabilityMapEntry => entry !== null)
 }
 
@@ -141,8 +164,324 @@ async function readDeclaredPackages(projectRoot: string): Promise<DeclaredPackag
 export async function readProjectCapabilityMap(
   projectRoot: string,
   registry: Registry = getRawRegistry(),
+  declarations?: Iterable<DeclaredPackage | string>,
 ): Promise<CapabilityMapEntry[]> {
-  return buildCapabilityMap(registry, await readDeclaredPackages(projectRoot))
+  const declared = declarations
+    ? [...declarations].map((item) =>
+        typeof item === 'string' ? { name: item, workspace: '' } : item,
+      )
+    : await readDeclaredPackages(projectRoot)
+  const entries = buildCapabilityMap(registry, declared)
+  const wiring = new Map<string, Map<string, string[]>>()
+  const configFiles = new Map<string, Array<{ path: string; names: string[] }>>()
+  for (const workspace of new Set(declared.map((item) => item.workspace))) {
+    const sourceDirs = new Set(['src'])
+    for (const declaration of declared.filter((item) => item.workspace === workspace)) {
+      const framework = registry.packages[declaration.name]?.framework
+      const sharedCodeDir = framework && registry.appFrameworks?.[framework]?.sharedCodeDir
+      if (sharedCodeDir) sourceDirs.add(`src/${sharedCodeDir}`)
+    }
+    const sources = new Map<string, string>()
+    const configs: Array<{ path: string; names: string[] }> = []
+    for (const sourceDir of sourceDirs) {
+      const config = prefixed(workspace, `${sourceDir}/config.ts`)
+      try {
+        configs.push({
+          path: config,
+          names: exportedConfiguration(await readFile(join(projectRoot, config), 'utf8')),
+        })
+      } catch (_error) {
+        // No configuration file is supplied by this source layout.
+      }
+      const bonds = prefixed(workspace, `${sourceDir}/bonds`)
+      let names: string[]
+      try {
+        names = (await readdir(join(projectRoot, bonds)))
+          .filter((name) => /\.tsx?$/.test(name))
+          .sort()
+      } catch (_error) {
+        continue
+      }
+      for (const name of names) {
+        const relative = `${bonds}/${name}`
+        const source = await readFile(join(projectRoot, relative), 'utf8')
+        sources.set(relative, source)
+      }
+    }
+    wiring.set(workspace, resolveBondWiring(sources, registry))
+    configFiles.set(workspace, configs)
+  }
+  return entries.map((entry) => ({
+    ...entry,
+    wiredBonds: [
+      ...new Set(
+        entry.workspaces.flatMap((workspace) => wiring.get(workspace)?.get(entry.name) ?? []),
+      ),
+    ],
+    configFiles: entry.workspaces
+      .flatMap((workspace) => configFiles.get(workspace) ?? [])
+      .map((file) => ({
+        path: file.path,
+        names: entry.configNames.filter((name) => file.names.includes(name)),
+      }))
+      .filter((file) => file.names.length > 0),
+    configNames: entry.configNames.filter((name) =>
+      entry.workspaces.some((workspace) =>
+        configFiles.get(workspace)?.some((file) => file.names.includes(name)),
+      ),
+    ),
+  }))
+}
+
+/** Read actual exports before directing a project to edit a configuration variable. */
+function exportedConfiguration(source: string): string[] {
+  const file = ts.createSourceFile('config.ts', source, ts.ScriptTarget.Latest, true)
+  const names = new Set<string>()
+  function binding(name: ts.BindingName): void {
+    if (ts.isIdentifier(name)) names.add(name.text)
+    else
+      for (const element of name.elements) if (ts.isBindingElement(element)) binding(element.name)
+  }
+  for (const statement of file.statements) {
+    if (
+      ts.isExportDeclaration(statement) &&
+      statement.exportClause &&
+      ts.isNamedExports(statement.exportClause)
+    ) {
+      for (const name of statement.exportClause.elements) names.add(name.name.text)
+    }
+    if (
+      !ts.canHaveModifiers(statement) ||
+      !ts.getModifiers(statement)?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
+    )
+      continue
+    if (ts.isVariableStatement(statement))
+      for (const declaration of statement.declarationList.declarations) binding(declaration.name)
+    if (ts.isFunctionDeclaration(statement) && statement.name) names.add(statement.name.text)
+  }
+  return [...names]
+}
+
+type CallToken = object
+interface BondContext {
+  capabilities: Set<string>
+  calls: Set<CallToken>
+}
+interface BondSyntax {
+  root: CallToken
+  contexts: Map<CallToken, BondContext>
+  exports: Map<string, CallToken>
+  imports: Map<CallToken, { path: string; name: string }>
+}
+
+/** Resolve import bindings, including shadows, instead of matching source text. */
+function readBondSyntax(path: string, source: string, registry: Registry): BondSyntax {
+  const options: ts.CompilerOptions = {
+    target: ts.ScriptTarget.Latest,
+    noResolve: true,
+    noLib: true,
+  }
+  const file = ts.createSourceFile(path, source, ts.ScriptTarget.Latest, true)
+  const host = ts.createCompilerHost(options)
+  host.getSourceFile = (name) => (name === path ? file : undefined)
+  const checker = ts.createProgram([path], options, host).getTypeChecker()
+  const root = {}
+  const model: BondSyntax = { root, contexts: new Map(), exports: new Map(), imports: new Map() }
+  const namedFactories = new Map<CallToken, { capabilities: string[]; setup: string }>()
+  const namespaceFactories = new Map<
+    CallToken,
+    Map<string, { capabilities: string[]; setup: string }>
+  >()
+  const setters = new Map<CallToken, string[]>()
+  const namespaceSetters = new Map<CallToken, Map<string, string[]>>()
+  const namespaceImports = new Map<CallToken, string>()
+  const properties = new Map<CallToken, Map<string, CallToken>>()
+  const symbol = (node: ts.Node): CallToken | undefined => checker.getSymbolAtLocation(node)
+  function property(object: CallToken, name: string): CallToken {
+    const values = properties.get(object) ?? new Map<string, CallToken>()
+    const token = values.get(name) ?? {}
+    values.set(name, token)
+    properties.set(object, values)
+    return token
+  }
+  function context(token: CallToken): BondContext {
+    const value = model.contexts.get(token) ?? {
+      capabilities: new Set<string>(),
+      calls: new Set<CallToken>(),
+    }
+    model.contexts.set(token, value)
+    return value
+  }
+  function token(expression: ts.Expression): CallToken | undefined {
+    if (ts.isIdentifier(expression)) return symbol(expression)
+    if (ts.isPropertyAccessExpression(expression) && ts.isIdentifier(expression.expression)) {
+      const object = symbol(expression.expression)
+      if (!object) return undefined
+      const result = property(object, expression.name.text)
+      const imported = namespaceImports.get(object)
+      if (imported) model.imports.set(result, { path: imported, name: expression.name.text })
+      return result
+    }
+    return undefined
+  }
+  function factory(
+    expression: ts.Expression,
+  ): { capabilities: string[]; setup: string } | undefined {
+    const direct = token(expression)
+    if (direct && namedFactories.has(direct)) return namedFactories.get(direct)
+    if (ts.isPropertyAccessExpression(expression) && ts.isIdentifier(expression.expression)) {
+      const object = symbol(expression.expression)
+      if (object) return namespaceFactories.get(object)?.get(expression.name.text)
+    }
+    return undefined
+  }
+  for (const statement of file.statements) {
+    if (!ts.isImportDeclaration(statement) || !ts.isStringLiteral(statement.moduleSpecifier))
+      continue
+    const clause = statement.importClause
+    if (!clause || clause.isTypeOnly) continue
+    const packageName = statement.moduleSpecifier.text
+    const metadata = registry.packages[packageName]
+    const factories = new Map(Object.entries(metadata?.capabilityFactories ?? {}))
+    const set = new Map<string, string[]>()
+    if (metadata?.defaultBondSetup) set.set(metadata.defaultBondSetup.setter, [packageName])
+    const bindings = clause.namedBindings
+    if (bindings && ts.isNamedImports(bindings)) {
+      for (const binding of bindings.elements) {
+        if (binding.isTypeOnly) continue
+        const key = symbol(binding.name)
+        if (!key) continue
+        const name = (binding.propertyName ?? binding.name).text
+        const composition = factories.get(name)
+        if (composition) namedFactories.set(key, composition)
+        const capabilities = set.get(name)
+        if (capabilities) setters.set(key, capabilities)
+        if (packageName.startsWith('.')) model.imports.set(key, { path: packageName, name })
+      }
+    } else if (bindings && ts.isNamespaceImport(bindings)) {
+      const key = symbol(bindings.name)
+      if (!key) continue
+      namespaceFactories.set(key, factories)
+      namespaceSetters.set(key, set)
+      if (packageName.startsWith('.')) namespaceImports.set(key, packageName)
+    }
+  }
+  function expose(name: ts.BindingName): void {
+    if (ts.isIdentifier(name)) {
+      const key = symbol(name)
+      if (key) model.exports.set(name.text, key)
+    } else {
+      for (const element of name.elements) if (ts.isBindingElement(element)) expose(element.name)
+    }
+  }
+  for (const statement of file.statements) {
+    if (
+      !ts.canHaveModifiers(statement) ||
+      !ts.getModifiers(statement)?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
+    )
+      continue
+    if (ts.isFunctionDeclaration(statement) && statement.name) expose(statement.name)
+    if (ts.isVariableStatement(statement))
+      for (const declaration of statement.declarationList.declarations) expose(declaration.name)
+  }
+  function visit(node: ts.Node, owner: CallToken): void {
+    if (
+      ts.isFunctionDeclaration(node) ||
+      ts.isFunctionExpression(node) ||
+      ts.isArrowFunction(node)
+    ) {
+      const name =
+        node.name ??
+        (ts.isVariableDeclaration(node.parent) && ts.isIdentifier(node.parent.name)
+          ? node.parent.name
+          : undefined)
+      owner = name ? (symbol(name) ?? {}) : {}
+    }
+    if (ts.isCallExpression(node)) {
+      const key = token(node.expression)
+      let provided = key && setters.get(key)
+      if (
+        ts.isPropertyAccessExpression(node.expression) &&
+        ts.isIdentifier(node.expression.expression)
+      ) {
+        const object = symbol(node.expression.expression)
+        provided ??= object
+          ? namespaceSetters.get(object)?.get(node.expression.name.text)
+          : undefined
+      }
+      for (const capability of provided ?? []) context(owner).capabilities.add(capability)
+      if (key) context(owner).calls.add(key)
+      const composition = factory(node.expression)
+      if (composition && ts.isVariableDeclaration(node.parent)) {
+        const binding = node.parent.name
+        if (ts.isObjectBindingPattern(binding)) {
+          for (const element of binding.elements) {
+            const name = element.propertyName ?? element.name
+            if (
+              !ts.isIdentifier(name) ||
+              name.text !== composition.setup ||
+              !ts.isIdentifier(element.name)
+            )
+              continue
+            const setup = symbol(element.name)
+            if (setup)
+              for (const capability of composition.capabilities)
+                context(setup).capabilities.add(capability)
+          }
+        } else if (ts.isIdentifier(binding)) {
+          const object = symbol(binding)
+          if (object)
+            for (const capability of composition.capabilities)
+              context(property(object, composition.setup)).capabilities.add(capability)
+        }
+      }
+    }
+    ts.forEachChild(node, (child) => visit(child, owner))
+  }
+  visit(file, root)
+  return model
+}
+
+/** Follow module calls and the generated bond entry point's setup calls. */
+function resolveBondWiring(
+  sources: Map<string, string>,
+  registry: Registry,
+): Map<string, string[]> {
+  const models = new Map(
+    [...sources].map(([path, source]) => [path, readBondSyntax(path, source, registry)]),
+  )
+  const byPackage = new Map<string, Set<string>>()
+  const seen = new Map<string, Set<CallToken>>()
+  function visit(path: string, key: CallToken): void {
+    const model = models.get(path)
+    if (!model) return
+    const visited = seen.get(path) ?? new Set<CallToken>()
+    if (visited.has(key)) return
+    visited.add(key)
+    seen.set(path, visited)
+    const imported = model.imports.get(key)
+    if (imported) {
+      const target = posix
+        .normalize(posix.join(posix.dirname(path), imported.path))
+        .replace(/\.js$/, '.ts')
+      const exported = models.get(target)?.exports.get(imported.name)
+      if (exported) visit(target, exported)
+    }
+    const active = model.contexts.get(key)
+    if (!active) return
+    for (const capability of active.capabilities) {
+      const files = byPackage.get(capability) ?? new Set<string>()
+      files.add(path)
+      byPackage.set(capability, files)
+    }
+    for (const called of active.calls) visit(path, called)
+  }
+  for (const [path, model] of models) {
+    visit(path, model.root)
+    if (posix.basename(path) === 'index.ts')
+      for (const key of model.exports.values()) visit(path, key)
+  }
+  return new Map([...byPackage].map(([name, paths]) => [name, [...paths].sort()]))
 }
 
 function prefixed(workspace: string, path: string): string {
@@ -161,17 +500,13 @@ export function renderCapabilityMap(entries: readonly CapabilityMapEntry[]): str
   for (const entry of entries) {
     lines.push(`### ${entry.label} — \`${entry.name}\``)
     lines.push(`- Covers: ${entry.capabilities.join('; ')}.`)
-    for (const workspace of entry.workspaces) {
-      if (entry.defaultBond) {
-        lines.push(`- Wired bond: \`${prefixed(workspace, `src/bonds/${entry.defaultBond}.ts`)}\`.`)
-      }
-      if (entry.configNames.length > 0) {
-        lines.push(
-          `- Configure in \`${prefixed(workspace, 'src/config.ts')}\`: ${entry.configNames
-            .map((name) => `\`${name}\``)
-            .join(', ')}.`,
-        )
-      }
+    for (const path of entry.wiredBonds ?? []) lines.push(`- Wired bond: \`${path}\`.`)
+    if (entry.configNames.length > 0) {
+      const exports = (names: string[]): string => names.map((name) => `\`${name}\``).join(', ')
+      for (const file of entry.configFiles ?? [])
+        lines.push(`- Configure in \`${file.path}\`: ${exports(file.names)}.`)
+      if (!entry.configFiles?.length)
+        lines.push(`- Configuration exports: ${exports(entry.configNames)}.`)
     }
     for (const guidance of entry.guidance) lines.push(`- ${guidance}`)
     lines.push('- Configuration by API shape:')
@@ -209,15 +544,13 @@ export async function stampCapabilityBondHeaders(
 ): Promise<string[]> {
   const changed: string[] = []
   for (const entry of await readProjectCapabilityMap(projectRoot, registry)) {
-    if (!entry.defaultBond || !/^[a-z0-9-]+$/.test(entry.defaultBond)) continue
-    for (const workspace of entry.workspaces) {
-      const relative = prefixed(workspace, `src/bonds/${entry.defaultBond}.ts`)
+    for (const relative of entry.wiredBonds ?? []) {
       const path = join(projectRoot, relative)
       let source: string
       try {
         source = await readFile(path, 'utf8')
       } catch (_error) {
-        // This workspace wires the capability through a composed provider.
+        // A caller may remove a bond between map creation and stamping.
         continue
       }
       if (source.includes(`Declared capability: ${entry.name}`)) continue

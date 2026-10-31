@@ -19,8 +19,8 @@ export const authConfig = {
   // storage: 'memory' EXPLICITLY — the client's browser default is Web Storage, and a
   // localStorage bearer copy is XSS-exfiltratable and defeats the httpOnly session cookie
   // [M1-1]. An external contract that reads the token at its own key (an e2e suite's
-  // `localStorage.jwtToken`) is `storage: createBrowserStorageAdapter()` plus
-  // `tokenKey: 'jwtToken'`; never a second store.
+  // `localStorage.getItem('app.sessionToken')`) is `storage: createBrowserStorageAdapter()` plus
+  // `tokenKey: 'app.sessionToken'`; never a second store.
   storage: 'memory' as const,
   // This API issues no refresh token — the durable session is an httpOnly cookie
   // the server refreshes — so there is nothing for the client to refresh. Set this

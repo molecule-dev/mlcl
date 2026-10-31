@@ -9,8 +9,9 @@ export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
  * - `tokenKey`/`storagePrefix`, `authScheme`, `mapAuthResponse`,
  *   `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod` adapt the API.
  * - `logout()` and `refresh()` own sign-out and token refresh.
- * `AuthProvider` does not delay rendering children; only a route guard waits for
- * `status === 'loading'`. Use the generated bond and `useAuth()`, not another store.
+ * HTTP readiness delays requests, not rendering children; only a route guard waits
+ * for `status === 'loading'`. Read the session through the framework binding in
+ * AGENTS.md. Use the generated bond instead of another session store.
  */
 
 /*
@@ -27,8 +28,7 @@ export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
  *
  * ```typescript
  * import type { AuthClientConfig, UserProfile } from '@molecule/app-auth'
- * import { createBrowserStorageAdapter, createJWTAuthClient } from '@molecule/app-auth'
- * import { useAuth } from '@molecule/app-react'
+ * import { createJWTAuthClient } from '@molecule/app-auth'
  *
  * interface AppUser extends UserProfile {
  *   username?: string
@@ -39,10 +39,11 @@ export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
  * export const authConfig: AuthClientConfig<AppUser> = {}
  *
  * // src/bonds/auth-default.ts — the generated call takes the SAME type argument.
- * createJWTAuthClient<AppUser>({ ...authConfig, storage: createBrowserStorageAdapter() })
+ * const authClient = createJWTAuthClient<AppUser>(authConfig)
  *
- * // In a component: `user` is `AppUser`.
- * useAuth<AppUser>()
+ * // In app logic: `user` is `AppUser | null`.
+ * const user = authClient.getUser()
+ * // Pass AppUser to the project's framework session binding too.
  * ```
  *
  * An API whose account has NO `id` (an account keyed by handle, a directory
@@ -54,8 +55,7 @@ export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
  *
  * ```typescript
  * import type { AuthClientConfig } from '@molecule/app-auth'
- * import { createBrowserStorageAdapter, createJWTAuthClient } from '@molecule/app-auth'
- * import { useAuth } from '@molecule/app-react'
+ * import { createJWTAuthClient } from '@molecule/app-auth'
  *
  * interface Account {
  *   handle: string
@@ -76,11 +76,11 @@ export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
  * }
  *
  * // src/bonds/auth-default.ts — the generated call takes the SAME type argument.
- * createJWTAuthClient<Account>({ ...authConfig, storage: createBrowserStorageAdapter() })
+ * const authClient = createJWTAuthClient<Account>(authConfig)
  *
- * // In a component: `user` is `Account` — `user.handle` is typed, `user.id` does
- * // not exist.
- * useAuth<Account>()
+ * // In app logic: `user` is `Account | null` — `user?.handle` is typed.
+ * const user = authClient.getUser()
+ * // Pass Account to the project's framework session binding too.
  * ```
  *
  * Keep every wire field the pages read (spreading the wire user does that), map a
@@ -110,12 +110,12 @@ export const authConfig = {
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
   changePasswordEndpoint: '/users/password',
-  // Token storage is NOT set here — it is wiring, so the generated auth bond
-  // (`src/bonds/auth-default.ts`) passes `createBrowserStorageAdapter()` from
-  // `@molecule/app-auth`, which keeps the session across a page reload (in a browser
-  // that adapter is also the client's default). To keep the bearer token out of
-  // script-reachable storage when your API sets an httpOnly session cookie, pass
-  // `storage: 'memory'` in the bond instead — the stronger route.
+  // The auth factory defaults to its own browser storage adapter. The generated bond
+  // passes this config through, so an explicit `storage` choice takes precedence.
+  // To keep a bearer out of script-reachable storage with an HttpOnly session cookie,
+  // set `storage: 'memory'`. Set `cookieRestore: 'always'` to probe an external cookie
+  // without a readable hint. The default `cookieRestore: 'hint'` needs the server's
+  // readable `mol_auth=1` cookie.
   // An external contract that reads the token at its own key (an e2e suite's
   // `localStorage.getItem('app.jwt')`) needs `tokenKey: 'app.jwt'` here, paired with the
   // bond's `storage: createBrowserStorageAdapter()`; never a second store.

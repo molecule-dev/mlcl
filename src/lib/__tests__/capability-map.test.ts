@@ -37,7 +37,7 @@ describe('declared capability map', () => {
     expect(text).toContain('## Declared capability map')
     expect(text).toContain('`@molecule/app-auth`')
     expect(text).toContain('`@molecule/app-http`')
-    expect(text).toContain('app/src/bonds/auth-default.ts')
+    expect(text).not.toContain('Wired bond:')
     expect(text).toContain('not using @molecule/<name> because')
     for (const config of [
       "authScheme: 'Bearer'",
@@ -109,7 +109,12 @@ describe('declared capability map', () => {
       join(dir, 'app', 'package.json'),
       JSON.stringify({ dependencies: { '@molecule/app-auth': '1.0.0' } }),
     )
-    await writeFile(bondPath, "import { authConfig } from '../config.js'\n")
+    await writeFile(
+      bondPath,
+      "import { createJWTAuthClient, setClient } from '@molecule/app-auth'\n" +
+        "import { authConfig } from '../config.js'\n" +
+        'setClient(createJWTAuthClient(authConfig))\n',
+    )
     const config =
       "export const authConfig = { authScheme: 'Bearer', storage: 'memory' as const }\n"
     await writeFile(configPath, config)

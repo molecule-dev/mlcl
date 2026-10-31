@@ -144,7 +144,7 @@ describe('scaffolded shared-auth guidance', () => {
     expect(content).toContain('401/403')
     expect(content).toContain('logout()')
     expect(content).toContain('refresh()')
-    expect(content).toContain('does not delay rendering children')
+    expect(content).toContain('not rendering children')
     expect(content).not.toMatch(/RealWorld|realWorld|jwtToken/)
     for (const field of [
       'tokenKey',

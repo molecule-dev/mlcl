@@ -1,29 +1,10 @@
 /**
  * What a scaffolded app's auth token storage must be.
  *
- * X1 flash-m98 (2026-10-17) spent ~34 of its 60 minutes on "the session must survive a
- * page reload": the supplied Playwright suite reloads the page after sign-in and asserts
- * the signed-in state (`auth.spec.ts:78`, and the `user-fetch-errors` family re-injects
- * `localStorage['jwtToken']` before a reload), while `@molecule/app-auth` stores tokens in
- * MEMORY by default — so a scaffolded app lost its session on reload and nothing said so.
- * The executor hand-rolled a token store, a header wrapper and a restore probe, and ran out
- * the clock inside its own invention.
- *
- * The fix has two halves. `@molecule/app-auth` now defaults a BROWSER client to Web
- * Storage (xr-molecule-flash-m158: a memory default lost the session on every full page
- * load), and the generated auth bond still passes `createBrowserStorageAdapter()`
- * explicitly — imported from `@molecule/app-auth` itself, which exports it from 1.3.0.
- * The flagship templates do the opposite on purpose — their APIs are the platform's
- * `@molecule/api-resource-user`, which sets an httpOnly session cookie, and an explicit
- * `storage: 'memory'` paired with that cookie is the STRONGER configuration (script cannot
- * read the cookie). So this file pins both facts against drift:
- *
- * 1. the base custom-scaffold template wires the persistent adapter (a reload keeps the
- *    session out of the box), importing it from the package rather than shipping a
- *    hand-written copy of it, and
- * 2. every flagship authConfig PINS `storage: 'memory'` explicitly — omitting it now means
- *    the package's Web Storage default, which would put their bearer token within reach of
- *    any script — and no scaffolded `authConfig` hardcodes a Web Storage area of its own.
+ * The browser factory defaults to the package's persistent browser adapter.
+ * The generated bond passes authConfig directly so an explicit storage choice
+ * survives composition. Cookie-backed flagship apps select memory storage.
+ * These checks keep default persistence and explicit storage choices separate.
  */
 import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join } from 'node:path'
@@ -91,12 +72,12 @@ const mockJWT = (expSecondsFromNow: number): string =>
     JSON.stringify({ sub: 'u1', exp: Math.floor(Date.now() / 1000) + expSecondsFromNow }),
   ).toString('base64')}.signature`
 
-describe('the scaffolded app keeps its session across a reload (flash-m98)', () => {
+describe('the scaffolded app keeps its session across a reload', () => {
   afterEach(() => {
     vi.unstubAllGlobals()
   })
 
-  it('the auth bond the generator writes imports the adapter from the package, in ONE merged import', () => {
+  it('passes config directly to the package factory in one import', () => {
     const plan: InjectionPlan = {
       molecule: '@molecule/app-auth',
       moleculePackage: {
@@ -127,12 +108,10 @@ describe('the scaffolded app keeps its session across a reload (flash-m98)', () 
     // them. A second `from '@molecule/app-auth'` import is what this replaced
     // (extraImports used to be emitted unconditionally), and the scaffold's own
     // lint rejects it.
-    expect(content).toContain(
-      "import { createBrowserStorageAdapter, createJWTAuthClient, setClient } from '@molecule/app-auth'",
-    )
+    expect(content).toContain("import { createJWTAuthClient, setClient } from '@molecule/app-auth'")
     expect(content.match(/from '@molecule\/app-auth'/g)).toHaveLength(1)
-    expect(content).toContain('createJWTAuthClient({')
-    expect(content).toContain('storage: createBrowserStorageAdapter(),')
+    expect(content).toContain('createJWTAuthClient(authConfig)')
+    expect(content).not.toMatch(/^\s+storage:/m)
   })
 
   it('gives the generated bond the registry header: one store, useAuth, tokenKey', () => {
@@ -157,7 +136,7 @@ describe('the scaffolded app keeps its session across a reload (flash-m98)', () 
     }
     const files = synthesizeAppProjectFiles(
       [plan],
-      ['@molecule/app-auth'],
+      ['@molecule/app-auth', '@molecule/app-react'],
       '/tmp/test-app',
       loadRegistry(),
     )
@@ -172,8 +151,8 @@ describe('the scaffolded app keeps its session across a reload (flash-m98)', () 
     // stored token AND user are `authenticated` on the FIRST render, and only a
     // 401/403 from the background re-check clears the session
     // (xr-molecule-flash-m177).
-    expect(content).toContain('already `authenticated` on the FIRST render')
-    expect(content).toContain('never gate a page on a current-user request')
+    expect(content).toContain('synchronously only when BOTH a stored token AND cached user exist')
+    expect(content).toContain('token-only and cookie-only restores are asynchronous')
     expect(content).toContain('only a 401/403 clears the session')
     // The old, wrong classification ("a 4xx clears it") is gone.
     expect(content).not.toContain('a 4xx clears it')

@@ -138,7 +138,12 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
     expect(agents).toContain('## Declared capability map')
     expect(agents).toContain('`@molecule/app-auth`')
     expect(agents).toContain('`@molecule/app-http`')
-    expect(agents).toContain('app/src/bonds/auth-default.ts')
+    expect(agents).toContain('Wired bond: `app/src/bonds/auth-default.ts`')
+    expect(agents).toContain('`useAuth()` from `@molecule/app-vue`')
+    expect(agents).not.toContain('@molecule/app-react')
+    for (const match of agents.matchAll(/Wired bond: `([^`]+)`/g)) {
+      expect(existsSync(join(projectRoot, match[1]!)), match[1]).toBe(true)
+    }
   })
 
   it('scopes an api-only scaffold to backend packages', async () => {

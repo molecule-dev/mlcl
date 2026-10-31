@@ -21568,7 +21568,7 @@
         "followed authors feed",
         "article tags",
         "medium-style blog",
-        "realworld conduit"
+        "blog publishing"
       ]
     },
     "@molecule/api-resource-booking": {
@@ -21990,7 +21990,7 @@
         }
       ],
       "setupSql": {
-        "src/__setup__/comment_numbers.sql": "-- Sequential integer numbers for comments, for APIs whose clients address a\n-- comment by an integer id (RealWorld's `comment.id` is an integer).\n-- createComment() / createNumberedComment() write this row with the comment;\n-- numberComment(id) numbers a row that was inserted without them. The comment\n-- keeps its UUID either way.\nCREATE TABLE IF NOT EXISTS \"comment_numbers\" (\n  \"number\" INTEGER PRIMARY KEY,\n  \"commentId\" UUID NOT NULL UNIQUE REFERENCES \"comments\"(\"id\") ON DELETE CASCADE\n);\n",
+        "src/__setup__/comment_numbers.sql": "-- Sequential integer numbers for comments, for APIs whose clients address a\n-- comment by an integer id instead of its internal UUID.\n-- createComment() / createNumberedComment() write this row with the comment;\n-- numberComment(id) numbers a row that was inserted without them. The comment\n-- keeps its UUID either way.\nCREATE TABLE IF NOT EXISTS \"comment_numbers\" (\n  \"number\" INTEGER PRIMARY KEY,\n  \"commentId\" UUID NOT NULL UNIQUE REFERENCES \"comments\"(\"id\") ON DELETE CASCADE\n);\n",
         "src/__setup__/comments.sql": "CREATE TABLE IF NOT EXISTS \"comments\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"parentId\" UUID REFERENCES \"comments\"(\"id\") ON DELETE CASCADE,\n  \"body\" TEXT NOT NULL,\n  \"editedAt\" TIMESTAMPTZ,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_comments_resource\" ON \"comments\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_comments_parent\" ON \"comments\" (\"parentId\");\nCREATE INDEX IF NOT EXISTS \"idx_comments_user\" ON \"comments\" (\"userId\");\n"
       },
       "setupSqlVersion": "1.2.2",
@@ -25621,7 +25621,7 @@
         "user accounts backend",
         "user crud backend",
         "authorization header token",
-        "realworld token auth",
+        "custom token authentication",
         "jwt api authentication",
         "token in response body"
       ]
@@ -31231,23 +31231,12 @@
         "factory": "createJWTAuthClient",
         "setter": "setClient",
         "configImport": "authConfig",
-        "extraImports": [
-          {
-            "names": [
-              "createBrowserStorageAdapter"
-            ],
-            "from": "@molecule/app-auth"
-          }
-        ],
-        "configExtend": [
-          "storage: createBrowserStorageAdapter()"
-        ],
         "header": [
           "What this client already handles:",
-          "`initialize()` restores before the first render: a stored token AND user are already `authenticated` on the FIRST render, so never gate a page on a current-user request. `getAccessToken()` returns the stored token during restore.",
+          "`initialize()` publishes `authenticated` synchronously only when BOTH a stored token AND cached user exist; token-only and cookie-only restores are asynchronous. `getAccessToken()` returns the stored token during restore.",
           "`validateSession()` is the background re-check: only a 401/403 clears the session, while a network/5xx failure or a wrong `currentUserEndpoint` (404) keeps it as `unavailable`.",
           "`tokenKey`/`storagePrefix`, `authScheme`, `mapAuthResponse`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod` adapt the API; `logout()` and `refresh()` are included. A token another tool reads at its own storage key (an e2e suite, a legacy script) is `tokenKey`, not a copy in a second store.",
-          "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is `loading` | `authenticated` | `unauthenticated` | `unavailable`, and `state.user` is the current user. `AuthProvider` renders children immediately; only a route guard waits for `status === 'loading'`. The HTTP gate delays requests, not rendering.",
+          "Read the session through the declared framework binding below: status is `loading` | `authenticated` | `unauthenticated` | `unavailable`. Only a route guard waits for `status === 'loading'`. The HTTP gate delays requests, not rendering children.",
           "This file is the app's ONE session store — never add another token or user store beside it."
         ],
         "setupAfter": [
@@ -31258,8 +31247,28 @@
         "configuration": [
           "Bearer + top-level token: keep `authScheme: 'Bearer'` and the default response mapping; set `currentUserEndpoint` and `profileEndpoint`/`profileUpdateMethod` to the API's current-user GET and profile update route/method.",
           "Custom token API: set `tokenKey` (or `storagePrefix`), `authScheme: 'Token'`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod`; use `mapAuthResponse` to turn envelopes such as `{ user: { token, ...user } }` into `{ accessToken, user }`.",
-          "Cookie session: use `storage: 'memory'`, configure `currentUserEndpoint`, and keep HTTP `withCredentials: true`; no browser token store is needed."
-        ]
+          "Cookie session: use `storage: 'memory'`, `cookieRestore: 'always'`, configure `currentUserEndpoint`, and keep HTTP `withCredentials: true`; no browser token store is needed. The default `cookieRestore: 'hint'` probes only when the server also sets a readable `mol_auth=1` presence cookie."
+        ],
+        "bindingGuidance": {
+          "@molecule/app-react": [
+            "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is the session status and `state.user` is the current user. `AuthProvider` renders children immediately."
+          ],
+          "@molecule/app-vue": [
+            "Read the session with `useAuth()` from `@molecule/app-vue`: `state.value.status` is the session status and `user.value` is the current user. Provide the client with `app.use(createAuthPlugin(authClient))`."
+          ],
+          "@molecule/app-svelte": [
+            "Read the session with `createAuthStores()` from `@molecule/app-svelte`: `$state.status` is the session status and `$user` is the current user. Provide the client with `setAuthContext(authClient)`."
+          ],
+          "@molecule/app-solid": [
+            "Read the session with `createAuth()` from `@molecule/app-solid`: `state().status` is the session status and `user()` is the current user. Provide the client through `MoleculeProvider` configuration."
+          ],
+          "@molecule/app-angular": [
+            "Read the session with `MoleculeAuthService` from `@molecule/app-angular`: `state$` emits the session state and `user$` emits the current user. Provide the client with `provideAuth(authClient)`."
+          ],
+          "@molecule/app-react-native": [
+            "Read the session with `useAuth()` from `@molecule/app-react-native`: `state.status` is the session status and `state.user` is the current user. `AuthProvider` renders children immediately."
+          ]
+        }
       },
       "intentHints": [
         "user login",
@@ -31950,7 +31959,40 @@
         "default bonds",
         "react bond defaults",
         "app bonds wiring"
-      ]
+      ],
+      "capabilityFactories": {
+        "createDefaultHttpClient": {
+          "capabilities": [
+            "@molecule/app-http"
+          ],
+          "setup": "setupHttpDefault"
+        },
+        "createDefaultHttpClientWithAuthBearer": {
+          "capabilities": [
+            "@molecule/app-http"
+          ],
+          "setup": "setupHttpDefault"
+        },
+        "createDefaultAuthClient": {
+          "capabilities": [
+            "@molecule/app-auth"
+          ],
+          "setup": "setupAuthDefault"
+        },
+        "createDefaultAuthClientWithHttpSync": {
+          "capabilities": [
+            "@molecule/app-auth"
+          ],
+          "setup": "setupAuthDefault"
+        },
+        "createDefaultAuthClientWithFetchClient": {
+          "capabilities": [
+            "@molecule/app-auth",
+            "@molecule/app-http"
+          ],
+          "setup": "setupAuthDefault"
+        }
+      }
     },
     "@molecule/app-breadcrumb-react": {
       "language": "typescript",
@@ -36002,9 +36044,9 @@
         "ionicons font",
         "ionicons 2 icon font",
         "ionicons glyph classes",
-        "conduit ionicons icons",
+        "ionicons frontend icons",
         "ion- glyph classes",
-        "conduit realworld frontend glyph icons"
+        "frontend glyph icons"
       ]
     },
     "@molecule/app-fonts-jetbrains-mono": {
@@ -36402,7 +36444,7 @@
         "source sans pro font",
         "source sans 3 typography",
         "adobe source sans",
-        "conduit body font"
+        "app body font"
       ]
     },
     "@molecule/app-fonts-source-serif-4": {

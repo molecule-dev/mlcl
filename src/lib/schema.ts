@@ -150,6 +150,12 @@ export type SqlCapabilitiesValue = z.infer<typeof SqlCapabilitiesSchema>
 
 /** Package-authored decision guidance rendered by capability-map.ts. */
 export const DecisionGuide = z.object({
+  bindingGuidance: z
+    .record(z.string(), z.array(z.string()))
+    .optional()
+    .describe(
+      'Framework package name to session guidance, rendered only when that binding is declared',
+    ),
   configuration: z
     .array(z.string())
     .min(1)
@@ -812,6 +818,18 @@ export const RegistryEntry = z.object({
     .record(z.string(), z.string())
     .optional()
     .describe('Mock exports for test file generation (export name → mock expression)'),
+  capabilityFactories: z
+    .record(
+      z.string(),
+      z.object({
+        capabilities: z.array(z.string()),
+        setup: z
+          .string()
+          .describe('Returned setup method that must be called to bond the capability'),
+      }),
+    )
+    .optional()
+    .describe('Factory exports that compose these capability packages into a bond'),
   defaultBond: z
     .string()
     .optional()

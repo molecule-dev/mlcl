@@ -857,12 +857,12 @@ function stringRecord(value: Record<string, unknown> | undefined): Record<string
  * The tables a package SQL file creates, in the order its `CREATE TABLE`
  * statements appear.
  *
- * One SQL file commonly ships several tables (`articles.sql` creates
- * `articles` AND `article_tags`), and a package's `tables` metadata names the
+ * One SQL file commonly ships several tables (`records.sql` creates
+ * `records` AND `record_labels`), and a package's `tables` metadata names the
  * file once per table. Planning one migration per TABLE entry copied the whole
  * file once per table — two byte-identical migrations for one schema file (X0
  * xr-molecule-flash-l03: the restored pair told the model to delete either
- * copy, and obeying both left the app with no `articles`). The migration is
+ * copy, and obeying both left the app with no `records`). The migration is
  * named after the FIRST table the file creates, and covers the rest.
  *
  * `--` comments are stripped first: a note that mentions a `CREATE TABLE` must
@@ -906,8 +906,8 @@ export async function tablesInDependencyOrder<T extends { name: string; sqlFile?
 ): Promise<T[]> {
   const names = new Set(tables.map((t) => t.name))
   // Two entries can name the same table and be different things — the scaffold
-  // lists `article_tags` twice, once from the file that creates it and once from
-  // the file that only adds a column (`articles_position.sql`). Keyed by NAME
+  // lists `record_labels` twice, once from the file that creates it and once from
+  // the file that only adds a column (`records_position.sql`). Keyed by NAME
   // alone, the second entry was silently dropped (its `state` was already set),
   // so the upgrade SQL never reached the plan. Identity is the entry: name + file.
   const key = (table: T): string => `${table.name}\u0000${table.sqlFile ?? ''}`
@@ -980,11 +980,11 @@ async function planResourceInjection(
   // Postgres database: the API never booted (X1 flash-m38, 2026-10-16).
   //
   // ONE migration per distinct SQL FILE, not per table entry. A package's `tables`
-  // metadata names a multi-table file once per table (`articles.sql` → `articles`
-  // AND `article_tags`), and the per-table loop copied the whole file once per
+  // metadata names a multi-table file once per table (`records.sql` → `records`
+  // AND `record_labels`), and the per-table loop copied the whole file once per
   // entry — two byte-identical migrations for one schema file (X0
   // xr-molecule-flash-l03: the restored pair each told the model the other was the
-  // creator and to delete it, and obeying both left the app with no `articles`).
+  // creator and to delete it, and obeying both left the app with no `records`).
   // The file is named after the FIRST table it creates and covers the rest.
   //
   // The package's SQL is published in Postgres dialect and a non-Postgres bond rewrites
@@ -1733,7 +1733,7 @@ export function filterExcludedPeerDependencies(
  *
  * A migration covers EVERY table its SQL file creates ({@link MigrationFile.tables}).
  * The same package may plan two files that touch one table and they are both kept:
- * `articles.sql` creates `article_tags` and `articles_position.sql` adds a column to
+ * `records.sql` creates `record_labels` and `records_position.sql` adds a column to
  * it, and only their combination is the package's schema. Dropping the second as a
  * "duplicate" is how the scaffold used to lose the upgrade.
  *
@@ -1751,7 +1751,7 @@ export function dedupePlannedMigrations(plans: readonly InjectionPlan[]): void {
       const tables = migration.tables ?? [migration.tableName]
       // A table claimed by ANOTHER package is the duplicate this pass exists for.
       // A same-package claim is a second file of one package's schema, planned on
-      // purpose (`articles.sql` + `articles_position.sql`).
+      // purpose (`records.sql` + `records_position.sql`).
       const prior = tables
         .map((table) => claimed.get(table))
         .find((claim) => claim !== undefined && claim.molecule !== plan.molecule)
@@ -3461,6 +3461,7 @@ export function synthesizeAppProjectFiles(
           pascal,
           cat!,
           coreAppSetup,
+          allMolecules,
         ),
         description: `Generate default ${cat} bond setup`,
       })
@@ -3749,6 +3750,7 @@ function generateDefaultBondSetup(
   pascal: string,
   category: string,
   appBondSetup?: { exportName?: string; reExport?: boolean; generatorType?: string } | null,
+  bindings: readonly string[] = [],
 ): string {
   const imports: string[] = []
   // An extraImport FROM the bond's own package is not a second module: it names
@@ -3803,6 +3805,8 @@ function generateDefaultBondSetup(
   const capability = capabilityEntryFromRegistry(
     packageName,
     getRawRegistry().packages[packageName],
+    [''],
+    bindings,
   )
   const bondHeader = capability
     ? renderCapabilityBondHeader(capability, `Default ${category} bond setup`).trimEnd()
