@@ -13,6 +13,11 @@ import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
 
 const AUTH = '@molecule/app-auth'
 const HTTP = '@molecule/app-http'
+// mlcl/registry.json's app `http` bond category: the core and every provider factory.
+const HTTP_FACTORIES = [
+  { module: HTTP, name: 'createFetchClient' },
+  { module: '@molecule/app-http-axios', name: 'createAxiosClient' },
+]
 const AUTH_STATE = /^(?:auth|authState|identity|identityState)$/i
 const AUTH_CONTEXT = /^(?:Auth|Authentication|Identity)(?:Context|Store)?$/i
 // "Session" is also a domain word (a study, tutoring, game or checkout session), so a
@@ -69,7 +74,7 @@ export default {
         '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
       unbonded:
-        '@molecule/app-http is declared: this createFetchClient result is used without setClient, so setAuthTokenSource/setAuthGate reach only the bonded client (and getClient() fallback), not this client. Call setClient(createFetchClient(...)) once in the bond setup, then use getClient() everywhere.',
+        '@molecule/app-http is declared: this {{factory}} result is used without setClient, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. Call setClient({{factory}}(...)) once in the bond setup, then use getClient() everywhere.',
     },
   },
   create(context) {
@@ -90,7 +95,7 @@ export default {
     const calls = []
     const contexts = []
     const states = []
-    const fetchClients = []
+    const httpClients = []
     const clientBonds = []
     const mutations = new Map()
     let credentialStore = false
@@ -183,6 +188,8 @@ export default {
       }
       return false
     }
+    const clientFactory = (callee) =>
+      HTTP_FACTORIES.find(({ module, name }) => imported(callee, [module], [name]))
     const sharedAuth = (node) => {
       node = value(node)
       if (node?.type !== 'CallExpression') return false
@@ -253,16 +260,125 @@ export default {
         return parent.id.elements[0].name
       return ''
     }
-    const usedFetchClient = (node) => {
-      const parent = node.parent
-      return (
-        (parent?.type === 'VariableDeclarator' && parent.init === node) ||
-        (parent?.type === 'AssignmentExpression' && parent.right === node) ||
-        (parent?.type === 'MemberExpression' && parent.object === node) ||
-        parent?.type === 'ExportDefaultDeclaration' ||
-        parent?.type === 'ReturnStatement' ||
-        (parent?.type === 'ArrowFunctionExpression' && parent.body === node)
+    const functionReturns = (node) => {
+      if (node.body.type !== 'BlockStatement') return [node.body]
+      const returns = []
+      const stack = [node.body]
+      const seen = new Set()
+      while (stack.length) {
+        const current = stack.pop()
+        if (!current || typeof current.type !== 'string' || seen.has(current)) continue
+        seen.add(current)
+        if (
+          current !== node.body &&
+          ['ArrowFunctionExpression', 'FunctionDeclaration', 'FunctionExpression'].includes(
+            current.type,
+          )
+        )
+          continue
+        if (current.type === 'ReturnStatement') {
+          if (current.argument) returns.push(current.argument)
+          continue
+        }
+        for (const [name, child] of Object.entries(current)) {
+          if (name === 'parent') continue
+          if (Array.isArray(child)) stack.push(...child)
+          else if (child && typeof child === 'object') stack.push(child)
+        }
+      }
+      return returns
+    }
+    // Resolve a client back to its provider call through local bindings, factory
+    // returns, object properties, and identity wrappers. Multiple possible
+    // assignments are all retained: an unknown owner must not become a report.
+    const clientOrigins = (node, seen = new Set()) => {
+      node = unwrap(node)
+      if (!node || seen.has(node)) return []
+      seen.add(node)
+      if (node.type === 'CallExpression' && clientFactory(node.callee)) return [node]
+      if (node.type === 'Identifier') {
+        const binding = variable(node)
+        const definition = binding?.defs[0]
+        if (binding?.defs.length !== 1 || definition.type !== 'Variable') return []
+        const sources = definition.node.init ? [definition.node.init] : []
+        for (const reference of binding.references) {
+          if (!reference.isWrite() || reference.init) continue
+          const assignment = reference.identifier.parent
+          if (
+            assignment?.type === 'AssignmentExpression' &&
+            assignment.left === reference.identifier &&
+            assignment.operator === '='
+          )
+            sources.push(assignment.right)
+        }
+        return sources.flatMap((sourceNode) => clientOrigins(sourceNode, seen))
+      }
+      if (node.type === 'CallExpression') {
+        const callee = value(node.callee)
+        const definition = callee?.type === 'Identifier' ? variable(callee)?.defs[0] : undefined
+        const fn =
+          callee && ['ArrowFunctionExpression', 'FunctionExpression'].includes(callee.type)
+            ? callee
+            : definition?.type === 'FunctionName'
+              ? definition.node
+              : null
+        if (!fn) return []
+        return functionReturns(fn).flatMap((returned) => {
+          const result = unwrap(returned)
+          const parameter =
+            result?.type === 'Identifier'
+              ? fn.params.findIndex(
+                  (param) => param.type === 'Identifier' && param.name === result.name,
+                )
+              : -1
+          return clientOrigins(parameter >= 0 ? node.arguments[parameter] : returned, seen)
+        })
+      }
+      if (node.type === 'ConditionalExpression')
+        return [...clientOrigins(node.consequent, seen), ...clientOrigins(node.alternate, seen)]
+      if (node.type === 'LogicalExpression')
+        return [...clientOrigins(node.left, seen), ...clientOrigins(node.right, seen)]
+      if (node.type === 'MemberExpression') {
+        const stored = property(node.object, key(node))
+        return stored ? clientOrigins(stored, seen) : []
+      }
+      return []
+    }
+    const exportedHttpClient = (node) => {
+      for (let current = node; current && current.type !== 'Program'; current = current.parent) {
+        if (['ExportDefaultDeclaration', 'ExportNamedDeclaration'].includes(current.type))
+          return true
+        const id =
+          current.type === 'VariableDeclarator' || current.type === 'FunctionDeclaration'
+            ? current.id
+            : null
+        if (
+          id?.type === 'Identifier' &&
+          variable(id)?.references.some((reference) =>
+            ['ExportDefaultDeclaration', 'ExportSpecifier'].includes(
+              reference.identifier.parent?.type,
+            ),
+          )
+        )
+          return true
+      }
+      return false
+    }
+    const usedHttpClient = (node) => {
+      let current = node
+      while (
+        current.parent &&
+        [
+          'ChainExpression',
+          'TSAsExpression',
+          'TSTypeAssertion',
+          'TSNonNullExpression',
+          'TSSatisfiesExpression',
+        ].includes(current.parent.type) &&
+        current.parent.expression === current
       )
+        current = current.parent
+      return Boolean(current.parent && current.parent.type !== 'ExpressionStatement')
     }
     const transport = (callee) => {
       callee = value(callee)
@@ -304,8 +420,7 @@ export default {
       CallExpression(node) {
         calls.push(node)
         const callee = unwrap(node.callee)
-        if (packages.http && imported(callee, [HTTP], ['createFetchClient']))
-          fetchClients.push(node)
+        if (packages.http && clientFactory(callee)) httpClients.push(node)
         if (packages.http && imported(callee, [HTTP], ['setClient']))
           clientBonds.push(...node.arguments)
         if (packages.http && imported(callee, [HTTP], ['setAuthTokenSource']))
@@ -377,16 +492,47 @@ export default {
             })
         }
         if (packages.http) {
-          for (const node of fetchClients) {
-            if (clientBonds.some((client) => identity(client) === identity(node))) continue
-            const authorization = property(property(node.arguments[0], 'headers'), 'authorization')
+          const bondedOrigins = new Set(clientBonds.flatMap((client) => clientOrigins(client)))
+          const appBaseURLs = new Set(
+            [...bondedOrigins]
+              .map((client) => string(property(client.arguments[0], 'baseURL')))
+              .filter((baseURL) => baseURL !== null),
+          )
+          for (const node of httpClients) {
+            if (bondedOrigins.has(node) || exportedHttpClient(node)) continue
+            const config = node.arguments[0]
+            const authorization = property(property(config, 'defaultHeaders'), 'authorization')
             if (authorization && independentApiKey(authorization)) continue
+            const baseURL = string(property(config, 'baseURL'))
+            const hasAppBaseURL =
+              baseURL !== null && (appBaseURLs.has(baseURL) || /^\/api(?:\/|$)/.test(baseURL))
+            const authenticatedCall = calls.some((call) => {
+              const method = unwrap(call.callee)
+              if (
+                method?.type !== 'MemberExpression' ||
+                !['request', 'get', 'post', 'put', 'patch', 'delete'].includes(key(method)) ||
+                !clientOrigins(method.object).includes(node)
+              )
+                return false
+              return call.arguments.some((argument) => {
+                const requestAuthorization = property(
+                  property(argument, 'headers'),
+                  'authorization',
+                )
+                return requestAuthorization && !independentApiKey(requestAuthorization)
+              })
+            })
             const authenticated =
-              hasAuthTokenSource ||
-              property(node.arguments[0], 'authScheme') ||
-              (authorization && !independentApiKey(authorization))
-            if (authenticated && usedFetchClient(node))
-              context.report({ node, messageId: 'unbonded' })
+              property(config, 'authScheme') ||
+              (authorization && !independentApiKey(authorization)) ||
+              authenticatedCall ||
+              (hasAuthTokenSource && hasAppBaseURL)
+            if (authenticated && usedHttpClient(node))
+              context.report({
+                node,
+                messageId: 'unbonded',
+                data: { factory: clientFactory(node.callee).name },
+              })
           }
           for (const node of calls) {
             if (!transport(node.callee)) continue
