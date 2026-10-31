@@ -37906,7 +37906,6 @@
         "countByKind",
         "summarizeResults",
         "applyTestRunEvent",
-        "foldTestRunEvents",
         "requestSkip",
         "markSkipUnavailable",
         "canSkipRun",
@@ -37926,6 +37925,7 @@
         "TestsRunState",
         "MAX_OUTPUT_LINES",
         "EMPTY_RUN_STATE",
+        "TestRunProjection",
         "MAX_FIX_OUTPUT_CHARS",
         "MAX_FIX_MESSAGE_OUTPUT_CHARS",
         "TestFailure",
@@ -57840,6 +57840,7 @@
         "@molecule/app-i18n",
         "@molecule/app-routing",
         "react",
+        "react-dom",
         "react-router"
       ],
       "moleculePeers": [
