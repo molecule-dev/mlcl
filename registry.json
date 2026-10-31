@@ -31243,11 +31243,11 @@
           "storage: createBrowserStorageAdapter()"
         ],
         "header": [
-          "This file is the app's ONE session store — never add a second one beside it.",
-          "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is already `loading` | `authenticated` | `unauthenticated` | `unavailable`, and `state.user` is the current user.",
-          "`initialize()` restores before the first render: a stored token AND user are already `authenticated` on the FIRST render, so never gate a page on a current-user request — wait only while `state.status === 'loading'`.",
-          "`validateSession()` is the background re-check: only a 401/403 clears the session, while a network/5xx failure or a wrong `currentUserEndpoint` (404) keeps it as `unavailable`.",
-          "A token another tool reads at its own key (an e2e suite's `localStorage.jwtToken`) is the factory's `tokenKey`, not a mirrored copy in a second store."
+          "What this client already handles:",
+          "`getAccessToken()` returns a stored token during restore; only 401/403 clears a session, while network/5xx failures retain it.",
+          "`tokenKey`/`storagePrefix`, `authScheme`, `mapAuthResponse`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod` adapt the API; `logout()` and `refresh()` are included.",
+          "Read the session with `useAuth()` from `@molecule/app-react`. `AuthProvider` renders children immediately; only a route guard waits for `status === 'loading'`. The HTTP gate delays requests, not rendering.",
+          "This file is the app's ONE session store — never add another token or user store beside it."
         ],
         "setupAfter": [
           "@molecule/app-http"

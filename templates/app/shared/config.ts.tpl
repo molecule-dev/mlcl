@@ -3,6 +3,17 @@ import { getProvider as getI18nProvider, registerContent } from '@molecule/app-i
 export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
 
 /*
+ * What the shared auth client already handles:
+ * - `getAccessToken()` returns a stored token during restore; only 401/403 clears
+ *   the session, while network/5xx failures retain it.
+ * - `tokenKey`/`storagePrefix`, `authScheme`, `mapAuthResponse`,
+ *   `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod` adapt the API.
+ * - `logout()` and `refresh()` own sign-out and token refresh.
+ * `AuthProvider` does not delay rendering children; only a route guard waits for
+ * `status === 'loading'`. Use the generated bond and `useAuth()`, not another store.
+ */
+
+/*
  * The user shape of this app's auth session — decide it ONCE and pass it to the
  * factory, this config and the hook. `mapAuthResponse` is then checked against it:
  * a mapper that leaves out a field the pages read is a compile error, not a
