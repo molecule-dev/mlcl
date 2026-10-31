@@ -74,7 +74,7 @@ export default {
         '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
       unbonded:
-        '@molecule/app-http is declared: this {{factory}} result is used without setClient, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. Call setClient({{factory}}(...)) once in the bond setup, then use getClient() everywhere.',
+        '@molecule/app-http is declared: this {{factory}} result is created without setClient, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. Call setClient({{factory}}(...)) once in the existing bonds/ composition root, then use getClient() everywhere.',
     },
   },
   create(context) {
@@ -189,12 +189,14 @@ export default {
     }
     const clientFactory = (callee) =>
       HTTP_FACTORIES.find(({ module, name }) => imported(callee, [module], [name]))
-    const sharedAuth = (node) => {
+    const sharedAuth = (node, seen = new Set()) => {
       node = value(node)
-      if (node?.type !== 'CallExpression') return false
+      if (!node || seen.has(node)) return false
+      seen.add(node)
+      if (node.type !== 'CallExpression') return false
       if (imported(node.callee, [AUTH], ['getClient', 'getUser', 'createJWTAuthClient']))
         return true
-      return node.callee.type === 'MemberExpression' && sharedAuth(node.callee.object)
+      return node.callee.type === 'MemberExpression' && sharedAuth(node.callee.object, seen)
     }
     const property = (node, name, seen = new Set(), exact = false) => {
       node = value(node)
@@ -265,12 +267,6 @@ export default {
       return ''
     }
     const FUNCTIONS = ['ArrowFunctionExpression', 'FunctionDeclaration', 'FunctionExpression']
-    const execution = (node) => {
-      for (let current = node; current; current = current.parent)
-        if (current.type === 'Program' || FUNCTIONS.includes(current.type)) return current
-      return null
-    }
-    const position = (node) => node?.range?.[0] ?? 0
     const functionReturns = (node) => {
       // Overload signatures, declare functions and abstract methods have no body.
       if (!node?.body) return []
@@ -295,100 +291,35 @@ export default {
       }
       return returns
     }
-    const callable = (callee) => {
-      callee = value(callee)
-      if (FUNCTIONS.includes(callee?.type)) return callee.body ? callee : null
-      if (callee?.type !== 'Identifier') return null
-      // TypeScript overloads have several FunctionName definitions. Only the
-      // implementation carries a return flow; a declaration alone is unknown.
-      return (
-        (variable(callee)?.defs ?? [])
-          .filter((definition) => definition.type === 'FunctionName')
-          .map((definition) => definition.node)
-          .find((node) => node.body) ?? null
-      )
-    }
-    // An instance is identified by its creation invocation, not just the provider
-    // AST node: two calls to one factory create two clients. Aliases and identity
-    // wrappers retain the incoming id, while a factory's own creation uses its
-    // call-site id. Unknown or execution-ambiguous flows resolve to no instances.
-    const clientInstances = (node, state = {}) => {
-      node = unwrap(node)
-      const environment = state.environment ?? new Map()
-      const freshId = state.freshId ?? null
-      const seen = state.seen ?? new Set()
-      if (!node || seen.has(node)) return []
-      const nextSeen = new Set(seen).add(node)
-      const resolve = (child, next = {}) =>
-        clientInstances(child, { environment, freshId, seen: nextSeen, ...next })
-      if (node.type === 'CallExpression' && clientFactory(node.callee))
-        return [{ id: freshId ?? node, origin: node }]
-      if (node.type === 'Identifier') {
-        const binding = variable(node)
-        if (environment.has(binding)) return environment.get(binding)
+    // Bonding is deliberately a creation-site fact. Following values through
+    // invocations, parameters, properties and writes cannot prove which runtime
+    // instance a request uses; the scaffold keeps this direct const shape instead.
+    const bondedHttpClients = () => {
+      const bonded = new Set()
+      const add = (client) => {
+        client = unwrap(client)
+        if (client?.type === 'CallExpression' && clientFactory(client.callee)) {
+          bonded.add(client)
+          return
+        }
+        if (client?.type !== 'Identifier') return
+        const binding = variable(client)
         const definition = binding?.defs[0]
-        if (binding?.defs.length !== 1 || definition.type !== 'Variable') return []
-        const sources = []
-        if (definition.node.init)
-          sources.push({ value: definition.node.init, node: definition.node.init })
-        for (const reference of binding.references) {
-          if (!reference.isWrite() || reference.init) continue
-          const assignment = reference.identifier.parent
-          if (
-            assignment?.type !== 'AssignmentExpression' ||
-            assignment.left !== reference.identifier ||
-            assignment.operator !== '='
-          )
-            return []
-          sources.push({ value: assignment.right, node: assignment })
-        }
-        const available = sources.filter(
-          (candidate) =>
-            execution(candidate.node) !== execution(node) ||
-            position(candidate.node) < position(node),
+        if (
+          binding?.defs.length !== 1 ||
+          definition.type !== 'Variable' ||
+          definition.node.parent.kind !== 'const'
         )
-        const local = available.filter((candidate) => execution(candidate.node) === execution(node))
-        if (local.length) {
-          // A write in another execution could run before or after this one.
-          if (local.length !== available.length) return []
-          local.sort((a, b) => position(a.node) - position(b.node))
-          return resolve(local[local.length - 1].value)
-        }
-        // One outer/closure source is traceable; several have no shown order.
-        return available.length === 1 ? resolve(available[0].value) : []
+          return
+        const init = unwrap(definition.node.init)
+        if (init?.type === 'CallExpression' && clientFactory(init.callee)) bonded.add(init)
       }
-      if (node.type === 'CallExpression') {
-        const fn = callable(node.callee)
-        if (!fn) return []
-        const arguments_ = node.arguments.map((argument) => resolve(argument))
-        const inner = new Map(environment)
-        for (const [index, parameter] of (fn.params ?? []).entries()) {
-          const id = parameter.type === 'AssignmentPattern' ? parameter.left : parameter
-          if (id.type !== 'Identifier') continue
-          const binding = variable(id)
-          if (binding) inner.set(binding, arguments_[index] ?? [])
-        }
-        return functionReturns(fn).flatMap((returned) =>
-          clientInstances(returned, {
-            environment: inner,
-            freshId: node,
-            seen: nextSeen,
-          }),
-        )
-      }
-      if (node.type === 'ConditionalExpression')
-        return [...resolve(node.consequent), ...resolve(node.alternate)]
-      if (node.type === 'LogicalExpression') return [...resolve(node.left), ...resolve(node.right)]
-      if (node.type === 'AssignmentExpression' && node.operator === '=') return resolve(node.right)
-      if (node.type === 'SequenceExpression') return resolve(node.expressions.at(-1))
-      if (node.type === 'MemberExpression') {
-        // JavaScript property names are case-sensitive even though HTTP header
-        // names (handled by the general property helper) are not.
-        const stored = property(node.object, key(node), new Set(), true)
-        return stored ? resolve(stored) : []
-      }
-      return []
+      for (const client of clientBonds) add(client)
+      return bonded
     }
+    // An exported client, factory or plain container may be bonded by the
+    // importing composition root. Exempt only those exact creation sites: an
+    // exported request function still owns any private client it creates.
     const exportedHttpClients = () => {
       const targets = []
       const addBinding = (id) => {
@@ -409,44 +340,58 @@ export default {
         for (const specifier of statement.specifiers ?? []) addBinding(specifier.local)
       }
       const origins = new Set()
-      for (const target of targets) {
-        if (FUNCTIONS.includes(target.type)) {
-          for (const returned of functionReturns(target))
-            for (const instance of clientInstances(returned, { freshId: target }))
-              origins.add(instance.origin)
-        } else {
-          for (const instance of clientInstances(target)) origins.add(instance.origin)
+      const expose = (target, seen = new Set()) => {
+        target = unwrap(target)
+        if (!target || seen.has(target)) return
+        seen.add(target)
+        if (target.type === 'Identifier') {
+          expose(value(target), seen)
+          return
         }
+        if (target.type === 'CallExpression') {
+          if (clientFactory(target.callee)) origins.add(target)
+          return
+        }
+        if (target.type === 'ObjectExpression') {
+          for (const prop of target.properties)
+            if (prop.type === 'Property') expose(prop.value, seen)
+          return
+        }
+        if (FUNCTIONS.includes(target.type))
+          for (const returned of functionReturns(target)) expose(returned, seen)
       }
+      for (const target of targets) expose(target)
       return origins
     }
-    const transport = (callee) => {
+    const AXIOS_CONFIG = new Map([
+      ['default', 0],
+      ['request', 0],
+      ['create', 0],
+      ['get', 1],
+      ['delete', 1],
+      ['head', 1],
+      ['options', 1],
+      ['post', 2],
+      ['put', 2],
+      ['patch', 2],
+    ])
+    const transportConfig = (callee) => {
       callee = value(callee)
-      if (global(callee, ['fetch']) || globalMember(callee, 'fetch')) return true
-      if (
-        imported(
-          callee,
-          ['axios'],
-          [
-            'default',
-            'request',
-            'get',
-            'post',
-            'put',
-            'patch',
-            'delete',
-            'head',
-            'options',
-            'create',
-          ],
-        )
-      )
-        return true
-      if (callee?.type === 'MemberExpression') {
-        const owner = value(callee.object)
-        return owner?.type === 'CallExpression' && imported(owner.callee, ['axios'], ['create'])
+      if (global(callee, ['fetch']) || globalMember(callee, 'fetch')) return 1
+      let method = null
+      if (callee?.type === 'Identifier') {
+        const definition = variable(callee)?.defs[0]
+        if (definition?.type === 'ImportBinding' && definition.parent.source.value === 'axios')
+          method = definition.node.imported?.name ?? 'default'
+      } else if (callee?.type === 'MemberExpression') {
+        if (imported(callee, ['axios'], [...AXIOS_CONFIG.keys()])) method = key(callee)
+        else {
+          const owner = value(callee.object)
+          if (owner?.type === 'CallExpression' && imported(owner.callee, ['axios'], ['create']))
+            method = key(callee)
+        }
       }
-      return false
+      return method === null ? null : (AXIOS_CONFIG.get(method) ?? null)
     }
     return {
       AssignmentExpression(node) {
@@ -531,72 +476,41 @@ export default {
             })
         }
         if (packages.http) {
-          const bonds = clientBonds.flatMap((client) =>
-            clientInstances(client).map((instance) => ({ ...instance, at: client })),
-          )
+          const bonded = bondedHttpClients()
+          const exported = exportedHttpClients()
           const appBaseURLs = new Set(
-            bonds
-              .map(({ origin }) => string(property(origin.arguments[0], 'baseURL')))
+            [...bonded]
+              .map((node) => string(property(node.arguments[0], 'baseURL')))
               .filter((baseURL) => baseURL !== null),
           )
-          const exported = exportedHttpClients()
-          const reported = new Set()
-          for (const call of calls) {
-            const method = unwrap(call.callee)
-            if (method?.type !== 'MemberExpression') continue
-            const configIndex = {
-              request: 0,
-              get: 1,
-              delete: 1,
-              post: 2,
-              put: 2,
-              patch: 2,
-            }[key(method)]
-            if (configIndex === undefined) continue
-            const requestAuthorization = property(
-              property(call.arguments[configIndex], 'headers'),
-              'authorization',
-            )
-            const authenticatedCall =
-              requestAuthorization && !independentApiKey(requestAuthorization)
-            for (const instance of clientInstances(method.object)) {
-              const node = instance.origin
-              if (reported.has(node) || exported.has(node)) continue
-              const bonded = bonds.some(
-                (bond) =>
-                  bond.id === instance.id &&
-                  (execution(bond.at) !== execution(call) || position(bond.at) < position(call)),
-              )
-              if (bonded) continue
-              const config = node.arguments[0]
-              const authorization = property(property(config, 'defaultHeaders'), 'authorization')
-              if (authorization && independentApiKey(authorization)) continue
-              const baseURL = string(property(config, 'baseURL'))
-              const hasAppBaseURL =
-                baseURL !== null && (appBaseURLs.has(baseURL) || /^\/api(?:\/|$)/.test(baseURL))
-              const authenticated =
-                property(config, 'authScheme') ||
-                (authorization && !independentApiKey(authorization)) ||
-                authenticatedCall ||
-                (hasAuthTokenSource && hasAppBaseURL)
-              if (authenticated) {
-                context.report({
-                  node,
-                  messageId: 'unbonded',
-                  data: { factory: clientFactory(node.callee).name },
-                })
-                reported.add(node)
-              }
-            }
+          for (const node of calls) {
+            const factory = clientFactory(node.callee)
+            if (!factory || bonded.has(node) || exported.has(node)) continue
+            const config = node.arguments[0]
+            const authorization = property(property(config, 'defaultHeaders'), 'authorization')
+            if (authorization && independentApiKey(authorization)) continue
+            const baseURL = string(property(config, 'baseURL'))
+            const hasAppBaseURL =
+              baseURL !== null && (appBaseURLs.has(baseURL) || /^\/api(?:\/|$)/.test(baseURL))
+            const authenticated =
+              property(config, 'authScheme') ||
+              (authorization && !independentApiKey(authorization)) ||
+              (hasAuthTokenSource && hasAppBaseURL)
+            if (authenticated)
+              context.report({
+                node,
+                messageId: 'unbonded',
+                data: { factory: factory.name },
+              })
           }
           for (const node of calls) {
-            if (!transport(node.callee)) continue
-            if (
-              node.arguments.some((arg) => {
-                const authorization = property(property(arg, 'headers'), 'authorization')
-                return authorization && !independentApiKey(authorization)
-              })
+            const configIndex = transportConfig(node.callee)
+            if (configIndex === null) continue
+            const authorization = property(
+              property(node.arguments[configIndex], 'headers'),
+              'authorization',
             )
+            if (authorization && !independentApiKey(authorization))
               context.report({ node, messageId: 'http' })
           }
         }
