@@ -51,12 +51,16 @@ afterEach(async () => {
 })
 
 /** Run the real command with its progress output captured instead of printed. */
-async function runCreate(argv: string[]): Promise<void> {
+async function runCreate(argv: string[]): Promise<string> {
   const config = await Config.load(MLCL_ROOT)
   const cmd = new Create(argv, config)
-  vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+  let output = ''
+  vi.spyOn(cmd, 'log').mockImplementation((input) => {
+    output += `${String(input ?? '')}\n`
+  })
   vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
   await cmd.run()
+  return output
 }
 
 function readSkill(projectRoot: string, relative: string): string {
@@ -91,10 +95,22 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
       readFileSync(join(projectRoot, '.claude', 'skills', 'capability-first', 'SKILL.md'), 'utf8'),
     ).toBe(readFileSync(CANONICAL_SKILL, 'utf8'))
 
-    // The AGENTS.md every harness reads on open points at them.
-    expect(readFileSync(join(projectRoot, 'AGENTS.md'), 'utf8')).toContain(
-      '.agents/skills/capability-first/SKILL.md',
-    )
+    // The AGENTS.md every harness reads on open points at them and maps the
+    // packages this template actually declares to their configuration.
+    const agents = readFileSync(join(projectRoot, 'AGENTS.md'), 'utf8')
+    expect(agents).toContain('.agents/skills/capability-first/SKILL.md')
+    expect(agents).toContain('## Declared capability map')
+    expect(agents).toContain('`@molecule/app-auth`')
+    expect(agents).toContain('`@molecule/app-http`')
+    expect(agents).toContain("authScheme: 'Token'")
+    expect(agents).toContain('mapAuthResponse')
+    expect(agents).toContain("storage: 'memory'")
+
+    // A copied flagship bond gets the same header as an injected one.
+    const authBond = readFileSync(join(projectRoot, 'app/src/bonds/auth-default.ts'), 'utf8')
+    expect(authBond).toContain('Declared capability:')
+    expect(authBond).toContain('currentUserEndpoint')
+    expect(authBond).toContain('profileUpdateMethod')
   })
 
   it('does it for a custom Vue full-stack scaffold', async () => {
@@ -118,10 +134,15 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
     expect(catalog).toMatch(/^# @molecule\/\* packages — vue\/full-stack$/m)
     expect(catalog).toContain('`@molecule/app-vue`')
     expect(catalog).not.toContain('@molecule/app-oauth-logos-react')
+    const agents = readFileSync(join(projectRoot, 'AGENTS.md'), 'utf8')
+    expect(agents).toContain('## Declared capability map')
+    expect(agents).toContain('`@molecule/app-auth`')
+    expect(agents).toContain('`@molecule/app-http`')
+    expect(agents).toContain('app/src/bonds/auth-default.ts')
   })
 
   it('scopes an api-only scaffold to backend packages', async () => {
-    await runCreate([
+    const output = await runCreate([
       'proj',
       '--type',
       'api',
@@ -129,6 +150,7 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
       '@molecule/api-database-postgresql',
       '--skip-install',
       '--no-interactive',
+      '--json',
     ])
     const projectRoot = join(dir, 'proj')
 
@@ -139,6 +161,12 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
     expect(catalog).toMatch(/^# @molecule\/\* packages — express\/api$/m)
     expect(catalog).toContain('`@molecule/api-database`')
     expect(catalog).not.toContain('`@molecule/app-')
+    const agents = readFileSync(join(projectRoot, 'AGENTS.md'), 'utf8')
+    expect(agents).not.toMatch(/^## Declared capability map$/m)
+    expect(agents).not.toContain('@molecule/app-auth')
+    expect(agents).not.toContain('@molecule/app-http')
+    const result = JSON.parse(output) as { capabilityMap?: unknown[] }
+    expect(result.capabilityMap).toEqual([])
   })
 
   it('leaves a user-owned skill untouched when scaffolding over it', async () => {
@@ -160,7 +188,22 @@ describe('MCP scaffold_project inherits the delivery', () => {
     // `scaffold_project` spawns `mlcl create <name> --no-interactive --json`
     // and forwards the template/skip-install flags. Running that argv here
     // proves the inherited stdio-MCP path without a second implementation.
-    await runCreate(['proj', '--no-interactive', '--json', '--template', 'blog', '--skip-install'])
+    const output = await runCreate([
+      'proj',
+      '--no-interactive',
+      '--json',
+      '--template',
+      'blog',
+      '--skip-install',
+    ])
+    const result = JSON.parse(output) as {
+      capabilityMap?: Array<{ name: string; configuration: string[] }>
+    }
+    expect(result.capabilityMap?.map((entry) => entry.name)).toEqual([
+      '@molecule/app-auth',
+      '@molecule/app-http',
+    ])
+    expect(result.capabilityMap?.[0].configuration.join('\n')).toContain('mapAuthResponse')
     expect(existsSync(join(dir, 'proj', '.agents', 'skills', 'capability-first', 'SKILL.md'))).toBe(
       true,
     )

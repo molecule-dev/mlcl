@@ -32,6 +32,13 @@ import {
   ensureClaudeSkillsLink,
   writeAgentSkillFiles,
 } from './agent-skills.js'
+import {
+  buildCapabilityMap,
+  type DeclaredPackage,
+  readProjectCapabilityMap,
+  renderCapabilityMap,
+  stampCapabilityBondHeaders,
+} from './capability-map.js'
 import { filterEnvSecrets, renderEnvSecretLines, resolveDatabaseUrlValue } from './env-file.js'
 import { isExactVersion } from './exact-version.js'
 import { collectSecrets } from './features.js'
@@ -2276,11 +2283,19 @@ export const ENV_SECRETS_GITIGNORE = '.env*\n!.env.example'
  *
  * @param projectRoot - Absolute path to the project root.
  */
-export async function ensureAgentsMd(projectRoot: string): Promise<void> {
+export async function ensureAgentsMd(
+  projectRoot: string,
+  declared?: Iterable<DeclaredPackage | string>,
+): Promise<void> {
   const target = join(projectRoot, 'AGENTS.md')
   const { existsSync } = await import('node:fs')
   if (existsSync(target)) return
-  await writeFile(target, await loadTemplate('shared/AGENTS.md.tpl'))
+  const template = await loadTemplate('shared/AGENTS.md.tpl')
+  const entries = declared
+    ? buildCapabilityMap(getRawRegistry(), declared)
+    : await readProjectCapabilityMap(projectRoot)
+  const capabilityMap = renderCapabilityMap(entries)
+  await writeFile(target, capabilityMap ? `${template.trimEnd()}\n\n${capabilityMap}\n` : template)
 }
 
 /**
@@ -2893,6 +2908,7 @@ export async function copyTemplateInstance(
   // Writing the registry-computed closure into the manifest makes the install
   // correct under ANY npm flags and any installer.
   await ensureMoleculePeerClosure(destDir)
+  await stampCapabilityBondHeaders(destDir)
 }
 
 /** The `@molecule/*` packages an app's e2e setup imports (see {@link ensureE2EManifest}). */

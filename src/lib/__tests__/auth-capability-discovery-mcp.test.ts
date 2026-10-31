@@ -22,6 +22,7 @@ let callTool: (args: Record<string, unknown>) => Promise<{
 interface Hit {
   name: string
   stack: 'api' | 'app'
+  configuration?: string[]
 }
 
 /** Call the hosted search tool over an in-memory MCP client/server pair. */
@@ -75,6 +76,21 @@ afterAll(async () => {
 })
 
 describe('hosted MCP search discovers the existing AuthGuard capability', () => {
+  it('returns common-shape configuration for declared auth and HTTP packages', async () => {
+    const auth = (await call('@molecule/app-auth', 'app')).find(
+      (hit) => hit.name === '@molecule/app-auth',
+    )
+    expect(auth?.configuration?.join('\n')).toContain('mapAuthResponse')
+    expect(auth?.configuration?.join('\n')).toContain('currentUserEndpoint')
+    expect(auth?.configuration?.join('\n')).toContain('profileUpdateMethod')
+
+    const http = (await call('@molecule/app-http', 'app')).find(
+      (hit) => hit.name === '@molecule/app-http',
+    )
+    expect(http?.configuration?.join('\n')).toContain('withCredentials: true')
+    expect(http?.configuration?.join('\n')).toContain('authConfig.authScheme')
+  })
+
   it.each([
     'protected route',
     'auth route guard',

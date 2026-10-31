@@ -87,6 +87,7 @@ import { execa } from 'execa'
 
 import { generateCode, isAIAvailable } from './ai.js'
 import { buildPackageContext, loadMoleculeMdBatch } from './ai-context.js'
+import { capabilityEntryFromRegistry, renderCapabilityBondHeader } from './capability-map.js'
 import { isExactVersion } from './exact-version.js'
 import { sortImportStatements } from './format.js'
 import { t } from './i18n.js'
@@ -3799,6 +3800,13 @@ function generateDefaultBondSetup(
           `Swap to a different ${category} provider by replacing this bond.`,
         ]
   const header = headerLines.map((line) => (line ? ` * ${line}` : ' *')).join('\n')
+  const capability = capabilityEntryFromRegistry(
+    packageName,
+    getRawRegistry().packages[packageName],
+  )
+  const bondHeader = capability
+    ? renderCapabilityBondHeader(capability, `Default ${category} bond setup`).trimEnd()
+    : `/**\n * Default ${category} bond setup\n *\n${header}\n */`
 
   // i18n generatorType needs locale-specific template
   if (appBondSetup?.generatorType === 'i18n') {
@@ -3807,11 +3815,7 @@ function generateDefaultBondSetup(
     // Only import storage statically if it's in extraImports; use dynamic import for persistence
     const i18nImports = imports.filter((imp) => !imp.includes(storagePkg))
     i18nImports.push(`import { ui as en } from '../locales/en/ui.js'`)
-    return `/**
- * Default ${category} bond setup
- *
-${header}
- */
+    return `${bondHeader}
 
 ${i18nImports.join('\n')}
 
@@ -3890,11 +3894,7 @@ setAuthTokenSource(() => ${setup.authBridge.client}.getAccessToken())`
   const gate = setup.authBridge
     ? `\n  setAuthGate(() => ${setup.authBridge.client}.whenRestored?.() ?? Promise.resolve())`
     : ''
-  return `/**
- * Default ${category} bond setup
- *
-${header}
- */
+  return `${bondHeader}
 
 ${imports.join('\n')}
 

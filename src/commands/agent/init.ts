@@ -4,6 +4,7 @@ import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
 
+import { readProjectCapabilityMap, renderCapabilityMap } from '../../lib/capability-map.js'
 import { setTelemetryContext } from '../../lib/telemetry.js'
 import { ui } from '../../lib/ui.js'
 
@@ -57,15 +58,20 @@ function ensureSection(
   filePath: string,
   body: string,
   force: boolean,
+  marker = SECTION_MARKER,
 ): 'created' | 'added' | 'replaced' | 'skipped' {
   const existing = existsSync(filePath) ? readFileSync(filePath, 'utf8') : ''
-  const markerIdx = existing.indexOf(SECTION_MARKER)
+  // Match the actual heading, not the marker quoted by the guidance itself
+  // (the Inspect step names `## Declared capability map` in backticks).
+  const escaped = marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const heading = new RegExp(`^${escaped}[\t ]*$`, 'm').exec(existing)
+  const markerIdx = heading?.index ?? -1
   if (markerIdx !== -1 && !force) return 'skipped'
 
   let out: string
   if (markerIdx !== -1) {
     // Replace from the marker to the next top-level heading (or EOF).
-    const after = existing.indexOf('\n## ', markerIdx + SECTION_MARKER.length)
+    const after = existing.indexOf('\n## ', markerIdx + marker.length)
     const end = after === -1 ? existing.length : after + 1
     out = existing.slice(0, markerIdx) + body.trimEnd() + '\n' + existing.slice(end)
   } else {
@@ -107,12 +113,13 @@ export default class AgentInit extends Command {
     const harness = flags.agent === 'auto' || !flags.agent ? detectHarness(root) : flags.agent!
     setTelemetryContext({ harness })
 
-    const body = readFileSync(
+    const template = readFileSync(
       join(this.config.root, 'templates', 'shared', 'agent-init-section.md.tpl'),
       'utf8',
     )
 
     if (flags.global) {
+      const body = template
       const target = GLOBAL_FILES[harness]
       if (!target) {
         this.error(
@@ -132,13 +139,26 @@ export default class AgentInit extends Command {
       return
     }
 
+    const capabilityMap = renderCapabilityMap(await readProjectCapabilityMap(root))
+    const body = capabilityMap ? `${template.trimEnd()}\n\n${capabilityMap}\n` : template
+
     // AGENTS.md — the cross-harness standard section every major agent reads.
-    const agentsResult = ensureSection(join(root, 'AGENTS.md'), body, flags.force)
+    // The map is a SIBLING section, not part of `## Molecule`: updating each by
+    // its own marker keeps --force and an already-scaffolded AGENTS.md from
+    // duplicating the map while preserving the same non-clobber policy.
+    const agentsPath = join(root, 'AGENTS.md')
+    const agentsResult = ensureSection(agentsPath, template, flags.force)
+    if (capabilityMap) {
+      ensureSection(agentsPath, capabilityMap, flags.force, '## Declared capability map')
+    }
     this.log(
       agentsResult === 'skipped'
         ? ui.ok('Already present: molecule section in AGENTS.md')
         : `${ui.check('Wrote')} molecule section → ${ui.id('AGENTS.md')}`,
     )
+    // MCP forwards stdout as the agent_init result, so the caller receives the
+    // project fact even when the AGENTS.md section already existed.
+    if (capabilityMap) this.log(capabilityMap)
 
     // Harness-specific surfaces on top of the standard.
     if (harness === 'cursor') {

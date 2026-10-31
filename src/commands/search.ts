@@ -25,6 +25,7 @@ function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
     description: pkg.description,
     exports: pkg.exports,
     intentHints: pkg.molecule?.intentHints,
+    decisionGuide: pkg.molecule?.decisionGuide,
   }
 }
 

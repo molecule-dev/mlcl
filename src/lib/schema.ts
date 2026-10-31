@@ -148,6 +148,17 @@ export type SqlSupport = z.infer<typeof SqlSupportSchema>
 /** One provider's declared SQL capability map (the registry copy of the bond's export). */
 export type SqlCapabilitiesValue = z.infer<typeof SqlCapabilitiesSchema>
 
+/** Package-authored decision guidance rendered by capability-map.ts. */
+export const DecisionGuide = z.object({
+  configuration: z
+    .array(z.string())
+    .min(1)
+    .describe(
+      'Concrete configuration for the common API shapes this package supports. ' +
+        'Project capability maps, search hits and bond headers all render this one source.',
+    ),
+})
+
 /**
  * Package metadata from the centralized registry (registry.json).
  * This is the authoritative source — the CLI reads it, never hardcodes it.
@@ -452,6 +463,9 @@ export const MoleculeMetadata = z.object({
     .describe('Short name for file/variable naming (avoids parsing package name)'),
   cliHint: z.string().optional().describe('Hint for CLI post-creation messages'),
   optionalFeature: z.string().optional().describe('Feature flag name for optional route filtering'),
+  decisionGuide: DecisionGuide.optional().describe(
+    'Decision-time configuration guidance for this package; consumed by the generated capability map.',
+  ),
   intentHints: z
     .array(z.string())
     .optional()
@@ -870,6 +884,9 @@ export const RegistryEntry = z.object({
     })
     .optional()
     .describe('How to generate a default bond setup when no explicit provider is selected'),
+  decisionGuide: DecisionGuide.optional().describe(
+    'Decision-time configuration guidance for this package; consumed by the generated capability map.',
+  ),
   intentHints: z
     .array(z.string())
     .optional()

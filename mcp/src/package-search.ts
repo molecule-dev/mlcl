@@ -51,6 +51,10 @@ export interface SearchSourceEntry {
   description?: string
   exports?: readonly string[]
   intentHints?: readonly string[]
+  /** Optional package-authored decision guidance in the registry. */
+  decisionGuide?: {
+    configuration?: readonly string[]
+  }
 }
 
 /**
@@ -66,6 +70,8 @@ export interface SearchHit {
   category: string
   label: string
   description: string
+  /** Concrete common-shape configuration, when this package declares it. */
+  configuration?: string[]
 }
 
 /** What a caller may narrow before ranking and the limit cutoff. */
@@ -196,12 +202,18 @@ export function searchPackages(
     if (stack && entry.stack !== stack) continue
     const score = scoreSearchEntry(entry, query)
     if (score <= 0) continue
+    const configuration = Array.isArray(entry.decisionGuide?.configuration)
+      ? entry.decisionGuide.configuration.filter(
+          (line): line is string => typeof line === 'string' && line.length > 0,
+        )
+      : []
     ranked.push({
       name: entry.name,
       stack: resolveStack(entry),
       category: entry.category ?? '',
       label: entry.label ?? entry.name,
       description: entry.description ?? '',
+      ...(configuration.length > 0 ? { configuration } : {}),
       score,
     })
   }

@@ -545,7 +545,7 @@ server.registerTool(
   {
     title: 'Search @molecule packages',
     description:
-      'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login", "file uploads"). Returns matching packages with stack, category, and the install command. ALWAYS prefer an existing package over hand-rolling a capability.',
+      'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login", "file uploads"). Returns matching packages with stack, category, common-shape configuration when declared, and the install command. ALWAYS prefer an existing package over hand-rolling a capability; read its doc before rejecting it.',
     inputSchema: {
       // Bounded, and passed to the CLI as an argv word: an unbounded query is a
       // scoring pass over the whole fleet per whitespace-separated token, and a

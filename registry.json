@@ -31253,6 +31253,13 @@
           "@molecule/app-http"
         ]
       },
+      "decisionGuide": {
+        "configuration": [
+          "Bearer + top-level token: keep `authScheme: 'Bearer'` and the default response mapping; set `currentUserEndpoint` and `profileEndpoint`/`profileUpdateMethod` to the API's current-user GET and profile update route/method.",
+          "Custom token API: set `tokenKey` (or `storagePrefix`), `authScheme: 'Token'`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod`; use `mapAuthResponse` to turn envelopes such as `{ user: { token, ...user } }` into `{ accessToken, user }`.",
+          "Cookie session: use `storage: 'memory'`, configure `currentUserEndpoint`, and keep HTTP `withCredentials: true`; no browser token store is needed."
+        ]
+      },
       "intentHints": [
         "user login",
         "sign up",
@@ -37178,6 +37185,13 @@
           "client": "authClient",
           "schemeConfig": "authConfig"
         }
+      },
+      "decisionGuide": {
+        "configuration": [
+          "Bearer or another token scheme: construct the bonded client with `baseURL` and `authScheme: 'Bearer'` (or `authScheme: 'Token'`); pass the shared `authConfig.authScheme` rather than attaching headers per request.",
+          "Cookie sessions: construct with `withCredentials: true`; the browser sends the cookie, so no Authorization interceptor or token store is needed.",
+          "Session restore: keep `setAuthTokenSource` for the current token and `setAuthGate` for restore; delaying a request alone does not attach its credential."
+        ]
       },
       "intentHints": [
         "http client",

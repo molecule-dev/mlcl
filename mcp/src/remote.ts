@@ -51,6 +51,7 @@ interface RegistryEntry {
   label?: string
   intentHints?: string[]
   exports?: string[]
+  decisionGuide?: { configuration?: string[] }
 }
 
 const cache = new Map<string, { at: number; data: unknown }>()
@@ -401,7 +402,7 @@ export function buildRemoteServer(): McpServer {
     {
       title: 'Search @molecule packages',
       description:
-        'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, label, description and the install command; `stack` restricts results to one stack. Prefer an existing package over hand-rolling any capability.',
+        'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, label, description, common-shape configuration when declared, and the install command; `stack` restricts results to one stack. Prefer an existing package over hand-rolling any capability and read its doc before rejecting it.',
       inputSchema: {
         // Bounded: the scorer splits the query on whitespace and runs one pass
         // over EVERY fleet package (~900) for each token, so the work one

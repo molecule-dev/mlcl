@@ -68,6 +68,16 @@ describe('loadSharedSkills — the canonical skill tree, path-neutral', () => {
     }
   })
 
+  it('makes the declared-package decision and doc-read rejection reason explicit', () => {
+    const body = loadSharedSkills(TEMPLATES_DIR)['capability-first/SKILL.md']
+    expect(body).toContain('## Declared capability map')
+    expect(body).toContain('Map every feature in the plan')
+    expect(body).toContain('read_package_doc')
+    expect(body).toContain('Not using @molecule/<name> because')
+    expect(body).toContain('before deciding not to use it')
+    expect(body).toContain('configuration to look up')
+  })
+
   it('never lists the reserved corpora as skills', () => {
     const skills = loadSharedSkills(TEMPLATES_DIR)
     const keys = Object.keys(skills)

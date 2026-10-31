@@ -5,6 +5,7 @@ import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { readProjectCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT, isDdlCompatibilityFailure } from '../lib/ddl-exit.js'
 import {
@@ -497,6 +498,7 @@ export default class Create extends Command {
                   .map((s) => s.trim())
                   .filter(Boolean),
                 installSkipped: flags['skip-install'] === true,
+                capabilityMap: await readProjectCapabilityMap(projectPath),
               },
               null,
               2,
@@ -976,7 +978,13 @@ export default class Create extends Command {
         ensureReadmeMd,
         stampMoleculeMetadata,
       } = await import('../lib/scaffold.js')
-      await ensureAgentsMd(projectPath)
+      await ensureAgentsMd(
+        projectPath,
+        uniquePackages.map((name) => ({
+          name,
+          workspace: isFullStack ? (getPackageStack(name) === 'app' ? 'app' : 'api') : '',
+        })),
+      )
       await ensureAgentSkills(projectPath, { projectType, framework })
       await ensureRootNpmrc(projectPath)
       await ensureReadmeMd(projectPath, projectName, projectType, framework)
@@ -1044,6 +1052,7 @@ export default class Create extends Command {
               template: null,
               packages: uniquePackages,
               installSkipped: flags['skip-install'] === true,
+              capabilityMap: await readProjectCapabilityMap(projectPath),
             },
             null,
             2,
@@ -1368,6 +1377,7 @@ export default class Create extends Command {
             packages: uniquePackages,
             secrets: uniqueSecretNames,
             installSkipped: flags['skip-install'] === true,
+            capabilityMap: await readProjectCapabilityMap(projectPath),
           },
           null,
           2,

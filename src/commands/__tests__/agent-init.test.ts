@@ -21,7 +21,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { Config } from '@oclif/core'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import AgentInit from '../agent/init.js'
 
@@ -55,6 +55,61 @@ describe('mlcl agent init', () => {
     expect(agents).toContain('## Molecule')
     expect(agents).toContain('npx mlcl create <name> --template <slug> --no-interactive')
     expect(agents).toContain('npx mlcl add @molecule/<name> --inject')
+    expect(agents).not.toMatch(/^## Declared capability map$/m)
+    expect(agents).not.toContain('@molecule/app-auth')
+    expect(agents).not.toContain('@molecule/app-http')
+  })
+
+  it('writes and returns the declared capability map with its API configuration', async () => {
+    await writeFile(
+      join(dir, 'package.json'),
+      JSON.stringify({
+        dependencies: {
+          '@molecule/app-auth': '1.0.0',
+          '@molecule/app-http': '1.0.0',
+          '@molecule/app-react': '1.0.0',
+        },
+      }),
+    )
+    const config = await Config.load(MLCL_ROOT)
+    const cmd = new AgentInit([], config)
+    const lines: string[] = []
+    vi.spyOn(cmd, 'log').mockImplementation((input) => {
+      lines.push(String(input ?? ''))
+    })
+    await cmd.run()
+
+    const agents = await readFile(join(dir, 'AGENTS.md'), 'utf8')
+    const output = lines.join('\n')
+    for (const text of [agents, output]) {
+      expect(text).toContain('## Declared capability map')
+      expect(text).toContain('`@molecule/app-auth`')
+      expect(text).toContain('`@molecule/app-http`')
+      expect(text).toContain("authScheme: 'Token'")
+      expect(text).toContain('mapAuthResponse')
+      expect(text).toContain('currentUserEndpoint')
+      expect(text).toContain('profileUpdateMethod')
+      expect(text).toContain("storage: 'memory'")
+      expect(text).toContain('withCredentials: true')
+    }
+    expect(agents).not.toContain('### React —')
+
+    await run()
+    await run(['--force'])
+    const refreshed = await readFile(join(dir, 'AGENTS.md'), 'utf8')
+    expect(refreshed.match(/^## Declared capability map$/gm)).toHaveLength(1)
+    expect(refreshed.match(/## Molecule/g)).toHaveLength(1)
+
+    // A freshly scaffolded AGENTS.md already has the map but not the generic
+    // `## Molecule` section. agent_init adds only the missing section.
+    await writeFile(
+      join(dir, 'AGENTS.md'),
+      `# AGENTS.md\n\n${refreshed.slice(refreshed.indexOf('## Declared capability map'))}`,
+    )
+    await run()
+    const scaffolded = await readFile(join(dir, 'AGENTS.md'), 'utf8')
+    expect(scaffolded.match(/^## Declared capability map$/gm)).toHaveLength(1)
+    expect(scaffolded.match(/## Molecule/g)).toHaveLength(1)
   })
 
   it('is idempotent — a second run preserves user edits between sections', async () => {

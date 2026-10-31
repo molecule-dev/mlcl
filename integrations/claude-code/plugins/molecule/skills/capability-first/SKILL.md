@@ -13,16 +13,26 @@ work looks like a quick script or an internal tool.
 
 ## 1. Inspect — what already provides this?
 
+- **Start with the declared map.** Read `## Declared capability map` in the
+  project's `AGENTS.md` or the `agent_init` / scaffold result.
+- **Map every feature in the plan** to its declared package and the configuration
+  for this API. If no declared package covers the feature, search the registry.
 - **Search before designing.** `find_package` answers "is this already built?"
   from the package registry, which carries each package's category, stack,
   providers and intent hints (on a host: `mlcl search <capability>`, or
   `search_packages` over MCP). The `molecule-packages` skill is this workspace's
   catalog.
-- **Read the installed contract, not your memory of it.** A package's
-  `README.md` documents its interface, required methods and wiring:
-  `node_modules/@molecule/<name>/README.md`. Check its installed types and exports
-  when behavior is unclear. Improve package documentation at its authored
-  `src/index.ts` JSDoc; the README is generated.
+- **Read the mapped package's doc before deciding not to use it.** Read it before
+  using it too: call `read_package_doc`, or read
+  `node_modules/@molecule/<name>/README.md`; check installed types and exports
+  when behavior is unclear. A different storage key, header scheme, response
+  envelope or endpoint is configuration to look up, not evidence of a bad fit.
+  Improve package documentation at its authored `src/index.ts` JSDoc; the README
+  is generated.
+- **Write the decision into the plan.** For each feature, write
+  `use @molecule/<name> with <configuration>` or
+  `Not using @molecule/<name> because <reason> (doc read)`. Never reject a
+  declared package from its name or from memory alone.
 - **Look at what is already wired.** The `src/bonds/` files name every provider
   this project already uses, and `get`/`require` from the bond package name the
   ones you can call.

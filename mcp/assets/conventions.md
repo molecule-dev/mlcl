@@ -23,8 +23,15 @@ OAuth provider for another by changing one wiring file, not rewriting the app).
 
 **Before you build a capability** — a feature, an integration, a script, a tool:
 
-1. **Inspect.** `npx mlcl search <capability>` (or `search_packages` over MCP),
-   then read the package's contract at `node_modules/@molecule/<name>/README.md`.
+1. **Inspect.** Start with `## Declared capability map` below when present. Map
+   every feature in the plan to its declared package and configuration; otherwise
+   use `npx mlcl search <capability>` (or `search_packages` over MCP). Read the
+   package's contract with `read_package_doc` or at
+   `node_modules/@molecule/<name>/README.md` before using it OR deciding not to.
+   Write `use @molecule/<name> with <configuration>` or
+   `Not using @molecule/<name> because <reason> (doc read)` for each feature. A
+   different storage key, header scheme, response envelope or endpoint is
+   configuration to look up, not a reason to write a parallel implementation.
 2. **Reuse.** Call that package's API and the provider already wired for it
    rather than re-implementing or copying it.
 3. **Adapt.** If the shared capability is genuinely awkward or missing a piece,

@@ -108,6 +108,7 @@ interface Hit {
   label: string
   description: string
   install: string
+  configuration?: string[]
 }
 
 /** Run the real command and parse its `--json` array. */
@@ -180,6 +181,23 @@ describe('mlcl search — discovery contract the stdio MCP forwards', () => {
     expect(Object.keys(hit).sort()).toEqual(
       ['category', 'description', 'install', 'label', 'name', 'stack'].sort(),
     )
+  })
+
+  it('returns declared configuration guidance when the package has it', async () => {
+    const registry = crowdedRegistry()
+    const target = registry.packages[API_TARGET]
+    target.decisionGuide = {
+      configuration: ["Use authScheme: 'Token' and mapAuthResponse for the API envelope."],
+    }
+    writeFileSync(registryFile, JSON.stringify(registry))
+    clearRegistryCache()
+
+    const [hit] = await runJson([API_TARGET])
+    expect(hit.configuration).toEqual([
+      "Use authScheme: 'Token' and mapAuthResponse for the API envelope.",
+    ])
+    const [unguided] = await runJson(['form', '--stack', 'app', '--limit', '1'])
+    expect(unguided.configuration).toBeUndefined()
   })
 
   it('respects --limit after the stack filter', async () => {
