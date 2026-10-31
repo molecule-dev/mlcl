@@ -322,10 +322,51 @@ export default {
     // exported request function still owns any private client it creates.
     const exportedHttpClients = () => {
       const targets = []
+      const patternBindings = (pattern) => {
+        if (!pattern) return []
+        if (pattern.type === 'Identifier') return [pattern]
+        if (pattern.type === 'AssignmentPattern') return patternBindings(pattern.left)
+        if (pattern.type === 'RestElement') return patternBindings(pattern.argument)
+        if (pattern.type === 'ArrayPattern') return pattern.elements.flatMap(patternBindings)
+        if (pattern.type === 'ObjectPattern')
+          return pattern.properties.flatMap((prop) =>
+            patternBindings(prop.type === 'Property' ? prop.value : prop.argument),
+          )
+        return []
+      }
+      // A destructuring export exposes the selected property, not its whole initializer.
+      const patternTarget = (pattern, init, name) => {
+        if (!pattern || !init) return null
+        if (pattern.type === 'Identifier') return pattern.name === name ? init : null
+        if (pattern.type === 'AssignmentPattern') return patternTarget(pattern.left, init, name)
+        if (pattern.type === 'ObjectPattern') {
+          for (const prop of pattern.properties) {
+            if (prop.type !== 'Property') continue
+            const selected = property(init, key(prop), new Set(), true)
+            const target = patternTarget(prop.value, selected, name)
+            if (target) return target
+          }
+        }
+        if (pattern.type === 'ArrayPattern') {
+          const resolved = value(init)
+          if (resolved?.type === 'ArrayExpression')
+            for (const [index, element] of pattern.elements.entries()) {
+              const target = patternTarget(element, resolved.elements[index], name)
+              if (target) return target
+            }
+        }
+        return null
+      }
       const addBinding = (id) => {
         for (const definition of variable(id)?.defs ?? []) {
-          if (definition.type === 'Variable' && definition.node.init)
-            targets.push(definition.node.init)
+          if (definition.type === 'Variable' && definition.node.init) {
+            const declarator = definition.node
+            const target =
+              declarator.id.type === 'Identifier'
+                ? declarator.init
+                : patternTarget(declarator.id, declarator.init, definition.name.name)
+            if (target) targets.push(target)
+          }
           if (definition.type === 'FunctionName') targets.push(definition.node)
         }
       }
@@ -335,7 +376,7 @@ export default {
         const declaration = statement.declaration
         if (declaration?.type === 'VariableDeclaration') {
           for (const declarator of declaration.declarations)
-            if (declarator.init) targets.push(declarator.init)
+            for (const id of patternBindings(declarator.id)) addBinding(id)
         } else if (declaration) targets.push(declaration)
         for (const specifier of statement.specifiers ?? []) addBinding(specifier.local)
       }
@@ -345,6 +386,8 @@ export default {
         if (!target || seen.has(target)) return
         seen.add(target)
         if (target.type === 'Identifier') {
+          for (const definition of variable(target)?.defs ?? [])
+            if (definition.type === 'FunctionName') expose(definition.node, seen)
           expose(value(target), seen)
           return
         }
@@ -374,8 +417,12 @@ export default {
       ['post', 2],
       ['put', 2],
       ['patch', 2],
+      ['postForm', 2],
+      ['putForm', 2],
+      ['patchForm', 2],
+      ['query', 2],
     ])
-    const transportConfig = (callee) => {
+    const transportConfig = (callee, args) => {
       callee = value(callee)
       if (global(callee, ['fetch']) || globalMember(callee, 'fetch')) return 1
       let method = null
@@ -391,6 +438,8 @@ export default {
             method = key(callee)
         }
       }
+      if (method === 'default' || method === 'request')
+        return value(args[0])?.type === 'ObjectExpression' ? 0 : 1
       return method === null ? null : (AXIOS_CONFIG.get(method) ?? null)
     }
     return {
@@ -504,7 +553,7 @@ export default {
               })
           }
           for (const node of calls) {
-            const configIndex = transportConfig(node.callee)
+            const configIndex = transportConfig(node.callee, node.arguments)
             if (configIndex === null) continue
             const authorization = property(
               property(node.arguments[configIndex], 'headers'),
