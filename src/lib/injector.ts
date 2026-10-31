@@ -3581,7 +3581,11 @@ ${setupCalls.join('\n') || '  // No providers configured'}
       }
     }
   }
-  const bondsTestContent = generateAppBondsSmokeTest([...bondMolecules], reExportNames)
+  const bondsTestContent = generateAppBondsSmokeTest(
+    [...bondMolecules],
+    reExportNames,
+    bondsContent,
+  )
   files.push({
     action: 'create',
     targetPath: join(projectPath, sharedSrcDir, '__tests__', 'bonds.test.ts'),
@@ -5223,13 +5227,33 @@ function generateRouteSmokeTest(resourcePlans: InjectionPlan[], moleculeMocks = 
  * Generate app bonds smoke test that verifies:
  * - bonds/index exports setupProviders function
  * - setupProviders() completes without throwing
+ * - setupProviders() calls its imported setup boundaries with project providers
  * - Re-exported provider instances are defined
  */
-function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string[]): string {
+function generateAppBondsSmokeTest(
+  allMolecules: string[],
+  reExportNames: string[],
+  bondsContent: string,
+): string {
   const lines: string[] = []
   const registry = getRawRegistry()
+  const setupImports: Array<{ name: string; moduleSpecifier: string; testSpecifier: string }> = []
+  for (const match of bondsContent.matchAll(/import\s*\{([^}]+)\}\s*from\s*'([^']+)'/g)) {
+    const [, names, moduleSpecifier] = match
+    for (const binding of names.split(',')) {
+      const name = binding.trim().split(/\s+as\s+/)[0]
+      if (!/^setup[A-Z]/.test(name)) continue
+      setupImports.push({
+        name,
+        moduleSpecifier,
+        testSpecifier: moduleSpecifier.startsWith('./')
+          ? `../bonds/${moduleSpecifier.slice(2)}`
+          : moduleSpecifier,
+      })
+    }
+  }
 
-  lines.push(`import { describe, it, expect, vi } from 'vitest'`)
+  lines.push(`import { describe, expect, it, vi } from 'vitest'`)
   lines.push('')
 
   // Mock config to avoid importing real app config (used by auth-default bond)
@@ -5269,6 +5293,26 @@ function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string
     lines.push('')
   }
 
+  const localSetupModules = new Map<string, string[]>()
+  for (const setup of setupImports.filter((setup) => setup.moduleSpecifier.startsWith('./'))) {
+    const names = localSetupModules.get(setup.testSpecifier) ?? []
+    names.push(setup.name)
+    localSetupModules.set(setup.testSpecifier, names)
+  }
+  if (localSetupModules.size > 0) {
+    lines.push('// Record project setup calls while preserving their public registration behavior.')
+  }
+  for (const [moduleSpecifier, names] of localSetupModules) {
+    lines.push(`vi.mock('${moduleSpecifier}', async (importOriginal) => {`)
+    lines.push('  const actual = await importOriginal<Record<string, unknown>>()')
+    lines.push('  return {')
+    lines.push('    ...actual,')
+    for (const name of names) lines.push(`    ${name}: vi.fn(actual.${name} as () => unknown),`)
+    lines.push('  }')
+    lines.push('})')
+    lines.push('')
+  }
+
   // Mock locale files if i18n provider is present
   const hasI18n = allMolecules.some(
     (m) => m.startsWith('@molecule/app-i18n-') && m !== '@molecule/app-i18n',
@@ -5305,15 +5349,23 @@ function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string
       if (exp === 'default' || exp === '*' || exp.endsWith('Schema') || !/^[a-zA-Z_$]/.test(exp))
         continue
 
-      if (/^(set|register)[A-Z]/.test(exp)) {
+      if (/^(set|register|setup)[A-Z]/.test(exp) || exp === 'bond') {
         mockEntries.push(`  ${exp}: vi.fn()`)
       } else if (/^create[A-Z]/.test(exp)) {
         // Factory — return an object with the methods the generated bond setups call on it.
         // HTTP token synchronization calls setAuthToken on clients hydrated by the shared source;
         // interceptor registrars return their unsubscribe function, hence `vi.fn(() => vi.fn())`.
         const authEventMock = exp === 'createJWTAuthClient' ? 'addEventListener: vi.fn(), ' : ''
+        const themeMock =
+          exp === 'createCSSVariablesThemeProvider'
+            ? 'getTheme: vi.fn(() => ({})), setTheme: vi.fn(), subscribe: vi.fn(() => () => {}), '
+            : ''
         mockEntries.push(
-          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), ${authEventMock}setAuthToken: vi.fn(), setAuthTokenResolver: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
+          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), ${authEventMock}${themeMock}setAuthToken: vi.fn(), setAuthTokenResolver: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
+        )
+      } else if (pkg === '@molecule/app-http' && exp === 'getClient') {
+        mockEntries.push(
+          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), setAuthToken: vi.fn(), setAuthTokenResolver: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
         )
       } else if (/^(get|is|has|use)[A-Z]/.test(exp)) {
         mockEntries.push(`  ${exp}: vi.fn()`)
@@ -5348,6 +5400,38 @@ function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string
     `    await expect(Promise.resolve().then(() => setupProviders())).resolves.toBeUndefined()`,
   )
   lines.push(`  })`)
+
+  if (setupImports.length > 0) {
+    const httpSetup = setupImports.find((setup) =>
+      ['setupHttpClientFetch', 'setupHttpDefault'].includes(setup.name),
+    )
+    const themeSetup = setupImports.find((setup) => setup.name === 'setupAppThemeCssVariables')
+    lines.push('')
+    lines.push(`  it('calls imported setup boundaries with project providers', async () => {`)
+    lines.push(`    const { setupProviders } = await import('../bonds/index.js')`)
+    if (httpSetup?.name === 'setupHttpClientFetch') {
+      lines.push(`    const httpBond = await import('${httpSetup.testSpecifier}')`)
+      lines.push(`    const httpCore = await import('@molecule/app-http')`)
+    }
+    if (themeSetup) {
+      lines.push(`    const themeBond = await import('${themeSetup.testSpecifier}')`)
+      lines.push(`    const themeCore = await import('@molecule/app-theme')`)
+    }
+    lines.push('    vi.clearAllMocks()')
+    lines.push('    await setupProviders()')
+    for (const setup of setupImports) {
+      lines.push(
+        `    expect((await import('${setup.testSpecifier}')).${setup.name}).toHaveBeenCalledOnce()`,
+      )
+    }
+    if (httpSetup?.name === 'setupHttpClientFetch') {
+      lines.push('    expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)')
+    }
+    if (themeSetup) {
+      lines.push('    expect(themeCore.setProvider).toHaveBeenCalledWith(themeBond.themeProvider)')
+    }
+    lines.push(`  })`)
+  }
 
   if (reExportNames.length > 0) {
     lines.push('')

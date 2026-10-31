@@ -9,6 +9,8 @@
  * @module
  */
 
+import { readFile } from 'node:fs/promises'
+
 import { describe, expect, it } from 'vitest'
 
 import type { InjectionPlan } from '../injector.js'
@@ -34,14 +36,19 @@ const plan: InjectionPlan = {
 }
 
 /** Returns the generated app bonds smoke test. */
-function generatedBondsTest(includeSharedSetup = false): string {
+function generatedBondsTest(
+  includeSharedSetup = false,
+  plans: InjectionPlan[] = [plan],
+  additionalMolecules: string[] = [],
+): string {
   const molecules = [
     '@molecule/app-auth',
+    ...additionalMolecules,
     ...(includeSharedSetup
       ? ['@molecule/app-bonds-default-react', '@molecule/app-i18n-default-react']
       : []),
   ]
-  const files = synthesizeAppProjectFiles([plan], molecules, '/tmp/test-app', loadRegistry())
+  const files = synthesizeAppProjectFiles(plans, molecules, '/tmp/test-app', loadRegistry())
   const bondsTest = files.find((f) => f.targetPath.endsWith('__tests__/bonds.test.ts'))
   expect(bondsTest).toBeDefined()
   return bondsTest!.content
@@ -98,10 +105,63 @@ describe('generated bonds smoke test: setupProviders assertion', () => {
     expect(content).toContain('addEventListener: vi.fn()')
   })
 
+  it('records project setup calls and their HTTP registration argument', () => {
+    const httpPlan: InjectionPlan = {
+      ...plan,
+      molecule: '@molecule/http-client-fetch',
+      moleculePackage: { ...plan.moleculePackage, name: '@molecule/http-client-fetch' },
+      bondSetup: {
+        providerPackage: '@molecule/http-client-fetch',
+        interfacePackage: '@molecule/app-http',
+        interfaceType: 'http',
+        setupCode: 'mock',
+      },
+    }
+    const content = generatedBondsTest(false, [httpPlan])
+
+    expect(content).toContain(
+      'setupHttpClientFetch: vi.fn(actual.setupHttpClientFetch as () => unknown)',
+    )
+    expect(content).toContain('.setupHttpClientFetch).toHaveBeenCalledOnce()')
+    expect(content).toContain(
+      'expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)',
+    )
+  })
+
+  it('ships the shared default-boundary assertion in the regenerated Wiki test', async () => {
+    const content = await readFile(
+      new URL('../../../templates/apps/wiki/app/src/__tests__/bonds.test.ts', import.meta.url),
+      'utf8',
+    )
+
+    expect(content).toMatch(/setupAllDefaultBonds,?\s*\)\.toHaveBeenCalledOnce\(\)/)
+    expect(content).toContain(
+      'expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)',
+    )
+  })
+
+  it('mocks the theme methods used by project setup wrappers', () => {
+    const content = generatedBondsTest(false, [plan], ['@molecule/app-theme-css-variables'])
+
+    expect(content).toContain('getTheme: vi.fn(() => ({}))')
+    expect(content).toContain('setTheme: vi.fn()')
+    expect(content).toContain('subscribe: vi.fn(() => () => {})')
+  })
+
+  it('mocks callable bond and hydrated HTTP getter boundaries', () => {
+    const content = generatedBondsTest(false, [plan], ['@molecule/app-bond', '@molecule/app-http'])
+
+    expect(content).toContain('bond: vi.fn()')
+    expect(content).toMatch(
+      /getClient: vi\.fn\(\(\) => \(\{[\s\S]*?addRequestInterceptor: vi\.fn\(\(\) => vi\.fn\(\)\)/,
+    )
+  })
+
   it('does not mock shared packages a minimal project does not import', () => {
     const content = generatedBondsTest()
 
     expect(content).not.toContain("vi.mock('@molecule/app-bonds-default-react'")
     expect(content).not.toContain("vi.mock('@molecule/app-i18n-default-react'")
+    expect(content).not.toMatch(/setupAllDefaultBonds,?\s*\)\.toHaveBeenCalledOnce\(\)/)
   })
 })
