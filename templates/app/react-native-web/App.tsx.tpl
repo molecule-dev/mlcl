@@ -1,6 +1,7 @@
-import { BrowserRouter, Routes, Route } from 'react-router'
+import { Routes, Route } from 'react-router'
 import { MoleculeProvider } from '@molecule/app-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
+import { BrowserRouter } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, themeProvider, i18nProvider } from './bonds/index.js'
 import { AuthGuard } from './components/AuthGuard.js'
@@ -15,11 +16,7 @@ import { PlanUpdated } from './pages/PlanUpdated.js'
 
 export function App() {
   return (
-    <BrowserRouter
-      // Keep this: React Router 8 otherwise changes the URL before the new page renders,
-      // so code and tests that check the page right after a navigation see the old one.
-      useTransitions={false}
-    >
+    <BrowserRouter>
       <MoleculeProvider
         auth={authClient}
         http={getHttpClient()}

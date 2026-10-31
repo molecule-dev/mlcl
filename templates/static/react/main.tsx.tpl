@@ -3,7 +3,8 @@ import './theme.css'
 
 import { StrictMode } from 'react'
 import { createRoot, hydrateRoot } from 'react-dom/client'
-import { BrowserRouter } from 'react-router'
+
+import { BrowserRouter } from '@molecule/app-routing-react-router'
 
 import { App } from './App.js'
 import { setupProviders } from './bonds/index.js'
