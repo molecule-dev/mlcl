@@ -54704,7 +54704,8 @@
         "debug",
         "info",
         "warn",
-        "error"
+        "error",
+        "redactCredentials"
       ],
       "secrets": [],
       "runtimeDependencies": [
