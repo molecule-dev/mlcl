@@ -274,6 +274,24 @@ describe('the shared scaffold eslint config', () => {
       },
     )
 
+    it.each(['react-router', 'react-router-dom', 'react-router/dom'])(
+      'reports a zero-expression template-literal dynamic import of %s',
+      async (entryPoint) => {
+        await expectReportedWithoutFix(
+          'const { BrowserRouter } = await import(`' +
+            entryPoint +
+            '`)\nexport const app = <BrowserRouter />\n',
+          'dynamic module uses are not tracked',
+        )
+      },
+    )
+
+    it('leaves non-static and non-router template-literal imports untouched', async () => {
+      await expectNoRouterReport(
+        "const suffix = 'router'\nconst dynamic = await import(`react-${suffix}`)\nconst local = await import(`./local-router.js`)\nexport { dynamic, local }\n",
+      )
+    })
+
     it('leaves non-router imports, re-exports, and dynamic imports untouched', async () => {
       await expectNoRouterReport(
         "import { Link, Routes, useNavigate } from 'react-router'\nexport { Link, Routes, useNavigate }\nexport { Link as AnotherLink } from 'react-router'\nexport * from './local-router.js'\nconst local = await import('./local-router.js')\nexport { local }\n",

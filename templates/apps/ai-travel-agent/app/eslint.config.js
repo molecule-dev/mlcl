@@ -63,9 +63,15 @@ const moleculeLocal = {
         }
         const exportDeclaration = (specifiers, module, semicolon) =>
           `export { ${specifiers.map((specifier) => source.getText(specifier)).join(', ')} } from '${module}'${semicolon}`
+        const moduleName = (node) => {
+          if (node.type === 'Literal') return node.value
+          if (node.type === 'TemplateLiteral' && node.expressions.length === 0)
+            return node.quasis[0].value.cooked ?? node.quasis[0].value.raw
+          return null
+        }
         return {
           ImportDeclaration(node) {
-            if (!packages.has(node.source.value) || node.importKind === 'type') return
+            if (!packages.has(moduleName(node.source)) || node.importKind === 'type') return
             if (
               node.specifiers.some((specifier) => specifier.type === 'ImportNamespaceSpecifier')
             ) {
@@ -89,13 +95,17 @@ const moleculeLocal = {
                 const replacement =
                   remaining.length === 0
                     ? bondImport
-                    : `${declaration(remaining, node.source.value, semicolon)}\n${bondImport}`
+                    : `${declaration(remaining, moduleName(node.source), semicolon)}\n${bondImport}`
                 return fixer.replaceText(node, replacement)
               },
             })
           },
           ExportNamedDeclaration(node) {
-            if (!node.source || !packages.has(node.source.value) || node.exportKind === 'type')
+            if (
+              !node.source ||
+              !packages.has(moduleName(node.source)) ||
+              node.exportKind === 'type'
+            )
               return
             const moved = node.specifiers.filter(
               (specifier) =>
@@ -114,17 +124,17 @@ const moleculeLocal = {
                 const replacement =
                   remaining.length === 0
                     ? bondExport
-                    : `${exportDeclaration(remaining, node.source.value, semicolon)}\n${bondExport}`
+                    : `${exportDeclaration(remaining, moduleName(node.source), semicolon)}\n${bondExport}`
                 return fixer.replaceText(node, replacement)
               },
             })
           },
           ExportAllDeclaration(node) {
-            if (!packages.has(node.source.value) || node.exportKind === 'type') return
+            if (!packages.has(moduleName(node.source)) || node.exportKind === 'type') return
             context.report({ node, messageId: 'namespace' })
           },
           ImportExpression(node) {
-            if (node.source.type !== 'Literal' || !packages.has(node.source.value)) return
+            if (!packages.has(moduleName(node.source))) return
             context.report({ node, messageId: 'dynamic' })
           },
         }
