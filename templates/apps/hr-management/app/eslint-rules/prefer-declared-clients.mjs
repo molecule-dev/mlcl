@@ -97,6 +97,7 @@ export default {
     const states = []
     const clientBonds = []
     const mutations = new Map()
+    const mutated = new Set()
     let credentialStore = false
     let hasAuthTokenSource = false
 
@@ -151,6 +152,11 @@ export default {
     const identity = (node) => {
       const resolved = value(node)
       return variable(resolved) ?? resolved
+    }
+    const invalidate = (node) => {
+      node = unwrap(node)
+      while (node?.type === 'MemberExpression') node = unwrap(node.object)
+      if (node) mutated.add(identity(node))
     }
     const key = (node) =>
       node.computed
@@ -321,126 +327,101 @@ export default {
     // importing composition root. Exempt only those exact creation sites: an
     // exported request function still owns any private client it creates.
     const exportedHttpClients = () => {
-      const targets = []
-      const patternBindings = (pattern) => {
-        if (!pattern) return []
-        if (pattern.type === 'Identifier') return [pattern]
-        if (pattern.type === 'AssignmentPattern') return patternBindings(pattern.left)
-        if (pattern.type === 'RestElement') return patternBindings(pattern.argument)
-        if (pattern.type === 'ArrayPattern') return pattern.elements.flatMap(patternBindings)
-        if (pattern.type === 'ObjectPattern')
-          return pattern.properties.flatMap((prop) =>
-            patternBindings(prop.type === 'Property' ? prop.value : prop.argument),
-          )
-        return []
+      const origins = new Set()
+      const stableConst = (id) => {
+        if (id?.type !== 'Identifier') return null
+        const binding = variable(id)
+        const definition = binding?.defs[0]
+        if (
+          binding?.defs.length !== 1 ||
+          definition.type !== 'Variable' ||
+          definition.node.parent.kind !== 'const' ||
+          definition.node.id.type !== 'Identifier' ||
+          !definition.node.init ||
+          binding.references.some((ref) => ref.isWrite() && !ref.init) ||
+          mutated.has(identity(id))
+        )
+          return null
+        return definition.node
       }
-      // A destructuring export exposes the selected property, not its whole initializer.
-      const patternTargets = (pattern, init, name) => {
-        if (!pattern || !init) return []
-        if (pattern.type === 'Identifier') return pattern.name === name ? [init] : []
-        if (pattern.type === 'AssignmentPattern') return patternTargets(pattern.left, init, name)
-        if (pattern.type === 'ObjectPattern') {
-          const targets = []
-          const excluded = new Set()
-          const resolved = value(init)
-          // Object rest copies every property not selected by a sibling binding. A
-          // spread or unresolved key makes that set unknowable, so expose nothing.
-          const exactRest =
-            resolved?.type === 'ObjectExpression' &&
-            resolved.properties.every((prop) => prop.type === 'Property' && key(prop) !== null) &&
-            pattern.properties.every((prop) => prop.type === 'RestElement' || key(prop) !== null)
-          for (const prop of pattern.properties) {
-            if (prop.type === 'Property') {
-              const propertyName = key(prop)
-              if (propertyName !== null) excluded.add(propertyName)
-              const selected = property(init, propertyName, new Set(), true)
-              targets.push(...patternTargets(prop.value, selected, name))
-            } else if (exactRest) {
-              for (const candidate of resolved.properties)
-                if (!excluded.has(key(candidate)))
-                  targets.push(...patternTargets(prop.argument, candidate.value, name))
-            }
-          }
-          return targets
-        }
-        if (pattern.type === 'ArrayPattern') {
-          const targets = []
-          const resolved = value(init)
-          // A spread can have any length; indexes after it are not creation-site facts.
-          if (
-            resolved?.type === 'ArrayExpression' &&
-            !resolved.elements.some((element) => element?.type === 'SpreadElement')
-          )
-            for (const [index, element] of pattern.elements.entries())
-              targets.push(...patternTargets(element, resolved.elements[index], name))
-          return targets
-        }
-        return []
+      const localFunction = (callee) => {
+        callee = unwrap(callee)
+        if (FUNCTIONS.includes(callee?.type)) return callee
+        if (callee?.type !== 'Identifier') return null
+        const binding = variable(callee)
+        const definition = binding?.defs[0]
+        if (
+          binding?.defs.length === 1 &&
+          definition.type === 'FunctionName' &&
+          !binding.references.some((ref) => ref.isWrite() && !ref.init) &&
+          !mutated.has(identity(callee))
+        )
+          return definition.node
+        const declarator = stableConst(callee)
+        const init = unwrap(declarator?.init)
+        return FUNCTIONS.includes(init?.type) ? init : null
       }
-      const addBinding = (id) => {
-        for (const definition of variable(id)?.defs ?? []) {
-          if (definition.type === 'Variable' && definition.node.init) {
-            const declarator = definition.node
-            targets.push(
-              ...(declarator.id.type === 'Identifier'
-                ? [declarator.init]
-                : patternTargets(declarator.id, declarator.init, definition.name.name)),
-            )
-          }
-          if (definition.type === 'FunctionName') targets.push(definition.node)
+      const creation = (target, seen = new Set()) => {
+        target = unwrap(target)
+        if (target?.type !== 'CallExpression' || seen.has(target)) return
+        seen.add(target)
+        if (clientFactory(target.callee)) {
+          origins.add(target)
+          return
         }
+        const fn = localFunction(target.callee)
+        if (!fn) return
+        for (const returned of functionReturns(fn)) {
+          const value = unwrap(returned)
+          if (value?.type === 'Identifier') {
+            const declarator = stableConst(value)
+            if (declarator) creation(declarator.init, seen)
+          } else creation(value, seen)
+        }
+      }
+      const containerValue = (target) => {
+        target = unwrap(target)
+        if (target?.type === 'Identifier') {
+          const declarator = stableConst(target)
+          if (!declarator) return
+          target = declarator.init
+        }
+        creation(target)
+      }
+      const exportedValue = (target) => {
+        target = unwrap(target)
+        if (target?.type === 'Identifier') {
+          const declarator = stableConst(target)
+          if (!declarator) return
+          target = unwrap(declarator.init)
+        }
+        if (target?.type === 'ObjectExpression') {
+          for (const prop of target.properties)
+            if (prop.type === 'Property' && !prop.computed && key(prop) !== '__proto__')
+              containerValue(prop.value)
+          return
+        }
+        if (target?.type === 'ArrayExpression') {
+          for (const element of target.elements) {
+            if (element?.type === 'SpreadElement') break
+            if (element) containerValue(element)
+          }
+          return
+        }
+        creation(target)
       }
       for (const statement of source.ast.body) {
-        if (statement.type === 'ExportDefaultDeclaration') targets.push(statement.declaration)
+        if (statement.type === 'ExportDefaultDeclaration') {
+          const declaration = unwrap(statement.declaration)
+          if (declaration?.type === 'Identifier') exportedValue(declaration)
+          else creation(declaration)
+          continue
+        }
         if (statement.type !== 'ExportNamedDeclaration') continue
-        const declaration = statement.declaration
-        if (declaration?.type === 'VariableDeclaration') {
-          for (const declarator of declaration.declarations)
-            for (const id of patternBindings(declarator.id)) addBinding(id)
-        } else if (declaration) targets.push(declaration)
-        for (const specifier of statement.specifiers ?? []) addBinding(specifier.local)
+        if (statement.declaration?.type === 'VariableDeclaration')
+          for (const declarator of statement.declaration.declarations) exportedValue(declarator.id)
+        for (const specifier of statement.specifiers ?? []) exportedValue(specifier.local)
       }
-      const origins = new Set()
-      const expose = (target, seen = new Set()) => {
-        target = unwrap(target)
-        if (!target || seen.has(target)) return
-        seen.add(target)
-        if (target.type === 'Identifier') {
-          const binding = variable(target)
-          const definition = binding?.defs[0]
-          if (
-            binding?.defs.length === 1 &&
-            definition.type === 'Variable' &&
-            definition.node.id.type !== 'Identifier' &&
-            definition.node.init &&
-            !binding.references.some((ref) => ref.isWrite() && !ref.init)
-          ) {
-            for (const selected of patternTargets(
-              definition.node.id,
-              definition.node.init,
-              definition.name.name,
-            ))
-              expose(selected, seen)
-            return
-          }
-          for (const definition of binding?.defs ?? [])
-            if (definition.type === 'FunctionName') expose(definition.node, seen)
-          expose(value(target), seen)
-          return
-        }
-        if (target.type === 'CallExpression') {
-          if (clientFactory(target.callee)) origins.add(target)
-          return
-        }
-        if (target.type === 'ObjectExpression') {
-          for (const prop of target.properties)
-            if (prop.type === 'Property') expose(prop.value, seen)
-          return
-        }
-        if (FUNCTIONS.includes(target.type))
-          for (const returned of functionReturns(target)) expose(returned, seen)
-      }
-      for (const target of targets) expose(target)
       return origins
     }
     const AXIOS_CONFIG = new Map([
@@ -484,15 +465,25 @@ export default {
     return {
       AssignmentExpression(node) {
         if (node.left.type !== 'MemberExpression') return
+        invalidate(node.left)
         mutate(node.left.object, key(node.left), node.right)
         if (packages.auth && storage(node.left.object) && credential(key(node.left))) {
           credentialStore = true
           context.report({ node, messageId: 'credential' })
         }
       },
+      UpdateExpression(node) {
+        invalidate(node.argument)
+      },
       CallExpression(node) {
         calls.push(node)
         const callee = unwrap(node.callee)
+        if (
+          callee.type === 'MemberExpression' &&
+          key(callee) === 'assign' &&
+          global(value(callee.object), ['Object'])
+        )
+          invalidate(node.arguments[0])
         if (packages.http && imported(callee, [HTTP], ['setClient']))
           clientBonds.push(...node.arguments)
         if (packages.http && imported(callee, [HTTP], ['setAuthTokenSource']))
