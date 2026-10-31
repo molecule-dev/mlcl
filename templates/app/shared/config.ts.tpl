@@ -117,7 +117,7 @@ export const authConfig = {
   // script-reachable storage when your API sets an httpOnly session cookie, pass
   // `storage: 'memory'` in the bond instead — the stronger route.
   // An external contract that reads the token at its own key (an e2e suite's
-  // `localStorage.jwtToken`) is `tokenKey: 'jwtToken'` in this config, paired with the
+  // `localStorage.getItem('app.jwt')`) needs `tokenKey: 'app.jwt'` here, paired with the
   // bond's `storage: createBrowserStorageAdapter()`; never a second store.
   // This API issues no refresh token — the durable session is an httpOnly cookie
   // the server refreshes — so there is nothing for the client to refresh. Set this

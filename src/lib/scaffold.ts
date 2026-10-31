@@ -260,6 +260,36 @@ function withHeader(content: string, header: string): string {
   return content.includes(marker.trim()) ? content : header + content
 }
 
+/**
+ * Carry the canonical shared-auth config guidance through flagship overrides.
+ * The block stays authored in `app/shared/config.ts.tpl` for the bare scaffold;
+ * this post-copy step prepends that same block instead of copying it into every
+ * flagship config. Projects without the declared auth capability are untouched.
+ */
+async function stampTemplateAuthConfigGuidance(projectRoot: string): Promise<void> {
+  const auth = (await readProjectCapabilityMap(projectRoot)).find(
+    (entry) => entry.name === '@molecule/app-auth',
+  )
+  if (!auth) return
+
+  const sharedConfig = await loadTemplate('app/shared/config.ts.tpl')
+  const marker = '/*\n * What the shared auth client already handles:'
+  const start = sharedConfig.indexOf(marker)
+  const end = start < 0 ? -1 : sharedConfig.indexOf('*/', start)
+  if (start < 0 || end < 0) {
+    throw new Error('The shared auth config guidance block is missing from config.ts.tpl')
+  }
+  const header = sharedConfig.slice(start, end + 2) + '\n\n'
+
+  for (const workspace of auth.workspaces) {
+    const path = join(projectRoot, workspace, 'src', 'config.ts')
+    if (!existsSync(path)) continue
+    const source = await readFile(path, 'utf-8')
+    const stamped = withHeader(source, header)
+    if (stamped !== source) await writeGuarded(path, stamped)
+  }
+}
+
 // ---------------------------------------------------------------------------
 // Demo-content notices
 //
@@ -2909,6 +2939,7 @@ export async function copyTemplateInstance(
   // correct under ANY npm flags and any installer.
   await ensureMoleculePeerClosure(destDir)
   await stampCapabilityBondHeaders(destDir)
+  await stampTemplateAuthConfigGuidance(destDir)
 }
 
 /** The `@molecule/*` packages an app's e2e setup imports (see {@link ensureE2EManifest}). */
@@ -4482,6 +4513,11 @@ export async function applyTemplatePostInjectOverrides(
       `[scaffold] Re-applied ${totalCount} bonds override(s) post-inject for ${templateName}`,
     )
   }
+
+  // Overrides intentionally replace generated bonds, so common package guidance
+  // must be the LAST writer on this path too (not only copyTemplateInstance).
+  await stampCapabilityBondHeaders(appPath)
+  await stampTemplateAuthConfigGuidance(appPath)
 }
 
 /**

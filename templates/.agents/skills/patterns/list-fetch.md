@@ -89,7 +89,7 @@ empty state. Cached items stay actionable during a background refresh.
 Include every request dependency in the key: filters, page and the viewer
 whenever the response can depend on it. The HTTP client sends the session, so
 the server may filter or personalize a list per viewer (an inbox, or a
-`favorited` flag on a feed that guests can also read), and the cache serves a
+saved-item flag on a catalog that guests can also read), and the cache serves a
 key's document to whoever observes it, across sign-in and sign-out. Only an
 endpoint that answers every viewer the same takes a viewer-free key. Pass
 `null` to `useQuery` while a required input is unresolved or the session is
