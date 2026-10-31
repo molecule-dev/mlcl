@@ -26,6 +26,24 @@
       "severity": "high",
       "expires": "2027-01-03",
       "reason": "max-stale handling can disclose cross-user cached responses (advisory on http-cache-semantics <= 4.2.0 with NO patched release — every version ever published is in range). Reached only through the oclif devDependency (oclif -> got 13 -> cacheable-request 10 -> http-cache-semantics 4.1.x), which mlcl uses at development time for its own CLI tooling; the published mlcl package carries none of it (@oclif/core and plugin-help, the runtime deps, pull no got). The disclosure requires a SHARED HTTP cache across users on one machine with crafted max-stale responses — not a shape oclif update checks produce. npm reports the only remediation as a downgrade to oclif 1.16.1 (2018), which is an older tree without got, not a fixed chain. Residual risk: a future refactor adding runtime HTTP caching through got would re-expose it; the gate goes red again at expiry so the decision gets remade. Re-check at expiry for a patched http-cache-semantics or a cacheable-request release without it, bump, and drop this entry."
+    },
+    {
+      "package": "glob 10/11/13 (via @molecule/api-database-postgresql 1.4.1, vite-plugin-pwa -> workbox-build <- @molecule/app-pwa-default)",
+      "advisories": [
+        "GHSA-3g3m-2fjr-6pw4"
+      ],
+      "severity": "moderate",
+      "expires": "2026-11-14",
+      "reason": "AbortSignal cancellation bypass: a walk keeps traversing after its signal aborts (advisory published 2026-10-30T23:09Z). Fixed only in glob 14.0.2+, a major released 2026-10-27. Same advisory, same decision, same expiry as molecule (b460c79bd). The postgresql bond source is already on glob 14.0.3 and leaves this chain once that version is published and pinned here; workbox-build 7.4.1 (latest) still declares ^11.0.1. UNREACHABLE AS USED: the defect needs a caller that bounds a walk with an AbortSignal; the postgresql bond setup() passes cwd/absolute only, and workbox-build runs at app BUILD time with the build config file lists. mlcl itself imports neither glob nor minimatch. Residual risk: a consumer release that starts bounding a walk with a signal. Re-check at expiry for consumer releases on glob 14, bump, and drop this entry."
+    },
+    {
+      "package": "minimatch <11.0.1 (via @oclif/core, ts-morph -> @ts-morph/common, glob 10/11/13 above; dev: eslint, @eslint/config-array, typescript-eslint, eslint-plugin-jsx-a11y, oclif, ejs -> jake -> filelist)",
+      "advisories": [
+        "GHSA-g3hv-75wg-m249"
+      ],
+      "severity": "moderate",
+      "expires": "2026-11-14",
+      "reason": "DoS through globparts amplification of a crafted PATTERN (advisory published 2026-10-30T23:09Z). Fixed only in minimatch 11.0.1+, a major released 2026-10-27 that removes makeRe() and Minimatch#regexp, which eslint, typescript-estree and @ts-morph/common call, so an overrides pin to 11 breaks the CLI and lint, and no consumer latest release accepts 11. Same advisory, same decision, same expiry as molecule (b460c79bd). MITIGATED BY REACHABILITY: the attacker must control the pattern. At CLI runtime @oclif/core matches dependency names against the plugin patterns in this CLI own package.json (lib/config/plugin-loader.js), and ts-morph receives the CLI own constant source glob (src/lib/api-extractor.ts: <package src>/**/*.{ts,tsx}); no pattern comes from a network request or another user. Everything else on this list is lint, packaging or build tooling matching this repo own config globs. Residual risk: a future command that passes untrusted input as a glob pattern. Re-check at expiry for consumer releases on minimatch 11, bump, and drop this entry."
     }
   ]
 }
