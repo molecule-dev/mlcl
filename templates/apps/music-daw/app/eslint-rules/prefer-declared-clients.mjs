@@ -7,6 +7,10 @@
  * excuse a second credential store. Public fetches, business API adapters and
  * form state are allowed. An intentionally independent protocol can use ESLint's
  * normal, reasoned disable comment at the narrow call site.
+ *
+ * Threat model: the rule catches ACCIDENTAL bypass, the shapes a model or a
+ * developer writes when it builds its own client instead of using the bonded
+ * one. It is not a sandbox against code written to evade it.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
@@ -97,7 +101,6 @@ export default {
     const states = []
     const clientBonds = []
     const mutations = new Map()
-    const mutated = new Set()
     let credentialStore = false
     let hasAuthTokenSource = false
 
@@ -152,11 +155,6 @@ export default {
     const identity = (node) => {
       const resolved = value(node)
       return variable(resolved) ?? resolved
-    }
-    const invalidate = (node) => {
-      node = unwrap(node)
-      while (node?.type === 'MemberExpression') node = unwrap(node.object)
-      if (node) mutated.add(identity(node))
     }
     const key = (node) =>
       node.computed
@@ -323,12 +321,13 @@ export default {
       for (const client of clientBonds) add(client)
       return bonded
     }
-    // An exported client, factory or plain container may be bonded by the
-    // importing composition root. Exempt only those exact creation sites: an
-    // exported request function still owns any private client it creates.
+    // An exported client or plain container may be bonded by its importing
+    // composition root only when this module does not also use it. Direct
+    // container assembly, exports and same-file setClient calls are hand-off
+    // references; every other reference makes the dependent creation local.
     const exportedHttpClients = () => {
       const origins = new Set()
-      const stableConst = (id) => {
+      const stableConst = (id, handoff) => {
         if (id?.type !== 'Identifier') return null
         const binding = variable(id)
         const definition = binding?.defs[0]
@@ -338,10 +337,10 @@ export default {
           definition.node.parent.kind !== 'const' ||
           definition.node.id.type !== 'Identifier' ||
           !definition.node.init ||
-          binding.references.some((ref) => ref.isWrite() && !ref.init) ||
-          mutated.has(identity(id))
+          binding.references.some((ref) => ref.isWrite() && !ref.init)
         )
           return null
+        if (handoff) handoff.bindings.add(binding)
         return definition.node
       }
       const localFunction = (callee) => {
@@ -353,74 +352,117 @@ export default {
         if (
           binding?.defs.length === 1 &&
           definition.type === 'FunctionName' &&
-          !binding.references.some((ref) => ref.isWrite() && !ref.init) &&
-          !mutated.has(identity(callee))
+          !binding.references.some((ref) => ref.isWrite() && !ref.init)
         )
           return definition.node
         const declarator = stableConst(callee)
         const init = unwrap(declarator?.init)
         return FUNCTIONS.includes(init?.type) ? init : null
       }
-      const creation = (target, seen = new Set()) => {
+      const within = (node, ancestor) => {
+        for (let current = node; current; current = current.parent)
+          if (current === ancestor) return true
+        return false
+      }
+      const exportReference = (id) => {
+        for (let node = id; node; node = node.parent) {
+          if (node.type === 'ExportSpecifier') return node.local === id
+          if (node.type === 'ExportDefaultDeclaration') return unwrap(node.declaration) === id
+          if (node.type === 'ExportNamedDeclaration') return false
+        }
+        return false
+      }
+      const bondReference = (id) =>
+        clientBonds.some((argument) => {
+          argument = unwrap(argument)
+          return argument === id || (argument?.type === 'MemberExpression' && within(id, argument))
+        })
+      const finish = (handoff) => {
+        const unused = (binding) =>
+          binding.references.every(
+            (ref) =>
+              ref.init ||
+              handoff.references.has(ref.identifier) ||
+              exportReference(ref.identifier) ||
+              bondReference(ref.identifier),
+          )
+        for (const [origin, bindings] of handoff.origins)
+          if ([...bindings].every(unused)) origins.add(origin)
+      }
+      const creation = (target, handoff, seen = new Set()) => {
         target = unwrap(target)
         if (target?.type !== 'CallExpression' || seen.has(target)) return
         seen.add(target)
         if (clientFactory(target.callee)) {
-          origins.add(target)
+          const dependencies = handoff.origins.get(target) ?? new Set()
+          for (const binding of handoff.bindings) dependencies.add(binding)
+          handoff.origins.set(target, dependencies)
           return
         }
         const fn = localFunction(target.callee)
-        if (!fn) return
+        // Calls of these functions hand off iterators or Promises, never clients.
+        if (!fn || fn.generator || fn.async) return
         for (const returned of functionReturns(fn)) {
           const value = unwrap(returned)
           if (value?.type === 'Identifier') {
-            const declarator = stableConst(value)
-            if (declarator) creation(declarator.init, seen)
-          } else creation(value, seen)
+            const declarator = stableConst(value, handoff)
+            if (declarator) {
+              handoff.references.add(value)
+              creation(declarator.init, handoff, seen)
+            }
+          } else creation(value, handoff, seen)
         }
       }
-      const containerValue = (target) => {
+      const containerValue = (target, handoff) => {
         target = unwrap(target)
         if (target?.type === 'Identifier') {
-          const declarator = stableConst(target)
+          const declarator = stableConst(target, handoff)
           if (!declarator) return
+          handoff.references.add(target)
           target = declarator.init
         }
-        creation(target)
+        creation(target, handoff)
       }
       const exportedValue = (target) => {
+        const handoff = { origins: new Map(), bindings: new Set(), references: new Set() }
         target = unwrap(target)
         if (target?.type === 'Identifier') {
-          const declarator = stableConst(target)
-          if (!declarator) return
-          target = unwrap(declarator.init)
+          const declarator = stableConst(target, handoff)
+          target = declarator ? unwrap(declarator.init) : null
         }
         if (target?.type === 'ObjectExpression') {
           for (const prop of target.properties)
             if (prop.type === 'Property' && !prop.computed && key(prop) !== '__proto__')
-              containerValue(prop.value)
-          return
-        }
-        if (target?.type === 'ArrayExpression') {
+              containerValue(prop.value, handoff)
+        } else if (target?.type === 'ArrayExpression') {
           for (const element of target.elements) {
             if (element?.type === 'SpreadElement') break
-            if (element) containerValue(element)
+            if (element) containerValue(element, handoff)
           }
-          return
-        }
-        creation(target)
+        } else creation(target, handoff)
+        finish(handoff)
       }
       for (const statement of source.ast.body) {
         if (statement.type === 'ExportDefaultDeclaration') {
           const declaration = unwrap(statement.declaration)
           if (declaration?.type === 'Identifier') exportedValue(declaration)
-          else creation(declaration)
+          else {
+            const handoff = { origins: new Map(), bindings: new Set(), references: new Set() }
+            creation(declaration, handoff)
+            finish(handoff)
+          }
           continue
         }
-        if (statement.type !== 'ExportNamedDeclaration') continue
+        if (
+          statement.type !== 'ExportNamedDeclaration' ||
+          statement.source ||
+          statement.exportKind === 'type'
+        )
+          continue
         if (statement.declaration?.type === 'VariableDeclaration')
           for (const declarator of statement.declaration.declarations) exportedValue(declarator.id)
-        for (const specifier of statement.specifiers ?? []) exportedValue(specifier.local)
+        for (const specifier of statement.specifiers ?? [])
+          if (specifier.exportKind !== 'type') exportedValue(specifier.local)
       }
       return origins
     }
@@ -465,25 +507,15 @@ export default {
     return {
       AssignmentExpression(node) {
         if (node.left.type !== 'MemberExpression') return
-        invalidate(node.left)
         mutate(node.left.object, key(node.left), node.right)
         if (packages.auth && storage(node.left.object) && credential(key(node.left))) {
           credentialStore = true
           context.report({ node, messageId: 'credential' })
         }
       },
-      UpdateExpression(node) {
-        invalidate(node.argument)
-      },
       CallExpression(node) {
         calls.push(node)
         const callee = unwrap(node.callee)
-        if (
-          callee.type === 'MemberExpression' &&
-          key(callee) === 'assign' &&
-          global(value(callee.object), ['Object'])
-        )
-          invalidate(node.arguments[0])
         if (packages.http && imported(callee, [HTTP], ['setClient']))
           clientBonds.push(...node.arguments)
         if (packages.http && imported(callee, [HTTP], ['setAuthTokenSource']))
