@@ -1,19 +1,22 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { MoleculeProvider } from '@molecule/app-react'
+import { lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
 import { i18nProvider, themeProvider } from './bonds/index.js'
 import { SiteLayout } from './components/SiteLayout.js'
 
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const Home = lazy(() => import('./pages/Home.js').then((m) => ({ default: m.Home })))
-const NotFound = lazy(() => import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })))
-const Post = lazy(() => import('./pages/Post.js').then((m) => ({ default: m.Post })))
-const Tag = lazy(() => import('./pages/Tag.js').then((m) => ({ default: m.Tag })))
-const Tags = lazy(() => import('./pages/Tags.js').then((m) => ({ default: m.Tags })))
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Home = lazyPage(() => import('./pages/Home.js').then((m) => ({ default: m.Home })))
+const NotFound = lazyPage(() =>
+  import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })),
+)
+const Post = lazyPage(() => import('./pages/Post.js').then((m) => ({ default: m.Post })))
+const Tag = lazyPage(() => import('./pages/Tag.js').then((m) => ({ default: m.Tag })))
+const Tags = lazyPage(() => import('./pages/Tags.js').then((m) => ({ default: m.Tags })))
 
 /**
  * The site's routes — the URL space src/content.ts describes. The router

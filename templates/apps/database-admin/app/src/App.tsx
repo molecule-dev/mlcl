@@ -1,57 +1,61 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { RootErrorBoundary } from '@molecule/app-root-error-boundary-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { BrowserRouter, lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AuthGuard } from './components/AuthGuard.js'
 
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const Connections = lazy(() =>
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Connections = lazyPage(() =>
   import('./pages/Connections.js').then((m) => ({ default: m.Connections })),
 )
-const EditConnection = lazy(() =>
+const EditConnection = lazyPage(() =>
   import('./pages/EditConnection.js').then((m) => ({ default: m.EditConnection })),
 )
-const ForgotPassword = lazy(() =>
+const ForgotPassword = lazyPage(() =>
   import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
 )
-const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
-const Monitoring = lazy(() =>
+const Login = lazyPage(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Monitoring = lazyPage(() =>
   import('./pages/Monitoring.js').then((m) => ({ default: m.Monitoring })),
 )
-const NewConnection = lazy(() =>
+const NewConnection = lazyPage(() =>
   import('./pages/NewConnection.js').then((m) => ({ default: m.NewConnection })),
 )
-const NotFound = lazy(() => import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })))
-const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
-const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
-const QueryEditor = lazy(() =>
+const NotFound = lazyPage(() =>
+  import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })),
+)
+const Pricing = lazyPage(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazyPage(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const QueryEditor = lazyPage(() =>
   import('./pages/QueryEditor.js').then((m) => ({ default: m.QueryEditor })),
 )
-const QueryHistory = lazy(() =>
+const QueryHistory = lazyPage(() =>
   import('./pages/QueryHistory.js').then((m) => ({ default: m.QueryHistory })),
 )
-const ResetPassword = lazy(() =>
+const ResetPassword = lazyPage(() =>
   import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
 )
-const SavedQueryDetail = lazy(() =>
+const SavedQueryDetail = lazyPage(() =>
   import('./pages/SavedQueryDetail.js').then((m) => ({ default: m.SavedQueryDetail })),
 )
-const SchemaExplorer = lazy(() =>
+const SchemaExplorer = lazyPage(() =>
   import('./pages/SchemaExplorer.js').then((m) => ({ default: m.SchemaExplorer })),
 )
-const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
-const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
-const TableBrowser = lazy(() =>
+const Settings = lazyPage(() =>
+  import('./pages/Settings.js').then((m) => ({ default: m.Settings })),
+)
+const Signup = lazyPage(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const TableBrowser = lazyPage(() =>
   import('./pages/TableBrowser.js').then((m) => ({ default: m.TableBrowser })),
 )
-const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const Terms = lazyPage(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
 export function App() {
   return (
     <BrowserRouter>

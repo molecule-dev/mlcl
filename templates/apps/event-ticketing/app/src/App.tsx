@@ -1,10 +1,10 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { BrowserRouter, lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
@@ -13,40 +13,52 @@ import { DiscoveryShell } from './components/DiscoveryShell.js'
 import { EventTicketingLayout } from './components/EventTicketingLayout.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
 
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const Attendees = lazy(() => import('./pages/Attendees.js').then((m) => ({ default: m.Attendees })))
-const CreateEvent = lazy(() =>
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Attendees = lazyPage(() =>
+  import('./pages/Attendees.js').then((m) => ({ default: m.Attendees })),
+)
+const CreateEvent = lazyPage(() =>
   import('./pages/CreateEvent.js').then((m) => ({ default: m.CreateEvent })),
 )
-const Dashboard = lazy(() => import('./pages/Dashboard.js').then((m) => ({ default: m.Dashboard })))
-const EditEvent = lazy(() => import('./pages/EditEvent.js').then((m) => ({ default: m.EditEvent })))
-const EventDetail = lazy(() =>
+const Dashboard = lazyPage(() =>
+  import('./pages/Dashboard.js').then((m) => ({ default: m.Dashboard })),
+)
+const EditEvent = lazyPage(() =>
+  import('./pages/EditEvent.js').then((m) => ({ default: m.EditEvent })),
+)
+const EventDetail = lazyPage(() =>
   import('./pages/EventDetail.js').then((m) => ({ default: m.EventDetail })),
 )
-const EventList = lazy(() => import('./pages/EventList.js').then((m) => ({ default: m.EventList })))
-const ForgotPassword = lazy(() =>
+const EventList = lazyPage(() =>
+  import('./pages/EventList.js').then((m) => ({ default: m.EventList })),
+)
+const ForgotPassword = lazyPage(() =>
   import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
 )
-const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
-const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
-const MyTickets = lazy(() => import('./pages/MyTickets.js').then((m) => ({ default: m.MyTickets })))
-const Notifications = lazy(() =>
+const Landing = lazyPage(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazyPage(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const MyTickets = lazyPage(() =>
+  import('./pages/MyTickets.js').then((m) => ({ default: m.MyTickets })),
+)
+const Notifications = lazyPage(() =>
   import('./pages/Notifications.js').then((m) => ({ default: m.Notifications })),
 )
-const OrderConfirmation = lazy(() =>
+const OrderConfirmation = lazyPage(() =>
   import('./pages/OrderConfirmation.js').then((m) => ({ default: m.OrderConfirmation })),
 )
-const PlanUpdated = lazy(() =>
+const PlanUpdated = lazyPage(() =>
   import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
 )
-const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
-const ResetPassword = lazy(() =>
+const Privacy = lazyPage(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const ResetPassword = lazyPage(() =>
   import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
 )
-const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
-const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
-const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
-const TicketDetail = lazy(() =>
+const Settings = lazyPage(() =>
+  import('./pages/Settings.js').then((m) => ({ default: m.Settings })),
+)
+const Signup = lazyPage(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazyPage(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const TicketDetail = lazyPage(() =>
   import('./pages/TicketDetail.js').then((m) => ({ default: m.TicketDetail })),
 )
 

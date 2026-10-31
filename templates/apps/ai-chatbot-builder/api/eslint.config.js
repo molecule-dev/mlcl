@@ -25,6 +25,9 @@ const moleculeLocal = {
   rules: {
     // The bond owns the runtime setting, so this rule only moves router imports.
     // Type-only imports cannot render a router and are deliberately left alone.
+    // `HydratedRouter` and the DOM `RouterProvider` (`react-router/dom`, re-exported by
+    // `react-router-dom`) move to the bond's `/dom` entry, which keeps `react-dom` out
+    // of its main entry.
     'router-commits-with-url': {
       meta: {
         type: 'problem',
@@ -32,7 +35,7 @@ const moleculeLocal = {
         schema: [],
         messages: {
           synchronous:
-            "Import this router from '@molecule/app-routing-react-router', whose wrapper sets useTransitions={false} so the URL and rendered page change together.",
+            "Import this router from '{{module}}', whose wrapper sets useTransitions={false} so the URL and rendered page change together.",
           namespace:
             "Import router components directly from '@molecule/app-routing-react-router' instead of a React Router namespace (namespace uses are not tracked), because its wrappers set useTransitions={false} so the URL and rendered page change together.",
           dynamic:
@@ -52,6 +55,22 @@ const moleculeLocal = {
           'unstable_HistoryRouter',
         ])
         const bond = '@molecule/app-routing-react-router'
+        const domEntries = new Set(['react-router/dom', 'react-router-dom'])
+        const target = (module, name) =>
+          name === 'HydratedRouter' || (name === 'RouterProvider' && domEntries.has(module))
+            ? `${bond}/dom`
+            : bond
+        // Moved specifiers grouped by the bond entry each one moves to, in source order.
+        const byTarget = (specifiers, module, nameOf) => {
+          const groups = new Map()
+          for (const specifier of specifiers) {
+            const destination = target(module, nameOf(specifier))
+            groups.set(destination, [...(groups.get(destination) ?? []), specifier])
+          }
+          return [...groups]
+        }
+        const importedName = (specifier) => specifier.imported.name ?? specifier.imported.value
+        const exportedLocal = (specifier) => specifier.local.name ?? specifier.local.value
         const declaration = (specifiers, module, semicolon) => {
           const parts = specifiers
             .filter((specifier) => specifier.type !== 'ImportSpecifier')
@@ -78,25 +97,27 @@ const moleculeLocal = {
               context.report({ node, messageId: 'namespace' })
               return
             }
+            const module = moduleName(node.source)
             const moved = node.specifiers.filter(
               (specifier) =>
                 specifier.type === 'ImportSpecifier' &&
                 specifier.importKind !== 'type' &&
-                routers.has(specifier.imported.name ?? specifier.imported.value),
+                routers.has(importedName(specifier)),
             )
             if (moved.length === 0) return
             context.report({
               node: moved[0],
               messageId: 'synchronous',
+              data: { module: target(module, importedName(moved[0])) },
               fix(fixer) {
                 const semicolon = source.getText(node).trimEnd().endsWith(';') ? ';' : ''
-                const bondImport = declaration(moved, bond, semicolon)
+                const bondImports = byTarget(moved, module, importedName).map(
+                  ([destination, specifiers]) => declaration(specifiers, destination, semicolon),
+                )
                 const remaining = node.specifiers.filter((specifier) => !moved.includes(specifier))
-                const replacement =
-                  remaining.length === 0
-                    ? bondImport
-                    : `${declaration(remaining, moduleName(node.source), semicolon)}\n${bondImport}`
-                return fixer.replaceText(node, replacement)
+                if (remaining.length > 0)
+                  bondImports.unshift(declaration(remaining, module, semicolon))
+                return fixer.replaceText(node, bondImports.join('\n'))
               },
             })
           },
@@ -107,25 +128,28 @@ const moleculeLocal = {
               node.exportKind === 'type'
             )
               return
+            const module = moduleName(node.source)
             const moved = node.specifiers.filter(
               (specifier) =>
                 specifier.type === 'ExportSpecifier' &&
                 specifier.exportKind !== 'type' &&
-                routers.has(specifier.local.name ?? specifier.local.value),
+                routers.has(exportedLocal(specifier)),
             )
             if (moved.length === 0) return
             context.report({
               node: moved[0],
               messageId: 'synchronous',
+              data: { module: target(module, exportedLocal(moved[0])) },
               fix(fixer) {
                 const semicolon = source.getText(node).trimEnd().endsWith(';') ? ';' : ''
-                const bondExport = exportDeclaration(moved, bond, semicolon)
+                const bondExports = byTarget(moved, module, exportedLocal).map(
+                  ([destination, specifiers]) =>
+                    exportDeclaration(specifiers, destination, semicolon),
+                )
                 const remaining = node.specifiers.filter((specifier) => !moved.includes(specifier))
-                const replacement =
-                  remaining.length === 0
-                    ? bondExport
-                    : `${exportDeclaration(remaining, moduleName(node.source), semicolon)}\n${bondExport}`
-                return fixer.replaceText(node, replacement)
+                if (remaining.length > 0)
+                  bondExports.push(exportDeclaration(remaining, module, semicolon))
+                return fixer.replaceText(node, bondExports.join('\n'))
               },
             })
           },

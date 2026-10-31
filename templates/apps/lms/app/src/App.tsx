@@ -1,59 +1,61 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { RootErrorBoundary } from '@molecule/app-root-error-boundary-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { BrowserRouter, lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { AuthGuard } from '@molecule/app-ui-react'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AppLayout } from './components/AppLayout.js'
 
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const AssignmentsPage = lazy(() =>
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const AssignmentsPage = lazyPage(() =>
   import('./pages/Assignments.js').then((m) => ({ default: m.AssignmentsPage })),
 )
-const CourseDetailPage = lazy(() =>
+const CourseDetailPage = lazyPage(() =>
   import('./pages/CourseDetail.js').then((m) => ({ default: m.CourseDetailPage })),
 )
-const CoursesPage = lazy(() =>
+const CoursesPage = lazyPage(() =>
   import('./pages/Courses.js').then((m) => ({ default: m.CoursesPage })),
 )
-const DashboardPage = lazy(() =>
+const DashboardPage = lazyPage(() =>
   import('./pages/Dashboard.js').then((m) => ({ default: m.DashboardPage })),
 )
-const DiscussionsPage = lazy(() =>
+const DiscussionsPage = lazyPage(() =>
   import('./pages/Discussions.js').then((m) => ({ default: m.DiscussionsPage })),
 )
-const DiscussionThreadPage = lazy(() =>
+const DiscussionThreadPage = lazyPage(() =>
   import('./pages/DiscussionThread.js').then((m) => ({ default: m.DiscussionThreadPage })),
 )
-const ForgotPassword = lazy(() =>
+const ForgotPassword = lazyPage(() =>
   import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
 )
-const GradebookPage = lazy(() =>
+const GradebookPage = lazyPage(() =>
   import('./pages/Gradebook.js').then((m) => ({ default: m.GradebookPage })),
 )
-const Help = lazy(() => import('./pages/Help.js').then((m) => ({ default: m.Help })))
-const Lesson = lazy(() => import('./pages/Lesson.js').then((m) => ({ default: m.Lesson })))
-const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
-const Notifications = lazy(() =>
+const Help = lazyPage(() => import('./pages/Help.js').then((m) => ({ default: m.Help })))
+const Lesson = lazyPage(() => import('./pages/Lesson.js').then((m) => ({ default: m.Lesson })))
+const Login = lazyPage(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Notifications = lazyPage(() =>
   import('./pages/Notifications.js').then((m) => ({ default: m.Notifications })),
 )
-const PlanUpdated = lazy(() =>
+const PlanUpdated = lazyPage(() =>
   import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
 )
-const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
-const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
-const ResetPassword = lazy(() =>
+const Pricing = lazyPage(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazyPage(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const ResetPassword = lazyPage(() =>
   import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
 )
-const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
-const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
-const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const Settings = lazyPage(() =>
+  import('./pages/Settings.js').then((m) => ({ default: m.Settings })),
+)
+const Signup = lazyPage(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazyPage(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
 export function App() {
   return (
     <BrowserRouter>

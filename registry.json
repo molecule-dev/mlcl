@@ -57775,14 +57775,12 @@
         "HashRouter",
         "MemoryRouter",
         "RouterProvider",
-        "HydratedRouter",
         "unstable_HistoryRouter",
         "BrowserRouterProps",
         "HashRouterProps",
         "MemoryRouterProps",
         "RouterProps",
         "RouterProviderProps",
-        "HydratedRouterProps",
         "HistoryRouterProps",
         "MoleculeRouterProvider",
         "useMoleculeRouter",
@@ -57817,7 +57815,10 @@
         "matchPath",
         "generatePath",
         "resolvePath",
-        "normalizePath"
+        "normalizePath",
+        "lazyPage",
+        "LazyLoadableComponent",
+        "LazyPageOptions"
       ],
       "secrets": [],
       "runtimeDependencies": [

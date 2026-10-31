@@ -1,10 +1,10 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { BrowserRouter, lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
@@ -12,39 +12,51 @@ import { AuthGuard } from './components/AuthGuard.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
 import { SurveyFeedbackToolLayout } from './components/SurveyFeedbackToolLayout.js'
 
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const Analytics = lazy(() => import('./pages/Analytics.js').then((m) => ({ default: m.Analytics })))
-const Builder = lazy(() => import('./pages/Builder.js').then((m) => ({ default: m.Builder })))
-const ForgotPassword = lazy(() =>
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Analytics = lazyPage(() =>
+  import('./pages/Analytics.js').then((m) => ({ default: m.Analytics })),
+)
+const Builder = lazyPage(() => import('./pages/Builder.js').then((m) => ({ default: m.Builder })))
+const ForgotPassword = lazyPage(() =>
   import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
 )
-const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
-const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
-const NotFound = lazy(() => import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })))
-const Notifications = lazy(() =>
+const Landing = lazyPage(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazyPage(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const NotFound = lazyPage(() =>
+  import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })),
+)
+const Notifications = lazyPage(() =>
   import('./pages/Notifications.js').then((m) => ({ default: m.Notifications })),
 )
-const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
-const Profile = lazy(() => import('./pages/Profile.js').then((m) => ({ default: m.Profile })))
-const PublicSurvey = lazy(() =>
+const Privacy = lazyPage(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const Profile = lazyPage(() => import('./pages/Profile.js').then((m) => ({ default: m.Profile })))
+const PublicSurvey = lazyPage(() =>
   import('./pages/PublicSurvey.js').then((m) => ({ default: m.PublicSurvey })),
 )
-const ResetPassword = lazy(() =>
+const ResetPassword = lazyPage(() =>
   import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
 )
-const ResponseDetail = lazy(() =>
+const ResponseDetail = lazyPage(() =>
   import('./pages/ResponseDetail.js').then((m) => ({ default: m.ResponseDetail })),
 )
-const Responses = lazy(() => import('./pages/Responses.js').then((m) => ({ default: m.Responses })))
-const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
-const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
-const SurveyDetail = lazy(() =>
+const Responses = lazyPage(() =>
+  import('./pages/Responses.js').then((m) => ({ default: m.Responses })),
+)
+const Settings = lazyPage(() =>
+  import('./pages/Settings.js').then((m) => ({ default: m.Settings })),
+)
+const Signup = lazyPage(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const SurveyDetail = lazyPage(() =>
   import('./pages/SurveyDetail.js').then((m) => ({ default: m.SurveyDetail })),
 )
-const Surveys = lazy(() => import('./pages/Surveys.js').then((m) => ({ default: m.Surveys })))
-const Templates = lazy(() => import('./pages/Templates.js').then((m) => ({ default: m.Templates })))
-const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
-const ThankYou = lazy(() => import('./pages/ThankYou.js').then((m) => ({ default: m.ThankYou })))
+const Surveys = lazyPage(() => import('./pages/Surveys.js').then((m) => ({ default: m.Surveys })))
+const Templates = lazyPage(() =>
+  import('./pages/Templates.js').then((m) => ({ default: m.Templates })),
+)
+const Terms = lazyPage(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const ThankYou = lazyPage(() =>
+  import('./pages/ThankYou.js').then((m) => ({ default: m.ThankYou })),
+)
 
 export function App() {
   return (

@@ -1,45 +1,51 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { RootErrorBoundary } from '@molecule/app-root-error-boundary-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { BrowserRouter, lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { MentalHealthJournalLayout } from './components/MentalHealthJournalLayout.js'
 
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const Calendar = lazy(() => import('./pages/Calendar.js').then((m) => ({ default: m.Calendar })))
-const EntryComposer = lazy(() =>
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Calendar = lazyPage(() =>
+  import('./pages/Calendar.js').then((m) => ({ default: m.Calendar })),
+)
+const EntryComposer = lazyPage(() =>
   import('./pages/EntryComposer.js').then((m) => ({ default: m.EntryComposer })),
 )
-const EntryDetail = lazy(() =>
+const EntryDetail = lazyPage(() =>
   import('./pages/EntryDetail.js').then((m) => ({ default: m.EntryDetail })),
 )
-const ForgotPassword = lazy(() =>
+const ForgotPassword = lazyPage(() =>
   import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
 )
-const Home = lazy(() => import('./pages/Home.js').then((m) => ({ default: m.Home })))
-const Insights = lazy(() => import('./pages/Insights.js').then((m) => ({ default: m.Insights })))
-const Journal = lazy(() => import('./pages/Journal.js').then((m) => ({ default: m.Journal })))
-const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
-const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
-const PlanUpdated = lazy(() =>
+const Home = lazyPage(() => import('./pages/Home.js').then((m) => ({ default: m.Home })))
+const Insights = lazyPage(() =>
+  import('./pages/Insights.js').then((m) => ({ default: m.Insights })),
+)
+const Journal = lazyPage(() => import('./pages/Journal.js').then((m) => ({ default: m.Journal })))
+const Landing = lazyPage(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazyPage(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const PlanUpdated = lazyPage(() =>
   import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
 )
-const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
-const Profile = lazy(() => import('./pages/Profile.js').then((m) => ({ default: m.Profile })))
-const Prompts = lazy(() => import('./pages/Prompts.js').then((m) => ({ default: m.Prompts })))
-const ResetPassword = lazy(() =>
+const Privacy = lazyPage(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const Profile = lazyPage(() => import('./pages/Profile.js').then((m) => ({ default: m.Profile })))
+const Prompts = lazyPage(() => import('./pages/Prompts.js').then((m) => ({ default: m.Prompts })))
+const ResetPassword = lazyPage(() =>
   import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
 )
-const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
-const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
-const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const Settings = lazyPage(() =>
+  import('./pages/Settings.js').then((m) => ({ default: m.Settings })),
+)
+const Signup = lazyPage(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazyPage(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
 
 export function App() {
   return (

@@ -1,64 +1,68 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { BrowserRouter, lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { AppLayout } from './components/AppLayout.js'
 import { AuthGuard } from './components/AuthGuard.js'
 
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const Cart = lazy(() => import('./pages/Cart.js').then((m) => ({ default: m.Cart })))
-const Catalog = lazy(() => import('./pages/Catalog.js').then((m) => ({ default: m.Catalog })))
-const Checkout = lazy(() => import('./pages/Checkout.js').then((m) => ({ default: m.Checkout })))
-const ForgotPassword = lazy(() =>
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Cart = lazyPage(() => import('./pages/Cart.js').then((m) => ({ default: m.Cart })))
+const Catalog = lazyPage(() => import('./pages/Catalog.js').then((m) => ({ default: m.Catalog })))
+const Checkout = lazyPage(() =>
+  import('./pages/Checkout.js').then((m) => ({ default: m.Checkout })),
+)
+const ForgotPassword = lazyPage(() =>
   import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
 )
-const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
-const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
-const Notifications = lazy(() =>
+const Landing = lazyPage(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazyPage(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Notifications = lazyPage(() =>
   import('./pages/Notifications.js').then((m) => ({ default: m.Notifications })),
 )
-const OrderDetail = lazy(() =>
+const OrderDetail = lazyPage(() =>
   import('./pages/OrderDetail.js').then((m) => ({ default: m.OrderDetail })),
 )
-const Orders = lazy(() => import('./pages/Orders.js').then((m) => ({ default: m.Orders })))
-const PlanUpdated = lazy(() =>
+const Orders = lazyPage(() => import('./pages/Orders.js').then((m) => ({ default: m.Orders })))
+const PlanUpdated = lazyPage(() =>
   import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
 )
-const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
-const ProductDetail = lazy(() =>
+const Privacy = lazyPage(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const ProductDetail = lazyPage(() =>
   import('./pages/ProductDetail.js').then((m) => ({ default: m.ProductDetail })),
 )
-const ResetPassword = lazy(() =>
+const ResetPassword = lazyPage(() =>
   import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
 )
-const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
-const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
-const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
-const VendorDashboard = lazy(() =>
+const Settings = lazyPage(() =>
+  import('./pages/Settings.js').then((m) => ({ default: m.Settings })),
+)
+const Signup = lazyPage(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazyPage(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const VendorDashboard = lazyPage(() =>
   import('./pages/VendorDashboard.js').then((m) => ({ default: m.VendorDashboard })),
 )
-const VendorOnboarding = lazy(() =>
+const VendorOnboarding = lazyPage(() =>
   import('./pages/VendorOnboarding.js').then((m) => ({ default: m.VendorOnboarding })),
 )
-const VendorOrders = lazy(() =>
+const VendorOrders = lazyPage(() =>
   import('./pages/VendorOrders.js').then((m) => ({ default: m.VendorOrders })),
 )
-const VendorPayouts = lazy(() =>
+const VendorPayouts = lazyPage(() =>
   import('./pages/VendorPayouts.js').then((m) => ({ default: m.VendorPayouts })),
 )
-const VendorProductForm = lazy(() =>
+const VendorProductForm = lazyPage(() =>
   import('./pages/VendorProductForm.js').then((m) => ({ default: m.VendorProductForm })),
 )
-const VendorProducts = lazy(() =>
+const VendorProducts = lazyPage(() =>
   import('./pages/VendorProducts.js').then((m) => ({ default: m.VendorProducts })),
 )
-const VendorStorefront = lazy(() =>
+const VendorStorefront = lazyPage(() =>
   import('./pages/VendorStorefront.js').then((m) => ({ default: m.VendorStorefront })),
 )
 

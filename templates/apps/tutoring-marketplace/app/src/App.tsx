@@ -1,10 +1,10 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { BrowserRouter, lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
@@ -12,40 +12,44 @@ import { AppLayout } from './components/AppLayout.js'
 import { AuthGuard } from './components/AuthGuard.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
 
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const Account = lazy(() => import('./pages/Account.js').then((m) => ({ default: m.Account })))
-const BecomeTutor = lazy(() =>
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Account = lazyPage(() => import('./pages/Account.js').then((m) => ({ default: m.Account })))
+const BecomeTutor = lazyPage(() =>
   import('./pages/BecomeTutor.js').then((m) => ({ default: m.BecomeTutor })),
 )
-const Booking = lazy(() => import('./pages/Booking.js').then((m) => ({ default: m.Booking })))
-const BookingConfirmation = lazy(() =>
+const Booking = lazyPage(() => import('./pages/Booking.js').then((m) => ({ default: m.Booking })))
+const BookingConfirmation = lazyPage(() =>
   import('./pages/BookingConfirmation.js').then((m) => ({ default: m.BookingConfirmation })),
 )
-const ForgotPassword = lazy(() =>
+const ForgotPassword = lazyPage(() =>
   import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
 )
-const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
-const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
-const Messages = lazy(() => import('./pages/Messages.js').then((m) => ({ default: m.Messages })))
-const PlanUpdated = lazy(() =>
+const Landing = lazyPage(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const Login = lazyPage(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Messages = lazyPage(() =>
+  import('./pages/Messages.js').then((m) => ({ default: m.Messages })),
+)
+const PlanUpdated = lazyPage(() =>
   import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
 )
-const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
-const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
-const ResetPassword = lazy(() =>
+const Pricing = lazyPage(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazyPage(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const ResetPassword = lazyPage(() =>
   import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
 )
-const Search = lazy(() => import('./pages/Search.js').then((m) => ({ default: m.Search })))
-const SessionDetail = lazy(() =>
+const Search = lazyPage(() => import('./pages/Search.js').then((m) => ({ default: m.Search })))
+const SessionDetail = lazyPage(() =>
   import('./pages/SessionDetail.js').then((m) => ({ default: m.SessionDetail })),
 )
-const Sessions = lazy(() => import('./pages/Sessions.js').then((m) => ({ default: m.Sessions })))
-const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
-const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
-const TutorDashboard = lazy(() =>
+const Sessions = lazyPage(() =>
+  import('./pages/Sessions.js').then((m) => ({ default: m.Sessions })),
+)
+const Signup = lazyPage(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazyPage(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const TutorDashboard = lazyPage(() =>
   import('./pages/TutorDashboard.js').then((m) => ({ default: m.TutorDashboard })),
 )
-const TutorProfile = lazy(() =>
+const TutorProfile = lazyPage(() =>
   import('./pages/TutorProfile.js').then((m) => ({ default: m.TutorProfile })),
 )
 

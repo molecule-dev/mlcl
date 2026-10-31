@@ -1,10 +1,10 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { BrowserRouter, lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
@@ -12,55 +12,67 @@ import { AuthGuard } from './components/AuthGuard.js'
 import { PropertyManagementLayout } from './components/PropertyManagementLayout.js'
 import { RootErrorBoundary } from './components/RootErrorBoundary.js'
 
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const Dashboard = lazy(() => import('./pages/Dashboard.js').then((m) => ({ default: m.Dashboard })))
-const Finances = lazy(() => import('./pages/Finances.js').then((m) => ({ default: m.Finances })))
-const ForgotPassword = lazy(() =>
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const Dashboard = lazyPage(() =>
+  import('./pages/Dashboard.js').then((m) => ({ default: m.Dashboard })),
+)
+const Finances = lazyPage(() =>
+  import('./pages/Finances.js').then((m) => ({ default: m.Finances })),
+)
+const ForgotPassword = lazyPage(() =>
   import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
 )
-const Landing = lazy(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
-const LeaseNew = lazy(() => import('./pages/LeaseNew.js').then((m) => ({ default: m.LeaseNew })))
-const Leases = lazy(() => import('./pages/Leases.js').then((m) => ({ default: m.Leases })))
-const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
-const Maintenance = lazy(() =>
+const Landing = lazyPage(() => import('./pages/Landing.js').then((m) => ({ default: m.Landing })))
+const LeaseNew = lazyPage(() =>
+  import('./pages/LeaseNew.js').then((m) => ({ default: m.LeaseNew })),
+)
+const Leases = lazyPage(() => import('./pages/Leases.js').then((m) => ({ default: m.Leases })))
+const Login = lazyPage(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Maintenance = lazyPage(() =>
   import('./pages/Maintenance.js').then((m) => ({ default: m.Maintenance })),
 )
-const MaintenanceDetail = lazy(() =>
+const MaintenanceDetail = lazyPage(() =>
   import('./pages/MaintenanceDetail.js').then((m) => ({ default: m.MaintenanceDetail })),
 )
-const MaintenanceNew = lazy(() =>
+const MaintenanceNew = lazyPage(() =>
   import('./pages/MaintenanceNew.js').then((m) => ({ default: m.MaintenanceNew })),
 )
-const NotFound = lazy(() => import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })))
-const Notifications = lazy(() =>
+const NotFound = lazyPage(() =>
+  import('./pages/NotFound.js').then((m) => ({ default: m.NotFound })),
+)
+const Notifications = lazyPage(() =>
   import('./pages/Notifications.js').then((m) => ({ default: m.Notifications })),
 )
-const PlanUpdated = lazy(() =>
+const PlanUpdated = lazyPage(() =>
   import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
 )
-const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
-const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
-const Properties = lazy(() =>
+const Pricing = lazyPage(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazyPage(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const Properties = lazyPage(() =>
   import('./pages/Properties.js').then((m) => ({ default: m.Properties })),
 )
-const PropertyDetail = lazy(() =>
+const PropertyDetail = lazyPage(() =>
   import('./pages/PropertyDetail.js').then((m) => ({ default: m.PropertyDetail })),
 )
-const PropertyNew = lazy(() =>
+const PropertyNew = lazyPage(() =>
   import('./pages/PropertyNew.js').then((m) => ({ default: m.PropertyNew })),
 )
-const Reports = lazy(() => import('./pages/Reports.js').then((m) => ({ default: m.Reports })))
-const ResetPassword = lazy(() =>
+const Reports = lazyPage(() => import('./pages/Reports.js').then((m) => ({ default: m.Reports })))
+const ResetPassword = lazyPage(() =>
   import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
 )
-const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
-const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
-const TenantDetail = lazy(() =>
+const Settings = lazyPage(() =>
+  import('./pages/Settings.js').then((m) => ({ default: m.Settings })),
+)
+const Signup = lazyPage(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const TenantDetail = lazyPage(() =>
   import('./pages/TenantDetail.js').then((m) => ({ default: m.TenantDetail })),
 )
-const TenantNew = lazy(() => import('./pages/TenantNew.js').then((m) => ({ default: m.TenantNew })))
-const Tenants = lazy(() => import('./pages/Tenants.js').then((m) => ({ default: m.Tenants })))
-const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const TenantNew = lazyPage(() =>
+  import('./pages/TenantNew.js').then((m) => ({ default: m.TenantNew })),
+)
+const Tenants = lazyPage(() => import('./pages/Tenants.js').then((m) => ({ default: m.Tenants })))
+const Terms = lazyPage(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
 export function App() {
   return (
     <RootErrorBoundary>

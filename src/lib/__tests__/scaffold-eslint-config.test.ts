@@ -183,10 +183,10 @@ describe('the shared scaffold eslint config', () => {
         )
       })
 
-      it('2: moves RouterProvider from react-router/dom', async () => {
+      it('2: moves RouterProvider from react-router/dom to the bond /dom entry', async () => {
         await expectFixed(
           "import { RouterProvider } from 'react-router/dom';\nexport const app = <RouterProvider router={router} />\n",
-          `import { RouterProvider } from '${bond}';\nexport const app = <RouterProvider router={router} />\n`,
+          `import { RouterProvider } from '${bond}/dom';\nexport const app = <RouterProvider router={router} />\n`,
         )
       })
 
@@ -222,6 +222,14 @@ describe('the shared scaffold eslint config', () => {
       )
     })
 
+    // The bond entry each router moves to: React Router's DOM-only routers need
+    // `react-dom`, which only the bond's `/dom` entry imports.
+    const destination = (component: string, entryPoint: string): string =>
+      component === 'HydratedRouter' ||
+      (component === 'RouterProvider' && entryPoint !== 'react-router')
+        ? `${bond}/dom`
+        : bond
+
     it.each([
       'HashRouter',
       'MemoryRouter',
@@ -233,9 +241,25 @@ describe('the shared scaffold eslint config', () => {
       for (const entryPoint of ['react-router', 'react-router-dom', 'react-router/dom']) {
         await expectFixed(
           `import { ${component} } from '${entryPoint}'\nexport { ${component} }\n`,
-          `import { ${component} } from '${bond}'\nexport { ${component} }\n`,
+          `import { ${component} } from '${destination(component, entryPoint)}'\nexport { ${component} }\n`,
         )
       }
+    })
+
+    it('names the /dom entry in the message for a DOM-only router', async () => {
+      const [result] = await eslint.lintText(
+        "import { HydratedRouter } from 'react-router/dom'\nexport const app = <HydratedRouter />\n",
+        { filePath: 'app.tsx' },
+      )
+      const [message] = result.messages.filter((m) => m.ruleId === ruleId)
+      expect(message?.message).toContain(`'${bond}/dom'`)
+    })
+
+    it('splits a react-router-dom import across the bond main and /dom entries', async () => {
+      await expectFixed(
+        'import { BrowserRouter, Link, RouterProvider } from \'react-router-dom\'\nexport const app = <BrowserRouter><Link to="/" /></BrowserRouter>\nexport { RouterProvider }\n',
+        `import { Link } from 'react-router-dom'\n\nimport { BrowserRouter } from '${bond}'\nimport { RouterProvider } from '${bond}/dom'\nexport const app = <BrowserRouter><Link to="/" /></BrowserRouter>\nexport { RouterProvider }\n`,
+      )
     })
 
     it.each(['react-router', 'react-router-dom', 'react-router/dom'])(
@@ -252,7 +276,9 @@ describe('the shared scaffold eslint config', () => {
       async (entryPoint) => {
         await expectFixed(
           `export { BrowserRouter as B, Link, RouterProvider } from '${entryPoint}'\n`,
-          `export { BrowserRouter as B, RouterProvider } from '${bond}'\nexport { Link } from '${entryPoint}'\n`,
+          entryPoint === 'react-router'
+            ? `export { BrowserRouter as B, RouterProvider } from '${bond}'\nexport { Link } from '${entryPoint}'\n`
+            : `export { BrowserRouter as B } from '${bond}'\nexport { RouterProvider } from '${bond}/dom'\nexport { Link } from '${entryPoint}'\n`,
         )
       },
     )

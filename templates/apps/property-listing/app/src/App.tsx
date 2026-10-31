@@ -1,11 +1,11 @@
-import { lazy, Suspense } from 'react'
+import { Suspense } from 'react'
 import { Navigate, Route, Routes } from 'react-router'
 
 import { AnalyticsRouteListener } from '@molecule/app-analytics-react'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { RootErrorBoundary } from '@molecule/app-root-error-boundary-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { BrowserRouter, lazyPage } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { AuthGuard } from '@molecule/app-ui-react'
 
@@ -15,56 +15,58 @@ import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 // downloads the framework plus only the page it shows. The two `*Route`
 // helpers below render these components from inside <Routes>, so they sit
 // under the Suspense boundary too.
-const About = lazy(() => import('./pages/About.js').then((m) => ({ default: m.About })))
-const AgentAnalyticsPage = lazy(() =>
+const About = lazyPage(() => import('./pages/About.js').then((m) => ({ default: m.About })))
+const AgentAnalyticsPage = lazyPage(() =>
   import('./pages/AgentAnalyticsPage.js').then((m) => ({ default: m.AgentAnalyticsPage })),
 )
-const AgentDashboard = lazy(() =>
+const AgentDashboard = lazyPage(() =>
   import('./pages/AgentDashboard.js').then((m) => ({ default: m.AgentDashboard })),
 )
-const AgentLeadsPage = lazy(() =>
+const AgentLeadsPage = lazyPage(() =>
   import('./pages/AgentLeadsPage.js').then((m) => ({ default: m.AgentLeadsPage })),
 )
-const AgentListingsPage = lazy(() =>
+const AgentListingsPage = lazyPage(() =>
   import('./pages/AgentListingsPage.js').then((m) => ({ default: m.AgentListingsPage })),
 )
-const AgentProfilePage = lazy(() =>
+const AgentProfilePage = lazyPage(() =>
   import('./pages/AgentProfilePage.js').then((m) => ({ default: m.AgentProfilePage })),
 )
-const AgentShowingsPage = lazy(() =>
+const AgentShowingsPage = lazyPage(() =>
   import('./pages/AgentShowingsPage.js').then((m) => ({ default: m.AgentShowingsPage })),
 )
-const ForgotPassword = lazy(() =>
+const ForgotPassword = lazyPage(() =>
   import('./pages/ForgotPassword.js').then((m) => ({ default: m.ForgotPassword })),
 )
-const Help = lazy(() => import('./pages/Help.js').then((m) => ({ default: m.Help })))
-const ListingEditorPage = lazy(() =>
+const Help = lazyPage(() => import('./pages/Help.js').then((m) => ({ default: m.Help })))
+const ListingEditorPage = lazyPage(() =>
   import('./pages/ListingEditorPage.js').then((m) => ({ default: m.ListingEditorPage })),
 )
-const Login = lazy(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
-const Notifications = lazy(() =>
+const Login = lazyPage(() => import('./pages/Login.js').then((m) => ({ default: m.Login })))
+const Notifications = lazyPage(() =>
   import('./pages/Notifications.js').then((m) => ({ default: m.Notifications })),
 )
-const PlanUpdated = lazy(() =>
+const PlanUpdated = lazyPage(() =>
   import('./pages/PlanUpdated.js').then((m) => ({ default: m.PlanUpdated })),
 )
-const Pricing = lazy(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
-const Privacy = lazy(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
-const PropertyDetailPage = lazy(() =>
+const Pricing = lazyPage(() => import('./pages/Pricing.js').then((m) => ({ default: m.Pricing })))
+const Privacy = lazyPage(() => import('./pages/Privacy.js').then((m) => ({ default: m.Privacy })))
+const PropertyDetailPage = lazyPage(() =>
   import('./pages/PropertyDetailPage.js').then((m) => ({ default: m.PropertyDetailPage })),
 )
-const ResetPassword = lazy(() =>
+const ResetPassword = lazyPage(() =>
   import('./pages/ResetPassword.js').then((m) => ({ default: m.ResetPassword })),
 )
-const SavedPropertiesPage = lazy(() =>
+const SavedPropertiesPage = lazyPage(() =>
   import('./pages/SavedPropertiesPage.js').then((m) => ({ default: m.SavedPropertiesPage })),
 )
-const SearchPage = lazy(() =>
+const SearchPage = lazyPage(() =>
   import('./pages/SearchPage.js').then((m) => ({ default: m.SearchPage })),
 )
-const Settings = lazy(() => import('./pages/Settings.js').then((m) => ({ default: m.Settings })))
-const Signup = lazy(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
-const Terms = lazy(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
+const Settings = lazyPage(() =>
+  import('./pages/Settings.js').then((m) => ({ default: m.Settings })),
+)
+const Signup = lazyPage(() => import('./pages/Signup.js').then((m) => ({ default: m.Signup })))
+const Terms = lazyPage(() => import('./pages/Terms.js').then((m) => ({ default: m.Terms })))
 function PropertyDetailRoute() {
   return <PropertyDetailPage />
 }
