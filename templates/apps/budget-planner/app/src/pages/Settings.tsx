@@ -6,7 +6,6 @@ import { NotificationsSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
-import { API_BASE_URL } from '../config.js'
 import { primeCurrency, primeDateFormat } from '../lib/format.js'
 import { unwrapSingle } from '../lib/unwrap.js'
 
@@ -142,19 +141,14 @@ export function Settings() {
   }
 
   async function downloadExport(format: 'csv' | 'json') {
-    // Direct <a href> navigation strips the Authorization Bearer header, so
-    // the API would 401. Fetch the file with the current auth token, build a
-    // Blob URL, and trigger a click on a hidden <a download>.
-    const url = `${API_BASE_URL}/export/transactions.${format}`
-    const token = http.getAuthToken?.()
+    // Direct <a href> navigation carries no auth header, so the API would 401.
+    // Fetch the file through the shared client (its auth, cookies and errors),
+    // build a Blob URL, and trigger a click on a hidden <a download>.
     try {
-      const res = await fetch(url, {
-        headers: token ? { Authorization: `Bearer ${token}` } : {},
-        credentials: 'include',
+      const res = await http.get<Blob>(`/api/export/transactions.${format}`, {
+        responseType: 'blob',
       })
-      if (!res.ok) throw new Error(`HTTP ${res.status}`)
-      const blob = await res.blob()
-      const blobUrl = URL.createObjectURL(blob)
+      const blobUrl = URL.createObjectURL(res.data)
       const a = document.createElement('a')
       a.href = blobUrl
       a.download = `coffer-transactions.${format}`

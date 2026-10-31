@@ -2652,10 +2652,8 @@ export async function copyTemplateInstance(
   // template build would lint differently than a custom build and the verifier
   // would fail handler code that merely mirrors the template's own snake_case
   // columns. Overwrite with the canonical base so EVERY build lints identically.
-  const eslintTpl = await loadTemplate('shared/eslint.config.js.tpl')
   for (const ws of ['api', 'app']) {
-    const wsEslint = join(destDir, ws, 'eslint.config.js')
-    if (existsSync(join(destDir, ws))) await writeGuarded(wsEslint, eslintTpl)
+    if (existsSync(join(destDir, ws))) await scaffoldEslint(join(destDir, ws))
   }
 
   // Copy template-root e2e/ + playwright.config.ts into the scaffolded
@@ -3688,10 +3686,7 @@ export async function createApiProject(
   // selection, the moment a database package lands; a database-less project
   // never gets a file whose imports nothing declares (its `db:setup` script
   // then fails loudly only if run).
-  await writeFile(
-    join(projectPath, 'eslint.config.js'),
-    await loadTemplate('shared/eslint.config.js.tpl'),
-  )
+  await scaffoldEslint(projectPath)
   await writeFile(join(projectPath, '.prettierrc'), await loadTemplate('api/prettierrc.json.tpl'))
   await writeFile(
     join(projectPath, '.prettierignore'),
@@ -3699,6 +3694,27 @@ export async function createApiProject(
   )
   await writeFile(join(projectPath, '.editorconfig'), await loadTemplate('shared/editorconfig.tpl'))
   await writeFile(join(projectPath, '.gitignore'), await loadTemplate('api/gitignore.tpl'))
+}
+
+/**
+ * Deliver the same verification contract to custom and template projects.
+ * The rule reads the nearest manifest at lint time, so unused capabilities and
+ * packages later added/removed need no generated options or harness policy.
+ *
+ * @param projectPath - Workspace whose lint script uses the shared config.
+ * @param configName - Use an explicit module extension for non-ESM packages.
+ */
+async function scaffoldEslint(projectPath: string, configName = 'eslint.config.js'): Promise<void> {
+  const rulesDir = join(projectPath, 'eslint-rules')
+  await mkdir(rulesDir, { recursive: true })
+  await writeGuarded(
+    join(rulesDir, 'prefer-declared-clients.mjs'),
+    await loadTemplate('shared/prefer-declared-clients.mjs'),
+  )
+  await writeGuarded(
+    join(projectPath, configName),
+    await loadTemplate('shared/eslint.config.js.tpl'),
+  )
 }
 
 /**
@@ -5109,10 +5125,7 @@ export async function createAppProject(
   )
 
   // Shared config files
-  await writeFile(
-    join(projectPath, 'eslint.config.js'),
-    await loadTemplate('shared/eslint.config.js.tpl'),
-  )
+  await scaffoldEslint(projectPath)
   await writeFile(
     join(projectPath, '.prettierrc'),
     await loadTemplate('app/shared/prettierrc.json.tpl'),
@@ -7565,6 +7578,7 @@ export async function createReactNativeAppProject(
   }
 
   const devDeps: Record<string, string> = {
+    ...(toolchain?.shared || {}),
     ...(fwConfig.devDependencies || {}),
     typescript: toolchain?.shared?.typescript || '6.0.3',
   }
@@ -7580,6 +7594,8 @@ export async function createReactNativeAppProject(
       android: 'expo run:android',
       build: 'tsc --noEmit',
       test: 'jest',
+      lint: 'eslint src/',
+      'lint:fix': 'eslint src/ --fix',
     },
     dependencies: deps,
     devDependencies: devDeps,
@@ -7590,6 +7606,7 @@ export async function createReactNativeAppProject(
   }
 
   await writeFile(join(projectPath, 'package.json'), JSON.stringify(pkgJson, null, 2) + '\n')
+  await scaffoldEslint(projectPath, 'eslint.config.mjs')
 
   // ---- tsconfig.json (framework-driven from registry) ----
   const tsconfig = {

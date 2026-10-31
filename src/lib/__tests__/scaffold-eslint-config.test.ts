@@ -15,9 +15,8 @@
  * @module
  */
 
-import { copyFile, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
-import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -39,11 +38,18 @@ let dir: string
 let eslint: ESLint
 
 beforeEach(async () => {
-  dir = await mkdtemp(join(tmpdir(), 'mlcl-eslint-config-'))
+  const tmp = join(import.meta.dirname, '../../../.tmp')
+  await mkdir(tmp, { recursive: true })
+  dir = await mkdtemp(join(tmp, 'mlcl-eslint-config-'))
   // The .tpl's extension is not loadable as a config file, and its bare
   // imports have to resolve from a directory under node_modules — so it is
   // copied to .mjs next to a link to the installed tree.
   await copyFile(TEMPLATE, join(dir, 'eslint.config.mjs'))
+  await mkdir(join(dir, 'eslint-rules'))
+  await copyFile(
+    join(import.meta.dirname, '../../../templates/shared/prefer-declared-clients.mjs'),
+    join(dir, 'eslint-rules/prefer-declared-clients.mjs'),
+  )
   await symlink(NODE_MODULES, join(dir, 'node_modules'), 'dir')
   eslint = new ESLint({
     cwd: dir,

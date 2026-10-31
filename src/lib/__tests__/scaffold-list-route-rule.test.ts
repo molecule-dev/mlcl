@@ -1,6 +1,5 @@
-import { copyFile, mkdtemp, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, rm, symlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
-import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -12,9 +11,16 @@ const require = createRequire(import.meta.url)
 const template = fileURLToPath(
   new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),
 )
-const dir = await mkdtemp(join(tmpdir(), 'mlcl-list-route-rule-'))
+const tmp = join(import.meta.dirname, '../../../.tmp')
+await mkdir(tmp, { recursive: true })
+const dir = await mkdtemp(join(tmp, 'mlcl-list-route-rule-'))
 const configPath = join(dir, 'eslint.config.mjs')
 await copyFile(template, configPath)
+await mkdir(join(dir, 'eslint-rules'))
+await copyFile(
+  join(import.meta.dirname, '../../../templates/shared/prefer-declared-clients.mjs'),
+  join(dir, 'eslint-rules/prefer-declared-clients.mjs'),
+)
 await symlink(
   dirname(dirname(require.resolve('eslint/package.json'))),
   join(dir, 'node_modules'),

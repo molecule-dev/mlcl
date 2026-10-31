@@ -5,6 +5,8 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import tseslint from 'typescript-eslint'
 
+import preferDeclaredClients from './eslint-rules/prefer-declared-clients.mjs'
+
 // `eslint-plugin-security` is deliberately NOT wired in. The classes its
 // low-false-positive rules target (raw SQL, direct fs access, eval) are removed
 // by this stack's architecture (DataStore abstraction, secrets bond), and its
@@ -23,6 +25,7 @@ import tseslint from 'typescript-eslint'
  */
 const moleculeLocal = {
   rules: {
+    'prefer-declared-clients': preferDeclaredClients,
     // The bond owns the runtime setting, so this rule only moves router imports.
     // Type-only imports cannot render a router and are deliberately left alone.
     // `HydratedRouter` and the DOM `RouterProvider` (`react-router/dom`, re-exported by
@@ -587,6 +590,7 @@ export default tseslint.config(
       'molecule-local': moleculeLocal,
     },
     rules: {
+      'molecule-local/prefer-declared-clients': 'error',
       'molecule-local/router-commits-with-url': 'error',
       'molecule-local/url-lists-use-list-route': 'warn',
       'molecule-local/require-catch-binding': 'warn',
