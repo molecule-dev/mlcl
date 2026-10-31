@@ -38,32 +38,6 @@ vi.mock('@molecule/app-auth', () => ({
   register: {},
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -984,17 +958,6 @@ vi.mock('@molecule/app-logger', () => ({
   error: {},
 }))
 
-vi.mock('@molecule/app-markdown', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  TocEntry: {},
-  RenderedMarkdown: {},
-  MarkdownOptions: {},
-  MarkdownProvider: {},
-}))
-
 vi.mock('@molecule/app-platform', () => ({
   Platform: {},
   PlatformInfo: {},
@@ -1181,17 +1144,6 @@ vi.mock('@molecule/app-theme-css-variables', () => ({
   provider: {},
   lightTheme: {},
   darkTheme: {},
-}))
-
-vi.mock('@molecule/app-tree-view', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  TreeNode: {},
-  TreeOptions: {},
-  TreeInstance: {},
-  TreeViewProvider: {},
 }))
 
 vi.mock('@molecule/app-ui', () => ({

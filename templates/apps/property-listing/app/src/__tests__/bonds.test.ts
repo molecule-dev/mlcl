@@ -73,40 +73,6 @@ vi.mock('@molecule/app-bond', () => ({
   require: {},
 }))
 
-vi.mock('@molecule/app-data-table', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createTable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ColumnAlign: {},
-  ColumnPin: {},
-  SortDirection: {},
-  ColumnDef: {},
-  PaginationOptions: {},
-  PaginationState: {},
-  SortingState: {},
-  SortingOptions: {},
-  FilterState: {},
-  FilteringOptions: {},
-  SelectionOptions: {},
-  RowClickEvent: {},
-  DataTableInstance: {},
-  DataTableOptions: {},
-  DataTableProvider: {},
-}))
-
-vi.mock('@molecule/app-date-range-picker', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  DateRange: {},
-  DatePreset: {},
-  DateRangeOptions: {},
-  DateRangeInstance: {},
-  DateRangePickerProvider: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -174,17 +140,6 @@ vi.mock('@molecule/app-forms', () => ({
   getProvider: vi.fn(),
   hasProvider: vi.fn(),
   createForm: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-}))
-
-vi.mock('@molecule/app-gallery', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  GalleryItem: {},
-  GalleryOptions: {},
-  GalleryInstance: {},
-  GalleryProvider: {},
 }))
 
 vi.mock('@molecule/app-http', () => ({
@@ -1122,33 +1077,6 @@ vi.mock('@molecule/app-logger', () => ({
   error: {},
 }))
 
-vi.mock('@molecule/app-maps', () => ({
-  Coordinates: {},
-  Bounds: {},
-  Viewport: {},
-  MarkerConfig: {},
-  PolylineConfig: {},
-  PolygonConfig: {},
-  CircleConfig: {},
-  PopupConfig: {},
-  MapEvent: {},
-  MapClickEvent: {},
-  MapMoveEvent: {},
-  MapConfig: {},
-  MapInstance: {},
-  MapProvider: {},
-  defaultStyles: {},
-  calculateDistance: {},
-  calculateCenter: {},
-  calculateBounds: {},
-  isWithinBounds: vi.fn(),
-  createSimpleMapProvider: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createMap: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-}))
-
 vi.mock('@molecule/app-platform', () => ({
   Platform: {},
   PlatformInfo: {},
@@ -1715,21 +1643,6 @@ vi.mock('@molecule/app-version', () => ({
   dismissUpdate: {},
   ServiceWorkerTemplateOptions: {},
   generateServiceWorkerTemplate: {},
-}))
-
-vi.mock('@molecule/app-virtual-scroll', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createVirtualizer: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ScrollAlignment: {},
-  ScrollBehavior: {},
-  ScrollAxis: {},
-  ScrollToOptions: {},
-  VirtualItem: {},
-  VirtualScrollOptions: {},
-  VirtualScrollInstance: {},
-  VirtualScrollProvider: {},
 }))
 
 describe('bonds/index', () => {

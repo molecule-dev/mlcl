@@ -38,32 +38,6 @@ vi.mock('@molecule/app-auth', () => ({
   register: {},
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -218,18 +192,6 @@ vi.mock('@molecule/app-icons', () => ({
 vi.mock('@molecule/app-icons-molecule', () => ({
   iconSet: {},
   icons: {},
-}))
-
-vi.mock('@molecule/app-image-crop', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  CropData: {},
-  OutputOptions: {},
-  CropperOptions: {},
-  CropperInstance: {},
-  ImageCropProvider: {},
 }))
 
 vi.mock('@molecule/app-locales-auth', () => ({
@@ -1601,21 +1563,6 @@ vi.mock('@molecule/app-version', () => ({
   dismissUpdate: {},
   ServiceWorkerTemplateOptions: {},
   generateServiceWorkerTemplate: {},
-}))
-
-vi.mock('@molecule/app-virtual-scroll', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createVirtualizer: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ScrollAlignment: {},
-  ScrollBehavior: {},
-  ScrollAxis: {},
-  ScrollToOptions: {},
-  VirtualItem: {},
-  VirtualScrollOptions: {},
-  VirtualScrollInstance: {},
-  VirtualScrollProvider: {},
 }))
 
 describe('bonds/index', () => {

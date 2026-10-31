@@ -38,66 +38,6 @@ vi.mock('@molecule/app-auth', () => ({
   register: {},
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
-vi.mock('@molecule/app-data-table', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createTable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ColumnAlign: {},
-  ColumnPin: {},
-  SortDirection: {},
-  ColumnDef: {},
-  PaginationOptions: {},
-  PaginationState: {},
-  SortingState: {},
-  SortingOptions: {},
-  FilterState: {},
-  FilteringOptions: {},
-  SelectionOptions: {},
-  RowClickEvent: {},
-  DataTableInstance: {},
-  DataTableOptions: {},
-  DataTableProvider: {},
-}))
-
-vi.mock('@molecule/app-date-range-picker', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  DateRange: {},
-  DatePreset: {},
-  DateRangeOptions: {},
-  DateRangeInstance: {},
-  DateRangePickerProvider: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -124,21 +64,6 @@ vi.mock('@molecule/app-device', () => ({
   getLanguage: vi.fn(),
   isOnline: vi.fn(),
   isStandalone: vi.fn(),
-}))
-
-vi.mock('@molecule/app-file-upload', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createUploader: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  FileUploadStatus: {},
-  FileValidation: {},
-  UploadFile: {},
-  UploadDestination: {},
-  FileUploadEvents: {},
-  FileUploadOptions: {},
-  FileUploadInstance: {},
-  FileUploadProvider: {},
 }))
 
 vi.mock('@molecule/app-fonts', () => ({

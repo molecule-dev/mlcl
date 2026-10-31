@@ -52,96 +52,6 @@ vi.mock('@molecule/app-billing-react', () => ({
   useCancelSubscription: vi.fn(),
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
-vi.mock('@molecule/app-charts', () => ({
-  ChartType: {},
-  DataPoint: {},
-  Dataset: {},
-  FontConfig: {},
-  AxisConfig: {},
-  LegendConfig: {},
-  TooltipConfig: {},
-  AnimationConfig: {},
-  ChartConfig: {},
-  ChartInstance: {},
-  ChartProvider: {},
-  colorPalettes: {},
-  getColor: vi.fn(),
-  generateColors: {},
-  createSimpleChartProvider: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createLineChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createBarChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createPieChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createDoughnutChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createAreaChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createScatterChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createRadarChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-}))
-
-vi.mock('@molecule/app-command-palette', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createPalette: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  CommandItem: {},
-  CommandGroup: {},
-  CommandPage: {},
-  CommandPaletteOptions: {},
-  CommandPaletteInstance: {},
-  CommandPaletteProvider: {},
-}))
-
-vi.mock('@molecule/app-data-table', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createTable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ColumnAlign: {},
-  ColumnPin: {},
-  SortDirection: {},
-  ColumnDef: {},
-  PaginationOptions: {},
-  PaginationState: {},
-  SortingState: {},
-  SortingOptions: {},
-  FilterState: {},
-  FilteringOptions: {},
-  SelectionOptions: {},
-  RowClickEvent: {},
-  DataTableInstance: {},
-  DataTableOptions: {},
-  DataTableProvider: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -168,21 +78,6 @@ vi.mock('@molecule/app-device', () => ({
   getLanguage: vi.fn(),
   isOnline: vi.fn(),
   isStandalone: vi.fn(),
-}))
-
-vi.mock('@molecule/app-file-upload', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createUploader: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  FileUploadStatus: {},
-  FileValidation: {},
-  UploadFile: {},
-  UploadDestination: {},
-  FileUploadEvents: {},
-  FileUploadOptions: {},
-  FileUploadInstance: {},
-  FileUploadProvider: {},
 }))
 
 vi.mock('@molecule/app-fonts', () => ({
@@ -1161,17 +1056,6 @@ vi.mock('@molecule/app-logger', () => ({
   error: {},
 }))
 
-vi.mock('@molecule/app-markdown', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  TocEntry: {},
-  RenderedMarkdown: {},
-  MarkdownOptions: {},
-  MarkdownProvider: {},
-}))
-
 vi.mock('@molecule/app-platform', () => ({
   Platform: {},
   PlatformInfo: {},
@@ -1760,21 +1644,6 @@ vi.mock('@molecule/app-version', () => ({
   dismissUpdate: {},
   ServiceWorkerTemplateOptions: {},
   generateServiceWorkerTemplate: {},
-}))
-
-vi.mock('@molecule/app-virtual-scroll', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createVirtualizer: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ScrollAlignment: {},
-  ScrollBehavior: {},
-  ScrollAxis: {},
-  ScrollToOptions: {},
-  VirtualItem: {},
-  VirtualScrollOptions: {},
-  VirtualScrollInstance: {},
-  VirtualScrollProvider: {},
 }))
 
 describe('bonds/index', () => {

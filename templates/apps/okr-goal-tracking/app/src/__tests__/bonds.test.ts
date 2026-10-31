@@ -38,67 +38,6 @@ vi.mock('@molecule/app-auth', () => ({
   register: {},
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
-vi.mock('@molecule/app-command-palette', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createPalette: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  CommandItem: {},
-  CommandGroup: {},
-  CommandPage: {},
-  CommandPaletteOptions: {},
-  CommandPaletteInstance: {},
-  CommandPaletteProvider: {},
-}))
-
-vi.mock('@molecule/app-data-table', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createTable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ColumnAlign: {},
-  ColumnPin: {},
-  SortDirection: {},
-  ColumnDef: {},
-  PaginationOptions: {},
-  PaginationState: {},
-  SortingState: {},
-  SortingOptions: {},
-  FilterState: {},
-  FilteringOptions: {},
-  SelectionOptions: {},
-  RowClickEvent: {},
-  DataTableInstance: {},
-  DataTableOptions: {},
-  DataTableProvider: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -1205,17 +1144,6 @@ vi.mock('@molecule/app-theme-css-variables', () => ({
   provider: {},
   lightTheme: {},
   darkTheme: {},
-}))
-
-vi.mock('@molecule/app-tree-view', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  TreeNode: {},
-  TreeOptions: {},
-  TreeInstance: {},
-  TreeViewProvider: {},
 }))
 
 vi.mock('@molecule/app-ui', () => ({

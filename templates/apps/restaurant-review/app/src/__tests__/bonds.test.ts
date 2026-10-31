@@ -38,32 +38,6 @@ vi.mock('@molecule/app-auth', () => ({
   register: {},
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -131,17 +105,6 @@ vi.mock('@molecule/app-forms', () => ({
   getProvider: vi.fn(),
   hasProvider: vi.fn(),
   createForm: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-}))
-
-vi.mock('@molecule/app-gallery', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  GalleryItem: {},
-  GalleryOptions: {},
-  GalleryInstance: {},
-  GalleryProvider: {},
 }))
 
 vi.mock('@molecule/app-http', () => ({
@@ -1079,33 +1042,6 @@ vi.mock('@molecule/app-logger', () => ({
   error: {},
 }))
 
-vi.mock('@molecule/app-maps', () => ({
-  Coordinates: {},
-  Bounds: {},
-  Viewport: {},
-  MarkerConfig: {},
-  PolylineConfig: {},
-  PolygonConfig: {},
-  CircleConfig: {},
-  PopupConfig: {},
-  MapEvent: {},
-  MapClickEvent: {},
-  MapMoveEvent: {},
-  MapConfig: {},
-  MapInstance: {},
-  MapProvider: {},
-  defaultStyles: {},
-  calculateDistance: {},
-  calculateCenter: {},
-  calculateBounds: {},
-  isWithinBounds: vi.fn(),
-  createSimpleMapProvider: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createMap: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-}))
-
 vi.mock('@molecule/app-platform', () => ({
   Platform: {},
   PlatformInfo: {},
@@ -1694,21 +1630,6 @@ vi.mock('@molecule/app-version', () => ({
   dismissUpdate: {},
   ServiceWorkerTemplateOptions: {},
   generateServiceWorkerTemplate: {},
-}))
-
-vi.mock('@molecule/app-virtual-scroll', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createVirtualizer: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ScrollAlignment: {},
-  ScrollBehavior: {},
-  ScrollAxis: {},
-  ScrollToOptions: {},
-  VirtualItem: {},
-  VirtualScrollOptions: {},
-  VirtualScrollInstance: {},
-  VirtualScrollProvider: {},
 }))
 
 describe('bonds/index', () => {

@@ -64,35 +64,6 @@ vi.mock('@molecule/app-bond', () => ({
   require: {},
 }))
 
-vi.mock('@molecule/app-charts', () => ({
-  ChartType: {},
-  DataPoint: {},
-  Dataset: {},
-  FontConfig: {},
-  AxisConfig: {},
-  LegendConfig: {},
-  TooltipConfig: {},
-  AnimationConfig: {},
-  ChartConfig: {},
-  ChartInstance: {},
-  ChartProvider: {},
-  colorPalettes: {},
-  getColor: vi.fn(),
-  generateColors: {},
-  createSimpleChartProvider: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createLineChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createBarChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createPieChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createDoughnutChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createAreaChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createScatterChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createRadarChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-}))
-
 vi.mock('@molecule/app-command-palette', () => ({
   setProvider: vi.fn(),
   getProvider: vi.fn(),

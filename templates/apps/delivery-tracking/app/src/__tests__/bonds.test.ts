@@ -52,45 +52,6 @@ vi.mock('@molecule/app-billing-react', () => ({
   useCancelSubscription: vi.fn(),
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
-vi.mock('@molecule/app-command-palette', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createPalette: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  CommandItem: {},
-  CommandGroup: {},
-  CommandPage: {},
-  CommandPaletteOptions: {},
-  CommandPaletteInstance: {},
-  CommandPaletteProvider: {},
-}))
-
 vi.mock('@molecule/app-command-palette-cmdk', () => ({
   createCmdkProvider: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
   provider: {},

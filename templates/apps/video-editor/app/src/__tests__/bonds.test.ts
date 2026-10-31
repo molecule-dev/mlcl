@@ -38,45 +38,6 @@ vi.mock('@molecule/app-auth', () => ({
   register: {},
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
-vi.mock('@molecule/app-command-palette', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createPalette: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  CommandItem: {},
-  CommandGroup: {},
-  CommandPage: {},
-  CommandPaletteOptions: {},
-  CommandPaletteInstance: {},
-  CommandPaletteProvider: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -103,44 +64,6 @@ vi.mock('@molecule/app-device', () => ({
   getLanguage: vi.fn(),
   isOnline: vi.fn(),
   isStandalone: vi.fn(),
-}))
-
-vi.mock('@molecule/app-drag-drop', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createSortable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createDraggable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createDroppable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  SortableAxis: {},
-  SortableStrategy: {},
-  DragStartEvent: {},
-  DragMoveEvent: {},
-  DragEndEvent: {},
-  DragOverEvent: {},
-  SortableOptions: {},
-  SortableInstance: {},
-  DraggableOptions: {},
-  DraggableInstance: {},
-  DroppableOptions: {},
-  DroppableInstance: {},
-  DragDropContextOptions: {},
-  DragDropProvider: {},
-}))
-
-vi.mock('@molecule/app-file-upload', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createUploader: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  FileUploadStatus: {},
-  FileValidation: {},
-  UploadFile: {},
-  UploadDestination: {},
-  FileUploadEvents: {},
-  FileUploadOptions: {},
-  FileUploadInstance: {},
-  FileUploadProvider: {},
 }))
 
 vi.mock('@molecule/app-fonts', () => ({
@@ -252,16 +175,6 @@ vi.mock('@molecule/app-icons', () => ({
 vi.mock('@molecule/app-icons-molecule', () => ({
   iconSet: {},
   icons: {},
-}))
-
-vi.mock('@molecule/app-keyboard-shortcuts', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  Shortcut: {},
-  RegisteredShortcut: {},
-  KeyboardShortcutsProvider: {},
 }))
 
 vi.mock('@molecule/app-locales-auth', () => ({
@@ -1233,17 +1146,6 @@ vi.mock('@molecule/app-theme-css-variables', () => ({
   darkTheme: {},
 }))
 
-vi.mock('@molecule/app-timeline', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  TimelineItem: {},
-  TimelineOptions: {},
-  TimelineInstance: {},
-  TimelineProvider: {},
-}))
-
 vi.mock('@molecule/app-ui', () => ({
   molId: {},
   MOL_ID_ATTR: {},
@@ -1644,21 +1546,6 @@ vi.mock('@molecule/app-version', () => ({
   dismissUpdate: {},
   ServiceWorkerTemplateOptions: {},
   generateServiceWorkerTemplate: {},
-}))
-
-vi.mock('@molecule/app-virtual-scroll', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createVirtualizer: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ScrollAlignment: {},
-  ScrollBehavior: {},
-  ScrollAxis: {},
-  ScrollToOptions: {},
-  VirtualItem: {},
-  VirtualScrollOptions: {},
-  VirtualScrollInstance: {},
-  VirtualScrollProvider: {},
 }))
 
 describe('bonds/index', () => {

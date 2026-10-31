@@ -38,99 +38,6 @@ vi.mock('@molecule/app-auth', () => ({
   register: {},
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
-vi.mock('@molecule/app-calendar', () => ({
-  Calendar: {},
-  EventAttendee: {},
-  EventReminder: {},
-  RecurrenceRule: {},
-  CalendarEvent: {},
-  EventInput: {},
-  EventQueryOptions: {},
-  CalendarPermissionStatus: {},
-  CalendarCapabilities: {},
-  CalendarProvider: {},
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  getCalendars: vi.fn(),
-  getEvents: vi.fn(),
-  getEventById: vi.fn(),
-  createEvent: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  updateEvent: {},
-  deleteEvent: {},
-  openCalendar: {},
-  openEvent: {},
-  getPermissionStatus: vi.fn(),
-  requestPermission: {},
-  openSettings: {},
-  getCapabilities: vi.fn(),
-  eventsOverlap: {},
-  getEventDuration: vi.fn(),
-  formatEventTimeRange: {},
-  parseQuickEvent: {},
-}))
-
-vi.mock('@molecule/app-command-palette', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createPalette: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  CommandItem: {},
-  CommandGroup: {},
-  CommandPage: {},
-  CommandPaletteOptions: {},
-  CommandPaletteInstance: {},
-  CommandPaletteProvider: {},
-}))
-
-vi.mock('@molecule/app-data-table', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createTable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ColumnAlign: {},
-  ColumnPin: {},
-  SortDirection: {},
-  ColumnDef: {},
-  PaginationOptions: {},
-  PaginationState: {},
-  SortingState: {},
-  SortingOptions: {},
-  FilterState: {},
-  FilteringOptions: {},
-  SelectionOptions: {},
-  RowClickEvent: {},
-  DataTableInstance: {},
-  DataTableOptions: {},
-  DataTableProvider: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -157,21 +64,6 @@ vi.mock('@molecule/app-device', () => ({
   getLanguage: vi.fn(),
   isOnline: vi.fn(),
   isStandalone: vi.fn(),
-}))
-
-vi.mock('@molecule/app-file-upload', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createUploader: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  FileUploadStatus: {},
-  FileValidation: {},
-  UploadFile: {},
-  UploadDestination: {},
-  FileUploadEvents: {},
-  FileUploadOptions: {},
-  FileUploadInstance: {},
-  FileUploadProvider: {},
 }))
 
 vi.mock('@molecule/app-fonts', () => ({
@@ -1336,17 +1228,6 @@ vi.mock('@molecule/app-theme-css-variables', () => ({
   provider: {},
   lightTheme: {},
   darkTheme: {},
-}))
-
-vi.mock('@molecule/app-tree-view', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  TreeNode: {},
-  TreeOptions: {},
-  TreeInstance: {},
-  TreeViewProvider: {},
 }))
 
 vi.mock('@molecule/app-ui', () => ({

@@ -18,9 +18,7 @@
     "format:check": "prettier --check 'src/**/*.{ts,tsx}'"
   },
   "dependencies": {
-    "@molecule/app-ai-assistant": "1.0.3",
     "@molecule/app-ai-chat": "1.7.1",
-    "@molecule/app-ai-copilot": "1.0.3",
     "@molecule/app-ai-models": "1.4.3",
     "@molecule/app-analytics": "1.1.0",
     "@molecule/app-analytics-posthog": "1.0.3",
@@ -32,8 +30,6 @@
     "@molecule/app-bonds-default-react": "3.0.0",
     "@molecule/app-chatbot-tester-react": "3.0.0",
     "@molecule/app-code-editor": "1.0.3",
-    "@molecule/app-command-palette": "1.0.3",
-    "@molecule/app-data-table": "1.0.4",
     "@molecule/app-device": "1.0.3",
     "@molecule/app-fonts": "1.2.2",
     "@molecule/app-fonts-arimo": "1.0.5",

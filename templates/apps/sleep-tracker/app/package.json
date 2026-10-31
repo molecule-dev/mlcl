@@ -30,7 +30,6 @@
     "@molecule/app-bonds-default-react": "3.0.0",
     "@molecule/app-calendar": "1.0.3",
     "@molecule/app-calendar-fullcalendar": "1.0.3",
-    "@molecule/app-charts": "1.0.5",
     "@molecule/app-code-editor": "1.0.3",
     "@molecule/app-command-palette": "1.0.3",
     "@molecule/app-command-palette-cmdk": "1.0.3",

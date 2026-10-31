@@ -18,24 +18,6 @@ vi.mock('@molecule/app-analytics-posthog', () => ({
 }))
 
 // Mock all @molecule/* packages
-vi.mock('@molecule/app-ai-assistant', () => ({
-  AIAssistantProvider: {},
-  AIAssistantConfig: {},
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-}))
-
-vi.mock('@molecule/app-ai-copilot', () => ({
-  AICopilotProvider: {},
-  AICopilotConfig: {},
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-}))
-
 vi.mock('@molecule/app-auth', () => ({
   UserProfile: {},
   LoginCredentials: {},
@@ -89,41 +71,6 @@ vi.mock('@molecule/app-bond', () => ({
   unbondAll: {},
   isBonded: vi.fn(),
   require: {},
-}))
-
-vi.mock('@molecule/app-command-palette', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createPalette: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  CommandItem: {},
-  CommandGroup: {},
-  CommandPage: {},
-  CommandPaletteOptions: {},
-  CommandPaletteInstance: {},
-  CommandPaletteProvider: {},
-}))
-
-vi.mock('@molecule/app-data-table', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createTable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ColumnAlign: {},
-  ColumnPin: {},
-  SortDirection: {},
-  ColumnDef: {},
-  PaginationOptions: {},
-  PaginationState: {},
-  SortingState: {},
-  SortingOptions: {},
-  FilterState: {},
-  FilteringOptions: {},
-  SelectionOptions: {},
-  RowClickEvent: {},
-  DataTableInstance: {},
-  DataTableOptions: {},
-  DataTableProvider: {},
 }))
 
 vi.mock('@molecule/app-device', () => ({

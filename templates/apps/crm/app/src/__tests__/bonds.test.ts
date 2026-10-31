@@ -64,73 +64,6 @@ vi.mock('@molecule/app-bond', () => ({
   require: {},
 }))
 
-vi.mock('@molecule/app-calendar', () => ({
-  Calendar: {},
-  EventAttendee: {},
-  EventReminder: {},
-  RecurrenceRule: {},
-  CalendarEvent: {},
-  EventInput: {},
-  EventQueryOptions: {},
-  CalendarPermissionStatus: {},
-  CalendarCapabilities: {},
-  CalendarProvider: {},
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  getCalendars: vi.fn(),
-  getEvents: vi.fn(),
-  getEventById: vi.fn(),
-  createEvent: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  updateEvent: {},
-  deleteEvent: {},
-  openCalendar: {},
-  openEvent: {},
-  getPermissionStatus: vi.fn(),
-  requestPermission: {},
-  openSettings: {},
-  getCapabilities: vi.fn(),
-  eventsOverlap: {},
-  getEventDuration: vi.fn(),
-  formatEventTimeRange: {},
-  parseQuickEvent: {},
-}))
-
-vi.mock('@molecule/app-command-palette', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createPalette: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  CommandItem: {},
-  CommandGroup: {},
-  CommandPage: {},
-  CommandPaletteOptions: {},
-  CommandPaletteInstance: {},
-  CommandPaletteProvider: {},
-}))
-
-vi.mock('@molecule/app-data-table', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createTable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ColumnAlign: {},
-  ColumnPin: {},
-  SortDirection: {},
-  ColumnDef: {},
-  PaginationOptions: {},
-  PaginationState: {},
-  SortingState: {},
-  SortingOptions: {},
-  FilterState: {},
-  FilteringOptions: {},
-  SelectionOptions: {},
-  RowClickEvent: {},
-  DataTableInstance: {},
-  DataTableOptions: {},
-  DataTableProvider: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -268,22 +201,6 @@ vi.mock('@molecule/app-icons', () => ({
 vi.mock('@molecule/app-icons-molecule', () => ({
   iconSet: {},
   icons: {},
-}))
-
-vi.mock('@molecule/app-kanban', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createBoard: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  KanbanCard: {},
-  KanbanColumn: {},
-  CardMoveEvent: {},
-  ColumnReorderEvent: {},
-  KanbanState: {},
-  KanbanUpdateHandler: {},
-  KanbanOptions: {},
-  KanbanInstance: {},
-  KanbanProvider: {},
 }))
 
 vi.mock('@molecule/app-locales-auth', () => ({

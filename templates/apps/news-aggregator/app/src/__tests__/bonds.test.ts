@@ -1574,21 +1574,6 @@ vi.mock('@molecule/app-version', () => ({
   generateServiceWorkerTemplate: {},
 }))
 
-vi.mock('@molecule/app-virtual-scroll', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createVirtualizer: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ScrollAlignment: {},
-  ScrollBehavior: {},
-  ScrollAxis: {},
-  ScrollToOptions: {},
-  VirtualItem: {},
-  VirtualScrollOptions: {},
-  VirtualScrollInstance: {},
-  VirtualScrollProvider: {},
-}))
-
 describe('bonds/index', () => {
   it('exports setupProviders function', async () => {
     const mod = await import('../bonds/index.js')

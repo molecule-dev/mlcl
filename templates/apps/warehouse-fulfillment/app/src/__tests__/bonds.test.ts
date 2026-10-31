@@ -64,70 +64,6 @@ vi.mock('@molecule/app-bond', () => ({
   require: {},
 }))
 
-vi.mock('@molecule/app-charts', () => ({
-  ChartType: {},
-  DataPoint: {},
-  Dataset: {},
-  FontConfig: {},
-  AxisConfig: {},
-  LegendConfig: {},
-  TooltipConfig: {},
-  AnimationConfig: {},
-  ChartConfig: {},
-  ChartInstance: {},
-  ChartProvider: {},
-  colorPalettes: {},
-  getColor: vi.fn(),
-  generateColors: {},
-  createSimpleChartProvider: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createLineChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createBarChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createPieChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createDoughnutChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createAreaChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createScatterChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createRadarChart: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-}))
-
-vi.mock('@molecule/app-command-palette', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createPalette: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  CommandItem: {},
-  CommandGroup: {},
-  CommandPage: {},
-  CommandPaletteOptions: {},
-  CommandPaletteInstance: {},
-  CommandPaletteProvider: {},
-}))
-
-vi.mock('@molecule/app-data-table', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createTable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ColumnAlign: {},
-  ColumnPin: {},
-  SortDirection: {},
-  ColumnDef: {},
-  PaginationOptions: {},
-  PaginationState: {},
-  SortingState: {},
-  SortingOptions: {},
-  FilterState: {},
-  FilteringOptions: {},
-  SelectionOptions: {},
-  RowClickEvent: {},
-  DataTableInstance: {},
-  DataTableOptions: {},
-  DataTableProvider: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -265,16 +201,6 @@ vi.mock('@molecule/app-icons', () => ({
 vi.mock('@molecule/app-icons-molecule', () => ({
   iconSet: {},
   icons: {},
-}))
-
-vi.mock('@molecule/app-keyboard-shortcuts', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  Shortcut: {},
-  RegisteredShortcut: {},
-  KeyboardShortcutsProvider: {},
 }))
 
 vi.mock('@molecule/app-locales-auth', () => ({
@@ -1753,21 +1679,6 @@ vi.mock('@molecule/app-version', () => ({
   dismissUpdate: {},
   ServiceWorkerTemplateOptions: {},
   generateServiceWorkerTemplate: {},
-}))
-
-vi.mock('@molecule/app-virtual-scroll', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createVirtualizer: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  ScrollAlignment: {},
-  ScrollBehavior: {},
-  ScrollAxis: {},
-  ScrollToOptions: {},
-  VirtualItem: {},
-  VirtualScrollOptions: {},
-  VirtualScrollInstance: {},
-  VirtualScrollProvider: {},
 }))
 
 describe('bonds/index', () => {

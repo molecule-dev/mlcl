@@ -38,64 +38,6 @@ vi.mock('@molecule/app-auth', () => ({
   register: {},
 }))
 
-vi.mock('@molecule/app-bond', () => ({
-  Provider: {},
-  ProviderRegistry: {},
-  BondConfig: {},
-  registry: {},
-  configure: {},
-  bondSingleton: {},
-  getSingleton: vi.fn(),
-  requireSingleton: {},
-  bondNamed: {},
-  getNamed: vi.fn(),
-  getAllNamed: vi.fn(),
-  requireNamed: {},
-  unbondSingleton: {},
-  unbondNamed: {},
-  clearProviders: {},
-  reset: {},
-  bond: {},
-  get: {},
-  getAll: vi.fn(),
-  unbond: {},
-  unbondAll: {},
-  isBonded: vi.fn(),
-  require: {},
-}))
-
-vi.mock('@molecule/app-calendar', () => ({
-  Calendar: {},
-  EventAttendee: {},
-  EventReminder: {},
-  RecurrenceRule: {},
-  CalendarEvent: {},
-  EventInput: {},
-  EventQueryOptions: {},
-  CalendarPermissionStatus: {},
-  CalendarCapabilities: {},
-  CalendarProvider: {},
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  getCalendars: vi.fn(),
-  getEvents: vi.fn(),
-  getEventById: vi.fn(),
-  createEvent: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  updateEvent: {},
-  deleteEvent: {},
-  openCalendar: {},
-  openEvent: {},
-  getPermissionStatus: vi.fn(),
-  requestPermission: {},
-  openSettings: {},
-  getCapabilities: vi.fn(),
-  eventsOverlap: {},
-  getEventDuration: vi.fn(),
-  formatEventTimeRange: {},
-  parseQuickEvent: {},
-}))
-
 vi.mock('@molecule/app-device', () => ({
   BrowserInfo: {},
   OSInfo: {},
@@ -122,29 +64,6 @@ vi.mock('@molecule/app-device', () => ({
   getLanguage: vi.fn(),
   isOnline: vi.fn(),
   isStandalone: vi.fn(),
-}))
-
-vi.mock('@molecule/app-drag-drop', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createSortable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createDraggable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  createDroppable: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  SortableAxis: {},
-  SortableStrategy: {},
-  DragStartEvent: {},
-  DragMoveEvent: {},
-  DragEndEvent: {},
-  DragOverEvent: {},
-  SortableOptions: {},
-  SortableInstance: {},
-  DraggableOptions: {},
-  DraggableInstance: {},
-  DroppableOptions: {},
-  DroppableInstance: {},
-  DragDropContextOptions: {},
-  DragDropProvider: {},
 }))
 
 vi.mock('@molecule/app-fonts', () => ({
@@ -186,17 +105,6 @@ vi.mock('@molecule/app-forms', () => ({
   getProvider: vi.fn(),
   hasProvider: vi.fn(),
   createForm: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-}))
-
-vi.mock('@molecule/app-gallery', () => ({
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  requireProvider: {},
-  GalleryItem: {},
-  GalleryOptions: {},
-  GalleryInstance: {},
-  GalleryProvider: {},
 }))
 
 vi.mock('@molecule/app-http', () => ({
@@ -1222,33 +1130,6 @@ vi.mock('@molecule/app-logger', () => ({
   info: {},
   warn: {},
   error: {},
-}))
-
-vi.mock('@molecule/app-maps', () => ({
-  Coordinates: {},
-  Bounds: {},
-  Viewport: {},
-  MarkerConfig: {},
-  PolylineConfig: {},
-  PolygonConfig: {},
-  CircleConfig: {},
-  PopupConfig: {},
-  MapEvent: {},
-  MapClickEvent: {},
-  MapMoveEvent: {},
-  MapConfig: {},
-  MapInstance: {},
-  MapProvider: {},
-  defaultStyles: {},
-  calculateDistance: {},
-  calculateCenter: {},
-  calculateBounds: {},
-  isWithinBounds: vi.fn(),
-  createSimpleMapProvider: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
-  setProvider: vi.fn(),
-  getProvider: vi.fn(),
-  hasProvider: vi.fn(),
-  createMap: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
 }))
 
 vi.mock('@molecule/app-platform', () => ({
