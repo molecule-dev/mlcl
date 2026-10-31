@@ -95,7 +95,6 @@ export default {
     const calls = []
     const contexts = []
     const states = []
-    const httpClients = []
     const clientBonds = []
     const mutations = new Map()
     let credentialStore = false
@@ -197,28 +196,33 @@ export default {
         return true
       return node.callee.type === 'MemberExpression' && sharedAuth(node.callee.object)
     }
-    const property = (node, name, seen = new Set()) => {
+    const property = (node, name, seen = new Set(), exact = false) => {
       node = value(node)
       if (!node || typeof name !== 'string' || seen.has(node)) return null
       seen.add(node)
+      const matches = (candidate) =>
+        typeof candidate === 'string' &&
+        (exact ? candidate === name : candidate.toLowerCase() === name.toLowerCase())
       if (node.type === 'ConditionalExpression')
-        return property(node.consequent, name, seen) ?? property(node.alternate, name, seen)
+        return (
+          property(node.consequent, name, seen, exact) ??
+          property(node.alternate, name, seen, exact)
+        )
       if (node.type === 'LogicalExpression')
-        return property(node.left, name, seen) ?? property(node.right, name, seen)
-      for (const [prop, next] of mutations.get(identity(node)) ?? [])
-        if (prop.toLowerCase() === name.toLowerCase()) return next
+        return property(node.left, name, seen, exact) ?? property(node.right, name, seen, exact)
+      for (const [prop, next] of mutations.get(identity(node)) ?? []) if (matches(prop)) return next
       if (node.type === 'ObjectExpression') {
         for (const prop of node.properties) {
           if (prop.type === 'SpreadElement') {
-            const found = property(prop.argument, name, seen)
+            const found = property(prop.argument, name, seen, exact)
             if (found) return found
-          } else if (key(prop)?.toLowerCase() === name.toLowerCase()) return prop.value
+          } else if (matches(key(prop))) return prop.value
         }
       }
       if (node.type === 'MemberExpression')
-        return property(property(node.object, key(node), seen), name, seen)
+        return property(property(node.object, key(node), seen, exact), name, seen, exact)
       if (node.type === 'NewExpression' && global(node.callee, ['Headers']))
-        return property(node.arguments[0], name, seen)
+        return property(node.arguments[0], name, seen, exact)
       return null
     }
     // A third-party API key authenticates a different service, not the app's
@@ -260,7 +264,16 @@ export default {
         return parent.id.elements[0].name
       return ''
     }
+    const FUNCTIONS = ['ArrowFunctionExpression', 'FunctionDeclaration', 'FunctionExpression']
+    const execution = (node) => {
+      for (let current = node; current; current = current.parent)
+        if (current.type === 'Program' || FUNCTIONS.includes(current.type)) return current
+      return null
+    }
+    const position = (node) => node?.range?.[0] ?? 0
     const functionReturns = (node) => {
+      // Overload signatures, declare functions and abstract methods have no body.
+      if (!node?.body) return []
       if (node.body.type !== 'BlockStatement') return [node.body]
       const returns = []
       const stack = [node.body]
@@ -269,13 +282,7 @@ export default {
         const current = stack.pop()
         if (!current || typeof current.type !== 'string' || seen.has(current)) continue
         seen.add(current)
-        if (
-          current !== node.body &&
-          ['ArrowFunctionExpression', 'FunctionDeclaration', 'FunctionExpression'].includes(
-            current.type,
-          )
-        )
-          continue
+        if (current !== node.body && FUNCTIONS.includes(current.type)) continue
         if (current.type === 'ReturnStatement') {
           if (current.argument) returns.push(current.argument)
           continue
@@ -288,97 +295,130 @@ export default {
       }
       return returns
     }
-    // Resolve a client back to its provider call through local bindings, factory
-    // returns, object properties, and identity wrappers. Multiple possible
-    // assignments are all retained: an unknown owner must not become a report.
-    const clientOrigins = (node, seen = new Set()) => {
+    const callable = (callee) => {
+      callee = value(callee)
+      if (FUNCTIONS.includes(callee?.type)) return callee.body ? callee : null
+      if (callee?.type !== 'Identifier') return null
+      // TypeScript overloads have several FunctionName definitions. Only the
+      // implementation carries a return flow; a declaration alone is unknown.
+      return (
+        (variable(callee)?.defs ?? [])
+          .filter((definition) => definition.type === 'FunctionName')
+          .map((definition) => definition.node)
+          .find((node) => node.body) ?? null
+      )
+    }
+    // An instance is identified by its creation invocation, not just the provider
+    // AST node: two calls to one factory create two clients. Aliases and identity
+    // wrappers retain the incoming id, while a factory's own creation uses its
+    // call-site id. Unknown or execution-ambiguous flows resolve to no instances.
+    const clientInstances = (node, state = {}) => {
       node = unwrap(node)
+      const environment = state.environment ?? new Map()
+      const freshId = state.freshId ?? null
+      const seen = state.seen ?? new Set()
       if (!node || seen.has(node)) return []
-      seen.add(node)
-      if (node.type === 'CallExpression' && clientFactory(node.callee)) return [node]
+      const nextSeen = new Set(seen).add(node)
+      const resolve = (child, next = {}) =>
+        clientInstances(child, { environment, freshId, seen: nextSeen, ...next })
+      if (node.type === 'CallExpression' && clientFactory(node.callee))
+        return [{ id: freshId ?? node, origin: node }]
       if (node.type === 'Identifier') {
         const binding = variable(node)
+        if (environment.has(binding)) return environment.get(binding)
         const definition = binding?.defs[0]
         if (binding?.defs.length !== 1 || definition.type !== 'Variable') return []
-        const sources = definition.node.init ? [definition.node.init] : []
+        const sources = []
+        if (definition.node.init)
+          sources.push({ value: definition.node.init, node: definition.node.init })
         for (const reference of binding.references) {
           if (!reference.isWrite() || reference.init) continue
           const assignment = reference.identifier.parent
           if (
-            assignment?.type === 'AssignmentExpression' &&
-            assignment.left === reference.identifier &&
-            assignment.operator === '='
+            assignment?.type !== 'AssignmentExpression' ||
+            assignment.left !== reference.identifier ||
+            assignment.operator !== '='
           )
-            sources.push(assignment.right)
+            return []
+          sources.push({ value: assignment.right, node: assignment })
         }
-        return sources.flatMap((sourceNode) => clientOrigins(sourceNode, seen))
+        const available = sources.filter(
+          (candidate) =>
+            execution(candidate.node) !== execution(node) ||
+            position(candidate.node) < position(node),
+        )
+        const local = available.filter((candidate) => execution(candidate.node) === execution(node))
+        if (local.length) {
+          // A write in another execution could run before or after this one.
+          if (local.length !== available.length) return []
+          local.sort((a, b) => position(a.node) - position(b.node))
+          return resolve(local[local.length - 1].value)
+        }
+        // One outer/closure source is traceable; several have no shown order.
+        return available.length === 1 ? resolve(available[0].value) : []
       }
       if (node.type === 'CallExpression') {
-        const callee = value(node.callee)
-        const definition = callee?.type === 'Identifier' ? variable(callee)?.defs[0] : undefined
-        const fn =
-          callee && ['ArrowFunctionExpression', 'FunctionExpression'].includes(callee.type)
-            ? callee
-            : definition?.type === 'FunctionName'
-              ? definition.node
-              : null
+        const fn = callable(node.callee)
         if (!fn) return []
-        return functionReturns(fn).flatMap((returned) => {
-          const result = unwrap(returned)
-          const parameter =
-            result?.type === 'Identifier'
-              ? fn.params.findIndex(
-                  (param) => param.type === 'Identifier' && param.name === result.name,
-                )
-              : -1
-          return clientOrigins(parameter >= 0 ? node.arguments[parameter] : returned, seen)
-        })
+        const arguments_ = node.arguments.map((argument) => resolve(argument))
+        const inner = new Map(environment)
+        for (const [index, parameter] of (fn.params ?? []).entries()) {
+          const id = parameter.type === 'AssignmentPattern' ? parameter.left : parameter
+          if (id.type !== 'Identifier') continue
+          const binding = variable(id)
+          if (binding) inner.set(binding, arguments_[index] ?? [])
+        }
+        return functionReturns(fn).flatMap((returned) =>
+          clientInstances(returned, {
+            environment: inner,
+            freshId: node,
+            seen: nextSeen,
+          }),
+        )
       }
       if (node.type === 'ConditionalExpression')
-        return [...clientOrigins(node.consequent, seen), ...clientOrigins(node.alternate, seen)]
-      if (node.type === 'LogicalExpression')
-        return [...clientOrigins(node.left, seen), ...clientOrigins(node.right, seen)]
+        return [...resolve(node.consequent), ...resolve(node.alternate)]
+      if (node.type === 'LogicalExpression') return [...resolve(node.left), ...resolve(node.right)]
+      if (node.type === 'AssignmentExpression' && node.operator === '=') return resolve(node.right)
+      if (node.type === 'SequenceExpression') return resolve(node.expressions.at(-1))
       if (node.type === 'MemberExpression') {
-        const stored = property(node.object, key(node))
-        return stored ? clientOrigins(stored, seen) : []
+        // JavaScript property names are case-sensitive even though HTTP header
+        // names (handled by the general property helper) are not.
+        const stored = property(node.object, key(node), new Set(), true)
+        return stored ? resolve(stored) : []
       }
       return []
     }
-    const exportedHttpClient = (node) => {
-      for (let current = node; current && current.type !== 'Program'; current = current.parent) {
-        if (['ExportDefaultDeclaration', 'ExportNamedDeclaration'].includes(current.type))
-          return true
-        const id =
-          current.type === 'VariableDeclarator' || current.type === 'FunctionDeclaration'
-            ? current.id
-            : null
-        if (
-          id?.type === 'Identifier' &&
-          variable(id)?.references.some((reference) =>
-            ['ExportDefaultDeclaration', 'ExportSpecifier'].includes(
-              reference.identifier.parent?.type,
-            ),
-          )
-        )
-          return true
+    const exportedHttpClients = () => {
+      const targets = []
+      const addBinding = (id) => {
+        for (const definition of variable(id)?.defs ?? []) {
+          if (definition.type === 'Variable' && definition.node.init)
+            targets.push(definition.node.init)
+          if (definition.type === 'FunctionName') targets.push(definition.node)
+        }
       }
-      return false
-    }
-    const usedHttpClient = (node) => {
-      let current = node
-      while (
-        current.parent &&
-        [
-          'ChainExpression',
-          'TSAsExpression',
-          'TSTypeAssertion',
-          'TSNonNullExpression',
-          'TSSatisfiesExpression',
-        ].includes(current.parent.type) &&
-        current.parent.expression === current
-      )
-        current = current.parent
-      return Boolean(current.parent && current.parent.type !== 'ExpressionStatement')
+      for (const statement of source.ast.body) {
+        if (statement.type === 'ExportDefaultDeclaration') targets.push(statement.declaration)
+        if (statement.type !== 'ExportNamedDeclaration') continue
+        const declaration = statement.declaration
+        if (declaration?.type === 'VariableDeclaration') {
+          for (const declarator of declaration.declarations)
+            if (declarator.init) targets.push(declarator.init)
+        } else if (declaration) targets.push(declaration)
+        for (const specifier of statement.specifiers ?? []) addBinding(specifier.local)
+      }
+      const origins = new Set()
+      for (const target of targets) {
+        if (FUNCTIONS.includes(target.type)) {
+          for (const returned of functionReturns(target))
+            for (const instance of clientInstances(returned, { freshId: target }))
+              origins.add(instance.origin)
+        } else {
+          for (const instance of clientInstances(target)) origins.add(instance.origin)
+        }
+      }
+      return origins
     }
     const transport = (callee) => {
       callee = value(callee)
@@ -420,7 +460,6 @@ export default {
       CallExpression(node) {
         calls.push(node)
         const callee = unwrap(node.callee)
-        if (packages.http && clientFactory(callee)) httpClients.push(node)
         if (packages.http && imported(callee, [HTTP], ['setClient']))
           clientBonds.push(...node.arguments)
         if (packages.http && imported(callee, [HTTP], ['setAuthTokenSource']))
@@ -492,47 +531,63 @@ export default {
             })
         }
         if (packages.http) {
-          const bondedOrigins = new Set(clientBonds.flatMap((client) => clientOrigins(client)))
+          const bonds = clientBonds.flatMap((client) =>
+            clientInstances(client).map((instance) => ({ ...instance, at: client })),
+          )
           const appBaseURLs = new Set(
-            [...bondedOrigins]
-              .map((client) => string(property(client.arguments[0], 'baseURL')))
+            bonds
+              .map(({ origin }) => string(property(origin.arguments[0], 'baseURL')))
               .filter((baseURL) => baseURL !== null),
           )
-          for (const node of httpClients) {
-            if (bondedOrigins.has(node) || exportedHttpClient(node)) continue
-            const config = node.arguments[0]
-            const authorization = property(property(config, 'defaultHeaders'), 'authorization')
-            if (authorization && independentApiKey(authorization)) continue
-            const baseURL = string(property(config, 'baseURL'))
-            const hasAppBaseURL =
-              baseURL !== null && (appBaseURLs.has(baseURL) || /^\/api(?:\/|$)/.test(baseURL))
-            const authenticatedCall = calls.some((call) => {
-              const method = unwrap(call.callee)
-              if (
-                method?.type !== 'MemberExpression' ||
-                !['request', 'get', 'post', 'put', 'patch', 'delete'].includes(key(method)) ||
-                !clientOrigins(method.object).includes(node)
+          const exported = exportedHttpClients()
+          const reported = new Set()
+          for (const call of calls) {
+            const method = unwrap(call.callee)
+            if (method?.type !== 'MemberExpression') continue
+            const configIndex = {
+              request: 0,
+              get: 1,
+              delete: 1,
+              post: 2,
+              put: 2,
+              patch: 2,
+            }[key(method)]
+            if (configIndex === undefined) continue
+            const requestAuthorization = property(
+              property(call.arguments[configIndex], 'headers'),
+              'authorization',
+            )
+            const authenticatedCall =
+              requestAuthorization && !independentApiKey(requestAuthorization)
+            for (const instance of clientInstances(method.object)) {
+              const node = instance.origin
+              if (reported.has(node) || exported.has(node)) continue
+              const bonded = bonds.some(
+                (bond) =>
+                  bond.id === instance.id &&
+                  (execution(bond.at) !== execution(call) || position(bond.at) < position(call)),
               )
-                return false
-              return call.arguments.some((argument) => {
-                const requestAuthorization = property(
-                  property(argument, 'headers'),
-                  'authorization',
-                )
-                return requestAuthorization && !independentApiKey(requestAuthorization)
-              })
-            })
-            const authenticated =
-              property(config, 'authScheme') ||
-              (authorization && !independentApiKey(authorization)) ||
-              authenticatedCall ||
-              (hasAuthTokenSource && hasAppBaseURL)
-            if (authenticated && usedHttpClient(node))
-              context.report({
-                node,
-                messageId: 'unbonded',
-                data: { factory: clientFactory(node.callee).name },
-              })
+              if (bonded) continue
+              const config = node.arguments[0]
+              const authorization = property(property(config, 'defaultHeaders'), 'authorization')
+              if (authorization && independentApiKey(authorization)) continue
+              const baseURL = string(property(config, 'baseURL'))
+              const hasAppBaseURL =
+                baseURL !== null && (appBaseURLs.has(baseURL) || /^\/api(?:\/|$)/.test(baseURL))
+              const authenticated =
+                property(config, 'authScheme') ||
+                (authorization && !independentApiKey(authorization)) ||
+                authenticatedCall ||
+                (hasAuthTokenSource && hasAppBaseURL)
+              if (authenticated) {
+                context.report({
+                  node,
+                  messageId: 'unbonded',
+                  data: { factory: clientFactory(node.callee).name },
+                })
+                reported.add(node)
+              }
+            }
           }
           for (const node of calls) {
             if (!transport(node.callee)) continue
