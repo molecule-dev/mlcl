@@ -5242,6 +5242,33 @@ function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string
   lines.push(`}))`)
   lines.push('')
 
+  const hasDefaultBonds = allMolecules.includes('@molecule/app-bonds-default-react')
+  const hasDefaultI18n = allMolecules.includes('@molecule/app-i18n-default-react')
+  if (hasDefaultBonds || hasDefaultI18n) {
+    // Mock the shared setup functions themselves. Vitest may inline workspace links but
+    // externalize npm-installed packages, so low-level mocks alone cannot reach both layouts.
+    lines.push(
+      `// Mock the shared setup functions themselves. Vitest may inline workspace links but`,
+    )
+    lines.push(
+      `// externalize npm-installed packages, so low-level mocks alone cannot reach both layouts.`,
+    )
+  }
+  if (hasDefaultBonds) {
+    lines.push(`vi.mock('@molecule/app-bonds-default-react', async (importOriginal) => ({`)
+    lines.push(`  ...(await importOriginal<Record<string, unknown>>()),`)
+    lines.push(`  setupAllDefaultBonds: vi.fn(),`)
+    lines.push(`}))`)
+    lines.push('')
+  }
+  if (hasDefaultI18n) {
+    lines.push(`vi.mock('@molecule/app-i18n-default-react', async (importOriginal) => ({`)
+    lines.push(`  ...(await importOriginal<Record<string, unknown>>()),`)
+    lines.push(`  setupI18nDefault: vi.fn(() => ({})),`)
+    lines.push(`}))`)
+    lines.push('')
+  }
+
   // Mock locale files if i18n provider is present
   const hasI18n = allMolecules.some(
     (m) => m.startsWith('@molecule/app-i18n-') && m !== '@molecule/app-i18n',
@@ -5253,7 +5280,14 @@ function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string
   }
 
   // Mock all @molecule/* packages based on registry exports
-  const moleculePkgs = allMolecules.filter((m) => m.startsWith('@molecule/')).sort()
+  const moleculePkgs = allMolecules
+    .filter(
+      (m) =>
+        m.startsWith('@molecule/') &&
+        m !== '@molecule/app-bonds-default-react' &&
+        m !== '@molecule/app-i18n-default-react',
+    )
+    .sort()
 
   lines.push(`// Mock all @molecule/* packages`)
   for (const pkg of moleculePkgs) {
@@ -5277,8 +5311,9 @@ function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string
         // Factory — return an object with the methods the generated bond setups call on it.
         // HTTP token synchronization calls setAuthToken on clients hydrated by the shared source;
         // interceptor registrars return their unsubscribe function, hence `vi.fn(() => vi.fn())`.
+        const authEventMock = exp === 'createJWTAuthClient' ? 'addEventListener: vi.fn(), ' : ''
         mockEntries.push(
-          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), setAuthToken: vi.fn(), setAuthTokenResolver: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
+          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), ${authEventMock}setAuthToken: vi.fn(), setAuthTokenResolver: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
         )
       } else if (/^(get|is|has|use)[A-Z]/.test(exp)) {
         mockEntries.push(`  ${exp}: vi.fn()`)
@@ -5307,7 +5342,11 @@ function generateAppBondsSmokeTest(allMolecules: string[], reExportNames: string
   lines.push('')
   lines.push(`  it('setupProviders completes without error', async () => {`)
   lines.push(`    const { setupProviders } = await import('../bonds/index.js')`)
-  lines.push(`    expect(() => setupProviders()).not.toThrow()`)
+  // The generated setupProviders is sync, but a project may make it async: wrapping the
+  // call fails the test on a sync throw AND on a rejection, which `.not.toThrow()` misses.
+  lines.push(
+    `    await expect(Promise.resolve().then(() => setupProviders())).resolves.toBeUndefined()`,
+  )
   lines.push(`  })`)
 
   if (reExportNames.length > 0) {

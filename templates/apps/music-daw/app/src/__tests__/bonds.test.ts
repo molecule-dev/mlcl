@@ -8,6 +8,18 @@ vi.mock('../config.js', () => ({
   API_BASE_URL: '',
 }))
 
+// Mock the shared setup functions themselves. Vitest may inline workspace links but
+// externalize npm-installed packages, so low-level mocks alone cannot reach both layouts.
+vi.mock('@molecule/app-bonds-default-react', async (importOriginal) => ({
+  ...(await importOriginal<Record<string, unknown>>()),
+  setupAllDefaultBonds: vi.fn(),
+}))
+
+vi.mock('@molecule/app-i18n-default-react', async (importOriginal) => ({
+  ...(await importOriginal<Record<string, unknown>>()),
+  setupI18nDefault: vi.fn(() => ({})),
+}))
+
 // Mock all @molecule/* packages
 vi.mock('@molecule/app-audio', () => ({
   setProvider: vi.fn(),
@@ -43,7 +55,11 @@ vi.mock('@molecule/app-auth', () => ({
   parseJWT: {},
   isTokenExpired: vi.fn(),
   getTokenExpiration: vi.fn(),
-  createJWTAuthClient: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn() })),
+  createJWTAuthClient: vi.fn(() => ({
+    onLocaleChange: vi.fn(),
+    initialize: vi.fn(),
+    addEventListener: vi.fn(),
+  })),
   setClient: vi.fn(),
   getClient: vi.fn(),
   hasClient: vi.fn(),
