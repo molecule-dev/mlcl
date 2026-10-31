@@ -36557,6 +36557,7 @@
         "FormController",
         "FormProvider",
         "FormOptions",
+        "FormResetOptions",
         "validateValue"
       ],
       "secrets": [],
@@ -57088,6 +57089,7 @@
         "AuthState",
         "FormController",
         "FormOptions",
+        "FormResetOptions",
         "HttpClient",
         "Router",
         "RouterConfig",
