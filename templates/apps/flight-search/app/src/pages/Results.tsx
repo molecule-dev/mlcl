@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -81,6 +82,14 @@ export function Results() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [searchParams] = useSearchParams()
+  const listRoute = useListRoute({
+    filters: {
+      origin: { defaultValue: 'JFK' },
+      destination: { defaultValue: 'CDG' },
+      departure_date: {},
+      passengers: { defaultValue: '1' },
+    },
+  })
 
   const isMulti = searchParams.get('multi') === '1'
   const multiLegs = useMemo(
@@ -88,10 +97,10 @@ export function Results() {
     [isMulti, searchParams],
   )
 
-  const origin = searchParams.get('origin') ?? 'JFK'
-  const destination = searchParams.get('destination') ?? 'CDG'
-  const departureDate = searchParams.get('departure_date') ?? ''
-  const passengers = Number(searchParams.get('passengers') ?? '1')
+  const origin = listRoute.filters.origin ?? 'JFK'
+  const destination = listRoute.filters.destination ?? 'CDG'
+  const departureDate = listRoute.filters.departure_date ?? ''
+  const passengers = Number(listRoute.filters.passengers ?? '1')
 
   const [flights, setFlights] = useState<FlightSummary[]>([])
   const [multiResults, setMultiResults] = useState<MultiCityLegResult[]>([])

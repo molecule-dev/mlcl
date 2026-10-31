@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -122,8 +123,8 @@ export function MyFiles() {
   const [error, setError] = useState<string | null>(null)
   const [version, setVersion] = useState(0)
   // `?folder=<id>` browses into a folder — folder cards below link here.
-  const [params] = useSearchParams()
-  const folderId = params.get('folder')
+  const listRoute = useListRoute({ filters: { folder: {} } })
+  const folderId = listRoute.filters.folder ?? null
   const [currentFolder, setCurrentFolder] = useState<FolderRow | null>(null)
 
   useEffect(() => {
@@ -541,7 +542,7 @@ export function MyFiles() {
               {visibleFolders.slice(0, 8).map((f) => (
                 <Link
                   key={f.id}
-                  to={`/files?folder=${f.id}`}
+                  to={listRoute.href({ filters: { folder: f.id } })}
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'sm' }),
                     cm.sp('p', 4),

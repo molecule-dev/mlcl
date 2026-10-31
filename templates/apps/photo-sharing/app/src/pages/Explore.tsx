@@ -1,5 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
@@ -24,13 +24,12 @@ type TagKey = (typeof TAG_FILTERS)[number]['key']
 export function Explore() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [, setParams] = useSearchParams()
 
   const listRoute = useListRoute({ filters: { tag: {} } })
-  const initialTag = (listRoute.filters.tag as TagKey | undefined) ?? 'all'
-  const [activeTag, setActiveTag] = useState<TagKey>(
-    TAG_FILTERS.some((f) => f.key === initialTag) ? initialTag : 'all',
-  )
+  const tagParam = listRoute.filters.tag
+  const activeTag: TagKey = TAG_FILTERS.some((filter) => filter.key === tagParam)
+    ? (tagParam as TagKey)
+    : 'all'
   const [photos, setPhotos] = useState<Photo[] | null>(null)
   const [error, setError] = useState<string | null>(null)
 
@@ -152,11 +151,7 @@ export function Explore() {
               <li key={tag.key}>
                 <button
                   type="button"
-                  onClick={() => {
-                    setActiveTag(tag.key)
-                    if (tag.key === 'all') setParams({})
-                    else setParams({ tag: tag.key })
-                  }}
+                  onClick={() => listRoute.setFilters({ tag: tag.match ?? undefined })}
                   aria-pressed={isActive}
                   data-testid={`explore-tag-${tag.key}`}
                   className={cm.cn(

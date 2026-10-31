@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -49,8 +50,8 @@ export function Journal() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [reload, setReload] = useState(0)
-  const [searchParams] = useSearchParams()
-  const dateFilter = searchParams.get('date')
+  const listRoute = useListRoute({ filters: { date: {} } })
+  const dateFilter = listRoute.filters.date
 
   useEffect(() => {
     let cancelled = false

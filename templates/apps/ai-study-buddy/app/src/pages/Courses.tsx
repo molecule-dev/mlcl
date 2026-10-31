@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { PageBody, PageHeader } from '../components/PageHeader.js'
@@ -51,9 +52,10 @@ export function Courses() {
   const http = useHttpClient()
 
   const [searchParams, setSearchParams] = useSearchParams()
+  const listRoute = useListRoute({ filters: { cat: {} } })
   const [topics, setTopics] = useState<TopicRow[] | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const filter = searchParams.get('cat') ?? 'All'
+  const filter = listRoute.filters.cat ?? 'All'
   const [creating, setCreating] = useState(false)
   const [createError, setCreateError] = useState<string | null>(null)
   const [draftTitle, setDraftTitle] = useState('')
@@ -264,12 +266,10 @@ export function Courses() {
 
         <div className={cm.cn(cm.flex({ wrap: 'wrap', gap: 'sm' }))}>
           {categories.map((cat) => {
-            const next = new URLSearchParams(searchParams)
-            next.set('cat', cat)
             return (
               <Link
                 key={cat}
-                to={{ pathname: '/courses', search: `?${next.toString()}` }}
+                to={listRoute.href({ filters: { cat } })}
                 data-mol-id={`courses-filter-${cat.toLowerCase()}`}
                 role="tab"
                 aria-selected={filter === cat}

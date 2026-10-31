@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -112,10 +113,9 @@ export function Inbox() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const http = useHttpClient()
-  const [params, setParams] = useSearchParams()
+  const listRoute = useListRoute({ filters: { folder: { defaultValue: 'inbox' } } })
 
-  const folderParam = (params.get('folder') as FolderKey | null) ?? 'inbox'
-  const [activeFolder, setActiveFolder] = useState<FolderKey>(folderParam)
+  const activeFolder = (listRoute.filters.folder as FolderKey | undefined) ?? 'inbox'
   const [listFilter, setListFilter] = useState<ListFilter>('all')
   const [drafts, setDrafts] = useState<DraftRow[]>([])
   const [sent, setSent] = useState<SentRow[]>([])
@@ -123,10 +123,6 @@ export function Inbox() {
   const [selectedId, setSelectedId] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-
-  useEffect(() => {
-    setActiveFolder(folderParam)
-  }, [folderParam])
 
   useEffect(() => {
     let cancelled = false
@@ -346,12 +342,7 @@ export function Inbox() {
   }
 
   const switchFolder = (key: FolderKey) => {
-    setActiveFolder(key)
-    setParams((prev) => {
-      const next = new URLSearchParams(prev)
-      next.set('folder', key)
-      return next
-    })
+    listRoute.setFilters({ folder: key })
     setSelectedId(null)
   }
 

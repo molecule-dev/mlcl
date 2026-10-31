@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { formatMoney } from '../lib/format.js'
@@ -14,9 +15,9 @@ export function Gifts() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [searchParams] = useSearchParams()
+  const listRoute = useListRoute({ filters: { campaign_id: {} } })
   // Campaigns cards deep-link here with ?campaign_id=<id> — honor it.
-  const campaignParam = searchParams.get('campaign_id') ?? ''
+  const campaignParam = listRoute.filters.campaign_id ?? ''
   const [list, setList] = useState<Gift[]>([])
   const [methodFilter, setMethodFilter] = useState('')
   const [receiptedFilter, setReceiptedFilter] = useState('')

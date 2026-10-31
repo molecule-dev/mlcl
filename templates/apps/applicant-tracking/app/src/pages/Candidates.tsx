@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList } from '../lib/unwrap.js'
@@ -99,8 +100,8 @@ export function Candidates() {
   const { t } = useTranslation()
   const http = useHttpClient()
   // JobDetail links here with `?job=<id>` — scope the table to that job.
-  const [searchParams] = useSearchParams()
-  const jobFilter = searchParams.get('job') ?? ''
+  const listRoute = useListRoute({ filters: { job: {} } })
+  const jobFilter = listRoute.filters.job ?? ''
   const [candidates, setCandidates] = useState<Candidate[]>([])
   const [query, setQuery] = useState('')
   const [loading, setLoading] = useState(true)

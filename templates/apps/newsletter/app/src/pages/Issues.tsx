@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -29,15 +30,13 @@ const STATUS_KEY: Record<string, string> = {
 function Issues() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [searchParams] = useSearchParams()
+  const listRoute = useListRoute({ filters: { status: {} } })
   // Honor deep links like /issues?status=draft (Dashboard quick actions).
-  const statusParam = searchParams.get('status') ?? ''
+  const statusParam = listRoute.filters.status ?? ''
   const [issues, setIssues] = useState<Issue[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [activeFilter, setActiveFilter] = useState(
-    FILTER_VALUES.includes(statusParam) ? statusParam : 'all',
-  )
+  const activeFilter = FILTER_VALUES.includes(statusParam) ? statusParam : 'all'
   const [reloadKey, setReloadKey] = useState(0)
   const http = useHttpClient()
   const navigate = useNavigate()
@@ -161,10 +160,7 @@ function Issues() {
                 ? 'bg-primary text-on-primary'
                 : 'bg-surface-container text-on-surface-variant hover:bg-surface-container-high',
             )}
-            onClick={() => {
-              setActiveFilter(filter)
-              setReloadKey((k) => k + 1)
-            }}
+            onClick={() => listRoute.setFilters({ status: filter === 'all' ? undefined : filter })}
           >
             {t(
               `issues.filter_${filter}`,
