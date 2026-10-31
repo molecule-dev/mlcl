@@ -109,7 +109,9 @@ describe('flagship templates: the router splits every page', () => {
       // the exported name on the right of the import and the local name on
       // the left; a naive split emits invalid JS.
       if (/^const \w+ as /m.test(source)) offenders.push(`${app}: malformed lazy declaration`)
-      if (!/const \w+ = lazy\(\(\) => import\('\.\/pages\//.test(source)) {
+      // `lazyPage` (@molecule/app-routing-react-router) wraps React's `lazy()`, so it splits the
+      // same way; a long import wraps onto the next line.
+      if (!/const \w+ = lazy(?:Page)?\(\(\) =>\s*import\('\.\/pages\//.test(source)) {
         offenders.push(`${app}: no lazy page`)
       }
     }
