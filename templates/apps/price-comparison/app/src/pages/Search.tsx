@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -55,9 +55,10 @@ export function Search() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [searchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { category: {} } })
   const [query, setQuery] = useState('')
-  const [category, setCategory] = useState<string>(searchParams.get('category') ?? 'All')
+  const [category, setCategory] = useState<string>(listRoute.filters.category ?? 'All')
   const [maxPrice, setMaxPrice] = useState('')
   const [results, setResults] = useState<ProductPriceCardProduct[]>([])
   const [loading, setLoading] = useState(true)

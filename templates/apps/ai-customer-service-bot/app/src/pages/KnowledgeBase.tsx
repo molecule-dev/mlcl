@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { get, post } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -90,11 +91,13 @@ function KnowledgeBase() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const [searchParams, setSearchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { q: {} } })
   const [articles, setArticles] = useState<ArticleRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [category, setCategory] = useState<string>('All')
-  const [search, setSearch] = useState(searchParams.get('q') ?? '')
+  const [search, setSearch] = useState(listRoute.filters.q ?? '')
   const [showNew, setShowNew] = useState(false)
   const [creating, setCreating] = useState(false)
   const [newTitle, setNewTitle] = useState('')

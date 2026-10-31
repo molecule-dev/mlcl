@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { CuisineDiscoveryCard } from '../components/CuisineDiscoveryCard.js'
@@ -110,9 +111,11 @@ export function Discover() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [searchParams, setSearchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { q: {} } })
   const [cuisine, setCuisine] = useState<string>(searchParams.get('cuisine') ?? '')
   const [price, setPrice] = useState<string>(searchParams.get('price') ?? '')
-  const [query, setQuery] = useState<string>(searchParams.get('q') ?? '')
+  const [query, setQuery] = useState<string>(listRoute.filters.q ?? '')
   const [near, setNear] = useState<string>(searchParams.get('near') ?? '')
   const [restaurants, setRestaurants] = useState<RestaurantSummary[]>([])
   const [favoriteIds, setFavoriteIds] = useState<Set<string>>(new Set())

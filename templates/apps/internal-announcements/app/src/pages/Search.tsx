@@ -10,6 +10,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -99,22 +100,24 @@ export function Search() {
   const http = useHttpClient()
   const [searchParams, setSearchParams] = useSearchParams()
 
+  const listRoute = useListRoute({ filters: { q: {} } })
+
   // Honor ?q= so search links from elsewhere in the app land here
   // pre-filled. Treat the URL as the source of truth on first render
   // AND when the user navigates with the browser back/forward — without
   // this, /search?q=foo opens an empty input (silent regression for
   // any feature that links into search with a query).
-  const initialQuery = searchParams.get('q') ?? ''
+  const initialQuery = listRoute.filters.q ?? ''
   const [query, setQuery] = useState(initialQuery)
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['id']>('all')
 
   useEffect(() => {
-    const next = searchParams.get('q') ?? ''
+    const next = listRoute.filters.q ?? ''
     setQuery(next)
     // We only want this re-sync when the URL itself changes, not
     // when the input does — `setSearchParams` below handles the
     // input → URL direction.
-  }, [searchParams])
+  }, [listRoute.filters.q])
   const [announcements, setAnnouncements] = useState<ApiAnnouncement[]>([])
   const [categories, setCategories] = useState<ApiCategory[]>([])
   const [team, setTeam] = useState<ApiTeamMember[]>([])

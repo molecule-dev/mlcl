@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { PageBody, PageHeader } from '../components/PageHeader.js'
@@ -51,8 +52,8 @@ export function Notifications() {
   const { t } = useTranslation()
   const http = useHttpClient()
 
-  const [searchParams] = useSearchParams()
-  const filterRaw = searchParams.get('filter')
+  const listRoute = useListRoute({ filters: { filter: {} } })
+  const filterRaw = listRoute.filters.filter ?? null
   const filter: 'all' | 'unread' = filterRaw === 'unread' ? 'unread' : 'all'
   const [items, setItems] = useState<NotificationRow[] | null>(null)
   const [unreadCount, setUnreadCount] = useState(0)

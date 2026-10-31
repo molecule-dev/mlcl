@@ -4,6 +4,7 @@ import { useSearchParams } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import type { QueueItem } from '../components/QueueItemRow.js'
@@ -70,10 +71,12 @@ export function Queue() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [searchParams, setSearchParams] = useSearchParams()
-  const filterParam = searchParams.get('filter') as Verdict | 'all' | null
+
+  const listRoute = useListRoute({ filters: { filter: {}, q: {} } })
+  const filterParam = (listRoute.filters.filter ?? null) as Verdict | 'all' | null
   const filter: Verdict | 'all' = filterParam ?? 'all'
   /** Free-text term from the top-bar search (`?q=…`). */
-  const query = (searchParams.get('q') ?? '').trim().toLowerCase()
+  const query = (listRoute.filters.q ?? '').trim().toLowerCase()
   const setFilter = (next: Verdict | 'all') => {
     const params = new URLSearchParams(searchParams)
     params.set('filter', next)

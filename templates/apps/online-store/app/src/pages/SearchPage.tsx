@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import SearchAnnouncementBar from '../components/SearchAnnouncementBar.js'
@@ -24,7 +25,9 @@ function SearchPage() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const [params, setParams] = useSearchParams()
-  const initialQuery = params.get('q') ?? ''
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const initialQuery = listRoute.filters.q ?? ''
   const [query, setQuery] = useState(initialQuery)
   const [submittedQuery, setSubmittedQuery] = useState(initialQuery)
   const [products, setProducts] = useState<Product[]>([])
@@ -35,7 +38,7 @@ function SearchPage() {
 
   // Re-sync if URL ?q= changes externally (header search bar)
   useEffect(() => {
-    const q = params.get('q') ?? ''
+    const q = listRoute.filters.q ?? ''
     if (q !== submittedQuery) {
       setSubmittedQuery(q)
       setQuery(q)

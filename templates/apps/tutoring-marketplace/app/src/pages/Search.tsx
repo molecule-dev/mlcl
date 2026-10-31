@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -136,7 +137,9 @@ export function Search() {
   const http = useHttpClient()
   const [params] = useSearchParams()
 
-  const initialQuery = params.get('q') ?? ''
+  const listRoute = useListRoute({ filters: { q: {} } })
+
+  const initialQuery = listRoute.filters.q ?? ''
   const initialSubject = params.get('subject') ?? ''
 
   const [query, setQuery] = useState(initialQuery)

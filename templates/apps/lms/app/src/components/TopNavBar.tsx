@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 import { useTheme, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { UserMenu } from './UserMenu.js'
@@ -17,8 +18,9 @@ function TopNavBar({ contextCrumb }: TopNavBarProps = {}) {
   const { t } = useTranslation()
   const { theme, setTheme } = useTheme()
   const handleThemeToggle = () => setTheme(theme?.mode === 'dark' ? 'light' : 'dark')
-  const [searchParams] = useSearchParams()
-  const [search, setSearch] = useState(searchParams.get('q') ?? '')
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const [search, setSearch] = useState(listRoute.filters.q ?? '')
   return (
     <header
       className={cm.cn(

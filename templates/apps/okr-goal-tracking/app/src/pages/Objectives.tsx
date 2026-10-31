@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ObjectiveCard, type ObjectiveCardData } from '../components/ObjectiveCard.js'
@@ -29,8 +30,9 @@ export function Objectives() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [filter, setFilter] = useState<FilterKey>('all')
-  const [searchParams] = useSearchParams()
-  const urlQuery = searchParams.get('q') ?? ''
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const urlQuery = listRoute.filters.q ?? ''
   const [query, setQuery] = useState(urlQuery)
 
   // Keep the local filter box in sync with ?q= (set by the topbar search).

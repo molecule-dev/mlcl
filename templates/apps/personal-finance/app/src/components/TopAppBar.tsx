@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate, useSearchParams } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { UserMenu } from './UserMenu.js'
@@ -9,8 +10,9 @@ function TopAppBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  const [search, setSearch] = useState(searchParams.get('search') ?? '')
+
+  const listRoute = useListRoute({ filters: { search: {} } })
+  const [search, setSearch] = useState(listRoute.filters.search ?? '')
   const [notificationsOpen, setNotificationsOpen] = useState(false)
   const notificationsRef = useRef<HTMLDivElement>(null)
   useEffect(() => {

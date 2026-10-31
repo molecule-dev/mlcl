@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import type { InvoiceStatus } from '../components/InvoiceStatusBadge.js'
@@ -30,15 +31,15 @@ export function Invoices() {
   const [filter, setFilter] = useState<'all' | InvoiceStatus>('all')
   // The shell topbar search navigates to /invoices?q=… — honor that param
   // so both search boxes drive the same filter.
-  const [searchParams] = useSearchParams()
-  const [search, setSearch] = useState(() => searchParams.get('q') ?? '')
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const [search, setSearch] = useState(() => listRoute.filters.q ?? '')
   const [exporting, setExporting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
 
   useEffect(() => {
-    setSearch(searchParams.get('q') ?? '')
-  }, [searchParams])
+    setSearch(listRoute.filters.q ?? '')
+  }, [listRoute.filters.q])
 
   useEffect(() => {
     let active = true

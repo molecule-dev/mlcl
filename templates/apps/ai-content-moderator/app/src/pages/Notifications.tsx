@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router'
 
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { SiftLayout } from '../components/SiftLayout.js'
@@ -50,7 +51,9 @@ export function Notifications() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [searchParams, setSearchParams] = useSearchParams()
-  const filterParam = searchParams.get('filter') as EventType | 'all' | null
+
+  const listRoute = useListRoute({ filters: { filter: {} } })
+  const filterParam = (listRoute.filters.filter ?? null) as EventType | 'all' | null
   const filter: EventType | 'all' = filterParam ?? 'all'
   const setFilter = (next: EventType | 'all') => {
     const params = new URLSearchParams(searchParams)

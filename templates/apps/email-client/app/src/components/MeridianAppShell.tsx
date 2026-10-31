@@ -1,8 +1,9 @@
 import type { ReactElement } from 'react'
 import { useEffect, useState } from 'react'
-import { Link, useLocation, useNavigate, useSearchParams } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 
 import { useAuth, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell, useIsDesktop } from '@molecule/app-ui-react'
 
@@ -59,16 +60,16 @@ export function MeridianAppShell({
   const { t } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
-  const [params] = useSearchParams()
+  const listRoute = useListRoute({ filters: { search: {} } })
   const { user } = useAuth<AuthUser>()
   const initials = deriveInitials(user?.name?.trim() || user?.email || 'M C')
   const isDesktop = useIsDesktop()
 
-  const initialQuery = params.get('search') ?? ''
+  const initialQuery = listRoute.filters.search ?? ''
   const [query, setQuery] = useState(initialQuery)
   useEffect(() => {
-    setQuery(params.get('search') ?? '')
-  }, [params])
+    setQuery(listRoute.filters.search ?? '')
+  }, [listRoute.filters.search])
 
   const submitSearch = (value: string): void => {
     const trimmed = value.trim()

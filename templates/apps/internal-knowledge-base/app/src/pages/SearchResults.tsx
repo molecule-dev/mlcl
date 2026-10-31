@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { CairnArticleRow } from '../components/CairnArticleRow.js'
@@ -43,7 +44,9 @@ export function SearchResults() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const [params, setParams] = useSearchParams()
-  const queryParam = params.get('q') ?? ''
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const queryParam = listRoute.filters.q ?? ''
   const [query, setQuery] = useState(queryParam)
   // Filter chips are derived from the user's real spaces; `?space=<key>`
   // (e.g. from a space page's "Search this space" link) preselects one.

@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -68,7 +69,9 @@ export function Search() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const [params] = useSearchParams()
-  const q = params.get('q') ?? ''
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const q = listRoute.filters.q ?? ''
   const initialType = params.get('type') ?? 'all'
 
   const [venues, setVenues] = useState<Venue[]>([])

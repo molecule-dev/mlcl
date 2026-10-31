@@ -1,8 +1,9 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { Field } from '../components/Field.js'
@@ -67,9 +68,9 @@ export function Inventory() {
   const { t } = useTranslation()
   const http = useHttpClient()
 
-  const [searchParams] = useSearchParams()
+  const listRoute = useListRoute({ filters: { q: {} } })
   // The app shell's global search navigates here with ?q=<term>.
-  const globalQuery = searchParams.get('q') ?? ''
+  const globalQuery = listRoute.filters.q ?? ''
 
   const [rows, setRows] = useState<ProductRow[]>([])
   const [search, setSearch] = useState(globalQuery)

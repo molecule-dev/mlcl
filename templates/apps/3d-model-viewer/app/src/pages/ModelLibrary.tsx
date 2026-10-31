@@ -1,7 +1,8 @@
 import { useEffect, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import ModelFilterBar from '../components/ModelFilterBar.js'
@@ -56,14 +57,15 @@ function ModelLibrary() {
   const cm = getClassMap()
   const http = useHttpClient()
   const { t } = useTranslation()
-  const [searchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { category: {}, q: {} } })
   // Category comes from the sidebar links (?category=…); q lets the dashboard
   // search bar hand off a query.
-  const category = searchParams.get('category') ?? ''
+  const category = listRoute.filters.category ?? ''
   const [allModels, setAllModels] = useState<ApiModel[]>([])
   const [loading, setLoading] = useState(true)
   const [fetchError, setFetchError] = useState<string | null>(null)
-  const [search, setSearch] = useState(() => searchParams.get('q') ?? '')
+  const [search, setSearch] = useState(() => listRoute.filters.q ?? '')
   const [format, setFormat] = useState('All Formats')
   // 100 = no polycount limit; lower values keep only lighter models.
   const [polycount, setPolycount] = useState(100)

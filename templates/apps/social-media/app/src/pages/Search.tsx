@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -29,8 +30,10 @@ function useDebounced<T>(value: T, delay = 250): T {
 export function Search() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [params, setParams] = useSearchParams()
-  const initial = params.get('q') ?? ''
+  const [, setParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const initial = listRoute.filters.q ?? ''
   const [query, setQuery] = useState(initial)
   const [tab, setTab] = useState<Tab>('top')
   const debounced = useDebounced(query, 250)
@@ -39,7 +42,7 @@ export function Search() {
   useEffect(() => {
     if (debounced) {
       setParams({ q: debounced })
-    } else if (params.get('q')) {
+    } else if (listRoute.filters.q ?? null) {
       setParams({})
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -23,8 +24,10 @@ type TagKey = (typeof TAG_FILTERS)[number]['key']
 export function Explore() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [params, setParams] = useSearchParams()
-  const initialTag = (params.get('tag') as TagKey | null) ?? 'all'
+  const [, setParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { tag: {} } })
+  const initialTag = (listRoute.filters.tag as TagKey | undefined) ?? 'all'
   const [activeTag, setActiveTag] = useState<TagKey>(
     TAG_FILTERS.some((f) => f.key === initialTag) ? initialTag : 'all',
   )

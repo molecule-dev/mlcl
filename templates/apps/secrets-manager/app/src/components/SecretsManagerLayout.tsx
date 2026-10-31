@@ -1,7 +1,8 @@
 import { type ReactNode, useEffect, useRef, useState } from 'react'
-import { Link, useLocation, useNavigate, useSearchParams } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 
 import { useAuth, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell, useIsDesktop } from '@molecule/app-ui-react'
 
@@ -53,17 +54,17 @@ export function SecretsManagerLayout({
   const { t } = useTranslation()
   const { user } = useAuth<{ email?: string }>()
   const { pathname } = useLocation()
-  const [searchParams] = useSearchParams()
+  const listRoute = useListRoute({ filters: { q: {} } })
   const navigate = useNavigate()
-  const [searchQuery, setSearchQuery] = useState(searchParams.get('q') ?? '')
+  const [searchQuery, setSearchQuery] = useState(listRoute.filters.q ?? '')
   const searchRef = useRef<HTMLInputElement>(null)
 
   // Keep the search input in sync when the URL changes (e.g. user clicks
   // a different page or hits back). Without this, the box shows stale
   // text while the page is filtering by something else.
   useEffect(() => {
-    setSearchQuery(searchParams.get('q') ?? '')
-  }, [searchParams])
+    setSearchQuery(listRoute.filters.q ?? '')
+  }, [listRoute.filters.q])
 
   // "/" focuses the search box from anywhere — matches the visible kbd
   // hint to the right of the input. Skip when typing in another field.

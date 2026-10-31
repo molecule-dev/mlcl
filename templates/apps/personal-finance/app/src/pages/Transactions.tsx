@@ -1,9 +1,9 @@
 // Phase 1 baseline — verbatim JSX of design-personal-finance-transactions.html
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import FinanceShell from '../components/FinanceShell.js'
@@ -37,8 +37,9 @@ function Transactions() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [searchParams] = useSearchParams()
-  const search = searchParams.get('search') ?? ''
+
+  const listRoute = useListRoute({ filters: { search: {} } })
+  const search = listRoute.filters.search ?? ''
   const [transactions, setTransactions] = useState<Transaction[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)

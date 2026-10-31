@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useLocation, useNavigate, useSearchParams } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BushelHero } from '../components/BushelHero.js'
@@ -53,8 +54,9 @@ export function Shop() {
   const navigate = useNavigate()
   const location = useLocation()
   const { user } = useAuth()
-  const [searchParams] = useSearchParams()
-  const categoryParam = searchParams.get('category')
+
+  const listRoute = useListRoute({ filters: { category: {} } })
+  const categoryParam = listRoute.filters.category ?? null
   const [activeCategory, setActiveCategory] = useState<string>(() =>
     CATEGORIES.some((c) => c.key === categoryParam) ? (categoryParam as string) : 'all',
   )

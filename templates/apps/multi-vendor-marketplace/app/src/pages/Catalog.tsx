@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -167,9 +168,11 @@ export function Catalog() {
   const http = useHttpClient()
   const [searchParams, setSearchParams] = useSearchParams()
 
-  const activeCategory = searchParams.get('category') ?? 'all'
-  const activeSort = searchParams.get('sort') ?? 'trending'
-  const queryString = searchParams.get('q') ?? ''
+  const listRoute = useListRoute({ filters: { category: {}, q: {}, sort: {} } })
+
+  const activeCategory = listRoute.filters.category ?? 'all'
+  const activeSort = listRoute.filters.sort ?? 'trending'
+  const queryString = listRoute.filters.q ?? ''
 
   const [products, setProducts] = useState<VendryProduct[]>(SAMPLE_PRODUCTS)
   const [vendors, setVendors] = useState<VendryVendor[]>(SAMPLE_VENDORS)

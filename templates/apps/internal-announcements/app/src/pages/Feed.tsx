@@ -11,6 +11,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AnnouncementCard } from '../components/AnnouncementCard.js'
@@ -44,6 +45,8 @@ export function Feed() {
   const { user } = useAuth<ApiUser>()
   const [searchParams, setSearchParams] = useSearchParams()
 
+  const listRoute = useListRoute({ filters: { author: {} } })
+
   const [announcements, setAnnouncements] = useState<ApiAnnouncement[]>([])
   const [categories, setCategories] = useState<ApiCategory[]>([])
   const [users, setUsers] = useState<ApiUser[]>([])
@@ -55,7 +58,7 @@ export function Feed() {
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['id']>('all')
   const [sortNewest, setSortNewest] = useState(true)
   const channelParam = searchParams.get('channel')
-  const authorParam = searchParams.get('author')
+  const authorParam = listRoute.filters.author ?? null
 
   const clearAuthor = useCallback(() => {
     const next = new URLSearchParams(searchParams)

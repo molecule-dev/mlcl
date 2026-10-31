@@ -140,6 +140,116 @@ const moleculeLocal = {
         }
       },
     },
+    'url-lists-use-list-route': {
+      meta: {
+        type: 'suggestion',
+        schema: [],
+        messages: {
+          useListRoute:
+            'Use `useListRoute` from `@molecule/app-routing-react-router` (see the package doc) so the URL and rendered list stay in step and paging and filter resets are handled.',
+        },
+      },
+      create(context) {
+        const source = context.sourceCode
+        const routerPackages = new Set(['react-router', 'react-router-dom'])
+        const listKeys = new Set([
+          'page',
+          'cursor',
+          'offset',
+          'feed',
+          'filter',
+          'category',
+          'tag',
+          'view',
+          'tab',
+          'sort',
+          'search',
+          'query',
+          'q',
+          'topic',
+          'author',
+          'favorited',
+        ])
+        const hookVariables = new Set()
+        const paramsVariables = new Set()
+        const reads = []
+        let importsListRoute = false
+        const variableFor = (node, name) => {
+          let scope = source.getScope(node)
+          while (scope) {
+            const variable = scope.set.get(name)
+            if (variable) return variable
+            scope = scope.upper
+          }
+          return null
+        }
+        const importedName = (specifier) => specifier.imported.name ?? specifier.imported.value
+        return {
+          ImportDeclaration(node) {
+            const module = node.source.value
+            if (
+              module === '@molecule/app-routing-react-router' &&
+              node.importKind !== 'type' &&
+              node.specifiers.some(
+                (specifier) =>
+                  specifier.type === 'ImportSpecifier' &&
+                  specifier.importKind !== 'type' &&
+                  importedName(specifier) === 'useListRoute',
+              )
+            ) {
+              importsListRoute = true
+            }
+            if (!routerPackages.has(module) || node.importKind === 'type') return
+            for (const specifier of node.specifiers) {
+              if (
+                specifier.type === 'ImportSpecifier' &&
+                specifier.importKind !== 'type' &&
+                importedName(specifier) === 'useSearchParams'
+              ) {
+                const variable = variableFor(specifier, specifier.local.name)
+                if (variable) hookVariables.add(variable)
+              }
+            }
+          },
+          VariableDeclarator(node) {
+            if (
+              node.id.type !== 'ArrayPattern' ||
+              node.id.elements[0]?.type !== 'Identifier' ||
+              node.init?.type !== 'CallExpression' ||
+              node.init.callee.type !== 'Identifier' ||
+              !hookVariables.has(variableFor(node.init.callee, node.init.callee.name))
+            ) {
+              return
+            }
+            const variable = variableFor(node.id, node.id.elements[0].name)
+            if (variable) paramsVariables.add(variable)
+          },
+          CallExpression(node) {
+            if (
+              node.callee.type !== 'MemberExpression' ||
+              node.callee.computed ||
+              node.callee.property.type !== 'Identifier' ||
+              node.callee.property.name !== 'get' ||
+              node.callee.object.type !== 'Identifier' ||
+              node.arguments[0]?.type !== 'Literal' ||
+              typeof node.arguments[0].value !== 'string' ||
+              !listKeys.has(node.arguments[0].value.toLowerCase())
+            ) {
+              return
+            }
+            reads.push({
+              node,
+              variable: variableFor(node.callee.object, node.callee.object.name),
+            })
+          },
+          'Program:exit'() {
+            if (importsListRoute) return
+            const read = reads.find((candidate) => paramsVariables.has(candidate.variable))
+            if (read) context.report({ node: read.node, messageId: 'useListRoute' })
+          },
+        }
+      },
+    },
     'require-catch-binding': {
       meta: {
         type: 'problem',
@@ -205,6 +315,7 @@ export default tseslint.config(
     },
     rules: {
       'molecule-local/router-commits-with-url': 'error',
+      'molecule-local/url-lists-use-list-route': 'warn',
       'molecule-local/require-catch-binding': 'warn',
       '@typescript-eslint/no-unused-vars': [
         'warn',

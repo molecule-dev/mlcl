@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { CategoryTile } from '../components/CategoryTile.js'
@@ -33,8 +34,10 @@ export function Library() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [searchParams, setSearchParams] = useSearchParams()
-  const filter = (searchParams.get('category') ?? 'all') as CategoryTone | 'all'
+  const [, setSearchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { category: {} } })
+  const filter = (listRoute.filters.category ?? 'all') as CategoryTone | 'all'
   const [categories, setCategories] = useState<CategoryWithCount[]>([])
   const [sessions, setSessions] = useState<ApiSession[]>([])
   const [loading, setLoading] = useState(true)

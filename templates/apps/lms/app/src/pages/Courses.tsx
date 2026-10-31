@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AppShell } from '../components/AppShell.js'
@@ -71,8 +72,9 @@ function CoursesPage() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const http = useHttpClient()
-  const [searchParams] = useSearchParams()
-  const query = (searchParams.get('q') ?? '').trim().toLowerCase()
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const query = (listRoute.filters.q ?? '').trim().toLowerCase()
   const [allCourses, setAllCourses] = useState<CourseRow[] | null>(null)
   const [myCourses, setMyCourses] = useState<UiCourse[] | null>(null)
   const [enrolling, setEnrolling] = useState<string | null>(null)
@@ -179,7 +181,7 @@ function CoursesPage() {
           >
             {t(
               'coursesPage.searchSummary',
-              { query: searchParams.get('q') ?? '' },
+              { query: listRoute.filters.q ?? '' },
               { defaultValue: 'Showing results for “{{query}}”.' },
             )}{' '}
             <button

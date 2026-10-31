@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -109,7 +110,9 @@ export function SearchResults() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const [params, setParams] = useSearchParams()
-  const queryParam = params.get('q') ?? ''
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const queryParam = listRoute.filters.q ?? ''
   const [draftQuery, setDraftQuery] = useState(queryParam)
   const [files, setFiles] = useState<FileRow[] | null>(null)
   const [error, setError] = useState<string | null>(null)

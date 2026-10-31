@@ -1,8 +1,9 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useStorage, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -23,8 +24,9 @@ export function Compose() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  const presetCategorySlug = searchParams.get('category')
+
+  const listRoute = useListRoute({ filters: { category: {} } })
+  const presetCategorySlug = listRoute.filters.category ?? null
   const storage = useStorage()
   const [categories, setCategories] = useState<CategoryOption[]>([])
   const [categoriesError, setCategoriesError] = useState<string | null>(null)

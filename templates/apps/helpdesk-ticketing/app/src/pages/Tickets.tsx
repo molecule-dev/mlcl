@@ -1,9 +1,10 @@
 // Phase 1 baseline — verbatim JSX of design-helpdesk-ticketing-tickets.html
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router'
+import { useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -45,16 +46,16 @@ function Tickets() {
       { defaultValue: 'Tickets — {{appName}} Support' },
     )
   }, [t])
-  const [searchParams] = useSearchParams()
-  const [search, setSearch] = useState(() => searchParams.get('q') ?? '')
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const [search, setSearch] = useState(() => listRoute.filters.q ?? '')
 
   // When the dashboard search bar lands here with `?q=…`, sync the
   // initial subject filter so the user sees results matching what they
   // typed instead of the unfiltered list.
   useEffect(() => {
-    const q = searchParams.get('q')
+    const q = listRoute.filters.q ?? null
     if (q !== null) setSearch(q)
-  }, [searchParams])
+  }, [listRoute.filters.q])
   const [statusFilter, setStatusFilter] = useState('')
   const [priorityFilter, setPriorityFilter] = useState('')
   const [assigneeId, setAssigneeId] = useState('')

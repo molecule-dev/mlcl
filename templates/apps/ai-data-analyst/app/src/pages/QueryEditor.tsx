@@ -1,9 +1,9 @@
 import { useState } from 'react'
-import { useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -92,7 +92,8 @@ export function QueryEditor() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [searchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { q: {} } })
   const [result, setResult] = useState<QueryResult | null>(null)
   const [running, setRunning] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -226,7 +227,7 @@ export function QueryEditor() {
       </header>
 
       <AskClarionBar
-        value={searchParams.get('q') ?? ''}
+        value={listRoute.filters.q ?? ''}
         suggestions={SAMPLE_QUESTIONS}
         loading={running}
         onSubmit={ask}

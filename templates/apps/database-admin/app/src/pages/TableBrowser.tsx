@@ -3,6 +3,7 @@ import { Link, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { DatabaseAdminLayout } from '../components/DatabaseAdminLayout.js'
@@ -22,10 +23,12 @@ export function TableBrowser() {
   const http = useHttpClient()
   const { connectionId, table } = useParams<{ connectionId: string; table: string }>()
   const [searchParams, setSearchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { offset: {} } })
   const [data, setData] = useState<DataResponse | null>(null)
   const [error, setError] = useState<string | null>(null)
   const limit = Number(searchParams.get('limit') ?? 50)
-  const offset = Number(searchParams.get('offset') ?? 0)
+  const offset = Number(listRoute.filters.offset ?? 0)
 
   useEffect(() => {
     if (!connectionId || !table) return

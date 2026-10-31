@@ -3,6 +3,7 @@ import { useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useIsAuthenticated, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -53,10 +54,12 @@ export function SearchResults() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const [params] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { q: {} } })
   const navigate = useNavigate()
   const http = useHttpClient()
   const isAuthenticated = useIsAuthenticated()
-  const q = params.get('q') ?? ''
+  const q = listRoute.filters.q ?? ''
   const guests = params.get('guests') ?? '2'
   const checkIn = params.get('check_in') ?? ''
   const checkOut = params.get('check_out') ?? ''

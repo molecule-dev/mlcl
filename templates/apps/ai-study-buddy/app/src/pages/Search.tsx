@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { PageBody, PageHeader } from '../components/PageHeader.js'
@@ -29,7 +30,9 @@ export function Search() {
   const http = useHttpClient()
 
   const [searchParams, setSearchParams] = useSearchParams()
-  const [query, setQuery] = useState(searchParams.get('q') ?? '')
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const [query, setQuery] = useState(listRoute.filters.q ?? '')
   const filter = (searchParams.get('type') as SearchResult['type'] | 'all') ?? 'all'
   // Start with [] (not null) so the page renders the filter bar + result
   // shell immediately on mount; the fetch then replaces results in place

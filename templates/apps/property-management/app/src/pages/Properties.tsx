@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -20,12 +21,14 @@ export function Properties() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [searchParams, setSearchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { filter: {} } })
   const [properties, setProperties] = useState<PropertySummary[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [reloadKey, setReloadKey] = useState(0)
   const [search, setSearch] = useState('')
-  const filter = (searchParams.get('filter') as FilterKey) || 'all'
+  const filter = ((listRoute.filters.filter ?? null) as FilterKey) || 'all'
 
   useEffect(() => {
     let cancelled = false

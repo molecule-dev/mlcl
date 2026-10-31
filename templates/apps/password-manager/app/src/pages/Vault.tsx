@@ -2,6 +2,7 @@ import { useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { VaultHeroCard } from '../components/VaultHeroCard.js'
@@ -49,12 +50,14 @@ export function Vault() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { category: {}, search: {} } })
   const [filter, setFilter] = useState<VaultFilterId>('all')
   const [refreshKey] = useState(0)
 
-  const categoryParam = searchParams.get('category')
+  const categoryParam = listRoute.filters.category ?? null
   const folderParam = (searchParams.get('folder') ?? '').trim()
-  const searchParam = (searchParams.get('search') ?? '').trim()
+  const searchParam = (listRoute.filters.search ?? '').trim()
   const items = useVaultItems(
     {
       type:

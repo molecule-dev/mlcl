@@ -3,6 +3,7 @@ import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { MeridianAppShell } from '../components/MeridianAppShell.js'
@@ -59,8 +60,10 @@ export function Inbox() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const [params] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { search: {} } })
   const labelFilter = params.get('label') ?? null
-  const searchQuery = (params.get('search') ?? '').trim() || null
+  const searchQuery = (listRoute.filters.search ?? '').trim() || null
   // Reading-view preferences (Settings): whether to show the inline preview pane and how dense the
   // thread rows are. Read on render so returning from Settings reflects the change.
   const { preview: showPreview, compact } = readPrefs()

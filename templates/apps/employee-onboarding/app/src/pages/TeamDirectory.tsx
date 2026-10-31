@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { TeamMemberCard } from '../components/TeamMemberCard.js'
@@ -19,12 +19,13 @@ export function TeamDirectory() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [searchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { q: {} } })
   const [members, setMembers] = useState<TeamMemberApi[]>([])
   const [loading, setLoading] = useState(true)
   const [filter, setFilter] = useState<string>('All')
   // Seeded from ?q= so the app-shell search bar can deep-link into this page.
-  const [query, setQuery] = useState(searchParams.get('q') ?? '')
+  const [query, setQuery] = useState(listRoute.filters.q ?? '')
 
   useEffect(() => {
     if (!http) return

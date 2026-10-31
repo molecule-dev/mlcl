@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { CairnHeroCard } from '../components/CairnHeroCard.js'
@@ -32,7 +33,9 @@ export function Search() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [params, setParams] = useSearchParams()
-  const initial = params.get('q') ?? ''
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const initial = listRoute.filters.q ?? ''
 
   const [query, setQuery] = useState(initial)
   const [debounced, setDebounced] = useState(initial)

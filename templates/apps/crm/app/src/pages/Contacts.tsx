@@ -3,6 +3,7 @@ import { Link, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -81,11 +82,13 @@ export function ContactsPage() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [searchParams] = useSearchParams()
+
+  const listRoute = useListRoute({ filters: { q: {} } })
   const [contacts, setContacts] = useState<ContactRecord[]>([])
   const [companies, setCompanies] = useState<CompanyRecord[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [search, setSearch] = useState(searchParams.get('q') ?? '')
+  const [search, setSearch] = useState(listRoute.filters.q ?? '')
   const [sourceFilter, setSourceFilter] = useState<string>('all')
   const [showCreate, setShowCreate] = useState(searchParams.get('new') === '1')
   const [draft, setDraft] = useState({
@@ -124,10 +127,10 @@ export function ContactsPage() {
   // Keep the topbar search + "Add Contact" button working while this page is
   // already mounted (in-app navigation only changes the query string).
   useEffect(() => {
-    const q = searchParams.get('q')
+    const q = listRoute.filters.q ?? null
     if (q !== null) setSearch(q)
     if (searchParams.get('new') === '1') setShowCreate(true)
-  }, [searchParams])
+  }, [listRoute.filters.q, searchParams])
 
   // Sources present in the data drive the filter (fixtures/imports may use
   // values beyond the curated create-form set, e.g. "conference").

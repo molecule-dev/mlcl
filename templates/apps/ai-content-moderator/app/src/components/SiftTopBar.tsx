@@ -1,8 +1,9 @@
 import type { ReactNode } from 'react'
 import { useState } from 'react'
-import { useLocation, useNavigate, useSearchParams } from 'react-router'
+import { useLocation, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -85,8 +86,9 @@ export function SiftTopBarActions({ actions, showSearch = true }: SiftTopBarActi
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  const [query, setQuery] = useState(searchParams.get('q') ?? '')
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const [query, setQuery] = useState(listRoute.filters.q ?? '')
 
   return (
     <>

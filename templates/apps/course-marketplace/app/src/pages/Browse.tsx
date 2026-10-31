@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -91,12 +92,14 @@ export function Browse() {
   // Deep-link support: the Landing hero search navigates to /browse?q=…
   // and category bubbles navigate to /browse?category=… — honor both.
   const [searchParams, setSearchParams] = useSearchParams()
-  const query = searchParams.get('q')?.trim() ?? ''
+
+  const listRoute = useListRoute({ filters: { category: {}, q: {} } })
+  const query = (listRoute.filters.q ?? null)?.trim() ?? ''
   const [courses, setCourses] = useState<ApiCourse[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [categories, setCategories] = useState<string[]>(['All'])
-  const [activeCategory, setActiveCategory] = useState(searchParams.get('category') ?? 'All')
+  const [activeCategory, setActiveCategory] = useState(listRoute.filters.category ?? 'All')
   const [activeLevel, setActiveLevel] = useState<string | null>(null)
   const [activePrice, setActivePrice] = useState<string | null>(null)
   const [sort, setSort] = useState<(typeof SORT_OPTIONS)[number]['id']>('popular')

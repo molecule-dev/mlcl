@@ -1,8 +1,9 @@
 import { useEffect, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { EnvironmentBadge, type EnvTone } from '../components/EnvironmentBadge.js'
@@ -74,12 +75,12 @@ export function Flags() {
   const [stateFilter, setStateFilter] = useState<StateFilter>('all')
   // The layout's header search navigates to /flags?q=… — honor that param
   // so both search boxes drive the same filter.
-  const [searchParams] = useSearchParams()
-  const [search, setSearch] = useState(() => searchParams.get('q') ?? '')
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const [search, setSearch] = useState(() => listRoute.filters.q ?? '')
 
   useEffect(() => {
-    setSearch(searchParams.get('q') ?? '')
-  }, [searchParams])
+    setSearch(listRoute.filters.q ?? '')
+  }, [listRoute.filters.q])
 
   const reload = async () => {
     try {

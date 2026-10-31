@@ -4,6 +4,7 @@ import { Link, useSearchParams } from 'react-router'
 import type { UserProfile } from '@molecule/app-auth'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import {
   AuthSection,
   DevicesSection,
@@ -68,7 +69,9 @@ export function Settings() {
   const http = useHttpClient()
   const { user } = useAuth<UserProfile>()
   const [searchParams, setSearchParams] = useSearchParams()
-  const tabParam = searchParams.get('tab') as TabId | null
+
+  const listRoute = useListRoute({ filters: { tab: {} } })
+  const tabParam = (listRoute.filters.tab ?? null) as TabId | null
   const tab: TabId = (TABS.some((tab2) => tab2.id === tabParam) ? tabParam : 'team') as TabId
   const setTab = (next: TabId) => {
     const params = new URLSearchParams(searchParams)

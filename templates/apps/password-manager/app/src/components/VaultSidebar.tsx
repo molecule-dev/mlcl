@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useLocation, useNavigate, useSearchParams } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BrandWordmark } from './BrandWordmark.js'
@@ -44,17 +45,17 @@ export function VaultSidebarContent({ categories, folders }: VaultSidebarContent
   const { t } = useTranslation()
   const location = useLocation()
   const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  const [query, setQuery] = useState(searchParams.get('search') ?? '')
+  const listRoute = useListRoute({ filters: { search: {} } })
+  const [query, setQuery] = useState(listRoute.filters.search ?? '')
   const searchInputRef = useRef<HTMLInputElement>(null)
   const path = location.pathname
 
   // keep input in sync when the URL search param changes (e.g. clearing it on /vault)
   useEffect(() => {
     if (path === '/vault') {
-      setQuery(searchParams.get('search') ?? '')
+      setQuery(listRoute.filters.search ?? '')
     }
-  }, [searchParams, path])
+  }, [listRoute.filters.search, path])
 
   // ⌘K / Ctrl+K focuses the vault search — this backs the shortcut hint
   // rendered inside the search field.

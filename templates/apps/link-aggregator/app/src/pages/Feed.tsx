@@ -3,6 +3,7 @@ import { useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { CairnHeroCard } from '../components/CairnHeroCard.js'
@@ -39,7 +40,9 @@ export function Feed() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [params, setParams] = useSearchParams()
-  const tag = params.get('tag') || undefined
+
+  const listRoute = useListRoute({ filters: { tag: {} } })
+  const tag = listRoute.filters.tag || undefined
 
   const [posts, setPosts] = useState<LinkPost[]>([])
   const [sort, setSort] = useState<SortOption | null>(null)

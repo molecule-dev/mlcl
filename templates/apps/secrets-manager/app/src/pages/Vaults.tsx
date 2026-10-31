@@ -1,7 +1,8 @@
 import { useEffect, useMemo, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { NewVaultModal } from '../components/NewVaultModal.js'
@@ -62,8 +63,9 @@ export function Vaults() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [searchParams] = useSearchParams()
-  const query = (searchParams.get('q') ?? '').toLowerCase().trim()
+
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const query = (listRoute.filters.q ?? '').toLowerCase().trim()
   const [vaults, setVaults] = useState<VaultCardData[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
