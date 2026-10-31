@@ -19,7 +19,8 @@ const AUTH_CONTEXT = /^(?:Auth|Authentication|Identity)(?:Context|Store)?$/i
 // session-named state or context counts only with a user/token in it or a credential store.
 const SESSION_STATE = /^(?:session|sessionState|currentSession)$/i
 const SESSION_CONTEXT = /^Session(?:Context|Store)?$/i
-const CREDENTIAL = /token|jwt|credential|session|^auth(?:$|[_.:-])/i
+const CREDENTIAL = /token|jwt|credential|^auth(?:$|[_.:-])/i
+const INDEPENDENT_API_KEY = /api[_-]?key/i
 const NON_SESSION_KEY = /csrf|captcha|verification|invitation|invite|reset|pagination|upload/i
 const TEST =
   /(?:^|[/\\])(?:__tests__|__fixtures__|e2e|fixtures)(?:[/\\]|$)|\.(?:test|spec)\.[cm]?[jt]sx?$/
@@ -208,6 +209,32 @@ export default {
         return property(node.arguments[0], name, seen)
       return null
     }
+    // A third-party API key authenticates a different service, not the app's
+    // Molecule session. Resolve aliases and template/binary expressions, but
+    // stay conservative when any dynamic branch could instead hold a token.
+    const independentApiKey = (node, seen = new Set()) => {
+      node = value(node)
+      if (!node || seen.has(node)) return false
+      seen.add(node)
+      if (node.type === 'Identifier') return INDEPENDENT_API_KEY.test(node.name)
+      if (node.type === 'MemberExpression') return INDEPENDENT_API_KEY.test(key(node) ?? '')
+      if (node.type === 'TemplateLiteral')
+        return (
+          node.expressions.length > 0 &&
+          node.expressions.every((part) => independentApiKey(part, seen))
+        )
+      if (node.type === 'BinaryExpression') {
+        const parts = [node.left, node.right].filter(
+          (part) => !(part.type === 'Literal' && typeof part.value === 'string'),
+        )
+        return parts.length > 0 && parts.every((part) => independentApiKey(part, seen))
+      }
+      if (node.type === 'ConditionalExpression')
+        return independentApiKey(node.consequent, seen) && independentApiKey(node.alternate, seen)
+      if (node.type === 'LogicalExpression')
+        return independentApiKey(node.left, seen) && independentApiKey(node.right, seen)
+      return false
+    }
     const mutate = (target, name, next) => {
       if (name === null || name === undefined) return
       const owner = identity(target)
@@ -330,7 +357,12 @@ export default {
         if (packages.http)
           for (const node of calls) {
             if (!transport(node.callee)) continue
-            if (node.arguments.some((arg) => property(property(arg, 'headers'), 'authorization')))
+            if (
+              node.arguments.some((arg) => {
+                const authorization = property(property(arg, 'headers'), 'authorization')
+                return authorization && !independentApiKey(authorization)
+              })
+            )
               context.report({ node, messageId: 'http' })
           }
       },
