@@ -68,6 +68,8 @@ export default {
       session:
         '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
+      unbonded:
+        '@molecule/app-http is declared: this createFetchClient result is used without setClient, so setAuthTokenSource/setAuthGate reach only the bonded client (and getClient() fallback), not this client. Call setClient(createFetchClient(...)) once in the bond setup, then use getClient() everywhere.',
     },
   },
   create(context) {
@@ -88,8 +90,11 @@ export default {
     const calls = []
     const contexts = []
     const states = []
+    const fetchClients = []
+    const clientBonds = []
     const mutations = new Map()
     let credentialStore = false
+    let hasAuthTokenSource = false
 
     const variable = (node) => {
       if (node?.type !== 'Identifier') return null
@@ -248,6 +253,17 @@ export default {
         return parent.id.elements[0].name
       return ''
     }
+    const usedFetchClient = (node) => {
+      const parent = node.parent
+      return (
+        (parent?.type === 'VariableDeclarator' && parent.init === node) ||
+        (parent?.type === 'AssignmentExpression' && parent.right === node) ||
+        (parent?.type === 'MemberExpression' && parent.object === node) ||
+        parent?.type === 'ExportDefaultDeclaration' ||
+        parent?.type === 'ReturnStatement' ||
+        (parent?.type === 'ArrowFunctionExpression' && parent.body === node)
+      )
+    }
     const transport = (callee) => {
       callee = value(callee)
       if (global(callee, ['fetch']) || globalMember(callee, 'fetch')) return true
@@ -288,6 +304,12 @@ export default {
       CallExpression(node) {
         calls.push(node)
         const callee = unwrap(node.callee)
+        if (packages.http && imported(callee, [HTTP], ['createFetchClient']))
+          fetchClients.push(node)
+        if (packages.http && imported(callee, [HTTP], ['setClient']))
+          clientBonds.push(...node.arguments)
+        if (packages.http && imported(callee, [HTTP], ['setAuthTokenSource']))
+          hasAuthTokenSource = true
         if (callee.type === 'MemberExpression') {
           const method = key(callee)
           if (method === 'set' || method === 'append')
@@ -354,7 +376,18 @@ export default {
               messageId: 'session',
             })
         }
-        if (packages.http)
+        if (packages.http) {
+          for (const node of fetchClients) {
+            if (clientBonds.some((client) => identity(client) === identity(node))) continue
+            const authorization = property(property(node.arguments[0], 'headers'), 'authorization')
+            if (authorization && independentApiKey(authorization)) continue
+            const authenticated =
+              hasAuthTokenSource ||
+              property(node.arguments[0], 'authScheme') ||
+              (authorization && !independentApiKey(authorization))
+            if (authenticated && usedFetchClient(node))
+              context.report({ node, messageId: 'unbonded' })
+          }
           for (const node of calls) {
             if (!transport(node.callee)) continue
             if (
@@ -365,6 +398,7 @@ export default {
             )
               context.report({ node, messageId: 'http' })
           }
+        }
       },
     }
   },
