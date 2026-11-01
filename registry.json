@@ -30656,6 +30656,7 @@
         "group",
         "reset",
         "flush",
+        "snapshotAnalyticsSdkUrls",
         "AnalyticsUserProps",
         "AnalyticsEvent",
         "AnalyticsPageView",
