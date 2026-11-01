@@ -11,8 +11,9 @@
  * Threat model: the rule catches ACCIDENTAL bypass, the shapes a model or a
  * developer writes when it builds its own client instead of using the bonded
  * one. It is not a sandbox against code written to evade it. Every provider-
- * factory creation must be bonded at its creation site or exported for its
- * composition root to bond; factory options never establish an exemption.
+ * factory creation must be passed, directly or through an immutable local
+ * alias, to setClient or an imported bond('http', …) in the same file. Exports
+ * and factory options never establish an exemption.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
@@ -80,7 +81,7 @@ export default {
         '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
       unbonded:
-        '@molecule/app-http is declared: this {{factory}} result is created without setClient, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. Call setClient({{factory}}(...)) once in the existing bonds/ composition root, then use getClient() everywhere.',
+        "@molecule/app-http is declared: this {{factory}} result is created without setClient or an HTTP bond, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. Call setClient({{factory}}(...)) or bond('http', …, {{factory}}(...)) once in the existing bonds/ composition root, then use getClient() everywhere.",
     },
   },
   create(context) {
@@ -301,31 +302,6 @@ export default {
         return parent.id.elements[0].name
       return ''
     }
-    const FUNCTIONS = ['ArrowFunctionExpression', 'FunctionDeclaration', 'FunctionExpression']
-    const functionReturns = (node) => {
-      // Overload signatures, declare functions and abstract methods have no body.
-      if (!node?.body) return []
-      if (node.body.type !== 'BlockStatement') return [node.body]
-      const returns = []
-      const stack = [node.body]
-      const seen = new Set()
-      while (stack.length) {
-        const current = stack.pop()
-        if (!current || typeof current.type !== 'string' || seen.has(current)) continue
-        seen.add(current)
-        if (current !== node.body && FUNCTIONS.includes(current.type)) continue
-        if (current.type === 'ReturnStatement') {
-          if (current.argument) returns.push(current.argument)
-          continue
-        }
-        for (const [name, child] of Object.entries(current)) {
-          if (name === 'parent') continue
-          if (Array.isArray(child)) stack.push(...child)
-          else if (child && typeof child === 'object') stack.push(child)
-        }
-      }
-      return returns
-    }
     // Bonding is deliberately a creation-site fact. Following values through
     // invocations, parameters, properties and writes cannot prove which runtime
     // instance a request uses; the scaffold keeps this direct const shape instead.
@@ -351,158 +327,6 @@ export default {
       }
       for (const client of clientBonds) add(client)
       return bonded
-    }
-    // An exported client or plain container may be bonded by its importing
-    // composition root only when this module does not also use it. Direct
-    // container assembly, exports and same-file setClient calls are hand-off
-    // references; every other reference makes the dependent creation local.
-    const exportedHttpClients = () => {
-      const origins = new Set()
-      const stableConst = (id, handoff) => {
-        if (id?.type !== 'Identifier') return null
-        const binding = variable(id)
-        const definition = binding?.defs[0]
-        if (
-          binding?.defs.length !== 1 ||
-          definition.type !== 'Variable' ||
-          definition.node.parent.kind !== 'const' ||
-          definition.node.id.type !== 'Identifier' ||
-          !definition.node.init ||
-          binding.references.some((ref) => ref.isWrite() && !ref.init)
-        )
-          return null
-        if (handoff) handoff.bindings.add(binding)
-        return definition.node
-      }
-      const localFunction = (callee) => {
-        callee = unwrap(callee)
-        if (FUNCTIONS.includes(callee?.type)) return callee
-        if (callee?.type !== 'Identifier') return null
-        const binding = variable(callee)
-        const definition = binding?.defs[0]
-        if (
-          binding?.defs.length === 1 &&
-          definition.type === 'FunctionName' &&
-          !binding.references.some((ref) => ref.isWrite() && !ref.init)
-        )
-          return definition.node
-        const declarator = stableConst(callee)
-        const init = unwrap(declarator?.init)
-        return FUNCTIONS.includes(init?.type) ? init : null
-      }
-      const within = (node, ancestor) => {
-        for (let current = node; current; current = current.parent)
-          if (current === ancestor) return true
-        return false
-      }
-      const exportReference = (id) => {
-        for (let node = id; node; node = node.parent) {
-          if (node.type === 'ExportSpecifier') return node.local === id
-          if (node.type === 'ExportDefaultDeclaration') return unwrap(node.declaration) === id
-          if (node.type === 'ExportNamedDeclaration') return false
-        }
-        return false
-      }
-      const typeQueryReference = (id) => {
-        for (let node = id.parent; node; node = node.parent)
-          if (node.type === 'TSTypeQuery') return true
-        return false
-      }
-      const bondReference = (id) =>
-        clientBonds.some((argument) => {
-          argument = unwrap(argument)
-          return argument === id || (argument?.type === 'MemberExpression' && within(id, argument))
-        })
-      const finish = (handoff) => {
-        const unused = (binding) =>
-          binding.references.every(
-            (ref) =>
-              ref.init ||
-              handoff.references.has(ref.identifier) ||
-              exportReference(ref.identifier) ||
-              typeQueryReference(ref.identifier) ||
-              bondReference(ref.identifier),
-          )
-        for (const [origin, bindings] of handoff.origins)
-          if ([...bindings].every(unused)) origins.add(origin)
-      }
-      const creation = (target, handoff, seen = new Set()) => {
-        target = unwrap(target)
-        if (target?.type !== 'CallExpression' || seen.has(target)) return
-        seen.add(target)
-        if (clientFactory(target.callee)) {
-          const dependencies = handoff.origins.get(target) ?? new Set()
-          for (const binding of handoff.bindings) dependencies.add(binding)
-          handoff.origins.set(target, dependencies)
-          return
-        }
-        const fn = localFunction(target.callee)
-        // Calls of these functions hand off iterators or Promises, never clients.
-        if (!fn || fn.generator || fn.async) return
-        for (const returned of functionReturns(fn)) {
-          const value = unwrap(returned)
-          if (value?.type === 'Identifier') {
-            const declarator = stableConst(value, handoff)
-            if (declarator) {
-              handoff.references.add(value)
-              creation(declarator.init, handoff, seen)
-            }
-          } else creation(value, handoff, seen)
-        }
-      }
-      const containerValue = (target, handoff) => {
-        target = unwrap(target)
-        if (target?.type === 'Identifier') {
-          const declarator = stableConst(target, handoff)
-          if (!declarator) return
-          handoff.references.add(target)
-          target = declarator.init
-        }
-        creation(target, handoff)
-      }
-      const exportedValue = (target) => {
-        const handoff = { origins: new Map(), bindings: new Set(), references: new Set() }
-        target = unwrap(target)
-        if (target?.type === 'Identifier') {
-          const declarator = stableConst(target, handoff)
-          target = declarator ? unwrap(declarator.init) : null
-        }
-        if (target?.type === 'ObjectExpression') {
-          for (const prop of target.properties)
-            if (prop.type === 'Property' && !prop.computed && key(prop) !== '__proto__')
-              containerValue(prop.value, { ...handoff, bindings: new Set(handoff.bindings) })
-        } else if (target?.type === 'ArrayExpression') {
-          for (const element of target.elements) {
-            if (element?.type === 'SpreadElement') break
-            if (element)
-              containerValue(element, { ...handoff, bindings: new Set(handoff.bindings) })
-          }
-        } else creation(target, handoff)
-        finish(handoff)
-      }
-      for (const statement of source.ast.body) {
-        if (statement.type === 'ExportDefaultDeclaration') {
-          const declaration = unwrap(statement.declaration)
-          if (declaration?.type === 'Identifier') exportedValue(declaration)
-          else {
-            const handoff = { origins: new Map(), bindings: new Set(), references: new Set() }
-            creation(declaration, handoff)
-            finish(handoff)
-          }
-          continue
-        }
-        if (
-          statement.type !== 'ExportNamedDeclaration' ||
-          statement.source ||
-          statement.exportKind === 'type'
-        )
-          continue
-        if (statement.declaration?.type === 'VariableDeclaration')
-          for (const declarator of statement.declaration.declarations) exportedValue(declarator.id)
-        for (const specifier of statement.specifiers ?? [])
-          if (specifier.exportKind !== 'type') exportedValue(specifier.local)
-      }
-      return origins
     }
     const AXIOS_CONFIG = new Map([
       ['default', 0],
@@ -556,6 +380,19 @@ export default {
         const callee = unwrap(node.callee)
         if (packages.http && imported(callee, [HTTP], ['setClient']))
           clientBonds.push(...node.arguments)
+        if (
+          packages.http &&
+          imported(callee, ['@molecule/app-bond'], ['bond']) &&
+          string(node.arguments[0]) === 'http'
+        ) {
+          const provider =
+            node.arguments.length === 2
+              ? node.arguments[1]
+              : node.arguments.length === 3
+                ? node.arguments[2]
+                : null
+          if (provider) clientBonds.push(provider)
+        }
         if (callee.type === 'MemberExpression') {
           const method = key(callee)
           if (method === 'set' || method === 'append')
@@ -624,10 +461,9 @@ export default {
         }
         if (packages.http) {
           const bonded = bondedHttpClients()
-          const exported = exportedHttpClients()
           for (const node of calls) {
             const factory = clientFactory(node.callee)
-            if (!factory || bonded.has(node) || exported.has(node)) continue
+            if (!factory || bonded.has(node)) continue
             context.report({
               node,
               messageId: 'unbonded',
