@@ -1,13 +1,14 @@
 // Phase 1 — derived copy from Login (same stitch: design-personal-finance-login.html).
 // Phase 4 wires it to this screen's own auth flow.
 // Do not hand-edit; Phase 2 will extract sections one at a time.
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { OAuthProviderLogo } from '@molecule/app-oauth-logos-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -18,12 +19,6 @@ function ResetPassword() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
   // Cross-view auth form persistence (email shared across Login/Signup/
   // Forgot/Reset, cleared on success). The reset link's ?email= seeds it
   // and wins over any stored value; otherwise the email typed on Forgot
@@ -41,7 +36,7 @@ function ResetPassword() {
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [success, setSuccess] = useState(false)
-  const token = searchParams.get('token') ?? ''
+  const [token] = useConsumedSearchParam('token')
   const oauthUnavailableLabel = t(
     'resetPassword.oauthUnavailable',
     {},

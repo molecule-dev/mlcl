@@ -1,10 +1,11 @@
 // Refract reset-password — POLISHED-PATTERN-CATALOG §13 (auth).
 // Pattern source: api-documentation Login, narrowed to two password fields
 // per screen-map.json derivation notes.
-import { useEffect, useState } from 'react'
-import { Link, useNavigate, useSearchParams } from 'react-router'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ACCENT_COLOR, BRAND_COLOR } from '../branding.js'
@@ -22,15 +23,8 @@ export function ResetPassword() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [params] = useSearchParams()
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
   const navigate = useNavigate()
-  const token = params.get('token') || ''
+  const [token] = useConsumedSearchParam('token')
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [showPassword, setShowPassword] = useState(false)

@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import { Link, useNavigate, useSearchParams } from 'react-router'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router'
 
 import { useLegalModals } from '@molecule/app-legal-pages-react'
 import { usePasswordReset, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -13,20 +14,13 @@ import { FormField } from './Login.js'
 export function ResetPassword() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [params] = useSearchParams()
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
   const navigate = useNavigate()
   const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [localError, setLocalError] = useState<string | null>(null)
   const [done, setDone] = useState(false)
-  const token = params.get('token') ?? ''
+  const [token] = useConsumedSearchParam('token')
   // In-place Privacy/Terms modals (no navigation) — same bonded legal HTML
   // as the standalone /privacy and /terms routes, pre-loaded via loadContent.
   const { openPrivacy, openTerms, modals } = useLegalModals({

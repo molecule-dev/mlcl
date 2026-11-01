@@ -1,7 +1,8 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -23,8 +24,7 @@ export function SharingAccept() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [params] = useSearchParams()
-  const token = params.get('token') ?? ''
+  const [token] = useConsumedSearchParam('token')
 
   const [status, setStatus] = useState<'loading' | 'success' | 'error'>('loading')
   const [grant, setGrant] = useState<AcceptedGrant | null>(null)

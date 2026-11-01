@@ -1,3 +1,4 @@
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { useEffect, useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
@@ -31,14 +32,7 @@ export function VerifyEmailPage() {
   // a failure the user is told to retry, for a link that WAS sent.
   const [resending, setResending] = useState(false)
   // Retain the credential for retries while removing it from browser history.
-  const [token] = useState(() => new URLSearchParams(window.location.search).get('token'))
-
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
+  const [token] = useConsumedSearchParam('token')
 
   useEffect(() => {
     if (!token) {

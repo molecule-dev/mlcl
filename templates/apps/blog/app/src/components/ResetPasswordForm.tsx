@@ -1,7 +1,8 @@
 import { useState } from 'react'
-import { Link, useNavigate, useSearchParams } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 export default function ResetPasswordForm() {
@@ -9,8 +10,7 @@ export default function ResetPasswordForm() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const navigate = useNavigate()
-  const [params] = useSearchParams()
-  const token = params.get('token') || ''
+  const [token] = useConsumedSearchParam('token')
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [error, setError] = useState<string | null>(null)

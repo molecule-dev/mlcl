@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
-import { Link, useSearchParams } from 'react-router'
+import { useState } from 'react'
+import { Link } from 'react-router'
 
 import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -15,14 +16,7 @@ function ResetPassword() {
     'text-[10px] font-bold text-foreground-tertiary uppercase tracking-widest hover:text-sky-500 transition-colors',
   )
   const http = useHttpClient()
-  const [params] = useSearchParams()
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
-  const token = params.get('token') || ''
+  const [token] = useConsumedSearchParam('token')
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [error, setError] = useState<string | null>(null)

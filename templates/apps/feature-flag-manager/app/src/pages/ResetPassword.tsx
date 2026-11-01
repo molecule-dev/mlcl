@@ -1,8 +1,9 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BrandWordmark } from '../components/BrandWordmark.js'
@@ -17,12 +18,6 @@ export function ResetPassword() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
   const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
   const { login } = useLogin()
 
@@ -38,7 +33,7 @@ export function ResetPassword() {
   } = useAuthFormState(urlEmail ? { initialFields: { email: urlEmail } } : undefined)
   const email = authFormFields.email ?? ''
   const setEmail = (value: string): void => setAuthFormField('email', value)
-  const [token, setToken] = useState(searchParams.get('token') || '')
+  const [token, setToken] = useConsumedSearchParam('token')
   const [password, setPassword] = useState('')
   const [showPassword, setShowPassword] = useState(false)
 

@@ -9,11 +9,12 @@
  */
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Link, useParams, useSearchParams } from 'react-router'
+import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -118,8 +119,7 @@ export function BookingConfirmation() {
   const { t } = useTranslation()
   const params = useParams<{ slug: string }>()
   const slug = params.slug || ''
-  const [search] = useSearchParams()
-  const token = search.get('token') ?? ''
+  const [token] = useConsumedSearchParam('token')
   const http = useHttpClient()
 
   const [data, setData] = useState<ConfirmationPayload | null>(null)

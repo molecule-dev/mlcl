@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
-import { Link, useNavigate, useSearchParams } from 'react-router'
+import { useState } from 'react'
+import { Link, useNavigate } from 'react-router'
 
 import { usePasswordReset, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AuthStatusPill, SwitchboardAuthShell } from '../components/SwitchboardAuthShell.js'
@@ -18,13 +19,6 @@ export function ResetPassword() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const [searchParams] = useSearchParams()
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
   const {
     confirmStatus: status,
     confirmError: error,
@@ -35,7 +29,7 @@ export function ResetPassword() {
   const [mismatch, setMismatch] = useState(false)
   const [showPassword, setShowPassword] = useState(false)
 
-  const token = searchParams.get('token') ?? ''
+  const [token] = useConsumedSearchParam('token')
   const isResetting = status === 'pending'
 
   const handleSubmit = async (e: React.FormEvent) => {

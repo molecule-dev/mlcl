@@ -1,9 +1,10 @@
-import { useEffect, useState } from 'react'
+import { useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { LegalModalLinks } from '@molecule/app-legal-pages-react'
 import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -18,16 +19,10 @@ export function ResetPassword() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
   const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
   const { login } = useLogin()
 
-  const [token, setToken] = useState(searchParams.get('token') || '')
+  const [token, setToken] = useConsumedSearchParam('token')
   // Cross-view auth form persistence (email shared across Login/Signup/
   // Forgot/Reset, cleared on success). The reset link's ?email= seeds it
   // and wins over any stored value; otherwise the email typed on Forgot

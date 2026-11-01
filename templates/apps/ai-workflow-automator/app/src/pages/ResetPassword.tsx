@@ -2,9 +2,10 @@
  * ResetPassword — derived from Login per screen-map.
  */
 import { useEffect, useState } from 'react'
-import { Link, useNavigate, useSearchParams } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AuthShell } from '../components/AuthShell.js'
@@ -14,13 +15,7 @@ export function ResetPassword() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const navigate = useNavigate()
-  const [params] = useSearchParams()
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
+  const [token] = useConsumedSearchParam('token')
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [loading, setLoading] = useState(false)
@@ -48,7 +43,7 @@ export function ResetPassword() {
     setLoading(true)
     try {
       await http.post('/api/users/reset-password', {
-        token: params.get('token') ?? '',
+        token: token ?? '',
         password,
       })
       navigate('/login')

@@ -1,7 +1,8 @@
-import { useEffect, useState } from 'react'
-import { useNavigate, useSearchParams } from 'react-router'
+import { useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useConsumedSearchParam } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AuthShell } from '../components/AuthShell.js'
@@ -11,14 +12,7 @@ export function ResetPassword() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const http = useHttpClient()
-  const [params] = useSearchParams()
-  useEffect(() => {
-    const url = new URL(window.location.href)
-    if (!url.searchParams.has('token')) return
-    url.searchParams.delete('token')
-    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
-  }, [])
-  const token = params.get('token') ?? ''
+  const [token] = useConsumedSearchParam('token')
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')
   const [submitting, setSubmitting] = useState(false)
