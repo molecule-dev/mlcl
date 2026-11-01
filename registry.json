@@ -6325,6 +6325,7 @@
         "E2BSandboxProvider",
         "EgressProbeCodes",
         "classifyEgressProbe",
+        "e2bPassiveSandboxClass",
         "createProvider",
         "provider",
         "E2BConfig",
