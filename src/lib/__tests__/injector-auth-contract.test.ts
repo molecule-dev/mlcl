@@ -1,4 +1,4 @@
-import { mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -21,10 +21,13 @@ interface TestResponse {
   statusCode: number
   body: unknown
 }
-type TestHandler = (
+type TestResponseLocals = { locals?: { session?: { userId?: unknown } } }
+type TestHandler = (req: TestRequest, res: TestResponseLocals) => Promise<TestResponse>
+type TestMiddleware = (
   req: TestRequest,
-  res: { locals?: { session?: { userId?: unknown } } },
-) => Promise<TestResponse>
+  res: TestResponseLocals,
+  next: () => Promise<void>,
+) => Promise<void>
 
 function plan(): InjectionPlan {
   const pkg = loadRegistry().find((entry) => entry.name === RESOURCE)!
@@ -101,6 +104,7 @@ describe('injector consumes the same auth contract as the app', () => {
     // Execute the generated wrapper against package-shaped raw handlers. The
     // adapter must unwrap credentials and remove the token from the wire user.
     let receivedBody: unknown
+    let rateLimitedBody: unknown
     let receivedParams: Record<string, string> | undefined
     const success = async (req: TestRequest): Promise<TestResponse> => {
       receivedBody = req.body
@@ -125,7 +129,9 @@ describe('injector consumes the same auth contract as the app', () => {
       compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.CommonJS },
     }).outputText
     const module = {
-      exports: {} as { requestHandlerMap: Record<string, TestHandler> },
+      exports: {} as {
+        requestHandlerMap: Record<string, TestHandler | TestMiddleware>
+      },
     }
     const require = (name: string): unknown => {
       if (name === '@molecule/api-resource') {
@@ -134,7 +140,16 @@ describe('injector consumes the same auth contract as the app', () => {
       if (name === RESOURCE) {
         return {
           authorization: {},
-          createRequestHandlerMap: () => ({}),
+          createRequestHandlerMap: () => ({
+            rateLimitAuth: async (
+              req: TestRequest,
+              _res: TestResponseLocals,
+              next: () => Promise<void>,
+            ) => {
+              rateLimitedBody = req.body
+              await next()
+            },
+          }),
           handlers,
           resource: {},
         }
@@ -142,7 +157,7 @@ describe('injector consumes the same auth contract as the app', () => {
       throw new Error(`Unexpected import ${name}`)
     }
     new Function('require', 'module', 'exports', js)(require, module, module.exports)
-    const result = await module.exports.requestHandlerMap.logIn!(
+    const result = await (module.exports.requestHandlerMap.logIn as TestHandler)(
       { body: { credentials: { email: 'a@b.c', password: 'pw' } } },
       {},
     )
@@ -150,11 +165,47 @@ describe('injector consumes the same auth contract as the app', () => {
     expect(result.body).toEqual({
       session: { id: 'u1', email: 'a@b.c', sessionToken: 'access' },
     })
-    await module.exports.requestHandlerMap.updatePassword!(
+    await (module.exports.requestHandlerMap.updatePassword as TestHandler)(
       { body: {}, params: {} },
       { locals: { session: { userId: 'u1' } } },
     )
     expect(receivedParams).toEqual({ id: 'u1' })
+
+    const enveloped = { credentials: { email: 'a@b.c', password: 'pw' } }
+    const request = { body: enveloped }
+    await (module.exports.requestHandlerMap.rateLimitAuth as TestMiddleware)(
+      request,
+      {},
+      async () => undefined,
+    )
+    expect(rateLimitedBody).toEqual(enveloped.credentials)
+    expect(request.body).toBe(enveloped)
+  })
+
+  it('preserves app middleware on repeated and contract-changed injection', async () => {
+    await mkdir(join(root, 'src', 'App'), { recursive: true })
+    const routerPath = join(root, 'src', 'App', 'router.ts')
+    await writeFile(join(root, 'auth-contract.json'), JSON.stringify(contract()))
+    const initial = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
+    const generated = String(initial.find((file) => file.targetPath === routerPath)!.content)
+    await writeFile(routerPath, generated)
+
+    const unchanged = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
+    expect(unchanged.some((file) => file.targetPath === routerPath)).toBe(false)
+    const middleware = `\n// app middleware beside generated mounts\nrouter.use((_req, res, next) => { res.setHeader('X-App-Header', 'present'); next() })\n`
+    await writeFile(routerPath, generated + middleware)
+    const repeated = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
+    expect(repeated.some((file) => file.targetPath === routerPath)).toBe(false)
+
+    const changed = contract()
+    changed.routes = changed.routes.map((route) =>
+      route.handler === 'logIn' ? { ...route, path: '/v2/sessions' } : route,
+    )
+    await writeFile(join(root, 'auth-contract.json'), JSON.stringify(changed))
+    const updated = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
+    const replacement = updated.find((file) => file.targetPath === routerPath)
+    expect(String(replacement?.content)).toContain('router.post(`/v2/sessions`')
+    expect(String(replacement?.content)).toContain('X-App-Header')
   })
 
   it('keeps the default package router and wrapper when no project contract exists', async () => {

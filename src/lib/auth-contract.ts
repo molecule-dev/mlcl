@@ -20,13 +20,15 @@ export interface AuthResponseAdapter {
   envelope?: string
   /** Separate wire-user field when the token is at the response's top level. */
   userField?: string
-  accessTokenField: string
+  accessTokenField?: string
   refreshTokenField?: string
 }
 
 /** API auth options that cannot be represented by a route alone. */
 export interface AuthContractOptions {
   scheme: string
+  /** Cookie-session transport: no bearer is stored or required in the response. */
+  cookie?: boolean
   tokenKey?: string
   requestEnvelopes?: {
     login?: string
@@ -83,6 +85,7 @@ export const AUTH_PRECONFIGURATION_GUIDANCE =
 
 const HANDLERS = {
   login: 'logIn',
+  logout: 'logout',
   register: 'create',
   currentUser: 'readSelf',
   profile: 'update',
@@ -130,6 +133,7 @@ function endpoint(route: Route, role: AuthRole): string {
 function isLegacyRoute(role: AuthRole, route: Route): boolean {
   const expected: Record<AuthRole, { method: string; path: string }> = {
     login: { method: 'post', path: '/users/log-in' },
+    logout: { method: 'post', path: '/users/logout' },
     register: { method: 'post', path: '/users' },
     currentUser: { method: 'get', path: '/users/me' },
     profile: { method: 'patch', path: '/users/:id' },
@@ -146,6 +150,17 @@ function isLegacyRoute(role: AuthRole, route: Route): boolean {
  * @param routes - The canonical user resource's registered routes.
  * @returns Auth config fields ready for the shared template.
  */
+function userIdEndpoint(route: Route, role: AuthRole): string {
+  if (
+    !route.path.startsWith('/') ||
+    (route.path.match(/:id\b/g) ?? []).length !== 1 ||
+    /:[A-Za-z_]\w*/.test(route.path.replace(':id', ''))
+  )
+    throw new Error(`The ${role} auth route must name exactly one :id`)
+  const pieces = route.path.split(':id').map((part) => JSON.stringify(part))
+  return `(user: { id: string }) => ${pieces.join(' + encodeURIComponent(user.id) + ')}`
+}
+
 export function userProfileUpdateConfig(
   routes: readonly Pick<InferredRoute, 'handler' | 'path' | 'method'>[],
 ): string {
@@ -154,15 +169,9 @@ export function userProfileUpdateConfig(
     throw new Error('The user resource must declare one profile update route')
   const route = updates[0]!
   const method = route.method.toUpperCase()
-  if (
-    !['PATCH', 'PUT', 'POST'].includes(method) ||
-    !route.path.startsWith('/') ||
-    (route.path.match(/:id\b/g) ?? []).length !== 1 ||
-    /:[A-Za-z_]\w*/.test(route.path.replace(':id', ''))
-  )
-    throw new Error('The user profile update route must name one :id and a supported method')
-  const pieces = route.path.split(':id').map((part) => JSON.stringify(part))
-  return `  profileEndpoint: (user: { id: string }) => ${pieces.join(' + encodeURIComponent(user.id) + ')},\n  profileUpdateMethod: '${method}' as const,`
+  if (!['PATCH', 'PUT', 'POST'].includes(method))
+    throw new Error('The user profile update route must use a supported method')
+  return `  profileEndpoint: ${userIdEndpoint(route, 'profile')},\n  profileUpdateMethod: '${method}' as const,`
 }
 
 function profileConfig(contract: AuthContract): string {
@@ -181,23 +190,34 @@ function profileConfig(contract: AuthContract): string {
 function responseAdapterFields(adapter: AuthResponseAdapter): string {
   const access = adapter.accessTokenField
   const refresh = adapter.refreshTokenField
+  const challenge =
+    '    if ((data as { twoFactorRequired?: unknown }).twoFactorRequired === true) {\n' +
+    '      return { ...(data as Record<string, unknown>), twoFactorRequired: true as const }\n' +
+    '    }\n'
+  const tokenFields = [
+    ...(access
+      ? [access === 'accessToken' ? 'accessToken' : `${JSON.stringify(access)}: accessToken`]
+      : []),
+    ...(refresh
+      ? [refresh === 'refreshToken' ? 'refreshToken' : `${JSON.stringify(refresh)}: refreshToken`]
+      : []),
+  ]
+  const result = [
+    ...(access ? ['accessToken'] : []),
+    ...(refresh ? ['refreshToken'] : []),
+    'user',
+  ].join(', ')
   if (adapter.envelope) {
     const envelope = adapter.envelope
     const fields = [
       'id: string',
-      `${JSON.stringify(access)}?: string`,
+      ...(access ? [`${JSON.stringify(access)}?: string`] : []),
       ...(refresh ? [`${JSON.stringify(refresh)}?: string`] : []),
     ]
-    const destructure = [
-      access === 'accessToken' ? 'accessToken' : `${JSON.stringify(access)}: accessToken`,
-      ...(refresh
-        ? [refresh === 'refreshToken' ? 'refreshToken' : `${JSON.stringify(refresh)}: refreshToken`]
-        : []),
-      '...user',
-    ].join(', ')
-    const result = ['accessToken', ...(refresh ? ['refreshToken'] : []), 'user'].join(', ')
+    const destructure = [...tokenFields, '...user'].join(', ')
     return (
       '  mapAuthResponse: (data: unknown) => {\n' +
+      challenge +
       `    const { ${destructure} } = (data as { ${JSON.stringify(envelope)}: { ${fields.join('; ')} } })[${JSON.stringify(envelope)}]\n` +
       `    return { ${result} }\n` +
       '  },\n'
@@ -206,20 +226,17 @@ function responseAdapterFields(adapter: AuthResponseAdapter): string {
   if (adapter.userField) {
     const userField = adapter.userField
     const fields = [
-      `${JSON.stringify(access)}?: string`,
+      ...(access ? [`${JSON.stringify(access)}?: string`] : []),
       ...(refresh ? [`${JSON.stringify(refresh)}?: string`] : []),
       `${JSON.stringify(userField)}: { id: string }`,
     ]
     const destructure = [
-      access === 'accessToken' ? 'accessToken' : `${JSON.stringify(access)}: accessToken`,
-      ...(refresh
-        ? [refresh === 'refreshToken' ? 'refreshToken' : `${JSON.stringify(refresh)}: refreshToken`]
-        : []),
+      ...tokenFields,
       userField === 'user' ? 'user' : `${JSON.stringify(userField)}: user`,
     ].join(', ')
-    const result = ['accessToken', ...(refresh ? ['refreshToken'] : []), 'user'].join(', ')
     return (
       '  mapAuthResponse: (data: unknown) => {\n' +
+      challenge +
       `    const { ${destructure} } = data as { ${fields.join('; ')} }\n` +
       `    return { ${result} }\n` +
       '  },\n'
@@ -253,14 +270,16 @@ function requestAdapterFields(contract: AuthContract): string {
 /** Whether the contract needs no change to today's generated project files. */
 export function isDefaultAuthContract(contract: AuthContract): boolean {
   return (
-    contract.origin === 'registry' &&
     contract.scheme === 'Bearer' &&
+    !contract.cookie &&
     !contract.tokenKey &&
     !contract.response &&
     !Object.values(contract.requestEnvelopes ?? {}).some(Boolean) &&
-    (Object.keys(HANDLERS) as AuthRole[]).every((role) =>
-      isLegacyRoute(role, routeFor(contract, role)),
-    )
+    (Object.keys(HANDLERS) as AuthRole[]).every((role) => {
+      if (role === 'logout' && !contract.routes.some((route) => route.handler === 'logout'))
+        return true
+      return isLegacyRoute(role, routeFor(contract, role))
+    })
   )
 }
 
@@ -273,12 +292,20 @@ export function renderAuthContract(contract: AuthContract): RenderedAuthContract
   requireMethod(login, 'login', ['post'])
   requireMethod(register, 'register', ['post'])
   requireMethod(currentUser, 'currentUser', ['get'])
+  const logout = contract.routes.find((route) => route.handler === HANDLERS.logout)
+  if (logout) requireMethod(logout, 'logout', ['post'])
 
   const routeFields = [
     `  authScheme: ${quote(contract.scheme)},`,
     ...(contract.tokenKey ? [`  tokenKey: ${quote(contract.tokenKey)},`] : []),
+    ...(contract.cookie
+      ? [`  storage: 'memory' as const,`, `  cookieRestore: 'always' as const,`]
+      : []),
     `  loginEndpoint: ${endpoint(login, 'login')},`,
     `  registerEndpoint: ${endpoint(register, 'register')},`,
+    ...(logout && !isLegacyRoute('logout', logout)
+      ? [`  logoutEndpoint: ${endpoint(logout, 'logout')},`]
+      : []),
   ].join('\n')
   const currentUserField = `  currentUserEndpoint: ${endpoint(currentUser, 'currentUser')},`
 
@@ -297,8 +324,17 @@ export function renderAuthContract(contract: AuthContract): RenderedAuthContract
         resetPassword: '/users/reset-password',
         changePassword: '/users/password',
       }
-      const value = isLegacyRoute(role, route) ? quote(legacyPaths[role]!) : endpoint(route, role)
-      return `  ${field}: ${value},`
+      const legacy = isLegacyRoute(role, route)
+      const value = legacy
+        ? quote(legacyPaths[role]!)
+        : role === 'changePassword' && route.path.includes(':id')
+          ? userIdEndpoint(route, role)
+          : endpoint(route, role)
+      const lines = [`  ${field}: ${value},`]
+      if (role === 'changePassword' && !legacy && route.method.toLowerCase() === 'patch') {
+        lines.push(`  changePasswordMethod: 'PATCH' as const,`)
+      }
+      return lines.join('\n')
     })
     .join('\n')
 
@@ -370,9 +406,7 @@ const adaptAuthResponse = (body: unknown): unknown => {
   delete rest.accessToken
   delete rest.refreshToken
   const tokens = {
-    ...(value.accessToken !== undefined
-      ? { ${JSON.stringify(response.accessTokenField)}: value.accessToken }
-      : {}),
+    ${response.accessTokenField ? `...(value.accessToken !== undefined\n      ? { ${JSON.stringify(response.accessTokenField)}: value.accessToken }\n      : {}),` : ''}
     ${response.refreshTokenField ? `...(value.refreshToken !== undefined\n      ? { ${JSON.stringify(response.refreshTokenField)}: value.refreshToken }\n      : {}),` : ''}
   }
   return {
@@ -401,7 +435,7 @@ ${extraReExports}const adaptAuthHandler = (
 ): Handler => {
   return async (req, res) => {
     let request = requestEnvelope
-      ? { ...req, body: req.body?.[requestEnvelope] ?? {} }
+      ? { ...req, body: req.body?.[requestEnvelope] ?? req.body ?? {} }
       : req
     if (sessionIdentity) {
       const session = res.locals?.session as { userId?: unknown } | undefined
@@ -421,10 +455,25 @@ ${extraReExports}const adaptAuthHandler = (
 }
 ${responseMapper}
 const defaultRequestHandlerMap = createRequestHandlerMap(createRequestHandler)
-
+${
+  requests?.login
+    ? `
+const contractRateLimitAuth = defaultRequestHandlerMap.rateLimitAuth
+const normalizeAuthRateLimit: typeof contractRateLimitAuth = async (req, res, next) => {
+  const originalBody = req.body
+  req.body = originalBody?.[${JSON.stringify(requests.login)}] ?? originalBody
+  try {
+    await contractRateLimitAuth(req, res, next)
+  } finally {
+    req.body = originalBody
+  }
+}
+`
+    : ''
+}
 export const requestHandlerMap = {
   ...defaultRequestHandlerMap,
-${overrides}
+${requests?.login ? '  rateLimitAuth: normalizeAuthRateLimit,\n' : ''}${overrides}
 }
 `
 }
@@ -444,6 +493,9 @@ const ROLE_BY_OPERATION: Record<string, AuthRole> = {
   login: 'login',
   signin: 'login',
   createsession: 'login',
+  logout: 'logout',
+  signout: 'logout',
+  destroysession: 'logout',
   register: 'register',
   signup: 'register',
   createuser: 'register',
@@ -534,6 +586,7 @@ function profileRequestEnvelope(operation: JsonObject, document: JsonObject): st
 function responseAdapter(
   operation: JsonObject,
   document: JsonObject,
+  tokenless = false,
 ): AuthResponseAdapter | undefined {
   const properties = object(responseSchema(operation, document)?.properties) ?? {}
   const names = Object.keys(properties)
@@ -550,9 +603,15 @@ function responseAdapter(
       ? undefined
       : { userField: 'user', accessTokenField: token, refreshTokenField: refresh }
   }
+  if (tokenless && object(dereference(properties.user, document)?.properties)) {
+    return { userField: 'user' }
+  }
   const nested = Object.entries(properties).find(([, value]) => {
     const fields = object(dereference(value, document)?.properties) ?? {}
-    return Object.keys(fields).some((name) => /token$/i.test(name) && !/refresh/i.test(name))
+    return (
+      Object.keys(fields).some((name) => /token$/i.test(name) && !/refresh/i.test(name)) ||
+      (tokenless && Boolean(fields.id))
+    )
   })
   if (!nested)
     throw new Error('Could not locate the access token and user in the OpenAPI login response')
@@ -563,14 +622,10 @@ function responseAdapter(
       'The generated auth mapper requires an id on the OpenAPI user; type a custom profile in the app otherwise',
     )
   }
-  const nestedToken = [
-    'accessToken',
-    'token',
-    'jwt',
-    'sessionToken',
-    ...nestedNames,
-  ].find((name) => nestedNames.includes(name) && /token$/i.test(name) && !/refresh/i.test(name))
-  if (!nestedToken)
+  const nestedToken = ['accessToken', 'token', 'jwt', 'sessionToken', ...nestedNames].find(
+    (name) => nestedNames.includes(name) && /token$/i.test(name) && !/refresh/i.test(name),
+  )
+  if (!nestedToken && !tokenless)
     throw new Error('Could not locate the access token in the OpenAPI user envelope')
   return {
     envelope: nested[0],
@@ -582,7 +637,7 @@ function responseAdapter(
 function securityScheme(
   document: JsonObject,
   operations: JsonObject[],
-): { scheme: string; tokenKey?: string } {
+): { scheme: string; tokenKey?: string; cookie?: boolean } {
   const extension = object(document['x-molecule-auth'])
   const tokenKey = extension?.tokenKey
   if (tokenKey !== undefined && (typeof tokenKey !== 'string' || !tokenKey)) {
@@ -602,8 +657,11 @@ function securityScheme(
   if (!name)
     throw new Error('OpenAPI auth needs one HTTP security scheme or a security requirement')
   const scheme = object(components[name])
+  if (scheme?.type === 'apiKey' && scheme.in === 'cookie') {
+    return { scheme: 'Bearer', cookie: true }
+  }
   if (scheme?.type !== 'http' || typeof scheme.scheme !== 'string') {
-    throw new Error(`OpenAPI security scheme ${name} must be an HTTP scheme`)
+    throw new Error(`OpenAPI security scheme ${name} must be an HTTP scheme or cookie apiKey`)
   }
   return {
     scheme: scheme.scheme.toLowerCase() === 'bearer' ? 'Bearer' : scheme.scheme,
@@ -636,14 +694,15 @@ export function authContractFromOpenApi(value: unknown): AuthContract {
     }
   }
   for (const role of Object.keys(HANDLERS) as AuthRole[]) {
-    if (!operations.has(role)) throw new Error(`OpenAPI is missing the ${role} auth operation`)
+    if (role !== 'logout' && !operations.has(role))
+      throw new Error(`OpenAPI is missing the ${role} auth operation`)
   }
   const ordered = [...operations.values()]
   const security = securityScheme(document, ordered)
   const login = operations.get('login')!
   const register = operations.get('register')!
   const profile = operations.get('profile')!
-  const response = responseAdapter(login, document)
+  const response = responseAdapter(login, document, security.cookie === true)
   return {
     ...security,
     routes,

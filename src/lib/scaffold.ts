@@ -33,6 +33,7 @@ import {
   writeAgentSkillFiles,
 } from './agent-skills.js'
 import {
+  type AuthContract,
   authContractFromRegistry,
   isDefaultAuthContract,
   parseAuthContract,
@@ -295,6 +296,43 @@ async function stampTemplateAuthConfigGuidance(projectRoot: string): Promise<voi
     const stamped = withHeader(source, header)
     if (stamped !== source) await writeGuarded(path, stamped)
   }
+}
+
+/** Apply the shared derivation to a flagship's auth block, preserving its cookie policy. */
+async function configureTemplateInstanceAuth(
+  projectRoot: string,
+  contract: AuthContract,
+): Promise<void> {
+  const configPath = join(projectRoot, 'app', 'src', 'config.ts')
+  const source = await readFile(configPath, 'utf8')
+  const current = /export const authConfig = \{[\s\S]*?\n\}/.exec(source)?.[0]
+  if (!current) throw new Error(`The template auth config block is missing from ${configPath}`)
+  const rendered = renderAuthContract(contract)
+  const shared = await loadTemplate('app/shared/config.ts.tpl', {
+    PROJECT_NAME: '',
+    OAUTH_PROVIDERS: '',
+    AUTH_CONFIG_GUIDANCE: rendered.guidance,
+    AUTH_ROUTE_CONFIG: rendered.routeFields,
+    CURRENT_USER_ROUTE_CONFIG: rendered.currentUserField,
+    PROFILE_UPDATE_CONFIG: rendered.profileFields,
+    AUTH_ADAPTER_CONFIG: rendered.adapterFields,
+    PASSWORD_ROUTE_CONFIG: rendered.passwordFields,
+    PUBLIC_DIR: 'public',
+  })
+  let replacement = /export const authConfig = \{[\s\S]*?\n\}/.exec(shared)?.[0]
+  if (!replacement) throw new Error('The shared auth config block is missing from config.ts.tpl')
+  const storage = /^ {2}storage:.*$/m.exec(current)?.[0]
+  if (storage && !replacement.includes(storage)) {
+    replacement = replacement.replace(/^ {2}storage:.*\n/m, '')
+    replacement = replacement.replace(/^ {2}autoRefresh:/m, `${storage}\n  autoRefresh:`)
+  }
+  const autoRefresh = /^ {2}autoRefresh:.*$/m.exec(current)?.[0]
+  if (autoRefresh) replacement = replacement.replace(/^ {2}autoRefresh:.*$/m, autoRefresh)
+  await writeGuarded(configPath, source.replace(current, replacement))
+  await writeFile(
+    join(projectRoot, 'api', 'auth-contract.json'),
+    `${JSON.stringify(contract, null, 2)}\n`,
+  )
 }
 
 // ---------------------------------------------------------------------------
@@ -2609,6 +2647,7 @@ export async function copyTemplateInstance(
   destDir: string,
   projectName: string,
   setupSqlVersions: Readonly<Record<string, string | undefined>>,
+  authContract?: AuthContract,
 ): Promise<void> {
   if (!existsSync(templateDir)) {
     throw new Error(`Template directory not found: ${templateDir}`)
@@ -2943,6 +2982,9 @@ export async function copyTemplateInstance(
   await ensureMoleculePeerClosure(destDir)
   await stampCapabilityBondHeaders(destDir)
   await stampTemplateAuthConfigGuidance(destDir)
+  if (authContract && !isDefaultAuthContract(authContract)) {
+    await configureTemplateInstanceAuth(destDir, authContract)
+  }
 }
 
 /** The `@molecule/*` packages an app's e2e setup imports (see {@link ensureE2EManifest}). */

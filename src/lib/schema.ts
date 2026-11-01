@@ -168,6 +168,10 @@ export const DecisionGuide = z.object({
 /** Package-authored auth options paired with its existing route declarations. */
 export const AuthContractMetadata = z.object({
   scheme: z.string().min(1).describe('Authorization scheme the API accepts and mints'),
+  cookie: z
+    .boolean()
+    .optional()
+    .describe('Use an HttpOnly cookie session with memory storage and explicit restore'),
   tokenKey: z
     .string()
     .min(1)
@@ -184,7 +188,7 @@ export const AuthContractMetadata = z.object({
     .object({
       envelope: z.string().min(1).optional(),
       userField: z.string().min(1).optional(),
-      accessTokenField: z.string().min(1),
+      accessTokenField: z.string().min(1).optional(),
       refreshTokenField: z.string().min(1).optional(),
     })
     .refine((value) => Boolean(value.envelope) !== Boolean(value.userField), {

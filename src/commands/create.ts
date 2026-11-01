@@ -209,11 +209,6 @@ export default class Create extends Command {
       }
     }
 
-    if (flags.template && flags['api-contract']) {
-      this.error(
-        '--api-contract cannot be combined with --template; the template already owns its API contract',
-      )
-    }
     const apiAuthContract = flags['api-contract']
       ? await readOpenApiAuthContract(flags['api-contract'])
       : undefined
@@ -435,7 +430,24 @@ export default class Create extends Command {
           }
         }
 
-        await copyTemplateInstance(templateInstanceDir, projectPath, projectName, setupSqlVersions)
+        if (apiAuthContract) {
+          const resources = (await readTemplatePackages(templateInstanceDir)).filter(
+            (name) => loadRegistry().find((pkg) => pkg.name === name)?.molecule?.authContract,
+          )
+          if (resources.length !== 1) {
+            this.error(
+              '--api-contract needs exactly one template API resource with authContract metadata',
+            )
+          }
+          apiAuthContract.resourcePackage = resources[0]
+        }
+        await copyTemplateInstance(
+          templateInstanceDir,
+          projectPath,
+          projectName,
+          setupSqlVersions,
+          apiAuthContract,
+        )
         await ensureAgentsMd(projectPath)
         // The template is copied as built, so its own shape decides the catalog
         // scope — `flags.type` was filled from the template above.

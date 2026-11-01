@@ -3044,38 +3044,65 @@ function untouchedRouter(text: string): boolean {
   )
 }
 
+/** A generated package mount ends at its package handler; app middleware has no such owner. */
+const ROUTE_BLOCK = /router\.(?:get|post|put|patch|delete|all)\(`[^`\r\n]*`,\n[\s\S]*?\n\)/g
+const AUTH_GATE = /router\.use\((\w+)Authorization\.verifyMiddleware\([^\n]*\)\)/g
+
+function routeBlockKey(block: string): string | undefined {
+  const handlers = [...block.matchAll(/\b([A-Z]\w*)\.([A-Za-z_]\w*)/g)]
+  const handler = handlers.at(-1)
+  return handler ? `${handler[1]}.${handler[2]}` : undefined
+}
+
+/** Update only generated gates/mounts, leaving every app-owned statement in place. */
+function mergeContractRouter(existing: string, generated: string): string {
+  const gates = new Map<string, string>()
+  for (const match of generated.matchAll(AUTH_GATE)) gates.set(match[1]!, match[0])
+  let merged = existing.replace(AUTH_GATE, (block, name: string) => gates.get(name) ?? block)
+  const routes = new Map<string, string>()
+  for (const match of generated.matchAll(ROUTE_BLOCK)) {
+    const key = routeBlockKey(match[0])
+    if (key) routes.set(key, match[0])
+  }
+  const seen = new Set<string>()
+  merged = merged.replace(ROUTE_BLOCK, (block) => {
+    const key = routeBlockKey(block)
+    if (!key || !routes.has(key)) return block
+    seen.add(key)
+    return routes.get(key)!
+  })
+  const missing = [...routes].filter(([key]) => !seen.has(key)).map(([, block]) => block)
+  return missing.length > 0 ? `${merged}\n\n${missing.join('\n\n')}\n` : merged
+}
+
 /**
- * Whether a re-inject should write `api/src/App/router.ts`.
- *
- * The file is a generated route table, but it is also a source file the app may have edited:
- * the scaffold stamps it with {@link GENERATED_ROUTER_MARKER} and the executor is told to put
- * its routes in `handlers/index.ts` instead. Rewriting it on every inject would throw away
- * anything written beside the mounts, so the write happens only when the PACKAGE LIST — the
- * mount set the generated content carries — actually changed. A file that already holds routes
- * but carries no marker is the app's own and is never overwritten.
- *
- * @param routerPath - The project's `src/App/router.ts`.
- * @param generated - The content this inject generated.
- * @returns True when the generated content should be written.
+ * Return the router bytes this inject owns, or undefined when the app's file must stand.
+ * Package changes keep the historical whole-file regeneration. Contract changes instead
+ * update their route blocks in place, so app middleware is neither a rewrite trigger nor
+ * collateral damage.
  */
-async function shouldWriteRouter(
+async function routerContentForInjection(
   routerPath: string,
   generated: string,
   contractDriven = false,
-): Promise<boolean> {
+): Promise<string | undefined> {
   let existing: string
   try {
     existing = await readFile(routerPath, 'utf-8')
   } catch (error) {
-    if ((error as NodeJS.ErrnoException)?.code === 'ENOENT') return true
-    // Unreadable is not absent: overwriting blind could discard content this inject could
-    // not see (the same rule `executeInjection` follows for a failed read).
+    if ((error as NodeJS.ErrnoException)?.code === 'ENOENT') return generated
     console.warn(`[injector] leaving ${routerPath} untouched — it could not be read`)
-    return false
+    return undefined
   }
-  if (!existing.includes(GENERATED_ROUTER_MARKER) && !untouchedRouter(existing)) return false
-  if (contractDriven && existing.includes(GENERATED_ROUTER_MARKER)) return existing !== generated
-  return routerMountNames(generated).join('\n') !== routerMountNames(existing).join('\n')
+  if (!existing.includes(GENERATED_ROUTER_MARKER)) {
+    return untouchedRouter(existing) ? generated : undefined
+  }
+  if (routerMountNames(generated).join('\n') !== routerMountNames(existing).join('\n')) {
+    return generated
+  }
+  if (!contractDriven) return undefined
+  const merged = mergeContractRouter(existing, generated)
+  return merged === existing ? undefined : merged
 }
 
 /**
@@ -3158,11 +3185,16 @@ export async function synthesizeProjectFiles(
     fw,
     authContract,
   )
-  if (await shouldWriteRouter(routerPath, routerContent, Boolean(authContract))) {
+  const injectedRouterContent = await routerContentForInjection(
+    routerPath,
+    routerContent,
+    Boolean(authContract),
+  )
+  if (injectedRouterContent !== undefined) {
     files.push({
       action: 'create',
       targetPath: routerPath,
-      content: routerContent,
+      content: injectedRouterContent,
       description: 'Generate complete router with all routes',
     })
   }

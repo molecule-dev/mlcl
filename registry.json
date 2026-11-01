@@ -31196,6 +31196,7 @@
         "RegisterExtraShape",
         "RegisterData",
         "AuthResult",
+        "AuthChallenge",
         "PasswordResetRequest",
         "PasswordResetConfirm",
         "AuthStatus",
