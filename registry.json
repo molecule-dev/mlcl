@@ -25346,6 +25346,9 @@
       "label": "Authentication",
       "description": "User registration, login, JWT sessions",
       "stack": "api",
+      "authContract": {
+        "scheme": "Bearer"
+      },
       "exports": [
         "authorization",
         "authorizers",
@@ -57855,6 +57858,7 @@
         "useIsActive",
         "useMoleculeNavigate",
         "useMoleculeQuery",
+        "useConsumedSearchParam",
         "MoleculeRouterProviderProps",
         "ListRouteFilter",
         "ListRouteSelection",
