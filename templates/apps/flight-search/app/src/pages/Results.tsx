@@ -88,6 +88,8 @@ export function Results() {
       destination: { defaultValue: 'CDG' },
       departure_date: {},
       passengers: { defaultValue: '1' },
+      sort: { defaultValue: 'price' },
+      stops: { defaultValue: 'any' },
     },
   })
 
@@ -106,8 +108,14 @@ export function Results() {
   const [multiResults, setMultiResults] = useState<MultiCityLegResult[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [sortBy, setSortBy] = useState<(typeof SORT_OPTIONS)[number]['id']>('price')
-  const [stopFilter, setStopFilter] = useState<(typeof STOP_FILTERS)[number]['id']>('any')
+  const sortParam = listRoute.filters.sort
+  const sortBy = SORT_OPTIONS.some((option) => option.id === sortParam)
+    ? (sortParam as (typeof SORT_OPTIONS)[number]['id'])
+    : 'price'
+  const stopParam = listRoute.filters.stops
+  const stopFilter = STOP_FILTERS.some((filter) => filter.id === stopParam)
+    ? (stopParam as (typeof STOP_FILTERS)[number]['id'])
+    : 'any'
 
   useEffect(() => {
     let cancelled = false
@@ -487,7 +495,7 @@ export function Results() {
             <button
               key={filter.id}
               type="button"
-              onClick={() => setStopFilter(filter.id)}
+              onClick={() => listRoute.setFilters({ stops: filter.id })}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
@@ -516,7 +524,7 @@ export function Results() {
           </span>
           <select
             value={sortBy}
-            onChange={(e) => setSortBy(e.target.value as (typeof SORT_OPTIONS)[number]['id'])}
+            onChange={(e) => listRoute.setFilters({ sort: e.target.value })}
             aria-label={t('results.sortAriaLabel', {}, { defaultValue: 'Sort results by' })}
             className={cm.cn(
               cm.sp('px', 3),

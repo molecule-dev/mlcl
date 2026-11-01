@@ -170,6 +170,10 @@ const moleculeLocal = {
     'url-lists-use-list-route': {
       meta: {
         type: 'suggestion',
+        docs: {
+          description:
+            "Warn when a component's own local state directly controls a list consumer in the same file; cross-file re-exports, wrappers, and prop chains are intentionally out of scope.",
+        },
         schema: [],
         messages: {
           useListRoute:
@@ -178,16 +182,7 @@ const moleculeLocal = {
       },
       create(context) {
         const source = context.sourceCode
-        const routerPackages = new Set(['react-router', 'react-router-dom'])
-        const searchHooks = new Set()
-        const locationHooks = new Set()
-        const paramsHooks = new Set()
-        const paramsVariables = new Set()
-        const locationVariables = new Set()
-        const declarators = []
-        const returns = []
-        const reads = []
-        let importsListRoute = false
+        const states = []
         const variableFor = (node, name) => {
           let scope = source.getScope(node)
           while (scope) {
@@ -197,7 +192,6 @@ const moleculeLocal = {
           }
           return null
         }
-        const importedName = (specifier) => specifier.imported.name ?? specifier.imported.value
         const isFunction = (node) =>
           node?.type === 'FunctionDeclaration' ||
           node?.type === 'FunctionExpression' ||
@@ -207,10 +201,6 @@ const moleculeLocal = {
           if (node.parent?.type === 'VariableDeclarator' && node.parent.id.type === 'Identifier')
             return node.parent.id.name
           return ''
-        }
-        const functionVariable = (node) => {
-          const name = functionName(node)
-          return name ? variableFor(node, name) : null
         }
         const componentFor = (node) => {
           for (let current = node.parent; current; current = current.parent) {
@@ -224,304 +214,98 @@ const moleculeLocal = {
           }
           return false
         }
-        const identifierVariable = (node) =>
-          node?.type === 'Identifier' ? variableFor(node, node.name) : null
-        const isSearchParamsCall = (node) =>
-          node?.type === 'CallExpression' && searchHooks.has(identifierVariable(node.callee))
-        const isLocationCall = (node) =>
-          node?.type === 'CallExpression' && locationHooks.has(identifierVariable(node.callee))
-        const isParamsExpression = (node) => {
-          if (paramsVariables.has(identifierVariable(node))) return true
-          if (node?.type === 'CallExpression' && paramsHooks.has(identifierVariable(node.callee)))
-            return true
-          return (
-            node?.type === 'MemberExpression' &&
-            node.computed &&
-            node.property.type === 'Literal' &&
-            node.property.value === 0 &&
-            isSearchParamsCall(node.object)
-          )
-        }
-        const isLocationSearch = (node) =>
-          node?.type === 'MemberExpression' &&
-          !node.computed &&
-          node.property.type === 'Identifier' &&
-          node.property.name === 'search' &&
-          (locationVariables.has(identifierVariable(node.object)) || isLocationCall(node.object))
-        const isLocationParams = (node) =>
-          node?.type === 'NewExpression' &&
-          node.callee.type === 'Identifier' &&
-          node.callee.name === 'URLSearchParams' &&
-          isLocationSearch(node.arguments[0])
-        const requestCallee = (callee) => {
-          if (callee.type === 'Identifier') return /^(?:list|search|useQuery)/.test(callee.name)
-          if (callee.type !== 'MemberExpression' || callee.computed) return false
-          if (callee.property.type !== 'Identifier') return false
+        const isListFetchingHook = (name) => {
           if (
-            callee.object.type === 'Identifier' &&
-            paramsVariables.has(identifierVariable(callee.object))
+            [
+              'useQuery',
+              'useInfiniteQuery',
+              'useSuspenseQuery',
+              'useSearchParams',
+              'useListRoute',
+            ].includes(name)
           )
             return false
-          return /^(?:list|search)$/.test(callee.property.name)
-        }
-        const transportCallee = (callee) => {
-          if (callee.type === 'Identifier') return callee.name === 'fetch'
           return (
-            callee.type === 'MemberExpression' &&
-            !callee.computed &&
-            callee.property.type === 'Identifier' &&
-            /^(?:fetch|get|request)$/.test(callee.property.name)
+            /^use[A-Z]/.test(name) &&
+            (/(?:List|Search|Results)(?:Query)?$/.test(name) || /^use[A-Z][A-Za-z]*s$/.test(name))
           )
         }
-        const inQueryOptions = (start, call) => {
-          for (let node = start; node && node !== call; node = node.parent) {
+        const isListStateKey = (key) => {
+          const normalized = key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toLowerCase()
+          return /(?:^|_)(?:q|query|search|filter|sort|page|category|status|tag|folder|range|tab|mood|method|receipted|date|type|state|stage|priority|severity|domain|shelf|order|direction|limit|offset)(?:$|_)/.test(
+            normalized,
+          )
+        }
+        const isScalarState = (call) => {
+          const initial = call.arguments[call.callee.name === 'useReducer' ? 1 : 0]
+          return (
+            !initial ||
+            (!['ArrayExpression', 'ObjectExpression'].includes(initial.type) &&
+              !(initial.type === 'Literal' && initial.value === null))
+          )
+        }
+        const hasListConsumer = (reference, owner) => {
+          let optionKey = null
+          for (let node = reference; node && node !== owner; node = node.parent) {
             const parent = node.parent
-            if (parent?.type !== 'Property' || parent.value !== node) continue
-            const key = parent.key
-            const name = key.type === 'Identifier' ? key.name : key.value
-            if (['params', 'query', 'filters', 'queryKey', 'key'].includes(name)) return true
-          }
-          return false
-        }
-        const containsListOperation = (node) => {
-          if (!node || typeof node !== 'object') return false
-          if (
-            node.type === 'CallExpression' &&
-            node.callee.type === 'MemberExpression' &&
-            !node.callee.computed &&
-            node.callee.property.type === 'Identifier' &&
-            ['filter', 'sort', 'slice'].includes(node.callee.property.name)
-          )
-            return true
-          for (const [key, value] of Object.entries(node)) {
-            if (key === 'parent') continue
-            if (Array.isArray(value)) {
-              if (value.some((child) => containsListOperation(child))) return true
-            } else if (containsListOperation(value)) {
-              return true
+            if (!parent || isFunction(parent)) return false
+            if (parent.type === 'Property' && parent.value === node && optionKey === null) {
+              optionKey = parent.key.type === 'Identifier' ? parent.key.name : parent.key.value
             }
-          }
-          return false
-        }
-        const stateVariableAt = (start, owner) => {
-          for (let node = start; node && node !== owner; node = node.parent) {
-            const parent = node.parent
-            if (!parent) break
             if (
               parent.type === 'CallExpression' &&
-              parent.arguments.includes(node) &&
+              node === parent.arguments[0] &&
               parent.callee.type === 'Identifier' &&
-              (parent.callee.name === 'useState' || parent.callee.name === 'useReducer')
-            ) {
-              const declaration = parent.parent
-              const first =
-                declaration?.type === 'VariableDeclarator' && declaration.id.type === 'ArrayPattern'
-                  ? declaration.id.elements[0]
-                  : null
-              if (first?.type === 'Identifier') return variableFor(first, first.name)
-            }
-            if (isFunction(parent)) break
-          }
-          return null
-        }
-        const evidenceAt = (start, owner, read, render = false, controls = false) => {
-          let conditional = false
-          let nestedFunction = false
-          let nestedCall = false
-          for (let node = start; node && node !== owner; node = node.parent) {
-            const parent = node.parent
-            if (!parent) break
-            if (parent.type === 'CallExpression' && parent.arguments.includes(node)) {
-              const callee = parent.callee
-              if (parent !== read && requestCallee(callee)) return true
-              if (parent !== read && transportCallee(callee) && inQueryOptions(node, parent))
-                return true
-              if (
-                callee.type === 'MemberExpression' &&
-                !callee.computed &&
-                callee.property.type === 'Identifier' &&
-                ['filter', 'sort', 'slice'].includes(callee.property.name)
-              )
-                return true
-              if (
-                callee.type === 'Identifier' &&
-                callee.name === 'useMemo' &&
-                containsListOperation(parent.arguments[0])
-              )
-                return true
-              const simpleRender =
-                callee.type === 'Identifier' &&
-                ['String', 'Number', 'Boolean'].includes(callee.name)
-              if (parent !== read && !simpleRender) nestedCall = true
-            }
-            if (parent.type === 'ConditionalExpression' || parent.type === 'LogicalExpression')
-              conditional = true
-            if (isFunction(parent)) nestedFunction = true
+              isListFetchingHook(parent.callee.name) &&
+              typeof optionKey === 'string' &&
+              isListStateKey(optionKey)
+            )
+              return true
             if (parent.type === 'JSXExpressionContainer') {
               const attribute = parent.parent
-              const text = attribute?.type !== 'JSXAttribute'
-              const selectedControl =
-                attribute?.type === 'JSXAttribute' &&
-                attribute.name.type === 'JSXIdentifier' &&
-                (attribute.name.name === 'aria-selected' || attribute.name.name === 'aria-pressed')
+              const opening = attribute?.type === 'JSXAttribute' ? attribute.parent : null
               if (
-                ((render && text) || (controls && selectedControl)) &&
-                !conditional &&
-                !nestedFunction &&
-                !nestedCall
+                opening?.type === 'JSXOpeningElement' &&
+                opening.name.type === 'JSXIdentifier' &&
+                /(?:List|Results|Table|Grid|Catalog)$/.test(opening.name.name) &&
+                attribute.name.type === 'JSXIdentifier' &&
+                isListStateKey(attribute.name.name)
               )
                 return true
             }
           }
           return false
         }
-        const derivedVariable = (read, owner) => {
-          for (let node = read.parent; node && node !== owner; node = node.parent) {
-            if (isFunction(node)) return null
-            if (
-              node.type === 'CallExpression' &&
-              node.callee.type === 'Identifier' &&
-              node.callee.name === 'useMemo'
-            )
-              return null
-            if (node.type === 'VariableDeclarator' && node.id.type === 'Identifier')
-              return variableFor(node.id, node.id.name)
-          }
-          return null
-        }
-        const traceEvidence = (read, owner, render, includeState) => {
-          const queue = []
-          const enqueue = (node, allowRender, allowControls) => {
-            if (includeState) {
-              const state = stateVariableAt(node, owner)
-              if (state) queue.push({ variable: state, render: true, controls: true })
-            }
-            const derived = derivedVariable(node, owner)
-            if (derived)
-              queue.push({ variable: derived, render: allowRender, controls: allowControls })
-          }
-          if (evidenceAt(read, owner, read, render, false)) return true
-          enqueue(read, render, false)
-          const seen = new Set()
-          while (queue.length > 0) {
-            const current = queue.shift()
-            const variable = current?.variable
-            if (!variable || seen.has(variable)) continue
-            seen.add(variable)
-            for (const reference of variable.references) {
-              const identifier = reference.identifier
-              if (!within(identifier, owner)) continue
-              if (evidenceAt(identifier, owner, read, current.render, current.controls)) return true
-              enqueue(identifier, current.render, current.controls)
-            }
-          }
-          return false
-        }
-        const hasListEvidence = (read, owner) => traceEvidence(read, owner, false, true)
-        const hasDirectRender = (read, owner) => traceEvidence(read, owner, true, false)
         return {
-          ImportDeclaration(node) {
-            const module = node.source.value
-            if (
-              module === '@molecule/app-routing-react-router' &&
-              node.importKind !== 'type' &&
-              node.specifiers.some(
-                (specifier) =>
-                  specifier.type === 'ImportSpecifier' &&
-                  specifier.importKind !== 'type' &&
-                  importedName(specifier) === 'useListRoute',
-              )
-            ) {
-              importsListRoute = true
-            }
-            if (!routerPackages.has(module) || node.importKind === 'type') return
-            for (const specifier of node.specifiers) {
-              if (specifier.type !== 'ImportSpecifier' || specifier.importKind === 'type') continue
-              const name = importedName(specifier)
-              if (name !== 'useSearchParams' && name !== 'useLocation') continue
-              const variable = variableFor(specifier, specifier.local.name)
-              if (variable) (name === 'useSearchParams' ? searchHooks : locationHooks).add(variable)
-            }
-          },
           VariableDeclarator(node) {
-            declarators.push(node)
-          },
-          ReturnStatement(node) {
-            returns.push(node)
-          },
-          CallExpression(node) {
             if (
-              node.callee.type !== 'MemberExpression' ||
-              node.callee.computed ||
-              node.callee.property.type !== 'Identifier' ||
-              node.callee.property.name !== 'get' ||
-              node.callee.object.type !== 'Identifier'
+              node.id.type !== 'ArrayPattern' ||
+              node.init?.type !== 'CallExpression' ||
+              node.init.callee.type !== 'Identifier' ||
+              !['useState', 'useReducer'].includes(node.init.callee.name) ||
+              !isScalarState(node.init)
             )
               return
-            reads.push({
-              node,
-              variable: variableFor(node.callee.object, node.callee.object.name),
-            })
+            const first = node.id.elements[0]
+            const owner = componentFor(node)
+            if (first?.type !== 'Identifier' || !owner) return
+            const variable = variableFor(first, first.name)
+            if (variable) states.push({ node: first, variable, owner })
           },
           'Program:exit'() {
-            if (importsListRoute) return
-            // Resolve wrappers and aliases to a fixed point: a custom hook can be declared after
-            // the component that calls it, and its returned params can themselves be aliased.
-            let changed = true
-            while (changed) {
-              changed = false
-              const add = (set, variable) => {
-                if (!variable || set.has(variable)) return
-                set.add(variable)
-                changed = true
-              }
-              for (const node of declarators) {
-                if (node.id.type === 'ArrayPattern') {
-                  const first = node.id.elements[0]
-                  if (first?.type === 'Identifier' && isSearchParamsCall(node.init))
-                    add(paramsVariables, variableFor(first, first.name))
-                  continue
-                }
-                if (node.id.type !== 'Identifier') continue
-                const variable = variableFor(node.id, node.id.name)
-                const initVariable = identifierVariable(node.init)
-                if (searchHooks.has(initVariable)) add(searchHooks, variable)
-                if (locationHooks.has(initVariable)) add(locationHooks, variable)
-                if (paramsHooks.has(initVariable)) add(paramsHooks, variable)
-                if (paramsVariables.has(initVariable) || isParamsExpression(node.init))
-                  add(paramsVariables, variable)
-                if (locationVariables.has(initVariable) || isLocationCall(node.init))
-                  add(locationVariables, variable)
-                if (isLocationParams(node.init)) add(paramsVariables, variable)
-              }
-              for (const node of returns) {
-                if (!node.argument || !isParamsExpression(node.argument)) continue
-                let owner = node.parent
-                while (owner && !isFunction(owner)) owner = owner.parent
-                if (owner) add(paramsHooks, functionVariable(owner))
-              }
-            }
-            const candidates = reads.flatMap((candidate) => {
-              if (!paramsVariables.has(candidate.variable)) return []
-              const owner = componentFor(candidate.node)
-              return owner ? [{ ...candidate, owner }] : []
-            })
-            let read = candidates.find((candidate) =>
-              hasListEvidence(candidate.node, candidate.owner),
-            )
-            if (!read) {
-              // A feed/catalog often renders several independent URL values without a query call
-              // in the file. One rendered value is not enough (a booking passenger count is not a
-              // list); two or more in the SAME component are the l574/non-X1 list shape.
-              const rendered = candidates.filter((candidate) =>
-                hasDirectRender(candidate.node, candidate.owner),
+            const reported = new Set()
+            for (const state of states) {
+              if (reported.has(state.variable)) continue
+              const consumed = state.variable.references.some(
+                (reference) =>
+                  within(reference.identifier, state.owner) &&
+                  hasListConsumer(reference.identifier, state.owner),
               )
-              const counts = new Map()
-              for (const candidate of rendered)
-                counts.set(candidate.owner, (counts.get(candidate.owner) ?? 0) + 1)
-              read = rendered.find((candidate) => counts.get(candidate.owner) >= 2)
+              if (consumed) {
+                reported.add(state.variable)
+                context.report({ node: state.node, messageId: 'useListRoute' })
+              }
             }
-            if (read) context.report({ node: read.node, messageId: 'useListRoute' })
           },
         }
       },

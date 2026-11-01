@@ -45,13 +45,19 @@ export function Journal() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [entries, setEntries] = useState<JournalEntry[]>([])
-  const [filter, setFilter] = useState<'all' | MoodLevel>('all')
-  const [search, setSearch] = useState('')
+
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState(false)
   const [reload, setReload] = useState(0)
-  const listRoute = useListRoute({ filters: { date: {} } })
+  const listRoute = useListRoute({
+    filters: { date: {}, mood: { defaultValue: 'all' }, q: {} },
+  })
   const dateFilter = listRoute.filters.date
+  const moodParam = listRoute.filters.mood
+  const filter: 'all' | MoodLevel = FILTERS.some((item) => item.key === moodParam)
+    ? (moodParam as 'all' | MoodLevel)
+    : 'all'
+  const search = listRoute.filters.q ?? ''
 
   useEffect(() => {
     let cancelled = false
@@ -161,7 +167,7 @@ export function Journal() {
           <input
             type="search"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => listRoute.setFilters({ q: e.target.value || undefined })}
             placeholder={t(
               'journal.searchPlaceholder',
               {},
@@ -178,7 +184,9 @@ export function Journal() {
             <button
               key={f.key}
               type="button"
-              onClick={() => setFilter(f.key)}
+              data-mol-id={`journal-filter-${f.key}`}
+              aria-pressed={filter === f.key}
+              onClick={() => listRoute.setFilters({ mood: f.key })}
               className={cm.cn(
                 cm.sp('px', 3),
                 cm.sp('py', 1),

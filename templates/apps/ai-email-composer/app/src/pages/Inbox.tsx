@@ -113,10 +113,15 @@ export function Inbox() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const http = useHttpClient()
-  const listRoute = useListRoute({ filters: { folder: { defaultValue: 'inbox' } } })
+  const listRoute = useListRoute({
+    filters: { folder: { defaultValue: 'inbox' }, filter: { defaultValue: 'all' } },
+  })
 
   const activeFolder = (listRoute.filters.folder as FolderKey | undefined) ?? 'inbox'
-  const [listFilter, setListFilter] = useState<ListFilter>('all')
+  const filterParam = listRoute.filters.filter
+  const listFilter: ListFilter = LIST_FILTERS.some((filter) => filter.key === filterParam)
+    ? (filterParam as ListFilter)
+    : 'all'
   const [drafts, setDrafts] = useState<DraftRow[]>([])
   const [sent, setSent] = useState<SentRow[]>([])
   const [archiveBusy, setArchiveBusy] = useState(false)
@@ -491,7 +496,7 @@ export function Inbox() {
                   key={filter.key}
                   type="button"
                   data-mol-id={`inbox-filter-${filter.key}`}
-                  onClick={() => setListFilter(filter.key)}
+                  onClick={() => listRoute.setFilters({ filter: filter.key })}
                   aria-pressed={active}
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'xs' }),

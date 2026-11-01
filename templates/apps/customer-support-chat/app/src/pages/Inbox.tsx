@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { get, post } from '@molecule/app-http'
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -540,7 +541,8 @@ function Inbox() {
   const [rows, setRows] = useState<ConversationRow[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [search, setSearch] = useState('')
+  const listRoute = useListRoute({ filters: { q: {} } })
+  const search = listRoute.filters.q ?? ''
   const [billing, setBilling] = useState<BillingStatus | null>(null)
   const [composing, setComposing] = useState(false)
   const [selectedId, setSelectedId] = useState<string | null>(null)
@@ -563,11 +565,11 @@ function Inbox() {
   }, [])
 
   useEffect(() => {
-    void fetchConversations()
+    void fetchConversations(search)
     void get<BillingStatus>('/api/billing/status')
       .then((r) => setBilling(r.data))
       .catch(() => setBilling(null))
-  }, [fetchConversations])
+  }, [fetchConversations, search])
 
   const filtered = useMemo(() => rows, [rows])
 
@@ -592,10 +594,7 @@ function Inbox() {
             onRetry={() => fetchConversations(search)}
             onSelect={handleSelect}
             selectedId={selectedId}
-            onSearch={(q) => {
-              setSearch(q)
-              void fetchConversations(q)
-            }}
+            onSearch={(q) => listRoute.setFilters({ q: q || undefined })}
             searchValue={search}
             onCompose={() => setComposing(true)}
           />

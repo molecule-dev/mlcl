@@ -54,6 +54,7 @@ vi.mock('@molecule/app-ui', () => ({
 
 vi.mock('@molecule/app-ui-react', () => ({
   ConfirmButton: () => createElement('button', { type: 'button' }, 'Delete'),
+  LoadErrorBanner: ({ message }: { message: string }) => createElement('p', null, message),
 }))
 
 vi.mock('../../../templates/apps/photo-sharing/app/src/lib/api.js', () => ({
@@ -101,6 +102,13 @@ vi.mock(
 const { Explore } = await import('../../../templates/apps/photo-sharing/app/src/pages/Explore')
 const { Issues } = await import('../../../templates/apps/newsletter/app/src/pages/Issues')
 const { MyFiles } = await import('../../../templates/apps/cloud-file-manager/app/src/pages/MyFiles')
+const { Gifts } = await import('../../../templates/apps/donor-management/app/src/pages/Gifts')
+const { Results } = await import('../../../templates/apps/flight-search/app/src/pages/Results')
+const { Inbox } = await import('../../../templates/apps/ai-email-composer/app/src/pages/Inbox')
+const { Candidates } =
+  await import('../../../templates/apps/applicant-tracking/app/src/pages/Candidates')
+const { Journal } =
+  await import('../../../templates/apps/mental-health-journal/app/src/pages/Journal')
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
 
@@ -113,19 +121,17 @@ async function flush(): Promise<void> {
   })
 }
 
-async function mount(
-  path: '/explore' | '/issues' | '/files',
-  element: ReactElement,
-): Promise<Router> {
+async function mount(path: string, element: ReactElement, initialEntry?: string): Promise<Router> {
   container = document.createElement('div')
   document.body.appendChild(container)
   root = createRoot(container)
   const initial =
-    path === '/explore'
+    initialEntry ??
+    (path === '/explore'
       ? '/explore?tag=landscape'
       : path === '/issues'
         ? '/issues?status=draft'
-        : '/files?folder=folder-a'
+        : '/files?folder=folder-a')
   const router = createMemoryRouter([{ path, element }], { initialEntries: [initial] })
   await act(async () => {
     root.render(createElement(RouterProvider, { router }))
@@ -138,6 +144,20 @@ async function click(selector: string): Promise<void> {
   const control = container.querySelector<HTMLElement>(selector)
   if (!control) throw new Error(`missing control ${selector}`)
   await act(async () => control.click())
+  await flush()
+}
+
+async function change(selector: string, value: string): Promise<void> {
+  const control = container.querySelector<HTMLInputElement | HTMLSelectElement>(selector)
+  if (!control) throw new Error(`missing control ${selector}`)
+  const prototype =
+    control instanceof HTMLSelectElement ? HTMLSelectElement.prototype : HTMLInputElement.prototype
+  Object.getOwnPropertyDescriptor(prototype, 'value')?.set?.call(control, value)
+  await act(async () => {
+    control.dispatchEvent(
+      new Event(control instanceof HTMLSelectElement ? 'change' : 'input', { bubbles: true }),
+    )
+  })
   await flush()
 }
 
@@ -270,5 +290,94 @@ describe('template list routes survive Back with control, request and URL in agr
     expect(
       container.querySelector('[data-mol-id="issues-filter-draft"]')?.getAttribute('aria-selected'),
     ).toBe('true')
+  })
+})
+
+describe('flagship list controls restore their values on initial load and Back', () => {
+  it('donor-management Gifts restores the method filter', async () => {
+    const router = await mount('/gifts', createElement(Gifts), '/gifts?method=card')
+    const selector = 'select[aria-label="Filter by method"]'
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('card')
+
+    await change(selector, 'cash')
+    expect(url(router)).toBe('/gifts?method=cash')
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('cash')
+
+    await back(router)
+    expect(url(router)).toBe('/gifts?method=card')
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('card')
+  })
+
+  it('flight-search Results restores the selected sort', async () => {
+    const router = await mount('/results', createElement(Results), '/results?sort=departure_time')
+    const selector = 'select[aria-label="Sort results by"]'
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('departure_time')
+
+    await change(selector, 'duration_minutes')
+    expect(url(router)).toBe('/results?sort=duration_minutes')
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('duration_minutes')
+
+    await back(router)
+    expect(url(router)).toBe('/results?sort=departure_time')
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('departure_time')
+  })
+
+  it('ai-email-composer Inbox restores the mail filter', async () => {
+    const router = await mount('/inbox', createElement(Inbox), '/inbox?filter=unread')
+    expect(
+      container.querySelector('[data-mol-id="inbox-filter-unread"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+
+    await click('[data-mol-id="inbox-filter-ai"]')
+    expect(url(router)).toBe('/inbox?filter=ai')
+    expect(
+      container.querySelector('[data-mol-id="inbox-filter-ai"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+
+    await back(router)
+    expect(url(router)).toBe('/inbox?filter=unread')
+    expect(
+      container.querySelector('[data-mol-id="inbox-filter-unread"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+  })
+
+  it('applicant-tracking Candidates restores the search query', async () => {
+    const router = await mount('/candidates', createElement(Candidates), '/candidates?q=ada')
+    const selector = '[data-mol-id="candidates-search"]'
+    expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('ada')
+
+    await change(selector, 'grace')
+    expect(url(router)).toBe('/candidates?q=grace')
+    expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('grace')
+
+    await back(router)
+    expect(url(router)).toBe('/candidates?q=ada')
+    expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('ada')
+  })
+
+  it('mental-health-journal Journal restores mood and search state', async () => {
+    const router = await mount('/journal', createElement(Journal), '/journal?mood=good&q=alpha')
+    expect(
+      container.querySelector('[data-mol-id="journal-filter-good"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+    expect(container.querySelector<HTMLInputElement>('input[type="search"]')?.value).toBe('alpha')
+
+    await click('[data-mol-id="journal-filter-low"]')
+    expect(url(router)).toBe('/journal?q=alpha&mood=low')
+    expect(
+      container.querySelector('[data-mol-id="journal-filter-low"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+
+    await back(router)
+    expect(url(router)).toBe('/journal?mood=good&q=alpha')
+    expect(
+      container.querySelector('[data-mol-id="journal-filter-good"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+
+    await change('input[type="search"]', 'beta')
+    expect(url(router)).toBe('/journal?mood=good&q=beta')
+    await back(router)
+    expect(url(router)).toBe('/journal?mood=good&q=alpha')
+    expect(container.querySelector<HTMLInputElement>('input[type="search"]')?.value).toBe('alpha')
   })
 })

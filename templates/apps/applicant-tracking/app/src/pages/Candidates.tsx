@@ -100,10 +100,10 @@ export function Candidates() {
   const { t } = useTranslation()
   const http = useHttpClient()
   // JobDetail links here with `?job=<id>` — scope the table to that job.
-  const listRoute = useListRoute({ filters: { job: {} } })
+  const listRoute = useListRoute({ filters: { job: {}, q: {} } })
   const jobFilter = listRoute.filters.job ?? ''
   const [candidates, setCandidates] = useState<Candidate[]>([])
-  const [query, setQuery] = useState('')
+  const query = listRoute.filters.q ?? ''
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [showAdd, setShowAdd] = useState(false)
@@ -346,7 +346,7 @@ export function Candidates() {
         <input
           type="search"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={(e) => listRoute.setFilters({ q: e.target.value || undefined })}
           placeholder={t(
             'candidates.searchPlaceholder',
             {},

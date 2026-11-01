@@ -37,33 +37,12 @@ const plugin = config.find((entry) => entry.plugins?.['molecule-local'])?.plugin
 const rule = plugin?.rules['url-lists-use-list-route']
 const ruleId = 'molecule-local/url-lists-use-list-route'
 
-const home = `import { useSearchParams } from 'react-router'
+const home = `import { useState } from 'react'
 
 export function Home() {
-  const [searchParams] = useSearchParams()
-  const page = Math.max(1, Number(searchParams.get('page') ?? '1') || 1)
-  const showFollowing = searchParams.get('feed') === 'following'
-  return <div>{page}:{String(showFollowing)}</div>
-}
-`
-
-const catalog = `import { useSearchParams } from 'react-router-dom'
-
-export function Catalog() {
-  const [params] = useSearchParams()
-  const category = params.get('category') ?? 'all'
-  const sort = params.get('sort') ?? 'featured'
-  const page = Number(params.get('page') ?? '1')
-  return <div>{category}:{sort}:{page}</div>
-}
-`
-
-const renderedSort = (producer: string, setup = ''): string => `${producer}
-export function Catalog() {
-  ${setup}
-  const sort = params.get('sort') ?? 'featured'
-  const ordered = [...products].sort((a, b) => sort === 'price' ? a.price - b.price : 0)
-  return <div>{ordered.length}:{sort}</div>
+  const [category, setCategory] = useState('all')
+  const visible = products.filter((product) => category === 'all' || product.category === category)
+  return <ProductList items={visible} category={category} onCategory={setCategory} />
 }
 `
 
@@ -245,6 +224,78 @@ export function Booking() {
 `,
         },
         {
+          name: 'hook-managed filter state controlling the same list stays silent',
+          filename: 'Catalog.tsx',
+          code: `import { useListRoute } from '@molecule/app-routing-react-router'
+export function Catalog() {
+  const route = useListRoute({ filters: { category: {} } })
+  const category = route.filters.category ?? 'all'
+  const visible = products.filter((p) => category === 'all' || p.category === category)
+  return <ProductList items={visible} category={category} />
+}
+`,
+        },
+        {
+          name: 'editable email prefill in a form preview is not a list consumer',
+          filename: 'Compose.tsx',
+          code: `import { useState } from 'react'
+import { useSearchParams } from 'react-router'
+export function Compose() {
+  const [params] = useSearchParams()
+  const [recipient, setRecipient] = useState(params.get('to') ?? '')
+  const [subject, setSubject] = useState(params.get('subject') ?? '')
+  return <><EmailPreview recipient={recipient} subject={subject} onRecipient={setRecipient} onSubject={setSubject} /><pre>{recipient}:{subject}</pre></>
+}
+`,
+        },
+        {
+          name: 'generic analytics and detail queries are not list-fetching hooks',
+          filename: 'Analytics.tsx',
+          code: `import { useSearchParams } from 'react-router'
+export function Analytics() {
+  const [params] = useSearchParams()
+  const range = params.get('range') ?? '7d'
+  const id = params.get('id') ?? ''
+  const analytics = useQuery({ queryKey: ['analytics', range] })
+  const detail = useQuery({ queryKey: ['product', id] })
+  return <Dashboard analytics={analytics} detail={detail} />
+}
+`,
+        },
+        {
+          name: 'cross-file re-exports wrappers and URL prop chains are out of scope',
+          filename: 'Catalog.tsx',
+          code: `import { useFilters } from './router'
+export function Catalog() {
+  const params = useFilters()
+  return <ProductList sort={params.get('sort')} />
+}
+`,
+        },
+        {
+          name: 'local state consumed by a non-list form stays silent',
+          filename: 'Profile.tsx',
+          code: `import { useState } from 'react'
+export function Profile() {
+  const [name, setName] = useState('Ada')
+  return <ProfileForm name={name} onName={setName} />
+}
+`,
+        },
+        {
+          name: 'loading refresh keys result metadata and retry closures are not URL list state',
+          filename: 'Catalog.tsx',
+          code: `import { useState } from 'react'
+export function Catalog() {
+  const [loading, setLoading] = useState(true)
+  const [refreshKey, setRefreshKey] = useState(0)
+  const [totalPages, setTotalPages] = useState(1)
+  const result = useProducts({ refreshKey })
+  return <ProductList loading={loading} totalPages={totalPages} onRetry={() => reload(refreshKey)} />
+}
+`,
+        },
+        {
           name: 'a type-only import creates no runtime search-params binding',
           filename: 'Types.tsx',
           code: `import type { useSearchParams } from 'react-router'
@@ -271,119 +322,57 @@ const page = params.get('page')
       ],
       invalid: [
         {
-          name: 'the l574 Home feed and page shape',
+          name: 'a local useState filter controls a same-file product list',
           filename: 'Home.tsx',
           code: home,
           errors: [{ messageId: 'useListRoute' }],
         },
         {
-          name: 'a non-X1 product catalog with category, sort and page',
+          name: 'a useListRoute import does not exempt an unrelated local filter',
           filename: 'Catalog.tsx',
-          code: catalog,
+          code: `import { useState } from 'react'
+import { useListRoute } from '@molecule/app-routing-react-router'
+export function Catalog() {
+  const route = useListRoute()
+  const [category, setCategory] = useState('all')
+  const visible = products.filter((p) => category === 'all' || p.category === category).slice(route.offset, route.offset + route.limit)
+  return <ProductList items={visible} category={category} onCategory={setCategory} />
+}
+`,
           errors: [{ messageId: 'useListRoute' }],
         },
         {
-          name: 'an aliased React Router hook binding',
-          filename: 'Feed.tsx',
-          code: renderedSort(
-            "import { useSearchParams as useUrlParams } from 'react-router'",
-            'const [params] = useUrlParams()',
-          ),
-          errors: [{ messageId: 'useListRoute' }],
-        },
-        {
-          name: 'a local hook re-export binding',
+          name: 'a non-X1 local filter is passed to a list-fetching hook in the same file',
           filename: 'Catalog.tsx',
-          code: renderedSort(
-            `import { useSearchParams as useRouterSearchParams } from 'react-router'
-const useSearchParams = useRouterSearchParams`,
-            'const [params] = useSearchParams()',
-          ),
+          code: `import { useState } from 'react'
+export function Catalog() {
+  const [category, setCategory] = useState('all')
+  const result = useProducts({ category })
+  return <ProductList items={result.data} category={category} onCategory={setCategory} />
+}
+`,
           errors: [{ messageId: 'useListRoute' }],
         },
         {
-          name: 'a custom hook returning useSearchParams()[0]',
+          name: 'local state passed to a list component prop warns without array operations',
           filename: 'Catalog.tsx',
-          code: renderedSort(
-            `import { useSearchParams } from 'react-router'
-function useListParams() { return useSearchParams()[0] }`,
-            'const params = useListParams()',
-          ),
+          code: `import { useState } from 'react'
+export function Catalog() {
+  const [sort, setSort] = useState('featured')
+  return <ProductList sort={sort} onSort={setSort} />
+}
+`,
           errors: [{ messageId: 'useListRoute' }],
         },
         {
-          name: 'URLSearchParams constructed from useLocation().search',
-          filename: 'Catalog.tsx',
-          code: renderedSort(
-            "import { useLocation } from 'react-router'",
-            'const params = new URLSearchParams(useLocation().search)',
-          ),
-          errors: [{ messageId: 'useListRoute' }],
-        },
-        {
-          name: 'a search-param value copied into component state regardless of its key',
+          name: 'a URL-initialized local filter still warns when it controls a list consumer',
           filename: 'Issues.tsx',
           code: `import { useState } from 'react'
 import { useSearchParams } from 'react-router'
 export function Issues() {
   const [params] = useSearchParams()
-  const initial = params.get('status') ?? 'all'
-  const [active] = useState(initial)
-  return <div>{active}</div>
-}
-`,
-          errors: [{ messageId: 'useListRoute' }],
-        },
-        {
-          name: 'a search-param value passed into a list request',
-          filename: 'Catalog.tsx',
-          code: `import { useEffect } from 'react'
-import { useSearchParams } from 'react-router'
-export function Catalog() {
-  const [params] = useSearchParams()
-  const topic = params.get('topic') ?? 'all'
-  useEffect(() => { listItems({ topic }) }, [topic])
-  return <div />
-}
-`,
-          errors: [{ messageId: 'useListRoute' }],
-        },
-        {
-          name: 'a search-param value passed into a query key',
-          filename: 'Catalog.tsx',
-          code: `import { useSearchParams } from 'react-router'
-export function Catalog() {
-  const [params] = useSearchParams()
-  const topic = params.get('topic') ?? 'all'
-  const query = useQuery({ key: ['items', topic], fetch: loadItems })
-  return <div>{query.data}</div>
-}
-`,
-          errors: [{ messageId: 'useListRoute' }],
-        },
-        {
-          name: 'a search-param value used by an array filter',
-          filename: 'Courses.tsx',
-          code: `import { useSearchParams } from 'react-router'
-export function Courses() {
-  const [params] = useSearchParams()
-  const category = params.get('cat') ?? 'all'
-  const visible = topics.filter((topic) => category === 'all' || topic.category === category)
-  return <div>{visible.length}</div>
-}
-`,
-          errors: [{ messageId: 'useListRoute' }],
-        },
-        {
-          name: 'a search-param value used to select a memoized list',
-          filename: 'Inbox.tsx',
-          code: `import { useMemo } from 'react'
-import { useSearchParams } from 'react-router'
-export function Inbox() {
-  const [params] = useSearchParams()
-  const folder = params.get('folder') ?? 'inbox'
-  const visible = useMemo(() => folder === 'drafts' ? drafts.filter((draft) => !draft.archived) : sent, [folder, drafts, sent])
-  return <div>{visible.length}</div>
+  const [status, setStatus] = useState(params.get('status') ?? 'all')
+  return <IssueList status={status} onStatus={setStatus} />
 }
 `,
           errors: [{ messageId: 'useListRoute' }],

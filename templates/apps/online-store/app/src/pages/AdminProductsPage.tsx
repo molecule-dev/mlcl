@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AdminLayout } from '../components/AdminLayout.js'
@@ -33,10 +34,13 @@ function AdminProductsPage() {
   const [products, setProducts] = useState<Product[]>([])
   const [categories, setCategories] = useState<Category[]>([])
   const [loading, setLoading] = useState(true)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [categoryFilter, setCategoryFilter] = useState('')
-  const [statusFilter, setStatusFilter] = useState('')
-  const [page, setPage] = useState(1)
+  const listRoute = useListRoute({
+    filters: { q: {}, category: {}, status: {}, page: { defaultValue: '1' } },
+  })
+  const searchQuery = listRoute.filters.q ?? ''
+  const categoryFilter = listRoute.filters.category ?? ''
+  const statusFilter = listRoute.filters.status ?? ''
+  const page = Math.max(1, Number(listRoute.filters.page ?? '1') || 1)
   const [totalPages, setTotalPages] = useState(1)
   const [totalProducts, setTotalProducts] = useState(0)
 
@@ -137,10 +141,7 @@ function AdminProductsPage() {
       <div className={cm.cn('bg-surface-secondary font-body text-foreground min-h-screen')}>
         <AdminProductsHeader
           searchQuery={searchQuery}
-          onSearch={(q: string) => {
-            setSearchQuery(q)
-            setPage(1)
-          }}
+          onSearch={(q: string) => listRoute.setFilters({ q: q || undefined, page: '1' })}
         />
         <section
           aria-label={t('admin.products.regionLabel', {}, { defaultValue: 'Admin products' })}
@@ -153,14 +154,12 @@ function AdminProductsPage() {
               categories={categories}
               categoryFilter={categoryFilter}
               statusFilter={statusFilter}
-              onCategoryChange={(v: string) => {
-                setCategoryFilter(v)
-                setPage(1)
-              }}
-              onStatusChange={(v: string) => {
-                setStatusFilter(v)
-                setPage(1)
-              }}
+              onCategoryChange={(v: string) =>
+                listRoute.setFilters({ category: v || undefined, page: '1' })
+              }
+              onStatusChange={(v: string) =>
+                listRoute.setFilters({ status: v || undefined, page: '1' })
+              }
               onAddProduct={() => setShowCreate(true)}
             />
             <AdminProductsTable
@@ -169,7 +168,7 @@ function AdminProductsPage() {
               page={page}
               totalPages={totalPages}
               totalProducts={totalProducts}
-              onPageChange={setPage}
+              onPageChange={(nextPage) => listRoute.setFilters({ page: String(nextPage) })}
             />
           </div>
         </section>

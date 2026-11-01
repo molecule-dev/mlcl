@@ -15,12 +15,12 @@ export function Gifts() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const listRoute = useListRoute({ filters: { campaign_id: {} } })
+  const listRoute = useListRoute({ filters: { campaign_id: {}, method: {}, receipted: {} } })
   // Campaigns cards deep-link here with ?campaign_id=<id> — honor it.
   const campaignParam = listRoute.filters.campaign_id ?? ''
   const [list, setList] = useState<Gift[]>([])
-  const [methodFilter, setMethodFilter] = useState('')
-  const [receiptedFilter, setReceiptedFilter] = useState('')
+  const methodFilter = listRoute.filters.method ?? ''
+  const receiptedFilter = listRoute.filters.receipted ?? ''
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
@@ -121,7 +121,7 @@ export function Gifts() {
       <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
         <select
           value={methodFilter}
-          onChange={(e) => setMethodFilter(e.target.value)}
+          onChange={(e) => listRoute.setFilters({ method: e.target.value || undefined })}
           aria-label={t('gifts.filterByMethod', {}, { defaultValue: 'Filter by method' })}
           className={cm.cn(
             cm.sp('px', 3),
@@ -139,7 +139,7 @@ export function Gifts() {
         </select>
         <select
           value={receiptedFilter}
-          onChange={(e) => setReceiptedFilter(e.target.value)}
+          onChange={(e) => listRoute.setFilters({ receipted: e.target.value || undefined })}
           aria-label={t(
             'gifts.filterByReceipted',
             {},
