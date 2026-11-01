@@ -20,7 +20,6 @@ function ResetPassword() {
   }
   const navigate = useNavigate()
   const [token] = useConsumedSearchParam('token')
-  const token = token
 
   const handleSubmit = async (e: FormEvent) => {
     e.preventDefault()

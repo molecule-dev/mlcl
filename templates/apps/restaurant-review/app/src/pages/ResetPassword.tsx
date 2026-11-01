@@ -16,11 +16,11 @@ export function ResetPassword() {
   const { openPrivacy, openTerms, modals } = useLegalModals({ appName: APP_NAME, loadContent })
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const [token] = useConsumedSearchParam('token')
+  const [consumedToken] = useConsumedSearchParam('token')
   const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
   const { login } = useLogin()
 
-  const tokenFromUrl = token ?? ''
+  const tokenFromUrl = consumedToken ?? ''
   const emailFromUrl = searchParams.get('email') ?? ''
   const [token] = useState(tokenFromUrl)
   const [email] = useState(emailFromUrl)

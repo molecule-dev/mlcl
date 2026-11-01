@@ -12,11 +12,11 @@ export function ResetPassword() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const [token] = useConsumedSearchParam('token')
+  const [tokenFromUrl] = useConsumedSearchParam('token')
   const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
   const { login } = useLogin()
 
-  const [token] = useState(token || 'demo-token')
+  const [token] = useState(tokenFromUrl || 'demo-token')
   const [emailParam] = useState(searchParams.get('email') || '')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
