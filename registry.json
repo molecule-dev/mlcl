@@ -25346,9 +25346,6 @@
       "label": "Authentication",
       "description": "User registration, login, JWT sessions",
       "stack": "api",
-      "authContract": {
-        "scheme": "Bearer"
-      },
       "exports": [
         "authorization",
         "authorizers",
@@ -25619,6 +25616,9 @@
         "authorization"
       ],
       "path": "packages/api/resources/user",
+      "authContract": {
+        "scheme": "Bearer"
+      },
       "intentHints": [
         "user resource",
         "user accounts backend",
@@ -30667,10 +30667,12 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/app-bond"
+        "@molecule/app-bond",
+        "@molecule/app-logger"
       ],
       "moleculePeers": [
-        "@molecule/app-bond"
+        "@molecule/app-bond",
+        "@molecule/app-logger"
       ],
       "ui": {
         "hidden": true
@@ -31216,11 +31218,13 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-bond",
+        "@molecule/app-http",
         "@molecule/app-i18n",
         "@molecule/app-logger"
       ],
       "moleculePeers": [
         "@molecule/app-bond",
+        "@molecule/app-http",
         "@molecule/app-i18n",
         "@molecule/app-logger"
       ],
@@ -31248,11 +31252,6 @@
         ]
       },
       "decisionGuide": {
-        "configuration": [
-          "Bearer + top-level token: keep `authScheme: 'Bearer'` and the default response mapping; set `currentUserEndpoint` and `profileEndpoint`/`profileUpdateMethod` to the API's current-user GET and profile update route/method.",
-          "Custom token API: set `tokenKey` (or `storagePrefix`), `authScheme: 'Token'`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod`; use `mapAuthResponse` to turn envelopes such as `{ user: { token, ...user } }` into `{ accessToken, user }`.",
-          "Cookie session: use `storage: 'memory'`, `cookieRestore: 'always'`, configure `currentUserEndpoint`, and keep HTTP `withCredentials: true`; no browser token store is needed. The default `cookieRestore: 'hint'` probes only when the server also sets a readable `mol_auth=1` presence cookie."
-        ],
         "bindingGuidance": {
           "@molecule/app-react": [
             "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is the session status and `state.user` is the current user. `AuthProvider` renders children immediately."
@@ -31272,7 +31271,12 @@
           "@molecule/app-react-native": [
             "Read the session with `useAuth()` from `@molecule/app-react-native`: `state.status` is the session status and `state.user` is the current user. `AuthProvider` renders children immediately."
           ]
-        }
+        },
+        "configuration": [
+          "Bearer + top-level token: keep `authScheme: 'Bearer'` and the default response mapping; set `currentUserEndpoint` and `profileEndpoint`/`profileUpdateMethod` to the API's current-user GET and profile update route/method.",
+          "Custom token API: set `tokenKey` (or `storagePrefix`), `authScheme: 'Token'`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod`; use `mapAuthResponse` to turn envelopes such as `{ user: { token, ...user } }` into `{ accessToken, user }`.",
+          "Cookie session: use `storage: 'memory'`, `cookieRestore: 'always'`, configure `currentUserEndpoint`, and keep HTTP `withCredentials: true`; no browser token store is needed. The default `cookieRestore: 'hint'` probes only when the server also sets a readable `mol_auth=1` presence cookie."
+        ]
       },
       "intentHints": [
         "user login",
@@ -31959,11 +31963,6 @@
         "@molecule/app-ui-tailwind"
       ],
       "path": "packages/app/infrastructure/bonds-default-react",
-      "intentHints": [
-        "default bonds",
-        "react bond defaults",
-        "app bonds wiring"
-      ],
       "capabilityFactories": {
         "createDefaultHttpClient": {
           "capabilities": [
@@ -31996,7 +31995,12 @@
           ],
           "setup": "setupAuthDefault"
         }
-      }
+      },
+      "intentHints": [
+        "default bonds",
+        "react bond defaults",
+        "app bonds wiring"
+      ]
     },
     "@molecule/app-breadcrumb-react": {
       "language": "typescript",
@@ -37236,16 +37240,16 @@
         }
       },
       "decisionGuide": {
-        "configuration": [
-          "Bearer or another token scheme: construct the bonded client with `baseURL` and `authScheme: 'Bearer'` (or `authScheme: 'Token'`); pass the shared `authConfig.authScheme` rather than attaching headers per request.",
-          "Cookie sessions: construct with `withCredentials: true`; the browser sends the cookie, so no Authorization interceptor or token store is needed.",
-          "Session restore: keep `setAuthTokenSource` for the current token and `setAuthGate` for restore; delaying a request alone does not attach its credential."
-        ],
         "bindingGuidance": {
           "@molecule/app-bonds-default-react": [
             "React default binding: when replacing the composition, use `createDefaultHttpClientWithAuthBearer({ baseURL, getToken: () => authClient.getAccessToken(), authScheme })` from `@molecule/app-bonds-default-react` instead of a bare `createFetchClient`."
           ]
-        }
+        },
+        "configuration": [
+          "Bearer or another token scheme: construct the bonded client with `baseURL` and `authScheme: 'Bearer'` (or `authScheme: 'Token'`); pass the shared `authConfig.authScheme` rather than attaching headers per request.",
+          "Cookie sessions: construct with `withCredentials: true`; the browser sends the cookie, so no Authorization interceptor or token store is needed.",
+          "Session restore: keep `setAuthTokenSource` for the current token and `setAuthGate` for restore; delaying a request alone does not attach its credential."
+        ]
       },
       "intentHints": [
         "http client",
