@@ -130,7 +130,8 @@ describe('mlcl add --inject — setup-SQL compatibility preflight', () => {
     const manifest = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
     }
-    expect(manifest.dependencies[COMMENT]).toBe('1.2.2')
+    // The registry's pin, which moves with every release wave (a literal went stale at 1.2.3).
+    expect(manifest.dependencies[COMMENT]).toBe(getMoleculeVersion(COMMENT))
     expect(handoff).toHaveBeenCalledTimes(1)
   })
 

@@ -21,6 +21,8 @@ import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { BrowserRouter } from '@molecule/app-routing-react-router'
+
 const translate = (
   key: string,
   values?: Record<string, unknown>,
@@ -173,7 +175,7 @@ describe('orders page — the first paint is the pending state, not an empty lis
 describe('verify-email — an uncompleted check is not a verdict on the link', () => {
   async function mountWithToken(token: string): Promise<void> {
     window.history.replaceState({}, '', `/verify?token=${token}`)
-    await mount(createElement(VerifyEmailPage, {}))
+    await mount(createElement(BrowserRouter, null, createElement(VerifyEmailPage, {})))
   }
 
   it('a rejected check says the check failed and offers a retry, never "Invalid link"', async () => {

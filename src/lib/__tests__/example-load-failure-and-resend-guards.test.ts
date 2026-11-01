@@ -38,6 +38,8 @@ import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { BrowserRouter } from '@molecule/app-routing-react-router'
+
 // ---------------------------------------------------------------------------
 // Doubles
 // ---------------------------------------------------------------------------
@@ -309,7 +311,7 @@ describe('orders page — a failed page load is disclosed, not silent', () => {
 describe('verify-email — a resend in flight is one resend', () => {
   async function mountExpiredPage(): Promise<void> {
     window.history.replaceState({}, '', '/verify?token=stale-token')
-    await mount(createElement(VerifyEmailPage, {}))
+    await mount(createElement(BrowserRouter, null, createElement(VerifyEmailPage, {})))
     await respond('/api/verify', 410, { error: 'Link expired' })
   }
 
