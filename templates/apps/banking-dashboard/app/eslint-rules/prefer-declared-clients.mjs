@@ -372,6 +372,11 @@ export default {
         }
         return false
       }
+      const typeQueryReference = (id) => {
+        for (let node = id.parent; node; node = node.parent)
+          if (node.type === 'TSTypeQuery') return true
+        return false
+      }
       const bondReference = (id) =>
         clientBonds.some((argument) => {
           argument = unwrap(argument)
@@ -384,6 +389,7 @@ export default {
               ref.init ||
               handoff.references.has(ref.identifier) ||
               exportReference(ref.identifier) ||
+              typeQueryReference(ref.identifier) ||
               bondReference(ref.identifier),
           )
         for (const [origin, bindings] of handoff.origins)
@@ -433,11 +439,12 @@ export default {
         if (target?.type === 'ObjectExpression') {
           for (const prop of target.properties)
             if (prop.type === 'Property' && !prop.computed && key(prop) !== '__proto__')
-              containerValue(prop.value, handoff)
+              containerValue(prop.value, { ...handoff, bindings: new Set(handoff.bindings) })
         } else if (target?.type === 'ArrayExpression') {
           for (const element of target.elements) {
             if (element?.type === 'SpreadElement') break
-            if (element) containerValue(element, handoff)
+            if (element)
+              containerValue(element, { ...handoff, bindings: new Set(handoff.bindings) })
           }
         } else creation(target, handoff)
         finish(handoff)
