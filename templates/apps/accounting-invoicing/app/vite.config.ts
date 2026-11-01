@@ -17,12 +17,10 @@ config.plugins = [...(config.plugins ?? []), stripPreviewBridgePlugin()]
 // storm that exhausted the browser's request budget on /invoices/new
 // (net::ERR_INSUFFICIENT_RESOURCES, 2026-09-26 flagship audit). Exclude wins
 // over include in Vite, so it must be dropped from the exclusion list too.
-config.optimizeDeps.exclude = (config.optimizeDeps.exclude ?? []).filter(
+const optimizeDeps = (config.optimizeDeps ??= {})
+optimizeDeps.exclude = (optimizeDeps.exclude ?? []).filter(
   (name) => name !== '@molecule/app-icons-molecule',
 )
-config.optimizeDeps.include = [
-  ...(config.optimizeDeps.include ?? []),
-  '@molecule/app-icons-molecule',
-]
+optimizeDeps.include = [...(optimizeDeps.include ?? []), '@molecule/app-icons-molecule']
 
 export default defineConfig(config)
