@@ -16,7 +16,8 @@ export function ResetPassword() {
   const [searchParams] = useSearchParams()
   const { status: loginStatus, error: loginError, login } = useLogin()
 
-  const [token, setToken] = useConsumedSearchParam('token')
+  const [token] = useConsumedSearchParam('token')
+  const [manualToken, setManualToken] = useState('')
   const urlEmail = searchParams.get('email') ?? undefined
   // Cross-view auth form persistence — the reset link's ?email= seeds it and
   // wins; the email also carries from the Forgot/Login views. Cleared on success.
@@ -42,7 +43,11 @@ export function ResetPassword() {
     // dedicated reset-confirm endpoint, so we skip the framework-default
     // `confirmReset` call and go straight to login().
     try {
-      await login({ email, password, passwordResetToken: token } as Parameters<typeof login>[0])
+      await login({
+        email,
+        password,
+        passwordResetToken: token || manualToken,
+      } as Parameters<typeof login>[0])
       clearAuthForm()
       navigate('/dashboard', { replace: true })
     } catch (_error) {
@@ -99,8 +104,8 @@ export function ResetPassword() {
             id="token"
             icon="vpn_key"
             label={t('auth.resetPassword.resetToken', {}, { defaultValue: 'Reset token' })}
-            value={token}
-            onChange={setToken}
+            value={manualToken}
+            onChange={setManualToken}
             required
             placeholder={t(
               'auth.resetPassword.pasteTokenFromEmail',

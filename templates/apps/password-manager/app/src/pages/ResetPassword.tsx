@@ -17,7 +17,8 @@ export function ResetPassword() {
   const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
   const { login } = useLogin()
 
-  const [token, setToken] = useConsumedSearchParam('token')
+  const [token] = useConsumedSearchParam('token')
+  const [manualToken, setManualToken] = useState('')
   // Cross-view auth form persistence (email shared across Login/Signup/
   // Forgot/Reset, cleared on success). The reset link's ?email= seeds it
   // and wins over any stored value; otherwise the email typed on Forgot
@@ -56,7 +57,7 @@ export function ResetPassword() {
     }
     setMismatchError(null)
     try {
-      await confirmReset({ token, password })
+      await confirmReset({ token: token || manualToken, password })
       await login({ email, password })
       clearAuthForm()
       navigate('/vault', { replace: true })
@@ -117,8 +118,8 @@ export function ResetPassword() {
             {!token && (
               <input
                 type="text"
-                value={token}
-                onChange={(e) => setToken(e.target.value)}
+                value={manualToken}
+                onChange={(e) => setManualToken(e.target.value)}
                 placeholder={t(
                   'auth.resetPassword.resetToken',
                   {},

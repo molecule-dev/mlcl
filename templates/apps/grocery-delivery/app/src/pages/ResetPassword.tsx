@@ -20,7 +20,8 @@ export function ResetPassword() {
   const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
   const { login } = useLogin()
 
-  const [token, setToken] = useConsumedSearchParam('token')
+  const [token] = useConsumedSearchParam('token')
+  const [manualToken, setManualToken] = useState('')
   // Cross-view auth form persistence (email shared across Login/Signup/
   // Forgot/Reset, cleared on success). The reset link's ?email= seeds it
   // and wins over any stored value; otherwise the email typed on Forgot
@@ -50,7 +51,7 @@ export function ResetPassword() {
     }
     setMismatchError(null)
     try {
-      await confirmReset({ token, password })
+      await confirmReset({ token: token || manualToken, password })
       if (email) {
         await login({ email, password })
         clearAuthForm()
@@ -145,8 +146,8 @@ export function ResetPassword() {
                   id="token"
                   icon="vpn_key"
                   type="text"
-                  value={token}
-                  onChange={setToken}
+                  value={manualToken}
+                  onChange={setManualToken}
                   label={t('auth.resetPassword.resetCode', {}, { defaultValue: 'Reset code' })}
                   placeholder={t(
                     'resetPassword.tokenPlaceholder',
