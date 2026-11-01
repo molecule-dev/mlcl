@@ -5,6 +5,7 @@ import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { AUTH_PRECONFIGURATION_GUIDANCE, readOpenApiAuthContract } from '../lib/auth-contract.js'
 import { readProjectCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT, isDdlCompatibilityFailure } from '../lib/ddl-exit.js'
@@ -175,6 +176,10 @@ export default class Create extends Command {
       description:
         'App template slug (e.g., blog, crm, online-store). Run `mlcl templates` to list all available templates.',
     }),
+    'api-contract': Flags.string({
+      description:
+        'OpenAPI 3.1 JSON document whose auth operations configure the generated app-auth bond',
+    }),
   }
 
   public async run(): Promise<void> {
@@ -203,6 +208,15 @@ export default class Create extends Command {
         this.error(t('commands.create.errors.nameInvalid', { name: args.name }))
       }
     }
+
+    if (flags.template && flags['api-contract']) {
+      this.error(
+        '--api-contract cannot be combined with --template; the template already owns its API contract',
+      )
+    }
+    const apiAuthContract = flags['api-contract']
+      ? await readOpenApiAuthContract(flags['api-contract'])
+      : undefined
 
     // What the caller asked for, before a template fills the flags in — the
     // template fast path copies the template as built, so a framework or extra
@@ -734,6 +748,18 @@ export default class Create extends Command {
     // Derive named bond providers from selected packages using registry metadata
     // Groups by bondWiring.bondCategory (e.g. oauth → OAUTH_PROVIDERS, payments → PAYMENTS_PROVIDERS)
     const extraVars: Record<string, string> = {}
+    if (apiAuthContract && isFullStack) {
+      const resources = selectedPackageNames.filter(
+        (name) => allPackages.find((pkg) => pkg.name === name)?.molecule?.authContract,
+      )
+      if (resources.length !== 1) {
+        this.error(
+          '--api-contract needs exactly one selected API resource with authContract metadata',
+        )
+      }
+      apiAuthContract.resourcePackage = resources[0]
+    }
+    if (apiAuthContract) extraVars.AUTH_CONTRACT_JSON = JSON.stringify(apiAuthContract)
     for (const name of selectedPackageNames) {
       const pkg = allPackages.find((p) => p.name === name)
       const bondWiring = pkg?.molecule?.bondWiring as
@@ -1320,6 +1346,7 @@ export default class Create extends Command {
     }
 
     // Done
+    if (apiAuthContract) say(AUTH_PRECONFIGURATION_GUIDANCE)
     say('')
     if (!nonInteractive) p.outro(chalk.green(t('commands.create.messages.success')))
 
@@ -1378,6 +1405,7 @@ export default class Create extends Command {
             packages: uniquePackages,
             secrets: uniqueSecretNames,
             installSkipped: flags['skip-install'] === true,
+            ...(apiAuthContract ? { authGuidance: AUTH_PRECONFIGURATION_GUIDANCE } : {}),
             capabilityMap: await readProjectCapabilityMap(projectPath),
           },
           null,

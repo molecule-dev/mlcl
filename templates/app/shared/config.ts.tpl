@@ -90,26 +90,22 @@ export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
  * `createDefaultAuthClient<T>(authConfig)` instead of `createJWTAuthClient<T>`.
  */
 
-export const authConfig = {
+{{AUTH_CONFIG_GUIDANCE}}export const authConfig = {
   baseURL: API_BASE_URL,
   // The scheme the auth and HTTP clients send the token with: `Bearer` unless the API
   // reads another one (some APIs read the bare `Token` scheme). Both read THIS value —
   // never set it on a built client (that is a type error and changes no header).
-  authScheme: 'Bearer',
-  loginEndpoint: '/users/log-in',
-  registerEndpoint: '/users',
+{{AUTH_ROUTE_CONFIG}}
   // The current-user route. `validateSession()` calls it on reload to confirm the
   // stored session, and `initialize()` uses it to restore the session from the
   // httpOnly cookie. Point it at your API's own current-user route when you serve
   // one: the `/users/me` default answers 404 there, and the auth client then keeps
   // the stored token but leaves the session unconfirmed.
-  currentUserEndpoint: '/users/me',
+{{CURRENT_USER_ROUTE_CONFIG}}
   // The write route comes from the API user resource contract, independently of the GET above.
   // Keep this with its method when adapting the app to a different API.
 {{PROFILE_UPDATE_CONFIG}}
-  forgotPasswordEndpoint: '/users/forgot-password',
-  resetPasswordEndpoint: '/users/reset-password',
-  changePasswordEndpoint: '/users/password',
+{{AUTH_ADAPTER_CONFIG}}{{PASSWORD_ROUTE_CONFIG}}
   // The auth factory defaults to its own browser storage adapter. The generated bond
   // passes this config through, so an explicit `storage` choice takes precedence.
   // To keep a bearer out of script-reachable storage with an HttpOnly session cookie,

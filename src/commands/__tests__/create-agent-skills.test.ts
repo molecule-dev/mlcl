@@ -242,9 +242,8 @@ describe('MCP scaffold_project inherits the delivery', () => {
     const at = source.indexOf("server.registerTool(\n  'scaffold_project',")
     expect(at, 'scaffold_project is expected in the MCP server').toBeGreaterThan(0)
     const handler = source.slice(at, source.indexOf('server.registerTool(', at + 10))
-    expect(handler, 'the tool must spawn the CLI').toContain("['create', name, '--no-interactive'")
-    expect(handler, 'and forward the template/type/framework/packages flags').toContain(
-      "args.push('--template', template)",
+    expect(handler, 'the tool must spawn the CLI through the shared argv builder').toContain(
+      'runCli(scaffoldProjectCliArgs(options), directory)',
     )
     // Any skill writing here would be a second delivery path that the local CLI
     // would then not share.

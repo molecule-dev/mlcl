@@ -87,6 +87,11 @@ import { execa } from 'execa'
 
 import { generateCode, isAIAvailable } from './ai.js'
 import { buildPackageContext, loadMoleculeMdBatch } from './ai-context.js'
+import {
+  type AuthContract,
+  readProjectAuthContract,
+  renderApiAuthContractWrapper,
+} from './auth-contract.js'
 import { capabilityEntryFromRegistry, renderCapabilityBondHeader } from './capability-map.js'
 import { isExactVersion } from './exact-version.js'
 import { sortImportStatements } from './format.js'
@@ -3053,7 +3058,11 @@ function untouchedRouter(text: string): boolean {
  * @param generated - The content this inject generated.
  * @returns True when the generated content should be written.
  */
-async function shouldWriteRouter(routerPath: string, generated: string): Promise<boolean> {
+async function shouldWriteRouter(
+  routerPath: string,
+  generated: string,
+  contractDriven = false,
+): Promise<boolean> {
   let existing: string
   try {
     existing = await readFile(routerPath, 'utf-8')
@@ -3065,6 +3074,7 @@ async function shouldWriteRouter(routerPath: string, generated: string): Promise
     return false
   }
   if (!existing.includes(GENERATED_ROUTER_MARKER) && !untouchedRouter(existing)) return false
+  if (contractDriven && existing.includes(GENERATED_ROUTER_MARKER)) return existing !== generated
   return routerMountNames(generated).join('\n') !== routerMountNames(existing).join('\n')
 }
 
@@ -3092,6 +3102,8 @@ export async function synthesizeProjectFiles(
 
   // Derive optional features from registry metadata
   const optionalFeatures = deriveOptionalFeatures(allMolecules, registryPackages)
+
+  const authContract = readProjectAuthContract(projectPath)
 
   // Generate wrappers for resources that have active routes — plus any resource
   // exporting `authorization`, whose wrapper the router imports for the global
@@ -3123,7 +3135,10 @@ export async function synthesizeProjectFiles(
       continue
     }
 
-    const content = await generateWrapperContent(plan.moleculePackage)
+    const content = await generateWrapperContent(
+      plan.moleculePackage,
+      authContract?.resourcePackage === plan.molecule ? authContract : undefined,
+    )
 
     files.push({
       action: 'create',
@@ -3136,8 +3151,14 @@ export async function synthesizeProjectFiles(
   // Generate router.ts — only when the package list changed (see shouldWriteRouter): the file
   // is generated, but it is also where the app's own edits beside the mounts live.
   const routerPath = join(projectPath, 'src', 'App', 'router.ts')
-  const routerContent = generateRouterContent(resourcePlans, allMolecules, registryPackages, fw)
-  if (await shouldWriteRouter(routerPath, routerContent)) {
+  const routerContent = generateRouterContent(
+    resourcePlans,
+    allMolecules,
+    registryPackages,
+    fw,
+    authContract,
+  )
+  if (await shouldWriteRouter(routerPath, routerContent, Boolean(authContract))) {
     files.push({
       action: 'create',
       targetPath: routerPath,
@@ -4044,7 +4065,11 @@ self.addEventListener('message', (event) => {
 /**
  * Generate resource wrapper — dispatches between AI and heuristic.
  */
-async function generateWrapperContent(pkg: InferredPackage): Promise<string> {
+async function generateWrapperContent(
+  pkg: InferredPackage,
+  authContract?: AuthContract,
+): Promise<string> {
+  if (authContract) return generateWrapperContentHeuristic(pkg, authContract)
   if (isAIAvailable()) {
     try {
       return await generateWrapperContentAI(pkg)
@@ -4110,7 +4135,10 @@ function routerAccessorExports(exports: readonly string[]): string[] {
  * {@link ROUTER_ACCESSOR_EXPORTS}), which the wrapper must export for that
  * import to resolve.
  */
-async function generateWrapperContentHeuristic(pkg: InferredPackage): Promise<string> {
+async function generateWrapperContentHeuristic(
+  pkg: InferredPackage,
+  authContract?: AuthContract,
+): Promise<string> {
   const exports = pkg.exports.length > 0 ? pkg.exports : await scanExportsFromPath(pkg.path)
   const accessors = routerAccessorExports(exports)
 
@@ -4123,6 +4151,15 @@ async function generateWrapperContentHeuristic(pkg: InferredPackage): Promise<st
     const extraImports = extraExports.length > 0 ? `, ${extraExports.join(', ')}` : ''
     const extraReExports =
       extraExports.length > 0 ? extraExports.map((e) => `export { ${e} }`).join('\n') + '\n\n' : ''
+    if (authContract) {
+      const adapted = renderApiAuthContractWrapper(
+        authContract,
+        pkg.name,
+        resourcePkg,
+        extraExports,
+      )
+      if (adapted) return adapted
+    }
 
     return `import { createRequestHandler } from '${resourcePkg}'
 import { createRequestHandlerMap${extraImports} } from '${pkg.name}'
@@ -4246,8 +4283,15 @@ function generateRouterContent(
   allMolecules: string[],
   registryPackages?: InferredPackage[],
   apiFramework: string = DEFAULT_API_FRAMEWORK,
+  authContract?: AuthContract,
 ): string {
-  return generateRouterContentHeuristic(resourcePlans, allMolecules, registryPackages, apiFramework)
+  return generateRouterContentHeuristic(
+    resourcePlans,
+    allMolecules,
+    registryPackages,
+    apiFramework,
+    authContract,
+  )
 }
 
 /**
@@ -4259,7 +4303,35 @@ function generateRouterContentHeuristic(
   allMolecules: string[],
   registryPackages?: InferredPackage[],
   apiFramework: string = DEFAULT_API_FRAMEWORK,
+  authContract?: AuthContract,
 ): string {
+  if (authContract?.resourcePackage) {
+    const replacements = new Map(authContract.routes.map((route) => [route.handler, route]))
+    resourcePlans = resourcePlans.map((plan) => {
+      if (plan.molecule !== authContract.resourcePackage || !plan.moleculePackage) return plan
+      return {
+        ...plan,
+        moleculePackage: {
+          ...plan.moleculePackage,
+          routes: plan.moleculePackage.routes.map((route) => {
+            const replacement = replacements.get(route.handler)
+            return replacement
+              ? {
+                  ...route,
+                  method: replacement.method,
+                  path: replacement.path,
+                  middlewares: replacement.path.includes(':id')
+                    ? route.middlewares
+                    : route.middlewares.map((middleware) =>
+                        middleware === 'authSelf' ? 'auth' : middleware,
+                      ),
+                }
+              : route
+          }),
+        },
+      }
+    })
+  }
   const fw = getApiFrameworkConfig(apiFramework)
   const lines: string[] = []
 
@@ -4325,7 +4397,10 @@ function generateRouterContentHeuristic(
   for (const plan of authorizationResources) {
     const name = extractResourceName(plan.molecule)
     const camelName = name.charAt(0).toLowerCase() + name.slice(1)
-    lines.push(`router.use(${camelName}Authorization.verifyMiddleware())`)
+    const scheme = authContract?.resourcePackage === plan.molecule ? authContract.scheme : undefined
+    lines.push(
+      `router.use(${camelName}Authorization.verifyMiddleware(${scheme ? `{ scheme: ${JSON.stringify(scheme)} }` : ''}))`,
+    )
   }
   if (authorizationResources.length > 0) {
     lines.push('')

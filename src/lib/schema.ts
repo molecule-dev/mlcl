@@ -165,6 +165,34 @@ export const DecisionGuide = z.object({
     ),
 })
 
+/** Package-authored auth options paired with its existing route declarations. */
+export const AuthContractMetadata = z.object({
+  scheme: z.string().min(1).describe('Authorization scheme the API accepts and mints'),
+  tokenKey: z
+    .string()
+    .min(1)
+    .optional()
+    .describe('Exact browser storage key required by an external consumer'),
+  requestEnvelopes: z
+    .object({
+      login: z.string().min(1).optional(),
+      register: z.string().min(1).optional(),
+      profile: z.string().min(1).optional(),
+    })
+    .optional(),
+  response: z
+    .object({
+      envelope: z.string().min(1).optional(),
+      userField: z.string().min(1).optional(),
+      accessTokenField: z.string().min(1),
+      refreshTokenField: z.string().min(1).optional(),
+    })
+    .refine((value) => Boolean(value.envelope) !== Boolean(value.userField), {
+      message: 'Declare exactly one of response.envelope or response.userField',
+    })
+    .optional(),
+})
+
 /**
  * Package metadata from the centralized registry (registry.json).
  * This is the authoritative source — the CLI reads it, never hardcodes it.
@@ -471,6 +499,9 @@ export const MoleculeMetadata = z.object({
   optionalFeature: z.string().optional().describe('Feature flag name for optional route filtering'),
   decisionGuide: DecisionGuide.optional().describe(
     'Decision-time configuration guidance for this package; consumed by the generated capability map.',
+  ),
+  authContract: AuthContractMetadata.optional().describe(
+    'Auth transport options shared with the app composition root; routes remain in routes.',
   ),
   intentHints: z
     .array(z.string())
@@ -904,6 +935,9 @@ export const RegistryEntry = z.object({
     .describe('How to generate a default bond setup when no explicit provider is selected'),
   decisionGuide: DecisionGuide.optional().describe(
     'Decision-time configuration guidance for this package; consumed by the generated capability map.',
+  ),
+  authContract: AuthContractMetadata.optional().describe(
+    'Auth transport options shared with the app composition root; routes remain in routes.',
   ),
   intentHints: z
     .array(z.string())

@@ -8,6 +8,7 @@ import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { AUTH_PRECONFIGURATION_GUIDANCE } from '../lib/auth-contract.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { t } from '../lib/i18n.js'
 import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../lib/integrate.js'
@@ -212,6 +213,10 @@ export default class Add extends Command {
           this.log(chalk.yellow(t('commands.add.messages.installNote')))
           this.error(t('commands.add.errors.installFailed'), { exit: 1 })
         }
+      }
+
+      if (moleculeName === '@molecule/app-auth' || moleculeName === '@molecule/api-resource-user') {
+        this.log(AUTH_PRECONFIGURATION_GUIDANCE)
       }
 
       // --inject: hand off to `mlcl inject`, which wires the package into the

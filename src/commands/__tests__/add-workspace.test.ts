@@ -14,6 +14,7 @@ import { join } from 'node:path'
 import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import { AUTH_PRECONFIGURATION_GUIDANCE } from '../../lib/auth-contract.js'
 import Add from '../add.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
@@ -49,5 +50,18 @@ describe('mlcl add from a full-stack project root', () => {
         '{"name":"x","dependencies":{}}\n',
       )
     }
+  })
+
+  it('prints the keep-the-configured-bond guidance returned to CLI and MCP add callers', async () => {
+    const config = await Config.load(MLCL_ROOT)
+    vi.spyOn(config, 'runCommand').mockResolvedValue(undefined)
+    const cmd = new Add(['@molecule/app-auth', '--no-install', '--inject'], config)
+    const log = vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+    await cmd.run()
+    expect(log).toHaveBeenCalledWith(AUTH_PRECONFIGURATION_GUIDANCE)
+    expect(config.runCommand).toHaveBeenCalledWith(
+      'inject',
+      expect.arrayContaining(['--molecule', '@molecule/app-auth']),
+    )
   })
 })

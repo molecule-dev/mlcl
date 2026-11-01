@@ -33,6 +33,14 @@ import {
   writeAgentSkillFiles,
 } from './agent-skills.js'
 import {
+  authContractFromRegistry,
+  isDefaultAuthContract,
+  parseAuthContract,
+  renderAuthContract,
+} from './auth-contract.js'
+
+export { userProfileUpdateConfig } from './auth-contract.js'
+import {
   type DeclaredPackage,
   readProjectCapabilityMap,
   renderCapabilityMap,
@@ -60,7 +68,7 @@ import {
   loadRegistry,
   loadToolchain,
 } from './registry.js'
-import type { BuildTooling, InferredPackage, InferredRoute, MoleculeSecret } from './schema.js'
+import type { BuildTooling, InferredPackage, MoleculeSecret } from './schema.js'
 import { generateSecretValues } from './secret-generate.js'
 import {
   describeSetupSqlDestinationConflict,
@@ -3810,6 +3818,17 @@ export async function createFullStackProject(
   // Scaffold both sub-projects
   mlclDebug(`[scaffold] Creating API project: ${join(projectPath, 'api')}`)
   await createApiProject(join(projectPath, 'api'), `${projectName}-api`, apiFramework)
+  const authContract = extraVars.AUTH_CONTRACT_JSON
+    ? parseAuthContract(JSON.parse(extraVars.AUTH_CONTRACT_JSON))
+    : authContractFromRegistry(
+        loadRegistry().find((pkg) => pkg.name === '@molecule/api-resource-user')!,
+      )
+  if (!isDefaultAuthContract(authContract)) {
+    await writeFile(
+      join(projectPath, 'api', 'auth-contract.json'),
+      `${JSON.stringify(authContract, null, 2)}\n`,
+    )
+  }
   mlclDebug(`[scaffold] Creating App project: ${join(projectPath, 'app')}`)
   await createAppProject(
     join(projectPath, 'app'),
@@ -5140,31 +5159,6 @@ export async function createAppProject(
 }
 
 /**
- * Profile transport for the standard user resource, from its registered write route.
- * The app resolves only the account id at request time; read and write URLs remain independent.
- * @param routes - The canonical user resource's registered routes.
- * @returns Auth config fields ready for the shared template.
- */
-export function userProfileUpdateConfig(
-  routes: readonly Pick<InferredRoute, 'handler' | 'path' | 'method'>[],
-): string {
-  const updates = routes.filter((route) => route.handler === 'update')
-  if (updates.length !== 1)
-    throw new Error('The user resource must declare one profile update route')
-  const route = updates[0]!
-  const method = route.method.toUpperCase()
-  if (
-    !['PATCH', 'PUT', 'POST'].includes(method) ||
-    !route.path.startsWith('/') ||
-    (route.path.match(/:id\b/g) ?? []).length !== 1 ||
-    /:[A-Za-z_]\w*/.test(route.path.replace(':id', ''))
-  )
-    throw new Error('The user profile update route must name one :id and a supported method')
-  const pieces = route.path.split(':id').map((part) => JSON.stringify(part))
-  return `  profileEndpoint: (user: { id: string }) => ${pieces.join(' + encodeURIComponent(user.id) + ')},\n  profileUpdateMethod: '${method}' as const,`
-}
-
-/**
  * Copy template files for app projects (framework-specific entry point, etc.).
  */
 export async function copyTemplateFiles(
@@ -5180,12 +5174,21 @@ export async function copyTemplateFiles(
   const fwCfg = appFrameworks[framework] ?? {}
   const fwPublicDir = fwCfg.publicDir ?? 'public'
 
+  const contract = extraVars.AUTH_CONTRACT_JSON
+    ? parseAuthContract(JSON.parse(extraVars.AUTH_CONTRACT_JSON))
+    : authContractFromRegistry(
+        loadRegistry().find((pkg) => pkg.name === '@molecule/api-resource-user')!,
+      )
+  const auth = renderAuthContract(contract)
   const vars: Record<string, string> = {
     PROJECT_NAME: projectName,
     OAUTH_PROVIDERS: '',
-    PROFILE_UPDATE_CONFIG: userProfileUpdateConfig(
-      getRawRegistry().packages['@molecule/api-resource-user']?.routes ?? [],
-    ),
+    AUTH_CONFIG_GUIDANCE: auth.guidance,
+    AUTH_ROUTE_CONFIG: auth.routeFields,
+    CURRENT_USER_ROUTE_CONFIG: auth.currentUserField,
+    PROFILE_UPDATE_CONFIG: auth.profileFields,
+    AUTH_ADAPTER_CONFIG: auth.adapterFields,
+    PASSWORD_ROUTE_CONFIG: auth.passwordFields,
     PUBLIC_DIR: fwPublicDir,
     ...extraVars,
   }

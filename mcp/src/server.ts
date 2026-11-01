@@ -29,6 +29,7 @@ import {
   startLogin,
   whoami,
 } from './auth.js'
+import { scaffoldProjectCliArgs } from './scaffold-args.js'
 import {
   callHostedService,
   createApiKeyIntoEnv,
@@ -594,24 +595,22 @@ server.registerTool(
         .string()
         .optional()
         .describe('Comma-separated @molecule/* names for a custom stack'),
+      api_contract: z
+        .string()
+        .optional()
+        .describe(
+          'Path to an OpenAPI 3.1 JSON document; its auth operations preconfigure the app auth bond',
+        ),
       skip_install: z.boolean().optional(),
       directory: z.string().optional().describe('Directory to scaffold in (default cwd)'),
     },
   },
-  tracked(
-    'scaffold_project',
-    async ({ name, template, type, framework, packages, skip_install, directory }) => {
-      const args = ['create', name, '--no-interactive', '--json']
-      if (template) args.push('--template', template)
-      if (type) args.push('--type', type)
-      if (framework) args.push('--framework', framework)
-      if (packages) args.push('--packages', packages)
-      if (skip_install) args.push('--skip-install')
-      const out = await runCli(args, directory)
-      const start = out.indexOf('{')
-      return text(start === -1 ? out : out.slice(start))
-    },
-  ),
+  tracked('scaffold_project', async (options) => {
+    const { directory } = options
+    const out = await runCli(scaffoldProjectCliArgs(options), directory)
+    const start = out.indexOf('{')
+    return text(start === -1 ? out : out.slice(start))
+  }),
 )
 
 server.registerTool(
