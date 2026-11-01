@@ -102,6 +102,38 @@ describe('framework-scoped session guidance', () => {
   })
 })
 
+describe('framework-scoped HTTP guidance', () => {
+  it.each([
+    ['Vue', ['@molecule/app-vue']],
+    ['no framework', []],
+  ])('keeps HTTP guidance framework-neutral with %s', (_label, framework) => {
+    const text = renderCapabilityMap(
+      buildCapabilityMap(registry, [
+        { name: '@molecule/app-http', workspace: 'app' },
+        ...framework.map((name) => ({ name, workspace: 'app' })),
+      ]),
+    )
+    expect(text).toContain('withCredentials: true')
+    expect(text).toContain('setAuthTokenSource')
+    expect(text).toContain('setAuthGate')
+    expect(text).not.toContain('@molecule/app-bonds-default-react')
+    expect(text).not.toContain('createDefaultHttpClientWithAuthBearer')
+  })
+
+  it('adds React composition only when its default binding is declared', () => {
+    const text = renderCapabilityMap(
+      buildCapabilityMap(registry, [
+        { name: '@molecule/app-http', workspace: 'app' },
+        { name: '@molecule/app-react', workspace: 'app' },
+        { name: '@molecule/app-bonds-default-react', workspace: 'app' },
+      ]),
+    )
+    expect(text).toContain('setAuthTokenSource')
+    expect(text).toContain('createDefaultHttpClientWithAuthBearer')
+    expect(text).toContain('@molecule/app-bonds-default-react')
+  })
+})
+
 describe('shared auth guidance stays API neutral', () => {
   it('sweeps registry decision guidance and embedded setup comments too', () => {
     const text = Object.values(registry.packages)

@@ -144,6 +144,30 @@ describe('mlcl agent init', () => {
     expect(out.indexOf('## Molecule')).toBeLessThan(out.indexOf('## Tail'))
   })
 
+  it('--force removes an empty generated map and preserves neighbouring sections', async () => {
+    await writeFile(
+      join(dir, 'package.json'),
+      JSON.stringify({ dependencies: { '@molecule/app-auth': '3.0.2' } }),
+    )
+    await run()
+    const generated = await readFile(join(dir, 'AGENTS.md'), 'utf8')
+    expect(generated).toContain('### Authentication')
+    await writeFile(
+      join(dir, 'AGENTS.md'),
+      `# Project\n\n## Before\n\nKeep before.\n\n${generated}\n## After\n\nKeep after.\n`,
+    )
+    await writeFile(join(dir, 'package.json'), JSON.stringify({ dependencies: {} }))
+
+    await run(['--force'])
+    const refreshed = await readFile(join(dir, 'AGENTS.md'), 'utf8')
+    expect(refreshed).not.toMatch(/^## Declared capability map$/m)
+    expect(refreshed).not.toContain('### Authentication')
+    expect(refreshed).not.toContain('@molecule/app-auth')
+    expect(refreshed).toContain('## Before\n\nKeep before.')
+    expect(refreshed).toContain('## After\n\nKeep after.')
+    expect(refreshed.match(/## Molecule/g)).toHaveLength(1)
+  })
+
   it('adds a cursor rule when .cursor/ exists', async () => {
     await mkdir(join(dir, '.cursor'), { recursive: true })
     await run()

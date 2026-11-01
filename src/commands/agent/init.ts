@@ -81,6 +81,19 @@ function ensureSection(
   return markerIdx === -1 ? (existing === '' ? 'created' : 'added') : 'replaced'
 }
 
+/** Remove one generated top-level section without touching its neighbours. */
+function removeSection(filePath: string, marker: string): boolean {
+  if (!existsSync(filePath)) return false
+  const existing = readFileSync(filePath, 'utf8')
+  const escaped = marker.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
+  const heading = new RegExp(`^${escaped}[\t ]*$`, 'm').exec(existing)
+  if (!heading) return false
+  const after = existing.indexOf('\n## ', heading.index + marker.length)
+  const end = after === -1 ? existing.length : after + 1
+  writeFileSync(filePath, existing.slice(0, heading.index) + existing.slice(end))
+  return true
+}
+
 export default class AgentInit extends Command {
   static override description =
     'Make your AI coding agent (Claude Code, Codex, Cursor, Pi, …) molecule-aware: writes the Molecule conventions + mlcl quickstart into the agent instruction files it reads'
@@ -150,6 +163,8 @@ export default class AgentInit extends Command {
     const agentsResult = ensureSection(agentsPath, template, flags.force)
     if (capabilityMap) {
       ensureSection(agentsPath, capabilityMap, flags.force, '## Declared capability map')
+    } else if (flags.force) {
+      removeSection(agentsPath, '## Declared capability map')
     }
     this.log(
       agentsResult === 'skipped'

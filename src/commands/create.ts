@@ -1197,7 +1197,7 @@ export default class Create extends Command {
         projectPath,
         uniquePackages.map((name) => ({
           name,
-          workspace: isFullStack ? (getPackageStack(name) === 'app' ? 'app' : 'api') : '',
+          workspace: hasAppSubdir ? (getPackageStack(name) === 'app' ? 'app' : 'api') : '',
         })),
       )
     }

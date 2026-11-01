@@ -146,6 +146,26 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
     }
   })
 
+  it('names the actual app/ HTTP bond in a static scaffold', async () => {
+    await runCreate([
+      'proj',
+      '--type',
+      'static',
+      '--framework',
+      'react',
+      '--packages',
+      '@molecule/app-http',
+      '--skip-install',
+      '--no-interactive',
+    ])
+    const projectRoot = join(dir, 'proj')
+    const bond = join(projectRoot, 'app/src/bonds/http-default.ts')
+    expect(readFileSync(bond, 'utf8')).toContain('setClient')
+    const agents = readFileSync(join(projectRoot, 'AGENTS.md'), 'utf8')
+    expect(agents).toContain('Wired bond: `app/src/bonds/http-default.ts`')
+    expect(agents).toContain('Configure in `app/src/config.ts`')
+  })
+
   it('scopes an api-only scaffold to backend packages', async () => {
     const output = await runCreate([
       'proj',
