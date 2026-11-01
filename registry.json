@@ -37234,7 +37234,12 @@
           "Bearer or another token scheme: construct the bonded client with `baseURL` and `authScheme: 'Bearer'` (or `authScheme: 'Token'`); pass the shared `authConfig.authScheme` rather than attaching headers per request.",
           "Cookie sessions: construct with `withCredentials: true`; the browser sends the cookie, so no Authorization interceptor or token store is needed.",
           "Session restore: keep `setAuthTokenSource` for the current token and `setAuthGate` for restore; delaying a request alone does not attach its credential."
-        ]
+        ],
+        "bindingGuidance": {
+          "@molecule/app-bonds-default-react": [
+            "React default binding: when replacing the composition, use `createDefaultHttpClientWithAuthBearer({ baseURL, getToken: () => authClient.getAccessToken(), authScheme })` from `@molecule/app-bonds-default-react` instead of a bare `createFetchClient`."
+          ]
+        }
       },
       "intentHints": [
         "http client",
@@ -54705,7 +54710,8 @@
         "info",
         "warn",
         "error",
-        "redactCredentials"
+        "redactCredentials",
+        "snapshotCredentials"
       ],
       "secrets": [],
       "runtimeDependencies": [
