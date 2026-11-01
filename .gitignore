@@ -8,6 +8,8 @@ dist.build-*/
 dist.old-*/
 *.tsbuildinfo
 oclif.manifest.json
+# Written beside each flagship by prepack (scripts/template-dotfiles.mjs), removed by postpack.
+/templates/apps/*/dotfiles.json
 
 # testing
 coverage

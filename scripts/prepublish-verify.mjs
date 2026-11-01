@@ -217,6 +217,22 @@ if (structural)
     `${files.length} files, no internal/machine paths (${(pack.unpackedSize / 1e6).toFixed(1)} MB unpacked)`,
   )
 
+// npm never packs .gitignore or .npmrc; each flagship carries them in the
+// dotfiles.json prepack writes (src/lib/template-dotfiles.ts). Without it,
+// `mlcl create --template` scaffolds a project whose .env* secrets git tracks.
+const shipped = new Set(files)
+const flagships = files
+  .map((p) => /^templates\/apps\/([^/]+)\/app\/package\.json$/.exec(p)?.[1])
+  .filter(Boolean)
+const withoutDotfiles = flagships.filter(
+  (app) => !shipped.has(`templates/apps/${app}/dotfiles.json`),
+)
+if (withoutDotfiles.length)
+  fail(
+    `flagships without dotfiles.json (prepack did not record their .gitignore): ${withoutDotfiles.join(', ')}`,
+  )
+else if (flagships.length) ok(`${flagships.length} flagships carry dotfiles.json`)
+
 if (tarball) {
   if (!structural) process.exit(1)
   // npm's own pack manifest above and the standard tar extractor inspect the
@@ -228,6 +244,17 @@ if (tarball) {
   if (!realpathSync(contentRoot).startsWith(`${realpathSync(scratch)}${sep}`))
     throw new Error('packed package root escapes the extraction directory')
   requiredFiles(contentRoot)
+  const badManifests = []
+  for (const app of flagships) {
+    const manifest = join(contentRoot, 'templates', 'apps', app, 'dotfiles.json')
+    try {
+      if (typeof JSON.parse(readFileSync(manifest, 'utf8')).files?.['.gitignore'] !== 'string')
+        badManifests.push(`${app} (no root .gitignore)`)
+    } catch (error) {
+      badManifests.push(`${app} (${error instanceof Error ? error.message : String(error)})`)
+    }
+  }
+  if (badManifests.length) fail(`packed dotfiles.json unusable: ${badManifests.join(', ')}`)
 }
 
 // ── 3. content sweep of shipped files ────────────────────────────────────────

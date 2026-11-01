@@ -79,6 +79,7 @@ import {
   resolveSetupSqlSources,
   setupSqlFileContent,
 } from './setup-sql.js'
+import { restoreTemplateDotfiles } from './template-dotfiles.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -2324,7 +2325,7 @@ const SKIP_DURING_COPY_EXACT = new Set(['.vite', 'dist', '.turbo', '.next', '.DS
  * into a user project. Skips build/cache outputs plus the whole secret `.env*`
  * family, while preserving the non-secret `.env.example`.
  */
-function shouldSkipDuringCopy(name: string): boolean {
+export function shouldSkipDuringCopy(name: string): boolean {
   if (SKIP_DURING_COPY_EXACT.has(name)) return true
   // `.env`, `.env.local`, `.env.staging.<slug>`, … are all secret-bearing; only
   // `.env.example` is a safe-to-ship schema reference.
@@ -2660,6 +2661,9 @@ export async function copyTemplateInstance(
     const dst = join(destDir, item)
     await copyTreeSkipping(src, dst, shouldSkipDuringCopy)
   }
+  // npm never packs .gitignore or .npmrc files; a template installed from the
+  // registry carries them in dotfiles.json instead (template-dotfiles.ts).
+  await restoreTemplateDotfiles(templateDir, destDir)
 
   // Fonts ship deduped in templates/shared/fonts (one shared copy per face
   // instead of ~1,400 per-app copies — roughly a 1 GB tarball saving). Each
