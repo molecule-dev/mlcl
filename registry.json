@@ -57383,10 +57383,12 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-logger",
         "@molecule/app-realtime",
         "socket.io-client"
       ],
       "moleculePeers": [
+        "@molecule/app-logger",
         "@molecule/app-realtime"
       ],
       "path": "packages/app/bonds/realtime/socketio",
