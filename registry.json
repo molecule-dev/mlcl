@@ -37180,6 +37180,7 @@
         "HttpResponse",
         "HttpError",
         "snapshotHttpErrorBody",
+        "snapshotHttpErrorResponse",
         "unwrapList",
         "unwrapSingle",
         "setAuthTokenSource",
