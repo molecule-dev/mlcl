@@ -12,8 +12,16 @@
  * developer writes when it builds its own client instead of using the bonded
  * one. It is not a sandbox against code written to evade it. Every provider-
  * factory creation must be passed, directly or through an immutable local
- * alias, to setClient or an imported bond('http', …) in the same file. Exports
- * and factory options never establish an exemption.
+ * alias, to setClient or an imported bond('http'/'http-client', …) in the same
+ * file, or handed off through an export. Factory options never establish an
+ * exemption.
+ *
+ * Applicability limit: this is a single-module check. An exported client or
+ * exported factory is not reported in its defining module; whether an importing
+ * composition root bonds it is outside this rule's syntax-only view. The export
+ * may be direct, through immutable const aliases, or a local factory's returned
+ * value. Sol r11 #2's separate-invocation case (one invocation exported and a
+ * different invocation used locally) is therefore an accepted miss.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
@@ -302,31 +310,130 @@ export default {
         return parent.id.elements[0].name
       return ''
     }
-    // Bonding is deliberately a creation-site fact. Following values through
-    // invocations, parameters, properties and writes cannot prove which runtime
-    // instance a request uses; the scaffold keeps this direct const shape instead.
+    const FUNCTIONS = ['ArrowFunctionExpression', 'FunctionDeclaration', 'FunctionExpression']
+    const functionReturns = (node) => {
+      // Overload signatures, declare functions and abstract methods have no body.
+      if (!node?.body) return []
+      if (node.body.type !== 'BlockStatement') return [node.body]
+      const returns = []
+      const stack = [node.body]
+      const seen = new Set()
+      while (stack.length) {
+        const current = stack.pop()
+        if (!current || typeof current.type !== 'string' || seen.has(current)) continue
+        seen.add(current)
+        if (current !== node.body && FUNCTIONS.includes(current.type)) continue
+        if (current.type === 'ReturnStatement') {
+          if (current.argument) returns.push(current.argument)
+          continue
+        }
+        for (const [name, child] of Object.entries(current)) {
+          if (name === 'parent') continue
+          if (Array.isArray(child)) stack.push(...child)
+          else if (child && typeof child === 'object') stack.push(child)
+        }
+      }
+      return returns
+    }
+    const stableConst = (id) => {
+      if (id?.type !== 'Identifier') return null
+      const binding = variable(id)
+      const definition = binding?.defs[0]
+      if (
+        binding?.defs.length !== 1 ||
+        definition.type !== 'Variable' ||
+        definition.node.parent.kind !== 'const' ||
+        definition.node.id.type !== 'Identifier' ||
+        !definition.node.init ||
+        binding.references.some((ref) => ref.isWrite() && !ref.init)
+      )
+        return null
+      return definition.node
+    }
+    const localFunction = (callee, seen = new Set()) => {
+      callee = unwrap(callee)
+      if (FUNCTIONS.includes(callee?.type)) return callee
+      if (callee?.type !== 'Identifier' || seen.has(callee)) return null
+      seen.add(callee)
+      const binding = variable(callee)
+      const definition = binding?.defs[0]
+      if (
+        binding?.defs.length === 1 &&
+        definition.type === 'FunctionName' &&
+        !binding.references.some((ref) => ref.isWrite() && !ref.init)
+      )
+        return definition.node
+      const declarator = stableConst(callee)
+      return declarator ? localFunction(declarator.init, seen) : null
+    }
+    // Bonding is deliberately a creation-site fact. Only an identifier
+    // declarator can hold that client itself; a destructured method cannot.
     const bondedHttpClients = () => {
       const bonded = new Set()
-      const add = (client) => {
+      const add = (client, seen = new Set()) => {
         client = unwrap(client)
-        if (client?.type === 'CallExpression' && clientFactory(client.callee)) {
+        if (!client || seen.has(client)) return
+        seen.add(client)
+        if (client.type === 'CallExpression' && clientFactory(client.callee)) {
           bonded.add(client)
           return
         }
-        if (client?.type !== 'Identifier') return
-        const binding = variable(client)
-        const definition = binding?.defs[0]
-        if (
-          binding?.defs.length !== 1 ||
-          definition.type !== 'Variable' ||
-          definition.node.parent.kind !== 'const'
-        )
-          return
-        const init = unwrap(definition.node.init)
-        if (init?.type === 'CallExpression' && clientFactory(init.callee)) bonded.add(init)
+        const declarator = stableConst(client)
+        if (declarator) add(declarator.init, seen)
       }
       for (const client of clientBonds) add(client)
       return bonded
+    }
+    // A single module can prove an export hand-off, not what its importer does.
+    // Containers and calls through arbitrary wrappers stay outside this proof.
+    const exportedHttpClients = () => {
+      const exported = new Set()
+      const creation = (target, seen = new Set()) => {
+        target = unwrap(target)
+        if (!target || seen.has(target)) return
+        seen.add(target)
+        if (target.type === 'CallExpression') {
+          if (clientFactory(target.callee)) {
+            exported.add(target)
+            return
+          }
+          const fn = localFunction(target.callee)
+          if (!fn || fn.async || fn.generator) return
+          for (const returned of functionReturns(fn)) creation(returned, seen)
+          return
+        }
+        if (FUNCTIONS.includes(target.type)) {
+          if (target.async || target.generator) return
+          for (const returned of functionReturns(target)) creation(returned, seen)
+          return
+        }
+        if (target.type !== 'Identifier') return
+        const declarator = stableConst(target)
+        if (declarator) creation(declarator.init, seen)
+        else {
+          const fn = localFunction(target)
+          if (fn) creation(fn, seen)
+        }
+      }
+      for (const statement of source.ast.body) {
+        if (statement.exportKind === 'type') continue
+        if (statement.type === 'ExportDefaultDeclaration') {
+          creation(statement.declaration)
+          continue
+        }
+        if (statement.type !== 'ExportNamedDeclaration') continue
+        if (statement.declaration?.type === 'VariableDeclaration') {
+          if (statement.declaration.kind !== 'const') continue
+          for (const declarator of statement.declaration.declarations)
+            if (declarator.id.type === 'Identifier' && declarator.init) creation(declarator.init)
+        } else if (statement.declaration?.type === 'FunctionDeclaration') {
+          creation(statement.declaration)
+        } else if (!statement.declaration && !statement.source) {
+          for (const specifier of statement.specifiers)
+            if (specifier.exportKind !== 'type') creation(specifier.local)
+        }
+      }
+      return exported
     }
     const AXIOS_CONFIG = new Map([
       ['default', 0],
@@ -383,7 +490,7 @@ export default {
         if (
           packages.http &&
           imported(callee, ['@molecule/app-bond'], ['bond']) &&
-          string(node.arguments[0]) === 'http'
+          ['http', 'http-client'].includes(string(node.arguments[0]))
         ) {
           const provider =
             node.arguments.length === 2
@@ -461,9 +568,10 @@ export default {
         }
         if (packages.http) {
           const bonded = bondedHttpClients()
+          const exported = exportedHttpClients()
           for (const node of calls) {
             const factory = clientFactory(node.callee)
-            if (!factory || bonded.has(node)) continue
+            if (!factory || bonded.has(node) || exported.has(node)) continue
             context.report({
               node,
               messageId: 'unbonded',
