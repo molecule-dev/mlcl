@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import { usePasswordReset, useTranslation } from '@molecule/app-react'
@@ -11,6 +11,12 @@ export function ResetPassword() {
   const { t } = useTranslation()
   const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
   const [searchParams] = useSearchParams()
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    if (!url.searchParams.has('token')) return
+    url.searchParams.delete('token')
+    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+  }, [])
   const token = searchParams.get('token') ?? ''
   const [password, setPassword] = useState('')
   const [confirm, setConfirm] = useState('')

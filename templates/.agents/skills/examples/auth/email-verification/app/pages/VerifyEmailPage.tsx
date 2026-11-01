@@ -30,10 +30,17 @@ export function VerifyEmailPage() {
   // second came back 429 and the page reported "Could not send a new link" —
   // a failure the user is told to retry, for a link that WAS sent.
   const [resending, setResending] = useState(false)
+  // Retain the credential for retries while removing it from browser history.
+  const [token] = useState(() => new URLSearchParams(window.location.search).get('token'))
 
   useEffect(() => {
-    const params = new URLSearchParams(window.location.search)
-    const token = params.get('token')
+    const url = new URL(window.location.href)
+    if (!url.searchParams.has('token')) return
+    url.searchParams.delete('token')
+    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+  }, [])
+
+  useEffect(() => {
     if (!token) {
       setStatus('invalid')
       return
@@ -63,7 +70,7 @@ export function VerifyEmailPage() {
     return () => {
       cancelled = true
     }
-  }, [verifyAttempt])
+  }, [verifyAttempt, token])
 
   async function resend(): Promise<void> {
     // One resend at a time — see the state's comment.

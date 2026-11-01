@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { useLegalModals } from '@molecule/app-legal-pages-react'
@@ -14,6 +14,12 @@ export function ResetPassword() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const [params] = useSearchParams()
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    if (!url.searchParams.has('token')) return
+    url.searchParams.delete('token')
+    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+  }, [])
   const navigate = useNavigate()
   const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
   const [password, setPassword] = useState('')

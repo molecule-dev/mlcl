@@ -1,7 +1,7 @@
 // Refract reset-password — POLISHED-PATTERN-CATALOG §13 (auth).
 // Pattern source: api-documentation Login, narrowed to two password fields
 // per screen-map.json derivation notes.
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -23,6 +23,12 @@ export function ResetPassword() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [params] = useSearchParams()
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    if (!url.searchParams.has('token')) return
+    url.searchParams.delete('token')
+    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+  }, [])
   const navigate = useNavigate()
   const token = params.get('token') || ''
   const [password, setPassword] = useState('')

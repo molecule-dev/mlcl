@@ -1,7 +1,7 @@
 // Phase 1 — derived copy from Login (same stitch: design-property-listing-login.html).
 // Phase 4 wires it to this screen's own auth flow.
 // Do not hand-edit; Phase 2 will extract sections one at a time.
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -14,6 +14,12 @@ function ResetPassword() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [params] = useSearchParams()
+  useEffect(() => {
+    const url = new URL(window.location.href)
+    if (!url.searchParams.has('token')) return
+    url.searchParams.delete('token')
+    window.history.replaceState(window.history.state, '', `${url.pathname}${url.search}${url.hash}`)
+  }, [])
   const token = params.get('token') || ''
 
   const [password, setPassword] = useState('')
