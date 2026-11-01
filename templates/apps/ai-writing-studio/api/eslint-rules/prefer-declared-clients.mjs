@@ -10,7 +10,10 @@
  *
  * Threat model: the rule catches ACCIDENTAL bypass, the shapes a model or a
  * developer writes when it builds its own client instead of using the bonded
- * one. It is not a sandbox against code written to evade it.
+ * one. It is not a sandbox against code written to evade it. Provider-factory
+ * authentication fails closed: outside a creation-site bond or export hand-off,
+ * only a fully resolved object literal with no authentication, spread, call or
+ * unknown value is accepted as public; missing or unresolved options report.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
@@ -172,6 +175,37 @@ export default {
       )
     }
     const imported = (node, modules, names) => {
+      node = unwrap(node)
+      if (node?.type === 'Identifier') {
+        const binding = variable(node)
+        const def = binding?.defs[0]
+        if (
+          def?.type === 'ImportBinding' &&
+          modules.includes(def.parent.source.value) &&
+          names.includes(def.node.imported?.name ?? 'default')
+        )
+          return true
+        if (
+          binding?.defs.length === 1 &&
+          def?.type === 'Variable' &&
+          def.node.parent.kind === 'const' &&
+          def.node.id.type === 'ObjectPattern' &&
+          !binding.references.some((ref) => ref.isWrite() && !ref.init)
+        ) {
+          const property = def.node.id.properties.find(
+            (prop) => prop.type === 'Property' && prop.value === def.name,
+          )
+          const namespace = variable(value(def.node.init))?.defs[0]
+          if (
+            property &&
+            namespace?.type === 'ImportBinding' &&
+            namespace.node.type === 'ImportNamespaceSpecifier' &&
+            modules.includes(namespace.parent.source.value) &&
+            names.includes(key(property))
+          )
+            return true
+        }
+      }
       node = value(node)
       if (node?.type === 'Identifier') {
         const def = variable(node)?.defs[0]
@@ -256,6 +290,41 @@ export default {
       if (node.type === 'LogicalExpression')
         return independentApiKey(node.left, seen) && independentApiKey(node.right, seen)
       return false
+    }
+    // Public construction is an affirmative proof, not an absence of recognized
+    // auth syntax. Any dynamic value, call or spread keeps the factory report.
+    const provenUnauthenticated = (node, seen = new Set()) => {
+      node = unwrap(node)
+      if (!node || seen.has(node)) return false
+      seen.add(node)
+      const resolved = value(node)
+      if (resolved !== node) {
+        const proven = provenUnauthenticated(resolved, seen)
+        seen.delete(node)
+        return proven
+      }
+      let proven = false
+      if (node.type === 'Literal') proven = true
+      else if (node.type === 'TemplateLiteral') proven = node.expressions.length === 0
+      else if (node.type === 'ObjectExpression') {
+        if (mutations.get(identity(node))?.length) return false
+        proven = node.properties.every((prop) => {
+          if (prop.type !== 'Property') return false
+          const name = key(prop)
+          if (name === null || /^(?:authScheme|authorization)$/i.test(name)) return false
+          if (/^withCredentials$/i.test(name)) {
+            const setting = value(prop.value)
+            return setting?.type === 'Literal' && setting.value === false
+          }
+          if (/token|credential/i.test(name)) return false
+          return provenUnauthenticated(prop.value, seen)
+        })
+      } else if (node.type === 'ArrayExpression')
+        proven = node.elements.every(
+          (element) => element === null || provenUnauthenticated(element, seen),
+        )
+      seen.delete(node)
+      return proven
     }
     const mutate = (target, name, next) => {
       if (name === null || name === undefined) return
@@ -614,7 +683,7 @@ export default {
               property(config, 'authScheme') ||
               (authorization && !independentApiKey(authorization)) ||
               (hasAuthTokenSource && hasAppBaseURL)
-            if (authenticated)
+            if (authenticated || !provenUnauthenticated(config))
               context.report({
                 node,
                 messageId: 'unbonded',
