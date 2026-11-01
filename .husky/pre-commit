@@ -15,6 +15,15 @@ if git diff --cached --name-only --diff-filter=ACM |
   fi
 fi
 
+# The lock must record exactly the dependencies package.json declares: CI and
+# the Release workflow install with `npm ci`, which refuses any difference.
+# Checked on the staged files; skipped in a standalone clone.
+if git diff --cached --name-only --diff-filter=ACMD | grep -qE '(^|/)package(-lock)?\.json$'; then
+  if [ -f ../scripts/check-lockfile-sync.mjs ]; then
+    (cd .. && node scripts/check-lockfile-sync.mjs mlcl --staged) || exit 1
+  fi
+fi
+
 # Template e2e must not name the template's own demo data. `mlcl create` ships
 # these specs verbatim and the user replaces the demo content, so a spec that
 # asserts on a seeded row's name fails on a CORRECT app. Scoped to the templates
