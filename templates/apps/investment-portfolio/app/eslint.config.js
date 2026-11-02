@@ -172,7 +172,7 @@ const moleculeLocal = {
         type: 'suggestion',
         docs: {
           description:
-            "Warn when a component's own local state directly controls a list consumer in the same file; cross-file re-exports, wrappers, and prop chains are intentionally out of scope.",
+            "Warn when a component's local state controls a list component or list-fetching hook, including array callbacks, derived values and request options. Reactive URL reads, inline JSX iterations and opaque cross-file prop chains are outside this rule.",
         },
         schema: [],
         messages: {
@@ -183,6 +183,7 @@ const moleculeLocal = {
       create(context) {
         const source = context.sourceCode
         const states = []
+        const collections = []
         const variableFor = (node, name) => {
           let scope = source.getScope(node)
           while (scope) {
@@ -244,11 +245,127 @@ const moleculeLocal = {
               !(initial.type === 'Literal' && initial.value === null))
           )
         }
-        const hasListConsumer = (reference, owner) => {
+        const method = (node) =>
+          node?.type === 'MemberExpression' && !node.computed ? node.property.name : null
+        const transforms = new Set(['filter', 'sort', 'toSorted', 'slice', 'map', 'flatMap'])
+        const controls = new Set(['filter', 'sort', 'toSorted', 'slice'])
+        const listAttribute = (attribute) =>
+          attribute?.type === 'JSXAttribute' &&
+          attribute.parent.name.type === 'JSXIdentifier' &&
+          /(?:List|Results|Table|Grid|Catalog)$/.test(attribute.parent.name.name)
+        const reads = (variable, owner) =>
+          variable.references
+            .filter((reference) => reference.isRead() && within(reference.identifier, owner))
+            .map((reference) => reference.identifier)
+
+        // Follow the result, not the mere presence of .filter/useQuery. Counts,
+        // form validation and chart calculations do not prove a rendered list.
+        const rendered = (value, owner, seen = new Set()) => {
+          if (seen.has(value)) return false
+          seen.add(value)
+          const parent = value.parent
+          if (!parent || value === owner) return false
+          if (parent.type === 'VariableDeclarator' && parent.init === value) {
+            const variable =
+              parent.id.type === 'Identifier' && variableFor(parent.id, parent.id.name)
+            return variable && reads(variable, owner).some((read) => rendered(read, owner, seen))
+          }
+          if (parent.type === 'JSXExpressionContainer') {
+            const attribute = parent.parent
+            return (
+              listAttribute(attribute) && /^(?:items|rows|data|children)$/.test(attribute.name.name)
+            )
+          }
+          if (parent.type === 'MemberExpression' && parent.object === value) {
+            const call = parent.parent
+            if (call?.type !== 'CallExpression' || call.callee !== parent)
+              return (
+                ['data', 'items', 'rows', 'results'].includes(method(parent)) &&
+                rendered(parent, owner, seen)
+              )
+            if (transforms.has(method(parent))) return rendered(call, owner, seen)
+            if (method(parent) === 'then') {
+              const callback = call.arguments[0]
+              if (!callback) return false
+              if (
+                collections.some(
+                  (collection) =>
+                    collection.owner === owner &&
+                    collection.setter.references.some((ref) => within(ref.identifier, callback)) &&
+                    reads(collection.variable, owner).some((read) => rendered(read, owner, seen)),
+                )
+              )
+                return true
+              return rendered(call, owner, seen)
+            }
+            return false
+          }
+          if (
+            parent.type === 'CallExpression' &&
+            parent.arguments.includes(value) &&
+            parent.callee.type === 'Identifier'
+          ) {
+            const setter = variableFor(parent.callee, parent.callee.name)
+            return collections.some(
+              (collection) =>
+                collection.owner === owner &&
+                collection.setter === setter &&
+                reads(collection.variable, owner).some((read) => rendered(read, owner, seen)),
+            )
+          }
+          if (parent.type === 'ReturnStatement' || (isFunction(parent) && parent.body === value)) {
+            let callback = parent
+            while (callback && !isFunction(callback)) callback = callback.parent
+            const call = callback?.parent
+            return (
+              call?.type === 'CallExpression' &&
+              call.callee.type === 'Identifier' &&
+              call.callee.name === 'useMemo' &&
+              call.arguments[0] === callback &&
+              rendered(call, owner, seen)
+            )
+          }
+          if (
+            [
+              'ChainExpression',
+              'AwaitExpression',
+              'TSAsExpression',
+              'TSNonNullExpression',
+              'ConditionalExpression',
+              'LogicalExpression',
+              'SpreadElement',
+              'ArrayExpression',
+            ].includes(parent.type)
+          )
+            return rendered(parent, owner, seen)
+          return false
+        }
+        const hasListConsumer = (reference, owner, seen = new Set()) => {
+          if (seen.has(reference)) return false
+          seen.add(reference)
           let optionKey = null
           for (let node = reference; node && node !== owner; node = node.parent) {
             const parent = node.parent
-            if (!parent || isFunction(parent)) return false
+            if (!parent) return false
+            if (isFunction(parent)) {
+              const call = parent.parent
+              if (
+                call?.type !== 'CallExpression' ||
+                !controls.has(method(call.callee)) ||
+                !call.arguments.includes(parent)
+              )
+                return false
+            }
+            if (parent.type === 'VariableDeclarator' && parent.init === node) {
+              const variable =
+                parent.id.type === 'Identifier' && variableFor(parent.id, parent.id.name)
+              if (
+                variable &&
+                reads(variable, owner).some((read) => hasListConsumer(read, owner, seen))
+              )
+                return true
+              return false
+            }
             if (parent.type === 'Property' && parent.value === node && optionKey === null) {
               optionKey = parent.key.type === 'Identifier' ? parent.key.name : parent.key.value
             }
@@ -259,6 +376,16 @@ const moleculeLocal = {
               isListFetchingHook(parent.callee.name) &&
               typeof optionKey === 'string' &&
               isListStateKey(optionKey)
+            )
+              return true
+            if (
+              parent.type === 'CallExpression' &&
+              parent.arguments.includes(node) &&
+              (controls.has(method(parent.callee)) ||
+                ((method(parent.callee) === 'get' || parent.callee.name === 'fetch') &&
+                  typeof optionKey === 'string' &&
+                  isListStateKey(optionKey))) &&
+              rendered(parent, owner)
             )
               return true
             if (parent.type === 'JSXExpressionContainer') {
@@ -282,15 +409,20 @@ const moleculeLocal = {
               node.id.type !== 'ArrayPattern' ||
               node.init?.type !== 'CallExpression' ||
               node.init.callee.type !== 'Identifier' ||
-              !['useState', 'useReducer'].includes(node.init.callee.name) ||
-              !isScalarState(node.init)
+              !['useState', 'useReducer'].includes(node.init.callee.name)
             )
               return
             const first = node.id.elements[0]
             const owner = componentFor(node)
             if (first?.type !== 'Identifier' || !owner) return
             const variable = variableFor(first, first.name)
-            if (variable) states.push({ node: first, variable, owner })
+            if (!variable) return
+            if (node.init.arguments[0]?.type === 'ArrayExpression') {
+              const second = node.id.elements[1]
+              const setter = second?.type === 'Identifier' && variableFor(second, second.name)
+              if (setter) collections.push({ variable, setter, owner })
+            }
+            if (isScalarState(node.init)) states.push({ node: first, variable, owner })
           },
           'Program:exit'() {
             const reported = new Set()

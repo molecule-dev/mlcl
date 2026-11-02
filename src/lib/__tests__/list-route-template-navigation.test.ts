@@ -9,8 +9,16 @@
 
 import { act, createElement, type ReactElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
-import { createMemoryRouter, type Router, RouterProvider } from 'react-router'
+import {
+  createMemoryRouter,
+  type Router,
+  RouterProvider,
+  useLocation,
+  useNavigate,
+} from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
+import { useCatalogParams } from './fixtures/list-route-url-hooks.js'
 
 const mocks = vi.hoisted(() => {
   const get = vi.fn()
@@ -168,8 +176,51 @@ async function back(router: Router): Promise<void> {
   await flush()
 }
 
+/** A fresh component tree with the current URL and browser history retained. */
+async function reload(router: Router): Promise<void> {
+  await act(async () => root.unmount())
+  root = createRoot(container)
+  await act(async () => root.render(createElement(RouterProvider, { router })))
+  await flush()
+}
+
 function url(router: Router): string {
   return `${router.state.location.pathname}${router.state.location.search}`
+}
+
+const useWrappedParams = (): ReturnType<typeof useCatalogParams>[0] => useCatalogParams()[0]
+
+/** Raw router values are already reactive; adopting a particular hook is not required. */
+function DirectUrlCatalog({ producer }: { producer: string }): ReactElement {
+  const wrapped = useWrappedParams()
+  const location = useLocation()
+  const navigate = useNavigate()
+  const params = producer === 'useLocation' ? new URLSearchParams(location.search) : wrapped
+  const sort = params.get('sort') ?? 'name'
+  const products = [
+    { name: 'Alpha', price: 20 },
+    { name: 'Beta', price: 10 },
+  ]
+  products.sort((a, b) => (sort === 'price' ? a.price - b.price : a.name.localeCompare(b.name)))
+  return createElement(
+    'section',
+    null,
+    createElement(
+      'select',
+      {
+        'aria-label': 'Catalog sort',
+        value: sort,
+        onChange: (event: { target: { value: string } }) => navigate(`?sort=${event.target.value}`),
+      },
+      createElement('option', { value: 'name' }, 'Name'),
+      createElement('option', { value: 'price' }, 'Price'),
+    ),
+    createElement(
+      'ul',
+      null,
+      products.map((product) => createElement('li', { key: product.name }, product.name)),
+    ),
+  )
 }
 
 beforeEach(() => {
@@ -196,6 +247,9 @@ describe('template list routes survive Back with control, request and URL in agr
     expect(
       container.querySelector('[data-testid="explore-tag-portrait"]')?.getAttribute('aria-pressed'),
     ).toBe('true')
+
+    await reload(router)
+    expect(mocks.listPhotos).toHaveBeenLastCalledWith({ tag: 'portrait', limit: 60 })
 
     await back(router)
     expect(url(router)).toBe('/explore?tag=landscape')
@@ -263,6 +317,9 @@ describe('template list routes survive Back with control, request and URL in agr
     expect(container.querySelector('nav')?.textContent).toContain('Folder B')
     expect(container.textContent).toContain('beta.txt')
 
+    await reload(router)
+    expect(container.textContent).toContain('beta.txt')
+
     await back(router)
     expect(url(router)).toBe('/files?folder=folder-a')
     expect(mocks.get).toHaveBeenLastCalledWith('/api/folders/folder-a')
@@ -284,6 +341,9 @@ describe('template list routes survive Back with control, request and URL in agr
         ?.getAttribute('aria-selected'),
     ).toBe('true')
 
+    await reload(router)
+    expect(mocks.get.mock.calls.at(-1)?.[0]).toContain('status=published')
+
     await back(router)
     expect(url(router)).toBe('/issues?status=draft')
     expect(mocks.get.mock.calls.at(-1)?.[0]).toContain('status=draft')
@@ -294,6 +354,27 @@ describe('template list routes survive Back with control, request and URL in agr
 })
 
 describe('flagship list controls restore their values on initial load and Back', () => {
+  it.each(['re-exported alias and arrow wrapper', 'useLocation'])(
+    'direct URL controls through %s already survive reload and Back',
+    async (producer) => {
+      const router = await mount(
+        '/catalog',
+        createElement(DirectUrlCatalog, { producer }),
+        '/catalog?sort=name',
+      )
+      expect(container.querySelector('li')?.textContent).toBe('Alpha')
+      await change('select', 'price')
+      expect(url(router)).toBe('/catalog?sort=price')
+      expect(container.querySelector('li')?.textContent).toBe('Beta')
+      await reload(router)
+      expect(container.querySelector<HTMLSelectElement>('select')?.value).toBe('price')
+      expect(container.querySelector('li')?.textContent).toBe('Beta')
+      await back(router)
+      expect(container.querySelector<HTMLSelectElement>('select')?.value).toBe('name')
+      expect(container.querySelector('li')?.textContent).toBe('Alpha')
+    },
+  )
+
   it('donor-management Gifts restores the method filter', async () => {
     const router = await mount('/gifts', createElement(Gifts), '/gifts?method=card')
     const selector = 'select[aria-label="Filter by method"]'
@@ -303,23 +384,69 @@ describe('flagship list controls restore their values on initial load and Back',
     expect(url(router)).toBe('/gifts?method=cash')
     expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('cash')
 
+    await reload(router)
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('cash')
+
     await back(router)
     expect(url(router)).toBe('/gifts?method=card')
     expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('card')
   })
 
   it('flight-search Results restores the selected sort', async () => {
+    mocks.get.mockResolvedValue({
+      data: [
+        {
+          id: 'slow',
+          airline: 'SlowAir',
+          flight_number: 'S100',
+          origin_code: 'JFK',
+          destination_code: 'CDG',
+          departure_time: '2026-01-01T10:00:00Z',
+          arrival_time: '2026-01-01T18:00:00Z',
+          duration_minutes: 480,
+          stops: 1,
+          price: 100,
+        },
+        {
+          id: 'fast',
+          airline: 'FastAir',
+          flight_number: 'F200',
+          origin_code: 'JFK',
+          destination_code: 'CDG',
+          departure_time: '2026-01-01T12:00:00Z',
+          arrival_time: '2026-01-01T14:00:00Z',
+          duration_minutes: 120,
+          stops: 0,
+          price: 200,
+        },
+      ],
+    })
     const router = await mount('/results', createElement(Results), '/results?sort=departure_time')
     const selector = 'select[aria-label="Sort results by"]'
     expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('departure_time')
+    expect(container.textContent!.indexOf('SlowAir')).toBeLessThan(
+      container.textContent!.indexOf('FastAir'),
+    )
 
     await change(selector, 'duration_minutes')
     expect(url(router)).toBe('/results?sort=duration_minutes')
     expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('duration_minutes')
+    expect(container.textContent!.indexOf('FastAir')).toBeLessThan(
+      container.textContent!.indexOf('SlowAir'),
+    )
+
+    await reload(router)
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('duration_minutes')
+    expect(container.textContent!.indexOf('FastAir')).toBeLessThan(
+      container.textContent!.indexOf('SlowAir'),
+    )
 
     await back(router)
     expect(url(router)).toBe('/results?sort=departure_time')
     expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('departure_time')
+    expect(container.textContent!.indexOf('SlowAir')).toBeLessThan(
+      container.textContent!.indexOf('FastAir'),
+    )
   })
 
   it('ai-email-composer Inbox restores the mail filter', async () => {
@@ -334,6 +461,11 @@ describe('flagship list controls restore their values on initial load and Back',
       container.querySelector('[data-mol-id="inbox-filter-ai"]')?.getAttribute('aria-pressed'),
     ).toBe('true')
 
+    await reload(router)
+    expect(
+      container.querySelector('[data-mol-id="inbox-filter-ai"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+
     await back(router)
     expect(url(router)).toBe('/inbox?filter=unread')
     expect(
@@ -342,31 +474,86 @@ describe('flagship list controls restore their values on initial load and Back',
   })
 
   it('applicant-tracking Candidates restores the search query', async () => {
+    mocks.get.mockResolvedValue({
+      data: [
+        { id: 'ada', name: 'Ada Lovelace', role: 'Engineer' },
+        { id: 'grace', name: 'Grace Hopper', role: 'Engineer' },
+      ],
+    })
     const router = await mount('/candidates', createElement(Candidates), '/candidates?q=ada')
     const selector = '[data-mol-id="candidates-search"]'
     expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('ada')
+    expect(container.querySelector('tbody')?.textContent).toContain('Ada Lovelace')
+    expect(container.querySelector('tbody')?.textContent).not.toContain('Grace Hopper')
 
     await change(selector, 'grace')
     expect(url(router)).toBe('/candidates?q=grace')
     expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('grace')
+    expect(container.querySelector('tbody')?.textContent).toContain('Grace Hopper')
+
+    await reload(router)
+    expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('grace')
+    expect(container.querySelector('tbody')?.textContent).toContain('Grace Hopper')
 
     await back(router)
     expect(url(router)).toBe('/candidates?q=ada')
     expect(container.querySelector<HTMLInputElement>(selector)?.value).toBe('ada')
+    expect(container.querySelector('tbody')?.textContent).toContain('Ada Lovelace')
   })
 
   it('mental-health-journal Journal restores mood and search state', async () => {
+    mocks.get.mockResolvedValue({
+      data: [
+        {
+          id: 'good',
+          date: '2026-01-01',
+          title: 'Alpha good',
+          preview: '',
+          mood: 'good',
+          tags: [],
+          word_count: 5,
+        },
+        {
+          id: 'low',
+          date: '2026-01-02',
+          title: 'Alpha low',
+          preview: '',
+          mood: 'low',
+          tags: [],
+          word_count: 5,
+        },
+        {
+          id: 'beta',
+          date: '2026-01-03',
+          title: 'Beta good',
+          preview: '',
+          mood: 'good',
+          tags: [],
+          word_count: 5,
+        },
+      ],
+    })
     const router = await mount('/journal', createElement(Journal), '/journal?mood=good&q=alpha')
     expect(
       container.querySelector('[data-mol-id="journal-filter-good"]')?.getAttribute('aria-pressed'),
     ).toBe('true')
     expect(container.querySelector<HTMLInputElement>('input[type="search"]')?.value).toBe('alpha')
+    expect(container.textContent).toContain('Alpha good')
+    expect(container.textContent).not.toContain('Alpha low')
 
     await click('[data-mol-id="journal-filter-low"]')
     expect(url(router)).toBe('/journal?q=alpha&mood=low')
     expect(
       container.querySelector('[data-mol-id="journal-filter-low"]')?.getAttribute('aria-pressed'),
     ).toBe('true')
+
+    expect(container.textContent).toContain('Alpha low')
+
+    await reload(router)
+    expect(
+      container.querySelector('[data-mol-id="journal-filter-low"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+    expect(container.textContent).toContain('Alpha low')
 
     await back(router)
     expect(url(router)).toBe('/journal?mood=good&q=alpha')
@@ -376,8 +563,83 @@ describe('flagship list controls restore their values on initial load and Back',
 
     await change('input[type="search"]', 'beta')
     expect(url(router)).toBe('/journal?mood=good&q=beta')
+    await reload(router)
+    expect(container.querySelector<HTMLInputElement>('input[type="search"]')?.value).toBe('beta')
+    expect(container.textContent).toContain('Beta good')
     await back(router)
     expect(url(router)).toBe('/journal?mood=good&q=alpha')
     expect(container.querySelector<HTMLInputElement>('input[type="search"]')?.value).toBe('alpha')
+  })
+  it('Gifts receipt status restores the visible ledger after reload and Back', async () => {
+    mocks.get.mockResolvedValue({
+      data: [
+        {
+          id: 'cash',
+          donor_id: 'a',
+          donor_name: 'Cash donor',
+          method: 'cash',
+          receipted: false,
+          amount_cents: 100,
+          gift_date: '2026-01-01',
+        },
+        {
+          id: 'card',
+          donor_id: 'b',
+          donor_name: 'Card donor',
+          method: 'card',
+          receipted: true,
+          amount_cents: 200,
+          gift_date: '2026-01-02',
+        },
+      ],
+    })
+    const router = await mount('/gifts', createElement(Gifts), '/gifts?receipted=yes')
+    expect(container.querySelector('tbody')?.textContent).toContain('Card donor')
+    expect(container.querySelector('tbody')?.textContent).not.toContain('Cash donor')
+    const selector = 'select[aria-label="Filter by receipt status"]'
+    await change(selector, 'no')
+    expect(url(router)).toBe('/gifts?receipted=no')
+    expect(container.querySelector('tbody')?.textContent).toContain('Cash donor')
+    await reload(router)
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('no')
+    expect(container.querySelector('tbody')?.textContent).toContain('Cash donor')
+    await back(router)
+    expect(container.querySelector<HTMLSelectElement>(selector)?.value).toBe('yes')
+    expect(container.querySelector('tbody')?.textContent).toContain('Card donor')
+  })
+
+  it('Inbox folders retain the mail filter through reload and Back', async () => {
+    const router = await mount('/inbox', createElement(Inbox), '/inbox?folder=drafts&filter=ai')
+    await click('[data-mol-id="inbox-folder-sent"]')
+    expect(new URLSearchParams(router.state.location.search).get('folder')).toBe('sent')
+    expect(new URLSearchParams(router.state.location.search).get('filter')).toBe('ai')
+    await reload(router)
+    expect(
+      container.querySelector('[data-mol-id="inbox-filter-ai"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+    await back(router)
+    expect(new URLSearchParams(router.state.location.search).get('folder')).toBe('drafts')
+    expect(
+      container.querySelector('[data-mol-id="inbox-filter-ai"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+  })
+  it('Results stop filters survive reload and Back while retaining sort', async () => {
+    const router = await mount(
+      '/results',
+      createElement(Results),
+      '/results?stops=one_stop&sort=duration_minutes',
+    )
+    const button = (): HTMLButtonElement =>
+      [...container.querySelectorAll('button')].find((item) => item.textContent === 'Nonstop only')!
+    await act(async () => button().click())
+    await flush()
+    expect(new URLSearchParams(router.state.location.search).get('stops')).toBe('nonstop')
+    expect(button().getAttribute('aria-pressed')).toBe('true')
+    await reload(router)
+    expect(button().getAttribute('aria-pressed')).toBe('true')
+    expect(container.querySelector<HTMLSelectElement>('select')?.value).toBe('duration_minutes')
+    await back(router)
+    expect(new URLSearchParams(router.state.location.search).get('stops')).toBe('one_stop')
+    expect(button().getAttribute('aria-pressed')).toBe('false')
   })
 })

@@ -76,6 +76,16 @@ describe('molecule-local/url-lists-use-list-route', () => {
     tester.run('url-lists-use-list-route', rule, {
       valid: [
         {
+          name: 'mapping static choices to selected form controls is not list filtering',
+          filename: 'Preferences.tsx',
+          code: `import { useState } from 'react'
+export function Preferences() {
+  const [provider, setProvider] = useState('a')
+  return <div>{['a', 'b'].map((choice) => <button aria-pressed={provider === choice} onClick={() => setProvider(choice)}>{choice}</button>)}</div>
+}
+`,
+        },
+        {
           name: 'a file already using useListRoute stays silent',
           filename: 'Catalog.tsx',
           code: `import { useListRoute } from '@molecule/app-routing-react-router'
@@ -296,6 +306,28 @@ export function Catalog() {
 `,
         },
         {
+          name: 'a local analytics range only changes a count, not a rendered list',
+          filename: 'Analytics.tsx',
+          code: `import { useState } from 'react'
+export function Analytics() {
+  const [range, setRange] = useState(7)
+  const count = events.filter((event) => event.age < range).length
+  return <><input value={range} onChange={setRange} /><p>{count}</p></>
+}
+`,
+        },
+        {
+          name: 'filtering form choices without rendering the result stays silent',
+          filename: 'Compose.tsx',
+          code: `import { useState } from 'react'
+export function Compose() {
+  const [recipient, setRecipient] = useState('')
+  const valid = contacts.filter((contact) => contact.email === recipient).length > 0
+  return <EmailPreview recipient={recipient} valid={valid} onRecipient={setRecipient} />
+}
+`,
+        },
+        {
           name: 'a type-only import creates no runtime search-params binding',
           filename: 'Types.tsx',
           code: `import type { useSearchParams } from 'react-router'
@@ -321,6 +353,105 @@ const page = params.get('page')
         },
       ],
       invalid: [
+        {
+          name: 'awaited list responses retain the local request filter dependency',
+          filename: 'Catalog.tsx',
+          code: `import { useEffect, useState } from 'react'
+export function Catalog() {
+  const [category, setCategory] = useState('all')
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    async function load() {
+      const response = await http.get('/api/products', { params: { category } })
+      setProducts(response.data)
+    }
+    void load()
+  }, [category])
+  return <ProductList items={products} onCategory={setCategory} />
+}
+`,
+          errors: [{ messageId: 'useListRoute' }],
+        },
+        {
+          name: 'a local filter used only inside a rendered array callback warns',
+          filename: 'Catalog.tsx',
+          code: `import { useState } from 'react'
+export function Catalog() {
+  const [feed, setFeed] = useState('all')
+  const visible = products.filter((product) => feed === 'all' || product.feed === feed)
+  return <><select value={feed} onChange={setFeed} /><ProductList items={visible} /></>
+}
+`,
+          errors: [{ messageId: 'useListRoute' }],
+        },
+        {
+          name: 'derived local search through a memo still controls a rendered list',
+          filename: 'Catalog.tsx',
+          code: `import { useMemo, useState } from 'react'
+export function Catalog() {
+  const [query, setQuery] = useState('')
+  const normalized = query.trim().toLowerCase()
+  const visible = useMemo(() => products.filter((product) => product.name.includes(normalized)), [normalized])
+  return <><input value={query} onChange={setQuery} /><ProductList items={visible} /></>
+}
+`,
+          errors: [{ messageId: 'useListRoute' }],
+        },
+        {
+          name: 'local sorting in a memo controls a rendered collection',
+          filename: 'Catalog.tsx',
+          code: `import { useMemo, useState } from 'react'
+export function Catalog() {
+  const [sort, setSort] = useState('price')
+  const visible = useMemo(() => [...products].sort((a, b) => sort === 'price' ? a.price - b.price : a.name.localeCompare(b.name)), [sort])
+  return <><select value={sort} onChange={setSort} /><ProductGrid items={visible} /></>
+}
+`,
+          errors: [{ messageId: 'useListRoute' }],
+        },
+        {
+          name: 'local pagination controls a sliced rendered list',
+          filename: 'Catalog.tsx',
+          code: `import { useState } from 'react'
+export function Catalog() {
+  const [page, setPage] = useState(1)
+  const visible = products.slice((page - 1) * 20, page * 20)
+  return <><button onClick={() => setPage(page + 1)}>Next</button><ProductList items={visible} /></>
+}
+`,
+          errors: [{ messageId: 'useListRoute' }],
+        },
+        {
+          name: 'URL-initialized state in HTTP options still leaves a rendered list off the URL',
+          filename: 'Catalog.tsx',
+          code: `import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router'
+export function Catalog() {
+  const [params] = useSearchParams()
+  const [category, setCategory] = useState(params.get('category') ?? 'all')
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    http.get('/api/products', { params: { category } }).then((response) => setProducts(response.data))
+  }, [category])
+  return <><select value={category} onChange={setCategory} /><ProductList items={products} /></>
+}
+`,
+          errors: [{ messageId: 'useListRoute' }],
+        },
+        {
+          name: 'an unrelated URL hook does not exempt a callback-only local filter',
+          filename: 'Catalog.tsx',
+          code: `import { useState } from 'react'
+import { useListRoute } from '@molecule/app-routing-react-router'
+export function Catalog() {
+  const route = useListRoute()
+  const [category, setCategory] = useState('all')
+  const visible = products.filter((product) => category === 'all' || product.category === category).slice(route.offset, route.offset + route.pageSize)
+  return <><select value={category} onChange={setCategory} /><ProductList items={visible} /></>
+}
+`,
+          errors: [{ messageId: 'useListRoute' }],
+        },
         {
           name: 'a local useState filter controls a same-file product list',
           filename: 'Home.tsx',
