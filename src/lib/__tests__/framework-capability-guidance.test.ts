@@ -50,6 +50,27 @@ describe('framework-scoped session guidance', () => {
     }
   })
 
+  it('marks copied session state as a second store in a non-flagship React bond', async () => {
+    await createAppProject(root, 'directory-app', 'react')
+    await addPackages(root, ['@molecule/app-auth', '@molecule/app-react'])
+    const manifest = JSON.parse(await readFile(join(root, 'package.json'), 'utf8'))
+    const files = synthesizeAppProjectFiles(
+      [],
+      Object.keys(manifest.dependencies),
+      root,
+      loadRegistry(),
+    )
+    const auth = files.find((file) => file.targetPath === join(root, 'src/bonds/auth-default.ts'))
+    expect(auth?.content).toContain('Sharing `tokenKey`')
+    expect(auth?.content).toContain('copied user/status')
+    expect(auth?.content).toContain('view/debug adapters read the bonded client')
+    expect(auth?.content).toContain('`useAuth()` from `@molecule/app-react`')
+
+    const index = files.find((file) => file.targetPath === join(root, 'src/bonds/index.ts'))
+    expect(index).toBeDefined()
+    expect(index?.content).not.toContain('Sharing `tokenKey`')
+  })
+
   it('renders a directory account through the installed Vue binding', async () => {
     interface DirectoryAccount {
       handle: string

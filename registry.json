@@ -31247,7 +31247,8 @@
           "`validateSession()` is the background re-check: only a 401/403 clears the session, while a network/5xx failure or a wrong `currentUserEndpoint` (404) keeps it as `unavailable`.",
           "`tokenKey`/`storagePrefix`, `authScheme`, `mapAuthResponse`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod` adapt the API; `logout()` and `refresh()` are included. A token another tool reads at its own storage key (an e2e suite, a legacy script) is `tokenKey`, not a copy in a second store.",
           "Read the session through the declared framework binding below: status is `loading` | `authenticated` | `unauthenticated` | `unavailable`. Only a route guard waits for `status === 'loading'`. The HTTP gate delays requests, not rendering children.",
-          "This file is the app's ONE session store — never add another token or user store beside it."
+          "This file is the app's ONE session store — never add another token or user store beside it.",
+          "Sharing `tokenKey` does not make a second context/provider an adapter: copied user/status, token helpers or a restore effect are a second session store; view/debug adapters read the bonded client."
         ],
         "setupAfter": [
           "@molecule/app-http"
