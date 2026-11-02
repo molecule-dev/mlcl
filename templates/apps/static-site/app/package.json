@@ -30,7 +30,7 @@
     "@molecule/app-analytics": "1.1.2",
     "@molecule/app-analytics-posthog": "1.0.5",
     "@molecule/app-analytics-react": "1.0.3",
-    "@molecule/app-auth": "3.2.0",
+    "@molecule/app-auth": "3.2.1",
     "@molecule/app-bond": "1.0.5",
     "@molecule/app-code-editor": "1.0.3",
     "@molecule/app-device": "1.0.3",
