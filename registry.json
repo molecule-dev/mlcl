@@ -57195,7 +57195,9 @@
         "RouterConfig",
         "Store",
         "StoreConfig",
-        "Theme"
+        "Theme",
+        "UseOptimisticValueResult",
+        "useOptimisticValue"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -59103,7 +59105,12 @@
         "setProvider",
         "getProvider",
         "hasProvider",
-        "createStore"
+        "createStore",
+        "OptimisticCommit",
+        "OptimisticValueOptions",
+        "OptimisticValueState",
+        "OptimisticValue",
+        "createOptimisticValue"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -59128,7 +59135,17 @@
         "client state",
         "manage application state",
         "reactive state"
-      ]
+      ],
+      "decisionGuide": {
+        "configuration": [
+          "A server-backed value the person toggles or sets (favorite, follow, like, bookmark, rating, quantity, a setting switch): use `createOptimisticValue({ value, commit, equals })`. It shows each change at once and saves one change at a time; a tap during a save is saved right after it, and only a failure of the newest change goes back to the server value. Never ignore a tap or disable the control while a save is pending, and never let a refetch or new props replace the value during a save."
+        ],
+        "bindingGuidance": {
+          "@molecule/app-react": [
+            "React binding: a toggle or counter button uses `useOptimisticValue({ value, commit, equals })` from `@molecule/app-react`, with `value` from the record's props or query and `commit` sending one change and returning the server's value. Render `value`, call `update((current) => next)` on every click, and give the component a `key` per record."
+          ]
+        }
+      }
     },
     "@molecule/app-state-jotai": {
       "language": "typescript",

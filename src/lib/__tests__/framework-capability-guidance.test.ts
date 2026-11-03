@@ -192,6 +192,49 @@ describe('framework-scoped URL list guidance', () => {
   })
 })
 
+describe('framework-scoped optimistic value guidance', () => {
+  const state = (bindings: string[], workspace = 'app'): string =>
+    renderCapabilityMap(
+      buildCapabilityMap(registry, [
+        { name: '@molecule/app-state', workspace: 'app' },
+        ...bindings.map((name) => ({ name, workspace })),
+      ]),
+    )
+
+  it('names useOptimisticValue when the React binding is declared', () => {
+    const text = state(['@molecule/app-react'])
+    expect(text).toContain('`createOptimisticValue({ value, commit, equals })`')
+    expect(text).toContain(
+      '`useOptimisticValue({ value, commit, equals })` from `@molecule/app-react`',
+    )
+    expect(text).toContain('Never ignore a tap or disable the control while a save is pending')
+    expect(registry.packages['@molecule/app-state']!.exports).toEqual(
+      expect.arrayContaining([
+        'createOptimisticValue',
+        'OptimisticValue',
+        'OptimisticValueOptions',
+      ]),
+    )
+    expect(registry.packages['@molecule/app-react']!.exports).toEqual(
+      expect.arrayContaining(['useOptimisticValue', 'UseOptimisticValueResult']),
+    )
+  })
+
+  it.each([
+    ['Vue', ['@molecule/app-vue']],
+    ['no framework', []],
+  ])('keeps optimistic value guidance framework-neutral with %s', (_label, bindings) => {
+    const text = state(bindings)
+    expect(text).toContain('`createOptimisticValue({ value, commit, equals })`')
+    expect(text).not.toContain('useOptimisticValue')
+    expect(text).not.toContain('@molecule/app-react')
+  })
+
+  it('keeps React guidance in its declaring workspace', () => {
+    expect(state(['@molecule/app-react'], 'api')).not.toContain('useOptimisticValue')
+  })
+})
+
 describe('shared auth guidance stays API neutral', () => {
   it('sweeps registry decision guidance and embedded setup comments too', () => {
     const text = Object.values(registry.packages)
