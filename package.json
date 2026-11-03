@@ -381,6 +381,7 @@
     "brace-expansion": "5.0.12",
     "undici": "8.12.3",
     "dompurify": "3.4.17",
+    "follow-redirects": "1.16.2",
     "body-parser": "2.4.0",
     "eslint-plugin-jsx-a11y": {
       "brace-expansion": "1.1.21"
