@@ -30,7 +30,7 @@
     storage: getStorageProvider(),
   })
 
-  const { state: authState, isAuthenticated, user, logout } = createAuthStores()
+  const { state: authState, isAuthenticated, user, sessionReady, logout } = createAuthStores()
   const { t } = createI18nStores()
   const { mode, toggleTheme } = createThemeStores()
 
@@ -48,7 +48,11 @@
   })
 </script>
 
-{#if $authState.status === 'loading'}
+<!-- Hold every page while the initial session status is 'loading', so public
+     actions see the restored user when restoration succeeds. 'unavailable'
+     also renders and may have a null user. Without a session hint, an anonymous
+     visitor settles in microtasks without a request. Keep it. -->
+{#if !$sessionReady}
   <div class={cm.cn(getFlexClasses({ align: 'center', justify: 'center' }), cm.page)}>
     <p class={cm.textMuted}>{$t('common.loading')}</p>
   </div>
@@ -95,7 +99,7 @@
   </div>
 
   {#if settingsOpen}
-    <button type="button" class={cm.overlay} onclick={() => settingsOpen = false} aria-label={$t('common.close')} />
+    <button type="button" class={cm.overlay} onclick={() => settingsOpen = false} aria-label={$t('common.close')}></button>
     <div class={cm.cn(cm.drawer, cm.surface)}>
       <SettingsPanel onClose={() => settingsOpen = false} />
     </div>

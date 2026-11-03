@@ -30,11 +30,18 @@ import { Signup } from './pages/Signup.js'
 // leave the entry — 79 companion locale dictionaries, the analytics SDK, the
 // service worker's precache — is the part with a measured gain; see the
 // `UserMenu` drawer for the one interaction-only split that is still worth it.
+//
+// `awaitSession` holds every page until a returning visitor's session is restored
+// (one request after a full page load), so public pages read the restored user
+// when that request succeeds. An 'unavailable' session still renders and may
+// have a null user; handle that status separately from sign-out.
+// A visitor with no session to restore makes no request. Keep it.
 export function App() {
   return (
     <BrowserRouter>
       <MoleculeProvider
         auth={authClient}
+        awaitSession
         http={getHttpClient()}
         theme={themeProvider}
         storage={getStorageProvider()}

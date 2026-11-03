@@ -1,5 +1,16 @@
 {
   "version": 1,
+  "typeDefaults": {
+    "resource": {
+      "implicitPeers": [
+        "@molecule/api-resource",
+        "@molecule/api-database"
+      ]
+    },
+    "provider": {
+      "implicitPeers": []
+    }
+  },
   "packages": {
     "@molecule/api-activity": {
       "language": "typescript",
@@ -57144,7 +57155,9 @@
         "EditorProvider",
         "PreviewProvider",
         "MoleculeProvider",
+        "SessionReady",
         "ProviderProps",
+        "SessionReadyProps",
         "StateProviderProps",
         "AuthProviderProps",
         "ThemeProviderProps",
@@ -58741,7 +58754,9 @@
         "createVersion",
         "VersionPrimitives",
         "MoleculeProvider",
+        "SessionReady",
         "MoleculeConfig",
+        "SessionReadyProps",
         "HttpState",
         "StorageValueState",
         "AuthPrimitives",
@@ -62844,6 +62859,7 @@
         "createLoggerPlugin",
         "MoleculePluginOptions",
         "moleculePlugin",
+        "SessionReady",
         "UseStoreOptions",
         "UseAuthReturn",
         "UseThemeReturn",
@@ -63109,17 +63125,6 @@
         "topic cloud",
         "weighted vocabulary"
       ]
-    }
-  },
-  "typeDefaults": {
-    "resource": {
-      "implicitPeers": [
-        "@molecule/api-resource",
-        "@molecule/api-database"
-      ]
-    },
-    "provider": {
-      "implicitPeers": []
     }
   },
   "apiFrameworks": {

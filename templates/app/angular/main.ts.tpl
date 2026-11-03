@@ -72,8 +72,13 @@ authClient.initialize().catch(() => {})
 
 bootstrapApplication(AppComponent, {
   providers: [
+    // Hold bootstrap while the initial session status is 'loading', so public
+    // actions see the restored user when restoration succeeds. 'unavailable'
+    // also renders and may have a null user. Without a session hint, an anonymous
+    // visitor settles in microtasks without a request. Keep it.
     provideMolecule({
       auth: authClient,
+      awaitSession: true,
       i18n: i18nProvider,
       theme: themeProvider,
       http: getHttpClient(),

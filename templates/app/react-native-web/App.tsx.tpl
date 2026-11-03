@@ -14,11 +14,15 @@ import { ResetPassword } from './pages/ResetPassword.js'
 import { Home } from './pages/Home.js'
 import { PlanUpdated } from './pages/PlanUpdated.js'
 
+// `awaitSession` holds every page until a returning visitor's session is restored,
+// so public pages read the restored user when that request succeeds.
+// 'unavailable' still renders and may have a null user; it is not sign-out. Keep it.
 export function App() {
   return (
     <BrowserRouter>
       <MoleculeProvider
         auth={authClient}
+        awaitSession
         http={getHttpClient()}
         theme={themeProvider}
         storage={getStorageProvider()}

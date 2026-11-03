@@ -406,9 +406,11 @@ describe('SvelteKit template structure', () => {
     expect(content).toContain("from '$lib/branding.js'")
     expect(content).toContain('logout')
     expect(content).toContain('toggleTheme')
-    // The loading gate is `status === 'loading'`, not `initialized` — a stored
-    // token AND user make the first render 'authenticated' (xr-molecule-flash-m177).
-    expect(content).toContain("$authState.status === 'loading'")
+    // The render gate is the `sessionReady` store (status left 'loading'), not
+    // `initialized` — a stored token AND user make the first render 'authenticated'
+    // (xr-molecule-flash-m177), and a returning visitor's pages wait for the restore.
+    expect(content).toContain('{#if !$sessionReady}')
+    expect(content).toMatch(/const \{[^}]*\bsessionReady\b[^}]*\} = createAuthStores\(/s)
     expect(content).not.toContain('$authState.initialized')
   })
 
@@ -447,6 +449,12 @@ describe('Framework-specific patterns', () => {
     expect(app).toContain("from 'react-router'")
     expect(app).toContain('BrowserRouter')
     expect(app).toContain('<Routes>')
+    // Pages wait for the initial restore to settle, so public actions see the
+    // restored user when that request succeeds.
+    expect(app).toMatch(/<MoleculeProvider\s[^>]*\bawaitSession\b/)
+    expect(await readTemplate('react-native-web', 'App.tsx.tpl')).toMatch(
+      /<MoleculeProvider\s[^>]*\bawaitSession\b/,
+    )
 
     // react now shims the shared AuthGuard from @molecule/app-ui-react
     // (the Navigate/Outlet routing logic lives in the shared component).
@@ -460,6 +468,10 @@ describe('Framework-specific patterns', () => {
     expect(main).toContain("from 'vue-router'")
     expect(main).toContain('createRouter')
     expect(main).toContain('createWebHistory')
+    // Pages render only once a returning visitor's session is restored.
+    const vueApp = await readTemplate('vue', 'App.vue.tpl')
+    expect(vueApp).toContain("import { SessionReady } from '@molecule/app-vue'")
+    expect(vueApp).toMatch(/<SessionReady>\s*<RouterView \/>\s*<\/SessionReady>/)
 
     const guard = await readTemplate('vue', 'components', 'AuthGuard.vue.tpl')
     expect(guard).toContain('useRouter')
@@ -486,6 +498,7 @@ describe('Framework-specific patterns', () => {
     expect(app).toContain("from '@solidjs/router'")
     expect(app).toContain('Router')
     expect(app).toContain('Route')
+    expect(app).toMatch(/config=\{\{[^}]*\bawaitSession:\s*true\b/s)
 
     const guard = await readTemplate('solid', 'components', 'AuthGuard.tsx.tpl')
     expect(guard).toContain('Navigate')
@@ -501,6 +514,7 @@ describe('Framework-specific patterns', () => {
     expect(main).toContain("from '@angular/router'")
     expect(main).toContain('provideRouter')
     expect(main).toContain('Routes')
+    expect(main).toMatch(/provideMolecule\(\{[^}]*\bawaitSession:\s*true\b/s)
 
     const guard = await readTemplate('angular', 'components', 'auth.guard.ts.tpl')
     expect(guard).toContain('CanActivateFn')
