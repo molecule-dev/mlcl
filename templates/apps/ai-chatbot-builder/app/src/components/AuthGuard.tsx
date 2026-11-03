@@ -5,8 +5,12 @@
  * Route: `<Route element={<AuthGuard />}>...</Route>`; in-page section:
  * `<AuthGuard><SignedInSection /></AuthGuard>`.
  * For a custom in-page check, hold only while `status === 'loading'`, redirect
- * only on `status === 'unauthenticated'`, and treat `'unavailable'` as signed
- * in. Keep public sections outside the guard so they render without waiting.
+ * only on `status === 'unauthenticated'`, and let `'unavailable'` render without
+ * treating it as confirmed sign-in. Keep public sections outside the guard for signed-out visitors.
+ * `App.tsx` passes `awaitSession` to `MoleculeProvider`, so on a public page a
+ * signed-in action (Follow, Favorite) reads the restored user when restoration
+ * succeeds. An unavailable session may still have a null user; handle that status
+ * separately from sign-out. Keep that prop.
  * Prefer router navigation to full-page loads so clicks do not restart restore.
  */
 import { useEffect, useState } from 'react'

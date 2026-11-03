@@ -69,6 +69,7 @@ export function App() {
     <BrowserRouter>
       <MoleculeProvider
         auth={authClient}
+        awaitSession
         http={getHttpClient()}
         i18n={i18nProvider}
         storage={getStorageProvider()}
