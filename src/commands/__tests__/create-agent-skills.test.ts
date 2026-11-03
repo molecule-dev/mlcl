@@ -222,12 +222,15 @@ describe('MCP scaffold_project inherits the delivery', () => {
       '--skip-install',
     ])
     const result = JSON.parse(output) as {
-      capabilityMap?: Array<{ name: string; configuration: string[] }>
+      capabilityMap?: Array<{ name: string; configuration: string[]; guidance: string[] }>
     }
     expect(result.capabilityMap?.map((entry) => entry.name)).toEqual([
       '@molecule/app-auth',
       '@molecule/app-http',
+      '@molecule/app-routing',
     ])
+    const routing = result.capabilityMap?.find((entry) => entry.name === '@molecule/app-routing')
+    expect(routing?.guidance.join('\n')).toContain('useListRoute')
     expect(result.capabilityMap?.[0].configuration.join('\n')).toContain('mapAuthResponse')
     expect(existsSync(join(dir, 'proj', '.agents', 'skills', 'capability-first', 'SKILL.md'))).toBe(
       true,
