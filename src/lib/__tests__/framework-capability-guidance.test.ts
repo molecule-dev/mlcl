@@ -155,12 +155,50 @@ describe('framework-scoped HTTP guidance', () => {
   })
 })
 
+describe('framework-scoped URL list guidance', () => {
+  const routing = (bindings: string[], workspace = 'app'): string =>
+    renderCapabilityMap(
+      buildCapabilityMap(registry, [
+        { name: '@molecule/app-routing', workspace: 'app' },
+        ...bindings.map((name) => ({ name, workspace })),
+      ]),
+    )
+
+  it('names useListRoute when React Router is the declared binding', () => {
+    const text = routing(['@molecule/app-routing-react-router'])
+    expect(text).toContain('`useListRoute({ filters, selections, defaultSelection, auth })`')
+    expect(text).toContain('`requiresAuth: true`')
+    expect(text).toContain('`canLoad`')
+    expect(text).toContain('return to page one when a filter or tab changes')
+    expect(registry.packages['@molecule/app-routing-react-router']!.exports).toEqual(
+      expect.arrayContaining(['useListRoute', 'ListRouteOptions', 'ListRouteResult']),
+    )
+  })
+
+  it.each([
+    ['Vue Router', ['@molecule/app-routing-vue-router']],
+    ['Next', ['@molecule/app-routing-next']],
+    ['no binding', []],
+  ])('keeps URL list guidance framework-neutral with %s', (_label, bindings) => {
+    const text = routing(bindings)
+    expect(text).toContain('keep the page, filters and tab in the URL only')
+    expect(text).toContain('an unavailable session is not signed out')
+    expect(text).not.toContain('useListRoute')
+    expect(text).not.toContain('@molecule/app-routing-react-router')
+  })
+
+  it('keeps React Router guidance in its declaring workspace', () => {
+    expect(routing(['@molecule/app-routing-react-router'], 'api')).not.toContain('useListRoute')
+  })
+})
+
 describe('shared auth guidance stays API neutral', () => {
   it('sweeps registry decision guidance and embedded setup comments too', () => {
     const text = Object.values(registry.packages)
       .flatMap((entry) => [
         ...(entry.defaultBondSetup?.header ?? []),
         ...(entry.decisionGuide?.configuration ?? []),
+        ...Object.values(entry.decisionGuide?.bindingGuidance ?? {}).flat(),
         ...(entry.intentHints ?? []),
         entry.description,
         ...Object.values(entry.setupSql ?? {}),
