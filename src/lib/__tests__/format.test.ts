@@ -169,6 +169,74 @@ describe('formatGeneratedFiles', () => {
 })
 
 describe('formatGeneratedFiles formats like prettier --write run from each package', () => {
+  it('resolves a configured plugin from the file package instead of mlcl', async () => {
+    const dir = await createTempDir('package-plugin')
+    const app = join(dir, 'app')
+    const plugin = join(app, 'node_modules', 'prettier-plugin-project-fixture')
+    await mkdir(plugin, { recursive: true })
+    await writeFile(join(dir, 'package.json'), '{\n  "name": "root"\n}\n')
+    await writeFile(join(app, 'package.json'), '{\n  "name": "app"\n}\n')
+    await writeFile(
+      join(plugin, 'package.json'),
+      JSON.stringify({
+        name: 'prettier-plugin-project-fixture',
+        type: 'module',
+        exports: './index.js',
+      }),
+    )
+    await writeFile(join(plugin, 'index.js'), 'export default {}\n')
+    await writeFile(
+      join(app, '.prettierrc'),
+      JSON.stringify({
+        semi: false,
+        singleQuote: true,
+        plugins: ['prettier-plugin-project-fixture'],
+      }),
+    )
+    await writeFile(join(app, 'index.ts'), 'const x = "hello";\n')
+
+    expect(await formatGeneratedFiles(dir)).toBe(1)
+    expect(await readFile(join(app, 'index.ts'), 'utf8')).toBe("const x = 'hello'\n")
+    expect(await unformattedGeneratedFiles(dir)).toEqual([])
+  })
+
+  it('keeps relative plugin paths anchored to the config file', async () => {
+    const dir = await createTempDir('relative-plugin')
+    await writeFile(join(dir, 'package.json'), '{\n  "name": "p"\n}\n')
+    await writeFile(join(dir, 'plugin.mjs'), 'export default {}\n')
+    await writeFile(
+      join(dir, '.prettierrc'),
+      JSON.stringify({
+        semi: false,
+        singleQuote: true,
+        plugins: ['./plugin.mjs'],
+      }),
+    )
+    await writeFile(join(dir, 'index.ts'), 'const x = "hello";\n')
+    await formatGeneratedFiles(dir)
+    expect(await readFile(join(dir, 'index.ts'), 'utf8')).toBe("const x = 'hello'\n")
+  })
+
+  it('refuses a clean check when a source file cannot be parsed', async () => {
+    const dir = await createTempDir('uncheckable')
+    await writeFile(join(dir, 'bad.json'), '{not valid json!!!}')
+    await expect(unformattedGeneratedFiles(dir)).rejects.toThrow('bad.json')
+    // The write API remains best-effort, as it was before the check API was added.
+    expect(await formatGeneratedFiles(dir)).toBe(0)
+  })
+
+  it('does not load formatter configuration for an ignored file', async () => {
+    const dir = await createTempDir('ignored-invalid-config')
+    await writeFile(join(dir, 'package.json'), '{\n  "name": "p"\n}\n')
+    await writeFile(join(dir, '.prettierignore'), '*\n')
+    await writeFile(join(dir, '.prettierrc'), '{not valid JSON')
+    await writeFile(join(dir, 'index.ts'), 'const x = "hello";\n')
+
+    expect(await unformattedGeneratedFiles(dir)).toEqual([])
+    expect(await formatGeneratedFiles(dir)).toBe(0)
+    expect(await readFile(join(dir, 'index.ts'), 'utf8')).toBe('const x = "hello";\n')
+  })
+
   it('uses the config that applies at the file, not its own', async () => {
     const dir = await createTempDir('own-config')
     await writeFile(join(dir, 'package.json'), '{\n  "name": "p"\n}\n')

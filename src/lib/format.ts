@@ -5,6 +5,7 @@
  */
 
 import { access, readdir, readFile, writeFile } from 'node:fs/promises'
+import { createRequire } from 'node:module'
 import { dirname, extname, join, relative, resolve } from 'node:path'
 
 import * as prettier from 'prettier'
@@ -344,6 +345,7 @@ export async function formatGeneratedFiles(projectPath: string): Promise<number>
  *
  * @param projectPath - Absolute path to the project root.
  * @returns Paths relative to `projectPath`, sorted.
+ * @throws When a file or its formatter configuration cannot be checked.
  */
 export async function unformattedGeneratedFiles(projectPath: string): Promise<string[]> {
   return (await formatPass(projectPath, false)).map((path) => relative(projectPath, path)).sort()
@@ -360,10 +362,20 @@ async function formatPass(projectPath: string, write: boolean): Promise<string[]
       const cwd = await formatterRoot(filePath, projectPath)
       const info = await prettier.getFileInfo(filePath, {
         ignorePath: [join(cwd, '.gitignore'), join(cwd, '.prettierignore')],
+        resolveConfig: false,
       })
-      if (info.ignored || !info.inferredParser) continue
+      if (info.ignored) continue
       const config = await prettier.resolveConfig(filePath, { editorconfig: true })
-      const options = { ...(config ?? PRETTIER_CONFIG), filepath: filePath }
+      // Prettier's API resolves bare plugin names from process.cwd(), which is mlcl's
+      // directory. Resolve them with Node from the same package as its CLI invocation.
+      const requireFromPackage = createRequire(join(cwd, 'package.json'))
+      const plugins = config?.plugins?.map((plugin) =>
+        typeof plugin === 'string' && !plugin.startsWith('file:')
+          ? requireFromPackage.resolve(plugin)
+          : plugin,
+      )
+      if (!info.inferredParser && !config?.parser && !plugins?.length) continue
+      const options = { ...(config ?? PRETTIER_CONFIG), plugins, filepath: filePath }
       let result = content
       for (let pass = 0; pass < MAX_FORMAT_PASSES; pass++) {
         const next = await prettier.format(result, options)
@@ -375,8 +387,10 @@ async function formatPass(projectPath: string, write: boolean): Promise<string[]
         changed.push(filePath)
       }
     } catch (error) {
-      // Skip files that Prettier can't parse (e.g., malformed JSON)
       const rel = relative(projectPath, filePath)
+      // A check must not turn a parser/configuration failure into a false clean result.
+      if (!write) throw new Error(`prettier: could not check ${rel}`, { cause: error })
+      // Writes retain the existing best-effort behavior for malformed files.
       console.warn(`  prettier: skipped ${rel} (${ext} parse error)`, error)
     }
   }
