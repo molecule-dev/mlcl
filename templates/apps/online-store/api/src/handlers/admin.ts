@@ -74,43 +74,84 @@ router.get('/orders', async (req, res) => {
   try {
     if (!requireSession(res)) return
 
-    const page = Number(req.query.page) || 1
-    const limit = Number(req.query.limit) || 50
+    const requestedPage = Number(req.query.page)
+    const requestedLimit = Number(req.query.limit)
+    const page = Number.isSafeInteger(requestedPage) && requestedPage > 0 ? requestedPage : 1
+    const limit =
+      Number.isSafeInteger(requestedLimit) && requestedLimit > 0
+        ? Math.min(200, requestedLimit)
+        : 50
     const { status, q } = req.query
 
     const where: WhereCondition[] = []
     if (status) where.push({ field: 'status', operator: '=', value: String(status) })
-
-    const [orders, total] = await Promise.all([
-      findMany<Record<string, unknown>>('orders', {
-        where,
-        limit,
-        offset: (page - 1) * limit,
-        orderBy: [{ field: 'created_at', direction: 'desc' }],
-      }),
-      count('orders', where),
-    ])
-
-    let filtered = orders
-    if (q) {
-      const needle = String(q).toLowerCase()
-      filtered = orders.filter((o) =>
-        String(o.id ?? '')
-          .toLowerCase()
-          .includes(needle),
-      )
+    for (const [key, operator] of [
+      ['start_date', '>='],
+      ['end_date', '<'],
+    ] as const) {
+      const value = req.query[key]
+      const date = typeof value === 'string' ? new Date(value) : null
+      if (date && Number.isFinite(date.getTime()))
+        where.push({ field: 'created_at', operator, value: date })
     }
-
-    const userIds = Array.from(new Set(filtered.map((o) => o.user_id).filter(Boolean))) as string[]
     const userMap = new Map<string, string>()
-    for (const id of userIds) {
+    const customerName = async (order: Record<string, unknown>): Promise<string> => {
+      const id = String(order.user_id ?? '')
+      if (!id) return ''
+      if (userMap.has(id)) return userMap.get(id)!
       const u = await findById<Record<string, unknown>>('users', id)
-      if (u) {
-        const email = String(u.email ?? '')
-        const name = String((u as { name?: unknown }).name ?? '') || email.split('@')[0] || email
-        userMap.set(id, name)
-      }
+      const email = String(u?.email ?? '')
+      const name = String(u?.name ?? '') || email.split('@')[0] || email
+      userMap.set(id, name)
+      return name
     }
+    const orderBy = [
+      { field: 'created_at', direction: 'desc' as const },
+      { field: 'id', direction: 'desc' as const },
+    ]
+    let filtered: Record<string, unknown>[]
+    let total: number
+    if (q) {
+      // DataStore's filters are conjunctive, and IDs can be UUID columns. A
+      // batched scan supports literal ID OR customer-name search across
+      // database bonds without SQL casts or filtering just the requested page.
+      const needle = String(q).toLowerCase()
+      const start = (page - 1) * limit
+      filtered = []
+      total = 0
+      const batchSize = 200
+      for (let offset = 0; ; offset += batchSize) {
+        const batch = await findMany<Record<string, unknown>>('orders', {
+          where,
+          orderBy,
+          limit: batchSize,
+          offset,
+        })
+        for (const order of batch) {
+          if (
+            !String(order.id ?? '')
+              .toLowerCase()
+              .includes(needle) &&
+            !(await customerName(order)).toLowerCase().includes(needle)
+          )
+            continue
+          if (total >= start && filtered.length < limit) filtered.push(order)
+          total += 1
+        }
+        if (batch.length < batchSize) break
+      }
+    } else {
+      ;[filtered, total] = await Promise.all([
+        findMany<Record<string, unknown>>('orders', {
+          where,
+          limit,
+          offset: (page - 1) * limit,
+          orderBy,
+        }),
+        count('orders', where),
+      ])
+    }
+    for (const order of filtered) await customerName(order)
 
     const data = filtered.map((o) => ({
       ...o,

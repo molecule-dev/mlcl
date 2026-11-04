@@ -7,7 +7,7 @@
  * Conditional row actions (cancel only when status !== cancelled/
  * refunded) are handled inline via the filtered rowActions array.
  */
-import { useEffect, useState } from 'react'
+import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
 import {
@@ -18,6 +18,7 @@ import {
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { orderDateRange, useAdminOrdersRoute } from '../utils/adminOrdersRoute.js'
 import { unpackListPayload } from '../utils/httpUnpack.js'
 import AdminOrdersPagination from './AdminOrdersPagination.js'
 
@@ -59,24 +60,55 @@ function AdminOrdersTable() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const listRoute = useAdminOrdersRoute()
+  const { q, status, date } = listRoute.filters
   const [orders, setOrders] = useState<OrderRow[]>([])
+  const [total, setTotal] = useState(0)
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const requestId = useRef(0)
 
-  const reload = (): void => {
+  const reload = useCallback((): void => {
+    const request = ++requestId.current
     setLoading(true)
+    setError(null)
+    const params = new URLSearchParams({
+      page: String(listRoute.page),
+      limit: String(listRoute.pageSize),
+    })
+    if (q) params.set('q', q)
+    if (status) params.set('status', status)
+    for (const [key, value] of Object.entries(orderDateRange(date) ?? {})) params.set(key, value)
     http
-      .get('/api/admin/orders?limit=50')
+      .get<OrderRow[] | { data: OrderRow[]; total: number }>(`/api/admin/orders?${params}`)
       .then((res) => {
+        if (request !== requestId.current) return
         const data = unpackListPayload(res) as OrderRow[]
         setOrders(data)
+        const body = res.data
+        setTotal(!Array.isArray(body) && typeof body?.total === 'number' ? body.total : data.length)
       })
-      .finally(() => setLoading(false))
-  }
+      .catch((error: unknown) => {
+        if (request !== requestId.current) return
+        setOrders([])
+        setTotal(0)
+        setError(
+          error instanceof Error
+            ? error.message
+            : t('adminOrdersTable.loadError', {}, { defaultValue: 'Failed to load orders' }),
+        )
+      })
+      .finally(() => {
+        if (request === requestId.current) setLoading(false)
+      })
+  }, [http, t, listRoute.page, listRoute.pageSize, q, status, date])
 
   useEffect(() => {
     reload()
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) // run once on mount — reload is a stable fetch trigger defined in this scope
+    return () => {
+      requestId.current += 1
+    }
+  }, [reload])
 
   const cancelOrder = async (id: string): Promise<void> => {
     try {
@@ -174,6 +206,14 @@ function AdminOrdersTable() {
 
   return (
     <div data-mol-id="orders-table-container">
+      {error && (
+        <div role="alert">
+          {error}
+          <button className={cm.button({ variant: 'ghost', size: 'sm' })} onClick={reload}>
+            {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+          </button>
+        </div>
+      )}
       <AdminTable
         rows={orders}
         columns={columns}
@@ -183,10 +223,17 @@ function AdminOrdersTable() {
         rowActionsAriaLabel={() =>
           t('adminOrdersTable.rowActions', {}, { defaultValue: 'Row actions' })
         }
-        footer={<AdminOrdersPagination />}
+        footer={
+          <AdminOrdersPagination
+            totalEntries={total}
+            currentPage={listRoute.page}
+            pageSize={listRoute.pageSize}
+            onPageChange={listRoute.setPage}
+          />
+        }
         tbodyDataMolId="orders-tbody"
       />
-      {!loading && orders.length === 0 ? emptyState : null}
+      {!loading && !error && orders.length === 0 ? emptyState : null}
     </div>
   )
 }

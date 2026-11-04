@@ -3,12 +3,14 @@ import { useState } from 'react'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
+import { useAdminOrdersRoute } from '../utils/adminOrdersRoute.js'
+
 function AdminOrdersFiltersBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [search, setSearch] = useState('')
-  const [status, setStatus] = useState('')
-  const [date, setDate] = useState('')
+  const list = useAdminOrdersRoute()
+  const { status, date } = list.filters
+  const search = list.filters.q ?? ''
   const [advancedOpen, setAdvancedOpen] = useState(false)
   return (
     <div
@@ -51,7 +53,7 @@ function AdminOrdersFiltersBar() {
           )}
           type="text"
           value={search}
-          onChange={(e) => setSearch(e.target.value)}
+          onChange={(e) => list.setFilters({ q: e.target.value || undefined }, { replace: true })}
         />
       </div>
       <select
@@ -66,18 +68,22 @@ function AdminOrdersFiltersBar() {
           { defaultValue: 'Filter by status' },
         )}
         value={status}
-        onChange={(e) => setStatus(e.target.value)}
+        onChange={(e) => list.setFilters({ status: e.target.value })}
       >
-        <option>{t('adminOrdersFiltersBar.statusAll', {}, { defaultValue: 'All Status' })}</option>
-        <option>{t('status.pending', {}, { defaultValue: 'Pending' })}</option>
-        <option>
+        <option value="">
+          {t('adminOrdersFiltersBar.statusAll', {}, { defaultValue: 'All Status' })}
+        </option>
+        <option value="pending">{t('status.pending', {}, { defaultValue: 'Pending' })}</option>
+        <option value="processing">
           {t('adminOrdersFiltersBar.statusProcessing', {}, { defaultValue: 'Processing' })}
         </option>
-        <option>{t('adminOrdersFiltersBar.statusShipped', {}, { defaultValue: 'Shipped' })}</option>
-        <option>
+        <option value="shipped">
+          {t('adminOrdersFiltersBar.statusShipped', {}, { defaultValue: 'Shipped' })}
+        </option>
+        <option value="delivered">
           {t('adminOrdersFiltersBar.statusDelivered', {}, { defaultValue: 'Delivered' })}
         </option>
-        <option>
+        <option value="cancelled">
           {t('adminOrdersFiltersBar.statusCancelled', {}, { defaultValue: 'Cancelled' })}
         </option>
       </select>
@@ -93,18 +99,20 @@ function AdminOrdersFiltersBar() {
           { defaultValue: 'Filter by date' },
         )}
         value={date}
-        onChange={(e) => setDate(e.target.value)}
+        onChange={(e) => list.setFilters({ date: e.target.value })}
       >
-        <option>{t('adminOrdersFiltersBar.dateAll', {}, { defaultValue: 'All Time' })}</option>
-        <option>{t('status.today', {}, { defaultValue: 'Today' })}</option>
-        <option>
+        <option value="all">
+          {t('adminOrdersFiltersBar.dateAll', {}, { defaultValue: 'All Time' })}
+        </option>
+        <option value="today">{t('status.today', {}, { defaultValue: 'Today' })}</option>
+        <option value="7d">
           {t(
             'adminOrdersFiltersBar.dateLastNDays',
             { days: 7 },
             { defaultValue: 'Last {{days}} Days' },
           )}
         </option>
-        <option>
+        <option value="30d">
           {t(
             'adminOrdersFiltersBar.dateLastNDays',
             { days: 30 },

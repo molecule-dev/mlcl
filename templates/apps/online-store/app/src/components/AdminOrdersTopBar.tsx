@@ -4,13 +4,15 @@ import { useAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
+import { useAdminOrdersRoute } from '../utils/adminOrdersRoute.js'
 import { avatarUrl } from '../utils/avatar.js'
 
 export default function AdminOrdersTopBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { user } = useAuth() as { user?: { name?: string; email?: string } }
-  const [search, setSearch] = useState('')
+  const list = useAdminOrdersRoute()
+  const search = list.filters.q ?? ''
   const [notifOpen, setNotifOpen] = useState(false)
   const notifRef = useRef<HTMLDivElement>(null)
 
@@ -79,7 +81,7 @@ export default function AdminOrdersTopBar() {
             )}
             type="text"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) => list.setFilters({ q: e.target.value || undefined }, { replace: true })}
           />
         </div>
       </div>
