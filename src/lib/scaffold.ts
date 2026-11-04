@@ -2512,6 +2512,31 @@ function mlclVersion(): string {
 }
 
 /**
+ * Give a multi-package project's root (a full-stack `api/` + `app/` monorepo, a site under
+ * `app/`) the same Prettier config and ignore file its packages carry, when it has none.
+ *
+ * The root holds formattable files of its own (`package.json`, `scripts/*.mjs`,
+ * `.github/*.yml`). Without a config there, every tool that formats them — an editor, a hook, a
+ * hosting platform's deploy — falls back to Prettier's defaults (double quotes, semicolons,
+ * 80 columns), so the root formats differently from the rest of the project and differently
+ * from what `mlcl create` wrote.
+ *
+ * @param projectRoot - Absolute path to the project root.
+ */
+export async function ensureRootFormatterConfig(projectRoot: string): Promise<void> {
+  if (!existsSync(join(projectRoot, '.prettierrc')))
+    await writeFile(
+      join(projectRoot, '.prettierrc'),
+      await loadTemplate('app/shared/prettierrc.json.tpl'),
+    )
+  if (!existsSync(join(projectRoot, '.prettierignore')))
+    await writeFile(
+      join(projectRoot, '.prettierignore'),
+      await loadTemplate('app/shared/prettierignore.tpl'),
+    )
+}
+
+/**
  * Scaffold the security CI + Dependabot config into a generated project so it is
  * secure-by-default from the first commit (SEC3 — "vulnerability scans").
  *

@@ -38,6 +38,7 @@ import {
   createFullStackProject,
   createStaticProject,
   createStatusPageEdgeProject,
+  ensureRootFormatterConfig,
   generateEnvFile,
   generateFontHtml,
   getTemplateRequiredPackages,
@@ -1301,18 +1302,18 @@ export default class Create extends Command {
       log(t('commands.create.messages.fontsCopied'))
     }
 
-    // Format generated code (skip when --skip-install: no node_modules for Prettier)
+    // The root gets the packages' formatter config, so every tool formats its files alike.
+    if (hasAppSubdir) await ensureRootFormatterConfig(projectPath)
+
+    // Format the whole generated project, root files included. A --skip-install scaffold skips
+    // this pass: it formats every file (about 7.5 s for a full-stack React project) on a path
+    // that must stay fast, such as a hosting platform's per-project scaffold. Its output is kept
+    // formatter-clean at the source instead — the templates and generators themselves — and
+    // `scaffold-format-clean.test.ts` fails on any file a scaffold leaves for `prettier --write`.
     if (!flags['skip-install']) {
       spinner?.start(t('commands.create.spinners.formatting'))
       try {
-        if (isFullStack) {
-          await formatGeneratedFiles(join(projectPath, 'api'))
-          await formatGeneratedFiles(join(projectPath, 'app'))
-        } else if (isStatic) {
-          await formatGeneratedFiles(join(projectPath, 'app'))
-        } else {
-          await formatGeneratedFiles(projectPath)
-        }
+        await formatGeneratedFiles(projectPath)
         spinner?.stop(t('commands.create.spinners.formatted'))
         log(t('commands.create.spinners.formatted'))
       } catch (error) {

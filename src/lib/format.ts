@@ -4,8 +4,8 @@
  * @module
  */
 
-import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { extname, join, relative } from 'node:path'
+import { access, readdir, readFile, writeFile } from 'node:fs/promises'
+import { dirname, extname, join, relative, resolve } from 'node:path'
 
 import * as prettier from 'prettier'
 
@@ -244,7 +244,10 @@ export function sortImportStatements(content: string): string {
   )
 }
 
-/** Prettier config shared by all generated projects. */
+/**
+ * Prettier config shared by all generated projects. Used only for a file no config applies to:
+ * every generated package writes this same config as its `.prettierrc`, and that file wins.
+ */
 const PRETTIER_CONFIG: prettier.Options = {
   singleQuote: true,
   semi: false,
@@ -255,47 +258,121 @@ const PRETTIER_CONFIG: prettier.Options = {
   endOfLine: 'lf',
 }
 
-/** File extensions that Prettier can format. */
+/**
+ * File extensions that Prettier formats. The same set any later `prettier --write` over the
+ * project (an editor, a pre-commit hook, a platform's deploy) formats, so a freshly generated
+ * project gives none of them work to do.
+ */
 const FORMATTABLE_EXTENSIONS = new Set([
   '.ts',
   '.tsx',
   '.js',
+  '.jsx',
   '.mjs',
+  '.cjs',
+  '.mts',
+  '.cts',
   '.json',
   '.css',
+  '.scss',
+  '.less',
   '.html',
   '.vue',
   '.svelte',
+  '.md',
+  '.mdx',
+  '.yaml',
+  '.yml',
+  '.graphql',
+  '.gql',
 ])
+
+/** Passes before giving up on a file whose formatting does not settle (see below). */
+const MAX_FORMAT_PASSES = 4
 
 /** Directories to skip when discovering files. */
 const SKIP_DIRS = new Set(['node_modules', 'dist', '.git', 'icons', 'fonts', '__setup__'])
 
 /**
- * Format all generated files in a project directory using Prettier's JS API.
+ * The directory a `prettier` run over this file starts in: the nearest one, from the file's own
+ * directory up to the project root, that holds a `package.json` (a package's own scripts, an
+ * editor and a per-package formatter run all start there). Its `.gitignore` and `.prettierignore`
+ * decide whether the file is formatted at all, exactly as the Prettier CLI reads them.
+ */
+async function formatterRoot(filePath: string, projectPath: string): Promise<string> {
+  const root = resolve(projectPath)
+  for (let dir = dirname(resolve(filePath)); ; dir = dirname(dir)) {
+    if (await exists(join(dir, 'package.json'))) return dir
+    if (dir === root || dir === dirname(dir)) return root
+  }
+}
+
+async function exists(path: string): Promise<boolean> {
+  try {
+    await access(path)
+    return true
+  } catch (_error) {
+    // Absent (or unreadable): the caller keeps walking up to the next directory.
+    return false
+  }
+}
+
+/**
+ * Format all generated files in a project directory using Prettier's JS API — mlcl's own
+ * Prettier, so nothing has to be installed in the project first.
  *
- * Recursively discovers formattable files (.ts, .tsx, .js, .mjs, .json, .css, .html),
- * skipping node_modules, dist, and asset directories. Each file is formatted in-place
- * only if Prettier changes its content.
+ * Recursively discovers formattable files (the extensions above), skipping node_modules, dist,
+ * and asset directories. Each file is formatted the way `prettier --write` run from its package
+ * formats it: with the config that applies at the file's path (its `.prettierrc`, an
+ * `.editorconfig`), falling back to {@link PRETTIER_CONFIG} only when none does, and not at all
+ * when that package's `.gitignore` or `.prettierignore` excludes it. A file is written only when
+ * Prettier changes it, and is formatted to a fixed point: Prettier is not idempotent for every
+ * input (a fenced code block in markdown can lose a blank line on the second pass), and a file
+ * one pass leaves behind is still rewritten by the next `prettier --write`.
  *
  * @param projectPath - Absolute path to the project root (e.g., `molecule-dev/api`).
  * @returns Number of files that were reformatted.
  */
 export async function formatGeneratedFiles(projectPath: string): Promise<number> {
+  return (await formatPass(projectPath, true)).length
+}
+
+/**
+ * The files {@link formatGeneratedFiles} would rewrite, without writing any: what a
+ * `prettier --write` over the project would change. A scaffold that needs no formatting returns
+ * an empty list.
+ *
+ * @param projectPath - Absolute path to the project root.
+ * @returns Paths relative to `projectPath`, sorted.
+ */
+export async function unformattedGeneratedFiles(projectPath: string): Promise<string[]> {
+  return (await formatPass(projectPath, false)).map((path) => relative(projectPath, path)).sort()
+}
+
+async function formatPass(projectPath: string, write: boolean): Promise<string[]> {
   const files = await discoverFiles(projectPath)
-  let formatted = 0
+  const changed: string[] = []
 
   for (const filePath of files) {
     const content = await readFile(filePath, 'utf-8')
     const ext = extname(filePath)
     try {
-      const result = await prettier.format(content, {
-        ...PRETTIER_CONFIG,
-        filepath: filePath,
+      const cwd = await formatterRoot(filePath, projectPath)
+      const info = await prettier.getFileInfo(filePath, {
+        ignorePath: [join(cwd, '.gitignore'), join(cwd, '.prettierignore')],
       })
+      if (info.ignored || !info.inferredParser) continue
+      const config = await prettier.resolveConfig(filePath, { editorconfig: true })
+      const options = { ...(config ?? PRETTIER_CONFIG), filepath: filePath }
+      let result = content
+      for (let pass = 0; pass < MAX_FORMAT_PASSES; pass++) {
+        const next = await prettier.format(result, options)
+        if (next === result) break
+        result = next
+      }
       if (result !== content) {
-        await writeFile(filePath, result)
-        formatted++
+        if (write) await writeFile(filePath, result)
+        changed.push(filePath)
       }
     } catch (error) {
       // Skip files that Prettier can't parse (e.g., malformed JSON)
@@ -304,7 +381,7 @@ export async function formatGeneratedFiles(projectPath: string): Promise<number>
     }
   }
 
-  return formatted
+  return changed
 }
 
 /**

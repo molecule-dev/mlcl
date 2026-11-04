@@ -4,7 +4,7 @@ import { join } from 'node:path'
 
 import { afterAll, describe, expect, it } from 'vitest'
 
-import { formatGeneratedFiles } from '../format.js'
+import { formatGeneratedFiles, unformattedGeneratedFiles } from '../format.js'
 
 const tempDirs: string[] = []
 
@@ -165,5 +165,64 @@ describe('formatGeneratedFiles', () => {
     const count = await formatGeneratedFiles(dir)
 
     expect(count).toBe(0)
+  })
+})
+
+describe('formatGeneratedFiles formats like prettier --write run from each package', () => {
+  it('uses the config that applies at the file, not its own', async () => {
+    const dir = await createTempDir('own-config')
+    await writeFile(join(dir, 'package.json'), '{\n  "name": "p"\n}\n')
+    await writeFile(join(dir, '.prettierrc'), '{ "semi": true }\n')
+    await writeFile(join(dir, 'index.ts'), "const x = 'hello'\n")
+
+    expect(await formatGeneratedFiles(dir)).toBe(1)
+    // Prettier's defaults plus the project's semi: double quotes and a semicolon.
+    expect(await readFile(join(dir, 'index.ts'), 'utf-8')).toBe('const x = "hello";\n')
+  })
+
+  it("leaves files the package's .prettierignore or .gitignore excludes", async () => {
+    const dir = await createTempDir('ignored')
+    await mkdir(join(dir, 'app', 'public', 'vendor'), { recursive: true })
+    await writeFile(join(dir, 'package.json'), '{\n  "name": "root"\n}\n')
+    await writeFile(join(dir, 'app', 'package.json'), '{\n  "name": "app"\n}\n')
+    await writeFile(join(dir, 'app', '.prettierignore'), '*.md\n')
+    await writeFile(join(dir, 'app', '.gitignore'), 'public/vendor/\n')
+    const notes = '# Notes\n\n\n\ntext\n'
+    const vendor = 'const a=1\n'
+    await writeFile(join(dir, 'app', 'NOTES.md'), notes)
+    await writeFile(join(dir, 'app', 'public', 'vendor', 'lib.js'), vendor)
+    // The root package has no ignore file, so its markdown IS formatted.
+    await writeFile(join(dir, 'README.md'), notes)
+
+    expect(await unformattedGeneratedFiles(dir)).toEqual(['README.md'])
+    expect(await formatGeneratedFiles(dir)).toBe(1)
+    expect(await readFile(join(dir, 'app', 'NOTES.md'), 'utf-8')).toBe(notes)
+    expect(await readFile(join(dir, 'app', 'public', 'vendor', 'lib.js'), 'utf-8')).toBe(vendor)
+    expect(await readFile(join(dir, 'README.md'), 'utf-8')).toBe('# Notes\n\ntext\n')
+  })
+
+  it('formats every extension a later prettier --write formats (markdown, YAML, JSX, CommonJS)', async () => {
+    const dir = await createTempDir('extensions')
+    await writeFile(join(dir, 'GUIDE.md'), '# Guide\n\n\n\nbody\n')
+    await writeFile(join(dir, 'ci.yml'), 'jobs:\n    build:\n        runs-on: x\n')
+    await writeFile(join(dir, 'view.jsx'), 'export const V = () => <div   />\n')
+    await writeFile(join(dir, 'cfg.cjs'), 'module.exports = {a:1}\n')
+
+    expect(await unformattedGeneratedFiles(dir)).toEqual([
+      'GUIDE.md',
+      'cfg.cjs',
+      'ci.yml',
+      'view.jsx',
+    ])
+  })
+
+  it('lists what it would change without writing anything', async () => {
+    const dir = await createTempDir('check-only')
+    await mkdir(join(dir, 'src'), { recursive: true })
+    await writeFile(join(dir, 'src', 'a.ts'), 'const x = "hello";\n')
+    await writeFile(join(dir, 'src', 'b.ts'), "const y = 'clean'\n")
+
+    expect(await unformattedGeneratedFiles(dir)).toEqual(['src/a.ts'])
+    expect(await readFile(join(dir, 'src', 'a.ts'), 'utf-8')).toBe('const x = "hello";\n')
   })
 })
