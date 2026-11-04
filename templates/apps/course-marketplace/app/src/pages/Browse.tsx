@@ -1,5 +1,4 @@
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
@@ -89,27 +88,29 @@ function badgeFor(course: ApiCourse): 'bestseller' | 'new' | 'free' | undefined 
 export function Browse() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  // Deep-link support: the Landing hero search navigates to /browse?q=…
-  // and category bubbles navigate to /browse?category=… — honor both.
-  const [searchParams, setSearchParams] = useSearchParams()
+  const pageSize = 9
 
-  const listRoute = useListRoute({ filters: { category: {}, q: {} } })
+  // Deep-link support: the Landing hero search navigates to /browse?q=…
+  // and category bubbles navigate to /browse?category=… — honor both. The
+  // page (?page=) shares the same URL state, so page links, Back/Forward
+  // and reloads keep the view.
+  const listRoute = useListRoute({
+    pageSize,
+    filters: { category: { defaultValue: 'All' }, q: {} },
+  })
   const query = (listRoute.filters.q ?? null)?.trim() ?? ''
+  const activeCategory = listRoute.filters.category ?? 'All'
+  const page = listRoute.page
   const [courses, setCourses] = useState<ApiCourse[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [categories, setCategories] = useState<string[]>(['All'])
-  const [activeCategory, setActiveCategory] = useState(listRoute.filters.category ?? 'All')
   const [activeLevel, setActiveLevel] = useState<string | null>(null)
   const [activePrice, setActivePrice] = useState<string | null>(null)
   const [sort, setSort] = useState<(typeof SORT_OPTIONS)[number]['id']>('popular')
-  const [page, setPage] = useState(1)
-  const pageSize = 9
 
   const clearSearch = () => {
-    const next = new URLSearchParams(searchParams)
-    next.delete('q')
-    setSearchParams(next, { replace: true })
+    listRoute.setFilters({ q: undefined }, { replace: true })
   }
 
   useEffect(() => {
@@ -150,7 +151,6 @@ export function Browse() {
       .then((rows) => {
         if (cancelled) return
         setCourses(rows ?? [])
-        setPage(1)
       })
       .catch((err) => {
         if (cancelled) return
@@ -166,7 +166,7 @@ export function Browse() {
   }, [activeCategory, activeLevel, activePrice, sort, query])
 
   const totalPages = Math.max(1, Math.ceil(courses.length / pageSize))
-  const visible = courses.slice((page - 1) * pageSize, page * pageSize)
+  const visible = courses.slice(listRoute.offset, listRoute.offset + listRoute.pageSize)
 
   return (
     <div className={cm.cn('min-h-screen flex flex-col bg-background')}>
@@ -220,10 +220,15 @@ export function Browse() {
                     type="button"
                     data-mol-id={`filter-${c}`}
                     onClick={() => {
-                      setActiveCategory(c)
-                      // Text search overrides the other filters server-side, so
-                      // picking a category drops the active search term.
-                      if (query) clearSearch()
+                      // One atomic URL change: setFilters writes ?category=
+                      // (dropping it for "All") and returns to page one.
+                      // Text search overrides the other filters server-side,
+                      // so picking a category drops the active search term.
+                      if (c !== activeCategory || query)
+                        listRoute.setFilters({
+                          category: c === 'All' ? undefined : c,
+                          q: undefined,
+                        })
                     }}
                     className={cm.cn(
                       'rounded-full px-4 py-1.5 text-sm font-medium transition-colors',
@@ -258,8 +263,16 @@ export function Browse() {
                         name="filter-level"
                         data-mol-id={`level-${l.id}`}
                         checked={activeLevel === l.id}
-                        onChange={() => setActiveLevel((v) => (v === l.id ? null : l.id))}
-                        onClick={() => activeLevel === l.id && setActiveLevel(null)}
+                        onChange={() => {
+                          setActiveLevel((v) => (v === l.id ? null : l.id))
+                          if (page !== 1) listRoute.setPage(1)
+                        }}
+                        onClick={() => {
+                          if (activeLevel === l.id) {
+                            setActiveLevel(null)
+                            if (page !== 1) listRoute.setPage(1)
+                          }
+                        }}
                         className={cm.cn(
                           'w-4 h-4 rounded-full border-outline-variant/30 text-primary',
                         )}
@@ -291,8 +304,16 @@ export function Browse() {
                         name="filter-price"
                         data-mol-id={`price-${b.id}`}
                         checked={activePrice === b.id}
-                        onChange={() => setActivePrice((v) => (v === b.id ? null : b.id))}
-                        onClick={() => activePrice === b.id && setActivePrice(null)}
+                        onChange={() => {
+                          setActivePrice((v) => (v === b.id ? null : b.id))
+                          if (page !== 1) listRoute.setPage(1)
+                        }}
+                        onClick={() => {
+                          if (activePrice === b.id) {
+                            setActivePrice(null)
+                            if (page !== 1) listRoute.setPage(1)
+                          }
+                        }}
                         className={cm.cn('w-4 h-4 rounded border-outline-variant/30 text-primary')}
                       />
                       <span>{t(b.labelKey, {}, { defaultValue: b.labelDefault })}</span>
@@ -347,7 +368,10 @@ export function Browse() {
                 <select
                   id="sort"
                   value={sort}
-                  onChange={(e) => setSort(e.target.value as (typeof SORT_OPTIONS)[number]['id'])}
+                  onChange={(e) => {
+                    setSort(e.target.value as (typeof SORT_OPTIONS)[number]['id'])
+                    if (page !== 1) listRoute.setPage(1)
+                  }}
                   data-mol-id="sort-select"
                   className={
                     'bg-surface-container-lowest rounded-full px-4 py-2 text-sm font-medium text-on-surface shadow-sm border border-outline-variant/20 focus:outline-none focus:border-primary'
@@ -414,7 +438,7 @@ export function Browse() {
               >
                 <button
                   type="button"
-                  onClick={() => setPage((p) => Math.max(1, p - 1))}
+                  onClick={() => listRoute.setPage(Math.max(1, page - 1))}
                   disabled={page === 1}
                   aria-label={t('browse.prev', {}, { defaultValue: 'Previous page' })}
                   className={
@@ -429,7 +453,9 @@ export function Browse() {
                   <button
                     key={n}
                     type="button"
-                    onClick={() => setPage(n)}
+                    onClick={() => {
+                      if (n !== page) listRoute.setPage(n)
+                    }}
                     data-mol-id={`page-${n}`}
                     className={cm.cn(
                       'w-10 h-10 rounded-full text-sm font-bold transition-colors',
@@ -443,7 +469,7 @@ export function Browse() {
                 ))}
                 <button
                   type="button"
-                  onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+                  onClick={() => listRoute.setPage(Math.min(totalPages, page + 1))}
                   disabled={page === totalPages}
                   aria-label={t('browse.next', {}, { defaultValue: 'Next page' })}
                   className={
