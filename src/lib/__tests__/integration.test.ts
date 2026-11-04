@@ -309,8 +309,13 @@ describe('expected route coverage', () => {
     const content = routerFile.content!
 
     for (const route of EXPECTED_ROUTES) {
-      const pattern = `router.${route.method}(\`${route.path}\``
-      expect(content).toContain(pattern)
+      // The emitter writes a mount on one line when it fits the scaffold's
+      // prettier print width and breaks after the open paren otherwise — match
+      // both shapes.
+      const pattern = new RegExp(
+        `router\\.${route.method}\\(\\s*\`${route.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\``,
+      )
+      expect(content).toMatch(pattern)
     }
   })
 

@@ -92,7 +92,9 @@ describe('injector consumes the same auth contract as the app', () => {
     expect(router).toContain('router.post(`/sessions`')
     expect(router).toContain('router.get(`/sessions/current`')
     expect(router).toContain('router.put(`/accounts/:id`')
-    expect(router).toContain('router.post(`/password/change`,\n  User.auth,')
+    // The emitter writes a route mount on one line when it fits the scaffold's
+    // prettier print width and breaks it otherwise — match either shape.
+    expect(router).toMatch(/router\.post\(`\/password\/change`, User\.auth,/)
     expect(router).not.toContain('router.post(`/users/log-in`')
 
     const wrapper = String(

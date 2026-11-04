@@ -2477,7 +2477,7 @@ export const themeProvider = ${createFn}({
  */
 
 ${needsTypeImport ? `${typeImport}\n` : ''}${setterImport}
-import { ${imports.join(', ')} } from '${pkg.name}'
+${importStatement(imports, pkg.name)}
 ${themeSetup}
 export function setup${pascal}(): void {
   setProvider(themeProvider)
@@ -3044,8 +3044,13 @@ function untouchedRouter(text: string): boolean {
   )
 }
 
-/** A generated package mount ends at its package handler; app middleware has no such owner. */
-const ROUTE_BLOCK = /router\.(?:get|post|put|patch|delete|all)\(`[^`\r\n]*`,\n[\s\S]*?\n\)/g
+/**
+ * A generated package mount ends at its package handler; app middleware has no such owner.
+ * Matches both shapes the router emitter produces: a mount that fits the scaffold's
+ * prettier print width on one line, and the broken-out one-argument-per-line form.
+ */
+const ROUTE_BLOCK =
+  /router\.(?:get|post|put|patch|delete|all)\(`[^`\r\n]*`(?:[^\n)]*\)|,\n[\s\S]*?\n\))/g
 const AUTH_GATE = /router\.use\((\w+)Authorization\.verifyMiddleware\([^\n]*\)\)/g
 
 function routeBlockKey(block: string): string | undefined {
@@ -3822,7 +3827,7 @@ function generateDefaultBondSetup(
       setup.setter,
     ]),
   ].sort(bySpecifierName)
-  imports.push(`import { ${ownNames.join(', ')} } from '${packageName}'`)
+  imports.push(importStatement(ownNames, packageName))
   // `configImport` is spread into the factory call; `configImports` are names a
   // `configExtend` entry reads without being spread (`baseURL: API_BASE_URL`). Both
   // come from the app's own `../config.js`, so they share one import statement.
@@ -3834,14 +3839,14 @@ function generateDefaultBondSetup(
     ]),
   ].sort(bySpecifierName)
   if (configNames.length > 0) {
-    imports.push(`import { ${configNames.join(', ')} } from '../config.js'`)
+    imports.push(importStatement(configNames, '../config.js'))
   }
   for (const imp of setup.extraImports ?? []) {
     if (imp.from === packageName) continue
-    imports.push(`import { ${imp.names.join(', ')} } from '${imp.from}'`)
+    imports.push(importStatement(imp.names, imp.from))
   }
   if (setup.authBridge) {
-    imports.push(`import { ${setup.authBridge.client} } from './${setup.authBridge.bond}.js'`)
+    imports.push(importStatement([setup.authBridge.client], `./${setup.authBridge.bond}.js`))
   }
 
   // The file's own header is the doc an executor reads when it opens the bond it is told to edit.
@@ -3992,15 +3997,12 @@ precacheAndRoute(self.__WB_MANIFEST)
 // App Shell-style routing: all navigation requests are fulfilled
 // with index.html so client-side routing works offline.
 const fileExtensionRegexp = new RegExp('/[^/?]+\\\\.[^/]+$')
-registerRoute(
-  ({ request, url }: { request: Request; url: URL }) => {
-    if (request.mode !== 'navigate') return false
-    if (url.pathname.startsWith('/_')) return false
-    if (url.pathname.match(fileExtensionRegexp)) return false
-    return true
-  },
-  createHandlerBoundToURL('/index.html'),
-)
+registerRoute(({ request, url }: { request: Request; url: URL }) => {
+  if (request.mode !== 'navigate') return false
+  if (url.pathname.startsWith('/_')) return false
+  if (url.pathname.match(fileExtensionRegexp)) return false
+  return true
+}, createHandlerBoundToURL('/index.html'))
 
 // Cache images with a StaleWhileRevalidate strategy.
 registerRoute(
@@ -4021,10 +4023,7 @@ const showNotification = async (notification: {
   title: string
   options: NotificationOptions
 }): Promise<void> => {
-  return self.registration.showNotification(
-    notification.title,
-    notification.options,
-  )
+  return self.registration.showNotification(notification.title, notification.options)
 }
 
 /**
@@ -4304,6 +4303,48 @@ function generatedRouterHeader(
 }
 
 /**
+ * The print width every scaffolded project's `.prettierrc` sets — the line budget the
+ * generated-source emitters below must respect, so what they emit is exactly what the
+ * project's own `prettier --write` keeps.
+ */
+const PRETTIER_PRINT_WIDTH = 100
+
+/**
+ * An import statement as the project's own prettier keeps it: one line when it fits
+ * the print width, otherwise one specifier per line with a trailing comma (the
+ * expanded form is stable — prettier preserves a newline directly after `{`).
+ */
+function importStatement(names: string[], from: string): string {
+  const oneLine = `import { ${names.join(', ')} } from '${from}'`
+  if (oneLine.length <= PRETTIER_PRINT_WIDTH) return oneLine
+  return [`import {`, ...names.map((n) => `  ${n},`), `} from '${from}'`].join('\n')
+}
+
+/**
+ * Split a parameter-list string (`(a: A, b: B)`, as the registry states a framework's
+ * error-handler signature) into its top-level parameters. Commas nested in brackets,
+ * braces, parens or generics do not split.
+ */
+function splitTopLevelParams(signature: string): string[] {
+  const inner = signature.trim().replace(/^\(/, '').replace(/\)$/, '')
+  const params: string[] = []
+  let depth = 0
+  let current = ''
+  for (const ch of inner) {
+    if ('([{<'.includes(ch)) depth++
+    else if (')]}>'.includes(ch)) depth--
+    if (ch === ',' && depth === 0) {
+      params.push(current.trim())
+      current = ''
+    } else {
+      current += ch
+    }
+  }
+  if (current.trim()) params.push(current.trim())
+  return params
+}
+
+/**
  * Generate router.ts content.
  *
  * Uses the heuristic which derives routes from registry metadata —
@@ -4446,15 +4487,23 @@ function generateRouterContentHeuristic(
     for (const route of plan.moleculePackage.routes) {
       if (route.optional && !optionalFeatures.has(route.optional)) continue
 
-      const chain: string[] = []
-      for (const mw of route.middlewares) {
-        chain.push(`  ${importName}.${mw},`)
+      // Emit the call exactly as the scaffold's own prettier formats it: one line
+      // when it fits the print width, otherwise every argument on its own line
+      // with a trailing comma. A route mount prettier would rewrite is dirt on
+      // the project's first format run.
+      const args = [
+        `\`${route.path}\``,
+        ...route.middlewares.map((mw) => `${importName}.${mw}`),
+        `${importName}.${route.handler}`,
+      ]
+      const oneLine = `router.${route.method}(${args.join(', ')})`
+      if (oneLine.length <= PRETTIER_PRINT_WIDTH) {
+        lines.push(oneLine)
+      } else {
+        lines.push(`router.${route.method}(`)
+        for (const arg of args) lines.push(`  ${arg},`)
+        lines.push(`)`)
       }
-      chain.push(`  ${importName}.${route.handler}`)
-
-      lines.push(`router.${route.method}(\`${route.path}\`,`)
-      lines.push(chain.join('\n'))
-      lines.push(`)`)
       lines.push('')
     }
   }
@@ -4569,9 +4618,18 @@ function generateServerContentHeuristic(
     lines.push(`import { logger } from '${loggerPackageName}'`)
   }
   if (hasMonitoring) {
-    lines.push(
-      `import { getOptionalProvider as getMonitoringProvider, runAll as runMonitoringChecks } from '${monitoringPkg!.name}'`,
-    )
+    const monitoringSpecifiers = [
+      `  getOptionalProvider as getMonitoringProvider,`,
+      `  runAll as runMonitoringChecks,`,
+    ]
+    const monitoringOneLine = `import { getOptionalProvider as getMonitoringProvider, runAll as runMonitoringChecks } from '${monitoringPkg!.name}'`
+    if (monitoringOneLine.length <= PRETTIER_PRINT_WIDTH) {
+      lines.push(monitoringOneLine)
+    } else {
+      lines.push(`import {`)
+      lines.push(...monitoringSpecifiers)
+      lines.push(`} from '${monitoringPkg!.name}'`)
+    }
   }
   // The lifecycle packages are `alwaysInclude` in the registry, so every
   // generated API has them. `inject` may also run against a project created
@@ -4595,13 +4653,21 @@ function generateServerContentHeuristic(
   lines.push(...localImports)
 
   lines.push('')
-  lines.push(`process.on('uncaughtException', error => ${logError})`)
-  lines.push(`process.on('unhandledRejection', error => ${logError})`)
+  lines.push(`process.on('uncaughtException', (error) => ${logError})`)
+  lines.push(`process.on('unhandledRejection', (error) => ${logError})`)
   lines.push('')
 
-  lines.push(
-    `export const create = async (port: number = (Number(process.env.PORT) || 4000)): Promise<${fw.serverType} | https.Server> => {`,
-  )
+  // The create signature: one line when it fits the print width (a short
+  // serverType), otherwise prettier's broken form — parameters one per line
+  // with a trailing comma and no redundant parens around the default value.
+  const createOneLine = `export const create = async (port: number = Number(process.env.PORT) || 4000): Promise<${fw.serverType} | https.Server> => {`
+  if (createOneLine.length <= PRETTIER_PRINT_WIDTH) {
+    lines.push(createOneLine)
+  } else {
+    lines.push(`export const create = async (`)
+    lines.push(`  port: number = Number(process.env.PORT) || 4000,`)
+    lines.push(`): Promise<${fw.serverType} | https.Server> => {`)
+  }
   if (hasDatabase) {
     lines.push(`  await runMigrations()`)
   }
@@ -4674,7 +4740,22 @@ function generateServerContentHeuristic(
     lines.push(``)
   }
 
-  lines.push(`  app.use((${fw.errorHandlerSignature} => {`)
+  // The cast keeps the arrow parenthesized (`app.use(((…) => { … }) as …)`), so the
+  // prettier-stable broken form puts each parameter on its own line. Emitted to match
+  // the project's own formatter exactly, or the first `prettier --write` rewrites it.
+  const errorHandlerOneLine = `  app.use((${fw.errorHandlerSignature} => {`
+  if (errorHandlerOneLine.length <= PRETTIER_PRINT_WIDTH) {
+    lines.push(errorHandlerOneLine)
+  } else {
+    // The one-liner's shape is `app.use(((params) => {`: the call paren, the
+    // paren the cast needs, and the parameter list. The broken form keeps all
+    // three, one parameter per line.
+    lines.push(`  app.use(((`)
+    for (const param of splitTopLevelParams(fw.errorHandlerSignature)) {
+      lines.push(`    ${param},`)
+    }
+    lines.push(`  ) => {`)
+  }
   lines.push(`    // Auth middleware passes the i18n-translated 'Unauthorized'`)
   lines.push(`    // string through next(); the trailing period varies by locale`)
   lines.push(`    // pack so we match both with and without it.`)
@@ -4721,9 +4802,15 @@ function generateServerContentHeuristic(
   if (hasLifecycle) {
     lines.push(`    lifecycle.markReady()`)
   }
-  lines.push(
-    `    ${logInfo}(\`Started \${process.env.NODE_ENV} \${process.env.HTTPS ? 'HTTPS' : 'HTTP'} server on port \${port}.\`)`,
-  )
+  const startedMessage = `\`Started \${process.env.NODE_ENV} \${process.env.HTTPS ? 'HTTPS' : 'HTTP'} server on port \${port}.\``
+  const startedOneLine = `    ${logInfo}(${startedMessage})`
+  if (startedOneLine.length <= PRETTIER_PRINT_WIDTH) {
+    lines.push(startedOneLine)
+  } else {
+    lines.push(`    ${logInfo}(`)
+    lines.push(`      ${startedMessage},`)
+    lines.push(`    )`)
+  }
   lines.push(`  })`)
   lines.push(``)
   if (hasLifecycle) {
@@ -5001,6 +5088,17 @@ Other packages: mock every camelCase registry export as vi.fn() — never an emp
 }
 
 /**
+ * The authorization mock entry for a resource package that also exports
+ * `authorization` — emitted in prettier's broken form (the one-line form exceeds the
+ * print width), so the generated smoke test is already formatted.
+ */
+const AUTHORIZATION_MOCK_ENTRY = [
+  `  authorization: {`,
+  `    verifyMiddleware: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()),`,
+  `  },`,
+].join('\n')
+
+/**
  * Heuristic mock generation (fallback).
  * Generates mock shapes based on package type and exports.
  */
@@ -5044,49 +5142,47 @@ function generateMoleculeViMocksHeuristic(
       const hasFactory = pkgExports.includes('createRequestHandlerMap')
 
       if (hasFactory) {
-        const handlerEntries = [...handlers].map((h) => `    ${h}: vi.fn()`).join(',\n')
+        const handlerEntries = [...handlers].map((h) => `    ${h}: vi.fn(),`).join('\n')
         lines.push(`vi.mock('${pkg}', () => ({`)
         lines.push(`  createRequestHandlerMap: () => ({`)
         lines.push(handlerEntries)
         lines.push(`  }),`)
-        if (hasAuthorization) {
-          lines.push(
-            `  authorization: { verifyMiddleware: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()) },`,
-          )
-        }
+        if (hasAuthorization) lines.push(AUTHORIZATION_MOCK_ENTRY)
         lines.push(`}))`)
       } else if (pkgExports.includes('requestHandlerMap')) {
         // Static requestHandlerMap — mock as object with handler entries
-        const handlerEntries = [...handlers].map((h) => `    ${h}: vi.fn()`).join(',\n')
+        const handlerEntries = [...handlers].map((h) => `    ${h}: vi.fn(),`).join('\n')
         lines.push(`vi.mock('${pkg}', () => ({`)
         lines.push(`  requestHandlerMap: {`)
         lines.push(handlerEntries)
         lines.push(`  },`)
-        if (hasAuthorization) {
-          lines.push(
-            `  authorization: { verifyMiddleware: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()) },`,
-          )
-        }
+        if (hasAuthorization) lines.push(AUTHORIZATION_MOCK_ENTRY)
         lines.push(`}))`)
       } else {
         const camelExports = pkgExports.filter(
           (e) => /^[a-z]/.test(e) && e !== 'default' && !e.endsWith('Schema'),
         )
         const mockExports = camelExports.length > 0 ? camelExports : [...handlers]
-        const entries = mockExports.map((h) => `  ${h}: vi.fn()`).join(',\n')
+        const entries = mockExports.map((h) => `  ${h}: vi.fn(),`).join('\n')
         lines.push(`vi.mock('${pkg}', () => ({`)
         lines.push(entries)
-        if (hasAuthorization) {
-          lines.push(
-            `,\n  authorization: { verifyMiddleware: vi.fn(() => (_req: unknown, _res: unknown, next: () => void) => next()) },`,
-          )
-        }
+        if (hasAuthorization) lines.push(AUTHORIZATION_MOCK_ENTRY)
         lines.push(`}))`)
       }
     } else if (registry.packages[pkg]?.type === 'middleware') {
-      lines.push(`vi.mock('${pkg}', () => new Proxy({}, {`)
-      lines.push(`  get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),`)
-      lines.push(`}))`)
+      // Prettier's stable form for this over-width call: every argument broken out.
+      lines.push(`vi.mock(`)
+      lines.push(`  '${pkg}',`)
+      lines.push(`  () =>`)
+      lines.push(`    new Proxy(`)
+      lines.push(`      {},`)
+      lines.push(`      {`)
+      lines.push(
+        `        get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),`,
+      )
+      lines.push(`      },`)
+      lines.push(`    ),`)
+      lines.push(`)`)
     } else {
       // Registry-driven surface for every other package: a module-scope call
       // into an empty `{}` mock crashes the test on import. Core packages call
@@ -5200,7 +5296,16 @@ function generateServerSmokeTest(
     const declared = p.molecule?.shortName
     const shortName = isSafeShortName(declared) ? declared : extractShortName(p.name)
     const camelName = middlewareIdentifier(shortName)
-    return `vi.mock('../middleware/${shortName}.js', () => ({ ${camelName}Middleware: ${noopMiddleware} }))`
+    // One line when it fits the print width, otherwise the exploded object the
+    // project's own prettier produces (the one-line form is over-width for every
+    // real middleware name).
+    const oneLine = `vi.mock('../middleware/${shortName}.js', () => ({ ${camelName}Middleware: ${noopMiddleware} }))`
+    if (oneLine.length <= PRETTIER_PRINT_WIDTH) return oneLine
+    return [
+      `vi.mock('../middleware/${shortName}.js', () => ({`,
+      `  ${camelName}Middleware: ${noopMiddleware},`,
+      `}))`,
+    ].join('\n')
   })
 
   return `${GENERATED_SERVER_TEST_BANNER}
@@ -5460,23 +5565,55 @@ function generateAppBondsSmokeTest(
       if (exp === 'default' || exp === '*' || exp.endsWith('Schema') || !/^[a-zA-Z_$]/.test(exp))
         continue
 
+      /** A factory-client mock entry, one line when it fits, else prettier's broken form. */
+      const factoryMockEntry = (members: string[]): string => {
+        // `members` carry their trailing commas for the broken form; the one-line
+        // form has none (prettier drops a single-line object's trailing comma).
+        const bare = members.map((m) => m.replace(/,$/, '').trim())
+        const oneLine = `  ${exp}: vi.fn(() => ({ ${bare.join(', ')} }))`
+        if (oneLine.length <= PRETTIER_PRINT_WIDTH) return oneLine
+        return [`  ${exp}: vi.fn(() => ({`, ...members.map((m) => `    ${m}`), `  }))`].join('\n')
+      }
+
       if (/^(set|register|setup)[A-Z]/.test(exp) || exp === 'bond') {
         mockEntries.push(`  ${exp}: vi.fn()`)
       } else if (/^create[A-Z]/.test(exp)) {
         // Factory — return an object with the methods the generated bond setups call on it.
         // HTTP token synchronization calls setAuthToken on clients hydrated by the shared source;
         // interceptor registrars return their unsubscribe function, hence `vi.fn(() => vi.fn())`.
-        const authEventMock = exp === 'createJWTAuthClient' ? 'addEventListener: vi.fn(), ' : ''
+        const authEventMock = exp === 'createJWTAuthClient' ? ['addEventListener: vi.fn()'] : []
         const themeMock =
           exp === 'createCSSVariablesThemeProvider'
-            ? 'getTheme: vi.fn(() => ({})), setTheme: vi.fn(), subscribe: vi.fn(() => () => {}), '
-            : ''
+            ? [
+                'getTheme: vi.fn(() => ({})),',
+                'setTheme: vi.fn(),',
+                'subscribe: vi.fn(() => () => {}),',
+              ]
+            : []
         mockEntries.push(
-          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), ${authEventMock}${themeMock}setAuthToken: vi.fn(), setAuthTokenResolver: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
+          factoryMockEntry([
+            'onLocaleChange: vi.fn(),',
+            'initialize: vi.fn(),',
+            ...authEventMock.map((m) => `${m},`),
+            ...themeMock,
+            'setAuthToken: vi.fn(),',
+            'setAuthTokenResolver: vi.fn(),',
+            'addRequestInterceptor: vi.fn(() => vi.fn()),',
+            'addResponseInterceptor: vi.fn(() => vi.fn()),',
+            'addErrorInterceptor: vi.fn(() => vi.fn()),',
+          ]),
         )
       } else if (pkg === '@molecule/app-http' && exp === 'getClient') {
         mockEntries.push(
-          `  ${exp}: vi.fn(() => ({ onLocaleChange: vi.fn(), initialize: vi.fn(), setAuthToken: vi.fn(), setAuthTokenResolver: vi.fn(), addRequestInterceptor: vi.fn(() => vi.fn()), addResponseInterceptor: vi.fn(() => vi.fn()), addErrorInterceptor: vi.fn(() => vi.fn()) }))`,
+          factoryMockEntry([
+            'onLocaleChange: vi.fn(),',
+            'initialize: vi.fn(),',
+            'setAuthToken: vi.fn(),',
+            'setAuthTokenResolver: vi.fn(),',
+            'addRequestInterceptor: vi.fn(() => vi.fn()),',
+            'addResponseInterceptor: vi.fn(() => vi.fn()),',
+            'addErrorInterceptor: vi.fn(() => vi.fn()),',
+          ]),
         )
       } else if (/^(get|is|has|use)[A-Z]/.test(exp)) {
         mockEntries.push(`  ${exp}: vi.fn()`)
@@ -5488,7 +5625,9 @@ function generateAppBondsSmokeTest(
 
     if (mockEntries.length > 0) {
       lines.push(`vi.mock('${pkg}', () => ({`)
-      lines.push(mockEntries.join(',\n'))
+      // Every member carries its trailing comma: the exploded object is what the
+      // project's own prettier (trailingComma: 'all') keeps.
+      lines.push(mockEntries.map((entry) => `${entry},`).join('\n'))
       lines.push(`}))`)
     } else {
       lines.push(`vi.mock('${pkg}', () => ({}))`)
@@ -5531,9 +5670,17 @@ function generateAppBondsSmokeTest(
     lines.push('    vi.clearAllMocks()')
     lines.push('    await setupProviders()')
     for (const setup of setupImports) {
-      lines.push(
-        `    expect((await import('${setup.testSpecifier}')).${setup.name}).toHaveBeenCalledOnce()`,
-      )
+      // One line when it fits, else prettier's broken form (the argument on its
+      // own indented line) — the generated test must survive `prettier --check`.
+      const assertion = `(await import('${setup.testSpecifier}')).${setup.name}`
+      const oneLine = `    expect(${assertion}).toHaveBeenCalledOnce()`
+      if (oneLine.length <= PRETTIER_PRINT_WIDTH) {
+        lines.push(oneLine)
+      } else {
+        lines.push(`    expect(`)
+        lines.push(`      ${assertion},`)
+        lines.push(`    ).toHaveBeenCalledOnce()`)
+      }
     }
     if (httpSetup?.name === 'setupHttpClientFetch') {
       lines.push('    expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)')

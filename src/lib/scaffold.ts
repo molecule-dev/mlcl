@@ -824,7 +824,11 @@ async function injectPreviewBridge(
     return false
   }
   await writePreviewBridgeAsset(htmlPath, publicDir, name, literal)
-  const next = html.slice(0, closingBodyIndex) + reference + html.slice(closingBodyIndex)
+  // Insert at the START of the </body> line, not at the tag: the reference carries
+  // its own indentation, and inserting at the tag would glue it onto the line's
+  // leading spaces (a double-indented first line) while pushing </body> to column 0.
+  const lineStart = html.lastIndexOf('\n', closingBodyIndex) + 1
+  const next = html.slice(0, lineStart) + reference + html.slice(lineStart)
   // A read-modify-write of the entry document that already exists: guarded,
   // so a failed write restores its bytes instead of truncating index.html.
   await writeGuarded(htmlPath, next)
@@ -3096,9 +3100,13 @@ export async function ensureE2EFiles(appPath: string): Promise<void> {
   if (!existsSync(setup))
     await writeFile(setup, await loadTemplate('app/shared/e2e/global-setup.ts.tpl'))
   if (fresh) {
+    // Unsorted on purpose: the sorter hoists the side-effect `import './bonds.js'`
+    // above the @molecule import and glues the two together, which the project's
+    // own `simple-import-sort` lint then rewrites (a blank line between the
+    // groups). The template's order is already the lint-fixed order.
     await writeFile(
       join(e2eDir, 'smoke.spec.ts'),
-      await loadTemplate('app/shared/e2e/smoke.spec.ts.tpl'),
+      await loadTemplateUnsorted('app/shared/e2e/smoke.spec.ts.tpl'),
     )
     const config = join(appPath, 'playwright.config.ts')
     if (!existsSync(config))
@@ -3616,6 +3624,21 @@ export function processTemplate(content: string, vars: Record<string, string>): 
 }
 
 /**
+ * Read a `.tpl` WITHOUT the import sorting {@link loadTemplate} applies — for a
+ * template whose import order is already what the project's ESLint
+ * (`simple-import-sort`) keeps: the sorter hoists side-effect imports above the
+ * named ones and glues the groups together, emitting a file `eslint --fix`
+ * immediately rewrites.
+ */
+async function loadTemplateUnsorted(
+  relativePath: string,
+  vars: Record<string, string> = {},
+): Promise<string> {
+  const content = await readFile(join(getTemplatesDir(), relativePath), 'utf-8')
+  return processTemplate(content, vars)
+}
+
+/**
  * Read a `.tpl` file from the templates directory and process `{{KEY}}` placeholders.
  */
 async function loadTemplate(
@@ -4079,7 +4102,15 @@ export async function applyStaticSiteOverlay(
   // The static Vite config (base path, dev plugin, no proxy, no PWA) + its plugin.
   const viteImport = fwConfig.vitePlugin?.import ?? ''
   const vitePlugin = fwConfig.vitePlugin?.usage ?? ''
-  const plugins = [vitePlugin, buildTooling?.vitePlugin?.usage].filter(Boolean).join(', ')
+  const pluginsLine = vitePluginsLine(
+    [
+      vitePlugin,
+      buildTooling?.vitePlugin?.usage,
+      'staticSitePlugin()',
+      'previewConsoleLogPlugin',
+      'stripPreviewBridgePlugin()',
+    ].filter((p): p is string => Boolean(p)),
+  )
   const extraConfig = fwConfig.viteExtraConfig ?? ''
   // Both writes below replace files the base scaffold already wrote — the
   // build's entry config and its env types — so they go through the guarded
@@ -4092,7 +4123,7 @@ export async function applyStaticSiteOverlay(
         ? buildTooling.vitePlugin.import + '\n'
         : '',
       VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
-      VITE_PLUGINS: plugins,
+      VITE_PLUGINS_LINE: pluginsLine,
       RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
     }),
   )
@@ -4108,7 +4139,9 @@ export async function applyStaticSiteOverlay(
   const extraDecl = fwConfig.typeDeclarations ? '\n' + fwConfig.typeDeclarations : ''
   await writeGuarded(
     join(appPath, 'src', 'vite-env.d.ts'),
-    await loadTemplate('static/vite-env.d.ts.tpl', { EXTRA_TYPE_DECLARATIONS: extraDecl }),
+    (
+      await loadTemplate('static/vite-env.d.ts.tpl', { EXTRA_TYPE_DECLARATIONS: extraDecl })
+    ).replace(/\n+$/, '\n'),
   )
 
   // Entry, App, server entry, site helpers, pages and components.
@@ -5062,9 +5095,15 @@ export async function createAppProject(
   mlclDebug(`[scaffold] Generating vite.config.ts + package.json`)
   const viteImport = fwConfig.vitePlugin?.import ?? ''
   const vitePlugin = fwConfig.vitePlugin?.usage ?? ''
-  const plugins = [vitePlugin, buildTooling?.vitePlugin?.usage, 'VitePWA(pwaOptions)']
-    .filter(Boolean)
-    .join(', ')
+  const pluginsLine = vitePluginsLine(
+    [
+      vitePlugin,
+      buildTooling?.vitePlugin?.usage,
+      'VitePWA(pwaOptions)',
+      'previewConsoleLogPlugin',
+      'stripPreviewBridgePlugin()',
+    ].filter((p): p is string => Boolean(p)),
+  )
 
   const extraConfig = fwConfig.viteExtraConfig ?? ''
 
@@ -5075,7 +5114,7 @@ export async function createAppProject(
         ? buildTooling.vitePlugin.import + '\n'
         : '',
       VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
-      VITE_PLUGINS: plugins,
+      VITE_PLUGINS_LINE: pluginsLine,
       BRANDING_IMPORT: brandingImportPath,
       RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
     }),
@@ -5174,11 +5213,15 @@ export async function createAppProject(
     await loadTemplate('app/shared/bonds-index.ts.tpl'),
   )
 
-  // Vite + PWA type declarations + framework-specific module declarations (from registry)
+  // Vite + PWA type declarations + framework-specific module declarations (from registry).
+  // An empty declaration list must not leave the template's trailing blank line: the
+  // file has to be exactly what the project's own prettier keeps.
   const extraDecl = fwConfig.typeDeclarations ? '\n' + fwConfig.typeDeclarations : ''
   await writeFile(
     join(projectPath, 'src', 'vite-env.d.ts'),
-    await loadTemplate('app/shared/vite-env.d.ts.tpl', { EXTRA_TYPE_DECLARATIONS: extraDecl }),
+    (
+      await loadTemplate('app/shared/vite-env.d.ts.tpl', { EXTRA_TYPE_DECLARATIONS: extraDecl })
+    ).replace(/\n+$/, '\n'),
   )
 
   // CSS entry point — conditionally include styling provider CSS
@@ -5329,6 +5372,19 @@ export interface FontFileToCopy {
   packageName: string
   fontsDir: string
   file: string
+}
+
+/**
+ * The `plugins:` line of a generated `vite.config.ts`, exactly as the project's own
+ * prettier keeps it: one line when every plugin fits the print width (100 — every
+ * scaffolded `.prettierrc`), otherwise one plugin per line with a trailing comma.
+ * The plugin set depends on the selected framework and styling tooling, so the
+ * emitter, not the template, decides the shape.
+ */
+function vitePluginsLine(plugins: string[]): string {
+  const oneLine = `  plugins: [${plugins.join(', ')}],`
+  if (oneLine.length <= 100) return oneLine
+  return ['  plugins: [', ...plugins.map((p) => `    ${p},`), '  ],'].join('\n')
 }
 
 /**

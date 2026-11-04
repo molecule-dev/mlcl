@@ -79,8 +79,12 @@ describe('custom scaffold: pages are imported statically (splitting measured slo
 
   it('loads webfonts without blocking the first paint', () => {
     const html = read('shared', 'index.html.tpl')
-    expect(html).toContain('rel="preload" as="style"')
-    expect(html).toContain("this.onload=null;this.rel='stylesheet'")
+    // Attribute order and the onload body's whitespace follow the template's
+    // prettier formatting (long hrefs break the tag one attribute per line and
+    // expand the inline onload script) — assert the semantics, not the layout.
+    expect(html).toMatch(/rel="preload"\s+as="style"/)
+    expect(html).toMatch(/onload="[^"]*this\.onload\s*=\s*null/)
+    expect(html).toMatch(/onload="[^"]*this\.rel\s*=\s*'stylesheet'/)
     expect(html).toContain('<noscript>')
     // A bare stylesheet link to the font host is render-blocking; the only
     // ones left must be inside the <noscript> fallback.

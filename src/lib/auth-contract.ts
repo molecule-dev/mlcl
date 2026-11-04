@@ -157,7 +157,7 @@ function userIdEndpoint(route: Route, role: AuthRole): string {
     /:[A-Za-z_]\w*/.test(route.path.replace(':id', ''))
   )
     throw new Error(`The ${role} auth route must name exactly one :id`)
-  const pieces = route.path.split(':id').map((part) => JSON.stringify(part))
+  const pieces = route.path.split(':id').map((part) => quote(part))
   return `(user: { id: string }) => ${pieces.join(' + encodeURIComponent(user.id) + ')}`
 }
 

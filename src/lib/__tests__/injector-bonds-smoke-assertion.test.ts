@@ -122,7 +122,9 @@ describe('generated bonds smoke test: setupProviders assertion', () => {
     expect(content).toContain(
       'setupHttpClientFetch: vi.fn(actual.setupHttpClientFetch as () => unknown)',
     )
-    expect(content).toContain('.setupHttpClientFetch).toHaveBeenCalledOnce()')
+    // One line when the assertion fits the print width, else prettier's broken
+    // form (the import expression on its own line) — match either shape.
+    expect(content).toMatch(/\.setupHttpClientFetch,?\s*\)\.toHaveBeenCalledOnce\(\)/)
     expect(content).toContain(
       'expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)',
     )

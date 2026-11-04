@@ -106,7 +106,7 @@ export const authConfig = {
   currentUserEndpoint: '/users/me',
   // The write route comes from the API user resource contract, independently of the GET above.
   // Keep this with its method when adapting the app to a different API.
-  profileEndpoint: (user: { id: string }) => "/users/" + encodeURIComponent(user.id) + "",
+  profileEndpoint: (user: { id: string }) => '/users/' + encodeURIComponent(user.id) + '',
   profileUpdateMethod: 'PATCH' as const,
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
