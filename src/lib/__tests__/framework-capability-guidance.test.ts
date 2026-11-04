@@ -13,6 +13,7 @@ import { buildCapabilityMap, renderCapabilityMap } from '../capability-map.js'
 import { synthesizeAppProjectFiles } from '../injector.js'
 import { getRawRegistry, loadRegistry } from '../registry.js'
 import { addPackages, createAppProject, ensureAgentsMd } from '../scaffold.js'
+import { DecisionGuide } from '../schema.js'
 
 const registry = getRawRegistry()
 let root: string
@@ -189,6 +190,41 @@ describe('framework-scoped URL list guidance', () => {
 
   it('keeps React Router guidance in its declaring workspace', () => {
     expect(routing(['@molecule/app-routing-react-router'], 'api')).not.toContain('useListRoute')
+  })
+
+  it('names the binding hooks for one-off query values and address credentials', () => {
+    const text = routing(['@molecule/app-routing-react-router'])
+    expect(text).toContain('`useMoleculeQuery()`')
+    expect(text).toContain('`useConsumedSearchParam(name)`')
+    expect(registry.packages['@molecule/app-routing-react-router']!.exports).toEqual(
+      expect.arrayContaining(['useMoleculeQuery', 'useConsumedSearchParam']),
+    )
+  })
+
+  it('names the hand-rolled call only for a binding that exports its replacement', () => {
+    const guide = DecisionGuide.parse(registry.packages['@molecule/app-routing']!.decisionGuide)
+    expect(guide.handRolledCalls).toEqual({
+      '@molecule/app-routing-react-router': ['useSearchParams'],
+    })
+    // Every hand-rolled call's binding has guidance to state at that write, and that guidance
+    // names only exports the binding really has.
+    for (const [binding, calls] of Object.entries(guide.handRolledCalls ?? {})) {
+      expect(calls.length).toBeGreaterThan(0)
+      const lines = guide.bindingGuidance?.[binding] ?? []
+      expect(lines.length, binding).toBeGreaterThan(0)
+      const named = [...lines.join(' ').matchAll(/`(use[A-Z]\w*)\(/g)].map((match) => match[1])
+      expect(named.length).toBeGreaterThan(0)
+      expect(registry.packages[binding]!.exports).toEqual(expect.arrayContaining(named))
+    }
+  })
+
+  it('rejects a hand-rolled call that is not an identifier', () => {
+    expect(() =>
+      DecisionGuide.parse({
+        configuration: ['x'],
+        handRolledCalls: { '@molecule/app-routing-react-router': ['useSearchParams()'] },
+      }),
+    ).toThrow()
   })
 })
 

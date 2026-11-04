@@ -57749,8 +57749,12 @@
         "bindingGuidance": {
           "@molecule/app-routing-react-router": [
             "React Router binding: a list whose page, filters or tabs live in the URL uses `useListRoute({ filters, selections, defaultSelection, auth })` from `@molecule/app-routing-react-router`. It returns `page`, `offset` and `filters` for the request, and `href()`, `setPage()`, `setFilters()` and `select()`; a filter or tab change resets the page to one. Do not copy `useSearchParams` values into component state.",
-            "A signed-in-only tab or view is a selection with `requiresAuth: true` plus `auth: { status, redirectTo }` from the session status. Load data only while `canLoad` is true. It waits for the session restore and redirects only a confirmed signed-out visit, with `state.returnTo` set."
+            "A signed-in-only tab or view is a selection with `requiresAuth: true` plus `auth: { status, redirectTo }` from the session status. Load data only while `canLoad` is true. It waits for the session restore and redirects only a confirmed signed-out visit, with `state.returnTo` set.",
+            "Any other query value is read with `useMoleculeQuery()`; a one-time credential in the address (a reset token, an OAuth `code`) is read with `useConsumedSearchParam(name)`, which also removes it from the URL."
           ]
+        },
+        "handRolledCalls": {
+          "@molecule/app-routing-react-router": ["useSearchParams"]
         },
         "configuration": [
           "URL-backed lists (`?page=2`, `?status=open`, a tab such as Mine/All, `/category/:slug`): keep the page, filters and tab in the URL only, read and change them through the declared framework binding, and return to page one when a filter or tab changes.",
