@@ -1,9 +1,9 @@
 // Phase 1 baseline — verbatim JSX of design-helpdesk-ticketing-tickets.html
 // Do not hand-edit; Phase 2 will extract sections one at a time.
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -36,8 +36,11 @@ function Tickets() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const { status, user } = useAuth<{ id: string }>()
   const [tickets, setTickets] = useState<Ticket[]>([])
   const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const requestId = useRef(0)
 
   useEffect(() => {
     document.title = t(
@@ -56,8 +59,14 @@ function Tickets() {
       status: { defaultValue: '' },
       priority: { defaultValue: '' },
       assignee: { defaultValue: '' },
-      view: { defaultValue: 'all' },
     },
+    selections: {
+      all: { path: '/tickets', query: { view: undefined }, requiresAuth: true },
+      assigned: { path: '/tickets', query: { view: 'assigned' }, requiresAuth: true },
+      unassigned: { path: '/tickets', query: { view: 'unassigned' }, requiresAuth: true },
+    },
+    defaultSelection: 'all',
+    auth: { status, redirectTo: '/login' },
   })
   // When the dashboard search bar lands here with `?q=…`, the subject filter
   // reads it straight from the URL so the user sees results matching what
@@ -66,26 +75,39 @@ function Tickets() {
   const statusFilter = listRoute.filters.status ?? ''
   const priorityFilter = listRoute.filters.priority ?? ''
   const assigneeId = listRoute.filters.assignee ?? ''
-  const viewParam = listRoute.filters.view ?? 'all'
-  const viewTab: 'all' | 'assigned' | 'unassigned' =
-    viewParam === 'assigned' || viewParam === 'unassigned' ? viewParam : 'all'
+  const viewTab = listRoute.selection ?? 'all'
   const page = listRoute.page
   const navigate = useNavigate()
 
   const fetchTickets = useCallback(async () => {
+    if (!listRoute.canLoad) return
+    const request = ++requestId.current
     setLoading(true)
+    setError(null)
     try {
       const res = await http.get('/api/tickets')
+      if (request !== requestId.current) return
       const raw: Ticket[] = Array.isArray(res) ? res : Array.isArray(res?.data) ? res.data : []
       setTickets(raw.map((row) => enrichTicketListRow(row, t)))
+    } catch (error: unknown) {
+      if (request !== requestId.current) return
+      setTickets([])
+      setError(
+        error instanceof Error
+          ? error.message
+          : t('tickets.loadError', {}, { defaultValue: 'Failed to load tickets' }),
+      )
     } finally {
-      setLoading(false)
+      if (request === requestId.current) setLoading(false)
     }
-  }, [http, t])
+  }, [http, t, listRoute.canLoad])
 
   useEffect(() => {
-    fetchTickets()
-  }, [fetchTickets])
+    void fetchTickets()
+    return () => {
+      requestId.current += 1
+    }
+  }, [fetchTickets, user?.id])
 
   const assigneeOptions = useMemo(() => {
     const m = new Map<string, string>()
@@ -100,8 +122,8 @@ function Tickets() {
     if (priorityFilter && tk.priority !== priorityFilter) return false
     if (assigneeId && tk.assignee_id !== assigneeId) return false
     if (search && !tk.subject.toLowerCase().includes(search.toLowerCase())) return false
-    if (viewTab === 'assigned' && !tk.assignee_name) return false
-    if (viewTab === 'unassigned' && tk.assignee_name) return false
+    if (viewTab === 'assigned' && (!user?.id || tk.assignee_id !== user.id)) return false
+    if (viewTab === 'unassigned' && tk.assignee_id) return false
     return true
   })
   const itemsPerPage = listRoute.pageSize
@@ -117,7 +139,7 @@ function Tickets() {
             listRoute.setFilters({ q: val || undefined }, { replace: true })
           }}
           viewTab={viewTab}
-          onViewTabChange={(tab) => listRoute.setFilters({ view: tab })}
+          onViewTabChange={(tab) => listRoute.select(tab)}
         />
       }
     >
@@ -135,19 +157,32 @@ function Tickets() {
           assigneeOptions={assigneeOptions}
           onClear={() => {
             // One atomic navigation back to the unfiltered first page.
-            listRoute.setFilters({
-              status: undefined,
-              priority: undefined,
-              assignee: undefined,
-              q: undefined,
-              view: 'all',
+            listRoute.navigate({
+              selection: 'all',
+              filters: {
+                status: undefined,
+                priority: undefined,
+                assignee: undefined,
+                q: undefined,
+              },
             })
           }}
         />
         {/* Ticket Table Container */}
+        {error && listRoute.canLoad && (
+          <div role="alert">
+            {error}
+            <button
+              className={cm.button({ variant: 'ghost', size: 'sm' })}
+              onClick={() => void fetchTickets()}
+            >
+              {t('common.tryAgain', {}, { defaultValue: 'Try again' })}
+            </button>
+          </div>
+        )}
         <TicketsTable
-          tickets={paginatedTickets}
-          loading={loading}
+          tickets={listRoute.canLoad ? paginatedTickets : []}
+          loading={loading || !listRoute.canLoad}
           onRowClick={(ticket) => navigate(`/tickets/${ticket.id}`)}
         />
         {/* Pagination */}
