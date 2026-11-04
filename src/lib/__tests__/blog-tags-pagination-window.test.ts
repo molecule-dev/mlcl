@@ -23,6 +23,7 @@
 
 import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
+import { createMemoryRouter, RouterProvider } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 /** The tags `GET /api/tags` answers with — 50 pages at the page size of 8. */
@@ -77,10 +78,6 @@ vi.mock('@molecule/app-ui-react', () => ({
   ConfirmButton: (props: { children?: ReactNode }) =>
     createElement('button', { type: 'button' }, props.children),
 }))
-vi.mock('react-router', () => ({
-  useNavigate: () => () => undefined,
-  useLocation: () => ({ key: 'test' }),
-}))
 // The authenticated shell is not what is under test — render the page alone.
 vi.mock('../../../templates/apps/blog/app/src/components/AppShell.js', () => ({
   default: (props: { children?: ReactNode }) => createElement('div', null, props.children),
@@ -90,6 +87,22 @@ const { Tags } =
   (await import('../../../templates/apps/blog/app/src/pages/Tags.js')) as unknown as {
     Tags: () => ReactNode
   }
+
+/**
+ * The router the page is mounted in. `useListRoute` reads the location, the
+ * route params and `navigate` from it, so the page runs inside a real memory
+ * router at its own path rather than against a mock of some of those hooks.
+ */
+let router: ReturnType<typeof createMemoryRouter> | undefined
+
+/** The Tags page inside a fresh memory router at `/tags`. */
+function routedTags(): ReactNode {
+  router?.dispose()
+  router = createMemoryRouter([{ path: '/tags', element: createElement(Tags) }], {
+    initialEntries: ['/tags'],
+  })
+  return createElement(RouterProvider, { router })
+}
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
 
@@ -132,6 +145,8 @@ afterEach(async () => {
     })
     container.remove()
   }
+  router?.dispose()
+  router = undefined
 })
 
 describe('blog Tags pagination', () => {
@@ -140,7 +155,7 @@ describe('blog Tags pagination', () => {
     document.body.appendChild(container)
     root = createRoot(container)
     await act(async () => {
-      root.render(createElement(Tags))
+      root.render(routedTags())
     })
     await flush()
 
@@ -187,7 +202,7 @@ describe('blog Tags pagination', () => {
     document.body.appendChild(container)
     root = createRoot(container)
     await act(async () => {
-      root.render(createElement(Tags))
+      root.render(routedTags())
     })
     await flush()
 
@@ -228,7 +243,7 @@ describe('blog Tags pagination', () => {
     document.body.appendChild(container)
     root = createRoot(container)
     await act(async () => {
-      root.render(createElement(Tags))
+      root.render(routedTags())
     })
     await flush()
 

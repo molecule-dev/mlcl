@@ -14,15 +14,16 @@
  * refuses until the modal is closed — the "check the tag list" step the error
  * names — so a deliberate re-open starts a fresh create.
  *
- * Everything rendered is the shipped page: only the ClassMap, i18n, the
- * router, the analytics client, the shell and the http client are stubbed, and
- * the create answers are resolved by hand.
+ * Everything rendered is the shipped page in a real memory router: only the
+ * ClassMap, i18n, the analytics client, the shell and the http client are
+ * stubbed, and the create answers are resolved by hand.
  *
  * @module
  */
 
 import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
+import { createMemoryRouter, RouterProvider } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 const TAGS = [
@@ -73,14 +74,6 @@ const classMap = vi.hoisted(() => {
 
 const track = vi.hoisted(() => vi.fn())
 
-/**
- * The key `useLocation` reports. The page closes its modal whenever it changes
- * (the location-key effect), so a test that simulates the reader navigating
- * away bumps this and re-renders — a close that does NOT pass through the
- * Cancel button's `closeModal`.
- */
-const routeKey = vi.hoisted(() => ({ current: 'route-a' }))
-
 vi.mock('@molecule/app-ui', () => ({ getClassMap: () => classMap }))
 vi.mock('@molecule/app-react', () => ({
   useTranslation: () => ({
@@ -96,10 +89,6 @@ vi.mock('@molecule/app-ui-react', () => ({
   ConfirmButton: (props: { children?: ReactNode }) =>
     createElement('button', { type: 'button' }, props.children),
 }))
-vi.mock('react-router', () => ({
-  useNavigate: () => () => undefined,
-  useLocation: () => ({ key: routeKey.current }),
-}))
 // The authenticated shell is not what is under test — render the page alone.
 vi.mock('../../../templates/apps/blog/app/src/components/AppShell.js', () => ({
   default: (props: { children?: ReactNode }) => createElement('div', null, props.children),
@@ -109,6 +98,22 @@ const { Tags } =
   (await import('../../../templates/apps/blog/app/src/pages/Tags.js')) as unknown as {
     Tags: () => ReactNode
   }
+
+/**
+ * The router the page is mounted in. `useListRoute` reads the location, the
+ * route params and `navigate` from it, so the page runs inside a real memory
+ * router at its own path rather than against a mock of some of those hooks.
+ */
+let router: ReturnType<typeof createMemoryRouter> | undefined
+
+/** The Tags page inside a fresh memory router at `/tags`. */
+function routedTags(): ReactNode {
+  router?.dispose()
+  router = createMemoryRouter([{ path: '/tags', element: createElement(Tags) }], {
+    initialEntries: ['/tags'],
+  })
+  return createElement(RouterProvider, { router })
+}
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
 
@@ -130,7 +135,7 @@ async function mountWithTaxonomy(): Promise<void> {
   document.body.appendChild(container)
   root = createRoot(container)
   await act(async () => {
-    root.render(createElement(Tags))
+    root.render(routedTags())
   })
   await flush()
   const load = gets.at(-1)
@@ -160,21 +165,26 @@ async function openCreateAndType(name: string): Promise<void> {
   await flush()
 }
 
-/** The next key {@link routeKey} reports — one per simulated route change. */
+/** Distinguishes each simulated visit, so every navigation is a new entry. */
 let routeSeq = 0
 
 /**
- * Simulate the reader navigating (away and back): a new location key and a
- * re-render. The page closes its modal on a location-key change WITHOUT
- * passing through `closeModal` — the close path the unconfirmed-create latch
- * has to survive.
+ * Simulate the reader navigating (away and back): a real navigation to the
+ * page's own path, which gives the location a new key while the same page stays
+ * mounted. The page closes its modal on a location-key change WITHOUT passing
+ * through `closeModal` — the close path the unconfirmed-create latch has to
+ * survive.
  */
 async function navigateAwayAndBack(): Promise<void> {
+  if (!router) throw new Error('the page is not mounted')
+  const before = router.state.location.key
+  routeSeq += 1
   await act(async () => {
-    routeSeq += 1
-    routeKey.current = `route-${routeSeq}`
-    root.render(createElement(Tags))
+    await router?.navigate('/tags', { state: { visit: routeSeq } })
   })
+  expect(router.state.location.key, 'the navigation must give the location a new key').not.toBe(
+    before,
+  )
   await flush()
 }
 
@@ -191,7 +201,6 @@ beforeEach(() => {
   gets.length = 0
   posts.length = 0
   track.mockClear()
-  routeKey.current = 'route-a'
 })
 
 afterEach(async () => {
@@ -201,6 +210,8 @@ afterEach(async () => {
     })
     container.remove()
   }
+  router?.dispose()
+  router = undefined
 })
 
 describe('blog Tags — a create is claimed only when the answer carries the tag', () => {
