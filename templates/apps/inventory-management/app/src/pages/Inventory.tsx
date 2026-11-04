@@ -68,15 +68,22 @@ export function Inventory() {
   const { t } = useTranslation()
   const http = useHttpClient()
 
-  const listRoute = useListRoute({ filters: { q: {} } })
-  // The app shell's global search navigates here with ?q=<term>.
-  const globalQuery = listRoute.filters.q ?? ''
+  // The list's page, search, category and stock-state filters live in the URL
+  // (?page=, ?q=, ?category=, ?stock=) via useListRoute — no mirrored state,
+  // so page links, Back/Forward and reloads keep the view. The app shell's
+  // global search navigates here with ?q=<term>.
+  const listRoute = useListRoute({
+    pageSize: PER_PAGE,
+    filters: { q: {}, category: { defaultValue: ALL_CATEGORIES }, stock: { defaultValue: 'all' } },
+  })
+  const search = listRoute.filters.q ?? ''
+  const category = listRoute.filters.category ?? ALL_CATEGORIES
+  const stockParam = listRoute.filters.stock ?? 'all'
+  const statusFilter: 'all' | 'low' | 'in' =
+    stockParam === 'low' || stockParam === 'in' ? stockParam : 'all'
+  const page = listRoute.page
 
   const [rows, setRows] = useState<ProductRow[]>([])
-  const [search, setSearch] = useState(globalQuery)
-  const [category, setCategory] = useState(ALL_CATEGORIES)
-  const [statusFilter, setStatusFilter] = useState<'all' | 'low' | 'in'>('all')
-  const [page, setPage] = useState(1)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [exportError, setExportError] = useState<string | null>(null)
@@ -128,13 +135,6 @@ export function Inventory() {
     void loadProducts()
   }, [loadProducts])
 
-  // Re-apply the filter when the global search submits a new ?q while the
-  // page is already mounted (same-route navigation does not remount).
-  useEffect(() => {
-    setSearch(globalQuery)
-    setPage(1)
-  }, [globalQuery])
-
   const categories = useMemo(() => {
     const set = new Set<string>()
     for (const r of rows) set.add(r.category)
@@ -152,9 +152,9 @@ export function Inventory() {
     })
   }, [rows, search, category, statusFilter])
 
-  const pageStart = (page - 1) * PER_PAGE
-  const pageRows = filtered.slice(pageStart, pageStart + PER_PAGE)
-  const totalPages = Math.max(1, Math.ceil(filtered.length / PER_PAGE))
+  const pageStart = listRoute.offset
+  const pageRows = filtered.slice(pageStart, pageStart + listRoute.pageSize)
+  const totalPages = Math.max(1, Math.ceil(filtered.length / listRoute.pageSize))
 
   async function submitAddSku(e: React.FormEvent) {
     e.preventDefault()
@@ -294,8 +294,8 @@ export function Inventory() {
             type="search"
             value={search}
             onChange={(e) => {
-              setSearch(e.target.value)
-              setPage(1)
+              // setFilters writes ?q= and returns to page one atomically.
+              listRoute.setFilters({ q: e.target.value || undefined }, { replace: true })
             }}
             data-testid="inventory-search"
             placeholder={t(
@@ -311,10 +311,7 @@ export function Inventory() {
         </div>
         <FilterSelect
           value={category}
-          onChange={(v) => {
-            setCategory(v)
-            setPage(1)
-          }}
+          onChange={(v) => listRoute.setFilters({ category: v })}
           options={[ALL_CATEGORIES, ...categories]}
           icon="category"
           renderLabel={(value) =>
@@ -325,10 +322,7 @@ export function Inventory() {
         />
         <FilterSelect
           value={statusFilter}
-          onChange={(v) => {
-            setStatusFilter(v as typeof statusFilter)
-            setPage(1)
-          }}
+          onChange={(v) => listRoute.setFilters({ stock: v })}
           options={['all', 'low', 'in']}
           icon="filter_alt"
           renderLabel={(value) =>
@@ -498,7 +492,7 @@ export function Inventory() {
           <div className={cm.cn(cm.flex({ gap: 'xs' }))}>
             <button
               type="button"
-              onClick={() => setPage((p) => Math.max(1, p - 1))}
+              onClick={() => listRoute.setPage(Math.max(1, page - 1))}
               disabled={page <= 1}
               className={cm.cn(
                 'rounded-md border border-outline-variant px-3 py-1 text-xs font-bold uppercase tracking-wider hover:bg-background-secondary disabled:opacity-40',
@@ -515,7 +509,7 @@ export function Inventory() {
             </span>
             <button
               type="button"
-              onClick={() => setPage((p) => Math.min(totalPages, p + 1))}
+              onClick={() => listRoute.setPage(Math.min(totalPages, page + 1))}
               disabled={page >= totalPages}
               className={cm.cn(
                 'rounded-md border border-outline-variant px-3 py-1 text-xs font-bold uppercase tracking-wider hover:bg-background-secondary disabled:opacity-40',
