@@ -3,12 +3,18 @@ import { getClassMap } from '@molecule/app-ui'
 interface PostListPaginationProps {
   total?: number
   page?: number
+  pageSize?: number
   onPageChange?: (p: number) => void
 }
-function PostListPagination({ total = 0, page = 1, onPageChange }: PostListPaginationProps) {
+function PostListPagination({
+  total = 0,
+  page = 1,
+  pageSize = 20,
+  onPageChange,
+}: PostListPaginationProps) {
   const { t } = useTranslation()
   const cm = getClassMap()
-  const limit = 8
+  const limit = pageSize
   const pageCount = Math.max(1, Math.ceil(total / limit))
   const start = total === 0 ? 0 : (page - 1) * limit + 1
   const end = Math.min(page * limit, total)
@@ -44,37 +50,38 @@ function PostListPagination({ total = 0, page = 1, onPageChange }: PostListPagin
           <span className={cm.fv5b245ffa}>chevron_left</span>
         </button>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
-          {Array.from({ length: pageCount }, (_, i) => i + 1)
-            .filter((p) => p >= Math.max(1, page - 1) && p <= Math.min(pageCount, page + 1))
-            .map((p) => (
-              <button
-                key={p}
-                onClick={() => onPageChange?.(p)}
-                className={
-                  p === page
-                    ? cm.cn(
-                        cm.w(10),
-                        cm.h(10),
-                        cm.flex({ align: 'center', justify: 'center' }),
-                        'rounded-lg',
-                        cm.fontWeight('bold'),
-                        cm.textSize('xs'),
-                        'bg-primary text-on-primary',
-                      )
-                    : cm.cn(
-                        cm.w(10),
-                        cm.h(10),
-                        cm.flex({ align: 'center', justify: 'center' }),
-                        'rounded-lg',
-                        cm.fontWeight('bold'),
-                        cm.textSize('xs'),
-                        'text-on-surface-variant hover:bg-surface-container-low',
-                      )
-                }
-              >
-                {p}
-              </button>
-            ))}
+          {Array.from(
+            { length: Math.min(3, pageCount) },
+            (_, i) => Math.max(1, Math.min(page - 1, pageCount - 2)) + i,
+          ).map((p) => (
+            <button
+              key={p}
+              onClick={() => onPageChange?.(p)}
+              className={
+                p === page
+                  ? cm.cn(
+                      cm.w(10),
+                      cm.h(10),
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'rounded-lg',
+                      cm.fontWeight('bold'),
+                      cm.textSize('xs'),
+                      'bg-primary text-on-primary',
+                    )
+                  : cm.cn(
+                      cm.w(10),
+                      cm.h(10),
+                      cm.flex({ align: 'center', justify: 'center' }),
+                      'rounded-lg',
+                      cm.fontWeight('bold'),
+                      cm.textSize('xs'),
+                      'text-on-surface-variant hover:bg-surface-container-low',
+                    )
+              }
+            >
+              {p}
+            </button>
+          ))}
         </div>
         <button
           aria-label={t('common.nextPage', {}, { defaultValue: 'Next page' })}

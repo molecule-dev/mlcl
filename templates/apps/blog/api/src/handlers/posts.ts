@@ -71,6 +71,7 @@ const mineQuerySchema = z.object({
   status: z.enum(['draft', 'published', 'scheduled']).optional(),
   page: z.coerce.number().int().positive().default(1),
   limit: z.coerce.number().int().positive().max(100).default(20),
+  include_total: z.enum(['true', 'false']).optional(),
 })
 
 // --- Helpers ---
@@ -193,7 +194,6 @@ router.get('/by-slug/:slug', async (req: Request, res: Response) => {
 // Get current user's posts (must be before /:id to avoid matching)
 router.get('/mine/all', validateQuery(mineQuerySchema), async (req: Request, res: Response) => {
   try {
-    await promoteDueScheduledPosts()
     const { status, page, limit } = req.query as unknown as z.infer<typeof mineQuerySchema>
     const userId = getUserId(res)
     if (!userId) {
@@ -202,6 +202,7 @@ router.get('/mine/all', validateQuery(mineQuerySchema), async (req: Request, res
         .json({ error: t('common.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
       return
     }
+    await promoteDueScheduledPosts()
     const where: WhereCondition[] = [{ field: 'author_id', operator: '=', value: userId }]
     if (status) where.push({ field: 'status', operator: '=', value: status })
 
@@ -211,7 +212,11 @@ router.get('/mine/all', validateQuery(mineQuerySchema), async (req: Request, res
       offset: (page - 1) * limit,
       orderBy: [{ field: 'updated_at', direction: 'desc' }],
     })
-    res.json(posts)
+    if (req.query.include_total === 'true') {
+      res.json({ data: posts, total: await count('posts', where), page, limit })
+    } else {
+      res.json(posts)
+    }
   } catch (error) {
     logger.error('posts.mine failed', { error })
     res

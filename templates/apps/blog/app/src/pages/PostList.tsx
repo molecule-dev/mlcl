@@ -2,7 +2,7 @@
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -28,21 +28,27 @@ interface Post {
   createdAt?: string
 }
 
-const FILTER_VALUES = ['all', 'published', 'draft', 'scheduled']
-
 function PostList() {
   const cm = getClassMap()
   const { t } = useTranslation()
+  const { status } = useAuth()
   // The list's page, status filter and search live in the URL
   // (?page=, ?status=, ?q=) via useListRoute — no mirrored state, so a
   // page-2 link, Back/Forward and a reload all keep their view.
   const listRoute = useListRoute({
     pageSize: 20,
-    filters: { status: {}, q: {} },
+    filters: { q: {} },
+    selections: {
+      all: { path: '/posts', query: { status: undefined }, requiresAuth: true },
+      published: { path: '/posts', query: { status: 'published' }, requiresAuth: true },
+      draft: { path: '/posts', query: { status: 'draft' }, requiresAuth: true },
+      scheduled: { path: '/posts', query: { status: 'scheduled' }, requiresAuth: true },
+    },
+    defaultSelection: 'all',
+    auth: { status, redirectTo: '/login' },
   })
   // Honor deep links like /posts?status=draft (Dashboard quick actions).
-  const statusParam = listRoute.filters.status ?? ''
-  const activeFilter = FILTER_VALUES.includes(statusParam) ? statusParam : 'all'
+  const activeFilter = listRoute.selection ?? 'all'
   const searchQuery = listRoute.filters.q ?? ''
   const page = listRoute.page
   const [posts, setPosts] = useState<Post[]>([])
@@ -55,6 +61,7 @@ function PostList() {
   const [reloadKey, setReloadKey] = useState(0)
   const http = useHttpClient()
   useEffect(() => {
+    if (!listRoute.canLoad) return
     let active = true
     setLoading(true)
     setError(null)
@@ -66,6 +73,7 @@ function PostList() {
     if (activeFilter !== 'all') params.set('status', activeFilter)
     params.set('page', String(page))
     params.set('limit', String(listRoute.pageSize))
+    params.set('include_total', 'true')
     http
       .get<Post[] | { data: Post[]; total?: number }>(`/api/posts/mine/all?${params}`)
       .then((res) => {
@@ -99,7 +107,7 @@ function PostList() {
     return () => {
       active = false
     }
-  }, [activeFilter, searchQuery, page, reloadKey, http, t, listRoute.pageSize])
+  }, [activeFilter, searchQuery, page, reloadKey, http, t, listRoute.pageSize, listRoute.canLoad])
   // PostListItem performs the DELETE request itself (and reports its own
   // failures); this callback only reconciles the list state. It used to
   // issue a SECOND delete — which 404'd and surfaced a bogus error banner
@@ -125,9 +133,9 @@ function PostList() {
       <PostListFilterBar
         activeFilter={activeFilter}
         onFilterChange={(f) => {
-          // setFilters writes ?status= and returns to page one atomically;
-          // re-selecting the active tab only re-fires the request.
-          if (f !== activeFilter) listRoute.setFilters({ status: f === 'all' ? undefined : f })
+          // A selection resets the page atomically, including a repeated tab.
+          if (f === 'all' || f === 'published' || f === 'draft' || f === 'scheduled')
+            listRoute.select(f)
           setReloadKey((k) => k + 1)
         }}
         searchQuery={searchQuery}
@@ -140,7 +148,7 @@ function PostList() {
       {/* Post List (Tonal Layering Layout) */}
       <section className={cm.flex1}>
         <div className={cm.flex({ direction: 'col' })}>
-          {loading ? (
+          {loading || !listRoute.canLoad ? (
             <div
               className={cm.cn(
                 cm.sp('py', 12),
@@ -191,6 +199,7 @@ function PostList() {
       <PostListPagination
         total={total}
         page={page}
+        pageSize={listRoute.pageSize}
         onPageChange={(p) => {
           if (p !== page) listRoute.setPage(p)
           setReloadKey((k) => k + 1)
