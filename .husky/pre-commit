@@ -89,7 +89,8 @@ STAGED=$(git diff --cached --name-only --diff-filter=ACM)
 # Symlinks are dropped from the list: prettier hard-errors on an explicitly
 # passed symlink (CLAUDE.md→AGENTS.md, per-app generated-visual-tokens.css)
 # before .prettierignore is consulted, and a symlink has no formattable content.
-FMT=$(echo "$STAGED" | grep -E '\.(ts|tsx|js|jsx|mjs|cjs|md|css|scss|html|yaml|yml)$' || true)
+# Flagship mock-API fixtures are the one JSON class checked (.prettierignore re-includes them).
+FMT=$(echo "$STAGED" | grep -E '\.(ts|tsx|js|jsx|mjs|cjs|md|css|scss|html|yaml|yml)$|^templates/apps/[^/]+/api/fixtures/[^/]+\.json$' || true)
 FMT=$(printf '%s\n' "$FMT" | while IFS= read -r f; do [ -L "$f" ] || printf '%s\n' "$f"; done)
 if [ -n "$FMT" ]; then
   echo "$FMT" | xargs npx --no-install prettier --check --ignore-unknown

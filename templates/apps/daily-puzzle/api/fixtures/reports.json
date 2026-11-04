@@ -6,23 +6,11 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "correct",
-          "absent",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "correct", "absent", "present"]
       },
       {
         "word": "pride",
-        "feedback": [
-          "absent",
-          "present",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "present", "absent", "absent", "absent"]
       }
     ],
     "status": "playing",
@@ -35,33 +23,15 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "present",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["present", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "grace",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",
@@ -75,33 +45,15 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "correct",
-          "present",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["correct", "present", "absent", "absent", "absent"]
       },
       {
         "word": "pride",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",
@@ -115,53 +67,23 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "present",
-          "absent",
-          "correct"
-        ]
+        "feedback": ["absent", "absent", "present", "absent", "correct"]
       },
       {
         "word": "pride",
-        "feedback": [
-          "correct",
-          "absent",
-          "present",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["correct", "absent", "present", "absent", "absent"]
       },
       {
         "word": "grace",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "story",
-        "feedback": [
-          "absent",
-          "present",
-          "present",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "present", "present", "absent", "absent"]
       },
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "present",
-          "absent",
-          "correct"
-        ]
+        "feedback": ["absent", "absent", "present", "absent", "correct"]
       }
     ],
     "status": "lost",
@@ -175,23 +97,11 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "present",
-          "correct"
-        ]
+        "feedback": ["absent", "absent", "absent", "present", "correct"]
       }
     ],
     "status": "won",
@@ -205,33 +115,15 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "correct",
-          "absent",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "correct", "absent", "present"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "present",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "absent", "present", "present"]
       },
       {
         "word": "story",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",
@@ -245,53 +137,23 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "present",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["present", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "pride",
-        "feedback": [
-          "absent",
-          "correct",
-          "absent",
-          "absent",
-          "correct"
-        ]
+        "feedback": ["absent", "correct", "absent", "absent", "correct"]
       },
       {
         "word": "story",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "present",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "present", "absent"]
       },
       {
         "word": "about",
-        "feedback": [
-          "present",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["present", "absent", "absent", "absent", "absent"]
       }
     ],
     "status": "lost",
@@ -313,23 +175,11 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "present",
-          "absent",
-          "correct"
-        ]
+        "feedback": ["absent", "absent", "present", "absent", "correct"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",
@@ -343,43 +193,19 @@
     "guesses": [
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "present",
-          "correct"
-        ]
+        "feedback": ["absent", "absent", "absent", "present", "correct"]
       },
       {
         "word": "pride",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "grace",
-        "feedback": [
-          "absent",
-          "absent",
-          "present",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "present", "absent", "absent"]
       },
       {
         "word": "story",
-        "feedback": [
-          "absent",
-          "present",
-          "correct",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "present", "correct", "absent", "absent"]
       }
     ],
     "status": "lost",
@@ -393,33 +219,15 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "correct",
-          "absent",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "correct", "absent", "present"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "present",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "absent", "present", "present"]
       },
       {
         "word": "story",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",
@@ -433,33 +241,15 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "present",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["present", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "grace",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",
@@ -473,53 +263,23 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "correct",
-          "present",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["correct", "present", "absent", "absent", "absent"]
       },
       {
         "word": "grace",
-        "feedback": [
-          "absent",
-          "correct",
-          "absent",
-          "absent",
-          "correct"
-        ]
+        "feedback": ["absent", "correct", "absent", "absent", "correct"]
       },
       {
         "word": "story",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "present",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "present", "absent"]
       },
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       }
     ],
     "status": "lost",
@@ -533,23 +293,11 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "present",
-          "absent",
-          "correct"
-        ]
+        "feedback": ["absent", "absent", "present", "absent", "correct"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",
@@ -571,53 +319,23 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "correct",
-          "absent",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "correct", "absent", "present"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "present",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "absent", "present", "present"]
       },
       {
         "word": "pride",
-        "feedback": [
-          "absent",
-          "present",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "present", "absent", "absent", "absent"]
       },
       {
         "word": "grace",
-        "feedback": [
-          "absent",
-          "present",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "present", "absent", "absent", "absent"]
       },
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "correct",
-          "absent",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "correct", "absent", "present"]
       }
     ],
     "status": "lost",
@@ -631,33 +349,15 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "present",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["present", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "grace",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",
@@ -671,33 +371,15 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "correct",
-          "present",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["correct", "present", "absent", "absent", "absent"]
       },
       {
         "word": "pride",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",
@@ -711,53 +393,23 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "present",
-          "absent",
-          "correct"
-        ]
+        "feedback": ["absent", "absent", "present", "absent", "correct"]
       },
       {
         "word": "pride",
-        "feedback": [
-          "correct",
-          "absent",
-          "present",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["correct", "absent", "present", "absent", "absent"]
       },
       {
         "word": "grace",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "absent", "absent", "absent", "absent"]
       },
       {
         "word": "story",
-        "feedback": [
-          "absent",
-          "present",
-          "present",
-          "absent",
-          "absent"
-        ]
+        "feedback": ["absent", "present", "present", "absent", "absent"]
       },
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "present",
-          "absent",
-          "correct"
-        ]
+        "feedback": ["absent", "absent", "present", "absent", "correct"]
       }
     ],
     "status": "lost",
@@ -771,23 +423,11 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "present",
-          "correct"
-        ]
+        "feedback": ["absent", "absent", "absent", "present", "correct"]
       }
     ],
     "status": "won",
@@ -801,33 +441,15 @@
     "guesses": [
       {
         "word": "about",
-        "feedback": [
-          "absent",
-          "absent",
-          "correct",
-          "absent",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "correct", "absent", "present"]
       },
       {
         "word": "pilot",
-        "feedback": [
-          "absent",
-          "absent",
-          "absent",
-          "present",
-          "present"
-        ]
+        "feedback": ["absent", "absent", "absent", "present", "present"]
       },
       {
         "word": "story",
-        "feedback": [
-          "correct",
-          "correct",
-          "correct",
-          "correct",
-          "correct"
-        ]
+        "feedback": ["correct", "correct", "correct", "correct", "correct"]
       }
     ],
     "status": "won",

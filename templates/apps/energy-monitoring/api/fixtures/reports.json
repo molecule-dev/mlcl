@@ -10,13 +10,12 @@
     "today_peak_kwh": 17.2,
     "today_offpeak_kwh": 21.2,
     "trend_24h_watts": [
-      420, 380, 360, 340, 320, 300, 280, 260,
-      240, 380, 1240, 2480, 3120, 4560, 5840, 6240,
-      5640, 4880, 3920, 3120, 2480, 1840, 1240, 820
+      420, 380, 360, 340, 320, 300, 280, 260, 240, 380, 1240, 2480, 3120, 4560, 5840, 6240, 5640,
+      4880, 3920, 3120, 2480, 1840, 1240, 820
     ],
     "month_kwh_to_date": 612,
     "month_kwh_goal": 720,
-    "month_cost_to_date": 84.40,
+    "month_cost_to_date": 84.4,
     "month_budget": 130
   },
   "daily": [
@@ -29,9 +28,9 @@
     { "date": "2026-04-23", "consumption_kwh": 42.8, "production_kwh": 20.4, "cost_usd": 5.71 }
   ],
   "monthly": [
-    { "month": "2026-04", "consumption_kwh": 612, "production_kwh": 318, "cost_usd": 84.40 },
+    { "month": "2026-04", "consumption_kwh": 612, "production_kwh": 318, "cost_usd": 84.4 },
     { "month": "2026-03", "consumption_kwh": 698, "production_kwh": 262, "cost_usd": 102.18 },
     { "month": "2026-02", "consumption_kwh": 712, "production_kwh": 198, "cost_usd": 118.42 },
-    { "month": "2026-01", "consumption_kwh": 814, "production_kwh": 142, "cost_usd": 138.90 }
+    { "month": "2026-01", "consumption_kwh": 814, "production_kwh": 142, "cost_usd": 138.9 }
   ]
 }

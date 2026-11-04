@@ -8,10 +8,7 @@
     "x": 34,
     "y": 27,
     "days_ago": 9,
-    "confirmations_from": [
-      1,
-      2
-    ],
+    "confirmations_from": [1, 2],
     "events": [
       {
         "id": "aaaaaaaa-1111-4111-8111-111111111111-ev1",
@@ -103,9 +100,7 @@
     "y": 51,
     "days_ago": 21,
     "resolved_days_ago": 3,
-    "confirmations_from": [
-      0
-    ],
+    "confirmations_from": [0],
     "events": [
       {
         "id": "aaaaaaaa-2222-4222-8222-222222222222-ev1",
@@ -275,9 +270,7 @@
     "x": 45,
     "y": 66,
     "days_ago": 1,
-    "confirmations_from": [
-      2
-    ],
+    "confirmations_from": [2],
     "events": [
       {
         "id": "aaaaaaaa-4444-4444-8444-444444444444-ev1",
@@ -316,10 +309,7 @@
     "x": 18,
     "y": 44,
     "days_ago": 6,
-    "confirmations_from": [
-      0,
-      2
-    ],
+    "confirmations_from": [0, 2],
     "events": [
       {
         "id": "aaaaaaaa-5555-4555-8555-555555555555-ev1",
@@ -571,10 +561,7 @@
     "y": 72,
     "days_ago": 11,
     "resolved_days_ago": 8,
-    "confirmations_from": [
-      0,
-      1
-    ],
+    "confirmations_from": [0, 1],
     "events": [
       {
         "id": "aaaaaaaa-9999-4999-8999-999999999999-ev1",

@@ -22,7 +22,11 @@
     "actor_avatar": "PS",
     "summary": "Tightened confidence formula on Pipeline sheet",
     "cells": [
-      { "ref": "Pipeline!F:F", "before": "=IF(Stage=\"Negotiation\",0.7,0.4)", "after": "=IF(Stage=\"Closed-Won\",1,IF(Stage=\"Negotiation\",0.8,IF(Stage=\"Proposal\",0.55,0.3)))" }
+      {
+        "ref": "Pipeline!F:F",
+        "before": "=IF(Stage=\"Negotiation\",0.7,0.4)",
+        "after": "=IF(Stage=\"Closed-Won\",1,IF(Stage=\"Negotiation\",0.8,IF(Stage=\"Proposal\",0.55,0.3)))"
+      }
     ],
     "ts": "2026-04-29T11:18:00Z"
   },
@@ -56,9 +60,7 @@
     "actor_name": "Jamie Park",
     "actor_avatar": "JP",
     "summary": "Bulk-imported 142 Salesforce opportunities into Pipeline sheet",
-    "cells": [
-      { "ref": "Pipeline!A271:N412", "before": "—", "after": "+142 rows" }
-    ],
+    "cells": [{ "ref": "Pipeline!A271:N412", "before": "—", "after": "+142 rows" }],
     "ts": "2026-04-28T22:08:00Z"
   },
   {
@@ -69,9 +71,7 @@
     "actor_name": "Marcus Rivera",
     "actor_avatar": "MR",
     "summary": "Reset AMER booked total after revenue rec adjustment",
-    "cells": [
-      { "ref": "Summary!C2", "before": "$1,912,000", "after": "$1,864,000" }
-    ],
+    "cells": [{ "ref": "Summary!C2", "before": "$1,912,000", "after": "$1,864,000" }],
     "ts": "2026-04-28T16:21:00Z"
   }
 ]

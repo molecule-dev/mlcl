@@ -9,16 +9,9 @@
     "status": "active",
     "featured": true,
     "total_sold": 342,
-    "images": [
-      "https://picsum.photos/seed/wnc001/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/wnc001/200/200"
-    ],
-    "tags": [
-      "bestseller",
-      "premium"
-    ],
+    "images": ["https://picsum.photos/seed/wnc001/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/wnc001/200/200"],
+    "tags": ["bestseller", "premium"],
     "variants": [],
     "created_at": "2025-08-15T10:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -33,16 +26,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 1205,
-    "images": [
-      "https://picsum.photos/seed/oct100/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/oct100/200/200"
-    ],
-    "tags": [
-      "organic",
-      "eco-friendly"
-    ],
+    "images": ["https://picsum.photos/seed/oct100/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/oct100/200/200"],
+    "tags": ["organic", "eco-friendly"],
     "variants": [],
     "created_at": "2025-06-01T08:00:00Z",
     "updated_at": "2026-03-20T12:00:00Z"
@@ -57,16 +43,9 @@
     "status": "active",
     "featured": true,
     "total_sold": 567,
-    "images": [
-      "https://picsum.photos/seed/hlw200/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/hlw200/200/200"
-    ],
-    "tags": [
-      "handmade",
-      "premium"
-    ],
+    "images": ["https://picsum.photos/seed/hlw200/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/hlw200/200/200"],
+    "tags": ["handmade", "premium"],
     "variants": [],
     "created_at": "2025-09-10T11:00:00Z",
     "updated_at": "2026-03-25T09:00:00Z"
@@ -81,16 +60,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 892,
-    "images": [
-      "https://picsum.photos/seed/ssw300/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/ssw300/200/200"
-    ],
-    "tags": [
-      "eco-friendly",
-      "popular"
-    ],
+    "images": ["https://picsum.photos/seed/ssw300/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/ssw300/200/200"],
+    "tags": ["eco-friendly", "popular"],
     "variants": [],
     "created_at": "2025-07-20T14:00:00Z",
     "updated_at": "2026-03-22T16:00:00Z"
@@ -105,16 +77,9 @@
     "status": "active",
     "featured": true,
     "total_sold": 234,
-    "images": [
-      "https://picsum.photos/seed/maw400/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/maw400/200/200"
-    ],
-    "tags": [
-      "premium",
-      "new"
-    ],
+    "images": ["https://picsum.photos/seed/maw400/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/maw400/200/200"],
+    "tags": ["premium", "new"],
     "variants": [],
     "created_at": "2025-11-01T09:00:00Z",
     "updated_at": "2026-03-18T11:00:00Z"
@@ -129,16 +94,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 445,
-    "images": [
-      "https://picsum.photos/seed/bcb500/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bcb500/200/200"
-    ],
-    "tags": [
-      "eco-friendly",
-      "popular"
-    ],
+    "images": ["https://picsum.photos/seed/bcb500/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bcb500/200/200"],
+    "tags": ["eco-friendly", "popular"],
     "variants": [],
     "created_at": "2025-10-15T13:00:00Z",
     "updated_at": "2026-03-15T10:00:00Z"
@@ -153,16 +111,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 678,
-    "images": [
-      "https://picsum.photos/seed/wbb600/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/wbb600/200/200"
-    ],
-    "tags": [
-      "popular",
-      "sale"
-    ],
+    "images": ["https://picsum.photos/seed/wbb600/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/wbb600/200/200"],
+    "tags": ["popular", "sale"],
     "variants": [],
     "created_at": "2025-10-01T08:00:00Z",
     "updated_at": "2026-03-10T14:00:00Z"
@@ -177,16 +128,9 @@
     "status": "active",
     "featured": true,
     "total_sold": 512,
-    "images": [
-      "https://picsum.photos/seed/pbs700/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/pbs700/200/200"
-    ],
-    "tags": [
-      "bestseller",
-      "new"
-    ],
+    "images": ["https://picsum.photos/seed/pbs700/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/pbs700/200/200"],
+    "tags": ["bestseller", "new"],
     "variants": [],
     "created_at": "2025-12-01T10:00:00Z",
     "updated_at": "2026-03-28T08:00:00Z"
@@ -201,16 +145,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 189,
-    "images": [
-      "https://picsum.photos/seed/cpc800/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/cpc800/200/200"
-    ],
-    "tags": [
-      "handmade",
-      "new"
-    ],
+    "images": ["https://picsum.photos/seed/cpc800/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/cpc800/200/200"],
+    "tags": ["handmade", "new"],
     "variants": [],
     "created_at": "2026-01-15T09:00:00Z",
     "updated_at": "2026-03-20T11:00:00Z"
@@ -225,16 +162,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 356,
-    "images": [
-      "https://picsum.photos/seed/clb900/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/clb900/200/200"
-    ],
-    "tags": [
-      "premium",
-      "popular"
-    ],
+    "images": ["https://picsum.photos/seed/clb900/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/clb900/200/200"],
+    "tags": ["premium", "popular"],
     "variants": [],
     "created_at": "2025-09-20T12:00:00Z",
     "updated_at": "2026-03-25T15:00:00Z"
@@ -249,16 +179,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 723,
-    "images": [
-      "https://picsum.photos/seed/swc010/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/swc010/200/200"
-    ],
-    "tags": [
-      "handmade",
-      "popular"
-    ],
+    "images": ["https://picsum.photos/seed/swc010/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/swc010/200/200"],
+    "tags": ["handmade", "popular"],
     "variants": [],
     "created_at": "2025-11-15T11:00:00Z",
     "updated_at": "2026-03-18T09:00:00Z"
@@ -273,16 +196,9 @@
     "status": "active",
     "featured": true,
     "total_sold": 278,
-    "images": [
-      "https://picsum.photos/seed/rsp110/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/rsp110/200/200"
-    ],
-    "tags": [
-      "new",
-      "premium"
-    ],
+    "images": ["https://picsum.photos/seed/rsp110/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/rsp110/200/200"],
+    "tags": ["new", "premium"],
     "variants": [],
     "created_at": "2026-02-01T10:00:00Z",
     "updated_at": "2026-03-28T12:00:00Z"
@@ -297,16 +213,9 @@
     "status": "active",
     "featured": true,
     "total_sold": 180,
-    "images": [
-      "https://picsum.photos/seed/bazaar-sony-xm5/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-sony-xm5/400/400"
-    ],
-    "tags": [
-      "bestseller",
-      "premium"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-sony-xm5/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-sony-xm5/400/400"],
+    "tags": ["bestseller", "premium"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -321,15 +230,9 @@
     "status": "active",
     "featured": true,
     "total_sold": 210,
-    "images": [
-      "https://picsum.photos/seed/bazaar-tee/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-tee/400/400"
-    ],
-    "tags": [
-      "eco"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-tee/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-tee/400/400"],
+    "tags": ["eco"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -344,15 +247,9 @@
     "status": "active",
     "featured": true,
     "total_sold": 160,
-    "images": [
-      "https://picsum.photos/seed/bazaar-trail/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-trail/400/400"
-    ],
-    "tags": [
-      "bestseller"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-trail/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-trail/400/400"],
+    "tags": ["bestseller"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -367,15 +264,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 95,
-    "images": [
-      "https://picsum.photos/seed/bazaar-wallet/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-wallet/400/400"
-    ],
-    "tags": [
-      "rfid"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-wallet/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-wallet/400/400"],
+    "tags": ["rfid"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -390,15 +281,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 120,
-    "images": [
-      "https://picsum.photos/seed/bazaar-speaker/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-speaker/400/400"
-    ],
-    "tags": [
-      "waterproof"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-speaker/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-speaker/400/400"],
+    "tags": ["waterproof"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -413,15 +298,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 70,
-    "images": [
-      "https://picsum.photos/seed/bazaar-pillow/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-pillow/400/400"
-    ],
-    "tags": [
-      "set"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-pillow/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-pillow/400/400"],
+    "tags": ["set"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -436,15 +315,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 140,
-    "images": [
-      "https://picsum.photos/seed/bazaar-charger/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-charger/400/400"
-    ],
-    "tags": [
-      "qi"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-charger/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-charger/400/400"],
+    "tags": ["qi"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -459,15 +332,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 60,
-    "images": [
-      "https://picsum.photos/seed/bazaar-beanie/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-beanie/400/400"
-    ],
-    "tags": [
-      "cashmere"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-beanie/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-beanie/400/400"],
+    "tags": ["cashmere"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -482,15 +349,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 85,
-    "images": [
-      "https://picsum.photos/seed/bazaar-mat/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-mat/400/400"
-    ],
-    "tags": [
-      "eco"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-mat/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-mat/400/400"],
+    "tags": ["eco"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -505,15 +366,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 110,
-    "images": [
-      "https://picsum.photos/seed/bazaar-candle/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-candle/400/400"
-    ],
-    "tags": [
-      "handmade"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-candle/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-candle/400/400"],
+    "tags": ["handmade"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -528,15 +383,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 88,
-    "images": [
-      "https://picsum.photos/seed/bazaar-bose-qc-ultra/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-bose-qc-ultra/400/400"
-    ],
-    "tags": [
-      "premium"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-bose-qc-ultra/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-bose-qc-ultra/400/400"],
+    "tags": ["premium"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -551,15 +400,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 76,
-    "images": [
-      "https://picsum.photos/seed/bazaar-airpods-max/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-airpods-max/400/400"
-    ],
-    "tags": [
-      "premium"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-airpods-max/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-airpods-max/400/400"],
+    "tags": ["premium"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -574,12 +417,8 @@
     "status": "active",
     "featured": false,
     "total_sold": 64,
-    "images": [
-      "https://picsum.photos/seed/bazaar-jabra-85h/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-jabra-85h/400/400"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-jabra-85h/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-jabra-85h/400/400"],
     "tags": [],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
@@ -595,15 +434,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 58,
-    "images": [
-      "https://picsum.photos/seed/bazaar-momentum-4/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-momentum-4/400/400"
-    ],
-    "tags": [
-      "audiophile"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-momentum-4/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-momentum-4/400/400"],
+    "tags": ["audiophile"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -618,12 +451,8 @@
     "status": "active",
     "featured": false,
     "total_sold": 92,
-    "images": [
-      "https://picsum.photos/seed/bazaar-buds2pro/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-buds2pro/400/400"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-buds2pro/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-buds2pro/400/400"],
     "tags": [],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
@@ -639,12 +468,8 @@
     "status": "active",
     "featured": false,
     "total_sold": 71,
-    "images": [
-      "https://picsum.photos/seed/bazaar-beats-studio-pro/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-beats-studio-pro/400/400"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-beats-studio-pro/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-beats-studio-pro/400/400"],
     "tags": [],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
@@ -660,15 +485,9 @@
     "status": "active",
     "featured": false,
     "total_sold": 49,
-    "images": [
-      "https://picsum.photos/seed/bazaar-s24-ultra/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-s24-ultra/400/400"
-    ],
-    "tags": [
-      "premium"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-s24-ultra/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-s24-ultra/400/400"],
+    "tags": ["premium"],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",
     "updated_at": "2026-03-28T14:00:00Z"
@@ -683,12 +502,8 @@
     "status": "active",
     "featured": false,
     "total_sold": 37,
-    "images": [
-      "https://picsum.photos/seed/bazaar-tab-s9/400/400"
-    ],
-    "thumbnails": [
-      "https://picsum.photos/seed/bazaar-tab-s9/400/400"
-    ],
+    "images": ["https://picsum.photos/seed/bazaar-tab-s9/400/400"],
+    "thumbnails": ["https://picsum.photos/seed/bazaar-tab-s9/400/400"],
     "tags": [],
     "variants": [],
     "created_at": "2025-09-01T09:00:00Z",

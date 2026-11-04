@@ -19,7 +19,13 @@
       "https://picsum.photos/seed/prop01b/800/600",
       "https://picsum.photos/seed/prop01c/800/600"
     ],
-    "features": ["hardwood floors", "chef's kitchen", "covered patio", "built-in bookshelves", "gas fireplace"],
+    "features": [
+      "hardwood floors",
+      "chef's kitchen",
+      "covered patio",
+      "built-in bookshelves",
+      "gas fireplace"
+    ],
     "status": "active",
     "latitude": 47.6153,
     "longitude": -122.3193,
@@ -47,7 +53,14 @@
       "https://picsum.photos/seed/prop02a/800/600",
       "https://picsum.photos/seed/prop02b/800/600"
     ],
-    "features": ["lake views", "concierge", "rooftop deck", "fitness center", "parking garage", "in-unit laundry"],
+    "features": [
+      "lake views",
+      "concierge",
+      "rooftop deck",
+      "fitness center",
+      "parking garage",
+      "in-unit laundry"
+    ],
     "status": "active",
     "latitude": 47.6255,
     "longitude": -122.3325,
@@ -77,7 +90,13 @@
       "https://picsum.photos/seed/prop03c/800/600",
       "https://picsum.photos/seed/prop03d/800/600"
     ],
-    "features": ["finished basement", "fenced yard", "updated kitchen", "two-car garage", "near parks"],
+    "features": [
+      "finished basement",
+      "fenced yard",
+      "updated kitchen",
+      "two-car garage",
+      "near parks"
+    ],
     "status": "active",
     "latitude": 47.6743,
     "longitude": -122.3543,
@@ -108,7 +127,7 @@
     "features": ["rooftop deck", "mountain views", "EV charging", "smart home", "heated floors"],
     "status": "active",
     "latitude": 47.6715,
-    "longitude": -122.3880,
+    "longitude": -122.388,
     "agent_id": "agt03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
     "owner_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
     "created_at": "2026-03-15T10:00:00Z",
@@ -129,10 +148,14 @@
     "lot_size": 0,
     "year_built": 1910,
     "property_type": "apartment",
-    "photos": [
-      "https://picsum.photos/seed/prop05a/800/600"
+    "photos": ["https://picsum.photos/seed/prop05a/800/600"],
+    "features": [
+      "exposed brick",
+      "high ceilings",
+      "near transit",
+      "bike storage",
+      "historic building"
     ],
-    "features": ["exposed brick", "high ceilings", "near transit", "bike storage", "historic building"],
     "status": "active",
     "latitude": 47.6005,
     "longitude": -122.3325,
@@ -156,10 +179,14 @@
     "lot_size": 12000,
     "year_built": 0,
     "property_type": "land",
-    "photos": [
-      "https://picsum.photos/seed/prop06a/800/600"
+    "photos": ["https://picsum.photos/seed/prop06a/800/600"],
+    "features": [
+      "multi-family zoning",
+      "water views",
+      "utilities available",
+      "south-facing",
+      "preliminary plans included"
     ],
-    "features": ["multi-family zoning", "water views", "utilities available", "south-facing", "preliminary plans included"],
     "status": "active",
     "latitude": 47.5623,
     "longitude": -122.3866,
@@ -188,7 +215,14 @@
       "https://picsum.photos/seed/prop07b/800/600",
       "https://picsum.photos/seed/prop07c/800/600"
     ],
-    "features": ["lake views", "mountain views", "mid-century design", "private garden", "post-and-beam", "walls of glass"],
+    "features": [
+      "lake views",
+      "mountain views",
+      "mid-century design",
+      "private garden",
+      "post-and-beam",
+      "walls of glass"
+    ],
     "status": "pending",
     "latitude": 47.6127,
     "longitude": -122.2877,
@@ -244,9 +278,15 @@
       "https://picsum.photos/seed/prop09a/800/600",
       "https://picsum.photos/seed/prop09b/800/600"
     ],
-    "features": ["in-unit laundry", "high walk score", "near trails", "updated finishes", "secure entry"],
+    "features": [
+      "in-unit laundry",
+      "high walk score",
+      "near trails",
+      "updated finishes",
+      "secure entry"
+    ],
     "status": "active",
-    "latitude": 47.6510,
+    "latitude": 47.651,
     "longitude": -122.3497,
     "agent_id": "agt03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
     "owner_id": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
@@ -274,10 +314,16 @@
       "https://picsum.photos/seed/prop10c/800/600",
       "https://picsum.photos/seed/prop10d/800/600"
     ],
-    "features": ["Space Needle views", "Mount Rainier views", "outdoor kitchen", "terraced yard", "wine cellar"],
+    "features": [
+      "Space Needle views",
+      "Mount Rainier views",
+      "outdoor kitchen",
+      "terraced yard",
+      "wine cellar"
+    ],
     "status": "active",
     "latitude": 47.6365,
-    "longitude": -122.3640,
+    "longitude": -122.364,
     "agent_id": "agt02b3c-4d5e-4f6a-b7c8-d9e0f1a2b3c4",
     "owner_id": "3336ef1b-7957-4874-f1b9-0865f9ed8c07",
     "created_at": "2026-02-15T10:00:00Z",

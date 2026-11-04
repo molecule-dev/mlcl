@@ -41,10 +41,45 @@
     }
   ],
   "events/evt-001/attendees": [
-    { "id": "att-1", "name": "Mia Tanaka", "email": "mia.t@example.com", "tier": "VIP Lounge", "checked_in": true,  "purchased_at": "2026-03-04T19:00:00Z" },
-    { "id": "att-2", "name": "Owen Park",  "email": "owen.p@example.com", "tier": "Front Row",   "checked_in": false, "purchased_at": "2026-03-12T22:42:11Z" },
-    { "id": "att-3", "name": "Lina Costa", "email": "lina.c@example.com", "tier": "GA",          "checked_in": false, "purchased_at": "2026-04-02T10:15:33Z" },
-    { "id": "att-4", "name": "Sam Wright", "email": "sam.w@example.com",  "tier": "GA",          "checked_in": true,  "purchased_at": "2026-04-08T08:30:21Z" },
-    { "id": "att-5", "name": "Aria Patel", "email": "aria.p@example.com", "tier": "VIP Lounge",  "checked_in": false, "purchased_at": "2026-04-12T15:45:00Z" }
+    {
+      "id": "att-1",
+      "name": "Mia Tanaka",
+      "email": "mia.t@example.com",
+      "tier": "VIP Lounge",
+      "checked_in": true,
+      "purchased_at": "2026-03-04T19:00:00Z"
+    },
+    {
+      "id": "att-2",
+      "name": "Owen Park",
+      "email": "owen.p@example.com",
+      "tier": "Front Row",
+      "checked_in": false,
+      "purchased_at": "2026-03-12T22:42:11Z"
+    },
+    {
+      "id": "att-3",
+      "name": "Lina Costa",
+      "email": "lina.c@example.com",
+      "tier": "GA",
+      "checked_in": false,
+      "purchased_at": "2026-04-02T10:15:33Z"
+    },
+    {
+      "id": "att-4",
+      "name": "Sam Wright",
+      "email": "sam.w@example.com",
+      "tier": "GA",
+      "checked_in": true,
+      "purchased_at": "2026-04-08T08:30:21Z"
+    },
+    {
+      "id": "att-5",
+      "name": "Aria Patel",
+      "email": "aria.p@example.com",
+      "tier": "VIP Lounge",
+      "checked_in": false,
+      "purchased_at": "2026-04-12T15:45:00Z"
+    }
   ]
 }

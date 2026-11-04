@@ -49,9 +49,7 @@
     "arrive_at": "2027-05-05T11:40:00Z",
     "duration_minutes": 565,
     "stops": 1,
-    "stop_airports": [
-      "LHR"
-    ],
+    "stop_airports": ["LHR"],
     "passenger_count": 2,
     "cabin": "economy",
     "total_cents": 108400,

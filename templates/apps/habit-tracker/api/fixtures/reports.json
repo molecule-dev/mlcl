@@ -17,11 +17,11 @@
     "best_ever_streak": 89,
     "best_ever_habit": "Morning meditation",
     "by_category": [
-      { "category": "health",     "count": 3, "rate": 0.84 },
-      { "category": "mind",       "count": 2, "rate": 0.71 },
+      { "category": "health", "count": 3, "rate": 0.84 },
+      { "category": "mind", "count": 2, "rate": 0.71 },
       { "category": "creativity", "count": 2, "rate": 0.65 },
-      { "category": "social",     "count": 1, "rate": 0.78 },
-      { "category": "learning",   "count": 2, "rate": 0.82 }
+      { "category": "social", "count": 1, "rate": 0.78 },
+      { "category": "learning", "count": 2, "rate": 0.82 }
     ],
     "weekly_completion": [
       { "week": "2026-02-02", "rate": 0.62 },
@@ -32,7 +32,7 @@
       { "week": "2026-03-09", "rate": 0.71 },
       { "week": "2026-03-16", "rate": 0.83 },
       { "week": "2026-03-23", "rate": 0.78 },
-      { "week": "2026-03-30", "rate": 0.80 },
+      { "week": "2026-03-30", "rate": 0.8 },
       { "week": "2026-04-06", "rate": 0.85 },
       { "week": "2026-04-13", "rate": 0.79 },
       { "week": "2026-04-20", "rate": 0.87 }

@@ -4,9 +4,7 @@
     "user_id": "user-1",
     "thread_id": "thread-em-1",
     "from": "Priya Nair <priya@brightlane.example>",
-    "to": [
-      "alex@example.com"
-    ],
+    "to": ["alex@example.com"],
     "cc": null,
     "bcc": null,
     "subject": "Q4 roadmap review on Thursday",
@@ -27,9 +25,7 @@
     "user_id": "user-1",
     "thread_id": "thread-em-2",
     "from": "GitHub <noreply@github.example>",
-    "to": [
-      "alex@example.com"
-    ],
+    "to": ["alex@example.com"],
     "cc": null,
     "bcc": null,
     "subject": "[acme/web] Pull request #482 was merged",
@@ -50,9 +46,7 @@
     "user_id": "user-1",
     "thread_id": "thread-em-3",
     "from": "Tom Becker <tom@weber-gmbh.example>",
-    "to": [
-      "alex@example.com"
-    ],
+    "to": ["alex@example.com"],
     "cc": null,
     "bcc": null,
     "subject": "Invoice 2026-0143",
@@ -79,9 +73,7 @@
     "user_id": "user-1",
     "thread_id": "thread-em-4",
     "from": "Lena Fischer <lena@finchlabs.example>",
-    "to": [
-      "alex@example.com"
-    ],
+    "to": ["alex@example.com"],
     "cc": null,
     "bcc": null,
     "subject": "Lunch next week?",
@@ -102,9 +94,7 @@
     "user_id": "user-1",
     "thread_id": "thread-em-5",
     "from": "Acme Billing <billing@acme.example>",
-    "to": [
-      "alex@example.com"
-    ],
+    "to": ["alex@example.com"],
     "cc": null,
     "bcc": null,
     "subject": "Your receipt from Acme",
@@ -125,9 +115,7 @@
     "user_id": "user-1",
     "thread_id": "thread-em-6",
     "from": "Omar Haddad <omar@tavola.example>",
-    "to": [
-      "alex@example.com"
-    ],
+    "to": ["alex@example.com"],
     "cc": null,
     "bcc": null,
     "subject": "Design handoff for the checkout flow",
@@ -148,9 +136,7 @@
     "user_id": "user-1",
     "thread_id": "thread-em-7",
     "from": "Newsletter <news@indie.example>",
-    "to": [
-      "alex@example.com"
-    ],
+    "to": ["alex@example.com"],
     "cc": null,
     "bcc": null,
     "subject": "This week in product design",
@@ -171,9 +157,7 @@
     "user_id": "user-1",
     "thread_id": "thread-contract",
     "from": "Sofia Rossi <sofia@tavola.example>",
-    "to": [
-      "alex@example.com"
-    ],
+    "to": ["alex@example.com"],
     "cc": null,
     "bcc": null,
     "subject": "Re: Contract draft",

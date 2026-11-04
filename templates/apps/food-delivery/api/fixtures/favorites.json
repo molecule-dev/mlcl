@@ -5,7 +5,17 @@
     { "id": "fav-r7", "restaurant_id": "r7", "saved_at": "2026-04-12T10:15:00.000Z" }
   ],
   "dishes": [
-    { "id": "fav-d1", "menu_item_id": "m3", "restaurant_id": "r1", "saved_at": "2026-04-01T19:00:00.000Z" },
-    { "id": "fav-d2", "menu_item_id": "m17", "restaurant_id": "r3", "saved_at": "2026-04-15T20:00:00.000Z" }
+    {
+      "id": "fav-d1",
+      "menu_item_id": "m3",
+      "restaurant_id": "r1",
+      "saved_at": "2026-04-01T19:00:00.000Z"
+    },
+    {
+      "id": "fav-d2",
+      "menu_item_id": "m17",
+      "restaurant_id": "r3",
+      "saved_at": "2026-04-15T20:00:00.000Z"
+    }
   ]
 }

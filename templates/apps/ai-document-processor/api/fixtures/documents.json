@@ -23,9 +23,7 @@
     "summary": "Invoice from Acme Corp for 12 hosting seats, total 2,400.00 USD, due 30 days.",
     "summary_md": "Invoice from Acme Corp for 12 hosting seats, total 2,400.00 USD, due 30 days.",
     "folder_id": null,
-    "tags": [
-      "invoice"
-    ],
+    "tags": ["invoice"],
     "download_url": null,
     "preview_url": null,
     "extracted_fields": [
@@ -108,9 +106,7 @@
     "summary": "Cafe receipt for 38.40 USD paid by card.",
     "summary_md": "Cafe receipt for 38.40 USD paid by card.",
     "folder_id": null,
-    "tags": [
-      "receipt"
-    ],
+    "tags": ["receipt"],
     "download_url": null,
     "preview_url": null,
     "extracted_fields": [
@@ -177,9 +173,7 @@
     "summary": "Three-year office lease with a renewal option and a 60-day notice clause.",
     "summary_md": "Three-year office lease with a renewal option and a 60-day notice clause.",
     "folder_id": null,
-    "tags": [
-      "contract"
-    ],
+    "tags": ["contract"],
     "download_url": null,
     "preview_url": null,
     "extracted_fields": [
@@ -246,9 +240,7 @@
     "summary": "Tax form with taxpayer name and ID. Needs review: low confidence on the ID field.",
     "summary_md": "Tax form with taxpayer name and ID. Needs review: low confidence on the ID field.",
     "folder_id": null,
-    "tags": [
-      "form"
-    ],
+    "tags": ["form"],
     "download_url": null,
     "preview_url": null,
     "extracted_fields": [
@@ -315,9 +307,7 @@
     "summary": null,
     "summary_md": null,
     "folder_id": null,
-    "tags": [
-      "report"
-    ],
+    "tags": ["report"],
     "download_url": null,
     "preview_url": null,
     "extracted_fields": [],
@@ -367,9 +357,7 @@
     "summary": null,
     "summary_md": null,
     "folder_id": null,
-    "tags": [
-      "identification"
-    ],
+    "tags": ["identification"],
     "download_url": null,
     "preview_url": null,
     "extracted_fields": [],

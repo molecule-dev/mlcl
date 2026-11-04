@@ -12,9 +12,7 @@
       "bid_count": 23,
       "end_time": "2027-01-14T18:00:00Z",
       "status": "live",
-      "thumbnails": [
-        "https://picsum.photos/seed/gavl-1/960/720"
-      ]
+      "thumbnails": ["https://picsum.photos/seed/gavl-1/960/720"]
     }
   },
   {
@@ -30,9 +28,7 @@
       "bid_count": 11,
       "end_time": "2027-01-09T20:00:00Z",
       "status": "live",
-      "thumbnails": [
-        "https://picsum.photos/seed/gavl-2/960/720"
-      ]
+      "thumbnails": ["https://picsum.photos/seed/gavl-2/960/720"]
     }
   },
   {
@@ -48,9 +44,7 @@
       "bid_count": 41,
       "end_time": "2027-01-06T19:00:00Z",
       "status": "ending",
-      "thumbnails": [
-        "https://picsum.photos/seed/gavl-3/960/720"
-      ]
+      "thumbnails": ["https://picsum.photos/seed/gavl-3/960/720"]
     }
   }
 ]

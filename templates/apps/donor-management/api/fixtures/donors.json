@@ -6,10 +6,7 @@
     "phone": "+1-206-555-0134",
     "address": "4120 Holly Lane, Seattle, WA 98103",
     "is_organization": false,
-    "tags": [
-      "major-donor",
-      "monthly-donor"
-    ],
+    "tags": ["major-donor", "monthly-donor"],
     "created_at": "2025-02-10T09:00:00Z",
     "lifetime_cents": 1545000,
     "gift_count": 6,
@@ -23,9 +20,7 @@
     "phone": "+1-312-555-0177",
     "address": "88 Harbor Street Apt 3, Chicago, IL 60601",
     "is_organization": false,
-    "tags": [
-      "monthly-donor"
-    ],
+    "tags": ["monthly-donor"],
     "created_at": "2025-03-02T12:00:00Z",
     "lifetime_cents": 40000,
     "gift_count": 8,
@@ -39,10 +34,7 @@
     "phone": "+1-718-555-0122",
     "address": "620 Quincy Street, Brooklyn, NY 11221",
     "is_organization": false,
-    "tags": [
-      "volunteer",
-      "monthly-donor"
-    ],
+    "tags": ["volunteer", "monthly-donor"],
     "created_at": "2025-01-20T10:00:00Z",
     "lifetime_cents": 37000,
     "gift_count": 3,
@@ -56,9 +48,7 @@
     "phone": null,
     "address": "19 Birchwood Court, Portland, OR 97202",
     "is_organization": false,
-    "tags": [
-      "lapsed"
-    ],
+    "tags": ["lapsed"],
     "created_at": "2025-05-01T14:00:00Z",
     "lifetime_cents": 17500,
     "gift_count": 2,
@@ -72,9 +62,7 @@
     "phone": "+1-614-555-0189",
     "address": "77 Sycamore Road, Columbus, OH 43214",
     "is_organization": false,
-    "tags": [
-      "board-member"
-    ],
+    "tags": ["board-member"],
     "created_at": "2025-01-05T08:00:00Z",
     "lifetime_cents": 210000,
     "gift_count": 3,
@@ -88,9 +76,7 @@
     "phone": null,
     "address": "310 Alameda de las Pulgas, San Mateo, CA 94403",
     "is_organization": false,
-    "tags": [
-      "new"
-    ],
+    "tags": ["new"],
     "created_at": "2026-10-25T16:00:00Z",
     "lifetime_cents": 35000,
     "gift_count": 1,
@@ -104,9 +90,7 @@
     "phone": "+1-503-555-0110",
     "address": "1 Foundation Way, Suite 200, Portland, OR 97204",
     "is_organization": true,
-    "tags": [
-      "major-donor"
-    ],
+    "tags": ["major-donor"],
     "created_at": "2025-06-15T11:00:00Z",
     "lifetime_cents": 2000000,
     "gift_count": 2,
@@ -120,9 +104,7 @@
     "phone": null,
     "address": null,
     "is_organization": false,
-    "tags": [
-      "volunteer"
-    ],
+    "tags": ["volunteer"],
     "created_at": "2026-07-30T09:30:00Z",
     "lifetime_cents": 2500,
     "gift_count": 1,

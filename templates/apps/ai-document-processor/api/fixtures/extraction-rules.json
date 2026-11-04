@@ -4,10 +4,7 @@
     "user_id": "00000000-0000-4000-8000-0000000000aa",
     "name": "Invoices to Finance",
     "matchedType": "invoice",
-    "conditions": [
-      "Document type is invoice",
-      "Confidence above 90%"
-    ],
+    "conditions": ["Document type is invoice", "Confidence above 90%"],
     "action": "move_to_folder",
     "destination": "/Finance/Invoices",
     "enabled": true,
@@ -19,9 +16,7 @@
     "user_id": "00000000-0000-4000-8000-0000000000aa",
     "name": "Receipts to expenses",
     "matchedType": "receipt",
-    "conditions": [
-      "Document type is receipt"
-    ],
+    "conditions": ["Document type is receipt"],
     "action": "move_to_folder",
     "destination": "/Finance/Receipts",
     "enabled": true,
@@ -33,9 +28,7 @@
     "user_id": "00000000-0000-4000-8000-0000000000aa",
     "name": "Contracts to Legal",
     "matchedType": "contract",
-    "conditions": [
-      "Document type is contract"
-    ],
+    "conditions": ["Document type is contract"],
     "action": "notify",
     "destination": "#legal-review",
     "enabled": true,
@@ -47,10 +40,7 @@
     "user_id": "00000000-0000-4000-8000-0000000000aa",
     "name": "Forms needing review",
     "matchedType": "form",
-    "conditions": [
-      "Document type is form",
-      "Confidence below 70%"
-    ],
+    "conditions": ["Document type is form", "Confidence below 70%"],
     "action": "route_to_user",
     "destination": "Operations",
     "enabled": false,

@@ -16,20 +16,25 @@
     "avg_transit_hours": 56,
     "total_shipments_30d": 17094,
     "by_carrier": [
-      { "carrier": "FedEx",           "on_time_rate": 0.96, "exception_rate": 0.014, "shipments": 3192 },
-      { "carrier": "UPS",             "on_time_rate": 0.94, "exception_rate": 0.018, "shipments": 4218 },
-      { "carrier": "OnTrac",          "on_time_rate": 0.93, "exception_rate": 0.019, "shipments": 624  },
-      { "carrier": "Australia Post",  "on_time_rate": 0.92, "exception_rate": 0.022, "shipments": 218  },
-      { "carrier": "DHL",             "on_time_rate": 0.91, "exception_rate": 0.031, "shipments": 1480 },
-      { "carrier": "USPS",            "on_time_rate": 0.89, "exception_rate": 0.024, "shipments": 6840 },
-      { "carrier": "LaserShip",       "on_time_rate": 0.87, "exception_rate": 0.038, "shipments": 482  }
+      { "carrier": "FedEx", "on_time_rate": 0.96, "exception_rate": 0.014, "shipments": 3192 },
+      { "carrier": "UPS", "on_time_rate": 0.94, "exception_rate": 0.018, "shipments": 4218 },
+      { "carrier": "OnTrac", "on_time_rate": 0.93, "exception_rate": 0.019, "shipments": 624 },
+      {
+        "carrier": "Australia Post",
+        "on_time_rate": 0.92,
+        "exception_rate": 0.022,
+        "shipments": 218
+      },
+      { "carrier": "DHL", "on_time_rate": 0.91, "exception_rate": 0.031, "shipments": 1480 },
+      { "carrier": "USPS", "on_time_rate": 0.89, "exception_rate": 0.024, "shipments": 6840 },
+      { "carrier": "LaserShip", "on_time_rate": 0.87, "exception_rate": 0.038, "shipments": 482 }
     ],
     "by_status_30d": [
-      { "status": "delivered",        "count": 14820, "pct": 0.867 },
-      { "status": "in_transit",       "count": 1840,  "pct": 0.108 },
-      { "status": "out_for_delivery", "count": 187,   "pct": 0.011 },
-      { "status": "exception",        "count": 207,   "pct": 0.012 },
-      { "status": "pending",          "count": 40,    "pct": 0.002 }
+      { "status": "delivered", "count": 14820, "pct": 0.867 },
+      { "status": "in_transit", "count": 1840, "pct": 0.108 },
+      { "status": "out_for_delivery", "count": 187, "pct": 0.011 },
+      { "status": "exception", "count": 207, "pct": 0.012 },
+      { "status": "pending", "count": 40, "pct": 0.002 }
     ],
     "daily_volume": [
       { "date": "2026-03-28", "volume": 612, "on_time_volume": 580 },

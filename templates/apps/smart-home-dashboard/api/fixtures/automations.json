@@ -21,9 +21,7 @@
     "description": "Lock doors, arm cameras, eco thermostat at 11pm",
     "trigger": { "type": "time", "hour": 23, "minute": 0 },
     "conditions": [],
-    "actions": [
-      { "type": "scene.activate", "scene_id": "scn-003" }
-    ],
+    "actions": [{ "type": "scene.activate", "scene_id": "scn-003" }],
     "enabled": true,
     "last_triggered": "2026-04-28T23:00:00Z",
     "execution_count": 211,
@@ -36,9 +34,7 @@
     "description": "Hallway lantern when motion detected at night",
     "trigger": { "type": "motion", "device_id": "dev-011" },
     "conditions": [{ "type": "time_range", "after": "21:00", "before": "06:00" }],
-    "actions": [
-      { "type": "device.on", "device_id": "dev-002", "duration_minutes": 5 }
-    ],
+    "actions": [{ "type": "device.on", "device_id": "dev-002", "duration_minutes": 5 }],
     "enabled": true,
     "last_triggered": "2026-04-29T05:18:00Z",
     "execution_count": 92,
@@ -51,9 +47,7 @@
     "description": "Activate Away when phones leave geofence",
     "trigger": { "type": "geofence", "event": "exit" },
     "conditions": [{ "type": "all_phones_away" }],
-    "actions": [
-      { "type": "scene.activate", "scene_id": "scn-004" }
-    ],
+    "actions": [{ "type": "scene.activate", "scene_id": "scn-004" }],
     "enabled": true,
     "last_triggered": "2026-04-26T08:15:00Z",
     "execution_count": 38,

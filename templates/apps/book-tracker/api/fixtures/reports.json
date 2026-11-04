@@ -2,8 +2,28 @@
   "today": {
     "date": "2026-09-19",
     "currently_reading": [
-      { "user_book_id": "ub_001", "book_id": "bk_001", "title": "The Left Hand of Darkness", "author": "Ursula K. Le Guin", "cover_style": "indigo", "page_count": 304, "current_page": 187, "percent": 62, "started_at": "2026-08-24" },
-      { "user_book_id": "ub_002", "book_id": "bk_002", "title": "Piranesi", "author": "Susanna Clarke", "cover_style": "teal", "page_count": 245, "current_page": 96, "percent": 39, "started_at": "2026-09-06" }
+      {
+        "user_book_id": "ub_001",
+        "book_id": "bk_001",
+        "title": "The Left Hand of Darkness",
+        "author": "Ursula K. Le Guin",
+        "cover_style": "indigo",
+        "page_count": 304,
+        "current_page": 187,
+        "percent": 62,
+        "started_at": "2026-08-24"
+      },
+      {
+        "user_book_id": "ub_002",
+        "book_id": "bk_002",
+        "title": "Piranesi",
+        "author": "Susanna Clarke",
+        "cover_style": "teal",
+        "page_count": 245,
+        "current_page": 96,
+        "percent": 39,
+        "started_at": "2026-09-06"
+      }
     ],
     "minutes_today": 45,
     "pages_today": 23,
@@ -50,12 +70,66 @@
       { "genre": "nature", "count": 1 }
     ],
     "recent": [
-      { "user_book_id": "ub_002", "book_id": "bk_002", "title": "Piranesi", "author": "Susanna Clarke", "shelf": "reading", "rating": null, "finished_at": null, "updated_at": "2026-09-19T21:10:00Z" },
-      { "user_book_id": "ub_001", "book_id": "bk_001", "title": "The Left Hand of Darkness", "author": "Ursula K. Le Guin", "shelf": "reading", "rating": null, "finished_at": null, "updated_at": "2026-09-19T19:42:00Z" },
-      { "user_book_id": "ub_003", "book_id": "bk_003", "title": "Thinking in Systems", "author": "Donella Meadows", "shelf": "read", "rating": 5, "finished_at": "2026-08-29", "updated_at": "2026-08-30T09:15:00Z" },
-      { "user_book_id": "ub_010", "book_id": "bk_010", "title": "Braiding Sweetgrass", "author": "Robin Wall Kimmerer", "shelf": "read", "rating": 5, "finished_at": "2026-08-10", "updated_at": "2026-08-11T08:30:00Z" },
-      { "user_book_id": "ub_005", "book_id": "bk_005", "title": "Klara and the Sun", "author": "Kazuo Ishiguro", "shelf": "read", "rating": 4, "finished_at": "2026-06-20", "updated_at": "2026-06-21T10:05:00Z" },
-      { "user_book_id": "ub_004", "book_id": "bk_004", "title": "The Song of Achilles", "author": "Madeline Miller", "shelf": "read", "rating": 4, "finished_at": "2026-07-17", "updated_at": "2026-07-18T22:40:00Z" }
+      {
+        "user_book_id": "ub_002",
+        "book_id": "bk_002",
+        "title": "Piranesi",
+        "author": "Susanna Clarke",
+        "shelf": "reading",
+        "rating": null,
+        "finished_at": null,
+        "updated_at": "2026-09-19T21:10:00Z"
+      },
+      {
+        "user_book_id": "ub_001",
+        "book_id": "bk_001",
+        "title": "The Left Hand of Darkness",
+        "author": "Ursula K. Le Guin",
+        "shelf": "reading",
+        "rating": null,
+        "finished_at": null,
+        "updated_at": "2026-09-19T19:42:00Z"
+      },
+      {
+        "user_book_id": "ub_003",
+        "book_id": "bk_003",
+        "title": "Thinking in Systems",
+        "author": "Donella Meadows",
+        "shelf": "read",
+        "rating": 5,
+        "finished_at": "2026-08-29",
+        "updated_at": "2026-08-30T09:15:00Z"
+      },
+      {
+        "user_book_id": "ub_010",
+        "book_id": "bk_010",
+        "title": "Braiding Sweetgrass",
+        "author": "Robin Wall Kimmerer",
+        "shelf": "read",
+        "rating": 5,
+        "finished_at": "2026-08-10",
+        "updated_at": "2026-08-11T08:30:00Z"
+      },
+      {
+        "user_book_id": "ub_005",
+        "book_id": "bk_005",
+        "title": "Klara and the Sun",
+        "author": "Kazuo Ishiguro",
+        "shelf": "read",
+        "rating": 4,
+        "finished_at": "2026-06-20",
+        "updated_at": "2026-06-21T10:05:00Z"
+      },
+      {
+        "user_book_id": "ub_004",
+        "book_id": "bk_004",
+        "title": "The Song of Achilles",
+        "author": "Madeline Miller",
+        "shelf": "read",
+        "rating": 4,
+        "finished_at": "2026-07-17",
+        "updated_at": "2026-07-18T22:40:00Z"
+      }
     ]
   }
 }

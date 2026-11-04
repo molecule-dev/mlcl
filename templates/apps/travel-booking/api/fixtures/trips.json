@@ -62,9 +62,7 @@
     "check_out_iso": "2026-02-12T11:00:00Z",
     "guests": 2,
     "status": "completed",
-    "gallery": [
-      "https://picsum.photos/seed/sojourn-tb-t3a/1200/900"
-    ],
+    "gallery": ["https://picsum.photos/seed/sojourn-tb-t3a/1200/900"],
     "host_name": "Sofía M.",
     "host_message_count": 0,
     "subtotal_cents": 107600,
@@ -86,9 +84,7 @@
     "check_out_iso": "2025-11-16T10:00:00Z",
     "guests": 2,
     "status": "completed",
-    "gallery": [
-      "https://picsum.photos/seed/sojourn-tb-t4a/1200/900"
-    ],
+    "gallery": ["https://picsum.photos/seed/sojourn-tb-t4a/1200/900"],
     "host_name": "Karim B.",
     "host_message_count": 0,
     "subtotal_cents": 65600,

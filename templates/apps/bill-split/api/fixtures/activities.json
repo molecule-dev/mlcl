@@ -4,7 +4,12 @@
     "group_id": "g-joshua-tree",
     "group_name": "Joshua Tree Weekend",
     "kind": "expense_added",
-    "payload": { "actor": "Sam Kwon", "description": "Gas & park passes", "amount_cents": 21000, "payer_name": "Sam Kwon" },
+    "payload": {
+      "actor": "Sam Kwon",
+      "description": "Gas & park passes",
+      "amount_cents": 21000,
+      "payer_name": "Sam Kwon"
+    },
     "created_at": "2026-09-27T05:00:00.000Z"
   },
   {
@@ -12,7 +17,13 @@
     "group_id": "g-dinner",
     "group_name": "Bi-Weekly Dinner Club",
     "kind": "settlement_recorded",
-    "payload": { "actor": "Marcus Reid", "amount_cents": 6000, "from_name": "Marcus Reid", "to_name": "Clara Tran", "method": "cash" },
+    "payload": {
+      "actor": "Marcus Reid",
+      "amount_cents": 6000,
+      "from_name": "Marcus Reid",
+      "to_name": "Clara Tran",
+      "method": "cash"
+    },
     "created_at": "2026-09-26T20:30:00.000Z"
   },
   {
@@ -20,7 +31,13 @@
     "group_id": "g-dinner",
     "group_name": "Bi-Weekly Dinner Club",
     "kind": "settlement_recorded",
-    "payload": { "actor": "Dev Patel", "amount_cents": 6000, "from_name": "Dev Patel", "to_name": "Clara Tran", "method": "cash" },
+    "payload": {
+      "actor": "Dev Patel",
+      "amount_cents": 6000,
+      "from_name": "Dev Patel",
+      "to_name": "Clara Tran",
+      "method": "cash"
+    },
     "created_at": "2026-09-26T20:15:00.000Z"
   },
   {
@@ -28,7 +45,13 @@
     "group_id": "g-dinner",
     "group_name": "Bi-Weekly Dinner Club",
     "kind": "settlement_recorded",
-    "payload": { "actor": "You", "amount_cents": 6000, "from_name": "You", "to_name": "Clara Tran", "method": "cash" },
+    "payload": {
+      "actor": "You",
+      "amount_cents": 6000,
+      "from_name": "You",
+      "to_name": "Clara Tran",
+      "method": "cash"
+    },
     "created_at": "2026-09-26T20:00:00.000Z"
   },
   {
@@ -36,7 +59,12 @@
     "group_id": "g-flat-4b",
     "group_name": "Bushwick Flatmates (Apt 4B)",
     "kind": "expense_added",
-    "payload": { "actor": "Liam Zeller", "description": "Fibre internet", "amount_cents": 6000, "payer_name": "Liam Zeller" },
+    "payload": {
+      "actor": "Liam Zeller",
+      "description": "Fibre internet",
+      "amount_cents": 6000,
+      "payer_name": "Liam Zeller"
+    },
     "created_at": "2026-09-25T18:05:00.000Z"
   },
   {
@@ -44,7 +72,12 @@
     "group_id": "g-flat-4b",
     "group_name": "Bushwick Flatmates (Apt 4B)",
     "kind": "expense_added",
-    "payload": { "actor": "You", "description": "Weekly groceries", "amount_cents": 8750, "payer_name": "You" },
+    "payload": {
+      "actor": "You",
+      "description": "Weekly groceries",
+      "amount_cents": 8750,
+      "payer_name": "You"
+    },
     "created_at": "2026-09-24T17:45:00.000Z"
   },
   {
@@ -52,7 +85,12 @@
     "group_id": "g-dinner",
     "group_name": "Bi-Weekly Dinner Club",
     "kind": "expense_added",
-    "payload": { "actor": "Clara Tran", "description": "Osteria Morini Dinner", "amount_cents": 24000, "payer_name": "Clara Tran" },
+    "payload": {
+      "actor": "Clara Tran",
+      "description": "Osteria Morini Dinner",
+      "amount_cents": 24000,
+      "payer_name": "Clara Tran"
+    },
     "created_at": "2026-09-23T20:35:00.000Z"
   },
   {
@@ -60,7 +98,13 @@
     "group_id": "g-cabin-2401",
     "group_name": "Lake Tahoe Ski Cabin",
     "kind": "settlement_recorded",
-    "payload": { "actor": "Dev Patel", "amount_cents": 10000, "from_name": "Dev Patel", "to_name": "You", "method": "transfer" },
+    "payload": {
+      "actor": "Dev Patel",
+      "amount_cents": 10000,
+      "from_name": "Dev Patel",
+      "to_name": "You",
+      "method": "transfer"
+    },
     "created_at": "2026-09-22T12:00:00.000Z"
   },
   {
@@ -76,7 +120,12 @@
     "group_id": "g-flat-4b",
     "group_name": "Bushwick Flatmates (Apt 4B)",
     "kind": "expense_added",
-    "payload": { "actor": "Marcus Reid", "description": "October rent (Apt 4B)", "amount_cents": 360000, "payer_name": "Marcus Reid" },
+    "payload": {
+      "actor": "Marcus Reid",
+      "description": "October rent (Apt 4B)",
+      "amount_cents": 360000,
+      "payer_name": "Marcus Reid"
+    },
     "created_at": "2026-09-19T09:02:00.000Z"
   },
   {
@@ -84,7 +133,12 @@
     "group_id": "g-cabin-2401",
     "group_name": "Lake Tahoe Ski Cabin",
     "kind": "expense_added",
-    "payload": { "actor": "Dev Patel", "description": "Palisades Tahoe Lift Tickets & Passes", "amount_cents": 46000, "payer_name": "Dev Patel" },
+    "payload": {
+      "actor": "Dev Patel",
+      "description": "Palisades Tahoe Lift Tickets & Passes",
+      "amount_cents": 46000,
+      "payer_name": "Dev Patel"
+    },
     "created_at": "2026-09-18T09:12:00.000Z"
   },
   {
@@ -92,7 +146,12 @@
     "group_id": "g-cabin-2401",
     "group_name": "Lake Tahoe Ski Cabin",
     "kind": "expense_added",
-    "payload": { "actor": "Clara Tran", "description": "Safeway Groceries & Cabin Supplies", "amount_cents": 12000, "payer_name": "Clara Tran" },
+    "payload": {
+      "actor": "Clara Tran",
+      "description": "Safeway Groceries & Cabin Supplies",
+      "amount_cents": 12000,
+      "payer_name": "Clara Tran"
+    },
     "created_at": "2026-09-17T16:25:00.000Z"
   },
   {
@@ -100,7 +159,12 @@
     "group_id": "g-cabin-2401",
     "group_name": "Lake Tahoe Ski Cabin",
     "kind": "expense_added",
-    "payload": { "actor": "You", "description": "Lakefront Airbnb (3 nights)", "amount_cents": 80000, "payer_name": "You" },
+    "payload": {
+      "actor": "You",
+      "description": "Lakefront Airbnb (3 nights)",
+      "amount_cents": 80000,
+      "payer_name": "You"
+    },
     "created_at": "2026-09-16T15:05:00.000Z"
   },
   {
@@ -108,7 +172,12 @@
     "group_id": "g-joshua-tree",
     "group_name": "Joshua Tree Weekend",
     "kind": "expense_added",
-    "payload": { "actor": "Clara Tran", "description": "Pioneertown dinner", "amount_cents": 24000, "payer_name": "Clara Tran" },
+    "payload": {
+      "actor": "Clara Tran",
+      "description": "Pioneertown dinner",
+      "amount_cents": 24000,
+      "payer_name": "Clara Tran"
+    },
     "created_at": "2026-09-15T20:50:00.000Z"
   },
   {
@@ -116,7 +185,12 @@
     "group_id": "g-joshua-tree",
     "group_name": "Joshua Tree Weekend",
     "kind": "expense_added",
-    "payload": { "actor": "You", "description": "Joshua Tree Airbnb (2 nights)", "amount_cents": 90000, "payer_name": "You" },
+    "payload": {
+      "actor": "You",
+      "description": "Joshua Tree Airbnb (2 nights)",
+      "amount_cents": 90000,
+      "payer_name": "You"
+    },
     "created_at": "2026-09-14T15:35:00.000Z"
   },
   {

@@ -6,8 +6,20 @@
     "status": "completed",
     "total_cents": 8800,
     "items": [
-      { "product_slug": "aurora-ui-kit", "name": "Aurora UI Kit — Figma + Code", "price_cents": 6900, "license_key": "DG-AUR0-PUR1-DEMO", "file_type": "FIGMA + ZIP" },
-      { "product_slug": "focus-handbook", "name": "The Focus Handbook (eBook)", "price_cents": 1900, "license_key": "DG-FOCS-PUR1-DEMO", "file_type": "PDF + EPUB" }
+      {
+        "product_slug": "aurora-ui-kit",
+        "name": "Aurora UI Kit — Figma + Code",
+        "price_cents": 6900,
+        "license_key": "DG-AUR0-PUR1-DEMO",
+        "file_type": "FIGMA + ZIP"
+      },
+      {
+        "product_slug": "focus-handbook",
+        "name": "The Focus Handbook (eBook)",
+        "price_cents": 1900,
+        "license_key": "DG-FOCS-PUR1-DEMO",
+        "file_type": "PDF + EPUB"
+      }
     ]
   },
   {
@@ -17,7 +29,13 @@
     "status": "completed",
     "total_cents": 4900,
     "items": [
-      { "product_slug": "signal-typeface", "name": "Signal — Variable Display Typeface", "price_cents": 4900, "license_key": "DG-SGNL-PUR2-DEMO", "file_type": "OTF + WOFF2" }
+      {
+        "product_slug": "signal-typeface",
+        "name": "Signal — Variable Display Typeface",
+        "price_cents": 4900,
+        "license_key": "DG-SGNL-PUR2-DEMO",
+        "file_type": "OTF + WOFF2"
+      }
     ]
   },
   {
@@ -27,7 +45,13 @@
     "status": "completed",
     "total_cents": 0,
     "items": [
-      { "product_slug": "indie-pricing-calculator", "name": "Indie Pricing Calculator (Notion)", "price_cents": 0, "license_key": null, "file_type": "NOTION" }
+      {
+        "product_slug": "indie-pricing-calculator",
+        "name": "Indie Pricing Calculator (Notion)",
+        "price_cents": 0,
+        "license_key": null,
+        "file_type": "NOTION"
+      }
     ]
   }
 ]

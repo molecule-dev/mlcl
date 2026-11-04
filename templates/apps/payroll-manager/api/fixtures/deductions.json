@@ -4,7 +4,7 @@
     "employee_id": "emp_001",
     "name": "Health Insurance — Family Plan",
     "type": "insurance",
-    "amount": 312.50,
+    "amount": 312.5,
     "is_percentage": false,
     "is_pretax": true,
     "is_active": true
@@ -24,7 +24,7 @@
     "employee_id": "emp_001",
     "name": "Dental + Vision",
     "type": "insurance",
-    "amount": 42.10,
+    "amount": 42.1,
     "is_percentage": false,
     "is_pretax": true,
     "is_active": true

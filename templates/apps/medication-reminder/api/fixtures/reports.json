@@ -17,12 +17,48 @@
     "doses_missed_30d": 11,
     "doses_skipped_30d": 4,
     "by_medication": [
-      { "medication_id": "med_001", "medication_name": "Lisinopril",       "pill_color": "blue",   "adherence_rate": 0.97, "missed_count": 1 },
-      { "medication_id": "med_002", "medication_name": "Metformin",        "pill_color": "yellow", "adherence_rate": 0.95, "missed_count": 3 },
-      { "medication_id": "med_003", "medication_name": "Atorvastatin",     "pill_color": "green",  "adherence_rate": 0.83, "missed_count": 5 },
-      { "medication_id": "med_004", "medication_name": "Sertraline",       "pill_color": "purple", "adherence_rate": 0.97, "missed_count": 1 },
-      { "medication_id": "med_005", "medication_name": "Vitamin D3",       "pill_color": "orange", "adherence_rate": 0.93, "missed_count": 2 },
-      { "medication_id": "med_007", "medication_name": "Levothyroxine",    "pill_color": "pink",   "adherence_rate": 1.00, "missed_count": 0 }
+      {
+        "medication_id": "med_001",
+        "medication_name": "Lisinopril",
+        "pill_color": "blue",
+        "adherence_rate": 0.97,
+        "missed_count": 1
+      },
+      {
+        "medication_id": "med_002",
+        "medication_name": "Metformin",
+        "pill_color": "yellow",
+        "adherence_rate": 0.95,
+        "missed_count": 3
+      },
+      {
+        "medication_id": "med_003",
+        "medication_name": "Atorvastatin",
+        "pill_color": "green",
+        "adherence_rate": 0.83,
+        "missed_count": 5
+      },
+      {
+        "medication_id": "med_004",
+        "medication_name": "Sertraline",
+        "pill_color": "purple",
+        "adherence_rate": 0.97,
+        "missed_count": 1
+      },
+      {
+        "medication_id": "med_005",
+        "medication_name": "Vitamin D3",
+        "pill_color": "orange",
+        "adherence_rate": 0.93,
+        "missed_count": 2
+      },
+      {
+        "medication_id": "med_007",
+        "medication_name": "Levothyroxine",
+        "pill_color": "pink",
+        "adherence_rate": 1.0,
+        "missed_count": 0
+      }
     ],
     "daily_30d": [
       { "date": "2026-03-28", "total": 8, "taken": 8 },

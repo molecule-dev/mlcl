@@ -9,9 +9,27 @@
     "total_cents": 52800,
     "notes": "Spring startup for both rooftop package units.",
     "items": [
-      { "id": "qit_001", "description": "Seasonal tune-up — package unit", "qty": 2, "unit": "each", "rate_cents": 12900 },
-      { "id": "qit_002", "description": "Refrigerant top-up (R-410A)", "qty": 1, "unit": "each", "rate_cents": 18500 },
-      { "id": "qit_003", "description": "Belt + filter kit", "qty": 2, "unit": "each", "rate_cents": 4250 }
+      {
+        "id": "qit_001",
+        "description": "Seasonal tune-up — package unit",
+        "qty": 2,
+        "unit": "each",
+        "rate_cents": 12900
+      },
+      {
+        "id": "qit_002",
+        "description": "Refrigerant top-up (R-410A)",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 18500
+      },
+      {
+        "id": "qit_003",
+        "description": "Belt + filter kit",
+        "qty": 2,
+        "unit": "each",
+        "rate_cents": 4250
+      }
     ],
     "job_id": "job_001",
     "sent_at": "2026-09-11T10:00:00.000Z",
@@ -29,10 +47,34 @@
     "total_cents": 225300,
     "notes": "Heat pump unit sized for 4 operatory loads.",
     "items": [
-      { "id": "qit_010", "description": "50-gal heat pump water heater", "qty": 1, "unit": "each", "rate_cents": 189900 },
-      { "id": "qit_011", "description": "Removal & haul-away", "qty": 1, "unit": "each", "rate_cents": 12500 },
-      { "id": "qit_012", "description": "Expansion tank", "qty": 1, "unit": "each", "rate_cents": 8900 },
-      { "id": "qit_013", "description": "Supply line retrofit", "qty": 1, "unit": "each", "rate_cents": 14500 }
+      {
+        "id": "qit_010",
+        "description": "50-gal heat pump water heater",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 189900
+      },
+      {
+        "id": "qit_011",
+        "description": "Removal & haul-away",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 12500
+      },
+      {
+        "id": "qit_012",
+        "description": "Expansion tank",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 8900
+      },
+      {
+        "id": "qit_013",
+        "description": "Supply line retrofit",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 14500
+      }
     ],
     "job_id": null,
     "sent_at": "2026-09-17T11:00:00.000Z",
@@ -50,8 +92,20 @@
     "total_cents": 56500,
     "notes": "Lint buildup flagged on last inspection.",
     "items": [
-      { "id": "qit_020", "description": "Vent line deep clean", "qty": 8, "unit": "machine", "rate_cents": 6500 },
-      { "id": "qit_021", "description": "Lint housing inspection", "qty": 1, "unit": "each", "rate_cents": 4500 }
+      {
+        "id": "qit_020",
+        "description": "Vent line deep clean",
+        "qty": 8,
+        "unit": "machine",
+        "rate_cents": 6500
+      },
+      {
+        "id": "qit_021",
+        "description": "Lint housing inspection",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 4500
+      }
     ],
     "job_id": null,
     "sent_at": null,
@@ -69,9 +123,27 @@
     "total_cents": 59600,
     "notes": "",
     "items": [
-      { "id": "qit_030", "description": "1/2 HP submersible sump pump", "qty": 1, "unit": "each", "rate_cents": 27900 },
-      { "id": "qit_031", "description": "Check valve", "qty": 1, "unit": "each", "rate_cents": 3200 },
-      { "id": "qit_032", "description": "Install labor", "qty": 3, "unit": "hour", "rate_cents": 9500 }
+      {
+        "id": "qit_030",
+        "description": "1/2 HP submersible sump pump",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 27900
+      },
+      {
+        "id": "qit_031",
+        "description": "Check valve",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 3200
+      },
+      {
+        "id": "qit_032",
+        "description": "Install labor",
+        "qty": 3,
+        "unit": "hour",
+        "rate_cents": 9500
+      }
     ],
     "job_id": null,
     "sent_at": "2026-09-08T10:00:00.000Z",
@@ -89,8 +161,20 @@
     "total_cents": 83200,
     "notes": "Four visits across the year, filters included.",
     "items": [
-      { "id": "qit_040", "description": "Quarterly maintenance visit", "qty": 4, "unit": "visit", "rate_cents": 14900 },
-      { "id": "qit_041", "description": "Merv-11 filter set", "qty": 4, "unit": "set", "rate_cents": 5900 }
+      {
+        "id": "qit_040",
+        "description": "Quarterly maintenance visit",
+        "qty": 4,
+        "unit": "visit",
+        "rate_cents": 14900
+      },
+      {
+        "id": "qit_041",
+        "description": "Merv-11 filter set",
+        "qty": 4,
+        "unit": "set",
+        "rate_cents": 5900
+      }
     ],
     "job_id": "job_003",
     "sent_at": "2026-09-15T10:00:00.000Z",
@@ -108,9 +192,27 @@
     "total_cents": 134000,
     "notes": "Unit 4B is vacant — work any weekday 8am–5pm.",
     "items": [
-      { "id": "qit_050", "description": "Copper repipe labor", "qty": 8, "unit": "hour", "rate_cents": 10500 },
-      { "id": "qit_051", "description": "Fixture set (lav + WC)", "qty": 1, "unit": "each", "rate_cents": 42500 },
-      { "id": "qit_052", "description": "Drywall patch & prep", "qty": 1, "unit": "each", "rate_cents": 7500 }
+      {
+        "id": "qit_050",
+        "description": "Copper repipe labor",
+        "qty": 8,
+        "unit": "hour",
+        "rate_cents": 10500
+      },
+      {
+        "id": "qit_051",
+        "description": "Fixture set (lav + WC)",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 42500
+      },
+      {
+        "id": "qit_052",
+        "description": "Drywall patch & prep",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 7500
+      }
     ],
     "job_id": null,
     "sent_at": "2026-09-19T07:00:00.000Z",
@@ -128,9 +230,27 @@
     "total_cents": 35300,
     "notes": "",
     "items": [
-      { "id": "qit_060", "description": "Full descale service", "qty": 2, "unit": "machine", "rate_cents": 8500 },
-      { "id": "qit_061", "description": "Grinder burr replacement", "qty": 1, "unit": "each", "rate_cents": 11900 },
-      { "id": "qit_062", "description": "Water filtration kit", "qty": 1, "unit": "each", "rate_cents": 6400 }
+      {
+        "id": "qit_060",
+        "description": "Full descale service",
+        "qty": 2,
+        "unit": "machine",
+        "rate_cents": 8500
+      },
+      {
+        "id": "qit_061",
+        "description": "Grinder burr replacement",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 11900
+      },
+      {
+        "id": "qit_062",
+        "description": "Water filtration kit",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 6400
+      }
     ],
     "job_id": null,
     "sent_at": null,

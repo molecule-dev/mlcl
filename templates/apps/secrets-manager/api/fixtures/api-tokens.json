@@ -4,9 +4,7 @@
     "name": "CI deploy token",
     "scopes": {
       "vault_ids": [],
-      "permissions": [
-        "read"
-      ]
+      "permissions": ["read"]
     },
     "expires_at": "2027-01-01T00:00:00Z",
     "last_used_at": "2026-10-05T18:20:00Z",
@@ -18,10 +16,7 @@
     "name": "Terraform provider",
     "scopes": {
       "vault_ids": [],
-      "permissions": [
-        "read",
-        "write"
-      ]
+      "permissions": ["read", "write"]
     },
     "expires_at": null,
     "last_used_at": "2026-10-01T07:45:00Z",
@@ -33,9 +28,7 @@
     "name": "Old staging script",
     "scopes": {
       "vault_ids": [],
-      "permissions": [
-        "read"
-      ]
+      "permissions": ["read"]
     },
     "expires_at": "2026-08-01T00:00:00Z",
     "last_used_at": "2026-07-28T11:00:00Z",

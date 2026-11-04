@@ -130,16 +130,9 @@
       "status": "active",
       "featured": true,
       "total_sold": 342,
-      "images": [
-        "https://picsum.photos/seed/wnc001/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/wnc001/200/200"
-      ],
-      "tags": [
-        "bestseller",
-        "premium"
-      ],
+      "images": ["https://picsum.photos/seed/wnc001/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/wnc001/200/200"],
+      "tags": ["bestseller", "premium"],
       "variants": [],
       "created_at": "2025-08-15T10:00:00Z",
       "updated_at": "2026-03-28T14:00:00Z"
@@ -154,16 +147,9 @@
       "status": "active",
       "featured": false,
       "total_sold": 1205,
-      "images": [
-        "https://picsum.photos/seed/oct100/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/oct100/200/200"
-      ],
-      "tags": [
-        "organic",
-        "eco-friendly"
-      ],
+      "images": ["https://picsum.photos/seed/oct100/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/oct100/200/200"],
+      "tags": ["organic", "eco-friendly"],
       "variants": [],
       "created_at": "2025-06-01T08:00:00Z",
       "updated_at": "2026-03-20T12:00:00Z"
@@ -178,16 +164,9 @@
       "status": "active",
       "featured": true,
       "total_sold": 567,
-      "images": [
-        "https://picsum.photos/seed/hlw200/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/hlw200/200/200"
-      ],
-      "tags": [
-        "handmade",
-        "premium"
-      ],
+      "images": ["https://picsum.photos/seed/hlw200/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/hlw200/200/200"],
+      "tags": ["handmade", "premium"],
       "variants": [],
       "created_at": "2025-09-10T11:00:00Z",
       "updated_at": "2026-03-25T09:00:00Z"
@@ -202,16 +181,9 @@
       "status": "active",
       "featured": false,
       "total_sold": 892,
-      "images": [
-        "https://picsum.photos/seed/ssw300/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/ssw300/200/200"
-      ],
-      "tags": [
-        "eco-friendly",
-        "popular"
-      ],
+      "images": ["https://picsum.photos/seed/ssw300/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/ssw300/200/200"],
+      "tags": ["eco-friendly", "popular"],
       "variants": [],
       "created_at": "2025-07-20T14:00:00Z",
       "updated_at": "2026-03-22T16:00:00Z"
@@ -226,16 +198,9 @@
       "status": "active",
       "featured": true,
       "total_sold": 234,
-      "images": [
-        "https://picsum.photos/seed/maw400/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/maw400/200/200"
-      ],
-      "tags": [
-        "premium",
-        "new"
-      ],
+      "images": ["https://picsum.photos/seed/maw400/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/maw400/200/200"],
+      "tags": ["premium", "new"],
       "variants": [],
       "created_at": "2025-11-01T09:00:00Z",
       "updated_at": "2026-03-18T11:00:00Z"
@@ -250,16 +215,9 @@
       "status": "active",
       "featured": false,
       "total_sold": 445,
-      "images": [
-        "https://picsum.photos/seed/bcb500/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/bcb500/200/200"
-      ],
-      "tags": [
-        "eco-friendly",
-        "popular"
-      ],
+      "images": ["https://picsum.photos/seed/bcb500/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/bcb500/200/200"],
+      "tags": ["eco-friendly", "popular"],
       "variants": [],
       "created_at": "2025-10-15T13:00:00Z",
       "updated_at": "2026-03-15T10:00:00Z"
@@ -274,16 +232,9 @@
       "status": "active",
       "featured": false,
       "total_sold": 678,
-      "images": [
-        "https://picsum.photos/seed/wbb600/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/wbb600/200/200"
-      ],
-      "tags": [
-        "popular",
-        "sale"
-      ],
+      "images": ["https://picsum.photos/seed/wbb600/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/wbb600/200/200"],
+      "tags": ["popular", "sale"],
       "variants": [],
       "created_at": "2025-10-01T08:00:00Z",
       "updated_at": "2026-03-10T14:00:00Z"
@@ -298,16 +249,9 @@
       "status": "active",
       "featured": true,
       "total_sold": 512,
-      "images": [
-        "https://picsum.photos/seed/pbs700/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/pbs700/200/200"
-      ],
-      "tags": [
-        "bestseller",
-        "new"
-      ],
+      "images": ["https://picsum.photos/seed/pbs700/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/pbs700/200/200"],
+      "tags": ["bestseller", "new"],
       "variants": [],
       "created_at": "2025-12-01T10:00:00Z",
       "updated_at": "2026-03-28T08:00:00Z"
@@ -322,16 +266,9 @@
       "status": "active",
       "featured": false,
       "total_sold": 189,
-      "images": [
-        "https://picsum.photos/seed/cpc800/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/cpc800/200/200"
-      ],
-      "tags": [
-        "handmade",
-        "new"
-      ],
+      "images": ["https://picsum.photos/seed/cpc800/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/cpc800/200/200"],
+      "tags": ["handmade", "new"],
       "variants": [],
       "created_at": "2026-01-15T09:00:00Z",
       "updated_at": "2026-03-20T11:00:00Z"
@@ -346,16 +283,9 @@
       "status": "active",
       "featured": false,
       "total_sold": 356,
-      "images": [
-        "https://picsum.photos/seed/clb900/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/clb900/200/200"
-      ],
-      "tags": [
-        "premium",
-        "popular"
-      ],
+      "images": ["https://picsum.photos/seed/clb900/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/clb900/200/200"],
+      "tags": ["premium", "popular"],
       "variants": [],
       "created_at": "2025-09-20T12:00:00Z",
       "updated_at": "2026-03-25T15:00:00Z"
@@ -370,16 +300,9 @@
       "status": "active",
       "featured": false,
       "total_sold": 723,
-      "images": [
-        "https://picsum.photos/seed/swc010/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/swc010/200/200"
-      ],
-      "tags": [
-        "handmade",
-        "popular"
-      ],
+      "images": ["https://picsum.photos/seed/swc010/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/swc010/200/200"],
+      "tags": ["handmade", "popular"],
       "variants": [],
       "created_at": "2025-11-15T11:00:00Z",
       "updated_at": "2026-03-18T09:00:00Z"
@@ -394,16 +317,9 @@
       "status": "active",
       "featured": true,
       "total_sold": 278,
-      "images": [
-        "https://picsum.photos/seed/rsp110/400/400"
-      ],
-      "thumbnails": [
-        "https://picsum.photos/seed/rsp110/200/200"
-      ],
-      "tags": [
-        "new",
-        "premium"
-      ],
+      "images": ["https://picsum.photos/seed/rsp110/400/400"],
+      "thumbnails": ["https://picsum.photos/seed/rsp110/200/200"],
+      "tags": ["new", "premium"],
       "variants": [],
       "created_at": "2026-02-01T10:00:00Z",
       "updated_at": "2026-03-28T12:00:00Z"

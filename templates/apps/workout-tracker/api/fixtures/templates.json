@@ -69,11 +69,6 @@
     "exerciseCount": 4,
     "estimatedMin": 35,
     "lastUsed": "2026-04-08",
-    "exercises": [
-      "Rowing Machine",
-      "Kettlebell Swings",
-      "Box Jumps",
-      "Burpees"
-    ]
+    "exercises": ["Rowing Machine", "Kettlebell Swings", "Box Jumps", "Burpees"]
   }
 ]

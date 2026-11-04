@@ -161,9 +161,7 @@
         "name": "lint",
         "status": "success",
         "duration_seconds": 14,
-        "log_excerpt": [
-          "✓ 0 errors, 0 warnings"
-        ]
+        "log_excerpt": ["✓ 0 errors, 0 warnings"]
       },
       {
         "name": "test",
@@ -240,9 +238,7 @@
         "name": "lint",
         "status": "success",
         "duration_seconds": 8,
-        "log_excerpt": [
-          "✓ 0 errors, 4 warnings"
-        ]
+        "log_excerpt": ["✓ 0 errors, 4 warnings"]
       },
       {
         "name": "test",
@@ -273,9 +269,7 @@
         "name": "deploy:prod",
         "status": "skipped",
         "duration_seconds": null,
-        "log_excerpt": [
-          "⏭  Skipped because integration failed"
-        ]
+        "log_excerpt": ["⏭  Skipped because integration failed"]
       }
     ],
     "artifacts": [
@@ -330,10 +324,7 @@
         "name": "checkout",
         "status": "success",
         "duration_seconds": 5,
-        "log_excerpt": [
-          "Cloning into 'api-gateway'…",
-          "Checked out 9b1c2d3e4f5a on branch main"
-        ]
+        "log_excerpt": ["Cloning into 'api-gateway'…", "Checked out 9b1c2d3e4f5a on branch main"]
       },
       {
         "name": "install",
@@ -348,9 +339,7 @@
         "name": "lint",
         "status": "success",
         "duration_seconds": 8,
-        "log_excerpt": [
-          "✓ 0 errors, 0 warnings"
-        ]
+        "log_excerpt": ["✓ 0 errors, 0 warnings"]
       },
       {
         "name": "test",
@@ -366,10 +355,7 @@
         "name": "integration",
         "status": "success",
         "duration_seconds": 246,
-        "log_excerpt": [
-          "Test Files  21 passed (21)",
-          "Tests       63 passed (63)"
-        ]
+        "log_excerpt": ["Test Files  21 passed (21)", "Tests       63 passed (63)"]
       },
       {
         "name": "deploy:prod",
@@ -434,19 +420,13 @@
         "name": "validate",
         "status": "success",
         "duration_seconds": 12,
-        "log_excerpt": [
-          "▸ terraform validate",
-          "Success! The configuration is valid."
-        ]
+        "log_excerpt": ["▸ terraform validate", "Success! The configuration is valid."]
       },
       {
         "name": "plan",
         "status": "success",
         "duration_seconds": 67,
-        "log_excerpt": [
-          "▸ terraform plan",
-          "Plan: 1 to add, 0 to change, 0 to destroy."
-        ]
+        "log_excerpt": ["▸ terraform plan", "Plan: 1 to add, 0 to change, 0 to destroy."]
       },
       {
         "name": "apply",

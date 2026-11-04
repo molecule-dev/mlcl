@@ -16,7 +16,11 @@
     "id": "s-002",
     "type": "outbound",
     "product_id": "p-001",
-    "product": { "id": "p-001", "sku": "WNC-AUDIO-301", "name": "Sterling Studio Headphones — Black" },
+    "product": {
+      "id": "p-001",
+      "sku": "WNC-AUDIO-301",
+      "name": "Sterling Studio Headphones — Black"
+    },
     "warehouse_id": "w-001",
     "warehouse": { "id": "w-001", "name": "Portland Main Distribution" },
     "quantity_change": -24,

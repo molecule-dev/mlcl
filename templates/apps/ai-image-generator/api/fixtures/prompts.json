@@ -5,10 +5,7 @@
     "name": "landscape",
     "prompt_text": "Cinematic landscape with golden hour light, ultra detailed",
     "negative_prompt": "blurry, low quality",
-    "tags": [
-      "landscape",
-      "cinematic"
-    ],
+    "tags": ["landscape", "cinematic"],
     "last_used_at": "2026-10-06T12:00:00Z",
     "created_at": "2026-10-01T09:00:00Z"
   },
@@ -18,9 +15,7 @@
     "name": "product",
     "prompt_text": "Studio product photo on a seamless backdrop, soft shadows",
     "negative_prompt": "text, watermark",
-    "tags": [
-      "product"
-    ],
+    "tags": ["product"],
     "last_used_at": "2026-10-05T12:00:00Z",
     "created_at": "2026-10-02T09:00:00Z"
   },
@@ -30,10 +25,7 @@
     "name": "watercolor",
     "prompt_text": "Whimsical watercolor animal portrait, loose brush strokes",
     "negative_prompt": null,
-    "tags": [
-      "watercolor",
-      "animals"
-    ],
+    "tags": ["watercolor", "animals"],
     "last_used_at": "2026-10-04T12:00:00Z",
     "created_at": "2026-10-03T09:00:00Z"
   }

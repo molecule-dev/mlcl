@@ -10,8 +10,7 @@
     "current_grade_letter": "B",
     "current_grade_pct": 86,
     "trend": "up",
-    "syllabus":
-      "Algebra II builds on the rigour of Algebra I with quadratics, exponential functions, polynomial division, sequences and series, and an intro to logarithms. Problem-solving fluency is graded weekly.",
+    "syllabus": "Algebra II builds on the rigour of Algebra I with quadratics, exponential functions, polynomial division, sequences and series, and an intro to logarithms. Problem-solving fluency is graded weekly.",
     "created_at": "2026-01-08T08:00:00Z",
     "updated_at": "2026-04-28T16:00:00Z"
   },
@@ -26,8 +25,7 @@
     "current_grade_letter": "A",
     "current_grade_pct": 93,
     "trend": "up",
-    "syllabus":
-      "AP Biology covers cellular processes, genetics, evolution, and ecology with a strong laboratory emphasis. Lab work is exemplary; aim for tighter conclusions.",
+    "syllabus": "AP Biology covers cellular processes, genetics, evolution, and ecology with a strong laboratory emphasis. Lab work is exemplary; aim for tighter conclusions.",
     "created_at": "2026-01-08T08:00:00Z",
     "updated_at": "2026-04-28T16:00:00Z"
   },
@@ -42,8 +40,7 @@
     "current_grade_letter": "A",
     "current_grade_pct": 95,
     "trend": "flat",
-    "syllabus":
-      "Close-reading and analytical writing across American and British literary traditions. Push topic sentences in essays.",
+    "syllabus": "Close-reading and analytical writing across American and British literary traditions. Push topic sentences in essays.",
     "created_at": "2026-01-08T08:00:00Z",
     "updated_at": "2026-04-28T16:00:00Z"
   },
@@ -58,8 +55,7 @@
     "current_grade_letter": "B",
     "current_grade_pct": 88,
     "trend": "down",
-    "syllabus":
-      "Survey of world civilizations from antiquity to the modern era. Solid analysis. Cite primary sources more often.",
+    "syllabus": "Survey of world civilizations from antiquity to the modern era. Solid analysis. Cite primary sources more often.",
     "created_at": "2026-01-08T08:00:00Z",
     "updated_at": "2026-04-28T16:00:00Z"
   },
@@ -74,8 +70,7 @@
     "current_grade_letter": "A",
     "current_grade_pct": 97,
     "trend": "up",
-    "syllabus":
-      "Foundational drawing, painting, and mixed-media studio practice with end-of-term portfolio. Outstanding portfolio cohesion.",
+    "syllabus": "Foundational drawing, painting, and mixed-media studio practice with end-of-term portfolio. Outstanding portfolio cohesion.",
     "created_at": "2026-01-08T08:00:00Z",
     "updated_at": "2026-04-28T16:00:00Z"
   },
@@ -90,8 +85,7 @@
     "current_grade_letter": "C",
     "current_grade_pct": 78,
     "trend": "down",
-    "syllabus":
-      "Conversational fluency, irregular verb mastery, and short-form composition. Conversational fluency improving; review irregular verbs.",
+    "syllabus": "Conversational fluency, irregular verb mastery, and short-form composition. Conversational fluency improving; review irregular verbs.",
     "created_at": "2026-01-08T08:00:00Z",
     "updated_at": "2026-04-28T16:00:00Z"
   },
@@ -106,8 +100,7 @@
     "current_grade_letter": "A",
     "current_grade_pct": 99,
     "trend": "flat",
-    "syllabus":
-      "Cardio, strength, team sports, and adolescent health curriculum. Excellent participation and team leadership.",
+    "syllabus": "Cardio, strength, team sports, and adolescent health curriculum. Excellent participation and team leadership.",
     "created_at": "2026-01-08T08:00:00Z",
     "updated_at": "2026-04-28T16:00:00Z"
   }

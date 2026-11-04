@@ -11,10 +11,7 @@
     "category_id": "7f70e1d6-7954-44cd-0379-83e5df5b23c6",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "weekly",
-      "food"
-    ],
+    "tags": ["weekly", "food"],
     "recurring": false,
     "merchant_location": "San Francisco, CA"
   },
@@ -30,9 +27,7 @@
     "category_id": "179ab5e1-4953-4c34-1cfd-9983656b4bde",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "payroll"
-    ],
+    "tags": ["payroll"],
     "recurring": true,
     "merchant_location": "Online"
   },
@@ -48,9 +43,7 @@
     "category_id": "371ef930-6f47-4c17-5558-b4abf76781a6",
     "account_name": "Amex Gold Card",
     "status": "cleared",
-    "tags": [
-      "leisure"
-    ],
+    "tags": ["leisure"],
     "recurring": true,
     "merchant_location": "Online"
   },
@@ -66,9 +59,7 @@
     "category_id": "a25028f6-165c-47a7-6bf6-bf3f410746b2",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "commute"
-    ],
+    "tags": ["commute"],
     "recurring": false,
     "merchant_location": "San Francisco, CA"
   },
@@ -84,9 +75,7 @@
     "category_id": "fed9bb63-b54a-4d54-6d34-a7a68b957ff2",
     "account_name": "Amex Gold Card",
     "status": "cleared",
-    "tags": [
-      "retail"
-    ],
+    "tags": ["retail"],
     "recurring": false,
     "merchant_location": "Daly City, CA"
   },
@@ -102,9 +91,7 @@
     "category_id": "371ef930-6f47-4c17-5558-b4abf76781a6",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "leisure"
-    ],
+    "tags": ["leisure"],
     "recurring": true,
     "merchant_location": "Online"
   },
@@ -120,10 +107,7 @@
     "category_id": "7f70e1d6-7954-44cd-0379-83e5df5b23c6",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "weekly",
-      "food"
-    ],
+    "tags": ["weekly", "food"],
     "recurring": false,
     "merchant_location": "South San Francisco, CA"
   },
@@ -139,10 +123,7 @@
     "category_id": "270b0034-a37c-45f8-0d09-5eae82834725",
     "account_name": "Amex Gold Card",
     "status": "cleared",
-    "tags": [
-      "food",
-      "social"
-    ],
+    "tags": ["food", "social"],
     "recurring": false,
     "merchant_location": "Online"
   },
@@ -158,10 +139,7 @@
     "category_id": "ac3e347a-24e6-4963-6ce2-0fe1982c1085",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "fixed",
-      "bills"
-    ],
+    "tags": ["fixed", "bills"],
     "recurring": true,
     "merchant_location": "San Francisco, CA"
   },
@@ -177,9 +155,7 @@
     "category_id": "0304979b-60f0-499e-c12f-2f88c082ed21",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "bills"
-    ],
+    "tags": ["bills"],
     "recurring": true,
     "merchant_location": "Online"
   },
@@ -195,9 +171,7 @@
     "category_id": "fed9bb63-b54a-4d54-6d34-a7a68b957ff2",
     "account_name": "Discover it Cash Back",
     "status": "cleared",
-    "tags": [
-      "retail"
-    ],
+    "tags": ["retail"],
     "recurring": false,
     "merchant_location": "Online"
   },
@@ -213,9 +187,7 @@
     "category_id": "179ab5e1-4953-4c34-1cfd-9983656b4bde",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "payroll"
-    ],
+    "tags": ["payroll"],
     "recurring": true,
     "merchant_location": "Online"
   },
@@ -231,9 +203,7 @@
     "category_id": "fed9bb63-b54a-4d54-6d34-a7a68b957ff2",
     "account_name": "Amex Gold Card",
     "status": "cleared",
-    "tags": [
-      "retail"
-    ],
+    "tags": ["retail"],
     "recurring": false,
     "merchant_location": "San Francisco, CA"
   },
@@ -249,10 +219,7 @@
     "category_id": "270b0034-a37c-45f8-0d09-5eae82834725",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "food",
-      "social"
-    ],
+    "tags": ["food", "social"],
     "recurring": false,
     "merchant_location": "San Francisco, CA"
   },
@@ -268,9 +235,7 @@
     "category_id": "beec806a-3196-4b8c-d08c-215d158ccea8",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "health"
-    ],
+    "tags": ["health"],
     "recurring": false,
     "merchant_location": "San Francisco, CA"
   },
@@ -286,9 +251,7 @@
     "category_id": "0304979b-60f0-499e-c12f-2f88c082ed21",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "bills"
-    ],
+    "tags": ["bills"],
     "recurring": true,
     "merchant_location": "Online"
   },
@@ -304,9 +267,7 @@
     "category_id": "2d9db412-25d5-4f46-9f55-1a2f9beecf7c",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "health"
-    ],
+    "tags": ["health"],
     "recurring": true,
     "merchant_location": "San Francisco, CA"
   },
@@ -322,9 +283,7 @@
     "category_id": "e50619b9-7d69-4c51-110a-45ebe544c349",
     "account_name": "Amex Gold Card",
     "status": "cleared",
-    "tags": [
-      "vacation"
-    ],
+    "tags": ["vacation"],
     "recurring": false,
     "merchant_location": "SFO Airport"
   },
@@ -340,9 +299,7 @@
     "category_id": "179ab5e1-4953-4c34-1cfd-9983656b4bde",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "payroll"
-    ],
+    "tags": ["payroll"],
     "recurring": false,
     "merchant_location": "Online"
   },
@@ -358,10 +315,7 @@
     "category_id": "270b0034-a37c-45f8-0d09-5eae82834725",
     "account_name": "Chase Checking",
     "status": "cleared",
-    "tags": [
-      "food",
-      "social"
-    ],
+    "tags": ["food", "social"],
     "recurring": false,
     "merchant_location": "San Francisco, CA"
   }

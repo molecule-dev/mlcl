@@ -30,9 +30,7 @@
     "id": "mac03c4d-5e6f-4a7b-c8d9-e0f1a2b3c4d5",
     "name": "Request More Information",
     "description": "Asks the requester for additional details needed to troubleshoot the issue.",
-    "actions": [
-      { "type": "set_status", "value": "pending" }
-    ],
+    "actions": [{ "type": "set_status", "value": "pending" }],
     "reply_template": "Thanks for reporting this. To help us investigate further, could you provide:\n\n1. Your browser and operating system version\n2. Steps to reproduce the issue\n3. Any error messages you're seeing\n4. Screenshots if available\n\nThis will help us resolve your issue more quickly.",
     "created_by": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
     "created_at": "2025-09-01T09:00:00Z",
@@ -42,9 +40,7 @@
     "id": "mac04d5e-6f7a-4b8c-d9e0-f1a2b3c4d5e6",
     "name": "Resolve - Issue Fixed",
     "description": "Marks the ticket as resolved and notifies the requester that the fix has been deployed.",
-    "actions": [
-      { "type": "set_status", "value": "resolved" }
-    ],
+    "actions": [{ "type": "set_status", "value": "resolved" }],
     "reply_template": "Good news! The issue you reported has been fixed and the change has been deployed. Please verify on your end and let us know if you experience any further problems. We'll close this ticket automatically in 48 hours if we don't hear back.",
     "created_by": "278da854-7c49-4ccb-10a7-098f78344dd6",
     "created_at": "2025-09-15T10:00:00Z",
@@ -67,9 +63,7 @@
     "id": "mac06f7a-8b9c-4d0e-f1a2-b3c4d5e6f7a8",
     "name": "Close - No Response",
     "description": "Closes the ticket after the requester hasn't responded to follow-up requests.",
-    "actions": [
-      { "type": "set_status", "value": "closed" }
-    ],
+    "actions": [{ "type": "set_status", "value": "closed" }],
     "reply_template": "We haven't heard back from you regarding this ticket. We're closing it for now, but feel free to reopen it or create a new ticket if you still need assistance. We're always here to help!",
     "created_by": "43edb62f-fc0c-400c-b824-4856c6e0c6b1",
     "created_at": "2025-11-01T09:00:00Z",

@@ -7,9 +7,7 @@
     "body": "Hi,\n\nQuick idea for your platform team. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
     "status": "sent",
     "tone": "persuasive",
-    "recipients": [
-      "maya@northwind.example"
-    ],
+    "recipients": ["maya@northwind.example"],
     "cc": [],
     "bcc": [],
     "ai_generated": true,
@@ -27,9 +25,7 @@
     "body": "Hi,\n\nInterview for the Senior Engineer role. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
     "status": "sent",
     "tone": "warm",
-    "recipients": [
-      "dev.patel@example.com"
-    ],
+    "recipients": ["dev.patel@example.com"],
     "cc": [],
     "bcc": [],
     "ai_generated": true,
@@ -47,9 +43,7 @@
     "body": "Hi,\n\nWeekly update: wins, risks, asks. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
     "status": "draft",
     "tone": "concise",
-    "recipients": [
-      "leadership@acme.example"
-    ],
+    "recipients": ["leadership@acme.example"],
     "cc": [],
     "bcc": [],
     "ai_generated": true,
@@ -67,9 +61,7 @@
     "body": "Hi,\n\nFollowing up on Tuesday's demo. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
     "status": "scheduled",
     "tone": "friendly",
-    "recipients": [
-      "tom@harbor.example"
-    ],
+    "recipients": ["tom@harbor.example"],
     "cc": [],
     "bcc": [],
     "ai_generated": true,
@@ -87,9 +79,7 @@
     "body": "Hi,\n\nApologies for the delay. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
     "status": "sent",
     "tone": "formal",
-    "recipients": [
-      "jules@brightlane.example"
-    ],
+    "recipients": ["jules@brightlane.example"],
     "cc": [],
     "bcc": [],
     "ai_generated": false,
@@ -107,9 +97,7 @@
     "body": "Hi,\n\nIntro: partnership with Signet. This message was drafted with Signet and reviewed before sending.\n\nBest,\nAlex",
     "status": "draft",
     "tone": "persuasive",
-    "recipients": [
-      "sam@lumen.example"
-    ],
+    "recipients": ["sam@lumen.example"],
     "cc": [],
     "bcc": [],
     "ai_generated": true,

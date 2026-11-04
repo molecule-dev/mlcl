@@ -27,9 +27,7 @@
     "client_id": "c-northwind",
     "client_name": "Northwind Coffee Co",
     "client_company": "Northwind LLC",
-    "items": [
-      { "description": "Loyalty app retainer (April)", "quantity": 1, "unit_price": 2150 }
-    ],
+    "items": [{ "description": "Loyalty app retainer (April)", "quantity": 1, "unit_price": 2150 }],
     "subtotal": 2150,
     "tax_rate": 0,
     "tax_amount": 0,
@@ -47,9 +45,7 @@
     "client_id": "c-vega",
     "client_name": "Vega Print Group",
     "client_company": "Vega Print",
-    "items": [
-      { "description": "Quarterly design audit", "quantity": 1, "unit_price": 1290 }
-    ],
+    "items": [{ "description": "Quarterly design audit", "quantity": 1, "unit_price": 1290 }],
     "subtotal": 1290,
     "tax_rate": 0,
     "tax_amount": 0,
@@ -88,9 +84,7 @@
     "client_id": "c-hearth",
     "client_name": "Hearth & Anvil",
     "client_company": "Hearth Bakery",
-    "items": [
-      { "description": "Menu redesign — proofs", "quantity": 1, "unit_price": 645 }
-    ],
+    "items": [{ "description": "Menu redesign — proofs", "quantity": 1, "unit_price": 645 }],
     "subtotal": 645,
     "tax_rate": 0,
     "tax_amount": 0,
@@ -108,9 +102,7 @@
     "client_id": "c-mosaic",
     "client_name": "Mosaic Marketing",
     "client_company": "Mosaic LLC",
-    "items": [
-      { "description": "Monthly retainer (May)", "quantity": 1, "unit_price": 950 }
-    ],
+    "items": [{ "description": "Monthly retainer (May)", "quantity": 1, "unit_price": 950 }],
     "subtotal": 950,
     "tax_rate": 0,
     "tax_amount": 0,
@@ -128,9 +120,7 @@
     "client_id": "c-briar",
     "client_name": "Briar & Bloom",
     "client_company": "Briar Floral",
-    "items": [
-      { "description": "Spring campaign creative", "quantity": 1, "unit_price": 1875 }
-    ],
+    "items": [{ "description": "Spring campaign creative", "quantity": 1, "unit_price": 1875 }],
     "subtotal": 1875,
     "tax_rate": 0,
     "tax_amount": 0,
@@ -148,9 +138,7 @@
     "client_id": "c-tide",
     "client_name": "Tide Surfboards",
     "client_company": "Tide Co",
-    "items": [
-      { "description": "E-commerce site sprint", "quantity": 1, "unit_price": 6200 }
-    ],
+    "items": [{ "description": "E-commerce site sprint", "quantity": 1, "unit_price": 6200 }],
     "subtotal": 6200,
     "tax_rate": 0,
     "tax_amount": 0,

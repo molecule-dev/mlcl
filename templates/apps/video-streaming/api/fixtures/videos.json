@@ -17,13 +17,7 @@
     "category": "documentary",
     "subscribed": true,
     "trending": true,
-    "tags": [
-      "Documentary",
-      "16mm",
-      "Archive",
-      "Film",
-      "Brooklyn"
-    ],
+    "tags": ["Documentary", "16mm", "Archive", "Film", "Brooklyn"],
     "chapters": [
       {
         "title": "Cold open — what we found",

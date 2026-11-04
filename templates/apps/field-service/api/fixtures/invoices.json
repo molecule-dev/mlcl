@@ -9,9 +9,27 @@
     "status": "paid",
     "total_cents": 52800,
     "items": [
-      { "id": "iit_001", "description": "Seasonal tune-up — package unit", "qty": 2, "unit": "each", "rate_cents": 12900 },
-      { "id": "iit_002", "description": "Refrigerant top-up (R-410A)", "qty": 1, "unit": "each", "rate_cents": 18500 },
-      { "id": "iit_003", "description": "Belt + filter kit", "qty": 2, "unit": "each", "rate_cents": 4250 }
+      {
+        "id": "iit_001",
+        "description": "Seasonal tune-up — package unit",
+        "qty": 2,
+        "unit": "each",
+        "rate_cents": 12900
+      },
+      {
+        "id": "iit_002",
+        "description": "Refrigerant top-up (R-410A)",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 18500
+      },
+      {
+        "id": "iit_003",
+        "description": "Belt + filter kit",
+        "qty": 2,
+        "unit": "each",
+        "rate_cents": 4250
+      }
     ],
     "issued_at": "2026-09-17T16:00:00.000Z",
     "sent_at": "2026-09-17T16:00:00.000Z",
@@ -28,9 +46,27 @@
     "status": "paid",
     "total_cents": 37350,
     "items": [
-      { "id": "iit_010", "description": "Diagnostic visit", "qty": 1, "unit": "each", "rate_cents": 8900 },
-      { "id": "iit_011", "description": "Hot-surface igniter assembly", "qty": 1, "unit": "each", "rate_cents": 14200 },
-      { "id": "iit_012", "description": "Install labor", "qty": 1.5, "unit": "hour", "rate_cents": 9500 }
+      {
+        "id": "iit_010",
+        "description": "Diagnostic visit",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 8900
+      },
+      {
+        "id": "iit_011",
+        "description": "Hot-surface igniter assembly",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 14200
+      },
+      {
+        "id": "iit_012",
+        "description": "Install labor",
+        "qty": 1.5,
+        "unit": "hour",
+        "rate_cents": 9500
+      }
     ],
     "issued_at": "2026-09-18T11:30:00.000Z",
     "sent_at": "2026-09-18T11:30:00.000Z",
@@ -47,8 +83,20 @@
     "status": "sent",
     "total_cents": 42500,
     "items": [
-      { "id": "iit_020", "description": "Boiler annual inspection", "qty": 1, "unit": "each", "rate_cents": 19900 },
-      { "id": "iit_021", "description": "Gasket set", "qty": 1, "unit": "each", "rate_cents": 3600 },
+      {
+        "id": "iit_020",
+        "description": "Boiler annual inspection",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 19900
+      },
+      {
+        "id": "iit_021",
+        "description": "Gasket set",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 3600
+      },
       { "id": "iit_022", "description": "Labor", "qty": 2, "unit": "hour", "rate_cents": 9500 }
     ],
     "issued_at": "2026-09-18T10:00:00.000Z",
@@ -66,8 +114,20 @@
     "status": "paid",
     "total_cents": 29000,
     "items": [
-      { "id": "iit_030", "description": "Grease trap pump-out", "qty": 1, "unit": "each", "rate_cents": 22500 },
-      { "id": "iit_031", "description": "Haul-away & disposal", "qty": 1, "unit": "each", "rate_cents": 6500 }
+      {
+        "id": "iit_030",
+        "description": "Grease trap pump-out",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 22500
+      },
+      {
+        "id": "iit_031",
+        "description": "Haul-away & disposal",
+        "qty": 1,
+        "unit": "each",
+        "rate_cents": 6500
+      }
     ],
     "issued_at": "2026-09-14T14:00:00.000Z",
     "sent_at": "2026-09-14T14:00:00.000Z",
@@ -84,8 +144,20 @@
     "status": "draft",
     "total_cents": 169800,
     "items": [
-      { "id": "iit_040", "description": "LED troffer 4000K", "qty": 12, "unit": "each", "rate_cents": 8900 },
-      { "id": "iit_041", "description": "Retrofit labor", "qty": 6, "unit": "hour", "rate_cents": 10500 }
+      {
+        "id": "iit_040",
+        "description": "LED troffer 4000K",
+        "qty": 12,
+        "unit": "each",
+        "rate_cents": 8900
+      },
+      {
+        "id": "iit_041",
+        "description": "Retrofit labor",
+        "qty": 6,
+        "unit": "hour",
+        "rate_cents": 10500
+      }
     ],
     "issued_at": null,
     "sent_at": null,

@@ -57,7 +57,7 @@
     "open_now": true,
     "status": "active",
     "latitude": 37.7521,
-    "longitude": -122.4080
+    "longitude": -122.408
   },
   {
     "id": "r4",
@@ -97,7 +97,7 @@
     "open_now": false,
     "status": "active",
     "latitude": 48.8589,
-    "longitude": 2.3590
+    "longitude": 2.359
   },
   {
     "id": "r6",

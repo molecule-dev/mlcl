@@ -12,9 +12,30 @@
       "department": "Engineering",
       "initial": "A",
       "children": [
-        { "id": "emp_001", "name": "Maya Chen",   "title": "Senior Backend Engineer", "department": "Engineering", "initial": "M", "children": [] },
-        { "id": "emp_008", "name": "Lena Okafor", "title": "Frontend Engineer",       "department": "Engineering", "initial": "L", "children": [] },
-        { "id": "emp_011","name": "Theo Nakamura", "title": "Data Engineer",           "department": "Engineering", "initial": "T", "children": [] }
+        {
+          "id": "emp_001",
+          "name": "Maya Chen",
+          "title": "Senior Backend Engineer",
+          "department": "Engineering",
+          "initial": "M",
+          "children": []
+        },
+        {
+          "id": "emp_008",
+          "name": "Lena Okafor",
+          "title": "Frontend Engineer",
+          "department": "Engineering",
+          "initial": "L",
+          "children": []
+        },
+        {
+          "id": "emp_011",
+          "name": "Theo Nakamura",
+          "title": "Data Engineer",
+          "department": "Engineering",
+          "initial": "T",
+          "children": []
+        }
       ]
     },
     {
@@ -24,7 +45,14 @@
       "department": "Customer Success",
       "initial": "S",
       "children": [
-        { "id": "emp_004", "name": "Noah Singh", "title": "Customer Success Lead", "department": "Customer Success", "initial": "N", "children": [] }
+        {
+          "id": "emp_004",
+          "name": "Noah Singh",
+          "title": "Customer Success Lead",
+          "department": "Customer Success",
+          "initial": "N",
+          "children": []
+        }
       ]
     },
     {
@@ -34,7 +62,14 @@
       "department": "Design",
       "initial": "R",
       "children": [
-        { "id": "emp_002", "name": "Jordan Patel", "title": "Product Designer", "department": "Design", "initial": "J", "children": [] }
+        {
+          "id": "emp_002",
+          "name": "Jordan Patel",
+          "title": "Product Designer",
+          "department": "Design",
+          "initial": "J",
+          "children": []
+        }
       ]
     },
     {
@@ -44,7 +79,14 @@
       "department": "People",
       "initial": "P",
       "children": [
-        { "id": "emp_012", "name": "Imani Brooks", "title": "Recruiter", "department": "People", "initial": "I", "children": [] }
+        {
+          "id": "emp_012",
+          "name": "Imani Brooks",
+          "title": "Recruiter",
+          "department": "People",
+          "initial": "I",
+          "children": []
+        }
       ]
     },
     {

@@ -2,6 +2,9 @@ dist/
 node_modules/
 *.sql
 *.json
+# Flagship mock-API fixtures are hand-written data that ships into every new project, so they stay
+# formatted (each template's own .prettierrc applies). A platform deploy formats them otherwise.
+!templates/apps/*/api/fixtures/*.json
 coverage/
 test-app/
 README.md

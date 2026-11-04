@@ -29,10 +29,7 @@
         "arrive_at": "2030-05-12T14:10:00Z",
         "cabin": "economy",
         "passenger_count": 2,
-        "traveler_names": [
-          "Sam",
-          "Ana"
-        ],
+        "traveler_names": ["Sam", "Ana"],
         "total_cents": 97800,
         "currency": "USD",
         "card_last4": "4242",

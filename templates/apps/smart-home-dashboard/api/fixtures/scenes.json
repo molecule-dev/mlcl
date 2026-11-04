@@ -5,7 +5,11 @@
     "description": "Warm light, raise blinds, brew coffee",
     "icon": "wb_sunny",
     "device_states": [
-      { "device_id": "dev-001", "is_on": true, "properties": { "brightness": 60, "color_temp": 3000 } },
+      {
+        "device_id": "dev-001",
+        "is_on": true,
+        "properties": { "brightness": 60, "color_temp": 3000 }
+      },
       { "device_id": "dev-003", "is_on": true, "properties": { "target_temp_f": 70 } },
       { "device_id": "dev-004", "is_on": true }
     ],
@@ -66,7 +70,11 @@
     "description": "Warm pendants, kitchen on, music ready",
     "icon": "restaurant",
     "device_states": [
-      { "device_id": "dev-001", "is_on": true, "properties": { "brightness": 45, "color_temp": 2700 } },
+      {
+        "device_id": "dev-001",
+        "is_on": true,
+        "properties": { "brightness": 45, "color_temp": 2700 }
+      },
       { "device_id": "dev-004", "is_on": true },
       { "device_id": "dev-012", "is_on": true, "properties": { "brightness": 80 } }
     ],
@@ -80,9 +88,7 @@
     "name": "Focus Time",
     "description": "Office bright, silence notifications",
     "icon": "psychology",
-    "device_states": [
-      { "device_id": "dev-008", "is_on": true, "properties": { "fan_speed": 2 } }
-    ],
+    "device_states": [{ "device_id": "dev-008", "is_on": true, "properties": { "fan_speed": 2 } }],
     "last_activated": "2026-04-29T09:30:00Z",
     "activation_count": 64,
     "created_at": "2026-02-10T11:00:00Z",

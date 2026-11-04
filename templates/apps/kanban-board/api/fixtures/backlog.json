@@ -6,10 +6,12 @@
     "rank": 1,
     "priority": "high",
     "estimate": "M",
-    "labels": [
-      { "color": "blue", "name": "Frontend" }
-    ],
-    "assignee": { "id": "usr-marcus", "name": "Marcus Liu", "avatar": "https://i.pravatar.cc/64?img=12" },
+    "labels": [{ "color": "blue", "name": "Frontend" }],
+    "assignee": {
+      "id": "usr-marcus",
+      "name": "Marcus Liu",
+      "avatar": "https://i.pravatar.cc/64?img=12"
+    },
     "votes": 12,
     "created_at": "2026-04-22T11:00:00Z"
   },
@@ -20,10 +22,12 @@
     "rank": 2,
     "priority": "high",
     "estimate": "S",
-    "labels": [
-      { "color": "amber", "name": "UX" }
-    ],
-    "assignee": { "id": "usr-sarah", "name": "Sarah Chen", "avatar": "https://i.pravatar.cc/64?img=1" },
+    "labels": [{ "color": "amber", "name": "UX" }],
+    "assignee": {
+      "id": "usr-sarah",
+      "name": "Sarah Chen",
+      "avatar": "https://i.pravatar.cc/64?img=1"
+    },
     "votes": 9,
     "created_at": "2026-04-21T09:00:00Z"
   },
@@ -49,10 +53,12 @@
     "rank": 4,
     "priority": "medium",
     "estimate": "L",
-    "labels": [
-      { "color": "purple", "name": "Spec" }
-    ],
-    "assignee": { "id": "usr-priya", "name": "Priya Patel", "avatar": "https://i.pravatar.cc/64?img=5" },
+    "labels": [{ "color": "purple", "name": "Spec" }],
+    "assignee": {
+      "id": "usr-priya",
+      "name": "Priya Patel",
+      "avatar": "https://i.pravatar.cc/64?img=5"
+    },
     "votes": 6,
     "created_at": "2026-04-19T13:00:00Z"
   },
@@ -63,9 +69,7 @@
     "rank": 5,
     "priority": "medium",
     "estimate": "M",
-    "labels": [
-      { "color": "indigo", "name": "Integrations" }
-    ],
+    "labels": [{ "color": "indigo", "name": "Integrations" }],
     "assignee": null,
     "votes": 5,
     "created_at": "2026-04-18T15:00:00Z"
@@ -77,10 +81,12 @@
     "rank": 6,
     "priority": "low",
     "estimate": "S",
-    "labels": [
-      { "color": "pink", "name": "Design" }
-    ],
-    "assignee": { "id": "usr-anya", "name": "Anya Petrov", "avatar": "https://i.pravatar.cc/64?img=20" },
+    "labels": [{ "color": "pink", "name": "Design" }],
+    "assignee": {
+      "id": "usr-anya",
+      "name": "Anya Petrov",
+      "avatar": "https://i.pravatar.cc/64?img=20"
+    },
     "votes": 4,
     "created_at": "2026-04-17T11:00:00Z"
   },
@@ -91,9 +97,7 @@
     "rank": 7,
     "priority": "low",
     "estimate": "M",
-    "labels": [
-      { "color": "teal", "name": "Tooling" }
-    ],
+    "labels": [{ "color": "teal", "name": "Tooling" }],
     "assignee": null,
     "votes": 3,
     "created_at": "2026-04-15T10:00:00Z"

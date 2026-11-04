@@ -15,17 +15,8 @@
       "https://picsum.photos/seed/sojourn-tb-p1c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p1d/800/600"
     ],
-    "amenities": [
-      "Plunge pool",
-      "Mezcal cellar",
-      "Free Wi-Fi",
-      "Concierge",
-      "Mountain trails"
-    ],
-    "badges": [
-      "editor_pick",
-      "rare_find"
-    ]
+    "amenities": ["Plunge pool", "Mezcal cellar", "Free Wi-Fi", "Concierge", "Mountain trails"],
+    "badges": ["editor_pick", "rare_find"]
   },
   {
     "id": "p2",
@@ -43,16 +34,8 @@
       "https://picsum.photos/seed/sojourn-tb-p2c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p2d/800/600"
     ],
-    "amenities": [
-      "Vineyard tours",
-      "Wine cellar",
-      "Pool",
-      "Bicycles",
-      "Breakfast included"
-    ],
-    "badges": [
-      "editor_pick"
-    ]
+    "amenities": ["Vineyard tours", "Wine cellar", "Pool", "Bicycles", "Breakfast included"],
+    "badges": ["editor_pick"]
   },
   {
     "id": "p3",
@@ -70,16 +53,8 @@
       "https://picsum.photos/seed/sojourn-tb-p3c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p3d/800/600"
     ],
-    "amenities": [
-      "Hot tub",
-      "Aurora viewing",
-      "Sauna",
-      "Sea kayaks",
-      "Restaurant"
-    ],
-    "badges": [
-      "new"
-    ]
+    "amenities": ["Hot tub", "Aurora viewing", "Sauna", "Sea kayaks", "Restaurant"],
+    "badges": ["new"]
   },
   {
     "id": "p4",
@@ -97,14 +72,7 @@
       "https://picsum.photos/seed/sojourn-tb-p4c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p4d/800/600"
     ],
-    "amenities": [
-      "Hammam",
-      "Rooftop terrace",
-      "Pool",
-      "Restaurant",
-      "Free Wi-Fi",
-      "Pet friendly"
-    ],
+    "amenities": ["Hammam", "Rooftop terrace", "Pool", "Restaurant", "Free Wi-Fi", "Pet friendly"],
     "badges": []
   },
   {
@@ -123,16 +91,8 @@
       "https://picsum.photos/seed/sojourn-tb-p5c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p5d/800/600"
     ],
-    "amenities": [
-      "Onsen",
-      "Kaiseki dining",
-      "Tea house",
-      "Garden",
-      "Concierge"
-    ],
-    "badges": [
-      "editor_pick"
-    ]
+    "amenities": ["Onsen", "Kaiseki dining", "Tea house", "Garden", "Concierge"],
+    "badges": ["editor_pick"]
   },
   {
     "id": "p6",
@@ -175,16 +135,8 @@
       "https://picsum.photos/seed/sojourn-tb-p7c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p7d/800/600"
     ],
-    "amenities": [
-      "Sea access",
-      "Private boat",
-      "Pool",
-      "Restaurant",
-      "Concierge"
-    ],
-    "badges": [
-      "rare_find"
-    ]
+    "amenities": ["Sea access", "Private boat", "Pool", "Restaurant", "Concierge"],
+    "badges": ["rare_find"]
   },
   {
     "id": "p8",
@@ -202,16 +154,8 @@
       "https://picsum.photos/seed/sojourn-tb-p8c/800/600",
       "https://picsum.photos/seed/sojourn-tb-p8d/800/600"
     ],
-    "amenities": [
-      "Sauna",
-      "Stargazing",
-      "Hiking trails",
-      "Wildlife tours",
-      "All-inclusive"
-    ],
-    "badges": [
-      "new"
-    ]
+    "amenities": ["Sauna", "Stargazing", "Hiking trails", "Wildlife tours", "All-inclusive"],
+    "badges": ["new"]
   },
   {
     "id": "p9",
@@ -227,13 +171,8 @@
       "https://picsum.photos/seed/sojourn-tb-p9-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p9-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   },
   {
@@ -250,13 +189,8 @@
       "https://picsum.photos/seed/sojourn-tb-p10-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p10-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   },
   {
@@ -273,13 +207,8 @@
       "https://picsum.photos/seed/sojourn-tb-p11-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p11-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   },
   {
@@ -296,13 +225,8 @@
       "https://picsum.photos/seed/sojourn-tb-p12-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p12-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   },
   {
@@ -319,13 +243,8 @@
       "https://picsum.photos/seed/sojourn-tb-p13-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p13-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   },
   {
@@ -342,13 +261,8 @@
       "https://picsum.photos/seed/sojourn-tb-p14-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p14-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   },
   {
@@ -365,13 +279,8 @@
       "https://picsum.photos/seed/sojourn-tb-p15-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p15-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   },
   {
@@ -388,13 +297,8 @@
       "https://picsum.photos/seed/sojourn-tb-p16-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p16-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   },
   {
@@ -411,13 +315,8 @@
       "https://picsum.photos/seed/sojourn-tb-p17-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p17-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   },
   {
@@ -434,13 +333,8 @@
       "https://picsum.photos/seed/sojourn-tb-p18-a/1600/1000",
       "https://picsum.photos/seed/sojourn-tb-p18-b/1200/800"
     ],
-    "amenities": [
-      "Free Wi-Fi",
-      "Air conditioning"
-    ],
-    "badges": [
-      "Sojourn-verified"
-    ],
+    "amenities": ["Free Wi-Fi", "Air conditioning"],
+    "badges": ["Sojourn-verified"],
     "status": "active"
   }
 ]

@@ -5,10 +5,7 @@
     "user_id": "00000000-0000-4000-8000-0000000000aa",
     "title": "Shipping times and carriers",
     "category": "shipping",
-    "tags_json": [
-      "shipping",
-      "orders"
-    ],
+    "tags_json": ["shipping", "orders"],
     "status": "published",
     "content": "Standard shipping takes 3 to 5 business days within the US. International orders ship with tracked delivery in 5 to 8 business days.",
     "body_md": "Standard shipping takes 3 to 5 business days within the US. International orders ship with tracked delivery in 5 to 8 business days.",
@@ -23,10 +20,7 @@
     "user_id": "00000000-0000-4000-8000-0000000000aa",
     "title": "Refund and return policy",
     "category": "billing",
-    "tags_json": [
-      "refunds",
-      "returns"
-    ],
+    "tags_json": ["refunds", "returns"],
     "status": "published",
     "content": "Items can be returned within 30 days in original packaging. Refunds are issued to the original payment method within 5 business days.",
     "body_md": "Items can be returned within 30 days in original packaging. Refunds are issued to the original payment method within 5 business days.",
@@ -41,10 +35,7 @@
     "user_id": "00000000-0000-4000-8000-0000000000aa",
     "title": "Resetting two-factor authentication",
     "category": "account",
-    "tags_json": [
-      "security",
-      "2fa"
-    ],
+    "tags_json": ["security", "2fa"],
     "status": "published",
     "content": "Open Settings, choose Security, then select Reset two-factor to scan a new QR code.",
     "body_md": "Open Settings, choose Security, then select Reset two-factor to scan a new QR code.",
@@ -59,9 +50,7 @@
     "user_id": "00000000-0000-4000-8000-0000000000aa",
     "title": "Changing your account email",
     "category": "account",
-    "tags_json": [
-      "account"
-    ],
+    "tags_json": ["account"],
     "status": "draft",
     "content": "Go to Profile and edit the email field. A confirmation link is sent to the new address.",
     "body_md": "Go to Profile and edit the email field. A confirmation link is sent to the new address.",

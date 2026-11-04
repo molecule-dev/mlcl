@@ -57,16 +57,12 @@
   "schema/tables/users/indexes": [
     {
       "name": "users_pkey",
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "unique": true
     },
     {
       "name": "users_email_key",
-      "columns": [
-        "email"
-      ],
+      "columns": ["email"],
       "unique": true
     }
   ],
@@ -158,30 +154,22 @@
   "schema/tables/orders/indexes": [
     {
       "name": "orders_pkey",
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "unique": true
     },
     {
       "name": "orders_user_id_idx",
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "unique": false
     }
   ],
   "schema/tables/orders/foreign-keys": [
     {
       "name": "orders_user_id_fkey",
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "referencedSchema": "public",
       "referencedTable": "users",
-      "referencedColumns": [
-        "id"
-      ]
+      "referencedColumns": ["id"]
     }
   ],
   "schema/tables/orders/data": {
@@ -272,9 +260,7 @@
   "schema/tables/products/indexes": [
     {
       "name": "products_pkey",
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "unique": true
     }
   ],
@@ -345,23 +331,17 @@
   "schema/tables/sessions/indexes": [
     {
       "name": "sessions_pkey",
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "unique": true
     }
   ],
   "schema/tables/sessions/foreign-keys": [
     {
       "name": "sessions_user_id_fkey",
-      "columns": [
-        "user_id"
-      ],
+      "columns": ["user_id"],
       "referencedSchema": "public",
       "referencedTable": "users",
-      "referencedColumns": [
-        "id"
-      ]
+      "referencedColumns": ["id"]
     }
   ],
   "schema/tables/sessions/data": {
@@ -418,9 +398,7 @@
   "schema/tables/active_users/indexes": [
     {
       "name": "active_users_pkey",
-      "columns": [
-        "id"
-      ],
+      "columns": ["id"],
       "unique": true
     }
   ],

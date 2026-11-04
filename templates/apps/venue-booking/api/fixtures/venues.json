@@ -21,7 +21,14 @@
       "https://picsum.photos/seed/alcove-aerie-4/1600/1200",
       "https://picsum.photos/seed/alcove-aerie-5/1600/1200"
     ],
-    "amenities": ["Skylights", "Hardwood floors", "Catering kitchen", "Freight elevator", "Sound system", "Wi-Fi"],
+    "amenities": [
+      "Skylights",
+      "Hardwood floors",
+      "Catering kitchen",
+      "Freight elevator",
+      "Sound system",
+      "Wi-Fi"
+    ],
     "badges": ["editor_pick", "instant_book"],
     "instant_book": true,
     "superhost": true,

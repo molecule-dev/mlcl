@@ -6,18 +6,7 @@
     "avg_quality_score": 91,
     "team_members": 4,
     "ai_confidence": 95,
-    "volume_history": [
-      8,
-      11,
-      9,
-      14,
-      12,
-      16,
-      13,
-      18,
-      15,
-      20
-    ]
+    "volume_history": [8, 11, 9, 14, 12, 16, 13, 18, 15, 20]
   },
   "billing_usage": {
     "words": {

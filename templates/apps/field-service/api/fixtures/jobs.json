@@ -13,14 +13,44 @@
     "technician_id": "tec_001",
     "technician": "Ray Delgado",
     "checklist": [
-      { "id": "chk_001", "label": "Lockout/tagout rooftop disconnect", "done": true, "done_at": "2026-09-17T14:10:00.000Z" },
-      { "id": "chk_002", "label": "Coil clean both units", "done": true, "done_at": "2026-09-17T15:00:00.000Z" },
-      { "id": "chk_003", "label": "Check refrigerant pressures", "done": true, "done_at": "2026-09-17T15:40:00.000Z" },
-      { "id": "chk_004", "label": "Replace belts + filters", "done": true, "done_at": "2026-09-17T16:00:00.000Z" }
+      {
+        "id": "chk_001",
+        "label": "Lockout/tagout rooftop disconnect",
+        "done": true,
+        "done_at": "2026-09-17T14:10:00.000Z"
+      },
+      {
+        "id": "chk_002",
+        "label": "Coil clean both units",
+        "done": true,
+        "done_at": "2026-09-17T15:00:00.000Z"
+      },
+      {
+        "id": "chk_003",
+        "label": "Check refrigerant pressures",
+        "done": true,
+        "done_at": "2026-09-17T15:40:00.000Z"
+      },
+      {
+        "id": "chk_004",
+        "label": "Replace belts + filters",
+        "done": true,
+        "done_at": "2026-09-17T16:00:00.000Z"
+      }
     ],
     "notes": [
-      { "id": "jnt_001", "author": "Ray Delgado", "body": "Unit 2 contactor was chattering — dressed the contacts, order a spare.", "created_at": "2026-09-17T15:20:00.000Z" },
-      { "id": "jnt_002", "author": "Office", "body": "Customer asked to bundle the invoice with the reach-in cooler visit.", "created_at": "2026-09-17T13:00:00.000Z" }
+      {
+        "id": "jnt_001",
+        "author": "Ray Delgado",
+        "body": "Unit 2 contactor was chattering — dressed the contacts, order a spare.",
+        "created_at": "2026-09-17T15:20:00.000Z"
+      },
+      {
+        "id": "jnt_002",
+        "author": "Office",
+        "body": "Customer asked to bundle the invoice with the reach-in cooler visit.",
+        "created_at": "2026-09-17T13:00:00.000Z"
+      }
     ],
     "completed_at": "2026-09-17T16:00:00.000Z",
     "created_at": "2026-09-13T15:30:00.000Z"
@@ -39,12 +69,32 @@
     "technician_id": "tec_003",
     "technician": "Marcus Webb",
     "checklist": [
-      { "id": "chk_010", "label": "Confirm fault code", "done": true, "done_at": "2026-09-18T10:10:00.000Z" },
-      { "id": "chk_011", "label": "Replace hot-surface igniter", "done": true, "done_at": "2026-09-18T11:00:00.000Z" },
-      { "id": "chk_012", "label": "Cycle test 3× and verify temps", "done": true, "done_at": "2026-09-18T11:20:00.000Z" }
+      {
+        "id": "chk_010",
+        "label": "Confirm fault code",
+        "done": true,
+        "done_at": "2026-09-18T10:10:00.000Z"
+      },
+      {
+        "id": "chk_011",
+        "label": "Replace hot-surface igniter",
+        "done": true,
+        "done_at": "2026-09-18T11:00:00.000Z"
+      },
+      {
+        "id": "chk_012",
+        "label": "Cycle test 3× and verify temps",
+        "done": true,
+        "done_at": "2026-09-18T11:20:00.000Z"
+      }
     ],
     "notes": [
-      { "id": "jnt_010", "author": "Marcus Webb", "body": "Igniter was cracked across the carrier. All good after swap.", "created_at": "2026-09-18T11:10:00.000Z" }
+      {
+        "id": "jnt_010",
+        "author": "Marcus Webb",
+        "body": "Igniter was cracked across the carrier. All good after swap.",
+        "created_at": "2026-09-18T11:10:00.000Z"
+      }
     ],
     "completed_at": "2026-09-18T11:30:00.000Z",
     "created_at": "2026-09-18T08:00:00.000Z"
@@ -63,12 +113,22 @@
     "technician_id": "tec_005",
     "technician": "Tomás Rivera",
     "checklist": [
-      { "id": "chk_020", "label": "Filter change — both air handlers", "done": false, "done_at": null },
+      {
+        "id": "chk_020",
+        "label": "Filter change — both air handlers",
+        "done": false,
+        "done_at": null
+      },
       { "id": "chk_021", "label": "Condenser coil rinse", "done": false, "done_at": null },
       { "id": "chk_022", "label": "Thermostat program review", "done": false, "done_at": null }
     ],
     "notes": [
-      { "id": "jnt_020", "author": "Office", "body": "Front desk will let you in through the side door.", "created_at": "2026-09-18T09:00:00.000Z" }
+      {
+        "id": "jnt_020",
+        "author": "Office",
+        "body": "Front desk will let you in through the side door.",
+        "created_at": "2026-09-18T09:00:00.000Z"
+      }
     ],
     "completed_at": null,
     "created_at": "2026-09-16T09:00:00.000Z"
@@ -87,13 +147,28 @@
     "technician_id": "tec_004",
     "technician": "Dana Kowalski",
     "checklist": [
-      { "id": "chk_030", "label": "Verify gas supply + valve", "done": true, "done_at": "2026-09-19T11:50:00.000Z" },
-      { "id": "chk_031", "label": "Test thermal fuse", "done": true, "done_at": "2026-09-19T12:10:00.000Z" },
+      {
+        "id": "chk_030",
+        "label": "Verify gas supply + valve",
+        "done": true,
+        "done_at": "2026-09-19T11:50:00.000Z"
+      },
+      {
+        "id": "chk_031",
+        "label": "Test thermal fuse",
+        "done": true,
+        "done_at": "2026-09-19T12:10:00.000Z"
+      },
       { "id": "chk_032", "label": "Replace igniter if open", "done": false, "done_at": null },
       { "id": "chk_033", "label": "Full heat cycle test", "done": false, "done_at": null }
     ],
     "notes": [
-      { "id": "jnt_030", "author": "Dana Kowalski", "body": "Thermal fuse is fine — coil reads open. Part van stock #44.", "created_at": "2026-09-19T12:15:00.000Z" }
+      {
+        "id": "jnt_030",
+        "author": "Dana Kowalski",
+        "body": "Thermal fuse is fine — coil reads open. Part van stock #44.",
+        "created_at": "2026-09-19T12:15:00.000Z"
+      }
     ],
     "completed_at": null,
     "created_at": "2026-09-17T09:00:00.000Z"
@@ -112,7 +187,12 @@
     "technician_id": "tec_001",
     "technician": "Ray Delgado",
     "checklist": [
-      { "id": "chk_040", "label": "Record suction/discharge pressures", "done": false, "done_at": null },
+      {
+        "id": "chk_040",
+        "label": "Record suction/discharge pressures",
+        "done": false,
+        "done_at": null
+      },
       { "id": "chk_041", "label": "Inspect mounting + isolators", "done": false, "done_at": null }
     ],
     "notes": [],
@@ -159,7 +239,12 @@
       { "id": "chk_062", "label": "Balance blades", "done": false, "done_at": null }
     ],
     "notes": [
-      { "id": "jnt_060", "author": "Office", "body": "Customer will crate the dogs before arrival.", "created_at": "2026-09-19T06:00:00.000Z" }
+      {
+        "id": "jnt_060",
+        "author": "Office",
+        "body": "Customer will crate the dogs before arrival.",
+        "created_at": "2026-09-19T06:00:00.000Z"
+      }
     ],
     "completed_at": null,
     "created_at": "2026-09-17T09:00:00.000Z"
@@ -222,12 +307,32 @@
     "technician_id": "tec_003",
     "technician": "Marcus Webb",
     "checklist": [
-      { "id": "chk_090", "label": "Low-water cutoff flush", "done": true, "done_at": "2026-09-16T13:00:00.000Z" },
-      { "id": "chk_091", "label": "Safety valve pop test", "done": true, "done_at": "2026-09-16T14:00:00.000Z" },
-      { "id": "chk_092", "label": "Flue gas reading", "done": true, "done_at": "2026-09-16T14:20:00.000Z" }
+      {
+        "id": "chk_090",
+        "label": "Low-water cutoff flush",
+        "done": true,
+        "done_at": "2026-09-16T13:00:00.000Z"
+      },
+      {
+        "id": "chk_091",
+        "label": "Safety valve pop test",
+        "done": true,
+        "done_at": "2026-09-16T14:00:00.000Z"
+      },
+      {
+        "id": "chk_092",
+        "label": "Flue gas reading",
+        "done": true,
+        "done_at": "2026-09-16T14:20:00.000Z"
+      }
     ],
     "notes": [
-      { "id": "jnt_090", "author": "Marcus Webb", "body": "Passed. Recommend descaling next season.", "created_at": "2026-09-16T14:00:00.000Z" }
+      {
+        "id": "jnt_090",
+        "author": "Marcus Webb",
+        "body": "Passed. Recommend descaling next season.",
+        "created_at": "2026-09-16T14:00:00.000Z"
+      }
     ],
     "completed_at": "2026-09-16T14:00:00.000Z",
     "created_at": "2026-09-13T09:00:00.000Z"
@@ -247,7 +352,12 @@
     "technician": "Dana Kowalski",
     "checklist": [],
     "notes": [
-      { "id": "jnt_100", "author": "Office", "body": "Customer cancelled — equipment under maker warranty.", "created_at": "2026-09-17T12:00:00.000Z" }
+      {
+        "id": "jnt_100",
+        "author": "Office",
+        "body": "Customer cancelled — equipment under maker warranty.",
+        "created_at": "2026-09-17T12:00:00.000Z"
+      }
     ],
     "completed_at": null,
     "created_at": "2026-09-16T09:00:00.000Z"
@@ -266,8 +376,18 @@
     "technician_id": "tec_004",
     "technician": "Dana Kowalski",
     "checklist": [
-      { "id": "chk_100", "label": "Pump trap to grease line", "done": true, "done_at": "2026-09-14T13:00:00.000Z" },
-      { "id": "chk_101", "label": "Scrape baffles", "done": true, "done_at": "2026-09-14T13:30:00.000Z" }
+      {
+        "id": "chk_100",
+        "label": "Pump trap to grease line",
+        "done": true,
+        "done_at": "2026-09-14T13:00:00.000Z"
+      },
+      {
+        "id": "chk_101",
+        "label": "Scrape baffles",
+        "done": true,
+        "done_at": "2026-09-14T13:30:00.000Z"
+      }
     ],
     "notes": [],
     "completed_at": "2026-09-14T13:30:00.000Z",
@@ -287,9 +407,24 @@
     "technician_id": "tec_003",
     "technician": "Marcus Webb",
     "checklist": [
-      { "id": "chk_110", "label": "Kill hallway circuits per floor", "done": true, "done_at": "2026-09-13T09:10:00.000Z" },
-      { "id": "chk_111", "label": "Swap 12 troffers", "done": true, "done_at": "2026-09-13T13:00:00.000Z" },
-      { "id": "chk_112", "label": "Illumination spot check", "done": true, "done_at": "2026-09-13T14:00:00.000Z" }
+      {
+        "id": "chk_110",
+        "label": "Kill hallway circuits per floor",
+        "done": true,
+        "done_at": "2026-09-13T09:10:00.000Z"
+      },
+      {
+        "id": "chk_111",
+        "label": "Swap 12 troffers",
+        "done": true,
+        "done_at": "2026-09-13T13:00:00.000Z"
+      },
+      {
+        "id": "chk_112",
+        "label": "Illumination spot check",
+        "done": true,
+        "done_at": "2026-09-13T14:00:00.000Z"
+      }
     ],
     "notes": [],
     "completed_at": "2026-09-13T14:30:00.000Z",

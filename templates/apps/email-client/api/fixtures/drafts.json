@@ -3,9 +3,7 @@
     "id": "dr-1",
     "user_id": "user-1",
     "from": "alex@example.com",
-    "to": [
-      "priya@brightlane.example"
-    ],
+    "to": ["priya@brightlane.example"],
     "cc": null,
     "bcc": null,
     "subject": "Re: Q4 roadmap review on Thursday",
@@ -20,9 +18,7 @@
     "id": "dr-2",
     "user_id": "user-1",
     "from": "alex@example.com",
-    "to": [
-      "tom@weber-gmbh.example"
-    ],
+    "to": ["tom@weber-gmbh.example"],
     "cc": null,
     "bcc": null,
     "subject": "Question about invoice 2026-0143",

@@ -19,11 +19,7 @@
     "saved": false,
     "location": "Sumida River, Tokyo",
     "posted_at": "2026-04-29T05:18:00Z",
-    "tags": [
-      "cityscape",
-      "goldenhour",
-      "tokyo"
-    ],
+    "tags": ["cityscape", "goldenhour", "tokyo"],
     "is_live": false
   },
   {
@@ -46,10 +42,7 @@
     "saved": true,
     "location": "Brava HQ, Lagos",
     "posted_at": "2026-04-29T01:42:00Z",
-    "tags": [
-      "music",
-      "behindthescenes"
-    ],
+    "tags": ["music", "behindthescenes"],
     "is_live": true
   },
   {
@@ -72,10 +65,7 @@
     "saved": false,
     "location": "Seoul",
     "posted_at": "2026-04-28T22:10:00Z",
-    "tags": [
-      "portrait",
-      "film"
-    ]
+    "tags": ["portrait", "film"]
   },
   {
     "id": "post_croissants",
@@ -97,11 +87,7 @@
     "saved": true,
     "location": "Pâtisserie Lefèvre, Lyon",
     "posted_at": "2026-04-28T16:00:00Z",
-    "tags": [
-      "baking",
-      "food",
-      "pastry"
-    ]
+    "tags": ["baking", "food", "pastry"]
   },
   {
     "id": "post_skate_curb",
@@ -123,11 +109,7 @@
     "saved": false,
     "location": "San Diego",
     "posted_at": "2026-04-28T11:25:00Z",
-    "tags": [
-      "skate",
-      "film",
-      "sandiego"
-    ]
+    "tags": ["skate", "film", "sandiego"]
   },
   {
     "id": "post_studio_paint",
@@ -149,10 +131,7 @@
     "saved": true,
     "location": "Williamsburg, BK",
     "posted_at": "2026-04-28T08:00:00Z",
-    "tags": [
-      "art",
-      "studio"
-    ]
+    "tags": ["art", "studio"]
   },
   {
     "id": "post_bike_dawn",
@@ -174,10 +153,7 @@
     "saved": false,
     "location": "Helsinki",
     "posted_at": "2026-04-27T05:30:00Z",
-    "tags": [
-      "cycling",
-      "sunrise"
-    ]
+    "tags": ["cycling", "sunrise"]
   },
   {
     "id": "post_studio_session",
@@ -199,11 +175,7 @@
     "saved": false,
     "location": "CDMX",
     "posted_at": "2026-04-26T23:55:00Z",
-    "tags": [
-      "music",
-      "studio",
-      "inprogress"
-    ]
+    "tags": ["music", "studio", "inprogress"]
   },
   {
     "id": "post_dawn_paddle",
@@ -225,10 +197,7 @@
     "saved": false,
     "location": "Byron Bay",
     "posted_at": "2026-04-26T07:10:00Z",
-    "tags": [
-      "surf",
-      "sunrise"
-    ]
+    "tags": ["surf", "sunrise"]
   },
   {
     "id": "post_sewing",
@@ -250,10 +219,7 @@
     "saved": true,
     "location": "West End, London",
     "posted_at": "2026-04-25T13:20:00Z",
-    "tags": [
-      "theatre",
-      "costume"
-    ]
+    "tags": ["theatre", "costume"]
   },
   {
     "id": "post_facade",
@@ -275,9 +241,7 @@
     "saved": false,
     "location": "Rotterdam",
     "posted_at": "2026-04-24T14:02:00Z",
-    "tags": [
-      "architecture"
-    ]
+    "tags": ["architecture"]
   },
   {
     "id": "post_editorial",
@@ -299,9 +263,6 @@
     "saved": true,
     "location": "Florence",
     "posted_at": "2026-04-23T19:30:00Z",
-    "tags": [
-      "editorial",
-      "magazine"
-    ]
+    "tags": ["editorial", "magazine"]
   }
 ]

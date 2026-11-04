@@ -13,10 +13,7 @@
       {
         "id": "wh-1",
         "url": "https://hooks.slack.com/services/T0000/B0000/abcdef",
-        "events": [
-          "pipeline.failed",
-          "deploy.complete"
-        ],
+        "events": ["pipeline.failed", "deploy.complete"],
         "active": true
       }
     ],
@@ -47,16 +44,7 @@
     ],
     "last_build_status": "success",
     "last_build_at": "2026-10-06T11:52:00.000Z",
-    "recent_build_durations": [
-      312,
-      298,
-      305,
-      341,
-      290,
-      322,
-      310,
-      287
-    ],
+    "recent_build_durations": [312, 298, 305, 341, 290, 322, 310, 287],
     "created_at": "2026-07-08T12:00:00.000Z",
     "updated_at": "2026-10-06T11:52:00.000Z",
     "recent_pipelines": [
@@ -88,18 +76,13 @@
       {
         "id": "wh-2",
         "url": "https://events.pagerduty.com/integration/abc/enqueue",
-        "events": [
-          "pipeline.failed"
-        ],
+        "events": ["pipeline.failed"],
         "active": true
       },
       {
         "id": "wh-3",
         "url": "https://example.com/internal/build-feed",
-        "events": [
-          "pipeline.success",
-          "pipeline.failed"
-        ],
+        "events": ["pipeline.success", "pipeline.failed"],
         "active": false
       }
     ],
@@ -124,16 +107,7 @@
     ],
     "last_build_status": "failed",
     "last_build_at": "2026-10-06T11:36:00.000Z",
-    "recent_build_durations": [
-      319,
-      305,
-      312,
-      348,
-      297,
-      329,
-      317,
-      294
-    ],
+    "recent_build_durations": [319, 305, 312, 348, 297, 329, 317, 294],
     "created_at": "2026-07-08T12:00:00.000Z",
     "updated_at": "2026-10-06T11:36:00.000Z",
     "recent_pipelines": [
@@ -177,16 +151,7 @@
     ],
     "last_build_status": "success",
     "last_build_at": "2026-10-06T05:10:00.000Z",
-    "recent_build_durations": [
-      326,
-      312,
-      319,
-      355,
-      304,
-      336,
-      324,
-      301
-    ],
+    "recent_build_durations": [326, 312, 319, 355, 304, 336, 324, 301],
     "created_at": "2026-07-08T12:00:00.000Z",
     "updated_at": "2026-10-06T05:10:00.000Z",
     "recent_pipelines": [
@@ -212,10 +177,7 @@
       {
         "id": "wh-4",
         "url": "https://hooks.slack.com/services/T0000/B1111/mobiledev",
-        "events": [
-          "pipeline.failed",
-          "pipeline.success"
-        ],
+        "events": ["pipeline.failed", "pipeline.success"],
         "active": true
       }
     ],
@@ -240,16 +202,7 @@
     ],
     "last_build_status": "queued",
     "last_build_at": "2026-10-06T11:59:00.000Z",
-    "recent_build_durations": [
-      333,
-      319,
-      326,
-      362,
-      311,
-      343,
-      331,
-      308
-    ],
+    "recent_build_durations": [333, 319, 326, 362, 311, 343, 331, 308],
     "created_at": "2026-07-08T12:00:00.000Z",
     "updated_at": "2026-10-06T11:59:00.000Z",
     "recent_pipelines": [
