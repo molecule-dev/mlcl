@@ -96,7 +96,13 @@ export function Browse() {
   // and reloads keep the view.
   const listRoute = useListRoute({
     pageSize,
-    filters: { category: { defaultValue: 'All' }, q: {} },
+    filters: {
+      category: { defaultValue: 'All' },
+      q: {},
+      level: {},
+      price: {},
+      sort: { defaultValue: 'popular' },
+    },
   })
   const query = (listRoute.filters.q ?? null)?.trim() ?? ''
   const activeCategory = listRoute.filters.category ?? 'All'
@@ -105,9 +111,10 @@ export function Browse() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [categories, setCategories] = useState<string[]>(['All'])
-  const [activeLevel, setActiveLevel] = useState<string | null>(null)
-  const [activePrice, setActivePrice] = useState<string | null>(null)
-  const [sort, setSort] = useState<(typeof SORT_OPTIONS)[number]['id']>('popular')
+  const activeLevel = LEVELS.find((level) => level.id === listRoute.filters.level)?.id ?? null
+  const activePrice =
+    PRICE_BUCKETS.find((bucket) => bucket.id === listRoute.filters.price)?.id ?? null
+  const sort = SORT_OPTIONS.find((option) => option.id === listRoute.filters.sort)?.id ?? 'popular'
 
   const clearSearch = () => {
     listRoute.setFilters({ q: undefined }, { replace: true })
@@ -264,13 +271,11 @@ export function Browse() {
                         data-mol-id={`level-${l.id}`}
                         checked={activeLevel === l.id}
                         onChange={() => {
-                          setActiveLevel((v) => (v === l.id ? null : l.id))
-                          if (page !== 1) listRoute.setPage(1)
+                          listRoute.setFilters({ level: activeLevel === l.id ? undefined : l.id })
                         }}
                         onClick={() => {
                           if (activeLevel === l.id) {
-                            setActiveLevel(null)
-                            if (page !== 1) listRoute.setPage(1)
+                            listRoute.setFilters({ level: undefined })
                           }
                         }}
                         className={cm.cn(
@@ -305,13 +310,11 @@ export function Browse() {
                         data-mol-id={`price-${b.id}`}
                         checked={activePrice === b.id}
                         onChange={() => {
-                          setActivePrice((v) => (v === b.id ? null : b.id))
-                          if (page !== 1) listRoute.setPage(1)
+                          listRoute.setFilters({ price: activePrice === b.id ? undefined : b.id })
                         }}
                         onClick={() => {
                           if (activePrice === b.id) {
-                            setActivePrice(null)
-                            if (page !== 1) listRoute.setPage(1)
+                            listRoute.setFilters({ price: undefined })
                           }
                         }}
                         className={cm.cn('w-4 h-4 rounded border-outline-variant/30 text-primary')}
@@ -369,8 +372,7 @@ export function Browse() {
                   id="sort"
                   value={sort}
                   onChange={(e) => {
-                    setSort(e.target.value as (typeof SORT_OPTIONS)[number]['id'])
-                    if (page !== 1) listRoute.setPage(1)
+                    listRoute.setFilters({ sort: e.target.value })
                   }}
                   data-mol-id="sort-select"
                   className={
