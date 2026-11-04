@@ -16,10 +16,12 @@ import { mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterEach, beforeAll, describe, expect, it } from 'vitest'
+import ts from 'typescript'
+import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 
 import { disableAI } from '../ai.js'
 import { synthesizeProjectFiles } from '../injector.js'
+import { loadRegistry } from '../registry.js'
 
 let dir: string | null = null
 beforeAll(() => {
@@ -33,6 +35,62 @@ afterEach(async () => {
 })
 
 describe('generated smoke-test mocks', () => {
+  it.each([true, false])(
+    'preserves the resource factory surface (raw exports: %s)',
+    async (raw) => {
+      dir = await mkdtemp(join(tmpdir(), 'mlcl-smoke-factories-'))
+      const original = loadRegistry().find((pkg) => pkg.name === '@molecule/api-resource-user')!
+      const pkg = {
+        ...original,
+        exports: raw
+          ? original.exports
+          : original.exports.filter((name) => name !== 'handlers' && name !== 'resource'),
+      }
+      const files = await synthesizeProjectFiles(
+        [
+          {
+            molecule: pkg.name,
+            moleculePackage: pkg,
+            files: [],
+            dependencies: [],
+            migrations: [],
+            bondSetup: null,
+            conflicts: [],
+          },
+        ],
+        [pkg.name],
+        dir,
+      )
+      const source = String(
+        files.find((file) => file.targetPath.endsWith('__tests__/server.test.ts'))!.content,
+      )
+      const mock = source.match(
+        /vi\.mock\('@molecule\/api-resource-user', \(\) => \(\{[\s\S]*?\n\}\)\)/,
+      )![0]
+      const exports: Record<string, unknown> = {}
+      const js = ts.transpileModule(mock, {
+        compilerOptions: { target: ts.ScriptTarget.ES2022 },
+      }).outputText
+      new Function('vi', js)({
+        fn: vi.fn,
+        mock: (_name: string, factory: () => Record<string, unknown>) =>
+          Object.assign(exports, factory()),
+      })
+      const map = (exports.createRequestHandlerMap as () => Record<string, unknown>)()
+      expect(map.logIn).toBeTypeOf('function')
+      if (raw) {
+        const handlers = exports.handlers as
+          Record<string, (resource: unknown) => unknown> | undefined
+        expect(handlers?.logIn).toBeTypeOf('function')
+        expect(handlers!.logIn(exports.resource)).toBeTypeOf('function')
+        expect(exports.resource).toEqual({})
+      } else {
+        expect(exports).not.toHaveProperty('handlers')
+        expect(exports).not.toHaveProperty('resource')
+      }
+    },
+  )
+
   it('mocks @molecule/api-bond with its export surface, not an empty object', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-smoke-mocks-'))
     // api-bond rides along in the real flow as a peer of the database bond;

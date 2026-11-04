@@ -50,7 +50,7 @@ import {
 import { filterEnvSecrets, renderEnvSecretLines, resolveDatabaseUrlValue } from './env-file.js'
 import { isExactVersion } from './exact-version.js'
 import { collectSecrets } from './features.js'
-import { sortImportStatements } from './format.js'
+import { formatGeneratedSource, sortImportStatements } from './format.js'
 import type { InferredMetadata } from './infer.js'
 import { injectLogo } from './logo-injector.js'
 import { ensureMigrateRunnerImports, refreshMigrateRunnerForManifest } from './migrate-runner.js'
@@ -329,7 +329,10 @@ async function configureTemplateInstanceAuth(
   }
   const autoRefresh = /^ {2}autoRefresh:.*$/m.exec(current)?.[0]
   if (autoRefresh) replacement = replacement.replace(/^ {2}autoRefresh:.*$/m, autoRefresh)
-  await writeGuarded(configPath, source.replace(current, replacement))
+  await writeGuarded(
+    configPath,
+    await formatGeneratedSource(source.replace(current, replacement), configPath),
+  )
   await writeFile(
     join(projectRoot, 'api', 'auth-contract.json'),
     `${JSON.stringify(contract, null, 2)}\n`,
@@ -5188,6 +5191,17 @@ export async function createAppProject(
   // into the app's static directory. Idempotent — see injectPreviewLivenessBridge.
   await injectPreviewLivenessBridge(htmlEntryPath, publicDirPath)
 
+  // Contract-derived source must see the project's rules on its first format.
+  await writeFile(
+    join(projectPath, '.prettierrc'),
+    await loadTemplate('app/shared/prettierrc.json.tpl'),
+  )
+  await writeFile(
+    join(projectPath, '.prettierignore'),
+    await loadTemplate('app/shared/prettierignore.tpl'),
+  )
+  await writeFile(join(projectPath, '.editorconfig'), await loadTemplate('shared/editorconfig.tpl'))
+
   // Framework-specific entry point and App component (from templates)
   await copyTemplateFiles(projectPath, framework, projectName, extraVars)
 
@@ -5261,16 +5275,6 @@ export async function createAppProject(
 
   // Shared config files
   await scaffoldEslint(projectPath)
-  await writeFile(
-    join(projectPath, '.prettierrc'),
-    await loadTemplate('app/shared/prettierrc.json.tpl'),
-  )
-  await writeFile(
-    join(projectPath, '.prettierignore'),
-    await loadTemplate('app/shared/prettierignore.tpl'),
-  )
-  await writeFile(join(projectPath, '.editorconfig'), await loadTemplate('shared/editorconfig.tpl'))
-
   await writeFile(join(projectPath, '.gitignore'), await loadTemplate(gitignoreTpl))
 }
 
@@ -5311,7 +5315,14 @@ export async function copyTemplateFiles(
   const configSubdir = fwCfg.sharedCodeDir
   const configDir = configSubdir ? join(projectPath, 'src', configSubdir) : join(projectPath, 'src')
   await mkdir(configDir, { recursive: true })
-  await writeFile(join(configDir, 'config.ts'), processTemplate(configContent, vars))
+  const configPath = join(configDir, 'config.ts')
+  const generatedConfig = processTemplate(configContent, vars)
+  await writeFile(
+    configPath,
+    isDefaultAuthContract(contract)
+      ? generatedConfig
+      : await formatGeneratedSource(generatedConfig, configPath),
+  )
 
   // Copy shared branding.ts (centralized branding configuration). Prepend the
   // self-doc header so this file announces it's the single brand source — the

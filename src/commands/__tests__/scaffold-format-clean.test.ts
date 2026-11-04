@@ -115,6 +115,23 @@ describe('mlcl create --skip-install leaves nothing for prettier --write', () =>
     },
     240_000,
   )
+
+  it('full-stack with an explicit auth contract', async () => {
+    await runCreate([
+      'proj',
+      '--type',
+      'full-stack',
+      '--framework',
+      'react',
+      '--packages',
+      '@molecule/api-resource-user',
+      '--api-contract',
+      join(MLCL_ROOT, 'src/commands/__tests__/fixtures/accounts-openapi.json'),
+      '--no-interactive',
+      '--skip-install',
+    ])
+    expect(await unformattedGeneratedFiles(join(dir, 'proj'))).toEqual([])
+  }, 240_000)
 })
 
 describe('only pinned preview bridges bypass formatting', () => {

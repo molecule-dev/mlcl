@@ -25,6 +25,8 @@ import {
 } from 'node:fs/promises'
 import { dirname, isAbsolute, join, relative, sep } from 'node:path'
 
+import { ts } from 'ts-morph'
+
 /**
  * Whether `candidate` resolves to a path INSIDE `baseDir` (the directory itself
  * counts as outside — it is not a file).
@@ -94,7 +96,7 @@ import {
 } from './auth-contract.js'
 import { capabilityEntryFromRegistry, renderCapabilityBondHeader } from './capability-map.js'
 import { isExactVersion } from './exact-version.js'
-import { sortImportStatements } from './format.js'
+import { formatGeneratedSource, sortImportStatements } from './format.js'
 import { t } from './i18n.js'
 import { generateLocaleArrayCode } from './locales.js'
 import { readMigrateRunner } from './migrate-runner.js'
@@ -3044,40 +3046,72 @@ function untouchedRouter(text: string): boolean {
   )
 }
 
-/**
- * A generated package mount ends at its package handler; app middleware has no such owner.
- * Matches both shapes the router emitter produces: a mount that fits the scaffold's
- * prettier print width on one line, the broken-out one-argument-per-line form,
- * and older scaffolds that kept the path beside the opening parenthesis.
- */
-const ROUTE_BLOCK =
-  /router\.(?:get|post|put|patch|delete|all)\(\s*`[^`\r\n]*`(?:[^\n)]*\)|,\n[\s\S]*?\n\))/g
-const AUTH_GATE = /router\.use\((\w+)Authorization\.verifyMiddleware\([^\n]*\)\)/g
-
-function routeBlockKey(block: string): string | undefined {
-  const handlers = [...block.matchAll(/\b([A-Z]\w*)\.([A-Za-z_]\w*)/g)]
-  const handler = handlers.at(-1)
-  return handler ? `${handler[1]}.${handler[2]}` : undefined
+/** Locate generated calls by syntax, independent of their old or formatted layout. */
+function contractRouterBlocks(text: string): { key: string; start: number; end: number }[] {
+  const source = ts.createSourceFile('router.ts', text, ts.ScriptTarget.ES2022, true)
+  const blocks: { key: string; start: number; end: number }[] = []
+  for (const statement of source.statements) {
+    if (!ts.isExpressionStatement(statement) || !ts.isCallExpression(statement.expression)) continue
+    const call = statement.expression
+    if (!ts.isPropertyAccessExpression(call.expression)) continue
+    const receiver = call.expression.expression
+    if (!ts.isIdentifier(receiver) || receiver.text !== 'router') continue
+    const method = call.expression.name.text
+    const owner = method === 'use' ? call.arguments[0] : call.arguments.at(-1)
+    if (!owner) continue
+    let key: string
+    if (method === 'use') {
+      if (
+        call.arguments.length !== 1 ||
+        !ts.isCallExpression(owner) ||
+        !ts.isPropertyAccessExpression(owner.expression)
+      )
+        continue
+      const gate = owner.expression
+      if (
+        gate.name.text !== 'verifyMiddleware' ||
+        !ts.isIdentifier(gate.expression) ||
+        !/^\w+Authorization$/.test(gate.expression.text)
+      )
+        continue
+      key = `gate:${gate.expression.text}`
+    } else {
+      if (
+        !['get', 'post', 'put', 'patch', 'delete', 'all'].includes(method) ||
+        !call.arguments[0] ||
+        !ts.isNoSubstitutionTemplateLiteral(call.arguments[0]) ||
+        !ts.isPropertyAccessExpression(owner) ||
+        !ts.isIdentifier(owner.expression) ||
+        !/^[A-Z]\w*$/.test(owner.expression.text)
+      )
+        continue
+      key = `route:${owner.expression.text}.${owner.name.text}`
+    }
+    blocks.push({ key, start: call.getStart(source), end: call.end })
+  }
+  return blocks
 }
 
 /** Update only generated gates/mounts, leaving every app-owned statement in place. */
 function mergeContractRouter(existing: string, generated: string): string {
-  const gates = new Map<string, string>()
-  for (const match of generated.matchAll(AUTH_GATE)) gates.set(match[1]!, match[0])
-  let merged = existing.replace(AUTH_GATE, (block, name: string) => gates.get(name) ?? block)
-  const routes = new Map<string, string>()
-  for (const match of generated.matchAll(ROUTE_BLOCK)) {
-    const key = routeBlockKey(match[0])
-    if (key) routes.set(key, match[0])
-  }
+  const replacements = new Map(
+    contractRouterBlocks(generated).map(({ key, start, end }) => [
+      key,
+      generated.slice(start, end),
+    ]),
+  )
   const seen = new Set<string>()
-  merged = merged.replace(ROUTE_BLOCK, (block) => {
-    const key = routeBlockKey(block)
-    if (!key || !routes.has(key)) return block
+  let merged = existing
+  // Apply edits backwards so earlier offsets and app-owned bytes remain intact.
+  for (const { key, start, end } of contractRouterBlocks(existing).reverse()) {
+    const replacement = replacements.get(key)
+    if (!replacement) continue
     seen.add(key)
-    return routes.get(key)!
-  })
-  const missing = [...routes].filter(([key]) => !seen.has(key)).map(([, block]) => block)
+    merged = merged.slice(0, start) + replacement + merged.slice(end)
+  }
+  const missing = [...replacements]
+    .filter(([key]) => key.startsWith('route:') && !seen.has(key))
+    .map(([, block]) => block)
   return missing.length > 0 ? `${merged}\n\n${missing.join('\n\n')}\n` : merged
 }
 
@@ -3168,10 +3202,14 @@ export async function synthesizeProjectFiles(
       continue
     }
 
-    const content = await generateWrapperContent(
+    const rawContent = await generateWrapperContent(
       plan.moleculePackage,
       authContract?.resourcePackage === plan.molecule ? authContract : undefined,
     )
+    const content =
+      authContract?.resourcePackage === plan.molecule
+        ? await formatGeneratedSource(sortImportStatements(rawContent), wrapperPath)
+        : rawContent
 
     files.push({
       action: 'create',
@@ -3184,13 +3222,16 @@ export async function synthesizeProjectFiles(
   // Generate router.ts — only when the package list changed (see shouldWriteRouter): the file
   // is generated, but it is also where the app's own edits beside the mounts live.
   const routerPath = join(projectPath, 'src', 'App', 'router.ts')
-  const routerContent = generateRouterContent(
+  const rawRouterContent = generateRouterContent(
     resourcePlans,
     allMolecules,
     registryPackages,
     fw,
     authContract,
   )
+  const routerContent = authContract
+    ? await formatGeneratedSource(sortImportStatements(rawRouterContent), routerPath)
+    : rawRouterContent
   const injectedRouterContent = await routerContentForInjection(
     routerPath,
     routerContent,
@@ -5152,6 +5193,14 @@ function generateMoleculeViMocksHeuristic(
         lines.push(`  createRequestHandlerMap: () => ({`)
         lines.push(handlerEntries)
         lines.push(`  }),`)
+        // Contract adapters consume the raw handler factories and resource as
+        // well as the legacy map factory. Preserve that declared export surface.
+        if (pkgExports.includes('handlers')) {
+          lines.push(`  handlers: {`)
+          for (const handler of handlers) lines.push(`    ${handler}: vi.fn(() => vi.fn()),`)
+          lines.push(`  },`)
+        }
+        if (pkgExports.includes('resource')) lines.push(`  resource: {},`)
         if (hasAuthorization) lines.push(AUTHORIZATION_MOCK_ENTRY)
         lines.push(`}))`)
       } else if (pkgExports.includes('requestHandlerMap')) {

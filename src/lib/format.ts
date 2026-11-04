@@ -260,6 +260,21 @@ const PRETTIER_CONFIG: prettier.Options = {
 }
 
 /**
+ * Format generated source containing arbitrary contract values with its target's rules.
+ * Parser failures remain errors so a broken emission cannot appear formatter-clean.
+ * @param content - The generated source.
+ * @param filePath - Its eventual absolute destination.
+ * @returns Source formatted with the destination's Prettier configuration.
+ */
+export async function formatGeneratedSource(content: string, filePath: string): Promise<string> {
+  const config =
+    (await prettier.resolveConfig(filePath, { editorconfig: true, useCache: false })) ??
+    PRETTIER_CONFIG
+  const plugins = resolvePackagePlugins(config.plugins, dirname(filePath), new Map())
+  return prettier.format(content, { ...config, plugins, filepath: filePath })
+}
+
+/**
  * File extensions that Prettier formats. The same set any later `prettier --write` over the
  * project (an editor, a pre-commit hook, a platform's deploy) formats, so a freshly generated
  * project gives none of them work to do.

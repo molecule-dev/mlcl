@@ -4,7 +4,11 @@ import { join } from 'node:path'
 
 import { afterAll, describe, expect, it } from 'vitest'
 
-import { formatGeneratedFiles, unformattedGeneratedFiles } from '../format.js'
+import {
+  formatGeneratedFiles,
+  formatGeneratedSource,
+  unformattedGeneratedFiles,
+} from '../format.js'
 
 const tempDirs: string[] = []
 
@@ -18,6 +22,36 @@ afterAll(async () => {
   for (const dir of tempDirs) {
     await rm(dir, { recursive: true, force: true })
   }
+})
+
+describe('formatGeneratedSource', () => {
+  it('uses the destination config and its relative plugins before the file exists', async () => {
+    const dir = await createTempDir('generated-source')
+    await mkdir(join(dir, 'src'), { recursive: true })
+    await writeFile(join(dir, 'plugin.mjs'), 'export default {}\n')
+    await writeFile(
+      join(dir, '.prettierrc'),
+      JSON.stringify({ printWidth: 40, semi: true, singleQuote: false, plugins: ['./plugin.mjs'] }),
+    )
+    const source = "export const values = ['firstValue', 'secondValue', 'thirdValue']"
+    const result = await formatGeneratedSource(source, join(dir, 'src', 'generated.ts'))
+    expect(result).toBe(
+      'export const values = [\n  "firstValue",\n  "secondValue",\n  "thirdValue",\n];\n',
+    )
+  })
+
+  it('refuses an invalid generated program', async () => {
+    const dir = await createTempDir('generated-invalid')
+    await expect(formatGeneratedSource('export const =', join(dir, 'bad.ts'))).rejects.toThrow()
+  })
+
+  it('sees a formatter config created after an earlier emission', async () => {
+    const dir = await createTempDir('generated-late-config')
+    const path = join(dir, 'generated.ts')
+    await formatGeneratedSource('const value = 1', path)
+    await writeFile(join(dir, '.prettierrc'), '{"semi":true,"singleQuote":false}\n')
+    expect(await formatGeneratedSource("const value = 'new'", path)).toBe('const value = "new";\n')
+  })
 })
 
 describe('formatGeneratedFiles', () => {

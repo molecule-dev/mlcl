@@ -88,7 +88,7 @@ describe('injector consumes the same auth contract as the app', () => {
     const router = String(
       files.find((file) => file.targetPath.endsWith(join('App', 'router.ts')))!.content,
     )
-    expect(router).toContain('verifyMiddleware({ scheme: "Session" })')
+    expect(router).toContain("verifyMiddleware({ scheme: 'Session' })")
     expect(router).toContain('router.post(`/sessions`')
     expect(router).toContain('router.get(`/sessions/current`')
     expect(router).toContain('router.put(`/accounts/:id`')
@@ -101,7 +101,7 @@ describe('injector consumes the same auth contract as the app', () => {
       files.find((file) => file.targetPath.endsWith(join('Resource', 'User', 'index.ts')))!.content,
     )
     expect(wrapper).toContain('contractHandlers.logIn(contractResource)')
-    expect(wrapper).toContain('"sessionToken"')
+    expect(wrapper).toContain('sessionToken: value.accessToken')
 
     // Execute the generated wrapper against package-shaped raw handlers. The
     // adapter must unwrap credentials and remove the token from the wire user.
@@ -208,6 +208,49 @@ describe('injector consumes the same auth contract as the app', () => {
     const replacement = updated.find((file) => file.targetPath === routerPath)
     expect(String(replacement?.content)).toContain('router.post(`/v2/sessions`')
     expect(String(replacement?.content)).toContain('X-App-Header')
+  })
+
+  it('updates multiline authorization gates while preserving app-owned call text', async () => {
+    await mkdir(join(root, 'src', 'App'), { recursive: true })
+    const routerPath = join(root, 'src', 'App', 'router.ts')
+    const selected = contract()
+    selected.scheme = 'PartnerSession'.repeat(12)
+    await writeFile(join(root, 'auth-contract.json'), JSON.stringify(selected))
+    const initial = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
+    const generated = String(initial.find((file) => file.targetPath === routerPath)!.content)
+    const app =
+      '\nconst documentation = "router.post(`/sessions`, User.logIn)"\n' +
+      "router.post('/app-alias', User.logIn)\nrouter.use(customAuth)\n"
+    await writeFile(routerPath, generated + app)
+
+    for (const scheme of ['SessionV2', "Partner')Session".repeat(12)]) {
+      selected.scheme = scheme
+      await writeFile(join(root, 'auth-contract.json'), JSON.stringify(selected))
+      const files = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
+      const updated = String(files.find((file) => file.targetPath === routerPath)!.content)
+      expect(updated).toContain(app)
+      const parsed = ts.createSourceFile('router.ts', updated, ts.ScriptTarget.ES2022, true)
+      const gate = parsed.statements.find(
+        (statement): statement is ts.ExpressionStatement =>
+          ts.isExpressionStatement(statement) &&
+          ts.isCallExpression(statement.expression) &&
+          statement.expression.arguments[0]?.getText(parsed).startsWith('userAuthorization.'),
+      )!
+      const inner = (gate.expression as ts.CallExpression).arguments[0] as ts.CallExpression
+      const options = inner.arguments[0] as ts.ObjectLiteralExpression
+      const property = options.properties[0] as ts.PropertyAssignment
+      expect((property.initializer as ts.StringLiteral).text).toBe(scheme)
+      expect(updated.match(/userAuthorization\.verifyMiddleware/g)).toHaveLength(1)
+      await writeFile(routerPath, updated)
+      const repeated = await synthesizeProjectFiles(
+        [plan()],
+        [RESOURCE],
+        root,
+        undefined,
+        'express',
+      )
+      expect(repeated.some((file) => file.targetPath === routerPath)).toBe(false)
+    }
   })
 
   it('keeps the default package router and wrapper when no project contract exists', async () => {
