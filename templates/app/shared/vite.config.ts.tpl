@@ -272,7 +272,7 @@ const apiProxy = {
 }
 
 export default defineConfig({
-{{VITE_PLUGINS_LINE}}{{RESOLVE_EXTENSIONS}}
+{{VITE_PLUGINS}}{{RESOLVE_EXTENSIONS}}
   resolve: {
     preserveSymlinks: true,
     // One module identity per @molecule package, whichever install path an

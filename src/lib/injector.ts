@@ -4920,10 +4920,14 @@ export async function setupBonds(): Promise<void> {
     })
     .join('\n')
 
-  const resolveCall =
+  const resolveOneLine =
     secretKeys.length > 0
       ? `  await resolveAll([${secretKeys.map((k) => `'${k}'`).join(', ')}])`
       : '  await resolveAll()'
+  const resolveCall =
+    resolveOneLine.length <= PRETTIER_PRINT_WIDTH
+      ? resolveOneLine
+      : ['  await resolveAll([', ...secretKeys.map((key) => `    '${key}',`), '  ])'].join('\n')
 
   const secretsPkg = requirePackageByRole('api', 'core', 'secrets')
 
@@ -4953,7 +4957,7 @@ export async function setupBonds(): Promise<void> {
     const checkImports: string[] = ['getOptionalProvider as getMonitoring']
     if (hasDatabase) checkImports.push('createDatabaseCheck')
     if (hasCache) checkImports.push('createCacheCheck')
-    monitoringImport = `import { ${checkImports.join(', ')} } from '${monitoringPkg!.name}'\n`
+    monitoringImport = `${importStatement(checkImports, monitoringPkg!.name)}\n`
 
     const registrations: string[] = []
     registrations.push(`\n  // Auto-register health checks for bonded providers`)

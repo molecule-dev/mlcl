@@ -18,7 +18,7 @@
 
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { join, relative } from 'node:path'
 
 import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -65,6 +65,17 @@ const CASES: { name: string; argv: string[] }[] = [
   { name: 'app react', argv: ['--type', 'app', '--framework', 'react'] },
   { name: 'api', argv: ['--type', 'api'] },
   { name: 'static react', argv: ['--type', 'static', '--framework', 'react'] },
+  {
+    name: 'full-stack with monitoring, sqlite and extra app bonds',
+    argv: [
+      '--type',
+      'full-stack',
+      '--framework',
+      'react',
+      '--packages',
+      '@molecule/api-monitoring-default,@molecule/api-database-sqlite,@molecule/api-cache-memory,@molecule/api-resource-user,@molecule/app-state-zustand,@molecule/app-analytics-posthog',
+    ],
+  },
 ]
 
 describe('a multi-package root formats like its packages', () => {
@@ -104,4 +115,41 @@ describe('mlcl create --skip-install leaves nothing for prettier --write', () =>
     },
     240_000,
   )
+})
+
+describe('only pinned preview bridges bypass formatting', () => {
+  it.each(['public', 'static'])('still checks other assets under %s/__mol', async (publicDir) => {
+    const bridges = join(dir, publicDir, '__mol', 'bridges')
+    await mkdir(bridges, { recursive: true })
+    for (const [source, target] of [
+      ['prettierrc.json.tpl', '.prettierrc'],
+      ['prettierignore.tpl', '.prettierignore'],
+    ]) {
+      await writeFile(
+        join(dir, target),
+        await readFile(join(MLCL_ROOT, 'templates', 'app', 'shared', source), 'utf8'),
+      )
+    }
+    await writeFile(join(dir, 'package.json'), '{}\n')
+    const bad = 'const asset={value:"needs formatting"};\n'
+    for (const name of [
+      'nav-bridge',
+      'snapshot-bridge',
+      'runtime-bridge',
+      'interact-bridge',
+      'preview-bridge',
+    ]) {
+      await writeFile(join(bridges, `${name}.js`), bad)
+    }
+    expect(await unformattedGeneratedFiles(dir)).toEqual([])
+    const ordinary = [
+      join(dir, publicDir, '__mol', 'custom.js'),
+      join(bridges, 'custom.js'),
+      join(bridges, 'nav-bridge.extra.js'),
+    ]
+    for (const path of ordinary) await writeFile(path, bad)
+    expect(await unformattedGeneratedFiles(dir)).toEqual(
+      ordinary.map((path) => relative(dir, path)).sort(),
+    )
+  })
 })

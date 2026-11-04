@@ -4125,7 +4125,7 @@ export async function applyStaticSiteOverlay(
         ? buildTooling.vitePlugin.import + '\n'
         : '',
       VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
-      VITE_PLUGINS_LINE: pluginsLine,
+      VITE_PLUGINS: pluginsLine,
       RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
     }),
   )
@@ -5116,7 +5116,7 @@ export async function createAppProject(
         ? buildTooling.vitePlugin.import + '\n'
         : '',
       VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
-      VITE_PLUGINS_LINE: pluginsLine,
+      VITE_PLUGINS: pluginsLine,
       BRANDING_IMPORT: brandingImportPath,
       RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
     }),
