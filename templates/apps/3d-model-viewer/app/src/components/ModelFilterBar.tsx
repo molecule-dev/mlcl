@@ -11,8 +11,8 @@ interface FilterProps {
 }
 // Matches the formats the API accepts (glb/gltf/obj/fbx/stl) — see
 // api/src/handlers/models.ts createModelSchema.
-const FORMATS = ['All Formats', 'GLB', 'GLTF', 'OBJ', 'FBX', 'STL']
-const SORTS = ['Recent', 'Name', 'Size', 'Polycount']
+export const FORMATS = ['All Formats', 'GLB', 'GLTF', 'OBJ', 'FBX', 'STL']
+export const SORTS = ['Recent', 'Name', 'Size', 'Polycount']
 function ModelFilterBar({ format, onFormat, polycount, onPolycount, sort, onSort }: FilterProps) {
   const cm = getClassMap()
   const { t } = useTranslation()

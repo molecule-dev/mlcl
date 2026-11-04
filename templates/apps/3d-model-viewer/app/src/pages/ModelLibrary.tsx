@@ -5,7 +5,7 @@ import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
-import ModelFilterBar from '../components/ModelFilterBar.js'
+import ModelFilterBar, { FORMATS, SORTS } from '../components/ModelFilterBar.js'
 import ModelLibraryGrid from '../components/ModelLibraryGrid.js'
 import ModelLibraryHeader from '../components/ModelLibraryHeader.js'
 import ModelPagination from '../components/ModelPagination.js'
@@ -58,7 +58,16 @@ function ModelLibrary() {
   const http = useHttpClient()
   const { t } = useTranslation()
 
-  const listRoute = useListRoute({ pageSize: PAGE_SIZE, filters: { category: {}, q: {} } })
+  const listRoute = useListRoute({
+    pageSize: PAGE_SIZE,
+    filters: {
+      category: {},
+      q: {},
+      format: { defaultValue: 'All Formats' },
+      polycount: { defaultValue: '100' },
+      sort: { defaultValue: 'Recent' },
+    },
+  })
   // Category comes from the sidebar links (?category=…); q lets the dashboard
   // search bar hand off a query. The page (?page=) shares the same URL state,
   // so page links, Back/Forward and reloads keep the view.
@@ -68,10 +77,13 @@ function ModelLibrary() {
   const [allModels, setAllModels] = useState<ApiModel[]>([])
   const [loading, setLoading] = useState(true)
   const [fetchError, setFetchError] = useState<string | null>(null)
-  const [format, setFormat] = useState('All Formats')
+  const formatParam = listRoute.filters.format ?? 'All Formats'
+  const format = FORMATS.includes(formatParam) ? formatParam : 'All Formats'
   // 100 = no polycount limit; lower values keep only lighter models.
-  const [polycount, setPolycount] = useState(100)
-  const [sort, setSort] = useState('Recent')
+  const polyParam = listRoute.filters.polycount ?? '100'
+  const polycount = /^(100|[1-9]?\d)$/.test(polyParam) ? Number(polyParam) : 100
+  const sortParam = listRoute.filters.sort ?? 'Recent'
+  const sort = SORTS.includes(sortParam) ? sortParam : 'Recent'
 
   useEffect(() => {
     http
@@ -217,17 +229,13 @@ function ModelLibrary() {
         {/* Filter Row */}
         <ModelFilterBar
           format={format}
-          onFormat={(f) => {
-            setFormat(f)
-            if (page !== 1) listRoute.setPage(1)
-          }}
+          onFormat={(format) => listRoute.setFilters({ format })}
           polycount={polycount}
-          onPolycount={(v) => {
-            setPolycount(v)
-            if (page !== 1) listRoute.setPage(1)
-          }}
+          onPolycount={(value) =>
+            listRoute.setFilters({ polycount: String(value) }, { replace: true })
+          }
           sort={sort}
-          onSort={setSort}
+          onSort={(sort) => listRoute.setFilters({ sort })}
         />
         {/* Model Grid */}
         <ModelLibraryGrid
