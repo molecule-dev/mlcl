@@ -4,8 +4,8 @@
  * @module
  */
 
+import { execFileSync } from 'node:child_process'
 import { access, readdir, readFile, writeFile } from 'node:fs/promises'
-import { createRequire } from 'node:module'
 import { dirname, extname, join, relative, resolve } from 'node:path'
 
 import * as prettier from 'prettier'
@@ -354,6 +354,7 @@ export async function unformattedGeneratedFiles(projectPath: string): Promise<st
 async function formatPass(projectPath: string, write: boolean): Promise<string[]> {
   const files = await discoverFiles(projectPath)
   const changed: string[] = []
+  const pluginPaths = new Map<string, string>()
 
   for (const filePath of files) {
     const content = await readFile(filePath, 'utf-8')
@@ -366,14 +367,7 @@ async function formatPass(projectPath: string, write: boolean): Promise<string[]
       })
       if (info.ignored) continue
       const config = await prettier.resolveConfig(filePath, { editorconfig: true })
-      // Prettier's API resolves bare plugin names from process.cwd(), which is mlcl's
-      // directory. Resolve them with Node from the same package as its CLI invocation.
-      const requireFromPackage = createRequire(join(cwd, 'package.json'))
-      const plugins = config?.plugins?.map((plugin) =>
-        typeof plugin === 'string' && !plugin.startsWith('file:')
-          ? requireFromPackage.resolve(plugin)
-          : plugin,
-      )
+      const plugins = resolvePackagePlugins(config?.plugins, cwd, pluginPaths)
       if (!info.inferredParser && !config?.parser && !plugins?.length) continue
       const options = { ...(config ?? PRETTIER_CONFIG), plugins, filepath: filePath }
       let result = content
@@ -396,6 +390,38 @@ async function formatPass(projectPath: string, write: boolean): Promise<string[]
   }
 
   return changed
+}
+
+/** Use Node's import resolver, including import-only exports, from the package's own cwd. */
+function resolvePackagePlugins(
+  plugins: prettier.Options['plugins'],
+  cwd: string,
+  cache: Map<string, string>,
+): prettier.Options['plugins'] {
+  const key = (plugin: string): string => JSON.stringify([cwd, plugin])
+  const missing = [
+    ...new Set(plugins?.filter((plugin): plugin is string => typeof plugin === 'string')),
+  ].filter((plugin) => !cache.has(key(plugin)))
+  if (missing.length) {
+    // Prettier imports plugins with ESM conditions and resolves them from process.cwd(). A
+    // bounded child uses that standard resolver without changing the CLI's global cwd or
+    // reimplementing package exports. Resolve once per plugin/package for this formatting pass.
+    const paths = JSON.parse(
+      execFileSync(
+        process.execPath,
+        [
+          '--input-type=module',
+          '-e',
+          'process.stdout.write(JSON.stringify(JSON.parse(process.argv[1]).map(name => import.meta.resolve(name))))',
+          '--',
+          JSON.stringify(missing),
+        ],
+        { cwd, encoding: 'utf8', timeout: 30_000 },
+      ),
+    ) as string[]
+    missing.forEach((plugin, index) => cache.set(key(plugin), paths[index]))
+  }
+  return plugins?.map((plugin) => (typeof plugin === 'string' ? cache.get(key(plugin))! : plugin))
 }
 
 /**

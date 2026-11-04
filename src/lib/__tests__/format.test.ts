@@ -169,36 +169,39 @@ describe('formatGeneratedFiles', () => {
 })
 
 describe('formatGeneratedFiles formats like prettier --write run from each package', () => {
-  it('resolves a configured plugin from the file package instead of mlcl', async () => {
-    const dir = await createTempDir('package-plugin')
-    const app = join(dir, 'app')
-    const plugin = join(app, 'node_modules', 'prettier-plugin-project-fixture')
-    await mkdir(plugin, { recursive: true })
-    await writeFile(join(dir, 'package.json'), '{\n  "name": "root"\n}\n')
-    await writeFile(join(app, 'package.json'), '{\n  "name": "app"\n}\n')
-    await writeFile(
-      join(plugin, 'package.json'),
-      JSON.stringify({
-        name: 'prettier-plugin-project-fixture',
-        type: 'module',
-        exports: './index.js',
-      }),
-    )
-    await writeFile(join(plugin, 'index.js'), 'export default {}\n')
-    await writeFile(
-      join(app, '.prettierrc'),
-      JSON.stringify({
-        semi: false,
-        singleQuote: true,
-        plugins: ['prettier-plugin-project-fixture'],
-      }),
-    )
-    await writeFile(join(app, 'index.ts'), 'const x = "hello";\n')
+  it.each(['default', 'import-only'] as const)(
+    'resolves a %s plugin from the file package instead of mlcl',
+    async (exportsKind) => {
+      const dir = await createTempDir('package-plugin')
+      const app = join(dir, 'app')
+      const plugin = join(app, 'node_modules', 'prettier-plugin-project-fixture')
+      await mkdir(plugin, { recursive: true })
+      await writeFile(join(dir, 'package.json'), '{\n  "name": "root"\n}\n')
+      await writeFile(join(app, 'package.json'), '{\n  "name": "app"\n}\n')
+      await writeFile(
+        join(plugin, 'package.json'),
+        JSON.stringify({
+          name: 'prettier-plugin-project-fixture',
+          type: 'module',
+          exports: exportsKind === 'import-only' ? { import: './index.js' } : './index.js',
+        }),
+      )
+      await writeFile(join(plugin, 'index.js'), 'export default {}\n')
+      await writeFile(
+        join(app, '.prettierrc'),
+        JSON.stringify({
+          semi: false,
+          singleQuote: true,
+          plugins: ['prettier-plugin-project-fixture'],
+        }),
+      )
+      await writeFile(join(app, 'index.ts'), 'const x = "hello";\n')
 
-    expect(await formatGeneratedFiles(dir)).toBe(1)
-    expect(await readFile(join(app, 'index.ts'), 'utf8')).toBe("const x = 'hello'\n")
-    expect(await unformattedGeneratedFiles(dir)).toEqual([])
-  })
+      expect(await formatGeneratedFiles(dir)).toBe(1)
+      expect(await readFile(join(app, 'index.ts'), 'utf8')).toBe("const x = 'hello'\n")
+      expect(await unformattedGeneratedFiles(dir)).toEqual([])
+    },
+  )
 
   it('keeps relative plugin paths anchored to the config file', async () => {
     const dir = await createTempDir('relative-plugin')
