@@ -46,21 +46,30 @@ function Tickets() {
       { defaultValue: 'Tickets — {{appName}} Support' },
     )
   }, [t])
-  const listRoute = useListRoute({ filters: { q: {} } })
-  const [search, setSearch] = useState(() => listRoute.filters.q ?? '')
-
-  // When the dashboard search bar lands here with `?q=…`, sync the
-  // initial subject filter so the user sees results matching what they
-  // typed instead of the unfiltered list.
-  useEffect(() => {
-    const q = listRoute.filters.q ?? null
-    if (q !== null) setSearch(q)
-  }, [listRoute.filters.q])
-  const [statusFilter, setStatusFilter] = useState('')
-  const [priorityFilter, setPriorityFilter] = useState('')
-  const [assigneeId, setAssigneeId] = useState('')
-  const [viewTab, setViewTab] = useState<'all' | 'assigned' | 'unassigned'>('all')
-  const [page, setPage] = useState(1)
+  // The list's page, tab, filters and search live in the URL (?page=, ?view=,
+  // ?status=, ?priority=, ?assignee=, ?q=) via useListRoute — no mirrored
+  // state, so page links, Back/Forward and reloads keep the view.
+  const listRoute = useListRoute({
+    pageSize: 10,
+    filters: {
+      q: {},
+      status: { defaultValue: '' },
+      priority: { defaultValue: '' },
+      assignee: { defaultValue: '' },
+      view: { defaultValue: 'all' },
+    },
+  })
+  // When the dashboard search bar lands here with `?q=…`, the subject filter
+  // reads it straight from the URL so the user sees results matching what
+  // they typed instead of the unfiltered list.
+  const search = listRoute.filters.q ?? ''
+  const statusFilter = listRoute.filters.status ?? ''
+  const priorityFilter = listRoute.filters.priority ?? ''
+  const assigneeId = listRoute.filters.assignee ?? ''
+  const viewParam = listRoute.filters.view ?? 'all'
+  const viewTab: 'all' | 'assigned' | 'unassigned' =
+    viewParam === 'assigned' || viewParam === 'unassigned' ? viewParam : 'all'
+  const page = listRoute.page
   const navigate = useNavigate()
 
   const fetchTickets = useCallback(async () => {
@@ -95,17 +104,20 @@ function Tickets() {
     if (viewTab === 'unassigned' && tk.assignee_name) return false
     return true
   })
-  const itemsPerPage = 10
-  const paginatedTickets = filteredTickets.slice((page - 1) * itemsPerPage, page * itemsPerPage)
+  const itemsPerPage = listRoute.pageSize
+  const paginatedTickets = filteredTickets.slice(listRoute.offset, listRoute.offset + itemsPerPage)
 
   return (
     <AppShell
       topBar={
         <TicketsTopNavBar
           search={search}
-          onSearchChange={setSearch}
+          onSearchChange={(val) => {
+            // setFilters writes ?q= and returns to page one atomically.
+            listRoute.setFilters({ q: val || undefined }, { replace: true })
+          }}
           viewTab={viewTab}
-          onViewTabChange={setViewTab}
+          onViewTabChange={(tab) => listRoute.setFilters({ view: tab })}
         />
       }
     >
@@ -115,22 +127,21 @@ function Tickets() {
         {/* Filter Bar */}
         <TicketsFilterBar
           statusFilter={statusFilter}
-          onStatusChange={setStatusFilter}
+          onStatusChange={(v) => listRoute.setFilters({ status: v || undefined })}
           priorityFilter={priorityFilter}
-          onPriorityChange={setPriorityFilter}
+          onPriorityChange={(v) => listRoute.setFilters({ priority: v || undefined })}
           assigneeId={assigneeId}
-          onAssigneeChange={(v) => {
-            setAssigneeId(v)
-            setPage(1)
-          }}
+          onAssigneeChange={(v) => listRoute.setFilters({ assignee: v || undefined })}
           assigneeOptions={assigneeOptions}
           onClear={() => {
-            setStatusFilter('')
-            setPriorityFilter('')
-            setAssigneeId('')
-            setSearch('')
-            setViewTab('all')
-            setPage(1)
+            // One atomic navigation back to the unfiltered first page.
+            listRoute.setFilters({
+              status: undefined,
+              priority: undefined,
+              assignee: undefined,
+              q: undefined,
+              view: 'all',
+            })
           }}
         />
         {/* Ticket Table Container */}
@@ -142,7 +153,9 @@ function Tickets() {
         {/* Pagination */}
         <TicketsPagination
           page={page}
-          onPageChange={setPage}
+          onPageChange={(p) => {
+            if (p !== page) listRoute.setPage(p)
+          }}
           totalItems={filteredTickets.length}
           itemsPerPage={itemsPerPage}
         />
