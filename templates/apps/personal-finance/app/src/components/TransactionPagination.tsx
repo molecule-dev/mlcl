@@ -1,17 +1,22 @@
-import { useState } from 'react'
-
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 export default function TransactionPagination() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [currentPage, setCurrentPage] = useState(1)
+  // Page number reads from (and writes to) the URL's ?page= key, so links,
+  // Back/Forward and reloads keep the page — no mirrored useState.
+  const listRoute = useListRoute({ pageSize: 12 })
+  const currentPage = listRoute.page
   const totalItems = 248
-  const itemsPerPage = 12
+  const itemsPerPage = listRoute.pageSize
   const totalPages = Math.ceil(totalItems / itemsPerPage)
   const startItem = (currentPage - 1) * itemsPerPage + 1
   const endItem = Math.min(currentPage * itemsPerPage, totalItems)
+  const goToPage = (page: number): void => {
+    if (page !== currentPage) listRoute.setPage(page)
+  }
   return (
     <div
       className={cm.cn(
@@ -41,7 +46,7 @@ export default function TransactionPagination() {
               ? 'bg-success-light text-success'
               : 'text-foreground-secondary hover:bg-surface-secondary',
           )}
-          onClick={() => setCurrentPage(1)}
+          onClick={() => goToPage(1)}
         >
           {t('transactionPagination.pageNumber', { page: 1 }, { defaultValue: '{{page}}' })}
         </button>
@@ -52,7 +57,7 @@ export default function TransactionPagination() {
               ? 'bg-success-light text-success'
               : 'text-foreground-secondary hover:bg-surface-secondary',
           )}
-          onClick={() => setCurrentPage(2)}
+          onClick={() => goToPage(2)}
         >
           {t('transactionPagination.pageNumber', { page: 2 }, { defaultValue: '{{page}}' })}
         </button>
@@ -63,7 +68,7 @@ export default function TransactionPagination() {
               ? 'bg-success-light text-success'
               : 'text-foreground-secondary hover:bg-surface-secondary',
           )}
-          onClick={() => setCurrentPage(3)}
+          onClick={() => goToPage(3)}
         >
           {t('transactionPagination.pageNumber', { page: 3 }, { defaultValue: '{{page}}' })}
         </button>
@@ -79,7 +84,7 @@ export default function TransactionPagination() {
             cm.fontWeight('bold'),
             'rounded-lg text-foreground-secondary hover:bg-surface-secondary transition-colors',
           )}
-          onClick={() => setCurrentPage((p) => Math.min(p + 1, totalPages))}
+          onClick={() => goToPage(Math.min(currentPage + 1, totalPages))}
           disabled={currentPage === totalPages}
         >
           {t('common.next', {}, { defaultValue: 'Next' })}
