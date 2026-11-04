@@ -1,17 +1,22 @@
-import { useState } from 'react'
-
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 function AdminOrdersPagination() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [currentPage, setCurrentPage] = useState(1)
+  // Page number reads from (and writes to) the URL's ?page= key, so links,
+  // Back/Forward and reloads keep the page — no mirrored useState.
+  const listRoute = useListRoute({ pageSize: 10 })
+  const currentPage = listRoute.page
   const totalEntries = 1284
-  const pageSize = 10
+  const pageSize = listRoute.pageSize
   const totalPages = Math.ceil(totalEntries / pageSize)
   const startEntry = (currentPage - 1) * pageSize + 1
   const endEntry = Math.min(currentPage * pageSize, totalEntries)
+  const goToPage = (page: number): void => {
+    if (page !== currentPage) listRoute.setPage(page)
+  }
   return (
     <>
       {/* Pagination */}
@@ -38,7 +43,7 @@ function AdminOrdersPagination() {
               'text-foreground-tertiary hover:text-foreground-secondary disabled:opacity-40',
             )}
             disabled={currentPage === 1}
-            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            onClick={() => goToPage(Math.max(1, currentPage - 1))}
           >
             <span className={cm.cn('material-symbols-outlined')}>chevron_left</span>
           </button>
@@ -63,7 +68,7 @@ function AdminOrdersPagination() {
                   )
             }
             data-mol-id="page-1"
-            onClick={() => setCurrentPage(1)}
+            onClick={() => goToPage(1)}
           >
             1
           </button>
@@ -88,7 +93,7 @@ function AdminOrdersPagination() {
                   )
             }
             data-mol-id="page-2"
-            onClick={() => setCurrentPage(2)}
+            onClick={() => goToPage(2)}
           >
             2
           </button>
@@ -113,7 +118,7 @@ function AdminOrdersPagination() {
                   )
             }
             data-mol-id="page-3"
-            onClick={() => setCurrentPage(3)}
+            onClick={() => goToPage(3)}
           >
             3
           </button>
@@ -141,7 +146,7 @@ function AdminOrdersPagination() {
                   )
             }
             data-mol-id="page-last"
-            onClick={() => setCurrentPage(totalPages)}
+            onClick={() => goToPage(totalPages)}
           >
             {totalPages}
           </button>
@@ -151,7 +156,7 @@ function AdminOrdersPagination() {
               'text-foreground-tertiary hover:text-foreground-secondary disabled:opacity-40',
             )}
             disabled={currentPage === totalPages}
-            onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            onClick={() => goToPage(Math.min(totalPages, currentPage + 1))}
           >
             <span className={cm.cn('material-symbols-outlined')}>chevron_right</span>
           </button>
