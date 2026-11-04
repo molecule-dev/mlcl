@@ -1,9 +1,9 @@
 // Phase 1 baseline — verbatim JSX of design-blog-post-list.html
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import AppShell from '../components/AppShell.js'
@@ -33,17 +33,21 @@ const FILTER_VALUES = ['all', 'published', 'draft', 'scheduled']
 function PostList() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [searchParams] = useSearchParams()
+  // The list's page, status filter and search live in the URL
+  // (?page=, ?status=, ?q=) via useListRoute — no mirrored state, so a
+  // page-2 link, Back/Forward and a reload all keep their view.
+  const listRoute = useListRoute({
+    pageSize: 20,
+    filters: { status: {}, q: {} },
+  })
   // Honor deep links like /posts?status=draft (Dashboard quick actions).
-  const statusParam = searchParams.get('status') ?? ''
+  const statusParam = listRoute.filters.status ?? ''
+  const activeFilter = FILTER_VALUES.includes(statusParam) ? statusParam : 'all'
+  const searchQuery = listRoute.filters.q ?? ''
+  const page = listRoute.page
   const [posts, setPosts] = useState<Post[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [activeFilter, setActiveFilter] = useState(
-    FILTER_VALUES.includes(statusParam) ? statusParam : 'all',
-  )
-  const [searchQuery, setSearchQuery] = useState('')
-  const [page, setPage] = useState(1)
   const [total, setTotal] = useState(0)
   // Reload counter — incrementing this re-fires the loading effect even
   // when filter/search/page are unchanged, ensuring every user gesture
@@ -61,7 +65,7 @@ function PostList() {
     const params = new URLSearchParams()
     if (activeFilter !== 'all') params.set('status', activeFilter)
     params.set('page', String(page))
-    params.set('limit', '20')
+    params.set('limit', String(listRoute.pageSize))
     http
       .get<Post[] | { data: Post[]; total?: number }>(`/api/posts/mine/all?${params}`)
       .then((res) => {
@@ -95,7 +99,7 @@ function PostList() {
     return () => {
       active = false
     }
-  }, [activeFilter, searchQuery, page, reloadKey, http, t])
+  }, [activeFilter, searchQuery, page, reloadKey, http, t, listRoute.pageSize])
   // PostListItem performs the DELETE request itself (and reports its own
   // failures); this callback only reconciles the list state. It used to
   // issue a SECOND delete — which 404'd and surfaced a bogus error banner
@@ -121,14 +125,14 @@ function PostList() {
       <PostListFilterBar
         activeFilter={activeFilter}
         onFilterChange={(f) => {
-          setActiveFilter(f)
-          setPage(1)
+          // setFilters writes ?status= and returns to page one atomically;
+          // re-selecting the active tab only re-fires the request.
+          if (f !== activeFilter) listRoute.setFilters({ status: f === 'all' ? undefined : f })
           setReloadKey((k) => k + 1)
         }}
         searchQuery={searchQuery}
         onSearchChange={(q) => {
-          setSearchQuery(q)
-          setPage(1)
+          listRoute.setFilters({ q: q || undefined }, { replace: true })
           setReloadKey((k) => k + 1)
         }}
         totalCount={total}
@@ -188,7 +192,7 @@ function PostList() {
         total={total}
         page={page}
         onPageChange={(p) => {
-          setPage(p)
+          if (p !== page) listRoute.setPage(p)
           setReloadKey((k) => k + 1)
         }}
       />

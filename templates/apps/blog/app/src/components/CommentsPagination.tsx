@@ -1,19 +1,23 @@
-import { useState } from 'react'
-
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 function CommentsPagination() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [currentPage, setCurrentPage] = useState(1)
+  // Page number reads from (and writes to) the URL's ?page= key, so links,
+  // Back/Forward and reloads keep the page — no mirrored useState.
+  const listRoute = useListRoute({ pageSize: 6 })
+  const currentPage = listRoute.page
   const totalItems = 47
-  const itemsPerPage = 6
+  const itemsPerPage = listRoute.pageSize
   const totalPages = Math.ceil(totalItems / itemsPerPage)
   const startItem = (currentPage - 1) * itemsPerPage + 1
   const endItem = Math.min(currentPage * itemsPerPage, totalItems)
-  const goToPage = (page: number) => setCurrentPage(page)
-  const handlePrev = () => setCurrentPage((p) => Math.max(1, p - 1))
-  const handleNext = () => setCurrentPage((p) => Math.min(totalPages, p + 1))
+  const goToPage = (page: number) => {
+    if (page !== currentPage) listRoute.setPage(page)
+  }
+  const handlePrev = () => goToPage(Math.max(1, currentPage - 1))
+  const handleNext = () => goToPage(Math.min(totalPages, currentPage + 1))
   return (
     <>
       {/* Pagination (Asymmetric Editorial Style) */}

@@ -1,16 +1,21 @@
-import { useState } from 'react'
-
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 export default function TagsPagination() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [currentPage, setCurrentPage] = useState(1)
-  const itemsPerPage = 8
+  // Page number reads from (and writes to) the URL's ?page= key, so links,
+  // Back/Forward and reloads keep the page — no mirrored useState.
+  const listRoute = useListRoute({ pageSize: 8 })
+  const currentPage = listRoute.page
+  const itemsPerPage = listRoute.pageSize
   const totalItems = 18
   const totalPages = Math.ceil(totalItems / itemsPerPage)
   const start = (currentPage - 1) * itemsPerPage + 1
   const end = Math.min(currentPage * itemsPerPage, totalItems)
+  const goToPage = (page: number): void => {
+    if (page !== currentPage) listRoute.setPage(page)
+  }
   return (
     <>
       {/* Pagination */}
@@ -32,7 +37,7 @@ export default function TagsPagination() {
         </span>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
           <button
-            onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+            onClick={() => goToPage(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
@@ -47,7 +52,7 @@ export default function TagsPagination() {
           </button>
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
             <button
-              onClick={() => setCurrentPage(1)}
+              onClick={() => goToPage(1)}
               className={cm.cn(
                 cm.w(10),
                 cm.h(10),
@@ -65,7 +70,7 @@ export default function TagsPagination() {
               1
             </button>
             <button
-              onClick={() => setCurrentPage(2)}
+              onClick={() => goToPage(2)}
               className={cm.cn(
                 cm.w(10),
                 cm.h(10),
@@ -83,7 +88,7 @@ export default function TagsPagination() {
               2
             </button>
             <button
-              onClick={() => setCurrentPage(3)}
+              onClick={() => goToPage(3)}
               className={cm.cn(
                 cm.w(10),
                 cm.h(10),
@@ -102,7 +107,7 @@ export default function TagsPagination() {
             </button>
           </div>
           <button
-            onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+            onClick={() => goToPage(Math.min(totalPages, currentPage + 1))}
             disabled={currentPage === totalPages}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),

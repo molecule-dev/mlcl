@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from 'react'
-import { useLocation, useNavigate } from 'react-router'
+import { useLocation } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -20,6 +21,11 @@ const TAG_COLORS = [
 ]
 
 const PAGE_SIZE = 8
+
+/** The taxonomy sort orders the filter controls offer. */
+type SortMode = 'most-used' | 'alpha' | 'recent'
+
+const SORT_MODES: readonly SortMode[] = ['most-used', 'alpha', 'recent']
 
 /**
  * How many tags one request reads from `GET /api/tags` — the endpoint caps
@@ -114,7 +120,19 @@ export function Tags() {
   const http = useHttpClient()
   const cm = getClassMap()
 
-  const navigate = useNavigate()
+  // The list's page, search and sort order live in the URL (?page=, ?q=,
+  // ?sort=) via useListRoute — no mirrored state, so a shared link,
+  // Back/Forward and a reload all keep the same view.
+  const listRoute = useListRoute({
+    pageSize: PAGE_SIZE,
+    filters: { q: {}, sort: { defaultValue: 'most-used' } },
+  })
+  const searchQuery = listRoute.filters.q ?? ''
+  const sortParam = listRoute.filters.sort ?? 'most-used'
+  const sortBy: SortMode = SORT_MODES.includes(sortParam as SortMode)
+    ? (sortParam as SortMode)
+    : 'most-used'
+  const page = listRoute.page
   const [tags, setTags] = useState<Tag[]>([])
   const [loading, setLoading] = useState(true)
   // Whether the taxonomy load FAILED. Without it the catch below left `tags` at
@@ -125,10 +143,7 @@ export function Tags() {
   // the failure state has to be recoverable without a full page reload.
   const [loadFailed, setLoadFailed] = useState(false)
   const [loadAttempt, setLoadAttempt] = useState(0)
-  const [searchQuery, setSearchQuery] = useState('')
-  const [sortBy, setSortBy] = useState<'most-used' | 'alpha' | 'recent'>('most-used')
   const [filterIndicator, setFilterIndicator] = useState(0)
-  const [page, setPage] = useState(1)
   const [hoveredRowId, setHoveredRowId] = useState<string | null>(null)
 
   const [showModal, setShowModal] = useState(false)
@@ -768,8 +783,7 @@ export function Tags() {
                   placeholder={t('tags.searchPlaceholder', {}, { defaultValue: 'Search tags...' })}
                   value={searchQuery}
                   onChange={(e) => {
-                    setSearchQuery(e.target.value)
-                    setPage(1)
+                    listRoute.setFilters({ q: e.target.value || undefined }, { replace: true })
                   }}
                   style={{
                     paddingLeft: '2.75rem',
@@ -790,7 +804,7 @@ export function Tags() {
                     data-mol-id="select-sort-tags"
                     className={cm.input()}
                     value={sortBy}
-                    onChange={(e) => setSortBy(e.target.value as 'most-used' | 'alpha' | 'recent')}
+                    onChange={(e) => listRoute.setFilters({ sort: e.target.value as SortMode })}
                     style={{
                       appearance: 'none',
                       width: '12rem',
@@ -835,15 +849,15 @@ export function Tags() {
                   aria-label={t('tags.filterLabel', {}, { defaultValue: 'Filter' })}
                   data-filter-indicator={filterIndicator}
                   onClick={() => {
-                    // Cycle through the available sort orders. We mirror the
-                    // selection into the URL so the click also produces an
-                    // observable URL change for harnesses watching `location`.
-                    const next: 'most-used' | 'alpha' | 'recent' =
+                    // Cycle through the available sort orders. setFilters
+                    // writes ?sort= (dropping it for the default order) and
+                    // returns to page one atomically, so the click also
+                    // produces an observable URL change for harnesses
+                    // watching `location`.
+                    const next: SortMode =
                       sortBy === 'most-used' ? 'alpha' : sortBy === 'alpha' ? 'recent' : 'most-used'
-                    setSortBy(next)
+                    listRoute.setFilters({ sort: next })
                     setFilterIndicator((n) => n + 1)
-                    setPage(1)
-                    navigate(`/tags?sort=${next}`, { replace: false })
                   }}
                   style={{
                     backgroundColor: 'var(--mol-color-primary-light)',
@@ -1254,7 +1268,7 @@ export function Tags() {
                   <div style={{ display: 'flex', alignItems: 'center', gap: '0.5rem' }}>
                     <button
                       data-mol-id="btn-page-prev"
-                      onClick={() => setPage((p) => p - 1)}
+                      onClick={() => listRoute.setPage(currentPage - 1)}
                       disabled={currentPage === 1}
                       style={{
                         display: 'flex',
@@ -1283,7 +1297,9 @@ export function Tags() {
                         <button
                           key={p}
                           data-mol-id={`btn-page-${p}`}
-                          onClick={() => setPage(p)}
+                          onClick={() => {
+                            if (p !== currentPage) listRoute.setPage(p)
+                          }}
                           style={{
                             width: '2rem',
                             height: '2rem',
@@ -1310,7 +1326,7 @@ export function Tags() {
                     </div>
                     <button
                       data-mol-id="btn-page-next"
-                      onClick={() => setPage((p) => p + 1)}
+                      onClick={() => listRoute.setPage(currentPage + 1)}
                       disabled={currentPage === totalPages}
                       style={{
                         display: 'flex',
