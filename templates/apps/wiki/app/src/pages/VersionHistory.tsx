@@ -313,14 +313,17 @@ export function VersionHistory() {
                         'font-extrabold tracking-tight text-on-surface',
                       )}
                     >
-                      {t(
-                        'versionHistory.diffHeading',
-                        {
-                          from: prior?.version ?? Math.max(1, active.version - 1),
-                          to: active.version,
-                        },
-                        { defaultValue: 'Comparing v{{from}} with v{{to}}' },
-                      )}
+                      {prior
+                        ? t(
+                            'versionHistory.diffHeading',
+                            { from: prior.version, to: active.version },
+                            { defaultValue: 'Comparing v{{from}} with v{{to}}' },
+                          )
+                        : t(
+                            'versionHistory.initialHeading',
+                            { version: active.version },
+                            { defaultValue: 'Initial version v{{version}}' },
+                          )}
                     </h2>
                     <StatPill
                       tone={
