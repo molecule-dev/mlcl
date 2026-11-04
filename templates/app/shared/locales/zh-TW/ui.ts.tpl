@@ -30,8 +30,7 @@ export const ui: UiTranslations = {
   'auth.signup.signUp': '註冊',
 
   // Auth - Forgot Password
-  'auth.forgotPassword.success':
-    '若該電子郵件地址有對應帳號，密碼重設連結已發送。',
+  'auth.forgotPassword.success': '若該電子郵件地址有對應帳號，密碼重設連結已發送。',
   'auth.forgotPassword.email': '電子郵件',
   'auth.forgotPassword.submitting': '提交中...',
 
@@ -75,8 +74,7 @@ export const ui: UiTranslations = {
   'settings.changePasswordModal.newPassword': '新密碼',
   'settings.changePasswordModal.changing': '變更中...',
   'settings.deleteAccountModal.title': '刪除帳號',
-  'settings.deleteAccountModal.warning':
-    '此操作無法復原。請輸入您的密碼以確認。',
+  'settings.deleteAccountModal.warning': '此操作無法復原。請輸入您的密碼以確認。',
   'settings.deleteAccountModal.password': '密碼',
   'settings.deleteAccountModal.deleting': '刪除中...',
   'settings.changePasswordModal.submit': '變更密碼',

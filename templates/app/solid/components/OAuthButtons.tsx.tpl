@@ -21,9 +21,7 @@ export function OAuthButtons() {
       <div>
         <div class={cm.oauthDivider}>
           <div class={cm.oauthDividerLine} />
-          <span class={cm.oauthDividerText}>
-            {t('oauth.orContinueWith')}
-          </span>
+          <span class={cm.oauthDividerText}>{t('oauth.orContinueWith')}</span>
         </div>
         <div class={cm.oauthButtonGroup}>
           <For each={providers()}>

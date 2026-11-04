@@ -31,7 +31,7 @@ const providerLabels: Record<string, () => string> = {
               <button
                 type="button"
                 (click)="redirect(provider)"
-                [attr.aria-label]="t('oauth.continueWith') + ' ' + (getProviderLabel(provider))"
+                [attr.aria-label]="t('oauth.continueWith') + ' ' + getProviderLabel(provider)"
                 [class]="cm.oauthButton"
               >
                 <span [class]="cm.oauthButtonIcon">
@@ -49,9 +49,7 @@ const providerLabels: Record<string, () => string> = {
                       <app-icon name="twitter" [size]="30" />
                     }
                     @default {
-                      <span [class]="cm.oauthProviderLabel">{{
-                        getProviderLabel(provider)
-                      }}</span>
+                      <span [class]="cm.oauthProviderLabel">{{ getProviderLabel(provider) }}</span>
                     }
                   }
                 </span>
@@ -65,7 +63,9 @@ const providerLabels: Record<string, () => string> = {
 })
 export class OAuthButtonsComponent implements OnDestroy {
   private oauthManager = createOAuthState(oauthConfig)
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
   t = t
   providerLabels = providerLabels
 

@@ -17,7 +17,7 @@ export const ui: UiTranslations = {
   'auth.login.email': 'Correu electrònic',
   'auth.login.password': 'Contrasenya',
   'auth.login.twoFactor': 'Codi de doble factor (Si està activat)',
-  'auth.login.signUp': 'Registra\'t',
+  'auth.login.signUp': "Registra't",
   'auth.login.loggingIn': 'Iniciant sessió...',
   'auth.login.logIn': 'Inicia sessió',
   'auth.login.forgotPassword': 'Has oblidat la contrasenya?',
@@ -27,11 +27,11 @@ export const ui: UiTranslations = {
   'auth.signup.password': 'Contrasenya (Obligatori)',
   'auth.signup.name': 'El teu nom',
   'auth.signup.signingUp': 'Registrant...',
-  'auth.signup.signUp': 'Registra\'t',
+  'auth.signup.signUp': "Registra't",
 
   // Auth - Forgot Password
   'auth.forgotPassword.success':
-    'Si existeix un compte amb aquest correu electrònic, s\'ha enviat un enllaç per restablir la contrasenya.',
+    "Si existeix un compte amb aquest correu electrònic, s'ha enviat un enllaç per restablir la contrasenya.",
   'auth.forgotPassword.email': 'Correu electrònic',
   'auth.forgotPassword.submitting': 'Enviant...',
 
@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
   'settings.plan': 'Pla: ',
   'settings.upgrade': 'Millora',
   'settings.devices': 'Dispositius',
-  'settings.noDevices': 'No s\'han trobat dispositius',
+  'settings.noDevices': "No s'han trobat dispositius",
   'settings.thisDevice': 'Aquest dispositiu',
   'settings.platform': 'Plataforma',
   'settings.browser': 'Navegador',
@@ -70,7 +70,7 @@ export const ui: UiTranslations = {
   'settings.logOut': 'Tanca la sessió',
   'settings.deleteAccount': 'Elimina el compte',
   'settings.changePasswordModal.title': 'Canvia la contrasenya',
-  'settings.changePasswordModal.error': 'No s\'ha pogut canviar la contrasenya.',
+  'settings.changePasswordModal.error': "No s'ha pogut canviar la contrasenya.",
   'settings.changePasswordModal.currentPassword': 'Contrasenya actual',
   'settings.changePasswordModal.newPassword': 'Nova contrasenya',
   'settings.changePasswordModal.changing': 'Canviant...',
@@ -81,9 +81,9 @@ export const ui: UiTranslations = {
   'settings.deleteAccountModal.deleting': 'Eliminant...',
   'settings.changePasswordModal.submit': 'Canvia la contrasenya',
   'settings.deleteAccountModal.submit': 'Elimina el compte',
-  'settings.failedToUpdateEmail': 'No s\'ha pogut actualitzar el correu electrònic.',
-  'settings.failedToDeleteAccount': 'No s\'ha pogut eliminar el compte.',
-  'settings.toggleTwoFactor': 'Commuta l\'autenticació de dos factors',
+  'settings.failedToUpdateEmail': "No s'ha pogut actualitzar el correu electrònic.",
+  'settings.failedToDeleteAccount': "No s'ha pogut eliminar el compte.",
+  'settings.toggleTwoFactor': "Commuta l'autenticació de dos factors",
   'settings.togglePushNotifications': 'Commuta les notificacions push',
 
   // Footer
@@ -104,12 +104,12 @@ export const ui: UiTranslations = {
   'theme.toggle': 'Canvia el tema',
 
   // User Menu
-  'userMenu.open': 'Obre el menú d\'usuari',
+  'userMenu.open': "Obre el menú d'usuari",
 
   // Plan Updated
-  'planUpdated.message': 'El teu pla s\'ha actualitzat.',
+  'planUpdated.message': "El teu pla s'ha actualitzat.",
   'planUpdated.thankYou': 'Gràcies!',
-  'planUpdated.returnHome': 'Torna a l\'inici',
+  'planUpdated.returnHome': "Torna a l'inici",
 
   // PWA
   'pwa.updateAvailable': 'Nova versió disponible!',

@@ -37,9 +37,7 @@ interface BaseProps {
 }
 
 /** Convert RN ViewStyle / style arrays to a CSSProperties object for the DOM. */
-function resolveStyle(
-  style?: ViewStyle | ViewStyle[] | object,
-): React.CSSProperties | undefined {
+function resolveStyle(style?: ViewStyle | ViewStyle[] | object): React.CSSProperties | undefined {
   if (!style) return undefined
   if (Array.isArray(style)) {
     return Object.assign({}, ...style.map(resolveStyle)) as React.CSSProperties
@@ -47,16 +45,15 @@ function resolveStyle(
   // Resolve any Animated.Value instances to their raw number
   const resolved: Record<string, unknown> = {}
   for (const [k, v] of Object.entries(style as Record<string, unknown>)) {
-    resolved[k] = v && typeof v === 'object' && '_value' in v ? (v as { _value: unknown })._value : v
+    resolved[k] =
+      v && typeof v === 'object' && '_value' in v ? (v as { _value: unknown })._value : v
   }
   return resolved as React.CSSProperties
 }
 
 // ---- View ----
 
-export const View: React.FC<BaseProps> = ({
-  children, className, style, testID, ...rest
-}) => (
+export const View: React.FC<BaseProps> = ({ children, className, style, testID, ...rest }) => (
   <div
     className={className}
     style={resolveStyle(style)}
@@ -70,9 +67,7 @@ export const View: React.FC<BaseProps> = ({
 
 // ---- Text ----
 
-export const Text: React.FC<BaseProps> = ({
-  children, className, style, testID, ...rest
-}) => (
+export const Text: React.FC<BaseProps> = ({ children, className, style, testID, ...rest }) => (
   <span
     className={className}
     style={resolveStyle(style)}
@@ -95,7 +90,14 @@ interface PressableProps extends BaseProps {
 }
 
 export const Pressable: React.FC<PressableProps> = ({
-  children, className, style, testID, onPress, disabled, type, ...rest
+  children,
+  className,
+  style,
+  testID,
+  onPress,
+  disabled,
+  type,
+  ...rest
 }) => {
   const isButton = rest.accessibilityRole === 'button' || !!type
   const Tag = isButton ? 'button' : 'div'
@@ -104,11 +106,18 @@ export const Pressable: React.FC<PressableProps> = ({
       className={className}
       style={resolveStyle(style)}
       data-testid={testID}
-      onClick={!disabled && onPress ? (e: React.MouseEvent) => { e.stopPropagation(); onPress(e) } : undefined}
+      onClick={
+        !disabled && onPress
+          ? (e: React.MouseEvent) => {
+              e.stopPropagation()
+              onPress(e)
+            }
+          : undefined
+      }
       {...(isButton ? { type: type || 'button' } : {})}
-      role={!isButton ? (rest.accessibilityRole || undefined) : undefined}
-      disabled={isButton ? (disabled || undefined) : undefined}
-      aria-disabled={!isButton ? (disabled || undefined) : undefined}
+      role={!isButton ? rest.accessibilityRole || undefined : undefined}
+      disabled={isButton ? disabled || undefined : undefined}
+      aria-disabled={!isButton ? disabled || undefined : undefined}
       aria-label={rest.accessibilityLabel}
     >
       {children}
@@ -134,7 +143,24 @@ interface TextInputProps extends BaseProps {
 }
 
 export const TextInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, TextInputProps>(
-  ({ className, style, testID, editable, placeholder, value, onChangeText, onFocus, onBlur, secureTextEntry, multiline, numberOfLines, ...rest }, ref) => {
+  (
+    {
+      className,
+      style,
+      testID,
+      editable,
+      placeholder,
+      value,
+      onChangeText,
+      onFocus,
+      onBlur,
+      secureTextEntry,
+      multiline,
+      numberOfLines,
+      ...rest
+    },
+    ref,
+  ) => {
     const sharedProps = {
       className,
       style: resolveStyle(style),
@@ -143,7 +169,8 @@ export const TextInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
       placeholder,
       value: value ?? '',
       onChange: onChangeText
-        ? (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => onChangeText(e.target.value)
+        ? (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) =>
+            onChangeText(e.target.value)
         : undefined,
       onFocus: onFocus as React.FocusEventHandler | undefined,
       onBlur: onBlur as React.FocusEventHandler | undefined,
@@ -151,9 +178,21 @@ export const TextInput = forwardRef<HTMLInputElement | HTMLTextAreaElement, Text
     }
 
     if (multiline) {
-      return <textarea ref={ref as React.Ref<HTMLTextAreaElement>} rows={numberOfLines || 3} {...sharedProps} />
+      return (
+        <textarea
+          ref={ref as React.Ref<HTMLTextAreaElement>}
+          rows={numberOfLines || 3}
+          {...sharedProps}
+        />
+      )
     }
-    return <input ref={ref as React.Ref<HTMLInputElement>} type={secureTextEntry ? 'password' : 'text'} {...sharedProps} />
+    return (
+      <input
+        ref={ref as React.Ref<HTMLInputElement>}
+        type={secureTextEntry ? 'password' : 'text'}
+        {...sharedProps}
+      />
+    )
   },
 )
 
@@ -165,7 +204,12 @@ interface ImageProps extends BaseProps {
 }
 
 export const Image: React.FC<ImageProps> = ({
-  className, style, testID, source, onError, ...rest
+  className,
+  style,
+  testID,
+  source,
+  onError,
+  ...rest
 }) => {
   const src = typeof source === 'object' && 'uri' in source ? source.uri : ''
   return (
@@ -182,9 +226,7 @@ export const Image: React.FC<ImageProps> = ({
 
 // ---- ScrollView ----
 
-export const ScrollView: React.FC<BaseProps> = ({
-  children, className, style, testID,
-}) => (
+export const ScrollView: React.FC<BaseProps> = ({ children, className, style, testID }) => (
   <div
     className={className}
     style={{ overflow: 'auto', ...resolveStyle(style) }}
@@ -203,12 +245,12 @@ interface ModalProps extends BaseProps {
   onRequestClose?: () => void
 }
 
-export const Modal: React.FC<ModalProps> = ({
-  children, visible, onRequestClose, testID,
-}) => {
+export const Modal: React.FC<ModalProps> = ({ children, visible, onRequestClose, testID }) => {
   useEffect(() => {
     if (!visible || !onRequestClose) return
-    const handler = (e: KeyboardEvent) => { if (e.key === 'Escape') onRequestClose() }
+    const handler = (e: KeyboardEvent) => {
+      if (e.key === 'Escape') onRequestClose()
+    }
     document.addEventListener('keydown', handler)
     return () => document.removeEventListener('keydown', handler)
   }, [visible, onRequestClose])
@@ -238,7 +280,11 @@ interface SwitchComponentProps extends BaseProps {
 }
 
 export const Switch: React.FC<SwitchComponentProps> = ({
-  value, onValueChange, disabled, className, testID,
+  value,
+  onValueChange,
+  disabled,
+  className,
+  testID,
 }) => (
   <input
     type="checkbox"
@@ -259,7 +305,11 @@ interface ActivityIndicatorProps extends BaseProps {
 }
 
 export const ActivityIndicator: React.FC<ActivityIndicatorProps> = ({
-  size = 'small', color, className, style, testID,
+  size = 'small',
+  color,
+  className,
+  style,
+  testID,
 }) => {
   const dim = size === 'large' ? 36 : 20
   return (
@@ -289,7 +339,12 @@ interface FlatListProps<T> extends BaseProps {
 }
 
 export function FlatList<T>({
-  data, keyExtractor, renderItem, className, style, testID,
+  data,
+  keyExtractor,
+  renderItem,
+  className,
+  style,
+  testID,
 }: FlatListProps<T>): React.ReactNode {
   return (
     <div className={className} style={resolveStyle(style)} data-testid={testID}>
@@ -317,7 +372,11 @@ class AnimatedValue {
 }
 
 const AnimatedView: React.FC<BaseProps & { style?: unknown }> = ({
-  children, className, style, testID, ...rest
+  children,
+  className,
+  style,
+  testID,
+  ...rest
 }) => (
   <div
     className={className}

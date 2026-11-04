@@ -1,7 +1,14 @@
 /// <reference types="vitest/config" />
 import type { IncomingMessage } from 'node:http'
 import { createRequire } from 'node:module'
-import { appendFileSync, existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import {
+  appendFileSync,
+  existsSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -53,8 +60,7 @@ const findMoleculeDir = (): string | null => {
       // An EMPTY @molecule dir (npm-workspaces hoisting) must NOT stop the walk —
       // optimizing against it yields a second module identity for every
       // @molecule/app-react-dependent package (duplicate React contexts, crash).
-      if (readdirSync(candidate).length > 0)
-      return candidate
+      if (readdirSync(candidate).length > 0) return candidate
     } catch (_error) {
       /* keep walking */
     }
@@ -266,7 +272,7 @@ const apiProxy = {
 }
 
 export default defineConfig({
-  plugins: [{{VITE_PLUGINS}}, previewConsoleLogPlugin, stripPreviewBridgePlugin()],{{RESOLVE_EXTENSIONS}}
+{{VITE_PLUGINS_LINE}}{{RESOLVE_EXTENSIONS}}
   resolve: {
     preserveSymlinks: true,
     // One module identity per @molecule package, whichever install path an

@@ -42,7 +42,13 @@ export function ResetPassword() {
         <div class={cm.authHeaderInner}>
           <Flex align="center" justify="between" className={cm.h('full')}>
             <Flex align="center" gap="xs">
-              <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt="" class={cm.logoIcon} />
+              <img
+                src="/logo.svg"
+                width={LOGO_SIZE}
+                height={LOGO_SIZE}
+                alt=""
+                class={cm.logoIcon}
+              />
               <span class={cm.logoText}>{APP_NAME}</span>
             </Flex>
             <ThemeToggle />
@@ -57,9 +63,7 @@ export function ResetPassword() {
                 id="email"
                 type="email"
                 value={email()}
-                onInput={(e: InputEvent) =>
-                  setEmail((e.currentTarget as HTMLInputElement).value)
-                }
+                onInput={(e: InputEvent) => setEmail((e.currentTarget as HTMLInputElement).value)}
                 autocomplete="email"
                 autofocus={!email()}
                 required
@@ -71,9 +75,7 @@ export function ResetPassword() {
                 id="token"
                 type="password"
                 value={token()}
-                onInput={(e: InputEvent) =>
-                  setToken((e.currentTarget as HTMLInputElement).value)
-                }
+                onInput={(e: InputEvent) => setToken((e.currentTarget as HTMLInputElement).value)}
                 autofocus={!!email() && !token()}
                 required
                 placeholder={t('auth.resetPassword.token')}
@@ -127,9 +129,7 @@ export function ResetPassword() {
             </div>
           </form>
           <Show when={confirmState().error}>
-            <div class={cm.authFormError}>
-              {(confirmState().error as Error)?.message}
-            </div>
+            <div class={cm.authFormError}>{(confirmState().error as Error)?.message}</div>
           </Show>
         </div>
       </div>

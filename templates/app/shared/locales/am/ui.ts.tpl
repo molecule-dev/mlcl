@@ -30,8 +30,7 @@ export const ui: UiTranslations = {
   'auth.signup.signUp': 'ተመዝገብ',
 
   // Auth - Forgot Password
-  'auth.forgotPassword.success':
-    'በዚያ ኢሜይል መለያ ካለ፣ የይለፍ ቃል ዳግም ማቀናበሪያ አገናኝ ተልኳል።',
+  'auth.forgotPassword.success': 'በዚያ ኢሜይል መለያ ካለ፣ የይለፍ ቃል ዳግም ማቀናበሪያ አገናኝ ተልኳል።',
   'auth.forgotPassword.email': 'ኢሜይል',
   'auth.forgotPassword.submitting': 'በማስገባት ላይ...',
 
@@ -75,8 +74,7 @@ export const ui: UiTranslations = {
   'settings.changePasswordModal.newPassword': 'አዲስ የይለፍ ቃል',
   'settings.changePasswordModal.changing': 'በመቀየር ላይ...',
   'settings.deleteAccountModal.title': 'መለያ ሰርዝ',
-  'settings.deleteAccountModal.warning':
-    'ይህ ድርጊት ሊቀለበስ አይችልም። እባክዎ ለማረጋገጥ የይለፍ ቃልዎን ያስገቡ።',
+  'settings.deleteAccountModal.warning': 'ይህ ድርጊት ሊቀለበስ አይችልም። እባክዎ ለማረጋገጥ የይለፍ ቃልዎን ያስገቡ።',
   'settings.deleteAccountModal.password': 'የይለፍ ቃል',
   'settings.deleteAccountModal.deleting': 'በመሰረዝ ላይ...',
   'settings.changePasswordModal.submit': 'የይለፍ ቃል ቀይር',

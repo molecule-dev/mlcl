@@ -30,8 +30,7 @@ export const ui: UiTranslations = {
   'auth.signup.signUp': 'ລົງທະບຽນ',
 
   // Auth - Forgot Password
-  'auth.forgotPassword.success':
-    'ຖ້າມີບັນຊີທີ່ໃຊ້ອີເມວນັ້ນ ລິ້ງຣີເຊັດລະຫັດຜ່ານໄດ້ຖືກສົ່ງໄປແລ້ວ.',
+  'auth.forgotPassword.success': 'ຖ້າມີບັນຊີທີ່ໃຊ້ອີເມວນັ້ນ ລິ້ງຣີເຊັດລະຫັດຜ່ານໄດ້ຖືກສົ່ງໄປແລ້ວ.',
   'auth.forgotPassword.email': 'ອີເມວ',
   'auth.forgotPassword.submitting': 'ກຳລັງສົ່ງ...',
 

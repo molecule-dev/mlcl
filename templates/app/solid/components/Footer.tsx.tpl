@@ -39,18 +39,10 @@ export function Footer() {
         <A href="/about" class={cm.footerLink}>
           {t('footer.about', { appName: APP_NAME })}
         </A>
-        <button
-          type="button"
-          onClick={openPrivacy}
-          class={cm.footerButton}
-        >
+        <button type="button" onClick={openPrivacy} class={cm.footerButton}>
           {t('footer.privacyPolicy')}
         </button>
-        <button
-          type="button"
-          onClick={openTerms}
-          class={cm.footerButton}
-        >
+        <button type="button" onClick={openTerms} class={cm.footerButton}>
           {t('footer.termsOfService')}
         </button>
         <button
@@ -59,23 +51,40 @@ export function Footer() {
           class={cm.footerButton}
           aria-label={t('footer.language')}
         >
-          <Icon name="globe" size={14} />
-          {' '}{locales().find(l => l.code === locale())?.name}
+          <Icon name="globe" size={14} /> {locales().find((l) => l.code === locale())?.name}
         </button>
         <span class={cm.footerLink}>{version()}</span>
       </section>
-      <Modal open={privacyOpen()} onClose={() => setPrivacyOpen(false)} title={t('footer.privacyPolicy')} size="lg">
+      <Modal
+        open={privacyOpen()}
+        onClose={() => setPrivacyOpen(false)}
+        title={t('footer.privacyPolicy')}
+        size="lg"
+      >
         <div class={cm.prose} innerHTML={t('content.privacyPolicy', { appName: APP_NAME })} />
       </Modal>
-      <Modal open={termsOpen()} onClose={() => setTermsOpen(false)} title={t('footer.termsOfService')} size="lg">
+      <Modal
+        open={termsOpen()}
+        onClose={() => setTermsOpen(false)}
+        title={t('footer.termsOfService')}
+        size="lg"
+      >
         <div class={cm.prose} innerHTML={t('content.termsOfService')} />
       </Modal>
-      <Modal open={languageOpen()} onClose={() => setLanguageOpen(false)} title={t('footer.language')} size="lg">
+      <Modal
+        open={languageOpen()}
+        onClose={() => setLanguageOpen(false)}
+        title={t('footer.language')}
+        size="lg"
+      >
         <div class={cm.languageGrid}>
-          {locales().map(l => (
+          {locales().map((l) => (
             <button
               type="button"
-              onClick={async () => { await setLocale(l.code); setLanguageOpen(false) }}
+              onClick={async () => {
+                await setLocale(l.code)
+                setLanguageOpen(false)
+              }}
               class={l.code === locale() ? cm.languageActive : cm.languageOption}
             >
               {l.name}

@@ -13,10 +13,17 @@ export function Footer() {
   return (
     <footer className={cm.footerBar} data-mol-id="site-footer">
       <div
-        className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 4 }), cm.textSize('sm'))}
+        className={cm.cn(
+          cm.flex({ align: 'center', justify: 'between', gap: 4 }),
+          cm.textSize('sm'),
+        )}
       >
         <span className={cm.textMuted}>
-          {t('footer.copyright', { year, appName: APP_NAME }, { defaultValue: '© {{year}} {{appName}}' })}
+          {t(
+            'footer.copyright',
+            { year, appName: APP_NAME },
+            { defaultValue: '© {{year}} {{appName}}' },
+          )}
         </span>
         <Link className={cm.link} to="/about/" data-mol-id="footer-about">
           {t('footer.about', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })}

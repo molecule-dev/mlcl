@@ -29,7 +29,9 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
   `,
 })
 export class HeaderComponent {
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
   APP_NAME = APP_NAME
   LOGO_SIZE = LOGO_SIZE
 }

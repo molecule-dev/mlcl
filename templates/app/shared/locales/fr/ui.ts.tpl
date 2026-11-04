@@ -81,9 +81,9 @@ export const ui: UiTranslations = {
   'settings.deleteAccountModal.deleting': 'Suppression en cours...',
   'settings.changePasswordModal.submit': 'Changer le mot de passe',
   'settings.deleteAccountModal.submit': 'Supprimer le compte',
-  'settings.failedToUpdateEmail': 'Échec de la mise à jour de l\'e-mail.',
+  'settings.failedToUpdateEmail': "Échec de la mise à jour de l'e-mail.",
   'settings.failedToDeleteAccount': 'Échec de la suppression du compte.',
-  'settings.toggleTwoFactor': 'Activer/désactiver l\'authentification à deux facteurs',
+  'settings.toggleTwoFactor': "Activer/désactiver l'authentification à deux facteurs",
   'settings.togglePushNotifications': 'Activer/désactiver les notifications push',
 
   // Footer
@@ -104,7 +104,7 @@ export const ui: UiTranslations = {
   'theme.toggle': 'Changer de thème',
 
   // User Menu
-  'userMenu.open': "Ouvrir le menu utilisateur",
+  'userMenu.open': 'Ouvrir le menu utilisateur',
 
   // Plan Updated
   'planUpdated.message': 'Votre forfait a été mis à jour.',

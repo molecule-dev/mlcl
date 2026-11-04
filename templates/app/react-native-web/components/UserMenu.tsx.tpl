@@ -20,11 +20,7 @@ export function UserMenu() {
       >
         <Icon name="user" size={20} />
       </Button>
-      <Modal
-        open={open}
-        onClose={() => setOpen(false)}
-        className={cm.drawer}
-      >
+      <Modal open={open} onClose={() => setOpen(false)} className={cm.drawer}>
         <SettingsPanel onClose={() => setOpen(false)} />
       </Modal>
     </>

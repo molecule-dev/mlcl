@@ -20,11 +20,7 @@ export const FloatingInput = forwardRef<HTMLInputElement, FloatingInputProps>(
           placeholder={placeholder}
           className={cm.cn(cm.input(), cm.floatingInput, className)}
         />
-        {placeholder && (
-          <span className={cm.floatingLabel}>
-            {placeholder}
-          </span>
-        )}
+        {placeholder && <span className={cm.floatingLabel}>{placeholder}</span>}
       </span>
     )
   },

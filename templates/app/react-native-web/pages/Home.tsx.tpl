@@ -20,7 +20,8 @@ export function Home() {
   return (
     <div className={cm.cn(cm.textCenter, cm.sp('py', 12))}>
       <h2 className={cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))}>
-        {t('home.greeting')}{user?.name || user?.email || t('home.world')}!
+        {t('home.greeting')}
+        {user?.name || user?.email || t('home.world')}!
       </h2>
     </div>
   )

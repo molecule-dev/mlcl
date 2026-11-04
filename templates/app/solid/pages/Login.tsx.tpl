@@ -38,7 +38,13 @@ export function Login() {
         <div class={cm.authHeaderInner}>
           <Flex align="center" justify="between" className={cm.h('full')}>
             <Flex align="center" gap="xs">
-              <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt="" class={cm.logoIcon} />
+              <img
+                src="/logo.svg"
+                width={LOGO_SIZE}
+                height={LOGO_SIZE}
+                alt=""
+                class={cm.logoIcon}
+              />
               <span class={cm.logoText}>{APP_NAME}</span>
             </Flex>
             <ThemeToggle />
@@ -53,9 +59,7 @@ export function Login() {
                 id="email"
                 type="email"
                 value={email()}
-                onInput={(e: InputEvent) =>
-                  setEmail((e.currentTarget as HTMLInputElement).value)
-                }
+                onInput={(e: InputEvent) => setEmail((e.currentTarget as HTMLInputElement).value)}
                 autocomplete="email"
                 autofocus
                 required
@@ -108,9 +112,7 @@ export function Login() {
               </Button>
             </div>
             <Show when={loginState().error}>
-              <div class={cm.authFormError}>
-                {(loginState().error as Error)?.message}
-              </div>
+              <div class={cm.authFormError}>{(loginState().error as Error)?.message}</div>
             </Show>
           </form>
           <div class={cm.authAfterSubmit}>

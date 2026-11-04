@@ -30,13 +30,15 @@ export function Icon({ name, size = 20, className }: IconProps) {
       width={size}
       height={size}
       viewBox={viewBox}
-      fill={isStroked ? 'none' : (icon.fill || 'currentColor')}
-      {...(isStroked ? {
-        stroke: icon.stroke,
-        strokeWidth: icon.strokeWidth,
-        strokeLinecap: icon.strokeLinecap,
-        strokeLinejoin: icon.strokeLinejoin,
-      } : {})}
+      fill={isStroked ? 'none' : icon.fill || 'currentColor'}
+      {...(isStroked
+        ? {
+            stroke: icon.stroke,
+            strokeWidth: icon.strokeWidth,
+            strokeLinecap: icon.strokeLinecap,
+            strokeLinejoin: icon.strokeLinejoin,
+          }
+        : {})}
       className={className}
     >
       {icon.paths.map((p, i) => (

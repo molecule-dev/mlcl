@@ -18,8 +18,12 @@ export function PlanUpdated() {
 
   return (
     <div className={cm.cn(cm.textCenter, cm.sp('py', 12))}>
-      <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 2))}>{t('planUpdated.message')}</h1>
-      <h2 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 8))}>{t('planUpdated.thankYou')}</h2>
+      <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 2))}>
+        {t('planUpdated.message')}
+      </h1>
+      <h2 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 8))}>
+        {t('planUpdated.thankYou')}
+      </h2>
       <Link to="/">
         <Button>{t('planUpdated.returnHome')}</Button>
       </Link>

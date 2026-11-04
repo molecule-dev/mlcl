@@ -28,8 +28,12 @@ const { state } = useAuth()
     </Flex>
     <Flex v-else align="center" justify="center" :class="cm.flex1">
       <div :class="cm.textCenter">
-        <h2 :class="cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 2))">{{ t('planUpdated.message') }}</h2>
-        <h2 :class="cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 8))">{{ t('planUpdated.thankYou') }}</h2>
+        <h2 :class="cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 2))">
+          {{ t('planUpdated.message') }}
+        </h2>
+        <h2 :class="cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 8))">
+          {{ t('planUpdated.thankYou') }}
+        </h2>
         <RouterLink to="/">
           <Button>{{ t('planUpdated.returnHome') }}</Button>
         </RouterLink>

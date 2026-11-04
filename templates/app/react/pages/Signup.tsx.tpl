@@ -4,7 +4,7 @@ import { useAuth, useSignup, useTranslation } from '@molecule/app-react'
 import { Button, Flex } from '@molecule/app-ui-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from '../components/Icon.js'
-import { APP_NAME, LOGO_SIZE } from '../branding.js';
+import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
 import { Footer } from '../components/Footer.js'
@@ -45,7 +45,13 @@ export function Signup() {
         <div className={cm.authHeaderInner}>
           <Flex align="center" justify="between" className={cm.h('full')}>
             <Flex align="center" gap="xs">
-              <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt="" className={cm.logoIcon} />
+              <img
+                src="/logo.svg"
+                width={LOGO_SIZE}
+                height={LOGO_SIZE}
+                alt=""
+                className={cm.logoIcon}
+              />
               <span className={cm.logoText}>{APP_NAME}</span>
             </Flex>
             <ThemeToggle />

@@ -12,7 +12,8 @@ export function AuthGuard() {
   if (status === 'loading') return <div>{t('common.loading')}</div>
   // An unavailable cookie-only candidate can have no user yet. Only a decided
   // signed-out status warrants redirecting it; let the API handle unavailable.
-  if (status === 'unauthenticated') return <Navigate to="/login" state={{ from: location }} replace />
+  if (status === 'unauthenticated')
+    return <Navigate to="/login" state={{ from: location }} replace />
 
   return <Outlet />
 }

@@ -14,11 +14,7 @@ export function ThemeToggle() {
       aria-label={t('theme.toggle')}
       className={cm.themeToggleButton}
     >
-      {mode === 'dark' ? (
-        <Icon name="moon" size={20} />
-      ) : (
-        <Icon name="sun" size={20} />
-      )}
+      {mode === 'dark' ? <Icon name="moon" size={20} /> : <Icon name="sun" size={20} />}
     </button>
   )
 }

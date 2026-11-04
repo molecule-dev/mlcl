@@ -81,9 +81,9 @@ export const ui: UiTranslations = {
   'settings.deleteAccountModal.deleting': 'Eliminazione in corso...',
   'settings.changePasswordModal.submit': 'Cambia password',
   'settings.deleteAccountModal.submit': 'Elimina account',
-  'settings.failedToUpdateEmail': 'Impossibile aggiornare l\'email.',
-  'settings.failedToDeleteAccount': 'Impossibile eliminare l\'account.',
-  'settings.toggleTwoFactor': 'Attiva/disattiva l\'autenticazione a due fattori',
+  'settings.failedToUpdateEmail': "Impossibile aggiornare l'email.",
+  'settings.failedToDeleteAccount': "Impossibile eliminare l'account.",
+  'settings.toggleTwoFactor': "Attiva/disattiva l'autenticazione a due fattori",
   'settings.togglePushNotifications': 'Attiva/disattiva le notifiche push',
 
   // Footer

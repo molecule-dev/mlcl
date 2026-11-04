@@ -30,8 +30,7 @@ export const ui: UiTranslations = {
   'auth.signup.signUp': 'הרשמה',
 
   // Auth - Forgot Password
-  'auth.forgotPassword.success':
-    'אם קיים חשבון עם כתובת אימייל זו, נשלח קישור לאיפוס סיסמה.',
+  'auth.forgotPassword.success': 'אם קיים חשבון עם כתובת אימייל זו, נשלח קישור לאיפוס סיסמה.',
   'auth.forgotPassword.email': 'אימייל',
   'auth.forgotPassword.submitting': 'שולח...',
 
@@ -75,8 +74,7 @@ export const ui: UiTranslations = {
   'settings.changePasswordModal.newPassword': 'סיסמה חדשה',
   'settings.changePasswordModal.changing': 'משנה...',
   'settings.deleteAccountModal.title': 'מחיקת חשבון',
-  'settings.deleteAccountModal.warning':
-    'לא ניתן לבטל פעולה זו. אנא הזן את הסיסמה שלך לאישור.',
+  'settings.deleteAccountModal.warning': 'לא ניתן לבטל פעולה זו. אנא הזן את הסיסמה שלך לאישור.',
   'settings.deleteAccountModal.password': 'סיסמה',
   'settings.deleteAccountModal.deleting': 'מוחק...',
   'settings.changePasswordModal.submit': 'שינוי סיסמה',

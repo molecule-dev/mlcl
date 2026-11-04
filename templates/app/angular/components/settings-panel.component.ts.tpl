@@ -50,9 +50,7 @@ interface Device {
           }
         </div>
         <div>
-          <label for="settings-email" [class]="cm.formLabelSmall"
-            >{{ t('settings.email') }}</label
-          >
+          <label for="settings-email" [class]="cm.formLabelSmall">{{ t('settings.email') }}</label>
           <mol-input
             id="settings-email"
             type="email"
@@ -72,11 +70,7 @@ interface Device {
         <section>
           <h3 [class]="sectionTitleWithMargin">{{ t('settings.authentication') }}</h3>
           <div [class]="cm.stack(3)">
-            <mol-button
-              variant="outline"
-              size="sm"
-              (handleClick)="showPasswordModal = true"
-            >
+            <mol-button variant="outline" size="sm" (handleClick)="showPasswordModal = true">
               {{ t('settings.changePassword') }}
             </mol-button>
             <div [class]="rowClasses">
@@ -164,11 +158,7 @@ interface Device {
         <mol-button color="error" [fullWidth]="true" (handleClick)="handleLogout()">
           {{ t('settings.logOut') }}
         </mol-button>
-        <mol-button
-          variant="ghost"
-          [fullWidth]="true"
-          (handleClick)="showDeleteModal = true"
-        >
+        <mol-button variant="ghost" [fullWidth]="true" (handleClick)="showDeleteModal = true">
           {{ t('settings.deleteAccount') }}
         </mol-button>
       </section>
@@ -176,7 +166,11 @@ interface Device {
       <app-footer />
 
       <!-- Password Change Modal -->
-      <mol-modal [open]="showPasswordModal" [title]="t('settings.changePasswordModal.title')" (close)="closePasswordModal()">
+      <mol-modal
+        [open]="showPasswordModal"
+        [title]="t('settings.changePasswordModal.title')"
+        (close)="closePasswordModal()"
+      >
         @if (pwState$ | async; as pwState) {
           @if (pwState.error) {
             <mol-alert status="error" [className]="cm.sp('mb', 4)">
@@ -186,7 +180,9 @@ interface Device {
         }
         <form (ngSubmit)="handlePasswordChange()" [class]="cm.stack(4)">
           <div>
-            <label for="current-pw" [class]="cm.formLabel">{{ t('settings.changePasswordModal.currentPassword') }}</label>
+            <label for="current-pw" [class]="cm.formLabel">{{
+              t('settings.changePasswordModal.currentPassword')
+            }}</label>
             <mol-input
               id="current-pw"
               type="password"
@@ -197,7 +193,9 @@ interface Device {
             ></mol-input>
           </div>
           <div>
-            <label for="new-pw" [class]="cm.formLabel">{{ t('settings.changePasswordModal.newPassword') }}</label>
+            <label for="new-pw" [class]="cm.formLabel">{{
+              t('settings.changePasswordModal.newPassword')
+            }}</label>
             <mol-input
               id="new-pw"
               type="password"
@@ -208,13 +206,19 @@ interface Device {
             ></mol-input>
           </div>
           <mol-button type="submit" [fullWidth]="true" [loading]="pwPending">
-            {{ pwPending ? t('settings.changePasswordModal.changing') : t('settings.changePassword') }}
+            {{
+              pwPending ? t('settings.changePasswordModal.changing') : t('settings.changePassword')
+            }}
           </mol-button>
         </form>
       </mol-modal>
 
       <!-- Delete Account Modal -->
-      <mol-modal [open]="showDeleteModal" [title]="t('settings.deleteAccountModal.title')" (close)="showDeleteModal = false">
+      <mol-modal
+        [open]="showDeleteModal"
+        [title]="t('settings.deleteAccountModal.title')"
+        (close)="showDeleteModal = false"
+      >
         <p [class]="deleteWarningClasses">
           {{ t('settings.deleteAccountModal.warning') }}
         </p>
@@ -223,7 +227,9 @@ interface Device {
         }
         <form (ngSubmit)="handleDeleteAccount()" [class]="cm.stack(4)">
           <div>
-            <label for="delete-pw" [class]="cm.formLabel">{{ t('settings.deleteAccountModal.password') }}</label>
+            <label for="delete-pw" [class]="cm.formLabel">{{
+              t('settings.deleteAccountModal.password')
+            }}</label>
             <mol-input
               id="delete-pw"
               type="password"
@@ -233,7 +239,11 @@ interface Device {
             ></mol-input>
           </div>
           <mol-button type="submit" color="error" [fullWidth]="true" [loading]="deleteLoading">
-            {{ deleteLoading ? t('settings.deleteAccountModal.deleting') : t('settings.deleteAccount') }}
+            {{
+              deleteLoading
+                ? t('settings.deleteAccountModal.deleting')
+                : t('settings.deleteAccount')
+            }}
           </mol-button>
         </form>
       </mol-modal>
@@ -249,18 +259,25 @@ export class SettingsPanelComponent implements OnInit, OnDestroy {
   private http = getHttpClient()
   private pwManager = createChangePasswordState(this.authClient)
 
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
-  t = t
-  get panelClasses(): string { return this.cm.cn(this.cm.sp('p', 6), this.cm.stack(6)) }
-  get sectionTitleClasses(): string { return this.cm.sectionHeading }
-  get sectionTitleWithMargin(): string { return this.cm.cn(this.cm.sectionHeading, this.cm.sp('mb', 3)) }
-  get sectionHeaderClasses(): string {
-    return this.cm.cn(
-      this.cm.flex({ align: 'center', gap: 'sm' }),
-      this.cm.sp('mb', 3),
-    )
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
   }
-  get rowClasses(): string { return this.cm.flex({ align: 'center', justify: 'between' }) }
+  t = t
+  get panelClasses(): string {
+    return this.cm.cn(this.cm.sp('p', 6), this.cm.stack(6))
+  }
+  get sectionTitleClasses(): string {
+    return this.cm.sectionHeading
+  }
+  get sectionTitleWithMargin(): string {
+    return this.cm.cn(this.cm.sectionHeading, this.cm.sp('mb', 3))
+  }
+  get sectionHeaderClasses(): string {
+    return this.cm.cn(this.cm.flex({ align: 'center', gap: 'sm' }), this.cm.sp('mb', 3))
+  }
+  get rowClasses(): string {
+    return this.cm.flex({ align: 'center', justify: 'between' })
+  }
   get deviceRowClasses(): string {
     return this.cm.cn(
       this.cm.flex({ align: 'center', justify: 'between' }),
@@ -268,17 +285,23 @@ export class SettingsPanelComponent implements OnInit, OnDestroy {
       this.cm.sp('py', 1),
     )
   }
-  get infoRowClasses(): string { return this.cm.flex({ justify: 'between' }) }
-  get savingClasses(): string { return this.cm.cn(this.cm.textSize('xs'), this.cm.textSubtle) }
-  get emailErrorClasses(): string { return this.cm.cn(this.cm.textSize('xs'), this.cm.textError, this.cm.sp('mt', 1)) }
-  get noDevicesClasses(): string { return this.cm.cn(this.cm.textSize('sm'), this.cm.textMuted) }
-  get deviceInfoClasses(): string { return this.cm.cn(this.cm.stack(1), this.cm.textSize('sm')) }
+  get infoRowClasses(): string {
+    return this.cm.flex({ justify: 'between' })
+  }
+  get savingClasses(): string {
+    return this.cm.cn(this.cm.textSize('xs'), this.cm.textSubtle)
+  }
+  get emailErrorClasses(): string {
+    return this.cm.cn(this.cm.textSize('xs'), this.cm.textError, this.cm.sp('mt', 1))
+  }
+  get noDevicesClasses(): string {
+    return this.cm.cn(this.cm.textSize('sm'), this.cm.textMuted)
+  }
+  get deviceInfoClasses(): string {
+    return this.cm.cn(this.cm.stack(1), this.cm.textSize('sm'))
+  }
   get deleteWarningClasses(): string {
-    return this.cm.cn(
-      this.cm.textSize('sm'),
-      this.cm.textMuted,
-      this.cm.sp('mb', 4),
-    )
+    return this.cm.cn(this.cm.textSize('sm'), this.cm.textMuted, this.cm.sp('mb', 4))
   }
 
   user$ = this.authService.user$
@@ -319,7 +342,11 @@ export class SettingsPanelComponent implements OnInit, OnDestroy {
   // Device info
   devicePlatform = t('settings.unknown')
   deviceBrowser = t('settings.unknown')
-  get networkStatus(): string { return typeof navigator !== 'undefined' && navigator.onLine ? t('settings.online') : t('settings.offline') }
+  get networkStatus(): string {
+    return typeof navigator !== 'undefined' && navigator.onLine
+      ? t('settings.online')
+      : t('settings.offline')
+  }
 
   private userId = ''
   private userSub: { unsubscribe(): void } | null = null
@@ -328,7 +355,7 @@ export class SettingsPanelComponent implements OnInit, OnDestroy {
     this.userSub = this.authService.user$.subscribe((user) => {
       if (user) {
         this.email = user.email || ''
-        this.userId = (user as Record<string, unknown>).id as string || ''
+        this.userId = ((user as Record<string, unknown>).id as string) || ''
         this.isOAuthUser = !!(user as Record<string, unknown>).oauthServer
       }
     })
@@ -424,8 +451,7 @@ export class SettingsPanelComponent implements OnInit, OnDestroy {
       this.closePanel.emit()
       this.router.navigate(['/login'])
     } catch (err) {
-      this.deleteError =
-        err instanceof Error ? err.message : t('settings.failedToDeleteAccount')
+      this.deleteError = err instanceof Error ? err.message : t('settings.failedToDeleteAccount')
     } finally {
       this.deleteLoading = false
     }

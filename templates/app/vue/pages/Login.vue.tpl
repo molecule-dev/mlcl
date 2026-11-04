@@ -38,7 +38,13 @@ async function handleSubmit() {
       <div :class="cm.authHeaderInner">
         <Flex align="center" justify="between" :class="cm.h('full')">
           <Flex align="center" gap="xs">
-            <img src="/logo.svg" :width="LOGO_SIZE" :height="LOGO_SIZE" alt="" :class="cm.logoIcon" />
+            <img
+              src="/logo.svg"
+              :width="LOGO_SIZE"
+              :height="LOGO_SIZE"
+              alt=""
+              :class="cm.logoIcon"
+            />
             <span :class="cm.logoText">{{ APP_NAME }}</span>
           </Flex>
           <ThemeToggle />

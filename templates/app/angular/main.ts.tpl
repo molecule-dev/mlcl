@@ -15,52 +15,40 @@ import { authGuard } from './components/auth.guard.js'
 const routes: Routes = [
   {
     path: 'login',
-    loadComponent: () =>
-      import('./pages/login.component.js').then((m) => m.LoginComponent),
+    loadComponent: () => import('./pages/login.component.js').then((m) => m.LoginComponent),
   },
   {
     path: 'signup',
-    loadComponent: () =>
-      import('./pages/signup.component.js').then((m) => m.SignupComponent),
+    loadComponent: () => import('./pages/signup.component.js').then((m) => m.SignupComponent),
   },
   {
     path: 'about',
-    loadComponent: () =>
-      import('./pages/about.component.js').then((m) => m.AboutComponent),
+    loadComponent: () => import('./pages/about.component.js').then((m) => m.AboutComponent),
   },
   {
     path: 'forgot-password',
     loadComponent: () =>
-      import('./pages/forgot-password.component.js').then(
-        (m) => m.ForgotPasswordComponent,
-      ),
+      import('./pages/forgot-password.component.js').then((m) => m.ForgotPasswordComponent),
   },
   {
     path: 'reset-password',
     loadComponent: () =>
-      import('./pages/reset-password.component.js').then(
-        (m) => m.ResetPasswordComponent,
-      ),
+      import('./pages/reset-password.component.js').then((m) => m.ResetPasswordComponent),
   },
   {
     path: '',
     canActivate: [authGuard],
     loadComponent: () =>
-      import('./components/app-layout.component.js').then(
-        (m) => m.AppLayoutComponent,
-      ),
+      import('./components/app-layout.component.js').then((m) => m.AppLayoutComponent),
     children: [
       {
         path: '',
-        loadComponent: () =>
-          import('./pages/home.component.js').then((m) => m.HomeComponent),
+        loadComponent: () => import('./pages/home.component.js').then((m) => m.HomeComponent),
       },
       {
         path: 'plan-updated',
         loadComponent: () =>
-          import('./pages/plan-updated.component.js').then(
-            (m) => m.PlanUpdatedComponent,
-          ),
+          import('./pages/plan-updated.component.js').then((m) => m.PlanUpdatedComponent),
       },
     ],
   },

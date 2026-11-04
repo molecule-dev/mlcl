@@ -158,7 +158,7 @@
   /* Thin scrollbars with subtle styling */
   * {
     scrollbar-width: thin;
-    scrollbar-color: rgba(128,128,128,0.35) transparent;
+    scrollbar-color: rgba(128, 128, 128, 0.35) transparent;
   }
 
   *::-webkit-scrollbar {
@@ -171,7 +171,7 @@
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: rgba(128,128,128,0.35);
+    background-color: rgba(128, 128, 128, 0.35);
     border-radius: 20px;
     border: none;
   }

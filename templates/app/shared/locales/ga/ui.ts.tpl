@@ -25,7 +25,7 @@ export const ui: UiTranslations = {
   // Auth - Signup
   'auth.signup.email': 'Ríomhphost (Riachtanach)',
   'auth.signup.password': 'Pasfhocal (Riachtanach)',
-  'auth.signup.name': 'D\'ainm',
+  'auth.signup.name': "D'ainm",
   'auth.signup.signingUp': 'Ag clárú...',
   'auth.signup.signUp': 'Cláraigh',
 

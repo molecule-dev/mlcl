@@ -27,7 +27,13 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
         <div [class]="cm.authHeaderInner">
           <div [class]="cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.h('full'))">
             <div [class]="cm.flex({ align: 'center', gap: 'xs' })">
-              <img src="/logo.svg" [width]="LOGO_SIZE" [height]="LOGO_SIZE" alt="" [class]="cm.logoIcon" />
+              <img
+                src="/logo.svg"
+                [width]="LOGO_SIZE"
+                [height]="LOGO_SIZE"
+                alt=""
+                [class]="cm.logoIcon"
+              />
               <span [class]="cm.logoText">{{ APP_NAME }}</span>
             </div>
             <app-theme-toggle />
@@ -82,12 +88,16 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
                   type="submit"
                   size="lg"
                   color="success"
-                  [className]="loginState.status === 'pending' ? cm.authLoginSubmitFull : cm.authLoginSubmit"
+                  [className]="
+                    loginState.status === 'pending' ? cm.authLoginSubmitFull : cm.authLoginSubmit
+                  "
                   [disabled]="loginState.status === 'pending'"
                   [loading]="loginState.status === 'pending'"
                 >
                   {{
-                    loginState.status === 'pending' ? t('auth.login.loggingIn') : t('auth.login.logIn')
+                    loginState.status === 'pending'
+                      ? t('auth.login.loggingIn')
+                      : t('auth.login.logIn')
                   }}
                 </mol-button>
               </div>
@@ -118,7 +128,9 @@ export class LoginComponent implements OnDestroy {
   private client = inject(AUTH_CLIENT)
   private router = inject(Router)
   private loginManager = createLoginState(this.client)
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
   t = t
   APP_NAME = APP_NAME
   LOGO_SIZE = LOGO_SIZE

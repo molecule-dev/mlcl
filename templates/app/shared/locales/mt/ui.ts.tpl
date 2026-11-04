@@ -16,7 +16,7 @@ export const ui: UiTranslations = {
   // Auth - Login
   'auth.login.email': 'Email',
   'auth.login.password': 'Password',
-  'auth.login.twoFactor': 'Token ta\' żewġ fatturi (Jekk attivat)',
+  'auth.login.twoFactor': "Token ta' żewġ fatturi (Jekk attivat)",
   'auth.login.signUp': 'Irreġistra',
   'auth.login.loggingIn': 'Qed tidħol...',
   'auth.login.logIn': 'Idħol',
@@ -31,7 +31,7 @@ export const ui: UiTranslations = {
 
   // Auth - Forgot Password
   'auth.forgotPassword.success':
-    'Jekk jeżisti kont b\'dak l-email, intbagħtet link biex tirrisettja l-password.',
+    "Jekk jeżisti kont b'dak l-email, intbagħtet link biex tirrisettja l-password.",
   'auth.forgotPassword.email': 'Email',
   'auth.forgotPassword.submitting': 'Qed jintbagħat...',
 
@@ -39,7 +39,7 @@ export const ui: UiTranslations = {
   'auth.resetPassword.email': 'Email',
   'auth.resetPassword.token': 'Token tar-reset tal-password',
   'auth.resetPassword.newPassword': 'Daħħal password ġdid',
-  'auth.resetPassword.twoFactor': 'Token ta\' żewġ fatturi (Jekk attivat)',
+  'auth.resetPassword.twoFactor': "Token ta' żewġ fatturi (Jekk attivat)",
   'auth.resetPassword.loggingIn': 'Qed tidħol...',
   'auth.resetPassword.submit': 'Issettja l-password u dħol',
 
@@ -52,7 +52,7 @@ export const ui: UiTranslations = {
   'settings.email': 'Email',
   'settings.authentication': 'Awtentikazzjoni',
   'settings.changePassword': 'Ibdel il-password',
-  'settings.twoFactor': 'Awtentikazzjoni ta\' żewġ fatturi',
+  'settings.twoFactor': "Awtentikazzjoni ta' żewġ fatturi",
   'settings.notifications': 'Notifiki',
   'settings.pushNotifications': 'Notifiki push',
   'settings.billing': 'Kontijiet',
@@ -83,7 +83,7 @@ export const ui: UiTranslations = {
   'settings.deleteAccountModal.submit': 'Ħassar il-kont',
   'settings.failedToUpdateEmail': 'Ma rnexxiex taġġorna l-email.',
   'settings.failedToDeleteAccount': 'Ma rnexxiex tħassar il-kont.',
-  'settings.toggleTwoFactor': 'Ibdel l-awtentikazzjoni b\'żewġ fatturi',
+  'settings.toggleTwoFactor': "Ibdel l-awtentikazzjoni b'żewġ fatturi",
   'settings.togglePushNotifications': 'Ibdel in-notifiki push',
 
   // Footer
@@ -93,8 +93,8 @@ export const ui: UiTranslations = {
   'footer.language': 'Lingwa',
 
   // OAuth
-  'oauth.orContinueWith': 'Jew kompli permezz ta\'',
-  'oauth.continueWith': 'Kompli permezz ta\' {{provider}}',
+  'oauth.orContinueWith': "Jew kompli permezz ta'",
+  'oauth.continueWith': "Kompli permezz ta' {{provider}}",
   'oauth.github': 'GitHub',
   'oauth.google': 'Google',
   'oauth.gitlab': 'GitLab',
@@ -114,7 +114,7 @@ export const ui: UiTranslations = {
   // PWA
   'pwa.updateAvailable': 'Verżjoni ġdida disponibbli!',
   'pwa.update': 'Aġġorna',
-  'pwa.updating': "Qed jiġi aġġornat...",
+  'pwa.updating': 'Qed jiġi aġġornat...',
 
   // User API errors
   'user.error.badRequest': 'Talba hazina.',

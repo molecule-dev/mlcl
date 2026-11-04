@@ -19,5 +19,7 @@ import { FooterComponent } from './footer.component.js'
   `,
 })
 export class AppLayoutComponent {
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
 }

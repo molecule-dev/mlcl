@@ -23,9 +23,9 @@ export const ui: UiTranslations = {
   'auth.login.forgotPassword': 'Забули пароль?',
 
   // Auth - Signup
-  'auth.signup.email': 'Електронна пошта (Обов\'язково)',
-  'auth.signup.password': 'Пароль (Обов\'язково)',
-  'auth.signup.name': 'Ваше ім\'я',
+  'auth.signup.email': "Електронна пошта (Обов'язково)",
+  'auth.signup.password': "Пароль (Обов'язково)",
+  'auth.signup.name': "Ваше ім'я",
   'auth.signup.signingUp': 'Реєстрація...',
   'auth.signup.signUp': 'Зареєструватися',
 

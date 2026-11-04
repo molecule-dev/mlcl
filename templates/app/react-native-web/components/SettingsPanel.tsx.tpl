@@ -38,7 +38,12 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   const { user, logout } = useAuth<UserProfile>()
   const http = useHttpClient()
   useVersion()
-  const { permission, requestPermission, register: registerPush, unregister: unregisterPush } = usePush()
+  const {
+    permission,
+    requestPermission,
+    register: registerPush,
+    unregister: unregisterPush,
+  } = usePush()
   const { deviceInfo } = useDevice()
   const { status: pwStatus, error: pwError, changePassword, reset: resetPw } = useChangePassword()
 
@@ -168,13 +173,13 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       {/* Account */}
       <section>
         <Flex align="center" gap="sm" className={cm.sp('mb', 3)}>
-          <h3 className={cm.sectionHeading}>
-            {t('settings.account')}
-          </h3>
+          <h3 className={cm.sectionHeading}>{t('settings.account')}</h3>
           {emailSaving && <Spinner size="xs" />}
         </Flex>
         <div>
-          <label htmlFor="settings-email" className={cm.formLabelSmall}>{t('settings.email')}</label>
+          <label htmlFor="settings-email" className={cm.formLabelSmall}>
+            {t('settings.email')}
+          </label>
           <Input
             id="settings-email"
             type="email"
@@ -183,7 +188,9 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             onBlur={handleEmailBlur}
             size="sm"
           />
-          {emailError && <p className={cm.cn(cm.textSize('xs'), cm.textError, cm.sp('mt', 1))}>{emailError}</p>}
+          {emailError && (
+            <p className={cm.cn(cm.textSize('xs'), cm.textError, cm.sp('mt', 1))}>{emailError}</p>
+          )}
         </div>
       </section>
 
@@ -212,9 +219,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
 
       {/* Notifications */}
       <section>
-        <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
-          {t('settings.notifications')}
-        </h3>
+        <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.notifications')}</h3>
         <Flex align="center" justify="between">
           <span className={cm.textSize('sm')}>{t('settings.pushNotifications')}</span>
           <Switch
@@ -227,28 +232,33 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
 
       {/* Billing */}
       <section>
-        <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
-          {t('settings.billing')}
-        </h3>
+        <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.billing')}</h3>
         <Flex align="center" justify="between">
-          <span className={cm.textSize('sm')}>{t('settings.plan')}<strong>{plan}</strong></span>
-          <Button variant="outline" size="sm">{t('settings.upgrade')}</Button>
+          <span className={cm.textSize('sm')}>
+            {t('settings.plan')}
+            <strong>{plan}</strong>
+          </span>
+          <Button variant="outline" size="sm">
+            {t('settings.upgrade')}
+          </Button>
         </Flex>
       </section>
 
       {/* Devices */}
       <section>
         <Flex align="center" gap="sm" className={cm.sp('mb', 3)}>
-          <h3 className={cm.sectionHeading}>
-            {t('settings.devices')}
-          </h3>
+          <h3 className={cm.sectionHeading}>{t('settings.devices')}</h3>
           {devicesLoading && <Spinner size="xs" />}
         </Flex>
         {devices.length > 0 ? (
           <ul className={cm.stack(2)}>
             {devices.map((device) => (
               <li key={device.id}>
-                <Flex align="center" justify="between" className={cm.cn(cm.textSize('sm'), cm.sp('py', 1))}>
+                <Flex
+                  align="center"
+                  justify="between"
+                  className={cm.cn(cm.textSize('sm'), cm.sp('py', 1))}
+                >
                   <span>{device.name || device.platform}</span>
                   <Icon name="chevron-right" size={16} className={cm.textSubtle} />
                 </Flex>
@@ -256,15 +266,15 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             ))}
           </ul>
         ) : (
-          !devicesLoading && <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>{t('settings.noDevices')}</p>
+          !devicesLoading && (
+            <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>{t('settings.noDevices')}</p>
+          )
         )}
       </section>
 
       {/* This Device */}
       <section>
-        <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
-          {t('settings.thisDevice')}
-        </h3>
+        <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.thisDevice')}</h3>
         <dl className={cm.cn(cm.stack(1), cm.textSize('sm'))}>
           <Flex justify="between">
             <dt className={cm.textMuted}>{t('settings.platform')}</dt>
@@ -298,7 +308,10 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       {/* Password Change Modal */}
       <Modal
         open={showPasswordModal}
-        onClose={() => { setShowPasswordModal(false); resetPw() }}
+        onClose={() => {
+          setShowPasswordModal(false)
+          resetPw()
+        }}
         title={t('settings.changePasswordModal.title')}
       >
         {pwError && (
@@ -308,7 +321,9 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
         )}
         <form onSubmit={handlePasswordChange} className={cm.stack(4)}>
           <div>
-            <label htmlFor="current-pw" className={cm.formLabel}>{t('settings.changePasswordModal.currentPassword')}</label>
+            <label htmlFor="current-pw" className={cm.formLabel}>
+              {t('settings.changePasswordModal.currentPassword')}
+            </label>
             <Input
               id="current-pw"
               type="password"
@@ -319,7 +334,9 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             />
           </div>
           <div>
-            <label htmlFor="new-pw" className={cm.formLabel}>{t('settings.changePasswordModal.newPassword')}</label>
+            <label htmlFor="new-pw" className={cm.formLabel}>
+              {t('settings.changePasswordModal.newPassword')}
+            </label>
             <Input
               id="new-pw"
               type="password"
@@ -330,7 +347,9 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             />
           </div>
           <Button type="submit" fullWidth loading={pwStatus === 'pending'}>
-            {pwStatus === 'pending' ? t('settings.changePasswordModal.changing') : t('settings.changePassword')}
+            {pwStatus === 'pending'
+              ? t('settings.changePasswordModal.changing')
+              : t('settings.changePassword')}
           </Button>
         </form>
       </Modal>
@@ -345,11 +364,15 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
           {t('settings.deleteAccountModal.warning')}
         </p>
         {deleteError && (
-          <Alert status="error" className={cm.sp('mb', 4)}>{deleteError}</Alert>
+          <Alert status="error" className={cm.sp('mb', 4)}>
+            {deleteError}
+          </Alert>
         )}
         <form onSubmit={handleDeleteAccount} className={cm.stack(4)}>
           <div>
-            <label htmlFor="delete-pw" className={cm.formLabel}>{t('settings.deleteAccountModal.password')}</label>
+            <label htmlFor="delete-pw" className={cm.formLabel}>
+              {t('settings.deleteAccountModal.password')}
+            </label>
             <Input
               id="delete-pw"
               type="password"
@@ -359,7 +382,9 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             />
           </div>
           <Button type="submit" color="error" fullWidth loading={deleteLoading}>
-            {deleteLoading ? t('settings.deleteAccountModal.deleting') : t('settings.deleteAccount')}
+            {deleteLoading
+              ? t('settings.deleteAccountModal.deleting')
+              : t('settings.deleteAccount')}
           </Button>
         </form>
       </Modal>

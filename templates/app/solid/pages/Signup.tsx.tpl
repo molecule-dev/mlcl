@@ -37,7 +37,13 @@ export function Signup() {
         <div class={cm.authHeaderInner}>
           <Flex align="center" justify="between" className={cm.h('full')}>
             <Flex align="center" gap="xs">
-              <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt="" class={cm.logoIcon} />
+              <img
+                src="/logo.svg"
+                width={LOGO_SIZE}
+                height={LOGO_SIZE}
+                alt=""
+                class={cm.logoIcon}
+              />
               <span class={cm.logoText}>{APP_NAME}</span>
             </Flex>
             <ThemeToggle />
@@ -52,9 +58,7 @@ export function Signup() {
                 id="email"
                 type="email"
                 value={email()}
-                onInput={(e: InputEvent) =>
-                  setEmail((e.currentTarget as HTMLInputElement).value)
-                }
+                onInput={(e: InputEvent) => setEmail((e.currentTarget as HTMLInputElement).value)}
                 autocomplete="email"
                 autofocus
                 required
@@ -79,9 +83,7 @@ export function Signup() {
                 id="name"
                 type="text"
                 value={name()}
-                onInput={(e: InputEvent) =>
-                  setName((e.currentTarget as HTMLInputElement).value)
-                }
+                onInput={(e: InputEvent) => setName((e.currentTarget as HTMLInputElement).value)}
                 autocomplete="name"
                 placeholder={t('auth.signup.name')}
               />
@@ -108,9 +110,7 @@ export function Signup() {
               </Button>
             </div>
             <Show when={signupState().error}>
-              <div class={cm.authFormError}>
-                {(signupState().error as Error)?.message}
-              </div>
+              <div class={cm.authFormError}>{(signupState().error as Error)?.message}</div>
             </Show>
           </form>
           <OAuthButtons />

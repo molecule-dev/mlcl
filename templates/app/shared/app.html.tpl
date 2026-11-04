@@ -2,7 +2,10 @@
 <html lang="en">
   <head>
     <meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=5.0"
+    />
     <meta name="theme-color" content="{{BRAND_COLOR}}" />
     <meta name="description" content="{{APP_DESCRIPTION}}" />
     <meta name="color-scheme" content="light dark" />
@@ -20,7 +23,7 @@
     <meta name="twitter:title" content="{{PROJECT_NAME}}" />
     <meta name="twitter:description" content="{{APP_DESCRIPTION}}" />
     <meta name="twitter:image" content="/og-image.svg" />
-{{FONT_LINKS}}
+    {{FONT_LINKS}}
     <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
     <link rel="apple-touch-startup-image" href="/icons/splash-2048x2732.svg" sizes="2048x2732" />
     <link rel="apple-touch-startup-image" href="/icons/splash-1668x2224.svg" sizes="1668x2224" />

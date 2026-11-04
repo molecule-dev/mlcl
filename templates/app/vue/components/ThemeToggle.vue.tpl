@@ -9,7 +9,12 @@ const { mode, toggleTheme } = useTheme()
 </script>
 
 <template>
-  <button type="button" :aria-label="t('theme.toggle')" :class="cm.themeToggleButton" @click="toggleTheme">
+  <button
+    type="button"
+    :aria-label="t('theme.toggle')"
+    :class="cm.themeToggleButton"
+    @click="toggleTheme"
+  >
     <Icon v-if="mode === 'dark'" name="moon" :size="20" />
     <Icon v-else name="sun" :size="20" />
   </button>

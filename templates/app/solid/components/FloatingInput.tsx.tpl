@@ -31,9 +31,7 @@ export function FloatingInput(props: FloatingInputProps) {
         placeholder=" "
         class={cm.cn(cm.floatingInput, cm.input(), props.class)}
       />
-      <span class={cm.floatingLabel}>
-        {props.placeholder}
-      </span>
+      <span class={cm.floatingLabel}>{props.placeholder}</span>
     </span>
   )
 }

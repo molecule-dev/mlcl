@@ -12,19 +12,10 @@ const open = ref(false)
 </script>
 
 <template>
-  <Button
-    variant="ghost"
-    size="sm"
-    :aria-label="t('userMenu.open')"
-    @click="open = true"
-  >
+  <Button variant="ghost" size="sm" :aria-label="t('userMenu.open')" @click="open = true">
     <Icon name="user" :size="20" />
   </Button>
-  <Modal
-    :open="open"
-    :class="cm.drawer"
-    @close="open = false"
-  >
+  <Modal :open="open" :class="cm.drawer" @close="open = false">
     <SettingsPanel @close="open = false" />
   </Modal>
 </template>

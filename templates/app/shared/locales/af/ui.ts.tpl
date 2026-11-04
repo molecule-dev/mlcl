@@ -31,7 +31,7 @@ export const ui: UiTranslations = {
 
   // Auth - Forgot Password
   'auth.forgotPassword.success':
-    'As daar \'n rekening met daardie e-posadres bestaan, is \'n wagwoordherstelskakel gestuur.',
+    "As daar 'n rekening met daardie e-posadres bestaan, is 'n wagwoordherstelskakel gestuur.",
   'auth.forgotPassword.email': 'E-pos',
   'auth.forgotPassword.submitting': 'Dien in...',
 

@@ -19,9 +19,15 @@ import { getClassMap } from '@molecule/app-ui'
 })
 export class HomeComponent {
   private authService = inject(MoleculeAuthService)
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
   t = t
   user$ = this.authService.user$
-  get wrapperClasses(): string { return this.cm.cn(this.cm.textCenter, this.cm.sp('py', 12)) }
-  get headingClasses(): string { return this.cm.cn(this.cm.textSize('3xl'), this.cm.fontWeight('bold')) }
+  get wrapperClasses(): string {
+    return this.cm.cn(this.cm.textCenter, this.cm.sp('py', 12))
+  }
+  get headingClasses(): string {
+    return this.cm.cn(this.cm.textSize('3xl'), this.cm.fontWeight('bold'))
+  }
 }

@@ -10,13 +10,21 @@ import { setupBonds } from './bonds/index.js'
 const ERROR_LOG = '/workspace/.api-errors.log'
 process.on('uncaughtException', (err) => {
   const entry = `[${new Date().toISOString()}] Uncaught exception: ${err.stack || err.message}\n`
-  try { appendFileSync(ERROR_LOG, entry) } catch { /* ignore */ }
+  try {
+    appendFileSync(ERROR_LOG, entry)
+  } catch {
+    /* ignore */
+  }
   console.error(entry)
 })
 process.on('unhandledRejection', (reason) => {
-  const msg = reason instanceof Error ? (reason.stack || reason.message) : String(reason)
+  const msg = reason instanceof Error ? reason.stack || reason.message : String(reason)
   const entry = `[${new Date().toISOString()}] Unhandled rejection: ${msg}\n`
-  try { appendFileSync(ERROR_LOG, entry) } catch { /* ignore */ }
+  try {
+    appendFileSync(ERROR_LOG, entry)
+  } catch {
+    /* ignore */
+  }
   console.error(entry)
 })
 
@@ -68,14 +76,20 @@ export const create = async (port: number = Number(process.env.PORT) || 4000) =>
 
   // Log 5XX responses so the IDE's auto-verification can detect them.
   // Must be registered after routes so it only catches unhandled errors.
-  app.use((err: Error, req: express.Request, res: express.Response, _next: express.NextFunction) => {
-    const entry = `[${new Date().toISOString()}] ${req.method} ${req.path} 500: ${err.stack || err.message}\n`
-    try { appendFileSync(ERROR_LOG, entry) } catch { /* ignore */ }
-    console.error(entry)
-    if (!res.headersSent) {
-      res.status(500).json({ error: 'Internal Server Error' })
-    }
-  })
+  app.use(
+    (err: Error, req: express.Request, res: express.Response, _next: express.NextFunction) => {
+      const entry = `[${new Date().toISOString()}] ${req.method} ${req.path} 500: ${err.stack || err.message}\n`
+      try {
+        appendFileSync(ERROR_LOG, entry)
+      } catch {
+        /* ignore */
+      }
+      console.error(entry)
+      if (!res.headersSent) {
+        res.status(500).json({ error: 'Internal Server Error' })
+      }
+    },
+  )
 
   const listener = app.listen(port, () => {
     // Boot is complete and the port is owned: /health/ready answers 200 from here.

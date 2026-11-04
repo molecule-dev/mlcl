@@ -28,9 +28,7 @@ export function OAuthButtons() {
     <div>
       <div className={cm.oauthDivider}>
         <div className={cm.oauthDividerLine} />
-        <span className={cm.oauthDividerText}>
-          {t('oauth.orContinueWith')}
-        </span>
+        <span className={cm.oauthDividerText}>{t('oauth.orContinueWith')}</span>
       </div>
       <div className={cm.oauthButtonGroup}>
         {providers.map((provider) => (
@@ -41,9 +39,7 @@ export function OAuthButtons() {
             aria-label={t('oauth.continueWith', { provider: providerLabels[provider] || provider })}
             className={cm.oauthButton}
           >
-            <span className={cm.oauthButtonIcon}>
-              {providerIcons[provider]}
-            </span>
+            <span className={cm.oauthButtonIcon}>{providerIcons[provider]}</span>
           </button>
         ))}
       </div>

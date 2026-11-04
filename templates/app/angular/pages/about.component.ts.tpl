@@ -30,13 +30,29 @@ import { APP_NAME, APP_DESCRIPTION, WEBSITE_URL } from '../branding.js'
   `,
 })
 export class AboutComponent {
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
   WEBSITE_URL = WEBSITE_URL
-  get wrapperClasses(): string { return this.cm.cn(this.cm.textCenter, this.cm.sp('py', 12)) }
-  get headingClasses(): string { return this.cm.cn(this.cm.textSize('3xl'), this.cm.fontWeight('bold')) }
-  get descriptionClasses(): string { return this.cm.cn(this.cm.sp('pt', 4), this.cm.textMuted) }
-  get linkWrapperClasses(): string { return this.cm.sp('pt', 6) }
-  get title(): string { return t('about.title', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' }) }
-  get description(): string { return t('about.description', undefined, { defaultValue: APP_DESCRIPTION }) }
-  get visitWebsite(): string { return t('about.visitWebsite', undefined, { defaultValue: 'Visit our website →' }) }
+  get wrapperClasses(): string {
+    return this.cm.cn(this.cm.textCenter, this.cm.sp('py', 12))
+  }
+  get headingClasses(): string {
+    return this.cm.cn(this.cm.textSize('3xl'), this.cm.fontWeight('bold'))
+  }
+  get descriptionClasses(): string {
+    return this.cm.cn(this.cm.sp('pt', 4), this.cm.textMuted)
+  }
+  get linkWrapperClasses(): string {
+    return this.cm.sp('pt', 6)
+  }
+  get title(): string {
+    return t('about.title', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })
+  }
+  get description(): string {
+    return t('about.description', undefined, { defaultValue: APP_DESCRIPTION })
+  }
+  get visitWebsite(): string {
+    return t('about.visitWebsite', undefined, { defaultValue: 'Visit our website →' })
+  }
 }

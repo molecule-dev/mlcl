@@ -20,18 +20,10 @@ import { APP_NAME } from '../branding.js'
       <a routerLink="/about" [class]="cm.footerLink">
         {{ footerAbout }}
       </a>
-      <button
-        type="button"
-        (click)="openPrivacy()"
-        [class]="cm.footerButton"
-      >
+      <button type="button" (click)="openPrivacy()" [class]="cm.footerButton">
         {{ t('footer.privacyPolicy') }}
       </button>
-      <button
-        type="button"
-        (click)="openTerms()"
-        [class]="cm.footerButton"
-      >
+      <button type="button" (click)="openTerms()" [class]="cm.footerButton">
         {{ t('footer.termsOfService') }}
       </button>
       <button
@@ -46,15 +38,30 @@ import { APP_NAME } from '../branding.js'
       <span [class]="cm.footerLink">v{{ (version$ | async) || '1.0.0' }}</span>
     </section>
 
-    <mol-modal [open]="privacyOpen" [title]="t('footer.privacyPolicy')" size="lg" (close)="privacyOpen = false">
+    <mol-modal
+      [open]="privacyOpen"
+      [title]="t('footer.privacyPolicy')"
+      size="lg"
+      (close)="privacyOpen = false"
+    >
       <div [class]="cm.prose" [innerHTML]="privacyHtml"></div>
     </mol-modal>
 
-    <mol-modal [open]="termsOpen" [title]="t('footer.termsOfService')" size="lg" (close)="termsOpen = false">
+    <mol-modal
+      [open]="termsOpen"
+      [title]="t('footer.termsOfService')"
+      size="lg"
+      (close)="termsOpen = false"
+    >
       <div [class]="cm.prose" [innerHTML]="termsHtml"></div>
     </mol-modal>
 
-    <mol-modal [open]="languageOpen" [title]="t('footer.language')" size="lg" (close)="languageOpen = false">
+    <mol-modal
+      [open]="languageOpen"
+      [title]="t('footer.language')"
+      size="lg"
+      (close)="languageOpen = false"
+    >
       <div [class]="cm.languageGrid">
         @for (l of locales; track l.code) {
           <button
@@ -73,19 +80,33 @@ export class FooterComponent implements OnDestroy {
   private cdr = inject(ChangeDetectorRef)
   private sanitizer = inject(DomSanitizer)
   private versionService = createVersionService()
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
   t = t
 
-  version$ = this.versionService.state$.pipe(map(s => s.version))
+  version$ = this.versionService.state$.pipe(map((s) => s.version))
   privacyOpen = false
   termsOpen = false
   languageOpen = false
-  get footerAbout(): string { return t('footer.about', { appName: APP_NAME }) }
-  get privacyHtml(): SafeHtml { return this.sanitizer.bypassSecurityTrustHtml(t('content.privacyPolicy', { appName: APP_NAME })) }
-  get termsHtml(): SafeHtml { return this.sanitizer.bypassSecurityTrustHtml(t('content.termsOfService')) }
+  get footerAbout(): string {
+    return t('footer.about', { appName: APP_NAME })
+  }
+  get privacyHtml(): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(t('content.privacyPolicy', { appName: APP_NAME }))
+  }
+  get termsHtml(): SafeHtml {
+    return this.sanitizer.bypassSecurityTrustHtml(t('content.termsOfService'))
+  }
   getLocale = getLocale
-  get locales(): { code: string; name: string }[] { return (getProvider()?.getLocales() ?? []).sort((a: { name: string }, b: { name: string }) => a.name.localeCompare(b.name)) }
-  get currentLocaleName(): string { return this.locales.find((l: { code: string }) => l.code === getLocale())?.name ?? '' }
+  get locales(): { code: string; name: string }[] {
+    return (getProvider()?.getLocales() ?? []).sort((a: { name: string }, b: { name: string }) =>
+      a.name.localeCompare(b.name),
+    )
+  }
+  get currentLocaleName(): string {
+    return this.locales.find((l: { code: string }) => l.code === getLocale())?.name ?? ''
+  }
 
   async openPrivacy(): Promise<void> {
     await loadContent('privacyPolicy')

@@ -39,7 +39,9 @@ export class FloatingInputComponent {
   @Input() name = ''
   @Output() valueChange = new EventEmitter<string>()
 
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
 
   get inputClasses(): string {
     return this.cm.cn(this.cm.input(), this.cm.floatingInput)

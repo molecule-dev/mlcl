@@ -43,7 +43,7 @@ export class IconComponent {
       this.fillAttr = this.icon.fill || 'none'
       this.svgContent = this.sanitizer.bypassSecurityTrustHtml(this.icon.svg)
     } else {
-      this.fillAttr = this.isStroked ? 'none' : (this.icon.fill || 'currentColor')
+      this.fillAttr = this.isStroked ? 'none' : this.icon.fill || 'currentColor'
       const pathsHtml = this.icon.paths
         .map((p) => {
           const attrs = [`d="${p.d}"`]

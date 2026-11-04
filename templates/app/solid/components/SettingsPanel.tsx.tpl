@@ -38,7 +38,12 @@ export function SettingsPanel(props: { onClose: () => void }) {
   const { user, logout } = createAuth<UserProfile>()
   const http = createHttpHelpers()
   createVersion()
-  const { permission, requestPermission, register: registerPush, unregister: unregisterPush } = createPush()
+  const {
+    permission,
+    requestPermission,
+    register: registerPush,
+    unregister: unregisterPush,
+  } = createPush()
   const { deviceInfo } = createDevice()
   const { state: pwState, changePassword, reset: resetPw } = createChangePassword()
 
@@ -168,22 +173,20 @@ export function SettingsPanel(props: { onClose: () => void }) {
       {/* Account */}
       <section>
         <Flex align="center" gap="sm" className={cm.sp('mb', 3)}>
-          <h3 class={cm.sectionHeading}>
-            {t('settings.account')}
-          </h3>
+          <h3 class={cm.sectionHeading}>{t('settings.account')}</h3>
           <Show when={emailSaving()}>
             <Spinner size="xs" />
           </Show>
         </Flex>
         <div>
-          <label for="settings-email" class={cm.formLabelSmall}>{t('settings.email')}</label>
+          <label for="settings-email" class={cm.formLabelSmall}>
+            {t('settings.email')}
+          </label>
           <Input
             id="settings-email"
             type="email"
             value={email()}
-            onInput={(e: Event) =>
-              setEmail((e.currentTarget as HTMLInputElement).value)
-            }
+            onInput={(e: Event) => setEmail((e.currentTarget as HTMLInputElement).value)}
             onBlur={handleEmailBlur}
             size="sm"
           />
@@ -196,9 +199,7 @@ export function SettingsPanel(props: { onClose: () => void }) {
       {/* Authentication -- hidden for OAuth users */}
       <Show when={!(user() as unknown as Record<string, unknown>)?.oauthServer}>
         <section>
-          <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
-            {t('settings.authentication')}
-          </h3>
+          <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.authentication')}</h3>
           <div class={cm.stack(3)}>
             <Button variant="outline" size="sm" onClick={() => setShowPasswordModal(true)}>
               {t('settings.changePassword')}
@@ -207,9 +208,7 @@ export function SettingsPanel(props: { onClose: () => void }) {
               <span class={cm.textSize('sm')}>{t('settings.twoFactor')}</span>
               <SwitchInput
                 checked={twoFactorEnabled()}
-                onChange={(e: Event) =>
-                  handleToggle2FA((e.target as HTMLInputElement).checked)
-                }
+                onChange={(e: Event) => handleToggle2FA((e.target as HTMLInputElement).checked)}
                 disabled={twoFactorLoading()}
                 size="sm"
               />
@@ -220,16 +219,12 @@ export function SettingsPanel(props: { onClose: () => void }) {
 
       {/* Notifications */}
       <section>
-        <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
-          {t('settings.notifications')}
-        </h3>
+        <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.notifications')}</h3>
         <Flex align="center" justify="between">
           <span class={cm.textSize('sm')}>{t('settings.pushNotifications')}</span>
           <SwitchInput
             checked={pushEnabled()}
-            onChange={(e: Event) =>
-              handleTogglePush((e.target as HTMLInputElement).checked)
-            }
+            onChange={(e: Event) => handleTogglePush((e.target as HTMLInputElement).checked)}
             size="sm"
           />
         </Flex>
@@ -237,21 +232,21 @@ export function SettingsPanel(props: { onClose: () => void }) {
 
       {/* Billing */}
       <section>
-        <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
-          {t('settings.billing')}
-        </h3>
+        <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.billing')}</h3>
         <Flex align="center" justify="between">
-          <span class={cm.textSize('sm')}>{t('settings.plan')}: <strong>{plan()}</strong></span>
-          <Button variant="outline" size="sm">{t('settings.upgrade')}</Button>
+          <span class={cm.textSize('sm')}>
+            {t('settings.plan')}: <strong>{plan()}</strong>
+          </span>
+          <Button variant="outline" size="sm">
+            {t('settings.upgrade')}
+          </Button>
         </Flex>
       </section>
 
       {/* Devices */}
       <section>
         <Flex align="center" gap="sm" className={cm.sp('mb', 3)}>
-          <h3 class={cm.sectionHeading}>
-            {t('settings.devices')}
-          </h3>
+          <h3 class={cm.sectionHeading}>{t('settings.devices')}</h3>
           <Show when={devicesLoading()}>
             <Spinner size="xs" />
           </Show>
@@ -268,7 +263,11 @@ export function SettingsPanel(props: { onClose: () => void }) {
             <For each={devices()}>
               {(device) => (
                 <li>
-                  <Flex align="center" justify="between" className={cm.cn(cm.textSize('sm'), cm.sp('py', 1))}>
+                  <Flex
+                    align="center"
+                    justify="between"
+                    className={cm.cn(cm.textSize('sm'), cm.sp('py', 1))}
+                  >
                     <span>{device.name || device.platform}</span>
                     <Icon name="chevron-right" size={16} class={cm.textSubtle} />
                   </Flex>
@@ -281,9 +280,7 @@ export function SettingsPanel(props: { onClose: () => void }) {
 
       {/* This Device */}
       <section>
-        <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
-          {t('settings.thisDevice')}
-        </h3>
+        <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.thisDevice')}</h3>
         <dl class={cm.cn(cm.stack(1), cm.textSize('sm'))}>
           <Flex justify="between">
             <dt class={cm.textMuted}>{t('settings.platform')}</dt>
@@ -317,7 +314,10 @@ export function SettingsPanel(props: { onClose: () => void }) {
       {/* Password Change Modal */}
       <Modal
         open={showPasswordModal()}
-        onClose={() => { setShowPasswordModal(false); resetPw() }}
+        onClose={() => {
+          setShowPasswordModal(false)
+          resetPw()
+        }}
         title={t('settings.changePasswordModal.title')}
       >
         <Show when={pwState().error}>
@@ -327,7 +327,9 @@ export function SettingsPanel(props: { onClose: () => void }) {
         </Show>
         <form onSubmit={handlePasswordChange} class={cm.stack(4)}>
           <div>
-            <label for="current-pw" class={cm.formLabel}>{t('settings.changePasswordModal.currentPassword')}</label>
+            <label for="current-pw" class={cm.formLabel}>
+              {t('settings.changePasswordModal.currentPassword')}
+            </label>
             <Input
               id="current-pw"
               type="password"
@@ -340,20 +342,22 @@ export function SettingsPanel(props: { onClose: () => void }) {
             />
           </div>
           <div>
-            <label for="new-pw" class={cm.formLabel}>{t('settings.changePasswordModal.newPassword')}</label>
+            <label for="new-pw" class={cm.formLabel}>
+              {t('settings.changePasswordModal.newPassword')}
+            </label>
             <Input
               id="new-pw"
               type="password"
               value={newPassword()}
-              onInput={(e: Event) =>
-                setNewPassword((e.currentTarget as HTMLInputElement).value)
-              }
+              onInput={(e: Event) => setNewPassword((e.currentTarget as HTMLInputElement).value)}
               autoComplete="new-password"
               required
             />
           </div>
           <Button type="submit" fullWidth loading={pwState().status === 'pending'}>
-            {pwState().status === 'pending' ? t('settings.changePasswordModal.changing') : t('settings.changePassword')}
+            {pwState().status === 'pending'
+              ? t('settings.changePasswordModal.changing')
+              : t('settings.changePassword')}
           </Button>
         </form>
       </Modal>
@@ -368,23 +372,27 @@ export function SettingsPanel(props: { onClose: () => void }) {
           {t('settings.deleteAccountModal.warning')}
         </p>
         <Show when={deleteError()}>
-          <Alert status="error" className={cm.sp('mb', 4)}>{deleteError()}</Alert>
+          <Alert status="error" className={cm.sp('mb', 4)}>
+            {deleteError()}
+          </Alert>
         </Show>
         <form onSubmit={handleDeleteAccount} class={cm.stack(4)}>
           <div>
-            <label for="delete-pw" class={cm.formLabel}>{t('settings.deleteAccountModal.password')}</label>
+            <label for="delete-pw" class={cm.formLabel}>
+              {t('settings.deleteAccountModal.password')}
+            </label>
             <Input
               id="delete-pw"
               type="password"
               value={deletePassword()}
-              onInput={(e: Event) =>
-                setDeletePassword((e.currentTarget as HTMLInputElement).value)
-              }
+              onInput={(e: Event) => setDeletePassword((e.currentTarget as HTMLInputElement).value)}
               required
             />
           </div>
           <Button type="submit" color="error" fullWidth loading={deleteLoading()}>
-            {deleteLoading() ? t('settings.deleteAccountModal.deleting') : t('settings.deleteAccount')}
+            {deleteLoading()
+              ? t('settings.deleteAccountModal.deleting')
+              : t('settings.deleteAccount')}
           </Button>
         </form>
       </Modal>

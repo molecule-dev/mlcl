@@ -11,9 +11,7 @@ export function AppLayout(props: ParentProps) {
     <div class={cm.cn(cm.page, cm.appLayout)}>
       <Header />
       <main>
-        <Container maxWidth="xl">
-          {props.children}
-        </Container>
+        <Container maxWidth="xl">{props.children}</Container>
       </main>
       <Footer />
     </div>

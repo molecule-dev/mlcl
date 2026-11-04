@@ -30,7 +30,8 @@ export const ui: UiTranslations = {
   'auth.signup.signUp': 'Reģistrēties',
 
   // Auth - Forgot Password
-  'auth.forgotPassword.success': 'Ja konts ar šo e-pasta adresi pastāv, paroles atiestatīšanas saite ir nosūtīta.',
+  'auth.forgotPassword.success':
+    'Ja konts ar šo e-pasta adresi pastāv, paroles atiestatīšanas saite ir nosūtīta.',
   'auth.forgotPassword.email': 'E-pasts',
   'auth.forgotPassword.submitting': 'Iesniegšana...',
 
@@ -74,7 +75,8 @@ export const ui: UiTranslations = {
   'settings.changePasswordModal.newPassword': 'Jaunā parole',
   'settings.changePasswordModal.changing': 'Mainīšana...',
   'settings.deleteAccountModal.title': 'Dzēst kontu',
-  'settings.deleteAccountModal.warning': 'Šo darbību nevar atsaukt. Lūdzu, ievadiet savu paroli, lai apstiprinātu.',
+  'settings.deleteAccountModal.warning':
+    'Šo darbību nevar atsaukt. Lūdzu, ievadiet savu paroli, lai apstiprinātu.',
   'settings.deleteAccountModal.password': 'Parole',
   'settings.deleteAccountModal.deleting': 'Dzēšana...',
   'settings.changePasswordModal.submit': 'Mainīt paroli',

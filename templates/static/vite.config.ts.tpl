@@ -1,7 +1,14 @@
 /// <reference types="vitest/config" />
 import type { IncomingMessage } from 'node:http'
 import { createRequire } from 'node:module'
-import { appendFileSync, existsSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import {
+  appendFileSync,
+  existsSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -194,7 +201,7 @@ const watchPolling =
 
 export default defineConfig(({ command }) => ({
   base: BASE_PATH,
-  plugins: [{{VITE_PLUGINS}}, staticSitePlugin(), previewConsoleLogPlugin, stripPreviewBridgePlugin()],{{RESOLVE_EXTENSIONS}}
+{{VITE_PLUGINS_LINE}}{{RESOLVE_EXTENSIONS}}
   resolve: {
     preserveSymlinks: true,
     // One module identity per @molecule package, whichever install path an

@@ -30,8 +30,7 @@ export const ui: UiTranslations = {
   'auth.signup.signUp': 'ਸਾਈਨ ਅੱਪ ਕਰੋ',
 
   // Auth - Forgot Password
-  'auth.forgotPassword.success':
-    'ਜੇ ਉਸ ਈਮੇਲ ਨਾਲ ਕੋਈ ਖਾਤਾ ਹੈ, ਤਾਂ ਪਾਸਵਰਡ ਰੀਸੈੱਟ ਲਿੰਕ ਭੇਜੀ ਗਈ ਹੈ।',
+  'auth.forgotPassword.success': 'ਜੇ ਉਸ ਈਮੇਲ ਨਾਲ ਕੋਈ ਖਾਤਾ ਹੈ, ਤਾਂ ਪਾਸਵਰਡ ਰੀਸੈੱਟ ਲਿੰਕ ਭੇਜੀ ਗਈ ਹੈ।',
   'auth.forgotPassword.email': 'ਈਮੇਲ',
   'auth.forgotPassword.submitting': 'ਜਮ੍ਹਾਂ ਹੋ ਰਿਹਾ ਹੈ...',
 

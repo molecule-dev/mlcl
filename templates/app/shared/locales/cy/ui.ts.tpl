@@ -16,11 +16,11 @@ export const ui: UiTranslations = {
   // Auth - Login
   'auth.login.email': 'E-bost',
   'auth.login.password': 'Cyfrinair',
-  'auth.login.twoFactor': 'Tocyn dau ffactor (Os yw wedi\'i alluogi)',
+  'auth.login.twoFactor': "Tocyn dau ffactor (Os yw wedi'i alluogi)",
   'auth.login.signUp': 'Cofrestru',
   'auth.login.loggingIn': 'Yn mewngofnodi...',
   'auth.login.logIn': 'Mewngofnodi',
-  'auth.login.forgotPassword': 'Wedi anghofio\'r cyfrinair?',
+  'auth.login.forgotPassword': "Wedi anghofio'r cyfrinair?",
 
   // Auth - Signup
   'auth.signup.email': 'E-bost (Gofynnol)',
@@ -31,7 +31,7 @@ export const ui: UiTranslations = {
 
   // Auth - Forgot Password
   'auth.forgotPassword.success':
-    'Os oes cyfrif gyda\'r e-bost hwnnw, mae dolen ailosod cyfrinair wedi\'i hanfon.',
+    "Os oes cyfrif gyda'r e-bost hwnnw, mae dolen ailosod cyfrinair wedi'i hanfon.",
   'auth.forgotPassword.email': 'E-bost',
   'auth.forgotPassword.submitting': 'Yn cyflwyno...',
 
@@ -39,7 +39,7 @@ export const ui: UiTranslations = {
   'auth.resetPassword.email': 'E-bost',
   'auth.resetPassword.token': 'Tocyn ailosod cyfrinair',
   'auth.resetPassword.newPassword': 'Rhowch gyfrinair newydd',
-  'auth.resetPassword.twoFactor': 'Tocyn dau ffactor (Os yw wedi\'i alluogi)',
+  'auth.resetPassword.twoFactor': "Tocyn dau ffactor (Os yw wedi'i alluogi)",
   'auth.resetPassword.loggingIn': 'Yn mewngofnodi...',
   'auth.resetPassword.submit': 'Gosod cyfrinair a mewngofnodi',
 
@@ -59,7 +59,7 @@ export const ui: UiTranslations = {
   'settings.plan': 'Cynllun: ',
   'settings.upgrade': 'Uwchraddio',
   'settings.devices': 'Dyfeisiau',
-  'settings.noDevices': 'Dim dyfeisiau wedi\'u canfod',
+  'settings.noDevices': "Dim dyfeisiau wedi'u canfod",
   'settings.thisDevice': 'Y ddyfais hon',
   'settings.platform': 'Platfform',
   'settings.browser': 'Porwr',
@@ -82,7 +82,7 @@ export const ui: UiTranslations = {
   'settings.changePasswordModal.submit': 'Newid cyfrinair',
   'settings.deleteAccountModal.submit': 'Dileu cyfrif',
   'settings.failedToUpdateEmail': 'Methwyd â diweddaru e-bost.',
-  'settings.failedToDeleteAccount': 'Methwyd â dileu\'r cyfrif.',
+  'settings.failedToDeleteAccount': "Methwyd â dileu'r cyfrif.",
   'settings.toggleTwoFactor': 'Toglo dilysu dau ffactor',
   'settings.togglePushNotifications': 'Toglo hysbysiadau gwthio',
 
@@ -107,7 +107,7 @@ export const ui: UiTranslations = {
   'userMenu.open': 'Agor dewislen defnyddiwr',
 
   // Plan Updated
-  'planUpdated.message': 'Mae eich cynllun wedi\'i ddiweddaru.',
+  'planUpdated.message': "Mae eich cynllun wedi'i ddiweddaru.",
   'planUpdated.thankYou': 'Diolch!',
   'planUpdated.returnHome': 'Dychwelyd adref',
 

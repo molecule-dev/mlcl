@@ -31,7 +31,7 @@ export function Icon(props: IconProps) {
         width={size()}
         height={size()}
         viewBox={viewBox()}
-        fill={isStroked() ? 'none' : (icon().fill || 'currentColor')}
+        fill={isStroked() ? 'none' : icon().fill || 'currentColor'}
         stroke={isStroked() ? icon().stroke : undefined}
         stroke-width={isStroked() ? icon().strokeWidth : undefined}
         stroke-linecap={isStroked() ? icon().strokeLinecap : undefined}

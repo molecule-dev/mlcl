@@ -11,16 +11,7 @@ import {
   useDevice,
   useTranslation,
 } from '@molecule/app-vue'
-import {
-  Button,
-  Input,
-  Switch,
-  Alert,
-  Separator,
-  Spinner,
-  Modal,
-  Flex,
-} from '@molecule/app-ui-vue'
+import { Button, Input, Switch, Alert, Separator, Spinner, Modal, Flex } from '@molecule/app-ui-vue'
 import Icon from './Icon.vue'
 import Footer from './Footer.vue'
 
@@ -46,12 +37,7 @@ const {
   unregister: unregisterPush,
 } = usePush()
 const { deviceInfo } = useDevice()
-const {
-  status: pwStatus,
-  error: pwError,
-  changePassword,
-  reset: resetPw,
-} = useChangePassword()
+const { status: pwStatus, error: pwError, changePassword, reset: resetPw } = useChangePassword()
 
 // Email editing
 const email = ref(user.value?.email || '')
@@ -187,14 +173,10 @@ async function handleDeleteAccount() {
       </Flex>
       <div>
         <label for="settings-email" :class="cm.formLabelSmall">{{ t('settings.email') }}</label>
-        <Input
-          id="settings-email"
-          v-model="email"
-          type="email"
-          size="sm"
-          @blur="handleEmailBlur"
-        />
-        <p v-if="emailError" :class="cm.cn(cm.textSize('xs'), cm.textError, cm.sp('mt', 1))">{{ emailError }}</p>
+        <Input id="settings-email" v-model="email" type="email" size="sm" @blur="handleEmailBlur" />
+        <p v-if="emailError" :class="cm.cn(cm.textSize('xs'), cm.textError, cm.sp('mt', 1))">
+          {{ emailError }}
+        </p>
       </div>
     </section>
 
@@ -240,7 +222,9 @@ async function handleDeleteAccount() {
         {{ t('settings.billing') }}
       </h3>
       <Flex align="center" justify="between">
-        <span :class="cm.textSize('sm')">{{ t('settings.plan') }}<strong>{{ plan }}</strong></span>
+        <span :class="cm.textSize('sm')"
+          >{{ t('settings.plan') }}<strong>{{ plan }}</strong></span
+        >
         <Button variant="outline" size="sm">{{ t('settings.upgrade') }}</Button>
       </Flex>
     </section>
@@ -254,17 +238,16 @@ async function handleDeleteAccount() {
         <Spinner v-if="devicesLoading" size="xs" />
       </Flex>
       <ul v-if="devices.length > 0" :class="cm.stack(2)">
-        <li
-          v-for="device in devices"
-          :key="device.id"
-        >
+        <li v-for="device in devices" :key="device.id">
           <Flex align="center" justify="between" :class="cm.cn(cm.textSize('sm'), cm.sp('py', 1))">
             <span>{{ device.name || device.platform }}</span>
             <Icon name="chevron-right" :size="16" :class="cm.textSubtle" />
           </Flex>
         </li>
       </ul>
-      <p v-else-if="!devicesLoading" :class="cm.cn(cm.textSize('sm'), cm.textMuted)">{{ t('settings.noDevices') }}</p>
+      <p v-else-if="!devicesLoading" :class="cm.cn(cm.textSize('sm'), cm.textMuted)">
+        {{ t('settings.noDevices') }}
+      </p>
     </section>
 
     <!-- This Device -->
@@ -306,14 +289,16 @@ async function handleDeleteAccount() {
     <Modal
       :open="showPasswordModal"
       :title="t('settings.changePasswordModal.title')"
-      @close="(showPasswordModal = false, resetPw())"
+      @close="((showPasswordModal = false), resetPw())"
     >
       <Alert v-if="pwError" status="error" :class="cm.sp('mb', 4)">
         {{ pwError.message || t('settings.changePasswordModal.error') }}
       </Alert>
       <form :class="cm.stack(4)" @submit.prevent="handlePasswordChange">
         <div>
-          <label for="current-pw" :class="cm.formLabel">{{ t('settings.changePasswordModal.currentPassword') }}</label>
+          <label for="current-pw" :class="cm.formLabel">{{
+            t('settings.changePasswordModal.currentPassword')
+          }}</label>
           <Input
             id="current-pw"
             v-model="currentPassword"
@@ -323,7 +308,9 @@ async function handleDeleteAccount() {
           />
         </div>
         <div>
-          <label for="new-pw" :class="cm.formLabel">{{ t('settings.changePasswordModal.newPassword') }}</label>
+          <label for="new-pw" :class="cm.formLabel">{{
+            t('settings.changePasswordModal.newPassword')
+          }}</label>
           <Input
             id="new-pw"
             v-model="newPassword"
@@ -333,7 +320,11 @@ async function handleDeleteAccount() {
           />
         </div>
         <Button type="submit" :full-width="true" :loading="pwStatus === 'pending'">
-          {{ pwStatus === 'pending' ? t('settings.changePasswordModal.changing') : t('settings.changePassword') }}
+          {{
+            pwStatus === 'pending'
+              ? t('settings.changePasswordModal.changing')
+              : t('settings.changePassword')
+          }}
         </Button>
       </form>
     </Modal>
@@ -352,16 +343,15 @@ async function handleDeleteAccount() {
       </Alert>
       <form :class="cm.stack(4)" @submit.prevent="handleDeleteAccount">
         <div>
-          <label for="delete-pw" :class="cm.formLabel">{{ t('settings.deleteAccountModal.password') }}</label>
-          <Input
-            id="delete-pw"
-            v-model="deletePassword"
-            type="password"
-            required
-          />
+          <label for="delete-pw" :class="cm.formLabel">{{
+            t('settings.deleteAccountModal.password')
+          }}</label>
+          <Input id="delete-pw" v-model="deletePassword" type="password" required />
         </div>
         <Button type="submit" color="error" :full-width="true" :loading="deleteLoading">
-          {{ deleteLoading ? t('settings.deleteAccountModal.deleting') : t('settings.deleteAccount') }}
+          {{
+            deleteLoading ? t('settings.deleteAccountModal.deleting') : t('settings.deleteAccount')
+          }}
         </Button>
       </form>
     </Modal>

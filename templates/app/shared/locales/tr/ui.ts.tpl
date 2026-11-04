@@ -75,8 +75,7 @@ export const ui: UiTranslations = {
   'settings.changePasswordModal.newPassword': 'Yeni şifre',
   'settings.changePasswordModal.changing': 'Değiştiriliyor...',
   'settings.deleteAccountModal.title': 'Hesabı sil',
-  'settings.deleteAccountModal.warning':
-    'Bu işlem geri alınamaz. Onaylamak için şifrenizi girin.',
+  'settings.deleteAccountModal.warning': 'Bu işlem geri alınamaz. Onaylamak için şifrenizi girin.',
   'settings.deleteAccountModal.password': 'Şifre',
   'settings.deleteAccountModal.deleting': 'Siliniyor...',
   'settings.changePasswordModal.submit': 'Şifre değiştir',

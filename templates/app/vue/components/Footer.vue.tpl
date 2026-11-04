@@ -13,7 +13,9 @@ const { state: versionState } = useVersion()
 const privacyOpen = ref(false)
 const termsOpen = ref(false)
 const languageOpen = ref(false)
-const sortedLocales = computed(() => [...locales.value].sort((a, b) => a.name.localeCompare(b.name)))
+const sortedLocales = computed(() =>
+  [...locales.value].sort((a, b) => a.name.localeCompare(b.name)),
+)
 
 async function changeLocale(code: string) {
   await setLocale(code)
@@ -36,18 +38,10 @@ async function openTerms() {
     <RouterLink to="/about" :class="cm.footerLink">
       {{ t('footer.about', { appName: APP_NAME }) }}
     </RouterLink>
-    <button
-      type="button"
-      :class="cm.footerButton"
-      @click="openPrivacy"
-    >
+    <button type="button" :class="cm.footerButton" @click="openPrivacy">
       {{ t('footer.privacyPolicy') }}
     </button>
-    <button
-      type="button"
-      :class="cm.footerButton"
-      @click="openTerms"
-    >
+    <button type="button" :class="cm.footerButton" @click="openTerms">
       {{ t('footer.termsOfService') }}
     </button>
     <button
@@ -57,11 +51,16 @@ async function openTerms() {
       @click="languageOpen = true"
     >
       <Icon name="globe" :size="14" />
-      {{ locales.find(l => l.code === locale)?.name }}
+      {{ locales.find((l) => l.code === locale)?.name }}
     </button>
     <span :class="cm.footerLink">v{{ versionState.version || '1.0.0' }}</span>
   </section>
-  <Modal :open="privacyOpen" :title="t('footer.privacyPolicy')" size="lg" @close="privacyOpen = false">
+  <Modal
+    :open="privacyOpen"
+    :title="t('footer.privacyPolicy')"
+    size="lg"
+    @close="privacyOpen = false"
+  >
     <div :class="cm.prose" v-html="t('content.privacyPolicy', { appName: APP_NAME })" />
   </Modal>
   <Modal :open="termsOpen" :title="t('footer.termsOfService')" size="lg" @close="termsOpen = false">

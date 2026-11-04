@@ -30,8 +30,7 @@ export const ui: UiTranslations = {
   'auth.signup.signUp': 'สมัครสมาชิก',
 
   // Auth - Forgot Password
-  'auth.forgotPassword.success':
-    'หากมีบัญชีที่ใช้อีเมลนี้อยู่ ลิงก์รีเซ็ตรหัสผ่านจะถูกส่งไปแล้ว',
+  'auth.forgotPassword.success': 'หากมีบัญชีที่ใช้อีเมลนี้อยู่ ลิงก์รีเซ็ตรหัสผ่านจะถูกส่งไปแล้ว',
   'auth.forgotPassword.email': 'อีเมล',
   'auth.forgotPassword.submitting': 'กำลังส่ง...',
 

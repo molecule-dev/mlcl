@@ -27,7 +27,9 @@ import { IconComponent } from './icon.component.js'
 })
 export class ThemeToggleComponent {
   private themeService = inject(MoleculeThemeService)
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
   t = t
   themeName$ = this.themeService.themeName$
 

@@ -30,7 +30,8 @@ export const ui: UiTranslations = {
   'auth.signup.signUp': 'Registreeru',
 
   // Auth - Forgot Password
-  'auth.forgotPassword.success': 'Kui selle e-posti aadressiga konto on olemas, on parooli lähtestamise link saadetud.',
+  'auth.forgotPassword.success':
+    'Kui selle e-posti aadressiga konto on olemas, on parooli lähtestamise link saadetud.',
   'auth.forgotPassword.email': 'E-post',
   'auth.forgotPassword.submitting': 'Esitamine...',
 
@@ -74,7 +75,8 @@ export const ui: UiTranslations = {
   'settings.changePasswordModal.newPassword': 'Uus parool',
   'settings.changePasswordModal.changing': 'Muutmine...',
   'settings.deleteAccountModal.title': 'Kustuta konto',
-  'settings.deleteAccountModal.warning': 'Seda toimingut ei saa tagasi võtta. Kinnitamiseks sisesta oma parool.',
+  'settings.deleteAccountModal.warning':
+    'Seda toimingut ei saa tagasi võtta. Kinnitamiseks sisesta oma parool.',
   'settings.deleteAccountModal.password': 'Parool',
   'settings.deleteAccountModal.deleting': 'Kustutamine...',
   'settings.changePasswordModal.submit': 'Muuda parooli',

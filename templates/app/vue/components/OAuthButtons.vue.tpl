@@ -44,7 +44,9 @@ const { providers, redirect } = useOAuth(oauthConfig)
           <!-- Twitter -->
           <Icon v-else-if="provider === 'twitter'" name="twitter" :size="30" />
           <!-- Fallback -->
-          <span v-else :class="cm.oauthProviderLabel">{{ providerLabels[provider] || provider }}</span>
+          <span v-else :class="cm.oauthProviderLabel">{{
+            providerLabels[provider] || provider
+          }}</span>
         </span>
       </button>
     </div>

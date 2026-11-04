@@ -2,19 +2,20 @@
 import { computed } from 'vue'
 import { getIcon } from '@molecule/app-icons'
 
-const props = withDefaults(defineProps<{
-  name: string
-  size?: number
-}>(), {
-  size: 20,
-})
+const props = withDefaults(
+  defineProps<{
+    name: string
+    size?: number
+  }>(),
+  {
+    size: 20,
+  },
+)
 
 const icon = computed(() => getIcon(props.name))
 const viewBox = computed(() => icon.value.viewBox || '0 0 20 20')
 const isStroked = computed(() => !!icon.value.stroke)
-const fillAttr = computed(() =>
-  isStroked.value ? 'none' : (icon.value.fill || 'currentColor')
-)
+const fillAttr = computed(() => (isStroked.value ? 'none' : icon.value.fill || 'currentColor'))
 </script>
 
 <template>

@@ -14,14 +14,28 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
 @Component({
   selector: 'app-signup',
   standalone: true,
-  imports: [AsyncPipe, MoleculeButton, FloatingInputComponent, IconComponent, OAuthButtonsComponent, FooterComponent, ThemeToggleComponent],
+  imports: [
+    AsyncPipe,
+    MoleculeButton,
+    FloatingInputComponent,
+    IconComponent,
+    OAuthButtonsComponent,
+    FooterComponent,
+    ThemeToggleComponent,
+  ],
   template: `
     <div [class]="cm.cn(cm.page, cm.flex({ direction: 'col' }))">
       <header [class]="cm.cn(cm.headerBar, cm.headerFixed)">
         <div [class]="cm.authHeaderInner">
           <div [class]="cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.h('full'))">
             <div [class]="cm.flex({ align: 'center', gap: 'xs' })">
-              <img src="/logo.svg" [width]="LOGO_SIZE" [height]="LOGO_SIZE" alt="" [class]="cm.logoIcon" />
+              <img
+                src="/logo.svg"
+                [width]="LOGO_SIZE"
+                [height]="LOGO_SIZE"
+                alt=""
+                [class]="cm.logoIcon"
+              />
               <span [class]="cm.logoText">{{ APP_NAME }}</span>
             </div>
             <app-theme-toggle />
@@ -106,7 +120,9 @@ export class SignupComponent implements OnDestroy {
   private client = inject(AUTH_CLIENT)
   private router = inject(Router)
   private signupManager = createSignupState(this.client)
-  get cm(): ReturnType<typeof getClassMap> { return getClassMap() }
+  get cm(): ReturnType<typeof getClassMap> {
+    return getClassMap()
+  }
   t = t
   APP_NAME = APP_NAME
   LOGO_SIZE = LOGO_SIZE

@@ -30,7 +30,8 @@ export const ui: UiTranslations = {
   'auth.signup.signUp': 'Registruotis',
 
   // Auth - Forgot Password
-  'auth.forgotPassword.success': 'Jei paskyra su šiuo el. pašto adresu egzistuoja, slaptažodžio atkūrimo nuoroda buvo išsiųsta.',
+  'auth.forgotPassword.success':
+    'Jei paskyra su šiuo el. pašto adresu egzistuoja, slaptažodžio atkūrimo nuoroda buvo išsiųsta.',
   'auth.forgotPassword.email': 'El. paštas',
   'auth.forgotPassword.submitting': 'Pateikiama...',
 
@@ -74,7 +75,8 @@ export const ui: UiTranslations = {
   'settings.changePasswordModal.newPassword': 'Naujas slaptažodis',
   'settings.changePasswordModal.changing': 'Keičiama...',
   'settings.deleteAccountModal.title': 'Ištrinti paskyrą',
-  'settings.deleteAccountModal.warning': 'Šio veiksmo negalima atšaukti. Norėdami patvirtinti, įveskite savo slaptažodį.',
+  'settings.deleteAccountModal.warning':
+    'Šio veiksmo negalima atšaukti. Norėdami patvirtinti, įveskite savo slaptažodį.',
   'settings.deleteAccountModal.password': 'Slaptažodis',
   'settings.deleteAccountModal.deleting': 'Trinama...',
   'settings.changePasswordModal.submit': 'Keisti slaptažodį',

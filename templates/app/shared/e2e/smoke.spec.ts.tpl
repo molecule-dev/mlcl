@@ -12,9 +12,9 @@
  * specific record, read it from the same endpoint the page reads, or create it
  * through the UI first.
  */
-import { expect, test } from '@molecule/app-e2e-fixtures-default'
-
 import './bonds.js'
+
+import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
 /** `/` may legitimately redirect before anything renders (an AuthGuard sending
  * a signed-out visit to /login, a locale or onboarding hop) — and Playwright's
