@@ -180,6 +180,10 @@ describe('framework-scoped URL list guidance', () => {
     expect(text).toContain('`requiresAuth: true`')
     expect(text).toContain('`canLoad`')
     expect(text).toContain('return to page one when a filter or tab changes')
+    // The hook's default page size is 20; a page that shows another count must say so, or the
+    // request offset, the request limit and the footer disagree.
+    expect(text).toContain('Pass `pageSize` (default 20)')
+    expect(text).toContain('`offset` is `(page - 1) * pageSize`')
     expect(registry.packages['@molecule/app-routing-react-router']!.exports).toEqual(
       expect.arrayContaining(['useListRoute', 'ListRouteOptions', 'ListRouteResult']),
     )
