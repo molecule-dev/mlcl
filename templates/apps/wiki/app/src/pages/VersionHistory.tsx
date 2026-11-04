@@ -3,6 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 import { StatPill } from '../components/StatPill.js'
@@ -99,9 +100,19 @@ export function VersionHistory() {
 
   const [page, setPage] = useState<ApiPage | null>(null)
   const [versions, setVersions] = useState<ApiVersion[] | null>(null)
-  const [activeId, setActiveId] = useState<number | null>(null)
   const [restoring, setRestoring] = useState(false)
   const [error, setError] = useState<string | null>(null)
+
+  // The selected version lives in the URL (?v=) via useListRoute, so a
+  // specific version's diff is linkable and Back/Forward walk the versions
+  // the reader inspected. Absent or unknown values fall back to the newest.
+  const listRoute = useListRoute({ filters: { v: {} } })
+  const vParam = listRoute.filters.v
+  const vNumber = vParam !== undefined && /^[1-9]\d*$/.test(vParam) ? Number(vParam) : null
+  const activeId =
+    vNumber !== null && (versions?.some((row) => row.version === vNumber) ?? false)
+      ? vNumber
+      : (versions?.[0]?.version ?? null)
 
   const load = useCallback(async () => {
     if (!params.id) return
@@ -114,7 +125,6 @@ export function VersionHistory() {
       const list = Array.isArray(versionsRes.data) ? versionsRes.data : []
       list.sort((a, b) => b.version - a.version)
       setVersions(list)
-      if (list[0]) setActiveId(list[0].version)
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Failed to load history')
     }
@@ -230,7 +240,9 @@ export function VersionHistory() {
                 <li key={v.id}>
                   <button
                     type="button"
-                    onClick={() => setActiveId(v.version)}
+                    onClick={() => {
+                      if (v.version !== activeId) listRoute.setFilters({ v: String(v.version) })
+                    }}
                     data-testid={`version-row-${v.version}`}
                     className={cm.cn(
                       cm.flex({ align: 'start', gap: 'sm' }),
