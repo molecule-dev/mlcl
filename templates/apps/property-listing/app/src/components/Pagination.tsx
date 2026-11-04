@@ -1,15 +1,20 @@
-import { useState } from 'react'
-
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 export default function Pagination() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [currentPage, setCurrentPage] = useState(1)
+  // Page number reads from (and writes to) the URL's ?page= key, so links,
+  // Back/Forward and reloads keep the page — no mirrored useState.
+  const listRoute = useListRoute({ pageSize: 4 })
+  const currentPage = listRoute.page
   const totalPages = 12
   const totalItems = 124
-  const itemsPerPage = 4
+  const itemsPerPage = listRoute.pageSize
+  const goToPage = (page: number): void => {
+    if (page !== currentPage) listRoute.setPage(page)
+  }
   return (
     <section
       className={cm.cn(
@@ -32,7 +37,7 @@ export default function Pagination() {
       </p>
       <div className={cm.flex({ align: 'center', gap: 'sm' })}>
         <button
-          onClick={() => setCurrentPage((p) => Math.max(1, p - 1))}
+          onClick={() => goToPage(Math.max(1, currentPage - 1))}
           disabled={currentPage === 1}
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'center' }),
@@ -46,7 +51,7 @@ export default function Pagination() {
           </span>
         </button>
         <button
-          onClick={() => setCurrentPage(1)}
+          onClick={() => goToPage(1)}
           className={cm.cn(
             cm.h(10),
             cm.sp('px', 4),
@@ -61,7 +66,7 @@ export default function Pagination() {
           1
         </button>
         <button
-          onClick={() => setCurrentPage(2)}
+          onClick={() => goToPage(2)}
           className={cm.cn(
             cm.h(10),
             cm.sp('px', 4),
@@ -76,7 +81,7 @@ export default function Pagination() {
           2
         </button>
         <button
-          onClick={() => setCurrentPage(3)}
+          onClick={() => goToPage(3)}
           className={cm.cn(
             cm.h(10),
             cm.sp('px', 4),
@@ -94,7 +99,7 @@ export default function Pagination() {
           {t('common.ellipsis', {}, { defaultValue: '...' })}
         </span>
         <button
-          onClick={() => setCurrentPage(12)}
+          onClick={() => goToPage(12)}
           className={cm.cn(
             cm.h(10),
             cm.sp('px', 4),
@@ -109,7 +114,7 @@ export default function Pagination() {
           12
         </button>
         <button
-          onClick={() => setCurrentPage((p) => Math.min(totalPages, p + 1))}
+          onClick={() => goToPage(Math.min(totalPages, currentPage + 1))}
           disabled={currentPage === totalPages}
           className={cm.cn(
             cm.flex({ align: 'center', justify: 'center' }),
