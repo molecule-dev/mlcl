@@ -1070,7 +1070,7 @@ describe('generateMoleculeMd — size bounds', () => {
     expect(result).not.toContain('\n```\n\n*(description truncated')
   })
 
-  it('caps a huge declaration at a line boundary and names the installed .d.ts', () => {
+  it('caps a huge declaration after a whole member, names what it leaves out, and points at the installed .d.ts', () => {
     const result = generateMoleculeMd(
       makeExtracted({
         exports: [
@@ -1086,9 +1086,78 @@ describe('generateMoleculeMd — size bounds', () => {
       makePackageJson({ name: '@molecule/api-e2e' }),
       makeOptions(),
     )
-    expect(result).toContain('… truncated — the full declaration is in')
     expect(result).toContain('node_modules/@molecule/api-e2e/dist/page.d.ts')
+    // The left-out members are named up to a bound, then counted.
+    expect(result).toMatch(
+      /\/\/ … truncated — \d+ more members: member\d+, .* and \d+ more; the full declaration is in /,
+    )
     expect(result).not.toContain('member3999')
+  })
+
+  it('keeps every member of a long commented interface by shortening the member comments', () => {
+    const fields = Array.from({ length: 60 }, (_, i) => `field${i}`)
+    const declaration = `interface ClientConfig {\n${fields
+      .map(
+        (f) =>
+          `  /**\n   * What ${f} sets. ${'It goes on about the details at some length. '.repeat(3)}\n   * @example\n   * createClient({ ${f}: 'x' })\n   */\n  ${f}?: string`,
+      )
+      .join('\n')}\n}`
+    expect(declaration.length).toBeGreaterThan(8000)
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [{ name: 'ClientConfig', kind: 'interface', sourceFile: 'types.ts', declaration }],
+      }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/app-client' }),
+      makeOptions(),
+    )
+    for (const f of fields) expect(result).toContain(`  ${f}?: string`)
+    expect(result).toContain('  /** What field59 sets. */\n  field59?: string\n}\n```')
+    expect(result).toContain(
+      '*(Member comments are shortened to their first sentence to fit; the full declaration is in `node_modules/@molecule/app-client/dist/types.d.ts`.)*',
+    )
+    expect(result).not.toContain('truncated')
+  })
+
+  it('leaves member comments out when their first sentences still do not fit', () => {
+    const fields = Array.from({ length: 120 }, (_, i) => `field${i}`)
+    const declaration = `interface Wide {\n${fields.map((f) => `  /** ${f} ${'carries a single very long first sentence '.repeat(2)}. */\n  ${f}: string`).join('\n')}\n}`
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [{ name: 'Wide', kind: 'interface', sourceFile: 'types.ts', declaration }],
+      }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/app-client' }),
+      makeOptions(),
+    )
+    for (const f of fields) expect(result).toContain(`  ${f}: string`)
+    expect(result).not.toContain('carries a single')
+    expect(result).toContain('*(Member comments are left out to fit;')
+  })
+
+  it('cuts after a whole member and names each member it leaves out', () => {
+    const fields = Array.from({ length: 450 }, (_, i) => `field${i}`)
+    const declaration = `interface Wide {\n${fields.map((f) => `  ${f}: string`).join('\n')}\n}`
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [{ name: 'Wide', kind: 'interface', sourceFile: 'types.ts', declaration }],
+      }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/app-client' }),
+      makeOptions(),
+    )
+    const block = /```typescript\n(interface Wide[\s\S]*?)\n```/.exec(result)?.[1] ?? ''
+    const note =
+      /\/\/ … truncated — (\d+) more members: (.*); the full declaration is in node_modules\/@molecule\/app-client\/dist\/types\.d\.ts$/m.exec(
+        block,
+      )
+    expect(note).not.toBeNull()
+    const listed = note?.[2].split(', ') ?? []
+    expect(Number(note?.[1])).toBe(listed.length)
+    // Every member is either in the block or named in the note, exactly once, and no comment claims comments were cut.
+    for (const f of fields)
+      expect(Number(block.includes(`  ${f}: string`)) + Number(listed.includes(f))).toBe(1)
+    expect(result).not.toContain('Member comments')
   })
 
   it('points a truncated re-exported type at the dependency, not this package’s dist', () => {

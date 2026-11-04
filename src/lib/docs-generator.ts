@@ -15,6 +15,11 @@ import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import type { ExtractedExport, ExtractedModule } from './api-extractor.js'
+import {
+  type CommentCompaction,
+  compactDeclarationComments,
+  cutAtMemberBoundary,
+} from './declaration-fit.js'
 import { loadAppFrameworks } from './registry.js'
 import type { MoleculeSecret, RegistryEntry } from './schema.js'
 
@@ -409,8 +414,10 @@ const MAX_EXPORT_DESCRIPTION_CHARS = 1500
 /**
  * Per-export declaration cap. A re-export of an external library's types
  * (`export * from '@playwright/test'`) otherwise inlines a 270 KB interface —
- * one such block dwarfs the rest of the fleet's docs combined. Long blocks are
- * cut at a line boundary and pointed at the `.d.ts` that ships the full text.
+ * one such block dwarfs the rest of the fleet's docs combined. A longer block
+ * first loses its member comments ({@link fitDeclaration}); one still too long
+ * is cut after a whole member, names the members it leaves out, and points at
+ * the `.d.ts` that ships the full text.
  *
  * Set high enough that an ordinary interface or class — the ones a reader
  * actually needs whole — fits: across the fleet only ~20 of 1031 packages have
@@ -537,15 +544,87 @@ function boundedDescription(exp: ExtractedExport, ctx: ExportBlockContext): stri
   return `${text}${close ? `\n${close}` : ''}\n\n*(description truncated — read the full text in \`${installedDeclarationPath(ctx.packageName, exp)}\`.)*`
 }
 
-/** The signature code block for an export, bounded, with a pointer when cut. */
+/**
+ * Longest list of left-out member names a cut declaration carries, in
+ * characters. A re-exported library interface can leave thousands of members
+ * out; past this the list ends with a count.
+ */
+const MAX_OMITTED_MEMBER_NAMES_CHARS = 1500
+
+/** A declaration fitted to {@link MAX_DECLARATION_CHARS}, and what was given up to fit it. */
+interface FittedDeclaration {
+  /** The text to render. */
+  text: string
+  /** How member comments were shortened to fit, when they were. */
+  comments?: CommentCompaction
+  /** Set when the text was cut: the members left out (empty when the cut was not between members). */
+  cut?: { omitted: string[] }
+}
+
+/**
+ * Fit a declaration to {@link MAX_DECLARATION_CHARS}, giving up the least
+ * useful text first: member comments are shortened to their first sentence,
+ * then removed, and only then is the declaration cut — after its last whole
+ * member, so the members left out can be named.
+ *
+ * @param source - The declaration's text.
+ * @returns The fitted text and what was given up.
+ */
+function fitDeclaration(source: string): FittedDeclaration {
+  if (source.length <= MAX_DECLARATION_CHARS) return { text: source }
+  let shortest = source
+  let comments: CommentCompaction | undefined
+  for (const mode of ['summary', 'drop'] as const) {
+    const compact = compactDeclarationComments(source, mode)
+    if (compact === null) break
+    // No comments to shorten in this mode: nothing given up, nothing to say.
+    if (compact.length >= shortest.trimEnd().length) continue
+    if (compact.length <= MAX_DECLARATION_CHARS) return { text: compact, comments: mode }
+    shortest = compact
+    comments = mode
+  }
+  const atMember = cutAtMemberBoundary(shortest, MAX_DECLARATION_CHARS)
+  if (atMember) return { text: atMember.text, comments, cut: { omitted: atMember.omitted } }
+  return { text: capText(shortest, MAX_DECLARATION_CHARS).text, comments, cut: { omitted: [] } }
+}
+
+/**
+ * The names of left-out members as one line, bounded by
+ * {@link MAX_OMITTED_MEMBER_NAMES_CHARS}.
+ *
+ * @param names - Every left-out member, in declaration order.
+ * @returns `N more members: a, b, c` (ending `… and K more` when bounded).
+ */
+function omittedMembersLine(names: string[]): string {
+  const listed: string[] = []
+  let length = 0
+  for (const name of names) {
+    if (length + name.length + 2 > MAX_OMITTED_MEMBER_NAMES_CHARS) break
+    listed.push(name)
+    length += name.length + 2
+  }
+  const rest = names.length - listed.length
+  const noun = names.length === 1 ? 'member' : 'members'
+  return `${names.length} more ${noun}: ${listed.join(', ')}${rest ? ` and ${rest} more` : ''}`
+}
+
+/**
+ * The signature code block for an export, bounded. A cut block ends with a
+ * comment naming the members it leaves out and the file that has the whole
+ * declaration; shortened member comments are said so under the block.
+ */
 function declarationBlock(exp: ExtractedExport, ctx: ExportBlockContext): string | undefined {
   const source = exp.declaration ?? exp.signature
   if (!source) return undefined
-  const { text, truncated } = capText(source, MAX_DECLARATION_CHARS)
-  const body = truncated
-    ? `${text}\n// … truncated — the full declaration is in ${installedDeclarationPath(ctx.packageName, exp)}`
-    : text
-  return `\`\`\`typescript\n${body}\n\`\`\``
+  const fitted = fitDeclaration(source)
+  const where = installedDeclarationPath(ctx.packageName, exp)
+  const body = fitted.cut
+    ? `${fitted.text}\n// … truncated — ${fitted.cut.omitted.length ? `${omittedMembersLine(fitted.cut.omitted)}; ` : ''}the full declaration is in ${where}`
+    : fitted.text
+  const block = `\`\`\`typescript\n${body}\n\`\`\``
+  if (!fitted.comments) return block
+  const how = fitted.comments === 'summary' ? 'shortened to their first sentence' : 'left out'
+  return `${block}\n\n*(Member comments are ${how} to fit; the full declaration is in \`${where}\`.)*`
 }
 
 /**
