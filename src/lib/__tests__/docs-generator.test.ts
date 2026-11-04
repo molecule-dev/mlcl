@@ -1022,7 +1022,22 @@ describe('generateMoleculeMd — size bounds', () => {
     expect(result).toContain('description truncated')
     expect(result).toContain('node_modules/@molecule/api-database/dist/long-doc.d.ts')
     // Bounded: nowhere near the ~600 lines that went in.
-    expect(result.split('\n').length).toBeLessThan(80)
+    expect(result.split('\n').length).toBeLessThan(120)
+  })
+
+  it('keeps a description of a few thousand characters whole', () => {
+    // `@molecule/app-auth`'s AuthClientConfig description is 2894 characters; at a
+    // 1500 cap it was cut mid-sentence and pointed at dist/ for the rest.
+    const exp = exportWithDescription(54)
+    expect(exp.description?.length).toBeGreaterThan(2800)
+    const result = generateMoleculeMd(
+      makeExtracted({ exports: [exp] }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/api-database' }),
+      makeOptions(),
+    )
+    expect(result).toContain('line 53 of a description that runs well past the cap')
+    expect(result).not.toContain('description truncated')
   })
 
   /**
@@ -1040,7 +1055,7 @@ describe('generateMoleculeMd — size bounds', () => {
         'Intro prose.',
         '',
         `${fence}ts`,
-        ...Array.from({ length: 200 }, (_, i) => `const line${i} = ${i}`),
+        ...Array.from({ length: 400 }, (_, i) => `const line${i} = ${i}`),
         fence,
       ].join('\n'),
       declaration: 'function fencedDoc(): void',

@@ -408,8 +408,17 @@ function generateUsageSection(examples: string[]): string {
  * point is that every export carries its description, not that any one export
  * carries all of it. Past this, a block is cut at a line boundary and pointed
  * at the source, so the document stays scannable and no export is dropped.
+ *
+ * 4000 keeps the descriptions app code reads whole: at 1500, 33 exports in 18
+ * packages were cut, among them `@molecule/app-auth`'s `AuthClientConfig`
+ * (2894 characters, cut mid-sentence), `createBrowserStorageAdapter` and
+ * `@molecule/app-query-react`'s `useQuery` — and a cut sends the reader to the
+ * package's `dist/` for the rest, which a `read_molecule_doc` section read
+ * cannot serve. 28 of the 33 fit under 4000; what remains cut is internal
+ * tooling (`@molecule/api-ai-tools`, `@molecule/api-git-workspace`) and the
+ * model catalog's `MODELS` constant.
  */
-const MAX_EXPORT_DESCRIPTION_CHARS = 1500
+const MAX_EXPORT_DESCRIPTION_CHARS = 4000
 
 /**
  * Per-export declaration cap. A re-export of an external library's types
