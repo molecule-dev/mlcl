@@ -449,6 +449,7 @@ export default class Create extends Command {
           setupSqlVersions,
           apiAuthContract,
         )
+        await ensureRootFormatterConfig(projectPath)
         await ensureAgentsMd(projectPath)
         // The template is copied as built, so its own shape decides the catalog
         // scope — `flags.type` was filled from the template above.

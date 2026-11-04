@@ -17,6 +17,7 @@ import { join } from 'node:path'
 import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import * as Formatter from '../../lib/format.js'
 import Create from '../create.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
@@ -32,13 +33,14 @@ describe('mlcl create --template with flags the template does not take', () => {
   })
 
   afterEach(async () => {
+    vi.restoreAllMocks()
     process.chdir(prevCwd)
     await rm(dir, { recursive: true, force: true })
   })
 
-  async function warningsFor(flags: string[]): Promise<string[]> {
+  async function warningsFor(flags: string[], template = 'blog'): Promise<string[]> {
     const config = await Config.load(MLCL_ROOT)
-    const cmd = new Create(['proj', '--template', 'blog', '--skip-install', ...flags], config)
+    const cmd = new Create(['proj', '--template', template, '--skip-install', ...flags], config)
     const warn = vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
     vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
     await cmd.run()
@@ -64,4 +66,15 @@ describe('mlcl create --template with flags the template does not take', () => {
     expect(warnings.filter((w) => w.includes('was not applied'))).toHaveLength(0)
     expect(warnings.filter((w) => w.includes('were not added'))).toHaveLength(0)
   })
+
+  it.each(['blog', 'static-site-thin'])(
+    'gives the %s fast path a root formatter config without a full format pass',
+    async (template) => {
+      const format = vi.spyOn(Formatter, 'formatGeneratedFiles')
+      await warningsFor([], template)
+      expect(existsSync(join(dir, 'proj', '.prettierrc'))).toBe(true)
+      expect(existsSync(join(dir, 'proj', '.prettierignore'))).toBe(true)
+      expect(format).not.toHaveBeenCalled()
+    },
+  )
 })
