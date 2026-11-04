@@ -57749,12 +57749,16 @@
         "bindingGuidance": {
           "@molecule/app-routing-react-router": [
             "React Router binding: a list whose page, filters or tabs live in the URL uses `useListRoute({ filters, selections, defaultSelection, auth })` from `@molecule/app-routing-react-router`. It returns `page`, `offset` and `filters` for the request, and `href()`, `setPage()`, `setFilters()` and `select()`; a filter or tab change resets the page to one. Do not copy `useSearchParams` values into component state.",
-            "A signed-in-only tab or view is a selection with `requiresAuth: true` plus `auth: { status, redirectTo }` from the session status. Load data only while `canLoad` is true. It waits for the session restore and redirects only a confirmed signed-out visit, with `state.returnTo` set.",
-            "Any other query value is read with `useMoleculeQuery()`; a one-time credential in the address (a reset token, an OAuth `code`) is read with `useConsumedSearchParam(name)`, which also removes it from the URL."
+            "A signed-in-only tab or view is a selection with `requiresAuth: true` plus `auth: { status, redirectTo }`. `status` must be `loading`, `authenticated`, `unauthenticated` or `unavailable`, not an app-specific session label. Adapt your session explicitly: `const routeAuthStatus = restoring ? 'loading' : failed ? 'unavailable' : user ? 'authenticated' : 'unauthenticated'`. Keep `restoring` true until restoration decides; `failed` means restoration is unavailable. Load data only while `canLoad` is true. It waits for the session restore and redirects only a confirmed signed-out visit, with `state.returnTo` set.",
+            "Example (use your app's paths and query keys): `const list = useListRoute({ selections: { all: { path: '/orders' }, mine: { path: '/orders', query: { view: 'mine' }, requiresAuth: true } }, defaultSelection: 'all', auth: { status: routeAuthStatus, redirectTo: '/login' } })`. Use `list.page` and `list.offset` for the request, gated by `list.canLoad`.",
+            "Other query reads can use `useMoleculeQuery()`, which returns a query object and requires `MoleculeRouterProvider` inside your existing React Router. A one-time credential in the address (a reset token, an OAuth `code`) uses `useConsumedSearchParam(name)`; it returns a tuple, for example `const [token] = useConsumedSearchParam('token')`, and removes that key from the URL. Native hook defaults/options and other uncovered operations can stay local."
           ]
         },
         "handRolledCalls": {
           "@molecule/app-routing-react-router": ["useSearchParams"]
+        },
+        "handRolledImports": {
+          "@molecule/app-routing-react-router": ["react-router", "react-router-dom"]
         },
         "configuration": [
           "URL-backed lists (`?page=2`, `?status=open`, a tab such as Mine/All, `/category/:slug`): keep the page, filters and tab in the URL only, read and change them through the declared framework binding, and return to page one when a filter or tab changes.",

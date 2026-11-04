@@ -2,18 +2,27 @@ import { mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promis
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
+import { createElement } from 'react'
+import { renderToString as renderReactToString } from 'react-dom/server'
+import * as ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { createSSRApp, h } from 'vue'
 import { renderToString } from 'vue/server-renderer'
 
 import { createJWTAuthClient } from '@molecule/app-auth'
+import {
+  MemoryRouter,
+  MoleculeRouterProvider,
+  useConsumedSearchParam,
+  useMoleculeQuery,
+} from '@molecule/app-routing-react-router'
 import { createAuthPlugin, useAuth } from '@molecule/app-vue'
 
 import { buildCapabilityMap, renderCapabilityMap } from '../capability-map.js'
 import { synthesizeAppProjectFiles } from '../injector.js'
 import { getRawRegistry, loadRegistry } from '../registry.js'
 import { addPackages, createAppProject, ensureAgentsMd } from '../scaffold.js'
-import { DecisionGuide } from '../schema.js'
+import { DecisionGuide, MoleculeMetadata, RegistryEntry } from '../schema.js'
 
 const registry = getRawRegistry()
 let root: string
@@ -216,6 +225,110 @@ describe('framework-scoped URL list guidance', () => {
       expect(named.length).toBeGreaterThan(0)
       expect(registry.packages[binding]!.exports).toEqual(expect.arrayContaining(named))
     }
+  })
+
+  it('preserves and validates raw call origins at both registry schema boundaries', () => {
+    const entry = {
+      ...registry.packages['@molecule/app-routing']!,
+      decisionGuide: {
+        ...registry.packages['@molecule/app-routing']!.decisionGuide,
+        handRolledImports: {
+          '@molecule/app-routing-react-router': ['react-router', 'react-router-dom'],
+        },
+      },
+    }
+    for (const schema of [RegistryEntry, MoleculeMetadata]) {
+      expect(schema.parse(entry).decisionGuide?.handRolledImports).toEqual(
+        entry.decisionGuide.handRolledImports,
+      )
+      for (const invalid of [[], [''], [42]]) {
+        expect(
+          schema.safeParse({
+            ...entry,
+            decisionGuide: {
+              ...entry.decisionGuide,
+              handRolledImports: { '@molecule/app-routing-react-router': invalid },
+            },
+          }).success,
+        ).toBe(false)
+      }
+    }
+  })
+
+  it('delivers type-correct protected list guidance for an app-owned session state', () => {
+    const text = routing(['@molecule/app-routing-react-router'])
+    const status = text.match(/`(const routeAuthStatus = [^`]+)`/)?.[1]
+    const list = text.match(/`(const list = useListRoute\([^`]+)`/)?.[1]
+    expect(
+      status,
+      'the custom-session adapter must decide restore/failure before signed out',
+    ).toBeDefined()
+    expect(list, 'the note must carry a complete selections/auth example').toBeDefined()
+    const file = join(process.cwd(), 'routing-guidance-example.tsx')
+    const code = [
+      "import { useListRoute } from '@molecule/app-routing-react-router'",
+      'declare const restoring: boolean; declare const failed: boolean; declare const user: unknown',
+      status,
+      list,
+      'if (list.canLoad) { const request = { page: list.page, offset: list.offset }; void request }',
+    ].join('\n')
+    const options: ts.CompilerOptions = {
+      noEmit: true,
+      strict: true,
+      skipLibCheck: true,
+      target: ts.ScriptTarget.ES2022,
+      module: ts.ModuleKind.NodeNext,
+      moduleResolution: ts.ModuleResolutionKind.NodeNext,
+      jsx: ts.JsxEmit.ReactJSX,
+    }
+    const host = ts.createCompilerHost(options)
+    const read = host.getSourceFile.bind(host)
+    host.getSourceFile = (name, version, onError, fresh) =>
+      name === file
+        ? ts.createSourceFile(file, code, version, true, ts.ScriptKind.TSX)
+        : read(name, version, onError, fresh)
+    const diagnostics = ts.getPreEmitDiagnostics(ts.createProgram([file], options, host))
+    expect(
+      diagnostics.map((diagnostic) =>
+        ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n'),
+      ),
+    ).toEqual([])
+    const adapt = new Function(
+      'restoring',
+      'failed',
+      'user',
+      status + '; return routeAuthStatus',
+    ) as (restoring: boolean, failed: boolean, user: unknown) => string
+    expect(adapt(true, false, null)).toBe('loading')
+    expect(adapt(false, true, null)).toBe('unavailable')
+    expect(adapt(false, false, {})).toBe('authenticated')
+    expect(adapt(false, false, null)).toBe('unauthenticated')
+  })
+
+  it('delivers the provider and tuple contract needed for the suggested query hooks', () => {
+    const text = routing(['@molecule/app-routing-react-router'])
+    expect(text).toContain('requires `MoleculeRouterProvider` inside your existing React Router')
+    const credential = text.match(/`(const \[token\] = useConsumedSearchParam\('[^']+'\))`/)?.[1]
+    expect(
+      credential,
+      'a tuple must be destructured before submitting the credential',
+    ).toBeDefined()
+    const consume = new Function('useConsumedSearchParam', credential + '; return token') as (
+      hook: typeof useConsumedSearchParam,
+    ) => string
+    const QueryPage = (): ReturnType<typeof createElement> => {
+      const query = useMoleculeQuery()
+      const token = consume(useConsumedSearchParam)
+      return createElement('span', null, `${query.q}:${token}`)
+    }
+    const rendered = renderReactToString(
+      createElement(
+        MemoryRouter,
+        { initialEntries: ['/search?q=orders&token=callback-value'] },
+        createElement(MoleculeRouterProvider, null, createElement(QueryPage)),
+      ),
+    )
+    expect(rendered).toContain('orders:callback-value')
   })
 
   it('rejects a hand-rolled call that is not an identifier', () => {
