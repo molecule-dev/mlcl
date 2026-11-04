@@ -3047,10 +3047,11 @@ function untouchedRouter(text: string): boolean {
 /**
  * A generated package mount ends at its package handler; app middleware has no such owner.
  * Matches both shapes the router emitter produces: a mount that fits the scaffold's
- * prettier print width on one line, and the broken-out one-argument-per-line form.
+ * prettier print width on one line, the broken-out one-argument-per-line form,
+ * and older scaffolds that kept the path beside the opening parenthesis.
  */
 const ROUTE_BLOCK =
-  /router\.(?:get|post|put|patch|delete|all)\(`[^`\r\n]*`(?:[^\n)]*\)|,\n[\s\S]*?\n\))/g
+  /router\.(?:get|post|put|patch|delete|all)\(\s*`[^`\r\n]*`(?:[^\n)]*\)|,\n[\s\S]*?\n\))/g
 const AUTH_GATE = /router\.use\((\w+)Authorization\.verifyMiddleware\([^\n]*\)\)/g
 
 function routeBlockKey(block: string): string | undefined {

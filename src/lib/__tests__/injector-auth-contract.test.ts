@@ -225,4 +225,67 @@ describe('injector consumes the same auth contract as the app', () => {
     )
     expect(wrapper).not.toContain('adaptAuthHandler')
   })
+
+  it.each([
+    ['legacy multiline', false],
+    ['one line', false],
+    ['prettier multiline', true],
+  ] as const)('updates %s mounts in place across line-length changes', async (layout, longPath) => {
+    await mkdir(join(root, 'src', 'App'), { recursive: true })
+    const routerPath = join(root, 'src', 'App', 'router.ts')
+    await writeFile(join(root, 'auth-contract.json'), JSON.stringify(contract()))
+    const initial = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
+    const generated = String(initial.find((file) => file.targetPath === routerPath)!.content)
+    const oldPath = longPath ? `/sessions/${'old-segment/'.repeat(10)}` : '/sessions'
+    const source = ts.createSourceFile('router.ts', generated, ts.ScriptTarget.ES2022, true)
+    const login = source.statements.find(
+      (statement): statement is ts.ExpressionStatement =>
+        ts.isExpressionStatement(statement) &&
+        ts.isCallExpression(statement.expression) &&
+        statement.expression.arguments.at(-1)?.getText(source) === 'User.logIn',
+    )!
+    const call = login.expression as ts.CallExpression
+    const args = [`\`${oldPath}\``, ...call.arguments.slice(1).map((arg) => arg.getText(source))]
+    const mount =
+      layout === 'legacy multiline'
+        ? `router.post(${args[0]},\n${args
+            .slice(1)
+            .map((arg) => `  ${arg}`)
+            .join(',\n')}\n)`
+        : layout === 'one line'
+          ? `router.post(${args.join(', ')})`
+          : `router.post(\n${args.map((arg) => `  ${arg},`).join('\n')}\n)`
+    const before = 'router.use(beforeLogin)'
+    const after = 'router.use(afterLogin)'
+    const existing = generated.replace(call.getText(source), `${before}\n${mount}\n${after}`)
+    expect(existing).toContain(mount)
+    await writeFile(routerPath, existing)
+
+    // Exercise both directions: a compact mount becomes long, then short again.
+    for (const path of [`/v2/sessions/${'new-segment/'.repeat(10)}`, '/v3/sessions']) {
+      const changed = contract()
+      changed.routes = changed.routes.map((route) =>
+        route.handler === 'logIn' ? { ...route, path } : route,
+      )
+      await writeFile(join(root, 'auth-contract.json'), JSON.stringify(changed))
+      const files = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
+      const replacement = files.find((file) => file.targetPath === routerPath)
+      expect(replacement, 'changed mount must be recognized').toBeDefined()
+      const updated = String(replacement!.content)
+      expect(updated.match(/User\.logIn\b/g)).toHaveLength(1)
+      expect(updated).toContain(`\`${path}\``)
+      expect(updated).not.toContain(`\`${oldPath}\``)
+      expect(updated.indexOf(before)).toBeLessThan(updated.indexOf(`\`${path}\``))
+      expect(updated.indexOf(after)).toBeGreaterThan(updated.indexOf(`\`${path}\``))
+      await writeFile(routerPath, updated)
+      const repeated = await synthesizeProjectFiles(
+        [plan()],
+        [RESOURCE],
+        root,
+        undefined,
+        'express',
+      )
+      expect(repeated.some((file) => file.targetPath === routerPath)).toBe(false)
+    }
+  })
 })

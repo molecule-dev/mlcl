@@ -824,11 +824,13 @@ async function injectPreviewBridge(
     return false
   }
   await writePreviewBridgeAsset(htmlPath, publicDir, name, literal)
-  // Insert at the START of the </body> line, not at the tag: the reference carries
-  // its own indentation, and inserting at the tag would glue it onto the line's
-  // leading spaces (a double-indented first line) while pushing </body> to column 0.
+  // Reuse a closing tag's indentation only when its line contains whitespace.
+  // Compact documents can share that line with app content or even the doctype.
   const lineStart = html.lastIndexOf('\n', closingBodyIndex) + 1
-  const next = html.slice(0, lineStart) + reference + html.slice(lineStart)
+  const insertionIndex = /^[\t ]*$/.test(html.slice(lineStart, closingBodyIndex))
+    ? lineStart
+    : closingBodyIndex
+  const next = html.slice(0, insertionIndex) + reference + html.slice(insertionIndex)
   // A read-modify-write of the entry document that already exists: guarded,
   // so a failed write restores its bytes instead of truncating index.html.
   await writeGuarded(htmlPath, next)
