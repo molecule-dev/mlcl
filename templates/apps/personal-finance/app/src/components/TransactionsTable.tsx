@@ -69,11 +69,19 @@ function TransactionsTable({
   loading = false,
   error = null,
   onRetry,
+  total,
+  page,
+  pageSize,
+  onPageChange,
 }: {
   transactions?: Transaction[]
   loading?: boolean
   error?: string | null
   onRetry?: () => void
+  total: number
+  page: number
+  pageSize: number
+  onPageChange: (page: number) => void
 }) {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -143,7 +151,15 @@ function TransactionsTable({
         amount: t('form.amount', {}, { defaultValue: 'Amount' }),
       }}
       emptyState={emptyState}
-      footer={<TransactionPagination />}
+      footer={
+        <TransactionPagination
+          shownItems={transactions.length}
+          totalItems={total}
+          currentPage={page}
+          itemsPerPage={pageSize}
+          onPageChange={onPageChange}
+        />
+      }
     />
   )
 }

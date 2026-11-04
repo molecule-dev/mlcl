@@ -1,21 +1,28 @@
 import { useTranslation } from '@molecule/app-react'
-import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
-export default function TransactionPagination() {
+export default function TransactionPagination({
+  currentPage,
+  totalItems,
+  itemsPerPage,
+  shownItems,
+  onPageChange,
+}: {
+  currentPage: number
+  totalItems: number
+  itemsPerPage: number
+  shownItems: number
+  onPageChange: (page: number) => void
+}) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  // Page number reads from (and writes to) the URL's ?page= key, so links,
-  // Back/Forward and reloads keep the page — no mirrored useState.
-  const listRoute = useListRoute({ pageSize: 12 })
-  const currentPage = listRoute.page
-  const totalItems = 248
-  const itemsPerPage = listRoute.pageSize
-  const totalPages = Math.ceil(totalItems / itemsPerPage)
-  const startItem = (currentPage - 1) * itemsPerPage + 1
-  const endItem = Math.min(currentPage * itemsPerPage, totalItems)
-  const goToPage = (page: number): void => {
-    if (page !== currentPage) listRoute.setPage(page)
+  const totalPages = Math.max(1, Math.ceil(totalItems / itemsPerPage))
+  const pages = [...new Set([1, currentPage - 1, currentPage, currentPage + 1, totalPages])]
+    .filter((page) => page >= 1 && page <= totalPages)
+    .sort((a, b) => a - b)
+  const goToPage = (next: number): void => {
+    const page = Math.max(1, Math.min(totalPages, next))
+    if (page !== currentPage) onPageChange(page)
   }
   return (
     <div
@@ -34,58 +41,41 @@ export default function TransactionPagination() {
       >
         {t(
           'transactionPagination.showing',
-          { shown: endItem - startItem + 1, total: totalItems },
+          { shown: shownItems, total: totalItems },
           { defaultValue: 'Showing {{shown}} of {{total}} transactions' },
         )}
       </p>
-      <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
+      <div className={cm.flex({ align: 'center', gap: 'xs' })}>
         <button
-          className={cm.cn(
-            'w-9 h-9 flex items-center justify-center rounded-lg font-bold text-sm transition-colors',
-            currentPage === 1
-              ? 'bg-success-light text-success'
-              : 'text-foreground-secondary hover:bg-surface-secondary',
-          )}
-          onClick={() => goToPage(1)}
+          className={cm.button({ variant: 'ghost', size: 'sm' })}
+          onClick={() => goToPage(currentPage - 1)}
+          disabled={currentPage <= 1}
         >
-          {t('transactionPagination.pageNumber', { page: 1 }, { defaultValue: '{{page}}' })}
+          {t('common.previous', {}, { defaultValue: 'Previous' })}
         </button>
+        {pages.map((page, index) => (
+          <span key={page}>
+            {index > 0 && page > pages[index - 1]! + 1 && (
+              <span className={cm.sp('px', 2)}>
+                {t('transactionPagination.morePages', {}, { defaultValue: '...' })}
+              </span>
+            )}
+            <button
+              className={cm.button({
+                variant: currentPage === page ? 'solid' : 'ghost',
+                size: 'sm',
+              })}
+              aria-current={currentPage === page ? 'page' : undefined}
+              onClick={() => goToPage(page)}
+            >
+              {t('transactionPagination.pageNumber', { page }, { defaultValue: '{{page}}' })}
+            </button>
+          </span>
+        ))}
         <button
-          className={cm.cn(
-            'w-9 h-9 flex items-center justify-center rounded-lg font-bold text-sm transition-colors',
-            currentPage === 2
-              ? 'bg-success-light text-success'
-              : 'text-foreground-secondary hover:bg-surface-secondary',
-          )}
-          onClick={() => goToPage(2)}
-        >
-          {t('transactionPagination.pageNumber', { page: 2 }, { defaultValue: '{{page}}' })}
-        </button>
-        <button
-          className={cm.cn(
-            'w-9 h-9 flex items-center justify-center rounded-lg font-bold text-sm transition-colors',
-            currentPage === 3
-              ? 'bg-success-light text-success'
-              : 'text-foreground-secondary hover:bg-surface-secondary',
-          )}
-          onClick={() => goToPage(3)}
-        >
-          {t('transactionPagination.pageNumber', { page: 3 }, { defaultValue: '{{page}}' })}
-        </button>
-        <span className={cm.cn(cm.sp('px', 2), 'text-foreground-tertiary')}>
-          {t('transactionPagination.morePages', {}, { defaultValue: '...' })}
-        </span>
-        <button
-          className={cm.cn(
-            cm.sp('px', 4),
-            cm.h(9),
-            cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),
-            cm.textSize('sm'),
-            cm.fontWeight('bold'),
-            'rounded-lg text-foreground-secondary hover:bg-surface-secondary transition-colors',
-          )}
-          onClick={() => goToPage(Math.min(currentPage + 1, totalPages))}
-          disabled={currentPage === totalPages}
+          className={cm.button({ variant: 'ghost', size: 'sm' })}
+          onClick={() => goToPage(currentPage + 1)}
+          disabled={currentPage >= totalPages}
         >
           {t('common.next', {}, { defaultValue: 'Next' })}
           <span className={cm.cn('material-symbols-outlined', cm.textSize('lg'))}>

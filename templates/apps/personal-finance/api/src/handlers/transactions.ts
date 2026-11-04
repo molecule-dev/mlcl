@@ -53,7 +53,7 @@ router.get('/', async (req: Request, res: Response) => {
       return res.status(401).json({ error: t('auth.unauthorized') })
     }
 
-    const { account_id, category_id, start_date, end_date, type, limit, offset } = req.query
+    const { account_id, category_id, start_date, end_date, type, limit, offset, search } = req.query
 
     const where: WhereCondition[] = [{ field: 'user_id', operator: '=', value: userId }]
 
@@ -75,14 +75,56 @@ router.get('/', async (req: Request, res: Response) => {
 
     const orderBy: OrderBy[] = [{ field: 'date', direction: 'desc' }]
 
-    const transactions = await findMany('transactions', {
-      where,
-      orderBy,
-      limit: Number(limit) || 50,
-      offset: Number(offset) || 0,
-    })
+    const pageSize = Number(limit) || 50
+    const start = Number(offset) || 0
+    let transactions: Record<string, unknown>[]
+    let matchedTotal: number | undefined
+    const needle = String(search ?? '')
+      .trim()
+      .toLowerCase()
+    if (needle) {
+      // These are the same fields searched by the UI. Match the private,
+      // type/date-scoped list before applying the requested page offset.
+      transactions = []
+      matchedTotal = 0
+      const batchSize = 200
+      for (let batchOffset = 0; ; batchOffset += batchSize) {
+        const batch = await findMany('transactions', {
+          where,
+          orderBy,
+          limit: batchSize,
+          offset: batchOffset,
+        })
+        for (const row of batch) {
+          if (
+            ![row.description, row.category_name, row.notes].some((value) =>
+              String(value ?? '')
+                .toLowerCase()
+                .includes(needle),
+            )
+          )
+            continue
+          if (matchedTotal >= start && transactions.length < pageSize) transactions.push(row)
+          matchedTotal += 1
+        }
+        if (batch.length < batchSize) break
+      }
+    } else {
+      transactions = await findMany('transactions', {
+        where,
+        orderBy,
+        limit: pageSize,
+        offset: start,
+      })
+    }
 
-    res.json(transactions)
+    // Existing consumers keep the array response. The paginated list opts in
+    // to a count using the exact same user/type/date scope as its rows.
+    if (req.query.include_total === 'true') {
+      res.json({ data: transactions, total: matchedTotal ?? (await count('transactions', where)) })
+    } else {
+      res.json(transactions)
+    }
   } catch (error) {
     logger.error('transactions.handler', error)
     res.status(500).json({ error: t('errors.internalServer') })

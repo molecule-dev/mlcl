@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react'
-import { Link, useNavigate } from 'react-router'
+import { Link, useLocation, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
@@ -10,9 +10,10 @@ function TopAppBar() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
+  const location = useLocation()
 
-  const listRoute = useListRoute({ filters: { search: {} } })
-  const [search, setSearch] = useState(listRoute.filters.search ?? '')
+  const listRoute = useListRoute({ pageSize: 12, filters: { search: {} } })
+  const search = listRoute.filters.search ?? ''
   const [notificationsOpen, setNotificationsOpen] = useState(false)
   const notificationsRef = useRef<HTMLDivElement>(null)
   useEffect(() => {
@@ -46,6 +47,7 @@ function TopAppBar() {
             search
           </span>
           <input
+            data-mol-id="transactions-search"
             className={cm.cn(
               cm.w('full'),
               cm.roundedFull,
@@ -62,14 +64,17 @@ function TopAppBar() {
             )}
             type="text"
             value={search}
-            onChange={(e) => setSearch(e.target.value)}
+            onChange={(e) =>
+              listRoute.setFilters({ search: e.target.value || undefined }, { replace: true })
+            }
             onKeyDown={(e) => {
               if (e.key !== 'Enter') return
-              navigate(
-                search.trim()
-                  ? '/transactions?search=' + encodeURIComponent(search.trim())
-                  : '/transactions',
-              )
+              const change = { page: 1, filters: { search: search.trim() || undefined } }
+              if (location.pathname === '/transactions') listRoute.navigate(change)
+              else
+                navigate('/transactions' + listRoute.href(change).slice(location.pathname.length), {
+                  state: location.state,
+                })
             }}
           />
         </div>
