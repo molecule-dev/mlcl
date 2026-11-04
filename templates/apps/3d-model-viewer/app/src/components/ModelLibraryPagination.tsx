@@ -1,6 +1,5 @@
-import { useState } from 'react'
-
 import { useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
 const TOTAL_PAGES = 12
@@ -8,7 +7,13 @@ const TOTAL_PAGES = 12
 function ModelLibraryPagination() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [page, setPage] = useState(1)
+  // Page number reads from (and writes to) the URL's ?page= key, so links,
+  // Back/Forward and reloads keep the page — no mirrored useState.
+  const listRoute = useListRoute()
+  const page = listRoute.page
+  const goToPage = (next: number): void => {
+    if (next !== page) listRoute.setPage(next)
+  }
   return (
     <div className={cm.cn(cm.sp('mt', 12), cm.flex({ justify: 'center' }), cm.sp('pb', 8))}>
       <nav className={cm.flex({ align: 'center', gap: 2 })}>
@@ -21,14 +26,14 @@ function ModelLibraryPagination() {
             'text-on-surface-variant hover:bg-surface-container transition-colors disabled:opacity-50',
           )}
           disabled={page === 1}
-          onClick={() => setPage((p) => Math.max(1, p - 1))}
+          onClick={() => goToPage(Math.max(1, page - 1))}
         >
           <span className="material-symbols-outlined text-[20px]">chevron_left</span>
         </button>
         {[1, 2, 3].map((n) => (
           <button
             key={n}
-            onClick={() => setPage(n)}
+            onClick={() => goToPage(n)}
             className={
               page === n
                 ? cm.cn(
@@ -58,7 +63,7 @@ function ModelLibraryPagination() {
           {t('modelLibraryPagination.ellipsis', {}, { defaultValue: '...' })}
         </span>
         <button
-          onClick={() => setPage(TOTAL_PAGES)}
+          onClick={() => goToPage(TOTAL_PAGES)}
           className={
             page === TOTAL_PAGES
               ? cm.cn(
@@ -92,7 +97,7 @@ function ModelLibraryPagination() {
             'text-on-surface-variant hover:bg-surface-container transition-colors disabled:opacity-50',
           )}
           disabled={page === TOTAL_PAGES}
-          onClick={() => setPage((p) => Math.min(TOTAL_PAGES, p + 1))}
+          onClick={() => goToPage(Math.min(TOTAL_PAGES, page + 1))}
         >
           <span className="material-symbols-outlined text-[20px]">chevron_right</span>
         </button>

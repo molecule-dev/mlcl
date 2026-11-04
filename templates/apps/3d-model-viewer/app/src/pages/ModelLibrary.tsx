@@ -58,19 +58,20 @@ function ModelLibrary() {
   const http = useHttpClient()
   const { t } = useTranslation()
 
-  const listRoute = useListRoute({ filters: { category: {}, q: {} } })
+  const listRoute = useListRoute({ pageSize: PAGE_SIZE, filters: { category: {}, q: {} } })
   // Category comes from the sidebar links (?category=…); q lets the dashboard
-  // search bar hand off a query.
+  // search bar hand off a query. The page (?page=) shares the same URL state,
+  // so page links, Back/Forward and reloads keep the view.
   const category = listRoute.filters.category ?? ''
+  const search = listRoute.filters.q ?? ''
+  const page = listRoute.page
   const [allModels, setAllModels] = useState<ApiModel[]>([])
   const [loading, setLoading] = useState(true)
   const [fetchError, setFetchError] = useState<string | null>(null)
-  const [search, setSearch] = useState(() => listRoute.filters.q ?? '')
   const [format, setFormat] = useState('All Formats')
   // 100 = no polycount limit; lower values keep only lighter models.
   const [polycount, setPolycount] = useState(100)
   const [sort, setSort] = useState('Recent')
-  const [page, setPage] = useState(1)
 
   useEffect(() => {
     http
@@ -94,11 +95,6 @@ function ModelLibrary() {
       .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [])
-
-  // Reset to page 1 whenever the sidebar category changes.
-  useEffect(() => {
-    setPage(1)
-  }, [category])
 
   const maxPoly = allModels.reduce((max, m) => Math.max(max, Number(m.polygon_count) || 0), 0)
   const polyLimit = polycount >= 100 ? Infinity : (polycount / 100) * maxPoly
@@ -130,7 +126,7 @@ function ModelLibrary() {
   })
 
   const totalPages = Math.max(1, Math.ceil(sorted.length / PAGE_SIZE))
-  const paged = sorted.slice((page - 1) * PAGE_SIZE, page * PAGE_SIZE).map((m) => ({
+  const paged = sorted.slice(listRoute.offset, listRoute.offset + listRoute.pageSize).map((m) => ({
     id: m.id,
     name: m.name ?? '',
     format: (m.format || 'glb').toUpperCase(),
@@ -153,8 +149,8 @@ function ModelLibrary() {
       <ModelLibraryHeader
         search={search}
         onSearch={(q) => {
-          setSearch(q)
-          setPage(1)
+          // setFilters writes ?q= and returns to page one atomically.
+          listRoute.setFilters({ q: q || undefined }, { replace: true })
         }}
       />
       {/* Content Area */}
@@ -168,7 +164,7 @@ function ModelLibrary() {
           )}
         >
           <Link
-            to="/models"
+            to={listRoute.href({ filters: { category: undefined } })}
             className={
               category === ''
                 ? cm.cn(
@@ -192,7 +188,7 @@ function ModelLibrary() {
           {CATEGORIES.map((c) => (
             <Link
               key={c.slug}
-              to={`/models?category=${c.slug}`}
+              to={listRoute.href({ filters: { category: c.slug } })}
               className={
                 category === c.slug
                   ? cm.cn(
@@ -223,12 +219,12 @@ function ModelLibrary() {
           format={format}
           onFormat={(f) => {
             setFormat(f)
-            setPage(1)
+            if (page !== 1) listRoute.setPage(1)
           }}
           polycount={polycount}
           onPolycount={(v) => {
             setPolycount(v)
-            setPage(1)
+            if (page !== 1) listRoute.setPage(1)
           }}
           sort={sort}
           onSort={setSort}
@@ -243,7 +239,13 @@ function ModelLibrary() {
           }
         />
         {/* Pagination */}
-        <ModelPagination page={page} totalPages={totalPages} onPage={setPage} />
+        <ModelPagination
+          page={page}
+          totalPages={totalPages}
+          onPage={(p) => {
+            if (p !== page) listRoute.setPage(p)
+          }}
+        />
       </div>
     </div>
   )
