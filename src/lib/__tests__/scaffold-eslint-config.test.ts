@@ -67,6 +67,20 @@ afterEach(async () => {
 })
 
 describe('the shared scaffold eslint config', () => {
+  // Every project ships this file as `eslint.config.js`, and the platform's format pass runs
+  // ESLint over every shipped file, the config included (`npm run lint` covers only `src`). An
+  // error here reached every project unseen (a `no-useless-escape` in the router-import regex).
+  it('lints itself without errors', async () => {
+    const [result] = await eslint.lintText(await readFile(TEMPLATE, 'utf8'), {
+      filePath: join(dir, 'eslint.config.js'),
+    })
+    expect(
+      result.messages
+        .filter((message) => message.severity === 2)
+        .map((message) => `${message.line}: ${message.ruleId ?? message.message}`),
+    ).toEqual([])
+  })
+
   it('autofixes a storage catch once without changing its fallback', async () => {
     const source = [
       'export function readToken(): string | null {',

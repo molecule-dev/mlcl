@@ -551,7 +551,7 @@ const moleculeLocal = {
           const source =
             definition?.type === 'ImportBinding' ? definition.parent.source.value : null
           return (
-            typeof source === 'string' && /(?:^|[\/@-])(?:api|http|client)(?:$|[\/.-])/.test(source)
+            typeof source === 'string' && /(?:^|[/@-])(?:api|http|client)(?:$|[/.-])/.test(source)
           )
         }
         // `!value` or `!record.field`: the opposite of a value read now. A call's negation
