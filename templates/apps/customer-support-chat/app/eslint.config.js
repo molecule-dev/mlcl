@@ -464,8 +464,10 @@ const moleculeLocal = {
       create(context) {
         const helpers = new Set(['useOptimisticValue', 'createOptimisticValue'])
         let reactModule = false
-        let usesHelper = false
         const candidates = []
+        const submitHandlers = new Set()
+        const helperCommits = new Set()
+        const localCalls = new Set(['confirm', 'confirmDialog', 'alert', 'prompt'])
         const isFunction = (node) =>
           node?.type === 'FunctionDeclaration' ||
           node?.type === 'FunctionExpression' ||
@@ -481,18 +483,82 @@ const moleculeLocal = {
             current &&
             (current.type === 'AwaitExpression' ||
               current.type === 'TSAsExpression' ||
+              current.type === 'TSSatisfiesExpression' ||
+              current.type === 'TSTypeAssertion' ||
               current.type === 'TSNonNullExpression' ||
               current.type === 'ChainExpression')
           )
             current = current.type === 'AwaitExpression' ? current.argument : current.expression
           return current
         }
+        const variableFor = (node) => {
+          if (node?.type !== 'Identifier') return null
+          let scope = context.sourceCode.getScope(node)
+          while (scope) {
+            if (scope.set.has(node.name)) return scope.set.get(node.name)
+            scope = scope.upper
+          }
+          return null
+        }
+        const functionFor = (node) => {
+          const expression = unwrap(node)
+          if (isFunction(expression)) return expression
+          const definition = variableFor(expression)?.defs[0]
+          const value =
+            definition?.type === 'FunctionName' ? definition.node : definition?.node.init
+          return isFunction(value) ? value : null
+        }
+        const callName = (node) => {
+          const callee = unwrap(node?.callee)
+          return callee?.type === 'Identifier'
+            ? callee.name
+            : callee?.type === 'MemberExpression'
+              ? callee.computed
+                ? callee.property.value
+                : callee.property.name
+              : null
+        }
+        // Promise use alone does not imply persistence (animations, dialogs and analytics
+        // also return promises). Recognize HTTP/mutation methods, application save actions,
+        // and imported API clients. This remains a structural warning, not a whole-program
+        // proof that an arbitrarily named custom function reaches a server.
+        const persistenceCall = (node) => {
+          if (node?.type !== 'CallExpression') return false
+          const name = callName(node)
+          if (typeof name !== 'string' || localCalls.has(name)) return false
+          if (
+            [
+              'fetch',
+              'post',
+              'put',
+              'patch',
+              'delete',
+              'request',
+              'mutate',
+              'mutateasync',
+            ].includes(name.toLowerCase())
+          )
+            return true
+          if (
+            /^(?:save|persist|update|toggle|favorite|unfavorite|follow|unfollow|like|unlike|bookmark|unbookmark|star|unstar)(?:$|[A-Z_])/.test(
+              name,
+            ) ||
+            /^set[A-Z]/.test(name)
+          )
+            return true
+          const definition = variableFor(unwrap(node.callee))?.defs[0]
+          const source =
+            definition?.type === 'ImportBinding' ? definition.parent.source.value : null
+          return (
+            typeof source === 'string' && /(?:^|[\/@-])(?:api|http|client)(?:$|[\/.-])/.test(source)
+          )
+        }
         // `!value` or `!record.field`: the opposite of a value read now. A call's negation
         // (`!confirm()`) is a question, not a toggled value.
         const negatedRead = (node) =>
-          node?.type === 'UnaryExpression' &&
-          node.operator === '!' &&
-          ['Identifier', 'MemberExpression'].includes(unwrap(node.argument)?.type)
+          unwrap(node)?.type === 'UnaryExpression' &&
+          unwrap(node).operator === '!' &&
+          ['Identifier', 'MemberExpression'].includes(unwrap(unwrap(node).argument)?.type)
         // `const next = !favorited` inside the function: names that hold a toggled value.
         const toggledNames = (fn) => {
           const names = new Set()
@@ -504,7 +570,7 @@ const moleculeLocal = {
               node.id.type === 'Identifier' &&
               negatedRead(node.init)
             )
-              names.add(node.id.name)
+              names.add(variableFor(node.id))
             for (const key of Object.keys(node)) {
               if (key === 'parent') continue
               const value = node[key]
@@ -516,23 +582,30 @@ const moleculeLocal = {
           return names
         }
         const toggled = (node, names) =>
-          negatedRead(node) || (node?.type === 'Identifier' && names.has(node.name))
+          negatedRead(node) ||
+          (unwrap(node)?.type === 'Identifier' && names.has(variableFor(unwrap(node))))
         // `{ notifications: !settings.notifications }`: a field set to the opposite of itself.
         const selfToggle = (property) => {
           if (property.type !== 'Property' || !negatedRead(property.value)) return false
-          const read = unwrap(property.value.argument)
+          const read = unwrap(unwrap(property.value).argument)
           const key = property.key.type === 'Identifier' ? property.key.name : property.key.value
           const field = read.type === 'MemberExpression' ? read.property.name : read.name
           return key === field
         }
         // Awaited, or chained with then/catch/finally, directly or through the variable it is stored in.
-        const promiseUsed = (node, fn) => {
+        const promiseUsed = (node, fn, seen = new Set()) => {
+          if (seen.has(node)) return false
+          seen.add(node)
           let current = node
           while (
             current.parent &&
-            ['TSAsExpression', 'TSNonNullExpression', 'ChainExpression'].includes(
-              current.parent.type,
-            )
+            [
+              'TSAsExpression',
+              'TSSatisfiesExpression',
+              'TSTypeAssertion',
+              'TSNonNullExpression',
+              'ChainExpression',
+            ].includes(current.parent.type)
           )
             current = current.parent
           const parent = current.parent
@@ -547,14 +620,14 @@ const moleculeLocal = {
           if (parent?.type === 'ReturnStatement' || (parent === fn && fn.expression))
             return fn.async
           if (parent?.type === 'ConditionalExpression' && parent.test !== current)
-            return promiseUsed(parent, fn)
+            return promiseUsed(parent, fn, seen)
           if (parent?.type === 'VariableDeclarator' && parent.id.type === 'Identifier') {
             const variable = context.sourceCode
               .getDeclaredVariables(parent)
               .find((entry) => entry.name === parent.id.name)
             return (variable?.references ?? []).some(
               (reference) =>
-                reference.identifier !== parent.id && promiseUsed(reference.identifier, fn),
+                reference.identifier !== parent.id && promiseUsed(reference.identifier, fn, seen),
             )
           }
           return false
@@ -587,10 +660,11 @@ const moleculeLocal = {
           }
           const visit = (node) => {
             if (found || !node || typeof node.type !== 'string') return
+            if (isFunction(node)) return
             if (
               node.type === 'CallExpression' &&
               node.callee.type === 'Identifier' &&
-              setters.has(node.callee.name) &&
+              setters.has(variableFor(node.callee)) &&
               node.range[0] < save.range[0]
             )
               node.arguments.forEach(mentionsToggle)
@@ -615,14 +689,36 @@ const moleculeLocal = {
                   : null
             if (hook !== 'useState' || node.id.type !== 'ArrayPattern') return
             const setter = node.id.elements[1]
-            if (setter?.type === 'Identifier') setters.add(setter.name)
+            if (setter?.type === 'Identifier') setters.add(variableFor(setter))
           },
           ImportDeclaration(node) {
             if (node.source.value === 'react') reactModule = true
             for (const specifier of node.specifiers) {
               const name = specifier.imported?.name ?? specifier.local?.name
-              if (helpers.has(name)) usesHelper = true
+              if (helpers.has(name)) helpers.add(specifier.local.name)
+              if (String(node.source.value).includes('analytics'))
+                localCalls.add(specifier.local.name)
             }
+          },
+          JSXAttribute(node) {
+            if (node.name.name !== 'onSubmit') return
+            const fn = functionFor(node.value?.expression)
+            const collect = (handler) => {
+              if (!handler || submitHandlers.has(handler)) return
+              submitHandlers.add(handler)
+              const visit = (node) => {
+                if (!node || typeof node.type !== 'string' || isFunction(node)) return
+                if (node.type === 'CallExpression') collect(functionFor(node.callee))
+                for (const key of Object.keys(node)) {
+                  if (key === 'parent') continue
+                  const value = node[key]
+                  if (Array.isArray(value)) value.forEach(visit)
+                  else if (value && typeof value.type === 'string') visit(value)
+                }
+              }
+              visit(handler.body)
+            }
+            collect(fn)
           },
           JSXElement() {
             reactModule = true
@@ -632,6 +728,18 @@ const moleculeLocal = {
           },
           CallExpression(node) {
             candidates.push({ kind: 'call', node })
+            if (helpers.has(callName(node))) {
+              const options = unwrap(node.arguments[0])
+              if (options?.type === 'ObjectExpression') {
+                for (const property of options.properties) {
+                  if (property.type !== 'Property') continue
+                  const key = property.key.name ?? property.key.value
+                  if (key !== 'commit') continue
+                  const fn = functionFor(property.value)
+                  if (fn) helperCommits.add(fn)
+                }
+              }
+            }
           },
           ConditionalExpression(node) {
             candidates.push({ kind: 'choice', node })
@@ -647,7 +755,7 @@ const moleculeLocal = {
               candidates.push({ kind: 'method', node })
           },
           'Program:exit'() {
-            if (!reactModule || usesHelper) return
+            if (!reactModule) return
             const reported = new Set()
             const names = new Map()
             const namesFor = (fn) => {
@@ -656,11 +764,33 @@ const moleculeLocal = {
             }
             for (const { kind, node } of candidates) {
               const fn = enclosingFunction(node)
-              if (!fn || reported.has(fn)) continue
-              let hit = kind === 'method'
+              if (!fn || reported.has(fn) || submitHandlers.has(fn) || helperCommits.has(fn))
+                continue
+              let hit = false
+              if (kind === 'method') {
+                const object = node.parent
+                const usedAsRequestOptions = (expression) => {
+                  const request = expression.parent
+                  return (
+                    persistenceCall(request) &&
+                    request.arguments.includes(expression) &&
+                    promiseUsed(request, fn)
+                  )
+                }
+                if (object?.type === 'ObjectExpression') {
+                  hit = usedAsRequestOptions(object)
+                  if (!hit && object.parent?.type === 'VariableDeclarator') {
+                    const variable = variableFor(object.parent.id)
+                    hit = (variable?.references ?? []).some((reference) =>
+                      usedAsRequestOptions(reference.identifier),
+                    )
+                  }
+                }
+              }
               if (kind === 'call') {
                 const held = namesFor(fn)
                 hit =
+                  persistenceCall(node) &&
                   node.arguments.some(
                     (argument) =>
                       toggled(argument, held) ||
@@ -668,17 +798,20 @@ const moleculeLocal = {
                         argument.properties.some(
                           (property) =>
                             selfToggle(property) ||
-                            (property.type === 'Property' &&
-                              property.value.type === 'Identifier' &&
-                              held.has(property.value.name)),
+                            (property.type === 'Property' && toggled(property.value, held)),
                         )),
-                  ) && promiseUsed(node, fn)
+                  ) &&
+                  promiseUsed(node, fn)
               }
               if (kind === 'choice') {
                 const branches = [node.consequent, node.alternate].map(unwrap)
+                const methods = branches.map((branch) => callName(branch)?.toUpperCase())
+                const deleteAndWrite =
+                  methods.includes('DELETE') &&
+                  methods.some((method) => ['POST', 'PUT', 'PATCH'].includes(method))
                 hit =
-                  toggled(unwrap(node.test), namesFor(fn)) &&
-                  branches.every((branch) => branch?.type === 'CallExpression') &&
+                  (toggled(unwrap(node.test), namesFor(fn)) || deleteAndWrite) &&
+                  branches.every(persistenceCall) &&
                   (promiseUsed(node, fn) ||
                     [node.consequent, node.alternate].every(
                       (branch) => branch.type === 'AwaitExpression',

@@ -1,5 +1,6 @@
 import { copyFile, mkdir, mkdtemp, rm, symlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
+import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
@@ -18,7 +19,7 @@ const require = createRequire(import.meta.url)
 const template = fileURLToPath(
   new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),
 )
-const tmp = join(import.meta.dirname, '../../../.tmp')
+const tmp = tmpdir()
 await mkdir(tmp, { recursive: true })
 const dir = await mkdtemp(join(tmp, 'mlcl-optimistic-toggle-rule-'))
 const configPath = join(dir, 'eslint.config.mjs')
@@ -90,6 +91,164 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
 
     tester.run('server-toggles-use-optimistic-value', rule, {
       valid: [
+        {
+          name: 'an asynchronous local animation persists no preference',
+          filename: 'Panel.tsx',
+          code: `import { useState } from 'react'
+export function Panel() {
+  const [open, setOpen] = useState(false)
+  const toggle = async () => {
+    const next = !open
+    setOpen(next)
+    await animatePanel(next)
+  }
+  return <button onClick={toggle} />
+}`,
+        },
+        {
+          name: 'a form submit wrapper calls a draft save',
+          filename: 'Settings.tsx',
+          code: `import { useState } from 'react'
+export function Settings() {
+  const [saved, setSaved] = useState(false)
+  const submit = async () => {
+    const next = !saved
+    setSaved(next)
+    await http.put('/settings', { acknowledged: next })
+  }
+  return <form onSubmit={(event) => { event.preventDefault(); void submit() }} />
+}`,
+        },
+        {
+          name: 'a controller commit is protected even when it updates local state',
+          filename: 'Switch.tsx',
+          code: `import { useState } from 'react'
+import { createOptimisticValue as optimistic } from '@molecule/app-state'
+export function Switch() {
+  const [on, setOn] = useState(false)
+  const commit = async () => {
+    setOn(!on)
+    await saveSettings(!on)
+  }
+  const value = optimistic({ value: on, commit })
+  return <button onClick={() => value.update((on) => !on)} />
+}`,
+        },
+        {
+          name: 'a parameter shadowing a setter is not that setter',
+          filename: 'Local.tsx',
+          code: `import { useState } from 'react'
+export function Local() {
+  const [on, setOn] = useState(false)
+  async function report(setOn) {
+    setOn(!on)
+    await saveSettings(!on)
+  }
+  return <button onClick={() => report(log)} />
+}`,
+        },
+        {
+          name: 'a local panel toggle awaits analytics but saves no preference',
+          filename: 'Panel.tsx',
+          code: `import { useState } from 'react'
+import { track } from '@molecule/app-analytics'
+export function Panel() {
+  const [open, setOpen] = useState(false)
+  const toggle = async () => {
+    const next = !open
+    setOpen(next)
+    await track({ name: 'panel', properties: { open: next } })
+  }
+  return <button onClick={toggle} />
+}`,
+        },
+        {
+          name: 'a local panel loads data without persisting its open flag',
+          filename: 'Panel.tsx',
+          code: `import { useState } from 'react'
+export function Panel() {
+  const [open, setOpen] = useState(false)
+  const toggle = async () => {
+    const next = !open
+    setOpen(next)
+    await http.get('/preview', { expanded: next })
+  }
+  return <button onClick={toggle} />
+}`,
+        },
+        {
+          name: 'a confirmation dialog returns a decision, not a saved switch',
+          filename: 'Delete.tsx',
+          code: `import { useState } from 'react'
+export function Delete() {
+  const [open, setOpen] = useState(false)
+  const ask = async () => {
+    const next = !open
+    setOpen(next)
+    await confirmDialog(next)
+  }
+  return <button onClick={ask} />
+}`,
+        },
+        {
+          name: 'a form submit changes local feedback before saving the draft',
+          filename: 'Settings.tsx',
+          code: `import { useState } from 'react'
+export function Settings() {
+  const [saved, setSaved] = useState(false)
+  const submit = async (event) => {
+    event.preventDefault()
+    const next = !saved
+    setSaved(next)
+    await http.put('/settings', { acknowledged: next })
+  }
+  return <form onSubmit={submit} />
+}`,
+        },
+        {
+          name: 'a setter in an uncalled nested function changes nothing before the request',
+          filename: 'Settings.tsx',
+          code: `import { useState } from 'react'
+export function Settings() {
+  const [on, setOn] = useState(false)
+  const toggle = async () => {
+    const next = !on
+    const later = () => setOn(next)
+    await http.put('/settings', { enabled: next })
+    later()
+  }
+  return <button onClick={toggle} />
+}`,
+        },
+        {
+          name: 'a local object choosing a method is not a request',
+          filename: 'Options.tsx',
+          code: `import { useState } from 'react'
+export function Options() {
+  const [on, setOn] = useState(false)
+  const choose = () => {
+    setOn(!on)
+    const options = { method: on ? 'DELETE' : 'POST' }
+    return options
+  }
+  return <button onClick={choose} />
+}`,
+        },
+        {
+          name: 'a cyclic promise alias does not crash lint',
+          filename: 'Unusual.tsx',
+          code: `import { useState } from 'react'
+export function Unusual() {
+  const [on, setOn] = useState(false)
+  const toggle = () => {
+    setOn(!on)
+    const request = saveSettings(!on)
+    const a = b
+    const b = a
+  }
+  return <button onClick={toggle} />
+}`,
+        },
         {
           name: 'the same toggle through useOptimisticValue',
           filename: 'FavoriteButton.tsx',
@@ -240,6 +399,72 @@ export function Login() {
         },
       ],
       invalid: [
+        {
+          name: 'a request options object chooses DELETE versus PUT',
+          filename: 'Switch.tsx',
+          code: `import { useState } from 'react'
+export function Switch() {
+  const [on, setOn] = useState(false)
+  const toggle = async () => {
+    setOn(!on)
+    const options = { method: on ? 'DELETE' : 'PUT', url: '/flag' }
+    await http.request(options)
+  }
+  return <button onClick={toggle} />
+}`,
+          errors: [{ messageId: 'useOptimisticValue' }],
+        },
+        {
+          name: 'an unused optimistic helper import does not exempt a racing handler',
+          filename: 'FavoriteButton.tsx',
+          code: `import { useOptimisticValue } from '@molecule/app-react'\n${favoriteButton}`,
+          errors: [{ messageId: 'useOptimisticValue' }],
+        },
+        {
+          name: 'a protected sibling does not exempt another server toggle',
+          filename: 'Settings.tsx',
+          code: `import { useState } from 'react'
+import { createOptimisticValue } from '@molecule/app-state'
+export function Settings() {
+  const safe = createOptimisticValue({ value: false, commit: saveSafe })
+  const [on, setOn] = useState(false)
+  const toggle = async () => {
+    setOn(!on)
+    await saveSettings(!on)
+  }
+  return <button onClick={toggle} />
+}`,
+          errors: [{ messageId: 'useOptimisticValue' }],
+        },
+        {
+          name: 'DELETE versus POST chosen from the current value',
+          filename: 'FavoriteButton.tsx',
+          code: `import { useState } from 'react'
+export function FavoriteButton() {
+  const [on, setOn] = useState(false)
+  const toggle = async () => {
+    setOn(!on)
+    await (on ? http.delete('/favorite') : http.post('/favorite'))
+  }
+  return <button onClick={toggle} />
+}`,
+          errors: [{ messageId: 'useOptimisticValue' }],
+        },
+        {
+          name: 'a TypeScript satisfies expression retains its toggled value',
+          filename: 'Switch.tsx',
+          code: `import { useState } from 'react'
+export function Switch() {
+  const [on, setOn] = useState(false)
+  const toggle = async () => {
+    const next = (!on) satisfies boolean
+    setOn(next)
+    await http.put('/settings', { on: next })
+  }
+  return <button onClick={toggle} />
+}`,
+          errors: [{ messageId: 'useOptimisticValue' }],
+        },
         {
           name: 'X1 l1296: a request chosen by the toggled value, each response applied',
           filename: 'FavoriteButton.tsx',
