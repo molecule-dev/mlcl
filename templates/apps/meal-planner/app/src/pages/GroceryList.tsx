@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { SimmerTopBar } from '../components/SimmerTopBar.js'
@@ -108,27 +108,40 @@ export function GroceryList() {
     }))
   }, [items])
 
-  const checkedCount = (items ?? []).filter((i) => i.checked).length
-  const totalCount = (items ?? []).length
-
-  const toggleItem = async (item: GroceryRow): Promise<void> => {
-    setItems(
-      (prev) => prev?.map((i) => (i.id === item.id ? { ...i, checked: !i.checked } : i)) ?? prev,
-    )
-    try {
-      await http.put(`/api/grocery-list/${item.id}`, { checked: !item.checked })
-      void track({
-        name: 'grocery-list.item-checked',
-        properties: { item_id: item.id, checked: !item.checked, week_start: weekStart },
-      })
-    } catch (e: unknown) {
+  // A tick shows at once and the ticks are saved in order, so a quick tick-untick never leaves
+  // an item showing a state the server does not hold.
+  const serverChecks = useMemo<Record<string, boolean>>(
+    () => Object.fromEntries((items ?? []).map((i) => [i.id, i.checked])),
+    [items],
+  )
+  const checks = useOptimisticValue<Record<string, boolean>>({
+    value: serverChecks,
+    commit: async (next, previous) => {
+      for (const [id, checked] of Object.entries(next)) {
+        if (previous[id] === undefined || previous[id] === checked) continue
+        await http.put(`/api/grocery-list/${id}`, { checked })
+        void track({
+          name: 'grocery-list.item-checked',
+          properties: { item_id: id, checked, week_start: weekStart },
+        })
+      }
+    },
+    onError: (e) => {
       setError(
         e instanceof Error
           ? e.message
           : t('simmer.groceries.toggleError', {}, { defaultValue: 'Could not update the item.' }),
       )
       loadList(weekStart)
-    }
+    },
+  })
+  const isChecked = (item: GroceryRow): boolean => checks.value[item.id] ?? item.checked
+
+  const checkedCount = (items ?? []).filter(isChecked).length
+  const totalCount = (items ?? []).length
+
+  const toggleItem = (item: GroceryRow): void => {
+    checks.update((current) => ({ ...current, [item.id]: !(current[item.id] ?? item.checked) }))
   }
 
   const removeItem = async (item: GroceryRow): Promise<void> => {
@@ -198,7 +211,7 @@ export function GroceryList() {
   }
 
   const clearChecked = async (): Promise<void> => {
-    setItems((prev) => prev?.filter((i) => !i.checked) ?? prev)
+    setItems((prev) => prev?.filter((i) => !isChecked(i)) ?? prev)
     try {
       await http.delete('/api/grocery-list/checked')
     } catch (e: unknown) {
@@ -258,12 +271,14 @@ export function GroceryList() {
             type="button"
             data-mol-id="groceries-clear-checked"
             onClick={() => void clearChecked()}
+            // The server clears what it has saved as checked, so wait for the ticks to land.
+            disabled={checks.pending}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),
               cm.textSize('sm'),
               cm.fontWeight('semibold'),
-              'rounded-full border border-outline text-on-surface-variant hover:border-error hover:text-error transition-colors',
+              'rounded-full border border-outline text-on-surface-variant hover:border-error hover:text-error transition-colors disabled:opacity-60',
             )}
           >
             {t('simmer.groceries.clearChecked', {}, { defaultValue: 'Clear checked' })}
@@ -421,8 +436,8 @@ export function GroceryList() {
                       <input
                         type="checkbox"
                         data-mol-id={`grocery-check-${item.id}`}
-                        checked={item.checked}
-                        onChange={() => void toggleItem(item)}
+                        checked={isChecked(item)}
+                        onChange={() => toggleItem(item)}
                         className={cm.cn(
                           'w-5 h-5 rounded-sm border-outline text-primary focus:ring-primary/30',
                         )}
@@ -431,7 +446,7 @@ export function GroceryList() {
                         <span
                           className={cm.cn(
                             cm.textSize('sm'),
-                            item.checked
+                            isChecked(item)
                               ? 'line-through text-on-surface-variant'
                               : 'text-on-surface',
                           )}

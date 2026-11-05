@@ -18,7 +18,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -148,6 +148,35 @@ export function EventTypeEditor() {
     setSlug(slugify(name))
   }, [name, slugTouched])
 
+  // The Active switch of a saved event type changes at once and saves in order, so a quick
+  // pause-resume never leaves it showing a state the server does not hold. `active` stays the
+  // server's value (or the draft's, for a new event type).
+  const activeSwitch = useOptimisticValue<boolean>({
+    value: active,
+    commit: async (next) => {
+      const res = await http.patch<ApiEventType>(
+        `/api/event-types/${encodeURIComponent(id ?? '')}`,
+        { is_active: next },
+      )
+      const et = unwrapSingle<ApiEventType>(res)
+      if (!et) return
+      setSavedAt(new Date())
+      return !!et.is_active
+    },
+    onError: (error) => {
+      logError('eventTypeEditor.toggleActive', error)
+      setSaveError(
+        t(
+          'eventTypeEditor.toggleError',
+          {},
+          {
+            defaultValue: 'Could not change active state.',
+          },
+        ),
+      )
+    },
+  })
+
   const buildPayload = useCallback(
     (overrides: Partial<ApiEventType> = {}): Record<string, unknown> => ({
       name: name.trim(),
@@ -158,7 +187,7 @@ export function EventTypeEditor() {
       buffer_before_minutes: bufferBefore,
       buffer_after_minutes: bufferAfter,
       min_notice_minutes: minNotice,
-      is_active: active,
+      is_active: activeSwitch.value,
       ...overrides,
     }),
     [
@@ -170,7 +199,7 @@ export function EventTypeEditor() {
       bufferBefore,
       bufferAfter,
       minNotice,
-      active,
+      activeSwitch.value,
     ],
   )
 
@@ -235,40 +264,13 @@ export function EventTypeEditor() {
     }
   }
 
-  async function handleToggleActive() {
+  function handleToggleActive() {
     if (isNew) {
       setActive((v) => !v)
       return
     }
-    const next = !active
-    setActive(next)
-    setSaving(true)
     setSaveError(null)
-    try {
-      const res = await http.patch<ApiEventType>(
-        `/api/event-types/${encodeURIComponent(id ?? '')}`,
-        { is_active: next },
-      )
-      const et = unwrapSingle<ApiEventType>(res)
-      if (et) {
-        setActive(!!et.is_active)
-        setSavedAt(new Date())
-      }
-    } catch (error) {
-      logError('eventTypeEditor.toggleActive', error)
-      setActive(!next)
-      setSaveError(
-        t(
-          'eventTypeEditor.toggleError',
-          {},
-          {
-            defaultValue: 'Could not change active state.',
-          },
-        ),
-      )
-    } finally {
-      setSaving(false)
-    }
+    activeSwitch.update((on) => !on)
   }
 
   async function handleDelete() {
@@ -381,12 +383,12 @@ export function EventTypeEditor() {
               cm.textSize('xs'),
               cm.roundedFull,
               'uppercase tracking-widest border transition-colors disabled:opacity-50',
-              active
+              activeSwitch.value
                 ? 'bg-success-container border-success/40 text-on-success-container'
                 : 'bg-surface-container border-outline-variant text-on-surface-variant',
             )}
           >
-            {active
+            {activeSwitch.value
               ? t('status.active', {}, { defaultValue: 'Active' })
               : t('status.paused', {}, { defaultValue: 'Paused' })}
           </button>

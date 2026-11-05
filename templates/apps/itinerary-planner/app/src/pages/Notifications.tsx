@@ -12,7 +12,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import type { TranslateFunction } from '@molecule/app-i18n'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -119,7 +119,35 @@ export function Notifications() {
     void refresh()
   }, [refresh])
 
-  const unread = useMemo(() => items.filter((n) => !n.read), [items])
+  // Read/unread flips at once on every click and the clicks are saved in order, so a quick
+  // read-unread never leaves a row showing a state the server does not hold.
+  const serverReads = useMemo<Record<string, boolean>>(
+    () => Object.fromEntries(items.map((n) => [n.id, n.read])),
+    [items],
+  )
+  const reads = useOptimisticValue<Record<string, boolean>>({
+    value: serverReads,
+    commit: async (next, previous) => {
+      for (const [id, read] of Object.entries(next)) {
+        if (previous[id] === undefined || previous[id] === read) continue
+        await http.put(`/notifications/${id}`, { read })
+      }
+    },
+    onError: (err) => {
+      setError(
+        err instanceof Error
+          ? err.message
+          : t(
+              'notifications.errors.toggle',
+              {},
+              { defaultValue: 'Could not update notification.' },
+            ),
+      )
+      void refresh()
+    },
+  })
+  const isRead = (n: NotificationRow): boolean => reads.value[n.id] ?? n.read
+  const unread = items.filter((n) => !isRead(n))
 
   const markAllRead = async () => {
     if (unread.length === 0) return
@@ -138,26 +166,8 @@ export function Notifications() {
     }
   }
 
-  const toggleRead = async (id: string) => {
-    const target = items.find((n) => n.id === id)
-    if (!target) return
-    const next = !target.read
-    // Optimistic update
-    setItems((prev) => prev.map((n) => (n.id === id ? { ...n, read: next } : n)))
-    try {
-      await http.put(`/notifications/${id}`, { read: next })
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : t(
-              'notifications.errors.toggle',
-              {},
-              { defaultValue: 'Could not update notification.' },
-            ),
-      )
-      await refresh()
-    }
+  const toggleRead = (id: string) => {
+    reads.update((current) => ({ ...current, [id]: !current[id] }))
   }
 
   return (
@@ -305,13 +315,13 @@ export function Notifications() {
                 <li
                   key={n.id}
                   data-testid="notifications-row"
-                  data-read={n.read ? 'true' : 'false'}
+                  data-read={isRead(n) ? 'true' : 'false'}
                   className={cm.cn(
                     cm.sp('p', 5),
                     cm.flex({ gap: 'md' }),
                     cm.accentCard({ tone: 'custom' }),
                     'transition-colors hover:bg-surface-container-low',
-                    !n.read ? 'bg-primary-container/10' : '',
+                    !isRead(n) ? 'bg-primary-container/10' : '',
                   )}
                   style={{ ['--mol-accent' as string]: theme.stripe }}
                 >
@@ -327,7 +337,7 @@ export function Notifications() {
                     >
                       {theme.icon}
                     </span>
-                    {!n.read ? (
+                    {!isRead(n) ? (
                       <span
                         aria-hidden="true"
                         className={cm.cn(
@@ -381,9 +391,9 @@ export function Notifications() {
                     <button
                       type="button"
                       data-testid="notifications-toggle"
-                      onClick={() => void toggleRead(n.id)}
+                      onClick={() => toggleRead(n.id)}
                       aria-label={
-                        n.read
+                        isRead(n)
                           ? t('notifications.markUnread', {}, { defaultValue: 'Mark as unread' })
                           : t('common.markAsRead', {}, { defaultValue: 'Mark as read' })
                       }
@@ -393,7 +403,7 @@ export function Notifications() {
                       )}
                     >
                       <span className="material-symbols-outlined" aria-hidden="true">
-                        {n.read ? 'mark_email_unread' : 'mark_email_read'}
+                        {isRead(n) ? 'mark_email_unread' : 'mark_email_read'}
                       </span>
                     </button>
                   </div>

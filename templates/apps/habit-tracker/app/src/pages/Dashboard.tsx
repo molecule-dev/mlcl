@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { type HabitCategory, HabitChecklistRow } from '../components/HabitChecklistRow.js'
@@ -42,6 +42,34 @@ interface Overview {
   weekly_completion: { week: string; rate: number }[]
 }
 
+/** What today's checklist shows for one habit. */
+interface CheckIn {
+  done: boolean
+  streak: number
+}
+
+/** Today's check-ins by habit id. */
+type CheckIns = Record<string, CheckIn>
+
+const sameCheckIns = (a: CheckIns, b: CheckIns): boolean => {
+  const ids = Object.keys(a)
+  return (
+    ids.length === Object.keys(b).length &&
+    ids.every((id) => a[id]?.done === b[id]?.done && a[id]?.streak === b[id]?.streak)
+  )
+}
+
+/** Tick or untick one habit, moving its streak with it. */
+const toggleCheckIn = (current: CheckIns, id: string): CheckIns => {
+  const check = current[id]
+  if (!check) return current
+  const done = !check.done
+  return {
+    ...current,
+    [id]: { done, streak: done ? check.streak + 1 : Math.max(0, check.streak - 1) },
+  }
+}
+
 export function Dashboard() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -77,63 +105,50 @@ export function Dashboard() {
     }
   }, [http, t])
 
-  const toggle = async (habit: Habit) => {
-    const next = !habit.completed_today
-    setHabits((curr) =>
-      curr.map((h) =>
-        h.id === habit.id
-          ? {
-              ...h,
-              completed_today: next,
-              current_streak: next ? h.current_streak + 1 : Math.max(0, h.current_streak - 1),
-            }
-          : h,
+  // The checklist changes at once on every tap and saves the taps in order, so a quick
+  // tick-untick never leaves a habit showing a check-in the server does not hold.
+  const serverCheckIns = useMemo<CheckIns>(
+    () =>
+      Object.fromEntries(
+        habits.map((h) => [h.id, { done: h.completed_today, streak: h.current_streak }]),
       ),
-    )
-    try {
-      const resp = next
-        ? await http.post(`/api/habits/${habit.id}/check-in`, {})
-        : await http.delete(`/api/habits/${habit.id}/check-in`)
-      const refreshed =
-        (resp as { habit?: Habit })?.habit ?? (resp as { data?: { habit?: Habit } })?.data?.habit
-      const streak =
-        refreshed?.current_streak ?? (next ? habit.current_streak + 1 : habit.current_streak - 1)
-      if (next) {
-        void track({
-          name: 'habit.checked_in',
-          properties: { habit_id: habit.id, streak },
-        })
-        if (STREAK_MILESTONES.includes(streak)) {
-          void track({
-            name: 'streak.milestone',
-            properties: { habit_id: habit.id, streak },
-          })
+    [habits],
+  )
+  const checkIns = useOptimisticValue<CheckIns>({
+    value: serverCheckIns,
+    equals: sameCheckIns,
+    commit: async (next, previous) => {
+      let saved = next
+      for (const [id, check] of Object.entries(next)) {
+        if (!previous[id] || previous[id].done === check.done) continue
+        const resp = check.done
+          ? await http.post(`/api/habits/${id}/check-in`, {})
+          : await http.delete(`/api/habits/${id}/check-in`)
+        const refreshed =
+          (resp as { habit?: Habit })?.habit ?? (resp as { data?: { habit?: Habit } })?.data?.habit
+        const streak = refreshed?.current_streak ?? check.streak
+        saved = { ...saved, [id]: { done: refreshed?.completed_today ?? check.done, streak } }
+        if (check.done) {
+          void track({ name: 'habit.checked_in', properties: { habit_id: id, streak } })
+          if (STREAK_MILESTONES.includes(streak)) {
+            void track({ name: 'streak.milestone', properties: { habit_id: id, streak } })
+          }
+        } else {
+          void track({ name: 'habit.unchecked', properties: { habit_id: id } })
         }
-      } else {
-        void track({ name: 'habit.unchecked', properties: { habit_id: habit.id } })
-      }
-      if (refreshed && refreshed.id) {
-        setHabits((curr) => curr.map((h) => (h.id === refreshed.id ? { ...h, ...refreshed } : h)))
       }
       if (today) {
         const todayResp = await http.get('/api/reports/today').catch(() => null)
         if (todayResp) setToday(unwrapSingle<Today>(todayResp))
       }
-    } catch (err) {
-      // Revert the optimistic update and surface the failure.
-      setHabits((curr) =>
-        curr.map((h) =>
-          h.id === habit.id
-            ? { ...h, completed_today: habit.completed_today, current_streak: habit.current_streak }
-            : h,
-        ),
-      )
-      const msg = err instanceof Error ? err.message : String(err)
-      setError(msg)
-    }
-  }
+      return saved
+    },
+    onError: (err) => setError(err instanceof Error ? err.message : String(err)),
+  })
+  const shown = (h: Habit): CheckIn =>
+    checkIns.value[h.id] ?? { done: h.completed_today, streak: h.current_streak }
 
-  const completed = habits.filter((h) => h.completed_today).length
+  const completed = habits.filter((h) => shown(h).done).length
   const todayStr = new Date().toLocaleDateString(undefined, {
     weekday: 'long',
     month: 'long',
@@ -245,9 +260,9 @@ export function Dashboard() {
                   emoji={h.emoji}
                   category={h.category}
                   cadence={h.cadence}
-                  currentStreak={h.current_streak}
-                  completedToday={h.completed_today}
-                  onToggle={() => toggle(h)}
+                  currentStreak={shown(h).streak}
+                  completedToday={shown(h).done}
+                  onToggle={() => checkIns.update((current) => toggleCheckIn(current, h.id))}
                 />
               </li>
             ))}

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { type DocumentType, DocumentTypeBadge } from '../components/DocumentTypeBadge.js'
@@ -90,20 +90,6 @@ export function Rules() {
       cancelled = true
     }
   }, [http, t])
-
-  const toggle = async (id: string) => {
-    const rule = rules.find((r) => r.id === id)
-    if (!rule) return
-    const next = !rule.enabled
-    setRules((prev) => prev.map((r) => (r.id === id ? { ...r, enabled: next } : r)))
-    void track({ name: 'rule.toggled', properties: { rule_id: id, enabled: next } })
-    try {
-      await http.patch(`/api/extraction-rules/${id}`, { enabled: next })
-    } catch (_error) {
-      // Optimistic update: roll back on failure; error detail not needed
-      setRules((prev) => prev.map((r) => (r.id === id ? { ...r, enabled: !next } : r)))
-    }
-  }
 
   const handleCreateRule = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -340,143 +326,7 @@ export function Rules() {
         ) : (
           <div className={cm.cn(cm.flex({ direction: 'col', gap: 'md' }))}>
             {rules.map((rule) => (
-              <article
-                key={rule.id}
-                data-mol-id={`rule-${rule.id}`}
-                className={cm.cn(
-                  cm.sp('p', 6),
-                  'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow',
-                  cm.accentCard({ tone: 'custom' }),
-                )}
-                style={{
-                  ['--mol-accent' as string]: rule.enabled
-                    ? 'var(--color-primary)'
-                    : 'var(--color-surface-dim)',
-                }}
-              >
-                <header
-                  className={cm.cn(
-                    cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' }),
-                  )}
-                >
-                  <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
-                    <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
-                      <h3 className={cm.cn(cm.textSize('lg'), 'font-bold')}>{rule.name}</h3>
-                      <DocumentTypeBadge type={rule.matchedType} />
-                    </div>
-                    <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
-                      {t(
-                        'rules.matched30d',
-                        { count: rule.matched_count_30d },
-                        { defaultValue: '{{count}} documents matched in the last 30 days' },
-                      )}
-                    </p>
-                  </div>
-                  <label
-                    className={cm.cn(
-                      cm.flex({ align: 'center', gap: 'xs' }),
-                      cm.textSize('xs'),
-                      cm.fontWeight('semibold'),
-                      'uppercase tracking-widest text-on-surface-variant cursor-pointer',
-                    )}
-                    style={{ fontSize: 10 }}
-                  >
-                    <input
-                      type="checkbox"
-                      data-mol-id={`rule-${rule.id}-toggle`}
-                      checked={rule.enabled}
-                      onChange={() => toggle(rule.id)}
-                      className={cm.cn('sr-only peer')}
-                    />
-                    <span
-                      className={cm.cn(
-                        'w-9 h-5 rounded-full bg-surface-container relative transition-colors peer-checked:bg-primary',
-                      )}
-                      aria-hidden="true"
-                    >
-                      <span
-                        className={cm.cn(
-                          'absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-surface shadow-sm transition-transform',
-                        )}
-                        style={{ transform: rule.enabled ? 'translateX(16px)' : 'translateX(0)' }}
-                      />
-                    </span>
-                    {rule.enabled
-                      ? t('status.active', {}, { defaultValue: 'Active' })
-                      : t('status.paused', {}, { defaultValue: 'Paused' })}
-                  </label>
-                </header>
-
-                <div
-                  className={cm.cn(
-                    cm.grid({ gap: 'md' }),
-                    cm.sp('mt', 4),
-                    'grid-cols-1 md:grid-cols-2',
-                  )}
-                >
-                  <div>
-                    <p
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        'uppercase tracking-widest text-on-surface-variant font-bold',
-                      )}
-                      style={{ fontSize: 10 }}
-                    >
-                      {t('form.when', {}, { defaultValue: 'When' })}
-                    </p>
-                    <ul className={cm.cn(cm.sp('mt', 2), 'space-y-1')}>
-                      {rule.conditions.map((c, i) => (
-                        <li
-                          key={i}
-                          className={cm.cn(
-                            cm.textSize('sm'),
-                            'flex items-center gap-2 text-on-surface',
-                          )}
-                        >
-                          <span
-                            className={cm.cn('material-symbols-outlined text-primary')}
-                            style={{ fontSize: 16 }}
-                            aria-hidden="true"
-                          >
-                            filter_alt
-                          </span>
-                          <span className={cm.cn('font-mono text-xs')}>{c}</span>
-                        </li>
-                      ))}
-                    </ul>
-                  </div>
-                  <div>
-                    <p
-                      className={cm.cn(
-                        cm.textSize('xs'),
-                        'uppercase tracking-widest text-on-surface-variant font-bold',
-                      )}
-                      style={{ fontSize: 10 }}
-                    >
-                      {t('rules.then', {}, { defaultValue: 'Then' })}
-                    </p>
-                    <p
-                      className={cm.cn(
-                        cm.textSize('sm'),
-                        cm.sp('mt', 2),
-                        'flex items-center gap-2 text-on-surface',
-                      )}
-                    >
-                      <span
-                        className={cm.cn('material-symbols-outlined text-tertiary')}
-                        style={{ fontSize: 16 }}
-                        aria-hidden="true"
-                      >
-                        double_arrow
-                      </span>
-                      <span>
-                        <span className={cm.cn('font-bold')}>{rule.action}:</span>{' '}
-                        <span className={cm.cn('font-mono text-xs')}>{rule.destination}</span>
-                      </span>
-                    </p>
-                  </div>
-                </div>
-              </article>
+              <RuleCard key={rule.id} rule={rule} />
             ))}
           </div>
         )}
@@ -575,5 +425,155 @@ export function Rules() {
         )}
       </section>
     </div>
+  )
+}
+
+/**
+ * One filing rule. Its on/off switch changes at once and saves in order, so quick clicks never
+ * leave it showing a value the server does not hold. Keyed per rule by the list.
+ */
+function RuleCard({ rule }: { rule: FilingRule }) {
+  const cm = getClassMap()
+  const { t } = useTranslation()
+  const http = useHttpClient()
+  const enabled = useOptimisticValue({
+    value: rule.enabled,
+    commit: async (next) => {
+      await http.patch(`/api/extraction-rules/${rule.id}`, { enabled: next })
+    },
+  })
+
+  const toggle = () => {
+    const next = !enabled.value
+    enabled.set(next)
+    void track({ name: 'rule.toggled', properties: { rule_id: rule.id, enabled: next } })
+  }
+
+  return (
+    <article
+      data-mol-id={`rule-${rule.id}`}
+      className={cm.cn(
+        cm.sp('p', 6),
+        'rounded-xl bg-surface-container-lowest border border-outline-variant/30 shadow-sm hover:shadow-md transition-shadow',
+        cm.accentCard({ tone: 'custom' }),
+      )}
+      style={{
+        ['--mol-accent' as string]: enabled.value
+          ? 'var(--color-primary)'
+          : 'var(--color-surface-dim)',
+      }}
+    >
+      <header
+        className={cm.cn(cm.flex({ align: 'start', justify: 'between', gap: 'md', wrap: 'wrap' }))}
+      >
+        <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }))}>
+          <div className={cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' })}>
+            <h3 className={cm.cn(cm.textSize('lg'), 'font-bold')}>{rule.name}</h3>
+            <DocumentTypeBadge type={rule.matchedType} />
+          </div>
+          <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
+            {t(
+              'rules.matched30d',
+              { count: rule.matched_count_30d },
+              { defaultValue: '{{count}} documents matched in the last 30 days' },
+            )}
+          </p>
+        </div>
+        <label
+          className={cm.cn(
+            cm.flex({ align: 'center', gap: 'xs' }),
+            cm.textSize('xs'),
+            cm.fontWeight('semibold'),
+            'uppercase tracking-widest text-on-surface-variant cursor-pointer',
+          )}
+          style={{ fontSize: 10 }}
+        >
+          <input
+            type="checkbox"
+            data-mol-id={`rule-${rule.id}-toggle`}
+            checked={enabled.value}
+            onChange={toggle}
+            className={cm.cn('sr-only peer')}
+          />
+          <span
+            className={cm.cn(
+              'w-9 h-5 rounded-full bg-surface-container relative transition-colors peer-checked:bg-primary',
+            )}
+            aria-hidden="true"
+          >
+            <span
+              className={cm.cn(
+                'absolute top-0.5 left-0.5 w-4 h-4 rounded-full bg-surface shadow-sm transition-transform',
+              )}
+              style={{ transform: enabled.value ? 'translateX(16px)' : 'translateX(0)' }}
+            />
+          </span>
+          {enabled.value
+            ? t('status.active', {}, { defaultValue: 'Active' })
+            : t('status.paused', {}, { defaultValue: 'Paused' })}
+        </label>
+      </header>
+
+      <div className={cm.cn(cm.grid({ gap: 'md' }), cm.sp('mt', 4), 'grid-cols-1 md:grid-cols-2')}>
+        <div>
+          <p
+            className={cm.cn(
+              cm.textSize('xs'),
+              'uppercase tracking-widest text-on-surface-variant font-bold',
+            )}
+            style={{ fontSize: 10 }}
+          >
+            {t('form.when', {}, { defaultValue: 'When' })}
+          </p>
+          <ul className={cm.cn(cm.sp('mt', 2), 'space-y-1')}>
+            {rule.conditions.map((c, i) => (
+              <li
+                key={i}
+                className={cm.cn(cm.textSize('sm'), 'flex items-center gap-2 text-on-surface')}
+              >
+                <span
+                  className={cm.cn('material-symbols-outlined text-primary')}
+                  style={{ fontSize: 16 }}
+                  aria-hidden="true"
+                >
+                  filter_alt
+                </span>
+                <span className={cm.cn('font-mono text-xs')}>{c}</span>
+              </li>
+            ))}
+          </ul>
+        </div>
+        <div>
+          <p
+            className={cm.cn(
+              cm.textSize('xs'),
+              'uppercase tracking-widest text-on-surface-variant font-bold',
+            )}
+            style={{ fontSize: 10 }}
+          >
+            {t('rules.then', {}, { defaultValue: 'Then' })}
+          </p>
+          <p
+            className={cm.cn(
+              cm.textSize('sm'),
+              cm.sp('mt', 2),
+              'flex items-center gap-2 text-on-surface',
+            )}
+          >
+            <span
+              className={cm.cn('material-symbols-outlined text-tertiary')}
+              style={{ fontSize: 16 }}
+              aria-hidden="true"
+            >
+              double_arrow
+            </span>
+            <span>
+              <span className={cm.cn('font-bold')}>{rule.action}:</span>{' '}
+              <span className={cm.cn('font-mono text-xs')}>{rule.destination}</span>
+            </span>
+          </p>
+        </div>
+      </div>
+    </article>
   )
 }
