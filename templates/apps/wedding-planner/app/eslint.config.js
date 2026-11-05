@@ -442,6 +442,256 @@ const moleculeLocal = {
         }
       },
     },
+    // A favorite/follow/like/bookmark button or a setting switch that shows the toggled value at
+    // once and saves each click with its own request: a second click races the first, so a slower
+    // response (or a refetch of older data) flips the button back. `useOptimisticValue` sends the
+    // saves in order and keeps the newest choice. Structural only: a `useState` setter writes the
+    // toggled value (`!current` or a variable holding it) before a request that receives it, is
+    // chosen by it, or chooses its HTTP method between DELETE and a write.
+    'server-toggles-use-optimistic-value': {
+      meta: {
+        type: 'suggestion',
+        docs: {
+          description:
+            'Warn when a React module saves a toggled value with its own request instead of useOptimisticValue.',
+        },
+        schema: [],
+        messages: {
+          useOptimisticValue:
+            'This shows a toggled value at once and saves it with its own request, so a second click races the first and a slower response or a refetch can flip it back. Hold the value in `useOptimisticValue` from `@molecule/app-react` and send this request as its `commit` (see the package doc): every click counts, saves run in order and only a failure of the newest change restores the server value.',
+        },
+      },
+      create(context) {
+        const helpers = new Set(['useOptimisticValue', 'createOptimisticValue'])
+        let reactModule = false
+        let usesHelper = false
+        const candidates = []
+        const isFunction = (node) =>
+          node?.type === 'FunctionDeclaration' ||
+          node?.type === 'FunctionExpression' ||
+          node?.type === 'ArrowFunctionExpression'
+        const enclosingFunction = (node) => {
+          let current = node.parent
+          while (current && !isFunction(current)) current = current.parent
+          return current ?? null
+        }
+        const unwrap = (node) => {
+          let current = node
+          while (
+            current &&
+            (current.type === 'AwaitExpression' ||
+              current.type === 'TSAsExpression' ||
+              current.type === 'TSNonNullExpression' ||
+              current.type === 'ChainExpression')
+          )
+            current = current.type === 'AwaitExpression' ? current.argument : current.expression
+          return current
+        }
+        // `!value` or `!record.field`: the opposite of a value read now. A call's negation
+        // (`!confirm()`) is a question, not a toggled value.
+        const negatedRead = (node) =>
+          node?.type === 'UnaryExpression' &&
+          node.operator === '!' &&
+          ['Identifier', 'MemberExpression'].includes(unwrap(node.argument)?.type)
+        // `const next = !favorited` inside the function: names that hold a toggled value.
+        const toggledNames = (fn) => {
+          const names = new Set()
+          const visit = (node) => {
+            if (!node || typeof node.type !== 'string') return
+            if (node !== fn && isFunction(node)) return
+            if (
+              node.type === 'VariableDeclarator' &&
+              node.id.type === 'Identifier' &&
+              negatedRead(node.init)
+            )
+              names.add(node.id.name)
+            for (const key of Object.keys(node)) {
+              if (key === 'parent') continue
+              const value = node[key]
+              if (Array.isArray(value)) value.forEach(visit)
+              else if (value && typeof value.type === 'string') visit(value)
+            }
+          }
+          visit(fn.body)
+          return names
+        }
+        const toggled = (node, names) =>
+          negatedRead(node) || (node?.type === 'Identifier' && names.has(node.name))
+        // `{ notifications: !settings.notifications }`: a field set to the opposite of itself.
+        const selfToggle = (property) => {
+          if (property.type !== 'Property' || !negatedRead(property.value)) return false
+          const read = unwrap(property.value.argument)
+          const key = property.key.type === 'Identifier' ? property.key.name : property.key.value
+          const field = read.type === 'MemberExpression' ? read.property.name : read.name
+          return key === field
+        }
+        // Awaited, or chained with then/catch/finally, directly or through the variable it is stored in.
+        const promiseUsed = (node, fn) => {
+          let current = node
+          while (
+            current.parent &&
+            ['TSAsExpression', 'TSNonNullExpression', 'ChainExpression'].includes(
+              current.parent.type,
+            )
+          )
+            current = current.parent
+          const parent = current.parent
+          if (parent?.type === 'AwaitExpression') return true
+          if (
+            parent?.type === 'MemberExpression' &&
+            parent.object === current &&
+            ['then', 'catch', 'finally'].includes(parent.property.name) &&
+            parent.parent?.type === 'CallExpression'
+          )
+            return true
+          if (parent?.type === 'ReturnStatement' || (parent === fn && fn.expression))
+            return fn.async
+          if (parent?.type === 'ConditionalExpression' && parent.test !== current)
+            return promiseUsed(parent, fn)
+          if (parent?.type === 'VariableDeclarator' && parent.id.type === 'Identifier') {
+            const variable = context.sourceCode
+              .getDeclaredVariables(parent)
+              .find((entry) => entry.name === parent.id.name)
+            return (variable?.references ?? []).some(
+              (reference) =>
+                reference.identifier !== parent.id && promiseUsed(reference.identifier, fn),
+            )
+          }
+          return false
+        }
+        const methodLiteral = (node) =>
+          node?.type === 'Literal' && typeof node.value === 'string'
+            ? node.value.toUpperCase()
+            : null
+        // The `useState` setters of this module: `const [value, setValue] = useState(…)`.
+        const setters = new Set()
+        // Shown at once: a setter called with the toggled value before the save starts
+        // (`setFavorited(next)`, `setItems((prev) => … !item.checked …)`). An awaited response
+        // applied by the setter is the save itself, so the walk stops at `await`. A toggle that
+        // waits for the server before it changes what is shown cannot flip back.
+        const shownBefore = (fn, held, save) => {
+          let found = false
+          const mentionsToggle = (node) => {
+            if (found || !node || typeof node.type !== 'string') return
+            if (node.type === 'AwaitExpression') return
+            if (toggled(node, held)) {
+              found = true
+              return
+            }
+            for (const key of Object.keys(node)) {
+              if (key === 'parent') continue
+              const value = node[key]
+              if (Array.isArray(value)) value.forEach(mentionsToggle)
+              else if (value && typeof value.type === 'string') mentionsToggle(value)
+            }
+          }
+          const visit = (node) => {
+            if (found || !node || typeof node.type !== 'string') return
+            if (
+              node.type === 'CallExpression' &&
+              node.callee.type === 'Identifier' &&
+              setters.has(node.callee.name) &&
+              node.range[0] < save.range[0]
+            )
+              node.arguments.forEach(mentionsToggle)
+            for (const key of Object.keys(node)) {
+              if (key === 'parent') continue
+              const value = node[key]
+              if (Array.isArray(value)) value.forEach(visit)
+              else if (value && typeof value.type === 'string') visit(value)
+            }
+          }
+          visit(fn.body)
+          return found
+        }
+        return {
+          VariableDeclarator(node) {
+            const callee = node.init?.type === 'CallExpression' ? node.init.callee : null
+            const hook =
+              callee?.type === 'Identifier'
+                ? callee.name
+                : callee?.type === 'MemberExpression'
+                  ? callee.property.name
+                  : null
+            if (hook !== 'useState' || node.id.type !== 'ArrayPattern') return
+            const setter = node.id.elements[1]
+            if (setter?.type === 'Identifier') setters.add(setter.name)
+          },
+          ImportDeclaration(node) {
+            if (node.source.value === 'react') reactModule = true
+            for (const specifier of node.specifiers) {
+              const name = specifier.imported?.name ?? specifier.local?.name
+              if (helpers.has(name)) usesHelper = true
+            }
+          },
+          JSXElement() {
+            reactModule = true
+          },
+          JSXFragment() {
+            reactModule = true
+          },
+          CallExpression(node) {
+            candidates.push({ kind: 'call', node })
+          },
+          ConditionalExpression(node) {
+            candidates.push({ kind: 'choice', node })
+          },
+          Property(node) {
+            const key = node.key.type === 'Identifier' ? node.key.name : node.key.value
+            if (key !== 'method' || node.value.type !== 'ConditionalExpression') return
+            const methods = [node.value.consequent, node.value.alternate].map(methodLiteral)
+            if (
+              methods.includes('DELETE') &&
+              methods.some((method) => ['POST', 'PUT', 'PATCH'].includes(method))
+            )
+              candidates.push({ kind: 'method', node })
+          },
+          'Program:exit'() {
+            if (!reactModule || usesHelper) return
+            const reported = new Set()
+            const names = new Map()
+            const namesFor = (fn) => {
+              if (!names.has(fn)) names.set(fn, toggledNames(fn))
+              return names.get(fn)
+            }
+            for (const { kind, node } of candidates) {
+              const fn = enclosingFunction(node)
+              if (!fn || reported.has(fn)) continue
+              let hit = kind === 'method'
+              if (kind === 'call') {
+                const held = namesFor(fn)
+                hit =
+                  node.arguments.some(
+                    (argument) =>
+                      toggled(argument, held) ||
+                      (argument.type === 'ObjectExpression' &&
+                        argument.properties.some(
+                          (property) =>
+                            selfToggle(property) ||
+                            (property.type === 'Property' &&
+                              property.value.type === 'Identifier' &&
+                              held.has(property.value.name)),
+                        )),
+                  ) && promiseUsed(node, fn)
+              }
+              if (kind === 'choice') {
+                const branches = [node.consequent, node.alternate].map(unwrap)
+                hit =
+                  toggled(unwrap(node.test), namesFor(fn)) &&
+                  branches.every((branch) => branch?.type === 'CallExpression') &&
+                  (promiseUsed(node, fn) ||
+                    [node.consequent, node.alternate].every(
+                      (branch) => branch.type === 'AwaitExpression',
+                    ))
+              }
+              if (!hit || !shownBefore(fn, namesFor(fn), node)) continue
+              reported.add(fn)
+              context.report({ node, messageId: 'useOptimisticValue' })
+            }
+          },
+        }
+      },
+    },
     'require-catch-binding': {
       meta: {
         type: 'problem',
@@ -509,6 +759,7 @@ export default tseslint.config(
       'molecule-local/prefer-declared-clients': 'error',
       'molecule-local/router-commits-with-url': 'error',
       'molecule-local/url-lists-use-list-route': 'warn',
+      'molecule-local/server-toggles-use-optimistic-value': 'warn',
       'molecule-local/require-catch-binding': 'warn',
       '@typescript-eslint/no-unused-vars': [
         'warn',
