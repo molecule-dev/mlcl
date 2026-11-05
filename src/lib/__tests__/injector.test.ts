@@ -1,8 +1,14 @@
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import type * as FsPromises from 'node:fs/promises'
+import { access, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve, sep } from 'node:path'
 
-import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
+
+vi.mock('node:fs/promises', async (importOriginal) => {
+  const actual = await importOriginal<typeof FsPromises>()
+  return { ...actual, access: vi.fn(actual.access) }
+})
 
 import { disableAI } from '../ai.js'
 import { sortImportStatements } from '../format.js'
@@ -90,8 +96,22 @@ describe('findMoleculePackage', () => {
   it('returns null for empty project directory', async () => {
     const emptyDir = join(tempDir, 'empty-project')
     await mkdir(emptyDir, { recursive: true })
-    const result = await findMoleculePackage('@molecule/api-logger', emptyDir)
-    expect(result).toBeNull()
+    // TMPDIR may live below a workspace install. Model the intended absent-package
+    // state explicitly; keep real access to the registry source fallback so an
+    // accidental ungated fallback would still fail this assertion.
+    const actual = await vi.importActual<typeof FsPromises>('node:fs/promises')
+    vi.mocked(access).mockImplementation(async (path, mode) => {
+      if (String(path).endsWith('/node_modules/@molecule/api-logger')) {
+        throw Object.assign(new Error('package not installed'), { code: 'ENOENT' })
+      }
+      return actual.access(path, mode)
+    })
+    try {
+      const result = await findMoleculePackage('@molecule/api-logger', emptyDir)
+      expect(result).toBeNull()
+    } finally {
+      vi.mocked(access).mockRestore()
+    }
   })
 })
 

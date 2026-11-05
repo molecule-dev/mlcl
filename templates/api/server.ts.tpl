@@ -12,8 +12,8 @@ process.on('uncaughtExceptionMonitor', (err) => {
   const entry = `[${new Date().toISOString()}] Uncaught exception: ${err.stack || err.message}\n`
   try {
     appendFileSync(ERROR_LOG, entry)
-  } catch {
-    /* ignore */
+  } catch (_error) {
+    // An unavailable IDE log must not replace the original fatal error.
   }
   console.error(entry)
 })
@@ -71,8 +71,8 @@ export const create = async (port: number = Number(process.env.PORT) || 4000) =>
       const entry = `[${new Date().toISOString()}] ${req.method} ${req.path} 500: ${err.stack || err.message}\n`
       try {
         appendFileSync(ERROR_LOG, entry)
-      } catch {
-        /* ignore */
+      } catch (_error) {
+        // An unavailable IDE log must not replace the original request error.
       }
       console.error(entry)
       if (!res.headersSent) {

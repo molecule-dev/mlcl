@@ -4648,6 +4648,7 @@ function generateServerContentHeuristic(
   // External/node imports (alphabetical)
   const externalImports = [
     fw.serverImport,
+    `import { appendFileSync } from 'fs'`,
     `import https from 'https'`,
     `import process from 'process'`,
     `import { fileURLToPath } from 'url'`,
@@ -4697,7 +4698,18 @@ function generateServerContentHeuristic(
   lines.push('')
   // Observe fatal errors without replacing Node's nonzero exit behavior. An
   // unhandledRejection listener that only logs makes a failed boot exit 0.
-  lines.push(`process.on('uncaughtExceptionMonitor', (error) => ${logError})`)
+  lines.push(`const ERROR_LOG = '/workspace/.api-errors.log'`)
+  lines.push(`process.on('uncaughtExceptionMonitor', (error) => {`)
+  lines.push(
+    `  const entry = \`[\${new Date().toISOString()}] Uncaught exception: \${error.stack || error.message}\\n\``,
+  )
+  lines.push(`  try {`)
+  lines.push(`    appendFileSync(ERROR_LOG, entry)`)
+  lines.push(`  } catch (_error) {`)
+  lines.push(`    // An unavailable IDE log must not replace the original fatal error.`)
+  lines.push(`  }`)
+  lines.push(`  ${logError}`)
+  lines.push(`})`)
   lines.push('')
 
   // The create signature: one line when it fits the print width (a short

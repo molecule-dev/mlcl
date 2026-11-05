@@ -1,4 +1,5 @@
 import express from 'express'
+import { appendFileSync } from 'fs'
 import https from 'https'
 import process from 'process'
 import { fileURLToPath } from 'url'
@@ -12,7 +13,16 @@ import { setupBonds } from './bonds/index.js'
 import { runMigrations } from './scripts/migrate.js'
 import { seedProductsIfEmpty } from './seed.js'
 
-process.on('uncaughtExceptionMonitor', (error) => logger.error(error))
+const ERROR_LOG = '/workspace/.api-errors.log'
+process.on('uncaughtExceptionMonitor', (error) => {
+  const entry = `[${new Date().toISOString()}] Uncaught exception: ${error.stack || error.message}\n`
+  try {
+    appendFileSync(ERROR_LOG, entry)
+  } catch (_error) {
+    // An unavailable IDE log must not replace the original fatal error.
+  }
+  logger.error(error)
+})
 
 export const create = async (
   port: number = Number(process.env.PORT) || 4000,

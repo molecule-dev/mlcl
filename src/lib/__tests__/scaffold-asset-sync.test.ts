@@ -11,10 +11,17 @@
  * @module
  */
 import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import type * as FsPromises from 'node:fs/promises'
+import { copyFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
+vi.mock('node:fs/promises', async (importOriginal) => {
+  const actual = await importOriginal<typeof FsPromises>()
+  return { ...actual, copyFile: vi.fn(actual.copyFile) }
+})
 
 import { getRawRegistry } from '../registry.js'
 import { syncProjectAssets } from '../scaffold.js'
@@ -37,15 +44,19 @@ describe('syncProjectAssets font sync failure ordering', () => {
     // content) and one it does not (the swapped-out provider's leftover).
     writeFileSync(join(projectDir, 'public', 'fonts', 'Inter-Regular.ttf'), 'OLD-REGULAR')
     writeFileSync(join(projectDir, 'public', 'fonts', 'legacy-font.ttf'), 'LEGACY')
-    // No node_modules anywhere above the temp dir: every copy of the new set
-    // fails with a warning — the exact "provider not installed yet" state.
+    // The missing-package case below explicitly fails copies, so a workspace
+    // install above TMPDIR cannot supply a replacement behind the fixture's back.
   })
 
   afterEach(() => {
+    vi.mocked(copyFile).mockRestore()
     rmSync(projectDir, { recursive: true, force: true })
   })
 
   it('keeps a font file the copy run cannot replace instead of deleting it first', async () => {
+    vi.mocked(copyFile).mockRejectedValue(
+      Object.assign(new Error('font package not installed'), { code: 'ENOENT' }),
+    )
     await syncProjectAssets(projectDir)
 
     // The file the new set names but the copy could not produce must still be
