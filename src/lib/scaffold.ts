@@ -7006,14 +7006,14 @@ export async function scaffoldPackage(
     // omitted entirely outside the monorepo, where this URL would be a lie.
     ...moleculeRepository(targetDir),
     devDependencies: sortKeys(devDeps),
+    // Required peers, never `peerDependenciesMeta.optional`: the implemented core
+    // and the type's implicit peers are what the package loads on start-up (a
+    // resource's handlers import @molecule/api-database; a provider soon imports
+    // values from its core). npm never installs an optional peer, and mlcl's peer
+    // expansion and production pruning skip one, so marking these optional
+    // shipped apps that crashed on boot (@molecule/api-payments-stripe, 2026-11-05).
+    // molecule's check:undeclared-imports fails a package that loads an optional peer.
     ...(Object.keys(peerDeps).length > 0 ? { peerDependencies: sortKeys(peerDeps) } : {}),
-    ...(Object.keys(peerDeps).length > 0
-      ? {
-          peerDependenciesMeta: Object.fromEntries(
-            Object.keys(peerDeps).map((k) => [k, { optional: true }]),
-          ),
-        }
-      : {}),
   }
 
   if (

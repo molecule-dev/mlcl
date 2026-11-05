@@ -89,3 +89,15 @@ describe('scaffoldPackage — a provider’s identifiers are derived from its pa
     expect(index).toContain('createProvider')
   })
 })
+
+describe('scaffoldPackage — the peers a package loads are required', () => {
+  it('declares the implemented core as a required peer, never an optional one', async () => {
+    await scaffoldPackage(dir, MYSQL_PROVIDER)
+    const pkg = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8'))
+    // Non-vacuity: the core is declared as a peer at all.
+    expect(Object.keys(pkg.peerDependencies ?? {})).toContain('@molecule/api-database')
+    // npm never installs an optional peer, and mlcl's peer expansion skips one, so an
+    // optional core left a bond's start-up import unresolved (api-payments-stripe, 2026-11-05).
+    expect(pkg.peerDependenciesMeta).toBeUndefined()
+  })
+})

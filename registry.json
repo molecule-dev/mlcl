@@ -1,16 +1,5 @@
 {
   "version": 1,
-  "typeDefaults": {
-    "resource": {
-      "implicitPeers": [
-        "@molecule/api-resource",
-        "@molecule/api-database"
-      ]
-    },
-    "provider": {
-      "implicitPeers": []
-    }
-  },
   "packages": {
     "@molecule/api-activity": {
       "language": "typescript",
@@ -11774,7 +11763,9 @@
       "runtimeDependencies": [
         "@molecule/api-database"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database"
+      ],
       "tables": [
         {
           "name": "leaderboard_events",
@@ -16986,7 +16977,11 @@
         "@molecule/api-logger",
         "@molecule/api-resource"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "get",
@@ -18386,6 +18381,7 @@
         "@molecule/api-bond",
         "@molecule/api-config",
         "@molecule/api-http",
+        "@molecule/api-payments",
         "@molecule/api-secrets"
       ],
       "bondWiring": {
@@ -18540,6 +18536,7 @@
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n",
+        "@molecule/api-payments",
         "@molecule/api-secrets"
       ],
       "bondWiring": {
@@ -18640,6 +18637,7 @@
       ],
       "moleculePeers": [
         "@molecule/api-bond",
+        "@molecule/api-payments",
         "@molecule/api-secrets"
       ],
       "bondWiring": {
@@ -18751,6 +18749,7 @@
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-config",
+        "@molecule/api-payments",
         "@molecule/api-secrets"
       ],
       "bondWiring": {
@@ -18859,6 +18858,7 @@
       "moleculePeers": [
         "@molecule/api-bond",
         "@molecule/api-i18n",
+        "@molecule/api-payments",
         "@molecule/api-secrets"
       ],
       "bondWiring": {
@@ -19318,6 +19318,7 @@
         "express"
       ],
       "moleculePeers": [
+        "@molecule/api-config",
         "@molecule/api-process-lifecycle"
       ],
       "path": "packages/api/bonds/process-lifecycle/express",
@@ -20598,7 +20599,10 @@
         "@molecule/api-database",
         "@molecule/api-realtime"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-realtime"
+      ],
       "tables": [
         {
           "name": "realtime_rooms",
@@ -20937,7 +20941,11 @@
         "@molecule/api-logger",
         "@molecule/api-resource"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "get",
@@ -21072,7 +21080,11 @@
         "@molecule/api-resource",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -21168,7 +21180,11 @@
         "@molecule/api-resource",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -21261,9 +21277,12 @@
         "@molecule/api-resource"
       ],
       "moleculePeers": [
+        "@molecule/api-ai",
         "@molecule/api-bond",
+        "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-locales-ai-conversation"
+        "@molecule/api-locales-ai-conversation",
+        "@molecule/api-logger"
       ],
       "routes": [
         {
@@ -21349,7 +21368,8 @@
         "@molecule/api-resource"
       ],
       "moleculePeers": [
-        "@molecule/api-bond"
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
       ],
       "routes": [
         {
@@ -21485,6 +21505,9 @@
         "zod"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger",
         "@molecule/api-resource-follow",
         "@molecule/api-resource-reaction",
         "@molecule/api-slug"
@@ -21628,7 +21651,9 @@
         "@molecule/api-resource"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
         "@molecule/api-i18n",
+        "@molecule/api-logger",
         "@molecule/api-resource"
       ],
       "routes": [
@@ -21733,7 +21758,11 @@
         "@molecule/api-resource",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -21827,7 +21856,9 @@
         "@molecule/api-resource"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
         "@molecule/api-i18n",
+        "@molecule/api-logger",
         "@molecule/api-resource"
       ],
       "routes": [
@@ -21948,7 +21979,11 @@
         "@molecule/api-resource",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -22082,7 +22117,11 @@
         "@molecule/api-locales-resource-course",
         "@molecule/api-resource"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-locales-resource-course"
+      ],
       "tables": [
         {
           "name": "courses",
@@ -22546,7 +22585,11 @@
         "@molecule/api-logger",
         "@molecule/api-resource"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -22728,8 +22771,10 @@
         "@molecule/api-resource"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-locales-resource-grade"
+        "@molecule/api-locales-resource-grade",
+        "@molecule/api-logger"
       ],
       "routes": [
         {
@@ -22874,7 +22919,9 @@
         "@molecule/api-resource"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
         "@molecule/api-i18n",
+        "@molecule/api-logger",
         "@molecule/api-resource"
       ],
       "routes": [
@@ -23285,7 +23332,11 @@
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-locales-resource-message"
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-locales-resource-message",
+        "@molecule/api-logger",
+        "@molecule/api-realtime"
       ],
       "routes": [
         {
@@ -23523,7 +23574,9 @@
         "@molecule/api-resource"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
         "@molecule/api-i18n",
+        "@molecule/api-logger",
         "@molecule/api-resource"
       ],
       "routes": [
@@ -23733,7 +23786,9 @@
       ],
       "moleculePeers": [
         "@molecule/api-bond",
+        "@molecule/api-database",
         "@molecule/api-i18n",
+        "@molecule/api-logger",
         "@molecule/api-payments",
         "@molecule/api-resource",
         "@molecule/api-secrets"
@@ -23825,8 +23880,10 @@
         "@molecule/api-slug"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-locales-product",
+        "@molecule/api-logger",
         "@molecule/api-slug"
       ],
       "routes": [
@@ -23942,8 +23999,10 @@
       ],
       "moleculePeers": [
         "@molecule/api-bond",
+        "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-locales-project",
+        "@molecule/api-logger",
         "@molecule/api-slug"
       ],
       "routes": [
@@ -24047,8 +24106,10 @@
         "@molecule/api-slug"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-locales-property",
+        "@molecule/api-logger",
         "@molecule/api-slug"
       ],
       "routes": [
@@ -24184,7 +24245,11 @@
         "@molecule/api-resource",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -24328,7 +24393,11 @@
         "@molecule/api-resource",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -24439,7 +24508,9 @@
         "@molecule/api-resource-property"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
         "@molecule/api-i18n",
+        "@molecule/api-logger",
         "@molecule/api-resource"
       ],
       "routes": [
@@ -24564,7 +24635,11 @@
         "@molecule/api-resource",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "get",
@@ -24830,7 +24905,11 @@
         "@molecule/api-permissions",
         "@molecule/api-resource"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -24943,8 +25022,10 @@
         "@molecule/api-slug"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-locales-tag",
+        "@molecule/api-logger",
         "@molecule/api-slug"
       ],
       "routes": [
@@ -25143,7 +25224,11 @@
         "@molecule/api-resource",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -25257,7 +25342,11 @@
         "@molecule/api-resource",
         "zod"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -25706,7 +25795,10 @@
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-locales-resource-version-history"
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-locales-resource-version-history",
+        "@molecule/api-logger"
       ],
       "routes": [
         {
@@ -25907,6 +25999,9 @@
         "zod"
       ],
       "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger",
         "@molecule/api-slug"
       ],
       "routes": [
@@ -27109,7 +27204,9 @@
       "runtimeDependencies": [
         "@molecule/api-database"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database"
+      ],
       "path": "packages/api/utilities/slug",
       "intentHints": [
         "url slug",
@@ -27550,7 +27647,11 @@
         "@molecule/api-logger",
         "@molecule/api-resource"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-logger"
+      ],
       "routes": [
         {
           "method": "post",
@@ -27886,7 +27987,10 @@
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-locales-trash"
+        "@molecule/api-database",
+        "@molecule/api-i18n",
+        "@molecule/api-locales-trash",
+        "@molecule/api-logger"
       ],
       "tables": [
         {
@@ -32736,7 +32840,8 @@
         "react"
       ],
       "moleculePeers": [
-        "@molecule/app-client-search"
+        "@molecule/app-client-search",
+        "@molecule/app-storage"
       ],
       "path": "packages/app/features/client-search-react",
       "intentHints": [
@@ -32821,7 +32926,10 @@
         "@molecule/app-logger",
         "@react-native-clipboard/clipboard"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/native/clipboard/react-native",
       "intentHints": [
@@ -32961,7 +33069,9 @@
         "@molecule/app-logger",
         "monaco-editor"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
       "path": "packages/app/bonds/code-editor/monaco",
       "intentHints": [
         "code editor",
@@ -38644,7 +38754,10 @@
         "@molecule/app-logger",
         "react-native"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/native/keyboard/react-native",
       "intentHints": [
@@ -39011,7 +39124,10 @@
         "@molecule/app-logger",
         "react-native"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/native/lifecycle/react-native",
       "intentHints": [
@@ -39155,7 +39271,9 @@
       "runtimeDependencies": [
         "@molecule/app-live-preview"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-live-preview"
+      ],
       "path": "packages/app/bonds/live-preview/iframe",
       "intentHints": [
         "live preview",
@@ -55570,7 +55688,10 @@
         "@molecule/app-network",
         "@react-native-community/netinfo"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/native/network/react-native",
       "intentHints": [
@@ -56718,7 +56839,10 @@
         "expo-notifications",
         "react-native"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/native/push/react-native",
       "intentHints": [
@@ -57298,7 +57422,9 @@
         "react-native",
         "react-native-safe-area-context"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-react"
+      ],
       "framework": "react-native",
       "templateRequires": [
         "@molecule/app-i18n",
@@ -57737,16 +57863,6 @@
       },
       "bondSetter": "setRouter",
       "path": "packages/app/core/routing",
-      "intentHints": [
-        "routing",
-        "client-side routing",
-        "client side routing",
-        "page routing",
-        "navigation guards",
-        "url routing",
-        "route params",
-        "protected routes"
-      ],
       "decisionGuide": {
         "bindingGuidance": {
           "@molecule/app-routing-react-router": [
@@ -57771,7 +57887,17 @@
           "URL-backed lists (`?page=2`, `?status=open`, a tab such as Mine/All, `/category/:slug`): keep the page, filters and tab in the URL only, read and change them through the declared framework binding, and return to page one when a filter or tab changes.",
           "Signed-in-only views reached by URL: wait for the session restore, then send only a confirmed signed-out visitor to the sign-in page with a return path; an unavailable session is not signed out."
         ]
-      }
+      },
+      "intentHints": [
+        "routing",
+        "client-side routing",
+        "client side routing",
+        "page routing",
+        "navigation guards",
+        "url routing",
+        "route params",
+        "protected routes"
+      ]
     },
     "@molecule/app-routing-next": {
       "language": "typescript",
@@ -57872,7 +57998,10 @@
         "react",
         "react-native"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-routing"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/routing/react-navigation",
       "intentHints": [
@@ -58994,7 +59123,10 @@
         "@molecule/app-splash-screen",
         "expo-splash-screen"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/native/splash-screen/react-native",
       "intentHints": [
@@ -59141,16 +59273,6 @@
       },
       "bondSetter": "setProvider",
       "path": "packages/app/core/state",
-      "intentHints": [
-        "state management",
-        "global state",
-        "app state",
-        "shared state",
-        "state store",
-        "client state",
-        "manage application state",
-        "reactive state"
-      ],
       "decisionGuide": {
         "configuration": [
           "A server-backed value the person toggles or sets (favorite, follow, like, bookmark, rating, quantity, a setting switch): use `createOptimisticValue({ value, commit, equals })`. It shows each change at once and saves one change at a time; a tap during a save is saved right after it, and only a failure of the newest change goes back to the server value. Never ignore a tap or disable the control while a save is pending, and never let a refetch or new props replace the value during a save."
@@ -59160,7 +59282,17 @@
             "React binding: a toggle or counter button uses `useOptimisticValue({ value, commit, equals })` from `@molecule/app-react`, with `value` from the record's props or query and `commit` sending one change and returning the server's value. Render `value`, call `update((current) => next)` on every click, and give the component a `key` per record."
           ]
         }
-      }
+      },
+      "intentHints": [
+        "state management",
+        "global state",
+        "app state",
+        "shared state",
+        "state store",
+        "client state",
+        "manage application state",
+        "reactive state"
+      ]
     },
     "@molecule/app-state-jotai": {
       "language": "typescript",
@@ -59424,7 +59556,9 @@
         "@molecule/app-status-bar",
         "react-native"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/native/status-bar/react-native",
       "intentHints": [
@@ -59753,7 +59887,10 @@
         "@molecule/app-storage",
         "@react-native-async-storage/async-storage"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/storage/async-storage",
       "intentHints": [
@@ -61159,7 +61296,9 @@
         "@molecule/app-ui",
         "@molecule/app-ui-tailwind"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-ui-tailwind"
+      ],
       "framework": "react-native",
       "path": "packages/app/bonds/ui/nativewind",
       "intentHints": [
@@ -61444,7 +61583,10 @@
         "react",
         "react-native"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui"
+      ],
       "framework": "react-native",
       "path": "packages/app/frameworks/react-native-ui"
     },
@@ -63169,6 +63311,17 @@
         "topic cloud",
         "weighted vocabulary"
       ]
+    }
+  },
+  "typeDefaults": {
+    "resource": {
+      "implicitPeers": [
+        "@molecule/api-resource",
+        "@molecule/api-database"
+      ]
+    },
+    "provider": {
+      "implicitPeers": []
     }
   },
   "apiFrameworks": {
