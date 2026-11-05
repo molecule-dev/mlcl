@@ -12,8 +12,7 @@ import { setupBonds } from './bonds/index.js'
 import { photoFilesRouter, uploadsRouter } from './handlers/uploads.js'
 import { runMigrations } from './scripts/migrate.js'
 
-process.on('uncaughtException', (error) => logger.error(error))
-process.on('unhandledRejection', (error) => logger.error(error))
+process.on('uncaughtExceptionMonitor', (error) => logger.error(error))
 
 export const create = async (
   port: number = Number(process.env.PORT) || 4000,

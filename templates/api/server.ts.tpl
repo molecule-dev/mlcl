@@ -8,18 +8,8 @@ import { setupBonds } from './bonds/index.js'
 // Capture runtime errors and write to a well-known file so the IDE's
 // auto-verification can detect them and feed them to the AI for fixing.
 const ERROR_LOG = '/workspace/.api-errors.log'
-process.on('uncaughtException', (err) => {
+process.on('uncaughtExceptionMonitor', (err) => {
   const entry = `[${new Date().toISOString()}] Uncaught exception: ${err.stack || err.message}\n`
-  try {
-    appendFileSync(ERROR_LOG, entry)
-  } catch {
-    /* ignore */
-  }
-  console.error(entry)
-})
-process.on('unhandledRejection', (reason) => {
-  const msg = reason instanceof Error ? reason.stack || reason.message : String(reason)
-  const entry = `[${new Date().toISOString()}] Unhandled rejection: ${msg}\n`
   try {
     appendFileSync(ERROR_LOG, entry)
   } catch {

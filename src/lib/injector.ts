@@ -4695,8 +4695,9 @@ function generateServerContentHeuristic(
   lines.push(...localImports)
 
   lines.push('')
-  lines.push(`process.on('uncaughtException', (error) => ${logError})`)
-  lines.push(`process.on('unhandledRejection', (error) => ${logError})`)
+  // Observe fatal errors without replacing Node's nonzero exit behavior. An
+  // unhandledRejection listener that only logs makes a failed boot exit 0.
+  lines.push(`process.on('uncaughtExceptionMonitor', (error) => ${logError})`)
   lines.push('')
 
   // The create signature: one line when it fits the print width (a short
