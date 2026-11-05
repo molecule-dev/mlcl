@@ -60357,13 +60357,17 @@
       "type": "feature",
       "category": "tag-input",
       "label": "Tag Input React",
-      "description": "React tags/labels/keywords input — a tag-token (chip) input and tag-chip display component",
+      "description": "React tags/labels/keywords input — a tag-token (chip) input, a markup-free useTagInput hook for app-owned markup, and tag-chip display",
       "stack": "app",
       "exports": [
-        "TagChipProps",
         "TagChip",
+        "TagChipProps",
+        "TagInput",
         "TagInputProps",
-        "TagInput"
+        "useTagInput",
+        "UseTagInputOptions",
+        "TagInputFieldProps",
+        "UseTagInputResult"
       ],
       "secrets": [],
       "runtimeDependencies": [
