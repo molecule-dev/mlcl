@@ -75,7 +75,7 @@
     "@molecule/app-push": "1.0.3",
     "@molecule/app-react": "3.4.0",
     "@molecule/app-routing": "1.0.5",
-    "@molecule/app-routing-react-router": "1.2.1",
+    "@molecule/app-routing-react-router": "1.2.2",
     "@molecule/app-shell-layout-react": "3.0.0",
     "@molecule/app-state": "1.2.0",
     "@molecule/app-storage": "1.1.0",

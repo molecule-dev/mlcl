@@ -89,7 +89,7 @@
     "@molecule/app-realtime-socketio": "1.1.2",
     "@molecule/app-root-error-boundary-react": "1.0.3",
     "@molecule/app-routing": "1.0.5",
-    "@molecule/app-routing-react-router": "1.2.1",
+    "@molecule/app-routing-react-router": "1.2.2",
     "@molecule/app-service-worker-default": "1.0.3",
     "@molecule/app-settings-panel-react": "3.0.2",
     "@molecule/app-shell-layout-react": "3.0.0",

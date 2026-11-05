@@ -64506,7 +64506,7 @@
       "@molecule/app-routing": "1.0.5",
       "@molecule/app-routing-next": "1.0.3",
       "@molecule/app-routing-react-navigation": "1.0.5",
-      "@molecule/app-routing-react-router": "1.2.1",
+      "@molecule/app-routing-react-router": "1.2.2",
       "@molecule/app-routing-vue-router": "1.0.4",
       "@molecule/app-rule-builder-react": "3.0.0",
       "@molecule/app-safe-link-react": "1.0.5",
