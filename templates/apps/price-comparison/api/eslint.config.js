@@ -524,6 +524,7 @@ const moleculeLocal = {
         // proof that an arbitrarily named custom function reaches a server.
         const persistenceCall = (node) => {
           if (node?.type !== 'CallExpression') return false
+          if (setters.has(variableFor(unwrap(node.callee)))) return false
           const name = callName(node)
           if (typeof name !== 'string' || localCalls.has(name)) return false
           if (
@@ -617,8 +618,7 @@ const moleculeLocal = {
             parent.parent?.type === 'CallExpression'
           )
             return true
-          if (parent?.type === 'ReturnStatement' || (parent === fn && fn.expression))
-            return fn.async
+          if (parent?.type === 'ReturnStatement' || (parent === fn && fn.expression)) return true
           if (parent?.type === 'ConditionalExpression' && parent.test !== current)
             return promiseUsed(parent, fn, seen)
           if (parent?.type === 'VariableDeclarator' && parent.id.type === 'Identifier') {

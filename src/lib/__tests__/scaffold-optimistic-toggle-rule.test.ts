@@ -92,6 +92,20 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
     tester.run('server-toggles-use-optimistic-value', rule, {
       valid: [
         {
+          name: 'returning a local setter is not a server request',
+          filename: 'Panel.tsx',
+          code: `import { useState } from 'react'
+export function Panel() {
+  const [open, setOpen] = useState(false)
+  const [selected, setSelected] = useState(false)
+  const toggle = () => {
+    setOpen(!open)
+    return setSelected(!selected)
+  }
+  return <button onClick={toggle} />
+}`,
+        },
+        {
           name: 'an asynchronous local animation persists no preference',
           filename: 'Panel.tsx',
           code: `import { useState } from 'react'
@@ -399,6 +413,21 @@ export function Login() {
         },
       ],
       invalid: [
+        {
+          name: 'a non-async handler returns the save promise',
+          filename: 'Switch.tsx',
+          code: `import { useState } from 'react'
+export function Switch() {
+  const [on, setOn] = useState(false)
+  const toggle = () => {
+    const next = !on
+    setOn(next)
+    return http.put('/settings', { on: next })
+  }
+  return <button onClick={toggle} />
+}`,
+          errors: [{ messageId: 'useOptimisticValue' }],
+        },
         {
           name: 'a request options object chooses DELETE versus PUT',
           filename: 'Switch.tsx',
