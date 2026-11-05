@@ -338,7 +338,7 @@
     "@molecule/app-shell-layout-react": "3.0.0",
     "@molecule/app-state": "1.2.0",
     "@molecule/app-storage": "1.1.0",
-    "@molecule/app-tag-input-react": "3.1.0",
+    "@molecule/app-tag-input-react": "3.1.1",
     "@molecule/app-theme": "1.0.4",
     "@molecule/app-theme-css-variables": "1.0.4",
     "@molecule/app-typing-indicator-react": "3.0.0",
