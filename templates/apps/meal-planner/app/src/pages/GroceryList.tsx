@@ -36,16 +36,39 @@ function pantryBadgesEnabled(): boolean {
 }
 
 export function GroceryList() {
+  const [searchParams, setSearchParams] = useSearchParams()
+  const weekStart = searchParams.get('week') ?? weekStartOf()
+  const [manualName, setManualName] = useState('')
+  return (
+    <GroceryWeek
+      key={weekStart}
+      weekStart={weekStart}
+      manualName={manualName}
+      setManualName={setManualName}
+      onChangeWeek={(week) =>
+        setSearchParams(week === weekStartOf() ? {} : { week }, { replace: true })
+      }
+    />
+  )
+}
+
+/** A week's pending saves retain that week's identity after navigating away. */
+function GroceryWeek({
+  weekStart,
+  manualName,
+  setManualName,
+  onChangeWeek,
+}: {
+  weekStart: string
+  manualName: string
+  setManualName: (name: string) => void
+  onChangeWeek: (week: string) => void
+}) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [searchParams, setSearchParams] = useSearchParams()
-  const [weekStart, setWeekStart] = useState<string>(
-    () => searchParams.get('week') ?? weekStartOf(),
-  )
   const [items, setItems] = useState<GroceryRow[] | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [manualName, setManualName] = useState('')
   const [adding, setAdding] = useState(false)
   const [regenerating, setRegenerating] = useState(false)
   // Settings → Smart Pantry & Grocery Automation: when off, the "you already
@@ -231,11 +254,6 @@ export function GroceryList() {
     }
   }
 
-  const changeWeek = (week: string): void => {
-    setWeekStart(week)
-    setSearchParams(week === weekStartOf() ? {} : { week }, { replace: true })
-  }
-
   return (
     <>
       <SimmerTopBar
@@ -247,7 +265,7 @@ export function GroceryList() {
         )}
       />
 
-      <WeekNavigator weekStart={weekStart} onChange={changeWeek}>
+      <WeekNavigator weekStart={weekStart} onChange={onChangeWeek}>
         <button
           type="button"
           data-mol-id="groceries-regenerate"

@@ -468,6 +468,34 @@ describe('the shipped template toggles with real optimistic state', () => {
     expect(view.container.querySelector('[data-mol-id="grocery-check-a"]')).toBeNull()
   })
 
+  it('queued grocery saves keep their original week after navigation', async () => {
+    fixture.http.get.mockImplementation(async (url: string) =>
+      response([grocery(url.includes('2026-11-02') ? 'a' : 'b')]),
+    )
+    const first = deferred(),
+      undo = deferred()
+    fixture.http.put.mockReturnValueOnce(first.promise).mockReturnValueOnce(undo.promise)
+    const view = await mount(GroceryList, '/?week=2026-11-02')
+    fireEvent.change(view.container.querySelector('[data-mol-id="groceries-add-name"]')!, {
+      target: { value: 'Oats' },
+    })
+    click(view, '[data-mol-id="grocery-check-a"]')
+    click(view, '[data-mol-id="grocery-check-a"]')
+    click(view, '[data-mol-id="week-next"]')
+    await flush()
+    expect(view.container.querySelector('[data-mol-id="grocery-check-b"]')).not.toBeNull()
+    expect(
+      view.container.querySelector<HTMLInputElement>('[data-mol-id="groceries-add-name"]')?.value,
+    ).toBe('Oats')
+    await act(async () => first.resolve(response({})))
+    await act(async () => undo.resolve(response({})))
+    expect(
+      fixture.track.mock.calls
+        .filter(([event]) => event.properties.item_id === 'a')
+        .map(([event]) => event.properties.week_start),
+    ).toEqual(['2026-11-02', '2026-11-02'])
+  })
+
   it('switching event records creates a fresh optimistic value', async () => {
     fixture.http.get.mockImplementation(async (url: string) =>
       response(eventType(url.endsWith('/b') ? 'b' : 'a')),
