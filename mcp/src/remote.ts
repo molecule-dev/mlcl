@@ -18,6 +18,8 @@ import { readFileSync } from 'node:fs'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 
+import { localPackageDoc } from './package-doc-files.js'
+import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
 import { searchPackages, type SearchSourceEntry } from './package-search.js'
 import { serverVersion, tracked } from './telemetry.js'
 
@@ -482,7 +484,7 @@ export function buildRemoteServer(): McpServer {
     {
       title: 'Read a package README',
       description:
-        "Fetch a @molecule/* package's generated usage reference (API, examples, wiring) — the authoritative published doc.",
+        "Fetch a @molecule/* package's generated usage reference (API, examples, wiring) — the authoritative published doc. For “where is X”, use search before grepping package internals: literal README lines with headings, then any locally installed type declarations.",
       inputSchema: {
         // Bounded, like the sibling `search_packages` query: this is a public,
         // unauthenticated server, and the name is interpolated into the outbound
@@ -490,9 +492,10 @@ export function buildRemoteServer(): McpServer {
         // sized by the caller, up to the HTTP body cap, at the per-address
         // budget's full rate. A package short name is under 100 characters.
         name: z.string().max(200).describe('Package name, with or without the @molecule/ scope'),
+        search: docSearchSchema.optional(),
       },
     },
-    tracked('read_package_doc', async ({ name }) => {
+    tracked('read_package_doc', async ({ name, search }) => {
       const short = name.replace(/^@molecule\//, '')
       // The same package-name shape the stdio server's path guard enforces (see
       // mcp/src/server.ts): a name is a single descending segment, so it cannot
@@ -501,9 +504,22 @@ export function buildRemoteServer(): McpServer {
       if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(short)) {
         return text(`Invalid package name "${short}" — expected @molecule/<name>.`)
       }
+      const terms = typeof search === 'string' ? [search] : search
+      const local = terms ? localPackageDoc(short, import.meta.dirname) : null
+      if (local && terms)
+        return text(searchPackageDoc(local.readme, terms, local.declarations, local.note).doc)
       try {
         const doc = await fetchPackageReadme(short)
         if (doc) {
+          if (terms)
+            return text(
+              searchPackageDoc(
+                doc,
+                terms,
+                [],
+                'Published README; declaration files are unavailable on this host.',
+              ).doc,
+            )
           if (doc.length > 100_000)
             return text(
               `${doc.slice(0, 100_000)}\n\n[…truncated — full doc: https://www.molecule.dev/packages/${short}]`,

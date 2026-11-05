@@ -29,6 +29,8 @@ import {
   startLogin,
   whoami,
 } from './auth.js'
+import { localPackageDoc } from './package-doc-files.js'
+import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
 import { scaffoldProjectCliArgs } from './scaffold-args.js'
 import {
   callHostedService,
@@ -277,7 +279,9 @@ async function readEnvList(
   }
 }
 
-const text = (t: string) => ({ content: [{ type: 'text' as const, text: t }] })
+const text = (t: string): { content: Array<{ type: 'text'; text: string }> } => ({
+  content: [{ type: 'text' as const, text: t }],
+})
 
 /**
  * Create a tool's output file, refusing a name that already exists.
@@ -649,8 +653,8 @@ server.registerTool(
       directory: z.string().optional(),
     },
   },
-  tracked('swap_provider', async ({ new_provider, replace, directory }) => {
-    const args = ['swap', new_provider, '--no-interactive', '--install']
+  tracked('swap_provider', async ({ new_provider: newProvider, replace, directory }) => {
+    const args = ['swap', newProvider, '--no-interactive', '--install']
     if (replace) args.push('-r', replace)
     return text(await runCli(args, directory))
   }),
@@ -661,7 +665,7 @@ server.registerTool(
   {
     title: 'Read a package README',
     description:
-      'Read the generated usage reference for an installed @molecule/* package (API, examples, wiring) from node_modules — the authoritative doc for using it correctly.',
+      'Read the generated usage reference for an installed @molecule/* package (API, examples, wiring) from node_modules. For “where is X”, use search before grepping package internals: literal README lines with headings, then installed type declarations.',
     inputSchema: {
       // Bounded, like the sibling `search_packages` query: the name is joined
       // into node_modules paths AND echoed verbatim into this tool's result
@@ -670,13 +674,14 @@ server.registerTool(
       // caller and up to a megabyte of it copied back into the transcript per
       // call. A package short name is under 100 characters.
       name: z.string().max(200).describe('Package name without the @molecule/ scope or with it'),
+      search: docSearchSchema.optional(),
       directory: z
         .string()
         .optional()
         .describe('Project root to resolve node_modules from (default cwd)'),
     },
   },
-  tracked('read_package_doc', async ({ name, directory }) => {
+  tracked('read_package_doc', async ({ name, directory, search }) => {
     const short = name.replace(/^@molecule\//, '')
     // Path-join guard: a crafted name must not escape node_modules — and the
     // character class alone did not say that. `..` is three characters from the
@@ -690,6 +695,21 @@ server.registerTool(
       return text(`Invalid package name "${short}" — expected a plain @molecule/<name>.`)
     }
     const base = directory ?? process.cwd()
+    if (search !== undefined) {
+      const local = localPackageDoc(short, base)
+      if (local)
+        return text(
+          searchPackageDoc(
+            local.readme,
+            typeof search === 'string' ? [search] : search,
+            local.declarations,
+            local.note,
+          ).doc,
+        )
+      return text(
+        `No local README found for @molecule/${short} — is it installed near ${echoOf(base)}?`,
+      )
+    }
     // Walk UP from the given directory like Node's module resolution: in a
     // full-stack scaffold the packages hoist to the PROJECT ROOT's
     // node_modules while the user points the tool at api/ or app/.
@@ -941,7 +961,9 @@ server.registerTool(
 // (or MOLECULE_API_KEY). Every call is metered and billed to that project.
 
 /** Turn a ServiceCallError into a readable tool error; rethrow anything else. */
-async function serviceResult(run: () => Promise<string>) {
+async function serviceResult(
+  run: () => Promise<string>,
+): Promise<ReturnType<typeof text> & { isError?: boolean }> {
   try {
     return text(await run())
   } catch (error) {
@@ -986,13 +1008,9 @@ server.registerTool(
         .describe('Limit the key, e.g. [broker:embeddings]. Default: every hosted service.'),
     },
   },
-  tracked('create_api_key', async ({ project_id, env_file, name, scopes }) =>
+  tracked('create_api_key', async ({ project_id: projectId, env_file: envFile, name, scopes }) =>
     serviceResult(async () =>
-      JSON.stringify(
-        await createApiKeyIntoEnv(project_id, name ?? 'mcp', env_file, scopes),
-        null,
-        2,
-      ),
+      JSON.stringify(await createApiKeyIntoEnv(projectId, name ?? 'mcp', envFile, scopes), null, 2),
     ),
   ),
 )
@@ -1155,8 +1173,8 @@ server.registerTool(
         .describe('Project directory whose .env to push (default cwd)'),
     },
   },
-  tracked('push_env_vars', async ({ project_id, directory }) =>
-    text(await runCli(['env', 'push', '--project', project_id], directory)),
+  tracked('push_env_vars', async ({ project_id: projectId, directory }) =>
+    text(await runCli(['env', 'push', '--project', projectId], directory)),
   ),
 )
 
@@ -1174,8 +1192,8 @@ server.registerTool(
         .describe('Project directory to write .env into (default cwd)'),
     },
   },
-  tracked('pull_env_vars', async ({ project_id, directory }) =>
-    text(await runCli(['env', 'pull', '--project', project_id], directory)),
+  tracked('pull_env_vars', async ({ project_id: projectId, directory }) =>
+    text(await runCli(['env', 'pull', '--project', projectId], directory)),
   ),
 )
 
@@ -1191,8 +1209,8 @@ server.registerTool(
       directory: z.string().optional().describe('Directory to write the bundle into (default cwd)'),
     },
   },
-  tracked('export_project', async ({ project_id, out, directory }) => {
-    const args = ['project', 'export', project_id]
+  tracked('export_project', async ({ project_id: projectId, out, directory }) => {
+    const args = ['project', 'export', projectId]
     if (out) args.push('-o', out)
     return text(await runCli(args, directory))
   }),
@@ -1268,51 +1286,53 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('embed_text', async ({ input, model, dimensions, summary_only, directory }) =>
-    serviceResult(async () => {
-      // The advertised total-character budget, refused BEFORE the metered call
-      // — the same rule `translate` applies to its own (the schema bounds the
-      // per-text size and the count; the total spans both shapes, so it is the
-      // handler's check).
-      const texts = Array.isArray(input) ? input : [input]
-      const characters = texts.reduce((sum, entry) => sum + entry.length, 0)
-      if (characters > EMBED_MAX_TOTAL_CHARS) {
-        throw new ServiceCallError(
-          `${characters} characters across ${texts.length} text(s); embed_text accepts up to ` +
-            `${EMBED_MAX_TOTAL_CHARS} characters (${EMBED_MAX_CHARS_PER_TEXT} per text, ` +
-            `${EMBED_MAX_TEXTS} texts) per call. Split it into several requests.`,
+  tracked(
+    'embed_text',
+    async ({ input, model, dimensions, summary_only: summaryOnly, directory }) =>
+      serviceResult(async () => {
+        // The advertised total-character budget, refused BEFORE the metered call
+        // — the same rule `translate` applies to its own (the schema bounds the
+        // per-text size and the count; the total spans both shapes, so it is the
+        // handler's check).
+        const texts = Array.isArray(input) ? input : [input]
+        const characters = texts.reduce((sum, entry) => sum + entry.length, 0)
+        if (characters > EMBED_MAX_TOTAL_CHARS) {
+          throw new ServiceCallError(
+            `${characters} characters across ${texts.length} text(s); embed_text accepts up to ` +
+              `${EMBED_MAX_TOTAL_CHARS} characters (${EMBED_MAX_CHARS_PER_TEXT} per text, ` +
+              `${EMBED_MAX_TEXTS} texts) per call. Split it into several requests.`,
+          )
+        }
+        const result = (await callHostedService(
+          'embeddings',
+          'embed',
+          { input, ...(model ? { model } : {}), ...(dimensions ? { dimensions } : {}) },
+          directory,
+        )) as { embeddings?: unknown; model?: string; usage?: unknown }
+        // A 2xx proves the route ANSWERED, not that it embedded anything: an empty
+        // body deserializes as `{}` (services.ts answers `data = {}` for one), a
+        // shrunken rewrite or a service bug can leave the field absent — and the
+        // summary path then read `result.embeddings.length` off `undefined` and the
+        // client was handed a raw "Cannot read properties of undefined" naming
+        // neither the tool nor the round trip it paid for. The same refusal
+        // decodeServicePayload applies to every written payload, and for the same
+        // reason, covers the pass-through branch too: a body without the vectors is
+        // the failure, whoever reads it.
+        const embeddings = result.embeddings
+        if (!Array.isArray(embeddings) || embeddings.length === 0) {
+          throw new ServiceCallError('The service returned no embedding data.')
+        }
+        return JSON.stringify(
+          summaryOnly
+            ? {
+                model: result.model,
+                usage: result.usage,
+                vectors: embeddings.length,
+                dimensions: (embeddings[0] as number[] | undefined)?.length ?? 0,
+              }
+            : result,
         )
-      }
-      const result = (await callHostedService(
-        'embeddings',
-        'embed',
-        { input, ...(model ? { model } : {}), ...(dimensions ? { dimensions } : {}) },
-        directory,
-      )) as { embeddings?: unknown; model?: string; usage?: unknown }
-      // A 2xx proves the route ANSWERED, not that it embedded anything: an empty
-      // body deserializes as `{}` (services.ts answers `data = {}` for one), a
-      // shrunken rewrite or a service bug can leave the field absent — and the
-      // summary path then read `result.embeddings.length` off `undefined` and the
-      // client was handed a raw "Cannot read properties of undefined" naming
-      // neither the tool nor the round trip it paid for. The same refusal
-      // decodeServicePayload applies to every written payload, and for the same
-      // reason, covers the pass-through branch too: a body without the vectors is
-      // the failure, whoever reads it.
-      const embeddings = result.embeddings
-      if (!Array.isArray(embeddings) || embeddings.length === 0) {
-        throw new ServiceCallError('The service returned no embedding data.')
-      }
-      return JSON.stringify(
-        summary_only
-          ? {
-              model: result.model,
-              usage: result.usage,
-              vectors: embeddings.length,
-              dimensions: (embeddings[0] as number[] | undefined)?.length ?? 0,
-            }
-          : result,
-      )
-    }),
+      }),
   ),
 )
 
@@ -1399,36 +1419,45 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('translate', async ({ text, target_lang, source_lang, protect, context, directory }) =>
-    serviceResult(async () => {
-      // The advertised character budget, refused BEFORE the metered call — the
-      // same rule every other capped tool here follows (see `readCappedFileSync`
-      // and `merge_pdfs`' total). A single long string and a list of many are
-      // both covered by the total, so the schema only has to bound the count.
-      const characters = (Array.isArray(text) ? text : [text]).reduce(
-        (sum, entry) => sum + entry.length,
-        0,
-      )
-      if (characters > TRANSLATE_MAX_CHARS) {
-        throw new ServiceCallError(
-          `${characters} characters across ${Array.isArray(text) ? text.length : 1} text(s); ` +
-            `translate accepts up to ${TRANSLATE_MAX_CHARS} characters (and ${TRANSLATE_MAX_TEXTS} texts) per call.`,
+  tracked(
+    'translate',
+    async ({
+      text,
+      target_lang: targetLang,
+      source_lang: sourceLang,
+      protect,
+      context,
+      directory,
+    }) =>
+      serviceResult(async () => {
+        // The advertised character budget, refused BEFORE the metered call — the
+        // same rule every other capped tool here follows (see `readCappedFileSync`
+        // and `merge_pdfs`' total). A single long string and a list of many are
+        // both covered by the total, so the schema only has to bound the count.
+        const characters = (Array.isArray(text) ? text : [text]).reduce(
+          (sum, entry) => sum + entry.length,
+          0,
         )
-      }
-      const result = await callHostedService(
-        'translation',
-        'translate',
-        {
-          text,
-          targetLang: target_lang,
-          ...(source_lang ? { sourceLang: source_lang } : {}),
-          ...(protect?.length ? { protect } : {}),
-          ...(context ? { context } : {}),
-        },
-        directory,
-      )
-      return JSON.stringify(result)
-    }),
+        if (characters > TRANSLATE_MAX_CHARS) {
+          throw new ServiceCallError(
+            `${characters} characters across ${Array.isArray(text) ? text.length : 1} text(s); ` +
+              `translate accepts up to ${TRANSLATE_MAX_CHARS} characters (and ${TRANSLATE_MAX_TEXTS} texts) per call.`,
+          )
+        }
+        const result = await callHostedService(
+          'translation',
+          'translate',
+          {
+            text,
+            targetLang: targetLang,
+            ...(sourceLang ? { sourceLang: sourceLang } : {}),
+            ...(protect?.length ? { protect } : {}),
+            ...(context ? { context } : {}),
+          },
+          directory,
+        )
+        return JSON.stringify(result)
+      }),
   ),
 )
 
@@ -1459,10 +1488,10 @@ server.registerTool(
   },
   tracked(
     'text_to_speech',
-    async ({ text: input, output_file, voice, model, format, speed, directory }) =>
+    async ({ text: input, output_file: outputFile, voice, model, format, speed, directory }) =>
       serviceResult(async () => {
         const responseFormat = format ?? 'mp3'
-        const target = resolve(output_file)
+        const target = resolve(outputFile)
         if (extname(target).toLowerCase() !== `.${responseFormat}`) {
           throw new ServiceCallError(
             `output_file must end in .${responseFormat} for format ${responseFormat}.`,
@@ -1590,9 +1619,9 @@ server.registerTool(
   },
   tracked(
     'moderate_content',
-    async ({ text: content, image_file, threshold, categories, directory }) =>
+    async ({ text: content, image_file: imageFile, threshold, categories, directory }) =>
       serviceResult(async () => {
-        if ((content === undefined) === (image_file === undefined)) {
+        if ((content === undefined) === (imageFile === undefined)) {
           throw new ServiceCallError('Pass exactly one of text or image_file.')
         }
         const options = {
@@ -1604,7 +1633,7 @@ server.registerTool(
             await callHostedService('moderation', 'check', { content, ...options }, directory),
           )
         }
-        const path = resolve(image_file as string)
+        const path = resolve(imageFile as string)
         const mimeType = IMAGE_TYPES[extname(path).toLowerCase()]
         if (!mimeType)
           throw new ServiceCallError('image_file must be .png, .jpg, .jpeg, .webp or .gif.')
@@ -1643,9 +1672,9 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('extract_text', async ({ image_file, language, directory }) =>
+  tracked('extract_text', async ({ image_file: imageFile, language, directory }) =>
     serviceResult(async () => {
-      const path = resolve(image_file)
+      const path = resolve(imageFile)
       const mimeType = IMAGE_TYPES[extname(path).toLowerCase()]
       if (!mimeType)
         throw new ServiceCallError('image_file must be .png, .jpg, .jpeg, .webp or .gif.')
@@ -1690,7 +1719,7 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('web_search', async ({ query, count, country, search_lang, directory }) =>
+  tracked('web_search', async ({ query, count, country, search_lang: searchLang, directory }) =>
     serviceResult(async () => {
       const result = await callHostedService(
         'web-search',
@@ -1699,7 +1728,7 @@ server.registerTool(
           query,
           ...(count ? { count } : {}),
           ...(country ? { country } : {}),
-          ...(search_lang ? { searchLang: search_lang } : {}),
+          ...(searchLang ? { searchLang: searchLang } : {}),
         },
         directory,
       )
@@ -1867,9 +1896,9 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('render_pdf', async ({ html, output_file, directory, ...opts }) =>
+  tracked('render_pdf', async ({ html, output_file: outputFile, directory, ...opts }) =>
     serviceResult(async () => {
-      const target = resolve(output_file)
+      const target = resolve(outputFile)
       if (existsSync(target)) {
         throw new ServiceCallError(
           `${target} already exists. Pick a fresh name — the tool never overwrites.`,
@@ -1927,9 +1956,9 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('merge_pdfs', async ({ input_files, output_file, directory }) =>
+  tracked('merge_pdfs', async ({ input_files: inputFiles, output_file: outputFile, directory }) =>
     serviceResult(async () => {
-      const target = resolve(output_file)
+      const target = resolve(outputFile)
       if (existsSync(target)) {
         throw new ServiceCallError(
           `${target} already exists. Pick a fresh name — the tool never overwrites.`,
@@ -1938,7 +1967,7 @@ server.registerTool(
       requireWritableParent(target)
       const pdfs: string[] = []
       let totalBytes = 0
-      for (const path of input_files) {
+      for (const path of inputFiles) {
         const resolved = resolve(path)
         // The caps this tool advertises ("Up to 20 files, 8 MB each, 24 MB
         // total") are enforced HERE, like every sibling that advertises a size
@@ -1985,7 +2014,7 @@ server.registerTool(
       return JSON.stringify({
         file: target,
         pageCount: result.pageCount,
-        inputs: input_files.length,
+        inputs: inputFiles.length,
       })
     }),
   ),
@@ -2015,46 +2044,48 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('watermark_pdf', async ({ input_file, text, output_file, directory, ...opts }) =>
-    serviceResult(async () => {
-      const target = resolve(output_file)
-      if (existsSync(target)) {
-        throw new ServiceCallError(
-          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+  tracked(
+    'watermark_pdf',
+    async ({ input_file: inputFile, text, output_file: outputFile, directory, ...opts }) =>
+      serviceResult(async () => {
+        const target = resolve(outputFile)
+        if (existsSync(target)) {
+          throw new ServiceCallError(
+            `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+          )
+        }
+        requireWritableParent(target)
+        // The input cap this description now advertises ("8 MB input"), checked
+        // by SIZE before the bytes are allocated: the read itself was unbounded,
+        // so a multi-GB path died with an allocation failure instead of the
+        // readable refusal below.
+        const pdf = readCappedFileSync(
+          resolve(inputFile),
+          inputFile,
+          PDF_MAX_INPUT_BYTES,
+          (bytes) => `${inputFile} is ${bytes} bytes; the limit is 8 MB.`,
         )
-      }
-      requireWritableParent(target)
-      // The input cap this description now advertises ("8 MB input"), checked
-      // by SIZE before the bytes are allocated: the read itself was unbounded,
-      // so a multi-GB path died with an allocation failure instead of the
-      // readable refusal below.
-      const pdf = readCappedFileSync(
-        resolve(input_file),
-        input_file,
-        PDF_MAX_INPUT_BYTES,
-        (bytes) => `${input_file} is ${bytes} bytes; the limit is 8 MB.`,
-      )
-      if (pdf.subarray(0, 5).toString('latin1') !== '%PDF-') {
-        throw new ServiceCallError(`${input_file} does not look like a PDF (no %PDF- header).`)
-      }
-      const options: Record<string, unknown> = {}
-      if (opts.font_size !== undefined) options.fontSize = opts.font_size
-      if (opts.color !== undefined) options.color = opts.color
-      if (opts.rotation !== undefined) options.rotation = opts.rotation
-      if (opts.opacity !== undefined) options.opacity = opts.opacity
-      const result = (await callHostedService(
-        'pdf',
-        'watermark',
-        {
-          pdf: pdf.toString('base64'),
-          text,
-          ...(Object.keys(options).length > 0 ? { options } : {}),
-        },
-        directory,
-      )) as { data?: string; pageCount?: number }
-      writeNewFileSync(target, decodeServicePayload(result.data, 'PDF'), 0o600)
-      return JSON.stringify({ file: target, pageCount: result.pageCount })
-    }),
+        if (pdf.subarray(0, 5).toString('latin1') !== '%PDF-') {
+          throw new ServiceCallError(`${inputFile} does not look like a PDF (no %PDF- header).`)
+        }
+        const options: Record<string, unknown> = {}
+        if (opts.font_size !== undefined) options.fontSize = opts.font_size
+        if (opts.color !== undefined) options.color = opts.color
+        if (opts.rotation !== undefined) options.rotation = opts.rotation
+        if (opts.opacity !== undefined) options.opacity = opts.opacity
+        const result = (await callHostedService(
+          'pdf',
+          'watermark',
+          {
+            pdf: pdf.toString('base64'),
+            text,
+            ...(Object.keys(options).length > 0 ? { options } : {}),
+          },
+          directory,
+        )) as { data?: string; pageCount?: number }
+        writeNewFileSync(target, decodeServicePayload(result.data, 'PDF'), 0o600)
+        return JSON.stringify({ file: target, pageCount: result.pageCount })
+      }),
   ),
 )
 
@@ -2120,7 +2151,7 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('ai_decision', async ({ state, questions, min_confidence, directory }) =>
+  tracked('ai_decision', async ({ state, questions, min_confidence: minConfidence, directory }) =>
     serviceResult(async () => {
       // The advertised question cap, refused BEFORE the metered call — the same
       // rule every other capped tool here follows (see `translate`'s character
@@ -2151,7 +2182,7 @@ server.registerTool(
         {
           state,
           questions,
-          ...(min_confidence !== undefined ? { minConfidence: min_confidence } : {}),
+          ...(minConfidence !== undefined ? { minConfidence: minConfidence } : {}),
         },
         directory,
       )
@@ -2215,7 +2246,15 @@ server.registerTool(
   },
   tracked(
     'summarize_text',
-    async ({ text, format, max_words, max_length, sentences, focus, directory }) =>
+    async ({
+      text,
+      format,
+      max_words: maxWords,
+      max_length: maxLength,
+      sentences,
+      focus,
+      directory,
+    }) =>
       serviceResult(async () => {
         const result = (await callHostedService(
           'summarization',
@@ -2223,8 +2262,8 @@ server.registerTool(
           {
             text,
             ...(format !== undefined ? { format } : {}),
-            ...(max_words !== undefined ? { maxWords: max_words } : {}),
-            ...(max_length !== undefined ? { maxLength: max_length } : {}),
+            ...(maxWords !== undefined ? { maxWords: maxWords } : {}),
+            ...(maxLength !== undefined ? { maxLength: maxLength } : {}),
             ...(sentences !== undefined ? { sentences } : {}),
             ...(focus !== undefined ? { focus } : {}),
           },
@@ -2365,88 +2404,90 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('transform_image', async ({ input_file, output_file, ops, directory }) =>
-    serviceResult(async () => {
-      // The input cap this tool advertises ("8 MB input"), checked by SIZE
-      // before the bytes are allocated — reading first allocated the whole
-      // file, so a path far past the cap crashed the server with an allocation
-      // failure instead of the readable refusal below.
-      const input = readCappedFileSync(
-        resolve(input_file),
-        input_file,
-        TRANSFORM_MAX_INPUT_BYTES,
-        (bytes) => `${input_file} is ${bytes} bytes; the limit is 8 MB.`,
-      )
-      const mimeType = TRANSFORM_MIME_BY_EXT[extname(input_file).toLowerCase()]
-      if (!mimeType) {
-        throw new ServiceCallError(
-          `Unsupported image extension "${extname(input_file)}" — use png, jpg, webp, avif, gif or tiff.`,
+  tracked(
+    'transform_image',
+    async ({ input_file: inputFile, output_file: outputFile, ops, directory }) =>
+      serviceResult(async () => {
+        // The input cap this tool advertises ("8 MB input"), checked by SIZE
+        // before the bytes are allocated — reading first allocated the whole
+        // file, so a path far past the cap crashed the server with an allocation
+        // failure instead of the readable refusal below.
+        const input = readCappedFileSync(
+          resolve(inputFile),
+          inputFile,
+          TRANSFORM_MAX_INPUT_BYTES,
+          (bytes) => `${inputFile} is ${bytes} bytes; the limit is 8 MB.`,
         )
-      }
-      const target = resolve(output_file)
-      if (existsSync(target)) {
-        throw new ServiceCallError(
-          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
-        )
-      }
-      // The path this pipeline is going to LAND on, checked here as well as
-      // after the call: the written name follows the produced format, so a
-      // conversion (`convert`/`optimize` with a `format`), or a caller's
-      // non-canonical extension (`.jpeg`/`.tif`), names a different file from
-      // `output_file` — and a taken one was only discovered AFTER the metered
-      // transform, billing the caller for a call that was certain to fail (see
-      // predictedTransformOutput).
-      const predicted = predictedTransformOutput(target, input_file, ops)
-      if (predicted !== target && existsSync(predicted)) {
-        throw new ServiceCallError(
-          `${predicted} already exists. This pipeline writes a ${extname(predicted)} file — pick a fresh name.`,
-        )
-      }
-      requireWritableParent(target)
-      const pipeline = ops.map((o) => ({
-        op: o.op,
-        ...(o.width !== undefined ? { width: o.width } : {}),
-        ...(o.height !== undefined ? { height: o.height } : {}),
-        ...(o.fit ? { fit: o.fit } : {}),
-        ...(o.left !== undefined ? { left: o.left } : {}),
-        ...(o.top !== undefined ? { top: o.top } : {}),
-        ...(o.angle !== undefined ? { angle: o.angle } : {}),
-        ...(o.size !== undefined ? { size: o.size } : {}),
-        ...(o.format ? { format: o.format } : {}),
-        ...(o.quality !== undefined ? { quality: o.quality } : {}),
-        ...(o.background ? { background: o.background } : {}),
-        ...(o.without_enlargement === true ? { withoutEnlargement: true } : {}),
-      }))
-      const result = (await callHostedService(
-        'image',
-        'transform',
-        { image: input.toString('base64'), mimeType, ops: pipeline },
-        directory,
-      )) as {
-        data?: string
-        mimeType?: string
-        width?: number
-        height?: number
-        format?: string
-        bytes?: number
-      }
-      const imageBytes = decodeServicePayload(result.data, 'image')
-      const outPath =
-        target.slice(0, target.length - extname(target).length) +
-        (TRANSFORM_EXT_BY_MIME[result.mimeType ?? ''] ?? (extname(target) || '.png'))
-      if (existsSync(outPath)) {
-        throw new ServiceCallError(`${outPath} already exists. Pick a fresh name.`)
-      }
-      writeNewFileSync(outPath, imageBytes, 0o644)
-      return JSON.stringify({
-        file: outPath,
-        mimeType: result.mimeType,
-        width: result.width,
-        height: result.height,
-        format: result.format,
-        bytes: result.bytes,
-      })
-    }),
+        const mimeType = TRANSFORM_MIME_BY_EXT[extname(inputFile).toLowerCase()]
+        if (!mimeType) {
+          throw new ServiceCallError(
+            `Unsupported image extension "${extname(inputFile)}" — use png, jpg, webp, avif, gif or tiff.`,
+          )
+        }
+        const target = resolve(outputFile)
+        if (existsSync(target)) {
+          throw new ServiceCallError(
+            `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+          )
+        }
+        // The path this pipeline is going to LAND on, checked here as well as
+        // after the call: the written name follows the produced format, so a
+        // conversion (`convert`/`optimize` with a `format`), or a caller's
+        // non-canonical extension (`.jpeg`/`.tif`), names a different file from
+        // `output_file` — and a taken one was only discovered AFTER the metered
+        // transform, billing the caller for a call that was certain to fail (see
+        // predictedTransformOutput).
+        const predicted = predictedTransformOutput(target, inputFile, ops)
+        if (predicted !== target && existsSync(predicted)) {
+          throw new ServiceCallError(
+            `${predicted} already exists. This pipeline writes a ${extname(predicted)} file — pick a fresh name.`,
+          )
+        }
+        requireWritableParent(target)
+        const pipeline = ops.map((o) => ({
+          op: o.op,
+          ...(o.width !== undefined ? { width: o.width } : {}),
+          ...(o.height !== undefined ? { height: o.height } : {}),
+          ...(o.fit ? { fit: o.fit } : {}),
+          ...(o.left !== undefined ? { left: o.left } : {}),
+          ...(o.top !== undefined ? { top: o.top } : {}),
+          ...(o.angle !== undefined ? { angle: o.angle } : {}),
+          ...(o.size !== undefined ? { size: o.size } : {}),
+          ...(o.format ? { format: o.format } : {}),
+          ...(o.quality !== undefined ? { quality: o.quality } : {}),
+          ...(o.background ? { background: o.background } : {}),
+          ...(o.without_enlargement === true ? { withoutEnlargement: true } : {}),
+        }))
+        const result = (await callHostedService(
+          'image',
+          'transform',
+          { image: input.toString('base64'), mimeType, ops: pipeline },
+          directory,
+        )) as {
+          data?: string
+          mimeType?: string
+          width?: number
+          height?: number
+          format?: string
+          bytes?: number
+        }
+        const imageBytes = decodeServicePayload(result.data, 'image')
+        const outPath =
+          target.slice(0, target.length - extname(target).length) +
+          (TRANSFORM_EXT_BY_MIME[result.mimeType ?? ''] ?? (extname(target) || '.png'))
+        if (existsSync(outPath)) {
+          throw new ServiceCallError(`${outPath} already exists. Pick a fresh name.`)
+        }
+        writeNewFileSync(outPath, imageBytes, 0o644)
+        return JSON.stringify({
+          file: outPath,
+          mimeType: result.mimeType,
+          width: result.width,
+          height: result.height,
+          format: result.format,
+          bytes: result.bytes,
+        })
+      }),
   ),
 )
 
@@ -2480,116 +2521,120 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('generate_image', async ({ prompt, output_file, n, size, quality, model, directory }) =>
-    serviceResult(async () => {
-      const target = resolve(output_file)
-      if (extname(target).toLowerCase() !== '.png') {
-        throw new ServiceCallError('output_file must end in .png — the service returns png bytes.')
-      }
-      requireWritableParent(target)
-      if (existsSync(target)) {
-        throw new ServiceCallError(
-          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
-        )
-      }
-      const result = (await callHostedService(
-        'image-generation',
-        'generate',
-        {
-          prompt,
-          ...(n ? { n } : {}),
-          ...(size ? { size } : {}),
-          ...(quality ? { quality } : {}),
-          ...(model ? { model } : {}),
-        },
-        directory,
-      )) as {
-        images?: Array<{ base64?: string; revisedPrompt?: string }>
-        model?: string
-      }
-      // An entry that DECODES to zero bytes is not an image: it was written as a
-      // 0-byte png under the caller's name and reported as success — and the
-      // name is then taken, so the retry is refused as "already exists". Same
-      // rule as decodeServicePayload, which every single-payload sibling uses —
-      // including its second half: an EMPTY string was the case the length check
-      // caught, but the decoder ignores a trailing partial group and characters
-      // outside the alphabet, so `base64: 'x'` (or any length ≡ 1 mod 4) passed
-      // `length > 0` and still decoded to nothing. The gate is on the decoded
-      // bytes, and those bytes are what gets written.
-      const images = (result.images ?? [])
-        .filter(
-          (i): i is { base64: string; revisedPrompt?: string } => typeof i.base64 === 'string',
-        )
-        .map((i) => ({ bytes: Buffer.from(i.base64, 'base64'), revisedPrompt: i.revisedPrompt }))
-        .filter((image) => image.bytes.length > 0)
-      if (images.length === 0) {
-        throw new ServiceCallError('The service returned no image data.')
-      }
-      const suffix = (i: number) => (i === 0 ? '' : `-${i + 1}`)
-      // Every output path is resolved and checked BEFORE the first byte is
-      // written: checking inside the write loop left a PARTIAL set on disk — a
-      // fresh `logo.png` written, then the loop threw on the already-existing
-      // `logo-2.png`, so the call reported a failure (and never overwrote
-      // anything) while having written image 1. The tool's own contract is that
-      // a name it refuses is a name nothing was written to.
-      //
-      // The stem is stripped with `extname`, not a `'.png'` suffix literal:
-      // the extension check above is CASE-INSENSITIVE, and `basename`'s suffix
-      // match is not, so an `output_file` ending in `.PNG` kept its extension
-      // and every path gained a SECOND one (`Shouty.PNG.png`) — image 1 was
-      // never at the name the caller gave (so a later call with the same
-      // output_file passed the "never overwritten" check and clobbered those
-      // bytes) and the documented `-2` suffix named a different file.
-      const stem = basename(target, extname(target))
-      const planned = images.map((image, i) => ({
-        path: i === 0 ? target : join(dirname(target), stem + suffix(i) + '.png'),
-        bytes: image.bytes,
-      }))
-      for (const { path } of planned) {
-        if (existsSync(path)) {
-          throw new ServiceCallError(`${path} already exists. Pick a fresh name.`)
+  tracked(
+    'generate_image',
+    async ({ prompt, output_file: outputFile, n, size, quality, model, directory }) =>
+      serviceResult(async () => {
+        const target = resolve(outputFile)
+        if (extname(target).toLowerCase() !== '.png') {
+          throw new ServiceCallError(
+            'output_file must end in .png — the service returns png bytes.',
+          )
         }
-      }
-      // Each file is CREATED exclusively (see writeNewFileSync): the checks above
-      // cannot be atomic with the writes, so a call racing this one on the same
-      // output_file would otherwise be clobbered. `written` is this call's own —
-      // every path in it was created with O_EXCL, so nothing else can own one —
-      // and is rolled back if a later image in the set loses such a race, keeping
-      // the whole-set-or-nothing contract under concurrency too.
-      const written: string[] = []
-      try {
-        for (const { path, bytes } of planned) {
-          writeNewFileSync(path, bytes, 0o644)
-          written.push(path)
+        requireWritableParent(target)
+        if (existsSync(target)) {
+          throw new ServiceCallError(
+            `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+          )
         }
-      } catch (error) {
-        // Best-effort per file, and never at the cost of the real failure: a
-        // cleanup that throws (EPERM/EBUSY/EIO — the same conditions that made
-        // the write fail) used to abort this loop mid-set, so the files after it
-        // stayed on disk under names the caller's retry is then refused, and the
-        // error the client read was the CLEANUP's, not the write's. Every path
-        // in `written` was created by this call (see writeNewFileSync), so each
-        // removal is attempted and a survivor is named for the log.
-        for (const path of written) {
-          try {
-            rmSync(path, { force: true })
-          } catch (cleanupError) {
-            console.error(
-              `[generate_image] ${path} could not be removed after a failed write — remove it by hand before retrying`,
-              cleanupError,
-            )
+        const result = (await callHostedService(
+          'image-generation',
+          'generate',
+          {
+            prompt,
+            ...(n ? { n } : {}),
+            ...(size ? { size } : {}),
+            ...(quality ? { quality } : {}),
+            ...(model ? { model } : {}),
+          },
+          directory,
+        )) as {
+          images?: Array<{ base64?: string; revisedPrompt?: string }>
+          model?: string
+        }
+        // An entry that DECODES to zero bytes is not an image: it was written as a
+        // 0-byte png under the caller's name and reported as success — and the
+        // name is then taken, so the retry is refused as "already exists". Same
+        // rule as decodeServicePayload, which every single-payload sibling uses —
+        // including its second half: an EMPTY string was the case the length check
+        // caught, but the decoder ignores a trailing partial group and characters
+        // outside the alphabet, so `base64: 'x'` (or any length ≡ 1 mod 4) passed
+        // `length > 0` and still decoded to nothing. The gate is on the decoded
+        // bytes, and those bytes are what gets written.
+        const images = (result.images ?? [])
+          .filter(
+            (i): i is { base64: string; revisedPrompt?: string } => typeof i.base64 === 'string',
+          )
+          .map((i) => ({ bytes: Buffer.from(i.base64, 'base64'), revisedPrompt: i.revisedPrompt }))
+          .filter((image) => image.bytes.length > 0)
+        if (images.length === 0) {
+          throw new ServiceCallError('The service returned no image data.')
+        }
+        const suffix = (i: number): string => (i === 0 ? '' : `-${i + 1}`)
+        // Every output path is resolved and checked BEFORE the first byte is
+        // written: checking inside the write loop left a PARTIAL set on disk — a
+        // fresh `logo.png` written, then the loop threw on the already-existing
+        // `logo-2.png`, so the call reported a failure (and never overwrote
+        // anything) while having written image 1. The tool's own contract is that
+        // a name it refuses is a name nothing was written to.
+        //
+        // The stem is stripped with `extname`, not a `'.png'` suffix literal:
+        // the extension check above is CASE-INSENSITIVE, and `basename`'s suffix
+        // match is not, so an `output_file` ending in `.PNG` kept its extension
+        // and every path gained a SECOND one (`Shouty.PNG.png`) — image 1 was
+        // never at the name the caller gave (so a later call with the same
+        // output_file passed the "never overwritten" check and clobbered those
+        // bytes) and the documented `-2` suffix named a different file.
+        const stem = basename(target, extname(target))
+        const planned = images.map((image, i) => ({
+          path: i === 0 ? target : join(dirname(target), stem + suffix(i) + '.png'),
+          bytes: image.bytes,
+        }))
+        for (const { path } of planned) {
+          if (existsSync(path)) {
+            throw new ServiceCallError(`${path} already exists. Pick a fresh name.`)
           }
         }
-        throw error
-      }
-      const files = written
-      return JSON.stringify({
-        files,
-        count: files.length,
-        ...(result.model ? { model: result.model } : {}),
-        ...(images[0]?.revisedPrompt ? { revisedPrompt: images[0].revisedPrompt } : {}),
-      })
-    }),
+        // Each file is CREATED exclusively (see writeNewFileSync): the checks above
+        // cannot be atomic with the writes, so a call racing this one on the same
+        // output_file would otherwise be clobbered. `written` is this call's own —
+        // every path in it was created with O_EXCL, so nothing else can own one —
+        // and is rolled back if a later image in the set loses such a race, keeping
+        // the whole-set-or-nothing contract under concurrency too.
+        const written: string[] = []
+        try {
+          for (const { path, bytes } of planned) {
+            writeNewFileSync(path, bytes, 0o644)
+            written.push(path)
+          }
+        } catch (error) {
+          // Best-effort per file, and never at the cost of the real failure: a
+          // cleanup that throws (EPERM/EBUSY/EIO — the same conditions that made
+          // the write fail) used to abort this loop mid-set, so the files after it
+          // stayed on disk under names the caller's retry is then refused, and the
+          // error the client read was the CLEANUP's, not the write's. Every path
+          // in `written` was created by this call (see writeNewFileSync), so each
+          // removal is attempted and a survivor is named for the log.
+          for (const path of written) {
+            try {
+              rmSync(path, { force: true })
+            } catch (cleanupError) {
+              console.error(
+                `[generate_image] ${path} could not be removed after a failed write — remove it by hand before retrying`,
+                cleanupError,
+              )
+            }
+          }
+          throw error
+        }
+        const files = written
+        return JSON.stringify({
+          files,
+          count: files.length,
+          ...(result.model ? { model: result.model } : {}),
+          ...(images[0]?.revisedPrompt ? { revisedPrompt: images[0].revisedPrompt } : {}),
+        })
+      }),
   ),
 )
 
@@ -2653,53 +2698,55 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('capture_screenshot', async ({ url, html, output_file, directory, ...opts }) =>
-    serviceResult(async () => {
-      if ((url !== undefined) === (html !== undefined)) {
-        throw new ServiceCallError('Pass exactly one of url or html.')
-      }
-      const format = opts.format ?? 'png'
-      const target = resolve(output_file)
-      const ext = extname(target).toLowerCase()
-      const okExt = format === 'png' ? ext === '.png' : ext === '.jpg' || ext === '.jpeg'
-      if (!okExt) {
-        throw new ServiceCallError(
-          `output_file must end in ${format === 'png' ? '.png' : '.jpg or .jpeg'} — the service returns ${format} bytes.`,
-        )
-      }
-      requireWritableParent(target)
-      if (existsSync(target)) {
-        throw new ServiceCallError(
-          `${target} already exists. Pick a fresh name — the tool never overwrites.`,
-        )
-      }
-      const options: Record<string, unknown> = {}
-      if (opts.width !== undefined) options.width = opts.width
-      if (opts.height !== undefined) options.height = opts.height
-      if (opts.full_page !== undefined) options.fullPage = opts.full_page
-      if (opts.format !== undefined) options.format = opts.format
-      if (opts.quality !== undefined) options.quality = opts.quality
-      if (opts.scale !== undefined) options.scale = opts.scale
-      if (opts.delay_ms !== undefined) options.delayMs = opts.delay_ms
-      const result = (await callHostedService(
-        'screenshots',
-        'capture',
-        {
-          ...(url !== undefined ? { url } : { html }),
-          ...(Object.keys(options).length > 0 ? { options } : {}),
-        },
-        directory,
-      )) as { data?: string; mimeType?: string; width?: number; height?: number }
-      const imageBytes = decodeServicePayload(result.data, 'image')
-      writeNewFileSync(target, imageBytes, 0o644)
-      return JSON.stringify({
-        file: target,
-        mimeType: result.mimeType,
-        width: result.width,
-        height: result.height,
-        bytes: imageBytes.length,
-      })
-    }),
+  tracked(
+    'capture_screenshot',
+    async ({ url, html, output_file: outputFile, directory, ...opts }) =>
+      serviceResult(async () => {
+        if ((url !== undefined) === (html !== undefined)) {
+          throw new ServiceCallError('Pass exactly one of url or html.')
+        }
+        const format = opts.format ?? 'png'
+        const target = resolve(outputFile)
+        const ext = extname(target).toLowerCase()
+        const okExt = format === 'png' ? ext === '.png' : ext === '.jpg' || ext === '.jpeg'
+        if (!okExt) {
+          throw new ServiceCallError(
+            `output_file must end in ${format === 'png' ? '.png' : '.jpg or .jpeg'} — the service returns ${format} bytes.`,
+          )
+        }
+        requireWritableParent(target)
+        if (existsSync(target)) {
+          throw new ServiceCallError(
+            `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+          )
+        }
+        const options: Record<string, unknown> = {}
+        if (opts.width !== undefined) options.width = opts.width
+        if (opts.height !== undefined) options.height = opts.height
+        if (opts.full_page !== undefined) options.fullPage = opts.full_page
+        if (opts.format !== undefined) options.format = opts.format
+        if (opts.quality !== undefined) options.quality = opts.quality
+        if (opts.scale !== undefined) options.scale = opts.scale
+        if (opts.delay_ms !== undefined) options.delayMs = opts.delay_ms
+        const result = (await callHostedService(
+          'screenshots',
+          'capture',
+          {
+            ...(url !== undefined ? { url } : { html }),
+            ...(Object.keys(options).length > 0 ? { options } : {}),
+          },
+          directory,
+        )) as { data?: string; mimeType?: string; width?: number; height?: number }
+        const imageBytes = decodeServicePayload(result.data, 'image')
+        writeNewFileSync(target, imageBytes, 0o644)
+        return JSON.stringify({
+          file: target,
+          mimeType: result.mimeType,
+          width: result.width,
+          height: result.height,
+          bytes: imageBytes.length,
+        })
+      }),
   ),
 )
 
@@ -2745,47 +2792,49 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('fetch_url', async ({ url, mode, format, include_links, settle_ms, directory }) =>
-    serviceResult(async () => {
-      const options: Record<string, unknown> = {}
-      if (mode !== undefined) options.mode = mode
-      if (format !== undefined) options.format = format
-      if (include_links !== undefined) options.includeLinks = include_links
-      if (settle_ms !== undefined) options.settleMs = settle_ms
-      const result = (await callHostedService(
-        'web-content',
-        'fetch',
-        {
-          url,
-          ...(Object.keys(options).length > 0 ? { options } : {}),
-        },
-        directory,
-      )) as {
-        url?: string
-        finalUrl?: string
-        statusCode?: number
-        title?: string
-        description?: string
-        content?: string
-        format?: string
-        links?: Array<{ url: string; text: string }>
-        truncated?: boolean
-        bytes?: number
-      }
-      if (typeof result.content !== 'string') {
-        throw new ServiceCallError('molecule.dev returned no content for the page.')
-      }
-      return JSON.stringify({
-        ...(result.title !== undefined ? { title: result.title } : {}),
-        ...(result.finalUrl !== undefined ? { url: result.finalUrl } : {}),
-        ...(result.statusCode !== undefined ? { statusCode: result.statusCode } : {}),
-        format: result.format,
-        content: forChat(result.content),
-        truncatedInService: result.truncated === true,
-        ...(result.links !== undefined ? { links: result.links } : {}),
-        contentChars: result.content.length,
-      })
-    }),
+  tracked(
+    'fetch_url',
+    async ({ url, mode, format, include_links: includeLinks, settle_ms: settleMs, directory }) =>
+      serviceResult(async () => {
+        const options: Record<string, unknown> = {}
+        if (mode !== undefined) options.mode = mode
+        if (format !== undefined) options.format = format
+        if (includeLinks !== undefined) options.includeLinks = includeLinks
+        if (settleMs !== undefined) options.settleMs = settleMs
+        const result = (await callHostedService(
+          'web-content',
+          'fetch',
+          {
+            url,
+            ...(Object.keys(options).length > 0 ? { options } : {}),
+          },
+          directory,
+        )) as {
+          url?: string
+          finalUrl?: string
+          statusCode?: number
+          title?: string
+          description?: string
+          content?: string
+          format?: string
+          links?: Array<{ url: string; text: string }>
+          truncated?: boolean
+          bytes?: number
+        }
+        if (typeof result.content !== 'string') {
+          throw new ServiceCallError('molecule.dev returned no content for the page.')
+        }
+        return JSON.stringify({
+          ...(result.title !== undefined ? { title: result.title } : {}),
+          ...(result.finalUrl !== undefined ? { url: result.finalUrl } : {}),
+          ...(result.statusCode !== undefined ? { statusCode: result.statusCode } : {}),
+          format: result.format,
+          content: forChat(result.content),
+          truncatedInService: result.truncated === true,
+          ...(result.links !== undefined ? { links: result.links } : {}),
+          contentChars: result.content.length,
+        })
+      }),
   ),
 )
 
@@ -2821,14 +2870,21 @@ server.registerTool(
   },
   tracked(
     'extract_content',
-    async ({ html, input_file, base_url, format, include_links, directory }) =>
+    async ({
+      html,
+      input_file: inputFile,
+      base_url: baseUrl,
+      format,
+      include_links: includeLinks,
+      directory,
+    }) =>
       serviceResult(async () => {
-        if ((html !== undefined) === (input_file !== undefined)) {
+        if ((html !== undefined) === (inputFile !== undefined)) {
           throw new ServiceCallError('Pass exactly one of html or input_file.')
         }
         let source = html
-        if (input_file !== undefined) {
-          const path = resolve(input_file)
+        if (inputFile !== undefined) {
+          const path = resolve(inputFile)
           if (!existsSync(path)) throw new ServiceCallError(`No file at ${path}.`)
           const ext = extname(path).toLowerCase()
           if (ext !== '.html' && ext !== '.htm' && ext !== '.txt') {
@@ -2847,13 +2903,13 @@ server.registerTool(
         }
         const options: Record<string, unknown> = {}
         if (format !== undefined) options.format = format
-        if (include_links !== undefined) options.includeLinks = include_links
+        if (includeLinks !== undefined) options.includeLinks = includeLinks
         const result = (await callHostedService(
           'web-content',
           'extract',
           {
             html: source,
-            ...(base_url !== undefined ? { baseUrl: base_url } : {}),
+            ...(baseUrl !== undefined ? { baseUrl: baseUrl } : {}),
             ...(Object.keys(options).length > 0 ? { options } : {}),
           },
           directory,
@@ -2928,19 +2984,19 @@ server.registerTool(
     async ({
       url,
       method,
-      timeout_ms,
-      expect_status,
-      expect_text,
-      degraded_latency_ms,
+      timeout_ms: timeoutMs,
+      expect_status: expectStatus,
+      expect_text: expectText,
+      degraded_latency_ms: degradedLatencyMs,
       directory,
     }) =>
       serviceResult(async () => {
         const spec: Record<string, unknown> = { url }
         if (method !== undefined) spec.method = method
-        if (timeout_ms !== undefined) spec.timeoutMs = timeout_ms
-        if (expect_status !== undefined) spec.expectStatus = expect_status
-        if (expect_text !== undefined) spec.expectText = expect_text
-        if (degraded_latency_ms !== undefined) spec.degradedLatencyMs = degraded_latency_ms
+        if (timeoutMs !== undefined) spec.timeoutMs = timeoutMs
+        if (expectStatus !== undefined) spec.expectStatus = expectStatus
+        if (expectText !== undefined) spec.expectText = expectText
+        if (degradedLatencyMs !== undefined) spec.degradedLatencyMs = degradedLatencyMs
         const result = (await callHostedService('uptime', 'probe', spec, directory)) as {
           status?: string
           checkedAt?: string
@@ -3025,23 +3081,23 @@ server.registerTool(
     'schedule_probe',
     async ({
       url,
-      interval_seconds,
+      interval_seconds: intervalSeconds,
       method,
-      timeout_ms,
-      expect_status,
-      expect_text,
-      degraded_latency_ms,
+      timeout_ms: timeoutMs,
+      expect_status: expectStatus,
+      expect_text: expectText,
+      degraded_latency_ms: degradedLatencyMs,
       id,
       paused,
       directory,
     }) =>
       serviceResult(async () => {
-        const spec: Record<string, unknown> = { url, intervalSeconds: interval_seconds }
+        const spec: Record<string, unknown> = { url, intervalSeconds: intervalSeconds }
         if (method !== undefined) spec.method = method
-        if (timeout_ms !== undefined) spec.timeoutMs = timeout_ms
-        if (expect_status !== undefined) spec.expectStatus = expect_status
-        if (expect_text !== undefined) spec.expectText = expect_text
-        if (degraded_latency_ms !== undefined) spec.degradedLatencyMs = degraded_latency_ms
+        if (timeoutMs !== undefined) spec.timeoutMs = timeoutMs
+        if (expectStatus !== undefined) spec.expectStatus = expectStatus
+        if (expectText !== undefined) spec.expectText = expectText
+        if (degradedLatencyMs !== undefined) spec.degradedLatencyMs = degradedLatencyMs
         if (id !== undefined) spec.id = id
         if (paused !== undefined) spec.paused = paused
         const result = (await callHostedService('uptime', 'schedule', spec, directory)) as {
@@ -3130,12 +3186,12 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('probe_history', async ({ monitor_id, limit, directory }) =>
+  tracked('probe_history', async ({ monitor_id: monitorId, limit, directory }) =>
     serviceResult(async () => {
       const result = (await callHostedService(
         'uptime',
         'history',
-        limit === undefined ? { monitorId: monitor_id } : { monitorId: monitor_id, limit },
+        limit === undefined ? { monitorId: monitorId } : { monitorId: monitorId, limit },
         directory,
       )) as {
         checks?: Array<{
@@ -3239,18 +3295,26 @@ server.registerTool(
   },
   tracked(
     'submit_agent_run',
-    async ({ repo_url, instructions, github_token, base_branch, model, timeout_ms, directory }) =>
+    async ({
+      repo_url: repoUrl,
+      instructions,
+      github_token: githubToken,
+      base_branch: baseBranch,
+      model,
+      timeout_ms: timeoutMs,
+      directory,
+    }) =>
       serviceResult(async () => {
         const result = await callHostedService(
           'agent-runs',
           'submit',
           {
-            repoUrl: repo_url,
+            repoUrl: repoUrl,
             instructions,
-            ...(base_branch ? { baseBranch: base_branch } : {}),
+            ...(baseBranch ? { baseBranch: baseBranch } : {}),
             ...(model ? { model } : {}),
-            ...(timeout_ms ? { timeoutMs: timeout_ms } : {}),
-            credentials: { githubToken: github_token },
+            ...(timeoutMs ? { timeoutMs: timeoutMs } : {}),
+            credentials: { githubToken: githubToken },
           },
           directory,
         )
@@ -3275,12 +3339,12 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('get_agent_run', async ({ run_id, directory }) =>
+  tracked('get_agent_run', async ({ run_id: runId, directory }) =>
     serviceResult(async () => {
       // get is a GET, but callHostedService is POST — the status route accepts
       // POST-equivalent semantics via the same auth; use the generic caller on
       // the dedicated status operation.
-      const result = await callHostedService('agent-runs', 'status', { runId: run_id }, directory)
+      const result = await callHostedService('agent-runs', 'status', { runId: runId }, directory)
       return JSON.stringify(result)
     }),
   ),
@@ -3300,9 +3364,9 @@ server.registerTool(
         .describe('Project directory whose .env holds MOLECULE_API_KEY'),
     },
   },
-  tracked('cancel_agent_run', async ({ run_id, directory }) =>
+  tracked('cancel_agent_run', async ({ run_id: runId, directory }) =>
     serviceResult(async () => {
-      const result = await callHostedService('agent-runs', 'cancel', { runId: run_id }, directory)
+      const result = await callHostedService('agent-runs', 'cancel', { runId: runId }, directory)
       return JSON.stringify(result)
     }),
   ),
@@ -3328,14 +3392,17 @@ server.registerTool(
       dry_run: z.boolean().optional().describe('List what would be sent; send nothing'),
     },
   },
-  tracked('import_transcripts', async ({ project_id, files, from, cwd, dry_run }) => {
-    const args = ['transcripts', 'import', '--project', project_id, '--json']
-    if (from) args.push('--from', from)
-    if (cwd) args.push('--cwd', cwd)
-    if (dry_run) args.push('--dry-run')
-    if (files?.length) args.push(...files)
-    return text(await runCli(args))
-  }),
+  tracked(
+    'import_transcripts',
+    async ({ project_id: projectId, files, from, cwd, dry_run: dryRun }) => {
+      const args = ['transcripts', 'import', '--project', projectId, '--json']
+      if (from) args.push('--from', from)
+      if (cwd) args.push('--cwd', cwd)
+      if (dryRun) args.push('--dry-run')
+      if (files?.length) args.push(...files)
+      return text(await runCli(args))
+    },
+  ),
 )
 
 server.registerTool(
@@ -3346,8 +3413,8 @@ server.registerTool(
       "List a molecule.dev project's session transcripts: its own chat and every imported session, with harness, model, start time and turn count.",
     inputSchema: { project_id: z.string().describe('molecule.dev project id') },
   },
-  tracked('list_transcripts', async ({ project_id }) =>
-    text(await runCli(['transcripts', 'list', '--project', project_id, '--json'])),
+  tracked('list_transcripts', async ({ project_id: projectId }) =>
+    text(await runCli(['transcripts', 'list', '--project', projectId, '--json'])),
   ),
 )
 
@@ -3362,8 +3429,8 @@ server.registerTool(
       transcript_id: z.string().describe('transcript id from list_transcripts'),
     },
   },
-  tracked('remove_transcript', async ({ project_id, transcript_id }) =>
-    text(await runCli(['transcripts', 'rm', '--project', project_id, transcript_id])),
+  tracked('remove_transcript', async ({ project_id: projectId, transcript_id: transcriptId }) =>
+    text(await runCli(['transcripts', 'rm', '--project', projectId, transcriptId])),
   ),
 )
 
@@ -3379,8 +3446,8 @@ server.registerTool(
       workspace: z.boolean().optional().describe('Publish a read-only view of the workspace files'),
     },
   },
-  tracked('share_visibility', async ({ project_id, transcripts, workspace }) => {
-    const args = ['share', 'visibility', '--project', project_id, '--json']
+  tracked('share_visibility', async ({ project_id: projectId, transcripts, workspace }) => {
+    const args = ['share', 'visibility', '--project', projectId, '--json']
     if (transcripts !== undefined) args.push('--transcripts', transcripts ? 'on' : 'off')
     if (workspace !== undefined) args.push('--workspace', workspace ? 'on' : 'off')
     return text(await runCli(args))
@@ -3402,8 +3469,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('deploy_project', async ({ project_id }) =>
-    text(await runCli(['deploy', '--project', project_id, '--follow'])),
+  tracked('deploy_project', async ({ project_id: projectId }) =>
+    text(await runCli(['deploy', '--project', projectId, '--follow'])),
   ),
 )
 
@@ -3417,8 +3484,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('deploy_status', async ({ project_id }) =>
-    text(await runCli(['deploy', 'status', '--project', project_id])),
+  tracked('deploy_status', async ({ project_id: projectId }) =>
+    text(await runCli(['deploy', 'status', '--project', projectId])),
   ),
 )
 
@@ -3431,8 +3498,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('list_deploys', async ({ project_id }) =>
-    text(await runCli(['deploy', 'list', '--project', project_id])),
+  tracked('list_deploys', async ({ project_id: projectId }) =>
+    text(await runCli(['deploy', 'list', '--project', projectId])),
   ),
 )
 
@@ -3446,10 +3513,8 @@ server.registerTool(
       deployment_id: z.string().describe('The deployment id (from list_deploys)'),
     },
   },
-  tracked('cancel_deploy', async ({ project_id, deployment_id }) =>
-    text(
-      await runCli(['deploy', 'cancel', '--project', project_id, '--deployment', deployment_id]),
-    ),
+  tracked('cancel_deploy', async ({ project_id: projectId, deployment_id: deploymentId }) =>
+    text(await runCli(['deploy', 'cancel', '--project', projectId, '--deployment', deploymentId])),
   ),
 )
 
@@ -3463,8 +3528,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('sandbox_status', async ({ project_id }) =>
-    text(await runCli(['sandbox', 'status', '--project', project_id])),
+  tracked('sandbox_status', async ({ project_id: projectId }) =>
+    text(await runCli(['sandbox', 'status', '--project', projectId])),
   ),
 )
 
@@ -3477,8 +3542,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('sandbox_start', async ({ project_id }) =>
-    text(await runCli(['sandbox', 'start', '--project', project_id])),
+  tracked('sandbox_start', async ({ project_id: projectId }) =>
+    text(await runCli(['sandbox', 'start', '--project', projectId])),
   ),
 )
 
@@ -3491,8 +3556,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('sandbox_stop', async ({ project_id }) =>
-    text(await runCli(['sandbox', 'stop', '--project', project_id])),
+  tracked('sandbox_stop', async ({ project_id: projectId }) =>
+    text(await runCli(['sandbox', 'stop', '--project', projectId])),
   ),
 )
 
@@ -3505,8 +3570,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('sandbox_restart', async ({ project_id }) =>
-    text(await runCli(['sandbox', 'restart', '--project', project_id])),
+  tracked('sandbox_restart', async ({ project_id: projectId }) =>
+    text(await runCli(['sandbox', 'restart', '--project', projectId])),
   ),
 )
 
@@ -3521,8 +3586,8 @@ server.registerTool(
       command: z.string().describe('The command to run, e.g. "npm test"'),
     },
   },
-  tracked('sandbox_exec', async ({ project_id, command }) =>
-    text(await runCli(['sandbox', 'exec', '--project', project_id, command])),
+  tracked('sandbox_exec', async ({ project_id: projectId, command }) =>
+    text(await runCli(['sandbox', 'exec', '--project', projectId, command])),
   ),
 )
 
@@ -3537,8 +3602,8 @@ server.registerTool(
       lines: z.number().int().min(1).max(1000).optional().describe('How many lines (default 100)'),
     },
   },
-  tracked('project_logs', async ({ project_id, lines }) => {
-    const args = ['logs', '--project', project_id, '--tail', String(lines ?? 100)]
+  tracked('project_logs', async ({ project_id: projectId, lines }) => {
+    const args = ['logs', '--project', projectId, '--tail', String(lines ?? 100)]
     return text(await runCli(args))
   }),
 )
@@ -3553,8 +3618,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('db_info', async ({ project_id }) =>
-    text(await runCli(['db', 'info', '--project', project_id])),
+  tracked('db_info', async ({ project_id: projectId }) =>
+    text(await runCli(['db', 'info', '--project', projectId])),
   ),
 )
 
@@ -3567,8 +3632,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('db_tables', async ({ project_id }) =>
-    text(await runCli(['db', 'tables', '--project', project_id])),
+  tracked('db_tables', async ({ project_id: projectId }) =>
+    text(await runCli(['db', 'tables', '--project', projectId])),
   ),
 )
 
@@ -3583,8 +3648,8 @@ server.registerTool(
       sql: z.string().describe('The SQL statement, e.g. "select * from users limit 10"'),
     },
   },
-  tracked('db_query', async ({ project_id, sql }) =>
-    text(await runCli(['db', 'query', '--project', project_id, sql])),
+  tracked('db_query', async ({ project_id: projectId, sql }) =>
+    text(await runCli(['db', 'query', '--project', projectId, sql])),
   ),
 )
 
@@ -3598,8 +3663,8 @@ server.registerTool(
       project_id: z.string().describe('molecule.dev project id'),
     },
   },
-  tracked('domain_list', async ({ project_id }) =>
-    text(await runCli(['domain', 'list', '--project', project_id])),
+  tracked('domain_list', async ({ project_id: projectId }) =>
+    text(await runCli(['domain', 'list', '--project', projectId])),
   ),
 )
 
@@ -3614,8 +3679,8 @@ server.registerTool(
       domain: z.string().describe('The domain, e.g. app.example.com'),
     },
   },
-  tracked('domain_add', async ({ project_id, domain }) =>
-    text(await runCli(['domain', 'add', domain, '--project', project_id])),
+  tracked('domain_add', async ({ project_id: projectId, domain }) =>
+    text(await runCli(['domain', 'add', domain, '--project', projectId])),
   ),
 )
 
@@ -3639,8 +3704,8 @@ server.registerTool(
         ),
     },
   },
-  tracked('domain_verify', async ({ project_id, domain }) =>
-    text(await runCli(['domain', 'verify', domain, '--project', project_id])),
+  tracked('domain_verify', async ({ project_id: projectId, domain }) =>
+    text(await runCli(['domain', 'verify', domain, '--project', projectId])),
   ),
 )
 
@@ -3659,8 +3724,8 @@ server.registerTool(
         ),
     },
   },
-  tracked('domain_remove', async ({ project_id, domain }) =>
-    text(await runCli(['domain', 'rm', domain, '--project', project_id])),
+  tracked('domain_remove', async ({ project_id: projectId, domain }) =>
+    text(await runCli(['domain', 'rm', domain, '--project', projectId])),
   ),
 )
 
