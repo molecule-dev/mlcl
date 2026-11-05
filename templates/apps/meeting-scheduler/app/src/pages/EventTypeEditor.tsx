@@ -70,11 +70,16 @@ function slugify(input: string): string {
 }
 
 export function EventTypeEditor() {
+  const { id } = useParams<{ id: string }>()
+  return <EventTypeEditorForm key={id ?? 'new'} id={id} />
+}
+
+/** Each route record owns its drafts and pending saves. */
+function EventTypeEditorForm({ id }: { id: string | undefined }) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
   const http = useHttpClient()
-  const { id } = useParams<{ id: string }>()
   const isNew = !id || id === 'new'
 
   const [activeTab, setActiveTab] = useState<(typeof TABS)[number]['key']>('general')

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -64,10 +64,14 @@ function isNewBidEvent(data: unknown): data is NewBidEvent {
 }
 
 export function AuctionDetail() {
+  const { id } = useParams<{ id: string }>()
+  return <AuctionDetailView key={id ?? ''} id={id} />
+}
+
+function AuctionDetailView({ id }: { id: string | undefined }) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const { id } = useParams<{ id: string }>()
   const [data, setData] = useState<AuctionDetailData | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -77,8 +81,6 @@ export function AuctionDetail() {
     message?: string
   }>({ kind: 'idle' })
   const [showAllBids, setShowAllBids] = useState(false)
-  const [watching, setWatching] = useState(false)
-  const [watchPending, setWatchPending] = useState(false)
   const [watchStatus, setWatchStatus] = useState<{
     kind: 'idle' | 'success' | 'error'
     message?: string
@@ -97,7 +99,6 @@ export function AuctionDetail() {
           setData(null)
         } else {
           setData(body)
-          setWatching(Boolean(body.is_watched))
         }
       })
       .catch((e: unknown) => {
@@ -198,39 +199,39 @@ export function AuctionDetail() {
       })
   }
 
+  const watch = useOptimisticValue({
+    value: Boolean(data?.is_watched),
+    commit: async (next) => {
+      if (!data) return
+      if (next) await http.post('/api/watchlist', { listingId: data.id })
+      else await http.delete(`/api/watchlist/${data.id}`)
+      setWatchStatus({
+        kind: 'success',
+        message: next
+          ? t('auctionDetail.watchAdded', {}, { defaultValue: 'Saved to watchlist.' })
+          : t('auctionDetail.watchRemoved', {}, { defaultValue: 'Removed from watchlist.' }),
+      })
+      void track({
+        name: next ? 'watchlist.added' : 'watchlist.removed',
+        properties: { listingId: data.id },
+      })
+    },
+    onError: (e: unknown) => {
+      setWatchStatus({
+        kind: 'error',
+        message:
+          e instanceof Error
+            ? e.message
+            : t('auctionDetail.watchError', {}, { defaultValue: 'Could not update watchlist.' }),
+      })
+    },
+  })
+  const watching = watch.value
+
   const handleToggleWatch = () => {
-    if (!data || watchPending) return
-    setWatchPending(true)
+    if (!data) return
     setWatchStatus({ kind: 'idle' })
-    const wasWatching = watching
-    setWatching(!wasWatching)
-    const promise = wasWatching
-      ? http.delete(`/api/watchlist/${data.id}`)
-      : http.post('/api/watchlist', { listingId: data.id })
-    promise
-      .then(() => {
-        setWatchStatus({
-          kind: 'success',
-          message: wasWatching
-            ? t('auctionDetail.watchRemoved', {}, { defaultValue: 'Removed from watchlist.' })
-            : t('auctionDetail.watchAdded', {}, { defaultValue: 'Saved to watchlist.' }),
-        })
-        track({
-          name: wasWatching ? 'watchlist.removed' : 'watchlist.added',
-          properties: { listingId: data.id },
-        })
-      })
-      .catch((e: unknown) => {
-        setWatching(wasWatching)
-        setWatchStatus({
-          kind: 'error',
-          message:
-            e instanceof Error
-              ? e.message
-              : t('auctionDetail.watchError', {}, { defaultValue: 'Could not update watchlist.' }),
-        })
-      })
-      .finally(() => setWatchPending(false))
+    watch.update((current) => !current)
   }
 
   const handleBuyNow = () => {
@@ -410,7 +411,6 @@ export function AuctionDetail() {
               <button
                 type="button"
                 onClick={handleToggleWatch}
-                disabled={watchPending}
                 aria-pressed={watching}
                 aria-label={
                   watching
@@ -439,7 +439,7 @@ export function AuctionDetail() {
                   : t('auctionDetail.watchAdd', {}, { defaultValue: 'Watch' })}
               </button>
             </div>
-            {watchStatus.message ? (
+            {!watch.pending && watchStatus.message ? (
               <p
                 role="status"
                 data-testid="watch-status"

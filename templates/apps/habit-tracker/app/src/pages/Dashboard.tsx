@@ -60,9 +60,8 @@ const sameCheckIns = (a: CheckIns, b: CheckIns): boolean => {
 }
 
 /** Tick or untick one habit, moving its streak with it. */
-const toggleCheckIn = (current: CheckIns, id: string): CheckIns => {
-  const check = current[id]
-  if (!check) return current
+const toggleCheckIn = (current: CheckIns, id: string, fallback: CheckIn): CheckIns => {
+  const check = current[id] ?? fallback
   const done = !check.done
   return {
     ...current,
@@ -117,31 +116,41 @@ export function Dashboard() {
   const checkIns = useOptimisticValue<CheckIns>({
     value: serverCheckIns,
     equals: sameCheckIns,
-    commit: async (next, previous) => {
-      let saved = next
-      for (const [id, check] of Object.entries(next)) {
-        if (!previous[id] || previous[id].done === check.done) continue
-        const resp = check.done
-          ? await http.post(`/api/habits/${id}/check-in`, {})
-          : await http.delete(`/api/habits/${id}/check-in`)
-        const refreshed =
-          (resp as { habit?: Habit })?.habit ?? (resp as { data?: { habit?: Habit } })?.data?.habit
-        const streak = refreshed?.current_streak ?? check.streak
-        saved = { ...saved, [id]: { done: refreshed?.completed_today ?? check.done, streak } }
-        if (check.done) {
-          void track({ name: 'habit.checked_in', properties: { habit_id: id, streak } })
-          if (STREAK_MILESTONES.includes(streak)) {
-            void track({ name: 'streak.milestone', properties: { habit_id: id, streak } })
+    commit: async (next, previous, confirm) => {
+      // The record map is not an atomic server write. Keep each accepted check-in even
+      // when a later request fails, and compare queued taps with that actual progress.
+      confirm((current) => current)
+      let changed = false
+      try {
+        for (const [id, check] of Object.entries(next)) {
+          if (previous[id]?.done === check.done) continue
+          const resp = check.done
+            ? await http.post(`/api/habits/${id}/check-in`, {})
+            : await http.delete(`/api/habits/${id}/check-in`)
+          const refreshed =
+            (resp as { habit?: Habit })?.habit ??
+            (resp as { data?: { habit?: Habit } })?.data?.habit
+          const streak = refreshed?.current_streak ?? check.streak
+          confirm((current) => ({
+            ...current,
+            [id]: { done: refreshed?.completed_today ?? check.done, streak },
+          }))
+          changed = true
+          if (check.done) {
+            void track({ name: 'habit.checked_in', properties: { habit_id: id, streak } })
+            if (STREAK_MILESTONES.includes(streak)) {
+              void track({ name: 'streak.milestone', properties: { habit_id: id, streak } })
+            }
+          } else {
+            void track({ name: 'habit.unchecked', properties: { habit_id: id } })
           }
-        } else {
-          void track({ name: 'habit.unchecked', properties: { habit_id: id } })
+        }
+      } finally {
+        if (changed && today) {
+          const todayResp = await http.get('/api/reports/today').catch(() => null)
+          if (todayResp) setToday(unwrapSingle<Today>(todayResp))
         }
       }
-      if (today) {
-        const todayResp = await http.get('/api/reports/today').catch(() => null)
-        if (todayResp) setToday(unwrapSingle<Today>(todayResp))
-      }
-      return saved
     },
     onError: (err) => setError(err instanceof Error ? err.message : String(err)),
   })
@@ -262,7 +271,14 @@ export function Dashboard() {
                   cadence={h.cadence}
                   currentStreak={shown(h).streak}
                   completedToday={shown(h).done}
-                  onToggle={() => checkIns.update((current) => toggleCheckIn(current, h.id))}
+                  onToggle={() =>
+                    checkIns.update((current) =>
+                      toggleCheckIn(current, h.id, {
+                        done: h.completed_today,
+                        streak: h.current_streak,
+                      }),
+                    )
+                  }
                 />
               </li>
             ))}

@@ -61,9 +61,9 @@ export function GroceryList() {
   }, [])
 
   const loadList = useCallback(
-    (week: string) => {
+    (week: string, clearError = true) => {
       let cancelled = false
-      setError(null)
+      if (clearError) setError(null)
       http
         .get<GroceryRow[]>(`/api/grocery-list?week_start=${week}`)
         .then((res) => {
@@ -116,10 +116,12 @@ export function GroceryList() {
   )
   const checks = useOptimisticValue<Record<string, boolean>>({
     value: serverChecks,
-    commit: async (next, previous) => {
+    commit: async (next, previous, confirm) => {
+      confirm((current) => current)
       for (const [id, checked] of Object.entries(next)) {
-        if (previous[id] === undefined || previous[id] === checked) continue
+        if (previous[id] === checked) continue
         await http.put(`/api/grocery-list/${id}`, { checked })
+        confirm((current) => ({ ...current, [id]: checked }))
         void track({
           name: 'grocery-list.item-checked',
           properties: { item_id: id, checked, week_start: weekStart },
@@ -132,7 +134,7 @@ export function GroceryList() {
           ? e.message
           : t('simmer.groceries.toggleError', {}, { defaultValue: 'Could not update the item.' }),
       )
-      loadList(weekStart)
+      loadList(weekStart, false)
     },
   })
   const isChecked = (item: GroceryRow): boolean => checks.value[item.id] ?? item.checked
@@ -154,7 +156,7 @@ export function GroceryList() {
           ? e.message
           : t('simmer.groceries.removeError', {}, { defaultValue: 'Could not remove the item.' }),
       )
-      loadList(weekStart)
+      loadList(weekStart, false)
     }
   }
 
@@ -211,6 +213,7 @@ export function GroceryList() {
   }
 
   const clearChecked = async (): Promise<void> => {
+    if (checks.pending) return
     setItems((prev) => prev?.filter((i) => !isChecked(i)) ?? prev)
     try {
       await http.delete('/api/grocery-list/checked')
@@ -224,7 +227,7 @@ export function GroceryList() {
               { defaultValue: 'Could not clear checked items.' },
             ),
       )
-      loadList(weekStart)
+      loadList(weekStart, false)
     }
   }
 

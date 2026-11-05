@@ -9,7 +9,7 @@
  * flips every unread row.
  */
 
-import { useCallback, useEffect, useMemo, useState } from 'react'
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import type { TranslateFunction } from '@molecule/app-i18n'
 import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
@@ -86,6 +86,17 @@ function fmtRelative(iso: string, t: TranslateFunction): string {
   return t('notifications.time.daysAgo', { count: days }, { defaultValue: '{{count}}d ago' })
 }
 
+interface ReadState {
+  flags: Record<string, boolean>
+  /** A bulk action shares the row saves' queue, including taps made during that action. */
+  allRead: number
+}
+
+const sameReads = (a: ReadState, b: ReadState): boolean =>
+  a.allRead === b.allRead &&
+  Object.keys(a.flags).length === Object.keys(b.flags).length &&
+  Object.keys(a.flags).every((id) => a.flags[id] === b.flags[id])
+
 export function Notifications() {
   const cm = getClassMap()
   const { t } = useTranslation()
@@ -94,26 +105,29 @@ export function Notifications() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
 
-  const refresh = useCallback(async () => {
-    setLoading(true)
-    setError('')
-    try {
-      const resp = await http.get<NotificationRow[]>('/notifications')
-      setItems(Array.isArray(resp.data) ? resp.data : [])
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : t(
-              'nav.couldNotLoadNotifications',
-              {},
-              { defaultValue: 'Could not load notifications.' },
-            ),
-      )
-    } finally {
-      setLoading(false)
-    }
-  }, [http, t])
+  const refresh = useCallback(
+    async (clearError = true) => {
+      setLoading(true)
+      if (clearError) setError('')
+      try {
+        const resp = await http.get<NotificationRow[]>('/notifications')
+        setItems(Array.isArray(resp.data) ? resp.data : [])
+      } catch (err) {
+        setError(
+          err instanceof Error
+            ? err.message
+            : t(
+                'nav.couldNotLoadNotifications',
+                {},
+                { defaultValue: 'Could not load notifications.' },
+              ),
+        )
+      } finally {
+        setLoading(false)
+      }
+    },
+    [http, t],
+  )
 
   useEffect(() => {
     void refresh()
@@ -121,16 +135,46 @@ export function Notifications() {
 
   // Read/unread flips at once on every click and the clicks are saved in order, so a quick
   // read-unread never leaves a row showing a state the server does not hold.
-  const serverReads = useMemo<Record<string, boolean>>(
-    () => Object.fromEntries(items.map((n) => [n.id, n.read])),
+  const confirmedAllRead = useRef(0)
+  const serverReads = useMemo<ReadState>(
+    () => ({
+      flags: Object.fromEntries(items.map((n) => [n.id, n.read])),
+      allRead: confirmedAllRead.current,
+    }),
     [items],
   )
-  const reads = useOptimisticValue<Record<string, boolean>>({
+  const reads = useOptimisticValue<ReadState>({
     value: serverReads,
-    commit: async (next, previous) => {
-      for (const [id, read] of Object.entries(next)) {
-        if (previous[id] === undefined || previous[id] === read) continue
+    equals: sameReads,
+    commit: async (next, previous, confirm) => {
+      confirm((current) => current)
+      const markAll = next.allRead !== previous.allRead
+      if (markAll) {
+        try {
+          await http.post('/notifications/mark-all-read', {})
+        } catch (error) {
+          throw error instanceof Error
+            ? error
+            : new Error(
+                t(
+                  'notifications.errors.markAll',
+                  {},
+                  { defaultValue: 'Could not mark all as read.' },
+                ),
+              )
+        }
+        confirmedAllRead.current = next.allRead
+        confirm((current) => ({
+          allRead: next.allRead,
+          flags: Object.fromEntries(Object.keys(current.flags).map((id) => [id, true])),
+        }))
+        await refresh(false)
+      }
+      for (const [id, read] of Object.entries(next.flags)) {
+        const before = markAll ? true : previous.flags[id]
+        if (before === read) continue
         await http.put(`/notifications/${id}`, { read })
+        confirm((current) => ({ ...current, flags: { ...current.flags, [id]: read } }))
       }
     },
     onError: (err) => {
@@ -143,31 +187,27 @@ export function Notifications() {
               { defaultValue: 'Could not update notification.' },
             ),
       )
-      void refresh()
+      void refresh(false)
     },
   })
-  const isRead = (n: NotificationRow): boolean => reads.value[n.id] ?? n.read
+  const isRead = (n: NotificationRow): boolean => reads.value.flags[n.id] ?? n.read
   const unread = items.filter((n) => !isRead(n))
 
-  const markAllRead = async () => {
+  const markAllRead = () => {
     if (unread.length === 0) return
-    // Optimistic update so UI feels instant; refresh confirms.
-    setItems((prev) => prev.map((n) => ({ ...n, read: true })))
-    try {
-      await http.post('/notifications/mark-all-read', {})
-      await refresh()
-    } catch (err) {
-      setError(
-        err instanceof Error
-          ? err.message
-          : t('notifications.errors.markAll', {}, { defaultValue: 'Could not mark all as read.' }),
-      )
-      await refresh()
-    }
+    setError('')
+    reads.update((current) => ({
+      allRead: current.allRead + 1,
+      flags: Object.fromEntries(items.map((n) => [n.id, true])),
+    }))
   }
 
   const toggleRead = (id: string) => {
-    reads.update((current) => ({ ...current, [id]: !current[id] }))
+    const initial = items.find((n) => n.id === id)?.read ?? false
+    reads.update((current) => ({
+      ...current,
+      flags: { ...current.flags, [id]: !(current.flags[id] ?? initial) },
+    }))
   }
 
   return (
