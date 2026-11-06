@@ -107,7 +107,31 @@ async function runFixture(
   // Exercise .env lookup without relying on the launcher working directory.
   delete env.DATABASE_URL
   delete env.MOL_BOND_PROFILE
-  await exec(process.execPath, [runner], { cwd: root, env, timeout: 10_000 })
+  const args = [runner]
+  if (options.withoutManifest) {
+    // This case models a machine with NO enclosing API package. TMPDIR can
+    // itself be inside a checkout; hide only ancestor manifests in this child
+    // process so the host's package.json cannot turn absence into a success.
+    const isolation = join(root, 'no-ancestor-manifest.mjs')
+    await writeFile(
+      isolation,
+      `
+      import fs from 'node:fs';
+      import { syncBuiltinESMExports } from 'node:module';
+      import { resolve, sep } from 'node:path';
+      const exists = fs.existsSync;
+      const boundary = ${JSON.stringify(api)} + sep;
+      fs.existsSync = (path) => {
+        const absolute = resolve(String(path));
+        if (absolute.endsWith(sep + 'package.json') && !absolute.startsWith(boundary)) return false;
+        return exists(path);
+      };
+      syncBuiltinESMExports();
+    `,
+    )
+    args.unshift('--import', isolation)
+  }
+  await exec(process.execPath, args, { cwd: root, env, timeout: 10_000 })
   try {
     return (await readFile(trace, 'utf8'))
       .trim()

@@ -7,7 +7,7 @@ import { execFileSync } from 'node:child_process'
 import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { createServer, type Server } from 'node:http'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 
 import { Command, Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
@@ -72,10 +72,14 @@ describe('sync — what gets uploaded', () => {
     process.env.MOLECULE_API_URL = `http://127.0.0.1:${(server.address() as { port: number }).port}`
     process.env.MOLECULE_TOKEN = 'tok_test'
     dir = mkdtempSync(join(tmpdir(), 'mlcl-sync-'))
+    // A no-git fixture must remain outside an enclosing checkout's git
+    // discovery, including when the test runner's TMPDIR lives in that checkout.
+    vi.stubEnv('GIT_CEILING_DIRECTORIES', dirname(dir))
   })
 
   afterEach(async () => {
     vi.restoreAllMocks()
+    vi.unstubAllEnvs()
     delete process.env.MOLECULE_API_URL
     delete process.env.MOLECULE_TOKEN
     rmSync(dir, { recursive: true, force: true })

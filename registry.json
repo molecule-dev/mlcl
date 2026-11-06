@@ -3402,6 +3402,18 @@
         "outputFilterAfterRunner",
         "RunnerOutputFilter",
         "pipelineExitCodeNote",
+        "isPlaywrightFeedbackSource",
+        "createPlaywrightFeedback",
+        "readFeedbackSources",
+        "runPlaywrightFeedback",
+        "selectFeedbackSpecs",
+        "FeedbackSource",
+        "FeedbackSpec",
+        "FeedbackProject",
+        "PlaywrightFeedbackFailure",
+        "PlaywrightFeedbackResult",
+        "PlaywrightFeedbackOptions",
+        "PlaywrightFeedback",
         "reportCarriesIdentities",
         "reportTestAttachmentPaths",
         "reportTestArtifactDir",
@@ -3623,7 +3635,8 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-ai"
+        "@molecule/api-ai",
+        "typescript"
       ],
       "moleculePeers": [
         "@molecule/api-ai"

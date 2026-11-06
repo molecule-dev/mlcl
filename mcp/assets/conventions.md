@@ -49,3 +49,10 @@ do not extract a package for them.
 `src/bonds/`, style via ClassMap (`getClassMap()`), route all user-facing text
 through i18n. Every installed package documents its own API at
 `node_modules/@molecule/<name>/README.md`.
+
+**While implementing a supplied Playwright suite:** start `npx mlcl test-feedback
+--suite <spec-directory> --sources <app-source-directory> --command "<the suite’s native
+Playwright command targeting the local app>" --watch --json` as a background task.
+It runs the real spec files while you build and reports native locator failures
+with the rendered page and source paths. Passing runs are silent; keep building
+without waiting. This is diagnosis; run the full suite for final verification.

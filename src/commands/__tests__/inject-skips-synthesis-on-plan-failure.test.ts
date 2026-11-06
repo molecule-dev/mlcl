@@ -19,6 +19,7 @@
  */
 
 import { existsSync } from 'node:fs'
+import type * as FsPromises from 'node:fs/promises'
 import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -27,9 +28,37 @@ import { Config } from '@oclif/core'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { clearRegistryCache } from '../../lib/registry.js'
+import type * as SetupSql from '../../lib/setup-sql.js'
 import Inject from '../inject.js'
 
 vi.mock('execa', () => ({ execa: vi.fn() }))
+const missingPackage = vi.hoisted(() => ({ enabled: false }))
+vi.mock('../../lib/setup-sql.js', async (original) => {
+  const actual = await original<typeof SetupSql>()
+  return {
+    ...actual,
+    installedPackageRoots: (project: string, name: string) =>
+      missingPackage.enabled && name === '@molecule/api-database-pglite'
+        ? []
+        : actual.installedPackageRoots(project, name),
+  }
+})
+vi.mock('node:fs/promises', async (original) => {
+  const actual = await original<typeof FsPromises>()
+  return {
+    ...actual,
+    access: (path: Parameters<typeof actual.access>[0], ...args: []) => {
+      if (
+        missingPackage.enabled &&
+        String(path).endsWith('/node_modules/@molecule/api-database-pglite')
+      )
+        return Promise.reject(
+          Object.assign(new Error('fixture package is not installed'), { code: 'ENOENT' }),
+        )
+      return actual.access(path, ...args)
+    },
+  }
+})
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
 // Resolved the same way findMoleculePackage walks node_modules — point the
@@ -47,6 +76,7 @@ const PGLITE_PACKAGE_DIR = join(
 
 let dir: string | null = null
 afterEach(async () => {
+  missingPackage.enabled = false
   if (dir) await rm(dir, { recursive: true, force: true })
   dir = null
 })
@@ -103,6 +133,8 @@ describe('mlcl inject skips the synthesized files when a plan failed', () => {
   })
 
   it('never regenerates an existing holistic file for a request that could not be resolved', async () => {
+    // Model an uninstalled host independently of the test runner's ancestor packages.
+    missingPackage.enabled = true
     // The other half of "which synthesized files may land": router.ts is
     // synthesized from the resource PLANS and bonds/index.ts from the PLANS'
     // bond setups, so with the request unresolved those plans are empty and

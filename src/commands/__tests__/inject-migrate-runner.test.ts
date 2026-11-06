@@ -24,6 +24,7 @@ import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { MOLECULE_PACKAGES } from '../../lib/__tests__/create-test-project.js'
 import { clearRegistryCache, getMoleculeVersion } from '../../lib/registry.js'
+import type * as SetupSql from '../../lib/setup-sql.js'
 import Inject from '../inject.js'
 
 /**
@@ -34,13 +35,40 @@ import Inject from '../inject.js'
  * The failure fires ONCE — the guard's own restore write must go through — and
  * only while `armed`, so the sibling tests drive the real write path.
  */
-const intercept = vi.hoisted(() => ({ armed: false, failNextManifestWrite: false }))
+const intercept = vi.hoisted(() => ({
+  armed: false,
+  failNextManifestWrite: false,
+  uninstalled: false,
+}))
+
+// The unresolved-package case describes a host without the package. Do not
+// borrow this checkout's ancestor install when TMPDIR sits inside the workspace.
+vi.mock('../../lib/setup-sql.js', async (original) => {
+  const actual = await original<typeof SetupSql>()
+  return {
+    ...actual,
+    installedPackageRoots: (project: string, name: string) =>
+      intercept.uninstalled && name === '@molecule/api-database-pglite'
+        ? []
+        : actual.installedPackageRoots(project, name),
+  }
+})
 
 vi.mock('node:fs/promises', async (importOriginal) => {
   const actual = (await importOriginal()) as Record<string, unknown>
   const realWriteFile = actual.writeFile as (...args: unknown[]) => Promise<unknown>
   return {
     ...actual,
+    access(path: unknown, ...args: unknown[]) {
+      if (
+        intercept.uninstalled &&
+        String(path).endsWith('/node_modules/@molecule/api-database-pglite')
+      )
+        return Promise.reject(
+          Object.assign(new Error('fixture package is not installed'), { code: 'ENOENT' }),
+        )
+      return (actual.access as (...args: unknown[]) => Promise<void>)(path, ...args)
+    },
     writeFile(path: unknown, data: unknown, ...rest: unknown[]): Promise<unknown> {
       const p = String(path)
       if (intercept.armed) {
@@ -62,11 +90,13 @@ let dir: string | null = null
 afterEach(async () => {
   intercept.armed = false
   intercept.failNextManifestWrite = false
+  intercept.uninstalled = false
   if (dir) await rm(dir, { recursive: true, force: true })
   dir = null
 })
 
 async function writeApiProject(withPgliteInstalled: boolean): Promise<string> {
+  intercept.uninstalled = !withPgliteInstalled
   dir = await mkdtemp(join(tmpdir(), 'mlcl-inject-migrate-'))
   await mkdir(join(dir, 'src'), { recursive: true })
   // The manifest `mlcl add --dev @molecule/api-database-pglite` leaves: the

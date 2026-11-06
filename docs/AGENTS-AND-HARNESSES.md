@@ -188,6 +188,13 @@ Agent: npx mlcl swap @molecule/api-database-mysql --no-interactive --install
 
 ---
 
+When a project has a supplied or scaffolded Playwright suite, run
+`npx mlcl test-feedback --suite <spec-directory> --sources <app-source-directory>
+--command "<native Playwright command targeting the local app>" --watch --json`
+as a background task while editing. Each native locator failure names its spec
+line, the rendered page and the source changes. Passing runs are silent. Stop the
+watcher when finished; final verification still uses the complete suite.
+
 ## Notes for every harness
 
 - **Node ≥ 22** is required for `npx mlcl` / `npx molecule-mcp`.
