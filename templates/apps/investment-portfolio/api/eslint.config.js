@@ -458,7 +458,7 @@ const moleculeLocal = {
         schema: [],
         messages: {
           useOptimisticValue:
-            'This shows a toggled value at once and saves it with its own request, so a second click races the first and a slower response or a refetch can flip it back. Hold the value in `useOptimisticValue` from `@molecule/app-react` and send this request as its `commit` (see the package doc): every click counts, saves run in order and only a failure of the newest change restores the server value.',
+            'This shows a toggled value at once and saves it with its own request, so a pending guard can drop the next click, or a slower response/refetch can replace it. Use `useOptimisticValue` from `@molecule/app-react`. {{rewrite}}',
         },
       },
       create(context) {
@@ -638,6 +638,328 @@ const moleculeLocal = {
             : null
         // The `useState` setters of this module: `const [value, setValue] = useState(…)`.
         const setters = new Set()
+        const states = new Map()
+        const effects = []
+        const walk = (node, visit, nested = false) => {
+          if (!node || typeof node.type !== 'string') return
+          if (!nested && isFunction(node)) return
+          visit(node)
+          for (const key of context.sourceCode.visitorKeys[node.type] ?? []) {
+            const value = node[key]
+            if (Array.isArray(value)) value.forEach((child) => walk(child, visit, nested))
+            else walk(value, visit, nested)
+          }
+        }
+        const writesBefore = (fn, save) => {
+          const writes = []
+          walk(fn.body, (node) => {
+            const state = node.type === 'CallExpression' && states.get(variableFor(node.callee))
+            const argument = node.arguments?.[0]
+            if (!state || !argument || node.range[0] >= save.range[0]) return
+            let awaited = false
+            walk(
+              argument,
+              (part) => {
+                if (part.type === 'AwaitExpression') awaited = true
+              },
+              true,
+            )
+            // Busy flags and feedback resets are not the value being saved.
+            if (awaited || ['Literal', 'ArrayExpression'].includes(unwrap(argument)?.type)) return
+            writes.push({ state, argument, node })
+          })
+          return writes
+        }
+        const droppedOrRefetched = (fn, save) => {
+          const writes = writesBefore(fn, save)
+          let guarded = false
+          walk(fn.body, (node) => {
+            if (node.type !== 'IfStatement' || node.range[0] >= save.range[0]) return
+            const flag = variableFor(unwrap(node.test))
+            const busy = [...states.values()].find((state) => state.variable === flag)
+            if (!busy) return
+            let returns = false
+            walk(node.consequent, (part) => {
+              if (part.type === 'ReturnStatement') returns = true
+            })
+            guarded ||=
+              returns &&
+              busy.setter.references.some((reference) => {
+                const call = reference.identifier.parent
+                return (
+                  call?.type === 'CallExpression' &&
+                  enclosingFunction(call) === fn &&
+                  call.arguments[0]?.value === true
+                )
+              })
+          })
+          const refetched = writes.some(({ state }) =>
+            effects.some((effect) => {
+              let replaces = false
+              // Direct prop hydration can repeat while the control is active. An async
+              // initial load alone does not prove that: readiness, dependencies and
+              // cancellation belong to the separate action-ready analysis.
+              walk(effect.body, (node) => {
+                if (
+                  node.type === 'CallExpression' &&
+                  variableFor(node.callee) === state.setter &&
+                  !isFunction(unwrap(node.arguments[0]))
+                )
+                  replaces = true
+              })
+              return replaces
+            }),
+          )
+          // A busy guard beside an unrelated POST (panel analytics, for example) does not
+          // establish that the local flag is server-backed. Require a server seed too.
+          return (
+            (guarded &&
+              writes.some(
+                ({ state }) =>
+                  state.seed &&
+                  !['Literal', 'ArrayExpression', 'ObjectExpression'].includes(state.seed.type),
+              )) ||
+            refetched
+          )
+        }
+        const serialized = (fn) => {
+          const call = fn.parent
+          if (
+            call?.type !== 'CallExpression' ||
+            callName(call) !== 'then' ||
+            call.callee.type !== 'MemberExpression'
+          )
+            return false
+          let result = call
+          while (
+            result.parent?.type === 'MemberExpression' &&
+            ['catch', 'finally'].includes(result.parent.property.name) &&
+            result.parent.parent?.type === 'CallExpression'
+          )
+            result = result.parent.parent
+          const assignment = result.parent
+          return (
+            assignment?.type === 'AssignmentExpression' &&
+            assignment.operator === '=' &&
+            assignment.right === result &&
+            context.sourceCode.getText(assignment.left) ===
+              context.sourceCode.getText(call.callee.object)
+          )
+        }
+        // The rewrite uses the component's own state, updater, request and response reads.
+        // It is advice, never an automatic edit: auth guards and app-specific callbacks stay.
+        const rewriteFor = (fn, save) => {
+          const writes = writesBefore(fn, save)
+          const selected = [...new Map(writes.map((write) => [write.state.setter, write])).values()]
+          if (!selected.length)
+            return 'Move the optimistic state and this save into the hook; keep auth/loading guards, but remove pending guards.'
+          // A row parameter does not exist at the component's hook call site. Never
+          // emit a seemingly runnable commit that closes over an unbound row name.
+          if (fn.params.length)
+            return `In this component, move ${selected.map(({ state }) => state.name).join(', ')} out of the per-click setters (${selected.map(({ state }) => state.setter.name).join(', ')}). Extract a control keyed by ${fn.params.map((parameter) => context.sourceCode.getText(parameter)).join(', ')} and put its server-backed fields in useOptimisticValue; move this request into that control's commit: ${context.sourceCode.getText(save)}. Render the hook's value and use a functional update so each click starts from the latest intent. Keep auth/initial-loading guards, remove pending guards, and return the saved flag and count from commit.`
+          const allNames = new Set(
+            context.sourceCode.getScope(fn).variables.map((variable) => variable.name),
+          )
+          for (const scope of context.sourceCode.scopeManager.scopes)
+            for (const variable of scope.variables) allNames.add(variable.name)
+          const fresh = (base) => {
+            let name = base
+            while (allNames.has(name)) name += 'Value'
+            allNames.add(name)
+            return name
+          }
+          const controller = fresh('optimisticValue')
+          const desired = fresh('desiredValue')
+          const current = fresh('currentValue')
+          const confirmed = fresh('confirmedValue')
+          const held = toggledNames(fn)
+          const aliases = new Map()
+          for (const { state, argument } of selected) {
+            if (unwrap(argument)?.type === 'Identifier' && held.has(variableFor(unwrap(argument))))
+              aliases.set(variableFor(unwrap(argument)), state.name)
+            if (unwrap(argument)?.type === 'ObjectExpression')
+              for (const property of unwrap(argument).properties) {
+                if (
+                  property.type === 'Property' &&
+                  unwrap(property.value)?.type === 'Identifier' &&
+                  held.has(variableFor(unwrap(property.value)))
+                )
+                  aliases.set(
+                    variableFor(unwrap(property.value)),
+                    `${state.name}.${property.key.name ?? property.key.value}`,
+                  )
+              }
+          }
+          const stateReads = new Map(selected.map(({ state }) => [state.variable, state.name]))
+          const scalarFlips = new Set(
+            selected
+              .filter(({ argument }) => {
+                const value = unwrap(argument)
+                if (negatedRead(value) || aliases.has(variableFor(value))) return true
+                if (!isFunction(value)) return false
+                const result =
+                  value.body.type === 'BlockStatement'
+                    ? value.body.body.find((statement) => statement.type === 'ReturnStatement')
+                        ?.argument
+                    : value.body
+                return (
+                  negatedRead(result) &&
+                  variableFor(unwrap(unwrap(result).argument)) === variableFor(value.params[0])
+                )
+              })
+              .map(({ state }) => state.variable),
+          )
+          const render = (node, mode, parameter, field) => {
+            const replacements = []
+            const visit = (part) => {
+              if (!part || typeof part.type !== 'string') return
+              if (mode === 'commit' && part.type === 'CallExpression') {
+                const state = selected.find(
+                  ({ state }) => state.setter === variableFor(part.callee),
+                )?.state
+                if (state && part.arguments[0]) {
+                  const argument = unwrap(part.arguments[0])
+                  const value = isFunction(argument)
+                    ? `(${render(argument, mode)})(${confirmed}.${state.name})`
+                    : render(argument, mode)
+                  replacements.push([
+                    part.range[0],
+                    part.range[1],
+                    `${confirmed} = { ...${confirmed}, ${state.name}: ${value} }`,
+                  ])
+                  return
+                }
+                if (
+                  part.callee.type === 'MemberExpression' &&
+                  ['catch', 'finally'].includes(callName(part))
+                ) {
+                  replacements.push([
+                    part.range[0],
+                    part.range[1],
+                    render(part.callee.object, mode),
+                  ])
+                  return
+                }
+              }
+              if (mode === 'commit' && negatedRead(part)) {
+                const read = unwrap(unwrap(part).argument)
+                const variable =
+                  read.type === 'Identifier' ? variableFor(read) : variableFor(read.object)
+                if (stateReads.has(variable)) {
+                  const suffix = read.type === 'MemberExpression' ? `.${read.property.name}` : ''
+                  replacements.push([
+                    part.range[0],
+                    part.range[1],
+                    `${desired}.${stateReads.get(variable)}${suffix}`,
+                  ])
+                  return
+                }
+              }
+              if (part.type === 'Identifier') {
+                const variable = variableFor(part)
+                // Only reads: object keys, declarations and member names are not variable reads.
+                if (
+                  variable?.references.some(
+                    (reference) => reference.identifier === part && reference.isRead(),
+                  )
+                ) {
+                  let value
+                  if (parameter && variable === parameter) value = `${current}.${field}`
+                  else if (mode === 'commit' && aliases.has(variable))
+                    value = `${desired}.${aliases.get(variable)}`
+                  else if (stateReads.has(variable)) {
+                    value = `${mode === 'commit' ? desired : current}.${stateReads.get(variable)}`
+                    if (mode === 'commit' && scalarFlips.has(variable)) value = `!${value}`
+                  }
+                  if (value)
+                    replacements.push([
+                      part.range[0],
+                      part.range[1],
+                      part.parent?.type === 'Property' && part.parent.shorthand
+                        ? `${part.name}: ${value}`
+                        : value,
+                    ])
+                }
+              }
+              for (const key of context.sourceCode.visitorKeys[part.type] ?? []) {
+                const value = part[key]
+                if (Array.isArray(value)) value.forEach(visit)
+                else visit(value)
+              }
+            }
+            visit(node)
+            let text = context.sourceCode.getText(node)
+            for (const [start, end, value] of replacements.sort((a, b) => b[0] - a[0]))
+              text = text.slice(0, start - node.range[0]) + value + text.slice(end - node.range[0])
+            return text
+          }
+          let statement = save
+          while (statement.parent && statement.parent.type !== 'BlockStatement')
+            statement = statement.parent
+          const block = statement.parent
+          const success =
+            block?.type === 'BlockStatement' ? block.body.slice(block.body.indexOf(statement)) : []
+          const commitLines = success.map((line) => {
+            if (line.type === 'ReturnStatement' && line.argument)
+              return `await ${render(line.argument, 'commit')};`
+            const expression = line.type === 'ExpressionStatement' && unwrap(line.expression)
+            const chain = ['then', 'catch', 'finally'].includes(callName(expression))
+            return `${chain && line.expression.type !== 'AwaitExpression' ? 'await ' : ''}${render(line, 'commit')}`
+          })
+          // Carry declarations the request uses (endpoint/path/etc.), but not toggled aliases.
+          const declarations = []
+          walk(fn.body, (node) => {
+            if (
+              node.type === 'VariableDeclaration' &&
+              node.range[1] < statement.range[0] &&
+              node.declarations.every(
+                (declaration) =>
+                  declaration.id.type === 'Identifier' && !held.has(variableFor(declaration.id)),
+              )
+            )
+              declarations.push(render(node, 'commit'))
+          })
+          const updates = selected.map(({ state, argument }) => {
+            const update = unwrap(argument)
+            return `${state.name}: ${isFunction(update) ? `(${render(update, 'update')})(${current}.${state.name})` : render(argument, 'update')}`
+          })
+          const updateLocals = new Set()
+          const collectLocals = (node) =>
+            walk(
+              node,
+              (part) => {
+                const variable = variableFor(part)
+                const declaration = variable?.defs[0]?.node
+                if (
+                  declaration?.type !== 'VariableDeclarator' ||
+                  !declaration.init ||
+                  enclosingFunction(declaration) !== fn ||
+                  updateLocals.has(declaration)
+                )
+                  return
+                updateLocals.add(declaration)
+                collectLocals(declaration.init)
+              },
+              true,
+            )
+          for (const { argument } of selected) collectLocals(argument)
+          const aliasesForUpdate = [...updateLocals]
+            .sort((a, b) => a.range[0] - b.range[0])
+            .map((node) => {
+              const field = aliases.get(variableFor(node.id))
+              return `const ${node.id.name} = ${field ? `!${current}.${field}` : render(node.init, 'update')};`
+            })
+          const seeds = selected.map(
+            ({ state }) =>
+              `${state.name}: ${state.seed && state.seed.type !== 'Literal' ? (isFunction(state.seed) ? `(${context.sourceCode.getText(state.seed)})()` : context.sourceCode.getText(state.seed)) : state.name}`,
+          )
+          const kept = selected.filter(({ state }) => !state.seed || state.seed.type === 'Literal')
+          const nullable = kept.filter(({ state }) => state.seed?.value === null)
+          const guard = nullable.map(
+            ({ state }) => `if (!${desired}.${state.name}) return ${desired};`,
+          )
+          return `Rewrite the state in this component (keep auth/initial-loading checks):\n\`\`\`tsx\nconst ${controller} = useOptimisticValue({\n  value: { ${seeds.join(', ')} },\n  commit: async (${desired}) => {\n    ${guard.join('\n    ')}\n    let ${confirmed} = ${desired};\n    ${[...declarations, ...commitLines].join('\n    ')}\n    return ${confirmed};\n  },\n});\n${selected.map(({ state }) => `const ${kept.some((entry) => entry.state === state) ? `optimistic${state.name[0].toUpperCase()}${state.name.slice(1)}` : state.name} = ${controller}.value.${state.name};`).join('\n')}\n// In the click handler, replace its local setters/save/rollback with:\n${controller}.update((${current}) => {\n  ${nullable.map(({ state }) => `if (!${current}.${state.name}) return ${current};`).join('\n  ')}\n  ${aliasesForUpdate.join('\n  ')}\n  return { ${updates.join(', ')} };\n});\n\`\`\`\nRemove the pending guard/disabled-on-pending flag and effects that copy props into the replaced display setters (${selected.map(({ state }) => state.setter.name).join(', ')}). ${kept.length ? 'Keep the original query state/setter for loading server data. Use the optimistic alias above for rendering AND loading guards; do not clear an already-loaded record before a same-record refetch, and keep its control mounted. ' : ''}Let commit reject on failure. Key the mounted control by record identity, and render/enable it only after its initial record loads.`
+        }
         // Shown at once: a setter called with the toggled value before the save starts
         // (`setFavorited(next)`, `setItems((prev) => … !item.checked …)`). An awaited response
         // applied by the setter is the save itself, so the walk stops at `await`. A toggle that
@@ -689,7 +1011,18 @@ const moleculeLocal = {
                   : null
             if (hook !== 'useState' || node.id.type !== 'ArrayPattern') return
             const setter = node.id.elements[1]
-            if (setter?.type === 'Identifier') setters.add(variableFor(setter))
+            if (setter?.type === 'Identifier') {
+              const variable = variableFor(setter)
+              setters.add(variable)
+              const value = node.id.elements[0]
+              if (value?.type === 'Identifier')
+                states.set(variable, {
+                  setter: variable,
+                  variable: variableFor(value),
+                  name: value.name,
+                  seed: node.init.arguments[0],
+                })
+            }
           },
           ImportDeclaration(node) {
             if (node.source.value === 'react') reactModule = true
@@ -728,6 +1061,10 @@ const moleculeLocal = {
           },
           CallExpression(node) {
             candidates.push({ kind: 'call', node })
+            if (callName(node) === 'useEffect') {
+              const effect = functionFor(node.arguments[0])
+              if (effect) effects.push(effect)
+            }
             if (helpers.has(callName(node))) {
               const options = unwrap(node.arguments[0])
               if (options?.type === 'ObjectExpression') {
@@ -764,7 +1101,13 @@ const moleculeLocal = {
             }
             for (const { kind, node } of candidates) {
               const fn = enclosingFunction(node)
-              if (!fn || reported.has(fn) || submitHandlers.has(fn) || helperCommits.has(fn))
+              if (
+                !fn ||
+                reported.has(fn) ||
+                submitHandlers.has(fn) ||
+                helperCommits.has(fn) ||
+                serialized(fn)
+              )
                 continue
               let hit = false
               if (kind === 'method') {
@@ -791,7 +1134,7 @@ const moleculeLocal = {
                 const held = namesFor(fn)
                 hit =
                   persistenceCall(node) &&
-                  node.arguments.some(
+                  (node.arguments.some(
                     (argument) =>
                       toggled(argument, held) ||
                       (argument.type === 'ObjectExpression' &&
@@ -800,7 +1143,26 @@ const moleculeLocal = {
                             selfToggle(property) ||
                             (property.type === 'Property' && toggled(property.value, held)),
                         )),
-                  ) &&
+                  ) ||
+                    droppedOrRefetched(fn, node) ||
+                    (() => {
+                      let branch = node.parent
+                      while (branch && branch !== fn) {
+                        if (
+                          branch.type === 'IfStatement' &&
+                          [...states.values()].some((state) =>
+                            state.variable.references.some(
+                              (reference) =>
+                                reference.identifier.range[0] >= branch.test.range[0] &&
+                                reference.identifier.range[1] <= branch.test.range[1],
+                            ),
+                          )
+                        )
+                          return true
+                        branch = branch.parent
+                      }
+                      return false
+                    })()) &&
                   promiseUsed(node, fn)
               }
               if (kind === 'choice') {
@@ -819,7 +1181,11 @@ const moleculeLocal = {
               }
               if (!hit || !shownBefore(fn, namesFor(fn), node)) continue
               reported.add(fn)
-              context.report({ node, messageId: 'useOptimisticValue' })
+              context.report({
+                node,
+                messageId: 'useOptimisticValue',
+                data: { rewrite: rewriteFor(fn, node) },
+              })
             }
           },
         }

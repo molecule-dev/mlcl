@@ -1,12 +1,19 @@
-import { copyFile, mkdir, mkdtemp, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { ESLint, type Rule, RuleTester } from 'eslint'
+import ts from 'typescript'
 import tseslint from 'typescript-eslint'
 import { afterAll, describe, expect, it } from 'vitest'
+
+import {
+  createOptimisticValue,
+  type OptimisticValue,
+  type OptimisticValueOptions,
+} from '@molecule/app-state'
 
 /**
  * The scaffold rule that names `useOptimisticValue` for a hand-rolled server-backed toggle that
@@ -44,6 +51,50 @@ const plugin = config.find((entry) => entry.plugins?.['molecule-local'])?.plugin
 ]
 const rule = plugin?.rules['server-toggles-use-optimistic-value']
 const ruleId = 'molecule-local/server-toggles-use-optimistic-value'
+const retained = JSON.parse(
+  await readFile(new URL('./fixtures/optimistic-toggle-races.json', import.meta.url), 'utf8'),
+) as Record<string, string>
+
+/** Compile the generated migration as a strict consumer, with this component's API shapes. */
+function rewriteDiagnostics(message: string): string[] {
+  const snippet = /```tsx\n([\s\S]*?)```/.exec(message)?.[1]
+  if (!snippet) return ['missing component rewrite']
+  const file = join(import.meta.dirname, '__optimistic-rewrite__.tsx')
+  const source = `import { useOptimisticValue } from '@molecule/app-react'
+type ArticleSummary = { slug: string; favorited: boolean; favoritesCount: number }
+type Profile = { username: string; following: boolean }
+declare const article: ArticleSummary
+declare const profile: Profile | null
+declare const favorited: boolean, favoritesCount: number, slug: string
+declare const onChanged: ((...args: unknown[]) => void) | undefined
+declare const onChange: ((...args: unknown[]) => void) | undefined
+declare function favoriteArticle(slug: string, next: boolean): Promise<ArticleSummary>
+declare function setFavorite(slug: string, next: boolean): Promise<ArticleSummary>
+declare function setFollow(username: string, next: boolean): Promise<Profile>
+declare const http: { post(path: string): Promise<{ data: { article: ArticleSummary } }>; delete(path: string): Promise<{ data: { article: ArticleSummary } }> }
+function Component() { ${snippet} }
+`
+  const options: ts.CompilerOptions = {
+    strict: true,
+    skipLibCheck: true,
+    noEmit: true,
+    target: ts.ScriptTarget.ES2022,
+    module: ts.ModuleKind.NodeNext,
+    moduleResolution: ts.ModuleResolutionKind.NodeNext,
+    jsx: ts.JsxEmit.ReactJSX,
+    types: [],
+  }
+  const host = ts.createCompilerHost(options)
+  const original = host.getSourceFile.bind(host)
+  host.getSourceFile = (name, version, onError, fresh) =>
+    name === file
+      ? ts.createSourceFile(name, source, version, true, ts.ScriptKind.TSX)
+      : original(name, version, onError, fresh)
+  return ts
+    .getPreEmitDiagnostics(ts.createProgram([file], options, host))
+    .filter((diagnostic) => diagnostic.file?.fileName === file)
+    .map((diagnostic) => ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n'))
+}
 
 /** X1 l1296 (2026-11-04): each click sends its own request and sets state from its response. */
 const favoriteButton = `import { useState } from 'react'
@@ -65,6 +116,111 @@ export function FavoriteButton({ article }: { article: Article }) {
 `
 
 describe('molecule-local/server-toggles-use-optimistic-value', () => {
+  it.each([
+    [
+      'functional branch',
+      'settings.enabled',
+      `setEnabled((old) => !old); if (enabled) await http.delete('/setting'); else await http.post('/setting')`,
+    ],
+    [
+      'block updater',
+      'settings.enabled',
+      `setEnabled((old) => { return !old }); await saveSettings(!enabled)`,
+    ],
+    [
+      'promise response',
+      'settings.enabled',
+      `const next = !enabled; setEnabled(next); saveSettings({ enabled: next }).then((saved) => setEnabled(saved.enabled))`,
+    ],
+    [
+      'lazy seed',
+      '() => settings.enabled',
+      `const next = !enabled; setEnabled(next); await saveSettings(next)`,
+    ],
+  ])(
+    'the generated %s rewrite saves the intended value and waits for the request',
+    async (_name, seed, body) => {
+      const eslint = new ESLint({
+        cwd: dir,
+        overrideConfigFile: configPath,
+        overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
+      })
+      const source = `import { useState } from 'react'
+export function Switch({ settings }) {
+  const [enabled, setEnabled] = useState(${seed})
+  const toggle = async () => { ${body} }
+  return <button onClick={toggle} />
+}`
+      const [result] = await eslint.lintText(source, { filePath: 'Switch.tsx' })
+      const finding = result.messages.find((message) => message.ruleId === ruleId)
+      expect(finding).toBeDefined()
+      const snippet = /```tsx\n([\s\S]*?)```/.exec(finding?.message ?? '')?.[1]
+      expect(snippet).toBeDefined()
+      let controller: OptimisticValue<{ enabled: boolean }> | undefined
+      let resolve!: (value: { enabled: boolean }) => void
+      const reply = new Promise<{ enabled: boolean }>((done) => {
+        resolve = done
+      })
+      const calls: unknown[] = []
+      const hook = (
+        options: OptimisticValueOptions<{ enabled: boolean }>,
+      ): {
+        value: { enabled: boolean }
+        update: OptimisticValue<{ enabled: boolean }>['update']
+      } => {
+        expect(options.value).toEqual({ enabled: false })
+        controller = createOptimisticValue(options)
+        return { value: controller.getState().value, update: controller.update }
+      }
+      const save = (value: unknown): Promise<{ enabled: boolean }> => {
+        calls.push(value)
+        return reply
+      }
+      const code = ts.transpileModule(snippet ?? '', {
+        compilerOptions: { target: ts.ScriptTarget.ES2022 },
+      }).outputText
+      const apply = new Function('useOptimisticValue', 'settings', 'http', 'saveSettings', code)
+      apply(hook, { enabled: false }, { post: () => save(true), delete: () => save(false) }, save)
+      expect(calls).toEqual([_name === 'promise response' ? { enabled: true } : true])
+      expect(controller?.getState()).toMatchObject({ value: { enabled: true }, pending: true })
+      resolve({ enabled: true })
+      expect(await controller?.settled()).toMatchObject({
+        value: { enabled: true },
+        pending: false,
+        error: null,
+      })
+    },
+  )
+  it.each(['l1375', 'l1383', 'l1416', 'l1372'])(
+    'detects the actual retained %s race and names its own state in the rewrite',
+    async (run) => {
+      const eslint = new ESLint({
+        cwd: dir,
+        overrideConfigFile: configPath,
+        overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
+      })
+      const [result] = await eslint.lintText(retained[run], { filePath: 'Retained.tsx' })
+      const findings = result.messages.filter((message) => message.ruleId === ruleId)
+      expect(findings).toHaveLength(1)
+      const message = findings[0].message
+      expect(message).toContain('useOptimisticValue({')
+      expect(message).toContain('commit: async')
+      expect(message).toContain(
+        run === 'l1372'
+          ? 'setFollow(desiredValue.profile.username'
+          : run === 'l1416'
+            ? 'favoriteArticle(slug'
+            : run === 'l1375'
+              ? 'setFavorite(article.slug'
+              : 'http.post(',
+      )
+      expect(message).toContain(
+        run === 'l1416' ? 'isFavorited' : run === 'l1372' ? 'profile' : 'favorited',
+      )
+      if (run !== 'l1372') expect(message).toContain('count')
+      expect(rewriteDiagnostics(message)).toEqual([])
+    },
+  )
   it('loads from the real template as a warning that names the hook', async () => {
     expect(rule).toBeDefined()
     const eslint = new ESLint({
@@ -91,6 +247,90 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
 
     tester.run('server-toggles-use-optimistic-value', rule, {
       valid: [
+        {
+          name: 'an initial asynchronous collection load does not establish a refetching toggle',
+          filename: 'Pipeline.tsx',
+          code: `import { useEffect, useState } from 'react'
+export function Pipeline() {
+  const [candidates, setCandidates] = useState([])
+  useEffect(() => { http.get('/candidates').then((response) => setCandidates(response.data)) }, [])
+  const move = async (id, stage) => {
+    setCandidates((current) => {
+      const target = current.find((candidate) => candidate.id === id)
+      if (!target || target.stage === stage) return current
+      return current.map((candidate) => candidate.id === id ? { ...candidate, stage } : candidate)
+    })
+    await http.put('/candidates/' + id, { stage })
+  }
+  return <Board candidates={candidates} onMove={move} />
+}`,
+        },
+        {
+          name: 'a local panel with a busy guard posts analytics without saving its open flag',
+          filename: 'Panel.tsx',
+          code: `import { useState } from 'react'
+export function Panel() {
+  const [open, setOpen] = useState(false)
+  const [busy, setBusy] = useState(false)
+  const toggle = async () => {
+    if (busy) return
+    setOpen((current) => !current)
+    setBusy(true)
+    try { await http.post('/analytics', { event: 'open' }) } finally { setBusy(false) }
+  }
+  return <button onClick={toggle} />
+}`,
+        },
+        {
+          name: 'a custom promise queue serializes all requests and reads its current value inside it',
+          filename: 'Switch.tsx',
+          code: `import { useState, useRef } from 'react'
+export function Switch({ settings }) {
+  const [enabled, setEnabled] = useState(settings.enabled)
+  const current = useRef(settings.enabled)
+  const queue = useRef(Promise.resolve())
+  const toggle = () => {
+    queue.current = queue.current.then(async () => {
+      const next = !current.current
+      setEnabled(next)
+      await saveSettings(next)
+      current.current = next
+    })
+  }
+  return <button onClick={toggle}>{String(enabled)}</button>
+}`,
+        },
+        {
+          name: 'retained l1391 adopted the shared favorite/count and follow controllers',
+          filename: 'Buttons.tsx',
+          code: retained.l1391,
+        },
+        {
+          name: 'a non-optimistic server toggle disables the button until the answer',
+          filename: 'SettingsSwitch.tsx',
+          code: `import { useState } from 'react'
+export function SettingsSwitch({ settings }) {
+  const [enabled, setEnabled] = useState(settings.enabled)
+  const [saving, setSaving] = useState(false)
+  const toggle = async () => {
+    if (saving) return
+    setSaving(true)
+    try { const saved = await saveSettings({ enabled: !enabled }); setEnabled(saved.enabled) }
+    finally { setSaving(false) }
+  }
+  return <button role="switch" disabled={saving} onClick={toggle}>{String(enabled)}</button>
+}`,
+        },
+        {
+          name: 'opening a local panel while posting unrelated analytics is not a server toggle',
+          filename: 'Panel.tsx',
+          code: `import { useState } from 'react'
+export function Panel() {
+  const [open, setOpen] = useState(false)
+  const toggle = async () => { setOpen((value) => !value); await http.post('/analytics', { event: 'open' }) }
+  return <button onClick={toggle} />
+}`,
+        },
         {
           name: 'returning a local setter is not a server request',
           filename: 'Panel.tsx',
@@ -413,6 +653,55 @@ export function Login() {
         },
       ],
       invalid: [
+        {
+          name: 'non-X1: a like and count flip followed by a pending guard drops the next click',
+          filename: 'LikeButton.tsx',
+          code: `import { useState } from 'react'
+export function LikeButton({ post }) {
+  const [liked, setLiked] = useState(post.liked)
+  const [count, setCount] = useState(post.likes)
+  const [saving, setSaving] = useState(false)
+  const toggle = async () => {
+    if (saving) return
+    setLiked((current) => !current)
+    setCount((current) => current + (liked ? -1 : 1))
+    setSaving(true)
+    try { await toggleLike(post.id) } finally { setSaving(false) }
+  }
+  return <button onClick={toggle}>{count}</button>
+}`,
+          errors: [{ messageId: 'useOptimisticValue' }],
+        },
+        {
+          name: 'a toggle chooses POST or DELETE with an if statement',
+          filename: 'Bookmark.tsx',
+          code: `import { useState } from 'react'
+export function Bookmark({ item }) {
+  const [saved, setSaved] = useState(item.saved)
+  const toggle = async () => {
+    setSaved((current) => !current)
+    if (saved) await http.delete('/bookmarks/' + item.id)
+    else await http.post('/bookmarks/' + item.id)
+  }
+  return <button onClick={toggle} />
+}`,
+          errors: [{ messageId: 'useOptimisticValue' }],
+        },
+        {
+          name: 'non-X1: a refetch effect overwrites the settings switch while its save runs',
+          filename: 'SettingsSwitch.tsx',
+          code: `import { useState, useEffect } from 'react'
+export function SettingsSwitch({ settings, refresh }) {
+  const [enabled, setEnabled] = useState(settings.enabled)
+  useEffect(() => { setEnabled(settings.enabled) }, [settings.enabled, refresh])
+  const toggle = async () => {
+    setEnabled((current) => !current)
+    await persistSettings()
+  }
+  return <button role="switch" onClick={toggle}>{String(enabled)}</button>
+}`,
+          errors: [{ messageId: 'useOptimisticValue' }],
+        },
         {
           name: 'a non-async handler returns the save promise',
           filename: 'Switch.tsx',

@@ -21,7 +21,8 @@ different purpose).
 
 ```bash
 cd /workspace
-# Already covered by the auth + emails examples; no new packages to install.
+# Auth and email packages are covered by the auth + emails examples.
+mlcl add @molecule/app-routing-react-router
 # The sendMail core (@molecule/api-emails) arrives transitively with whatever
 # emails provider those examples install (e.g. @molecule/api-emails-mailgun).
 ```
