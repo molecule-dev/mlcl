@@ -10,6 +10,7 @@ dist.old-*/
 oclif.manifest.json
 # Written beside each flagship by prepack (scripts/template-dotfiles.mjs), removed by postpack.
 /templates/apps/*/dotfiles.json
+/templates/apps/*/locales.json.br
 
 # testing
 coverage

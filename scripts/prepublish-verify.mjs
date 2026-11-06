@@ -26,7 +26,7 @@ if (args.length && (args.length !== 2 || args[0] !== '--tarball')) {
   console.error('Usage: prepublish-verify.mjs [--tarball <packed-file.tgz>]')
   process.exit(1)
 }
-const tarball = args.length ? resolve(args[1]) : null
+let tarball = args.length ? resolve(args[1]) : null
 let contentRoot = process.cwd()
 
 const BINARY_EXT = new Set([
@@ -113,6 +113,12 @@ if (!process.env.MLCL_ALLOW_PUBLISH) {
   process.exit(1)
 }
 
+// Inspect the real packed bytes even for a folder check. postpack removes
+// generated manifests, so a dry-run followed by reading the worktree would
+// silently omit the compressed locales from the content/credential sweep.
+const scratch = mkdtempSync(join(tmpdir(), 'mlcl-prepublish-'))
+process.on('exit', () => rmSync(scratch, { recursive: true, force: true }))
+
 // ── 1. required files ────────────────────────────────────────────────────────
 console.log('required files:')
 /** Check mandatory files in the package being inspected. @param {string} root - Package root. */
@@ -136,7 +142,11 @@ console.log('tarball contents:')
 // document with the expected shape.
 const rawPack = execFileSync(
   'npm',
-  ['pack', ...(tarball ? [tarball, '--ignore-scripts'] : []), '--dry-run', '--json'],
+  [
+    'pack',
+    ...(tarball ? [tarball, '--ignore-scripts', '--dry-run'] : ['--pack-destination', scratch]),
+    '--json',
+  ],
   {
     encoding: 'utf8',
     maxBuffer: 1 << 28,
@@ -197,6 +207,12 @@ if (!pack) {
   process.exit(1)
 }
 const files = pack.files.map((f) => f.path)
+// A folder's prepack builds dist. Loading before npm pack would break a fresh
+// checkout's prepublishOnly hook, which runs BEFORE npm's own prepack hook.
+const { readTemplateLocales, TEMPLATE_LOCALES_ARCHIVE } =
+  await import('../dist/lib/template-locales.js')
+const { templatePackageIssues } = await import('../dist/lib/template-package.js')
+for (const issue of templatePackageIssues(pack)) fail(issue)
 let structural = true
 for (const p of files) {
   if (isAbsolute(p) || p.split(/[\\/]/).includes('..')) {
@@ -233,12 +249,11 @@ if (withoutDotfiles.length)
   )
 else if (flagships.length) ok(`${flagships.length} flagships carry dotfiles.json`)
 
-if (tarball) {
+tarball ??= join(scratch, pack.filename)
+{
   if (!structural) process.exit(1)
   // npm's own pack manifest above and the standard tar extractor inspect the
   // archived bytes, including files postpack removed from the working tree.
-  const scratch = mkdtempSync(join(tmpdir(), 'mlcl-prepublish-'))
-  process.on('exit', () => rmSync(scratch, { recursive: true, force: true }))
   execFileSync('tar', ['-xzf', tarball, '-C', scratch, '--no-same-owner', '--no-same-permissions'])
   contentRoot = join(scratch, 'package')
   if (!realpathSync(contentRoot).startsWith(`${realpathSync(scratch)}${sep}`))
@@ -261,25 +276,47 @@ if (tarball) {
 console.log('content sweep:')
 let scanned = 0
 let contentClean = true
-for (const p of files) {
-  if (BINARY_EXT.has(extname(p).toLowerCase())) continue
-  let content
-  try {
-    const file = join(contentRoot, p)
-    if (tarball && !realpathSync(file).startsWith(`${realpathSync(contentRoot)}${sep}`))
-      throw new Error('packed file escapes the archive')
-    const st = statSync(file)
-    if (!st.isFile() || st.size > 3_000_000) continue
-    content = readFileSync(file, 'latin1')
-  } catch (_error) {
-    if (tarball) {
-      fail(`cannot inspect packed file: ${p}`)
-      contentClean = false
+/** Scan one ordinary file or decompressed template at a time, not the whole fleet in RAM. */
+function* shippedTexts() {
+  for (const p of files) {
+    if (p.endsWith(`/${TEMPLATE_LOCALES_ARCHIVE}`)) {
+      try {
+        const templateDir = join(contentRoot, p, '..')
+        const locales = readTemplateLocales(templateDir)
+        for (const [rel, text] of Object.entries(locales)) {
+          const path = `${p.slice(0, -TEMPLATE_LOCALES_ARCHIVE.length)}app/src/locales/${rel}`
+          if (FORBIDDEN_TARBALL_PATHS.some((re) => re.test(path)) || isForbiddenEnvFile(path))
+            throw new Error(`compressed locale contains internal path: ${path}`)
+          yield [path, Buffer.from(text).toString('latin1')]
+        }
+      } catch (error) {
+        fail(`cannot inspect packed locales ${p}: ${error.message}`)
+        contentClean = false
+      }
+      continue
     }
-    // Intentional skip: pack file lists can include directory rows that have
-    // no readable content — nothing to sweep there.
-    continue
+    if (BINARY_EXT.has(extname(p).toLowerCase())) continue
+    let content
+    try {
+      const file = join(contentRoot, p)
+      if (tarball && !realpathSync(file).startsWith(`${realpathSync(contentRoot)}${sep}`))
+        throw new Error('packed file escapes the archive')
+      const st = statSync(file)
+      if (!st.isFile() || st.size > 3_000_000) continue
+      content = readFileSync(file, 'latin1')
+    } catch (_error) {
+      if (tarball) {
+        fail(`cannot inspect packed file: ${p}`)
+        contentClean = false
+      }
+      // Intentional skip: pack file lists can include directory rows that have
+      // no readable content — nothing to sweep there.
+      continue
+    }
+    yield [p, content]
   }
+}
+for (const [p, content] of shippedTexts()) {
   scanned += 1
   const reasons = []
   if (MACHINE_PATH.test(content)) reasons.push('personal home path')

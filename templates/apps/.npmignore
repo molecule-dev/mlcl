@@ -1,0 +1,4 @@
+# prepack records these files in each flagship's locales.json.br. Keep English
+# and root locale modules readable; copyTemplateInstance restores the other files.
+*/app/src/locales/*/
+!*/app/src/locales/en/

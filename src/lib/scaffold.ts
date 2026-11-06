@@ -80,6 +80,7 @@ import {
   setupSqlFileContent,
 } from './setup-sql.js'
 import { restoreTemplateDotfiles } from './template-dotfiles.js'
+import { restoreTemplateLocales } from './template-locales.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -2698,6 +2699,9 @@ export async function copyTemplateInstance(
   // npm never packs .gitignore or .npmrc files; a template installed from the
   // registry carries them in dotfiles.json instead (template-dotfiles.ts).
   await restoreTemplateDotfiles(templateDir, destDir)
+  // Non-English locale trees are compressed only in the npm representation.
+  // Materialize into the project, offline, before branding and other transforms.
+  await restoreTemplateLocales(templateDir, destDir)
 
   // Fonts ship deduped in templates/shared/fonts (one shared copy per face
   // instead of ~1,400 per-app copies — roughly a 1 GB tarball saving). Each

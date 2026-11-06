@@ -2,13 +2,16 @@ import { spawn, spawnSync, type SpawnSyncReturns } from 'node:child_process'
 import { createHash } from 'node:crypto'
 import fs from 'node:fs'
 import { createServer } from 'node:http'
+import { tmpdir } from 'node:os'
 import path from 'node:path'
+import { brotliCompressSync } from 'node:zlib'
 
+import ts from 'typescript'
 import { afterEach, describe, expect, it } from 'vitest'
 
 const ROOT = path.resolve(import.meta.dirname, '../../..')
 const GATE = path.join(ROOT, 'scripts/prepublish-verify.mjs')
-const scratch = path.resolve(ROOT, '../fixtures')
+const scratch = tmpdir()
 const fixtures: string[] = []
 const sha = (bytes: Buffer): string => createHash('sha256').update(bytes).digest('hex')
 
@@ -16,7 +19,7 @@ afterEach(() => {
   fixtures.splice(0).forEach((dir) => fs.rmSync(dir, { recursive: true, force: true }))
 })
 
-function fixture(): {
+function fixture(oldHistory = false): {
   dir: string
   env: NodeJS.ProcessEnv
   run: (args: string[], env?: NodeJS.ProcessEnv) => SpawnSyncReturns<string>
@@ -27,6 +30,16 @@ function fixture(): {
   fs.mkdirSync(path.join(dir, 'scripts'))
   fs.mkdirSync(path.join(dir, 'bin'))
   fs.mkdirSync(path.join(dir, 'dist'))
+  fs.mkdirSync(path.join(dir, 'build-inputs'))
+  for (const file of ['template-locales', 'template-package']) {
+    const source = fs.readFileSync(path.join(ROOT, 'src/lib', `${file}.ts`), 'utf8')
+    fs.writeFileSync(
+      path.join(dir, 'build-inputs', `${file}.js`),
+      ts.transpileModule(source, {
+        compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
+      }).outputText,
+    )
+  }
   fs.copyFileSync(GATE, path.join(dir, 'scripts/prepublish-verify.mjs'))
   fs.writeFileSync(path.join(dir, 'LICENSE'), 'Apache-2.0\n')
   fs.writeFileSync(path.join(dir, 'README.md'), 'A public fixture.\n')
@@ -37,7 +50,11 @@ function fixture(): {
 const fs = require('node:fs');
 const hook = process.argv[2];
 fs.appendFileSync('lifecycle.log', hook + '\\n');
-if (hook === 'prepack') fs.writeFileSync('oclif.manifest.json', process.env.MANIFEST_TEXT || '{}');
+if (hook === 'prepack') {
+  fs.writeFileSync('oclif.manifest.json', process.env.MANIFEST_TEXT || '{}');
+  fs.mkdirSync('dist/lib', {recursive:true});
+  for (const file of fs.readdirSync('build-inputs')) fs.copyFileSync('build-inputs/'+file, 'dist/lib/'+file);
+}
 if (hook === 'postpack') fs.rmSync('oclif.manifest.json');
 `,
   )
@@ -67,7 +84,13 @@ if (hook === 'postpack') fs.rmSync('oclif.manifest.json');
   const run = (args: string[], extra: NodeJS.ProcessEnv = {}): SpawnSyncReturns<string> =>
     spawnSync(args[0], args.slice(1), {
       cwd: dir,
-      env: { ...env, ...extra },
+      env: {
+        ...env,
+        ...(oldHistory
+          ? { GIT_AUTHOR_DATE: '2020-01-01T00:00:00Z', GIT_COMMITTER_DATE: '2020-01-01T00:00:00Z' }
+          : {}),
+        ...extra,
+      },
       encoding: 'utf8',
       timeout: 30_000,
     })
@@ -99,6 +122,13 @@ function verify(f: ReturnType<typeof fixture>, tarball: string): SpawnSyncReturn
 }
 
 describe('the exact prepared npm tarball', () => {
+  it('checks a fresh folder whose prepack must first build the inspection helpers', () => {
+    const f = fixture()
+    expect(fs.existsSync(path.join(f.dir, 'dist/lib/template-locales.js'))).toBe(false)
+    const checked = f.run([process.execPath, 'scripts/prepublish-verify.mjs'])
+    expect(checked.status, String(checked.stdout) + String(checked.stderr)).toBe(0)
+  })
+
   it('verifies postpack-removed files and sends the same bytes through real npm publication without repeating lifecycle hooks', async () => {
     const f = fixture()
     const tarball = pack(f)
@@ -218,24 +248,33 @@ describe('the exact prepared npm tarball', () => {
   })
 
   it('retains the history guard', () => {
-    const f = fixture()
-    expect(
-      f.run(
-        [
-          'git',
-          '-c',
-          'user.name=Fixture',
-          '-c',
-          'user.email=fixture@example.invalid',
-          'commit',
-          '--amend',
-          '--allow-empty',
-          '--no-edit',
-          '--date=2020-01-01T00:00:00Z',
-        ],
-        { GIT_COMMITTER_DATE: '2020-01-01T00:00:00Z' },
-      ).status,
-    ).toBe(0)
+    const f = fixture(true)
     expect(verify(f, pack(f)).status).not.toBe(0)
   })
+
+  it.each(['archive', 'folder'])(
+    'scans credentials inside compressed locale manifests (%s)',
+    (mode) => {
+      const f = fixture()
+      const template = path.join(f.dir, 'templates/apps/fixture')
+      fs.mkdirSync(template, { recursive: true })
+      const manifestPath = path.join(f.dir, 'package.json')
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+      manifest.files.push('templates')
+      fs.writeFileSync(manifestPath, JSON.stringify(manifest))
+      fs.writeFileSync(
+        path.join(template, 'locales.json.br'),
+        brotliCompressSync(
+          Buffer.from(JSON.stringify({ schema: 1, files: { 'fr/ui.ts': '/home/z/private' } })),
+        ),
+      )
+      const result =
+        mode === 'archive'
+          ? verify(f, pack(f))
+          : f.run([process.execPath, 'scripts/prepublish-verify.mjs'])
+      expect(result.status).not.toBe(0)
+      expect(result.stderr).toContain('personal home path')
+      expect(result.stderr).toContain('app/src/locales/fr/ui.ts')
+    },
+  )
 })
