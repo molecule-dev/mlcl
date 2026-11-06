@@ -21040,7 +21040,10 @@
         "read",
         "ErrorFallback",
         "respondError",
-        "update"
+        "update",
+        "RequestMappingResult",
+        "RequestHandlerOptions",
+        "adaptHandler"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -21062,7 +21065,12 @@
       "path": "packages/api/infrastructure/resource",
       "testMock": {
         "createRequestHandler": "(fn: unknown) => fn"
-      }
+      },
+      "intentHints": [
+        "custom resource response envelope",
+        "adapt request body",
+        "custom api contract"
+      ]
     },
     "@molecule/api-resource-activity-feed": {
       "language": "typescript",
@@ -21513,7 +21521,9 @@
         "PaginatedArticles",
         "TagCount",
         "createArticleSchema",
-        "updateArticleSchema"
+        "updateArticleSchema",
+        "ArticleRequestHandlerMap",
+        "createArticleHandlers"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -21627,7 +21637,10 @@
         "followed authors feed",
         "article tags",
         "medium-style blog",
-        "blog publishing"
+        "blog publishing",
+        "article response envelope",
+        "custom article api",
+        "article request handlers"
       ]
     },
     "@molecule/api-resource-booking": {
@@ -25751,7 +25764,10 @@
         "authorization header token",
         "custom token authentication",
         "jwt api authentication",
-        "token in response body"
+        "token in response body",
+        "user request envelope",
+        "account response envelope",
+        "custom signup response"
       ]
     },
     "@molecule/api-resource-version-history": {
