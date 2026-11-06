@@ -122,8 +122,8 @@ function translationValues(appSrc) {
       const calls = (node) => {
         if (
           ts.isCallExpression(node) &&
-          ts.isIdentifier(node.expression) &&
-          node.expression.text === 't'
+          ((ts.isIdentifier(node.expression) && node.expression.text === 't') ||
+            (ts.isPropertyAccessExpression(node.expression) && node.expression.name.text === 't'))
         ) {
           const [key, values, options] = node.arguments
           if (

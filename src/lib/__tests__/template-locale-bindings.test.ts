@@ -87,6 +87,15 @@ describe('template locale interpolation bindings', () => {
     expect(result.status, result.stderr).toBe(0)
   })
 
+  it('checks provider.t() method calls as well as standalone t()', () => {
+    const result = check(
+      `provider.t('label', { name: 'Ada' }, { defaultValue: 'Hello {{name}}' })`,
+      { label: '{{wrong}}' },
+    )
+    expect(result.status).toBe(1)
+    expect(result.stderr).toContain('wrong')
+  })
+
   it.each([
     ['{ from: 1, to: 2 }', '{{v}}', 'v'],
     ["{ name: 'Ada' }", '{{nmae}}', 'nmae'],
