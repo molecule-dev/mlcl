@@ -68,6 +68,7 @@ import {
   loadAppFrameworks,
   loadRegistry,
   loadToolchain,
+  requirePackageByRole,
 } from './registry.js'
 import type { BuildTooling, InferredPackage, MoleculeSecret } from './schema.js'
 import { generateSecretValues } from './secret-generate.js'
@@ -5054,6 +5055,9 @@ export async function createAppProject(
       ...toolchain.shared,
       ...toolchain.app,
       ...(fwConfig.devDependencies ?? {}),
+      [requirePackageByRole('app', 'feature', 'vite-config-default')]: getMoleculeVersion(
+        requirePackageByRole('app', 'feature', 'vite-config-default'),
+      ),
     },
     // For an app-only project this package.json IS the install root, so any
     // `overrides` a selected bond requires go here. As a full-stack sub-project
@@ -5109,6 +5113,7 @@ export async function createAppProject(
       vitePlugin,
       buildTooling?.vitePlugin?.usage,
       'VitePWA(pwaOptions)',
+      'rootRelativeAssetsPlugin()',
       'previewConsoleLogPlugin',
       'stripPreviewBridgePlugin()',
     ].filter((p): p is string => Boolean(p)),

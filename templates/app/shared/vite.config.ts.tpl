@@ -13,6 +13,7 @@ import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { defineConfig, type Plugin } from 'vite'
+import { rootRelativeAssetsPlugin } from '@molecule/app-vite-config-default/assets'
 {{TAILWIND_IMPORT}}import { VitePWA } from 'vite-plugin-pwa'
 {{VITE_PLUGIN_IMPORT}}import { APP_NAME, APP_DESCRIPTION, BRAND_COLOR } from '{{BRANDING_IMPORT}}'
 import { stripPreviewBridgePlugin } from './vite-preview-bridge-plugin.js'

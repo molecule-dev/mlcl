@@ -62900,16 +62900,18 @@
       "description": "Drop-in createDefaultViteConfig() factory used by every flagship app vite.config.ts. Captures react + tailwindcss + VitePWA plugin setup, molecule package pre-bundle exclusion, dev server proxy, env conventions.",
       "stack": "app",
       "exports": [
-        "DefaultViteConfigBranding",
         "singleReactAliases",
         "isInstalled",
         "createDefaultViteConfig",
+        "DefaultViteConfigBranding",
+        "moleculePushServiceWorkerPlugin",
         "PUSH_SW_FILENAME",
         "PUSH_SW_SOURCE",
-        "moleculePushServiceWorkerPlugin"
+        "rootRelativeAssetsPlugin"
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@jridgewell/trace-mapping",
         "@molecule/app-version",
         "@tailwindcss/vite",
         "@vitejs/plugin-react",
