@@ -6,6 +6,8 @@ import { fileURLToPath } from 'node:url'
 
 import { describe, expect, it } from 'vitest'
 
+import { singlePackResult } from './npm-pack-json.js'
+
 const NPMIGNORE = fileURLToPath(new URL('../../../templates/.npmignore', import.meta.url))
 
 describe('npm template payload policy', () => {
@@ -53,25 +55,8 @@ describe('npm template payload policy', () => {
         cwd: root,
         encoding: 'utf8',
       })
-      const parsed: unknown = JSON.parse(raw)
-      const isPack = (value: unknown): value is { files: Array<{ path: string }> } =>
-        typeof value === 'object' &&
-        value !== null &&
-        Array.isArray((value as { files?: unknown }).files)
-      // npm 11 returns an array (older versions return one object); npm 12 keys
-      // the same result by package name. None of these shapes may hide an empty
-      // or malformed result: this fixture packs exactly one package with files.
-      const packs = Array.isArray(parsed)
-        ? parsed
-        : isPack(parsed)
-          ? [parsed]
-          : typeof parsed === 'object' && parsed !== null && !('files' in parsed)
-            ? Object.values(parsed)
-            : []
-      expect(packs).toHaveLength(1)
-      const pack: unknown = packs[0]
-      if (!isPack(pack)) throw new Error('npm pack --json did not return a file list')
-      const paths = pack.files.map((file) => file.path)
+      // This fixture packs exactly one package with files, in any npm's JSON shape.
+      const paths = singlePackResult(raw).files.map((file) => file.path)
       expect(paths.every((path) => typeof path === 'string' && path.length > 0)).toBe(true)
 
       for (const path of excluded) expect(paths).not.toContain(path)

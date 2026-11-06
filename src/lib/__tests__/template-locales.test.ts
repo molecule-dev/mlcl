@@ -29,6 +29,7 @@ import {
   TEMPLATE_LOCALES_ARCHIVE,
 } from '../template-locales.js'
 import { templatePackageIssues } from '../template-package.js'
+import { singlePackResult } from './npm-pack-json.js'
 
 const ROOT = resolve(import.meta.dirname, '../../..')
 const scratch: string[] = []
@@ -82,8 +83,7 @@ function packed(
     cwd: dir,
     encoding: 'utf8',
   })
-  const json = JSON.parse(raw)
-  const pack = Array.isArray(json) ? json[0] : json
+  const pack = singlePackResult(raw)
   const root = join(dir, output)
   mkdirSync(root)
   execFileSync('tar', ['-xzf', join(dir, pack.filename), '-C', root])
