@@ -88,6 +88,16 @@ jobs:
       # and pins every dependency exactly instead.
       - run: npm install --no-audit --no-fund
         working-directory: mlcl/mcp
+      # `mlcl test-feedback` runs real Playwright files (src/commands/__tests__/test-feedback.test.ts).
+      # Without a browser the runner exits as a setup failure and those tests fail, as they should.
+      # mlcl's own @playwright/test pins the browser build; launch once so missing system
+      # libraries fail here, not inside a test.
+      - name: Install Chromium for the native browser feedback tests
+        run: |
+          npx --no-install playwright install chromium
+          node --input-type=module -e "import { chromium } from '@playwright/test'; const browser = await chromium.launch(); await browser.close();"
+        working-directory: mlcl
+        timeout-minutes: 10
       - run: npm test
         working-directory: mlcl
 
