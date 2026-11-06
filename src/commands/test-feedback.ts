@@ -90,7 +90,7 @@ export default class TestFeedback extends Command {
             .map((f) => ({ ...f, command: flags.command, cwd: root })),
         }
       },
-      run: (spec, files, revision, onFailure) =>
+      run: (spec, files, revision, onFailure, signal) =>
         runPlaywrightFeedback(backend, spec, files, revision, {
           command: (extra) =>
             scopedRerunCommand(
@@ -103,6 +103,7 @@ export default class TestFeedback extends Command {
               { suiteSettings: true },
             ),
           emit: onFailure,
+          signal,
         }),
       onFailures: emit,
       onResult: (result) => {

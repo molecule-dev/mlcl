@@ -90,7 +90,7 @@ it('watches a physical HTML component file and delivers a native failure while t
   await vi.waitFor(() => expect(stop).toBeTypeOf('function'))
   await vi.waitFor(
     async () => {
-      expect(await readdir(join(root, '.mol/test-feedback'))).toEqual([])
+      await expect(readdir(join(root, '.mol/test-feedback'))).rejects.toThrow(/ENOENT/)
       expect(requests).toBeGreaterThan(0)
     },
     { timeout: 15000 },
@@ -123,3 +123,28 @@ it('does not drive the app or emit a note when no supplied spec exists', async (
   expect(Command.prototype.log).not.toHaveBeenCalled()
   expect(Command.prototype.warn).not.toHaveBeenCalled()
 })
+
+it('stops an active speculative native run immediately when the watcher is closed', async () => {
+  await writeFile(
+    join(root, 'e2e/note.spec.ts'),
+    `import {test} from '@playwright/test';import {writeFileSync} from 'node:fs';test('pending catalog',async()=>{writeFileSync('started','yes');await new Promise(r=>setTimeout(r,5000))})`,
+  )
+  const original = process.on.bind(process)
+  vi.spyOn(process, 'on').mockImplementation((event, listener) => {
+    if ((event === 'SIGTERM' || event === 'SIGINT') && listener.name === 'stop') {
+      stop = listener as () => void
+      return process
+    }
+    return original(event, listener)
+  })
+  watching = (await command(['--watch'])).run()
+  await vi.waitFor(async () => expect(await readFile(join(root, 'started'), 'utf8')).toBe('yes'), {
+    timeout: 8000,
+  })
+  const time = performance.now()
+  stop!()
+  await watching
+  expect(performance.now() - time).toBeLessThan(1500)
+  expect(Command.prototype.log).not.toHaveBeenCalled()
+  expect(Command.prototype.warn).not.toHaveBeenCalled()
+}, 15_000)
