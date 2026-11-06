@@ -249,7 +249,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'ವಸ್ತುನಿಷ್ಠೆ',
   'reviewDetail.confirmDelete': 'ಈ ವಿಮರ್ಶೆ ಡ್ರಾಫ್ಟ್ ಅನ್ನು ಅಳಿಸುವುದೇ?',
   'reviewDetail.delete': 'ಡ್ರಾಫ್ಟ್ ಅಳಿಸಿ',
-  'reviewDetail.eyebrow': '{{ಸ್ಥಿತಿ}} · {{ದಿನಾಂಕ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'ವಿಮರ್ಶೆಯನ್ನು ಲೋಡ್ ಮಾಡಲಾಗುತ್ತಿದೆ...',
   'reviewDetail.missingId': 'ವಿಮರ್ಶೆ ಐಡಿ ಕಾಣೆಯಾಗಿದೆ',
   'reviewDetail.noObjectives': 'ಯಾವುದೇ ಸಕ್ರಿಯ ಉದ್ದೇಶಗಳಿಲ್ಲ — ಡ್ಯಾಶ್‌ಬೋರ್ಡ್‌ನಲ್ಲಿ ಕೆಲವನ್ನು ರಚಿಸಿ.',

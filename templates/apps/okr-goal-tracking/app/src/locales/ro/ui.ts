@@ -249,7 +249,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Obiectiv',
   'reviewDetail.confirmDelete': 'Ștergeți această schiță de recenzie?',
   'reviewDetail.delete': 'Șterge schița',
-  'reviewDetail.eyebrow': '{{status}} · {{data}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Se încarcă recenzia…',
   'reviewDetail.missingId': 'ID-ul recenziei lipsește',
   'reviewDetail.noObjectives': 'Niciun obiectiv activ — creați câteva în tabloul de bord.',

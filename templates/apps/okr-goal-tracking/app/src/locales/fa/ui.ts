@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'هدف',
   'reviewDetail.confirmDelete': 'این پیش‌نویس بررسی حذف شود؟',
   'reviewDetail.delete': 'حذف پیش‌نویس',
-  'reviewDetail.eyebrow': '{{وضعیت}} · {{تاریخ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'در حال بارگذاری نقد و بررسی…',
   'reviewDetail.missingId': 'شناسه نقد و بررسی موجود نیست',
   'reviewDetail.noObjectives': 'هیچ هدف فعالی وجود ندارد - تعدادی را در داشبورد ایجاد کنید.',

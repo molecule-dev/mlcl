@@ -253,7 +253,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'ရည်မှန်းချက်',
   'reviewDetail.confirmDelete': 'ဤသုံးသပ်ချက်မူကြမ်းကို ဖျက်ပစ်မလား။',
   'reviewDetail.delete': 'မူကြမ်းကို ဖျက်ပါ',
-  'reviewDetail.eyebrow': '{{အခြေအနေ}} · {{ရက်စွဲ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'သုံးသပ်ချက်ကို တင်နေသည်…',
   'reviewDetail.missingId': 'သုံးသပ်ချက် ID ပျောက်ဆုံးနေသည်',
   'reviewDetail.noObjectives':

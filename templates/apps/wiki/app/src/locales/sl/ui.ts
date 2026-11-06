@@ -185,7 +185,7 @@ export const ui: UiTranslations = {
     'Izbrisane strani so tukaj shranjene 30 dni. Obnovite tiste, ki jih še potrebujete, in izbrišite tiste, ki jih ne potrebujete – nič ne izgine, dokler ne rečete.',
   'versionHistory.attribution': 'Shranjeno {{when}}',
   'versionHistory.backLink': 'Nazaj na stran',
-  'versionHistory.diffHeading': 'Razlika · v{{v}}',
+  'versionHistory.diffHeading': 'Razlika · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Ni še različic.',
   'versionHistory.heading': 'Zgodovina različic',
   'versionHistory.older': 'Starejši',

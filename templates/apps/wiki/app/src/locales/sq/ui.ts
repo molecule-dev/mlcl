@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'Faqet e fshira qëndrojnë këtu për 30 ditë. Rivendosni ato që ju nevojiten ende, fshini ato që nuk ju nevojiten — asgjë nuk largohet derisa ta thoni ju.',
   'versionHistory.attribution': 'Ruajtur {{when}}',
   'versionHistory.backLink': 'Kthehu te faqja',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Asnjë version ende.',
   'versionHistory.heading': 'Historiku i versioneve',
   'versionHistory.older': 'Më i vjetër',

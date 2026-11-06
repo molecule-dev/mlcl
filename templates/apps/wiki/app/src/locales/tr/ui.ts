@@ -182,7 +182,7 @@ export const ui: UiTranslations = {
     'Silinen sayfalar burada 30 gün yaşar. Hâlâ ihtiyaç duyduklarınızı geri yükleyin, duymadıklarınızı kalıcı olarak silin — siz söylemeden hiçbir şey çıkmaz.',
   'versionHistory.attribution': '{{when}} kaydedildi',
   'versionHistory.backLink': 'Sayfaya geri dön',
-  'versionHistory.diffHeading': 'Fark · v{{v}}',
+  'versionHistory.diffHeading': 'Fark · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Henüz sürüm yok.',
   'versionHistory.heading': 'Sürüm geçmişi',
   'versionHistory.older': 'Daha eski',

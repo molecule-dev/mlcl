@@ -179,7 +179,7 @@ export const ui: UiTranslations = {
     '삭제된 페이지는 30일 동안 여기에 보관됩니다. 필요한 것은 복원하고 필요 없는 것은 영구 삭제하세요 — 직접 명령하기 전까지는 아무것도 사라지지 않습니다.',
   'versionHistory.attribution': '{{when}}에 저장됨',
   'versionHistory.backLink': '페이지로 돌아가기',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': '아직 버전이 없습니다.',
   'versionHistory.heading': '버전 기록',
   'versionHistory.older': '이전',

@@ -182,7 +182,7 @@ export const ui: UiTranslations = {
     'Eyddar síður eru geymdar hér í 30 daga. Endurheimtu þær sem þú þarft enn á að halda, fjarlægðu þær sem þú þarft ekki á að halda — ekkert hverfur fyrr en þú segir til um það.',
   'versionHistory.attribution': 'Vistað {{when}}',
   'versionHistory.backLink': 'Til baka á síðu',
-  'versionHistory.diffHeading': 'Mismunur · v{{v}}',
+  'versionHistory.diffHeading': 'Mismunur · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Engar útgáfur ennþá.',
   'versionHistory.heading': 'Útgáfusaga',
   'versionHistory.older': 'Eldri',

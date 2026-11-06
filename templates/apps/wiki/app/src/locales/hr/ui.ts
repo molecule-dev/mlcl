@@ -185,7 +185,7 @@ export const ui: UiTranslations = {
     'Izbrisane stranice ostaju ovdje 30 dana. Vratite one koje vam još trebaju, izbrišite one koje vam ne trebaju — ništa ne nestaje dok vi to ne kažete.',
   'versionHistory.attribution': 'Spremljeno {{when}}',
   'versionHistory.backLink': 'Natrag na stranicu',
-  'versionHistory.diffHeading': 'Razlika · v{{v}}',
+  'versionHistory.diffHeading': 'Razlika · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Još nema verzija.',
   'versionHistory.heading': 'Povijest verzija',
   'versionHistory.older': 'Stariji',

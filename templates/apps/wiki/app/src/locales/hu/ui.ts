@@ -188,7 +188,7 @@ export const ui: UiTranslations = {
     'A törölt oldalak 30 napig maradnak itt. Állítsa vissza azokat, amelyekre még szüksége van, törölje azokat, amelyekre nincs szüksége – semmi sem tűnik el, amíg Ön nem kéri.',
   'versionHistory.attribution': 'Mentett {{when}}',
   'versionHistory.backLink': 'Vissza az oldalra',
-  'versionHistory.diffHeading': 'Különbség · v{{v}}',
+  'versionHistory.diffHeading': 'Különbség · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Még nincsenek verziók.',
   'versionHistory.heading': 'Verziótörténet',
   'versionHistory.older': 'Régebbi',

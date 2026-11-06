@@ -257,7 +257,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'இலக்கு',
   'reviewDetail.confirmDelete': 'இந்த மதிப்பாய்வு வரைவை நீக்கவா?',
   'reviewDetail.delete': 'வரைவை நீக்கு',
-  'reviewDetail.eyebrow': '{{நிலை}} · {{தேதி}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'மதிப்பாய்வு ஏற்றப்படுகிறது…',
   'reviewDetail.missingId': 'விடுபட்ட மதிப்பாய்வு ஐடி',
   'reviewDetail.noObjectives':

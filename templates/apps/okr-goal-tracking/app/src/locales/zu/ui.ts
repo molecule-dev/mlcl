@@ -250,7 +250,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Inhloso',
   'reviewDetail.confirmDelete': 'Susa lokhu okusalungiswa kokubuyekezwa?',
   'reviewDetail.delete': 'Susa okusalungiswa',
-  'reviewDetail.eyebrow': '{{isimo}} · {{usuku}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Ilayisha isibuyekezo…',
   'reviewDetail.missingId': 'I-ID yokubuyekeza engekho',
   'reviewDetail.noObjectives': 'Azikho izinhloso ezisebenzayo — dala ezinye kudeshibhodi.',

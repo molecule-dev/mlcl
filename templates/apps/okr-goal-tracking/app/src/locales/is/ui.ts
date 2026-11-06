@@ -247,7 +247,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Markmið',
   'reviewDetail.confirmDelete': 'Eyða þessu drögum að umsögn?',
   'reviewDetail.delete': 'Eyða drögum',
-  'reviewDetail.eyebrow': '{{staða}} · {{dagsetning}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Hleður umsögn…',
   'reviewDetail.missingId': 'Umsagnarauðkenni vantar',
   'reviewDetail.noObjectives': 'Engin virk markmið — búðu til nokkur á mælaborðinu.',

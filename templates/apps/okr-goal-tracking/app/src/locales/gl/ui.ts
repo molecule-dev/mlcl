@@ -249,7 +249,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Obxectivo',
   'reviewDetail.confirmDelete': 'Queres eliminar este borrador de revisión?',
   'reviewDetail.delete': 'Eliminar borrador',
-  'reviewDetail.eyebrow': '{{estado}} · {{data}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Cargando a reseña…',
   'reviewDetail.missingId': 'Falta o ID da revisión',
   'reviewDetail.noObjectives': 'Sen obxectivos activos: crea algúns no panel.',

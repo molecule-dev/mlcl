@@ -185,7 +185,7 @@ export const ui: UiTranslations = {
     'తొలగించిన పేజీలు 30 రోజుల పాటు ఇక్కడే ఉంటాయి. మీకు ఇంకా అవసరమైన వాటిని పునరుద్ధరించండి, అవసరం లేని వాటిని తొలగించండి — మీరు చెప్పేంత వరకు ఏదీ తొలగిపోదు.',
   'versionHistory.attribution': 'సేవ్ చేయబడింది {{when}}',
   'versionHistory.backLink': 'పేజీకి తిరిగి వెళ్లండి',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'ఇంకా వెర్షన్లు లేవు.',
   'versionHistory.heading': 'వెర్షన్ చరిత్ర',
   'versionHistory.older': 'పాత',

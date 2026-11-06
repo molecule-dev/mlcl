@@ -250,7 +250,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Maqsad',
   'reviewDetail.confirmDelete': 'Ushbu sharh qoralamasi oʻchirib tashlansinmi?',
   'reviewDetail.delete': "Qoralamani o'chirish",
-  'reviewDetail.eyebrow': '{{holat}} · {{sana}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Sharh yuklanmoqda…',
   'reviewDetail.missingId': "Sharh identifikatori yo'q",
   'reviewDetail.noObjectives': "Faol maqsadlar yo'q — boshqaruv panelida ba'zilarini yarating.",

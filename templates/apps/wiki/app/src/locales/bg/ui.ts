@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     'Изтритите страници се съхраняват тук 30 дни. Възстановете тези, от които все още имате нужда, изтрийте тези, от които не се нуждаете — нищо не изчезва, докато не го кажете.',
   'versionHistory.attribution': 'Запазено {{when}}',
   'versionHistory.backLink': 'Обратно към страницата',
-  'versionHistory.diffHeading': 'Разлика · v{{v}}',
+  'versionHistory.diffHeading': 'Разлика · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Още няма версии.',
   'versionHistory.heading': 'Хронология на версиите',
   'versionHistory.older': 'По-стари',

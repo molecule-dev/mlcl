@@ -245,7 +245,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Amcan',
   'reviewDetail.confirmDelete': "Dileu'r drafft adolygu hwn?",
   'reviewDetail.delete': 'Dileu drafft',
-  'reviewDetail.eyebrow': '{{statws}} · {{dyddiad}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': "Wrthi'n llwytho adolygiad…",
   'reviewDetail.missingId': 'ID adolygiad ar goll',
   'reviewDetail.noObjectives': 'Dim amcanion gweithredol — crëwch rai ar y dangosfwrdd.',

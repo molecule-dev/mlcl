@@ -243,7 +243,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Cíl',
   'reviewDetail.confirmDelete': 'Smazat tento koncept recenze?',
   'reviewDetail.delete': 'Smazat koncept',
-  'reviewDetail.eyebrow': '{{postavení}} · {{datum}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Načítání recenze…',
   'reviewDetail.missingId': 'Chybí ID recenze',
   'reviewDetail.noObjectives': 'Žádné aktivní cíle – vytvořte si nějaké na řídicím panelu.',

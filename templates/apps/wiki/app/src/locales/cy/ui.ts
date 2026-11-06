@@ -185,7 +185,7 @@ export const ui: UiTranslations = {
     "Mae tudalennau sydd wedi'u dileu yn byw yma am 30 diwrnod. Adferwch y rhai sydd eu hangen arnoch o hyd, gwaredwch y rhai nad oes eu hangen arnoch — does dim byd yn gadael nes i chi ddweud hynny.",
   'versionHistory.attribution': "Wedi'i gadw {{when}}",
   'versionHistory.backLink': "Yn ôl i'r dudalen",
-  'versionHistory.diffHeading': 'Gwahaniaeth · v{{v}}',
+  'versionHistory.diffHeading': 'Gwahaniaeth · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Dim fersiynau eto.',
   'versionHistory.heading': 'Hanes fersiwn',
   'versionHistory.older': 'Hŷn',

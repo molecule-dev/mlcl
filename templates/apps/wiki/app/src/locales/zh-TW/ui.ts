@@ -175,7 +175,7 @@ export const ui: UiTranslations = {
     '已刪除的頁面會在此保留 30 天。您可以恢復仍需要的頁面，刪除不再需要的頁面—除非您手動刪除，否則頁面不會消失。',
   'versionHistory.attribution': '已儲存{{when}}',
   'versionHistory.backLink': '返回頁面',
-  'versionHistory.diffHeading': '差異 · v{{v}}',
+  'versionHistory.diffHeading': '差異 · v{{from}} → {{to}}',
   'versionHistory.empty.title': '尚無版本。',
   'versionHistory.heading': '版本歷史',
   'versionHistory.older': '老年人',

@@ -252,7 +252,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'లక్ష్యం',
   'reviewDetail.confirmDelete': 'ఈ సమీక్ష ముసాయిదాను తొలగించాలా?',
   'reviewDetail.delete': 'డ్రాఫ్ట్‌ను తొలగించండి',
-  'reviewDetail.eyebrow': '{{status}} · {{తేదీ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'సమీక్ష లోడ్ అవుతోంది…',
   'reviewDetail.missingId': 'సమీక్ష ID లేదు',
   'reviewDetail.noObjectives':

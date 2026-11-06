@@ -188,7 +188,7 @@ export const ui: UiTranslations = {
     'Οι διαγραμμένες σελίδες παραμένουν εδώ για 30 ημέρες. Επαναφέρετε όσες χρειάζεστε ακόμα, διαγράψτε όσες δεν χρειάζεστε — τίποτα δεν φεύγει μέχρι να το πείτε εσείς.',
   'versionHistory.attribution': 'Αποθηκεύτηκε {{when}}',
   'versionHistory.backLink': 'Επιστροφή στη σελίδα',
-  'versionHistory.diffHeading': 'Διαφορά · v{{v}}',
+  'versionHistory.diffHeading': 'Διαφορά · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Δεν υπάρχουν ακόμη εκδόσεις.',
   'versionHistory.heading': 'Ιστορικό εκδόσεων',
   'versionHistory.older': 'Παλαιότεροι',

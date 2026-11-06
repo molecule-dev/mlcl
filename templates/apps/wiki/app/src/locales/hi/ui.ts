@@ -180,7 +180,7 @@ export const ui: UiTranslations = {
     'हटाए गए पृष्ठ यहाँ 30 दिनों तक रहते हैं। जिनकी अभी भी आवश्यकता है उन्हें पुनर्स्थापित करें, जिनकी नहीं उन्हें स्थायी रूप से हटाएँ — आप कहें बिना कुछ नहीं जाता।',
   'versionHistory.attribution': '{{when}} सहेजा गया',
   'versionHistory.backLink': 'पृष्ठ पर वापस',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'अभी तक कोई संस्करण नहीं।',
   'versionHistory.heading': 'संस्करण इतिहास',
   'versionHistory.older': 'पुराने',

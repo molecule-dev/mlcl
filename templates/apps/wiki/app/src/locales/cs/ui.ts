@@ -181,7 +181,7 @@ export const ui: UiTranslations = {
     'Smazané stránky zde zůstanou 30 dní. Obnovte ty, které stále potřebujete, vymažte ty, které nepotřebujete – nic nezmizí, dokud to neřeknete.',
   'versionHistory.attribution': 'Uloženo {{when}}',
   'versionHistory.backLink': 'Zpět na stránku',
-  'versionHistory.diffHeading': 'Rozdíl · v{{v}}',
+  'versionHistory.diffHeading': 'Rozdíl · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Zatím žádné verze.',
   'versionHistory.heading': 'Historie verzí',
   'versionHistory.older': 'Starší',

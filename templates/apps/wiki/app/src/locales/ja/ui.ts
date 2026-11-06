@@ -182,7 +182,7 @@ export const ui: UiTranslations = {
     '削除されたページは30日間ここに残ります。必要なものは復元し、不要なものは完全削除してください。指示があるまで何も外に出ません。',
   'versionHistory.attribution': '{{when}}に保存しました',
   'versionHistory.backLink': 'ページに戻る',
-  'versionHistory.diffHeading': '差分 · v{{v}}',
+  'versionHistory.diffHeading': '差分 · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'バージョンはまだありません。',
   'versionHistory.heading': 'バージョン履歴',
   'versionHistory.older': '古い',

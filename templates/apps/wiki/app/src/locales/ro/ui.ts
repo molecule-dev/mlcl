@@ -183,7 +183,7 @@ export const ui: UiTranslations = {
     'Paginile șterse rămân aici timp de 30 de zile. Restaurați-le pe cele de care încă aveți nevoie, ștergeți-le pe cele de care nu aveți nevoie - nimic nu va fi salvat până când nu spuneți dumneavoastră.',
   'versionHistory.attribution': 'Salvat {{when}}',
   'versionHistory.backLink': 'Înapoi la pagină',
-  'versionHistory.diffHeading': 'Diferența · v{{v}}',
+  'versionHistory.diffHeading': 'Diferența · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Nicio versiune încă.',
   'versionHistory.heading': 'Istoric versiuni',
   'versionHistory.older': 'Mai în vârstă',

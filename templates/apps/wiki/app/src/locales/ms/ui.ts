@@ -188,7 +188,7 @@ export const ui: UiTranslations = {
     'Halaman yang dipadam akan kekal di sini selama 30 hari. Pulihkan yang masih diperlukan, singkirkan yang tidak diperlukan — tiada apa yang akan tinggal sehingga anda bersumpah.',
   'versionHistory.attribution': 'Disimpan {{when}}',
   'versionHistory.backLink': 'Kembali ke halaman',
-  'versionHistory.diffHeading': 'Perbezaan · v{{v}}',
+  'versionHistory.diffHeading': 'Perbezaan · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Belum ada versi.',
   'versionHistory.heading': 'Sejarah versi',
   'versionHistory.older': 'Lebih tua',

@@ -183,7 +183,7 @@ export const ui: UiTranslations = {
     'Kurasa zilizofutwa huishi hapa kwa siku 30. Rejesha zile unazohitaji bado, safisha zile ambazo huzihitaji — hakuna kinachoondoka hadi utakaposema hivyo.',
   'versionHistory.attribution': 'Imehifadhiwa {{when}}',
   'versionHistory.backLink': 'Rudi kwenye ukurasa',
-  'versionHistory.diffHeading': 'Tofauti · v{{v}}',
+  'versionHistory.diffHeading': 'Tofauti · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Hakuna matoleo bado.',
   'versionHistory.heading': 'Historia ya toleo',
   'versionHistory.older': 'Mzee zaidi',

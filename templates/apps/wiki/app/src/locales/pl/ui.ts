@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'Usunięte strony żyją tutaj 30 dni. Proszę przywrócić te, których wciąż Pan/Pani potrzebuje, i usunąć na stałe te, których nie — nic nie zniknie, dopóki nie wyda Pan/Pani polecenia.',
   'versionHistory.attribution': 'Zapisano {{when}}',
   'versionHistory.backLink': 'Powrót do strony',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Brak wersji.',
   'versionHistory.heading': 'Historia wersji',
   'versionHistory.older': 'Starsze',

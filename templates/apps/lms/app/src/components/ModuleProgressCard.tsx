@@ -44,6 +44,7 @@ function ModuleProgressCard({
           {t(
             'moduleProgressCard.heading',
             {
+              order: module?.order ?? 3,
               title:
                 module?.title ??
                 t(

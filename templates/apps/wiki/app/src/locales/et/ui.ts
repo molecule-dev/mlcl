@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     'Kustutatud lehed on siin 30 päeva. Taasta need, mida sa ikka veel vajad, kustuta need, mida sa enam ei vaja – midagi ei kao enne, kui sa seda ütled.',
   'versionHistory.attribution': 'Salvestatud {{when}}',
   'versionHistory.backLink': 'Tagasi lehele',
-  'versionHistory.diffHeading': 'Erinevus · v{{v}}',
+  'versionHistory.diffHeading': 'Erinevus · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Versioone veel pole.',
   'versionHistory.heading': 'Versioonide ajalugu',
   'versionHistory.older': 'Vanem',

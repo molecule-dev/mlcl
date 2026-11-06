@@ -233,7 +233,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': '目標',
   'reviewDetail.confirmDelete': '刪除此審稿草稿？',
   'reviewDetail.delete': '刪除草稿',
-  'reviewDetail.eyebrow': '{{地位}} · {{日期}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': '正在加載評論…',
   'reviewDetail.missingId': '缺少評論 ID',
   'reviewDetail.noObjectives': '沒有目前目標－請在儀錶板上建立一些目標。',

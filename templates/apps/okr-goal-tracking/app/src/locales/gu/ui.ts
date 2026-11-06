@@ -246,7 +246,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'ઉદ્દેશ્ય',
   'reviewDetail.confirmDelete': 'આ સમીક્ષા ડ્રાફ્ટ કાઢી નાખીએ?',
   'reviewDetail.delete': 'ડ્રાફ્ટ કાઢી નાખો',
-  'reviewDetail.eyebrow': '{{સ્થિતિ}} · {{તારીખ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'સમીક્ષા લોડ કરી રહ્યું છે...',
   'reviewDetail.missingId': 'રિવ્યૂ ID ખૂટે છે',
   'reviewDetail.noObjectives': 'કોઈ સક્રિય ઉદ્દેશ્યો નથી — ડેશબોર્ડ પર કેટલાક બનાવો.',

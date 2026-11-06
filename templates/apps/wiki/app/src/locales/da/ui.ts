@@ -180,7 +180,7 @@ export const ui: UiTranslations = {
     'Slettede sider ligger her i 30 dage. Gendan dem, du stadig har brug for, og slet dem, du ikke har brug for – intet forlader siden, før du siger til.',
   'versionHistory.attribution': 'Gemt {{when}}',
   'versionHistory.backLink': 'Tilbage til siden',
-  'versionHistory.diffHeading': 'Forskel · v{{v}}',
+  'versionHistory.diffHeading': 'Forskel · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Ingen versioner endnu.',
   'versionHistory.heading': 'Versionshistorik',
   'versionHistory.older': 'Ældre',

@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     'ទំព័រដែលបានលុបនឹងរស់នៅទីនេះរយៈពេល 30 ថ្ងៃ។ ស្ដារទំព័រដែលអ្នកនៅតែត្រូវការ លុបទំព័រដែលអ្នកមិនត្រូវការ — គ្មានអ្វីនៅសល់រហូតដល់អ្នកនិយាយដូច្នេះទេ។',
   'versionHistory.attribution': 'បានរក្សាទុក {{when}}',
   'versionHistory.backLink': 'ត្រឡប់ទៅទំព័រវិញ',
-  'versionHistory.diffHeading': 'ភាពខុសគ្នា · v{{v}}',
+  'versionHistory.diffHeading': 'ភាពខុសគ្នា · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'មិនទាន់មានកំណែទេ។',
   'versionHistory.heading': 'ប្រវត្តិកំណែ',
   'versionHistory.older': 'ចាស់ជាង',

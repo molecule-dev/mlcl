@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     "Il-paġni mħassra jibqgħu hawn għal 30 jum. Irrestawra dawk li għad għandek bżonn, neħħi dawk li m'għandekx bżonn — xejn ma jitlaq sakemm ma tgħidx int.",
   'versionHistory.attribution': 'Salvat {{when}}',
   'versionHistory.backLink': 'Lura għall-paġna',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': "Għadha m'hemmx verżjonijiet.",
   'versionHistory.heading': 'Storja tal-verżjoni',
   'versionHistory.older': 'Aktar anzjani',

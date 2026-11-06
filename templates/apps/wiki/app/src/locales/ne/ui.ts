@@ -181,7 +181,7 @@ export const ui: UiTranslations = {
     'मेटाइएका पृष्ठहरू यहाँ ३० दिनसम्म रहन्छन्। तपाईंलाई अझै आवश्यक पर्ने पृष्ठहरू पुनर्स्थापित गर्नुहोस्, आवश्यक नभएका पृष्ठहरू हटाउनुहोस् — तपाईंले नभनेसम्म केही पनि बाँकी रहँदैन।',
   'versionHistory.attribution': 'सुरक्षित गरियो {{when}}',
   'versionHistory.backLink': 'पृष्ठमा फर्कनुहोस्',
-  'versionHistory.diffHeading': 'भिन्नता · v{{v}}',
+  'versionHistory.diffHeading': 'भिन्नता · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'अझै कुनै संस्करण छैन।',
   'versionHistory.heading': 'संस्करण इतिहास',
   'versionHistory.older': 'पुरानो',

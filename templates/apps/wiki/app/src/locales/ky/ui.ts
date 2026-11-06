@@ -188,7 +188,7 @@ export const ui: UiTranslations = {
     'Өчүрүлгөн барактар бул жерде 30 күн сакталат. Керектүүлөрүн калыбына келтириңиз, жокторун өчүрүңүз — сиз айтмайынча эч нерсе калбайт.',
   'versionHistory.attribution': 'Сакталган {{when}}',
   'versionHistory.backLink': 'Баракка кайтуу',
-  'versionHistory.diffHeading': 'Айырма · v{{v}}',
+  'versionHistory.diffHeading': 'Айырма · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Азырынча версиялар жок.',
   'versionHistory.heading': 'Версия тарыхы',
   'versionHistory.older': 'Эски',

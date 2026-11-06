@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Mål',
   'reviewDetail.confirmDelete': 'Slet dette udkast til anmeldelsen?',
   'reviewDetail.delete': 'Slet kladde',
-  'reviewDetail.eyebrow': '{{status}} · {{dato}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Indlæser anmeldelse…',
   'reviewDetail.missingId': 'Manglende anmeldelses-ID',
   'reviewDetail.noObjectives': 'Ingen aktive målsætninger — opret nogle på dashboardet.',

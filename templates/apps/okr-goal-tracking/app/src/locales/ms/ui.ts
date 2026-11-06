@@ -248,7 +248,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Objektif',
   'reviewDetail.confirmDelete': 'Padamkan draf ulasan ini?',
   'reviewDetail.delete': 'Padam draf',
-  'reviewDetail.eyebrow': '{{status}} · {{tarikh}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Memuatkan ulasan…',
   'reviewDetail.missingId': 'ID ulasan tiada',
   'reviewDetail.noObjectives': 'Tiada objektif aktif — cipta beberapa pada papan pemuka.',

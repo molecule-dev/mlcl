@@ -182,7 +182,7 @@ export const ui: UiTranslations = {
     'Páginas excluídas ficam aqui por 30 dias. Restaure as que ainda precisa, expurgue as que não precisa — nada sai até você dizer.',
   'versionHistory.attribution': 'Salvo {{when}}',
   'versionHistory.backLink': 'Voltar para a página',
-  'versionHistory.diffHeading': 'Diferença · v{{v}}',
+  'versionHistory.diffHeading': 'Diferença · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Ainda não há versões.',
   'versionHistory.heading': 'Histórico de versões',
   'versionHistory.older': 'Mais antigas',

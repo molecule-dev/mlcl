@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'Le pagine eliminate vivono qui per 30 giorni. Ripristini quelle che Le servono ancora, rimuova definitivamente quelle che non Le servono — nulla esce finché non lo dice Lei.',
   'versionHistory.attribution': 'Salvato {{when}}',
   'versionHistory.backLink': 'Torna alla pagina',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Ancora nessuna versione.',
   'versionHistory.heading': 'Cronologia versioni',
   'versionHistory.older': 'Più vecchie',

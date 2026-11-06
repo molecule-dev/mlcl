@@ -183,7 +183,7 @@ export const ui: UiTranslations = {
     'Geskrapte bladsye bly hier vir 30 dae. Herstel die wat jy nog nodig het, maak die wat jy nie nodig het skoon nie – niks gaan weg totdat jy so sê nie.',
   'versionHistory.attribution': 'Gestoor {{when}}',
   'versionHistory.backLink': 'Terug na bladsy',
-  'versionHistory.diffHeading': 'Verskil · v{{v}}',
+  'versionHistory.diffHeading': 'Verskil · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Nog geen weergawes nie.',
   'versionHistory.heading': 'Weergawegeskiedenis',
   'versionHistory.older': 'Ouer',

@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 /**
- * Verify every scaffolded template's locale placeholders against its own English.
+ * Verify every scaffolded template's placeholders against the values passed to t().
  *
  * `templates/apps/<app>/app/src/locales/` is what `mlcl create` copies into a
  * user's project, so a mangled placeholder here ships to every app built from
@@ -16,6 +16,9 @@
  *    `t('key', { days }, { defaultValue: '{{days}} days ago' })` — so the
  *    COMPONENT SOURCE is what a translation must agree with. Checking against
  *    the empty `en/ui.ts` marks every placeholder wrong and finds nothing real.
+ *    A supplied value can be absent from English or repeated/omitted in another
+ *    language. Explicit English tokens also count: e.g. an API client can show
+ *    literal {{API_TOKEN}} syntax as help text, without interpolating it here.
  *
  * ## What goes wrong
  *
@@ -50,26 +53,44 @@ import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import ts from 'typescript'
+
 const ROOT = join(fileURLToPath(new URL('.', import.meta.url)), '..')
 const TEMPLATES = join(ROOT, 'templates')
 
 const LINE = /^(\s*)('(?:[^'\\]|\\.)*'|"(?:[^"\\]|\\.)*"|[A-Za-z_$][\w$]*)(\s*:\s*)(.*)$/
-const T_CALL =
-  /\bt\(\s*['"`]([^'"`]+)['"`][\s\S]{0,200}?defaultValue:\s*(['"`])((?:[^\\]|\\.)*?)\2/g
-
 /** Substituted at SCAFFOLD time, so a locale may legitimately lack them. */
 const BRANDING = new Set(['appName', 'app', 'brandName', 'tagline'])
 
 const placeholders = (text) => [...text.matchAll(/\{\{\s*([^}]*?)\s*\}\}/g)].map((m) => m[1])
 
 /**
- * The English authority for one app: every `t()` call's `defaultValue`.
+ * A translation can omit an English placeholder or repeat a supplied value.
+ * Its contract is the values passed to t(), not the English sentence's shape.
+ * Use TypeScript's existing parser rather than parsing nested JS with a regex.
  *
  * @param appSrc - The app's `src` directory.
- * @returns Translation key → its English default string.
+ * @returns Translation key → names supplied at every statically known call;
+ * null means a spread/variable value bag prevents static verification.
  */
-function englishDefaults(appSrc) {
+function translationValues(appSrc) {
   const found = new Map()
+  const nameOf = (node) =>
+    node && (ts.isIdentifier(node) || ts.isStringLiteral(node) || ts.isNumericLiteral(node))
+      ? node.text
+      : undefined
+  const namesIn = (node) => {
+    if (!node || node.kind === ts.SyntaxKind.NullKeyword || nameOf(node) === 'undefined')
+      return new Set()
+    if (!ts.isObjectLiteralExpression(node)) return null
+    const names = new Set()
+    for (const property of node.properties) {
+      const name = nameOf(property.name)
+      if (name === undefined || ts.isSpreadAssignment(property)) return null
+      names.add(name)
+    }
+    return names
+  }
   const visit = (dir) => {
     let entries
     try {
@@ -92,21 +113,49 @@ function englishDefaults(appSrc) {
         continue
       }
       if (!/\.(tsx?|jsx?)$/.test(entry)) continue
-      for (const match of readFileSync(path, 'utf8').matchAll(T_CALL)) {
-        // A NESTED `t()` — one call supplying an interpolation value to another
-        // — lets this regex run past the outer call's own options and capture
-        // the INNER call's defaultValue instead:
-        //
-        //   t('x.merchantName', { name: t('x.demo', {}, { defaultValue: 'Salary Deposit' }) },
-        //     { defaultValue: '{{name}}' })
-        //
-        // read as `x.merchantName === 'Salary Deposit'`, so a translation
-        // correctly holding '{{name}}' was reported as having a placeholder
-        // English lacks — 78 false failures across one key. Skip the ambiguous
-        // match; a later unambiguous call site for the same key still counts.
-        if (/\bt\(/.test(match[0].slice(2))) continue
-        if (!found.has(match[1])) found.set(match[1], match[3])
+      const source = ts.createSourceFile(
+        path,
+        readFileSync(path, 'utf8'),
+        ts.ScriptTarget.Latest,
+        true,
+      )
+      const calls = (node) => {
+        if (
+          ts.isCallExpression(node) &&
+          ts.isIdentifier(node.expression) &&
+          node.expression.text === 't'
+        ) {
+          const [key, values, options] = node.arguments
+          if (
+            key &&
+            (ts.isStringLiteral(key) || ts.isNoSubstitutionTemplateLiteral(key)) &&
+            options &&
+            ts.isObjectLiteralExpression(options) &&
+            options.properties.some((p) => nameOf(p.name) === 'defaultValue')
+          ) {
+            const names = namesIn(values)
+            const fallback = options.properties.find((p) => nameOf(p.name) === 'defaultValue')
+            if (
+              names !== null &&
+              ts.isPropertyAssignment(fallback) &&
+              (ts.isStringLiteral(fallback.initializer) ||
+                ts.isNoSubstitutionTemplateLiteral(fallback.initializer))
+            )
+              for (const name of placeholders(fallback.initializer.text)) names.add(name)
+            const prior = found.get(key.text)
+            if (!found.has(key.text)) found.set(key.text, names)
+            else
+              found.set(
+                key.text,
+                prior === null || names === null
+                  ? null
+                  : new Set([...prior].filter((n) => names.has(n))),
+              )
+          }
+        }
+        ts.forEachChild(node, calls)
       }
+      calls(source)
     }
   }
   visit(appSrc)
@@ -152,7 +201,7 @@ let filesScanned = 0
  * @param appSrc - Absolute path of the app's `src`.
  */
 function checkTree(localesDir, appSrc) {
-  const english = englishDefaults(appSrc)
+  const bindings = translationValues(appSrc)
   let codes
   try {
     codes = readdirSync(localesDir)
@@ -188,23 +237,14 @@ function checkTree(localesDir, appSrc) {
       }
 
       for (const [key, value] of valuesByKey(source)) {
-        const englishValue = english.get(key)
-        if (englishValue === undefined) continue
-        const want = placeholders(englishValue).filter((name) => !BRANDING.has(name))
-        // Filtered on BOTH sides. Excluding branding from English only made a
-        // translation that correctly KEEPS `{{app}}` look like it had a spare
-        // placeholder — `has [app] but English has []` — for a value byte-identical
-        // to English. See the BRANDING note above for what that cost.
+        const supplied = bindings.get(key)
+        if (supplied === undefined || supplied === null) continue
+        // Branding is substituted by the scaffold, independently of t() values.
         const have = placeholders(value).filter((name) => !BRANDING.has(name))
-        if (want.length !== have.length) {
+        const unbound = [...new Set(have.filter((name) => !supplied.has(name)))]
+        if (unbound.length) {
           problems.push(
-            `${where}: '${key}' has [${have.join(', ')}] but English has [${want.join(', ')}]`,
-          )
-        } else if ([...want].sort().some((w, i) => w !== [...have].sort()[i])) {
-          // Compared by NAME, not position: `t()` substitutes by name, and many
-          // languages put the count before the total (`{{of}}개 중 {{rating}}개`).
-          problems.push(
-            `${where}: '${key}' renames [${have.join(', ')}] → must be [${want.join(', ')}]`,
+            `${where}: '${key}' has unbound [${unbound.join(', ')}]; call allows [${[...supplied].join(', ')}]`,
           )
         }
       }
@@ -257,8 +297,8 @@ if (problems.length === 0) {
   if (problems.length > shown.length)
     console.error(`  … and ${problems.length - shown.length} more (--all lists them)`)
   console.error(
-    `\nA placeholder name is a VARIABLE, not prose: it must match the English\n` +
-      `defaultValue byte for byte, or the scaffolded app renders the raw token.\n` +
+    `\nA placeholder name is a VARIABLE, not prose: it must match a value supplied\n` +
+      `to t(), or the scaffolded app renders the raw token.\n` +
       `Fix the NAME in the translation — keep the translated words. Never replace\n` +
       `the value with English to make this pass: that was done once across the\n` +
       `locale bonds, it destroyed 277 real translations, and it was reverted.\n`,

@@ -188,7 +188,7 @@ export const ui: UiTranslations = {
     'Удаленные страницы хранятся здесь 30 дней. Восстановите те, которые вам еще нужны, удалите те, которые вам не нужны — ничего не будет удалено, пока вы этого не разрешите.',
   'versionHistory.attribution': 'Сохранено {{when}}',
   'versionHistory.backLink': 'Вернуться на страницу',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Пока нет версий.',
   'versionHistory.heading': 'История версий',
   'versionHistory.older': 'Старше',

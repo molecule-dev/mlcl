@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     'Обрисане странице остају овде 30 дана. Вратите оне које вам још увек требају, обришите оне које вам више нису потребне — ништа не одлази док ви то не кажете.',
   'versionHistory.attribution': 'Сачувано {{when}}',
   'versionHistory.backLink': 'Назад на страницу',
-  'versionHistory.diffHeading': 'Разлика · v{{v}}',
+  'versionHistory.diffHeading': 'Разлика · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Još nema verzija.',
   'versionHistory.heading': 'Историја верзија',
   'versionHistory.older': 'Старији',

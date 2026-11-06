@@ -189,7 +189,7 @@ export const ui: UiTranslations = {
     'ဖျက်လိုက်တဲ့ စာမျက်နှာတွေက ဒီမှာ ၃၀ ရက်ကြာ ရှိနေပါတယ်။ လိုအပ်သေးတဲ့ စာမျက်နှာတွေကို ပြန်ယူပါ၊ မလိုတော့တဲ့ စာမျက်နှာတွေကို ရှင်းထုတ်ပါ - သင်ပြောတဲ့အထိ ဘာမှ မကျန်တော့ပါဘူး။',
   'versionHistory.attribution': 'သိမ်းဆည်းပြီးပါပြီ {{when}}',
   'versionHistory.backLink': 'စာမျက်နှာသို့ ပြန်သွားရန်',
-  'versionHistory.diffHeading': 'ကွဲပြားမှု · v{{v}}',
+  'versionHistory.diffHeading': 'ကွဲပြားမှု · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'version များ မရှိသေးပါ။',
   'versionHistory.heading': 'ဗားရှင်းမှတ်တမ်း',
   'versionHistory.older': 'အသက်ကြီးသော',

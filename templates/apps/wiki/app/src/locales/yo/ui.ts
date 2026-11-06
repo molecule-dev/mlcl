@@ -183,7 +183,7 @@ export const ui: UiTranslations = {
     'Àwọn ojú ìwé tí a ti parẹ́ wà níbí fún ọgbọ̀n ọjọ́. Dá àwọn tí o ṣì nílò padà, mú àwọn tí o kò nílò kúrò — kò sí ohun tí ó kù títí tí o fi sọ bẹ́ẹ̀.',
   'versionHistory.attribution': 'Ti fipamọ {{when}}',
   'versionHistory.backLink': 'Pada si oju-iwe',
-  'versionHistory.diffHeading': 'Ìyàtọ̀ · v{{v}}',
+  'versionHistory.diffHeading': 'Ìyàtọ̀ · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Kò sí ẹ̀yà síbẹ̀.',
   'versionHistory.heading': 'Ìtàn ẹ̀yà náà',
   'versionHistory.older': 'Àtijọ́',

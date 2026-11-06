@@ -188,7 +188,7 @@ export const ui: UiTranslations = {
     'Amakhasi asusiwe ahlala lapha izinsuku ezingu-30. Buyisela lawo osawadingayo, hlanza lawo ongawadingi — akukho okusalayo uze usho kanjalo.',
   'versionHistory.attribution': 'Kulondoloziwe {{when}}',
   'versionHistory.backLink': 'Buyela ekhasini',
-  'versionHistory.diffHeading': 'Umehluko · v{{v}}',
+  'versionHistory.diffHeading': 'Umehluko · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Azikho izinguqulo okwamanje.',
   'versionHistory.heading': 'Umlando wenguqulo',
   'versionHistory.older': 'Okudala',

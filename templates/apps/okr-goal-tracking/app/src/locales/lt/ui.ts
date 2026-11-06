@@ -248,7 +248,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Tikslas',
   'reviewDetail.confirmDelete': 'Ištrinti šį atsiliepimo juodraštį?',
   'reviewDetail.delete': 'Ištrinti juodraštį',
-  'reviewDetail.eyebrow': '{{statusas}} · {{data}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Kraunama apžvalga…',
   'reviewDetail.missingId': 'Trūksta apžvalgos ID',
   'reviewDetail.noObjectives': 'Nėra aktyvių tikslų – sukurkite juos prietaisų skydelyje.',

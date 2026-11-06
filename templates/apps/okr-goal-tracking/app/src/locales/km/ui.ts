@@ -247,7 +247,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'គោលបំណង',
   'reviewDetail.confirmDelete': 'លុបសេចក្តីព្រាងនៃការវាយតម្លៃនេះ?',
   'reviewDetail.delete': 'លុបសេចក្តីព្រាង',
-  'reviewDetail.eyebrow': '{{ស្ថានភាព}} · {{កាលបរិច្ឆេទ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'កំពុងផ្ទុកការវាយតម្លៃ…',
   'reviewDetail.missingId': 'បាត់លេខសម្គាល់ការវាយតម្លៃ',
   'reviewDetail.noObjectives': 'គ្មានគោលបំណងសកម្មទេ — បង្កើតគោលបំណងមួយចំនួននៅលើផ្ទាំងគ្រប់គ្រង។',

@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Cilj',
   'reviewDetail.confirmDelete': 'Želite izbrisati ta osnutek pregleda?',
   'reviewDetail.delete': 'Izbriši osnutek',
-  'reviewDetail.eyebrow': '{{status}} · {{datum}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Nalaganje ocene …',
   'reviewDetail.missingId': 'Manjka ID ocene',
   'reviewDetail.noObjectives': 'Ni aktivnih ciljev – ustvarite jih na nadzorni plošči.',

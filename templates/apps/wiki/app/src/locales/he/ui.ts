@@ -177,7 +177,7 @@ export const ui: UiTranslations = {
     'דפים שנמחקו נשארים כאן למשך 30 יום. שחזרו את אלה שעדיין נחוצים לכם, מחקו את אלה שאין לכם - שום דבר לא ייעלם עד שתבקשו זאת.',
   'versionHistory.attribution': 'נשמר {{when}}',
   'versionHistory.backLink': 'חזרה לדף',
-  'versionHistory.diffHeading': 'הפרש · v{{v}}',
+  'versionHistory.diffHeading': 'הפרש · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'אין עדיין גרסאות.',
   'versionHistory.heading': 'היסטוריית גרסאות',
   'versionHistory.older': 'מבוגר יותר',

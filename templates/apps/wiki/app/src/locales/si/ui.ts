@@ -181,7 +181,7 @@ export const ui: UiTranslations = {
     'මකා දැමූ පිටු දින 30ක් මෙහි සජීවීව පවතී. ඔබට තවමත් අවශ්‍ය ඒවා ප්‍රතිසාධනය කරන්න, ඔබට අවශ්‍ය නැති ඒවා ඉවත් කරන්න — ඔබ එසේ පවසන තුරු කිසිවක් ඉතිරි නොවේ.',
   'versionHistory.attribution': 'සුරකින ලදී {{when}}',
   'versionHistory.backLink': 'පිටුවට ආපසු',
-  'versionHistory.diffHeading': 'වෙනස · v{{v}}',
+  'versionHistory.diffHeading': 'වෙනස · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'තවම අනුවාද නැත.',
   'versionHistory.heading': 'අනුවාද ඉතිහාසය',
   'versionHistory.older': 'පැරණි',

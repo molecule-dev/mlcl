@@ -246,7 +246,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Ціль',
   'reviewDetail.confirmDelete': 'Видалити цей чернетку огляду?',
   'reviewDetail.delete': 'Видалити чернетку',
-  'reviewDetail.eyebrow': '{{статус}} · {{дата}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Завантаження відгуку…',
   'reviewDetail.missingId': 'Відсутній ідентифікатор відгуку',
   'reviewDetail.noObjectives': 'Немає активних цілей — створіть їх на інформаційній панелі.',

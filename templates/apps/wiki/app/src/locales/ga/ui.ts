@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'Maireann leathanaigh scriosta anseo ar feadh 30 lá. Athchóirigh na cinn atá uait fós, glan amach na cinn nach bhfuil uait — ní fhágann aon rud go dtí go ndeir tú amhlaidh.',
   'versionHistory.attribution': 'Sábháilte {{when}}',
   'versionHistory.backLink': 'Ar ais go dtí an leathanach',
-  'versionHistory.diffHeading': 'Difríocht · v{{v}}',
+  'versionHistory.diffHeading': 'Difríocht · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Níl aon leagan ann fós.',
   'versionHistory.heading': 'Stair leaganacha',
   'versionHistory.older': 'Níos sine',

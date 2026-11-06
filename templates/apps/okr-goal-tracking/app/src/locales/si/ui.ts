@@ -246,7 +246,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'අරමුණ',
   'reviewDetail.confirmDelete': 'මෙම සමාලෝචන කෙටුම්පත මකන්නද?',
   'reviewDetail.delete': 'කෙටුම්පත මකන්න',
-  'reviewDetail.eyebrow': '{{තත්වය}} · {{දිනය}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'සමාලෝචනය පූරණය වෙමින්…',
   'reviewDetail.missingId': 'සමාලෝචන හැඳුනුම්පත අස්ථානගත වී ඇත',
   'reviewDetail.noObjectives': 'ක්‍රියාකාරී අරමුණු නැත - උපකරණ පුවරුවේ සමහරක් සාදන්න.',

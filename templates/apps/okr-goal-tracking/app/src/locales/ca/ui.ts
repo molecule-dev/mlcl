@@ -251,7 +251,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Objectiu',
   'reviewDetail.confirmDelete': 'Voleu suprimir aquest esborrany de revisió?',
   'reviewDetail.delete': "Suprimeix l'esborrany",
-  'reviewDetail.eyebrow': '{{estat}} · {{data}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': "S'està carregant la ressenya…",
   'reviewDetail.missingId': "Falta l'ID de la ressenya",
   'reviewDetail.noObjectives': 'No hi ha objectius actius: creeu-ne alguns al tauler de control.',

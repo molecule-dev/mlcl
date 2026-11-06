@@ -246,7 +246,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Мақсат',
   'reviewDetail.confirmDelete': 'Бұл шолу жобасын жою керек пе?',
   'reviewDetail.delete': 'Жобаны жою',
-  'reviewDetail.eyebrow': '{{күй}} · {{date}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Пікір жүктелуде…',
   'reviewDetail.missingId': 'Пікір идентификаторы жоқ',
   'reviewDetail.noObjectives': 'Белсенді мақсаттар жоқ — басқару тақтасында кейбірін жасаңыз.',

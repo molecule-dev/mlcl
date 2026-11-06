@@ -250,7 +250,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Cél',
   'reviewDetail.confirmDelete': 'Törli ezt az értékelésvázlatot?',
   'reviewDetail.delete': 'Vázlat törlése',
-  'reviewDetail.eyebrow': '{{állapot}} · {{dátum}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Értékelés betöltése…',
   'reviewDetail.missingId': 'Hiányzó értékelésazonosító',
   'reviewDetail.noObjectives': 'Nincsenek aktív célok – hozz létre néhányat az irányítópulton.',

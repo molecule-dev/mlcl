@@ -244,7 +244,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Doelwit',
   'reviewDetail.confirmDelete': 'Vee hierdie resensiekonsep uit?',
   'reviewDetail.delete': 'Vee konsep uit',
-  'reviewDetail.eyebrow': '{{status}} · {{datum}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Laai resensie…',
   'reviewDetail.missingId': 'Ontbrekende resensie-ID',
   'reviewDetail.noObjectives': "Geen aktiewe doelwitte nie – skep 'n paar op die dashboard.",

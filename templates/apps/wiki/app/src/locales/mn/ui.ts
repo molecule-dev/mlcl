@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     'Устгасан хуудсууд энд 30 хоног хадгалагдана. Хэрэгтэй хэвээрээ байгаа хуудсуудаа сэргээж, хэрэггүй байгаа хуудсуудаа арилга — та хэлэх хүртэл юу ч үлдэхгүй.',
   'versionHistory.attribution': 'Хадгалсан {{when}}',
   'versionHistory.backLink': 'Хуудас руу буцах',
-  'versionHistory.diffHeading': 'Дифференциал · v{{v}}',
+  'versionHistory.diffHeading': 'Дифференциал · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Одоогоор хувилбар байхгүй.',
   'versionHistory.heading': 'Хувилбарын түүх',
   'versionHistory.older': 'Хуучин',

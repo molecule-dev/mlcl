@@ -178,7 +178,7 @@ export const ui: UiTranslations = {
     'تبقى الصفحات المحذوفة هنا لمدة 30 يومًا. استعد ما تحتاجه، واحذف نهائيًا ما لا تحتاجه — لا شيء يغادر حتى تقول ذلك.',
   'versionHistory.attribution': 'حُفظ {{when}}',
   'versionHistory.backLink': 'العودة إلى الصفحة',
-  'versionHistory.diffHeading': 'الفرق · v{{v}}',
+  'versionHistory.diffHeading': 'الفرق · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'لا توجد نسخ بعد.',
   'versionHistory.heading': 'سجل الإصدارات',
   'versionHistory.older': 'أقدم',

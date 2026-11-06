@@ -181,7 +181,7 @@ export const ui: UiTranslations = {
     'Borttagna sidor lever här i 30 dagar. Återställ de du fortfarande behöver, radera permanent de du inte behöver — inget försvinner förrän du säger till.',
   'versionHistory.attribution': 'Sparad {{when}}',
   'versionHistory.backLink': 'Tillbaka till sidan',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Inga versioner ännu.',
   'versionHistory.heading': 'Versionshistorik',
   'versionHistory.older': 'Äldre',

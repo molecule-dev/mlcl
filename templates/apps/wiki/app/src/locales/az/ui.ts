@@ -185,7 +185,7 @@ export const ui: UiTranslations = {
     'Silinmiş səhifələr burada 30 gün qalır. Hələ də ehtiyac duyduğunuzları bərpa edin, olmayanlarınızı təmizləyin — siz deməyincə heç nə qalmır.',
   'versionHistory.attribution': 'Yadda saxlanıldı {{when}}',
   'versionHistory.backLink': 'Səhifəyə qayıt',
-  'versionHistory.diffHeading': 'Fərq · v{{v}}',
+  'versionHistory.diffHeading': 'Fərq · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Hələ versiya yoxdur.',
   'versionHistory.heading': 'Versiya tarixçəsi',
   'versionHistory.older': 'Daha Köhnə',

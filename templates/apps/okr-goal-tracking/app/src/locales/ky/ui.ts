@@ -248,7 +248,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Максат',
   'reviewDetail.confirmDelete': 'Бул сын-пикирдин долбоорун жок кылынсынбы?',
   'reviewDetail.delete': 'Долбоорду жок кылуу',
-  'reviewDetail.eyebrow': '{{статус}} · {{дат}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Сын-пикир жүктөлүүдө…',
   'reviewDetail.missingId': 'Сын-пикирдин идентификатору жок',
   'reviewDetail.noObjectives': 'Активдүү максаттар жок — башкаруу панелинде бир нечесин түзүңүз.',

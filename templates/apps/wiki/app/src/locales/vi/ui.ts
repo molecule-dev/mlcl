@@ -183,7 +183,7 @@ export const ui: UiTranslations = {
     'Các trang bị xoá sống ở đây trong 30 ngày. Khôi phục những trang quý vị vẫn cần, xoá vĩnh viễn những trang không cần — không có gì rời đi cho đến khi quý vị quyết định.',
   'versionHistory.attribution': 'Đã lưu {{when}}',
   'versionHistory.backLink': 'Quay lại trang',
-  'versionHistory.diffHeading': 'Khác biệt · v{{v}}',
+  'versionHistory.diffHeading': 'Khác biệt · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Chưa có phiên bản nào.',
   'versionHistory.heading': 'Lịch sử phiên bản',
   'versionHistory.older': 'Cũ hơn',

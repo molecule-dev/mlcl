@@ -244,7 +244,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'วัตถุประสงค์',
   'reviewDetail.confirmDelete': 'ลบฉบับร่างรีวิวนี้?',
   'reviewDetail.delete': 'ลบฉบับร่าง',
-  'reviewDetail.eyebrow': '{{สถานะ}} · {{วันที่}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'กำลังโหลดรีวิว…',
   'reviewDetail.missingId': 'รหัสรีวิวหายไป',
   'reviewDetail.noObjectives': 'ไม่มีเป้าหมายที่ใช้งานอยู่ — สร้างเป้าหมายใหม่บนแดชบอร์ด',

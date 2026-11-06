@@ -190,7 +190,7 @@ export const ui: UiTranslations = {
     'Видалені сторінки зберігаються тут 30 днів. Відновіть ті, що вам ще потрібні, видаліть ті, що вам не потрібні — нічого не зникне, поки ви не скажете.',
   'versionHistory.attribution': 'Збережено {{when}}',
   'versionHistory.backLink': 'Назад до сторінки',
-  'versionHistory.diffHeading': 'Різниця · v{{v}}',
+  'versionHistory.diffHeading': 'Різниця · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Ще немає версій.',
   'versionHistory.heading': 'Історія версій',
   'versionHistory.older': 'Старші',

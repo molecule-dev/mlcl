@@ -243,7 +243,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Ebumnuche',
   'reviewDetail.confirmDelete': 'Hichapụ edemede nyocha a?',
   'reviewDetail.delete': 'Hichapụ edemede',
-  'reviewDetail.eyebrow': '{{ọkwa}} · {{ụbọchị}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Na-ebugo nyocha…',
   'reviewDetail.missingId': 'NJ nyocha na-efu',
   'reviewDetail.noObjectives': 'Enweghị ebumnuche na-arụ ọrụ — mepụta ụfọdụ na dashboard.',

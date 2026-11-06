@@ -242,7 +242,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Èròngbà',
   'reviewDetail.confirmDelete': 'Pa àkọsílẹ̀ àtúnyẹ̀wò yìí rẹ́?',
   'reviewDetail.delete': 'Pa àkọsílẹ̀ rẹ rẹ́',
-  'reviewDetail.eyebrow': '{{ipo}} · {{ọjọ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'N n gbe atunyẹwo soke…',
   'reviewDetail.missingId': 'ID atunyẹwo ti o nsọnu',
   'reviewDetail.noObjectives': 'Kò sí àfojúsùn tó ń ṣiṣẹ́ — ṣẹ̀dá díẹ̀ lórí dasibodu.',

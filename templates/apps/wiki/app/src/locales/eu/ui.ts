@@ -185,7 +185,7 @@ export const ui: UiTranslations = {
     'Ezabatutako orrialdeak 30 egunez egongo dira hemen. Behar dituzunak leheneratu, ezabatzen ez dituzunak ezabatu — ezer ez da geratzen zuk esan arte.',
   'versionHistory.attribution': 'Gordeta {{when}}',
   'versionHistory.backLink': 'Orrialdera itzuli',
-  'versionHistory.diffHeading': 'Aldea · v{{v}}',
+  'versionHistory.diffHeading': 'Aldea · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Oraindik ez dago bertsiorik.',
   'versionHistory.heading': 'Bertsioen historia',
   'versionHistory.older': 'Zaharragoa',

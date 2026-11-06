@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     'Halaman yang dihapus hidup di sini selama 30 hari. Pulihkan yang masih Anda butuhkan, hapus permanen yang tidak — tidak ada yang pergi sampai Anda memerintahkannya.',
   'versionHistory.attribution': 'Disimpan {{when}}',
   'versionHistory.backLink': 'Kembali ke halaman',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Belum ada versi.',
   'versionHistory.heading': 'Riwayat versi',
   'versionHistory.older': 'Lebih lama',

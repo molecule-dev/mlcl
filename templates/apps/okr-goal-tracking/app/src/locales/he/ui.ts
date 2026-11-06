@@ -233,7 +233,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'יעד',
   'reviewDetail.confirmDelete': 'למחוק את טיוטת הסקירה הזו?',
   'reviewDetail.delete': 'מחיקת טיוטה',
-  'reviewDetail.eyebrow': '{{סטָטוּס}} · {{תַאֲרִיך}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'טוען ביקורת…',
   'reviewDetail.missingId': 'מזהה ביקורת חסר',
   'reviewDetail.noObjectives': 'אין יעדים פעילים - צור כמה בלוח המחוונים.',

@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'Избришаните страници остануваат тука 30 дена. Вратете ги оние што сè уште ви се потребни, избришете ги оние што не ви се потребни — ништо не исчезнува додека вие не кажете така.',
   'versionHistory.attribution': 'Зачувано {{when}}',
   'versionHistory.backLink': 'Назад кон страницата',
-  'versionHistory.diffHeading': 'Разлика · v{{v}}',
+  'versionHistory.diffHeading': 'Разлика · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Сè уште нема верзии.',
   'versionHistory.heading': 'Историја на верзии',
   'versionHistory.older': 'Постари',

@@ -175,7 +175,7 @@ export const ui: UiTranslations = {
     'የተሰረዙ ገጾች እዚህ ለ30 ቀናት ይኖራሉ። አሁንም የሚያስፈልጉዎትን ወደነበሩበት ይመልሱ፣ የማይፈልጓቸውን ያጽዱ -- እስክትሉ ድረስ ምንም አይቀሩም።',
   'versionHistory.attribution': 'ተቀምጧል {{when}}',
   'versionHistory.backLink': 'ወደ ገጽ ተመለስ',
-  'versionHistory.diffHeading': 'ልዩነት · v{{v}}',
+  'versionHistory.diffHeading': 'ልዩነት · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'እስካሁን ቅጂ የለም።',
   'versionHistory.heading': 'የስሪት ታሪክ',
   'versionHistory.older': 'የቆየ',

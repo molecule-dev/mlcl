@@ -180,7 +180,7 @@ export const ui: UiTranslations = {
     'Ibe ndị e hichapụrụ dị ebe a ruo ụbọchị iri atọ. Weghachite ndị ị ka chọrọ, hichapụ ndị ị na-anaghị achọ — ọ dịghị ihe ga-apụ ruo mgbe ị kwuru ya.',
   'versionHistory.attribution': 'Echekwara {{when}}',
   'versionHistory.backLink': 'Laghachi na ibe',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Enweghị ụdị.',
   'versionHistory.heading': 'Akụkọ ihe mere eme nke ụdị ahụ',
   'versionHistory.older': 'Okenye',

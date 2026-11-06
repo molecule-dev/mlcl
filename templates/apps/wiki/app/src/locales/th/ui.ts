@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     'หน้าเว็บที่ถูกลบจะยังคงอยู่ตรงนี้เป็นเวลา 30 วัน กู้คืนหน้าเว็บที่คุณยังต้องการ และลบหน้าเว็บที่คุณไม่ต้องการออกไป — ข้อมูลจะไม่หายไปจนกว่าคุณจะอนุญาต',
   'versionHistory.attribution': 'บันทึกแล้ว {{when}}',
   'versionHistory.backLink': 'กลับไปที่หน้า',
-  'versionHistory.diffHeading': 'ความแตกต่าง · เวอร์ชัน{{v}}',
+  'versionHistory.diffHeading': 'ความแตกต่าง · เวอร์ชัน{{from}} → {{to}}',
   'versionHistory.empty.title': 'ยังไม่มีเวอร์ชัน',
   'versionHistory.heading': 'ประวัติเวอร์ชัน',
   'versionHistory.older': 'ผู้สูงอายุ',

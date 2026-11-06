@@ -254,7 +254,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Цель',
   'reviewDetail.confirmDelete': 'Удалить этот черновик для рецензирования?',
   'reviewDetail.delete': 'Удалить черновик',
-  'reviewDetail.eyebrow': '{{status}} · {{дата}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Загрузка обзора…',
   'reviewDetail.missingId': 'Отсутствует идентификатор отзыва.',
   'reviewDetail.noObjectives': 'Активных целей нет — создайте их на панели управления.',

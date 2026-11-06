@@ -232,7 +232,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'ዓላማ',
   'reviewDetail.confirmDelete': 'ይህ የግምገማ ረቂቅ ይሰረዝ?',
   'reviewDetail.delete': 'ረቂቅ ሰርዝ',
-  'reviewDetail.eyebrow': '{{ሁኔታ}} · {{ቀን}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'ግምገማ በመጫን ላይ…',
   'reviewDetail.missingId': 'የግምገማ መታወቂያ ይጎድላል',
   'reviewDetail.noObjectives': 'ምንም ንቁ ግቦች የሉም - በዳሽቦርዱ ላይ የተወሰኑትን ይፍጠሩ።',

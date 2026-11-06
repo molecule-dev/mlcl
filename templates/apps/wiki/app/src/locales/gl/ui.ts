@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'As páxinas eliminadas permanecen aquí durante 30 días. Restaura as que aínda necesitas, elimina as que non: nada sae ata que ti o digas.',
   'versionHistory.attribution': 'Gardado {{when}}',
   'versionHistory.backLink': 'Volver á páxina',
-  'versionHistory.diffHeading': 'Diferenza · v{{v}}',
+  'versionHistory.diffHeading': 'Diferenza · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Aínda non hai versións.',
   'versionHistory.heading': 'Historial de versións',
   'versionHistory.older': 'Máis antigo',

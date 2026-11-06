@@ -185,7 +185,7 @@ export const ui: UiTranslations = {
     'Shafukan da aka goge suna nan har tsawon kwanaki 30. Mayar da waɗanda har yanzu kuke buƙata, share waɗanda ba ku buƙata ba — babu abin da zai rage har sai kun faɗi haka.',
   'versionHistory.attribution': 'An adana {{when}}',
   'versionHistory.backLink': 'Komawa shafi',
-  'versionHistory.diffHeading': 'Bambanci · v{{v}}',
+  'versionHistory.diffHeading': 'Bambanci · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Babu siga tukuna.',
   'versionHistory.heading': 'Tarihin sigar',
   'versionHistory.older': 'Tsofaffi',

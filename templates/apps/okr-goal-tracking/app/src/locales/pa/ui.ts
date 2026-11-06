@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'ਉਦੇਸ਼',
   'reviewDetail.confirmDelete': 'ਕੀ ਇਸ ਸਮੀਖਿਆ ਡਰਾਫਟ ਨੂੰ ਮਿਟਾਉਣਾ ਹੈ?',
   'reviewDetail.delete': 'ਡਰਾਫਟ ਮਿਟਾਓ',
-  'reviewDetail.eyebrow': '{{ਸਥਿਤੀ}} · {{ਮਿਤੀ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'ਸਮੀਖਿਆ ਲੋਡ ਕੀਤੀ ਜਾ ਰਹੀ ਹੈ...',
   'reviewDetail.missingId': 'ਸਮੀਖਿਆ ਆਈਡੀ ਗੁੰਮ ਹੈ',
   'reviewDetail.noObjectives': "ਕੋਈ ਸਰਗਰਮ ਉਦੇਸ਼ ਨਹੀਂ — ਡੈਸ਼ਬੋਰਡ 'ਤੇ ਕੁਝ ਬਣਾਓ।",

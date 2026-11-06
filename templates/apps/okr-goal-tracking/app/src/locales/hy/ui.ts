@@ -248,7 +248,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Նպատակ',
   'reviewDetail.confirmDelete': 'Ջնջե՞լ այս ակնարկի սևագիրը։',
   'reviewDetail.delete': 'Ջնջել նախագիծը',
-  'reviewDetail.eyebrow': '{{կարգավիճակ}} · {{ամսաթիվ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Բեռնվում է ակնարկը…',
   'reviewDetail.missingId': 'Վերանայման ID-ն բացակայում է',
   'reviewDetail.noObjectives': 'Ակտիվ նպատակներ չկան՝ ստեղծեք մի քանիսը վահանակի վրա։',

@@ -190,7 +190,7 @@ export const ui: UiTranslations = {
     'நீக்கப்பட்ட பக்கங்கள் 30 நாட்களுக்கு இங்கே இருக்கும். உங்களுக்கு இன்னும் தேவைப்படும் பக்கங்களை மீட்டெடுக்கவும், தேவையில்லாதவற்றை அகற்றவும் — நீங்கள் சொல்லும் வரை எதுவும் நீங்காது.',
   'versionHistory.attribution': 'சேமிக்கப்பட்டது {{when}}',
   'versionHistory.backLink': 'பக்கத்திற்குத் திரும்பு',
-  'versionHistory.diffHeading': 'வேறுபாடு · v{{v}}',
+  'versionHistory.diffHeading': 'வேறுபாடு · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'இன்னும் பதிப்புகள் இல்லை.',
   'versionHistory.heading': 'பதிப்பு வரலாறு',
   'versionHistory.older': 'வயதானவர்',

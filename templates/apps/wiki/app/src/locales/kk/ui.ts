@@ -187,7 +187,7 @@ export const ui: UiTranslations = {
     'Жойылған беттер осында 30 күн сақталады. Қажеттілерін қалпына келтіріңіз, қажет еместерін жойыңыз — сіз айтпайынша ештеңе қалмайды.',
   'versionHistory.attribution': 'Сақталған {{when}}',
   'versionHistory.backLink': 'Бетке оралу',
-  'versionHistory.diffHeading': 'Айырмашылық · v{{v}}',
+  'versionHistory.diffHeading': 'Айырмашылық · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Әзірге нұсқалар жоқ.',
   'versionHistory.heading': 'Нұсқа тарихы',
   'versionHistory.older': 'Ескі',

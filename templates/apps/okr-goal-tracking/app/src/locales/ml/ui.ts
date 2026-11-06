@@ -252,7 +252,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'ലക്ഷ്യം',
   'reviewDetail.confirmDelete': 'ഈ അവലോകന ഡ്രാഫ്റ്റ് ഇല്ലാതാക്കണോ?',
   'reviewDetail.delete': 'ഡ്രാഫ്റ്റ് ഇല്ലാതാക്കുക',
-  'reviewDetail.eyebrow': '{{സ്റ്റാറ്റസ്}} · {{തീയതി}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'അവലോകനം ലോഡ് ചെയ്യുന്നു…',
   'reviewDetail.missingId': 'അവലോകന ഐഡി കാണുന്നില്ല.',
   'reviewDetail.noObjectives': 'സജീവമായ ലക്ഷ്യങ്ങളൊന്നുമില്ല — ഡാഷ്‌ബോർഡിൽ ചിലത് സൃഷ്ടിക്കുക.',

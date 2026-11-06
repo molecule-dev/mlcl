@@ -249,7 +249,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Цел',
   'reviewDetail.confirmDelete': 'Да се избрише овој нацрт-рецензија?',
   'reviewDetail.delete': 'Избриши нацрт',
-  'reviewDetail.eyebrow': '{{статус}} · {{датум}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Се вчитува прегледот…',
   'reviewDetail.missingId': 'Недостасува ID на преглед',
   'reviewDetail.noObjectives': 'Нема активни цели — креирајте неколку на контролната табла.',

@@ -187,7 +187,7 @@ export const ui: UiTranslations = {
     'Poistetut sivut ovat täällä 30 päivää. Palauta ne, joita vielä tarvitset, ja tyhjennä tarpeettomat – mikään ei katoa ennen kuin pyydät minua tekemään niin.',
   'versionHistory.attribution': 'Tallennettu {{when}}',
   'versionHistory.backLink': 'Takaisin sivulle',
-  'versionHistory.diffHeading': 'Ero · v{{v}}',
+  'versionHistory.diffHeading': 'Ero · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Ei vielä versioita.',
   'versionHistory.heading': 'Versiotiedot',
   'versionHistory.older': 'Vanhempi',

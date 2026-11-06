@@ -187,7 +187,7 @@ export const ui: UiTranslations = {
     'Les pàgines eliminades romandran aquí durant 30 dies. Restaura les que encara necessitis, elimina les que no: no hi haurà res fins que tu ho diguis.',
   'versionHistory.attribution': 'Desat {{when}}',
   'versionHistory.backLink': 'Torna a la pàgina',
-  'versionHistory.diffHeading': 'Diferència · v{{v}}',
+  'versionHistory.diffHeading': 'Diferència · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Encara no hi ha cap versió.',
   'versionHistory.heading': 'Historial de versions',
   'versionHistory.older': 'Més antic',

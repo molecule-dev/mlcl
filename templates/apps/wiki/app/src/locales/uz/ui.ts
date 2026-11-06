@@ -189,7 +189,7 @@ export const ui: UiTranslations = {
     "O'chirilgan sahifalar bu yerda 30 kun davomida saqlanadi. Keraklilarini tiklang, keraksizlarini o'chiring — siz aytmaguningizcha hech narsa qolmaydi.",
   'versionHistory.attribution': 'Saqlandi {{when}}',
   'versionHistory.backLink': 'Sahifaga qaytish',
-  'versionHistory.diffHeading': 'Farq · v{{v}}',
+  'versionHistory.diffHeading': 'Farq · v{{from}} → {{to}}',
   'versionHistory.empty.title': "Hali versiyalar yo'q.",
   'versionHistory.heading': 'Versiya tarixi',
   'versionHistory.older': 'Eskiroq',

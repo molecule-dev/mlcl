@@ -247,7 +247,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'উদ্দেশ্য',
   'reviewDetail.confirmDelete': 'এই পর্যালোচনার খসড়াটি মুছে ফেলবেন?',
   'reviewDetail.delete': 'খসড়া মুছে ফেলুন',
-  'reviewDetail.eyebrow': '{{অবস্থা}} · {{তারিখ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'পর্যালোচনা লোড হচ্ছে…',
   'reviewDetail.missingId': 'পর্যালোচনা আইডি অনুপস্থিত',
   'reviewDetail.noObjectives': 'কোনো সক্রিয় উদ্দেশ্য নেই — ড্যাশবোর্ডে কিছু তৈরি করুন।',

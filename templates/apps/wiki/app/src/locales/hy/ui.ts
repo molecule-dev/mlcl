@@ -188,7 +188,7 @@ export const ui: UiTranslations = {
     'Ջնջված էջերը մնում են այստեղ 30 օր։ Վերականգնեք դեռ անհրաժեշտները, մաքրեք չօգտագործվողները. ոչինչ չի հեռանա, մինչև դուք չասեք։',
   'versionHistory.attribution': 'Պահպանված է {{when}}',
   'versionHistory.backLink': 'Վերադառնալ էջին',
-  'versionHistory.diffHeading': 'Տարբերություն · v{{v}}',
+  'versionHistory.diffHeading': 'Տարբերություն · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Դեռ տարբերակներ չկան։',
   'versionHistory.heading': 'Տարբերակների պատմություն',
   'versionHistory.older': 'Ավելի մեծ',

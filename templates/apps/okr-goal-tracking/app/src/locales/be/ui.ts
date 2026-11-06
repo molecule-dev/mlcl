@@ -244,7 +244,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Мэта',
   'reviewDetail.confirmDelete': 'Выдаліць гэты чарнавік водгуку?',
   'reviewDetail.delete': 'Выдаліць чарнавік',
-  'reviewDetail.eyebrow': '{{статус}} · {{дата}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Загрузка водгуку…',
   'reviewDetail.missingId': 'Адсутнічае ідэнтыфікатар водгуку',
   'reviewDetail.noObjectives': 'Няма актыўных мэтаў — стварыце іх на панэлі кіравання.',

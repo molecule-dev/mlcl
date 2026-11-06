@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'Выдаленыя старонкі захоўваюцца тут 30 дзён. Аднаўляйце тыя, што вам усё яшчэ патрэбныя, ачышчайце тыя, што вам не патрэбныя — нічога не знікае, пакуль вы не скажаце.',
   'versionHistory.attribution': 'Захавана {{when}}',
   'versionHistory.backLink': 'Назад на старонку',
-  'versionHistory.diffHeading': 'Розніца · v{{v}}',
+  'versionHistory.diffHeading': 'Розніца · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Пакуль няма версій.',
   'versionHistory.heading': 'Гісторыя версій',
   'versionHistory.older': 'Старэйшыя',

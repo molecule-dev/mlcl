@@ -254,7 +254,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Layunin',
   'reviewDetail.confirmDelete': 'Burahin ang draft ng review na ito?',
   'reviewDetail.delete': 'Burahin ang draft',
-  'reviewDetail.eyebrow': '{{katayuan}} · {{petsa}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Naglo-load ng pagsusuri…',
   'reviewDetail.missingId': 'Nawawalang ID ng pagsusuri',
   'reviewDetail.noObjectives': 'Walang aktibong layunin — gumawa ng ilan sa dashboard.',

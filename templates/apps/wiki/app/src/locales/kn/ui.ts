@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'ಅಳಿಸಿದ ಪುಟಗಳು ಇಲ್ಲಿ 30 ದಿನಗಳವರೆಗೆ ಇರುತ್ತವೆ. ನಿಮಗೆ ಇನ್ನೂ ಅಗತ್ಯವಿರುವವುಗಳನ್ನು ಮರುಸ್ಥಾಪಿಸಿ, ನಿಮಗೆ ಅಗತ್ಯವಿಲ್ಲದವುಗಳನ್ನು ತೆಗೆದುಹಾಕಿ — ನೀವು ಹಾಗೆ ಹೇಳುವವರೆಗೆ ಏನೂ ಉಳಿಯುವುದಿಲ್ಲ.',
   'versionHistory.attribution': 'ಉಳಿಸಲಾಗಿದೆ {{when}}',
   'versionHistory.backLink': 'ಪುಟಕ್ಕೆ ಹಿಂತಿರುಗಿ',
-  'versionHistory.diffHeading': 'ವ್ಯತ್ಯಾಸ · v{{v}}',
+  'versionHistory.diffHeading': 'ವ್ಯತ್ಯಾಸ · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'ಇನ್ನೂ ಆವೃತ್ತಿಗಳಿಲ್ಲ.',
   'versionHistory.heading': 'ಆವೃತ್ತಿ ಇತಿಹಾಸ',
   'versionHistory.older': 'ಹಳೆಯದು',

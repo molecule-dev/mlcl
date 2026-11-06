@@ -172,7 +172,7 @@ export const ui: UiTranslations = {
     '已删除的页面在此保留 30 天。需要的恢复,不需要的彻底删除——没有您的指令什么也不会离开。',
   'versionHistory.attribution': '已于 {{when}} 保存',
   'versionHistory.backLink': '返回页面',
-  'versionHistory.diffHeading': '差异 · v{{v}}',
+  'versionHistory.diffHeading': '差异 · v{{from}} → {{to}}',
   'versionHistory.empty.title': '还没有版本。',
   'versionHistory.heading': '版本历史',
   'versionHistory.older': '更早',

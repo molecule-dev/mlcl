@@ -180,7 +180,7 @@ export const ui: UiTranslations = {
     'કાઢી નાખેલા પૃષ્ઠો અહીં 30 દિવસ સુધી રહે છે. જે પૃષ્ઠોની તમને હજુ પણ જરૂર છે તેને પુનઃસ્થાપિત કરો, જે પૃષ્ઠોની તમને જરૂર નથી તેને સાફ કરો - જ્યાં સુધી તમે કહો નહીં ત્યાં સુધી કંઈ છોડતું નથી.',
   'versionHistory.attribution': 'સાચવેલ {{when}}',
   'versionHistory.backLink': 'પાના પર પાછા',
-  'versionHistory.diffHeading': 'તફાવત · v{{v}}',
+  'versionHistory.diffHeading': 'તફાવત · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'હજી કોઈ વર્ઝન નથી.',
   'versionHistory.heading': 'સંસ્કરણ ઇતિહાસ',
   'versionHistory.older': 'જૂની',

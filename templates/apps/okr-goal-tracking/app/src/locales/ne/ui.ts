@@ -250,7 +250,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'उद्देश्य',
   'reviewDetail.confirmDelete': 'यो समीक्षा मस्यौदा मेटाउने हो?',
   'reviewDetail.delete': 'मस्यौदा मेटाउनुहोस्',
-  'reviewDetail.eyebrow': '{{स्थिति}} · {{मिति}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'समीक्षा लोड हुँदै...',
   'reviewDetail.missingId': 'समीक्षा ID छुटेको छ',
   'reviewDetail.noObjectives':

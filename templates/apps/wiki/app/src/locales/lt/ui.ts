@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'Ištrinti puslapiai čia saugomi 30 dienų. Atkurkite tuos, kurių jums vis dar reikia, ištrinkite tuos, kurių jums nereikia – niekas neišnyks, kol jūs to nepadarysite.',
   'versionHistory.attribution': 'Išsaugota {{when}}',
   'versionHistory.backLink': 'Atgal į puslapį',
-  'versionHistory.diffHeading': 'Skirtumas · v{{v}}',
+  'versionHistory.diffHeading': 'Skirtumas · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Dar nėra versijų.',
   'versionHistory.heading': 'Versijų istorija',
   'versionHistory.older': 'Senesnis',

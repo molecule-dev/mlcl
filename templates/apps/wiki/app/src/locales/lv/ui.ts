@@ -185,7 +185,7 @@ export const ui: UiTranslations = {
     'Dzēstās lapas šeit atrodas 30 dienas. Atjaunojiet tās, kas jums joprojām ir nepieciešamas, izdzēsiet tās, kas jums nav nepieciešamas — nekas nepazūd, kamēr jūs to nepavēlat.',
   'versionHistory.attribution': 'Saglabāts {{when}}',
   'versionHistory.backLink': 'Atpakaļ uz lapu',
-  'versionHistory.diffHeading': 'Atšķirība · v{{v}}',
+  'versionHistory.diffHeading': 'Atšķirība · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Vēl nav versiju.',
   'versionHistory.heading': 'Versiju vēsture',
   'versionHistory.older': 'Vecāks',

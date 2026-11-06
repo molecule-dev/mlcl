@@ -189,7 +189,7 @@ export const ui: UiTranslations = {
     'Gelöschte Seiten leben hier 30 Tage lang. Stellen Sie die wieder her, die Sie noch brauchen, und löschen Sie endgültig, was nicht — nichts verschwindet, bevor Sie es sagen.',
   'versionHistory.attribution': 'Gespeichert {{when}}',
   'versionHistory.backLink': 'Zurück zur Seite',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Noch keine Versionen.',
   'versionHistory.heading': 'Versionsverlauf',
   'versionHistory.older': 'Ältere',

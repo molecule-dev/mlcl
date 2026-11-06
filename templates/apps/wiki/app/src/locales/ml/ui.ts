@@ -186,7 +186,7 @@ export const ui: UiTranslations = {
     'ഇല്ലാതാക്കിയ പേജുകൾ 30 ദിവസത്തേക്ക് ഇവിടെ നിലനിൽക്കും. നിങ്ങൾക്ക് ഇപ്പോഴും ആവശ്യമുള്ളവ പുനഃസ്ഥാപിക്കുക, നിങ്ങൾക്ക് ആവശ്യമില്ലാത്തവ നീക്കം ചെയ്യുക - നിങ്ങൾ അങ്ങനെ പറയുന്നതുവരെ ഒന്നും ശേഷിക്കില്ല.',
   'versionHistory.attribution': 'സംരക്ഷിച്ചു {{when}}',
   'versionHistory.backLink': 'പേജിലേക്ക് മടങ്ങുക',
-  'versionHistory.diffHeading': 'വ്യത്യാസം · v{{v}}',
+  'versionHistory.diffHeading': 'വ്യത്യാസം · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'ഇതുവരെ പതിപ്പുകളില്ല.',
   'versionHistory.heading': 'പതിപ്പ് ചരിത്രം',
   'versionHistory.older': 'പഴയത്',

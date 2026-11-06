@@ -183,7 +183,7 @@ export const ui: UiTranslations = {
     'صفحات حذف شده به مدت 30 روز اینجا باقی می‌مانند. آن‌هایی را که هنوز به آن‌ها نیاز دارید بازیابی کنید، آن‌هایی را که نیاز ندارید پاک کنید - هیچ چیز تا زمانی که خودتان نخواهید باقی نمی‌ماند.',
   'versionHistory.attribution': 'ذخیره شده {{when}}',
   'versionHistory.backLink': 'بازگشت به صفحه',
-  'versionHistory.diffHeading': 'تفاوت · v{{v}}',
+  'versionHistory.diffHeading': 'تفاوت · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'هنوز نسخه‌ای نیست.',
   'versionHistory.heading': 'تاریخچه نسخه',
   'versionHistory.older': 'قدیمی‌تر',

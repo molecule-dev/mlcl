@@ -180,7 +180,7 @@ export const ui: UiTranslations = {
     'حذف شدہ صفحات 30 دن تک یہاں رہتے ہیں۔ جن کی آپ کو ابھی بھی ضرورت ہے ان کو بحال کریں، جنہیں آپ نہیں کرتے انہیں صاف کریں - جب تک آپ ایسا نہیں کہتے کچھ نہیں چھوڑتا۔',
   'versionHistory.attribution': 'محفوظ کیا گیا۔ {{when}}',
   'versionHistory.backLink': 'صفحہ پر واپس جائیں۔',
-  'versionHistory.diffHeading': 'فرق · v{{v}}',
+  'versionHistory.diffHeading': 'فرق · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'ابھی کوئی ورژن نہیں۔',
   'versionHistory.heading': 'ورژن کی تاریخ',
   'versionHistory.older': 'پرانا',

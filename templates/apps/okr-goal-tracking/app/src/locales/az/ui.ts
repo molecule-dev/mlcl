@@ -246,7 +246,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Məqsəd',
   'reviewDetail.confirmDelete': 'Bu rəy qaralaması silinsin?',
   'reviewDetail.delete': 'Qaralamanı silin',
-  'reviewDetail.eyebrow': '{{status}} · {{tarix}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Rəy yüklənir…',
   'reviewDetail.missingId': 'Rəy ID-si çatışmır',
   'reviewDetail.noObjectives': 'Aktiv məqsədlər yoxdur — idarəetmə panelində bəziləri yaradın.',

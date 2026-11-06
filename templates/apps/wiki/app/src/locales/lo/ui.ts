@@ -183,7 +183,7 @@ export const ui: UiTranslations = {
     'ໜ້າເວັບທີ່ຖືກລຶບຈະຢູ່ທີ່ນີ້ເປັນເວລາ 30 ມື້. ກູ້ຄືນໜ້າທີ່ທ່ານຍັງຕ້ອງການ, ລຶບໜ້າທີ່ທ່ານບໍ່ຕ້ອງການອອກ — ບໍ່ມີຫຍັງເຫຼືອຈົນກວ່າທ່ານຈະເວົ້າດັ່ງນັ້ນ.',
   'versionHistory.attribution': 'ບັນທຶກໄວ້ແລ້ວ {{when}}',
   'versionHistory.backLink': 'ກັບໄປທີ່ໜ້າ',
-  'versionHistory.diffHeading': 'ຄວາມແຕກຕ່າງ · v{{v}}',
+  'versionHistory.diffHeading': 'ຄວາມແຕກຕ່າງ · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'ຍັງບໍ່ມີສະບັບ.',
   'versionHistory.heading': 'ປະຫວັດເວີຊັນ',
   'versionHistory.older': 'ເກົ່າກວ່າ',

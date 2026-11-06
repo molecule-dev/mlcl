@@ -244,7 +244,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'ہدف',
   'reviewDetail.confirmDelete': 'اس جائزے کے مسودے کو حذف کریں؟',
   'reviewDetail.delete': 'مسودہ حذف کریں۔',
-  'reviewDetail.eyebrow': '{{سٹیٹس}} · {{تاریخ}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'جائزہ لوڈ ہو رہا ہے…',
   'reviewDetail.missingId': 'نظرثانی ID غائب ہے۔',
   'reviewDetail.noObjectives': 'کوئی فعال مقاصد نہیں - ڈیش بورڈ پر کچھ تخلیق کریں۔',

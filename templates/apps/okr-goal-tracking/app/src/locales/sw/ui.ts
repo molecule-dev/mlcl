@@ -245,7 +245,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Lengo',
   'reviewDetail.confirmDelete': 'Futa rasimu hii ya ukaguzi?',
   'reviewDetail.delete': 'Futa rasimu',
-  'reviewDetail.eyebrow': '{{hali}} · {{tarehe}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Inapakia ukaguzi…',
   'reviewDetail.missingId': 'Kitambulisho cha ukaguzi hakipo',
   'reviewDetail.noObjectives':

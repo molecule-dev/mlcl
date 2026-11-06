@@ -247,7 +247,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Objektiv',
   'reviewDetail.confirmDelete': 'Të fshihet ky draft i rishikimit?',
   'reviewDetail.delete': 'Fshi draftin',
-  'reviewDetail.eyebrow': '{{status}} · {{data}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Duke ngarkuar vlerësimin…',
   'reviewDetail.missingId': 'Mungon ID-ja e rishikimit.',
   'reviewDetail.noObjectives': 'Pa objektiva aktivë — krijoni disa në panelin e kontrollit.',

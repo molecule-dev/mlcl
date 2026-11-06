@@ -246,7 +246,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Objettiv',
   'reviewDetail.confirmDelete': 'Tħassar dan l-abbozz tar-reviżjoni?',
   'reviewDetail.delete': 'Ħassar l-abbozz',
-  'reviewDetail.eyebrow': '{{status}} · {{data}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Qed tiċċarġja r-reviżjoni…',
   'reviewDetail.missingId': 'ID tar-reviżjoni nieqsa',
   'reviewDetail.noObjectives': 'L-ebda objettiv attiv — oħloq xi wħud fuq id-dashboard.',

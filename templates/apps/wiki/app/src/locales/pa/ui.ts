@@ -180,7 +180,7 @@ export const ui: UiTranslations = {
     'ਮਿਟਾਏ ਗਏ ਪੰਨੇ ਇੱਥੇ 30 ਦਿਨਾਂ ਲਈ ਰਹਿੰਦੇ ਹਨ। ਜਿਨ੍ਹਾਂ ਦੀ ਤੁਹਾਨੂੰ ਅਜੇ ਵੀ ਲੋੜ ਹੈ ਉਨ੍ਹਾਂ ਨੂੰ ਬਹਾਲ ਕਰੋ, ਜਿਨ੍ਹਾਂ ਨੂੰ ਨਹੀਂ ਹੈ ਉਨ੍ਹਾਂ ਨੂੰ ਸਾਫ਼ ਕਰੋ - ਜਦੋਂ ਤੱਕ ਤੁਸੀਂ ਅਜਿਹਾ ਨਹੀਂ ਕਹਿੰਦੇ, ਕੁਝ ਵੀ ਨਹੀਂ ਛੱਡਦਾ।',
   'versionHistory.attribution': 'ਸੰਭਾਲਿਆ ਗਿਆ {{when}}',
   'versionHistory.backLink': "ਪੰਨੇ 'ਤੇ ਵਾਪਸ ਜਾਓ",
-  'versionHistory.diffHeading': 'ਅੰਤਰ · v{{v}}',
+  'versionHistory.diffHeading': 'ਅੰਤਰ · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'ਹਾਲੇ ਕੋਈ ਵਰਜ਼ਨ ਨਹੀਂ।',
   'versionHistory.heading': 'ਵਰਜਨ ਇਤਿਹਾਸ',
   'versionHistory.older': 'ਪੁਰਾਣਾ',

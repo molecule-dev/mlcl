@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Manufa',
   'reviewDetail.confirmDelete': 'A goge wannan daftarin bita?',
   'reviewDetail.delete': 'Share daftarin aiki',
-  'reviewDetail.eyebrow': '{{matsayi}} · {{kwanan wata}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Ana loda bita…',
   'reviewDetail.missingId': 'Rashin ID na bita',
   'reviewDetail.noObjectives': 'Babu wani manufa mai aiki — ƙirƙiri wasu a kan dashboard.',

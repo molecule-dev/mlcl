@@ -241,7 +241,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'ຈຸດປະສົງ',
   'reviewDetail.confirmDelete': 'ລຶບຮ່າງການທົບທວນຄືນນີ້ບໍ?',
   'reviewDetail.delete': 'ລຶບສະບັບຮ່າງ',
-  'reviewDetail.eyebrow': '{{ສະຖານະ}} · ວັນທີ',
+  'reviewDetail.eyebrow': '{{status}} · ວັນທີ',
   'reviewDetail.loading': 'ກຳລັງໂຫຼດການທົບທວນຄືນ…',
   'reviewDetail.missingId': 'ບໍ່ມີ ID ການທົບທວນຄືນ',
   'reviewDetail.noObjectives': 'ບໍ່ມີຈຸດປະສົງທີ່ມີການເຄື່ອນໄຫວ — ສ້າງບາງອັນຢູ່ໃນແຜງຄວບຄຸມ.',

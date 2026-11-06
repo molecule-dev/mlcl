@@ -248,7 +248,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Зорилт',
   'reviewDetail.confirmDelete': 'Энэ шүүмжийн нооргийг устгах уу?',
   'reviewDetail.delete': 'Ноорог устгах',
-  'reviewDetail.eyebrow': '{{статус}} · {{огноо}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Шүүмжийг ачаалж байна…',
   'reviewDetail.missingId': 'Шүүмжийн дугаар дутуу байна',
   'reviewDetail.noObjectives': 'Идэвхтэй зорилго байхгүй — хянах самбар дээр заримыг нь үүсгээрэй.',

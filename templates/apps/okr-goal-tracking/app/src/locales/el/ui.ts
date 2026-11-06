@@ -257,7 +257,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Στόχος',
   'reviewDetail.confirmDelete': 'Διαγραφή αυτού του προσχεδίου αξιολόγησης;',
   'reviewDetail.delete': 'Διαγραφή πρόχειρου',
-  'reviewDetail.eyebrow': '{{κατάσταση}} · {{ημερομηνία}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Φόρτωση αξιολόγησης…',
   'reviewDetail.missingId': 'Λείπει το αναγνωριστικό αξιολόγησης',
   'reviewDetail.noObjectives':

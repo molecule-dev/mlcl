@@ -187,7 +187,7 @@ export const ui: UiTranslations = {
     'წაშლილი გვერდები აქ 30 დღის განმავლობაში ინახება. აღადგინეთ ის, რაც ჯერ კიდევ გჭირდებათ, წაშალეთ ის, რაც არ გჭირდებათ — არაფერი წავა სანამ თქვენ არ მეტყვით.',
   'versionHistory.attribution': 'შენახულია {{when}}',
   'versionHistory.backLink': 'გვერდზე დაბრუნება',
-  'versionHistory.diffHeading': 'დიფ · ვ{{v}}',
+  'versionHistory.diffHeading': 'დიფ · ვ{{from}} → {{to}}',
   'versionHistory.empty.title': 'ვერსიები ჯერ არ არის.',
   'versionHistory.heading': 'ვერსიის ისტორია',
   'versionHistory.older': 'უფროსი',

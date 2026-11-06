@@ -187,7 +187,7 @@ export const ui: UiTranslations = {
     "Ang mga binurang pahina ay mananatili rito nang 30 araw. Ibalik ang mga kailangan mo pa, linisin ang mga hindi mo na kailangan — walang iiwan hangga't hindi mo sinasabi.",
   'versionHistory.attribution': 'Na-save {{when}}',
   'versionHistory.backLink': 'Balik sa pahina',
-  'versionHistory.diffHeading': 'Pagkakaiba · v{{v}}',
+  'versionHistory.diffHeading': 'Pagkakaiba · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Wala pang version.',
   'versionHistory.heading': 'Kasaysayan ng bersyon',
   'versionHistory.older': 'Mas matanda',

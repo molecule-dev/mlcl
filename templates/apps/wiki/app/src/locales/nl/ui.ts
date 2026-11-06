@@ -185,7 +185,7 @@ export const ui: UiTranslations = {
     "Verwijderde pagina's leven hier 30 dagen. Herstel degene die u nog nodig hebt, verwijder de rest definitief — niets verdwijnt totdat u dat zegt.",
   'versionHistory.attribution': 'Opgeslagen {{when}}',
   'versionHistory.backLink': 'Terug naar pagina',
-  'versionHistory.diffHeading': 'Diff · v{{v}}',
+  'versionHistory.diffHeading': 'Diff · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'Nog geen versies.',
   'versionHistory.heading': 'Versiegeschiedenis',
   'versionHistory.older': 'Ouder',

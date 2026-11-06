@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     'हटवलेली पृष्ठे येथे ३० दिवसांसाठी राहतात. तुम्हाला जी पृष्ठे अजूनही आवश्यक आहेत ती पुनर्संचयित करा, जी नको आहेत ती काढून टाका — तुम्ही सांगितल्याशिवाय काहीही काढले जाणार नाही.',
   'versionHistory.attribution': 'जतन केले {{when}}',
   'versionHistory.backLink': 'मागील पानावर जा',
-  'versionHistory.diffHeading': 'फरक · व्ही{{v}}',
+  'versionHistory.diffHeading': 'फरक · व्ही{{from}} → {{to}}',
   'versionHistory.empty.title': 'अजून आवृत्त्या नाहीत.',
   'versionHistory.heading': 'आवृत्ती इतिहास',
   'versionHistory.older': 'वयस्कर',

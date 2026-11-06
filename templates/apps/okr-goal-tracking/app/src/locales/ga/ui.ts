@@ -253,7 +253,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Cuspóir',
   'reviewDetail.confirmDelete': 'Scrios an dréacht athbhreithnithe seo?',
   'reviewDetail.delete': 'Scrios dréacht',
-  'reviewDetail.eyebrow': '{{stádas}} · {{dáta}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Léirmheas á lódáil…',
   'reviewDetail.missingId': 'ID athbhreithnithe ar iarraidh',
   'reviewDetail.noObjectives': 'Gan aon chuspóirí gníomhacha — cruthaigh cuid acu ar an deais.',

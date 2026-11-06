@@ -248,7 +248,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'Helburua',
   'reviewDetail.confirmDelete': 'Berrikuspen zirriborro hau ezabatu?',
   'reviewDetail.delete': 'Ezabatu zirriborroa',
-  'reviewDetail.eyebrow': '{{egoera}} · {{data}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'Iritzia kargatzen…',
   'reviewDetail.missingId': 'Iritziaren IDa falta da',
   'reviewDetail.noObjectives': 'Ez dago helburu aktiborik — sortu batzuk aginte-panelean.',

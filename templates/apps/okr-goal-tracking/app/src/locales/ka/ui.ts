@@ -246,7 +246,7 @@ export const ui: UiTranslations = {
   'reviewDetail.colObjective': 'მიზანი',
   'reviewDetail.confirmDelete': 'წაიშალოს ეს მიმოხილვის მონახაზი?',
   'reviewDetail.delete': 'მონახაზის წაშლა',
-  'reviewDetail.eyebrow': '{{სტატუსი}} · {{თარიღი}}',
+  'reviewDetail.eyebrow': '{{status}} · {{date}}',
   'reviewDetail.loading': 'მიმოხილვის ჩატვირთვა…',
   'reviewDetail.missingId': 'მიმოხილვის ID აკლია',
   'reviewDetail.noObjectives': 'აქტიური მიზნები არ არის — შექმენით რამდენიმე დაფაზე.',

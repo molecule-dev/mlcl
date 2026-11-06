@@ -184,7 +184,7 @@ export const ui: UiTranslations = {
     'মুছে ফেলা পৃষ্ঠাগুলি এখানে ৩০ দিন পর্যন্ত থাকে। আপনার যেগুলি এখনও প্রয়োজন সেগুলি পুনরুদ্ধার করুন, যেগুলি প্রয়োজন নেই সেগুলি মুছে ফেলুন — আপনার অনুমতি না পাওয়া পর্যন্ত কিছুই সরানো হবে না।',
   'versionHistory.attribution': 'সংরক্ষিত {{when}}',
   'versionHistory.backLink': 'পৃষ্ঠায় ফিরে যান',
-  'versionHistory.diffHeading': 'পার্থক্য · v{{v}}',
+  'versionHistory.diffHeading': 'পার্থক্য · v{{from}} → {{to}}',
   'versionHistory.empty.title': 'এখনো কোনো সংস্করণ নেই।',
   'versionHistory.heading': 'সংস্করণ ইতিহাস',
   'versionHistory.older': 'বয়স্ক',
