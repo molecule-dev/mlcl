@@ -1,0 +1,17 @@
+name: Install the test browser
+description: >-
+  Install the Chromium build that mlcl's own @playwright/test pins and launch it once. `mlcl test-feedback`
+  runs real Playwright files (src/commands/__tests__/test-feedback.test.ts); without a browser the runner
+  exits as a setup failure and those tests fail, as they should. Every workflow that runs mlcl's `npm test`
+  uses this one step (src/lib/__tests__/workflow-test-browser.test.ts), so the browser setup cannot differ
+  between CI and Release.
+runs:
+  using: composite
+  steps:
+    # Launch once so missing system libraries fail here, not inside a test.
+    - name: Install and launch Chromium
+      shell: bash
+      working-directory: mlcl
+      run: |
+        npx --no-install playwright install chromium
+        node --input-type=module -e "import { chromium } from '@playwright/test'; const browser = await chromium.launch(); await browser.close();"

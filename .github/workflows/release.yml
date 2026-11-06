@@ -104,6 +104,10 @@ jobs:
       - name: Install molecule-mcp deps
         run: npm install --no-audit --no-fund
         working-directory: mlcl/mcp
+      # The native browser feedback tests need Chromium; the shared step keeps CI and Release alike.
+      - name: Install Chromium for the native browser feedback tests
+        uses: ./mlcl/.github/actions/test-browser
+        timeout-minutes: 10
       - name: Run full test suite
         run: npm test
         working-directory: mlcl
