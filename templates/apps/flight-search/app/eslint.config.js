@@ -770,6 +770,46 @@ const moleculeLocal = {
         // The rewrite uses the component's own state, updater, request and response reads.
         // It is advice, never an automatic edit: auth guards and app-specific callbacks stay.
         const rewriteFor = (fn, save) => {
+          let unverifiedResource = null
+          const fromSave = (expression, seen = new Set()) => {
+            const node = unwrap(expression)
+            if (!node) return false
+            if (node.range[0] <= save.range[0] && node.range[1] >= save.range[1]) return true
+            const variable = variableFor(node)
+            if (!variable || seen.has(variable) || seen.size >= 8) return false
+            seen.add(variable)
+            const definition = variable.defs[0]
+            if (definition?.type === 'Variable' && definition.parent?.kind === 'const')
+              return fromSave(definition.node.init, seen)
+            const callback = definition?.type === 'Parameter' ? variable.scope.block : null
+            const then = callback?.parent
+            return !!(
+              then?.type === 'CallExpression' &&
+              then.arguments[0] === callback &&
+              callback.params[0] === definition.name &&
+              callName(then) === 'then' &&
+              fromSave(then.callee.object, seen)
+            )
+          }
+          walk(
+            fn.body,
+            (node) => {
+              if (node.type !== 'CallExpression' || node.parent?.type !== 'VariableDeclarator')
+                return
+              if (!fromSave(node.arguments[0])) return
+              const definition = variableFor(node.callee)?.defs[0]
+              if (
+                definition?.type === 'ImportBinding' &&
+                definition.parent?.source?.value === '@molecule/app-http' &&
+                (definition.node.imported?.name ?? definition.node.imported?.value) ===
+                  'unwrapSingle'
+              )
+                unverifiedResource = context.sourceCode.getText(node)
+            },
+            true,
+          )
+          if (unverifiedResource)
+            return `First verify the saved resource read by ${unverifiedResource}. unwrapSingle unwraps data, not named resource keys: a response body { record: value } remains { record: value }. If the API uses a named envelope, select its actual field before notifying the parent or returning confirmed values. For a bare resource body, keep that resource directly. This single-file scan cannot prove that field, so it cannot supply a runnable migration for this save. Then move the verified save into useOptimisticValue, keep the control mounted, and key it by record identity.`
           if (writesBefore(fn, save).some(({ state }) => state.seed?.type === 'ObjectExpression'))
             return 'Keep the control disabled while this request is pending, or queue each intent with useOptimisticValue. Its commit must choose one request from the desired field value and return the saved result. Preserve auth checks and the server response shape; verify both directions with a delayed first response.'
           const writes = writesBefore(fn, save)

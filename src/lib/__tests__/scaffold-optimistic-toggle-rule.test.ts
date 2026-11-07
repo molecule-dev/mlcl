@@ -221,6 +221,54 @@ export function Switch({ settings }) {
       expect(rewriteDiagnostics(message)).toEqual([])
     },
   )
+  it.each(['direct', 'alias', 'then'])(
+    'does not copy an unverified %s single-resource generic into a runnable migration',
+    async (shape) => {
+      const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+      let source = `import {useState} from 'react'
+import {unwrapSingle as resource} from '@molecule/app-http'
+export function Saved({record, onChange}) {
+ const [selected,setSelected]=useState(record.selected)
+ const toggle=async()=>{setSelected(!selected); const response=selected ? await http.delete('/saved') : await http.post('/saved'); const saved=resource<Record>(response); onChange(saved)}
+ return <button onClick={toggle}>{selected?'Saved':'Save'}</button>
+}`
+      if (shape === 'alias')
+        source = source.replace(
+          'const saved=resource<Record>(response)',
+          'const alias=response; const saved=resource<Record>(alias)',
+        )
+      if (shape === 'then')
+        source = source.replace(
+          "const response=selected ? await http.delete('/saved') : await http.post('/saved'); const saved=resource<Record>(response); onChange(saved)",
+          "await (selected ? http.delete('/saved') : http.post('/saved')).then((response) => {const saved=resource<Record>(response); onChange(saved)})",
+        )
+      const [result] = await eslint.lintText(source, { filePath: 'Saved.tsx' })
+      const finding = result.messages.find((m) => m.ruleId === ruleId)
+      expect(finding).toBeDefined()
+      expect(finding!.message).not.toContain('```tsx')
+      expect(finding!.message).toContain('named resource keys')
+      expect(finding!.message).toContain('For a bare resource body, keep that resource directly.')
+      expect(finding!.message).toContain(
+        shape === 'alias' ? 'resource<Record>(alias)' : 'resource<Record>(response)',
+      )
+    },
+  )
+
+  it('keeps a projected saved body and an unrelated cached decode in a runnable migration', async () => {
+    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const source = `import {useState} from 'react'
+import {unwrapSingle as resource} from '@molecule/app-http'
+export function Saved({record, onChange}) {
+ const [selected,setSelected]=useState(record.selected)
+ const toggle=async()=>{setSelected(!selected); const response=selected ? await http.delete('/saved') : await http.post('/saved'); const cached=resource<Record>(cache); onChange(response.data.record)}
+ return <button onClick={toggle}>{selected?'Saved':'Save'}</button>
+}`
+    const [result] = await eslint.lintText(source, { filePath: 'Saved.tsx' })
+    const finding = result.messages.find((message) => message.ruleId === ruleId)
+    expect(finding?.message).toContain('```tsx')
+    expect(finding?.message).not.toContain('First verify the saved resource')
+  })
+
   it('loads from the real template as a warning that names the hook', async () => {
     expect(rule).toBeDefined()
     const eslint = new ESLint({
