@@ -21629,7 +21629,7 @@
         "src/__setup__/follows.sql": "CREATE TABLE IF NOT EXISTS \"follows\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"followerId\" UUID NOT NULL,\n  \"targetType\" VARCHAR(255) NOT NULL,\n  \"targetId\" VARCHAR(255) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"followerId\", \"targetType\", \"targetId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_follows_follower\" ON \"follows\" (\"followerId\");\nCREATE INDEX IF NOT EXISTS \"idx_follows_target\" ON \"follows\" (\"targetType\", \"targetId\");\n",
         "src/__setup__/reactions.sql": "CREATE TABLE IF NOT EXISTS \"reactions\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"type\" VARCHAR(50) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"resourceType\", \"resourceId\", \"userId\", \"type\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_reactions_resource\" ON \"reactions\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_reactions_user\" ON \"reactions\" (\"userId\");\n"
       },
-      "setupSqlVersion": "1.1.6",
+      "setupSqlVersion": "1.2.0",
       "path": "packages/api/resources/article",
       "intentHints": [
         "articles backend",
@@ -25750,7 +25750,7 @@
         "src/__setup__/users.sql": "CREATE TABLE IF NOT EXISTS \"users\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"updatedAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"username\" varchar(255),\n  \"name\" text,\n  \"email\" varchar(1023) UNIQUE,\n  \"emailVerified\" boolean DEFAULT false NOT NULL,\n  \"avatar\" text,\n  \"bio\" text,\n  \"twoFactorEnabled\" boolean DEFAULT false,\n  \"oauthServer\" text,\n  \"oauthId\" text,\n  \"oauthData\" jsonb,\n  \"planKey\" text,\n  \"planExpiresAt\" timestamptz,\n  \"planAutoRenews\" boolean DEFAULT false\n);\nCREATE INDEX IF NOT EXISTS \"users_createdAt_index\" ON \"users\" (\"createdAt\");\nCREATE INDEX IF NOT EXISTS \"users_updatedAt_index\" ON \"users\" (\"updatedAt\");\nCREATE INDEX IF NOT EXISTS \"users_username_index\" ON \"users\" (\"username\");\nCREATE INDEX IF NOT EXISTS \"users_email_index\" ON \"users\" (\"email\");\n",
         "src/__setup__/usersSecrets.sql": "CREATE TABLE IF NOT EXISTS \"usersSecrets\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"passwordHash\" text,\n  \"passwordResetToken\" text,\n  \"passwordResetTokenAt\" timestamptz,\n  \"pendingTwoFactorSecret\" text,\n  \"twoFactorSecret\" text,\n  \"lastTwoFactorTimeStep\" integer\n);\n"
       },
-      "setupSqlVersion": "1.8.4",
+      "setupSqlVersion": "1.8.5",
       "reExports": [
         "authorization"
       ],
@@ -63992,7 +63992,7 @@
       "@molecule/api-reporting": "1.0.4",
       "@molecule/api-reporting-database": "1.0.4",
       "@molecule/api-reputation": "1.0.5",
-      "@molecule/api-resource": "1.0.7",
+      "@molecule/api-resource": "1.1.0",
       "@molecule/api-resource-activity-feed": "1.0.6",
       "@molecule/api-resource-address": "1.0.6",
       "@molecule/api-resource-ai-conversation": "1.0.6",
@@ -64035,7 +64035,7 @@
       "@molecule/api-resource-task": "1.0.6",
       "@molecule/api-resource-template": "1.0.8",
       "@molecule/api-resource-thread": "1.0.7",
-      "@molecule/api-resource-user": "1.8.4",
+      "@molecule/api-resource-user": "1.8.5",
       "@molecule/api-resource-version-history": "1.0.8",
       "@molecule/api-resource-wiki-page": "1.0.7",
       "@molecule/api-resource-workspace": "1.0.9",
@@ -64278,7 +64278,7 @@
       "@molecule/app-help-button-react": "3.0.0",
       "@molecule/app-hero-metric-card-react": "3.0.0",
       "@molecule/app-home-page-react": "3.0.0",
-      "@molecule/app-http": "1.5.5",
+      "@molecule/app-http": "1.5.6",
       "@molecule/app-http-axios": "1.2.3",
       "@molecule/app-http-inspector-react": "3.0.0",
       "@molecule/app-i18n": "1.1.2",
@@ -64676,7 +64676,7 @@
       "@molecule/api-screenshots": "1.1.3",
       "@molecule/api-screenshots-molecule": "1.1.3",
       "@molecule/api-screenshots-puppeteer": "1.1.3",
-      "@molecule/api-resource-article": "1.1.6",
+      "@molecule/api-resource-article": "1.2.0",
       "@molecule/app-fonts-ionicons": "1.1.4",
       "@molecule/app-fonts-source-sans-3": "1.1.4",
       "@molecule/app-locales-margin-notes": "1.0.2",

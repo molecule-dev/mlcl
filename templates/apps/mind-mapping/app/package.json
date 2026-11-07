@@ -41,7 +41,7 @@
     "@molecule/app-forms": "2.2.0",
     "@molecule/app-header-react": "3.0.0",
     "@molecule/app-home-page-react": "3.0.0",
-    "@molecule/app-http": "1.5.5",
+    "@molecule/app-http": "1.5.6",
     "@molecule/app-i18n": "1.1.2",
     "@molecule/app-i18n-default-react": "1.0.4",
     "@molecule/app-icons": "1.0.3",
