@@ -23,6 +23,7 @@ function runGate(
   registered: boolean,
   scope: string[] = [packagePath],
   wrongPath = false,
+  moleculePeers: string[] = [],
 ): { status: number | null; output: string } {
   const registry = join(scratch, 'registry.json')
   writeFileSync(
@@ -39,6 +40,7 @@ function runGate(
               description: 'Registry coverage fixture',
               path: wrongPath ? 'packages/api/core/wrong' : packagePath,
               exports: ['probe'],
+              moleculePeers,
             },
           }
         : {},
@@ -86,6 +88,33 @@ describe('registry coverage gate', () => {
 
   it('accepts the full registered tree', () => {
     expect(runGate(true, []).status).toBe(0)
+  })
+
+  it('rejects a required @molecule peer the registry does not record', () => {
+    writeFileSync(
+      join(scratch, packagePath, 'package.json'),
+      JSON.stringify({
+        name: packageName,
+        peerDependencies: { '@molecule/api-resource': '^1.1.0', zod: '^4.0.0' },
+      }),
+    )
+    const result = runGate(true)
+    expect(result.status).toBe(1)
+    expect(result.output).toContain('required @molecule peers are out of sync')
+    expect(result.output).toContain('@molecule/api-resource')
+    expect(runGate(true, [packagePath], false, ['@molecule/api-resource']).status).toBe(0)
+  })
+
+  it('accepts an optional @molecule peer the registry leaves out, as sync-registry does', () => {
+    writeFileSync(
+      join(scratch, packagePath, 'package.json'),
+      JSON.stringify({
+        name: packageName,
+        peerDependencies: { '@molecule/api-resource': '^1.1.0' },
+        peerDependenciesMeta: { '@molecule/api-resource': { optional: true } },
+      }),
+    )
+    expect(runGate(true).status).toBe(0)
   })
 
   it('allows a scoped package that was deleted in this commit', () => {

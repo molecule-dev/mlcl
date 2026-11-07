@@ -191,8 +191,9 @@ router. The filter is by map MEMBERSHIP, never by name — grade keys its own
 `authenticate` authorizer and keeps it. Guards, in order of when they fire:
 
 - **molecule pre-commit** (`molecule/.husky/pre-commit`) — the primary gate. When
-  you commit a change under any `packages/*/src/`, it runs the scoped export- and
-  route-drift check (only the staged packages, so it stays fast under parallel
+  you commit a change under any `packages/*/src/` or a package's `package.json`, it
+  runs the scoped export-, route-, bond-setter- and required-peer-drift check
+  (`moleculePeers`; only the staged packages, so it stays fast under parallel
   agents) and fails the commit if `registry.json` is stale, naming the fix. Runs
   via tsx against mlcl source — no build needed. Skips gracefully if mlcl is
   absent or its deps aren't installed (e.g. a standalone molecule clone).

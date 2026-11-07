@@ -102,6 +102,7 @@ for (const path of packagePaths) {
 const drifted = []
 const routeDrifted = []
 const setterDrifted = []
+const peersDrifted = []
 const bondSetterNames = bondSetterScope(registry.packages)
 let checked = 0
 let skipped = 0
@@ -126,6 +127,29 @@ for (const [name, entry] of Object.entries(registry.packages)) {
     const missing = want.filter((x) => !have.includes(x))
     const extra = have.filter((x) => !want.includes(x))
     drifted.push({ name, missing, extra })
+  }
+
+  // Required @molecule peers, by sync-registry's own rule (refreshExports: non-optional @molecule/*
+  // peerDependencies, sorted, always an array). Without it a commit that made api-resource a required
+  // peer of api-resource-article passed this check and was refused only by the release's full
+  // `sync-registry --check` (2026-11-07).
+  const manifestPath = join(moleculeDir, entry.path, 'package.json')
+  if (existsSync(manifestPath)) {
+    let manifest = null
+    try {
+      manifest = JSON.parse(readFileSync(manifestPath, 'utf8'))
+    } catch (_error) {
+      // Unreadable manifest: sync-registry keeps the entry's peers too.
+    }
+    if (manifest) {
+      const meta = manifest.peerDependenciesMeta ?? {}
+      const wantPeers = Object.keys(manifest.peerDependencies ?? {})
+        .filter((peer) => peer.startsWith('@molecule/') && meta[peer]?.optional !== true)
+        .sort()
+      const havePeers = Array.isArray(entry.moleculePeers) ? [...entry.moleculePeers].sort() : null
+      if (JSON.stringify(havePeers) !== JSON.stringify(wantPeers))
+        peersDrifted.push({ name, have: havePeers, want: wantPeers })
+    }
   }
 
   // Declarative routes — only the types scanPackage scans (resource,
@@ -192,11 +216,25 @@ if (setterDrifted.length > 0) {
   console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
 }
 
+if (peersDrifted.length > 0) {
+  console.error(
+    `\n✗ registry.json required @molecule peers are out of sync (${peersDrifted.length} package(s)):\n`,
+  )
+  for (const { name, have, want } of peersDrifted) {
+    console.error(
+      `  ${name}: registry has ${have === null ? 'none recorded' : JSON.stringify(have)}, ` +
+        `package.json requires ${JSON.stringify(want)}`,
+    )
+  }
+  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
+}
+
 if (
   unregistered.length > 0 ||
   drifted.length > 0 ||
   routeDrifted.length > 0 ||
-  setterDrifted.length > 0
+  setterDrifted.length > 0 ||
+  peersDrifted.length > 0
 ) {
   console.error(`Then commit ${registryPath}\n`)
   process.exit(1)
@@ -204,5 +242,5 @@ if (
 
 const scope = scopePaths.size > 0 ? `${checked} scoped` : `${checked}`
 console.log(
-  `✓ registry exports + routes + bond setters in sync (${scope} package(s) checked, ${skipped} skipped)`,
+  `✓ registry exports + routes + bond setters + required peers in sync (${scope} package(s) checked, ${skipped} skipped)`,
 )
