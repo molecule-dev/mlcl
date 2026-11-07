@@ -5,10 +5,10 @@
  * a callout makes that explicit.
  */
 
-import { useCallback, useEffect, useState } from 'react'
+import { useEffect, useState } from 'react'
 
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -90,9 +90,8 @@ export function Integrations() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [connected, setConnected] = useState<Record<string, boolean>>({})
+  const [serverConnected, setServerConnected] = useState<Record<string, boolean>>({})
   const [loading, setLoading] = useState(true)
-  const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
@@ -105,7 +104,7 @@ export function Integrations() {
       .then((profile) => {
         if (cancelled) return
         const ints = profile?.user?.preferences?.integrations ?? {}
-        setConnected(ints)
+        setServerConnected(ints)
       })
       .catch(() => {
         if (cancelled) return
@@ -119,31 +118,31 @@ export function Integrations() {
     }
   }, [http, t])
 
-  const toggle = useCallback(
-    async (key: string) => {
-      const next = { ...connected, [key]: !connected[key] }
-      setConnected(next)
-      setSaving(true)
-      setError(null)
-      try {
-        const profileRes = await http.get('/api/profile/me')
-        const profile = unwrapSingle<ProfileResponse>(profileRes)
-        const prevPrefs = profile?.user?.preferences ?? {}
-        await http.patch('/api/profile/me', {
-          preferences: { ...prevPrefs, integrations: next },
-        })
-      } catch (error) {
-        logError('integrations.save', error)
-        setConnected(connected)
-        setError(
-          t('integrations.saveError', {}, { defaultValue: 'Could not save integration state.' }),
-        )
-      } finally {
-        setSaving(false)
-      }
+  // Each toggle shows its new state at once; saves run one at a time, in order, so a quick
+  // second tap is never dropped and an older save never overwrites a newer choice.
+  const connected = useOptimisticValue<Record<string, boolean>>({
+    value: serverConnected,
+    commit: async (next) => {
+      const profileRes = await http.get('/api/profile/me')
+      const profile = unwrapSingle<ProfileResponse>(profileRes)
+      const prevPrefs = profile?.user?.preferences ?? {}
+      await http.patch('/api/profile/me', {
+        preferences: { ...prevPrefs, integrations: next },
+      })
+      return next
     },
-    [http, connected, t],
-  )
+    onError: (saveError) => {
+      logError('integrations.save', saveError)
+      setError(
+        t('integrations.saveError', {}, { defaultValue: 'Could not save integration state.' }),
+      )
+    },
+  })
+
+  const toggle = (key: string) => {
+    setError(null)
+    connected.update((current) => ({ ...current, [key]: !current[key] }))
+  }
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), 'max-w-[1200px] mx-auto')}>
@@ -170,7 +169,7 @@ export function Integrations() {
             },
           )}
         </p>
-        {saving ? (
+        {connected.pending ? (
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
             {t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })}
           </p>
@@ -206,7 +205,7 @@ export function Integrations() {
             className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 sm:grid-cols-2 lg:grid-cols-3')}
           >
             {INTEGRATIONS.filter((i) => i.category === cat.key).map((i) => {
-              const isConnected = !!connected[i.key]
+              const isConnected = !!connected.value[i.key]
               return (
                 <div
                   key={i.key}

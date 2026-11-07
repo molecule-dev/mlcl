@@ -544,7 +544,8 @@ const moleculeLocal = {
             /^(?:save|persist|update|toggle|favorite|unfavorite|follow|unfollow|like|unlike|bookmark|unbookmark|star|unstar)(?:$|[A-Z_])/.test(
               name,
             ) ||
-            /^set[A-Z]/.test(name)
+            /^set[A-Z]/.test(name) ||
+            /^(?:api|http|client)(?:Post|Put|Patch|Delete|Request|Mutate)(?:$|[A-Z_])/.test(name)
           )
             return true
           const definition = variableFor(unwrap(node.callee))?.defs[0]
@@ -582,9 +583,29 @@ const moleculeLocal = {
           visit(fn.body)
           return names
         }
-        const toggled = (node, names) =>
-          negatedRead(node) ||
-          (unwrap(node)?.type === 'Identifier' && names.has(variableFor(unwrap(node))))
+        const toggled = (node, names, seen = new Set()) => {
+          const expression = unwrap(node)
+          if (!expression || seen.has(expression) || seen.size > 24) return false
+          const next = new Set(seen).add(expression)
+          if (negatedRead(expression)) return true
+          if (expression.type === 'ObjectExpression')
+            return expression.properties.some(
+              (property) => property.type === 'Property' && toggled(property.value, names, next),
+            )
+          if (expression.type !== 'Identifier') return false
+          const variable = variableFor(expression)
+          if (names.has(variable)) return true
+          const definition = variable?.defs[0]
+          // A previous immutable alias can hold an object containing the flipped field.
+          // Mutable values and destructuring stay unknown.
+          return (
+            definition?.node.type === 'VariableDeclarator' &&
+            definition.node.id.type === 'Identifier' &&
+            definition.parent?.kind === 'const' &&
+            definition.node.range[1] <= expression.range[0] &&
+            toggled(definition.node.init, names, next)
+          )
+        }
         // `{ notifications: !settings.notifications }`: a field set to the opposite of itself.
         const selfToggle = (property) => {
           if (property.type !== 'Property' || !negatedRead(property.value)) return false
@@ -749,6 +770,8 @@ const moleculeLocal = {
         // The rewrite uses the component's own state, updater, request and response reads.
         // It is advice, never an automatic edit: auth guards and app-specific callbacks stay.
         const rewriteFor = (fn, save) => {
+          if (writesBefore(fn, save).some(({ state }) => state.seed?.type === 'ObjectExpression'))
+            return 'Keep the control disabled while this request is pending, or queue each intent with useOptimisticValue. Its commit must choose one request from the desired field value and return the saved result. Preserve auth checks and the server response shape; verify both directions with a delayed first response.'
           const writes = writesBefore(fn, save)
           const selected = [...new Map(writes.map((write) => [write.state.setter, write])).values()]
           if (!selected.length)
@@ -1149,7 +1172,7 @@ const moleculeLocal = {
                       let branch = node.parent
                       while (branch && branch !== fn) {
                         if (
-                          branch.type === 'IfStatement' &&
+                          ['IfStatement', 'ConditionalExpression'].includes(branch.type) &&
                           [...states.values()].some((state) =>
                             state.variable.references.some(
                               (reference) =>

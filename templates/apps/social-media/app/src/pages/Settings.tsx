@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -76,7 +76,7 @@ export function Settings() {
   const { user, setUser } = useAuth<UserWithPrefs>()
   const [active, setActive] = useState<string>('profile')
   const [profile, setProfile] = useState<MeProfile | null>(null)
-  const [prefs, setPrefs] = useState<Required<SocialPreferences>>(DEFAULT_PREFS)
+  const [serverPrefs, setServerPrefs] = useState<Required<SocialPreferences>>(DEFAULT_PREFS)
   const [loaded, setLoaded] = useState(false)
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
@@ -104,7 +104,7 @@ export function Settings() {
           })
         }
         const stored = prefsRes.data?.preferences
-        if (stored) setPrefs({ ...DEFAULT_PREFS, ...stored })
+        if (stored) setServerPrefs({ ...DEFAULT_PREFS, ...stored })
         setLoaded(true)
       } catch (err) {
         if (cancelled) return
@@ -182,32 +182,33 @@ export function Settings() {
     [http, userId, profile],
   )
 
-  const togglePref = useCallback(
-    async (key: keyof SocialPreferences) => {
-      if (!userId) return
-      const next = { ...prefs, [key]: !prefs[key] }
-      setPrefs(next)
-      setSaving(true)
-      setError(null)
-      try {
-        // Server-side merge: only the flipped key is sent, the API merges it
-        // into users.oauthData.socialPreferences and returns the full slice.
-        const res = await http.patch<{ preferences?: Partial<SocialPreferences> }>('/preferences', {
-          preferences: { [key]: !prefs[key] },
-        })
-        if (res.data?.preferences) {
-          setPrefs((prev) => ({ ...prev, ...res.data!.preferences }))
-        }
-        setSavedAt(Date.now())
-      } catch (err) {
-        setError(err instanceof Error ? err.message : 'Could not save preference')
-        setPrefs((prev) => ({ ...prev, [key]: !next[key] }))
-      } finally {
-        setSaving(false)
-      }
+  // Each switch shows its new state at once; saves run one at a time, in order, so a quick
+  // second tap is never dropped and an older response never overwrites a newer choice.
+  const preferences = useOptimisticValue<Required<SocialPreferences>>({
+    value: serverPrefs,
+    commit: async (next, previous) => {
+      // Server-side merge: only the changed keys are sent, the API merges them
+      // into users.oauthData.socialPreferences and returns the full slice.
+      const changed = Object.fromEntries(
+        Object.entries(next).filter(([key, on]) => previous[key as keyof SocialPreferences] !== on),
+      )
+      const res = await http.patch<{ preferences?: Partial<SocialPreferences> }>('/preferences', {
+        preferences: changed,
+      })
+      setSavedAt(Date.now())
+      return { ...next, ...(res.data?.preferences ?? {}) }
     },
-    [http, userId, prefs],
-  )
+    onError: (err) => {
+      setError(err instanceof Error ? err.message : 'Could not save preference')
+    },
+  })
+  const prefs = preferences.value
+
+  const togglePref = (key: keyof SocialPreferences) => {
+    if (!userId) return
+    setError(null)
+    preferences.update((current) => ({ ...current, [key]: !current[key] }))
+  }
 
   const cover = useMemo(() => vividGradient(profile?.cover_index ?? 0), [profile])
 
@@ -253,7 +254,7 @@ export function Settings() {
             className={cm.cn(cm.textSize('xs'), 'text-emerald-600 dark:text-emerald-400 mt-1')}
             data-testid="settings-saved"
           >
-            {saving
+            {saving || preferences.pending
               ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
               : t('common.saved', {}, { defaultValue: 'Saved' })}
           </p>

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -68,7 +68,7 @@ export function Settings() {
   const [username, setUsername] = useState('')
   const [email, setEmail] = useState('')
   const [saving, setSaving] = useState(false)
-  const [notifyPrefs, setNotifyPrefs] = useState<Record<string, boolean>>({
+  const [serverNotifyPrefs, setServerNotifyPrefs] = useState<Record<string, boolean>>({
     outbid: true,
     ending: true,
     won: true,
@@ -96,7 +96,7 @@ export function Settings() {
         setUsername(body.username ?? '')
         setEmail(body.email ?? '')
         if (body.notifyPrefs && Object.keys(body.notifyPrefs).length > 0) {
-          setNotifyPrefs((prev) => ({ ...prev, ...body.notifyPrefs }))
+          setServerNotifyPrefs((prev) => ({ ...prev, ...body.notifyPrefs }))
         }
       })
       .catch((e: unknown) => {
@@ -152,28 +152,32 @@ export function Settings() {
       .finally(() => setSaving(false))
   }
 
+  // Each switch shows its new state at once; saves run one at a time, in order, so a quick
+  // second tap is never dropped and an older response never overwrites a newer choice.
+  const notifyPrefs = useOptimisticValue<Record<string, boolean>>({
+    value: serverNotifyPrefs,
+    commit: async (next) => {
+      const res = await http.patch<MeResponse>('/api/me', { notifyPrefs: next })
+      setNotifyStatus({
+        kind: 'success',
+        message: t('settings.notifySaved', {}, { defaultValue: 'Preferences saved.' }),
+      })
+      return { ...next, ...(res.data?.notifyPrefs ?? {}) }
+    },
+    onError: (err) => {
+      setNotifyStatus({
+        kind: 'error',
+        message:
+          err instanceof Error
+            ? err.message
+            : t('settings.notifyError', {}, { defaultValue: 'Could not save preference.' }),
+      })
+    },
+  })
+
   const toggleNotify = (key: string) => {
-    const next = { ...notifyPrefs, [key]: !notifyPrefs[key] }
-    setNotifyPrefs(next)
     setNotifyStatus({ kind: 'idle' })
-    http
-      .patch('/api/me', { notifyPrefs: next })
-      .then(() => {
-        setNotifyStatus({
-          kind: 'success',
-          message: t('settings.notifySaved', {}, { defaultValue: 'Preferences saved.' }),
-        })
-      })
-      .catch((err: unknown) => {
-        setNotifyPrefs((prev) => ({ ...prev, [key]: !prev[key] }))
-        setNotifyStatus({
-          kind: 'error',
-          message:
-            err instanceof Error
-              ? err.message
-              : t('settings.notifyError', {}, { defaultValue: 'Could not save preference.' }),
-        })
-      })
+    notifyPrefs.update((current) => ({ ...current, [key]: !current[key] }))
   }
 
   return (
@@ -602,7 +606,7 @@ export function Settings() {
                   <label className={cm.cn('inline-flex items-center cursor-pointer')}>
                     <input
                       type="checkbox"
-                      checked={Boolean(notifyPrefs[kind])}
+                      checked={Boolean(notifyPrefs.value[kind])}
                       onChange={() => toggleNotify(kind)}
                       className={cm.cn('sr-only peer')}
                       aria-label={t(

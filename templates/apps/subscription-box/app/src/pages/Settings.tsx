@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -69,7 +69,7 @@ export function Settings() {
   const [name, setName] = useState(String((userObj?.name as string) ?? ''))
   const [email, setEmail] = useState(String((userObj?.email as string) ?? ''))
   const [address, setAddress] = useState('')
-  const [prefs, setPrefs] = useState<Record<string, boolean>>(() =>
+  const [serverPrefs, setServerPrefs] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(notificationPreferences.map((p) => [p.id, p.defaultEnabled])),
   )
   const [subscription, setSubscription] = useState<ApiSubscription | null>(null)
@@ -103,7 +103,7 @@ export function Settings() {
         const subPrefs = (sub.preferences ?? {}) as SubscriptionPreferences
         if (typeof subPrefs.address === 'string') setAddress(subPrefs.address)
         if (subPrefs.notifications) {
-          setPrefs((prev) => ({ ...prev, ...subPrefs.notifications! }))
+          setServerPrefs((prev) => ({ ...prev, ...subPrefs.notifications! }))
         }
       })
       .catch(() => {})
@@ -194,21 +194,28 @@ export function Settings() {
     }
   }
 
-  const togglePref = async (id: string) => {
-    const next = { ...prefs, [id]: !prefs[id] }
-    setPrefs(next)
-    if (subscription) {
-      try {
-        await persistPreferences({ notifications: next })
+  // Each switch shows its new state at once; saves run one at a time, in order, so a quick
+  // second tap is never dropped and an older save never overwrites a newer choice. A failed
+  // save puts the server's value back. Without a subscription the choice stays local.
+  const notifications = useOptimisticValue<Record<string, boolean>>({
+    value: serverPrefs,
+    commit: async (next, previous) => {
+      if (!subscription) return next
+      await persistPreferences({ notifications: next })
+      for (const [preference, enabled] of Object.entries(next)) {
+        if (previous[preference] === enabled) continue
         track({
           name: 'settings.notifications_changed',
-          properties: { subscriptionId: subscription.id, preference: id, enabled: next[id] },
+          properties: { subscriptionId: subscription.id, preference, enabled },
         })
-      } catch (_error) {
-        // intentional noop: optimistic update is rolled back; error is best-effort
-        setPrefs(prefs)
       }
-    }
+      return next
+    },
+  })
+  const prefs = notifications.value
+
+  const togglePref = (id: string) => {
+    notifications.update((current) => ({ ...current, [id]: !current[id] }))
   }
 
   const pauseSubscription = async () => {
