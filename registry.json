@@ -21540,6 +21540,7 @@
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-logger",
+        "@molecule/api-resource",
         "@molecule/api-resource-follow",
         "@molecule/api-resource-reaction",
         "@molecule/api-slug"
