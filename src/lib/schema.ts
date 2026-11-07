@@ -510,6 +510,14 @@ export const MoleculeMetadata = z.object({
     .array(z.string())
     .optional()
     .describe('Exports that resource wrappers should re-export (e.g. authorization, services)'),
+  requestHandlerMapFactory: z
+    .string()
+    .regex(/^[A-Za-z_$][\w$]*$/)
+    .optional()
+    .describe(
+      'Export that takes RequestHandlerOptions and returns the resource HTTP handler map. ' +
+        'Scaffold a local options object instead of re-exporting the fixed map.',
+    ),
   shortName: z
     .string()
     .optional()
@@ -851,6 +859,14 @@ export const RegistryEntry = z.object({
     .array(z.string())
     .optional()
     .describe('Exports that resource wrappers should re-export (e.g. authorization, services)'),
+  requestHandlerMapFactory: z
+    .string()
+    .regex(/^[A-Za-z_$][\w$]*$/)
+    .optional()
+    .describe(
+      'Export that takes RequestHandlerOptions and returns the resource HTTP handler map. ' +
+        'Scaffold a local options object instead of re-exporting the fixed map.',
+    ),
   shortName: z
     .string()
     .optional()

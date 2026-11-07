@@ -4142,7 +4142,8 @@ async function generateWrapperContent(
   pkg: InferredPackage,
   authContract?: AuthContract,
 ): Promise<string> {
-  if (authContract) return generateWrapperContentHeuristic(pkg, authContract)
+  if (authContract || pkg.molecule?.requestHandlerMapFactory)
+    return generateWrapperContentHeuristic(pkg, authContract)
   if (isAIAvailable()) {
     try {
       return await generateWrapperContentAI(pkg)
@@ -4196,11 +4197,29 @@ function routerAccessorExports(exports: readonly string[]): string[] {
   return exports.filter((e) => ROUTER_ACCESSOR_EXPORTS.includes(e))
 }
 
+/** Resolve an explicitly declared options factory before any fixed-map fallback. */
+function requestHandlerMapFactory(
+  pkg: InferredPackage,
+  exports?: readonly string[],
+): string | undefined {
+  const factory = pkg.molecule?.requestHandlerMapFactory
+  if (factory === undefined) return undefined
+  if (
+    typeof factory !== 'string' ||
+    !/^[A-Za-z_$][\w$]*$/.test(factory) ||
+    (exports !== undefined && !exports.includes(factory))
+  )
+    throw new Error(
+      `${pkg.name}: requestHandlerMapFactory must name an exported function; got ${JSON.stringify(factory)}`,
+    )
+  return factory
+}
+
 /**
  * Heuristic resource wrapper generation (fallback).
  *
- * Detects whether the package exports a `createRequestHandlerMap` factory
- * or a static `requestHandlerMap` object and generates the appropriate code.
+ * Prefer a declared options factory, then the `createRequestHandlerMap`
+ * wrapper convention, then a static `requestHandlerMap` object.
  * Extra exports a resource makes available to the app (e.g. `authorization`) are
  * re-exported when the registry entry names them in `molecule.reExports` — the
  * mapping is registry metadata, never a per-package special case here — plus
@@ -4214,6 +4233,25 @@ async function generateWrapperContentHeuristic(
 ): Promise<string> {
   const exports = pkg.exports.length > 0 ? pkg.exports : await scanExportsFromPath(pkg.path)
   const accessors = routerAccessorExports(exports)
+  const optionsFactory = requestHandlerMapFactory(pkg, exports)
+
+  if (optionsFactory) {
+    const reExports = new Set([...(pkg.molecule?.reExports ?? []), ...accessors])
+    const extraReExports = exports
+      .filter((name) => reExports.has(name))
+      .map((name) => `export { ${name} } from '${pkg.name}'`)
+      .join('\n')
+    return `import { ${optionsFactory} } from '${pkg.name}'
+
+${extraReExports ? extraReExports + '\n\n' : ''}// Configure this map's wire format here; the package keeps validation and authorization.
+// mapRequest returns overrides such as { body: req.body?.entry } or { query }.
+// mapResponse can project a whole page. It also receives errors and empty deletes.
+export const requestHandlerMap = ${optionsFactory}({
+  // mapRequest: (req) => ({ body: req.body?.entry }),
+  // mapResponse: (response) => response,
+})
+`
+  }
 
   if (exports.includes('createRequestHandlerMap')) {
     const resourcePkg = requirePackageByRole('api', 'infrastructure', 'resource')
@@ -5088,6 +5126,10 @@ async function generateMoleculeViMocks(
   allMolecules: string[],
   resourcePlans: InjectionPlan[],
 ): Promise<string> {
+  // The declared options factory fixes the wrapper's call signature. Keep its
+  // mocks on the same contract rather than asking a model to infer it again.
+  if (resourcePlans.some((plan) => plan.moleculePackage?.molecule?.requestHandlerMapFactory))
+    return generateMoleculeViMocksHeuristic(allMolecules, resourcePlans)
   if (isAIAvailable()) {
     try {
       return await generateMoleculeViMocksAI(allMolecules, resourcePlans)
@@ -5169,6 +5211,7 @@ function generateMoleculeViMocksHeuristic(
 
   const resourceHandlerMap = new Map<string, Set<string>>()
   const resourceExportsMap = new Map<string, string[]>()
+  const resourceOptionsFactories = new Map<string, { name: string; reExports: string[] }>()
   for (const plan of resourcePlans) {
     if (!plan.moleculePackage) continue
     const handlers = new Set<string>()
@@ -5178,6 +5221,12 @@ function generateMoleculeViMocksHeuristic(
     }
     resourceHandlerMap.set(plan.molecule, handlers)
     resourceExportsMap.set(plan.molecule, plan.moleculePackage.exports)
+    const factory = requestHandlerMapFactory(plan.moleculePackage)
+    if (factory)
+      resourceOptionsFactories.set(plan.molecule, {
+        name: factory,
+        reExports: plan.moleculePackage.molecule?.reExports ?? [],
+      })
   }
 
   const moleculePkgs = collectMoleculeMocks(allMolecules, resourcePlans)
@@ -5198,12 +5247,13 @@ function generateMoleculeViMocksHeuristic(
       const handlers = resourceHandlerMap.get(pkg)!
       const pkgExports = resourceExportsMap.get(pkg) ?? []
       const hasAuthorization = pkgExports.includes('authorization')
+      const optionsFactory = resourceOptionsFactories.get(pkg)
       const hasFactory = pkgExports.includes('createRequestHandlerMap')
 
-      if (hasFactory) {
+      if (optionsFactory || hasFactory) {
         const handlerEntries = [...handlers].map((h) => `    ${h}: vi.fn(),`).join('\n')
         lines.push(`vi.mock('${pkg}', () => ({`)
-        lines.push(`  createRequestHandlerMap: () => ({`)
+        lines.push(`  ${optionsFactory?.name ?? 'createRequestHandlerMap'}: () => ({`)
         lines.push(handlerEntries)
         lines.push(`  }),`)
         // Contract adapters consume the raw handler factories and resource as
@@ -5215,6 +5265,12 @@ function generateMoleculeViMocksHeuristic(
         }
         if (pkgExports.includes('resource')) lines.push(`  resource: {},`)
         if (hasAuthorization) lines.push(AUTHORIZATION_MOCK_ENTRY)
+        if (optionsFactory) {
+          const provided = new Set([optionsFactory.name, 'handlers', 'resource', 'authorization'])
+          for (const name of pkgExports)
+            if (optionsFactory.reExports.includes(name) && !provided.has(name))
+              lines.push(`  ${name}: vi.fn(),`)
+        }
         lines.push(`}))`)
       } else if (pkgExports.includes('requestHandlerMap')) {
         // Static requestHandlerMap — mock as object with handler entries

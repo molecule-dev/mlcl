@@ -21485,6 +21485,14 @@
       "label": "Articles",
       "description": "Articles and blog posts: unique slugs, tags, favorites, a followed-authors feed, and filtered, paginated lists",
       "stack": "api",
+      "requestHandlerMapFactory": "createArticleHandlers",
+      "decisionGuide": {
+        "configuration": [
+          "Configure createArticleHandlers({ mapRequest, mapResponse }) in the generated App/Resource/Article/index.ts wrapper. Keep the shared article operations.",
+          "mapRequest can unwrap bodies, rename or resolve query filters, and return an explicit early response. Async mapResponse can batch-load author profiles, project list items, change pagination envelopes and translate error statuses/bodies. Read the package Quick Start for the full recipe.",
+          "The default requestHandlerMap uses flat bodies, raw article responses and { data, total, limit, offset } pages. A different wire format needs configured handlers; a different domain workflow can still call the service functions."
+        ]
+      },
       "exports": [
         "create",
         "list",
