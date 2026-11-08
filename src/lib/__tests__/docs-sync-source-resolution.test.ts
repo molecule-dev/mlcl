@@ -62,6 +62,9 @@ async function fixture(reexport = `export * from '${sibling}'`): Promise<{
   }
   // Like the release/hook export: dependency installs link back to the live tree.
   await symlink(join(live, 'node_modules'), join(tree, 'node_modules'), 'dir')
+  // generateDocs formats with the Prettier config resolved from the README's path. A molecule tree carries its
+  // own (single quotes, no semicolons); without one here the result depends on whatever config sits above tmpdir.
+  await put(join(tree, '.prettierrc'), JSON.stringify({ singleQuote: true, semi: false }))
   await put(
     join(tree, siblingPath, 'src/index.ts'),
     "/** Committed source documentation. */\nexport interface PublicOptions { source: 'committed' }\n",
