@@ -162,6 +162,28 @@ describe('SEC1 — .env* secrets protection in scaffolded .gitignore', () => {
     }
   })
 
+  // @molecule/api-database-sqlite keeps the app's rows in ./data/app.db (WAL mode) under the
+  // api package. Committed, they reach every clone, export and public repository of the project.
+  it('every api ignore source keeps the SQLite database and its side files out of git', async () => {
+    const appsDir = join(TEMPLATES, 'apps')
+    const sources = [
+      join(TEMPLATES, 'api', 'gitignore.tpl'),
+      ...(await readdir(appsDir, { withFileTypes: true }))
+        .filter((e) => e.isDirectory())
+        .map((e) => join(appsDir, e.name, 'api', '.gitignore'))
+        .filter((p) => existsSync(p)),
+    ]
+    expect(sources.length).toBeGreaterThan(50)
+    const runtime = ['data/app.db', 'data/app.db-wal', 'data/app.db-shm', 'data/app.db-journal']
+    const source = ['src/db.ts', 'data/seed.json', 'migrations/001_init.sql']
+    for (const src of sources) {
+      const status = await ignoredStatus(await readFile(src, 'utf-8'), [...runtime, ...source])
+      for (const path of runtime) expect(status[path], `${src}: ${path} must be ignored`).toBe(true)
+      for (const path of source)
+        expect(status[path], `${src}: ${path} must stay tracked`).toBe(false)
+    }
+  })
+
   it('the React Native scaffold emits a .env*-protected .gitignore', async () => {
     const projectPath = join(workdir, 'rn-app')
     await createReactNativeAppProject(projectPath, 'rn-app')

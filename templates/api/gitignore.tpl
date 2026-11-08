@@ -20,3 +20,10 @@ node_modules/
 # molecule.dev platform runtime markers written into the project root by the
 # sandbox (.mol-install-*, .mol-boot-timeline.log, ...) — never project source
 .mol-*
+
+# SQLite runtime database (@molecule/api-database-sqlite writes ./data/app.db in WAL
+# mode, with -wal/-shm/-journal side files): application data, never project source
+*.db
+*.db-wal
+*.db-shm
+*.db-journal
