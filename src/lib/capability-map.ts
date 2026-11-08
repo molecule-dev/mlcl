@@ -6,8 +6,8 @@
  * @module
  */
 
-import { readdir, readFile, writeFile } from 'node:fs/promises'
-import { join, posix } from 'node:path'
+import { readdir, readFile, realpath, writeFile } from 'node:fs/promises'
+import { isAbsolute, join, posix, relative as relativePath, sep } from 'node:path'
 
 import { ts } from 'ts-morph'
 
@@ -37,6 +37,8 @@ export interface CapabilityMapEntry {
   configFiles?: Array<{ path: string; names: string[] }>
   configNames: string[]
   documentation: string
+  /** Existing workspace-relative JS/TS files that carry this package's recipes. */
+  sourceFiles?: string[]
 }
 
 const DEPENDENCY_SECTIONS = [
@@ -89,6 +91,7 @@ export function capabilityEntryFromRegistry(
     defaultBond: entry.defaultBond,
     configNames,
     documentation: `https://www.molecule.dev/packages/${name.replace('@molecule/', '')}`,
+    ...(entry.decisionGuide?.sourceFiles ? { sourceFiles: entry.decisionGuide.sourceFiles } : {}),
   }
 }
 
@@ -529,6 +532,82 @@ export function renderCapabilityBondHeader(entry: CapabilityMapEntry, title?: st
   return `/**\n${title ? ` * ${title}\n *\n` : ''}${lines
     .map((line) => ` * ${line}`)
     .join('\n')}\n */\n\n`
+}
+
+const SOURCE_HEADER_START = '/* @molecule/capability-recipes:start\n'
+const SOURCE_HEADER_END = ' * @molecule/capability-recipes:end */\n\n'
+
+/**
+ * Put the declared recipes beside the code an app author edits. This uses the
+ * existing registry guide, rather than a second package list or prompt rule.
+ * Only an exact generated prefix is replaced; the rest of the module is unchanged.
+ * Missing sources are normal (another framework or a static app).
+ *
+ * @param projectRoot - The scaffold's root or app workspace.
+ * @param registry - Registry generation whose metadata selects the source files.
+ * @param declared - Optional declarations already resolved by the caller.
+ * @returns Project-relative source paths changed by this call.
+ * @throws When a selected source resolves outside the project.
+ */
+export async function stampCapabilitySourceHeaders(
+  projectRoot: string,
+  registry: Registry = getRawRegistry(),
+  declared?: Iterable<DeclaredPackage | string>,
+): Promise<string[]> {
+  const entries = await readProjectCapabilityMap(projectRoot, registry, declared)
+  const byPath = new Map<string, CapabilityMapEntry[]>()
+  for (const entry of entries)
+    for (const workspace of entry.workspaces)
+      for (const file of entry.sourceFiles ?? []) {
+        const path = prefixed(workspace, file)
+        byPath.set(path, [...(byPath.get(path) ?? []), entry])
+      }
+
+  // Include inactive declarations' targets to remove our own stale header when
+  // a package is removed. These are the same three manifests the map reads.
+  const candidates = new Set(byPath.keys())
+  for (const entry of Object.values(registry.packages))
+    for (const file of entry.decisionGuide?.sourceFiles ?? [])
+      for (const workspace of ['', 'api', 'app']) candidates.add(prefixed(workspace, file))
+
+  const changed: string[] = []
+  const ownedRoot = await realpath(projectRoot)
+  for (const relative of candidates) {
+    const path = join(projectRoot, relative)
+    let source: string
+    try {
+      source = await readFile(path, 'utf8')
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === 'ENOENT') continue
+      throw error
+    }
+    const shebang = /^#![^\n]*(?:\n|$)/.exec(source)?.[0] ?? ''
+    let body = source.slice(shebang.length)
+    if (body.startsWith(SOURCE_HEADER_START)) {
+      const end = body.indexOf(SOURCE_HEADER_END, SOURCE_HEADER_START.length)
+      if (end !== -1) body = body.slice(end + SOURCE_HEADER_END.length)
+    }
+    const recipes = byPath.get(relative) ?? []
+    const lines = recipes.flatMap((entry) => [
+      `Installed: ${entry.name}`,
+      ...entry.guidance,
+      ...entry.configuration,
+    ])
+    const header = lines.length
+      ? SOURCE_HEADER_START +
+        lines.map((line) => ` * ${line.replace(/\*\//g, '* /')}`).join('\n') +
+        '\n' +
+        SOURCE_HEADER_END
+      : ''
+    const next = shebang + header + body
+    if (next === source) continue
+    const ownedPath = relativePath(ownedRoot, await realpath(path))
+    if (ownedPath === '..' || ownedPath.startsWith(`..${sep}`) || isAbsolute(ownedPath))
+      throw new Error(`Refusing a capability header outside the project: ${relative}`)
+    await writeFile(path, next, 'utf8')
+    changed.push(relative)
+  }
+  return changed
 }
 
 /**

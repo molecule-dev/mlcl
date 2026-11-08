@@ -31420,6 +31420,9 @@
         ]
       },
       "decisionGuide": {
+        "sourceFiles": [
+          "src/config.ts"
+        ],
         "bindingGuidance": {
           "@molecule/app-react": [
             "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is the session status and `state.user` is the current user. `AuthProvider` renders children immediately."
@@ -31441,6 +31444,7 @@
           ]
         },
         "configuration": [
+          "Request and response shapes are independent. Flat login/register bodies need no mapper. When the API reads a named envelope, configure mapRequestBody: (payload: Record<string, unknown>) => ({ account: payload }) with its actual envelope key; mapAuthResponse only reads the answer. Profile writes use their own profileRequestBody: (payload: unknown) => ({ account: payload }). Keep the generated auth bond and the framework auth binding; do not wrap credentials at a page call or add another session store.",
           "Bearer + top-level token: keep `authScheme: 'Bearer'` and the default response mapping; set `currentUserEndpoint` and `profileEndpoint`/`profileUpdateMethod` to the API's current-user GET and profile update route/method.",
           "Custom token API: set `tokenKey` (or `storagePrefix`), `authScheme: 'Token'`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod`; use `mapAuthResponse` to turn envelopes such as `{ user: { token, ...user } }` into `{ accessToken, user }`.",
           "Cookie session: use `storage: 'memory'`, `cookieRestore: 'always'`, configure `currentUserEndpoint`, and keep HTTP `withCredentials: true`; no browser token store is needed. The default `cookieRestore: 'hint'` probes only when the server also sets a readable `mol_auth=1` presence cookie."
@@ -57062,6 +57066,15 @@
         "@molecule/app-query"
       ],
       "path": "packages/app/features/query-react",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/App.tsx"
+        ],
+        "configuration": [
+          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
+          "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
+        ]
+      },
       "intentHints": [
         "usequery hook",
         "prefetch links on hover"
@@ -59322,9 +59335,13 @@
       "bondSetter": "setProvider",
       "path": "packages/app/core/state",
       "decisionGuide": {
+        "sourceFiles": [
+          "src/App.tsx"
+        ],
         "bindingGuidance": {
           "@molecule/app-react": [
-            "React binding: a toggle or counter button uses `useOptimisticValue({ value, commit, equals })` from `@molecule/app-react`, with `value` from the record's props or query and `commit` sending one change and returning the server's value. Render `value`, call `update((current) => next)` on every click, and give the component a `key` per record."
+            "React binding: a toggle or counter button uses `useOptimisticValue({ value, commit, equals })` from `@molecule/app-react`, with `value` from the record's props or query and `commit` sending one change and returning the server's value. Render `value`, call `update((current) => next)` on every click, and give the component a `key` per record.",
+            "React toggle: const enabled = useOptimisticValue({ value: record.enabled, commit: async (desiredEnabled) => saveEnabled(record.id, desiredEnabled) }); render enabled.value and call enabled.update((current) => !current) on click. commit receives the DESIRED state; a false current flag must send true to enable. The save must return the confirmed boolean, or map its response to that boolean. Give the mounted control a key per record and keep it mounted during refetches. Local UI toggles can use useState."
           ]
         },
         "configuration": [
@@ -60430,6 +60447,15 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/tag-input-react",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/App.tsx"
+        ],
+        "configuration": [
+          "Tag/chip entry: import { TagInput } from \"@molecule/app-tag-input-react\" and render `<TagInput value={tags} onChange={setTags} />` with string[] state. Typing then Enter adds a visible text chip and never submits the surrounding form.",
+          "For app-owned markup, import { useTagInput } from \"@molecule/app-tag-input-react\"; const { inputProps, remove } = useTagInput({ value: tags, onChange: setTags }); spread inputProps on the input and render tags.map(...) as text. Keep the array as the form value, rather than splitting a draft string at submit. Read-only tags use TagChip or map the stored array as text. A plain CSV field with no token-entry interaction can stay local."
+        ]
+      },
       "intentHints": [
         "tags input",
         "tag input",

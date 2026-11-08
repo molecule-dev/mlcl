@@ -150,6 +150,13 @@ export type SqlCapabilitiesValue = z.infer<typeof SqlCapabilitiesSchema>
 
 /** Package-authored decision guidance rendered by capability-map.ts. */
 export const DecisionGuide = z.object({
+  sourceFiles: z
+    .array(z.string().regex(/^(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_-]+\.[cm]?[jt]sx?$/))
+    .optional()
+    .describe(
+      'Workspace-relative JavaScript/TypeScript files that receive the declared capability recipes ' +
+        'at scaffold time. Only existing files are stamped; application code is preserved.',
+    ),
   bindingGuidance: z
     .record(z.string(), z.array(z.string()))
     .optional()

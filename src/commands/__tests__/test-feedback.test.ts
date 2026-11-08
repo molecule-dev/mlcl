@@ -15,6 +15,10 @@ import TestFeedback from '../test-feedback.js'
 const require = createRequire(import.meta.url)
 const cli = require.resolve('@playwright/test/cli')
 const cliRoot = join(import.meta.dirname, '../../..')
+// The runner gives native background work low OS priority and a 120-second
+// deadline. A loaded builder may not schedule its browser within 8–15 seconds.
+// Wait for real native progress; keep the cancellation-latency assertion tight.
+const nativeWaitMs = 120_000
 let root: string, source: string, server: ReturnType<typeof createServer>, requests: number
 let stop: (() => void) | undefined, watching: Promise<void> | undefined
 const initialCwd = process.cwd()
@@ -93,12 +97,14 @@ it('watches a physical HTML component file and delivers a native failure while t
       await expect(readdir(join(root, '.mol/test-feedback'))).rejects.toThrow(/ENOENT/)
       expect(requests).toBeGreaterThan(0)
     },
-    { timeout: 15000 },
+    { timeout: nativeWaitMs },
   )
   expect(Command.prototype.log).not.toHaveBeenCalled()
   expect(Command.prototype.warn).not.toHaveBeenCalled()
   await writeFile(source, '<main><div>entry</div></main>')
-  await vi.waitFor(() => expect(Command.prototype.log).toHaveBeenCalled(), { timeout: 10000 })
+  await vi.waitFor(() => expect(Command.prototype.log).toHaveBeenCalled(), {
+    timeout: nativeWaitMs,
+  })
   const result = JSON.parse(vi.mocked(Command.prototype.log).mock.calls[0][0] as string)
   expect(result.failures[0]).toMatchObject({
     spec: expect.stringContaining('note.spec.ts'),
@@ -107,14 +113,14 @@ it('watches a physical HTML component file and delivers a native failure while t
   })
   expect(result.failures[0].locator).toContain("locator('p').filter({ hasText: 'entry' })")
   expect(result.failures[0].rendered).toContain('entry')
-}, 40_000)
+}, 2 * nativeWaitMs + 10_000)
 
 it('one-shot diagnosis returns a nonzero status for an actual native failure', async () => {
   await writeFile(source, '<main><div>entry</div></main>')
   const cmd = await command()
   await expect(cmd.run()).rejects.toThrow(/EEXIT: 1/)
   expect(Command.prototype.log).toHaveBeenCalledTimes(1)
-}, 20_000)
+}, nativeWaitMs + 10_000)
 
 it('does not drive the app or emit a note when no supplied spec exists', async () => {
   await rm(join(root, 'e2e/note.spec.ts'))
@@ -139,7 +145,7 @@ it('stops an active speculative native run immediately when the watcher is close
   })
   watching = (await command(['--watch'])).run()
   await vi.waitFor(async () => expect(await readFile(join(root, 'started'), 'utf8')).toBe('yes'), {
-    timeout: 8000,
+    timeout: nativeWaitMs,
   })
   const time = performance.now()
   stop!()
@@ -147,4 +153,4 @@ it('stops an active speculative native run immediately when the watcher is close
   expect(performance.now() - time).toBeLessThan(1500)
   expect(Command.prototype.log).not.toHaveBeenCalled()
   expect(Command.prototype.warn).not.toHaveBeenCalled()
-}, 15_000)
+}, nativeWaitMs + 10_000)

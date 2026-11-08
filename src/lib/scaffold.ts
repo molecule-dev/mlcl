@@ -46,6 +46,7 @@ import {
   readProjectCapabilityMap,
   renderCapabilityMap,
   stampCapabilityBondHeaders,
+  stampCapabilitySourceHeaders,
 } from './capability-map.js'
 import { filterEnvSecrets, renderEnvSecretLines, resolveDatabaseUrlValue } from './env-file.js'
 import { isExactVersion } from './exact-version.js'
@@ -2375,10 +2376,12 @@ export async function ensureAgentsMd(
   declared?: Iterable<DeclaredPackage | string>,
 ): Promise<void> {
   const target = join(projectRoot, 'AGENTS.md')
+  const declarations = declared ? [...declared] : undefined
+  await stampCapabilitySourceHeaders(projectRoot, getRawRegistry(), declarations)
   const { existsSync } = await import('node:fs')
   if (existsSync(target)) return
   const template = await loadTemplate('shared/AGENTS.md.tpl')
-  const entries = await readProjectCapabilityMap(projectRoot, getRawRegistry(), declared)
+  const entries = await readProjectCapabilityMap(projectRoot, getRawRegistry(), declarations)
   const capabilityMap = renderCapabilityMap(entries)
   await writeFile(target, capabilityMap ? `${template.trimEnd()}\n\n${capabilityMap}\n` : template)
 }
@@ -3028,6 +3031,7 @@ export async function copyTemplateInstance(
   if (authContract && !isDefaultAuthContract(authContract)) {
     await configureTemplateInstanceAuth(destDir, authContract)
   }
+  await stampCapabilitySourceHeaders(destDir)
 }
 
 /** The `@molecule/*` packages an app's e2e setup imports (see {@link ensureE2EManifest}). */
@@ -4664,6 +4668,7 @@ export async function applyTemplatePostInjectOverrides(
   // must be the LAST writer on this path too (not only copyTemplateInstance).
   await stampCapabilityBondHeaders(appPath)
   await stampTemplateAuthConfigGuidance(appPath)
+  await stampCapabilitySourceHeaders(appPath)
 }
 
 /**
