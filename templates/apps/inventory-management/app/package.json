@@ -40,7 +40,7 @@
     "@molecule/app-footer-react": "3.0.0",
     "@molecule/app-forms": "2.2.0",
     "@molecule/app-header-react": "3.0.0",
-    "@molecule/app-http": "1.5.8",
+    "@molecule/app-http": "1.6.0",
     "@molecule/app-i18n": "1.1.2",
     "@molecule/app-i18n-default-react": "1.0.4",
     "@molecule/app-i18n-react-i18next": "1.0.6",
