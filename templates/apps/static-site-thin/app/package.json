@@ -34,7 +34,7 @@
     "@molecule/api-text-provenance-overlap": "1.0.2",
     "@molecule/app-bond": "1.0.5",
     "@molecule/app-i18n": "1.1.2",
-    "@molecule/app-logger": "1.0.5",
+    "@molecule/app-logger": "1.0.6",
     "@molecule/app-margin-notes-html": "1.0.9",
     "@molecule/app-markdown": "1.0.3",
     "@molecule/app-markdown-marked": "1.0.3"
