@@ -37,7 +37,9 @@ describe('registry.json schema validation', () => {
     // diff carries an unrelated entry (api-resource-article's requestHandlerMapFactory/decisionGuide, 2026-11-08).
     const parsed = Registry.parse(raw) as { packages: Record<string, Record<string, unknown>> }
     const moved = Object.entries(raw.packages as Record<string, Record<string, unknown>>)
-      .filter(([name, entry]) => Object.keys(entry).join() !== Object.keys(parsed.packages[name]).join())
+      .filter(
+        ([name, entry]) => Object.keys(entry).join() !== Object.keys(parsed.packages[name]).join(),
+      )
       .map(([name]) => name)
     expect(
       moved,
