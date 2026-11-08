@@ -35,6 +35,23 @@ afterAll(async () => {
 // extractPackageApi
 // ============================================================================
 describe('extractPackageApi', () => {
+  it.each(['function', 'arrow'] as const)('preserves rest parameters on a %s', async (kind) => {
+    const dir = await createTempPackage(
+      'rest',
+      kind === 'function'
+        ? 'export function collect(...values: string[]): string[] { return values }\nexport function array(values?: string[]): void {}\n'
+        : 'export const collect = (...values: string[]): string[] => values\nexport const array = (values?: string[]): void => {}\n',
+    )
+    const api = extractPackageApi(dir)
+    const rest = api.exports.find((entry) => entry.name === 'collect')!
+    expect(rest.signature).toBe('(...values: string[]) => string[]')
+    expect(rest.declaration).toBe('function collect(...values: string[]): string[]')
+    expect(rest.params?.[0].optional).toBeUndefined()
+    expect(api.exports.find((entry) => entry.name === 'array')?.declaration).toBe(
+      'function array(values?: string[]): void',
+    )
+  })
+
   it.each([false, true])(
     'retains authored types with dependency declarations installed=%s',
     async (installed) => {

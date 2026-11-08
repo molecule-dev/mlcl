@@ -108,6 +108,17 @@ function largeInterface(doc: string): string {
 }
 
 describe('README resolution from the documented source tree', () => {
+  it('documents a variadic source function with a rest argument rather than an optional array', async () => {
+    const context = await fixture()
+    await put(
+      join(context.tree, siblingPath, 'src/index.ts'),
+      '/** Join words. */\nexport const joinWords = (...words: string[]): string => words.join(" ")\n',
+    )
+    const md = await readme(context, sibling)
+    expect(md).toContain('function joinWords(...words: string[]): string')
+    expect(md).not.toContain('words?: string[]')
+  })
+
   it('uses sibling source despite stale dist and a different live worktree', async () => {
     const context = await fixture()
     const md = await readme(context)
@@ -177,6 +188,37 @@ describe('README resolution from the documented source tree', () => {
       '/** Source subpath documentation. */\nexport interface SubpathOptions { correct: true }\n',
     )
     expect(await readme(context)).toContain('Source subpath documentation.')
+  })
+
+  it('regenerates transitive subpath re-exporters when only their sibling is in scope', async () => {
+    const context = await fixture(`export * from '${sibling}/configuration'`)
+    const manifest = join(context.tree, siblingPath, 'package.json')
+    const pkg = JSON.parse(await readFile(manifest, 'utf8'))
+    pkg.exports['./configuration'] = { types: './dist/settings.d.ts' }
+    await put(manifest, JSON.stringify(pkg))
+    await put(
+      join(context.tree, siblingPath, 'src/settings.ts'),
+      '/** Current settings documentation. */\nexport interface Settings { current: true }\n',
+    )
+    const registryPath = join(dirname(context.tree), 'registry.json')
+    await put(registryPath, JSON.stringify(context.registry))
+    const script = fileURLToPath(
+      new URL('../../../scripts/regen-molecule-docs.mjs', import.meta.url),
+    )
+    const generated = execFileSync(process.execPath, ['--import', 'tsx', script, siblingPath], {
+      env: {
+        ...process.env,
+        MOLECULE_PACKAGES_DIR: join(context.tree, 'packages'),
+        MLCL_REGISTRY_PATH: registryPath,
+      },
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'pipe'],
+    })
+    expect(generated).toContain(`${consumerPath}/README.md`)
+    expect(generated).toContain(`${facadePath}/README.md`)
+    expect(await readFile(join(context.tree, facadePath, 'README.md'), 'utf8')).toContain(
+      'Current settings documentation.',
+    )
   })
 
   it('resolves wildcard source exports from the documented manifest', async () => {

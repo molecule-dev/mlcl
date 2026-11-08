@@ -137,6 +137,16 @@ export function discoverReexporters(
   walk(packagesRoot)
 
   const byTarget = new Map<string, string[]>()
+  // A subpath still belongs to the registered package. Scope regeneration by
+  // that owner, rather than silently dropping `@molecule/name/settings`.
+  const registeredPackageOf = (specifier: string): string | undefined => {
+    if (registry.packages[specifier]) return specifier
+    const name = specifier
+      .split('/')
+      .slice(0, specifier.startsWith('@') ? 2 : 1)
+      .join('/')
+    return registry.packages[name] ? name : undefined
+  }
   for (const file of files) {
     if (!file.includes(`${sep}src${sep}`)) continue
     const reexporter = nameByPath.get(
@@ -152,8 +162,8 @@ export function discoverReexporters(
     for (const statement of source.statements) {
       if (!ts.isImportDeclaration(statement) || !ts.isStringLiteral(statement.moduleSpecifier))
         continue
-      const target = statement.moduleSpecifier.text
-      if (!registry.packages[target]) continue
+      const target = registeredPackageOf(statement.moduleSpecifier.text)
+      if (!target) continue
       const clause = statement.importClause
       if (clause?.name) imports.set(clause.name.text, target)
       const bindings = clause?.namedBindings
@@ -165,7 +175,8 @@ export function discoverReexporters(
     for (const statement of source.statements) {
       if (!ts.isExportDeclaration(statement)) continue
       if (statement.moduleSpecifier && ts.isStringLiteral(statement.moduleSpecifier)) {
-        targets.add(statement.moduleSpecifier.text)
+        const target = registeredPackageOf(statement.moduleSpecifier.text)
+        if (target) targets.add(target)
       } else if (statement.exportClause && ts.isNamedExports(statement.exportClause)) {
         for (const binding of statement.exportClause.elements) {
           const target = imports.get((binding.propertyName ?? binding.name).text)

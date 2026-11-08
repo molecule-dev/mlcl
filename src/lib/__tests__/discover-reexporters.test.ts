@@ -152,6 +152,30 @@ function directReexportersFromGit(registry: Registry, moleculeRoot: string): Map
 }
 
 describe('discoverReexporters', () => {
+  it.each([
+    "export * from '@molecule/api-source/settings'",
+    "export * as settings from '@molecule/api-source/settings'",
+    "import type { Settings as S } from '@molecule/api-source/settings'; export type { S }",
+  ])('tracks a sibling subpath: %s', async (source) => {
+    const root = await tempDir('subpaths')
+    const registry = registryOf({
+      '@molecule/api-source': 'packages/api/source',
+      '@molecule/api-wrapper': 'packages/api/wrapper',
+      '@molecule/api-private': 'packages/api/private',
+      '@molecule/api-unrelated': 'packages/api/unrelated',
+    })
+    await writeTree(root, {
+      'packages/api/source/src/index.ts': 'export {}',
+      'packages/api/wrapper/src/index.ts': source,
+      'packages/api/private/src/index.ts':
+        "import type { Settings } from '@molecule/api-source/settings'; export const ready = true",
+      'packages/api/unrelated/src/index.ts': "export * from '@molecule/api-source-other/settings'",
+    })
+    expect(discoverReexporters(registry, root).get('@molecule/api-source')).toEqual([
+      '@molecule/api-wrapper',
+    ])
+  })
+
   it('keys the packages that re-export a package, and nothing else', async () => {
     const root = await tempDir('live')
     await writeTree(root, FILES)

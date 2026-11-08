@@ -833,8 +833,9 @@ function getSignature(
         const params = declaration.getParameters().map((p) => {
           const paramName = p.getName()
           const paramType = documentedType(p)
-          const optional = p.isOptional() ? '?' : ''
-          return `${paramName}${optional}: ${paramType}`
+          const rest = p.isRestParameter() ? '...' : ''
+          const optional = p.isOptional() && !rest ? '?' : ''
+          return `${rest}${paramName}${optional}: ${paramType}`
         })
         const returnType = documentedReturnType(declaration)
         return `${functionTypeParameters(declaration)}(${params.join(', ')}) => ${simplifyType(returnType)}`
@@ -845,8 +846,9 @@ function getSignature(
           const params = init.getParameters().map((p) => {
             const paramName = p.getName()
             const paramType = documentedType(p)
-            const optional = p.isOptional() ? '?' : ''
-            return `${paramName}${optional}: ${paramType}`
+            const rest = p.isRestParameter() ? '...' : ''
+            const optional = p.isOptional() && !rest ? '?' : ''
+            return `${rest}${paramName}${optional}: ${paramType}`
           })
           const returnType = documentedReturnType(init)
           return `${functionTypeParameters(init)}(${params.join(', ')}) => ${simplifyType(returnType)}`
@@ -1003,12 +1005,13 @@ function buildFunctionDeclaration(name: string, declaration: ExportedDeclaration
   const paramStrs = params.map((p) => {
     const pName = p.getName()
     let pType = simplifyType(documentedType(p))
-    const optional = p.isOptional()
+    const rest = p.isRestParameter() ? '...' : ''
+    const optional = p.isOptional() && !rest
     // Strip | undefined when the param is already marked optional
     if (optional) {
       pType = pType.replace(/\s*\|\s*undefined$/, '')
     }
-    return `${pName}${optional ? '?' : ''}: ${pType}`
+    return `${rest}${pName}${optional ? '?' : ''}: ${pType}`
   })
 
   return `function ${name}${typeParameters}(${paramStrs.join(', ')}): ${returnType}`
@@ -1096,7 +1099,7 @@ function extractParamsFromDeclaration(
     return {
       name,
       type: simplifyType(documentedType(p)),
-      optional: p.isOptional() || undefined,
+      optional: (p.isOptional() && !p.isRestParameter()) || undefined,
     }
   })
 }
