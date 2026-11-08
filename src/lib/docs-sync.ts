@@ -209,6 +209,14 @@ export async function generateDocs(
 ): Promise<GeneratedDoc[]> {
   const scope = packageNames ? new Set(packageNames) : undefined
   const entries = Object.entries(registry.packages).filter(([name]) => !scope || scope.has(name))
+  // Resolve every sibling against THIS tree, even during scoped generation.
+  // An index/archive export's node_modules can link to a different live tree
+  // whose built declarations (and uncommitted source) are not documentation inputs.
+  const sourcePackages = new Map(
+    Object.entries(registry.packages)
+      .filter(([, entry]) => existsSync(join(moleculeDir, entry.path, 'package.json')))
+      .map(([name, entry]) => [name, join(moleculeDir, entry.path)]),
+  )
 
   // Build a provider lookup: core package name -> list of providers
   const providersByCore = new Map<string, Array<{ name: string; entry: RegistryEntry }>>()
@@ -239,7 +247,10 @@ export async function generateDocs(
   const getExtracted = (entry: RegistryEntry): ExtractedModule => {
     let extracted = extractedByPath.get(entry.path)
     if (!extracted) {
-      extracted = extractPackageApi(join(moleculeDir, entry.path), { rootDir: moleculeDir })
+      extracted = extractPackageApi(join(moleculeDir, entry.path), {
+        rootDir: moleculeDir,
+        sourcePackages,
+      })
       extractedByPath.set(entry.path, extracted)
     }
     return extracted
@@ -256,8 +267,8 @@ export async function generateDocs(
     const pkgJson: PackageJson = JSON.parse(readFileSync(pkgJsonPath, 'utf-8'))
 
     // Extract API from source. `rootDir` is the tree being documented (molecule's
-    // own root): it anchors the section ORDER only, so generating from a
-    // `git archive` export yields the same bytes as the live checkout.
+    // own root) anchors section order; sourcePackages keeps sibling resolution
+    // in the same tree. Neither depends on the live checkout's build output.
     const extracted = getExtracted(entry)
 
     const companionLocale = companionLocaleFor(name, entry, registry)

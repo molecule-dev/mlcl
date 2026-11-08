@@ -7,6 +7,7 @@
  * @module
  */
 
+import { readFileSync } from 'node:fs'
 import { basename, dirname, isAbsolute, join, relative, sep } from 'node:path'
 
 import {
@@ -20,6 +21,7 @@ import {
   type ParameterDeclaration,
   Project,
   type SourceFile,
+  ts,
   type VariableDeclaration,
 } from 'ts-morph'
 
@@ -85,6 +87,8 @@ interface ExtractContext {
   srcDir: string
   /** Root of the tree being documented — the anchor for {@link sourceOrderKey}. */
   rootDir: string
+  /** Source directory → package name for siblings in the documented tree. */
+  sourcePackageNames: ReadonlyMap<string, string>
   /** 0 for a top-level export, 1 for a namespace member (members do not recurse further). */
   depth: number
 }
@@ -115,24 +119,29 @@ export interface ExtractedModule {
  *
  * @param packageDir - Absolute path to the package root (containing package.json)
  * @param options - `rootDir` is the root of the tree being documented (molecule's
- *   own root). It anchors the export order only — see {@link sourceOrderKey} — so
- *   passing the real root keeps a `git archive` export's output byte-identical to
- *   the live checkout's. Derived from `packageDir` when omitted.
+ *   own root). It anchors export order — see {@link sourceOrderKey}. `sourcePackages`
+ *   maps sibling names to directories in THAT tree, never the live install. All
+ *   other dependencies keep normal installed-declaration resolution.
  * @returns Extracted module information including exports and module-level JSDoc
  */
 export function extractPackageApi(
   packageDir: string,
-  options: { rootDir?: string } = {},
+  options: { rootDir?: string; sourcePackages?: ReadonlyMap<string, string> } = {},
 ): ExtractedModule {
   const srcDir = join(packageDir, 'src')
   const indexPath = join(srcDir, 'index.ts')
   const rootDir = options.rootDir ?? packageTreeRoot(packageDir) ?? packageDir
+  const sourcePackageNames = new Map(
+    [...(options.sourcePackages ?? [])].map(([name, dir]) => [join(dir, 'src'), name]),
+  )
+  const pathsByPackage = new Map<string, Record<string, string[]>>()
 
   const project = new Project({
     compilerOptions: {
       target: 99, // ESNext
       module: 199, // NodeNext
       moduleResolution: 99, // NodeNext
+      jsx: ts.JsxEmit.Preserve,
       declaration: true,
       strict: true,
       esModuleInterop: true,
@@ -148,6 +157,53 @@ export function extractPackageApi(
       types: ['node'],
     },
     skipAddingFilesFromTsConfig: true,
+    resolutionHost: (host) => ({
+      resolveModuleNames: (names, from, _reused, redirected, compilerOptions, sourceFile) => {
+        // ts-morph's source files do not carry NodeNext's implied format.
+        // Recover it from the containing tree, so import/require conditions
+        // (including a type import's explicit resolution-mode) remain correct.
+        const resolutionSource = sourceFile && {
+          ...sourceFile,
+          impliedNodeFormat:
+            sourceFile.impliedNodeFormat ??
+            ts.getImpliedNodeFormatForFile(from, undefined, host, compilerOptions),
+        }
+        return names.map((name, index) => {
+          const packageName = name.startsWith('@molecule/') ? moduleNameOf(name) : undefined
+          const siblingDir = packageName && options.sourcePackages?.get(packageName)
+          let paths: Record<string, string[]> | undefined
+          if (siblingDir && packageName) {
+            paths = pathsByPackage.get(packageName)
+            if (!paths) {
+              paths = packageSourcePaths(packageName, siblingDir)
+              pathsByPackage.set(packageName, paths)
+            }
+          }
+          const resolved = ts.resolveModuleName(
+            name,
+            from,
+            paths ? { ...compilerOptions, paths } : compilerOptions,
+            host,
+            undefined,
+            redirected,
+            resolutionSource &&
+              ts.getModeForResolutionAtIndex(resolutionSource, index, compilerOptions),
+          ).resolvedModule
+          // TypeScript paths normally fall back to node_modules when the target
+          // is missing. Never let a deleted source file resurrect stale dist docs.
+          // Non-code imports (for example a bundler's font.woff?url in a test)
+          // can remain unresolved. They supply no declarations to document.
+          if (
+            siblingDir &&
+            resolved &&
+            !resolved.resolvedFileName.startsWith(join(siblingDir, 'src') + sep)
+          ) {
+            throw new Error(`Cannot resolve documented source for ${name} imported by ${from}`)
+          }
+          return resolved
+        })
+      },
+    }),
   })
 
   // Add only the files in the package src directory
@@ -167,7 +223,7 @@ export function extractPackageApi(
   const moduleJsDoc = extractModuleJsDoc(indexFile)
 
   // Extract all public exports
-  const exports = extractExports(indexFile, project, srcDir, rootDir)
+  const exports = extractExports(indexFile, project, srcDir, rootDir, sourcePackageNames)
 
   return {
     description: moduleJsDoc.description,
@@ -176,6 +232,48 @@ export function extractPackageApi(
     e2e: moduleJsDoc.e2e,
     exports,
   }
+}
+
+/**
+ * Use the tree's own package manifest to map public entry points to source.
+ * TypeScript still owns paths matching and .js → .ts/.tsx lookup.
+ * Reading installed manifests here would reintroduce the export-tree escape.
+ */
+function packageSourcePaths(name: string, packageDir: string): Record<string, string[]> {
+  const pkg = JSON.parse(readFileSync(join(packageDir, 'package.json'), 'utf8')) as {
+    types?: string
+    main?: string
+    exports?: unknown
+  }
+  const targets = (value: unknown): string[] => {
+    if (typeof value === 'string') {
+      if (!/^(?:\.\/)?(?:dist|src)\//.test(value)) return []
+      return [
+        join(packageDir, value.replace(/^(?:\.\/)?dist\//, 'src/').replace(/\.d\.ts$/, '.js')),
+      ]
+    }
+    if (!value || typeof value !== 'object') return []
+    return [...new Set(Object.values(value).flatMap(targets))]
+  }
+  const paths: Record<string, string[]> = {
+    [name]: [join(packageDir, 'src/index.js')],
+    [`${name}/*`]: [join(packageDir, 'src/*')],
+  }
+  if (pkg.exports && typeof pkg.exports === 'object') {
+    for (const [key, value] of Object.entries(pkg.exports)) {
+      const mapped = targets(value)
+      if (mapped.length && (key === '.' || key.startsWith('./'))) {
+        paths[key === '.' ? name : `${name}/${key.slice(2)}`] = mapped
+      }
+    }
+  }
+  const rootExport =
+    pkg.exports && typeof pkg.exports === 'object' && '.' in pkg.exports
+      ? pkg.exports['.']
+      : pkg.exports
+  const rootTargets = targets(rootExport ?? pkg.types ?? pkg.main)
+  if (rootTargets.length) paths[name] = rootTargets
+  return paths
 }
 
 // ============================================================================
@@ -378,13 +476,9 @@ function sourceOrderKey(declaration: ExportedDeclarations, rootDir: string): str
  * A file's path relative to the tree being documented, for a file inside it, and
  * the same shape recovered from the path itself for one outside it.
  *
- * A declaration resolves outside the tree whenever it comes from a dependency's
- * `.d.ts` — and, when generating from a `git archive` export, also from a sibling
- * molecule package reached through a symlink in the live `node_modules`. Those
- * paths still key identically in both trees: an installed module keys from its
- * `node_modules`-relative path, and a sibling package from the root of the tree it
- * lives in. Keying both by their absolute path is what made the export and the
- * live checkout disagree.
+ * Installed dependencies key from their `node_modules`-relative paths. Sibling
+ * Molecule declarations resolve within the documented tree's source. Keying by
+ * absolute paths made the export and live checkout disagree.
  *
  * @param file - Absolute path of the declaration's source file.
  * @param rootDir - Root of the tree being documented.
@@ -432,6 +526,7 @@ function extractExports(
   _project: Project,
   srcDir: string,
   rootDir: string,
+  sourcePackageNames: ReadonlyMap<string, string>,
 ): ExtractedExport[] {
   const collected: Array<{ exp: ExtractedExport; order: string }> = []
   const seen = new Set<string>()
@@ -446,7 +541,12 @@ function extractExports(
     if (declarations.length === 0) continue
 
     const declaration = declarations[0]
-    const extracted = extractDeclaration(name, declaration, { srcDir, rootDir, depth: 0 })
+    const extracted = extractDeclaration(name, declaration, {
+      srcDir,
+      rootDir,
+      sourcePackageNames,
+      depth: 0,
+    })
     if (extracted) {
       collected.push({ exp: extracted, order: sourceOrderKey(declaration, rootDir) })
     }
@@ -496,7 +596,9 @@ function extractDeclaration(
   const sourceFile = sourceFileOf(declaration, ctx.srcDir)
   if (sourceFile) result.sourceFile = sourceFile
   else {
-    const externalSource = externalSourceOf(declaration.getSourceFile().getFilePath())
+    const file = declaration.getSourceFile().getFilePath()
+    const externalSource =
+      siblingInstalledSourceOf(file, ctx.sourcePackageNames) ?? externalSourceOf(file)
     if (externalSource) result.externalSource = externalSource
   }
 
@@ -522,6 +624,7 @@ function extractDeclaration(
         const member = extractDeclaration(memberName, memberDecls[0], {
           srcDir: ctx.srcDir,
           rootDir: ctx.rootDir,
+          sourcePackageNames: ctx.sourcePackageNames,
           depth: ctx.depth + 1,
         })
         if (!member) continue
@@ -594,6 +697,18 @@ function sourceFileOf(declaration: ExportedDeclarations, srcDir: string): string
   const filePath = declaration.getSourceFile().getFilePath()
   const prefix = srcDir.endsWith(sep) ? srcDir : srcDir + sep
   return filePath.startsWith(prefix) ? filePath.slice(prefix.length) : undefined
+}
+
+/** A sibling's source compiles into its OWN installed dist, not the re-exporter's. */
+function siblingInstalledSourceOf(
+  file: string,
+  sourcePackageNames: ReadonlyMap<string, string>,
+): string | undefined {
+  for (let dir = dirname(file); dirname(dir) !== dir; dir = dirname(dir)) {
+    const name = sourcePackageNames.get(dir)
+    if (name) return `${name}/dist/${relative(dir, file).replace(/\.tsx?$/, '.d.ts')}`
+  }
+  return undefined
 }
 
 /**
