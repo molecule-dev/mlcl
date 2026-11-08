@@ -21486,14 +21486,6 @@
       "label": "Articles",
       "description": "Articles and blog posts: unique slugs, tags, favorites, a followed-authors feed, and filtered, paginated lists",
       "stack": "api",
-      "requestHandlerMapFactory": "createArticleHandlers",
-      "decisionGuide": {
-        "configuration": [
-          "Configure createArticleHandlers({ mapRequest, mapResponse }) in the generated App/Resource/Article/index.ts wrapper. Keep the shared article operations.",
-          "mapRequest can unwrap bodies, rename or resolve query filters, and return an explicit early response. Async mapResponse can batch-load author profiles, project list items, change pagination envelopes and translate error statuses/bodies. Read the package Quick Start for the full recipe.",
-          "The default requestHandlerMap uses flat bodies, raw article responses and { data, total, limit, offset } pages. A different wire format needs configured handlers; a different domain workflow can still call the service functions."
-        ]
-      },
       "exports": [
         "create",
         "list",
@@ -21639,7 +21631,15 @@
         "src/__setup__/reactions.sql": "CREATE TABLE IF NOT EXISTS \"reactions\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"type\" VARCHAR(50) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"resourceType\", \"resourceId\", \"userId\", \"type\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_reactions_resource\" ON \"reactions\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_reactions_user\" ON \"reactions\" (\"userId\");\n"
       },
       "setupSqlVersion": "1.2.1",
+      "requestHandlerMapFactory": "createArticleHandlers",
       "path": "packages/api/resources/article",
+      "decisionGuide": {
+        "configuration": [
+          "Configure createArticleHandlers({ mapRequest, mapResponse }) in the generated App/Resource/Article/index.ts wrapper. Keep the shared article operations.",
+          "mapRequest can unwrap bodies, rename or resolve query filters, and return an explicit early response. Async mapResponse can batch-load author profiles, project list items, change pagination envelopes and translate error statuses/bodies. Read the package Quick Start for the full recipe.",
+          "The default requestHandlerMap uses flat bodies, raw article responses and { data, total, limit, offset } pages. A different wire format needs configured handlers; a different domain workflow can still call the service functions."
+        ]
+      },
       "intentHints": [
         "articles backend",
         "blog posts backend",

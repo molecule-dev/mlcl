@@ -31,6 +31,20 @@ describe('registry.json schema validation', () => {
     }
   })
 
+  it('is stored in the key order sync-registry writes', () => {
+    // sync-registry rewrites the whole file through Registry.parse, which emits each entry's keys in schema
+    // order. A hand edit that places a key elsewhere is moved by the next scan of ANY package, so that scan's
+    // diff carries an unrelated entry (api-resource-article's requestHandlerMapFactory/decisionGuide, 2026-11-08).
+    const parsed = Registry.parse(raw) as { packages: Record<string, Record<string, unknown>> }
+    const moved = Object.entries(raw.packages as Record<string, Record<string, unknown>>)
+      .filter(([name, entry]) => Object.keys(entry).join() !== Object.keys(parsed.packages[name]).join())
+      .map(([name]) => name)
+    expect(
+      moved,
+      'Store these entries in schema key order: node bin/run.js sync-registry --scan-exports (or write Registry.parse output)',
+    ).toEqual([])
+  })
+
   it('every package entry should have all required fields', () => {
     const missing: string[] = []
 
