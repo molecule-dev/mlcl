@@ -35990,6 +35990,90 @@
         "metrically compatible with arial"
       ]
     },
+    "@molecule/app-fonts-caveat": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "fonts",
+      "label": "Caveat",
+      "description": "Caveat — local, self-hosted font (no external CDN)",
+      "stack": "app",
+      "implements": "@molecule/app-fonts",
+      "exports": [
+        "font"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-fonts"
+      ],
+      "moleculePeers": [
+        "@molecule/app-fonts"
+      ],
+      "font": {
+        "role": "sans",
+        "family": "Caveat",
+        "source": "local",
+        "fontsDir": "fonts",
+        "faces": [
+          {
+            "file": "Caveat-VariableFont.ttf",
+            "weight": "400 700",
+            "variable": true
+          }
+        ]
+      },
+      "path": "packages/app/bonds/fonts/caveat",
+      "intentHints": [
+        "caveat font",
+        "caveat typography"
+      ]
+    },
+    "@molecule/app-fonts-dm-mono": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "fonts",
+      "label": "DM Mono",
+      "description": "DM Mono — local, self-hosted font (no external CDN)",
+      "stack": "app",
+      "implements": "@molecule/app-fonts",
+      "exports": [
+        "font"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-fonts"
+      ],
+      "moleculePeers": [
+        "@molecule/app-fonts"
+      ],
+      "font": {
+        "role": "mono",
+        "family": "DM Mono",
+        "source": "local",
+        "fontsDir": "fonts",
+        "faces": [
+          {
+            "file": "DMMono-Regular.ttf",
+            "weight": 400
+          },
+          {
+            "file": "DMMono-Medium.ttf",
+            "weight": 500
+          },
+          {
+            "file": "DMMono-Italic.ttf",
+            "weight": 400,
+            "style": "italic"
+          }
+        ]
+      },
+      "path": "packages/app/bonds/fonts/dm-mono",
+      "intentHints": [
+        "dm mono font",
+        "dm mono typography"
+      ]
+    },
     "@molecule/app-fonts-dm-sans": {
       "language": "typescript",
       "runtime": "node",
@@ -36063,6 +36147,50 @@
       "intentHints": [
         "dm serif display font",
         "dm serif display typography"
+      ]
+    },
+    "@molecule/app-fonts-eb-garamond": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "fonts",
+      "label": "EB Garamond",
+      "description": "EB Garamond — local, self-hosted font (no external CDN)",
+      "stack": "app",
+      "implements": "@molecule/app-fonts",
+      "exports": [
+        "font"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-fonts"
+      ],
+      "moleculePeers": [
+        "@molecule/app-fonts"
+      ],
+      "font": {
+        "role": "serif",
+        "family": "EB Garamond",
+        "source": "local",
+        "fontsDir": "fonts",
+        "faces": [
+          {
+            "file": "EBGaramond-VariableFont.ttf",
+            "weight": "400 800",
+            "variable": true
+          },
+          {
+            "file": "EBGaramond-Italic-VariableFont.ttf",
+            "weight": "400 800",
+            "style": "italic",
+            "variable": true
+          }
+        ]
+      },
+      "path": "packages/app/bonds/fonts/eb-garamond",
+      "intentHints": [
+        "eb garamond font",
+        "eb garamond typography"
       ]
     },
     "@molecule/app-fonts-ibm-plex-mono": {
@@ -36191,6 +36319,44 @@
         "modern sans-serif font",
         "screen-optimized typeface",
         "inter typography"
+      ]
+    },
+    "@molecule/app-fonts-inter-tight": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "fonts",
+      "label": "Inter Tight",
+      "description": "Inter Tight — local, self-hosted font (no external CDN)",
+      "stack": "app",
+      "implements": "@molecule/app-fonts",
+      "exports": [
+        "font"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-fonts"
+      ],
+      "moleculePeers": [
+        "@molecule/app-fonts"
+      ],
+      "font": {
+        "role": "sans",
+        "family": "Inter Tight",
+        "source": "local",
+        "fontsDir": "fonts",
+        "faces": [
+          {
+            "file": "InterTight-VariableFont.ttf",
+            "weight": "100 900",
+            "variable": true
+          }
+        ]
+      },
+      "path": "packages/app/bonds/fonts/inter-tight",
+      "intentHints": [
+        "inter tight font",
+        "inter tight typography"
       ]
     },
     "@molecule/app-fonts-ionicons": {
@@ -36507,6 +36673,12 @@
             "file": "Newsreader-VariableFont.ttf",
             "weight": "200 800",
             "variable": true
+          },
+          {
+            "file": "Newsreader-Italic-VariableFont.ttf",
+            "weight": "200 800",
+            "style": "italic",
+            "variable": true
           }
         ]
       },
@@ -36514,6 +36686,50 @@
       "intentHints": [
         "newsreader font",
         "newsreader typography"
+      ]
+    },
+    "@molecule/app-fonts-noto-serif": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "fonts",
+      "label": "Noto Serif",
+      "description": "Noto Serif — local, self-hosted font (no external CDN)",
+      "stack": "app",
+      "implements": "@molecule/app-fonts",
+      "exports": [
+        "font"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-fonts"
+      ],
+      "moleculePeers": [
+        "@molecule/app-fonts"
+      ],
+      "font": {
+        "role": "serif",
+        "family": "Noto Serif",
+        "source": "local",
+        "fontsDir": "fonts",
+        "faces": [
+          {
+            "file": "NotoSerif-VariableFont.ttf",
+            "weight": "100 900",
+            "variable": true
+          },
+          {
+            "file": "NotoSerif-Italic-VariableFont.ttf",
+            "weight": "100 900",
+            "style": "italic",
+            "variable": true
+          }
+        ]
+      },
+      "path": "packages/app/bonds/fonts/noto-serif",
+      "intentHints": [
+        "noto serif font",
+        "noto serif typography"
       ]
     },
     "@molecule/app-fonts-playfair-display": {
@@ -36544,6 +36760,12 @@
           {
             "file": "PlayfairDisplay-VariableFont.ttf",
             "weight": "400 900",
+            "variable": true
+          },
+          {
+            "file": "PlayfairDisplay-Italic-VariableFont.ttf",
+            "weight": "400 900",
+            "style": "italic",
             "variable": true
           }
         ]
@@ -36590,6 +36812,82 @@
       "intentHints": [
         "plus jakarta sans font",
         "plus jakarta sans typography"
+      ]
+    },
+    "@molecule/app-fonts-public-sans": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "fonts",
+      "label": "Public Sans",
+      "description": "Public Sans — local, self-hosted font (no external CDN)",
+      "stack": "app",
+      "implements": "@molecule/app-fonts",
+      "exports": [
+        "font"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-fonts"
+      ],
+      "moleculePeers": [
+        "@molecule/app-fonts"
+      ],
+      "font": {
+        "role": "sans",
+        "family": "Public Sans",
+        "source": "local",
+        "fontsDir": "fonts",
+        "faces": [
+          {
+            "file": "PublicSans-VariableFont.ttf",
+            "weight": "100 900",
+            "variable": true
+          }
+        ]
+      },
+      "path": "packages/app/bonds/fonts/public-sans",
+      "intentHints": [
+        "public sans font",
+        "public sans typography"
+      ]
+    },
+    "@molecule/app-fonts-sora": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "fonts",
+      "label": "Sora",
+      "description": "Sora — local, self-hosted font (no external CDN)",
+      "stack": "app",
+      "implements": "@molecule/app-fonts",
+      "exports": [
+        "font"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-fonts"
+      ],
+      "moleculePeers": [
+        "@molecule/app-fonts"
+      ],
+      "font": {
+        "role": "sans",
+        "family": "Sora",
+        "source": "local",
+        "fontsDir": "fonts",
+        "faces": [
+          {
+            "file": "Sora-VariableFont.ttf",
+            "weight": "100 800",
+            "variable": true
+          }
+        ]
+      },
+      "path": "packages/app/bonds/fonts/sora",
+      "intentHints": [
+        "sora font",
+        "sora typography"
       ]
     },
     "@molecule/app-fonts-source-sans-3": {
@@ -36662,6 +36960,12 @@
             "file": "SourceSerif4-VariableFont.ttf",
             "weight": "200 900",
             "variable": true
+          },
+          {
+            "file": "SourceSerif4-Italic-VariableFont.ttf",
+            "weight": "200 900",
+            "style": "italic",
+            "variable": true
           }
         ]
       },
@@ -36707,6 +37011,52 @@
       "intentHints": [
         "space grotesk font",
         "space grotesk typography"
+      ]
+    },
+    "@molecule/app-fonts-space-mono": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "fonts",
+      "label": "Space Mono",
+      "description": "Space Mono — local, self-hosted font (no external CDN)",
+      "stack": "app",
+      "implements": "@molecule/app-fonts",
+      "exports": [
+        "font"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-fonts"
+      ],
+      "moleculePeers": [
+        "@molecule/app-fonts"
+      ],
+      "font": {
+        "role": "mono",
+        "family": "Space Mono",
+        "source": "local",
+        "fontsDir": "fonts",
+        "faces": [
+          {
+            "file": "SpaceMono-Regular.ttf",
+            "weight": 400
+          },
+          {
+            "file": "SpaceMono-Bold.ttf",
+            "weight": 700
+          },
+          {
+            "file": "SpaceMono-Italic.ttf",
+            "weight": 400,
+            "style": "italic"
+          }
+        ]
+      },
+      "path": "packages/app/bonds/fonts/space-mono",
+      "intentHints": [
+        "space mono font",
+        "space mono typography"
       ]
     },
     "@molecule/app-fonts-system": {
