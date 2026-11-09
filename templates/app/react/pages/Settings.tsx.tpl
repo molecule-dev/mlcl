@@ -16,7 +16,7 @@
  * Adapt it to this app's profile:
  * - widen `AppUser` and `Fields` with the app's own columns, and map them in `toValues`;
  * - map ONLY changed fields in `toPatch` (an omitted field stays omitted — never turn it
- *   into `null` unless the API requires that), and normalize nullable text to `''` there;
+ *   into `null` unless the API requires that), and normalize nullable text to `''` in `toValues`;
  * - the write route and method come from `authConfig.profileEndpoint` /
  *   `profileUpdateMethod` in `src/config.ts` — change the API wiring THERE, not here.
  *
@@ -40,8 +40,7 @@ interface AppUser extends UserProfile {
 
 /**
  * The controlled values this form edits; every one of them is a field an input renders.
- * A TYPE alias, not an interface: the hook's values parameter is `Record<string, unknown>`,
- * which an interface (no index signature) does not satisfy.
+ * A type alias or an interface can name these controlled values.
  */
 type Fields = {
   name: string

@@ -31411,6 +31411,7 @@
           "`initialize()` publishes `authenticated` synchronously only when BOTH a stored token AND cached user exist; token-only and cookie-only restores are asynchronous. `getAccessToken()` returns the stored token during restore.",
           "`validateSession()` is the background re-check: only a 401/403 clears the session, while a network/5xx failure or a wrong `currentUserEndpoint` (404) keeps it as `unavailable`.",
           "`tokenKey`/`storagePrefix`, `authScheme`, `mapAuthResponse`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod` adapt the API; `logout()` and `refresh()` are included. A token another tool reads at its own storage key (an e2e suite, a legacy script) is `tokenKey`, not a copy in a second store.",
+          "Save the signed-in profile with authClient.updateProfile(changes): it stores and publishes the server response. An app-owned HTTP mutation must call authClient.setUser(savedUser) with its canonical response before navigation; getUser() otherwise keeps the cached profile.",
           "Read the session through the declared framework binding below: status is `loading` | `authenticated` | `unauthenticated` | `unavailable`. Only a route guard waits for `status === 'loading'`. The HTTP gate delays requests, not rendering children.",
           "This file is the app's ONE session store — never add another token or user store beside it.",
           "Sharing `tokenKey` does not make a second context/provider an adapter: copied user/status, token helpers or a restore effect are a second session store; view/debug adapters read the bonded client."
@@ -31425,7 +31426,8 @@
         ],
         "bindingGuidance": {
           "@molecule/app-react": [
-            "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is the session status and `state.user` is the current user. `AuthProvider` renders children immediately."
+            "Read the session with `useAuth()` from `@molecule/app-react`: `state.status` is the session status and `state.user` is the current user. `AuthProvider` renders children immediately.",
+            "For editable account forms, use `useProfileForm` to hydrate pristine fields without erasing edits. An existing form can save with `useAuth<MyUser>().updateProfile(changes)`; a custom mutation calls `setUser(savedUser)` before navigation. A one-time useState seed does not follow a late user."
           ],
           "@molecule/app-vue": [
             "Read the session with `useAuth()` from `@molecule/app-vue`: `state.value.status` is the session status and `user.value` is the current user. Provide the client with `app.use(createAuthPlugin(authClient))`."
