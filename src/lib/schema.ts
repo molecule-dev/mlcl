@@ -163,21 +163,6 @@ export const DecisionGuide = z.object({
     .describe(
       'Framework package name to session guidance, rendered only when that binding is declared',
     ),
-  handRolledCalls: z
-    .record(z.string(), z.array(z.string().regex(/^[A-Za-z_$][\w$]*$/)).min(1))
-    .optional()
-    .describe(
-      'Framework package name to the calls an app file makes when it does by hand what that ' +
-        'binding already provides (`useSearchParams` beside a routing binding). An agent harness ' +
-        'states the binding guidance at the first statically imported call without native options.',
-    ),
-  handRolledImports: z
-    .record(z.string().min(1), z.array(z.string().min(1)).min(1))
-    .optional()
-    .describe(
-      'Per binding, the raw module specifiers that supply handRolledCalls. Same-named locals, ' +
-        'app re-exports and calls with native options do not establish a covered operation.',
-    ),
   configuration: z
     .array(z.string())
     .min(1)

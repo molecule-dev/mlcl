@@ -4,6 +4,7 @@ import { join } from 'node:path'
 
 import { createElement } from 'react'
 import { renderToString as renderReactToString } from 'react-dom/server'
+import { Route, Routes } from 'react-router'
 import * as ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import { createSSRApp, h } from 'vue'
@@ -12,8 +13,8 @@ import { renderToString } from 'vue/server-renderer'
 import { createJWTAuthClient } from '@molecule/app-auth'
 import {
   MemoryRouter,
-  MoleculeRouterProvider,
   useConsumedSearchParam,
+  useListRoute,
   useMoleculeQuery,
 } from '@molecule/app-routing-react-router'
 import { createAuthPlugin, useAuth } from '@molecule/app-vue'
@@ -22,7 +23,6 @@ import { buildCapabilityMap, renderCapabilityMap } from '../capability-map.js'
 import { synthesizeAppProjectFiles } from '../injector.js'
 import { getRawRegistry, loadRegistry } from '../registry.js'
 import { addPackages, createAppProject, ensureAgentsMd } from '../scaffold.js'
-import { DecisionGuide, MoleculeMetadata, RegistryEntry } from '../schema.js'
 
 const registry = getRawRegistry()
 let root: string
@@ -176,7 +176,7 @@ describe('framework-scoped URL list guidance', () => {
 
   it('names useListRoute when React Router is the declared binding', () => {
     const text = routing(['@molecule/app-routing-react-router'])
-    expect(text).toContain('`useListRoute({ filters, selections, defaultSelection, auth })`')
+    expect(text).toContain('`const pages = useListRoute()`')
     expect(text).toContain('`requiresAuth: true`')
     expect(text).toContain('`canLoad`')
     expect(text).toContain('return to page one when a filter or tab changes')
@@ -214,49 +214,35 @@ describe('framework-scoped URL list guidance', () => {
     )
   })
 
-  it('names the hand-rolled call only for a binding that exports its replacement', () => {
-    const guide = DecisionGuide.parse(registry.packages['@molecule/app-routing']!.decisionGuide)
-    expect(guide.handRolledCalls).toEqual({
-      '@molecule/app-routing-react-router': ['useSearchParams'],
-    })
-    // Every hand-rolled call's binding has guidance to state at that write, and that guidance
-    // names only exports the binding really has.
-    for (const [binding, calls] of Object.entries(guide.handRolledCalls ?? {})) {
-      expect(calls.length).toBeGreaterThan(0)
-      const lines = guide.bindingGuidance?.[binding] ?? []
-      expect(lines.length, binding).toBeGreaterThan(0)
-      const named = [...lines.join(' ').matchAll(/`(use[A-Z]\w*)\(/g)].map((match) => match[1])
-      expect(named.length).toBeGreaterThan(0)
-      expect(registry.packages[binding]!.exports).toEqual(expect.arrayContaining(named))
+  it.each([
+    ['/category/books', '/category/:slug', '/category/books?page=2', { slug: 'books' }],
+    ['/?view=mine', '/', '/?view=mine&page=2', {}],
+  ])('delivers an executable minimal pagination recipe on %s', (url, path, href, params) => {
+    const text = routing(['@molecule/app-routing-react-router'])
+    const minimal = text.match(/`(const pages = useListRoute\(\))`/)?.[1]
+    expect(minimal, 'pagination must not require filters or selections').toBeDefined()
+    expect(text).toContain('`filters` and `selections` are optional')
+    expect(text).toContain(href)
+    expect(text).toContain('page last')
+    const recipe = new Function('useListRoute', minimal + '; return pages') as (
+      hook: typeof useListRoute,
+    ) => ReturnType<typeof useListRoute>
+    let actual: ReturnType<typeof useListRoute> | undefined
+    function Page(): null {
+      actual = recipe(useListRoute)
+      return null
     }
-  })
-
-  it('preserves and validates raw call origins at both registry schema boundaries', () => {
-    const entry = {
-      ...registry.packages['@molecule/app-routing']!,
-      decisionGuide: {
-        ...registry.packages['@molecule/app-routing']!.decisionGuide,
-        handRolledImports: {
-          '@molecule/app-routing-react-router': ['react-router', 'react-router-dom'],
-        },
-      },
-    }
-    for (const schema of [RegistryEntry, MoleculeMetadata]) {
-      expect(schema.parse(entry).decisionGuide?.handRolledImports).toEqual(
-        entry.decisionGuide.handRolledImports,
-      )
-      for (const invalid of [[], [''], [42]]) {
-        expect(
-          schema.safeParse({
-            ...entry,
-            decisionGuide: {
-              ...entry.decisionGuide,
-              handRolledImports: { '@molecule/app-routing-react-router': invalid },
-            },
-          }).success,
-        ).toBe(false)
-      }
-    }
+    renderReactToString(
+      createElement(
+        MemoryRouter,
+        { initialEntries: [url] },
+        createElement(Routes, null, createElement(Route, { path, element: createElement(Page) })),
+      ),
+    )
+    expect(actual?.href({ page: 2 })).toBe(href)
+    expect(actual?.params).toEqual(params)
+    expect(actual?.filters).toEqual({})
+    expect(actual?.selection).toBeUndefined()
   })
 
   it('delivers type-correct protected list guidance for an app-owned session state', () => {
@@ -307,11 +293,30 @@ describe('framework-scoped URL list guidance', () => {
     expect(adapt(false, true, null)).toBe('unavailable')
     expect(adapt(false, false, {})).toBe('authenticated')
     expect(adapt(false, false, null)).toBe('unauthenticated')
+
+    const recipe = new Function('useListRoute', 'routeAuthStatus', list + '; return list') as (
+      hook: typeof useListRoute,
+      status: string,
+    ) => ReturnType<typeof useListRoute>
+    let actual: ReturnType<typeof useListRoute> | undefined
+    function Orders(): null {
+      actual = recipe(useListRoute, 'authenticated')
+      return null
+    }
+    renderReactToString(
+      createElement(
+        MemoryRouter,
+        { initialEntries: ['/orders?view=mine&page=4'] },
+        createElement(Orders),
+      ),
+    )
+    expect(actual?.href({ page: 2 })).toBe('/orders?view=mine&page=2')
+    expect(actual?.href({ selection: 'all' })).toBe('/orders')
   })
 
-  it('delivers the provider and tuple contract needed for the suggested query hooks', () => {
+  it('delivers query and consumed-token recipes inside an ordinary router', () => {
     const text = routing(['@molecule/app-routing-react-router'])
-    expect(text).toContain('requires `MoleculeRouterProvider` inside your existing React Router')
+    expect(text).not.toContain('requires `MoleculeRouterProvider`')
     const credential = text.match(/`(const \[token\] = useConsumedSearchParam\('[^']+'\))`/)?.[1]
     expect(
       credential,
@@ -329,19 +334,10 @@ describe('framework-scoped URL list guidance', () => {
       createElement(
         MemoryRouter,
         { initialEntries: ['/search?q=orders&token=callback-value'] },
-        createElement(MoleculeRouterProvider, null, createElement(QueryPage)),
+        createElement(QueryPage),
       ),
     )
     expect(rendered).toContain('orders:callback-value')
-  })
-
-  it('rejects a hand-rolled call that is not an identifier', () => {
-    expect(() =>
-      DecisionGuide.parse({
-        configuration: ['x'],
-        handRolledCalls: { '@molecule/app-routing-react-router': ['useSearchParams()'] },
-      }),
-    ).toThrow()
   })
 })
 
