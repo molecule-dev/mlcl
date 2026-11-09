@@ -80,6 +80,10 @@ describe('React query defaults use the existing registry provider contract', () 
         expect(bond).toContain('setProvider(provider)')
         const setup = await readFile(join(project, 'app', 'src', 'bonds', 'index.ts'), 'utf8')
         expect(setup).toContain(`setupAppQuery${name === 'memory' ? 'Memory' : 'Tanstack'}()`)
+        // A write through the app's HTTP client marks every cached read stale, whichever provider serves it.
+        const http = await readFile(join(project, 'app', 'src', 'bonds', 'http-default.ts'), 'utf8')
+        expect(http).toContain("import { getQueryClient } from '@molecule/app-query'")
+        expect(http).toContain('getQueryClient().invalidate([])')
         expect(await readFile(join(project, 'app', 'src', 'main.tsx'), 'utf8')).toContain(
           'setupProviders()',
         )
