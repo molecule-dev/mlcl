@@ -3522,6 +3522,7 @@ export function synthesizeAppProjectFiles(
             /** Packages whose setup must run before this bond's setup (see `bondFileByPackage`). */
             setupAfter?: string[]
             authBridge?: { package: string; bond: string; client: string; schemeConfig: string }
+            cacheBridge?: { package: string; accessor: string }
           }
         | undefined
       if (!setupMeta) continue
@@ -3541,6 +3542,11 @@ export function synthesizeAppProjectFiles(
         !providerBondCategories.has(String(bridgedMeta?.category ?? ''))
           ? setupMeta.authBridge
           : undefined
+      // The read cache is bridged only when its package ships in this scaffold, for the same reason.
+      const cacheBridge =
+        setupMeta.cacheBridge && allMolecules.includes(setupMeta.cacheBridge.package)
+          ? setupMeta.cacheBridge
+          : undefined
 
       bondNames.push(defaultBond)
       bondCategories.set(cat, defaultBond)
@@ -3557,7 +3563,7 @@ export function synthesizeAppProjectFiles(
         targetPath: join(bondsDir, `${defaultBond}.ts`),
         content: generateDefaultBondSetup(
           pkg.name,
-          { ...setupMeta, authBridge },
+          { ...setupMeta, authBridge, cacheBridge },
           pascal,
           cat!,
           coreAppSetup,
@@ -3846,6 +3852,11 @@ function generateDefaultBondSetup(
      * module the scaffold did not write.
      */
     authBridge?: { package: string; bond: string; client: string; schemeConfig: string }
+    /**
+     * The read cache a successful write must mark stale. Absent when the app has no such
+     * package in the same run (the caller drops it), so the file never imports a missing module.
+     */
+    cacheBridge?: { package: string; accessor: string }
   },
   pascal: string,
   category: string,
@@ -3886,6 +3897,9 @@ function generateDefaultBondSetup(
   for (const imp of setup.extraImports ?? []) {
     if (imp.from === packageName) continue
     imports.push(importStatement(imp.names, imp.from))
+  }
+  if (setup.cacheBridge) {
+    imports.push(importStatement([setup.cacheBridge.accessor], setup.cacheBridge.package))
   }
   if (setup.authBridge) {
     imports.push(importStatement([setup.authBridge.client], `./${setup.authBridge.bond}.js`))
@@ -3998,11 +4012,26 @@ setAuthTokenSource(() => ${setup.authBridge.client}.getAccessToken())`
   const gate = setup.authBridge
     ? `\n  setAuthGate(() => ${setup.authBridge.client}.whenRestored?.() ?? Promise.resolve())`
     : ''
+  // xr-molecule-flash-l1818: the editor read an article into the shared cache, the save went
+  // out, and the article page mounted the same key inside its freshness window and showed the
+  // tags the save had just removed. Every write goes through this client, so it is the one place
+  // that knows a cached read may now be wrong (React Router revalidates its loaders the same way).
+  const cache = setup.cacheBridge
+    ? `
+
+// A write the API accepted can change any cached read, so every cached document is marked stale:
+// the next page that shows one fetches it again. A page already on screen keeps its copy, so the
+// page that made the write paints the saved answer itself (\`${setup.cacheBridge.accessor}().set(key, saved)\`).
+${instanceName}.addResponseInterceptor((response) => {
+  if (!/^(?:GET|HEAD|OPTIONS)$/i.test(response.config.method)) ${setup.cacheBridge.accessor}().invalidate([])
+  return response
+})`
+    : ''
   return `${bondHeader}
 
 ${imports.join('\n')}
 
-${declaration}${bridge}
+${declaration}${bridge}${cache}
 
 export function setup${pascal}(): void {
   ${setup.setter}(${instanceName})${gate}

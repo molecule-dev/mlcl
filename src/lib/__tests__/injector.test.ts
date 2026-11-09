@@ -1624,6 +1624,32 @@ describe('synthesizeAppProjectFiles', () => {
     expect(bond!.content).not.toContain('addRequestInterceptor')
   })
 
+  it('marks every cached read stale after a write when the app has a read cache, and only then', () => {
+    // xr-molecule-flash-l1818: the editor read an article into the shared query cache, the save
+    // removed its tags, and the article page mounted the same key inside the five-minute
+    // freshness window and still showed both tags. The app's one HTTP client sees every write.
+    const withCache = synthesizeAppProjectFiles(
+      [],
+      ['@molecule/app-http', '@molecule/app-query'],
+      '/tmp/test-app',
+      registryPackages,
+    ).find((f) => f.targetPath.endsWith(join('bonds', 'http-default.ts')))!.content
+    expect(withCache).toContain("import { getQueryClient } from '@molecule/app-query'")
+    expect(withCache).toContain('httpClient.addResponseInterceptor((response) => {')
+    expect(withCache).toContain(
+      'if (!/^(?:GET|HEAD|OPTIONS)$/i.test(response.config.method)) getQueryClient().invalidate([])',
+    )
+
+    const without = synthesizeAppProjectFiles(
+      [],
+      ['@molecule/app-http'],
+      '/tmp/test-app',
+      registryPackages,
+    ).find((f) => f.targetPath.endsWith(join('bonds', 'http-default.ts')))!.content
+    expect(without).not.toContain('@molecule/app-query')
+    expect(without).not.toContain('addResponseInterceptor')
+  })
+
   it('runs the HTTP bond setup before the auth bond that mirrors its token into it', () => {
     // xr-molecule-flash-m156 (+16:15): 14 of 15 Playwright failures were one 401. The
     // registry lists app-auth before app-http, and setup calls were emitted in that

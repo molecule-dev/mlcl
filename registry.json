@@ -37415,6 +37415,10 @@
           "bond": "auth-default",
           "client": "authClient",
           "schemeConfig": "authConfig"
+        },
+        "cacheBridge": {
+          "package": "@molecule/app-query",
+          "accessor": "getQueryClient"
         }
       },
       "decisionGuide": {

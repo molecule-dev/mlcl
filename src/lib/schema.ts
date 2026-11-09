@@ -972,6 +972,17 @@ export const RegistryEntry = z.object({
             'the restore as the client’s gate. Dropped when that bond is not generated in ' +
             'the same scaffold (a provider bond replaced it), so no import names a missing file.',
         ),
+      cacheBridge: z
+        .object({
+          package: z.string().describe('The read-cache core whose documents a write makes stale'),
+          accessor: z.string().describe('Its exported accessor for the shared cache client'),
+        })
+        .optional()
+        .describe(
+          'Mark every cached read stale after a successful write through this client, so the ' +
+            'next page that mounts one refetches it instead of showing the pre-write document. ' +
+            'Dropped when that package is not in the same scaffold.',
+        ),
     })
     .optional()
     .describe('How to generate a default bond setup when no explicit provider is selected'),
