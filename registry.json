@@ -22087,7 +22087,7 @@
         "src/__setup__/comment_numbers.sql": "-- Sequential integer numbers for comments, for APIs whose clients address a\n-- comment by an integer id instead of its internal UUID.\n-- createComment() / createNumberedComment() write this row with the comment;\n-- numberComment(id) numbers a row that was inserted without them. The comment\n-- keeps its UUID either way.\nCREATE TABLE IF NOT EXISTS \"comment_numbers\" (\n  \"number\" INTEGER PRIMARY KEY,\n  \"commentId\" UUID NOT NULL UNIQUE REFERENCES \"comments\"(\"id\") ON DELETE CASCADE\n);\n",
         "src/__setup__/comments.sql": "CREATE TABLE IF NOT EXISTS \"comments\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"parentId\" UUID REFERENCES \"comments\"(\"id\") ON DELETE CASCADE,\n  \"body\" TEXT NOT NULL,\n  \"editedAt\" TIMESTAMPTZ,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_comments_resource\" ON \"comments\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_comments_parent\" ON \"comments\" (\"parentId\");\nCREATE INDEX IF NOT EXISTS \"idx_comments_user\" ON \"comments\" (\"userId\");\n"
       },
-      "setupSqlVersion": "1.2.4",
+      "setupSqlVersion": "1.2.5",
       "path": "packages/api/resources/comment",
       "intentHints": [
         "comments backend",
@@ -64381,7 +64381,7 @@
       "@molecule/api-resource-booking": "1.0.5",
       "@molecule/api-resource-bookmark": "1.0.6",
       "@molecule/api-resource-cart": "1.0.5",
-      "@molecule/api-resource-comment": "1.2.4",
+      "@molecule/api-resource-comment": "1.2.5",
       "@molecule/api-resource-course": "1.0.6",
       "@molecule/api-resource-device": "1.1.2",
       "@molecule/api-resource-device-auth-token": "1.0.3",
