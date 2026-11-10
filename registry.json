@@ -64517,7 +64517,7 @@
       "@molecule/app-audio-player-react": "3.0.0",
       "@molecule/app-audio-recorder-react": "3.0.0",
       "@molecule/app-audit-log-row-react": "3.0.0",
-      "@molecule/app-auth": "3.3.2",
+      "@molecule/app-auth": "3.3.3",
       "@molecule/app-auth-brand-header-react": "3.0.0",
       "@molecule/app-auth-modal-react": "3.0.0",
       "@molecule/app-auth-shell-react": "3.0.0",
