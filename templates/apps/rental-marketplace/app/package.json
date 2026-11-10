@@ -76,7 +76,7 @@
     "@molecule/app-plan-updated-page-react": "3.0.0",
     "@molecule/app-platform": "1.0.5",
     "@molecule/app-push": "1.0.3",
-    "@molecule/app-pwa-default": "1.1.0",
+    "@molecule/app-pwa-default": "1.1.1",
     "@molecule/app-react": "3.5.0",
     "@molecule/app-realtime": "1.0.4",
     "@molecule/app-realtime-socketio": "1.1.2",
