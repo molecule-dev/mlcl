@@ -64154,7 +64154,7 @@
       "@molecule/api-code-sandbox": "1.7.1",
       "@molecule/api-code-sandbox-docker": "1.3.1",
       "@molecule/api-code-sandbox-e2b": "1.3.3",
-      "@molecule/api-code-sandbox-flyio": "1.4.3",
+      "@molecule/api-code-sandbox-flyio": "1.4.4",
       "@molecule/api-code-sandbox-flyio-sprites": "1.0.7",
       "@molecule/api-compliance": "1.0.3",
       "@molecule/api-compliance-gdpr": "1.0.4",
