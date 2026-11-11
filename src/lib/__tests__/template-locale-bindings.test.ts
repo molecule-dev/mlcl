@@ -8,12 +8,19 @@ import {
   symlinkSync,
   writeFileSync,
 } from 'node:fs'
+import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join, resolve } from 'node:path'
 
 import { afterEach, describe, expect, it } from 'vitest'
 
 const ROOT = resolve(import.meta.dirname, '../../..')
+const SCRIPT = join(ROOT, 'scripts/check-template-locale-placeholders.js')
+// The node_modules the real script resolves typescript from: mlcl's own in a standalone
+// checkout, the workspace root's where npm hoisted it.
+const MODULES = dirname(
+  dirname(realpathSync(createRequire(SCRIPT).resolve('typescript/package.json'))),
+)
 const scratch: string[] = []
 afterEach(() => scratch.splice(0).forEach((dir) => rmSync(dir, { recursive: true, force: true })))
 
@@ -32,11 +39,8 @@ function check(
     writeFileSync(join(root, rel), text)
   }
   mkdirSync(join(root, 'scripts'))
-  copyFileSync(
-    join(ROOT, 'scripts/check-template-locale-placeholders.js'),
-    join(root, 'scripts/check-template-locale-placeholders.js'),
-  )
-  symlinkSync(realpathSync(join(ROOT, 'node_modules')), join(root, 'node_modules'), 'dir')
+  copyFileSync(SCRIPT, join(root, 'scripts/check-template-locale-placeholders.js'))
+  symlinkSync(MODULES, join(root, 'node_modules'), 'dir')
   return spawnSync(process.execPath, ['scripts/check-template-locale-placeholders.js'], {
     cwd: root,
     encoding: 'utf8',
