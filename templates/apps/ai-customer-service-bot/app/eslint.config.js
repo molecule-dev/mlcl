@@ -43,6 +43,260 @@ try {
 const moleculeLocal = {
   rules: {
     'prefer-declared-clients': preferDeclaredClients,
+    // HTML paragraphs accept phrasing content. Resolve local component roots too: a markdown
+    // renderer returning a div must not be hidden behind a component name inside a p.
+    'no-block-in-paragraph': {
+      meta: {
+        type: 'problem',
+        schema: [],
+        messages: {
+          block:
+            '<p> at line {{line}} contains <{{tag}}> through {{component}}. Paragraphs cannot contain block elements; use a <div> for the outer wrapper so rendered paragraphs do not duplicate text matches.',
+        },
+      },
+      create(context) {
+        const block = new Set([
+          'address',
+          'article',
+          'aside',
+          'blockquote',
+          'details',
+          'div',
+          'dl',
+          'fieldset',
+          'figcaption',
+          'figure',
+          'footer',
+          'form',
+          'h1',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'header',
+          'hgroup',
+          'hr',
+          'main',
+          'menu',
+          'nav',
+          'ol',
+          'p',
+          'pre',
+          'search',
+          'section',
+          'table',
+          'ul',
+        ])
+        const cache = new Map()
+        const scopes = new WeakMap([
+          [context.sourceCode.ast, context.sourceCode.scopeManager.scopes],
+        ])
+        const unwrap = (node) =>
+          ['TSAsExpression', 'TSNonNullExpression', 'ParenthesizedExpression'].includes(node?.type)
+            ? unwrap(node.expression)
+            : node
+        const declaration = (tree, name) => {
+          for (const statement of tree.body) {
+            const node =
+              statement.type === 'ExportNamedDeclaration' ? statement.declaration : statement
+            if (!node) continue
+            if (node.type === 'FunctionDeclaration' && node.id?.name === name) return node
+            if (node.type === 'VariableDeclaration') {
+              const found = node.declarations.find(
+                (item) => item.id.type === 'Identifier' && item.id.name === name,
+              )
+              if (found) return unwrap(found.init)
+            }
+          }
+          return null
+        }
+        const imported = (tree, name, filename) => {
+          const statement = tree.body.find(
+            (node) =>
+              node.type === 'ImportDeclaration' &&
+              node.specifiers.some((item) => item.local.name === name),
+          )
+          if (
+            !statement ||
+            statement.importKind === 'type' ||
+            !statement.source.value.startsWith('.')
+          )
+            return null
+          const spec = statement.specifiers.find((item) => item.local.name === name)
+          if (spec.importKind === 'type') return null
+          const stem = new URL(statement.source.value, `file://${filename}`).pathname
+          const paths = [
+            stem,
+            ...['.tsx', '.ts', '.jsx', '.js'].map((ext) => stem.replace(/\.[cm]?jsx?$/, '') + ext),
+            stem + '/index.tsx',
+          ]
+          for (const file of paths) {
+            let source = cache.get(file)
+            if (source === undefined) {
+              try {
+                const parsed = tseslint.parser.parseForESLint(readFileSync(file, 'utf8'), {
+                  filePath: file,
+                  ecmaFeatures: { jsx: true },
+                  sourceType: 'module',
+                  loc: true,
+                  range: true,
+                })
+                source = parsed.ast
+                scopes.set(source, parsed.scopeManager.scopes)
+              } catch (_error) {
+                source = null
+              }
+              cache.set(file, source)
+            }
+            if (!source) continue
+            const name = spec.type === 'ImportDefaultSpecifier' ? 'default' : spec.imported?.name
+            const exported =
+              name === 'default'
+                ? source.body.find((node) => node.type === 'ExportDefaultDeclaration')?.declaration
+                : declaration(source, name)
+            return exported ? { node: exported, tree: source, filename: file } : null
+          }
+          return null
+        }
+        const roots = (node) => {
+          if (node?.type === 'Identifier') return []
+          if (
+            ['ArrowFunctionExpression', 'FunctionExpression', 'FunctionDeclaration'].includes(
+              node?.type,
+            )
+          ) {
+            if (node.body.type !== 'BlockStatement') return [node.body]
+            const result = []
+            const visit = (part) => {
+              if (
+                !part ||
+                ['FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression'].includes(
+                  part.type,
+                )
+              )
+                return
+              if (part.type === 'ReturnStatement') {
+                if (part.argument) result.push(part.argument)
+                return
+              }
+              for (const [key, value] of Object.entries(part)) {
+                if (['parent', 'tokens', 'comments', 'loc', 'range'].includes(key)) continue
+                if (Array.isArray(value)) for (const item of value) visit(item)
+                else if (value && typeof value === 'object') visit(value)
+              }
+            }
+            visit(node.body)
+            return result
+          }
+          return []
+        }
+        const find = (node, tree, filename, seen = new Set(), rootOnly = false) => {
+          node = unwrap(node)
+          if (!node || seen.has(node) || seen.size >= 24) return null
+          seen = new Set(seen).add(node)
+          if (node.type === 'JSXElement' || node.type === 'JSXSelfClosingElement') {
+            const open = node.openingElement ?? node
+            const name = open.name.type === 'JSXIdentifier' ? open.name.name : ''
+            if (block.has(name)) return { tag: name, component: name }
+            if (/^[A-Z]/.test(name)) {
+              const containing = (scopes.get(tree) ?? [])
+                .filter(
+                  (scope) =>
+                    scope.block.range &&
+                    scope.block.range[0] <= open.range[0] &&
+                    scope.block.range[1] >= open.range[1],
+                )
+                .sort(
+                  (a, b) =>
+                    a.block.range[1] - a.block.range[0] - (b.block.range[1] - b.block.range[0]),
+                )
+              let scope = containing[0],
+                binding = null
+              while (scope && !binding) {
+                binding = scope.variables.find((variable) => variable.name === name)
+                scope = scope.upper
+              }
+              const def = binding?.defs[0]
+              const local =
+                def?.type === 'FunctionName'
+                  ? def.node
+                  : def?.type === 'Variable'
+                    ? unwrap(def.node.init)
+                    : null
+              const target = local
+                ? { node: local, tree, filename }
+                : def?.type === 'ImportBinding'
+                  ? imported(tree, name, filename)
+                  : null
+              const returns = target ? roots(target.node) : []
+              if (returns.length === 1)
+                for (const root of returns) {
+                  const found = find(root, target.tree, target.filename, seen, true)
+                  if (found) return { ...found, component: name }
+                }
+              // Opaque components may discard their children. Never infer that they render them.
+              return null
+            }
+            if (rootOnly) return null
+            for (const child of node.children ?? []) {
+              const found = find(child, tree, filename, seen)
+              if (found) return found
+            }
+          } else if (node.type === 'JSXFragment') {
+            for (const child of node.children) {
+              const found = find(child, tree, filename, seen, rootOnly)
+              if (found) return found
+            }
+          } else if (node.type === 'JSXExpressionContainer')
+            return find(node.expression, tree, filename, seen)
+          else if (node.type === 'ConditionalExpression') {
+            if (rootOnly) return null
+            const test = unwrap(node.test)
+            if (test.type === 'Literal')
+              return find(test.value ? node.consequent : node.alternate, tree, filename, seen)
+            return (
+              find(node.consequent, tree, filename, seen) ??
+              find(node.alternate, tree, filename, seen)
+            )
+          } else if (node.type === 'LogicalExpression') {
+            if (rootOnly) return null
+            const left = unwrap(node.left)
+            if (left.type === 'Literal') {
+              const right =
+                node.operator === '&&'
+                  ? Boolean(left.value)
+                  : node.operator === '||'
+                    ? !left.value
+                    : left.value === null
+              return find(right ? node.right : node.left, tree, filename, seen)
+            }
+            return find(node.left, tree, filename, seen) ?? find(node.right, tree, filename, seen)
+          }
+          return null
+        }
+        return {
+          JSXElement(node) {
+            if (
+              node.openingElement.name.type !== 'JSXIdentifier' ||
+              node.openingElement.name.name !== 'p'
+            )
+              return
+            for (const child of node.children) {
+              const found = find(child, context.sourceCode.ast, context.filename)
+              if (found) {
+                context.report({
+                  node: node.openingElement,
+                  messageId: 'block',
+                  data: { ...found, line: node.loc.start.line },
+                })
+                break
+              }
+            }
+          },
+        }
+      },
+    },
     // A datastore lookup has no update context. Use ESLint's AST and bindings to
     // catch an existence-only duplicate check before a same-table update. The
     // compiler cannot know that the query also matches the unchanged row.
@@ -2179,6 +2433,7 @@ export default tseslint.config(
       'molecule-local/server-toggles-use-optimistic-value': 'warn',
       'molecule-local/buttons-have-an-action': 'warn',
       'molecule-local/placeholders-stay-out-of-record-fields': 'warn',
+      'molecule-local/no-block-in-paragraph': 'warn',
       'molecule-local/require-catch-binding': 'warn',
       // A full date-time prefix without its milliseconds or UTC marker loses
       // information: two updates in one second can serialize as the same value.
