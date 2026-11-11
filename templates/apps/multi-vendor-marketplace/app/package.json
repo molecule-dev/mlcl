@@ -39,7 +39,7 @@
     "@molecule/app-gallery": "1.0.3",
     "@molecule/app-gallery-photoswipe": "1.0.3",
     "@molecule/app-header-react": "3.0.0",
-    "@molecule/app-http": "1.6.1",
+    "@molecule/app-http": "1.7.0",
     "@molecule/app-i18n": "1.1.2",
     "@molecule/app-i18n-default-react": "1.0.4",
     "@molecule/app-icons": "1.0.3",
