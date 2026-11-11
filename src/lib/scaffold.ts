@@ -32,6 +32,7 @@ import {
   ensureClaudeSkillsLink,
   writeAgentSkillFiles,
 } from './agent-skills.js'
+import { writeAppResourceModules } from './app-resource-modules.js'
 import {
   type AuthContract,
   authContractFromRegistry,
@@ -43,6 +44,7 @@ import {
 export { userProfileUpdateConfig } from './auth-contract.js'
 import {
   type DeclaredPackage,
+  readDeclaredPackages,
   readProjectCapabilityMap,
   renderCapabilityMap,
   stampCapabilityBondHeaders,
@@ -2388,6 +2390,16 @@ export async function ensureAgentsMd(
 ): Promise<void> {
   const target = join(projectRoot, 'AGENTS.md')
   const declarations = declared ? [...declared] : undefined
+  // Before the headers: a module written here is named in the capability map they render.
+  await writeAppResourceModules(
+    projectRoot,
+    getRawRegistry(),
+    declarations
+      ? declarations.map((item) =>
+          typeof item === 'string' ? { name: item, workspace: '' } : item,
+        )
+      : await readDeclaredPackages(projectRoot),
+  )
   await stampCapabilitySourceHeaders(projectRoot, getRawRegistry(), declarations)
   const { existsSync } = await import('node:fs')
   if (existsSync(target)) return

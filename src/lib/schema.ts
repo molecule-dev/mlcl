@@ -170,6 +170,30 @@ export const DecisionGuide = z.object({
       'Concrete configuration for the common API shapes this package supports. ' +
         'Project capability maps, search hits and bond headers all render this one source.',
     ),
+  resourceModules: z
+    .object({
+      directory: z
+        .string()
+        .regex(/^(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_-]+$/)
+        .describe('Workspace-relative directory the modules are written to, e.g. src/resources'),
+      factory: z
+        .string()
+        .regex(/^[A-Za-z_$][\w$]*$/)
+        .describe('The export of this package that describes one resource'),
+      http: z.object({
+        package: z.string().describe('The HTTP core the module reads its client from'),
+        client: z.string().describe('Its accessor for the bonded client'),
+        readList: z.string().describe('Its reader for a list response'),
+        readOne: z.string().describe('Its reader for a single-record response'),
+      }),
+    })
+    .optional()
+    .describe(
+      'This app package can describe an API resource as one module (list, detail and writes on ' +
+        'the shared cache). mlcl create writes one such module per declared resource package ' +
+        'that is a plain collection, when the HTTP package is declared beside this one. An ' +
+        'existing module is never rewritten.',
+    ),
 })
 
 /** Package-authored auth options paired with its existing route declarations. */

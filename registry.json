@@ -57445,7 +57445,17 @@
         "configuration": [
           "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
           "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
-        ]
+        ],
+        "resourceModules": {
+          "directory": "src/resources",
+          "factory": "createQueryResource",
+          "http": {
+            "package": "@molecule/app-http",
+            "client": "getClient",
+            "readList": "unwrapList",
+            "readOne": "unwrapSingle"
+          }
+        }
       },
       "intentHints": [
         "usequery hook",

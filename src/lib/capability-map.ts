@@ -39,6 +39,8 @@ export interface CapabilityMapEntry {
   documentation: string
   /** Existing workspace-relative JS/TS files that carry this package's recipes. */
   sourceFiles?: string[]
+  /** Existing project-relative resource modules built on this package's factory. */
+  resourceModules?: string[]
 }
 
 const DEPENDENCY_SECTIONS = [
@@ -135,7 +137,7 @@ export function buildCapabilityMap(
 }
 
 /** Read the root, `api`, and `app` manifests written by mlcl scaffolds. */
-async function readDeclaredPackages(projectRoot: string): Promise<DeclaredPackage[]> {
+export async function readDeclaredPackages(projectRoot: string): Promise<DeclaredPackage[]> {
   const declarations = new Map<string, DeclaredPackage>()
   for (const workspace of ['', 'api', 'app']) {
     let manifest: Record<string, unknown>
@@ -214,8 +216,33 @@ export async function readProjectCapabilityMap(
     wiring.set(workspace, resolveBondWiring(sources, registry))
     configFiles.set(workspace, configs)
   }
+  // The resource modules already in the project, for the package whose factory they call.
+  const resourceModules = new Map<string, string[]>()
+  for (const entry of entries) {
+    const factory = registry.packages[entry.name]?.decisionGuide?.resourceModules
+    if (!factory) continue
+    const found: string[] = []
+    for (const workspace of entry.workspaces) {
+      const directory = prefixed(workspace, factory.directory)
+      let names: string[]
+      try {
+        names = await readdir(join(projectRoot, directory))
+      } catch (_error) {
+        // The project has no resource modules in this workspace.
+        continue
+      }
+      for (const name of names.filter((file) => /\.[cm]?tsx?$/.test(file)).sort()) {
+        const source = await readFile(join(projectRoot, directory, name), 'utf8')
+        if (source.includes(factory.factory)) found.push(`${directory}/${name}`)
+      }
+    }
+    if (found.length > 0) resourceModules.set(entry.name, found)
+  }
   return entries.map((entry) => ({
     ...entry,
+    ...(resourceModules.has(entry.name)
+      ? { resourceModules: resourceModules.get(entry.name) }
+      : {}),
     wiredBonds: [
       ...new Set(
         entry.workspaces.flatMap((workspace) => wiring.get(workspace)?.get(entry.name) ?? []),
@@ -511,6 +538,8 @@ export function renderCapabilityMap(entries: readonly CapabilityMapEntry[]): str
       if (!entry.configFiles?.length)
         lines.push(`- Configuration exports: ${exports(entry.configNames)}.`)
     }
+    for (const path of entry.resourceModules ?? [])
+      lines.push(`- Resource module, already written — build pages on it: \`${path}\`.`)
     for (const guidance of entry.guidance) lines.push(`- ${guidance}`)
     lines.push('- Configuration by API shape:')
     for (const configuration of entry.configuration) lines.push(`  - ${configuration}`)
@@ -590,6 +619,10 @@ export async function stampCapabilitySourceHeaders(
     const recipes = byPath.get(relative) ?? []
     const lines = recipes.flatMap((entry) => [
       `Installed: ${entry.name}`,
+      ...(entry.resourceModules ?? []).map(
+        (module) =>
+          `Resource module, already written — build pages on it instead of fetching in an effect: ${module}`,
+      ),
       ...entry.guidance,
       ...entry.configuration,
     ])
