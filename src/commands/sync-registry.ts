@@ -6,7 +6,9 @@ import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
+import { resourceRecordName } from '../lib/app-resource-modules.js'
 import { getMoleculeVersion, getRawRegistry, getRegistryPath } from '../lib/registry.js'
+import { scanResponseRecord } from '../lib/response-record.js'
 import {
   bondSetterScope,
   ROUTE_SCANNED_TYPES,
@@ -63,6 +65,11 @@ export default class SyncRegistry extends Command {
         "Scan each resource's src/routes.ts (middlewares filtered to requestHandlerMap keys) and update the registry routes field",
       default: false,
     }),
+    'scan-records': Flags.boolean({
+      description:
+        "Scan each resource's src/types.ts for the record its API returns and update the registry responseRecord field",
+      default: false,
+    }),
     'sync-toolchain': Flags.boolean({
       description:
         'Sync toolchain versions in registry.json from mlcl and molecule package.json files',
@@ -111,6 +118,11 @@ export default class SyncRegistry extends Command {
       return
     }
 
+    if (flags['scan-records']) {
+      this.refreshRecords(flags['dry-run'])
+      return
+    }
+
     if (flags['check-intent-hints']) {
       const violations = this.checkIntentHints()
       if (violations > 0) this.exit(1)
@@ -125,8 +137,15 @@ export default class SyncRegistry extends Command {
     const exportsUpdated = await this.refreshExports(dryRun, false)
     const tablesUpdated = await this.refreshTables(dryRun, false)
     const routesUpdated = await this.refreshRoutes(dryRun, false)
+    // After the routes: a record is looked up by the name its collection route gives it.
+    const recordsUpdated = this.refreshRecords(dryRun, false)
     const totalUpdated =
-      toolchainUpdated + frameworksUpdated + exportsUpdated + tablesUpdated + routesUpdated
+      toolchainUpdated +
+      frameworksUpdated +
+      exportsUpdated +
+      tablesUpdated +
+      routesUpdated +
+      recordsUpdated
 
     if (flags.check) {
       p.outro(
@@ -944,6 +963,67 @@ export default class SyncRegistry extends Command {
       )
     }
 
+    return updated
+  }
+
+  /**
+   * Refresh each resource's `responseRecord`: the record its API returns, read from the
+   * interface the package exports under the name of what its collection holds (`Article` for
+   * `/articles`). The app module mlcl writes for a resource is typed from it, and a published
+   * package ships no source to read, so the registry carries it like routes and tables.
+   *
+   * A resource whose routes describe no plain collection, or whose package exports no such
+   * interface, has no field; the app module then gets an open record.
+   *
+   * @param dryRun - When true, report changes without writing.
+   * @param standalone - When true, print a standalone summary + outro.
+   * @returns Number of packages whose `responseRecord` changed.
+   */
+  private refreshRecords(dryRun: boolean, standalone = true): number {
+    const spinner = p.spinner()
+    spinner.start('Scanning resource records...')
+
+    const registry = getRawRegistry()
+    const registryPath = getRegistryPath()
+    const __dir = dirname(fileURLToPath(import.meta.url))
+    const moleculeDir = process.env.MOLECULE_PACKAGES_DIR
+      ? join(process.env.MOLECULE_PACKAGES_DIR, '..')
+      : join(__dir, '..', '..', '..', 'molecule')
+
+    let updated = 0
+    const changes: string[] = []
+    for (const [name, entry] of Object.entries(registry.packages)) {
+      if (entry.type !== 'resource') continue
+      const typesPath = join(moleculeDir, entry.path, 'src', 'types.ts')
+      if (!existsSync(join(moleculeDir, entry.path, 'src'))) continue
+      const recordName = resourceRecordName(entry.routes ?? [])
+      const scanned =
+        recordName && existsSync(typesPath)
+          ? scanResponseRecord(readFileSync(typesPath, 'utf-8'), [recordName])
+          : null
+      if (JSON.stringify(entry.responseRecord ?? null) === JSON.stringify(scanned)) continue
+      changes.push(
+        `${chalk.yellow('↻')} ${chalk.cyan(name)}: ${scanned ? `${scanned.name} (${scanned.fields.length} fields)` : 'no declared record'}`,
+      )
+      if (scanned) entry.responseRecord = scanned
+      else delete entry.responseRecord
+      updated++
+    }
+
+    if (!dryRun && updated > 0)
+      writeFileSync(registryPath, JSON.stringify(registry, null, 2) + '\n', 'utf-8')
+
+    spinner.stop(updated > 0 ? `Records: ${updated} updated` : chalk.dim('Records: up to date'))
+    if (standalone) {
+      if (changes.length > 0) p.note(changes.join('\n'), 'Record Scan Summary')
+      p.outro(
+        dryRun
+          ? chalk.yellow('Run without --dry-run to write changes')
+          : updated > 0
+            ? chalk.green(`Updated records for ${updated} packages`)
+            : chalk.green('All records are up to date'),
+      )
+    }
     return updated
   }
 

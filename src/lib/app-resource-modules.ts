@@ -5,7 +5,7 @@
  * every page that read or changed the resource was written from scratch. For each declared
  * resource that is a plain collection, this writes one small app module that describes it to
  * the app's resource factory (list, detail, create, update, remove and toggles on the shared
- * query cache), typed from the resource's own table.
+ * query cache), typed from the record the resource's API returns.
  *
  * Nothing here names a package. The app package that owns the factory declares it in the
  * registry (`decisionGuide.resourceModules`), the resources come from the project's manifests,
@@ -22,8 +22,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 
 import type { DeclaredPackage } from './capability-map.js'
+import { formatGeneratedSource } from './format.js'
 import type { Registry, RegistryEntry } from './schema.js'
-import { splitSqlColumns, splitSqlStatements } from './sql-requirements.js'
 
 /** How an app package declares its resource factory (`decisionGuide.resourceModules`). */
 export type ResourceModuleFactory = NonNullable<
@@ -125,53 +125,17 @@ export function resourceCollection(routes: readonly Route[]): {
   return null
 }
 
-const SQL_TYPES: ReadonlyArray<[RegExp, string]> = [
-  [/^(?:BOOL|BOOLEAN)\b/i, 'boolean'],
-  [
-    /^(?:SMALLINT|INTEGER|INT\d?|BIGINT|SERIAL|BIGSERIAL|SMALLSERIAL|REAL|FLOAT\d?|DOUBLE|NUMERIC|DECIMAL)\b/i,
-    'number',
-  ],
-  [/^(?:JSON|JSONB)\b/i, 'unknown'],
-  [/^(?:UUID|TEXT|VARCHAR|CHAR|CHARACTER|CITEXT|TIMESTAMP|TIMESTAMPTZ|DATE|TIME)\b/i, 'string'],
-]
-
 /**
- * The columns of one table, read from the resource's setup SQL.
+ * The name of the record a resource's collection holds, e.g. `Article` for `/articles`. The
+ * registry sync looks for the package's exported interface of this name, and the module's type
+ * carries it.
  *
- * @param sql - Every setup SQL text of the resource.
- * @param table - The table to read.
- * @returns Each column with its TypeScript type, or null when the table is not declared.
+ * @param routes - The resource's declared routes.
+ * @returns The record name, or null when the routes describe no plain collection.
  */
-export function tableColumns(
-  sql: readonly string[],
-  table: string,
-): Array<{ name: string; type: string }> | null {
-  for (const text of sql) {
-    for (const statement of splitSqlStatements(text)) {
-      const body = statement.text
-      const head = /^\s*CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?"?([A-Za-z_][\w$]*)"?\s*\(/i.exec(
-        body,
-      )
-      if (!head || head[1] !== table) continue
-      const inner = body.slice(head[0].length, body.lastIndexOf(')'))
-      const columns: Array<{ name: string; type: string }> = []
-      for (const part of splitSqlColumns(inner)) {
-        const column = /^"?([A-Za-z_][\w$]*)"?\s+(.+)$/s.exec(
-          part.replace(/--[^\n]*\n/g, '').trim(),
-        )
-        if (!column) continue
-        if (/^(?:PRIMARY|UNIQUE|FOREIGN|CONSTRAINT|CHECK|EXCLUDE)$/i.test(column[1])) continue
-        const known = SQL_TYPES.find(([pattern]) => pattern.test(column[2]))?.[1] ?? 'unknown'
-        const required = /\bNOT\s+NULL\b|\bPRIMARY\s+KEY\b/i.test(column[2])
-        columns.push({
-          name: column[1],
-          type: required || known === 'unknown' ? known : `${known} | null`,
-        })
-      }
-      return columns.length > 0 ? columns : null
-    }
-  }
-  return null
+export function resourceRecordName(routes: readonly Route[]): string | null {
+  const name = resourceCollection(routes)?.base.split('/').at(-1) ?? ''
+  return SEGMENT.test(name) ? pascal(singular(name)) : null
 }
 
 /**
@@ -201,15 +165,15 @@ export function planAppResourceModule(
   // The record is named after what the collection holds: `/services` holds a Service even when
   // the package that serves it is named for something larger.
   const typeName = pascal(singular(name))
-  const setupSql = entry.setupSql
-  const sql = setupSql && typeof setupSql === 'object' ? Object.values(setupSql) : []
-  const columns = tableColumns(
-    sql.filter((text): text is string => typeof text === 'string'),
-    name.replace(/-/g, '_'),
-  )
-  const idField = columns?.some((column) => column.name === collection.param)
-    ? collection.param
-    : 'id'
+  // The record the package DECLARES its API returns, carried by the registry. Never the stored
+  // row: a row says `tagList: string` where the API answers `string[]`, and an app typed from it
+  // is typed wrong. With no declared record the type is open, which contradicts nothing.
+  const record = entry.responseRecord?.name === typeName ? entry.responseRecord : null
+  const idField =
+    collection.param === 'id' ||
+    (record && !record.fields.some((field) => field.name === collection.param))
+      ? 'id'
+      : collection.param
   const path = [workspace, factory.directory, `${name}.ts`].filter(Boolean).join('/')
   const operations = [
     'list',
@@ -227,8 +191,10 @@ export function planAppResourceModule(
   const httpNames = [factory.http.client, factory.http.readList, factory.http.readOne].sort(
     (a, b) => a.toLowerCase().localeCompare(b.toLowerCase()),
   )
-  const fields = columns
-    ? columns.map((column) => `  ${column.name}: ${column.type}`).join('\n')
+  const fields = record
+    ? record.fields
+        .map((field) => `  ${field.name}${field.optional ? '?' : ''}: ${field.type}`)
+        .join('\n')
     : '  id: string\n  [field: string]: unknown'
   const writes = operations
     .slice(2)
@@ -255,8 +221,8 @@ import { ${httpNames.join(', ')} } from '${factory.http.package}'
 import { ${factory.factory} } from '${factoryPackage}'
 
 /** ${
-    columns
-      ? `The columns of the \`${name.replace(/-/g, '_')}\` table. Add the fields your API adds to a response.`
+    record
+      ? `A ${typeName} as ${resource} returns it. Change it if your API answers differently.`
       : `A ${typeName} record as the API returns it. Name its fields here.`
   } */
 export interface ${typeName} {
@@ -382,7 +348,9 @@ export async function writeAppResourceModules(
     const target = join(projectRoot, module.path)
     if (existsSync(target)) continue
     await mkdir(dirname(target), { recursive: true })
-    await writeFile(target, module.source, 'utf8')
+    // A declared record can carry a long union or an inline object: format it as the project's
+    // own Prettier would, so a fresh scaffold passes its own format check.
+    await writeFile(target, await formatGeneratedSource(module.source, target), 'utf8')
     written.push(module)
   }
   if (written.length === 0) return written

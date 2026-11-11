@@ -148,6 +148,23 @@ export type SqlSupport = z.infer<typeof SqlSupportSchema>
 /** One provider's declared SQL capability map (the registry copy of the bond's export). */
 export type SqlCapabilitiesValue = z.infer<typeof SqlCapabilitiesSchema>
 
+/** The record a resource's API returns, scanned from the package's declared interface. */
+export const ResponseRecord = z.object({
+  name: z
+    .string()
+    .regex(/^[A-Z][A-Za-z0-9]*$/)
+    .describe('The exported interface, e.g. Article'),
+  fields: z
+    .array(
+      z.object({
+        name: z.string().regex(/^[A-Za-z_$][\w$]*$/),
+        type: z.string().min(1).describe('A TypeScript type that names nothing outside itself'),
+        optional: z.boolean(),
+      }),
+    )
+    .min(1),
+})
+
 /** Package-authored decision guidance rendered by capability-map.ts. */
 export const DecisionGuide = z.object({
   sourceFiles: z
@@ -533,6 +550,10 @@ export const MoleculeMetadata = z.object({
     .array(z.string())
     .optional()
     .describe('Exports that resource wrappers should re-export (e.g. authorization, services)'),
+  responseRecord: ResponseRecord.optional().describe(
+    'The record this resource returns, as its package declares it (not the stored row). Written ' +
+      'by sync-registry --scan-records; a published package ships no source to read it from.',
+  ),
   requestHandlerMapFactory: z
     .string()
     .regex(/^[A-Za-z_$][\w$]*$/)
@@ -882,6 +903,10 @@ export const RegistryEntry = z.object({
     .array(z.string())
     .optional()
     .describe('Exports that resource wrappers should re-export (e.g. authorization, services)'),
+  responseRecord: ResponseRecord.optional().describe(
+    'The record this resource returns, as its package declares it (not the stored row). Written ' +
+      'by sync-registry --scan-records; a published package ships no source to read it from.',
+  ),
   requestHandlerMapFactory: z
     .string()
     .regex(/^[A-Za-z_$][\w$]*$/)

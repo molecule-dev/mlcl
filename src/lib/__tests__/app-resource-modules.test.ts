@@ -10,10 +10,11 @@ import {
   planAppResourceModule,
   planAppResourceModules,
   resourceCollection,
-  tableColumns,
+  resourceRecordName,
 } from '../app-resource-modules.js'
 import { GENERATED_ROUTER_MARKER } from '../injector.js'
 import { getRawRegistry } from '../registry.js'
+import { scanResponseRecord } from '../response-record.js'
 import { ensureAgentsMd } from '../scaffold.js'
 import type { RegistryEntry } from '../schema.js'
 
@@ -75,8 +76,14 @@ describe('app modules for declared API resources, written by the create step', (
     expect(articles).toContain(
       "import { getClient, unwrapList, unwrapSingle } from '@molecule/app-http'",
     )
+    // The record the API returns, not the stored row: the row's tagList is a JSON string and
+    // has neither of the two fields the service adds.
     expect(articles).toContain('export interface Article {')
     expect(articles).toContain('  slug: string')
+    expect(articles).toContain('  tagList: string[]')
+    expect(articles).toContain('  favoritesCount: number')
+    expect(articles).toContain('  favorited: boolean')
+    expect(articles).not.toContain('tagList: string\n')
     expect(articles).toContain("  id: 'slug',")
     expect(articles).toContain("path: '/articles',")
     expect(articles).toContain('`articles.toggle`')
@@ -150,6 +157,89 @@ describe('app modules for declared API resources, written by the create step', (
   })
 })
 
+/** A package's types module: the stored row and the record its service returns differ. */
+const INVOICE_TYPES = `
+export type InvoiceStatus = 'open' | 'paid'
+export interface InvoiceRow {
+  id: string
+  number: string
+  totalCents: number
+  tags: string
+  status: string
+  paidAt: string | null
+}
+export interface Invoice {
+  id: string
+  number: string
+  /** In the account's currency. */
+  total: number
+  tags: string[]
+  status: InvoiceStatus
+  paidAt?: string | null
+}
+export interface Customer<T> extends Base {
+  id: T
+}
+`
+
+describe('the record a package declares', () => {
+  it('reads the returned record, inlines a local union and ignores the row', () => {
+    expect(scanResponseRecord(INVOICE_TYPES, ['Invoice'])).toEqual({
+      name: 'Invoice',
+      fields: [
+        { name: 'id', type: 'string', optional: false },
+        { name: 'number', type: 'string', optional: false },
+        { name: 'total', type: 'number', optional: false },
+        { name: 'tags', type: 'string[]', optional: false },
+        { name: 'status', type: "'open' | 'paid'", optional: false },
+        { name: 'paidAt', type: 'string | null', optional: true },
+      ],
+    })
+  })
+
+  it('types what it cannot see as unknown and declines an interface it cannot read whole', () => {
+    const source = `import type { Money } from './money.js'
+export interface Line { sku: string; price: Money; next?: Line }
+export interface Quote { lines: Line[]; when: Date; meta: Record<string, Money>; pick: Pick<Line, 'sku'> }
+${INVOICE_TYPES}`
+    expect(scanResponseRecord(source, ['Quote'])?.fields).toEqual([
+      { name: 'lines', type: '{ sku: string; price: unknown; next?: unknown }[]', optional: false },
+      { name: 'when', type: 'string', optional: false },
+      { name: 'meta', type: 'Record<string, unknown>', optional: false },
+      { name: 'pick', type: 'unknown', optional: false },
+    ])
+    expect(scanResponseRecord(source, ['Customer'])).toBeNull()
+    expect(scanResponseRecord(source, ['Missing'])).toBeNull()
+  })
+
+  // The registry copy is what a production scaffold reads; the package source is the truth.
+  const types = (short: string): string =>
+    join(MOLECULE, '..', 'api', 'resources', short, 'src', 'types.ts')
+  it.runIf(existsSync(types('article')))(
+    'matches the package source for every resource the registry holds a record for',
+    async () => {
+      const held = Object.entries(registry.packages).filter(([, entry]) => entry.responseRecord)
+      expect(held.length).toBeGreaterThan(10)
+      for (const [name, entry] of held) {
+        const source = await readFile(
+          join(MOLECULE, '..', '..', entry.path, 'src', 'types.ts'),
+          'utf8',
+        )
+        expect([
+          name,
+          scanResponseRecord(source, [resourceRecordName(entry.routes ?? [])!]),
+        ]).toEqual([name, entry.responseRecord])
+      }
+      // The article row and the article response differ exactly where the generator used to be wrong.
+      const article = registry.packages[ARTICLE].responseRecord!
+      expect(article.fields.find((field) => field.name === 'tagList')?.type).toBe('string[]')
+      expect(article.fields.map((field) => field.name)).toEqual(
+        expect.arrayContaining(['favoritesCount', 'favorited']),
+      )
+    },
+  )
+})
+
 describe('an invoices resource described by registry metadata alone', () => {
   const invoices = {
     type: 'resource',
@@ -175,6 +265,7 @@ describe('an invoices resource described by registry metadata alone', () => {
 );
 CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
     },
+    responseRecord: scanResponseRecord(INVOICE_TYPES, ['Invoice']),
   } as unknown as RegistryEntry
   const factory = registry.packages[QUERY].decisionGuide!.resourceModules!
 
@@ -188,19 +279,6 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
       // `send` has no DELETE counterpart: an action, not a flag.
       toggles: ['flag'],
     })
-  })
-
-  it('types the record from the table, nullable where the column is', () => {
-    expect(
-      tableColumns(Object.values(invoices.setupSql as Record<string, string>), 'invoices'),
-    ).toEqual([
-      { name: 'id', type: 'string' },
-      { name: 'number', type: 'string' },
-      { name: 'totalCents', type: 'number' },
-      { name: 'flagged', type: 'boolean' },
-      { name: 'paidAt', type: 'string | null' },
-      { name: 'metadata', type: 'unknown' },
-    ])
   })
 
   it('renders the module for a single-package project at its root', () => {
@@ -219,14 +297,25 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
       'update',
       "toggle(viewer, id, 'flag', on)",
     ])
-    expect(module?.source).toContain('export interface Invoice {\n  id: string\n  number: string\n')
+    // A row and a response that differ: the stored row keeps totals in cents and tags as JSON
+    // text; the declared record is what the app gets.
+    expect(module?.source).toContain(
+      "export interface Invoice {\n  id: string\n  number: string\n  total: number\n  tags: string[]\n  status: 'open' | 'paid'\n  paidAt?: string | null\n}",
+    )
+    expect(module?.source).not.toContain('totalCents')
     expect(module?.source).toContain("updateMethod: 'patch',")
   })
 
-  it('falls back to an open record when the resource declares no table', () => {
+  it.each([
+    ['no declared record', undefined],
+    [
+      'a declared record under another name',
+      { name: 'InvoiceRow', fields: [{ name: 'id', type: 'string', optional: false }] },
+    ],
+  ])('falls back to an open record, never the row, with %s', (_name, responseRecord) => {
     const module = planAppResourceModule(
       '@molecule/api-resource-invoice',
-      { ...invoices, setupSql: undefined } as RegistryEntry,
+      { ...invoices, responseRecord } as RegistryEntry,
       factory,
       QUERY,
       'app',

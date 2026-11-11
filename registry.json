@@ -21274,7 +21274,87 @@
         "shipping address",
         "billing address",
         "postal address"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Address",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "userId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "label",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "recipientName",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "line1",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "line2",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "city",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "region",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "postalCode",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "countryIso",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "phone",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "isDefaultShipping",
+            "type": "boolean",
+            "optional": false
+          },
+          {
+            "name": "isDefaultBilling",
+            "type": "boolean",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-ai-conversation": {
       "language": "typescript",
@@ -21655,7 +21735,67 @@
         "article response envelope",
         "custom article api",
         "article request handlers"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Article",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "body",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "tagList",
+            "type": "string[]",
+            "optional": false
+          },
+          {
+            "name": "authorId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "favoritesCount",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "favorited",
+            "type": "boolean",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-booking": {
       "language": "typescript",
@@ -21771,7 +21911,72 @@
         "reservation",
         "appointment booking",
         "book a slot"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Booking",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "userId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "resourceType",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "resourceId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "status",
+            "type": "'pending' | 'confirmed' | 'cancelled' | 'completed' | 'no-show'",
+            "optional": false
+          },
+          {
+            "name": "startTime",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "endTime",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "duration",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "notes",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "metadata",
+            "type": "Record<string, unknown>",
+            "optional": true
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-bookmark": {
       "language": "typescript",
@@ -22908,7 +23113,72 @@
         "student grades",
         "grade book",
         "assignment grade"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Grade",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "enrollmentId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "assignmentId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "userId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "courseId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "scorePoints",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "maxPoints",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "letter",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "comment",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "postedAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-inventory": {
       "language": "typescript",
@@ -23702,7 +23972,87 @@
         "customer order",
         "order tracking",
         "order management"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Order",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "userId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "status",
+            "type": "'pending' | 'confirmed' | 'processing' | 'shipped' | 'delivered' | 'cancelled' | 'refunded'",
+            "optional": false
+          },
+          {
+            "name": "items",
+            "type": "{ id: string; productId: string; variantId?: string; name: string; price: number; quantity: number; image?: string }[]",
+            "optional": false
+          },
+          {
+            "name": "subtotal",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "tax",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "shipping",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "discount",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "total",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "shippingAddress",
+            "type": "{ line1: string; line2?: string; city: string; state?: string; postalCode: string; country: string }",
+            "optional": true
+          },
+          {
+            "name": "billingAddress",
+            "type": "{ line1: string; line2?: string; city: string; state?: string; postalCode: string; country: string }",
+            "optional": true
+          },
+          {
+            "name": "paymentId",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "notes",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-payment": {
       "language": "typescript",
@@ -24008,7 +24358,77 @@
         "product record",
         "sku",
         "catalog item"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Product",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "description",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "price",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "currency",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "status",
+            "type": "'draft' | 'active' | 'archived'",
+            "optional": false
+          },
+          {
+            "name": "imageUrl",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "sku",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "inventory",
+            "type": "number | null",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "deletedAt",
+            "type": "string | null",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-project": {
       "language": "typescript",
@@ -24108,7 +24528,97 @@
         "project management",
         "project workspace",
         "project tracking"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Project",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "userId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "projectType",
+            "type": "unknown",
+            "optional": false
+          },
+          {
+            "name": "framework",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "packages",
+            "type": "string[]",
+            "optional": false
+          },
+          {
+            "name": "templateSlug",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "brandingSpec",
+            "type": "{ appName: string; brandColor: string; appDescription: string; websiteUrl?: string; logoSize?: number; source: 'user' | 'random' } | null",
+            "optional": false
+          },
+          {
+            "name": "envVars",
+            "type": "Record<string, string>",
+            "optional": false
+          },
+          {
+            "name": "sandboxId",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "sandboxStatus",
+            "type": "'creating' | 'queued' | 'running' | 'sleeping' | 'stopped'",
+            "optional": false
+          },
+          {
+            "name": "productionRegion",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "lastActiveAt",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "settings",
+            "type": "Record<string, unknown>",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-property": {
       "language": "typescript",
@@ -24258,7 +24768,112 @@
         "property listing",
         "rental property",
         "real estate listing"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Property",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "ownerId",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "description",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "type",
+            "type": "'apartment' | 'house' | 'condo' | 'townhouse' | 'hotel' | 'commercial' | 'land' | 'other'",
+            "optional": false
+          },
+          {
+            "name": "status",
+            "type": "'draft' | 'active' | 'inactive' | 'archived'",
+            "optional": false
+          },
+          {
+            "name": "addressLine1",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "addressLine2",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "city",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "region",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "postalCode",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "countryCode",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "latitude",
+            "type": "number | null",
+            "optional": false
+          },
+          {
+            "name": "longitude",
+            "type": "number | null",
+            "optional": false
+          },
+          {
+            "name": "unitCount",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "coverImageUrl",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "deletedAt",
+            "type": "string | null",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-reaction": {
       "language": "typescript",
@@ -24616,7 +25231,82 @@
         "hotel room",
         "room category",
         "accommodation type"
-      ]
+      ],
+      "responseRecord": {
+        "name": "RoomType",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "propertyId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "description",
+            "type": "string",
+            "optional": true
+          },
+          {
+            "name": "capacity",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "baseRateCents",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "currency",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "amenities",
+            "type": "string[]",
+            "optional": false
+          },
+          {
+            "name": "photos",
+            "type": "string[]",
+            "optional": false
+          },
+          {
+            "name": "totalUnits",
+            "type": "number",
+            "optional": false
+          },
+          {
+            "name": "active",
+            "type": "boolean",
+            "optional": false
+          },
+          {
+            "name": "metadata",
+            "type": "Record<string, unknown>",
+            "optional": true
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-share": {
       "language": "typescript",
@@ -25020,7 +25710,62 @@
         "newsletter subscriber",
         "mailing list",
         "subscription list"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Subscriber",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "channel",
+            "type": "'email' | 'sms' | 'webhook'",
+            "optional": false
+          },
+          {
+            "name": "address",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "topic",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "status",
+            "type": "'pending' | 'confirmed' | 'unsubscribed'",
+            "optional": false
+          },
+          {
+            "name": "metadata",
+            "type": "Record<string, unknown> | null",
+            "optional": false
+          },
+          {
+            "name": "confirmedAt",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "unsubscribedAt",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-tag": {
       "language": "typescript",
@@ -25160,7 +25905,47 @@
         "tags",
         "label",
         "taxonomy"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Tag",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "color",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "description",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-task": {
       "language": "typescript",
@@ -25488,7 +26273,52 @@
         "conversation thread",
         "message thread",
         "discussion thread"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Thread",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "title",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "creatorId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "resourceType",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "resourceId",
+            "type": "string | null",
+            "optional": false
+          },
+          {
+            "name": "closed",
+            "type": "boolean",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-resource-user": {
       "language": "typescript",
@@ -26155,7 +26985,47 @@
         "organization workspace",
         "tenant",
         "workspace members"
-      ]
+      ],
+      "responseRecord": {
+        "name": "Workspace",
+        "fields": [
+          {
+            "name": "id",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "ownerId",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "name",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "slug",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "createdAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "updatedAt",
+            "type": "string",
+            "optional": false
+          },
+          {
+            "name": "deletedAt",
+            "type": "string | null",
+            "optional": false
+          }
+        ]
+      }
     },
     "@molecule/api-scheduler": {
       "language": "typescript",
