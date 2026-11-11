@@ -14,6 +14,7 @@ import { loadRegistry } from '../registry.js'
 import {
   addPackages,
   copyTemplateInstance,
+  createApiProject,
   createAppProject,
   readTemplateSetupSqlVersions,
 } from '../scaffold.js'
@@ -64,6 +65,44 @@ export function loadStock() {
 `
 
 describe('declared auth and HTTP reuse in generated verification', () => {
+  it('the API scaffold rejects a stale resource slug and accepts its returned record', async () => {
+    const api = join(await directory(), 'api')
+    await createApiProject(api, 'newsletter')
+    await addPackages(api, ['@molecule/api-resource-article'])
+    const broken = `import {updateArticle, getArticleBySlug} from '@molecule/api-resource-article'
+      export async function rename(slug: string, editor: string, title: string) {
+        const saved = await updateArticle(slug, editor, {title})
+        if (saved.status !== 'ok') return saved
+        return getArticleBySlug(slug, editor)
+      }`
+    const result = await findings(api, broken)
+    expect(result.map((message) => message.messageId)).toEqual(['staleArticleSlug'])
+    expect(result[0].severity).toBe(2)
+    expect(
+      await findings(api, broken.replace('getArticleBySlug(slug, editor)', 'saved.article')),
+    ).toEqual([])
+  })
+
+  it('the app scaffold rejects an unsubscribed staff snapshot and accepts a subscribed view', async () => {
+    const app = join(await directory(), 'app')
+    await createAppProject(app, 'staff-portal', 'react')
+    await addPackages(app, ['@molecule/app-auth'])
+    const broken = `import {useEffect, useState} from 'react'; import {getClient} from '@molecule/app-auth'
+      const client = getClient()
+      export function useStaff() {
+        const [view, setView] = useState(() => ({state: client.getState(), user: client.getUser(), token: client.getAccessToken()}))
+        return view
+      }`
+    expect((await findings(app, broken)).map((message) => message.messageId)).toEqual([
+      'authSubscription',
+    ])
+    const fixed = broken.replace(
+      'return view',
+      `useEffect(() => client.subscribe(() => setView({state: client.getState(), user: client.getUser(), token: client.getAccessToken()})), []); return view`,
+    )
+    expect(await findings(app, fixed)).toEqual([])
+  })
+
   it.each(['react', 'vue', 'react-native'])(
     'the bare %s scaffold rejects a second client with configuration repair text',
     async (framework) => {

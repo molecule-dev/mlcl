@@ -1,5 +1,5 @@
 /**
- * Keep declared auth and HTTP clients on the app's normal verification path.
+ * Keep declared clients and resource mutation results on the normal verification path.
  * Canonical source: scripts/eslint-rules/prefer-declared-clients.mjs.
  * Vendored into mlcl and generated projects by sync-eslint-rules/scaffold.
  *
@@ -26,6 +26,10 @@
  * src/config + direct auth-default bond. Dynamic config and other composition
  * roots are not inferred. Local call discovery does not prove branch timing or
  * the identity of the value passed to setUser.
+ * Auth snapshot checks cover a custom React hook seeding state from one client's
+ * getState/getUser/getAccessToken contract; form defaults and other stores are not inferred.
+ * Article checks cover awaited updates followed by a lookup using the same lexical
+ * slug binding in that function. Cross-module control flow is not inferred.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
@@ -70,6 +74,7 @@ function declared(filename, cwd) {
         root: dir,
         auth: pkg.name !== AUTH && Object.hasOwn(dependencies, AUTH),
         http: pkg.name !== HTTP && Object.hasOwn(dependencies, HTTP),
+        article: Object.hasOwn(dependencies, '@molecule/api-resource-article'),
       }
     }
     if (dir === parse(dir).root) return { auth: false, http: false }
@@ -96,6 +101,10 @@ export default {
         'This sign-out handler only navigates and leaves the subscribed session signed in. Call useAuth().logout() or the bonded auth client logout() before navigation. If another route owns sign-out, delegate to that action or use a reasoned ESLint disable at this handler.',
       profile:
         'This write targets the configured auth profile endpoint but does not publish the saved user. Use useAuth().updateProfile(changes), or call the bonded auth client setUser(savedUser) with the canonical response in this handler before navigation. Otherwise subscribed views and the next form visit keep the old profile.',
+      authSubscription:
+        'This hook seeds a React auth snapshot but never subscribes its setter to that client. Other consumers keep the signed-out snapshot after login. Use useAuth from @molecule/app-react, or subscribe to this client in an effect, update this snapshot on each notification, and return the unsubscribe cleanup.',
+      staleArticleSlug:
+        'updateArticle can rename the slug, so this lookup can return null after a successful save. Use the successful update result’s article directly; if another lookup is needed, use article.slug from that result instead of the old slug. The service also sets updatedAt.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
       unbonded:
         "@molecule/app-http is declared: this {{factory}} result is created without setClient or an HTTP bond, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. Call setClient({{factory}}(...)) or bond('http', …, {{factory}}(...)) once in the existing bonds/ composition root, then use getClient() everywhere.",
@@ -114,7 +123,7 @@ export default {
         },
       }
     }
-    if (!packages.auth && !packages.http) return {}
+    if (!packages.auth && !packages.http && !packages.article) return {}
     const source = context.sourceCode ?? context.getSourceCode()
     const calls = []
     const contexts = []
@@ -787,7 +796,87 @@ export default {
           states.push(node)
       },
       'Program:exit'() {
+        if (packages.article) {
+          const module = '@molecule/api-resource-article'
+          const updates = calls.filter((call) => {
+            if (!imported(call.callee, [module], ['updateArticle'])) return false
+            if (call.parent.type !== 'AwaitExpression') return false
+            const input = unwrap(call.arguments[2])
+            // A literal patch that cannot change the title cannot rename the slug.
+            return (
+              input?.type !== 'ObjectExpression' ||
+              input.properties.some(
+                (prop) => prop.type === 'SpreadElement' || key(prop) === 'title',
+              )
+            )
+          })
+          for (const read of calls) {
+            if (!imported(read.callee, [module], ['getArticleBySlug', 'findArticleRow'])) continue
+            const argument = unwrap(read.arguments[0])
+            if (argument?.type !== 'Identifier') continue
+            const slug = identity(argument)
+            const binding = variable(argument)
+            const update = updates.find(
+              (call) =>
+                call.range[1] < read.range[0] &&
+                ownerFunction(call) === ownerFunction(read) &&
+                identity(call.arguments[0]) === slug &&
+                !binding?.references.some(
+                  (ref) =>
+                    ref.isWrite() &&
+                    ref.identifier.range[0] > call.range[1] &&
+                    ref.identifier.range[0] < read.range[0],
+                ),
+            )
+            if (update) context.report({ node: read, messageId: 'staleArticleSlug' })
+          }
+        }
         if (packages.auth) {
+          for (const state of states) {
+            if (!imported(state.callee, ['react'], ['useState'])) continue
+            const hook = ownerFunction(state)
+            const name = hook?.id?.name ?? hook?.parent?.id?.name
+            const seed = state.arguments[0]
+            const setter = state.parent.id?.type === 'ArrayPattern' && state.parent.id.elements[1]
+            if (!/^use[A-Z]/.test(name ?? '') || !seed || setter?.type !== 'Identifier') continue
+            const clients = new Map()
+            for (const call of calls) {
+              if (call.range[0] < seed.range[0] || call.range[1] > seed.range[1]) continue
+              const callee = unwrap(call.callee)
+              if (
+                callee.type !== 'MemberExpression' ||
+                !['getState', 'getUser', 'getAccessToken'].includes(key(callee))
+              )
+                continue
+              const client = identity(callee.object)
+              const readers = clients.get(client) ?? new Set()
+              readers.add(key(callee))
+              clients.set(client, readers)
+            }
+            const hookCalls = actionCalls(hook)
+            for (const call of [...hookCalls]) {
+              if (imported(call.callee, ['react'], ['useEffect', 'useLayoutEffect']))
+                hookCalls.push(...actionCalls(localFunction(call.arguments[0])))
+            }
+            for (const [client, readers] of clients) {
+              if (readers.size !== 3) continue
+              const subscribed = hookCalls.some((call) => {
+                const callee = unwrap(call.callee)
+                return (
+                  callee.type === 'MemberExpression' &&
+                  ['subscribe', 'onAuthChange'].includes(key(callee)) &&
+                  identity(callee.object) === client &&
+                  actionCalls(localFunction(call.arguments[0])).some(
+                    (notify) => variable(notify.callee) === variable(setter),
+                  )
+                )
+              })
+              if (!subscribed) {
+                context.report({ node: state, messageId: 'authSubscription' })
+                break
+              }
+            }
+          }
           // A deliberately narrow sign-out omission: a named click handler whose
           // sole operation is the router's navigate. External sign-out delegates,
           // genuine logout calls and ordinary navigation controls remain valid.
