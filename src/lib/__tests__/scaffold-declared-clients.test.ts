@@ -9,6 +9,8 @@ import { ESLint, type Linter } from 'eslint'
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { runCheckLocal } from '../check.js'
+import { synthesizeAppProjectFiles } from '../injector.js'
+import { loadRegistry } from '../registry.js'
 import {
   addPackages,
   copyTemplateInstance,
@@ -108,6 +110,59 @@ describe('declared auth and HTTP reuse in generated verification', () => {
     await createAppProject(app, 'stockroom', 'react')
     expect(await findings(app, localClients)).toEqual([])
   })
+
+  it.each(['custom', 'flagship'])(
+    'the %s scaffold reports missing session actions and accepts canonical publication',
+    async (kind) => {
+      const project = join(await directory(), 'project')
+      const app = join(project, 'app')
+      if (kind === 'flagship') {
+        const template = join(ROOT, 'templates/apps/inventory-management')
+        await copyTemplateInstance(
+          template,
+          project,
+          'staff-portal',
+          await readTemplateSetupSqlVersions(template),
+        )
+      } else {
+        await createAppProject(app, 'staff-portal', 'react')
+        await addPackages(app, ['@molecule/app-auth', '@molecule/app-http'])
+        const bond = synthesizeAppProjectFiles(
+          [],
+          ['@molecule/app-auth'],
+          app,
+          loadRegistry(),
+        ).find((file) => file.targetPath.endsWith('bonds/auth-default.ts'))
+        expect(bond).toBeDefined()
+        await writeFile(bond!.targetPath, bond!.content)
+      }
+      await writeFile(
+        join(app, 'src/config.ts'),
+        `export const authConfig = {
+          profileEndpoint: () => '/staff/current', profileUpdateMethod: 'PUT' as const,
+        }`,
+      )
+      const broken = `import {useAuth, useAuthClient, useHttpClient} from '@molecule/app-react'
+        import {useNavigate} from 'react-router'
+        export function Account() {
+          const {user} = useAuth(); const auth = useAuthClient();
+          const http = useHttpClient(); const navigate = useNavigate();
+          const save = async () => { const answer = await http.put('/staff/current', {}); navigate('/dashboard') };
+          const handleLogout = () => navigate('/dashboard');
+          return <><form onSubmit={save}/><button onClick={handleLogout}>{user?.name}</button></>
+        }`
+      const messages = await findings(app, broken)
+      expect(messages.map((message) => message.messageId).sort()).toEqual(['logout', 'profile'])
+      expect(messages.every((message) => message.severity === 2)).toBe(true)
+      const fixed = broken
+        .replace("navigate('/dashboard') }", "auth.setUser(answer.data); navigate('/dashboard') }")
+        .replace(
+          "() => navigate('/dashboard')",
+          "async () => { await auth.logout(); navigate('/dashboard') }",
+        )
+      expect(await findings(app, fixed)).toEqual([])
+    },
+  )
 
   it('the shared client flow and local inventory response mapping pass', async () => {
     const app = join(await directory(), 'app')

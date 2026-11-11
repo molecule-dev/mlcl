@@ -16,12 +16,16 @@
  * file, or handed off through an export. Factory options never establish an
  * exemption.
  *
- * Applicability limit: this is a single-module check. An exported client or
+ * Applicability limit: factory hand-off is a single-module check. An exported client or
  * exported factory is not reported in its defining module; whether an importing
  * composition root bonds it is outside this rule's syntax-only view. The export
  * may be direct, through immutable const aliases, or a local factory's returned
  * value. Sol r11 #2's separate-invocation case (one invocation exported and a
  * different invocation used locally) is therefore an accepted miss.
+ * Session-action omissions use React hook identities and the scaffold's literal
+ * src/config + direct auth-default bond. Dynamic config and other composition
+ * roots are not inferred. Local call discovery does not prove branch timing or
+ * the identity of the value passed to setUser.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
@@ -63,6 +67,7 @@ function declared(filename, cwd) {
         ...pkg.peerDependencies,
       }
       return {
+        root: dir,
         auth: pkg.name !== AUTH && Object.hasOwn(dependencies, AUTH),
         http: pkg.name !== HTTP && Object.hasOwn(dependencies, HTTP),
       }
@@ -87,6 +92,10 @@ export default {
         '@molecule/app-auth is declared: this browser credential store duplicates its session. Configure tokenKey (or storagePrefix) and authScheme in the existing auth bond/config; use getClient().getAccessToken() and the framework auth binding. requestBody/mapAuthResponse/currentUserEndpoint adapt the API.',
       session:
         '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
+      logout:
+        'This sign-out handler only navigates and leaves the subscribed session signed in. Call useAuth().logout() or the bonded auth client logout() before navigation. If another route owns sign-out, delegate to that action or use a reasoned ESLint disable at this handler.',
+      profile:
+        'This write targets the configured auth profile endpoint but does not publish the saved user. Use useAuth().updateProfile(changes), or call the bonded auth client setUser(savedUser) with the canonical response in this handler before navigation. Otherwise subscribed views and the next form visit keep the old profile.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
       unbonded:
         "@molecule/app-http is declared: this {{factory}} result is created without setClient or an HTTP bond, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. Call setClient({{factory}}(...)) or bond('http', …, {{factory}}(...)) once in the existing bonds/ composition root, then use getClient() everywhere.",
@@ -110,6 +119,7 @@ export default {
     const calls = []
     const contexts = []
     const states = []
+    const clickHandlers = []
     const clientBonds = []
     const mutations = new Map()
     let credentialStore = false
@@ -353,6 +363,8 @@ export default {
     const localFunction = (callee, seen = new Set()) => {
       callee = unwrap(callee)
       if (FUNCTIONS.includes(callee?.type)) return callee
+      if (callee?.type === 'CallExpression' && imported(callee.callee, ['react'], ['useCallback']))
+        return localFunction(callee.arguments[0], seen)
       if (callee?.type !== 'Identifier' || seen.has(callee)) return null
       seen.add(callee)
       const binding = variable(callee)
@@ -365,6 +377,243 @@ export default {
         return definition.node
       const declarator = stableConst(callee)
       return declarator ? localFunction(declarator.init, seen) : null
+    }
+    const FRAMEWORK_AUTH = ['@molecule/app-react', '@molecule/app-react-native']
+    const clientValue = (node, seen = new Set()) => {
+      node = unwrap(node)
+      if (!node || seen.has(node)) return node
+      seen.add(node)
+      const declarator = stableConst(node)
+      return declarator ? clientValue(declarator.init, seen) : node
+    }
+    const authSource = (node) => {
+      node = clientValue(node)
+      const definition = variable(node)?.defs[0]
+      if (definition?.type === 'ImportBinding' && definition.node.imported?.name === 'authClient') {
+        const module = definition.parent.source.value
+        if (
+          module.startsWith('.') &&
+          packages.root &&
+          resolve(dirname(filename), module).replace(/\.[cm]?[jt]s$/, '') ===
+            join(packages.root, 'src/bonds/auth-default')
+        )
+          return true
+      }
+      return (
+        node?.type === 'CallExpression' &&
+        (imported(node.callee, [AUTH], ['getClient']) ||
+          imported(node.callee, FRAMEWORK_AUTH, ['useAuth', 'useAuthClient']))
+      )
+    }
+    const authAction = (callee, method, seen = new Set()) => {
+      callee = unwrap(callee)
+      if (!callee || seen.has(callee)) return false
+      seen.add(callee)
+      if (callee?.type === 'MemberExpression')
+        return key(callee) === method && authSource(callee.object)
+      if (imported(callee, [AUTH], [method])) return true
+      const alias = stableConst(callee)
+      if (alias) return authAction(alias.init, method, seen)
+      const definition = variable(callee)?.defs[0]
+      if (
+        definition?.type !== 'Variable' ||
+        definition.node.id.type !== 'ObjectPattern' ||
+        !authSource(definition.node.init)
+      )
+        return false
+      return definition.node.id.properties.some(
+        (prop) =>
+          prop.type === 'Property' &&
+          key(prop) === method &&
+          (prop.value.type === 'AssignmentPattern' ? prop.value.left : prop.value) ===
+            definition.name,
+      )
+    }
+    const httpSource = (node) => {
+      node = clientValue(node)
+      return (
+        node?.type === 'CallExpression' &&
+        (imported(node.callee, [HTTP], ['getClient']) ||
+          imported(node.callee, FRAMEWORK_AUTH, ['useHttpClient']))
+      )
+    }
+    const ownerFunction = (node) => {
+      for (let parent = node.parent; parent; parent = parent.parent)
+        if (FUNCTIONS.includes(parent.type)) return parent
+      return null
+    }
+    // ESLint supplies the parser and scope graph. Inspect calls in the action,
+    // including called local helpers and Promise continuations, not unused closures
+    // or another handler's publication. This is omission feedback, not a proof of
+    // every branch's timing or the response value passed to setUser.
+    const actionCalls = (fn, seen = new Set()) => {
+      if (!fn?.body || seen.has(fn)) return []
+      seen.add(fn)
+      const found = []
+      const visit = (node) => {
+        if (!node || FUNCTIONS.includes(node.type)) return
+        if (node.type === 'CallExpression') {
+          found.push(node)
+          const called = localFunction(node.callee)
+          if (called) found.push(...actionCalls(called, seen))
+          if (
+            node.callee.type === 'MemberExpression' &&
+            ['then', 'catch', 'finally'].includes(key(node.callee))
+          )
+            for (const argument of node.arguments) {
+              const callback = localFunction(argument)
+              if (callback) found.push(...actionCalls(callback, seen))
+            }
+        }
+        for (const name of source.visitorKeys[node.type] ?? []) {
+          const child = node[name]
+          if (Array.isArray(child)) child.forEach(visit)
+          else visit(child)
+        }
+      }
+      visit(fn.body)
+      return found
+    }
+    // The scaffold's authored src/config is the source of the profile contract.
+    // Parse literal configuration with ESLint's parser; never execute it or guess
+    // routes from words such as "user". Dynamic/imported contracts stay outside
+    // this syntax-only check. No configuration cache can hide an intervening edit.
+    const profileTarget = () => {
+      const parser = context.languageOptions?.parser
+      if (!parser?.parseForESLint || !packages.root) return null
+      const parseFile = (path) => {
+        try {
+          const text = path === filename ? source.text : readFileSync(path, 'utf8')
+          return parser.parseForESLint(text, {
+            sourceType: 'module',
+            ecmaVersion: 'latest',
+            filePath: path,
+            tsconfigRootDir: packages.root,
+            project: false,
+            projectService: false,
+          }).ast
+        } catch (error) {
+          if (
+            error.code === 'ENOENT' ||
+            error.code === 'ENOTDIR' ||
+            error instanceof SyntaxError ||
+            error.name === 'TSError'
+          )
+            return null
+          throw error
+        }
+      }
+      const declarations = (ast) =>
+        ast.body.flatMap((statement) => {
+          const declaration =
+            statement.type === 'ExportNamedDeclaration' ? statement.declaration : statement
+          return declaration?.type === 'VariableDeclaration' && declaration.kind === 'const'
+            ? declaration.declarations
+            : []
+        })
+      // Do not treat an unused config as the bonded contract. Recognize the
+      // scaffold's direct factory + config argument/spread + setClient wiring. An override
+      // or a custom composition root cannot be resolved here and stays quiet.
+      const bond = ['ts', 'js', 'mjs']
+        .map((extension) =>
+          parseFile(join(packages.root, 'src', 'bonds', `auth-default.${extension}`)),
+        )
+        .find(Boolean)
+      if (!bond) return null
+      const importedName = (module, name) =>
+        bond.body
+          .find((node) => node.type === 'ImportDeclaration' && node.source.value === module)
+          ?.specifiers.find(
+            (node) => node.type === 'ImportSpecifier' && node.imported.name === name,
+          )?.local.name
+      const factory = importedName(AUTH, 'createJWTAuthClient')
+      const configImport = importedName('../config.js', 'authConfig')
+      const setter = importedName(AUTH, 'setClient')
+      const wrappers = [
+        'createDefaultAuthClient',
+        'createDefaultAuthClientWithHttpSync',
+        'createDefaultAuthClientWithFetchClient',
+      ]
+        .map((name) => importedName('@molecule/app-bonds-default-react', name))
+        .filter(Boolean)
+      const client = declarations(bond).find(
+        (node) =>
+          node.init?.type === 'CallExpression' &&
+          ((factory && node.id.type === 'Identifier' && node.init.callee.name === factory) ||
+            (node.id.type === 'ObjectPattern' &&
+              wrappers.includes(node.init.callee.name) &&
+              ['authClient', 'setupAuthDefault'].every((name) =>
+                node.id.properties.some(
+                  (prop) => prop.type === 'Property' && prop.key.name === name,
+                ),
+              ))),
+      )
+      if (!configImport || !client) return null
+      const wrapped = wrappers.includes(client.init.callee.name)
+      if (!wrapped && !setter) return null
+      const options = unwrap(client.init.arguments[0])
+      if (
+        !(options?.type === 'Identifier' && options.name === configImport) &&
+        (options?.type !== 'ObjectExpression' ||
+          options.properties.filter((prop) => prop.type === 'SpreadElement').length !== 1 ||
+          !options.properties.some(
+            (prop) => prop.type === 'SpreadElement' && prop.argument.name === configImport,
+          ) ||
+          options.properties.some(
+            (prop) =>
+              prop.type === 'Property' &&
+              (prop.computed ||
+                ['profileEndpoint', 'profileUpdateMethod'].includes(
+                  prop.key.name ?? prop.key.value,
+                )),
+          ))
+      )
+        return null
+      const bonded = (node) => {
+        if (!node || typeof node !== 'object') return false
+        if (
+          node.type === 'CallExpression' &&
+          node.callee.name === setter &&
+          node.arguments[0]?.name === client.id.name
+        )
+          return true
+        return Object.entries(node).some(
+          ([name, child]) =>
+            name !== 'parent' && (Array.isArray(child) ? child.some(bonded) : bonded(child)),
+        )
+      }
+      if (!wrapped && !bonded(bond)) return null
+      for (const extension of ['ts', 'js', 'mjs']) {
+        const configPath = join(packages.root, 'src', `config.${extension}`)
+        const ast = parseFile(configPath)
+        if (!ast) continue
+        const config = unwrap(declarations(ast).find((node) => node.id.name === 'authConfig')?.init)
+        if (
+          config?.type !== 'ObjectExpression' ||
+          config.properties.some((prop) => prop.type === 'SpreadElement')
+        )
+          return null
+        const field = (name) =>
+          config.properties.findLast((prop) => (prop.key.name ?? prop.key.value) === name)
+        const literal = (node) => {
+          node = unwrap(node)
+          if (FUNCTIONS.includes(node?.type)) {
+            const returns = functionReturns(node)
+            node = returns.length === 1 ? unwrap(returns[0]) : null
+          }
+          if (node?.type === 'Literal' && typeof node.value === 'string') return node.value
+          if (node?.type === 'TemplateLiteral' && node.expressions.length === 0)
+            return node.quasis[0].value.cooked
+          return null
+        }
+        const endpoint = literal(field('profileEndpoint')?.value)
+        const methodField = field('profileUpdateMethod')
+        const method = methodField ? literal(methodField.value) : 'PATCH'
+        return endpoint && ['PUT', 'PATCH', 'POST'].includes(method)
+          ? { endpoint, method: method.toLowerCase() }
+          : null
+      }
+      return null
     }
     // Bonding is deliberately a creation-site fact. Only an identifier
     // declarator can hold that client itself; a destructured method cannot.
@@ -474,6 +723,10 @@ export default {
       return method === null ? null : (AXIOS_CONFIG.get(method) ?? null)
     }
     return {
+      JSXAttribute(node) {
+        if (node.name.name === 'onClick' && node.value?.type === 'JSXExpressionContainer')
+          clickHandlers.push(node.value.expression)
+      },
       AssignmentExpression(node) {
         if (node.left.type !== 'MemberExpression') return
         mutate(node.left.object, key(node.left), node.right)
@@ -535,6 +788,67 @@ export default {
       },
       'Program:exit'() {
         if (packages.auth) {
+          // A deliberately narrow sign-out omission: a named click handler whose
+          // sole operation is the router's navigate. External sign-out delegates,
+          // genuine logout calls and ordinary navigation controls remain valid.
+          if (
+            calls.some((node) =>
+              imported(node.callee, FRAMEWORK_AUTH, ['useAuth', 'useAuthClient']),
+            )
+          ) {
+            const reported = new Set()
+            for (const handler of clickHandlers) {
+              const fn = localFunction(handler)
+              const name = handler.type === 'Identifier' ? handler.name : fn?.id?.name
+              if (
+                !fn ||
+                reported.has(fn) ||
+                !/^(?:(?:handle|on))?(?:logout|logOut|signOut)$/i.test(name ?? '')
+              )
+                continue
+              const body = fn.body.type === 'BlockStatement' ? fn.body.body : [fn.body]
+              if (body.length !== 1) continue
+              const statement = body[0]
+              let expression =
+                statement.type === 'ExpressionStatement'
+                  ? statement.expression
+                  : statement.type === 'ReturnStatement'
+                    ? statement.argument
+                    : statement
+              if (expression?.type === 'AwaitExpression') expression = expression.argument
+              const navigation = value(expression?.callee)
+              if (
+                expression?.type === 'CallExpression' &&
+                navigation?.type === 'CallExpression' &&
+                imported(
+                  navigation.callee,
+                  ['react-router', 'react-router-dom', '@molecule/app-react'],
+                  ['useNavigate'],
+                )
+              ) {
+                reported.add(fn)
+                context.report({ node: fn, messageId: 'logout' })
+              }
+            }
+          }
+          const writes = calls.filter(
+            (node) =>
+              node.callee.type === 'MemberExpression' &&
+              ['put', 'patch', 'post'].includes(key(node.callee)) &&
+              httpSource(node.callee.object),
+          )
+          const target = writes.length ? profileTarget() : null
+          if (target)
+            for (const node of writes) {
+              if (
+                key(node.callee) !== target.method ||
+                string(node.arguments[0]) !== target.endpoint
+              )
+                continue
+              const fn = ownerFunction(node)
+              if (!fn || !actionCalls(fn).some((call) => authAction(call.callee, 'setUser')))
+                context.report({ node, messageId: 'profile' })
+            }
           const owned = (pattern) =>
             contexts.find((node) => pattern.test(stateName(node)) && !sharedAuth(node.arguments[0]))
           const authContext = owned(AUTH_CONTEXT)
