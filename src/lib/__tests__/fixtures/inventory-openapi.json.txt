@@ -1,0 +1,132 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "Warehouse", "version": "1.0.0" },
+  "paths": {
+    "/items": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Items",
+            "content": {
+              "application/json": {
+                "schema": { "type": "array", "items": { "$ref": "#/components/schemas/Item" } }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NewItem" } } }
+        },
+        "responses": {
+          "201": {
+            "description": "Created",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Item" } } }
+          }
+        }
+      }
+    },
+    "/items/{sku}": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Item",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Item" } } }
+          }
+        }
+      },
+      "patch": {
+        "requestBody": {
+          "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NewItem" } } }
+        },
+        "responses": {
+          "200": {
+            "description": "Item",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Item" } } }
+          }
+        }
+      },
+      "delete": { "responses": { "204": { "description": "Gone" } } }
+    },
+    "/items/{sku}/reserved": {
+      "post": {
+        "responses": {
+          "200": {
+            "description": "Item",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Item" } } }
+          }
+        }
+      },
+      "delete": {
+        "responses": {
+          "200": {
+            "description": "Item",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Item" } } }
+          }
+        }
+      }
+    },
+    "/stock-counts": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Counts",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "required": ["counts", "total"],
+                  "properties": {
+                    "counts": { "type": "array", "items": { "$ref": "#/components/schemas/StockCount" } },
+                    "total": { "type": "integer" }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/health": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "ok",
+            "content": {
+              "application/json": {
+                "schema": { "type": "object", "properties": { "ok": { "type": "boolean" } } }
+              }
+            }
+          }
+        }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "Item": {
+        "type": "object",
+        "required": ["sku", "name", "quantity", "status"],
+        "properties": {
+          "sku": { "type": "string" },
+          "name": { "type": "string" },
+          "quantity": { "type": "integer" },
+          "status": { "type": "string", "enum": ["in-stock", "reserved", "discontinued"] },
+          "location": { "type": "string", "nullable": true },
+          "labels": { "type": "array", "items": { "type": "string" } }
+        }
+      },
+      "NewItem": {
+        "type": "object",
+        "required": ["sku", "name"],
+        "properties": { "sku": { "type": "string" }, "name": { "type": "string" }, "quantity": { "type": "integer" } }
+      },
+      "StockCount": {
+        "type": "object",
+        "required": ["sku", "counted"],
+        "properties": { "sku": { "type": "string" }, "counted": { "type": "integer" }, "countedAt": { "type": "string", "format": "date-time" } }
+      }
+    }
+  }
+}

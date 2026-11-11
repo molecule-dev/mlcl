@@ -13,6 +13,7 @@ description: Using the mlcl CLI to create projects, inject packages, swap provid
 | `mlcl inject`        | Run injection on an existing project (regenerate wiring)                 |
 | `mlcl add`           | Add a molecule package to an existing project                            |
 | `mlcl swap`          | Replace a provider with another implementing the same interface          |
+| `mlcl resources`     | Write the app's resource modules from the API contract it serves         |
 | `mlcl search`        | Search @molecule/* packages by name or capability                        |
 | `mlcl templates`     | List the flagship app templates                                          |
 | `mlcl agent init`    | Make a coding agent molecule-aware (AGENTS.md + harness files)           |
@@ -139,6 +140,18 @@ mlcl swap @molecule/api-database-mysql [--replace @molecule/api-database-postgre
 ```
 
 For categories with a single provider, `--replace` is auto-detected. For multi-provider categories (oauth, payments), specify `--replace` to indicate which provider to swap out.
+
+---
+
+## `mlcl resources`
+
+Writes one module per collection of an OpenAPI contract into `app/src/resources/`: the record type, the create and update body types, and a `createQueryResource` over the app's HTTP client that reads the contract's own response envelopes. A project that is given its API contract (or writes one) gets typed list, record, create, update and remove hooks without a hand-written fetch layer.
+
+```bash
+mlcl resources --contract specs/openapi.yml [--project <dir>] [--json]
+```
+
+Run it again after the contract changes: modules it wrote and nobody edited are rewritten, modules for collections the contract no longer has are removed, and a module someone edited is kept and reported. It exits 1, naming the reason, when the contract has no collection or the app does not declare the query cache.
 
 ---
 

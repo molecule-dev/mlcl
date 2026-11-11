@@ -19,6 +19,7 @@ OAuth provider for another by changing one wiring file, not rewriting the app).
 
 - `npx mlcl add @molecule/<name> --inject` — install + wire a package
 - `npx mlcl swap @molecule/<new-provider>` — swap in a different provider for a wired capability
+- `npx mlcl resources --contract <openapi file>` — write `app/src/resources/*` from the API contract the app serves (typed lists, records, creates and updates over the query cache); run it again when the contract changes
 - `npx mlcl mcp install` — register the molecule MCP tools (search/scaffold/add/swap/docs) with this harness
 
 **Before you build a capability** — a feature, an integration, a script, a tool:
