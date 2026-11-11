@@ -4408,6 +4408,25 @@ function generatedRouterHeader(
       'here — instead of replacing this file. Removing a package mount below unmounts every ' +
       'route listed with it.',
   )
+  // Sign-up and sign-in at the app's own paths or envelopes are the routes a project most often
+  // writes beside these mounts, and the ones it hand-signed a token for (12 of 14 clean X1
+  // P314/P315 runs). Named here, in the file every run reads, when the user package this
+  // project installs exports the functions.
+  const accounts = resourcePlans.find(
+    (plan) =>
+      plan.molecule === '@molecule/api-resource-user' &&
+      ['createAccount', 'signIn'].every((name) => plan.moleculePackage?.exports?.includes(name)),
+  )
+  if (accounts) {
+    lines.push('//')
+    lines.push(
+      '// Sign-up or sign-in with paths, envelopes or error bodies of your own: write those routes ' +
+        'in api/src/handlers/ and call createAccount({ username, email, password }, { req, res }) ' +
+        'and signIn({ email, password }, { req, res }) from @molecule/api-resource-user. Each ' +
+        'resolves to { ok, user, token } — token is the session these mounts accept — so no ' +
+        'route calls sign(), hash() or compare() for an account.',
+    )
+  }
   return lines.join('\n')
 }
 

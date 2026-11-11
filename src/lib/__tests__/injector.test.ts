@@ -961,6 +961,56 @@ describe('synthesizeProjectFiles', () => {
     expect(sortImportStatements(content).startsWith(GENERATED_ROUTER_MARKER)).toBe(true)
   })
 
+  /**
+   * X1 P314 and P315: 12 of 14 clean runs wrote their own sign-up and sign-in routes and signed
+   * the token by hand. The generated router is the file every run reads before writing them.
+   */
+  it('names the account functions in the generated router when the user package exports them', async () => {
+    const withUser = await synthesizeProjectFiles(
+      [userPlan, devicePlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource-device', '@molecule/api-resource'],
+      tempDir,
+      registryPackages,
+    )
+    const content = withUser.find((f) => f.targetPath.includes('router.ts'))!.content
+    expect(content).toContain(
+      'createAccount({ username, email, password }, { req, res }) and signIn({ email, password }, { req, res }) from @molecule/api-resource-user',
+    )
+    expect(content).toContain('no route calls sign(), hash() or compare() for an account')
+    expect(sortImportStatements(content).startsWith(GENERATED_ROUTER_MARKER)).toBe(true)
+  })
+
+  it('says nothing about accounts for an API with no user package, or one that predates them', async () => {
+    const noAuth = await synthesizeProjectFiles(
+      [devicePlan],
+      ['@molecule/api-resource-device', '@molecule/api-resource'],
+      tempDir,
+      registryPackages,
+    )
+    expect(noAuth.find((f) => f.targetPath.includes('router.ts'))!.content).not.toContain(
+      'createAccount',
+    )
+    // The same project on a user package whose export list has no such functions.
+    const older = {
+      ...userPlan,
+      moleculePackage: {
+        ...userPlan.moleculePackage,
+        exports: (userPlan.moleculePackage.exports ?? []).filter(
+          (name) => name !== 'createAccount' && name !== 'signIn',
+        ),
+      },
+    }
+    const before = await synthesizeProjectFiles(
+      [older, devicePlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource-device', '@molecule/api-resource'],
+      tempDir,
+      registryPackages,
+    )
+    expect(before.find((f) => f.targetPath.includes('router.ts'))!.content).not.toContain(
+      'createAccount',
+    )
+  })
+
   it('leaves a generated router alone when the package mounts did not change', async () => {
     const projectDir = join(tempDir, 'router-keeps-app-edits')
     const routerPath = join(projectDir, 'src', 'App', 'router.ts')
