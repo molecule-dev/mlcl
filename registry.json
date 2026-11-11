@@ -57418,10 +57418,15 @@
       "description": "React hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
       "stack": "app",
       "exports": [
+        "createQueryResource",
+        "ResourceResponse",
+        "ResourceHttp",
+        "QueryResourceConfig",
+        "QueryResource",
         "prefetchQuery",
         "usePrefetch",
-        "IntentPrefetchProps",
         "intentPrefetchProps",
+        "IntentPrefetchProps",
         "useQuery"
       ],
       "secrets": [],
