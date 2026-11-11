@@ -249,8 +249,7 @@ export function Settings() {
                       {integration.description}
                     </p>
                   </div>
-                  <button
-                    type="button"
+                  <span
                     className={cm.cn(
                       cm.sp('px', 4),
                       cm.sp('py', 2),
@@ -266,7 +265,7 @@ export function Settings() {
                     {integration.connected
                       ? t('status.connected', {}, { defaultValue: 'Connected' })
                       : t('common.connect', {}, { defaultValue: 'Connect' })}
-                  </button>
+                  </span>
                 </div>
               ))}
             </div>

@@ -419,8 +419,8 @@ export function Landing() {
                     { defaultValue: 'Follow up question...' },
                   )}
                 />
-                <button
-                  type="button"
+                <span
+                  role="img"
                   className={cm.cn(
                     cm.w(10),
                     cm.h(10),
@@ -432,7 +432,7 @@ export function Landing() {
                   <span className={cm.cn('material-symbols-outlined text-sm')} aria-hidden="true">
                     send
                   </span>
-                </button>
+                </span>
               </div>
             </div>
 

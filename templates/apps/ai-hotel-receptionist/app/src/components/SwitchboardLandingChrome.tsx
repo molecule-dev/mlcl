@@ -121,8 +121,8 @@ export function LandingNav() {
               <span className="material-symbols-outlined">arrow_outward</span>
             </span>
           </Link>
-          <button
-            type="button"
+          <span
+            role="img"
             title={t('landing.nav.alertsTitle', {}, { defaultValue: 'Live System Alerts' })}
             aria-label={t('landing.nav.alertsTitle', {}, { defaultValue: 'Live System Alerts' })}
             className={cm.cn(
@@ -135,7 +135,7 @@ export function LandingNav() {
             >
               <span className="material-symbols-outlined">notifications_active</span>
             </span>
-          </button>
+          </span>
           <a
             href="#demo-simulator"
             data-mol-id="nav-cta-demo"

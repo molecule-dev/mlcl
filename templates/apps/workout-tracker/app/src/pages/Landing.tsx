@@ -302,12 +302,9 @@ export function Landing() {
                     </div>
                   ))}
                 </div>
-                <button
-                  type="button"
-                  className="w-full bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-medium py-2 rounded text-sm transition-colors"
-                >
+                <div className="w-full text-center bg-surface-container-high hover:bg-surface-container-highest text-on-surface font-medium py-2 rounded text-sm transition-colors">
                   {t('forja.landing.mock.addSet', {}, { defaultValue: 'Add Set' })}
-                </button>
+                </div>
               </div>
             </div>
           </div>
