@@ -1,6 +1,6 @@
 #!/usr/bin/env node
 /**
- * Registry export-, route- and bond-setter-drift gate.
+ * Registry export-, route-, bond-setter- and response-record-drift gate.
  *
  * `registry.json` records each package's public exports, but the source of truth
  * — the actual `export`s in `molecule/packages/<path>/src` — lives in a SEPARATE
@@ -26,7 +26,13 @@
  * a broken import or a wrong registration in generated code, so a core whose
  * setter is renamed (or whose source grows one) has to fail THIS gate.
  *
- * This script is the gate that catches all three. It re-runs the exact
+ * And for `responseRecord` — the record a resource's API returns, read from the interface its
+ * package exports (`Article`, not the stored `ArticleRow`). `mlcl create` types the app
+ * module it writes for a resource from this copy, because a scaffold in production has only
+ * `dist/`. A package that changes what it returns without a registry sync leaves every new
+ * app typed from the old record: a field that became an array is still declared a string.
+ *
+ * This script is the gate that catches all of them. It re-runs the exact
  * comparisons `sync-registry --scan-exports` / `--scan-routes` use (scan `src`,
  * compare the SORTED export sets; compare the ORDERED route lists; compare the
  * scanned bond setter) and exits non-zero on any drift, naming the fix command.
@@ -52,7 +58,9 @@ import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
+import { resourceRecordName } from '../src/lib/app-resource-modules.js'
 import { getRawRegistry, getRegistryPath } from '../src/lib/registry.js'
+import { scanResponseRecord } from '../src/lib/response-record.js'
 import {
   bondSetterScope,
   findMoleculePackages,
@@ -103,6 +111,7 @@ const drifted = []
 const routeDrifted = []
 const setterDrifted = []
 const peersDrifted = []
+const recordDrifted = []
 const bondSetterNames = bondSetterScope(registry.packages)
 let checked = 0
 let skipped = 0
@@ -158,6 +167,35 @@ for (const [name, entry] of Object.entries(registry.packages)) {
     const scannedRoutes = await scanForRoutes(srcPath)
     if (routesSignature(entry.routes) !== routesSignature(scannedRoutes)) {
       routeDrifted.push({ name, have: entry.routes?.length ?? 0, want: scannedRoutes.length })
+    }
+  }
+
+  // responseRecord — the same scan as sync-registry's refreshRecords, after the routes above
+  // because the record is looked up by the name the collection route gives it.
+  if (entry.type === 'resource' && existsSync(srcPath)) {
+    const typesPath = join(srcPath, 'types.ts')
+    const recordName = resourceRecordName(entry.routes ?? [])
+    const scannedRecord =
+      recordName && existsSync(typesPath)
+        ? scanResponseRecord(readFileSync(typesPath, 'utf8'), [recordName])
+        : null
+    const haveRecord = entry.responseRecord ?? null
+    if (JSON.stringify(haveRecord) !== JSON.stringify(scannedRecord)) {
+      const fields = (record) =>
+        new Map((record?.fields ?? []).map((f) => [f.name, `${f.optional ? '?' : ''}: ${f.type}`]))
+      const have = fields(haveRecord)
+      const want = fields(scannedRecord)
+      const changed = [...new Set([...have.keys(), ...want.keys()])].filter(
+        (field) => have.get(field) !== want.get(field),
+      )
+      recordDrifted.push({
+        name,
+        record: scannedRecord?.name ?? haveRecord?.name ?? recordName,
+        changed: changed.map(
+          (field) =>
+            `${field}${have.get(field) ?? ' (absent)'} → ${field}${want.get(field) ?? ' (absent)'}`,
+        ),
+      })
     }
   }
 
@@ -229,8 +267,24 @@ if (peersDrifted.length > 0) {
   console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
 }
 
+if (recordDrifted.length > 0) {
+  console.error(
+    `\n✗ registry.json response records are out of sync (${recordDrifted.length} package(s)):\n`,
+  )
+  for (const { name, record, changed } of recordDrifted) {
+    console.error(
+      `  ${name} (${record}): ${changed.length ? changed.join('; ') : 'record added or removed'}`,
+    )
+  }
+  console.error(
+    '\nThe app module mlcl writes for a resource is typed from this record.' +
+      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-records',
+  )
+}
+
 if (
   unregistered.length > 0 ||
+  recordDrifted.length > 0 ||
   drifted.length > 0 ||
   routeDrifted.length > 0 ||
   setterDrifted.length > 0 ||
@@ -242,5 +296,5 @@ if (
 
 const scope = scopePaths.size > 0 ? `${checked} scoped` : `${checked}`
 console.log(
-  `✓ registry exports + routes + bond setters + required peers in sync (${scope} package(s) checked, ${skipped} skipped)`,
+  `✓ registry exports + routes + bond setters + required peers + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
 )
