@@ -2,3 +2,13 @@
 # and root locale modules readable; copyTemplateInstance restores the other files.
 */app/src/locales/*/
 !*/app/src/locales/en/
+
+# Each workspace's eslint.config.js and eslint-rules/prefer-declared-clients.mjs
+# are byte copies of templates/shared/eslint.config.js.tpl and
+# templates/shared/prefer-declared-clients.mjs (the workspace's sync-eslint-rules),
+# and copyTemplateInstance writes those shared files into every api/ and app/
+# (scaffoldEslint). Their ~600 copies would add ~9 MB to the packed package.
+*/api/eslint.config.js
+*/app/eslint.config.js
+*/api/eslint-rules/prefer-declared-clients.mjs
+*/app/eslint-rules/prefer-declared-clients.mjs

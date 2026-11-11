@@ -28,7 +28,7 @@ import {
   restoreTemplateLocales,
   TEMPLATE_LOCALES_ARCHIVE,
 } from '../template-locales.js'
-import { templatePackageIssues } from '../template-package.js'
+import { TEMPLATE_SHARED_ESLINT, templatePackageIssues } from '../template-package.js'
 import { singlePackResult } from './npm-pack-json.js'
 
 const ROOT = resolve(import.meta.dirname, '../../..')
@@ -150,6 +150,16 @@ describe('offline npm template locales', () => {
         files: [{ path: 'templates/apps/a/app/src/locales/en/ui.ts', size: 1 }],
       }).join('\n'),
     ).toContain('missing restoration archive')
+    const workspace = { path: 'templates/apps/a/api/package.json', size: 1 }
+    const shared = TEMPLATE_SHARED_ESLINT.map((path) => ({ path, size: 1 }))
+    expect(
+      templatePackageIssues({ size: 1, unpackedSize: 1, files: [workspace, shared[0]] }),
+    ).toEqual([`template ESLint copies missing their shared source: ${TEMPLATE_SHARED_ESLINT[1]}`])
+    expect(
+      templatePackageIssues({ size: 1, unpackedSize: 1, files: [workspace, ...shared] }),
+    ).toEqual([])
+    // A package without flagship workspaces needs neither.
+    expect(templatePackageIssues({ size: 1, unpackedSize: 1, files: [] })).toEqual([])
   })
 
   it('a source checkout wins over a stale manifest, and a template without locales is unchanged', async () => {
@@ -231,6 +241,8 @@ describe('offline npm template locales', () => {
         mkdirSync(dirname(dst), { recursive: true })
         copyFileSync(join(ROOT, 'templates/shared/fonts', name), dst)
       }
+      for (const shared of TEMPLATE_SHARED_ESLINT)
+        copyFileSync(join(ROOT, shared), join(f.dir, shared))
       packTemplateDotfiles(f.templates, shouldSkipDuringCopy)
       // Compare the old and new REAL npm representations. npm applies the
       // template's .gitignore rules to other generated files too; no private
@@ -252,6 +264,13 @@ describe('offline npm template locales', () => {
         expect(readFileSync(join(installed, half, 'package.json'))).toEqual(
           readFileSync(join(source, half, 'package.json')),
         )
+      // The package leaves each workspace's synced ESLint copies out (the old one carried them),
+      // and the scaffold writes the shared ones back.
+      for (const half of ['app', 'api'])
+        for (const file of ['eslint.config.js', 'eslint-rules/prefer-declared-clients.mjs']) {
+          expect(existsSync(join(old.root, 'templates/apps', slug, half, file))).toBe(true)
+          expect(existsSync(join(installed, half, file))).toBe(false)
+        }
       const after = join(f.dir, 'after')
       await copyTemplateInstance(installed, after, 'same-project', versions)
       const beforeTree = tree(before)
@@ -260,6 +279,14 @@ describe('offline npm template locales', () => {
         .filter((file) => beforeTree[file] !== afterTree[file])
         .map((file) => ({ file, before: beforeTree[file], after: afterTree[file] }))
       expect(differences, JSON.stringify(differences)).toEqual([])
+      for (const half of ['app', 'api']) {
+        expect(readFileSync(join(after, half, 'eslint.config.js'))).toEqual(
+          readFileSync(join(ROOT, 'templates/shared/eslint.config.js.tpl')),
+        )
+        expect(readFileSync(join(after, half, 'eslint-rules/prefer-declared-clients.mjs'))).toEqual(
+          readFileSync(join(ROOT, 'templates/shared/prefer-declared-clients.mjs')),
+        )
+      }
       expect(
         Object.keys(tree(after)).filter((p) => p.includes('/locales/')).length,
       ).toBeGreaterThan(75)

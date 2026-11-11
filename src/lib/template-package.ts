@@ -12,6 +12,12 @@ export const TEMPLATE_PACKAGE_BUDGET = {
   files: 32_000,
 } as const
 
+/** The shared files every flagship workspace's ESLint config and rule are written from. */
+export const TEMPLATE_SHARED_ESLINT = [
+  'templates/shared/eslint.config.js.tpl',
+  'templates/shared/prefer-declared-clients.mjs',
+] as const
+
 /** Size plus representation checks: exclusion without restoration data cannot pass. */
 export function templatePackageIssues(pack: TemplatePackManifest): string[] {
   const issues: string[] = []
@@ -24,6 +30,12 @@ export function templatePackageIssues(pack: TemplatePackManifest): string[] {
       issues.push(`template package budget: ${actual} ${label} exceeds ${limit}`)
   }
   const shipped = new Set(pack.files.map((f) => f.path))
+  // templates/apps/.npmignore leaves each workspace's ESLint copies out; scaffoldEslint
+  // writes these shared files into every flagship api/ and app/ instead.
+  if ([...shipped].some((f) => /^templates\/apps\/[^/]+\/(api|app)\/package\.json$/.test(f)))
+    for (const shared of TEMPLATE_SHARED_ESLINT)
+      if (!shipped.has(shared))
+        issues.push(`template ESLint copies missing their shared source: ${shared}`)
   for (const file of shipped) {
     const locales = /^templates\/apps\/([^/]+)\/app\/src\/locales\/(.+)$/.exec(file)
     if (!locales) continue
