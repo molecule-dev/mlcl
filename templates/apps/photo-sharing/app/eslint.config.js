@@ -1880,6 +1880,234 @@ const moleculeLocal = {
         }
       },
     },
+    // While a record is still loading, a message rendered in the SAME element as one of the
+    // record's fields, in the same place, is read as that field's value by anything that reads
+    // the element once: a test, a script, a screen reader. `{profile ? <><p>{profile.bio}</p></>
+    // : <p>Loading...</p>}` shows "Loading..." where the bio goes. Structural only: a JSX
+    // conditional on one identifier, whose loaded branch renders a text element that reads a
+    // member of that identifier and whose other branch is a text-bearing element with the same
+    // tag that does not read it. The identifier must be data this component waits for: a
+    // `useState` value set from an effect, or a value read from a hook's result (a query, the
+    // session). A record that is simply optional (no file chosen yet, no booking on this
+    // trip) has a final, correct message in that element, and stays quiet.
+    'placeholders-stay-out-of-record-fields': {
+      meta: {
+        type: 'problem',
+        docs: {
+          description:
+            'Report a waiting or error message rendered in the same element as a field of the record it waits for.',
+        },
+        schema: [],
+        messages: {
+          sameElement:
+            '{{location}}: while `{{record}}` is missing this renders a <{{tag}}> in the place of the <{{tag}}> that shows `{{field}}` (line {{fieldLine}}), so whatever reads that element gets this text as the value. Render the waiting or error message outside the region that shows `{{record}}` (return it before this markup, or put it beside the whole region), and render nothing here until `{{record}}` exists.',
+        },
+      },
+      create(context) {
+        const TEXT_TAGS = new Set([
+          'p',
+          'span',
+          'h1',
+          'h2',
+          'h3',
+          'h4',
+          'h5',
+          'h6',
+          'li',
+          'td',
+          'th',
+          'dd',
+          'dt',
+          'strong',
+          'em',
+          'b',
+          'small',
+          'label',
+          'blockquote',
+          'figcaption',
+          'caption',
+        ])
+        const tagOf = (node) =>
+          node?.type === 'JSXElement' &&
+          node.openingElement.name.type === 'JSXIdentifier' &&
+          TEXT_TAGS.has(node.openingElement.name.name)
+            ? node.openingElement.name.name
+            : null
+        // `record`, `!record`, `record != null`, `record == null`, and their strict forms.
+        const presence = (test) => {
+          if (test.type === 'Identifier') return { name: test.name, present: true }
+          if (
+            test.type === 'UnaryExpression' &&
+            test.operator === '!' &&
+            test.argument.type === 'Identifier'
+          )
+            return { name: test.argument.name, present: false }
+          if (test.type === 'BinaryExpression' && /^[!=]==?$/.test(test.operator)) {
+            const empty = (side) =>
+              (side.type === 'Literal' && side.value === null) ||
+              (side.type === 'Identifier' && side.name === 'undefined')
+            const subject = empty(test.right) ? test.left : empty(test.left) ? test.right : null
+            if (subject?.type === 'Identifier')
+              return { name: subject.name, present: test.operator[0] === '!' }
+          }
+          return null
+        }
+        // Every reference to the record inside a node, as the AST has it: a word inside a string
+        // ("This profile does not exist") is not a read.
+        const references = (node, name, found = []) => {
+          if (!node || typeof node.type !== 'string') return found
+          if (node.type === 'Identifier' && node.name === name) found.push(node)
+          for (const key of context.sourceCode.visitorKeys[node.type] ?? []) {
+            // `other.profile` names a property, not the record.
+            if (key === 'property' && node.type === 'MemberExpression' && !node.computed) continue
+            const child = node[key]
+            if (Array.isArray(child)) for (const item of child) references(item, name, found)
+            else references(child, name, found)
+          }
+          return found
+        }
+        const reads = (node, name) => references(node, name).length > 0
+        // The member of the record a text element shows, e.g. `profile.bio`.
+        const fieldShown = (element, name) => {
+          for (const child of element.children) {
+            if (child.type !== 'JSXExpressionContainer') continue
+            for (const reference of references(child.expression, name)) {
+              const member = reference.parent
+              if (
+                member.type === 'MemberExpression' &&
+                member.object === reference &&
+                !member.computed
+              )
+                return `${name}.${member.property.name}`
+            }
+          }
+          return null
+        }
+        const BUILT_IN = new Set([
+          'useState',
+          'useReducer',
+          'useRef',
+          'useMemo',
+          'useCallback',
+          'useId',
+          'useTransition',
+          'useDeferredValue',
+        ])
+        const variableOf = (identifier) => {
+          for (let scope = context.sourceCode.getScope(identifier); scope; scope = scope.upper) {
+            const variable = scope.set.get(identifier.name)
+            if (variable) return variable
+          }
+          return null
+        }
+        const calls = (node, test) =>
+          node?.type === 'CallExpression' &&
+          node.callee.type === 'Identifier' &&
+          test(node.callee.name)
+        const hookCall = (node) =>
+          calls(node, (name) => /^use[A-Z]/.test(name) && !BUILT_IN.has(name))
+        const insideEffect = (node) => {
+          for (let parent = node.parent; parent; parent = parent.parent)
+            if (calls(parent, (name) => name === 'useEffect' || name === 'useLayoutEffect'))
+              return true
+          return false
+        }
+        // Whether the value comes from a hook's result, through member reads and fallbacks only.
+        const fromHook = (node, depth = 0) => {
+          if (!node || depth > 4) return false
+          if (node.type === 'TSNonNullExpression' || node.type === 'TSAsExpression')
+            return fromHook(node.expression, depth)
+          if (node.type === 'ChainExpression') return fromHook(node.expression, depth)
+          if (node.type === 'LogicalExpression')
+            return fromHook(node.left, depth) || fromHook(node.right, depth)
+          if (node.type === 'ConditionalExpression')
+            return fromHook(node.consequent, depth) || fromHook(node.alternate, depth)
+          if (node.type === 'MemberExpression') return fromHook(node.object, depth)
+          if (node.type === 'Identifier') {
+            const variable = variableOf(node)
+            return !!variable && awaited(variable, depth + 1)
+          }
+          return hookCall(node)
+        }
+        // Whether this component waits for the variable's value.
+        const awaited = (variable, depth = 0) => {
+          const definition = variable.defs[0]
+          if (variable.defs.length !== 1 || definition?.type !== 'Variable') return false
+          const declarator = definition.node
+          if (declarator.id.type === 'ArrayPattern') {
+            if (!calls(declarator.init, (name) => name === 'useState')) return false
+            const setter = declarator.id.elements[1]
+            if (declarator.id.elements[0] !== definition.name || setter?.type !== 'Identifier')
+              return false
+            const setterVariable = variableOf(setter)
+            return !!setterVariable?.references.some(
+              (reference) =>
+                reference.identifier.parent.type === 'CallExpression' &&
+                reference.identifier.parent.callee === reference.identifier &&
+                insideEffect(reference.identifier),
+            )
+          }
+          if (declarator.id.type === 'ObjectPattern') return hookCall(declarator.init)
+          return (
+            declarator.id.type === 'Identifier' &&
+            (hookCall(declarator.init) || fromHook(declarator.init, depth))
+          )
+        }
+        const bearsText = (element) =>
+          element.children.some(
+            (child) =>
+              (child.type === 'JSXText' && child.value.trim() !== '') ||
+              (child.type === 'JSXExpressionContainer' &&
+                child.expression.type !== 'JSXEmptyExpression'),
+          )
+        return {
+          ConditionalExpression(node) {
+            if (node.parent.type !== 'JSXExpressionContainer') return
+            const container = node.parent.parent
+            if (container.type !== 'JSXElement' && container.type !== 'JSXFragment') return
+            const subject = presence(node.test)
+            if (!subject) return
+            const tested =
+              node.test.type === 'Identifier'
+                ? node.test
+                : node.test.type === 'UnaryExpression'
+                  ? node.test.argument
+                  : node.test.left.type === 'Identifier' && node.test.left.name === subject.name
+                    ? node.test.left
+                    : node.test.right
+            const variable = variableOf(tested)
+            if (!variable || !awaited(variable)) return
+            const loaded = subject.present ? node.consequent : node.alternate
+            const waiting = subject.present ? node.alternate : node.consequent
+            const tag = tagOf(waiting)
+            if (!tag || !bearsText(waiting) || reads(waiting, subject.name)) return
+            const candidates =
+              loaded.type === 'JSXFragment' || loaded.type === 'JSXElement'
+                ? tagOf(loaded) === tag
+                  ? [loaded]
+                  : loaded.children
+                : []
+            for (const candidate of candidates) {
+              if (tagOf(candidate) !== tag) continue
+              const field = fieldShown(candidate, subject.name)
+              if (!field) continue
+              context.report({
+                node: waiting,
+                messageId: 'sameElement',
+                data: {
+                  location: `${context.filename}:${waiting.loc.start.line}`,
+                  record: subject.name,
+                  tag,
+                  field,
+                  fieldLine: String(candidate.loc.start.line),
+                },
+              })
+              return
+            }
+          },
+        }
+      },
+    },
     'require-catch-binding': {
       meta: {
         type: 'problem',
@@ -1950,6 +2178,7 @@ export default tseslint.config(
       'molecule-local/url-lists-use-list-route': 'warn',
       'molecule-local/server-toggles-use-optimistic-value': 'warn',
       'molecule-local/buttons-have-an-action': 'warn',
+      'molecule-local/placeholders-stay-out-of-record-fields': 'warn',
       'molecule-local/require-catch-binding': 'warn',
       // A full date-time prefix without its milliseconds or UTC marker loses
       // information: two updates in one second can serialize as the same value.

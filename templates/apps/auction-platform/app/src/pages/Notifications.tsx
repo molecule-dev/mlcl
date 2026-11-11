@@ -356,9 +356,9 @@ export function Notifications() {
               ) : null}
             </div>
           ) : (
-            <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
+            <div role="status" className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
               {t('notificationsPage.accountLoading', {}, { defaultValue: 'Loading account…' })}
-            </p>
+            </div>
           )}
           <Link
             to="/settings"
