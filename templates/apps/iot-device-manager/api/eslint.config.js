@@ -859,6 +859,8 @@ const moleculeLocal = {
             'This shows a toggled value at once and saves it with its own request, so a pending guard can drop the next click, or a slower response/refetch can replace it. Use `useOptimisticValue` from `@molecule/app-react`. {{rewrite}}',
           awaitRefetch:
             '{{location}}: This toggle waits for its save and a query refetch before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, move this save into commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads and keep it mounted during refetches. Preserve authentication checks; pending saves must not discard clicks.',
+          awaitSave:
+            '{{location}}: This toggle waits for its save before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, save in commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads. Preserve authentication checks and keep the control mounted during saves.',
         },
       },
       create(context) {
@@ -1552,6 +1554,51 @@ const moleculeLocal = {
           visit(fn.body)
           return found
         }
+        // `const updated = await save(!record.enabled); setRecord(updated)`
+        // leaves the label unchanged for the whole request. Require the actual
+        // response to reach displayed state, not just a fire-and-forget command.
+        const displaysResponse = (fn, save) => {
+          const awaited = save.parent
+          if (awaited?.type !== 'AwaitExpression') return false
+          const binding = awaited.parent
+          const response =
+            binding?.type === 'VariableDeclarator' && binding.id.type === 'Identifier'
+              ? variableFor(binding.id)
+              : null
+          let displayed = false
+          walk(fn.body, (node) => {
+            if (node.type !== 'CallExpression' || !setters.has(variableFor(node.callee))) return
+            const argument = node.arguments[0]
+            if (argument !== awaited && (!response || node.range[0] < save.range[1])) return
+            let usesResponse = argument === awaited
+            walk(
+              argument,
+              (part) => {
+                if (response && part.type === 'Identifier' && variableFor(part) === response)
+                  usesResponse = true
+              },
+              true,
+            )
+            if (!usesResponse) return
+            const state = states.get(variableFor(node.callee))
+            const rendered = (variable, seen = new Set()) => {
+              if (!variable || seen.has(variable) || seen.size > 16) return false
+              seen.add(variable)
+              return variable.references.some(({ identifier }) => {
+                let at = identifier.parent
+                while (at && at !== fn.parent) {
+                  if (at.type === 'JSXExpressionContainer') return true
+                  if (at.type === 'VariableDeclarator' && at.id.type === 'Identifier')
+                    return rendered(variableFor(at.id), seen)
+                  at = at.parent
+                }
+                return false
+              })
+            }
+            displayed ||= rendered(state?.variable)
+          })
+          return displayed
+        }
         return {
           VariableDeclarator(node) {
             const callee = node.init?.type === 'CallExpression' ? node.init.callee : null
@@ -1734,11 +1781,16 @@ const moleculeLocal = {
                     ))
               }
               const optimistic = shownBefore(fn, namesFor(fn), node)
-              if (!hit || (!optimistic && !refetch)) continue
+              const confirmed = kind === 'call' && hit && displaysResponse(fn, node)
+              if (!hit || (!optimistic && !refetch && !confirmed)) continue
               reported.add(fn)
               context.report({
                 node,
-                messageId: optimistic ? 'useOptimisticValue' : 'awaitRefetch',
+                messageId: optimistic
+                  ? 'useOptimisticValue'
+                  : refetch
+                    ? 'awaitRefetch'
+                    : 'awaitSave',
                 data: optimistic
                   ? { rewrite: rewriteFor(fn, node) }
                   : {

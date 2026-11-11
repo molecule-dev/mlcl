@@ -19,8 +19,8 @@ import {
  * The scaffold rule that names `useOptimisticValue` for a hand-rolled server-backed toggle that
  * changes the button at once. The invalid cases include the shapes of X1 runs whose "should
  * unfavorite an article" test failed (l1285, l1296, l1297, 2026-11-04) and non-X1 toggles (a
- * grocery checkbox, a setting switch, a star button). A toggle that changes only when the server
- * answers (l1259's follow button, a refetching star) cannot flip back and stays silent.
+ * grocery checkbox, a setting switch, a star button). A toggle that displays its saved response
+ * also gets an advisory: it cannot change until that request answers.
  */
 const require = createRequire(import.meta.url)
 const template = fileURLToPath(
@@ -447,22 +447,7 @@ export function Switch({ settings }) {
           filename: 'Buttons.tsx',
           code: retained.l1391,
         },
-        {
-          name: 'a non-optimistic server toggle disables the button until the answer',
-          filename: 'SettingsSwitch.tsx',
-          code: `import { useState } from 'react'
-export function SettingsSwitch({ settings }) {
-  const [enabled, setEnabled] = useState(settings.enabled)
-  const [saving, setSaving] = useState(false)
-  const toggle = async () => {
-    if (saving) return
-    setSaving(true)
-    try { const saved = await saveSettings({ enabled: !enabled }); setEnabled(saved.enabled) }
-    finally { setSaving(false) }
-  }
-  return <button role="switch" disabled={saving} onClick={toggle}>{String(enabled)}</button>
-}`,
-        },
+
         {
           name: 'opening a local panel while posting unrelated analytics is not a server toggle',
           filename: 'Panel.tsx',
@@ -738,19 +723,7 @@ export function NewComment() {
 }
 `,
         },
-        {
-          name: 'X1 l1259 shape: a follow button that changes only when the server answers',
-          filename: 'Profile.tsx',
-          code: `import { useState } from 'react'
-export function Profile({ initial }) {
-  const [profile, setProfile] = useState(initial)
-  async function toggleFollow() {
-    setProfile(await setFollowing(profile.username, !profile.following))
-  }
-  return <button onClick={() => void toggleFollow()}>{profile.following ? 'Unfollow' : 'Follow'}</button>
-}
-`,
-        },
+
         {
           name: 'a star saved first and shown after the refetch',
           filename: 'BoardDetail.tsx',
@@ -795,6 +768,37 @@ export function Login() {
         },
       ],
       invalid: [
+        {
+          name: 'a non-optimistic server toggle disables the button until the answer',
+          filename: 'SettingsSwitch.tsx',
+          code: `import { useState } from 'react'
+export function SettingsSwitch({ settings }) {
+  const [enabled, setEnabled] = useState(settings.enabled)
+  const [saving, setSaving] = useState(false)
+  const toggle = async () => {
+    if (saving) return
+    setSaving(true)
+    try { const saved = await saveSettings({ enabled: !enabled }); setEnabled(saved.enabled) }
+    finally { setSaving(false) }
+  }
+  return <button role="switch" disabled={saving} onClick={toggle}>{String(enabled)}</button>
+}`,
+          errors: [{ messageId: 'awaitSave' }],
+        },
+        {
+          name: 'X1 l1259 shape: a follow button that changes only when the server answers',
+          filename: 'Profile.tsx',
+          code: `import { useState } from 'react'
+export function Profile({ initial }) {
+  const [profile, setProfile] = useState(initial)
+  async function toggleFollow() {
+    setProfile(await setFollowing(profile.username, !profile.following))
+  }
+  return <button onClick={() => void toggleFollow()}>{profile.following ? 'Unfollow' : 'Follow'}</button>
+}
+`,
+          errors: [{ messageId: 'awaitSave' }],
+        },
         {
           name: 'non-X1: a like and count flip followed by a pending guard drops the next click',
           filename: 'LikeButton.tsx',

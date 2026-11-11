@@ -7,6 +7,7 @@ import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 import { useIsDesktop } from '@molecule/app-ui-react'
 
+import { BoardVisibilityButton } from '../components/BoardVisibilityButton.js'
 import { CollaboratorStack } from '../components/CollaboratorStack.js'
 import { WhiteboardLayout } from '../components/WhiteboardLayout.js'
 import { getRealtimeConnection } from '../lib/realtime.js'
@@ -533,23 +534,6 @@ export function BoardCanvas() {
     },
     [board?.title, http, id, shareEmail, shareRole, t],
   )
-
-  const handleTogglePublic = useCallback(async () => {
-    if (!board) return
-    try {
-      const res = await http.put<BoardRow>(`/api/boards/${id}`, {
-        is_public: !board.is_public,
-        public_slug: !board.is_public ? `b-${id.slice(0, 8)}` : null,
-      })
-      setBoard(res.data ?? board)
-      track({
-        name: 'board.visibility_changed',
-        properties: { board_id: id, is_public: !board.is_public },
-      })
-    } catch (err) {
-      setError(err instanceof Error ? err.message : String(err))
-    }
-  }, [board, http, id])
 
   const collaboratorAvatars = useMemo(
     () =>
@@ -1301,32 +1285,18 @@ export function BoardCanvas() {
                   >
                     {t('boardCanvas.visibilityTitle', {}, { defaultValue: 'Visibility' })}
                   </span>
-                  <button
-                    type="button"
-                    data-mol-id="board-toggle-public"
-                    onClick={handleTogglePublic}
-                    className={cm.cn(
-                      cm.flex({ align: 'center', justify: 'between' }),
-                      cm.sp('px', 3),
-                      cm.sp('py', 2),
-                      cm.fontWeight('semibold'),
-                      cm.textSize('xs'),
-                      'rounded-lg bg-surface-container-low hover:bg-surface-container',
-                    )}
-                  >
-                    <span>
-                      {board?.is_public
-                        ? t(
-                            'boardCanvas.public',
-                            {},
-                            { defaultValue: 'Public — anyone with link can view' },
-                          )
-                        : t('boardCanvas.private', {}, { defaultValue: 'Private — invite only' })}
-                    </span>
-                    <span className={cm.cn('material-symbols-outlined text-[16px]')}>
-                      {board?.is_public ? 'visibility' : 'lock'}
-                    </span>
-                  </button>
+                  {board && (
+                    <BoardVisibilityButton
+                      key={board.id}
+                      board={board}
+                      onConfirmed={(visibility) =>
+                        setBoard((current) =>
+                          current?.id === board.id ? { ...current, ...visibility } : current,
+                        )
+                      }
+                      onError={setError}
+                    />
+                  )}
                 </div>
               </aside>
             )
