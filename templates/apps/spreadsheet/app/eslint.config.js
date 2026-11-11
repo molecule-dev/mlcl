@@ -1,3 +1,6 @@
+import { readFileSync } from 'node:fs'
+import { URL } from 'node:url'
+
 import eslint from '@eslint/js'
 import prettier from 'eslint-config-prettier'
 import jsxA11y from 'eslint-plugin-jsx-a11y'
@@ -6,6 +9,20 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import tseslint from 'typescript-eslint'
 
 import preferDeclaredClients from './eslint-rules/prefer-declared-clients.mjs'
+
+// API timestamps are data; an app may intentionally format a datetime input.
+// Read this config's own workspace manifest, never a hoisted parent manifest.
+let apiWorkspace = false
+try {
+  const manifest = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'))
+  apiWorkspace = Object.keys({
+    ...manifest.dependencies,
+    ...manifest.optionalDependencies,
+    ...manifest.peerDependencies,
+  }).some((name) => name.startsWith('@molecule/api-'))
+} catch (error) {
+  if (error.code !== 'ENOENT') throw error
+}
 
 // `eslint-plugin-security` is deliberately NOT wired in. The classes its
 // low-false-positive rules target (raw SQL, direct fs access, eval) are removed
@@ -1705,6 +1722,23 @@ export default tseslint.config(
       'molecule-local/url-lists-use-list-route': 'warn',
       'molecule-local/server-toggles-use-optimistic-value': 'warn',
       'molecule-local/require-catch-binding': 'warn',
+      // A full date-time prefix without its milliseconds or UTC marker loses
+      // information: two updates in one second can serialize as the same value.
+      // Use ESLint's standard syntax rule rather than another timestamp helper.
+      // Date-only keys and clock-only display slices remain valid.
+      ...(apiWorkspace
+        ? {
+            'no-restricted-syntax': [
+              'error',
+              {
+                selector:
+                  'CallExpression[callee.object.callee.property.name="toISOString"][callee.property.name=/^(slice|substring|substr)$/][arguments.0.value=0][arguments.1.value>=19][arguments.1.value<24]',
+                message:
+                  'Keep the full toISOString() timestamp, including milliseconds and UTC (Z); truncating it hides same-second updates. Remove the slice/substring/substr call. Use date-only or clock formatting for display.',
+              },
+            ],
+          }
+        : {}),
       '@typescript-eslint/no-unused-vars': [
         'warn',
         {
