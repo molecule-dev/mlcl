@@ -13,8 +13,11 @@ import preferDeclaredClients from './eslint-rules/prefer-declared-clients.mjs'
 // API timestamps are data; an app may intentionally format a datetime input.
 // Read this config's own workspace manifest, never a hoisted parent manifest.
 let apiWorkspace = false
+// Whether this workspace declares the shared query cache (its hooks replace a hand-written one).
+let queryCache = false
 try {
   const manifest = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'))
+  queryCache = '@molecule/app-query-react' in { ...manifest.dependencies }
   apiWorkspace = Object.keys({
     ...manifest.dependencies,
     ...manifest.optionalDependencies,
@@ -2134,6 +2137,125 @@ const moleculeLocal = {
         }
       },
     },
+    // A hand-written copy of the query hook. X1 P317: all 8 projects shipped a typed resource
+    // module on the shared query cache and 7 of 8 runs wrote `useAsync(loader, deps)` /
+    // `useFetch(load, deps)` instead — a hook that calls a loader it is handed inside an effect
+    // and keeps the answer in component state. That is `useQuery` without the cache: two
+    // components showing one record fetch it twice, and a write elsewhere leaves this copy stale.
+    // Structural: a function named use*, one of whose PARAMETERS is called inside its
+    // `useEffect` (directly, or through a ref it was stored in), with a `useState` setter called
+    // in that effect. A hook that fetches a fixed thing, debounces, or measures the window never
+    // calls a parameter there. Enabled only where @molecule/app-query-react is declared.
+    'fetch-hooks-use-the-query-cache': {
+      meta: {
+        type: 'problem',
+        docs: {
+          description:
+            'Report a hook that runs a loader it is handed in an effect and keeps the result in state, where the shared query cache is declared.',
+        },
+        schema: [],
+        messages: {
+          useQuery:
+            "{{location}}: `{{name}}` is a second `useQuery`: it calls the loader it is given in an effect and keeps the answer in this component's state, so the same record is fetched once per component and a write elsewhere leaves it stale. @molecule/app-query-react is installed and bonded. Delete this hook and call `const query = useQuery({ key: [path, viewer, params], fetch: (signal) => load(signal) })` from `@molecule/app-query-react` where it was used: read `query.data`, `query.status`, `query.error`, and `query.refetch()` replaces reload.",
+        },
+      },
+      create(context) {
+        const isFunction = (node) =>
+          node?.type === 'FunctionDeclaration' ||
+          node?.type === 'FunctionExpression' ||
+          node?.type === 'ArrowFunctionExpression'
+        const nameOf = (node) =>
+          node.id?.type === 'Identifier'
+            ? node.id.name
+            : node.parent?.type === 'VariableDeclarator' && node.parent.id.type === 'Identifier'
+              ? node.parent.id.name
+              : ''
+        const walk = (node, visit) => {
+          if (!node || typeof node.type !== 'string') return
+          visit(node)
+          for (const key of Object.keys(node)) {
+            if (key === 'parent') continue
+            const value = node[key]
+            if (Array.isArray(value)) for (const child of value) walk(child, visit)
+            else if (value && typeof value.type === 'string') walk(value, visit)
+          }
+        }
+        const check = (node) => {
+          const name = nameOf(node)
+          if (!/^use[A-Z]/.test(name) || node.body?.type !== 'BlockStatement') return
+          const params = new Set(
+            node.params.filter((param) => param.type === 'Identifier').map((param) => param.name),
+          )
+          if (params.size === 0) return
+          // Refs that hold a parameter (`const loadRef = useRef(load)`) and state setters.
+          const refs = new Set()
+          const setters = new Set()
+          for (const statement of node.body.body) {
+            if (statement.type !== 'VariableDeclaration') continue
+            for (const declaration of statement.declarations) {
+              const call = declaration.init
+              if (call?.type !== 'CallExpression' || call.callee.type !== 'Identifier') continue
+              if (
+                call.callee.name === 'useRef' &&
+                declaration.id.type === 'Identifier' &&
+                call.arguments[0]?.type === 'Identifier' &&
+                params.has(call.arguments[0].name)
+              )
+                refs.add(declaration.id.name)
+              if (
+                call.callee.name === 'useState' &&
+                declaration.id.type === 'ArrayPattern' &&
+                declaration.id.elements[1]?.type === 'Identifier'
+              )
+                setters.add(declaration.id.elements[1].name)
+            }
+          }
+          if (setters.size === 0) return
+          for (const statement of node.body.body) {
+            const call = statement.type === 'ExpressionStatement' ? statement.expression : null
+            if (
+              call?.type !== 'CallExpression' ||
+              call.callee.type !== 'Identifier' ||
+              call.callee.name !== 'useEffect' ||
+              !isFunction(call.arguments[0])
+            )
+              continue
+            let callsLoader = false
+            let setsState = false
+            walk(call.arguments[0].body, (inner) => {
+              if (inner.type !== 'CallExpression') return
+              const callee = inner.callee
+              if (callee.type === 'Identifier' && params.has(callee.name)) callsLoader = true
+              if (
+                callee.type === 'MemberExpression' &&
+                callee.object.type === 'Identifier' &&
+                refs.has(callee.object.name) &&
+                callee.property.type === 'Identifier' &&
+                callee.property.name === 'current'
+              )
+                callsLoader = true
+              if (callee.type === 'Identifier' && setters.has(callee.name)) setsState = true
+            })
+            if (!callsLoader || !setsState) continue
+            context.report({
+              node: node.id ?? node,
+              messageId: 'useQuery',
+              data: {
+                name,
+                location:
+                  context.filename.split(/[\\/]/).slice(-2).join('/') + ':' + node.loc.start.line,
+              },
+            })
+            return
+          }
+        }
+        return {
+          FunctionDeclaration: check,
+          FunctionExpression: check,
+          ArrowFunctionExpression: check,
+        }
+      },
+    },
     // A view the page reads from a query parameter that no link sets. X1 P317 l2400 read its
     // profile tab with `searchParams.get('tab') === 'favorites'` while the tab link went to
     // `/profile/:username/favorites`: the click changed the path, the comparison stayed false,
@@ -2556,6 +2678,7 @@ export default tseslint.config(
       'molecule-local/buttons-have-an-action': 'warn',
       'molecule-local/placeholders-stay-out-of-record-fields': 'warn',
       'molecule-local/links-reach-the-view-they-select': 'warn',
+      ...(queryCache ? { 'molecule-local/fetch-hooks-use-the-query-cache': 'warn' } : {}),
       'molecule-local/no-block-in-paragraph': 'warn',
       'molecule-local/require-catch-binding': 'warn',
       // A full date-time prefix without its milliseconds or UTC marker loses
