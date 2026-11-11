@@ -13,6 +13,8 @@ import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { t } from '../lib/i18n.js'
 import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../lib/integrate.js'
 import { databasePackageOf } from '../lib/migration-dialect.js'
+import { getMoleculeVersion } from '../lib/registry.js'
+import { missingMoleculePeers } from '../lib/scaffold.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 
 const execAsync = promisify(exec)
@@ -181,10 +183,24 @@ export default class Add extends Command {
       packageJson[depKey] = packageJson[depKey] ?? {}
       packageJson[depKey][moleculeName] = resolvedVersion
 
+      // Declare the required `@molecule/*` peers with it, at their registry pins. A
+      // scaffold installs with `--legacy-peer-deps` (its `.npmrc`), which installs no
+      // peers, so a provider added alone left its core out of `node_modules` and the
+      // first import of it failed. Closed over BOTH dependency maps so a peer that is
+      // already declared anywhere is never declared twice.
+      const peers = missingMoleculePeers([
+        ...Object.keys(packageJson.dependencies ?? {}),
+        ...Object.keys(packageJson.devDependencies ?? {}),
+      ])
+      for (const peer of peers) packageJson[depKey][peer] = getMoleculeVersion(peer)
+
       // Write package.json
       await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
 
       spinner.stop(t('commands.add.spinners.addedTo', { name: moleculeName, depKey }))
+      if (peers.length > 0) {
+        this.log(t('commands.add.messages.peersAdded', { names: peers.join(', '), depKey }))
+      }
 
       // Tell the user when the version did not come from npm so they can adjust it.
       if (source === 'registry') {

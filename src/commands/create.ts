@@ -1259,6 +1259,16 @@ export default class Create extends Command {
       }
     }
 
+    // Close the manifests' @molecule peers again now that every step that declares
+    // packages has run: the closure above precedes `addPackages` and the capture
+    // wiring, and the project installs with --legacy-peer-deps, which adds no peers.
+    // No-op when nothing is missing.
+    {
+      const { ensureMoleculePeerClosure } = await import('../lib/scaffold.js')
+      const added = Object.values(await ensureMoleculePeerClosure(projectPath)).flat()
+      if (added.length > 0) log(`Manifest peer closure added ${added.length}: ${added.join(', ')}`)
+    }
+
     // Generate .env template (from package metadata secrets)
     if (isFullStack) {
       const apiSecrets = allSelectedSecrets.filter((s) => !s.name.startsWith('VITE_'))

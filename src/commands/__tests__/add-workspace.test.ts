@@ -15,6 +15,7 @@ import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { AUTH_PRECONFIGURATION_GUIDANCE } from '../../lib/auth-contract.js'
+import { missingMoleculePeers } from '../../lib/scaffold.js'
 import Add from '../add.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
@@ -50,6 +51,58 @@ describe('mlcl add from a full-stack project root', () => {
         '{"name":"x","dependencies":{}}\n',
       )
     }
+  })
+
+  it('declares the @molecule packages the added one requires, once', async () => {
+    // Scaffolds install with --legacy-peer-deps, which installs no peers: a provider
+    // added alone left its core out of node_modules.
+    writeFileSync(
+      join(dir, 'api', 'package.json'),
+      `${JSON.stringify({ name: 'x', dependencies: { '@molecule/api-activity': '1.0.0' } })}\n`,
+    )
+    const config = await Config.load(MLCL_ROOT)
+    const cmd = new Add(['@molecule/api-emails-capture', '--no-install', '--dev'], config)
+    vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
+    const log = vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+    await cmd.run()
+    const manifest = JSON.parse(readFileSync(join(dir, 'api', 'package.json'), 'utf8')) as {
+      dependencies: Record<string, string>
+      devDependencies: Record<string, string>
+    }
+    expect(manifest.devDependencies['@molecule/api-emails-capture']).toMatch(/^\d+\.\d+\.\d+$/)
+    expect(manifest.devDependencies['@molecule/api-emails']).toMatch(/^\d+\.\d+\.\d+$/)
+    // Already declared: kept where it is, at the version the project pins.
+    expect(manifest.dependencies).toEqual({ '@molecule/api-activity': '1.0.0' })
+    expect(manifest.devDependencies['@molecule/api-activity']).toBeUndefined()
+    expect(
+      missingMoleculePeers([
+        ...Object.keys(manifest.dependencies),
+        ...Object.keys(manifest.devDependencies),
+      ]),
+    ).toEqual([])
+    expect(log).toHaveBeenCalledWith(expect.stringContaining('@molecule/api-emails'))
+  })
+
+  it('writes only the package when its peers are already declared', async () => {
+    const config = await Config.load(MLCL_ROOT)
+    const first = new Add(['@molecule/api-emails-capture', '--no-install'], config)
+    vi.spyOn(first, 'warn').mockImplementation((input) => input)
+    vi.spyOn(first, 'log').mockImplementation(() => undefined)
+    await first.run()
+    const before = JSON.parse(readFileSync(join(dir, 'api', 'package.json'), 'utf8')) as {
+      dependencies: Record<string, string>
+    }
+    const second = new Add(['@molecule/api-sms-capture', '--no-install'], config)
+    vi.spyOn(second, 'warn').mockImplementation((input) => input)
+    vi.spyOn(second, 'log').mockImplementation(() => undefined)
+    await second.run()
+    const after = JSON.parse(readFileSync(join(dir, 'api', 'package.json'), 'utf8')) as {
+      dependencies: Record<string, string>
+    }
+    const added = Object.keys(after.dependencies).filter((n) => !(n in before.dependencies))
+    expect(added).toContain('@molecule/api-sms-capture')
+    expect(added).not.toContain('@molecule/api-activity')
+    expect(missingMoleculePeers(Object.keys(after.dependencies))).toEqual([])
   })
 
   it('prints the keep-the-configured-bond guidance returned to CLI and MCP add callers', async () => {

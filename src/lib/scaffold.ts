@@ -2289,6 +2289,16 @@ async function addActivityCaptureDependencies(apiPath: string): Promise<boolean>
     pkg.dependencies[name] = getMoleculeVersion(name)
     changed = true
   }
+  // ...and the packages THEY require. The capture providers peer on the cores
+  // they wrap (`api-emails`, `api-sms`, `api-channel`, `api-webhook`), and
+  // `mlcl create` closes the manifest's peers BEFORE this step runs, while the
+  // project installs with `--legacy-peer-deps`, which adds no peers: an exported
+  // X1 app (l2171) declared every capture provider and none of those four cores,
+  // so outside the fleet-hoisting sandbox the capture import failed to resolve.
+  for (const name of missingMoleculePeers(Object.keys(pkg.dependencies))) {
+    pkg.dependencies[name] = getMoleculeVersion(name)
+    changed = true
+  }
   if (!changed) return false
 
   pkg.dependencies = Object.fromEntries(
@@ -3129,6 +3139,57 @@ export async function ensureE2EFiles(appPath: string): Promise<void> {
 }
 
 /**
+ * The `@molecule/*` packages a dependency set is missing from its registry
+ * `moleculePeers` + `defaultProvider` closure — what must be declared NEXT TO
+ * those names for an install to resolve them.
+ *
+ * Every scaffold installs with `--legacy-peer-deps` (the project's `.npmrc`),
+ * which installs no peers, so a package declared without its required peers is
+ * absent from `node_modules` everywhere but a workspace that hoists the fleet.
+ * Anything that declares a `@molecule/*` package (`mlcl create`, the
+ * activity-capture step, `mlcl add`, a platform export) closes over this.
+ *
+ * @param names - The declared dependency names (non-`@molecule` names are ignored).
+ * @param registryPackages - The registry by name; read from `registry.json` when omitted.
+ * @returns The missing package names, in discovery order.
+ */
+export function missingMoleculePeers(
+  names: Iterable<string>,
+  registryPackages: Map<string, InferredPackage> = new Map(
+    loadRegistry().map((p) => [p.name, p]),
+  ),
+): string[] {
+  const have = new Set([...names].filter((d) => d.startsWith('@molecule/')))
+  const queue = [...have]
+  const missing: string[] = []
+  while (queue.length > 0) {
+    const name = queue.shift()!
+    const entry = registryPackages.get(name)
+    if (!entry) continue
+    // A core's default bond only when nothing in the manifest already provides
+    // its category: an app on SQLite also got Postgres, and its bond index then
+    // wired both database providers (X1 run sol-m08 read that as a broken
+    // scaffold and rewrote every migration).
+    // (Same rule as resolveDefaultProviders in ./features.ts.)
+    const provided = [...have].some((n) => {
+      const m = registryPackages.get(n)?.molecule
+      return m?.implements === name && m.type !== 'framework'
+    })
+    const next = [
+      ...(entry.molecule?.moleculePeers ?? []),
+      ...(entry.molecule?.defaultProvider && !provided ? [entry.molecule.defaultProvider] : []),
+    ]
+    for (const peer of next) {
+      if (have.has(peer) || !registryPackages.has(peer)) continue
+      have.add(peer)
+      queue.push(peer)
+      missing.push(peer)
+    }
+  }
+  return missing
+}
+
+/**
  * Add the full registry `moleculePeers` + `defaultProvider` closure of each
  * manifest's `@molecule/*` dependencies as DIRECT pinned dependencies.
  *
@@ -3159,33 +3220,7 @@ export async function ensureMoleculePeerClosure(
       continue
     }
     const deps = manifest.dependencies ?? {}
-    const have = new Set(Object.keys(deps).filter((d) => d.startsWith('@molecule/')))
-    const queue = [...have]
-    const missing: string[] = []
-    while (queue.length > 0) {
-      const name = queue.shift()!
-      const entry = registryPackages.get(name)
-      if (!entry) continue
-      // A core's default bond only when nothing in the manifest already provides
-      // its category: an app on SQLite also got Postgres, and its bond index then
-      // wired both database providers (X1 run sol-m08 read that as a broken
-      // scaffold and rewrote every migration).
-      // (Same rule as resolveDefaultProviders in ./features.ts.)
-      const provided = [...have].some((n) => {
-        const m = registryPackages.get(n)?.molecule
-        return m?.implements === name && m.type !== 'framework'
-      })
-      const next = [
-        ...(entry.molecule?.moleculePeers ?? []),
-        ...(entry.molecule?.defaultProvider && !provided ? [entry.molecule.defaultProvider] : []),
-      ]
-      for (const peer of next) {
-        if (have.has(peer) || !registryPackages.has(peer)) continue
-        have.add(peer)
-        queue.push(peer)
-        missing.push(peer)
-      }
-    }
+    const missing = missingMoleculePeers(Object.keys(deps), registryPackages)
     if (missing.length === 0) continue
     for (const name of missing) deps[name] = getMoleculeVersion(name)
     manifest.dependencies = Object.fromEntries(

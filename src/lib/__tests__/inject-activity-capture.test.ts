@@ -35,7 +35,7 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { injectActivityCaptureBoot } from '../scaffold.js'
+import { injectActivityCaptureBoot, missingMoleculePeers } from '../scaffold.js'
 
 /**
  * A minimal hand-curated `bonds/index.ts` shaped like every flagship ships: an
@@ -110,6 +110,24 @@ describe('injectActivityCaptureBoot (IDE8 producer wiring)', () => {
     const again = readFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), 'utf-8')
     expect(again.match(/await setupActivityCapture\(\)/g)).toHaveLength(1)
     expect(again.match(/from '\.\/_activity-capture\.js'/g)).toHaveLength(1)
+  })
+
+  it('declares the packages the capture providers require along with them', async () => {
+    // `mlcl create` closes the manifest's peers BEFORE this step, and the project
+    // installs with --legacy-peer-deps (no peers installed): an exported X1 app
+    // (l2171) declared every capture provider but none of the cores they wrap.
+    await injectActivityCaptureBoot(apiDir)
+    const { dependencies } = JSON.parse(readFileSync(join(apiDir, 'package.json'), 'utf-8')) as {
+      dependencies: Record<string, string>
+    }
+    for (const core of [
+      '@molecule/api-emails',
+      '@molecule/api-sms',
+      '@molecule/api-channel',
+      '@molecule/api-webhook',
+    ])
+      expect(dependencies[core], core).toMatch(/^\d+\.\d+\.\d+$/)
+    expect(missingMoleculePeers(Object.keys(dependencies))).toEqual([])
   })
 
   it('leaves no producer module behind when bonds/index.ts cannot be wired', async () => {

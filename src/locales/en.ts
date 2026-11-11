@@ -32,6 +32,7 @@ export const messages: LocaleMessages = {
     'Package "{name}" doesn\'t follow @molecule/* naming convention',
   'commands.add.spinners.adding': 'Adding {name}...',
   'commands.add.spinners.addedTo': 'Added {name} to {depKey}',
+  'commands.add.messages.peersAdded': 'Also added the @molecule packages it requires to {depKey}: {names}',
   'commands.add.spinners.installing': 'Installing dependencies...',
   'commands.add.spinners.installed': 'Dependencies installed',
   'commands.add.spinners.installFailed': 'Installation failed',
