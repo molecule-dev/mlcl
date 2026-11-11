@@ -13,8 +13,8 @@ import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { t } from '../lib/i18n.js'
 import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../lib/integrate.js'
 import { databasePackageOf } from '../lib/migration-dialect.js'
+import { missingMoleculePeers } from '../lib/peer-closure.js'
 import { getMoleculeVersion } from '../lib/registry.js'
-import { missingMoleculePeers } from '../lib/scaffold.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 
 const execAsync = promisify(exec)

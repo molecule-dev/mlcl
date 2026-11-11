@@ -15,7 +15,7 @@ import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { AUTH_PRECONFIGURATION_GUIDANCE } from '../../lib/auth-contract.js'
-import { missingMoleculePeers } from '../../lib/scaffold.js'
+import { missingMoleculePeers } from '../../lib/peer-closure.js'
 import Add from '../add.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')

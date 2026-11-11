@@ -35,7 +35,8 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { injectActivityCaptureBoot, missingMoleculePeers } from '../scaffold.js'
+import { missingMoleculePeers } from '../peer-closure.js'
+import { injectActivityCaptureBoot } from '../scaffold.js'
 
 /**
  * A minimal hand-curated `bonds/index.ts` shaped like every flagship ships: an
