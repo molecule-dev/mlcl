@@ -57449,6 +57449,7 @@
         "resourceModules": {
           "directory": "src/resources",
           "factory": "createQueryResource",
+          "since": "1.2.0",
           "http": {
             "package": "@molecule/app-http",
             "client": "getClient",

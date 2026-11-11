@@ -24,6 +24,7 @@ const ARTICLE = '@molecule/api-resource-article'
 const PROJECT = '@molecule/api-resource-project'
 const COMMENT = '@molecule/api-resource-comment'
 const MOLECULE = join(import.meta.dirname, '..', '..', '..', '..', 'molecule', 'packages', 'app')
+const SINCE = registry.packages[QUERY].decisionGuide!.resourceModules!.since
 let root: string
 
 beforeEach(async () => {
@@ -34,9 +35,13 @@ afterEach(async () => {
 })
 
 /** A project as `mlcl create` leaves it before its last step: two workspaces and a router. */
-async function project(api: string[], app: string[]): Promise<void> {
+async function project(api: string[], app: string[], queryVersion = SINCE): Promise<void> {
   const manifest = (names: string[]): string =>
-    JSON.stringify({ dependencies: Object.fromEntries(names.map((name) => [name, '1.0.0'])) })
+    JSON.stringify({
+      dependencies: Object.fromEntries(
+        names.map((name) => [name, name === QUERY ? queryVersion : '1.0.0']),
+      ),
+    })
   await mkdir(join(root, 'api/src/App'), { recursive: true })
   await mkdir(join(root, 'app/src'), { recursive: true })
   await writeFile(join(root, 'api/package.json'), manifest(api))
@@ -117,6 +122,18 @@ describe('app modules for declared API resources, written by the create step', (
     expect(await read('app/src/resources/projects.ts')).toBe('// customised\n')
     expect(await read('app/src/resources/articles.ts')).toBe(mine)
     expect(await read('api/src/App/router.ts')).toBe(router)
+  })
+
+  it.each([
+    ['1.1.6', false],
+    ['^1.1.99', false],
+    [SINCE, true],
+    ['2.0.0', true],
+    ['workspace:*', true],
+  ])('follows the declared factory version %s (written: %s)', async (version, expected) => {
+    await project([ARTICLE], [QUERY, HTTP], version)
+    await ensureAgentsMd(root)
+    expect(existsSync(join(root, 'app/src/resources/articles.ts'))).toBe(expected)
   })
 
   it.each([

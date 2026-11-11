@@ -310,6 +310,49 @@ export function planAppResourceModules(
   return []
 }
 
+/**
+ * Whether the project's manifest declares a version of the factory package that exports the
+ * factory. A release can carry this generator before the package version that adds the export
+ * is the one a scaffold pins; a module written then would not compile.
+ *
+ * @param projectRoot - The project root.
+ * @param registry - The registry whose metadata describes the packages.
+ * @param declared - The project's declared packages with their workspaces.
+ * @returns True for a declared version at or above `since`, and for a declaration that is not a
+ *   version at all (a workspace or file link resolves to the package's own source).
+ */
+async function factoryIsDeclared(
+  projectRoot: string,
+  registry: Registry,
+  declared: readonly DeclaredPackage[],
+): Promise<boolean> {
+  for (const declaration of declared) {
+    const factory = registry.packages[declaration.name]?.decisionGuide?.resourceModules
+    if (!factory) continue
+    let manifest: Record<string, Record<string, string> | undefined>
+    try {
+      manifest = JSON.parse(
+        await readFile(join(projectRoot, declaration.workspace, 'package.json'), 'utf8'),
+      ) as typeof manifest
+    } catch (_error) {
+      // No readable manifest names no version, so nothing proves the export is there.
+      return false
+    }
+    const range =
+      manifest.dependencies?.[declaration.name] ?? manifest.devDependencies?.[declaration.name]
+    if (typeof range !== 'string') return false
+    const version = /^[\^~]?(\d+)\.(\d+)\.(\d+)/.exec(range)
+    if (!version) return true
+    const since = factory.since.split('.').map(Number)
+    for (let part = 0; part < 3; part++) {
+      const have = Number(version[part + 1])
+      if (have !== since[part]) return have > since[part]
+    }
+    return true
+  }
+  return false
+}
+
 /** The line a generated API router carries for a package's routes (`injector.ts`). */
 const mountLine = (resource: string): RegExp =>
   new RegExp(`^//   ${resource.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')} \\([^)]*\\): .*$`, 'm')
@@ -329,7 +372,10 @@ export async function writeAppResourceModules(
   declared: readonly DeclaredPackage[],
 ): Promise<AppResourceModule[]> {
   const written: AppResourceModule[] = []
-  for (const module of planAppResourceModules(registry, declared)) {
+  const modules = planAppResourceModules(registry, declared)
+  if (modules.length === 0 || !(await factoryIsDeclared(projectRoot, registry, declared)))
+    return written
+  for (const module of modules) {
     const target = join(projectRoot, module.path)
     if (existsSync(target)) continue
     await mkdir(dirname(target), { recursive: true })

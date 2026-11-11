@@ -180,6 +180,13 @@ export const DecisionGuide = z.object({
         .string()
         .regex(/^[A-Za-z_$][\w$]*$/)
         .describe('The export of this package that describes one resource'),
+      since: z
+        .string()
+        .regex(/^\d+\.\d+\.\d+$/)
+        .describe(
+          'The first version of this package that exports the factory. A project that declares ' +
+            'an older version gets no modules: they would import an export it does not have.',
+        ),
       http: z.object({
         package: z.string().describe('The HTTP core the module reads its client from'),
         client: z.string().describe('Its accessor for the bonded client'),
