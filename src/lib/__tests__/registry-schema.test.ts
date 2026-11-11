@@ -14,11 +14,13 @@ import { fileURLToPath } from 'node:url'
 
 import { describe, expect, it } from 'vitest'
 
+import { serializeRegistry } from '../registry.js'
 import { Registry, RegistryEntry } from '../schema.js'
 
 const __dir = dirname(fileURLToPath(import.meta.url))
 const registryPath = join(__dir, '..', '..', '..', 'registry.json')
-const raw = JSON.parse(readFileSync(registryPath, 'utf-8'))
+const text = readFileSync(registryPath, 'utf-8')
+const raw = JSON.parse(text)
 
 describe('registry.json schema validation', () => {
   it('should conform to the Registry schema', () => {
@@ -45,6 +47,16 @@ describe('registry.json schema validation', () => {
       moved,
       'Store these entries in schema key order: node bin/run.js sync-registry --scan-exports (or write Registry.parse output)',
     ).toEqual([])
+  })
+
+  it('is stored byte for byte as serializeRegistry writes it', () => {
+    // Every mlcl writer stores the file through serializeRegistry (schema key order at every depth,
+    // packages sorted by name). Bytes that differ mean some other writer touched it, and the next
+    // mlcl write would carry that writer's reordering as an unrelated diff.
+    expect(
+      text === serializeRegistry(raw),
+      'registry.json differs from serializeRegistry output: rewrite it with serializeRegistry (src/lib/registry.ts)',
+    ).toBe(true)
   })
 
   it('every package entry should have all required fields', () => {

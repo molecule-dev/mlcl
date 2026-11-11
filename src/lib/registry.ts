@@ -702,21 +702,39 @@ function mutateRegistry(apply: (registry: Registry) => void): void {
   }
 }
 
+/**
+ * Serialize a registry the one way registry.json is stored: through `Registry.parse`, so the top
+ * level and every entry carry their keys in schema order, with packages sorted by name.
+ *
+ * A writer that sets a key an entry did not have and stringifies the object directly stores that
+ * key LAST. The file then stops matching schema order, and the next writer of any other field
+ * moves the key, so that writer's diff carries entries it never touched. Parsing also refuses a
+ * registry the schema rejects before anything is written.
+ *
+ * @param registry - The registry to store.
+ * @returns The file contents: two-space JSON with a trailing newline.
+ */
+export function serializeRegistry(registry: Registry): string {
+  const parsed = RegistrySchema.parse(registry)
+  parsed.packages = Object.fromEntries(
+    Object.entries(parsed.packages).sort(([a], [b]) => a.localeCompare(b)),
+  )
+  return JSON.stringify(parsed, null, 2) + '\n'
+}
+
+/**
+ * Write a registry file in its stored form ({@link serializeRegistry}) and drop the parse cache.
+ *
+ * @param path - The registry file to write.
+ * @param registry - The registry to store.
+ */
+export function writeRegistryFile(path: string, registry: Registry): void {
+  writeFileSync(path, serializeRegistry(registry), 'utf-8')
+  clearRegistryCache()
+}
+
 function writeRegistry(stamp: RegistryStamp | null, registry: Registry): void {
-  // Sort packages alphabetically for deterministic output
-  const sorted: Registry = {
-    version: registry.version,
-    ...(registry.typeDefaults ? { typeDefaults: registry.typeDefaults } : {}),
-    packages: Object.fromEntries(
-      Object.entries(registry.packages).sort(([a], [b]) => a.localeCompare(b)),
-    ),
-    ...(registry.apiFrameworks ? { apiFrameworks: registry.apiFrameworks } : {}),
-    ...(registry.appFrameworks ? { appFrameworks: registry.appFrameworks } : {}),
-    ...(registry.stagingDrivers ? { stagingDrivers: registry.stagingDrivers } : {}),
-    ...(registry.toolchain ? { toolchain: registry.toolchain } : {}),
-    ...(registry.moleculeVersions ? { moleculeVersions: registry.moleculeVersions } : {}),
-    ...(registry.themePresets ? { themePresets: registry.themePresets } : {}),
-  }
+  const contents = serializeRegistry(registry)
   // Publish by rename from a temp file in the SAME directory, never by an
   // in-place writeFileSync: an in-place write truncates registry.json first
   // and then writes, so a crash (or a full disk) between the two leaves a
@@ -732,7 +750,7 @@ function writeRegistry(stamp: RegistryStamp | null, registry: Registry): void {
   const target = registryFilePath()
   const temp = `${target}.${process.pid}.tmp`
   try {
-    writeFileSync(temp, JSON.stringify(sorted, null, 2) + '\n', 'utf-8')
+    writeFileSync(temp, contents, 'utf-8')
     const current = registryStamp(target)
     const changed =
       current === null

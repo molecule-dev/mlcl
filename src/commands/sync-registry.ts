@@ -1,4 +1,4 @@
-import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -7,7 +7,12 @@ import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
 import { resourceRecordName } from '../lib/app-resource-modules.js'
-import { getMoleculeVersion, getRawRegistry, getRegistryPath } from '../lib/registry.js'
+import {
+  getMoleculeVersion,
+  getRawRegistry,
+  getRegistryPath,
+  writeRegistryFile,
+} from '../lib/registry.js'
 import { scanResponseRecord } from '../lib/response-record.js'
 import {
   bondSetterScope,
@@ -245,7 +250,7 @@ export default class SyncRegistry extends Command {
 
     if (!dryRun && updated > 0) {
       registry.toolchain = toolchain
-      writeFileSync(registryPath, JSON.stringify(registry, null, 2) + '\n', 'utf-8')
+      writeRegistryFile(registryPath, registry)
     }
 
     const details = changes.length > 0 ? '\n' + changes.join('\n') : ''
@@ -500,7 +505,7 @@ export default class SyncRegistry extends Command {
     }
 
     if (!dryRun && updated > 0) {
-      writeFileSync(registryPath, JSON.stringify(registry, null, 2) + '\n', 'utf-8')
+      writeRegistryFile(registryPath, registry)
     }
 
     const details = changes.length > 0 ? '\n' + changes.join('\n') : ''
@@ -684,7 +689,7 @@ export default class SyncRegistry extends Command {
       registry.packages = Object.fromEntries(
         Object.entries(registry.packages).sort(([a], [b]) => a.localeCompare(b)),
       )
-      writeFileSync(registryPath, JSON.stringify(registry, null, 2) + '\n', 'utf-8')
+      writeRegistryFile(registryPath, registry)
     }
 
     spinner.stop(updated > 0 ? `Exports: ${updated} updated` : chalk.dim('Exports: up to date'))
@@ -814,7 +819,7 @@ export default class SyncRegistry extends Command {
       registry.packages = Object.fromEntries(
         Object.entries(registry.packages).sort(([a], [b]) => a.localeCompare(b)),
       )
-      writeFileSync(registryPath, JSON.stringify(registry, null, 2) + '\n', 'utf-8')
+      writeRegistryFile(registryPath, registry)
     }
 
     spinner.stop(updated > 0 ? `Tables: ${updated} updated` : chalk.dim('Tables: up to date'))
@@ -934,7 +939,7 @@ export default class SyncRegistry extends Command {
       registry.packages = Object.fromEntries(
         Object.entries(registry.packages).sort(([a], [b]) => a.localeCompare(b)),
       )
-      writeFileSync(registryPath, JSON.stringify(registry, null, 2) + '\n', 'utf-8')
+      writeRegistryFile(registryPath, registry)
     }
 
     spinner.stop(updated > 0 ? `Routes: ${updated} updated` : chalk.dim('Routes: up to date'))
@@ -1010,8 +1015,7 @@ export default class SyncRegistry extends Command {
       updated++
     }
 
-    if (!dryRun && updated > 0)
-      writeFileSync(registryPath, JSON.stringify(registry, null, 2) + '\n', 'utf-8')
+    if (!dryRun && updated > 0) writeRegistryFile(registryPath, registry)
 
     spinner.stop(updated > 0 ? `Records: ${updated} updated` : chalk.dim('Records: up to date'))
     if (standalone) {

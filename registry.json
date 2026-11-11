@@ -21268,13 +21268,6 @@
         "src/__setup__/addresses.sql": "CREATE TABLE IF NOT EXISTS \"addresses\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" UUID NOT NULL,\n  \"label\" VARCHAR(100),\n  \"recipientName\" VARCHAR(255) NOT NULL,\n  \"line1\" VARCHAR(255) NOT NULL,\n  \"line2\" VARCHAR(255),\n  \"city\" VARCHAR(255) NOT NULL,\n  \"region\" VARCHAR(255),\n  \"postalCode\" VARCHAR(32) NOT NULL,\n  \"countryIso\" CHAR(2) NOT NULL,\n  \"phone\" VARCHAR(64),\n  \"isDefaultShipping\" BOOLEAN NOT NULL DEFAULT FALSE,\n  \"isDefaultBilling\" BOOLEAN NOT NULL DEFAULT FALSE,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_addresses_user\" ON \"addresses\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_addresses_user_default_shipping\"\n  ON \"addresses\" (\"userId\") WHERE \"isDefaultShipping\" = TRUE;\nCREATE INDEX IF NOT EXISTS \"idx_addresses_user_default_billing\"\n  ON \"addresses\" (\"userId\") WHERE \"isDefaultBilling\" = TRUE;\n"
       },
       "setupSqlVersion": "1.0.6",
-      "path": "packages/api/resources/address",
-      "intentHints": [
-        "address",
-        "shipping address",
-        "billing address",
-        "postal address"
-      ],
       "responseRecord": {
         "name": "Address",
         "fields": [
@@ -21354,7 +21347,14 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/address",
+      "intentHints": [
+        "address",
+        "shipping address",
+        "billing address",
+        "postal address"
+      ]
     },
     "@molecule/api-resource-ai-conversation": {
       "language": "typescript",
@@ -21715,27 +21715,6 @@
         "src/__setup__/reactions.sql": "CREATE TABLE IF NOT EXISTS \"reactions\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"resourceType\" VARCHAR(255) NOT NULL,\n  \"resourceId\" VARCHAR(255) NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"type\" VARCHAR(50) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"resourceType\", \"resourceId\", \"userId\", \"type\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_reactions_resource\" ON \"reactions\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_reactions_user\" ON \"reactions\" (\"userId\");\n"
       },
       "setupSqlVersion": "1.2.2",
-      "requestHandlerMapFactory": "createArticleHandlers",
-      "path": "packages/api/resources/article",
-      "decisionGuide": {
-        "configuration": [
-          "Configure createArticleHandlers({ mapRequest, mapResponse }) in the generated App/Resource/Article/index.ts wrapper. Keep the shared article operations.",
-          "mapRequest can unwrap bodies, rename or resolve query filters, and return an explicit early response. Async mapResponse can batch-load author profiles, project list items, change pagination envelopes and translate error statuses/bodies. Read the package Quick Start for the full recipe.",
-          "The default requestHandlerMap uses flat bodies, raw article responses and { data, total, limit, offset } pages. A different wire format needs configured handlers; a different domain workflow can still call the service functions."
-        ]
-      },
-      "intentHints": [
-        "articles backend",
-        "blog posts backend",
-        "article favorites",
-        "followed authors feed",
-        "article tags",
-        "medium-style blog",
-        "blog publishing",
-        "article response envelope",
-        "custom article api",
-        "article request handlers"
-      ],
       "responseRecord": {
         "name": "Article",
         "fields": [
@@ -21795,7 +21774,28 @@
             "optional": false
           }
         ]
-      }
+      },
+      "requestHandlerMapFactory": "createArticleHandlers",
+      "path": "packages/api/resources/article",
+      "decisionGuide": {
+        "configuration": [
+          "Configure createArticleHandlers({ mapRequest, mapResponse }) in the generated App/Resource/Article/index.ts wrapper. Keep the shared article operations.",
+          "mapRequest can unwrap bodies, rename or resolve query filters, and return an explicit early response. Async mapResponse can batch-load author profiles, project list items, change pagination envelopes and translate error statuses/bodies. Read the package Quick Start for the full recipe.",
+          "The default requestHandlerMap uses flat bodies, raw article responses and { data, total, limit, offset } pages. A different wire format needs configured handlers; a different domain workflow can still call the service functions."
+        ]
+      },
+      "intentHints": [
+        "articles backend",
+        "blog posts backend",
+        "article favorites",
+        "followed authors feed",
+        "article tags",
+        "medium-style blog",
+        "blog publishing",
+        "article response envelope",
+        "custom article api",
+        "article request handlers"
+      ]
     },
     "@molecule/api-resource-booking": {
       "language": "typescript",
@@ -21905,13 +21905,6 @@
         "src/__setup__/bookings.sql": "CREATE TABLE IF NOT EXISTS \"bookings\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" TEXT NOT NULL,\n  \"resourceType\" TEXT NOT NULL,\n  \"resourceId\" TEXT NOT NULL,\n  \"status\" TEXT NOT NULL DEFAULT 'pending',\n  \"startTime\" TIMESTAMPTZ NOT NULL,\n  \"endTime\" TIMESTAMPTZ NOT NULL,\n  \"duration\" INTEGER NOT NULL,\n  \"notes\" TEXT,\n  \"metadata\" JSONB,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_bookings_userId\" ON \"bookings\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_bookings_resource\" ON \"bookings\" (\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_bookings_status\" ON \"bookings\" (\"status\");\nCREATE INDEX IF NOT EXISTS \"idx_bookings_startTime\" ON \"bookings\" (\"startTime\");\n"
       },
       "setupSqlVersion": "1.0.5",
-      "path": "packages/api/resources/booking",
-      "intentHints": [
-        "booking",
-        "reservation",
-        "appointment booking",
-        "book a slot"
-      ],
       "responseRecord": {
         "name": "Booking",
         "fields": [
@@ -21976,7 +21969,14 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/booking",
+      "intentHints": [
+        "booking",
+        "reservation",
+        "appointment booking",
+        "book a slot"
+      ]
     },
     "@molecule/api-resource-bookmark": {
       "language": "typescript",
@@ -23106,14 +23106,6 @@
         "src/__setup__/grades.sql": "CREATE TABLE IF NOT EXISTS \"grades\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"enrollmentId\" UUID NOT NULL,\n  \"assignmentId\" UUID NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"courseId\" UUID NOT NULL,\n  \"scorePoints\" DOUBLE PRECISION NOT NULL,\n  \"maxPoints\" DOUBLE PRECISION NOT NULL,\n  \"letter\" VARCHAR(8),\n  \"comment\" TEXT,\n  \"postedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"enrollmentId\", \"assignmentId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_grades_enrollmentId\" ON \"grades\" (\"enrollmentId\");\nCREATE INDEX IF NOT EXISTS \"idx_grades_userId\" ON \"grades\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_grades_courseId\" ON \"grades\" (\"courseId\");\nCREATE INDEX IF NOT EXISTS \"idx_grades_assignmentId\" ON \"grades\" (\"assignmentId\");\n"
       },
       "setupSqlVersion": "1.0.6",
-      "path": "packages/api/resources/grade",
-      "intentHints": [
-        "grade",
-        "grading",
-        "student grades",
-        "grade book",
-        "assignment grade"
-      ],
       "responseRecord": {
         "name": "Grade",
         "fields": [
@@ -23178,7 +23170,15 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/grade",
+      "intentHints": [
+        "grade",
+        "grading",
+        "student grades",
+        "grade book",
+        "assignment grade"
+      ]
     },
     "@molecule/api-resource-inventory": {
       "language": "typescript",
@@ -23965,14 +23965,6 @@
         "src/__setup__/orders_position.sql": "-- Line-item order on an order: the column \"order_items\".\"position\" keeps the\n-- order the items were submitted in, so a reader of this table (the read/list/\n-- cancel/updateStatus handlers, an app's own query) gets them in that order\n-- instead of the database's arbitrary row order. `where \"orderId\" = ?` hits\n-- \"idx_order_items_orderId\", so without this column the rows come back in the\n-- index's order — not the order the customer submitted.\n--\n-- Why this is its own file: a database that already applied orders.sql never\n-- re-runs it — \"_molecule_migrations\" records each setup file once — so the\n-- column cannot be delivered by editing that file alone. This file is new, so it\n-- runs on every database that has the table, whether it was created before or\n-- after the column existed.\n--\n-- The CREATE repeats orders.sql's \"order_items\" (see the test that keeps the two\n-- in step). In a scaffolded app it is a no-op — orders.sql sorts first and has\n-- already created the table, so the column below is what this file is for — and\n-- it is what lets the scaffolding tool find the file at all: a setup file is\n-- copied into a project through the table it declares.\nCREATE TABLE IF NOT EXISTS \"order_items\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"orderId\" UUID NOT NULL REFERENCES \"orders\" (\"id\") ON DELETE CASCADE,\n  \"productId\" VARCHAR(255) NOT NULL,\n  \"variantId\" VARCHAR(255),\n  \"name\" VARCHAR(255) NOT NULL,\n  \"price\" NUMERIC(12,2) NOT NULL,\n  \"quantity\" INTEGER NOT NULL DEFAULT 1,\n  \"image\" TEXT,\n  \"position\" INTEGER NOT NULL DEFAULT 0\n);\n\n-- The upgrade for a database whose \"order_items\" predates the column. Every\n-- database bond accepts this form: Postgres and PGlite take the clause natively,\n-- and the SQLite and MySQL bonds apply the statement only when the column is not\n-- there yet.\nALTER TABLE \"order_items\" ADD COLUMN IF NOT EXISTS \"position\" INTEGER NOT NULL DEFAULT 0;\n"
       },
       "setupSqlVersion": "1.1.7",
-      "path": "packages/api/resources/order",
-      "intentHints": [
-        "order",
-        "sales order",
-        "customer order",
-        "order tracking",
-        "order management"
-      ],
       "responseRecord": {
         "name": "Order",
         "fields": [
@@ -24052,7 +24044,15 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/order",
+      "intentHints": [
+        "order",
+        "sales order",
+        "customer order",
+        "order tracking",
+        "order management"
+      ]
     },
     "@molecule/api-resource-payment": {
       "language": "typescript",
@@ -24351,14 +24351,6 @@
         "src/__setup__/products.sql": "CREATE TABLE IF NOT EXISTS \"products\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"name\" VARCHAR(255) NOT NULL,\n  \"slug\" VARCHAR(255) NOT NULL UNIQUE,\n  \"description\" TEXT,\n  \"price\" BIGINT NOT NULL DEFAULT 0,\n  \"currency\" VARCHAR(3) NOT NULL DEFAULT 'USD',\n  \"status\" VARCHAR(20) NOT NULL DEFAULT 'draft',\n  \"imageUrl\" TEXT,\n  \"sku\" VARCHAR(100),\n  \"inventory\" INTEGER,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"deletedAt\" TIMESTAMPTZ\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_products_slug\" ON \"products\" (\"slug\");\nCREATE INDEX IF NOT EXISTS \"idx_products_status\" ON \"products\" (\"status\") WHERE \"deletedAt\" IS NULL;\nCREATE INDEX IF NOT EXISTS \"idx_products_sku\" ON \"products\" (\"sku\") WHERE \"sku\" IS NOT NULL;\n\nCREATE TABLE IF NOT EXISTS \"product_variants\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"productId\" UUID NOT NULL REFERENCES \"products\" (\"id\") ON DELETE CASCADE,\n  \"name\" VARCHAR(255) NOT NULL,\n  \"sku\" VARCHAR(100),\n  \"price\" BIGINT,\n  \"inventory\" INTEGER,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_product_variants_productId\" ON \"product_variants\" (\"productId\");\n"
       },
       "setupSqlVersion": "1.0.7",
-      "path": "packages/api/resources/product",
-      "intentHints": [
-        "product",
-        "product catalog",
-        "product record",
-        "sku",
-        "catalog item"
-      ],
       "responseRecord": {
         "name": "Product",
         "fields": [
@@ -24428,7 +24420,15 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/product",
+      "intentHints": [
+        "product",
+        "product catalog",
+        "product record",
+        "sku",
+        "catalog item"
+      ]
     },
     "@molecule/api-resource-project": {
       "language": "typescript",
@@ -24522,13 +24522,6 @@
         "src/__setup__/projects.sql": "CREATE TABLE IF NOT EXISTS \"projects\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"userId\" UUID NOT NULL REFERENCES \"users\"(\"id\") ON DELETE CASCADE,\n  \"name\" TEXT NOT NULL,\n  \"slug\" TEXT NOT NULL UNIQUE,\n  \"projectType\" TEXT NOT NULL DEFAULT 'api',\n  \"framework\" TEXT,\n  \"packages\" JSONB NOT NULL DEFAULT '[]',\n  \"templateSlug\" TEXT,\n  \"brandingSpec\" JSONB,\n  \"envVars\" JSONB NOT NULL DEFAULT '{}',\n  \"sandboxId\" TEXT,\n  \"sandboxStatus\" TEXT DEFAULT 'stopped',\n  \"lastActiveAt\" TIMESTAMPTZ,\n  \"settings\" JSONB NOT NULL DEFAULT '{}',\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n"
       },
       "setupSqlVersion": "1.0.11",
-      "path": "packages/api/resources/project",
-      "intentHints": [
-        "project",
-        "project management",
-        "project workspace",
-        "project tracking"
-      ],
       "responseRecord": {
         "name": "Project",
         "fields": [
@@ -24618,7 +24611,14 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/project",
+      "intentHints": [
+        "project",
+        "project management",
+        "project workspace",
+        "project tracking"
+      ]
     },
     "@molecule/api-resource-property": {
       "language": "typescript",
@@ -24761,14 +24761,6 @@
         "src/__setup__/properties.sql": "CREATE TABLE IF NOT EXISTS \"properties\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"ownerId\" TEXT,\n  \"name\" VARCHAR(255) NOT NULL,\n  \"slug\" VARCHAR(255) NOT NULL UNIQUE,\n  \"description\" TEXT,\n  \"type\" VARCHAR(20) NOT NULL DEFAULT 'apartment',\n  \"status\" VARCHAR(20) NOT NULL DEFAULT 'draft',\n  \"addressLine1\" VARCHAR(255) NOT NULL,\n  \"addressLine2\" VARCHAR(255),\n  \"city\" VARCHAR(120) NOT NULL,\n  \"region\" VARCHAR(120),\n  \"postalCode\" VARCHAR(32),\n  \"countryCode\" VARCHAR(2) NOT NULL,\n  \"latitude\" DOUBLE PRECISION,\n  \"longitude\" DOUBLE PRECISION,\n  \"unitCount\" INTEGER NOT NULL DEFAULT 0,\n  \"coverImageUrl\" TEXT,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"deletedAt\" TIMESTAMPTZ\n);\n\n-- Tenant-scoping: associate each property with the user who created it.\n-- Added via ALTER for databases whose \"properties\" table predates this column.\nALTER TABLE \"properties\" ADD COLUMN IF NOT EXISTS \"ownerId\" TEXT;\n\nCREATE INDEX IF NOT EXISTS \"idx_properties_ownerId\" ON \"properties\" (\"ownerId\");\nCREATE INDEX IF NOT EXISTS \"idx_properties_slug\" ON \"properties\" (\"slug\");\nCREATE INDEX IF NOT EXISTS \"idx_properties_status\" ON \"properties\" (\"status\") WHERE \"deletedAt\" IS NULL;\nCREATE INDEX IF NOT EXISTS \"idx_properties_type\" ON \"properties\" (\"type\") WHERE \"deletedAt\" IS NULL;\nCREATE INDEX IF NOT EXISTS \"idx_properties_city\" ON \"properties\" (\"city\") WHERE \"deletedAt\" IS NULL;\n\nCREATE TABLE IF NOT EXISTS \"property_units\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"propertyId\" UUID NOT NULL REFERENCES \"properties\" (\"id\") ON DELETE CASCADE,\n  \"name\" VARCHAR(120) NOT NULL,\n  \"description\" TEXT,\n  \"floor\" INTEGER,\n  \"bedrooms\" INTEGER,\n  \"bathrooms\" INTEGER,\n  \"maxOccupancy\" INTEGER,\n  \"areaSquareMetres\" DOUBLE PRECISION,\n  \"isAvailable\" BOOLEAN NOT NULL DEFAULT TRUE,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_property_units_propertyId\" ON \"property_units\" (\"propertyId\");\n\nCREATE TABLE IF NOT EXISTS \"property_photos\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"propertyId\" UUID NOT NULL REFERENCES \"properties\" (\"id\") ON DELETE CASCADE,\n  \"url\" TEXT NOT NULL,\n  \"caption\" TEXT,\n  \"position\" INTEGER NOT NULL DEFAULT 0,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_property_photos_propertyId\" ON \"property_photos\" (\"propertyId\");\n\nCREATE TABLE IF NOT EXISTS \"property_amenities\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"propertyId\" UUID NOT NULL REFERENCES \"properties\" (\"id\") ON DELETE CASCADE,\n  \"code\" VARCHAR(64) NOT NULL,\n  \"label\" VARCHAR(160) NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE (\"propertyId\", \"code\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_property_amenities_propertyId\" ON \"property_amenities\" (\"propertyId\");\n"
       },
       "setupSqlVersion": "1.0.7",
-      "path": "packages/api/resources/property",
-      "intentHints": [
-        "property",
-        "real estate",
-        "property listing",
-        "rental property",
-        "real estate listing"
-      ],
       "responseRecord": {
         "name": "Property",
         "fields": [
@@ -24873,7 +24865,15 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/property",
+      "intentHints": [
+        "property",
+        "real estate",
+        "property listing",
+        "rental property",
+        "real estate listing"
+      ]
     },
     "@molecule/api-resource-reaction": {
       "language": "typescript",
@@ -25225,13 +25225,6 @@
         "src/__setup__/room-types.sql": "CREATE TABLE IF NOT EXISTS \"room_types\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"propertyId\" TEXT NOT NULL,\n  \"name\" TEXT NOT NULL,\n  \"description\" TEXT,\n  \"capacity\" INTEGER NOT NULL,\n  \"baseRateCents\" INTEGER NOT NULL,\n  \"currency\" TEXT NOT NULL,\n  \"amenities\" JSONB,\n  \"photos\" JSONB,\n  \"totalUnits\" INTEGER NOT NULL DEFAULT 0,\n  \"active\" BOOLEAN NOT NULL DEFAULT TRUE,\n  \"metadata\" JSONB,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_room_types_propertyId\" ON \"room_types\" (\"propertyId\");\nCREATE INDEX IF NOT EXISTS \"idx_room_types_active\" ON \"room_types\" (\"active\");\nCREATE INDEX IF NOT EXISTS \"idx_room_types_capacity\" ON \"room_types\" (\"capacity\");\n"
       },
       "setupSqlVersion": "1.0.6",
-      "path": "packages/api/resources/room-type",
-      "intentHints": [
-        "room type",
-        "hotel room",
-        "room category",
-        "accommodation type"
-      ],
       "responseRecord": {
         "name": "RoomType",
         "fields": [
@@ -25306,7 +25299,14 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/room-type",
+      "intentHints": [
+        "room type",
+        "hotel room",
+        "room category",
+        "accommodation type"
+      ]
     },
     "@molecule/api-resource-share": {
       "language": "typescript",
@@ -25703,14 +25703,6 @@
         "src/__setup__/subscribers.sql": "CREATE TABLE IF NOT EXISTS \"subscribers\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"channel\" TEXT NOT NULL,\n  \"address\" TEXT NOT NULL,\n  \"topic\" TEXT,\n  \"status\" TEXT NOT NULL DEFAULT 'pending',\n  \"confirmToken\" TEXT NOT NULL,\n  \"unsubscribeToken\" TEXT NOT NULL,\n  \"metadata\" JSONB,\n  \"confirmedAt\" TIMESTAMPTZ,\n  \"unsubscribedAt\" TIMESTAMPTZ,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE UNIQUE INDEX IF NOT EXISTS \"idx_subscribers_channel_address_topic\"\n  ON \"subscribers\" (\"channel\", \"address\", COALESCE(\"topic\", ''));\nCREATE UNIQUE INDEX IF NOT EXISTS \"idx_subscribers_confirmToken\" ON \"subscribers\" (\"confirmToken\");\nCREATE UNIQUE INDEX IF NOT EXISTS \"idx_subscribers_unsubscribeToken\"\n  ON \"subscribers\" (\"unsubscribeToken\");\nCREATE INDEX IF NOT EXISTS \"idx_subscribers_status\" ON \"subscribers\" (\"status\");\nCREATE INDEX IF NOT EXISTS \"idx_subscribers_topic\" ON \"subscribers\" (\"topic\");\n"
       },
       "setupSqlVersion": "1.0.7",
-      "path": "packages/api/resources/subscriber",
-      "intentHints": [
-        "subscriber",
-        "email subscriber",
-        "newsletter subscriber",
-        "mailing list",
-        "subscription list"
-      ],
       "responseRecord": {
         "name": "Subscriber",
         "fields": [
@@ -25765,7 +25757,15 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/subscriber",
+      "intentHints": [
+        "subscriber",
+        "email subscriber",
+        "newsletter subscriber",
+        "mailing list",
+        "subscription list"
+      ]
     },
     "@molecule/api-resource-tag": {
       "language": "typescript",
@@ -25898,14 +25898,6 @@
         "src/__setup__/tags.sql": "CREATE TABLE IF NOT EXISTS \"tags\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"name\" VARCHAR(100) NOT NULL,\n  \"slug\" VARCHAR(120) NOT NULL UNIQUE,\n  \"color\" VARCHAR(7),\n  \"description\" TEXT,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE TABLE IF NOT EXISTS \"resource_tags\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"tagId\" UUID NOT NULL REFERENCES \"tags\"(\"id\") ON DELETE CASCADE,\n  \"resourceType\" VARCHAR(50) NOT NULL,\n  \"resourceId\" UUID NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  UNIQUE(\"tagId\", \"resourceType\", \"resourceId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_resource_tags_resource\" ON \"resource_tags\"(\"resourceType\", \"resourceId\");\nCREATE INDEX IF NOT EXISTS \"idx_resource_tags_tag\" ON \"resource_tags\"(\"tagId\");\nCREATE INDEX IF NOT EXISTS \"idx_tags_slug\" ON \"tags\"(\"slug\");\n"
       },
       "setupSqlVersion": "1.0.8",
-      "path": "packages/api/resources/tag",
-      "intentHints": [
-        "tag",
-        "tagging",
-        "tags",
-        "label",
-        "taxonomy"
-      ],
       "responseRecord": {
         "name": "Tag",
         "fields": [
@@ -25945,7 +25937,15 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/tag",
+      "intentHints": [
+        "tag",
+        "tagging",
+        "tags",
+        "label",
+        "taxonomy"
+      ]
     },
     "@molecule/api-resource-task": {
       "language": "typescript",
@@ -26267,13 +26267,6 @@
         "src/__setup__/threads.sql": "CREATE TABLE IF NOT EXISTS \"threads\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"title\" VARCHAR(500) NOT NULL,\n  \"creatorId\" UUID NOT NULL,\n  \"resourceType\" VARCHAR(255),\n  \"resourceId\" VARCHAR(255),\n  \"closed\" BOOLEAN NOT NULL DEFAULT false,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_threads_creator\" ON \"threads\" (\"creatorId\");\nCREATE INDEX IF NOT EXISTS \"idx_threads_resource\" ON \"threads\" (\"resourceType\", \"resourceId\");\n\nCREATE TABLE IF NOT EXISTS \"thread_messages\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"threadId\" UUID NOT NULL REFERENCES \"threads\"(\"id\") ON DELETE CASCADE,\n  \"userId\" UUID NOT NULL,\n  \"body\" TEXT NOT NULL,\n  \"editedAt\" TIMESTAMPTZ,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now()\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_thread_messages_thread\" ON \"thread_messages\" (\"threadId\");\nCREATE INDEX IF NOT EXISTS \"idx_thread_messages_user\" ON \"thread_messages\" (\"userId\");\n\nCREATE TABLE IF NOT EXISTS \"thread_read_status\" (\n  \"threadId\" UUID NOT NULL REFERENCES \"threads\"(\"id\") ON DELETE CASCADE,\n  \"userId\" UUID NOT NULL,\n  \"lastReadMessageId\" UUID NOT NULL REFERENCES \"thread_messages\"(\"id\") ON DELETE CASCADE,\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  PRIMARY KEY (\"threadId\", \"userId\")\n);\n"
       },
       "setupSqlVersion": "1.0.7",
-      "path": "packages/api/resources/thread",
-      "intentHints": [
-        "thread",
-        "conversation thread",
-        "message thread",
-        "discussion thread"
-      ],
       "responseRecord": {
         "name": "Thread",
         "fields": [
@@ -26318,7 +26311,14 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/thread",
+      "intentHints": [
+        "thread",
+        "conversation thread",
+        "message thread",
+        "discussion thread"
+      ]
     },
     "@molecule/api-resource-user": {
       "language": "typescript",
@@ -26978,14 +26978,6 @@
         "src/__setup__/workspaces.sql": "CREATE TABLE IF NOT EXISTS \"workspaces\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"ownerId\" UUID NOT NULL,\n  \"name\" VARCHAR(255) NOT NULL,\n  \"slug\" VARCHAR(255) NOT NULL UNIQUE,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"updatedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"deletedAt\" TIMESTAMPTZ\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_workspaces_owner\" ON \"workspaces\" (\"ownerId\");\nCREATE INDEX IF NOT EXISTS \"idx_workspaces_slug\" ON \"workspaces\" (\"slug\");\n\nCREATE TABLE IF NOT EXISTS \"workspace_members\" (\n  \"workspaceId\" UUID NOT NULL,\n  \"userId\" UUID NOT NULL,\n  \"role\" VARCHAR(16) NOT NULL,\n  \"joinedAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  PRIMARY KEY (\"workspaceId\", \"userId\")\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_workspace_members_user\" ON \"workspace_members\" (\"userId\");\nCREATE INDEX IF NOT EXISTS \"idx_workspace_members_workspace\" ON \"workspace_members\" (\"workspaceId\");\n\nCREATE TABLE IF NOT EXISTS \"workspace_invites\" (\n  \"id\" UUID PRIMARY KEY DEFAULT gen_random_uuid(),\n  \"workspaceId\" UUID NOT NULL,\n  \"email\" VARCHAR(255) NOT NULL,\n  \"role\" VARCHAR(16) NOT NULL,\n  \"token\" VARCHAR(128) NOT NULL UNIQUE,\n  \"expiresAt\" TIMESTAMPTZ NOT NULL,\n  \"createdAt\" TIMESTAMPTZ NOT NULL DEFAULT now(),\n  \"acceptedAt\" TIMESTAMPTZ\n);\n\nCREATE INDEX IF NOT EXISTS \"idx_workspace_invites_workspace\" ON \"workspace_invites\" (\"workspaceId\");\nCREATE INDEX IF NOT EXISTS \"idx_workspace_invites_email\" ON \"workspace_invites\" (\"email\");\nCREATE INDEX IF NOT EXISTS \"idx_workspace_invites_token\" ON \"workspace_invites\" (\"token\");\n"
       },
       "setupSqlVersion": "1.0.9",
-      "path": "packages/api/resources/workspace",
-      "intentHints": [
-        "workspace",
-        "team workspace",
-        "organization workspace",
-        "tenant",
-        "workspace members"
-      ],
       "responseRecord": {
         "name": "Workspace",
         "fields": [
@@ -27025,7 +27017,15 @@
             "optional": false
           }
         ]
-      }
+      },
+      "path": "packages/api/resources/workspace",
+      "intentHints": [
+        "workspace",
+        "team workspace",
+        "organization workspace",
+        "tenant",
+        "workspace members"
+      ]
     },
     "@molecule/api-scheduler": {
       "language": "typescript",
