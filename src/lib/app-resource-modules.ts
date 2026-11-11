@@ -230,6 +230,14 @@ export function planAppResourceModule(
   const fields = columns
     ? columns.map((column) => `  ${column.name}: ${column.type}`).join('\n')
     : '  id: string\n  [field: string]: unknown'
+  const writes = operations
+    .slice(2)
+    .map((operation) => `\`${exportName}.${operation.replace(/\(.*$/, '')}\``)
+  // A read-only collection gets no write sentence: an empty "Write with :" is a note that teaches
+  // the reader to skip the header.
+  const writeDoc = writes.length
+    ? ` * Write with ${writes.join(', ')}:\n * each write shows the server's record in the cache and fetches the lists on screen again.\n`
+    : ''
   const source = `/**
  * ${typeName} records on the app's shared query cache.
  *
@@ -239,12 +247,7 @@ export function planAppResourceModule(
  *
  * Read with \`useQuery(${exportName}.list(viewer, params))\` and
  * \`useQuery(${exportName}.detail(viewer, ${idField}))\`.
- * Write with ${operations
-   .slice(2)
-   .map((operation) => `\`${exportName}.${operation.replace(/\(.*$/, '')}\``)
-   .join(', ')}:
- * each write shows the server's record in the cache and fetches the lists on screen again.
- * \`viewer\` is the signed-in user's id, or 'anonymous'.
+${writeDoc} * \`viewer\` is the signed-in user's id, or 'anonymous'.
  *
  * Routes: ${routes.join(', ')}
  */

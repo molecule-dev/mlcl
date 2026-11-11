@@ -235,6 +235,24 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
       'export interface Invoice {\n  id: string\n  [field: string]: unknown\n}',
     )
   })
+
+  it('names no writes in the header of a read-only collection', () => {
+    const readOnly = {
+      ...invoices,
+      routes: invoices.routes!.filter((route) => route.method === 'get'),
+    } as RegistryEntry
+    const module = planAppResourceModule(
+      '@molecule/api-resource-invoice',
+      readOnly,
+      factory,
+      QUERY,
+      'app',
+    )
+    expect(module?.operations).toEqual(['list', 'detail'])
+    expect(module?.source).not.toContain('Write with')
+    expect(module?.source).not.toContain('each write shows')
+    expect(module?.source).toContain(" * `viewer` is the signed-in user's id, or 'anonymous'.")
+  })
 })
 
 describe('every module the registry can produce', () => {
