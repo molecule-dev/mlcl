@@ -54,6 +54,14 @@ describe('scaffolded API scripts load .env', () => {
     expect(scaffolded.start).toBe(template.start)
     expect(scaffolded['db:setup']).toBe(template['db:setup'])
     expect(scaffolded.dev).toContain('--env-file=.env')
+    // The native watch suite exercises these two commands. Every template must ship
+    // that same command, including its crash recovery and non-source exclusions.
+    for (const name of readdirSync(TEMPLATES_DIR)) {
+      const apiDir = join(TEMPLATES_DIR, name, 'api')
+      if (existsSync(join(apiDir, 'package.json'))) {
+        expect(apiScripts(apiDir).dev, name).toBe(scaffolded.dev)
+      }
+    }
   })
 
   it('every flagship template loads .env on dev, start and db:setup', () => {

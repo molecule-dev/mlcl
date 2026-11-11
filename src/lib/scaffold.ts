@@ -3698,7 +3698,9 @@ export async function createApiProject(
     private: true,
     type: 'module',
     scripts: {
-      // migrations/ is watched too: a new migration applies on the restart it causes (X1 flash-m41).
+      // Watch source explicitly: a failed import can prevent tsx from discovering that
+      // dependency, so its later repair otherwise leaves the API down. Tests and emitted
+      // output are not server inputs. Migrations still apply on the restart they cause.
       //
       // `--env-file` on all three is the TEMPLATE fleet's exact line (150/150
       // `templates/apps/*/api/package.json`), and it is load-bearing: without it an
@@ -3711,7 +3713,7 @@ export async function createApiProject(
       // flash-m64 spent 4 min 26 s on exactly that, reading it as a JWT key
       // mismatch). `mlcl/src/lib/__tests__/scaffold-api-dev-script.test.ts` pins
       // these three lines against the templates so they cannot drift again.
-      dev: "tsx watch --include 'migrations/*.sql' --env-file=.env src/server.ts",
+      dev: "tsx watch --include 'src/**/*' --include 'migrations/*.sql' --exclude 'src/**/__tests__/**' --exclude 'src/**/*.test.*' --exclude 'src/**/*.spec.*' --env-file=.env src/server.ts",
       build: 'tsc',
       start: 'node --env-file-if-exists=.env dist/server.js',
       test: 'vitest run',

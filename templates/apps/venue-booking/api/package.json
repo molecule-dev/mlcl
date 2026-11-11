@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "tsx watch --include 'migrations/*.sql' --env-file=.env src/server.ts",
+    "dev": "tsx watch --include 'src/**/*' --include 'migrations/*.sql' --exclude 'src/**/__tests__/**' --exclude 'src/**/*.test.*' --exclude 'src/**/*.spec.*' --env-file=.env src/server.ts",
     "build": "tsc",
     "start": "node --env-file-if-exists=.env dist/server.js",
     "test": "vitest run",
