@@ -1284,10 +1284,31 @@ const moleculeLocal = {
           const selected = [...new Map(writes.map((write) => [write.state.setter, write])).values()]
           if (!selected.length)
             return 'Move the optimistic state and this save into the hook; keep auth/loading guards, but remove pending guards.'
-          // A row parameter does not exist at the component's hook call site. Never
-          // emit a seemingly runnable commit that closes over an unbound row name.
-          if (fn.params.length)
-            return `In this component, move ${selected.map(({ state }) => state.name).join(', ')} out of the per-click setters (${selected.map(({ state }) => state.setter.name).join(', ')}). Extract a control keyed by ${fn.params.map((parameter) => context.sourceCode.getText(parameter)).join(', ')} and put its server-backed fields in useOptimisticValue; move this request into that control's commit: ${context.sourceCode.getText(save)}. Render the hook's value and use a functional update so each click starts from the latest intent. Keep auth/initial-loading guards, remove pending guards, and return the saved flag and count from commit.`
+          // A row parameter cannot be lifted into a component hook. A UI event used only
+          // for propagation/default handling stays in the click handler, though: it is
+          // neither a save dependency nor a record identity (and needs no extracted row).
+          const parameterReads = context.sourceCode.getDeclaredVariables(fn).filter(
+            (variable) =>
+              variable.defs.some((definition) => definition.type === 'Parameter') &&
+              variable.references.some((reference) => {
+                if (!reference.isRead()) return false
+                const member = reference.identifier.parent
+                const call = member?.parent
+                const statement = call?.parent
+                return !(
+                  member?.type === 'MemberExpression' &&
+                  member.object === reference.identifier &&
+                  !member.computed &&
+                  ['preventDefault', 'stopPropagation'].includes(member.property.name) &&
+                  call?.type === 'CallExpression' &&
+                  call.callee === member &&
+                  statement?.type === 'ExpressionStatement' &&
+                  statement.range[1] < save.range[0]
+                )
+              }),
+          )
+          if (parameterReads.length)
+            return `In this component, move ${selected.map(({ state }) => state.name).join(', ')} out of the per-click setters (${selected.map(({ state }) => state.setter.name).join(', ')}). The handler reads ${parameterReads.map((variable) => variable.name).join(', ')}, which is not available at the hook call site: keep event handling in the click handler, pass the desired data to update, or extract a control keyed by record identity. Put its server-backed fields in useOptimisticValue and move this request into commit: ${context.sourceCode.getText(save)}. Render the hook's value and use a functional update so each click starts from the latest intent. Keep auth/initial-loading guards, remove pending guards, and return the saved flag and count from commit.`
           const allNames = new Set(
             context.sourceCode.getScope(fn).variables.map((variable) => variable.name),
           )

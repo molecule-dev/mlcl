@@ -72,6 +72,7 @@ declare function favoriteArticle(slug: string, next: boolean): Promise<ArticleSu
 declare function setFavorite(slug: string, next: boolean): Promise<ArticleSummary>
 declare function setFollow(username: string, next: boolean): Promise<Profile>
 declare const http: { post(path: string): Promise<{ data: { article: ArticleSummary } }>; delete(path: string): Promise<{ data: { article: ArticleSummary } }> }
+declare const api: { favorite(slug: string): Promise<{ article: ArticleSummary }>; unfavorite(slug: string): Promise<{ article: ArticleSummary }> }
 function Component() { ${snippet} }
 `
   const options: ts.CompilerOptions = {
@@ -116,6 +117,99 @@ export function FavoriteButton({ article }: { article: Article }) {
 `
 
 describe('molecule-local/server-toggles-use-optimistic-value', () => {
+  it('rewrites the retained event handler without treating its event as record identity', async () => {
+    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const source = await readFile(
+      new URL('./fixtures/p307-Buttons.tsx.txt', import.meta.url),
+      'utf8',
+    )
+    const [result] = await eslint.lintText(source, { filePath: 'Buttons.tsx' })
+    const findings = result.messages.filter((message) => message.ruleId === ruleId)
+    expect(findings).toHaveLength(2)
+    const favorite = findings[0].message
+    expect(favorite).toContain('useOptimisticValue({')
+    expect(favorite).not.toContain('keyed by event')
+    expect(favorite).not.toContain('event.preventDefault')
+    expect(favorite).not.toContain('setBusy(')
+    expect(rewriteDiagnostics(favorite)).toEqual([])
+  })
+
+  it('a generated notification toggle accepts two clicks while the first save is delayed', async () => {
+    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const [result] = await eslint.lintText(
+      `import { useState } from 'react'
+export function NotificationToggle({ settings }) {
+  const [enabled, setEnabled] = useState(settings.enabled)
+  const [busy, setBusy] = useState(false)
+  const toggle = async (event: React.MouseEvent) => {
+    event.preventDefault()
+    if (busy) return
+    const next = !enabled
+    setBusy(true)
+    setEnabled(next)
+    try { const saved = await saveSettings(next); setEnabled(saved.enabled) }
+    finally { setBusy(false) }
+  }
+  return <button onClick={toggle}>{enabled ? 'Disable' : 'Enable'}</button>
+}`,
+      { filePath: 'NotificationToggle.tsx' },
+    )
+    const message = result.messages.find((message) => message.ruleId === ruleId)?.message ?? ''
+    const snippet = /```tsx\n([\s\S]*?)```/.exec(message)?.[1]
+    expect(snippet).toBeDefined()
+    const code = ts.transpileModule(snippet ?? '', {
+      compilerOptions: { target: ts.ScriptTarget.ES2022 },
+    }).outputText
+    let controller!: OptimisticValue<{ enabled: boolean }>
+    const calls: boolean[] = []
+    let complete!: (value: { enabled: boolean }) => void
+    const first = new Promise<{ enabled: boolean }>((resolve) => {
+      complete = resolve
+    })
+    const saveSettings = async (enabled: boolean): Promise<{ enabled: boolean }> => {
+      calls.push(enabled)
+      return calls.length === 1 ? first : { enabled }
+    }
+    const hook = (
+      options: OptimisticValueOptions<{ enabled: boolean }>,
+    ): {
+      value: { enabled: boolean }
+      update: OptimisticValue<{ enabled: boolean }>['update']
+    } => {
+      controller = createOptimisticValue(options)
+      return { value: controller.getState().value, update: controller.update }
+    }
+    new Function('useOptimisticValue', 'settings', 'saveSettings', code)(
+      hook,
+      { enabled: false },
+      saveSettings,
+    )
+    expect(controller.getState().value.enabled).toBe(true)
+    controller.update((current) => ({ enabled: !current.enabled }))
+    expect(controller.getState().value.enabled).toBe(false)
+    expect(calls).toEqual([true])
+    complete({ enabled: true })
+    expect(await controller.settled()).toMatchObject({ value: { enabled: false }, pending: false })
+    expect(calls).toEqual([true, false])
+  })
+
+  it('keeps a save that reads its handler parameter out of a lifted commit', async () => {
+    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const [result] = await eslint.lintText(
+      `import { useState } from 'react'
+export function Notifications({ settings }) {
+  const [enabled, setEnabled] = useState(settings.enabled)
+  const toggle = async (row) => { setEnabled(!enabled); await saveSettings(row.id, !enabled) }
+  return <button onClick={() => toggle(settings)} />
+}`,
+      { filePath: 'Notifications.tsx' },
+    )
+    const message = result.messages.find((message) => message.ruleId === ruleId)?.message ?? ''
+    expect(message).toContain('useOptimisticValue')
+    expect(message).not.toContain('```tsx')
+    expect(message).toContain('row')
+  })
+
   it.each([
     [
       'functional branch',
