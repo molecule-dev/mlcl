@@ -857,6 +857,8 @@ const moleculeLocal = {
         messages: {
           useOptimisticValue:
             'This shows a toggled value at once and saves it with its own request, so a pending guard can drop the next click, or a slower response/refetch can replace it. Use `useOptimisticValue` from `@molecule/app-react`. {{rewrite}}',
+          awaitRefetch:
+            '{{location}}: This toggle waits for its save and a query refetch before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, move this save into commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads and keep it mounted during refetches. Preserve authentication checks; pending saves must not discard clicks.',
         },
       },
       create(context) {
@@ -1163,6 +1165,74 @@ const moleculeLocal = {
             assignment.right === result &&
             context.sourceCode.getText(assignment.left) ===
               context.sourceCode.getText(call.callee.object)
+          )
+        }
+        // A revision setter after the save invalidates a query whose hook reads that revision.
+        // Do not infer a refetch from a setter name, an arbitrary callback or a form reset.
+        const queryRead = (node, query, seen = new Set()) => {
+          const value = unwrap(node)
+          if (!value || seen.has(value) || seen.size > 16) return false
+          const next = new Set(seen).add(value)
+          if (value.type === 'MemberExpression') {
+            const field = value.computed ? value.property.value : value.property.name
+            const definition = variableFor(unwrap(value.object))?.defs[0]
+            if (field === 'data' && unwrap(definition?.node.init) === query) return true
+            return queryRead(value.object, query, next)
+          }
+          const definition = variableFor(value)?.defs[0]
+          return (
+            definition?.parent?.kind === 'const' && queryRead(definition.node.init, query, next)
+          )
+        }
+        const saveReadsQuery = (fn, save, query) => {
+          let reads = false
+          const inspect = (node) =>
+            walk(node, (part) => {
+              reads ||= queryRead(part, query)
+            })
+          inspect(save)
+          for (let at = save.parent; at && at !== fn; at = at.parent)
+            if (['IfStatement', 'ConditionalExpression'].includes(at.type)) inspect(at.test)
+          return reads
+        }
+        const refreshAfter = (fn, save) => {
+          let refresh = false
+          walk(fn.body, (node) => {
+            if (node.type !== 'CallExpression' || node.range[0] <= save.range[1]) return
+            const state = states.get(variableFor(node.callee))
+            if (!state) return
+            refresh ||= state.variable.references.some((reference) => {
+              let at = reference.identifier.parent
+              while (at && !isFunction(at)) {
+                if (
+                  at.type === 'CallExpression' &&
+                  /^use[A-Z]/.test(callName(at) ?? '') &&
+                  !['useState', 'useRef', 'useMemo', 'useCallback', 'useEffect'].includes(
+                    callName(at),
+                  ) &&
+                  saveReadsQuery(fn, save, at)
+                )
+                  return true
+                at = at.parent
+              }
+              return false
+            })
+          })
+          return refresh
+        }
+        const oppositeRequests = (branch) => {
+          if (branch.type !== 'IfStatement' || !branch.alternate) return false
+          const methods = (body) => {
+            const result = new Set()
+            walk(body, (part) => {
+              if (persistenceCall(part)) result.add(callName(part)?.toUpperCase())
+            })
+            return result
+          }
+          const yes = methods(branch.consequent)
+          const no = methods(branch.alternate)
+          return ['POST', 'PUT', 'PATCH'].some(
+            (write) => (yes.has('DELETE') && no.has(write)) || (no.has('DELETE') && yes.has(write)),
           )
         }
         // The rewrite uses the component's own state, updater, request and response reads.
@@ -1571,6 +1641,7 @@ const moleculeLocal = {
               )
                 continue
               let hit = false
+              const refetch = kind === 'call' && refreshAfter(fn, node)
               if (kind === 'method') {
                 const object = node.parent
                 const usedAsRequestOptions = (expression) => {
@@ -1611,13 +1682,14 @@ const moleculeLocal = {
                       while (branch && branch !== fn) {
                         if (
                           ['IfStatement', 'ConditionalExpression'].includes(branch.type) &&
-                          [...states.values()].some((state) =>
-                            state.variable.references.some(
-                              (reference) =>
-                                reference.identifier.range[0] >= branch.test.range[0] &&
-                                reference.identifier.range[1] <= branch.test.range[1],
-                            ),
-                          )
+                          ((refetch && oppositeRequests(branch)) ||
+                            [...states.values()].some((state) =>
+                              state.variable.references.some(
+                                (reference) =>
+                                  reference.identifier.range[0] >= branch.test.range[0] &&
+                                  reference.identifier.range[1] <= branch.test.range[1],
+                              ),
+                            ))
                         )
                           return true
                         branch = branch.parent
@@ -1640,12 +1712,17 @@ const moleculeLocal = {
                       (branch) => branch.type === 'AwaitExpression',
                     ))
               }
-              if (!hit || !shownBefore(fn, namesFor(fn), node)) continue
+              const optimistic = shownBefore(fn, namesFor(fn), node)
+              if (!hit || (!optimistic && !refetch)) continue
               reported.add(fn)
               context.report({
                 node,
-                messageId: 'useOptimisticValue',
-                data: { rewrite: rewriteFor(fn, node) },
+                messageId: optimistic ? 'useOptimisticValue' : 'awaitRefetch',
+                data: optimistic
+                  ? { rewrite: rewriteFor(fn, node) }
+                  : {
+                      location: `${context.filename}:${node.loc.start.line}:${node.loc.start.column + 1}`,
+                    },
               })
             }
           },
