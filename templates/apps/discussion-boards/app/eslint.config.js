@@ -2134,6 +2134,128 @@ const moleculeLocal = {
         }
       },
     },
+    // A view the page reads from a query parameter that no link sets. X1 P317 l2400 read its
+    // profile tab with `searchParams.get('tab') === 'favorites'` while the tab link went to
+    // `/profile/:username/favorites`: the click changed the path, the comparison stayed false,
+    // and the Favorited tab kept showing the author's own articles (navigation.spec.ts:200).
+    // Narrow on purpose: one file, a comparison of a `useSearchParams()` read with a string
+    // literal, nothing in the file that writes that parameter, and a link in the same file whose
+    // path ends in that same literal. A parameter another file sets, or a view no link names by
+    // path, stays quiet.
+    'links-reach-the-view-they-select': {
+      meta: {
+        type: 'problem',
+        docs: {
+          description:
+            'Report a view read from a query parameter that nothing in the file sets, while a link in the file goes to a path of the same name.',
+        },
+        schema: [],
+        messages: {
+          unreachable:
+            "{{location}}: `{{read}}` is never true: nothing in this file sets `?{{key}}=`, and the link on line {{linkLine}} goes to the path `{{target}}` instead. Read this view from the path that link goes to (`useLocation().pathname.endsWith('/{{value}}')`, or a route parameter), or make the link set `?{{key}}={{value}}`.",
+        },
+      },
+      create(context) {
+        const source = context.sourceCode
+        const text = source.getText()
+        const readers = new Set()
+        const reads = []
+        const links = []
+        const literal = (node) =>
+          node?.type === 'Literal' && typeof node.value === 'string'
+            ? node.value
+            : node?.type === 'TemplateLiteral' && node.expressions.length === 0
+              ? node.quasis[0].value.cooked
+              : null
+        // The static tail of a link target: the whole literal, or a template's last piece.
+        const targetTail = (node) => {
+          if (node?.type === 'JSXExpressionContainer') return targetTail(node.expression)
+          if (node?.type === 'Literal' && typeof node.value === 'string') return node.value
+          if (node?.type === 'TemplateLiteral')
+            return node.quasis[node.quasis.length - 1].value.cooked
+          return null
+        }
+        return {
+          VariableDeclarator(node) {
+            if (
+              node.id.type === 'ArrayPattern' &&
+              node.id.elements[0]?.type === 'Identifier' &&
+              node.init?.type === 'CallExpression' &&
+              node.init.callee.type === 'Identifier' &&
+              node.init.callee.name === 'useSearchParams'
+            )
+              readers.add(node.id.elements[0].name)
+          },
+          BinaryExpression(node) {
+            if (!['===', '==', '!==', '!='].includes(node.operator)) return
+            for (const [call, other] of [
+              [node.left, node.right],
+              [node.right, node.left],
+            ]) {
+              const value = literal(other)
+              if (
+                value === null ||
+                value === '' ||
+                call.type !== 'CallExpression' ||
+                call.callee.type !== 'MemberExpression' ||
+                call.callee.object.type !== 'Identifier' ||
+                call.callee.property.type !== 'Identifier' ||
+                call.callee.property.name !== 'get'
+              )
+                continue
+              const key = literal(call.arguments[0])
+              if (key === null || !/^[A-Za-z_][\w-]*$/.test(key) || !/^[\w-]+$/.test(value))
+                continue
+              reads.push({ node, reader: call.callee.object.name, key, value })
+            }
+          },
+          JSXAttribute(node) {
+            if (node.name.type !== 'JSXIdentifier' || !['to', 'href'].includes(node.name.name))
+              return
+            const tail = targetTail(node.value)
+            if (typeof tail === 'string') links.push({ node, tail })
+          },
+          'Program:exit'() {
+            for (const read of reads) {
+              if (!readers.has(read.reader)) continue
+              // Anything that could write the parameter: `?tab=`, `.set('tab'`, `{ tab: … }`.
+              const key = read.key.replace(/[-]/g, '\\$&')
+              if (
+                new RegExp(
+                  '[?&`\'"]' +
+                    key +
+                    '=|\\.set\\(\\s*[\'"`]' +
+                    key +
+                    '[\'"`]|[{,]\\s*[\'"]?' +
+                    key +
+                    '[\'"]?\\s*:',
+                ).test(text)
+              )
+                continue
+              const link = links.find((candidate) =>
+                new RegExp('/' + read.value + '/?$').test(candidate.tail.split(/[?#]/)[0]),
+              )
+              if (!link) continue
+              context.report({
+                node: read.node,
+                messageId: 'unreachable',
+                data: {
+                  location:
+                    context.filename.split(/[\\/]/).slice(-2).join('/') +
+                    ':' +
+                    read.node.loc.start.line,
+                  read: source.getText(read.node),
+                  key: read.key,
+                  value: read.value,
+                  linkLine: link.node.loc.start.line,
+                  target: link.tail,
+                },
+              })
+            }
+          },
+        }
+      },
+    },
     // While a record is still loading, a message rendered in the SAME element as one of the
     // record's fields, in the same place, is read as that field's value by anything that reads
     // the element once: a test, a script, a screen reader. `{profile ? <><p>{profile.bio}</p></>
@@ -2433,6 +2555,7 @@ export default tseslint.config(
       'molecule-local/server-toggles-use-optimistic-value': 'warn',
       'molecule-local/buttons-have-an-action': 'warn',
       'molecule-local/placeholders-stay-out-of-record-fields': 'warn',
+      'molecule-local/links-reach-the-view-they-select': 'warn',
       'molecule-local/no-block-in-paragraph': 'warn',
       'molecule-local/require-catch-binding': 'warn',
       // A full date-time prefix without its milliseconds or UTC marker loses
