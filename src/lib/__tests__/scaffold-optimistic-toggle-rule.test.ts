@@ -117,6 +117,58 @@ export function FavoriteButton({ article }: { article: Article }) {
 `
 
 describe('molecule-local/server-toggles-use-optimistic-value', () => {
+  it.each([false, true, null])(
+    'preserves both boolean values in the retained nullable follow rewrite, starting at %s',
+    async (initial) => {
+      const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+      const source = await readFile(
+        new URL('./fixtures/p318-l2406-Profile-before.tsx.txt', import.meta.url),
+        'utf8',
+      )
+      const [result] = await eslint.lintText(source, { filePath: 'Profile.tsx' })
+      const message = result.messages.find((row) => row.ruleId === ruleId)?.message ?? ''
+      const snippet = /```tsx\n([\s\S]*?)```/.exec(message)?.[1]
+      expect(snippet).toBeDefined()
+      const code = ts.transpileModule(snippet!, {
+        compilerOptions: { target: ts.ScriptTarget.ES2022 },
+      }).outputText
+      let controller!: OptimisticValue<{ following: boolean | null }>
+      const calls: boolean[] = []
+      type FollowAnswer = { data: { profile: { following: boolean } } }
+      const http = (): {
+        post: () => Promise<FollowAnswer>
+        delete: () => Promise<FollowAnswer>
+      } => ({
+        post: async () => {
+          calls.push(true)
+          return { data: { profile: { following: true } } }
+        },
+        delete: async () => {
+          calls.push(false)
+          return { data: { profile: { following: false } } }
+        },
+      })
+      const hook = (
+        options: OptimisticValueOptions<{ following: boolean | null }>,
+      ): {
+        value: { following: boolean | null }
+        update: OptimisticValue<{ following: boolean | null }>['update']
+      } => {
+        controller = createOptimisticValue(options)
+        return { value: controller.getState().value, update: controller.update }
+      }
+      new Function('useOptimisticValue', 'following', 'profile', 'http', code)(
+        hook,
+        initial,
+        { username: 'reader', following: false },
+        http,
+      )
+      await controller.settled()
+      expect(calls).toEqual([!initial])
+      expect(controller.getState().value.following).toBe(!initial)
+    },
+  )
+
   it('rewrites the retained event handler without treating its event as record identity', async () => {
     const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
     const source = await readFile(

@@ -1760,16 +1760,32 @@ const moleculeLocal = {
               const field = aliases.get(variableFor(node.id))
               return `const ${node.id.name} = ${field ? `!${current}.${field}` : render(node.init, 'update')};`
             })
+          // A null local override can display a loaded server flag via `override ?? record.flag`.
+          // Seed the controller from that same view, otherwise it remains null forever.
+          const fallbackSeeds = new Map()
+          for (const { state } of selected) {
+            if (state.seed?.type !== 'Literal' || state.seed.value !== null) continue
+            const fallbacks = state.variable.references.flatMap((reference) => {
+              const node = reference.identifier.parent
+              return node?.type === 'LogicalExpression' &&
+                node.operator === '??' &&
+                variableFor(unwrap(node.left)) === state.variable &&
+                enclosingFunction(node) === enclosingFunction(fn)
+                ? [context.sourceCode.getText(node)]
+                : []
+            })
+            if (new Set(fallbacks).size === 1) fallbackSeeds.set(state.variable, fallbacks[0])
+          }
           const seeds = selected.map(
             ({ state }) =>
-              `${state.name}: ${state.seed && state.seed.type !== 'Literal' ? (isFunction(state.seed) ? `(${context.sourceCode.getText(state.seed)})()` : context.sourceCode.getText(state.seed)) : state.name}`,
+              `${state.name}: ${fallbackSeeds.get(state.variable) ?? (state.seed && state.seed.type !== 'Literal' ? (isFunction(state.seed) ? `(${context.sourceCode.getText(state.seed)})()` : context.sourceCode.getText(state.seed)) : state.name)}`,
           )
           const kept = selected.filter(({ state }) => !state.seed || state.seed.type === 'Literal')
           const nullable = kept.filter(({ state }) => state.seed?.value === null)
           const guard = nullable.map(
-            ({ state }) => `if (!${desired}.${state.name}) return ${desired};`,
+            ({ state }) => `if (${desired}.${state.name} == null) return ${desired};`,
           )
-          return `Rewrite the state in this component (keep auth/initial-loading checks):\n\`\`\`tsx\nconst ${controller} = useOptimisticValue({\n  value: { ${seeds.join(', ')} },\n  commit: async (${desired}) => {\n    ${guard.join('\n    ')}\n    let ${confirmed} = ${desired};\n    ${[...declarations, ...commitLines].join('\n    ')}\n    return ${confirmed};\n  },\n});\n${selected.map(({ state }) => `const ${kept.some((entry) => entry.state === state) ? `optimistic${state.name[0].toUpperCase()}${state.name.slice(1)}` : state.name} = ${controller}.value.${state.name};`).join('\n')}\n// In the click handler, replace its local setters/save/rollback with:\n${controller}.update((${current}) => {\n  ${nullable.map(({ state }) => `if (!${current}.${state.name}) return ${current};`).join('\n  ')}\n  ${aliasesForUpdate.join('\n  ')}\n  return { ${updates.join(', ')} };\n});\n\`\`\`\nRemove the pending guard/disabled-on-pending flag and effects that copy props into the replaced display setters (${selected.map(({ state }) => state.setter.name).join(', ')}). ${kept.length ? 'Keep the original query state/setter for loading server data. Use the optimistic alias above for rendering AND loading guards; do not clear an already-loaded record before a same-record refetch, and keep its control mounted. ' : ''}Let commit reject on failure. Key the mounted control by record identity, and render/enable it only after its initial record loads.`
+          return `Rewrite the state in this component (keep auth/initial-loading checks):\n\`\`\`tsx\nconst ${controller} = useOptimisticValue({\n  value: { ${seeds.join(', ')} },\n  commit: async (${desired}) => {\n    ${guard.join('\n    ')}\n    let ${confirmed} = ${desired};\n    ${[...declarations, ...commitLines].join('\n    ')}\n    return ${confirmed};\n  },\n});\n${selected.map(({ state }) => `const ${kept.some((entry) => entry.state === state) ? `optimistic${state.name[0].toUpperCase()}${state.name.slice(1)}` : state.name} = ${controller}.value.${state.name};`).join('\n')}\n// In the click handler, replace its local setters/save/rollback with:\n${controller}.update((${current}) => {\n  ${nullable.map(({ state }) => `if (${current}.${state.name} == null) return ${current};`).join('\n  ')}\n  ${aliasesForUpdate.join('\n  ')}\n  return { ${updates.join(', ')} };\n});\n\`\`\`\nRemove the pending guard/disabled-on-pending flag and effects that copy props into the replaced display setters (${selected.map(({ state }) => state.setter.name).join(', ')}). ${kept.length ? 'Keep the original query state/setter for loading server data. Use the optimistic alias above for rendering AND loading guards; do not clear an already-loaded record before a same-record refetch, and keep its control mounted. ' : ''}Let commit reject on failure. Key the mounted control by record identity, and render/enable it only after its initial record loads.`
         }
         // Shown at once: a setter called with the toggled value before the save starts
         // (`setFavorited(next)`, `setItems((prev) => … !item.checked …)`). An awaited response
