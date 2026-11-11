@@ -382,6 +382,18 @@ describe('framework-scoped optimistic value guidance', () => {
   it('keeps React guidance in its declaring workspace', () => {
     expect(state(['@molecule/app-react'], 'api')).not.toContain('useOptimisticValue')
   })
+
+  it('exposes the optimistic button recipe only when its UI binding is installed', () => {
+    const text = state(['@molecule/app-react', '@molecule/app-ui-react'])
+    expect(text).toContain('<OptimisticToggleButton')
+    expect(text).toContain('value={record.enabled}')
+    expect(text).toContain(
+      'commit={async (desired) => (await saveEnabled(record.id, desired)).enabled}',
+    )
+    expect(registry.packages['@molecule/app-ui-react']!.exports).toContain('OptimisticToggleButton')
+    expect(state(['@molecule/app-react'])).not.toContain('<OptimisticToggleButton')
+    expect(state(['@molecule/app-ui-react'], 'api')).not.toContain('<OptimisticToggleButton')
+  })
 })
 
 describe('shared auth guidance stays API neutral', () => {
