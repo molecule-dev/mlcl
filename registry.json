@@ -22888,12 +22888,21 @@
       },
       "setupSqlVersion": "1.1.0",
       "path": "packages/api/resources/follow",
+      "decisionGuide": {
+        "configuration": [
+          "For a displayed collection, call getFollowedIds(viewerId, targetType, ids) once and join with followed.has(id). It returns a Set of followed canonical ids, deduplicates the input, and does no database reads for an absent viewer or empty collection. Target types can be users, documents, topics or any application resource.",
+          "For one target use isFollowing(viewerId, targetType, id). getFollowing(viewerId, options) is a paginated list, so its default page cannot determine follow state for an entire displayed collection."
+        ]
+      },
       "intentHints": [
         "follow",
         "follower",
         "follow user",
         "follow graph",
-        "social follow"
+        "social follow",
+        "batch follow state",
+        "collection follow state",
+        "following status for displayed items"
       ]
     },
     "@molecule/api-resource-forum-thread": {
@@ -26615,6 +26624,12 @@
       "authContract": {
         "scheme": "Bearer"
       },
+      "decisionGuide": {
+        "configuration": [
+          "For public contributors beside a collection, call getPublicProfiles(userIds, resource?) once and join the returned Map by canonical user id. It deduplicates ids, skips empty inputs, omits missing users and returns only id, username, name, bio and avatar. Pass { tableName } when the application renames its users table.",
+          "Use createAccount and signIn for account creation and login. Public collection projection uses getPublicProfiles, which excludes private account fields and has no cross-call cache. Read the package Quick Start for session and response configuration."
+        ]
+      },
       "intentHints": [
         "user resource",
         "user accounts backend",
@@ -26625,7 +26640,11 @@
         "token in response body",
         "user request envelope",
         "account response envelope",
-        "custom signup response"
+        "custom signup response",
+        "batch public profiles",
+        "batch user profiles",
+        "public contributor profiles",
+        "public author profiles"
       ]
     },
     "@molecule/api-resource-version-history": {
