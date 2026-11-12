@@ -86,7 +86,9 @@ function literal(node) {
 
 function tag(node) {
   const name = node.openingElement.name
-  return name.type === 'JSXIdentifier' && /^[a-z]/.test(name.name) ? name.name : null
+  return name.type === 'JSXIdentifier' && /^[a-z]/.test(name.name) && !name.name.includes('-')
+    ? name.name
+    : null
 }
 
 function hidden(node) {

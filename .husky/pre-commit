@@ -42,11 +42,11 @@ fi
 # verbatim, so a dirty template fails the user's first `npm run lint`. CI cannot
 # run this (it checks mlcl out alone, without the templates' dependencies), which
 # is how 300 warnings from one fleet-wide commit stood for twelve days. A staged
-# shared eslint config re-lints the whole fleet (~1 min). Needs the workspace
+# shared eslint config or shared rule module re-lints the whole fleet. Needs the workspace
 # install; skipped in a standalone clone.
 if [ -x ../node_modules/.bin/eslint ]; then
   LINT_STAGED=$(git diff --cached --name-only --diff-filter=ACMR)
-  if echo "$LINT_STAGED" | grep -qx 'templates/shared/eslint\.config\.js\.tpl'; then
+  if echo "$LINT_STAGED" | grep -qE '^templates/shared/(eslint\.config\.js\.tpl|[^/]+\.mjs)$'; then
     node scripts/verify-template-lint.mjs || exit 1
   else
     LINT_SLUGS=$(echo "$LINT_STAGED" |

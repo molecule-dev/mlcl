@@ -64,6 +64,13 @@ const control = (markup: string): string =>
   `export function Control({ act, label, props }) {\n  return ${markup}\n}`
 
 describe('empty interactive targets', () => {
+  it('rejects an otherwise lint-clean keyboard-accessible empty control', async () => {
+    const source =
+      'export function Control({ act }: { act: () => void }) { return <i role="button" tabIndex={0} aria-label="Dismiss" className="missing-glyph" onClick={act} onKeyDown={act} /> }'
+    const [result] = await engine.lintText(source, { filePath: join(root, 'src/Control.tsx') })
+    expect(result.messages.map((message) => message.ruleId)).toEqual([ruleId])
+  })
+
   it('rejects a named, keyboard-accessible but undrawn target at its source line', async () => {
     const messages = await findings(
       control(
@@ -113,6 +120,7 @@ describe('empty interactive targets', () => {
     '<span className="decoration" />',
     '<button hidden onClick={act} />',
     '<Icon name="x-mark" onClick={act} />',
+    '<drawn-control role="button" onClick={act} />',
   ])(
     'preserves content, explicit styling, native controls and unknown runtime values: %s',
     async (markup) => {
