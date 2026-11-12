@@ -3416,6 +3416,7 @@
         "PlaywrightFeedbackFailure",
         "PlaywrightFeedbackResult",
         "PlaywrightFeedbackOptions",
+        "PlaywrightFeedbackCheckOptions",
         "PlaywrightFeedback",
         "reportCarriesIdentities",
         "reportTestAttachmentPaths",
