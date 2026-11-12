@@ -66,6 +66,7 @@ export default tseslint.config(
     },
     rules: {
       'molecule-local/prefer-declared-clients': 'error',
+      'molecule-local/no-fixed-navigation-truncation': 'warn',
       'molecule-local/unique-update-excludes-self': 'warn',
       ...(routingBond
         ? {
