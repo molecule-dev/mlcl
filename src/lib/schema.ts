@@ -201,8 +201,8 @@ export const DecisionGuide = z.object({
         .string()
         .regex(/^\d+\.\d+\.\d+$/)
         .describe(
-          'The first version of this package that exports the factory. A project that declares ' +
-            'an older version gets no modules: they would import an export it does not have.',
+          'The minimum package version supporting this generated resource API. A project ' +
+            'declaring an older version gets no modules that call unsupported methods.',
         ),
       http: z.object({
         package: z.string().describe('The HTTP core the module reads its client from'),
@@ -210,6 +210,15 @@ export const DecisionGuide = z.object({
         readList: z.string().describe('Its reader for a list response'),
         readOne: z.string().describe('Its reader for a single-record response'),
       }),
+      listRoute: z
+        .object({
+          package: z.string(),
+          hook: z.string().regex(/^[A-Za-z_$][\w$]*$/),
+          optionsType: z.string().regex(/^[A-Za-z_$][\w$]*$/),
+          queryHook: z.string().regex(/^[A-Za-z_$][\w$]*$/),
+        })
+        .optional()
+        .describe('URL list binding composed only when its package is declared in this workspace'),
     })
     .optional()
     .describe(

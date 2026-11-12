@@ -290,7 +290,7 @@ export function planAppResourceModules(
  * @returns True for a declared version at or above `since`, and for a declaration that is not a
  *   version at all (a workspace or file link resolves to the package's own source).
  */
-async function factoryIsDeclared(
+export async function factoryIsDeclared(
   projectRoot: string,
   registry: Registry,
   declared: readonly DeclaredPackage[],

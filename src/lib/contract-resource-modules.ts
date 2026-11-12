@@ -36,7 +36,11 @@ import { dirname, join } from 'node:path'
 
 import { parse as parseYaml } from 'yaml'
 
-import { planAppResourceModules, type ResourceModuleFactory } from './app-resource-modules.js'
+import {
+  factoryIsDeclared,
+  planAppResourceModules,
+  type ResourceModuleFactory,
+} from './app-resource-modules.js'
 import type { DeclaredPackage } from './capability-map.js'
 import { formatGeneratedSource } from './format.js'
 import type { Registry } from './schema.js'
@@ -108,6 +112,7 @@ export function parseContract(text: string): unknown {
  * @param factoryPackage - The app package that exports the factory.
  * @param workspace - The app workspace relative to the project root (`app`, or `` for one package).
  * @param label - How the header names the contract (its project-relative path).
+ * @param listRoute - Optional installed URL list binding, supplied by the composition root.
  * @returns The modules, in collection order, and the paths that got none.
  */
 export function planContractResourceModules(
@@ -116,6 +121,7 @@ export function planContractResourceModules(
   factoryPackage: string,
   workspace: string,
   label: string,
+  listRoute?: ResourceModuleFactory['listRoute'],
 ): ContractResourcePlan {
   const plan: ContractResourcePlan = { modules: [], skipped: [] }
   if (!isObject(contract) || !isObject(contract.paths)) return plan
@@ -357,6 +363,8 @@ export function planContractResourceModules(
     }
     const propertyKey = (key: string): string =>
       /^[A-Za-z_$][\w$]*$/.test(key) ? key : JSON.stringify(key)
+    const access = (key: string): string =>
+      /^[A-Za-z_$][\w$]*$/.test(key) ? `.${key}` : `[${JSON.stringify(key)}]`
     const objectType = (
       schema: Json,
       depth: number,
@@ -440,9 +448,11 @@ export function planContractResourceModules(
       declarations.set(updateType, `export type ${updateType} = ${typeOf(updateBody, 0)}`)
     drain()
 
-    // ---- the lists that carry more than their rows ---------------------------------------
+    // ---- contract-typed list reads and URL controllers -----------------------------------
     const pageExports: string[] = []
     const pageNames: string[] = []
+    const listHooks: string[] = []
+    const listParamTypes = new Map<string, { name: string; required: boolean }>()
     const listPaths = [...(list && listAnswer ? [base] : []), ...(extraLists.get(base) ?? [])]
     const pathExpression = (path: string): string => {
       const text = toColon(path).replace(
@@ -453,21 +463,95 @@ export function planContractResourceModules(
     }
     for (const path of listPaths) {
       const shape = listShape(answer(find('get', path))?.schema)
-      if (!shape?.extra) continue
+      if (!shape) continue
       const suffix = path === base ? '' : pascal(path.slice(base.length + 1).replace(/\//g, '-'))
       const pageType = `${pascal(name)}${suffix}Page`
-      const pageName = `${exportName}${suffix}Page`
+      const pageName = `${exportName}${suffix}${shape.extra ? 'Page' : 'List'}`
       const schema = resolve(answer(find('get', path))!.schema).value as Json
-      declarations.set(pageType, `export interface ${pageType} ${objectType(schema, 0)}`)
+      if (shape.extra)
+        declarations.set(pageType, `export interface ${pageType} ${objectType(schema, 0)}`)
+      const resultType = shape.extra ? pageType : `${typeName}[]`
+      const pageReader =
+        !shape.extra && shape.key
+          ? `(response) => (response.data as { ${propertyKey(shape.key)}: ${resultType} })${access(shape.key)}`
+          : `(response) => response.data as ${resultType}`
+      // Operation parameters override path-level parameters, including referenced declarations.
+      const item = resolve((document.paths as Json)[path]).value
+      const parameters = new Map<string, Json>()
+      for (const parameter of [
+        ...(isObject(item) && Array.isArray(item.parameters) ? item.parameters : []),
+        ...(Array.isArray(find('get', path)?.operation.parameters)
+          ? (find('get', path)!.operation.parameters as unknown[])
+          : []),
+      ]) {
+        const value = resolve(parameter).value
+        if (isObject(value) && value.in === 'query' && typeof value.name === 'string')
+          parameters.set(value.name, value)
+      }
+      const paramsType = `${pascal(name)}${suffix}ListParams`
+      declarations.set(
+        paramsType,
+        parameters.size === 0
+          ? `export type ${paramsType} = Record<string, never>`
+          : `export type ${paramsType} = { ${[...parameters]
+              .map(
+                ([key, parameter]) =>
+                  `${propertyKey(key)}${parameter.required ? '' : '?'}: ${typeOf(parameter.schema)}`,
+              )
+              .join('; ')} }`,
+      )
       drain()
       pageNames.push(pageName)
+      const resourceCall = parentParams.length
+        ? `${exportName}(${camel(parentParams[0])})`
+        : exportName
+      const required = [...parameters.values()].some((parameter) => parameter.required === true)
+      listParamTypes.set(path, { name: paramsType, required })
       pageExports.push(
         `/** \`GET ${path}\` whole, as the API answers it: the rows and what it sends beside them. */\n` +
-          `export const ${pageName} = (${[...parentParams.map((key) => `${camel(key)}: string`), 'viewer: string', 'params: Record<string, string | number | boolean | undefined> = {}'].join(', ')}): QueryOptions<${pageType}> => ({\n` +
-          `  key: [${[`'${name}'`, 'viewer', "'list'", `'${path}'`, ...parentParams.map(camel), 'params'].join(', ')}],\n` +
-          `  principal: viewer,\n  keepPreviousData: true,\n` +
-          `  fetch: async (signal) => (await ${factory.http.client}().get(${pathExpression(path)}, { signal, params })).data as ${pageType},\n})`,
+          `export const ${pageName} = (${[...parentParams.map((key) => `${camel(key)}: string`), 'viewer: string', `params: ${paramsType}${required ? '' : ' = {}'}`].join(', ')}): QueryOptions<${resultType}> =>\n` +
+          `  ${resourceCall}.listPage(viewer, { ...params }, ${pageReader}, ${pathExpression(path)})`,
       )
+      // Only a declared limit/offset contract is paged this way. Cursor/page-number APIs and
+      // non-list screens retain their own valid contract instead of receiving guessed params.
+      const numeric = (key: string): Json | null => {
+        const value = resolve(parameters.get(key)?.schema).value
+        return isObject(value) && ['integer', 'number'].includes(String(value.type)) ? value : null
+      }
+      if (listRoute && numeric('limit') && numeric('offset')) {
+        const filters = [...parameters]
+          .filter(([key, parameter]) => {
+            const value = resolve(parameter.schema).value
+            return (
+              key !== 'limit' &&
+              key !== 'offset' &&
+              !parameter.required &&
+              isObject(value) &&
+              value.type === 'string' &&
+              !value.enum &&
+              !value.nullable
+            )
+          })
+          .map(([key]) => key)
+        const managed = ['limit', 'offset', ...filters]
+        const remainingRequired = [...parameters].some(
+          ([key, value]) => !managed.includes(key) && value.required,
+        )
+        const hookName = `use${pascal(name)}${suffix}List`
+        const defaultLimit = numeric('limit')!.default
+        const limit =
+          Number.isSafeInteger(defaultLimit) && Number(defaultLimit) > 0
+            ? Number(defaultLimit)
+            : null
+        const filterType = filters.map((key) => JSON.stringify(key)).join(' | ') || 'never'
+        listHooks.push(
+          `/** URL paging and filters, one cached read, and refetch; writes use ${resourceCall}. */\n` +
+            `export function ${hookName}<Selection extends string = string>(${[...parentParams.map((key) => `${camel(key)}: string`), 'viewer: string | null', `params: Omit<${paramsType}, ${managed.map((key) => JSON.stringify(key)).join(' | ')}>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}) {\n` +
+            `  const route = ${listRoute.hook}({ ...options,${limit ? ` pageSize: options.pageSize ?? ${limit},` : ''} filters: { ${filters.map((key) => `${propertyKey(key)}: {}`).join(', ')}${filters.length ? ', ' : ''}...options.filters } })\n` +
+            `  const query = ${listRoute.queryHook}(viewer !== null && route.canLoad ? ${pageName}(${[...parentParams.map(camel), 'viewer', `{ ...params, ${filters.map((key) => `${propertyKey(key)}: route.filters[${JSON.stringify(key)}], `).join('')}limit: route.pageSize, offset: route.offset }`].join(', ')}) : null)\n` +
+            `  return { route, ...query }\n}`,
+        )
+      }
     }
 
     // ---- the resource ----------------------------------------------------------------------
@@ -478,34 +562,68 @@ export function planContractResourceModules(
     ].join(', ')
     const readList = listAnswer
       ? listAnswer.key
-        ? `(response) => (response.data as { ${propertyKey(listAnswer.key)}: ${typeName}[] }).${listAnswer.key}`
+        ? `(response) => (response.data as { ${propertyKey(listAnswer.key)}: ${typeName}[] })${access(listAnswer.key)}`
         : `(response) => response.data as ${typeName}[]`
       : null
     const readOne = one
       ? one.key
-        ? `(response) => (response.data as { ${propertyKey(one.key)}: ${typeName} | null }).${one.key}`
+        ? `(response) => (response.data as { ${propertyKey(one.key)}: ${typeName} | null })${access(one.key)}`
         : `(response) => response.data as ${typeName} | null`
       : null
-    const resourceFor = (path: string, resourceName: string): string =>
-      `${factory.factory}<${generics}>({\n` +
-      `  name: ${resourceName},\n  path: ${pathExpression(path)},` +
-      (param === 'id' || recordIsScalar ? '' : `\n  id: '${param}',`) +
-      (update?.method === 'patch' ? `\n  updateMethod: 'patch',` : '') +
-      `\n  http: ${factory.http.client},` +
-      (readList ? `\n  readList: ${readList},` : '') +
-      (readOne ? `\n  readOne: ${readOne},` : '') +
-      `\n})`
+    const resourceFor = (path: string, resourceName: string): string => {
+      const ownList = listShape(answer(find('get', path))?.schema)
+      const ownReader = ownList
+        ? ownList.key
+          ? `(response) => (response.data as { ${propertyKey(ownList.key)}: ${typeName}[] })${access(ownList.key)}`
+          : `(response) => response.data as ${typeName}[]`
+        : readList
+      return (
+        `${factory.factory}<${generics}>({\n` +
+        `  name: ${resourceName},\n  path: ${pathExpression(path)},` +
+        (param === 'id' || recordIsScalar ? '' : `\n  id: '${param}',`) +
+        (update?.method === 'patch' ? `\n  updateMethod: 'patch',` : '') +
+        `\n  http: ${factory.http.client},` +
+        (ownReader ? `\n  readList: ${ownReader},` : '') +
+        (readOne ? `\n  readOne: ${readOne},` : '') +
+        `\n})`
+      )
+    }
     const exported: string[] = []
+    // A resource factory offers every operation; the contract may not. Keep unavailable
+    // methods out of the generated public type rather than teaching a page a nonexistent route.
+    const resourceType = (path: string): string => {
+      const methods =
+        path === base
+          ? [
+              ...(listPaths.length ? ['listPage'] : []),
+              ...(detail ? ['detail'] : []),
+              ...(create ? ['create'] : []),
+              ...(update ? ['update'] : []),
+              ...(remove ? ['remove'] : []),
+              ...(toggles.length ? ['toggle'] : []),
+              'refresh',
+            ]
+          : ['listPage', 'refresh']
+      const params = listParamTypes.get(path)
+      return (
+        `Pick<QueryResource<${generics}>, ${methods.map((method) => JSON.stringify(method)).join(' | ')}>` +
+        (params
+          ? ` & { list(viewer: string, params${params.required ? '' : '?'}: ${params.name}): QueryOptions<${typeName}[]> }`
+          : '')
+      )
+    }
     const describe = (path: string, exportedName: string, resourceName: string): void => {
       if (parentParams.length === 0) {
-        exported.push(`export const ${exportedName} = ${resourceFor(path, `'${resourceName}'`)}`)
+        exported.push(
+          `export const ${exportedName}: ${resourceType(path)} = ${resourceFor(path, `'${resourceName}'`)}`,
+        )
         return
       }
       const key = camel(parentParams[0])
       exported.push(
-        `const ${exportedName}By = new Map<string, QueryResource<${generics}>>()\n` +
+        `const ${exportedName}By = new Map<string, ${resourceType(path)}>()\n` +
           `/** The ${resourceName} of one ${singular(segmentsOf(base).at(-3) ?? 'record')}: the same object for the same ${key}, so its lists stay tracked. */\n` +
-          `export const ${exportedName} = (${key}: string): QueryResource<${generics}> => {\n` +
+          `export const ${exportedName} = (${key}: string): ${resourceType(path)} => {\n` +
           `  let resource = ${exportedName}By.get(${key})\n` +
           `  if (!resource) {\n    resource = ${resourceFor(path, `\`${resourceName}:\${${key}}\``)}\n    ${exportedName}By.set(${key}, resource)\n  }\n  return resource\n}`,
       )
@@ -528,20 +646,22 @@ export function planContractResourceModules(
       ...(extraLists.get(base) ?? []).map((path) => `list (GET ${path})`),
     ]
     const call = parentParams.length ? `${exportName}(${camel(parentParams[0])})` : exportName
-    const usesTypes = pageExports.length > 0 || parentParams.length > 0
     const typeImports = [
       ...(pageExports.length ? [{ name: 'QueryOptions', from: '@molecule/app-query' }] : []),
-      ...(parentParams.length ? [{ name: 'QueryResource', from: factoryPackage }] : []),
+      { name: 'QueryResource', from: factoryPackage },
     ]
     const moduleOf = (line: string): string => /from '([^']+)'/.exec(line)?.[1] ?? ''
     const importLines = [
-      ...(usesTypes
-        ? typeImports
-            .filter((entry) => entry.from !== factoryPackage)
-            .map((entry) => `import type { ${entry.name} } from '${entry.from}'`)
-        : []),
+      ...typeImports
+        .filter((entry) => entry.from !== factoryPackage)
+        .map((entry) => `import type { ${entry.name} } from '${entry.from}'`),
       `import { ${factory.http.client} } from '${factory.http.package}'`,
-      `import { ${factory.factory}${typeImports.some((entry) => entry.from === factoryPackage) ? ', type QueryResource' : ''} } from '${factoryPackage}'`,
+      `import { ${factory.factory}${listHooks.length ? `, ${listRoute!.queryHook}` : ''}${typeImports.some((entry) => entry.from === factoryPackage) ? ', type QueryResource' : ''} } from '${factoryPackage}'`,
+      ...(listHooks.length
+        ? [
+            `import { ${listRoute!.hook}, type ${listRoute!.optionsType} } from '${listRoute!.package}'`,
+          ]
+        : []),
     ].sort((a, b) => moduleOf(a).localeCompare(moduleOf(b)))
     const source = `/**
  * ${pascal(name)} on the app's shared query cache, as ${label} declares them.
@@ -570,6 +690,7 @@ export function planContractResourceModules(
      : ''
  }
  * \`viewer\` is the signed-in user's id, or 'anonymous'.
+${listHooks.length ? ` * List pages use \`${listHooks.map((source) => /export function (\w+)/.exec(source)![1]).join('`, `')}\`: URL state, limit/offset and query/refetch are already wired.\n * Pass null as viewer while restoring auth; route options configure paths, filters and protected selections.\n` : ''}
  */
 ${importLines.join('\n')}
 
@@ -579,7 +700,8 @@ ${[...declarations.entries()]
   .join('\n\n')}
 
 ${exported.join('\n\n')}
-${pageExports.length ? `\n${pageExports.join('\n\n')}\n` : ''}`
+${pageExports.length ? `\n${pageExports.join('\n\n')}\n` : ''}
+${listHooks.join('\n\n')}`
     plan.modules.push({
       collection: base,
       path: [workspace, factory.directory, `${name}.ts`].filter(Boolean).join('/'),
@@ -653,6 +775,11 @@ export async function writeContractResourceModules(
       reason: 'no app workspace declares a resource factory with its HTTP package',
     }
   const factory = registry.packages[declaration.name]!.decisionGuide!.resourceModules!
+  if (!(await factoryIsDeclared(projectRoot, registry, declared)))
+    return {
+      ...result,
+      reason: 'the declared resource factory version does not support generated modules',
+    }
   const absolute = contractPath.startsWith('/') ? contractPath : join(projectRoot, contractPath)
   let text: string
   try {
@@ -679,6 +806,13 @@ export async function writeContractResourceModules(
     declaration.name,
     declaration.workspace,
     label,
+    factory.listRoute &&
+      declared.some(
+        (item) =>
+          item.name === factory.listRoute!.package && item.workspace === declaration.workspace,
+      )
+      ? factory.listRoute
+      : undefined,
   )
   result.skipped = plan.skipped
   const directory = join(projectRoot, declaration.workspace, factory.directory)

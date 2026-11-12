@@ -58331,12 +58331,18 @@
         "resourceModules": {
           "directory": "src/resources",
           "factory": "createQueryResource",
-          "since": "1.2.0",
+          "since": "1.4.0",
           "http": {
             "package": "@molecule/app-http",
             "client": "getClient",
             "readList": "unwrapList",
             "readOne": "unwrapSingle"
+          },
+          "listRoute": {
+            "package": "@molecule/app-routing-react-router",
+            "hook": "useListRoute",
+            "optionsType": "ListRouteOptions",
+            "queryHook": "useQuery"
           }
         }
       },

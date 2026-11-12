@@ -122,7 +122,7 @@ describe('the contract a P317 project was handed', () => {
   it('makes a nested collection a function of its parent, one resource per parent', async () => {
     const comments = (await plan('p317-supplied-openapi.yml.txt')).modules[1].source
     expect(comments).toContain(
-      'export const comments = (slug: string): QueryResource<Comment, CommentCreate> =>',
+      'export const comments = (slug: string): Pick<QueryResource<Comment, CommentCreate>',
     )
     expect(comments).toContain('path: `/articles/${encodeURIComponent(slug)}/comments`')
     expect(comments).toContain('(response.data as { comments: Comment[] }).comments')
@@ -172,7 +172,8 @@ describe('an inventory API with its own contract', () => {
 describe('every generated module type-checks', () => {
   const declarations = {
     [HTTP]: join(MOLECULE, 'core/http/dist/index.d.ts'),
-    [QUERY]: join(MOLECULE, 'features/query-react/dist/index.d.ts'),
+    // Compile the current contract, without rewriting a linked installation's dist during a cohort.
+    [QUERY]: join(MOLECULE, 'features/query-react/src/index.ts'),
     '@molecule/app-query': join(MOLECULE, 'core/query/dist/index.d.ts'),
   }
   const built =
@@ -193,13 +194,23 @@ describe('every generated module type-checks', () => {
     const page = join(dir, 'page.ts')
     await writeFile(
       page,
-      `import { articles, articlesPage } from './articles.js'
+      `import { articles, articlesFeed, articlesPage } from './articles.js'
 import { comments } from './comments.js'
 import { items } from './items.js'
 import { profiles } from './profiles.js'
 import { tags } from './tags.js'
 export async function use(viewer: string, slug: string): Promise<string[]> {
   const page = await articlesPage(viewer, { limit: 10 }).fetch(new AbortController().signal)
+  // @ts-expect-error This contract declares limit/offset, not page.
+  articlesPage(viewer, { page: 2 })
+  // @ts-expect-error The resource's row-only list has the same query contract.
+  articles.list(viewer, { page: 2 })
+  // @ts-expect-error The alternate feed is read-only.
+  articlesFeed.create(viewer, {})
+  // @ts-expect-error This contract has no profile collection list.
+  profiles.list(viewer)
+  // @ts-expect-error This tags endpoint declares no query parameters.
+  tags.list(viewer, { limit: 1 })
   const total: number = page.articlesCount
   const created = await articles.create(viewer, { article: { title: 't', description: 'd', body: 'b' } })
   const favorited = await articles.toggle(viewer, created.slug, 'favorite', true)
@@ -233,6 +244,29 @@ describe('writing the modules into a project', () => {
     contract = 'specs/openapi.yml',
   ): ReturnType<typeof writeContractResourceModules> =>
     writeContractResourceModules(root, contract, registry, P317_DECLARED)
+
+  it('does not generate methods missing from the declared factory version', async () => {
+    await writeFile(join(root, 'specs/openapi.yml'), await fixture('p317-supplied-openapi.yml.txt'))
+    await writeFile(
+      join(root, 'app/package.json'),
+      JSON.stringify({ dependencies: { [QUERY]: '1.2.0', [HTTP]: '1.0.0' } }),
+    )
+    const result = await generate()
+    expect(result.written).toEqual([])
+    expect(result.reason).toContain('version')
+  })
+
+  it('wires the URL list hook only when the matching router is declared', async () => {
+    await writeFile(join(root, 'specs/openapi.yml'), await fixture('p317-supplied-openapi.yml.txt'))
+    const without = await generate()
+    expect(without.written[0].source).not.toContain('export function useArticlesList')
+    const withRouter = await writeContractResourceModules(root, 'specs/openapi.yml', registry, [
+      ...P317_DECLARED,
+      { name: factory.listRoute!.package, workspace: 'app' },
+    ])
+    expect(withRouter.written[0].source).toContain('export function useArticlesList')
+    expect(withRouter.written[0].source).toContain('limit: route.pageSize, offset: route.offset')
+  })
 
   it('writes each module formatted, and nothing a second time', async () => {
     await writeFile(join(root, 'specs/openapi.yml'), await fixture('p317-supplied-openapi.yml.txt'))
