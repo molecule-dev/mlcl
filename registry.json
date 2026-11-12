@@ -22830,7 +22830,8 @@
         "getFollowingCount",
         "Follow",
         "PaginationOptions",
-        "PaginatedResult"
+        "PaginatedResult",
+        "getFollowedIds"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -26384,7 +26385,9 @@
         "sessionSchema",
         "Session",
         "z",
-        "resourceUserSecretDefinitions"
+        "resourceUserSecretDefinitions",
+        "getPublicProfiles",
+        "PublicProfile"
       ],
       "secrets": [
         {
