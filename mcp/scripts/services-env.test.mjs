@@ -29,6 +29,7 @@
  * a failing assertion never prints a credential value.
  */
 import assert from 'node:assert/strict'
+import { execFileSync } from 'node:child_process'
 import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -343,6 +344,41 @@ test('create_api_key rewrites duplicate assignments so the minted key is the one
     await createApiKeyIntoEnv('project_fake', 'mcp', target)
     assert.ok(assignmentCount(target) === 1, 'exactly one assignment line remains')
     assert.ok(resolveServiceKey(start)?.key === MINTED, 'the resolver reads the minted key')
+  } finally {
+    stub.restore()
+  }
+})
+
+for (const [name, patterns, expected] of [
+  ['negated env rule', '.env\n!.env\n', false],
+  ['ignored env file', '.env\n', true],
+  ['root-only env rule', '/.env\n', false],
+]) {
+  test(`create_api_key reports Git's real ignore decision: ${name}`, async () => {
+    const { root, start } = deepProject(`git-${name.replaceAll(' ', '-')}`)
+    execFileSync('git', ['init', '-q', root])
+    writeFileSync(join(root, '.gitignore'), patterns)
+    const stub = stubFetch(platformAnswer)
+    try {
+      const result = await createApiKeyIntoEnv('project_fake', 'mcp', join(start, '.env'))
+      assert.equal(result.gitignored, expected)
+    } finally {
+      stub.restore()
+    }
+  })
+}
+
+test('create_api_key does not call a tracked env file ignored', async () => {
+  const { root, start } = deepProject('git-tracked-env')
+  execFileSync('git', ['init', '-q', root])
+  const target = join(start, '.env')
+  writeFileSync(target, 'OTHER=1\n')
+  execFileSync('git', ['-C', root, 'add', '--', target])
+  writeFileSync(join(root, '.gitignore'), '.env\n')
+  const stub = stubFetch(platformAnswer)
+  try {
+    const result = await createApiKeyIntoEnv('project_fake', 'mcp', target)
+    assert.equal(result.gitignored, false)
   } finally {
     stub.restore()
   }

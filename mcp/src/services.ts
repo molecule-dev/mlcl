@@ -11,6 +11,7 @@
  *     place the app's `@molecule/*-molecule` bonds read it), so the key never
  *     has to pass through the chat transcript.
  */
+import { spawnSync } from 'node:child_process'
 import { chmodSync, existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { basename, dirname, join, resolve } from 'node:path'
 import { parseEnv } from 'node:util'
@@ -363,21 +364,13 @@ export async function createApiKeyIntoEnv(
   // The file now holds a secret: owner-only even if it existed with wider bits.
   chmodSync(target, 0o600)
 
-  // A .gitignore in the file's directory or up to three parents that names it.
-  // A heuristic for a warning, not a guarantee — git's own rules are richer.
-  const patterns = ['.env', '.env*', '.env.*', '*.env', basename(target), `/${basename(target)}`]
-  let gitignored = false
-  for (let dir = dirname(target), i = 0; i < 4 && !gitignored; i++) {
-    const gitignore = join(dir, '.gitignore')
-    gitignored =
-      existsSync(gitignore) &&
-      readFileSync(gitignore, 'utf8')
-        .split('\n')
-        .some((l) => patterns.includes(l.trim()))
-    const parent = dirname(dir)
-    if (parent === dir) break
-    dir = parent
-  }
+  // Ask Git, including negations, nested rules and tracked-file status. A failed
+  // or unavailable Git check never claims that a secret is excluded.
+  const gitignored =
+    spawnSync('git', ['check-ignore', '--quiet', '--', target], {
+      cwd: dirname(target),
+      stdio: 'ignore',
+    }).status === 0
   return {
     id: minted.id,
     masked: minted.masked,
