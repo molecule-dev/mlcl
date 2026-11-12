@@ -1229,19 +1229,6 @@ export default class Create extends Command {
       }
     }
 
-    // Describe wiring only after injection and template overrides have written it.
-    // ensureAgentsMd preserves a user-owned file from an earlier run.
-    {
-      const { ensureAgentsMd } = await import('../lib/scaffold.js')
-      await ensureAgentsMd(
-        projectPath,
-        uniquePackages.map((name) => ({
-          name,
-          workspace: hasAppSubdir ? (getPackageStack(name) === 'app' ? 'app' : 'api') : '',
-        })),
-      )
-    }
-
     // Wire the IDE8 activity-capture PRODUCER into the just-generated API boot
     // (custom builds + the package-driven flagship fallback). The baked flagship
     // fast path wires it in copyTemplateInstance and returns before here, so this
@@ -1267,6 +1254,15 @@ export default class Create extends Command {
       const { ensureMoleculePeerClosure } = await import('../lib/scaffold.js')
       const added = Object.values(await ensureMoleculePeerClosure(projectPath)).flat()
       if (added.length > 0) log(`Manifest peer closure added ${added.length}: ${added.join(', ')}`)
+    }
+
+    // Describe wiring only after injection, template overrides and the peer closure above have
+    // written every manifest. ensureAgentsMd preserves a user-owned file from an earlier run. It
+    // reads those manifests, as the template path does, so AGENTS.md and the --json capabilityMap
+    // list the same packages, including peers the closure adds (api-resource-user).
+    {
+      const { ensureAgentsMd } = await import('../lib/scaffold.js')
+      await ensureAgentsMd(projectPath)
     }
 
     // Generate .env template (from package metadata secrets)

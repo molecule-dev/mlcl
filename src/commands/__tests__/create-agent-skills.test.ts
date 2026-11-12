@@ -187,11 +187,19 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
     expect(catalog).toContain('`@molecule/api-database`')
     expect(catalog).not.toContain('`@molecule/app-')
     const agents = readFileSync(join(projectRoot, 'AGENTS.md'), 'utf8')
-    expect(agents).not.toMatch(/^## Declared capability map$/m)
     expect(agents).not.toContain('@molecule/app-auth')
     expect(agents).not.toContain('@molecule/app-http')
-    const result = JSON.parse(output) as { capabilityMap?: unknown[] }
-    expect(result.capabilityMap).toEqual([])
+    // The map lists the installed backend packages that declare configuration, and no frontend ones.
+    const result = JSON.parse(output) as {
+      capabilityMap?: Array<{ name: string; configuration: string[] }>
+    }
+    const names = result.capabilityMap?.map((entry) => entry.name) ?? []
+    expect(names.length).toBeGreaterThan(0)
+    expect(names.filter((name) => !name.startsWith('@molecule/api-'))).toEqual([])
+    const user = result.capabilityMap?.find((entry) => entry.name === '@molecule/api-resource-user')
+    expect(user?.configuration.join('\n')).toContain('getPublicProfiles')
+    expect(agents).toMatch(/^## Declared capability map$/m)
+    expect(agents).toContain('getPublicProfiles')
   })
 
   it('leaves a user-owned skill untouched when scaffolding over it', async () => {
@@ -225,6 +233,7 @@ describe('MCP scaffold_project inherits the delivery', () => {
       capabilityMap?: Array<{ name: string; configuration: string[]; guidance: string[] }>
     }
     expect(result.capabilityMap?.map((entry) => entry.name)).toEqual([
+      '@molecule/api-resource-user',
       '@molecule/app-auth',
       '@molecule/app-http',
       '@molecule/app-routing',
@@ -234,7 +243,8 @@ describe('MCP scaffold_project inherits the delivery', () => {
     expect(routing?.guidance.join('\n')).toContain('useListRoute')
     const state = result.capabilityMap?.find((entry) => entry.name === '@molecule/app-state')
     expect(state?.guidance.join('\n')).toContain('useOptimisticValue')
-    expect(result.capabilityMap?.[0].configuration.join('\n')).toContain('mapAuthResponse')
+    const auth = result.capabilityMap?.find((entry) => entry.name === '@molecule/app-auth')
+    expect(auth?.configuration.join('\n')).toContain('mapAuthResponse')
     expect(existsSync(join(dir, 'proj', '.agents', 'skills', 'capability-first', 'SKILL.md'))).toBe(
       true,
     )

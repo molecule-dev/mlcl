@@ -31,7 +31,7 @@ describe('mlcl resources', () => {
         dependencies: {
           '@molecule/app-http': '1.7.0',
           '@molecule/app-query': '1.0.0',
-          '@molecule/app-query-react': '1.2.0',
+          '@molecule/app-query-react': '1.4.0',
         },
       }),
     )
@@ -60,8 +60,9 @@ describe('mlcl resources', () => {
       'app/src/resources/stock-counts.ts',
     ])
     expect(report.skipped).toEqual([expect.objectContaining({ path: '/health' })])
-    expect(readFileSync(join(dir, 'app/src/resources/items.ts'), 'utf8')).toContain(
-      'createQueryResource<Item, ItemCreate, ItemUpdate>({',
+    // The command formats what it writes, so the type arguments may wrap across lines.
+    expect(readFileSync(join(dir, 'app/src/resources/items.ts'), 'utf8')).toMatch(
+      /createQueryResource<\s*Item,\s*ItemCreate,\s*ItemUpdate,?\s*>\(\{/,
     )
   })
 
