@@ -335,7 +335,7 @@ export function Search() {
             {t('search.postsHeading', {}, { defaultValue: 'Posts' })}
           </h2>
           <ul className={cm.cn('grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-3')}>
-            {(posts ?? []).slice(0, 16).map((p) => {
+            {(posts ?? []).map((p) => {
               const cover = vividGradient(p.cover_index)
               return (
                 <li key={p.id}>

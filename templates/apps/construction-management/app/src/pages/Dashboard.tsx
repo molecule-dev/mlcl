@@ -427,7 +427,7 @@ export function Dashboard() {
           </p>
         ) : (
           <ul className={cm.cn(cm.sp('mt', 4), 'space-y-3')}>
-            {logs.slice(0, 5).map((l) => (
+            {logs.map((l) => (
               <li
                 key={l.id}
                 className={cm.flex({

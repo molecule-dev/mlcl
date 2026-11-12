@@ -462,7 +462,7 @@ export function Home() {
             </div>
           ) : (
             <ul className={cm.cn('space-y-3')}>
-              {spaces.slice(0, 4).map((s) => (
+              {spaces.map((s) => (
                 <li key={s.key}>
                   <Link
                     to={`/spaces/${s.key}`}

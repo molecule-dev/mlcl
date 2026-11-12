@@ -341,7 +341,7 @@ export function Home() {
               </p>
             ) : (
               <ul className={cm.stack(2)}>
-                {spaces.slice(0, 6).map((s) => (
+                {spaces.map((s) => (
                   <li key={s.id}>
                     <Link
                       to={`/spaces`}

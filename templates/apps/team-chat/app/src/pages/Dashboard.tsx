@@ -256,7 +256,7 @@ function Dashboard() {
                       {t('dashboard.noUnreadMessages', {}, { defaultValue: 'No unread messages' })}
                     </p>
                   ) : (
-                    messages.slice(0, 3).map((msg) => (
+                    messages.map((msg) => (
                       <Link
                         key={String(msg.id)}
                         to={`/channels/${msg.channelId ?? msg.channel_id ?? String(msg.id)}`}

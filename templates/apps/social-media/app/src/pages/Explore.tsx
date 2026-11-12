@@ -178,7 +178,7 @@ export function Explore() {
                   </h2>
                 </div>
                 <ul className={cm.cn(cm.flex({ direction: 'col' }), 'gap-2')}>
-                  {(suggestionsData ?? []).slice(0, 3).map((s) => (
+                  {(suggestionsData ?? []).map((s) => (
                     <li
                       key={s.id}
                       className={cm.cn(cm.flex({ align: 'center', justify: 'between', gap: 'sm' }))}

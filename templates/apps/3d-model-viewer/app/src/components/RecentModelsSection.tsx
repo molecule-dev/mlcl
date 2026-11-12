@@ -51,7 +51,7 @@ function RecentModelsSection() {
                 style={{ minHeight: 220 }}
               />
             ))
-          : models.slice(0, 6).map((model) => (
+          : models.map((model) => (
               <Link key={model.id} to={`/models/${model.id}`} className="contents">
                 <div
                   className={cm.cn(

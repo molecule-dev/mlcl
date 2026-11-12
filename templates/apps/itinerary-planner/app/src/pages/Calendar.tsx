@@ -303,6 +303,7 @@ export function Calendar() {
                   >
                     {cell.date.getDate()}
                   </span>
+                  {/* eslint-disable-next-line molecule-local/no-fixed-navigation-truncation -- Compact date cells; every visible trip is linked in the complete monthly list below. */}
                   {tripsForCell.slice(0, 2).map((trip) => {
                     const theme = STATUS_PILL[trip.status]
                     return (

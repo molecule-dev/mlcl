@@ -301,6 +301,7 @@ export function Drivers() {
               <ol className={cm.cn(cm.stack(2), 'list-none')}>
                 {/* Proven performers only: a brand-new driver has no logged hours
                   yet, so it never surfaces here before its first shift. */}
+                {/* eslint-disable-next-line molecule-local/no-fixed-navigation-truncation -- Intentional three-place safety leaderboard; the complete driver roster is rendered below. */}
                 {[...list]
                   .filter((d) => d.hours_week > 0)
                   .sort((a, b) => b.safety_score - a.safety_score)

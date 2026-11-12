@@ -223,7 +223,7 @@ export function Radio() {
           <ul
             className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 sm:grid-cols-3 lg:grid-cols-4')}
           >
-            {artists.slice(0, 8).map((a) => {
+            {artists.map((a) => {
               const gradient = COVER_GRADIENTS[(a.cover_index ?? 1) % COVER_GRADIENTS.length]
               return (
                 <li key={a.id}>

@@ -279,7 +279,7 @@ export function Search() {
               )}
             >
               <ul className={cm.grid({ cols: 4, gap: 'md' })}>
-                {filtered.artists.slice(0, 8).map((a) => (
+                {filtered.artists.map((a) => (
                   <li key={a.id}>
                     <Link
                       to={`/artists/${a.id}`}
@@ -331,7 +331,7 @@ export function Search() {
               )}
             >
               <ul className={cm.grid({ cols: 5, gap: 'md' })}>
-                {filtered.albums.slice(0, 10).map((a) => (
+                {filtered.albums.map((a) => (
                   <li key={a.id}>
                     <Link
                       to={`/albums/${a.id}`}
@@ -372,7 +372,7 @@ export function Search() {
               )}
             >
               <ul className={cm.grid({ cols: 5, gap: 'md' })}>
-                {filtered.playlists.slice(0, 10).map((p) => (
+                {filtered.playlists.map((p) => (
                   <li key={p.id}>
                     <Link
                       to={`/playlists/${p.id}`}

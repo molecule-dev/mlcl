@@ -306,7 +306,7 @@ export function Dashboard() {
           </p>
         ) : (
           <ul className={cm.cn('space-y-2', cm.sp('mt', 3))}>
-            {(overview?.recent ?? []).slice(0, 6).map((r) => (
+            {(overview?.recent ?? []).map((r) => (
               <li
                 key={r.user_book_id}
                 className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.textSize('sm'))}

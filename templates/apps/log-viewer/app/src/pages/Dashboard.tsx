@@ -353,7 +353,7 @@ export function Dashboard() {
               {t('dashboard.savedSearchesHeading', {}, { defaultValue: 'Pinned searches' })}
             </h2>
             <ul className={cm.cn('space-y-2')}>
-              {saved.slice(0, 4).map((s) => (
+              {saved.map((s) => (
                 <li key={s.id}>
                   <Link
                     to="/saved"

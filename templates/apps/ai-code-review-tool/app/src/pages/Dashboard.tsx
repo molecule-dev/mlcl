@@ -416,7 +416,7 @@ export function Dashboard() {
               </p>
             ) : (
               <ul className={cm.stack(3)}>
-                {repos.slice(0, 5).map((r) => (
+                {repos.map((r) => (
                   <li key={r.id}>
                     <Link
                       to={`/repos/${r.id}`}

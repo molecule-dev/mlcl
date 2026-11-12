@@ -232,7 +232,7 @@ export function AlbumDetail() {
             )}
           </h2>
           <div className={cm.cn(cm.grid({ gap: 'md' }), 'grid-cols-2 md:grid-cols-5')}>
-            {moreByArtist.slice(0, 5).map((al) => (
+            {moreByArtist.map((al) => (
               <Link
                 key={al.id}
                 to={`/albums/${al.id}`}

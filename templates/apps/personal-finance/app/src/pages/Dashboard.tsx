@@ -484,7 +484,7 @@ function Dashboard() {
                 )}
                 {!loading && transactions.length > 0 && (
                   <ul className={cm.stack(2)}>
-                    {transactions.slice(0, 8).map((tx) => {
+                    {transactions.map((tx) => {
                       const positive = (tx.type ?? '').toLowerCase() === 'income' || tx.amount > 0
                       return (
                         <li key={tx.id}>

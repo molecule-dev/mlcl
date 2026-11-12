@@ -539,7 +539,7 @@ export function MyFiles() {
             </div>
           ) : (
             <div className={cm.cn(cm.grid({ cols: 1, gap: 4 }), 'md:grid-cols-2 lg:grid-cols-4')}>
-              {visibleFolders.slice(0, 8).map((f) => (
+              {visibleFolders.map((f) => (
                 <Link
                   key={f.id}
                   to={listRoute.href({ filters: { folder: f.id } })}

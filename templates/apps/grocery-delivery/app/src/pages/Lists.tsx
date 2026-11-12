@@ -297,7 +297,7 @@ export function Lists() {
             {t('lists.smartReorderHeading', {}, { defaultValue: 'Smart reorder' })}
           </h2>
           {data && data.smart_reorder_due.length > 0 ? (
-            data.smart_reorder_due.slice(0, 6).map((item) => (
+            data.smart_reorder_due.map((item) => (
               <div
                 key={item.product_id}
                 className={cm.cn(cm.flex({ align: 'center', justify: 'between' }))}

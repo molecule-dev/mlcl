@@ -451,7 +451,7 @@ export function PatientDetail() {
           </p>
         ) : (
           <ul className={'space-y-2'}>
-            {past.slice(0, 8).map((a) => {
+            {past.map((a) => {
               const d = new Date(a.scheduled_for)
               return (
                 <li key={a.id}>

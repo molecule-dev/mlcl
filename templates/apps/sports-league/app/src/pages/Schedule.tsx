@@ -266,7 +266,7 @@ export function Schedule() {
                 ) : null}
               </div>
               <div className={cm.cn(cm.flex({ direction: 'col', gap: 'xs' }), cm.sp('mt', 1))}>
-                {cell.games.slice(0, 3).map((g) => {
+                {cell.games.map((g) => {
                   const isLive = g.status === 'live' || g.status === 'in_progress'
                   const isFinal = g.status === 'final'
                   const tone = isLive
@@ -302,15 +302,6 @@ export function Schedule() {
                     </Link>
                   )
                 })}
-                {cell.games.length > 3 ? (
-                  <span className={cm.cn('text-[10px] text-on-surface-variant pl-2')}>
-                    {t(
-                      'schedule.moreGames',
-                      { count: cell.games.length - 3 },
-                      { defaultValue: '+{{count}} more' },
-                    )}
-                  </span>
-                ) : null}
               </div>
             </div>
           ))}

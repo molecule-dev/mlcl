@@ -542,7 +542,7 @@ export function Dashboard() {
                   </p>
                 ) : (
                   <ul>
-                    {invoices.slice(0, 5).map((i) => (
+                    {invoices.map((i) => (
                       <li key={i.id} className={'border-b border-outline-variant last:border-b-0'}>
                         <Link
                           to={`/invoices/${i.id}`}

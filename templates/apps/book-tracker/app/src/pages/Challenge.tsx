@@ -500,7 +500,7 @@ export function Challenge() {
               </p>
             ) : (
               <ul className={cm.grid({ cols: 3, gap: 'md' })}>
-                {finished.slice(0, 9).map((b) => (
+                {finished.map((b) => (
                   <li key={b.id}>
                     <Link
                       to={`/books/${b.id}`}
@@ -607,7 +607,7 @@ export function Challenge() {
               </p>
             ) : (
               <ul className={cm.grid({ cols: 3, gap: 'md' })}>
-                {inProgress.slice(0, 6).map((b) => {
+                {inProgress.map((b) => {
                   const pct = Math.round(b.my?.percent ?? 0)
                   return (
                     <li key={b.id}>

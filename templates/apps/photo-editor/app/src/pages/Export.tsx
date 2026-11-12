@@ -358,7 +358,7 @@ export function Export() {
                   className={cm.cn('divide-y mt-3')}
                   style={{ borderColor: 'var(--photo-panel-border)' }}
                 >
-                  {recentExports.slice(0, 6).map((row) => (
+                  {recentExports.map((row) => (
                     <li
                       key={row.id}
                       className={cm.cn('flex items-center justify-between py-2 text-xs')}
