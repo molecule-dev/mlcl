@@ -58304,6 +58304,7 @@
         "ResourceHttp",
         "QueryResourceConfig",
         "QueryResource",
+        "UseQueryResult",
         "prefetchQuery",
         "usePrefetch",
         "intentPrefetchProps",
