@@ -66,6 +66,25 @@ export function loadStock() {
 `
 
 describe('declared auth and HTTP reuse in generated verification', () => {
+  it('the generated query wrapper rejects an extra key nesting and accepts refetch', async () => {
+    const app = join(await directory(), 'app')
+    await createAppProject(app, 'warehouse', 'react')
+    await addPackages(app, ['@molecule/app-query-react'])
+    const broken = `import {useQuery} from '@molecule/app-query-react'
+      import {getQueryClient} from '@molecule/app-query'
+      export function useStock(key: unknown[], load: () => Promise<string[]>) {
+        const query = useQuery({key, fetch: load})
+        return {...query, reload: () => getQueryClient().invalidate([key])}
+      }`
+    const result = await findings(app, broken)
+    expect(result.map((message) => message.messageId)).toEqual(['nestedQueryKey'])
+    expect(result[0].severity).toBe(2)
+    expect(result[0].line).toBe(5)
+    expect(
+      await findings(app, broken.replace('getQueryClient().invalidate([key])', 'query.refetch()')),
+    ).toEqual([])
+  })
+
   it('the generated React guard rejects render-time navigation and accepts a declarative redirect', async () => {
     const app = join(await directory(), 'app')
     await createAppProject(app, 'staff-portal', 'react')

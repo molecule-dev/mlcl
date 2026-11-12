@@ -30,6 +30,8 @@
  * getState/getUser/getAccessToken contract; form defaults and other stores are not inferred.
  * Article checks cover awaited updates followed by a lookup using the same lexical
  * slug binding in that function. Cross-module control flow is not inferred.
+ * Query checks compare a useQuery key with one extra array around that same binding in a
+ * getQueryClient invalidation. Explicit nested keys and different keys remain valid.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
@@ -75,6 +77,9 @@ function declared(filename, cwd) {
         auth: pkg.name !== AUTH && Object.hasOwn(dependencies, AUTH),
         http: pkg.name !== HTTP && Object.hasOwn(dependencies, HTTP),
         article: Object.hasOwn(dependencies, '@molecule/api-resource-article'),
+        query:
+          Object.hasOwn(dependencies, '@molecule/app-query') ||
+          Object.hasOwn(dependencies, '@molecule/app-query-react'),
       }
     }
     if (dir === parse(dir).root) return { auth: false, http: false }
@@ -105,6 +110,8 @@ export default {
         'This hook seeds a React auth snapshot but never subscribes its setter to that client. Other consumers keep the signed-out snapshot after login. Use useAuth from @molecule/app-react, or subscribe to this client in an effect, update this snapshot on each notification, and return the unsubscribe cleanup.',
       renderNavigation:
         'This component calls the useNavigate result during render. React Router cannot navigate on the initial render, so a signed-out deep link can stay on the protected URL. Return <Navigate to={destination} replace /> or use AuthGuard from @molecule/app-ui-react; put imperative navigation in an effect or event handler.',
+      nestedQueryKey:
+        'This query is stored under key, but invalidate([key]) wraps that same key in another array and does not invalidate it. Pass the original key to invalidate(key). Invalidation only marks cached data stale: refresh mounted data with the hook result.refetch() when the installed version provides it, or invalidate(key) then await client.fetch with the same query options.',
       staleArticleSlug:
         'updateArticle can rename the slug, so this lookup can return null after a successful save. Use the successful update result’s article directly; if another lookup is needed, use article.slug from that result instead of the old slug. The service also sets updatedAt.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
@@ -125,7 +132,7 @@ export default {
         },
       }
     }
-    if (!packages.auth && !packages.http && !packages.article) return {}
+    if (!packages.auth && !packages.http && !packages.article && !packages.query) return {}
     const source = context.sourceCode ?? context.getSourceCode()
     const calls = []
     const contexts = []
@@ -798,6 +805,40 @@ export default {
           states.push(node)
       },
       'Program:exit'() {
+        if (packages.query) {
+          const queries = calls.flatMap((call) => {
+            if (!imported(call.callee, ['@molecule/app-query-react'], ['useQuery'])) return []
+            const options = value(call.arguments[0])
+            if (options?.type !== 'ObjectExpression') return []
+            const property = options.properties.find(
+              (prop) => prop.type === 'Property' && key(prop) === 'key',
+            )
+            return property ? [{ key: identity(property.value), owner: ownerFunction(call) }] : []
+          })
+          for (const call of calls) {
+            const callee = unwrap(call.callee)
+            if (callee.type !== 'MemberExpression' || key(callee) !== 'invalidate') continue
+            const client = value(callee.object)
+            if (
+              client?.type !== 'CallExpression' ||
+              !imported(client.callee, ['@molecule/app-query'], ['getQueryClient'])
+            )
+              continue
+            const argument = value(call.arguments[0])
+            if (argument?.type !== 'ArrayExpression' || argument.elements.length !== 1) continue
+            const wrapped = identity(argument.elements[0])
+            if (
+              queries.some(
+                (query) =>
+                  query.key === wrapped &&
+                  query.owner &&
+                  query.owner.range[0] < call.range[0] &&
+                  query.owner.range[1] > call.range[1],
+              )
+            )
+              context.report({ node: call, messageId: 'nestedQueryKey' })
+          }
+        }
         if (packages.article) {
           const module = '@molecule/api-resource-article'
           const updates = calls.filter((call) => {
