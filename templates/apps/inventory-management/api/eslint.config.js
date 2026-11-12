@@ -73,6 +73,9 @@ export default tseslint.config(
             'molecule-local/url-lists-use-list-route': 'warn',
           }
         : {}),
+      // For adapters implemented in other files, a file-specific override may declare
+      // persistenceFunctions: ['adapter.save']. Defaults require a visible HTTP write.
+
       ...(optimisticValue ? { 'molecule-local/server-toggles-use-optimistic-value': 'warn' } : {}),
       'molecule-local/buttons-have-an-action': 'warn',
       'molecule-local/placeholders-stay-out-of-record-fields': 'warn',

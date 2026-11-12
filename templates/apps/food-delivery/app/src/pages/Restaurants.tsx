@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
-import { useSearchParams } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -48,10 +48,9 @@ export function Restaurants() {
   const http = useHttpClient()
   const cart = useCart()
   // Honor the `?cuisine=` deep link used by Search's cuisine results.
-  const [searchParams] = useSearchParams()
-  const [activeCategory, setActiveCategory] = useState<string>(
-    () => searchParams.get('cuisine') ?? 'all',
-  )
+  const listRoute = useListRoute({ filters: { cuisine: { defaultValue: 'all' } } })
+  const activeCategory = listRoute.filters.cuisine ?? 'all'
+  const setActiveCategory = (category: string): void => listRoute.setFilters({ cuisine: category })
   const [restaurants, setRestaurants] = useState<Restaurant[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)

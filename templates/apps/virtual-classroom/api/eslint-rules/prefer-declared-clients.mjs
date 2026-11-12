@@ -1948,6 +1948,7 @@ export function scaffoldRules(parser) {
                   query.conditions.some(
                     (condition) =>
                       condition.operator === '=' &&
+                      value(condition.value, query.bindings)?.type !== 'Literal' &&
                       same(
                         condition.value,
                         property(value(call.arguments[2]), condition.field),
@@ -2195,12 +2196,7 @@ export function scaffoldRules(parser) {
             (/(?:List|Search|Results)(?:Query)?$/.test(name) || /^use[A-Z][A-Za-z]*s$/.test(name))
           )
         }
-        const isListStateKey = (key) => {
-          const normalized = key.replace(/([a-z0-9])([A-Z])/g, '$1_$2').toLowerCase()
-          return /(?:^|_)(?:q|query|search|filter|sort|page|category|status|tag|folder|range|tab|mood|method|receipted|date|type|state|stage|priority|severity|domain|shelf|order|direction|limit|offset)(?:$|_)/.test(
-            normalized,
-          )
-        }
+
         const isScalarState = (call) => {
           const initial = call.arguments[call.callee.name === 'useReducer' ? 1 : 0]
           return (
@@ -2338,8 +2334,7 @@ export function scaffoldRules(parser) {
               node === parent.arguments[0] &&
               parent.callee.type === 'Identifier' &&
               isListFetchingHook(parent.callee.name) &&
-              typeof optionKey === 'string' &&
-              isListStateKey(optionKey)
+              typeof optionKey === 'string'
             )
               return true
             if (
@@ -2347,8 +2342,7 @@ export function scaffoldRules(parser) {
               parent.arguments.includes(node) &&
               (controls.has(method(parent.callee)) ||
                 ((method(parent.callee) === 'get' || parent.callee.name === 'fetch') &&
-                  typeof optionKey === 'string' &&
-                  isListStateKey(optionKey))) &&
+                  typeof optionKey === 'string')) &&
               rendered(parent, owner)
             )
               return true
@@ -2359,13 +2353,85 @@ export function scaffoldRules(parser) {
                 opening?.type === 'JSXOpeningElement' &&
                 opening.name.type === 'JSXIdentifier' &&
                 /(?:List|Results|Table|Grid|Catalog)$/.test(opening.name.name) &&
-                attribute.name.type === 'JSXIdentifier' &&
-                isListStateKey(attribute.name.name)
+                attribute.name.type === 'JSXIdentifier'
               )
                 return true
             }
           }
           return false
+        }
+        const effectFactories = new Set(
+          source.ast.body
+            .filter(
+              (statement) =>
+                statement.type === 'ImportDeclaration' &&
+                statement.importKind !== 'type' &&
+                statement.source.value === 'react',
+            )
+            .flatMap((statement) =>
+              statement.specifiers
+                .filter(
+                  (entry) =>
+                    entry.type === 'ImportSpecifier' &&
+                    entry.importKind !== 'type' &&
+                    entry.imported.name === 'useEffect',
+                )
+                .map((entry) => variableFor(entry.local, entry.local.name)),
+            ),
+        )
+        const synchronized = (state) => {
+          if (!state.setter) return false
+          let found = false
+          const urlVariables = (expression, result = new Set()) => {
+            if (!expression || typeof expression.type !== 'string') return result
+            if (expression.type === 'Identifier' && state.readsUrl(expression)) {
+              const variable = variableFor(expression, expression.name)
+              if (variable) result.add(variable)
+            }
+            for (const [key, value] of Object.entries(expression)) {
+              if (key === 'parent') continue
+              if (Array.isArray(value)) value.forEach((child) => urlVariables(child, result))
+              else if (value && typeof value.type === 'string') urlVariables(value, result)
+            }
+            return result
+          }
+          const visit = (node) => {
+            if (found || !node || typeof node.type !== 'string') return
+            if (isFunction(node) && node !== state.owner) return
+            if (
+              node.type === 'CallExpression' &&
+              node.callee.type === 'Identifier' &&
+              effectFactories.has(variableFor(node.callee, node.callee.name))
+            ) {
+              const callback = node.arguments[0],
+                dependencies = node.arguments[1]
+              const expression =
+                callback?.body?.type === 'BlockStatement'
+                  ? callback.body.body.length === 1 &&
+                    callback.body.body[0].type === 'ExpressionStatement'
+                    ? callback.body.body[0].expression
+                    : null
+                  : callback?.body
+              if (
+                expression?.type === 'CallExpression' &&
+                expression.callee.type === 'Identifier' &&
+                variableFor(expression.callee, expression.callee.name) === state.setter &&
+                dependencies?.type === 'ArrayExpression'
+              ) {
+                const assigned = urlVariables(expression.arguments[0])
+                const reactive = urlVariables(dependencies)
+                if (assigned.size && [...assigned].every((variable) => reactive.has(variable)))
+                  found = true
+              }
+            }
+            for (const [key, value] of Object.entries(node)) {
+              if (key === 'parent') continue
+              if (Array.isArray(value)) value.forEach(visit)
+              else if (value && typeof value.type === 'string') visit(value)
+            }
+          }
+          visit(state.owner)
+          return found
         }
         return {
           VariableDeclarator(node) {
@@ -2387,12 +2453,13 @@ export function scaffoldRules(parser) {
               if (setter) collections.push({ variable, setter, owner })
             }
             // Local filters are valid. Only warn about a snapshot of a URL-owned value.
-            const initializer = node.init.arguments[0]
+            const initializer = node.init.arguments[node.init.callee.name === 'useReducer' ? 1 : 0]
             const urlFactories = new Set(
               source.ast.body
                 .filter(
                   (statement) =>
                     statement.type === 'ImportDeclaration' &&
+                    statement.importKind !== 'type' &&
                     [
                       'react-router',
                       'react-router-dom',
@@ -2404,9 +2471,10 @@ export function scaffoldRules(parser) {
                     .filter(
                       (entry) =>
                         entry.type === 'ImportSpecifier' &&
+                        entry.importKind !== 'type' &&
                         ['useSearchParams', 'useListRoute'].includes(entry.imported.name),
                     )
-                    .map((entry) => entry.local.name),
+                    .map((entry) => variableFor(entry.local, entry.local.name)),
                 ),
             )
             const readsUrl = (expression, seen = new Set()) => {
@@ -2416,7 +2484,8 @@ export function scaffoldRules(parser) {
                 const definition = variableFor(expression, expression.name)?.defs[0]?.node
                 if (
                   definition?.init?.type === 'CallExpression' &&
-                  urlFactories.has(definition.init.callee.name)
+                  definition.init.callee.type === 'Identifier' &&
+                  urlFactories.has(variableFor(definition.init.callee, definition.init.callee.name))
                 )
                   return true
                 if (definition?.init && definition.init !== expression)
@@ -2432,14 +2501,25 @@ export function scaffoldRules(parser) {
                     : child && typeof child.type === 'string' && readsUrl(child, seen)),
               )
             }
-            const snapshotsUrl = readsUrl(initializer)
+            const snapshotsUrl =
+              readsUrl(initializer) ||
+              (node.init.callee.name === 'useReducer' && readsUrl(node.init.arguments[2]))
             if (snapshotsUrl && isScalarState(node.init))
-              states.push({ node: first, variable, owner })
+              states.push({
+                node: first,
+                variable,
+                owner,
+                readsUrl,
+                setter:
+                  node.init.callee.name === 'useState' && node.id.elements[1]?.type === 'Identifier'
+                    ? variableFor(node.id.elements[1], node.id.elements[1].name)
+                    : null,
+              })
           },
           'Program:exit'() {
             const reported = new Set()
             for (const state of states) {
-              if (reported.has(state.variable)) continue
+              if (reported.has(state.variable) || synchronized(state)) continue
               const consumed = state.variable.references.some(
                 (reference) =>
                   within(reference.identifier, state.owner) &&
@@ -2467,7 +2547,13 @@ export function scaffoldRules(parser) {
           description:
             'Warn when a React module saves a toggled value with its own request instead of useOptimisticValue.',
         },
-        schema: [],
+        schema: [
+          {
+            type: 'object',
+            properties: { persistenceFunctions: { type: 'array', items: { type: 'string' } } },
+            additionalProperties: false,
+          },
+        ],
         messages: {
           useOptimisticValue:
             'This shows a toggled value at once and saves it with its own request, so a pending guard can drop the next click, or a slower response/refetch can replace it. Use `useOptimisticValue` from `@molecule/app-react`. {{rewrite}}',
@@ -2483,7 +2569,6 @@ export function scaffoldRules(parser) {
         const candidates = []
         const submitHandlers = new Set()
         const helperCommits = new Set()
-        const localCalls = new Set(['confirm', 'confirmDialog', 'alert', 'prompt'])
         const isFunction = (node) =>
           node?.type === 'FunctionDeclaration' ||
           node?.type === 'FunctionExpression' ||
@@ -2538,38 +2623,104 @@ export function scaffoldRules(parser) {
         // also return promises). Recognize HTTP/mutation methods, application save actions,
         // and imported API clients. This remains a structural warning, not a whole-program
         // proof that an arbitrarily named custom function reaches a server.
-        const persistenceCall = (node) => {
-          if (node?.type !== 'CallExpression') return false
-          if (setters.has(variableFor(unwrap(node.callee)))) return false
-          const name = callName(node)
-          if (typeof name !== 'string' || localCalls.has(name)) return false
+        const persistenceCall = (node, seen = new Set()) => {
+          if (node?.type !== 'CallExpression' || seen.has(node)) return false
+          seen.add(node)
+          const callee = unwrap(node.callee)
+          if (setters.has(variableFor(callee))) return false
           if (
-            [
-              'fetch',
-              'post',
-              'put',
-              'patch',
-              'delete',
-              'request',
-              'mutate',
-              'mutateasync',
-            ].includes(name.toLowerCase())
+            (context.options[0]?.persistenceFunctions ?? []).includes(
+              context.sourceCode.getText(node.callee),
+            )
+          )
+            return true
+          const verbs = new Set(['post', 'put', 'patch', 'delete', 'del'])
+          const modules = new Set([
+            '@molecule/app-http',
+            '@molecule/app-http-fetch',
+            '@molecule/app-http-axios',
+            'axios',
+            'ky',
+            'superagent',
+          ])
+          const origin = (id) => {
+            const def = variableFor(id)?.defs[0]
+            return def?.type === 'ImportBinding' ? def.parent.source.value : null
+          }
+          const client = (expression, visited = new Set()) => {
+            expression = unwrap(expression)
+            if (!expression || visited.has(expression)) return false
+            visited.add(expression)
+            if (expression.type === 'Identifier') {
+              if (modules.has(origin(expression))) return true
+              const def = variableFor(expression)?.defs[0]
+              return def?.type === 'Variable' && client(def.node.init, visited)
+            }
+            if (expression.type === 'CallExpression') {
+              const factory = unwrap(expression.callee)
+              if (factory.type === 'Identifier') {
+                const def = variableFor(factory)?.defs[0]
+                return (
+                  def?.type === 'ImportBinding' &&
+                  ['getClient', 'useHttpClient'].includes(def.node.imported?.name) &&
+                  (modules.has(def.parent.source.value) ||
+                    [
+                      '@molecule/app-react',
+                      '@molecule/app-vue',
+                      '@molecule/app-react-native',
+                    ].includes(def.parent.source.value))
+                )
+              }
+              return (
+                factory.type === 'MemberExpression' &&
+                factory.property.name === 'getClient' &&
+                client(factory.object, visited)
+              )
+            }
+            return false
+          }
+          const writeMethod = (value) =>
+            (value?.type === 'Literal' &&
+              typeof value.value === 'string' &&
+              ['POST', 'PUT', 'PATCH', 'DELETE'].includes(value.value.toUpperCase())) ||
+            (value?.type === 'ConditionalExpression' &&
+              writeMethod(value.consequent) &&
+              writeMethod(value.alternate))
+          if (
+            callee.type === 'Identifier' &&
+            callee.name === 'fetch' &&
+            !variableFor(callee)?.defs.length
+          ) {
+            const options = unwrap(node.arguments[1])
+            return (
+              options?.type === 'ObjectExpression' &&
+              options.properties.some(
+                (property) =>
+                  property.type === 'Property' &&
+                  (property.key.name ?? property.key.value) === 'method' &&
+                  writeMethod(unwrap(property.value)),
+              )
+            )
+          }
+          if (
+            callee.type === 'MemberExpression' &&
+            verbs.has(String(callName(node)).toLowerCase()) &&
+            client(callee.object)
           )
             return true
           if (
-            /^(?:save|persist|update|toggle|favorite|unfavorite|follow|unfollow|like|unlike|bookmark|unbookmark|star|unstar)(?:$|[A-Z_])/.test(
-              name,
-            ) ||
-            /^set[A-Z]/.test(name) ||
-            /^(?:api|http|client)(?:Post|Put|Patch|Delete|Request|Mutate)(?:$|[A-Z_])/.test(name)
+            callee.type === 'Identifier' &&
+            verbs.has(callee.name.toLowerCase()) &&
+            modules.has(origin(callee))
           )
             return true
-          const definition = variableFor(unwrap(node.callee))?.defs[0]
-          const source =
-            definition?.type === 'ImportBinding' ? definition.parent.source.value : null
-          return (
-            typeof source === 'string' && /(?:^|[/@-])(?:api|http|client)(?:$|[/.-])/.test(source)
-          )
+          const fn = functionFor(callee)
+          if (!fn) return false
+          let persists = false
+          walk(fn.body, (child) => {
+            if (child.type === 'CallExpression' && persistenceCall(child, seen)) persists = true
+          })
+          return persists
         }
         // `!value` or `!record.field`: the opposite of a value read now. A call's negation
         // (`!confirm()`) is a question, not a toggled value.
@@ -3213,8 +3364,6 @@ export function scaffoldRules(parser) {
             for (const specifier of node.specifiers) {
               const name = specifier.imported?.name ?? specifier.local?.name
               if (helpers.has(name)) helpers.add(specifier.local.name)
-              if (String(node.source.value).includes('analytics'))
-                localCalls.add(specifier.local.name)
             }
           },
           JSXAttribute(node) {
@@ -3359,7 +3508,7 @@ export function scaffoldRules(parser) {
                   methods.some((method) => ['POST', 'PUT', 'PATCH'].includes(method))
                 hit =
                   (toggled(unwrap(node.test), namesFor(fn)) || deleteAndWrite) &&
-                  branches.every(persistenceCall) &&
+                  branches.every((branch) => persistenceCall(branch)) &&
                   (promiseUsed(node, fn) ||
                     [node.consequent, node.alternate].every(
                       (branch) => branch.type === 'AwaitExpression',
@@ -3488,6 +3637,7 @@ export function scaffoldRules(parser) {
         },
       },
       create(context) {
+        const source = context.sourceCode
         const isFunction = (node) =>
           node?.type === 'FunctionDeclaration' ||
           node?.type === 'FunctionExpression' ||
@@ -3548,31 +3698,72 @@ export function scaffoldRules(parser) {
               !isFunction(call.arguments[0])
             )
               continue
-            let callsLoader = false
-            let setsState = false
-            let awaitsResult = false
+            const binding = (id) => {
+              if (id?.type !== 'Identifier') return null
+              for (let scope = source.getScope(id); scope; scope = scope.upper) {
+                const found = scope.set.get(id.name)
+                if (found) return found
+              }
+              return null
+            }
+            const parameters = new Set(
+              node.params.filter((param) => param.type === 'Identifier').map(binding),
+            )
+            const loaderCall = (expression) =>
+              expression?.type === 'CallExpression' &&
+              ((expression.callee.type === 'Identifier' &&
+                parameters.has(binding(expression.callee))) ||
+                (expression.callee.type === 'MemberExpression' &&
+                  expression.callee.property.name === 'current' &&
+                  refs.has(expression.callee.object.name)))
+            const resultFromLoader = (expression, seen = new Set()) => {
+              if (!expression || seen.has(expression)) return false
+              seen.add(expression)
+              if (expression.type === 'AwaitExpression') return loaderCall(expression.argument)
+              if (expression.type === 'Identifier') {
+                const definition = binding(expression)?.defs[0]
+                if (definition?.type === 'Variable')
+                  return resultFromLoader(definition.node.init, seen)
+                if (definition?.type === 'Parameter') {
+                  const fn = definition.node,
+                    owner = fn.parent
+                  return (
+                    owner?.type === 'CallExpression' &&
+                    owner.callee.type === 'MemberExpression' &&
+                    owner.callee.property.name === 'then' &&
+                    loaderCall(owner.callee.object) &&
+                    fn.params[0] === definition.name
+                  )
+                }
+                return false
+              }
+              if (expression.type === 'MemberExpression')
+                return resultFromLoader(expression.object, seen)
+              if (expression.type === 'ObjectExpression')
+                return expression.properties.some((property) =>
+                  resultFromLoader(property.value ?? property.argument, seen),
+                )
+              if (expression.type === 'ArrayExpression')
+                return expression.elements.some((element) => resultFromLoader(element, seen))
+              if (
+                ['TSAsExpression', 'TSNonNullExpression', 'ChainExpression'].includes(
+                  expression.type,
+                )
+              )
+                return resultFromLoader(expression.expression, seen)
+              return false
+            }
+            let storesLoaderResult = false
             walk(call.arguments[0].body, (inner) => {
-              if (inner.type === 'AwaitExpression') awaitsResult = true
               if (
                 inner.type === 'CallExpression' &&
-                inner.callee.type === 'MemberExpression' &&
-                inner.callee.property.name === 'then'
+                inner.callee.type === 'Identifier' &&
+                setters.has(inner.callee.name) &&
+                inner.arguments.some((argument) => resultFromLoader(argument))
               )
-                awaitsResult = true
-              if (inner.type !== 'CallExpression') return
-              const callee = inner.callee
-              if (callee.type === 'Identifier' && params.has(callee.name)) callsLoader = true
-              if (
-                callee.type === 'MemberExpression' &&
-                callee.object.type === 'Identifier' &&
-                refs.has(callee.object.name) &&
-                callee.property.type === 'Identifier' &&
-                callee.property.name === 'current'
-              )
-                callsLoader = true
-              if (callee.type === 'Identifier' && setters.has(callee.name)) setsState = true
+                storesLoaderResult = true
             })
-            if (!callsLoader || !setsState || !awaitsResult) continue
+            if (!storesLoaderResult) continue
             context.report({
               node: node.id ?? node,
               messageId: 'useQuery',
@@ -3615,6 +3806,27 @@ export function scaffoldRules(parser) {
       },
       create(context) {
         const source = context.sourceCode
+        const binding = (id) => {
+          if (id?.type !== 'Identifier') return null
+          for (let scope = source.getScope(id); scope; scope = scope.upper) {
+            const found = scope.set.get(id.name)
+            if (found) return found
+          }
+          return null
+        }
+        const urlFactory = (callee) => {
+          const def = binding(callee)?.defs[0]
+          return (
+            def?.type === 'ImportBinding' &&
+            def.parent.importKind !== 'type' &&
+            def.node.importKind !== 'type' &&
+            ['react-router', 'react-router-dom', '@molecule/app-routing-react-router'].includes(
+              def.parent.source.value,
+            ) &&
+            def.node.imported?.name === 'useSearchParams'
+          )
+        }
+
         const text = source.getText()
         const readers = new Set()
         const reads = []
@@ -3640,9 +3852,9 @@ export function scaffoldRules(parser) {
               node.id.elements[0]?.type === 'Identifier' &&
               node.init?.type === 'CallExpression' &&
               node.init.callee.type === 'Identifier' &&
-              node.init.callee.name === 'useSearchParams'
+              urlFactory(node.init.callee)
             )
-              readers.add(node.id.elements[0].name)
+              readers.add(binding(node.id.elements[0]))
           },
           BinaryExpression(node) {
             if (!['===', '==', '!==', '!='].includes(node.operator)) return
@@ -3664,7 +3876,7 @@ export function scaffoldRules(parser) {
               const key = literal(call.arguments[0])
               if (key === null || !/^[A-Za-z_][\w-]*$/.test(key) || !/^[\w-]+$/.test(value))
                 continue
-              reads.push({ node, reader: call.callee.object.name, key, value })
+              reads.push({ node, reader: binding(call.callee.object), key, value })
             }
           },
           JSXAttribute(node) {
@@ -3690,31 +3902,45 @@ export function scaffoldRules(parser) {
                 ).test(text)
               )
                 continue
-              const link = links.find((candidate) =>
-                new RegExp('/' + read.value + '/?$').test(candidate.tail.split(/[?#]/)[0]),
+              const owner =
+                read.node.parent?.type === 'VariableDeclarator'
+                  ? binding(read.node.parent.id)
+                  : null
+              const selected = (candidate) => {
+                for (const attribute of candidate.node.parent?.attributes ?? []) {
+                  if (
+                    attribute.type !== 'JSXAttribute' ||
+                    !['className', 'aria-current', 'aria-selected'].includes(attribute.name.name)
+                  )
+                    continue
+                  const expression = attribute.value?.expression
+                  let found = false
+                  const visit = (node) => {
+                    if (!node) return
+                    if (
+                      node === read.node ||
+                      (owner && node.type === 'Identifier' && binding(node) === owner)
+                    ) {
+                      found = true
+                      return
+                    }
+                    for (const key of source.visitorKeys[node.type] ?? []) {
+                      const child = node[key]
+                      if (Array.isArray(child)) child.forEach(visit)
+                      else visit(child)
+                    }
+                  }
+                  visit(expression)
+                  if (found) return true
+                }
+                return false
+              }
+              const link = links.find(
+                (candidate) =>
+                  new RegExp('/' + read.value + '/?$').test(candidate.tail.split(/[?#]/)[0]) &&
+                  selected(candidate),
               )
               if (!link) continue
-              // The link itself must derive its selected appearance from this query read.
-              let selectedByRead = false
-              const opening = link.node.parent
-              for (const attribute of opening?.attributes ?? []) {
-                if (
-                  attribute.type !== 'JSXAttribute' ||
-                  !['className', 'aria-current', 'aria-selected'].includes(attribute.name.name)
-                )
-                  continue
-                const expression = attribute.value?.expression
-                if (!expression) continue
-                const selection = source.getText(expression)
-                const owner =
-                  read.node.parent?.type === 'VariableDeclarator' ? read.node.parent.id?.name : null
-                if (
-                  (owner && new RegExp('\\b' + owner + '\\b').test(selection)) ||
-                  selection.includes(source.getText(read.node))
-                )
-                  selectedByRead = true
-              }
-              if (!selectedByRead) continue
               context.report({
                 node: read.node,
                 messageId: 'unreachable',
@@ -4073,7 +4299,10 @@ export function scaffoldRules(parser) {
               return
             for (let parent = node.parent; parent; parent = parent.parent) {
               if (parent.type === 'Property') {
-                const field = parent.key.name ?? parent.key.value
+                if (parent.computed && parent.key.type !== 'Literal') return
+                const field = parent.computed
+                  ? parent.key.value
+                  : (parent.key.name ?? parent.key.value)
                 if (fields.has(field))
                   context.report({ node, messageId: 'truncated', data: { field } })
                 return

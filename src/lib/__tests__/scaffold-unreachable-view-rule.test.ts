@@ -32,7 +32,12 @@ async function findings(source: string): Promise<Linter.LintMessage[]> {
 }
 
 /** An orders page with two views; `read` decides which is shown and `link` goes to the second. */
-const orders = (read: string, link: string, extra = ''): string => `export function Orders() {
+const orders = (
+  read: string,
+  link: string,
+  extra = '',
+): string => `import { Link, useLocation, useSearchParams } from 'react-router-dom'
+export function Orders() {
   const [searchParams, setSearchParams] = useSearchParams()
   const location = useLocation()
   const archived = ${read}

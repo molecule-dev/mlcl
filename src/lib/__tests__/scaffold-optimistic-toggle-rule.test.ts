@@ -57,6 +57,33 @@ const plugin = config.find((entry) => entry.plugins?.['molecule-local'])?.plugin
 ]
 const rule = plugin?.rules['server-toggles-use-optimistic-value']
 const ruleId = 'molecule-local/server-toggles-use-optimistic-value'
+// These fixture functions model transports implemented in other files. Declare that contract
+// explicitly; source names alone are not evidence that an arbitrary callback persists.
+const fixturePersistence = [
+  'favoriteArticle',
+  'toggleLike',
+  'favorite',
+  'client.post',
+  'client.delete',
+  'followUser',
+  'setFollow',
+  'setFavorite',
+  'http.delete',
+  'http.post',
+  'http.patch',
+  'http.put',
+  'http.request',
+  'persistSettings',
+  'saveSettings',
+  'request',
+  'api.favorite',
+  'api.unfavorite',
+  'http().post',
+  'http().delete',
+  'api.follow',
+  'api.unfollow',
+]
+
 const retained = JSON.parse(
   await readFile(new URL('./fixtures/optimistic-toggle-races.json', import.meta.url), 'utf8'),
 ) as Record<string, string>
@@ -126,7 +153,13 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
   it.each([false, true, null])(
     'preserves both boolean values in the retained nullable follow rewrite, starting at %s',
     async (initial) => {
-      const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+      const eslint = new ESLint({
+        cwd: dir,
+        overrideConfigFile: configPath,
+        overrideConfig: {
+          rules: { [ruleId]: ['warn', { persistenceFunctions: fixturePersistence }] },
+        },
+      })
       const source = await readFile(
         new URL('./fixtures/p318-l2406-Profile-before.tsx.txt', import.meta.url),
         'utf8',
@@ -176,7 +209,13 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
   )
 
   it('rewrites the retained event handler without treating its event as record identity', async () => {
-    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const eslint = new ESLint({
+      cwd: dir,
+      overrideConfigFile: configPath,
+      overrideConfig: {
+        rules: { [ruleId]: ['warn', { persistenceFunctions: fixturePersistence }] },
+      },
+    })
     const source = await readFile(
       new URL('./fixtures/p307-Buttons.tsx.txt', import.meta.url),
       'utf8',
@@ -193,7 +232,13 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
   })
 
   it('a generated notification toggle accepts two clicks while the first save is delayed', async () => {
-    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const eslint = new ESLint({
+      cwd: dir,
+      overrideConfigFile: configPath,
+      overrideConfig: {
+        rules: { [ruleId]: ['warn', { persistenceFunctions: fixturePersistence }] },
+      },
+    })
     const [result] = await eslint.lintText(
       `import { useState } from 'react'
 export function NotificationToggle({ settings }) {
@@ -252,7 +297,13 @@ export function NotificationToggle({ settings }) {
   })
 
   it('keeps a save that reads its handler parameter out of a lifted commit', async () => {
-    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const eslint = new ESLint({
+      cwd: dir,
+      overrideConfigFile: configPath,
+      overrideConfig: {
+        rules: { [ruleId]: ['warn', { persistenceFunctions: fixturePersistence }] },
+      },
+    })
     const [result] = await eslint.lintText(
       `import { useState } from 'react'
 export function Notifications({ settings }) {
@@ -295,7 +346,10 @@ export function Notifications({ settings }) {
       const eslint = new ESLint({
         cwd: dir,
         overrideConfigFile: configPath,
-        overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
+        overrideConfig: {
+          languageOptions: { parserOptions: { tsconfigRootDir: dir } },
+          rules: { [ruleId]: ['warn', { persistenceFunctions: fixturePersistence }] },
+        },
       })
       const source = `import { useState } from 'react'
 export function Switch({ settings }) {
@@ -349,7 +403,10 @@ export function Switch({ settings }) {
       const eslint = new ESLint({
         cwd: dir,
         overrideConfigFile: configPath,
-        overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
+        overrideConfig: {
+          languageOptions: { parserOptions: { tsconfigRootDir: dir } },
+          rules: { [ruleId]: ['warn', { persistenceFunctions: fixturePersistence }] },
+        },
       })
       const [result] = await eslint.lintText(retained[run], { filePath: 'Retained.tsx' })
       const findings = result.messages.filter((message) => message.ruleId === ruleId)
@@ -376,7 +433,13 @@ export function Switch({ settings }) {
   it.each(['direct', 'alias', 'then'])(
     'does not copy an unverified %s single-resource generic into a runnable migration',
     async (shape) => {
-      const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+      const eslint = new ESLint({
+        cwd: dir,
+        overrideConfigFile: configPath,
+        overrideConfig: {
+          rules: { [ruleId]: ['warn', { persistenceFunctions: fixturePersistence }] },
+        },
+      })
       let source = `import {useState} from 'react'
 import {unwrapSingle as resource} from '@molecule/app-http'
 export function Saved({record, onChange}) {
@@ -407,7 +470,13 @@ export function Saved({record, onChange}) {
   )
 
   it('keeps a projected saved body and an unrelated cached decode in a runnable migration', async () => {
-    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const eslint = new ESLint({
+      cwd: dir,
+      overrideConfigFile: configPath,
+      overrideConfig: {
+        rules: { [ruleId]: ['warn', { persistenceFunctions: fixturePersistence }] },
+      },
+    })
     const source = `import {useState} from 'react'
 import {unwrapSingle as resource} from '@molecule/app-http'
 export function Saved({record, onChange}) {
@@ -426,7 +495,10 @@ export function Saved({record, onChange}) {
     const eslint = new ESLint({
       cwd: dir,
       overrideConfigFile: configPath,
-      overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
+      overrideConfig: {
+        languageOptions: { parserOptions: { tsconfigRootDir: dir } },
+        rules: { [ruleId]: ['warn', { persistenceFunctions: fixturePersistence }] },
+      },
     })
     const [result] = await eslint.lintText(favoriteButton, { filePath: 'FavoriteButton.tsx' })
     const findings = result.messages.filter((message) => message.ruleId === ruleId)
@@ -448,6 +520,7 @@ export function Saved({record, onChange}) {
     tester.run('server-toggles-use-optimistic-value', rule, {
       valid: [
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'an initial asynchronous collection load does not establish a refetching toggle',
           filename: 'Pipeline.tsx',
           code: `import { useEffect, useState } from 'react'
@@ -466,6 +539,7 @@ export function Pipeline() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a local panel with a busy guard posts analytics without saving its open flag',
           filename: 'Panel.tsx',
           code: `import { useState } from 'react'
@@ -482,6 +556,7 @@ export function Panel() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a custom promise queue serializes all requests and reads its current value inside it',
           filename: 'Switch.tsx',
           code: `import { useState, useRef } from 'react'
@@ -501,11 +576,13 @@ export function Switch({ settings }) {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'retained l1391 adopted the shared favorite/count and follow controllers',
           filename: 'Buttons.tsx',
           code: retained.l1391,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'opening a local panel while posting unrelated analytics is not a server toggle',
           filename: 'Panel.tsx',
           code: `import { useState } from 'react'
@@ -516,6 +593,7 @@ export function Panel() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'returning a local setter is not a server request',
           filename: 'Panel.tsx',
           code: `import { useState } from 'react'
@@ -530,6 +608,7 @@ export function Panel() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'an asynchronous local animation persists no preference',
           filename: 'Panel.tsx',
           code: `import { useState } from 'react'
@@ -544,6 +623,7 @@ export function Panel() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a form submit wrapper calls a draft save',
           filename: 'Settings.tsx',
           code: `import { useState } from 'react'
@@ -558,6 +638,7 @@ export function Settings() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a controller commit is protected even when it updates local state',
           filename: 'Switch.tsx',
           code: `import { useState } from 'react'
@@ -573,6 +654,7 @@ export function Switch() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a parameter shadowing a setter is not that setter',
           filename: 'Local.tsx',
           code: `import { useState } from 'react'
@@ -586,6 +668,7 @@ export function Local() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a local panel toggle awaits analytics but saves no preference',
           filename: 'Panel.tsx',
           code: `import { useState } from 'react'
@@ -601,6 +684,7 @@ export function Panel() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a local panel loads data without persisting its open flag',
           filename: 'Panel.tsx',
           code: `import { useState } from 'react'
@@ -615,6 +699,7 @@ export function Panel() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a confirmation dialog returns a decision, not a saved switch',
           filename: 'Delete.tsx',
           code: `import { useState } from 'react'
@@ -629,6 +714,7 @@ export function Delete() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a form submit changes local feedback before saving the draft',
           filename: 'Settings.tsx',
           code: `import { useState } from 'react'
@@ -644,6 +730,7 @@ export function Settings() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a setter in an uncalled nested function changes nothing before the request',
           filename: 'Settings.tsx',
           code: `import { useState } from 'react'
@@ -659,6 +746,7 @@ export function Settings() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a local object choosing a method is not a request',
           filename: 'Options.tsx',
           code: `import { useState } from 'react'
@@ -673,6 +761,7 @@ export function Options() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a cyclic promise alias does not crash lint',
           filename: 'Unusual.tsx',
           code: `import { useState } from 'react'
@@ -688,6 +777,7 @@ export function Unusual() {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'the same toggle through useOptimisticValue',
           filename: 'FavoriteButton.tsx',
           code: `import { useOptimisticValue } from '@molecule/app-react'
@@ -704,6 +794,7 @@ export function FavoriteButton({ article }) {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'separate create and delete actions are not a toggle',
           filename: 'Comments.tsx',
           code: `import { useState } from 'react'
@@ -719,6 +810,7 @@ export function Comments({ slug }) {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a controlled checkbox that only reports the flip',
           filename: 'Checkbox.tsx',
           code: `export function Checkbox({ checked, onChange }) {
@@ -727,6 +819,7 @@ export function Comments({ slug }) {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a local panel toggle beside an unrelated awaited call',
           filename: 'Panel.tsx',
           code: `import { useState } from 'react'
@@ -742,6 +835,7 @@ export function Panel() {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'an editor choosing create or update is not a toggle',
           filename: 'Editor.tsx',
           code: `import { useState } from 'react'
@@ -757,6 +851,7 @@ export function Editor({ article }) {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'an empty-field guard before a save',
           filename: 'NewComment.tsx',
           code: `import { useState } from 'react'
@@ -772,6 +867,7 @@ export function NewComment() {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'an API client module chooses the request for a caller-supplied flag',
           filename: 'api.ts',
           code: `export function setFollowing(username: string, following: boolean) {
@@ -781,6 +877,7 @@ export function NewComment() {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a star saved first and shown after the refetch',
           filename: 'BoardDetail.tsx',
           code: `import { useState } from 'react'
@@ -795,6 +892,7 @@ export function BoardDetail({ initial }) {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'an HTTP method chosen between DELETE and POST, shown after the answer',
           filename: 'ArticlePreview.tsx',
           code: `export function ArticlePreview({ article, onChange }) {
@@ -810,6 +908,7 @@ export function BoardDetail({ initial }) {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a negated option that is not the field it sets',
           filename: 'Login.tsx',
           code: `import { useState } from 'react'
@@ -823,6 +922,7 @@ export function Login() {
 `,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a non-optimistic server toggle disables the button until the answer',
           filename: 'SettingsSwitch.tsx',
           code: `import { useState } from 'react'
@@ -839,6 +939,7 @@ export function SettingsSwitch({ settings }) {
 }`,
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'X1 l1259 shape: a follow button that changes only when the server answers',
           filename: 'Profile.tsx',
           code: `import { useState } from 'react'
@@ -854,6 +955,7 @@ export function Profile({ initial }) {
       ],
       invalid: [
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'non-X1: a like and count flip followed by a pending guard drops the next click',
           filename: 'LikeButton.tsx',
           code: `import { useState } from 'react'
@@ -873,6 +975,7 @@ export function LikeButton({ post }) {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a toggle chooses POST or DELETE with an if statement',
           filename: 'Bookmark.tsx',
           code: `import { useState } from 'react'
@@ -888,6 +991,7 @@ export function Bookmark({ item }) {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'non-X1: a refetch effect overwrites the settings switch while its save runs',
           filename: 'SettingsSwitch.tsx',
           code: `import { useState, useEffect } from 'react'
@@ -903,6 +1007,7 @@ export function SettingsSwitch({ settings, refresh }) {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a non-async handler returns the save promise',
           filename: 'Switch.tsx',
           code: `import { useState } from 'react'
@@ -918,6 +1023,7 @@ export function Switch() {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a request options object chooses DELETE versus PUT',
           filename: 'Switch.tsx',
           code: `import { useState } from 'react'
@@ -933,12 +1039,14 @@ export function Switch() {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'an unused optimistic helper import does not exempt a racing handler',
           filename: 'FavoriteButton.tsx',
           code: `import { useOptimisticValue } from '@molecule/app-react'\n${favoriteButton}`,
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a protected sibling does not exempt another server toggle',
           filename: 'Settings.tsx',
           code: `import { useState } from 'react'
@@ -955,6 +1063,7 @@ export function Settings() {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'DELETE versus POST chosen from the current value',
           filename: 'FavoriteButton.tsx',
           code: `import { useState } from 'react'
@@ -969,6 +1078,7 @@ export function FavoriteButton() {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a TypeScript satisfies expression retains its toggled value',
           filename: 'Switch.tsx',
           code: `import { useState } from 'react'
@@ -984,12 +1094,14 @@ export function Switch() {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'X1 l1296: a request chosen by the toggled value, each response applied',
           filename: 'FavoriteButton.tsx',
           code: favoriteButton,
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'X1 l1297: a toggled value held in a variable and passed to the save',
           filename: 'FavoriteButton.tsx',
           code: `import { useState } from 'react'
@@ -1008,6 +1120,7 @@ export function FavoriteButton({ slug, article }) {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'X1 l1285: an unawaited request whose promise is caught',
           filename: 'Conduit.tsx',
           code: `import { useState } from 'react'
@@ -1025,6 +1138,7 @@ export function FavoriteButton({ slug, favorited }) {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'the HTTP method chosen between DELETE and POST after the button changed',
           filename: 'ArticlePreview.tsx',
           code: `import { useState } from 'react'
@@ -1044,6 +1158,7 @@ export function ArticlePreview({ article }) {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'non-X1: a grocery checkbox flipped in the list, then saved from the row',
           filename: 'GroceryList.tsx',
           code: `import { useState } from 'react'
@@ -1059,6 +1174,7 @@ export function GroceryList({ initial }) {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'non-X1: a setting switch whose save is chained with then',
           filename: 'NotificationsSwitch.tsx',
           code: `import { useState } from 'react'
@@ -1075,6 +1191,7 @@ export function NotificationsSwitch({ settings }) {
           errors: [{ messageId: 'useOptimisticValue' }],
         },
         {
+          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'non-X1: a star button through fetch, reported once per handler',
           filename: 'StarButton.tsx',
           code: `import { useState } from 'react'

@@ -31,7 +31,32 @@ await symlink(
 )
 afterAll(() => rm(root, { recursive: true, force: true }))
 const config = (await import(pathToFileURL(join(root, 'eslint.config.mjs')).href)).default
-const engine = new ESLint({ cwd: root, overrideConfig: config, overrideConfigFile: true })
+const engine = new ESLint({
+  cwd: root,
+  overrideConfig: [
+    ...config,
+    {
+      rules: {
+        'molecule-local/server-toggles-use-optimistic-value': [
+          'warn',
+          {
+            persistenceFunctions: [
+              'favoriteArticle',
+              'unfavoriteArticle',
+              'apiPost',
+              'apiDelete',
+              'clientDelete',
+              'clientPost',
+              'http.delete',
+              'http.post',
+            ],
+          },
+        ],
+      },
+    },
+  ],
+  overrideConfigFile: true,
+})
 const findings = async (source: string): Promise<string[]> => {
   const report = await engine.lintText(source, { filePath: 'src/Control.tsx' })
   expect(report.flatMap((file) => file.messages.filter((row) => row.fatal))).toEqual([])

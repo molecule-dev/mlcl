@@ -107,6 +107,60 @@ vi.mock(
   () => ({ NimbusFileTypeIcon: () => null }),
 )
 
+vi.mock('../../../templates/apps/food-delivery/app/src/lib/useCart.js', () => ({
+  useCart: () => ({ lines: [] }),
+}))
+vi.mock('../../../templates/apps/food-delivery/app/src/components/RestaurantsHero.js', () => ({
+  RestaurantsHero: () => null,
+}))
+vi.mock('../../../templates/apps/food-delivery/app/src/components/CartHero.js', () => ({
+  CartHero: () => null,
+}))
+vi.mock(
+  '../../../templates/apps/food-delivery/app/src/components/FeaturedRestaurantsGrid.js',
+  () => ({
+    FeaturedRestaurantsGrid: ({
+      restaurants,
+    }: {
+      restaurants: Array<{ id: string; name: string }>
+    }) =>
+      createElement(
+        'ul',
+        null,
+        restaurants.map((row) => createElement('li', { key: row.id }, row.name)),
+      ),
+  }),
+)
+vi.mock('../../../templates/apps/food-delivery/app/src/components/CategoryChips.js', () => ({
+  CategoryChips: ({
+    categories,
+    activeKey,
+    onSelect,
+  }: {
+    categories: Array<{ key: string; label: string }>
+    activeKey: string
+    onSelect: (key: string) => void
+  }) =>
+    createElement(
+      'nav',
+      null,
+      categories.map((row) =>
+        createElement(
+          'button',
+          {
+            key: row.key,
+            'data-testid': 'cuisine-' + row.key,
+            'aria-pressed': row.key === activeKey,
+            onClick: () => onSelect(row.key),
+          },
+          row.label,
+        ),
+      ),
+    ),
+}))
+const { Restaurants } =
+  await import('../../../templates/apps/food-delivery/app/src/pages/Restaurants')
+
 const { Explore } = await import('../../../templates/apps/photo-sharing/app/src/pages/Explore')
 const { Issues } = await import('../../../templates/apps/newsletter/app/src/pages/Issues')
 const { MyFiles } = await import('../../../templates/apps/cloud-file-manager/app/src/pages/MyFiles')
@@ -641,5 +695,63 @@ describe('flagship list controls restore their values on initial load and Back',
     await back(router)
     expect(new URLSearchParams(router.state.location.search).get('stops')).toBe('one_stop')
     expect(button().getAttribute('aria-pressed')).toBe('false')
+  })
+})
+
+describe('food-delivery URL-owned category selection', () => {
+  beforeEach(() =>
+    mocks.get.mockImplementation(async (request: string) => ({
+      data:
+        request === '/api/restaurants'
+          ? [
+              { id: 'pizza', name: 'Pizza place', category: 'pizza' },
+              { id: 'sushi', name: 'Sushi place', category: 'sushi' },
+            ]
+          : [],
+    })),
+  )
+  it('food-delivery follows same-page query navigation and Back', async () => {
+    const router = await mount(
+      '/restaurants',
+      createElement(Restaurants),
+      '/restaurants?cuisine=pizza',
+    )
+    expect(
+      container.querySelector('[data-testid="cuisine-pizza"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+    await act(async () => {
+      await router.navigate('/restaurants?cuisine=sushi')
+    })
+    await flush()
+    expect(
+      container.querySelector('[data-testid="cuisine-sushi"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+    expect(container.querySelector('[data-testid="restaurants-section"]')?.textContent).toContain(
+      'Sushi place',
+    )
+    expect(
+      container.querySelector('[data-testid="restaurants-section"]')?.textContent,
+    ).not.toContain('Pizza place')
+    await back(router)
+    expect(
+      container.querySelector('[data-testid="cuisine-pizza"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+  })
+  it('food-delivery category controls write URL history and survive reload', async () => {
+    const router = await mount(
+      '/restaurants',
+      createElement(Restaurants),
+      '/restaurants?cuisine=pizza',
+    )
+    await click('[data-testid="cuisine-sushi"]')
+    expect(new URLSearchParams(router.state.location.search).get('cuisine')).toBe('sushi')
+    await reload(router)
+    expect(
+      container.querySelector('[data-testid="cuisine-sushi"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
+    await back(router)
+    expect(
+      container.querySelector('[data-testid="cuisine-pizza"]')?.getAttribute('aria-pressed'),
+    ).toBe('true')
   })
 })
