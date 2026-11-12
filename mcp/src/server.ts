@@ -772,7 +772,7 @@ server.registerTool(
   {
     title: 'Run the project’s checks',
     description:
-      'Run the project’s own checks — typecheck, lint (changed files only), build, unit tests, e2e — discovered from its package.json scripts, concurrently with e2e after the build, and get ONE compact report back: per step passed/failed with duration, the first actionable errors (tsc/eslint/vitest/Playwright shapes), and the build’s output manifest. The whole verification loop in one call instead of hand-running each script and grepping its output. The full log of a failed step is kept at node_modules/.cache/mlcl-check/.',
+      'Run the project’s own checks — typecheck, lint, build, unit tests, e2e — discovered from its package.json scripts, concurrently with e2e after the build, and get ONE compact report back: per step passed/failed with duration, the first actionable errors (tsc/eslint/vitest/Playwright shapes), and the build’s output manifest. The whole verification loop in one call instead of hand-running each script and grepping its output. The full log of a failed step is kept at node_modules/.cache/mlcl-check/.',
     inputSchema: {
       directory: z.string().optional().describe('Project root (default cwd)'),
       steps: z

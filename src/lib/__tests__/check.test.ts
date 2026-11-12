@@ -1,6 +1,8 @@
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { execFileSync } from 'node:child_process'
+import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs'
+import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 
 import { afterEach, describe, expect, it } from 'vitest'
 
@@ -47,6 +49,13 @@ function pkg(overrides: Partial<CheckPackage>): CheckPackage {
 }
 
 describe('planCheckSteps', () => {
+  it('preserves the project lint script, flags and lifecycle in every repository', () => {
+    const { steps } = planCheckSteps(
+      [pkg({ scripts: { lint: 'eslint --config company.config.mjs --max-warnings 0 src/' } })],
+      { budgetMs: BUDGET, steps: ['lint'] },
+    )
+    expect(steps[0].command).toBe('npm run --silent lint')
+  })
   it('checks a plain root project with its own scripts', () => {
     const { steps, skipped } = planCheckSteps(
       [pkg({ scripts: { build: 'tsc', test: 'vitest run', lint: 'eslint .' } })],
@@ -172,6 +181,28 @@ describe('extractStepErrors', () => {
 })
 
 describe('runCheckLocal', () => {
+  it('reports the real strict lint failure and runs prelint for an inventory project', async () => {
+    const root = fixtureDir({
+      'package.json': JSON.stringify({
+        private: true,
+        scripts: {
+          prelint: "node -e \"require('fs').writeFileSync('prelint-ran', 'yes')\"",
+          lint: 'eslint --config eslint.config.mjs --max-warnings 0 src/',
+        },
+      }),
+      'eslint.config.mjs': "export default [{ rules: { 'no-unused-vars': 'warn' } }]\n",
+      'src/inventory.js': 'const inventoryCount = 1\n',
+    })
+    execFileSync('git', ['init', '-q', root])
+    const require = createRequire(import.meta.url)
+    const eslint = dirname(require.resolve('eslint/package.json'))
+    mkdirSync(join(root, 'node_modules', '.bin'), { recursive: true })
+    symlinkSync(join(eslint, 'bin', 'eslint.js'), join(root, 'node_modules', '.bin', 'eslint'))
+    const result = await runCheckLocal(root, { steps: ['lint'] }, { budgetMs: 30_000 })
+    expect(result.ok).toBe(false)
+    expect(readFileSync(join(root, 'prelint-ran'), 'utf8')).toBe('yes')
+    expect(result.report).toContain('FAILED')
+  })
   it('runs a passing build step and reports its output manifest', async () => {
     const root = fixtureDir({
       'package.json': '{"scripts":{"build":"mkdir -p dist && printf hi > dist/index.txt"}}',

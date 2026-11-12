@@ -4,7 +4,7 @@ import { CHECK_STEP_KINDS, runCheckLocal } from '../lib/check.js'
 import { ui } from '../lib/ui.js'
 
 /**
- * Run the project's own checks — typecheck, lint (changed files), build, unit
+ * Run the project's own checks — typecheck, lint, build, unit
  * tests, e2e — discovered from its package.json scripts, concurrently (e2e
  * after the build), and print one compact report with the first actionable
  * errors. The local twin of the IDE's `check` tool: one call instead of

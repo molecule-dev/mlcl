@@ -132,9 +132,6 @@ export interface PlanCheckOptions {
 /** Scripts that type-check, in preference order. */
 const TYPECHECK_SCRIPTS = ['typecheck', 'type-check', 'check-types', 'tsc']
 
-/** Files an eslint lint step considers. */
-const LINTABLE = String.raw`\.(ts|tsx|js|jsx|mjs|cjs|mts|cts|vue|svelte)$`
-
 /**
  * A step name's filesystem-safe form, for its log file.
  *
@@ -289,24 +286,6 @@ export function planCheckSteps(
     if (wanted.has('lint')) {
       const lint = p.scripts.lint
       if (!lint) skip('lint', label('lint', p), 'no lint script')
-      else if (/\beslint\b/.test(lint))
-        add(
-          'lint',
-          p,
-          // Changed files only, the way a pre-commit hook lints: modified and
-          // untracked, as git sees them from this package dir. Outside a git
-          // repo there is no "changed", so the script runs as written.
-          [
-            'if git rev-parse --is-inside-work-tree >/dev/null 2>&1; then',
-            `  files=$({ git diff --name-only --relative HEAD; git ls-files --others --exclude-standard; } 2>/dev/null | grep -E '${LINTABLE}' | sort -u | while IFS= read -r f; do [ -f "$f" ] && printf '%s\\n' "$f"; done)`,
-            '  if [ -z "$files" ]; then echo __MOL_NO_CHANGED__; exit 0; fi',
-            `  echo "__MOL_LINT_FILES__ $(printf '%s\\n' "$files" | wc -l)"`,
-            `  printf '%s\\n' "$files" | xargs -d '\\n' npx --no-install eslint`,
-            'else',
-            `  npm run --silent lint`,
-            'fi',
-          ].join('\n'),
-        )
       else add('lint', p, 'npm run --silent lint')
     }
     if (wanted.has('build')) {
