@@ -202,7 +202,17 @@ describe('framework-scoped URL list guidance', () => {
   })
 
   it('keeps React Router guidance in its declaring workspace', () => {
-    expect(routing(['@molecule/app-routing-react-router'], 'api')).not.toContain('useListRoute')
+    const entries = buildCapabilityMap(registry, [
+      { name: '@molecule/app-routing', workspace: 'app' },
+      { name: '@molecule/app-routing-react-router', workspace: 'api' },
+    ])
+    // The binding now owns its recipe. Its declaration in another workspace must not
+    // make the interface's app entry prescribe that binding.
+    const core = entries.find((entry) => entry.name === '@molecule/app-routing')!
+    expect([...core.configuration, ...core.guidance].join('\n')).not.toContain('useListRoute')
+    const binding = entries.find((entry) => entry.name === '@molecule/app-routing-react-router')!
+    expect(binding.workspaces).toEqual(['api'])
+    expect(binding.configuration.join('\n')).toContain('useListRoute')
   })
 
   it('names the binding hooks for one-off query values and address credentials', () => {

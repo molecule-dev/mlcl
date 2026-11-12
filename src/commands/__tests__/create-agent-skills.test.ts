@@ -237,10 +237,15 @@ describe('MCP scaffold_project inherits the delivery', () => {
       '@molecule/app-auth',
       '@molecule/app-http',
       '@molecule/app-routing',
+      '@molecule/app-routing-react-router',
       '@molecule/app-state',
     ])
-    const routing = result.capabilityMap?.find((entry) => entry.name === '@molecule/app-routing')
-    expect(routing?.guidance.join('\n')).toContain('useListRoute')
+    const routing = result.capabilityMap?.find(
+      (entry) => entry.name === '@molecule/app-routing-react-router',
+    )
+    expect(routing?.configuration.join('\n')).toContain('useListRoute')
+    const app = readFileSync(join(dir, 'proj', 'app', 'src', 'App.tsx'), 'utf8')
+    expect(app).toContain('const list = useListRoute(')
     const state = result.capabilityMap?.find((entry) => entry.name === '@molecule/app-state')
     expect(state?.guidance.join('\n')).toContain('useOptimisticValue')
     const auth = result.capabilityMap?.find((entry) => entry.name === '@molecule/app-auth')

@@ -59222,14 +59222,6 @@
       "bondSetter": "setRouter",
       "path": "packages/app/core/routing",
       "decisionGuide": {
-        "bindingGuidance": {
-          "@molecule/app-routing-react-router": [
-            "React Router URL lists: start with `const pages = useListRoute()` from `@molecule/app-routing-react-router`; `filters` and `selections` are optional. Use `page`, `offset` and `params` for requests, `href({ page: 2 })` for links. Pass `pageSize` (default 20) to match the request limit and footer; `offset` is `(page - 1) * pageSize`. Do not mirror URL values in state.",
-            "A route with its own path params uses the hook unchanged: on `/category/books` matched by `/category/:slug`, `pages.href({ page: 2 })` is `/category/books?page=2`, without a duplicate query filter. On `/?view=mine` it is `/?view=mine&page=2` (existing query order, page last). Page one omits `page`; unrelated queries and hash survive. Filter or selection changes reset page atomically. Add `path` only to change path params, or `selections` to link between views.",
-            "Protected views use `requiresAuth: true` and `auth: { status, redirectTo }`; load only with `canLoad`. Adapt an app-owned session: `const routeAuthStatus = restoring ? 'loading' : failed ? 'unavailable' : user ? 'authenticated' : 'unauthenticated'`. Keep `restoring` true until restoration decides. Only confirmed `unauthenticated` redirects, with `state.returnTo`; `loading` and `unavailable` wait. Example: `const list = useListRoute({ selections: { all: { path: '/orders' }, mine: { path: '/orders', query: { view: 'mine' }, requiresAuth: true } }, auth: { status: routeAuthStatus, redirectTo: '/login' } })`. `list.href({ selection: 'all' })` resets to `/orders` from `/orders?view=mine&page=4`.",
-            "Other query reads can use `useMoleculeQuery()` inside your existing React Router. A one-time credential (reset token or OAuth `code`) uses `useConsumedSearchParam(name)`: `const [token] = useConsumedSearchParam('token')` retains the value and removes that URL key. Neither hook needs `MoleculeRouterProvider`. Native query defaults/options and other uncovered operations can stay local."
-          ]
-        },
         "configuration": [
           "URL-backed lists (`?page=2`, `?status=open`, a tab such as Mine/All, `/category/:slug`): keep the page, filters and tab in the URL only, read and change them through the declared framework binding, and return to page one when a filter or tab changes.",
           "Signed-in-only views reached by URL: wait for the session restore, then send only a confirmed signed-out visitor to the sign-in page with a return path; an unavailable session is not signed out."
@@ -59433,6 +59425,17 @@
       ],
       "framework": "react",
       "path": "packages/app/bonds/routing/react-router",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/App.tsx"
+        ],
+        "configuration": [
+          "React Router URL lists: start with `const pages = useListRoute()` from `@molecule/app-routing-react-router`; `filters` and `selections` are optional. Use `page`, `offset` and `params` for requests, `href({ page: 2 })` for links. Pass `pageSize` (default 20) to match the request limit and footer; `offset` is `(page - 1) * pageSize`. Do not mirror URL values in state.",
+          "A route with its own path params uses the hook unchanged: on `/category/books` matched by `/category/:slug`, `pages.href({ page: 2 })` is `/category/books?page=2`, without a duplicate query filter. On `/?view=mine` it is `/?view=mine&page=2` (existing query order, page last). Page one omits `page`; unrelated queries and hash survive. Filter or selection changes reset page atomically. Add `path` only to change path params, or `selections` to link between views.",
+          "The URL alone selects the view: hiding its link or combining a URL match with user availability does not guard a direct visit. Protected views use `requiresAuth: true` and `auth: { status, redirectTo }`; load only with `canLoad`. Adapt an app-owned session: `const routeAuthStatus = restoring ? 'loading' : failed ? 'unavailable' : user ? 'authenticated' : 'unauthenticated'`. Keep `restoring` true until restoration decides. Only confirmed `unauthenticated` redirects, with `state.returnTo`; `loading` and `unavailable` wait. Example: `const list = useListRoute({ selections: { all: { path: '/orders' }, mine: { path: '/orders', query: { view: 'mine' }, requiresAuth: true } }, auth: { status: routeAuthStatus, redirectTo: '/login' } })`. `list.href({ selection: 'all' })` resets to `/orders` from `/orders?view=mine&page=4`.",
+          "Other query reads can use `useMoleculeQuery()` inside your existing React Router. A one-time credential (reset token or OAuth `code`) uses `useConsumedSearchParam(name)`: `const [token] = useConsumedSearchParam('token')` retains the value and removes that URL key. Neither hook needs `MoleculeRouterProvider`. Native query defaults/options and other uncovered operations can stay local."
+        ]
+      },
       "intentHints": [
         "react router",
         "client side routing react",
