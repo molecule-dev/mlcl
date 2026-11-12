@@ -66,6 +66,31 @@ export function loadStock() {
 `
 
 describe('declared auth and HTTP reuse in generated verification', () => {
+  it.each(['react', 'vue', 'react-native'])(
+    'the generated %s account config rejects the legacy adapter parameter trap',
+    async (framework) => {
+      const app = join(await directory(), 'app')
+      await createAppProject(app, 'member-directory', framework)
+      await addPackages(app, ['@molecule/app-auth'])
+      const broken = `import type {AuthClientConfig} from '@molecule/app-auth'
+export const authConfig: AuthClientConfig = {
+  registerEndpoint: '/members',
+  requestBody: data => ({member: data}),
+}`
+      const result = await findings(app, broken)
+      expect(result.map((row) => row.messageId)).toEqual(['authRequestBodyOrder'])
+      expect(result[0].severity).toBe(2)
+      expect(result[0].line).toBe(4)
+      expect(await findings(app, broken.replace('requestBody:', 'mapRequestBody:'))).toEqual([])
+      expect(
+        await findings(
+          app,
+          broken.replace('data => ({member: data})', '(kind, payload) => ({member: payload})'),
+        ),
+      ).toEqual([])
+    },
+  )
+
   it('a generated warehouse control rejects an unchanged optimistic update', async () => {
     const app = join(await directory(), 'app')
     await createAppProject(app, 'warehouse', 'react')
@@ -256,7 +281,8 @@ describe('declared auth and HTTP reuse in generated verification', () => {
           loadRegistry(),
         ).find((file) => file.targetPath.endsWith('bonds/auth-default.ts'))
         expect(bond).toBeDefined()
-        await writeFile(bond!.targetPath, bond!.content)
+        if (!bond || bond.content === undefined) throw new Error('Missing generated auth bond')
+        await writeFile(bond.targetPath, bond.content)
       }
       await writeFile(
         join(app, 'src/config.ts'),

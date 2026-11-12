@@ -35,6 +35,10 @@
  * Value checks follow immutable, module-local bindings: an unconditional identity update of
  * a default optimistic controller and a structured markdown render result at an HTML sink.
  * Conditional updates, custom equality, other stores and other renderers are not inferred.
+ * A one-parameter legacy auth requestBody is ambiguous: its argument is the operation,
+ * not the values. Require the two explicit positions or the payload-first mapRequestBody.
+ * Only imported auth config types and local factory inputs establish that ownership;
+ * opaque configs, spreads and callbacks are not inferred.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
@@ -125,6 +129,8 @@ export default {
         '@molecule/app-markdown render() returns { html, toc }, not an HTML string. Select result.html (or provider.render(source).html) at this HTML sink; passing the whole result renders [object Object] instead of the markdown content.',
       staleArticleSlug:
         'updateArticle can rename the slug, so this lookup can return null after a successful save. Use the successful update result’s article directly; if another lookup is needed, use article.slug from that result instead of the old slug. The service also sets updatedAt.',
+      authRequestBodyOrder:
+        '@molecule/app-auth calls requestBody(kind, payload): a one-argument callback receives the operation string, not the form values. Use mapRequestBody: (data) => ({ user: data }) with your API’s envelope, or declare both (kind, payload) positions for an intentional legacy adapter. A kind-only adapter can declare an unused _payload parameter. TypeScript accepts this parameter-order mistake.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
       unbonded:
         "@molecule/app-http is declared: this {{factory}} result is created without setClient or an HTTP bond, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. Call setClient({{factory}}(...)) or bond('http', …, {{factory}}(...)) once in the existing bonds/ composition root, then use getClient() everywhere.",
@@ -158,6 +164,7 @@ export default {
     const states = []
     const clickHandlers = []
     const clientBonds = []
+    const authConfigs = []
     const mutations = new Map()
     let credentialStore = false
 
@@ -289,6 +296,9 @@ export default {
         return true
       return node.callee.type === 'MemberExpression' && sharedAuth(node.callee.object, seen)
     }
+    const authConfigType = (node) =>
+      node?.type === 'TSTypeReference' &&
+      imported(node.typeName, [AUTH], ['AuthClientConfig', 'AuthClientConfigOptions'])
     const property = (node, name, seen = new Set(), exact = false) => {
       node = value(node)
       if (!node || typeof name !== 'string' || seen.has(node)) return null
@@ -835,6 +845,13 @@ export default {
       return method === null ? null : (AXIOS_CONFIG.get(method) ?? null)
     }
     return {
+      VariableDeclarator(node) {
+        if (packages.auth && authConfigType(node.id.typeAnnotation?.typeAnnotation))
+          authConfigs.push(node.init)
+      },
+      'TSAsExpression, TSSatisfiesExpression'(node) {
+        if (packages.auth && authConfigType(node.typeAnnotation)) authConfigs.push(node.expression)
+      },
       JSXAttribute(node) {
         if (node.name.name === 'onClick' && node.value?.type === 'JSXExpressionContainer')
           clickHandlers.push(node.value.expression)
@@ -980,6 +997,45 @@ export default {
           }
         }
         if (packages.auth) {
+          const configs = [
+            ...authConfigs,
+            ...calls
+              .filter((call) => imported(call.callee, [AUTH], ['createJWTAuthClient']))
+              .map((call) => call.arguments[0]),
+          ]
+          const reportedAdapters = new Set()
+          for (const config of configs) {
+            const object = value(config)
+            // A spread may override the adapter or install mapRequestBody, which wins at runtime.
+            if (
+              object?.type !== 'ObjectExpression' ||
+              object.properties.some((prop) => prop.type !== 'Property' || key(prop) === null)
+            )
+              continue
+            const mapped = value(property(object, 'mapRequestBody', new Set(), true))
+            if (mapped && !(mapped.type === 'Identifier' && global(mapped, ['undefined']))) continue
+            let adapter = value(property(object, 'requestBody', new Set(), true))
+            if (adapter?.type === 'Identifier') {
+              const binding = variable(adapter)
+              if (
+                binding?.defs.length === 1 &&
+                binding.defs[0].type === 'FunctionName' &&
+                !binding.references.some((ref) => ref.isWrite())
+              )
+                adapter = binding.defs[0].node
+            }
+            if (
+              !['ArrowFunctionExpression', 'FunctionExpression', 'FunctionDeclaration'].includes(
+                adapter?.type,
+              ) ||
+              adapter.params.length !== 1 ||
+              adapter.params[0].type === 'RestElement' ||
+              reportedAdapters.has(adapter)
+            )
+              continue
+            reportedAdapters.add(adapter)
+            context.report({ node: adapter, messageId: 'authRequestBodyOrder' })
+          }
           for (const call of calls) {
             const navigation = value(call.callee)
             if (
