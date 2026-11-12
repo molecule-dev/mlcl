@@ -103,6 +103,8 @@ export default {
         'This write targets the configured auth profile endpoint but does not publish the saved user. Use useAuth().updateProfile(changes), or call the bonded auth client setUser(savedUser) with the canonical response in this handler before navigation. Otherwise subscribed views and the next form visit keep the old profile.',
       authSubscription:
         'This hook seeds a React auth snapshot but never subscribes its setter to that client. Other consumers keep the signed-out snapshot after login. Use useAuth from @molecule/app-react, or subscribe to this client in an effect, update this snapshot on each notification, and return the unsubscribe cleanup.',
+      renderNavigation:
+        'This component calls the useNavigate result during render. React Router cannot navigate on the initial render, so a signed-out deep link can stay on the protected URL. Return <Navigate to={destination} replace /> or use AuthGuard from @molecule/app-ui-react; put imperative navigation in an effect or event handler.',
       staleArticleSlug:
         'updateArticle can rename the slug, so this lookup can return null after a successful save. Use the successful update result’s article directly; if another lookup is needed, use article.slug from that result instead of the old slug. The service also sets updatedAt.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
@@ -832,6 +834,20 @@ export default {
           }
         }
         if (packages.auth) {
+          for (const call of calls) {
+            const navigation = value(call.callee)
+            if (
+              navigation?.type !== 'CallExpression' ||
+              !imported(navigation.callee, ['react-router', 'react-router-dom'], ['useNavigate'])
+            )
+              continue
+            const component = ownerFunction(navigation)
+            const name = component?.id?.name ?? component?.parent?.id?.name
+            // A callback in an effect or event runs after render and remains valid. Only a
+            // direct call in the component that owns this hook is established by this scope.
+            if (/^[A-Z]/.test(name ?? '') && ownerFunction(call) === component)
+              context.report({ node: call, messageId: 'renderNavigation' })
+          }
           for (const state of states) {
             if (!imported(state.callee, ['react'], ['useState'])) continue
             const hook = ownerFunction(state)

@@ -25,8 +25,9 @@ const execFileAsync = promisify(execFile)
 const dirs: string[] = []
 
 async function directory(): Promise<string> {
-  await mkdir(join(ROOT, '.tmp'), { recursive: true })
-  const dir = await mkdtemp(join(ROOT, '.tmp/declared-clients-'))
+  const temp = process.env.TMPDIR ?? join(ROOT, '.tmp')
+  await mkdir(temp, { recursive: true })
+  const dir = await mkdtemp(join(temp, 'declared-clients-'))
   dirs.push(dir)
   return dir
 }
@@ -65,6 +66,33 @@ export function loadStock() {
 `
 
 describe('declared auth and HTTP reuse in generated verification', () => {
+  it('the generated React guard rejects render-time navigation and accepts a declarative redirect', async () => {
+    const app = join(await directory(), 'app')
+    await createAppProject(app, 'staff-portal', 'react')
+    await addPackages(app, ['@molecule/app-auth'])
+    const broken = `import {useNavigate} from 'react-router'
+      import {useAuth} from '@molecule/app-react'
+      export function StaffGate() {
+        const {status} = useAuth()
+        const navigate = useNavigate()
+        if (status === 'unauthenticated') navigate('/sign-in')
+        return null
+      }`
+    const result = await findings(app, broken)
+    expect(result.map((message) => message.messageId)).toEqual(['renderNavigation'])
+    expect(result[0].severity).toBe(2)
+    expect(result[0].line).toBe(6)
+    expect(result[0].message).toContain('<Navigate')
+    const fixed = `import {Navigate} from 'react-router'
+      import {useAuth} from '@molecule/app-react'
+      export function StaffGate() {
+        const {status} = useAuth()
+        if (status === 'unauthenticated') return <Navigate to="/sign-in" replace />
+        return null
+      }`
+    expect(await findings(app, fixed)).toEqual([])
+  })
+
   it('the API scaffold rejects a stale resource slug and accepts its returned record', async () => {
     const api = join(await directory(), 'api')
     await createApiProject(api, 'newsletter')
