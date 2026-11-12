@@ -8,6 +8,7 @@ import reactHooks from 'eslint-plugin-react-hooks'
 import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import tseslint from 'typescript-eslint'
 
+import noEmptyInteractiveTarget from './eslint-rules/no-empty-interactive-target.mjs'
 import preferDeclaredClients, { scaffoldRules } from './eslint-rules/prefer-declared-clients.mjs'
 
 // Resolve declared capability contracts once for this workspace.
@@ -50,6 +51,7 @@ try {
  */
 const moleculeLocal = {
   rules: {
+    'no-empty-interactive-target': noEmptyInteractiveTarget,
     'prefer-declared-clients': preferDeclaredClients,
     ...scaffoldRules(tseslint.parser),
   },
@@ -65,6 +67,7 @@ export default tseslint.config(
       'molecule-local': moleculeLocal,
     },
     rules: {
+      'molecule-local/no-empty-interactive-target': 'error',
       'molecule-local/prefer-declared-clients': 'error',
       'molecule-local/no-fixed-navigation-truncation': 'warn',
       'molecule-local/unique-update-excludes-self': 'warn',

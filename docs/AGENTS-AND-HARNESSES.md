@@ -27,6 +27,20 @@ wanting a one-line install) use the hosted read-only endpoint instead:
 | Claude Code plugin _(at launch)_ | two skills + the MCP server, marketplace-updated                                                                                     |
 | Package READMEs                  | every `@molecule/*` package documents its API/wiring at `node_modules/@molecule/<name>/README.md` — LLM-oriented by design           |
 
+Scaffolds also ship the same ESLint rules for every harness. In JSX,
+`molecule-local/no-empty-interactive-target` rejects an empty native interactive
+element without visible content or a locally verifiable visual styling source in the app's loaded
+CSS. `aria-label`, `role` and `tabIndex` do not draw a control. Use visible text,
+the framework's sized SVG `Icon`, or import CSS that draws the element. The rule
+follows local imports and `index.html` stylesheets; an unused CSS file does not
+count. Native controls with browser-provided boxes (buttons, inputs, and similar
+widgets), SVG drawings and presentational dismissal backdrops are outside this zero-area
+check. It leaves dynamic content and custom components to browser tests.
+For remote CSS or runtime styling the linter cannot inspect, use a
+narrow ESLint disable with a reason and verify the target in the browser.
+`npm run lint` and the lint step of `mlcl check` report the source line and fix;
+the rule behaves the same with supplied tests, authored tests, or no suite.
+
 ---
 
 ## Method 1 — zero setup (any agent, any harness)

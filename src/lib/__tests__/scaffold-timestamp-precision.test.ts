@@ -28,6 +28,10 @@ beforeAll(async () => {
     join(shared, 'prefer-declared-clients.mjs'),
     join(dir, 'eslint-rules/prefer-declared-clients.mjs'),
   )
+  await copyFile(
+    join(shared, 'no-empty-interactive-target.mjs'),
+    join(dir, 'eslint-rules/no-empty-interactive-target.mjs'),
+  )
   await symlink(dirname(dirname(require.resolve('eslint/package.json'))), join(dir, 'node_modules'))
   eslint = new ESLint({
     cwd: dir,

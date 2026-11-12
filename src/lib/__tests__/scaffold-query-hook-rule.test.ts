@@ -30,6 +30,10 @@ async function configFor(
     new URL('../../../templates/shared/prefer-declared-clients.mjs', import.meta.url),
     join(root, 'eslint-rules/prefer-declared-clients.mjs'),
   )
+  await copyFile(
+    new URL('../../../templates/shared/no-empty-interactive-target.mjs', import.meta.url),
+    join(root, 'eslint-rules/no-empty-interactive-target.mjs'),
+  )
   await symlink(
     dirname(dirname(require.resolve('eslint/package.json'))),
     join(root, 'node_modules'),

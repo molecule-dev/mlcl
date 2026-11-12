@@ -154,7 +154,11 @@ describe('offline npm template locales', () => {
     const shared = TEMPLATE_SHARED_ESLINT.map((path) => ({ path, size: 1 }))
     expect(
       templatePackageIssues({ size: 1, unpackedSize: 1, files: [workspace, shared[0]] }),
-    ).toEqual([`template ESLint copies missing their shared source: ${TEMPLATE_SHARED_ESLINT[1]}`])
+    ).toEqual(
+      TEMPLATE_SHARED_ESLINT.slice(1).map(
+        (path) => `template ESLint copies missing their shared source: ${path}`,
+      ),
+    )
     expect(
       templatePackageIssues({ size: 1, unpackedSize: 1, files: [workspace, ...shared] }),
     ).toEqual([])
@@ -267,7 +271,11 @@ describe('offline npm template locales', () => {
       // The package leaves each workspace's synced ESLint copies out (the old one carried them),
       // and the scaffold writes the shared ones back.
       for (const half of ['app', 'api'])
-        for (const file of ['eslint.config.js', 'eslint-rules/prefer-declared-clients.mjs']) {
+        for (const file of [
+          'eslint.config.js',
+          'eslint-rules/prefer-declared-clients.mjs',
+          'eslint-rules/no-empty-interactive-target.mjs',
+        ]) {
           expect(existsSync(join(old.root, 'templates/apps', slug, half, file))).toBe(true)
           expect(existsSync(join(installed, half, file))).toBe(false)
         }
@@ -286,6 +294,9 @@ describe('offline npm template locales', () => {
         expect(readFileSync(join(after, half, 'eslint-rules/prefer-declared-clients.mjs'))).toEqual(
           readFileSync(join(ROOT, 'templates/shared/prefer-declared-clients.mjs')),
         )
+        expect(
+          readFileSync(join(after, half, 'eslint-rules/no-empty-interactive-target.mjs')),
+        ).toEqual(readFileSync(join(ROOT, 'templates/shared/no-empty-interactive-target.mjs')))
       }
       expect(
         Object.keys(tree(after)).filter((p) => p.includes('/locales/')).length,

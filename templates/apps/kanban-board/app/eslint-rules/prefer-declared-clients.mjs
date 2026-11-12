@@ -2685,6 +2685,24 @@ export function scaffoldRules(parser) {
           const definition = variableFor(expression)?.defs[0]
           const value =
             definition?.type === 'FunctionName' ? definition.node : definition?.node.init
+          if (value?.type === 'CallExpression' && isFunction(value.arguments[0])) {
+            const callee = unwrap(value.callee)
+            const namespace = callee?.type === 'MemberExpression'
+            const binding = variableFor(namespace ? callee.object : callee)?.defs[0]
+            const hook = namespace
+              ? callee.computed
+                ? callee.property.value
+                : callee.property.name
+              : binding?.node.imported?.name
+            if (
+              binding?.type === 'ImportBinding' &&
+              binding.parent.source.value === 'react' &&
+              hook === 'useCallback' &&
+              (!namespace ||
+                ['ImportNamespaceSpecifier', 'ImportDefaultSpecifier'].includes(binding.node.type))
+            )
+              return value.arguments[0]
+          }
           return isFunction(value) ? value : null
         }
         const callName = (node) => {
