@@ -66,6 +66,42 @@ export function loadStock() {
 `
 
 describe('declared auth and HTTP reuse in generated verification', () => {
+  it('a generated warehouse control rejects an unchanged optimistic update', async () => {
+    const app = join(await directory(), 'app')
+    await createAppProject(app, 'warehouse', 'react')
+    await addPackages(app, ['@molecule/app-react'])
+    const broken = `import {useOptimisticValue} from '@molecule/app-react'
+      export function WarehouseSwitch({record}) {
+        const saved = useOptimisticValue({value: record, commit: save})
+        return <button onClick={() => saved.update((current) => ({...current}))} />
+      }`
+    const result = await findings(app, broken)
+    expect(result.map((row) => row.messageId)).toEqual(['unchangedOptimisticValue'])
+    expect(result[0].severity).toBe(2)
+    expect(result[0].line).toBe(4)
+    expect(
+      await findings(
+        app,
+        broken.replace('({...current})', '({...current, enabled: !current.enabled})'),
+      ),
+    ).toEqual([])
+  })
+
+  it('a generated warehouse guide rejects a structured result at its HTML sink', async () => {
+    const app = join(await directory(), 'app')
+    await createAppProject(app, 'warehouse', 'react')
+    await addPackages(app, ['@molecule/app-markdown'])
+    const broken = `import {getProvider} from '@molecule/app-markdown'
+      export function Guide({text}) {
+        return <section dangerouslySetInnerHTML={{__html: getProvider()?.render(text) ?? ''}} />
+      }`
+    const result = await findings(app, broken)
+    expect(result.map((row) => row.messageId)).toEqual(['markdownHtml'])
+    expect(result[0].severity).toBe(2)
+    expect(result[0].line).toBe(3)
+    expect(await findings(app, broken.replace('render(text)', 'render(text).html'))).toEqual([])
+  })
+
   it('the generated query wrapper rejects an extra key nesting and accepts refetch', async () => {
     const app = join(await directory(), 'app')
     await createAppProject(app, 'warehouse', 'react')

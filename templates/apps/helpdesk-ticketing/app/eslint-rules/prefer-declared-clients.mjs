@@ -32,6 +32,9 @@
  * slug binding in that function. Cross-module control flow is not inferred.
  * Query checks compare a useQuery key with one extra array around that same binding in a
  * getQueryClient invalidation. Explicit nested keys and different keys remain valid.
+ * Value checks follow immutable, module-local bindings: an unconditional identity update of
+ * a default optimistic controller and a structured markdown render result at an HTML sink.
+ * Conditional updates, custom equality, other stores and other renderers are not inferred.
  */
 import { readFileSync } from 'node:fs'
 import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
@@ -80,6 +83,10 @@ function declared(filename, cwd) {
         query:
           Object.hasOwn(dependencies, '@molecule/app-query') ||
           Object.hasOwn(dependencies, '@molecule/app-query-react'),
+        optimistic:
+          Object.hasOwn(dependencies, '@molecule/app-react') ||
+          Object.hasOwn(dependencies, '@molecule/app-state'),
+        markdown: Object.hasOwn(dependencies, '@molecule/app-markdown'),
       }
     }
     if (dir === parse(dir).root) return { auth: false, http: false }
@@ -112,6 +119,10 @@ export default {
         'This component calls the useNavigate result during render. React Router cannot navigate on the initial render, so a signed-out deep link can stay on the protected URL. Return <Navigate to={destination} replace /> or use AuthGuard from @molecule/app-ui-react; put imperative navigation in an effect or event handler.',
       nestedQueryKey:
         'This query is stored under key, but invalidate([key]) wraps that same key in another array and does not invalidate it. Pass the original key to invalidate(key). Invalidation only marks cached data stale: refresh mounted data with the hook result.refetch() when the installed version provides it, or invalidate(key) then await client.fetch with the same query options.',
+      unchangedOptimisticValue:
+        'This optimistic update returns the current value unchanged (or only spreads it). The default shallowEqual comparison sees no change, so commit never runs. Return the desired changed fields, such as { ...current, enabled: !current.enabled }, and update any related count in the same value. Memoizing the input cannot repair an unchanged update.',
+      markdownHtml:
+        '@molecule/app-markdown render() returns { html, toc }, not an HTML string. Select result.html (or provider.render(source).html) at this HTML sink; passing the whole result renders [object Object] instead of the markdown content.',
       staleArticleSlug:
         'updateArticle can rename the slug, so this lookup can return null after a successful save. Use the successful update result’s article directly; if another lookup is needed, use article.slug from that result instead of the old slug. The service also sets updatedAt.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
@@ -132,7 +143,15 @@ export default {
         },
       }
     }
-    if (!packages.auth && !packages.http && !packages.article && !packages.query) return {}
+    if (
+      !packages.auth &&
+      !packages.http &&
+      !packages.article &&
+      !packages.query &&
+      !packages.optimistic &&
+      !packages.markdown
+    )
+      return {}
     const source = context.sourceCode ?? context.getSourceCode()
     const calls = []
     const contexts = []
@@ -403,6 +422,81 @@ export default {
       seen.add(node)
       const declarator = stableConst(node)
       return declarator ? clientValue(declarator.init, seen) : node
+    }
+    const unchangedOptimisticUpdate = (call) => {
+      if (!packages.optimistic) return false
+      const callee = unwrap(call.callee)
+      if (callee?.type !== 'MemberExpression' || key(callee) !== 'update') return false
+      const controller = clientValue(callee.object)
+      if (
+        controller?.type !== 'CallExpression' ||
+        !imported(
+          controller.callee,
+          ['@molecule/app-react', '@molecule/app-state'],
+          ['useOptimisticValue', 'createOptimisticValue'],
+        )
+      )
+        return false
+      const options = clientValue(controller.arguments[0])
+      // An unknown/custom equality contract may deliberately treat a fresh identity as a change.
+      if (
+        options?.type !== 'ObjectExpression' ||
+        options.properties.some((prop) => prop.type !== 'Property' || key(prop) === 'equals')
+      )
+        return false
+      const callback = localFunction(call.arguments[0])
+      if (!callback || callback.async || callback.params[0]?.type !== 'Identifier') return false
+      const body = callback.body
+      // Do not infer effects, mutations or guarded no-op branches from their return value.
+      const result = unwrap(
+        body.type === 'BlockStatement'
+          ? body.body.length === 1 && body.body[0].type === 'ReturnStatement'
+            ? body.body[0].argument
+            : null
+          : body,
+      )
+      const current = variable(callback.params[0])
+      const same = (node) => node?.type === 'Identifier' && variable(node) === current
+      return (
+        same(result) ||
+        (result?.type === 'ObjectExpression' &&
+          result.properties.length > 0 &&
+          result.properties.every(
+            (prop) => prop.type === 'SpreadElement' && same(unwrap(prop.argument)),
+          ))
+      )
+    }
+    const markdownResult = (node, seen = new Set()) => {
+      node = clientValue(node)
+      if (!node || seen.has(node)) return false
+      seen.add(node)
+      if (node.type === 'ConditionalExpression')
+        return markdownResult(node.consequent, seen) || markdownResult(node.alternate, seen)
+      if (node.type === 'LogicalExpression')
+        return markdownResult(node.left, seen) || markdownResult(node.right, seen)
+      if (node.type !== 'CallExpression') return false
+      if (imported(node.callee, ['react'], ['useMemo']))
+        return functionReturns(localFunction(node.arguments[0])).some((result) =>
+          markdownResult(result, seen),
+        )
+      const callee = unwrap(node.callee)
+      if (callee?.type !== 'MemberExpression' || key(callee) !== 'render') return false
+      const provider = clientValue(callee.object)
+      return (
+        provider?.type === 'CallExpression' &&
+        imported(provider.callee, ['@molecule/app-markdown'], ['getProvider', 'requireProvider'])
+      )
+    }
+    const htmlPayload = (node) => {
+      node = clientValue(node)
+      if (node?.type !== 'ObjectExpression' || mutations.has(identity(node))) return null
+      // Later fields win; an unknown spread or computed key may replace __html. Do not
+      // diagnose a value the sink does not actually receive.
+      for (const prop of [...node.properties].reverse()) {
+        if (prop.type !== 'Property' || key(prop) === null) return null
+        if (key(prop) === '__html') return prop.value
+      }
+      return null
     }
     const authSource = (node) => {
       node = clientValue(node)
@@ -744,9 +838,18 @@ export default {
       JSXAttribute(node) {
         if (node.name.name === 'onClick' && node.value?.type === 'JSXExpressionContainer')
           clickHandlers.push(node.value.expression)
+        if (
+          packages.markdown &&
+          node.name.name === 'dangerouslySetInnerHTML' &&
+          node.value?.type === 'JSXExpressionContainer' &&
+          markdownResult(htmlPayload(node.value.expression))
+        )
+          context.report({ node, messageId: 'markdownHtml' })
       },
       AssignmentExpression(node) {
         if (node.left.type !== 'MemberExpression') return
+        if (packages.markdown && key(node.left) === 'innerHTML' && markdownResult(node.right))
+          context.report({ node, messageId: 'markdownHtml' })
         mutate(node.left.object, key(node.left), node.right)
         if (packages.auth && storage(node.left.object) && credential(key(node.left))) {
           credentialStore = true
@@ -755,6 +858,8 @@ export default {
       },
       CallExpression(node) {
         calls.push(node)
+        if (unchangedOptimisticUpdate(node))
+          context.report({ node, messageId: 'unchangedOptimisticValue' })
         const callee = unwrap(node.callee)
         if (packages.http && imported(callee, [HTTP], ['setClient']))
           clientBonds.push(...node.arguments)
