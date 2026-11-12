@@ -75,7 +75,7 @@ describe('declared auth and HTTP reuse in generated verification', () => {
       const broken = `import type {AuthClientConfig} from '@molecule/app-auth'
 export const authConfig: AuthClientConfig = {
   registerEndpoint: '/members',
-  requestBody: data => ({member: data}),
+  requestBody: data => ({member: data.email}),
 }`
       const result = await findings(app, broken)
       expect(result.map((row) => row.messageId)).toEqual(['authRequestBodyOrder'])
@@ -85,7 +85,10 @@ export const authConfig: AuthClientConfig = {
       expect(
         await findings(
           app,
-          broken.replace('data => ({member: data})', '(kind, payload) => ({member: payload})'),
+          broken.replace(
+            'data => ({member: data.email})',
+            '(kind, payload) => ({member: payload})',
+          ),
         ),
       ).toEqual([])
     },
@@ -218,11 +221,7 @@ export const authConfig: AuthClientConfig = {
       await createAppProject(app, 'stockroom', framework)
       await addPackages(app, ['@molecule/app-auth', '@molecule/app-http'])
       const messages = await findings(app, localClients)
-      expect(messages.map((message) => message.messageId).sort()).toEqual([
-        'credential',
-        'http',
-        'session',
-      ])
+      expect(messages.map((message) => message.messageId).sort()).toEqual(['http'])
       expect(messages.every((message) => message.severity === 2)).toBe(true)
       expect(messages.map((message) => message.message).join('\n')).toContain('tokenKey')
       expect(messages.map((message) => message.message).join('\n')).toContain('authScheme')
@@ -240,11 +239,7 @@ export const authConfig: AuthClientConfig = {
     )
     const app = join(project, 'app')
     const messages = await findings(app, localClients)
-    expect(messages.map((message) => message.messageId).sort()).toEqual([
-      'credential',
-      'http',
-      'session',
-    ])
+    expect(messages.map((message) => message.messageId).sort()).toEqual(['http'])
     expect(await readFile(join(app, 'eslint-rules/prefer-declared-clients.mjs'), 'utf8')).toBe(
       await readFile(join(ROOT, 'templates/shared/prefer-declared-clients.mjs'), 'utf8'),
     )

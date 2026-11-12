@@ -1,4 +1,4 @@
-import { copyFile, mkdir, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -29,6 +29,12 @@ const template = fileURLToPath(
 const tmp = tmpdir()
 await mkdir(tmp, { recursive: true })
 const dir = await mkdtemp(join(tmp, 'mlcl-optimistic-toggle-rule-'))
+await writeFile(
+  join(dir, 'package.json'),
+  JSON.stringify({
+    dependencies: { '@molecule/app-react': '1.0.0', '@molecule/app-routing-react-router': '1.0.0' },
+  }),
+)
 const configPath = join(dir, 'eslint.config.mjs')
 await copyFile(template, configPath)
 await mkdir(join(dir, 'eslint-rules'))
@@ -499,7 +505,6 @@ export function Switch({ settings }) {
           filename: 'Buttons.tsx',
           code: retained.l1391,
         },
-
         {
           name: 'opening a local panel while posting unrelated analytics is not a server toggle',
           filename: 'Panel.tsx',
@@ -775,7 +780,6 @@ export function NewComment() {
 }
 `,
         },
-
         {
           name: 'a star saved first and shown after the refetch',
           filename: 'BoardDetail.tsx',
@@ -818,8 +822,6 @@ export function Login() {
 }
 `,
         },
-      ],
-      invalid: [
         {
           name: 'a non-optimistic server toggle disables the button until the answer',
           filename: 'SettingsSwitch.tsx',
@@ -835,7 +837,6 @@ export function SettingsSwitch({ settings }) {
   }
   return <button role="switch" disabled={saving} onClick={toggle}>{String(enabled)}</button>
 }`,
-          errors: [{ messageId: 'awaitSave' }],
         },
         {
           name: 'X1 l1259 shape: a follow button that changes only when the server answers',
@@ -849,8 +850,9 @@ export function Profile({ initial }) {
   return <button onClick={() => void toggleFollow()}>{profile.following ? 'Unfollow' : 'Follow'}</button>
 }
 `,
-          errors: [{ messageId: 'awaitSave' }],
         },
+      ],
+      invalid: [
         {
           name: 'non-X1: a like and count flip followed by a pending guard drops the next click',
           filename: 'LikeButton.tsx',

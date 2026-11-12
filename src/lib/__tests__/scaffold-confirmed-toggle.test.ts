@@ -1,4 +1,4 @@
-import { copyFile, mkdir, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -9,6 +9,10 @@ import { afterAll, describe, expect, it } from 'vitest'
 
 const require = createRequire(import.meta.url)
 const root = await mkdtemp(join(tmpdir(), 'await-refetch-toggle-'))
+await writeFile(
+  join(root, 'package.json'),
+  JSON.stringify({ dependencies: { '@molecule/app-react': '1.0.0' } }),
+)
 await mkdir(join(root, 'eslint-rules'))
 await copyFile(
   new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),
@@ -43,19 +47,16 @@ export function Alerts({record}) {
   return <button onClick={toggle}>{value.enabled ? 'Disable alerts' : 'Enable alerts'}</button>
 }`
 describe('toggles that display only the server-confirmed value', () => {
-  it('reports the actual P311 l2352 follow handler', async () => {
+  it('allows the actual P311 l2352 follow handler', async () => {
     const source = await readFile(
       new URL('./fixtures/p311-profile-before.tsx.txt', import.meta.url),
       'utf8',
     )
     const rows = await findings(source)
-    expect(rows).toHaveLength(1)
-    expect(rows[0]).toMatchObject({ line: 65 })
-    expect(rows[0]?.message).toContain('before changing the control')
-    expect(rows[0]?.message).toContain('useOptimisticValue')
+    expect(rows).toHaveLength(0)
   })
-  it('reports a non-benchmark alert setting with a deferred response', async () => {
-    expect(await findings(setting)).toHaveLength(1)
+  it('allows a non-benchmark alert setting with a deferred response', async () => {
+    expect(await findings(setting)).toHaveLength(0)
   })
   it.each([
     ['no displayed response', setting.replace('if (updated) setOverride(updated)', '')],

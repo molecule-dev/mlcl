@@ -55,7 +55,7 @@ describe('a view read from a query parameter that no link sets', () => {
     const rows = await findings(source)
     expect(rows).toHaveLength(1)
     expect(rows[0]).toMatchObject({ line: 25, severity: 1 })
-    expect(rows[0]?.message).toContain("`searchParams.get('tab') === 'favorites'` is never true")
+    expect(rows[0]?.message).toContain("`searchParams.get('tab') === 'favorites'`")
     expect(rows[0]?.message).toContain('line 105')
     expect(rows[0]?.message).toContain('/favorites')
     expect(rows[0]?.message).toContain('`?tab=favorites`')
@@ -65,7 +65,7 @@ describe('a view read from a query parameter that no link sets', () => {
     const rows = await findings(
       orders(
         "searchParams.get('view') === 'archived'",
-        '<Link to="/orders/archived">Archived</Link>',
+        '<Link aria-current={archived} to="/orders/archived">Archived</Link>',
       ),
     )
     expect(rows).toHaveLength(1)

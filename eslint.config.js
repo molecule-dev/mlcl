@@ -112,7 +112,7 @@ export default tseslint.config(
     // block molecule and molecule-dev/api already carry — without it these files
     // reported 62 `no-undef` for `console`/`process` alone, which is why
     // `npm run lint` never covered scripts/ at all.
-    files: ['scripts/**/*.{mjs,js}', 'mcp/scripts/**/*.{mjs,js}'],
+    files: ['scripts/**/*.{mjs,js}', 'mcp/scripts/**/*.{mjs,js}', 'templates/shared/*.mjs'],
     languageOptions: {
       globals: {
         console: 'readonly',

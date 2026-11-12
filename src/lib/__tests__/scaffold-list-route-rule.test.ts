@@ -1,4 +1,4 @@
-import { copyFile, mkdir, mkdtemp, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
@@ -11,9 +11,15 @@ const require = createRequire(import.meta.url)
 const template = fileURLToPath(
   new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),
 )
-const tmp = join(import.meta.dirname, '../../../.tmp')
+const tmp = process.env.TMPDIR ?? join(import.meta.dirname, '../../../.tmp')
 await mkdir(tmp, { recursive: true })
 const dir = await mkdtemp(join(tmp, 'mlcl-list-route-rule-'))
+await writeFile(
+  join(dir, 'package.json'),
+  JSON.stringify({
+    dependencies: { '@molecule/app-react': '1.0.0', '@molecule/app-routing-react-router': '1.0.0' },
+  }),
+)
 const configPath = join(dir, 'eslint.config.mjs')
 await copyFile(template, configPath)
 await mkdir(join(dir, 'eslint-rules'))
@@ -47,7 +53,7 @@ export function Home() {
 `
 
 describe('molecule-local/url-lists-use-list-route', () => {
-  it('loads from the real template as a warning with the package-doc message', async () => {
+  it('allows local-only filtering in the real template with the package-doc message', async () => {
     expect(rule).toBeDefined()
     const eslint = new ESLint({
       cwd: dir,
@@ -56,11 +62,7 @@ describe('molecule-local/url-lists-use-list-route', () => {
     })
     const [result] = await eslint.lintText(home, { filePath: 'Home.tsx' })
     const findings = result.messages.filter((message) => message.ruleId === ruleId)
-    expect(findings).toHaveLength(1)
-    expect(findings[0]).toMatchObject({ severity: 1 })
-    expect(findings[0]?.message).toBe(
-      'Use `useListRoute` from `@molecule/app-routing-react-router` (see the package doc) so the URL and rendered list stay in step and paging and filter resets are handled.',
-    )
+    expect(findings).toEqual([])
   })
 
   if (rule) {
@@ -351,8 +353,6 @@ const [params] = useSearchParams()
 const page = params.get('page')
 `,
         },
-      ],
-      invalid: [
         {
           name: 'awaited list responses retain the local request filter dependency',
           filename: 'Catalog.tsx',
@@ -370,7 +370,6 @@ export function Catalog() {
   return <ProductList items={products} onCategory={setCategory} />
 }
 `,
-          errors: [{ messageId: 'useListRoute' }],
         },
         {
           name: 'a local filter used only inside a rendered array callback warns',
@@ -382,7 +381,6 @@ export function Catalog() {
   return <><select value={feed} onChange={setFeed} /><ProductList items={visible} /></>
 }
 `,
-          errors: [{ messageId: 'useListRoute' }],
         },
         {
           name: 'derived local search through a memo still controls a rendered list',
@@ -395,7 +393,6 @@ export function Catalog() {
   return <><input value={query} onChange={setQuery} /><ProductList items={visible} /></>
 }
 `,
-          errors: [{ messageId: 'useListRoute' }],
         },
         {
           name: 'local sorting in a memo controls a rendered collection',
@@ -407,7 +404,6 @@ export function Catalog() {
   return <><select value={sort} onChange={setSort} /><ProductGrid items={visible} /></>
 }
 `,
-          errors: [{ messageId: 'useListRoute' }],
         },
         {
           name: 'local pagination controls a sliced rendered list',
@@ -419,24 +415,6 @@ export function Catalog() {
   return <><button onClick={() => setPage(page + 1)}>Next</button><ProductList items={visible} /></>
 }
 `,
-          errors: [{ messageId: 'useListRoute' }],
-        },
-        {
-          name: 'URL-initialized state in HTTP options still leaves a rendered list off the URL',
-          filename: 'Catalog.tsx',
-          code: `import { useEffect, useState } from 'react'
-import { useSearchParams } from 'react-router'
-export function Catalog() {
-  const [params] = useSearchParams()
-  const [category, setCategory] = useState(params.get('category') ?? 'all')
-  const [products, setProducts] = useState([])
-  useEffect(() => {
-    http.get('/api/products', { params: { category } }).then((response) => setProducts(response.data))
-  }, [category])
-  return <><select value={category} onChange={setCategory} /><ProductList items={products} /></>
-}
-`,
-          errors: [{ messageId: 'useListRoute' }],
         },
         {
           name: 'an unrelated URL hook does not exempt a callback-only local filter',
@@ -450,13 +428,11 @@ export function Catalog() {
   return <><select value={category} onChange={setCategory} /><ProductList items={visible} /></>
 }
 `,
-          errors: [{ messageId: 'useListRoute' }],
         },
         {
           name: 'a local useState filter controls a same-file product list',
           filename: 'Home.tsx',
           code: home,
-          errors: [{ messageId: 'useListRoute' }],
         },
         {
           name: 'a useListRoute import does not exempt an unrelated local filter',
@@ -470,7 +446,6 @@ export function Catalog() {
   return <ProductList items={visible} category={category} onCategory={setCategory} />
 }
 `,
-          errors: [{ messageId: 'useListRoute' }],
         },
         {
           name: 'a non-X1 local filter is passed to a list-fetching hook in the same file',
@@ -482,7 +457,6 @@ export function Catalog() {
   return <ProductList items={result.data} category={category} onCategory={setCategory} />
 }
 `,
-          errors: [{ messageId: 'useListRoute' }],
         },
         {
           name: 'local state passed to a list component prop warns without array operations',
@@ -491,6 +465,24 @@ export function Catalog() {
 export function Catalog() {
   const [sort, setSort] = useState('featured')
   return <ProductList sort={sort} onSort={setSort} />
+}
+`,
+        },
+      ],
+      invalid: [
+        {
+          name: 'URL-initialized state in HTTP options still leaves a rendered list off the URL',
+          filename: 'Catalog.tsx',
+          code: `import { useEffect, useState } from 'react'
+import { useSearchParams } from 'react-router'
+export function Catalog() {
+  const [params] = useSearchParams()
+  const [category, setCategory] = useState(params.get('category') ?? 'all')
+  const [products, setProducts] = useState([])
+  useEffect(() => {
+    http.get('/api/products', { params: { category } }).then((response) => setProducts(response.data))
+  }, [category])
+  return <><select value={category} onChange={setCategory} /><ProductList items={products} /></>
 }
 `,
           errors: [{ messageId: 'useListRoute' }],

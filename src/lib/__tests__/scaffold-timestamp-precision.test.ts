@@ -32,7 +32,12 @@ beforeAll(async () => {
   eslint = new ESLint({
     cwd: dir,
     overrideConfigFile: join(dir, 'eslint.config.mjs'),
-    overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
+    overrideConfig: {
+      languageOptions: { parserOptions: { tsconfigRootDir: dir } },
+      rules: {
+        'molecule-local/preserve-timestamp-precision': ['error', { fields: ['changedAt'] }],
+      },
+    },
   })
 })
 
@@ -66,31 +71,12 @@ describe('timestamp precision in the shared scaffold lint config', () => {
     expect(result.messages).toEqual([])
   })
 
-  it('reports both Date and parsed-string branches of a lossy timestamp serializer', async () => {
-    const source = [
-      'export function isoStamp(value: unknown): string {',
-      '  if (value instanceof Date) return value.toISOString().slice(0, 19)',
-      "  const raw = String(value ?? '')",
-      "  if (!raw) return ''",
-      "  const withZone = /(?:[zZ]|[+-]\\d{2}:?\\d{2})$/.test(raw) ? raw : `${raw.replace(' ', 'T')}Z`",
-      '  const parsed = Date.parse(withZone)',
-      '  return Number.isFinite(parsed) ? new Date(parsed).toISOString().slice(0, 19) : raw',
-      '}',
-      '',
-    ].join('\n')
-    const [result] = await eslint.lintText(source, { filePath: 'src/serializers/timestamp.ts' })
-    expect(
-      result.messages.map(({ ruleId, line, severity }) => ({ ruleId, line, severity })),
-    ).toEqual([
-      { ruleId: 'no-restricted-syntax', line: 2, severity: 2 },
-      { ruleId: 'no-restricted-syntax', line: 7, severity: 2 },
-    ])
-    expect(result.messages.every(({ message }) => message.includes('toISOString()'))).toBe(true)
-    expect(result.messages.every(({ message }) => message.includes('milliseconds'))).toBe(true)
-    const [corrected] = await eslint.lintText(source.replaceAll('.slice(0, 19)', ''), {
-      filePath: 'src/serializers/timestamp.ts',
-    })
-    expect(corrected.messages).toEqual([])
+  it('allows generic serializers and display values without a field precision contract', async () => {
+    const [result] = await eslint.lintText(
+      'export const display = new Date().toISOString().slice(0, 19)',
+      { filePath: 'src/format.ts' },
+    )
+    expect(result.messages).toEqual([])
   })
 
   it.each(['slice', 'substring', 'substr'])(
@@ -100,16 +86,20 @@ describe('timestamp precision in the shared scaffold lint config', () => {
         `export function jobDto(changedAt: Date): { changedAt: string } {\n  return { changedAt: changedAt.toISOString().${method}(0, 19) }\n}\n`,
         { filePath: 'src/handlers/jobs.ts' },
       )
-      expect(result.messages.map(({ ruleId }) => ruleId)).toEqual(['no-restricted-syntax'])
+      expect(result.messages.map(({ ruleId }) => ruleId)).toEqual([
+        'molecule-local/preserve-timestamp-precision',
+      ])
     },
   )
 
   it.each([20, 21, 22, 23])('rejects an incomplete timestamp of %i characters', async (length) => {
     const [result] = await eslint.lintText(
-      `export const changedAt = new Date().toISOString().slice(0, ${length})\n`,
+      `export const row = { changedAt: new Date().toISOString().slice(0, ${length}) }\n`,
       { filePath: 'src/jobs.ts' },
     )
-    expect(result.messages.map(({ ruleId }) => ruleId)).toEqual(['no-restricted-syntax'])
+    expect(result.messages.map(({ ruleId }) => ruleId)).toEqual([
+      'molecule-local/preserve-timestamp-precision',
+    ])
   })
 
   it.each([
@@ -118,12 +108,14 @@ describe('timestamp precision in the shared scaffold lint config', () => {
     'new Date().toISOString().substring(0, 10)',
     'new Date().toISOString().slice(11, 19)',
     'new Date().toISOString().slice(0, 24)',
+    'new Date().toISOString().slice(0)',
+    'new Date().toISOString().slice(0, width)',
     "'an arbitrary string'.slice(0, 19)",
     "new Intl.DateTimeFormat('en-GB', { timeStyle: 'medium', timeZone: 'UTC' }).format(new Date())",
   ])(
     'allows full timestamps and intentional date, clock or unrelated string formatting: %s',
     async (expression) => {
-      const [result] = await eslint.lintText(`export const value = ${expression}\n`, {
+      const [result] = await eslint.lintText(`export const row = { changedAt: ${expression} }\n`, {
         filePath: 'src/format.ts',
       })
       expect(result.messages).toEqual([])

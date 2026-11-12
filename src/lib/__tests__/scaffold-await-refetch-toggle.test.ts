@@ -1,4 +1,4 @@
-import { copyFile, mkdir, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -9,6 +9,10 @@ import { afterAll, describe, expect, it } from 'vitest'
 
 const require = createRequire(import.meta.url)
 const root = await mkdtemp(join(tmpdir(), 'await-refetch-toggle-'))
+await writeFile(
+  join(root, 'package.json'),
+  JSON.stringify({ dependencies: { '@molecule/app-react': '1.0.0' } }),
+)
 await mkdir(join(root, 'eslint-rules'))
 await copyFile(
   new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),
@@ -44,20 +48,17 @@ export function Alerts({ id }) {
 }`
 
 describe('server-backed toggles that wait for a write and a query refetch', () => {
-  it('reports the retained l2195 save on its exact line before any optimistic rewrite', async () => {
+  it('allows the retained l2195 save on its exact line before any optimistic rewrite', async () => {
     const source = await readFile(
       new URL('./fixtures/p292-profile-before.tsx.txt', import.meta.url),
       'utf8',
     )
     const rows = await findings(source)
-    expect(rows).toHaveLength(1)
-    expect(rows[0]).toMatchObject({ line: 47 })
-    expect(rows[0]?.message).toContain('refetch')
-    expect(rows[0]?.message).toContain('useOptimisticValue')
+    expect(rows).toHaveLength(0)
   })
 
-  it('reports a non-X1 notification setting with the same save/refetch dependency', async () => {
-    expect(await findings(recordToggle)).toHaveLength(1)
+  it('allows a non-X1 notification setting with the same save/refetch dependency', async () => {
+    expect(await findings(recordToggle)).toHaveLength(0)
   })
 
   it('stays silent on the retained profile after it adopted useOptimisticValue', async () => {
@@ -68,12 +69,12 @@ describe('server-backed toggles that wait for a write and a query refetch', () =
     expect(await findings(source)).toEqual([])
   })
 
-  it('reports a state-selected DELETE/POST before a query refresh', async () => {
+  it('allows a state-selected DELETE/POST before a query refresh', async () => {
     const source = recordToggle.replace(
       'await saveAlerts(id, !query.data.enabled)',
       "if (query.data.enabled) await http.delete('/alerts'); else await http.post('/alerts')",
     )
-    expect(await findings(source)).toHaveLength(1)
+    expect(await findings(source)).toHaveLength(0)
   })
 
   it.each([

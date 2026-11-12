@@ -1,4 +1,4 @@
-import { copyFile, mkdir, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -9,6 +9,12 @@ import { afterAll, describe, expect, it } from 'vitest'
 
 const require = createRequire(import.meta.url)
 const root = await mkdtemp(join(tmpdir(), 'p214-existing-toggle-rule-'))
+await writeFile(
+  join(root, 'package.json'),
+  JSON.stringify({
+    dependencies: { '@molecule/app-react': '1.0.0', '@molecule/app-routing-react-router': '1.0.0' },
+  }),
+)
 await mkdir(join(root, 'eslint-rules'))
 await copyFile(
   new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),

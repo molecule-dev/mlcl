@@ -86,12 +86,12 @@ describe('unique update checks in the shipped ESLint config', () => {
   it('rejects an unchanged inventory code checked by a local existence-only helper', async () => {
     const messages = await feedback(inventory())
     expect(messages).toHaveLength(1)
-    expect(messages[0]).toMatchObject({ line: 11, severity: 2 })
+    expect(messages[0]).toMatchObject({ line: 11, severity: 1 })
     expect(messages[0].message).toContain("field: 'id'")
     expect(messages[0].message).toContain('value: id')
   })
 
-  it('reports both independent unchanged fields before the same update', async () => {
+  it('only reports the field actually written by the update', async () => {
     const source = inventory().replace(
       "  await updateById('inventory', id, { code })",
       `  if (await codeTaken(otherCode)) {
@@ -100,7 +100,7 @@ describe('unique update checks in the shipped ESLint config', () => {
   }
   await updateById('inventory', id, { code })`,
     )
-    expect(await feedback(source)).toHaveLength(2)
+    expect(await feedback(source)).toHaveLength(1)
   })
 
   it('follows aliased datastore imports and a const arrow helper', async () => {

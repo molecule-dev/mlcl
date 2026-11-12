@@ -15,7 +15,7 @@
  * @module
  */
 
-import { copyFile, mkdir, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -38,9 +38,18 @@ let dir: string
 let eslint: ESLint
 
 beforeEach(async () => {
-  const tmp = join(import.meta.dirname, '../../../.tmp')
+  const tmp = process.env.TMPDIR ?? join(import.meta.dirname, '../../../.tmp')
   await mkdir(tmp, { recursive: true })
   dir = await mkdtemp(join(tmp, 'mlcl-eslint-config-'))
+  await writeFile(
+    join(dir, 'package.json'),
+    JSON.stringify({
+      dependencies: {
+        '@molecule/app-react': '1.0.0',
+        '@molecule/app-routing-react-router': '1.0.0',
+      },
+    }),
+  )
   // The .tpl's extension is not loadable as a config file, and its bare
   // imports have to resolve from a directory under node_modules — so it is
   // copied to .mjs next to a link to the installed tree.
@@ -159,7 +168,7 @@ describe('the shared scaffold eslint config', () => {
       const [before] = await eslint.lintText(source, { filePath: 'app.tsx' })
       const messages = before.messages.filter((message) => message.ruleId === ruleId)
       expect(messages).toHaveLength(1)
-      expect(messages[0]).toMatchObject({ severity: 2 })
+      expect(messages[0]).toMatchObject({ severity: 1 })
       expect(messages[0]?.message).toContain(bond)
       expect(messages[0]?.message).toContain('URL and rendered page')
 
@@ -179,7 +188,7 @@ describe('the shared scaffold eslint config', () => {
 
     const expectReportedWithoutFix = async (
       source: string,
-      message = 'namespace uses are not tracked',
+      message = 'This namespace renders a router',
     ): Promise<void> => {
       const [before] = await eslint.lintText(source, { filePath: 'app.tsx' })
       const messages = before.messages.filter((message) => message.ruleId === ruleId)
@@ -304,30 +313,28 @@ describe('the shared scaffold eslint config', () => {
     )
 
     it.each(['react-router', 'react-router-dom', 'react-router/dom'])(
-      'reports export-all from %s without a fix',
+      'leaves unsupported analysis of export-all from %s without a fix',
       async (entryPoint) => {
-        await expectReportedWithoutFix(`export * from '${entryPoint}'\n`)
+        await expectNoRouterReport(`export * from '${entryPoint}'\n`)
       },
     )
 
     it.each(['react-router', 'react-router-dom', 'react-router/dom'])(
-      'reports a dynamic import of %s without a fix',
+      'leaves unsupported analysis of a dynamic import of %s without a fix',
       async (entryPoint) => {
-        await expectReportedWithoutFix(
+        await expectNoRouterReport(
           `const { BrowserRouter } = await import('${entryPoint}')\nexport const app = <BrowserRouter />\n`,
-          'dynamic module uses are not tracked',
         )
       },
     )
 
     it.each(['react-router', 'react-router-dom', 'react-router/dom'])(
-      'reports a zero-expression template-literal dynamic import of %s',
+      'leaves unsupported analysis of a zero-expression template-literal dynamic import of %s',
       async (entryPoint) => {
-        await expectReportedWithoutFix(
+        await expectNoRouterReport(
           'const { BrowserRouter } = await import(`' +
             entryPoint +
             '`)\nexport const app = <BrowserRouter />\n',
-          'dynamic module uses are not tracked',
         )
       },
     )

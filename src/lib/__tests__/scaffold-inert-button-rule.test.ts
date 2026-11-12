@@ -51,7 +51,7 @@ describe('a button that cannot do anything', () => {
     expect(rows).toHaveLength(1)
     expect(rows[0]).toMatchObject({ line: 28, severity: 1 })
     expect(rows[0]?.message).toContain('Control.tsx:28')
-    expect(rows[0]?.message).toContain('pressing it does nothing')
+    expect(rows[0]?.message).toContain('No action or external binding hook')
   })
 
   it('reports a non-benchmark invoice row whose copy-link button has no handler', async () => {
