@@ -2258,25 +2258,8 @@ export function scaffoldRules(parser) {
           }
           return false
         }
-        const isListFetchingHook = (name) => {
-          if (
-            [
-              'useQuery',
-              'useInfiniteQuery',
-              'useSuspenseQuery',
-              'useSearchParams',
-              'useListRoute',
-            ].includes(name)
-          )
-            return false
-          return (
-            /^use[A-Z]/.test(name) &&
-            (/(?:List|Search|Results)(?:Query)?$/.test(name) || /^use[A-Z][A-Za-z]*s$/.test(name))
-          )
-        }
-
-        const isScalarState = (call) => {
-          const initial = call.arguments[call.callee.name === 'useReducer' ? 1 : 0]
+        const isScalarState = (call, hook) => {
+          const initial = call.arguments[hook === 'useReducer' ? 1 : 0]
           return (
             !initial ||
             (!['ArrayExpression', 'ObjectExpression'].includes(initial.type) &&
@@ -2411,7 +2394,7 @@ export function scaffoldRules(parser) {
               parent.type === 'CallExpression' &&
               node === parent.arguments[0] &&
               parent.callee.type === 'Identifier' &&
-              isListFetchingHook(parent.callee.name) &&
+              rendered(parent, owner) &&
               typeof optionKey === 'string'
             )
               return true
@@ -2438,25 +2421,60 @@ export function scaffoldRules(parser) {
           }
           return false
         }
-        const effectFactories = new Set(
-          source.ast.body
-            .filter(
-              (statement) =>
-                statement.type === 'ImportDeclaration' &&
-                statement.importKind !== 'type' &&
-                statement.source.value === 'react',
-            )
-            .flatMap((statement) =>
-              statement.specifiers
-                .filter(
-                  (entry) =>
-                    entry.type === 'ImportSpecifier' &&
-                    entry.importKind !== 'type' &&
-                    entry.imported.name === 'useEffect',
-                )
-                .map((entry) => variableFor(entry.local, entry.local.name)),
-            ),
-        )
+        // Resolve the actual React export through immutable aliases. A local object or
+        // callback sharing a hook's name is not evidence that React runs the assignment.
+        const importedExport = (expression, seen = new Set()) => {
+          if (
+            [
+              'TSAsExpression',
+              'TSTypeAssertion',
+              'TSNonNullExpression',
+              'TSSatisfiesExpression',
+              'ChainExpression',
+            ].includes(expression?.type)
+          )
+            return importedExport(expression.expression, seen)
+          if (expression?.type === 'MemberExpression') {
+            const origin = importedExport(expression.object, seen)
+            if (origin?.name !== '*') return null
+            const name = expression.computed ? expression.property.value : expression.property.name
+            return typeof name === 'string'
+              ? { module: origin.module, name: name === 'default' ? '*' : name }
+              : null
+          }
+          if (expression?.type !== 'Identifier') return null
+          const variable = variableFor(expression, expression.name)
+          if (!variable || seen.has(variable)) return null
+          seen.add(variable)
+          const definition = variable.defs[0]
+          if (definition?.type === 'ImportBinding') {
+            const declaration = definition.parent || definition.node.parent
+            if (declaration?.importKind === 'type' || definition.node.importKind === 'type')
+              return null
+            const name =
+              definition.node.type === 'ImportSpecifier'
+                ? definition.node.imported.name || definition.node.imported.value
+                : '*'
+            return { module: declaration?.source?.value, name: name === 'default' ? '*' : name }
+          }
+          if (definition?.parent?.kind !== 'const') return null
+          const origin = importedExport(definition.node.init, seen)
+          if (definition.node.id.type !== 'ObjectPattern') return origin
+          if (origin?.name !== '*') return null
+          const property = definition.node.id.properties.find((property) => {
+            if (property.type !== 'Property') return false
+            const value =
+              property.value.type === 'AssignmentPattern' ? property.value.left : property.value
+            return value.type === 'Identifier' && value.name === expression.name
+          })
+          if (!property) return null
+          const name = property.computed
+            ? property.key.value
+            : property.key.name || property.key.value
+          return typeof name === 'string'
+            ? { module: origin.module, name: name === 'default' ? '*' : name }
+            : null
+        }
         const synchronized = (state) => {
           if (!state.setter) return false
           let found = false
@@ -2478,16 +2496,16 @@ export function scaffoldRules(parser) {
             if (isFunction(node) && node !== state.owner) return
             if (
               node.type === 'CallExpression' &&
-              node.callee.type === 'Identifier' &&
-              effectFactories.has(variableFor(node.callee, node.callee.name))
+              importedExport(node.callee)?.module === 'react' &&
+              ['useEffect', 'useLayoutEffect'].includes(importedExport(node.callee)?.name)
             ) {
               const callback = node.arguments[0],
                 dependencies = node.arguments[1]
               const expression =
                 callback?.body?.type === 'BlockStatement'
                   ? callback.body.body.length === 1 &&
-                    callback.body.body[0].type === 'ExpressionStatement'
-                    ? callback.body.body[0].expression
+                    ['ExpressionStatement', 'ReturnStatement'].includes(callback.body.body[0].type)
+                    ? callback.body.body[0].expression || callback.body.body[0].argument
                     : null
                   : callback?.body
               if (
@@ -2513,13 +2531,9 @@ export function scaffoldRules(parser) {
         }
         return {
           VariableDeclarator(node) {
-            if (
-              node.id.type !== 'ArrayPattern' ||
-              node.init?.type !== 'CallExpression' ||
-              node.init.callee.type !== 'Identifier' ||
-              !['useState', 'useReducer'].includes(node.init.callee.name)
-            )
-              return
+            if (node.id.type !== 'ArrayPattern' || node.init?.type !== 'CallExpression') return
+            const hook = importedExport(node.init.callee)
+            if (hook?.module !== 'react' || !['useState', 'useReducer'].includes(hook.name)) return
             const first = node.id.elements[0]
             const owner = componentFor(node)
             if (first?.type !== 'Identifier' || !owner) return
@@ -2531,30 +2545,7 @@ export function scaffoldRules(parser) {
               if (setter) collections.push({ variable, setter, owner })
             }
             // Local filters are valid. Only warn about a snapshot of a URL-owned value.
-            const initializer = node.init.arguments[node.init.callee.name === 'useReducer' ? 1 : 0]
-            const urlFactories = new Set(
-              source.ast.body
-                .filter(
-                  (statement) =>
-                    statement.type === 'ImportDeclaration' &&
-                    statement.importKind !== 'type' &&
-                    [
-                      'react-router',
-                      'react-router-dom',
-                      '@molecule/app-routing-react-router',
-                    ].includes(statement.source.value),
-                )
-                .flatMap((statement) =>
-                  statement.specifiers
-                    .filter(
-                      (entry) =>
-                        entry.type === 'ImportSpecifier' &&
-                        entry.importKind !== 'type' &&
-                        ['useSearchParams', 'useListRoute'].includes(entry.imported.name),
-                    )
-                    .map((entry) => variableFor(entry.local, entry.local.name)),
-                ),
-            )
+            const initializer = node.init.arguments[hook.name === 'useReducer' ? 1 : 0]
             const readsUrl = (expression, seen = new Set()) => {
               if (!expression || seen.has(expression)) return false
               seen.add(expression)
@@ -2562,8 +2553,14 @@ export function scaffoldRules(parser) {
                 const definition = variableFor(expression, expression.name)?.defs[0]?.node
                 if (
                   definition?.init?.type === 'CallExpression' &&
-                  definition.init.callee.type === 'Identifier' &&
-                  urlFactories.has(variableFor(definition.init.callee, definition.init.callee.name))
+                  [
+                    'react-router',
+                    'react-router-dom',
+                    '@molecule/app-routing-react-router',
+                  ].includes(importedExport(definition.init.callee)?.module) &&
+                  ['useSearchParams', 'useListRoute'].includes(
+                    importedExport(definition.init.callee)?.name,
+                  )
                 )
                   return true
                 if (definition?.init && definition.init !== expression)
@@ -2581,15 +2578,15 @@ export function scaffoldRules(parser) {
             }
             const snapshotsUrl =
               readsUrl(initializer) ||
-              (node.init.callee.name === 'useReducer' && readsUrl(node.init.arguments[2]))
-            if (snapshotsUrl && isScalarState(node.init))
+              (hook.name === 'useReducer' && readsUrl(node.init.arguments[2]))
+            if (snapshotsUrl && isScalarState(node.init, hook.name))
               states.push({
                 node: first,
                 variable,
                 owner,
                 readsUrl,
                 setter:
-                  node.init.callee.name === 'useState' && node.id.elements[1]?.type === 'Identifier'
+                  hook.name === 'useState' && node.id.elements[1]?.type === 'Identifier'
                     ? variableFor(node.id.elements[1], node.id.elements[1].name)
                     : null,
               })
