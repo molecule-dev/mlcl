@@ -1,3 +1,5 @@
+import { join } from 'node:path'
+
 import { Config } from '@oclif/core'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
@@ -11,8 +13,11 @@ vi.mock('../../shared/project-flag.js', async (original) => ({
 }))
 beforeEach(() => vi.resetAllMocks())
 
+// The mlcl package root (src/commands/__tests__ → three levels up), whose package.json carries the oclif manifest.
+const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
+
 async function status(argv: string[]): Promise<ReturnType<typeof vi.fn>> {
-  const config = await Config.load({ root: new URL('../../../..', import.meta.url).pathname })
+  const config = await Config.load({ root: MLCL_ROOT })
   const command = new DeployStatus(argv, config)
   const log = vi.fn()
   command.log = log
