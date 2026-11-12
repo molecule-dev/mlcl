@@ -102,11 +102,13 @@ describe('the existing scaffold optimistic-value rule covers retained P214 shape
   })
   it.each([
     [
-      'local UI',
-      account.replace(
-        "return state.enabled?await clientDelete('/preferences'):await clientPost('/preferences')",
-        'await animate()',
-      ),
+      'local UI that disables its busy control',
+      account
+        .replace(
+          "return state.enabled?await clientDelete('/preferences'):await clientPost('/preferences')",
+          'await animate()',
+        )
+        .replace('<button onClick={toggle}', '<button disabled={pending} onClick={toggle}'),
     ],
     [
       'server-waiting save',

@@ -540,7 +540,7 @@ export function Pipeline() {
         },
         {
           options: [{ persistenceFunctions: fixturePersistence }],
-          name: 'a local panel with a busy guard posts analytics without saving its open flag',
+          name: 'a local panel disables its busy control while posting analytics',
           filename: 'Panel.tsx',
           code: `import { useState } from 'react'
 export function Panel() {
@@ -552,7 +552,7 @@ export function Panel() {
     setBusy(true)
     try { await http.post('/analytics', { event: 'open' }) } finally { setBusy(false) }
   }
-  return <button onClick={toggle} />
+  return <button disabled={busy} onClick={toggle}>{open ? 'Close' : 'Open'}</button>
 }`,
         },
         {
