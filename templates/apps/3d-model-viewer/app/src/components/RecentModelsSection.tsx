@@ -15,12 +15,18 @@ interface Model {
   updated_at?: string
 }
 
-function RecentModelsSection() {
+interface RecentModelsSectionProps {
+  /** Optional preview size; omitting it renders the complete loaded collection. */
+  limit?: number
+}
+
+function RecentModelsSection({ limit }: RecentModelsSectionProps = {}) {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
   const [models, setModels] = useState<Model[]>([])
   const [loading, setLoading] = useState(true)
+  const visibleModels = limit === undefined ? models : models.slice(0, Math.max(0, limit))
 
   useEffect(() => {
     http
@@ -51,7 +57,7 @@ function RecentModelsSection() {
                 style={{ minHeight: 220 }}
               />
             ))
-          : models.map((model) => (
+          : visibleModels.map((model) => (
               <Link key={model.id} to={`/models/${model.id}`} className="contents">
                 <div
                   className={cm.cn(
