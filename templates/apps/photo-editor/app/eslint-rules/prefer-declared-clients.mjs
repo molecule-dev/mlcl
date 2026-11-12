@@ -2561,12 +2561,15 @@ export function scaffoldRules(parser) {
             '{{location}}: This toggle waits for its save and a query refetch before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, move this save into commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads and keep it mounted during refetches. Preserve authentication checks; pending saves must not discard clicks.',
           awaitSave:
             '{{location}}: This toggle waits for its save before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, save in commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads. Preserve authentication checks and keep the control mounted during saves.',
+          droppedIntent:
+            'This control shows its next value before awaiting work, but its busy guard discards another click while that work is pending. Keep the control disabled for that busy state, or queue the latest intent with useOptimisticValue from @molecule/app-react. An imported callback does not make the busy guard safe.',
         },
       },
       create(context) {
         const helpers = new Set(['useOptimisticValue', 'createOptimisticValue'])
         let reactModule = false
         const candidates = []
+        const controls = []
         const submitHandlers = new Set()
         const helperCommits = new Set()
         const isFunction = (node) =>
@@ -2858,29 +2861,72 @@ export function scaffoldRules(parser) {
           })
           return writes
         }
-        const droppedOrRefetched = (fn, save) => {
-          const writes = writesBefore(fn, save)
-          let guarded = false
+        // A positive busy flag in an OR guard unconditionally discards this intent.
+        // Do not infer persistence from an async callback's name or import path.
+        const positiveFlag = (node, variable) => {
+          const value = unwrap(node)
+          if (value?.type === 'Identifier') return variableFor(value) === variable
+          return (
+            value?.type === 'LogicalExpression' &&
+            value.operator === '||' &&
+            (positiveFlag(value.left, variable) || positiveFlag(value.right, variable))
+          )
+        }
+        const busyGuards = (fn, save) => {
+          const guards = new Set()
           walk(fn.body, (node) => {
             if (node.type !== 'IfStatement' || node.range[0] >= save.range[0]) return
-            const flag = variableFor(unwrap(node.test))
-            const busy = [...states.values()].find((state) => state.variable === flag)
-            if (!busy) return
-            let returns = false
-            walk(node.consequent, (part) => {
-              if (part.type === 'ReturnStatement') returns = true
-            })
-            guarded ||=
-              returns &&
-              busy.setter.references.some((reference) => {
-                const call = reference.identifier.parent
-                return (
-                  call?.type === 'CallExpression' &&
-                  enclosingFunction(call) === fn &&
-                  call.arguments[0]?.value === true
-                )
-              })
+            const body = node.consequent
+            const returns =
+              body.type === 'ReturnStatement' ||
+              (body.type === 'BlockStatement' && body.body[0]?.type === 'ReturnStatement')
+            if (!returns) return
+            for (const busy of states.values()) {
+              if (!positiveFlag(node.test, busy.variable)) continue
+              if (
+                busy.setter.references.some((reference) => {
+                  const call = reference.identifier.parent
+                  return (
+                    call?.type === 'CallExpression' &&
+                    enclosingFunction(call) === fn &&
+                    call.range[0] < save.range[0] &&
+                    call.arguments[0]?.value === true
+                  )
+                })
+              )
+                guards.add(busy.variable)
+            }
           })
+          return guards
+        }
+        const guardedControlIsDisabled = (fn, guards) => {
+          const matches = controls.filter(({ handler }) => {
+            if (handler === fn) return true
+            let calls = false
+            walk(handler?.body, (node) => {
+              if (node.type === 'CallExpression' && functionFor(node.callee) === fn) calls = true
+            })
+            return calls
+          })
+          return (
+            matches.length > 0 &&
+            matches.every(({ opening }) =>
+              opening.attributes.some((attribute) => {
+                if (attribute.type !== 'JSXAttribute' || attribute.name.name !== 'disabled')
+                  return false
+                if (!attribute.value) return true
+                const expression = attribute.value.expression
+                return (
+                  expression?.value === true ||
+                  [...guards].some((flag) => positiveFlag(expression, flag))
+                )
+              }),
+            )
+          )
+        }
+        const droppedOrRefetched = (fn, save) => {
+          const writes = writesBefore(fn, save)
+          const guarded = busyGuards(fn, save).size > 0
           const refetched = writes.some(({ state }) =>
             effects.some((effect) => {
               let replaces = false
@@ -3367,6 +3413,8 @@ export function scaffoldRules(parser) {
             }
           },
           JSXAttribute(node) {
+            if (node.name.name === 'onClick')
+              controls.push({ opening: node.parent, handler: functionFor(node.value?.expression) })
             if (node.name.name !== 'onSubmit') return
             const fn = functionFor(node.value?.expression)
             const collect = (handler) => {
@@ -3515,6 +3563,16 @@ export function scaffoldRules(parser) {
                     ))
               }
               const optimistic = shownBefore(fn, namesFor(fn), node)
+              const guards =
+                optimistic && !hit && kind === 'call' && promiseUsed(node, fn)
+                  ? busyGuards(fn, node)
+                  : new Set()
+              const dropsIntent = guards.size > 0 && !guardedControlIsDisabled(fn, guards)
+              if (dropsIntent && !hit) {
+                reported.add(fn)
+                context.report({ node, messageId: 'droppedIntent' })
+                continue
+              }
               if (!hit || !optimistic) continue
               reported.add(fn)
               context.report({
