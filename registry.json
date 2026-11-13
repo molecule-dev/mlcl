@@ -3747,11 +3747,13 @@
         "@aws-sdk/credential-provider-node",
         "@molecule/api-ai-translation",
         "@molecule/api-analytics",
+        "@molecule/api-bond",
         "@molecule/api-proxy-agent",
         "@molecule/api-secrets"
       ],
       "moleculePeers": [
         "@molecule/api-ai-translation",
+        "@molecule/api-bond",
         "@molecule/api-secrets"
       ],
       "path": "packages/api/bonds/ai-translation/amazon",
@@ -18165,11 +18167,13 @@
         "@aws-sdk/client-textract",
         "@aws-sdk/credential-provider-node",
         "@molecule/api-analytics",
+        "@molecule/api-bond",
         "@molecule/api-ocr",
         "@molecule/api-proxy-agent",
         "@molecule/api-secrets"
       ],
       "moleculePeers": [
+        "@molecule/api-bond",
         "@molecule/api-ocr",
         "@molecule/api-secrets"
       ],
@@ -34170,7 +34174,8 @@
         "monaco-editor"
       ],
       "moleculePeers": [
-        "@molecule/app-i18n"
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
       ],
       "path": "packages/app/bonds/code-editor/monaco",
       "intentHints": [
