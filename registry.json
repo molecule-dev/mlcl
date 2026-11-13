@@ -3479,6 +3479,7 @@
         "installedPackageWriteRefusal",
         "buildTools",
         "supportsBackgroundScriptPreparation",
+        "BACKGROUND_SCRIPT_SHELL",
         "taskStopFile",
         "SPLIT_WORK_ADVICE",
         "SUITE_OVER_BUDGET_ADVICE",
