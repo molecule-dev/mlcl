@@ -64944,22 +64944,16 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
-        "@molecule/app-routing",
         "@molecule/app-solid",
-        "@molecule/app-theme",
         "@molecule/app-ui",
         "solid-js"
       ],
       "moleculePeers": [
-        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
-        "@molecule/app-routing",
         "@molecule/app-solid",
-        "@molecule/app-theme",
         "@molecule/app-ui"
       ],
       "framework": "solid",
@@ -65867,21 +65861,15 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
-        "@molecule/app-routing",
-        "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-vue",
         "vue"
       ],
       "moleculePeers": [
-        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
-        "@molecule/app-routing",
-        "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-vue"
       ],
