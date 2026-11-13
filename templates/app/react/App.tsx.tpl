@@ -4,7 +4,7 @@ import { getClient as getHttpClient } from '@molecule/app-http'
 import { BrowserRouter } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, themeProvider, i18nProvider } from './bonds/index.js'
-import { AuthGuard } from './components/AuthGuard.js'
+import { RouteAccess } from './components/AuthGuard.js'
 import { AppLayout } from './components/AppLayout.js'
 import { About } from './pages/About.js'
 import { ForgotPassword } from './pages/ForgotPassword.js'
@@ -47,20 +47,20 @@ export function App() {
         storage={getStorageProvider()}
         i18n={i18nProvider}
       >
-        <Routes>
-          <Route path="/login" element={<Login />} />
-          <Route path="/signup" element={<Signup />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/forgot-password" element={<ForgotPassword />} />
-          <Route path="/reset-password" element={<ResetPassword />} />
-          <Route element={<AuthGuard />}>
+        <RouteAccess>
+          <Routes>
+            <Route path="/login" element={<Login />} />
+            <Route path="/signup" element={<Signup />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/forgot-password" element={<ForgotPassword />} />
+            <Route path="/reset-password" element={<ResetPassword />} />
             <Route element={<AppLayout />}>
               <Route path="/" element={<Home />} />
               <Route path="/settings" element={<Settings />} />
               <Route path="/plan-updated" element={<PlanUpdated />} />
             </Route>
-          </Route>
-        </Routes>
+          </Routes>
+        </RouteAccess>
       </MoleculeProvider>
     </BrowserRouter>
   )
