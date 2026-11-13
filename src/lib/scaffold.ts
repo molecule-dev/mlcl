@@ -2771,6 +2771,19 @@ export async function copyTemplateInstance(
   for (const ws of ['api', 'app']) {
     if (existsSync(join(destDir, ws))) await scaffoldEslint(join(destDir, ws))
   }
+  // npm's normal build lifecycle must run the same authored checks as a custom
+  // app. TypeScript and Vite cannot diagnose an undrawn interaction target.
+  const appManifest = join(destDir, 'app', 'package.json')
+  if (existsSync(appManifest)) {
+    const pkg = JSON.parse(await readFile(appManifest, 'utf8')) as {
+      scripts?: Record<string, string>
+    }
+    pkg.scripts = {
+      ...pkg.scripts,
+      prebuild: ['npm run lint', pkg.scripts?.prebuild].filter(Boolean).join(' && '),
+    }
+    await writeFile(appManifest, JSON.stringify(pkg, null, 2) + '\n')
+  }
 
   // Copy template-root e2e/ + playwright.config.ts into the scaffolded
   // app/ so `cd <project>/app && npx playwright test` runs the full
@@ -5040,6 +5053,7 @@ export async function createAppProject(
     type: 'module',
     scripts: {
       dev: 'vite',
+      prebuild: 'npm run lint',
       build: fwConfig.buildScript ?? 'tsc --noEmit && vite build',
       preview: 'vite preview',
       'generate-icons': 'node scripts/generate-icons.mjs',
