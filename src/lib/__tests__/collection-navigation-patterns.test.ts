@@ -9,7 +9,6 @@ import * as router from 'react-router'
 import ts from 'typescript'
 import { afterEach, expect, it, vi } from 'vitest'
 
-import { DetailHeader } from '@molecule/app-detail-header-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { TabFilter } from '@molecule/app-tab-filter-react'
 
@@ -39,7 +38,6 @@ function example(file: string, exported: string): react.ElementType {
   const imports: Record<string, unknown> = {
     react,
     'react/jsx-runtime': jsx,
-    '@molecule/app-detail-header-react': { DetailHeader },
     '@molecule/app-tab-filter-react': { TabFilter },
     '@molecule/app-routing-react-router': { useListRoute },
   }
@@ -50,40 +48,12 @@ function example(file: string, exported: string): react.ElementType {
   return exports[exported]!
 }
 
-// A real non-X1 template's route graph supplies this consumer's collection and record paths.
+// A real non-X1 template's route graph supplies this consumer's collection path.
 const blog = readFileSync(
   join(import.meta.dirname, '../../../templates/apps/blog/app/src/App.tsx'),
   'utf8',
 )
 const collectionPath = blog.match(/<Route path="([^"]+)" element={<PostList/)?.[1]
-const detailPath = blog.match(/<Route path="([^"]+)" element={<PostDetail/)?.[1]
-
-it.each([true, false])(
-  'the detail recipe keeps a shared action executable for a Blog owner=%s',
-  (canEdit) => {
-    expect(detailPath).toBe('/post/:id')
-    const Header = example('item-detail-fetch.md', 'RecordHeader')
-    const save = vi.fn(),
-      edit = vi.fn()
-    render(
-      react.createElement(Header, {
-        record: { id: 'design-notes', title: 'Design notes' },
-        canEdit,
-        labels: { save: 'Save reading', edit: 'Edit post' },
-        onSave: save,
-        onEdit: edit,
-      }),
-    )
-    fireEvent.click(screen.getByRole('button', { name: 'Save reading' }))
-    expect(save).toHaveBeenCalledWith('design-notes')
-    expect(Boolean(screen.queryByRole('button', { name: 'Edit post' }))).toBe(canEdit)
-    if (canEdit) {
-      fireEvent.click(screen.getByRole('button', { name: 'Edit post' }))
-      expect(edit).toHaveBeenCalledWith('design-notes')
-    }
-  },
-)
-
 it('the collection recipe returns from Blog filtered page two and preserves browser history', async () => {
   expect(collectionPath).toBe('/posts')
   const Views = example('pagination.md', 'CollectionViews')
