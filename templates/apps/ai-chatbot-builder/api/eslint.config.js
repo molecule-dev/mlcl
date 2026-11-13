@@ -158,6 +158,7 @@ export default tseslint.config(
       'molecule-local/prefer-declared-clients': 'error',
       'molecule-local/async-collections-have-status': 'error',
       'molecule-local/effects-preserve-form-edits': 'error',
+      'molecule-local/no-dropped-optimistic-intent': 'error',
       'molecule-local/no-fixed-navigation-truncation': 'warn',
       'molecule-local/unique-update-excludes-self': 'warn',
       ...(routingBond
@@ -169,7 +170,11 @@ export default tseslint.config(
       // For adapters implemented in other files, a file-specific override may declare
       // persistenceFunctions: ['adapter.save']. Defaults require a visible HTTP write.
 
-      ...(optimisticValue ? { 'molecule-local/server-toggles-use-optimistic-value': 'warn' } : {}),
+      ...(optimisticValue
+        ? {
+            'molecule-local/server-toggles-use-optimistic-value': ['warn', { mode: 'advisory' }],
+          }
+        : {}),
       'molecule-local/buttons-have-an-action': 'warn',
       'molecule-local/placeholders-stay-out-of-record-fields': 'warn',
       'molecule-local/links-reach-the-view-they-select': 'warn',

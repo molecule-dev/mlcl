@@ -154,6 +154,39 @@ export function FavoriteButton({ article }: { article: Article }) {
 `
 
 describe('molecule-local/server-toggles-use-optimistic-value', () => {
+  it('rejects the retained P358 enabled busy guard once, as a default native error', async () => {
+    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const source = await readFile(
+      new URL('./fixtures/p358-l2728-ArticlePreview.tsx.txt', import.meta.url),
+      'utf8',
+    )
+    const [result] = await eslint.lintText(source, { filePath: 'ArticlePreview.tsx' })
+    const messages = result.messages.filter((row) => row.messageId === 'droppedIntent')
+    expect(messages).toHaveLength(1)
+    expect(messages[0]).toMatchObject({
+      ruleId: 'molecule-local/no-dropped-optimistic-intent',
+      severity: 2,
+      line: 43,
+    })
+  })
+
+  it('counterexample: the retained callback can deliberately disable its pending control', async () => {
+    const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+    const source = await readFile(
+      new URL('./fixtures/p358-l2728-ArticlePreview.tsx.txt', import.meta.url),
+      'utf8',
+    )
+    const [result] = await eslint.lintText(
+      source.replace('onClick={toggle}', 'disabled={busy} onClick={toggle}'),
+      {
+        filePath: 'ArticlePreview.tsx',
+      },
+    )
+    expect(
+      result.messages.filter((row) => row.ruleId === 'molecule-local/no-dropped-optimistic-intent'),
+    ).toEqual([])
+  })
+
   it.each([false, true, null])(
     'preserves both boolean values in the retained nullable follow rewrite, starting at %s',
     async (initial) => {

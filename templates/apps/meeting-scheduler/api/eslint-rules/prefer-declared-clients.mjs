@@ -1479,7 +1479,7 @@ function reactStateFlow(context) {
 
 /** Shared scaffold diagnostics. ESLint supplies the parser used for imported source files. */
 export function scaffoldRules(parser) {
-  return {
+  const rules = {
     'effects-preserve-form-edits': {
       meta: {
         type: 'problem',
@@ -3416,7 +3416,10 @@ export function scaffoldRules(parser) {
         schema: [
           {
             type: 'object',
-            properties: { persistenceFunctions: { type: 'array', items: { type: 'string' } } },
+            properties: {
+              persistenceFunctions: { type: 'array', items: { type: 'string' } },
+              mode: { enum: ['all', 'advisory', 'dropped-intent'] },
+            },
             additionalProperties: false,
           },
         ],
@@ -3432,6 +3435,7 @@ export function scaffoldRules(parser) {
         },
       },
       create(context) {
+        const mode = context.options[0]?.mode ?? 'all'
         const helpers = new Set(['useOptimisticValue', 'createOptimisticValue'])
         let reactModule = false
         const candidates = []
@@ -4448,15 +4452,17 @@ export function scaffoldRules(parser) {
               }
               const optimistic = shownBefore(fn, namesFor(fn), node)
               const guards =
-                optimistic && !hit && kind === 'call' && promiseUsed(node, fn)
+                optimistic && (mode !== 'all' || !hit) && kind === 'call' && promiseUsed(node, fn)
                   ? busyGuards(fn, node)
                   : new Set()
               const dropsIntent = guards.size > 0 && !guardedControlIsDisabled(fn, guards)
-              if (dropsIntent && !hit) {
+              if (dropsIntent && mode === 'advisory') continue
+              if (dropsIntent && (mode === 'dropped-intent' || !hit)) {
                 reported.add(fn)
                 context.report({ node, messageId: 'droppedIntent' })
                 continue
               }
+              if (mode === 'dropped-intent') continue
               if (!hit || !optimistic) continue
               reported.add(fn)
               context.report({
@@ -5261,4 +5267,23 @@ export function scaffoldRules(parser) {
       },
     },
   }
+  // Reuse the existing flow analysis for a narrow correctness error. The broader
+  // helper recommendation remains advisory: a custom implementation is valid.
+  const toggles = rules['server-toggles-use-optimistic-value']
+  rules['no-dropped-optimistic-intent'] = {
+    ...toggles,
+    meta: {
+      ...toggles.meta,
+      type: 'problem',
+      docs: { description: 'Reject an enabled optimistic control that drops clicks while saving.' },
+    },
+    create(context) {
+      return toggles.create(
+        Object.create(context, {
+          options: { value: [{ ...context.options[0], mode: 'dropped-intent' }] },
+        }),
+      )
+    },
+  }
+  return rules
 }

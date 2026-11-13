@@ -16,6 +16,20 @@ const nodeModules = dirname(dirname(require.resolve('eslint/package.json')))
 const template = new URL('../../../templates/apps/note-taking/app/', import.meta.url)
 const missing =
   'export function Control({ act }: { act: () => void }) { return <i role="button" tabIndex={0} aria-label="Remove record" className="unloaded-glyph" onClick={act} onKeyDown={act} /> }\n'
+const droppedIntent = `import { useState } from 'react'
+export function Control({ save }: { save: (value: boolean) => Promise<void> }) {
+  const [enabled, setEnabled] = useState(false)
+  const [busy, setBusy] = useState(false)
+  async function toggle() {
+    if (busy) return
+    setBusy(true)
+    const next = !enabled
+    setEnabled(next)
+    try { await save(next) } finally { setBusy(false) }
+  }
+  return <button type="button" onClick={toggle}>{enabled ? 'Undo' : 'Done'}</button>
+}
+`
 let root: string
 let custom: string
 let flagship: string
@@ -97,6 +111,31 @@ async function build(app: string): Promise<{ code: number; output: string }> {
 }
 
 describe('frontend npm build verification', () => {
+  it.each(['custom', 'flagship'])(
+    'rejects a lost optimistic click as a native lint error: %s',
+    async (kind) => {
+      const app = kind === 'custom' ? custom : flagship
+      await fixture(app, droppedIntent)
+      const result = await build(app)
+      expect(result.code, result.output).not.toBe(0)
+      expect(result.output).toMatch(/Control\.tsx/)
+      expect(result.output).toContain('no-dropped-optimistic-intent')
+      expect(result.output).toContain('busy guard discards another click')
+      await expect(readFile(join(app, 'dist/index.html'))).rejects.toMatchObject({ code: 'ENOENT' })
+    },
+    90_000,
+  )
+
+  it('counterexample: an explicitly disabled pending control still builds', async () => {
+    await fixture(
+      custom,
+      droppedIntent.replace('onClick={toggle}', 'disabled={busy} onClick={toggle}'),
+    )
+    const result = await build(custom)
+    expect(result.code, result.output).toBe(0)
+    expect(await readFile(join(custom, 'dist/index.html'), 'utf8')).toContain('Equipment console')
+  }, 90_000)
+
   it.each(['custom', 'flagship'])(
     'rejects an undrawn target before bundling: %s',
     async (kind) => {
