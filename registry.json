@@ -39127,6 +39127,7 @@
         "DateFormatOptions",
         "I18nProvider",
         "TranslateFunction",
+        "PluralCategory",
         "TranslateOptions",
         "getNestedValue",
         "deepMerge",
