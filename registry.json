@@ -64408,6 +64408,7 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@angular/common",
         "@angular/core",
         "@angular/platform-browser",
         "@molecule/app-angular",
@@ -64936,16 +64937,22 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-routing",
         "@molecule/app-solid",
+        "@molecule/app-theme",
         "@molecule/app-ui",
         "solid-js"
       ],
       "moleculePeers": [
+        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-routing",
         "@molecule/app-solid",
+        "@molecule/app-theme",
         "@molecule/app-ui"
       ],
       "framework": "solid",
@@ -65368,15 +65375,19 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-routing",
         "@molecule/app-svelte",
         "@molecule/app-ui",
         "svelte"
       ],
       "moleculePeers": [
+        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-routing",
         "@molecule/app-svelte",
         "@molecule/app-ui"
       ],
@@ -65849,15 +65860,21 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-routing",
+        "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-vue",
         "vue"
       ],
       "moleculePeers": [
+        "@molecule/app-auth",
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-routing",
+        "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-vue"
       ],
