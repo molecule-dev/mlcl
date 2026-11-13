@@ -76,3 +76,12 @@ Keep every control in `defaultValues` and `toValues`; normalize nullable text to
 Attach `formProps` to the actual native `<form>` and pass `register` props to the actual input/textarea. A custom button must forward `type="submit"`. Display `profile.formState.errors` for validation failures, and `useI18nError` for save failures: it renders the server reason (`user.error.usernameUnavailable`) in the current locale. `profile.error` is `unknown`, so pass it only when it is an `Error`, as above. `onSaved` is awaited; a failed cache propagation can be retried without repeating the accepted mutation.
 
 **Verify:** load the form, edit a field, let a background user refresh finish, submit, and assert the request contains the typed value. Read the saved value independently from the API, assert the untouched fields still show in the form and in a `useAuth()` reader, save a second time, then reload the form. Include an omitted optional password and an explicitly cleared field. A 200 response alone does not prove the intended values were submitted or persisted.
+
+The React scaffold's `Settings` accepts `onSaved(saved)`, so an application can
+choose its post-save route without replacing the form or writing another auth store.
+Keep that callback at the route composition: navigate to the destination the app
+requires, using the saved server identity (encoded when it is a URL segment).
+The shared form publishes that user before invoking the callback; a navbar reading
+`useAuth()` sees it on the destination. Apps that stay on settings omit the callback.
+Test the save and the destination together: assert both the final URL and the navbar
+identity. A saved HTTP response alone does not establish the right navigation.

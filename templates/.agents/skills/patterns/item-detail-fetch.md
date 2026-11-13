@@ -2,7 +2,7 @@
 id: item-detail-fetch
 intent: item-detail-fetch
 title: Load the current route's entity before rendering its actions
-hooks: [useParams, useQuery, useHttpClient, useTranslation]
+hooks: [useParams, QueryContent, useQuery, useHttpClient, useTranslation]
 ---
 
 # Single-item detail fetch
@@ -14,8 +14,7 @@ query rather than separate local data/loading state.
 ```tsx
 import { Link, useParams } from 'react-router'
 import { unwrapSingle } from '@molecule/app-http'
-import { getQueryClient } from '@molecule/app-query'
-import { useQuery } from '@molecule/app-query-react'
+import { QueryContent, useQuery } from '@molecule/app-query-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 
 interface Post {
@@ -36,51 +35,42 @@ export function PostDetail() {
       ),
   }
   const query = useQuery(id ? options : null)
-  const post = query.data
-
-  if (!id || (query.status === 'success' && post == null)) {
-    return <p>{t('posts.notFound', undefined, { defaultValue: 'Post not found.' })}</p>
-  }
-  if (post == null) {
-    if (query.status === 'error') {
-      return (
+  if (!id) return <p>{t('posts.notFound', undefined, { defaultValue: 'Post not found.' })}</p>
+  return (
+    <QueryContent
+      query={query}
+      pending={<p role="status">{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>}
+      missing={<p>{t('posts.notFound', undefined, { defaultValue: 'Post not found.' })}</p>}
+      error={() => (
         <div role="alert">
           <p>{t('posts.loadFailed', undefined, { defaultValue: 'Unable to load this post.' })}</p>
-          <button
-            type="button"
-            onClick={() => {
-              void getQueryClient()
-                .fetch(options)
-                .catch((_error) => {
-                  // useQuery exposes the retry failure through status/error.
-                })
-            }}
-          >
+          <button type="button" onClick={() => void query.refetch()}>
             {t('common.retry', undefined, { defaultValue: 'Retry' })}
           </button>
         </div>
-      )
-    }
-    return <p role="status">{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
-  }
-
-  return (
-    <article>
-      {query.isFetching ? (
-        <p role="status">{t('common.refreshing', undefined, { defaultValue: 'Refreshing…' })}</p>
-      ) : null}
-      <h1>{post.title}</h1>
-      <p>{post.body}</p>
-      <Link to={`/posts/${encodeURIComponent(post.id)}/edit`}>
-        {t('posts.edit', undefined, { defaultValue: 'Edit post' })}
-      </Link>
-    </article>
+      )}
+    >
+      {(post) => (
+        <article>
+          {query.isFetching ? (
+            <p role="status">
+              {t('common.refreshing', undefined, { defaultValue: 'Refreshing…' })}
+            </p>
+          ) : null}
+          <h1>{post.title}</h1>
+          <p>{post.body}</p>
+          <Link to={`/posts/${encodeURIComponent(post.id)}/edit`}>
+            {t('posts.edit', undefined, { defaultValue: 'Edit post' })}
+          </Link>
+        </article>
+      )}
+    </QueryContent>
   )
 }
 ```
 
-The edit control and any other resource-dependent controls belong after the
-data check, or inside child components that receive the loaded `post`. Do not
+The edit control and every resource-dependent control belong inside the
+`QueryContent` child, which receives the loaded `post`. Do not
 render an enabled action on the first paint with a handler that returns while
 the resource is missing: the early click is lost. Cached data stays visible
 and actionable during refresh. A key change observes the new key's state;

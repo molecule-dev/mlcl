@@ -33,7 +33,7 @@ import { useI18nError, useProfileForm, useTranslation } from '@molecule/app-reac
 import { getClassMap } from '@molecule/app-ui'
 
 /** The app's profile shape: the shared base fields plus the columns this app serves. */
-interface AppUser extends UserProfile {
+export interface AppUser extends UserProfile {
   username?: string
   bio?: string
 }
@@ -51,7 +51,12 @@ type Fields = {
 
 const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
 
-export function Settings(): JSX.Element {
+/** App-specific post-save work; the form owns saving and publishing the user first. */
+export interface SettingsProps {
+  onSaved?: (user: AppUser) => void | Promise<void>
+}
+
+export function Settings({ onSaved }: SettingsProps = {}): JSX.Element {
   const cm = getClassMap()
   const { t } = useTranslation()
   const id = useId()
@@ -64,6 +69,7 @@ export function Settings(): JSX.Element {
       avatar: user.avatar ?? '',
     }),
     toPatch: (changes) => changes,
+    onSaved,
   })
   // `profile.error` is `unknown`; the auth client rejects a save with an `I18nError` (the
   // server's reason key), which this translates in the current locale.

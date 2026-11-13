@@ -59731,6 +59731,7 @@
       "description": "React hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
       "stack": "app",
       "exports": [
+        "QueryContent",
         "createQueryResource",
         "ResourceResponse",
         "ResourceHttp",
@@ -59741,7 +59742,8 @@
         "usePrefetch",
         "intentPrefetchProps",
         "IntentPrefetchProps",
-        "useQuery"
+        "useQuery",
+        "QueryContentProps"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -59780,7 +59782,8 @@
       },
       "intentHints": [
         "usequery hook",
-        "prefetch links on hover"
+        "prefetch links on hover",
+        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
       ]
     },
     "@molecule/app-query-tanstack": {

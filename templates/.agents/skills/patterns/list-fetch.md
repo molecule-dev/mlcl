@@ -2,7 +2,7 @@
 id: list-fetch
 intent: list-fetch
 title: Fetch a list from the shared query cache and render ready items
-hooks: [useQuery, useHttpClient, useTranslation]
+hooks: [QueryContent, useQuery, useHttpClient, useTranslation]
 ---
 
 # List fetch + render
@@ -14,8 +14,7 @@ key, returns cached data immediately, and observes retries and saved responses.
 ```tsx
 import { Link } from 'react-router'
 import { unwrapList } from '@molecule/app-http'
-import { getQueryClient } from '@molecule/app-query'
-import { useQuery } from '@molecule/app-query-react'
+import { QueryContent, useQuery } from '@molecule/app-query-react'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 
 interface Post {
@@ -33,55 +32,48 @@ export function PostList() {
       unwrapList<Post>(await http.get<Post[]>('/posts', { signal })),
   }
   const query = useQuery(options)
-  const posts = query.data
-
-  if (posts === undefined) {
-    if (query.status === 'error') {
-      return (
+  return (
+    <QueryContent
+      query={query}
+      pending={<p role="status">{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>}
+      error={() => (
         <div role="alert">
           <p>{t('posts.loadFailed', undefined, { defaultValue: 'Unable to load posts.' })}</p>
-          <button
-            type="button"
-            onClick={() => {
-              void getQueryClient()
-                .fetch(options)
-                .catch((_error) => {
-                  // useQuery exposes the retry failure through status/error.
-                })
-            }}
-          >
+          <button type="button" onClick={() => void query.refetch()}>
             {t('common.retry', undefined, { defaultValue: 'Retry' })}
           </button>
         </div>
-      )
-    }
-    return <p role="status">{t('common.loading', undefined, { defaultValue: 'Loading…' })}</p>
-  }
-  if (posts.length === 0) {
-    return <p>{t('posts.empty', undefined, { defaultValue: 'No posts yet.' })}</p>
-  }
-
-  return (
-    <section>
-      {query.isFetching ? (
-        <p role="status">{t('common.refreshing', undefined, { defaultValue: 'Refreshing…' })}</p>
-      ) : null}
-      <ul>
-        {posts.map((post) => (
-          <li key={post.id}>
-            <Link to={`/posts/${encodeURIComponent(post.id)}`}>
-              <h2>{post.title}</h2>
-              <p>{post.excerpt}</p>
-            </Link>
-          </li>
-        ))}
-      </ul>
-    </section>
+      )}
+    >
+      {(posts) =>
+        posts.length === 0 ? (
+          <p>{t('posts.empty', undefined, { defaultValue: 'No posts yet.' })}</p>
+        ) : (
+          <section>
+            {query.isFetching ? (
+              <p role="status">
+                {t('common.refreshing', undefined, { defaultValue: 'Refreshing…' })}
+              </p>
+            ) : null}
+            <ul>
+              {posts.map((post) => (
+                <li key={post.id}>
+                  <Link to={`/posts/${encodeURIComponent(post.id)}`}>
+                    <h2>{post.title}</h2>
+                    <p>{post.excerpt}</p>
+                  </Link>
+                </li>
+              ))}
+            </ul>
+          </section>
+        )
+      }
+    </QueryContent>
   )
 }
 ```
 
-Render item actions inside the branch with actual data. A visible enabled
+The `QueryContent` child receives only loaded data. Render item actions inside it. A visible enabled
 button whose handler returns on missing data loses the first click. Loading
 and failed initial requests have no resource action; an empty array is a loaded
 empty state. Cached items stay actionable during a background refresh.

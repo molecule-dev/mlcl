@@ -43,21 +43,25 @@ if (error) {
 }
 ```
 
+Use `QueryContent` from `@molecule/app-query-react` for data-dependent lists and
+actions (see `list-fetch.md` and `item-detail-fetch.md`). It keeps the loaded branch
+unmounted until data exists; its pending fallback must not contain item controls.
+
 **Skeleton** — prefer this over a plain "Loading…" message for list pages. Render N placeholder cards matching the real card's outer dimensions so the layout doesn't shift once data arrives:
 
 ```tsx
 if (loading) {
   return (
-    <ul>
+    <div aria-hidden="true">
       {Array.from({ length: 6 }).map((_, i) => (
-        <li
+        <div
           key={i}
           aria-hidden="true"
           className={cm.cn(cm.skeleton(), cm.sp('my', 3))}
           style={{ minHeight: 120 }}
         />
       ))}
-    </ul>
+    </div>
   )
 }
 ```
