@@ -3697,6 +3697,74 @@
         "detect language"
       ]
     },
+    "@molecule/api-ai-translation-amazon": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-translation",
+      "label": "Amazon Translate",
+      "description": "Amazon Translate provider for molecule.dev — text translation via AWS Translate",
+      "stack": "api",
+      "implements": "@molecule/api-ai-translation",
+      "exports": [
+        "AmazonTranslateConfig",
+        "AwsCredentials",
+        "MaskedText",
+        "aiTranslationAmazonSecretDefinitions",
+        "buildTranslateClient",
+        "createProvider",
+        "maskText",
+        "provider",
+        "resolveRegion",
+        "unmaskText"
+      ],
+      "secrets": [
+        {
+          "name": "AWS_ACCESS_KEY_ID",
+          "required": true,
+          "label": "AWS access key ID",
+          "setupUrl": "https://console.aws.amazon.com/iam/",
+          "instructions": "Create an IAM user with the needed policy (SES/S3/SQS) and create an access key under Security credentials.",
+          "example": "AKIA..."
+        },
+        {
+          "name": "AWS_SECRET_ACCESS_KEY",
+          "required": true,
+          "label": "AWS secret access key",
+          "instructions": "Shown once when creating the IAM access key — store it immediately."
+        },
+        {
+          "name": "AWS_TRANSLATE_REGION",
+          "required": false,
+          "default": "us-east-1",
+          "label": "AWS Translate region",
+          "instructions": "The AWS region to call Amazon Translate in. Source language 'auto' additionally needs a region where Amazon Comprehend runs.",
+          "example": "us-east-1"
+        }
+      ],
+      "runtimeDependencies": [
+        "@aws-sdk/client-translate",
+        "@aws-sdk/credential-provider-node",
+        "@molecule/api-ai-translation",
+        "@molecule/api-analytics",
+        "@molecule/api-proxy-agent",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-translation",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-translation/amazon",
+      "intentHints": [
+        "amazon translate",
+        "aws translate",
+        "amazon aws translation",
+        "aws machine translation"
+      ],
+      "egressHosts": [
+        "*.amazonaws.com"
+      ]
+    },
     "@molecule/api-ai-translation-bergamot": {
       "language": "typescript",
       "runtime": "node",
@@ -18049,6 +18117,71 @@
       ],
       "egressHosts": [
         "tessdata.projectnaptha.com"
+      ]
+    },
+    "@molecule/api-ocr-textract": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ocr",
+      "label": "AWS Textract",
+      "description": "AWS Textract OCR provider for molecule.dev — text extraction from images through Amazon Textract's DetectDocumentText",
+      "stack": "api",
+      "implements": "@molecule/api-ocr",
+      "exports": [
+        "AwsCredentials",
+        "TextractOcrConfig",
+        "buildTextractClient",
+        "createProvider",
+        "ocrTextractSecretDefinitions",
+        "provider",
+        "resolveRegion"
+      ],
+      "secrets": [
+        {
+          "name": "AWS_ACCESS_KEY_ID",
+          "required": true,
+          "label": "AWS access key ID",
+          "setupUrl": "https://console.aws.amazon.com/iam/",
+          "instructions": "Create an IAM user with the needed policy (SES/S3/SQS) and create an access key under Security credentials.",
+          "example": "AKIA..."
+        },
+        {
+          "name": "AWS_SECRET_ACCESS_KEY",
+          "required": true,
+          "label": "AWS secret access key",
+          "instructions": "Shown once when creating the IAM access key — store it immediately."
+        },
+        {
+          "name": "AWS_TEXTRACT_REGION",
+          "required": false,
+          "default": "us-east-1",
+          "label": "AWS Textract region",
+          "instructions": "The AWS region to call Textract in (Textract is not in every region).",
+          "example": "us-east-1"
+        }
+      ],
+      "runtimeDependencies": [
+        "@aws-sdk/client-textract",
+        "@aws-sdk/credential-provider-node",
+        "@molecule/api-analytics",
+        "@molecule/api-ocr",
+        "@molecule/api-proxy-agent",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ocr",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ocr/textract",
+      "intentHints": [
+        "aws textract",
+        "amazon textract",
+        "textract ocr",
+        "ocr with confidence scores"
+      ],
+      "egressHosts": [
+        "*.amazonaws.com"
       ]
     },
     "@molecule/api-oembed": {
