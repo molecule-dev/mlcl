@@ -4,12 +4,10 @@
  *
  * Route: `<Route element={<AuthGuard />}>...</Route>`; in-page section:
  * `<AuthGuard><SignedInSection /></AuthGuard>`.
- * Redirect only on confirmed `status === 'unauthenticated'`. RouteAccess holds
- * declared private views while loading, and shows a retryable session error when
- * unavailable. It never treats an unavailable session as sign-out or chooses
- * public data in place of the private view. Public views stay outside that hold.
- * `main.tsx` keeps `AppRoot` around the page routes. It passes `awaitSession` to
- * `MoleculeProvider`, so on a public page a
+ * For a custom in-page check, hold only while `status === 'loading'`, redirect
+ * only on `status === 'unauthenticated'`, and let `'unavailable'` render without
+ * treating it as confirmed sign-in. Keep public sections outside the guard for signed-out visitors.
+ * The application shell passes `awaitSession` to `MoleculeProvider`, so a public page's
  * signed-in action (Follow, Favorite) reads the restored user when restoration
  * succeeds. An unavailable session may still have a null user; handle that status
  * separately from sign-out. Keep that prop.
