@@ -36,7 +36,6 @@ import { Alert, Button, Flex, Input, Modal, Switch } from '@molecule/app-ui-reac
 
 interface MeUser extends UserProfile {
   twoFactorEnabled?: boolean
-  oauthServer?: unknown
 }
 
 interface ApiUserResponse {
@@ -86,7 +85,7 @@ export function SettingsAuthSection(): JSX.Element | null {
   }, [http])
 
   // OAuth users skip this section entirely (password / 2FA wouldn't apply).
-  if ((user as unknown as Record<string, unknown>)?.oauthServer) return null
+  if (user?.oauthServer) return null
 
   const handleChangePassword = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault()
