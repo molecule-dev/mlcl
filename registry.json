@@ -31356,10 +31356,28 @@
       "description": "AI chat panel interface for streaming conversations with tool use",
       "stack": "app",
       "exports": [
+        "AgentIdentity",
+        "DEFAULT_AGENT_NAME",
+        "DEFAULT_PRODUCT_NAME",
+        "DEFAULT_AGENT_IDENTITY",
+        "convergeHistory",
+        "localOnlyMessages",
         "setProvider",
         "getProvider",
         "hasProvider",
         "requireProvider",
+        "resetChatStoresForTests",
+        "createChatSession",
+        "ChatMode",
+        "ChatSessionPersistence",
+        "ChatSessionOptions",
+        "ChatSendOptions",
+        "ChatErrorMeta",
+        "ChatRetryCountdown",
+        "ChatSessionState",
+        "ChatSessionControls",
+        "CreateChatSessionOptions",
+        "ChatSession",
         "BackgroundTaskState",
         "ContextCategoryId",
         "ContextCategory",
@@ -31383,11 +31401,13 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-bond",
-        "@molecule/app-i18n"
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
       ],
       "moleculePeers": [
         "@molecule/app-bond",
-        "@molecule/app-i18n"
+        "@molecule/app-i18n",
+        "@molecule/app-logger"
       ],
       "bondSetter": "setProvider",
       "path": "packages/app/core/ai-chat",
@@ -58848,6 +58868,7 @@
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-ai-chat",
         "@molecule/app-ai-models",
         "@molecule/app-auth",
         "@molecule/app-device",
