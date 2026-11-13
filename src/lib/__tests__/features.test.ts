@@ -916,6 +916,32 @@ describe('resolveLocalePackages', () => {
     expect(resolveLocalePackages(['@molecule/app-data-table-react'], all, FW)).toEqual([])
   })
 
+  it('resolves a sub-feature locale no package owns through the package its name extends', () => {
+    const all = [
+      mockPackage({ name: '@molecule/api-resource-user' }),
+      locale('@molecule/api-locales-user-payments'),
+    ]
+    expect(resolveLocalePackages(['@molecule/api-resource-user'], all, FW)).toEqual([
+      '@molecule/api-locales-user-payments',
+    ])
+  })
+
+  it("leaves another package's locale bond to that package (a provider of a selected core)", () => {
+    // Every app with the secrets core installed the Doppler bond's locales without the bond.
+    const all = [
+      mockPackage({ name: '@molecule/api-secrets' }),
+      mockPackage({ name: '@molecule/api-secrets-doppler' }),
+      locale('@molecule/api-locales-secrets'),
+      locale('@molecule/api-locales-secrets-doppler'),
+    ]
+    expect(resolveLocalePackages(['@molecule/api-secrets'], all, FW)).toEqual([
+      '@molecule/api-locales-secrets',
+    ])
+    expect(
+      resolveLocalePackages(['@molecule/api-secrets', '@molecule/api-secrets-doppler'], all, FW),
+    ).toEqual(['@molecule/api-locales-secrets', '@molecule/api-locales-secrets-doppler'])
+  })
+
   it('does not double-add an already-selected locale', () => {
     const all = [locale('@molecule/app-locales-oauth-buttons')]
     const result = resolveLocalePackages(

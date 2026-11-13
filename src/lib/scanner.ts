@@ -44,6 +44,28 @@ export function inferPackageType(packagePath: string): PackageType {
 }
 
 /**
+ * The peers a manifest's `peerDependenciesMeta` marks `optional: true`.
+ *
+ * An optional peer is an add-on the package works without (every framework binding peers on
+ * the IDE, code-editor and live-preview cores only for the hooks that read them), so an
+ * injection that installed it gave every fresh app those packages and their locale bonds.
+ *
+ * @param meta - The parsed `peerDependenciesMeta` field.
+ * @returns The names marked optional, in manifest order.
+ */
+export function optionalPeersOf(meta: unknown): string[] {
+  if (typeof meta !== 'object' || meta === null) return []
+  return Object.entries(meta)
+    .filter(
+      ([, entry]) =>
+        typeof entry === 'object' &&
+        entry !== null &&
+        (entry as { optional?: unknown }).optional === true,
+    )
+    .map(([name]) => name)
+}
+
+/**
  * Scan a package directory and infer its metadata
  */
 export async function scanPackage(packagePath: string): Promise<InferredPackage> {
@@ -126,6 +148,7 @@ export async function scanPackage(packagePath: string): Promise<InferredPackage>
     description: packageJson.description,
     dependencies: packageJson.dependencies ?? {},
     peerDependencies: packageJson.peerDependencies ?? {},
+    optionalPeerDependencies: optionalPeersOf(packageJson.peerDependenciesMeta),
     type,
     routes,
     tables,

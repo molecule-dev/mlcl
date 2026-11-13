@@ -383,6 +383,11 @@ export function stripFrameworkSuffix(
  * - Resource: @molecule/{stack}-resource-{name} → @molecule/{stack}-locales-{name}
  * - Middleware: @molecule/{stack}-middleware-{name} → @molecule/{stack}-locales-{name}
  * - Framework feature: @molecule/{stack}-{name}-react → @molecule/{stack}-locales-{name}
+ * - Sub-feature: a locale bond NO package owns by the rules above
+ *   (@molecule/api-locales-user-payments) follows the package its name extends
+ *   (@molecule/api-resource-user). A locale bond another package owns
+ *   (@molecule/api-locales-secrets-doppler, owned by @molecule/api-secrets-doppler)
+ *   is that package's, and comes only with it.
  */
 export function resolveLocalePackages(
   selectedNames: string[],
@@ -395,12 +400,13 @@ export function resolveLocalePackages(
   // Build reverse lookup: for each selected package, extract the suffix that
   // locale packages use. E.g. @molecule/api-resource-user → "api" + "user"
   const selectedSuffixes = new Map<string, Set<string>>() // stack → suffixes
-  for (const name of selected) {
+  /** Adds the locale suffixes a package name answers to into `into` (keyed by stack). */
+  const addSuffixes = (name: string, into: Map<string, Set<string>>): void => {
     const match = name.match(/^@molecule\/(api|app)-(.+)$/)
-    if (!match) continue
+    if (!match) return
     const [, stack, rest] = match
-    if (!selectedSuffixes.has(stack)) selectedSuffixes.set(stack, new Set())
-    const suffixes = selectedSuffixes.get(stack)!
+    if (!into.has(stack)) into.set(stack, new Set())
+    const suffixes = into.get(stack)!
     // Add the full name suffix
     suffixes.add(rest)
     // Strip type prefixes so locale packages can match
@@ -411,6 +417,15 @@ export function resolveLocalePackages(
     // companion locale (@molecule/app-locales-oauth-buttons).
     const fwBase = stripFrameworkSuffix(rest, frameworkSuffixes)
     if (fwBase) suffixes.add(fwBase)
+  }
+  for (const name of selected) addSuffixes(name, selectedSuffixes)
+  // The suffixes every non-locale package answers to: a locale bond matching one
+  // of them is that package's companion and never a sub-feature of a shorter
+  // name. Every app with the secrets core used to install the Doppler bond's
+  // locales (`secrets-doppler` starts with `secrets-`) without the bond.
+  const ownedSuffixes = new Map<string, Set<string>>()
+  for (const pkg of allPackages) {
+    if (pkg.molecule?.type !== 'locales') addSuffixes(pkg.name, ownedSuffixes)
   }
 
   const additions: string[] = []
@@ -428,7 +443,9 @@ export function resolveLocalePackages(
       continue
     }
 
-    // Prefix match for sub-feature locales (e.g. user-payments → user is selected)
+    // Prefix match for sub-feature locales (e.g. user-payments → user is selected),
+    // only for a locale bond no package of its own owns.
+    if (ownedSuffixes.get(stack)?.has(suffix)) continue
     for (const s of suffixes) {
       if (suffix.startsWith(s + '-')) {
         additions.push(locale.name)

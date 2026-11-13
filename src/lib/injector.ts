@@ -102,6 +102,7 @@ import { generateLocaleArrayCode } from './locales.js'
 import { readMigrateRunner } from './migrate-runner.js'
 import { migrationDialectHeader, projectDatabasePackage } from './migration-dialect.js'
 import {
+  findPackageByRole,
   findRegistryPackage,
   getMoleculeVersion,
   getPackageStack,
@@ -110,7 +111,7 @@ import {
   loadRegistry,
   requirePackageByRole,
 } from './registry.js'
-import { scanPackage } from './scanner.js'
+import { optionalPeersOf, scanPackage } from './scanner.js'
 import type { InferredPackage } from './schema.js'
 import {
   bindIntendedVersion,
@@ -746,6 +747,15 @@ export async function planInjection(
   const peerMetadata = versionSkewed
     ? (pinnedMetadata?.peerDependencies ?? {})
     : pkg.peerDependencies
+  // An optional peer is an add-on the package works without: every framework binding peers on
+  // the IDE, code-editor and live-preview cores, so installing optional peers gave each fresh
+  // app those three packages, whose locale bonds were then planned but never installed and
+  // `inject` failed. A project that wants one installs it by name.
+  const optionalPeers = new Set(
+    versionSkewed
+      ? (pinnedMetadata?.optionalPeerDependencies ?? [])
+      : (pkg.optionalPeerDependencies ?? []),
+  )
 
   // Add dependencies from package.json (non-molecule ones)
   for (const [name, version] of Object.entries(dependencyMetadata)) {
@@ -756,6 +766,7 @@ export async function planInjection(
 
   // Add peer dependencies
   for (const [name, version] of Object.entries(peerMetadata)) {
+    if (optionalPeers.has(name)) continue
     plan.dependencies.push({ name, version: version as string, type: 'peerDependency' })
   }
 
@@ -819,6 +830,7 @@ async function readDependencyMetadataAtVersion(
 ): Promise<{
   dependencies: Record<string, string>
   peerDependencies: Record<string, string>
+  optionalPeerDependencies: string[]
   path: string
 } | null> {
   const roots = [
@@ -833,10 +845,12 @@ async function readDependencyMetadataAtVersion(
       const manifest = JSON.parse(await readFile(join(root, 'package.json'), 'utf-8')) as {
         dependencies?: Record<string, unknown>
         peerDependencies?: Record<string, unknown>
+        peerDependenciesMeta?: unknown
       }
       return {
         dependencies: stringRecord(manifest.dependencies),
         peerDependencies: stringRecord(manifest.peerDependencies),
+        optionalPeerDependencies: optionalPeersOf(manifest.peerDependenciesMeta),
         path: root,
       }
     } catch (_error) {
@@ -3308,6 +3322,15 @@ export async function synthesizeProjectFiles(
     ),
     description: 'Generate bonds index with setupBonds function',
   })
+  const apiLocaleBonds = installedLocaleBonds(allMolecules, 'api')
+  if (apiLocaleBonds.length > 0) {
+    files.push({
+      action: 'create',
+      targetPath: join(projectPath, 'src', 'bonds', `${API_LOCALES_BOND}.ts`),
+      content: generateApiLocalesBond(apiLocaleBonds),
+      description: 'Generate the locale bond registration',
+    })
+  }
 
   // Entitlements safety net: when `@molecule/api-entitlements` is selected, the
   // generated bonds/index.ts imports `setupEntitlements` from '../tiers.js'. Flagship
@@ -3667,6 +3690,23 @@ ${setupCalls.join('\n') || '  // No providers configured'}
   // Collect ALL @molecule/* packages referenced by bond files
   // (includes core interface packages from bondSetup.interfacePackage)
   const bondMolecules = new Set(allMolecules.filter((m) => m.startsWith('@molecule/')))
+  // The names each bond file imports from a @molecule specifier, for a specifier the
+  // registry lists no exports for (a package subpath such as `<locale bond>/loader.js`).
+  const importedByBonds = new Map<string, Set<string>>()
+  const scanBondImports = (content: string): void => {
+    for (const match of content.matchAll(/'(@molecule\/[^']+)'/g)) bondMolecules.add(match[1])
+    for (const match of content.matchAll(/import\s*\{([^}]+)\}\s*from\s*'(@molecule\/[^']+)'/g)) {
+      const names = importedByBonds.get(match[2]) ?? new Set<string>()
+      for (const binding of match[1].split(',')) {
+        const name = binding
+          .trim()
+          .replace(/^type\s+/, '')
+          .split(/\s+as\s+/)[0]
+        if (name) names.add(name)
+      }
+      importedByBonds.set(match[2], names)
+    }
+  }
   for (const plan of plans) {
     if (plan.bondSetup) {
       bondMolecules.add(plan.bondSetup.interfacePackage)
@@ -3674,25 +3714,18 @@ ${setupCalls.join('\n') || '  // No providers configured'}
     }
     // Scan bond file content for additional @molecule/* imports
     for (const file of plan.files) {
-      if (file.targetPath.includes('/bonds/') && file.content) {
-        for (const match of file.content.matchAll(/'(@molecule\/[^']+)'/g)) {
-          bondMolecules.add(match[1])
-        }
-      }
+      if (file.targetPath.includes('/bonds/') && file.content) scanBondImports(file.content)
     }
   }
   // Also scan synthesized files (default bond setups)
   for (const file of files) {
-    if (file.targetPath.includes('/bonds/') && file.content) {
-      for (const match of file.content.matchAll(/'(@molecule\/[^']+)'/g)) {
-        bondMolecules.add(match[1])
-      }
-    }
+    if (file.targetPath.includes('/bonds/') && file.content) scanBondImports(file.content)
   }
   const bondsTestContent = generateAppBondsSmokeTest(
     [...bondMolecules],
     reExportNames,
     bondsContent,
+    importedByBonds,
   )
   files.push({
     action: 'create',
@@ -3828,6 +3861,113 @@ function bySpecifierName(a: string, b: string): number {
 }
 
 /**
+ * A workspace's companion locale bonds: every installed package the registry types as
+ * `locales` for that stack, except the ones `setupPackage` peers on, which it merges itself
+ * (`@molecule/app-locales-common`). Each comes with the local name it is imported under
+ * (`authLocales`).
+ *
+ * @param bindings - Every package the workspace installs.
+ * @param stack - `app` or `api`.
+ * @param setupPackage - The package that loads the bonds, if it merges some itself.
+ * @returns The bonds, sorted by package name.
+ */
+export function installedLocaleBonds(
+  bindings: readonly string[],
+  stack: 'api' | 'app',
+  setupPackage?: string,
+): { pkg: string; local: string }[] {
+  const registry = getRawRegistry().packages
+  const mergedBySetup = new Set(setupPackage ? (registry[setupPackage]?.moleculePeers ?? []) : [])
+  return [...new Set(bindings)]
+    .filter(
+      (name) =>
+        registry[name]?.type === 'locales' &&
+        registry[name]?.stack === stack &&
+        !mergedBySetup.has(name),
+    )
+    .sort()
+    .map((pkg) => {
+      const stem = pkg.replace(/^@molecule\/(api|app)-locales-/, '')
+      const camel = stem.replace(/-([a-z0-9])/g, (_match, ch: string) => ch.toUpperCase())
+      return { pkg, local: `${camel}Locales` }
+    })
+}
+
+/**
+ * The default i18n bond of an app that installs the i18n default-setup package: that
+ * package's `setupI18nDefault` call with the app's own `ui.ts` files and a loader for every
+ * installed companion locale bond. Without the loaders, each bond's strings stay English in
+ * every other locale: the bond is installed and nothing reads it.
+ *
+ * The loaders are imported from each bond's `/loader.js` entry, which fetches one language
+ * at a time; importing the bond itself would put every language in the entry chunk. Written
+ * the way the app's prettier config prints it, so the scaffold's own format check passes.
+ *
+ * @param capabilityHeader - The capability doc comment the registry gives this bond, if any;
+ *   otherwise the file says what it loads and what rewrites it.
+ * @param setupPackage - The package exporting `setupI18nDefault`.
+ * @param exportName - The exported provider instance's name (`i18nProvider`).
+ * @param pascal - The bond's PascalCase name (`I18nDefault`), for its setup function.
+ * @param bindings - Every package the app installs.
+ * @returns The bond file's source.
+ */
+function generateI18nDefaultSetupBond(
+  capabilityHeader: string | undefined,
+  setupPackage: string,
+  exportName: string,
+  pascal: string,
+  bindings: readonly string[],
+): string {
+  const bonds = installedLocaleBonds(bindings, 'app', setupPackage)
+  const bondHeader =
+    capabilityHeader ??
+    `/**
+ * Default i18n bond setup
+ *
+ * Uses setupI18nDefault from ${setupPackage}. English comes from the app's own
+ * locales/en/ui.ts; every other language loads when the app switches to it, from the app's
+ * locales/<code>/ui.ts and from each companion locale bond the app installs, listed below.
+ * \`mlcl add <package> --inject\` (or \`mlcl inject\`) rewrites this file with the new list.
+ * Swap to a different i18n provider by replacing this bond.
+ */`
+  const imports = [
+    `import { setupI18nDefault as setupI18nProvider } from '${setupPackage}'`,
+    ...bonds.map(
+      ({ pkg, local }) => `import { loadLocaleModule as ${local} } from '${pkg}/loader.js'`,
+    ),
+  ]
+  const inline = `  packageLocaleLoaders: [${bonds.map(({ local }) => local).join(', ')}],`
+  const loaders =
+    bonds.length === 0
+      ? ''
+      : inline.length <= PRETTIER_PRINT_WIDTH
+        ? `\n${inline}`
+        : `\n  packageLocaleLoaders: [\n${bonds.map(({ local }) => `    ${local},`).join('\n')}\n  ],`
+  return `${bondHeader}
+
+${imports.join('\n')}
+
+import { ui as en } from '../locales/en/ui.js'
+
+const lazyLoadUi = (code: string): Promise<Record<string, string>> =>
+  import(\`../locales/\${code}/ui.ts\`).then((m: { ui: Record<string, string> }) => m.ui)
+
+export const ${exportName} = setupI18nProvider({
+  enUi: en,
+  lazyLoadUi,${loaders}
+})
+
+/**
+ * Called from bonds/index.ts. \`setupI18nProvider\` above already bonded the provider, loads each
+ * companion locale bond's language when the app switches to it, and persists the choice.
+ */
+export function setup${pascal}(): void {
+  // Nothing left to wire: see the provider above.
+}
+`
+}
+
+/**
  * Generate a default bond setup file from registry `defaultBondSetup` metadata.
  *
  * Emitted when a core package declares `defaultBond` and `defaultBondSetup` in
@@ -3929,6 +4069,16 @@ function generateDefaultBondSetup(
   // i18n generatorType needs locale-specific template
   if (appBondSetup?.generatorType === 'i18n') {
     const exportName = appBondSetup.exportName ?? `${category}Provider`
+    const defaultSetupPackage = findPackageByRole('app', 'feature', 'i18n-default')
+    if (defaultSetupPackage && bindings.includes(defaultSetupPackage)) {
+      return generateI18nDefaultSetupBond(
+        capability ? bondHeader : undefined,
+        defaultSetupPackage,
+        exportName,
+        pascal,
+        bindings,
+      )
+    }
     const storagePkg = requirePackageByRole('app', 'core', 'storage')
     // Only import storage statically if it's in extraImports; use dynamic import for persistence
     const i18nImports = imports.filter((imp) => !imp.includes(storagePkg))
@@ -4988,6 +5138,46 @@ function generateServerContentHeuristic(
   return lines.join('\n')
 }
 
+/** Where an API workspace's locale bond registration lives, next to bonds/index.ts. */
+export const API_LOCALES_BOND = 'locales'
+
+/**
+ * An API workspace's `bonds/locales.ts`: registers the translations of every installed
+ * `@molecule/api-locales-*` bond with the i18n core, so each package's error messages reach
+ * users in their language. A resource registers its own bond on import, but a core or provider
+ * bond (`api-config`, `api-secrets`, `api-payments-stripe`) cannot depend on its locale bond,
+ * so before 2026-11-13 their translations were installed and never loaded. Written the way the
+ * workspace's prettier config prints it.
+ *
+ * @param bonds - The installed bonds, from `installedLocaleBonds(…, 'api')`.
+ * @returns The file's source.
+ */
+export function generateApiLocalesBond(bonds: readonly { pkg: string; local: string }[]): string {
+  const i18nPkg = requirePackageByRole('api', 'core', 'i18n')
+  const inline = `const localeModules = [${bonds.map(({ local }) => local).join(', ')}]`
+  const list =
+    inline.length <= PRETTIER_PRINT_WIDTH
+      ? inline
+      : `const localeModules = [\n${bonds.map(({ local }) => `  ${local},`).join('\n')}\n]`
+  return `/**
+ * The translations of every installed API locale bond. \`mlcl add <package> --inject\` (or
+ * \`mlcl inject\`) rewrites this file with each package's locale bond.
+ */
+import { registerLocaleModule } from '${i18nPkg}'
+${bonds.map(({ pkg, local }) => `import * as ${local} from '${pkg}'`).join('\n')}
+
+${list}
+
+/**
+ * Registers every installed locale bond's translations. Called first from bonds/index.ts, so
+ * a message raised while the other bonds are wired is already translated.
+ */
+export function setupLocales(): void {
+  for (const locales of localeModules) registerLocaleModule(locales)
+}
+`
+}
+
 /**
  * Generate bonds/index.ts content with a setupBonds function.
  */
@@ -4998,12 +5188,17 @@ export function generateBondsIndexContent(
   allMolecules: string[] = [],
   registryPackages?: InferredPackage[],
 ): string {
+  const hasLocales = installedLocaleBonds(allMolecules, 'api').length > 0
+  const localesImport = hasLocales
+    ? `import { setupLocales } from './${API_LOCALES_BOND}.js'\n`
+    : ''
+  const localesCall = hasLocales ? '  setupLocales()\n' : ''
   if (bondSetups.length === 0 && serviceBondNames.length === 0) {
-    return `/**
+    return `${localesImport ? `${localesImport}\n` : ''}/**
  * Bond setup - no providers configured.
  */
 export async function setupBonds(): Promise<void> {
-  // No providers to wire. Add bonds via mlcl inject.
+${localesCall}  // No providers to wire. Add bonds via mlcl inject.
 }
 `
   }
@@ -5130,15 +5325,14 @@ export async function setupBonds(): Promise<void> {
  * behavior, and retain a minimal reproducer when a shared package needs a fix.
  */
 import { resolveAll } from '${secretsPkg}'
-${monitoringImport}${entitlementsImport}${imports}
+${monitoringImport}${entitlementsImport}${localesImport}${imports}
 
 /**
  * Initialize all providers and service bonds.
  * Resolves all registered secrets before wiring providers.
  */
 export async function setupBonds(): Promise<void> {
-${secretsSetupCalls ? `  // Secrets provider must be bonded first so resolveAll can load .env values\n${secretsSetupCalls}\n\n` : ''}${resolveCall}${entitlementsCall}
-${otherSetupCalls}${monitoringRegistration}
+${localesCall}${secretsSetupCalls ? `  // Secrets provider must be bonded first so resolveAll can load .env values\n${secretsSetupCalls}\n\n` : ''}${resolveCall}${entitlementsCall}${otherSetupCalls ? `\n${otherSetupCalls}` : ''}${monitoringRegistration}
 }
 `
 }
@@ -5621,6 +5815,7 @@ function generateAppBondsSmokeTest(
   allMolecules: string[],
   reExportNames: string[],
   bondsContent: string,
+  importedByBonds: ReadonlyMap<string, ReadonlySet<string>> = new Map(),
 ): string {
   const lines: string[] = []
   const registry = getRawRegistry()
@@ -5726,7 +5921,19 @@ function generateAppBondsSmokeTest(
     const exports = regEntry?.exports ?? []
 
     if (exports.length === 0) {
-      lines.push(`vi.mock('${pkg}', () => ({}))`)
+      // No exports on record (a package subpath such as `<locale bond>/loader.js`): mock the
+      // names the bond files import from it. A bond that passes one at import time
+      // (`packageLocaleLoaders: [authLocales]`) reads it, and vitest throws on a mock without it.
+      const imported = [...(importedByBonds.get(pkg) ?? [])].sort()
+      lines.push(
+        imported.length === 0
+          ? `vi.mock('${pkg}', () => ({}))`
+          : [
+              `vi.mock('${pkg}', () => ({`,
+              ...imported.map((name) => `  ${name}: vi.fn(),`),
+              '}))',
+            ].join('\n'),
+      )
       lines.push('')
       continue
     }

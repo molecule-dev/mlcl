@@ -630,6 +630,13 @@ export const InferredPackage = z.object({
   description: z.string().optional(),
   dependencies: z.record(z.string(), z.string()).default({}),
   peerDependencies: z.record(z.string(), z.string()).default({}),
+  optionalPeerDependencies: z
+    .array(z.string())
+    .optional()
+    .describe(
+      'Peers its peerDependenciesMeta marks optional: add-ons the package works without, which an ' +
+        'injection must not install',
+    ),
 
   // Inferred from directory location
   type: PackageType,

@@ -32184,6 +32184,7 @@
       "framework": "angular",
       "templateRequires": [
         "@molecule/app-i18n",
+        "@molecule/app-i18n-default-react",
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
@@ -60012,6 +60013,7 @@
       "framework": "react",
       "templateRequires": [
         "@molecule/app-i18n",
+        "@molecule/app-i18n-default-react",
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
@@ -61635,6 +61637,7 @@
       "framework": "solid",
       "templateRequires": [
         "@molecule/app-i18n",
+        "@molecule/app-i18n-default-react",
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
@@ -62993,6 +62996,7 @@
       "framework": "svelte",
       "templateRequires": [
         "@molecule/app-i18n",
+        "@molecule/app-i18n-default-react",
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
@@ -65831,6 +65835,7 @@
       "framework": "vue",
       "templateRequires": [
         "@molecule/app-i18n",
+        "@molecule/app-i18n-default-react",
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
@@ -66283,6 +66288,7 @@
       "uiFramework": "react-native",
       "templateRequires": [
         "@molecule/app-i18n",
+        "@molecule/app-i18n-default-react",
         "@molecule/app-theme",
         "@molecule/app-ui",
         "@molecule/app-styling",
