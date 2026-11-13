@@ -49200,6 +49200,7 @@
       "stack": "app",
       "exports": [
         "IdeTranslationKey",
+        "IdePluralFormKey",
         "IdeTranslations",
         "af",
         "am",
@@ -50600,6 +50601,7 @@
       "stack": "app",
       "exports": [
         "MessageBubbleTranslationKey",
+        "MessageBubblePluralFormKey",
         "MessageBubbleTranslations",
         "af",
         "am",
