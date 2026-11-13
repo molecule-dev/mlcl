@@ -100,8 +100,11 @@ const unregistered = []
 for (const path of packagePaths) {
   const manifestPath = join(moleculeDir, path, 'package.json')
   if (!existsSync(manifestPath)) continue
-  const { name } = JSON.parse(readFileSync(manifestPath, 'utf8'))
+  const { name, private: isPrivate } = JSON.parse(readFileSync(manifestPath, 'utf8'))
   if (!name?.startsWith('@molecule/')) continue
+  // A private package (a workspace-only test kit) is never published, so mlcl
+  // can never install it and the registry must not list it.
+  if (isPrivate === true) continue
   const registeredPath = registry.packages[name]?.path
   if (!registeredPath || join(moleculeDir, registeredPath) !== join(moleculeDir, path))
     unregistered.push({ name, path, registeredPath })

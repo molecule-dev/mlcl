@@ -76,6 +76,25 @@ describe('registry coverage gate', () => {
     expect(result.status).toBe(1)
   })
 
+  it('accepts an unregistered private package, which is never published', () => {
+    writeFileSync(
+      join(scratch, packagePath, 'package.json'),
+      JSON.stringify({ name: packageName, private: true }),
+    )
+    expect(runGate(false).status).toBe(0)
+    expect(runGate(false, []).status).toBe(0)
+  })
+
+  it('still rejects an unregistered package whose private flag is not exactly true', () => {
+    writeFileSync(
+      join(scratch, packagePath, 'package.json'),
+      JSON.stringify({ name: packageName, private: 'true' }),
+    )
+    const result = runGate(false)
+    expect(result.output).toContain(packageName)
+    expect(result.status).toBe(1)
+  })
+
   it('rejects a registered name pointing to the wrong source directory', () => {
     const result = runGate(true, [packagePath], true)
     expect(result.output).toContain(packageName)
