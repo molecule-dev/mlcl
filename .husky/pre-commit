@@ -15,6 +15,14 @@ if git diff --cached --name-only --diff-filter=ACM |
   fi
 fi
 
+# Every relative import in this commit must name a file the commit carries. A file
+# git ignores or never tracked still resolves in this checkout, so local builds and
+# tests pass while CI fails on a clean clone (2026-11-13, molecule: an ignored
+# `bag.svelte.js`). The check lives in molecule/scripts; skipped in a standalone clone.
+if [ -f ../molecule/scripts/check-tracked-imports.mjs ]; then
+  node ../molecule/scripts/check-tracked-imports.mjs --staged || exit 1
+fi
+
 # The lock must record exactly the dependencies package.json declares: CI and
 # the Release workflow install with `npm ci`, which refuses any difference.
 # Checked on the staged files; skipped in a standalone clone.
