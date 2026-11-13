@@ -32,7 +32,10 @@ beforeAll(async () => {
   await mkdir(join(source, 'app'), { recursive: true })
   await copyFile(new URL('package.json', template), join(source, 'app/package.json'))
   const manifest = JSON.parse(await readFile(join(source, 'app/package.json'), 'utf8'))
-  manifest.scripts.prebuild = "node -e \"require('node:fs').writeFileSync('prepared.txt', 'yes')\""
+  // A template may deliberately tolerate a preparation failure. That tolerance
+  // must not consume the preceding verification's failure as part of its OR list.
+  manifest.scripts.prebuild =
+    "node -e \"require('node:fs').writeFileSync('prepared.txt', 'yes')\" || true # optional preparation"
   await writeFile(join(source, 'app/package.json'), JSON.stringify(manifest))
   await copyTemplateInstance(source, join(root, 'copied'), 'equipment-notes', {})
   flagship = join(root, 'copied/app')
@@ -112,6 +115,21 @@ describe('frontend npm build verification', () => {
     expect(result.code, result.output).toBe(0)
     expect(await readFile(join(flagship, 'prepared.txt'), 'utf8')).toBe('yes')
     expect(await readFile(join(flagship, 'dist/index.html'), 'utf8')).toContain('Equipment console')
+  })
+
+  it('runs a template’s existing plain lint preparation exactly once', async () => {
+    const source = join(root, 'template')
+    const manifest = JSON.parse(await readFile(join(source, 'app/package.json'), 'utf8'))
+    manifest.scripts.prebuild = 'npm run lint'
+    await writeFile(join(source, 'app/package.json'), JSON.stringify(manifest))
+    const copy = join(root, 'already-linted')
+    await copyTemplateInstance(source, copy, 'equipment-notes', {})
+    const app = join(copy, 'app')
+    await symlink(nodeModules, join(app, 'node_modules'))
+    await fixture(app, missing.replace(' /> }', '>×</i> }'))
+    const result = await build(app)
+    expect(result.code, result.output).toBe(0)
+    expect(result.output.match(/> eslint src\//g), result.output).toHaveLength(1)
   })
 
   it('keeps lint in the static-site build lifecycle', async () => {

@@ -2778,9 +2778,15 @@ export async function copyTemplateInstance(
     const pkg = JSON.parse(await readFile(appManifest, 'utf8')) as {
       scripts?: Record<string, string>
     }
+    const preparation = pkg.scripts?.prebuild
     pkg.scripts = {
       ...pkg.scripts,
-      prebuild: ['npm run lint', pkg.scripts?.prebuild].filter(Boolean).join(' && '),
+      // Keep an opaque preparation's semicolons/OR lists from swallowing lint's
+      // exit status. An existing plain lint hook already supplies this contract.
+      prebuild:
+        preparation && preparation !== 'npm run lint'
+          ? `npm run lint && (\n${preparation}\n)`
+          : 'npm run lint',
     }
     await writeFile(appManifest, JSON.stringify(pkg, null, 2) + '\n')
   }
