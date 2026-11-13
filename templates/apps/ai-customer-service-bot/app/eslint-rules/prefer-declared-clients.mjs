@@ -1715,8 +1715,9 @@ export function scaffoldRules(parser) {
               ) {
                 if (
                   flow.isFunction(parent) &&
-                  parent.parent?.type === 'CallExpression' &&
-                  ['then', 'catch', 'finally'].includes(member(parent.parent.callee))
+                  ((parent.async && parent === write.group) ||
+                    (parent.parent?.type === 'CallExpression' &&
+                      ['then', 'catch', 'finally'].includes(member(parent.parent.callee))))
                 ) {
                   boundary = parent
                   break
@@ -1726,7 +1727,7 @@ export function scaffoldRules(parser) {
               walk(
                 boundary.body,
                 (part) => {
-                  if (part.type === 'AwaitExpression' && part.range[1] <= write.node.range[0])
+                  if (part.type === 'AwaitExpression' && part.range[0] < write.node.range[1])
                     lastAwait = Math.max(lastAwait, part.range[1])
                 },
                 (part) => !flow.isFunction(part),
