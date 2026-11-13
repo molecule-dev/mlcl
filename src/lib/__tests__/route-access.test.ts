@@ -29,27 +29,18 @@ interface PrivateView {
 
 interface AccessModule {
   RouteAccess: (props: { children: ReactNode; views?: readonly PrivateView[] }) => ReactNode
-  AppRoot: (props: { children: ReactNode }) => ReactNode
   privateViews: readonly PrivateView[]
 }
 
-/** Execute the scaffold's shipped component, including its actual router matching. */
-function accessModule(client?: AuthClient<UserProfile>): AccessModule {
-  const source = readFileSync(
-    join(import.meta.dirname, '../../../templates/app/react/components/AuthGuard.tsx.tpl'),
-    'utf8',
-  )
-  const compiled = ts.transpileModule(source, {
-    compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
-  })
-  const exports = {}
-  new Function('require', 'exports', compiled.outputText)((name: string) => {
+/** Resolve the scaffold's real shared dependencies and isolate external bonds. */
+function scaffoldDependency(client?: AuthClient<UserProfile>): (name: string) => unknown {
+  return (name: string) => {
     if (name === 'react/jsx-runtime') return jsx
     if (name === 'react-router') return router
     if (name === '@molecule/app-ui-react') return { AuthGuard, LoadErrorBanner }
     if (name === '@molecule/app-http') return { getClient: () => undefined }
     if (name === '@molecule/app-storage') return { getProvider: () => undefined }
-    if (name === '../bonds/index.js') return { authClient: client }
+    if (name === '../bonds/index.js' || name === './bonds/index.js') return { authClient: client }
     if (name === '@molecule/app-routing-react-router') {
       return {
         BrowserRouter: ({ children }: { children: ReactNode }) =>
@@ -76,7 +67,20 @@ function accessModule(client?: AuthClient<UserProfile>): AccessModule {
       }
     }
     throw new Error(`Unexpected scaffold dependency: ${name}`)
-  }, exports)
+  }
+}
+
+/** Execute the scaffold's shipped component, including its actual router matching. */
+function accessModule(client?: AuthClient<UserProfile>): AccessModule {
+  const source = readFileSync(
+    join(import.meta.dirname, '../../../templates/app/react/components/AuthGuard.tsx.tpl'),
+    'utf8',
+  )
+  const compiled = ts.transpileModule(source, {
+    compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
+  })
+  const exports = {}
+  new Function('require', 'exports', compiled.outputText)(scaffoldDependency(client), exports)
   return exports as AccessModule
 }
 
@@ -343,11 +347,17 @@ describe('scaffold route access before page selection', () => {
     const compiled = ts.transpileModule(source, {
       compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
     })
-    const exports: { App?: () => ReactNode } = {}
+    const exports: {
+      App?: () => ReactNode
+      AppRoot?: (props: { children: ReactNode }) => ReactNode
+    } = {}
     new Function('require', 'exports', compiled.outputText)((name: string) => {
       if (name === 'react/jsx-runtime') return jsx
       if (name === 'react-router') return router
       if (name === './components/AppLayout.js') return { AppLayout: router.Outlet }
+      if (name === './components/AuthGuard.js') return accessModule(client)
+      if (name === './bonds/index.js' || name.startsWith('@molecule/'))
+        return scaffoldDependency(client)(name)
       const page = /^\.\/pages\/(\w+)\.js$/.exec(name)?.[1]
       if (page)
         return { [page]: page === 'Login' ? () => createElement('p', null, 'Sign in') : Page }

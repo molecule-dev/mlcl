@@ -1,4 +1,11 @@
+import type { ReactNode } from 'react'
 import { Routes, Route } from 'react-router'
+import { getClient as getHttpClient } from '@molecule/app-http'
+import { MoleculeProvider } from '@molecule/app-react'
+import { BrowserRouter } from '@molecule/app-routing-react-router'
+import { getProvider as getStorageProvider } from '@molecule/app-storage'
+import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
+import { RouteAccess } from './components/AuthGuard.js'
 import { AppLayout } from './components/AppLayout.js'
 import { About } from './pages/About.js'
 import { ForgotPassword } from './pages/ForgotPassword.js'
@@ -25,12 +32,35 @@ import { Signup } from './pages/Signup.js'
 // service worker's precache — is the part with a measured gain; see the
 // `UserMenu` drawer for the one interaction-only split that is still worth it.
 //
-// AppRoot in main.tsx owns the router, session providers and RouteAccess boundary.
-// Keep this component to page routes. AppRoot's `awaitSession` holds every page until a returning visitor's session is restored
+// main.tsx imports AppRoot separately from App, so replacing page routes cannot
+// silently remove its required export. The access policy lives in AuthGuard.tsx.
+// AppRoot's `awaitSession` holds every page until a returning visitor's session is restored
 // (one request after a full page load), so public pages read the restored user
 // when that request succeeds. An 'unavailable' session still renders and may
 // have a null user; handle that status separately from sign-out.
 // A visitor with no session to restore makes no request. Keep it.
+/**
+ * Entry-point providers and access boundary, kept separate from page routes.
+ * @param props - The application's page routes.
+ * @returns The router and bonded providers around the access boundary.
+ */
+export function AppRoot({ children }: { children: ReactNode }): ReactNode {
+  return (
+    <BrowserRouter>
+      <MoleculeProvider
+        auth={authClient}
+        awaitSession
+        http={getHttpClient()}
+        theme={themeProvider}
+        storage={getStorageProvider()}
+        i18n={i18nProvider}
+      >
+        <RouteAccess>{children}</RouteAccess>
+      </MoleculeProvider>
+    </BrowserRouter>
+  )
+}
+
 export function App() {
   return (
     <Routes>

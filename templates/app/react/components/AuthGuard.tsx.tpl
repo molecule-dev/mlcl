@@ -16,13 +16,8 @@
 import type { ReactNode } from 'react'
 import { matchPath, useLocation } from 'react-router'
 
-import { getClient as getHttpClient } from '@molecule/app-http'
-import { MoleculeProvider, useAuth, useAuthClient, useTranslation } from '@molecule/app-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
-import { getProvider as getStorageProvider } from '@molecule/app-storage'
+import { useAuth, useAuthClient, useTranslation } from '@molecule/app-react'
 import { AuthGuard, LoadErrorBanner } from '@molecule/app-ui-react'
-
-import { authClient, i18nProvider, themeProvider } from '../bonds/index.js'
 
 export { AuthGuard } from '@molecule/app-ui-react'
 
@@ -82,27 +77,4 @@ export function RouteAccess({ children, views = privateViews }: RouteAccessProps
     )
   }
   return isPrivate ? <AuthGuard>{children}</AuthGuard> : children
-}
-
-/**
- * Entry-point providers and access boundary. Page routes stay in App.tsx, so
- * replacing a page or its route tree cannot discard the session/URL guard.
- * @param props - The application's page routes.
- * @returns The router and bonded providers around the access boundary.
- */
-export function AppRoot({ children }: { children: ReactNode }): ReactNode {
-  return (
-    <BrowserRouter>
-      <MoleculeProvider
-        auth={authClient}
-        awaitSession
-        http={getHttpClient()}
-        theme={themeProvider}
-        storage={getStorageProvider()}
-        i18n={i18nProvider}
-      >
-        <RouteAccess>{children}</RouteAccess>
-      </MoleculeProvider>
-    </BrowserRouter>
-  )
 }
