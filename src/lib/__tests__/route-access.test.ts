@@ -3,16 +3,24 @@ import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { act, cleanup, render, screen } from '@testing-library/react'
-import { createElement, type ReactNode, useEffect } from 'react'
+import { createElement, type ReactNode, StrictMode, useEffect } from 'react'
 import * as jsx from 'react/jsx-runtime'
 import * as router from 'react-router'
 import ts from 'typescript'
-import { afterEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { type AuthClient, createJWTAuthClient, type UserProfile } from '@molecule/app-auth'
 import { createSimpleI18nProvider } from '@molecule/app-i18n'
-import { AuthProvider, I18nProvider, useAuth } from '@molecule/app-react'
-import { AuthGuard } from '@molecule/app-ui-react'
+import { setIconSet } from '@molecule/app-icons'
+import {
+  AuthProvider,
+  I18nProvider,
+  useAuth,
+  useAuthClient,
+  useTranslation,
+} from '@molecule/app-react'
+import { setClassMap, type UIClassMap } from '@molecule/app-ui'
+import { AuthGuard, LoadErrorBanner } from '@molecule/app-ui-react'
 
 interface PrivateView {
   path: string
@@ -21,11 +29,12 @@ interface PrivateView {
 
 interface AccessModule {
   RouteAccess: (props: { children: ReactNode; views?: readonly PrivateView[] }) => ReactNode
+  AppRoot: (props: { children: ReactNode }) => ReactNode
   privateViews: readonly PrivateView[]
 }
 
 /** Execute the scaffold's shipped component, including its actual router matching. */
-function accessModule(): AccessModule {
+function accessModule(client?: AuthClient<UserProfile>): AccessModule {
   const source = readFileSync(
     join(import.meta.dirname, '../../../templates/app/react/components/AuthGuard.tsx.tpl'),
     'utf8',
@@ -37,7 +46,35 @@ function accessModule(): AccessModule {
   new Function('require', 'exports', compiled.outputText)((name: string) => {
     if (name === 'react/jsx-runtime') return jsx
     if (name === 'react-router') return router
-    if (name === '@molecule/app-ui-react') return { AuthGuard }
+    if (name === '@molecule/app-ui-react') return { AuthGuard, LoadErrorBanner }
+    if (name === '@molecule/app-http') return { getClient: () => undefined }
+    if (name === '@molecule/app-storage') return { getProvider: () => undefined }
+    if (name === '../bonds/index.js') return { authClient: client }
+    if (name === '@molecule/app-routing-react-router') {
+      return {
+        BrowserRouter: ({ children }: { children: ReactNode }) =>
+          createElement(router.MemoryRouter, { initialEntries: ['/settings'] }, children),
+      }
+    }
+    if (name === '@molecule/app-react') {
+      return {
+        useAuth,
+        useAuthClient,
+        useTranslation,
+        MoleculeProvider: ({
+          auth,
+          children,
+        }: {
+          auth: AuthClient<UserProfile>
+          children: ReactNode
+        }) =>
+          createElement(
+            AuthProvider,
+            { client: auth },
+            createElement(I18nProvider, { provider: createSimpleI18nProvider('en') }, children),
+          ),
+      }
+    }
     throw new Error(`Unexpected scaffold dependency: ${name}`)
   }, exports)
   return exports as AccessModule
@@ -142,6 +179,11 @@ async function mount(
   }
 }
 
+beforeEach(() => {
+  setIconSet({ 'x-circle': { paths: [] } })
+  setClassMap(new Proxy({} as UIClassMap, { get: () => () => '' }))
+})
+
 afterEach(() => {
   cleanup()
   for (const client of clients.splice(0)) client.destroy()
@@ -207,7 +249,12 @@ describe('scaffold route access before page selection', () => {
   it('does not classify an unavailable session as signed out', async () => {
     vi.stubGlobal(
       'fetch',
-      vi.fn(async () => new Response('', { status: 503 })),
+      vi
+        .fn()
+        .mockResolvedValueOnce(new Response('', { status: 503 }))
+        .mockResolvedValueOnce(
+          new Response(JSON.stringify({ user: { id: 'reader' } }), { status: 200 }),
+        ),
     )
     const client = session(true)
     const app = await mount('/orders?view=mine', client)
@@ -215,6 +262,12 @@ describe('scaffold route access before page selection', () => {
     expect(client.getState().status).toBe('unavailable')
     expect(app.location().pathname).toBe('/orders')
     expect(screen.queryByText('Sign in')).toBeNull()
+    expect(app.load).not.toHaveBeenCalled()
+    await act(async () => {
+      screen.getByRole('button', { name: /retry/i }).click()
+    })
+    expect(client.getState().status).toBe('authenticated')
+    expect(app.load).toHaveBeenCalledExactlyOnceWith('mine')
   })
 
   it('redirects only after restoration confirms sign-out', async () => {
@@ -276,7 +329,7 @@ describe('scaffold route access before page selection', () => {
     expect(app.load).not.toHaveBeenCalled()
   })
 
-  it('mounts the boundary in the actual App scaffold, before its route elements', async () => {
+  it('mounts the entry-point boundary before App routes that have no page-owned guard', async () => {
     const client = session()
     const mounted = vi.fn()
     function Page(): ReactNode {
@@ -294,33 +347,32 @@ describe('scaffold route access before page selection', () => {
     new Function('require', 'exports', compiled.outputText)((name: string) => {
       if (name === 'react/jsx-runtime') return jsx
       if (name === 'react-router') return router
-      if (name === '@molecule/app-routing-react-router') {
-        return {
-          BrowserRouter: ({ children }: { children: ReactNode }) =>
-            createElement(router.MemoryRouter, { initialEntries: ['/settings'] }, children),
-        }
-      }
-      if (name === './components/AuthGuard.js') return accessModule()
       if (name === './components/AppLayout.js') return { AppLayout: router.Outlet }
-      if (name === './bonds/index.js') return { authClient: client }
-      if (name === '@molecule/app-http') return { getClient: () => undefined }
-      if (name === '@molecule/app-storage') return { getProvider: () => undefined }
-      if (name === '@molecule/app-react') {
-        return {
-          MoleculeProvider: ({ children }: { children: ReactNode }) =>
-            createElement(
-              AuthProvider,
-              { client },
-              createElement(I18nProvider, { provider: createSimpleI18nProvider('en') }, children),
-            ),
-        }
-      }
       const page = /^\.\/pages\/(\w+)\.js$/.exec(name)?.[1]
       if (page)
         return { [page]: page === 'Login' ? () => createElement('p', null, 'Sign in') : Page }
       throw new Error(`Unexpected App dependency: ${name}`)
     }, exports)
-    render(createElement(exports.App!))
+    const entry = ts.transpileModule(
+      readFileSync(join(import.meta.dirname, '../../../templates/app/react/main.tsx.tpl'), 'utf8'),
+      { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX } },
+    )
+    new Function('require', 'exports', entry.outputText)((name: string) => {
+      if (name === 'react/jsx-runtime') return jsx
+      if (name === 'react') return { StrictMode }
+      if (name === 'react-dom/client') {
+        return {
+          createRoot: () => ({ render: (node: Parameters<typeof render>[0]) => render(node) }),
+        }
+      }
+      if (name === './bonds/index.js')
+        return { authClient: client, setupProviders: () => undefined }
+      if (name === './App.js') return exports
+      if (name === './components/AuthGuard.js') return accessModule(client)
+      if (name === './pwa.js') return { registerPWA: () => undefined }
+      if (name.endsWith('.css')) return {}
+      throw new Error(`Unexpected entry dependency: ${name}`)
+    }, {})
     await act(async () => client.whenRestored!())
     expect(screen.queryByText('Sign in')).not.toBeNull()
     expect(mounted).not.toHaveBeenCalled()

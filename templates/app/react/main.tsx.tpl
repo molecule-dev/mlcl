@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client'
 import { setupProviders, authClient } from './bonds/index.js'
 import { registerPWA } from './pwa.js'
 import { App } from './App.js'
+import { AppRoot } from './components/AuthGuard.js'
 import './index.css'
 import './theme.css'
 
@@ -19,7 +20,9 @@ authClient.initialize().catch((_error) => {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <App />
+    <AppRoot>
+      <App />
+    </AppRoot>
   </StrictMode>,
 )
 

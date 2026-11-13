@@ -49,9 +49,13 @@ describe('session readiness in generated apps', () => {
       const target = await mkdtemp(join(tmpdir(), 'session-ready-scaffold-'))
       try {
         await copyTemplateFiles(target, framework, 'session-ready-app')
-        expect(providersIn(await readFile(join(target, 'src/App.tsx'), 'utf8'))).toEqual([
-          { auth: true, awaitSession: true },
-        ])
+        const files = ['src/App.tsx', 'src/components/AuthGuard.tsx']
+        const sources = await Promise.all(
+          files
+            .filter((file) => existsSync(join(target, file)))
+            .map((file) => readFile(join(target, file), 'utf8')),
+        )
+        expect(sources.flatMap(providersIn)).toEqual([{ auth: true, awaitSession: true }])
       } finally {
         await rm(target, { recursive: true, force: true })
       }

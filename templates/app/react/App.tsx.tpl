@@ -1,10 +1,4 @@
 import { Routes, Route } from 'react-router'
-import { MoleculeProvider } from '@molecule/app-react'
-import { getClient as getHttpClient } from '@molecule/app-http'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
-import { getProvider as getStorageProvider } from '@molecule/app-storage'
-import { authClient, themeProvider, i18nProvider } from './bonds/index.js'
-import { RouteAccess } from './components/AuthGuard.js'
 import { AppLayout } from './components/AppLayout.js'
 import { About } from './pages/About.js'
 import { ForgotPassword } from './pages/ForgotPassword.js'
@@ -31,37 +25,25 @@ import { Signup } from './pages/Signup.js'
 // service worker's precache — is the part with a measured gain; see the
 // `UserMenu` drawer for the one interaction-only split that is still worth it.
 //
-// `awaitSession` holds every page until a returning visitor's session is restored
+// AppRoot in main.tsx owns the router, session providers and RouteAccess boundary.
+// Keep this component to page routes. AppRoot's `awaitSession` holds every page until a returning visitor's session is restored
 // (one request after a full page load), so public pages read the restored user
 // when that request succeeds. An 'unavailable' session still renders and may
 // have a null user; handle that status separately from sign-out.
 // A visitor with no session to restore makes no request. Keep it.
 export function App() {
   return (
-    <BrowserRouter>
-      <MoleculeProvider
-        auth={authClient}
-        awaitSession
-        http={getHttpClient()}
-        theme={themeProvider}
-        storage={getStorageProvider()}
-        i18n={i18nProvider}
-      >
-        <RouteAccess>
-          <Routes>
-            <Route path="/login" element={<Login />} />
-            <Route path="/signup" element={<Signup />} />
-            <Route path="/about" element={<About />} />
-            <Route path="/forgot-password" element={<ForgotPassword />} />
-            <Route path="/reset-password" element={<ResetPassword />} />
-            <Route element={<AppLayout />}>
-              <Route path="/" element={<Home />} />
-              <Route path="/settings" element={<Settings />} />
-              <Route path="/plan-updated" element={<PlanUpdated />} />
-            </Route>
-          </Routes>
-        </RouteAccess>
-      </MoleculeProvider>
-    </BrowserRouter>
+    <Routes>
+      <Route path="/login" element={<Login />} />
+      <Route path="/signup" element={<Signup />} />
+      <Route path="/about" element={<About />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route element={<AppLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/settings" element={<Settings />} />
+        <Route path="/plan-updated" element={<PlanUpdated />} />
+      </Route>
+    </Routes>
   )
 }
