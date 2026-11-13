@@ -1,4 +1,4 @@
-import { renderToString } from 'react-dom/server'
+import { prerender } from 'react-dom/static'
 import { StaticRouter } from 'react-router'
 
 import { type Feed, serializeAtom1, serializeRss2 } from '@molecule/api-feed-rss'
@@ -8,7 +8,7 @@ import type { StaticFile } from '../vite-static-site-plugin.js'
 import { App } from './App.js'
 import { setupProviders } from './bonds/index.js'
 import { APP_DESCRIPTION, APP_NAME } from './branding.js'
-import { readPageMeta, resetPageMeta } from './components/PageMeta.js'
+import { PageMetaContext, type PageMetaValues } from './components/PageMeta.js'
 import {
   ABOUT_PATH,
   FEED_ATOM_PATH,
@@ -175,19 +175,25 @@ export async function getStaticFiles(): Promise<StaticFile[]> {
  * @param path - Site-relative path, as listed by `getStaticPaths()`.
  * @returns The page for scripts/prerender.mjs to write.
  */
-export function render(path: string): RenderedPage {
-  resetPageMeta()
-  // renderToString, not renderToStaticMarkup: the page is HYDRATED (src/main.tsx),
-  // and only renderToString writes the text-node separators (`<!-- -->`)
-  // hydration needs. Static markup merges adjacent text nodes — `{" · "}{model}`
-  // becomes one node — so the client finds a mismatch, throws the markup away
-  // and renders again with only what it has on the client.
-  const html = renderToString(
-    <StaticRouter basename={ROUTER_BASENAME} location={withBase(path)}>
-      <App />
-    </StaticRouter>,
+export async function render(path: string): Promise<RenderedPage> {
+  const meta: PageMetaValues = { title: '', description: '' }
+  const errors: unknown[] = []
+  // Await every lazy route before writing HTML. renderToString leaves an
+  // unfinished Suspense fallback, while static markup cannot be hydrated.
+  const { prelude } = await prerender(
+    <PageMetaContext.Provider value={meta}>
+      <StaticRouter basename={ROUTER_BASENAME} location={withBase(path)}>
+        <App />
+      </StaticRouter>
+    </PageMetaContext.Provider>,
+    {
+      onError: (error) => {
+        errors.push(error)
+      },
+    },
   )
-  const meta = readPageMeta()
+  const html = await new Response(prelude).text()
+  if (errors.length) throw new AggregateError(errors, `Unable to prerender ${path}`)
   const head = [
     `<link rel="canonical" href="${escapeAttr(absoluteUrl(path))}" />`,
     `<link rel="alternate" type="application/rss+xml" title="${escapeAttr(APP_NAME)}" href="${escapeAttr(withBase(FEED_RSS_PATH))}" />`,

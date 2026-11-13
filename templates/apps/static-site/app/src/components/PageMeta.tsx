@@ -1,4 +1,4 @@
-import { useEffect } from 'react'
+import { createContext, useContext, useEffect } from 'react'
 
 import { APP_NAME } from '../branding.js'
 
@@ -8,23 +8,12 @@ export interface PageMetaValues {
   description: string
 }
 
-let current: PageMetaValues = { title: '', description: '' }
-
 /**
- * The metadata of the page that rendered last. The build entry reads it right
- * after `renderToString`, so it lands in each page's `<head>`; the
- * browser gets it through the effect below.
- *
- * @returns Title and description, empty strings when no page set them.
+ * The metadata sink for one server render. Each render owns its value, so
+ * concurrent lazy pages cannot overwrite another request's title or description.
+ * The browser updates its document through the effect below.
  */
-export function readPageMeta(): PageMetaValues {
-  return current
-}
-
-/** Clears the last page's metadata — the build entry calls it before each render. */
-export function resetPageMeta(): void {
-  current = { title: '', description: '' }
-}
+export const PageMetaContext = createContext<PageMetaValues | null>(null)
 
 /**
  * Declares a page's title and description. Render it once per page. At build
@@ -32,7 +21,11 @@ export function resetPageMeta(): void {
  * update `document.title` and the description meta on navigation.
  */
 export function PageMeta({ title, description }: PageMetaValues) {
-  current = { title, description }
+  const meta = useContext(PageMetaContext)
+  if (meta) {
+    meta.title = title
+    meta.description = description
+  }
   useEffect(() => {
     document.title = title ? `${title} | ${APP_NAME}` : APP_NAME
     const meta = document.querySelector('meta[name="description"]')

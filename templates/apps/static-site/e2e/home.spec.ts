@@ -74,6 +74,21 @@ test.describe('index', () => {
     await expect(page.locator('[data-mol-id="not-found-page"]')).toBeVisible()
   })
 
+  test('a document fallback can navigate home without rehydrating another route', async ({
+    page,
+  }) => {
+    await open(page, '/a-route-without-a-static-document/')
+    await expect(page.locator('[data-mol-id="not-found-page"]')).toBeVisible()
+    await page.locator('[data-mol-id="not-found-page"]').getByRole('link').click()
+    await page.waitForURL(/\/$/)
+    await expect(page.locator('[data-mol-id="post-list"] > li')).toHaveCount(postsOnPage(1).length)
+    expect(
+      await page.evaluate(
+        () => (window as Window & { __molHydrationErrors?: string[] }).__molHydrationErrors ?? [],
+      ),
+    ).toEqual([])
+  })
+
   test('every post card links to its post and shows date, reading time and tags', async ({
     page,
   }) => {

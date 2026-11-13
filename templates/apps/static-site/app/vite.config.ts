@@ -319,6 +319,9 @@ export default defineConfig(({ command }) => ({
   },
   envPrefix: 'VITE_',
   test: {
+    // Linked Molecule packages must resolve React through this app's dedupe
+    // configuration in tests too, including the real server-rendering tests.
+    server: { deps: { inline: [/@molecule\//] } },
     // Playwright owns e2e/ (playwright.config.ts → testDir './e2e'); its
     // *.spec.ts files match vitest's default include, so without this
     // `npm test` collects them and each fails with "Playwright Test did not

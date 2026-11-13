@@ -48,13 +48,17 @@ const tree = (
 const entryWindow = window as HydrationWindow
 ;(entryWindow.__molEntryUrls ??= []).push(import.meta.url)
 
-// A page arrives prerendered — scripts/prerender.mjs put this route's markup in
-// #root for the build, vite-static-site-plugin.ts does the same for the dev
-// server — so hydrate it. A route the entry does not know (the not-found page)
-// arrives as the empty shell and mounts from scratch.
+// Static hosts can serve index.html for an unknown path. Its canonical URL
+// identifies the page that supplied the markup: hydrate that page only at its
+// own path, and mount the requested route when the host served a fallback.
+const canonical = document.querySelector<HTMLLinkElement>('link[rel="canonical"]')
+const normalizePath = (path: string): string => path.replace(/\/+$/, '') || '/'
+const matchingDocument =
+  !canonical ||
+  normalizePath(new URL(canonical.href).pathname) === normalizePath(window.location.pathname)
 if (entryWindow.__molRoot) {
   entryWindow.__molRoot.render(tree)
-} else if (root.hasChildNodes()) {
+} else if (root.hasChildNodes() && matchingDocument) {
   entryWindow.__molRoot = hydrateRoot(root, tree, {
     // A mismatch between the server markup and the client render is recoverable
     // to React — it drops the markup and renders again on the client — and fatal
@@ -68,6 +72,7 @@ if (entryWindow.__molRoot) {
     },
   })
 } else {
+  root.replaceChildren()
   entryWindow.__molRoot = createRoot(root)
   entryWindow.__molRoot.render(tree)
 }
