@@ -93,8 +93,6 @@ vi.mock('@molecule/api-locales-resource', () => ({}))
 
 vi.mock('@molecule/api-locales-secrets', () => ({}))
 
-vi.mock('@molecule/api-locales-secrets-doppler', () => ({}))
-
 vi.mock('@molecule/api-locales-user', () => ({}))
 
 vi.mock('@molecule/api-locales-user-payments', () => ({}))

@@ -71,6 +71,7 @@
     "@molecule/app-locales-icons": "1.0.3",
     "@molecule/app-locales-ide": "1.11.1",
     "@molecule/app-locales-legal-default": "1.0.4",
+    "@molecule/app-locales-lifecycle": "1.1.0",
     "@molecule/app-locales-live-preview": "1.0.3",
     "@molecule/app-locales-oauth-buttons": "1.0.4",
     "@molecule/app-locales-push": "1.0.4",

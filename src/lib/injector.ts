@@ -3911,7 +3911,7 @@ export function installedLocaleBonds(
  * @param bindings - Every package the app installs.
  * @returns The bond file's source.
  */
-function generateI18nDefaultSetupBond(
+export function generateI18nDefaultSetupBond(
   capabilityHeader: string | undefined,
   setupPackage: string,
   exportName: string,

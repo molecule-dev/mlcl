@@ -114,8 +114,6 @@ vi.mock('@molecule/api-locales-resource-version-history', () => ({}))
 
 vi.mock('@molecule/api-locales-secrets', () => ({}))
 
-vi.mock('@molecule/api-locales-secrets-doppler', () => ({}))
-
 vi.mock('@molecule/api-locales-uploads', () => ({}))
 
 vi.mock('@molecule/api-locales-user', () => ({}))

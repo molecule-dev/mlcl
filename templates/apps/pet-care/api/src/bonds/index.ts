@@ -7,6 +7,7 @@ import { setupDatabasePostgresql } from './database-postgresql.js'
 import { setupEmailsMailgun } from './emails-mailgun.js'
 import { setupImageSharp } from './image-sharp.js'
 import { setupJwtJsonwebtoken } from './jwt-jsonwebtoken.js'
+import { setupLocales } from './locales.js'
 import { setupMiddlewareBodyParserExpress } from './middleware-body-parser-express.js'
 import { setupMiddlewareCookieParserExpress } from './middleware-cookie-parser-express.js'
 import { setupMiddlewareCorsExpress } from './middleware-cors-express.js'
@@ -25,6 +26,7 @@ import { setupUploadsS3 } from './uploads-s3.js'
  * Resolves all registered secrets before wiring providers.
  */
 export async function setupBonds(): Promise<void> {
+  setupLocales()
   // Bond the rate-limit provider so the user resource's auth routes (login,
   // forgot/reset password, OAuth) are actually throttled — the rateLimitAuth
   // authorizer degrades OPEN without one. Swap to -redis for multi-replica prod.
