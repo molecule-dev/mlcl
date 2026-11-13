@@ -18,6 +18,9 @@ let nextFloatingInputId = 0
  */
 @Component({
   selector: 'app-floating-input',
+  // No box of its own, like the React component it stands in for: a flex or grid parent
+  // lays out this component's root element, not a wrapper.
+  host: { style: 'display: contents' },
   standalone: true,
   inputs: ['type', 'value', 'placeholder', 'autocomplete', 'required', 'name', 'id', 'className'],
   template: `

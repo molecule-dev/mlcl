@@ -25,6 +25,9 @@ import { ButtonComponent } from '../button.component.js'
  */
 @Component({
   selector: 'app-settings-billing-section',
+  // No box of its own, like the React component it stands in for: a flex or grid parent
+  // lays out this component's root element, not a wrapper.
+  host: { style: 'display: contents' },
   standalone: true,
   imports: [ButtonComponent],
   inputs: ['plan', 'upgradeTo'],

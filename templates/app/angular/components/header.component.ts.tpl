@@ -16,6 +16,9 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
  */
 @Component({
   selector: 'app-header',
+  // No box of its own, like the React component it stands in for: a flex or grid parent
+  // lays out this component's root element, not a wrapper.
+  host: { style: 'display: contents' },
   standalone: true,
   imports: [RouterLink, ThemeToggleComponent, UserMenuComponent],
   template: `

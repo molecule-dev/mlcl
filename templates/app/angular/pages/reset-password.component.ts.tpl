@@ -22,6 +22,9 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
  */
 @Component({
   selector: 'app-reset-password',
+  // No box of its own, like the React component it stands in for: a flex or grid parent
+  // lays out this component's root element, not a wrapper.
+  host: { style: 'display: contents' },
   standalone: true,
   imports: [
     ButtonComponent,

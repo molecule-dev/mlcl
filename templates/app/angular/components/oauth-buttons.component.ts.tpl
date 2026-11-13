@@ -50,6 +50,9 @@ function providerLabel(provider: string): { key: string; default: string } {
  */
 @Component({
   selector: 'app-oauth-buttons',
+  // No box of its own, like the React component it stands in for: a flex or grid parent
+  // lays out this component's root element, not a wrapper.
+  host: { style: 'display: contents' },
   standalone: true,
   imports: [OAuthProviderLogoComponent],
   template: `
