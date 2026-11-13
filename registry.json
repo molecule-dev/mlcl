@@ -60561,12 +60561,14 @@
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-logger",
+        "@molecule/app-react",
         "@molecule/app-ui",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-logger",
+        "@molecule/app-react",
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/root-error-boundary-react",
@@ -64620,12 +64622,14 @@
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-react",
         "@molecule/app-ui",
         "react",
         "react-native"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
+        "@molecule/app-react",
         "@molecule/app-ui"
       ],
       "framework": "react-native",
