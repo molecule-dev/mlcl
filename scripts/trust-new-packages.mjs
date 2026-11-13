@@ -14,9 +14,8 @@
  *   npm run trust:new           # publish + trust every package npm has never seen
  *   npm run trust:new -- --list # report only, never prompt
  *
- * A package marked `"private": true` (molecule-mcp keeps that guard so nothing
- * publishes it by accident) is published from a staged copy with the flag
- * removed; the working tree is never edited.
+ * A package marked `"private": true` is published from a staged copy with the
+ * flag removed; the working tree is never edited.
  */
 import { execFileSync, spawnSync } from 'node:child_process'
 import { cpSync, existsSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'

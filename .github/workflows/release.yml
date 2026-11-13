@@ -1,7 +1,7 @@
 name: Release
 run-name: 'Release (${{ inputs.requester }})'
 
-# PUBLISH-ONLY — publishes mlcl (and molecule-mcp if staged) via CI, never from
+# PUBLISH-ONLY — publishes mlcl and molecule-mcp via CI, never from
 # a laptop. Version package.json and commit before using the guarded workspace
 # release runner's publish-mlcl stage. It verifies the exact version on npm,
 # dispatches with a requester identity and commit, and watches only that run.
@@ -16,8 +16,9 @@ run-name: 'Release (${{ inputs.requester }})'
 #   - vars.NPM_TRUSTED_PUBLISHING == 'true'  → OIDC (npm ≥11.5.1), no stored secret
 #   - secrets.NPM_TOKEN != ''                 → legacy token
 #
-# molecule-mcp (in mcp/) publishes from the same dispatch when its version
-# differs from npm. It flips `private` to false via the MCP_PUBLISH input.
+# molecule-mcp (in mcp/) publishes from every dispatch whose committed
+# mcp/package.json version npm does not serve yet. There is no opt-in: an
+# opt-out input left 0.3.0 unpublished for two weeks (2026-10-29 → 11-13).
 on:
   workflow_dispatch:
     inputs:
@@ -29,11 +30,6 @@ on:
         description: 'Full commit SHA authorized for publication'
         required: true
         type: string
-      mcp_publish:
-        description: 'Also publish molecule-mcp (flips its private flag in this run only)'
-        required: false
-        type: boolean
-        default: false
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
@@ -169,22 +165,18 @@ jobs:
           MLCL_ALLOW_PUBLISH: '1'
           MLCL_ALLOW_DEEP_HISTORY: '1'
 
-      # ---- PUBLISH molecule-mcp (optional) ------------------------------------
+      # ---- PUBLISH molecule-mcp ----------------------------------------------
       # OIDC trusted publishing — the repo has no NPM_TOKEN secret. The publish
-      # authenticates through the workflow's id-token once the package's
-      # trusted-publisher link on npmjs.com names molecule-dev/mlcl +
-      # release.yml (npm requires the owner's OTP to add it).
+      # authenticates through the workflow's id-token via the package's
+      # trusted-publisher link on npmjs.com (molecule-dev/mlcl + release.yml).
+      # Idempotent like the mlcl step: a version npm already serves is skipped.
       - name: Publish molecule-mcp
-        if: inputs.mcp_publish
         working-directory: mlcl/mcp
         run: |
           VERSION="$(node -p 'require("./package.json").version')"
           if npm view molecule-mcp@"$VERSION" version >/dev/null 2>&1; then
             echo "molecule-mcp@$VERSION is already on npm — nothing to publish"
           else
-            # Flip private → publishable for this run only (no commit needed).
-            node -e "const p=require('./package.json'); delete p.private; require('fs').writeFileSync('./package.json', JSON.stringify(p,null,2)+'\n')"
-            npm install
             npm run build
             npm publish --provenance --access public
           fi
@@ -194,7 +186,5 @@ jobs:
       - name: Publish summary
         working-directory: mlcl
         run: |
-          echo "✓ mlcl@$(node -e "console.log(require('./package.json').version)") published"
-          if [ "${{ inputs.mcp_publish }}" = "true" ]; then
-            echo "✓ molecule-mcp@$(node -e "console.log(require('./mcp/package.json').version)") published"
-          fi
+          echo "✓ mlcl@$(node -p 'require("./package.json").version') on npm"
+          echo "✓ molecule-mcp@$(node -p 'require("./mcp/package.json").version') on npm"
