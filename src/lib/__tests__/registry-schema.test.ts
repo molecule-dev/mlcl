@@ -87,6 +87,18 @@ describe('registry.json schema validation', () => {
     expect(invalid, 'Packages missing path field').toEqual([])
   })
 
+  it('pins only packages the registry describes', () => {
+    // Removing a package from the fleet removes its entry, but the release's pin sweep rewrites only
+    // the packages it publishes, so the removed package's pin stayed behind (app-locales-react-ui,
+    // -react-native-ui and -solid-ui, removed in molecule da2b86914, kept their overrides).
+    const packages = (raw.packages ?? {}) as Record<string, unknown>
+    const pinned = Object.keys(raw.moleculeVersions?.overrides ?? {})
+    expect(
+      pinned.filter((name) => !(name in packages)),
+      'Delete these moleculeVersions.overrides entries: no registry package has that name',
+    ).toEqual([])
+  })
+
   it('every package should have a valid type', () => {
     const validTypes = [
       'core',
