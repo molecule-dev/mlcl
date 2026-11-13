@@ -1,8 +1,8 @@
-import { Show } from 'solid-js'
 import { A } from '@solidjs/router'
+import { Show } from 'solid-js'
 import { createAuth, useTranslate } from '@molecule/app-solid'
-import { Button, Flex, Spinner } from '@molecule/app-ui-solid'
 import { getClassMap } from '@molecule/app-ui'
+import { Button, Flex, Spinner } from '@molecule/app-ui-solid'
 
 export function PlanUpdated() {
   const cm = getClassMap()
@@ -19,9 +19,9 @@ export function PlanUpdated() {
       }
     >
       <div class={cm.cn(cm.textCenter, cm.sp('py', 12))}>
-        <h2 class={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 2))}>
+        <h1 class={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 2))}>
           {t('planUpdated.message')}
-        </h2>
+        </h1>
         <h2 class={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 8))}>
           {t('planUpdated.thankYou')}
         </h2>

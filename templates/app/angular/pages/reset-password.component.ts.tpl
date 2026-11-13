@@ -1,21 +1,30 @@
-import { Component, inject, type OnDestroy } from '@angular/core'
-import { AsyncPipe } from '@angular/common'
-import { Router, ActivatedRoute } from '@angular/router'
-import { AUTH_CLIENT, createPasswordResetState, createLoginState, t } from '@molecule/app-angular'
-import { MoleculeButton } from '@molecule/app-ui-angular'
-import { getClassMap } from '@molecule/app-ui'
-import { FloatingInputComponent } from '../components/floating-input.component.js'
-import { IconComponent } from '../components/icon.component.js'
-import { FooterComponent } from '../components/footer.component.js'
-import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
-import { APP_NAME, LOGO_SIZE } from '../branding.js'
+import { ChangeDetectorRef, Component, inject, type OnDestroy, type OnInit } from '@angular/core'
+import { ActivatedRoute, Router } from '@angular/router'
+import type { Subscription } from 'rxjs'
 
+import { AUTH_CLIENT, createLoginState, createPasswordResetState, t } from '@molecule/app-angular'
+import { getClassMap } from '@molecule/app-ui'
+
+import { APP_NAME, LOGO_SIZE } from '../branding.js'
+import { ButtonComponent } from '../components/button.component.js'
+import { FloatingInputComponent } from '../components/floating-input.component.js'
+import { FooterComponent } from '../components/footer.component.js'
+import { IconComponent } from '../components/icon.component.js'
+import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
+
+/**
+ * Reset-password page: confirms a reset token with a new password, then signs in.
+ *
+ * Port of the React `ResetPassword` page — the token and email are seeded from
+ * the URL once (`?token=…&email=…`), the confirmation failure renders inline
+ * with `role="alert"`, and a successful confirmation immediately logs in and
+ * returns home.
+ */
 @Component({
   selector: 'app-reset-password',
   standalone: true,
   imports: [
-    AsyncPipe,
-    MoleculeButton,
+    ButtonComponent,
     FloatingInputComponent,
     IconComponent,
     FooterComponent,
@@ -40,29 +49,30 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
           </div>
         </div>
       </header>
-      <div [class]="cm.authPageBody">
+      <main [class]="cm.authPageBody">
+        <!-- Screen-reader-only page heading — every page needs exactly one h1
+            (axe page-has-heading-one); the visual design has no heading. -->
+        <h1 [class]="cm.srOnly">{{ t('auth.resetPassword.submit') }}</h1>
         <div [class]="cm.authFormWrapper">
-          <form (ngSubmit)="onSubmit()">
+          <form (submit)="onSubmit($event)">
             <div [class]="cm.authField">
               <app-floating-input
                 type="email"
                 [value]="email"
                 (valueChange)="email = $event"
                 autocomplete="email"
-                [autofocus]="!email"
                 [required]="true"
                 [placeholder]="t('auth.resetPassword.email')"
-              ></app-floating-input>
+              />
             </div>
             <div [class]="cm.authField">
               <app-floating-input
                 type="password"
                 [value]="token"
                 (valueChange)="token = $event"
-                [autofocus]="!!email && !token"
                 [required]="true"
                 [placeholder]="t('auth.resetPassword.token')"
-              ></app-floating-input>
+              />
             </div>
             <div [class]="cm.authField">
               <app-floating-input
@@ -72,7 +82,7 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
                 autocomplete="new-password"
                 [required]="true"
                 [placeholder]="t('auth.resetPassword.newPassword')"
-              ></app-floating-input>
+              />
             </div>
             <div [class]="cm.authField">
               <app-floating-input
@@ -81,90 +91,110 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
                 (valueChange)="twoFactorToken = $event"
                 autocomplete="one-time-code"
                 [placeholder]="t('auth.resetPassword.twoFactor')"
-              ></app-floating-input>
+              />
             </div>
             <div [class]="cm.authButtonRow">
-              <mol-button
+              <button
+                appButton
                 type="button"
                 size="lg"
                 color="secondary"
                 [className]="cm.authBackButton"
-                (handleClick)="navigateToLogin()"
+                (click)="navigateToLogin()"
                 [attr.aria-label]="t('common.goBack')"
               >
-                <app-icon name="arrow-left" [size]="25" />
-              </mol-button>
-              <mol-button
+                <svg appIcon name="arrow-left" [size]="25"></svg>
+              </button>
+              <button
+                appButton
                 type="submit"
                 size="lg"
                 color="success"
                 [className]="cm.authSubmitButton"
-                [disabled]="pending"
-                [loading]="pending"
+                [disabled]="isLoggingIn"
               >
-                {{ pending ? t('auth.resetPassword.loggingIn') : t('auth.resetPassword.submit') }}
-              </mol-button>
+                {{
+                  isLoggingIn ? t('auth.resetPassword.loggingIn') : t('auth.resetPassword.submit')
+                }}
+              </button>
             </div>
           </form>
-          @if (confirmState$ | async; as confirmState) {
-            @if (confirmState.error) {
-              <div [class]="cm.authFormError">
-                {{ confirmState.error.message }}
-              </div>
-            }
+          @if (confirmError) {
+            <div [class]="cm.authFormError" role="alert">{{ confirmError.message }}</div>
           }
         </div>
-      </div>
+      </main>
       <app-footer />
     </div>
   `,
 })
-export class ResetPasswordComponent implements OnDestroy {
-  private client = inject(AUTH_CLIENT)
-  private router = inject(Router)
-  private route = inject(ActivatedRoute)
-  private resetManager = createPasswordResetState(this.client)
-  private loginManager = createLoginState(this.client)
+export class ResetPasswordComponent implements OnInit, OnDestroy {
+  private readonly client = inject(AUTH_CLIENT)
+  private readonly router = inject(Router)
+  private readonly route = inject(ActivatedRoute)
+  private readonly cdr = inject(ChangeDetectorRef)
+  private readonly resetManager = createPasswordResetState(this.client)
+  private readonly loginManager = createLoginState(this.client)
+  private subscriptions: Subscription[] = []
+
+  /** The current class map. */
   get cm(): ReturnType<typeof getClassMap> {
     return getClassMap()
   }
+
+  /** The reactive translation function (re-evaluates on locale change). */
   t = t
+  /** The app's display name. */
   APP_NAME = APP_NAME
+  /** The logo size in pixels. */
   LOGO_SIZE = LOGO_SIZE
 
-  confirmState$ = this.resetManager.confirmState$
-  email = ''
-  token = ''
+  /** The reset token from the URL. */
+  token = this.route.snapshot.queryParamMap.get('token') || ''
+  /** The account email from the URL. */
+  email = this.route.snapshot.queryParamMap.get('email') || ''
+  /** The new password. */
   password = ''
+  /** The optional two-factor code (rendered, not sent — React parity). */
   twoFactorToken = ''
-  pending = false
+  /** Whether the confirmation is in flight. */
+  isLoggingIn = false
+  /** The last confirmation failure, rendered inline. */
+  confirmError: Error | null = null
 
-  constructor() {
-    this.route.queryParams.subscribe((params) => {
-      if (params['token']) this.token = params['token']
-      if (params['email']) this.email = params['email']
-    })
-
-    this.resetManager.confirmState$.subscribe((state) => {
-      this.pending = state.status === 'pending'
-    })
+  ngOnInit(): void {
+    this.subscriptions.push(
+      this.resetManager.confirmState$.subscribe((state) => {
+        this.isLoggingIn = state.status === 'pending'
+        this.confirmError = state.error ?? null
+        this.cdr.markForCheck()
+      }),
+    )
   }
 
-  async onSubmit(): Promise<void> {
+  /**
+   * Confirms the token with the new password, then signs the user in.
+   *
+   * @param event - The native submit event (prevented: the page must not reload).
+   */
+  async onSubmit(event: Event): Promise<void> {
+    event.preventDefault()
     try {
       await this.resetManager.confirmReset({ token: this.token, password: this.password })
       await this.loginManager.login({ email: this.email, password: this.password })
-      this.router.navigate(['/'], { replaceUrl: true })
-    } catch {
-      // Error tracked in state
+      await this.router.navigate(['/'], { replaceUrl: true })
+    } catch (_error) {
+      // Error tracked in the confirmation state and rendered inline above.
     }
   }
 
+  /** Returns to the login page. */
   navigateToLogin(): void {
-    this.router.navigate(['/login'])
+    void this.router.navigate(['/login'])
   }
 
   ngOnDestroy(): void {
+    for (const subscription of this.subscriptions) subscription.unsubscribe()
     this.resetManager.destroy()
     this.loginManager.destroy()
   }

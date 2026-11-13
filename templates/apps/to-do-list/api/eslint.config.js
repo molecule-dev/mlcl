@@ -18,8 +18,11 @@ let apiWorkspace = false
 let queryCache = false
 let routingBond = false
 let optimisticValue = false
+// The installed dev tooling, read for the framework lint plugins below.
+let devDependencies = {}
 try {
   const manifest = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8'))
+  devDependencies = manifest.devDependencies ?? {}
   const dependencies = {
     ...manifest.dependencies,
     ...manifest.optionalDependencies,
@@ -57,9 +60,93 @@ const moleculeLocal = {
   },
 }
 
+/**
+ * Lint for the component files a framework writes outside .ts/.tsx. ESLint opens a
+ * file only when some config's `files` matches it, so without these a Vue or Svelte
+ * app's `npm run lint` passed without reading a single component: its markup, its
+ * accessibility and the script inside it went unchecked. A Vue or Svelte scaffold
+ * declares the plugin as a devDependency (registry `appFrameworks`); every other
+ * workspace declares neither and gets no extra config. Each block parses the
+ * component's script with typescript-eslint, so the TypeScript rules below apply
+ * there as they do in .tsx (see COMPONENT_FILES for the two they relax).
+ */
+const frameworkConfigs = []
+const componentFiles = []
+if ('eslint-plugin-vue' in devDependencies) {
+  const { default: vue } = await import('eslint-plugin-vue')
+  const { default: vueA11y } = await import('eslint-plugin-vuejs-accessibility')
+  componentFiles.push('**/*.vue')
+  frameworkConfigs.push(
+    ...vue.configs['flat/recommended'],
+    ...vueA11y.configs['flat/recommended'],
+    {
+      files: ['**/*.vue'],
+      languageOptions: {
+        parserOptions: {
+          parser: tseslint.parser,
+          extraFileExtensions: ['.vue'],
+          sourceType: 'module',
+        },
+      },
+      rules: {
+        // Component names mirror the React scaffold's (Header, Footer, Home …) so a
+        // framework swap keeps every file and import name. The rule guards against a
+        // clash with an HTML element in in-DOM templates; a scaffold's components are
+        // PascalCase SFCs, which never clash.
+        'vue/multi-word-component-names': 'off',
+        // Raw HTML is rendered in exactly the places React renders it with
+        // dangerouslySetInnerHTML (the app's own policy pages, the icon set's SVG);
+        // jsx-a11y does not flag those there, and the Vue app is held to the same rule.
+        'vue/no-v-html': 'off',
+        // A label tied to its control by id is as valid as a wrapping one, as jsx-a11y's
+        // label-has-associated-control accepts either in the React app. The plugin's default
+        // demands both; the floating-label inputs render a sibling <label for> because the
+        // label is absolutely positioned and styled from the input's focus state.
+        'vuejs-accessibility/label-has-for': ['error', { required: { some: ['nesting', 'id'] } }],
+      },
+    },
+  )
+}
+if ('eslint-plugin-svelte' in devDependencies) {
+  const { default: svelte } = await import('eslint-plugin-svelte')
+  componentFiles.push('**/*.svelte', '**/*.svelte.ts')
+  frameworkConfigs.push(...svelte.configs.recommended, {
+    files: ['**/*.svelte', '**/*.svelte.ts'],
+    languageOptions: {
+      parserOptions: { parser: tseslint.parser, extraFileExtensions: ['.svelte'] },
+    },
+    rules: {
+      // As vue/no-v-html above: {@html} renders what React renders with
+      // dangerouslySetInnerHTML, and nothing else.
+      'svelte/no-at-html-tags': 'off',
+    },
+  })
+}
+/**
+ * What a component file relaxes, as .tsx does below: a component's functions return
+ * markup or nothing, so explicit return types restate the body, and undefined names
+ * are the framework type checker's job there (vue-tsc, svelte-check), which knows the
+ * names the compiler injects (`$props`, `defineProps`) and core no-undef does not.
+ * Placed after the main rules block, which would otherwise re-enable the first.
+ */
+const COMPONENT_FILES = componentFiles.length
+  ? [
+      {
+        files: componentFiles,
+        rules: {
+          'no-undef': 'off',
+          '@typescript-eslint/explicit-function-return-type': 'off',
+        },
+      },
+    ]
+  : []
+
 export default tseslint.config(
   eslint.configs.recommended,
   ...tseslint.configs.recommended,
+  // Before prettier, so eslint-config-prettier also turns off the formatting rules
+  // these plugins' recommended sets enable.
+  ...frameworkConfigs,
   prettier,
   {
     plugins: {
@@ -185,6 +272,7 @@ export default tseslint.config(
       '@typescript-eslint/explicit-function-return-type': 'off',
     },
   },
+  ...COMPONENT_FILES,
   {
     // Same relaxation for test files, and for the same reason `.tsx` gets it: a
     // test double's return type IS its object literal (`makeRes()` returning

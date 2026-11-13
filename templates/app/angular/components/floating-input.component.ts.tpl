@@ -1,54 +1,83 @@
 import { Component, EventEmitter, Input, Output } from '@angular/core'
+
 import { getClassMap } from '@molecule/app-ui'
+
+/** Monotonic id source so every generated input id is unique on the page. */
+let nextFloatingInputId = 0
 
 /**
  * An input with a floating label.
  *
- * Shows the placeholder text as a small uppercase label always visible at
- * the top of the input. On focus the label turns primary-colored.
+ * Port of `@molecule/app-ui-react`'s `FloatingInput`: the placeholder text is
+ * rendered as a small uppercase label always visible at the top of the input,
+ * and it is a real `<label for>` (not a bare span), so it is the input's
+ * programmatic accessible name via label association.
+ *
+ * The caller owns the value (the template binds `[value]` and listens to
+ * `(valueChange)`), matching React's controlled usage on the auth pages.
  */
 @Component({
   selector: 'app-floating-input',
   standalone: true,
+  inputs: ['type', 'value', 'placeholder', 'autocomplete', 'required', 'name', 'id', 'className'],
   template: `
     <span [class]="cm.floatingInputWrapper">
       <input
-        [class]="inputClasses"
-        [type]="type"
+        [attr.id]="inputId"
+        [attr.type]="type"
         [value]="value"
-        [placeholder]="placeholder"
-        [autocomplete]="autocomplete"
-        [autofocus]="autofocus"
-        [required]="required"
-        [name]="name"
+        [attr.placeholder]="placeholder || null"
+        [attr.autocomplete]="autocomplete || null"
+        [attr.required]="required ? '' : null"
+        [attr.name]="name || null"
+        [class]="inputClasses"
         (input)="onInput($event)"
       />
       @if (placeholder) {
-        <span [class]="cm.floatingLabel">{{ placeholder }}</span>
+        <label [attr.for]="inputId" [class]="cm.floatingLabel">{{ placeholder }}</label>
       }
     </span>
   `,
 })
 export class FloatingInputComponent {
+  /** Input type (`text` by default). */
   @Input() type = 'text'
+  /** Controlled value. */
   @Input() value = ''
+  /** Placeholder text, also rendered as the floating label. */
   @Input() placeholder = ''
+  /** `autocomplete` attribute value. */
   @Input() autocomplete = ''
-  @Input() autofocus = false
+  /** Whether the field is required. */
   @Input() required = false
+  /** Form field name. */
   @Input() name = ''
-  @Output() valueChange = new EventEmitter<string>()
+  /** Explicit input id (generated when omitted). */
+  @Input() id = ''
+  /** Extra classes joined onto the input classes. */
+  @Input() className = ''
+  /** Emits the input's value on every `input` event (React's `onChange`). */
+  @Output() readonly valueChange = new EventEmitter<string>()
 
+  /** The resolved input id. */
+  readonly inputId = `floating-input-${++nextFloatingInputId}`
+
+  /** The current class map. */
   get cm(): ReturnType<typeof getClassMap> {
     return getClassMap()
   }
 
+  /** The input class list. */
   get inputClasses(): string {
-    return this.cm.cn(this.cm.input(), this.cm.floatingInput)
+    return this.cm.cn(this.cm.input(), this.cm.floatingInput, this.className)
   }
 
+  /**
+   * Forwards the typed value to the caller.
+   *
+   * @param event - The native `input` event.
+   */
   onInput(event: Event): void {
-    const target = event.target as HTMLInputElement
-    this.valueChange.emit(target.value)
+    this.valueChange.emit((event.target as HTMLInputElement).value)
   }
 }

@@ -1,21 +1,32 @@
-import { Component, inject, type OnDestroy } from '@angular/core'
-import { AsyncPipe } from '@angular/common'
+import { ChangeDetectorRef, Component, inject, type OnDestroy, type OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { AUTH_CLIENT, createLoginState, t } from '@molecule/app-angular'
-import { MoleculeButton } from '@molecule/app-ui-angular'
-import { getClassMap } from '@molecule/app-ui'
-import { FloatingInputComponent } from '../components/floating-input.component.js'
-import { OAuthButtonsComponent } from '../components/oauth-buttons.component.js'
-import { FooterComponent } from '../components/footer.component.js'
-import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
-import { APP_NAME, LOGO_SIZE } from '../branding.js'
+import type { Subscription } from 'rxjs'
 
+import { AUTH_CLIENT, createLoginState, MoleculeAuthService, t } from '@molecule/app-angular'
+import { getClassMap } from '@molecule/app-ui'
+
+import { APP_NAME, LOGO_SIZE } from '../branding.js'
+import { ButtonComponent } from '../components/button.component.js'
+import { FloatingInputComponent } from '../components/floating-input.component.js'
+import { FooterComponent } from '../components/footer.component.js'
+import { formSubmitErrorMessages } from '../components/form-submit-error.js'
+import { OAuthButtonsComponent } from '../components/oauth-buttons.component.js'
+import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
+
+/**
+ * Login page: email + password (+ optional two-factor code) over the bonded
+ * auth client, with the OAuth provider row beneath the form.
+ *
+ * Port of the React `Login` page. The submission envelope is the React `<Form>`
+ * component's: a rejected handler renders an accessible server-error list, a
+ * new submit clears the previous failure, and the controls sit in a fieldset
+ * disabled while the handler runs.
+ */
 @Component({
   selector: 'app-login',
   standalone: true,
   imports: [
-    AsyncPipe,
-    MoleculeButton,
+    ButtonComponent,
     FloatingInputComponent,
     OAuthButtonsComponent,
     FooterComponent,
@@ -40,20 +51,29 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
           </div>
         </div>
       </header>
-      <div [class]="cm.authPageBody">
+      <main [class]="cm.authPageBody">
+        <!-- Screen-reader-only page heading — every page needs exactly one h1
+            (axe page-has-heading-one); the visual design has no heading. -->
+        <h1 [class]="cm.srOnly">{{ t('auth.login.logIn') }}</h1>
         <div [class]="cm.authFormWrapper">
-          @if (loginState$ | async; as loginState) {
-            <form (ngSubmit)="onSubmit()">
+          <form (submit)="onSubmit($event)">
+            @if (errorMessages.length > 0) {
+              <ul role="alert" [class]="cm.formError">
+                @for (message of errorMessages; track $index) {
+                  <li>{{ message }}</li>
+                }
+              </ul>
+            }
+            <fieldset [attr.disabled]="pending ? '' : null" [class]="cm.formFieldsetContents">
               <div [class]="cm.authField">
                 <app-floating-input
                   type="email"
                   [value]="email"
                   (valueChange)="email = $event"
                   autocomplete="email"
-                  [autofocus]="true"
                   [required]="true"
                   [placeholder]="t('auth.login.email')"
-                ></app-floating-input>
+                />
               </div>
               <div [class]="cm.authField">
                 <app-floating-input
@@ -63,7 +83,7 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
                   autocomplete="current-password"
                   [required]="true"
                   [placeholder]="t('auth.login.password')"
-                ></app-floating-input>
+                />
               </div>
               <div [class]="cm.authField">
                 <app-floating-input
@@ -72,42 +92,32 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
                   (valueChange)="twoFactorToken = $event"
                   autocomplete="one-time-code"
                   [placeholder]="t('auth.login.twoFactor')"
-                ></app-floating-input>
+                />
               </div>
               <div [class]="cm.authButtonRow">
-                <mol-button
+                <button
+                  appButton
                   type="button"
                   size="lg"
-                  [className]="loginState.status === 'pending' ? cm.authHidden : cm.authLoginSignup"
-                  [disabled]="loginState.status === 'pending'"
-                  (handleClick)="navigateToSignup()"
+                  [className]="isLoggingIn ? cm.authHidden : cm.authLoginSignup"
+                  [disabled]="isLoggingIn"
+                  (click)="navigateToSignup()"
                 >
                   {{ t('auth.login.signUp') }}
-                </mol-button>
-                <mol-button
+                </button>
+                <button
+                  appButton
                   type="submit"
                   size="lg"
                   color="success"
-                  [className]="
-                    loginState.status === 'pending' ? cm.authLoginSubmitFull : cm.authLoginSubmit
-                  "
-                  [disabled]="loginState.status === 'pending'"
-                  [loading]="loginState.status === 'pending'"
+                  [className]="isLoggingIn ? cm.authLoginSubmitFull : cm.authLoginSubmit"
+                  [disabled]="isLoggingIn"
                 >
-                  {{
-                    loginState.status === 'pending'
-                      ? t('auth.login.loggingIn')
-                      : t('auth.login.logIn')
-                  }}
-                </mol-button>
+                  {{ isLoggingIn ? t('auth.login.loggingIn') : t('auth.login.logIn') }}
+                </button>
               </div>
-            </form>
-            @if (loginState.error) {
-              <div [class]="cm.authFormError">
-                {{ loginState.error.message }}
-              </div>
-            }
-          }
+            </fieldset>
+          </form>
           <div [class]="cm.authAfterSubmit">
             <button
               type="button"
@@ -119,45 +129,141 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
           </div>
           <app-oauth-buttons />
         </div>
-      </div>
+      </main>
       <app-footer />
     </div>
   `,
 })
-export class LoginComponent implements OnDestroy {
-  private client = inject(AUTH_CLIENT)
-  private router = inject(Router)
-  private loginManager = createLoginState(this.client)
+export class LoginComponent implements OnInit, OnDestroy {
+  private readonly client = inject(AUTH_CLIENT)
+  private readonly router = inject(Router)
+  private readonly authService = inject(MoleculeAuthService)
+  private readonly cdr = inject(ChangeDetectorRef)
+  private readonly loginManager = createLoginState(this.client)
+  private readonly subscriptions: Subscription[] = []
+
+  /** The page to return to after a successful login. */
+  private readonly from: string
+  /** The number of the in-flight submit (a late result is ignored). */
+  private attempt = 0
+
+  /** The current class map. */
   get cm(): ReturnType<typeof getClassMap> {
     return getClassMap()
   }
+
+  /** The reactive translation function (re-evaluates on locale change). */
   t = t
+  /** The app's display name. */
   APP_NAME = APP_NAME
+  /** The logo size in pixels. */
   LOGO_SIZE = LOGO_SIZE
 
-  loginState$ = this.loginManager.state$
+  /** The entered email address. */
   email = ''
+  /** The entered password. */
   password = ''
+  /** The optional two-factor code. */
   twoFactorToken = ''
+  /** Whether a login request is in flight. */
+  isLoggingIn = false
+  /** The rejected submission, rendered as the form's error list. */
+  failure: unknown = null
+  /** Whether the submit handler is running (disables the fieldset). */
+  pending = false
 
-  async onSubmit(): Promise<void> {
+  constructor() {
+    // `getCurrentNavigation()` is only readable while the navigation that
+    // created this component is still in flight.
+    this.from = this.resolveReturnPath()
+  }
+
+  ngOnInit(): void {
+    // Route into the app whenever a session exists — covers the OAuth callback
+    // completing on this page (its exchange sets auth state without a submit)
+    // and an already-authenticated user landing on /login directly.
+    this.subscriptions.push(
+      this.authService.isAuthenticated$.subscribe((isAuthenticated) => {
+        if (isAuthenticated) void this.router.navigate([this.from], { replaceUrl: true })
+      }),
+      this.loginManager.state$.subscribe((state) => {
+        this.isLoggingIn = state.status === 'pending'
+        this.cdr.markForCheck()
+      }),
+    )
+  }
+
+  /** The form's error messages (the React `<Form>` list). */
+  get errorMessages(): string[] {
+    return this.failure
+      ? formSubmitErrorMessages(
+          this.failure,
+          t('ui.form.submitError', undefined, {
+            defaultValue: 'Unable to submit. Please try again.',
+          }),
+        )
+      : []
+  }
+
+  /**
+   * The page the guard tried to reach before redirecting here.
+   *
+   * @returns The pathname to return to, or `/`.
+   */
+  private resolveReturnPath(): string {
+    const state = this.router.getCurrentNavigation()?.extras.state
+    const from = state ? (state as { from?: { pathname?: string } }).from : undefined
+    return from?.pathname || '/'
+  }
+
+  /**
+   * Submits the form; a rejection becomes the visible error list.
+   *
+   * @param event - The native submit event (prevented: the page must not reload).
+   */
+  async onSubmit(event: Event): Promise<void> {
+    event.preventDefault()
+    const current = ++this.attempt
+    this.failure = null
+    this.pending = true
     try {
-      await this.loginManager.login({ email: this.email, password: this.password })
-      this.router.navigate(['/'])
-    } catch {
-      // Error tracked in login state
+      await this.handleSubmit()
+    } catch (submitError) {
+      if (this.attempt === current) this.failure = submitError
+    } finally {
+      if (this.attempt === current) this.pending = false
     }
   }
 
-  navigateToSignup(): void {
-    this.router.navigate(['/signup'])
+  /**
+   * Logs in with the entered credentials.
+   *
+   * The 2FA field is always rendered; only a token the user typed is sent (a
+   * 2FA-enabled account gets `twoFactorRequired` back and stays on this page
+   * until a valid code is entered).
+   */
+  async handleSubmit(): Promise<void> {
+    const result = await this.loginManager.login({
+      email: this.email,
+      password: this.password,
+      ...(this.twoFactorToken.trim() ? { twoFactorToken: this.twoFactorToken.trim() } : {}),
+    })
+    if (result.twoFactorRequired) return
+    await this.router.navigate([this.from], { replaceUrl: true })
   }
 
+  /** Opens the signup page. */
+  navigateToSignup(): void {
+    void this.router.navigate(['/signup'])
+  }
+
+  /** Opens the forgot-password page. */
   navigateToForgotPassword(): void {
-    this.router.navigate(['/forgot-password'])
+    void this.router.navigate(['/forgot-password'])
   }
 
   ngOnDestroy(): void {
+    for (const subscription of this.subscriptions) subscription.unsubscribe()
     this.loginManager.destroy()
   }
 }

@@ -1,13 +1,16 @@
-import { createSignal, Show } from 'solid-js'
 import { useNavigate } from '@solidjs/router'
-import { createSignup, useTranslate } from '@molecule/app-solid'
-import { Button, Flex } from '@molecule/app-ui-solid'
+import { createEffect, createSignal, For, Show } from 'solid-js'
+
+import { createAuth, createSignup, useTranslate } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
-import { Icon } from '../components/Icon.js'
+import { Button, Flex, Form } from '@molecule/app-ui-solid'
+
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
-import { OAuthButtons } from '../components/OAuthButtons.js'
 import { Footer } from '../components/Footer.js'
+import { formSubmitErrorMessages } from '../components/formSubmitError.js'
+import { Icon } from '../components/Icon.js'
+import { OAuthButtons } from '../components/OAuthButtons.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 export function Signup() {
@@ -15,19 +18,36 @@ export function Signup() {
   const t = useTranslate()
   const navigate = useNavigate()
   const { state: signupState, signup } = createSignup()
+  const { isAuthenticated } = createAuth()
   const [email, setEmail] = createSignal('')
   const [password, setPassword] = createSignal('')
   const [name, setName] = createSignal('')
+  // The failure the last submit threw (the React reference's `Form` renders
+  // its own rejection list; this scaffold's `Form` passes the handler result
+  // through, so the list is rendered here).
+  const [submitError, setSubmitError] = createSignal<unknown>(null)
+  const submitMessages = () =>
+    formSubmitErrorMessages(
+      submitError(),
+      t('ui.form.submitError', undefined, { defaultValue: 'Unable to submit. Please try again.' }),
+    )
+
+  // Route into the app whenever a session exists — covers the OAuth callback
+  // completing on this page (its exchange sets auth state without a submit)
+  // and an already-authenticated user landing on /signup directly.
+  createEffect(() => {
+    if (isAuthenticated()) navigate('/', { replace: true })
+  })
 
   const isSigningUp = () => signupState().status === 'pending'
 
-  const handleSubmit = async (e: Event) => {
-    e.preventDefault()
+  const handleSubmit = async () => {
+    setSubmitError(null)
     try {
       await signup({ email: email(), password: password(), name: name() || undefined })
       navigate('/', { replace: true })
-    } catch {
-      // Error tracked in hook state
+    } catch (error) {
+      setSubmitError(error)
     }
   }
 
@@ -50,15 +70,22 @@ export function Signup() {
           </Flex>
         </div>
       </header>
-      <div class={cm.authPageBody}>
+      <main class={cm.authPageBody}>
+        {/* Screen-reader-only page heading — every page needs exactly one h1
+            (axe page-has-heading-one); the visual design has no heading. */}
+        <h1 class={cm.srOnly}>{t('auth.signup.signUp')}</h1>
         <div class={cm.authFormWrapper}>
-          <form onSubmit={handleSubmit}>
+          <Form onFormSubmit={handleSubmit} submitting={isSigningUp()}>
+            <Show when={submitError()}>
+              <ul role="alert" class={cm.formError}>
+                <For each={submitMessages()}>{(message) => <li>{message}</li>}</For>
+              </ul>
+            </Show>
             <div class={cm.authField}>
               <FloatingInput
-                id="email"
                 type="email"
                 value={email()}
-                onInput={(e: InputEvent) => setEmail((e.currentTarget as HTMLInputElement).value)}
+                onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
                 autocomplete="email"
                 required
                 placeholder={t('auth.signup.email')}
@@ -66,12 +93,9 @@ export function Signup() {
             </div>
             <div class={cm.authField}>
               <FloatingInput
-                id="password"
                 type="password"
                 value={password()}
-                onInput={(e: InputEvent) =>
-                  setPassword((e.currentTarget as HTMLInputElement).value)
-                }
+                onChange={(e: Event) => setPassword((e.target as HTMLInputElement).value)}
                 autocomplete="new-password"
                 required
                 placeholder={t('auth.signup.password')}
@@ -79,10 +103,9 @@ export function Signup() {
             </div>
             <div class={cm.authField}>
               <FloatingInput
-                id="name"
                 type="text"
                 value={name()}
-                onInput={(e: InputEvent) => setName((e.currentTarget as HTMLInputElement).value)}
+                onChange={(e: Event) => setName((e.target as HTMLInputElement).value)}
                 autocomplete="name"
                 placeholder={t('auth.signup.name')}
               />
@@ -108,13 +131,10 @@ export function Signup() {
                 {isSigningUp() ? t('auth.signup.signingUp') : t('auth.signup.signUp')}
               </Button>
             </div>
-            <Show when={signupState().error}>
-              <div class={cm.authFormError}>{(signupState().error as Error)?.message}</div>
-            </Show>
-          </form>
+          </Form>
           <OAuthButtons />
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   )

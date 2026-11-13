@@ -1,8 +1,8 @@
-import { createSignal, Show } from 'solid-js'
 import { useNavigate } from '@solidjs/router'
+import { createSignal, Show } from 'solid-js'
 import { createPasswordReset, useTranslate } from '@molecule/app-solid'
-import { Button, Flex } from '@molecule/app-ui-solid'
 import { getClassMap } from '@molecule/app-ui'
+import { Button, Flex } from '@molecule/app-ui-solid'
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
@@ -26,8 +26,8 @@ export function ForgotPassword() {
       await requestReset({ email: email() })
       setMessage(t('auth.forgotPassword.success'))
       setSubmitted(true)
-    } catch {
-      // Error tracked in hook state
+    } catch (_error) {
+      // Error tracked in hook state (requestState().error)
     }
   }
 
@@ -50,13 +50,16 @@ export function ForgotPassword() {
           </Flex>
         </div>
       </header>
-      <div class={cm.authPageBody}>
+      <main class={cm.authPageBody}>
+        {/* Screen-reader-only page heading — every page needs exactly one h1
+            (axe page-has-heading-one); the visual design has no heading. */}
+        <h1 class={cm.srOnly}>{t('auth.login.forgotPassword')}</h1>
         <div class={cm.authFormWrapper}>
           <Show
             when={!submitted()}
             fallback={
-              <div>
-                <p class={cm.cn(cm.textSize('sm'), cm.textMuted, cm.authField)}>{message()}</p>
+              <>
+                <p class={cm.authField}>{message()}</p>
                 <div class={cm.authButtonRow}>
                   <Button
                     type="button"
@@ -75,19 +78,18 @@ export function ForgotPassword() {
                     onClick={() => navigate('/reset-password')}
                   >
                     {t('common.continue')}
-                    <Icon name="arrow-right" size={20} class={cm.sp('ml', 1)} />
+                    <Icon name="arrow-right" size={20} class={cm.authArrowIcon} />
                   </Button>
                 </div>
-              </div>
+              </>
             }
           >
             <form onSubmit={handleSubmit}>
               <div class={cm.authField}>
                 <FloatingInput
-                  id="email"
                   type="email"
                   value={email()}
-                  onInput={(e: InputEvent) => setEmail((e.currentTarget as HTMLInputElement).value)}
+                  onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
                   autocomplete="email"
                   required
                   placeholder={t('auth.forgotPassword.email')}
@@ -115,12 +117,14 @@ export function ForgotPassword() {
                 </Button>
               </div>
             </form>
-          </Show>
-          <Show when={requestState().error}>
-            <div class={cm.authFormError}>{(requestState().error as Error)?.message}</div>
+            <Show when={requestState().error}>
+              <div class={cm.authFormError} role="alert">
+                {(requestState().error as Error)?.message}
+              </div>
+            </Show>
           </Show>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   )

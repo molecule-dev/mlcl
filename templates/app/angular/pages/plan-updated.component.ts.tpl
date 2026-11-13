@@ -1,72 +1,74 @@
-import { Component } from '@angular/core'
+import { ChangeDetectorRef, Component, inject, type OnDestroy, type OnInit } from '@angular/core'
 import { RouterLink } from '@angular/router'
-import { t } from '@molecule/app-angular'
-import { MoleculeButton } from '@molecule/app-ui-angular'
-import { getClassMap } from '@molecule/app-ui'
-import { FooterComponent } from '../components/footer.component.js'
-import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
-import { APP_NAME, LOGO_SIZE } from '../branding.js'
+import type { Subscription } from 'rxjs'
 
+import { MoleculeAuthService, t } from '@molecule/app-angular'
+import { getClassMap } from '@molecule/app-ui'
+import { MoleculeSpinner } from '@molecule/app-ui-angular'
+
+import { ButtonComponent } from '../components/button.component.js'
+
+/**
+ * Post-checkout page: confirms the plan change and offers a way back home.
+ *
+ * Port of the React `PlanUpdated` page — a centered spinner until the session is
+ * initialized, then the two headings and the return-home button inside the same
+ * `cm.textCenter` + `cm.sp('py', 12)` wrapper.
+ */
 @Component({
   selector: 'app-plan-updated',
   standalone: true,
-  imports: [RouterLink, MoleculeButton, FooterComponent, ThemeToggleComponent],
+  imports: [RouterLink, ButtonComponent, MoleculeSpinner],
   template: `
-    <div [class]="cm.cn(cm.page, cm.flex({ direction: 'col' }))">
-      <header [class]="cm.headerBar">
-        <div [class]="cm.cn(cm.container({ size: 'xl' }), cm.h(16))">
-          <div [class]="cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.h('full'))">
-            <div
-              [class]="
-                cm.cn(
-                  cm.flex({ align: 'center', gap: 'sm' }),
-                  cm.textSize('xl'),
-                  cm.fontWeight('bold')
-                )
-              "
-            >
-              <img src="/logo.svg" [width]="LOGO_SIZE" [height]="LOGO_SIZE" alt="" />
-              {{ APP_NAME }}
-            </div>
-            <app-theme-toggle />
-          </div>
-        </div>
-      </header>
-      <div
-        [class]="
-          cm.cn(
-            cm.flex1,
-            cm.flex({ align: 'center', justify: 'center' }),
-            cm.sp('px', 4),
-            cm.sp('py', 8)
-          )
-        "
-      >
-        <div [class]="cm.cn(cm.w('full'), cm.maxW('sm'))">
-          <div [class]="cm.cn(cm.textCenter)">
-            <h2 [class]="headingClasses">{{ t('planUpdated.message') }}</h2>
-            <h2 [class]="subheadingClasses">{{ t('planUpdated.thankYou') }}</h2>
-            <a routerLink="/">
-              <mol-button>{{ t('planUpdated.returnHome') }}</mol-button>
-            </a>
-          </div>
-          <app-footer />
-        </div>
+    @if (!initialized) {
+      <div [class]="cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.sp('py', 12))">
+        <mol-spinner />
       </div>
-    </div>
+    } @else {
+      <div [class]="cm.cn(cm.textCenter, cm.sp('py', 12))">
+        <h1 [class]="headingClasses">{{ t('planUpdated.message') }}</h1>
+        <h2 [class]="subheadingClasses">{{ t('planUpdated.thankYou') }}</h2>
+        <a routerLink="/"
+          ><button appButton>{{ t('planUpdated.returnHome') }}</button></a
+        >
+      </div>
+    }
   `,
 })
-export class PlanUpdatedComponent {
+export class PlanUpdatedComponent implements OnInit, OnDestroy {
+  private readonly authService = inject(MoleculeAuthService)
+  private readonly cdr = inject(ChangeDetectorRef)
+  private subscription?: Subscription
+
+  /** The current class map. */
   get cm(): ReturnType<typeof getClassMap> {
     return getClassMap()
   }
+
+  /** The reactive translation function (re-evaluates on locale change). */
   t = t
-  APP_NAME = APP_NAME
-  LOGO_SIZE = LOGO_SIZE
+
+  /** Whether the session has been initialized. */
+  initialized = this.authService.state.initialized
+
+  /** The first heading's classes. */
   get headingClasses(): string {
     return this.cm.cn(this.cm.textSize('2xl'), this.cm.fontWeight('bold'), this.cm.sp('mb', 2))
   }
+
+  /** The second heading's classes. */
   get subheadingClasses(): string {
     return this.cm.cn(this.cm.textSize('2xl'), this.cm.fontWeight('bold'), this.cm.sp('mb', 8))
+  }
+
+  ngOnInit(): void {
+    this.subscription = this.authService.state$.subscribe((state) => {
+      this.initialized = state.initialized
+      this.cdr.markForCheck()
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.subscription?.unsubscribe()
   }
 }

@@ -4,35 +4,52 @@ import { MoleculeThemeService, t } from '@molecule/app-angular'
 import { getClassMap } from '@molecule/app-ui'
 import { IconComponent } from './icon.component.js'
 
+/**
+ * Button that flips the bonded theme between light and dark.
+ *
+ * Port of `@molecule/app-ui-react`'s `ThemeToggle`: carries the
+ * `data-mol-id="theme-toggle"` / `data-mode` / `aria-pressed` hooks tests and AI
+ * agents select on, and shows the moon in dark mode, the sun otherwise.
+ */
 @Component({
   selector: 'app-theme-toggle',
   standalone: true,
   imports: [AsyncPipe, IconComponent],
   template: `
-    @if (themeName$ | async; as themeName) {
+    @if (mode$ | async; as mode) {
       <button
         type="button"
+        data-mol-id="theme-toggle"
+        [attr.data-mode]="mode"
+        [attr.aria-pressed]="mode === 'dark'"
+        [attr.aria-label]="t('theme.toggle', {}, { defaultValue: 'Toggle theme' })"
         (click)="toggleTheme()"
-        [attr.aria-label]="t('theme.toggle')"
         [class]="cm.themeToggleButton"
       >
-        @if (themeName === 'light') {
-          <app-icon name="sun" [size]="20" />
+        @if (mode === 'dark') {
+          <svg appIcon name="moon" [size]="20"></svg>
         } @else {
-          <app-icon name="moon" [size]="20" />
+          <svg appIcon name="sun" [size]="20"></svg>
         }
       </button>
     }
   `,
 })
 export class ThemeToggleComponent {
-  private themeService = inject(MoleculeThemeService)
+  private readonly themeService = inject(MoleculeThemeService)
+
+  /** The current class map. */
   get cm(): ReturnType<typeof getClassMap> {
     return getClassMap()
   }
-  t = t
-  themeName$ = this.themeService.themeName$
 
+  /** The reactive translation function (re-evaluates on locale change). */
+  t = t
+
+  /** The current theme mode (`light` | `dark`). */
+  mode$ = this.themeService.mode$
+
+  /** Switches to the next theme. */
   toggleTheme(): void {
     this.themeService.toggleTheme()
   }

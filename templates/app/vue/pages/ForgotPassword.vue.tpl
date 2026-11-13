@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
+import { computed, ref } from 'vue'
 import { useRouter } from 'vue-router'
-import { usePasswordReset, useTranslation } from '@molecule/app-vue'
+
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex } from '@molecule/app-ui-vue'
-import Icon from '../components/Icon.vue'
+import { usePasswordReset, useTranslation } from '@molecule/app-vue'
+
+import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import FloatingInput from '../components/FloatingInput.vue'
 import Footer from '../components/Footer.vue'
+import Icon from '../components/Icon.vue'
 import ThemeToggle from '../components/ThemeToggle.vue'
-import { APP_NAME, LOGO_SIZE } from '../branding.js'
 
 const { t } = useTranslation()
 const cm = getClassMap()
@@ -20,12 +22,12 @@ const message = ref('')
 
 const isSubmitting = computed(() => requestStatus.value === 'pending')
 
-async function handleSubmit() {
+async function handleSubmit(): Promise<void> {
   try {
     await requestReset({ email: email.value })
     message.value = t('auth.forgotPassword.success')
     submitted.value = true
-  } catch {
+  } catch (_error) {
     // Error tracked in hook state
   }
 }
@@ -50,44 +52,50 @@ async function handleSubmit() {
         </Flex>
       </div>
     </header>
-    <div :class="cm.authPageBody">
+    <main :class="cm.authPageBody">
+      <!-- Screen-reader-only page heading — every page needs exactly one h1
+          (axe page-has-heading-one); the visual design has no heading. -->
+      <h1 :class="cm.srOnly">{{ t('auth.login.forgotPassword') }}</h1>
       <div :class="cm.authFormWrapper">
-        <form v-if="!submitted" @submit.prevent="handleSubmit">
-          <div :class="cm.authField">
-            <FloatingInput
-              id="email"
-              v-model="email"
-              type="email"
-              auto-complete="email"
-              auto-focus
-              required
-              :placeholder="t('auth.forgotPassword.email')"
-            />
+        <template v-if="!submitted">
+          <form @submit.prevent="handleSubmit">
+            <div :class="cm.authField">
+              <FloatingInput
+                v-model="email"
+                type="email"
+                auto-complete="email"
+                required
+                :placeholder="t('auth.forgotPassword.email')"
+              />
+            </div>
+            <div :class="cm.authButtonRow">
+              <Button
+                type="button"
+                size="lg"
+                color="secondary"
+                :class="cm.authBackButton"
+                :aria-label="t('common.goBack')"
+                @click="router.push('/login')"
+              >
+                <Icon name="arrow-left" :size="25" />
+              </Button>
+              <Button
+                type="submit"
+                size="lg"
+                color="success"
+                :class="cm.authSubmitButton"
+                :disabled="isSubmitting"
+              >
+                {{ isSubmitting ? t('auth.forgotPassword.submitting') : t('common.submit') }}
+              </Button>
+            </div>
+          </form>
+          <div v-if="requestError" role="alert" :class="cm.authFormError">
+            {{ requestError.message }}
           </div>
-          <div :class="cm.authButtonRow">
-            <Button
-              type="button"
-              size="lg"
-              color="secondary"
-              :class="cm.authBackButton"
-              :aria-label="t('common.goBack')"
-              @click="router.push('/login')"
-            >
-              <Icon name="arrow-left" :size="25" />
-            </Button>
-            <Button
-              type="submit"
-              size="lg"
-              color="success"
-              :class="cm.authSubmitButton"
-              :disabled="isSubmitting"
-            >
-              {{ isSubmitting ? t('auth.forgotPassword.submitting') : t('common.submit') }}
-            </Button>
-          </div>
-        </form>
-        <div v-else>
-          <p :class="cm.cn(cm.textSize('sm'), cm.textMuted, cm.authField)">{{ message }}</p>
+        </template>
+        <template v-else>
+          <p :class="cm.authField">{{ message }}</p>
           <div :class="cm.authButtonRow">
             <Button
               type="button"
@@ -109,12 +117,9 @@ async function handleSubmit() {
               <Icon name="arrow-right" :size="20" :class="cm.authArrowIcon" />
             </Button>
           </div>
-        </div>
-        <div v-if="requestError" :class="cm.authFormError">
-          {{ requestError.message }}
-        </div>
+        </template>
       </div>
-    </div>
+    </main>
     <Footer />
   </div>
 </template>

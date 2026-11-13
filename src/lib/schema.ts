@@ -1168,6 +1168,12 @@ export const AppFrameworkConfig = z.object({
     .describe(
       'Gitignore template path relative to templates dir (defaults to "app/shared/gitignore.tpl")',
     ),
+  prettierPlugins: z
+    .array(z.string())
+    .optional()
+    .describe(
+      'Prettier plugins the app needs to format its component files (e.g. ["prettier-plugin-svelte"]). Written to the app\'s .prettierrc; each must also be a devDependency.',
+    ),
   skipCustomServiceWorker: z
     .boolean()
     .optional()

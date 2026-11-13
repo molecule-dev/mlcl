@@ -1,8 +1,8 @@
-import { createSignal, Show } from 'solid-js'
 import { useNavigate, useSearchParams } from '@solidjs/router'
-import { createPasswordReset, createLogin, useTranslate } from '@molecule/app-solid'
-import { Button, Flex } from '@molecule/app-ui-solid'
+import { createSignal, Show } from 'solid-js'
+import { createLogin, createPasswordReset, useTranslate } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
+import { Button, Flex } from '@molecule/app-ui-solid'
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
@@ -31,8 +31,8 @@ export function ResetPassword() {
       await confirmReset({ token: token(), password: password() })
       await login({ email: email(), password: password() })
       navigate('/', { replace: true })
-    } catch {
-      // Error tracked in hook state
+    } catch (_error) {
+      // Error tracked in hook state (confirmState().error)
     }
   }
 
@@ -55,15 +55,17 @@ export function ResetPassword() {
           </Flex>
         </div>
       </header>
-      <div class={cm.authPageBody}>
+      <main class={cm.authPageBody}>
+        {/* Screen-reader-only page heading — every page needs exactly one h1
+            (axe page-has-heading-one); the visual design has no heading. */}
+        <h1 class={cm.srOnly}>{t('auth.resetPassword.submit')}</h1>
         <div class={cm.authFormWrapper}>
           <form onSubmit={handleSubmit}>
             <div class={cm.authField}>
               <FloatingInput
-                id="email"
                 type="email"
                 value={email()}
-                onInput={(e: InputEvent) => setEmail((e.currentTarget as HTMLInputElement).value)}
+                onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
                 autocomplete="email"
                 required
                 placeholder={t('auth.resetPassword.email')}
@@ -71,22 +73,18 @@ export function ResetPassword() {
             </div>
             <div class={cm.authField}>
               <FloatingInput
-                id="token"
                 type="password"
                 value={token()}
-                onInput={(e: InputEvent) => setToken((e.currentTarget as HTMLInputElement).value)}
+                onChange={(e: Event) => setToken((e.target as HTMLInputElement).value)}
                 required
                 placeholder={t('auth.resetPassword.token')}
               />
             </div>
             <div class={cm.authField}>
               <FloatingInput
-                id="password"
                 type="password"
                 value={password()}
-                onInput={(e: InputEvent) =>
-                  setPassword((e.currentTarget as HTMLInputElement).value)
-                }
+                onChange={(e: Event) => setPassword((e.target as HTMLInputElement).value)}
                 autocomplete="new-password"
                 required
                 placeholder={t('auth.resetPassword.newPassword')}
@@ -94,12 +92,9 @@ export function ResetPassword() {
             </div>
             <div class={cm.authField}>
               <FloatingInput
-                id="twoFactor"
-                type="text"
+                type="number"
                 value={twoFactorToken()}
-                onInput={(e: InputEvent) =>
-                  setTwoFactorToken((e.currentTarget as HTMLInputElement).value)
-                }
+                onChange={(e: Event) => setTwoFactorToken((e.target as HTMLInputElement).value)}
                 autocomplete="one-time-code"
                 placeholder={t('auth.resetPassword.twoFactor')}
               />
@@ -127,10 +122,12 @@ export function ResetPassword() {
             </div>
           </form>
           <Show when={confirmState().error}>
-            <div class={cm.authFormError}>{(confirmState().error as Error)?.message}</div>
+            <div class={cm.authFormError} role="alert">
+              {(confirmState().error as Error)?.message}
+            </div>
           </Show>
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   )

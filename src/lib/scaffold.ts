@@ -4953,7 +4953,7 @@ export async function createAppProject(
     ? `./src/${sharedSubdir}/branding.js`
     : './src/branding.js'
   const brandingPath = sharedSubdir ? `src/${sharedSubdir}/branding.ts` : 'src/branding.ts'
-  const formatGlob = `'src/**/*.{ts,${ext}}'`
+  const formatGlob = sourceGlob(frameworkSourceExtensions(framework))
 
   await mkdir(projectPath, { recursive: true })
   await mkdir(join(projectPath, 'src'), { recursive: true })
@@ -5206,7 +5206,10 @@ export async function createAppProject(
   // Contract-derived source must see the project's rules on its first format.
   await writeFile(
     join(projectPath, '.prettierrc'),
-    await loadTemplate('app/shared/prettierrc.json.tpl'),
+    withPrettierPlugins(
+      await loadTemplate('app/shared/prettierrc.json.tpl'),
+      fwConfig.prettierPlugins,
+    ),
   )
   await writeFile(
     join(projectPath, '.prettierignore'),
@@ -5360,6 +5363,60 @@ export async function copyTemplateFiles(
   // Copy framework-specific files
   const frameworkDir = join(templatesDir, framework)
   await copyTemplateDir(frameworkDir, join(projectPath, 'src'), vars)
+}
+
+/** Source extensions a scaffold formats: scripts and the component files a framework writes. */
+const SOURCE_EXTENSIONS = new Set(['ts', 'tsx', 'vue', 'svelte'])
+
+/**
+ * The source extensions a framework's app templates write, `ts` always included.
+ *
+ * Read from `templates/app/<framework>/`, the directory {@link copyTemplateFiles}
+ * copies, so a framework's `format` script covers its component files with no
+ * per-framework list to keep in step (a Vue app's used to read `src/**\/*.{ts,ts}`
+ * and never format a `.vue` file).
+ *
+ * @param framework - The app framework name (a templates/app directory).
+ * @returns The extensions, sorted.
+ */
+export function frameworkSourceExtensions(framework: string): string[] {
+  const found = new Set(['ts'])
+  const walk = (dir: string): void => {
+    if (!existsSync(dir)) return
+    for (const entry of readdirSync(dir, { withFileTypes: true })) {
+      if (entry.isDirectory()) walk(join(dir, entry.name))
+      else {
+        const extension = /\.([a-z]+)\.tpl$/.exec(entry.name)?.[1]
+        if (extension && SOURCE_EXTENSIONS.has(extension)) found.add(extension)
+      }
+    }
+  }
+  walk(join(getTemplatesDir(), 'app', framework))
+  return [...found].sort()
+}
+
+/**
+ * A quoted glob over `src/` for these extensions (`'src/**\/*.ts'`, `'src/**\/*.{ts,vue}'`).
+ *
+ * @param extensions - File extensions without the dot.
+ * @returns The glob, quoted for a package.json script.
+ */
+export function sourceGlob(extensions: string[]): string {
+  return extensions.length === 1
+    ? `'src/**/*.${extensions[0]}'`
+    : `'src/**/*.{${extensions.join(',')}}'`
+}
+
+/**
+ * A `.prettierrc` with the framework's prettier plugins added, or unchanged without any.
+ *
+ * @param prettierrc - The shared `.prettierrc` template text.
+ * @param plugins - The registry `prettierPlugins` of the framework.
+ * @returns The `.prettierrc` text.
+ */
+export function withPrettierPlugins(prettierrc: string, plugins: string[] | undefined): string {
+  if (!plugins?.length) return prettierrc
+  return `${JSON.stringify({ ...JSON.parse(prettierrc), plugins }, null, 2)}\n`
 }
 
 /**

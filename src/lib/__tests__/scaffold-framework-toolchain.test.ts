@@ -84,6 +84,41 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
     )
   })
 
+  it('lints every component file it writes, with a plugin it installs', async () => {
+    const { devDependencies } = await manifest(framework)
+    const config = await readFile(join(roots[framework], 'eslint.config.js'), 'utf8')
+    const extensions = new Set(
+      (await sourceFiles(framework))
+        .map((file) => extname(file))
+        .filter((extension) => !TSC_EXTENSIONS.has(extension)),
+    )
+    for (const extension of extensions) {
+      // ESLint opens a file only when a config's `files` names it; for .vue and
+      // .svelte that config comes from the framework's own plugin (eslint-plugin-vue,
+      // eslint-plugin-svelte), which the shared config loads only when declared.
+      const plugin = `eslint-plugin-${extension.slice(1)}`
+      expect(devDependencies, `${plugin} must lint the ${extension} files`).toHaveProperty(plugin)
+      expect(config, `eslint.config.js never loads ${plugin}`).toContain(`import('${plugin}')`)
+    }
+  })
+
+  it('formats every source file it writes, with the plugins prettier needs for them', async () => {
+    const { scripts, devDependencies } = await manifest(framework)
+    const prettierrc = JSON.parse(await readFile(join(roots[framework], '.prettierrc'), 'utf8'))
+    const extensions = new Set((await sourceFiles(framework)).map((file) => extname(file).slice(1)))
+    for (const extension of extensions) {
+      // `{ts,ts}` was what a Vue, Svelte and Angular app's format script read.
+      expect(scripts.format, `format never reads .${extension}`).toMatch(
+        new RegExp(`src/\\*\\*/\\*\\.(${extension}'|\\{[^}]*\\b${extension}\\b)`),
+      )
+    }
+    // Prettier parses .vue itself; .svelte needs the plugin, installed and configured.
+    if (extensions.has('svelte')) {
+      expect(devDependencies).toHaveProperty('prettier-plugin-svelte')
+      expect(prettierrc.plugins).toContain('prettier-plugin-svelte')
+    }
+  })
+
   it('declares every third-party package its source imports', async () => {
     const { dependencies, devDependencies } = await manifest(framework)
     const declared = new Set([...Object.keys(dependencies), ...Object.keys(devDependencies)])

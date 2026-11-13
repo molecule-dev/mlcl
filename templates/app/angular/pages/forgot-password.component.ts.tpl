@@ -1,21 +1,30 @@
-import { Component, inject, type OnDestroy } from '@angular/core'
-import { AsyncPipe } from '@angular/common'
+import { ChangeDetectorRef, Component, inject, type OnDestroy, type OnInit } from '@angular/core'
 import { Router } from '@angular/router'
-import { AUTH_CLIENT, createPasswordResetState, t } from '@molecule/app-angular'
-import { MoleculeButton } from '@molecule/app-ui-angular'
-import { getClassMap } from '@molecule/app-ui'
-import { FloatingInputComponent } from '../components/floating-input.component.js'
-import { IconComponent } from '../components/icon.component.js'
-import { FooterComponent } from '../components/footer.component.js'
-import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
-import { APP_NAME, LOGO_SIZE } from '../branding.js'
+import type { Subscription } from 'rxjs'
 
+import { AUTH_CLIENT, createPasswordResetState, t } from '@molecule/app-angular'
+import { getClassMap } from '@molecule/app-ui'
+
+import { APP_NAME, LOGO_SIZE } from '../branding.js'
+import { ButtonComponent } from '../components/button.component.js'
+import { FloatingInputComponent } from '../components/floating-input.component.js'
+import { FooterComponent } from '../components/footer.component.js'
+import { IconComponent } from '../components/icon.component.js'
+import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
+
+/**
+ * Forgot-password page: requests a reset link for an email address.
+ *
+ * Port of the React `ForgotPassword` page — the fixed auth header with the app
+ * name and theme toggle, a screen-reader-only `h1` (the visual design has no
+ * heading), the request form with its back/submit row, the inline
+ * `role="alert"` error, and the confirmation branch with the continue button.
+ */
 @Component({
   selector: 'app-forgot-password',
   standalone: true,
   imports: [
-    AsyncPipe,
-    MoleculeButton,
+    ButtonComponent,
     FloatingInputComponent,
     IconComponent,
     FooterComponent,
@@ -40,127 +49,150 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
           </div>
         </div>
       </header>
-      <div [class]="cm.authPageBody">
+      <main [class]="cm.authPageBody">
+        <!-- Screen-reader-only page heading — every page needs exactly one h1
+            (axe page-has-heading-one); the visual design has no heading. -->
+        <h1 [class]="cm.srOnly">{{ t('auth.login.forgotPassword') }}</h1>
         <div [class]="cm.authFormWrapper">
           @if (!submitted) {
-            <form (ngSubmit)="onSubmit()">
+            <form (submit)="onSubmit($event)">
               <div [class]="cm.authField">
                 <app-floating-input
                   type="email"
                   [value]="email"
                   (valueChange)="email = $event"
                   autocomplete="email"
-                  [autofocus]="true"
                   [required]="true"
                   [placeholder]="t('auth.forgotPassword.email')"
-                ></app-floating-input>
+                />
               </div>
               <div [class]="cm.authButtonRow">
-                <mol-button
+                <button
+                  appButton
                   type="button"
                   size="lg"
                   color="secondary"
                   [className]="cm.authBackButton"
-                  (handleClick)="navigateToLogin()"
+                  (click)="navigateToLogin()"
                   [attr.aria-label]="t('common.goBack')"
                 >
-                  <app-icon name="arrow-left" [size]="25" />
-                </mol-button>
-                <mol-button
+                  <svg appIcon name="arrow-left" [size]="25"></svg>
+                </button>
+                <button
+                  appButton
                   type="submit"
                   size="lg"
                   color="success"
                   [className]="cm.authSubmitButton"
-                  [disabled]="pending"
-                  [loading]="pending"
+                  [disabled]="isSubmitting"
                 >
-                  {{ pending ? t('auth.forgotPassword.submitting') : t('common.submit') }}
-                </mol-button>
+                  {{ isSubmitting ? t('auth.forgotPassword.submitting') : t('common.submit') }}
+                </button>
               </div>
             </form>
-            @if (requestState$ | async; as requestState) {
-              @if (requestState.error) {
-                <div [class]="cm.authFormError">
-                  {{ requestState.error.message }}
-                </div>
-              }
+            @if (requestError) {
+              <div [class]="cm.authFormError" role="alert">{{ requestError.message }}</div>
             }
           } @else {
-            <div>
-              <p [class]="cm.authField">
-                {{ message }}
-              </p>
-              <div [class]="cm.authButtonRow">
-                <mol-button
-                  type="button"
-                  size="lg"
-                  color="secondary"
-                  [className]="cm.authBackButton"
-                  (handleClick)="navigateToLogin()"
-                  [attr.aria-label]="t('common.goBack')"
-                >
-                  <app-icon name="arrow-left" [size]="25" />
-                </mol-button>
-                <mol-button
-                  size="lg"
-                  color="success"
-                  [className]="cm.authSubmitButton"
-                  (handleClick)="navigateToResetPassword()"
-                >
-                  {{ t('common.continue') }}
-                  <app-icon name="arrow-right" [size]="20" [iconClass]="cm.authArrowIcon" />
-                </mol-button>
-              </div>
+            <p [class]="cm.authField">{{ message }}</p>
+            <div [class]="cm.authButtonRow">
+              <button
+                appButton
+                type="button"
+                size="lg"
+                color="secondary"
+                [className]="cm.authBackButton"
+                (click)="navigateToLogin()"
+                [attr.aria-label]="t('common.goBack')"
+              >
+                <svg appIcon name="arrow-left" [size]="25"></svg>
+              </button>
+              <button
+                appButton
+                size="lg"
+                color="success"
+                [className]="cm.authSubmitButton"
+                (click)="navigateToResetPassword()"
+              >
+                {{ t('common.continue') }}
+                <svg appIcon name="arrow-right" [size]="20" [className]="cm.authArrowIcon"></svg>
+              </button>
             </div>
           }
         </div>
-      </div>
+      </main>
       <app-footer />
     </div>
   `,
 })
-export class ForgotPasswordComponent implements OnDestroy {
-  private client = inject(AUTH_CLIENT)
-  private router = inject(Router)
-  private resetManager = createPasswordResetState(this.client)
+export class ForgotPasswordComponent implements OnInit, OnDestroy {
+  private readonly client = inject(AUTH_CLIENT)
+  private readonly router = inject(Router)
+  private readonly cdr = inject(ChangeDetectorRef)
+  private readonly resetManager = createPasswordResetState(this.client)
+  private subscriptions: Subscription[] = []
+
+  /** The current class map. */
   get cm(): ReturnType<typeof getClassMap> {
     return getClassMap()
   }
+
+  /** The reactive translation function (re-evaluates on locale change). */
   t = t
+  /** The app's display name. */
   APP_NAME = APP_NAME
+  /** The logo size in pixels. */
   LOGO_SIZE = LOGO_SIZE
 
-  requestState$ = this.resetManager.requestState$
+  /** The requested email address. */
   email = ''
+  /** Whether the request was accepted (shows the confirmation branch). */
   submitted = false
-  pending = false
+  /** Whether a request is in flight. */
+  isSubmitting = false
+  /** The confirmation message shown after a successful request. */
   message = ''
+  /** The last request failure, rendered inline. */
+  requestError: Error | null = null
 
-  constructor() {
-    this.resetManager.requestState$.subscribe((state) => {
-      this.pending = state.status === 'pending'
-    })
+  ngOnInit(): void {
+    this.subscriptions.push(
+      this.resetManager.requestState$.subscribe((state) => {
+        this.isSubmitting = state.status === 'pending'
+        this.requestError = state.error ?? null
+        this.cdr.markForCheck()
+      }),
+    )
   }
 
-  async onSubmit(): Promise<void> {
+  /**
+   * Requests a password-reset link for the entered email.
+   *
+   * @param event - The native submit event (prevented: the page must not reload).
+   */
+  async onSubmit(event: Event): Promise<void> {
+    event.preventDefault()
     try {
       await this.resetManager.requestReset({ email: this.email })
       this.message = t('auth.forgotPassword.success')
       this.submitted = true
-    } catch {
-      // Error tracked in state
+    } catch (_error) {
+      // Error tracked in the request state and rendered inline above.
     }
   }
 
+  /** Returns to the login page. */
   navigateToLogin(): void {
-    this.router.navigate(['/login'])
+    void this.router.navigate(['/login'])
   }
 
+  /** Continues to the reset-password page. */
   navigateToResetPassword(): void {
-    this.router.navigate(['/reset-password'])
+    void this.router.navigate(['/reset-password'])
   }
 
   ngOnDestroy(): void {
+    for (const subscription of this.subscriptions) subscription.unsubscribe()
     this.resetManager.destroy()
   }
 }

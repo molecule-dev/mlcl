@@ -1,6 +1,7 @@
 <script setup lang="ts">
-import { useTheme, useTranslation } from '@molecule/app-vue'
 import { getClassMap } from '@molecule/app-ui'
+import { useTheme, useTranslation } from '@molecule/app-vue'
+
 import Icon from './Icon.vue'
 
 const { t } = useTranslation()
@@ -11,7 +12,10 @@ const { mode, toggleTheme } = useTheme()
 <template>
   <button
     type="button"
-    :aria-label="t('theme.toggle')"
+    data-mol-id="theme-toggle"
+    :data-mode="mode"
+    :aria-pressed="mode === 'dark'"
+    :aria-label="t('theme.toggle', {}, { defaultValue: 'Toggle theme' })"
     :class="cm.themeToggleButton"
     @click="toggleTheme"
   >

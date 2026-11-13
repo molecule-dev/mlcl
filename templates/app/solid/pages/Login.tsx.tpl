@@ -1,12 +1,15 @@
-import { createSignal, Show } from 'solid-js'
-import { useNavigate, useLocation } from '@solidjs/router'
-import { createLogin, useTranslate } from '@molecule/app-solid'
-import { Button, Flex } from '@molecule/app-ui-solid'
+import { useLocation, useNavigate } from '@solidjs/router'
+import { createEffect, createSignal, For, Show } from 'solid-js'
+
+import { createAuth, createLogin, useTranslate } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
+import { Button, Flex, Form } from '@molecule/app-ui-solid'
+
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
-import { OAuthButtons } from '../components/OAuthButtons.js'
 import { Footer } from '../components/Footer.js'
+import { formSubmitErrorMessages } from '../components/formSubmitError.js'
+import { OAuthButtons } from '../components/OAuthButtons.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 export function Login() {
@@ -14,19 +17,45 @@ export function Login() {
   const t = useTranslate()
   const navigate = useNavigate()
   const location = useLocation()
-  const from = (location.state as { from?: string })?.from || '/'
+  const from = (location.state as { from?: { pathname: string } } | null)?.from?.pathname || '/'
   const { state: loginState, login } = createLogin()
+  const { isAuthenticated } = createAuth()
   const [email, setEmail] = createSignal('')
   const [password, setPassword] = createSignal('')
   const [twoFactorToken, setTwoFactorToken] = createSignal('')
+  // The failure the last submit threw (the React reference's `Form` renders
+  // its own rejection list; this scaffold's `Form` passes the handler result
+  // through, so the list is rendered here).
+  const [submitError, setSubmitError] = createSignal<unknown>(null)
+  const submitMessages = () =>
+    formSubmitErrorMessages(
+      submitError(),
+      t('ui.form.submitError', undefined, { defaultValue: 'Unable to submit. Please try again.' }),
+    )
 
-  const handleSubmit = async (e: Event) => {
-    e.preventDefault()
+  // Route into the app whenever a session exists — covers the OAuth callback
+  // completing on this page (its exchange sets auth state without a submit)
+  // and an already-authenticated user landing on /login directly.
+  createEffect(() => {
+    if (isAuthenticated()) navigate(from, { replace: true })
+  })
+
+  const handleSubmit = async () => {
+    setSubmitError(null)
+    // The 2FA field is always rendered; only send a token when the user
+    // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
+    // stays on this page until a valid code is entered).
     try {
-      await login({ email: email(), password: password() })
+      const token = twoFactorToken().trim()
+      const result = await login({
+        email: email(),
+        password: password(),
+        ...(token ? { twoFactorToken: token } : {}),
+      })
+      if (result.twoFactorRequired) return
       navigate(from, { replace: true })
-    } catch {
-      // Error tracked in hook state
+    } catch (error) {
+      setSubmitError(error)
     }
   }
 
@@ -51,15 +80,22 @@ export function Login() {
           </Flex>
         </div>
       </header>
-      <div class={cm.authPageBody}>
+      <main class={cm.authPageBody}>
+        {/* Screen-reader-only page heading — every page needs exactly one h1
+            (axe page-has-heading-one); the visual design has no heading. */}
+        <h1 class={cm.srOnly}>{t('auth.login.logIn')}</h1>
         <div class={cm.authFormWrapper}>
-          <form onSubmit={handleSubmit}>
+          <Form onFormSubmit={handleSubmit} submitting={isLoggingIn()}>
+            <Show when={submitError()}>
+              <ul role="alert" class={cm.formError}>
+                <For each={submitMessages()}>{(message) => <li>{message}</li>}</For>
+              </ul>
+            </Show>
             <div class={cm.authField}>
               <FloatingInput
-                id="email"
                 type="email"
                 value={email()}
-                onInput={(e: InputEvent) => setEmail((e.currentTarget as HTMLInputElement).value)}
+                onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
                 autocomplete="email"
                 required
                 placeholder={t('auth.login.email')}
@@ -67,12 +103,9 @@ export function Login() {
             </div>
             <div class={cm.authField}>
               <FloatingInput
-                id="password"
                 type="password"
                 value={password()}
-                onInput={(e: InputEvent) =>
-                  setPassword((e.currentTarget as HTMLInputElement).value)
-                }
+                onChange={(e: Event) => setPassword((e.target as HTMLInputElement).value)}
                 autocomplete="current-password"
                 required
                 placeholder={t('auth.login.password')}
@@ -80,12 +113,9 @@ export function Login() {
             </div>
             <div class={cm.authField}>
               <FloatingInput
-                id="twoFactor"
-                type="text"
+                type="number"
                 value={twoFactorToken()}
-                onInput={(e: InputEvent) =>
-                  setTwoFactorToken((e.currentTarget as HTMLInputElement).value)
-                }
+                onChange={(e: Event) => setTwoFactorToken((e.target as HTMLInputElement).value)}
                 autocomplete="one-time-code"
                 placeholder={t('auth.login.twoFactor')}
               />
@@ -110,10 +140,7 @@ export function Login() {
                 {isLoggingIn() ? t('auth.login.loggingIn') : t('auth.login.logIn')}
               </Button>
             </div>
-            <Show when={loginState().error}>
-              <div class={cm.authFormError}>{(loginState().error as Error)?.message}</div>
-            </Show>
-          </form>
+          </Form>
           <div class={cm.authAfterSubmit}>
             <button
               type="button"
@@ -125,7 +152,7 @@ export function Login() {
           </div>
           <OAuthButtons />
         </div>
-      </div>
+      </main>
       <Footer />
     </div>
   )

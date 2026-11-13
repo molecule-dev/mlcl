@@ -66481,7 +66481,11 @@
       },
       "devDependencies": {
         "@vitejs/plugin-vue": "6.0.7",
-        "vue-tsc": "3.3.13"
+        "vue-tsc": "3.3.13",
+        "eslint-plugin-vue": "10.12.0",
+        "eslint-plugin-vuejs-accessibility": "2.6.3",
+        "globals": "17.13.0",
+        "vue-eslint-parser": "10.4.1"
       },
       "tsconfig": {
         "jsx": "preserve",
@@ -66506,7 +66510,9 @@
         "@sveltejs/kit": "2.63.0",
         "@sveltejs/adapter-auto": "7.0.1",
         "@sveltejs/vite-plugin-svelte": "7.1.2",
-        "svelte-check": "4.7.7"
+        "svelte-check": "4.7.7",
+        "eslint-plugin-svelte": "3.23.1",
+        "prettier-plugin-svelte": "4.1.1"
       },
       "tsconfig": {},
       "tsconfigOverride": {
@@ -66535,7 +66541,10 @@
       "htmlTemplate": "app.html",
       "publicDir": "static",
       "gitignoreTemplate": "app/shared/gitignore-svelte.tpl",
-      "skipCustomServiceWorker": true
+      "skipCustomServiceWorker": true,
+      "prettierPlugins": [
+        "prettier-plugin-svelte"
+      ]
     },
     "solid": {
       "label": "Solid",

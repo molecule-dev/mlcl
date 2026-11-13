@@ -1,14 +1,16 @@
 <script setup lang="ts">
-import { ref, computed } from 'vue'
-import { useRouter, useRoute } from 'vue-router'
-import { usePasswordReset, useLogin, useTranslation } from '@molecule/app-vue'
+import { computed, ref } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
+
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex } from '@molecule/app-ui-vue'
-import Icon from '../components/Icon.vue'
+import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-vue'
+
+import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import FloatingInput from '../components/FloatingInput.vue'
 import Footer from '../components/Footer.vue'
+import Icon from '../components/Icon.vue'
 import ThemeToggle from '../components/ThemeToggle.vue'
-import { APP_NAME, LOGO_SIZE } from '../branding.js'
 
 const { t } = useTranslation()
 const cm = getClassMap()
@@ -24,12 +26,12 @@ const twoFactorToken = ref('')
 
 const isLoggingIn = computed(() => confirmStatus.value === 'pending')
 
-async function handleSubmit() {
+async function handleSubmit(): Promise<void> {
   try {
     await confirmReset({ token: token.value, password: password.value })
     await login({ email: email.value, password: password.value })
     router.replace('/')
-  } catch {
+  } catch (_error) {
     // Error tracked in hook state
   }
 }
@@ -54,33 +56,31 @@ async function handleSubmit() {
         </Flex>
       </div>
     </header>
-    <div :class="cm.authPageBody">
+    <main :class="cm.authPageBody">
+      <!-- Screen-reader-only page heading — every page needs exactly one h1
+          (axe page-has-heading-one); the visual design has no heading. -->
+      <h1 :class="cm.srOnly">{{ t('auth.resetPassword.submit') }}</h1>
       <div :class="cm.authFormWrapper">
         <form @submit.prevent="handleSubmit">
           <div :class="cm.authField">
             <FloatingInput
-              id="email"
               v-model="email"
               type="email"
               auto-complete="email"
-              :auto-focus="!email"
               required
               :placeholder="t('auth.resetPassword.email')"
             />
           </div>
           <div :class="cm.authField">
             <FloatingInput
-              id="token"
               v-model="token"
               type="password"
-              :auto-focus="!!email && !token"
               required
               :placeholder="t('auth.resetPassword.token')"
             />
           </div>
           <div :class="cm.authField">
             <FloatingInput
-              id="password"
               v-model="password"
               type="password"
               auto-complete="new-password"
@@ -90,9 +90,8 @@ async function handleSubmit() {
           </div>
           <div :class="cm.authField">
             <FloatingInput
-              id="twoFactor"
               v-model="twoFactorToken"
-              type="text"
+              type="number"
               auto-complete="one-time-code"
               :placeholder="t('auth.resetPassword.twoFactor')"
             />
@@ -119,11 +118,11 @@ async function handleSubmit() {
             </Button>
           </div>
         </form>
-        <div v-if="confirmError" :class="cm.authFormError">
+        <div v-if="confirmError" role="alert" :class="cm.authFormError">
           {{ confirmError.message }}
         </div>
       </div>
-    </div>
+    </main>
     <Footer />
   </div>
 </template>

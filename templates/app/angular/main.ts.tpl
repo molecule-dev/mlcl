@@ -10,8 +10,15 @@ import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { registerPWA } from './pwa.js'
 import { AppComponent } from './app.component.js'
-import { authGuard } from './components/auth.guard.js'
+import { AuthGuardComponent } from './components/auth.guard.js'
+import { AppLayoutComponent } from './components/app-layout.component.js'
 
+// The page set is small (about 45 KB gzip), so the routes below are the whole
+// application. A full document load can land on ANY route here (a deep link, or
+// a session restored from storage by `authClient.initialize()`), so the shell
+// (`AuthGuardComponent` + `AppLayoutComponent`) is imported statically and only
+// the page bodies are loaded on demand — Angular's idiom for the same decision
+// the React template documents for its static page imports.
 const routes: Routes = [
   {
     path: 'login',
@@ -37,18 +44,27 @@ const routes: Routes = [
   },
   {
     path: '',
-    canActivate: [authGuard],
-    loadComponent: () =>
-      import('./components/app-layout.component.js').then((m) => m.AppLayoutComponent),
+    component: AuthGuardComponent,
     children: [
       {
         path: '',
-        loadComponent: () => import('./pages/home.component.js').then((m) => m.HomeComponent),
-      },
-      {
-        path: 'plan-updated',
-        loadComponent: () =>
-          import('./pages/plan-updated.component.js').then((m) => m.PlanUpdatedComponent),
+        component: AppLayoutComponent,
+        children: [
+          {
+            path: '',
+            loadComponent: () => import('./pages/home.component.js').then((m) => m.HomeComponent),
+          },
+          {
+            path: 'settings',
+            loadComponent: () =>
+              import('./pages/settings.component.js').then((m) => m.SettingsComponent),
+          },
+          {
+            path: 'plan-updated',
+            loadComponent: () =>
+              import('./pages/plan-updated.component.js').then((m) => m.PlanUpdatedComponent),
+          },
+        ],
       },
     ],
   },

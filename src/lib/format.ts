@@ -407,7 +407,14 @@ async function formatPass(projectPath: string, write: boolean): Promise<string[]
   return changed
 }
 
-/** Use Node's import resolver, including import-only exports, from the package's own cwd. */
+/**
+ * Use Node's import resolver, including import-only exports, from the package's own cwd.
+ *
+ * A plugin the package's `.prettierrc` names but has not installed yet (`mlcl create`
+ * formats before `npm install`) resolves from mlcl's own dependencies instead, so a fresh
+ * Svelte app's components are formatted on the first pass rather than skipped. A plugin
+ * neither has is an error naming it.
+ */
 function resolvePackagePlugins(
   plugins: prettier.Options['plugins'],
   cwd: string,
@@ -427,16 +434,37 @@ function resolvePackagePlugins(
         [
           '--input-type=module',
           '-e',
-          'process.stdout.write(JSON.stringify(JSON.parse(process.argv[1]).map(name => import.meta.resolve(name))))',
+          // A package that has not installed the plugin answers null for it.
+          'process.stdout.write(JSON.stringify(JSON.parse(process.argv[1]).map(name => { try { return import.meta.resolve(name) } catch (_error) { return null } })))',
           '--',
           JSON.stringify(missing),
         ],
         { cwd, encoding: 'utf8', timeout: 30_000 },
       ),
-    ) as string[]
-    missing.forEach((plugin, index) => cache.set(key(plugin), paths[index]))
+    ) as (string | null)[]
+    missing.forEach((plugin, index) =>
+      cache.set(key(plugin), paths[index] ?? ownPlugin(plugin, cwd)),
+    )
   }
   return plugins?.map((plugin) => (typeof plugin === 'string' ? cache.get(key(plugin))! : plugin))
+}
+
+/**
+ * Resolve a prettier plugin from mlcl's own dependencies.
+ *
+ * @param plugin - The plugin's package name.
+ * @param cwd - The package that names it, for the error.
+ * @returns The plugin's module URL.
+ */
+function ownPlugin(plugin: string, cwd: string): string {
+  try {
+    return import.meta.resolve(plugin)
+  } catch (error) {
+    throw new Error(
+      `prettier plugin ${plugin} (named in ${cwd}'s .prettierrc) is installed neither there nor with mlcl`,
+      { cause: error },
+    )
+  }
 }
 
 /**

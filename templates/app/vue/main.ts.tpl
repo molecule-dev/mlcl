@@ -1,23 +1,26 @@
-import { createApp } from 'vue'
-import { createRouter, createWebHistory } from 'vue-router'
-import { setupProviders } from './bonds/index.js'
 import './index.css'
 import './theme.css'
-import { moleculePlugin } from '@molecule/app-vue'
+import { createApp } from 'vue'
+import { createRouter, createWebHistory } from 'vue-router'
+
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
-import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
-import { registerPWA } from './pwa.js'
+import { moleculePlugin } from '@molecule/app-vue'
+
 import App from './App.vue'
-import Login from './pages/Login.vue'
-import Signup from './pages/Signup.vue'
+import { setupProviders } from './bonds/index.js'
+import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
+import AppLayout from './components/AppLayout.vue'
+import AuthGuard from './components/AuthGuard.vue'
 import About from './pages/About.vue'
 import ForgotPassword from './pages/ForgotPassword.vue'
-import ResetPassword from './pages/ResetPassword.vue'
 import Home from './pages/Home.vue'
+import Login from './pages/Login.vue'
 import PlanUpdated from './pages/PlanUpdated.vue'
-import AuthGuard from './components/AuthGuard.vue'
-import AppLayout from './components/AppLayout.vue'
+import ResetPassword from './pages/ResetPassword.vue'
+import Settings from './pages/Settings.vue'
+import Signup from './pages/Signup.vue'
+import { registerPWA } from './pwa.js'
 
 setupProviders()
 
@@ -38,6 +41,7 @@ const router = createRouter({
           component: AppLayout,
           children: [
             { path: '', component: Home },
+            { path: 'settings', component: Settings },
             { path: 'plan-updated', component: PlanUpdated },
           ],
         },
@@ -58,7 +62,11 @@ app.use(moleculePlugin, {
 
 app.use(router)
 
-authClient.initialize().catch(() => {})
+// A failed restore leaves the app signed out and every guarded route redirects
+// to /login; there is nothing to render for the failure itself.
+authClient.initialize().catch((_error) => {
+  /* restore is best-effort: a rejected initialize() means no session to restore */
+})
 
 app.mount('#root')
 

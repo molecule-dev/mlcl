@@ -1,71 +1,69 @@
 <script lang="ts">
   import { goto } from '$app/navigation'
-  import { createI18nStores, createSignupStore, createThemeStores } from '@molecule/app-svelte'
-  import { getClassMap } from '@molecule/app-ui'
-  import Icon from '../../components/Icon.svelte'
-  import Footer from '../../components/Footer.svelte'
-  import FloatingInput from '../../components/FloatingInput.svelte'
-  import {
-    getButtonClasses,
-    getFlexClasses,
-    cn,
-  } from '@molecule/app-ui-svelte'
+  import { resolve } from '$app/paths'
   import { APP_NAME, LOGO_SIZE } from '$lib/branding.js'
 
+  import { createAuthStores, createSignupStore } from '@molecule/app-svelte'
+  import { getClassMap } from '@molecule/app-ui'
+
+  import Button from '../../components/Button.svelte'
+  import Flex from '../../components/Flex.svelte'
+  import FloatingInput from '../../components/FloatingInput.svelte'
+  import Footer from '../../components/Footer.svelte'
+  import Form from '../../components/Form.svelte'
+  import Icon from '../../components/Icon.svelte'
+  import OAuthButtons from '../../components/OAuthButtons.svelte'
+  import ThemeToggle from '../../components/ThemeToggle.svelte'
+  import { createAppI18nStores } from '../../lib/i18n.js'
+  import { LOGO_SRC } from '../../lib/logo.js'
+
   const cm = getClassMap()
-  const { t } = createI18nStores()
+  const { t } = createAppI18nStores()
   const signupStore = createSignupStore()
-  const { mode, toggleTheme } = createThemeStores()
+  const { isAuthenticated } = createAuthStores()
 
   let email = $state('')
   let password = $state('')
   let name = $state('')
 
-  const isSigningUp = $derived($signupStore.status === 'pending')
+  // Route into the app whenever a session exists — covers the OAuth callback
+  // completing on this page (its exchange sets auth state without a submit)
+  // and an already-authenticated user landing on /signup directly.
+  $effect(() => {
+    if ($isAuthenticated) goto(resolve('/'), { replaceState: true })
+  })
 
-  const handleSubmit = async (e: SubmitEvent) => {
-    e.preventDefault()
-    try {
-      await signupStore.call({ email, password, name: name || undefined })
-      goto('/')
-    } catch {
-      // Error tracked in store state
-    }
+  let isSigningUp = $derived($signupStore.status === 'pending')
+
+  async function handleSubmit(): Promise<void> {
+    await signupStore.call({ email, password, name: name || undefined })
+    goto(resolve('/'), { replaceState: true })
   }
 </script>
 
 <div class={cm.cn(cm.page, cm.flex({ direction: 'col' }))}>
-  <header class={cm.headerBar}>
+  <header class={cm.cn(cm.headerBar, cm.headerFixed)}>
     <div class={cm.authHeaderInner}>
-      <div class={cm.cn(getFlexClasses({ align: 'center', justify: 'between' }), cm.h('full'))}>
-        <div class={getFlexClasses({ align: 'center', gap: 'xs' })}>
-          <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt="" class={cm.logoIcon} />
+      <Flex align="center" justify="between" class={cm.h('full')}>
+        <Flex align="center" gap="xs">
+          <img src={LOGO_SRC} width={LOGO_SIZE} height={LOGO_SIZE} alt="" class={cm.logoIcon} />
           <span class={cm.logoText}>{APP_NAME}</span>
-        </div>
-        <button
-          type="button"
-          class={cm.themeToggleButton}
-          onclick={toggleTheme}
-          aria-label={$t('theme.toggle')}
-        >
-          {#if $mode === 'dark'}
-            <Icon name="moon" size={20} />
-          {:else}
-            <Icon name="sun" size={20} />
-          {/if}
-        </button>
-      </div>
+        </Flex>
+        <ThemeToggle />
+      </Flex>
     </div>
   </header>
-  <div class={cm.authPageBody}>
+  <main class={cm.authPageBody}>
+    <!-- Screen-reader-only page heading — every page needs exactly one h1
+        (axe page-has-heading-one); the visual design has no heading. -->
+    <h1 class={cm.srOnly}>{$t('auth.signup.signUp')}</h1>
     <div class={cm.authFormWrapper}>
-      <form onsubmit={handleSubmit}>
+      <Form onFormSubmit={handleSubmit}>
         <div class={cm.authField}>
           <FloatingInput
             type="email"
             bind:value={email}
             autocomplete="email"
-            autofocus
             required
             placeholder={$t('auth.signup.email')}
           />
@@ -88,29 +86,29 @@
           />
         </div>
         <div class={cm.authButtonRow}>
-          <button
+          <Button
             type="button"
-            class={cn(getButtonClasses({ size: 'lg', color: 'secondary' }), cm.authBackButton)}
-            onclick={() => goto('/login')}
+            size="lg"
+            color="secondary"
+            class={cm.authBackButton}
+            onclick={() => goto(resolve('/login'))}
             aria-label={$t('common.goBack')}
           >
             <Icon name="arrow-left" size={25} />
-          </button>
-          <button
+          </Button>
+          <Button
             type="submit"
+            size="lg"
+            color="success"
+            class={cm.authSubmitButton}
             disabled={isSigningUp}
-            class={cn(getButtonClasses({ size: 'lg', color: 'success' }), cm.authSubmitButton)}
           >
             {isSigningUp ? $t('auth.signup.signingUp') : $t('auth.signup.signUp')}
-          </button>
+          </Button>
         </div>
-      </form>
-      {#if $signupStore.error}
-        <div class={cm.authFormError}>
-          {$signupStore.error.message}
-        </div>
-      {/if}
+      </Form>
+      <OAuthButtons />
     </div>
-  </div>
+  </main>
   <Footer />
 </div>

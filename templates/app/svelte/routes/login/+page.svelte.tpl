@@ -1,74 +1,79 @@
 <script lang="ts">
   import { goto } from '$app/navigation'
-  import { createI18nStores, createLoginStore, createOAuthHelpers, createThemeStores } from '@molecule/app-svelte'
-  import { getClassMap } from '@molecule/app-ui'
-  import { oauthConfig } from '$lib/config.js'
-  import Icon from '../../components/Icon.svelte'
-  import Footer from '../../components/Footer.svelte'
-  import FloatingInput from '../../components/FloatingInput.svelte'
-  import {
-    getButtonClasses,
-    getFlexClasses,
-    cn,
-  } from '@molecule/app-ui-svelte'
+  import { resolve } from '$app/paths'
+  import { page } from '$app/stores'
+  import type { RouteIdWithSearchOrHash } from '$app/types'
   import { APP_NAME, LOGO_SIZE } from '$lib/branding.js'
 
+  import { createAuthStores, createLoginStore } from '@molecule/app-svelte'
+  import { getClassMap } from '@molecule/app-ui'
+
+  import Button from '../../components/Button.svelte'
+  import Flex from '../../components/Flex.svelte'
+  import FloatingInput from '../../components/FloatingInput.svelte'
+  import Footer from '../../components/Footer.svelte'
+  import Form from '../../components/Form.svelte'
+  import OAuthButtons from '../../components/OAuthButtons.svelte'
+  import ThemeToggle from '../../components/ThemeToggle.svelte'
+  import { createAppI18nStores } from '../../lib/i18n.js'
+  import { LOGO_SRC } from '../../lib/logo.js'
+
   const cm = getClassMap()
-  const { t } = createI18nStores()
+  const { t } = createAppI18nStores()
+  // Post-login restoration: the auth guard stashes the attempted location in
+  // history state (`state.from`) before redirecting here. The state was
+  // written by our own guard from a real pathname, so it names a route.
+  const from = $derived(
+    ($page.state as { from?: { pathname?: string } } | null)?.from?.pathname || '/',
+  )
   const loginStore = createLoginStore()
-  const { providers, redirect: oauthRedirect } = createOAuthHelpers(oauthConfig)
-  const { mode, toggleTheme } = createThemeStores()
+  const { isAuthenticated } = createAuthStores()
 
   let email = $state('')
   let password = $state('')
   let twoFactorToken = $state('')
 
-  const isLoggingIn = $derived($loginStore.status === 'pending')
-
-  const handleSubmit = async (e: SubmitEvent) => {
-    e.preventDefault()
-    try {
-      await loginStore.call({ email, password })
-      goto('/')
-    } catch {
-      // Error tracked in store state
-    }
-  }
-
-  const providerLabels: Record<string, string> = $derived({
-    github: $t('oauth.github'),
-    google: $t('oauth.google'),
-    gitlab: $t('oauth.gitlab'),
-    twitter: $t('oauth.twitter'),
+  // Route into the app whenever a session exists — covers the OAuth callback
+  // completing on this page (its exchange sets auth state without a submit)
+  // and an already-authenticated user landing on /login directly.
+  $effect(() => {
+    if ($isAuthenticated) goto(resolve(from as RouteIdWithSearchOrHash), { replaceState: true })
   })
+
+  let isLoggingIn = $derived($loginStore.status === 'pending')
+
+  async function handleSubmit(): Promise<void> {
+    // The 2FA field is always rendered; only send a token when the user
+    // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
+    // stays on this page until a valid code is entered).
+    const result = await loginStore.call({
+      email,
+      password,
+      ...(twoFactorToken.trim() ? { twoFactorToken: twoFactorToken.trim() } : {}),
+    })
+    if (result.twoFactorRequired) return
+    goto(resolve(from as RouteIdWithSearchOrHash), { replaceState: true })
+  }
 </script>
 
 <div class={cm.cn(cm.page, cm.flex({ direction: 'col' }))}>
-  <header class={cm.headerBar}>
+  <header class={cm.cn(cm.headerBar, cm.headerFixed)}>
     <div class={cm.authHeaderInner}>
-      <div class={cm.cn(getFlexClasses({ align: 'center', justify: 'between' }), cm.h('full'))}>
-        <div class={getFlexClasses({ align: 'center', gap: 'xs' })}>
-          <img src="/logo.svg" width={LOGO_SIZE} height={LOGO_SIZE} alt="" class={cm.logoIcon} />
+      <Flex align="center" justify="between" class={cm.h('full')}>
+        <Flex align="center" gap="xs">
+          <img src={LOGO_SRC} width={LOGO_SIZE} height={LOGO_SIZE} alt="" class={cm.logoIcon} />
           <span class={cm.logoText}>{APP_NAME}</span>
-        </div>
-        <button
-          type="button"
-          class={cm.themeToggleButton}
-          onclick={toggleTheme}
-          aria-label={$t('theme.toggle')}
-        >
-          {#if $mode === 'dark'}
-            <Icon name="moon" size={20} />
-          {:else}
-            <Icon name="sun" size={20} />
-          {/if}
-        </button>
-      </div>
+        </Flex>
+        <ThemeToggle />
+      </Flex>
     </div>
   </header>
-  <div class={cm.authPageBody}>
+  <main class={cm.authPageBody}>
+    <!-- Screen-reader-only page heading — every page needs exactly one h1
+        (axe page-has-heading-one); the visual design has no heading. -->
+    <h1 class={cm.srOnly}>{$t('auth.login.logIn')}</h1>
     <div class={cm.authFormWrapper}>
-      <form onsubmit={handleSubmit}>
+      <Form onFormSubmit={handleSubmit}>
         <div class={cm.authField}>
           <FloatingInput
             type="email"
@@ -96,71 +101,37 @@
           />
         </div>
         <div class={cm.authButtonRow}>
-          <button
+          <Button
             type="button"
-            class={cn(getButtonClasses({ size: 'lg' }), isLoggingIn ? cm.authHidden : cm.authLoginSignup)}
+            size="lg"
+            class={isLoggingIn ? cm.authHidden : cm.authLoginSignup}
             disabled={isLoggingIn}
-            onclick={() => goto('/signup')}
+            onclick={() => goto(resolve('/signup'))}
           >
             {$t('auth.login.signUp')}
-          </button>
-          <button
+          </Button>
+          <Button
             type="submit"
+            size="lg"
+            color="success"
+            class={isLoggingIn ? cm.authLoginSubmitFull : cm.authLoginSubmit}
             disabled={isLoggingIn}
-            class={cn(getButtonClasses({ size: 'lg', color: 'success' }), isLoggingIn ? cm.authLoginSubmitFull : cm.authLoginSubmit)}
           >
             {isLoggingIn ? $t('auth.login.loggingIn') : $t('auth.login.logIn')}
-          </button>
+          </Button>
         </div>
-      </form>
-      {#if $loginStore.error}
-        <div class={cm.authFormError}>
-          {$loginStore.error.message}
-        </div>
-      {/if}
+      </Form>
       <div class={cm.authAfterSubmit}>
         <button
           type="button"
-          onclick={() => goto('/forgot-password')}
+          onclick={() => goto(resolve('/forgot-password'))}
           class={cm.forgotPasswordLink}
         >
           {$t('auth.login.forgotPassword')}
         </button>
       </div>
-
-      {#if $providers.length > 0}
-        <div class={cm.oauthDivider}>
-          <div class={cm.oauthDividerLine}></div>
-          <span class={cm.oauthDividerText}>
-            {$t('oauth.orContinueWith')}
-          </span>
-        </div>
-        <div class={cm.oauthButtonGroup}>
-          {#each $providers as provider}
-            <button
-              type="button"
-              class={cm.oauthButton}
-              onclick={() => oauthRedirect(provider)}
-              aria-label={$t('oauth.continueWith', { provider: providerLabels[provider] || provider })}
-            >
-              <span class={cm.oauthButtonIcon}>
-                {#if provider === 'github'}
-                  <Icon name="github" size={30} />
-                {:else if provider === 'google'}
-                  <Icon name="google" size={30} />
-                {:else if provider === 'gitlab'}
-                  <Icon name="gitlab" size={30} />
-                {:else if provider === 'twitter'}
-                  <Icon name="twitter" size={30} />
-                {:else}
-                  <span class={cm.cn(cm.textSize('sm'), cm.fontWeight('medium'))}>{providerLabels[provider] || provider}</span>
-                {/if}
-              </span>
-            </button>
-          {/each}
-        </div>
-      {/if}
+      <OAuthButtons />
     </div>
-  </div>
+  </main>
   <Footer />
 </div>
