@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate, useLocation } from 'react-router'
 import { useAuth, useLogin, useTranslation } from '@molecule/app-react'
-import { Button, Flex } from '@molecule/app-ui-react'
+import { Button, Flex, Form } from '@molecule/app-ui-react'
 import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
@@ -15,7 +15,7 @@ export function Login() {
   const navigate = useNavigate()
   const location = useLocation()
   const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/'
-  const { status, error, login } = useLogin()
+  const { status, login } = useLogin()
   const { isAuthenticated } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -28,22 +28,17 @@ export function Login() {
     if (isAuthenticated) navigate(from, { replace: true })
   }, [isAuthenticated, from, navigate])
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    try {
-      // The 2FA field is always rendered; only send a token when the user
-      // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
-      // stays on this page until a valid code is entered).
-      const result = await login({
-        email,
-        password,
-        ...(twoFactorToken.trim() ? { twoFactorToken: twoFactorToken.trim() } : {}),
-      })
-      if (result.twoFactorRequired) return
-      navigate(from, { replace: true })
-    } catch (_error) {
-      // Error tracked in hook state
-    }
+  const handleSubmit = async () => {
+    // The 2FA field is always rendered; only send a token when the user
+    // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
+    // stays on this page until a valid code is entered).
+    const result = await login({
+      email,
+      password,
+      ...(twoFactorToken.trim() ? { twoFactorToken: twoFactorToken.trim() } : {}),
+    })
+    if (result.twoFactorRequired) return
+    navigate(from, { replace: true })
   }
 
   const isLoggingIn = status === 'pending'
@@ -72,7 +67,7 @@ export function Login() {
             (axe page-has-heading-one); the visual design has no heading. */}
         <h1 className={cm.srOnly}>{t('auth.login.logIn')}</h1>
         <div className={cm.authFormWrapper}>
-          <form onSubmit={handleSubmit}>
+          <Form onFormSubmit={handleSubmit}>
             <div className={cm.authField}>
               <FloatingInput
                 type="email"
@@ -122,12 +117,7 @@ export function Login() {
                 {isLoggingIn ? t('auth.login.loggingIn') : t('auth.login.logIn')}
               </Button>
             </div>
-            {error && (
-              <div className={cm.authFormError} role="alert">
-                {error.message}
-              </div>
-            )}
-          </form>
+          </Form>
           <div className={cm.authAfterSubmit}>
             <button
               type="button"

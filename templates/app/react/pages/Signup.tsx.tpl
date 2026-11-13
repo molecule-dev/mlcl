@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 import { useAuth, useSignup, useTranslation } from '@molecule/app-react'
-import { Button, Flex } from '@molecule/app-ui-react'
+import { Button, Flex, Form } from '@molecule/app-ui-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
@@ -14,7 +14,7 @@ export function Signup() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const navigate = useNavigate()
-  const { status, error, signup } = useSignup()
+  const { status, signup } = useSignup()
   const { isAuthenticated } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
@@ -29,14 +29,9 @@ export function Signup() {
 
   const isSigningUp = status === 'pending'
 
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault()
-    try {
-      await signup({ email, password, name: name || undefined })
-      navigate('/', { replace: true })
-    } catch (_error) {
-      // Error tracked in hook state
-    }
+  const handleSubmit = async () => {
+    await signup({ email, password, name: name || undefined })
+    navigate('/', { replace: true })
   }
 
   return (
@@ -63,7 +58,7 @@ export function Signup() {
             (axe page-has-heading-one); the visual design has no heading. */}
         <h1 className={cm.srOnly}>{t('auth.signup.signUp')}</h1>
         <div className={cm.authFormWrapper}>
-          <form onSubmit={handleSubmit}>
+          <Form onFormSubmit={handleSubmit}>
             <div className={cm.authField}>
               <FloatingInput
                 type="email"
@@ -114,12 +109,7 @@ export function Signup() {
                 {isSigningUp ? t('auth.signup.signingUp') : t('auth.signup.signUp')}
               </Button>
             </div>
-            {error && (
-              <div className={cm.authFormError} role="alert">
-                {error.message}
-              </div>
-            )}
-          </form>
+          </Form>
           <OAuthButtons />
         </div>
       </main>
