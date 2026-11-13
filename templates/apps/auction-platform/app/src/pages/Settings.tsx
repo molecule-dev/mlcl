@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
-import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -64,9 +64,11 @@ export function Settings() {
     kind: 'idle' | 'success' | 'error'
     message?: string
   }>({ kind: 'idle' })
-  const [name, setName] = useState('')
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [username, setUsername, fillUsername] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [saving, setSaving] = useState(false)
   const [serverNotifyPrefs, setServerNotifyPrefs] = useState<Record<string, boolean>>({
     outbid: true,
@@ -92,9 +94,9 @@ export function Settings() {
         if (cancelled) return
         const body = res.data ?? {}
         setMe(body)
-        setName(body.name ?? '')
-        setUsername(body.username ?? '')
-        setEmail(body.email ?? '')
+        fillName(body.name ?? '')
+        fillUsername(body.username ?? '')
+        fillEmail(body.email ?? '')
         if (body.notifyPrefs && Object.keys(body.notifyPrefs).length > 0) {
           setServerNotifyPrefs((prev) => ({ ...prev, ...body.notifyPrefs }))
         }
@@ -110,7 +112,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [fillEmail, fillName, fillUsername, http, t])
 
   useEffect(() => {
     if (section !== 'profile' || payments !== null) return

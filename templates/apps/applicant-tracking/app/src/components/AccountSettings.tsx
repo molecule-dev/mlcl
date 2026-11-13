@@ -6,6 +6,7 @@ import {
   useAuth,
   useAuthClient,
   useChangePassword,
+  useForm,
   useHttpClient,
   usePush,
   useTranslation,
@@ -47,8 +48,12 @@ function AccountEmailCard() {
   const http = useHttpClient()
 
   const cachedUser = authClient.getState().user
-  const [email, setEmail] = useState(cachedUser?.email ?? '')
-  const [name, setName] = useState(cachedUser?.name ?? '')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: cachedUser?.email ?? '' },
+  }).asState('value')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: cachedUser?.name ?? '' },
+  }).asState('value')
   const [saving, setSaving] = useState(false)
   const [savingName, setSavingName] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -67,8 +72,8 @@ function AccountEmailCard() {
         const next = unwrapSingle<UserProfile>(res)
         if (next && typeof next === 'object' && next.id) {
           authClient.setUser(next)
-          setEmail((curr) => (curr === (cachedUser?.email ?? '') ? (next.email ?? curr) : curr))
-          setName((curr) => (curr === (cachedUser?.name ?? '') ? (next.name ?? curr) : curr))
+          fillEmail((curr) => (curr === (cachedUser?.email ?? '') ? (next.email ?? curr) : curr))
+          fillName((curr) => (curr === (cachedUser?.name ?? '') ? (next.name ?? curr) : curr))
         }
       })
       .catch(() => {
@@ -77,7 +82,7 @@ function AccountEmailCard() {
     return () => {
       cancelled = true
     }
-  }, [http, authClient, cachedUser?.email, cachedUser?.name])
+  }, [http, authClient, cachedUser?.email, cachedUser?.name, fillEmail, fillName])
 
   async function handleSave() {
     const current = authClient.getState().user

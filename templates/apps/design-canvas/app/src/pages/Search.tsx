@@ -59,6 +59,8 @@ export function Search() {
   const [query, setQuery] = useState('')
   const [tab, setTab] = useState<(typeof TABS)[number]['id']>('all')
   const [results, setResults] = useState<SearchHit[]>([])
+  const [resultsReady, setResultsReady] = useState(false)
+
   const [loading, setLoading] = useState(false)
   const [recent, setRecent] = useState<string[]>(loadRecent)
   const [submittedQuery, setSubmittedQuery] = useState('')
@@ -77,6 +79,8 @@ export function Search() {
   }, [])
 
   useEffect(() => {
+    setResultsReady(false)
+
     let cancelled = false
     const handle = setTimeout(() => {
       const q = query.trim()
@@ -94,10 +98,14 @@ export function Search() {
             results?: SearchHit[]
           }
           setResults(payload.results ?? [])
+          setResultsReady(true)
           setSubmittedQuery(q)
         })
         .catch(() => {
-          if (!cancelled) setResults([])
+          if (!cancelled) {
+            setResults([])
+            setResultsReady(true)
+          }
         })
         .finally(() => {
           if (!cancelled) setLoading(false)
@@ -267,7 +275,7 @@ export function Search() {
             >
               {t('common.searchingEllipsis', {}, { defaultValue: 'Searching…' })}
             </p>
-          ) : results.length === 0 ? (
+          ) : resultsReady && results.length === 0 ? (
             <div
               data-mol-id="search-empty"
               className={cm.cn(

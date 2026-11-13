@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
@@ -32,7 +32,10 @@ export function CompaniesPage() {
   const [companies, setCompanies] = useState<CompanyRecord[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [search, setSearch] = useState(listRoute.filters.q ?? '')
+  const [search, setSearch, fillSearch] = useForm({
+    defaultValues: { value: listRoute.filters.q ?? '' },
+    resetKey: JSON.stringify([searchParams.toString()]),
+  }).asState('value')
   const [draftOpen, setDraftOpen] = useState(searchParams.get('new') === '1')
   const [submitting, setSubmitting] = useState(false)
   const [draft, setDraft] = useState({
@@ -66,9 +69,9 @@ export function CompaniesPage() {
   // already mounted (in-app navigation only changes the query string).
   useEffect(() => {
     const q = listRoute.filters.q ?? null
-    if (q !== null) setSearch(q)
+    if (q !== null) fillSearch(q)
     if (searchParams.get('new') === '1') setDraftOpen(true)
-  }, [listRoute.filters.q, searchParams])
+  }, [fillSearch, listRoute.filters.q, searchParams])
 
   const filtered = useMemo(() => {
     const q = search.trim().toLowerCase()

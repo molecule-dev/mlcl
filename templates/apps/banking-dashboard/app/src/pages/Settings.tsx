@@ -58,17 +58,22 @@ export function Settings() {
   // click landed for behavioural probes).
   const [sectionTick, setSectionTick] = useState(0)
   const [links, setLinks] = useState<LinkedAccount[]>([])
+  const [linksReady, setLinksReady] = useState(false)
+
   const [unlinkedIds, setUnlinkedIds] = useState<Set<string>>(new Set())
   const [securityPanel, setSecurityPanel] = useState<SecurityPanel>(null)
   const [linkPanelOpen, setLinkPanelOpen] = useState(false)
 
   useEffect(() => {
+    setLinksReady(false)
+
     let cancelled = false
     http
       .get('/api/linked_accounts')
       .then((lRes) => {
         if (cancelled) return
         setLinks(unwrapList<LinkedAccount>(lRes))
+        setLinksReady(true)
       })
       .catch(() => {
         /* surfaced via the linked-accounts list below */
@@ -243,7 +248,7 @@ export function Settings() {
               <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
                 {t('settings.linkedAccounts.heading', {}, { defaultValue: 'Linked accounts' })}
               </h2>
-              {links.length === 0 ? (
+              {linksReady && links.length === 0 ? (
                 <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
                   {t(
                     'settings.linkedAccounts.empty',

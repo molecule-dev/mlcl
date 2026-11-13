@@ -35,6 +35,8 @@ export function Search() {
   const [debounced, setDebounced] = useState('')
   const [sessions, setSessions] = useState<ApiSession[]>([])
   const [courses, setCourses] = useState<ApiCourse[]>([])
+  const [coursesReady, setCoursesReady] = useState(false)
+
   const [categories, setCategories] = useState<ApiCategory[]>([])
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -65,6 +67,8 @@ export function Search() {
   }, [q])
 
   useEffect(() => {
+    setCoursesReady(false)
+
     if (debounced.length === 0) {
       setSessions([])
       setCourses([])
@@ -91,6 +95,7 @@ export function Search() {
             (course.description ?? '').toLowerCase().includes(lower),
         )
         setCourses(matchedCourses)
+        setCoursesReady(true)
         void track({
           name: 'search.performed',
           properties: {
@@ -211,7 +216,7 @@ export function Search() {
         >
           {t('stillpoint.search.error', {}, { defaultValue: 'Search failed.' })}
         </div>
-      ) : sessionCards.length === 0 && courses.length === 0 ? (
+      ) : sessionCards.length === 0 && coursesReady && courses.length === 0 ? (
         <div
           data-testid="search-empty"
           className={cm.cn(

@@ -1,8 +1,8 @@
-import { useEffect, useState } from 'react'
+import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useAuth, useHttpClient, useTranslation, useUser } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -74,14 +74,30 @@ export function Settings() {
   const user = useUser<AuthUser>()
   const { logout, refresh } = useAuth<AuthUser>()
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [bio, setBio] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [bio, setBio, fillBio] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
   const [diet, setDiet] = useState<Set<string>>(new Set())
-  const [spice, setSpice] = useState(3)
-  const [notif, setNotif] = useState<Record<string, boolean>>(() =>
-    Object.fromEntries(NOTIFICATION_PREFS.map((p) => [p.key, p.defaultOn])),
-  )
+  const [spice, setSpice, fillSpice] = useForm({
+    defaultValues: { value: 3 },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [notif, setNotif, fillNotif] = useForm<Record<string, boolean>>({
+    defaultValues: useMemo(
+      () => Object.fromEntries(NOTIFICATION_PREFS.map((p) => [p.key, p.defaultOn])),
+      [],
+    ),
+    resetKey: JSON.stringify([user?.id]),
+  }).asState()
   const [saving, setSaving] = useState(false)
   const [savedMessage, setSavedMessage] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -99,16 +115,26 @@ export function Settings() {
   // login time and is not invalidated on PATCH /users from elsewhere.
   useEffect(() => {
     if (!user?.id) return
-    setName((cur) => cur || user.name || user.username || '')
-    setEmail((cur) => cur || user.email || '')
+    fillName((cur) => cur || user.name || user.username || '')
+    fillEmail((cur) => cur || user.email || '')
     const prefs = readLocalPrefs()
     if (prefs) {
-      setBio(prefs.bio ?? '')
+      fillBio(prefs.bio ?? '')
       setDiet(new Set(prefs.dietary ?? []))
-      setSpice(typeof prefs.spiceTolerance === 'number' ? prefs.spiceTolerance : 3)
-      setNotif((cur) => ({ ...cur, ...(prefs.notifications ?? {}) }))
+      fillSpice(typeof prefs.spiceTolerance === 'number' ? prefs.spiceTolerance : 3)
+      fillNotif((cur) => ({ ...cur, ...(prefs.notifications ?? {}) }))
     }
-  }, [user?.id, user?.name, user?.username, user?.email])
+  }, [
+    user?.id,
+    user?.name,
+    user?.username,
+    user?.email,
+    fillName,
+    fillEmail,
+    fillBio,
+    fillSpice,
+    fillNotif,
+  ])
 
   useEffect(() => {
     let cancelled = false
@@ -119,8 +145,8 @@ export function Settings() {
         const envelope = unwrapSingle<{ props?: AuthUser } & AuthUser>(res)
         const me = envelope?.props ?? envelope
         if (!me) return
-        if (me.name || me.username) setName(me.name ?? me.username ?? '')
-        if (me.email !== undefined && me.email !== null) setEmail(me.email)
+        if (me.name || me.username) fillName(me.name ?? me.username ?? '')
+        if (me.email !== undefined && me.email !== null) fillEmail(me.email)
       })
       .catch(() => {
         /* tolerate — useUser cache is the fallback */
@@ -128,7 +154,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillEmail, fillName, http])
 
   const toggleDiet = (v: string) => {
     setDiet((prev) => {

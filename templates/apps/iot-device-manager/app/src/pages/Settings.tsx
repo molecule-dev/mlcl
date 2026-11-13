@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -408,15 +408,17 @@ function ApiKeysPanel({ tokens, loading, devices, onCreate, onRevoke }: ApiKeysP
   const cm = getClassMap()
   const { t } = useTranslation()
   const [showCreate, setShowCreate] = useState(false)
-  const [createDeviceId, setCreateDeviceId] = useState(devices[0]?.id ?? '')
+  const [createDeviceId, setCreateDeviceId, fillCreateDeviceId] = useForm({
+    defaultValues: { value: devices[0]?.id ?? '' },
+  }).asState('value')
   const [createLabel, setCreateLabel] = useState('')
   const [busy, setBusy] = useState(false)
   const [issuedToken, setIssuedToken] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    if (!createDeviceId && devices.length > 0) setCreateDeviceId(devices[0].id)
-  }, [createDeviceId, devices])
+    if (!createDeviceId && devices.length > 0) fillCreateDeviceId(devices[0].id)
+  }, [createDeviceId, devices, fillCreateDeviceId])
 
   const handleCreate = async (e: React.FormEvent) => {
     e.preventDefault()

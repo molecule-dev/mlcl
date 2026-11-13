@@ -2,7 +2,7 @@ import { type ReactNode, useCallback, useEffect, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -110,8 +110,12 @@ export function Settings() {
   const { user, setUser } = useAuth<UserProfile>()
   const http = useHttpClient()
 
-  const [name, setName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: user?.name ?? '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
   const [profileSaving, setProfileSaving] = useState(false)
   const [profileMsg, setProfileMsg] = useState<{ kind: 'ok' | 'err'; text: string } | null>(null)
 
@@ -123,9 +127,9 @@ export function Settings() {
   const [prefsMsg, setPrefsMsg] = useState<string | null>(null)
 
   useEffect(() => {
-    setName(user?.name ?? '')
-    setEmail(user?.email ?? '')
-  }, [user?.name, user?.email])
+    fillName(user?.name ?? '')
+    fillEmail(user?.email ?? '')
+  }, [user?.name, user?.email, fillName, fillEmail])
 
   useEffect(() => {
     try {

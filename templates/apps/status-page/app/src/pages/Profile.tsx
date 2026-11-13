@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -32,13 +32,17 @@ export function Profile() {
   const [editing, setEditing] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
-  const [name, setName] = useState(u?.name ?? '')
-  const [email, setEmail] = useState(u?.email ?? '')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: u?.name ?? '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: u?.email ?? '' },
+  }).asState('value')
 
   useEffect(() => {
-    setName(u?.name ?? '')
-    setEmail(u?.email ?? '')
-  }, [u?.name, u?.email])
+    fillName(u?.name ?? '')
+    fillEmail(u?.email ?? '')
+  }, [u?.name, u?.email, fillName, fillEmail])
 
   useEffect(() => {
     let cancelled = false

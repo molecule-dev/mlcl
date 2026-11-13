@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { t as translate } from '@molecule/app-i18n'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Switch } from '@molecule/app-ui-react'
 
@@ -81,18 +81,18 @@ export function Profile() {
   const adaptOne = useCallback(adaptProfile, [])
   const profile = useFetchOne<ProfilePayload, ProfilePayload>('/api/profile/me', adaptOne)
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [twoFactor, setTwoFactor] = useState(true)
   const [busy, setBusy] = useState(false)
   const [feedback, setFeedback] = useState<{ kind: 'ok' | 'error'; text: string } | null>(null)
 
   useEffect(() => {
     if (profile.data) {
-      setName(profile.data.name ?? '')
-      setEmail(profile.data.email ?? '')
+      fillName(profile.data.name ?? '')
+      fillEmail(profile.data.email ?? '')
     }
-  }, [profile.data])
+  }, [fillEmail, fillName, profile.data])
 
   const adaptDeviceCb = useCallback(adaptDevices, [])
   const devicesUrl = profile.data ? '/api/devices' : null

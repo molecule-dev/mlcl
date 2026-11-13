@@ -39,6 +39,8 @@ export function ChannelPage() {
   const [channel, setChannel] = useState<Record<string, unknown> | null>(null)
   const [messages, setMessages] = useState<Record<string, unknown>[]>([])
   const [members, setMembers] = useState<Record<string, unknown>[]>([])
+  const [membersReady, setMembersReady] = useState(false)
+
   const [pinnedMessages, setPinnedMessages] = useState<Record<string, unknown>[]>([])
   const [newMessage, setNewMessage] = useState('')
   const [showMembers, setShowMembers] = useState(false)
@@ -65,6 +67,8 @@ export function ChannelPage() {
   )
 
   useEffect(() => {
+    setMembersReady(false)
+
     if (!channelId) return
     setLoading(true)
     Promise.all([
@@ -76,7 +80,7 @@ export function ChannelPage() {
         .then((res) => setMessages(res.data || [])),
       http
         .get<Record<string, unknown>[]>(`/api/members/${channelId}`)
-        .then((res) => setMembers(res.data || [])),
+        .then((res) => (setMembers(res.data || []), setMembersReady(true))),
       http
         .get<Record<string, unknown>[]>(`/api/messages?channel_id=${channelId}&pinned=true`)
         .then((res) => setPinnedMessages(res.data || []))
@@ -1115,7 +1119,7 @@ export function ChannelPage() {
                 </span>
               </div>
 
-              {members.length === 0 ? (
+              {membersReady && members.length === 0 ? (
                 <p
                   style={{
                     fontSize: '14px',

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { WorkbenchLayout } from '../components/WorkbenchLayout.js'
@@ -29,8 +29,12 @@ export function Profile() {
   const http = useHttpClient()
   const { user, logout, setUser } = useAuth<AppUser>()
 
-  const [name, setName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: user?.name ?? '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
   const [editing, setEditing] = useState(false)
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
@@ -40,9 +44,9 @@ export function Profile() {
   const [showDelete, setShowDelete] = useState(false)
 
   useEffect(() => {
-    setName(user?.name ?? '')
-    setEmail(user?.email ?? '')
-  }, [user?.name, user?.email])
+    fillName(user?.name ?? '')
+    fillEmail(user?.email ?? '')
+  }, [user?.name, user?.email, fillName, fillEmail])
 
   async function saveProfile() {
     if (!user?.id) return

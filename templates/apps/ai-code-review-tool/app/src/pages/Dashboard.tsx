@@ -404,7 +404,7 @@ export function Dashboard() {
                 {t('dashboard.activeReposViewAll', {}, { defaultValue: 'View all' })}
               </Link>
             </div>
-            {repos.length === 0 ? (
+            {!loading && repos.length === 0 ? (
               <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                 {t(
                   'dashboard.activeReposEmpty',

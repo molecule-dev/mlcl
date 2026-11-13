@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker } from '@molecule/app-ui-react'
 
@@ -116,7 +116,9 @@ export function Settings() {
   const [active, setActive] = useState<SectionId>('profile')
 
   const [profile, setProfile] = useState<ProfileResponse | null>(null)
-  const [draft, setDraft] = useState<ProfilePrefs & { name?: string }>({})
+  const [draft, setDraft, fillDraft] = useForm<ProfilePrefs & { name?: string }>({
+    defaultValues: {},
+  }).asState()
   const [savingProfile, setSavingProfile] = useState(false)
   const [profileStatus, setProfileStatus] = useState<string | null>(null)
 
@@ -141,7 +143,7 @@ export function Settings() {
         const prof = ((resp as { data?: unknown }).data ?? null) as ProfileResponse | null
         if (prof) {
           setProfile(prof)
-          setDraft({
+          fillDraft({
             name: prof.name ?? '',
             displayName: prof.prefs?.displayName ?? '',
             bio: prof.prefs?.bio ?? '',
@@ -164,7 +166,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillDraft, http])
 
   useEffect(() => {
     if (active !== 'billing') return

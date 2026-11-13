@@ -150,7 +150,7 @@ export function Lessons() {
         ))}
       </div>
 
-      {loading && lessons.length === 0 ? (
+      {loading && !loading && lessons.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('lessons.loading', {}, { defaultValue: 'Loading lessons…' })}
         </p>

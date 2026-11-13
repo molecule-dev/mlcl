@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 import { useIsDesktop } from '@molecule/app-ui-react'
@@ -110,7 +110,9 @@ export function BoardCanvas() {
   const [stickyColor, setStickyColor] = useState<string>(STICKY_COLORS[0]!)
   const [zoom, setZoom] = useState(100)
   const [selectedId, setSelectedId] = useState<string | null>(null)
-  const [editingText, setEditingText] = useState('')
+  const [editingText, setEditingText, fillEditingText] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [showShareModal, setShowShareModal] = useState(false)
@@ -227,11 +229,11 @@ export function BoardCanvas() {
 
   useEffect(() => {
     if (selected) {
-      setEditingText(typeof selected.content?.text === 'string' ? selected.content.text : '')
+      fillEditingText(typeof selected.content?.text === 'string' ? selected.content.text : '')
     } else {
       setEditingText('')
     }
-  }, [selected])
+  }, [fillEditingText, selected, setEditingText])
 
   useEffect(() => {
     if (!showShareModal) return

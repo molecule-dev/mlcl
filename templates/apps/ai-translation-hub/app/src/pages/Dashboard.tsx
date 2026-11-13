@@ -247,7 +247,7 @@ export function Dashboard() {
             {t('nav.recentActivity', {}, { defaultValue: 'Recent activity' })}
           </h3>
           <div className={cm.cn('overflow-y-auto pr-2 max-h-[420px]')}>
-            {activity.length === 0 ? (
+            {!loading && activity.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t(
                   'dashboard.activityEmpty',
@@ -286,7 +286,7 @@ export function Dashboard() {
             {t('common.viewAllArrow', {}, { defaultValue: 'View all →' })}
           </Link>
         </div>
-        {projects.length === 0 ? (
+        {!loading && projects.length === 0 ? (
           <p
             className={cm.cn(
               cm.textSize('sm'),

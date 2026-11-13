@@ -27,6 +27,8 @@ export function Classroom() {
 
   const [room, setRoom] = useState<RoomRow | null>(null)
   const [messages, setMessages] = useState<ChatMessageRow[]>([])
+  const [messagesReady, setMessagesReady] = useState(false)
+
   const [draft, setDraft] = useState('')
   const [loading, setLoading] = useState(true)
   const [sending, setSending] = useState(false)
@@ -42,6 +44,8 @@ export function Classroom() {
   // :id as a UUID and answers 400 — so skip the network and show the
   // not-found state directly instead of firing doomed requests.
   useEffect(() => {
+    setMessagesReady(false)
+
     if (!roomId) return
     if (!isUuid(roomId)) {
       setError(t('classroom.roomNotFound', {}, { defaultValue: 'Classroom not found.' }))
@@ -73,6 +77,7 @@ export function Classroom() {
         const chat = await http.get<ChatMessageRow[]>(`/api/chat/room/${roomId}`)
         if (cancelled) return
         setMessages(chat.data)
+        setMessagesReady(true)
       } catch (err: unknown) {
         if (cancelled) return
         setError(err instanceof Error ? err.message : 'Failed to enter classroom')
@@ -91,6 +96,8 @@ export function Classroom() {
   // message) is idempotent when the server echoes it back. A slow 20 s poll
   // remains as a reconnect safety net. Server: api/src/handlers/chat.ts.
   useEffect(() => {
+    setMessagesReady(false)
+
     if (!room) return
     let active = true
     let connection: RealtimeConnection | null = null
@@ -116,7 +123,7 @@ export function Classroom() {
     const poll = setInterval(() => {
       http
         .get<ChatMessageRow[]>(`/api/chat/room/${roomId}`)
-        .then((res) => setMessages(res.data))
+        .then((res) => (setMessages(res.data), setMessagesReady(true)))
         .catch(() => {
           /* swallow — next tick will retry */
         })
@@ -324,7 +331,7 @@ export function Classroom() {
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t('classroom.chatLoading', {}, { defaultValue: 'Loading conversation…' })}
               </p>
-            ) : messages.length === 0 ? (
+            ) : messagesReady && messages.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant italic')}>
                 {t(
                   'classroom.chatEmpty',

@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BRAND_COLOR } from '../branding.js'
@@ -70,13 +70,22 @@ export function PostmortemDetail() {
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [summary, setSummary] = useState('')
-  const [factorsText, setFactorsText] = useState('')
+  const [summary, setSummary, fillSummary] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
+  const [factorsText, setFactorsText, fillFactorsText] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
   const [newItem, setNewItem] = useState('')
   const [events, setEvents] = useState<IncidentEvent[]>([])
+  const [eventsReady, setEventsReady] = useState(false)
 
   /** Pull the linked incident's timeline so the response audit is real data. */
   useEffect(() => {
+    setEventsReady(false)
+
     if (!pm?.incident_id) return
     let cancelled = false
     http
@@ -84,7 +93,10 @@ export function PostmortemDetail() {
       .then((res) => {
         if (cancelled) return
         const single = unwrapSingle<{ events?: IncidentEvent[] }>(res)
-        if (Array.isArray(single?.events)) setEvents(single.events)
+        if (Array.isArray(single?.events)) {
+          setEvents(single.events)
+          setEventsReady(true)
+        }
       })
       .catch(() => {})
     return () => {
@@ -101,7 +113,7 @@ export function PostmortemDetail() {
       setSummary(single.summary)
       setFactorsText(single.contributing_factors.join('\n'))
     }
-  }, [http, id])
+  }, [http, id, setFactorsText, setSummary])
 
   useEffect(() => {
     if (!id) return
@@ -114,8 +126,8 @@ export function PostmortemDetail() {
         const single = unwrapSingle<PostmortemDetailData>(res)
         if (single) {
           setPm(single)
-          setSummary(single.summary)
-          setFactorsText(single.contributing_factors.join('\n'))
+          fillSummary(single.summary)
+          fillFactorsText(single.contributing_factors.join('\n'))
         }
       })
       .catch(() => {
@@ -130,7 +142,7 @@ export function PostmortemDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t])
+  }, [fillFactorsText, fillSummary, http, id, t])
 
   const saveEdits = async () => {
     if (!id) return
@@ -592,7 +604,7 @@ export function PostmortemDetail() {
                 { defaultValue: 'Chronological Telemetry & Response Timeline' },
               )}
             </h2>
-            {events.length === 0 ? (
+            {eventsReady && events.length === 0 ? (
               <p
                 className={cm.cn('font-mono text-xs')}
                 style={{ color: 'var(--color-text-secondary)' }}

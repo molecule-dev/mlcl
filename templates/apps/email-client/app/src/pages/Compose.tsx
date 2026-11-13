@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { MeridianAppShell } from '../components/MeridianAppShell.js'
@@ -31,7 +31,10 @@ export function Compose() {
   const replyId = params.get('reply')
   const forwardId = params.get('forward')
 
-  const [state, setState] = useState<ComposeState>(EMPTY)
+  const [state, setState, fillState] = useForm<ComposeState>({
+    defaultValues: EMPTY,
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState()
   const [recipientInput, setRecipientInput] = useState('')
   const [showCc, setShowCc] = useState(false)
   const [draftRowId, setDraftRowId] = useState<string | null>(null)
@@ -52,7 +55,7 @@ export function Compose() {
           const res = await http.get<EmailRow>(`/api/drafts/${draftId}`)
           const row = ((res as { data?: EmailRow }).data ?? res) as EmailRow
           if (cancelled) return
-          setState({
+          fillState({
             to: ensureArray(row.to),
             cc: ensureArray(row.cc),
             bcc: ensureArray(row.bcc),
@@ -66,7 +69,7 @@ export function Compose() {
           const row = ((res as { data?: EmailRow }).data ?? res) as EmailRow
           if (cancelled) return
           const subj = row.subject?.startsWith('Re: ') ? row.subject : `Re: ${row.subject ?? ''}`
-          setState({
+          fillState({
             to: row.from ? [row.from] : [],
             cc: [],
             bcc: [],
@@ -82,7 +85,7 @@ export function Compose() {
           const row = ((res as { data?: EmailRow }).data ?? res) as EmailRow
           if (cancelled) return
           const subj = row.subject?.startsWith('Fwd: ') ? row.subject : `Fwd: ${row.subject ?? ''}`
-          setState({
+          fillState({
             to: [],
             cc: [],
             bcc: [],
@@ -95,7 +98,7 @@ export function Compose() {
           })
         } else if (signature.trim()) {
           // Brand-new message: seed the body with just the signature.
-          setState((prev) => ({ ...prev, body: withSignature('', signature) }))
+          fillState((prev) => ({ ...prev, body: withSignature('', signature) }))
         }
       } catch (err) {
         console.error('compose:hydrate', err)
@@ -105,7 +108,7 @@ export function Compose() {
     return () => {
       cancelled = true
     }
-  }, [draftId, replyId, forwardId, http])
+  }, [draftId, replyId, forwardId, http, fillState])
 
   // Auto-save draft every 5 seconds if any field is non-empty.
   useEffect(() => {
@@ -171,11 +174,14 @@ export function Compose() {
     setErrors(null)
     setState((prev) => ({ ...prev, to: prev.to.includes(value) ? prev.to : [...prev.to, value] }))
     setRecipientInput('')
-  }, [recipientInput, t])
+  }, [recipientInput, setState, t])
 
-  const removeRecipient = useCallback((email: string) => {
-    setState((prev) => ({ ...prev, to: prev.to.filter((r) => r !== email) }))
-  }, [])
+  const removeRecipient = useCallback(
+    (email: string) => {
+      setState((prev) => ({ ...prev, to: prev.to.filter((r) => r !== email) }))
+    },
+    [setState],
+  )
 
   const send = useCallback(async () => {
     setErrors(null)

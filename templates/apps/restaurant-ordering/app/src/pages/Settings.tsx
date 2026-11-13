@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -53,10 +53,18 @@ export function Settings() {
   const [cuisine, setCuisine] = useState('')
   const [hours, setHours] =
     useState<Array<{ day: string; open: string; close: string }>>(DEFAULT_HOURS)
-  const [prefAutoRush, setPrefAutoRush] = useState(true)
-  const [prefBellSound, setPrefBellSound] = useState(true)
-  const [prefEmailReceipts, setPrefEmailReceipts] = useState(false)
-  const [prefQrOrdering, setPrefQrOrdering] = useState(true)
+  const [prefAutoRush, setPrefAutoRush, fillPrefAutoRush] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
+  const [prefBellSound, setPrefBellSound, fillPrefBellSound] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
+  const [prefEmailReceipts, setPrefEmailReceipts, fillPrefEmailReceipts] = useForm({
+    defaultValues: { value: false },
+  }).asState('value')
+  const [prefQrOrdering, setPrefQrOrdering, fillPrefQrOrdering] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
 
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -68,11 +76,11 @@ export function Settings() {
     setAddress(initialPrefs.restaurantAddress ?? '')
     setCuisine(initialPrefs.restaurantCuisine ?? '')
     setHours(initialPrefs.serviceHours ?? DEFAULT_HOURS)
-    setPrefAutoRush(initialPrefs.prefAutoRush ?? true)
-    setPrefBellSound(initialPrefs.prefBellSound ?? true)
-    setPrefEmailReceipts(initialPrefs.prefEmailReceipts ?? false)
-    setPrefQrOrdering(initialPrefs.prefQrOrdering ?? true)
-  }, [initialPrefs])
+    fillPrefAutoRush(initialPrefs.prefAutoRush ?? true)
+    fillPrefBellSound(initialPrefs.prefBellSound ?? true)
+    fillPrefEmailReceipts(initialPrefs.prefEmailReceipts ?? false)
+    fillPrefQrOrdering(initialPrefs.prefQrOrdering ?? true)
+  }, [fillPrefAutoRush, fillPrefBellSound, fillPrefEmailReceipts, fillPrefQrOrdering, initialPrefs])
 
   const handleSave = useCallback(async () => {
     if (!user?.id) return

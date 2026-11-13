@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Switch } from '@molecule/app-ui-react'
 
@@ -87,8 +87,14 @@ export function CallSimulator() {
   const http = useHttpClient()
   const [searchParams] = useSearchParams()
   const [agents, setAgents] = useState<VoiceAgentRow[]>([])
-  const [agentId, setAgentId] = useState<string>('')
-  const [language, setLanguage] = useState('en')
+  const [agentId, setAgentId, fillAgentId] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([searchParams.toString()]),
+  }).asState('value')
+  const [language, setLanguage, fillLanguage] = useForm({
+    defaultValues: { value: 'en' },
+    resetKey: JSON.stringify([searchParams.toString()]),
+  }).asState('value')
   const [mode, setMode] = useState<'scripted' | 'llm'>('scripted')
   const [speakReplies, setSpeakReplies] = useState(false)
   const [callId, setCallId] = useState<string | null>(null)
@@ -109,11 +115,11 @@ export function CallSimulator() {
       setAgents(list)
       const preset = searchParams.get('agent')
       const initial = list.find((a) => a.id === preset)?.id ?? list[0]?.id ?? ''
-      setAgentId(initial)
+      fillAgentId(initial)
       const initialAgent = list.find((a) => a.id === initial)
-      setLanguage(asStringArray(initialAgent?.languages ?? ['en'])[0] ?? 'en')
+      fillLanguage(asStringArray(initialAgent?.languages ?? ['en'])[0] ?? 'en')
     })()
-  }, [http, searchParams])
+  }, [fillAgentId, fillLanguage, http, searchParams])
 
   useEffect(() => {
     transcriptRef.current?.scrollTo({ top: transcriptRef.current.scrollHeight })

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -28,9 +28,14 @@ function SearchPage() {
 
   const listRoute = useListRoute({ filters: { q: {} } })
   const initialQuery = listRoute.filters.q ?? ''
-  const [query, setQuery] = useState(initialQuery)
+  const [query, setQuery, fillQuery] = useForm({
+    defaultValues: { value: initialQuery },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
   const [submittedQuery, setSubmittedQuery] = useState(initialQuery)
   const [products, setProducts] = useState<Product[]>([])
+  const [productsReady, setProductsReady] = useState(false)
+
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [addingId, setAddingId] = useState<string | null>(null)
@@ -41,12 +46,14 @@ function SearchPage() {
     const q = listRoute.filters.q ?? ''
     if (q !== submittedQuery) {
       setSubmittedQuery(q)
-      setQuery(q)
+      fillQuery(q)
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [params]) // submittedQuery intentionally omitted — comparing against it to detect URL changes only
 
   useEffect(() => {
+    setProductsReady(false)
+
     const q = submittedQuery.trim().toLowerCase()
     const browseAll = !q || q === 'all'
     const browseNew = q === 'new'
@@ -61,6 +68,7 @@ function SearchPage() {
             ? (body as Product[])
             : ((body as { data?: Product[] })?.data ?? [])
           setProducts(Array.isArray(list) ? list : [])
+          setProductsReady(true)
         })
         .catch(() =>
           setError(t('search.loadError', {}, { defaultValue: 'Failed to load products' })),
@@ -79,6 +87,7 @@ function SearchPage() {
             ? (body as Product[])
             : ((body as { data?: Product[] })?.data ?? [])
           setProducts(Array.isArray(list) ? list : [])
+          setProductsReady(true)
         })
         .catch(() =>
           setError(t('search.loadError', {}, { defaultValue: 'Failed to load products' })),
@@ -114,6 +123,7 @@ function SearchPage() {
           list = []
         }
         setProducts(list)
+        setProductsReady(true)
       })
       .catch(() => setError(t('search.error', {}, { defaultValue: 'Search failed' })))
       .finally(() => setLoading(false))
@@ -238,7 +248,7 @@ function SearchPage() {
             {error}
           </p>
         )}
-        {!loading && products.length === 0 && (
+        {!loading && productsReady && products.length === 0 && (
           <p
             data-mol-id="search-empty"
             className={cm.cn(cm.textCenter, cm.sp('py', 12), 'text-foreground-secondary')}

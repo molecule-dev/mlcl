@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -42,11 +42,13 @@ export function Profile() {
   const auth = useAuth<AccountUser>()
   const fallbackName = auth.user?.name ?? auth.user?.email ?? ''
 
-  const [name, setName] = useState('')
-  const [role, setRole] = useState('')
-  const [bio, setBio] = useState('')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [role, setRole, fillRole] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [bio, setBio, fillBio] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [focus, setFocus] = useState<Record<string, boolean>>({})
-  const [publicProfile, setPublicProfile] = useState(true)
+  const [publicProfile, setPublicProfile, fillPublicProfile] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
   const [recentHires, setRecentHires] = useState<RecentHire[] | null>(null)
   const [hiresError, setHiresError] = useState<string | null>(null)
   const [profileError, setProfileError] = useState<string | null>(null)
@@ -62,13 +64,13 @@ export function Profile() {
         if (cancelled) return
         const p = unwrapSingle<RecruiterProfile>(res)
         if (p) {
-          setName(p.display_name ?? fallbackName)
-          setRole(p.role ?? '')
-          setBio(p.bio ?? '')
+          fillName(p.display_name ?? fallbackName)
+          fillRole(p.role ?? '')
+          fillBio(p.bio ?? '')
           setFocus(p.focus ?? {})
-          setPublicProfile(p.public_profile ?? true)
+          fillPublicProfile(p.public_profile ?? true)
         } else if (fallbackName) {
-          setName(fallbackName)
+          fillName(fallbackName)
         }
       })
       .catch(() => {
@@ -76,7 +78,7 @@ export function Profile() {
           setProfileError(
             t('nav.couldNotLoadProfile', {}, { defaultValue: 'Could not load profile.' }),
           )
-          if (fallbackName) setName(fallbackName)
+          if (fallbackName) fillName(fallbackName)
         }
       })
     http
@@ -93,7 +95,7 @@ export function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http, t, fallbackName])
+  }, [http, t, fallbackName, fillName, fillRole, fillBio, fillPublicProfile])
 
   function toggle(key: string) {
     setFocus((f) => ({ ...f, [key]: !f[key] }))

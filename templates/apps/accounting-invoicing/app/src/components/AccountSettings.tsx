@@ -5,6 +5,7 @@ import type { UserProfile } from '@molecule/app-auth'
 import {
   useAuth,
   useChangePassword,
+  useForm,
   useHttpClient,
   usePush,
   useTranslation,
@@ -62,8 +63,12 @@ export function AccountSettings() {
   const { user, setUser, logout } = useAuth<AccountUser>()
 
   // C6 — profile
-  const [email, setEmail] = useState(user?.email ?? '')
-  const [name, setName] = useState(user?.name ?? '')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: user?.name ?? '' } }).asState(
+    'value',
+  )
   const [profileSaving, setProfileSaving] = useState(false)
   const [profileSaved, setProfileSaved] = useState(false)
   const [profileError, setProfileError] = useState('')
@@ -110,8 +115,8 @@ export function AccountSettings() {
         const fresh = unwrapSingle<AccountUser>(res)
         if (fresh && fresh.id) {
           setUser(fresh)
-          setEmail(fresh.email ?? '')
-          setName(fresh.name ?? '')
+          fillEmail(fresh.email ?? '')
+          fillName(fresh.name ?? '')
           setTwoFactorEnabled(Boolean(fresh.twoFactorEnabled))
         }
       })
@@ -121,7 +126,7 @@ export function AccountSettings() {
     return () => {
       cancelled = true
     }
-  }, [http, setUser])
+  }, [fillEmail, fillName, http, setUser])
 
   // Load registered devices (optional endpoint; renders empty if unavailable).
   const loadDevices = useCallback(async () => {

@@ -62,6 +62,8 @@ export function Messages() {
   const [threads, setThreads] = useState<ThreadRow[]>([])
   const [activeId, setActiveId] = useState<string>('')
   const [messages, setMessages] = useState<MessageRow[]>([])
+  const [messagesReady, setMessagesReady] = useState(false)
+
   const [draft, setDraft] = useState('')
   const [loading, setLoading] = useState(true)
   const [sending, setSending] = useState(false)
@@ -129,6 +131,8 @@ export function Messages() {
 
   // Load messages whenever active thread changes
   useEffect(() => {
+    setMessagesReady(false)
+
     if (!activeId) {
       setMessages([])
       return
@@ -140,10 +144,12 @@ export function Messages() {
         if (!active) return
         const data = (res as { data?: MessageRow[] | null }).data
         setMessages(Array.isArray(data) ? data : [])
+        setMessagesReady(true)
       })
       .catch(() => {
         if (!active) return
         setMessages([])
+        setMessagesReady(true)
       })
     return () => {
       active = false
@@ -394,7 +400,7 @@ export function Messages() {
               </header>
 
               <div className={cm.cn(cm.flex1, cm.sp('p', 6), cm.stack(3), 'overflow-y-auto')}>
-                {messages.length === 0 ? (
+                {messagesReady && messages.length === 0 ? (
                   <p
                     className={cm.cn(
                       cm.textSize('sm'),

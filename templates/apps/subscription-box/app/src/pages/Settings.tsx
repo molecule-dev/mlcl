@@ -1,7 +1,13 @@
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useAuth, useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
+import {
+  useAuth,
+  useForm,
+  useHttpClient,
+  useOptimisticValue,
+  useTranslation,
+} from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -66,9 +72,15 @@ export function Settings() {
   const userObj = typeof user === 'object' && user ? (user as Record<string, unknown>) : null
   const userId = userObj?.id ? String(userObj.id) : null
 
-  const [name, setName] = useState(String((userObj?.name as string) ?? ''))
-  const [email, setEmail] = useState(String((userObj?.email as string) ?? ''))
-  const [address, setAddress] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: String((userObj?.name as string) ?? '') },
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: String((userObj?.email as string) ?? '') },
+  }).asState('value')
+  const [address, setAddress, fillAddress] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
   const [serverPrefs, setServerPrefs] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(notificationPreferences.map((p) => [p.id, p.defaultEnabled])),
   )
@@ -87,10 +99,10 @@ export function Settings() {
 
   useEffect(() => {
     if (userObj) {
-      setName(String((userObj.name as string) ?? ''))
-      setEmail(String((userObj.email as string) ?? ''))
+      fillName(String((userObj.name as string) ?? ''))
+      fillEmail(String((userObj.email as string) ?? ''))
     }
-  }, [userObj])
+  }, [fillEmail, fillName, userObj])
 
   useEffect(() => {
     let cancelled = false
@@ -101,7 +113,7 @@ export function Settings() {
         if (cancelled || !sub) return
         setSubscription(sub)
         const subPrefs = (sub.preferences ?? {}) as SubscriptionPreferences
-        if (typeof subPrefs.address === 'string') setAddress(subPrefs.address)
+        if (typeof subPrefs.address === 'string') fillAddress(subPrefs.address)
         if (subPrefs.notifications) {
           setServerPrefs((prev) => ({ ...prev, ...subPrefs.notifications! }))
         }
@@ -110,7 +122,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillAddress, http])
 
   const persistPreferences = async (next: Partial<SubscriptionPreferences>) => {
     if (!subscription) return

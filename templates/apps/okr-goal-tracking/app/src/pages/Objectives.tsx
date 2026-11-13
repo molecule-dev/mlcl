@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -33,12 +33,14 @@ export function Objectives() {
 
   const listRoute = useListRoute({ filters: { q: {} } })
   const urlQuery = listRoute.filters.q ?? ''
-  const [query, setQuery] = useState(urlQuery)
+  const [query, setQuery, fillQuery] = useForm({ defaultValues: { value: urlQuery } }).asState(
+    'value',
+  )
 
   // Keep the local filter box in sync with ?q= (set by the topbar search).
   useEffect(() => {
-    setQuery(urlQuery)
-  }, [urlQuery])
+    fillQuery(urlQuery)
+  }, [fillQuery, urlQuery])
 
   useEffect(() => {
     let aborted = false

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, usePush, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, usePush, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface ProfileResponse {
@@ -17,11 +17,17 @@ function NotificationsSettingsSection() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const { requestPermission, register, unregister } = usePush()
-  const [emailNotifications, setEmailNotifications] = useState(true)
+  const [emailNotifications, setEmailNotifications, fillEmailNotifications] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
   const [pushNotifications, setPushNotifications] = useState(false)
   const [dailyLogReminders, setDailyLogReminders] = useState(true)
-  const [rfiUpdates, setRfiUpdates] = useState(true)
-  const [punchUpdates, setPunchUpdates] = useState(true)
+  const [rfiUpdates, setRfiUpdates, fillRfiUpdates] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
+  const [punchUpdates, setPunchUpdates, fillPunchUpdates] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
   const [loading, setLoading] = useState(false)
   const [saved, setSaved] = useState(false)
   const cm = getClassMap()
@@ -35,11 +41,11 @@ function NotificationsSettingsSection() {
           (res as unknown as { data?: ProfileResponse }).data ?? (res as unknown as ProfileResponse)
         if (cancelled) return
         const p = data.preferences ?? {}
-        if (typeof p.emailNotifications === 'boolean') setEmailNotifications(p.emailNotifications)
+        if (typeof p.emailNotifications === 'boolean') fillEmailNotifications(p.emailNotifications)
         if (typeof p.pushNotifications === 'boolean') setPushNotifications(p.pushNotifications)
         if (typeof p.dailyLogReminders === 'boolean') setDailyLogReminders(p.dailyLogReminders)
-        if (typeof p.rfiUpdates === 'boolean') setRfiUpdates(p.rfiUpdates)
-        if (typeof p.punchUpdates === 'boolean') setPunchUpdates(p.punchUpdates)
+        if (typeof p.rfiUpdates === 'boolean') fillRfiUpdates(p.rfiUpdates)
+        if (typeof p.punchUpdates === 'boolean') fillPunchUpdates(p.punchUpdates)
       } catch (_error) {
         // ignore — defaults remain
       }
@@ -48,7 +54,7 @@ function NotificationsSettingsSection() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillEmailNotifications, fillPunchUpdates, fillRfiUpdates, http])
 
   const handlePushToggle = async (next: boolean) => {
     setPushNotifications(next)

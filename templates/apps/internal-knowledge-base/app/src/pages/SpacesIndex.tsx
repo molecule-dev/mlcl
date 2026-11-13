@@ -106,11 +106,11 @@ export function SpacesIndex() {
         </Link>
       </header>
 
-      {loading && spaces.length === 0 ? (
+      {loading && !loading && spaces.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 16), 'text-center text-on-surface-variant')}>
           {t('spacesIndex.loading', {}, { defaultValue: 'Loading spaces\u2026' })}
         </p>
-      ) : spaces.length === 0 ? (
+      ) : !loading && spaces.length === 0 ? (
         <div
           className={cm.cn(
             cm.sp('py', 16),

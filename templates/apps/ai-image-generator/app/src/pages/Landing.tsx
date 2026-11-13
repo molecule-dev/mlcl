@@ -93,9 +93,13 @@ export function Landing() {
   const http = useHttpClient()
   const isAuthenticated = useIsAuthenticated()
   const [galleryItems, setGalleryItems] = useState<Generation[]>([])
+  const [galleryItemsReady, setGalleryItemsReady] = useState(false)
+
   const mountedRef = useRef(true)
 
   useEffect(() => {
+    setGalleryItemsReady(false)
+
     mountedRef.current = true
     http
       .get<Record<string, unknown>[]>('/api/gallery/public?limit=8')
@@ -103,10 +107,12 @@ export function Landing() {
         if (!mountedRef.current) return
         const arr = Array.isArray(res.data) ? res.data : []
         setGalleryItems(arr.map(adaptGeneration))
+        setGalleryItemsReady(true)
       })
       .catch(() => {
         if (!mountedRef.current) return
         setGalleryItems([])
+        setGalleryItemsReady(true)
       })
     return () => {
       mountedRef.current = false
@@ -375,7 +381,7 @@ export function Landing() {
                 {t('landing.galleryTitle', {}, { defaultValue: 'Real prompts, real renders' })}
               </h2>
             </div>
-            {galleryItems.length === 0 ? (
+            {galleryItemsReady && galleryItems.length === 0 ? (
               <p
                 className={cm.cn(
                   cm.textSize('sm'),

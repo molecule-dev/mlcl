@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { ForjaTopBar } from '../components/ForjaTopBar.js'
@@ -131,7 +131,9 @@ export function ActiveWorkout() {
   const [pendingReps, setPendingReps] = useState('')
   const [adding, setAdding] = useState(false)
   const [finishing, setFinishing] = useState(false)
-  const [plateTotal, setPlateTotal] = useState('')
+  const [plateTotal, setPlateTotal, fillPlateTotal] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
 
   // Prefill the plate calculator with the heaviest logged set, like the
   // design's "Total Weight 65.0 kg" default; the user can retype any target.
@@ -142,9 +144,9 @@ export function ActiveWorkout() {
       .map((s) => toDisplayWeight(num(s.weight_kg ?? s.weight)))
       .filter((w) => w > 0)
     if (weights.length > 0) {
-      setPlateTotal((current) => (current === '' ? Math.max(...weights).toFixed(1) : current))
+      fillPlateTotal((current) => (current === '' ? Math.max(...weights).toFixed(1) : current))
     }
-  }, [workout])
+  }, [fillPlateTotal, workout])
 
   useEffect(() => {
     const id = window.setInterval(() => setNow(Date.now()), 1000)

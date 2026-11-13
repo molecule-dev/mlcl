@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface ProfileResponse {
@@ -19,9 +19,11 @@ export default function ProfileSettingsSection() {
   const { t } = useTranslation()
   const [loading, setLoading] = useState(false)
   const [saved, setSaved] = useState(false)
-  const [displayName, setDisplayName] = useState('')
-  const [email, setEmail] = useState('')
-  const [bio, setBio] = useState('')
+  const [displayName, setDisplayName, fillDisplayName] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [bio, setBio, fillBio] = useForm({ defaultValues: { value: '' } }).asState('value')
   // Store http in a ref so the mount-once effect always uses the latest client
   // without re-running on every render (which would cause an infinite GET loop
   // if useHttpClient() returns a new reference each render).
@@ -36,9 +38,9 @@ export default function ProfileSettingsSection() {
         const data =
           (res as unknown as { data?: ProfileResponse }).data ?? (res as unknown as ProfileResponse)
         if (cancelled) return
-        setDisplayName(data.preferences?.displayName ?? data.name ?? '')
-        setEmail(data.email ?? '')
-        setBio(data.preferences?.bio ?? '')
+        fillDisplayName(data.preferences?.displayName ?? data.name ?? '')
+        fillEmail(data.email ?? '')
+        fillBio(data.preferences?.bio ?? '')
       } catch (_error) {
         // Leave fields empty; user can fill and save.
       }
@@ -47,7 +49,7 @@ export default function ProfileSettingsSection() {
     return () => {
       cancelled = true
     }
-  }, [])
+  }, [fillBio, fillDisplayName, fillEmail])
 
   const onSave = async () => {
     setLoading(true)

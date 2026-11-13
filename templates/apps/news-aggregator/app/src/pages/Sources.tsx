@@ -172,7 +172,7 @@ export function Sources() {
 
       {error ? (
         <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-error')}>{error}</p>
-      ) : loading && sources.length === 0 ? (
+      ) : loading && !loading && sources.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}>
           {t('sources.loading', {}, { defaultValue: 'Loading sources…' })}
         </p>

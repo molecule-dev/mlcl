@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Alert, Button, Input, LanguagePicker, Modal, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -50,7 +50,9 @@ export function Settings() {
   const [email, setEmail] = useState('')
   const [bio, setBio] = useState('')
   const [website, setWebsite] = useState('')
-  const [prefs, setPrefs] = useState<NotificationPrefs>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<NotificationPrefs>({
+    defaultValues: DEFAULT_PREFS,
+  }).asState()
   const [saving, setSaving] = useState(false)
   const [savedBanner, setSavedBanner] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -84,7 +86,7 @@ export function Settings() {
         setWebsite(websiteFromPrefs ?? '')
         const npref = (p.preferences as { notifications?: NotificationPrefs } | undefined)
           ?.notifications
-        if (npref) setPrefs({ ...DEFAULT_PREFS, ...npref })
+        if (npref) fillPrefs({ ...DEFAULT_PREFS, ...npref })
       } catch (err) {
         if (alive)
           setError(
@@ -97,7 +99,7 @@ export function Settings() {
     return () => {
       alive = false
     }
-  }, [http, t])
+  }, [fillPrefs, http, t])
 
   // Read the persisted 2FA status from /users/me on mount (best-effort).
   useEffect(() => {

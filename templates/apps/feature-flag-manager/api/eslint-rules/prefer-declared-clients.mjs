@@ -1013,7 +1013,10 @@ export default {
               reportedAdapters.has(adapter)
             )
               continue
-            const first = adapter.params[0]
+            const first =
+              adapter.params[0].type === 'AssignmentPattern'
+                ? adapter.params[0].left
+                : adapter.params[0]
             const binding = first.type === 'Identifier' ? variable(first) : null
             const invalidObjectRead =
               first.type === 'ObjectPattern' ||
@@ -1181,9 +1184,796 @@ export default {
   },
 }
 
+// Local React data flow, shared by the collection and editable-field diagnostics below.
+// Bindings, not spelling, identify hooks/state. No endpoint, copy, selector or CSS vocabulary
+// participates in recognition. This is deliberately a single-module syntax check.
+const reactFlows = new WeakMap()
+function reactStateFlow(context) {
+  if (reactFlows.has(context.sourceCode)) return reactFlows.get(context.sourceCode)
+  const source = context.sourceCode
+  const unwrap = (node) => {
+    while (
+      [
+        'ChainExpression',
+        'TSAsExpression',
+        'TSNonNullExpression',
+        'TSSatisfiesExpression',
+        'ParenthesizedExpression',
+      ].includes(node?.type)
+    )
+      node = node.expression
+    return node
+  }
+  const walk = (node, visit, descend = () => true) => {
+    if (!node?.type) return
+    visit(node)
+    if (!descend(node)) return
+    for (const key of source.visitorKeys[node.type] ?? []) {
+      const value = node[key]
+      if (Array.isArray(value)) value.forEach((part) => walk(part, visit, descend))
+      else walk(value, visit, descend)
+    }
+  }
+  const variable = (node) => {
+    node = unwrap(node)
+    if (!['Identifier', 'JSXIdentifier'].includes(node?.type)) return null
+    for (let scope = source.getScope(node); scope; scope = scope.upper) {
+      if (scope.set.has(node.name)) return scope.set.get(node.name)
+    }
+    return null
+  }
+  const member = (node) =>
+    node?.type === 'MemberExpression'
+      ? node.computed
+        ? node.property.value
+        : node.property.name
+      : null
+  const init = (node) => {
+    const definition = variable(node)?.defs[0]
+    return definition?.type === 'Variable' && definition.parent.kind === 'const'
+      ? unwrap(definition.node.init)
+      : null
+  }
+  const react = (node, name, seen = new Set()) => {
+    node = unwrap(node)
+    if (!node || seen.has(node)) return false
+    seen.add(node)
+    if (node.type === 'MemberExpression' && member(node) === name) {
+      const definition = variable(node.object)?.defs[0]
+      return (
+        definition?.type === 'ImportBinding' &&
+        definition.parent.source.value === 'react' &&
+        ['ImportNamespaceSpecifier', 'ImportDefaultSpecifier'].includes(definition.node.type)
+      )
+    }
+    const definition = variable(node)?.defs[0]
+    if (definition?.type === 'ImportBinding')
+      return definition.parent.source.value === 'react' && definition.node.imported?.name === name
+    return react(init(node), name, seen)
+  }
+  const isFunction = (node) =>
+    ['FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression'].includes(node?.type)
+  const owner = (node) => {
+    for (let parent = node.parent; parent; parent = parent.parent)
+      if (isFunction(parent)) return parent
+    return null
+  }
+  const callback = (node) =>
+    isFunction(unwrap(node)) ? unwrap(node) : isFunction(init(node)) ? init(node) : null
+  const states = []
+  const effects = []
+  const formTuple = (call) => {
+    if (member(call?.callee) !== 'asState') return false
+    let form = unwrap(call.callee.object)
+    if (form?.type === 'Identifier') form = init(form)
+    if (form?.type !== 'CallExpression') return false
+    const imported = variable(form.callee)?.defs[0]
+    return (
+      imported?.type === 'ImportBinding' &&
+      imported.parent.source.value === '@molecule/app-react' &&
+      imported.node.imported?.name === 'useForm'
+    )
+  }
+  walk(source.ast, (node) => {
+    if (
+      node.type === 'VariableDeclarator' &&
+      node.id.type === 'ArrayPattern' &&
+      node.init?.type === 'CallExpression' &&
+      (react(node.init.callee, 'useState') || formTuple(node.init))
+    ) {
+      const [value, setter] = node.id.elements
+      if (value?.type === 'Identifier' && setter?.type === 'Identifier')
+        states.push({
+          node,
+          value: variable(value),
+          setter: variable(setter),
+          initial: formTuple(node.init) ? null : unwrap(node.init.arguments[0]),
+          owner: owner(node),
+        })
+    }
+    if (
+      node.type === 'CallExpression' &&
+      (react(node.callee, 'useEffect') || react(node.callee, 'useLayoutEffect'))
+    ) {
+      const fn = callback(node.arguments[0])
+      if (fn) effects.push({ node, fn, owner: owner(node), writes: [] })
+    }
+  })
+  const stateFor = (node) => states.find((state) => state.value && state.value === variable(node))
+  const contains = (tree, part) => tree.range[0] <= part.range[0] && tree.range[1] >= part.range[1]
+  const asyncGroup = (node, effect) => {
+    const promise = (call) => {
+      while (
+        call?.type === 'CallExpression' &&
+        ['then', 'catch', 'finally'].includes(member(call.callee))
+      )
+        call = unwrap(call.callee.object)
+      return call
+    }
+    for (let parent = node; parent; parent = parent.parent) {
+      if (
+        isFunction(parent) &&
+        parent.parent?.type === 'CallExpression' &&
+        ['then', 'catch', 'finally'].includes(member(parent.parent.callee))
+      )
+        return promise(parent.parent)
+      if (isFunction(parent) && parent.async) {
+        let awaits = false
+        walk(
+          parent.body,
+          (part) => {
+            if (part.type === 'AwaitExpression' && part.range[0] < node.range[1]) awaits = true
+          },
+          (part) => part === parent.body || !isFunction(part),
+        )
+        if (awaits) return parent
+      }
+      if (parent === effect.fn) break
+    }
+    let awaits = false
+    walk(node, (part) => {
+      if (part.type === 'AwaitExpression') awaits = true
+    })
+    return awaits ? node : null
+  }
+  const asyncWrite = (node, effect) => Boolean(asyncGroup(node, effect))
+  for (const effect of effects)
+    walk(effect.fn.body, (node) => {
+      if (node.type !== 'CallExpression') return
+      const state = states.find(
+        (item) =>
+          item.setter && item.setter === variable(node.callee) && item.owner === effect.owner,
+      )
+      if (state)
+        effect.writes.push({
+          node,
+          state,
+          argument: unwrap(node.arguments[0]),
+          group: asyncGroup(node, effect),
+          async: asyncWrite(node, effect),
+        })
+      // Promise.then(setItems), without an intermediate arrow callback.
+      if (member(node.callee) === 'then') {
+        const target = states.find(
+          (item) =>
+            item.setter &&
+            item.setter === variable(node.arguments[0]) &&
+            item.owner === effect.owner,
+        )
+        if (target)
+          effect.writes.push({
+            node,
+            state: target,
+            argument: null,
+            group: unwrap(node.callee.object),
+            async: true,
+          })
+      }
+    })
+  const exits = (node) =>
+    node?.type === 'ReturnStatement' ||
+    node?.type === 'ThrowStatement' ||
+    (node?.type === 'BlockStatement' && exits(node.body.at(-1)))
+  // Conditions which must hold to reach a syntax location, including earlier return guards.
+  const conditions = (node, stop) => {
+    const result = []
+    for (let part = node; part?.parent && part !== stop; part = part.parent) {
+      const parent = part.parent
+      if (
+        parent.type === 'LogicalExpression' &&
+        parent.right === part &&
+        ['&&', '||'].includes(parent.operator)
+      )
+        result.push([parent.left, parent.operator === '&&'])
+      if (['IfStatement', 'ConditionalExpression'].includes(parent.type) && parent.test !== part)
+        result.push([parent.test, parent.consequent === part])
+      if (parent.type === 'BlockStatement') {
+        for (const previous of parent.body) {
+          if (previous === part) break
+          if (previous.range[0] >= part.range[0]) break
+          if (previous.type === 'IfStatement' && !previous.alternate && exits(previous.consequent))
+            result.push([previous.test, false])
+        }
+      }
+    }
+    return result
+  }
+  const implies = (test, truth, target, expected) => {
+    test = unwrap(test)
+    if (!test) return false
+    if (target(test)) return truth === expected
+    if (test.type === 'UnaryExpression' && test.operator === '!')
+      return implies(test.argument, !truth, target, expected)
+    if (test.type === 'BinaryExpression' && ['===', '!==', '==', '!='].includes(test.operator)) {
+      for (const [left, right] of [
+        [test.left, test.right],
+        [test.right, test.left],
+      ])
+        if (typeof right.value === 'boolean')
+          return implies(
+            left,
+            truth === !test.operator.includes('!') ? right.value : !right.value,
+            target,
+            expected,
+          )
+    }
+    if (
+      test.type === 'LogicalExpression' &&
+      ((test.operator === '&&' && truth) || (test.operator === '||' && !truth))
+    )
+      return (
+        implies(test.left, truth, target, expected) || implies(test.right, truth, target, expected)
+      )
+    return false
+  }
+  const guarded = (node, stop, target, expected) =>
+    conditions(node, stop).some(([test, truth]) => implies(test, truth, target, expected))
+  const attr = (node, name) =>
+    node.attributes?.find((part) => part.type === 'JSXAttribute' && part.name.name === name)
+  const expression = (attribute) =>
+    unwrap(
+      attribute?.value?.type === 'JSXExpressionContainer'
+        ? attribute.value.expression
+        : attribute?.value,
+    )
+  const actionable = (opening) => {
+    if (attr(opening, 'onClick')) return true
+    if (opening.name.type !== 'JSXIdentifier') return false
+    if (['a', 'area'].includes(opening.name.name)) return Boolean(attr(opening, 'href'))
+    const definition = variable(opening.name)?.defs[0]
+    return (
+      definition?.type === 'ImportBinding' &&
+      ['react-router', 'react-router-dom', '@molecule/app-routing-react-router'].includes(
+        definition.parent.source.value,
+      ) &&
+      ['Link', 'NavLink'].includes(definition.node.imported?.name) &&
+      Boolean(attr(opening, 'to'))
+    )
+  }
+  const flow = {
+    source,
+    unwrap,
+    walk,
+    variable,
+    member,
+    init,
+    react,
+    isFunction,
+    owner,
+    callback,
+    states,
+    effects,
+    stateFor,
+    contains,
+    asyncWrite,
+    conditions,
+    implies,
+    guarded,
+    attr,
+    expression,
+    actionable,
+  }
+  reactFlows.set(source, flow)
+  return flow
+}
+
 /** Shared scaffold diagnostics. ESLint supplies the parser used for imported source files. */
 export function scaffoldRules(parser) {
   return {
+    'effects-preserve-form-edits': {
+      meta: {
+        type: 'problem',
+        schema: [],
+        docs: {
+          description:
+            'Prevent an effect from filling editable field state after edits are possible.',
+        },
+        messages: {
+          overwrite:
+            'This effect replaces state used by an editable field. A loaded/once flag inside the effect does not protect edits made before that fill. Use useForm({ values: loadedData, resetOptions: { keepDirtyValues: true } }) from @molecule/app-react; for local state, guard the fill with a dirty ref set by this field’s change handler, or keep the field unavailable until a one-time fill has completed. Key a form by record identity when switching records.',
+        },
+      },
+      create(context) {
+        return {
+          'Program:exit'() {
+            const flow = reactStateFlow(context)
+            const {
+              walk,
+              unwrap,
+              variable,
+              stateFor,
+              member,
+              attr,
+              expression,
+              callback,
+              effects,
+              guarded,
+            } = flow
+            const fields = []
+            walk(flow.source.ast, (node) => {
+              if (node.type !== 'JSXOpeningElement') return
+              const value = expression(attr(node, 'value')) ?? expression(attr(node, 'checked'))
+              let root =
+                value?.type === 'LogicalExpression' && value.operator === '??'
+                  ? unwrap(value.left)
+                  : value
+              while (root?.type === 'MemberExpression') root = unwrap(root.object)
+              const state = stateFor(root)
+              const change = callback(
+                expression(attr(node, 'onChange')) ?? expression(attr(node, 'onInput')),
+              )
+              if (!state || !change) return
+              let edits = false
+              walk(change.body, (part) => {
+                if (part.type === 'CallExpression' && variable(part.callee) === state.setter)
+                  edits = true
+              })
+              if (edits) fields.push({ node, state, change })
+            })
+            // A dirty witness must be written by this field's own change handler.
+            const dirtyGuards = (field) => {
+              const guards = []
+              walk(field.change.body, (part) => {
+                if (
+                  part.type === 'AssignmentExpression' &&
+                  part.operator === '=' &&
+                  member(part.left) === 'current' &&
+                  part.right.value === true
+                ) {
+                  const ref = variable(part.left.object)
+                  const initial = flow.init(part.left.object)
+                  if (
+                    initial?.type === 'CallExpression' &&
+                    flow.react(initial.callee, 'useRef') &&
+                    initial.arguments[0]?.value === false
+                  )
+                    guards.push({
+                      target: (node) => member(node) === 'current' && variable(node.object) === ref,
+                      ref: true,
+                    })
+                }
+                if (part.type === 'CallExpression' && part.arguments[0]?.value === true) {
+                  const state = flow.states.find(
+                    (item) =>
+                      variable(part.callee) === item.setter && item.initial?.value === false,
+                  )
+                  if (state)
+                    guards.push({ target: (node) => variable(node) === state.value, ref: false })
+                }
+              })
+              return guards
+            }
+            const unavailable = (field, target, settled) => {
+              if (target && guarded(field.node, field.state.owner, target, settled)) return true
+              for (
+                let element = field.node.parent;
+                element && element !== field.state.owner;
+                element = element.parent
+              ) {
+                if (element.type !== 'JSXElement') continue
+                const opening = element.openingElement
+                const nativeFieldset =
+                  opening.name.type === 'JSXIdentifier' && opening.name.name === 'fieldset'
+                if (opening !== field.node && !nativeFieldset) continue
+                for (const name of ['disabled', ...(opening === field.node ? ['readOnly'] : [])]) {
+                  const attribute = attr(opening, name)
+                  if (!attribute) continue
+                  if (attribute.value === null || expression(attribute)?.value === true) return true
+                  // The field is editable only when this disabled/readOnly expression is false.
+                  if (target && flow.implies(expression(attribute), false, target, settled))
+                    return true
+                }
+              }
+              return false
+            }
+            const livePreference = (write, field) => {
+              // These framework contracts publish the selection immediately. Mirroring their
+              // notification is not asynchronous draft hydration. Match both ends, not names.
+              const contracts = [
+                ['useTranslation', 'locale', 'setLocale'],
+                ['useTheme', 'mode', 'setTheme'],
+              ]
+              return contracts.some(([hook, valueName, setterName]) => {
+                let matched = false
+                walk(write.argument, (part) => {
+                  const definition = variable(part)?.defs[0]
+                  const declaration = definition?.node
+                  if (
+                    declaration?.type !== 'VariableDeclarator' ||
+                    declaration.id.type !== 'ObjectPattern' ||
+                    declaration.init?.type !== 'CallExpression'
+                  )
+                    return
+                  const imported = variable(declaration.init.callee)?.defs[0]
+                  if (
+                    imported?.type !== 'ImportBinding' ||
+                    imported.parent.source.value !== '@molecule/app-react' ||
+                    imported.node.imported?.name !== hook
+                  )
+                    return
+                  if (
+                    !declaration.id.properties.some(
+                      (property) =>
+                        property.key?.name === valueName &&
+                        variable(property.value) === variable(part),
+                    )
+                  )
+                    return
+                  const setter = declaration.id.properties.find(
+                    (property) => property.key?.name === setterName,
+                  )?.value
+                  if (!setter) return
+                  const writes = []
+                  walk(field.change.body, (call) => {
+                    if (
+                      call.type === 'CallExpression' &&
+                      variable(call.callee) === field.state.setter
+                    )
+                      writes.push(call.arguments[0])
+                  })
+                  walk(field.change.body, (call) => {
+                    if (
+                      call.type === 'CallExpression' &&
+                      variable(call.callee) === variable(setter) &&
+                      writes.some(
+                        (value) =>
+                          flow.source.getText(value) === flow.source.getText(call.arguments[0]),
+                      )
+                    )
+                      matched = true
+                  })
+                })
+                return matched
+              })
+            }
+            const routeMirror = (write, field) => {
+              if (write.async) return false
+              const initial = flow.isFunction(field.state.initial)
+                ? unwrap(field.state.initial.body)
+                : field.state.initial
+              if (!initial || flow.source.getText(initial) !== flow.source.getText(write.argument))
+                return false
+              let route = false
+              walk(write.argument, (part) => {
+                const declaration = variable(part)?.defs[0]?.node
+                if (
+                  declaration?.type !== 'VariableDeclarator' ||
+                  declaration.init?.type !== 'CallExpression'
+                )
+                  return
+                const imported = variable(declaration.init.callee)?.defs[0]
+                if (
+                  imported?.type === 'ImportBinding' &&
+                  [
+                    'react-router',
+                    'react-router-dom',
+                    '@molecule/app-routing-react-router',
+                    '@molecule/app-react',
+                  ].includes(imported.parent.source.value) &&
+                  ['useSearchParams', 'useParams', 'useLocation', 'useListRoute'].includes(
+                    imported.node.imported?.name,
+                  )
+                )
+                  route = true
+              })
+              return route
+            }
+            const guardedUpdater = (argument, target) => {
+              const fn = callback(argument)
+              if (!fn || fn.params[0]?.type !== 'Identifier') return false
+              const previous = variable(fn.params[0])
+              const safeValue = (value) => {
+                value = unwrap(value)
+                if (variable(value) === previous || guarded(value, fn, target, false)) return true
+                return (
+                  value?.type === 'ConditionalExpression' &&
+                  safeValue(value.consequent) &&
+                  safeValue(value.alternate)
+                )
+              }
+              if (fn.body.type !== 'BlockStatement') return safeValue(fn.body)
+              let returns = 0
+              let safe = true
+              walk(
+                fn.body,
+                (part) => {
+                  if (part.type === 'ReturnStatement') {
+                    returns++
+                    if (!safeValue(part.argument)) safe = false
+                  }
+                },
+                (part) => !flow.isFunction(part),
+              )
+              return returns > 0 && safe
+            }
+            const guardedFill = (write, effect, target) => {
+              let boundary = effect.fn
+              for (
+                let parent = write.node.parent;
+                parent && parent !== effect.fn;
+                parent = parent.parent
+              ) {
+                if (
+                  flow.isFunction(parent) &&
+                  parent.parent?.type === 'CallExpression' &&
+                  ['then', 'catch', 'finally'].includes(member(parent.parent.callee))
+                ) {
+                  boundary = parent
+                  break
+                }
+              }
+              let lastAwait = -1
+              walk(
+                boundary.body,
+                (part) => {
+                  if (part.type === 'AwaitExpression' && part.range[1] <= write.node.range[0])
+                    lastAwait = Math.max(lastAwait, part.range[1])
+                },
+                (part) => !flow.isFunction(part),
+              )
+              return flow
+                .conditions(write.node, boundary)
+                .some(
+                  ([test, truth]) =>
+                    test.range[0] > lastAwait && flow.implies(test, truth, target, false),
+                )
+            }
+            for (const effect of effects)
+              for (const write of effect.writes) {
+                if (!write.argument || ['Literal', 'ArrayExpression'].includes(write.argument.type))
+                  continue
+                const editable = fields.filter((field) => field.state === write.state)
+                if (!editable.length) continue
+                const safe = editable.every((field) => {
+                  if (unavailable(field)) return true
+                  if (livePreference(write, field)) return true
+                  if (routeMirror(write, field)) return true
+                  if (
+                    dirtyGuards(field).some(
+                      (guard) =>
+                        (guard.ref || !write.async) &&
+                        (guardedFill(write, effect, guard.target) ||
+                          guardedUpdater(write.argument, guard.target)),
+                    )
+                  )
+                    return true
+                  // An explicit request cycle owns its unavailable UI through completion.
+                  // It is distinct from merely observing that query.data has arrived.
+                  if (
+                    write.async &&
+                    effect.writes.some(
+                      (mark) =>
+                        mark.group === write.group &&
+                        mark.argument?.value === false &&
+                        mark.state.initial?.value === true &&
+                        unavailable(field, (node) => variable(node) === mark.state.value, false),
+                    )
+                  )
+                    return true
+                  // Filling once is safe only if that same completion state controls editability
+                  // AND prevents later fills. Query readiness alone is before, not after, the fill.
+                  return (
+                    !write.async &&
+                    effect.writes.some(
+                      (mark) =>
+                        mark.argument?.value === true &&
+                        mark.state.initial?.value === false &&
+                        guarded(
+                          write.node,
+                          effect.fn,
+                          (node) => variable(node) === mark.state.value,
+                          false,
+                        ) &&
+                        unavailable(field, (node) => variable(node) === mark.state.value, true),
+                    )
+                  )
+                })
+                if (!safe) context.report({ node: write.node, messageId: 'overwrite' })
+              }
+          },
+        }
+      },
+    },
+    'async-collections-have-status': {
+      meta: {
+        type: 'problem',
+        schema: [],
+        docs: {
+          description:
+            'Keep pending async collections distinct from settled empty results and keep empty placeholders out of actionable item styling.',
+        },
+        messages: {
+          pending:
+            'This collection starts as [] and is filled asynchronously in an effect, so length === 0 also means the request is still pending. Start it as null and render loading before checking length, or guard this empty branch with a completion flag settled by this collection’s own request. With a query hook, render its status/error separately and check data only after success.',
+          item: 'This empty placeholder reuses the complete className of this collection’s actionable mapped items. It appears as another selectable item. Render the empty status separately with its own styling; keep item styling on real records.',
+        },
+      },
+      create(context) {
+        return {
+          'Program:exit'() {
+            const flow = reactStateFlow(context)
+            const {
+              walk,
+              unwrap,
+              member,
+              stateFor,
+              effects,
+              guarded,
+              variable,
+              attr,
+              expression,
+              contains,
+            } = flow
+            const emptyBranches = []
+            walk(flow.source.ast, (node) => {
+              let length
+              let emptyWhen = true
+              if (
+                node.type === 'BinaryExpression' &&
+                ['===', '==', '<', '<='].includes(node.operator) &&
+                node.right.value === (node.operator === '<' ? 1 : 0)
+              )
+                length = unwrap(node.left)
+              else if (
+                node.type === 'BinaryExpression' &&
+                ['===', '=='].includes(node.operator) &&
+                node.left.value === 0
+              )
+                length = unwrap(node.right)
+              else if (node.type === 'UnaryExpression' && node.operator === '!')
+                length = unwrap(node.argument)
+              else if (
+                node.type === 'MemberExpression' &&
+                member(node) === 'length' &&
+                node.parent.type === 'ConditionalExpression' &&
+                node.parent.test === node
+              ) {
+                length = node
+                emptyWhen = false
+              }
+              if (member(length) !== 'length') return
+              const state = stateFor(length.object)
+              const owner = state?.owner ?? flow.owner(node)
+              if (!owner) return
+              let branch = node
+              while (
+                branch.parent?.type === 'LogicalExpression' &&
+                branch.parent.operator === '&&' &&
+                branch.parent.right === branch
+              )
+                branch = branch.parent
+              const parent = branch.parent
+              const body =
+                parent?.type === 'ConditionalExpression' && parent.test === branch
+                  ? emptyWhen
+                    ? parent.consequent
+                    : parent.alternate
+                  : parent?.type === 'LogicalExpression' &&
+                      parent.operator === '&&' &&
+                      parent.left === branch
+                    ? parent.right
+                    : parent?.type === 'IfStatement' && parent.test === branch
+                      ? parent.consequent
+                      : null
+              if (!body) return
+              let jsx = false
+              walk(body, (part) => {
+                if (part.type === 'JSXElement') jsx = true
+              })
+              if (jsx) emptyBranches.push({ node, state, body, owner, collection: length.object })
+            })
+            for (const { node, state, body, owner, collection } of emptyBranches) {
+              const initial = flow.isFunction(state?.initial)
+                ? unwrap(state.initial.body)
+                : state?.initial
+              const loaders = state
+                ? effects.filter((effect) =>
+                    effect.writes.some((write) => write.state === state && write.async),
+                  )
+                : []
+              const completed =
+                loaders.length > 0 &&
+                loaders.every((effect) =>
+                  effect.writes.some((write) => {
+                    const value = write.argument?.value
+                    return (
+                      write.async &&
+                      effect.writes.some(
+                        (load) => load.state === state && load.group === write.group,
+                      ) &&
+                      typeof value === 'boolean' &&
+                      write.state.initial?.value === !value &&
+                      guarded(
+                        node,
+                        state.owner,
+                        (part) => variable(part) === write.state.value,
+                        value,
+                      )
+                    )
+                  }),
+                )
+              if (
+                initial?.type === 'ArrayExpression' &&
+                initial.elements.length === 0 &&
+                loaders.length &&
+                !completed
+              )
+                context.report({ node, messageId: 'pending' })
+              // Compare syntax-owned class values only: no selectors or class vocabulary. An
+              // ordinary empty card may share layout; the item must actually have an action.
+              const placeholders = []
+              walk(body, (part) => {
+                if (part.type !== 'JSXOpeningElement') return
+                const value = expression(attr(part, 'className'))
+                if (typeof value?.value === 'string' && value.value.trim())
+                  placeholders.push({
+                    node: part,
+                    classes: value.value.trim().split(/\s+/).sort().join(' '),
+                  })
+              })
+              if (!placeholders.length) continue
+              const sameCollection = (left, right) => {
+                left = unwrap(left)
+                right = unwrap(right)
+                if (left?.type === 'Identifier' && right?.type === 'Identifier')
+                  return variable(left) !== null && variable(left) === variable(right)
+                return (
+                  left?.type === 'MemberExpression' &&
+                  right?.type === 'MemberExpression' &&
+                  member(left) !== null &&
+                  member(left) === member(right) &&
+                  sameCollection(left.object, right.object)
+                )
+              }
+              const container = (part) => {
+                for (let parent = part.parent; parent && parent !== owner; parent = parent.parent)
+                  if (parent.type === 'JSXElement') return parent
+                return null
+              }
+              const listContainer = container(node)
+              walk(owner, (part) => {
+                if (
+                  part.type !== 'CallExpression' ||
+                  member(part.callee) !== 'map' ||
+                  !sameCollection(part.callee.object, collection) ||
+                  container(part) !== listContainer
+                )
+                  return
+                walk(part.arguments[0], (item) => {
+                  if (item.type !== 'JSXOpeningElement' || !flow.actionable(item)) return
+                  const value = expression(attr(item, 'className'))
+                  if (typeof value?.value !== 'string') return
+                  const classes = value.value.trim().split(/\s+/).sort().join(' ')
+                  for (const placeholder of placeholders)
+                    if (placeholder.classes === classes && !contains(body, item))
+                      context.report({ node: placeholder.node, messageId: 'item' })
+                })
+              })
+            }
+          },
+        }
+      },
+    },
     'no-fixed-navigation-truncation': {
       meta: {
         type: 'problem',

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -48,12 +48,14 @@ export function Settings() {
   const http = useHttpClient()
 
   const [section, setSection] = useState<Section>('profile')
-  const [profile, setProfile] = useState<ProfileForm>({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-  })
+  const [profile, setProfile, fillProfile] = useForm<ProfileForm>({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+    },
+  }).asState()
   const [profileSaving, setProfileSaving] = useState(false)
   const [profileSaved, setProfileSaved] = useState(false)
   const [profileError, setProfileError] = useState<string | null>(null)
@@ -67,13 +69,13 @@ export function Settings() {
   useEffect(() => {
     if (!user) return
     const split = splitName(user.name as string | undefined)
-    setProfile((p) => ({
+    fillProfile((p) => ({
       ...p,
       firstName: split.firstName,
       lastName: split.lastName,
       email: user.email ?? '',
     }))
-  }, [user])
+  }, [fillProfile, user])
 
   // Phone + notification preferences live in the user row's oauthData blob,
   // which the platform user resource never echoes on reads — so they come
@@ -90,7 +92,7 @@ export function Settings() {
           preferences?: Partial<PreferencesForm>
         }>(res)
         if (!settings) return
-        setProfile((p) => ({ ...p, phone: settings.phone ?? '' }))
+        fillProfile((p) => ({ ...p, phone: settings.phone ?? '' }))
         setPrefs((p) => ({
           pushEnabled: settings.preferences?.pushEnabled ?? p.pushEnabled,
           emailEnabled: settings.preferences?.emailEnabled ?? p.emailEnabled,
@@ -104,7 +106,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, user])
+  }, [fillProfile, http, user])
 
   const verifications = useMemo(() => {
     if (!user) return []

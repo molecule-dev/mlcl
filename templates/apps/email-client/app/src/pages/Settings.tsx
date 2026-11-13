@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -37,8 +37,12 @@ export function Settings() {
   const [me, setMe] = useState<MeUser | null>(user ?? null)
   const [prefs, setPrefs] = useState<PreferenceState>(readPrefs())
   const [editing, setEditing] = useState(false)
-  const [editName, setEditName] = useState('')
-  const [editEmail, setEditEmail] = useState('')
+  const [editName, setEditName, fillEditName] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
+  const [editEmail, setEditEmail, fillEditEmail] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [savingProfile, setSavingProfile] = useState(false)
   const [profileFeedback, setProfileFeedback] = useState<string | null>(null)
   const [signatureSaved, setSignatureSaved] = useState<string | null>(null)
@@ -57,21 +61,21 @@ export function Settings() {
         const payload: MeUser = (body?.props ?? body) as MeUser
         if (cancelled) return
         setMe(payload)
-        setEditName(payload.name ?? '')
-        setEditEmail(payload.email ?? '')
+        fillEditName(payload.name ?? '')
+        fillEditEmail(payload.email ?? '')
       } catch (_error) {
         // user profile load failed — fall back to cached auth state
         if (!cancelled) {
           setMe(user)
-          setEditName(user.name ?? '')
-          setEditEmail(user.email ?? '')
+          fillEditName(user.name ?? '')
+          fillEditEmail(user.email ?? '')
         }
       }
     })()
     return () => {
       cancelled = true
     }
-  }, [user, http])
+  }, [user, http, fillEditName, fillEditEmail])
 
   const initials = useMemo(() => {
     const name = me?.name?.trim() || me?.email || ''

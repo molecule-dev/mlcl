@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
-import { useTranslation } from '@molecule/app-react'
+import { useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface PromptDialogProps {
@@ -40,19 +40,21 @@ export function PromptDialog({
 }: PromptDialogProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [value, setValue] = useState(initialValue)
+  const [value, setValue, fillValue] = useForm({ defaultValues: { value: initialValue } }).asState(
+    'value',
+  )
   const inputRef = useRef<HTMLInputElement>(null)
 
   // Re-seed the draft each time the dialog opens (the component stays mounted
   // while `open` toggles) and move focus into it.
   useEffect(() => {
     if (open) {
-      setValue(initialValue)
+      fillValue(initialValue)
       // Wait a frame so the input exists before focus (React commit order).
       const id = window.setTimeout(() => inputRef.current?.focus(), 0)
       return () => window.clearTimeout(id)
     }
-  }, [open, initialValue])
+  }, [open, initialValue, fillValue])
 
   if (!open) return null
 

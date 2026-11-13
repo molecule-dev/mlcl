@@ -34,8 +34,11 @@ export function Dashboard() {
   const [summary, setSummary] = useState<DashboardSummary | null>(null)
   const [activity, setActivity] = useState<ActivityItem[]>([])
   const [invoices, setInvoices] = useState<InvoiceRow[]>([])
+  const [invoicesReady, setInvoicesReady] = useState(false)
 
   useEffect(() => {
+    setInvoicesReady(false)
+
     let active = true
     http
       .get<DashboardSummary>('/api/dashboard/summary')
@@ -56,10 +59,16 @@ export function Dashboard() {
     http
       .get<InvoiceRow[]>('/api/invoices')
       .then((r) => {
-        if (active) setInvoices(Array.isArray(r.data) ? r.data.slice(0, 5) : [])
+        if (active) {
+          setInvoices(Array.isArray(r.data) ? r.data.slice(0, 5) : [])
+          setInvoicesReady(true)
+        }
       })
       .catch(() => {
-        if (active) setInvoices([])
+        if (active) {
+          setInvoices([])
+          setInvoicesReady(true)
+        }
       })
     return () => {
       active = false
@@ -287,7 +296,7 @@ export function Dashboard() {
                   {t('dashboard.recent.col.paid', {}, { defaultValue: 'Paid' })}
                 </span>
               </div>
-              {invoices.length === 0 ? (
+              {invoicesReady && invoices.length === 0 ? (
                 <div
                   style={{
                     padding: '40px 20px',

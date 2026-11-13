@@ -48,6 +48,8 @@ export function BookAppointmentPage() {
   const [searchParams] = useSearchParams()
   const [provider, setProvider] = useState<Provider | null>(null)
   const [slots, setSlots] = useState<Slot[]>([])
+  const [slotsReady, setSlotsReady] = useState(false)
+
   const [selectedSlot, setSelectedSlot] = useState<string>('')
   const [appointmentType, setAppointmentType] = useState('video')
   const [reason, setReason] = useState('')
@@ -57,13 +59,15 @@ export function BookAppointmentPage() {
   const providerId = params.id ?? searchParams.get('provider_id')
 
   useEffect(() => {
+    setSlotsReady(false)
+
     if (providerId) {
       http
         .get(`/api/providers/${providerId}`)
         .then((res) => setProvider(unwrapSingle<Provider>(res)))
       http
         .get(`/api/providers/${providerId}/availability`)
-        .then((res) => setSlots(unwrapList<Slot>(res)))
+        .then((res) => (setSlots(unwrapList<Slot>(res)), setSlotsReady(true)))
     }
   }, [http, providerId])
 
@@ -213,7 +217,7 @@ export function BookAppointmentPage() {
           <label className={labelClass}>
             {t('booking.selectTime', {}, { defaultValue: 'Select Time' })}
           </label>
-          {slots.length === 0 ? (
+          {slotsReady && slots.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t('booking.noSlots', {}, { defaultValue: 'No available slots.' })}
             </p>

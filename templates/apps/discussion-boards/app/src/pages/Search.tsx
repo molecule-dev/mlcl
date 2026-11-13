@@ -66,10 +66,14 @@ export function Search() {
   const [query, setQuery] = useState('')
   const [filter, setFilter] = useState<'all' | 'threads' | 'posts' | 'users'>('all')
   const [results, setResults] = useState<SearchResult[]>([])
+  const [resultsReady, setResultsReady] = useState(false)
+
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setResultsReady(false)
+
     if (!query.trim()) {
       setResults([])
       setError(null)
@@ -83,11 +87,13 @@ export function Search() {
         .then((res) => {
           if (cancelled) return
           setResults(res?.data?.data ?? [])
+          setResultsReady(true)
           setError(null)
         })
         .catch((e) => {
           if (cancelled) return
           setResults([])
+          setResultsReady(true)
           setError(e instanceof Error ? e.message : 'Search failed')
         })
         .finally(() => !cancelled && setLoading(false))
@@ -216,7 +222,7 @@ export function Search() {
         <p className={cm.textMuted}>
           {t('common.searchingEllipsis', {}, { defaultValue: 'Searching…' })}
         </p>
-      ) : results.length === 0 ? (
+      ) : resultsReady && results.length === 0 ? (
         <p className={cm.textMuted}>
           {t('search.empty', {}, { defaultValue: 'No matches. Try a different phrase.' })}
         </p>

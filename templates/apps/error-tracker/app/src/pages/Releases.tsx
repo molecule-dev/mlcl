@@ -55,15 +55,20 @@ export function Releases() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [releases, setReleases] = useState<ReleaseRow[]>([])
+  const [releasesReady, setReleasesReady] = useState(false)
+
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setReleasesReady(false)
+
     let cancelled = false
     http
       .get<ReleaseRow[]>('/api/releases')
       .then((res) => {
         if (cancelled) return
         setReleases(Array.isArray(res.data) ? res.data : [])
+        setReleasesReady(true)
       })
       .catch(() => {
         if (!cancelled)
@@ -117,7 +122,7 @@ export function Releases() {
         </p>
       ) : null}
 
-      {releases.length === 0 ? (
+      {releasesReady && releases.length === 0 ? (
         <p
           data-testid="releases-empty"
           className={cm.cn('font-mono text-sm py-12 text-center')}

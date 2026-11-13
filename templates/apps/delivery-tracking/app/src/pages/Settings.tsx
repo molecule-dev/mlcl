@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -369,11 +369,13 @@ function TrackingDomainCard() {
 
 function OrganizationPanel({ http, t }: PanelProps) {
   const cm = getClassMap()
-  const [draft, setDraft] = useState({
-    organization_name: '',
-    timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
-    business_hours: '9:00am - 6:00pm Mon-Fri',
-  })
+  const [draft, setDraft, fillDraft] = useForm({
+    defaultValues: {
+      organization_name: '',
+      timezone: Intl.DateTimeFormat().resolvedOptions().timeZone,
+      business_hours: '9:00am - 6:00pm Mon-Fri',
+    },
+  }).asState()
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
   const [savedAt, setSavedAt] = useState<string | null>(null)
@@ -387,7 +389,7 @@ function OrganizationPanel({ http, t }: PanelProps) {
         const data = (res?.data ?? {}) as Partial<UserOrgFields> & { data?: Partial<UserOrgFields> }
         const d = (data.data ?? data) as Partial<UserOrgFields>
         if (d) {
-          setDraft((prev) => ({
+          fillDraft((prev) => ({
             organization_name: d.organization_name ?? prev.organization_name,
             timezone: d.timezone ?? prev.timezone,
             business_hours: d.business_hours ?? prev.business_hours,
@@ -398,7 +400,7 @@ function OrganizationPanel({ http, t }: PanelProps) {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillDraft, http])
 
   async function save(e: React.FormEvent) {
     e.preventDefault()

@@ -8,7 +8,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -37,8 +37,12 @@ export function Profile() {
   const userId = user?.id ?? ''
 
   const [userData, setUserData] = useState<UserData>({})
-  const [name, setName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: user?.name ?? '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
   const [currentPassword, setCurrentPassword] = useState('')
   const [bio, setBio] = useState('')
   const [defaultProvider, setDefaultProvider] = useState('anthropic')
@@ -66,9 +70,9 @@ export function Profile() {
   }, [loadPrefs])
 
   useEffect(() => {
-    setName(user?.name ?? '')
-    setEmail(user?.email ?? '')
-  }, [user?.name, user?.email])
+    fillName(user?.name ?? '')
+    fillEmail(user?.email ?? '')
+  }, [user?.name, user?.email, fillName, fillEmail])
 
   const displayName = name || user?.name || 'Operator'
   const initials = displayName

@@ -46,6 +46,8 @@ export function BoardDetail() {
   const { isAuthenticated } = useAuth()
   const [board, setBoard] = useState<ApiBoardSummary | null>(null)
   const [posts, setPosts] = useState<ApiPost[]>([])
+  const [postsReady, setPostsReady] = useState(false)
+
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [statusFilter, setStatusFilter] = useState<StatusFilter>('all')
@@ -78,6 +80,8 @@ export function BoardDetail() {
   }, [slug, t])
 
   useEffect(() => {
+    setPostsReady(false)
+
     if (!board?.id) return
     let cancelled = false
     const http = getHttpClient()
@@ -89,10 +93,14 @@ export function BoardDetail() {
         if (cancelled) return
         const rows = Array.isArray(res?.data?.data) ? res.data.data : []
         setPosts(rows.filter((p) => p.board_id === board.id))
+        setPostsReady(true)
       })
       .catch((e) => {
         logError('boardDetail.loadPosts', e)
-        if (!cancelled) setPosts([])
+        if (!cancelled) {
+          setPosts([])
+          setPostsReady(true)
+        }
       })
     return () => {
       cancelled = true
@@ -280,7 +288,7 @@ export function BoardDetail() {
         </div>
       </div>
 
-      {posts.length === 0 ? (
+      {postsReady && posts.length === 0 ? (
         <div
           className={cm.cn(
             cm.flex({ direction: 'col', align: 'center', gap: 'sm' }),

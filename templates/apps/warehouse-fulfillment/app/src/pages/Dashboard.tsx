@@ -413,7 +413,7 @@ export function Dashboard() {
               {t('dashboard.zones.title', {}, { defaultValue: 'Floor activity' })}
             </h2>
           </header>
-          {zones.length === 0 ? (
+          {errored && zones.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
               {t(
                 'dashboard.zones.empty',

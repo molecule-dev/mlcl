@@ -162,7 +162,7 @@ export function Notifications() {
       />
 
       <section className={cm.cn(cm.flex({ direction: 'col', gap: 'sm' }))}>
-        {loading && notifs.length === 0 ? (
+        {loading && !loading && notifs.length === 0 ? (
           <p className={cm.cn(cm.textCenter, cm.sp('py', 12), 'text-on-surface-variant')}>
             {t('notifications.loading', {}, { defaultValue: 'Loading inbox\u2026' })}
           </p>
@@ -170,7 +170,7 @@ export function Notifications() {
           <p className={cm.cn(cm.textCenter, cm.sp('py', 12), 'text-error')} role="alert">
             {error}
           </p>
-        ) : notifs.length === 0 ? (
+        ) : !loading && notifs.length === 0 ? (
           <p className={cm.cn(cm.textCenter, cm.sp('py', 12), 'text-on-surface-variant')}>
             {t('notifications.empty', {}, { defaultValue: 'You\u2019re all caught up.' })}
           </p>

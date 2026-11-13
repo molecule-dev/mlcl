@@ -45,6 +45,7 @@ export function Notifications() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [zones, setZones] = useState<WatchAreaRow[]>([])
+  const [zonesReady, setZonesReady] = useState(false)
 
   useEffect(() => {
     document.title = t(
@@ -56,6 +57,8 @@ export function Notifications() {
 
   // Watched geofences strip (design: the subscription summary under the feed).
   useEffect(() => {
+    setZonesReady(false)
+
     let cancelled = false
     async function loadZones() {
       try {
@@ -65,7 +68,10 @@ export function Notifications() {
           : Array.isArray((res as { data?: unknown })?.data)
             ? (res as { data: WatchAreaRow[] }).data
             : []
-        if (!cancelled) setZones(raw)
+        if (!cancelled) {
+          setZones(raw)
+          setZonesReady(true)
+        }
       } catch (_error) {
         // Summary is a nice-to-have — the feed works without it.
       }
@@ -362,7 +368,7 @@ export function Notifications() {
                 <h3 className={cm.cn(cm.textSize('sm'), cm.fontWeight('bold'))}>
                   {t('notifications.geofences', {}, { defaultValue: 'Watched Geofences' })}
                 </h3>
-                {zones.length === 0 ? (
+                {zonesReady && zones.length === 0 ? (
                   <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                     {t(
                       'notifications.noGeofences',

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -74,9 +74,15 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [persisted, setPersisted] = useState<PersistedSettings>(DEFAULT_SETTINGS)
-  const [storeName, setStoreName] = useState(DEFAULT_SETTINGS.storeName)
-  const [tagline, setTagline] = useState(DEFAULT_SETTINGS.tagline)
-  const [payoutEmail, setPayoutEmail] = useState(DEFAULT_SETTINGS.payoutEmail)
+  const [storeName, setStoreName, fillStoreName] = useForm({
+    defaultValues: { value: DEFAULT_SETTINGS.storeName },
+  }).asState('value')
+  const [tagline, setTagline, fillTagline] = useForm({
+    defaultValues: { value: DEFAULT_SETTINGS.tagline },
+  }).asState('value')
+  const [payoutEmail, setPayoutEmail, fillPayoutEmail] = useForm({
+    defaultValues: { value: DEFAULT_SETTINGS.payoutEmail },
+  }).asState('value')
   const [brandColor, setBrandColor] = useState(DEFAULT_SETTINGS.brandColor)
   const [savedMessage, setSavedMessage] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -97,9 +103,9 @@ export function Settings() {
         ) as Partial<PersistedSettings>
         const s = { ...DEFAULT_SETTINGS, ...saved }
         setPersisted(s)
-        setStoreName(s.storeName)
-        setTagline(s.tagline)
-        setPayoutEmail(s.payoutEmail)
+        fillStoreName(s.storeName)
+        fillTagline(s.tagline)
+        fillPayoutEmail(s.payoutEmail)
         setBrandColor(s.brandColor)
         if (inner?.planKey) setPlanKey(inner.planKey)
       })
@@ -109,7 +115,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillPayoutEmail, fillStoreName, fillTagline, http])
 
   const handleSave = async () => {
     setSaving(true)

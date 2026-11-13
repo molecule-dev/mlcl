@@ -375,7 +375,7 @@ export function Profile() {
         <h2 className={cm.cn(cm.textSize('xl'), cm.fontWeight('bold'))}>
           {t('profile.languagesHeading', {}, { defaultValue: 'Languages in progress' })}
         </h2>
-        {loading && courses.length === 0 ? (
+        {loading && !loading && courses.length === 0 ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('common.loadingEllipsis', {}, { defaultValue: 'Loading…' })}
           </p>

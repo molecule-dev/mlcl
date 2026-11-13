@@ -330,7 +330,7 @@ export function PayRunDetail() {
           <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
             {t('payRunDetail.activityHeading', {}, { defaultValue: 'Activity timeline' })}
           </h2>
-          {audit.length === 0 ? (
+          {notFound && audit.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t(
                 'payRunDetail.noActivity',

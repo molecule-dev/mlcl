@@ -77,10 +77,14 @@ export function SitterDetail() {
   const http = useHttpClient()
   const [sitter, setSitter] = useState<ApiSitter | null>(null)
   const [reviews, setReviews] = useState<ApiReview[]>([])
+  const [reviewsReady, setReviewsReady] = useState(false)
+
   const [loading, setLoading] = useState(true)
   const [bookOpen, setBookOpen] = useState(false)
 
   useEffect(() => {
+    setReviewsReady(false)
+
     if (!id) {
       setLoading(false)
       return
@@ -104,6 +108,7 @@ export function SitterDetail() {
       .then((res) => {
         if (cancelled) return
         setReviews(unwrapList<ApiReview>(res))
+        setReviewsReady(true)
       })
       .catch((err: unknown) => {
         console.error('[SitterDetail] failed to load reviews', err)
@@ -324,7 +329,7 @@ export function SitterDetail() {
             { defaultValue: 'Recent reviews · {{count}}' },
           )}
         </h2>
-        {reviews.length === 0 ? (
+        {reviewsReady && reviews.length === 0 ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t(
               'sitterDetail.noReviews',

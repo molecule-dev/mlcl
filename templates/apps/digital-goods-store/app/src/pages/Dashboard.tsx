@@ -230,7 +230,7 @@ export function Dashboard() {
 
       <section className={cm.cn(cm.grid({ gap: 'lg' }), 'grid-cols-1 lg:grid-cols-3')}>
         <div className={cm.cn('lg:col-span-2')}>
-          {loading && sales.length === 0 ? (
+          {loading && !loading && sales.length === 0 ? (
             <div
               className={cm.cn(
                 cm.sp('p', 8),

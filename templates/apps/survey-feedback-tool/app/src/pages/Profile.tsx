@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { StatusPill } from '../components/StatusPill.js'
@@ -74,9 +74,13 @@ export function Profile() {
 
   const userId = authUser?.id ?? null
 
-  const [name, setName] = useState<string>('')
+  const [name, setName, fillName] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [originalName, setOriginalName] = useState<string>('')
-  const [email, setEmail] = useState<string>('')
+  const [email, setEmail, fillEmail] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [originalEmail, setOriginalEmail] = useState<string>('')
   const [savingName, setSavingName] = useState(false)
   const [nameError, setNameError] = useState<string | null>(null)
@@ -95,12 +99,12 @@ export function Profile() {
 
   useEffect(() => {
     const initialName = (authUser?.name as string) ?? ''
-    setName(initialName)
+    fillName(initialName)
     setOriginalName(initialName)
     const initialEmail = (authUser?.email as string) ?? ''
-    setEmail(initialEmail)
+    fillEmail(initialEmail)
     setOriginalEmail(initialEmail)
-  }, [authUser?.name, authUser?.email])
+  }, [authUser?.name, authUser?.email, fillName, fillEmail])
 
   useEffect(() => {
     if (!userId) return

@@ -1,7 +1,13 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useChangePassword, useHttpClient, useTranslation } from '@molecule/app-react'
+import {
+  useAuth,
+  useChangePassword,
+  useForm,
+  useHttpClient,
+  useTranslation,
+} from '@molecule/app-react'
 import { NotificationsSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker } from '@molecule/app-ui-react'
@@ -85,8 +91,8 @@ export function Settings() {
   const userId = sessionUser?.id
 
   const [profile, setProfile] = useState<AppUser | null>(null)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [savingProfile, setSavingProfile] = useState(false)
   const [profileSavedAt, setProfileSavedAt] = useState<number | null>(null)
   const [profileError, setProfileError] = useState<string | null>(null)
@@ -104,8 +110,8 @@ export function Settings() {
       .then((u) => {
         if (cancelled || !u) return
         setProfile(u)
-        if (!editedRef.current.name) setName(u.name ?? '')
-        if (!editedRef.current.email) setEmail(u.email ?? '')
+        if (!editedRef.current.name) fillName(u.name ?? '')
+        if (!editedRef.current.email) fillEmail(u.email ?? '')
       })
       .catch(() => {
         if (!cancelled)
@@ -116,7 +122,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, userId, t])
+  }, [http, userId, t, fillName, fillEmail])
 
   const onSaveProfile = async (e: React.FormEvent) => {
     e.preventDefault()

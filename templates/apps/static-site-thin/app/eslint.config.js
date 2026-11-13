@@ -69,6 +69,8 @@ export default tseslint.config(
     rules: {
       'molecule-local/no-empty-interactive-target': 'error',
       'molecule-local/prefer-declared-clients': 'error',
+      'molecule-local/async-collections-have-status': 'error',
+      'molecule-local/effects-preserve-form-edits': 'error',
       'molecule-local/no-fixed-navigation-truncation': 'warn',
       'molecule-local/unique-update-excludes-self': 'warn',
       ...(routingBond

@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Switch } from '@molecule/app-ui-react'
 
@@ -72,7 +72,10 @@ function Conversation() {
   const [activeId, setActiveId] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [sending, setSending] = useState(false)
-  const [voicePlaybackEnabled, setVoicePlaybackEnabled] = useState(true)
+  const [voicePlaybackEnabled, setVoicePlaybackEnabled, fillVoicePlaybackEnabled] = useForm({
+    defaultValues: { value: true },
+    resetKey: JSON.stringify([searchParams.toString()]),
+  }).asState('value')
   const [lastAudioAt, setLastAudioAt] = useState<number | null>(null)
   const inputRef = useRef<HTMLInputElement | null>(null)
   const recorderRef = useRef<MediaRecorder | null>(null)
@@ -93,7 +96,7 @@ function Conversation() {
         const res = await http.get<{ voicePlaybackEnabled?: boolean }>('/preferences')
         if (cancelled) return
         if (typeof res.data?.voicePlaybackEnabled === 'boolean') {
-          setVoicePlaybackEnabled(res.data.voicePlaybackEnabled)
+          fillVoicePlaybackEnabled(res.data.voicePlaybackEnabled)
         }
       } catch (_error) {
         // Keep the optimistic default — losing the persisted value is a
@@ -103,7 +106,7 @@ function Conversation() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillVoicePlaybackEnabled, http])
 
   // Fetch the most recent conversation (or create one if none) when the
   // page mounts. The verifier and humans both need a real, observable

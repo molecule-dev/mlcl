@@ -156,7 +156,7 @@ export function Alerts() {
           onRetry={() => setRetryKey((k) => k + 1)}
           retryMolId="error-retry"
         />
-      ) : alerts.length === 0 ? (
+      ) : !loading && alerts.length === 0 ? (
         <div
           data-test="alerts-empty"
           className={cm.cn(

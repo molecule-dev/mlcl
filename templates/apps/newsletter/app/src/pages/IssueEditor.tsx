@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 /**
@@ -16,9 +16,18 @@ function IssueEditor() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { id: routeId } = useParams<{ id: string }>()
-  const [subject, setSubject] = useState('')
-  const [previewText, setPreviewText] = useState('')
-  const [bodyMd, setBodyMd] = useState('')
+  const [subject, setSubject, fillSubject] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [previewText, setPreviewText, fillPreviewText] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [bodyMd, setBodyMd, fillBodyMd] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
   const [issueId, setIssueId] = useState<string | null>(routeId ?? null)
   const [status, setStatus] = useState<string | null>(null)
   const [loading, setLoading] = useState(false)
@@ -46,9 +55,9 @@ function IssueEditor() {
         > | null
         if (!row) return
         setIssueId((row.id as string) ?? routeId)
-        setSubject((row.subject as string) ?? '')
-        setPreviewText((row.preview_text as string) ?? '')
-        setBodyMd((row.body_md as string) ?? '')
+        fillSubject((row.subject as string) ?? '')
+        fillPreviewText((row.preview_text as string) ?? '')
+        fillBodyMd((row.body_md as string) ?? '')
         setStatus((row.status as string) ?? null)
       })
       .catch((err: unknown) => {
@@ -65,7 +74,7 @@ function IssueEditor() {
     return () => {
       active = false
     }
-  }, [routeId, http, t])
+  }, [routeId, http, t, fillSubject, fillPreviewText, fillBodyMd])
 
   // Returns the id the issue now has (existing id, or the freshly created
   // one) so callers can act on it without racing the state update.

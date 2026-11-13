@@ -2,7 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { getClient as getHttpClient } from '@molecule/app-http'
-import { useTranslation } from '@molecule/app-react'
+import { useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Alert, ConfirmButton, PromptDialog } from '@molecule/app-ui-react'
 
@@ -112,10 +112,16 @@ export function Profile() {
   const { data: user, refetch: refetchUser } = useApi<ApiUser>('/profile')
   const { data: sessionsData, refetch: refetchSessions } = useApi<ApiSession[]>('/profile/sessions')
 
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [displayName, setDisplayName] = useState('')
-  const [email, setEmail] = useState('')
+  const [firstName, setFirstName, fillFirstName] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [lastName, setLastName, fillLastName] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
+  const [displayName, setDisplayName, fillDisplayName] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [prefs, setPrefs] = useState<Record<string, boolean>>({})
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
@@ -146,17 +152,17 @@ export function Profile() {
     if (hydratedFromUserRef.current === user.id) return
     hydratedFromUserRef.current = user.id
     const { first, last } = splitName(user.name)
-    setFirstName(first)
-    setLastName(last)
-    setDisplayName(user.username ?? '')
-    setEmail(user.emailAddress ?? user.email ?? '')
+    fillFirstName(first)
+    fillLastName(last)
+    fillDisplayName(user.username ?? '')
+    fillEmail(user.emailAddress ?? user.email ?? '')
     const stored = parsePrefs(user.preferences)
     const merged: Record<string, boolean> = {}
     for (const def of PREF_DEFS) {
       merged[def.id] = stored[def.id] ?? true
     }
     setPrefs(merged)
-  }, [user])
+  }, [fillDisplayName, fillEmail, fillFirstName, fillLastName, user])
 
   const hydrated = hydratedFromUserRef.current !== null && !!user?.id
 

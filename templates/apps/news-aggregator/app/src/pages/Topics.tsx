@@ -107,11 +107,11 @@ export function Topics() {
 
       {error ? (
         <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-error')}>{error}</p>
-      ) : loading && topics.length === 0 ? (
+      ) : loading && !loading && topics.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}>
           {t('topics.loading', {}, { defaultValue: 'Loading topics…' })}
         </p>
-      ) : topics.length === 0 ? (
+      ) : !loading && topics.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}>
           {t('topics.empty', {}, { defaultValue: 'No topics yet.' })}
         </p>

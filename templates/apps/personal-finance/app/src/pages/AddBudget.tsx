@@ -2,7 +2,7 @@ import { type FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import FinanceShell from '../components/FinanceShell.js'
@@ -19,7 +19,11 @@ function AddBudget() {
   const http = useHttpClient()
   const now = new Date()
   const [categories, setCategories] = useState<Category[]>([])
-  const [categoryId, setCategoryId] = useState('')
+  const [categoriesReady, setCategoriesReady] = useState(false)
+
+  const [categoryId, setCategoryId, fillCategoryId] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [amount, setAmount] = useState('0')
   const [month, setMonth] = useState(now.getMonth() + 1)
   const [year, setYear] = useState(now.getFullYear())
@@ -27,6 +31,8 @@ function AddBudget() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setCategoriesReady(false)
+
     let cancelled = false
     http
       .get('/api/categories')
@@ -38,7 +44,8 @@ function AddBudget() {
             ? (res as { data: Category[] }).data
             : []
         setCategories(list)
-        if (list[0] && !categoryId) setCategoryId(list[0].id)
+        setCategoriesReady(true)
+        if (list[0] && !categoryId) fillCategoryId(list[0].id)
       })
       .catch(() => {
         if (cancelled) return
@@ -162,7 +169,7 @@ function AddBudget() {
                   disabled={categories.length === 0}
                   className={cm.cn(cm.sp('p', 4), 'bg-surface-container-low rounded-lg')}
                 >
-                  {categories.length === 0 ? (
+                  {categoriesReady && categories.length === 0 ? (
                     <option value="">
                       {t(
                         'addBudget.noCategoriesPlaceholder',

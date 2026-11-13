@@ -623,7 +623,7 @@ export function Translate() {
               {t('translate.tmHeading', {}, { defaultValue: 'TM matches' })}
             </h3>
             <div className={cm.flex({ direction: 'col', gap: 'sm' })}>
-              {tmMatches.length === 0 ? (
+              {!loading && tmMatches.length === 0 ? (
                 <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                   {t('translate.tmEmpty', {}, { defaultValue: 'No memory matches yet.' })}
                 </p>
@@ -715,7 +715,7 @@ export function Translate() {
               {t('translate.glossaryHeading', {}, { defaultValue: 'Glossary terms' })}
             </h3>
             <div className={cm.flex({ direction: 'col', gap: 'sm' })}>
-              {glossaryEntries.length === 0 ? (
+              {!loading && glossaryEntries.length === 0 ? (
                 <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant')}>
                   {t('translate.glossaryEmpty', {}, { defaultValue: 'No glossary terms yet.' })}
                 </p>

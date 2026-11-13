@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -69,8 +69,10 @@ export function Account() {
   const [role, setRole] = useState<RoleKey>('student')
   const [meData, setMeData] = useState<UserMeResponse['props']>(null)
   const [billing, setBilling] = useState<BillingStatus | null>(null)
-  const [displayName, setDisplayName] = useState('')
-  const [email, setEmail] = useState('')
+  const [displayName, setDisplayName, fillDisplayName] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [profileSaving, setProfileSaving] = useState(false)
   const [profileFeedback, setProfileFeedback] = useState<string | null>(null)
   const [notifSaving, setNotifSaving] = useState(false)
@@ -93,13 +95,13 @@ export function Account() {
         const data = (res as { data?: UserMeResponse | null }).data
         const props = data?.props ?? null
         setMeData(props)
-        setDisplayName(props?.name ?? user?.name ?? '')
-        setEmail(props?.email ?? user?.email ?? '')
+        fillDisplayName(props?.name ?? user?.name ?? '')
+        fillEmail(props?.email ?? user?.email ?? '')
       })
       .catch(() => {
         if (active) {
-          setDisplayName(user?.name ?? '')
-          setEmail(user?.email ?? '')
+          fillDisplayName(user?.name ?? '')
+          fillEmail(user?.email ?? '')
         }
       })
     http

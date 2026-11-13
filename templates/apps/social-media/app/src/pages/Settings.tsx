@@ -2,7 +2,13 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
+import {
+  useAuth,
+  useForm,
+  useHttpClient,
+  useOptimisticValue,
+  useTranslation,
+} from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -603,11 +609,11 @@ function SaveOnBlurField({
   onSave: (v: string) => Promise<void> | void
 }) {
   const cm = getClassMap()
-  const [draft, setDraft] = useState(value)
+  const [draft, setDraft, fillDraft] = useForm({ defaultValues: { value: value } }).asState('value')
 
   useEffect(() => {
-    setDraft(value)
-  }, [value])
+    fillDraft(value)
+  }, [fillDraft, value])
 
   const commit = () => {
     if (draft !== value) void onSave(draft)

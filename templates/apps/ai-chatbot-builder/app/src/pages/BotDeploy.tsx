@@ -4,7 +4,7 @@ import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { unwrapSingle } from '@molecule/app-http'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BRAND_COLOR } from '../branding.js'
@@ -29,9 +29,16 @@ function BotDeploy() {
   const { id: botId } = useParams<{ id: string }>()
   const http = useHttpClient()
   const [position, setPosition] = useState<'bottom-right' | 'bottom-left'>('bottom-right')
-  const [initialMessage, setInitialMessage] = useState(
-    t('botDeploy.defaultInitialMessage', {}, { defaultValue: 'Hi! How can I help you today?' }),
-  )
+  const [initialMessage, setInitialMessage, fillInitialMessage] = useForm({
+    defaultValues: {
+      value: t(
+        'botDeploy.defaultInitialMessage',
+        {},
+        { defaultValue: 'Hi! How can I help you today?' },
+      ),
+    },
+    resetKey: JSON.stringify([botId]),
+  }).asState('value')
   const [themeColor, setThemeColor] = useState(BRAND_COLOR)
   const [codeCopied, setCodeCopied] = useState(false)
   const [copyError, setCopyError] = useState<string | null>(null)
@@ -44,7 +51,7 @@ function BotDeploy() {
       .then((res) => {
         if (!active) return
         const body = unwrapSingle<BotResponse>(res.data) ?? null
-        if (body?.welcome_message) setInitialMessage(body.welcome_message)
+        if (body?.welcome_message) fillInitialMessage(body.welcome_message)
       })
       // The bot's stored welcome message is a nicety — on fetch failure the
       // editable default initial message is kept.
@@ -52,7 +59,7 @@ function BotDeploy() {
     return () => {
       active = false
     }
-  }, [botId, http])
+  }, [botId, fillInitialMessage, http])
 
   // Build an embed snippet that actually points at the running bot.
   const origin =

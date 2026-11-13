@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useStorage, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useStorage, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
@@ -31,8 +31,8 @@ export function Compose() {
   const [categories, setCategories] = useState<CategoryOption[]>([])
   const [categoriesError, setCategoriesError] = useState<string | null>(null)
   const [categoriesReloadKey, setCategoriesReloadKey] = useState(0)
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [title, setTitle, fillTitle] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [body, setBody, fillBody] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [categoryId, setCategoryId] = useState<string>('')
   const [previewing, setPreviewing] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -46,8 +46,8 @@ export function Compose() {
       .get<{ title?: string; body?: string }>(DRAFT_KEY)
       .then((draft) => {
         if (cancelled || !draft) return
-        setTitle((current) => current || draft.title || '')
-        setBody((current) => current || draft.body || '')
+        fillTitle((current) => current || draft.title || '')
+        fillBody((current) => current || draft.body || '')
       })
       .catch((_error) => {
         // Best-effort restore — a missing or corrupt draft just starts blank.
@@ -58,7 +58,7 @@ export function Compose() {
     return () => {
       cancelled = true
     }
-  }, [storage])
+  }, [fillBody, fillTitle, storage])
 
   // Autosave the draft as the user writes (debounced), per the page subtitle.
   useEffect(() => {

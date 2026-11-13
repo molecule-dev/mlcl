@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
-import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -42,16 +42,36 @@ export function Settings() {
   const http = useHttpClient()
   const user = useUser<CurrentUser>()
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
   const [profileSaving, setProfileSaving] = useState(false)
   const [profileSaved, setProfileSaved] = useState(false)
   const [profileError, setProfileError] = useState<string | null>(null)
 
-  const [retrievalK, setRetrievalK] = useState(DEFAULT_PREFS.retrievalK)
-  const [chunkSize, setChunkSize] = useState(DEFAULT_PREFS.chunkSize)
-  const [chunkOverlap, setChunkOverlap] = useState(DEFAULT_PREFS.chunkOverlap)
-  const [embeddingSize, setEmbeddingSize] = useState<'large' | 'small'>(DEFAULT_PREFS.embeddingSize)
+  const [retrievalK, setRetrievalK, fillRetrievalK] = useForm({
+    defaultValues: { value: DEFAULT_PREFS.retrievalK },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [chunkSize, setChunkSize, fillChunkSize] = useForm({
+    defaultValues: { value: DEFAULT_PREFS.chunkSize },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [chunkOverlap, setChunkOverlap, fillChunkOverlap] = useForm({
+    defaultValues: { value: DEFAULT_PREFS.chunkOverlap },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [embeddingSize, setEmbeddingSize, fillEmbeddingSize] = useForm<{
+    value: 'large' | 'small'
+  }>({
+    defaultValues: { value: DEFAULT_PREFS.embeddingSize },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
   const [prefsSaving, setPrefsSaving] = useState(false)
   const [prefsSaved, setPrefsSaved] = useState(false)
   const [prefsError, setPrefsError] = useState<string | null>(null)
@@ -87,8 +107,8 @@ export function Settings() {
             : (envelope as CurrentUser | null)
         if (!fetched) return
         setLoadedUser(fetched)
-        setName(fetched.name ?? '')
-        setEmail(fetched.email ?? '')
+        fillName(fetched.name ?? '')
+        fillEmail(fetched.email ?? '')
       })
       .catch(() => {})
     // Retrieval defaults come from the server-side /api/settings channel:
@@ -100,10 +120,10 @@ export function Settings() {
       .then((res) => {
         if (cancelled) return
         const prefs = unwrapSingle<{ rag?: RagPrefs }>(res)?.rag ?? {}
-        setRetrievalK(prefs.retrievalK ?? DEFAULT_PREFS.retrievalK)
-        setChunkSize(prefs.chunkSize ?? DEFAULT_PREFS.chunkSize)
-        setChunkOverlap(prefs.chunkOverlap ?? DEFAULT_PREFS.chunkOverlap)
-        setEmbeddingSize(prefs.embeddingSize ?? DEFAULT_PREFS.embeddingSize)
+        fillRetrievalK(prefs.retrievalK ?? DEFAULT_PREFS.retrievalK)
+        fillChunkSize(prefs.chunkSize ?? DEFAULT_PREFS.chunkSize)
+        fillChunkOverlap(prefs.chunkOverlap ?? DEFAULT_PREFS.chunkOverlap)
+        fillEmbeddingSize(prefs.embeddingSize ?? DEFAULT_PREFS.embeddingSize)
       })
       .catch(() => {})
     http
@@ -116,7 +136,16 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [user?.id, http])
+  }, [
+    user?.id,
+    http,
+    fillName,
+    fillEmail,
+    fillRetrievalK,
+    fillChunkSize,
+    fillChunkOverlap,
+    fillEmbeddingSize,
+  ])
 
   const SectionCard = useMemo(
     () =>

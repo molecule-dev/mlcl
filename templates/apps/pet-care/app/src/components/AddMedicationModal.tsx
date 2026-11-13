@@ -4,7 +4,7 @@
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -31,7 +31,9 @@ export function AddMedicationModal({ open, onClose, onCreated }: Props) {
   const http = useHttpClient()
 
   const [pets, setPets] = useState<Pet[]>([])
-  const [petId, setPetId] = useState('')
+  const [petsReady, setPetsReady] = useState(false)
+
+  const [petId, setPetId, fillPetId] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [name, setName] = useState('')
   const [dosage, setDosage] = useState('')
   const [frequency, setFrequency] = useState('')
@@ -43,6 +45,8 @@ export function AddMedicationModal({ open, onClose, onCreated }: Props) {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setPetsReady(false)
+
     if (!open) return
     let cancelled = false
     http
@@ -51,7 +55,8 @@ export function AddMedicationModal({ open, onClose, onCreated }: Props) {
         if (cancelled) return
         const list = unwrapList<Pet>(res)
         setPets(list)
-        if (list.length > 0 && !petId) setPetId(list[0].id)
+        setPetsReady(true)
+        if (list.length > 0 && !petId) fillPetId(list[0].id)
       })
       .catch((err: unknown) => {
         console.error('[AddMedicationModal] pets failed', err)
@@ -183,7 +188,7 @@ export function AddMedicationModal({ open, onClose, onCreated }: Props) {
                 'rounded-lg bg-surface-container-low border border-outline/20',
               )}
             >
-              {pets.length === 0 ? (
+              {petsReady && pets.length === 0 ? (
                 <option value="">
                   {t('medications.add.noPets', {}, { defaultValue: '— add a pet first —' })}
                 </option>

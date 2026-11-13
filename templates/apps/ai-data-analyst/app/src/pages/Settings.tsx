@@ -120,7 +120,11 @@ export function Settings() {
     })),
   )
   const [team, setTeam] = useState<TeamMember[]>([])
+  const [teamReady, setTeamReady] = useState(false)
+
   const [apiKeys, setApiKeys] = useState<ApiKey[]>([])
+  const [apiKeysReady, setApiKeysReady] = useState(false)
+
   const [newKeyName, setNewKeyName] = useState('')
   const [newKeyPlaintext, setNewKeyPlaintext] = useState<string | null>(null)
   const [creatingKey, setCreatingKey] = useState(false)
@@ -161,6 +165,10 @@ export function Settings() {
   // design — molecule's user resource doesn't expose `GET /api/users`, so we
   // show the current user as the workspace owner.
   useEffect(() => {
+    setApiKeysReady(false)
+
+    setTeamReady(false)
+
     let cancelled = false
     const load = async () => {
       const [profileRes, settingsRes, keysRes] = await Promise.all([
@@ -183,6 +191,7 @@ export function Settings() {
             role: 'Owner',
           } as TeamMember,
         ])
+        setTeamReady(true)
       } else {
         setDisplayName((user as { name?: string } | null)?.name ?? '')
         setEmailValue((user as { email?: string } | null)?.email ?? '')
@@ -201,6 +210,7 @@ export function Settings() {
       }
 
       setApiKeys(unwrapList<ApiKey>(keysRes))
+      setApiKeysReady(true)
     }
     void load()
     return () => {
@@ -1178,7 +1188,7 @@ export function Settings() {
               </div>
             ) : null}
 
-            {apiKeys.length === 0 ? (
+            {apiKeysReady && apiKeys.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant italic')}>
                 {t(
                   'settings.apiKeys.empty',
@@ -1257,7 +1267,7 @@ export function Settings() {
             <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
               {t('nav.team', {}, { defaultValue: 'Team' })}
             </h2>
-            {team.length === 0 ? (
+            {teamReady && team.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t(
                   'settings.team.empty',

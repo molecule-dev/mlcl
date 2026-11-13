@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Modal, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -74,12 +74,24 @@ export function Settings() {
   const [active, setActive] = useState<SectionKey>('rates')
   const [ratePreset, setRatePreset] = useState<RatePresetKey>('tou')
   const [ratePlanId, setRatePlanId] = useState<string | null>(null)
-  const [flatRate, setFlatRate] = useState('0.18')
-  const [peakRate, setPeakRate] = useState('0.32')
-  const [offPeakRate, setOffPeakRate] = useState('0.14')
-  const [peakStart, setPeakStart] = useState('16')
-  const [peakEnd, setPeakEnd] = useState('21')
-  const [currency, setCurrency] = useState('USD')
+  const [flatRate, setFlatRate, fillFlatRate] = useForm({
+    defaultValues: { value: '0.18' },
+  }).asState('value')
+  const [peakRate, setPeakRate, fillPeakRate] = useForm({
+    defaultValues: { value: '0.32' },
+  }).asState('value')
+  const [offPeakRate, setOffPeakRate, fillOffPeakRate] = useForm({
+    defaultValues: { value: '0.14' },
+  }).asState('value')
+  const [peakStart, setPeakStart, fillPeakStart] = useForm({
+    defaultValues: { value: '16' },
+  }).asState('value')
+  const [peakEnd, setPeakEnd, fillPeakEnd] = useForm({ defaultValues: { value: '21' } }).asState(
+    'value',
+  )
+  const [currency, setCurrency, fillCurrency] = useForm({
+    defaultValues: { value: 'USD' },
+  }).asState('value')
   const [rateBusy, setRateBusy] = useState(false)
   const [rateError, setRateError] = useState<string | null>(null)
   const [rateSavedAt, setRateSavedAt] = useState<number | null>(null)
@@ -114,12 +126,12 @@ export function Settings() {
         const plan = list.find((p) => p.status === 'active') ?? list[0]
         if (plan) {
           setRatePlanId(plan.id)
-          setFlatRate(String(plan.rate_per_kwh ?? '0.18'))
-          setPeakRate(plan.peak_rate != null ? String(plan.peak_rate) : '0.32')
-          setOffPeakRate(plan.off_peak_rate != null ? String(plan.off_peak_rate) : '0.14')
-          setPeakStart(plan.peak_start_hour != null ? String(plan.peak_start_hour) : '16')
-          setPeakEnd(plan.peak_end_hour != null ? String(plan.peak_end_hour) : '21')
-          setCurrency(plan.currency || 'USD')
+          fillFlatRate(String(plan.rate_per_kwh ?? '0.18'))
+          fillPeakRate(plan.peak_rate != null ? String(plan.peak_rate) : '0.32')
+          fillOffPeakRate(plan.off_peak_rate != null ? String(plan.off_peak_rate) : '0.14')
+          fillPeakStart(plan.peak_start_hour != null ? String(plan.peak_start_hour) : '16')
+          fillPeakEnd(plan.peak_end_hour != null ? String(plan.peak_end_hour) : '21')
+          fillCurrency(plan.currency || 'USD')
           setRatePreset(plan.peak_rate != null ? 'tou' : 'flat')
         }
         const me = unwrapSingle<MeResponse>(m)
@@ -135,7 +147,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillCurrency, fillFlatRate, fillOffPeakRate, fillPeakEnd, fillPeakRate, fillPeakStart, http])
 
   useEffect(() => {
     if (isOAuth) return

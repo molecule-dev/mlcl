@@ -248,7 +248,7 @@ export function Dashboard() {
             </span>
           </Link>
         </header>
-        {trending.length === 0 ? (
+        {!loading && trending.length === 0 ? (
           <div
             data-test="dashboard-trending-empty"
             className={cm.cn(

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -74,7 +74,9 @@ export function Settings() {
   // the dirty-check + reset; the value itself is never rendered, so we drop
   // the `company` getter and keep just the setter.
   const [, setCompany] = useState<CompanyProfile>(EMPTY_COMPANY)
-  const [companyDraft, setCompanyDraft] = useState<CompanyProfile>(EMPTY_COMPANY)
+  const [companyDraft, setCompanyDraft, fillCompanyDraft] = useForm<CompanyProfile>({
+    defaultValues: EMPTY_COMPANY,
+  }).asState()
   const [companySaved, setCompanySaved] = useState<boolean>(false)
   const [companySaving, setCompanySaving] = useState<boolean>(false)
 
@@ -101,7 +103,7 @@ export function Settings() {
         if (cancelled) return
         const profile = unwrapSingle<CompanyProfile>(res) ?? EMPTY_COMPANY
         setCompany(profile)
-        setCompanyDraft(profile)
+        fillCompanyDraft(profile)
       })
       .catch(() => {})
     http
@@ -127,7 +129,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillCompanyDraft, http])
 
   async function saveCompany(e: React.FormEvent) {
     e.preventDefault()

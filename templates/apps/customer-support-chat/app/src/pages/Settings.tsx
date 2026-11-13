@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { get, patch } from '@molecule/app-http'
-import { useTranslation, useUser } from '@molecule/app-react'
+import { useForm, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -83,7 +83,10 @@ function SettingsBody() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const user = useUser<UserShape>()
-  const [workspaceName, setWorkspaceName] = useState('')
+  const [workspaceName, setWorkspaceName, fillWorkspaceName] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
   const [savedAt, setSavedAt] = useState<number | null>(null)
@@ -93,18 +96,18 @@ function SettingsBody() {
   useEffect(() => {
     let cancelled = false
     if (!user?.id) return undefined
-    if (user?.name) setWorkspaceName(user.name)
+    if (user?.name) fillWorkspaceName(user.name)
     void get<UserResponseShape>(`/api/users/${user.id}`)
       .then((response) => {
         if (cancelled) return
         const fetched = response.data?.props?.name
-        if (fetched) setWorkspaceName(fetched)
+        if (fetched) fillWorkspaceName(fetched)
       })
       .catch(() => {})
     return () => {
       cancelled = true
     }
-  }, [user?.id, user?.name])
+  }, [fillWorkspaceName, user?.id, user?.name])
 
   useEffect(() => {
     setWidget(loadWidgetAppearance())

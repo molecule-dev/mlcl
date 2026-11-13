@@ -5,7 +5,7 @@
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -42,7 +42,11 @@ export function AddVetRecordModal({ open, onClose, onCreated, initialPetId }: Pr
   const http = useHttpClient()
 
   const [pets, setPets] = useState<Pet[]>([])
-  const [petId, setPetId] = useState<string>(initialPetId ?? '')
+  const [petsReady, setPetsReady] = useState(false)
+
+  const [petId, setPetId, fillPetId] = useForm<{ value: string }>({
+    defaultValues: { value: initialPetId ?? '' },
+  }).asState('value')
   const [kind, setKind] = useState('visit')
   const [title, setTitle] = useState('')
   const [occurredOn, setOccurredOn] = useState(() => new Date().toISOString().slice(0, 10))
@@ -53,6 +57,8 @@ export function AddVetRecordModal({ open, onClose, onCreated, initialPetId }: Pr
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setPetsReady(false)
+
     if (!open) return
     let cancelled = false
     http
@@ -61,7 +67,8 @@ export function AddVetRecordModal({ open, onClose, onCreated, initialPetId }: Pr
         if (cancelled) return
         const list = unwrapList<Pet>(res)
         setPets(list)
-        if (!petId && list.length > 0) setPetId(list[0].id)
+        setPetsReady(true)
+        if (!petId && list.length > 0) fillPetId(list[0].id)
       })
       .catch((err: unknown) => {
         console.error('[AddVetRecordModal] pets failed', err)
@@ -186,7 +193,7 @@ export function AddVetRecordModal({ open, onClose, onCreated, initialPetId }: Pr
                 'rounded-lg bg-surface-container-low border border-outline/20',
               )}
             >
-              {pets.length === 0 ? (
+              {petsReady && pets.length === 0 ? (
                 <option value="">
                   {t('vetRecords.add.noPets', {}, { defaultValue: '— add a pet first —' })}
                 </option>

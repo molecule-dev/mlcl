@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -71,17 +71,47 @@ export function CreateEvent({
 
   const [step, setStep] = useState<(typeof STEPS)[number]['key']>('basics')
   const [eventId, setEventId] = useState<string | null>(routeId ?? null)
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
-  const [category, setCategory] = useState<string>('Music')
-  const [venue, setVenue] = useState('')
-  const [venueAddress, setVenueAddress] = useState('')
-  const [city, setCity] = useState('')
-  const [startDate, setStartDate] = useState('')
-  const [startTime, setStartTime] = useState('')
-  const [endTime, setEndTime] = useState('')
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [description, setDescription, fillDescription] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [category, setCategory, fillCategory] = useForm<{ value: string }>({
+    defaultValues: { value: 'Music' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [venue, setVenue, fillVenue] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [venueAddress, setVenueAddress, fillVenueAddress] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [city, setCity, fillCity] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [startDate, setStartDate, fillStartDate] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [startTime, setStartTime, fillStartTime] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
+  const [endTime, setEndTime, fillEndTime] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
   const [status, setStatus] = useState<'draft' | 'published'>('draft')
-  const [tagsInput, setTagsInput] = useState('')
+  const [tagsInput, setTagsInput, fillTagsInput] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
   const [tiers, setTiers] = useState<TierDraft[]>([blankTier()])
   const [busy, setBusy] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -101,17 +131,17 @@ export function CreateEvent({
         if (cancelled) return
         const e = eventRes.data as EventApiRow
         setEventId(e.id)
-        setTitle(e.title ?? '')
-        setDescription(e.description ?? '')
-        setCategory(e.category ?? 'Music')
-        setVenue(e.venue ?? '')
-        setVenueAddress(e.venue_address ?? '')
-        setCity(e.city ?? '')
-        setStartDate(e.start_date ? new Date(e.start_date).toISOString().slice(0, 10) : '')
-        setStartTime(e.start_time ?? '')
-        setEndTime(e.end_time ?? '')
+        fillTitle(e.title ?? '')
+        fillDescription(e.description ?? '')
+        fillCategory(e.category ?? 'Music')
+        fillVenue(e.venue ?? '')
+        fillVenueAddress(e.venue_address ?? '')
+        fillCity(e.city ?? '')
+        fillStartDate(e.start_date ? new Date(e.start_date).toISOString().slice(0, 10) : '')
+        fillStartTime(e.start_time ?? '')
+        fillEndTime(e.end_time ?? '')
         setStatus((e.status as 'draft' | 'published') ?? 'draft')
-        setTagsInput(Array.isArray(e.tags) ? e.tags.join(', ') : '')
+        fillTagsInput(Array.isArray(e.tags) ? e.tags.join(', ') : '')
         const apiTiers = (tierRes.data as TierApiRow[]) ?? []
         setTiers(
           apiTiers.length > 0
@@ -135,7 +165,21 @@ export function CreateEvent({
     return () => {
       cancelled = true
     }
-  }, [http, mode, routeId])
+  }, [
+    fillCategory,
+    fillCity,
+    fillDescription,
+    fillEndTime,
+    fillStartDate,
+    fillStartTime,
+    fillTagsInput,
+    fillTitle,
+    fillVenue,
+    fillVenueAddress,
+    http,
+    mode,
+    routeId,
+  ])
 
   function addTier() {
     setTiers((prev) => [...prev, blankTier()])

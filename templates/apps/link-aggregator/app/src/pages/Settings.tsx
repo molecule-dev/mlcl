@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Modal, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -47,18 +47,24 @@ export function Settings() {
   const { user, logout } = useAuth()
 
   const [section, setSection] = useState<string>('account')
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
-  const [feed, setFeed] = useState<FeedPrefs>({
-    hideNSFW: true,
-    collapseDownvoted: false,
-    defaultSort: 'hot',
-  })
-  const [notif, setNotif] = useState<NotificationPrefs>({
-    replies: true,
-    mentions: true,
-    digest: false,
-  })
+  const [username, setUsername, fillUsername] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [feed, setFeed, fillFeed] = useForm<FeedPrefs>({
+    defaultValues: {
+      hideNSFW: true,
+      collapseDownvoted: false,
+      defaultSort: 'hot',
+    },
+  }).asState()
+  const [notif, setNotif, fillNotif] = useForm<NotificationPrefs>({
+    defaultValues: {
+      replies: true,
+      mentions: true,
+      digest: false,
+    },
+  }).asState()
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<Date | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -84,10 +90,10 @@ export function Settings() {
           root && typeof root === 'object' && 'data' in (root as Record<string, unknown>)
             ? ((root as { data?: SettingsBody }).data ?? {})
             : ((root as SettingsBody | undefined) ?? {})
-        if (typeof inner.username === 'string') setUsername(inner.username)
-        if (typeof inner.email === 'string') setEmail(inner.email)
-        if (inner.feed) setFeed((f) => ({ ...f, ...inner.feed }))
-        if (inner.notif) setNotif((n) => ({ ...n, ...inner.notif }))
+        if (typeof inner.username === 'string') fillUsername(inner.username)
+        if (typeof inner.email === 'string') fillEmail(inner.email)
+        if (inner.feed) fillFeed((f) => ({ ...f, ...inner.feed }))
+        if (inner.notif) fillNotif((n) => ({ ...n, ...inner.notif }))
       })
       .catch(() => {
         // First-time users may not have settings yet; defaults stand.
@@ -95,7 +101,7 @@ export function Settings() {
     return () => {
       active = false
     }
-  }, [http])
+  }, [fillEmail, fillFeed, fillNotif, fillUsername, http])
 
   const save = async () => {
     setSaving(true)

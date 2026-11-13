@@ -297,7 +297,7 @@ export function ProjectDetail() {
             </div>
           </div>
           <div className={cm.cn(cm.sp('mt', 8), cm.flex({ direction: 'col', gap: 'sm' }))}>
-            {targetProgress.length === 0 ? (
+            {!loading && targetProgress.length === 0 ? (
               <p className={cm.cn(cm.textSize('xs'), 'text-on-primary/80')}>
                 {t(
                   'projectDetail.noTargets',
@@ -361,7 +361,7 @@ export function ProjectDetail() {
           >
             {t('nav.team', {}, { defaultValue: 'Team' })}
           </h3>
-          {team.length === 0 ? (
+          {!loading && team.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t('projectDetail.teamEmpty', {}, { defaultValue: 'No team members yet.' })}
             </p>
@@ -415,7 +415,7 @@ export function ProjectDetail() {
         >
           {t('projectDetail.filesHeading', {}, { defaultValue: 'Files' })}
         </h3>
-        {files.length === 0 ? (
+        {!loading && files.length === 0 ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('projectDetail.filesEmpty', {}, { defaultValue: 'No files uploaded yet.' })}
           </p>
@@ -525,7 +525,7 @@ export function ProjectDetail() {
         >
           {t('projectDetail.activityHeading', {}, { defaultValue: 'Project activity' })}
         </h3>
-        {activity.length === 0 ? (
+        {!loading && activity.length === 0 ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('projectDetail.activityEmpty', {}, { defaultValue: 'No project activity yet.' })}
           </p>

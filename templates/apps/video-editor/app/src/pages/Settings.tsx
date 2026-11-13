@@ -1,7 +1,7 @@
 import { type FormEvent, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -100,16 +100,22 @@ export function Settings() {
   }
 
   // Profile editing
-  const [displayName, setDisplayName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [displayName, setDisplayName, fillDisplayName] = useForm({
+    defaultValues: { value: user?.name ?? '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
   const [profileSaving, setProfileSaving] = useState(false)
   const [profileError, setProfileError] = useState<string | null>(null)
   const [profileSaved, setProfileSaved] = useState(false)
 
   useEffect(() => {
-    setDisplayName(user?.name ?? '')
-    setEmail(user?.email ?? '')
-  }, [user?.id, user?.name, user?.email])
+    fillDisplayName(user?.name ?? '')
+    fillEmail(user?.email ?? '')
+  }, [user?.id, user?.name, user?.email, fillDisplayName, fillEmail])
 
   // Password change
   const [showPasswordForm, setShowPasswordForm] = useState(false)

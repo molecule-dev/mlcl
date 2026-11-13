@@ -1,6 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker } from '@molecule/app-ui-react'
 
@@ -64,9 +64,15 @@ export function Settings() {
   const http = useHttpClient()
   const [active, setActive] = useState<SectionId>('profile')
 
-  const [name, setName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
-  const [username, setUsername] = useState(user?.username ?? '')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: user?.name ?? '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
+  const [username, setUsername, fillUsername] = useForm({
+    defaultValues: { value: user?.username ?? '' },
+  }).asState('value')
   const [saving, setSaving] = useState(false)
   const [saveStatus, setSaveStatus] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -78,10 +84,20 @@ export function Settings() {
   })
 
   useEffect(() => {
-    if (user?.name && name === '') setName(user.name)
-    if (user?.email && email === '') setEmail(user.email)
-    if (user?.username && username === '') setUsername(user.username)
-  }, [email, name, user?.email, user?.name, user?.username, username])
+    if (user?.name && name === '') fillName(user.name)
+    if (user?.email && email === '') fillEmail(user.email)
+    if (user?.username && username === '') fillUsername(user.username)
+  }, [
+    email,
+    fillEmail,
+    fillName,
+    fillUsername,
+    name,
+    user?.email,
+    user?.name,
+    user?.username,
+    username,
+  ])
 
   const handleSaveProfile = useCallback(async () => {
     if (!user?.id) return

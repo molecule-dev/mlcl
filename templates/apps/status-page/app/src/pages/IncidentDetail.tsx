@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { StatusPill } from '../components/StatusPill.js'
@@ -82,7 +82,10 @@ export function IncidentDetail() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [subscribersCount, setSubscribersCount] = useState<number | null>(null)
-  const [draftMessage, setDraftMessage] = useState('')
+  const [draftMessage, setDraftMessage, fillDraftMessage] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
   const [draftStatus, setDraftStatus] = useState<(typeof VALID_STATUSES)[number]>('investigating')
   const [posting, setPosting] = useState(false)
   const [postError, setPostError] = useState<string | null>(null)
@@ -112,7 +115,7 @@ export function IncidentDetail() {
     if (draftKey) {
       try {
         const stored = window.localStorage.getItem(draftKey)
-        if (stored) setDraftMessage(stored)
+        if (stored) fillDraftMessage(stored)
       } catch (_error) {
         // localStorage unavailable in this environment — draft restore is best-effort
       }

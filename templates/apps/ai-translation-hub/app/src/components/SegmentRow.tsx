@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
-import { useTranslation } from '@molecule/app-react'
+import { useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 export type SegmentStatus =
@@ -68,13 +68,16 @@ const CONFIDENCE_TONE = (c: number): string => {
 export function SegmentRow({ segment, active = false, onSelect, onCommit }: SegmentRowProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [draft, setDraft] = useState<string>(segment.target)
+  const [draft, setDraft, fillDraft] = useForm<{ value: string }>({
+    defaultValues: { value: segment.target },
+    resetKey: JSON.stringify([segment.id]),
+  }).asState('value')
   const dirtyRef = useRef(false)
 
   useEffect(() => {
-    setDraft(segment.target)
+    fillDraft(segment.target)
     dirtyRef.current = false
-  }, [segment.id, segment.target])
+  }, [fillDraft, segment.id, segment.target])
 
   const handleBlur = async () => {
     if (!onCommit) return

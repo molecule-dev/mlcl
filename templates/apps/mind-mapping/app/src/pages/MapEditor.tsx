@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -100,7 +100,10 @@ export function MapEditor() {
   const [savingTitle, setSavingTitle] = useState(false)
   const [savingTemplate, setSavingTemplate] = useState(false)
   const [titleDraft, setTitleDraft] = useState('')
-  const [editingText, setEditingText] = useState<string>('')
+  const [editingText, setEditingText, fillEditingText] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
   // Export menu state: `canExport` is fetched lazily on first open
   // (GET /billing/status → limits.canExport; free=false, pro/team=true).
   const [exportOpen, setExportOpen] = useState(false)
@@ -305,8 +308,8 @@ export function MapEditor() {
   }
 
   useEffect(() => {
-    setEditingText(selected?.text ?? '')
-  }, [selectedNodeId, selected?.text])
+    fillEditingText(selected?.text ?? '')
+  }, [selectedNodeId, selected?.text, fillEditingText])
 
   const handleSaveTitle = async () => {
     if (!map || !id || titleDraft.trim() === map.title) return

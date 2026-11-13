@@ -2,7 +2,7 @@ import { type FormEvent, useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface AutomationRecord {
@@ -51,13 +51,34 @@ export function AutomationEditor() {
   const http = useHttpClient()
   const isNew = id === 'new'
 
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [triggerType, setTriggerType] = useState<TriggerType>('time')
-  const [triggerValue, setTriggerValue] = useState('')
-  const [actionType, setActionType] = useState('notify')
-  const [actionTarget, setActionTarget] = useState('')
-  const [enabled, setEnabled] = useState(true)
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
+  const [description, setDescription, fillDescription] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
+  const [triggerType, setTriggerType, fillTriggerType] = useForm<{ value: TriggerType }>({
+    defaultValues: { value: 'time' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
+  const [triggerValue, setTriggerValue, fillTriggerValue] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
+  const [actionType, setActionType, fillActionType] = useForm({
+    defaultValues: { value: 'notify' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
+  const [actionTarget, setActionTarget, fillActionTarget] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
+  const [enabled, setEnabled, fillEnabled] = useForm({
+    defaultValues: { value: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
   const [loading, setLoading] = useState(!isNew)
   const [saving, setSaving] = useState(false)
   const [testing, setTesting] = useState(false)
@@ -77,14 +98,14 @@ export function AutomationEditor() {
           setError(t('automationEditor.notFound', {}, { defaultValue: 'Automation not found.' }))
           return
         }
-        setName(automation.name || '')
-        setDescription(automation.description || '')
-        setEnabled(Boolean(automation.enabled))
+        fillName(automation.name || '')
+        fillDescription(automation.description || '')
+        fillEnabled(Boolean(automation.enabled))
         const trigger = parseJSON<{ type?: string; value?: unknown }>(automation.trigger, {
           type: 'time',
         })
-        setTriggerType((trigger.type as TriggerType) || 'time')
-        setTriggerValue(
+        fillTriggerType((trigger.type as TriggerType) || 'time')
+        fillTriggerValue(
           trigger.value == null
             ? ''
             : typeof trigger.value === 'string'
@@ -94,8 +115,8 @@ export function AutomationEditor() {
         const actions = parseJSON<Array<{ type: string; target?: string }>>(automation.actions, [])
         const first = actions[0]
         if (first) {
-          setActionType(first.type)
-          setActionTarget(first.target || '')
+          fillActionType(first.type)
+          fillActionTarget(first.target || '')
         }
       })
       .catch((err) => {
@@ -113,7 +134,19 @@ export function AutomationEditor() {
     return () => {
       cancelled = true
     }
-  }, [http, id, isNew, t])
+  }, [
+    fillActionTarget,
+    fillActionType,
+    fillDescription,
+    fillEnabled,
+    fillName,
+    fillTriggerType,
+    fillTriggerValue,
+    http,
+    id,
+    isNew,
+    t,
+  ])
 
   const buildPayload = useCallback(() => {
     return {

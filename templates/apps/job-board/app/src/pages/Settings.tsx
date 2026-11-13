@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -89,8 +89,12 @@ export function Settings() {
   const [saved, setSaved] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const lastPersisted = useRef<Record<string, boolean>>(DEFAULTS)
-  const [name, setName] = useState<string>((user?.name as string) || (user?.email as string) || '')
-  const [email, setEmail] = useState<string>((user?.email as string) || '')
+  const [name, setName, fillName] = useForm<{ value: string }>({
+    defaultValues: { value: (user?.name as string) || (user?.email as string) || '' },
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm<{ value: string }>({
+    defaultValues: { value: (user?.email as string) || '' },
+  }).asState('value')
   const [profileSaving, setProfileSaving] = useState(false)
   const [profileSaved, setProfileSaved] = useState(false)
   const [profileError, setProfileError] = useState<string | null>(null)
@@ -116,10 +120,10 @@ export function Settings() {
         lastPersisted.current = merged
         const persistedName = (me?.name as string | null | undefined) ?? null
         if (persistedName !== null && persistedName !== undefined) {
-          setName(persistedName || (me?.email ?? '') || '')
+          fillName(persistedName || (me?.email ?? '') || '')
         }
         const persistedEmail = (me?.email as string | null | undefined) ?? null
-        if (persistedEmail) setEmail(persistedEmail)
+        if (persistedEmail) fillEmail(persistedEmail)
       })
       .catch(() => {
         // Use defaults on load error; user can still see and toggle.
@@ -130,7 +134,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, userId])
+  }, [fillEmail, fillName, http, userId])
 
   async function handleSaveProfile(e: React.FormEvent) {
     e.preventDefault()

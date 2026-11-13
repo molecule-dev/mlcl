@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { NotificationsSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -44,7 +44,9 @@ export function Settings() {
   const [email, setEmail] = useState('')
   const [currency, setCurrency] = useState('USD')
   const [dateFormat, setDateFormat] = useState('MMM d, yyyy')
-  const [firstDayOfWeek, setFirstDayOfWeek] = useState<'Sunday' | 'Monday' | 'Saturday'>('Sunday')
+  const [firstDayOfWeek, setFirstDayOfWeek, fillFirstDayOfWeek] = useForm<{
+    value: 'Sunday' | 'Monday' | 'Saturday'
+  }>({ defaultValues: { value: 'Sunday' } }).asState('value')
   const [notifyBudgetOverspent, setNotifyBudgetOverspent] = useState(true)
   const [notifyGoalMilestones, setNotifyGoalMilestones] = useState(true)
   const [notifyMonthlyReport, setNotifyMonthlyReport] = useState(true)
@@ -68,7 +70,7 @@ export function Settings() {
         setEmail(p.email ?? '')
         setCurrency(p.preferences?.currency ?? 'USD')
         setDateFormat(p.preferences?.dateFormat ?? 'MMM d, yyyy')
-        setFirstDayOfWeek(p.preferences?.firstDayOfWeek ?? 'Sunday')
+        fillFirstDayOfWeek(p.preferences?.firstDayOfWeek ?? 'Sunday')
         setNotifyBudgetOverspent(p.preferences?.notifyBudgetOverspent ?? true)
         setNotifyGoalMilestones(p.preferences?.notifyGoalMilestones ?? true)
         setNotifyMonthlyReport(p.preferences?.notifyMonthlyReport ?? true)
@@ -78,7 +80,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillFirstDayOfWeek, http])
 
   function showFeedback(kind: 'success' | 'error', msg: string) {
     setFeedback(msg)

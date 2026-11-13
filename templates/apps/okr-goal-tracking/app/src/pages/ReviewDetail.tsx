@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useGet, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useGet, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -70,7 +70,10 @@ export function ReviewDetail() {
     immediate: true,
   })
 
-  const [draftSummary, setDraftSummary] = useState('')
+  const [draftSummary, setDraftSummary, fillDraftSummary] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
   const [draftRating, setDraftRating] = useState<number | null>(null)
   const [saving, setSaving] = useState(false)
   const [submitting, setSubmitting] = useState(false)
@@ -79,9 +82,9 @@ export function ReviewDetail() {
 
   useEffect(() => {
     if (!review) return
-    setDraftSummary(review.summary ?? '')
+    fillDraftSummary(review.summary ?? '')
     setDraftRating(review.rating)
-  }, [review])
+  }, [fillDraftSummary, review])
 
   const objectiveRows = objectives ?? []
 

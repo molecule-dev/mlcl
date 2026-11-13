@@ -2,7 +2,7 @@ import { type FormEvent, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -88,7 +88,10 @@ export function ProductDetail() {
   const [retailers, setRetailers] = useState<RetailerPriceRow[]>([])
   const [history, setHistory] = useState<PriceHistoryPoint[]>([])
   const [period, setPeriod] = useState<string>('30d')
-  const [alertTarget, setAlertTarget] = useState('')
+  const [alertTarget, setAlertTarget, fillAlertTarget] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
   const [alertChannel, setAlertChannel] = useState<'email' | 'push'>('email')
   const [alertStatus, setAlertStatus] = useState<'idle' | 'pending' | 'created' | 'error'>('idle')
   const [alertMessage, setAlertMessage] = useState<string>('')
@@ -127,7 +130,7 @@ export function ProductDetail() {
           }
         })
         setRetailers(rows)
-        if (!alertTarget) setAlertTarget(((p.best_price ?? 0) / 100).toFixed(2))
+        if (!alertTarget) fillAlertTarget(((p.best_price ?? 0) / 100).toFixed(2))
       })
       .catch(() => {
         if (!cancelled)

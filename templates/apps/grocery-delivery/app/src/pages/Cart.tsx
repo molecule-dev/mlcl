@@ -395,7 +395,7 @@ export function Cart() {
               >
                 {t('cart.slotHeading', {}, { defaultValue: 'Delivery slot' })}
               </h2>
-              {slots.length === 0 ? (
+              {!loading && slots.length === 0 ? (
                 <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
                   {t(
                     'cart.noSlots',

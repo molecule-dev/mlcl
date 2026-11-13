@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Switch } from '@molecule/app-ui-react'
 
@@ -91,7 +91,9 @@ function Talk() {
   const [activeId, setActiveId] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [sending, setSending] = useState(false)
-  const [voicePlaybackEnabled, setVoicePlaybackEnabled] = useState(true)
+  const [voicePlaybackEnabled, setVoicePlaybackEnabled, fillVoicePlaybackEnabled] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
   const [lastAudioAt, setLastAudioAt] = useState<number | null>(null)
   const inputRef = useRef<HTMLInputElement | null>(null)
   const recorderRef = useRef<MediaRecorder | null>(null)
@@ -110,7 +112,7 @@ function Talk() {
         const res = await http.get<{ voicePlaybackEnabled?: boolean }>('/preferences')
         if (cancelled) return
         if (typeof res.data?.voicePlaybackEnabled === 'boolean') {
-          setVoicePlaybackEnabled(res.data.voicePlaybackEnabled)
+          fillVoicePlaybackEnabled(res.data.voicePlaybackEnabled)
         }
       } catch (_error) {
         // Keep the default; a failed preferences read must not block talking.
@@ -119,7 +121,7 @@ function Talk() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillVoicePlaybackEnabled, http])
 
   // Resume the most recent session, or start with an empty one.
   useEffect(() => {

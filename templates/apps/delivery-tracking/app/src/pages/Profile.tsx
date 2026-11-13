@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { NotificationsSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -34,7 +34,9 @@ export function Profile() {
     null
 
   const [profile, setProfile] = useState<UserProfile | null>(null)
-  const [draft, setDraft] = useState({ name: '', email: '', timezone: '' })
+  const [draft, setDraft, fillDraft] = useForm({
+    defaultValues: { name: '', email: '', timezone: '' },
+  }).asState()
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<string | null>(null)
   const [saveError, setSaveError] = useState<string | null>(null)
@@ -74,7 +76,7 @@ export function Profile() {
         const next = ('props' in data ? data.props : data) as UserProfile | undefined
         if (next) {
           setProfile(next)
-          setDraft({
+          fillDraft({
             name: next.name ?? '',
             email: next.email ?? '',
             timezone: next.timezone ?? Intl.DateTimeFormat().resolvedOptions().timeZone,
@@ -85,7 +87,7 @@ export function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http, userId])
+  }, [fillDraft, http, userId])
 
   async function saveProfile(e: React.FormEvent) {
     e.preventDefault()

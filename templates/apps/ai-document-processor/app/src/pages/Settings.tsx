@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -65,8 +65,12 @@ export function Settings() {
   const http = useHttpClient()
   const { user, setUser } = useAuth<{ id: string; email: string; name?: string }>()
 
-  const [accountName, setAccountName] = useState(user?.name ?? '')
-  const [accountEmail, setAccountEmail] = useState(user?.email ?? '')
+  const [accountName, setAccountName, fillAccountName] = useForm({
+    defaultValues: { value: user?.name ?? '' },
+  }).asState('value')
+  const [accountEmail, setAccountEmail, fillAccountEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
   const [accountSaving, setAccountSaving] = useState(false)
   const [accountSaved, setAccountSaved] = useState(false)
   const [accountError, setAccountError] = useState<string | null>(null)
@@ -84,9 +88,9 @@ export function Settings() {
   const [pendingRevokeId, setPendingRevokeId] = useState<string | null>(null)
 
   useEffect(() => {
-    setAccountName(user?.name ?? '')
-    setAccountEmail(user?.email ?? '')
-  }, [user])
+    fillAccountName(user?.name ?? '')
+    fillAccountEmail(user?.email ?? '')
+  }, [fillAccountEmail, fillAccountName, user])
 
   useEffect(() => {
     let cancelled = false

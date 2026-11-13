@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -33,8 +33,14 @@ export function SavedQueryDetail() {
   const { queryId } = useParams<{ queryId: string }>()
   const [row, setRow] = useState<SavedRow | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [name, setName] = useState('')
-  const [sql, setSql] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([queryId]),
+  }).asState('value')
+  const [sql, setSql, fillSql] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([queryId]),
+  }).asState('value')
   const [savedOk, setSavedOk] = useState(false)
   const [running, setRunning] = useState(false)
   const [result, setResult] = useState<ExecuteResult | null>(null)
@@ -46,11 +52,11 @@ export function SavedQueryDetail() {
     void apiGet<SavedRow>(http, `/api/queries/saved/${queryId}`)
       .then((res) => {
         setRow(res)
-        setName(res.name)
-        setSql(res.sql)
+        fillName(res.name)
+        fillSql(res.sql)
       })
       .catch((e: Error) => setError(e.message ?? 'load failed'))
-  }, [http, queryId])
+  }, [fillName, fillSql, http, queryId])
 
   const onSave = useCallback(async () => {
     if (!queryId) return

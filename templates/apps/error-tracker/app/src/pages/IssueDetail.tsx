@@ -74,6 +74,8 @@ export function IssueDetail() {
   )
   const [actionError, setActionError] = useState<string | null>(null)
   const [team, setTeam] = useState<TeamMember[]>([])
+  const [teamReady, setTeamReady] = useState(false)
+
   const [showAssign, setShowAssign] = useState(false)
 
   const reloadIssue = useCallback(async () => {
@@ -117,6 +119,8 @@ export function IssueDetail() {
   }, [http, id, t, retryToken])
 
   useEffect(() => {
+    setTeamReady(false)
+
     let cancelled = false
     http
       .get<{ members?: TeamMember[] } | TeamMember[]>('/api/team')
@@ -131,6 +135,7 @@ export function IssueDetail() {
             email: String(m.email ?? ''),
           })),
         )
+        setTeamReady(true)
       })
       .catch(() => {})
     return () => {
@@ -500,7 +505,7 @@ export function IssueDetail() {
                 >
                   {t('issueDetail.action.unassign', {}, { defaultValue: 'Unassign' })}
                 </button>
-                {team.length === 0 ? (
+                {teamReady && team.length === 0 ? (
                   <p
                     className={cm.cn('px-3 py-2 text-xs font-mono')}
                     style={{ color: 'var(--color-severity-muted)' }}

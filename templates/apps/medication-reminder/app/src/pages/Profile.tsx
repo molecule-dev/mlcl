@@ -1,7 +1,7 @@
-import { type FormEvent, useCallback, useEffect, useState } from 'react'
+import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useDevice, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useDevice, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -51,7 +51,10 @@ export function Profile() {
   const [section, setSection] = useState<Section>('identity')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [profile, setProfile] = useState<ProfileData>(emptyProfile)
+  const [profile, setProfile, fillProfile] = useForm<ProfileData>({
+    defaultValues: useMemo(emptyProfile, []),
+    resetKey: JSON.stringify([user?.id]),
+  }).asState()
   const [savingIdentity, setSavingIdentity] = useState(false)
   const [savingMedical, setSavingMedical] = useState(false)
   const [savingEmergency, setSavingEmergency] = useState(false)
@@ -76,7 +79,7 @@ export function Profile() {
     if (!user) return
     setName(user.name ?? '')
     setEmail(user.email ?? '')
-    setProfile({ ...emptyProfile(), ...(user.oauthData?.profile ?? {}) })
+    fillProfile({ ...emptyProfile(), ...(user.oauthData?.profile ?? {}) })
     let cancelled = false
     http
       .get('/api/settings/me')
@@ -85,7 +88,7 @@ export function Profile() {
         const profile = unwrapSingle<{ profile?: ProfileData }>(res)?.profile
         if (!profile) return
         const merged = { ...emptyProfile(), ...profile }
-        setProfile(merged)
+        fillProfile(merged)
         auth.setUser({ ...user, oauthData: { ...(user.oauthData ?? {}), profile: merged } })
       })
       .catch(() => {

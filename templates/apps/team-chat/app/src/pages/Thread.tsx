@@ -26,12 +26,16 @@ function Thread() {
   const http = useHttpClient()
   const [parentMessage, setParentMessage] = useState<Record<string, unknown> | null>(null)
   const [replies, setReplies] = useState<Reply[]>([])
+  const [repliesReady, setRepliesReady] = useState(false)
+
   const [newReply, setNewReply] = useState('')
   const [loading, setLoading] = useState(true)
   const [sending, setSending] = useState(false)
   const [sendError, setSendError] = useState<string | null>(null)
 
   useEffect(() => {
+    setRepliesReady(false)
+
     if (!messageId) return
     setLoading(true)
     Promise.all([
@@ -48,11 +52,13 @@ function Thread() {
         .then((res) => {
           const body = res.data
           setReplies(Array.isArray(body) ? body : Array.isArray(body?.data) ? body.data : [])
+          setRepliesReady(true)
         })
         .catch((error: unknown) => {
           // Replies degrade to an empty list under the parent message.
           logError('thread.fetchReplies', error)
           setReplies([])
+          setRepliesReady(true)
         }),
     ]).finally(() => setLoading(false))
   }, [http, messageId])
@@ -214,7 +220,7 @@ function Thread() {
                 </div>
               </div>
             ))}
-            {replies.length === 0 && (
+            {repliesReady && replies.length === 0 && (
               <p
                 data-mol-id="thread-replies-empty"
                 className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}

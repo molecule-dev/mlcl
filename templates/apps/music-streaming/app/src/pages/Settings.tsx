@@ -8,6 +8,7 @@ import {
   useAuthClient,
   useChangePassword,
   useDevice,
+  useForm,
   useHttpClient,
   usePush,
   useTranslation,
@@ -394,15 +395,21 @@ function AccountSettings({
   const navigate = useNavigate()
   const { status, error: pwError, changePassword, reset } = useChangePassword()
   const { data: billing } = useBillingStatus()
-  const [countryDraft, setCountryDraft] = useState(country ?? '')
+  const [countryDraft, setCountryDraft, fillCountryDraft] = useForm({
+    defaultValues: { value: country ?? '' },
+  }).asState('value')
 
   // Keep the draft in sync when the parent's preferences hydrate.
   useEffect(() => {
-    setCountryDraft(country ?? '')
-  }, [country])
+    fillCountryDraft(country ?? '')
+  }, [country, fillCountryDraft])
 
-  const [name, setName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: user?.name ?? '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState('')
 
@@ -427,8 +434,8 @@ function AccountSettings({
         const next = ((body as { props?: UserProfile }).props ?? body) as UserProfile | undefined
         if (next && typeof next === 'object' && next.id) {
           setUser(next)
-          setName((curr) => (curr === (user?.name ?? '') ? (next.name ?? curr) : curr))
-          setEmail((curr) => (curr === (user?.email ?? '') ? (next.email ?? curr) : curr))
+          fillName((curr) => (curr === (user?.name ?? '') ? (next.name ?? curr) : curr))
+          fillEmail((curr) => (curr === (user?.email ?? '') ? (next.email ?? curr) : curr))
         }
       })
       .catch(() => {
@@ -437,7 +444,7 @@ function AccountSettings({
     return () => {
       cancelled = true
     }
-  }, [http, setUser, user?.name, user?.email])
+  }, [http, setUser, user?.name, user?.email, fillName, fillEmail])
 
   const isOAuthUser = Boolean((user as unknown as { oauthServer?: unknown })?.oauthServer)
 

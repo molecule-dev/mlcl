@@ -38,11 +38,23 @@ export function Landing() {
   const navigate = useNavigate()
   const isAuthenticated = useIsAuthenticated()
   const [featured, setFeatured] = useState<CourseSummary[]>([])
+  const [featuredReady, setFeaturedReady] = useState(false)
+
   const [categories, setCategories] = useState<Category[]>([])
+  const [categoriesReady, setCategoriesReady] = useState(false)
+
   const [instructors, setInstructors] = useState<Instructor[]>([])
+  const [instructorsReady, setInstructorsReady] = useState(false)
+
   const [searchTerm, setSearchTerm] = useState('')
 
   useEffect(() => {
+    setCategoriesReady(false)
+
+    setFeaturedReady(false)
+
+    setInstructorsReady(false)
+
     let alive = true
     Promise.all([
       api<CourseSummary[]>('/courses/featured').catch(() => []),
@@ -51,8 +63,11 @@ export function Landing() {
     ]).then(([f, c, i]) => {
       if (!alive) return
       setFeatured(Array.isArray(f) ? f.slice(0, 4) : [])
+      setFeaturedReady(true)
       setCategories(Array.isArray(c) ? c.slice(0, 8) : [])
+      setCategoriesReady(true)
       setInstructors(Array.isArray(i) ? i.slice(0, 3) : [])
+      setInstructorsReady(true)
     })
     return () => {
       alive = false
@@ -389,7 +404,7 @@ export function Landing() {
           >
             {t('landing.categories.heading', {}, { defaultValue: 'Explore the archive' })}
           </h2>
-          {categories.length === 0 ? (
+          {categoriesReady && categories.length === 0 ? (
             <p
               data-mol-id="categories-empty"
               className={cm.cn('text-center text-on-surface-variant text-sm')}
@@ -455,7 +470,7 @@ export function Landing() {
               </span>
             </Link>
           </div>
-          {featured.length === 0 ? (
+          {featuredReady && featured.length === 0 ? (
             <p
               data-mol-id="featured-empty"
               className={cm.cn('text-center text-on-surface-variant text-sm py-12')}
@@ -516,7 +531,7 @@ export function Landing() {
               )}
             </p>
           </div>
-          {instructors.length === 0 ? (
+          {instructorsReady && instructors.length === 0 ? (
             <p
               data-mol-id="instructors-empty"
               className={cm.cn('text-center text-on-surface-variant text-sm py-12')}

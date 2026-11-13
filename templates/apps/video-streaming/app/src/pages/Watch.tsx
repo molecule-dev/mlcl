@@ -786,7 +786,7 @@ export function Watch() {
               </div>
             </div>
             <ul className={cm.cn('divide-y divide-outline-variant/40')}>
-              {comments.length === 0 ? (
+              {subscribed && comments.length === 0 ? (
                 <li
                   className={cm.cn(
                     cm.sp('py', 8),

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { formatCents } from '../lib/money.js'
@@ -54,7 +54,10 @@ export function NewExpense() {
 
   const [groups, setGroups] = useState<GroupListRow[]>([])
   const [groupId, setGroupId] = useState('')
-  const [payerId, setPayerId] = useState('')
+  const [payerId, setPayerId, fillPayerId] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([searchParams.toString()]),
+  }).asState('value')
   const [description, setDescription] = useState('')
   const [amount, setAmount] = useState('')
   const [date, setDate] = useState(() => new Date().toISOString().slice(0, 10))
@@ -81,7 +84,7 @@ export function NewExpense() {
         const initial = rows.find((g) => g.id === wanted) ?? rows[0]
         if (initial) {
           setGroupId(initial.id)
-          setPayerId(initial.members.find((m) => m.is_self)?.id ?? initial.members[0]?.id ?? '')
+          fillPayerId(initial.members.find((m) => m.is_self)?.id ?? initial.members[0]?.id ?? '')
           setParticipants(new Set(initial.members.map((m) => m.id)))
         }
       })
@@ -95,7 +98,7 @@ export function NewExpense() {
     return () => {
       cancelled = true
     }
-  }, [http, searchParams])
+  }, [fillPayerId, http, searchParams])
 
   const group = useMemo(() => groups.find((g) => g.id === groupId), [groups, groupId])
   const members = group?.members ?? []

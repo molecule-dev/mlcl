@@ -61,6 +61,7 @@ export function ReleaseDetail() {
   const [release, setRelease] = useState<ReleaseDetailData | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [issues, setIssues] = useState<IssueRowData[]>([])
+  const [issuesReady, setIssuesReady] = useState(false)
 
   useEffect(() => {
     if (!version) return
@@ -82,6 +83,8 @@ export function ReleaseDetail() {
   }, [http, t, version])
 
   useEffect(() => {
+    setIssuesReady(false)
+
     if (!release?.version) return
     let cancelled = false
     http
@@ -90,6 +93,7 @@ export function ReleaseDetail() {
         if (cancelled) return
         const all = Array.isArray(res.data) ? res.data : []
         setIssues(all.filter((i) => i.release === release.version))
+        setIssuesReady(true)
       })
       .catch(() => {})
     return () => {
@@ -268,7 +272,7 @@ export function ReleaseDetail() {
               { defaultValue: '// issues touched by this release' },
             )}
           </p>
-          {issues.length === 0 ? (
+          {issuesReady && issues.length === 0 ? (
             <p
               data-testid="release-no-issues"
               className={cm.cn('font-mono text-xs')}

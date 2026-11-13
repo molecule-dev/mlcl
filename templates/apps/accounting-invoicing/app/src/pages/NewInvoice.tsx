@@ -3,7 +3,7 @@ import { Link, useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -59,10 +59,16 @@ export function NewInvoice() {
   // from the saved profile; the toggles write back through the same settings
   // endpoint, and currency/terms apply to THIS invoice.
   const [company, setCompany] = useState<CompanyDefaults>({})
-  const [currency, setCurrency] = useState('USD')
+  const [currency, setCurrency, fillCurrency] = useForm({
+    defaultValues: { value: 'USD' },
+  }).asState('value')
   const [terms, setTerms] = useState('net_30')
-  const [lateFee, setLateFee] = useState(false)
-  const [recurring, setRecurring] = useState(false)
+  const [lateFee, setLateFee, fillLateFee] = useForm({ defaultValues: { value: false } }).asState(
+    'value',
+  )
+  const [recurring, setRecurring, fillRecurring] = useForm({
+    defaultValues: { value: false },
+  }).asState('value')
 
   useEffect(() => {
     let active = true
@@ -75,13 +81,13 @@ export function NewInvoice() {
         const rate = Number(body?.default_tax_rate_pct)
         // Treat 0/unset as "no saved default" and keep the built-in fallback.
         if (!taxTouched.current && Number.isFinite(rate) && rate > 0) setTaxRate(rate)
-        if (typeof body?.currency === 'string' && body.currency) setCurrency(body.currency)
+        if (typeof body?.currency === 'string' && body.currency) fillCurrency(body.currency)
         if (typeof body?.payment_terms === 'string' && body.payment_terms)
           setTerms(body.payment_terms)
         if (typeof body?.invoice_late_fee_enabled === 'boolean')
-          setLateFee(body.invoice_late_fee_enabled)
+          fillLateFee(body.invoice_late_fee_enabled)
         if (typeof body?.invoice_recurring_enabled === 'boolean')
-          setRecurring(body.invoice_recurring_enabled)
+          fillRecurring(body.invoice_recurring_enabled)
       })
       .catch(() => {
         // Best-effort seed; fall back to the built-in defaults.
@@ -89,7 +95,7 @@ export function NewInvoice() {
     return () => {
       active = false
     }
-  }, [http])
+  }, [fillCurrency, fillLateFee, fillRecurring, http])
 
   function addLine() {
     setLines([...lines, { id: `l_${nextId++}`, description: '', quantity: 1, unit_price_cents: 0 }])

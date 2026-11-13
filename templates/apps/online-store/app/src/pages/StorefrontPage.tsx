@@ -52,12 +52,20 @@ export function StorefrontPage() {
   const navigate = useNavigate()
   const [categories, setCategories] = useState<Category[]>([])
   const [trending, setTrending] = useState<Product[]>([])
+  const [trendingReady, setTrendingReady] = useState(false)
+
   const [arrivals, setArrivals] = useState<Product[]>([])
+  const [arrivalsReady, setArrivalsReady] = useState(false)
+
   const [addingId, setAddingId] = useState<string | null>(null)
   const [addedId, setAddedId] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setTrendingReady(false)
+
+    setArrivalsReady(false)
+
     let cancelled = false
     Promise.all([
       http.get<{ data?: Category[] } | Category[]>('/api/storefront/categories'),
@@ -76,11 +84,13 @@ export function StorefrontPage() {
           ? (bestBody as Product[])
           : ((bestBody as { data?: Product[] })?.data ?? [])
         setTrending(bestArr)
+        setTrendingReady(true)
         const newBody = (newRes as { data?: unknown })?.data ?? newRes
         const newArr = Array.isArray(newBody)
           ? (newBody as Product[])
           : ((newBody as { data?: Product[] })?.data ?? [])
         setArrivals(newArr)
+        setArrivalsReady(true)
       })
       .catch(() =>
         setError(
@@ -417,7 +427,7 @@ export function StorefrontPage() {
             className="storefront-section-cols"
             style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '24px' }}
           >
-            {trending.length === 0 && (
+            {trendingReady && trending.length === 0 && (
               <p
                 data-mol-id="trending-empty"
                 style={{
@@ -699,7 +709,7 @@ export function StorefrontPage() {
           className="storefront-section-cols"
           style={{ display: 'grid', gridTemplateColumns: 'repeat(1, 1fr)', gap: '24px' }}
         >
-          {arrivals.length === 0 && (
+          {arrivalsReady && arrivals.length === 0 && (
             <p
               data-mol-id="arrivals-empty"
               style={{

@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -31,7 +31,9 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [settings, setSettings] = useState<CompanySettings>(DEFAULTS)
-  const [draft, setDraft] = useState<CompanySettings>(DEFAULTS)
+  const [draft, setDraft, fillDraft] = useForm<CompanySettings>({
+    defaultValues: DEFAULTS,
+  }).asState()
   const [editing, setEditing] = useState<'profile' | 'schedule' | null>(null)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -47,18 +49,18 @@ export function Settings() {
           res?.data && typeof res.data === 'object' ? res.data : DEFAULTS
         ) as CompanySettings
         setSettings({ ...DEFAULTS, ...next })
-        setDraft({ ...DEFAULTS, ...next })
+        fillDraft({ ...DEFAULTS, ...next })
       })
       .catch(() => {
         if (!cancelled) {
           setSettings(DEFAULTS)
-          setDraft(DEFAULTS)
+          fillDraft(DEFAULTS)
         }
       })
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillDraft, http])
 
   const startEdit = (section: 'profile' | 'schedule') => {
     setDraft(settings)

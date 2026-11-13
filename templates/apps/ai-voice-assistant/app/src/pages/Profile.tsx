@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Switch } from '@molecule/app-ui-react'
 
@@ -16,11 +16,26 @@ function Profile() {
   const http = useHttpClient()
   const { user } = useAuth<ProfileUser>()
 
-  const [displayName, setDisplayName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
-  const [handle, setHandle] = useState('')
-  const [bio, setBio] = useState('')
-  const [publicProfile, setPublicProfile] = useState(true)
+  const [displayName, setDisplayName, fillDisplayName] = useForm({
+    defaultValues: { value: user?.name ?? '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [handle, setHandle, fillHandle] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [bio, setBio, fillBio] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [publicProfile, setPublicProfile, fillPublicProfile] = useForm({
+    defaultValues: { value: true },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
   const [avatarUrl, setAvatarUrl] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<Date | null>(null)
@@ -64,12 +79,12 @@ function Profile() {
         }>('/profile')
         if (cancelled) return
         const props = res.data?.props
-        if (!dirty.current.displayName) setDisplayName(props?.name ?? user.name ?? '')
-        if (!dirty.current.email) setEmail(props?.email ?? user.email ?? '')
-        if (!dirty.current.handle) setHandle(extrasRes.data?.handle ?? '')
-        if (!dirty.current.bio) setBio(extrasRes.data?.bio ?? '')
+        if (!dirty.current.displayName) fillDisplayName(props?.name ?? user.name ?? '')
+        if (!dirty.current.email) fillEmail(props?.email ?? user.email ?? '')
+        if (!dirty.current.handle) fillHandle(extrasRes.data?.handle ?? '')
+        if (!dirty.current.bio) fillBio(extrasRes.data?.bio ?? '')
         if (!dirty.current.publicProfile) {
-          setPublicProfile(extrasRes.data?.publicProfile ?? true)
+          fillPublicProfile(extrasRes.data?.publicProfile ?? true)
         }
         if (!dirty.current.avatarUrl) setAvatarUrl(extrasRes.data?.avatarUrl ?? null)
         hydratedRef.current = true
@@ -80,7 +95,17 @@ function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http, user?.id, user?.name, user?.email])
+  }, [
+    http,
+    user?.id,
+    user?.name,
+    user?.email,
+    fillDisplayName,
+    fillEmail,
+    fillHandle,
+    fillBio,
+    fillPublicProfile,
+  ])
 
   const initials = (() => {
     const base = (displayName || user?.email || '').trim()

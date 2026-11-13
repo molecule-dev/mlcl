@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList } from '../lib/unwrap.js'
@@ -25,7 +25,9 @@ export function AddTransaction() {
   const [accounts, setAccounts] = useState<AccountOption[]>([])
   const [categories, setCategories] = useState<CategoryOption[]>([])
   const [date, setDate] = useState(new Date().toISOString().slice(0, 10))
-  const [accountId, setAccountId] = useState('')
+  const [accountId, setAccountId, fillAccountId] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [payee, setPayee] = useState('')
   const [categoryId, setCategoryId] = useState('')
   const [type, setType] = useState<'inflow' | 'outflow'>('outflow')
@@ -42,7 +44,7 @@ export function AddTransaction() {
       const cats = unwrapList<CategoryOption>(c)
       setAccounts(accs)
       setCategories(cats)
-      if (accs.length > 0 && !accountId) setAccountId(accs[0].id)
+      if (accs.length > 0 && !accountId) fillAccountId(accs[0].id)
     })
     return () => {
       cancelled = true

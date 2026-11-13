@@ -2,7 +2,7 @@ import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { formatCents, formatDate } from '../lib/money.js'
@@ -156,7 +156,10 @@ export function GroupDetail() {
   /** Quick Add Expense panel state — Stitch's inline mini form. */
   const [quickDescription, setQuickDescription] = useState('')
   const [quickAmount, setQuickAmount] = useState('')
-  const [quickPayerId, setQuickPayerId] = useState('')
+  const [quickPayerId, setQuickPayerId, fillQuickPayerId] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
   const [quickSaving, setQuickSaving] = useState(false)
 
   const reload = useCallback(async () => {
@@ -192,8 +195,8 @@ export function GroupDetail() {
     if (!group) return
     const self = group.members.find((m) => m.is_self)
     const stillValid = group.members.some((m) => m.id === quickPayerId)
-    if (!stillValid) setQuickPayerId(self?.id ?? group.members[0]?.id ?? '')
-  }, [group, quickPayerId])
+    if (!stillValid) fillQuickPayerId(self?.id ?? group.members[0]?.id ?? '')
+  }, [fillQuickPayerId, group, quickPayerId])
 
   async function handleQuickAddExpense(event: React.FormEvent): Promise<void> {
     event.preventDefault()

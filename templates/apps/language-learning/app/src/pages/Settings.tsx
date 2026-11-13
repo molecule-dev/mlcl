@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -39,10 +39,18 @@ export function Settings() {
 
   const [targetLang, setTargetLang] = useState<string>('es')
   const [dailyGoal, setDailyGoal] = useState<number>(50)
-  const [reminders, setReminders] = useState<boolean>(true)
-  const [reminderTime, setReminderTime] = useState<string>('19:00')
-  const [emailDigest, setEmailDigest] = useState<boolean>(false)
-  const [pushStreak, setPushStreak] = useState<boolean>(true)
+  const [reminders, setReminders, fillReminders] = useForm<{ value: boolean }>({
+    defaultValues: { value: true },
+  }).asState('value')
+  const [reminderTime, setReminderTime, fillReminderTime] = useForm<{ value: string }>({
+    defaultValues: { value: '19:00' },
+  }).asState('value')
+  const [emailDigest, setEmailDigest, fillEmailDigest] = useForm<{ value: boolean }>({
+    defaultValues: { value: false },
+  }).asState('value')
+  const [pushStreak, setPushStreak, fillPushStreak] = useForm<{ value: boolean }>({
+    defaultValues: { value: true },
+  }).asState('value')
   const [loaded, setLoaded] = useState(false)
   const [savingState, setSavingState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
   const [error, setError] = useState<string | null>(null)
@@ -64,13 +72,13 @@ export function Settings() {
             setTargetLang(String(body.target_languages[0]))
           }
           if (Number.isFinite(body.daily_goal_xp)) setDailyGoal(Number(body.daily_goal_xp))
-          if (typeof body.reminder_enabled === 'boolean') setReminders(body.reminder_enabled)
+          if (typeof body.reminder_enabled === 'boolean') fillReminders(body.reminder_enabled)
           if (typeof body.reminder_time === 'string' && /^\d{2}:\d{2}$/.test(body.reminder_time))
-            setReminderTime(body.reminder_time)
+            fillReminderTime(body.reminder_time)
           if (typeof body.streak_alerts_enabled === 'boolean')
-            setPushStreak(body.streak_alerts_enabled)
+            fillPushStreak(body.streak_alerts_enabled)
           if (typeof body.email_digest_enabled === 'boolean')
-            setEmailDigest(body.email_digest_enabled)
+            fillEmailDigest(body.email_digest_enabled)
         }
       })
       .catch(() => {
@@ -82,7 +90,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillEmailDigest, fillPushStreak, fillReminderTime, fillReminders, http])
 
   // Debounced save: every change triggers a 400ms-debounced PATCH.
   useEffect(() => {

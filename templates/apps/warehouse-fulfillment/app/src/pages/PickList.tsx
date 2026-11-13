@@ -270,7 +270,7 @@ export function PickList() {
         )}
         data-testid="picklist-items"
       >
-        {entries.length === 0 ? (
+        {!loading && entries.length === 0 ? (
           <p
             className={cm.cn(cm.sp('p', 6), cm.textMuted, 'text-sm')}
             data-testid="picklist-empty-list"

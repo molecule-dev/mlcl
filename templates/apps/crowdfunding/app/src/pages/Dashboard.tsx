@@ -275,7 +275,7 @@ export function Dashboard() {
               {t('dashboard.activity.viewAll', {}, { defaultValue: 'All →' })}
             </Link>
           </div>
-          {activity.length === 0 ? (
+          {!loading && activity.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t(
                 'dashboard.activity.empty',

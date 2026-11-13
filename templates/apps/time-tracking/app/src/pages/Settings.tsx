@@ -1,6 +1,6 @@
 import { useEffect, useMemo, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -57,7 +57,10 @@ export function Settings() {
 
   const [section, setSection] = useState<SectionKey>('profile')
 
-  const [profile, setProfile] = useState<UserShape>({})
+  const [profile, setProfile, fillProfile] = useForm<UserShape>({
+    defaultValues: {},
+    resetKey: JSON.stringify([user?.id]),
+  }).asState()
   const [savingProfile, setSavingProfile] = useState(false)
   const [profileMsg, setProfileMsg] = useState<string | null>(null)
   const [profileError, setProfileError] = useState<string | null>(null)
@@ -76,13 +79,13 @@ export function Settings() {
   const [version, setVersion] = useState(0)
 
   useEffect(() => {
-    setProfile({
+    fillProfile({
       id: user?.id ?? '',
       name: user?.name ?? '',
       email: user?.email ?? '',
       username: user?.username ?? '',
     })
-  }, [user?.id, user?.name, user?.email, user?.username])
+  }, [user?.id, user?.name, user?.email, user?.username, fillProfile])
 
   useEffect(() => {
     let cancelled = false

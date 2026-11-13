@@ -14,7 +14,7 @@
 import { type JSX, useEffect, useRef, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuthClient, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuthClient, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Flex, Input, Spinner } from '@molecule/app-ui-react'
 
@@ -32,8 +32,12 @@ export function SettingsAccountSection(): JSX.Element {
   const http = useHttpClient()
 
   const cachedUser = authClient.getState().user
-  const [email, setEmail] = useState(cachedUser?.email || '')
-  const [name, setName] = useState(cachedUser?.name || '')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: cachedUser?.email || '' },
+  }).asState('value')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: cachedUser?.name || '' },
+  }).asState('value')
   const [currentPassword, setCurrentPassword] = useState('')
   const [needsPassword, setNeedsPassword] = useState(false)
   const [saving, setSaving] = useState(false)
@@ -55,10 +59,10 @@ export function SettingsAccountSection(): JSX.Element {
         const next = (body.props ?? body) as UserProfile | undefined
         if (next && typeof next === 'object' && (next as UserProfile).id) {
           authClient.setUser(next)
-          setEmail((curr) =>
+          fillEmail((curr) =>
             curr === (cachedUser?.email || '') ? (next.email as string | undefined) || curr : curr,
           )
-          setName((curr) =>
+          fillName((curr) =>
             curr === (cachedUser?.name || '') ? (next.name as string | undefined) || curr : curr,
           )
         }

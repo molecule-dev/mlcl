@@ -35,6 +35,8 @@ export function StoryDetail() {
   const [story, setStory] = useState<Story | null>(null)
   const [coverage, setCoverage] = useState<ReadonlyArray<SourceCoverage>>([])
   const [related, setRelated] = useState<ReadonlyArray<Story>>([])
+  const [relatedReady, setRelatedReady] = useState(false)
+
   const [loading, setLoading] = useState(true)
   const [saved, setSaved] = useState(false)
 
@@ -73,6 +75,8 @@ export function StoryDetail() {
   }, [http, id])
   // Related Analysis rail: other stories in the same topic cluster.
   useEffect(() => {
+    setRelatedReady(false)
+
     if (!story?.topic_slug) return
     let cancelled = false
     http
@@ -81,9 +85,13 @@ export function StoryDetail() {
         if (cancelled) return
         const list = unwrapList<Story>(res).filter((r) => r.id !== id)
         setRelated(list.slice(0, 4))
+        setRelatedReady(true)
       })
       .catch(() => {
-        if (!cancelled) setRelated([])
+        if (!cancelled) {
+          setRelated([])
+          setRelatedReady(true)
+        }
       })
     return () => {
       cancelled = true
@@ -385,7 +393,7 @@ export function StoryDetail() {
           </span>
           {t('storyDetail.relatedHeading', {}, { defaultValue: 'Related Analysis' })}
         </h2>
-        {related.length === 0 ? (
+        {relatedReady && related.length === 0 ? (
           <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
             {t('storyDetail.relatedEmpty', {}, { defaultValue: 'No related analysis yet.' })}
           </p>

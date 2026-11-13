@@ -1,7 +1,7 @@
 import { type CSSProperties, type ReactNode, useEffect, useMemo, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -283,7 +283,9 @@ export function Categories() {
   const [fetchError, setFetchError] = useState<string | null>(null)
   const [showModal, setShowModal] = useState(false)
   const [editingCategory, setEditingCategory] = useState<Category | null>(null)
-  const [formData, setFormData] = useState({ name: '', color: '#3B82F6' })
+  const [formData, setFormData, fillFormData] = useForm({
+    defaultValues: { name: '', color: '#3B82F6' },
+  }).asState()
   const [formError, setFormError] = useState('')
   const [isSubmitting, setIsSubmitting] = useState(false)
   const [deleteConfirmId, setDeleteConfirmId] = useState<string | null>(null)
@@ -385,13 +387,13 @@ export function Categories() {
       if (e.key !== 'Escape') return
       setShowModal(false)
       setEditingCategory(null)
-      setFormData({ name: '', color: '#3B82F6' })
+      fillFormData({ name: '', color: '#3B82F6' })
       setFormError('')
       setDeleteConfirmId(null)
     }
     document.addEventListener('keydown', onKeyDown)
     return () => document.removeEventListener('keydown', onKeyDown)
-  }, [showModal])
+  }, [fillFormData, showModal])
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -83,10 +83,22 @@ export function Compose() {
   const [draftId, setDraftId] = useState<string | null>(null)
   const [recipients, setRecipients] = useState<string[]>([])
   const [recipientInput, setRecipientInput] = useState('')
-  const [cc, setCc] = useState('')
-  const [bcc, setBcc] = useState('')
-  const [subject, setSubject] = useState('')
-  const [body, setBody] = useState('')
+  const [cc, setCc, fillCc] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
+  const [bcc, setBcc, fillBcc] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
+  const [subject, setSubject, fillSubject] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
+  const [body, setBody, fillBody] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
   // Start in the user's saved default tone (Settings → Preferences) rather than
   // a hardcoded one, so their preference actually drives new drafts.
   const [tone, setTone] = useState<Tone>(() => loadPreferences().defaultTone)
@@ -125,11 +137,11 @@ export function Compose() {
           if (cancelled) return
           const d = response.data
           setDraftId(d.id)
-          setSubject(d.subject ?? '')
-          setBody(d.body ?? '')
+          fillSubject(d.subject ?? '')
+          fillBody(d.body ?? '')
           setRecipients(parseList(d.recipients))
-          setCc(parseList(d.cc).join(', '))
-          setBcc(parseList(d.bcc).join(', '))
+          fillCc(parseList(d.cc).join(', '))
+          fillBcc(parseList(d.bcc).join(', '))
           if (d.tone) setTone(d.tone as Tone)
           return
         }
@@ -151,13 +163,13 @@ export function Compose() {
         // Reply uses "Re:" prefix and pre-fills the original recipient. Forward
         // uses "Fwd:" prefix and starts with no recipients (the user picks).
         if (replyId) {
-          setSubject(/^Re:\s/i.test(origSubject) ? origSubject : `Re: ${origSubject}`)
+          fillSubject(/^Re:\s/i.test(origSubject) ? origSubject : `Re: ${origSubject}`)
           setRecipients(sent.recipient_email ? [sent.recipient_email] : [])
         } else {
-          setSubject(/^Fwd:\s/i.test(origSubject) ? origSubject : `Fwd: ${origSubject}`)
+          fillSubject(/^Fwd:\s/i.test(origSubject) ? origSubject : `Fwd: ${origSubject}`)
           setRecipients([])
         }
-        setBody(
+        fillBody(
           `\n\n--- ${replyId ? 'On previous send, you wrote' : 'Forwarded message'} ---\n${origBody}`,
         )
         setDraftId(null)
@@ -168,7 +180,7 @@ export function Compose() {
     return () => {
       cancelled = true
     }
-  }, [http, params])
+  }, [fillBcc, fillBody, fillCc, fillSubject, http, params])
 
   const addRecipient = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if ((e.key === 'Enter' || e.key === ',') && recipientInput.trim()) {

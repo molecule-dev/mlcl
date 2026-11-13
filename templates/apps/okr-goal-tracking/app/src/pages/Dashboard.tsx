@@ -369,7 +369,7 @@ export function Dashboard() {
             >
               {t('nav.recentActivity', {}, { defaultValue: 'Recent activity' })}
             </h3>
-            {notifications.length === 0 ? (
+            {!loading && notifications.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t(
                   'dashboard.noActivity',

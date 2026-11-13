@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, Switch } from '@molecule/app-ui-react'
 
@@ -58,9 +58,18 @@ function AgentDetail() {
   const [voice, setVoice] = useState<string>('alloy')
   const [voicePickedAt, setVoicePickedAt] = useState<number | null>(null)
   const [voiceTiles, setVoiceTiles] = useState<ReadonlyArray<VoiceTile>>(FALLBACK_VOICE_TILES)
-  const [systemPrompt, setSystemPrompt] = useState('')
-  const [tempo, setTempo] = useState(40)
-  const [warmth, setWarmth] = useState(70)
+  const [systemPrompt, setSystemPrompt, fillSystemPrompt] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([params, params.id]),
+  }).asState('value')
+  const [tempo, setTempo, fillTempo] = useForm({
+    defaultValues: { value: 40 },
+    resetKey: JSON.stringify([params, params.id]),
+  }).asState('value')
+  const [warmth, setWarmth, fillWarmth] = useForm({
+    defaultValues: { value: 70 },
+    resetKey: JSON.stringify([params, params.id]),
+  }).asState('value')
   const [enabled, setEnabled] = useState<Record<string, boolean>>({
     webSearch: true,
     calendar: false,
@@ -107,7 +116,7 @@ function AgentDetail() {
         if (cancelled) return
         if (res.data) {
           setAgent(res.data)
-          setSystemPrompt(res.data.system_prompt ?? '')
+          fillSystemPrompt(res.data.system_prompt ?? '')
           if (res.data.voice_id) setVoice(res.data.voice_id)
           // Hydrate behaviour sliders + capabilities from the agent's
           // `tools` jsonb so the UI matches what we last saved.
@@ -116,8 +125,8 @@ function AgentDetail() {
               ? (res.data.tools as AgentTools)
               : {}
           ) as AgentTools
-          if (typeof tools.tempo === 'number') setTempo(tools.tempo)
-          if (typeof tools.warmth === 'number') setWarmth(tools.warmth)
+          if (typeof tools.tempo === 'number') fillTempo(tools.tempo)
+          if (typeof tools.warmth === 'number') fillWarmth(tools.warmth)
           if (tools.capabilities && typeof tools.capabilities === 'object') {
             setEnabled((s) => ({ ...s, ...tools.capabilities }))
           }
@@ -134,7 +143,7 @@ function AgentDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, params.id, t])
+  }, [fillSystemPrompt, fillTempo, fillWarmth, http, params.id, t])
 
   async function handleSave() {
     if (saving || !agent) return

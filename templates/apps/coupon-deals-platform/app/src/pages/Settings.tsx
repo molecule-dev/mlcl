@@ -2,7 +2,7 @@ import { type FormEvent, useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import {
   AuthSection,
   DevicesSection,
@@ -109,7 +109,10 @@ export function Settings() {
   const [city, setCity] = useState('')
 
   const [prefs, setPrefs] = useState<PreferenceShape>(DEFAULT_PREFS)
-  const [notifs, setNotifs] = useState<NotificationFlags>(DEFAULT_NOTIFS)
+  const [notifs, setNotifs, fillNotifs] = useForm<NotificationFlags>({
+    defaultValues: DEFAULT_NOTIFS,
+    resetKey: JSON.stringify([user?.id]),
+  }).asState()
 
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
@@ -132,7 +135,7 @@ export function Settings() {
         const body = (res?.data ?? res) as Record<string, unknown>
         if (typeof body.city === 'string') setCity(body.city)
         if (isPreferenceShape(body.preferences)) setPrefs(body.preferences)
-        if (isNotificationFlags(body.notification_prefs)) setNotifs(body.notification_prefs)
+        if (isNotificationFlags(body.notification_prefs)) fillNotifs(body.notification_prefs)
       })
       .catch(() => {
         // Non-fatal — defaults stay in place.
@@ -140,7 +143,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, user?.id])
+  }, [fillNotifs, http, user?.id])
 
   async function handleSave(e?: FormEvent) {
     e?.preventDefault()

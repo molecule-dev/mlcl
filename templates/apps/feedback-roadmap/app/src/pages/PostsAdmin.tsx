@@ -13,7 +13,7 @@ import { Link } from 'react-router'
 import { track } from '@molecule/app-analytics'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { StatusBadge } from '../components/StatusBadge.js'
@@ -38,8 +38,12 @@ export function PostsAdmin() {
   const [posts, setPosts] = useState<ApiPost[] | null>(null)
   const [denied, setDenied] = useState(false)
   const [selectedId, setSelectedId] = useState<string | null>(null)
-  const [response, setResponse] = useState('')
-  const [roadmapLabel, setRoadmapLabel] = useState('')
+  const [response, setResponse, fillResponse] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
+  const [roadmapLabel, setRoadmapLabel, fillRoadmapLabel] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [mergeTarget, setMergeTarget] = useState('')
   const [busy, setBusy] = useState(false)
   const [notice, setNotice] = useState<string | null>(null)
@@ -80,11 +84,17 @@ export function PostsAdmin() {
   )
 
   useEffect(() => {
-    setResponse(selected?.admin_response ?? '')
-    setRoadmapLabel(selected?.roadmap_label ?? '')
+    fillResponse(selected?.admin_response ?? '')
+    fillRoadmapLabel(selected?.roadmap_label ?? '')
     setMergeTarget('')
     setNotice(null)
-  }, [selectedId, selected?.admin_response, selected?.roadmap_label])
+  }, [
+    selectedId,
+    selected?.admin_response,
+    selected?.roadmap_label,
+    fillResponse,
+    fillRoadmapLabel,
+  ])
 
   const applyStatus = useCallback(
     async (status: StatusAction) => {

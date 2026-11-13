@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -58,13 +58,25 @@ export function InvoiceEditor() {
   const http = useHttpClient()
 
   const [clients, setClients] = useState<ClientOption[]>([])
-  const [clientId, setClientId] = useState<string>('')
+  const [clientsReady, setClientsReady] = useState(false)
+
+  const [clientId, setClientId, fillClientId] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
   const [issueDate, setIssueDate] = useState(new Date().toISOString().slice(0, 10))
-  const [dueDate, setDueDate] = useState(
-    new Date(Date.now() + 14 * 86400000).toISOString().slice(0, 10),
-  )
-  const [taxRate, setTaxRate] = useState(8.5)
-  const [notes, setNotes] = useState('Net 14. Thanks for the partnership!')
+  const [dueDate, setDueDate, fillDueDate] = useForm({
+    defaultValues: { value: new Date(Date.now() + 14 * 86400000).toISOString().slice(0, 10) },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
+  const [taxRate, setTaxRate, fillTaxRate] = useForm({
+    defaultValues: { value: 8.5 },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
+  const [notes, setNotes, fillNotes] = useForm({
+    defaultValues: { value: 'Net 14. Thanks for the partnership!' },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
   const [items, setItems] = useState<LineItem[]>([
     { id: 'i1', description: 'Brand strategy workshop', quantity: 1, unit_price: 1800 },
     { id: 'i2', description: 'Logo system & guidelines', quantity: 1, unit_price: 2400 },
@@ -74,6 +86,8 @@ export function InvoiceEditor() {
   const [busy, setBusy] = useState<'draft' | 'send' | null>(null)
 
   useEffect(() => {
+    setClientsReady(false)
+
     let active = true
     http
       .get<ClientOption[]>('/api/clients')
@@ -81,14 +95,18 @@ export function InvoiceEditor() {
         if (!active) return
         const list = Array.isArray(r.data) ? r.data : []
         setClients(list)
+        setClientsReady(true)
         if (presetClient && list.find((c) => c.id === presetClient)) {
-          setClientId(presetClient)
+          fillClientId(presetClient)
         } else if (list[0] && !clientId) {
-          setClientId(list[0].id)
+          fillClientId(list[0].id)
         }
       })
       .catch(() => {
-        if (active) setClients([])
+        if (active) {
+          setClients([])
+          setClientsReady(true)
+        }
       })
     return () => {
       active = false
@@ -104,10 +122,10 @@ export function InvoiceEditor() {
       .then((r) => {
         if (!active || !r.data) return
         const inv = r.data
-        setClientId(inv.client_id ?? '')
-        if (inv.due_date) setDueDate(inv.due_date.slice(0, 10))
-        if (inv.notes !== null) setNotes(inv.notes)
-        setTaxRate(inv.tax_rate ?? 0)
+        fillClientId(inv.client_id ?? '')
+        if (inv.due_date) fillDueDate(inv.due_date.slice(0, 10))
+        if (inv.notes !== null) fillNotes(inv.notes)
+        fillTaxRate(inv.tax_rate ?? 0)
         if (Array.isArray(inv.items) && inv.items.length > 0) {
           setItems(
             inv.items.map((line, idx) => ({
@@ -126,7 +144,7 @@ export function InvoiceEditor() {
     return () => {
       active = false
     }
-  }, [editId, http, t])
+  }, [editId, fillClientId, fillDueDate, fillNotes, fillTaxRate, http, t])
 
   const subtotal = useMemo(
     () => items.reduce((sum, i) => sum + i.quantity * i.unit_price, 0),
@@ -360,7 +378,7 @@ export function InvoiceEditor() {
                 aria-label={t('invoiceEditor.field.client', {}, { defaultValue: 'Bill to' })}
                 data-field="client"
               >
-                {clients.length === 0 ? (
+                {clientsReady && clients.length === 0 ? (
                   <option value="">
                     {t('invoiceEditor.noClients', {}, { defaultValue: '— no clients yet —' })}
                   </option>

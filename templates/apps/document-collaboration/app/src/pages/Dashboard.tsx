@@ -303,7 +303,7 @@ export function Dashboard() {
               {t('dashboard.viewFeed', {}, { defaultValue: 'Feed →' })}
             </Link>
           </div>
-          {activity.length === 0 ? (
+          {!loading && activity.length === 0 ? (
             <p
               className={cm.cn(
                 cm.sp('mt', 6),

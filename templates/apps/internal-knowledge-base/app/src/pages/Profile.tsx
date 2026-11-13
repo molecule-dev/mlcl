@@ -201,7 +201,7 @@ export function Profile() {
         <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('extrabold'))}>
           {t('profile.spaces', {}, { defaultValue: 'Spaces I maintain' })}
         </h2>
-        {spaces.length === 0 ? (
+        {!loading && spaces.length === 0 ? (
           <p className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
             {t(
               'profile.spacesEmpty',

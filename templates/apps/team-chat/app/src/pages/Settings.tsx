@@ -3,6 +3,7 @@ import { Link, useNavigate } from 'react-router'
 
 import {
   useAuth,
+  useForm,
   useHttpClient,
   useStorageValue,
   useTheme,
@@ -48,19 +49,35 @@ function Settings() {
     defaultValue: DEFAULT_PREFS,
   })
 
-  const [displayName, setDisplayName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
-  const [bio, setBio] = useState(user?.bio ?? '')
+  const [displayName, setDisplayName, fillDisplayName] = useForm({
+    defaultValues: { value: user?.name ?? '' },
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
+  const [bio, setBio, fillBio] = useForm({ defaultValues: { value: user?.bio ?? '' } }).asState(
+    'value',
+  )
   const [savingProfile, setSavingProfile] = useState(false)
   const [savedNotice, setSavedNotice] = useState<string | null>(null)
   const [saveError, setSaveError] = useState<string | null>(null)
 
   // Re-hydrate the local form when user info finally streams in (auth init is async).
   useEffect(() => {
-    if (user?.name && !displayName) setDisplayName(user.name)
-    if (user?.email && !email) setEmail(user.email)
-    if (user?.bio && !bio) setBio(user.bio)
-  }, [user?.name, user?.email, user?.bio, displayName, email, bio])
+    if (user?.name && !displayName) fillDisplayName(user.name)
+    if (user?.email && !email) fillEmail(user.email)
+    if (user?.bio && !bio) fillBio(user.bio)
+  }, [
+    user?.name,
+    user?.email,
+    user?.bio,
+    displayName,
+    email,
+    bio,
+    fillDisplayName,
+    fillEmail,
+    fillBio,
+  ])
 
   const userName =
     user?.name || user?.email || t('common.unknown', {}, { defaultValue: 'Unknown user' })

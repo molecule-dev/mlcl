@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, usePush, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, usePush, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface ProfileResponse {
@@ -16,10 +16,16 @@ function NotificationsSettingsSection() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const { requestPermission, register, unregister } = usePush()
-  const [emailNotifications, setEmailNotifications] = useState(true)
+  const [emailNotifications, setEmailNotifications, fillEmailNotifications] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
   const [pushNotifications, setPushNotifications] = useState(false)
-  const [taskAssignments, setTaskAssignments] = useState(true)
-  const [projectUpdates, setProjectUpdates] = useState(true)
+  const [taskAssignments, setTaskAssignments, fillTaskAssignments] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
+  const [projectUpdates, setProjectUpdates, fillProjectUpdates] = useForm({
+    defaultValues: { value: true },
+  }).asState('value')
   const [loading, setLoading] = useState(false)
   const [saved, setSaved] = useState(false)
   const cm = getClassMap()
@@ -33,10 +39,10 @@ function NotificationsSettingsSection() {
           (res as unknown as { data?: ProfileResponse }).data ?? (res as unknown as ProfileResponse)
         if (cancelled) return
         const p = data.preferences ?? {}
-        if (typeof p.emailNotifications === 'boolean') setEmailNotifications(p.emailNotifications)
+        if (typeof p.emailNotifications === 'boolean') fillEmailNotifications(p.emailNotifications)
         if (typeof p.pushNotifications === 'boolean') setPushNotifications(p.pushNotifications)
-        if (typeof p.taskAssignments === 'boolean') setTaskAssignments(p.taskAssignments)
-        if (typeof p.projectUpdates === 'boolean') setProjectUpdates(p.projectUpdates)
+        if (typeof p.taskAssignments === 'boolean') fillTaskAssignments(p.taskAssignments)
+        if (typeof p.projectUpdates === 'boolean') fillProjectUpdates(p.projectUpdates)
       } catch (_error) {
         // ignore — defaults remain
       }
@@ -45,7 +51,7 @@ function NotificationsSettingsSection() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillEmailNotifications, fillProjectUpdates, fillTaskAssignments, http])
 
   const handlePushToggle = async (next: boolean) => {
     setPushNotifications(next)

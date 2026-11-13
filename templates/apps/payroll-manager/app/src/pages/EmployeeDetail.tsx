@@ -57,9 +57,13 @@ export function EmployeeDetail() {
   const [employee, setEmployee] = useState<Employee | null>(null)
   const [withholdings, setWithholdings] = useState<Withholding[]>([])
   const [deductions, setDeductions] = useState<Deduction[]>([])
+  const [deductionsReady, setDeductionsReady] = useState(false)
+
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setDeductionsReady(false)
+
     if (!id) return
     let cancelled = false
     void Promise.all([
@@ -76,6 +80,7 @@ export function EmployeeDetail() {
       setEmployee(emp)
       setWithholdings(unwrapList<Withholding>(wRes))
       setDeductions(unwrapList<Deduction>(dRes))
+      setDeductionsReady(true)
     })
     return () => {
       cancelled = true
@@ -293,7 +298,7 @@ export function EmployeeDetail() {
           icon="receipt_long"
           tint="text-tertiary"
         >
-          {deductions.length === 0 ? (
+          {deductionsReady && deductions.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t('employeeDetail.noDeductions', {}, { defaultValue: 'No deductions on file.' })}
             </p>

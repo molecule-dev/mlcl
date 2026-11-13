@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -45,7 +45,9 @@ export function ImportTransactions() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const [accounts, setAccounts] = useState<AccountOption[]>([])
-  const [accountId, setAccountId] = useState('')
+  const [accountId, setAccountId, fillAccountId] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [file, setFile] = useState<File | null>(null)
   const [csvText, setCsvText] = useState<string>('')
   const [preview, setPreview] = useState<PreviewResponse | null>(null)
@@ -62,13 +64,13 @@ export function ImportTransactions() {
         if (cancelled) return
         const list = unwrapList<AccountOption>(r)
         setAccounts(list)
-        if (list[0]) setAccountId(list[0].id)
+        if (list[0]) fillAccountId(list[0].id)
       })
       .catch(() => {})
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillAccountId, http])
 
   function reset() {
     setFile(null)

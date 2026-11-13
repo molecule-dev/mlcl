@@ -1,7 +1,7 @@
 import { type FormEvent, useEffect, useMemo, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AppShell } from '../components/AppShell.js'
@@ -53,8 +53,12 @@ function KnowledgeBase() {
   const http = useHttpClient()
   const cm = getClassMap()
   const [bots, setBots] = useState<BotSummary[]>([])
-  const [selectedBotId, setSelectedBotId] = useState<string>('')
+  const [selectedBotId, setSelectedBotId, fillSelectedBotId] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [docs, setDocs] = useState<KnowledgeDocument[]>([])
+  const [docsReady, setDocsReady] = useState(false)
+
   const [loading, setLoading] = useState(true)
   const [docsLoading, setDocsLoading] = useState(false)
   const [fetchError, setFetchError] = useState<string | null>(null)
@@ -76,7 +80,7 @@ function KnowledgeBase() {
         if (!active) return
         const list = asArray<BotSummary>(res)
         setBots(list)
-        if (list.length > 0) setSelectedBotId(list[0].id)
+        if (list.length > 0) fillSelectedBotId(list[0].id)
       })
       .catch((err) => {
         if (active)
@@ -90,9 +94,11 @@ function KnowledgeBase() {
     return () => {
       active = false
     }
-  }, [http, t])
+  }, [fillSelectedBotId, http, t])
 
   useEffect(() => {
+    setDocsReady(false)
+
     if (!selectedBotId) {
       setDocs([])
       return
@@ -102,7 +108,7 @@ function KnowledgeBase() {
     setFetchError(null)
     http
       .get(`/api/training/documents/${selectedBotId}`)
-      .then((res) => active && setDocs(asArray<KnowledgeDocument>(res)))
+      .then((res) => active && (setDocs(asArray<KnowledgeDocument>(res)), setDocsReady(true)))
       .catch(
         (err) =>
           active &&
@@ -336,15 +342,20 @@ function KnowledgeBase() {
                 )}
               </p>
             )}
-            {!loading && !docsLoading && !fetchError && bots.length > 0 && docs.length === 0 && (
-              <p className={cm.cn(cm.textSize('sm'), cm.sp('px', 2), 'text-on-surface-variant')}>
-                {t(
-                  'knowledgeBase.emptyState',
-                  {},
-                  { defaultValue: 'No knowledge documents yet for this bot.' },
-                )}
-              </p>
-            )}
+            {!loading &&
+              !docsLoading &&
+              !fetchError &&
+              bots.length > 0 &&
+              docsReady &&
+              docs.length === 0 && (
+                <p className={cm.cn(cm.textSize('sm'), cm.sp('px', 2), 'text-on-surface-variant')}>
+                  {t(
+                    'knowledgeBase.emptyState',
+                    {},
+                    { defaultValue: 'No knowledge documents yet for this bot.' },
+                  )}
+                </p>
+              )}
             {docs.map((doc) => (
               <KnowledgeSourceCard
                 key={doc.id}

@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -113,14 +113,17 @@ export function SearchResults() {
 
   const listRoute = useListRoute({ filters: { q: {} } })
   const queryParam = listRoute.filters.q ?? ''
-  const [draftQuery, setDraftQuery] = useState(queryParam)
+  const [draftQuery, setDraftQuery, fillDraftQuery] = useForm({
+    defaultValues: { value: queryParam },
+    resetKey: JSON.stringify([params.toString()]),
+  }).asState('value')
   const [files, setFiles] = useState<FileRow[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [activeFilter, setActiveFilter] = useState<FilterKind>('all')
 
   useEffect(() => {
-    setDraftQuery(queryParam)
-  }, [queryParam])
+    fillDraftQuery(queryParam)
+  }, [fillDraftQuery, queryParam])
 
   // Refetch on every queryParam change so each Enter on the search form
   // fires a real GET /api/files?q=<term> the user can verify in the

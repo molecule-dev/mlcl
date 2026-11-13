@@ -1,7 +1,13 @@
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useChangePassword, useHttpClient, useTranslation } from '@molecule/app-react'
+import {
+  useAuth,
+  useChangePassword,
+  useForm,
+  useHttpClient,
+  useTranslation,
+} from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Alert, Button, Input, LanguagePicker, Modal, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -69,13 +75,17 @@ export function Settings() {
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('account')
   const [profile, setProfile] = useState<Profile | null>(null)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [practice, setPractice] = useState<Required<PracticePrefs>>(DEFAULT_PRACTICE)
-  const [availability, setAvailability] =
-    useState<Required<AvailabilityPrefs>>(DEFAULT_AVAILABILITY)
-  const [notifications, setNotifications] =
-    useState<Required<NotificationPrefs>>(DEFAULT_NOTIFICATIONS)
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [practice, setPractice, fillPractice] = useForm<Required<PracticePrefs>>({
+    defaultValues: DEFAULT_PRACTICE,
+  }).asState()
+  const [availability, setAvailability, fillAvailability] = useForm<Required<AvailabilityPrefs>>({
+    defaultValues: DEFAULT_AVAILABILITY,
+  }).asState()
+  const [notifications, setNotifications, fillNotifications] = useForm<Required<NotificationPrefs>>(
+    { defaultValues: DEFAULT_NOTIFICATIONS },
+  ).asState()
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -89,12 +99,12 @@ export function Settings() {
         const me = unwrapSingle<Profile>(res)
         if (!me) return
         setProfile(me)
-        setName(me.name ?? '')
-        setEmail(me.email ?? '')
+        fillName(me.name ?? '')
+        fillEmail(me.email ?? '')
         const prefs = me.preferences ?? {}
-        setPractice({ ...DEFAULT_PRACTICE, ...(prefs.practice ?? {}) })
-        setAvailability({ ...DEFAULT_AVAILABILITY, ...(prefs.availability ?? {}) })
-        setNotifications({ ...DEFAULT_NOTIFICATIONS, ...(prefs.notifications ?? {}) })
+        fillPractice({ ...DEFAULT_PRACTICE, ...(prefs.practice ?? {}) })
+        fillAvailability({ ...DEFAULT_AVAILABILITY, ...(prefs.availability ?? {}) })
+        fillNotifications({ ...DEFAULT_NOTIFICATIONS, ...(prefs.notifications ?? {}) })
       })
       .catch(() => {
         if (!cancelled)
@@ -103,7 +113,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [fillAvailability, fillEmail, fillName, fillNotifications, fillPractice, http, t])
 
   const persist = async (updates: { name?: string; preferences?: Preferences }) => {
     setSaving(true)

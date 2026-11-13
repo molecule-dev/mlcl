@@ -343,7 +343,7 @@ export function Rules() {
             { defaultValue: 'Field schemas the extractor uses for each document type.' },
           )}
         </p>
-        {templates.length === 0 ? (
+        {!loading && templates.length === 0 ? (
           <p
             data-mol-id="templates-empty"
             className={cm.cn(cm.sp('py', 6), 'text-on-surface-variant text-sm')}

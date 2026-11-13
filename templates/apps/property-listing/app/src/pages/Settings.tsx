@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -50,10 +50,22 @@ function Settings() {
   const [newPassword, setNewPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
 
-  const [notifyEmail, setNotifyEmail] = useState(initialProfile.notifyEmail ?? true)
-  const [notifySms, setNotifySms] = useState(initialProfile.notifySms ?? false)
-  const [notifyNewLeads, setNotifyNewLeads] = useState(initialProfile.notifyNewLeads ?? true)
-  const [notifyShowings, setNotifyShowings] = useState(initialProfile.notifyShowings ?? true)
+  const [notifyEmail, setNotifyEmail, fillNotifyEmail] = useForm({
+    defaultValues: { value: initialProfile.notifyEmail ?? true },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [notifySms, setNotifySms, fillNotifySms] = useForm({
+    defaultValues: { value: initialProfile.notifySms ?? false },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [notifyNewLeads, setNotifyNewLeads, fillNotifyNewLeads] = useForm({
+    defaultValues: { value: initialProfile.notifyNewLeads ?? true },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [notifyShowings, setNotifyShowings, fillNotifyShowings] = useForm({
+    defaultValues: { value: initialProfile.notifyShowings ?? true },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
 
   // Re-fetch the canonical user row + the server-side settings slice on
   // mount so the form reflects any server-side changes made since login
@@ -95,10 +107,10 @@ function Settings() {
         setLoadedSettings(ph)
         if (ph.phone !== undefined) setPhone(ph.phone)
         if (ph.bio !== undefined) setBio(ph.bio)
-        if (ph.notifyEmail !== undefined) setNotifyEmail(ph.notifyEmail)
-        if (ph.notifySms !== undefined) setNotifySms(ph.notifySms)
-        if (ph.notifyNewLeads !== undefined) setNotifyNewLeads(ph.notifyNewLeads)
-        if (ph.notifyShowings !== undefined) setNotifyShowings(ph.notifyShowings)
+        if (ph.notifyEmail !== undefined) fillNotifyEmail(ph.notifyEmail)
+        if (ph.notifySms !== undefined) fillNotifySms(ph.notifySms)
+        if (ph.notifyNewLeads !== undefined) fillNotifyNewLeads(ph.notifyNewLeads)
+        if (ph.notifyShowings !== undefined) fillNotifyShowings(ph.notifyShowings)
       })
       .catch((error: unknown) => {
         // First-save users have no row yet; 401/500 surface here only on a
@@ -108,7 +120,7 @@ function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, user?.id])
+  }, [fillNotifyEmail, fillNotifyNewLeads, fillNotifyShowings, fillNotifySms, http, user?.id])
 
   const [savingProfile, setSavingProfile] = useState(false)
   const [savingPassword, setSavingPassword] = useState(false)

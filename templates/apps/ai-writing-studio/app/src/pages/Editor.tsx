@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -97,7 +97,10 @@ export function Editor() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [content, setContent] = useState('')
-  const [title, setTitle] = useState('')
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id, searchParams.toString()]),
+  }).asState('value')
   const [savedAt, setSavedAt] = useState<Date | null>(null)
   const [savingState, setSavingState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
@@ -186,7 +189,7 @@ export function Editor() {
         } else {
           setDoc(row)
           setContent(String(row.content ?? ''))
-          setTitle(String(row.title ?? ''))
+          fillTitle(String(row.title ?? ''))
           setError(null)
         }
       })
@@ -201,7 +204,7 @@ export function Editor() {
     return () => {
       cancelled = true
     }
-  }, [http, id, isNew, navigate, t, templateId])
+  }, [fillTitle, http, id, isNew, navigate, t, templateId])
 
   const wordCount = content.split(/\s+/).filter(Boolean).length
   const charCount = content.length

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useHttpClient, useTheme, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTheme, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -48,8 +48,12 @@ export function Settings() {
 
   const [prefs, setPrefs] = useState<ApiPrefs | null>(null)
   const [me, setMe] = useState<ApiMe | null>(null)
-  const [profileName, setProfileName] = useState('')
-  const [profileEmail, setProfileEmail] = useState('')
+  const [profileName, setProfileName, fillProfileName] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [profileEmail, setProfileEmail, fillProfileEmail] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [status, setStatus] = useState<Status>('idle')
   const [error, setError] = useState<string | null>(null)
 
@@ -74,8 +78,8 @@ export function Settings() {
         }
         if (meRes.data) {
           setMe(meRes.data)
-          setProfileName(meRes.data.name ?? '')
-          setProfileEmail(meRes.data.email ?? '')
+          fillProfileName(meRes.data.name ?? '')
+          fillProfileEmail(meRes.data.email ?? '')
         }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load settings')

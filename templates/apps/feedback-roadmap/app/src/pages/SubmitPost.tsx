@@ -67,6 +67,7 @@ export function SubmitPost() {
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [recent, setRecent] = useState<ApiPost[]>([])
+  const [recentReady, setRecentReady] = useState(false)
 
   const userId = user?.id ?? ''
 
@@ -92,6 +93,8 @@ export function SubmitPost() {
   }, [])
 
   useEffect(() => {
+    setRecentReady(false)
+
     if (!userId) return
     let cancelled = false
     const http = getHttpClient()
@@ -100,7 +103,10 @@ export function SubmitPost() {
         `/api/posts?author=${encodeURIComponent(userId)}&sort=latest&limit=3`,
       )
       .then((res) => {
-        if (!cancelled && Array.isArray(res?.data?.data)) setRecent(res.data.data)
+        if (!cancelled && Array.isArray(res?.data?.data)) {
+          setRecent(res.data.data)
+          setRecentReady(true)
+        }
       })
       .catch(() => undefined)
     return () => {
@@ -407,7 +413,7 @@ export function SubmitPost() {
           >
             {t('submit.recentTitle', {}, { defaultValue: 'Your Recent Submissions' })}
           </h3>
-          {recent.length === 0 ? (
+          {recentReady && recent.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t(
                 'submit.recentEmpty',

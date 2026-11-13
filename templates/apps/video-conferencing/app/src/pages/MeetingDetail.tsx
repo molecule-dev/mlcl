@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface ApiMeeting {
@@ -92,9 +92,15 @@ export function MeetingDetail() {
   const [participants, setParticipants] = useState<ApiParticipant[]>([])
   const [loading, setLoading] = useState(true)
   const [editing, setEditing] = useState(false)
-  const [editTitle, setEditTitle] = useState('')
-  const [editStart, setEditStart] = useState('')
-  const [editDuration, setEditDuration] = useState(30)
+  const [editTitle, setEditTitle, fillEditTitle] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [editStart, setEditStart, fillEditStart] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [editDuration, setEditDuration, fillEditDuration] = useForm({
+    defaultValues: { value: 30 },
+  }).asState('value')
   const [saveError, setSaveError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
 
@@ -130,11 +136,11 @@ export function MeetingDetail() {
 
   useEffect(() => {
     if (meeting) {
-      setEditTitle(meeting.title)
-      setEditStart(defaultDateLocal(meeting.starts_at))
-      setEditDuration(durationMinutes(meeting.starts_at, meeting.ends_at) || 30)
+      fillEditTitle(meeting.title)
+      fillEditStart(defaultDateLocal(meeting.starts_at))
+      fillEditDuration(durationMinutes(meeting.starts_at, meeting.ends_at) || 30)
     }
-  }, [meeting])
+  }, [fillEditDuration, fillEditStart, fillEditTitle, meeting])
 
   const startsAtLabel = useMemo(() => formatStartsAt(meeting?.starts_at), [meeting?.starts_at])
   const durationLabel = useMemo(() => {

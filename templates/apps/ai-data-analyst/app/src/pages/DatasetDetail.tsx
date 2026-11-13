@@ -66,6 +66,8 @@ export function DatasetDetail() {
   const { id } = useParams<{ id: string }>()
   const [dataset, setDataset] = useState<DatasetDetail | null>(null)
   const [preview, setPreview] = useState<PreviewRow[]>([])
+  const [previewReady, setPreviewReady] = useState(false)
+
   const [previewLoading, setPreviewLoading] = useState(false)
   const [tab, setTab] = useState<Tab>('schema')
   const [loading, setLoading] = useState(true)
@@ -94,13 +96,18 @@ export function DatasetDetail() {
   }, [load])
 
   useEffect(() => {
+    setPreviewReady(false)
+
     if (!id || tab !== 'sample' || preview.length > 0) return
     let cancelled = false
     setPreviewLoading(true)
     http
       .get(`/api/datasets/${id}/preview?limit=50`)
       .then((res) => {
-        if (!cancelled) setPreview(unwrapList<PreviewRow>(res))
+        if (!cancelled) {
+          setPreview(unwrapList<PreviewRow>(res))
+          setPreviewReady(true)
+        }
       })
       .catch(() => {
         /* leave empty; UI handles empty state */
@@ -332,7 +339,7 @@ export function DatasetDetail() {
               <p className={cm.cn(cm.sp('p', 12), cm.textCenter, 'text-on-surface-variant')}>
                 {t('datasetDetail.sampleLoading', {}, { defaultValue: 'Loading preview…' })}
               </p>
-            ) : preview.length === 0 ? (
+            ) : previewReady && preview.length === 0 ? (
               <p className={cm.cn(cm.sp('p', 12), cm.textCenter, 'text-on-surface-variant')}>
                 {t(
                   'datasetDetail.sampleEmpty',

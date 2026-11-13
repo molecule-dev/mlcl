@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, Switch } from '@molecule/app-ui-react'
 
@@ -68,7 +68,9 @@ export function Automations() {
 
   const [showForm, setShowForm] = useState(false)
   const [name, setName] = useState('')
-  const [spreadsheetId, setSpreadsheetId] = useState('')
+  const [spreadsheetId, setSpreadsheetId, fillSpreadsheetId] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [triggerType, setTriggerType] = useState('row.created')
   const [actionKind, setActionKind] = useState<'email' | 'webhook' | 'noop'>('noop')
   const [submitting, setSubmitting] = useState(false)
@@ -87,7 +89,7 @@ export function Automations() {
         setItems(Array.isArray(autoRes.data) ? autoRes.data : [])
         const wbs = Array.isArray(sheetsRes.data) ? sheetsRes.data : []
         setWorkbooks(wbs)
-        if (wbs.length && !spreadsheetId) setSpreadsheetId(wbs[0]!.id)
+        if (wbs.length && !spreadsheetId) fillSpreadsheetId(wbs[0]!.id)
       } catch (err) {
         if (!cancelled) setError(err instanceof Error ? err.message : String(err))
       } finally {

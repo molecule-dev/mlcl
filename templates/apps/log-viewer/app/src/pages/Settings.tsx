@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -60,8 +60,14 @@ export function Settings() {
   const [section, setSection] = useState<Section>('account')
 
   // ----- account -----
-  const [name, setName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: user?.name ?? '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
   const [accountSaving, setAccountSaving] = useState(false)
   const [accountError, setAccountError] = useState<string | null>(null)
   const [accountSaved, setAccountSaved] = useState(false)
@@ -72,9 +78,9 @@ export function Settings() {
   const emailChanged = !!user?.email && email !== user.email
 
   useEffect(() => {
-    setName(user?.name ?? '')
-    setEmail(user?.email ?? '')
-  }, [user?.id, user?.name, user?.email])
+    fillName(user?.name ?? '')
+    fillEmail(user?.email ?? '')
+  }, [user?.id, user?.name, user?.email, fillName, fillEmail])
 
   async function saveAccount(e: React.FormEvent) {
     e.preventDefault()

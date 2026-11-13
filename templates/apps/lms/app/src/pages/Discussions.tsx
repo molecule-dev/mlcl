@@ -61,6 +61,8 @@ function Discussions() {
   const [activeFilter, setActiveFilter] = useState('all')
   const [search, setSearch] = useState('')
   const [myCourses, setMyCourses] = useState<CourseRow[]>([])
+  const [myCoursesReady, setMyCoursesReady] = useState(false)
+
   const [composerOpen, setComposerOpen] = useState(false)
   const [composerCourseId, setComposerCourseId] = useState('')
   const [composerTitle, setComposerTitle] = useState('')
@@ -80,12 +82,14 @@ function Discussions() {
   )
 
   useEffect(() => {
+    setMyCoursesReady(false)
+
     Promise.all([
       loadDiscussions(),
       http
         .get('/api/courses?my=true')
-        .then((res: unknown) => setMyCourses(unwrapList<CourseRow>(res)))
-        .catch(() => setMyCourses([])),
+        .then((res: unknown) => (setMyCourses(unwrapList<CourseRow>(res)), setMyCoursesReady(true)))
+        .catch(() => (setMyCourses([]), setMyCoursesReady(true))),
     ]).finally(() => setLoading(false))
   }, [http, loadDiscussions])
 
@@ -171,7 +175,7 @@ function Discussions() {
         data-mol-id="discussion-composer"
       >
         <div className={cm.cn(cm.stack(4), cm.sp('p', 2))}>
-          {myCourses.length === 0 ? (
+          {myCoursesReady && myCourses.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
               {t(
                 'discussions.composerNoCourses',

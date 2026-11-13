@@ -1,7 +1,7 @@
 import { type ReactNode, useEffect, useRef, useState } from 'react'
 import { Link, NavLink, Outlet, useLocation, useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ResponsiveAppShell } from '@molecule/app-ui-react'
 
@@ -94,15 +94,17 @@ export function FeatureFlagManagerLayout({ children }: LayoutProps) {
   const http = useHttpClient()
   const [pinnedFlags, setPinnedFlags] = useState<readonly string[]>([])
   const searchInputRef = useRef<HTMLInputElement | null>(null)
-  const [searchQuery, setSearchQuery] = useState('')
+  const [searchQuery, setSearchQuery, fillSearchQuery] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
 
   // Hydrate the header search box from the URL when navigating to /flags
   // with a `?q=` so the visible value reflects the active filter.
   useEffect(() => {
     const params = new URLSearchParams(search)
     const q = params.get('q') ?? ''
-    setSearchQuery(q)
-  }, [search])
+    fillSearchQuery(q)
+  }, [fillSearchQuery, search])
 
   // "/" focuses the header search input (matches the `/` hint badge).
   useEffect(() => {

@@ -6,6 +6,7 @@ import {
   useAuth,
   useAuthClient,
   useChangePassword,
+  useForm,
   useHttpClient,
   useTranslation,
 } from '@molecule/app-react'
@@ -510,8 +511,12 @@ function AccountEmailCard() {
   const authClient = useAuthClient<AccountUser>()
   const http = useHttpClient()
 
-  const [email, setEmail] = useState(authClient.getState().user?.email ?? '')
-  const [name, setName] = useState(authClient.getState().user?.name ?? '')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: authClient.getState().user?.email ?? '' },
+  }).asState('value')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: authClient.getState().user?.name ?? '' },
+  }).asState('value')
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -528,8 +533,8 @@ function AccountEmailCard() {
         const next = data?.props ?? data
         if (next?.id) {
           authClient.setUser(next)
-          setEmail((curr) => curr || next.email || '')
-          setName((curr) => curr || next.name || '')
+          fillEmail((curr) => curr || next.email || '')
+          fillName((curr) => curr || next.name || '')
         }
       })
       .catch(() => {
@@ -538,7 +543,7 @@ function AccountEmailCard() {
     return () => {
       cancelled = true
     }
-  }, [http, authClient])
+  }, [http, authClient, fillEmail, fillName])
 
   const saveEmail = async () => {
     const current = authClient.getState().user

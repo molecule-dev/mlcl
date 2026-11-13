@@ -222,7 +222,7 @@ export function Documents() {
         </div>
       ) : null}
 
-      {loading && items.length === 0 ? (
+      {loading && !loading && items.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 16), cm.textCenter, 'text-on-surface-variant')}>
           {t('documents.loading', {}, { defaultValue: 'Loading library…' })}
         </p>

@@ -358,7 +358,7 @@ export function Home() {
             <p className={cm.cn(cm.sp('py', 16), 'text-center text-on-surface-variant')}>
               {t('home.loading', {}, { defaultValue: 'Opening the library\u2026' })}
             </p>
-          ) : articles.length === 0 ? (
+          ) : hasFetched && articles.length === 0 ? (
             <div
               className={cm.cn(
                 cm.sp('p', 8),
@@ -438,7 +438,7 @@ export function Home() {
               {t('home.allSpaces', {}, { defaultValue: 'All \u2192' })}
             </Link>
           </div>
-          {spaces.length === 0 ? (
+          {hasFetched && spaces.length === 0 ? (
             <div className={cm.cn(cm.sp('py', 4), cm.textSize('sm'), 'space-y-3 text-center')}>
               <p className={cm.cn('text-on-surface-variant')}>
                 {t(

@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -60,17 +60,21 @@ export function Profile() {
   const http = useHttpClient()
   const { user, refresh } = useAuth<UserProfile>()
 
-  const [name, setName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: user?.name ?? '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
   const [prefs, setPrefs] = useState<SettingsState>(() => loadPrefs())
   const [saving, setSaving] = useState(false)
   const [feedback, setFeedback] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    setName(user?.name ?? '')
-    setEmail(user?.email ?? '')
-  }, [user])
+    fillName(user?.name ?? '')
+    fillEmail(user?.email ?? '')
+  }, [fillEmail, fillName, user])
 
   function persistPrefs(next: SettingsState) {
     setPrefs(next)

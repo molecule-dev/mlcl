@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -69,7 +69,10 @@ export function Charts() {
   const [showForm, setShowForm] = useState(false)
   const [name, setName] = useState('')
   const [chartType, setChartType] = useState<ChartType>('line')
-  const [sheetId, setSheetId] = useState('')
+  const [sheetId, setSheetId, fillSheetId] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('value')
   const [submitting, setSubmitting] = useState(false)
 
   const spreadsheetId = routeId ?? null
@@ -88,7 +91,7 @@ export function Charts() {
           if (cancelled) return
           if (wbRes.data) {
             setWorkbook(wbRes.data)
-            if (wbRes.data.sheets?.length && !sheetId) setSheetId(wbRes.data.sheets[0]!.id)
+            if (wbRes.data.sheets?.length && !sheetId) fillSheetId(wbRes.data.sheets[0]!.id)
           }
           setCharts(Array.isArray(chartRes.data) ? chartRes.data : [])
         } else {
@@ -362,7 +365,7 @@ export function Charts() {
             </div>
           </header>
           <div className={cm.cn(cm.sp('p', 6))}>
-            {charts.length === 0 ? (
+            {!loading && charts.length === 0 ? (
               <p className={cm.cn(cm.textCenter, cm.sp('py', 12), 'text-on-surface-variant')}>
                 {t(
                   'charts.empty',

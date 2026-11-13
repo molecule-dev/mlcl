@@ -1,6 +1,6 @@
-import { useEffect, useRef, useState } from 'react'
+import { useEffect, useRef } from 'react'
 
-import { useTranslation } from '@molecule/app-react'
+import { useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 /**
@@ -41,16 +41,18 @@ export function PromptDialog({
 }: PromptDialogProps) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const [value, setValue] = useState(initialValue)
+  const [value, setValue, fillValue] = useForm({ defaultValues: { value: initialValue } }).asState(
+    'value',
+  )
   const inputRef = useRef<HTMLInputElement | HTMLTextAreaElement | null>(null)
 
   useEffect(() => {
     if (open) {
-      setValue(initialValue)
+      fillValue(initialValue)
       const id = window.setTimeout(() => inputRef.current?.focus(), 30)
       return () => window.clearTimeout(id)
     }
-  }, [open, initialValue])
+  }, [open, initialValue, fillValue])
 
   useEffect(() => {
     if (!open) return

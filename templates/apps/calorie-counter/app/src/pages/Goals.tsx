@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { NoshTopBar } from '../components/NoshTopBar.js'
@@ -58,7 +58,9 @@ export function Goals() {
   const { t } = useTranslation()
   const http = useHttpClient()
 
-  const [calories, setCalories] = useState(2000)
+  const [calories, setCalories, fillCalories] = useForm({ defaultValues: { value: 2000 } }).asState(
+    'value',
+  )
   const [activity, setActivity] = useState<'sedentary' | 'light' | 'moderate' | 'active'>(
     'moderate',
   )
@@ -81,7 +83,7 @@ export function Goals() {
       .then((r) => {
         if (cancelled || !r.data) return
         const g = r.data as GoalResponse
-        setCalories(Math.round(num(g.calories)) || 2000)
+        fillCalories(Math.round(num(g.calories)) || 2000)
         setGrams({
           protein: Math.round(num(g.protein)) || 120,
           carbs: Math.round(num(g.carbs)) || 240,
@@ -95,7 +97,7 @@ export function Goals() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillCalories, http])
 
   const persistGoal = async (next: {
     calories?: number

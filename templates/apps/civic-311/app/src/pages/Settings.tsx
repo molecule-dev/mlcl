@@ -78,10 +78,13 @@ function Settings() {
   const [savingNotifications, setSavingNotifications] = useState(false)
   const [savingAppearance, setSavingAppearance] = useState(false)
   const [zones, setZones] = useState<WatchAreaRow[]>([])
+  const [zonesReady, setZonesReady] = useState(false)
 
   // Geofence presets summary (design: Geofence & Spatial Watch Presets) — a
   // read-only mirror of the caller's watch areas, managed on /watch-areas.
   useEffect(() => {
+    setZonesReady(false)
+
     let cancelled = false
     async function loadZones() {
       try {
@@ -91,7 +94,10 @@ function Settings() {
           : Array.isArray((res as { data?: unknown })?.data)
             ? (res as { data: WatchAreaRow[] }).data
             : []
-        if (!cancelled) setZones(raw)
+        if (!cancelled) {
+          setZones(raw)
+          setZonesReady(true)
+        }
       } catch (_error) {
         // Summary is a nice-to-have — settings save flows don't depend on it.
       }
@@ -381,7 +387,7 @@ function Settings() {
                     },
                   )}
                 </p>
-                {zones.length === 0 ? (
+                {zonesReady && zones.length === 0 ? (
                   <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                     {t('settings.geofenceEmpty', {}, { defaultValue: 'No geofence presets yet.' })}{' '}
                     <Link

@@ -113,7 +113,10 @@ export function Dashboard() {
   const [error, setError] = useState<string | null>(null)
   const [regenerating, setRegenerating] = useState(false)
   const [recentResponses, setRecentResponses] = useState<GuestRow[]>([])
+  const [recentResponsesReady, setRecentResponsesReady] = useState(false)
+
   const [seatingTables, setSeatingTables] = useState<SeatingTable[]>([])
+  const [seatingTablesReady, setSeatingTablesReady] = useState(false)
 
   const load = useCallback(async () => {
     setLoading(true)
@@ -135,6 +138,10 @@ export function Dashboard() {
   // Live-activity + seating snapshots. Non-fatal: the dashboard renders
   // without them (each panel carries its own empty state).
   useEffect(() => {
+    setRecentResponsesReady(false)
+
+    setSeatingTablesReady(false)
+
     let cancelled = false
     const cutoff = Date.now() - 48 * 60 * 60 * 1000
     async function loadSide() {
@@ -153,13 +160,17 @@ export function Dashboard() {
               new Date(g.responded_at).getTime() >= cutoff,
           ),
         )
+        setRecentResponsesReady(true)
         setSeatingTables(((seatingRes.data as SeatingResponse)?.tables ?? []).slice(0, 4))
+        setSeatingTablesReady(true)
       } catch (_error) {
         // Intentional noop: the side widgets simply stay empty when their
         // supplemental fetch fails — the page's own load path reports errors.
         if (!cancelled) {
           setRecentResponses([])
+          setRecentResponsesReady(true)
           setSeatingTables([])
+          setSeatingTablesReady(true)
         }
       }
     }
@@ -650,7 +661,7 @@ export function Dashboard() {
               aria-hidden="true"
             />
           </div>
-          {recentResponses.length === 0 ? (
+          {recentResponsesReady && recentResponses.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-3')}>
               {t(
                 'dashboard.recentEmpty',
@@ -714,7 +725,7 @@ export function Dashboard() {
               {t('dashboard.openSeating', {}, { defaultValue: 'Seating →' })}
             </Link>
           </div>
-          {seatingTables.length === 0 ? (
+          {seatingTablesReady && seatingTables.length === 0 ? (
             <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant mt-3')}>
               {t(
                 'dashboard.seatingEmpty',

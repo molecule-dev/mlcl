@@ -20,7 +20,7 @@ import { type ReactNode, useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { del, get, patch, post } from '@molecule/app-http'
-import { useAuth, useChangePassword, useTranslation } from '@molecule/app-react'
+import { useAuth, useChangePassword, useForm, useTranslation } from '@molecule/app-react'
 import { NotificationsSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -134,13 +134,17 @@ function AccountPanel() {
   const isOAuth = Boolean(user?.oauthServer)
 
   // C — display name (saves on blur)
-  const [name, setName] = useState(user?.name ?? '')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: user?.name ?? '' } }).asState(
+    'value',
+  )
   const [nameSaving, setNameSaving] = useState(false)
   const [nameError, setNameError] = useState<string | null>(null)
   const [nameSaved, setNameSaved] = useState(false)
 
   // C6 — email
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+  }).asState('value')
   const [emailSaving, setEmailSaving] = useState(false)
   const [emailError, setEmailError] = useState<string | null>(null)
   const [emailSaved, setEmailSaved] = useState(false)
@@ -172,12 +176,12 @@ function AccountPanel() {
 
   // Keep the name + email fields hydrated once the auth user resolves.
   useEffect(() => {
-    if (user?.name) setName((current) => current || (user.name as string))
-  }, [user?.name])
+    if (user?.name) fillName((current) => current || (user.name as string))
+  }, [fillName, user?.name])
 
   useEffect(() => {
-    if (user?.email) setEmail((current) => current || (user.email as string))
-  }, [user?.email])
+    if (user?.email) fillEmail((current) => current || (user.email as string))
+  }, [fillEmail, user?.email])
 
   // Read the persisted 2FA status from /api/users/me on mount.
   useEffect(() => {

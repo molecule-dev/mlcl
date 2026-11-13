@@ -54,6 +54,7 @@ export function WatchAreasPage() {
   const [loading, setLoading] = useState(true)
   const [loadError, setLoadError] = useState<string | null>(null)
   const [recent, setRecent] = useState<FeedIssue[]>([])
+  const [recentReady, setRecentReady] = useState(false)
 
   const [name, setName] = useState('')
   const [center, setCenter] = useState<{ x: number; y: number } | null>(null)
@@ -97,6 +98,8 @@ export function WatchAreasPage() {
   // Recent citywide telemetry — tagged as "in your zones" when the pin falls
   // inside one of the caller's saved areas (design: Recent Telemetry feed).
   useEffect(() => {
+    setRecentReady(false)
+
     let cancelled = false
     async function loadRecent() {
       try {
@@ -106,7 +109,10 @@ export function WatchAreasPage() {
           : Array.isArray((res as { data?: unknown })?.data)
             ? (res as { data: FeedIssue[] }).data
             : []
-        if (!cancelled) setRecent(raw)
+        if (!cancelled) {
+          setRecent(raw)
+          setRecentReady(true)
+        }
       } catch (_error) {
         // Telemetry is a nice-to-have — the page works without it.
       }
@@ -464,7 +470,7 @@ export function WatchAreasPage() {
                   { defaultValue: 'Recent Telemetry in Your Watched Zones' },
                 )}
               </h2>
-              {recent.length === 0 ? (
+              {recentReady && recent.length === 0 ? (
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t(
                     'watchAreas.telemetryEmpty',

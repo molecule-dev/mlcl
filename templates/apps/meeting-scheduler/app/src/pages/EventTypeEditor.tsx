@@ -18,7 +18,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -84,14 +84,28 @@ function EventTypeEditorForm({ id }: { id: string | undefined }) {
 
   const [activeTab, setActiveTab] = useState<(typeof TABS)[number]['key']>('general')
 
-  const [name, setName] = useState('Discovery call')
-  const [slug, setSlug] = useState('discovery')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: 'Discovery call' } }).asState(
+    'value',
+  )
+  const [slug, setSlug, fillSlug] = useForm({ defaultValues: { value: 'discovery' } }).asState(
+    'value',
+  )
   const [duration, setDuration] = useState<number>(30)
-  const [description, setDescription] = useState('')
-  const [locationKind, setLocationKind] = useState<string>('jitsi')
-  const [bufferBefore, setBufferBefore] = useState(0)
-  const [bufferAfter, setBufferAfter] = useState(0)
-  const [minNotice, setMinNotice] = useState(0)
+  const [description, setDescription, fillDescription] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [locationKind, setLocationKind, fillLocationKind] = useForm<{ value: string }>({
+    defaultValues: { value: 'jitsi' },
+  }).asState('value')
+  const [bufferBefore, setBufferBefore, fillBufferBefore] = useForm({
+    defaultValues: { value: 0 },
+  }).asState('value')
+  const [bufferAfter, setBufferAfter, fillBufferAfter] = useForm({
+    defaultValues: { value: 0 },
+  }).asState('value')
+  const [minNotice, setMinNotice, fillMinNotice] = useForm({ defaultValues: { value: 0 } }).asState(
+    'value',
+  )
   const [active, setActive] = useState(true)
   const [loaded, setLoaded] = useState(isNew)
   const [loadError, setLoadError] = useState<string | null>(null)
@@ -120,14 +134,14 @@ function EventTypeEditorForm({ id }: { id: string | undefined }) {
           setLoadError(t('eventTypeEditor.notFound', {}, { defaultValue: 'Event type not found.' }))
           return
         }
-        setName(et.name)
-        setSlug(et.slug)
+        fillName(et.name)
+        fillSlug(et.slug)
         setDuration(et.duration_minutes)
-        setDescription(et.description ?? '')
-        setLocationKind(et.location_kind)
-        setBufferBefore(et.buffer_before_minutes)
-        setBufferAfter(et.buffer_after_minutes)
-        setMinNotice(et.min_notice_minutes)
+        fillDescription(et.description ?? '')
+        fillLocationKind(et.location_kind)
+        fillBufferBefore(et.buffer_before_minutes)
+        fillBufferAfter(et.buffer_after_minutes)
+        fillMinNotice(et.min_notice_minutes)
         setActive(!!et.is_active)
         setSlugTouched(true)
       })
@@ -143,15 +157,27 @@ function EventTypeEditorForm({ id }: { id: string | undefined }) {
     return () => {
       cancelled = true
     }
-  }, [http, id, isNew, t])
+  }, [
+    fillBufferAfter,
+    fillBufferBefore,
+    fillDescription,
+    fillLocationKind,
+    fillMinNotice,
+    fillName,
+    fillSlug,
+    http,
+    id,
+    isNew,
+    t,
+  ])
 
   const liveSlug = useMemo(() => slugify(slug || name || 'event'), [slug, name])
 
   // Auto-derive slug from name when the user hasn't edited it manually.
   useEffect(() => {
     if (slugTouched) return
-    setSlug(slugify(name))
-  }, [name, slugTouched])
+    fillSlug(slugify(name))
+  }, [fillSlug, name, slugTouched])
 
   // The Active switch of a saved event type changes at once and saves in order, so a quick
   // pause-resume never leaves it showing a state the server does not hold. `active` stays the

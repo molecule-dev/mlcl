@@ -28,6 +28,8 @@ export function Search() {
   const http = useHttpClient()
   const [labels, setLabels] = useState<Label[]>([])
   const [results, setResults] = useState<Task[]>([])
+  const [resultsReady, setResultsReady] = useState(false)
+
   const [query, setQuery] = useState('')
   const [activeLabelId, setActiveLabelId] = useState<string | null>(null)
   const [period, setPeriod] = useState<PeriodKey>('all')
@@ -60,6 +62,8 @@ export function Search() {
   const hasFilter = hasQuery || activeLabelId !== null
 
   useEffect(() => {
+    setResultsReady(false)
+
     if (!hasFilter) {
       setResults([])
       return
@@ -82,10 +86,16 @@ export function Search() {
         } else {
           items = []
         }
-        if (!cancelled) setResults(items)
+        if (!cancelled) {
+          setResults(items)
+          setResultsReady(true)
+        }
       } catch (_error) {
         // search failure is shown as empty results; no error banner needed
-        if (!cancelled) setResults([])
+        if (!cancelled) {
+          setResults([])
+          setResultsReady(true)
+        }
       } finally {
         if (!cancelled) setSearching(false)
       }
@@ -270,7 +280,7 @@ export function Search() {
         <p className={cm.cn(cm.sp('py', 8), cm.textCenter, 'text-on-surface-variant')}>
           {t('common.searchingEllipsis', {}, { defaultValue: 'Searching…' })}
         </p>
-      ) : results.length === 0 ? (
+      ) : resultsReady && results.length === 0 ? (
         <div className={cm.cn(cm.sp('py', 16), cm.textCenter, cm.maxW('lg'), cm.mxAuto)}>
           <div
             className={cm.cn(

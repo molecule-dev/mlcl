@@ -72,11 +72,11 @@ export function Saved() {
 
       {error ? (
         <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-error')}>{error}</p>
-      ) : loading && stories.length === 0 ? (
+      ) : loading && !loading && stories.length === 0 ? (
         <p className={cm.cn(cm.sp('py', 12), cm.textCenter, 'text-on-surface-variant')}>
           {t('saved.loading', {}, { defaultValue: 'Loading your saved stories…' })}
         </p>
-      ) : stories.length === 0 ? (
+      ) : !loading && stories.length === 0 ? (
         <div
           className={cm.cn(
             cm.sp('p', 12),

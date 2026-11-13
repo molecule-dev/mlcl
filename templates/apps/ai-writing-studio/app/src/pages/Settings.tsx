@@ -3,7 +3,7 @@ import { useNavigate } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -47,7 +47,9 @@ export function Settings() {
   const [integrations, setIntegrations] = useState<IntegrationRow[] | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [busyKey, setBusyKey] = useState<string | null>(null)
-  const [prefs, setPrefs] = useState<PreferencesRow>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<PreferencesRow>({
+    defaultValues: DEFAULT_PREFS,
+  }).asState()
   const [savingPrefs, setSavingPrefs] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
 
@@ -79,7 +81,7 @@ export function Settings() {
       .then((res) => {
         if (cancelled || !res.data) return
         const tone = isTone(res.data.default_tone) ? res.data.default_tone : 'Professional'
-        setPrefs({
+        fillPrefs({
           default_tone: tone,
           auto_save: Boolean(res.data.auto_save),
           ai_suggestions: Boolean(res.data.ai_suggestions),
@@ -92,7 +94,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillPrefs, http])
 
   async function toggleIntegration(row: IntegrationRow) {
     setBusyKey(row.key)

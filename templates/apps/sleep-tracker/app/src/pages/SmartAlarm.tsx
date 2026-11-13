@@ -381,11 +381,11 @@ export function SmartAlarm() {
         </p>
       </div>
 
-      {loading && alarms.length === 0 ? (
+      {loading && !loading && alarms.length === 0 ? (
         <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
           {t('smartAlarm.loading', {}, { defaultValue: 'Loading alarms…' })}
         </p>
-      ) : alarms.length === 0 ? (
+      ) : !loading && alarms.length === 0 ? (
         <div
           className={cm.cn(
             cm.sp('p', 8),

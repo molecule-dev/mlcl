@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface PublicationSettings {
@@ -20,8 +20,12 @@ function SettingsPublicationSection() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [publicationName, setPublicationName] = useState('')
-  const [fromName, setFromName] = useState('')
+  const [publicationName, setPublicationName, fillPublicationName] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [fromName, setFromName, fillFromName] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
@@ -36,14 +40,14 @@ function SettingsPublicationSection() {
           body && typeof body === 'object' && 'data' in body
             ? body.data
             : (body as PublicationSettings)
-        setPublicationName(row?.publication_name ?? '')
-        setFromName(row?.from_name ?? '')
+        fillPublicationName(row?.publication_name ?? '')
+        fillFromName(row?.from_name ?? '')
       })
       .catch(() => undefined)
     return () => {
       active = false
     }
-  }, [http])
+  }, [fillFromName, fillPublicationName, http])
 
   async function handleSave() {
     setLoading(true)

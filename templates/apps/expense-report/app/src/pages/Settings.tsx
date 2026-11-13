@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
 import { t } from '@molecule/app-i18n'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -84,8 +84,8 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const { user } = useAuth<UserRecord>()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [reimbursementMethod, setReimbursementMethod] = useState<'ach' | 'card'>('ach')
   const [notify, setNotify] = useState({ ...DEFAULT_NOTIFY })
   const [savingProfile, setSavingProfile] = useState(false)
@@ -93,6 +93,8 @@ export function Settings() {
   const [profileSaved, setProfileSaved] = useState(false)
   const [profileError, setProfileError] = useState<string | null>(null)
   const [policies, setPolicies] = useState<PolicyRow[]>([])
+  const [policiesReady, setPoliciesReady] = useState(false)
+
   const [policiesError, setPoliciesError] = useState<string | null>(null)
   const [prefsError, setPrefsError] = useState<string | null>(null)
 
@@ -103,8 +105,8 @@ export function Settings() {
   useEffect(() => {
     let cancelled = false
     if (!user?.id) return
-    setName(user.name ?? user.username ?? '')
-    setEmail(user.email ?? '')
+    fillName(user.name ?? user.username ?? '')
+    fillEmail(user.email ?? '')
 
     void (async () => {
       try {
@@ -112,9 +114,9 @@ export function Settings() {
         if (cancelled) return
         const fresh = response.data?.props
         if (!fresh) return
-        if (fresh.name) setName(fresh.name)
-        else if (fresh.username) setName(fresh.username)
-        if (fresh.email) setEmail(fresh.email)
+        if (fresh.name) fillName(fresh.name)
+        else if (fresh.username) fillName(fresh.username)
+        if (fresh.email) fillEmail(fresh.email)
       } catch (_error) {
         // network error — keep the snapshot we hydrated from useAuth().user; ignoring is correct
       }
@@ -123,7 +125,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, user])
+  }, [fillEmail, fillName, http, user])
 
   // Load workspace preferences from the app's own server-side channel.
   // The platform user resource never returns `oauthData` on reads, so prefs
@@ -157,6 +159,8 @@ export function Settings() {
 
   // Load policies from the API (real, per-user data).
   useEffect(() => {
+    setPoliciesReady(false)
+
     let cancelled = false
     http
       .get<PolicyRecord[]>('/api/policies')
@@ -165,6 +169,7 @@ export function Settings() {
         const data = response?.data
         if (Array.isArray(data) && data.length > 0) {
           setPolicies(data.map(formatPolicy))
+          setPoliciesReady(true)
         }
         setPoliciesError(null)
       })
@@ -598,7 +603,7 @@ export function Settings() {
                     </td>
                   </tr>
                 ))}
-                {policies.length === 0 ? (
+                {policiesReady && policies.length === 0 ? (
                   <tr>
                     <td
                       colSpan={4}

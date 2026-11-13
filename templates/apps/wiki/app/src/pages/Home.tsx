@@ -82,11 +82,19 @@ export function Home() {
 
   const [me, setMe] = useState<ApiMe | null>(null)
   const [spaces, setSpaces] = useState<ApiSpace[]>([])
+  const [spacesReady, setSpacesReady] = useState(false)
+
   const [recent, setRecent] = useState<ApiPage[]>([])
   const [notifications, setNotifications] = useState<ApiNotification[]>([])
+  const [notificationsReady, setNotificationsReady] = useState(false)
+
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setSpacesReady(false)
+
+    setNotificationsReady(false)
+
     let cancelled = false
     const load = async () => {
       try {
@@ -100,9 +108,15 @@ export function Home() {
         ])
         if (cancelled) return
         if (meRes?.data) setMe(meRes.data)
-        if (Array.isArray(spacesRes?.data)) setSpaces(spacesRes!.data)
+        if (Array.isArray(spacesRes?.data)) {
+          setSpaces(spacesRes!.data)
+          setSpacesReady(true)
+        }
         if (Array.isArray(pagesRes?.data)) setRecent(pagesRes!.data)
-        if (Array.isArray(notifRes?.data)) setNotifications(notifRes!.data)
+        if (Array.isArray(notifRes?.data)) {
+          setNotifications(notifRes!.data)
+          setNotificationsReady(true)
+        }
       } catch (err) {
         setError(err instanceof Error ? err.message : 'Failed to load home')
       }
@@ -335,7 +349,7 @@ export function Home() {
             >
               {t('home.spaces.title', {}, { defaultValue: 'Your spaces' })}
             </h2>
-            {spaces.length === 0 ? (
+            {spacesReady && spaces.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t('home.spaces.empty', {}, { defaultValue: 'No spaces yet.' })}
               </p>
@@ -390,7 +404,7 @@ export function Home() {
             >
               {t('nav.activityFeed', {}, { defaultValue: 'Activity feed' })}
             </h2>
-            {notifications.length === 0 ? (
+            {notificationsReady && notifications.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t('home.activity.empty', {}, { defaultValue: 'No notifications yet.' })}
               </p>

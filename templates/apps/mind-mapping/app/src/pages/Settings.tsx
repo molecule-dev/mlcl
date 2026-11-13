@@ -3,7 +3,7 @@ import { Link, useLocation } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Alert, Button, Input, LanguagePicker, Modal, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -48,8 +48,8 @@ export function Settings() {
       setActiveId('account')
     }
   }, [location.pathname])
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [savingProfile, setSavingProfile] = useState(false)
   const [profileError, setProfileError] = useState<string | null>(null)
   const [profileInfo, setProfileInfo] = useState<string | null>(null)
@@ -77,9 +77,9 @@ export function Settings() {
 
   useEffect(() => {
     if (!user) return
-    setName(user.name ?? '')
-    setEmail(user.email ?? '')
-  }, [user])
+    fillName(user.name ?? '')
+    fillEmail(user.email ?? '')
+  }, [fillEmail, fillName, user])
 
   // Read the persisted 2FA status from /users/me on mount.
   useEffect(() => {

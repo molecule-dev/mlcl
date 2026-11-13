@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -46,8 +46,8 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const { user } = useAuth<UserRecord>()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [settleMethod, setSettleMethod] = useState<'cash' | 'transfer' | 'app'>('cash')
   const [notify, setNotify] = useState({ ...DEFAULT_NOTIFY })
   const [minimizer, setMinimizer] = useState({ ...DEFAULT_MINIMIZER })
@@ -64,8 +64,8 @@ export function Settings() {
   useEffect(() => {
     let cancelled = false
     if (!user?.id) return
-    setName(user.name ?? user.username ?? '')
-    setEmail(user.email ?? '')
+    fillName(user.name ?? user.username ?? '')
+    fillEmail(user.email ?? '')
     const initialPrefs = (user.oauthData as SettlementPrefs | undefined) ?? {}
     if (
       initialPrefs.method === 'cash' ||
@@ -98,9 +98,9 @@ export function Settings() {
         if (cancelled) return
         const fresh = response.data?.props
         if (!fresh) return
-        if (fresh.name) setName(fresh.name)
-        else if (fresh.username) setName(fresh.username)
-        if (fresh.email) setEmail(fresh.email)
+        if (fresh.name) fillName(fresh.name)
+        else if (fresh.username) fillName(fresh.username)
+        if (fresh.email) fillEmail(fresh.email)
         const remotePrefs = (fresh.oauthData as SettlementPrefs | undefined) ?? {}
         if (
           remotePrefs.method === 'cash' ||
@@ -134,7 +134,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, user])
+  }, [fillEmail, fillName, http, user])
 
   async function saveProfile(): Promise<void> {
     if (!user?.id) return

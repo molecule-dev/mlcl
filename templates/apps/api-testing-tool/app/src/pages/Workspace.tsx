@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { SURFACE_PANEL } from '../branding.js'
@@ -267,8 +267,12 @@ export function Workspace() {
   const http = useHttpClient()
   const location = useLocation()
   const navigate = useNavigate()
-  const [method, setMethod] = useState<HttpMethod>('GET')
-  const [url, setUrl] = useState<string>('')
+  const [method, setMethod, fillMethod] = useForm<{ value: HttpMethod }>({
+    defaultValues: { value: 'GET' },
+  }).asState('value')
+  const [url, setUrl, fillUrl] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+  }).asState('value')
   const activeRequestTab = tabFromHash(location.hash)
   const setActiveRequestTab = (tab: RequestTab) => {
     navigate(`${location.pathname}#${tab}`, { replace: false })
@@ -283,14 +287,30 @@ export function Workspace() {
   // Builder state — hydrated from the first saved request, persisted on save/send.
   const [paramRows, setParamRows] = useState<KVRow[]>([emptyRow()])
   const [headerRows, setHeaderRows] = useState<KVRow[]>([emptyRow()])
-  const [bodyType, setBodyType] = useState<BodyType>('none')
-  const [bodyContent, setBodyContent] = useState('')
-  const [authType, setAuthType] = useState<AuthType>('bearer')
-  const [authToken, setAuthToken] = useState('')
-  const [authUsername, setAuthUsername] = useState('')
-  const [authPassword, setAuthPassword] = useState('')
-  const [authKeyName, setAuthKeyName] = useState('')
-  const [authKeyValue, setAuthKeyValue] = useState('')
+  const [bodyType, setBodyType, fillBodyType] = useForm<{ value: BodyType }>({
+    defaultValues: { value: 'none' },
+  }).asState('value')
+  const [bodyContent, setBodyContent, fillBodyContent] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [authType, setAuthType, fillAuthType] = useForm<{ value: AuthType }>({
+    defaultValues: { value: 'bearer' },
+  }).asState('value')
+  const [authToken, setAuthToken, fillAuthToken] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [authUsername, setAuthUsername, fillAuthUsername] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [authPassword, setAuthPassword, fillAuthPassword] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [authKeyName, setAuthKeyName, fillAuthKeyName] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [authKeyValue, setAuthKeyValue, fillAuthKeyValue] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const hydratedRef = useRef(false)
 
   const buildAuthConfig = (): Record<string, string> => {
@@ -324,28 +344,40 @@ export function Workspace() {
       const first = rows[0]
       if (first && !hydratedRef.current) {
         hydratedRef.current = true
-        setMethod((first.method as HttpMethod) ?? 'GET')
-        setUrl(first.url ?? '')
+        fillMethod((first.method as HttpMethod) ?? 'GET')
+        fillUrl(first.url ?? '')
         setParamRows(rowsFromSaved(first.query_params))
         setHeaderRows(rowsFromSaved(first.headers))
-        setBodyType(
+        fillBodyType(
           first.body_type === 'json' || first.body_type === 'text' ? first.body_type : 'none',
         )
-        setBodyContent(typeof first.body_content === 'string' ? first.body_content : '')
+        fillBodyContent(typeof first.body_content === 'string' ? first.body_content : '')
         const type = String(first.auth_type ?? 'none').toLowerCase() as AuthType
-        if (AUTH_TYPES.includes(type)) setAuthType(type)
+        if (AUTH_TYPES.includes(type)) fillAuthType(type)
         const cfg = parseAuthConfig(first.auth_config)
-        setAuthToken(cfg.token ?? cfg.accessToken ?? '')
-        setAuthUsername(cfg.username ?? '')
-        setAuthPassword(cfg.password ?? '')
-        setAuthKeyName(cfg.key ?? cfg.headerName ?? '')
-        setAuthKeyValue(cfg.value ?? '')
+        fillAuthToken(cfg.token ?? cfg.accessToken ?? '')
+        fillAuthUsername(cfg.username ?? '')
+        fillAuthPassword(cfg.password ?? '')
+        fillAuthKeyName(cfg.key ?? cfg.headerName ?? '')
+        fillAuthKeyValue(cfg.value ?? '')
       }
     })
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [
+    fillAuthKeyName,
+    fillAuthKeyValue,
+    fillAuthPassword,
+    fillAuthToken,
+    fillAuthType,
+    fillAuthUsername,
+    fillBodyContent,
+    fillBodyType,
+    fillMethod,
+    fillUrl,
+    http,
+  ])
 
   /** The full builder payload the API persists. */
   const builderPayload = () => ({

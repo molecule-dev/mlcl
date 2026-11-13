@@ -84,6 +84,8 @@ export function Editor() {
   const [title, setTitle] = useState('')
   const [body, setBody] = useState('')
   const [shares, setShares] = useState<ShareRow[]>([])
+  const [sharesReady, setSharesReady] = useState(false)
+
   const [shareEmail, setShareEmail] = useState('')
   const [shareRole, setShareRole] = useState<'viewer' | 'commenter' | 'editor'>('viewer')
   const [shareOpen, setShareOpen] = useState(false)
@@ -256,6 +258,8 @@ export function Editor() {
 
   // Load shares (owner-only; failures are silent for non-owners).
   useEffect(() => {
+    setSharesReady(false)
+
     if (!doc?.id) return
     let cancelled = false
     http
@@ -264,9 +268,13 @@ export function Editor() {
         if (cancelled) return
         const list = Array.isArray(res) ? res : ((res as { data?: ShareRow[] }).data ?? [])
         setShares(list as ShareRow[])
+        setSharesReady(true)
       })
       .catch(() => {
-        if (!cancelled) setShares([])
+        if (!cancelled) {
+          setShares([])
+          setSharesReady(true)
+        }
       })
     return () => {
       cancelled = true
@@ -605,7 +613,7 @@ export function Editor() {
             </button>
           </form>
           <ul className={cm.cn(cm.sp('mt', 4), 'space-y-1')} data-testid="editor-share-list">
-            {shares.length === 0 ? (
+            {sharesReady && shares.length === 0 ? (
               <li className={cm.cn('text-sm text-on-surface-variant')}>
                 {t('editor.share.empty', {}, { defaultValue: 'Not yet shared with anyone.' })}
               </li>

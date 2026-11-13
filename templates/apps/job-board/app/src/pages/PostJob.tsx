@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -39,7 +39,9 @@ export function PostJob() {
   const navigate = useNavigate()
   const [form, setForm] = useState<PostJobForm>(initial)
   const [companies, setCompanies] = useState<CompanyOption[]>([])
-  const [companyId, setCompanyId] = useState('')
+  const [companyId, setCompanyId, fillCompanyId] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   // When a user has no company (or chooses to add a new one), they enter
   // a free-text company name and we POST /api/companies behind the scenes
   // before posting the job.
@@ -56,7 +58,7 @@ export function PostJob() {
         const list = unwrapList<CompanyOption>(res)
         setCompanies(list)
         if (list.length > 0) {
-          setCompanyId(list[0].id)
+          fillCompanyId(list[0].id)
         }
       })
       .catch(() => {
@@ -65,7 +67,7 @@ export function PostJob() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillCompanyId, http])
 
   function update<K extends keyof PostJobForm>(key: K, value: PostJobForm[K]) {
     setForm((f) => ({ ...f, [key]: value }))

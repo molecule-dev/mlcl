@@ -71,6 +71,8 @@ export function BookSitterModal({ sitter, open, onClose, onCreated }: Props) {
   const services =
     sitter.services && sitter.services.length > 0 ? sitter.services : ['walks', 'drop_in']
   const [pets, setPets] = useState<Pet[]>([])
+  const [petsReady, setPetsReady] = useState(false)
+
   const [selectedPetIds, setSelectedPetIds] = useState<Set<string>>(new Set())
   const [service, setService] = useState<string>(services[0])
   const [startsAt, setStartsAt] = useState<string>(defaultStart())
@@ -80,6 +82,8 @@ export function BookSitterModal({ sitter, open, onClose, onCreated }: Props) {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setPetsReady(false)
+
     if (!open) return
     let cancelled = false
     http
@@ -88,6 +92,7 @@ export function BookSitterModal({ sitter, open, onClose, onCreated }: Props) {
         if (cancelled) return
         const list = unwrapList<Pet>(res)
         setPets(list)
+        setPetsReady(true)
         if (list.length === 1) setSelectedPetIds(new Set([list[0].id]))
       })
       .catch((err: unknown) => {
@@ -226,7 +231,7 @@ export function BookSitterModal({ sitter, open, onClose, onCreated }: Props) {
             >
               {t('book.pets', {}, { defaultValue: 'Pets' })}
             </label>
-            {pets.length === 0 ? (
+            {petsReady && pets.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), cm.sp('mt', 2), 'text-on-surface-variant')}>
                 {t(
                   'book.noPets',

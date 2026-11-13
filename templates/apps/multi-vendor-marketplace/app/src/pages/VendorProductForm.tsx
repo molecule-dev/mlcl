@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 // Category slugs match the Catalog page's filter values (and the seeded
@@ -38,10 +38,22 @@ export function VendorProductForm() {
   const navigate = useNavigate()
   const { productId } = useParams<{ productId: string }>()
   const isEdit = Boolean(productId)
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [price, setPrice] = useState('')
-  const [category, setCategory] = useState(CATEGORIES[0].slug)
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([productId]),
+  }).asState('value')
+  const [description, setDescription, fillDescription] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([productId]),
+  }).asState('value')
+  const [price, setPrice, fillPrice] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([productId]),
+  }).asState('value')
+  const [category, setCategory, fillCategory] = useForm({
+    defaultValues: { value: CATEGORIES[0].slug },
+    resetKey: JSON.stringify([productId]),
+  }).asState('value')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
@@ -63,14 +75,14 @@ export function VendorProductForm() {
             : (raw as ApiProduct)
         ) as ApiProduct | undefined
         if (!body?.id) return
-        setName(body.name ?? '')
-        setDescription(body.description ?? '')
-        if (body.price != null) setPrice(Number(body.price).toFixed(2))
+        fillName(body.name ?? '')
+        fillDescription(body.description ?? '')
+        if (body.price != null) fillPrice(Number(body.price).toFixed(2))
         if (body.category) {
           const known = CATEGORIES.find(
             (c) => c.slug === body.category || c.label === body.category,
           )
-          setCategory(known?.slug ?? body.category)
+          fillCategory(known?.slug ?? body.category)
         }
       })
       .catch(() => {
@@ -79,7 +91,7 @@ export function VendorProductForm() {
     return () => {
       cancelled = true
     }
-  }, [http, productId])
+  }, [fillCategory, fillDescription, fillName, fillPrice, http, productId])
 
   async function submit(e: React.FormEvent) {
     e.preventDefault()

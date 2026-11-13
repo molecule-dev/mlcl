@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -37,12 +37,24 @@ export function ProductEditor() {
   const { id } = useParams<{ id: string }>()
   const isNew = !id || id === 'new'
 
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
+  const [description, setDescription, fillDescription] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
   const [pricing, setPricing] = useState<'paid' | 'free' | 'pwyw'>('paid')
   const [priceCents, setPriceCents] = useState(0)
-  const [coverImage, setCoverImage] = useState('')
-  const [category, setCategory] = useState('')
+  const [coverImage, setCoverImage, fillCoverImage] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
+  const [category, setCategory, fillCategory] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([id]),
+  }).asState('value')
   const [status, setStatus] = useState<'draft' | 'active' | 'archived'>('draft')
   const [licenseType, setLicenseType] = useState<'personal' | 'team' | 'extended'>('personal')
   const [loading, setLoading] = useState(!isNew)
@@ -61,17 +73,17 @@ export function ProductEditor() {
           setError(t('productEditor.notFound', {}, { defaultValue: 'Product not found.' }))
           return
         }
-        setName(p.name)
-        setDescription(p.description ?? '')
+        fillName(p.name)
+        fillDescription(p.description ?? '')
         setPricing(p.pricing_model ?? 'paid')
         setPriceCents(p.price_cents)
-        setCoverImage(p.cover_image ?? '')
-        setCategory(p.category ?? '')
+        fillCoverImage(p.cover_image ?? '')
+        fillCategory(p.category ?? '')
         setStatus((p.status as 'draft' | 'active' | 'archived') ?? 'draft')
       })
       .catch((e: unknown) => setError(e instanceof Error ? e.message : String(e)))
       .finally(() => setLoading(false))
-  }, [http, id, isNew, t])
+  }, [fillCategory, fillCoverImage, fillDescription, fillName, http, id, isNew, t])
 
   const handleDelete = async () => {
     if (isNew || !id) return

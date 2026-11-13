@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -58,13 +58,19 @@ export function Console() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [devices, setDevices] = useState<FleetDevice[]>([])
-  const [target, setTarget] = useState<string>('')
+  const [devicesReady, setDevicesReady] = useState(false)
+
+  const [target, setTarget, fillTarget] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [draft, setDraft] = useState('')
   const [lines, setLines] = useState<ConsoleLine[]>([])
   const [busy, setBusy] = useState(false)
   const scrollRef = useRef<HTMLDivElement>(null)
 
   useEffect(() => {
+    setDevicesReady(false)
+
     let cancelled = false
     http
       .get('/api/devices?limit=500')
@@ -72,7 +78,8 @@ export function Console() {
         if (cancelled) return
         const list = unwrapList<Record<string, unknown>>(res).map(normalizeDevice)
         setDevices(list)
-        if (list.length > 0) setTarget(list[0].id)
+        setDevicesReady(true)
+        if (list.length > 0) fillTarget(list[0].id)
         setLines([
           { ts: ts(), kind: 'output', text: `Connected · ${list.length} devices loaded.` },
           {
@@ -93,7 +100,7 @@ export function Console() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillTarget, http])
 
   useEffect(() => {
     if (scrollRef.current) {
@@ -338,7 +345,7 @@ export function Console() {
               'bg-surface-container-lowest border border-outline-variant rounded-full text-xs font-mono',
             )}
           >
-            {devices.length === 0 && (
+            {devicesReady && devices.length === 0 && (
               <option value="">
                 {t('console.noDevices', {}, { defaultValue: '— no devices —' })}
               </option>

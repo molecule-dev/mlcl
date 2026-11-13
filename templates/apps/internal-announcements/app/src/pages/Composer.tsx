@@ -70,6 +70,8 @@ export function Composer() {
   const http = useHttpClient()
 
   const [categories, setCategories] = useState<ApiCategory[]>([])
+  const [categoriesReady, setCategoriesReady] = useState(false)
+
   const [priority, setPriority] = useState<AnnouncementPriority>('normal')
   const [categoryId, setCategoryId] = useState<string>('')
   const [requiresAck, setRequiresAck] = useState(true)
@@ -79,12 +81,15 @@ export function Composer() {
   const [submitError, setSubmitError] = useState<string | null>(null)
 
   useEffect(() => {
+    setCategoriesReady(false)
+
     let cancelled = false
     http
       .get<ApiCategory[]>('/categories')
       .then((r) => {
         if (cancelled) return
         setCategories(r.data)
+        setCategoriesReady(true)
         if (r.data.length > 0 && !categoryId) {
           const company = r.data.find((c) => c.name === 'company')
           setCategoryId(company?.id ?? r.data[0].id)
@@ -291,7 +296,7 @@ export function Composer() {
                 </button>
               )
             })}
-            {categories.length === 0 && (
+            {categoriesReady && categories.length === 0 && (
               <span className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t('composer.noChannels', {}, { defaultValue: 'Loading channels…' })}
               </span>

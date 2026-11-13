@@ -47,6 +47,8 @@ export function Billing() {
   const [error, setError] = useState<string | null>(null)
   const [showUpdateCard, setShowUpdateCard] = useState(false)
   const [tiers, setTiers] = useState<PricingTier[]>([])
+  const [tiersReady, setTiersReady] = useState(false)
+
   const [showPlanPicker, setShowPlanPicker] = useState(false)
   const [checkoutBusy, setCheckoutBusy] = useState<string | null>(null)
   const [checkoutError, setCheckoutError] = useState<string | null>(null)
@@ -72,6 +74,8 @@ export function Billing() {
   }, [http, t])
 
   useEffect(() => {
+    setTiersReady(false)
+
     let cancelled = false
     http
       .get<{ data: PricingTier[] }>('/api/billing/tiers')
@@ -80,9 +84,13 @@ export function Billing() {
         const payload = res?.data as { data?: PricingTier[] } | undefined
         const list = Array.isArray(payload?.data) ? payload.data : []
         setTiers(list.filter((t) => t.key !== 'free'))
+        setTiersReady(true)
       })
       .catch(() => {
-        if (!cancelled) setTiers([])
+        if (!cancelled) {
+          setTiers([])
+          setTiersReady(true)
+        }
       })
     return () => {
       cancelled = true
@@ -264,7 +272,7 @@ export function Billing() {
                     </div>
                   </li>
                 ))}
-                {tiers.length === 0 ? (
+                {tiersReady && tiers.length === 0 ? (
                   <li className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                     {t(
                       'billing.noTiers',

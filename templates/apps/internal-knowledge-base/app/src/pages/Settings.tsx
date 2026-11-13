@@ -1,7 +1,7 @@
 import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -120,11 +120,15 @@ export function Settings() {
   const initialMe = user ?? null
   const [me, setMe] = useState<MeProps | null>(initialMe)
   const [prefs, setPrefs] = useState<Preferences>(defaultPreferences)
-  const [nameDraft, setNameDraft] = useState(initialMe?.name ?? '')
+  const [nameDraft, setNameDraft, fillNameDraft] = useForm({
+    defaultValues: { value: initialMe?.name ?? '' },
+  }).asState('value')
   const [nameSaving, setNameSaving] = useState(false)
   const [nameError, setNameError] = useState<string | null>(null)
   const [nameSuccess, setNameSuccess] = useState(false)
-  const [emailDraft, setEmailDraft] = useState(initialMe?.email ?? '')
+  const [emailDraft, setEmailDraft, fillEmailDraft] = useForm({
+    defaultValues: { value: initialMe?.email ?? '' },
+  }).asState('value')
   const [emailSaving, setEmailSaving] = useState(false)
   const [emailError, setEmailError] = useState<string | null>(null)
   const [emailSuccess, setEmailSuccess] = useState(false)
@@ -145,8 +149,8 @@ export function Settings() {
         const u = unwrapSingle<MeResponse>(res)
         if (!u?.props) return
         setMe(u.props)
-        setNameDraft(u.props.name ?? '')
-        setEmailDraft(u.props.email ?? '')
+        fillNameDraft(u.props.name ?? '')
+        fillEmailDraft(u.props.email ?? '')
       })
       .catch(() => {})
     // Preferences live in an app-owned server-side slice — the platform
@@ -164,7 +168,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [fillEmailDraft, fillNameDraft, http])
 
   const persistPreferences = async (next: Preferences) => {
     const previous = prefs

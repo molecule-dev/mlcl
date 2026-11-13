@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { FulfillmentKpiCard } from '../components/FulfillmentKpiCard.js'
@@ -91,9 +91,15 @@ export function Profile() {
   const userId = auth.user?.id ?? null
   const fallbackName = auth.user?.name ?? auth.user?.email?.split('@')[0] ?? 'Floor lead'
 
-  const [displayName, setDisplayName] = useState<string>(fallbackName)
-  const [role, setRole] = useState<string>('Dock supervisor · Zone A')
-  const [shift, setShift] = useState<string>('06:00 — 14:00')
+  const [displayName, setDisplayName, fillDisplayName] = useForm<{ value: string }>({
+    defaultValues: { value: fallbackName },
+  }).asState('value')
+  const [role, setRole, fillRole] = useForm<{ value: string }>({
+    defaultValues: { value: 'Dock supervisor · Zone A' },
+  }).asState('value')
+  const [shift, setShift, fillShift] = useForm<{ value: string }>({
+    defaultValues: { value: '06:00 — 14:00' },
+  }).asState('value')
   const [savedAt, setSavedAt] = useState<Date | null>(null)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -121,10 +127,10 @@ export function Profile() {
         // Profile details live in the server-side preferences channel — the
         // platform user resource never returns `oauthData` on reads.
         const profile = prefsRes?.data?.profile ?? {}
-        if (profile.displayName) setDisplayName(profile.displayName)
-        else if (blob?.name) setDisplayName(blob.name)
-        if (profile.role) setRole(profile.role)
-        if (profile.shift) setShift(profile.shift)
+        if (profile.displayName) fillDisplayName(profile.displayName)
+        else if (blob?.name) fillDisplayName(blob.name)
+        if (profile.role) fillRole(profile.role)
+        if (profile.shift) fillShift(profile.shift)
         if (orderRes) setOrderStats(orderRes.data ?? null)
         if (invRes) setInvStats(invRes.data ?? null)
       } catch (_error) {
@@ -136,7 +142,7 @@ export function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http, userId, t])
+  }, [http, userId, t, fillDisplayName, fillRole, fillShift])
 
   async function save() {
     if (!userId) return

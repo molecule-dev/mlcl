@@ -191,7 +191,7 @@ export function Categories() {
             onRetry={() => setRetryKey((k) => k + 1)}
             retryMolId="error-retry"
           />
-        ) : categories.length === 0 ? (
+        ) : !loading && categories.length === 0 ? (
           <div
             data-test="categories-empty"
             className={cm.cn(

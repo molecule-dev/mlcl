@@ -28,6 +28,8 @@ export function Notifications() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [notifications, setNotifications] = useState<Notification[]>([])
+  const [notificationsReady, setNotificationsReady] = useState(false)
+
   const [busy, setBusy] = useState(false)
 
   const reload = () =>
@@ -37,14 +39,22 @@ export function Notifications() {
       .catch(() => setNotifications([]))
 
   useEffect(() => {
+    setNotificationsReady(false)
+
     let cancelled = false
     http
       .get('/api/notifications')
       .then((res) => {
-        if (!cancelled) setNotifications(unwrapList<Notification>(res))
+        if (!cancelled) {
+          setNotifications(unwrapList<Notification>(res))
+          setNotificationsReady(true)
+        }
       })
       .catch(() => {
-        if (!cancelled) setNotifications([])
+        if (!cancelled) {
+          setNotifications([])
+          setNotificationsReady(true)
+        }
       })
     return () => {
       cancelled = true
@@ -125,7 +135,7 @@ export function Notifications() {
         </button>
       </header>
 
-      {notifications.length === 0 ? (
+      {notificationsReady && notifications.length === 0 ? (
         <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
           {t('notifications.empty', {}, { defaultValue: 'You\u2019re all caught up.' })}
         </p>

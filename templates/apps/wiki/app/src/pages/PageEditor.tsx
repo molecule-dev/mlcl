@@ -2,7 +2,7 @@ import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { StatPill } from '../components/StatPill.js'
@@ -187,11 +187,20 @@ export function PageEditor() {
   const isNew = !params.id || params.id === 'new'
 
   const [spaces, setSpaces] = useState<ApiSpace[]>([])
-  const [selectedSpaceId, setSelectedSpaceId] = useState<string>(searchParams.get('space_id') ?? '')
+  const [selectedSpaceId, setSelectedSpaceId, fillSelectedSpaceId] = useForm<{ value: string }>({
+    defaultValues: { value: searchParams.get('space_id') ?? '' },
+    resetKey: JSON.stringify([params, searchParams.toString(), params.id]),
+  }).asState('value')
   const [, setPage] = useState<ApiPage | null>(null)
   const loadedTitleRef = useRef<string | null>(null)
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([params, searchParams.toString(), params.id]),
+  }).asState('value')
+  const [body, setBody, fillBody] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([params, searchParams.toString(), params.id]),
+  }).asState('value')
   const [tags, setTags] = useState<string[]>([])
   const [tagInput, setTagInput] = useState('')
   const [savedAt, setSavedAt] = useState<string | null>(null)
@@ -208,7 +217,7 @@ export function PageEditor() {
         if (cancelled) return
         const list = Array.isArray(res.data) ? res.data : []
         setSpaces(list)
-        if (!selectedSpaceId && list[0]) setSelectedSpaceId(list[0].id)
+        if (!selectedSpaceId && list[0]) fillSelectedSpaceId(list[0].id)
       })
       .catch(() => {})
     return () => {
@@ -221,8 +230,8 @@ export function PageEditor() {
     if (isNew) {
       const tplId = searchParams.get('template') ?? ''
       const tpl = tplId ? TEMPLATE_BODIES[tplId] : null
-      setTitle(tpl?.title ?? '')
-      setBody(tpl?.body ?? '')
+      fillTitle(tpl?.title ?? '')
+      fillBody(tpl?.body ?? '')
       setTags(tpl?.tags ?? [])
       setSavedAt(null)
       setPage(null)
@@ -236,10 +245,10 @@ export function PageEditor() {
         if (cancelled || !res.data) return
         setPage(res.data)
         loadedTitleRef.current = res.data.title
-        setTitle(res.data.title)
-        setBody(res.data.content || '')
+        fillTitle(res.data.title)
+        fillBody(res.data.content || '')
         setTags(parseTags(res.data.tags))
-        setSelectedSpaceId(res.data.space_id)
+        fillSelectedSpaceId(res.data.space_id)
         setSavedAt(res.data.updated_at ? new Date(res.data.updated_at).toLocaleString() : null)
       })
       .catch((err) => {
@@ -248,7 +257,7 @@ export function PageEditor() {
     return () => {
       cancelled = true
     }
-  }, [http, params.id, isNew, searchParams])
+  }, [http, params.id, isNew, searchParams, fillTitle, fillBody, fillSelectedSpaceId])
 
   const addTag = (raw: string) => {
     const tag = raw.trim().toLowerCase()

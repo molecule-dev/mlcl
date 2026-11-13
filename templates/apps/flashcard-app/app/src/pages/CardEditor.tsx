@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -22,9 +22,11 @@ export function CardEditor({ mode }: { mode: 'new' | 'edit' }) {
   const http = useHttpClient()
   const navigate = useNavigate()
   const { deckId = '', cardId = '' } = useParams<{ deckId: string; cardId?: string }>()
-  const [front, setFront] = useState('')
-  const [back, setBack] = useState('')
-  const [tagsInput, setTagsInput] = useState('')
+  const [front, setFront, fillFront] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [back, setBack, fillBack] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [tagsInput, setTagsInput, fillTagsInput] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [loading, setLoading] = useState(mode === 'edit')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -39,9 +41,9 @@ export function CardEditor({ mode }: { mode: 'new' | 'edit' }) {
         if (cancelled) return
         const card = unwrapSingle<Card>(res)
         if (card) {
-          setFront(card.front)
-          setBack(card.back)
-          setTagsInput(card.tags.join(', '))
+          fillFront(card.front)
+          fillBack(card.back)
+          fillTagsInput(card.tags.join(', '))
         }
       })
       .catch(() => {
@@ -54,7 +56,7 @@ export function CardEditor({ mode }: { mode: 'new' | 'edit' }) {
     return () => {
       cancelled = true
     }
-  }, [http, mode, cardId, t])
+  }, [http, mode, cardId, t, fillFront, fillBack, fillTagsInput])
 
   const submit = async (e: React.FormEvent) => {
     e.preventDefault()

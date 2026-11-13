@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
 import { getClient as getHttpClient } from '@molecule/app-http'
-import { useTranslation } from '@molecule/app-react'
+import { useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Alert, LanguagePicker, PromptDialog, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -71,7 +71,9 @@ export function Settings() {
   const { t } = useTranslation()
   const { data: user, refetch } = useApi<ApiUser>('/profile')
 
-  const [workspaceName, setWorkspaceName] = useState('')
+  const [workspaceName, setWorkspaceName, fillWorkspaceName] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
   const [region, setRegion] = useState<'us-east' | 'eu-west' | 'ap-southeast'>('us-east')
   const [retention, setRetention] = useState<'7d' | '30d' | '90d'>('30d')
   const [channels, setChannels] = useState<Record<string, boolean>>({})
@@ -91,7 +93,7 @@ export function Settings() {
     hydratedFromUserRef.current = user.id
     const prefs = parseObj<Record<string, unknown>>(user.preferences)
     const ws = parseObj<WorkspacePrefs>(prefs.workspace)
-    setWorkspaceName(typeof ws.workspaceName === 'string' ? ws.workspaceName : '')
+    fillWorkspaceName(typeof ws.workspaceName === 'string' ? ws.workspaceName : '')
     setRegion(ws.region ?? 'us-east')
     setRetention(ws.retention ?? '30d')
 
@@ -100,7 +102,7 @@ export function Settings() {
     // notification_prefs column that nothing ever wrote, so saved toggles
     // silently reverted to defaults on every reload.
     setChannels(resolveChannelPrefs(user.preferences))
-  }, [user])
+  }, [fillWorkspaceName, user])
 
   const hydrated = hydratedFromUserRef.current !== null && !!user?.id
 

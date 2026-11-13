@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -74,9 +74,11 @@ export function Settings() {
 
   const [prefs, setPrefs] = useState<Record<string, boolean>>(() => loadPrefs())
   const [editing, setEditing] = useState(false)
-  const [name, setName] = useState('')
-  const [username, setUsername] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [username, setUsername, fillUsername] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [savingProfile, setSavingProfile] = useState(false)
   const [profileMsg, setProfileMsg] = useState<string | null>(null)
   const [confirmDelete, setConfirmDelete] = useState(false)
@@ -84,10 +86,10 @@ export function Settings() {
 
   useEffect(() => {
     if (!user) return
-    setName(user.name ?? '')
-    setUsername(user.username ?? '')
-    setEmail(user.email ?? '')
-  }, [user])
+    fillName(user.name ?? '')
+    fillUsername(user.username ?? '')
+    fillEmail(user.email ?? '')
+  }, [fillEmail, fillName, fillUsername, user])
 
   useEffect(() => {
     savePrefs(prefs)

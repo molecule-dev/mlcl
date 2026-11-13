@@ -315,7 +315,7 @@ export function Dashboard() {
               {t('dashboard.upcomingViewAll', {}, { defaultValue: '+ New event' })}
             </Link>
           </header>
-          {upcoming.length === 0 ? (
+          {!loading && upcoming.length === 0 ? (
             <div
               className={cm.cn(
                 cm.textCenter,
@@ -389,7 +389,7 @@ export function Dashboard() {
               {t('dashboard.activityAll', {}, { defaultValue: 'All →' })}
             </Link>
           </header>
-          {activity.length === 0 ? (
+          {!loading && activity.length === 0 ? (
             <p
               className={cm.cn(cm.textCenter, cm.sp('py', 8), 'text-on-surface-variant text-sm')}
               data-mol-id="dashboard-empty-activity"

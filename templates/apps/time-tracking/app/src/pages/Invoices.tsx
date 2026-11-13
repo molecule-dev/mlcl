@@ -2,7 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { DurationKpiCard } from '../components/DurationKpiCard.js'
@@ -51,7 +51,9 @@ export function Invoices() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [showForm, setShowForm] = useState(false)
-  const [form, setForm] = useState<InvoiceForm>(() => defaultForm())
+  const [form, setForm, fillForm] = useForm<{ value: InvoiceForm }>({
+    defaultValues: { value: useMemo(() => defaultForm(), []) },
+  }).asState('value')
   const [submitting, setSubmitting] = useState(false)
   const [version, setVersion] = useState(0)
 
@@ -139,7 +141,7 @@ export function Invoices() {
   useEffect(() => {
     if (!form.client_id) return
     const eligibleIds = eligibleEntriesForClient.map((e) => e.id)
-    setForm((f) => {
+    fillForm((f) => {
       if (f.client_id !== form.client_id) return f
       const same =
         f.source_entry_ids.length === eligibleIds.length &&
@@ -150,7 +152,7 @@ export function Invoices() {
     // eligibleEntriesForClient is derived purely from form.client_id +
     // upstream data — re-running on its change is the point, since fresh
     // entries should auto-include.
-  }, [form.client_id, eligibleEntriesForClient])
+  }, [form.client_id, eligibleEntriesForClient, fillForm])
 
   const onCreate = async () => {
     if (!form.client_id) {

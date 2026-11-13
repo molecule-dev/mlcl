@@ -3,7 +3,7 @@ import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -56,7 +56,10 @@ export function TemplateEditor() {
   const isNew = id === 'new'
 
   const [tmpl, setTmpl] = useState<TemplateDoc | null>(null)
-  const [form, setForm] = useState<FormState>(EMPTY)
+  const [form, setForm, fillForm] = useForm<FormState>({
+    defaultValues: EMPTY,
+    resetKey: JSON.stringify([id]),
+  }).asState()
   const [loading, setLoading] = useState(!isNew)
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
@@ -75,7 +78,7 @@ export function TemplateEditor() {
         const doc = unwrapSingle<TemplateDoc>(res)
         if (doc) {
           setTmpl(doc)
-          setForm({
+          fillForm({
             name: doc.name,
             description: doc.description ?? '',
             category: doc.category ?? 'msa',
@@ -93,7 +96,7 @@ export function TemplateEditor() {
     return () => {
       cancelled = true
     }
-  }, [http, id, isNew, t])
+  }, [fillForm, http, id, isNew, t])
 
   const detectedVariables = useMemo(() => {
     const matches = form.content.match(/\{\{\s*([a-zA-Z0-9_.-]+)\s*\}\}/g) ?? []

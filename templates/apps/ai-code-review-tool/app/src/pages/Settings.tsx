@@ -629,7 +629,7 @@ export function Settings() {
               ? t('settings.dangerConfirmCta', {}, { defaultValue: 'Confirm — disconnect all' })
               : t('settings.dangerArmCta', {}, { defaultValue: 'Disconnect all integrations' })}
         </button>
-        {credentials.length === 0 ? (
+        {!loading && credentials.length === 0 ? (
           <p className={cm.cn(cm.textSize('xs'), 'text-on-surface-variant', cm.sp('mt', 2))}>
             {t(
               'settings.dangerNothingConnected',

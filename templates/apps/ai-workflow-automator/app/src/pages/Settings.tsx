@@ -10,7 +10,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Alert, Button, Input, LanguagePicker, Modal, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -226,8 +226,14 @@ function ProfileSection({ user }: { user: AuthUser | null }) {
   const { t } = useTranslation()
   const { setUser } = useAuth<AuthUser>()
   const http = useHttpClient()
-  const [name, setName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { value: user?.name ?? '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { value: user?.email ?? '' },
+    resetKey: JSON.stringify([user?.id]),
+  }).asState('value')
   const [savedAt, setSavedAt] = useState<string | null>(null)
   const [dirty, setDirty] = useState(false)
   const [saving, setSaving] = useState(false)
@@ -235,9 +241,9 @@ function ProfileSection({ user }: { user: AuthUser | null }) {
 
   // Reflect new auth user (e.g. after refresh) into form state.
   useEffect(() => {
-    setName(user?.name ?? '')
-    setEmail(user?.email ?? '')
-  }, [user?.id, user?.name, user?.email])
+    fillName(user?.name ?? '')
+    fillEmail(user?.email ?? '')
+  }, [user?.id, user?.name, user?.email, fillName, fillEmail])
 
   const handleSave = useCallback(
     async (e: React.FormEvent) => {
@@ -288,7 +294,7 @@ function ProfileSection({ user }: { user: AuthUser | null }) {
     setDirty(false)
     setSavedAt(null)
     setError(null)
-  }, [user?.name, user?.email])
+  }, [setName, user?.name, user?.email, setEmail])
 
   return (
     <SectionCard

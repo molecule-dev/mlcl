@@ -462,7 +462,7 @@ export function SpaceHome() {
             </Link>
           </div>
         </div>
-        {articles.length === 0 ? (
+        {notFound && articles.length === 0 ? (
           <p
             className={cm.cn(
               cm.sp('mt', 4),

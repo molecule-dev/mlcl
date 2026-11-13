@@ -33,6 +33,8 @@ export function IncidentForm() {
   const navigate = useNavigate()
   const http = useHttpClient()
   const [components, setComponents] = useState<RawComponent[]>([])
+  const [componentsReady, setComponentsReady] = useState(false)
+
   const [impact, setImpact] = useState<(typeof IMPACTS)[number]['key']>('minor')
   const [status, setStatus] = useState<(typeof STATUSES)[number]['key']>('investigating')
   const [title, setTitle] = useState('')
@@ -42,11 +44,16 @@ export function IncidentForm() {
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
+    setComponentsReady(false)
+
     let cancelled = false
     http
       .get('/api/components')
       .then((res) => {
-        if (!cancelled) setComponents(unwrapList<RawComponent>(res))
+        if (!cancelled) {
+          setComponents(unwrapList<RawComponent>(res))
+          setComponentsReady(true)
+        }
       })
       .catch(() => {})
     return () => {
@@ -356,7 +363,7 @@ export function IncidentForm() {
                 </li>
               )
             })}
-            {components.length === 0 ? (
+            {componentsReady && components.length === 0 ? (
               <li className={cm.cn('text-xs text-on-surface-variant py-4 text-center font-mono')}>
                 {t(
                   'incidentForm.noComponents',

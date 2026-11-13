@@ -72,6 +72,8 @@ export function Booking() {
 
   const [tutor, setTutor] = useState<TutorRow | null>(null)
   const [availability, setAvailability] = useState<AvailabilitySlot[]>([])
+  const [availabilityReady, setAvailabilityReady] = useState(false)
+
   const [subject, setSubject] = useState('')
   const [duration, setDuration] = useState<number>(60)
   const [notes, setNotes] = useState('')
@@ -82,6 +84,8 @@ export function Booking() {
   const [selectedTime, setSelectedTime] = useState<string>(params.get('time') ?? '')
 
   useEffect(() => {
+    setAvailabilityReady(false)
+
     if (!tutorId) return
     let active = true
     Promise.all([
@@ -94,6 +98,7 @@ export function Booking() {
         const slotsData = (slotsRes as { data?: AvailabilitySlot[] | null }).data ?? []
         setTutor(tutorData)
         setAvailability(Array.isArray(slotsData) ? slotsData : [])
+        setAvailabilityReady(true)
         if (tutorData?.subjects && tutorData.subjects.length > 0 && !subject) {
           setSubject(tutorData.subjects[0]!)
         } else if (tutorData?.subject && !subject) {
@@ -257,7 +262,7 @@ export function Booking() {
             >
               {t('booking.slot.title', {}, { defaultValue: '1. Choose a time' })}
             </h2>
-            {availability.length === 0 ? (
+            {availabilityReady && availability.length === 0 ? (
               <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t(
                   'booking.slot.noAvailability',

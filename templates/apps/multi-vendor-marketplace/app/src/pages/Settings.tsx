@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -72,9 +72,11 @@ export function Settings() {
   const http = useHttpClient()
   const [tab, setTab] = useState<Tab>('profile')
 
-  const [name, setName] = useState('')
+  const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [email, setEmail] = useState('')
-  const [username, setUsername] = useState('')
+  const [username, setUsername, fillUsername] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
   const [memberSince, setMemberSince] = useState<string | null>(null)
   const [addresses, setAddresses] = useState<ShippingAddressRow[]>([])
   const [editingAddressId, setEditingAddressId] = useState<string | null>(null)
@@ -87,7 +89,9 @@ export function Settings() {
     postal: '',
   })
   const [prefs, setPrefs] = useState<Record<string, boolean>>(DEFAULT_PREFS)
-  const [payoutAccount, setPayoutAccount] = useState<string>('')
+  const [payoutAccount, setPayoutAccount, fillPayoutAccount] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+  }).asState('value')
 
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [saving, setSaving] = useState(false)
@@ -96,9 +100,9 @@ export function Settings() {
   useEffect(() => {
     if (!user?.id) return
     let cancelled = false
-    setName(user.name ?? '')
+    fillName(user.name ?? '')
     setEmail(user.email ?? '')
-    setUsername(user.username ?? '')
+    fillUsername(user.username ?? '')
     if (user.createdAt) {
       setMemberSince(new Date(user.createdAt).toLocaleDateString())
     }
@@ -115,19 +119,19 @@ export function Settings() {
             : (raw as ProfileResponse)
         ) as ProfileResponse | undefined
         if (cancelled || !body) return
-        if (body.name) setName(body.name)
+        if (body.name) fillName(body.name)
         if (body.email) setEmail(body.email)
-        if (body.username) setUsername(body.username)
+        if (body.username) fillUsername(body.username)
         const p = body.prefs ?? {}
         if (Array.isArray(p.addresses)) setAddresses(p.addresses)
         if (p.notificationPrefs) setPrefs({ ...DEFAULT_PREFS, ...p.notificationPrefs })
-        if (p.payoutAccount?.account) setPayoutAccount(p.payoutAccount.account)
+        if (p.payoutAccount?.account) fillPayoutAccount(p.payoutAccount.account)
       })
       .catch(() => {})
     return () => {
       cancelled = true
     }
-  }, [user, http])
+  }, [user, http, fillName, fillUsername, fillPayoutAccount])
 
   useEffect(() => {
     if (savedAt === null) return

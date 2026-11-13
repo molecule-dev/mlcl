@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { CairnArticleStatusPill } from '../components/CairnArticleStatusPill.js'
@@ -131,9 +131,18 @@ export function ArticleEditor() {
 
   const [articleId, setArticleId] = useState<string | null>(isNew ? null : (routeId ?? null))
   const [spaces, setSpaces] = useState<SpaceSummary[]>([])
-  const [spaceId, setSpaceId] = useState<string>('')
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState(NEW_ARTICLE_BODY)
+  const [spaceId, setSpaceId, fillSpaceId] = useForm<{ value: string }>({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId, searchParams.toString()]),
+  }).asState('value')
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { value: '' },
+    resetKey: JSON.stringify([routeId, searchParams.toString()]),
+  }).asState('value')
+  const [body, setBody, fillBody] = useForm({
+    defaultValues: { value: NEW_ARTICLE_BODY },
+    resetKey: JSON.stringify([routeId, searchParams.toString()]),
+  }).asState('value')
   const [status, setStatus] = useState<'draft' | 'published'>('draft')
   const [showSlashMenu, setShowSlashMenu] = useState(false)
   const [savedAt, setSavedAt] = useState<string | null>(null)
@@ -152,14 +161,14 @@ export function ArticleEditor() {
         if (isNew && !spaceId) {
           // Prefer ?space=key, otherwise the first available space
           const match = list.find((s) => s.key === querySpace || s.id === querySpace)
-          setSpaceId(match?.id ?? list[0]?.id ?? '')
+          fillSpaceId(match?.id ?? list[0]?.id ?? '')
         }
       })
       .catch(() => {})
     return () => {
       cancelled = true
     }
-  }, [http, isNew, querySpace, spaceId])
+  }, [fillSpaceId, http, isNew, querySpace, spaceId])
 
   useEffect(() => {
     let cancelled = false
@@ -171,9 +180,9 @@ export function ArticleEditor() {
         const a = unwrapSingle<ArticleResponse>(res)
         if (!a) return
         setArticleId(a.id)
-        setSpaceId(a.space_id)
-        setTitle(a.title)
-        setBody(a.body_md ?? '')
+        fillSpaceId(a.space_id)
+        fillTitle(a.title)
+        fillBody(a.body_md ?? '')
         setStatus(a.status)
         setSavedAt(a.last_edited_at ?? a.updated_at)
       })
@@ -188,7 +197,7 @@ export function ArticleEditor() {
     return () => {
       cancelled = true
     }
-  }, [http, isNew, routeId, t])
+  }, [fillBody, fillSpaceId, fillTitle, http, isNew, routeId, t])
 
   function insertAtCursor(snippet: string) {
     const ta = document.querySelector<HTMLTextAreaElement>('[data-editor-body]')

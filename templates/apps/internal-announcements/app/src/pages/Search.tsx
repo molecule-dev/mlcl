@@ -9,7 +9,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -108,16 +108,19 @@ export function Search() {
   // this, /search?q=foo opens an empty input (silent regression for
   // any feature that links into search with a query).
   const initialQuery = listRoute.filters.q ?? ''
-  const [query, setQuery] = useState(initialQuery)
+  const [query, setQuery, fillQuery] = useForm({
+    defaultValues: { value: initialQuery },
+    resetKey: JSON.stringify([searchParams.toString()]),
+  }).asState('value')
   const [filter, setFilter] = useState<(typeof FILTERS)[number]['id']>('all')
 
   useEffect(() => {
     const next = listRoute.filters.q ?? ''
-    setQuery(next)
+    fillQuery(next)
     // We only want this re-sync when the URL itself changes, not
     // when the input does — `setSearchParams` below handles the
     // input → URL direction.
-  }, [listRoute.filters.q])
+  }, [fillQuery, listRoute.filters.q])
   const [announcements, setAnnouncements] = useState<ApiAnnouncement[]>([])
   const [categories, setCategories] = useState<ApiCategory[]>([])
   const [team, setTeam] = useState<ApiTeamMember[]>([])

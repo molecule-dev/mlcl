@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 function SettingsProfileForm() {
@@ -8,11 +8,17 @@ function SettingsProfileForm() {
   const { t } = useTranslation()
   const { user } = useAuth()
   const http = useHttpClient()
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [jobTitle, setJobTitle] = useState('')
+  const [firstName, setFirstName, fillFirstName] = useForm({
+    defaultValues: { value: '' },
+  }).asState('value')
+  const [lastName, setLastName, fillLastName] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
+  const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [phone, setPhone, fillPhone] = useForm({ defaultValues: { value: '' } }).asState('value')
+  const [jobTitle, setJobTitle, fillJobTitle] = useForm({ defaultValues: { value: '' } }).asState(
+    'value',
+  )
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const photoInputRef = useRef<HTMLInputElement>(null)
@@ -31,15 +37,15 @@ function SettingsProfileForm() {
       const oauth = (u.oauthData as Record<string, unknown> | null) ?? null
       const profile = (oauth?.crm as Record<string, unknown> | null) ?? null
       const words = name.split(' ')
-      setFirstName(words[0] || '')
-      setLastName(words.length > 1 ? words.slice(1).join(' ') : '')
-      setEmail((u.email as string) || '')
+      fillFirstName(words[0] || '')
+      fillLastName(words.length > 1 ? words.slice(1).join(' ') : '')
+      fillEmail((u.email as string) || '')
       if (profile) {
-        if (typeof profile.phone === 'string') setPhone(profile.phone)
-        if (typeof profile.jobTitle === 'string') setJobTitle(profile.jobTitle)
+        if (typeof profile.phone === 'string') fillPhone(profile.phone)
+        if (typeof profile.jobTitle === 'string') fillJobTitle(profile.jobTitle)
       }
     }
-  }, [user])
+  }, [fillEmail, fillFirstName, fillJobTitle, fillLastName, fillPhone, user])
 
   useEffect(() => {
     if (savedAt === null) return
