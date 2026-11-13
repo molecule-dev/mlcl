@@ -1,4 +1,5 @@
 <script lang="ts">
+  import type { HTMLInputAttributes } from 'svelte/elements'
   import { getClassMap } from '@molecule/app-ui'
   import { getInputClasses, cn } from '@molecule/app-ui-svelte'
 
@@ -10,17 +11,15 @@
     required = false,
     name = undefined,
     id = undefined,
-    autofocus = false,
     ...rest
   }: {
     type?: string
     value?: string
     placeholder?: string
-    autocomplete?: string
+    autocomplete?: HTMLInputAttributes['autocomplete']
     required?: boolean
     name?: string
     id?: string
-    autofocus?: boolean
     [key: string]: unknown
   } = $props()
 
@@ -36,7 +35,6 @@
     {required}
     {name}
     {id}
-    {autofocus}
     class={cn(getInputClasses({}), cm.floatingInput)}
     {...rest}
   />

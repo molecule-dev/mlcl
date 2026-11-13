@@ -66094,7 +66094,8 @@
     "vue": {
       "label": "Vue",
       "dependencies": {
-        "vue": "3.5.44"
+        "vue": "3.5.44",
+        "vue-router": "5.4.0"
       },
       "devDependencies": {
         "@vitejs/plugin-vue": "6.0.7",
@@ -66111,6 +66112,7 @@
         "usage": "vue()"
       },
       "buildScript": "vue-tsc --noEmit && vite build",
+      "typecheckScript": "vue-tsc --noEmit",
       "typeDeclarations": "declare module '*.vue' {\n  import type { DefineComponent } from 'vue'\n  const component: DefineComponent<object, object, unknown>\n  export default component\n}",
       "fileExtension": "ts"
     },
@@ -66121,7 +66123,8 @@
         "svelte": "5.57.2",
         "@sveltejs/kit": "2.63.0",
         "@sveltejs/adapter-auto": "7.0.1",
-        "@sveltejs/vite-plugin-svelte": "7.1.2"
+        "@sveltejs/vite-plugin-svelte": "7.1.2",
+        "svelte-check": "4.7.7"
       },
       "tsconfig": {},
       "tsconfigOverride": {
@@ -66143,7 +66146,8 @@
         "import": "import { sveltekit } from '@sveltejs/kit/vite'",
         "usage": "sveltekit()"
       },
-      "buildScript": "svelte-kit sync && vite build",
+      "buildScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && vite build",
+      "typecheckScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
       "sharedCodeDir": "lib",
       "fileExtension": "ts",
       "htmlTemplate": "app.html",
@@ -66227,7 +66231,7 @@
         "import": "import angular from '@analogjs/vite-plugin-angular'",
         "usage": "angular({ tsconfig: './tsconfig.json' })"
       },
-      "buildScript": "vite build",
+      "buildScript": "tsc --noEmit && vite build",
       "fileExtension": "ts",
       "viteExtraConfig": "resolve: {\n    mainFields: ['module'],\n  },",
       "htmlRootElement": "<app-root></app-root>"

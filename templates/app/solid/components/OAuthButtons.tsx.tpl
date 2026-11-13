@@ -1,4 +1,5 @@
 import { Show, For } from 'solid-js'
+import type { IconName } from '@molecule/app-icons'
 import { createOAuth, useTranslate } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from './Icon.js'
@@ -14,6 +15,14 @@ export function OAuthButtons() {
     google: () => t('oauth.google'),
     gitlab: () => t('oauth.gitlab'),
     twitter: () => t('oauth.twitter'),
+  }
+  // The brand icon for each provider the icon set draws. Any other provider's
+  // button keeps its aria-label and shows no icon, as in the Vue and Angular buttons.
+  const providerIcons: Partial<Record<string, IconName>> = {
+    github: 'github',
+    google: 'google',
+    gitlab: 'gitlab',
+    twitter: 'twitter',
   }
 
   return (
@@ -33,7 +42,9 @@ export function OAuthButtons() {
                 class={cm.oauthButton}
               >
                 <span class={cm.oauthButtonIcon}>
-                  <Icon name={provider} size={30} />
+                  <Show when={providerIcons[provider]}>
+                    {(name) => <Icon name={name()} size={30} />}
+                  </Show>
                 </span>
               </button>
             )}

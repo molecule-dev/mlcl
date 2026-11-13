@@ -65,7 +65,6 @@ export function ResetPassword() {
                 value={email()}
                 onInput={(e: InputEvent) => setEmail((e.currentTarget as HTMLInputElement).value)}
                 autocomplete="email"
-                autofocus={!email()}
                 required
                 placeholder={t('auth.resetPassword.email')}
               />
@@ -76,7 +75,6 @@ export function ResetPassword() {
                 type="password"
                 value={token()}
                 onInput={(e: InputEvent) => setToken((e.currentTarget as HTMLInputElement).value)}
-                autofocus={!!email() && !token()}
                 required
                 placeholder={t('auth.resetPassword.token')}
               />

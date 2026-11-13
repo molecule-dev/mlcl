@@ -14,6 +14,7 @@ import {
   MoleculeAlert,
   MoleculeModal,
 } from '@molecule/app-ui-angular'
+import type { UserProfile } from '@molecule/app-auth'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { getClassMap } from '@molecule/app-ui'
 import { FooterComponent } from './footer.component.js'
@@ -254,7 +255,7 @@ export class SettingsPanelComponent implements OnInit, OnDestroy {
   @Output() closePanel = new EventEmitter<void>()
 
   private authClient = inject(AUTH_CLIENT)
-  private authService = inject(MoleculeAuthService)
+  private authService: MoleculeAuthService<UserProfile> = inject(MoleculeAuthService)
   private router = inject(Router)
   private http = getHttpClient()
   private pwManager = createChangePasswordState(this.authClient)
@@ -355,8 +356,8 @@ export class SettingsPanelComponent implements OnInit, OnDestroy {
     this.userSub = this.authService.user$.subscribe((user) => {
       if (user) {
         this.email = user.email || ''
-        this.userId = ((user as Record<string, unknown>).id as string) || ''
-        this.isOAuthUser = !!(user as Record<string, unknown>).oauthServer
+        this.userId = user.id || ''
+        this.isOAuthUser = 'oauthServer' in user && !!user.oauthServer
       }
     })
     this.loadDevices()
@@ -372,7 +373,7 @@ export class SettingsPanelComponent implements OnInit, OnDestroy {
   }
 
   async handleEmailBlur(): Promise<void> {
-    const user = this.authService.currentUser
+    const user = this.authService.user
     if (this.email === user?.email || !this.email) return
     this.emailSaving = true
     this.emailError = ''

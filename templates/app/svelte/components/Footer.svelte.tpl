@@ -75,13 +75,19 @@
   <div
     class={getModalWrapperClass()}
     role="presentation"
-    onclick={() => privacyOpen = false}
+    onclick={(e) => e.target === e.currentTarget && (privacyOpen = false)}
     onkeydown={(e) => e.key === 'Escape' && (privacyOpen = false)}
     tabindex="-1"
   >
-  <div role="dialog" aria-modal="true" class={getModalContentClasses({ size: 'lg' })} onclick={(e) => e.stopPropagation()}>
+  <div
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="footer-privacy-title"
+    tabindex="-1"
+    class={getModalContentClasses({ size: 'lg' })}
+  >
     <div class={getModalHeaderClass()}>
-      <h2 class={getModalTitleClass()}>{$t('footer.privacyPolicy')}</h2>
+      <h2 id="footer-privacy-title" class={getModalTitleClass()}>{$t('footer.privacyPolicy')}</h2>
     </div>
     <div class={getModalBodyClass()}>
       <div class={cm.prose}>
@@ -98,13 +104,19 @@
   <div
     class={getModalWrapperClass()}
     role="presentation"
-    onclick={() => termsOpen = false}
+    onclick={(e) => e.target === e.currentTarget && (termsOpen = false)}
     onkeydown={(e) => e.key === 'Escape' && (termsOpen = false)}
     tabindex="-1"
   >
-  <div role="dialog" aria-modal="true" class={getModalContentClasses({ size: 'lg' })} onclick={(e) => e.stopPropagation()}>
+  <div
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="footer-terms-title"
+    tabindex="-1"
+    class={getModalContentClasses({ size: 'lg' })}
+  >
     <div class={getModalHeaderClass()}>
-      <h2 class={getModalTitleClass()}>{$t('footer.termsOfService')}</h2>
+      <h2 id="footer-terms-title" class={getModalTitleClass()}>{$t('footer.termsOfService')}</h2>
     </div>
     <div class={getModalBodyClass()}>
       <div class={cm.prose}>
@@ -121,13 +133,19 @@
   <div
     class={getModalWrapperClass()}
     role="presentation"
-    onclick={() => languageOpen = false}
+    onclick={(e) => e.target === e.currentTarget && (languageOpen = false)}
     onkeydown={(e) => e.key === 'Escape' && (languageOpen = false)}
     tabindex="-1"
   >
-  <div role="dialog" aria-modal="true" class={getModalContentClasses({ size: 'lg' })} onclick={(e) => e.stopPropagation()}>
+  <div
+    role="dialog"
+    aria-modal="true"
+    aria-labelledby="footer-language-title"
+    tabindex="-1"
+    class={getModalContentClasses({ size: 'lg' })}
+  >
     <div class={getModalHeaderClass()}>
-      <h2 class={getModalTitleClass()}>{$t('footer.language')}</h2>
+      <h2 id="footer-language-title" class={getModalTitleClass()}>{$t('footer.language')}</h2>
     </div>
     <div class={getModalBodyClass()}>
       <div class={cm.languageGrid}>

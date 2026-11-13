@@ -1130,6 +1130,12 @@ export const AppFrameworkConfig = z.object({
     .string()
     .optional()
     .describe('Build script command (defaults to "tsc --noEmit && vite build")'),
+  typecheckScript: z
+    .string()
+    .optional()
+    .describe(
+      'Typecheck script command (defaults to "tsc --noEmit"). Set it for a framework whose components plain tsc cannot read: "vue-tsc --noEmit" for .vue files, "svelte-kit sync && svelte-check" for .svelte files.',
+    ),
   typeDeclarations: z
     .string()
     .optional()

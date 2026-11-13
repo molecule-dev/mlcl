@@ -74,7 +74,6 @@
             type="email"
             bind:value={email}
             autocomplete="email"
-            autofocus
             required
             placeholder={$t('auth.login.email')}
           />

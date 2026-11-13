@@ -5044,7 +5044,7 @@ export async function createAppProject(
       preview: 'vite preview',
       'generate-icons': 'node scripts/generate-icons.mjs',
       test: 'vitest run',
-      typecheck: 'tsc --noEmit',
+      typecheck: fwConfig.typecheckScript ?? 'tsc --noEmit',
       lint: 'eslint src/',
       'lint:fix': 'eslint src/ --fix',
       format: `prettier --write ${formatGlob}`,

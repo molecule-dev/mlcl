@@ -181,7 +181,7 @@ async function handleDeleteAccount() {
     </section>
 
     <!-- Authentication — hidden for OAuth users -->
-    <section v-if="!(user as unknown as Record<string, unknown>)?.oauthServer">
+    <section v-if="!(user && 'oauthServer' in user && user.oauthServer)">
       <h3 :class="cm.cn(cm.sectionHeading, cm.sp('mb', 3))">
         {{ t('settings.authentication') }}
       </h3>

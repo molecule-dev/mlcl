@@ -102,7 +102,16 @@ describe('hosted MCP search discovers the existing AuthGuard capability', () => 
   })
 
   it('preserves exact-symbol, public-routing, and declared-stack counterexamples', async () => {
-    expect((await call('AuthGuard', 'app')).map((hit) => hit.name)).toEqual([AUTH_GUARD_OWNER])
+    // An exact symbol returns exactly the app packages that export it in the registry this
+    // server serves: React's, plus every framework UI bond at parity with it.
+    const registry = JSON.parse(readFileSync(process.env.MOLECULE_REGISTRY_FILE!, 'utf8')) as {
+      packages: Record<string, { stack?: string; exports?: string[] }>
+    }
+    const exporters = Object.entries(registry.packages)
+      .filter(([, entry]) => entry.stack === 'app' && (entry.exports ?? []).includes('AuthGuard'))
+      .map(([name]) => name)
+    expect(exporters).toContain(AUTH_GUARD_OWNER)
+    expect((await call('AuthGuard', 'app')).map((hit) => hit.name).sort()).toEqual(exporters.sort())
     expect((await call('public route', 'app')).map((hit) => hit.name)).toContain(ROUTING_OWNER)
     expect((await call('protected route', 'api')).map((hit) => hit.name)).not.toContain(
       AUTH_GUARD_OWNER,

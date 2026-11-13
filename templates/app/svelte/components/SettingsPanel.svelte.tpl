@@ -1,5 +1,6 @@
 <script lang="ts">
   import { goto } from '$app/navigation'
+  import type { UserProfile } from '@molecule/app-auth'
   import {
     createAuthStores,
     createChangePasswordStore,
@@ -40,7 +41,7 @@
   const cm = getClassMap()
   const http = getClient()
   const { t } = createI18nStores()
-  const { user, logout } = createAuthStores()
+  const { user, logout } = createAuthStores<UserProfile>()
   const { state: versionState } = createVersionStores()
   const { permission, requestPermission, register: registerPush, unregister: unregisterPush } = createPushStores()
   const { deviceInfo } = createDeviceStores()
@@ -194,7 +195,7 @@
   </section>
 
   <!-- Authentication — hidden for OAuth users -->
-  {#if !($user as Record<string, unknown>)?.oauthServer}
+  {#if !($user && 'oauthServer' in $user && $user.oauthServer)}
     <section>
       <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>
         {$t('settings.authentication')}
@@ -288,11 +289,11 @@
     <dl class={cm.cn(cm.stack(1), cm.textSize('sm'))}>
       <div class={getFlexClasses({ justify: 'between' })}>
         <dt class={cm.textMuted}>{$t('settings.platform')}</dt>
-        <dd>{$deviceInfo.os.name || $t('settings.unknown')}</dd>
+        <dd>{deviceInfo.os.name || $t('settings.unknown')}</dd>
       </div>
       <div class={getFlexClasses({ justify: 'between' })}>
         <dt class={cm.textMuted}>{$t('settings.browser')}</dt>
-        <dd>{$deviceInfo.browser.name || $t('settings.unknown')}</dd>
+        <dd>{deviceInfo.browser.name || $t('settings.unknown')}</dd>
       </div>
       <div class={getFlexClasses({ justify: 'between' })}>
         <dt class={cm.textMuted}>{$t('settings.network')}</dt>
@@ -331,7 +332,7 @@
     class={getModalOverlayClass()}
     onclick={() => { showPasswordModal = false }}
     aria-label={$t('common.close')}
-  />
+  ></button>
   <div class={getModalWrapperClass()}>
     <div role="dialog" aria-modal="true" class={getModalContentClasses({ size: 'md' })}>
       <div class={getModalHeaderClass()}>
@@ -386,7 +387,7 @@
     class={getModalOverlayClass()}
     onclick={() => showDeleteModal = false}
     aria-label={$t('common.close')}
-  />
+  ></button>
   <div class={getModalWrapperClass()}>
     <div role="dialog" aria-modal="true" class={getModalContentClasses({ size: 'md' })}>
       <div class={getModalHeaderClass()}>

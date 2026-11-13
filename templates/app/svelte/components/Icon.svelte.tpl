@@ -1,7 +1,7 @@
 <script lang="ts">
-  import { getIcon } from '@molecule/app-icons'
+  import { getIcon, type IconName } from '@molecule/app-icons'
 
-  export let name: string
+  export let name: IconName
   export let size: number = 20
   let className: string = ''
   export { className as class }

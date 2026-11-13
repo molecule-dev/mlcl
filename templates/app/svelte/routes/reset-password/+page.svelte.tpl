@@ -69,7 +69,6 @@
             type="email"
             bind:value={email}
             autocomplete="email"
-            autofocus={!email}
             required
             placeholder={$t('auth.resetPassword.email')}
           />
@@ -78,7 +77,6 @@
           <FloatingInput
             type="password"
             bind:value={token}
-            autofocus={!!email && !token}
             required
             placeholder={$t('auth.resetPassword.token')}
           />

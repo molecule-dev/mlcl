@@ -36,6 +36,11 @@ export function SettingsPanel(props: { onClose: () => void }) {
   const t = useTranslate()
   const navigate = useNavigate()
   const { user, logout } = createAuth<UserProfile>()
+  // An account created through an OAuth provider has no password to change.
+  const isOAuthUser = (): boolean => {
+    const current = user()
+    return !!current && 'oauthServer' in current && !!current.oauthServer
+  }
   const http = createHttpHelpers()
   createVersion()
   const {
@@ -197,7 +202,7 @@ export function SettingsPanel(props: { onClose: () => void }) {
       </section>
 
       {/* Authentication -- hidden for OAuth users */}
-      <Show when={!(user() as unknown as Record<string, unknown>)?.oauthServer}>
+      <Show when={!isOAuthUser()}>
         <section>
           <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.authentication')}</h3>
           <div class={cm.stack(3)}>

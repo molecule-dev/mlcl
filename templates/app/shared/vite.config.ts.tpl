@@ -389,5 +389,9 @@ export default defineConfig({
     // expect test.describe() to be called here". `exclude` REPLACES vitest's
     // defaults, so they are re-listed.
     exclude: ['**/node_modules/**', '**/.git/**', '**/dist/**', '**/e2e/**'],
+    // The scaffold's tests are fully mocked and run in Node under every framework.
+    // Without this, vite-plugin-solid switches a Solid app's tests to jsdom, which
+    // no scaffold installs, so `npm test` failed before running one test.
+    environment: 'node',
   },
 })

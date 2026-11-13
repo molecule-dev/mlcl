@@ -89,7 +89,6 @@ export function ForgotPassword() {
                   value={email()}
                   onInput={(e: InputEvent) => setEmail((e.currentTarget as HTMLInputElement).value)}
                   autocomplete="email"
-                  autofocus
                   required
                   placeholder={t('auth.forgotPassword.email')}
                 />

@@ -67,7 +67,6 @@
               type="email"
               bind:value={email}
               autocomplete="email"
-              autofocus
               required
               placeholder={$t('auth.forgotPassword.email')}
             />

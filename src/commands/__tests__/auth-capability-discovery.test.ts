@@ -5,7 +5,7 @@ import { format } from 'node:util'
 import { Config } from '@oclif/core'
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 
-import { clearRegistryCache } from '../../lib/registry.js'
+import { clearRegistryCache, getRawRegistry } from '../../lib/registry.js'
 import Search from '../search.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
@@ -65,7 +65,15 @@ describe('mlcl search discovers the existing AuthGuard capability', () => {
   })
 
   it('preserves exact-symbol, public-routing, and declared-stack counterexamples', async () => {
-    expect((await runJson('AuthGuard', 'app')).map((hit) => hit.name)).toEqual([AUTH_GUARD_OWNER])
+    // An exact symbol returns exactly the app packages that export it: React's, plus every
+    // framework UI bond that has reached parity with it, and nothing fuzzier.
+    const exporters = Object.entries(getRawRegistry().packages)
+      .filter(([, entry]) => entry.stack === 'app' && (entry.exports ?? []).includes('AuthGuard'))
+      .map(([name]) => name)
+    expect(exporters).toContain(AUTH_GUARD_OWNER)
+    expect((await runJson('AuthGuard', 'app')).map((hit) => hit.name).sort()).toEqual(
+      exporters.sort(),
+    )
 
     const publicHits = await runJson('public route', 'app')
     expect(publicHits.map((hit) => hit.name)).toContain(ROUTING_OWNER)

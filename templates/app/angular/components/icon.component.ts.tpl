@@ -1,6 +1,6 @@
 import { Component, inject, Input } from '@angular/core'
 import { type SafeHtml, DomSanitizer } from '@angular/platform-browser'
-import type { IconData } from '@molecule/app-icons'
+import type { IconData, IconName } from '@molecule/app-icons'
 import { getIcon } from '@molecule/app-icons'
 
 @Component({
@@ -22,7 +22,7 @@ import { getIcon } from '@molecule/app-icons'
   `,
 })
 export class IconComponent {
-  @Input() name!: string
+  @Input() name!: IconName
   @Input() size = 20
   @Input() iconClass = ''
 

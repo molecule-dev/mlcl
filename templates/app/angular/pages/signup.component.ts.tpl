@@ -52,7 +52,6 @@ import { APP_NAME, LOGO_SIZE } from '../branding.js'
                   [value]="email"
                   (valueChange)="email = $event"
                   autocomplete="email"
-                  [autofocus]="true"
                   [required]="true"
                   [placeholder]="t('auth.signup.email')"
                 ></app-floating-input>

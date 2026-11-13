@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { computed } from 'vue'
-import { getIcon } from '@molecule/app-icons'
+import { getIcon, type IconName } from '@molecule/app-icons'
 
 const props = withDefaults(
   defineProps<{
-    name: string
+    name: IconName
     size?: number
   }>(),
   {

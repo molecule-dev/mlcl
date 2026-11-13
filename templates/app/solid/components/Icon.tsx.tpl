@@ -1,8 +1,8 @@
-import { getIcon } from '@molecule/app-icons'
+import { getIcon, type IconName } from '@molecule/app-icons'
 import { For, Show } from 'solid-js'
 
 interface IconProps {
-  name: string
+  name: IconName
   size?: number
   class?: string
 }
