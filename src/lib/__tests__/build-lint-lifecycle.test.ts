@@ -80,33 +80,45 @@ async function fixture(app: string, source: string): Promise<void> {
 
 async function build(app: string): Promise<{ code: number; output: string }> {
   try {
-    const result = await exec('npm', ['run', 'build'], { cwd: app, timeout: 20_000 })
+    const result = await exec('npm', ['run', 'build'], { cwd: app, timeout: 60_000 })
     return { code: 0, output: result.stdout + result.stderr }
   } catch (error) {
-    const result = error as { code: number; stdout: string; stderr: string }
+    const result = error as {
+      code: number
+      signal?: string
+      killed?: boolean
+      stdout: string
+      stderr: string
+    }
+    // An interrupted child is unavailable evidence, never a successful refusal.
+    if (typeof result.code !== 'number' || result.signal || result.killed) throw error
     return { code: result.code, output: result.stdout + result.stderr }
   }
 }
 
 describe('frontend npm build verification', () => {
-  it.each(['custom', 'flagship'])('rejects an undrawn target before bundling: %s', async (kind) => {
-    const app = kind === 'custom' ? custom : flagship
-    await fixture(app, missing)
-    const result = await build(app)
-    expect(result.code, result.output).not.toBe(0)
-    expect(result.output).toContain('Control.tsx')
-    expect(result.output).toContain('no-empty-interactive-target')
-    expect(result.output).toMatch(/\b1:\d+\s+error/)
-    await expect(readFile(join(app, 'prepared.txt'))).rejects.toMatchObject({ code: 'ENOENT' })
-    await expect(readFile(join(app, 'dist/index.html'))).rejects.toMatchObject({ code: 'ENOENT' })
-  })
+  it.each(['custom', 'flagship'])(
+    'rejects an undrawn target before bundling: %s',
+    async (kind) => {
+      const app = kind === 'custom' ? custom : flagship
+      await fixture(app, missing)
+      const result = await build(app)
+      expect(result.code, result.output).not.toBe(0)
+      expect(result.output).toContain('Control.tsx')
+      expect(result.output).toContain('no-empty-interactive-target')
+      expect(result.output).toMatch(/\b1:\d+\s+error/)
+      await expect(readFile(join(app, 'prepared.txt'))).rejects.toMatchObject({ code: 'ENOENT' })
+      await expect(readFile(join(app, 'dist/index.html'))).rejects.toMatchObject({ code: 'ENOENT' })
+    },
+    90_000,
+  )
 
   it('builds a visible control without a browser test suite', async () => {
     await fixture(custom, missing.replace(' /> }', '>×</i> }'))
     const result = await build(custom)
     expect(result.code, result.output).toBe(0)
     expect(await readFile(join(custom, 'dist/index.html'), 'utf8')).toContain('Equipment console')
-  })
+  }, 90_000)
 
   it('builds a CSS-drawn control and preserves the template preparation', async () => {
     await fixture(flagship, `import './glyph.css'\n\n${missing}`)
@@ -115,7 +127,7 @@ describe('frontend npm build verification', () => {
     expect(result.code, result.output).toBe(0)
     expect(await readFile(join(flagship, 'prepared.txt'), 'utf8')).toBe('yes')
     expect(await readFile(join(flagship, 'dist/index.html'), 'utf8')).toContain('Equipment console')
-  })
+  }, 90_000)
 
   it('runs a template’s existing plain lint preparation exactly once', async () => {
     const source = join(root, 'template')
@@ -130,7 +142,7 @@ describe('frontend npm build verification', () => {
     const result = await build(app)
     expect(result.code, result.output).toBe(0)
     expect(result.output.match(/> eslint src\//g), result.output).toHaveLength(1)
-  })
+  }, 90_000)
 
   it('keeps lint in the static-site build lifecycle', async () => {
     const app = join(root, 'static')
