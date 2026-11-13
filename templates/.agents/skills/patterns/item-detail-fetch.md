@@ -90,3 +90,50 @@ set its saved server response into this query key and invalidate related keys.
 unavailable. Release the response, perform one action and check its real effect.
 Then change `:id` while the next GET is pending: no old record action should
 remain. Also exercise cached/background refresh, failure/retry and missing data.
+
+## Actions shared across viewer roles
+
+Ownership adds editing controls. Keep actions available to every viewer in the
+`DetailHeader` common-actions slot. Put only role-specific controls in `actions`.
+The loaded record still comes from the `QueryContent` child above. The app owns
+permissions, translated labels and the callbacks.
+
+```tsx
+import { DetailHeader } from '@molecule/app-detail-header-react'
+
+export function RecordHeader({
+  record,
+  canEdit,
+  labels,
+  onSave,
+  onEdit,
+}: {
+  record: { id: string; title: string }
+  canEdit: boolean
+  labels: { save: string; edit: string }
+  onSave: (id: string) => void
+  onEdit: (id: string) => void
+}) {
+  return (
+    <DetailHeader
+      title={record.title}
+      commonActions={
+        <button type="button" onClick={() => onSave(record.id)}>
+          {labels.save}
+        </button>
+      }
+      actions={
+        canEdit ? (
+          <button type="button" onClick={() => onEdit(record.id)}>
+            {labels.edit}
+          </button>
+        ) : null
+      }
+    />
+  )
+}
+```
+
+Verify the shared action once as an owner and once as another viewer. Check the
+server effect each time. A permission that actually forbids an action still
+belongs in the app's policy and server authorization.

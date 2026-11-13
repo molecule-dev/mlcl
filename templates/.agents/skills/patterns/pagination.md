@@ -78,3 +78,48 @@ change a filter. The URL and rendered data must agree, the filter change
 must return to page one while preserving unrelated query values and path params,
 and the previous page's rows must stay visible until the new page's response
 arrives.
+
+## Keep the collection reachable from a selected view
+
+Changing the selected filter must not replace the collection navigation.
+`TabFilter.defaultTab` retains the default view even when `tabs` contains only
+the selected filter. Its callback uses `useListRoute.select`, so changing views
+returns to page one in the same navigation. Render this navigation outside the
+query's loading, error and empty branches.
+
+```tsx
+import { TabFilter } from '@molecule/app-tab-filter-react'
+import { useListRoute } from '@molecule/app-routing-react-router'
+
+export function CollectionViews({
+  path,
+  labels,
+}: {
+  path: string
+  labels: { all: string; filtered: string }
+}) {
+  const list = useListRoute({
+    selections: {
+      all: { path },
+      filtered: { path, query: { view: 'filtered' } },
+    },
+    defaultSelection: 'all',
+  })
+  return (
+    <TabFilter
+      defaultTab={{ id: 'all', label: labels.all }}
+      tabs={list.selection === 'filtered' ? [{ id: 'filtered', label: labels.filtered }] : []}
+      activeId={list.selection ?? 'all'}
+      onChange={(id) => {
+        if (id === 'all' || id === 'filtered') list.select(id)
+      }}
+    />
+  )
+}
+```
+
+The path and query values are the application's route contract. For path-owned
+views, declare both paths in `selections` instead. Verify a direct visit to a
+filtered page two, return to the collection, and use Back: each view must retain
+its navigation and show data for its current URL. Ordinary tab rows that have no
+default view can omit `defaultTab`.
