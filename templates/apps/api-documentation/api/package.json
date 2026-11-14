@@ -35,7 +35,7 @@
     "@molecule/api-geolocation-nominatim": "1.0.3",
     "@molecule/api-http": "1.0.5",
     "@molecule/api-http-fetch": "1.0.3",
-    "@molecule/api-i18n": "1.0.5",
+    "@molecule/api-i18n": "1.0.6",
     "@molecule/api-jwt": "1.0.11",
     "@molecule/api-jwt-jsonwebtoken": "1.0.4",
     "@molecule/api-locales-body-parser": "1.0.2",
