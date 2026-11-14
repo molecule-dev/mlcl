@@ -21,8 +21,8 @@ import { AuthGuard, LoadErrorBanner } from '@molecule/app-ui-react'
 
 export { AuthGuard } from '@molecule/app-ui-react'
 
-/** A private path, optionally restricted to a query-selected view on that path. */
-export interface PrivateView {
+/** A path, optionally restricted to a query-selected view on that path. */
+export interface RouteView {
   /** React Router path pattern. Matching includes the whole pathname. */
   path: string
   /** Every declared query value must match. Unrelated parameters are allowed. */
@@ -30,20 +30,27 @@ export interface PrivateView {
 }
 
 /**
- * Application-owned access policy. Declare private views here, even when a public
- * page's query parameter selects them. Page code never decides access from user
- * availability or link visibility. Public paths and public query views remain public.
+ * Application-owned public access policy. New routes require sign-in until declared
+ * here. Add public reader pages here rather than removing the route-tree boundary.
  */
-export const privateViews: readonly PrivateView[] = [
-  { path: '/' },
-  { path: '/settings' },
-  { path: '/plan-updated' },
+export const publicViews: readonly RouteView[] = [
+  { path: '/login' },
+  { path: '/signup' },
+  { path: '/about' },
+  { path: '/forgot-password' },
+  { path: '/reset-password' },
 ]
+
+/** Private query-selected views override a matching public path. */
+export const privateViews: readonly RouteView[] = []
 
 /** Props for the route-tree boundary. */
 export interface RouteAccessProps {
   children: ReactNode
-  views?: readonly PrivateView[]
+  /** Private exceptions within a public path. These take precedence. */
+  views?: readonly RouteView[]
+  /** Only these paths/views are public; every other route requires sign-in. */
+  publicViews?: readonly RouteView[]
 }
 
 /**
@@ -51,17 +58,20 @@ export interface RouteAccessProps {
  * @param props - Page routes and their application-owned access policy.
  * @returns Public routes, authenticated routes, or the session/redirect fallback.
  */
-export function RouteAccess({ children, views = privateViews }: RouteAccessProps): ReactNode {
+export function RouteAccess({
+  children,
+  views = privateViews,
+  publicViews: publicPolicy = publicViews,
+}: RouteAccessProps): ReactNode {
   const location = useLocation()
   const { status, state } = useAuth()
   const client = useAuthClient()
   const { t } = useTranslation()
   const query = new URLSearchParams(location.search)
-  const isPrivate = views.some(
-    (view) =>
-      matchPath(view.path, location.pathname) !== null &&
-      Object.entries(view.query ?? {}).every(([name, value]) => query.get(name) === value),
-  )
+  const matches = (view: RouteView): boolean =>
+    matchPath(view.path, location.pathname) !== null &&
+    Object.entries(view.query ?? {}).every(([name, value]) => query.get(name) === value)
+  const isPrivate = views.some(matches) || !publicPolicy.some(matches)
   // An unavailable session is not sign-out. Keep the requested private view
   // selected, show its real session error, and prevent a page from substituting
   // public data just because its user has not been confirmed.

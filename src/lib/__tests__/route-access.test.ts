@@ -28,7 +28,11 @@ interface PrivateView {
 }
 
 interface AccessModule {
-  RouteAccess: (props: { children: ReactNode; views?: readonly PrivateView[] }) => ReactNode
+  RouteAccess: (props: {
+    children: ReactNode
+    views?: readonly PrivateView[]
+    publicViews?: readonly PrivateView[]
+  }) => ReactNode
   privateViews: readonly PrivateView[]
 }
 
@@ -120,6 +124,12 @@ async function mount(
   url: string,
   client = session(),
   policy = views,
+  publicPolicy: readonly PrivateView[] = [
+    { path: '/login' },
+    { path: '/previous' },
+    { path: '/orders' },
+    { path: '/orders/:id' },
+  ],
 ): Promise<{
   load: ReturnType<typeof vi.fn>
   location: () => router.Location
@@ -150,6 +160,7 @@ async function mount(
           createElement(Location),
           createElement(module.RouteAccess, {
             views: policy,
+            publicViews: publicPolicy,
             children: createElement(
               router.Routes,
               null,
@@ -324,13 +335,52 @@ describe('scaffold route access before page selection', () => {
     expect(appSource).toContain('path="/post/:id"')
     expect(appSource).toContain('path="/comments"')
     const policy = [{ path: '/comments' }, { path: '/post/:id', query: { panel: 'moderation' } }]
-    const app = await mount('/post/intro?panel=read', session(), policy)
+    const app = await mount('/post/intro?panel=read', session(), policy, [
+      { path: '/login' },
+      { path: '/post/:id' },
+    ])
     expect(app.location().pathname).toBe('/post/intro')
     expect(app.load).toHaveBeenCalledExactlyOnceWith('all')
     app.load.mockClear()
     await app.navigate('/post/intro?panel=moderation')
     expect(app.location().pathname).toBe('/login')
     expect(app.load).not.toHaveBeenCalled()
+  })
+
+  it.each(['/draft/new', '/orders/42/revise', '/reports/private?format=csv'])(
+    'protects an undeclared new route %s without a page-owned guard',
+    async (url) => {
+      const app = await mount(url, session(), [])
+      expect(app.location().pathname).toBe('/login')
+      expect(app.load).not.toHaveBeenCalled()
+    },
+  )
+
+  it('permits a public query view without making its other selections public', async () => {
+    const app = await mount(
+      '/catalog?mode=read',
+      session(),
+      [],
+      [{ path: '/login' }, { path: '/catalog', query: { mode: 'read' } }],
+    )
+    expect(app.location().search).toBe('?mode=read')
+    expect(app.load).toHaveBeenCalledOnce()
+    app.load.mockClear()
+    await app.navigate('/catalog?mode=write')
+    expect(app.location().pathname).toBe('/login')
+    expect(app.load).not.toHaveBeenCalled()
+  })
+
+  it('lets an authenticated visitor use an undeclared new route', async () => {
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => new Response(JSON.stringify({ user: { id: 'writer' } }), { status: 200 })),
+    )
+    const client = session(true)
+    const app = await mount('/draft/new', client, [])
+    await act(async () => client.whenRestored!())
+    expect(app.location().pathname).toBe('/draft/new')
+    expect(app.load).toHaveBeenCalledOnce()
   })
 
   it('mounts the entry-point boundary before App routes that have no page-owned guard', async () => {

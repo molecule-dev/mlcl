@@ -203,6 +203,29 @@ it('counterexample: an idle control accepts a genuinely changed external flag an
   expect(props.save).not.toHaveBeenCalled()
 })
 
+it('keeps the action label and count on the saved state without a parent refresh', async () => {
+  const View = example().RecordToggle!
+  const save = vi.fn(async (id: string, enabled: boolean) => ({
+    id,
+    enabled,
+    count: enabled ? 1 : 0,
+  }))
+  const view = render(
+    react.createElement(View, { record: initial, save, labels, onError: vi.fn() }),
+  )
+  const button = view.getByRole('button')
+  await act(async () => fireEvent.click(button))
+  expect(button.getAttribute('aria-pressed')).toBe('true')
+  expect(button.textContent).toBe('Undo 1')
+  await act(async () => fireEvent.click(button))
+  expect(button.getAttribute('aria-pressed')).toBe('false')
+  expect(button.textContent).toBe('Done 0')
+  expect(save.mock.calls).toEqual([
+    ['habit-a', true],
+    ['habit-a', false],
+  ])
+})
+
 it('reports a rejected save and restores the last server-confirmed flag and count', async () => {
   const View = example().RecordToggle!
   const response = deferred<RecordValue>()
