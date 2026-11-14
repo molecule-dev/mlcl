@@ -1,5 +1,6 @@
 import { createRequire } from 'node:module'
 import { dirname } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import { defineConfig } from 'vitest/config'
 
@@ -50,6 +51,9 @@ export default defineConfig({
       // Linked molecule bonds otherwise find molecule/node_modules/react-router,
       // whose externalized React bypasses the aliases above.
       'react-router': packageDir('react-router'),
+      // The recipe and a linked query hook must observe the same cache singleton. Resolving
+      // the core once here also works in a standalone CLI checkout with registry packages.
+      '@molecule/app-query': fileURLToPath(import.meta.resolve('@molecule/app-query')),
     },
   },
   test: {
