@@ -147,9 +147,9 @@ function declarationErrors(text: string): string[] {
       : original(name, version)
   const program = ts.createProgram([fileName], { noLib: true, noResolve: true, types: [] }, host)
   const file = program.getSourceFile(fileName)!
-  // 2304/2552 a name from elsewhere, 2318/2583 a global type absent without lib, 2315 a generic
-  // read as non-generic because its declaration is absent.
-  const unresolved = new Set([2304, 2552, 2318, 2583, 2315])
+  // 2304/2552/2503 a name or namespace from elsewhere, 2318/2583 a global type absent without
+  // lib, 2315 a generic read as non-generic because its declaration is absent.
+  const unresolved = new Set([2304, 2552, 2503, 2318, 2583, 2315])
   return [...program.getSyntacticDiagnostics(file), ...program.getSemanticDiagnostics(file)]
     .filter((d) => !unresolved.has(d.code))
     .map((d) => `TS${d.code}: ${ts.flattenDiagnosticMessageText(d.messageText, '\n')}`)
@@ -184,8 +184,9 @@ describe('scanDeclarations', () => {
     const recorded = Object.entries(packages).flatMap(([name, entry]) =>
       Object.entries(entry.declarations ?? {}).map(([n, text]) => [`${name} ${n}`, text] as const),
     )
-    // app-auth's own names plus every web binding's useAuth and result type.
-    expect(recorded.length).toBeGreaterThanOrEqual(17)
+    // app-auth's and app-http's own names, every web binding's useAuth and result type, and
+    // the API resources' service declarations.
+    expect(recorded.length).toBeGreaterThanOrEqual(300)
     for (const [label, text] of recorded) expect(declarationErrors(text), label).toEqual([])
   })
 })
@@ -194,7 +195,7 @@ describe('declarationScope', () => {
   it("merges a package's own declare list with the names other entries ask of it", () => {
     const scope = declarationScope({
       '@molecule/app-auth': {
-        defaultBondSetup: { declare: ['createJWTAuthClient', 'AuthClient'] },
+        declare: ['createJWTAuthClient', 'AuthClient'],
         decisionGuide: {
           bindingDeclare: {
             '@molecule/app-react': ['useAuth', 'UseAuthResult'],
@@ -205,7 +206,7 @@ describe('declarationScope', () => {
       '@molecule/app-feature': {
         decisionGuide: { bindingDeclare: { '@molecule/app-react': ['useAuth', 'useFeature'] } },
       },
-      '@molecule/app-quiet': { defaultBondSetup: { declare: [] } },
+      '@molecule/app-quiet': { declare: [] },
     })
     expect(Object.fromEntries(scope)).toEqual({
       '@molecule/app-auth': ['AuthClient', 'createJWTAuthClient'],
@@ -217,7 +218,7 @@ describe('declarationScope', () => {
 
 describe('bond header declarations', () => {
   const auth = {
-    defaultBondSetup: { declare: ['createJWTAuthClient', 'AuthClient', 'Unscanned'] },
+    declare: ['createJWTAuthClient', 'AuthClient', 'Unscanned'],
     decisionGuide: { bindingDeclare: { '@molecule/app-react': ['useAuth'] } },
     declarations: {
       createJWTAuthClient: 'function createJWTAuthClient(config?: Options): AuthClient;',

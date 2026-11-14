@@ -67,7 +67,7 @@ function runGate(
           exports: ['ProbeConfig', 'createProbe', 'setProbe'],
           bondSetter: 'setProbe',
           moleculePeers: [],
-          defaultBondSetup: { factory: 'createProbe', setter: 'setProbe', declare },
+          declare,
           ...(declarations ? { declarations } : {}),
         },
       },

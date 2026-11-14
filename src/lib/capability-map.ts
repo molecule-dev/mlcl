@@ -52,10 +52,14 @@ export interface CapabilityMapEntry {
 }
 
 /** The parts of a registry entry its bond header's declarations come from. */
-export type BondDeclarationSource = Pick<
-  RegistryEntry,
-  'defaultBondSetup' | 'decisionGuide' | 'declarations'
->
+export interface BondDeclarationSource {
+  /** Exports of the package whose declarations its generated file shows. */
+  declare?: readonly string[]
+  /** Exports each framework binding is asked to show beside it. */
+  decisionGuide?: { bindingDeclare?: Record<string, readonly string[]> }
+  /** The scanned declaration texts, by export name. */
+  declarations?: Record<string, string>
+}
 
 /**
  * The scanned declarations a bond header shows for one package and its declared bindings.
@@ -71,7 +75,7 @@ export function bondDeclarations(
   bindings: readonly string[],
   packages: Record<string, Pick<RegistryEntry, 'declarations'>> | undefined,
 ): string[] {
-  const own = (entry.defaultBondSetup?.declare ?? []).map((n) => entry.declarations?.[n])
+  const own = (entry.declare ?? []).map((n) => entry.declarations?.[n])
   const bound = bindings.flatMap((binding) =>
     (entry.decisionGuide?.bindingDeclare?.[binding] ?? []).map(
       (n) => packages?.[binding]?.declarations?.[n],
@@ -637,6 +641,23 @@ export function renderBondDeclarations(declarations: readonly string[]): string[
       text.split('\n').map((line) => `  ${line.replace(/\*\//g, '* /')}`),
     ),
   ]
+}
+
+/**
+ * The doc comment a generated file that wires a package (an API resource module) opens with:
+ * the package name, then its scanned declarations.
+ *
+ * @param name - The package.
+ * @param entry - Its registry entry.
+ * @returns The comment and a blank line, or an empty string when the entry declares nothing.
+ */
+export function renderPackageDeclarationsComment(
+  name: string,
+  entry: BondDeclarationSource | undefined,
+): string {
+  const lines = renderBondDeclarations(entry ? bondDeclarations(entry, [], undefined) : [])
+  if (lines.length === 0) return ''
+  return `/**\n * ${name}\n *\n${lines.map((line) => ` * ${line}`).join('\n')}\n */\n\n`
 }
 
 /** Render the in-file header shared by injected and copied bond files. */

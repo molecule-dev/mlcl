@@ -99,6 +99,7 @@ import {
   capabilityEntryFromRegistry,
   renderBondDeclarations,
   renderCapabilityBondHeader,
+  renderPackageDeclarationsComment,
 } from './capability-map.js'
 import { isExactVersion } from './exact-version.js'
 import { formatGeneratedSource, sortImportStatements } from './format.js'
@@ -3225,10 +3226,13 @@ export async function synthesizeProjectFiles(
       plan.moleculePackage,
       authContract?.resourcePackage === plan.molecule ? authContract : undefined,
     )
+    // The module opens with the package's service declarations, so a handler the map does not
+    // cover is written from the real signatures instead of a read of the package's .d.ts files.
     const content =
-      authContract?.resourcePackage === plan.molecule
+      renderPackageDeclarationsComment(plan.molecule, getRawRegistry().packages[plan.molecule]) +
+      (authContract?.resourcePackage === plan.molecule
         ? await formatGeneratedSource(sortImportStatements(rawContent), wrapperPath)
-        : rawContent
+        : rawContent)
 
     files.push({
       action: 'create',

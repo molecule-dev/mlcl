@@ -1024,7 +1024,7 @@ export async function scanBondSetter(
 
 /**
  * The export names whose declarations each package's registry entry must carry: its own
- * `defaultBondSetup.declare`, plus every name another entry's `decisionGuide.bindingDeclare`
+ * `declare` list, plus every name another entry's `decisionGuide.bindingDeclare`
  * asks of it (app-auth asks `@molecule/app-react` for `useAuth`).
  *
  * Shared by `sync-registry --scan-exports` (which fills `declarations`) and the drift gate
@@ -1037,7 +1037,7 @@ export function declarationScope(
   packages: Record<
     string,
     {
-      defaultBondSetup?: { declare?: readonly string[] }
+      declare?: readonly string[]
       decisionGuide?: { bindingDeclare?: Record<string, readonly string[]> }
     }
   >,
@@ -1050,7 +1050,7 @@ export function declarationScope(
     scope.set(name, set)
   }
   for (const [name, entry] of Object.entries(packages)) {
-    add(name, entry.defaultBondSetup?.declare ?? [])
+    add(name, entry.declare ?? [])
     for (const [binding, names] of Object.entries(entry.decisionGuide?.bindingDeclare ?? {}))
       add(binding, names)
   }
