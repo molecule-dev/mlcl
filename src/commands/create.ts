@@ -96,21 +96,79 @@ export function isStaticExcluded(pkg: InferredPackage | undefined): boolean {
  * @returns One message per warning, prefix, colour and wrapping removed.
  */
 export function injectWarningLines(stderr: string): string[] {
+  return oclifMessages(stderr, 'Warning: ')
+}
+
+/**
+ * Why a failed `mlcl inject` child failed, from its execa error.
+ *
+ * execa's `message` for a failed child is its WHOLE captured output: the plan, every file it
+ * wrote, "Injection complete", and the closing "Next steps". On 2026-11-14 that was over a
+ * thousand lines in which the one refusal (a package with no installed copy at its pin) sat near
+ * the end. The injector lists each failure as a `•` line under its `Errors:` label (stdout), and
+ * a fatal oclif error writes `Error: …` to stderr, wrapped over ` ›` lines; those are returned.
+ * Anything else falls back to the error's first line.
+ *
+ * @param error - The thrown value: an execa error (`stdout`, `stderr`, `shortMessage`), or any value.
+ * @returns The failure lines, one per line, colour and wrapping removed.
+ */
+export function injectFailureDetail(error: unknown): string {
+  const e = (typeof error === 'object' && error !== null ? error : {}) as {
+    stdout?: unknown
+    stderr?: unknown
+    shortMessage?: unknown
+    message?: unknown
+  }
+  const stdout = typeof e.stdout === 'string' ? e.stdout : ''
+  const lines = stdout.split('\n').map(stripAnsi)
+  const label = t('commands.inject.labels.errors')
+  const start = lines.findIndex((line) => line.trim() === label)
+  const bullets: string[] = []
+  if (start >= 0) {
+    for (const line of lines.slice(start + 1)) {
+      const bullet = /^\s*•\s+(.*)$/.exec(line)
+      if (!bullet) break
+      bullets.push(bullet[1]!.trim())
+    }
+  }
+  if (bullets.length > 0) return bullets.join('\n')
+  const fatal = oclifMessages(typeof e.stderr === 'string' ? e.stderr : '', 'Error: ')
+  if (fatal.length > 0) return fatal.join('\n')
+  const first = String(e.shortMessage ?? e.message ?? error).split('\n')[0] ?? ''
+  return first.trim()
+}
+
+/** `text` without ANSI colour codes or trailing whitespace. */
+function stripAnsi(text: string): string {
+  return (
+    text
+      // eslint-disable-next-line no-control-regex
+      .replace(/\x1B\[[0-9;]*m/g, '')
+      .trimEnd()
+  )
+}
+
+/**
+ * The oclif messages in a captured stream that start with `prefix` (`Warning: `, `Error: `): the
+ * prefixed line plus every ` ›` continuation line oclif wraps a long message over.
+ *
+ * @param stream - A child's captured stderr.
+ * @param prefix - The marker oclif writes before the message.
+ * @returns One message per occurrence, prefix, colour and wrapping removed.
+ */
+function oclifMessages(stream: string, prefix: string): string[] {
   const warnings: string[] = []
   let current: string | null = null
   const flush = (): void => {
     if (current !== null) warnings.push(current)
     current = null
   }
-  for (const raw of `${stderr ?? ''}`.split('\n')) {
-    const clean = raw
-      // eslint-disable-next-line no-control-regex
-      .replace(/\x1B\[[0-9;]*m/g, '')
-      .trimEnd()
-    const marker = clean.indexOf('Warning: ')
+  for (const raw of `${stream ?? ''}`.split('\n')) {
+    const clean = stripAnsi(raw)
+    const marker = clean.indexOf(prefix)
     if (marker >= 0) {
       flush()
-      current = clean.slice(marker + 'Warning: '.length).trim()
+      current = clean.slice(marker + prefix.length).trim()
       continue
     }
     const continuation = /^\s*›\s+(.*)$/.exec(clean)
@@ -147,6 +205,15 @@ export default class Create extends Command {
     'skip-install': Flags.boolean({
       description: t('commands.create.flags.skipInstall'),
       default: false,
+    }),
+    // A host that boots the project at once (molecule.dev's sandbox scaffold) needs the wiring
+    // now: on 2026-11-14 a production scaffold whose injector refused one package exited 0 with
+    // an app whose providers were never generated, and the failure surfaced only at the deploy's
+    // `tsc`. The env form lets such a host ask for it without knowing which CLI version it runs.
+    'require-inject': Flags.boolean({
+      description: t('commands.create.flags.requireInject'),
+      default: false,
+      env: 'MLCL_REQUIRE_INJECT',
     }),
     type: Flags.string({
       description: t('commands.create.flags.type'),
@@ -1167,9 +1234,19 @@ export default class Create extends Command {
               { exit: DDL_INCOMPATIBLE_EXIT },
             )
           }
+          if (flags['require-inject']) {
+            spinner?.stop(chalk.red(t('commands.create.spinners.injectSkipped', { workspace })))
+            this.error(
+              t('commands.create.errors.injectRequired', {
+                workspace,
+                command: chalk.cyan(`mlcl inject -p ${wsPath}`),
+                error: injectFailureDetail(e),
+              }),
+            )
+          }
           spinner?.stop(chalk.yellow(t('commands.create.spinners.injectSkipped', { workspace })))
           log(t('commands.create.spinners.injectSkipped', { workspace }))
-          log(`  Inject error: ${e instanceof Error ? e.message : String(e)}`)
+          log(`  Inject error: ${injectFailureDetail(e)}`)
         }
       }
     } else {
@@ -1191,9 +1268,19 @@ export default class Create extends Command {
             { exit: DDL_INCOMPATIBLE_EXIT },
           )
         }
+        if (flags['require-inject']) {
+          spinner?.stop(chalk.red(t('commands.create.spinners.injectSkippedSingle')))
+          this.error(
+            t('commands.create.errors.injectRequired', {
+              workspace: basename(injectPath),
+              command: chalk.cyan(`mlcl inject -p ${injectPath}`),
+              error: injectFailureDetail(e),
+            }),
+          )
+        }
         spinner?.stop(chalk.yellow(t('commands.create.spinners.injectSkippedSingle')))
         log(t('commands.create.spinners.injectSkippedSingle'))
-        log(`  Inject error: ${e instanceof Error ? e.message : String(e)}`)
+        log(`  Inject error: ${injectFailureDetail(e)}`)
       }
     }
 

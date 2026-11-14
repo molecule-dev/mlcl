@@ -48,6 +48,8 @@ export const messages: LocaleMessages = {
   // ─── commands/create ────────────────────────────────────────────
   'commands.create.description': 'Create a new project',
   'commands.create.flags.skipInstall': 'Skip npm install',
+  'commands.create.flags.requireInject':
+    'Fail when the integration code cannot be generated, instead of leaving it for a later mlcl inject (also MLCL_REQUIRE_INJECT=1)',
   'commands.create.flags.type': 'Project type (api, app, or full-stack)',
   'commands.create.flags.framework': 'Frontend framework (app only)',
   'commands.create.flags.packages': 'Comma-separated list of @molecule package names to include',
@@ -56,6 +58,8 @@ export const messages: LocaleMessages = {
     'Scaffold into a directory that already holds a project (existing files are overwritten)',
   'commands.create.errors.projectExists':
     '{path} already holds a project (found {found}). Creating here would overwrite your code and .env. Pick another name, or pass --force if you mean to overwrite it.',
+  'commands.create.errors.injectRequired':
+    'The {workspace} integration code could not be generated, so the project has no providers wired and will not build. Fix the error below, then run {command}.\n{error}',
   'commands.create.errors.injectDdlIncompatible':
     'The database cannot run the SQL this project needs, so the app would never boot. The project was created but not injected — run {command} to see the exact file and construct.',
   'commands.add.errors.workspaceUnknown':
