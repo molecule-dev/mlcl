@@ -1,13 +1,14 @@
 import { A } from '@solidjs/router'
 import { Show } from 'solid-js'
-import { createAuth, useTranslate } from '@molecule/app-solid'
+
+import { useAuth, useTranslation } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex, Spinner } from '@molecule/app-ui-solid'
 
 export function PlanUpdated() {
   const cm = getClassMap()
-  const t = useTranslate()
-  const { state } = createAuth()
+  const { t } = useTranslation()
+  const { state } = useAuth()
 
   return (
     <Show

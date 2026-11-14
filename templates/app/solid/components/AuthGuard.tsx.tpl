@@ -1,61 +1,98 @@
-import { Navigate, useLocation } from '@solidjs/router'
-import { type ParentProps, Show } from 'solid-js'
+/**
+ * Keep the shared guard: it holds the restore window that a hand-written
+ * `!isAuthenticated()` redirect mistakes for signed out.
+ *
+ * Route: `<Route component={AuthGuard}>...</Route>`; in-page section:
+ * `<AuthGuard><SignedInSection /></AuthGuard>`.
+ * For a custom in-page check, hold only while `status() === 'loading'`, redirect
+ * only on `status() === 'unauthenticated'`, and let `'unavailable'` render without
+ * treating it as confirmed sign-in. Keep public sections outside the guard for signed-out visitors.
+ * The application shell passes `awaitSession` to `MoleculeProvider`, so a public page's
+ * signed-in action (Follow, Favorite) reads the restored user when restoration
+ * succeeds. An unavailable session may still have a null user; handle that status
+ * separately from sign-out. Keep that prop.
+ * Prefer router navigation to full-page loads so clicks do not restart restore.
+ */
+import { type JSX, Show } from 'solid-js'
 
-import { createAuth, useTranslate } from '@molecule/app-solid'
+import {
+  useAuth,
+  useAuthClient,
+  useLocation,
+  useRouterInstance,
+  useTranslation,
+} from '@molecule/app-solid'
+import { AuthGuard, LoadErrorBanner } from '@molecule/app-ui-solid'
+
+export { AuthGuard } from '@molecule/app-ui-solid'
+
+/** A path, optionally restricted to a query-selected view on that path. */
+export interface RouteView {
+  /** Router path pattern. Matching includes the whole pathname. */
+  path: string
+  /** Every declared query value must match. Unrelated parameters are allowed. */
+  query?: Readonly<Record<string, string>>
+}
 
 /**
- * The pathname part of a login path (`/login?next=x` → `/login`).
+ * Application-owned public access policy. New routes require sign-in until declared
+ * here. Add public reader pages here rather than removing the route-tree boundary.
  */
-const loginPathname = (loginPath: string): string => loginPath.split(/[?#]/)[0] || '/'
+export const publicViews: readonly RouteView[] = [
+  { path: '/login' },
+  { path: '/signup' },
+  { path: '/about' },
+  { path: '/forgot-password' },
+  { path: '/reset-password' },
+]
+
+/** Private query-selected views override a matching public path. */
+export const privateViews: readonly RouteView[] = []
+
+/** Props for the route-tree boundary. */
+export interface RouteAccessProps {
+  children: JSX.Element
+  /** Private exceptions within a public path. These take precedence. */
+  views?: readonly RouteView[]
+  /** Only these paths/views are public; every other route requires sign-in. */
+  publicViews?: readonly RouteView[]
+}
 
 /**
- * Route-element guard for authenticated sections of the app.
- *
- * - While `state().status` is `'loading'` (no session decision yet), renders the
- *   default loading tag (`data-mol-id="auth-guard-loading"`).
- * - If the status is `'unauthenticated'`, redirects to `/login` carrying
- *   the attempted location in `state.from` for post-login restoration. On
- *   `/login` itself it renders its children instead, so a guard that wraps
- *   the whole route tree does not redirect in a loop.
- * - Otherwise renders `children`.
- *
- * The guard reads `status`, not `initialized`: a stored token AND user make the
- * FIRST render `'authenticated'`, so a protected page paints immediately instead
- * of waiting for the background verification. `'unavailable'` (a retained
- * candidate the server could not confirm) still renders the page and lets the
- * API decide. It is not a confirmed-session boolean: `isAuthenticated` can be
- * false and `user` null while a token/cookie-only candidate is unavailable, so
- * never redirect on the boolean.
+ * Enforce the application's private views before any page or list can mount.
+ * @param props - Page routes and their application-owned access policy.
+ * @returns Public routes, authenticated routes, or the session/redirect fallback.
  */
-export function AuthGuard(props: ParentProps) {
-  const t = useTranslate()
-  const { state } = createAuth()
+export function RouteAccess(props: RouteAccessProps): JSX.Element {
   const location = useLocation()
-  const loginPath = '/login'
-
+  const { status, state } = useAuth()
+  const client = useAuthClient()
+  const { t } = useTranslation()
+  const router = useRouterInstance()
+  const views = (): readonly RouteView[] => props.views ?? privateViews
+  const publicPolicy = (): readonly RouteView[] => props.publicViews ?? publicViews
+  const query = (): URLSearchParams => new URLSearchParams(location().search)
+  const matches = (view: RouteView): boolean =>
+    router.matchPath(view.path, location().pathname) !== null &&
+    Object.entries(view.query ?? {}).every(([name, value]) => query().get(name) === value)
+  const isPrivate = (): boolean => views().some(matches) || !publicPolicy().some(matches)
+  // An unavailable session is not sign-out. Keep the requested private view
+  // selected, show its real session error, and prevent a page from substituting
+  // public data just because its user has not been confirmed.
   return (
     <Show
-      when={state().status !== 'loading'}
+      when={!(isPrivate() && status() === 'unavailable')}
       fallback={
-        <div data-mol-id="auth-guard-loading">
-          {t('common.loading', undefined, { defaultValue: 'Loading...' })}
-        </div>
+        <LoadErrorBanner
+          message={
+            state().error ??
+            t('auth.sessionUnavailable', {}, { defaultValue: 'Could not confirm your session.' })
+          }
+          onRetry={client.validateSession?.bind(client)}
+        />
       }
     >
-      <Show
-        when={
-          state().status !== 'unauthenticated' || location.pathname === loginPathname(loginPath)
-        }
-        fallback={
-          <Navigate
-            href={loginPath}
-            // A plain snapshot (the reactive `location` is a proxy, which
-            // history state cannot carry) — the login page restores
-            // `state.from.pathname` after a successful sign-in.
-            state={{ from: { pathname: location.pathname, search: location.search } }}
-          />
-        }
-      >
+      <Show when={!isPrivate()} fallback={<AuthGuard>{props.children}</AuthGuard>}>
         {props.children}
       </Show>
     </Show>

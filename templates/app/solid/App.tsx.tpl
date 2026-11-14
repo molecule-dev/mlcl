@@ -1,12 +1,11 @@
-import { Route, Router } from '@solidjs/router'
-import type { ParentProps } from 'solid-js'
+import { Route, Router, type RouteSectionProps } from '@solidjs/router'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { setRouter } from '@molecule/app-routing'
 import { createSolidRouter } from '@molecule/app-routing-solid-router'
 import { MoleculeProvider } from '@molecule/app-solid'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
-import { AuthGuard } from './components/AuthGuard.js'
+import { RouteAccess } from './components/AuthGuard.js'
 import { AppLayout } from './components/AppLayout.js'
 import { About } from './pages/About.js'
 import { ForgotPassword } from './pages/ForgotPassword.js'
@@ -17,24 +16,33 @@ import { ResetPassword } from './pages/ResetPassword.js'
 import { Settings } from './pages/Settings.js'
 import { Signup } from './pages/Signup.js'
 
-// Pages are imported STATICALLY: every page is small (the whole page set is
-// a few hundred KB of source) while a lazy page costs a serial chunk request
-// after the entry executes. A full document load can land on ANY route here
-// (a deep link, or a session restored from storage by `authClient.initialize()`),
-// so no page can be moved off the first-paint path safely. Keep new routes static.
+// Pages are imported STATICALLY, and that is a deliberate decision, not an
+// oversight. Route-level splitting was considered here and rejected: every page
+// is small (the whole page set is a few hundred KB of source), while a lazy
+// page costs a serial chunk request after the entry executes, and — when that
+// chunk resolves after the router has already committed its Suspense fallback —
+// the commit waits on the network round trip it hoped to hide. A full document
+// load can land on ANY route here (a deep link, or a session restored from
+// storage by `authClient.initialize()`), so no page can be moved off the
+// first-paint path safely. Keep new routes static too. The weight that does
+// leave the entry — 79 companion locale dictionaries, the analytics SDK, the
+// service worker's precache — is the part with a real gain; see the `UserMenu`
+// drawer for the one interaction-only split that is still worth it.
 //
-// `awaitSession` holds every page until a returning visitor's session is restored
-// (one request after a full page load), so public pages read the restored user
-// when that request succeeds. An 'unavailable' session still renders and may
-// have a null user; handle that status separately from sign-out.
-// A visitor with no session to restore makes no request. Keep it.
-//
+// main.tsx imports App separately from AppRoot's providers, so replacing page
+// routes cannot silently remove the mounted tree. The access policy lives in
+// AuthGuard.tsx.
 // The providers live in the router's `root`, inside <Router>, where
 // `createSolidRouter()` can read Solid Router's location: `useRouter()` from
 // @molecule/app-solid and every molecule package that calls `getRouter()`
 // navigate through it (SPA navigation, the entry's state and key kept), as
 // React's `BrowserRouter` does.
-function Root(props: ParentProps) {
+// `awaitSession` holds every page until a returning visitor's session is restored
+// (one request after a full page load), so public pages read the restored user
+// when that request succeeds. An 'unavailable' session still renders and may
+// have a null user; handle that status separately from sign-out.
+// A visitor with no session to restore makes no request. Keep it.
+function Root(props: RouteSectionProps) {
   const router = createSolidRouter()
   setRouter(router)
   return (
@@ -49,7 +57,7 @@ function Root(props: ParentProps) {
         router,
       }}
     >
-      {props.children}
+      <RouteAccess>{props.children}</RouteAccess>
     </MoleculeProvider>
   )
 }
@@ -62,12 +70,10 @@ export function App() {
       <Route path="/about" component={About} />
       <Route path="/forgot-password" component={ForgotPassword} />
       <Route path="/reset-password" component={ResetPassword} />
-      <Route path="/" component={AuthGuard}>
-        <Route path="/" component={AppLayout}>
-          <Route path="/" component={Home} />
-          <Route path="/settings" component={Settings} />
-          <Route path="/plan-updated" component={PlanUpdated} />
-        </Route>
+      <Route path="/" component={AppLayout}>
+        <Route path="/" component={Home} />
+        <Route path="/settings" component={Settings} />
+        <Route path="/plan-updated" component={PlanUpdated} />
       </Route>
     </Router>
   )

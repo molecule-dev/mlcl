@@ -1,5 +1,5 @@
 import { render } from 'solid-js/web'
-import { setupProviders, authClient } from './bonds/index.js'
+import { authClient, setupProviders } from './bonds/index.js'
 import { registerPWA } from './pwa.js'
 import { App } from './App.js'
 import './index.css'

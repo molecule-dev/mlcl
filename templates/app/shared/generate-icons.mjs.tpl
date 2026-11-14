@@ -9,8 +9,8 @@
  * then run this script. It reads APP_NAME, APP_DESCRIPTION, and BRAND_COLOR
  * from branding.ts to regenerate all brand assets and HTML meta tags.
  */
-import { readFileSync, writeFileSync, mkdirSync } from 'node:fs'
-import { join, dirname } from 'node:path'
+import { mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))

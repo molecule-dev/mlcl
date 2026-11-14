@@ -12,8 +12,7 @@
   import { getProvider as getStorageProvider } from '@molecule/app-storage'
   import { createAuthStores, setMoleculeContext } from '@molecule/app-svelte'
 
-  import AppLayout from '../components/AppLayout.svelte'
-  import AuthGuard from '../components/AuthGuard.svelte'
+  import RouteAccess from '../components/RouteAccess.svelte'
 
   let { children }: { children: Snippet } = $props()
 
@@ -38,32 +37,25 @@
     router,
   })
 
+  // The routes are the SvelteKit files under `routes/` — one component per
+  // route, registered by the file tree (the <Routes> list of the React
+  // scaffold). They are imported statically for the same measured reason:
+  // every page is small, a deferred route costs a serial chunk request after
+  // the entry executes, and a full document load can land on ANY route here
+  // (a deep link, or a session restored from storage by `authClient.initialize()`).
+  //
+  // The access policy lives in RouteAccess.svelte. `sessionReady` is the
+  // `awaitSession` prop of the React scaffold's MoleculeProvider: it holds
+  // every page until a returning visitor's session is restored (one request
+  // after a full page load), so public pages read the restored user when that
+  // request succeeds. An 'unavailable' session still renders and may have a
+  // null user; RouteAccess handles that status separately from sign-out. A
+  // visitor with no session to restore makes no request. Keep it.
   const { sessionReady } = createAuthStores()
-
-  // The routes the React scaffold registers OUTSIDE the auth guard: they
-  // render with no header/footer chrome, exactly as their <Route> entries do.
-  const publicRoutes = ['/login', '/signup', '/about', '/forgot-password', '/reset-password']
-
-  let isPublicRoute = $derived(publicRoutes.includes($page.url.pathname))
 </script>
 
-<!-- Hold every page while the initial session status is 'loading', so public
-     actions see the restored user when restoration succeeds. 'unavailable'
-     also renders and may have a null user. Without a session hint, an anonymous
-     visitor settles in microtasks without a request. The hold renders NOTHING
-     while it waits, exactly as the React scaffold's `awaitSession` does
-     (SessionReady's default fallback is null). -->
 {#if $sessionReady}
-  {#if isPublicRoute}
+  <RouteAccess>
     {@render children()}
-  {:else}
-    <!-- The guard holds the restore window that a hand-written
-         !isAuthenticated redirect mistakes for signed out; the layout shell
-         keeps the header/footer mounted while the page content swaps. -->
-    <AuthGuard>
-      <AppLayout>
-        {@render children()}
-      </AppLayout>
-    </AuthGuard>
-  {/if}
+  </RouteAccess>
 {/if}

@@ -32315,7 +32315,13 @@
         "@molecule/app-styling",
         "@molecule/app-ui-angular",
         "@molecule/app-routing-angular-router",
-        "@molecule/app-pwa-default"
+        "@molecule/app-footer-angular",
+        "@molecule/app-header-angular",
+        "@molecule/app-shell-layout-angular",
+        "@molecule/app-auth-ui-angular",
+        "@molecule/app-settings-panel-angular",
+        "@molecule/app-pwa-default",
+        "@molecule/app-query-angular"
       ],
       "path": "packages/app/frameworks/angular"
     },
@@ -63513,7 +63519,13 @@
         "@molecule/app-styling",
         "@molecule/app-ui-solid",
         "@molecule/app-routing-solid-router",
-        "@molecule/app-pwa-default"
+        "@molecule/app-footer-solid",
+        "@molecule/app-header-solid",
+        "@molecule/app-shell-layout-solid",
+        "@molecule/app-auth-ui-solid",
+        "@molecule/app-settings-panel-solid",
+        "@molecule/app-pwa-default",
+        "@molecule/app-query-solid"
       ],
       "path": "packages/app/frameworks/solid"
     },
@@ -65028,7 +65040,13 @@
         "@molecule/app-styling",
         "@molecule/app-ui-svelte",
         "@molecule/app-routing-sveltekit",
-        "@molecule/app-pwa-default"
+        "@molecule/app-footer-svelte",
+        "@molecule/app-header-svelte",
+        "@molecule/app-shell-layout-svelte",
+        "@molecule/app-auth-ui-svelte",
+        "@molecule/app-settings-panel-svelte",
+        "@molecule/app-pwa-default",
+        "@molecule/app-query-svelte"
       ],
       "path": "packages/app/frameworks/svelte"
     },
@@ -68242,7 +68260,13 @@
         "@molecule/app-styling",
         "@molecule/app-ui-vue",
         "@molecule/app-routing-vue-router",
-        "@molecule/app-pwa-default"
+        "@molecule/app-footer-vue",
+        "@molecule/app-header-vue",
+        "@molecule/app-shell-layout-vue",
+        "@molecule/app-auth-ui-vue",
+        "@molecule/app-settings-panel-vue",
+        "@molecule/app-pwa-default",
+        "@molecule/app-query-vue"
       ],
       "path": "packages/app/frameworks/vue"
     },

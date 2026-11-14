@@ -1,23 +1,19 @@
 <script lang="ts">
-  import { goto } from '$app/navigation'
-  import { resolve } from '$app/paths'
   import { APP_NAME, LOGO_SIZE } from '$lib/branding.js'
 
-  import { createAuthStores, createI18nStores, createSignupStore } from '@molecule/app-svelte'
+  import { useAuth, useNavigate, useSignup, useTranslation } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-  import { Button, Flex, Form } from '@molecule/app-ui-svelte'
+  import { Button, Flex, FloatingInput, Form, Icon, ThemeToggle } from '@molecule/app-ui-svelte'
 
-  import FloatingInput from '../../components/FloatingInput.svelte'
   import Footer from '../../components/Footer.svelte'
-  import Icon from '../../components/Icon.svelte'
   import OAuthButtons from '../../components/OAuthButtons.svelte'
-  import ThemeToggle from '../../components/ThemeToggle.svelte'
   import { LOGO_SRC } from '../../lib/logo.js'
 
   const cm = getClassMap()
-  const { t } = createI18nStores()
-  const signupStore = createSignupStore()
-  const { isAuthenticated } = createAuthStores()
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const { status, signup } = useSignup()
+  const { isAuthenticated } = useAuth()
 
   let email = $state('')
   let password = $state('')
@@ -27,14 +23,14 @@
   // completing on this page (its exchange sets auth state without a submit)
   // and an already-authenticated user landing on /signup directly.
   $effect(() => {
-    if ($isAuthenticated) goto(resolve('/'), { replaceState: true })
+    if ($isAuthenticated) navigate('/', { replace: true })
   })
 
-  let isSigningUp = $derived($signupStore.status === 'pending')
+  const isSigningUp = $derived($status === 'pending')
 
   async function handleSubmit(): Promise<void> {
-    await signupStore.call({ email, password, name: name || undefined })
-    goto(resolve('/'), { replaceState: true })
+    await signup({ email, password, name: name || undefined })
+    navigate('/', { replace: true })
   }
 </script>
 
@@ -53,33 +49,36 @@
   <main class={cm.authPageBody}>
     <!-- Screen-reader-only page heading — every page needs exactly one h1
         (axe page-has-heading-one); the visual design has no heading. -->
-    <h1 class={cm.srOnly}>{$t('auth.signup.signUp')}</h1>
+    <h1 class={cm.srOnly}>{t('auth.signup.signUp')}</h1>
     <div class={cm.authFormWrapper}>
       <Form onFormSubmit={handleSubmit}>
         <div class={cm.authField}>
           <FloatingInput
             type="email"
-            bind:value={email}
+            value={email}
+            onChange={(e) => (email = (e.target as HTMLInputElement).value)}
             autocomplete="email"
             required
-            placeholder={$t('auth.signup.email')}
+            placeholder={t('auth.signup.email')}
           />
         </div>
         <div class={cm.authField}>
           <FloatingInput
             type="password"
-            bind:value={password}
+            value={password}
+            onChange={(e) => (password = (e.target as HTMLInputElement).value)}
             autocomplete="new-password"
             required
-            placeholder={$t('auth.signup.password')}
+            placeholder={t('auth.signup.password')}
           />
         </div>
         <div class={cm.authField}>
           <FloatingInput
             type="text"
-            bind:value={name}
+            value={name}
+            onChange={(e) => (name = (e.target as HTMLInputElement).value)}
             autocomplete="name"
-            placeholder={$t('auth.signup.name')}
+            placeholder={t('auth.signup.name')}
           />
         </div>
         <div class={cm.authButtonRow}>
@@ -88,8 +87,8 @@
             size="lg"
             color="secondary"
             className={cm.authBackButton}
-            onClick={() => goto(resolve('/login'))}
-            aria-label={$t('common.goBack')}
+            onClick={() => navigate('/login')}
+            aria-label={t('common.goBack')}
           >
             <Icon name="arrow-left" size={25} />
           </Button>
@@ -100,7 +99,7 @@
             className={cm.authSubmitButton}
             disabled={isSigningUp}
           >
-            {isSigningUp ? $t('auth.signup.signingUp') : $t('auth.signup.signUp')}
+            {isSigningUp ? t('auth.signup.signingUp') : t('auth.signup.signUp')}
           </Button>
         </div>
       </Form>

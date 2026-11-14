@@ -38,9 +38,11 @@ describe('Angular app template components', () => {
   const files = templates(ROOT)
 
   it('finds the template components', () => {
+    // The shell, auth and settings components now come from the @molecule/app-*-angular
+    // packages; the template keeps its pages and the wrappers around those packages.
     expect(
       files.filter((f) => readFileSync(f, 'utf8').includes('@Component({')).length,
-    ).toBeGreaterThan(20)
+    ).toBeGreaterThanOrEqual(16)
   })
 
   it('an element-selector component renders no box of its own', () => {

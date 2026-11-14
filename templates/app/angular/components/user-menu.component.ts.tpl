@@ -1,22 +1,25 @@
-import { Component, inject, type OnDestroy } from '@angular/core'
-import { NavigationEnd, Router } from '@angular/router'
-import type { Subscription } from 'rxjs'
+import { NgComponentOutlet } from '@angular/common'
+import { Component, effect, signal, type Type, viewChild } from '@angular/core'
 
-import { t } from '@molecule/app-angular'
-import { getClassMap } from '@molecule/app-ui'
-import { Button, MoleculeModal } from '@molecule/app-ui-angular'
+import { UserMenu } from '@molecule/app-ui-angular'
 
-import { IconComponent } from './icon.component.js'
-import { SettingsPanelComponent } from './settings-panel.component.js'
-
+// The settings panel is split out of the entry: it mounts only when the user
+// opens the drawer, and it is the heaviest thing the app shell can pull in
+// (account, auth, billing, devices and notifications sections plus their
+// translation bundles). A static import here ships all of that on every page.
+// This is React's `lazy(() => import('./SettingsPanel.js'))` in Angular's
+// idiom: the dynamic import below runs on the drawer's first open (its
+// callback is scheduled inside the zone, so the write below renders the
+// panel), and the outlet renders nothing until the chunk arrives (React's
+// Suspense fallback={null}); closing the drawer unmounts the panel again.
 /**
  * Icon trigger that opens the app's settings panel in a drawer.
  *
- * Port of `@molecule/app-ui-react`'s `UserMenu` with the app's settings panel as
- * the drawer content: the trigger carries `data-mol-id="user-menu"`, the
- * 40x40 minimum target and the `userMenu.open` label; the drawer is a modal
- * with `cm.drawer` and the `userMenu.panelLabel` name; the drawer closes on
- * any route change so it never stays mounted over the next page.
+ * Thin wrapper around `@molecule/app-ui-angular`'s `UserMenu` with the app's
+ * settings panel as the drawer content: the trigger carries
+ * `data-mol-id="user-menu"`, the 40x40 minimum target and the
+ * `userMenu.open` label; the drawer closes on any route change so it never
+ * stays mounted over the next page (both live inside the shared component).
  */
 @Component({
   selector: 'app-user-menu',
@@ -24,65 +27,41 @@ import { SettingsPanelComponent } from './settings-panel.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [Button, MoleculeModal, IconComponent, SettingsPanelComponent],
+  imports: [NgComponentOutlet, UserMenu],
   template: `
-    <button
-      mol-button
-      variant="ghost"
-      size="sm"
-      data-mol-id="user-menu"
-      [attr.aria-label]="t('userMenu.open', {}, { defaultValue: 'Open user menu' })"
-      [className]="triggerClasses"
-      (click)="open = true"
-    >
-      <svg appIcon name="user" [size]="20"></svg>
-    </button>
-    <mol-modal
-      [open]="open"
-      [className]="cm.drawer"
-      [attr.aria-label]="t('userMenu.panelLabel', {}, { defaultValue: 'Account menu' })"
-      (close)="open = false"
-    >
-      <!-- The panel mounts only while the drawer is open: it is the heaviest
-          thing the app shell can pull in (account, auth, billing, devices and
-          notifications sections), and each section loads its own data. -->
-      @if (open) {
-        <app-settings-panel (closePanel)="open = false" />
+    <mol-user-menu #menu>
+      @if (panelComponent(); as panel) {
+        <ng-container [ngComponentOutlet]="panel"></ng-container>
       }
-    </mol-modal>
+    </mol-user-menu>
   `,
 })
-export class UserMenuComponent implements OnDestroy {
-  private readonly router = inject(Router)
-  private readonly subscription: Subscription
+export class UserMenuComponent {
+  /** The shared menu's open state (the drawer the panel mounts into). */
+  private readonly menu = viewChild('menu', { read: UserMenu })
 
-  /** The current class map. */
-  get cm(): ReturnType<typeof getClassMap> {
-    return getClassMap()
-  }
-
-  /** The reactive translation function (re-evaluates on locale change). */
-  t = t
-
-  /** Whether the drawer is open. */
-  open = false
-
-  /** The 40x40 trigger floor the shared menu applies. */
-  get triggerClasses(): string {
-    return this.cm.cn(this.cm.minH(10), this.cm.minW(10))
-  }
+  /** The lazily loaded panel component, or null while it is not mounted. */
+  protected readonly panelComponent = signal<Type<unknown> | null>(null)
 
   constructor() {
-    // Close the drawer whenever the route changes — in-app navigation and
-    // browser back/forward both arrive as NavigationEnd, so one subscription
-    // covers both; without it the drawer stays mounted over the next page and
-    // blocks clicks underneath.
-    this.subscription = this.router.events.subscribe((event) => {
-      if (event instanceof NavigationEnd) this.open = false
+    // React's lazy() mount point: the drawer's open signal drives both the load
+    // and the unmount, so the panel's sections fetch only while it is shown.
+    effect(() => {
+      const menu = this.menu()
+      if (!menu) return
+      if (menu.isOpen()) {
+        if (this.panelComponent() === null) {
+          void import('./settings-panel.component.js').then(
+            (module) => this.panelComponent.set(module.SettingsPanelComponent),
+            (error: unknown) => {
+              // A failed panel chunk must be visible, not a silently-empty drawer.
+              console.error('Failed to load the settings panel', error)
+            },
+          )
+        }
+      } else if (this.panelComponent() !== null) {
+        this.panelComponent.set(null)
+      }
     })
-  }
-
-  ngOnDestroy(): void {
-    this.subscription.unsubscribe()
   }
 }

@@ -1,7 +1,8 @@
 <script lang="ts">
   import type { Snippet } from 'svelte'
 
-  import AppShellLayout from './AppShellLayout.svelte'
+  import { AppShellLayout } from '@molecule/app-shell-layout-svelte'
+
   import Footer from './Footer.svelte'
   import Header from './Header.svelte'
 

@@ -1,36 +1,26 @@
 import { useNavigate } from '@solidjs/router'
-import { createEffect, createSignal, For, Show } from 'solid-js'
+import { createEffect, createSignal } from 'solid-js'
 
-import { createAuth, createSignup, useTranslate } from '@molecule/app-solid'
+import { useAuth, useSignup, useTranslation } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex, Form } from '@molecule/app-ui-solid'
 
+import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
-import { Footer } from '../components/Footer.js'
-import { formSubmitErrorMessages } from '../components/formSubmitError.js'
-import { Icon } from '../components/Icon.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
+import { Footer } from '../components/Footer.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 export function Signup() {
   const cm = getClassMap()
-  const t = useTranslate()
+  const { t } = useTranslation()
   const navigate = useNavigate()
-  const { state: signupState, signup } = createSignup()
-  const { isAuthenticated } = createAuth()
+  const { status, signup } = useSignup()
+  const { isAuthenticated } = useAuth()
   const [email, setEmail] = createSignal('')
   const [password, setPassword] = createSignal('')
   const [name, setName] = createSignal('')
-  // The failure the last submit threw (the React reference's `Form` renders
-  // its own rejection list; this scaffold's `Form` passes the handler result
-  // through, so the list is rendered here).
-  const [submitError, setSubmitError] = createSignal<unknown>(null)
-  const submitMessages = () =>
-    formSubmitErrorMessages(
-      submitError(),
-      t('ui.form.submitError', undefined, { defaultValue: 'Unable to submit. Please try again.' }),
-    )
 
   // Route into the app whenever a session exists — covers the OAuth callback
   // completing on this page (its exchange sets auth state without a submit)
@@ -39,16 +29,11 @@ export function Signup() {
     if (isAuthenticated()) navigate('/', { replace: true })
   })
 
-  const isSigningUp = () => signupState().status === 'pending'
+  const isSigningUp = (): boolean => status() === 'pending'
 
   const handleSubmit = async () => {
-    setSubmitError(null)
-    try {
-      await signup({ email: email(), password: password(), name: name() || undefined })
-      navigate('/', { replace: true })
-    } catch (error) {
-      setSubmitError(error)
-    }
+    await signup({ email: email(), password: password(), name: name() || undefined })
+    navigate('/', { replace: true })
   }
 
   return (
@@ -75,12 +60,9 @@ export function Signup() {
             (axe page-has-heading-one); the visual design has no heading. */}
         <h1 class={cm.srOnly}>{t('auth.signup.signUp')}</h1>
         <div class={cm.authFormWrapper}>
-          <Form onFormSubmit={handleSubmit} submitting={isSigningUp()}>
-            <Show when={submitError()}>
-              <ul role="alert" class={cm.formError}>
-                <For each={submitMessages()}>{(message) => <li>{message}</li>}</For>
-              </ul>
-            </Show>
+          {/* A rejected signup renders the failure list inside the shared `Form`;
+              a new submit clears it. */}
+          <Form onFormSubmit={handleSubmit}>
             <div class={cm.authField}>
               <FloatingInput
                 type="email"

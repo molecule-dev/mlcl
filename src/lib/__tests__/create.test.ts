@@ -151,33 +151,20 @@ describe('Template file inventory', () => {
     expect(shipped).toEqual([])
   })
 
-  it('Vue has 33 template files', async () => {
+  it('Vue has 20 template files', async () => {
     const files = await listTemplateFiles('vue')
     expect(files).toEqual([
       'App.vue.tpl',
       'components/AppLayout.vue.tpl',
-      'components/AuthGuard.vue.tpl',
-      'components/FloatingInput.vue.tpl',
+      'components/AuthGuard.ts.tpl',
+      'components/FloatingInput.ts.tpl',
       'components/Footer.vue.tpl',
       'components/Header.vue.tpl',
-      'components/Icon.vue.tpl',
+      'components/Icon.ts.tpl',
       'components/OAuthButtons.vue.tpl',
-      'components/OAuthProviderLogo.vue.tpl',
       'components/SettingsPanel.vue.tpl',
-      'components/ThemeToggle.vue.tpl',
+      'components/ThemeToggle.ts.tpl',
       'components/UserMenu.vue.tpl',
-      'components/formSubmitError.ts.tpl',
-      'components/settings-panel/AccountSection.vue.tpl',
-      'components/settings-panel/AuthSection.vue.tpl',
-      'components/settings-panel/BillingSection.vue.tpl',
-      'components/settings-panel/DevicesSection.vue.tpl',
-      'components/settings-panel/LogOutDeleteSection.vue.tpl',
-      'components/settings-panel/NotificationsSection.vue.tpl',
-      'components/settings-panel/SettingsContainer.vue.tpl',
-      'components/settings-panel/ThisDeviceSection.vue.tpl',
-      'components/settings-panel/context.ts.tpl',
-      'components/settings-panel/profileForm.ts.tpl',
-      'components/settings-panel/pushToggle.ts.tpl',
       'main.ts.tpl',
       'pages/About.vue.tpl',
       'pages/ForgotPassword.vue.tpl',
@@ -190,39 +177,23 @@ describe('Template file inventory', () => {
     ])
   })
 
-  it('Svelte has 40 SvelteKit template files', async () => {
+  it('Svelte has 20 SvelteKit template files', async () => {
     const files = await listTemplateFiles('svelte')
     expect(files).toEqual([
-      'components/AppFooter.svelte.tpl',
-      'components/AppHeader.svelte.tpl',
       'components/AppLayout.svelte.tpl',
-      'components/AppShellLayout.svelte.tpl',
       'components/AuthGuard.svelte.tpl',
-      'components/FloatingInput.svelte.tpl',
       'components/Footer.svelte.tpl',
       'components/Header.svelte.tpl',
-      'components/Icon.svelte.tpl',
       'components/OAuthButtons.svelte.tpl',
-      'components/OAuthDivider.svelte.tpl',
-      'components/OAuthProviderButtons.svelte.tpl',
-      'components/OAuthProviderLogo.svelte.tpl',
+      'components/RouteAccess.svelte.tpl',
       'components/SettingsPanel.svelte.tpl',
-      'components/ThemeToggle.svelte.tpl',
       'components/UserMenu.svelte.tpl',
-      'components/settings/AccountSection.svelte.tpl',
-      'components/settings/AuthSection.svelte.tpl',
-      'components/settings/BillingSection.svelte.tpl',
-      'components/settings/DevicesSection.svelte.tpl',
-      'components/settings/LogOutDeleteSection.svelte.tpl',
-      'components/settings/NotificationsSection.svelte.tpl',
-      'components/settings/SettingsContainer.svelte.tpl',
-      'components/settings/ThisDeviceSection.svelte.tpl',
       'hooks.client.ts.tpl',
+      // Kept only because SvelteKit writes TWO build output directories and
+      // the shared root-relative-assets guard requires the asset in EACH: a
+      // plain '/logo.svg' literal in app source fails the build, so the path
+      // is assembled (lib/logo.ts documents it).
       'lib/logo.ts.tpl',
-      'lib/panel-close.ts.tpl',
-      'lib/profile-form.ts.tpl',
-      'lib/pushToggle.ts.tpl',
-      'lib/settings-panel-context.ts.tpl',
       'routes/+layout.svelte.tpl',
       'routes/+layout.ts.tpl',
       'routes/+page.svelte.tpl',
@@ -236,7 +207,11 @@ describe('Template file inventory', () => {
     ])
   })
 
-  it('Solid has 32 template files', async () => {
+  it('Solid has 20 template files', async () => {
+    // The Solid template is the file-by-file port of the React one: the app
+    // shell, settings sections, OAuth row/logos, profile form and submit-error
+    // envelope come from the framework's shared packages, so the template keeps
+    // exactly React's file inventory in Solid's idiom.
     const files = await listTemplateFiles('solid')
     expect(files).toEqual([
       'App.tsx.tpl',
@@ -250,17 +225,6 @@ describe('Template file inventory', () => {
       'components/SettingsPanel.tsx.tpl',
       'components/ThemeToggle.tsx.tpl',
       'components/UserMenu.tsx.tpl',
-      'components/formSubmitError.ts.tpl',
-      'components/oauth-logos.tsx.tpl',
-      'components/profile-form.ts.tpl',
-      'components/settings/AccountSection.tsx.tpl',
-      'components/settings/AuthSection.tsx.tpl',
-      'components/settings/BillingSection.tsx.tpl',
-      'components/settings/DevicesSection.tsx.tpl',
-      'components/settings/LogOutDeleteSection.tsx.tpl',
-      'components/settings/NotificationsSection.tsx.tpl',
-      'components/settings/ThisDeviceSection.tsx.tpl',
-      'components/settings/push-toggle.ts.tpl',
       'main.tsx.tpl',
       'pages/About.tsx.tpl',
       'pages/ForgotPassword.tsx.tpl',
@@ -270,11 +234,10 @@ describe('Template file inventory', () => {
       'pages/ResetPassword.tsx.tpl',
       'pages/Settings.tsx.tpl',
       'pages/Signup.tsx.tpl',
-      'types/solid-jsx.d.ts.tpl',
     ])
   })
 
-  it('Angular has 31 template files', async () => {
+  it('Angular has 20 template files', async () => {
     const files = await listTemplateFiles('angular')
     expect(files).toEqual([
       'app.component.ts.tpl',
@@ -282,21 +245,10 @@ describe('Template file inventory', () => {
       'components/auth.guard.ts.tpl',
       'components/floating-input.component.ts.tpl',
       'components/footer.component.ts.tpl',
-      'components/form-submit-error.ts.tpl',
       'components/header.component.ts.tpl',
       'components/icon.component.ts.tpl',
       'components/oauth-buttons.component.ts.tpl',
-      'components/oauth-provider-logo.component.ts.tpl',
       'components/settings-panel.component.ts.tpl',
-      'components/settings-panel/account-section.component.ts.tpl',
-      'components/settings-panel/auth-section.component.ts.tpl',
-      'components/settings-panel/billing-section.component.ts.tpl',
-      'components/settings-panel/devices-section.component.ts.tpl',
-      'components/settings-panel/log-out-delete-section.component.ts.tpl',
-      'components/settings-panel/notifications-section.component.ts.tpl',
-      'components/settings-panel/profile-form.ts.tpl',
-      'components/settings-panel/push-toggle.ts.tpl',
-      'components/settings-panel/this-device-section.component.ts.tpl',
       'components/theme-toggle.component.ts.tpl',
       'components/user-menu.component.ts.tpl',
       'main.ts.tpl',
@@ -359,49 +311,72 @@ describe('Templates use molecule UI components', () => {
       expect(content).toContain('useAuth')
     })
 
-    it('Header uses molecule UI components', async () => {
+    it('Header wraps the shared AppHeader from molecule', async () => {
       const content = await readTemplate('vue', 'components', 'Header.vue.tpl')
-      expect(content).toContain("from '@molecule/app-ui-vue'")
-      expect(content).toContain('Flex')
+      expect(content).toContain("from '@molecule/app-header-vue'")
+      expect(content).toContain('AppHeader')
+    })
+
+    it('SettingsPanel composes the shared settings-panel sections', async () => {
+      const content = await readTemplate('vue', 'components', 'SettingsPanel.vue.tpl')
+      expect(content).toContain("from '@molecule/app-settings-panel-vue'")
+      expect(content).toContain('SettingsContainer')
+      expect(content).toContain('AccountSection')
     })
   })
 
   describe('Svelte', () => {
-    it('Login uses class generators from @molecule/app-ui', async () => {
+    it('Login uses the shared @molecule/app-ui-svelte components', async () => {
       const content = await readTemplate('svelte', 'routes', 'login', '+page.svelte.tpl')
       expect(content).toContain("from '@molecule/app-ui'")
       expect(content).toContain('getClassMap')
-      // The form fields are the scaffold's FloatingInput wrapper.
+      // The form fields are the shared package's FloatingInput, the same
+      // component @molecule/app-ui-react ships (no scaffold-local wrapper).
+      expect(content).toContain("from '@molecule/app-ui-svelte'")
       expect(content).toContain('FloatingInput')
-      // The wrapper itself is class-generator styled — that is where the old
-      // @molecule/app-ui-svelte generator calls live now.
-      const input = await readTemplate('svelte', 'components', 'FloatingInput.svelte.tpl')
-      expect(input).toContain("from '@molecule/app-ui'")
-      expect(input).toContain('getClassMap')
     })
 
     it('Home uses @molecule/app-svelte', async () => {
       const content = await readTemplate('svelte', 'routes', '+page.svelte.tpl')
       expect(content).toContain("from '@molecule/app-svelte'")
-      expect(content).toContain('createAuthStores')
+      expect(content).toContain('useAuth')
     })
 
-    it('Layout uses class generators from molecule UI', async () => {
-      // The layout is a composition now: shell + header + footer, each styled
-      // by the class generators (the old inline layout classes moved there).
+    it('Header and Footer wrap the shared molecule shell packages', async () => {
+      // The chrome (logo <img>, brand link, fixed positioning, About/legal
+      // links, language picker, version) renders inside the shared packages —
+      // exactly what the React template gets from app-header/footer-react.
+      const header = await readTemplate('svelte', 'components', 'Header.svelte.tpl')
+      expect(header).toContain("from '@molecule/app-header-svelte'")
+      expect(header).toContain('AppHeader')
+      expect(header).toContain('UserMenu')
+
+      const footer = await readTemplate('svelte', 'components', 'Footer.svelte.tpl')
+      expect(footer).toContain("from '@molecule/app-footer-svelte'")
+      expect(footer).toContain('AppFooter')
+      expect(footer).toContain('loadContent')
+
       const layout = await readTemplate('svelte', 'components', 'AppLayout.svelte.tpl')
+      expect(layout).toContain("from '@molecule/app-shell-layout-svelte'")
       expect(layout).toContain('AppShellLayout')
       expect(layout).toContain('Header')
       expect(layout).toContain('Footer')
-      for (const part of [
-        'AppShellLayout.svelte.tpl',
-        'AppHeader.svelte.tpl',
-        'AppFooter.svelte.tpl',
-      ]) {
-        const shell = await readTemplate('svelte', 'components', part)
-        expect(shell).toContain("from '@molecule/app-ui'")
-        expect(shell).toContain('getClassMap')
-      }
+    })
+
+    it('SettingsPanel composes the shared settings-panel sections', async () => {
+      const content = await readTemplate('svelte', 'components', 'SettingsPanel.svelte.tpl')
+      expect(content).toContain("from '@molecule/app-settings-panel-svelte'")
+      expect(content).toContain('SettingsContainer')
+      expect(content).toContain('AccountSection')
+      // The panel reads the drawer's close callback from the shared
+      // panel-close context, exactly as the React panel reads usePanelClose().
+      expect(content).toContain('usePanelClose')
+    })
+
+    it('OAuthButtons wraps the shared auth-ui package', async () => {
+      const content = await readTemplate('svelte', 'components', 'OAuthButtons.svelte.tpl')
+      expect(content).toContain("from '@molecule/app-auth-ui-svelte'")
+      expect(content).toContain('oauthConfig')
     })
   })
 
@@ -416,39 +391,55 @@ describe('Templates use molecule UI components', () => {
     it('Home uses @molecule/app-solid', async () => {
       const content = await readTemplate('solid', 'pages', 'Home.tsx.tpl')
       expect(content).toContain("from '@molecule/app-solid'")
-      expect(content).toContain('createAuth')
+      expect(content).toContain('useAuth')
     })
 
-    it('Header uses molecule UI components', async () => {
+    it('Header delegates the chrome to @molecule/app-header-solid', async () => {
+      // The branded header (logo <img>, fixed bar, theme toggle slot) renders
+      // inside the shared AppHeader; the template only injects branding and
+      // the user menu.
       const content = await readTemplate('solid', 'components', 'Header.tsx.tpl')
-      expect(content).toContain("from '@molecule/app-ui-solid'")
-      expect(content).toContain('Flex')
+      expect(content).toContain("from '@molecule/app-header-solid'")
+      expect(content).toContain('AppHeader')
+      expect(content).toContain('UserMenu')
     })
   })
 
   describe('Angular', () => {
-    it('Login uses the Angular UI package Button and the scaffold floating input', async () => {
+    it('Login uses the Angular UI package Form, Button and FloatingInput', async () => {
       const content = await readTemplate('angular', 'pages', 'login.component.ts.tpl')
-      // Buttons come from @molecule/app-ui-angular, whose `button[mol-button]` host IS the
-      // <button>, so data-mol-id and aria labels land on the real control. The
-      // floating input stays the scaffold's own ClassMap-driven `app-floating-input`.
+      // Buttons and the form come from @molecule/app-ui-angular, whose
+      // `button[mol-button]` host IS the <button> and whose `form[mol-form]`
+      // renders the rejected-submit error list + pending fieldset, so data-mol-id
+      // and aria labels land on the real control. The floating input is the shared
+      // `FloatingInput` re-exported by the scaffold's component shim, as react's
+      // pages import it from their own shim.
       expect(content).toContain("from '@molecule/app-ui-angular'")
       expect(content).toContain('mol-button')
       expect(content).not.toContain('appButton')
-      expect(content).toContain('FloatingInputComponent')
-      expect(content).toContain('<app-floating-input')
+      expect(content).toContain('mol-form')
+      expect(content).toContain('onFormSubmit')
+      expect(content).toContain('FloatingInput')
+      expect(content).toContain('mol-floating-input')
+      expect(content).not.toContain('app-floating-input')
       const input = await readTemplate('angular', 'components', 'floating-input.component.ts.tpl')
-      expect(input).toContain("from '@molecule/app-ui'")
-      expect(input).toContain('getClassMap')
+      // The shim is the shared component (the ClassMap styling lives in the
+      // UI package now, exactly as in react's one-line shim).
+      expect(input).toContain("export { FloatingInput } from '@molecule/app-ui-angular'")
       // The page still drives auth through @molecule/app-angular.
       expect(content).toContain("from '@molecule/app-angular'")
-      expect(content).toContain('MoleculeAuthService')
+      expect(content).toContain('useLogin')
     })
 
-    it('Header uses getClassMap for layout', async () => {
+    it('Header wraps the shared AppHeader from molecule', async () => {
       const content = await readTemplate('angular', 'components', 'header.component.ts.tpl')
-      expect(content).toContain("from '@molecule/app-ui'")
-      expect(content).toContain('getClassMap')
+      // The header chrome (bar, logo <img>, theme toggle slot) renders inside
+      // @molecule/app-header-angular; the wrapper only injects branding and
+      // the user menu, as react's Header.tsx does.
+      expect(content).toContain("from '@molecule/app-header-angular'")
+      expect(content).toContain('mol-app-header')
+      expect(content).toContain('APP_NAME')
+      expect(content).toContain('LOGO_SIZE')
     })
   })
 })
@@ -487,19 +478,22 @@ describe('SvelteKit template structure', () => {
     const layout = await readTemplate('svelte', 'routes', '+layout.svelte.tpl')
     expect(layout).toContain('$props()')
     expect(layout).toContain('{@render children()}')
-    // The reactive redirect is a rune ($effect) too — it lives in the guard
-    // component the layout renders now.
+    // The reactive redirect is a rune ($effect) inside the shared
+    // @molecule/app-ui-svelte AuthGuard, which the scaffold's RouteAccess
+    // composes (the guard wrapper keeps it as the in-page extension point).
+    const access = await readTemplate('svelte', 'components', 'RouteAccess.svelte.tpl')
+    expect(access).toContain("from '@molecule/app-ui-svelte'")
+    expect(access).toContain('AuthGuard')
     const guard = await readTemplate('svelte', 'components', 'AuthGuard.svelte.tpl')
-    expect(guard).toContain('$effect(')
+    expect(guard).toContain("from '@molecule/app-ui-svelte'")
   })
 
-  it('+layout.svelte has auth guard and app layout', async () => {
+  it('+layout.svelte has the access boundary and app layout', async () => {
     const layout = await readTemplate('svelte', 'routes', '+layout.svelte.tpl')
-    // The guard and the header/footer shell are components now; the layout
-    // composes them around the routed page.
-    expect(layout).toContain("import AuthGuard from '../components/AuthGuard.svelte'")
-    expect(layout).toContain("import AppLayout from '../components/AppLayout.svelte'")
-    expect(layout).toMatch(/<AuthGuard>\s*<AppLayout>/s)
+    // The layout composes the RouteAccess boundary around the routed page;
+    // the header/footer shell renders inside it for the private routes.
+    expect(layout).toContain("import RouteAccess from '../components/RouteAccess.svelte'")
+    expect(layout).toMatch(/<RouteAccess>\s*\{@render children\(\)\}\s*<\/RouteAccess>/s)
     // The render gate is the `sessionReady` store (status left 'loading'), not
     // `initialized` — a stored token AND user make the first render 'authenticated'
     // (xr-molecule-flash-m177), and a returning visitor's pages wait for the restore.
@@ -507,46 +501,40 @@ describe('SvelteKit template structure', () => {
     expect(layout).toMatch(/const \{[^}]*\bsessionReady\b[^}]*\} = createAuthStores\(/s)
     expect(layout).not.toContain('$authState.initialized')
 
-    // The redirect lives in the guard: unauthenticated → /login, carrying the
-    // attempted location for post-login restoration, rendering only a loading
-    // tag while the status is 'loading'.
-    const guard = await readTemplate('svelte', 'components', 'AuthGuard.svelte.tpl')
-    expect(guard).toContain("loginPath = '/login'")
-    expect(guard).toContain("$authState.status === 'unauthenticated'")
-    expect(guard).toContain('state: { from:')
-    expect(guard).toContain("$authState.status === 'loading'")
+    // The access policy lives in RouteAccess: the public paths render bare,
+    // everything else renders inside the shared AuthGuard and the app shell.
+    const access = await readTemplate('svelte', 'components', 'RouteAccess.svelte.tpl')
+    expect(access).toContain("import AppLayout from './AppLayout.svelte'")
+    expect(access).toMatch(/<AuthGuard>\s*<AppLayout>/s)
+    expect(access).toContain('matchPath(view.path, $location.pathname)')
+    expect(access).toContain('const privateViews: readonly RouteView[] = []')
 
     // Branding moved into the shell's header component.
     const header = await readTemplate('svelte', 'components', 'Header.svelte.tpl')
     expect(header).toContain('APP_NAME')
 
-    // Logout moved into the settings panel's log-out section.
-    const logOut = await readTemplate(
-      'svelte',
-      'components',
-      'settings',
-      'LogOutDeleteSection.svelte.tpl',
-    )
-    expect(logOut).toContain('logout')
+    // Logout moved into the shared settings panel's log-out section.
+    const panel = await readTemplate('svelte', 'components', 'SettingsPanel.svelte.tpl')
+    expect(panel).toContain('LogOutDeleteSection')
   })
 
   it('+page.svelte shows user greeting (Home)', async () => {
     const content = await readTemplate('svelte', 'routes', '+page.svelte.tpl')
-    expect(content).toContain('createAuthStores')
+    expect(content).toContain('useAuth')
     expect(content).toContain('$user')
     expect(content).toContain("t('home.greeting')")
   })
 
   it('login/+page.svelte has login form', async () => {
     const content = await readTemplate('svelte', 'routes', 'login', '+page.svelte.tpl')
-    expect(content).toContain('createLoginStore')
+    expect(content).toContain('useLogin')
     expect(content).toContain('$state(')
-    expect(content).toContain('loginStore.call')
+    expect(content).toContain('await login(')
     // Post-login navigation routes to the location the auth guard stashed in
-    // `state.from` (its `resolve()`d path), not a literal '/'. The same effect
-    // routes in when an OAuth callback completes on this page.
-    expect(content).toContain('goto(resolve(from as RouteIdWithSearchOrHash)')
-    expect(content).toContain('if ($isAuthenticated) goto(')
+    // `state.from`, not a literal '/'. The same effect routes in when an OAuth
+    // callback completes on this page.
+    expect(content).toContain('navigate(from, { replace: true })')
+    expect(content).toContain('if ($isAuthenticated) navigate(')
   })
 
   it('no old standalone Svelte files remain', async () => {
@@ -588,18 +576,24 @@ describe('Framework-specific patterns', () => {
     expect(main).toContain("from 'vue-router'")
     expect(main).toContain('createRouter')
     expect(main).toContain('createWebHistory')
-    // Pages render only once a returning visitor's session is restored.
+    // Pages render only once a returning visitor's session is restored, inside
+    // the app's own access boundary.
     const vueApp = await readTemplate('vue', 'App.vue.tpl')
     expect(vueApp).toContain("import { SessionReady } from '@molecule/app-vue'")
-    expect(vueApp).toMatch(/<SessionReady>\s*<RouterView \/>\s*<\/SessionReady>/)
+    expect(vueApp).toMatch(
+      /<SessionReady>\s*<RouteAccess>\s*<RouterView \/>\s*<\/RouteAccess>\s*<\/SessionReady>/,
+    )
 
-    const guard = await readTemplate('vue', 'components', 'AuthGuard.vue.tpl')
-    expect(guard).toContain('useRouter')
-    expect(guard).toContain('RouterView')
-    // The guard waits on `status === 'loading'`, not `initialized`: a stored
-    // token AND user make the first render 'authenticated' (xr-molecule-flash-m177).
-    expect(guard).toContain("state.status === 'loading'")
-    expect(guard).not.toContain('state.initialized')
+    // vue now shims the shared AuthGuard from @molecule/app-ui-vue (the
+    // redirect/route-element logic lives in the shared component), and the
+    // template's RouteAccess policy judges by `status` only.
+    const guard = await readTemplate('vue', 'components', 'AuthGuard.ts.tpl')
+    expect(guard).toContain('AuthGuard')
+    expect(guard).toMatch(/@molecule\/app-ui-vue/)
+    // The policy waits on `status`, not `initialized`: a stored token AND user
+    // make the first render 'authenticated' (xr-molecule-flash-m177).
+    expect(guard).toContain("status.value === 'unavailable'")
+    expect(guard).not.toContain('initialized')
   })
 
   it('Svelte uses SvelteKit file-based routing', async () => {
@@ -610,9 +604,13 @@ describe('Framework-specific patterns', () => {
     // No client-side router library
     const layout = await readTemplate('svelte', 'routes', '+layout.svelte.tpl')
     expect(layout).toContain("from '$app/stores'")
-    // Router navigation (goto) is SvelteKit's too — the guard owns the redirect.
-    const guard = await readTemplate('svelte', 'components', 'AuthGuard.svelte.tpl')
-    expect(guard).toContain("from '$app/navigation'")
+    // The molecule Router over SvelteKit's navigation is built in the layout
+    // (afterNavigate must run during component initialisation); in-app
+    // navigation routes through it, exactly as the React scaffold's
+    // BrowserRouter does.
+    expect(layout).toContain("from '$app/navigation'")
+    expect(layout).toContain('createSvelteKitRouter(')
+    expect(layout).toContain('createSvelteKitNavigation(')
   })
 
   it('Solid uses @solidjs/router for routing', async () => {
@@ -621,14 +619,24 @@ describe('Framework-specific patterns', () => {
     expect(app).toContain('Router')
     expect(app).toContain('Route')
     expect(app).toMatch(/config=\{\{[^}]*\bawaitSession:\s*true\b/s)
+    // The access boundary wraps the routed tree inside the providers (react's
+    // RouteAccess position): private routes hold behind the shared guard, and
+    // only the policy's declared public views pass.
+    expect(app).toContain('RouteAccess')
 
+    // The guard file keeps the shared AuthGuard (loading tag + redirect live
+    // inside it) and the app's RouteAccess policy: an unavailable session is
+    // not sign-out — it renders the LoadErrorBanner with a retry instead of
+    // redirecting, and a pattern-match against the bonded router decides the
+    // public views.
     const guard = await readTemplate('solid', 'components', 'AuthGuard.tsx.tpl')
-    expect(guard).toContain('Navigate')
-    expect(guard).toContain('ParentProps')
-    // Same rule as the other framework guards: `status === 'loading'` decides the
-    // fallback, so a restored session paints on the first render.
-    expect(guard).toContain("state().status !== 'loading'")
-    expect(guard).not.toContain('state().initialized')
+    expect(guard).toContain("export { AuthGuard } from '@molecule/app-ui-solid'")
+    expect(guard).toContain('RouteAccess')
+    expect(guard).toContain('LoadErrorBanner')
+    expect(guard).toContain("status() === 'unavailable'")
+    expect(guard).toContain('matchPath')
+    // No hand-written redirect: holding and redirecting is the shared guard's job.
+    expect(guard).not.toContain('<Navigate')
   })
 
   it('Angular uses @angular/router for routing', async () => {
@@ -639,15 +647,22 @@ describe('Framework-specific patterns', () => {
     expect(main).toMatch(/provideMolecule\(\{[^}]*\bawaitSession:\s*true\b/s)
 
     // The guard is a route COMPONENT now (the port of react's AuthGuard route
-    // element): it renders the loading tag while the status is 'loading' and
-    // redirects unauthenticated visitors to /login, carrying state.from.
+    // element), and it keeps the SHARED guard: the loading tag while the status
+    // is 'loading' and the /login redirect carrying state.from are the shared
+    // component's branches (react re-exports the same component from
+    // @molecule/app-ui-react). An 'unavailable' session is not sign-out: the
+    // load-error banner replaces the guard, with the client's validation as Retry.
     const guard = await readTemplate('angular', 'components', 'auth.guard.ts.tpl')
     expect(guard).toContain('AuthGuardComponent')
     expect(guard).toContain('RouterOutlet')
-    expect(guard).toContain('MoleculeAuthService')
-    expect(guard).toContain("status === 'loading'")
-    expect(guard).toContain("state.status === 'unauthenticated'")
-    expect(guard).toContain("navigate(['/login'], { state: { from: { pathname } } })")
+    expect(guard).toContain("export { AuthGuard } from '@molecule/app-ui-angular'")
+    expect(guard).toContain('<mol-auth-guard')
+    expect(guard).toContain('loginPath="/login"')
+    expect(guard).toContain("=== 'unavailable'")
+    expect(guard).toContain('mol-load-error-banner')
+    expect(guard).toContain('validateSession')
+    expect(guard).toContain('publicViews')
+    expect(guard).toContain('privateViews')
   })
 
   it('React Native Web guard waits on the session status, not `initialized`', async () => {
@@ -779,27 +794,36 @@ describe('Template variable substitution', () => {
     expect(reactHeader).toContain('@molecule/app-header-react')
     expect(reactHeader).not.toContain('LOGO_ICON')
 
+    // vue delegates Header chrome (incl. the logo <img>) to the shared
+    // @molecule/app-header-vue AppHeader component, as react does; its logoSrc
+    // defaults to /logo.svg and the wrapper passes logoSize.
     const vueHeader = await readTemplate('vue', 'components', 'Header.vue.tpl')
-    expect(vueHeader).toContain('src="/logo.svg"')
+    expect(vueHeader).toContain('@molecule/app-header-vue')
+    expect(vueHeader).toContain('LOGO_SIZE')
     expect(vueHeader).not.toContain('LOGO_ICON')
 
+    // solid delegates Header chrome (incl. the logo <img>) to the shared
+    // @molecule/app-header-solid AppHeader component, as react does.
     const solidHeader = await readTemplate('solid', 'components', 'Header.tsx.tpl')
-    expect(solidHeader).toContain('src="/logo.svg"')
+    expect(solidHeader).toContain('@molecule/app-header-solid')
     expect(solidHeader).not.toContain('LOGO_ICON')
 
+    // angular delegates Header chrome (incl. the logo <img>) to the shared
+    // @molecule/app-header-angular AppHeader component, as react does; its
+    // logoSrc defaults to /logo.svg and the wrapper passes logoSize.
     const angularHeader = await readTemplate('angular', 'components', 'header.component.ts.tpl')
-    expect(angularHeader).toContain('src="/logo.svg"')
+    expect(angularHeader).toContain('@molecule/app-header-angular')
+    expect(angularHeader).toContain('LOGO_SIZE')
     expect(angularHeader).not.toContain('LOGO_ICON')
 
-    // svelte delegates the header chrome to the scaffold's AppHeader too; its
-    // logo src defaults to LOGO_SRC — lib/logo.ts assembles the `/logo.svg`
-    // path (a plain literal trips the root-relative-assets build guard).
+    // svelte delegates the header chrome (incl. the logo <img>) to the shared
+    // @molecule/app-header-svelte AppHeader component; the pages that render
+    // the logo themselves keep lib/logo.ts, which assembles the `/logo.svg`
+    // path (a plain literal trips the root-relative-assets build guard —
+    // SvelteKit writes TWO output directories).
     const svelteHeader = await readTemplate('svelte', 'components', 'Header.svelte.tpl')
-    expect(svelteHeader).toContain('AppHeader')
-    const svelteAppHeader = await readTemplate('svelte', 'components', 'AppHeader.svelte.tpl')
-    expect(svelteAppHeader).toContain('<img src={logoSrc}')
-    expect(svelteAppHeader).toContain('LOGO_SRC')
-    expect(svelteAppHeader).not.toContain('LOGO_ICON')
+    expect(svelteHeader).toContain('@molecule/app-header-svelte')
+    expect(svelteHeader).not.toContain('LOGO_ICON')
     const svelteLogo = await readTemplate('svelte', 'lib', 'logo.ts.tpl')
     expect(svelteLogo).toContain("'logo.svg'")
   })
@@ -836,7 +860,8 @@ describe('Template variable substitution', () => {
     for (const page of svelteAuthPages) {
       const content = await readTemplate('svelte', 'routes', ...page.split('/'))
       // SvelteKit assembles the src through lib/logo.ts (LOGO_SRC) — a plain
-      // '/logo.svg' literal trips the root-relative-assets build guard.
+      // '/logo.svg' literal trips the root-relative-assets build guard (it
+      // checks every build output directory, and SvelteKit writes two).
       expect(content).toContain('src={LOGO_SRC}')
       expect(content).not.toContain('AUTH_LOGO_ICON')
       expect(content).toContain('LOGO_SIZE')
@@ -851,10 +876,15 @@ describe('Template variable substitution', () => {
     // them renders the branded header (its img logo is asserted above for
     // every framework). Each framework's router must keep plan-updated INSIDE
     // the guarded app layout — only then does the page get that header.
-    const svelteLayout = await readTemplate('svelte', 'routes', '+layout.svelte.tpl')
-    expect(svelteLayout).toContain(
-      "const publicRoutes = ['/login', '/signup', '/about', '/forgot-password', '/reset-password']",
-    )
+    const svelteAccess = await readTemplate('svelte', 'components', 'RouteAccess.svelte.tpl')
+    // The public policy names exactly the shell-less routes; anything not
+    // listed (plan-updated included) renders inside the guarded app shell.
+    expect(svelteAccess).toContain("{ path: '/login' }")
+    expect(svelteAccess).toContain("{ path: '/signup' }")
+    expect(svelteAccess).toContain("{ path: '/about' }")
+    expect(svelteAccess).toContain("{ path: '/forgot-password' }")
+    expect(svelteAccess).toContain("{ path: '/reset-password' }")
+    expect(svelteAccess).not.toContain('plan-updated')
 
     const vueMain = await readTemplate('vue', 'main.ts.tpl')
     expect(vueMain).toMatch(/component: AppLayout,\s*children: \[[^]*'plan-updated'/s)
@@ -875,47 +905,49 @@ describe('Template variable substitution', () => {
     // shared @molecule/app-footer-react AppFooter; it still injects branding.
     expect(reactFooter).toContain('@molecule/app-footer-react')
 
+    // vue delegates the Footer's i18n + privacy/terms rendering to the shared
+    // @molecule/app-footer-vue AppFooter and keeps the About link on the in-app
+    // route, as react does. Like react, the file explains WEBSITE_URL in a
+    // comment — the absence assertion names the About-link wiring itself.
     const vueFooter = await readTemplate('vue', 'components', 'Footer.vue.tpl')
-    expect(vueFooter).not.toContain('WEBSITE_URL')
     expect(vueFooter).toContain('APP_NAME')
-    expect(vueFooter).toContain('to="/about"')
-    expect(vueFooter).toContain("t('footer.about', { appName: APP_NAME }")
-    // The interpolated appName is HTML-escaped before it enters v-html content.
-    expect(vueFooter).toContain("t('content.privacyPolicy', { appName: escapeHtml(APP_NAME) }")
+    expect(vueFooter).toContain('about-href="/about"')
+    expect(vueFooter).toContain('@molecule/app-footer-vue')
+    expect(vueFooter).not.toContain('about-href="WEBSITE_URL"')
 
+    // The solid footer delegates to the shared @molecule/app-footer-solid;
+    // the About link stays the in-app /about route and the interpolations run
+    // inside the package. Like react, the file explains WEBSITE_URL in a
+    // comment — the assertion below only forbids wiring the external URL into
+    // the About link itself.
     const solidFooter = await readTemplate('solid', 'components', 'Footer.tsx.tpl')
-    expect(solidFooter).not.toContain('WEBSITE_URL')
+    expect(solidFooter).not.toContain('aboutHref={WEBSITE_URL}')
     expect(solidFooter).toContain('APP_NAME')
-    expect(solidFooter).toContain('href="/about"')
-    expect(solidFooter).toContain("t('footer.about', { appName: APP_NAME }")
-    expect(solidFooter).toMatch(
-      /t\(\s*'content\.privacyPolicy',\s*\{\s*appName: escapeHtml\(APP_NAME\)\s*\}/,
-    )
+    expect(solidFooter).toContain('aboutHref="/about"')
+    expect(solidFooter).toContain('@molecule/app-footer-solid')
 
+    // The angular footer delegates to the shared @molecule/app-footer-angular;
+    // the About link stays the in-app /about route and the i18n + privacy/terms
+    // rendering runs inside the package. Like react, the file explains
+    // WEBSITE_URL in a comment — the assertion below only forbids wiring the
+    // external URL into the About link itself.
     const angularFooter = await readTemplate('angular', 'components', 'footer.component.ts.tpl')
-    expect(angularFooter).not.toContain('WEBSITE_URL')
+    expect(angularFooter).not.toContain('aboutHref="WEBSITE_URL"')
     expect(angularFooter).toContain('APP_NAME')
-    expect(angularFooter).toContain('routerLink="/about"')
-    // Angular uses getter methods for interpolated t() calls
-    expect(angularFooter).toContain("t('footer.about', { appName: APP_NAME }")
-    expect(angularFooter).toContain(
-      "t('content.privacyPolicy', { appName: this.escapeHtml(APP_NAME) }",
-    )
+    expect(angularFooter).toContain('aboutHref="/about"')
+    expect(angularFooter).toContain('@molecule/app-footer-angular')
+    expect(angularFooter).toContain('loadContent')
 
-    // The svelte footer delegates to AppFooter; the About link stays the
-    // in-app /about route and the interpolations run inside AppFooter. Like
-    // react, the file explains WEBSITE_URL in a comment — the assertion below
-    // only forbids wiring the external URL into the About link itself.
+    // The svelte footer delegates to the shared @molecule/app-footer-svelte;
+    // the About link stays the in-app /about route and the interpolations run
+    // inside the package. Like react, the file explains WEBSITE_URL in a
+    // comment — the assertion below only forbids wiring the external URL into
+    // the About link itself.
     const svelteFooter = await readTemplate('svelte', 'components', 'Footer.svelte.tpl')
     expect(svelteFooter).not.toContain('aboutHref={WEBSITE_URL}')
     expect(svelteFooter).toContain('APP_NAME')
     expect(svelteFooter).toContain('aboutHref="/about"')
-    const svelteAppFooter = await readTemplate('svelte', 'components', 'AppFooter.svelte.tpl')
-    expect(svelteAppFooter).not.toContain('WEBSITE_URL')
-    expect(svelteAppFooter).toContain("$t('footer.about', { appName }")
-    expect(svelteAppFooter).toContain(
-      "$t('content.privacyPolicy', { appName: escapeHtml(appName) }",
-    )
+    expect(svelteFooter).toContain('@molecule/app-footer-svelte')
   })
 
   it('no template variables remain in framework templates', async () => {
@@ -1138,7 +1170,7 @@ describe('Create pipeline simulation', () => {
       join(projectDir, 'src', 'routes', 'login', '+page.svelte'),
       'utf-8',
     )
-    expect(loginPage).toContain('createLoginStore')
+    expect(loginPage).toContain('useLogin')
   })
 
   it('processTemplate preserves camelCase i18n interpolation vars', () => {
@@ -1198,9 +1230,9 @@ describe('Auth patterns across frameworks', () => {
     const loginImports: Record<string, string> = {
       react: 'useLogin',
       vue: 'useLogin',
-      svelte: 'createLoginStore',
-      solid: 'createLogin',
-      angular: 'createLoginState',
+      svelte: 'useLogin',
+      solid: 'useLogin',
+      angular: 'useLogin',
     }
 
     for (const [fw, importName] of Object.entries(loginImports)) {
@@ -1240,18 +1272,17 @@ describe('Auth patterns across frameworks', () => {
 
   it('all frameworks have theme toggle', async () => {
     // react now shims the shared ThemeToggle from @molecule/app-ui-react
-    // (the toggleTheme logic lives in the shared component); svelte ships
-    // its own ThemeToggle component, mounted by the auth pages and rendered
-    // by the shell header's default toggle slot.
+    // (the toggleTheme logic lives in the shared component); svelte imports
+    // that same shared component from @molecule/app-ui-svelte — mounted by
+    // the auth pages and rendered by the shell header's default toggle slot.
     const reactToggle = await readTemplate('react', 'components', 'ThemeToggle.tsx.tpl')
     expect(reactToggle).toContain('ThemeToggle')
     expect(reactToggle).toMatch(/@molecule\/app-ui-react|toggleTheme/)
 
-    const svelteToggle = await readTemplate('svelte', 'components', 'ThemeToggle.svelte.tpl')
-    expect(svelteToggle).toContain('toggleTheme')
     const svelteLogin = await readTemplate('svelte', 'routes', 'login', '+page.svelte.tpl')
     expect(svelteLogin).toContain('<ThemeToggle />')
-    const svelteAppHeader = await readTemplate('svelte', 'components', 'AppHeader.svelte.tpl')
-    expect(svelteAppHeader).toContain('<ThemeToggle />')
+    expect(svelteLogin).toContain("from '@molecule/app-ui-svelte'")
+    const svelteHeader = await readTemplate('svelte', 'components', 'Header.svelte.tpl')
+    expect(svelteHeader).toContain('@molecule/app-header-svelte')
   })
 })

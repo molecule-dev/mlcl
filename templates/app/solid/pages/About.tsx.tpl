@@ -1,8 +1,9 @@
 import { Show } from 'solid-js'
-import { useTranslate } from '@molecule/app-solid'
+
+import { useTranslation } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_DESCRIPTION, WEBSITE_URL } from '../branding.js'
+import { APP_DESCRIPTION, APP_NAME, WEBSITE_URL } from '../branding.js'
 
 /**
  * About page — reachable at `/about`, where the Footer's "About" link points.
@@ -13,7 +14,7 @@ import { APP_NAME, APP_DESCRIPTION, WEBSITE_URL } from '../branding.js'
  */
 export function About() {
   const cm = getClassMap()
-  const t = useTranslate()
+  const { t } = useTranslation()
 
   return (
     <div class={cm.cn(cm.textCenter, cm.sp('py', 12))}>

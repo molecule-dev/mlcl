@@ -1,26 +1,29 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex } from '@molecule/app-ui-vue'
-import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-vue'
+import { useLogin, usePasswordReset, useQuery, useRouter, useTranslation } from '@molecule/app-vue'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
-import FloatingInput from '../components/FloatingInput.vue'
+import { FloatingInput } from '../components/FloatingInput.js'
 import Footer from '../components/Footer.vue'
-import Icon from '../components/Icon.vue'
-import ThemeToggle from '../components/ThemeToggle.vue'
+import { Icon } from '../components/Icon.js'
+import { ThemeToggle } from '../components/ThemeToggle.js'
 
-const { t } = useTranslation()
 const cm = getClassMap()
-const router = useRouter()
-const route = useRoute()
+const { t } = useTranslation()
+const { navigate } = useRouter()
+const query = useQuery()
 const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
 const { login } = useLogin()
 
-const token = ref((route.query.token as string) || '')
-const email = ref((route.query.email as string) || '')
+/** The first value of a query parameter, as react-router's searchParams.get did. */
+const first = (value: string | string[] | undefined): string =>
+  Array.isArray(value) ? (value[0] ?? '') : (value ?? '')
+
+const token = ref(first(query.value.token))
+const email = ref(first(query.value.email))
 const password = ref('')
 const twoFactorToken = ref('')
 
@@ -30,7 +33,7 @@ async function handleSubmit(): Promise<void> {
   try {
     await confirmReset({ token: token.value, password: password.value })
     await login({ email: email.value, password: password.value })
-    router.replace('/')
+    navigate('/', { replace: true })
   } catch (_error) {
     // Error tracked in hook state
   }
@@ -64,36 +67,40 @@ async function handleSubmit(): Promise<void> {
         <form @submit.prevent="handleSubmit">
           <div :class="cm.authField">
             <FloatingInput
-              v-model="email"
+              :value="email"
               type="email"
-              auto-complete="email"
+              autocomplete="email"
               required
               :placeholder="t('auth.resetPassword.email')"
+              @change="email = ($event.target as HTMLInputElement).value"
             />
           </div>
           <div :class="cm.authField">
             <FloatingInput
-              v-model="token"
+              :value="token"
               type="password"
               required
               :placeholder="t('auth.resetPassword.token')"
+              @change="token = ($event.target as HTMLInputElement).value"
             />
           </div>
           <div :class="cm.authField">
             <FloatingInput
-              v-model="password"
+              :value="password"
               type="password"
-              auto-complete="new-password"
+              autocomplete="new-password"
               required
               :placeholder="t('auth.resetPassword.newPassword')"
+              @change="password = ($event.target as HTMLInputElement).value"
             />
           </div>
           <div :class="cm.authField">
             <FloatingInput
-              v-model="twoFactorToken"
+              :value="twoFactorToken"
               type="number"
-              auto-complete="one-time-code"
+              autocomplete="one-time-code"
               :placeholder="t('auth.resetPassword.twoFactor')"
+              @change="twoFactorToken = ($event.target as HTMLInputElement).value"
             />
           </div>
           <div :class="cm.authButtonRow">
@@ -103,7 +110,7 @@ async function handleSubmit(): Promise<void> {
               color="secondary"
               :class="cm.authBackButton"
               :aria-label="t('common.goBack')"
-              @click="router.push('/login')"
+              @click="navigate('/login')"
             >
               <Icon name="arrow-left" :size="25" />
             </Button>

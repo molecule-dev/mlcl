@@ -1,24 +1,18 @@
-import { ChangeDetectorRef, Component, inject, type OnDestroy, type OnInit } from '@angular/core'
-import { ActivatedRoute, Router } from '@angular/router'
-import type { Subscription } from 'rxjs'
+import { Component, inject } from '@angular/core'
+import { ActivatedRoute } from '@angular/router'
 
-import { AUTH_CLIENT, createLoginState, createPasswordResetState, t } from '@molecule/app-angular'
+import { useLogin, useNavigate, usePasswordReset, useTranslation } from '@molecule/app-angular'
 import { getClassMap } from '@molecule/app-ui'
-import { Button } from '@molecule/app-ui-angular'
+import { Button, Flex } from '@molecule/app-ui-angular'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
-import { FloatingInputComponent } from '../components/floating-input.component.js'
+import { FloatingInput } from '../components/floating-input.component.js'
 import { FooterComponent } from '../components/footer.component.js'
-import { IconComponent } from '../components/icon.component.js'
-import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
+import { Icon } from '../components/icon.component.js'
+import { ThemeToggle } from '../components/theme-toggle.component.js'
 
 /**
  * Reset-password page: confirms a reset token with a new password, then signs in.
- *
- * Port of the React `ResetPassword` page — the token and email are seeded from
- * the URL once (`?token=…&email=…`), the confirmation failure renders inline
- * with `role="alert"`, and a successful confirmation immediately logs in and
- * returns home.
  */
 @Component({
   selector: 'app-reset-password',
@@ -26,13 +20,13 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [Button, FloatingInputComponent, IconComponent, FooterComponent, ThemeToggleComponent],
+  imports: [Button, Flex, FloatingInput, FooterComponent, Icon, ThemeToggle],
   template: `
     <div [class]="cm.cn(cm.page, cm.flex({ direction: 'col' }))">
       <header [class]="cm.cn(cm.headerBar, cm.headerFixed)">
         <div [class]="cm.authHeaderInner">
-          <div [class]="cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.h('full'))">
-            <div [class]="cm.flex({ align: 'center', gap: 'xs' })">
+          <div mol-flex [align]="'center'" [justify]="'between'" [className]="cm.h('full')">
+            <div mol-flex [align]="'center'" [gap]="'xs'">
               <img
                 src="/logo.svg"
                 [width]="LOGO_SIZE"
@@ -42,7 +36,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
               />
               <span [class]="cm.logoText">{{ APP_NAME }}</span>
             </div>
-            <app-theme-toggle />
+            <button mol-theme-toggle></button>
           </div>
         </div>
       </header>
@@ -53,42 +47,46 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
         <div [class]="cm.authFormWrapper">
           <form (submit)="onSubmit($event)">
             <div [class]="cm.authField">
-              <app-floating-input
+              <span
+                mol-floating-input
                 type="email"
                 [value]="email"
-                (valueChange)="email = $event"
+                (change)="email = inputValue($event)"
                 autocomplete="email"
-                [required]="true"
+                required
                 [placeholder]="t('auth.resetPassword.email')"
-              />
+              ></span>
             </div>
             <div [class]="cm.authField">
-              <app-floating-input
+              <span
+                mol-floating-input
                 type="password"
                 [value]="token"
-                (valueChange)="token = $event"
-                [required]="true"
+                (change)="token = inputValue($event)"
+                required
                 [placeholder]="t('auth.resetPassword.token')"
-              />
+              ></span>
             </div>
             <div [class]="cm.authField">
-              <app-floating-input
+              <span
+                mol-floating-input
                 type="password"
                 [value]="password"
-                (valueChange)="password = $event"
+                (change)="password = inputValue($event)"
                 autocomplete="new-password"
-                [required]="true"
+                required
                 [placeholder]="t('auth.resetPassword.newPassword')"
-              />
+              ></span>
             </div>
             <div [class]="cm.authField">
-              <app-floating-input
+              <span
+                mol-floating-input
                 type="number"
                 [value]="twoFactorToken"
-                (valueChange)="twoFactorToken = $event"
+                (change)="twoFactorToken = inputValue($event)"
                 autocomplete="one-time-code"
                 [placeholder]="t('auth.resetPassword.twoFactor')"
-              />
+              ></span>
             </div>
             <div [class]="cm.authButtonRow">
               <button
@@ -100,7 +98,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
                 (click)="navigateToLogin()"
                 [attr.aria-label]="t('common.goBack')"
               >
-                <svg appIcon name="arrow-left" [size]="25"></svg>
+                <svg mol-icon-root name="arrow-left" [size]="25"></svg>
               </button>
               <button
                 mol-button
@@ -108,10 +106,10 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
                 size="lg"
                 color="success"
                 [className]="cm.authSubmitButton"
-                [disabled]="isLoggingIn"
+                [disabled]="isLoggingIn()"
               >
                 {{
-                  isLoggingIn ? t('auth.resetPassword.loggingIn') : t('auth.resetPassword.submit')
+                  isLoggingIn() ? t('auth.resetPassword.loggingIn') : t('auth.resetPassword.submit')
                 }}
               </button>
             </div>
@@ -125,48 +123,41 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
     </div>
   `,
 })
-export class ResetPasswordComponent implements OnInit, OnDestroy {
-  private readonly client = inject(AUTH_CLIENT)
-  private readonly router = inject(Router)
+export class ResetPasswordComponent {
   private readonly route = inject(ActivatedRoute)
-  private readonly cdr = inject(ChangeDetectorRef)
-  private readonly resetManager = createPasswordResetState(this.client)
-  private readonly loginManager = createLoginState(this.client)
-  private subscriptions: Subscription[] = []
+  private readonly reset = usePasswordReset()
+  private readonly login = useLogin()
+  private readonly navigate = useNavigate()
+  private readonly i18n = useTranslation()
 
-  /** The current class map. */
-  get cm(): ReturnType<typeof getClassMap> {
-    return getClassMap()
-  }
+  /** The bonded ClassMap (styling tokens resolve at render time). */
+  protected readonly cm = getClassMap()
 
   /** The reactive translation function (re-evaluates on locale change). */
-  t = t
+  protected readonly t = this.i18n.t
+
   /** The app's display name. */
-  APP_NAME = APP_NAME
+  protected readonly APP_NAME = APP_NAME
   /** The logo size in pixels. */
-  LOGO_SIZE = LOGO_SIZE
+  protected readonly LOGO_SIZE = LOGO_SIZE
 
-  /** The reset token from the URL. */
-  token = this.route.snapshot.queryParamMap.get('token') || ''
-  /** The account email from the URL. */
-  email = this.route.snapshot.queryParamMap.get('email') || ''
+  /** The reset token from the URL (React's `useState(searchParams.get('token'))`). */
+  protected token = this.route.snapshot.queryParamMap.get('token') || ''
+  /** The account email from the URL (React's `useState(searchParams.get('email'))`). */
+  protected email = this.route.snapshot.queryParamMap.get('email') || ''
   /** The new password. */
-  password = ''
+  protected password = ''
   /** The optional two-factor code (rendered, not sent — React parity). */
-  twoFactorToken = ''
-  /** Whether the confirmation is in flight. */
-  isLoggingIn = false
-  /** The last confirmation failure, rendered inline. */
-  confirmError: Error | null = null
+  protected twoFactorToken = ''
 
-  ngOnInit(): void {
-    this.subscriptions.push(
-      this.resetManager.confirmState$.subscribe((state) => {
-        this.isLoggingIn = state.status === 'pending'
-        this.confirmError = state.error ?? null
-        this.cdr.markForCheck()
-      }),
-    )
+  /** Whether the confirmation is in flight (React's `confirmStatus === 'pending'`). */
+  protected isLoggingIn(): boolean {
+    return this.reset.confirmStatus === 'pending'
+  }
+
+  /** The last confirmation failure, rendered inline (React's `confirmError`). */
+  protected get confirmError(): Error | null {
+    return this.reset.confirmError
   }
 
   /**
@@ -174,25 +165,29 @@ export class ResetPasswordComponent implements OnInit, OnDestroy {
    *
    * @param event - The native submit event (prevented: the page must not reload).
    */
-  async onSubmit(event: Event): Promise<void> {
+  protected async onSubmit(event: Event): Promise<void> {
     event.preventDefault()
     try {
-      await this.resetManager.confirmReset({ token: this.token, password: this.password })
-      await this.loginManager.login({ email: this.email, password: this.password })
-      await this.router.navigate(['/'], { replaceUrl: true })
+      await this.reset.confirmReset({ token: this.token, password: this.password })
+      await this.login.login({ email: this.email, password: this.password })
+      this.navigate('/', { replace: true })
     } catch (_error) {
-      // Error tracked in the confirmation state and rendered inline above.
+      // Error tracked in hook state
     }
   }
 
-  /** Returns to the login page. */
-  navigateToLogin(): void {
-    void this.router.navigate(['/login'])
+  /**
+   * Reads the typed value from the input event the UI FloatingInput re-emits.
+   *
+   * @param event - The native input event.
+   * @returns The typed value.
+   */
+  protected inputValue(event: Event): string {
+    return (event.target as HTMLInputElement).value
   }
 
-  ngOnDestroy(): void {
-    for (const subscription of this.subscriptions) subscription.unsubscribe()
-    this.resetManager.destroy()
-    this.loginManager.destroy()
+  /** Returns to the login page. */
+  protected navigateToLogin(): void {
+    this.navigate('/login')
   }
 }

@@ -1,37 +1,27 @@
 import { useLocation, useNavigate } from '@solidjs/router'
-import { createEffect, createSignal, For, Show } from 'solid-js'
+import { createEffect, createSignal } from 'solid-js'
 
-import { createAuth, createLogin, useTranslate } from '@molecule/app-solid'
+import { useAuth, useLogin, useTranslation } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex, Form } from '@molecule/app-ui-solid'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
-import { Footer } from '../components/Footer.js'
-import { formSubmitErrorMessages } from '../components/formSubmitError.js'
 import { OAuthButtons } from '../components/OAuthButtons.js'
+import { Footer } from '../components/Footer.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 export function Login() {
   const cm = getClassMap()
-  const t = useTranslate()
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
   const from = (location.state as { from?: { pathname: string } } | null)?.from?.pathname || '/'
-  const { state: loginState, login } = createLogin()
-  const { isAuthenticated } = createAuth()
+  const { status, login } = useLogin()
+  const { isAuthenticated } = useAuth()
   const [email, setEmail] = createSignal('')
   const [password, setPassword] = createSignal('')
   const [twoFactorToken, setTwoFactorToken] = createSignal('')
-  // The failure the last submit threw (the React reference's `Form` renders
-  // its own rejection list; this scaffold's `Form` passes the handler result
-  // through, so the list is rendered here).
-  const [submitError, setSubmitError] = createSignal<unknown>(null)
-  const submitMessages = () =>
-    formSubmitErrorMessages(
-      submitError(),
-      t('ui.form.submitError', undefined, { defaultValue: 'Unable to submit. Please try again.' }),
-    )
 
   // Route into the app whenever a session exists — covers the OAuth callback
   // completing on this page (its exchange sets auth state without a submit)
@@ -41,25 +31,20 @@ export function Login() {
   })
 
   const handleSubmit = async () => {
-    setSubmitError(null)
     // The 2FA field is always rendered; only send a token when the user
     // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
     // stays on this page until a valid code is entered).
-    try {
-      const token = twoFactorToken().trim()
-      const result = await login({
-        email: email(),
-        password: password(),
-        ...(token ? { twoFactorToken: token } : {}),
-      })
-      if (result.twoFactorRequired) return
-      navigate(from, { replace: true })
-    } catch (error) {
-      setSubmitError(error)
-    }
+    const token = twoFactorToken().trim()
+    const result = await login({
+      email: email(),
+      password: password(),
+      ...(token ? { twoFactorToken: token } : {}),
+    })
+    if (result.twoFactorRequired) return
+    navigate(from, { replace: true })
   }
 
-  const isLoggingIn = () => loginState().status === 'pending'
+  const isLoggingIn = (): boolean => status() === 'pending'
 
   return (
     <div class={cm.cn(cm.page, cm.flex({ direction: 'col' }))}>
@@ -85,12 +70,9 @@ export function Login() {
             (axe page-has-heading-one); the visual design has no heading. */}
         <h1 class={cm.srOnly}>{t('auth.login.logIn')}</h1>
         <div class={cm.authFormWrapper}>
-          <Form onFormSubmit={handleSubmit} submitting={isLoggingIn()}>
-            <Show when={submitError()}>
-              <ul role="alert" class={cm.formError}>
-                <For each={submitMessages()}>{(message) => <li>{message}</li>}</For>
-              </ul>
-            </Show>
+          {/* A rejected submit (bad credentials, a server failure) renders the
+              failure list inside the shared `Form`; a new submit clears it. */}
+          <Form onFormSubmit={handleSubmit}>
             <div class={cm.authField}>
               <FloatingInput
                 type="email"

@@ -1,24 +1,17 @@
-import { ChangeDetectorRef, Component, inject, type OnDestroy, type OnInit } from '@angular/core'
-import { Router } from '@angular/router'
-import type { Subscription } from 'rxjs'
+import { Component } from '@angular/core'
 
-import { AUTH_CLIENT, createPasswordResetState, t } from '@molecule/app-angular'
+import { useNavigate, usePasswordReset, useTranslation } from '@molecule/app-angular'
 import { getClassMap } from '@molecule/app-ui'
-import { Button } from '@molecule/app-ui-angular'
+import { Button, Flex } from '@molecule/app-ui-angular'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
-import { FloatingInputComponent } from '../components/floating-input.component.js'
+import { FloatingInput } from '../components/floating-input.component.js'
 import { FooterComponent } from '../components/footer.component.js'
-import { IconComponent } from '../components/icon.component.js'
-import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
+import { Icon } from '../components/icon.component.js'
+import { ThemeToggle } from '../components/theme-toggle.component.js'
 
 /**
  * Forgot-password page: requests a reset link for an email address.
- *
- * Port of the React `ForgotPassword` page — the fixed auth header with the app
- * name and theme toggle, a screen-reader-only `h1` (the visual design has no
- * heading), the request form with its back/submit row, the inline
- * `role="alert"` error, and the confirmation branch with the continue button.
  */
 @Component({
   selector: 'app-forgot-password',
@@ -26,13 +19,13 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [Button, FloatingInputComponent, IconComponent, FooterComponent, ThemeToggleComponent],
+  imports: [Button, Flex, FloatingInput, FooterComponent, Icon, ThemeToggle],
   template: `
     <div [class]="cm.cn(cm.page, cm.flex({ direction: 'col' }))">
       <header [class]="cm.cn(cm.headerBar, cm.headerFixed)">
         <div [class]="cm.authHeaderInner">
-          <div [class]="cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.h('full'))">
-            <div [class]="cm.flex({ align: 'center', gap: 'xs' })">
+          <div mol-flex [align]="'center'" [justify]="'between'" [className]="cm.h('full')">
+            <div mol-flex [align]="'center'" [gap]="'xs'">
               <img
                 src="/logo.svg"
                 [width]="LOGO_SIZE"
@@ -42,7 +35,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
               />
               <span [class]="cm.logoText">{{ APP_NAME }}</span>
             </div>
-            <app-theme-toggle />
+            <button mol-theme-toggle></button>
           </div>
         </div>
       </header>
@@ -54,14 +47,15 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
           @if (!submitted) {
             <form (submit)="onSubmit($event)">
               <div [class]="cm.authField">
-                <app-floating-input
+                <span
+                  mol-floating-input
                   type="email"
                   [value]="email"
-                  (valueChange)="email = $event"
+                  (change)="email = inputValue($event)"
                   autocomplete="email"
-                  [required]="true"
+                  required
                   [placeholder]="t('auth.forgotPassword.email')"
-                />
+                ></span>
               </div>
               <div [class]="cm.authButtonRow">
                 <button
@@ -73,7 +67,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
                   (click)="navigateToLogin()"
                   [attr.aria-label]="t('common.goBack')"
                 >
-                  <svg appIcon name="arrow-left" [size]="25"></svg>
+                  <svg mol-icon-root name="arrow-left" [size]="25"></svg>
                 </button>
                 <button
                   mol-button
@@ -81,9 +75,9 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
                   size="lg"
                   color="success"
                   [className]="cm.authSubmitButton"
-                  [disabled]="isSubmitting"
+                  [disabled]="isSubmitting()"
                 >
-                  {{ isSubmitting ? t('auth.forgotPassword.submitting') : t('common.submit') }}
+                  {{ isSubmitting() ? t('auth.forgotPassword.submitting') : t('common.submit') }}
                 </button>
               </div>
             </form>
@@ -102,7 +96,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
                 (click)="navigateToLogin()"
                 [attr.aria-label]="t('common.goBack')"
               >
-                <svg appIcon name="arrow-left" [size]="25"></svg>
+                <svg mol-icon-root name="arrow-left" [size]="25"></svg>
               </button>
               <button
                 mol-button
@@ -112,7 +106,12 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
                 (click)="navigateToResetPassword()"
               >
                 {{ t('common.continue') }}
-                <svg appIcon name="arrow-right" [size]="20" [className]="cm.authArrowIcon"></svg>
+                <svg
+                  mol-icon-root
+                  name="arrow-right"
+                  [size]="20"
+                  [className]="cm.authArrowIcon"
+                ></svg>
               </button>
             </div>
           }
@@ -122,44 +121,37 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
     </div>
   `,
 })
-export class ForgotPasswordComponent implements OnInit, OnDestroy {
-  private readonly client = inject(AUTH_CLIENT)
-  private readonly router = inject(Router)
-  private readonly cdr = inject(ChangeDetectorRef)
-  private readonly resetManager = createPasswordResetState(this.client)
-  private subscriptions: Subscription[] = []
+export class ForgotPasswordComponent {
+  private readonly reset = usePasswordReset()
+  private readonly navigate = useNavigate()
+  private readonly i18n = useTranslation()
 
-  /** The current class map. */
-  get cm(): ReturnType<typeof getClassMap> {
-    return getClassMap()
-  }
+  /** The bonded ClassMap (styling tokens resolve at render time). */
+  protected readonly cm = getClassMap()
 
   /** The reactive translation function (re-evaluates on locale change). */
-  t = t
+  protected readonly t = this.i18n.t
+
   /** The app's display name. */
-  APP_NAME = APP_NAME
+  protected readonly APP_NAME = APP_NAME
   /** The logo size in pixels. */
-  LOGO_SIZE = LOGO_SIZE
+  protected readonly LOGO_SIZE = LOGO_SIZE
 
   /** The requested email address. */
-  email = ''
+  protected email = ''
   /** Whether the request was accepted (shows the confirmation branch). */
-  submitted = false
-  /** Whether a request is in flight. */
-  isSubmitting = false
+  protected submitted = false
   /** The confirmation message shown after a successful request. */
-  message = ''
-  /** The last request failure, rendered inline. */
-  requestError: Error | null = null
+  protected message = ''
 
-  ngOnInit(): void {
-    this.subscriptions.push(
-      this.resetManager.requestState$.subscribe((state) => {
-        this.isSubmitting = state.status === 'pending'
-        this.requestError = state.error ?? null
-        this.cdr.markForCheck()
-      }),
-    )
+  /** Whether a request is in flight (React's `requestStatus === 'pending'`). */
+  protected isSubmitting(): boolean {
+    return this.reset.requestStatus === 'pending'
+  }
+
+  /** The last request failure, rendered inline (React's `requestError`). */
+  protected get requestError(): Error | null {
+    return this.reset.requestError
   }
 
   /**
@@ -167,29 +159,34 @@ export class ForgotPasswordComponent implements OnInit, OnDestroy {
    *
    * @param event - The native submit event (prevented: the page must not reload).
    */
-  async onSubmit(event: Event): Promise<void> {
+  protected async onSubmit(event: Event): Promise<void> {
     event.preventDefault()
     try {
-      await this.resetManager.requestReset({ email: this.email })
-      this.message = t('auth.forgotPassword.success')
+      await this.reset.requestReset({ email: this.email })
+      this.message = this.t('auth.forgotPassword.success')
       this.submitted = true
     } catch (_error) {
-      // Error tracked in the request state and rendered inline above.
+      // Error tracked in hook state
     }
   }
 
+  /**
+   * Reads the typed value from the input event the UI FloatingInput re-emits.
+   *
+   * @param event - The native input event.
+   * @returns The typed value.
+   */
+  protected inputValue(event: Event): string {
+    return (event.target as HTMLInputElement).value
+  }
+
   /** Returns to the login page. */
-  navigateToLogin(): void {
-    void this.router.navigate(['/login'])
+  protected navigateToLogin(): void {
+    this.navigate('/login')
   }
 
   /** Continues to the reset-password page. */
-  navigateToResetPassword(): void {
-    void this.router.navigate(['/reset-password'])
-  }
-
-  ngOnDestroy(): void {
-    for (const subscription of this.subscriptions) subscription.unsubscribe()
-    this.resetManager.destroy()
+  protected navigateToResetPassword(): void {
+    this.navigate('/reset-password')
   }
 }

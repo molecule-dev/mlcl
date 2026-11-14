@@ -1,36 +1,32 @@
 <script lang="ts">
-  import { goto } from '$app/navigation'
-  import { resolve } from '$app/paths'
   import { APP_NAME, LOGO_SIZE } from '$lib/branding.js'
 
-  import { createI18nStores, createPasswordResetStores } from '@molecule/app-svelte'
+  import { useNavigate, usePasswordReset, useTranslation } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-  import { Button, Flex } from '@molecule/app-ui-svelte'
+  import { Button, Flex, FloatingInput, Icon, ThemeToggle } from '@molecule/app-ui-svelte'
 
-  import FloatingInput from '../../components/FloatingInput.svelte'
   import Footer from '../../components/Footer.svelte'
-  import Icon from '../../components/Icon.svelte'
-  import ThemeToggle from '../../components/ThemeToggle.svelte'
   import { LOGO_SRC } from '../../lib/logo.js'
 
   const cm = getClassMap()
-  const { t } = createI18nStores()
-  const { request } = createPasswordResetStores()
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const { requestStatus, requestError, requestReset } = usePasswordReset()
 
   let email = $state('')
   let submitted = $state(false)
   let message = $state('')
 
-  let isSubmitting = $derived($request.status === 'pending')
+  const isSubmitting = $derived($requestStatus === 'pending')
 
   async function handleSubmit(event: SubmitEvent): Promise<void> {
     event.preventDefault()
     try {
-      await request.call({ email })
-      message = $t('auth.forgotPassword.success')
+      await requestReset({ email })
+      message = t('auth.forgotPassword.success')
       submitted = true
     } catch (_error) {
-      // Error tracked in store state
+      // Error tracked in hook state
     }
   }
 </script>
@@ -50,17 +46,18 @@
   <main class={cm.authPageBody}>
     <!-- Screen-reader-only page heading — every page needs exactly one h1
         (axe page-has-heading-one); the visual design has no heading. -->
-    <h1 class={cm.srOnly}>{$t('auth.login.forgotPassword')}</h1>
+    <h1 class={cm.srOnly}>{t('auth.login.forgotPassword')}</h1>
     <div class={cm.authFormWrapper}>
       {#if !submitted}
         <form onsubmit={handleSubmit}>
           <div class={cm.authField}>
             <FloatingInput
               type="email"
-              bind:value={email}
+              value={email}
+              onChange={(e) => (email = (e.target as HTMLInputElement).value)}
               autocomplete="email"
               required
-              placeholder={$t('auth.forgotPassword.email')}
+              placeholder={t('auth.forgotPassword.email')}
             />
           </div>
           <div class={cm.authButtonRow}>
@@ -69,8 +66,8 @@
               size="lg"
               color="secondary"
               className={cm.authBackButton}
-              onClick={() => goto(resolve('/login'))}
-              aria-label={$t('common.goBack')}
+              onClick={() => navigate('/login')}
+              aria-label={t('common.goBack')}
             >
               <Icon name="arrow-left" size={25} />
             </Button>
@@ -81,13 +78,13 @@
               className={cm.authSubmitButton}
               disabled={isSubmitting}
             >
-              {isSubmitting ? $t('auth.forgotPassword.submitting') : $t('common.submit')}
+              {isSubmitting ? t('auth.forgotPassword.submitting') : t('common.submit')}
             </Button>
           </div>
         </form>
-        {#if $request.error}
+        {#if $requestError}
           <div class={cm.authFormError} role="alert">
-            {$request.error.message}
+            {$requestError.message}
           </div>
         {/if}
       {:else}
@@ -98,8 +95,8 @@
             size="lg"
             color="secondary"
             className={cm.authBackButton}
-            onClick={() => goto(resolve('/login'))}
-            aria-label={$t('common.goBack')}
+            onClick={() => navigate('/login')}
+            aria-label={t('common.goBack')}
           >
             <Icon name="arrow-left" size={25} />
           </Button>
@@ -107,9 +104,9 @@
             size="lg"
             color="success"
             className={cm.authSubmitButton}
-            onClick={() => goto(resolve('/reset-password'))}
+            onClick={() => navigate('/reset-password')}
           >
-            {$t('common.continue')}
+            {t('common.continue')}
             <Icon name="arrow-right" size={20} class={cm.authArrowIcon} />
           </Button>
         </div>

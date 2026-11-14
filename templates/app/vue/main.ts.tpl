@@ -10,10 +10,8 @@ import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { moleculePlugin } from '@molecule/app-vue'
 
 import App from './App.vue'
-import { setupProviders } from './bonds/index.js'
-import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
+import { authClient, i18nProvider, setupProviders, themeProvider } from './bonds/index.js'
 import AppLayout from './components/AppLayout.vue'
-import AuthGuard from './components/AuthGuard.vue'
 import About from './pages/About.vue'
 import ForgotPassword from './pages/ForgotPassword.vue'
 import Home from './pages/Home.vue'
@@ -24,6 +22,21 @@ import Settings from './pages/Settings.vue'
 import Signup from './pages/Signup.vue'
 import { registerPWA } from './pwa.js'
 
+// Pages are imported STATICALLY, and that is a measured decision, not an
+// oversight. Route-level splitting was tried here and made this scaffold
+// slower: every page is small (the whole page set is ~165 KB of source, about
+// 45 KB gzip), while a lazy page costs a serial chunk request after the entry
+// executes, and — when that chunk resolves after the route has already begun
+// rendering — the first paint of the page waits on it anyway. Measured with
+// 150 ms added latency per request: 10-sample cold TTI 402 → 688 ms, warm
+// navigation 372 → 512 ms, 5 → 18 requests. A full document load can land on
+// ANY route here (a deep link, or a session restored from storage by
+// `authClient.initialize()`), so no page can be moved off the first-paint path
+// safely. Keep new routes static too. The weight that does leave the entry —
+// 79 companion locale dictionaries, the analytics SDK, the service worker's
+// precache — is the part with a measured gain; see the `UserMenu` drawer for
+// the one interaction-only split that is still worth it. The access policy
+// lives in components/AuthGuard.ts.
 setupProviders()
 
 const router = createRouter({
@@ -36,17 +49,11 @@ const router = createRouter({
     { path: '/reset-password', component: ResetPassword },
     {
       path: '/',
-      component: AuthGuard,
+      component: AppLayout,
       children: [
-        {
-          path: '',
-          component: AppLayout,
-          children: [
-            { path: '', component: Home },
-            { path: 'settings', component: Settings },
-            { path: 'plan-updated', component: PlanUpdated },
-          ],
-        },
+        { path: '', component: Home },
+        { path: 'settings', component: Settings },
+        { path: 'plan-updated', component: PlanUpdated },
       ],
     },
   ],

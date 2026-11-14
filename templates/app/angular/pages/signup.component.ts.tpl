@@ -1,27 +1,19 @@
-import { ChangeDetectorRef, Component, inject, type OnDestroy, type OnInit } from '@angular/core'
-import { Router } from '@angular/router'
-import type { Subscription } from 'rxjs'
+import { Component, effect } from '@angular/core'
 
-import { AUTH_CLIENT, createSignupState, MoleculeAuthService, t } from '@molecule/app-angular'
+import { useAuth, useNavigate, useSignup, useTranslation } from '@molecule/app-angular'
 import { getClassMap } from '@molecule/app-ui'
-import { Button } from '@molecule/app-ui-angular'
+import { Button, Flex, Form } from '@molecule/app-ui-angular'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
-import { FloatingInputComponent } from '../components/floating-input.component.js'
+import { FloatingInput } from '../components/floating-input.component.js'
 import { FooterComponent } from '../components/footer.component.js'
-import { formSubmitErrorMessages } from '../components/form-submit-error.js'
-import { IconComponent } from '../components/icon.component.js'
+import { Icon } from '../components/icon.component.js'
 import { OAuthButtonsComponent } from '../components/oauth-buttons.component.js'
-import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
+import { ThemeToggle } from '../components/theme-toggle.component.js'
 
 /**
  * Signup page: email + password + optional name over the bonded auth client,
  * with the OAuth provider row beneath the form.
- *
- * Port of the React `Signup` page. The submission envelope is the React
- * `<Form>` component's: a rejected handler renders an accessible server-error
- * list, a new submit clears the previous failure, and the controls sit in a
- * fieldset disabled while the handler runs.
  */
 @Component({
   selector: 'app-signup',
@@ -31,18 +23,20 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
   standalone: true,
   imports: [
     Button,
-    FloatingInputComponent,
-    IconComponent,
-    OAuthButtonsComponent,
+    Flex,
+    FloatingInput,
     FooterComponent,
-    ThemeToggleComponent,
+    Form,
+    Icon,
+    OAuthButtonsComponent,
+    ThemeToggle,
   ],
   template: `
     <div [class]="cm.cn(cm.page, cm.flex({ direction: 'col' }))">
       <header [class]="cm.cn(cm.headerBar, cm.headerFixed)">
         <div [class]="cm.authHeaderInner">
-          <div [class]="cm.cn(cm.flex({ align: 'center', justify: 'between' }), cm.h('full'))">
-            <div [class]="cm.flex({ align: 'center', gap: 'xs' })">
+          <div mol-flex [align]="'center'" [justify]="'between'" [className]="cm.h('full')">
+            <div mol-flex [align]="'center'" [gap]="'xs'">
               <img
                 src="/logo.svg"
                 [width]="LOGO_SIZE"
@@ -52,7 +46,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
               />
               <span [class]="cm.logoText">{{ APP_NAME }}</span>
             </div>
-            <app-theme-toggle />
+            <button mol-theme-toggle></button>
           </div>
         </div>
       </header>
@@ -61,68 +55,62 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
             (axe page-has-heading-one); the visual design has no heading. -->
         <h1 [class]="cm.srOnly">{{ t('auth.signup.signUp') }}</h1>
         <div [class]="cm.authFormWrapper">
-          <form (submit)="onSubmit($event)">
-            @if (errorMessages.length > 0) {
-              <ul role="alert" [class]="cm.formError">
-                @for (message of errorMessages; track $index) {
-                  <li>{{ message }}</li>
-                }
-              </ul>
-            }
-            <fieldset [attr.disabled]="pending ? '' : null" [class]="cm.formFieldsetContents">
-              <div [class]="cm.authField">
-                <app-floating-input
-                  type="email"
-                  [value]="email"
-                  (valueChange)="email = $event"
-                  autocomplete="email"
-                  [required]="true"
-                  [placeholder]="t('auth.signup.email')"
-                />
-              </div>
-              <div [class]="cm.authField">
-                <app-floating-input
-                  type="password"
-                  [value]="password"
-                  (valueChange)="password = $event"
-                  autocomplete="new-password"
-                  [required]="true"
-                  [placeholder]="t('auth.signup.password')"
-                />
-              </div>
-              <div [class]="cm.authField">
-                <app-floating-input
-                  type="text"
-                  [value]="name"
-                  (valueChange)="name = $event"
-                  autocomplete="name"
-                  [placeholder]="t('auth.signup.name')"
-                />
-              </div>
-              <div [class]="cm.authButtonRow">
-                <button
-                  mol-button
-                  type="button"
-                  size="lg"
-                  color="secondary"
-                  [className]="cm.authBackButton"
-                  (click)="navigateToLogin()"
-                  [attr.aria-label]="t('common.goBack')"
-                >
-                  <svg appIcon name="arrow-left" [size]="25"></svg>
-                </button>
-                <button
-                  mol-button
-                  type="submit"
-                  size="lg"
-                  color="success"
-                  [className]="cm.authSubmitButton"
-                  [disabled]="isSigningUp"
-                >
-                  {{ isSigningUp ? t('auth.signup.signingUp') : t('auth.signup.signUp') }}
-                </button>
-              </div>
-            </fieldset>
+          <form mol-form [onFormSubmit]="handleSubmit">
+            <div [class]="cm.authField">
+              <span
+                mol-floating-input
+                type="email"
+                [value]="email"
+                (change)="email = inputValue($event)"
+                autocomplete="email"
+                required
+                [placeholder]="t('auth.signup.email')"
+              ></span>
+            </div>
+            <div [class]="cm.authField">
+              <span
+                mol-floating-input
+                type="password"
+                [value]="password"
+                (change)="password = inputValue($event)"
+                autocomplete="new-password"
+                required
+                [placeholder]="t('auth.signup.password')"
+              ></span>
+            </div>
+            <div [class]="cm.authField">
+              <span
+                mol-floating-input
+                type="text"
+                [value]="name"
+                (change)="name = inputValue($event)"
+                autocomplete="name"
+                [placeholder]="t('auth.signup.name')"
+              ></span>
+            </div>
+            <div [class]="cm.authButtonRow">
+              <button
+                mol-button
+                type="button"
+                size="lg"
+                color="secondary"
+                [className]="cm.authBackButton"
+                (click)="navigateToLogin()"
+                [attr.aria-label]="t('common.goBack')"
+              >
+                <svg mol-icon-root name="arrow-left" [size]="25"></svg>
+              </button>
+              <button
+                mol-button
+                type="submit"
+                size="lg"
+                color="success"
+                [className]="cm.authSubmitButton"
+                [disabled]="isSigningUp()"
+              >
+                {{ isSigningUp() ? t('auth.signup.signingUp') : t('auth.signup.signUp') }}
+              </button>
+            </div>
           </form>
           <app-oauth-buttons />
         </div>
@@ -131,105 +119,71 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
     </div>
   `,
 })
-export class SignupComponent implements OnInit, OnDestroy {
-  private readonly client = inject(AUTH_CLIENT)
-  private readonly router = inject(Router)
-  private readonly authService = inject(MoleculeAuthService)
-  private readonly cdr = inject(ChangeDetectorRef)
-  private readonly signupManager = createSignupState(this.client)
-  private readonly subscriptions: Subscription[] = []
+export class SignupComponent {
+  private readonly auth = useAuth()
+  private readonly signup = useSignup()
+  private readonly navigate = useNavigate()
+  private readonly i18n = useTranslation()
 
-  /** The number of the in-flight submit (a late result is ignored). */
-  private attempt = 0
-
-  /** The current class map. */
-  get cm(): ReturnType<typeof getClassMap> {
-    return getClassMap()
-  }
+  /** The bonded ClassMap (styling tokens resolve at render time). */
+  protected readonly cm = getClassMap()
 
   /** The reactive translation function (re-evaluates on locale change). */
-  t = t
+  protected readonly t = this.i18n.t
+
   /** The app's display name. */
-  APP_NAME = APP_NAME
+  protected readonly APP_NAME = APP_NAME
   /** The logo size in pixels. */
-  LOGO_SIZE = LOGO_SIZE
+  protected readonly LOGO_SIZE = LOGO_SIZE
 
   /** The entered email address. */
-  email = ''
+  protected email = ''
   /** The entered password. */
-  password = ''
+  protected password = ''
   /** The optional display name. */
-  name = ''
-  /** Whether a signup request is in flight. */
-  isSigningUp = false
-  /** The rejected submission, rendered as the form's error list. */
-  failure: unknown = null
-  /** Whether the submit handler is running (disables the fieldset). */
-  pending = false
+  protected name = ''
 
-  ngOnInit(): void {
+  constructor() {
     // Route into the app whenever a session exists — covers the OAuth callback
     // completing on this page (its exchange sets auth state without a submit)
     // and an already-authenticated user landing on /signup directly.
-    this.subscriptions.push(
-      this.authService.isAuthenticated$.subscribe((isAuthenticated) => {
-        if (isAuthenticated) void this.router.navigate(['/'], { replaceUrl: true })
-      }),
-      this.signupManager.state$.subscribe((state) => {
-        this.isSigningUp = state.status === 'pending'
-        this.cdr.markForCheck()
-      }),
-    )
+    effect(() => {
+      if (this.auth.isAuthenticated()) this.navigate('/', { replace: true })
+    })
   }
 
-  /** The form's error messages (the React `<Form>` list). */
-  get errorMessages(): string[] {
-    return this.failure
-      ? formSubmitErrorMessages(
-          this.failure,
-          t('ui.form.submitError', undefined, {
-            defaultValue: 'Unable to submit. Please try again.',
-          }),
-        )
-      : []
+  /** Whether a signup request is in flight (React's `status === 'pending'`). */
+  protected isSigningUp(): boolean {
+    return this.signup.status === 'pending'
   }
 
   /**
-   * Submits the form; a rejection becomes the visible error list.
-   *
-   * @param event - The native submit event (prevented: the page must not reload).
+   * Registers the account and enters the app. The submit envelope is the
+   * shared `<Form>`'s: a rejected handler renders its accessible server-error
+   * list, a new submit clears the previous failure, and the controls sit in a
+   * fieldset disabled while the handler runs.
    */
-  async onSubmit(event: Event): Promise<void> {
-    event.preventDefault()
-    const current = ++this.attempt
-    this.failure = null
-    this.pending = true
-    try {
-      await this.handleSubmit()
-    } catch (submitError) {
-      if (this.attempt === current) this.failure = submitError
-    } finally {
-      if (this.attempt === current) this.pending = false
-    }
-  }
-
-  /** Registers the account and enters the app. */
-  async handleSubmit(): Promise<void> {
-    await this.signupManager.signup({
+  protected readonly handleSubmit = async (): Promise<void> => {
+    await this.signup.signup({
       email: this.email,
       password: this.password,
       name: this.name || undefined,
     })
-    await this.router.navigate(['/'], { replaceUrl: true })
+    this.navigate('/', { replace: true })
+  }
+
+  /**
+   * Reads the typed value from the input event the UI FloatingInput re-emits.
+   *
+   * @param event - The native input event.
+   * @returns The typed value.
+   */
+  protected inputValue(event: Event): string {
+    return (event.target as HTMLInputElement).value
   }
 
   /** Returns to the login page. */
-  navigateToLogin(): void {
-    void this.router.navigate(['/login'])
-  }
-
-  ngOnDestroy(): void {
-    for (const subscription of this.subscriptions) subscription.unsubscribe()
-    this.signupManager.destroy()
+  protected navigateToLogin(): void {
+    this.navigate('/login')
   }
 }

@@ -1,4 +1,4 @@
-import { setupProviders, authClient } from '$lib/bonds/index.js'
+import { authClient, setupProviders } from '$lib/bonds/index.js'
 import { registerPWA } from '$lib/pwa.js'
 
 setupProviders()

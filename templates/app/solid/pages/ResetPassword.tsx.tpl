@@ -1,8 +1,10 @@
 import { useNavigate, useSearchParams } from '@solidjs/router'
 import { createSignal, Show } from 'solid-js'
-import { createLogin, createPasswordReset, useTranslate } from '@molecule/app-solid'
+
+import { useLogin, usePasswordReset, useTranslation } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex } from '@molecule/app-ui-solid'
+
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
@@ -11,19 +13,21 @@ import { ThemeToggle } from '../components/ThemeToggle.js'
 
 export function ResetPassword() {
   const cm = getClassMap()
-  const t = useTranslate()
+  const { t } = useTranslation()
   const navigate = useNavigate()
   const [searchParams] = useSearchParams()
-  const { confirmState, confirmReset } = createPasswordReset()
-  const { login } = createLogin()
+  const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
+  const { login } = useLogin()
 
+  // `searchParams.get()` answers the first value; the router's record can hold
+  // the repeated query's array, so take its head the same way.
   const param = (v: string | string[] | undefined) => (Array.isArray(v) ? v[0] : v) || ''
   const [token, setToken] = createSignal(param(searchParams.token))
   const [email, setEmail] = createSignal(param(searchParams.email))
   const [password, setPassword] = createSignal('')
   const [twoFactorToken, setTwoFactorToken] = createSignal('')
 
-  const isLoggingIn = () => confirmState().status === 'pending'
+  const isLoggingIn = (): boolean => confirmStatus() === 'pending'
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault()
@@ -32,7 +36,7 @@ export function ResetPassword() {
       await login({ email: email(), password: password() })
       navigate('/', { replace: true })
     } catch (_error) {
-      // Error tracked in hook state (confirmState().error)
+      // Error tracked in hook state
     }
   }
 
@@ -121,9 +125,9 @@ export function ResetPassword() {
               </Button>
             </div>
           </form>
-          <Show when={confirmState().error}>
+          <Show when={confirmError()}>
             <div class={cm.authFormError} role="alert">
-              {(confirmState().error as Error)?.message}
+              {confirmError()?.message}
             </div>
           </Show>
         </div>

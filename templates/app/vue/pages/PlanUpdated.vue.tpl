@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex, Spinner } from '@molecule/app-ui-vue'
-import { useAuth, useTranslation } from '@molecule/app-vue'
+import { Link, useAuth, useTranslation } from '@molecule/app-vue'
 
 const { t } = useTranslation()
 const cm = getClassMap()
@@ -19,8 +19,8 @@ const { state } = useAuth()
     <h2 :class="cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mb', 8))">
       {{ t('planUpdated.thankYou') }}
     </h2>
-    <RouterLink to="/">
+    <Link to="/">
       <Button>{{ t('planUpdated.returnHome') }}</Button>
-    </RouterLink>
+    </Link>
   </div>
 </template>

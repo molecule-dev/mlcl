@@ -1,17 +1,16 @@
 import { Component } from '@angular/core'
 import { RouterOutlet } from '@angular/router'
-import { getClassMap } from '@molecule/app-ui'
-import { HeaderComponent } from './header.component.js'
+
+import { AppShellLayout } from '@molecule/app-shell-layout-angular'
+
 import { FooterComponent } from './footer.component.js'
+import { HeaderComponent } from './header.component.js'
 
 /**
- * Top-level page scaffold: header → main (constrained by the container) → footer.
- *
- * Port of `@molecule/app-shell-layout-react`'s `AppShellLayout` with
- * `maxWidth="xl"` and the app's header/footer slots: the page frame uses
- * `cm.page` + `cm.appLayout`, the routed content sits inside the same
- * `cm.container({ size: 'xl' })` + `cm.mxAuto` wrapper React's `Container`
- * renders, and `<main>` carries no padding of its own.
+ * This component is used as a nested route element: render `<router-outlet />`
+ * where the page belongs. The Angular Router does not pass nested route
+ * components as children; replacing the outlet with a children projection
+ * leaves every page empty while the header and footer still render.
  */
 @Component({
   selector: 'app-layout',
@@ -19,22 +18,13 @@ import { FooterComponent } from './footer.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [RouterOutlet, HeaderComponent, FooterComponent],
+  imports: [AppShellLayout, RouterOutlet, HeaderComponent, FooterComponent],
   template: `
-    <div [class]="cm.cn(cm.page, cm.appLayout)">
-      <app-header />
-      <main>
-        <div [class]="cm.cn(cm.container({ size: 'xl' }), cm.mxAuto)">
-          <router-outlet />
-        </div>
-      </main>
-      <app-footer />
+    <div mol-shell-layout>
+      <app-header slot="header"></app-header>
+      <router-outlet />
+      <app-footer slot="footer"></app-footer>
     </div>
   `,
 })
-export class AppLayoutComponent {
-  /** The current class map. */
-  get cm(): ReturnType<typeof getClassMap> {
-    return getClassMap()
-  }
-}
+export class AppLayoutComponent {}

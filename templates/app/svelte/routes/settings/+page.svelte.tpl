@@ -1,18 +1,22 @@
 <script lang="ts">
   // Your settings: one native profile form over the app's bonded auth client.
   //
-  // `createProfileFormStores` owns the whole load → edit → submit → publish
-  // lifecycle, so this page never seeds its controls from a background
-  // arrival in a way that erases a typed bio or avatar: the store fills
-  // pristine fields when the signed-in user arrives, keeps dirty controls,
-  // sends only the fields that changed, and the auth client publishes the
-  // saved user to every `createAuthStores()` consumer.
+  // `useProfileForm` owns the whole load → edit → submit → publish lifecycle,
+  // so this page never seeds its controls from a `$effect([$user])`: that
+  // effect is what erases a typed bio or avatar when a background refresh
+  // lands, and the submit that follows sends blanks. The hook fills pristine
+  // fields when the signed-in user arrives, keeps dirty controls, sends only
+  // the fields that changed, and publishes the saved user to every
+  // `useAuth()`.
   //
   // The API's user resource answers a save with the CHANGED fields only
   // (`{ props: { bio } }`), which the scaffold's JWT auth client merges onto
   // the current signed-in profile before storing, publishing and returning
-  // it. A custom provider must return its saved profile; the store does not
-  // merge raw deltas.
+  // it. The hook receives that merged profile too, so no page-level merge is
+  // needed. App-specific post-save work belongs in the hook's `onSaved`
+  // option (a SvelteKit page component itself takes no props, so a host that
+  // needs one passes it where the hook is called — here). A custom provider
+  // must return its saved profile; the hook does not merge raw deltas.
   //
   // Adapt it to this app's profile:
   // - widen `AppUser` and `Fields` with the app's own columns, and map them
@@ -25,19 +29,16 @@
   //   THERE, not here.
   //
   // A password change is not part of this page: the user resource serves it
-  // from its own route, so the settings drawer's Authentication section owns
-  // it. Every string goes through `t()` with an inline English fallback;
-  // every element a test drives carries `data-mol-id`. Control ids come from
-  // the component instance id: the header drawer's account section is mounted
-  // over this page and has its own name field.
-  import { authClient } from '$lib/bonds/index.js'
+  // from its own route, so put it in a security section with
+  // `useChangePassword`. Every string goes through `t()` with an inline
+  // English fallback; every element a test drives carries `data-mol-id`.
+  // Control ids come from `$props.id()`: the header drawer's account section
+  // is mounted over this page and has its own name field.
+  import { derived } from 'svelte/store'
 
   import type { UserProfile } from '@molecule/app-auth'
-  import { I18nError } from '@molecule/app-i18n'
-  import { createAuthStores, createI18nStores } from '@molecule/app-svelte'
+  import { useI18nError, useProfileForm, useTranslation } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-
-  import { createProfileFormStores } from '../../lib/profile-form.js'
 
   /** The app's profile shape: the shared base fields plus the columns this app serves. */
   interface AppUser extends UserProfile {
@@ -47,7 +48,7 @@
 
   /**
    * The controlled values this form edits; every one of them is a field an
-   * input renders.
+   * input renders. A type alias or an interface can name these controlled values.
    */
   interface Fields {
     name: string
@@ -59,13 +60,12 @@
   const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
 
   const cm = getClassMap()
-  const { t } = createI18nStores()
-
+  const { t } = useTranslation()
   // Control ids come from the component instance id: the header drawer's
   // account section is mounted over this page and has its own name field.
-  const instanceId = $props.id()
+  const id = $props.id()
 
-  const profile = createProfileFormStores<AppUser, Fields>(authClient, {
+  const profile = useProfileForm<AppUser, Fields>({
     defaultValues: EMPTY,
     toValues: (user) => ({
       name: user.name ?? '',
@@ -76,101 +76,87 @@
     toPatch: (changes) => changes,
   })
 
-  // The stores destructure off the helper; read them with `$` in the template.
-  const { formState: profileState, ready: profileReady, error: profileError } = profile
-  const { user } = createAuthStores<AppUser>()
-
-  // Fills pristine fields when the signed-in user arrives; keeps dirty
-  // controls across a same-account background refresh.
-  $effect(() => {
-    profile.hydrate($user)
-  })
-
   // The event bindings are created ONCE, during initialisation. The rendered
   // VALUES come from the reactive form-state store below: a registration's
   // `value` is a snapshot of the form controller, which is not a Svelte store,
-  // so a `$derived` over it would never see a hydrate or a reset.
+  // so a `$derived` over it would never see a hydrate or a reset. The hook's
+  // value fields are stores themselves — destructured once, read with `$`.
   const nameField = profile.register('name')
   const usernameField = profile.register('username')
   const bioField = profile.register('bio')
   const avatarField = profile.register('avatar')
-  let values = $derived($profileState.values)
+  const { formState: profileState, ready: profileReady, error: profileError } = profile
+  const values = $derived($profileState.values)
 
   // `profileError` is `unknown`; the auth client rejects a save with an
   // `I18nError` (the server's reason key), which this translates in the
-  // current locale so the message follows language switches. A plain Error
-  // renders its own message; anything else renders nothing.
-  let reason = $derived(
-    $profileError instanceof I18nError
-      ? $t($profileError.i18nKey, $profileError.i18nValues, { defaultValue: $profileError.message })
-      : $profileError instanceof Error
-        ? $profileError.message
-        : '',
+  // current locale. The hook's argument is reactive, so it follows the error
+  // store the way React's re-render re-runs `useI18nError` with the new one.
+  const reason = useI18nError(
+    derived(profileError, (failure) => (failure instanceof Error ? failure : null)),
   )
-
-  const asText = (value: unknown): string => (typeof value === 'string' ? value : '')
 </script>
 
 <section class={cm.cn(cm.sp('py', 8), cm.sp('px', 4))}>
   <h1 class={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
-    {$t('settings.title', undefined, { defaultValue: 'Your settings' })}
+    {t('settings.title', undefined, { defaultValue: 'Your settings' })}
   </h1>
-  <form onsubmit={profile.formProps.onsubmit} class={cm.stack(4)} data-mol-id="settings-form">
+  <form onsubmit={profile.formProps.onSubmit} class={cm.stack(4)} data-mol-id="settings-form">
     <div>
-      <label class={cm.formLabelSmall} for={`${instanceId}-name`}>
-        {$t('settings.name', undefined, { defaultValue: 'Name' })}
+      <label class={cm.formLabelSmall} for={`${id}-name`}>
+        {t('settings.name', undefined, { defaultValue: 'Name' })}
       </label>
       <input
-        id={`${instanceId}-name`}
+        id={`${id}-name`}
         name="name"
         class={cm.input()}
         autocomplete="name"
         data-mol-id="settings-name"
-        value={asText(values.name)}
+        value={values.name}
         oninput={nameField.onChange}
         onblur={nameField.onBlur}
       />
     </div>
     <div>
-      <label class={cm.formLabelSmall} for={`${instanceId}-username`}>
-        {$t('settings.username', undefined, { defaultValue: 'Username' })}
+      <label class={cm.formLabelSmall} for={`${id}-username`}>
+        {t('settings.username', undefined, { defaultValue: 'Username' })}
       </label>
       <input
-        id={`${instanceId}-username`}
+        id={`${id}-username`}
         name="username"
         class={cm.input()}
         autocomplete="username"
         data-mol-id="settings-username"
-        value={asText(values.username)}
+        value={values.username}
         oninput={usernameField.onChange}
         onblur={usernameField.onBlur}
       />
     </div>
     <div>
-      <label class={cm.formLabelSmall} for={`${instanceId}-bio`}>
-        {$t('settings.bio', undefined, { defaultValue: 'Bio' })}
+      <label class={cm.formLabelSmall} for={`${id}-bio`}>
+        {t('settings.bio', undefined, { defaultValue: 'Bio' })}
       </label>
       <textarea
-        id={`${instanceId}-bio`}
+        id={`${id}-bio`}
         name="bio"
         class={cm.textarea()}
         rows="4"
         data-mol-id="settings-bio"
-        value={asText(values.bio)}
+        value={values.bio}
         oninput={bioField.onChange}
         onblur={bioField.onBlur}></textarea>
     </div>
     <div>
-      <label class={cm.formLabelSmall} for={`${instanceId}-avatar`}>
-        {$t('settings.avatar', undefined, { defaultValue: 'Avatar URL' })}
+      <label class={cm.formLabelSmall} for={`${id}-avatar`}>
+        {t('settings.avatar', undefined, { defaultValue: 'Avatar URL' })}
       </label>
       <input
-        id={`${instanceId}-avatar`}
+        id={`${id}-avatar`}
         name="avatar"
         class={cm.input()}
         autocomplete="url"
         data-mol-id="settings-avatar"
-        value={asText(values.avatar)}
+        value={values.avatar}
         oninput={avatarField.onChange}
         onblur={avatarField.onBlur}
       />
@@ -183,8 +169,8 @@
         data-mol-id="settings-save"
       >
         {$profileState.isSubmitting
-          ? $t('common.saving', undefined, { defaultValue: 'Saving...' })
-          : $t('settings.save', undefined, { defaultValue: 'Save changes' })}
+          ? t('common.saving', undefined, { defaultValue: 'Saving...' })
+          : t('settings.save', undefined, { defaultValue: 'Save changes' })}
       </button>
       <button
         type="button"
@@ -192,13 +178,13 @@
         onclick={profile.reset}
         data-mol-id="settings-cancel"
       >
-        {$t('settings.cancel', undefined, { defaultValue: 'Cancel' })}
+        {t('settings.cancel', undefined, { defaultValue: 'Cancel' })}
       </button>
     </div>
     {#if $profileError}
       <p role="alert" class={cm.formError} data-mol-id="settings-error">
-        {$t('settings.saveFailed', undefined, { defaultValue: 'Could not save your changes.' })}
-        {reason ? ` ${reason}` : ''}
+        {t('settings.saveFailed', undefined, { defaultValue: 'Could not save your changes.' })}
+        {$reason ? ` ${$reason}` : ''}
       </p>
     {/if}
   </form>

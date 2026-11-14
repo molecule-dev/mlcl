@@ -1,8 +1,10 @@
 import { useNavigate } from '@solidjs/router'
 import { createSignal, Show } from 'solid-js'
-import { createPasswordReset, useTranslate } from '@molecule/app-solid'
+
+import { usePasswordReset, useTranslation } from '@molecule/app-solid'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex } from '@molecule/app-ui-solid'
+
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
@@ -11,14 +13,14 @@ import { ThemeToggle } from '../components/ThemeToggle.js'
 
 export function ForgotPassword() {
   const cm = getClassMap()
-  const t = useTranslate()
+  const { t } = useTranslation()
   const navigate = useNavigate()
-  const { requestState, requestReset } = createPasswordReset()
+  const { requestStatus, requestError, requestReset } = usePasswordReset()
   const [email, setEmail] = createSignal('')
   const [submitted, setSubmitted] = createSignal(false)
   const [message, setMessage] = createSignal('')
 
-  const isSubmitting = () => requestState().status === 'pending'
+  const isSubmitting = (): boolean => requestStatus() === 'pending'
 
   const handleSubmit = async (e: Event) => {
     e.preventDefault()
@@ -27,7 +29,7 @@ export function ForgotPassword() {
       setMessage(t('auth.forgotPassword.success'))
       setSubmitted(true)
     } catch (_error) {
-      // Error tracked in hook state (requestState().error)
+      // Error tracked in hook state
     }
   }
 
@@ -55,11 +57,19 @@ export function ForgotPassword() {
             (axe page-has-heading-one); the visual design has no heading. */}
         <h1 class={cm.srOnly}>{t('auth.login.forgotPassword')}</h1>
         <div class={cm.authFormWrapper}>
-          <Show
-            when={!submitted()}
-            fallback={
-              <>
-                <p class={cm.authField}>{message()}</p>
+          {!submitted() ? (
+            <>
+              <form onSubmit={handleSubmit}>
+                <div class={cm.authField}>
+                  <FloatingInput
+                    type="email"
+                    value={email()}
+                    onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
+                    autocomplete="email"
+                    required
+                    placeholder={t('auth.forgotPassword.email')}
+                  />
+                </div>
                 <div class={cm.authButtonRow}>
                   <Button
                     type="button"
@@ -72,29 +82,25 @@ export function ForgotPassword() {
                     <Icon name="arrow-left" size={25} />
                   </Button>
                   <Button
+                    type="submit"
                     size="lg"
                     color="success"
                     className={cm.authSubmitButton}
-                    onClick={() => navigate('/reset-password')}
+                    disabled={isSubmitting()}
                   >
-                    {t('common.continue')}
-                    <Icon name="arrow-right" size={20} class={cm.authArrowIcon} />
+                    {isSubmitting() ? t('auth.forgotPassword.submitting') : t('common.submit')}
                   </Button>
                 </div>
-              </>
-            }
-          >
-            <form onSubmit={handleSubmit}>
-              <div class={cm.authField}>
-                <FloatingInput
-                  type="email"
-                  value={email()}
-                  onChange={(e: Event) => setEmail((e.target as HTMLInputElement).value)}
-                  autocomplete="email"
-                  required
-                  placeholder={t('auth.forgotPassword.email')}
-                />
-              </div>
+              </form>
+              <Show when={requestError()}>
+                <div class={cm.authFormError} role="alert">
+                  {requestError()?.message}
+                </div>
+              </Show>
+            </>
+          ) : (
+            <>
+              <p class={cm.authField}>{message()}</p>
               <div class={cm.authButtonRow}>
                 <Button
                   type="button"
@@ -107,22 +113,17 @@ export function ForgotPassword() {
                   <Icon name="arrow-left" size={25} />
                 </Button>
                 <Button
-                  type="submit"
                   size="lg"
                   color="success"
                   className={cm.authSubmitButton}
-                  disabled={isSubmitting()}
+                  onClick={() => navigate('/reset-password')}
                 >
-                  {isSubmitting() ? t('auth.forgotPassword.submitting') : t('common.submit')}
+                  {t('common.continue')}
+                  <Icon name="arrow-right" size={20} className={cm.authArrowIcon} />
                 </Button>
               </div>
-            </form>
-            <Show when={requestState().error}>
-              <div class={cm.authFormError} role="alert">
-                {(requestState().error as Error)?.message}
-              </div>
-            </Show>
-          </Show>
+            </>
+          )}
         </div>
       </main>
       <Footer />

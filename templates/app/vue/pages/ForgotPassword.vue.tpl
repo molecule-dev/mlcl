@@ -1,20 +1,19 @@
 <script setup lang="ts">
 import { computed, ref } from 'vue'
-import { useRouter } from 'vue-router'
 
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex } from '@molecule/app-ui-vue'
-import { usePasswordReset, useTranslation } from '@molecule/app-vue'
+import { usePasswordReset, useRouter, useTranslation } from '@molecule/app-vue'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
-import FloatingInput from '../components/FloatingInput.vue'
+import { FloatingInput } from '../components/FloatingInput.js'
 import Footer from '../components/Footer.vue'
-import Icon from '../components/Icon.vue'
-import ThemeToggle from '../components/ThemeToggle.vue'
+import { Icon } from '../components/Icon.js'
+import { ThemeToggle } from '../components/ThemeToggle.js'
 
-const { t } = useTranslation()
 const cm = getClassMap()
-const router = useRouter()
+const { t } = useTranslation()
+const { navigate } = useRouter()
 const { requestStatus, requestError, requestReset } = usePasswordReset()
 const email = ref('')
 const submitted = ref(false)
@@ -61,11 +60,12 @@ async function handleSubmit(): Promise<void> {
           <form @submit.prevent="handleSubmit">
             <div :class="cm.authField">
               <FloatingInput
-                v-model="email"
+                :value="email"
                 type="email"
-                auto-complete="email"
+                autocomplete="email"
                 required
                 :placeholder="t('auth.forgotPassword.email')"
+                @change="email = ($event.target as HTMLInputElement).value"
               />
             </div>
             <div :class="cm.authButtonRow">
@@ -75,7 +75,7 @@ async function handleSubmit(): Promise<void> {
                 color="secondary"
                 :class="cm.authBackButton"
                 :aria-label="t('common.goBack')"
-                @click="router.push('/login')"
+                @click="navigate('/login')"
               >
                 <Icon name="arrow-left" :size="25" />
               </Button>
@@ -103,7 +103,7 @@ async function handleSubmit(): Promise<void> {
               color="secondary"
               :class="cm.authBackButton"
               :aria-label="t('common.goBack')"
-              @click="router.push('/login')"
+              @click="navigate('/login')"
             >
               <Icon name="arrow-left" :size="25" />
             </Button>
@@ -111,7 +111,7 @@ async function handleSubmit(): Promise<void> {
               size="lg"
               color="success"
               :class="cm.authSubmitButton"
-              @click="router.push('/reset-password')"
+              @click="navigate('/reset-password')"
             >
               {{ t('common.continue') }}
               <Icon name="arrow-right" :size="20" :class="cm.authArrowIcon" />

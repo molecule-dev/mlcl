@@ -5513,8 +5513,8 @@ function vitePluginsLine(plugins: string[]): string {
 /**
  * The dev server's `warmup.clientFiles` list of a generated `vite.config.ts`: the
  * entry module the scaffold writes into `index.html` plus the bond files. Vite
- * pre-transforms a warmed module's static imports itself, so the entry also warms
- * the app component behind it. Vite requests every LITERAL path it is given
+ * also pre-transforms every module a warmed file names in an `import` statement,
+ * so the entry warms the app component behind it. Vite requests every LITERAL path it is given
  * whether or not the file exists (only a glob is matched against disk), and a
  * missing one logs `Pre-transform error: Failed to load url` on every dev start —
  * so a framework that owns its own entry (SvelteKit, whose page is `src/app.html`)

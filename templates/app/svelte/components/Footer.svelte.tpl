@@ -2,7 +2,7 @@
   import { APP_NAME } from '$lib/branding.js'
   import { loadContent } from '$lib/config.js'
 
-  import AppFooter from './AppFooter.svelte'
+  import { AppFooter } from '@molecule/app-footer-svelte'
 </script>
 
 <!--

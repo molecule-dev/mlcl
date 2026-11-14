@@ -1,8 +1,9 @@
 import { Component } from '@angular/core'
-import { t } from '@molecule/app-angular'
+
+import { useTranslation } from '@molecule/app-angular'
 import { getClassMap } from '@molecule/app-ui'
 
-import { APP_NAME, APP_DESCRIPTION, WEBSITE_URL } from '../branding.js'
+import { APP_DESCRIPTION, APP_NAME, WEBSITE_URL } from '../branding.js'
 
 /**
  * About page — reachable at `/about`, where the Footer's "About" link points.
@@ -19,13 +20,13 @@ import { APP_NAME, APP_DESCRIPTION, WEBSITE_URL } from '../branding.js'
   standalone: true,
   imports: [],
   template: `
-    <div [class]="wrapperClasses">
-      <h1 [class]="headingClasses">{{ title }}</h1>
-      <p [class]="descriptionClasses">{{ description }}</p>
+    <div [class]="cm.cn(cm.textCenter, cm.sp('py', 12))">
+      <h1 [class]="cm.cn(cm.textSize('3xl'), cm.fontWeight('bold'))">{{ title }}</h1>
+      <p [class]="cm.cn(cm.sp('pt', 4), cm.textMuted)">{{ description }}</p>
       @if (WEBSITE_URL) {
-        <p [class]="linkWrapperClasses">
+        <p [class]="cm.sp('pt', 6)">
           <a [class]="cm.link" [href]="WEBSITE_URL" target="_blank" rel="noopener noreferrer">
-            {{ visitWebsite }}
+            {{ t('about.visitWebsite', undefined, { defaultValue: 'Visit our website →' }) }}
           </a>
         </p>
       }
@@ -33,29 +34,28 @@ import { APP_NAME, APP_DESCRIPTION, WEBSITE_URL } from '../branding.js'
   `,
 })
 export class AboutComponent {
-  get cm(): ReturnType<typeof getClassMap> {
-    return getClassMap()
+  private readonly i18n = useTranslation()
+
+  /** The bonded ClassMap (styling tokens resolve at render time). */
+  protected readonly cm = getClassMap()
+
+  /** The reactive translation function (re-evaluates on locale change). */
+  protected readonly t = this.i18n.t
+
+  /** The app's public site, when set (the outbound link's target). */
+  protected readonly WEBSITE_URL = WEBSITE_URL
+
+  /**
+   * The page heading, with the app name interpolated. A getter because the
+   * default value carries `{{appName}}`, which would close the template's own
+   * interpolation delimiters if it appeared in them.
+   */
+  protected get title(): string {
+    return this.i18n.t('about.title', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })
   }
-  WEBSITE_URL = WEBSITE_URL
-  get wrapperClasses(): string {
-    return this.cm.cn(this.cm.textCenter, this.cm.sp('py', 12))
-  }
-  get headingClasses(): string {
-    return this.cm.cn(this.cm.textSize('3xl'), this.cm.fontWeight('bold'))
-  }
-  get descriptionClasses(): string {
-    return this.cm.cn(this.cm.sp('pt', 4), this.cm.textMuted)
-  }
-  get linkWrapperClasses(): string {
-    return this.cm.sp('pt', 6)
-  }
-  get title(): string {
-    return t('about.title', { appName: APP_NAME }, { defaultValue: 'About {{appName}}' })
-  }
-  get description(): string {
-    return t('about.description', undefined, { defaultValue: APP_DESCRIPTION })
-  }
-  get visitWebsite(): string {
-    return t('about.visitWebsite', undefined, { defaultValue: 'Visit our website →' })
+
+  /** The app description (the branding default, translated when a locale has it). */
+  protected get description(): string {
+    return this.i18n.t('about.description', undefined, { defaultValue: APP_DESCRIPTION })
   }
 }

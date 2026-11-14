@@ -1,19 +1,18 @@
-import type { ParentProps } from 'solid-js'
-import { Container } from '@molecule/app-ui-solid'
-import { getClassMap } from '@molecule/app-ui'
-import { Header } from './Header.js'
+import type { RouteSectionProps } from '@solidjs/router'
+
+import { AppShellLayout } from '@molecule/app-shell-layout-solid'
+
 import { Footer } from './Footer.js'
+import { Header } from './Header.js'
 
-export function AppLayout(props: ParentProps) {
-  const cm = getClassMap()
-
+/**
+ * This component is used as a nested Route element: render the routed content where the
+ * page belongs — Solid Router hands a layout route its nested pages as `props.children`.
+ */
+export function AppLayout(props: RouteSectionProps) {
   return (
-    <div class={cm.cn(cm.page, cm.appLayout)}>
-      <Header />
-      <main>
-        <Container maxWidth="xl">{props.children}</Container>
-      </main>
-      <Footer />
-    </div>
+    <AppShellLayout header={<Header />} footer={<Footer />}>
+      {props.children}
+    </AppShellLayout>
   )
 }

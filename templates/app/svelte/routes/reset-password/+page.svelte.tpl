@@ -1,43 +1,45 @@
 <script lang="ts">
-  import { goto } from '$app/navigation'
-  import { resolve } from '$app/paths'
-  import { page } from '$app/stores'
   import { APP_NAME, LOGO_SIZE } from '$lib/branding.js'
 
   import {
-    createI18nStores,
-    createLoginStore,
-    createPasswordResetStores,
+    useLocation,
+    useLogin,
+    useNavigate,
+    usePasswordReset,
+    useTranslation,
   } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-  import { Button, Flex } from '@molecule/app-ui-svelte'
+  import { Button, Flex, FloatingInput, Icon, ThemeToggle } from '@molecule/app-ui-svelte'
 
-  import FloatingInput from '../../components/FloatingInput.svelte'
   import Footer from '../../components/Footer.svelte'
-  import Icon from '../../components/Icon.svelte'
-  import ThemeToggle from '../../components/ThemeToggle.svelte'
   import { LOGO_SRC } from '../../lib/logo.js'
 
   const cm = getClassMap()
-  const { t } = createI18nStores()
-  const { confirm } = createPasswordResetStores()
-  const loginStore = createLoginStore()
+  const { t } = useTranslation()
+  const navigate = useNavigate()
+  const location = useLocation()
+  const { confirmStatus, confirmError, confirmReset } = usePasswordReset()
+  const { login } = useLogin()
 
-  let token = $state($page.url.searchParams.get('token') || '')
-  let email = $state($page.url.searchParams.get('email') || '')
+  // The reset link carries its token and the address it was sent to in the
+  // query; seed the fields from them once, the way React's useState
+  // initializers do.
+  const search = new URLSearchParams($location.search)
+  let token = $state(search.get('token') || '')
+  let email = $state(search.get('email') || '')
   let password = $state('')
   let twoFactorToken = $state('')
 
-  let isLoggingIn = $derived($confirm.status === 'pending')
+  const isLoggingIn = $derived($confirmStatus === 'pending')
 
   async function handleSubmit(event: SubmitEvent): Promise<void> {
     event.preventDefault()
     try {
-      await confirm.call({ token, password })
-      await loginStore.call({ email, password })
-      goto(resolve('/'), { replaceState: true })
+      await confirmReset({ token, password })
+      await login({ email, password })
+      navigate('/', { replace: true })
     } catch (_error) {
-      // Error tracked in store state
+      // Error tracked in hook state
     }
   }
 </script>
@@ -57,41 +59,45 @@
   <main class={cm.authPageBody}>
     <!-- Screen-reader-only page heading — every page needs exactly one h1
         (axe page-has-heading-one); the visual design has no heading. -->
-    <h1 class={cm.srOnly}>{$t('auth.resetPassword.submit')}</h1>
+    <h1 class={cm.srOnly}>{t('auth.resetPassword.submit')}</h1>
     <div class={cm.authFormWrapper}>
       <form onsubmit={handleSubmit}>
         <div class={cm.authField}>
           <FloatingInput
             type="email"
-            bind:value={email}
+            value={email}
+            onChange={(e) => (email = (e.target as HTMLInputElement).value)}
             autocomplete="email"
             required
-            placeholder={$t('auth.resetPassword.email')}
+            placeholder={t('auth.resetPassword.email')}
           />
         </div>
         <div class={cm.authField}>
           <FloatingInput
             type="password"
-            bind:value={token}
+            value={token}
+            onChange={(e) => (token = (e.target as HTMLInputElement).value)}
             required
-            placeholder={$t('auth.resetPassword.token')}
+            placeholder={t('auth.resetPassword.token')}
           />
         </div>
         <div class={cm.authField}>
           <FloatingInput
             type="password"
-            bind:value={password}
+            value={password}
+            onChange={(e) => (password = (e.target as HTMLInputElement).value)}
             autocomplete="new-password"
             required
-            placeholder={$t('auth.resetPassword.newPassword')}
+            placeholder={t('auth.resetPassword.newPassword')}
           />
         </div>
         <div class={cm.authField}>
           <FloatingInput
             type="number"
-            bind:value={twoFactorToken}
+            value={twoFactorToken}
+            onChange={(e) => (twoFactorToken = (e.target as HTMLInputElement).value)}
             autocomplete="one-time-code"
-            placeholder={$t('auth.resetPassword.twoFactor')}
+            placeholder={t('auth.resetPassword.twoFactor')}
           />
         </div>
         <div class={cm.authButtonRow}>
@@ -100,8 +106,8 @@
             size="lg"
             color="secondary"
             className={cm.authBackButton}
-            onClick={() => goto(resolve('/login'))}
-            aria-label={$t('common.goBack')}
+            onClick={() => navigate('/login')}
+            aria-label={t('common.goBack')}
           >
             <Icon name="arrow-left" size={25} />
           </Button>
@@ -112,13 +118,13 @@
             className={cm.authSubmitButton}
             disabled={isLoggingIn}
           >
-            {isLoggingIn ? $t('auth.resetPassword.loggingIn') : $t('auth.resetPassword.submit')}
+            {isLoggingIn ? t('auth.resetPassword.loggingIn') : t('auth.resetPassword.submit')}
           </Button>
         </div>
       </form>
-      {#if $confirm.error}
+      {#if $confirmError}
         <div class={cm.authFormError} role="alert">
-          {$confirm.error.message}
+          {$confirmError.message}
         </div>
       {/if}
     </div>

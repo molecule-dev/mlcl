@@ -1,23 +1,24 @@
 <script setup lang="ts">
 import { computed, ref, watch } from 'vue'
-import { useRoute, useRouter } from 'vue-router'
 
 import { getClassMap } from '@molecule/app-ui'
-import { Flex } from '@molecule/app-ui-vue'
-import { useAuth, useLogin, useTranslation } from '@molecule/app-vue'
+import { Button, Flex, Form } from '@molecule/app-ui-vue'
+import { useAuth, useLocation, useLogin, useRouter, useTranslation } from '@molecule/app-vue'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
-import FloatingInput from '../components/FloatingInput.vue'
+import { FloatingInput } from '../components/FloatingInput.js'
 import Footer from '../components/Footer.vue'
-import { formSubmitErrorMessages } from '../components/formSubmitError.js'
 import OAuthButtons from '../components/OAuthButtons.vue'
-import ThemeToggle from '../components/ThemeToggle.vue'
+import { ThemeToggle } from '../components/ThemeToggle.js'
 
-const { t } = useTranslation()
 const cm = getClassMap()
-const router = useRouter()
-const route = useRoute()
-const from = (route.query.from as string) || '/'
+const { t } = useTranslation()
+const { navigate } = useRouter()
+const location = useLocation()
+const from = computed(() => {
+  const state = location.value.state as { from?: { pathname: string } } | null | undefined
+  return state?.from?.pathname || '/'
+})
 const { status, login } = useLogin()
 const { isAuthenticated } = useAuth()
 const email = ref('')
@@ -30,56 +31,25 @@ const isLoggingIn = computed(() => status.value === 'pending')
 // completing on this page (its exchange sets auth state without a submit)
 // and an already-authenticated user landing on /login directly.
 watch(
-  isAuthenticated,
-  (authenticated) => {
-    if (authenticated) router.replace(from)
+  [isAuthenticated, from],
+  ([authenticated, target]) => {
+    if (authenticated) navigate(target, { replace: true })
   },
   { immediate: true },
 )
 
+// The 2FA field is always rendered; only send a token when the user
+// typed one (a 2FA-enabled account gets `twoFactorRequired` back and
+// stays on this page until a valid code is entered).
 async function handleSubmit(): Promise<void> {
-  // The 2FA field is always rendered; only send a token when the user
-  // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
-  // stays on this page until a valid code is entered).
   const result = await login({
     email: email.value,
     password: password.value,
     ...(twoFactorToken.value.trim() ? { twoFactorToken: twoFactorToken.value.trim() } : {}),
   })
   if (result.twoFactorRequired) return
-  router.replace(from)
+  navigate(from.value, { replace: true })
 }
-
-// Submission envelope ported from `@molecule/app-ui-react`'s `<Form>`: a
-// rejected handler renders an accessible server-error list; a new submit
-// clears the previous failure; the fieldset is disabled while the handler runs.
-const failure = ref<unknown>(null)
-const pending = ref(false)
-let attempt = 0
-
-async function onSubmit(): Promise<void> {
-  const current = ++attempt
-  failure.value = null
-  pending.value = true
-  try {
-    await handleSubmit()
-  } catch (submitError) {
-    if (attempt === current) failure.value = submitError
-  } finally {
-    if (attempt === current) pending.value = false
-  }
-}
-
-const errorMessages = computed(() =>
-  failure.value
-    ? formSubmitErrorMessages(
-        failure.value,
-        t('ui.form.submitError', undefined, {
-          defaultValue: 'Unable to submit. Please try again.',
-        }),
-      )
-    : [],
-)
 </script>
 
 <template>
@@ -106,64 +76,65 @@ const errorMessages = computed(() =>
           (axe page-has-heading-one); the visual design has no heading. -->
       <h1 :class="cm.srOnly">{{ t('auth.login.logIn') }}</h1>
       <div :class="cm.authFormWrapper">
-        <form @submit.prevent="onSubmit">
-          <ul v-if="errorMessages.length > 0" role="alert" :class="cm.formError">
-            <li v-for="(message, index) in errorMessages" :key="index">{{ message }}</li>
-          </ul>
-          <fieldset :disabled="pending" :class="cm.formFieldsetContents">
-            <div :class="cm.authField">
-              <FloatingInput
-                v-model="email"
-                type="email"
-                auto-complete="email"
-                required
-                :placeholder="t('auth.login.email')"
-              />
-            </div>
-            <div :class="cm.authField">
-              <FloatingInput
-                v-model="password"
-                type="password"
-                auto-complete="current-password"
-                required
-                :placeholder="t('auth.login.password')"
-              />
-            </div>
-            <div :class="cm.authField">
-              <FloatingInput
-                v-model="twoFactorToken"
-                type="number"
-                auto-complete="one-time-code"
-                :placeholder="t('auth.login.twoFactor')"
-              />
-            </div>
-            <div :class="cm.authButtonRow">
-              <Button
-                type="button"
-                size="lg"
-                :class="isLoggingIn ? cm.authHidden : cm.authLoginSignup"
-                :disabled="isLoggingIn"
-                @click="router.push('/signup')"
-              >
-                {{ t('auth.login.signUp') }}
-              </Button>
-              <Button
-                type="submit"
-                size="lg"
-                color="success"
-                :class="isLoggingIn ? cm.authLoginSubmitFull : cm.authLoginSubmit"
-                :disabled="isLoggingIn"
-              >
-                {{ isLoggingIn ? t('auth.login.loggingIn') : t('auth.login.logIn') }}
-              </Button>
-            </div>
-          </fieldset>
-        </form>
+        <!-- A rejected submit renders an accessible server-error list and a new
+            submit clears the previous failure; the fieldset is disabled while
+            the handler runs (all of that is the shared Form's job). -->
+        <Form @form-submit="handleSubmit">
+          <div :class="cm.authField">
+            <FloatingInput
+              :value="email"
+              type="email"
+              autocomplete="email"
+              required
+              :placeholder="t('auth.login.email')"
+              @change="email = ($event.target as HTMLInputElement).value"
+            />
+          </div>
+          <div :class="cm.authField">
+            <FloatingInput
+              :value="password"
+              type="password"
+              autocomplete="current-password"
+              required
+              :placeholder="t('auth.login.password')"
+              @change="password = ($event.target as HTMLInputElement).value"
+            />
+          </div>
+          <div :class="cm.authField">
+            <FloatingInput
+              :value="twoFactorToken"
+              type="number"
+              autocomplete="one-time-code"
+              :placeholder="t('auth.login.twoFactor')"
+              @change="twoFactorToken = ($event.target as HTMLInputElement).value"
+            />
+          </div>
+          <div :class="cm.authButtonRow">
+            <Button
+              type="button"
+              size="lg"
+              :class="isLoggingIn ? cm.authHidden : cm.authLoginSignup"
+              :disabled="isLoggingIn"
+              @click="navigate('/signup')"
+            >
+              {{ t('auth.login.signUp') }}
+            </Button>
+            <Button
+              type="submit"
+              size="lg"
+              color="success"
+              :class="isLoggingIn ? cm.authLoginSubmitFull : cm.authLoginSubmit"
+              :disabled="isLoggingIn"
+            >
+              {{ isLoggingIn ? t('auth.login.loggingIn') : t('auth.login.logIn') }}
+            </Button>
+          </div>
+        </Form>
         <div :class="cm.authAfterSubmit">
           <button
             type="button"
             :class="cm.forgotPasswordLink"
-            @click="router.push('/forgot-password')"
+            @click="navigate('/forgot-password')"
           >
             {{ t('auth.login.forgotPassword') }}
           </button>

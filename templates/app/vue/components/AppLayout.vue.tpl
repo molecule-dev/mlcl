@@ -1,21 +1,22 @@
 <script setup lang="ts">
-import { getClassMap } from '@molecule/app-ui'
-import { Container } from '@molecule/app-ui-vue'
+import { AppShellLayout } from '@molecule/app-shell-layout-vue'
 
 import Footer from './Footer.vue'
 import Header from './Header.vue'
-
-const cm = getClassMap()
 </script>
 
 <template>
-  <div :class="cm.cn(cm.page, cm.appLayout)">
-    <Header />
-    <main>
-      <Container max-width="xl">
-        <RouterView />
-      </Container>
-    </main>
-    <Footer />
-  </div>
+  <!-- This component is the layout of a nested route subtree: render <RouterView />
+      where the page belongs. A nested route's component is not given the child routes
+      as content; replacing RouterView with a static slot leaves every page empty while
+      the header and footer still render. -->
+  <AppShellLayout>
+    <template #header>
+      <Header />
+    </template>
+    <template #footer>
+      <Footer />
+    </template>
+    <RouterView />
+  </AppShellLayout>
 </template>

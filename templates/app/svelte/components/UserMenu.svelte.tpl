@@ -1,92 +1,17 @@
 <script lang="ts">
-  import { page } from '$app/stores'
-  import type { Snippet } from 'svelte'
+  import { UserMenu as MoleculeUserMenu } from '@molecule/app-ui-svelte'
 
-  import type { IconName } from '@molecule/app-icons'
-  import { createI18nStores } from '@molecule/app-svelte'
-  import { getClassMap } from '@molecule/app-ui'
-  import { Button, Modal } from '@molecule/app-ui-svelte'
-
-  import { setPanelCloseContext } from '../lib/panel-close.js'
-  import Icon from './Icon.svelte'
-
-  let {
-    children,
-    ariaLabelKey = 'userMenu.open',
-    ariaLabelDefault = 'Open user menu',
-    triggerIcon = 'user' as IconName,
-    triggerIconSize = 20,
-    dataMolId = 'user-menu',
-    class: className = undefined,
-    disabled = false,
-    onclick = undefined,
-    side = 'right',
-  }: {
-    /** Panel content shown inside the drawer (typically the app's SettingsPanel). */
-    children: Snippet
-    /** i18n key for the trigger button's aria-label. */
-    ariaLabelKey?: string
-    /** Fallback aria-label if the i18n key is missing. */
-    ariaLabelDefault?: string
-    /** Icon name for the trigger button. */
-    triggerIcon?: IconName
-    /** Pixel size for the trigger icon. */
-    triggerIconSize?: number
-    /** data-mol-id for the trigger button. */
-    dataMolId?: string
-    class?: string
-    disabled?: boolean
-    /** Override the trigger's click handler (e.g. to open an auth modal first). */
-    onclick?: () => void
-    /** Which side of the viewport the panel opens from. */
-    side?: 'left' | 'right'
-  } = $props()
-
-  const cm = getClassMap()
-  const { t } = createI18nStores()
-
-  let open = $state(false)
-
-  // Panel content dismisses the drawer through this context instead of an
-  // onClose prop threaded through every section.
-  setPanelCloseContext(() => {
-    open = false
-  })
-
-  // Close the drawer whenever the route changes. SvelteKit updates `page` on
-  // both in-app navigation and browser back/forward, so a single statement
-  // covers both — without it the drawer stays mounted over the next page and
-  // blocks clicks underneath.
-  $effect(() => {
-    void $page.url.pathname
-    void $page.url.search
-    open = false
-  })
-
-  let drawerClass = $derived(side === 'left' ? cm.cn(cm.drawer, cm.drawerLeft) : cm.drawer)
+  import SettingsPanel from './SettingsPanel.svelte'
 </script>
 
-<Button
-  variant="ghost"
-  size="sm"
-  onClick={onclick ?? (() => (open = true))}
-  aria-label={$t(ariaLabelKey, {}, { defaultValue: ariaLabelDefault })}
-  data-mol-id={dataMolId}
-  // 40x40 trigger floor: the icon-only size="sm" button measured 42x26px
-  // fleet-wide (flagged as a tiny target in every app QA). Apps can still
-  // widen via className; the floor is the default.
-  className={cm.cn(cm.minH(10), cm.minW(10), className)}
-  {disabled}
->
-  <Icon name={triggerIcon} size={triggerIconSize} />
-</Button>
-<Modal
-  {open}
-  onClose={() => (open = false)}
-  className={drawerClass}
-  // The drawer has no `title`, so without an explicit label the dialog is
-  // announced as an unnamed "dialog" — give it a name.
-  aria-label={$t('userMenu.panelLabel', {}, { defaultValue: 'Account menu' })}
->
-  {@render children()}
-</Modal>
+<!--
+  The settings panel mounts only when the user opens the drawer (the drawer
+  Modal renders its content only while open), and it is the heaviest thing the
+  app shell can pull in — account, auth, billing, devices and notifications
+  sections plus their translation bundles. That gating is the Svelte port of
+  the React scaffold's one interaction-only split (the lazy()-loaded panel):
+  no settings code reaches a page until the drawer needs it.
+-->
+<MoleculeUserMenu>
+  <SettingsPanel />
+</MoleculeUserMenu>
