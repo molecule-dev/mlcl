@@ -153,6 +153,65 @@ describe('the shared scaffold eslint config', () => {
     expect(result.messages).toEqual([])
   })
 
+  describe("React's hook rules follow the workspace's React dependency", () => {
+    // An Angular binding's `use*` calls belong in a component field initializer (its
+    // injection context); React's rule calls that "a hook in a class component".
+    const angularPage = [
+      "import { useAuth } from '@molecule/app-angular'",
+      '',
+      'export class LoginPage {',
+      '  readonly auth = useAuth()',
+      '}',
+      '',
+    ].join('\n')
+
+    /** Lints `source` under a config that reads a workspace manifest with these dependencies. */
+    async function lintIn(
+      name: string,
+      dependencies: Record<string, string>,
+      source: string,
+    ): Promise<ESLint.LintResult> {
+      await writeFile(join(dir, 'package.json'), JSON.stringify({ dependencies }))
+      // A config file name of its own is a fresh module, so it reads the manifest just written.
+      const config = join(dir, `eslint.${name}.mjs`)
+      await copyFile(TEMPLATE, config)
+      const linter = new ESLint({
+        cwd: dir,
+        overrideConfigFile: config,
+        overrideConfig: { languageOptions: { parserOptions: { tsconfigRootDir: dir } } },
+      })
+      const [result] = await linter.lintText(source, { filePath: join(dir, 'src/login.page.ts') })
+      return result
+    }
+
+    it('reports a hook call in a class in a workspace that depends on React', async () => {
+      const result = await lintIn('react', { react: '19.2.4' }, angularPage)
+      expect(result.messages.map((m) => m.ruleId)).toContain('react-hooks/rules-of-hooks')
+    })
+
+    it('leaves an Angular binding call in a field initializer alone', async () => {
+      const result = await lintIn(
+        'angular',
+        { '@angular/core': '21.0.0', '@molecule/app-angular': '1.0.0' },
+        angularPage,
+      )
+      expect(result.messages.filter((m) => m.ruleId?.startsWith('react-hooks/'))).toEqual([])
+    })
+
+    it('still resolves a react-hooks disable comment where the rules are off', async () => {
+      const result = await lintIn(
+        'vue',
+        { vue: '3.5.0' },
+        [
+          '// eslint-disable-next-line react-hooks/exhaustive-deps',
+          'export const ready = true',
+          '',
+        ].join('\n'),
+      )
+      expect(result.messages.map((m) => m.message).join('\n')).not.toMatch(/not found/)
+    })
+  })
+
   it('still fails a namespace declaration without `declare`', async () => {
     const [result] = await eslint.lintText('namespace Foo {\n  export const x = 1\n}\n', {
       filePath: 'plain.ts',

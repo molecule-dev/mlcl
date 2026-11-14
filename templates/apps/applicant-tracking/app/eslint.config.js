@@ -19,6 +19,11 @@ let apiWorkspace = false
 let queryCache = false
 let routingBond = false
 let optimisticValue = false
+// Whether this workspace depends on React: React's hook rules apply only there. The
+// Vue, Solid, Svelte and Angular bindings export `use*` functions too, but they are
+// composables or injection-context calls (an Angular component's field initializer is
+// their documented call site), which React's function-component model does not describe.
+let reactWorkspace = false
 // The installed dev tooling, read for the framework lint plugins below.
 let devDependencies = {}
 try {
@@ -33,6 +38,7 @@ try {
   routingBond = '@molecule/app-routing-react-router' in dependencies
   optimisticValue = '@molecule/app-react' in dependencies || '@molecule/app-state' in dependencies
   apiWorkspace = Object.keys(dependencies).some((name) => name.startsWith('@molecule/api-'))
+  reactWorkspace = 'react' in dependencies
 } catch (error) {
   if (error.code !== 'ENOENT') throw error
 }
@@ -333,11 +339,13 @@ export default tseslint.config(
     },
   },
   {
-    // react-hooks applies to BOTH .ts and .tsx: custom hooks (use*.ts, lib/api.ts)
-    // legitimately live in .ts files and must be linted for hook correctness. The
-    // plugin is inert on non-hook files (api .ts has no hooks), so this is safe for
-    // the shared app+api config — and it means a react-hooks/exhaustive-deps disable
-    // in a .ts file resolves instead of erroring "rule definition not found".
+    // React's hook rules apply when the workspace depends on React, to BOTH .ts and
+    // .tsx: custom hooks (use*.ts, lib/api.ts) legitimately live in .ts files and
+    // must be linted for hook correctness. Every other workspace (an api, or a Vue,
+    // Solid, Svelte or Angular app, whose binding `use*` functions are not React
+    // hooks) turns them off. The plugin stays registered everywhere, so a
+    // react-hooks/exhaustive-deps disable comment resolves instead of erroring
+    // "rule definition not found".
     files: ['**/*.{ts,tsx}'],
     plugins: {
       'react-hooks': reactHooks,
@@ -345,8 +353,8 @@ export default tseslint.config(
     rules: {
       // Set rules explicitly rather than spreading reactHooks.configs.*,
       // whose shape varies across plugin versions.
-      'react-hooks/rules-of-hooks': 'error',
-      'react-hooks/exhaustive-deps': 'warn',
+      'react-hooks/rules-of-hooks': reactWorkspace ? 'error' : 'off',
+      'react-hooks/exhaustive-deps': reactWorkspace ? 'warn' : 'off',
     },
   },
   {
