@@ -174,6 +174,10 @@ it('a pre-mutation read arriving after the save cannot overwrite the saved query
     save: vi.fn(async () => ({ ...initial, enabled: true, count: 1 })),
   }
   const view = render(react.createElement(View, props))
+  expect(
+    view.queryByRole('button'),
+    'the linked hook must see the cache primed by this client',
+  ).not.toBeNull()
   const button = view.getByRole('button')
   let pending!: Promise<RecordValue>
   act(() => {
