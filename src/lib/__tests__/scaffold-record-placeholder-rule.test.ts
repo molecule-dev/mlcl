@@ -25,6 +25,10 @@ await copyFile(
   new URL('../../../templates/shared/no-empty-interactive-target.mjs', import.meta.url),
   join(root, 'eslint-rules/no-empty-interactive-target.mjs'),
 )
+await copyFile(
+  new URL('../../../templates/shared/no-class-code.mjs', import.meta.url),
+  join(root, 'eslint-rules/no-class-code.mjs'),
+)
 await symlink(dirname(dirname(require.resolve('eslint/package.json'))), join(root, 'node_modules'))
 afterAll(() => rm(root, { recursive: true, force: true }))
 const config = (await import(pathToFileURL(join(root, 'eslint.config.mjs')).href)).default

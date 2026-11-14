@@ -275,6 +275,10 @@ describe('empty interactive targets', () => {
     expect(await readFile(join(app, 'eslint-rules/no-empty-interactive-target.mjs'), 'utf8')).toBe(
       await readFile(new URL('no-empty-interactive-target.mjs', shared), 'utf8'),
     )
+    expect(await readFile(join(app, 'eslint-rules/no-class-code.mjs'), 'utf8')).toBe(
+      await readFile(new URL('no-class-code.mjs', shared), 'utf8'),
+    )
+
     await execFileAsync('git', ['init', '-q', app])
     await execFileAsync('git', ['add', '--', '.'], { cwd: app })
     const source =

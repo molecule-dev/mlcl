@@ -3841,7 +3841,11 @@ export async function createApiProject(
 async function scaffoldEslint(projectPath: string, configName = 'eslint.config.js'): Promise<void> {
   const rulesDir = join(projectPath, 'eslint-rules')
   await mkdir(rulesDir, { recursive: true })
-  for (const file of ['prefer-declared-clients.mjs', 'no-empty-interactive-target.mjs']) {
+  for (const file of [
+    'prefer-declared-clients.mjs',
+    'no-empty-interactive-target.mjs',
+    'no-class-code.mjs',
+  ]) {
     await writeGuarded(join(rulesDir, file), await loadTemplate(`shared/${file}`))
   }
   await writeGuarded(

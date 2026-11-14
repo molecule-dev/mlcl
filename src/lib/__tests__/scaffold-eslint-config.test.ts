@@ -63,6 +63,10 @@ beforeEach(async () => {
     join(import.meta.dirname, '../../../templates/shared/no-empty-interactive-target.mjs'),
     join(dir, 'eslint-rules/no-empty-interactive-target.mjs'),
   )
+  await copyFile(
+    join(import.meta.dirname, '../../../templates/shared/no-class-code.mjs'),
+    join(dir, 'eslint-rules/no-class-code.mjs'),
+  )
   await symlink(NODE_MODULES, join(dir, 'node_modules'), 'dir')
   eslint = new ESLint({
     cwd: dir,
