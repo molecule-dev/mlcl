@@ -6013,6 +6013,29 @@ function generateAppBondsSmokeTest(
     lines.push('')
   }
 
+  const wiredProjectSetups = setupImports.filter((setup) =>
+    setup.testSpecifier.startsWith('../bonds/'),
+  )
+  if (wiredProjectSetups.length > 0) {
+    lines.push(
+      '// The bond files as they are now. A check below runs only while its file exists, so',
+    )
+    lines.push('// replacing or removing a bond needs no edit to this test.')
+    lines.push(`const bondFiles = import.meta.glob<Record<string, unknown>>('../bonds/**/*.ts')`)
+    lines.push('')
+    lines.push(
+      '/** The setups bonds/index.ts imported from project bond files when it was generated. */',
+    )
+    const entries = wiredProjectSetups.map(
+      (setup) => `['${setup.testSpecifier.replace(/\.js$/, '')}.ts', '${setup.name}']`,
+    )
+    // Always the broken form: the declaration alone is 78 columns, so even one tuple
+    // passes the 100-column print width and prettier breaks the list.
+    lines.push('const wiredSetups: ReadonlyArray<readonly [file: string, name: string]> = [')
+    lines.push(...entries.map((entry) => `  ${entry},`), ']')
+    lines.push('')
+  }
+
   // Test cases
   lines.push(`describe('bonds/index', () => {`)
   lines.push(`  it('exports setupProviders function', async () => {`)
@@ -6034,20 +6057,36 @@ function generateAppBondsSmokeTest(
       ['setupHttpClientFetch', 'setupHttpDefault'].includes(setup.name),
     )
     const themeSetup = setupImports.find((setup) => setup.name === 'setupAppThemeCssVariables')
+    // A project's own bond file is read through `bondFiles`, never a typed import of its
+    // path: a bond the project later replaces or removes (a font swapped for the one its
+    // design asks for) would otherwise leave this test failing the type-check with TS2307.
+    const fromBondFile = (setup: { testSpecifier: string }): string | null =>
+      setup.testSpecifier.startsWith('../bonds/')
+        ? `bondFiles['${setup.testSpecifier.replace(/\.js$/, '')}.ts']`
+        : null
+    /** A bond module binding: optional for a project file, a plain import for a package. */
+    const bondModule = (name: string, setup: { testSpecifier: string }): string => {
+      const file = fromBondFile(setup)
+      return file
+        ? `    const ${name} = await ${file}?.()`
+        : `    const ${name} = await import('${setup.testSpecifier}')`
+    }
+    const checksHttp = httpSetup?.name === 'setupHttpClientFetch'
     lines.push('')
     lines.push(`  it('calls imported setup boundaries with project providers', async () => {`)
     lines.push(`    const { setupProviders } = await import('../bonds/index.js')`)
-    if (httpSetup?.name === 'setupHttpClientFetch') {
-      lines.push(`    const httpBond = await import('${httpSetup.testSpecifier}')`)
+    if (checksHttp) {
+      lines.push(bondModule('httpBond', httpSetup))
       lines.push(`    const httpCore = await import('@molecule/app-http')`)
     }
     if (themeSetup) {
-      lines.push(`    const themeBond = await import('${themeSetup.testSpecifier}')`)
+      lines.push(bondModule('themeBond', themeSetup))
       lines.push(`    const themeCore = await import('@molecule/app-theme')`)
     }
     lines.push('    vi.clearAllMocks()')
     lines.push('    await setupProviders()')
-    for (const setup of setupImports) {
+    const projectSetups = setupImports.filter((setup) => fromBondFile(setup))
+    for (const setup of setupImports.filter((setup) => !fromBondFile(setup))) {
       // One line when it fits, else prettier's broken form (the argument on its
       // own indented line) — the generated test must survive `prettier --check`.
       const assertion = `(await import('${setup.testSpecifier}')).${setup.name}`
@@ -6060,11 +6099,32 @@ function generateAppBondsSmokeTest(
         lines.push(`    ).toHaveBeenCalledOnce()`)
       }
     }
-    if (httpSetup?.name === 'setupHttpClientFetch') {
-      lines.push('    expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)')
+    if (projectSetups.length > 0) {
+      lines.push('    for (const [file, name] of wiredSetups) {')
+      lines.push('      const bond = await bondFiles[file]?.()')
+      lines.push('      if (bond) {')
+      lines.push('        expect(bond[name], `${name} in ${file}`).toHaveBeenCalledOnce()')
+      lines.push('      }')
+      lines.push('    }')
+    }
+    /** An assertion on a bond module, guarded when the module is a project file. */
+    const onBond = (binding: string, setup: { testSpecifier: string }, assertion: string): void => {
+      if (!fromBondFile(setup)) lines.push(`    ${assertion}`)
+      else lines.push(`    if (${binding}) {`, `      ${assertion}`, '    }')
+    }
+    if (checksHttp) {
+      onBond(
+        'httpBond',
+        httpSetup,
+        'expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)',
+      )
     }
     if (themeSetup) {
-      lines.push('    expect(themeCore.setProvider).toHaveBeenCalledWith(themeBond.themeProvider)')
+      onBond(
+        'themeBond',
+        themeSetup,
+        'expect(themeCore.setProvider).toHaveBeenCalledWith(themeBond.themeProvider)',
+      )
     }
     lines.push(`  })`)
   }

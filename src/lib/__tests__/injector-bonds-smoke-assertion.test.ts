@@ -122,9 +122,10 @@ describe('generated bonds smoke test: setupProviders assertion', () => {
     expect(content).toContain(
       'setupHttpClientFetch: vi.fn(actual.setupHttpClientFetch as () => unknown)',
     )
-    // One line when the assertion fits the print width, else prettier's broken
-    // form (the import expression on its own line) — match either shape.
-    expect(content).toMatch(/\.setupHttpClientFetch,?\s*\)\.toHaveBeenCalledOnce\(\)/)
+    // A project bond file is checked through the glob of the files that exist now,
+    // so the call assertion names it by file and setup in the wired list.
+    expect(content).toContain("['../bonds/http-client-fetch.ts', 'setupHttpClientFetch']")
+    expect(content).toContain('expect(bond[name], `${name} in ${file}`).toHaveBeenCalledOnce()')
     expect(content).toContain(
       'expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)',
     )
