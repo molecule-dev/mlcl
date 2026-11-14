@@ -569,7 +569,7 @@ export function renderCapabilityMap(entries: readonly CapabilityMapEntry[]): str
     for (const path of entry.resourceModules ?? [])
       lines.push(`- Resource module, already written — build pages on it: \`${path}\`.`)
     for (const path of entry.recipeModules ?? [])
-      lines.push(`- Executable controls for loaded record toggles and create forms: \`${path}\`.`)
+      lines.push(`- Executable framework recipe: \`${path}\`.`)
     for (const guidance of entry.guidance) lines.push(`- ${guidance}`)
     lines.push('- Configuration by API shape:')
     for (const configuration of entry.configuration) lines.push(`  - ${configuration}`)
@@ -653,9 +653,7 @@ export async function stampCapabilitySourceHeaders(
         (module) =>
           `Resource module, already written — build pages on it instead of fetching in an effect: ${module}`,
       ),
-      ...(entry.recipeModules ?? []).map(
-        (module) => `Executable controls for loaded record toggles and create forms: ${module}`,
-      ),
+      ...(entry.recipeModules ?? []).map((module) => `Executable framework recipe: ${module}`),
       ...entry.guidance,
       ...entry.configuration,
     ])
