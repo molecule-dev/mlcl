@@ -32086,6 +32086,7 @@
         "UseChangePasswordReturn",
         "UsePasswordResetReturn",
         "UseOAuthReturn",
+        "UseOAuthConfig",
         "useForm",
         "useWatch",
         "useFieldState",
@@ -32831,8 +32832,8 @@
       "description": "React auth OAuth button row — config-driven providers + callback exchange (OAuthButtons)",
       "stack": "app",
       "exports": [
-        "OAuthButtonsProps",
-        "OAuthButtons"
+        "OAuthButtons",
+        "OAuthButtonsProps"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -59999,6 +60000,7 @@
         "UseLoginReturn",
         "useOAuth",
         "UseOAuthReturn",
+        "UseOAuthConfig",
         "UseOptimisticValueResult",
         "useOptimisticValue",
         "usePasswordReset",
@@ -66645,6 +66647,7 @@
         "UseLoginReturn",
         "useOAuth",
         "UseOAuthOptions",
+        "UseOAuthConfig",
         "UseOAuthReturn",
         "useOptimisticValue",
         "usePasswordReset",
