@@ -55,6 +55,8 @@ export interface SearchSourceEntry {
    * `angular`, `react-native`); absent for a framework-neutral package.
    */
   framework?: string
+  /** Dependencies and peers, as sync-registry records them; {@link packageFramework} reads them. */
+  runtimeDependencies?: readonly string[]
   intentHints?: readonly string[]
   /** Optional package-authored decision guidance in the registry. */
   decisionGuide?: {
@@ -91,15 +93,129 @@ export interface SearchOptions {
    */
   stack?: 'api' | 'app'
   /**
-   * The project's UI framework. Applied BEFORE ranking, like `stack`: a package
-   * written for another framework is left out, framework-neutral packages stay.
-   * Every framework binding exports the same hook names (`useProfileForm`, …), so
-   * without it a symbol query returns each framework's package with the same
-   * score, and only the caller knows which one its project can import.
+   * The project's app framework (its `molecule.framework`). Applied BEFORE
+   * ranking, like `stack`: a package written for a framework the project cannot
+   * import is left out, framework-neutral packages stay. Every framework binding
+   * exports the same hook names (`useProfileForm`, …), so without it a symbol
+   * query returns each framework's package with the same score, and only the
+   * caller knows which one its project can import.
    */
   framework?: string
+  /**
+   * The registry's `appFrameworks`, which say which package frameworks a project
+   * framework can import ({@link frameworksAcceptedBy}). Without them only
+   * packages declaring exactly `framework` are kept.
+   */
+  appFrameworks?: Record<string, AppFrameworkInstalls>
   /** Maximum number of hits. */
   limit?: number
+}
+
+/** What a registry `appFrameworks` entry says about the projects it scaffolds. */
+export interface AppFrameworkInstalls {
+  /** The UI package set its projects render with, when it is another framework's (react-native-web → react-native). */
+  uiFramework?: string
+  dependencies?: Record<string, string>
+  devDependencies?: Record<string, string>
+}
+
+/**
+ * The package frameworks a project of one app framework can import.
+ *
+ * Its own, the UI set it renders with (`uiFramework`), and every framework whose
+ * identifying runtime the project installs in full. A framework is identified by
+ * its `dependencies`, or by its `devDependencies` when it has none (the rule
+ * `getAppFrameworkDeps` reads). A framework that renders with another
+ * framework's UI set is identified by that set, so its packages are never
+ * accepted by runtime alone. So a react-native-web project (react, react-dom,
+ * react-router) imports React packages, a react-native one (no react-dom) does
+ * not, and a React project does not import react-native-web packages.
+ *
+ * @param project - The project's framework key (`molecule.framework`).
+ * @param appFrameworks - The registry's `appFrameworks`.
+ * @returns The accepted package frameworks, the project's own first; just the
+ *   project's key when the registry does not know it.
+ */
+export function frameworksAcceptedBy(
+  project: string,
+  appFrameworks: Record<string, AppFrameworkInstalls>,
+): string[] {
+  const own = appFrameworks[project]
+  // The hosted reader passes an unvalidated registry document.
+  if (!own || typeof own !== 'object') return [project]
+  const installed = new Set([
+    ...Object.keys(own.dependencies ?? {}),
+    ...Object.keys(own.devDependencies ?? {}),
+  ])
+  const accepted = [project]
+  if (own.uiFramework && own.uiFramework !== project) accepted.push(own.uiFramework)
+  for (const [key, identifying] of runtimeFrameworks(appFrameworks)) {
+    if (accepted.includes(key)) continue
+    if ([...identifying].every((dep) => installed.has(dep))) accepted.push(key)
+  }
+  return accepted
+}
+
+/**
+ * The frameworks that are a runtime of their own, each with the dependencies that
+ * identify it: its `dependencies`, or its `devDependencies` when it has none (the
+ * rule `getAppFrameworkDeps` reads). A framework that renders with another
+ * framework's UI set (react-native-web) is not one: it is identified by that set.
+ *
+ * @param appFrameworks - The registry's `appFrameworks` (unvalidated on the hosted side).
+ * @returns Framework key → identifying dependency names, frameworks with none left out.
+ */
+function runtimeFrameworks(
+  appFrameworks: Record<string, AppFrameworkInstalls>,
+): Array<[string, Set<string>]> {
+  const runtimes: Array<[string, Set<string>]> = []
+  for (const [key, fw] of Object.entries(appFrameworks)) {
+    if (!fw || typeof fw !== 'object') continue
+    if (fw.uiFramework && fw.uiFramework !== key) continue
+    const runtime = Object.keys(fw.dependencies ?? {})
+    const identifying = runtime.length > 0 ? runtime : Object.keys(fw.devDependencies ?? {})
+    if (identifying.length > 0) runtimes.push([key, new Set(identifying)])
+  }
+  return runtimes
+}
+
+/**
+ * The framework a package is written for: its registry `framework`, else the one
+ * its `runtimeDependencies` (dependencies and peers, as sync-registry records
+ * them) name.
+ *
+ * A dependency names a framework when it identifies a runtime framework (react,
+ * react-dom, vue, solid-js, svelte, …). The package is written for the framework
+ * with the fewest identifying dependencies that still has every one the package
+ * names: `react` alone is react, `react` with `react-native` is react-native.
+ * The registry `framework` covers a package whose dependencies name none, like a
+ * bond over `@react-native-clipboard/clipboard`.
+ *
+ * @param entry - The package's registry entry.
+ * @param appFrameworks - The registry's `appFrameworks`.
+ * @returns The framework key, or undefined for a framework-neutral package (and for
+ *   dependencies two frameworks fit equally, which the registry tests refuse).
+ */
+export function packageFramework(
+  entry: { stack?: unknown; framework?: unknown; runtimeDependencies?: unknown },
+  appFrameworks: Record<string, AppFrameworkInstalls>,
+): string | undefined {
+  if (typeof entry.framework === 'string' && entry.framework) return entry.framework
+  // UI frameworks are the app stack's: an API package that peers react (to render an
+  // email, say) is not a React binding.
+  if (entry.stack === 'api' || !Array.isArray(entry.runtimeDependencies)) return undefined
+  const runtimes = runtimeFrameworks(appFrameworks)
+  const named = entry.runtimeDependencies.filter(
+    (dep): dep is string =>
+      typeof dep === 'string' && runtimes.some(([, identifying]) => identifying.has(dep)),
+  )
+  if (named.length === 0) return undefined
+  const fits = runtimes
+    .filter(([, identifying]) => named.every((dep) => identifying.has(dep)))
+    .sort((a, b) => a[1].size - b[1].size)
+  if (fits.length === 0 || (fits.length > 1 && fits[1][1].size === fits[0][1].size))
+    return undefined
+  return fits[0][0]
 }
 
 /** Result count both `mlcl search` and `search_packages` use when none is given. */
@@ -207,13 +323,23 @@ export function searchPackages(
   query: string,
   options: SearchOptions = {},
 ): SearchHit[] {
-  const { stack, framework, limit = DEFAULT_SEARCH_LIMIT } = options
+  const { stack, framework, appFrameworks, limit = DEFAULT_SEARCH_LIMIT } = options
+  const accepted = framework
+    ? new Set(appFrameworks ? frameworksAcceptedBy(framework, appFrameworks) : [framework])
+    : null
   const ranked: Array<SearchHit & { score: number }> = []
   for (const entry of entries) {
     // The rule `loadRegistry(stack)` applies — declared stack equality — kept
     // here so the transport that has no loader (hosted MCP) filters identically.
     if (stack && entry.stack !== stack) continue
-    if (framework && typeof entry.framework === 'string' && entry.framework !== framework) continue
+    if (accepted) {
+      const written = appFrameworks
+        ? packageFramework(entry, appFrameworks)
+        : typeof entry.framework === 'string'
+          ? entry.framework
+          : undefined
+      if (written && !accepted.has(written)) continue
+    }
     const score = scoreSearchEntry(entry, query)
     if (score <= 0) continue
     const configuration = Array.isArray(entry.decisionGuide?.configuration)

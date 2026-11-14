@@ -20,7 +20,11 @@ import { z } from 'zod'
 
 import { localPackageDoc } from './package-doc-files.js'
 import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
-import { searchPackages, type SearchSourceEntry } from './package-search.js'
+import {
+  type AppFrameworkInstalls,
+  searchPackages,
+  type SearchSourceEntry,
+} from './package-search.js'
 import { serverVersion, tracked } from './telemetry.js'
 
 const REGISTRY_URL =
@@ -419,11 +423,15 @@ export function buildRemoteServer(): McpServer {
         // caller on a crowded query must not lose its matches to app packages
         // filling the limit window.
         stack: z.enum(['api', 'app']).optional().describe('Restrict results to one stack'),
+        // A registry appFrameworks key, checked against the fetched registry so a
+        // framework the registry adds needs no change here.
         framework: z
-          .enum(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'])
+          .string()
+          .regex(/^[a-z][a-z0-9-]*$/)
+          .max(40)
           .optional()
           .describe(
-            "The project's UI framework: leaves out packages written for another framework (every framework binding exports the same hook names)",
+            "The project's app framework, as its package.json molecule.framework names it (react, vue, svelte, solid, angular, react-native, react-native-web): leaves out packages that framework cannot import (every framework binding exports the same hook names)",
           ),
         limit: z.number().int().min(1).max(100).optional(),
       },
@@ -433,17 +441,22 @@ export function buildRemoteServer(): McpServer {
       // own: without it a body carrying no `packages` map reached
       // `Object.entries(undefined)` and the client was told "Cannot convert
       // undefined or null to object" instead of what went wrong upstream.
-      const registry = await fetchJson<{ packages: Record<string, RegistryEntry> }>(
-        REGISTRY_URL,
-        REGISTRY_FILE,
-        FETCH_TIMEOUT_MS,
-        isRegistryPayload,
-      )
+      const registry = await fetchJson<{
+        packages: Record<string, RegistryEntry>
+        appFrameworks?: Record<string, AppFrameworkInstalls>
+      }>(REGISTRY_URL, REGISTRY_FILE, FETCH_TIMEOUT_MS, isRegistryPayload)
       const packages = registry.packages
+      const appFrameworks = isRecord(registry.appFrameworks)
+        ? (registry.appFrameworks as Record<string, AppFrameworkInstalls>)
+        : {}
+      if (framework && !appFrameworks[framework])
+        throw new Error(
+          `Unknown framework "${framework}". Known: ${Object.keys(appFrameworks).join(', ')}`,
+        )
       const hits = searchPackages(
         Object.entries(packages).map(([name, entry]): SearchSourceEntry => ({ ...entry, name })),
         query,
-        { stack, framework, limit },
+        { stack, framework, appFrameworks, limit },
       ).map((hit) => ({
         ...hit,
         install: `npx mlcl add ${hit.name} --inject`,

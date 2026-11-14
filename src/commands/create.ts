@@ -21,6 +21,7 @@ import {
 } from '../lib/features.js'
 import { formatGeneratedFiles } from '../lib/format.js'
 import { t } from '../lib/i18n.js'
+import { frameworksAcceptedBy } from '../lib/package-search.js'
 import {
   getMoleculeVersion,
   getPackageStack,
@@ -647,12 +648,14 @@ export default class Create extends Command {
     const appMenu =
       appPackages.length > 0 ? buildFeatureMenu(appPackages) : { alwaysInclude: [], features: [] }
 
-    // For app packages, filter providers by framework
+    // For app packages, keep the providers a project of this framework can import
+    // (a react-native-web project imports React providers too: frameworksAcceptedBy).
     if (framework) {
+      const accepted = new Set(frameworksAcceptedBy(framework, loadAppFrameworks()))
       for (const feature of appMenu.features) {
         feature.providers = feature.providers.filter((prov) => {
           const provFramework = prov.molecule?.framework
-          return !provFramework || provFramework === framework
+          return !provFramework || accepted.has(provFramework)
         })
       }
     }

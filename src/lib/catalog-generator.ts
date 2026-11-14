@@ -16,6 +16,7 @@
  * @module
  */
 
+import { frameworksAcceptedBy, packageFramework } from './package-search.js'
 import type { Registry, RegistryEntry } from './schema.js'
 
 export type CatalogStack = 'api' | 'app' | 'full-stack'
@@ -40,21 +41,26 @@ function includesStack(stack: CatalogStack, entryStack: 'api' | 'app'): boolean 
   return stack === entryStack
 }
 
-const FRAMEWORK_SUFFIXES = ['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'] as const
-
-export function inferFrameworkFromName(name: string): string | null {
-  for (const suffix of FRAMEWORK_SUFFIXES) {
-    if (name.endsWith(`-${suffix}`)) return suffix
+/**
+ * The test a framework's catalog applies to each package: framework-neutral, or
+ * written for a framework a project of this one can import (`packageFramework`,
+ * `frameworksAcceptedBy`). The package's dependencies decide, not its name:
+ * `app-i18n-default-react` peers no React and serves every framework.
+ *
+ * @param registry - The registry, for its `appFrameworks`.
+ * @param framework - The project's framework key.
+ * @returns Whether an entry belongs in that framework's catalog.
+ */
+export function frameworkCatalogFilter(
+  registry: Registry,
+  framework: string,
+): (entry: RegistryEntry) => boolean {
+  const appFrameworks = registry.appFrameworks ?? {}
+  const accepted = new Set(frameworksAcceptedBy(framework, appFrameworks))
+  return (entry) => {
+    const written = packageFramework(entry, appFrameworks)
+    return !written || accepted.has(written)
   }
-  return null
-}
-
-function matchesFramework(name: string, entry: RegistryEntry, framework: string): boolean {
-  if (entry.framework) return entry.framework === framework
-  const inferred = inferFrameworkFromName(name)
-  if (inferred) return inferred === framework
-  // No framework signal at all — framework-agnostic package, include everywhere.
-  return true
 }
 
 function formatPackageLine(p: PackageLine): string {
@@ -65,10 +71,11 @@ function formatPackageLine(p: PackageLine): string {
 export function buildCatalog({ registry, framework, stack }: BuildCatalogOptions): string {
   const byIntent = new Map<string, PackageLine[]>()
   const unhinted: PackageLine[] = []
+  const inFramework = frameworkCatalogFilter(registry, framework)
 
   for (const [name, entry] of Object.entries(registry.packages)) {
     if (!includesStack(stack, entry.stack)) continue
-    if (!matchesFramework(name, entry, framework)) continue
+    if (!inFramework(entry)) continue
     if (entry.ui?.hidden) continue
 
     const line: PackageLine = {

@@ -558,11 +558,15 @@ server.registerTool(
       query: z.string().max(200).describe('Capability or package-name query'),
       stack: z.enum(['api', 'app']).optional(),
       // Without it the CLI reads the framework of the project it runs in.
+      // The CLI checks it against the registry's appFrameworks; the pattern keeps
+      // it one argv word that cannot read as a flag.
       framework: z
-        .enum(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'])
+        .string()
+        .regex(/^[a-z][a-z0-9-]*$/)
+        .max(40)
         .optional()
         .describe(
-          "The project's UI framework: leaves out packages written for another framework (every framework binding exports the same hook names)",
+          "The project's app framework, as its package.json molecule.framework names it (react, vue, svelte, solid, angular, react-native, react-native-web): leaves out packages that framework cannot import (every framework binding exports the same hook names)",
         ),
       limit: z.number().int().min(1).max(100).optional(),
     },

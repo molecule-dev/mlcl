@@ -12,6 +12,7 @@ import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { t } from './i18n.js'
+import { packageFramework } from './package-search.js'
 import {
   type ApiFrameworkConfig,
   type AppFrameworkConfig,
@@ -94,20 +95,27 @@ function resolveMoleculeDir(): string {
  * @param moleculeDir - The molecule monorepo root the entries' paths hang off.
  */
 function derivePackages(registry: Registry, moleculeDir: string): InferredPackage[] {
+  const appFrameworks = registry.appFrameworks ?? {}
   return Object.entries(registry.packages)
-    .map(([name, entry]) => ({
-      name,
-      version: '0.0.0',
-      description: entry.description,
-      dependencies: {},
-      peerDependencies: {},
-      type: entry.type as PackageType,
-      routes: entry.routes ?? [],
-      tables: (entry.tables ?? []).map((t) => ({ name: t.name, sqlFile: t.sqlFile })),
-      exports: entry.exports ?? [],
-      molecule: entry as unknown as MoleculeMetadata,
-      path: join(moleculeDir, entry.path),
-    }))
+    .map(([name, entry]) => {
+      // The framework the package's dependencies name, when the entry does not set one
+      // (packageFramework); a copy, so the raw registry sync-registry writes is untouched.
+      const framework = packageFramework(entry, appFrameworks)
+      const molecule = framework && !entry.framework ? { ...entry, framework } : entry
+      return {
+        name,
+        version: '0.0.0',
+        description: entry.description,
+        dependencies: {},
+        peerDependencies: {},
+        type: entry.type as PackageType,
+        routes: entry.routes ?? [],
+        tables: (entry.tables ?? []).map((t) => ({ name: t.name, sqlFile: t.sqlFile })),
+        exports: entry.exports ?? [],
+        molecule: molecule as unknown as MoleculeMetadata,
+        path: join(moleculeDir, entry.path),
+      }
+    })
     .sort((a, b) => a.name.localeCompare(b.name))
 }
 

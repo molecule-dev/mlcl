@@ -7,7 +7,7 @@ import {
   buildCatalog,
   type BuildCatalogOptions,
   type CatalogStack,
-  inferFrameworkFromName,
+  frameworkCatalogFilter,
 } from '../lib/catalog-generator.js'
 import { getRawRegistry, loadAppFrameworks } from '../lib/registry.js'
 
@@ -88,14 +88,10 @@ export default class GenerateAgentCatalog extends Command {
     const { registry, framework, stack } = opts
     const intents: Record<string, string[]> = {}
     const unhinted: string[] = []
+    const inFramework = frameworkCatalogFilter(registry, framework)
     for (const [name, entry] of Object.entries(registry.packages)) {
       if (stack !== 'full-stack' && entry.stack !== stack) continue
-      if (entry.framework) {
-        if (entry.framework !== framework) continue
-      } else {
-        const inferred = inferFrameworkFromName(name)
-        if (inferred && inferred !== framework) continue
-      }
+      if (!inFramework(entry)) continue
       if (entry.ui?.hidden) continue
       const hints = entry.intentHints ?? []
       if (hints.length === 0) {

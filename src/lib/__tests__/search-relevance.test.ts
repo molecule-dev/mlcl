@@ -5,8 +5,8 @@ import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 import { projectFramework, scorePackage, toSearchEntry } from '../../commands/search.js'
-import { searchPackages } from '../package-search.js'
-import { loadRegistry } from '../registry.js'
+import { frameworksAcceptedBy, searchPackages } from '../package-search.js'
+import { loadAppFrameworks, loadRegistry } from '../registry.js'
 import type { InferredPackage } from '../schema.js'
 
 const packages = loadRegistry()
@@ -87,6 +87,63 @@ describe('search capability and symbol relevance', () => {
           return !framework || framework === 'vue'
         }),
     )
+  })
+
+  const appFrameworks = loadAppFrameworks()
+
+  it.each([
+    ['react', ['react']],
+    ['vue', ['vue']],
+    ['svelte', ['svelte']],
+    ['solid', ['solid']],
+    ['angular', ['angular']],
+    // A native project installs no react-dom, so React DOM packages are not its own.
+    ['react-native', ['react-native']],
+    // react-native-web renders with the react-native UI set on React DOM + react-router.
+    ['react-native-web', ['react-native-web', 'react-native', 'react']],
+  ])('a %s project imports packages written for %j', (project, accepted) => {
+    expect(frameworksAcceptedBy(project, appFrameworks)).toEqual(accepted)
+  })
+
+  it('accepts only its own key for a framework the registry does not know, and skips malformed entries', () => {
+    expect(frameworksAcceptedBy('qwik', appFrameworks)).toEqual(['qwik'])
+    const malformed = { web: { dependencies: { a: '1' } }, broken: null } as unknown as Record<
+      string,
+      { dependencies?: Record<string, string> }
+    >
+    expect(frameworksAcceptedBy('web', malformed)).toEqual(['web'])
+  })
+
+  it('keeps React and react-native packages for a react-native-web project', () => {
+    const entries = packages.map(toSearchEntry)
+    const rnw = searchPackages(entries, 'useProfileForm', {
+      framework: 'react-native-web',
+      appFrameworks,
+    })
+    expect(rnw[0]?.name).toBe('@molecule/app-react')
+    expect(rnw.map((hit) => hit.name).filter((name) => bindings.includes(name))).toEqual([
+      '@molecule/app-react',
+    ])
+    const ui = searchPackages(entries, 'react native ui', {
+      framework: 'react-native-web',
+      appFrameworks,
+      limit: 100,
+    }).map((hit) => hit.name)
+    expect(ui).toContain('@molecule/app-ui-react-native')
+    // Counterexamples: a React project does not get the react-native UI set, and a
+    // native project does not get React DOM bindings.
+    expect(
+      searchPackages(entries, 'react native ui', {
+        framework: 'react',
+        appFrameworks,
+        limit: 100,
+      }).map((hit) => hit.name),
+    ).not.toContain('@molecule/app-ui-react-native')
+    expect(
+      searchPackages(entries, 'useProfileForm', { framework: 'react-native', appFrameworks }).map(
+        (hit) => hit.name,
+      ),
+    ).not.toContain('@molecule/app-react')
   })
 
   it('reads the framework a project declares, from its app half or its own manifest', () => {

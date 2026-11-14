@@ -121,15 +121,12 @@ export default class Search extends Command {
       this.error(
         `Unknown framework "${flags.framework}". Known: ${Object.keys(appFrameworks).join(', ')}`,
       )
-    const projectKey = flags.framework ?? projectFramework(process.cwd())
-    // Packages name the UI framework they are written for; react-native-web
-    // projects use the react-native UI set (`uiFramework` in the registry).
-    const framework = projectKey
-      ? (appFrameworks[projectKey]?.uiFramework ?? projectKey)
-      : undefined
+    // The registry's appFrameworks say which package frameworks the project can
+    // import: a react-native-web project keeps React and react-native packages.
     const hits = searchPackages(loadRegistry().map(toSearchEntry), q, {
       stack: flags.stack as 'api' | 'app' | undefined,
-      framework,
+      framework: flags.framework ?? projectFramework(process.cwd()),
+      appFrameworks,
       limit: flags.limit,
     })
 
