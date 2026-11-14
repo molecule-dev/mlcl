@@ -1477,6 +1477,113 @@ function reactStateFlow(context) {
   return flow
 }
 
+/**
+ * Reads the components a file renders from their own modules: each relative import is parsed once
+ * per linted file with the scaffold parser, and `roots` lists the expressions a component function
+ * returns. Shared by the scaffold rules that must see through an imported component.
+ *
+ * @param parser - The parser the scaffold lints with (typescript-eslint).
+ * @param context - The rule context of the file being linted.
+ * @returns Resolution helpers sharing one parse cache for this file.
+ */
+function componentResolver(parser, context) {
+  const cache = new Map()
+  const scopes = new WeakMap([[context.sourceCode.ast, context.sourceCode.scopeManager.scopes]])
+  const unwrap = (node) =>
+    ['TSAsExpression', 'TSNonNullExpression', 'ParenthesizedExpression'].includes(node?.type)
+      ? unwrap(node.expression)
+      : node
+  const declaration = (tree, name) => {
+    for (const statement of tree.body) {
+      const node = statement.type === 'ExportNamedDeclaration' ? statement.declaration : statement
+      if (!node) continue
+      if (node.type === 'FunctionDeclaration' && node.id?.name === name) return node
+      if (node.type === 'VariableDeclaration') {
+        const found = node.declarations.find(
+          (item) => item.id.type === 'Identifier' && item.id.name === name,
+        )
+        if (found) return unwrap(found.init)
+      }
+    }
+    return null
+  }
+  const imported = (tree, name, filename) => {
+    const statement = tree.body.find(
+      (node) =>
+        node.type === 'ImportDeclaration' &&
+        node.specifiers.some((item) => item.local.name === name),
+    )
+    if (!statement || statement.importKind === 'type' || !statement.source.value.startsWith('.'))
+      return null
+    const spec = statement.specifiers.find((item) => item.local.name === name)
+    if (spec.importKind === 'type') return null
+    const stem = new URL(statement.source.value, `file://${filename}`).pathname
+    const paths = [
+      stem,
+      ...['.tsx', '.ts', '.jsx', '.js'].map((ext) => stem.replace(/\.[cm]?jsx?$/, '') + ext),
+      stem + '/index.tsx',
+    ]
+    for (const file of paths) {
+      let source = cache.get(file)
+      if (source === undefined) {
+        try {
+          const parsed = parser.parseForESLint(readFileSync(file, 'utf8'), {
+            filePath: file,
+            ecmaFeatures: { jsx: true },
+            sourceType: 'module',
+            loc: true,
+            range: true,
+          })
+          source = parsed.ast
+          scopes.set(source, parsed.scopeManager.scopes)
+        } catch (_error) {
+          source = null
+        }
+        cache.set(file, source)
+      }
+      if (!source) continue
+      const name = spec.type === 'ImportDefaultSpecifier' ? 'default' : spec.imported?.name
+      const exported =
+        name === 'default'
+          ? source.body.find((node) => node.type === 'ExportDefaultDeclaration')?.declaration
+          : declaration(source, name)
+      return exported ? { node: exported, tree: source, filename: file } : null
+    }
+    return null
+  }
+  const roots = (node) => {
+    if (node?.type === 'Identifier') return []
+    if (
+      ['ArrowFunctionExpression', 'FunctionExpression', 'FunctionDeclaration'].includes(node?.type)
+    ) {
+      if (node.body.type !== 'BlockStatement') return [node.body]
+      const result = []
+      const visit = (part) => {
+        if (
+          !part ||
+          ['FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression'].includes(
+            part.type,
+          )
+        )
+          return
+        if (part.type === 'ReturnStatement') {
+          if (part.argument) result.push(part.argument)
+          return
+        }
+        for (const [key, value] of Object.entries(part)) {
+          if (['parent', 'tokens', 'comments', 'loc', 'range'].includes(key)) continue
+          if (Array.isArray(value)) for (const item of value) visit(item)
+          else if (value && typeof value === 'object') visit(value)
+        }
+      }
+      visit(node.body)
+      return result
+    }
+    return []
+  }
+  return { scopes, unwrap, imported, roots }
+}
+
 /** Shared scaffold diagnostics. ESLint supplies the parser used for imported source files. */
 export function scaffoldRules(parser) {
   const rules = {
@@ -1807,9 +1914,12 @@ export function scaffoldRules(parser) {
           pending:
             'This collection starts as [] and is filled asynchronously in an effect, so length === 0 also means the request is still pending. Start it as null and render loading before checking length, or guard this empty branch with a completion flag settled by this collection’s own request. With a query hook, render its status/error separately and check data only after success.',
           item: 'This empty placeholder reuses the complete className of this collection’s actionable mapped items. It appears as another selectable item. Render the empty status separately with its own styling; keep item styling on real records.',
+          statusItem:
+            'This status message ({{status}}) carries every class of the items rendered at line {{line}} (`{{classes}}`{{via}}), so anything that finds those items by class (a test, a script, a :first-child style) finds this message as one of them. Give the message its own class and render it beside the list, not as an item.',
         },
       },
       create(context) {
+        const resolver = componentResolver(parser, context)
         return {
           'Program:exit'() {
             const flow = reactStateFlow(context)
@@ -1971,6 +2081,90 @@ export function scaffoldRules(parser) {
                 })
               })
             }
+            // A message its author marked as status (role status/alert/progressbar, or aria-busy)
+            // that carries every class of an item a .map() in this file renders is found by
+            // whatever finds those items by class. An item rendered through a component is read
+            // from that component's single root element, declared here or in the relative module
+            // it is imported from. Static class strings only; a status inside an item is the
+            // item's own and is never compared.
+            const staticClasses = (open) => {
+              const value = expression(attr(open, 'className'))
+              return typeof value?.value === 'string' && value.value.trim()
+                ? value.value.trim().split(/\s+/)
+                : null
+            }
+            const statusOf = (open) => {
+              const role = expression(attr(open, 'role'))
+              if (
+                typeof role?.value === 'string' &&
+                ['status', 'alert', 'progressbar'].includes(role.value)
+              )
+                return `role="${role.value}"`
+              const busy = attr(open, 'aria-busy')
+              if (busy && (busy.value === null || [true, 'true'].includes(expression(busy)?.value)))
+                return 'aria-busy'
+              return null
+            }
+            const tree = flow.source.ast
+            const rootElement = (node) => {
+              node = unwrap(node)
+              return node?.type === 'JSXElement' &&
+                node.openingElement.name.type === 'JSXIdentifier'
+                ? node.openingElement
+                : null
+            }
+            const items = []
+            const callbacks = []
+            walk(tree, (part) => {
+              if (part.type !== 'CallExpression' || member(part.callee) !== 'map') return
+              const callback = part.arguments[0]
+              if (!flow.isFunction(callback)) return
+              callbacks.push(callback)
+              for (const root of resolver.roots(callback)) {
+                const open = rootElement(root)
+                if (!open) continue
+                const name = open.name.name
+                let classes = null
+                if (/^[a-z]/.test(name)) classes = staticClasses(open)
+                else {
+                  const binding = variable(open.name)?.defs[0]
+                  const target =
+                    binding?.type === 'FunctionName'
+                      ? { node: binding.node }
+                      : binding?.type === 'Variable'
+                        ? { node: unwrap(binding.node.init) }
+                        : binding?.type === 'ImportBinding'
+                          ? resolver.imported(tree, name, context.filename)
+                          : null
+                  const returns = target ? resolver.roots(target.node) : []
+                  const inner = returns.length === 1 ? rootElement(returns[0]) : null
+                  if (inner && /^[a-z]/.test(inner.name.name)) classes = staticClasses(inner)
+                  if (classes) classes.component = name
+                }
+                if (classes) items.push({ node: open, classes })
+              }
+            })
+            if (!items.length) return
+            walk(tree, (part) => {
+              if (part.type !== 'JSXOpeningElement') return
+              const status = statusOf(part)
+              const classes = status && staticClasses(part)
+              if (!classes || callbacks.some((callback) => contains(callback, part))) return
+              const item = items.find(({ classes: wanted }) =>
+                wanted.every((name) => classes.includes(name)),
+              )
+              if (item)
+                context.report({
+                  node: part,
+                  messageId: 'statusItem',
+                  data: {
+                    status,
+                    line: item.node.loc.start.line,
+                    classes: item.classes.join(' '),
+                    via: item.classes.component ? `, the root of <${item.classes.component}>` : '',
+                  },
+                })
+            })
           },
         }
       },
@@ -2245,109 +2439,7 @@ export function scaffoldRules(parser) {
           'table',
           'ul',
         ])
-        const cache = new Map()
-        const scopes = new WeakMap([
-          [context.sourceCode.ast, context.sourceCode.scopeManager.scopes],
-        ])
-        const unwrap = (node) =>
-          ['TSAsExpression', 'TSNonNullExpression', 'ParenthesizedExpression'].includes(node?.type)
-            ? unwrap(node.expression)
-            : node
-        const declaration = (tree, name) => {
-          for (const statement of tree.body) {
-            const node =
-              statement.type === 'ExportNamedDeclaration' ? statement.declaration : statement
-            if (!node) continue
-            if (node.type === 'FunctionDeclaration' && node.id?.name === name) return node
-            if (node.type === 'VariableDeclaration') {
-              const found = node.declarations.find(
-                (item) => item.id.type === 'Identifier' && item.id.name === name,
-              )
-              if (found) return unwrap(found.init)
-            }
-          }
-          return null
-        }
-        const imported = (tree, name, filename) => {
-          const statement = tree.body.find(
-            (node) =>
-              node.type === 'ImportDeclaration' &&
-              node.specifiers.some((item) => item.local.name === name),
-          )
-          if (
-            !statement ||
-            statement.importKind === 'type' ||
-            !statement.source.value.startsWith('.')
-          )
-            return null
-          const spec = statement.specifiers.find((item) => item.local.name === name)
-          if (spec.importKind === 'type') return null
-          const stem = new URL(statement.source.value, `file://${filename}`).pathname
-          const paths = [
-            stem,
-            ...['.tsx', '.ts', '.jsx', '.js'].map((ext) => stem.replace(/\.[cm]?jsx?$/, '') + ext),
-            stem + '/index.tsx',
-          ]
-          for (const file of paths) {
-            let source = cache.get(file)
-            if (source === undefined) {
-              try {
-                const parsed = parser.parseForESLint(readFileSync(file, 'utf8'), {
-                  filePath: file,
-                  ecmaFeatures: { jsx: true },
-                  sourceType: 'module',
-                  loc: true,
-                  range: true,
-                })
-                source = parsed.ast
-                scopes.set(source, parsed.scopeManager.scopes)
-              } catch (_error) {
-                source = null
-              }
-              cache.set(file, source)
-            }
-            if (!source) continue
-            const name = spec.type === 'ImportDefaultSpecifier' ? 'default' : spec.imported?.name
-            const exported =
-              name === 'default'
-                ? source.body.find((node) => node.type === 'ExportDefaultDeclaration')?.declaration
-                : declaration(source, name)
-            return exported ? { node: exported, tree: source, filename: file } : null
-          }
-          return null
-        }
-        const roots = (node) => {
-          if (node?.type === 'Identifier') return []
-          if (
-            ['ArrowFunctionExpression', 'FunctionExpression', 'FunctionDeclaration'].includes(
-              node?.type,
-            )
-          ) {
-            if (node.body.type !== 'BlockStatement') return [node.body]
-            const result = []
-            const visit = (part) => {
-              if (
-                !part ||
-                ['FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression'].includes(
-                  part.type,
-                )
-              )
-                return
-              if (part.type === 'ReturnStatement') {
-                if (part.argument) result.push(part.argument)
-                return
-              }
-              for (const [key, value] of Object.entries(part)) {
-                if (['parent', 'tokens', 'comments', 'loc', 'range'].includes(key)) continue
-                if (Array.isArray(value)) for (const item of value) visit(item)
-                else if (value && typeof value === 'object') visit(value)
-              }
-            }
-            visit(node.body)
-            return result
-          }
-          return []
-        }
+        const { scopes, unwrap, imported, roots } = componentResolver(parser, context)
         const find = (node, tree, filename, seen = new Set(), rootOnly = false) => {
           node = unwrap(node)
           if (!node || seen.has(node) || seen.size >= 24) return null
