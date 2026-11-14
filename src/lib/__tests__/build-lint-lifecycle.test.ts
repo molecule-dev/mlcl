@@ -111,6 +111,20 @@ async function build(app: string): Promise<{ code: number; output: string }> {
 }
 
 describe('frontend npm build verification', () => {
+  // The fixture apps resolve their compile from mlcl's own node_modules (the
+  // symlink above), and mlcl's CI installs mlcl alone: a package the fixture
+  // needs but mlcl does not declare resolves in this workspace (hoisted) and is
+  // missing there (2026-11-14: TS7016 for 'react' without @types/react).
+  it("declares every package the fixture apps' compile resolves from mlcl's node_modules", async () => {
+    const mlcl = JSON.parse(
+      await readFile(new URL('../../../package.json', import.meta.url), 'utf8'),
+    ) as { dependencies?: Record<string, string>; devDependencies?: Record<string, string> }
+    const declared = { ...mlcl.dependencies, ...mlcl.devDependencies }
+    // Control.tsx/main.tsx use React's JSX runtime; tsconfig types: ['vite/client'].
+    const needed = ['react', '@types/react', 'typescript', 'vite']
+    expect(needed.filter((name) => !declared[name])).toEqual([])
+  })
+
   it.each(['custom', 'flagship'])(
     'rejects a lost optimistic click as a native lint error: %s',
     async (kind) => {
