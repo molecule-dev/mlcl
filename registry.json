@@ -32824,6 +32824,40 @@
         "auth screen with brand mark"
       ]
     },
+    "@molecule/app-auth-ui-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth",
+      "label": "Auth UI Angular",
+      "description": "Angular auth OAuth button row — config-driven providers + callback exchange (OAuthButtons)",
+      "stack": "app",
+      "exports": [
+        "OAuthButtons"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-oauth-buttons-angular",
+        "@molecule/app-ui"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-oauth-buttons-angular",
+        "@molecule/app-ui"
+      ],
+      "path": "packages/app/features/auth-ui-angular",
+      "intentHints": [
+        "login form",
+        "signup form",
+        "reset password form",
+        "auth ui primitives",
+        "email password form"
+      ]
+    },
     "@molecule/app-auth-ui-react": {
       "language": "typescript",
       "runtime": "node",
@@ -32849,6 +32883,105 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/auth-ui-react",
+      "intentHints": [
+        "login form",
+        "signup form",
+        "reset password form",
+        "auth ui primitives",
+        "email password form"
+      ]
+    },
+    "@molecule/app-auth-ui-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth",
+      "label": "Auth UI Solid",
+      "description": "Solid auth OAuth button row — config-driven providers + callback exchange (OAuthButtons)",
+      "stack": "app",
+      "exports": [
+        "OAuthButtonsProps",
+        "OAuthButtons"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-oauth-buttons-solid",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-oauth-buttons-solid",
+        "@molecule/app-solid",
+        "@molecule/app-ui"
+      ],
+      "path": "packages/app/features/auth-ui-solid",
+      "intentHints": [
+        "login form",
+        "signup form",
+        "reset password form",
+        "auth ui primitives",
+        "email password form"
+      ]
+    },
+    "@molecule/app-auth-ui-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth",
+      "label": "Auth UI Svelte",
+      "description": "Svelte auth OAuth button row — config-driven providers + callback exchange (OAuthButtons)",
+      "stack": "app",
+      "exports": [
+        "OAuthButtons",
+        "OAuthButtonsProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-oauth-buttons-svelte",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-oauth-buttons-svelte",
+        "@molecule/app-svelte",
+        "@molecule/app-ui"
+      ],
+      "path": "packages/app/features/auth-ui-svelte",
+      "intentHints": [
+        "login form",
+        "signup form",
+        "reset password form",
+        "auth ui primitives",
+        "email password form"
+      ]
+    },
+    "@molecule/app-auth-ui-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth",
+      "label": "Auth UI Vue",
+      "description": "Vue auth OAuth button row — config-driven providers + callback exchange (OAuthButtons)",
+      "stack": "app",
+      "exports": [
+        "OAuthButtonsProps",
+        "OAuthButtons"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-oauth-buttons-vue",
+        "@molecule/app-ui",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-oauth-buttons-vue",
+        "@molecule/app-ui",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/auth-ui-vue",
       "intentHints": [
         "login form",
         "signup form",
@@ -38311,6 +38444,41 @@
         "fastest font load"
       ]
     },
+    "@molecule/app-footer-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "footer",
+      "label": "App Footer Angular",
+      "description": "App-shell footer with About link, Privacy/Terms modals (i18n-loaded HTML), language picker, and version display",
+      "stack": "app",
+      "exports": [
+        "AppFooter",
+        "AppFooterLoadContent",
+        "AppFooterProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/footer-angular",
+      "intentHints": [
+        "app footer",
+        "footer bar",
+        "privacy terms language footer",
+        "site footer with version"
+      ]
+    },
     "@molecule/app-footer-react": {
       "language": "typescript",
       "runtime": "node",
@@ -38337,6 +38505,102 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/footer-react",
+      "intentHints": [
+        "app footer",
+        "footer bar",
+        "privacy terms language footer",
+        "site footer with version"
+      ]
+    },
+    "@molecule/app-footer-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "footer",
+      "label": "App Footer Solid",
+      "description": "App-shell footer with About link, Privacy/Terms modals (i18n-loaded HTML), language picker, and version display",
+      "stack": "app",
+      "exports": [
+        "AppFooter",
+        "AppFooterProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/footer-solid",
+      "intentHints": [
+        "app footer",
+        "footer bar",
+        "privacy terms language footer",
+        "site footer with version"
+      ]
+    },
+    "@molecule/app-footer-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "footer",
+      "label": "App Footer Svelte",
+      "description": "App-shell footer with About link, Privacy/Terms modals (i18n-loaded HTML), language picker, and version display",
+      "stack": "app",
+      "exports": [
+        "AppFooter",
+        "AppFooterProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/footer-svelte",
+      "intentHints": [
+        "app footer",
+        "footer bar",
+        "privacy terms language footer",
+        "site footer with version"
+      ]
+    },
+    "@molecule/app-footer-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "footer",
+      "label": "App Footer Vue",
+      "description": "App-shell footer with About link, Privacy/Terms modals (i18n-loaded HTML), language picker, and version display",
+      "stack": "app",
+      "exports": [
+        "AppFooter",
+        "AppFooterProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/footer-vue",
       "intentHints": [
         "app footer",
         "footer bar",
@@ -38660,6 +38924,40 @@
         "tactile feedback"
       ]
     },
+    "@molecule/app-header-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "header",
+      "label": "App Header Angular",
+      "description": "Top app-shell header: branded logo + appName on the left, slotted actions (theme toggle, user menu, extras) on the right",
+      "stack": "app",
+      "exports": [
+        "AppHeader",
+        "AppHeaderProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/header-angular",
+      "intentHints": [
+        "app header",
+        "top header bar",
+        "branded header",
+        "header with logo and user menu"
+      ]
+    },
     "@molecule/app-header-react": {
       "language": "typescript",
       "runtime": "node",
@@ -38686,6 +38984,102 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/header-react",
+      "intentHints": [
+        "app header",
+        "top header bar",
+        "branded header",
+        "header with logo and user menu"
+      ]
+    },
+    "@molecule/app-header-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "header",
+      "label": "App Header Solid",
+      "description": "Top app-shell header: branded logo + appName on the left, slotted actions (theme toggle, user menu, extras) on the right",
+      "stack": "app",
+      "exports": [
+        "AppHeader",
+        "AppHeaderProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/header-solid",
+      "intentHints": [
+        "app header",
+        "top header bar",
+        "branded header",
+        "header with logo and user menu"
+      ]
+    },
+    "@molecule/app-header-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "header",
+      "label": "App Header Svelte",
+      "description": "Top app-shell header: branded logo + appName on the left, slotted actions (theme toggle, user menu, extras) on the right",
+      "stack": "app",
+      "exports": [
+        "AppHeader",
+        "AppHeaderProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/header-svelte",
+      "intentHints": [
+        "app header",
+        "top header bar",
+        "branded header",
+        "header with logo and user menu"
+      ]
+    },
+    "@molecule/app-header-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "header",
+      "label": "App Header Vue",
+      "description": "Top app-shell header: branded logo + appName on the left, slotted actions (theme toggle, user menu, extras) on the right",
+      "stack": "app",
+      "exports": [
+        "AppHeader",
+        "AppHeaderProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/header-vue",
       "intentHints": [
         "app header",
         "top header bar",
@@ -58884,6 +59278,58 @@
         "feedback score bars"
       ]
     },
+    "@molecule/app-oauth-buttons-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "oauth-buttons",
+      "label": "OAuth Buttons Angular",
+      "description": "Config-driven OAuth provider button row composing @molecule/app-oauth-logos-angular with layout variants (horizontal / vertical / grid) and brand-themed inline colors",
+      "stack": "app",
+      "exports": [
+        "getBrandStyle",
+        "BrandStyle",
+        "BRAND_STYLES",
+        "getProviderLabel",
+        "dedupeProviders",
+        "PROVIDER_LABELS",
+        "getLayoutStyle",
+        "getButtonLayoutStyle",
+        "OAuthButtons",
+        "OAuthDivider",
+        "OAuthProviderId",
+        "OAuthButtonsLayout",
+        "OAuthButtonsProps",
+        "OAuthDividerProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-oauth-logos-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-oauth-logos-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/oauth-buttons-angular",
+      "intentHints": [
+        "oauth buttons",
+        "social login",
+        "provider buttons",
+        "login page",
+        "signup page",
+        "continue with",
+        "sign in with",
+        "sso buttons"
+      ]
+    },
     "@molecule/app-oauth-buttons-react": {
       "language": "typescript",
       "runtime": "node",
@@ -58932,6 +59378,189 @@
         "sso buttons"
       ]
     },
+    "@molecule/app-oauth-buttons-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "oauth-buttons",
+      "label": "OAuth Buttons Solid",
+      "description": "Config-driven OAuth provider button row composing @molecule/app-oauth-logos-solid with layout variants (horizontal / vertical / grid) and brand-themed inline colors",
+      "stack": "app",
+      "exports": [
+        "getBrandStyle",
+        "BrandStyle",
+        "BRAND_STYLES",
+        "getProviderLabel",
+        "dedupeProviders",
+        "PROVIDER_LABELS",
+        "getLayoutStyle",
+        "getButtonLayoutStyle",
+        "OAuthButtons",
+        "OAuthDivider",
+        "OAuthProviderId",
+        "OAuthButtonsLayout",
+        "OAuthButtonsProps",
+        "OAuthDividerProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-oauth-logos-solid",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-oauth-logos-solid",
+        "@molecule/app-solid",
+        "@molecule/app-ui"
+      ],
+      "path": "packages/app/features/oauth-buttons-solid",
+      "intentHints": [
+        "oauth buttons",
+        "social login",
+        "provider buttons",
+        "login page",
+        "signup page",
+        "continue with",
+        "sign in with",
+        "sso buttons"
+      ]
+    },
+    "@molecule/app-oauth-buttons-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "oauth-buttons",
+      "label": "OAuth Buttons Svelte",
+      "description": "Config-driven OAuth provider button row composing @molecule/app-oauth-logos-svelte with layout variants (horizontal / vertical / grid) and brand-themed inline colors",
+      "stack": "app",
+      "exports": [
+        "getBrandStyle",
+        "BrandStyle",
+        "BRAND_STYLES",
+        "OAuthButtons",
+        "OAuthDivider",
+        "getProviderLabel",
+        "dedupeProviders",
+        "PROVIDER_LABELS",
+        "getLayoutStyle",
+        "getButtonLayoutStyle",
+        "OAuthProviderId",
+        "OAuthButtonsLayout",
+        "OAuthButtonsProps",
+        "OAuthDividerProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-oauth-logos-svelte",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-oauth-logos-svelte",
+        "@molecule/app-svelte",
+        "@molecule/app-ui"
+      ],
+      "path": "packages/app/features/oauth-buttons-svelte",
+      "intentHints": [
+        "oauth buttons",
+        "social login",
+        "provider buttons",
+        "login page",
+        "signup page",
+        "continue with",
+        "sign in with",
+        "sso buttons"
+      ]
+    },
+    "@molecule/app-oauth-buttons-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "oauth-buttons",
+      "label": "OAuth Buttons Vue",
+      "description": "Config-driven OAuth provider button row composing @molecule/app-oauth-logos-vue with layout variants (horizontal / vertical / grid) and brand-themed inline colors",
+      "stack": "app",
+      "exports": [
+        "getBrandStyle",
+        "BrandStyle",
+        "BRAND_STYLES",
+        "getProviderLabel",
+        "dedupeProviders",
+        "PROVIDER_LABELS",
+        "getLayoutStyle",
+        "getButtonLayoutStyle",
+        "OAuthButtons",
+        "OAuthDivider",
+        "OAuthProviderId",
+        "OAuthButtonsLayout",
+        "OAuthButtonsProps",
+        "OAuthDividerProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-oauth-logos-vue",
+        "@molecule/app-ui",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-oauth-logos-vue",
+        "@molecule/app-ui",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/oauth-buttons-vue",
+      "intentHints": [
+        "oauth buttons",
+        "social login",
+        "provider buttons",
+        "login page",
+        "signup page",
+        "continue with",
+        "sign in with",
+        "sso buttons"
+      ]
+    },
+    "@molecule/app-oauth-logos-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "oauth-logos",
+      "label": "OAuth Logos Angular",
+      "description": "Canonical OAuth provider brand logos (GitHub, Google, GitLab, Twitter/X, Apple, Facebook, Microsoft, LinkedIn, Discord) as Angular SVG components — identical across every app regardless of icon bond",
+      "stack": "app",
+      "exports": [
+        "AppleLogo",
+        "DiscordLogo",
+        "FacebookLogo",
+        "GitHubLogo",
+        "GitLabLogo",
+        "GoogleLogo",
+        "LinkedInLogo",
+        "MicrosoftLogo",
+        "OAuthProviderLogo",
+        "TwitterLogo",
+        "XLogo",
+        "OAuthProviderId",
+        "OAuthLogoProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser"
+      ],
+      "moleculePeers": [],
+      "path": "packages/app/features/oauth-logos-angular",
+      "intentHints": [
+        "oauth",
+        "provider logos",
+        "sign in",
+        "login buttons",
+        "single sign on"
+      ]
+    },
     "@molecule/app-oauth-logos-react": {
       "language": "typescript",
       "runtime": "node",
@@ -58962,6 +59591,120 @@
       ],
       "moleculePeers": [],
       "path": "packages/app/features/oauth-logos-react",
+      "intentHints": [
+        "oauth",
+        "provider logos",
+        "sign in",
+        "login buttons",
+        "single sign on"
+      ]
+    },
+    "@molecule/app-oauth-logos-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "oauth-logos",
+      "label": "OAuth Logos Solid",
+      "description": "Canonical OAuth provider brand logos (GitHub, Google, GitLab, Twitter/X, Apple, Facebook, Microsoft, LinkedIn, Discord) as Solid SVG components — identical across every app regardless of icon bond",
+      "stack": "app",
+      "exports": [
+        "AppleLogo",
+        "DiscordLogo",
+        "FacebookLogo",
+        "GitHubLogo",
+        "GitLabLogo",
+        "GoogleLogo",
+        "LinkedInLogo",
+        "MicrosoftLogo",
+        "OAuthProviderLogoProps",
+        "OAuthProviderLogo",
+        "TwitterLogo",
+        "XLogo",
+        "OAuthProviderId",
+        "OAuthLogoProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "solid-js"
+      ],
+      "moleculePeers": [],
+      "path": "packages/app/features/oauth-logos-solid",
+      "intentHints": [
+        "oauth",
+        "provider logos",
+        "sign in",
+        "login buttons",
+        "single sign on"
+      ]
+    },
+    "@molecule/app-oauth-logos-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "oauth-logos",
+      "label": "OAuth Logos Svelte",
+      "description": "Canonical OAuth provider brand logos (GitHub, Google, GitLab, Twitter/X, Apple, Facebook, Microsoft, LinkedIn, Discord) as Svelte SVG components — identical across every app regardless of icon bond",
+      "stack": "app",
+      "exports": [
+        "AppleLogo",
+        "DiscordLogo",
+        "FacebookLogo",
+        "GitHubLogo",
+        "GitLabLogo",
+        "GoogleLogo",
+        "LinkedInLogo",
+        "MicrosoftLogo",
+        "OAuthProviderLogo",
+        "TwitterLogo",
+        "XLogo",
+        "OAuthProviderId",
+        "OAuthLogoProps",
+        "OAuthProviderLogoProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "svelte"
+      ],
+      "moleculePeers": [],
+      "path": "packages/app/features/oauth-logos-svelte",
+      "intentHints": [
+        "oauth",
+        "provider logos",
+        "sign in",
+        "login buttons",
+        "single sign on"
+      ]
+    },
+    "@molecule/app-oauth-logos-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "oauth-logos",
+      "label": "OAuth Logos Vue",
+      "description": "Canonical OAuth provider brand logos (GitHub, Google, GitLab, Twitter/X, Apple, Facebook, Microsoft, LinkedIn, Discord) as Vue SVG components — identical across every app regardless of icon bond",
+      "stack": "app",
+      "exports": [
+        "AppleLogo",
+        "DiscordLogo",
+        "FacebookLogo",
+        "GitHubLogo",
+        "GitLabLogo",
+        "GoogleLogo",
+        "LinkedInLogo",
+        "MicrosoftLogo",
+        "OAuthProviderLogoProps",
+        "OAuthProviderLogo",
+        "TwitterLogo",
+        "XLogo",
+        "OAuthProviderId",
+        "OAuthLogoProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "vue"
+      ],
+      "moleculePeers": [],
+      "path": "packages/app/features/oauth-logos-vue",
       "intentHints": [
         "oauth",
         "provider logos",
@@ -59715,6 +60458,74 @@
         "cached fetch"
       ]
     },
+    "@molecule/app-query-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "query",
+      "label": "Query Cache Angular",
+      "description": "Angular hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
+      "stack": "app",
+      "exports": [
+        "QueryContent",
+        "QueryResource",
+        "QueryResourceConfig",
+        "ResourceHttp",
+        "ResourceResponse",
+        "createQueryResource",
+        "UseQueryResult",
+        "QueryContentContext",
+        "QueryContentErrorContext",
+        "QueryContentProps",
+        "usePrefetch",
+        "intentPrefetchProps",
+        "prefetchQuery",
+        "IntentPrefetchProps",
+        "useQuery"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-query"
+      ],
+      "moleculePeers": [
+        "@molecule/app-query"
+      ],
+      "path": "packages/app/features/query-angular",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/App.tsx"
+        ],
+        "configuration": [
+          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
+          "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
+        ],
+        "resourceModules": {
+          "directory": "src/resources",
+          "factory": "createQueryResource",
+          "since": "1.4.0",
+          "http": {
+            "package": "@molecule/app-http",
+            "client": "getClient",
+            "readList": "unwrapList",
+            "readOne": "unwrapSingle"
+          },
+          "listRoute": {
+            "package": "@molecule/app-routing-react-router",
+            "hook": "useListRoute",
+            "optionsType": "ListRouteOptions",
+            "queryHook": "useQuery"
+          }
+        }
+      },
+      "intentHints": [
+        "usequery hook",
+        "prefetch links on hover",
+        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
+      ]
+    },
     "@molecule/app-query-memory": {
       "language": "typescript",
       "runtime": "node",
@@ -59806,6 +60617,70 @@
         "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
       ]
     },
+    "@molecule/app-query-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "query",
+      "label": "Query Cache Solid",
+      "description": "Solid hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
+      "stack": "app",
+      "exports": [
+        "QueryContent",
+        "QueryResource",
+        "QueryResourceConfig",
+        "ResourceHttp",
+        "ResourceResponse",
+        "createQueryResource",
+        "UseQueryResult",
+        "QueryContentProps",
+        "usePrefetch",
+        "intentPrefetchProps",
+        "prefetchQuery",
+        "IntentPrefetchProps",
+        "useQuery"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-query",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-query"
+      ],
+      "path": "packages/app/features/query-solid",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/App.tsx"
+        ],
+        "configuration": [
+          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
+          "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
+        ],
+        "resourceModules": {
+          "directory": "src/resources",
+          "factory": "createQueryResource",
+          "since": "1.4.0",
+          "http": {
+            "package": "@molecule/app-http",
+            "client": "getClient",
+            "readList": "unwrapList",
+            "readOne": "unwrapSingle"
+          },
+          "listRoute": {
+            "package": "@molecule/app-routing-react-router",
+            "hook": "useListRoute",
+            "optionsType": "ListRouteOptions",
+            "queryHook": "useQuery"
+          }
+        }
+      },
+      "intentHints": [
+        "usequery hook",
+        "prefetch links on hover",
+        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
+      ]
+    },
     "@molecule/app-query-tanstack": {
       "language": "typescript",
       "runtime": "node",
@@ -59832,6 +60707,72 @@
       "intentHints": [
         "tanstack query",
         "react query cache"
+      ]
+    },
+    "@molecule/app-query-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "query",
+      "label": "Query Cache Vue",
+      "description": "Vue hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
+      "stack": "app",
+      "exports": [
+        "QueryContentSlots",
+        "QueryContent",
+        "QueryResource",
+        "QueryResourceConfig",
+        "ResourceHttp",
+        "ResourceResponse",
+        "createQueryResource",
+        "UseQueryResult",
+        "QueryContentProps",
+        "QueryOptionsInput",
+        "usePrefetch",
+        "intentPrefetchProps",
+        "prefetchQuery",
+        "IntentPrefetchProps",
+        "useQuery"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-query",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-query"
+      ],
+      "path": "packages/app/features/query-vue",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/App.tsx"
+        ],
+        "configuration": [
+          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
+          "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
+        ],
+        "resourceModules": {
+          "directory": "src/resources",
+          "factory": "createQueryResource",
+          "since": "1.4.0",
+          "http": {
+            "package": "@molecule/app-http",
+            "client": "getClient",
+            "readList": "unwrapList",
+            "readOne": "unwrapSingle"
+          },
+          "listRoute": {
+            "package": "@molecule/app-routing-react-router",
+            "hook": "useListRoute",
+            "optionsType": "ListRouteOptions",
+            "queryHook": "useQuery"
+          }
+        }
+      },
+      "intentHints": [
+        "usequery hook",
+        "prefetch links on hover",
+        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
       ]
     },
     "@molecule/app-quiz-card-react": {
@@ -61545,6 +62486,72 @@
         "settings shell"
       ]
     },
+    "@molecule/app-settings-panel-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "settings-panel",
+      "label": "Settings Panel Angular",
+      "description": "Composable settings panel — a SettingsContainer + family of section sub-components (Account, Auth, Notifications, Billing, Devices, ThisDevice, LogOutDelete). Apps compose via content projection, picking which sections to include and what order.",
+      "stack": "app",
+      "exports": [
+        "AccountSection",
+        "AppearanceSection",
+        "AuthSection",
+        "BillingSection",
+        "provideSettingsPanelContext",
+        "useSettingsPanelContext",
+        "SettingsPanelContext",
+        "DevicesSection",
+        "LogOutDeleteSection",
+        "NotificationsSection",
+        "PushToggleDevice",
+        "PushToggleFailureReason",
+        "PushToggleHttp",
+        "PushToggleResult",
+        "PushToggleToken",
+        "disablePushOnCurrentDevice",
+        "enablePushOnCurrentDevice",
+        "findCurrentDevice",
+        "readCurrentDevicePushEnabled",
+        "subscriptionFromToken",
+        "SettingsContainer",
+        "ThisDeviceSection",
+        "TiersUpgradeSection",
+        "SettingsPanelContextValue",
+        "Device",
+        "TiersUpgradeSectionProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-auth",
+        "@molecule/app-http",
+        "@molecule/app-push",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular",
+        "@molecule/app-utilities"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-auth",
+        "@molecule/app-http",
+        "@molecule/app-push",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular",
+        "@molecule/app-utilities"
+      ],
+      "path": "packages/app/features/settings-panel-angular",
+      "intentHints": [
+        "settings panel",
+        "user settings",
+        "preferences panel",
+        "account settings"
+      ]
+    },
     "@molecule/app-settings-panel-react": {
       "language": "typescript",
       "runtime": "node",
@@ -61602,6 +62609,201 @@
         "@molecule/app-utilities"
       ],
       "path": "packages/app/features/settings-panel-react",
+      "intentHints": [
+        "settings panel",
+        "user settings",
+        "preferences panel",
+        "account settings"
+      ]
+    },
+    "@molecule/app-settings-panel-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "settings-panel",
+      "label": "Settings Panel Solid",
+      "description": "Composable settings panel — a SettingsContainer + family of section sub-components (Account, Auth, Notifications, Billing, Devices, ThisDevice, LogOutDelete). Apps compose via JSX children, picking which sections to include and what order.",
+      "stack": "app",
+      "exports": [
+        "AccountSection",
+        "AppearanceSection",
+        "AuthSection",
+        "BillingSection",
+        "useSettingsPanelContext",
+        "SettingsPanelContext",
+        "DevicesSection",
+        "LogOutDeleteSection",
+        "NotificationsSection",
+        "PushToggleDevice",
+        "PushToggleFailureReason",
+        "PushToggleHttp",
+        "PushToggleResult",
+        "PushToggleToken",
+        "disablePushOnCurrentDevice",
+        "enablePushOnCurrentDevice",
+        "findCurrentDevice",
+        "readCurrentDevicePushEnabled",
+        "subscriptionFromToken",
+        "SettingsContainer",
+        "ThisDeviceSection",
+        "TiersUpgradeSection",
+        "SettingsPanelContextValue",
+        "Device",
+        "TiersUpgradeSectionProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-auth",
+        "@molecule/app-http",
+        "@molecule/app-push",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "@molecule/app-utilities",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-auth",
+        "@molecule/app-http",
+        "@molecule/app-push",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "@molecule/app-utilities"
+      ],
+      "path": "packages/app/features/settings-panel-solid",
+      "intentHints": [
+        "settings panel",
+        "user settings",
+        "preferences panel",
+        "account settings"
+      ]
+    },
+    "@molecule/app-settings-panel-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "settings-panel",
+      "label": "Settings Panel Svelte",
+      "description": "Composable settings panel — a SettingsContainer + family of section sub-components (Account, Auth, Notifications, Billing, Devices, ThisDevice, LogOutDelete). Apps compose via the children snippet, picking which sections to include and what order.",
+      "stack": "app",
+      "exports": [
+        "AccountSection",
+        "AppearanceSection",
+        "AuthSection",
+        "BillingSection",
+        "SettingsPanelContextValue",
+        "SettingsPanelContext",
+        "useSettingsPanelContext",
+        "DevicesSection",
+        "LogOutDeleteSection",
+        "NotificationsSection",
+        "SettingsContainer",
+        "ThisDeviceSection",
+        "TiersUpgradeSection",
+        "PushToggleDevice",
+        "PushToggleFailureReason",
+        "PushToggleHttp",
+        "PushToggleResult",
+        "PushToggleToken",
+        "disablePushOnCurrentDevice",
+        "enablePushOnCurrentDevice",
+        "findCurrentDevice",
+        "readCurrentDevicePushEnabled",
+        "subscriptionFromToken",
+        "Device",
+        "SettingsContainerProps",
+        "DevicesSectionProps",
+        "TiersUpgradeSectionProps",
+        "AccountValues",
+        "TwoFactorSetup",
+        "TierPrice",
+        "Tier"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-auth",
+        "@molecule/app-http",
+        "@molecule/app-push",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "@molecule/app-utilities",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-auth",
+        "@molecule/app-http",
+        "@molecule/app-push",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "@molecule/app-utilities"
+      ],
+      "path": "packages/app/features/settings-panel-svelte",
+      "intentHints": [
+        "settings panel",
+        "user settings",
+        "preferences panel",
+        "account settings"
+      ]
+    },
+    "@molecule/app-settings-panel-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "settings-panel",
+      "label": "Settings Panel Vue",
+      "description": "Composable settings panel — a SettingsContainer + family of section sub-components (Account, Auth, Notifications, Billing, Devices, ThisDevice, LogOutDelete). Apps compose via the default slot, picking which sections to include and what order.",
+      "stack": "app",
+      "exports": [
+        "AccountSection",
+        "AppearanceSection",
+        "AuthSection",
+        "BillingSection",
+        "useSettingsPanelContext",
+        "SettingsPanelContextValue",
+        "SettingsPanelContext",
+        "DevicesSection",
+        "LogOutDeleteSection",
+        "NotificationsSection",
+        "PushToggleDevice",
+        "PushToggleFailureReason",
+        "PushToggleHttp",
+        "PushToggleResult",
+        "PushToggleToken",
+        "disablePushOnCurrentDevice",
+        "enablePushOnCurrentDevice",
+        "findCurrentDevice",
+        "readCurrentDevicePushEnabled",
+        "subscriptionFromToken",
+        "SettingsContainer",
+        "ThisDeviceSection",
+        "TiersUpgradeSection",
+        "Device",
+        "TiersUpgradeSectionProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-auth",
+        "@molecule/app-http",
+        "@molecule/app-push",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-utilities",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-auth",
+        "@molecule/app-http",
+        "@molecule/app-push",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-utilities",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/settings-panel-vue",
       "intentHints": [
         "settings panel",
         "user settings",
@@ -61685,6 +62887,40 @@
         "share preview"
       ]
     },
+    "@molecule/app-shell-layout-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "shell-layout",
+      "label": "App Shell Layout Angular",
+      "description": "Top-level app shell layout: header slot + main content + footer slot",
+      "stack": "app",
+      "exports": [
+        "AppShellLayout",
+        "AppShellLayoutProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/shell-layout-angular",
+      "intentHints": [
+        "app shell layout",
+        "page frame",
+        "header footer scaffold",
+        "top-level layout"
+      ]
+    },
     "@molecule/app-shell-layout-react": {
       "language": "typescript",
       "runtime": "node",
@@ -61710,6 +62946,102 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/shell-layout-react",
+      "intentHints": [
+        "app shell layout",
+        "page frame",
+        "header footer scaffold",
+        "top-level layout"
+      ]
+    },
+    "@molecule/app-shell-layout-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "shell-layout",
+      "label": "App Shell Layout Solid",
+      "description": "Top-level app shell layout: header slot + main content + footer slot",
+      "stack": "app",
+      "exports": [
+        "AppShellLayout",
+        "AppShellLayoutProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/shell-layout-solid",
+      "intentHints": [
+        "app shell layout",
+        "page frame",
+        "header footer scaffold",
+        "top-level layout"
+      ]
+    },
+    "@molecule/app-shell-layout-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "shell-layout",
+      "label": "App Shell Layout Svelte",
+      "description": "Top-level app shell layout: header slot + main content + footer slot",
+      "stack": "app",
+      "exports": [
+        "AppShellLayout",
+        "AppShellLayoutProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/shell-layout-svelte",
+      "intentHints": [
+        "app shell layout",
+        "page frame",
+        "header footer scaffold",
+        "top-level layout"
+      ]
+    },
+    "@molecule/app-shell-layout-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "shell-layout",
+      "label": "App Shell Layout Vue",
+      "description": "Top-level app shell layout: header slot + main content + footer slot",
+      "stack": "app",
+      "exports": [
+        "AppShellLayout",
+        "AppShellLayoutProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/shell-layout-vue",
       "intentHints": [
         "app shell layout",
         "page frame",
