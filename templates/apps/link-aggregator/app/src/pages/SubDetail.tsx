@@ -132,6 +132,7 @@ export function SubDetail() {
         )}
         cta={
           <button
+            disabled={!sub}
             type="button"
             onClick={join}
             className={cm.cn(

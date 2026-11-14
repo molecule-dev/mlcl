@@ -3524,6 +3524,8 @@ export function scaffoldRules(parser) {
             '{{location}}: This toggle waits for its save before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, save in commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads. Preserve authentication checks and keep the control mounted during saves.',
           droppedIntent:
             'This control shows its next value before awaiting work, but its busy guard discards another click while that work is pending. Keep the control disabled for that busy state, or queue the latest intent with useOptimisticValue from @molecule/app-react. An imported callback does not make the busy guard safe.',
+          unreadyRecord:
+            'This enabled control silently discards a click while {{record}} is not available yet. Disable it until that record exists (disabled={!{{record}}}), or render it only with loaded data, for example inside QueryContent. Keep controls available during same-record refetches once their initial data exists.',
         },
       },
       create(context) {
@@ -4454,6 +4456,376 @@ export function scaffoldRules(parser) {
           },
           'Program:exit'() {
             if (!reactModule) return
+            if (mode === 'dropped-intent') {
+              const flow = reactStateFlow(context)
+              const records = flow.states
+                .filter(
+                  (state) =>
+                    (!state.initial ||
+                      state.initial.value === null ||
+                      (state.initial.type === 'Identifier' &&
+                        state.initial.name === 'undefined')) &&
+                    flow.effects.some((effect) =>
+                      effect.writes.some((write) => write.state === state && write.async),
+                    ),
+                )
+                .map((state) => ({
+                  variable: state.value,
+                  field: null,
+                  name: state.value.name,
+                  owner: state.owner,
+                  missing: state.initial?.value === null ? null : undefined,
+                }))
+              // A declared query's data is unavailable before its initial load too. Follow its
+              // binding, not variable names, API routes, test files or application nouns.
+              flow.walk(context.sourceCode.ast, (node) => {
+                if (node.type !== 'VariableDeclarator' || node.init?.type !== 'CallExpression')
+                  return
+                const binding = variableFor(node.init.callee)?.defs[0]
+                if (
+                  binding?.type !== 'ImportBinding' ||
+                  binding.node.imported?.name !== 'useQuery' ||
+                  !['@molecule/app-query-react', '@tanstack/react-query'].includes(
+                    binding.parent.source.value,
+                  )
+                )
+                  return
+                if (node.id.type === 'Identifier')
+                  records.push({
+                    variable: variableFor(node.id),
+                    field: 'data',
+                    name: `${node.id.name}.data`,
+                    owner: flow.owner(node),
+                    missing: undefined,
+                  })
+                if (node.id.type === 'ObjectPattern')
+                  for (const property of node.id.properties)
+                    if (
+                      property.type === 'Property' &&
+                      (property.key.name ?? property.key.value) === 'data' &&
+                      property.value.type === 'Identifier'
+                    )
+                      records.push({
+                        variable: variableFor(property.value),
+                        field: null,
+                        name: property.value.name,
+                        owner: flow.owner(node),
+                        missing: undefined,
+                      })
+              })
+              const refers = (node, record) => {
+                node = unwrap(node)
+                return record.field
+                  ? node?.type === 'MemberExpression' &&
+                      variableFor(node.object) === record.variable &&
+                      (node.computed ? node.property.value : node.property.name) === record.field
+                  : node?.type === 'Identifier' && variableFor(node) === record.variable
+              }
+              // Keep nullable projections of query data tied to their own lexical binding.
+              // A fallback that supplies a usable value is independent of initial loading.
+              const projection = (node, record) => {
+                node = unwrap(node)
+                if (refers(node, record)) return true
+                if (node?.type === 'MemberExpression') return projection(node.object, record)
+                if (
+                  node?.type === 'LogicalExpression' &&
+                  node.operator === '??' &&
+                  (node.right.value === null ||
+                    (node.right.type === 'Identifier' &&
+                      node.right.name === 'undefined' &&
+                      !variableFor(node.right)?.defs.length))
+                )
+                  return projection(node.left, record)
+                return false
+              }
+              flow.walk(context.sourceCode.ast, (node) => {
+                if (
+                  node.type !== 'VariableDeclarator' ||
+                  node.id.type !== 'Identifier' ||
+                  node.parent.kind !== 'const'
+                )
+                  return
+                if (records.some((record) => projection(node.init, record)))
+                  records.push({
+                    variable: variableFor(node.id),
+                    field: null,
+                    name: node.id.name,
+                    owner: flow.owner(node),
+                    missing:
+                      node.init?.type === 'LogicalExpression' &&
+                      node.init.operator === '??' &&
+                      node.init.right.value === null
+                        ? null
+                        : undefined,
+                  })
+              })
+              // Does this condition being truth/false prove that this particular record exists?
+              const present = (node, truth, record, seen = new Set()) => {
+                node = unwrap(node)
+                if (!node || seen.has(node)) return false
+                const next = new Set(seen).add(node)
+                if (refers(node, record)) return truth
+                if (node.type === 'UnaryExpression' && node.operator === '!')
+                  return present(node.argument, !truth, record, next)
+                if (
+                  node.type === 'LogicalExpression' &&
+                  ((node.operator === '&&' && truth) || (node.operator === '||' && !truth))
+                )
+                  return (
+                    present(node.left, truth, record, next) ||
+                    present(node.right, truth, record, next)
+                  )
+                if (
+                  node.type === 'BinaryExpression' &&
+                  ['==', '===', '!=', '!=='].includes(node.operator)
+                )
+                  for (const [left, right] of [
+                    [node.left, node.right],
+                    [node.right, node.left],
+                  ])
+                    if (
+                      refers(left, record) &&
+                      (right.value === null ||
+                        (right.type === 'Identifier' &&
+                          right.name === 'undefined' &&
+                          !variableFor(right)?.defs.length))
+                    )
+                      return truth === node.operator.includes('!')
+                if (
+                  node.type === 'CallExpression' &&
+                  node.callee.name === 'Boolean' &&
+                  !variableFor(node.callee)?.defs.length
+                )
+                  return present(node.arguments[0], truth, record, next)
+                const definition = variableFor(node)?.defs[0]
+                return (
+                  definition?.type === 'Variable' &&
+                  definition.parent.kind === 'const' &&
+                  definition.node.id.type === 'Identifier' &&
+                  present(definition.node.init, truth, record, next)
+                )
+              }
+              // Evaluate only availability expressions with this record at its missing initial
+              // value. Other values stay unknown: no loading-flag, route or cross-control inference.
+              const UNKNOWN = Symbol('unknown'),
+                TRUTHY = Symbol('truthy'),
+                FALSY = Symbol('falsy'),
+                SHORT = Symbol('optional-short-circuit')
+              const value = (result) => (result === SHORT ? undefined : result)
+              const truth = (result) => {
+                result = value(result)
+                return result === UNKNOWN
+                  ? null
+                  : result === TRUTHY
+                    ? true
+                    : result === FALSY
+                      ? false
+                      : Boolean(result)
+              }
+              const primitive = (result) =>
+                result !== UNKNOWN &&
+                result !== TRUTHY &&
+                result !== FALSY &&
+                (result === null || !['object', 'function', 'symbol'].includes(typeof result))
+              const evaluate = (node, record, seen = new Set()) => {
+                if (!node || seen.has(node)) return UNKNOWN
+                const next = new Set(seen).add(node)
+                if (
+                  [
+                    'TSAsExpression',
+                    'TSSatisfiesExpression',
+                    'TSTypeAssertion',
+                    'TSNonNullExpression',
+                  ].includes(node.type)
+                )
+                  return evaluate(node.expression, record, next)
+                if (node.type === 'ChainExpression')
+                  return value(evaluate(node.expression, record, next))
+                if (refers(node, record)) return record.missing
+                if (node.type === 'Literal') return node.value
+                if (node.type === 'ArrayExpression') return node.elements.length === 0 ? [] : TRUTHY
+                if (node.type === 'ObjectExpression') return TRUTHY
+                if (
+                  node.type === 'Identifier' &&
+                  node.name === 'undefined' &&
+                  !variableFor(node)?.defs.length
+                )
+                  return undefined
+                if (node.type === 'UnaryExpression' && node.operator === '!') {
+                  const result = truth(evaluate(node.argument, record, next))
+                  return result === null ? UNKNOWN : !result
+                }
+                if (node.type === 'LogicalExpression') {
+                  const left = value(evaluate(node.left, record, next)),
+                    known = truth(left)
+                  if (node.operator === '??') {
+                    if (left === null || left === undefined)
+                      return value(evaluate(node.right, record, next))
+                    return left === UNKNOWN || left === FALSY ? UNKNOWN : left
+                  }
+                  if (known !== null)
+                    return (node.operator === '&&') === known
+                      ? value(evaluate(node.right, record, next))
+                      : left
+                  const right = value(evaluate(node.right, record, next)),
+                    rightTruth = truth(right)
+                  return node.operator === '||' && rightTruth === true
+                    ? TRUTHY
+                    : node.operator === '&&' && rightTruth === false
+                      ? FALSY
+                      : UNKNOWN
+                }
+                if (node.type === 'ConditionalExpression') {
+                  const condition = truth(evaluate(node.test, record, next))
+                  if (condition !== null)
+                    return value(
+                      evaluate(condition ? node.consequent : node.alternate, record, next),
+                    )
+                  const yes = value(evaluate(node.consequent, record, next)),
+                    no = value(evaluate(node.alternate, record, next))
+                  if (primitive(yes) && primitive(no) && Object.is(yes, no)) return yes
+                  const same = truth(yes) === truth(no) ? truth(yes) : null
+                  return same === null ? UNKNOWN : same ? TRUTHY : FALSY
+                }
+                if (node.type === 'MemberExpression') {
+                  const object = evaluate(node.object, record, next)
+                  if (object === SHORT) return SHORT
+                  if (object === null || object === undefined)
+                    return node.optional ? SHORT : UNKNOWN
+                  const key = node.computed
+                    ? value(evaluate(node.property, record, next))
+                    : node.property.name
+                  return Array.isArray(object) && key === 'length' ? object.length : UNKNOWN
+                }
+                if (node.type === 'CallExpression') {
+                  if (
+                    node.callee.type === 'Identifier' &&
+                    node.callee.name === 'Boolean' &&
+                    !variableFor(node.callee)?.defs.length
+                  ) {
+                    const result = truth(
+                      node.arguments.length ? evaluate(node.arguments[0], record, next) : undefined,
+                    )
+                    return result === null ? UNKNOWN : result
+                  }
+                  if (flow.react(node.callee, 'useMemo')) {
+                    const fn = functionFor(node.arguments[0])
+                    const body =
+                      fn?.body.type === 'BlockStatement' &&
+                      fn.body.body.length === 1 &&
+                      fn.body.body[0].type === 'ReturnStatement'
+                        ? fn.body.body[0].argument
+                        : fn?.expression
+                          ? fn.body
+                          : null
+                    return body ? value(evaluate(body, record, next)) : UNKNOWN
+                  }
+                  const callee = evaluate(node.callee, record, next)
+                  if (callee === SHORT) return SHORT
+                  return node.optional && (callee === null || callee === undefined)
+                    ? SHORT
+                    : UNKNOWN
+                }
+                if (node.type === 'BinaryExpression') {
+                  const left = value(evaluate(node.left, record, next)),
+                    right = value(evaluate(node.right, record, next))
+                  if (!primitive(left) || !primitive(right)) return UNKNOWN
+                  switch (node.operator) {
+                    case '==':
+                      return left == right
+                    case '!=':
+                      return left != right
+                    case '===':
+                      return left === right
+                    case '!==':
+                      return left !== right
+                    case '<':
+                      return left < right
+                    case '<=':
+                      return left <= right
+                    case '>':
+                      return left > right
+                    case '>=':
+                      return left >= right
+                    default:
+                      return UNKNOWN
+                  }
+                }
+                const definition = variableFor(node)?.defs[0]
+                return definition?.type === 'Variable' &&
+                  definition.parent.kind === 'const' &&
+                  definition.node.id.type === 'Identifier'
+                  ? evaluate(definition.node.init, record, next)
+                  : UNKNOWN
+              }
+              const prefixEnd = (fn) => {
+                let end = Infinity
+                walk(fn.body, (node) => {
+                  if (node.type === 'AwaitExpression') end = Math.min(end, node.range[1])
+                })
+                return end
+              }
+              const silentReturn = (node) =>
+                (node?.type === 'ReturnStatement' && !node.argument) ||
+                (node?.type === 'BlockStatement' &&
+                  node.body.length === 1 &&
+                  silentReturn(node.body[0]))
+              const handlers = (fn, seen = new Set()) => {
+                if (!fn || seen.has(fn)) return []
+                seen.add(fn)
+                const found = [fn]
+                walk(fn.body, (node) => {
+                  if (node.type === 'CallExpression' && node.range[1] <= prefixEnd(fn))
+                    found.push(...handlers(functionFor(node.callee), seen))
+                })
+                return found
+              }
+              for (const { opening, handler } of controls) {
+                const relevant = handlers(handler)
+                for (const record of records) {
+                  const ignoresMissing = relevant.some(
+                    (fn) =>
+                      fn.body.type === 'BlockStatement' &&
+                      fn.body.body.some(
+                        (statement) =>
+                          statement.type === 'IfStatement' &&
+                          statement.range[0] < prefixEnd(fn) &&
+                          !statement.alternate &&
+                          silentReturn(statement.consequent) &&
+                          present(statement.test, false, record),
+                      ),
+                  )
+                  if (!ignoresMissing) continue
+                  const disabled = flow.attr(opening, 'disabled')
+                  if (
+                    disabled &&
+                    (!disabled.value ||
+                      truth(
+                        evaluate(
+                          disabled.value.type === 'JSXExpressionContainer'
+                            ? disabled.value.expression
+                            : disabled.value,
+                          record,
+                        ),
+                      ) === true)
+                  )
+                    continue
+                  if (
+                    flow.conditions(opening, record.owner).some(([test, expected]) => {
+                      const actual = truth(evaluate(test, record))
+                      return actual !== null && actual !== expected
+                    })
+                  )
+                    continue
+                  context.report({
+                    node: opening,
+                    messageId: 'unreadyRecord',
+                    data: { record: record.name },
+                  })
+                  break
+                }
+              }
+            }
             const reported = new Set()
             const names = new Map()
             const namesFor = (fn) => {
@@ -5367,7 +5739,10 @@ export function scaffoldRules(parser) {
     meta: {
       ...toggles.meta,
       type: 'problem',
-      docs: { description: 'Reject an enabled optimistic control that drops clicks while saving.' },
+      docs: {
+        description:
+          'Reject an enabled control that drops clicks while its record loads or while saving.',
+      },
     },
     create(context) {
       return toggles.create(

@@ -732,6 +732,7 @@ export function Editor() {
             />
 
             <button
+              disabled={!doc}
               type="button"
               onClick={loadSuggestions}
               className={cm.cn(

@@ -248,7 +248,7 @@ export function TeamMembers() {
           <button
             type="button"
             onClick={submitInvite}
-            disabled={inviteSubmitting}
+            disabled={inviteSubmitting || !workspace}
             data-testid="submit-invite-member"
             className={cm.cn(
               cm.sp('px', 5),

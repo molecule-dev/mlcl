@@ -316,7 +316,7 @@ export function VersionHistory() {
                 <button
                   type="button"
                   onClick={restore}
-                  disabled={busy || !active || (doc !== null && doc.version === active.version)}
+                  disabled={busy || !active || !doc || doc.version === active.version}
                   className={cm.cn(
                     cm.sp('px', 4),
                     cm.sp('py', 2),

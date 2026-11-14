@@ -559,6 +559,7 @@ export function Editor() {
         )}
       >
         <button
+          disabled={!activeSheetId}
           type="button"
           onClick={addColumn}
           className={cm.cn(
@@ -574,6 +575,7 @@ export function Editor() {
           {t('editor.addColumn', {}, { defaultValue: 'Add column' })}
         </button>
         <button
+          disabled={!activeSheetId}
           type="button"
           onClick={addRow}
           className={cm.cn(
@@ -622,6 +624,7 @@ export function Editor() {
               )}
             </p>
             <button
+              disabled={!activeSheetId}
               type="button"
               onClick={addColumn}
               className={cm.cn(

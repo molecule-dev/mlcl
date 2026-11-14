@@ -41,6 +41,17 @@ narrow ESLint disable with a reason and verify the target in the browser.
 `npm run lint` and the lint step of `mlcl check` report the source line and fix;
 the rule behaves the same with supplied tests, authored tests, or no suite.
 
+`molecule-local/no-dropped-optimistic-intent` also rejects a visible, enabled React
+control whose handler silently returns before its first awaited work while a required
+record is unavailable. Disable the control until the record exists, or render it only
+with available data, for example inside `QueryContent`. The check follows effect-filled
+nullable state and declared query data within a module. Existing JavaScript guards,
+including optional access and derived counts, establish availability; a refresh reached
+after an awaited action does not make that action unavailable. Other helpers remain
+unknown, so use a direct data guard when the linter cannot establish availability.
+The check reads no test files and adds no browser delay. Actions that work without
+that record, and already guarded controls, are unchanged.
+
 ---
 
 ## Method 1 — zero setup (any agent, any harness)

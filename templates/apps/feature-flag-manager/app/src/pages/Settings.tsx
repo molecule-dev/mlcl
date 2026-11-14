@@ -256,7 +256,7 @@ export function Settings() {
                 <button
                   type="button"
                   onClick={() => void onSaveOrg()}
-                  disabled={savingOrg}
+                  disabled={savingOrg || !me}
                   className={cm.cn(
                     'mt-6 inline-flex items-center gap-1.5 rounded-md px-4 py-2 font-mono text-sm font-bold transition-colors disabled:opacity-50',
                   )}
@@ -374,7 +374,7 @@ export function Settings() {
                 <button
                   type="button"
                   onClick={() => void onSaveAccount()}
-                  disabled={savingAccount}
+                  disabled={savingAccount || !me}
                   className={cm.cn(
                     'mt-6 inline-flex items-center gap-1.5 rounded-md px-4 py-2 font-mono text-sm font-bold transition-colors disabled:opacity-50',
                   )}

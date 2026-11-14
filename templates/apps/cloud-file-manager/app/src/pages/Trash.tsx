@@ -232,7 +232,7 @@ export function Trash() {
             </span>
             <button
               onClick={() => void handleEmptyAll()}
-              disabled={emptying}
+              disabled={emptying || count === 0}
               type="button"
               data-mol-id="trash-empty-confirm"
               className={cm.cn(
