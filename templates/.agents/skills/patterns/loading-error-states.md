@@ -82,3 +82,4 @@ swapping the items for skeletons; while those rows belong to the previous key
 - Don't throw errors to console without rendering them — users need to know.
 - Don't use a spinner on a list page — use a skeleton whose shape matches the card so the page doesn't jump when data arrives.
 - Don't put a loading or empty placeholder inside the item list, or in a node that carries the item's contract class.
+- Don't mount a single record's container (its card, header or profile block) around a loading or refreshing line: a reader that finds the container and reads its paragraph reads "Loading…" as the record. Render the status beside the container and mount the container with the data (`QueryContent`'s child, see `item-detail-fetch.md`).

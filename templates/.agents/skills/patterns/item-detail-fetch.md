@@ -51,26 +51,34 @@ export function PostDetail() {
       )}
     >
       {(post) => (
-        <article>
+        <>
           {query.isFetching ? (
             <p role="status">
               {t('common.refreshing', undefined, { defaultValue: 'Refreshing…' })}
             </p>
           ) : null}
-          <h1>{post.title}</h1>
-          <p>{post.body}</p>
-          <Link to={`/posts/${encodeURIComponent(post.id)}/edit`}>
-            {t('posts.edit', undefined, { defaultValue: 'Edit post' })}
-          </Link>
-        </article>
+          <article>
+            <h1>{post.title}</h1>
+            <p>{post.body}</p>
+            <Link to={`/posts/${encodeURIComponent(post.id)}/edit`}>
+              {t('posts.edit', undefined, { defaultValue: 'Edit post' })}
+            </Link>
+          </article>
+        </>
       )}
     </QueryContent>
   )
 }
 ```
 
-The edit control and every resource-dependent control belong inside the
-`QueryContent` child, which receives the loaded `post`. Do not
+The record's own markup — its container (`<article>` here, or the page's
+`.card`, header or profile block) and every element in it — belongs inside the
+`QueryContent` child, and every status line (loading, error, refreshing) sits
+beside that container, never inside it. A check that finds the container and
+reads its first paragraph then reads the record, not "Loading…" or
+"Refreshing…"; a container mounted before its data, holding a placeholder,
+is read as the record. The edit control and every resource-dependent control
+belong inside the `QueryContent` child, which receives the loaded `post`. Do not
 render an enabled action on the first paint with a handler that returns while
 the resource is missing: the early click is lost. Cached data stays visible
 and actionable during refresh. A key change observes the new key's state;

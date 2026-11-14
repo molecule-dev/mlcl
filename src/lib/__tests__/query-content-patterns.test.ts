@@ -9,7 +9,7 @@ import * as router from 'react-router'
 import ts from 'typescript'
 import { afterEach, beforeEach, expect, it, vi } from 'vitest'
 
-import { resetQueryClient, setProvider } from '@molecule/app-query'
+import { getQueryClient, resetQueryClient, setProvider } from '@molecule/app-query'
 import { provider } from '@molecule/app-query-memory'
 import * as query from '@molecule/app-query-react'
 
@@ -104,6 +104,51 @@ it('the shipped detail recipe hides its edit action until the record loads', asy
   expect(screen.getByRole('link', { name: 'Edit post' }).getAttribute('href')).toBe(
     '/posts/one/edit',
   )
+})
+
+// A status line inside the record's own container is read as the record: a check that finds the
+// container and reads its paragraph gets "Refreshing…" (or "Loading…") instead of the record's text.
+it('the shipped detail recipe keeps its refresh status beside the record, not inside it', async () => {
+  http.get.mockResolvedValueOnce({ data: { id: 'one', title: 'A book', body: 'Ready' } })
+  route(pattern('item-detail-fetch.md', 'PostDetail'))
+  await screen.findByRole('link', { name: 'Edit post' })
+  const key = [undefined, 'post', 'one']
+  let resolve!: (value: unknown) => void
+  const refreshed = new Promise((r) => {
+    resolve = r
+  })
+  // A background refresh of the same key, as a refetch after a mutation would start.
+  await act(async () => {
+    getQueryClient().invalidate(key)
+    void getQueryClient().fetch({ key, fetch: () => refreshed })
+  })
+  const status = await screen.findByRole('status')
+  expect(status.textContent).toContain('Refreshing')
+  expect(status.closest('article')).toBeNull()
+  expect(screen.getByRole('article').querySelector('p')?.textContent).toBe('Ready')
+  await act(async () => resolve({ id: 'one', title: 'A book', body: 'Ready' }))
+  expect(screen.queryByRole('status')).toBeNull()
+})
+
+it('the shipped list recipe keeps its refresh status beside the list section, not inside it', async () => {
+  http.get.mockResolvedValueOnce({ data: [{ id: 'one', title: 'A book', excerpt: 'Ready' }] })
+  route(pattern('list-fetch.md', 'PostList'))
+  await screen.findByRole('listitem')
+  const key = [undefined, 'posts']
+  let resolve!: (value: unknown) => void
+  const refreshed = new Promise((r) => {
+    resolve = r
+  })
+  await act(async () => {
+    getQueryClient().invalidate(key)
+    void getQueryClient().fetch({ key, fetch: () => refreshed })
+  })
+  const status = await screen.findByRole('status')
+  expect(status.textContent).toContain('Refreshing')
+  expect(status.closest('section')).toBeNull()
+  expect(screen.getAllByRole('listitem')).toHaveLength(1)
+  await act(async () => resolve([{ id: 'one', title: 'A book', excerpt: 'Ready' }]))
+  expect(screen.queryByRole('status')).toBeNull()
 })
 
 it('counterexample: the accounting flagship already keeps Mark paid unavailable while its invoice loads', async () => {

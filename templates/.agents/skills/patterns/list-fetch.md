@@ -49,23 +49,25 @@ export function PostList() {
         posts.length === 0 ? (
           <p>{t('posts.empty', undefined, { defaultValue: 'No posts yet.' })}</p>
         ) : (
-          <section>
+          <>
             {query.isFetching ? (
               <p role="status">
                 {t('common.refreshing', undefined, { defaultValue: 'Refreshing…' })}
               </p>
             ) : null}
-            <ul>
-              {posts.map((post) => (
-                <li key={post.id}>
-                  <Link to={`/posts/${encodeURIComponent(post.id)}`}>
-                    <h2>{post.title}</h2>
-                    <p>{post.excerpt}</p>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-          </section>
+            <section>
+              <ul>
+                {posts.map((post) => (
+                  <li key={post.id}>
+                    <Link to={`/posts/${encodeURIComponent(post.id)}`}>
+                      <h2>{post.title}</h2>
+                      <p>{post.excerpt}</p>
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </section>
+          </>
         )
       }
     </QueryContent>
@@ -73,7 +75,10 @@ export function PostList() {
 }
 ```
 
-The `QueryContent` child receives only loaded data. Render item actions inside it. A visible enabled
+The `QueryContent` child receives only loaded data. Render item actions inside it.
+Keep every status line (loading, error, refreshing) beside the list's container,
+never inside it or inside an item: a check that reads the container's or a row's
+first paragraph must read real content, not "Refreshing…". A visible enabled
 button whose handler returns on missing data loses the first click. Loading
 and failed initial requests have no resource action; an empty array is a loaded
 empty state. Cached items stay actionable during a background refresh.
