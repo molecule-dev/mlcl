@@ -35,6 +35,7 @@ describe.each(['app/shared', 'static'])('%s Vite template substitutions', (templ
         BRANDING_IMPORT: './src/branding.js',
         VITE_PLUGINS: plugins,
         RESOLVE_EXTENSIONS: '',
+        WARMUP_CLIENT_FILES: "['src/main.tsx', 'src/bonds/*.ts']",
       }),
     )
     expect(output).not.toMatch(/\{\{[A-Z_]+\}\}/)

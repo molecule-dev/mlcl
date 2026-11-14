@@ -151,4 +151,30 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
     const config = await readFile(join(roots[framework], 'vite.config.ts'), 'utf8')
     expect(config).toMatch(/test:\s*\{[\s\S]*environment:\s*'node'/)
   })
+
+  // Vite requests every literal warmup path whether or not the file exists, and logs
+  // `Pre-transform error: Failed to load url /src/main.tsx` on every dev start when it
+  // does not (a SvelteKit app did, with React's entry names).
+  it('warms up only files it wrote', async () => {
+    const config = await readFile(join(roots[framework], 'vite.config.ts'), 'utf8')
+    const list = /clientFiles:\s*\[([^\]]*)\]/.exec(config)?.[1]
+    expect(list, 'vite.config.ts declares server.warmup.clientFiles').toBeDefined()
+    const entries = [...(list ?? '').matchAll(/'([^']+)'/g)].map((match) => match[1])
+    expect(entries.length).toBeGreaterThan(0)
+    const missing: string[] = []
+    for (const entry of entries) {
+      const slash = entry.lastIndexOf('/')
+      const dir = join(roots[framework], entry.slice(0, slash))
+      const name = entry.slice(slash + 1)
+      const files = await readdir(dir).catch((error: NodeJS.ErrnoException) => {
+        if (error.code === 'ENOENT') return []
+        throw error
+      })
+      const pattern = new RegExp(
+        `^${name.replace(/[.+?^${}()|[\]\\]/g, '\\$&').replace(/\*/g, '[^/]*')}$`,
+      )
+      if (!files.some((file) => pattern.test(file))) missing.push(entry)
+    }
+    expect(missing).toEqual([])
+  })
 })

@@ -360,7 +360,7 @@ export default defineConfig({
     ...(watchPolling ? { watch: { usePolling: true, interval: 500, binaryInterval: 1000 } } : {}),
     proxy: apiProxy,
     warmup: {
-      clientFiles: ['src/main.tsx', 'src/App.tsx', 'src/bonds/*.ts'],
+      clientFiles: {{WARMUP_CLIENT_FILES}},
     },
   },
   preview: {

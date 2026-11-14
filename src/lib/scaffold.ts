@@ -4975,6 +4975,8 @@ export async function createAppProject(
   const sharedSubdir = fwConfig.sharedCodeDir // e.g. "lib" for SvelteKit
   const sharedDir = sharedSubdir ? join(projectPath, 'src', sharedSubdir) : join(projectPath, 'src')
   const ext = fwConfig.fileExtension ?? 'tsx'
+  // The module `index.html` loads (and the dev server warms up first).
+  const mainEntry = `src/main.${ext}`
   // A NAME from the registry (`schema.ts`: "Static assets directory name"), resolved
   // against this project here. Everything below joins it with `projectPath`, EXCEPT
   // the preview-bridge injectors, which take a directory: those get
@@ -5169,6 +5171,10 @@ export async function createAppProject(
       VITE_PLUGINS: pluginsLine,
       BRANDING_IMPORT: brandingImportPath,
       RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
+      WARMUP_CLIENT_FILES: viteWarmupClientFiles(
+        htmlFile === 'app.html' ? undefined : mainEntry,
+        sharedSubdir ? `src/${sharedSubdir}/bonds` : 'src/bonds',
+      ),
     }),
   )
 
@@ -5206,7 +5212,7 @@ export async function createAppProject(
       join(projectPath, htmlFile),
       await loadTemplate('app/shared/index.html.tpl', {
         ...htmlVars,
-        MAIN_ENTRY: `/src/main.${ext}`,
+        MAIN_ENTRY: `/${mainEntry}`,
         ROOT_ELEMENT: fwConfig.htmlRootElement ?? '<div id="root"></div>',
       }),
     )
@@ -5502,6 +5508,25 @@ function vitePluginsLine(plugins: string[]): string {
   const oneLine = `  plugins: [${plugins.join(', ')}],`
   if (oneLine.length <= 100) return oneLine
   return ['  plugins: [', ...plugins.map((p) => `    ${p},`), '  ],'].join('\n')
+}
+
+/**
+ * The dev server's `warmup.clientFiles` list of a generated `vite.config.ts`: the
+ * entry module the scaffold writes into `index.html` plus the bond files. Vite
+ * pre-transforms a warmed module's static imports itself, so the entry also warms
+ * the app component behind it. Vite requests every LITERAL path it is given
+ * whether or not the file exists (only a glob is matched against disk), and a
+ * missing one logs `Pre-transform error: Failed to load url` on every dev start —
+ * so a framework that owns its own entry (SvelteKit, whose page is `src/app.html`)
+ * passes no entry and gets only the bond glob.
+ *
+ * @param entry - The entry module the scaffold writes (`src/main.tsx`), or undefined when the framework generates its own.
+ * @param bondsDir - The project-relative directory the scaffold writes the bond files into.
+ * @returns The array literal, as the project's prettier prints it.
+ */
+export function viteWarmupClientFiles(entry: string | undefined, bondsDir: string): string {
+  const files = [...(entry ? [entry] : []), `${bondsDir}/*.ts`]
+  return `[${files.map((file) => `'${file}'`).join(', ')}]`
 }
 
 /**
