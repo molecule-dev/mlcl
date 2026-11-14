@@ -59,6 +59,14 @@ describe('framework-scoped session guidance', () => {
       // The guide names the plugin the Vue scaffold itself installs in src/main.ts.
       expect(content, relative).toContain('app.use(moleculePlugin, { auth: authClient')
     }
+    // The bond shows the real signatures of the client and of THIS binding's hook.
+    const bond = await readFile(join(root, 'src/bonds/auth-default.ts'), 'utf8')
+    expect(bond).toContain('Declarations (generated from the package types')
+    expect(bond).toContain(' *   function createJWTAuthClient<')
+    expect(bond).toContain(' *   interface AuthClient<')
+    expect(bond).toContain(' *   interface UseAuthReturn<')
+    expect(bond).not.toContain('interface UseAuthResult<')
+    expect(bond.match(/\*\//g)).toHaveLength(1)
     expect(await readFile(join(root, 'src/main.ts'), 'utf8')).toContain('app.use(moleculePlugin, {')
     expect(registry.packages['@molecule/app-vue']!.exports).toContain('moleculePlugin')
   })
@@ -78,6 +86,8 @@ describe('framework-scoped session guidance', () => {
     expect(auth?.content).toContain('copied user/status')
     expect(auth?.content).toContain('view/debug adapters read the bonded client')
     expect(auth?.content).toContain('`useAuth()` from `@molecule/app-react`')
+    expect(auth?.content).toContain(' *   interface UseAuthResult<')
+    expect(auth?.content).not.toContain('interface UseAuthReturn<')
 
     const index = files.find((file) => file.targetPath === join(root, 'src/bonds/index.ts'))
     expect(index).toBeDefined()

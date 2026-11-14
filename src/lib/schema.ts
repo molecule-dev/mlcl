@@ -182,6 +182,13 @@ export const DecisionGuide = z.object({
     .describe(
       'Framework package name to session guidance, rendered only when that binding is declared',
     ),
+  bindingDeclare: z
+    .record(z.string(), z.array(z.string().regex(/^[A-Za-z_$][\w$]*$/)))
+    .optional()
+    .describe(
+      'Framework package name to exports of THAT package whose declarations the generated bond ' +
+        'file shows when the binding is declared (e.g. its `useAuth` and result type)',
+    ),
   configuration: z
     .array(z.string())
     .min(1)
@@ -1060,9 +1067,24 @@ export const RegistryEntry = z.object({
             'next page that mounts one refetches it instead of showing the pre-write document. ' +
             'Dropped when that package is not in the same scaffold.',
         ),
+      declare: z
+        .array(z.string().regex(/^[A-Za-z_$][\w$]*$/))
+        .optional()
+        .describe(
+          'Exports of this package whose declarations the generated bond file shows (the config ' +
+            'type, the client interface): the text is scanned into `declarations`, never hand-written.',
+        ),
     })
     .optional()
     .describe('How to generate a default bond setup when no explicit provider is selected'),
+  declarations: z
+    .record(z.string(), z.string())
+    .optional()
+    .describe(
+      'Comment-free, body-free declarations of the exports a `defaultBondSetup.declare` or ' +
+        '`decisionGuide.bindingDeclare` names in this package — scanned from source by ' +
+        'sync-registry --scan-exports; a published package ships no source to read them from.',
+    ),
   decisionGuide: DecisionGuide.optional().describe(
     'Decision-time configuration guidance for this package; consumed by the generated capability map.',
   ),

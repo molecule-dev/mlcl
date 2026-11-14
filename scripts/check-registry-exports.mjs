@@ -63,10 +63,12 @@ import { getRawRegistry, getRegistryPath } from '../src/lib/registry.js'
 import { scanResponseRecord } from '../src/lib/response-record.js'
 import {
   bondSetterScope,
+  declarationScope,
   findMoleculePackages,
   ROUTE_SCANNED_TYPES,
   routesSignature,
   scanBondSetter,
+  scanDeclarations,
   scanExports,
   scanForRoutes,
 } from '../src/lib/scanner.js'
@@ -115,7 +117,9 @@ const routeDrifted = []
 const setterDrifted = []
 const peersDrifted = []
 const recordDrifted = []
+const declarationsDrifted = []
 const bondSetterNames = bondSetterScope(registry.packages)
+const declared = declarationScope(registry.packages)
 let checked = 0
 let skipped = 0
 
@@ -210,6 +214,20 @@ for (const [name, entry] of Object.entries(registry.packages)) {
     const have = entry.bondSetter ?? null
     if (have !== scannedSetter) setterDrifted.push({ name, have, want: scannedSetter })
   }
+
+  // declarations — same scope and scan as sync-registry's refreshExports. A changed type a
+  // generated bond file shows is a stale signature in every new scaffold; a requested name the
+  // source does not declare would show nothing.
+  if (existsSync(srcPath)) {
+    const names = declared.get(name) ?? []
+    const want = names.length ? await scanDeclarations(srcPath, names) : {}
+    const have = entry.declarations ?? {}
+    const unresolved = names.filter((n) => !(n in want))
+    const stale = [...new Set([...Object.keys(have), ...Object.keys(want)])].filter(
+      (n) => have[n] !== want[n],
+    )
+    if (unresolved.length || stale.length) declarationsDrifted.push({ name, unresolved, stale })
+  }
 }
 
 if (unregistered.length > 0) {
@@ -242,6 +260,22 @@ if (routeDrifted.length > 0) {
     console.error(`  ${name}: registry has ${have} route(s), src/routes.ts yields ${want}`)
   }
   console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-routes`)
+}
+
+if (declarationsDrifted.length > 0) {
+  console.error(
+    `\n✗ registry.json bond-file declarations are out of sync (${declarationsDrifted.length} package(s)):\n`,
+  )
+  for (const { name, unresolved, stale } of declarationsDrifted) {
+    const parts = []
+    if (stale.length) parts.push(`stale ${JSON.stringify(stale)}`)
+    if (unresolved.length)
+      parts.push(
+        `no exported interface/type/enum/function/class/typed const for ${JSON.stringify(unresolved)} (fix the declare list)`,
+      )
+    console.error(`  ${name}: ${parts.join(', ')}`)
+  }
+  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
 }
 
 if (setterDrifted.length > 0) {
@@ -291,6 +325,7 @@ if (
   drifted.length > 0 ||
   routeDrifted.length > 0 ||
   setterDrifted.length > 0 ||
+  declarationsDrifted.length > 0 ||
   peersDrifted.length > 0
 ) {
   console.error(`Then commit ${registryPath}\n`)
@@ -299,5 +334,5 @@ if (
 
 const scope = scopePaths.size > 0 ? `${checked} scoped` : `${checked}`
 console.log(
-  `✓ registry exports + routes + bond setters + required peers + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
+  `✓ registry exports + routes + bond setters + bond-file declarations + required peers + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
 )

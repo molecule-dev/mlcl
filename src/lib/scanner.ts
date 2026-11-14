@@ -1022,6 +1022,380 @@ export async function scanBondSetter(
   return null
 }
 
+/**
+ * The export names whose declarations each package's registry entry must carry: its own
+ * `defaultBondSetup.declare`, plus every name another entry's `decisionGuide.bindingDeclare`
+ * asks of it (app-auth asks `@molecule/app-react` for `useAuth`).
+ *
+ * Shared by `sync-registry --scan-exports` (which fills `declarations`) and the drift gate
+ * (`scripts/check-registry-exports.mjs`), so the two can never disagree about the scope.
+ *
+ * @param packages - the registry's `packages` map.
+ * @returns package name → sorted, de-duplicated export names.
+ */
+export function declarationScope(
+  packages: Record<
+    string,
+    {
+      defaultBondSetup?: { declare?: readonly string[] }
+      decisionGuide?: { bindingDeclare?: Record<string, readonly string[]> }
+    }
+  >,
+): Map<string, string[]> {
+  const scope = new Map<string, Set<string>>()
+  const add = (name: string, names: readonly string[]): void => {
+    if (names.length === 0) return
+    const set = scope.get(name) ?? new Set<string>()
+    for (const n of names) set.add(n)
+    scope.set(name, set)
+  }
+  for (const [name, entry] of Object.entries(packages)) {
+    add(name, entry.defaultBondSetup?.declare ?? [])
+    for (const [binding, names] of Object.entries(entry.decisionGuide?.bindingDeclare ?? {}))
+      add(binding, names)
+  }
+  return new Map([...scope].map(([name, names]) => [name, [...names].sort()]))
+}
+
+/**
+ * Modifiers a shown declaration drops: it is read as a signature, not imported from, and a
+ * signature has no `async` (its return type already says `Promise`).
+ */
+const DECLARATION_DROPPED_MODIFIERS = new Set([
+  ts.SyntaxKind.ExportKeyword,
+  ts.SyntaxKind.DefaultKeyword,
+  ts.SyntaxKind.DeclareKeyword,
+  ts.SyntaxKind.AsyncKeyword,
+])
+
+/** The type of a literal default value (`= false` → `boolean`), or undefined for any other. */
+function literalDefaultType(init: ts.Expression): ts.TypeNode | undefined {
+  const f = ts.factory
+  if (init.kind === ts.SyntaxKind.TrueKeyword || init.kind === ts.SyntaxKind.FalseKeyword)
+    return f.createKeywordTypeNode(ts.SyntaxKind.BooleanKeyword)
+  if (ts.isNumericLiteral(init)) return f.createKeywordTypeNode(ts.SyntaxKind.NumberKeyword)
+  if (ts.isStringLiteral(init) || ts.isNoSubstitutionTemplateLiteral(init))
+    return f.createKeywordTypeNode(ts.SyntaxKind.StringKeyword)
+  return undefined
+}
+
+/**
+ * Parameters as a signature declares them: a default value becomes `?` (or `| undefined` when
+ * a required parameter follows it), keeping its type or the type of a literal default, and a
+ * parameter property loses its `public`/`private`/`readonly` (only an implementation may
+ * carry them; the public ones are shown as members instead).
+ */
+function signatureParameters(
+  parameters: ts.NodeArray<ts.ParameterDeclaration>,
+): ts.ParameterDeclaration[] {
+  const f = ts.factory
+  const lastRequired = parameters.reduce(
+    (last, p, index) => (!p.initializer && !p.questionToken && !p.dotDotDotToken ? index : last),
+    -1,
+  )
+  return parameters.map((p, index) => {
+    if (!p.initializer)
+      return f.updateParameterDeclaration(
+        p,
+        undefined, // a parameter property is shown as a member (classParameterProperties)
+        p.dotDotDotToken,
+        p.name,
+        p.questionToken,
+        p.type,
+        undefined,
+      )
+    const type = p.type ?? literalDefaultType(p.initializer)
+    if (index < lastRequired)
+      return f.updateParameterDeclaration(
+        p,
+        undefined, // a parameter property is shown as a member (classParameterProperties)
+        p.dotDotDotToken,
+        p.name,
+        undefined,
+        type &&
+          f.createUnionTypeNode([type, f.createKeywordTypeNode(ts.SyntaxKind.UndefinedKeyword)]),
+        undefined,
+      )
+    return f.updateParameterDeclaration(
+      p,
+      undefined, // a parameter property is shown as a member (classParameterProperties)
+      p.dotDotDotToken,
+      p.name,
+      f.createToken(ts.SyntaxKind.QuestionToken),
+      type,
+      undefined,
+    )
+  })
+}
+
+/** The modifiers of a declaration without export/default/declare. */
+function shownModifiers(node: ts.Node): ts.ModifierLike[] | undefined {
+  const modifiers = ts.canHaveModifiers(node) ? ts.getModifiers(node) : undefined
+  const decorators = ts.canHaveDecorators(node) ? ts.getDecorators(node) : undefined
+  const kept = [
+    ...(decorators ?? []),
+    ...(modifiers ?? []).filter((m) => !DECLARATION_DROPPED_MODIFIERS.has(m.kind)),
+  ]
+  return kept.length ? kept : undefined
+}
+
+/** A class member a consumer can call or read: not private, protected, `#private` or computed. */
+function publicMember(member: ts.ClassElement): boolean {
+  if (ts.isClassStaticBlockDeclaration(member) || ts.isSemicolonClassElement(member)) return false
+  const name = member.name
+  if (name && (ts.isPrivateIdentifier(name) || ts.isComputedPropertyName(name))) return false
+  // An untyped property (`static readonly x = imported`) says nothing once its initializer goes.
+  if (ts.isPropertyDeclaration(member) && !member.type) return false
+  const modifiers = ts.canHaveModifiers(member) ? (ts.getModifiers(member) ?? []) : []
+  return !modifiers.some(
+    (m) => m.kind === ts.SyntaxKind.PrivateKeyword || m.kind === ts.SyntaxKind.ProtectedKeyword,
+  )
+}
+
+/** A class member as a declaration: no body, no initializer. */
+function memberSignature(member: ts.ClassElement): ts.ClassElement {
+  const f = ts.factory
+  const modifiers = shownModifiers(member)
+  if (ts.isMethodDeclaration(member))
+    return f.updateMethodDeclaration(
+      member,
+      modifiers,
+      member.asteriskToken,
+      member.name,
+      member.questionToken,
+      member.typeParameters,
+      signatureParameters(member.parameters),
+      member.type,
+      undefined,
+    )
+  if (ts.isConstructorDeclaration(member))
+    return f.updateConstructorDeclaration(
+      member,
+      modifiers,
+      signatureParameters(member.parameters),
+      undefined,
+    )
+  if (ts.isPropertyDeclaration(member))
+    return f.updatePropertyDeclaration(
+      member,
+      modifiers,
+      member.name,
+      member.questionToken ?? member.exclamationToken,
+      member.type,
+      undefined,
+    )
+  if (ts.isGetAccessorDeclaration(member))
+    return f.updateGetAccessorDeclaration(
+      member,
+      modifiers,
+      member.name,
+      member.parameters,
+      member.type,
+      undefined,
+    )
+  if (ts.isSetAccessorDeclaration(member))
+    return f.updateSetAccessorDeclaration(
+      member,
+      modifiers,
+      member.name,
+      signatureParameters(member.parameters),
+      undefined,
+    )
+  return member
+}
+
+/**
+ * One exported statement as the declaration a reader needs: no comments, no export keyword,
+ * no function or method body, no initializer, no private class member.
+ */
+function declarationOf(statement: ts.Statement): ts.Node | undefined {
+  const f = ts.factory
+  const modifiers = shownModifiers(statement)
+  if (ts.isInterfaceDeclaration(statement))
+    return f.updateInterfaceDeclaration(
+      statement,
+      modifiers,
+      statement.name,
+      statement.typeParameters,
+      statement.heritageClauses,
+      statement.members,
+    )
+  if (ts.isTypeAliasDeclaration(statement))
+    return f.updateTypeAliasDeclaration(
+      statement,
+      modifiers,
+      statement.name,
+      statement.typeParameters,
+      statement.type,
+    )
+  if (ts.isEnumDeclaration(statement))
+    return f.updateEnumDeclaration(statement, modifiers, statement.name, statement.members)
+  if (ts.isFunctionDeclaration(statement))
+    return f.updateFunctionDeclaration(
+      statement,
+      modifiers,
+      statement.asteriskToken,
+      statement.name,
+      statement.typeParameters,
+      signatureParameters(statement.parameters),
+      statement.type,
+      undefined,
+    )
+  if (ts.isClassDeclaration(statement))
+    return f.updateClassDeclaration(
+      statement,
+      modifiers,
+      statement.name,
+      statement.typeParameters,
+      statement.heritageClauses,
+      [
+        ...classParameterProperties(statement),
+        ...statement.members.filter(publicMember).map(memberSignature),
+      ],
+    )
+  return undefined
+}
+
+/**
+ * The public parameter properties of a class's constructor (`constructor(public status: number)`)
+ * as the member declarations they create, as a `.d.ts` shows them.
+ */
+function classParameterProperties(statement: ts.ClassDeclaration): ts.PropertyDeclaration[] {
+  const f = ts.factory
+  const ctor = statement.members.find(
+    (member): member is ts.ConstructorDeclaration =>
+      ts.isConstructorDeclaration(member) && member.body !== undefined,
+  )
+  if (!ctor) return []
+  return ctor.parameters.flatMap((p) => {
+    if (!ts.isParameterPropertyDeclaration(p, ctor) || !ts.isIdentifier(p.name)) return []
+    const modifiers = ts.getModifiers(p) ?? []
+    if (
+      modifiers.some(
+        (m) => m.kind === ts.SyntaxKind.PrivateKeyword || m.kind === ts.SyntaxKind.ProtectedKeyword,
+      )
+    )
+      return []
+    const readonly = modifiers.filter((m) => m.kind === ts.SyntaxKind.ReadonlyKeyword)
+    return [
+      f.createPropertyDeclaration(
+        readonly.length ? readonly : undefined,
+        p.name,
+        p.questionToken,
+        p.type ?? (p.initializer && literalDefaultType(p.initializer)),
+        undefined,
+      ),
+    ]
+  })
+}
+
+/** Whether a statement carries the `export` keyword. */
+function exported(statement: ts.Statement): boolean {
+  return (
+    ts.canHaveModifiers(statement) &&
+    (ts.getModifiers(statement) ?? []).some((m) => m.kind === ts.SyntaxKind.ExportKeyword)
+  )
+}
+
+/**
+ * The declarations a generated bond file shows for the named exports: each one's TypeScript as
+ * a reader of the package's types needs it — comments, function and method bodies, initializers
+ * and private class members removed, two-space indentation.
+ *
+ * Parse-only (no type checker), so it is fast enough for the pre-commit drift check. A direct
+ * `export interface | type | enum | function | class` declaration is shown, an exported arrow or
+ * function-expression `const` as the function signature it is, and another `const` only by its
+ * explicit type. A name exported another way (a re-export, an untyped const) is absent from the
+ * result, which the drift check reports as an unresolved name. An overloaded function shows its
+ * overload signatures.
+ *
+ * @param srcPath - the package's `src/` directory.
+ * @param names - export names to declare.
+ * @returns name → declaration text, in `names` order, for every name found.
+ */
+export async function scanDeclarations(
+  srcPath: string,
+  names: readonly string[],
+): Promise<Record<string, string>> {
+  const wanted = new Set(names)
+  if (wanted.size === 0) return {}
+  const files = (await findTypeScriptFiles(srcPath))
+    .filter((file) => !file.includes('__tests__') && !/\.(test|spec)\./.test(file))
+    .sort()
+  const printer = ts.createPrinter({ removeComments: true })
+  const found = new Map<string, { overloads: string[]; implementation?: string }>()
+  for (const file of files) {
+    let text: string
+    try {
+      text = await readFile(file, 'utf-8')
+    } catch (_error) {
+      // Unreadable file: its declarations are absent, which the drift check names.
+      continue
+    }
+    const source = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true)
+    const print = (node: ts.Node): string =>
+      printer
+        .printNode(ts.EmitHint.Unspecified, node, source)
+        .replace(/^((?: {4})+)/gm, (indent) => ' '.repeat(indent.length / 2))
+    for (const statement of source.statements) {
+      if (!exported(statement)) continue
+      // `export const create = <T>(config?: C): R => …` reads as the function it is; any other
+      // const shows only an explicit type annotation.
+      if (ts.isVariableStatement(statement)) {
+        for (const variable of statement.declarationList.declarations) {
+          if (!ts.isIdentifier(variable.name) || !wanted.has(variable.name.text)) continue
+          const init = variable.initializer
+          const node =
+            init && (ts.isArrowFunction(init) || ts.isFunctionExpression(init))
+              ? ts.factory.createFunctionDeclaration(
+                  undefined,
+                  undefined,
+                  variable.name,
+                  init.typeParameters,
+                  signatureParameters(init.parameters),
+                  init.type,
+                  undefined,
+                )
+              : variable.type
+                ? ts.factory.createVariableStatement(
+                    undefined,
+                    ts.factory.createVariableDeclarationList(
+                      [
+                        ts.factory.createVariableDeclaration(
+                          variable.name,
+                          undefined,
+                          variable.type,
+                        ),
+                      ],
+                      ts.NodeFlags.Const,
+                    ),
+                  )
+                : undefined
+          if (node && !found.has(variable.name.text))
+            found.set(variable.name.text, { overloads: [], implementation: print(node) })
+        }
+        continue
+      }
+      const name = (statement as { name?: ts.Node }).name
+      if (!name || !ts.isIdentifier(name) || !wanted.has(name.text)) continue
+      const node = declarationOf(statement)
+      if (!node) continue
+      const printed = print(node)
+      const entry = found.get(name.text) ?? { overloads: [] }
+      if (ts.isFunctionDeclaration(statement) && !statement.body) entry.overloads.push(printed)
+      else entry.implementation ??= printed
+      found.set(name.text, entry)
+    }
+  }
+  const result: Record<string, string> = {}
+  for (const name of names) {
+    const entry = found.get(name)
+    if (!entry) continue
+    result[name] = entry.overloads.length ? entry.overloads.join('\n') : entry.implementation!
+  }
+  return result
+}
+
 /** The SQL capability map a database bond declares in `src/capabilities.ts`. */
 export type ScannedSqlCapabilities = Record<string, { support: SqlSupport; note?: string }>
 

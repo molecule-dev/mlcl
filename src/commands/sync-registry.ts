@@ -16,9 +16,11 @@ import {
 import { scanResponseRecord } from '../lib/response-record.js'
 import {
   bondSetterScope,
+  declarationScope,
   ROUTE_SCANNED_TYPES,
   routesSignature,
   scanBondSetter,
+  scanDeclarations,
   scanExports,
   scanForRoutes,
   scanForTables,
@@ -560,6 +562,7 @@ export default class SyncRegistry extends Command {
 
     const packageNames = Object.keys(registry.packages)
     const bondSetterNames = bondSetterScope(registry.packages)
+    const declared = declarationScope(registry.packages)
 
     let updated = 0
     let unchanged = 0
@@ -605,6 +608,28 @@ export default class SyncRegistry extends Command {
             delete entry.bondSetter
             changed = true
           }
+        }
+
+        // declarations — the signatures a generated bond file shows (scope and scan in
+        // scanner.ts: declarationScope / scanDeclarations). Same presence rule as bondSetter:
+        // only rewritten when this package's source is here, cleared when nothing asks for it.
+        if (existsSync(srcPath)) {
+          const names = declared.get(name) ?? []
+          const scannedDeclarations = names.length ? await scanDeclarations(srcPath, names) : {}
+          if (Object.keys(scannedDeclarations).length === 0) {
+            if (entry.declarations) {
+              delete entry.declarations
+              changed = true
+            }
+          } else if (JSON.stringify(entry.declarations) !== JSON.stringify(scannedDeclarations)) {
+            entry.declarations = scannedDeclarations
+            changed = true
+          }
+          const unresolved = names.filter((n) => !(n in scannedDeclarations))
+          if (unresolved.length)
+            this.warn(
+              `${name}: no exported interface, type, enum, function, class or typed const declares ${unresolved.join(', ')}`,
+            )
         }
 
         // sqlCapabilities — the provider/resource compatibility contract a

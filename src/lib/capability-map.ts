@@ -43,6 +43,41 @@ export interface CapabilityMapEntry {
   resourceModules?: string[]
   /** Existing executable framework compositions using this package. */
   recipeModules?: string[]
+  /**
+   * Declarations the bond header shows (registry `declarations`, scanned from source): the
+   * package's own `defaultBondSetup.declare` names, then each declared binding's
+   * `decisionGuide.bindingDeclare` names.
+   */
+  declarations?: string[]
+}
+
+/** The parts of a registry entry its bond header's declarations come from. */
+export type BondDeclarationSource = Pick<
+  RegistryEntry,
+  'defaultBondSetup' | 'decisionGuide' | 'declarations'
+>
+
+/**
+ * The scanned declarations a bond header shows for one package and its declared bindings.
+ * A name the registry has no scanned text for is skipped (the drift check names it).
+ *
+ * @param entry - The bond's package entry.
+ * @param bindings - Framework binding packages declared beside it.
+ * @param packages - The registry's packages, for each binding's scanned declarations.
+ * @returns Declaration texts, own first, without repeats.
+ */
+export function bondDeclarations(
+  entry: BondDeclarationSource,
+  bindings: readonly string[],
+  packages: Record<string, Pick<RegistryEntry, 'declarations'>> | undefined,
+): string[] {
+  const own = (entry.defaultBondSetup?.declare ?? []).map((n) => entry.declarations?.[n])
+  const bound = bindings.flatMap((binding) =>
+    (entry.decisionGuide?.bindingDeclare?.[binding] ?? []).map(
+      (n) => packages?.[binding]?.declarations?.[n],
+    ),
+  )
+  return [...new Set([...own, ...bound].filter((text): text is string => Boolean(text)))]
 }
 
 const DEPENDENCY_SECTIONS = [
@@ -67,6 +102,7 @@ export function capabilityEntryFromRegistry(
   entry: RegistryEntry | undefined,
   workspaces: readonly string[] = [''],
   bindings: readonly string[] = [],
+  packages?: Record<string, RegistryEntry>,
 ): CapabilityMapEntry | null {
   const configuration = entry?.decisionGuide?.configuration
   if (!entry || !configuration?.length) return null
@@ -96,6 +132,7 @@ export function capabilityEntryFromRegistry(
     configNames,
     documentation: `https://www.molecule.dev/packages/${name.replace('@molecule/', '')}`,
     ...(entry.decisionGuide?.sourceFiles ? { sourceFiles: entry.decisionGuide.sourceFiles } : {}),
+    declarations: bondDeclarations(entry, bindings, packages),
   }
 }
 
@@ -120,8 +157,13 @@ export function buildCapabilityMap(
   return [...workspacesByPackage]
     .sort(([a], [b]) => a.localeCompare(b))
     .map(([name, workspaces]) => {
+      // Bindings declared in a workspace that declares this package, for its declarations.
+      const bindings = [...workspacesByPackage]
+        .filter(([, bindingWorkspaces]) => [...workspaces].some((w) => bindingWorkspaces.has(w)))
+        .map(([binding]) => binding)
       const entry = capabilityEntryFromRegistry(name, registry.packages[name], [...workspaces])
       if (!entry) return null
+      entry.declarations = bondDeclarations(registry.packages[name], bindings, registry.packages)
       for (const workspace of entry.workspaces) {
         for (const [binding, bindingWorkspaces] of workspacesByPackage) {
           if (!bindingWorkspaces.has(workspace)) continue
@@ -579,6 +621,24 @@ export function renderCapabilityMap(entries: readonly CapabilityMapEntry[]): str
   return lines.join('\n').trimEnd()
 }
 
+/**
+ * Doc-comment lines for scanned declarations: a heading, then each declaration indented.
+ * A `*\/` inside a type (never seen, but possible in a string literal type) is broken so it
+ * cannot end the comment.
+ *
+ * @param declarations - Declaration texts, as `CapabilityMapEntry.declarations` carries them.
+ * @returns The lines, or none when there is nothing to declare.
+ */
+export function renderBondDeclarations(declarations: readonly string[]): string[] {
+  if (declarations.length === 0) return []
+  return [
+    'Declarations (generated from the package types; the README has the docs):',
+    ...declarations.flatMap((text) =>
+      text.split('\n').map((line) => `  ${line.replace(/\*\//g, '* /')}`),
+    ),
+  ]
+}
+
 /** Render the in-file header shared by injected and copied bond files. */
 export function renderCapabilityBondHeader(entry: CapabilityMapEntry, title?: string): string {
   const lines = [
@@ -586,6 +646,7 @@ export function renderCapabilityBondHeader(entry: CapabilityMapEntry, title?: st
     ...entry.guidance,
     'Configuration by API shape:',
     ...entry.configuration,
+    ...renderBondDeclarations(entry.declarations ?? []),
     `Read the package documentation before replacing this client; if you choose not to use ${entry.name}, record the reason after that read.`,
   ]
   return `/**\n${title ? ` * ${title}\n *\n` : ''}${lines

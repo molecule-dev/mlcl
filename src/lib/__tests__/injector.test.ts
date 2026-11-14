@@ -33,6 +33,12 @@ import { createTestProject } from './create-test-project.js'
 // Load registry once — loadRegistry() caches internally
 const registryPackages = loadRegistry()
 
+/** A generated file without its comments: what runs, not the header that documents it. */
+function executableCode(content: string | undefined): string {
+  if (content === undefined) throw new Error('the generated file has no content')
+  return content.replace(/\/\*[\s\S]*?\*\//g, '').replace(/^\s*\/\/.*$/gm, '')
+}
+
 // Temporary directories for tests
 let tempDir: string
 let testProject: string
@@ -1671,7 +1677,8 @@ describe('synthesizeAppProjectFiles', () => {
     expect(bond!.content).toContain(
       'setAuthGate(() => authClient.whenRestored?.() ?? Promise.resolve())',
     )
-    expect(bond!.content).not.toContain('addRequestInterceptor')
+    // The header shows the client's declared API, interceptors included; the code uses none.
+    expect(executableCode(bond!.content)).not.toContain('addRequestInterceptor')
   })
 
   it('marks every cached read stale after a write when the app has a read cache, and only then', () => {
@@ -1697,7 +1704,7 @@ describe('synthesizeAppProjectFiles', () => {
       registryPackages,
     ).find((f) => f.targetPath.endsWith(join('bonds', 'http-default.ts')))!.content
     expect(without).not.toContain('@molecule/app-query')
-    expect(without).not.toContain('addResponseInterceptor')
+    expect(executableCode(without)).not.toContain('addResponseInterceptor')
   })
 
   it('runs the HTTP bond setup before the auth bond that mirrors its token into it', () => {
@@ -1736,10 +1743,8 @@ describe('synthesizeAppProjectFiles', () => {
     const bond = files.find((f) => f.targetPath.endsWith(join('bonds', 'http-default.ts')))
     expect(bond).toBeDefined()
     expect(bond!.content).not.toContain('./auth-default.js')
-    expect(bond!.content).not.toContain('addRequestInterceptor')
-    const executableBond = bond!.content
-      .replace(/\/\*[\s\S]*?\*\//g, '')
-      .replace(/^\s*\/\/.*$/gm, '')
+    const executableBond = executableCode(bond!.content)
+    expect(executableBond).not.toContain('addRequestInterceptor')
     expect(executableBond).not.toContain('setAuthTokenSource')
     expect(bond!.content).not.toContain('authScheme: authConfig.authScheme')
   })

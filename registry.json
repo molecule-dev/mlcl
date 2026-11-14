@@ -32323,7 +32323,11 @@
         "@molecule/app-pwa-default",
         "@molecule/app-query-angular"
       ],
-      "path": "packages/app/frameworks/angular"
+      "path": "packages/app/frameworks/angular",
+      "declarations": {
+        "UseAuthResult": "interface UseAuthResult<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  readonly status: Signal<AuthState<T>['status']>;\n  readonly state: Signal<AuthState<T>>;\n  readonly user: Signal<T | null>;\n  readonly isAuthenticated: Signal<boolean>;\n  readonly isLoading: Signal<boolean>;\n  login: (credentials: LoginCredentials) => Promise<AuthResult<T>>;\n  logout: () => Promise<void>;\n  register: (data: RegisterData<TRegister>) => Promise<AuthResult<T>>;\n  refresh: () => Promise<AuthResult<T>>;\n  updateProfile: (data: Partial<T>) => Promise<T>;\n  setUser: (user: T | null) => void;\n  setSession: (session: AuthSessionSeed<T>) => void;\n}",
+        "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: MaybeSignal<UseAuthOptions>): UseAuthResult<T, TRegister>;"
+      }
     },
     "@molecule/app-annotation-pin-react": {
       "language": "typescript",
@@ -32642,7 +32646,25 @@
         ],
         "setupAfter": [
           "@molecule/app-http"
+        ],
+        "declare": [
+          "createJWTAuthClient",
+          "AuthClientConfigOptions",
+          "AuthClient",
+          "AuthState",
+          "AuthResult",
+          "RegisterData",
+          "LoginCredentials"
         ]
+      },
+      "declarations": {
+        "AuthClient": "interface AuthClient<T = UserProfile, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  getState(): AuthState<T>;\n  isAuthenticated(): boolean;\n  getUser(): T | null;\n  getSessionRevision?(): number;\n  setUser(user: T | null): void;\n  getAccessToken(): string | null;\n  setAccessToken(token: string | null): void;\n  setSession(session: AuthSessionSeed<T>): void;\n  getRefreshToken(): string | null;\n  login(credentials: LoginCredentials): Promise<AuthResult<T>>;\n  logout(): Promise<void>;\n  register(data: RegisterData<TRegister>): Promise<AuthResult<T>>;\n  refresh(): Promise<AuthResult<T>>;\n  requestPasswordReset(data: PasswordResetRequest): Promise<void>;\n  confirmPasswordReset(data: PasswordResetConfirm): Promise<void>;\n  updateProfile(data: Partial<T>): Promise<T>;\n  changePassword(oldPassword: string, newPassword: string): Promise<void>;\n  initialize(): Promise<void>;\n  validateSession?(): Promise<void>;\n  whenRestored?(): Promise<void>;\n  subscribe(callback: (state: AuthState<T>) => void): () => void;\n  onAuthChange(callback: (state: AuthState<T>) => void): () => void;\n  getToken?(): string | null;\n  addEventListener(listener: AuthEventListener<T>): () => void;\n  destroy(): void;\n}",
+        "AuthClientConfigOptions": "interface AuthClientConfigOptions<T extends object = UserProfile> {\n  baseURL?: string;\n  loginEndpoint?: string;\n  logoutEndpoint?: string | null;\n  registerEndpoint?: string;\n  refreshEndpoint?: string;\n  profileEndpoint?: string | ((user: Readonly<T>) => string);\n  profileUpdateMethod?: 'PATCH' | 'PUT' | 'POST';\n  profileRequestBody?: (data: Partial<T>) => unknown;\n  currentUserEndpoint?: string;\n  cookieRestore?: 'hint' | 'always';\n  requestTimeout?: number;\n  storagePrefix?: string;\n  tokenKey?: string;\n  authScheme?: string;\n  requestBody?: (kind: 'login' | 'register', payload: Record<string, unknown>) => unknown;\n  mapRequestBody?: (payload: Record<string, unknown>, kind: 'login' | 'register') => unknown;\n  mapAuthResponse?: (data: unknown) => AuthResult<NoInfer<T>> | AuthChallenge;\n  storage?: 'memory' | StorageAdapter;\n  shouldRestoreUser?: (user: T) => boolean;\n  autoRefresh?: boolean;\n  refreshBuffer?: number;\n  forgotPasswordEndpoint?: string;\n  resetPasswordEndpoint?: string;\n  changePasswordEndpoint?: string | ((user: Readonly<T>) => string);\n  changePasswordMethod?: 'POST' | 'PATCH';\n  oauthProviders?: string[];\n  oauthEndpoint?: string;\n}",
+        "AuthResult": "interface AuthResult<T = UserProfile> {\n  user: T;\n  accessToken?: string;\n  refreshToken?: string;\n  expiresAt?: number;\n  twoFactorRequired?: boolean;\n}",
+        "AuthState": "interface AuthState<T = UserProfile> {\n  status: AuthStatus;\n  initialized: boolean;\n  authenticated: boolean;\n  user: T | null;\n  loading: boolean;\n  error: string | null;\n}",
+        "LoginCredentials": "interface LoginCredentials {\n  email: string;\n  password: string;\n  remember?: boolean;\n  twoFactorToken?: string;\n}",
+        "RegisterData": "type RegisterData<TExtra extends RegisterExtraShape<TExtra> = Record<never, never>> = {\n  email: string;\n  password: string;\n  name?: string;\n  metadata?: Record<string, unknown>;\n} & TExtra;",
+        "createJWTAuthClient": "function createJWTAuthClient<T extends AuthProfileConstraint<T> = UserProfile, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(config?: NoInfer<AuthClientConfigOptions<T>>): AuthClient<T, TRegister>;"
       },
       "decisionGuide": {
         "sourceFiles": [
@@ -32672,6 +32694,28 @@
           ],
           "@molecule/app-react-native": [
             "Read the session with `useAuth()` from `@molecule/app-react-native`: `state.status` is the session status and `state.user` is the current user. `AuthProvider` renders children immediately."
+          ]
+        },
+        "bindingDeclare": {
+          "@molecule/app-react": [
+            "useAuth",
+            "UseAuthResult"
+          ],
+          "@molecule/app-vue": [
+            "useAuth",
+            "UseAuthReturn"
+          ],
+          "@molecule/app-svelte": [
+            "useAuth",
+            "UseAuthResult"
+          ],
+          "@molecule/app-solid": [
+            "useAuth",
+            "UseAuthResult"
+          ],
+          "@molecule/app-angular": [
+            "useAuth",
+            "UseAuthResult"
           ]
         },
         "configuration": [
@@ -39403,7 +39447,19 @@
         "cacheBridge": {
           "package": "@molecule/app-query",
           "accessor": "getQueryClient"
-        }
+        },
+        "declare": [
+          "HttpClient",
+          "HttpResponse",
+          "RequestConfig",
+          "HttpError"
+        ]
+      },
+      "declarations": {
+        "HttpClient": "interface HttpClient {\n  baseURL: string;\n  defaultHeaders: Record<string, string>;\n  request<T = unknown>(config: FullRequestConfig): Promise<HttpResponse<T>>;\n  get<T = unknown>(url: string, config?: RequestConfig): Promise<HttpResponse<T>>;\n  post<T = unknown>(url: string, data?: unknown, config?: RequestConfig): Promise<HttpResponse<T>>;\n  put<T = unknown>(url: string, data?: unknown, config?: RequestConfig): Promise<HttpResponse<T>>;\n  patch<T = unknown>(url: string, data?: unknown, config?: RequestConfig): Promise<HttpResponse<T>>;\n  delete<T = unknown>(url: string, config?: RequestConfig): Promise<HttpResponse<T>>;\n  addRequestInterceptor(interceptor: RequestInterceptor): () => void;\n  addResponseInterceptor(interceptor: ResponseInterceptor): () => void;\n  addErrorInterceptor(interceptor: ErrorInterceptor): () => void;\n  setAuthToken(token: string | null): void;\n  getAuthToken(): string | null;\n  setAuthTokenResolver?(resolver: AuthTokenResolver | null): void;\n  onAuthError(handler: () => void): () => void;\n}",
+        "HttpError": "class HttpError extends Error {\n  status: number;\n  response?: HttpResponse;\n  config?: FullRequestConfig;\n  errorKey?: string;\n  aborted: boolean;\n  constructor(message: string, status: number, response?: HttpResponse, config?: FullRequestConfig, errorKey?: string, aborted?: boolean);\n}",
+        "HttpResponse": "interface HttpResponse<T = unknown> {\n  data: T;\n  status: number;\n  statusText: string;\n  headers: Record<string, string>;\n  config: FullRequestConfig;\n}",
+        "RequestConfig": "interface RequestConfig {\n  headers?: Record<string, string>;\n  params?: Record<string, string | number | boolean | undefined>;\n  timeout?: number;\n  withCredentials?: boolean;\n  skipAuthGate?: boolean;\n  responseType?: 'json' | 'text' | 'blob' | 'arraybuffer';\n  signal?: AbortSignal;\n  keepalive?: boolean;\n  data?: unknown;\n  options?: Record<string, unknown>;\n  retry?: RetryOptions | false;\n}"
       },
       "decisionGuide": {
         "bindingGuidance": {
@@ -61225,6 +61281,10 @@
         "@molecule/app-query-react"
       ],
       "path": "packages/app/frameworks/react",
+      "declarations": {
+        "UseAuthResult": "interface UseAuthResult<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  status: AuthState<T>['status'];\n  state: AuthState<T>;\n  login: AuthClient<T>['login'];\n  logout: AuthClient<T>['logout'];\n  register: AuthClient<T, TRegister>['register'];\n  refresh: AuthClient<T>['refresh'];\n  updateProfile: AuthClient<T>['updateProfile'];\n  setUser: AuthClient<T>['setUser'];\n  setSession: AuthClient<T>['setSession'];\n  isAuthenticated: boolean;\n  isLoading: boolean;\n  user: T | null;\n}",
+        "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: UseAuthOptions): UseAuthResult<T, TRegister>;"
+      },
       "intentHints": [
         "auth state hook",
         "useAuth session",
@@ -63582,7 +63642,11 @@
         "@molecule/app-pwa-default",
         "@molecule/app-query-solid"
       ],
-      "path": "packages/app/frameworks/solid"
+      "path": "packages/app/frameworks/solid",
+      "declarations": {
+        "UseAuthResult": "interface UseAuthResult<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  status: Accessor<AuthState<T>['status']>;\n  state: Accessor<AuthState<T>>;\n  login: AuthClient<T>['login'];\n  logout: AuthClient<T>['logout'];\n  register: AuthClient<T, TRegister>['register'];\n  refresh: AuthClient<T>['refresh'];\n  updateProfile: AuthClient<T>['updateProfile'];\n  setUser: AuthClient<T>['setUser'];\n  setSession: AuthClient<T>['setSession'];\n  isAuthenticated: Accessor<boolean>;\n  isLoading: Accessor<boolean>;\n  user: Accessor<T | null>;\n}",
+        "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: MaybeAccessor<UseAuthOptions>): UseAuthResult<T, TRegister>;"
+      }
     },
     "@molecule/app-sort-picker-react": {
       "language": "typescript",
@@ -65103,7 +65167,11 @@
         "@molecule/app-pwa-default",
         "@molecule/app-query-svelte"
       ],
-      "path": "packages/app/frameworks/svelte"
+      "path": "packages/app/frameworks/svelte",
+      "declarations": {
+        "UseAuthResult": "interface UseAuthResult<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  status: Readable<AuthState<T>['status']>;\n  state: Readable<AuthState<T>>;\n  login: AuthClient<T>['login'];\n  logout: AuthClient<T>['logout'];\n  register: AuthClient<T, TRegister>['register'];\n  refresh: AuthClient<T>['refresh'];\n  updateProfile: AuthClient<T>['updateProfile'];\n  setUser: AuthClient<T>['setUser'];\n  setSession: AuthClient<T>['setSession'];\n  isAuthenticated: Readable<boolean>;\n  isLoading: Readable<boolean>;\n  user: Readable<T | null>;\n}",
+        "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: MaybeReadable<UseAuthOptions | undefined>): UseAuthResult<T, TRegister>;"
+      }
     },
     "@molecule/app-tab-filter-react": {
       "language": "typescript",
@@ -68323,7 +68391,11 @@
         "@molecule/app-pwa-default",
         "@molecule/app-query-vue"
       ],
-      "path": "packages/app/frameworks/vue"
+      "path": "packages/app/frameworks/vue",
+      "declarations": {
+        "UseAuthReturn": "interface UseAuthReturn<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  status: ComputedRef<AuthState<T>['status']>;\n  state: ComputedRef<AuthState<T>>;\n  user: ComputedRef<T | null>;\n  isAuthenticated: ComputedRef<boolean>;\n  isLoading: ComputedRef<boolean>;\n  login: AuthClient<T>['login'];\n  logout: AuthClient<T>['logout'];\n  register: AuthClient<T, TRegister>['register'];\n  refresh: AuthClient<T>['refresh'];\n  updateProfile: AuthClient<T>['updateProfile'];\n  setUser: AuthClient<T>['setUser'];\n  setSession: AuthClient<T>['setSession'];\n}",
+        "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: MaybeRefOrGetter<UseAuthOptions | undefined>): UseAuthReturn<T, TRegister>;"
+      }
     },
     "@molecule/app-weather-card-react": {
       "language": "typescript",
