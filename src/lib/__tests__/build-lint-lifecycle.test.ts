@@ -194,7 +194,12 @@ describe('frontend npm build verification', () => {
     await fixture(app, missing.replace(' /> }', '>×</i> }'))
     const result = await build(app)
     expect(result.code, result.output).toBe(0)
-    expect(result.output.match(/> eslint src\//g), result.output).toHaveLength(1)
+    // npm announces each script it runs: `> eslint src/` up to npm 11, `npm notice run
+    // eslint src/` from npm 12 (mlcl's Release installs npm@latest). Count either banner.
+    expect(
+      result.output.match(/^(?:> |npm notice run )eslint src\//gm),
+      result.output,
+    ).toHaveLength(1)
   }, 90_000)
 
   it('keeps lint in the static-site build lifecycle', async () => {
