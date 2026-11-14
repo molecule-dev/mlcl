@@ -80,47 +80,55 @@ async function command(extra: string[] = []): Promise<TestFeedback> {
   )
 }
 
-it('watches a physical HTML component file and delivers a native failure while the caller keeps building', async () => {
-  const original = process.on.bind(process)
-  vi.spyOn(process, 'on').mockImplementation((event, listener) => {
-    if ((event === 'SIGTERM' || event === 'SIGINT') && listener.name === 'stop') {
-      stop = listener as () => void
-      return process
-    }
-    return original(event, listener)
-  })
-  const cmd = await command(['--watch'])
-  watching = cmd.run()
-  await vi.waitFor(() => expect(stop).toBeTypeOf('function'))
-  await vi.waitFor(
-    async () => {
-      await expect(readdir(join(root, '.mol/test-feedback'))).rejects.toThrow(/ENOENT/)
-      expect(requests).toBeGreaterThan(0)
-    },
-    { timeout: nativeWaitMs },
-  )
-  expect(Command.prototype.log).not.toHaveBeenCalled()
-  expect(Command.prototype.warn).not.toHaveBeenCalled()
-  await writeFile(source, '<main><div>entry</div></main>')
-  await vi.waitFor(() => expect(Command.prototype.log).toHaveBeenCalled(), {
-    timeout: nativeWaitMs,
-  })
-  const result = JSON.parse(vi.mocked(Command.prototype.log).mock.calls[0][0] as string)
-  expect(result.failures[0]).toMatchObject({
-    spec: expect.stringContaining('note.spec.ts'),
-    line: 2,
-    sourceFiles: [source],
-  })
-  expect(result.failures[0].locator).toContain("locator('p').filter({ hasText: 'entry' })")
-  expect(result.failures[0].rendered).toContain('entry')
-}, 2 * nativeWaitMs + 10_000)
+it(
+  'watches a physical HTML component file and delivers a native failure while the caller keeps building',
+  async () => {
+    const original = process.on.bind(process)
+    vi.spyOn(process, 'on').mockImplementation((event, listener) => {
+      if ((event === 'SIGTERM' || event === 'SIGINT') && listener.name === 'stop') {
+        stop = listener as () => void
+        return process
+      }
+      return original(event, listener)
+    })
+    const cmd = await command(['--watch'])
+    watching = cmd.run()
+    await vi.waitFor(() => expect(stop).toBeTypeOf('function'))
+    await vi.waitFor(
+      async () => {
+        await expect(readdir(join(root, '.mol/test-feedback'))).rejects.toThrow(/ENOENT/)
+        expect(requests).toBeGreaterThan(0)
+      },
+      { timeout: nativeWaitMs },
+    )
+    expect(Command.prototype.log).not.toHaveBeenCalled()
+    expect(Command.prototype.warn).not.toHaveBeenCalled()
+    await writeFile(source, '<main><div>entry</div></main>')
+    await vi.waitFor(() => expect(Command.prototype.log).toHaveBeenCalled(), {
+      timeout: nativeWaitMs,
+    })
+    const result = JSON.parse(vi.mocked(Command.prototype.log).mock.calls[0][0] as string)
+    expect(result.failures[0]).toMatchObject({
+      spec: expect.stringContaining('note.spec.ts'),
+      line: 2,
+      sourceFiles: [source],
+    })
+    expect(result.failures[0].locator).toContain("locator('p').filter({ hasText: 'entry' })")
+    expect(result.failures[0].rendered).toContain('entry')
+  },
+  2 * nativeWaitMs + 10_000,
+)
 
-it('one-shot diagnosis returns a nonzero status for an actual native failure', async () => {
-  await writeFile(source, '<main><div>entry</div></main>')
-  const cmd = await command()
-  await expect(cmd.run()).rejects.toThrow(/EEXIT: 1/)
-  expect(Command.prototype.log).toHaveBeenCalledTimes(1)
-}, nativeWaitMs + 10_000)
+it(
+  'one-shot diagnosis returns a nonzero status for an actual native failure',
+  async () => {
+    await writeFile(source, '<main><div>entry</div></main>')
+    const cmd = await command()
+    await expect(cmd.run()).rejects.toThrow(/EEXIT: 1/)
+    expect(Command.prototype.log).toHaveBeenCalledTimes(1)
+  },
+  nativeWaitMs + 10_000,
+)
 
 it('does not drive the app or emit a note when no supplied spec exists', async () => {
   await rm(join(root, 'e2e/note.spec.ts'))
@@ -130,27 +138,34 @@ it('does not drive the app or emit a note when no supplied spec exists', async (
   expect(Command.prototype.warn).not.toHaveBeenCalled()
 })
 
-it('stops an active speculative native run immediately when the watcher is closed', async () => {
-  await writeFile(
-    join(root, 'e2e/note.spec.ts'),
-    `import {test} from '@playwright/test';import {writeFileSync} from 'node:fs';test('pending catalog',async()=>{writeFileSync('started','yes');await new Promise(r=>setTimeout(r,5000))})`,
-  )
-  const original = process.on.bind(process)
-  vi.spyOn(process, 'on').mockImplementation((event, listener) => {
-    if ((event === 'SIGTERM' || event === 'SIGINT') && listener.name === 'stop') {
-      stop = listener as () => void
-      return process
-    }
-    return original(event, listener)
-  })
-  watching = (await command(['--watch'])).run()
-  await vi.waitFor(async () => expect(await readFile(join(root, 'started'), 'utf8')).toBe('yes'), {
-    timeout: nativeWaitMs,
-  })
-  const time = performance.now()
-  stop!()
-  await watching
-  expect(performance.now() - time).toBeLessThan(1500)
-  expect(Command.prototype.log).not.toHaveBeenCalled()
-  expect(Command.prototype.warn).not.toHaveBeenCalled()
-}, nativeWaitMs + 10_000)
+it(
+  'stops an active speculative native run immediately when the watcher is closed',
+  async () => {
+    await writeFile(
+      join(root, 'e2e/note.spec.ts'),
+      `import {test} from '@playwright/test';import {writeFileSync} from 'node:fs';test('pending catalog',async()=>{writeFileSync('started','yes');await new Promise(r=>setTimeout(r,5000))})`,
+    )
+    const original = process.on.bind(process)
+    vi.spyOn(process, 'on').mockImplementation((event, listener) => {
+      if ((event === 'SIGTERM' || event === 'SIGINT') && listener.name === 'stop') {
+        stop = listener as () => void
+        return process
+      }
+      return original(event, listener)
+    })
+    watching = (await command(['--watch'])).run()
+    await vi.waitFor(
+      async () => expect(await readFile(join(root, 'started'), 'utf8')).toBe('yes'),
+      {
+        timeout: nativeWaitMs,
+      },
+    )
+    const time = performance.now()
+    stop!()
+    await watching
+    expect(performance.now() - time).toBeLessThan(1500)
+    expect(Command.prototype.log).not.toHaveBeenCalled()
+    expect(Command.prototype.warn).not.toHaveBeenCalled()
+  },
+  nativeWaitMs + 10_000,
+)
