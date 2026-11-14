@@ -19,6 +19,7 @@ import { extname, join } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
+import { sortImportStatements } from '../format.js'
 import { loadAppFrameworks } from '../registry.js'
 import { createAppProject } from '../scaffold.js'
 
@@ -150,6 +151,21 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
   it('runs its mocked tests in Node, whatever its vite plugin prefers', async () => {
     const config = await readFile(join(roots[framework], 'vite.config.ts'), 'utf8')
     expect(config).toMatch(/test:\s*\{[\s\S]*environment:\s*'node'/)
+  })
+
+  // The app's `lint` script runs simple-import-sort as a warning, so an unsorted import
+  // in a framework template passes `npm run lint` and greets every new app with a
+  // warning (Vue's Settings page did). The shared sorter keeps the same order.
+  it('writes every import block in the order its own linter keeps', async () => {
+    const unsorted: string[] = []
+    for (const file of await sourceFiles(framework)) {
+      const text = await readFile(join(roots[framework], file), 'utf8')
+      const blocks = /\.(vue|svelte)$/.test(file)
+        ? [...text.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map((match) => match[1])
+        : [text]
+      if (blocks.some((block) => sortImportStatements(block) !== block)) unsorted.push(file)
+    }
+    expect(unsorted).toEqual([])
   })
 
   // Vite requests every literal warmup path whether or not the file exists, and logs
