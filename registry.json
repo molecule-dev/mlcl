@@ -68350,7 +68350,10 @@
       "@molecule/app-locales-muscle-group-badge": "1.1.0",
       "@molecule/app-locales-reorderable-list": "1.1.0",
       "@molecule/app-locales-slide-thumbnail": "1.1.0",
-      "@molecule/app-locales-webhook-inspector": "1.1.0"
+      "@molecule/app-locales-webhook-inspector": "1.1.0",
+      "@molecule/app-routing-angular-router": "1.0.0",
+      "@molecule/app-routing-solid-router": "1.0.0",
+      "@molecule/app-routing-sveltekit": "1.0.0"
     }
   }
 }
