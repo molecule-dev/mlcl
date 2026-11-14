@@ -60681,6 +60681,70 @@
         "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
       ]
     },
+    "@molecule/app-query-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "query",
+      "label": "Query Cache Svelte",
+      "description": "Svelte hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
+      "stack": "app",
+      "exports": [
+        "QueryContent",
+        "QueryResource",
+        "QueryResourceConfig",
+        "ResourceHttp",
+        "ResourceResponse",
+        "createQueryResource",
+        "UseQueryResult",
+        "QueryContentProps",
+        "IntentPrefetchProps",
+        "usePrefetch",
+        "intentPrefetchProps",
+        "prefetchQuery",
+        "useQuery"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-query",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-query"
+      ],
+      "path": "packages/app/features/query-svelte",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/App.tsx"
+        ],
+        "configuration": [
+          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
+          "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
+        ],
+        "resourceModules": {
+          "directory": "src/resources",
+          "factory": "createQueryResource",
+          "since": "1.4.0",
+          "http": {
+            "package": "@molecule/app-http",
+            "client": "getClient",
+            "readList": "unwrapList",
+            "readOne": "unwrapSingle"
+          },
+          "listRoute": {
+            "package": "@molecule/app-routing-react-router",
+            "hook": "useListRoute",
+            "optionsType": "ListRouteOptions",
+            "queryHook": "useQuery"
+          }
+        }
+      },
+      "intentHints": [
+        "usequery hook",
+        "prefetch links on hover",
+        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
+      ]
+    },
     "@molecule/app-query-tanstack": {
       "language": "typescript",
       "runtime": "node",
