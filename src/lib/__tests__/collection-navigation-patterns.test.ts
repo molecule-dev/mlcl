@@ -82,7 +82,9 @@ it('the collection recipe returns from Blog filtered page two and preserves brow
   expect(screen.getByRole('tab', { name: 'Saved posts' }).getAttribute('aria-selected')).toBe(
     'true',
   )
-  fireEvent.click(screen.getByRole('tab', { name: 'All posts' }))
+  const collectionTab = screen.queryByRole('tab', { name: 'All posts' })
+  expect(collectionTab, 'the selected view must retain navigation to its collection').not.toBeNull()
+  fireEvent.click(collectionTab!)
   expect(screen.getByRole('status').textContent).toBe('/posts')
   expect(screen.queryByRole('tab', { name: 'Saved posts' })).toBeNull()
   await act(async () => fireEvent.click(screen.getByRole('button', { name: 'Back' })))
