@@ -56,8 +56,11 @@ describe('framework-scoped session guidance', () => {
       const content = await readFile(join(root, relative), 'utf8')
       expect(content, relative).toContain('`useAuth()` from `@molecule/app-vue`')
       expect(content, relative).toContain('state.value.status')
-      expect(content, relative).toContain('createAuthPlugin')
+      // The guide names the plugin the Vue scaffold itself installs in src/main.ts.
+      expect(content, relative).toContain('app.use(moleculePlugin, { auth: authClient')
     }
+    expect(await readFile(join(root, 'src/main.ts'), 'utf8')).toContain('app.use(moleculePlugin, {')
+    expect(registry.packages['@molecule/app-vue']!.exports).toContain('moleculePlugin')
   })
 
   it('marks copied session state as a second store in a non-flagship React bond', async () => {
@@ -98,12 +101,14 @@ describe('framework-scoped session guidance', () => {
     client.destroy()
   })
 
+  // Every web binding reads the session through React's hook name, so swapping the binding
+  // keeps the call: only how the framework reads a reactive value changes.
   it.each([
     ['@molecule/app-react', 'useAuth'],
     ['@molecule/app-vue', 'useAuth'],
-    ['@molecule/app-svelte', 'createAuthStores'],
-    ['@molecule/app-solid', 'createAuth'],
-    ['@molecule/app-angular', 'MoleculeAuthService'],
+    ['@molecule/app-svelte', 'useAuth'],
+    ['@molecule/app-solid', 'useAuth'],
+    ['@molecule/app-angular', 'useAuth'],
     ['@molecule/app-react-native', 'useAuth'],
   ])('uses the declared %s binding and an exported session API', (binding, symbol) => {
     const map = renderCapabilityMap(
@@ -414,14 +419,50 @@ describe('framework-scoped optimistic value guidance', () => {
     )
   })
 
-  it.each([
-    ['Vue', ['@molecule/app-vue']],
-    ['no framework', []],
-  ])('keeps optimistic value guidance framework-neutral with %s', (_label, bindings) => {
-    const text = state(bindings)
+  it('keeps optimistic value guidance framework-neutral with no framework', () => {
+    const text = state([])
     expect(text).toContain('`createOptimisticValue({ value, commit, equals })`')
     expect(text).not.toContain('useOptimisticValue')
     expect(text).not.toContain('@molecule/app-react')
+  })
+
+  // Each binding exports React's hook and button under React's names, read the framework's way.
+  it.each([
+    [
+      '@molecule/app-vue',
+      '@molecule/app-ui-vue',
+      '() => ({ value, commit, equals })',
+      ':value="record.enabled"',
+    ],
+    [
+      '@molecule/app-solid',
+      '@molecule/app-ui-solid',
+      '() => ({ value, commit, equals })',
+      'value={record.enabled}',
+    ],
+    [
+      '@molecule/app-svelte',
+      '@molecule/app-ui-svelte',
+      'toStore(() => ({ value, commit, equals }))',
+      'value={record.enabled}',
+    ],
+    [
+      '@molecule/app-angular',
+      '@molecule/app-ui-angular',
+      'computed(() => ({ value, commit, equals }))',
+      '[value]="record().enabled"',
+    ],
+  ])('names %s useOptimisticValue and %s OptimisticToggleButton', (binding, ui, source, value) => {
+    const text = state([binding])
+    expect(text).toContain(`\`useOptimisticValue(${source})\` from \`${binding}\``)
+    expect(text).not.toContain('@molecule/app-react')
+    expect(text).not.toContain('OptimisticToggleButton')
+    expect(registry.packages[binding]!.exports).toContain('useOptimisticValue')
+    const withButton = state([binding, ui])
+    expect(withButton).toContain(`\`OptimisticToggleButton\` from \`${ui}\``)
+    expect(withButton).toContain(value)
+    expect(withButton).not.toContain('@molecule/app-ui-react')
+    expect(registry.packages[ui]!.exports).toContain('OptimisticToggleButton')
   })
 
   it('keeps React guidance in its declaring workspace', () => {

@@ -32640,7 +32640,8 @@
       },
       "decisionGuide": {
         "sourceFiles": [
-          "src/config.ts"
+          "src/config.ts",
+          "src/lib/config.ts"
         ],
         "bindingGuidance": {
           "@molecule/app-react": [
@@ -32648,16 +32649,20 @@
             "For editable account forms, use `useProfileForm` to hydrate pristine fields without erasing edits. An existing form can save with `useAuth<MyUser>().updateProfile(changes)`; a custom mutation calls `setUser(savedUser)` before navigation. A one-time useState seed does not follow a late user."
           ],
           "@molecule/app-vue": [
-            "Read the session with `useAuth()` from `@molecule/app-vue`: `state.value.status` is the session status and `user.value` is the current user. Provide the client with `app.use(createAuthPlugin(authClient))`."
+            "Read the session with `useAuth()` from `@molecule/app-vue`: `state.value.status` is the session status and `user.value` is the current user. The scaffold provides the client with `app.use(moleculePlugin, { auth: authClient, … })` in src/main.ts.",
+            "For editable account forms, use `useProfileForm` from `@molecule/app-vue` to hydrate pristine fields without erasing edits. An existing form can save with `useAuth<MyUser>().updateProfile(changes)`; a custom mutation calls `setUser(savedUser)` before navigation. A one-time `ref` seed does not follow a late user."
           ],
           "@molecule/app-svelte": [
-            "Read the session with `createAuthStores()` from `@molecule/app-svelte`: `$state.status` is the session status and `$user` is the current user. Provide the client with `setAuthContext(authClient)`."
+            "Read the session with `const { state, user } = useAuth()` from `@molecule/app-svelte`: `$state.status` is the session status and `$user` is the current user. The scaffold provides the client with `setMoleculeContext({ auth: authClient, … })` in src/routes/+layout.svelte.",
+            "For editable account forms, use `useProfileForm` from `@molecule/app-svelte` to hydrate pristine fields without erasing edits. An existing form can save with `useAuth<MyUser>().updateProfile(changes)`; a custom mutation calls `setUser(savedUser)` before navigation. A one-time `$state` seed does not follow a late user."
           ],
           "@molecule/app-solid": [
-            "Read the session with `createAuth()` from `@molecule/app-solid`: `state().status` is the session status and `user()` is the current user. Provide the client through `MoleculeProvider` configuration."
+            "Read the session with `useAuth()` from `@molecule/app-solid`: `state().status` is the session status and `user()` is the current user. The scaffold provides the client with `<MoleculeProvider auth={authClient} …>` in src/App.tsx.",
+            "For editable account forms, use `useProfileForm` from `@molecule/app-solid` to hydrate pristine fields without erasing edits. An existing form can save with `useAuth<MyUser>().updateProfile(changes)`; a custom mutation calls `setUser(savedUser)` before navigation. A one-time `createSignal` seed does not follow a late user."
           ],
           "@molecule/app-angular": [
-            "Read the session with `MoleculeAuthService` from `@molecule/app-angular`: `state$` emits the session state and `user$` emits the current user. Provide the client with `provideAuth(authClient)`."
+            "Read the session with `readonly auth = useAuth()` from `@molecule/app-angular`, as a component field: `auth.state().status` is the session status and `auth.user()` is the current user. The scaffold provides the client with `provideMolecule({ auth: authClient, … })` in src/main.ts.",
+            "For editable account forms, use `useProfileForm` from `@molecule/app-angular` to hydrate pristine fields without erasing edits. An existing form can save with `useAuth<MyUser>().updateProfile(changes)`; a custom mutation calls `setUser(savedUser)` before navigation. A one-time field seed does not follow a late user."
           ],
           "@molecule/app-react-native": [
             "Read the session with `useAuth()` from `@molecule/app-react-native`: `state.status` is the session status and `state.user` is the current user. `AuthProvider` renders children immediately."
@@ -60498,27 +60503,21 @@
       "path": "packages/app/features/query-angular",
       "decisionGuide": {
         "sourceFiles": [
-          "src/App.tsx"
+          "src/main.ts"
         ],
         "configuration": [
-          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
+          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-angular\"; in a component field initializer, readonly query = useQuery(computed(() => ({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }))); render query.data directly in the template, with status/error outside the item list. Use the already bonded query provider in src/bonds/. The computed re-reads its inputs, so a changed key follows on the same component.",
           "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
         ],
         "resourceModules": {
           "directory": "src/resources",
           "factory": "createQueryResource",
-          "since": "1.4.0",
+          "since": "1.0.0",
           "http": {
             "package": "@molecule/app-http",
             "client": "getClient",
             "readList": "unwrapList",
             "readOne": "unwrapSingle"
-          },
-          "listRoute": {
-            "package": "@molecule/app-routing-react-router",
-            "hook": "useListRoute",
-            "optionsType": "ListRouteOptions",
-            "queryHook": "useQuery"
           }
         }
       },
@@ -60656,24 +60655,18 @@
           "src/App.tsx"
         ],
         "configuration": [
-          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
+          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-solid\"; const query = useQuery(() => ({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data })); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/. The accessor re-reads its inputs, so a changed key follows on the same component.",
           "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
         ],
         "resourceModules": {
           "directory": "src/resources",
           "factory": "createQueryResource",
-          "since": "1.4.0",
+          "since": "1.0.0",
           "http": {
             "package": "@molecule/app-http",
             "client": "getClient",
             "readList": "unwrapList",
             "readOne": "unwrapSingle"
-          },
-          "listRoute": {
-            "package": "@molecule/app-routing-react-router",
-            "hook": "useListRoute",
-            "optionsType": "ListRouteOptions",
-            "queryHook": "useQuery"
           }
         }
       },
@@ -60717,27 +60710,21 @@
       "path": "packages/app/features/query-svelte",
       "decisionGuide": {
         "sourceFiles": [
-          "src/App.tsx"
+          "src/routes/+layout.ts"
         ],
         "configuration": [
-          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
+          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-svelte\"; const query = useQuery(toStore(() => ({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }))) with toStore from \"svelte/store\"; render $query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/. The store re-reads its inputs, so a changed key follows on the same component.",
           "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
         ],
         "resourceModules": {
           "directory": "src/resources",
           "factory": "createQueryResource",
-          "since": "1.4.0",
+          "since": "1.0.0",
           "http": {
             "package": "@molecule/app-http",
             "client": "getClient",
             "readList": "unwrapList",
             "readOne": "unwrapSingle"
-          },
-          "listRoute": {
-            "package": "@molecule/app-routing-react-router",
-            "hook": "useListRoute",
-            "optionsType": "ListRouteOptions",
-            "queryHook": "useQuery"
           }
         }
       },
@@ -60811,27 +60798,21 @@
       "path": "packages/app/features/query-vue",
       "decisionGuide": {
         "sourceFiles": [
-          "src/App.tsx"
+          "src/main.ts"
         ],
         "configuration": [
-          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-react\"; const query = useQuery({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data }); render query.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/.",
+          "API lists and detail reads: import { useQuery } from \"@molecule/app-query-vue\"; const query = useQuery(() => ({ key: [http.baseURL, path, viewer, params], fetch: async (signal) => (await http.get(path, { signal, params })).data })); render query.value.data directly, with status/error outside the item list. Use the already bonded query provider in src/bonds/. The getter re-reads its inputs, so a changed key follows on the same component.",
           "One visible collection has one query whose key includes every request input (record, filter/view, page and the viewer when personalized). Pass null until required inputs or session restore are ready. A late response for another key cannot overwrite this key. For same-viewer page changes, keepPreviousData requires principal: viewer. Local arrays and non-data effects stay local."
         ],
         "resourceModules": {
           "directory": "src/resources",
           "factory": "createQueryResource",
-          "since": "1.4.0",
+          "since": "1.0.0",
           "http": {
             "package": "@molecule/app-http",
             "client": "getClient",
             "readList": "unwrapList",
             "readOne": "unwrapSingle"
-          },
-          "listRoute": {
-            "package": "@molecule/app-routing-react-router",
-            "hook": "useListRoute",
-            "optionsType": "ListRouteOptions",
-            "queryHook": "useQuery"
           }
         }
       },
@@ -62083,6 +62064,9 @@
       "framework": "svelte",
       "path": "packages/app/bonds/routing/sveltekit",
       "decisionGuide": {
+        "sourceFiles": [
+          "src/routes/+layout.ts"
+        ],
         "configuration": [
           "SvelteKit URL lists: `const { page, offset, params, href } = useListRoute({ pageSize: 20 })` from `@molecule/app-svelte`. Each field is a store: use `$page`, `$offset` and `$params` for requests and `href({ page: 2 })` for links; filter or selection changes reset to page one. Pass a store of options when they depend on reactive state. Read the location through the molecule router, not `$page` from `$app/stores`.",
           "The URL alone selects the view: hiding its link does not guard a direct visit. Protected views use `requiresAuth: true` and `auth: { status, redirectTo }`; load only while `canLoad` is true. Only a confirmed `unauthenticated` status redirects (with `state.returnTo`); `loading` and `unavailable` wait. Example: `useListRoute(derived(state, ($state) => ({ selections: { all: { path: '/orders' }, mine: { path: '/orders', query: { view: 'mine' }, requiresAuth: true } }, auth: { status: $state.status, redirectTo: '/login' } })))`, with `const { state } = createAuthStores()` from `@molecule/app-svelte` and `derived` from `svelte/store`.",
@@ -63820,7 +63804,9 @@
       "path": "packages/app/core/state",
       "decisionGuide": {
         "sourceFiles": [
-          "src/App.tsx"
+          "src/App.tsx",
+          "src/main.ts",
+          "src/routes/+layout.ts"
         ],
         "bindingGuidance": {
           "@molecule/app-react": [
@@ -63829,6 +63815,34 @@
           ],
           "@molecule/app-ui-react": [
             "For a server-backed boolean button, render `OptimisticToggleButton` from `@molecule/app-ui-react` after its record loads: `<OptimisticToggleButton key={record.id} value={record.enabled} commit={async (desired) => (await saveEnabled(record.id, desired)).enabled} activeLabel={t(\"disable\", undefined, { defaultValue: \"Disable\" })} inactiveLabel={t(\"enable\", undefined, { defaultValue: \"Enable\" })} />`. It renders both action labels, changes the label immediately, saves in order, and rolls back a failed save. Keep authorization and self-record checks in the app, and keep the keyed button mounted during refetches. Local UI switches stay local."
+          ],
+          "@molecule/app-vue": [
+            "Vue binding: a toggle or counter button uses `useOptimisticValue(() => ({ value, commit, equals }))` from `@molecule/app-vue`, with `value` from the record's props or query and `commit` sending one change and returning the server's value. The getter hands each new server value to the same component. Render `value`, call `update((current) => next)` on every click, and mount one component per record (`:key=\"record.id\"`).",
+            "Vue toggle: const { value: enabled, update } = useOptimisticValue(() => ({ value: props.record.enabled, commit: async (desiredEnabled) => saveEnabled(props.record.id, desiredEnabled) })); render enabled in the template and call update((current) => !current) on click. commit receives the DESIRED state; a false current flag must send true to enable. The save must return the confirmed boolean, or map its response to that boolean. Mount one control per record and keep it mounted during refetches. Local UI toggles can use ref."
+          ],
+          "@molecule/app-ui-vue": [
+            "For a server-backed boolean button, render `OptimisticToggleButton` from `@molecule/app-ui-vue` after its record loads: `<OptimisticToggleButton :key=\"record.id\" :value=\"record.enabled\" :commit=\"async (desired) => (await saveEnabled(record.id, desired)).enabled\" :active-label=\"t('disable', undefined, { defaultValue: 'Disable' })\" :inactive-label=\"t('enable', undefined, { defaultValue: 'Enable' })\" />`. It renders both action labels, changes the label immediately, saves in order, and rolls back a failed save. Keep authorization and self-record checks in the app, and keep the button mounted during refetches. Local UI switches stay local."
+          ],
+          "@molecule/app-solid": [
+            "Solid binding: a toggle or counter button uses `useOptimisticValue(() => ({ value, commit, equals }))` from `@molecule/app-solid`, with `value` from the record's props or query and `commit` sending one change and returning the server's value. The accessor hands each new server value to the same component. Render `value`, call `update((current) => next)` on every click, and mount one component per record (`<For each={records()}>`, or `<Show when={record()} keyed>` for one record).",
+            "Solid toggle: const enabled = useOptimisticValue(() => ({ value: props.record.enabled, commit: async (desiredEnabled) => saveEnabled(props.record.id, desiredEnabled) })); render enabled.value() and call enabled.update((current) => !current) on click. commit receives the DESIRED state; a false current flag must send true to enable. The save must return the confirmed boolean, or map its response to that boolean. Mount one control per record and keep it mounted during refetches. Local UI toggles can use createSignal."
+          ],
+          "@molecule/app-ui-solid": [
+            "For a server-backed boolean button, render `OptimisticToggleButton` from `@molecule/app-ui-solid` after its record loads: `<OptimisticToggleButton value={record.enabled} commit={async (desired) => (await saveEnabled(record.id, desired)).enabled} activeLabel={t(\"disable\", undefined, { defaultValue: \"Disable\" })} inactiveLabel={t(\"enable\", undefined, { defaultValue: \"Enable\" })} />` once per record, inside `<For each={records()}>` or `<Show when={record()} keyed>`. It renders both action labels, changes the label immediately, saves in order, and rolls back a failed save. Keep authorization and self-record checks in the app, and keep the button mounted during refetches. Local UI switches stay local."
+          ],
+          "@molecule/app-svelte": [
+            "Svelte binding: a toggle or counter button uses `useOptimisticValue(toStore(() => ({ value, commit, equals })))` from `@molecule/app-svelte`, with `value` from the record's props or query and `commit` sending one change and returning the server's value. The store (`toStore` from \"svelte/store\") hands each new server value to the same component. Render `value`, call `update((current) => next)` on every click, and mount one component per record (`{#each records as record (record.id)}` or `{#key record.id}`).",
+            "Svelte toggle: const { value: enabled, update } = useOptimisticValue(toStore(() => ({ value: record.enabled, commit: async (desiredEnabled) => saveEnabled(record.id, desiredEnabled) }))); render $enabled and call update((current) => !current) on click. commit receives the DESIRED state; a false current flag must send true to enable. The save must return the confirmed boolean, or map its response to that boolean. Mount one control per record and keep it mounted during refetches. Local UI toggles can use $state."
+          ],
+          "@molecule/app-ui-svelte": [
+            "For a server-backed boolean button, render `OptimisticToggleButton` from `@molecule/app-ui-svelte` after its record loads: `{#key record.id}<OptimisticToggleButton value={record.enabled} commit={async (desired) => (await saveEnabled(record.id, desired)).enabled} activeLabel={t(\"disable\", undefined, { defaultValue: \"Disable\" })} inactiveLabel={t(\"enable\", undefined, { defaultValue: \"Enable\" })} />{/key}`. It renders both action labels, changes the label immediately, saves in order, and rolls back a failed save. Keep authorization and self-record checks in the app, and keep the button mounted during refetches. Local UI switches stay local."
+          ],
+          "@molecule/app-angular": [
+            "Angular binding: a toggle or counter button uses `useOptimisticValue(computed(() => ({ value, commit, equals })))` from `@molecule/app-angular`, with `value` from the record's props or query and `commit` sending one change and returning the server's value. Call it in a component field; the computed hands each new server value to the same component. Render `value`, call `update((current) => next)` on every click, and mount one component per record (`@for (record of records(); track record.id)`).",
+            "Angular toggle: readonly enabled = useOptimisticValue(computed(() => ({ value: this.record().enabled, commit: async (desiredEnabled: boolean) => saveEnabled(this.record().id, desiredEnabled) }))); render enabled.value() and call enabled.update((current) => !current) on click. commit receives the DESIRED state; a false current flag must send true to enable. The save must return the confirmed boolean, or map its response to that boolean. Mount one control per record and keep it mounted during refetches. Local UI toggles can use signal."
+          ],
+          "@molecule/app-ui-angular": [
+            "For a server-backed boolean button, render `OptimisticToggleButton` from `@molecule/app-ui-angular` after its record loads: `<button mol-optimistic-toggle-button [value]=\"record().enabled\" [commit]=\"commit\" [activeLabel]=\"disableLabel\" [inactiveLabel]=\"enableLabel\"></button>` in a component per record (`record = input.required<MyRecord>()`, rendered inside `@for (record of records(); track record.id)`), with `commit = async (desired: boolean) => (await saveEnabled(this.record().id, desired)).enabled` and the two labels from t(). It renders both action labels, changes the label immediately, saves in order, and rolls back a failed save. Keep authorization and self-record checks in the app, and keep the button mounted during refetches. Local UI switches stay local."
           ]
         },
         "configuration": [

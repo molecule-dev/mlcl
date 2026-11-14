@@ -1,10 +1,13 @@
 import { execFileSync } from 'node:child_process'
+import { existsSync } from 'node:fs'
 import { mkdtemp, readdir, readFile, rm, symlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join, relative } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
+
+import { getRawRegistry } from '../registry.js'
 
 const ROOT = join(import.meta.dirname, '..', '..', '..')
 const SOURCE = /\.(?:[cm]?[jt]sx?|vue|svelte)$/
@@ -97,6 +100,25 @@ describe.each(['react', 'vue', 'solid', 'svelte', 'angular', 'react-native-web']
         }
       }
       expect(missing).toEqual([])
+    })
+
+    // A package's guide is stamped as a header into its registry `sourceFiles`, and a missing
+    // file is skipped without a word (2026-11-14: the Vue, Svelte and Angular query bindings
+    // carried React's `src/App.tsx`, so their apps got no guide; Solid's got React's import).
+    it('writes a file for every installed package guide to land in', async () => {
+      const pkg = JSON.parse(await readFile(join(project, 'package.json'), 'utf8')) as {
+        dependencies?: Record<string, string>
+        devDependencies?: Record<string, string>
+      }
+      const registry = getRawRegistry()
+      const homeless: string[] = []
+      for (const name of Object.keys({ ...pkg.dependencies, ...pkg.devDependencies })) {
+        const files = registry.packages[name]?.decisionGuide?.sourceFiles ?? []
+        if (files.length === 0) continue
+        if (!files.some((file) => existsSync(join(project, file))))
+          homeless.push(`${name} → ${files.join(', ')}`)
+      }
+      expect(homeless).toEqual([])
     })
 
     it('passes its own format:check', async () => {

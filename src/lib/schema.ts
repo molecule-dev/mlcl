@@ -168,11 +168,13 @@ export const ResponseRecord = z.object({
 /** Package-authored decision guidance rendered by capability-map.ts. */
 export const DecisionGuide = z.object({
   sourceFiles: z
-    .array(z.string().regex(/^(?:[A-Za-z0-9_-]+\/)*[A-Za-z0-9_-]+\.[cm]?[jt]sx?$/))
+    .array(z.string().regex(/^(?:[A-Za-z0-9_-]+\/)*\+?[A-Za-z0-9_-]+\.[cm]?[jt]sx?$/))
     .optional()
     .describe(
       'Workspace-relative JavaScript/TypeScript files that receive the declared capability recipes ' +
-        'at scaffold time. Only existing files are stamped; application code is preserved.',
+        'at scaffold time. Only existing files are stamped; application code is preserved. List ' +
+        "every framework's file for a framework-neutral package (a SvelteKit route module keeps " +
+        'its `+` prefix: `src/routes/+layout.ts`).',
     ),
   bindingGuidance: z
     .record(z.string(), z.array(z.string()))

@@ -215,8 +215,40 @@ createJWTAuthClient(authConfig)
     expect(
       MoleculeMetadata.parse({ ...entry, decisionGuide: guide }).decisionGuide?.sourceFiles,
     ).toEqual(guide.sourceFiles)
-    for (const source of ['../outside.ts', '/outside.ts', 'src/../outside.ts', 'src/App.vue']) {
+    for (const source of [
+      '../outside.ts',
+      '/outside.ts',
+      'src/../outside.ts',
+      'src/App.vue',
+      'src/+routes/layout.ts',
+      'src/routes/++layout.ts',
+      'src/routes/+../layout.ts',
+    ]) {
       expect(DecisionGuide.safeParse({ ...guide, sourceFiles: [source] }).success).toBe(false)
     }
+  })
+
+  // Swapping one provider for another must not lose the guide a model reads: SvelteKit's
+  // routing binding named no source file while its four siblings did, so a SvelteKit app was
+  // the one app whose list-route recipe never reached its source (2026-11-14).
+  it('lands every provider guide in a source file when a sibling provider does', () => {
+    const byCore = new Map<string, string[]>()
+    for (const [name, entry] of Object.entries(registry.packages))
+      if (entry.implements && entry.decisionGuide)
+        byCore.set(entry.implements, [...(byCore.get(entry.implements) ?? []), name])
+    const homeless: string[] = []
+    for (const [core, providers] of byCore) {
+      const landed = providers.filter((name) => registry.packages[name].decisionGuide?.sourceFiles)
+      if (landed.length === 0) continue
+      for (const name of providers)
+        if (!landed.includes(name)) homeless.push(`${name} (siblings of ${core}: ${landed[0]})`)
+    }
+    expect(homeless).toEqual([])
+  })
+
+  it("accepts a SvelteKit route module, whose name keeps the framework's `+` prefix", () => {
+    const sourceFiles = ['src/routes/+layout.ts', 'src/routes/settings/+page.ts']
+    const guide = { sourceFiles, configuration: ['Use the declared hook.'] }
+    expect(DecisionGuide.parse(guide).sourceFiles).toEqual(sourceFiles)
   })
 })
