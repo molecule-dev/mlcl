@@ -1,6 +1,11 @@
+import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
+import { join } from 'node:path'
+
 import { describe, expect, it } from 'vitest'
 
-import { scorePackage } from '../../commands/search.js'
+import { projectFramework, scorePackage, toSearchEntry } from '../../commands/search.js'
+import { searchPackages } from '../package-search.js'
 import { loadRegistry } from '../registry.js'
 import type { InferredPackage } from '../schema.js'
 
@@ -39,12 +44,76 @@ describe('search capability and symbol relevance', () => {
     expect(names(query)[0]).toBe('@molecule/app-react')
   })
 
+  // Every framework binding exports the same hook names, so a symbol query
+  // finds each of them with the same score; the project's framework picks one.
+  const bindings = [
+    '@molecule/app-angular',
+    '@molecule/app-react',
+    '@molecule/app-solid',
+    '@molecule/app-svelte',
+    '@molecule/app-vue',
+  ]
   it.each(['useProfileForm', 'useprofileform', 'useProfileForm()'])(
-    'finds the package exporting %s',
+    'finds every framework binding exporting %s',
     (query) => {
-      expect(names(query)[0]).toBe('@molecule/app-react')
+      expect(names(query).slice(0, bindings.length)).toEqual(bindings)
     },
   )
+
+  it.each([
+    ['react', '@molecule/app-react'],
+    ['vue', '@molecule/app-vue'],
+    ['svelte', '@molecule/app-svelte'],
+    ['solid', '@molecule/app-solid'],
+    ['angular', '@molecule/app-angular'],
+  ])("returns the %s project's binding for useProfileForm", (framework, binding) => {
+    const hits = searchPackages(packages.map(toSearchEntry), 'useProfileForm', { framework })
+    expect(hits[0]?.name).toBe(binding)
+    expect(hits.map((hit) => hit.name).filter((name) => bindings.includes(name))).toEqual([binding])
+  })
+
+  it('counterexample: a framework keeps framework-neutral packages', () => {
+    const all = searchPackages(packages.map(toSearchEntry), 'payments', { limit: 100 })
+    const vue = searchPackages(packages.map(toSearchEntry), 'payments', {
+      framework: 'vue',
+      limit: 100,
+    })
+    expect(all.length).toBeGreaterThan(0)
+    expect(vue.map((hit) => hit.name)).toEqual(
+      all
+        .map((hit) => hit.name)
+        .filter((name) => {
+          const framework = packages.find((p) => p.name === name)?.molecule?.framework
+          return !framework || framework === 'vue'
+        }),
+    )
+  })
+
+  it('reads the framework a project declares, from its app half or its own manifest', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'search-framework-'))
+    try {
+      expect(projectFramework(dir)).toBeUndefined()
+      // Counterexample: depending on a framework (mlcl depends on React for its tests)
+      // is not declaring one.
+      writeFileSync(
+        join(dir, 'package.json'),
+        JSON.stringify({ devDependencies: { react: '19.3.1' } }),
+      )
+      expect(projectFramework(dir)).toBeUndefined()
+      writeFileSync(join(dir, 'package.json'), JSON.stringify({ molecule: { framework: 'vue' } }))
+      expect(projectFramework(dir)).toBe('vue')
+      mkdirSync(join(dir, 'app'))
+      writeFileSync(
+        join(dir, 'app', 'package.json'),
+        JSON.stringify({ molecule: { framework: 'svelte' } }),
+      )
+      expect(projectFramework(dir)).toBe('svelte')
+      writeFileSync(join(dir, 'app', 'package.json'), '{ not json')
+      expect(projectFramework(dir)).toBe('vue')
+    } finally {
+      rmSync(dir, { recursive: true, force: true })
+    }
+  })
 
   it('makes full phrase evidence outrank an incidental name substring generically', () => {
     const capability = pkg('@molecule/app-bindings', ['account editor'])

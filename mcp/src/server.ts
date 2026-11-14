@@ -557,12 +557,20 @@ server.registerTool(
       // long enough one is an argv too large for the child process to spawn.
       query: z.string().max(200).describe('Capability or package-name query'),
       stack: z.enum(['api', 'app']).optional(),
+      // Without it the CLI reads the framework of the project it runs in.
+      framework: z
+        .enum(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'])
+        .optional()
+        .describe(
+          "The project's UI framework: leaves out packages written for another framework (every framework binding exports the same hook names)",
+        ),
       limit: z.number().int().min(1).max(100).optional(),
     },
   },
-  tracked('search_packages', async ({ query, stack, limit }) => {
+  tracked('search_packages', async ({ query, stack, framework, limit }) => {
     const args = ['search', query, '--json']
     if (stack) args.push('--stack', stack)
+    if (framework) args.push('--framework', framework)
     if (limit) args.push('--limit', String(limit))
     return text(await runCli(args))
   }),

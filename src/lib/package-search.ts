@@ -10,7 +10,7 @@
  * stack filtering and DTO instead of hand-maintaining a second scorer.
  *
  * The copy under `mcp/src/` is generated from this file by
- * `mcp/scripts/generate-package-search.mjs`; `src/lib/__tests__/mcp-search-owner-drift.test.ts`
+ * `scripts/generate-mcp-package-search.mjs`; `src/lib/__tests__/mcp-search-owner-drift.test.ts`
  * fails when the two diverge. Edit this file, then regenerate — never the copy.
  *
  * Input is the loose registry-entry shape, because the two readers hold
@@ -38,6 +38,11 @@ export interface SearchSourceEntry {
   label?: string
   description?: string
   exports?: readonly string[]
+  /**
+   * The UI framework the package is written for (`react`, `vue`, `svelte`, `solid`,
+   * `angular`, `react-native`); absent for a framework-neutral package.
+   */
+  framework?: string
   intentHints?: readonly string[]
   /** Optional package-authored decision guidance in the registry. */
   decisionGuide?: {
@@ -73,6 +78,14 @@ export interface SearchOptions {
    * applies), not the name-derived display fallback below.
    */
   stack?: 'api' | 'app'
+  /**
+   * The project's UI framework. Applied BEFORE ranking, like `stack`: a package
+   * written for another framework is left out, framework-neutral packages stay.
+   * Every framework binding exports the same hook names (`useProfileForm`, …), so
+   * without it a symbol query returns each framework's package with the same
+   * score, and only the caller knows which one its project can import.
+   */
+  framework?: string
   /** Maximum number of hits. */
   limit?: number
 }
@@ -174,7 +187,7 @@ export function scoreSearchEntry(entry: SearchSourceEntry, q: string): number {
  *
  * @param entries - Registry-shaped packages, from either reader.
  * @param query - Package name, exported symbol or natural capability query.
- * @param options - Optional stack restriction and result limit.
+ * @param options - Optional stack and framework restrictions and result limit.
  * @returns Ranked hits (score stripped), at most `limit` of them.
  */
 export function searchPackages(
@@ -182,12 +195,13 @@ export function searchPackages(
   query: string,
   options: SearchOptions = {},
 ): SearchHit[] {
-  const { stack, limit = DEFAULT_SEARCH_LIMIT } = options
+  const { stack, framework, limit = DEFAULT_SEARCH_LIMIT } = options
   const ranked: Array<SearchHit & { score: number }> = []
   for (const entry of entries) {
     // The rule `loadRegistry(stack)` applies — declared stack equality — kept
     // here so the transport that has no loader (hosted MCP) filters identically.
     if (stack && entry.stack !== stack) continue
+    if (framework && typeof entry.framework === 'string' && entry.framework !== framework) continue
     const score = scoreSearchEntry(entry, query)
     if (score <= 0) continue
     const configuration = Array.isArray(entry.decisionGuide?.configuration)

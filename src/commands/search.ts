@@ -1,7 +1,10 @@
+import { existsSync, readFileSync } from 'node:fs'
+import { join } from 'node:path'
+
 import { Args, Command, Flags } from '@oclif/core'
 
 import { scoreSearchEntry, searchPackages, type SearchSourceEntry } from '../lib/package-search.js'
-import { loadRegistry } from '../lib/registry.js'
+import { loadAppFrameworks, loadRegistry } from '../lib/registry.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 import { ui } from '../lib/ui.js'
 
@@ -16,7 +19,7 @@ type RegistryPackage = Awaited<ReturnType<typeof loadRegistry>>[number]
  * @param pkg - A package from the canonical registry.
  * @returns The same package in the shared owner's loose entry shape.
  */
-function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
+export function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
   return {
     name: pkg.name,
     stack: pkg.molecule?.stack,
@@ -24,9 +27,37 @@ function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
     label: pkg.molecule?.label,
     description: pkg.description,
     exports: pkg.exports,
+    framework: pkg.molecule?.framework,
     intentHints: pkg.molecule?.intentHints,
     decisionGuide: pkg.molecule?.decisionGuide,
   }
+}
+
+/**
+ * The UI framework a project in a directory declares: the `molecule.framework`
+ * marker `mlcl create` writes into every app's package.json, read from its app
+ * half (`app/package.json`, a full-stack project) or the directory's own
+ * package.json. Dependencies are not consulted: a package that merely depends
+ * on React (mlcl itself, for its tests) is not a React app.
+ *
+ * @param dir - The directory `mlcl search` runs in.
+ * @returns The declared framework key, or undefined when no project declares one.
+ */
+export function projectFramework(dir: string): string | undefined {
+  for (const manifest of [join(dir, 'app', 'package.json'), join(dir, 'package.json')]) {
+    if (!existsSync(manifest)) continue
+    let pkg: { molecule?: { framework?: unknown } }
+    try {
+      pkg = JSON.parse(readFileSync(manifest, 'utf8'))
+    } catch (_error) {
+      // An unreadable manifest declares nothing; search then ranks every
+      // framework's packages, as it does outside a project.
+      continue
+    }
+    const framework = pkg?.molecule?.framework
+    if (typeof framework === 'string' && framework) return framework
+  }
+  return undefined
 }
 
 /**
@@ -62,6 +93,10 @@ export default class Search extends Command {
       description: 'Restrict to one stack',
       options: ['api', 'app'],
     }),
+    framework: Flags.string({
+      description:
+        "Only this UI framework's packages plus framework-neutral ones (default: the molecule.framework the current project declares)",
+    }),
     limit: Flags.integer({
       description: 'Maximum number of results',
       default: 20,
@@ -81,8 +116,20 @@ export default class Search extends Command {
     // The shared owner applies the stack filter BEFORE ranking/truncation and
     // emits the DTO both transports expose (the hosted MCP imports the same
     // logic as generated standalone code — see lib/package-search.ts).
+    const appFrameworks = loadAppFrameworks()
+    if (flags.framework && !appFrameworks[flags.framework])
+      this.error(
+        `Unknown framework "${flags.framework}". Known: ${Object.keys(appFrameworks).join(', ')}`,
+      )
+    const projectKey = flags.framework ?? projectFramework(process.cwd())
+    // Packages name the UI framework they are written for; react-native-web
+    // projects use the react-native UI set (`uiFramework` in the registry).
+    const framework = projectKey
+      ? (appFrameworks[projectKey]?.uiFramework ?? projectKey)
+      : undefined
     const hits = searchPackages(loadRegistry().map(toSearchEntry), q, {
       stack: flags.stack as 'api' | 'app' | undefined,
+      framework,
       limit: flags.limit,
     })
 

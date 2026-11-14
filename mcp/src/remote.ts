@@ -404,7 +404,7 @@ export function buildRemoteServer(): McpServer {
     {
       title: 'Search @molecule packages',
       description:
-        'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, label, description, common-shape configuration when declared, and the install command; `stack` restricts results to one stack. Prefer an existing package over hand-rolling any capability and read its doc before rejecting it.',
+        'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, label, description, common-shape configuration when declared, and the install command; `stack` restricts results to one stack and `framework` to one UI framework (plus framework-neutral packages). Prefer an existing package over hand-rolling any capability and read its doc before rejecting it.',
       inputSchema: {
         // Bounded: the scorer splits the query on whitespace and runs one pass
         // over EVERY fleet package (~900) for each token, so the work one
@@ -419,10 +419,16 @@ export function buildRemoteServer(): McpServer {
         // caller on a crowded query must not lose its matches to app packages
         // filling the limit window.
         stack: z.enum(['api', 'app']).optional().describe('Restrict results to one stack'),
+        framework: z
+          .enum(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'])
+          .optional()
+          .describe(
+            "The project's UI framework: leaves out packages written for another framework (every framework binding exports the same hook names)",
+          ),
         limit: z.number().int().min(1).max(100).optional(),
       },
     },
-    tracked('search_packages', async ({ query, stack, limit }) => {
+    tracked('search_packages', async ({ query, stack, framework, limit }) => {
       // `isRegistryPayload` is the gate the type below cannot provide on its
       // own: without it a body carrying no `packages` map reached
       // `Object.entries(undefined)` and the client was told "Cannot convert
@@ -437,7 +443,7 @@ export function buildRemoteServer(): McpServer {
       const hits = searchPackages(
         Object.entries(packages).map(([name, entry]): SearchSourceEntry => ({ ...entry, name })),
         query,
-        { stack, limit },
+        { stack, framework, limit },
       ).map((hit) => ({
         ...hit,
         install: `npx mlcl add ${hit.name} --inject`,
