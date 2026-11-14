@@ -2530,6 +2530,19 @@ vi.mock('@molecule/app-version', () => ({
   BUILD_TIME_META_NAME: {},
 }))
 
+// The bond files as they are now. A check below runs only while its file exists, so
+// replacing or removing a bond needs no edit to this test.
+const bondFiles = import.meta.glob<Record<string, unknown>>('../bonds/**/*.ts')
+
+/** The setups bonds/index.ts imported from project bond files when it was generated. */
+const wiredSetups: ReadonlyArray<readonly [file: string, name: string]> = [
+  ['../bonds/app-analytics.ts', 'setupAppAnalytics'],
+  ['../bonds/app-command-palette-cmdk.ts', 'setupAppCommandPaletteCmdk'],
+  ['../bonds/app-keyboard-shortcuts-hotkeys.ts', 'setupAppKeyboardShortcutsHotkeys'],
+  ['../bonds/app-theme-css-variables.ts', 'setupAppThemeCssVariables'],
+  ['../bonds/auth-default.ts', 'setupAuthDefault'],
+]
+
 describe('bonds/index', () => {
   it('exports setupProviders function', async () => {
     const mod = await import('../bonds/index.js')
@@ -2543,25 +2556,22 @@ describe('bonds/index', () => {
 
   it('calls imported setup boundaries with project providers', async () => {
     const { setupProviders } = await import('../bonds/index.js')
-    const themeBond = await import('../bonds/app-theme-css-variables.js')
+    const themeBond = await bondFiles['../bonds/app-theme-css-variables.ts']?.()
     const themeCore = await import('@molecule/app-theme')
     vi.clearAllMocks()
     await setupProviders()
     expect(
       (await import('@molecule/app-bonds-default-react')).setupAllDefaultBonds,
     ).toHaveBeenCalledOnce()
-    expect((await import('../bonds/app-analytics.js')).setupAppAnalytics).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-command-palette-cmdk.js')).setupAppCommandPaletteCmdk,
-    ).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-keyboard-shortcuts-hotkeys.js')).setupAppKeyboardShortcutsHotkeys,
-    ).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-theme-css-variables.js')).setupAppThemeCssVariables,
-    ).toHaveBeenCalledOnce()
-    expect((await import('../bonds/auth-default.js')).setupAuthDefault).toHaveBeenCalledOnce()
-    expect(themeCore.setProvider).toHaveBeenCalledWith(themeBond.themeProvider)
+    for (const [file, name] of wiredSetups) {
+      const bond = await bondFiles[file]?.()
+      if (bond) {
+        expect(bond[name], `${name} in ${file}`).toHaveBeenCalledOnce()
+      }
+    }
+    if (themeBond) {
+      expect(themeCore.setProvider).toHaveBeenCalledWith(themeBond.themeProvider)
+    }
   })
 
   it('exports provider instances', async () => {

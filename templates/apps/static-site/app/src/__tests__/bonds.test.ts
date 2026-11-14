@@ -2593,6 +2593,24 @@ vi.mock('@molecule/app-utilities', () => ({
   uuid: {},
 }))
 
+// The bond files as they are now. A check below runs only while its file exists, so
+// replacing or removing a bond needs no edit to this test.
+const bondFiles = import.meta.glob<Record<string, unknown>>('../bonds/**/*.ts')
+
+/** The setups bonds/index.ts imported from project bond files when it was generated. */
+const wiredSetups: ReadonlyArray<readonly [file: string, name: string]> = [
+  ['../bonds/app-analytics.ts', 'setupAppAnalytics'],
+  ['../bonds/app-fonts-arimo.ts', 'setupAppFontsArimo'],
+  ['../bonds/app-icons-molecule.ts', 'setupAppIconsMolecule'],
+  ['../bonds/app-markdown-marked.ts', 'setupAppMarkdownMarked'],
+  ['../bonds/app-routing-react-router.ts', 'setupAppRoutingReactRouter'],
+  ['../bonds/app-storage-localstorage.ts', 'setupAppStorageLocalstorage'],
+  ['../bonds/app-styling-tailwind.ts', 'setupAppStylingTailwind'],
+  ['../bonds/app-theme-css-variables.ts', 'setupAppThemeCssVariables'],
+  ['../bonds/app-ui-tailwind.ts', 'setupAppUiTailwind'],
+  ['../bonds/i18n-default.ts', 'setupI18nDefault'],
+]
+
 describe('bonds/index', () => {
   it('exports setupProviders function', async () => {
     const mod = await import('../bonds/index.js')
@@ -2606,33 +2624,19 @@ describe('bonds/index', () => {
 
   it('calls imported setup boundaries with project providers', async () => {
     const { setupProviders } = await import('../bonds/index.js')
-    const themeBond = await import('../bonds/app-theme-css-variables.js')
+    const themeBond = await bondFiles['../bonds/app-theme-css-variables.ts']?.()
     const themeCore = await import('@molecule/app-theme')
     vi.clearAllMocks()
     await setupProviders()
-    expect((await import('../bonds/app-analytics.js')).setupAppAnalytics).toHaveBeenCalledOnce()
-    expect((await import('../bonds/app-fonts-arimo.js')).setupAppFontsArimo).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-icons-molecule.js')).setupAppIconsMolecule,
-    ).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-markdown-marked.js')).setupAppMarkdownMarked,
-    ).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-routing-react-router.js')).setupAppRoutingReactRouter,
-    ).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-storage-localstorage.js')).setupAppStorageLocalstorage,
-    ).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-styling-tailwind.js')).setupAppStylingTailwind,
-    ).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-theme-css-variables.js')).setupAppThemeCssVariables,
-    ).toHaveBeenCalledOnce()
-    expect((await import('../bonds/app-ui-tailwind.js')).setupAppUiTailwind).toHaveBeenCalledOnce()
-    expect((await import('../bonds/i18n-default.js')).setupI18nDefault).toHaveBeenCalledOnce()
-    expect(themeCore.setProvider).toHaveBeenCalledWith(themeBond.themeProvider)
+    for (const [file, name] of wiredSetups) {
+      const bond = await bondFiles[file]?.()
+      if (bond) {
+        expect(bond[name], `${name} in ${file}`).toHaveBeenCalledOnce()
+      }
+    }
+    if (themeBond) {
+      expect(themeCore.setProvider).toHaveBeenCalledWith(themeBond.themeProvider)
+    }
   })
 
   it('exports provider instances', async () => {

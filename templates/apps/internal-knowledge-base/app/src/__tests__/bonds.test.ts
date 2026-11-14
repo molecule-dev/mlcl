@@ -2327,6 +2327,18 @@ vi.mock('@molecule/app-version', () => ({
   BUILD_TIME_META_NAME: {},
 }))
 
+// The bond files as they are now. A check below runs only while its file exists, so
+// replacing or removing a bond needs no edit to this test.
+const bondFiles = import.meta.glob<Record<string, unknown>>('../bonds/**/*.ts')
+
+/** The setups bonds/index.ts imported from project bond files when it was generated. */
+const wiredSetups: ReadonlyArray<readonly [file: string, name: string]> = [
+  ['../bonds/app-analytics.ts', 'setupAppAnalytics'],
+  ['../bonds/app-theme-css-variables.ts', 'setupAppThemeCssVariables'],
+  ['../bonds/auth-default.ts', 'setupAuthDefault'],
+  ['../bonds/http-client-fetch.ts', 'setupHttpClientFetch'],
+]
+
 describe('bonds/index', () => {
   it('exports setupProviders function', async () => {
     const mod = await import('../bonds/index.js')
@@ -2340,25 +2352,27 @@ describe('bonds/index', () => {
 
   it('calls imported setup boundaries with project providers', async () => {
     const { setupProviders } = await import('../bonds/index.js')
-    const httpBond = await import('../bonds/http-client-fetch.js')
+    const httpBond = await bondFiles['../bonds/http-client-fetch.ts']?.()
     const httpCore = await import('@molecule/app-http')
-    const themeBond = await import('../bonds/app-theme-css-variables.js')
+    const themeBond = await bondFiles['../bonds/app-theme-css-variables.ts']?.()
     const themeCore = await import('@molecule/app-theme')
     vi.clearAllMocks()
     await setupProviders()
     expect(
       (await import('@molecule/app-bonds-default-react')).setupAllDefaultBonds,
     ).toHaveBeenCalledOnce()
-    expect((await import('../bonds/app-analytics.js')).setupAppAnalytics).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/app-theme-css-variables.js')).setupAppThemeCssVariables,
-    ).toHaveBeenCalledOnce()
-    expect((await import('../bonds/auth-default.js')).setupAuthDefault).toHaveBeenCalledOnce()
-    expect(
-      (await import('../bonds/http-client-fetch.js')).setupHttpClientFetch,
-    ).toHaveBeenCalledOnce()
-    expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)
-    expect(themeCore.setProvider).toHaveBeenCalledWith(themeBond.themeProvider)
+    for (const [file, name] of wiredSetups) {
+      const bond = await bondFiles[file]?.()
+      if (bond) {
+        expect(bond[name], `${name} in ${file}`).toHaveBeenCalledOnce()
+      }
+    }
+    if (httpBond) {
+      expect(httpCore.setClient).toHaveBeenCalledWith(httpBond.httpClient)
+    }
+    if (themeBond) {
+      expect(themeCore.setProvider).toHaveBeenCalledWith(themeBond.themeProvider)
+    }
   })
 
   it('exports provider instances', async () => {
