@@ -64,13 +64,23 @@ export default class TestFeedback extends Command {
     }))
     let failed = false,
       unavailable = false
+    // A failure already printed is not printed again until a later write: the same locator may
+    // still fail on the next revision, and then it is news again.
+    const emitted = new Set<string>()
     const emit = (result: PlaywrightFeedbackResult): void => {
+      const fresh = result.failures.filter((f) => {
+        const identity = JSON.stringify([f.spec, f.line, f.locator])
+        if (emitted.has(identity)) return false
+        emitted.add(identity)
+        return true
+      })
+      if (fresh.length === 0) return
       failed = true
       if (flags.json) {
-        this.log(JSON.stringify(result))
+        this.log(JSON.stringify({ ...result, failures: fresh }))
         return
       }
-      for (const f of result.failures) {
+      for (const f of fresh) {
         this.log(
           `${f.spec}:${f.line}: ${f.locator}\nSource changes: ${f.sourceFiles.map((p) => relative(root, p)).join(', ')}\n${f.error}${f.rendered ? `\nRendered page (Playwright):\n${f.rendered}` : ''}`,
         )
@@ -112,30 +122,68 @@ export default class TestFeedback extends Command {
         this.warn(`${result.spec}: ${result.reason}`)
       },
     })
+    // The controller's own background pass only re-runs failures a completed run already
+    // recorded; this command has no host run to record, so every pass is an explicit checkpoint
+    // over the specs the changed sources select. A write during a checkpoint cancels it, and the
+    // next pass runs on the new source.
+    const checkpoint = async (): Promise<void> => {
+      for (const result of await controller.check()) if (result.status === 'failed') emit(result)
+    }
     controller.changed(sources)
     if (!flags.watch) {
-      await controller.settled()
+      await checkpoint()
       await controller.close()
       if (failed) this.exit(1)
       if (unavailable) this.exit(2)
       return
     }
+    let timer: NodeJS.Timeout | undefined,
+      checking: Promise<void> | undefined,
+      again = false,
+      closed = false
+    const queue = (): void => {
+      if (closed) return
+      if (timer) clearTimeout(timer)
+      timer = setTimeout(() => {
+        timer = undefined
+        if (checking) {
+          again = true
+          return
+        }
+        checking = checkpoint().finally(() => {
+          checking = undefined
+          if (again) {
+            again = false
+            queue()
+          }
+        })
+      }, 250)
+    }
+    queue()
     const watches = observed.map(({ path, directory }) =>
       watch(path, { recursive: true }, (_event, file) => {
         if (
           file &&
           isPlaywrightFeedbackSource(file.toString()) &&
           !/(?:^|[/\\])(?:node_modules|dist|\.git|\.mol)(?:[/\\]|$)/.test(file.toString())
-        )
+        ) {
+          emitted.clear()
           controller.changed([directory ? resolve(path, file.toString()) : path])
+          queue()
+        }
       }),
     )
     await new Promise<void>((done) => {
       const stop = (): void => {
         process.off('SIGINT', stop)
         process.off('SIGTERM', stop)
+        closed = true
+        if (timer) clearTimeout(timer)
         for (const watcher of watches) watcher.close()
-        void controller.close().then(done)
+        void controller
+          .close()
+          .then(() => checking)
+          .then(done)
       }
       process.on('SIGINT', stop)
       process.on('SIGTERM', stop)
