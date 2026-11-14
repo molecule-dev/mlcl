@@ -37,6 +37,7 @@ import { dirname, join } from 'node:path'
 import { parse as parseYaml } from 'yaml'
 
 import {
+  declaresAtLeast,
   factoryIsDeclared,
   planAppResourceModules,
   type ResourceModuleFactory,
@@ -544,13 +545,38 @@ export function planContractResourceModules(
             ? Number(defaultLimit)
             : null
         const filterType = filters.map((key) => JSON.stringify(key)).join(' | ') || 'never'
-        listHooks.push(
-          `/** URL paging and filters, one cached read, and refetch; writes use ${resourceCall}. */\n` +
-            `export function ${hookName}<Selection extends string = string>(${[...parentParams.map((key) => `${camel(key)}: string`), 'viewer: string | null', `params: Omit<${paramsType}, ${managed.map((key) => JSON.stringify(key)).join(' | ')}>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}) {\n` +
-            `  const route = ${listRoute.hook}({ ...options,${limit ? ` pageSize: options.pageSize ?? ${limit},` : ''} filters: { ${filters.map((key) => `${propertyKey(key)}: {}`).join(', ')}${filters.length ? ', ' : ''}...options.filters } })\n` +
-            `  const query = ${listRoute.queryHook}(viewer !== null && route.canLoad ? ${pageName}(${[...parentParams.map(camel), 'viewer', `{ ...params, ${filters.map((key) => `${propertyKey(key)}: route.filters[${JSON.stringify(key)}], `).join('')}limit: route.pageSize, offset: route.offset }`].join(', ')}) : null)\n` +
-            `  return { route, ...query }\n}`,
-        )
+        const routeCall = `${listRoute.hook}({ ...options,${limit ? ` pageSize: options.pageSize ?? ${limit},` : ''} filters: { ${filters.map((key) => `${propertyKey(key)}: {}`).join(', ')}${filters.length ? ', ' : ''}...options.filters } })`
+        const pageArgs = (list: string): string =>
+          [
+            ...parentParams.map(camel),
+            'viewer',
+            `{ ...params, ${filters.map((key) => `${propertyKey(key)}: ${list}.filters[${JSON.stringify(key)}], `).join('')}limit: ${list}.pageSize, offset: ${list}.offset }`,
+          ].join(', ')
+        const sourceType = listRoute.sourceType
+        const omitted = managed.map((key) => JSON.stringify(key)).join(' | ')
+        // The scaffold's lint asks every exported function for its return type: name it from the
+        // two hooks it composes, so the hook stays right when either package's result changes.
+        const routeResult = `ReturnType<typeof ${listRoute.hook}<${filterType}, Selection>>`
+        if (sourceType) {
+          // A binding whose hooks run once (a setup function, not a render) reads each argument
+          // reactively: every argument is the package's source type, and its list query reads
+          // their current values, so a changed viewer, parent id or params value moves the query.
+          const inputs = [...parentParams.map(camel), 'viewer', 'params'].join(', ')
+          listHooks.push(
+            `/** URL paging and filters, one cached read, and refetch; writes use ${resourceCall}. */\n` +
+              `export function ${hookName}<Selection extends string = string>(${[...parentParams.map((key) => `${camel(key)}: ${sourceType}<string>`), `viewer: ${sourceType}<string | null>`, `params: ${sourceType}<Omit<${paramsType}, ${omitted}>>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult}; query: ReturnType<typeof ${listRoute.queryHook}<${resultType}, { ${[...parentParams.map((key) => `${camel(key)}: string; `), 'viewer: string | null; '].join('')}params: Omit<${paramsType}, ${omitted}> }, ${filterType}>> } {\n` +
+              `  const route = ${routeCall}\n` +
+              `  const query = ${listRoute.queryHook}(route, { ${inputs} }, ({ ${inputs} }, list) => ${pageName}(${pageArgs('list')}))\n` +
+              `  return { route, query }\n}`,
+          )
+        } else
+          listHooks.push(
+            `/** URL paging and filters, one cached read, and refetch; writes use ${resourceCall}. */\n` +
+              `export function ${hookName}<Selection extends string = string>(${[...parentParams.map((key) => `${camel(key)}: string`), 'viewer: string | null', `params: Omit<${paramsType}, ${omitted}>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult} } & ReturnType<typeof ${listRoute.queryHook}<${resultType}>> {\n` +
+              `  const route = ${routeCall}\n` +
+              `  const query = ${listRoute.queryHook}(viewer !== null && route.canLoad ? ${pageName}(${pageArgs('route')}) : null)\n` +
+              `  return { route, ...query }\n}`,
+          )
       }
     }
 
@@ -646,23 +672,37 @@ export function planContractResourceModules(
       ...(extraLists.get(base) ?? []).map((path) => `list (GET ${path})`),
     ]
     const call = parentParams.length ? `${exportName}(${camel(parentParams[0])})` : exportName
-    const typeImports = [
-      ...(pageExports.length ? [{ name: 'QueryOptions', from: '@molecule/app-query' }] : []),
-      { name: 'QueryResource', from: factoryPackage },
-    ]
-    const moduleOf = (line: string): string => /from '([^']+)'/.exec(line)?.[1] ?? ''
-    const importLines = [
-      ...typeImports
-        .filter((entry) => entry.from !== factoryPackage)
-        .map((entry) => `import type { ${entry.name} } from '${entry.from}'`),
-      `import { ${factory.http.client} } from '${factory.http.package}'`,
-      `import { ${factory.factory}${listHooks.length ? `, ${listRoute!.queryHook}` : ''}${typeImports.some((entry) => entry.from === factoryPackage) ? ', type QueryResource' : ''} } from '${factoryPackage}'`,
-      ...(listHooks.length
-        ? [
-            `import { ${listRoute!.hook}, type ${listRoute!.optionsType} } from '${listRoute!.package}'`,
-          ]
-        : []),
-    ].sort((a, b) => moduleOf(a).localeCompare(moduleOf(b)))
+    // One import per module, its names in the order the scaffold's `simple-import-sort` lint
+    // keeps (by name, `type` ignored): a module of only types is an `import type`.
+    const values = new Map<string, string[]>([
+      [factory.http.package, [factory.http.client]],
+      [factoryPackage, [factory.factory, ...(listHooks.length ? [listRoute!.queryHook] : [])]],
+      ...(listHooks.length ? [[listRoute!.package, [listRoute!.hook]] as [string, string[]]] : []),
+    ])
+    const types = new Map<string, string[]>()
+    const typeImport = (from: string, name: string): void => {
+      types.set(from, [...(types.get(from) ?? []), name])
+    }
+    if (pageExports.length) typeImport('@molecule/app-query', 'QueryOptions')
+    typeImport(factoryPackage, 'QueryResource')
+    if (listHooks.length) {
+      typeImport(listRoute!.optionsPackage ?? listRoute!.package, listRoute!.optionsType)
+      if (listRoute!.sourceType) typeImport(factoryPackage, listRoute!.sourceType)
+    }
+    const byName = (a: string, b: string): number =>
+      a
+        .replace(/^type /, '')
+        .toLowerCase()
+        .localeCompare(b.replace(/^type /, '').toLowerCase())
+    const importLines = [...new Set([...values.keys(), ...types.keys()])]
+      .sort((a, b) => a.localeCompare(b))
+      .map((from) => {
+        const typeNames = types.get(from) ?? []
+        if (!values.has(from))
+          return `import type { ${typeNames.sort(byName).join(', ')} } from '${from}'`
+        const names = [...values.get(from)!, ...typeNames.map((typeName) => `type ${typeName}`)]
+        return `import { ${names.sort(byName).join(', ')} } from '${from}'`
+      })
     const source = `/**
  * ${pascal(name)} on the app's shared query cache, as ${label} declares them.
  *
@@ -745,6 +785,49 @@ export interface ContractModulesResult {
 const sha = (text: string): string => createHash('sha256').update(text).digest('hex')
 
 /**
+ * The factory's URL list binding, when this workspace can compile its list hooks: the binding's
+ * package is declared beside the factory, and the declared factory version is at or above the
+ * binding's `since` (the version that added its list query).
+ *
+ * @param projectRoot - The project root.
+ * @param factory - The declared resource factory.
+ * @param declaration - The factory package's declaration.
+ * @param declared - The project's declared packages with their workspaces.
+ * @returns The list binding, or undefined when list hooks would not compile.
+ */
+async function declaredListRoute(
+  projectRoot: string,
+  factory: ResourceModuleFactory,
+  declaration: DeclaredPackage,
+  declared: readonly DeclaredPackage[],
+): Promise<ResourceModuleFactory['listRoute']> {
+  const listRoute = factory.listRoute
+  if (
+    !listRoute ||
+    !declared.some(
+      (item) => item.name === listRoute.package && item.workspace === declaration.workspace,
+    )
+  )
+    return undefined
+  if (!listRoute.since) return listRoute
+  let manifest: Record<string, Record<string, string> | undefined>
+  try {
+    manifest = JSON.parse(
+      await readFile(join(projectRoot, declaration.workspace, 'package.json'), 'utf8'),
+    ) as typeof manifest
+  } catch (_error) {
+    // factoryIsDeclared read this manifest a moment ago; unreadable now proves no version.
+    return undefined
+  }
+  return declaresAtLeast(
+    manifest.dependencies?.[declaration.name] ?? manifest.devDependencies?.[declaration.name],
+    listRoute.since,
+  )
+    ? listRoute
+    : undefined
+}
+
+/**
  * Generate (or regenerate) the app's resource modules from a contract file.
  *
  * @param projectRoot - The project root.
@@ -806,13 +889,7 @@ export async function writeContractResourceModules(
     declaration.name,
     declaration.workspace,
     label,
-    factory.listRoute &&
-      declared.some(
-        (item) =>
-          item.name === factory.listRoute!.package && item.workspace === declaration.workspace,
-      )
-      ? factory.listRoute
-      : undefined,
+    await declaredListRoute(projectRoot, factory, declaration, declared),
   )
   result.skipped = plan.skipped
   const directory = join(projectRoot, declaration.workspace, factory.directory)

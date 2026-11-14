@@ -217,7 +217,25 @@ export const DecisionGuide = z.object({
           package: z.string(),
           hook: z.string().regex(/^[A-Za-z_$][\w$]*$/),
           optionsType: z.string().regex(/^[A-Za-z_$][\w$]*$/),
+          optionsPackage: z
+            .string()
+            .optional()
+            .describe('The package exporting `optionsType`, when it is not `package`'),
           queryHook: z.string().regex(/^[A-Za-z_$][\w$]*$/),
+          sourceType: z
+            .string()
+            .regex(/^[A-Za-z_$][\w$]*$/)
+            .optional()
+            .describe(
+              "This factory package's reactive input type. When set, `queryHook` is its list " +
+                'query, `(route, inputs, read)`, and every argument of a generated list hook is ' +
+                'one of these (a binding whose hooks run once reads its arguments reactively).',
+            ),
+          since: z
+            .string()
+            .regex(/^\d+\.\d+\.\d+$/)
+            .optional()
+            .describe('First factory package version that exports `queryHook` and `sourceType`'),
         })
         .optional()
         .describe('URL list binding composed only when its package is declared in this workspace'),

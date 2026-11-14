@@ -60480,6 +60480,11 @@
       "description": "Angular hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
       "stack": "app",
       "exports": [
+        "ListQuerySource",
+        "ListQueryInputs",
+        "ListQueryRoute",
+        "ListQueryState",
+        "useListQuery",
         "QueryContent",
         "QueryResource",
         "QueryResourceConfig",
@@ -60524,6 +60529,15 @@
             "client": "getClient",
             "readList": "unwrapList",
             "readOne": "unwrapSingle"
+          },
+          "listRoute": {
+            "package": "@molecule/app-angular",
+            "hook": "useListRoute",
+            "optionsType": "ListRouteOptions",
+            "optionsPackage": "@molecule/app-routing",
+            "queryHook": "useListQuery",
+            "sourceType": "ListQuerySource",
+            "since": "1.2.0"
           }
         }
       },
@@ -60633,6 +60647,11 @@
       "description": "Solid hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
       "stack": "app",
       "exports": [
+        "ListQuerySource",
+        "ListQueryInputs",
+        "ListQueryRoute",
+        "ListQueryState",
+        "useListQuery",
         "QueryContent",
         "QueryResource",
         "QueryResourceConfig",
@@ -60673,6 +60692,15 @@
             "client": "getClient",
             "readList": "unwrapList",
             "readOne": "unwrapSingle"
+          },
+          "listRoute": {
+            "package": "@molecule/app-solid",
+            "hook": "useListRoute",
+            "optionsType": "ListRouteOptions",
+            "optionsPackage": "@molecule/app-routing",
+            "queryHook": "useListQuery",
+            "sourceType": "ListQuerySource",
+            "since": "1.2.0"
           }
         }
       },
@@ -60692,6 +60720,11 @@
       "stack": "app",
       "exports": [
         "QueryContent",
+        "ListQuerySource",
+        "ListQueryInputs",
+        "ListQueryRoute",
+        "ListQueryState",
+        "useListQuery",
         "QueryResource",
         "QueryResourceConfig",
         "ResourceHttp",
@@ -60731,6 +60764,15 @@
             "client": "getClient",
             "readList": "unwrapList",
             "readOne": "unwrapSingle"
+          },
+          "listRoute": {
+            "package": "@molecule/app-svelte",
+            "hook": "useListRoute",
+            "optionsType": "ListRouteOptions",
+            "optionsPackage": "@molecule/app-routing",
+            "queryHook": "useListQuery",
+            "sourceType": "ListQuerySource",
+            "since": "1.2.0"
           }
         }
       },
@@ -60777,6 +60819,10 @@
       "description": "Vue hooks for @molecule/app-query — read a cached document synchronously, observe it, and prefetch on intent",
       "stack": "app",
       "exports": [
+        "ListQuerySource",
+        "ListQueryInputs",
+        "ListQueryState",
+        "useListQuery",
         "QueryContentSlots",
         "QueryContent",
         "QueryResource",
@@ -60819,6 +60865,15 @@
             "client": "getClient",
             "readList": "unwrapList",
             "readOne": "unwrapSingle"
+          },
+          "listRoute": {
+            "package": "@molecule/app-vue",
+            "hook": "useListRoute",
+            "optionsType": "ListRouteOptions",
+            "optionsPackage": "@molecule/app-routing",
+            "queryHook": "useListQuery",
+            "sourceType": "ListQuerySource",
+            "since": "1.2.0"
           }
         }
       },

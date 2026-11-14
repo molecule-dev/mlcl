@@ -307,19 +307,32 @@ export async function factoryIsDeclared(
       // No readable manifest names no version, so nothing proves the export is there.
       return false
     }
-    const range =
-      manifest.dependencies?.[declaration.name] ?? manifest.devDependencies?.[declaration.name]
-    if (typeof range !== 'string') return false
-    const version = /^[\^~]?(\d+)\.(\d+)\.(\d+)/.exec(range)
-    if (!version) return true
-    const since = factory.since.split('.').map(Number)
-    for (let part = 0; part < 3; part++) {
-      const have = Number(version[part + 1])
-      if (have !== since[part]) return have > since[part]
-    }
-    return true
+    return declaresAtLeast(
+      manifest.dependencies?.[declaration.name] ?? manifest.devDependencies?.[declaration.name],
+      factory.since,
+    )
   }
   return false
+}
+
+/**
+ * Whether a manifest's declaration of a package names a version at or above `since`.
+ *
+ * @param range - The declared version or range (`1.2.0`, `^1.2.0`), or undefined when absent.
+ * @param since - The first version that has what the caller needs.
+ * @returns False when nothing is declared; true for a declaration that is not a version at all (a
+ *   workspace or file link resolves to the package's own source).
+ */
+export function declaresAtLeast(range: string | undefined, since: string): boolean {
+  if (typeof range !== 'string') return false
+  const version = /^[\^~]?(\d+)\.(\d+)\.(\d+)/.exec(range)
+  if (!version) return true
+  const wanted = since.split('.').map(Number)
+  for (let part = 0; part < 3; part++) {
+    const have = Number(version[part + 1])
+    if (have !== wanted[part]) return have > wanted[part]
+  }
+  return true
 }
 
 /** The line a generated API router carries for a package's routes (`injector.ts`). */

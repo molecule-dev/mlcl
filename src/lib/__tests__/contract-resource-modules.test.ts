@@ -19,7 +19,7 @@ import {
   planContractResourceModules,
   writeContractResourceModules,
 } from '../contract-resource-modules.js'
-import { formatGeneratedSource } from '../format.js'
+import { formatGeneratedSource, sortImportStatements } from '../format.js'
 import { getRawRegistry } from '../registry.js'
 
 const registry = getRawRegistry()
@@ -169,23 +169,85 @@ describe('an inventory API with its own contract', () => {
   })
 })
 
-describe('every generated module type-checks', () => {
-  const declarations = {
-    [HTTP]: join(MOLECULE, 'core/http/dist/index.d.ts'),
+/**
+ * Every framework's query package, with the declarations its generated modules compile against
+ * and how a page reads the generated `useArticlesList` (React spreads the query into the result;
+ * a binding whose hooks run once returns the query as its own reactive value).
+ */
+const FRAMEWORK_QUERIES = [
+  {
+    query: QUERY,
     // Compile the current contract, without rewriting a linked installation's dist during a cohort.
-    [QUERY]: join(MOLECULE, 'features/query-react/src/index.ts'),
+    entry: join(MOLECULE, 'features/query-react/src/index.ts'),
+    built: join(MOLECULE, 'features/query-react/dist/resource.d.ts'),
+    router: join(MOLECULE, 'bonds/routing/react-router/dist/index.d.ts'),
+    useList: `const list = useArticlesList('u1')
+  list.route.setPage(2)
+  const total: number | undefined = list.data?.articlesCount`,
+  },
+  ...[
+    {
+      framework: 'vue',
+      useList: `const { route, query } = useArticlesList(() => 'u1')
+  route.value.setPage(2)
+  const total: number | undefined = query.value.data?.articlesCount`,
+    },
+    {
+      framework: 'solid',
+      useList: `const { route, query } = useArticlesList(() => 'u1')
+  route.setPage(2)
+  const total: number | undefined = query.data?.articlesCount`,
+    },
+    {
+      framework: 'svelte',
+      useList: `const { route, query } = useArticlesList('u1')
+  route.setPage(2)
+  let total: number | undefined
+  query.subscribe((state) => {
+    total = state.data?.articlesCount
+  })`,
+    },
+    {
+      framework: 'angular',
+      useList: `const { route, query } = useArticlesList('u1')
+  route.setPage(2)
+  const total: number | undefined = query.data?.articlesCount`,
+    },
+  ].map(({ framework, useList }) => ({
+    query: `@molecule/app-query-${framework}`,
+    entry: join(MOLECULE, `features/query-${framework}/dist/index.d.ts`),
+    built: join(MOLECULE, `features/query-${framework}/dist/list-query.d.ts`),
+    router: join(MOLECULE, `frameworks/${framework}/dist/index.d.ts`),
+    useList,
+  })),
+]
+
+describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) => {
+  const factory = registry.packages[framework.query].decisionGuide!.resourceModules!
+  const listRoute = factory.listRoute!
+  const declarations: Record<string, string> = {
+    [HTTP]: join(MOLECULE, 'core/http/dist/index.d.ts'),
+    [framework.query]: framework.entry,
     '@molecule/app-query': join(MOLECULE, 'core/query/dist/index.d.ts'),
+    '@molecule/app-routing': join(MOLECULE, 'core/routing/dist/index.d.ts'),
+    [listRoute.package]: framework.router,
   }
   const built =
-    Object.values(declarations).every((file) => existsSync(file)) &&
-    existsSync(join(MOLECULE, 'features/query-react/dist/resource.d.ts'))
+    Object.values(declarations).every((file) => existsSync(file)) && existsSync(framework.built)
 
   it.runIf(built)('against the real package declarations, with a page that uses them', async () => {
     const dir = join(root, 'compile')
     await mkdir(dir, { recursive: true })
     const files: string[] = []
     for (const name of ['p317-supplied-openapi.yml.txt', 'inventory-openapi.json.txt'])
-      for (const module of (await plan(name)).modules) {
+      for (const module of planContractResourceModules(
+        parseContract(await fixture(name)),
+        factory,
+        framework.query,
+        'app',
+        'specs/openapi.yml',
+        listRoute,
+      ).modules) {
         const file = join(dir, `${module.exportName}.ts`)
         await writeFile(file, module.source)
         files.push(file)
@@ -194,11 +256,15 @@ describe('every generated module type-checks', () => {
     const page = join(dir, 'page.ts')
     await writeFile(
       page,
-      `import { articles, articlesFeed, articlesPage } from './articles.js'
+      `import { articles, articlesFeed, articlesPage, useArticlesList } from './articles.js'
 import { comments } from './comments.js'
 import { items } from './items.js'
 import { profiles } from './profiles.js'
 import { tags } from './tags.js'
+export function useList(): number | undefined {
+  ${framework.useList}
+  return total
+}
 export async function use(viewer: string, slug: string): Promise<string[]> {
   const page = await articlesPage(viewer, { limit: 10 }).fetch(new AbortController().signal)
   // @ts-expect-error This contract declares limit/offset, not page.
@@ -238,6 +304,41 @@ export async function use(viewer: string, slug: string): Promise<string[]> {
       .map((diagnostic) => ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n'))
     expect(problems).toEqual([])
   })
+
+  it('writes its imports in the order the scaffold’s import-sort lint keeps', async () => {
+    for (const name of ['p317-supplied-openapi.yml.txt', 'inventory-openapi.json.txt'])
+      for (const module of planContractResourceModules(
+        parseContract(await fixture(name)),
+        factory,
+        framework.query,
+        'app',
+        'specs/openapi.yml',
+        listRoute,
+      ).modules) {
+        const formatted = await formatGeneratedSource(module.source, join(root, module.path))
+        expect(sortImportStatements(formatted), module.path).toBe(formatted)
+      }
+  })
+
+  it('declares the return type of every function it exports, as the scaffold’s lint asks', async () => {
+    const untyped: string[] = []
+    for (const name of ['p317-supplied-openapi.yml.txt', 'inventory-openapi.json.txt'])
+      for (const module of planContractResourceModules(
+        parseContract(await fixture(name)),
+        factory,
+        framework.query,
+        'app',
+        'specs/openapi.yml',
+        listRoute,
+      ).modules) {
+        const file = ts.createSourceFile(module.path, module.source, ts.ScriptTarget.ES2022, true)
+        file.forEachChild((node) => {
+          if (ts.isFunctionDeclaration(node) && node.name && !node.type)
+            untyped.push(`${module.path}: ${node.name.text}`)
+        })
+      }
+    expect(untyped).toEqual([])
+  })
 })
 
 describe('writing the modules into a project', () => {
@@ -267,6 +368,39 @@ describe('writing the modules into a project', () => {
     ])
     expect(withRouter.written[0].source).toContain('export function useArticlesList')
     expect(withRouter.written[0].source).toContain('limit: route.pageSize, offset: route.offset')
+  })
+
+  it('gives a Vue app the list hook once its query package has the list query', async () => {
+    const VUE_QUERY = '@molecule/app-query-vue'
+    const vueListRoute = registry.packages[VUE_QUERY].decisionGuide!.resourceModules!.listRoute!
+    const declared = [
+      ...P317_DECLARED.filter((item) => item.name !== QUERY),
+      { name: VUE_QUERY, workspace: 'app' },
+      { name: vueListRoute.package, workspace: 'app' },
+    ]
+    await writeFile(join(root, 'specs/openapi.yml'), await fixture('p317-supplied-openapi.yml.txt'))
+    const pin = (version: string): Promise<void> =>
+      writeFile(
+        join(root, 'app/package.json'),
+        JSON.stringify({
+          dependencies: { [VUE_QUERY]: version, [HTTP]: '1.0.0', [vueListRoute.package]: '3.6.0' },
+        }),
+      )
+    // A version before the list query: the modules, without a hook that would not compile.
+    await pin('1.1.0')
+    const before = await writeContractResourceModules(root, 'specs/openapi.yml', registry, declared)
+    expect(before.written[0].source).toContain("from '@molecule/app-query-vue'")
+    expect(before.written[0].source).not.toContain('export function useArticlesList')
+    await pin(vueListRoute.since!)
+    const after = await writeContractResourceModules(root, 'specs/openapi.yml', registry, declared)
+    const articles = after.written[0].source
+    expect(articles).toContain('export function useArticlesList')
+    // Each argument is a reactive source, read by the package's list query.
+    expect(articles).toContain('viewer: ListQuerySource<string | null>')
+    expect(articles).toMatch(/useListQuery\(\s*route,\s*\{ viewer, params \}/)
+    expect(articles).toContain('limit: list.pageSize, offset: list.offset')
+    expect(articles).toContain("import { useListRoute } from '@molecule/app-vue'")
+    expect(articles).toContain("import type { ListRouteOptions } from '@molecule/app-routing'")
   })
 
   it('writes each module formatted, and nothing a second time', async () => {
