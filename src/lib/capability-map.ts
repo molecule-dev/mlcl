@@ -41,6 +41,8 @@ export interface CapabilityMapEntry {
   sourceFiles?: string[]
   /** Existing project-relative resource modules built on this package's factory. */
   resourceModules?: string[]
+  /** Existing executable framework compositions using this package. */
+  recipeModules?: string[]
 }
 
 const DEPENDENCY_SECTIONS = [
@@ -238,8 +240,34 @@ export async function readProjectCapabilityMap(
     }
     if (found.length > 0) resourceModules.set(entry.name, found)
   }
+  const recipeModules = new Map<string, string[]>()
+  for (const workspace of new Set(declared.map((item) => item.workspace))) {
+    const directory = prefixed(workspace, 'src/recipes')
+    let names: string[]
+    try {
+      names = await readdir(join(projectRoot, directory))
+    } catch (error) {
+      if ((error as NodeJS.ErrnoException).code === 'ENOENT') continue
+      throw error
+    }
+    for (const name of names.filter((file) => /\.tsx?$/.test(file))) {
+      const source = await readFile(join(projectRoot, directory, name), 'utf8')
+      const ast = ts.createSourceFile(name, source, ts.ScriptTarget.Latest, true)
+      const imports = ast.statements
+        .filter(ts.isImportDeclaration)
+        .map((node) => (node.moduleSpecifier as ts.StringLiteral).text)
+      for (const entry of entries.filter(
+        (entry) => entry.workspaces.includes(workspace) && imports.includes(entry.name),
+      ))
+        recipeModules.set(entry.name, [
+          ...(recipeModules.get(entry.name) ?? []),
+          `${directory}/${name}`,
+        ])
+    }
+  }
   return entries.map((entry) => ({
     ...entry,
+    ...(recipeModules.has(entry.name) ? { recipeModules: recipeModules.get(entry.name) } : {}),
     ...(resourceModules.has(entry.name)
       ? { resourceModules: resourceModules.get(entry.name) }
       : {}),
@@ -540,6 +568,8 @@ export function renderCapabilityMap(entries: readonly CapabilityMapEntry[]): str
     }
     for (const path of entry.resourceModules ?? [])
       lines.push(`- Resource module, already written — build pages on it: \`${path}\`.`)
+    for (const path of entry.recipeModules ?? [])
+      lines.push(`- Executable controls for loaded record toggles and create forms: \`${path}\`.`)
     for (const guidance of entry.guidance) lines.push(`- ${guidance}`)
     lines.push('- Configuration by API shape:')
     for (const configuration of entry.configuration) lines.push(`  - ${configuration}`)
@@ -622,6 +652,9 @@ export async function stampCapabilitySourceHeaders(
       ...(entry.resourceModules ?? []).map(
         (module) =>
           `Resource module, already written — build pages on it instead of fetching in an effect: ${module}`,
+      ),
+      ...(entry.recipeModules ?? []).map(
+        (module) => `Executable controls for loaded record toggles and create forms: ${module}`,
       ),
       ...entry.guidance,
       ...entry.configuration,

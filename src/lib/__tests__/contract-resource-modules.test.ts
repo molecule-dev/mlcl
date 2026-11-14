@@ -224,6 +224,7 @@ export async function use(viewer: string, slug: string): Promise<string[]> {
     )
     files.push(page)
     const program = ts.createProgram(files, {
+      jsx: ts.JsxEmit.ReactJSX,
       target: ts.ScriptTarget.ES2022,
       module: ts.ModuleKind.NodeNext,
       moduleResolution: ts.ModuleResolutionKind.NodeNext,

@@ -40,6 +40,7 @@ import {
   parseAuthContract,
   renderAuthContract,
 } from './auth-contract.js'
+import { writeFrameworkRecipes } from './framework-recipes.js'
 
 export { userProfileUpdateConfig } from './auth-contract.js'
 import {
@@ -2390,6 +2391,16 @@ export async function ensureAgentsMd(
 ): Promise<void> {
   const target = join(projectRoot, 'AGENTS.md')
   const declarations = declared ? [...declared] : undefined
+  await writeFrameworkRecipes(
+    projectRoot,
+    getTemplatesDir(),
+    getRawRegistry(),
+    declarations
+      ? declarations.map((item) =>
+          typeof item === 'string' ? { name: item, workspace: '' } : item,
+        )
+      : await readDeclaredPackages(projectRoot),
+  )
   // Before the headers: a module written here is named in the capability map they render.
   await writeAppResourceModules(
     projectRoot,
