@@ -4,6 +4,15 @@
   "description": "MCP server exposing the Molecule.dev package ecosystem — search, templates, scaffolding — to any MCP-capable coding agent",
   "author": "Molecule Dev, Inc. (https://molecule.dev)",
   "license": "Apache-2.0",
+  "homepage": "https://www.molecule.dev/mlcl",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/molecule-dev/mlcl.git",
+    "directory": "mcp"
+  },
+  "bugs": {
+    "url": "https://github.com/molecule-dev/mlcl/issues"
+  },
   "type": "module",
   "engines": {
     "node": ">=22"
