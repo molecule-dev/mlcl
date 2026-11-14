@@ -4,15 +4,11 @@
 
   import type { UserProfile } from '@molecule/app-auth'
   import { getClient } from '@molecule/app-http'
-  import { createAuthStores } from '@molecule/app-svelte'
+  import { createAuthStores, createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
+  import { Alert, Button, Input, Modal } from '@molecule/app-ui-svelte'
 
-  import { createAppI18nStores } from '../../lib/i18n.js'
   import { getSettingsPanelContext } from '../../lib/settings-panel-context.js'
-  import Alert from '../Alert.svelte'
-  import Button from '../Button.svelte'
-  import Input from '../Input.svelte'
-  import Modal from '../Modal.svelte'
 
   // Bottom actions section — Log out + Delete account.
   //
@@ -22,7 +18,7 @@
   // and navigates to `/login`.
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const { user, logout } = createAuthStores<UserProfile>()
   const http = getClient()
   const { onClose } = getSettingsPanelContext()
@@ -56,13 +52,13 @@
 </script>
 
 <section class={cm.stack(3)}>
-  <Button color="error" fullWidth onclick={handleLogout} data-mol-id="user-menu-logout">
+  <Button color="error" fullWidth onClick={handleLogout} data-mol-id="user-menu-logout">
     {$t('settings.logOut', undefined, { defaultValue: 'Sign out' })}
   </Button>
   <Button
     variant="ghost"
     fullWidth
-    onclick={() => (showModal = true)}
+    onClick={() => (showModal = true)}
     data-mol-id="user-menu-delete-account"
   >
     {$t('settings.deleteAccount', undefined, { defaultValue: 'Delete account' })}
@@ -78,7 +74,7 @@
     {$t('settings.deleteAccountModal.warning')}
   </p>
   {#if error}
-    <Alert status="error" class={cm.sp('mb', 4)}>
+    <Alert status="error" className={cm.sp('mb', 4)}>
       {error}
     </Alert>
   {/if}
@@ -87,7 +83,13 @@
       <label for="delete-pw" class={cm.formLabel}>
         {$t('settings.deleteAccountModal.password')}
       </label>
-      <Input id="delete-pw" type="password" bind:value={password} required />
+      <Input
+        id="delete-pw"
+        type="password"
+        value={password}
+        onChange={(event) => (password = (event.target as HTMLInputElement).value)}
+        required
+      />
     </div>
     <Button type="submit" color="error" fullWidth {loading}>
       {loading ? $t('settings.deleteAccountModal.deleting') : $t('settings.deleteAccount')}

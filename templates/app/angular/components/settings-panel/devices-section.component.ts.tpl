@@ -3,9 +3,8 @@ import { ChangeDetectorRef, Component, inject, type OnInit } from '@angular/core
 import { HTTP_CLIENT, t } from '@molecule/app-angular'
 import type { HttpClient } from '@molecule/app-http'
 import { getClassMap } from '@molecule/app-ui'
-import { MoleculeSpinner } from '@molecule/app-ui-angular'
+import { Button, MoleculeSpinner } from '@molecule/app-ui-angular'
 
-import { ButtonComponent } from '../button.component.js'
 import { IconComponent } from '../icon.component.js'
 
 /** A user's registered device (subset rendered in the settings list). */
@@ -35,7 +34,7 @@ export interface Device {
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [ButtonComponent, MoleculeSpinner, IconComponent],
+  imports: [Button, MoleculeSpinner, IconComponent],
   template: `
     <section>
       <div [class]="cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mb', 3))">
@@ -72,7 +71,7 @@ export interface Device {
                 } @else if (confirmingId === device.id) {
                   <div [class]="cm.flex({ align: 'center', gap: 'sm' })">
                     <button
-                      appButton
+                      mol-button
                       variant="ghost"
                       size="sm"
                       [disabled]="revokingId === device.id"
@@ -81,7 +80,7 @@ export interface Device {
                       {{ t('common.cancel', undefined, { defaultValue: 'Cancel' }) }}
                     </button>
                     <button
-                      appButton
+                      mol-button
                       color="error"
                       size="sm"
                       [loading]="revokingId === device.id"
@@ -93,7 +92,7 @@ export interface Device {
                   </div>
                 } @else {
                   <button
-                    appButton
+                    mol-button
                     variant="ghost"
                     size="sm"
                     data-mol-id="device-revoke"

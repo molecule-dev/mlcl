@@ -5,9 +5,7 @@ import { HTTP_CLIENT, MoleculeAuthService, t } from '@molecule/app-angular'
 import type { UserProfile } from '@molecule/app-auth'
 import type { HttpClient } from '@molecule/app-http'
 import { getClassMap } from '@molecule/app-ui'
-import { MoleculeAlert, MoleculeModal } from '@molecule/app-ui-angular'
-
-import { ButtonComponent } from '../button.component.js'
+import { Button, MoleculeAlert, MoleculeModal } from '@molecule/app-ui-angular'
 
 /**
  * Bottom actions section — Log out + Delete account.
@@ -23,11 +21,11 @@ import { ButtonComponent } from '../button.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [ButtonComponent, MoleculeAlert, MoleculeModal],
+  imports: [Button, MoleculeAlert, MoleculeModal],
   template: `
     <section [class]="cm.stack(3)">
       <button
-        appButton
+        mol-button
         color="error"
         [fullWidth]="true"
         data-mol-id="user-menu-logout"
@@ -36,7 +34,7 @@ import { ButtonComponent } from '../button.component.js'
         {{ t('settings.logOut', undefined, { defaultValue: 'Sign out' }) }}
       </button>
       <button
-        appButton
+        mol-button
         variant="ghost"
         [fullWidth]="true"
         data-mol-id="user-menu-delete-account"
@@ -74,7 +72,7 @@ import { ButtonComponent } from '../button.component.js'
             />
           </div>
         </div>
-        <button appButton type="submit" color="error" [fullWidth]="true" [loading]="loading">
+        <button mol-button type="submit" color="error" [fullWidth]="true" [loading]="loading">
           {{ loading ? t('settings.deleteAccountModal.deleting') : t('settings.deleteAccount') }}
         </button>
       </form>

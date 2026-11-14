@@ -3,12 +3,11 @@
   import type { RouteIdWithSearchOrHash } from '$app/types'
   import type { Snippet } from 'svelte'
 
-  import { createThemeStores } from '@molecule/app-svelte'
+  import { createI18nStores, createThemeStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
+  import { Flex } from '@molecule/app-ui-svelte'
 
-  import { createAppI18nStores } from '../lib/i18n.js'
   import { LOGO_SRC } from '../lib/logo.js'
-  import Flex from './Flex.svelte'
   import ThemeToggle from './ThemeToggle.svelte'
 
   let {
@@ -66,7 +65,7 @@
     hasTheme = false
   }
   try {
-    createAppI18nStores()
+    createI18nStores()
   } catch (_error) {
     // i18n provider not mounted above the header — omit the default toggle.
     hasI18n = false
@@ -78,7 +77,7 @@
 
 <header class={headerClass} data-mol-id={dataMolId}>
   <div class={cm.headerInner}>
-    <Flex align="center" justify="between" class={cm.h('full')}>
+    <Flex align="center" justify="between" className={cm.h('full')}>
       <a href={resolve(brandTo)}>
         <Flex align="center" gap="xs">
           <!-- `logo` defaults to the scaffold's `static/logo.svg` (`LOGO_SRC`),

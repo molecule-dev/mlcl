@@ -9,13 +9,11 @@
   // dependency is rebuilt each render, and the answer is then dropped on a
   // slow (deployed) server although it always arrives in time on localhost.
   import type { UserProfile } from '@molecule/app-auth'
-  import { createAuthStores } from '@molecule/app-svelte'
+  import { createAuthStores, createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
 
-  import { createAppI18nStores } from '../lib/i18n.js'
-
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const { user } = createAuthStores<UserProfile>()
 </script>
 

@@ -4,9 +4,7 @@ import type { Subscription } from 'rxjs'
 
 import { MoleculeAuthService, t } from '@molecule/app-angular'
 import { getClassMap } from '@molecule/app-ui'
-import { MoleculeSpinner } from '@molecule/app-ui-angular'
-
-import { ButtonComponent } from '../components/button.component.js'
+import { Button, MoleculeSpinner } from '@molecule/app-ui-angular'
 
 /**
  * Post-checkout page: confirms the plan change and offers a way back home.
@@ -21,7 +19,7 @@ import { ButtonComponent } from '../components/button.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [RouterLink, ButtonComponent, MoleculeSpinner],
+  imports: [RouterLink, Button, MoleculeSpinner],
   template: `
     @if (!initialized) {
       <div [class]="cm.cn(cm.flex({ align: 'center', justify: 'center' }), cm.sp('py', 12))">
@@ -32,7 +30,7 @@ import { ButtonComponent } from '../components/button.component.js'
         <h1 [class]="headingClasses">{{ t('planUpdated.message') }}</h1>
         <h2 [class]="subheadingClasses">{{ t('planUpdated.thankYou') }}</h2>
         <a routerLink="/"
-          ><button appButton>{{ t('planUpdated.returnHome') }}</button></a
+          ><button mol-button>{{ t('planUpdated.returnHome') }}</button></a
         >
       </div>
     }

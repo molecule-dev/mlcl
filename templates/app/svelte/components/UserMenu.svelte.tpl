@@ -3,13 +3,12 @@
   import type { Snippet } from 'svelte'
 
   import type { IconName } from '@molecule/app-icons'
+  import { createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
+  import { Button, Modal } from '@molecule/app-ui-svelte'
 
-  import { createAppI18nStores } from '../lib/i18n.js'
   import { setPanelCloseContext } from '../lib/panel-close.js'
-  import Button from './Button.svelte'
   import Icon from './Icon.svelte'
-  import Modal from './Modal.svelte'
 
   let {
     children,
@@ -44,7 +43,7 @@
   } = $props()
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
 
   let open = $state(false)
 
@@ -70,13 +69,13 @@
 <Button
   variant="ghost"
   size="sm"
-  onclick={onclick ?? (() => (open = true))}
+  onClick={onclick ?? (() => (open = true))}
   aria-label={$t(ariaLabelKey, {}, { defaultValue: ariaLabelDefault })}
   data-mol-id={dataMolId}
   // 40x40 trigger floor: the icon-only size="sm" button measured 42x26px
   // fleet-wide (flagged as a tiny target in every app QA). Apps can still
   // widen via className; the floor is the default.
-  class={cm.cn(cm.minH(10), cm.minW(10), className)}
+  className={cm.cn(cm.minH(10), cm.minW(10), className)}
   {disabled}
 >
   <Icon name={triggerIcon} size={triggerIconSize} />
@@ -84,7 +83,7 @@
 <Modal
   {open}
   onClose={() => (open = false)}
-  class={drawerClass}
+  className={drawerClass}
   // The drawer has no `title`, so without an explicit label the dialog is
   // announced as an unnamed "dialog" — give it a name.
   aria-label={$t('userMenu.panelLabel', {}, { defaultValue: 'Account menu' })}

@@ -190,34 +190,23 @@ describe('Template file inventory', () => {
     ])
   })
 
-  it('Svelte has 53 SvelteKit template files', async () => {
+  it('Svelte has 40 SvelteKit template files', async () => {
     const files = await listTemplateFiles('svelte')
     expect(files).toEqual([
-      'components/Alert.svelte.tpl',
       'components/AppFooter.svelte.tpl',
       'components/AppHeader.svelte.tpl',
       'components/AppLayout.svelte.tpl',
       'components/AppShellLayout.svelte.tpl',
       'components/AuthGuard.svelte.tpl',
-      'components/Button.svelte.tpl',
-      'components/Container.svelte.tpl',
-      'components/Flex.svelte.tpl',
       'components/FloatingInput.svelte.tpl',
       'components/Footer.svelte.tpl',
-      'components/Form.svelte.tpl',
       'components/Header.svelte.tpl',
       'components/Icon.svelte.tpl',
-      'components/Input.svelte.tpl',
-      'components/Modal.svelte.tpl',
       'components/OAuthButtons.svelte.tpl',
       'components/OAuthDivider.svelte.tpl',
       'components/OAuthProviderButtons.svelte.tpl',
       'components/OAuthProviderLogo.svelte.tpl',
-      'components/RenderIcon.svelte.tpl',
-      'components/Separator.svelte.tpl',
       'components/SettingsPanel.svelte.tpl',
-      'components/Spinner.svelte.tpl',
-      'components/Switch.svelte.tpl',
       'components/ThemeToggle.svelte.tpl',
       'components/UserMenu.svelte.tpl',
       'components/settings/AccountSection.svelte.tpl',
@@ -229,8 +218,6 @@ describe('Template file inventory', () => {
       'components/settings/SettingsContainer.svelte.tpl',
       'components/settings/ThisDeviceSection.svelte.tpl',
       'hooks.client.ts.tpl',
-      'lib/form-submit-error.ts.tpl',
-      'lib/i18n.ts.tpl',
       'lib/logo.ts.tpl',
       'lib/panel-close.ts.tpl',
       'lib/profile-form.ts.tpl',
@@ -287,13 +274,12 @@ describe('Template file inventory', () => {
     ])
   })
 
-  it('Angular has 32 template files', async () => {
+  it('Angular has 31 template files', async () => {
     const files = await listTemplateFiles('angular')
     expect(files).toEqual([
       'app.component.ts.tpl',
       'components/app-layout.component.ts.tpl',
       'components/auth.guard.ts.tpl',
-      'components/button.component.ts.tpl',
       'components/floating-input.component.ts.tpl',
       'components/footer.component.ts.tpl',
       'components/form-submit-error.ts.tpl',
@@ -441,21 +427,16 @@ describe('Templates use molecule UI components', () => {
   })
 
   describe('Angular', () => {
-    it('Login uses molecule UI class generators through the scaffold controls', async () => {
+    it('Login uses the Angular UI package Button and the scaffold floating input', async () => {
       const content = await readTemplate('angular', 'pages', 'login.component.ts.tpl')
-      // The page composes the scaffold's own ClassMap-driven controls (the
-      // `button[appButton]` / `app-floating-input` hosts) instead of the
-      // `@molecule/app-ui-angular` `mol-button`/`mol-input` hosts — the same
-      // generators, rendered on the real control so data-mol-id and aria
-      // labels land where a click/selector expects them.
-      expect(content).toContain('ButtonComponent')
+      // Buttons come from @molecule/app-ui-angular, whose `button[mol-button]` host IS the
+      // <button>, so data-mol-id and aria labels land on the real control. The
+      // floating input stays the scaffold's own ClassMap-driven `app-floating-input`.
+      expect(content).toContain("from '@molecule/app-ui-angular'")
+      expect(content).toContain('mol-button')
+      expect(content).not.toContain('appButton')
       expect(content).toContain('FloatingInputComponent')
       expect(content).toContain('<app-floating-input')
-      expect(content).toContain('appButton')
-      // The controls themselves are class-generator styled from @molecule/app-ui.
-      const button = await readTemplate('angular', 'components', 'button.component.ts.tpl')
-      expect(button).toContain("from '@molecule/app-ui'")
-      expect(button).toContain('getClassMap')
       const input = await readTemplate('angular', 'components', 'floating-input.component.ts.tpl')
       expect(input).toContain("from '@molecule/app-ui'")
       expect(input).toContain('getClassMap')

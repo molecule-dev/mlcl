@@ -190,7 +190,42 @@ describe('framework-scoped URL list guidance', () => {
   })
 
   it.each([
-    ['Vue Router', ['@molecule/app-routing-vue-router']],
+    [
+      'Vue Router',
+      '@molecule/app-routing-vue-router',
+      '@molecule/app-vue',
+      '`list.value.href({ page: 2 })`',
+    ],
+    [
+      'Solid Router',
+      '@molecule/app-routing-solid-router',
+      '@molecule/app-solid',
+      '`list.href({ page: 2 })`',
+    ],
+    ['SvelteKit', '@molecule/app-routing-sveltekit', '@molecule/app-svelte', '`href({ page: 2 })`'],
+    [
+      'Angular Router',
+      '@molecule/app-routing-angular-router',
+      '@molecule/app-angular',
+      '`list.href({ page: 2 })`',
+    ],
+  ])('names its own binding’s list hooks when %s is declared', (_label, bond, binding, link) => {
+    const text = routing([bond])
+    expect(text).toContain(`from \`${binding}\``)
+    expect(text).toContain('useListRoute')
+    expect(text).toContain(link)
+    expect(text).toContain('`requiresAuth: true`')
+    expect(text).toContain('`canLoad`')
+    expect(text).toContain("useConsumedSearchParam('token')")
+    // React Router's recipe is wrong in any other framework.
+    expect(text).not.toContain('@molecule/app-routing-react-router')
+    expect(text).not.toContain('const pages = useListRoute()')
+    expect(registry.packages[binding]!.exports).toEqual(
+      expect.arrayContaining(['useListRoute', 'useConsumedSearchParam']),
+    )
+  })
+
+  it.each([
     ['Next', ['@molecule/app-routing-next']],
     ['no binding', []],
   ])('keeps URL list guidance framework-neutral with %s', (_label, bindings) => {

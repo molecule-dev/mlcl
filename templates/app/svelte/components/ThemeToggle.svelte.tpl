@@ -1,9 +1,8 @@
 <script lang="ts">
   import type { IconName } from '@molecule/app-icons'
-  import { createThemeStores } from '@molecule/app-svelte'
+  import { createI18nStores, createThemeStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
 
-  import { createAppI18nStores } from '../lib/i18n.js'
   import Icon from './Icon.svelte'
 
   let {
@@ -28,7 +27,7 @@
   } = $props()
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const { mode, toggleTheme } = createThemeStores()
 </script>
 

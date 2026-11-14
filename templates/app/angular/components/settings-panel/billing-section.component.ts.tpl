@@ -11,8 +11,7 @@ import { Router } from '@angular/router'
 import { HTTP_CLIENT, t } from '@molecule/app-angular'
 import type { HttpClient } from '@molecule/app-http'
 import { getClassMap } from '@molecule/app-ui'
-
-import { ButtonComponent } from '../button.component.js'
+import { Button } from '@molecule/app-ui-angular'
 
 /**
  * Billing section — current plan + Upgrade button.
@@ -29,7 +28,7 @@ import { ButtonComponent } from '../button.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [ButtonComponent],
+  imports: [Button],
   inputs: ['plan', 'upgradeTo'],
   template: `
     <section>
@@ -38,7 +37,7 @@ import { ButtonComponent } from '../button.component.js'
         <span [class]="cm.textSize('sm')">
           {{ t('settings.plan') }}<strong>{{ livePlan ?? plan }}</strong>
         </span>
-        <button appButton variant="outline" size="sm" (click)="upgrade()">
+        <button mol-button variant="outline" size="sm" (click)="upgrade()">
           {{ t('settings.upgrade') }}
         </button>
       </div>

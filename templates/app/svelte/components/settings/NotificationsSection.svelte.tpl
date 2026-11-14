@@ -1,17 +1,15 @@
 <script lang="ts">
   import { getClient } from '@molecule/app-http'
-  import { createPushStores } from '@molecule/app-svelte'
+  import { createI18nStores, createPushStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
+  import { Flex, Switch } from '@molecule/app-ui-svelte'
 
-  import { createAppI18nStores } from '../../lib/i18n.js'
   import {
     disablePushOnCurrentDevice,
     enablePushOnCurrentDevice,
     type PushToggleResult,
     readCurrentDevicePushEnabled,
   } from '../../lib/pushToggle.js'
-  import Flex from '../Flex.svelte'
-  import Switch from '../Switch.svelte'
 
   // Push-notification toggle section — the full receive-side enable chain:
   // browser permission → runtime VAPID public key
@@ -26,7 +24,7 @@
   // hanging the switch.
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const http = getClient()
   const { requestPermission, register, unregister } = createPushStores()
 
@@ -113,7 +111,7 @@
       // The visible text is a SIBLING span, not the Switch's label — without
       // aria-label the control is announced as just "switch".
       aria-label={$t('settings.pushNotifications')}
-      onchange={(event) => handleToggle((event.target as HTMLInputElement).checked)}
+      onChange={(event) => handleToggle((event.target as HTMLInputElement).checked)}
       size="sm"
       data-mol-id="settings-push-toggle"
     />

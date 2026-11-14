@@ -2,14 +2,11 @@
   import { authClient } from '$lib/bonds/index.js'
 
   import type { UserProfile } from '@molecule/app-auth'
-  import { createAuthStores } from '@molecule/app-svelte'
+  import { createAuthStores, createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
+  import { Flex, Input, Spinner } from '@molecule/app-ui-svelte'
 
-  import { createAppI18nStores } from '../../lib/i18n.js'
   import { createProfileFormStores } from '../../lib/profile-form.js'
-  import Flex from '../Flex.svelte'
-  import Input from '../Input.svelte'
-  import Spinner from '../Spinner.svelte'
 
   /** Account values edited here (the shared profile lifecycle's fields). */
   interface AccountValues {
@@ -18,7 +15,7 @@
   }
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const { user } = createAuthStores<UserProfile>()
 
   // Background validation uses the auth client's configured route, mapping
@@ -71,7 +68,7 @@
 </script>
 
 <section>
-  <Flex align="center" gap="sm" class={cm.sp('mb', 3)}>
+  <Flex align="center" gap="sm" className={cm.sp('mb', 3)}>
     <h3 class={cm.sectionHeading}>{$t('settings.account')}</h3>
     {#if isSubmitting}
       <Spinner size="xs" />
@@ -87,8 +84,8 @@
         name="name"
         type="text"
         value={asText(values.name)}
-        oninput={nameField.onChange}
-        onblur={saveOnBlur(nameField.onBlur)}
+        onChange={nameField.onChange}
+        onBlur={saveOnBlur(nameField.onBlur)}
         autocomplete="name"
         size="sm"
       />
@@ -102,8 +99,8 @@
         name="email"
         type="email"
         value={asText(values.email)}
-        oninput={emailField.onChange}
-        onblur={saveOnBlur(emailField.onBlur)}
+        onChange={emailField.onChange}
+        onBlur={saveOnBlur(emailField.onBlur)}
         autocomplete="email"
         size="sm"
         aria-invalid={emailError ? 'true' : undefined}

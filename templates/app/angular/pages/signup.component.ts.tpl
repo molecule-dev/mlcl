@@ -4,9 +4,9 @@ import type { Subscription } from 'rxjs'
 
 import { AUTH_CLIENT, createSignupState, MoleculeAuthService, t } from '@molecule/app-angular'
 import { getClassMap } from '@molecule/app-ui'
+import { Button } from '@molecule/app-ui-angular'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
-import { ButtonComponent } from '../components/button.component.js'
 import { FloatingInputComponent } from '../components/floating-input.component.js'
 import { FooterComponent } from '../components/footer.component.js'
 import { formSubmitErrorMessages } from '../components/form-submit-error.js'
@@ -30,7 +30,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
   host: { style: 'display: contents' },
   standalone: true,
   imports: [
-    ButtonComponent,
+    Button,
     FloatingInputComponent,
     IconComponent,
     OAuthButtonsComponent,
@@ -101,7 +101,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
               </div>
               <div [class]="cm.authButtonRow">
                 <button
-                  appButton
+                  mol-button
                   type="button"
                   size="lg"
                   color="secondary"
@@ -112,7 +112,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
                   <svg appIcon name="arrow-left" [size]="25"></svg>
                 </button>
                 <button
-                  appButton
+                  mol-button
                   type="submit"
                   size="lg"
                   color="success"

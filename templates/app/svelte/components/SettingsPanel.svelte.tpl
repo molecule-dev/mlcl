@@ -1,12 +1,12 @@
 <script lang="ts">
   import { resolve } from '$app/paths'
 
+  import { createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
+  import { Separator } from '@molecule/app-ui-svelte'
 
-  import { createAppI18nStores } from '../lib/i18n.js'
   import { getPanelClose } from '../lib/panel-close.js'
   import Footer from './Footer.svelte'
-  import Separator from './Separator.svelte'
   import AccountSection from './settings/AccountSection.svelte'
   import AuthSection from './settings/AuthSection.svelte'
   import BillingSection from './settings/BillingSection.svelte'
@@ -24,7 +24,7 @@
   } = $props()
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
 
   // Rendered inside UserMenu's drawer the close callback arrives via context
   // (no prop-threading from the trigger); standalone mounts pass it explicitly.

@@ -5,21 +5,18 @@
   import type { RouteIdWithSearchOrHash } from '$app/types'
   import { APP_NAME, LOGO_SIZE } from '$lib/branding.js'
 
-  import { createAuthStores, createLoginStore } from '@molecule/app-svelte'
+  import { createAuthStores, createI18nStores, createLoginStore } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
+  import { Button, Flex, Form } from '@molecule/app-ui-svelte'
 
-  import Button from '../../components/Button.svelte'
-  import Flex from '../../components/Flex.svelte'
   import FloatingInput from '../../components/FloatingInput.svelte'
   import Footer from '../../components/Footer.svelte'
-  import Form from '../../components/Form.svelte'
   import OAuthButtons from '../../components/OAuthButtons.svelte'
   import ThemeToggle from '../../components/ThemeToggle.svelte'
-  import { createAppI18nStores } from '../../lib/i18n.js'
   import { LOGO_SRC } from '../../lib/logo.js'
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   // Post-login restoration: the auth guard stashes the attempted location in
   // history state (`state.from`) before redirecting here. The state was
   // written by our own guard from a real pathname, so it names a route.
@@ -59,7 +56,7 @@
 <div class={cm.cn(cm.page, cm.flex({ direction: 'col' }))}>
   <header class={cm.cn(cm.headerBar, cm.headerFixed)}>
     <div class={cm.authHeaderInner}>
-      <Flex align="center" justify="between" class={cm.h('full')}>
+      <Flex align="center" justify="between" className={cm.h('full')}>
         <Flex align="center" gap="xs">
           <img src={LOGO_SRC} width={LOGO_SIZE} height={LOGO_SIZE} alt="" class={cm.logoIcon} />
           <span class={cm.logoText}>{APP_NAME}</span>
@@ -104,9 +101,9 @@
           <Button
             type="button"
             size="lg"
-            class={isLoggingIn ? cm.authHidden : cm.authLoginSignup}
+            className={isLoggingIn ? cm.authHidden : cm.authLoginSignup}
             disabled={isLoggingIn}
-            onclick={() => goto(resolve('/signup'))}
+            onClick={() => goto(resolve('/signup'))}
           >
             {$t('auth.login.signUp')}
           </Button>
@@ -114,7 +111,7 @@
             type="submit"
             size="lg"
             color="success"
-            class={isLoggingIn ? cm.authLoginSubmitFull : cm.authLoginSubmit}
+            className={isLoggingIn ? cm.authLoginSubmitFull : cm.authLoginSubmit}
             disabled={isLoggingIn}
           >
             {isLoggingIn ? $t('auth.login.loggingIn') : $t('auth.login.logIn')}

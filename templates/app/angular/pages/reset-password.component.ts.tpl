@@ -4,9 +4,9 @@ import type { Subscription } from 'rxjs'
 
 import { AUTH_CLIENT, createLoginState, createPasswordResetState, t } from '@molecule/app-angular'
 import { getClassMap } from '@molecule/app-ui'
+import { Button } from '@molecule/app-ui-angular'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
-import { ButtonComponent } from '../components/button.component.js'
 import { FloatingInputComponent } from '../components/floating-input.component.js'
 import { FooterComponent } from '../components/footer.component.js'
 import { IconComponent } from '../components/icon.component.js'
@@ -26,13 +26,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [
-    ButtonComponent,
-    FloatingInputComponent,
-    IconComponent,
-    FooterComponent,
-    ThemeToggleComponent,
-  ],
+  imports: [Button, FloatingInputComponent, IconComponent, FooterComponent, ThemeToggleComponent],
   template: `
     <div [class]="cm.cn(cm.page, cm.flex({ direction: 'col' }))">
       <header [class]="cm.cn(cm.headerBar, cm.headerFixed)">
@@ -98,7 +92,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
             </div>
             <div [class]="cm.authButtonRow">
               <button
-                appButton
+                mol-button
                 type="button"
                 size="lg"
                 color="secondary"
@@ -109,7 +103,7 @@ import { ThemeToggleComponent } from '../components/theme-toggle.component.js'
                 <svg appIcon name="arrow-left" [size]="25"></svg>
               </button>
               <button
-                appButton
+                mol-button
                 type="submit"
                 size="lg"
                 color="success"

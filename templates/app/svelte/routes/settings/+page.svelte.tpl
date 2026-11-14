@@ -34,10 +34,9 @@
 
   import type { UserProfile } from '@molecule/app-auth'
   import { I18nError } from '@molecule/app-i18n'
-  import { createAuthStores } from '@molecule/app-svelte'
+  import { createAuthStores, createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
 
-  import { createAppI18nStores } from '../../lib/i18n.js'
   import { createProfileFormStores } from '../../lib/profile-form.js'
 
   /** The app's profile shape: the shared base fields plus the columns this app serves. */
@@ -60,7 +59,7 @@
   const EMPTY: Fields = { name: '', username: '', bio: '', avatar: '' }
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
 
   // Control ids come from the component instance id: the header drawer's
   // account section is mounted over this page and has its own name field.

@@ -4,9 +4,8 @@ import type { Subscription } from 'rxjs'
 
 import { t } from '@molecule/app-angular'
 import { getClassMap } from '@molecule/app-ui'
-import { MoleculeModal } from '@molecule/app-ui-angular'
+import { Button, MoleculeModal } from '@molecule/app-ui-angular'
 
-import { ButtonComponent } from './button.component.js'
 import { IconComponent } from './icon.component.js'
 import { SettingsPanelComponent } from './settings-panel.component.js'
 
@@ -25,10 +24,10 @@ import { SettingsPanelComponent } from './settings-panel.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [ButtonComponent, MoleculeModal, IconComponent, SettingsPanelComponent],
+  imports: [Button, MoleculeModal, IconComponent, SettingsPanelComponent],
   template: `
     <button
-      appButton
+      mol-button
       variant="ghost"
       size="sm"
       data-mol-id="user-menu"

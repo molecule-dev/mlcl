@@ -1,9 +1,8 @@
 <script lang="ts">
   import { APP_DESCRIPTION, APP_NAME, WEBSITE_URL } from '$lib/branding.js'
 
+  import { createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-
-  import { createAppI18nStores } from '../../lib/i18n.js'
 
   // About page — reachable at `/about`, where the Footer's "About" link points.
   // Every app ships one so the footer link is never a dead end. Edit freely, or
@@ -11,7 +10,7 @@
   // is your public site — when set, this page links out to it; leave it empty and
   // the outbound link simply doesn't render.
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
 </script>
 
 <div class={cm.cn(cm.textCenter, cm.sp('py', 12))}>

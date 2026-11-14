@@ -11,9 +11,7 @@ import { HTTP_CLIENT } from '@molecule/app-angular'
 import type { UserProfile } from '@molecule/app-auth'
 import type { HttpClient } from '@molecule/app-http'
 import { getClassMap } from '@molecule/app-ui'
-import { MoleculeAlert, MoleculeModal } from '@molecule/app-ui-angular'
-
-import { ButtonComponent } from '../button.component.js'
+import { Button, MoleculeAlert, MoleculeModal } from '@molecule/app-ui-angular'
 
 /** The enrollment payload the user resource's verify-two-factor route returns. */
 interface TwoFactorSetup {
@@ -41,7 +39,7 @@ interface TwoFactorSetup {
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
-  imports: [ButtonComponent, MoleculeAlert, MoleculeModal],
+  imports: [Button, MoleculeAlert, MoleculeModal],
   template: `
     @if (!isOAuthUser) {
       <section>
@@ -49,7 +47,7 @@ interface TwoFactorSetup {
           {{ t('settings.authentication') }}
         </h3>
         <div [class]="cm.stack(3)">
-          <button appButton variant="outline" size="sm" (click)="showModal = true">
+          <button mol-button variant="outline" size="sm" (click)="showModal = true">
             {{ t('settings.changePassword') }}
           </button>
           <div [class]="cm.flex({ align: 'center', justify: 'between' })">
@@ -63,7 +61,7 @@ interface TwoFactorSetup {
             </span>
             @if (twoFactorEnabled) {
               <button
-                appButton
+                mol-button
                 variant="outline"
                 size="sm"
                 data-mol-id="two-factor-disable"
@@ -73,7 +71,7 @@ interface TwoFactorSetup {
               </button>
             } @else {
               <button
-                appButton
+                mol-button
                 variant="outline"
                 size="sm"
                 data-mol-id="two-factor-enable"
@@ -135,7 +133,7 @@ interface TwoFactorSetup {
               />
             </div>
           </div>
-          <button appButton type="submit" [fullWidth]="true" [loading]="passwordPending">
+          <button mol-button type="submit" [fullWidth]="true" [loading]="passwordPending">
             {{
               passwordPending
                 ? t('settings.changePasswordModal.changing')
@@ -195,7 +193,7 @@ interface TwoFactorSetup {
               </div>
             </div>
             <button
-              appButton
+              mol-button
               type="submit"
               [color]="tfModal === 'disable' ? 'error' : 'primary'"
               [fullWidth]="true"

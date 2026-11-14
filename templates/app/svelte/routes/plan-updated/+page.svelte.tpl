@@ -1,21 +1,17 @@
 <script lang="ts">
   import { resolve } from '$app/paths'
 
-  import { createAuthStores } from '@molecule/app-svelte'
+  import { createAuthStores, createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-
-  import Button from '../../components/Button.svelte'
-  import Flex from '../../components/Flex.svelte'
-  import Spinner from '../../components/Spinner.svelte'
-  import { createAppI18nStores } from '../../lib/i18n.js'
+  import { Button, Flex, Spinner } from '@molecule/app-ui-svelte'
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const { state: authState } = createAuthStores()
 </script>
 
 {#if !$authState.initialized}
-  <Flex align="center" justify="center" class={cm.sp('py', 12)}>
+  <Flex align="center" justify="center" className={cm.sp('py', 12)}>
     <Spinner />
   </Flex>
 {:else}

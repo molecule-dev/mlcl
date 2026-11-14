@@ -1,11 +1,14 @@
 <script lang="ts">
   import '../index.css'
   import '../theme.css'
+  import { afterNavigate, goto, replaceState } from '$app/navigation'
   import { page } from '$app/stores'
   import { authClient, i18nProvider, themeProvider } from '$lib/bonds/index.js'
   import type { Snippet } from 'svelte'
 
   import { getClient as getHttpClient } from '@molecule/app-http'
+  import { setRouter } from '@molecule/app-routing'
+  import { createSvelteKitNavigation, createSvelteKitRouter } from '@molecule/app-routing-sveltekit'
   import { getProvider as getStorageProvider } from '@molecule/app-storage'
   import { createAuthStores, setMoleculeContext } from '@molecule/app-svelte'
 
@@ -13,6 +16,16 @@
   import AuthGuard from '../components/AuthGuard.svelte'
 
   let { children }: { children: Snippet } = $props()
+
+  // One molecule Router over SvelteKit's navigation: `useRouter()` from
+  // @molecule/app-svelte and every molecule package that calls `getRouter()`
+  // navigate through it (SPA navigation, the entry's state kept), as React's
+  // `BrowserRouter` does. `afterNavigate` must run during component
+  // initialisation, which is why it is built here, in the root layout, once.
+  const router = createSvelteKitRouter(
+    createSvelteKitNavigation({ goto, replaceState, page, afterNavigate }),
+  )
+  setRouter(router)
 
   // Wire the bonded providers ONCE, at the root, so every route and component
   // below reads the same clients — the MoleculeProvider of the React scaffold.
@@ -22,6 +35,7 @@
     theme: themeProvider,
     http: getHttpClient(),
     storage: getStorageProvider(),
+    router,
   })
 
   const { sessionReady } = createAuthStores()

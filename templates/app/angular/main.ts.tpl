@@ -1,11 +1,14 @@
 import 'zone.js'
+import { inject, provideEnvironmentInitializer } from '@angular/core'
 import { bootstrapApplication } from '@angular/platform-browser'
 import { provideRouter, type Routes } from '@angular/router'
 import { setupProviders } from './bonds/index.js'
 import './index.css'
 import './theme.css'
-import { provideMolecule } from '@molecule/app-angular'
+import { provideMolecule, ROUTER } from '@molecule/app-angular'
 import { getClient as getHttpClient } from '@molecule/app-http'
+import { setRouter } from '@molecule/app-routing'
+import { provideMoleculeRouter } from '@molecule/app-routing-angular-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { registerPWA } from './pwa.js'
@@ -96,6 +99,12 @@ bootstrapApplication(AppComponent, {
       storage: getStorageProvider(),
     }),
     provideRouter(routes),
+    // One molecule Router over Angular's Router: `inject(ROUTER)`,
+    // @molecule/app-angular's router hooks and every molecule package that calls
+    // `getRouter()` navigate through it (SPA navigation, the entry's state and
+    // key kept), as React's `BrowserRouter` does.
+    provideMoleculeRouter(),
+    provideEnvironmentInitializer(() => setRouter(inject(ROUTER))),
   ],
 })
 

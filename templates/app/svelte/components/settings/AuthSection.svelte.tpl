@@ -1,15 +1,13 @@
 <script lang="ts">
   import type { UserProfile } from '@molecule/app-auth'
   import { getClient } from '@molecule/app-http'
-  import { createAuthStores, createChangePasswordStore } from '@molecule/app-svelte'
+  import {
+    createAuthStores,
+    createChangePasswordStore,
+    createI18nStores,
+  } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-
-  import { createAppI18nStores } from '../../lib/i18n.js'
-  import Alert from '../Alert.svelte'
-  import Button from '../Button.svelte'
-  import Flex from '../Flex.svelte'
-  import Input from '../Input.svelte'
-  import Modal from '../Modal.svelte'
+  import { Alert, Button, Flex, Input, Modal } from '@molecule/app-ui-svelte'
 
   /** The enrollment payload returned by the setup action (`action: 'setup'`). */
   interface TwoFactorSetup {
@@ -31,7 +29,7 @@
   // with an inline message.
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const { user } = createAuthStores<UserProfile>()
   const http = getClient()
   const pwStore = createChangePasswordStore()
@@ -134,7 +132,7 @@
   <section>
     <h3 class={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{$t('settings.authentication')}</h3>
     <div class={cm.stack(3)}>
-      <Button variant="outline" size="sm" onclick={() => (showModal = true)}>
+      <Button variant="outline" size="sm" onClick={() => (showModal = true)}>
         {$t('settings.changePassword')}
       </Button>
       <Flex align="center" justify="between">
@@ -150,7 +148,7 @@
           <Button
             variant="outline"
             size="sm"
-            onclick={() => {
+            onClick={() => {
               tfError = ''
               tfToken = ''
               tfModal = 'disable'
@@ -160,7 +158,7 @@
             {$t('settings.twoFactorDisable', undefined, { defaultValue: 'Disable' })}
           </Button>
         {:else}
-          <Button variant="outline" size="sm" onclick={startEnable} data-mol-id="two-factor-enable">
+          <Button variant="outline" size="sm" onClick={startEnable} data-mol-id="two-factor-enable">
             {$t('settings.twoFactorEnable', undefined, { defaultValue: 'Enable' })}
           </Button>
         {/if}
@@ -177,7 +175,7 @@
     title={$t('settings.changePasswordModal.title')}
   >
     {#if $pwStore.error}
-      <Alert status="error" class={cm.sp('mb', 4)}>
+      <Alert status="error" className={cm.sp('mb', 4)}>
         {$pwStore.error.message || $t('settings.changePasswordModal.error')}
       </Alert>
     {/if}
@@ -189,7 +187,8 @@
         <Input
           id="current-pw"
           type="password"
-          bind:value={currentPassword}
+          value={currentPassword}
+          onChange={(event) => (currentPassword = (event.target as HTMLInputElement).value)}
           autocomplete="current-password"
           required
         />
@@ -201,7 +200,8 @@
         <Input
           id="new-pw"
           type="password"
-          bind:value={newPassword}
+          value={newPassword}
+          onChange={(event) => (newPassword = (event.target as HTMLInputElement).value)}
           autocomplete="new-password"
           required
         />
@@ -226,7 +226,7 @@
         })}
   >
     {#if tfError}
-      <Alert status="error" class={cm.sp('mb', 4)}>
+      <Alert status="error" className={cm.sp('mb', 4)}>
         {tfError}
       </Alert>
     {/if}
@@ -265,7 +265,8 @@
           <Input
             id="tf-token"
             type="text"
-            bind:value={tfToken}
+            value={tfToken}
+            onChange={(event) => (tfToken = (event.target as HTMLInputElement).value)}
             autocomplete="one-time-code"
             required
           />

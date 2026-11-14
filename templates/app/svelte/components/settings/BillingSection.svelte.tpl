@@ -4,11 +4,9 @@
   import type { RouteIdWithSearchOrHash } from '$app/types'
 
   import { getClient } from '@molecule/app-http'
+  import { createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-
-  import { createAppI18nStores } from '../../lib/i18n.js'
-  import Button from '../Button.svelte'
-  import Flex from '../Flex.svelte'
+  import { Button, Flex } from '@molecule/app-ui-svelte'
 
   // Billing section — current plan + Upgrade button.
   //
@@ -29,7 +27,7 @@
   } = $props()
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const http = getClient()
 
   let livePlan = $state<string | null>(null)
@@ -63,7 +61,7 @@
       {$t('settings.plan')}
       <strong>{livePlan ?? plan}</strong>
     </span>
-    <Button variant="outline" size="sm" onclick={() => goto(resolve(upgradeTo))}>
+    <Button variant="outline" size="sm" onClick={() => goto(resolve(upgradeTo))}>
       {$t('settings.upgrade')}
     </Button>
   </Flex>

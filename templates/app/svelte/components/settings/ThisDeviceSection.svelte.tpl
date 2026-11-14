@@ -1,16 +1,14 @@
 <script lang="ts">
-  import { createDeviceStores } from '@molecule/app-svelte'
+  import { createDeviceStores, createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-
-  import { createAppI18nStores } from '../../lib/i18n.js'
-  import Flex from '../Flex.svelte'
+  import { Flex } from '@molecule/app-ui-svelte'
 
   // "This device" detail strip — OS, browser, online/offline.
   // Reads from the device provider + browser `navigator.onLine`.
   // No side effects, no app-specific state.
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const { deviceInfo } = createDeviceStores()
 </script>
 

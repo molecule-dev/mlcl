@@ -1,7 +1,7 @@
 <script lang="ts">
+  import { createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
 
-  import { createAppI18nStores } from '../lib/i18n.js'
   import OAuthProviderLogo from './OAuthProviderLogo.svelte'
 
   /**
@@ -128,7 +128,7 @@
   } = $props()
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
 
   let ordered = $derived(dedupeProviders(providers))
   let wrapperStyle = $derived(getLayoutStyle(layout, ordered.length))

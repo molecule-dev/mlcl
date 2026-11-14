@@ -2,12 +2,11 @@
   import { resolve } from '$app/paths'
   import type { RouteIdWithSearchOrHash } from '$app/types'
 
-  import { createVersionStores } from '@molecule/app-svelte'
+  import { createI18nStores, createVersionStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
+  import { Modal } from '@molecule/app-ui-svelte'
 
-  import { createAppI18nStores } from '../lib/i18n.js'
   import Icon from './Icon.svelte'
-  import Modal from './Modal.svelte'
 
   let {
     appName,
@@ -45,7 +44,7 @@
   } = $props()
 
   const cm = getClassMap()
-  const { t, locale, setLocale, locales } = createAppI18nStores()
+  const { t, locale, setLocale, locales } = createI18nStores()
   const { state: versionState } = createVersionStores()
 
   let privacyOpen = $state(false)

@@ -1,8 +1,7 @@
 <script lang="ts">
+  import { createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
-
-  import { createAppI18nStores } from '../lib/i18n.js'
-  import Flex from './Flex.svelte'
+  import { Flex } from '@molecule/app-ui-svelte'
 
   /**
    * The "or continue with" rule above an OAuth row: a horizontal rule with
@@ -20,10 +19,10 @@
   } = $props()
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
 </script>
 
-<Flex align="center" style="gap: 4px;" class={cm.cn(cm.oauthDivider, className)}>
+<Flex align="center" gap="4px" className={cm.cn(cm.oauthDivider, className)}>
   <span class={cm.cn(cm.flex1, cm.separator())}></span>
   <span>{$t(labelKey, {}, { defaultValue: labelDefault })}</span>
   <span class={cm.cn(cm.flex1, cm.separator())}></span>

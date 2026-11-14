@@ -1,12 +1,10 @@
 <script lang="ts">
   import { getClient } from '@molecule/app-http'
+  import { createI18nStores } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'
+  import { Button, Flex, Spinner } from '@molecule/app-ui-svelte'
 
-  import { createAppI18nStores } from '../../lib/i18n.js'
-  import Button from '../Button.svelte'
-  import Flex from '../Flex.svelte'
   import Icon from '../Icon.svelte'
-  import Spinner from '../Spinner.svelte'
 
   /** A user's registered device (subset rendered in the settings list). */
   interface Device {
@@ -29,7 +27,7 @@
   // for the current session).
 
   const cm = getClassMap()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
   const http = getClient()
 
   let devices = $state<Device[]>([])
@@ -81,7 +79,11 @@
     <ul class={cm.stack(2)}>
       {#each devices as device (device.id)}
         <li>
-          <Flex align="center" justify="between" class={cm.cn(cm.textSize('sm'), cm.sp('py', 1))}>
+          <Flex
+            align="center"
+            justify="between"
+            className={cm.cn(cm.textSize('sm'), cm.sp('py', 1))}
+          >
             <span>
               {device.name || device.platform}
               {#if device.isCurrent}
@@ -98,7 +100,7 @@
                   variant="ghost"
                   size="sm"
                   disabled={revokingId === device.id}
-                  onclick={() => (confirmingId = null)}
+                  onClick={() => (confirmingId = null)}
                 >
                   {$t('common.cancel', undefined, { defaultValue: 'Cancel' })}
                 </Button>
@@ -106,7 +108,7 @@
                   color="error"
                   size="sm"
                   loading={revokingId === device.id}
-                  onclick={() => revoke(device.id)}
+                  onClick={() => revoke(device.id)}
                   data-mol-id="device-revoke-confirm"
                 >
                   {$t('settings.signOutDevice', undefined, { defaultValue: 'Sign out' })}
@@ -116,7 +118,7 @@
               <Button
                 variant="ghost"
                 size="sm"
-                onclick={() => (confirmingId = device.id)}
+                onClick={() => (confirmingId = device.id)}
                 data-mol-id="device-revoke"
               >
                 {$t('settings.signOutDevice', undefined, { defaultValue: 'Sign out' })}

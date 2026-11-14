@@ -2,8 +2,7 @@
   import type { Snippet } from 'svelte'
 
   import { getClassMap } from '@molecule/app-ui'
-
-  import Container from './Container.svelte'
+  import { Container } from '@molecule/app-ui-svelte'
 
   let {
     header = undefined,

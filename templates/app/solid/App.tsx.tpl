@@ -1,5 +1,8 @@
 import { Route, Router } from '@solidjs/router'
+import type { ParentProps } from 'solid-js'
 import { getClient as getHttpClient } from '@molecule/app-http'
+import { setRouter } from '@molecule/app-routing'
+import { createSolidRouter } from '@molecule/app-routing-solid-router'
 import { MoleculeProvider } from '@molecule/app-solid'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
@@ -25,7 +28,15 @@ import { Signup } from './pages/Signup.js'
 // when that request succeeds. An 'unavailable' session still renders and may
 // have a null user; handle that status separately from sign-out.
 // A visitor with no session to restore makes no request. Keep it.
-export function App() {
+//
+// The providers live in the router's `root`, inside <Router>, where
+// `createSolidRouter()` can read Solid Router's location: `useRouter()` from
+// @molecule/app-solid and every molecule package that calls `getRouter()`
+// navigate through it (SPA navigation, the entry's state and key kept), as
+// React's `BrowserRouter` does.
+function Root(props: ParentProps) {
+  const router = createSolidRouter()
+  setRouter(router)
   return (
     <MoleculeProvider
       config={{
@@ -35,22 +46,29 @@ export function App() {
         theme: themeProvider,
         http: getHttpClient(),
         storage: getStorageProvider(),
+        router,
       }}
     >
-      <Router>
-        <Route path="/login" component={Login} />
-        <Route path="/signup" component={Signup} />
-        <Route path="/about" component={About} />
-        <Route path="/forgot-password" component={ForgotPassword} />
-        <Route path="/reset-password" component={ResetPassword} />
-        <Route path="/" component={AuthGuard}>
-          <Route path="/" component={AppLayout}>
-            <Route path="/" component={Home} />
-            <Route path="/settings" component={Settings} />
-            <Route path="/plan-updated" component={PlanUpdated} />
-          </Route>
-        </Route>
-      </Router>
+      {props.children}
     </MoleculeProvider>
+  )
+}
+
+export function App() {
+  return (
+    <Router root={Root}>
+      <Route path="/login" component={Login} />
+      <Route path="/signup" component={Signup} />
+      <Route path="/about" component={About} />
+      <Route path="/forgot-password" component={ForgotPassword} />
+      <Route path="/reset-password" component={ResetPassword} />
+      <Route path="/" component={AuthGuard}>
+        <Route path="/" component={AppLayout}>
+          <Route path="/" component={Home} />
+          <Route path="/settings" component={Settings} />
+          <Route path="/plan-updated" component={PlanUpdated} />
+        </Route>
+      </Route>
+    </Router>
   )
 }

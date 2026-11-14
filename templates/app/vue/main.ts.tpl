@@ -4,6 +4,8 @@ import { createApp } from 'vue'
 import { createRouter, createWebHistory } from 'vue-router'
 
 import { getClient as getHttpClient } from '@molecule/app-http'
+import { setRouter } from '@molecule/app-routing'
+import { createVueRouter } from '@molecule/app-routing-vue-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { moleculePlugin } from '@molecule/app-vue'
 
@@ -50,6 +52,12 @@ const router = createRouter({
   ],
 })
 
+// One molecule Router over this Vue Router: `useRouter()` from @molecule/app-vue and
+// every molecule package that calls `getRouter()` navigate through it (SPA navigation,
+// the entry's state and key kept), as React's `BrowserRouter` does.
+const moleculeRouter = createVueRouter({ router })
+setRouter(moleculeRouter)
+
 const app = createApp(App)
 
 app.use(moleculePlugin, {
@@ -58,14 +66,18 @@ app.use(moleculePlugin, {
   theme: themeProvider,
   http: getHttpClient(),
   storage: getStorageProvider(),
+  router: moleculeRouter,
 })
 
 app.use(router)
 
-// A failed restore leaves the app signed out and every guarded route redirects
-// to /login; there is nothing to render for the failure itself.
+// Restore the stored session before the first page renders. A rejected restore
+// needs no handling here: the client keeps the stored token on a network/5xx
+// failure, settles its status as 'unavailable', and publishes that through the
+// auth store — AuthGuard and every page read the status, not this promise — so
+// nothing is lost by not reporting it twice.
 authClient.initialize().catch((_error) => {
-  /* restore is best-effort: a rejected initialize() means no session to restore */
+  // Intentionally ignored: the failure is already published as auth status.
 })
 
 app.mount('#root')

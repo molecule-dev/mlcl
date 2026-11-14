@@ -32310,6 +32310,7 @@
         "@molecule/app-ui",
         "@molecule/app-styling",
         "@molecule/app-ui-angular",
+        "@molecule/app-routing-angular-router",
         "@molecule/app-pwa-default"
       ],
       "path": "packages/app/frameworks/angular"
@@ -60720,6 +60721,16 @@
       ],
       "framework": "angular",
       "path": "packages/app/bonds/routing/angular-router",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/main.ts"
+        ],
+        "configuration": [
+          "Angular Router URL lists: `readonly list = useListRoute({ pageSize: 20 })` from `@molecule/app-angular`, as a component field. Each field is a signal: use `list.page()`, `list.offset()` and `list.params()` for requests and `list.href({ page: 2 })` for links; filter or selection changes reset to page one. Pass a signal (`computed(() => ({ … }))`) when the options read reactive state. Do not mirror URL values in signals.",
+          "The URL alone selects the view: hiding its link does not guard a direct visit. Protected views use `requiresAuth: true` and `auth: { status, redirectTo }`; load only while `canLoad` is true. Only a confirmed `unauthenticated` status redirects (with `state.returnTo`); `loading` and `unavailable` wait. Example: `useListRoute(computed(() => ({ selections: { all: { path: '/orders' }, mine: { path: '/orders', query: { view: 'mine' }, requiresAuth: true } }, auth: { status: this.auth.status(), redirectTo: '/login' } })))`, with `readonly auth = useAuth()` from `@molecule/app-angular`.",
+          "A one-time credential (reset token or OAuth `code`): `readonly token = useConsumedSearchParam('token')` from `@molecule/app-angular` keeps the value and removes that URL key; read `token[0]` in the template, clear it with `token[1]('')`. `src/main.ts` provides `provideMoleculeRouter()` next to `provideRouter(routes)`; keep both."
+        ]
+      },
       "intentHints": [
         "angular router",
         "angular navigation",
@@ -60976,6 +60987,16 @@
       ],
       "framework": "solid",
       "path": "packages/app/bonds/routing/solid-router",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/App.tsx"
+        ],
+        "configuration": [
+          "Solid Router URL lists: `const list = useListRoute(() => ({ pageSize: 20 }))` from `@molecule/app-solid`. Each field is an accessor: use `list.page()`, `list.offset()` and `list.params()` for requests and `list.href({ page: 2 })` for links; filter or selection changes reset to page one. Pass the options as a function so reactive values re-resolve. Do not mirror URL values in signals.",
+          "The URL alone selects the view: hiding its link does not guard a direct visit. Protected views use `requiresAuth: true` and `auth: { status, redirectTo }`; load only while `canLoad` is true. Only a confirmed `unauthenticated` status redirects (with `state.returnTo`); `loading` and `unavailable` wait. Example: `useListRoute(() => ({ selections: { all: { path: '/orders' }, mine: { path: '/orders', query: { view: 'mine' }, requiresAuth: true } }, auth: { status: auth.status(), redirectTo: '/login' } }))`, with `const auth = useAuth()` from `@molecule/app-solid`.",
+          "A one-time credential (reset token or OAuth `code`): `const token = useConsumedSearchParam('token')` from `@molecule/app-solid` keeps the value and removes that URL key; read `token[0]` where it is used (a destructured copy is not reactive), clear it with `token[1]('')`. `src/App.tsx` builds the router with `createSolidRouter()` inside `<Router root>`; keep the providers there."
+        ]
+      },
       "intentHints": [
         "solid router",
         "solid navigation",
@@ -61030,6 +61051,13 @@
       ],
       "framework": "svelte",
       "path": "packages/app/bonds/routing/sveltekit",
+      "decisionGuide": {
+        "configuration": [
+          "SvelteKit URL lists: `const { page, offset, params, href } = useListRoute({ pageSize: 20 })` from `@molecule/app-svelte`. Each field is a store: use `$page`, `$offset` and `$params` for requests and `href({ page: 2 })` for links; filter or selection changes reset to page one. Pass a store of options when they depend on reactive state. Read the location through the molecule router, not `$page` from `$app/stores`.",
+          "The URL alone selects the view: hiding its link does not guard a direct visit. Protected views use `requiresAuth: true` and `auth: { status, redirectTo }`; load only while `canLoad` is true. Only a confirmed `unauthenticated` status redirects (with `state.returnTo`); `loading` and `unavailable` wait. Example: `useListRoute(derived(state, ($state) => ({ selections: { all: { path: '/orders' }, mine: { path: '/orders', query: { view: 'mine' }, requiresAuth: true } }, auth: { status: $state.status, redirectTo: '/login' } })))`, with `const { state } = createAuthStores()` from `@molecule/app-svelte` and `derived` from `svelte/store`.",
+          "A one-time credential (reset token or OAuth `code`): `const token = useConsumedSearchParam('token')` from `@molecule/app-svelte` keeps the value and removes that URL key; read `$token[0]`, clear it with `$token[1]('')`. `src/routes/+layout.svelte` builds the router with `createSvelteKitRouter(createSvelteKitNavigation({ goto, replaceState, page, afterNavigate }))`; keep it in the root layout."
+        ]
+      },
       "intentHints": [
         "sveltekit routing",
         "sveltekit navigation",
@@ -61093,6 +61121,16 @@
       ],
       "framework": "vue",
       "path": "packages/app/bonds/routing/vue-router",
+      "decisionGuide": {
+        "sourceFiles": [
+          "src/main.ts"
+        ],
+        "configuration": [
+          "Vue Router URL lists: `const list = useListRoute({ pageSize: 20 })` from `@molecule/app-vue` returns a computed ref. Use `list.value.page`, `list.value.offset` and `list.value.params` for requests and `list.value.href({ page: 2 })` for links; filter or selection changes reset to page one. Pass a getter (`() => ({ … })`) when the options read reactive state. Do not mirror URL values in refs.",
+          "The URL alone selects the view: hiding its link does not guard a direct visit. Protected views use `requiresAuth: true` and `auth: { status, redirectTo }`; load only while `canLoad` is true. Only a confirmed `unauthenticated` status redirects (with `state.returnTo`); `loading` and `unavailable` wait. Example: `useListRoute(() => ({ selections: { all: { path: '/orders' }, mine: { path: '/orders', query: { view: 'mine' }, requiresAuth: true } }, auth: { status: status.value, redirectTo: '/login' } }))`, with `const { status } = useAuth()` from `@molecule/app-vue`.",
+          "A one-time credential (reset token or OAuth `code`): `const token = useConsumedSearchParam('token')` from `@molecule/app-vue` keeps the value and removes that URL key; read `token.value[0]`, clear it with `token.value[1]('')`. `src/main.ts` wires `createVueRouter({ router })` with `setRouter` and passes it to `moleculePlugin`; keep that wiring."
+        ]
+      },
       "intentHints": [
         "vue router",
         "vue navigation",
@@ -62057,6 +62095,7 @@
         "@molecule/app-ui",
         "@molecule/app-styling",
         "@molecule/app-ui-solid",
+        "@molecule/app-routing-solid-router",
         "@molecule/app-pwa-default"
       ],
       "path": "packages/app/frameworks/solid"
@@ -63536,6 +63575,7 @@
         "@molecule/app-ui",
         "@molecule/app-styling",
         "@molecule/app-ui-svelte",
+        "@molecule/app-routing-sveltekit",
         "@molecule/app-pwa-default"
       ],
       "path": "packages/app/frameworks/svelte"
@@ -66746,6 +66786,7 @@
         "@molecule/app-ui",
         "@molecule/app-styling",
         "@molecule/app-ui-vue",
+        "@molecule/app-routing-vue-router",
         "@molecule/app-pwa-default"
       ],
       "path": "packages/app/frameworks/vue"

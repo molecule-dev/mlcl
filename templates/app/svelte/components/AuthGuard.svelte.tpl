@@ -5,9 +5,7 @@
   import type { RouteIdWithSearchOrHash } from '$app/types'
   import type { Snippet } from 'svelte'
 
-  import { createAuthStores } from '@molecule/app-svelte'
-
-  import { createAppI18nStores } from '../lib/i18n.js'
+  import { createAuthStores, createI18nStores } from '@molecule/app-svelte'
 
   /**
    * Keep the shared guard: it holds the restore window that a hand-written
@@ -46,7 +44,7 @@
   } = $props()
 
   const { state: authState } = createAuthStores()
-  const { t } = createAppI18nStores()
+  const { t } = createI18nStores()
 
   let pathname = $derived($page.url.pathname)
 
