@@ -243,7 +243,13 @@ describe('search capability and symbol relevance', () => {
     ).toBe(true)
     expect(names('payment')[0]).toBe('@molecule/api-payments-capture')
     expect(names('waveform')[0]).toBe('@molecule/app-feature-audio-waveform-react')
-    expect(names('URL pagination filters').slice(0, 3)).toContain(
+    // Framework counterparts can occupy every leading unfiltered hit. Exercise
+    // the project's framework filter, as the CLI does for a React app.
+    const routing = searchPackages(packages.map(toSearchEntry), 'URL pagination filters', {
+      stack: 'app',
+      framework: 'react',
+    })
+    expect(routing.slice(0, 3).map((hit) => hit.name)).toContain(
       '@molecule/app-routing-react-router',
     )
   })
