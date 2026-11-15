@@ -1,3 +1,4 @@
+import { readFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { dirname } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -25,6 +26,46 @@ function packageDir(name: string): string {
   return dirname(require.resolve(`${name}/package.json`))
 }
 
+/**
+ * One alias per `@molecule/*` package mlcl depends on, to the entry file Node
+ * finds from mlcl, so the whole test graph shares ONE copy of each.
+ *
+ * Between a release's version bump and its pin bump, mlcl pins a package one
+ * version behind the workspace source, and an install puts the published copy
+ * in `mlcl/node_modules` while linked bonds keep resolving the workspace one.
+ * Two copies of a package that holds a React context or a cache are two
+ * contexts: `AuthProvider` from one, `useAuthClient` from the other ("must be
+ * used within an AuthProvider"), or a query cache the hook never sees. Exact
+ * matches only, so subpath imports keep their own resolution; a package with
+ * no runtime entry (types only) has nothing to alias.
+ *
+ * @returns Vite aliases for every resolvable `@molecule/*` dependency.
+ */
+function moleculeAliases(): { find: RegExp; replacement: string }[] {
+  const manifest = JSON.parse(readFileSync(new URL('./package.json', import.meta.url), 'utf8')) as {
+    dependencies?: Record<string, string>
+    devDependencies?: Record<string, string>
+  }
+  const names = Object.keys({ ...manifest.dependencies, ...manifest.devDependencies }).filter(
+    (name) => name.startsWith('@molecule/'),
+  )
+  const aliases: { find: RegExp; replacement: string }[] = []
+  for (const name of names) {
+    let entry: string
+    try {
+      entry = fileURLToPath(import.meta.resolve(name))
+    } catch (_error) {
+      // Types-only package (no runtime entry) or not installed: nothing to alias.
+      continue
+    }
+    aliases.push({
+      find: new RegExp(`^${name.replace(/[.*+?^${}()|[\]\\/-]/g, '\\$&')}$`),
+      replacement: entry,
+    })
+  }
+  return aliases
+}
+
 export default defineConfig({
   // React and react-dom MUST resolve to ONE copy.
   //
@@ -44,17 +85,17 @@ export default defineConfig({
     // trace proves it was not enough on its own: react-dom loaded from
     // `<root>/node_modules` while the hook's `useMemo` came from
     // `molecule/node_modules/react`. Absolute aliases are not advisory.
-    alias: {
-      react: packageDir('react'),
-      'react-dom': packageDir('react-dom'),
+    alias: [
+      { find: 'react', replacement: packageDir('react') },
+      { find: 'react-dom', replacement: packageDir('react-dom') },
       // Routing hooks and their mounted router must also share one context.
       // Linked molecule bonds otherwise find molecule/node_modules/react-router,
       // whose externalized React bypasses the aliases above.
-      'react-router': packageDir('react-router'),
-      // The recipe and a linked query hook must observe the same cache singleton. Resolving
-      // the core once here also works in a standalone CLI checkout with registry packages.
-      '@molecule/app-query': fileURLToPath(import.meta.resolve('@molecule/app-query')),
-    },
+      { find: 'react-router', replacement: packageDir('react-router') },
+      // A recipe and a linked hook must share one copy of each molecule
+      // package (the query cache, the auth context, …) — see moleculeAliases.
+      ...moleculeAliases(),
+    ],
   },
   test: {
     // …and `dedupe` alone is not enough, because vitest EXTERNALIZES linked

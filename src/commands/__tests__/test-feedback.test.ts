@@ -19,6 +19,12 @@ const cliRoot = join(import.meta.dirname, '../../..')
 // deadline. A loaded builder may not schedule its browser within 8–15 seconds.
 // Wait for real native progress; keep the cancellation-latency assertion tight.
 const nativeWaitMs = 120_000
+/**
+ * How long the speculative spec in the stop test sleeps. The spec raises its own
+ * Playwright timeout above this (the fixture config gives every spec 5 s), so a
+ * stop that waits for the run takes the full sleep.
+ */
+const specSleepMs = 20_000
 let root: string, source: string, server: ReturnType<typeof createServer>, requests: number
 let stop: (() => void) | undefined, watching: Promise<void> | undefined
 const initialCwd = process.cwd()
@@ -143,7 +149,7 @@ it(
   async () => {
     await writeFile(
       join(root, 'e2e/note.spec.ts'),
-      `import {test} from '@playwright/test';import {writeFileSync} from 'node:fs';test('pending catalog',async()=>{writeFileSync('started','yes');await new Promise(r=>setTimeout(r,5000))})`,
+      `import {test} from '@playwright/test';import {writeFileSync} from 'node:fs';test('pending catalog',async()=>{test.setTimeout(${specSleepMs * 2});writeFileSync('started','yes');await new Promise(r=>setTimeout(r,${specSleepMs}))})`,
     )
     const original = process.on.bind(process)
     vi.spyOn(process, 'on').mockImplementation((event, listener) => {
@@ -163,7 +169,10 @@ it(
     const time = performance.now()
     stop!()
     await watching
-    expect(performance.now() - time).toBeLessThan(1500)
+    // Stopping must not wait out the run: half the spec's sleep is far below
+    // what a watcher that waits would take, and far above a loaded machine's
+    // real stop time (1.5 s here failed at 2 s with the load average at 45).
+    expect(performance.now() - time).toBeLessThan(specSleepMs / 2)
     expect(Command.prototype.log).not.toHaveBeenCalled()
     expect(Command.prototype.warn).not.toHaveBeenCalled()
   },

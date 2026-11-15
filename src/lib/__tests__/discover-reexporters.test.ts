@@ -28,6 +28,8 @@ import type { Registry, RegistryEntry } from '../schema.js'
 const MLCL_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..')
 const MOLECULE_ROOT = join(MLCL_ROOT, '..', 'molecule')
 const moleculePresent = existsSync(join(MOLECULE_ROOT, 'packages'))
+/** Limit for the tests that generate docs or walk the live checkout (see each). */
+const SLOW_TEST_MS = 120_000
 
 const tempDirs: string[] = []
 async function tempDir(prefix: string): Promise<string> {
@@ -246,71 +248,78 @@ describe('discoverReexporters', () => {
     expect(() => discoverReexporters(registryOf({}), empty)).toThrow(/no packages\/ directory/)
   })
 
-  it('refreshes the scoped README of a wrapper that locally re-exports an imported public type', async () => {
-    const root = await tempDir('local-public-types')
-    const core = '@molecule/api-source'
-    const wrapper = '@molecule/api-wrapper'
-    const privateImporter = '@molecule/api-private-importer'
-    const unrelated = '@molecule/api-unrelated'
-    const registry = registryOf({
-      [core]: 'packages/api/source',
-      [wrapper]: 'packages/api/wrapper',
-      [privateImporter]: 'packages/api/private-importer',
-      [unrelated]: 'packages/api/unrelated',
-    })
-    await writeTree(root, {
-      'packages/api/source/src/index.ts':
-        '/** Core. @module */\nexport interface Client { value: string }\n',
-      'packages/api/wrapper/src/index.ts': `/** Wrapper. @module */
+  // Three full generations through ts-morph: 10.6 s alone, over 30 s on a
+  // loaded machine (load average 45, 3 test workers), so not the 30 s default.
+  it(
+    'refreshes the scoped README of a wrapper that locally re-exports an imported public type',
+    async () => {
+      const root = await tempDir('local-public-types')
+      const core = '@molecule/api-source'
+      const wrapper = '@molecule/api-wrapper'
+      const privateImporter = '@molecule/api-private-importer'
+      const unrelated = '@molecule/api-unrelated'
+      const registry = registryOf({
+        [core]: 'packages/api/source',
+        [wrapper]: 'packages/api/wrapper',
+        [privateImporter]: 'packages/api/private-importer',
+        [unrelated]: 'packages/api/unrelated',
+      })
+      await writeTree(root, {
+        'packages/api/source/src/index.ts':
+          '/** Core. @module */\nexport interface Client { value: string }\n',
+        'packages/api/wrapper/src/index.ts': `/** Wrapper. @module */
 import type { Client as CoreClient } from '@molecule/api-source'
 export type {
   CoreClient as Client,
 }
 export function getClient(): CoreClient { throw new Error('Fixture only') }
 `,
-      'packages/api/private-importer/src/index.ts': `/** Private import. @module */
+        'packages/api/private-importer/src/index.ts': `/** Private import. @module */
 import type { Client } from '@molecule/api-source'
 const privateClient: Client | null = null
 export const ready = true
 `,
-      'packages/api/unrelated/src/index.ts': '/** Unrelated. @module */\nexport const value = 1\n',
-    })
-    for (const [name, entry] of Object.entries(registry.packages)) {
-      await writeFile(
-        join(root, entry.path, 'package.json'),
-        JSON.stringify({
-          name,
-          version: '1.0.0',
-          type: 'module',
-          types: './src/index.ts',
-        }),
+        'packages/api/unrelated/src/index.ts':
+          '/** Unrelated. @module */\nexport const value = 1\n',
+      })
+      for (const [name, entry] of Object.entries(registry.packages)) {
+        await writeFile(
+          join(root, entry.path, 'package.json'),
+          JSON.stringify({
+            name,
+            version: '1.0.0',
+            type: 'module',
+            types: './src/index.ts',
+          }),
+        )
+      }
+      await mkdir(join(root, 'node_modules/@molecule'), { recursive: true })
+      await symlink(
+        join(root, 'packages/api/source'),
+        join(root, 'node_modules/@molecule/api-source'),
       )
-    }
-    await mkdir(join(root, 'node_modules/@molecule'), { recursive: true })
-    await symlink(
-      join(root, 'packages/api/source'),
-      join(root, 'node_modules/@molecule/api-source'),
-    )
-    const initial = (await generateDocs(registry, root)).find((doc) => doc.name === wrapper)!
-    await writeFile(initial.readmePath, initial.md)
-    await writeFile(
-      join(root, 'packages/api/source/src/index.ts'),
-      '/** Core. @module */\nexport interface Client { value: string; revision(): number }\n',
-    )
-    const names = [core, ...(discoverReexporters(registry, root).get(core) ?? [])]
-    const scoped = await generateDocs(registry, root, names)
-    const current = (await generateDocs(registry, root)).find((doc) => doc.name === wrapper)!
-    expect(current.md).toContain('revision(): number')
-    expect(stripGeneratedTimestamp(current.md)).not.toBe(stripGeneratedTimestamp(initial.md))
-    expect(names).not.toContain(privateImporter)
-    expect(names).not.toContain(unrelated)
-    const refreshed = scoped.find((doc) => doc.name === wrapper)
-    expect(
-      refreshed,
-      'Core changed, but the wrapper README remains stale outside the selected scope',
-    ).toBeDefined()
-    expect(stripGeneratedTimestamp(refreshed!.md)).toBe(stripGeneratedTimestamp(current.md))
-  })
+      const initial = (await generateDocs(registry, root)).find((doc) => doc.name === wrapper)!
+      await writeFile(initial.readmePath, initial.md)
+      await writeFile(
+        join(root, 'packages/api/source/src/index.ts'),
+        '/** Core. @module */\nexport interface Client { value: string; revision(): number }\n',
+      )
+      const names = [core, ...(discoverReexporters(registry, root).get(core) ?? [])]
+      const scoped = await generateDocs(registry, root, names)
+      const current = (await generateDocs(registry, root)).find((doc) => doc.name === wrapper)!
+      expect(current.md).toContain('revision(): number')
+      expect(stripGeneratedTimestamp(current.md)).not.toBe(stripGeneratedTimestamp(initial.md))
+      expect(names).not.toContain(privateImporter)
+      expect(names).not.toContain(unrelated)
+      const refreshed = scoped.find((doc) => doc.name === wrapper)
+      expect(
+        refreshed,
+        'Core changed, but the wrapper README remains stale outside the selected scope',
+      ).toBeDefined()
+      expect(stripGeneratedTimestamp(refreshed!.md)).toBe(stripGeneratedTimestamp(current.md))
+    },
+    SLOW_TEST_MS,
+  )
 
   // The live fleet is the only tree that can answer "did the rewrite lose
   // anything?" — 33 re-export lines across ~22k files. Skipped in a checkout
@@ -338,6 +347,7 @@ export const ready = true
         ]),
       )
     },
+    SLOW_TEST_MS,
   )
 })
 
