@@ -1,6 +1,7 @@
 /**
  * The `@molecule/*` packages a manifest must declare NEXT TO the ones it already
- * declares: the registry `moleculePeers` + `defaultProvider` closure.
+ * declares: the registry `moleculePeers` + `defaultProvider` closure, with each
+ * package's companion locale bonds.
  *
  * Every scaffold installs with `--legacy-peer-deps` (the project's `.npmrc`),
  * which installs no peers, so a package declared without its required peers is
@@ -16,16 +17,25 @@
  * @module
  */
 
+import { resolveLocalePackages } from './features.js'
 import { getMoleculeVersion, loadRegistry } from './registry.js'
 import type { InferredPackage } from './schema.js'
 
 /**
  * The `@molecule/*` packages a dependency set is missing from its registry
- * `moleculePeers` + `defaultProvider` closure.
+ * `moleculePeers` + `defaultProvider` + companion-locale closure.
  *
  * A core's default provider counts only when nothing in the set already
  * implements that core (same rule as `resolveDefaultProviders` in `./features.ts`):
  * an app on SQLite must not also get Postgres.
+ *
+ * Each package's companion locale bonds count too (`resolveLocalePackages`, the
+ * rule `mlcl create` selects them by): `mlcl inject` plans the locale bond of
+ * every `@molecule` package a manifest declares and refuses one that is not
+ * installed. A peers-only closure gave every full-stack scaffold
+ * `@molecule/api-uploads` (a peer of `@molecule/api-bonds-default-express`)
+ * without `@molecule/api-locales-uploads`, and `mlcl inject -p api` then exited 1
+ * on a freshly installed project.
  *
  * @param names - The declared dependency names (non-`@molecule` names are ignored).
  * @param registryPackages - The registry by name; read from `registry.json` when omitted.
@@ -36,8 +46,37 @@ export function missingMoleculePeers(
   registryPackages: Map<string, InferredPackage> = new Map(loadRegistry().map((p) => [p.name, p])),
 ): string[] {
   const have = new Set([...names].filter((d) => d.startsWith('@molecule/')))
-  const queue = [...have]
   const missing: string[] = []
+  closePeers([...have], have, missing, registryPackages)
+  // A locale bond added here may bring peers of its own, and a peer added for it
+  // a locale bond: repeat until neither adds anything.
+  for (;;) {
+    const locales = resolveLocalePackages([...have], [...registryPackages.values()]).filter(
+      (name) => !have.has(name),
+    )
+    if (locales.length === 0) return missing
+    for (const name of locales) {
+      have.add(name)
+      missing.push(name)
+    }
+    closePeers(locales, have, missing, registryPackages)
+  }
+}
+
+/**
+ * Adds the `moleculePeers` + `defaultProvider` closure of `queue` to `have` and `missing`.
+ *
+ * @param queue - The packages whose closure to walk; consumed.
+ * @param have - Every package the set holds so far; grows.
+ * @param missing - The packages the walk added, in discovery order; grows.
+ * @param registryPackages - The registry by name.
+ */
+function closePeers(
+  queue: string[],
+  have: Set<string>,
+  missing: string[],
+  registryPackages: Map<string, InferredPackage>,
+): void {
   while (queue.length > 0) {
     const name = queue.shift()!
     const entry = registryPackages.get(name)
@@ -61,7 +100,6 @@ export function missingMoleculePeers(
       missing.push(peer)
     }
   }
-  return missing
 }
 
 /** A `package.json`, as far as the closure reads and writes it. */
