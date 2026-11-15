@@ -198,6 +198,7 @@ export default tseslint.config(
         ? {
             'molecule-local/router-commits-with-url': 'warn',
             'molecule-local/url-lists-use-list-route': 'warn',
+            'molecule-local/url-selections-declare-access': 'error',
           }
         : {}),
       // For adapters implemented in other files, a file-specific override may declare

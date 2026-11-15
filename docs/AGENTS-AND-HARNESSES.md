@@ -69,6 +69,21 @@ unknown, so use a direct data guard when the linter cannot establish availabilit
 The check reads no test files and adds no browser delay. Actions that work without
 that record, and already guarded controls, are unchanged.
 
+In a workspace declaring `@molecule/app-routing-react-router`,
+`molecule-local/url-selections-declare-access` reports a raw URL comparison
+combined with a value from `useAuth`, including values returned by thin local
+session hooks. Hiding a link or skipping a request leaves direct visits unguarded.
+Keep public URL selections independent of the session. For private selections,
+use `useListRoute` with `requiresAuth: true`, `auth: { status, redirectTo }`, and
+`canLoad` before loading data. An explicit custom `<Navigate>` guard or a
+`useNavigate` call inside a React effect also establishes navigation handling.
+The rule checks immutable local aliases and relative session-hook imports; it
+does not infer access from route names, query keys, supplied tests, or selectors.
+Public filters, one-time query credentials and other routing bindings receive
+no diagnostic. Guard presence does not prove its boolean logic: verify the
+signed-out deep link in the browser. Opaque adapters and guards in another
+module can use a narrow, reasoned ESLint override after that verification.
+
 ---
 
 ## Method 1 — zero setup (any agent, any harness)
