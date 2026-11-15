@@ -2,6 +2,7 @@ import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
+import process from 'node:process'
 import { pathToFileURL } from 'node:url'
 
 import { ESLint, type Linter } from 'eslint'
@@ -23,7 +24,9 @@ for (const file of [
   'no-class-code.mjs',
 ])
   await copyFile(
-    new URL(`../../../templates/shared/${file}`, import.meta.url),
+    file === 'prefer-declared-clients.mjs' && process.env.DECLARED_CLIENT_RULE
+      ? process.env.DECLARED_CLIENT_RULE
+      : new URL(`../../../templates/shared/${file}`, import.meta.url),
     join(root, 'eslint-rules', file),
   )
 await copyFile(
@@ -134,6 +137,33 @@ describe('scaffold ESLint rejects enabled unloaded-record actions', () => {
   it('follows the local wrapper used by an action control', async () => {
     expect(
       await findings(custom('<button onClick={() => void change()}>Bookmark</button>')),
+    ).toHaveLength(1)
+  })
+  it.each([
+    "status === 'authenticated' ? change : undefined",
+    "status !== 'authenticated' ? undefined : change",
+    "status === 'authenticated' && change",
+    "status !== 'authenticated' || change",
+    "status === 'authenticated' ? change : () => signIn()",
+  ])('checks the initial record behind a conditional handler: %s', async (handler) => {
+    const control = `<button onClick={${handler}}>Bookmark</button>`
+    const rows = await findings(custom(control))
+    expect(rows).toHaveLength(1)
+    expect(rows[0]).toMatchObject({ severity: 2, line: 9 })
+    expect(rows[0].message).toContain('disabled={!record}')
+    expect(
+      await findings(custom(control.replace('<button ', '<button disabled={!record} '))),
+    ).toEqual([])
+    expect(await findings(custom(`record && ${control}`))).toEqual([])
+  })
+  it('checks an immutable alias of a conditionally selected handler', async () => {
+    expect(
+      await findings(
+        custom(
+          '<button onClick={click}>Bookmark</button>',
+          "const selected = status === 'authenticated' ? change : undefined; const click = selected",
+        ),
+      ),
     ).toHaveLength(1)
   })
   it('catches a query data alias as well as effect-loaded state', async () => {

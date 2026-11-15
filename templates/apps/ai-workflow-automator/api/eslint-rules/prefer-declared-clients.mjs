@@ -4068,6 +4068,36 @@ export function scaffoldRules(parser) {
           }
           return isFunction(value) ? value : null
         }
+        // A conditional onClick still exposes each selected local handler. Keep the
+        // selection conditions so actions unreachable with a missing record are excluded.
+        // Whether a handler-less control should be disabled is a separate contract.
+        const clickHandlers = (node, conditions = [], seen = new Set()) => {
+          node = unwrap(node)
+          if (!node || seen.has(node)) return []
+          const next = new Set(seen).add(node)
+          if (node.type === 'ConditionalExpression')
+            return [
+              ...clickHandlers(node.consequent, [...conditions, [node.test, true]], next),
+              ...clickHandlers(node.alternate, [...conditions, [node.test, false]], next),
+            ]
+          if (node.type === 'LogicalExpression' && ['&&', '||'].includes(node.operator))
+            return [
+              ...(node.operator === '&&' ? [] : clickHandlers(node.left, conditions, next)),
+              ...clickHandlers(
+                node.right,
+                [...conditions, [node.left, node.operator === '&&']],
+                next,
+              ),
+            ]
+          const handler = functionFor(node)
+          if (handler) return [{ handler, conditions }]
+          const definition = variableFor(node)?.defs[0]
+          return definition?.type === 'Variable' &&
+            definition.parent.kind === 'const' &&
+            definition.node.id.type === 'Identifier'
+            ? clickHandlers(definition.node.init, conditions, next)
+            : []
+        }
         const callName = (node) => {
           const callee = unwrap(node?.callee)
           return callee?.type === 'Identifier'
@@ -4870,7 +4900,12 @@ export function scaffoldRules(parser) {
           },
           JSXAttribute(node) {
             if (node.name.name === 'onClick')
-              controls.push({ opening: node.parent, handler: functionFor(node.value?.expression) })
+              controls.push(
+                ...clickHandlers(node.value?.expression).map((entry) => ({
+                  opening: node.parent,
+                  ...entry,
+                })),
+              )
             if (node.name.name !== 'onSubmit') return
             const fn = functionFor(node.value?.expression)
             const collect = (handler) => {
@@ -5350,9 +5385,18 @@ export function scaffoldRules(parser) {
                 })
                 return found
               }
-              for (const { opening, handler } of controls) {
+              const reportedControls = new Set()
+              for (const { opening, handler, conditions } of controls) {
+                if (reportedControls.has(opening)) continue
                 const relevant = handlers(handler)
                 for (const record of records) {
+                  if (
+                    conditions.some(([test, expected]) => {
+                      const actual = truth(evaluate(test, record))
+                      return actual !== null && actual !== expected
+                    })
+                  )
+                    continue
                   const ignoresMissing =
                     skipsAction(handler, record) ||
                     relevant.some(
@@ -5395,6 +5439,7 @@ export function scaffoldRules(parser) {
                     messageId: 'unreadyRecord',
                     data: { record: record.name },
                   })
+                  reportedControls.add(opening)
                   break
                 }
               }
