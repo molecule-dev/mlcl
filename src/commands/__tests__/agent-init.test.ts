@@ -9,9 +9,8 @@
  *    cross-harness standard every major agent reads;
  *  - a second run is a no-op (user edits preserved) unless --force replaces
  *    exactly the molecule section, leaving surrounding content intact;
- *  - cursor marker dirs additionally get .cursor/rules/molecule.mdc with rule
- *    frontmatter; claude-code markers get .claude/skills/molecule/SKILL.md
- *    with skill frontmatter;
+ *  - an agent that reads its own file gets the section there too (GEMINI.md,
+ *    a CLAUDE.md that does not import AGENTS.md), and nothing it does not load;
  *  - the written section carries the load-bearing commands (mlcl create
  *    --no-interactive, search, add --inject, swap) an agent needs in context.
  */
@@ -168,23 +167,6 @@ describe('mlcl agent init', () => {
     expect(refreshed.match(/## Molecule/g)).toHaveLength(1)
   })
 
-  it('adds a cursor rule when .cursor/ exists', async () => {
-    await mkdir(join(dir, '.cursor'), { recursive: true })
-    await run()
-    const rule = await readFile(join(dir, '.cursor', 'rules', 'molecule.mdc'), 'utf8')
-    expect(rule).toMatch(/^---\ndescription: .+\nalwaysApply: true\n---/)
-    expect(rule).toContain('npx mlcl swap')
-    expect(existsSync(join(dir, 'AGENTS.md'))).toBe(true)
-  })
-
-  it('adds a claude skill when .claude/ exists', async () => {
-    await mkdir(join(dir, '.claude'), { recursive: true })
-    await run()
-    const skill = await readFile(join(dir, '.claude', 'skills', 'molecule', 'SKILL.md'), 'utf8')
-    expect(skill).toMatch(/^---\nname: molecule\ndescription: .+\n---/)
-    expect(skill).toContain('node_modules/@molecule/<name>/README.md')
-  })
-
   it('carries the capability-first order into the written instructions', async () => {
     // The host loading path for the shared workflow: this section IS what
     // `mlcl agent init` writes into AGENTS.md, the cursor/windsurf rules, the
@@ -228,20 +210,54 @@ describe('mlcl agent init', () => {
     expect(conventions).toBe(template)
   })
 
-  it('adds a gemini extension when .gemini/ exists', async () => {
-    await mkdir(join(dir, '.gemini'), { recursive: true })
+  it('writes only AGENTS.md for cursor, which reads it — no duplicate rule file', async () => {
+    await mkdir(join(dir, '.cursor'), { recursive: true })
     await run()
-    const ext = await readFile(join(dir, '.gemini', 'extensions', 'molecule', 'GEMINI.md'), 'utf8')
-    expect(ext).toContain('# Molecule')
-    expect(ext).toContain('npx mlcl create <name> --template <slug> --no-interactive')
+    expect(await readFile(join(dir, 'AGENTS.md'), 'utf8')).toContain('npx mlcl swap')
+    expect(existsSync(join(dir, '.cursor', 'rules', 'molecule.mdc'))).toBe(false)
   })
 
-  it('adds a windsurf rule when .windsurf/ exists', async () => {
-    await mkdir(join(dir, '.windsurf'), { recursive: true })
+  it('writes the section into a CLAUDE.md that does not import AGENTS.md', async () => {
+    await writeFile(join(dir, 'CLAUDE.md'), '# Project rules\n\nUse tabs.\n')
     await run()
-    const rule = await readFile(join(dir, '.windsurf', 'rules', 'molecule.md'), 'utf8')
-    expect(rule).toMatch(/^---\ntrigger: always_on\ndescription: .+\n---/)
-    expect(rule).toContain('npx mlcl swap')
+    const claude = await readFile(join(dir, 'CLAUDE.md'), 'utf8')
+    expect(claude).toContain('# Project rules\n\nUse tabs.')
+    expect(claude).toContain('## Molecule')
+    expect(await readFile(join(dir, 'AGENTS.md'), 'utf8')).toContain('## Molecule')
+  })
+
+  it('leaves a CLAUDE.md that imports AGENTS.md alone (OLD MUSTFAIL: a second copy)', async () => {
+    await writeFile(join(dir, 'CLAUDE.md'), '@AGENTS.md\n')
+    await run()
+    expect(await readFile(join(dir, 'CLAUDE.md'), 'utf8')).toBe('@AGENTS.md\n')
+    expect(await readFile(join(dir, 'AGENTS.md'), 'utf8')).toContain('## Molecule')
+    expect(existsSync(join(dir, '.claude', 'skills', 'molecule'))).toBe(false)
+  })
+
+  it('writes GEMINI.md for gemini, never an extension folder Gemini does not load', async () => {
+    await mkdir(join(dir, '.gemini'), { recursive: true })
+    await run()
+    const gemini = await readFile(join(dir, 'GEMINI.md'), 'utf8')
+    expect(gemini).toContain('## Molecule')
+    expect(gemini).toContain('npx mlcl create <name> --template <slug> --no-interactive')
+    expect(existsSync(join(dir, '.gemini', 'extensions'))).toBe(false)
+  })
+
+  it('--global writes the agent-wide file, and refuses an agent that has none', async () => {
+    const home = await mkdtemp(join(tmpdir(), 'mlcl-agent-init-home-'))
+    const prevHome = process.env.HOME
+    process.env.HOME = home
+    try {
+      await run(['--agent', 'claude-code', '--global'])
+      expect(await readFile(join(home, '.claude', 'CLAUDE.md'), 'utf8')).toContain('## Molecule')
+      await run(['--agent', 'gemini', '--global'])
+      expect(await readFile(join(home, '.gemini', 'GEMINI.md'), 'utf8')).toContain('## Molecule')
+      await expect(run(['--agent', 'cursor', '--global'])).rejects.toThrow(/--global is supported/)
+      expect(existsSync(join(dir, 'AGENTS.md'))).toBe(false)
+    } finally {
+      process.env.HOME = prevHome
+      await rm(home, { recursive: true, force: true })
+    }
   })
 
   it('detects codex via .codex marker and relies on AGENTS.md alone', async () => {

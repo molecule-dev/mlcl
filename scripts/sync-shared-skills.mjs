@@ -14,6 +14,10 @@
  *   - `.agents/skills/<name>/SKILL.md`
  *     (agents working in this repo; `.claude` → `.agents` is a symlink)
  *
+ * The host-only skills (`build-with-molecule`, `extend-with-packages`) are
+ * authored once in `templates/host-skills/<name>/SKILL.md`, which `mlcl setup`
+ * reads, and copied into the plugin the same way.
+ *
  * A copy that is edited on its own is exactly the drift this script exists to
  * end: the sandbox and the host would teach different orders. Run it after
  * editing the canonical file; `src/lib/__tests__/shared-skills.test.ts` fails
@@ -39,10 +43,25 @@ const MLCL_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..')
 export const SHARED_SKILLS = [
   {
     name: 'capability-first',
+    source: 'templates/.agents/skills',
     copies: [
       'integrations/claude-code/plugins/molecule/skills/capability-first/SKILL.md',
       '.agents/skills/capability-first/SKILL.md',
     ],
+  },
+  // Host-only skills: `mlcl setup` installs them into a user's agents
+  // (machine-wide or per project) and the Claude Code plugin bundles them. They
+  // are NOT written into scaffolded projects: "start a new app" means nothing
+  // inside an app that already exists.
+  {
+    name: 'build-with-molecule',
+    source: 'templates/host-skills',
+    copies: ['integrations/claude-code/plugins/molecule/skills/build-with-molecule/SKILL.md'],
+  },
+  {
+    name: 'extend-with-packages',
+    source: 'templates/host-skills',
+    copies: ['integrations/claude-code/plugins/molecule/skills/extend-with-packages/SKILL.md'],
   },
 ]
 
@@ -50,7 +69,7 @@ const check = process.argv.includes('--check')
 let drifted = 0
 
 for (const skill of SHARED_SKILLS) {
-  const source = join(MLCL_ROOT, 'templates', '.agents', 'skills', skill.name, 'SKILL.md')
+  const source = join(MLCL_ROOT, skill.source, skill.name, 'SKILL.md')
   if (!existsSync(source)) {
     console.error(`missing canonical skill: ${source}`)
     process.exitCode = 1

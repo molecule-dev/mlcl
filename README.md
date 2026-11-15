@@ -24,6 +24,16 @@ npm install -g mlcl   # or just use npx mlcl … everywhere
 
 Node.js ≥ 22.
 
+**Using a coding agent?** Run this once, so every agent on your machine
+(Claude Code, Codex, Cursor, Gemini CLI, Copilot, …) builds the Molecule way:
+
+```bash
+npx mlcl setup   # asks where (every project, or this one) and which agents
+```
+
+It registers the `molecule` MCP server, installs the Molecule skills and writes
+the Molecule conventions for each agent. Details: [Using it with AI agents](#using-it-with-ai-agents).
+
 > `mlcl` and `molecule-mcp` are on npm — every `npx mlcl …` and
 > `npx -y molecule-mcp` below runs as written, as do the `@molecule/*` packages.
 
@@ -225,13 +235,15 @@ secrets to fill in `.env` — and suppresses all progress chatter.
 ## Using it with AI agents
 
 Most people build through an agent (Claude Code, Codex, Cursor, Gemini CLI,
-OpenCode, Windsurf, Cline, Zed, …). Four ways to wire molecule in — pick any:
+OpenCode, Windsurf, Cline, Zed, …). `npx mlcl setup` wires every one of them in
+one command; the other ways below cover one agent, or a chat with no install:
 
 | Method | What to run / paste | Get |
 |---|---|---|
+| **Recommended** | `npx mlcl setup` | for every agent on the machine (or `--scope project` for this project): the `molecule` MCP server, the Molecule skills and the conventions, each in the place that agent reads them |
 | **Zero setup** | paste the block below into any agent chat | the agent scaffolds + follows conventions via the CLI |
-| **One command** | `npx mlcl agent init` | conventions written into the files your harness reads (AGENTS.md, Cursor rules, Claude skill, Gemini extension, Windsurf rule) |
-| **MCP tools** | `npx mlcl mcp install` | the `molecule` MCP server (search/scaffold/add/swap/docs) registered with your harness — works across Claude Code, Codex, Cursor, Gemini CLI, OpenCode, Windsurf, Kiro, Trae, Zed, Amp, Crush, Cline, VS Code, … |
+| **Conventions only** | `npx mlcl agent init` | the conventions written into the files your agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where that agent reads them) |
+| **MCP tools only** | `npx mlcl mcp install` | the `molecule` MCP server (search/scaffold/add/swap/docs) registered with one agent — Claude Code, Codex, Cursor, Gemini CLI, Copilot, OpenCode, Devin/Windsurf, Kiro, Amp, Zed, Crush, Trae, Cline, Junie, … |
 | **Hosted URL** | `claude mcp add --transport http molecule https://mcp.molecule.dev/mcp` — or paste the URL into Lovable / v0 / bolt.new / Base44 connectors | the read tools (search/templates/docs/conventions) with no local install |
 | **Claude Code plugin** (at launch) | `/plugin marketplace add molecule-dev/molecule-claude-code` → `/plugin install molecule@molecule` | skills + MCP bundled, marketplace-updated |
 
@@ -311,7 +323,7 @@ $ npm install -g mlcl
 $ mlcl COMMAND
 running command...
 $ mlcl (--version)
-mlcl/2.1.0 linux-arm64 node-v25.9.0
+mlcl/2.1.83 linux-arm64 node-v26.12.1
 $ mlcl --help [COMMAND]
 USAGE
   $ mlcl COMMAND
@@ -399,12 +411,14 @@ USAGE
 * [`mlcl project open NAMEORID`](#mlcl-project-open-nameorid)
 * [`mlcl project protect`](#mlcl-project-protect)
 * [`mlcl project settings`](#mlcl-project-settings)
+* [`mlcl resources`](#mlcl-resources)
 * [`mlcl sandbox exec`](#mlcl-sandbox-exec)
 * [`mlcl sandbox restart`](#mlcl-sandbox-restart)
 * [`mlcl sandbox start`](#mlcl-sandbox-start)
 * [`mlcl sandbox status`](#mlcl-sandbox-status)
 * [`mlcl sandbox stop`](#mlcl-sandbox-stop)
 * [`mlcl search QUERY`](#mlcl-search-query)
+* [`mlcl setup`](#mlcl-setup)
 * [`mlcl share clone SLUG`](#mlcl-share-clone-slug)
 * [`mlcl share create`](#mlcl-share-create)
 * [`mlcl share list`](#mlcl-share-list)
@@ -430,6 +444,7 @@ USAGE
 * [`mlcl team rm MEMBERID`](#mlcl-team-rm-memberid)
 * [`mlcl team set-role MEMBERID ROLE`](#mlcl-team-set-role-memberid-role)
 * [`mlcl templates`](#mlcl-templates)
+* [`mlcl test-feedback`](#mlcl-test-feedback)
 * [`mlcl token create NAME`](#mlcl-token-create-name)
 * [`mlcl token list`](#mlcl-token-list)
 * [`mlcl token revoke REF`](#mlcl-token-revoke-ref)
@@ -466,7 +481,7 @@ EXAMPLES
   $ mlcl account delete --force
 ```
 
-_See code: [src/commands/account/delete.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/account/delete.ts)_
+_See code: [src/commands/account/delete.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/account/delete.ts)_
 
 ## `mlcl account export`
 
@@ -488,7 +503,7 @@ EXAMPLES
   $ mlcl account export --out my-data.json
 ```
 
-_See code: [src/commands/account/export.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/account/export.ts)_
+_See code: [src/commands/account/export.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/account/export.ts)_
 
 ## `mlcl activities list`
 
@@ -508,7 +523,7 @@ EXAMPLES
   $ mlcl activities list --project <id>
 ```
 
-_See code: [src/commands/activities/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/activities/list.ts)_
+_See code: [src/commands/activities/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/activities/list.ts)_
 
 ## `mlcl add MOLECULE`
 
@@ -537,35 +552,38 @@ EXAMPLES
   $ mlcl add @molecule/api-emails-mailgun --inject
 ```
 
-_See code: [src/commands/add.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/add.ts)_
+_See code: [src/commands/add.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/add.ts)_
 
 ## `mlcl agent init`
 
-Make your AI coding agent (Claude Code, Codex, Cursor, Pi, …) molecule-aware: writes the Molecule conventions + mlcl quickstart into the agent instruction files it reads
+Write the Molecule conventions + mlcl quickstart into the instruction files your coding agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where the agent reads those). `mlcl setup` also installs the MCP server and the Molecule skills
 
 ```
 USAGE
-  $ mlcl agent init [--agent auto|claude-code|cursor|codex|zcode|gemini|windsurf|generic|pi] [--global] [--force]
+  $ mlcl agent init [--agent
+    auto|claude-code|codex|cursor|gemini|windsurf|opencode|amp|copilot|kiro|cursor-project|devin|vscode|generic|pi|zcode
+    ] [--global] [--force]
 
 FLAGS
-  --agent=<option>  Which harness to target (default: auto-detect from project markers)
-                    <options: auto|claude-code|cursor|codex|zcode|gemini|windsurf|generic|pi>
+  --agent=<option>  Which agent to target (default: detect from project files)
+                    <options: auto|claude-code|codex|cursor|gemini|windsurf|opencode|amp|copilot|kiro|cursor-project|dev
+                    in|vscode|generic|pi|zcode>
   --force           Rewrite the Molecule section even if already present
-  --global          Write to the harness-wide instructions file instead of this project (claude-code, codex, gemini)
+  --global          Write to the agent's instructions file for every project instead of this one
 
 DESCRIPTION
-  Make your AI coding agent (Claude Code, Codex, Cursor, Pi, …) molecule-aware: writes the Molecule conventions + mlcl
-  quickstart into the agent instruction files it reads
+  Write the Molecule conventions + mlcl quickstart into the instruction files your coding agent reads (AGENTS.md, plus
+  CLAUDE.md or GEMINI.md where the agent reads those). `mlcl setup` also installs the MCP server and the Molecule skills
 
 EXAMPLES
-  $ mlcl agent init            # detect harness in this project and wire it up
+  $ mlcl agent init            # detect the agent in this project and write its files
 
-  $ mlcl agent init --agent cursor
+  $ mlcl agent init --agent gemini
 
   $ mlcl agent init --agent claude-code --global   # every project, not just this one
 ```
 
-_See code: [src/commands/agent/init.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/agent/init.ts)_
+_See code: [src/commands/agent/init.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/agent/init.ts)_
 
 ## `mlcl apikey create`
 
@@ -586,7 +604,7 @@ EXAMPLES
   $ mlcl apikey create --project <id> --name ci
 ```
 
-_See code: [src/commands/apikey/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/apikey/create.ts)_
+_See code: [src/commands/apikey/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/apikey/create.ts)_
 
 ## `mlcl apikey list`
 
@@ -606,7 +624,7 @@ EXAMPLES
   $ mlcl apikey list --project <id>
 ```
 
-_See code: [src/commands/apikey/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/apikey/list.ts)_
+_See code: [src/commands/apikey/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/apikey/list.ts)_
 
 ## `mlcl apikey rm KEYID`
 
@@ -629,7 +647,7 @@ EXAMPLES
   $ mlcl apikey rm --project <id> <keyId>
 ```
 
-_See code: [src/commands/apikey/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/apikey/rm.ts)_
+_See code: [src/commands/apikey/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/apikey/rm.ts)_
 
 ## `mlcl auth login`
 
@@ -661,7 +679,7 @@ EXAMPLES
   $ mlcl login --token <jwt>
 ```
 
-_See code: [src/commands/auth/login.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/auth/login.ts)_
+_See code: [src/commands/auth/login.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/auth/login.ts)_
 
 ## `mlcl auth logout`
 
@@ -678,7 +696,7 @@ ALIASES
   $ mlcl logout
 ```
 
-_See code: [src/commands/auth/logout.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/auth/logout.ts)_
+_See code: [src/commands/auth/logout.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/auth/logout.ts)_
 
 ## `mlcl auth whoami`
 
@@ -698,7 +716,7 @@ ALIASES
   $ mlcl whoami
 ```
 
-_See code: [src/commands/auth/whoami.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/auth/whoami.ts)_
+_See code: [src/commands/auth/whoami.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/auth/whoami.ts)_
 
 ## `mlcl build desktop`
 
@@ -718,7 +736,7 @@ EXAMPLES
   $ mlcl build desktop --project <id>
 ```
 
-_See code: [src/commands/build/desktop.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/build/desktop.ts)_
+_See code: [src/commands/build/desktop.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/build/desktop.ts)_
 
 ## `mlcl build list`
 
@@ -738,7 +756,7 @@ EXAMPLES
   $ mlcl build list --project <id>
 ```
 
-_See code: [src/commands/build/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/build/list.ts)_
+_See code: [src/commands/build/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/build/list.ts)_
 
 ## `mlcl build mobile`
 
@@ -758,7 +776,7 @@ EXAMPLES
   $ mlcl build mobile --project <id>
 ```
 
-_See code: [src/commands/build/mobile.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/build/mobile.ts)_
+_See code: [src/commands/build/mobile.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/build/mobile.ts)_
 
 ## `mlcl build status`
 
@@ -779,7 +797,7 @@ EXAMPLES
   $ mlcl build status --project <id> --build <id>
 ```
 
-_See code: [src/commands/build/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/build/status.ts)_
+_See code: [src/commands/build/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/build/status.ts)_
 
 ## `mlcl check`
 
@@ -808,7 +826,7 @@ EXAMPLES
   $ mlcl check --json
 ```
 
-_See code: [src/commands/check.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/check.ts)_
+_See code: [src/commands/check.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/check.ts)_
 
 ## `mlcl create [NAME]`
 
@@ -816,25 +834,28 @@ Create a new project
 
 ```
 USAGE
-  $ mlcl create [NAME] [--skip-install] [--type api|app|full-stack|static|status-page|status-page-edge]
-    [--framework <value>] [--packages <value>] [--theme <value>] [--no-interactive] [--json] [--force] [--template
-    <value>]
+  $ mlcl create [NAME] [--skip-install] [--require-inject] [--type
+    api|app|full-stack|static|status-page|status-page-edge] [--framework <value>] [--packages <value>] [--theme <value>]
+    [--no-interactive] [--json] [--force] [--template <value>] [--api-contract <value>]
 
 ARGUMENTS
   [NAME]  Project name
 
 FLAGS
-  --force              Scaffold into a directory that already holds a project (existing files are overwritten)
-  --framework=<value>  Frontend framework (app only)
-  --json               Print a machine-readable JSON result instead of progress output (implies --no-interactive)
-  --no-interactive     Run without interactive prompts (requires --type and name arg)
-  --packages=<value>   Comma-separated list of @molecule package names to include
-  --skip-install       Skip npm install
-  --template=<value>   App template slug (e.g., blog, crm, online-store). Run `mlcl templates` to list all available
-                       templates.
-  --theme=<value>      Theme preset name (e.g. liquid-glass)
-  --type=<option>      Project type (api, app, or full-stack)
-                       <options: api|app|full-stack|static|status-page|status-page-edge>
+  --api-contract=<value>  OpenAPI 3.1 JSON document whose auth operations configure the generated app-auth bond
+  --force                 Scaffold into a directory that already holds a project (existing files are overwritten)
+  --framework=<value>     Frontend framework (app only)
+  --json                  Print a machine-readable JSON result instead of progress output (implies --no-interactive)
+  --no-interactive        Run without interactive prompts (requires --type and name arg)
+  --packages=<value>      Comma-separated list of @molecule package names to include
+  --require-inject        [env: MLCL_REQUIRE_INJECT] Fail when the integration code cannot be generated, instead of
+                          leaving it for a later mlcl inject (also MLCL_REQUIRE_INJECT=1)
+  --skip-install          Skip npm install
+  --template=<value>      App template slug (e.g., blog, crm, online-store). Run `mlcl templates` to list all available
+                          templates.
+  --theme=<value>         Theme preset name (e.g. liquid-glass)
+  --type=<option>         Project type (api, app, or full-stack)
+                          <options: api|app|full-stack|static|status-page|status-page-edge>
 
 DESCRIPTION
   Create a new project
@@ -851,7 +872,7 @@ EXAMPLES
   $ mlcl create my-project --type full-stack --framework react --packages @molecule/api-database-postgresql,@molecule/app-auth --no-interactive
 ```
 
-_See code: [src/commands/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/create.ts)_
+_See code: [src/commands/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/create.ts)_
 
 ## `mlcl db backup`
 
@@ -871,7 +892,7 @@ EXAMPLES
   $ mlcl db backup --project <id>
 ```
 
-_See code: [src/commands/db/backup.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/backup.ts)_
+_See code: [src/commands/db/backup.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/backup.ts)_
 
 ## `mlcl db backup-list`
 
@@ -891,7 +912,7 @@ EXAMPLES
   $ mlcl db backup-list --project <id>
 ```
 
-_See code: [src/commands/db/backup-list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/backup-list.ts)_
+_See code: [src/commands/db/backup-list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/backup-list.ts)_
 
 ## `mlcl db console`
 
@@ -910,7 +931,7 @@ EXAMPLES
   $ mlcl db console -- -c "\dt"
 ```
 
-_See code: [src/commands/db/console.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/console.ts)_
+_See code: [src/commands/db/console.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/console.ts)_
 
 ## `mlcl db info`
 
@@ -930,7 +951,7 @@ EXAMPLES
   $ mlcl db info --project <id>
 ```
 
-_See code: [src/commands/db/info.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/info.ts)_
+_See code: [src/commands/db/info.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/info.ts)_
 
 ## `mlcl db migrate`
 
@@ -952,7 +973,7 @@ EXAMPLES
   $ mlcl db migrate --fresh
 ```
 
-_See code: [src/commands/db/migrate.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/migrate.ts)_
+_See code: [src/commands/db/migrate.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/migrate.ts)_
 
 ## `mlcl db query SQL`
 
@@ -975,7 +996,7 @@ EXAMPLES
   $ mlcl db query --project <id> "SELECT * FROM users LIMIT 5"
 ```
 
-_See code: [src/commands/db/query.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/query.ts)_
+_See code: [src/commands/db/query.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/query.ts)_
 
 ## `mlcl db reset`
 
@@ -995,7 +1016,7 @@ EXAMPLES
   $ mlcl db reset
 ```
 
-_See code: [src/commands/db/reset.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/reset.ts)_
+_See code: [src/commands/db/reset.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/reset.ts)_
 
 ## `mlcl db restore BACKUPID`
 
@@ -1018,7 +1039,7 @@ EXAMPLES
   $ mlcl db restore --project <id> <backupId>
 ```
 
-_See code: [src/commands/db/restore.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/restore.ts)_
+_See code: [src/commands/db/restore.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/restore.ts)_
 
 ## `mlcl db tables`
 
@@ -1038,7 +1059,7 @@ EXAMPLES
   $ mlcl db tables --project <id>
 ```
 
-_See code: [src/commands/db/tables.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/tables.ts)_
+_See code: [src/commands/db/tables.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/tables.ts)_
 
 ## `mlcl db url`
 
@@ -1063,7 +1084,7 @@ EXAMPLES
   psql "$(mlcl db url)"
 ```
 
-_See code: [src/commands/db/url.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/db/url.ts)_
+_See code: [src/commands/db/url.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/db/url.ts)_
 
 ## `mlcl deploy`
 
@@ -1087,7 +1108,7 @@ EXAMPLES
   $ mlcl deploy --project <id> --follow
 ```
 
-_See code: [src/commands/deploy/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/deploy/index.ts)_
+_See code: [src/commands/deploy/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/deploy/index.ts)_
 
 ## `mlcl deploy cancel`
 
@@ -1108,7 +1129,7 @@ EXAMPLES
   $ mlcl deploy cancel --project <id> --deployment <id>
 ```
 
-_See code: [src/commands/deploy/cancel.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/deploy/cancel.ts)_
+_See code: [src/commands/deploy/cancel.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/deploy/cancel.ts)_
 
 ## `mlcl deploy list`
 
@@ -1128,28 +1149,28 @@ EXAMPLES
   $ mlcl deploy list --project <id>
 ```
 
-_See code: [src/commands/deploy/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/deploy/list.ts)_
+_See code: [src/commands/deploy/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/deploy/list.ts)_
 
 ## `mlcl deploy status`
 
-Deployment detail (incl. build log)
+Deployment detail (latest by default, incl. build log)
 
 ```
 USAGE
-  $ mlcl deploy status -p <value> --deployment <value>
+  $ mlcl deploy status -p <value> [--deployment <value>]
 
 FLAGS
   -p, --project=<value>     (required) molecule.dev project id
-      --deployment=<value>  (required) deployment id
+      --deployment=<value>  deployment id (defaults to the latest)
 
 DESCRIPTION
-  Deployment detail (incl. build log)
+  Deployment detail (latest by default, incl. build log)
 
 EXAMPLES
   $ mlcl deploy status --project <id> --deployment <id>
 ```
 
-_See code: [src/commands/deploy/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/deploy/status.ts)_
+_See code: [src/commands/deploy/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/deploy/status.ts)_
 
 ## `mlcl deploy workflow-github`
 
@@ -1170,7 +1191,7 @@ EXAMPLES
   $ mlcl deploy workflow-github --project <id> [--apply]
 ```
 
-_See code: [src/commands/deploy/workflow-github.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/deploy/workflow-github.ts)_
+_See code: [src/commands/deploy/workflow-github.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/deploy/workflow-github.ts)_
 
 ## `mlcl deploy workflow-gitlab`
 
@@ -1191,7 +1212,7 @@ EXAMPLES
   $ mlcl deploy workflow-gitlab --project <id> [--apply]
 ```
 
-_See code: [src/commands/deploy/workflow-gitlab.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/deploy/workflow-gitlab.ts)_
+_See code: [src/commands/deploy/workflow-gitlab.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/deploy/workflow-gitlab.ts)_
 
 ## `mlcl device current`
 
@@ -1208,7 +1229,7 @@ DESCRIPTION
   Print the device id this CLI is logged in as (offline — decodes the local token)
 ```
 
-_See code: [src/commands/device/current.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/device/current.ts)_
+_See code: [src/commands/device/current.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/device/current.ts)_
 
 ## `mlcl device list`
 
@@ -1230,7 +1251,7 @@ EXAMPLES
   $ mlcl device list --json
 ```
 
-_See code: [src/commands/device/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/device/list.ts)_
+_See code: [src/commands/device/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/device/list.ts)_
 
 ## `mlcl device rename ID NAME`
 
@@ -1251,7 +1272,7 @@ EXAMPLES
   $ mlcl device rename <id> "work laptop"
 ```
 
-_See code: [src/commands/device/rename.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/device/rename.ts)_
+_See code: [src/commands/device/rename.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/device/rename.ts)_
 
 ## `mlcl device revoke [ID]`
 
@@ -1278,7 +1299,7 @@ EXAMPLES
   $ mlcl device revoke --all-but-current
 ```
 
-_See code: [src/commands/device/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/device/revoke.ts)_
+_See code: [src/commands/device/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/device/revoke.ts)_
 
 ## `mlcl domain add DOMAIN`
 
@@ -1301,7 +1322,7 @@ EXAMPLES
   $ mlcl domain add --project <id> app.example.com
 ```
 
-_See code: [src/commands/domain/add.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/domain/add.ts)_
+_See code: [src/commands/domain/add.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/domain/add.ts)_
 
 ## `mlcl domain list`
 
@@ -1321,7 +1342,7 @@ EXAMPLES
   $ mlcl domain list --project <id>
 ```
 
-_See code: [src/commands/domain/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/domain/list.ts)_
+_See code: [src/commands/domain/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/domain/list.ts)_
 
 ## `mlcl domain rm DOMAINID`
 
@@ -1344,7 +1365,7 @@ EXAMPLES
   $ mlcl domain rm --project <id> <domainId>
 ```
 
-_See code: [src/commands/domain/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/domain/rm.ts)_
+_See code: [src/commands/domain/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/domain/rm.ts)_
 
 ## `mlcl domain verify DOMAINID`
 
@@ -1367,7 +1388,7 @@ EXAMPLES
   $ mlcl domain verify --project <id> <domainId>
 ```
 
-_See code: [src/commands/domain/verify.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/domain/verify.ts)_
+_See code: [src/commands/domain/verify.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/domain/verify.ts)_
 
 ## `mlcl egress approve HOST`
 
@@ -1390,7 +1411,7 @@ EXAMPLES
   $ mlcl egress/approve --project <id> <host>
 ```
 
-_See code: [src/commands/egress/approve.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/egress/approve.ts)_
+_See code: [src/commands/egress/approve.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/egress/approve.ts)_
 
 ## `mlcl egress get`
 
@@ -1410,7 +1431,7 @@ EXAMPLES
   $ mlcl egress get --project <id>
 ```
 
-_See code: [src/commands/egress/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/egress/get.ts)_
+_See code: [src/commands/egress/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/egress/get.ts)_
 
 ## `mlcl egress revoke HOST`
 
@@ -1433,7 +1454,7 @@ EXAMPLES
   $ mlcl egress/revoke --project <id> <host>
 ```
 
-_See code: [src/commands/egress/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/egress/revoke.ts)_
+_See code: [src/commands/egress/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/egress/revoke.ts)_
 
 ## `mlcl env check`
 
@@ -1459,7 +1480,7 @@ EXAMPLES
   $ mlcl env check --fix
 ```
 
-_See code: [src/commands/env/check.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/env/check.ts)_
+_See code: [src/commands/env/check.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/env/check.ts)_
 
 ## `mlcl env detected`
 
@@ -1479,7 +1500,7 @@ EXAMPLES
   $ mlcl env detected --project <id>
 ```
 
-_See code: [src/commands/env/detected.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/env/detected.ts)_
+_See code: [src/commands/env/detected.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/env/detected.ts)_
 
 ## `mlcl env get KEY`
 
@@ -1504,7 +1525,7 @@ EXAMPLES
   $ mlcl env get VITE_API_URL --app
 ```
 
-_See code: [src/commands/env/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/env/get.ts)_
+_See code: [src/commands/env/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/env/get.ts)_
 
 ## `mlcl env list`
 
@@ -1528,7 +1549,7 @@ EXAMPLES
   $ mlcl env list --app --raw
 ```
 
-_See code: [src/commands/env/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/env/list.ts)_
+_See code: [src/commands/env/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/env/list.ts)_
 
 ## `mlcl env pull`
 
@@ -1549,7 +1570,7 @@ EXAMPLES
   $ mlcl env pull --project <id>
 ```
 
-_See code: [src/commands/env/pull.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/env/pull.ts)_
+_See code: [src/commands/env/pull.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/env/pull.ts)_
 
 ## `mlcl env push`
 
@@ -1574,7 +1595,7 @@ EXAMPLES
   $ mlcl env push --project <id> --keys STRIPE_SECRET_KEY,MAILGUN_API_KEY
 ```
 
-_See code: [src/commands/env/push.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/env/push.ts)_
+_See code: [src/commands/env/push.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/env/push.ts)_
 
 ## `mlcl env set PAIR [VALUE]`
 
@@ -1600,7 +1621,7 @@ EXAMPLES
   $ mlcl env set VITE_API_URL https://api.example.com --app
 ```
 
-_See code: [src/commands/env/set.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/env/set.ts)_
+_See code: [src/commands/env/set.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/env/set.ts)_
 
 ## `mlcl env unset KEY`
 
@@ -1623,7 +1644,7 @@ EXAMPLES
   $ mlcl env unset STRIPE_SECRET_KEY
 ```
 
-_See code: [src/commands/env/unset.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/env/unset.ts)_
+_See code: [src/commands/env/unset.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/env/unset.ts)_
 
 ## `mlcl git pull`
 
@@ -1643,7 +1664,7 @@ EXAMPLES
   $ mlcl git pull --project <id>
 ```
 
-_See code: [src/commands/git/pull.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/git/pull.ts)_
+_See code: [src/commands/git/pull.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/git/pull.ts)_
 
 ## `mlcl git push`
 
@@ -1663,7 +1684,7 @@ EXAMPLES
   $ mlcl git push --project <id>
 ```
 
-_See code: [src/commands/git/push.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/git/push.ts)_
+_See code: [src/commands/git/push.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/git/push.ts)_
 
 ## `mlcl git ssh-key PATH`
 
@@ -1686,7 +1707,7 @@ EXAMPLES
   $ mlcl git ssh-key --project <id> ~/.ssh/id_ed25519
 ```
 
-_See code: [src/commands/git/ssh-key.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/git/ssh-key.ts)_
+_See code: [src/commands/git/ssh-key.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/git/ssh-key.ts)_
 
 ## `mlcl help [COMMAND]`
 
@@ -1706,7 +1727,7 @@ DESCRIPTION
   Display help for mlcl.
 ```
 
-_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/6.2.55/src/commands/help.ts)_
+_See code: [@oclif/plugin-help](https://github.com/oclif/plugin-help/blob/7.0.8/src/commands/help.ts)_
 
 ## `mlcl import repos`
 
@@ -1726,7 +1747,7 @@ EXAMPLES
   $ mlcl import repos --project <id>
 ```
 
-_See code: [src/commands/import/repos.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/import/repos.ts)_
+_See code: [src/commands/import/repos.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/import/repos.ts)_
 
 ## `mlcl import source`
 
@@ -1748,7 +1769,7 @@ EXAMPLES
   $ mlcl import source --project <id> [--set <repo-url>]
 ```
 
-_See code: [src/commands/import/source.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/import/source.ts)_
+_See code: [src/commands/import/source.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/import/source.ts)_
 
 ## `mlcl import upload PATH`
 
@@ -1771,7 +1792,7 @@ EXAMPLES
   $ mlcl import upload --project <id> ~/repo.tar.gz
 ```
 
-_See code: [src/commands/import/upload.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/import/upload.ts)_
+_See code: [src/commands/import/upload.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/import/upload.ts)_
 
 ## `mlcl init`
 
@@ -1809,7 +1830,7 @@ EXAMPLES
   $ mlcl init --name api-cache-redis --type provider --category cache --description "Redis cache" --implements @molecule/api-cache --no-interactive
 ```
 
-_See code: [src/commands/init.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/init.ts)_
+_See code: [src/commands/init.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/init.ts)_
 
 ## `mlcl inject`
 
@@ -1842,7 +1863,7 @@ EXAMPLES
   $ mlcl inject --no-install
 ```
 
-_See code: [src/commands/inject.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/inject.ts)_
+_See code: [src/commands/inject.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/inject.ts)_
 
 ## `mlcl invitations accept INVITEID`
 
@@ -1862,7 +1883,7 @@ EXAMPLES
   $ mlcl invitations accept <inviteId>
 ```
 
-_See code: [src/commands/invitations/accept.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/invitations/accept.ts)_
+_See code: [src/commands/invitations/accept.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/invitations/accept.ts)_
 
 ## `mlcl invitations decline INVITEID`
 
@@ -1882,7 +1903,7 @@ EXAMPLES
   $ mlcl invitations decline <inviteId>
 ```
 
-_See code: [src/commands/invitations/decline.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/invitations/decline.ts)_
+_See code: [src/commands/invitations/decline.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/invitations/decline.ts)_
 
 ## `mlcl invitations list`
 
@@ -1902,7 +1923,7 @@ EXAMPLES
   $ mlcl invitations list
 ```
 
-_See code: [src/commands/invitations/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/invitations/list.ts)_
+_See code: [src/commands/invitations/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/invitations/list.ts)_
 
 ## `mlcl login`
 
@@ -1969,37 +1990,37 @@ EXAMPLES
   $ mlcl logs --project <id> [--tail 100] [--stream]
 ```
 
-_See code: [src/commands/logs/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/logs/index.ts)_
+_See code: [src/commands/logs/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/logs/index.ts)_
 
 ## `mlcl mcp install`
 
-Register the molecule MCP server with your coding agent — one command that uses the harness’s own native installer when it has one (claude/cursor/gemini/codex) and writes the standard config for the rest
+Register the molecule MCP server with one coding agent, using the agent’s own installer when it has one. `mlcl setup` does this for every agent at once, with the Molecule skills and conventions
 
 ```
 USAGE
   $ mlcl mcp install [--agent
-    claude-code|cursor|gemini|codex|windsurf|vscode|cursor-project|opencode|amp|crush|kiro|trae|zed|goose|junie|cline|co
-    ntinue|aider|auto] [--project]
+    claude-code|codex|cursor|gemini|windsurf|opencode|amp|copilot|kiro|zed|crush|trae|cline|junie|continue|goose|aider|c
+    ursor-project|devin|vscode|auto] [--project]
 
 FLAGS
-  --agent=<option>  Which harness to configure (default: auto-detect)
-                    <options: claude-code|cursor|gemini|codex|windsurf|vscode|cursor-project|opencode|amp|crush|kiro|tra
-                    e|zed|goose|junie|cline|continue|aider|auto>
-  --project         Register at project level where the harness supports it (default: user/global)
+  --agent=<option>  Which agent to configure (default: the first one found)
+                    <options: claude-code|codex|cursor|gemini|windsurf|opencode|amp|copilot|kiro|zed|crush|trae|cline|ju
+                    nie|continue|goose|aider|cursor-project|devin|vscode|auto>
+  --project         Register for this project only (default: every project for this user)
 
 DESCRIPTION
-  Register the molecule MCP server with your coding agent — one command that uses the harness’s own native installer
-  when it has one (claude/cursor/gemini/codex) and writes the standard config for the rest
+  Register the molecule MCP server with one coding agent, using the agent’s own installer when it has one. `mlcl setup`
+  does this for every agent at once, with the Molecule skills and conventions
 
 EXAMPLES
-  $ mlcl mcp install             # detect the harness and register
+  $ mlcl mcp install             # the first agent found on this machine
 
   $ mlcl mcp install --agent cursor
 
-  $ mlcl mcp install --agent vscode --project
+  $ mlcl mcp install --agent copilot --project
 ```
 
-_See code: [src/commands/mcp/install.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/mcp/install.ts)_
+_See code: [src/commands/mcp/install.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/mcp/install.ts)_
 
 ## `mlcl models`
 
@@ -2019,7 +2040,7 @@ EXAMPLES
   $ mlcl models [--json]
 ```
 
-_See code: [src/commands/models.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/models.ts)_
+_See code: [src/commands/models.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/models.ts)_
 
 ## `mlcl profile get`
 
@@ -2039,7 +2060,7 @@ EXAMPLES
   $ mlcl profile get
 ```
 
-_See code: [src/commands/profile/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/profile/get.ts)_
+_See code: [src/commands/profile/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/profile/get.ts)_
 
 ## `mlcl profile update`
 
@@ -2062,7 +2083,7 @@ EXAMPLES
   $ mlcl profile update --name "Your Name" --bio "..."
 ```
 
-_See code: [src/commands/profile/update.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/profile/update.ts)_
+_See code: [src/commands/profile/update.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/profile/update.ts)_
 
 ## `mlcl project create NAME`
 
@@ -2093,7 +2114,7 @@ EXAMPLES
   $ mlcl project create my-api --type api --packages @molecule/api-database-postgresql
 ```
 
-_See code: [src/commands/project/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/create.ts)_
+_See code: [src/commands/project/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/project/create.ts)_
 
 ## `mlcl project delete`
 
@@ -2114,7 +2135,7 @@ EXAMPLES
   $ mlcl project delete --project <id> --force
 ```
 
-_See code: [src/commands/project/delete.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/delete.ts)_
+_See code: [src/commands/project/delete.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/project/delete.ts)_
 
 ## `mlcl project export ID`
 
@@ -2139,7 +2160,7 @@ EXAMPLES
   $ mlcl project export <id> -o ./eject.tar.gz
 ```
 
-_See code: [src/commands/project/export.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/export.ts)_
+_See code: [src/commands/project/export.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/project/export.ts)_
 
 ## `mlcl project get ID`
 
@@ -2159,7 +2180,7 @@ EXAMPLES
   $ mlcl project get <id>
 ```
 
-_See code: [src/commands/project/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/get.ts)_
+_See code: [src/commands/project/get.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/project/get.ts)_
 
 ## `mlcl project list`
 
@@ -2182,7 +2203,7 @@ EXAMPLES
   $ mlcl project list
 ```
 
-_See code: [src/commands/project/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/list.ts)_
+_See code: [src/commands/project/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/project/list.ts)_
 
 ## `mlcl project open NAMEORID`
 
@@ -2204,7 +2225,7 @@ EXAMPLES
   $ mlcl project open blog --browser
 ```
 
-_See code: [src/commands/project/open.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/open.ts)_
+_See code: [src/commands/project/open.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/project/open.ts)_
 
 ## `mlcl project protect`
 
@@ -2230,7 +2251,7 @@ EXAMPLES
   $ mlcl project protect --project <id> --off
 ```
 
-_See code: [src/commands/project/protect.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/protect.ts)_
+_See code: [src/commands/project/protect.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/project/protect.ts)_
 
 ## `mlcl project settings`
 
@@ -2251,7 +2272,31 @@ EXAMPLES
   $ mlcl project settings --project <id> --name "New Name"
 ```
 
-_See code: [src/commands/project/settings.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/project/settings.ts)_
+_See code: [src/commands/project/settings.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/project/settings.ts)_
+
+## `mlcl resources`
+
+Generate typed app resource modules (list, detail, writes on the shared query cache) from an OpenAPI contract
+
+```
+USAGE
+  $ mlcl resources -c <value> [-p <value>] [--json]
+
+FLAGS
+  -c, --contract=<value>  (required) The OpenAPI 3 file (YAML or JSON), relative to the project
+  -p, --project=<value>   [default: .] The project root (default: the current directory)
+      --json              Output machine-readable JSON
+
+DESCRIPTION
+  Generate typed app resource modules (list, detail, writes on the shared query cache) from an OpenAPI contract
+
+EXAMPLES
+  $ mlcl resources --contract specs/openapi.yml
+
+  $ mlcl resources --contract api/openapi.json --project ./my-app --json
+```
+
+_See code: [src/commands/resources.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/resources.ts)_
 
 ## `mlcl sandbox exec`
 
@@ -2271,7 +2316,7 @@ EXAMPLES
   $ mlcl sandbox exec --project <id> -- npm test
 ```
 
-_See code: [src/commands/sandbox/exec.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/sandbox/exec.ts)_
+_See code: [src/commands/sandbox/exec.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/sandbox/exec.ts)_
 
 ## `mlcl sandbox restart`
 
@@ -2291,7 +2336,7 @@ EXAMPLES
   $ mlcl sandbox restart --project <id>
 ```
 
-_See code: [src/commands/sandbox/restart.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/sandbox/restart.ts)_
+_See code: [src/commands/sandbox/restart.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/sandbox/restart.ts)_
 
 ## `mlcl sandbox start`
 
@@ -2311,7 +2356,7 @@ EXAMPLES
   $ mlcl sandbox start --project <id>
 ```
 
-_See code: [src/commands/sandbox/start.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/sandbox/start.ts)_
+_See code: [src/commands/sandbox/start.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/sandbox/start.ts)_
 
 ## `mlcl sandbox status`
 
@@ -2331,7 +2376,7 @@ EXAMPLES
   $ mlcl sandbox status --project <id>
 ```
 
-_See code: [src/commands/sandbox/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/sandbox/status.ts)_
+_See code: [src/commands/sandbox/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/sandbox/status.ts)_
 
 ## `mlcl sandbox stop`
 
@@ -2351,7 +2396,7 @@ EXAMPLES
   $ mlcl sandbox stop --project <id>
 ```
 
-_See code: [src/commands/sandbox/stop.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/sandbox/stop.ts)_
+_See code: [src/commands/sandbox/stop.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/sandbox/stop.ts)_
 
 ## `mlcl search QUERY`
 
@@ -2359,16 +2404,18 @@ Search @molecule/* packages by name or capability (e.g. "payments", "social logi
 
 ```
 USAGE
-  $ mlcl search QUERY [--stack api|app] [--limit <value>] [--json]
+  $ mlcl search QUERY [--stack api|app] [--framework <value>] [--limit <value>] [--json]
 
 ARGUMENTS
   QUERY  Search query
 
 FLAGS
-  --json            Output machine-readable JSON (one array of hits)
-  --limit=<value>   [default: 20] Maximum number of results
-  --stack=<option>  Restrict to one stack
-                    <options: api|app>
+  --framework=<value>  Only this UI framework's packages plus framework-neutral ones (default: the molecule.framework
+                       the current project declares)
+  --json               Output machine-readable JSON (one array of hits)
+  --limit=<value>      [default: 20] Maximum number of results
+  --stack=<option>     Restrict to one stack
+                       <options: api|app>
 
 DESCRIPTION
   Search @molecule/* packages by name or capability (e.g. "payments", "social login", "file uploads")
@@ -2381,7 +2428,45 @@ EXAMPLES
   $ mlcl search database --json
 ```
 
-_See code: [src/commands/search.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/search.ts)_
+_See code: [src/commands/search.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/search.ts)_
+
+## `mlcl setup`
+
+Set up your coding agents to build the Molecule way: registers the molecule MCP server, installs the Molecule skills, and writes the Molecule conventions, for every project on this machine or for this project only
+
+```
+USAGE
+  $ mlcl setup [--scope machine|project] [--agent
+    claude-code|codex|cursor|gemini|windsurf|opencode|amp|copilot|kiro|zed|crush|trae|cline|junie|continue|goose|cursor-
+    project|devin|vscode...] [--skip mcp|skills|instructions...] [--force] [--dry-run] [-y]
+
+FLAGS
+  -y, --yes                Do not ask; use the flags and defaults
+      --agent=<option>...  Agents to set up, comma-separated (default: every agent found on this machine)
+                           <options: claude-code|codex|cursor|gemini|windsurf|opencode|amp|copilot|kiro|zed|crush|trae|c
+                           line|junie|continue|goose|cursor-project|devin|vscode>
+      --dry-run            Print what would be written, change nothing
+      --force              Replace Molecule skills and sections you edited with this version
+      --scope=<option>     machine: every project for this user (default). project: only the current directory
+                           <options: machine|project>
+      --skip=<option>...   Leave something out, comma-separated
+                           <options: mcp|skills|instructions>
+
+DESCRIPTION
+  Set up your coding agents to build the Molecule way: registers the molecule MCP server, installs the Molecule skills,
+  and writes the Molecule conventions, for every project on this machine or for this project only
+
+EXAMPLES
+  $ mlcl setup                                   # choose where and which agents
+
+  $ mlcl setup --yes                             # every agent found, whole machine
+
+  $ mlcl setup --scope project --agent claude-code,cursor --yes
+
+  $ mlcl setup --dry-run                         # show what it would write
+```
+
+_See code: [src/commands/setup.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/setup.ts)_
 
 ## `mlcl share clone SLUG`
 
@@ -2401,7 +2486,7 @@ EXAMPLES
   $ mlcl share clone <slug>
 ```
 
-_See code: [src/commands/share/clone.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/share/clone.ts)_
+_See code: [src/commands/share/clone.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/share/clone.ts)_
 
 ## `mlcl share create`
 
@@ -2421,7 +2506,7 @@ EXAMPLES
   $ mlcl share create --project <id>
 ```
 
-_See code: [src/commands/share/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/share/create.ts)_
+_See code: [src/commands/share/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/share/create.ts)_
 
 ## `mlcl share list`
 
@@ -2441,7 +2526,7 @@ EXAMPLES
   $ mlcl share list --project <id>
 ```
 
-_See code: [src/commands/share/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/share/list.ts)_
+_See code: [src/commands/share/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/share/list.ts)_
 
 ## `mlcl share rm SHAREID`
 
@@ -2464,7 +2549,7 @@ EXAMPLES
   $ mlcl share rm --project <id> <shareId>
 ```
 
-_See code: [src/commands/share/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/share/rm.ts)_
+_See code: [src/commands/share/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/share/rm.ts)_
 
 ## `mlcl share visibility`
 
@@ -2494,7 +2579,7 @@ EXAMPLES
   $ mlcl share visibility --project <id> --transcripts on --workspace on
 ```
 
-_See code: [src/commands/share/visibility.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/share/visibility.ts)_
+_See code: [src/commands/share/visibility.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/share/visibility.ts)_
 
 ## `mlcl snapshot create`
 
@@ -2514,7 +2599,7 @@ EXAMPLES
   $ mlcl snapshot create --project <id>
 ```
 
-_See code: [src/commands/snapshot/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/snapshot/create.ts)_
+_See code: [src/commands/snapshot/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/snapshot/create.ts)_
 
 ## `mlcl snapshot list`
 
@@ -2534,7 +2619,7 @@ EXAMPLES
   $ mlcl snapshot list --project <id>
 ```
 
-_See code: [src/commands/snapshot/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/snapshot/list.ts)_
+_See code: [src/commands/snapshot/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/snapshot/list.ts)_
 
 ## `mlcl snapshot restore SNAPID`
 
@@ -2557,7 +2642,7 @@ EXAMPLES
   $ mlcl snapshot restore --project <id> <snapId>
 ```
 
-_See code: [src/commands/snapshot/restore.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/snapshot/restore.ts)_
+_See code: [src/commands/snapshot/restore.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/snapshot/restore.ts)_
 
 ## `mlcl snapshot rm SNAPID`
 
@@ -2580,7 +2665,7 @@ EXAMPLES
   $ mlcl snapshot rm --project <id> <snapId>
 ```
 
-_See code: [src/commands/snapshot/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/snapshot/rm.ts)_
+_See code: [src/commands/snapshot/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/snapshot/rm.ts)_
 
 ## `mlcl stage down`
 
@@ -2607,7 +2692,7 @@ EXAMPLES
   $ mlcl stage down --all
 ```
 
-_See code: [src/commands/stage/down.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/stage/down.ts)_
+_See code: [src/commands/stage/down.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/stage/down.ts)_
 
 ## `mlcl stage list`
 
@@ -2630,7 +2715,7 @@ EXAMPLES
   $ mlcl stage list --json
 ```
 
-_See code: [src/commands/stage/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/stage/list.ts)_
+_See code: [src/commands/stage/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/stage/list.ts)_
 
 ## `mlcl stage logs`
 
@@ -2658,7 +2743,7 @@ EXAMPLES
   $ mlcl stage logs -b feature/login
 ```
 
-_See code: [src/commands/stage/logs.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/stage/logs.ts)_
+_See code: [src/commands/stage/logs.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/stage/logs.ts)_
 
 ## `mlcl stage status [SLUG]`
 
@@ -2683,7 +2768,7 @@ EXAMPLES
   $ mlcl stage status feat-login
 ```
 
-_See code: [src/commands/stage/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/stage/status.ts)_
+_See code: [src/commands/stage/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/stage/status.ts)_
 
 ## `mlcl stage up`
 
@@ -2710,7 +2795,7 @@ EXAMPLES
   $ mlcl stage up --skip-build
 ```
 
-_See code: [src/commands/stage/up.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/stage/up.ts)_
+_See code: [src/commands/stage/up.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/stage/up.ts)_
 
 ## `mlcl status`
 
@@ -2730,7 +2815,7 @@ EXAMPLES
   $ mlcl status
 ```
 
-_See code: [src/commands/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/status.ts)_
+_See code: [src/commands/status.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/status.ts)_
 
 ## `mlcl swap MOLECULE`
 
@@ -2760,7 +2845,7 @@ EXAMPLES
   $ mlcl swap @molecule/api-oauth-apple --replace @molecule/api-oauth-github
 ```
 
-_See code: [src/commands/swap.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/swap.ts)_
+_See code: [src/commands/swap.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/swap.ts)_
 
 ## `mlcl sync [DIR]`
 
@@ -2794,7 +2879,7 @@ EXAMPLES
   $ mlcl sync --project <id> --dest my-app
 ```
 
-_See code: [src/commands/sync.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/sync.ts)_
+_See code: [src/commands/sync.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/sync.ts)_
 
 ## `mlcl tasks cancel TASKID`
 
@@ -2817,7 +2902,7 @@ EXAMPLES
   $ mlcl tasks/cancel --project <id> <taskId>
 ```
 
-_See code: [src/commands/tasks/cancel.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/tasks/cancel.ts)_
+_See code: [src/commands/tasks/cancel.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/tasks/cancel.ts)_
 
 ## `mlcl tasks list`
 
@@ -2837,7 +2922,7 @@ EXAMPLES
   $ mlcl tasks list --project <id>
 ```
 
-_See code: [src/commands/tasks/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/tasks/list.ts)_
+_See code: [src/commands/tasks/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/tasks/list.ts)_
 
 ## `mlcl team invite`
 
@@ -2859,7 +2944,7 @@ EXAMPLES
   $ mlcl team invite --project <id> --email x@y.com --role editor
 ```
 
-_See code: [src/commands/team/invite.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/team/invite.ts)_
+_See code: [src/commands/team/invite.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/team/invite.ts)_
 
 ## `mlcl team list`
 
@@ -2879,7 +2964,7 @@ EXAMPLES
   $ mlcl team list --project <id>
 ```
 
-_See code: [src/commands/team/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/team/list.ts)_
+_See code: [src/commands/team/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/team/list.ts)_
 
 ## `mlcl team revoke INVITEID`
 
@@ -2902,7 +2987,7 @@ EXAMPLES
   $ mlcl team revoke --project <id> <inviteId>
 ```
 
-_See code: [src/commands/team/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/team/revoke.ts)_
+_See code: [src/commands/team/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/team/revoke.ts)_
 
 ## `mlcl team rm MEMBERID`
 
@@ -2925,7 +3010,7 @@ EXAMPLES
   $ mlcl team rm --project <id> <memberId>
 ```
 
-_See code: [src/commands/team/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/team/rm.ts)_
+_See code: [src/commands/team/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/team/rm.ts)_
 
 ## `mlcl team set-role MEMBERID ROLE`
 
@@ -2949,7 +3034,7 @@ EXAMPLES
   $ mlcl team set-role --project <id> <memberId> <role>
 ```
 
-_See code: [src/commands/team/set-role.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/team/set-role.ts)_
+_See code: [src/commands/team/set-role.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/team/set-role.ts)_
 
 ## `mlcl templates`
 
@@ -2971,7 +3056,35 @@ EXAMPLES
   $ mlcl templates --json
 ```
 
-_See code: [src/commands/templates.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/templates.ts)_
+_See code: [src/commands/templates.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/templates.ts)_
+
+## `mlcl test-feedback`
+
+Watch app sources and run supplied Playwright specs in the background; print only native locator failures, rendered-page context and triggering source paths
+
+```
+USAGE
+  $ mlcl test-feedback --suite <value> --command <value> [--sources <value>] [--watch] [--json]
+
+FLAGS
+  --command=<value>  (required) The suite’s native Playwright command targeting the local app (including config and
+                     environment)
+  --json             Emit one JSON object per native failure result
+  --sources=<value>  [default: src] App source roots, comma-separated
+  --suite=<value>    (required) Supplied or scaffolded Playwright suite directory
+  --watch            Keep watching while the agent builds; run this command as a background task
+
+DESCRIPTION
+  Watch app sources and run supplied Playwright specs in the background; print only native locator failures,
+  rendered-page context and triggering source paths
+
+EXAMPLES
+  $ mlcl test-feedback --suite specs/e2e --sources app/src --command "BASE_URL=http://localhost:5173 npx --no-install playwright test --config playwright.config.ts" --watch
+
+  $ mlcl test-feedback --suite e2e --sources src --command "npx --no-install playwright test" --json
+```
+
+_See code: [src/commands/test-feedback.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/test-feedback.ts)_
 
 ## `mlcl token create NAME`
 
@@ -3001,7 +3114,7 @@ EXAMPLES
   TOKEN=$(mlcl token create ci --json | jq -r .token)
 ```
 
-_See code: [src/commands/token/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/token/create.ts)_
+_See code: [src/commands/token/create.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/token/create.ts)_
 
 ## `mlcl token list`
 
@@ -3023,7 +3136,7 @@ EXAMPLES
   $ mlcl token list --json
 ```
 
-_See code: [src/commands/token/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/token/list.ts)_
+_See code: [src/commands/token/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/token/list.ts)_
 
 ## `mlcl token revoke REF`
 
@@ -3050,7 +3163,7 @@ EXAMPLES
   $ mlcl token revoke ci --json
 ```
 
-_See code: [src/commands/token/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/token/revoke.ts)_
+_See code: [src/commands/token/revoke.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/token/revoke.ts)_
 
 ## `mlcl transcripts import [FILES]`
 
@@ -3083,7 +3196,7 @@ EXAMPLES
   $ mlcl transcripts import --project <id> --from codex --cwd ./my-app --dry-run
 ```
 
-_See code: [src/commands/transcripts/import.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/transcripts/import.ts)_
+_See code: [src/commands/transcripts/import.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/transcripts/import.ts)_
 
 ## `mlcl transcripts list`
 
@@ -3105,7 +3218,7 @@ EXAMPLES
   $ mlcl transcripts list --project <id>
 ```
 
-_See code: [src/commands/transcripts/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/transcripts/list.ts)_
+_See code: [src/commands/transcripts/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/transcripts/list.ts)_
 
 ## `mlcl transcripts rm TRANSCRIPTID`
 
@@ -3128,7 +3241,7 @@ EXAMPLES
   $ mlcl transcripts rm --project <id> <transcriptId>
 ```
 
-_See code: [src/commands/transcripts/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/transcripts/rm.ts)_
+_See code: [src/commands/transcripts/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/transcripts/rm.ts)_
 
 ## `mlcl usage`
 
@@ -3148,7 +3261,7 @@ EXAMPLES
   $ mlcl usage [--project <id>]
 ```
 
-_See code: [src/commands/usage/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/usage/index.ts)_
+_See code: [src/commands/usage/index.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/usage/index.ts)_
 
 ## `mlcl usage chat`
 
@@ -3168,7 +3281,7 @@ EXAMPLES
   $ mlcl usage chat --project <id>
 ```
 
-_See code: [src/commands/usage/chat.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/usage/chat.ts)_
+_See code: [src/commands/usage/chat.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/usage/chat.ts)_
 
 ## `mlcl usage tiers`
 
@@ -3185,7 +3298,7 @@ EXAMPLES
   $ mlcl usage tiers
 ```
 
-_See code: [src/commands/usage/tiers.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/usage/tiers.ts)_
+_See code: [src/commands/usage/tiers.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/usage/tiers.ts)_
 
 ## `mlcl validate`
 
@@ -3210,7 +3323,7 @@ EXAMPLES
   $ mlcl validate --json
 ```
 
-_See code: [src/commands/validate.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/validate.ts)_
+_See code: [src/commands/validate.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/validate.ts)_
 
 ## `mlcl vault broker`
 
@@ -3231,7 +3344,7 @@ EXAMPLES
   $ mlcl vault broker --project <id> [--disable]
 ```
 
-_See code: [src/commands/vault/broker.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/vault/broker.ts)_
+_See code: [src/commands/vault/broker.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/vault/broker.ts)_
 
 ## `mlcl vault list`
 
@@ -3251,7 +3364,7 @@ EXAMPLES
   $ mlcl vault list --project <id>
 ```
 
-_See code: [src/commands/vault/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/vault/list.ts)_
+_See code: [src/commands/vault/list.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/vault/list.ts)_
 
 ## `mlcl vault rm KEY`
 
@@ -3274,7 +3387,7 @@ EXAMPLES
   $ mlcl vault rm --project <id> <key>
 ```
 
-_See code: [src/commands/vault/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/vault/rm.ts)_
+_See code: [src/commands/vault/rm.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/vault/rm.ts)_
 
 ## `mlcl vault set KEY VALUE`
 
@@ -3298,7 +3411,7 @@ EXAMPLES
   $ mlcl vault set --project <id> <key> <value>
 ```
 
-_See code: [src/commands/vault/set.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/vault/set.ts)_
+_See code: [src/commands/vault/set.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/vault/set.ts)_
 
 ## `mlcl vault token`
 
@@ -3319,7 +3432,7 @@ EXAMPLES
   $ mlcl vault token --project <id>
 ```
 
-_See code: [src/commands/vault/token.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.0/src/commands/vault/token.ts)_
+_See code: [src/commands/vault/token.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/vault/token.ts)_
 
 ## `mlcl whoami`
 

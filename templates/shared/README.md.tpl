@@ -39,7 +39,7 @@ Read any installed package's docs at `node_modules/@molecule/<name>/README.md`.
 
 ## AI agents
 
-This project is agent-optimized — see `AGENTS.md` for the full conventions (bonds, ClassMap styling, handler patterns, migrations). To make any coding agent molecule-aware in any project: `npx mlcl agent init`.
+This project is agent-optimized — see `AGENTS.md` for the full conventions (bonds, ClassMap styling, handler patterns, migrations). To set up your coding agents for Molecule (MCP tools, skills and these conventions) on this machine or in this project: `npx mlcl setup`.
 
 ## Deploy
 

@@ -127,3 +127,35 @@ describe('shared skills — one authored source, host copies in lockstep', () =>
     })
   }
 })
+
+describe('host-only skills — authored in templates/host-skills, copied into the plugin', () => {
+  const HOST_ROOT = join(MLCL_ROOT, 'templates', 'host-skills')
+  const names = readdirSync(HOST_ROOT, { withFileTypes: true })
+    .filter((entry) => entry.isDirectory() && existsSync(join(HOST_ROOT, entry.name, 'SKILL.md')))
+    .map((entry) => entry.name)
+
+  it('authors the start-an-app and extend-a-project skills `mlcl setup` installs', () => {
+    expect(names.sort()).toEqual(['build-with-molecule', 'extend-with-packages'])
+  })
+
+  it('never shadows a scaffold-delivered skill name', () => {
+    // A name in both trees would be installed twice under one name with two bodies.
+    for (const name of names) expect(sharedSkillNames()).not.toContain(name)
+  })
+
+  for (const name of names) {
+    const canonical = readFileSync(join(HOST_ROOT, name, 'SKILL.md'), 'utf8')
+    it(`${name}: frontmatter names the directory and carries a one-line description`, () => {
+      const fm = frontmatter(canonical)
+      expect(fm).toMatch(new RegExp(`^name: ${name}$`, 'm'))
+      const description = fm.match(/^description: (.+)$/m)?.[1]?.trim() ?? ''
+      expect(description.length).toBeGreaterThan(40)
+      expect(description.length).toBeLessThan(1024)
+    })
+    it(`${name}: the plugin copy is byte-identical`, () => {
+      const copy = HOST_COPY_TEMPLATES[0](name)
+      expect(existsSync(copy), 'run node scripts/sync-shared-skills.mjs').toBe(true)
+      expect(readFileSync(copy, 'utf8'), 'run node scripts/sync-shared-skills.mjs').toBe(canonical)
+    })
+  }
+})

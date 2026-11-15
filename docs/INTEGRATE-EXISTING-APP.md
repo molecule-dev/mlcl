@@ -188,7 +188,7 @@ is the primary surface.
 
 **MCP server — on npm as `molecule-mcp`, layered on the CLI.** `molecule-mcp` is a thin structured wrapper over
 these same `mlcl` operations: a local stdio mode (full tool set, wraps the
-local CLI — what `mlcl mcp install` registers) and a hosted read-only HTTP
+local CLI — what `mlcl setup` and `mlcl mcp install` register) and a hosted read-only HTTP
 mode at `https://mcp.molecule.dev/mcp` (search/templates/docs/conventions;
 live now — the surface URL-based clients like Lovable/v0/bolt
 connectors use). The CLI remains the source of truth and the most universal

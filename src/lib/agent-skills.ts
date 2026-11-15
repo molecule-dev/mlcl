@@ -121,6 +121,39 @@ export function loadSharedSkills(templatesDir: string): Record<string, string> {
 }
 
 /**
+ * Read the host-only skills (`templates/host-skills/<name>/SKILL.md`): start a
+ * new app with Molecule, and extend a project with packages. `mlcl setup`
+ * installs them into a user's agents; scaffolded projects do not receive them.
+ *
+ * @param templatesDir - An mlcl `templates/` directory.
+ * @returns Relative skill path (`<name>/SKILL.md`) → content; empty when absent.
+ */
+export function loadHostSkills(templatesDir: string): Record<string, string> {
+  const root = join(templatesDir, 'host-skills')
+  if (!existsSync(root)) return {}
+  const out: Record<string, string> = {}
+  for (const entry of readdirSync(root, { withFileTypes: true })) {
+    const file = join(root, entry.name, 'SKILL.md')
+    if (entry.isDirectory() && existsSync(file))
+      out[`${entry.name}/SKILL.md`] = readFileSync(file, 'utf-8')
+  }
+  return out
+}
+
+/**
+ * Every skill `mlcl setup` installs: the shared workflow skills plus the
+ * host-only ones. The package catalog is left out: it is scoped to one
+ * project's stack, and the MCP `search_packages` tool answers the same question
+ * for any project.
+ *
+ * @param templatesDir - An mlcl `templates/` directory.
+ * @returns Relative skill path (`<name>/SKILL.md`) → content.
+ */
+export function loadSetupSkills(templatesDir: string): Record<string, string> {
+  return { ...loadSharedSkills(templatesDir), ...loadHostSkills(templatesDir) }
+}
+
+/**
  * Render the local `molecule-packages` skill: the local header plus the
  * framework-scoped catalog body.
  *

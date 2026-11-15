@@ -22,8 +22,8 @@ Molecule's value at this stage is exactly what prototypes lack:
 # 1. Export the app from the builder (GitHub export / download) — you get a
 #    conventional Vite/React/TS repo. Commit it, push it.
 
-# 2. Give your agent the molecule conventions (works in any harness):
-npx mlcl agent init
+# 2. Give your agent the molecule tools, skills and conventions (any harness):
+npx mlcl setup --scope project
 
 # 3. Replace prototype-grade systems with production packages:
 npx mlcl search auth --json

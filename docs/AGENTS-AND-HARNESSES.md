@@ -7,10 +7,11 @@ covers every supported harness and every wiring method, with examples.
 > `mlcl` and `molecule-mcp` are on npm, along with every `@molecule/*`
 > package; the commands below run as written.
 
-**The one-paragraph version:** run `npx mlcl agent init` (context) and
-`npx mlcl mcp install` (tools) — or install the Claude Code plugin, or just
-paste the prompt block from the README into any agent. Then ask your agent to
-build something. URL-only clients (Lovable/v0/bolt connectors, and any harness
+**The one-paragraph version:** run `npx mlcl setup`. It asks where (every
+project on this machine, or this project only) and which of your agents, then
+installs the molecule MCP server, the Molecule skills and the conventions for
+each one. Or install the Claude Code plugin, or just paste the prompt block from
+the README into any agent. Then ask your agent to build something. URL-only clients (Lovable/v0/bolt connectors, and any harness
 wanting a one-line install) use the hosted read-only endpoint instead:
 `https://mcp.molecule.dev/mcp`.
 
@@ -22,6 +23,7 @@ wanting a one-line install) use the hosted read-only endpoint instead:
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
 | `mlcl` CLI (`npx`)               | discovery (`search`, `templates`), scaffolding (`create --no-interactive --json`), growth (`add --inject`), reconfiguration (`swap`) |
 | Scaffolded `AGENTS.md`           | the project's conventions, in context the moment any agent opens the project                                                         |
+| `setup`                          | the MCP server, the Molecule skills and those conventions, installed into every agent on the machine (or one project) in one command |
 | `agent init`                     | those same conventions written into any existing project / harness's instruction files                                               |
 | `molecule` MCP server            | the same verbs as structured tools + `read_package_doc` + the `molecule://conventions` resource + a self-install `agent_init` tool   |
 | Claude Code plugin _(at launch)_ | two skills + the MCP server, marketplace-updated                                                                                     |
@@ -86,6 +88,43 @@ module can use a narrow, reasoned ESLint override after that verification.
 
 ---
 
+## Recommended — `mlcl setup` (every agent, one command)
+
+```bash
+npx mlcl setup                                    # asks where and which agents
+npx mlcl setup --yes                              # every agent found, every project on this machine
+npx mlcl setup --scope project --agent claude-code,cursor --yes
+npx mlcl setup --dry-run                          # list what it would write, change nothing
+```
+
+For each agent it installs three things:
+
+- **the MCP server**, through the agent's own `mcp add` command where it has
+  one, otherwise by adding one `molecule` entry to its config file (comments
+  and other settings are kept);
+- **the Molecule skills**: `build-with-molecule` (start a new app),
+  `extend-with-packages` (add or swap a capability) and `capability-first`
+  (check what a package already provides before writing code);
+- **the conventions**, as a `## Molecule` section in the instructions file the
+  agent reads, or as a rules file of its own.
+
+| Agent                                           | Every project (`--scope machine`)                                                 | This project (`--scope project`)                           |
+| ----------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------- |
+| Claude Code                                     | `claude mcp add --scope user`, `~/.claude/skills`, `~/.claude/CLAUDE.md`          | `.mcp.json`, `.claude/skills`, `CLAUDE.md` or `AGENTS.md`  |
+| Codex                                           | `codex mcp add`, `~/.agents/skills`, `~/.codex/AGENTS.md`                         | `.codex/config.toml`, `.agents/skills`, `AGENTS.md`        |
+| Cursor                                          | `~/.cursor/mcp.json`, `~/.agents/skills` (user rules live in Cursor's settings)   | `.cursor/mcp.json`, `.agents/skills`, `AGENTS.md`          |
+| Gemini CLI                                      | `gemini mcp add -s user`, `~/.agents/skills`, `~/.gemini/GEMINI.md`               | `gemini mcp add -s project`, `.agents/skills`, `GEMINI.md` |
+| Devin Desktop (Windsurf)                        | `~/.config/devin/mcp_config.json`, `~/.agents/skills`, `~/.devin/global_rules.md` | `.devin/mcp_config.json`, `.agents/skills`, `AGENTS.md`    |
+| OpenCode                                        | `opencode mcp add --global`, `~/.agents/skills`, `~/.config/opencode/AGENTS.md`   | `opencode mcp add`, `.agents/skills`, `AGENTS.md`          |
+| Amp                                             | `~/.config/amp/settings.json`, `~/.agents/skills`, `~/.config/amp/AGENTS.md`      | `.amp/settings.json`, `.agents/skills`, `AGENTS.md`        |
+| GitHub Copilot                                  | `copilot mcp add`, `~/.copilot/skills`, `~/.copilot/copilot-instructions.md`      | `.mcp.json`, `.github/skills`, `AGENTS.md`                 |
+| Kiro                                            | `~/.kiro/settings/mcp.json`, `~/.kiro/skills`, `~/.kiro/steering/molecule.md`     | `.kiro/settings/mcp.json`, `.kiro/skills`, `AGENTS.md`     |
+| Zed, Crush, Trae, Cline, Junie, Continue, Goose | the MCP server only (`mlcl mcp install --agent <name>` does the same)             | the MCP server only                                        |
+
+Re-running is safe: anything already in place is left alone, and a skill or
+section you edited is kept until you pass `--force`. Restart your agents
+afterwards so they load the tools and skills.
+
 ## Method 1 — zero setup (any agent, any harness)
 
 Paste this into Claude Code, Codex, Cursor, Gemini CLI, OpenCode, Cline,
@@ -119,16 +158,14 @@ npx mlcl agent init --force                  # refresh the molecule section
 
 What it writes per harness:
 
-| Harness                                 | Files written                                           |
-| --------------------------------------- | ------------------------------------------------------- |
-| Claude Code                             | `AGENTS.md` + `.claude/skills/molecule/SKILL.md`        |
-| Cursor                                  | `AGENTS.md` + `.cursor/rules/molecule.mdc`              |
-| Gemini CLI                              | `AGENTS.md` + `.gemini/extensions/molecule/GEMINI.md`   |
-| Windsurf                                | `AGENTS.md` + `.windsurf/rules/molecule.md` (always-on) |
-| Codex, Zed, OpenCode, Pi, anything else | `AGENTS.md` (the cross-harness standard they all read)  |
+| Harness                                                               | Files written                                                       |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| Claude Code                                                           | `AGENTS.md`, plus `CLAUDE.md` when it exists and does not import it |
+| Gemini CLI                                                            | `AGENTS.md` + `GEMINI.md`                                           |
+| Codex, Cursor, Copilot, Devin, OpenCode, Amp, Kiro, Pi, anything else | `AGENTS.md` (the cross-harness standard they all read)              |
 
-`--global` additionally targets `~/.claude/CLAUDE.md`, `~/.codex/AGENTS.md`,
-or `~/.gemini/GEMINI.md` for the harnesses with well-known home files.
+`--global` writes the agent's file for every project instead: the same files
+as the "Every project" column above.
 
 ## Method 3 — the MCP server (tools, one command or one line)
 
@@ -139,29 +176,30 @@ or `~/.gemini/GEMINI.md` for the harnesses with well-known home files.
 ```bash
 npx mlcl mcp install                 # detect + register (uses the harness's own installer when it has one)
 npx mlcl mcp install --agent opencode --project
+npx mlcl setup                       # every agent at once, with the skills and conventions
 ```
 
 Or your harness's native command / config:
 
-| Harness           | Install                                                        |
-| ----------------- | -------------------------------------------------------------- |
-| Claude Code       | `claude mcp add molecule -- npx -y molecule-mcp`               |
-| Codex             | `codex mcp add molecule -- npx -y molecule-mcp`                |
-| Cursor            | `cursor mcp add molecule -- npx -y molecule-mcp`               |
-| Gemini CLI        | `gemini mcp add molecule npx -y molecule-mcp` _(no `--`)_      |
-| Windsurf          | `~/.codeium/windsurf/mcp_config.json` → `mcpServers.molecule`  |
-| VS Code / Copilot | `.vscode/mcp.json` → `servers.molecule`                        |
-| OpenCode          | `opencode.json` → `mcp.molecule` (command-array shape)         |
-| Amp               | `~/.config/amp/settings.json` → `mcpServers.molecule`          |
-| Crush             | `~/.config/crush/config.json` → `mcpServers.molecule`          |
-| Kiro              | `.kiro/settings/mcp.json` → `mcpServers.molecule`              |
-| Trae              | `.trae/mcp.json` → `mcpServers.molecule`                       |
-| Zed               | `.zed/settings.json` → `agent.mcp_servers.molecule`            |
-| Goose             | `~/.config/goose/config.yaml` under `extensions:`              |
-| Junie (JetBrains) | `/mcp` → add server, command `npx -y molecule-mcp`             |
-| Cline / Kilo Code | MCP Servers → Configure → `mcpServers.molecule`                |
-| Continue          | `config.json` → `mcpServers.molecule`                          |
-| Aider             | recent versions: add `molecule`, command `npx -y molecule-mcp` |
+| Harness           | Install                                                                        |
+| ----------------- | ------------------------------------------------------------------------------ |
+| Claude Code       | `claude mcp add --scope user molecule -- npx -y molecule-mcp`                  |
+| Codex             | `codex mcp add molecule -- npx -y molecule-mcp`                                |
+| Cursor            | `~/.cursor/mcp.json` (or `.cursor/mcp.json`) → `mcpServers.molecule`           |
+| Gemini CLI        | `gemini mcp add -s user molecule npx -y molecule-mcp` _(no `--`)_              |
+| Devin Desktop     | `~/.config/devin/mcp_config.json` → `mcpServers.molecule`                      |
+| GitHub Copilot    | `copilot mcp add molecule -- npx -y molecule-mcp`, or `.mcp.json` in a project |
+| OpenCode          | `opencode mcp add molecule --global -- npx -y molecule-mcp`                    |
+| Amp               | `~/.config/amp/settings.json` → `"amp.mcpServers".molecule`                    |
+| Crush             | `~/.config/crush/crush.json` → `mcp.molecule` with `"type": "stdio"`           |
+| Kiro              | `~/.kiro/settings/mcp.json` → `mcpServers.molecule`                            |
+| Trae              | `.trae/mcp.json` → `mcpServers.molecule` (global: Settings → MCP)              |
+| Zed               | `~/.config/zed/settings.json` → `context_servers.molecule`                     |
+| Cline             | `cline mcp add molecule --yes -- npx -y molecule-mcp`                          |
+| Junie (JetBrains) | `~/.junie/mcp/mcp.json` → `mcpServers.molecule`                                |
+| Goose             | `~/.config/goose/config.yaml` under `extensions:` (`cmd: npx`, `type: stdio`)  |
+| Continue          | `.continue/mcpServers/molecule.json` in a project                              |
+| Aider             | no MCP support yet: use the `mlcl` CLI directly                                |
 
 The standard entry (what `mlcl mcp install` writes) is
 `{"command": "npx", "args": ["-y", "molecule-mcp"]}` — adjust only if your
