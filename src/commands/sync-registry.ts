@@ -7,6 +7,7 @@ import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
 import { resourceRecordName } from '../lib/app-resource-modules.js'
+import { sharedHintAllowed } from '../lib/intent-hints.js'
 import {
   getMoleculeVersion,
   getRawRegistry,
@@ -1063,7 +1064,8 @@ export default class SyncRegistry extends Command {
    * - Each hint must be lowercase (letters, digits, spaces, hyphens, slashes).
    * - No package may declare more than 8 hints.
    * - A hint may not appear on more than one package unless ALL owning packages
-   *   share the same multi-select category (legitimate multi-provider case).
+   *   share the same multi-select category (legitimate multi-provider case) or
+   *   are the framework counterparts of one feature (`sharedHintAllowed`).
    * - COVERAGE IS BLOCKING for matcher-eligible packages: every core, provider,
    *   feature, resource, and middleware package must have at least one hint. A
    *   package with zero hints is INVISIBLE to molecule-dev's intent matcher
@@ -1128,10 +1130,7 @@ export default class SyncRegistry extends Command {
     }
 
     for (const [hint, owners] of hintOwners) {
-      if (owners.length < 2) continue
-      const categories = new Set(owners.map((n) => packages[n].category))
-      const allMultiSelect = owners.every((n) => packages[n].multiSelect === true)
-      if (categories.size === 1 && allMultiSelect) continue
+      if (owners.length < 2 || sharedHintAllowed(owners, packages)) continue
       violations.push(
         `${chalk.red('✗')} duplicate hint ${chalk.dim(JSON.stringify(hint))} on: ${owners.join(', ')}`,
       )
