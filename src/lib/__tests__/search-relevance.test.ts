@@ -35,6 +35,32 @@ function names(query: string): string[] {
 
 describe('search capability and symbol relevance', () => {
   it.each([
+    'server backed toggle',
+    'optimistic toggle',
+    'follow button',
+    'favorite button',
+    'star button',
+    'thread subscription',
+  ])('discovers the headless server toggle and its contract for %s', (query) => {
+    const [hit] = searchPackages(packages.map(toSearchEntry), query, {
+      stack: 'app',
+      framework: 'react',
+    })
+    expect(hit?.name).toBe('@molecule/app-react')
+    expect(hit?.description).toContain('useOptimisticToggle')
+    expect(hit?.description).toContain('toggle()')
+    expect(hit?.description).toContain('commit(desired)')
+  })
+
+  it('keeps a local toggle switch discoverable as a UI primitive', () => {
+    const [hit] = searchPackages(packages.map(toSearchEntry), 'toggle switch', {
+      stack: 'app',
+      framework: 'react',
+    })
+    expect(hit?.name).toBe('@molecule/app-ui-react')
+  })
+
+  it.each([
     'profile form',
     'profile settings form',
     'edit profile',

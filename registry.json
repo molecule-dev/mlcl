@@ -62091,7 +62091,7 @@
       "type": "framework",
       "category": "framework",
       "label": "React",
-      "description": "React framework bindings for molecule.dev",
+      "description": "React framework bindings with hooks for auth, forms and server-backed toggles. Use useOptimisticToggle for a follow button, favorite button, star button or thread subscription with any markup: toggle() takes no state argument and commit(desired) returns the server-confirmed boolean. Use useOptimisticValue for flags with related counts.",
       "stack": "app",
       "exports": [
         "AgentIdentity",
@@ -62157,6 +62157,9 @@
         "useOAuth",
         "UseOAuthReturn",
         "UseOAuthConfig",
+        "useOptimisticToggle",
+        "UseOptimisticToggleOptions",
+        "UseOptimisticToggleResult",
         "UseOptimisticValueResult",
         "useOptimisticValue",
         "usePasswordReset",
@@ -62338,12 +62341,12 @@
       "intentHints": [
         "auth state hook",
         "useAuth session",
-        "current user hook",
-        "login state react",
-        "session store react",
         "profile form",
         "profile settings form",
-        "edit profile"
+        "edit profile",
+        "server backed toggle",
+        "optimistic toggle",
+        "follow button"
       ]
     },
     "@molecule/app-react-native": {
@@ -64992,7 +64995,8 @@
         "bindingGuidance": {
           "@molecule/app-react": [
             "React binding: a toggle or counter button uses `useOptimisticValue({ value, commit, equals })` from `@molecule/app-react`, with `value` from the record's props or query and `commit` sending one change and returning the server's value. Render `value`, call `update((current) => next)` on every click, and give the component a `key` per record.",
-            "React toggle: const enabled = useOptimisticValue({ value: record.enabled, commit: async (desiredEnabled) => saveEnabled(record.id, desiredEnabled) }); render enabled.value and call enabled.update((current) => !current) on click. commit receives the DESIRED state; a false current flag must send true to enable. The save must return the confirmed boolean, or map its response to that boolean. Give the mounted control a key per record and keep it mounted during refetches. Local UI toggles can use useState."
+            "React toggle: const enabled = useOptimisticValue({ value: record.enabled, commit: async (desiredEnabled) => saveEnabled(record.id, desiredEnabled) }); render enabled.value and call enabled.update((current) => !current) on click. commit receives the DESIRED state; a false current flag must send true to enable. The save must return the confirmed boolean, or map its response to that boolean. Give the mounted control a key per record and keep it mounted during refetches. Local UI toggles can use useState.",
+            "For a boolean with any application-owned markup, use `useOptimisticToggle({ value, commit })` from `@molecule/app-react`: render its value and use onClick={toggle}. toggle() takes no argument; commit(desired) saves the DESIRED boolean and must return the server-confirmed boolean. Keep the loaded, keyed control mounted and enabled while saving. Local UI switches without a server commit stay plain local state."
           ],
           "@molecule/app-ui-react": [
             "For a server-backed boolean button, render `OptimisticToggleButton` from `@molecule/app-ui-react` after its record loads: `<OptimisticToggleButton key={record.id} value={record.enabled} commit={async (desired) => (await saveEnabled(record.id, desired)).enabled} activeLabel={t(\"disable\", undefined, { defaultValue: \"Disable\" })} inactiveLabel={t(\"enable\", undefined, { defaultValue: \"Enable\" })} />`. It renders both action labels, changes the label immediately, saves in order, and rolls back a failed save. Keep authorization and self-record checks in the app, and keep the keyed button mounted during refetches. Local UI switches stay local."

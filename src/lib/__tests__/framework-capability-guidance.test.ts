@@ -417,6 +417,8 @@ describe('framework-scoped optimistic value guidance', () => {
       '`useOptimisticValue({ value, commit, equals })` from `@molecule/app-react`',
     )
     expect(text).toContain('Never ignore a tap or disable the control while a save is pending')
+    expect(text).toContain('`useOptimisticToggle({ value, commit })`')
+    expect(text).toContain('onClick={toggle}')
     expect(registry.packages['@molecule/app-state']!.exports).toEqual(
       expect.arrayContaining([
         'createOptimisticValue',
@@ -425,7 +427,12 @@ describe('framework-scoped optimistic value guidance', () => {
       ]),
     )
     expect(registry.packages['@molecule/app-react']!.exports).toEqual(
-      expect.arrayContaining(['useOptimisticValue', 'UseOptimisticValueResult']),
+      expect.arrayContaining([
+        'useOptimisticValue',
+        'UseOptimisticValueResult',
+        'useOptimisticToggle',
+        'UseOptimisticToggleResult',
+      ]),
     )
   })
 
@@ -477,6 +484,7 @@ describe('framework-scoped optimistic value guidance', () => {
 
   it('keeps React guidance in its declaring workspace', () => {
     expect(state(['@molecule/app-react'], 'api')).not.toContain('useOptimisticValue')
+    expect(state(['@molecule/app-react'], 'api')).not.toContain('useOptimisticToggle')
   })
 
   it('exposes the optimistic button recipe only when its UI binding is installed', () => {
