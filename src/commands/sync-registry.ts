@@ -17,6 +17,7 @@ import { scanResponseRecord } from '../lib/response-record.js'
 import {
   bondSetterScope,
   declarationScope,
+  registryPackageSrc,
   ROUTE_SCANNED_TYPES,
   routesSignature,
   scanBondSetter,
@@ -561,6 +562,7 @@ export default class SyncRegistry extends Command {
       : join(__dir, '..', '..', '..', 'molecule')
 
     const packageNames = Object.keys(registry.packages)
+    const packageSrc = registryPackageSrc(registry.packages, moleculeDir)
     const bondSetterNames = bondSetterScope(registry.packages)
     const declared = declarationScope(registry.packages)
 
@@ -574,7 +576,7 @@ export default class SyncRegistry extends Command {
       const srcPath = join(fullPath, 'src')
 
       try {
-        const scanned = await scanExports(srcPath)
+        const scanned = await scanExports(srcPath, packageSrc)
         const oldExports = entry.exports ?? []
 
         const oldSorted = [...oldExports].sort()

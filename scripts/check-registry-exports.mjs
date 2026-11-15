@@ -65,6 +65,7 @@ import {
   bondSetterScope,
   declarationScope,
   findMoleculePackages,
+  registryPackageSrc,
   ROUTE_SCANNED_TYPES,
   routesSignature,
   scanBondSetter,
@@ -119,17 +120,45 @@ const peersDrifted = []
 const recordDrifted = []
 const declarationsDrifted = []
 const bondSetterNames = bondSetterScope(registry.packages)
+const packageSrc = registryPackageSrc(registry.packages, moleculeDir)
 const declared = declarationScope(registry.packages)
 let checked = 0
 let skipped = 0
 
+// A package whose index re-exports a scoped package's root (`export * from '@molecule/app-react'`)
+// lists that package's names in its own entry (scanExports follows the star), so a change to the
+// scoped package stales the re-exporter too: check it in the same run, transitively.
+const checkPaths = new Set(scopePaths)
+const reexported = new Set(
+  Object.entries(registry.packages)
+    .filter(([, entry]) => scopePaths.has(entry.path.replace(/\/+$/, '')))
+    .map(([name]) => name),
+)
+for (let grew = reexported.size > 0; grew;) {
+  grew = false
+  for (const [name, entry] of Object.entries(registry.packages)) {
+    const path = entry.path.replace(/\/+$/, '')
+    if (checkPaths.has(path)) continue
+    const indexPath = join(moleculeDir, path, 'src/index.ts')
+    if (!existsSync(indexPath)) continue
+    const stars = readFileSync(indexPath, 'utf8').matchAll(
+      /export\s+\*\s+from\s+'(@molecule\/[^'/]+)'/g,
+    )
+    if ([...stars].some(([, specifier]) => reexported.has(specifier))) {
+      checkPaths.add(path)
+      reexported.add(name)
+      grew = true
+    }
+  }
+}
+
 for (const [name, entry] of Object.entries(registry.packages)) {
-  if (scopePaths.size > 0 && !scopePaths.has(entry.path.replace(/\/+$/, ''))) continue
+  if (scopePaths.size > 0 && !checkPaths.has(entry.path.replace(/\/+$/, ''))) continue
 
   const srcPath = join(moleculeDir, entry.path, 'src')
   let scanned
   try {
-    scanned = await scanExports(srcPath)
+    scanned = await scanExports(srcPath, packageSrc)
   } catch (_error) {
     // No src/ dir (or scan failed) — same as refreshExports, which skips these.
     skipped++

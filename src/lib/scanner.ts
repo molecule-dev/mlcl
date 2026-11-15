@@ -560,8 +560,23 @@ function stripComments(source: string): string {
  * aliases, type-only exports and TSX resolution. A public star whose source is
  * unavailable remains `*` (unknown), including when the 256-file/8-MiB budget is
  * exhausted. No source is executed and no package build is required.
+ *
+ * `packageSrc` resolves a star over ANOTHER molecule package's root entry
+ * (`export * from '@molecule/app-ide-panel-logic'`, how a framework package
+ * re-exports its framework-neutral half): it maps the package name to that
+ * package's `src/` directory, which is then scanned the same way and its names
+ * merged in. Without it, or when that directory is absent, the star stays `*`.
+ *
+ * @param srcPath - The package's `src/` directory (its `index.ts` is the entry).
+ * @param packageSrc - Maps a `@molecule/*` package name to its `src/` directory.
+ * @param seen - Package `src/` directories already on this scan's path (cycle guard).
+ * @returns The public export names; `*` stands for any it could not read.
  */
-export async function scanExports(srcPath: string): Promise<string[]> {
+export async function scanExports(
+  srcPath: string,
+  packageSrc?: (name: string) => string | undefined,
+  seen: ReadonlySet<string> = new Set(),
+): Promise<string[]> {
   let root: string
   try {
     root = realpathSync(resolve(srcPath))
@@ -669,14 +684,46 @@ export async function scanExports(srcPath: string): Promise<string[]> {
         !ts.isStringLiteral(statement.moduleSpecifier)
       )
         continue
-      const resolved = resolveModule(statement.moduleSpecifier.text, file.fileName)
+      const specifier = statement.moduleSpecifier.text
+      const resolved = resolveModule(specifier, file.fileName)
       const source = resolved && program.getSourceFile(resolved.resolvedFileName)
-      if (source) pending.push(source)
-      else names.add('*')
+      if (source) {
+        pending.push(source)
+        continue
+      }
+      const packageDir = specifier.startsWith('@molecule/') ? packageSrc?.(specifier) : undefined
+      const target =
+        packageDir && existsSync(join(packageDir, 'index.ts'))
+          ? realpathSync(packageDir)
+          : undefined
+      // A package already on this scan's path (a re-export cycle) adds nothing new.
+      if (target && (target === root || seen.has(target))) continue
+      if (target) {
+        for (const name of await scanExports(target, packageSrc, new Set([...seen, root])))
+          if (name !== 'default') names.add(name)
+      } else names.add('*')
     }
   }
   if (limited) names.add('*')
   return [...names]
+}
+
+/**
+ * The `packageSrc` resolver {@link scanExports} takes, read from the registry:
+ * each registered `@molecule/*` name maps to `<moleculeDir>/<entry.path>/src`.
+ *
+ * @param packages - The registry's `packages` map (name → entry with a `path`).
+ * @param moleculeDir - The molecule monorepo root the entry paths are relative to.
+ * @returns A resolver that answers `undefined` for an unregistered name.
+ */
+export function registryPackageSrc(
+  packages: Readonly<Record<string, { path?: string }>>,
+  moleculeDir: string,
+): (name: string) => string | undefined {
+  return (name) => {
+    const path = packages[name]?.path
+    return path ? join(moleculeDir, path, 'src') : undefined
+  }
 }
 
 /**

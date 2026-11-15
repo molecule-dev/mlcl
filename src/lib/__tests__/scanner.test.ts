@@ -20,6 +20,7 @@ import { resolvePackageDirectory } from '../scaffold.js'
 import {
   findMoleculePackages,
   inferPackageType,
+  registryPackageSrc,
   scanExports,
   scanForRoutes,
   scanPackage,
@@ -728,6 +729,74 @@ export type { ExternalType as KnownAlias } from 'external'`,
     expect(names).toContain('*')
     expect(names).toContain('part0')
     expect(names).not.toContain('part259')
+  })
+
+  it('reads a star over another molecule package through packageSrc instead of marking it unknown', async () => {
+    // A framework package re-exports its framework-neutral half
+    // (`export * from '@molecule/app-ide-panel-logic'`); its names are the package's public API.
+    const dir = await createTempDir('package-star')
+    await mkdir(join(dir, 'neutral/src'), { recursive: true })
+    await mkdir(join(dir, 'react/src'), { recursive: true })
+    await writeFile(
+      join(dir, 'neutral/src/index.ts'),
+      `export const COMMANDS = []
+export interface CommandDef { id: string }
+export default 1
+`,
+    )
+    await writeFile(
+      join(dir, 'react/src/index.ts'),
+      `export * from '@molecule/app-neutral'
+export const Panel = 1
+`,
+    )
+    const packageSrc = registryPackageSrc({ '@molecule/app-neutral': { path: 'neutral' } }, dir)
+    expect((await scanExports(join(dir, 'react/src'), packageSrc)).sort()).toEqual([
+      'COMMANDS',
+      'CommandDef',
+      'Panel',
+    ])
+  })
+
+  it('keeps a package star unknown without a resolver, for an unregistered name, or when that source is absent', async () => {
+    const dir = await createTempDir('package-star-unknown')
+    await mkdir(join(dir, 'react/src'), { recursive: true })
+    await writeFile(
+      join(dir, 'react/src/index.ts'),
+      `export * from '@molecule/app-neutral'
+export * from '@molecule/app-other'
+export * from 'external'
+export const Panel = 1
+`,
+    )
+    const src = join(dir, 'react/src')
+    // app-neutral is registered but its directory does not exist (an mlcl-only checkout).
+    const packageSrc = registryPackageSrc({ '@molecule/app-neutral': { path: 'neutral' } }, dir)
+    expect((await scanExports(src)).sort()).toEqual(['*', 'Panel'])
+    expect((await scanExports(src, packageSrc)).sort()).toEqual(['*', 'Panel'])
+  })
+
+  it('ends a re-export cycle between two packages with the names of both', async () => {
+    const dir = await createTempDir('package-star-cycle')
+    await mkdir(join(dir, 'a/src'), { recursive: true })
+    await mkdir(join(dir, 'b/src'), { recursive: true })
+    await writeFile(
+      join(dir, 'a/src/index.ts'),
+      `export * from '@molecule/app-b'
+export const fromA = 1
+`,
+    )
+    await writeFile(
+      join(dir, 'b/src/index.ts'),
+      `export * from '@molecule/app-a'
+export const fromB = 1
+`,
+    )
+    const packageSrc = registryPackageSrc(
+      { '@molecule/app-a': { path: 'a' }, '@molecule/app-b': { path: 'b' } },
+      dir,
+    )
+    expect((await scanExports(join(dir, 'a/src'), packageSrc)).sort()).toEqual(['fromA', 'fromB'])
   })
 
   for (const framework of ['react', 'vue']) {
