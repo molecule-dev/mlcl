@@ -16811,8 +16811,7 @@
         "status checks",
         "uptime monitoring",
         "service health",
-        "health endpoint",
-        "liveness probe"
+        "health endpoint"
       ]
     },
     "@molecule/api-monitoring-default": {
@@ -64013,7 +64012,7 @@
       },
       "intentHints": [
         "auth state hook",
-        "useAuth session",
+        "useauth session",
         "profile form",
         "profile settings form",
         "edit profile",
