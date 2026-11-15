@@ -22093,10 +22093,8 @@
         "article favorites",
         "followed authors feed",
         "article tags",
-        "medium-style blog",
         "blog publishing",
         "article response envelope",
-        "custom article api",
         "article request handlers"
       ]
     },
@@ -27682,19 +27680,13 @@
         "scheme": "Bearer"
       },
       "intentHints": [
-        "user resource",
-        "user accounts backend",
         "user crud backend",
         "authorization header token",
         "custom token authentication",
         "jwt api authentication",
         "token in response body",
-        "user request envelope",
         "account response envelope",
         "custom signup response",
-        "batch public profiles",
-        "batch user profiles",
-        "public contributor profiles",
         "public author profiles"
       ]
     },
@@ -63322,7 +63314,7 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
+        "loading and error states"
       ]
     },
     "@molecule/app-query-memory": {
@@ -63413,7 +63405,7 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
+        "loading and error states"
       ]
     },
     "@molecule/app-query-solid": {
@@ -63485,7 +63477,7 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
+        "loading and error states"
       ]
     },
     "@molecule/app-query-svelte": {
@@ -63557,7 +63549,7 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
+        "loading and error states"
       ]
     },
     "@molecule/app-query-tanstack": {
@@ -63658,7 +63650,7 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "Use QueryContent around lists and record actions: its child receives only loaded non-null data; pending/error status stays outside the item structure."
+        "loading and error states"
       ]
     },
     "@molecule/app-quiz-card-react": {
@@ -64980,7 +64972,8 @@
         "client side routing react",
         "page navigation react router",
         "url routes react",
-        "url backed pagination filters"
+        "url backed pagination filters",
+        "public route"
       ]
     },
     "@molecule/app-routing-solid-router": {
@@ -70267,13 +70260,9 @@
       "framework": "react",
       "path": "packages/app/frameworks/react-ui",
       "intentHints": [
-        "ui primitives",
         "modal dialog",
-        "tooltip",
         "toast notification",
         "alert banner",
-        "tabs",
-        "skeleton loader",
         "toggle switch",
         "protected route",
         "auth route guard",
