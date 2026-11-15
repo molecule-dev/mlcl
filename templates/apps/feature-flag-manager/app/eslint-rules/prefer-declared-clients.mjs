@@ -1913,7 +1913,9 @@ export function scaffoldRules(parser) {
         messages: {
           pending:
             'This collection starts as [] and is filled asynchronously in an effect, so length === 0 also means the request is still pending. Start it as null and render loading before checking length, or guard this empty branch with a completion flag settled by this collection’s own request. With a query hook, render its status/error separately and check data only after success.',
-          item: 'This empty placeholder reuses the complete className of this collection’s actionable mapped items. It appears as another selectable item. Render the empty status separately with its own styling; keep item styling on real records.',
+          item: 'This empty placeholder carries every class of this collection’s actionable mapped items, so anything that finds those items by class finds it as another item. Render the empty status separately with its own class; keep item styling on real records.',
+          pendingQuery:
+            '`{{name}}` is [] until this query’s request settles, because its `data` is undefined while loading, so this empty branch also shows before the data arrives. Render loading from the query’s status first and show the empty state only once it has succeeded, or render the list through QueryContent.',
           statusItem:
             'This status message ({{status}}) carries every class of the items rendered at line {{line}} (`{{classes}}`{{via}}), so anything that finds those items by class (a test, a script, a :first-child style) finds this message as one of them. Give the message its own class and render it beside the list, not as an item.',
         },
@@ -1935,6 +1937,90 @@ export function scaffoldRules(parser) {
               expression,
               contains,
             } = flow
+            // A hook's query result (`useQuery(...)`, any `use*` hook) holds `data` undefined until
+            // its request settles, so `data ?? []`, `data || []` or a `= []` destructuring default
+            // reads a pending request as an empty collection. Code that reads anything else of the
+            // same result (status, isLoading, error, or the result passed on whole) is taken to
+            // tell loading apart itself; only a result read for nothing but its defaulted `data`
+            // is reported.
+            const hookCall = (node) => {
+              node = unwrap(node)
+              if (node?.type !== 'CallExpression') return false
+              const name =
+                node.callee.type === 'Identifier' ? node.callee.name : member(node.callee)
+              return typeof name === 'string' && /^use[A-Z]/.test(name)
+            }
+            const emptyArray = (node) => {
+              node = unwrap(node)
+              return node?.type === 'ArrayExpression' && node.elements.length === 0
+            }
+            const keyName = (property) => property.key?.name ?? property.key?.value
+            // The single `data` property of `const { data } = useX(...)`, or null.
+            const soleDataProperty = (identifier) => {
+              const definition = variable(identifier)?.defs[0]
+              const pattern =
+                definition?.type === 'Variable' &&
+                definition.node.id.type === 'ObjectPattern' &&
+                hookCall(definition.node.init)
+                  ? definition.node.id
+                  : null
+              if (pattern?.properties.length !== 1) return null
+              const [property] = pattern.properties
+              const value =
+                property.value?.type === 'AssignmentPattern' ? property.value.left : property.value
+              return property.type === 'Property' &&
+                keyName(property) === 'data' &&
+                value === definition.name
+                ? property
+                : null
+            }
+            const onlyData = (binding) =>
+              binding.references.every((reference) => {
+                if (reference.isWrite()) return true
+                const parent = reference.identifier.parent
+                return (
+                  parent?.type === 'MemberExpression' &&
+                  parent.object === reference.identifier &&
+                  member(parent) === 'data'
+                )
+              })
+            const pendingQueryData = (collection) => {
+              let node = unwrap(collection)
+              let name = null
+              if (node?.type === 'Identifier') {
+                name = node.name
+                const sole = soleDataProperty(node)
+                if (sole)
+                  return sole.value.type === 'AssignmentPattern' && emptyArray(sole.value.right)
+                    ? { name }
+                    : null
+                const definition = variable(node)?.defs[0]
+                if (definition?.type !== 'Variable' || definition.node.id.type !== 'Identifier')
+                  return null
+                node = unwrap(definition.node.init)
+              }
+              if (
+                node?.type !== 'LogicalExpression' ||
+                !['??', '||'].includes(node.operator) ||
+                !emptyArray(node.right)
+              )
+                return null
+              const data = unwrap(node.left)
+              name ??= context.sourceCode.getText(data)
+              if (data?.type === 'Identifier') return soleDataProperty(data) ? { name } : null
+              if (member(data) !== 'data') return null
+              const object = unwrap(data.object)
+              if (hookCall(object)) return { name }
+              if (object?.type !== 'Identifier') return null
+              const binding = variable(object)
+              const definition = binding?.defs[0]
+              return definition?.type === 'Variable' &&
+                definition.node.id.type === 'Identifier' &&
+                hookCall(definition.node.init) &&
+                onlyData(binding)
+                ? { name }
+                : null
+            }
             const emptyBranches = []
             walk(flow.source.ast, (node) => {
               let length
@@ -2030,6 +2116,10 @@ export function scaffoldRules(parser) {
                 !completed
               )
                 context.report({ node, messageId: 'pending' })
+              else {
+                const pending = pendingQueryData(collection)
+                if (pending) context.report({ node, messageId: 'pendingQuery', data: pending })
+              }
               // Compare syntax-owned class values only: no selectors or class vocabulary. An
               // ordinary empty card may share layout; the item must actually have an action.
               const placeholders = []
@@ -2075,9 +2165,13 @@ export function scaffoldRules(parser) {
                   const value = expression(attr(item, 'className'))
                   if (typeof value?.value !== 'string') return
                   const classes = value.value.trim().split(/\s+/).sort().join(' ')
-                  for (const placeholder of placeholders)
-                    if (placeholder.classes === classes && !contains(body, item))
+                  // Every class of the item, with or without a modifier of its own: whatever finds
+                  // the items by one of their classes finds this placeholder too.
+                  for (const placeholder of placeholders) {
+                    const own = new Set(placeholder.classes.split(' '))
+                    if (classes.split(' ').every((name) => own.has(name)) && !contains(body, item))
                       context.report({ node: placeholder.node, messageId: 'item' })
+                  }
                 })
               })
             }
