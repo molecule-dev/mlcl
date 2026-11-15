@@ -100,6 +100,36 @@ export function injectWarningLines(stderr: string): string[] {
 }
 
 /**
+ * The setup commands a scaffold still needs before `npm run dev`, in the order they must run.
+ *
+ * Without `npm install` (`--skip-install`, or an install that failed) no package is on disk, so the
+ * injector refuses every workspace and `src/bonds/index.ts` stays a stub the app's own imports do
+ * not compile against (`no exported member 'authClient'`). Next steps that went straight to
+ * `npm run dev` led to exactly that build. The inject command names this CLI's own version:
+ * another version's registry pins other versions than the ones just installed, which the injector
+ * refuses, and `--force` replaces the stub files the skipped run left.
+ *
+ * @param pending - What the scaffold left undone.
+ * @param pending.installNeeded - Whether `npm install` has yet to run (skipped or failed).
+ * @param pending.injectSkipped - Each workspace whose integration code was not generated,
+ *   relative to the project root (`.`, `app`, `api`).
+ * @param pending.cliVersion - This CLI's version.
+ * @returns The commands, one per entry, run from the project root.
+ */
+export function pendingSetupSteps(pending: {
+  installNeeded: boolean
+  injectSkipped: readonly string[]
+  cliVersion: string
+}): string[] {
+  return [
+    ...(pending.installNeeded ? ['npm install'] : []),
+    ...pending.injectSkipped.map(
+      (workspace) => `npx mlcl@${pending.cliVersion} inject --force -p ${workspace}`,
+    ),
+  ]
+}
+
+/**
  * Why a failed `mlcl inject` child failed, from its execa error.
  *
  * execa's `message` for a failed child is its WHOLE captured output: the plan, every file it
@@ -564,12 +594,14 @@ export default class Create extends Command {
         say(
           `${ui.check('Scaffolded')} ${ui.id(flags.template)} ${ui.dim('→')} ${ui.id(projectPath)}`,
         )
+        let installNeeded = flags['skip-install'] === true
         if (!flags['skip-install']) {
           const { execa } = await import('execa')
           try {
             await execa('npm', ['install'], { cwd: projectPath })
             say(ui.check('Installed dependencies.'))
           } catch (error) {
+            installNeeded = true
             this.warn(
               `npm install failed — run it manually. ${error instanceof Error ? error.message : String(error)}`,
             )
@@ -578,6 +610,12 @@ export default class Create extends Command {
         say('')
         say(ui.heading(t('commands.create.messages.nextSteps')))
         say(`  ${ui.cmd(`cd ${projectName}`)}`)
+        for (const step of pendingSetupSteps({
+          installNeeded,
+          injectSkipped: [],
+          cliVersion: this.config.version,
+        }))
+          say(`  ${ui.cmd(step)}`)
         say(`  ${ui.dim('# edit api/.env and app/.env with your credentials')}`)
         say(`  ${ui.cmd('npm run dev')}`)
         if (flags.json) {
@@ -594,6 +632,12 @@ export default class Create extends Command {
                   .map((s) => s.trim())
                   .filter(Boolean),
                 installSkipped: flags['skip-install'] === true,
+                injectSkipped: [],
+                pendingSetup: pendingSetupSteps({
+                  installNeeded,
+                  injectSkipped: [],
+                  cliVersion: this.config.version,
+                }),
                 capabilityMap: await readProjectCapabilityMap(projectPath),
               },
               null,
@@ -1111,6 +1155,7 @@ export default class Create extends Command {
 
     // Edge status page is a standalone Workers project — skip addPackages/inject/env steps
     if (isStatusPageEdge) {
+      let installNeeded = flags['skip-install'] === true
       if (!flags['skip-install']) {
         spinner?.start(t('commands.create.spinners.installing'))
         log(t('commands.create.spinners.installing'))
@@ -1119,6 +1164,7 @@ export default class Create extends Command {
           spinner?.stop(t('commands.create.spinners.installed'))
           log(t('commands.create.spinners.installed'))
         } catch (error) {
+          installNeeded = true
           spinner?.stop(chalk.yellow(t('commands.create.spinners.installFailed')))
           log(t('commands.create.spinners.installFailed'))
           this.warn(`npm install failed: ${error instanceof Error ? error.message : String(error)}`)
@@ -1134,6 +1180,12 @@ export default class Create extends Command {
           : chalk.bold(t('commands.create.messages.nextSteps')),
       )
       say(`  cd ${projectName}`)
+      for (const step of pendingSetupSteps({
+        installNeeded,
+        injectSkipped: [],
+        cliVersion: this.config.version,
+      }))
+        say(`  ${step}`)
       say('  npx wrangler dev')
       if (nonInteractive) {
         say('')
@@ -1150,6 +1202,12 @@ export default class Create extends Command {
               template: null,
               packages: uniquePackages,
               installSkipped: flags['skip-install'] === true,
+              injectSkipped: [],
+              pendingSetup: pendingSetupSteps({
+                installNeeded,
+                injectSkipped: [],
+                cliVersion: this.config.version,
+              }),
               capabilityMap: await readProjectCapabilityMap(projectPath),
             },
             null,
@@ -1191,6 +1249,7 @@ export default class Create extends Command {
     }
 
     // Step 9: Install dependencies
+    let installNeeded = flags['skip-install'] === true
     if (!flags['skip-install']) {
       spinner?.start(t('commands.create.spinners.installing'))
       log(t('commands.create.spinners.installing'))
@@ -1199,6 +1258,7 @@ export default class Create extends Command {
         spinner?.stop(t('commands.create.spinners.installed'))
         log(t('commands.create.spinners.installed'))
       } catch (error) {
+        installNeeded = true
         spinner?.stop(chalk.yellow(t('commands.create.spinners.installFailed')))
         log(t('commands.create.spinners.installFailed'))
         this.warn(`npm install failed: ${error instanceof Error ? error.message : String(error)}`)
@@ -1209,6 +1269,9 @@ export default class Create extends Command {
     // When --skip-install is set (e.g. sandbox scaffolding), run inject in fast
     // mode: skip install (create handles it), skip tests, skip Prettier formatting.
     const fastInject = flags['skip-install']
+    // Each workspace whose integration code was not generated, relative to the project: the
+    // closing next steps name the command that generates it.
+    const injectSkipped: string[] = []
     if (isFullStack) {
       // Inject both workspaces
       for (const workspace of ['api', 'app']) {
@@ -1244,6 +1307,7 @@ export default class Create extends Command {
               }),
             )
           }
+          injectSkipped.push(workspace)
           spinner?.stop(chalk.yellow(t('commands.create.spinners.injectSkipped', { workspace })))
           log(t('commands.create.spinners.injectSkipped', { workspace }))
           log(`  Inject error: ${injectFailureDetail(e)}`)
@@ -1278,6 +1342,7 @@ export default class Create extends Command {
             }),
           )
         }
+        injectSkipped.push(hasAppSubdir ? 'app' : '.')
         spinner?.stop(chalk.yellow(t('commands.create.spinners.injectSkippedSingle')))
         log(t('commands.create.spinners.injectSkippedSingle'))
         log(`  Inject error: ${injectFailureDetail(e)}`)
@@ -1480,6 +1545,12 @@ export default class Create extends Command {
         : chalk.bold(t('commands.create.messages.nextSteps')),
     )
     say(`  cd ${projectName}`)
+    for (const step of pendingSetupSteps({
+      installNeeded,
+      injectSkipped,
+      cliVersion: this.config.version,
+    }))
+      say(`  ${step}`)
     if (uniqueSecretNames.length > 0) {
       if (isFullStack) {
         say(`  ${t('commands.create.messages.editEnvFullStack')}`)
@@ -1515,6 +1586,12 @@ export default class Create extends Command {
             packages: uniquePackages,
             secrets: uniqueSecretNames,
             installSkipped: flags['skip-install'] === true,
+            injectSkipped,
+            pendingSetup: pendingSetupSteps({
+              installNeeded,
+              injectSkipped,
+              cliVersion: this.config.version,
+            }),
             ...(apiAuthContract ? { authGuidance: AUTH_PRECONFIGURATION_GUIDANCE } : {}),
             capabilityMap: await readProjectCapabilityMap(projectPath),
           },

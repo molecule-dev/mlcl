@@ -42,14 +42,14 @@ mlcl create <NAME> --type <api|app|full-stack> [--framework <react|vue|svelte|so
 
 ### Flags
 
-| Flag               | Required                 | Description                                                      |
-| ------------------ | ------------------------ | ---------------------------------------------------------------- |
-| `NAME`             | Yes                      | Project directory name (relative to cwd)                         |
-| `--type`           | Yes (non-interactive)    | `api`, `app`, or `full-stack`                                    |
-| `--framework`      | App/full-stack only      | `react`, `vue`, `svelte`, `solid`, `angular`, `react-native-web` |
-| `--packages`       | No                       | Comma-separated `@molecule/*` package names to include           |
-| `--no-interactive` | For AI use               | Skip all prompts; requires `--type` and `NAME`                   |
-| `--skip-install`   | Recommended in workspace | Skip `npm install` (run it from workspace root instead)          |
+| Flag               | Required                 | Description                                                                                                                                                                                                                                                                                                            |
+| ------------------ | ------------------------ | ---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `NAME`             | Yes                      | Project directory name (relative to cwd)                                                                                                                                                                                                                                                                               |
+| `--type`           | Yes (non-interactive)    | `api`, `app`, or `full-stack`                                                                                                                                                                                                                                                                                          |
+| `--framework`      | App/full-stack only      | `react`, `vue`, `svelte`, `solid`, `angular`, `react-native-web`                                                                                                                                                                                                                                                       |
+| `--packages`       | No                       | Comma-separated `@molecule/*` package names to include                                                                                                                                                                                                                                                                 |
+| `--no-interactive` | For AI use               | Skip all prompts; requires `--type` and `NAME`                                                                                                                                                                                                                                                                         |
+| `--skip-install`   | Recommended in workspace | Skip `npm install` (run it from workspace root instead). Outside a workspace no package is on disk, so `src/bonds/` is not generated and the app does not compile until you run the printed next steps (`npm install`, then `npx mlcl@<version> inject --force -p <workspace>`; `--json` lists them as `pendingSetup`) |
 
 ### Package Auto-Resolution
 
