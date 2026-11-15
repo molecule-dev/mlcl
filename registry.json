@@ -20016,6 +20016,7 @@
       "exports": [
         "PushSubscription",
         "NotificationPayload",
+        "SendOptions",
         "SendResult",
         "SendManyResult",
         "VapidConfig",
