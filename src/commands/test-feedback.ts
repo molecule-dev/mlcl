@@ -115,16 +115,14 @@ export default class TestFeedback extends Command {
           emit: onFailure,
           signal,
         }),
-      onFailures: emit,
       onResult: (result) => {
         if (result.status !== 'unavailable') return
         unavailable = true
         this.warn(`${result.spec}: ${result.reason}`)
       },
     })
-    // The controller's own background pass only re-runs failures a completed run already
-    // recorded; this command has no host run to record, so every pass is an explicit checkpoint
-    // over the specs the changed sources select. A write during a checkpoint cancels it, and the
+    // The controller runs nothing by itself: every pass is an explicit checkpoint over the specs
+    // the changed sources select. A write during a checkpoint cancels it, and the
     // next pass runs on the new source.
     const checkpoint = async (): Promise<void> => {
       for (const result of await controller.check()) if (result.status === 'failed') emit(result)
