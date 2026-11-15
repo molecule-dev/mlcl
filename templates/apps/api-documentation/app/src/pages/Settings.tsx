@@ -1216,20 +1216,30 @@ export function Settings() {
             </>
           )}
 
-          {section === 'billing' && (
-            <section className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3')}>
-              <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
-                {t('settings.billing', {}, { defaultValue: 'Billing' })}
-              </h2>
-              {billingLoading ? (
+          {section === 'billing' &&
+            (billingLoading ? (
+              <div className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3')}>
+                <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+                  {t('settings.billing', {}, { defaultValue: 'Billing' })}
+                </h2>
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t('settings.billing.loading', {}, { defaultValue: 'Loading billing…' })}
                 </p>
-              ) : !billing ? (
+              </div>
+            ) : !billing ? (
+              <div className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3')}>
+                <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+                  {t('settings.billing', {}, { defaultValue: 'Billing' })}
+                </h2>
                 <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                   {t('settings.billing.empty', {}, { defaultValue: 'No billing details yet.' })}
                 </p>
-              ) : (
+              </div>
+            ) : (
+              <section className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3')}>
+                <h2 className={cm.cn(cm.textSize('lg'), cm.fontWeight('semibold'))}>
+                  {t('settings.billing', {}, { defaultValue: 'Billing' })}
+                </h2>
                 <>
                   <p className={cm.cn(cm.textSize('sm'), 'text-on-surface-variant')}>
                     {t(
@@ -1267,9 +1277,8 @@ export function Settings() {
                     )}
                   </Link>
                 </>
-              )}
-            </section>
-          )}
+              </section>
+            ))}
 
           {section === 'team' && (
             <section className={cm.cn(cm.card(), cm.sp('p', 5), 'space-y-3')}>

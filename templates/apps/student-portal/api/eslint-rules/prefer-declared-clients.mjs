@@ -5373,16 +5373,11 @@ export function scaffoldRules(parser) {
         }
       },
     },
-    // While a record is still loading, a message rendered in the SAME element as one of the
-    // record's fields, in the same place, is read as that field's value by anything that reads
-    // the element once: a test, a script, a screen reader. `{profile ? <><p>{profile.bio}</p></>
-    // : <p>Loading...</p>}` shows "Loading..." where the bio goes. Structural only: a JSX
-    // conditional on one identifier, whose loaded branch renders a text element that reads a
-    // member of that identifier and whose other branch is a text-bearing element with the same
-    // tag that does not read it. The identifier must be data this component waits for: a
-    // `useState` value set from an effect, or a value read from a hook's result (a query, the
-    // session). A record that is simply optional (no file chosen yet, no booking on this
-    // trip) has a final, correct message in that element, and stays quiet.
+    // A branch rendered while a loaded record is missing may not sit in the same parent
+    // element as markup that shows a field of that record. Both anchors are local AST facts:
+    // data the page waits for (a hook result or state set in an effect), and a displayed field.
+    // Inspect chained ternaries together, including query.data and query.status tests. A
+    // component or live-region placeholder has the same placement defect as host text.
     'placeholders-stay-out-of-record-fields': {
       meta: {
         type: 'problem',
@@ -5393,7 +5388,7 @@ export function scaffoldRules(parser) {
         schema: [],
         messages: {
           sameElement:
-            '{{location}}: while `{{record}}` is missing this renders a <{{tag}}> in the place of the <{{tag}}> that shows `{{field}}` (line {{fieldLine}}), so whatever reads that element gets this text as the value. Render the waiting or error message outside the region that shows `{{record}}` (return it before this markup, or put it beside the whole region), and render nothing here until `{{record}}` exists.',
+            '{{location}}: while `{{record}}` is missing this branch renders inside the same parent element as `{{field}}` (line {{fieldLine}}), so a reader can get the placeholder as the field value. Render the waiting or error message outside the region that shows `{{record}}` (return it before this markup, or put it beside the whole region), and render nothing here until `{{record}}` exists.',
         },
       },
       create(context) {
@@ -5426,52 +5421,126 @@ export function scaffoldRules(parser) {
           TEXT_TAGS.has(node.openingElement.name.name)
             ? node.openingElement.name.name
             : null
-        // `record`, `!record`, `record != null`, `record == null`, and their strict forms.
+        const unwrap = (node) =>
+          ['ChainExpression', 'TSNonNullExpression', 'TSAsExpression'].includes(node?.type)
+            ? unwrap(node.expression)
+            : node
+        const pathOf = (node) => {
+          node = unwrap(node)
+          if (node?.type === 'Identifier') return { identifier: node, path: [] }
+          if (node?.type !== 'MemberExpression' || node.computed) return null
+          const object = pathOf(node.object)
+          return object ? { ...object, path: [...object.path, node.property.name] } : null
+        }
+        // A field's own truthiness is not record availability (`q.data.draft` stays quiet).
+        const recordOf = (node) => {
+          const record = pathOf(node)
+          return record &&
+            (record.path.length === 0 || (record.path.length === 1 && record.path[0] === 'data'))
+            ? record
+            : null
+        }
         const presence = (test) => {
-          if (test.type === 'Identifier') return { name: test.name, present: true }
-          if (
-            test.type === 'UnaryExpression' &&
-            test.operator === '!' &&
-            test.argument.type === 'Identifier'
-          )
-            return { name: test.argument.name, present: false }
+          test = unwrap(test)
+          const record = recordOf(test)
+          if (record) return { ...record, present: true, other: false }
+          if (test.type === 'UnaryExpression' && test.operator === '!') {
+            const inner = presence(test.argument)
+            return inner ? { ...inner, present: inner.other, other: inner.present } : null
+          }
+          if (test.type === 'LogicalExpression' && test.operator === '&&')
+            return presence(test.left) ?? presence(test.right)
           if (test.type === 'BinaryExpression' && /^[!=]==?$/.test(test.operator)) {
             const empty = (side) =>
               (side.type === 'Literal' && side.value === null) ||
               (side.type === 'Identifier' && side.name === 'undefined')
             const subject = empty(test.right) ? test.left : empty(test.left) ? test.right : null
-            if (subject?.type === 'Identifier')
-              return { name: subject.name, present: test.operator[0] === '!' }
+            const compared = recordOf(subject)
+            if (compared)
+              return {
+                ...compared,
+                present: test.operator[0] === '!',
+                other: test.operator[0] === '=',
+              }
+            const status = pathOf(test.left) ?? pathOf(test.right)
+            const value = test.left.type === 'Literal' ? test.left.value : test.right.value
+            if (
+              status?.path.length === 1 &&
+              status.path[0] === 'status' &&
+              ['idle', 'pending', 'loading', 'error', 'success'].includes(value)
+            )
+              return {
+                ...status,
+                path: ['data'],
+                // A non-error status can still be pending. Preserve an enclosing data test's
+                // absence on that arm instead of treating "not error" as "record loaded".
+                present:
+                  test.operator[0] === '='
+                    ? value === 'success'
+                    : value === 'success'
+                      ? false
+                      : null,
+                other:
+                  test.operator[0] === '!'
+                    ? value === 'success'
+                    : value === 'success'
+                      ? false
+                      : null,
+              }
           }
           return null
         }
         // Every reference to the record inside a node, as the AST has it: a word inside a string
         // ("This profile does not exist") is not a read.
-        const references = (node, name, found = []) => {
+        const sameRecord = (node, record) => {
+          const candidate = pathOf(node)
+          return (
+            candidate &&
+            variableOf(candidate.identifier) === record.variable &&
+            candidate.path.join('.') === record.path.join('.')
+          )
+        }
+        const references = (node, record, found = []) => {
           if (!node || typeof node.type !== 'string') return found
-          if (node.type === 'Identifier' && node.name === name) found.push(node)
+          if (sameRecord(node, record)) found.push(node)
           for (const key of context.sourceCode.visitorKeys[node.type] ?? []) {
             // `other.profile` names a property, not the record.
             if (key === 'property' && node.type === 'MemberExpression' && !node.computed) continue
             const child = node[key]
-            if (Array.isArray(child)) for (const item of child) references(item, name, found)
-            else references(child, name, found)
+            if (Array.isArray(child)) for (const item of child) references(item, record, found)
+            else references(child, record, found)
           }
           return found
         }
-        const reads = (node, name) => references(node, name).length > 0
+        const reads = (node, record) => references(node, record).length > 0
         // The member of the record a text element shows, e.g. `profile.bio`.
-        const fieldShown = (element, name) => {
+        const fieldShown = (element, record) => {
           for (const child of element.children) {
             if (child.type !== 'JSXExpressionContainer') continue
-            for (const reference of references(child.expression, name)) {
+            for (const reference of references(child.expression, record)) {
               const member = reference.parent
+              let control = false
+              for (
+                let current = reference;
+                current !== child.expression;
+                current = current.parent
+              ) {
+                if (
+                  current.parent?.type === 'ConditionalExpression' &&
+                  current.parent.test === current
+                ) {
+                  control = true
+                  break
+                }
+              }
               if (
+                !control &&
                 member.type === 'MemberExpression' &&
                 member.object === reference &&
-                !member.computed
+                !member.computed &&
+                !(member.parent.type === 'CallExpression' && member.parent.callee === member)
               )
-                return `${name}.${member.property.name}`
+                return `${record.name}.${member.property.name}`
             }
           }
           return null
@@ -5485,6 +5554,7 @@ export function scaffoldRules(parser) {
           'useId',
           'useTransition',
           'useDeferredValue',
+          'useAuth',
         ])
         const variableOf = (identifier) => {
           for (let scope = context.sourceCode.getScope(identifier); scope; scope = scope.upper) {
@@ -5511,11 +5581,16 @@ export function scaffoldRules(parser) {
           if (node.type === 'TSNonNullExpression' || node.type === 'TSAsExpression')
             return fromHook(node.expression, depth)
           if (node.type === 'ChainExpression') return fromHook(node.expression, depth)
-          if (node.type === 'LogicalExpression')
+          if (node.type === 'LogicalExpression') {
+            // A complete empty object/list is a settled default, not a record to wait on.
+            if (['ObjectExpression', 'ArrayExpression'].includes(unwrap(node.right)?.type))
+              return false
             return fromHook(node.left, depth) || fromHook(node.right, depth)
+          }
           if (node.type === 'ConditionalExpression')
             return fromHook(node.consequent, depth) || fromHook(node.alternate, depth)
-          if (node.type === 'MemberExpression') return fromHook(node.object, depth)
+          if (node.type === 'MemberExpression')
+            return !node.computed && fromHook(node.object, depth)
           if (node.type === 'Identifier') {
             const variable = variableOf(node)
             return !!variable && awaited(variable, depth + 1)
@@ -5546,76 +5621,96 @@ export function scaffoldRules(parser) {
             (hookCall(declarator.init) || fromHook(declarator.init, depth))
           )
         }
-        const bearsText = (element) =>
-          element.children.some(
-            (child) =>
-              (child.type === 'JSXText' && child.value.trim() !== '') ||
-              (child.type === 'JSXExpressionContainer' &&
-                child.expression.type !== 'JSXEmptyExpression'),
+        const placeholder = (node) => {
+          if (node.type === 'Literal') return typeof node.value === 'string' && !!node.value.trim()
+          if (node.type === 'JSXText') return !!node.value.trim()
+          if (node.type === 'JSXExpressionContainer')
+            return node.expression.type !== 'JSXEmptyExpression'
+          if (node.type !== 'JSXElement' && node.type !== 'JSXFragment') return false
+          if (
+            node.type === 'JSXElement' &&
+            (node.openingElement.name.type !== 'JSXIdentifier' ||
+              /^[A-Z]/.test(node.openingElement.name.name))
           )
+            return true
+          return node.children.some(placeholder)
+        }
         return {
           ConditionalExpression(node) {
             if (node.parent.type !== 'JSXExpressionContainer') return
-            const container = node.parent.parent
-            if (container.type !== 'JSXElement' && container.type !== 'JSXFragment') return
-            const subject = presence(node.test)
-            if (!subject) return
-            const tested =
-              node.test.type === 'Identifier'
-                ? node.test
-                : node.test.type === 'UnaryExpression'
-                  ? node.test.argument
-                  : node.test.left.type === 'Identifier' && node.test.left.name === subject.name
-                    ? node.test.left
-                    : node.test.right
-            const variable = variableOf(tested)
-            if (!variable || !awaited(variable)) return
-            const loaded = subject.present ? node.consequent : node.alternate
-            const waiting = subject.present ? node.alternate : node.consequent
-            const tag = tagOf(waiting)
-            if (!tag || !bearsText(waiting) || reads(waiting, subject.name)) return
-            let statusRegion = false
-            for (let current = waiting; current; current = current.parent) {
-              const opening = current.type === 'JSXElement' ? current.openingElement : null
+            let container = node.parent.parent
+            while (container?.type === 'JSXFragment') container = container.parent
+            if (container?.type !== 'JSXElement') return
+            const subjects = []
+            const collect = (branch) => {
+              if (branch.type !== 'ConditionalExpression') return
+              const subject = presence(branch.test)
+              const variable = subject && variableOf(subject.identifier)
               if (
-                opening?.attributes.some((attribute) => {
-                  if (attribute.type !== 'JSXAttribute') return false
-                  const name = attribute.name.name,
-                    value = attribute.value?.value
-                  return (
-                    (name === 'role' && ['status', 'alert'].includes(value)) ||
-                    (name === 'aria-live' && value !== 'off') ||
-                    name === 'aria-busy'
-                  )
+                variable &&
+                awaited(variable) &&
+                !subjects.some(
+                  (other) =>
+                    other.variable === variable && other.path.join('.') === subject.path.join('.'),
+                )
+              )
+                subjects.push({
+                  ...subject,
+                  variable,
+                  name: [subject.identifier.name, ...subject.path].join('.'),
                 })
-              ) {
-                statusRegion = true
-                break
-              }
+              collect(branch.consequent)
+              collect(branch.alternate)
             }
-            if (statusRegion) return
-            const candidates =
-              loaded.type === 'JSXFragment' || loaded.type === 'JSXElement'
-                ? tagOf(loaded) === tag
-                  ? [loaded]
-                  : loaded.children
-                : []
-            for (const candidate of candidates) {
-              if (tagOf(candidate) !== tag) continue
-              const field = fieldShown(candidate, subject.name)
-              if (!field) continue
-              context.report({
-                node: waiting,
-                messageId: 'sameElement',
-                data: {
-                  location: `${context.filename}:${waiting.loc.start.line}`,
-                  record: subject.name,
-                  tag,
-                  field,
-                  fieldLine: String(candidate.loc.start.line),
-                },
-              })
-              return
+            collect(node)
+            const reported = new Set()
+            for (const record of subjects) {
+              const loaded = [],
+                waiting = []
+              const branches = (branch, present = null) => {
+                if (branch.type === 'ConditionalExpression') {
+                  const subject = presence(branch.test)
+                  const matches =
+                    subject &&
+                    sameRecord(subject.identifier, { ...record, path: [] }) &&
+                    subject.path.join('.') === record.path.join('.')
+                  branches(branch.consequent, matches ? (subject.present ?? present) : present)
+                  branches(branch.alternate, matches ? (subject.other ?? present) : present)
+                } else if (present === false) waiting.push(branch)
+                else loaded.push(branch)
+              }
+              branches(node)
+              let shown = null
+              for (const branch of loaded) {
+                const candidates = tagOf(branch)
+                  ? [branch]
+                  : branch.type === 'JSXFragment'
+                    ? branch.children
+                    : []
+                for (const candidate of [...candidates].reverse()) {
+                  if (!tagOf(candidate)) continue
+                  const field = fieldShown(candidate, record)
+                  if (field) {
+                    shown = { field, fieldLine: String(candidate.loc.start.line) }
+                    break
+                  }
+                }
+                if (shown) break
+              }
+              if (!shown) continue
+              for (const branch of waiting) {
+                if (reported.has(branch) || !placeholder(branch) || reads(branch, record)) continue
+                reported.add(branch)
+                context.report({
+                  node: branch,
+                  messageId: 'sameElement',
+                  data: {
+                    location: `${context.filename}:${branch.loc.start.line}`,
+                    record: record.name,
+                    ...shown,
+                  },
+                })
+              }
             }
           },
         }

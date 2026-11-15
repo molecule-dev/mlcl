@@ -185,7 +185,7 @@ export default tseslint.config(
           }
         : {}),
       'molecule-local/buttons-have-an-action': 'warn',
-      'molecule-local/placeholders-stay-out-of-record-fields': 'warn',
+      'molecule-local/placeholders-stay-out-of-record-fields': 'error',
       'molecule-local/links-reach-the-view-they-select': 'warn',
       ...(queryCache ? { 'molecule-local/fetch-hooks-use-the-query-cache': 'warn' } : {}),
       'molecule-local/no-block-in-paragraph': 'warn',

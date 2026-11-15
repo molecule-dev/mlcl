@@ -107,8 +107,8 @@ export function CustomerDetail() {
         ← {t('customerDetail.back', {}, { defaultValue: 'All customers' })}
       </Link>
 
-      <header className={cm.cn(cm.card(), cm.sp('p', 6))}>
-        {profile ? (
+      {profile ? (
+        <header className={cm.cn(cm.card(), cm.sp('p', 6))}>
           <>
             <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>{profile.company}</h1>
             <div className={cm.cn(cm.flex({ gap: 'sm' }), cm.sp('mt', 2), 'flex-wrap')}>
@@ -129,7 +129,9 @@ export function CustomerDetail() {
               ))}
             </div>
           </>
-        ) : (
+        </header>
+      ) : (
+        <div className={cm.cn(cm.card(), cm.sp('p', 6))}>
           <>
             <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
               {t(
@@ -160,8 +162,8 @@ export function CustomerDetail() {
               )}
             </p>
           </>
-        )}
-      </header>
+        </div>
+      )}
 
       <div className={cm.cn(cm.grid({ cols: 12, gap: 'md' }))}>
         <section className={cm.cn('col-span-12 lg:col-span-8 space-y-6')}>

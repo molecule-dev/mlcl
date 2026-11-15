@@ -99,16 +99,15 @@ function Pay() {
       )}
     >
       <AmbientOrbs />
-      <main
-        className={cm.cn(
-          cm.w('full'),
-          cm.sp('p', 8),
-          'relative z-10 max-w-[440px] rounded-3xl bg-surface border border-border shadow-2xl shadow-primary/10',
-        )}
-        data-mol-id="pay-card"
-      >
-        <BrandWordmark as="span" size="sm" />
-        {missing ? (
+      {missing ? (
+        <div
+          className={cm.cn(
+            cm.w('full'),
+            cm.sp('p', 8),
+            'relative z-10 max-w-[440px] rounded-3xl bg-surface border border-border shadow-2xl shadow-primary/10',
+          )}
+        >
+          <BrandWordmark as="span" size="sm" />
           <>
             <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mt', 2))}>
               {t('pay.missingTitle', {}, { defaultValue: 'This pay link is no longer valid.' })}
@@ -121,11 +120,40 @@ function Pay() {
               )}
             </p>
           </>
-        ) : !share ? (
+          <p className={cm.cn(cm.textSize('xs'), cm.textMuted, cm.sp('mt', 6))}>
+            <Link to="/" className="hover:text-foreground">
+              {t('pay.about', { app: APP_NAME }, { defaultValue: 'Sent by a {{app}} traveler.' })}
+            </Link>
+          </p>
+        </div>
+      ) : !share ? (
+        <div
+          className={cm.cn(
+            cm.w('full'),
+            cm.sp('p', 8),
+            'relative z-10 max-w-[440px] rounded-3xl bg-surface border border-border shadow-2xl shadow-primary/10',
+          )}
+        >
+          <BrandWordmark as="span" size="sm" />
           <p className={cm.cn(cm.textMuted, cm.textSize('sm'), cm.sp('mt', 4))}>
             {t('pay.loading', {}, { defaultValue: 'Loading…' })}
           </p>
-        ) : (
+          <p className={cm.cn(cm.textSize('xs'), cm.textMuted, cm.sp('mt', 6))}>
+            <Link to="/" className="hover:text-foreground">
+              {t('pay.about', { app: APP_NAME }, { defaultValue: 'Sent by a {{app}} traveler.' })}
+            </Link>
+          </p>
+        </div>
+      ) : (
+        <main
+          className={cm.cn(
+            cm.w('full'),
+            cm.sp('p', 8),
+            'relative z-10 max-w-[440px] rounded-3xl bg-surface border border-border shadow-2xl shadow-primary/10',
+          )}
+          data-mol-id="pay-card"
+        >
+          <BrandWordmark as="span" size="sm" />
           <>
             <h1 className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'), cm.sp('mt', 2))}>
               {t('pay.title', { name: share.name }, { defaultValue: '{{name}}, your share' })}
@@ -211,13 +239,13 @@ function Pay() {
               </form>
             )}
           </>
-        )}
-        <p className={cm.cn(cm.textSize('xs'), cm.textMuted, cm.sp('mt', 6))}>
-          <Link to="/" className="hover:text-foreground">
-            {t('pay.about', { app: APP_NAME }, { defaultValue: 'Sent by a {{app}} traveler.' })}
-          </Link>
-        </p>
-      </main>
+          <p className={cm.cn(cm.textSize('xs'), cm.textMuted, cm.sp('mt', 6))}>
+            <Link to="/" className="hover:text-foreground">
+              {t('pay.about', { app: APP_NAME }, { defaultValue: 'Sent by a {{app}} traveler.' })}
+            </Link>
+          </p>
+        </main>
+      )}
     </div>
   )
 }

@@ -554,28 +554,60 @@ export function Booking() {
         </section>
 
         {/* Order summary */}
-        <aside
-          className={cm.cn(
-            cm.sp('p', 6),
-            'bg-surface rounded-2xl shadow-sm ring-1 ring-outline-variant/40 lg:sticky lg:top-24 self-start',
-          )}
-        >
-          <p
+        {flightError ? (
+          <div
             className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'uppercase tracking-[0.25em] text-on-surface-variant',
+              cm.sp('p', 6),
+              'bg-surface rounded-2xl shadow-sm ring-1 ring-outline-variant/40 lg:sticky lg:top-24 self-start',
             )}
           >
-            {t('booking.summary.heading', {}, { defaultValue: 'Trip summary' })}
-          </p>
-          {flightError ? (
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-[0.25em] text-on-surface-variant',
+              )}
+            >
+              {t('booking.summary.heading', {}, { defaultValue: 'Trip summary' })}
+            </p>
             <p className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-error')}>{flightError}</p>
-          ) : !flight ? (
+          </div>
+        ) : !flight ? (
+          <div
+            className={cm.cn(
+              cm.sp('p', 6),
+              'bg-surface rounded-2xl shadow-sm ring-1 ring-outline-variant/40 lg:sticky lg:top-24 self-start',
+            )}
+          >
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-[0.25em] text-on-surface-variant',
+              )}
+            >
+              {t('booking.summary.heading', {}, { defaultValue: 'Trip summary' })}
+            </p>
             <p className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'), 'text-on-surface-variant')}>
               {t('booking.summary.loading', {}, { defaultValue: 'Loading flight…' })}
             </p>
-          ) : (
+          </div>
+        ) : (
+          <aside
+            className={cm.cn(
+              cm.sp('p', 6),
+              'bg-surface rounded-2xl shadow-sm ring-1 ring-outline-variant/40 lg:sticky lg:top-24 self-start',
+            )}
+          >
+            <p
+              className={cm.cn(
+                cm.textSize('xs'),
+                cm.fontWeight('bold'),
+                'uppercase tracking-[0.25em] text-on-surface-variant',
+              )}
+            >
+              {t('booking.summary.heading', {}, { defaultValue: 'Trip summary' })}
+            </p>
             <>
               <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), cm.sp('mt', 3))}>
                 <span
@@ -672,8 +704,8 @@ export function Booking() {
                 </span>
               </div>
             </>
-          )}
-        </aside>
+          </aside>
+        )}
       </div>
     </div>
   )
