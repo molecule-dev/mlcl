@@ -66,9 +66,12 @@ export function ReviewDetail() {
   } = useGet<ReviewRow>(id ? `/api/reviews/${id}` : '/api/reviews/missing', {
     immediate: Boolean(id),
   })
-  const { data: objectives } = useGet<ObjectiveRow[]>('/api/objectives?archived=false', {
-    immediate: true,
-  })
+  const { data: objectives, loading: objectivesLoading } = useGet<ObjectiveRow[]>(
+    '/api/objectives?archived=false',
+    {
+      immediate: true,
+    },
+  )
 
   const [draftSummary, setDraftSummary, fillDraftSummary] = useForm({
     defaultValues: { value: '' },
@@ -292,7 +295,14 @@ export function ReviewDetail() {
               'bg-surface-container-lowest rounded-2xl shadow-sm border border-outline-variant/40 overflow-hidden',
             )}
           >
-            {objectiveRows.length === 0 ? (
+            {objectivesLoading ? (
+              <p
+                role="status"
+                className={cm.cn(cm.sp('p', 6), cm.textSize('sm'), 'text-on-surface-variant')}
+              >
+                {t('objectives.loading', {}, { defaultValue: 'Loading objectives…' })}
+              </p>
+            ) : objectiveRows.length === 0 ? (
               <p className={cm.cn(cm.sp('p', 6), cm.textSize('sm'), 'text-on-surface-variant')}>
                 {t(
                   'reviewDetail.noObjectives',
