@@ -74,3 +74,21 @@ describe('jsx-a11y reads the layout boxes as divs', () => {
     expect(await a11y('<Card interactive onClick={go}>Open</Card>')).toEqual([])
   })
 })
+
+describe('jsx-a11y allows only the list roles a bullet-less list needs', () => {
+  it.each([
+    ['ul', '<ul role="list"><li>One</li></ul>'],
+    ['ol', '<ol role="list"><li>One</li></ol>'],
+  ])(
+    '%s role="list" passes (Safari drops the role of a list styled without bullets)',
+    async (_tag, body) => {
+      expect(await a11y(body)).toEqual([])
+    },
+  )
+
+  it('any other redundant role still fails', async () => {
+    expect(await a11y('<button role="button" onClick={go}>Open</button>')).toEqual([
+      'jsx-a11y/no-redundant-roles',
+    ])
+  })
+})

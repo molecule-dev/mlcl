@@ -367,6 +367,10 @@ export default tseslint.config(
           allowExpressionValues: true,
         },
       ],
+      // A list styled without bullets loses its list role in Safari/VoiceOver, and the fix is
+      // `role="list"` on the <ul>/<ol>. The rule's default allows only <nav role="navigation">;
+      // the list roles are added and nothing else, so any other redundant role still fails.
+      'jsx-a11y/no-redundant-roles': ['error', { nav: ['navigation'], ul: ['list'], ol: ['list'] }],
     },
   },
   {
