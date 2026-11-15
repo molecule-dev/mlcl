@@ -403,7 +403,7 @@ export function AddRelative() {
             </Link>
             <button
               type="submit"
-              disabled={saving || !form.first_name.trim()}
+              disabled={saving || !anchor || !form.first_name.trim()}
               data-mol-id="add-relative-submit"
               className={cm.cn(
                 cm.textSize('sm'),

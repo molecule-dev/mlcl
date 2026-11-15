@@ -252,7 +252,7 @@ function AccountSection() {
         ) : null}
         <button
           type="submit"
-          disabled={saving}
+          disabled={saving || !profile}
           data-mol-id="settings-account-save"
           className={cm.cn(
             cm.sp('px', 4),

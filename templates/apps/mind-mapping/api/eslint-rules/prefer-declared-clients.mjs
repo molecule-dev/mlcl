@@ -1582,7 +1582,7 @@ function componentResolver(parser, context) {
     }
     return []
   }
-  return { scopes, unwrap, imported, roots }
+  return { scopes, unwrap, imported, roots, declaration }
 }
 
 /** Shared scaffold diagnostics. ESLint supplies the parser used for imported source files. */
@@ -4000,6 +4000,8 @@ export function scaffoldRules(parser) {
             'This control shows its next value before awaiting work, but its busy guard discards another click while that work is pending. Keep the control disabled for that busy state, or queue the latest intent with useOptimisticValue from @molecule/app-react. An imported callback does not make the busy guard safe.',
           unreadyRecord:
             'This enabled control silently discards a click while {{record}} is not available yet. Disable it until that record exists (disabled={!{{record}}}), or render it only with loaded data, for example inside QueryContent. Keep controls available during same-record refetches once their initial data exists.',
+          unreadyForm:
+            'This form silently discards its submit while {{record}} is not available yet: the form is on screen and its handler returns without doing anything. Disable its submit button until that record exists (disabled={!{{record}}} on the submit button), or render the form only with loaded data ({{record}} ? <form …> : null, or inside QueryContent from @molecule/app-query-react). Keep it mounted during same-record refetches once its initial data exists.',
         },
       },
       create(context) {
@@ -4907,6 +4909,15 @@ export function scaffoldRules(parser) {
                 })),
               )
             if (node.name.name !== 'onSubmit') return
+            // A form submits from its button and from Enter in a field, so the form is the control.
+            if (node.parent.name?.type === 'JSXIdentifier' && node.parent.name.name === 'form')
+              controls.push(
+                ...clickHandlers(node.value?.expression).map((entry) => ({
+                  opening: node.parent,
+                  form: true,
+                  ...entry,
+                })),
+              )
             const fn = functionFor(node.value?.expression)
             const collect = (handler) => {
               if (!handler || submitHandlers.has(handler)) return
@@ -5001,16 +5012,85 @@ export function scaffoldRules(parser) {
                   missing: state.initial?.value === null ? null : undefined,
                 }))
               // A declared query's data is unavailable before its initial load too. Follow its
-              // binding, not variable names, API routes, test files or application nouns.
+              // binding, not variable names, API routes, test files or application nouns: the
+              // call is `useQuery` from a query package, or a hook (declared in this file or
+              // imported from a relative module) whose returned value is such a call. X1 l3062:
+              // `useArticle()` in `lib/conduit.ts` returned `useQuery(...)`, the page read its
+              // `.data`, and the comment form dropped every submit made before the article loaded.
+              const QUERY_SOURCES = ['@molecule/app-query-react', '@tanstack/react-query']
+              const resolver = componentResolver(parser, context)
+              const importIn = (tree, local) => {
+                for (const statement of tree.body) {
+                  if (statement.type !== 'ImportDeclaration' || statement.importKind === 'type')
+                    continue
+                  const specifier = statement.specifiers.find((item) => item.local.name === local)
+                  if (specifier)
+                    return specifier.importKind === 'type'
+                      ? null
+                      : {
+                          source: statement.source.value,
+                          name: specifier.imported?.name ?? 'default',
+                        }
+                }
+                return null
+              }
+              // The expressions a hook returns, with a returned local const read through.
+              const returned = (fn) =>
+                resolver.roots(fn).map((root) => {
+                  if (root?.type !== 'Identifier' || fn.body.type !== 'BlockStatement') return root
+                  let init = root
+                  flow.walk(fn.body, (part) => {
+                    if (
+                      part.type === 'VariableDeclarator' &&
+                      part.id.type === 'Identifier' &&
+                      part.id.name === root.name &&
+                      part.init
+                    )
+                      init = part.init
+                  })
+                  return init
+                })
+              const returnsQuery = (call, tree, filename, depth = 0) => {
+                call = unwrap(call)
+                if (
+                  call?.type !== 'CallExpression' ||
+                  call.callee.type !== 'Identifier' ||
+                  depth > 4
+                )
+                  return false
+                const name = call.callee.name
+                const source = importIn(tree, name)
+                if (source) {
+                  if (source.name === 'useQuery') return QUERY_SOURCES.includes(source.source)
+                  if (!source.source.startsWith('.')) return false
+                  const resolved = resolver.imported(tree, name, filename)
+                  return Boolean(
+                    resolved &&
+                    isFunction(resolved.node) &&
+                    returned(resolved.node).some((root) =>
+                      returnsQuery(root, resolved.tree, resolved.filename, depth + 1),
+                    ),
+                  )
+                }
+                const local = resolver.declaration(tree, name)
+                return (
+                  isFunction(local) &&
+                  returned(local).some((root) => returnsQuery(root, tree, filename, depth + 1))
+                )
+              }
               flow.walk(context.sourceCode.ast, (node) => {
                 if (node.type !== 'VariableDeclarator' || node.init?.type !== 'CallExpression')
                   return
                 const binding = variableFor(node.init.callee)?.defs[0]
+                const direct =
+                  binding?.type === 'ImportBinding' &&
+                  binding.node.imported?.name === 'useQuery' &&
+                  QUERY_SOURCES.includes(binding.parent.source.value)
                 if (
-                  binding?.type !== 'ImportBinding' ||
-                  binding.node.imported?.name !== 'useQuery' ||
-                  !['@molecule/app-query-react', '@tanstack/react-query'].includes(
-                    binding.parent.source.value,
+                  !direct &&
+                  !(
+                    /^use[A-Z0-9]/.test(node.init.callee.name ?? '') &&
+                    returnsQuery(node.init, context.sourceCode.ast, context.filename)
                   )
                 )
                   return
@@ -5060,6 +5140,15 @@ export function scaffoldRules(parser) {
                       !variableFor(node.right)?.defs.length))
                 )
                   return projection(node.left, record)
+                const nullish = (part) =>
+                  part?.value === null ||
+                  (part?.type === 'Identifier' &&
+                    part.name === 'undefined' &&
+                    !variableFor(part)?.defs.length)
+                if (node?.type === 'ConditionalExpression' && nullish(unwrap(node.alternate)))
+                  return projection(node.test, record)
+                if (node?.type === 'LogicalExpression' && node.operator === '&&')
+                  return projection(node.left, record)
                 return false
               }
               flow.walk(context.sourceCode.ast, (node) => {
@@ -5076,9 +5165,11 @@ export function scaffoldRules(parser) {
                     name: node.id.name,
                     owner: flow.owner(node),
                     missing:
-                      node.init?.type === 'LogicalExpression' &&
-                      node.init.operator === '??' &&
-                      node.init.right.value === null
+                      (node.init?.type === 'LogicalExpression' &&
+                        node.init.operator === '??' &&
+                        node.init.right.value === null) ||
+                      (node.init?.type === 'ConditionalExpression' &&
+                        unwrap(node.init.alternate)?.value === null)
                         ? null
                         : undefined,
                   })
@@ -5385,8 +5476,48 @@ export function scaffoldRules(parser) {
                 })
                 return found
               }
+              // Whether this element is disabled whenever the record is missing.
+              const disabledWithout = (element, record) => {
+                const disabled = flow.attr(element, 'disabled')
+                return Boolean(
+                  disabled &&
+                  (!disabled.value ||
+                    truth(
+                      evaluate(
+                        disabled.value.type === 'JSXExpressionContainer'
+                          ? disabled.value.expression
+                          : disabled.value,
+                        record,
+                      ),
+                    ) === true),
+                )
+              }
+              // A form's submit buttons. HTML submits a form from Enter in a field only through
+              // its default button, so a form whose every submit button is disabled cannot submit.
+              const submitters = (form) => {
+                const found = []
+                flow.walk(form.parent, (node) => {
+                  if (
+                    node.type !== 'JSXOpeningElement' ||
+                    node === form ||
+                    node.name.type !== 'JSXIdentifier'
+                  )
+                    return
+                  const type = flow.attr(node, 'type')
+                  const value = !type
+                    ? undefined
+                    : type.value?.type === 'Literal'
+                      ? type.value.value
+                      : null
+                  if (node.name.name === 'button' && value !== 'button' && value !== 'reset')
+                    found.push(node)
+                  if (node.name.name === 'input' && (value === 'submit' || value === null))
+                    found.push(node)
+                })
+                return found
+              }
               const reportedControls = new Set()
-              for (const { opening, handler, conditions } of controls) {
+              for (const { opening, handler, conditions, form } of controls) {
                 if (reportedControls.has(opening)) continue
                 const relevant = handlers(handler)
                 for (const record of records) {
@@ -5413,20 +5544,14 @@ export function scaffoldRules(parser) {
                         ),
                     )
                   if (!ignoresMissing) continue
-                  const disabled = flow.attr(opening, 'disabled')
-                  if (
-                    disabled &&
-                    (!disabled.value ||
-                      truth(
-                        evaluate(
-                          disabled.value.type === 'JSXExpressionContainer'
-                            ? disabled.value.expression
-                            : disabled.value,
-                          record,
-                        ),
-                      ) === true)
-                  )
-                    continue
+                  if (form) {
+                    const buttons = submitters(opening)
+                    if (
+                      buttons.length > 0 &&
+                      buttons.every((button) => disabledWithout(button, record))
+                    )
+                      continue
+                  } else if (disabledWithout(opening, record)) continue
                   if (
                     flow.conditions(opening, record.owner).some(([test, expected]) => {
                       const actual = truth(evaluate(test, record))
@@ -5436,7 +5561,7 @@ export function scaffoldRules(parser) {
                     continue
                   context.report({
                     node: opening,
-                    messageId: 'unreadyRecord',
+                    messageId: form ? 'unreadyForm' : 'unreadyRecord',
                     data: { record: record.name },
                   })
                   reportedControls.add(opening)
