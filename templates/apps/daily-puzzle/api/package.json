@@ -105,7 +105,7 @@
     "@types/jsonwebtoken": "9.0.10",
     "@types/node": "26.6.5",
     "@types/pg": "8.23.1",
-    "eslint": "10.13.0",
+    "eslint": "10.15.0",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-jsx-a11y": "6.10.2",
     "eslint-plugin-simple-import-sort": "14.0.0",
