@@ -665,9 +665,22 @@ export default class SyncRegistry extends Command {
         // keeps all of them in sync.
         try {
           const pkgJson = JSON.parse(readFileSync(join(fullPath, 'package.json'), 'utf-8')) as {
+            description?: string
             dependencies?: Record<string, string>
             peerDependencies?: Record<string, string>
             peerDependenciesMeta?: Record<string, { optional?: boolean }>
+          }
+          // The description, from the package's own manifest: npm shows that copy and mlcl
+          // search ranks by this one, and as two hand-written texts 298 had drifted apart. A
+          // manifest without one keeps the registry's (molecule's check-package-metadata refuses
+          // a package that has none).
+          if (
+            typeof pkgJson.description === 'string' &&
+            pkgJson.description.trim() !== '' &&
+            entry.description !== pkgJson.description
+          ) {
+            entry.description = pkgJson.description
+            changed = true
           }
           // Peers count: a middleware bond declares its host lib (express) as a peer,
           // and that IS the third-party lib it wraps.

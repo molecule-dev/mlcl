@@ -26,6 +26,10 @@
  * a broken import or a wrong registration in generated code, so a core whose
  * setter is renamed (or whose source grows one) has to fail THIS gate.
  *
+ * And for `description` — npm shows the package.json copy and mlcl search, the MCP server and
+ * Synthase rank by the registry copy. Two hand-written texts had drifted apart in 298 packages, so
+ * the registry copy is the manifest's, scanned like the required peers.
+ *
  * And for `responseRecord` — the record a resource's API returns, read from the interface its
  * package exports (`Article`, not the stored `ArticleRow`). `mlcl create` types the app
  * module it writes for a resource from this copy, because a scaffold in production has only
@@ -117,6 +121,7 @@ const drifted = []
 const routeDrifted = []
 const setterDrifted = []
 const peersDrifted = []
+const descriptionsDrifted = []
 const recordDrifted = []
 const declarationsDrifted = []
 const bondSetterNames = bondSetterScope(registry.packages)
@@ -194,6 +199,13 @@ for (const [name, entry] of Object.entries(registry.packages)) {
       const havePeers = Array.isArray(entry.moleculePeers) ? [...entry.moleculePeers].sort() : null
       if (JSON.stringify(havePeers) !== JSON.stringify(wantPeers))
         peersDrifted.push({ name, have: havePeers, want: wantPeers })
+      // The description, by sync-registry's own rule: the manifest's text when it has one.
+      if (
+        typeof manifest.description === 'string' &&
+        manifest.description.trim() !== '' &&
+        entry.description !== manifest.description
+      )
+        descriptionsDrifted.push({ name, have: entry.description, want: manifest.description })
     }
   }
 
@@ -333,6 +345,21 @@ if (peersDrifted.length > 0) {
   console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
 }
 
+if (descriptionsDrifted.length > 0) {
+  console.error(
+    `\n✗ registry.json descriptions are out of sync (${descriptionsDrifted.length} package(s)):\n`,
+  )
+  for (const { name, have, want } of descriptionsDrifted) {
+    console.error(
+      `  ${name}: registry has ${JSON.stringify(have)}, package.json has ${JSON.stringify(want)}`,
+    )
+  }
+  console.error(
+    '\nnpm shows the package.json text and mlcl search ranks by the registry one; they are one text.' +
+      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports',
+  )
+}
+
 if (recordDrifted.length > 0) {
   console.error(
     `\n✗ registry.json response records are out of sync (${recordDrifted.length} package(s)):\n`,
@@ -355,7 +382,8 @@ if (
   routeDrifted.length > 0 ||
   setterDrifted.length > 0 ||
   declarationsDrifted.length > 0 ||
-  peersDrifted.length > 0
+  peersDrifted.length > 0 ||
+  descriptionsDrifted.length > 0
 ) {
   console.error(`Then commit ${registryPath}\n`)
   process.exit(1)
@@ -363,5 +391,5 @@ if (
 
 const scope = scopePaths.size > 0 ? `${checked} scoped` : `${checked}`
 console.log(
-  `✓ registry exports + routes + bond setters + bond-file declarations + required peers + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
+  `✓ registry exports + routes + bond setters + bond-file declarations + required peers + descriptions + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
 )
