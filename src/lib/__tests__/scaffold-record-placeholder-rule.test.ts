@@ -125,6 +125,10 @@ describe('a waiting message rendered where a field of the record goes', () => {
 
   it.each([
     [
+      'a host container displaying a field directly',
+      '{orderQuery.data ? <div>{orderQuery.data.total}</div> : <Spinner label="Loading order…" />}',
+    ],
+    [
       'a component placeholder',
       '{orderQuery.data ? <p>{orderQuery.data.total}</p> : <Spinner label="Loading order…" />}',
     ],
@@ -196,6 +200,14 @@ describe('a waiting message rendered where a field of the record goes', () => {
   })
 
   it.each([
+    [
+      'list rows rendered from a query collection',
+      'export function Tags(){const q=useQuery();return <aside>{q.data && q.data.tags.length > 0 ? <div>{q.data.tags.map(tag => <a href="/tags">{tag}</a>)}</div> : <p>No tags yet</p>}</aside>}',
+    ],
+    [
+      'list rows rendered from an aliased record collection',
+      'export function Order(){const {data:order}=useOrder();return <section>{order ? <ul>{order.lines.map(line => <li>{line.name}</li>)}</ul> : <p>Loading</p>}</section>}',
+    ],
     [
       'a field used only to choose an empty-list message',
       'export function Calls(){const calls=useCalls();return <ul>{calls == null ? <li>Loading</li> : <li>{calls.length === 0 ? "No calls" : "Filtered out"}</li>}</ul>}',

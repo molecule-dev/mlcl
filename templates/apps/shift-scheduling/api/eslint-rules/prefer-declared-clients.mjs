@@ -5392,33 +5392,10 @@ export function scaffoldRules(parser) {
         },
       },
       create(context) {
-        const TEXT_TAGS = new Set([
-          'p',
-          'span',
-          'h1',
-          'h2',
-          'h3',
-          'h4',
-          'h5',
-          'h6',
-          'li',
-          'td',
-          'th',
-          'dd',
-          'dt',
-          'strong',
-          'em',
-          'b',
-          'small',
-          'label',
-          'blockquote',
-          'figcaption',
-          'caption',
-        ])
         const tagOf = (node) =>
           node?.type === 'JSXElement' &&
           node.openingElement.name.type === 'JSXIdentifier' &&
-          TEXT_TAGS.has(node.openingElement.name.name)
+          /^[a-z]/.test(node.openingElement.name.name)
             ? node.openingElement.name.name
             : null
         const unwrap = (node) =>
@@ -5513,10 +5490,19 @@ export function scaffoldRules(parser) {
           return found
         }
         const reads = (node, record) => references(node, record).length > 0
+        const rendersMarkup = (node) => {
+          if (!node || typeof node.type !== 'string') return false
+          if (node.type === 'JSXElement' || node.type === 'JSXFragment') return true
+          return (context.sourceCode.visitorKeys[node.type] ?? []).some((key) => {
+            const child = node[key]
+            return Array.isArray(child) ? child.some(rendersMarkup) : rendersMarkup(child)
+          })
+        }
         // The member of the record a text element shows, e.g. `profile.bio`.
         const fieldShown = (element, record) => {
           for (const child of element.children) {
-            if (child.type !== 'JSXExpressionContainer') continue
+            // A collection mapped to JSX renders rows, not this record's text field.
+            if (child.type !== 'JSXExpressionContainer' || rendersMarkup(child.expression)) continue
             for (const reference of references(child.expression, record)) {
               const member = reference.parent
               let control = false
