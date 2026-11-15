@@ -54,6 +54,11 @@ jobs:
       # silently feeds builds wrong info. Regenerate with `npm run gen:template-catalog`.
       - run: npm run gen:template-catalog:check
         working-directory: mlcl
+      # Fail on intent hints the package matchers cannot use as written: more than
+      # 8 on one package, a non-lowercase phrase, a hint shared by unrelated
+      # packages, or a matcher-eligible package with none. Reads registry.json only.
+      - run: node bin/run.js sync-registry --check-intent-hints
+        working-directory: mlcl
       # Fail if a template's e2e specs name that template's own demo data. The
       # specs ship to the user verbatim and the user replaces the demo content,
       # so a spec that asserts on a seeded row's name fails on a CORRECT app.
