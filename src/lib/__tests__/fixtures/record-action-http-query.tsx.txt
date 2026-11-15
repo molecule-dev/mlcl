@@ -1,0 +1,26 @@
+import { useCallback, useEffect, useState } from 'react'
+
+import { http, errorMessages } from './http.js'
+
+export function useQuery(path) {
+  const [state, setState] = useState({ data: null, errors: null, loading: !!path })
+  const [revision, setRevision] = useState(0)
+  useEffect(() => {
+    if (!path) {
+      setState({ data: null, errors: null, loading: false })
+      return
+    }
+    const controller = new AbortController()
+    let active = true
+    setState(previous => ({ ...previous, loading: true, errors: null }))
+    http().get(path, { signal: controller.signal }).then(response => {
+      if (active) setState({ data: response.data, errors: null, loading: false })
+    }).catch(error => {
+      if (active && !controller.signal.aborted) setState({ data: null, errors: errorMessages(error), loading: false })
+    })
+    return () => { active = false; controller.abort() }
+  }, [path, revision])
+  const reload = useCallback(() => setRevision(value => value + 1), [])
+  const setData = useCallback(data => setState({ data, errors: null, loading: false }), [])
+  return { ...state, reload, setData }
+}

@@ -4559,8 +4559,23 @@ export function scaffoldRules(parser) {
                       state.initial.value === null ||
                       (state.initial.type === 'Identifier' &&
                         state.initial.name === 'undefined')) &&
+                    // A passive effect can populate state after the first committed render,
+                    // including by copying another hook. A reset-only effect proves no load;
+                    // synchronous layout effects settle before paint. No hook-name guesswork.
                     flow.effects.some((effect) =>
-                      effect.writes.some((write) => write.state === state && write.async),
+                      effect.writes.some(
+                        (write) =>
+                          write.state === state &&
+                          (write.async ||
+                            (flow.react(effect.node.callee, 'useEffect') &&
+                              write.argument &&
+                              write.argument.value !== null &&
+                              !(
+                                write.argument.type === 'Identifier' &&
+                                write.argument.name === 'undefined' &&
+                                !variableFor(write.argument)?.defs.length
+                              ))),
+                      ),
                     ),
                 )
                 .map((state) => ({
@@ -4864,6 +4879,87 @@ export function scaffoldRules(parser) {
                 (node?.type === 'BlockStatement' &&
                   node.body.length === 1 &&
                   silentReturn(node.body[0]))
+              // The positive spelling has the same missing-record path as `if (!record)
+              // return`. Restrict it to a sole guarded action: other calls can provide
+              // feedback or do useful work without this record, and are not ours to guess.
+              const skippedAction = (node, record) => {
+                node = unwrap(node)
+                if (node?.type === 'BlockStatement') {
+                  const statements = node.body.filter((part) => part.type !== 'EmptyStatement')
+                  return statements.length === 1 && skippedAction(statements[0], record)
+                }
+                if (node?.type === 'ExpressionStatement')
+                  return skippedAction(node.expression, record)
+                let test, expected, action
+                if (
+                  node?.type === 'IfStatement' &&
+                  (!node.alternate || silentReturn(node.alternate))
+                ) {
+                  test = node.test
+                  expected = true
+                  action = node.consequent
+                } else if (
+                  node?.type === 'LogicalExpression' &&
+                  ['&&', '||'].includes(node.operator)
+                ) {
+                  test = node.left
+                  expected = node.operator === '&&'
+                  action = node.right
+                } else return false
+                if (!present(test, expected, record) || truth(evaluate(test, record)) !== !expected)
+                  return false
+                let feedback = false
+                walk(test, (part) => {
+                  if (
+                    [
+                      'CallExpression',
+                      'NewExpression',
+                      'AwaitExpression',
+                      'AssignmentExpression',
+                      'UpdateExpression',
+                    ].includes(part.type) &&
+                    !(
+                      part.type === 'CallExpression' &&
+                      part.callee.name === 'Boolean' &&
+                      !variableFor(part.callee)?.defs.length
+                    )
+                  )
+                    feedback = true
+                })
+                if (feedback) return false
+                let work = false
+                walk(action, (part) => {
+                  if (
+                    [
+                      'CallExpression',
+                      'NewExpression',
+                      'AssignmentExpression',
+                      'UpdateExpression',
+                    ].includes(part.type)
+                  )
+                    work = true
+                })
+                return work
+              }
+              const soleCall = (node) => {
+                node = unwrap(node)
+                if (node?.type === 'BlockStatement') {
+                  const statements = node.body.filter((part) => part.type !== 'EmptyStatement')
+                  return statements.length === 1 ? soleCall(statements[0]) : null
+                }
+                if (node?.type === 'ExpressionStatement') return soleCall(node.expression)
+                if (node?.type === 'UnaryExpression' && node.operator === 'void')
+                  return soleCall(node.argument)
+                return node?.type === 'CallExpression' ? node : null
+              }
+              const skipsAction = (fn, record, seen = new Set()) => {
+                if (!fn || seen.has(fn)) return false
+                seen.add(fn)
+                return (
+                  skippedAction(fn.body, record) ||
+                  skipsAction(functionFor(soleCall(fn.body)?.callee), record, seen)
+                )
+              }
               const handlers = (fn, seen = new Set()) => {
                 if (!fn || seen.has(fn)) return []
                 seen.add(fn)
@@ -4877,18 +4973,21 @@ export function scaffoldRules(parser) {
               for (const { opening, handler } of controls) {
                 const relevant = handlers(handler)
                 for (const record of records) {
-                  const ignoresMissing = relevant.some(
-                    (fn) =>
-                      fn.body.type === 'BlockStatement' &&
-                      fn.body.body.some(
-                        (statement) =>
-                          statement.type === 'IfStatement' &&
-                          statement.range[0] < prefixEnd(fn) &&
-                          !statement.alternate &&
-                          silentReturn(statement.consequent) &&
-                          present(statement.test, false, record),
-                      ),
-                  )
+                  const ignoresMissing =
+                    skipsAction(handler, record) ||
+                    relevant.some(
+                      (fn) =>
+                        fn.body.type === 'BlockStatement' &&
+                        fn.body.body.some(
+                          (statement) =>
+                            statement.type === 'IfStatement' &&
+                            statement.range[0] < prefixEnd(fn) &&
+                            !statement.alternate &&
+                            silentReturn(statement.consequent) &&
+                            truth(evaluate(statement.test, record)) === true &&
+                            present(statement.test, false, record),
+                        ),
+                    )
                   if (!ignoresMissing) continue
                   const disabled = flow.attr(opening, 'disabled')
                   if (

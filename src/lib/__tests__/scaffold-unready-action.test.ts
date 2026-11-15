@@ -62,6 +62,56 @@ export function Bookmark() {
 }`
 
 describe('scaffold ESLint rejects enabled unloaded-record actions', () => {
+  it.each(['positive', 'early-return'])(
+    'rejects a query-mirrored record action reconstructed with the %s guard spelling',
+    async (spelling) => {
+      const fixture = await readFile(
+        new URL('./fixtures/record-action-query-mirror.tsx.txt', import.meta.url),
+        'utf8',
+      )
+      const source =
+        spelling === 'positive'
+          ? fixture
+          : fixture.replace('if (profile) try {', 'if (!profile) return; try {')
+      const rows = await findings(source)
+      expect(rows).toHaveLength(1)
+      expect(rows[0]).toMatchObject({ severity: 2, line: 34 })
+      expect(rows[0].message).toContain('disabled={!profile}')
+      expect(
+        await findings(source.replace('type="button"', 'type="button" disabled={!profile}')),
+      ).toEqual([])
+      expect(
+        await findings(
+          source.replace('  return (', '  if (!profile) return <p>Loading</p>\n  return ('),
+        ),
+      ).toEqual([])
+    },
+  )
+  it.each([
+    'if (record) await save(record.id)',
+    'if (record) try { await save(record.id) } catch(error) { notify(error) }',
+    'record && save(record.id)',
+  ])('rejects a positive readiness guard which silently skips the action: %s', async (handler) => {
+    expect(
+      await findings(custom('<button onClick={change}>Bookmark</button>', '', handler)),
+    ).toHaveLength(1)
+  })
+  it('accepts a permission check with feedback and a local switch', async () => {
+    expect(
+      await findings(
+        custom(
+          '<button onClick={change}>Bookmark</button>',
+          '',
+          'if (!allowed) { notify("Permission required"); return } await save("route-id")',
+        ),
+      ),
+    ).toEqual([])
+    expect(
+      await findings(
+        `import {useState} from 'react';export function Switch(){const [open,setOpen]=useState(false);return <button onClick={()=>setOpen(value=>!value)}>Details</button>}`,
+      ),
+    ).toEqual([])
+  })
   it.each([
     '3d-model-viewer/app/src/pages/Annotations.tsx',
     'ai-study-buddy/app/src/pages/Quiz.tsx',
@@ -209,5 +259,40 @@ describe('scaffold ESLint rejects enabled unloaded-record actions', () => {
     expect(guard).toBeDefined()
     const exposed = source.slice(0, guard!.getStart(tree)) + source.slice(guard!.end)
     expect((await findings(exposed)).length).toBeGreaterThan(0)
+  })
+  it('rejects exposing a positive-guarded Book Tracker edit action before its book loads', async () => {
+    const source = await readFile(
+      new URL('../../../templates/apps/book-tracker/app/src/pages/BookDetail.tsx', import.meta.url),
+      'utf8',
+    )
+    const positive = source.replace(
+      /const startEdit = \(\) => \{\s*if \(!book\) return([\s\S]*?)\n {2}\}/,
+      'const startEdit = () => { if (book) {$1\n  }}',
+    )
+    expect(positive).not.toBe(source)
+    const tree = ts.createSourceFile(
+      'BookDetail.tsx',
+      positive,
+      ts.ScriptTarget.Latest,
+      true,
+      ts.ScriptKind.TSX,
+    )
+    let guard: ts.IfStatement | undefined
+    const find = (node: ts.Node): void => {
+      if (
+        ts.isIfStatement(node) &&
+        node.expression.getText(tree) === '!book' &&
+        ts.isReturnStatement(node.thenStatement)
+      )
+        guard = node
+      ts.forEachChild(node, find)
+    }
+    find(tree)
+    expect(guard).toBeDefined()
+    const exposed = positive.slice(0, guard!.getStart(tree)) + positive.slice(guard!.end)
+    const line = exposed.slice(0, exposed.indexOf('onClick={startEdit}')).split('\n').length
+    expect((await findings(exposed)).some((row) => row.line <= line && row.endLine! >= line)).toBe(
+      true,
+    )
   })
 })

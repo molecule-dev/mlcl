@@ -42,10 +42,12 @@ narrow ESLint disable with a reason and verify the target in the browser.
 the rule behaves the same with supplied tests, authored tests, or no suite.
 
 `molecule-local/no-dropped-optimistic-intent` also rejects a visible, enabled React
-control whose handler silently returns before its first awaited work while a required
+control whose handler silently returns or skips its sole guarded action while a required
 record is unavailable. Disable the control until the record exists, or render it only
 with available data, for example inside `QueryContent`. The check follows effect-filled
-nullable state and declared query data within a module. Existing JavaScript guards,
+nullable state (including data copied from another hook) and declared query data within
+a module. Both `if (!record) return` and `if (record) { action() }` need this protection.
+Existing JavaScript guards,
 including optional access and derived counts, establish availability; a refresh reached
 after an awaited action does not make that action unavailable. Other helpers remain
 unknown, so use a direct data guard when the linter cannot establish availability.

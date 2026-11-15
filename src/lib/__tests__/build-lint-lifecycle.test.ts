@@ -30,6 +30,14 @@ export function Control({ save }: { save: (value: boolean) => Promise<void> }) {
   return <button type="button" onClick={toggle}>{enabled ? 'Undo' : 'Done'}</button>
 }
 `
+const unreadyAction = `import { useEffect, useState } from 'react'
+export function Control({ data, save }: { data: { id: string } | null; save: (id: string) => Promise<void> }) {
+  const [record, setRecord] = useState<{ id: string } | null>(null)
+  useEffect(() => { if (data) setRecord(data) }, [data])
+  const act = async () => { if (record) await save(record.id) }
+  return <button type="button" onClick={act}>Reserve</button>
+}
+`
 let root: string
 let custom: string
 let flagship: string
@@ -144,6 +152,30 @@ describe('frontend npm build verification', () => {
     await fixture(
       custom,
       droppedIntent.replace('onClick={toggle}', 'disabled={busy} onClick={toggle}'),
+    )
+    const result = await build(custom)
+    expect(result.code, result.output).toBe(0)
+    expect(await readFile(join(custom, 'dist/index.html'), 'utf8')).toContain('Equipment console')
+  }, 90_000)
+
+  it.each(['custom', 'flagship'])(
+    'rejects an enabled initial-record action before bundling: %s',
+    async (kind) => {
+      const app = kind === 'custom' ? custom : flagship
+      await fixture(app, unreadyAction)
+      const result = await build(app)
+      expect(result.code, result.output).not.toBe(0)
+      expect(result.output).toContain('no-dropped-optimistic-intent')
+      expect(result.output).toContain('disabled={!record}')
+      await expect(readFile(join(app, 'dist/index.html'))).rejects.toMatchObject({ code: 'ENOENT' })
+    },
+    90_000,
+  )
+
+  it('counterexample: an initial-record-disabled action builds', async () => {
+    await fixture(
+      custom,
+      unreadyAction.replace('onClick={act}', 'disabled={!record} onClick={act}'),
     )
     const result = await build(custom)
     expect(result.code, result.output).toBe(0)
