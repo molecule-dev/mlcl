@@ -23,6 +23,13 @@
  *   node scripts/audit-gate.mjs            # fail on any non-accepted advisory
  *   node scripts/audit-gate.mjs --list     # print current advisories and exit 0
  *
+ * Two byte-identical copies: `molecule/scripts/audit-gate.mjs` (canonical) and
+ * `mlcl/scripts/audit-gate.mjs`. Each repo's CI checks it out alone, so neither
+ * can import the other. Edit the canonical one and copy it;
+ * `scripts/__tests__/audit-gate-copies.test.mjs` in the workspace fails on drift
+ * (mlcl's copy missed this script's error-document and every-advisory fixes for
+ * two weeks, so its gate passed an npm error document as a clean scan).
+ *
  * @module
  */
 import { execFileSync } from 'node:child_process'
@@ -41,11 +48,29 @@ const FAIL_AT = ['moderate', 'high', 'critical']
 const allowlist = JSON.parse(readFileSync(join(ROOT, '.audit-allowlist.json'), 'utf8'))
 const today = new Date().toISOString().slice(0, 10)
 
+// A repo that is not a workspaces root of its own (mlcl) is still a MEMBER of the
+// polyrepo workspace when it sits inside molecule-workspace, and a bare
+// `npm audit` there audits the workspace root's lockfile: on 2026-11-15 it
+// reported 22 lapsed exceptions in mlcl, three of them (@vue/test-utils,
+// js-beautify, editorconfig) from another member's devDependencies, where mlcl's
+// own CI, which checks mlcl out alone, reported 19. `--workspaces=false` makes
+// npm audit this repo's own package-lock.json, the tree CI and users install.
+// A workspaces root (molecule) keeps the default, which covers its members.
+let ownManifest = {}
+try {
+  ownManifest = JSON.parse(readFileSync(join(ROOT, 'package.json'), 'utf8'))
+} catch (error) {
+  // No manifest next to the allowlist leaves nothing to scope to; an unreadable
+  // or malformed one is a broken checkout, not a reason to audit another tree.
+  if (error?.code !== 'ENOENT') throw error
+}
+const auditArgs = ['audit', '--json', ...(ownManifest.workspaces ? [] : ['--workspaces=false'])]
+
 let report
 try {
   // `npm audit` exits non-zero when it finds anything — that is the signal we
   // are parsing, not an error.
-  report = JSON.parse(execFileSync('npm', ['audit', '--json'], { cwd: ROOT, encoding: 'utf8' }))
+  report = JSON.parse(execFileSync('npm', auditArgs, { cwd: ROOT, encoding: 'utf8' }))
 } catch (error) {
   if (!error.stdout) {
     console.error('audit-gate: `npm audit --json` produced no output')
@@ -55,7 +80,24 @@ try {
   report = JSON.parse(error.stdout)
 }
 
-const vulns = report.vulnerabilities ?? {}
+// An npm error document is not a scan with zero findings. Keep an unavailable
+// or incomplete report red, including in --list mode.
+if (
+  report === null ||
+  typeof report !== 'object' ||
+  report.error ||
+  report.vulnerabilities === null ||
+  typeof report.vulnerabilities !== 'object' ||
+  Array.isArray(report.vulnerabilities) ||
+  report.metadata === null ||
+  typeof report.metadata !== 'object' ||
+  Array.isArray(report.metadata)
+) {
+  console.error('audit-gate: npm did not return a complete vulnerability report')
+  process.exit(2)
+}
+
+const vulns = report.vulnerabilities
 
 /**
  * Advisory ids a package is vulnerable through, following transitive causes.
@@ -72,8 +114,12 @@ const advisoryIdsFor = (name, seen = new Set()) => {
   seen.add(name)
   const ids = []
   for (const via of vulns[name]?.via ?? []) {
-    if (typeof via === 'object' && via.url) ids.push(via.url.split('/').pop())
-    else if (typeof via === 'string') ids.push(...advisoryIdsFor(via, seen))
+    // An advisory below the failing bar never fails the build on its own, so it
+    // needs no entry when it rides along a chain that fails for another reason.
+    if (typeof via === 'object' && via.url) {
+      if (!FAIL_AT.includes(via.severity ?? 'critical')) continue
+      ids.push(via.url.split('/').pop())
+    } else if (typeof via === 'string') ids.push(...advisoryIdsFor(via, seen))
   }
   return [...new Set(ids)]
 }
@@ -98,20 +144,23 @@ const accepted = []
 const blocking = []
 const lapsed = []
 for (const f of findings) {
-  // An entry covers a finding only if it names one of its advisory ids AND has
-  // not expired. A package-level wildcard is deliberately not supported: a new
-  // advisory in an already-accepted package must be re-decided.
-  const entry = allowlist.accepted?.find((a) => f.ids.some((id) => a.advisories.includes(id)))
-  if (!entry) blocking.push(f)
-  else if (entry.expires < today) lapsed.push({ ...f, entry })
-  else accepted.push({ ...f, entry })
+  // A finding passes only when EVERY advisory it is vulnerable through is named
+  // by an unexpired entry: accepting one advisory in a package must not wave
+  // through a second one reached the same way. A finding with no identifiable
+  // advisory is never accepted. A package-level wildcard is deliberately not
+  // supported: a new advisory in an already-accepted package must be re-decided.
+  const entries = f.ids.map((id) => allowlist.accepted?.find((a) => a.advisories.includes(id)))
+  const entry = entries.find((e) => e && e.expires < today)
+  if (!f.ids.length || entries.some((e) => !e))
+    blocking.push({ ...f, unaccepted: f.ids.filter((_id, i) => !entries[i]) })
+  else if (entry) lapsed.push({ ...f, entry })
+  else accepted.push({ ...f, entries: [...new Set(entries)] })
 }
 
 for (const a of accepted) {
-  console.log(
-    `· accepted ${a.severity} in ${a.name} (${a.ids.join(', ')}) — expires ${a.entry.expires}`,
-  )
-  console.log(`  ${a.entry.reason}`)
+  const expires = a.entries.map((e) => e.expires).sort()[0]
+  console.log(`· accepted ${a.severity} in ${a.name} (${a.ids.join(', ')}) — expires ${expires}`)
+  for (const e of a.entries) console.log(`  ${e.reason}`)
 }
 for (const l of lapsed) {
   console.error(
@@ -123,6 +172,7 @@ for (const l of lapsed) {
 }
 for (const b of blocking) {
   console.error(`\n✗ ${b.severity} advisory in ${b.name} (${b.ids.join(', ')})`)
+  if (b.unaccepted.length) console.error(`  unaccepted: ${b.unaccepted.join(', ')}`)
   console.error(`  fixAvailable: ${JSON.stringify(b.fixAvailable)}`)
 }
 
