@@ -18,11 +18,15 @@ const cliRoot = join(import.meta.dirname, '../../..')
 // The runner gives native background work low OS priority and a 120-second
 // deadline. A loaded builder may not schedule its browser within 8–15 seconds.
 // Wait for real native progress; keep the cancellation-latency assertion tight.
-const nativeWaitMs = 120_000
 /**
- * How long the speculative spec in the stop test sleeps. The spec raises its own
- * Playwright timeout above this (the fixture config gives every spec 5 s), so a
- * stop that waits for the run takes the full sleep.
+ * How long a native Playwright run may take to answer. It bounds "never arrives", so a
+ * generous value costs time only when the feature is broken: one run passed 120 s in the
+ * full mlcl suite at load average 60 (the test took 188 s), and 15 s alone.
+ */
+const nativeWaitMs = 240_000
+/**
+ * How long the speculative spec in the stop test sleeps. The spec sets its own
+ * Playwright timeout above this, so a stop that waits for the run takes the full sleep.
  */
 const specSleepMs = 20_000
 let root: string, source: string, server: ReturnType<typeof createServer>, requests: number
@@ -46,9 +50,11 @@ beforeEach(async () => {
   server.listen(0, '127.0.0.1')
   await once(server, 'listening')
   const port = (server.address() as { port: number }).port
+  // 60 s per spec: at load average 60 Chromium alone outlasted 5 s, and the run came back
+  // "unavailable" (exit 2). The 600 ms expect limit keeps the failing assertion fast.
   await writeFile(
     join(root, 'playwright.config.mjs'),
-    `export default {testDir:'./e2e',timeout:5000,expect:{timeout:600},use:{baseURL:'http://127.0.0.1:${port}'}}`,
+    `export default {testDir:'./e2e',timeout:60000,expect:{timeout:600},use:{baseURL:'http://127.0.0.1:${port}'}}`,
   )
   await writeFile(
     join(root, 'e2e/note.spec.ts'),

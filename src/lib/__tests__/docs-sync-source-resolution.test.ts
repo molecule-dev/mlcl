@@ -193,6 +193,7 @@ describe('README resolution from the documented source tree', () => {
     expect(await readme(context)).toContain('Source subpath documentation.')
   })
 
+  // A real regenerator process (tsx + ts-morph): 31 s at load average 60, over the 30 s default.
   it('regenerates transitive subpath re-exporters when only their sibling is in scope', async () => {
     const context = await fixture(`export * from '${sibling}/configuration'`)
     const manifest = join(context.tree, siblingPath, 'package.json')
@@ -222,7 +223,7 @@ describe('README resolution from the documented source tree', () => {
     expect(await readFile(join(context.tree, facadePath, 'README.md'), 'utf8')).toContain(
       'Current settings documentation.',
     )
-  })
+  }, 180_000)
 
   it('resolves wildcard source exports from the documented manifest', async () => {
     const context = await fixture(`export * from '${sibling}/optional/settings.js'`)
@@ -237,6 +238,8 @@ describe('README resolution from the documented source tree', () => {
     expect(await readme(context)).toContain('Source wildcard documentation.')
   })
 
+  // Two real regenerator processes (tsx + ts-morph): 41-55 s alone at load average
+  // 57-63, so not the 30 s default.
   it('uses source through the real sync-docs:changed regenerator and its check mode', async () => {
     const context = await fixture()
     execFileSync('git', ['init', '-q', context.tree])
@@ -261,7 +264,7 @@ describe('README resolution from the documented source tree', () => {
     expect(md).toContain('Committed source documentation.')
     expect(md).not.toContain('Stale installed documentation.')
     expect(execFileSync(process.execPath, [...args, '--check'], options)).toBe('')
-  })
+  }, 180_000)
 
   it('refuses a missing source subpath instead of falling back to stale dist', async () => {
     const context = await fixture(`export * from '${sibling}/removed.js'`)
