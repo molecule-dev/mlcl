@@ -169,6 +169,12 @@ describe('flagship templates: the router splits every page', () => {
       if (/packageLocales:/.test(source) && !/packageLocaleLoaders:/.test(source)) {
         offenders.push(`${app}: still registers packageLocales eagerly`)
       }
+      // Without supportedLocales the setup imports every locales/<code>/ui.ts at boot to see
+      // which are empty: 73 extra requests (237 KB gzip) on every first visit.
+      if (!/supportedLocales: Object\.keys\(localeFiles\)/.test(source)) {
+        offenders.push(`${app}: languages not named from the locale files`)
+      }
+      if (/eager:\s*true/.test(source)) offenders.push(`${app}: locale files imported eagerly`)
       const importLines = source.split('\n').filter((line) => /^import /.test(line))
       for (const line of importLines)
         for (const m of line.matchAll(/from '@molecule\/app-locales-([^/']+)(?:\/loader\.js)?'/g)) {

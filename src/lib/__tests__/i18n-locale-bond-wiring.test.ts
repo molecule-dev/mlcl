@@ -92,6 +92,20 @@ describe("the scaffolded app's i18n bond", () => {
     expect(bond).toContain('export function setupI18nDefault(): void {')
   })
 
+  it('names its languages from the locale files, so a first visit fetches no other language', () => {
+    // Without supportedLocales, setupI18nDefault imports every locales/<code>/ui.ts at boot to
+    // see which are empty: 73 extra requests (237 KB gzip) on a first visit to a built app.
+    const bond = i18nBond([i18nCore, defaultSetup, commonBond])
+    expect(bond).toContain(
+      "const localeFiles = import.meta.glob<{ ui: Record<string, string> }>('../locales/*/ui.ts')",
+    )
+    expect(bond).not.toMatch(/eager:\s*true/)
+    expect(bond).toMatch(/supportedLocales: Object\.keys\(localeFiles\)/)
+    expect(bond).toContain('const load = localeFiles[`../locales/${code}/ui.ts`]')
+    // One loader table: no second dynamic import of the same files.
+    expect(bond).not.toContain('import(`../locales/')
+  })
+
   it('gives the bonds smoke test a loader for each bond, which the setup call reads at import', () => {
     // Mocked as an empty module, every generated test failed: vitest throws on reading an
     // export its mock does not define.

@@ -3958,12 +3958,22 @@ ${imports.join('\n')}
 
 import { ui as en } from '../locales/en/ui.js'
 
-const lazyLoadUi = (code: string): Promise<Record<string, string>> =>
-  import(\`../locales/\${code}/ui.ts\`).then((m: { ui: Record<string, string> }) => m.ui)
+// A language is offered when its locales/<code>/ui.ts exists. Each file is a separate chunk,
+// fetched only when the app switches to that language; nothing is fetched to build the list.
+const localeFiles = import.meta.glob<{ ui: Record<string, string> }>('../locales/*/ui.ts')
+
+/** \`../locales/it/ui.ts\` → \`it\`. */
+const localeCode = (file: string): string => file.replace('../locales/', '').replace('/ui.ts', '')
+
+const lazyLoadUi = async (code: string): Promise<Record<string, string>> => {
+  const load = localeFiles[\`../locales/\${code}/ui.ts\`]
+  return load ? (await load()).ui : {}
+}
 
 export const ${exportName} = setupI18nProvider({
   enUi: en,
-  lazyLoadUi,${loaders}
+  lazyLoadUi,
+  supportedLocales: Object.keys(localeFiles).map(localeCode),${loaders}
 })
 
 /**
