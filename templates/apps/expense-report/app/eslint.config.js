@@ -340,6 +340,12 @@ export default tseslint.config(
     plugins: {
       'jsx-a11y': jsxA11y,
     },
+    // Molecule's layout boxes render a plain <div> and forward every prop, so the rules read
+    // them as the div they are: a clickable <Flex> needs the role and keys a clickable <div>
+    // needs. Card is left out on purpose: an interactive Card is a button and handles its keys.
+    settings: {
+      'jsx-a11y': { components: { Container: 'div', Flex: 'div', Grid: 'div', Spacer: 'div' } },
+    },
     rules: {
       ...jsxA11y.flatConfigs.recommended.rules,
       // Same ERROR severity as recommended; only the control/text search depth
