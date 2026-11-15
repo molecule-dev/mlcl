@@ -72,9 +72,11 @@ describe('search capability and symbol relevance', () => {
 
   // Every framework binding exports the same hook names, so a symbol query
   // finds each of them with the same score; the project's framework picks one.
+  // app-react-native re-exports app-react's hooks, and its entry lists them.
   const bindings = [
     '@molecule/app-angular',
     '@molecule/app-react',
+    '@molecule/app-react-native',
     '@molecule/app-solid',
     '@molecule/app-svelte',
     '@molecule/app-vue',
@@ -149,7 +151,14 @@ describe('search capability and symbol relevance', () => {
     expect(rnw[0]?.name).toBe('@molecule/app-react')
     expect(rnw.map((hit) => hit.name).filter((name) => bindings.includes(name))).toEqual([
       '@molecule/app-react',
+      '@molecule/app-react-native',
     ])
+    // A native project finds the hook in its own binding, which re-exports React's.
+    const native = searchPackages(entries, 'useProfileForm', {
+      framework: 'react-native',
+      appFrameworks,
+    })
+    expect(native[0]?.name).toBe('@molecule/app-react-native')
     const ui = searchPackages(entries, 'react native ui', {
       framework: 'react-native-web',
       appFrameworks,

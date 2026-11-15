@@ -130,9 +130,9 @@ describe('framework-scoped session guidance', () => {
     expect(map).toContain(symbol)
     expect(map).toContain(binding)
     if (!binding.includes('react')) expect(map).not.toContain('@molecule/app-react')
-    expect(registry.packages[binding]!.exports).toContain(
-      symbol === 'useAuth' && binding.endsWith('native') ? '*' : symbol,
-    )
+    // A binding that re-exports another (`export * from '@molecule/app-react'` in
+    // app-react-native) lists the re-exported names, so the symbol is in every entry.
+    expect(registry.packages[binding]!.exports).toContain(symbol)
   })
 
   it('keeps framework guidance in its declaring workspace', () => {
