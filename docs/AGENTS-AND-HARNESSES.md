@@ -41,6 +41,21 @@ narrow ESLint disable with a reason and verify the target in the browser.
 `npm run lint` and the lint step of `mlcl check` report the source line and fix;
 the rule behaves the same with supplied tests, authored tests, or no suite.
 
+The same rule checks literal `className` and `class` values against the icon-font
+classes in the scaffold's registry snapshot, including icons inside buttons or
+beside text. A known class needs its provider's setter call in the app's entry
+imports, or imported CSS that supplies a local font face and the class's font
+family. For example, `ion-trash-a` needs
+`import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; setFont(font)`
+in the startup bond setup. The error names the class, package and exact wiring.
+A font import alone or an unimported bond file does not count. Authored CSS that
+draws an ordinary text glyph or image can replace the font. Unrelated class names
+and icon families absent from the registry produce no font diagnostic. No tests
+or test selectors supply these facts. This is a static dependency check: it
+recognizes setter calls in imported setup functions but does not prove that those
+functions execute or that font downloads succeed. Dynamic classes and non-JSX
+templates still need their framework and browser checks.
+
 `molecule-local/no-dropped-optimistic-intent` also rejects a visible, enabled React
 control whose handler silently returns or skips its sole guarded action while a required
 record is unavailable. Disable the control until the record exists, or render it only

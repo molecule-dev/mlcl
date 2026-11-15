@@ -14,6 +14,9 @@
  * including module imports, HTML style/link elements and CSS @imports. A matching
  * visual declaration is evidence of styling, not proof of its computed visibility.
  * No project scan, network request or browser is run for ordinary contentful JSX.
+ * Registry icon classes also require a reachable call to their font setter or
+ * an imported local font stylesheet. The scaffold supplies exact class names
+ * from the registry; this rule never infers a family from a prefix or a test.
  *
  * Canonical: scripts/eslint-rules/no-empty-interactive-target.mjs; synced to mlcl.
  * @module
@@ -74,6 +77,10 @@ function attribute(node, name) {
   return node.openingElement.attributes.find(
     (attr) => attr.type === 'JSXAttribute' && attr.name.name === name,
   )
+}
+
+function classAttribute(node) {
+  return attribute(node, 'className') ?? attribute(node, 'class')
 }
 
 function literal(node) {
@@ -146,11 +153,12 @@ function workspace(filename) {
 }
 
 /** Only invoked after a definitely empty interactive subtree is found. */
-function loadedStyles(context) {
+function loadedStyles(context, providers) {
   const filename = resolve(context.cwd, context.filename)
   const root = workspace(filename)
   const visited = new Set()
   const styles = []
+  const fonts = new Set()
   let unknown = false
   const read = (file) => {
     try {
@@ -197,7 +205,11 @@ function loadedStyles(context) {
       ...['.ts', '.tsx', '.js', '.jsx', '.mjs', '.mts'].map((ext) => base + ext),
       ...['.ts', '.tsx', '.js', '.jsx'].map((ext) => join(path, 'index' + ext)),
     ]
-    return candidates.find(file) ?? null
+    return (
+      candidates.find(file) ??
+      (spec.startsWith('/') ? [resolve(root, 'public', `.${spec}`)].find(file) : null) ??
+      null
+    )
   }
   const css = (text, from) => {
     const clean = text.replace(/\/\*[\s\S]*?\*\//g, '')
@@ -224,22 +236,73 @@ function loadedStyles(context) {
       return
     }
     let tree
+    let scopeManager
     try {
-      tree =
-        path === filename
-          ? context.sourceCode.ast
-          : context.languageOptions.parser.parseForESLint(text, {
-              sourceType: 'module',
-              ecmaVersion: 'latest',
-              ecmaFeatures: { jsx: true },
-              filePath: path,
-              tsconfigRootDir: root,
-            }).ast
+      if (path === filename) {
+        tree = context.sourceCode.ast
+        scopeManager = context.sourceCode.scopeManager
+      } else {
+        const parsed = context.languageOptions.parser.parseForESLint(text, {
+          sourceType: 'module',
+          ecmaVersion: 'latest',
+          ecmaFeatures: { jsx: true },
+          filePath: path,
+          tsconfigRootDir: root,
+        })
+        tree = parsed.ast
+        scopeManager = parsed.scopeManager
+      }
     } catch (_error) {
       // Parse/build diagnostics own unsupported syntax; do not guess its CSS.
       unknown = true
       return
     }
+    // ESLint's scope graph distinguishes the actual imports from same-named
+    // local functions/parameters. Importing a font alone never injects its CSS.
+    const references = new Map()
+    for (const scope of scopeManager?.scopes ?? [])
+      for (const reference of scope.references)
+        references.set(reference.identifier, reference.resolved)
+    const imported = (node) => {
+      if (node?.type === 'Identifier') {
+        const def = references.get(node)?.defs.find((item) => item.type === 'ImportBinding')
+        if (!def || def.parent.importKind === 'type' || def.node.importKind === 'type') return null
+        return {
+          package: def.parent.source.value,
+          name:
+            def.node.type === 'ImportNamespaceSpecifier'
+              ? '*'
+              : (def.node.imported?.name ?? def.node.imported?.value),
+        }
+      }
+      if (node?.type === 'MemberExpression') {
+        const base = imported(node.object)
+        const name = node.computed ? literal(node.property).value : node.property.name
+        if (base?.name === '*' && typeof name === 'string') return { package: base.package, name }
+      }
+      return null
+    }
+    const calls = (node) => {
+      if (node.type === 'CallExpression') {
+        const setter = imported(node.callee)
+        const value = imported(node.arguments[0])
+        for (const provider of providers)
+          if (
+            setter?.package === provider.core &&
+            setter.name === provider.setter &&
+            value?.package === provider.package &&
+            value.name === provider.exportName
+          )
+            fonts.add(provider.package)
+      }
+      for (const key of context.sourceCode.visitorKeys[node.type] ?? []) {
+        const value = node[key]
+        if (Array.isArray(value)) {
+          for (const child of value) if (child?.type) calls(child)
+        } else if (value?.type) calls(value)
+      }
+    }
+    if (providers.length) calls(tree)
     for (const statement of tree.body) {
       if (
         !['ImportDeclaration', 'ExportNamedDeclaration', 'ExportAllDeclaration'].includes(
@@ -281,19 +344,49 @@ function loadedStyles(context) {
     }
   }
   visit(filename)
-  return { styles, unknown }
+  return { styles, unknown, fonts }
+}
+
+/** A local @font-face is an alternative to a provider, when CSS uses it for this class. */
+function localFont(node, sheets) {
+  const family = (value) =>
+    value
+      .trim()
+      .replace(/^["']|["']$/g, '')
+      .toLowerCase()
+  const faces = new Set(
+    sheets.styles.flatMap((css) =>
+      [...css.matchAll(/@font-face\s*\{([^{}]*)\}/gi)].flatMap((face) => {
+        const value = /(?:^|;)\s*font-family\s*:\s*([^;}]*)/i.exec(face[1])?.[1]
+        return value && /(?:^|;)\s*src\s*:\s*[^;]+/i.test(face[1]) ? [family(value)] : []
+      }),
+    ),
+  )
+  if (!faces.size) return false
+  const classes = literal(classAttribute(node)?.value).value?.split(/\s+/) ?? []
+  return sheets.styles.some((css) =>
+    [...css.matchAll(/([^{}]+)\{([^{}]*)\}/g)].some((rule) => {
+      const tokens = rule[1].match(/\.[A-Za-z][\w-]*/g) ?? []
+      const value = /(?:^|;)\s*font-family\s*:\s*([^;}]*)/i.exec(rule[2])?.[1]
+      return (
+        value &&
+        value.split(',').some((part) => faces.has(family(part))) &&
+        classes.some((cls) => tokens.includes('.' + cls))
+      )
+    }),
+  )
 }
 
 /** Conservative evidence that a selector explicitly styles this otherwise empty element. */
-function styled(node, sheets) {
+function styled(node, sheets, visual = STYLE) {
   if (sheets.unknown) return true
   const name = tag(node)
-  const value = literal(attribute(node, 'className')?.value).value
+  const value = literal(classAttribute(node)?.value).value
   const classes = (typeof value === 'string' ? value : '').split(/\s+/).filter(Boolean)
   const id = literal(attribute(node, 'id')?.value).value
   for (const css of sheets.styles) {
     for (const match of css.matchAll(/([^{}]+)\{([^{}]*)\}/g)) {
-      if (!STYLE.test(match[2]) && !/@apply\b/.test(match[2])) continue
+      if (!visual.test(match[2]) && (visual !== STYLE || !/@apply\b/.test(match[2]))) continue
       const selector = match[1]
       const tokens = selector.match(/[.#]?[\w-]+/g) ?? []
       const styledAttribute = [
@@ -320,18 +413,65 @@ function styled(node, sheets) {
 export default {
   meta: {
     type: 'problem',
-    schema: [],
+    schema: [
+      {
+        type: 'object',
+        additionalProperties: false,
+        properties: {
+          iconFonts: {
+            type: 'array',
+            items: {
+              type: 'object',
+              additionalProperties: false,
+              required: ['package', 'family', 'core', 'setter', 'exportName', 'classes'],
+              properties: Object.fromEntries(
+                ['package', 'family', 'core', 'setter', 'exportName', 'classes'].map((name) => [
+                  name,
+                  { type: 'string' },
+                ]),
+              ),
+            },
+          },
+        },
+      },
+    ],
     docs: {
       description:
-        'Interactive JSX needs visible content or a locally verifiable authored visual style.',
+        'Interactive JSX needs visible content; registry icon classes need their font setup.',
     },
     messages: {
       empty:
         'This interactive element has no visible content or locally verifiable visual style. An aria-label, title, role or tabIndex does not draw it. Add visible text or a sized SVG (for example the framework Icon), or import CSS that draws and sizes this element. For remote/runtime CSS, verify it in the browser and use a narrow, reasoned ESLint disable.',
+      font: "Class '{{className}}' belongs to {{package}}, but its font setup is absent from the app's entry imports. In src/bonds/index.ts add: import { {{setter}} } from '{{core}}'; import { {{exportName}} } from '{{package}}'; {{setter}}({{exportName}}). Call that setup at startup. Alternatively import a local stylesheet with its @font-face and class rules. For verified remote/runtime styling, use a narrow, reasoned ESLint disable.",
     },
   },
   create(context) {
     let sheets
+    const providers = context.options?.[0]?.iconFonts ?? []
+    const classes = new Map()
+    for (const provider of providers)
+      for (const cls of provider.classes.split(/\s+/)) classes.set(cls, provider)
+    const providerFor = (node) => {
+      const value = literal(classAttribute(node)?.value).value
+      if (typeof value !== 'string') return null
+      const cls = value.split(/\s+/).find((name) => classes.has(name))
+      return cls ? { className: cls, ...classes.get(cls) } : null
+    }
+    const available = (node, provider) => {
+      sheets ??= loadedStyles(context, providers)
+      return (
+        sheets.fonts.has(provider.package) ||
+        localFont(node, sheets) ||
+        // A project may deliberately reuse the class for a CSS drawing or an
+        // ordinary text glyph. Private-use font escapes still require a font.
+        (!sheets.unknown &&
+          styled(
+            node,
+            sheets,
+            /(?:^|;)\s*(?:(?:background-image|mask(?:-image)?)\s*:\s*url\(|content\s*:\s*["'][^"'\\\ue000-\uf8ff]*[^\s"'\\\ue000-\uf8ff][^"'\\\ue000-\uf8ff]*["'])/i,
+          ))
+      )
+    }
     const possibleVisual = (node, withStyles) => {
       if (node.type === 'JSXText') return node.value.trim() !== ''
       if (node.type === 'JSXExpressionContainer') return expressionContent(node.expression)
@@ -374,10 +514,20 @@ export default {
         if (STYLE.test(css)) return true
       }
       if (node.children.some((child) => possibleVisual(child, withStyles))) return true
-      return withStyles && styled(node, (sheets ??= loadedStyles(context)))
+      if (!withStyles) return false
+      const provider = providerFor(node)
+      return (
+        (provider && available(node, provider)) ||
+        styled(node, (sheets ??= loadedStyles(context, providers)))
+      )
     }
     return {
       JSXElement(node) {
+        const provider = providerFor(node)
+        if (provider && !available(node, provider)) {
+          context.report({ node: classAttribute(node), messageId: 'font', data: provider })
+          return
+        }
         if (!tag(node) || REPLACED.has(tag(node)) || hidden(node) || !interactive(node)) return
         // Contentful projects incur no filesystem traversal from this rule.
         if (!possibleVisual(node, false) && !possibleVisual(node, true))
