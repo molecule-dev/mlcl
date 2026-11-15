@@ -5865,9 +5865,20 @@ function generateAppBondsSmokeTest(
   lines.push(`}))`)
   lines.push('')
 
-  const hasDefaultBonds = allMolecules.includes('@molecule/app-bonds-default-react')
-  const hasDefaultI18n = allMolecules.includes('@molecule/app-i18n-default-react')
-  if (hasDefaultBonds || hasDefaultI18n) {
+  // A package exporting a shared setup (each framework's `@molecule/app-bonds-default-*`
+  // has `setupAllDefaultBonds`; the default i18n setup has `setupI18nDefault`) keeps its
+  // real exports with only that setup stubbed. Read from the registry's export lists, so
+  // every framework's package gets the same mock.
+  const sharedSetupStubs = [
+    { setup: 'setupAllDefaultBonds', stub: 'vi.fn()' },
+    { setup: 'setupI18nDefault', stub: 'vi.fn(() => ({}))' },
+  ].flatMap(({ setup, stub }) =>
+    allMolecules
+      .filter((m) => registry.packages[m]?.exports?.includes(setup))
+      .sort()
+      .map((pkg) => ({ pkg, setup, stub })),
+  )
+  if (sharedSetupStubs.length > 0) {
     // Mock the shared setup functions themselves. Vitest may inline workspace links but
     // externalize npm-installed packages, so low-level mocks alone cannot reach both layouts.
     lines.push(
@@ -5877,20 +5888,14 @@ function generateAppBondsSmokeTest(
       `// externalize npm-installed packages, so low-level mocks alone cannot reach both layouts.`,
     )
   }
-  if (hasDefaultBonds) {
-    lines.push(`vi.mock('@molecule/app-bonds-default-react', async (importOriginal) => ({`)
+  for (const { pkg, setup, stub } of sharedSetupStubs) {
+    lines.push(`vi.mock('${pkg}', async (importOriginal) => ({`)
     lines.push(`  ...(await importOriginal<Record<string, unknown>>()),`)
-    lines.push(`  setupAllDefaultBonds: vi.fn(),`)
+    lines.push(`  ${setup}: ${stub},`)
     lines.push(`}))`)
     lines.push('')
   }
-  if (hasDefaultI18n) {
-    lines.push(`vi.mock('@molecule/app-i18n-default-react', async (importOriginal) => ({`)
-    lines.push(`  ...(await importOriginal<Record<string, unknown>>()),`)
-    lines.push(`  setupI18nDefault: vi.fn(() => ({})),`)
-    lines.push(`}))`)
-    lines.push('')
-  }
+  const sharedSetupPackages = new Set(sharedSetupStubs.map(({ pkg }) => pkg))
 
   const localSetupModules = new Map<string, string[]>()
   for (const setup of setupImports.filter((setup) => setup.moduleSpecifier.startsWith('./'))) {
@@ -5924,12 +5929,7 @@ function generateAppBondsSmokeTest(
 
   // Mock all @molecule/* packages based on registry exports
   const moleculePkgs = allMolecules
-    .filter(
-      (m) =>
-        m.startsWith('@molecule/') &&
-        m !== '@molecule/app-bonds-default-react' &&
-        m !== '@molecule/app-i18n-default-react',
-    )
+    .filter((m) => m.startsWith('@molecule/') && !sharedSetupPackages.has(m))
     .sort()
 
   lines.push(`// Mock all @molecule/* packages`)
