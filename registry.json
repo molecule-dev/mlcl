@@ -41800,6 +41800,42 @@
         "reactions bar"
       ]
     },
+    "@molecule/app-empty-state-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "empty-state",
+      "label": "Empty State Angular",
+      "description": "Angular empty-state and CTA-card primitives",
+      "stack": "app",
+      "exports": [
+        "CtaCard",
+        "CtaCardProps",
+        "EmptyState",
+        "EmptyStateProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/empty-state-angular",
+      "intentHints": [
+        "empty state",
+        "no results",
+        "zero state",
+        "nothing here"
+      ]
+    },
     "@molecule/app-empty-state-react": {
       "language": "typescript",
       "runtime": "node",
@@ -41832,6 +41868,155 @@
         "no results",
         "zero state",
         "nothing here"
+      ]
+    },
+    "@molecule/app-empty-state-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "empty-state",
+      "label": "Empty State Solid",
+      "description": "Solid empty-state and CTA-card primitives",
+      "stack": "app",
+      "exports": [
+        "CtaCard",
+        "CtaCardProps",
+        "EmptyState",
+        "EmptyStateProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/empty-state-solid",
+      "intentHints": [
+        "empty state",
+        "no results",
+        "zero state",
+        "nothing here"
+      ]
+    },
+    "@molecule/app-empty-state-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "empty-state",
+      "label": "Empty State Svelte",
+      "description": "Svelte empty-state and CTA-card primitives",
+      "stack": "app",
+      "exports": [
+        "CtaCard",
+        "CtaCardProps",
+        "EmptyState",
+        "EmptyStateProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/empty-state-svelte",
+      "intentHints": [
+        "empty state",
+        "no results",
+        "zero state",
+        "nothing here"
+      ]
+    },
+    "@molecule/app-empty-state-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "empty-state",
+      "label": "Empty State Vue",
+      "description": "Vue empty-state and CTA-card primitives",
+      "stack": "app",
+      "exports": [
+        "CtaCard",
+        "CtaCardProps",
+        "EmptyState",
+        "EmptyStateProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/empty-state-vue",
+      "intentHints": [
+        "empty state",
+        "no results",
+        "zero state",
+        "nothing here"
+      ]
+    },
+    "@molecule/app-exif-panel-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "exif-panel",
+      "label": "EXIF Panel Angular",
+      "description": "EXIF metadata renderer for photo-sharing apps — camera, lens, aperture, shutter, ISO, focal length, GPS, timestamp",
+      "stack": "app",
+      "exports": [
+        "ExifData",
+        "ExifPanel",
+        "ExifPanelProps",
+        "buildMapLink",
+        "formatAperture",
+        "formatCamera",
+        "formatDms",
+        "formatFocalLength",
+        "formatGps",
+        "formatIso",
+        "formatShutter",
+        "formatTimestamp"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/exif-panel-angular",
+      "intentHints": [
+        "exif metadata",
+        "photo metadata",
+        "camera info",
+        "iso aperture shutter",
+        "focal length"
       ]
     },
     "@molecule/app-exif-panel-react": {
@@ -41869,6 +42054,141 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/exif-panel-react",
+      "intentHints": [
+        "exif metadata",
+        "photo metadata",
+        "camera info",
+        "iso aperture shutter",
+        "focal length"
+      ]
+    },
+    "@molecule/app-exif-panel-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "exif-panel",
+      "label": "EXIF Panel Solid",
+      "description": "EXIF metadata renderer for photo-sharing apps — camera, lens, aperture, shutter, ISO, focal length, GPS, timestamp",
+      "stack": "app",
+      "exports": [
+        "ExifData",
+        "ExifPanel",
+        "ExifPanelProps",
+        "buildMapLink",
+        "formatAperture",
+        "formatCamera",
+        "formatDms",
+        "formatFocalLength",
+        "formatGps",
+        "formatIso",
+        "formatShutter",
+        "formatTimestamp"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/exif-panel-solid",
+      "intentHints": [
+        "exif metadata",
+        "photo metadata",
+        "camera info",
+        "iso aperture shutter",
+        "focal length"
+      ]
+    },
+    "@molecule/app-exif-panel-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "exif-panel",
+      "label": "EXIF Panel Svelte",
+      "description": "EXIF metadata renderer for photo-sharing apps — camera, lens, aperture, shutter, ISO, focal length, GPS, timestamp",
+      "stack": "app",
+      "exports": [
+        "ExifData",
+        "ExifPanel",
+        "ExifPanelProps",
+        "buildMapLink",
+        "formatAperture",
+        "formatCamera",
+        "formatDms",
+        "formatFocalLength",
+        "formatGps",
+        "formatIso",
+        "formatShutter",
+        "formatTimestamp"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/exif-panel-svelte",
+      "intentHints": [
+        "exif metadata",
+        "photo metadata",
+        "camera info",
+        "iso aperture shutter",
+        "focal length"
+      ]
+    },
+    "@molecule/app-exif-panel-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "exif-panel",
+      "label": "EXIF Panel Vue",
+      "description": "EXIF metadata renderer for photo-sharing apps — camera, lens, aperture, shutter, ISO, focal length, GPS, timestamp",
+      "stack": "app",
+      "exports": [
+        "ExifData",
+        "ExifPanel",
+        "ExifPanelProps",
+        "buildMapLink",
+        "formatAperture",
+        "formatCamera",
+        "formatDms",
+        "formatFocalLength",
+        "formatGps",
+        "formatIso",
+        "formatShutter",
+        "formatTimestamp"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/exif-panel-vue",
       "intentHints": [
         "exif metadata",
         "photo metadata",
