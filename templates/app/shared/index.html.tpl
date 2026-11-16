@@ -24,54 +24,9 @@
     <meta name="twitter:title" content="{{PROJECT_NAME}}" />
     <meta name="twitter:description" content="{{APP_DESCRIPTION}}" />
     <meta name="twitter:image" content="/og-image.svg" />
-    <!--
-      mol:design-resources — every polished app uses Material Symbols Outlined
-      icon glyphs via `<span class="material-symbols-outlined">name</span>` and
-      Inter as the body font. Without these stylesheet links the icon `<span>`s
-      render as literal text ("shield", "menu_open", "search", …) instead of
-      glyphs. Per-app polish pipelines may REPLACE this entire block (see
-      mlcl/templates/apps/<app>/app/index-design-resources.html); the defaults
-      below are the safe fallback when no per-app override exists.
-    -->
     <!-- mol:design-resources -->
-    <link href="https://fonts.googleapis.com" rel="preconnect" />
-    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
-    <!--
-      Webfonts load without blocking the first paint: a stylesheet link in the
-      head is render-blocking, so the whole document waited on fonts.googleapis.com
-      before the app's own JS could even start. `preload` + `onload` swaps the
-      link to a stylesheet once it arrives; `noscript` keeps the plain link for
-      browsers with JS off. `display=swap`/`display=block` keep text and glyphs
-      rendering with the fallback font until it lands.
-    -->
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
-      onload="
-        this.onload = null
-        this.rel = 'stylesheet'
-      "
-    />
-    <link
-      rel="preload"
-      as="style"
-      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
-      onload="
-        this.onload = null
-        this.rel = 'stylesheet'
-      "
-    />
-    <noscript>
-      <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500&display=swap"
-        rel="stylesheet"
-      />
-      <link
-        href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=block"
-        rel="stylesheet"
-      />
-    </noscript>
+    <!-- Fonts and icon glyphs come from the selected providers in mol:fonts below.
+         Per-template helper styles can replace this block. -->
     <!-- /mol:design-resources -->
     {{FONT_LINKS}}
     <link rel="apple-touch-icon" href="/icons/icon-192.svg" />
