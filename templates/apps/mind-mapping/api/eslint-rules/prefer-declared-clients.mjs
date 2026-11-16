@@ -5049,6 +5049,10 @@ export function scaffoldRules(parser) {
                   return tested(node.argument, owner)
                 const variable = variableFor(node)
                 if (!variable || predicate(node) || routeParams(node)) return
+                // JSX callbacks close over the component's binding. They are not a new
+                // component boundary for that record's guards or mount conditions.
+                const bindingOwner = variable.scope.variableScope?.block
+                if (isFunction(bindingOwner)) owner = bindingOwner
                 if (
                   records.some((record) => record.variable === variable && record.owner === owner)
                 )
@@ -5456,7 +5460,7 @@ export function scaffoldRules(parser) {
                 if (reportedControls.has(opening)) continue
                 const relevant = handlers(handler)
                 for (const record of records) {
-                  if (record.owner !== flow.owner(opening)) continue
+                  if (!flow.contains(record.owner, opening)) continue
                   if (
                     conditions.some(([test, expected]) => {
                       const actual = truth(evaluate(test, record))

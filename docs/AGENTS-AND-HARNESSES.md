@@ -67,7 +67,8 @@ or `QueryContent`. Both `if (!record) return` and a sole `if (record) action()`
 need this protection.
 
 The check recognizes identifiers tested by JSX `record ? … : …`, `record && …`
-or `record?.field` in the same function. It reads no imported modules or tests and
+or `record?.field` in the same component, including render callbacks that share
+its bindings. It reads no imported modules or tests and
 does not construct a TypeScript program. Local boolean predicates are not missing
 data. Imported `useParams` results are exempt because route params do not load
 later. Optional access, derived counts and earlier render guards can establish
