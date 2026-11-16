@@ -27,6 +27,8 @@ import { dirname, isAbsolute, join, relative, sep } from 'node:path'
 
 import { ts } from 'ts-morph'
 
+import { extendAppBonds } from './extend-app-bonds.js'
+
 /**
  * Whether `candidate` resolves to a path INSIDE `baseDir` (the directory itself
  * counts as outside — it is not a file).
@@ -3684,7 +3686,9 @@ ${setupCalls.join('\n') || '  // No providers configured'}
   files.push({
     action: 'create',
     targetPath: join(bondsDir, 'index.ts'),
-    content: bondsContent,
+    content: existsSync(join(bondsDir, 'index.ts'))
+      ? extendAppBonds(readFileSync(join(bondsDir, 'index.ts'), 'utf8'), bondsContent)
+      : bondsContent,
     description: 'Generate bonds index with setupProviders function',
   })
 
