@@ -80256,6 +80256,7 @@
         "ResolvedIcon",
         "MolIconSvg",
         "moveRestAttributes",
+        "ReapplyRestAttributesOptions",
         "reapplyRestAttributes",
         "styleText",
         "kebab",
