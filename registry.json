@@ -32246,6 +32246,40 @@
         "gamification card"
       ]
     },
+    "@molecule/app-action-menu-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "action-menu",
+      "label": "Action Menu Angular",
+      "description": "Kebab / overflow menu button with popover action list",
+      "stack": "app",
+      "exports": [
+        "ActionMenu",
+        "ActionMenuItem",
+        "ActionMenuProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/action-menu-angular",
+      "intentHints": [
+        "action menu",
+        "context menu",
+        "kebab menu"
+      ]
+    },
     "@molecule/app-action-menu-react": {
       "language": "typescript",
       "runtime": "node",
@@ -32272,6 +32306,102 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/action-menu-react",
+      "intentHints": [
+        "action menu",
+        "context menu",
+        "kebab menu"
+      ]
+    },
+    "@molecule/app-action-menu-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "action-menu",
+      "label": "Action Menu Solid",
+      "description": "Kebab / overflow menu button with popover action list",
+      "stack": "app",
+      "exports": [
+        "ActionMenu",
+        "ActionMenuItem",
+        "ActionMenuProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/action-menu-solid",
+      "intentHints": [
+        "action menu",
+        "context menu",
+        "kebab menu"
+      ]
+    },
+    "@molecule/app-action-menu-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "action-menu",
+      "label": "Action Menu Svelte",
+      "description": "Kebab / overflow menu button with popover action list",
+      "stack": "app",
+      "exports": [
+        "ActionMenu",
+        "ActionMenuItem",
+        "ActionMenuProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/action-menu-svelte",
+      "intentHints": [
+        "action menu",
+        "context menu",
+        "kebab menu"
+      ]
+    },
+    "@molecule/app-action-menu-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "action-menu",
+      "label": "Action Menu Vue",
+      "description": "Kebab / overflow menu button with popover action list",
+      "stack": "app",
+      "exports": [
+        "ActionMenu",
+        "ActionMenuItem",
+        "ActionMenuProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/action-menu-vue",
       "intentHints": [
         "action menu",
         "context menu",
@@ -33292,6 +33422,43 @@
         "whistle private voice recognition"
       ]
     },
+    "@molecule/app-amount-input-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "amount-input",
+      "label": "Amount Input Angular",
+      "description": "Large amount input with income/expense toggle + currency symbol",
+      "stack": "app",
+      "exports": [
+        "AmountInput",
+        "AmountInputProps",
+        "AmountType",
+        "formatCurrency"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/amount-input-angular",
+      "intentHints": [
+        "amount input",
+        "currency input",
+        "money input"
+      ]
+    },
     "@molecule/app-amount-input-react": {
       "language": "typescript",
       "runtime": "node",
@@ -33321,6 +33488,111 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/amount-input-react",
+      "intentHints": [
+        "amount input",
+        "currency input",
+        "money input"
+      ]
+    },
+    "@molecule/app-amount-input-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "amount-input",
+      "label": "Amount Input Solid",
+      "description": "Large amount input with income/expense toggle + currency symbol",
+      "stack": "app",
+      "exports": [
+        "AmountInput",
+        "AmountInputProps",
+        "AmountType",
+        "formatCurrency"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/amount-input-solid",
+      "intentHints": [
+        "amount input",
+        "currency input",
+        "money input"
+      ]
+    },
+    "@molecule/app-amount-input-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "amount-input",
+      "label": "Amount Input Svelte",
+      "description": "Large amount input with income/expense toggle + currency symbol",
+      "stack": "app",
+      "exports": [
+        "AmountInput",
+        "AmountInputProps",
+        "AmountType",
+        "formatCurrency"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/amount-input-svelte",
+      "intentHints": [
+        "amount input",
+        "currency input",
+        "money input"
+      ]
+    },
+    "@molecule/app-amount-input-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "amount-input",
+      "label": "Amount Input Vue",
+      "description": "Large amount input with income/expense toggle + currency symbol",
+      "stack": "app",
+      "exports": [
+        "AmountInput",
+        "AmountInputProps",
+        "AmountType",
+        "formatCurrency"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/amount-input-vue",
       "intentHints": [
         "amount input",
         "currency input",
@@ -33912,6 +34184,44 @@
         "useAuth": "function useAuth<T = unknown, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>>(options?: MaybeSignal<UseAuthOptions>): UseAuthResult<T, TRegister>;"
       }
     },
+    "@molecule/app-annotation-pin-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "annotation-pin",
+      "label": "Annotation Pin Angular",
+      "description": "Pin/annotation marker overlay with click-to-place pins and label/note popups for 3d-model-viewer, image annotations, map pins, hotspot tours",
+      "stack": "app",
+      "exports": [
+        "AnnotationLayer",
+        "AnnotationLayerProps",
+        "AnnotationPin",
+        "AnnotationPinProps",
+        "Pin"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/annotation-pin-angular",
+      "intentHints": [
+        "annotation pin",
+        "image hotspot",
+        "map pin",
+        "3d viewer marker",
+        "hotspot tour"
+      ]
+    },
     "@molecule/app-annotation-pin-react": {
       "language": "typescript",
       "runtime": "node",
@@ -33938,6 +34248,114 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/annotation-pin-react",
+      "intentHints": [
+        "annotation pin",
+        "image hotspot",
+        "map pin",
+        "3d viewer marker",
+        "hotspot tour"
+      ]
+    },
+    "@molecule/app-annotation-pin-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "annotation-pin",
+      "label": "Annotation Pin Solid",
+      "description": "Pin/annotation marker overlay with click-to-place pins and label/note popups for 3d-model-viewer, image annotations, map pins, hotspot tours",
+      "stack": "app",
+      "exports": [
+        "AnnotationLayer",
+        "AnnotationLayerProps",
+        "AnnotationPin",
+        "AnnotationPinProps",
+        "Pin"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/annotation-pin-solid",
+      "intentHints": [
+        "annotation pin",
+        "image hotspot",
+        "map pin",
+        "3d viewer marker",
+        "hotspot tour"
+      ]
+    },
+    "@molecule/app-annotation-pin-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "annotation-pin",
+      "label": "Annotation Pin Svelte",
+      "description": "Pin/annotation marker overlay with click-to-place pins and label/note popups for 3d-model-viewer, image annotations, map pins, hotspot tours",
+      "stack": "app",
+      "exports": [
+        "AnnotationLayer",
+        "AnnotationLayerProps",
+        "AnnotationPin",
+        "AnnotationPinProps",
+        "Pin"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/annotation-pin-svelte",
+      "intentHints": [
+        "annotation pin",
+        "image hotspot",
+        "map pin",
+        "3d viewer marker",
+        "hotspot tour"
+      ]
+    },
+    "@molecule/app-annotation-pin-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "annotation-pin",
+      "label": "Annotation Pin Vue",
+      "description": "Pin/annotation marker overlay with click-to-place pins and label/note popups for 3d-model-viewer, image annotations, map pins, hotspot tours",
+      "stack": "app",
+      "exports": [
+        "AnnotationLayer",
+        "AnnotationLayerProps",
+        "AnnotationPin",
+        "AnnotationPinProps",
+        "Pin"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/annotation-pin-vue",
       "intentHints": [
         "annotation pin",
         "image hotspot",
@@ -34173,6 +34591,39 @@
         "howler js sound"
       ]
     },
+    "@molecule/app-audio-player-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "audio-player",
+      "label": "Audio Player Angular",
+      "description": "HTML5 audio player chrome — play/pause, scrub, time, mute toggle, optional visualizer slot",
+      "stack": "app",
+      "exports": [
+        "AudioPlayer",
+        "AudioPlayerProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/audio-player-angular",
+      "intentHints": [
+        "audio player",
+        "audio playback",
+        "play sound"
+      ]
+    },
     "@molecule/app-audio-player-react": {
       "language": "typescript",
       "runtime": "node",
@@ -34198,6 +34649,99 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/audio-player-react",
+      "intentHints": [
+        "audio player",
+        "audio playback",
+        "play sound"
+      ]
+    },
+    "@molecule/app-audio-player-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "audio-player",
+      "label": "Audio Player Solid",
+      "description": "HTML5 audio player chrome — play/pause, scrub, time, mute toggle, optional visualizer slot",
+      "stack": "app",
+      "exports": [
+        "AudioPlayer",
+        "AudioPlayerProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/audio-player-solid",
+      "intentHints": [
+        "audio player",
+        "audio playback",
+        "play sound"
+      ]
+    },
+    "@molecule/app-audio-player-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "audio-player",
+      "label": "Audio Player Svelte",
+      "description": "HTML5 audio player chrome — play/pause, scrub, time, mute toggle, optional visualizer slot",
+      "stack": "app",
+      "exports": [
+        "AudioPlayer",
+        "AudioPlayerProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/audio-player-svelte",
+      "intentHints": [
+        "audio player",
+        "audio playback",
+        "play sound"
+      ]
+    },
+    "@molecule/app-audio-player-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "audio-player",
+      "label": "Audio Player Vue",
+      "description": "HTML5 audio player chrome — play/pause, scrub, time, mute toggle, optional visualizer slot",
+      "stack": "app",
+      "exports": [
+        "AudioPlayer",
+        "AudioPlayerProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/audio-player-vue",
       "intentHints": [
         "audio player",
         "audio playback",
@@ -34903,6 +35447,43 @@
         "email password form"
       ]
     },
+    "@molecule/app-author-bio-card-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "author-bio-card",
+      "label": "Author Bio Card Angular",
+      "description": "Author bio card with avatar, name, bio, social links, and follow button",
+      "stack": "app",
+      "exports": [
+        "AuthorBioCard",
+        "AuthorBioCardAuthor",
+        "AuthorSocials",
+        "resolveSocialHref"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/author-bio-card-angular",
+      "intentHints": [
+        "author bio card",
+        "article footer author",
+        "user profile preview",
+        "blog author byline",
+        "follow author button"
+      ]
+    },
     "@molecule/app-author-bio-card-react": {
       "language": "typescript",
       "runtime": "node",
@@ -34930,6 +35511,111 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/author-bio-card-react",
+      "intentHints": [
+        "author bio card",
+        "article footer author",
+        "user profile preview",
+        "blog author byline",
+        "follow author button"
+      ]
+    },
+    "@molecule/app-author-bio-card-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "author-bio-card",
+      "label": "Author Bio Card Solid",
+      "description": "Author bio card with avatar, name, bio, social links, and follow button",
+      "stack": "app",
+      "exports": [
+        "AuthorBioCard",
+        "AuthorBioCardAuthor",
+        "AuthorSocials",
+        "resolveSocialHref"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/author-bio-card-solid",
+      "intentHints": [
+        "author bio card",
+        "article footer author",
+        "user profile preview",
+        "blog author byline",
+        "follow author button"
+      ]
+    },
+    "@molecule/app-author-bio-card-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "author-bio-card",
+      "label": "Author Bio Card Svelte",
+      "description": "Author bio card with avatar, name, bio, social links, and follow button",
+      "stack": "app",
+      "exports": [
+        "AuthorBioCard",
+        "AuthorBioCardAuthor",
+        "AuthorSocials",
+        "resolveSocialHref"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/author-bio-card-svelte",
+      "intentHints": [
+        "author bio card",
+        "article footer author",
+        "user profile preview",
+        "blog author byline",
+        "follow author button"
+      ]
+    },
+    "@molecule/app-author-bio-card-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "author-bio-card",
+      "label": "Author Bio Card Vue",
+      "description": "Author bio card with avatar, name, bio, social links, and follow button",
+      "stack": "app",
+      "exports": [
+        "AuthorBioCard",
+        "AuthorBioCardAuthor",
+        "AuthorSocials",
+        "resolveSocialHref"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/author-bio-card-vue",
       "intentHints": [
         "author bio card",
         "article footer author",
@@ -35216,6 +35902,48 @@
         "check battery percentage"
       ]
     },
+    "@molecule/app-bias-indicator-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "bias-indicator",
+      "label": "Bias Indicator Angular",
+      "description": "Political-bias / source-credibility indicator (left/right scale + reliability tier) for news article headers",
+      "stack": "app",
+      "exports": [
+        "BiasBucket",
+        "BiasIndicator",
+        "BiasIndicatorProps",
+        "ReliabilityTier",
+        "biasToBucket",
+        "biasToPercent",
+        "bucketColor",
+        "clamp",
+        "reliabilityToTier",
+        "tierColor"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/bias-indicator-angular",
+      "intentHints": [
+        "bias indicator",
+        "sentiment bias",
+        "content bias",
+        "source bias"
+      ]
+    },
     "@molecule/app-bias-indicator-react": {
       "language": "typescript",
       "runtime": "node",
@@ -35247,6 +35975,126 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/bias-indicator-react",
+      "intentHints": [
+        "bias indicator",
+        "sentiment bias",
+        "content bias",
+        "source bias"
+      ]
+    },
+    "@molecule/app-bias-indicator-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "bias-indicator",
+      "label": "Bias Indicator Solid",
+      "description": "Political-bias / source-credibility indicator (left/right scale + reliability tier) for news article headers",
+      "stack": "app",
+      "exports": [
+        "BiasBucket",
+        "BiasIndicator",
+        "BiasIndicatorProps",
+        "ReliabilityTier",
+        "biasToBucket",
+        "biasToPercent",
+        "bucketColor",
+        "clamp",
+        "reliabilityToTier",
+        "tierColor"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/bias-indicator-solid",
+      "intentHints": [
+        "bias indicator",
+        "sentiment bias",
+        "content bias",
+        "source bias"
+      ]
+    },
+    "@molecule/app-bias-indicator-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "bias-indicator",
+      "label": "Bias Indicator Svelte",
+      "description": "Political-bias / source-credibility indicator (left/right scale + reliability tier) for news article headers",
+      "stack": "app",
+      "exports": [
+        "BiasBucket",
+        "BiasIndicator",
+        "BiasIndicatorProps",
+        "ReliabilityTier",
+        "biasToBucket",
+        "biasToPercent",
+        "bucketColor",
+        "clamp",
+        "reliabilityToTier",
+        "tierColor"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/bias-indicator-svelte",
+      "intentHints": [
+        "bias indicator",
+        "sentiment bias",
+        "content bias",
+        "source bias"
+      ]
+    },
+    "@molecule/app-bias-indicator-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "bias-indicator",
+      "label": "Bias Indicator Vue",
+      "description": "Political-bias / source-credibility indicator (left/right scale + reliability tier) for news article headers",
+      "stack": "app",
+      "exports": [
+        "BiasBucket",
+        "BiasIndicator",
+        "BiasIndicatorProps",
+        "ReliabilityTier",
+        "biasToBucket",
+        "biasToPercent",
+        "bucketColor",
+        "clamp",
+        "reliabilityToTier",
+        "tierColor"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/bias-indicator-vue",
       "intentHints": [
         "bias indicator",
         "sentiment bias",
@@ -42423,6 +43271,55 @@
         "region markers"
       ]
     },
+    "@molecule/app-feature-barcode-scanner-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-barcode-scanner",
+      "label": "Barcode Scanner Angular",
+      "description": "Browser barcode scanner Angular component using BarcodeDetector with @zxing/library fallback — for warehouse, inventory, and grocery apps",
+      "stack": "app",
+      "exports": [
+        "BarcodeDetectorConstructor",
+        "BarcodeDetectorLike",
+        "BarcodeFormat",
+        "BarcodeScanResult",
+        "BarcodeScanner",
+        "BarcodeScannerError",
+        "BarcodeScannerErrorCode",
+        "BarcodeScannerProps",
+        "DEFAULT_FORMATS",
+        "ZxingLoader",
+        "ZxingReader",
+        "buildZxingHints"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular",
+        "@zxing/library"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/feature-barcode-scanner-angular",
+      "intentHints": [
+        "barcode scanner",
+        "qr code scanner",
+        "ean upc scanner",
+        "warehouse fulfillment scanner",
+        "inventory scanner",
+        "grocery delivery scanner",
+        "code 128 scanner",
+        "zxing fallback"
+      ]
+    },
     "@molecule/app-feature-barcode-scanner-react": {
       "language": "typescript",
       "runtime": "node",
@@ -42432,18 +43329,18 @@
       "description": "Browser barcode scanner React component using BarcodeDetector with @zxing/library fallback — for warehouse, inventory, and grocery apps",
       "stack": "app",
       "exports": [
+        "BarcodeDetectorConstructor",
+        "BarcodeDetectorLike",
         "BarcodeFormat",
         "BarcodeScanResult",
-        "BarcodeScannerErrorCode",
+        "BarcodeScanner",
         "BarcodeScannerError",
+        "BarcodeScannerErrorCode",
         "BarcodeScannerProps",
         "DEFAULT_FORMATS",
         "ZxingLoader",
         "ZxingReader",
-        "__setBarcodeDetectorOverride",
-        "__setZxingLoaderOverride",
-        "buildZxingHints",
-        "BarcodeScanner"
+        "buildZxingHints"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -42457,6 +43354,147 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/barcode-scanner-react",
+      "intentHints": [
+        "barcode scanner",
+        "qr code scanner",
+        "ean upc scanner",
+        "warehouse fulfillment scanner",
+        "inventory scanner",
+        "grocery delivery scanner",
+        "code 128 scanner",
+        "zxing fallback"
+      ]
+    },
+    "@molecule/app-feature-barcode-scanner-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-barcode-scanner",
+      "label": "Barcode Scanner Solid",
+      "description": "Browser barcode scanner Solid component using BarcodeDetector with @zxing/library fallback — for warehouse, inventory, and grocery apps",
+      "stack": "app",
+      "exports": [
+        "BarcodeDetectorConstructor",
+        "BarcodeDetectorLike",
+        "BarcodeFormat",
+        "BarcodeScanResult",
+        "BarcodeScanner",
+        "BarcodeScannerError",
+        "BarcodeScannerErrorCode",
+        "BarcodeScannerProps",
+        "DEFAULT_FORMATS",
+        "ZxingLoader",
+        "ZxingReader",
+        "buildZxingHints"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "@zxing/library",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/feature-barcode-scanner-solid",
+      "intentHints": [
+        "barcode scanner",
+        "qr code scanner",
+        "ean upc scanner",
+        "warehouse fulfillment scanner",
+        "inventory scanner",
+        "grocery delivery scanner",
+        "code 128 scanner",
+        "zxing fallback"
+      ]
+    },
+    "@molecule/app-feature-barcode-scanner-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-barcode-scanner",
+      "label": "Barcode Scanner Svelte",
+      "description": "Browser barcode scanner Svelte component using BarcodeDetector with @zxing/library fallback — for warehouse, inventory, and grocery apps",
+      "stack": "app",
+      "exports": [
+        "BarcodeDetectorConstructor",
+        "BarcodeDetectorLike",
+        "BarcodeFormat",
+        "BarcodeScanResult",
+        "BarcodeScanner",
+        "BarcodeScannerError",
+        "BarcodeScannerErrorCode",
+        "BarcodeScannerProps",
+        "DEFAULT_FORMATS",
+        "ZxingLoader",
+        "ZxingReader",
+        "buildZxingHints"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "@zxing/library",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/feature-barcode-scanner-svelte",
+      "intentHints": [
+        "barcode scanner",
+        "qr code scanner",
+        "ean upc scanner",
+        "warehouse fulfillment scanner",
+        "inventory scanner",
+        "grocery delivery scanner",
+        "code 128 scanner",
+        "zxing fallback"
+      ]
+    },
+    "@molecule/app-feature-barcode-scanner-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-barcode-scanner",
+      "label": "Barcode Scanner Vue",
+      "description": "Browser barcode scanner Vue component using BarcodeDetector with @zxing/library fallback — for warehouse, inventory, and grocery apps",
+      "stack": "app",
+      "exports": [
+        "BarcodeDetectorConstructor",
+        "BarcodeDetectorLike",
+        "BarcodeFormat",
+        "BarcodeScanResult",
+        "BarcodeScanner",
+        "BarcodeScannerError",
+        "BarcodeScannerErrorCode",
+        "BarcodeScannerProps",
+        "DEFAULT_FORMATS",
+        "ZxingLoader",
+        "ZxingReader",
+        "buildZxingHints"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "@zxing/library",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/feature-barcode-scanner-vue",
       "intentHints": [
         "barcode scanner",
         "qr code scanner",
@@ -43071,6 +44109,50 @@
         "collapsible comments"
       ]
     },
+    "@molecule/app-feature-track-lane-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "track-lane",
+      "label": "Track Lane Angular",
+      "description": "Horizontal track lane primitive for music-DAW, video-editor, animation-tool — a single row in a multi-track timeline rendering draggable/resizable clips on a time-base axis",
+      "stack": "app",
+      "exports": [
+        "Clip",
+        "DRAG_DISTANCE_THRESHOLD_PX",
+        "MIN_CLIP_DURATION_SECONDS",
+        "TrackLane",
+        "TrackLaneProps",
+        "clampClipMove",
+        "clipToPixels",
+        "pixelsToTime"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/feature-track-lane-angular",
+      "intentHints": [
+        "track lane",
+        "timeline lane",
+        "multi-track timeline",
+        "video editor track",
+        "animation lane",
+        "draggable clip",
+        "clip resize",
+        "clip block"
+      ]
+    },
     "@molecule/app-feature-track-lane-react": {
       "language": "typescript",
       "runtime": "node",
@@ -43100,6 +44182,132 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/track-lane-react",
+      "intentHints": [
+        "track lane",
+        "timeline lane",
+        "multi-track timeline",
+        "video editor track",
+        "animation lane",
+        "draggable clip",
+        "clip resize",
+        "clip block"
+      ]
+    },
+    "@molecule/app-feature-track-lane-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "track-lane",
+      "label": "Track Lane Solid",
+      "description": "Horizontal track lane primitive for music-DAW, video-editor, animation-tool — a single row in a multi-track timeline rendering draggable/resizable clips on a time-base axis",
+      "stack": "app",
+      "exports": [
+        "Clip",
+        "DRAG_DISTANCE_THRESHOLD_PX",
+        "MIN_CLIP_DURATION_SECONDS",
+        "TrackLane",
+        "TrackLaneProps",
+        "clampClipMove",
+        "clipToPixels",
+        "pixelsToTime"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/feature-track-lane-solid",
+      "intentHints": [
+        "track lane",
+        "timeline lane",
+        "multi-track timeline",
+        "video editor track",
+        "animation lane",
+        "draggable clip",
+        "clip resize",
+        "clip block"
+      ]
+    },
+    "@molecule/app-feature-track-lane-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "track-lane",
+      "label": "Track Lane Svelte",
+      "description": "Horizontal track lane primitive for music-DAW, video-editor, animation-tool — a single row in a multi-track timeline rendering draggable/resizable clips on a time-base axis",
+      "stack": "app",
+      "exports": [
+        "Clip",
+        "DRAG_DISTANCE_THRESHOLD_PX",
+        "MIN_CLIP_DURATION_SECONDS",
+        "TrackLane",
+        "TrackLaneProps",
+        "clampClipMove",
+        "clipToPixels",
+        "pixelsToTime"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/feature-track-lane-svelte",
+      "intentHints": [
+        "track lane",
+        "timeline lane",
+        "multi-track timeline",
+        "video editor track",
+        "animation lane",
+        "draggable clip",
+        "clip resize",
+        "clip block"
+      ]
+    },
+    "@molecule/app-feature-track-lane-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "track-lane",
+      "label": "Track Lane Vue",
+      "description": "Horizontal track lane primitive for music-DAW, video-editor, animation-tool — a single row in a multi-track timeline rendering draggable/resizable clips on a time-base axis",
+      "stack": "app",
+      "exports": [
+        "Clip",
+        "DRAG_DISTANCE_THRESHOLD_PX",
+        "MIN_CLIP_DURATION_SECONDS",
+        "TrackLane",
+        "TrackLaneProps",
+        "clampClipMove",
+        "clipToPixels",
+        "pixelsToTime"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/feature-track-lane-vue",
       "intentHints": [
         "track lane",
         "timeline lane",
@@ -43714,6 +44922,47 @@
         "access device filesystem"
       ]
     },
+    "@molecule/app-filter-bar-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "filter-bar",
+      "label": "Filter Bar Angular",
+      "description": "Composable, field-driven Angular filter bar",
+      "stack": "app",
+      "exports": [
+        "FilterBar",
+        "FilterBarProps",
+        "FilterField",
+        "FilterFieldBase",
+        "FilterFieldDateRange",
+        "FilterFieldMulti",
+        "FilterFieldSelect",
+        "FilterFieldText",
+        "FilterValues"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/filter-bar-angular",
+      "intentHints": [
+        "filter bar",
+        "list filter",
+        "search filter",
+        "toolbar filters"
+      ]
+    },
     "@molecule/app-filter-bar-react": {
       "language": "typescript",
       "runtime": "node",
@@ -43746,6 +44995,123 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/filter-bar-react",
+      "intentHints": [
+        "filter bar",
+        "list filter",
+        "search filter",
+        "toolbar filters"
+      ]
+    },
+    "@molecule/app-filter-bar-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "filter-bar",
+      "label": "Filter Bar Solid",
+      "description": "Composable, field-driven Solid filter bar",
+      "stack": "app",
+      "exports": [
+        "FilterBar",
+        "FilterBarProps",
+        "FilterField",
+        "FilterFieldBase",
+        "FilterFieldDateRange",
+        "FilterFieldMulti",
+        "FilterFieldSelect",
+        "FilterFieldText",
+        "FilterValues"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/filter-bar-solid",
+      "intentHints": [
+        "filter bar",
+        "list filter",
+        "search filter",
+        "toolbar filters"
+      ]
+    },
+    "@molecule/app-filter-bar-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "filter-bar",
+      "label": "Filter Bar Svelte",
+      "description": "Composable, field-driven Svelte filter bar",
+      "stack": "app",
+      "exports": [
+        "FilterBar",
+        "FilterBarProps",
+        "FilterField",
+        "FilterFieldBase",
+        "FilterFieldDateRange",
+        "FilterFieldMulti",
+        "FilterFieldSelect",
+        "FilterFieldText",
+        "FilterValues"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/filter-bar-svelte",
+      "intentHints": [
+        "filter bar",
+        "list filter",
+        "search filter",
+        "toolbar filters"
+      ]
+    },
+    "@molecule/app-filter-bar-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "filter-bar",
+      "label": "Filter Bar Vue",
+      "description": "Composable, field-driven Vue filter bar",
+      "stack": "app",
+      "exports": [
+        "FilterBar",
+        "FilterBarProps",
+        "FilterField",
+        "FilterFieldBase",
+        "FilterFieldDateRange",
+        "FilterFieldMulti",
+        "FilterFieldSelect",
+        "FilterFieldText",
+        "FilterValues"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/filter-bar-vue",
       "intentHints": [
         "filter bar",
         "list filter",
@@ -45815,6 +47181,51 @@
         "latitude longitude device"
       ]
     },
+    "@molecule/app-gradebook-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "gradebook",
+      "label": "Gradebook Angular",
+      "description": "Gradebook UI — table of grades (course / assignment / letter / numeric / weight / contribution-to-GPA) plus optional GpaCard hero",
+      "stack": "app",
+      "exports": [
+        "GpaCard",
+        "GpaCardProps",
+        "GpaScale",
+        "GpaTrend",
+        "Grade",
+        "Gradebook",
+        "GradebookColumn",
+        "GradebookProps",
+        "computePercentage",
+        "defaultGpaMax",
+        "formatGpa"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/gradebook-angular",
+      "intentHints": [
+        "gradebook",
+        "grades table",
+        "gpa card",
+        "transcript view",
+        "lms grades",
+        "course grades"
+      ]
+    },
     "@molecule/app-gradebook-react": {
       "language": "typescript",
       "runtime": "node",
@@ -45849,6 +47260,135 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/gradebook-react",
+      "intentHints": [
+        "gradebook",
+        "grades table",
+        "gpa card",
+        "transcript view",
+        "lms grades",
+        "course grades"
+      ]
+    },
+    "@molecule/app-gradebook-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "gradebook",
+      "label": "Gradebook Solid",
+      "description": "Gradebook UI — table of grades (course / assignment / letter / numeric / weight / contribution-to-GPA) plus optional GpaCard hero",
+      "stack": "app",
+      "exports": [
+        "GpaCard",
+        "GpaCardProps",
+        "GpaScale",
+        "GpaTrend",
+        "Grade",
+        "Gradebook",
+        "GradebookColumn",
+        "GradebookProps",
+        "computePercentage",
+        "defaultGpaMax",
+        "formatGpa"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/gradebook-solid",
+      "intentHints": [
+        "gradebook",
+        "grades table",
+        "gpa card",
+        "transcript view",
+        "lms grades",
+        "course grades"
+      ]
+    },
+    "@molecule/app-gradebook-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "gradebook",
+      "label": "Gradebook Svelte",
+      "description": "Gradebook UI — table of grades (course / assignment / letter / numeric / weight / contribution-to-GPA) plus optional GpaCard hero",
+      "stack": "app",
+      "exports": [
+        "GpaCard",
+        "GpaCardProps",
+        "GpaScale",
+        "GpaTrend",
+        "Grade",
+        "Gradebook",
+        "GradebookColumn",
+        "GradebookProps",
+        "computePercentage",
+        "defaultGpaMax",
+        "formatGpa"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/gradebook-svelte",
+      "intentHints": [
+        "gradebook",
+        "grades table",
+        "gpa card",
+        "transcript view",
+        "lms grades",
+        "course grades"
+      ]
+    },
+    "@molecule/app-gradebook-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "gradebook",
+      "label": "Gradebook Vue",
+      "description": "Gradebook UI — table of grades (course / assignment / letter / numeric / weight / contribution-to-GPA) plus optional GpaCard hero",
+      "stack": "app",
+      "exports": [
+        "GpaCard",
+        "GpaCardProps",
+        "GpaScale",
+        "GpaTrend",
+        "Grade",
+        "Gradebook",
+        "GradebookColumn",
+        "GradebookProps",
+        "computePercentage",
+        "defaultGpaMax",
+        "formatGpa"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/gradebook-vue",
       "intentHints": [
         "gradebook",
         "grades table",
@@ -48853,6 +50393,44 @@
         "employment opening"
       ]
     },
+    "@molecule/app-join-code-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "join-code",
+      "label": "Join Code Angular",
+      "description": "Multi-slot join-code input with auto-advance, paste-to-fill, and alphabet validation. Used for live quiz join, virtual classroom room codes, and similar short-code entry UX.",
+      "stack": "app",
+      "exports": [
+        "JoinCode",
+        "JoinCodeAlphabet",
+        "JoinCodeProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/join-code-angular",
+      "intentHints": [
+        "join code",
+        "room code",
+        "pin entry",
+        "short code input",
+        "otp input"
+      ]
+    },
     "@molecule/app-join-code-react": {
       "language": "typescript",
       "runtime": "node",
@@ -48879,6 +50457,114 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/join-code-react",
+      "intentHints": [
+        "join code",
+        "room code",
+        "pin entry",
+        "short code input",
+        "otp input"
+      ]
+    },
+    "@molecule/app-join-code-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "join-code",
+      "label": "Join Code Solid",
+      "description": "Multi-slot join-code input with auto-advance, paste-to-fill, and alphabet validation. Used for live quiz join, virtual classroom room codes, and similar short-code entry UX.",
+      "stack": "app",
+      "exports": [
+        "JoinCode",
+        "JoinCodeAlphabet",
+        "JoinCodeProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/join-code-solid",
+      "intentHints": [
+        "join code",
+        "room code",
+        "pin entry",
+        "short code input",
+        "otp input"
+      ]
+    },
+    "@molecule/app-join-code-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "join-code",
+      "label": "Join Code Svelte",
+      "description": "Multi-slot join-code input with auto-advance, paste-to-fill, and alphabet validation. Used for live quiz join, virtual classroom room codes, and similar short-code entry UX.",
+      "stack": "app",
+      "exports": [
+        "JoinCode",
+        "JoinCodeAlphabet",
+        "JoinCodeProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/join-code-svelte",
+      "intentHints": [
+        "join code",
+        "room code",
+        "pin entry",
+        "short code input",
+        "otp input"
+      ]
+    },
+    "@molecule/app-join-code-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "join-code",
+      "label": "Join Code Vue",
+      "description": "Multi-slot join-code input with auto-advance, paste-to-fill, and alphabet validation. Used for live quiz join, virtual classroom room codes, and similar short-code entry UX.",
+      "stack": "app",
+      "exports": [
+        "JoinCode",
+        "JoinCodeAlphabet",
+        "JoinCodeProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/join-code-vue",
       "intentHints": [
         "join code",
         "room code",
@@ -48928,6 +50614,48 @@
         "cards and columns"
       ]
     },
+    "@molecule/app-kanban-board-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "kanban-board",
+      "label": "Kanban Board Angular",
+      "description": "Angular Kanban board, column, and card primitives",
+      "stack": "app",
+      "exports": [
+        "KanbanBoard",
+        "KanbanBoardProps",
+        "KanbanCard",
+        "KanbanCardData",
+        "KanbanCardProps",
+        "KanbanColumn",
+        "KanbanColumnData",
+        "KanbanColumnHeader",
+        "KanbanColumnHeaderProps",
+        "KanbanColumnProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/kanban-board-angular",
+      "intentHints": [
+        "kanban",
+        "task board",
+        "drag and drop columns",
+        "todo board"
+      ]
+    },
     "@molecule/app-kanban-board-react": {
       "language": "typescript",
       "runtime": "node",
@@ -48961,6 +50689,126 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/kanban-board-react",
+      "intentHints": [
+        "kanban",
+        "task board",
+        "drag and drop columns",
+        "todo board"
+      ]
+    },
+    "@molecule/app-kanban-board-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "kanban-board",
+      "label": "Kanban Board Solid",
+      "description": "Solid Kanban board, column, and card primitives",
+      "stack": "app",
+      "exports": [
+        "KanbanBoard",
+        "KanbanBoardProps",
+        "KanbanCard",
+        "KanbanCardData",
+        "KanbanCardProps",
+        "KanbanColumn",
+        "KanbanColumnData",
+        "KanbanColumnHeader",
+        "KanbanColumnHeaderProps",
+        "KanbanColumnProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/kanban-board-solid",
+      "intentHints": [
+        "kanban",
+        "task board",
+        "drag and drop columns",
+        "todo board"
+      ]
+    },
+    "@molecule/app-kanban-board-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "kanban-board",
+      "label": "Kanban Board Svelte",
+      "description": "Svelte Kanban board, column, and card primitives",
+      "stack": "app",
+      "exports": [
+        "KanbanBoard",
+        "KanbanBoardProps",
+        "KanbanCard",
+        "KanbanCardData",
+        "KanbanCardProps",
+        "KanbanColumn",
+        "KanbanColumnData",
+        "KanbanColumnHeader",
+        "KanbanColumnHeaderProps",
+        "KanbanColumnProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/kanban-board-svelte",
+      "intentHints": [
+        "kanban",
+        "task board",
+        "drag and drop columns",
+        "todo board"
+      ]
+    },
+    "@molecule/app-kanban-board-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "kanban-board",
+      "label": "Kanban Board Vue",
+      "description": "Vue Kanban board, column, and card primitives",
+      "stack": "app",
+      "exports": [
+        "KanbanBoard",
+        "KanbanBoardProps",
+        "KanbanCard",
+        "KanbanCardData",
+        "KanbanCardProps",
+        "KanbanColumn",
+        "KanbanColumnData",
+        "KanbanColumnHeader",
+        "KanbanColumnHeaderProps",
+        "KanbanColumnProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/kanban-board-vue",
       "intentHints": [
         "kanban",
         "task board",
@@ -50381,6 +52229,106 @@
         "@molecule/app-i18n"
       ],
       "path": "packages/app/locales/achievement-card"
+    },
+    "@molecule/app-locales-action-menu": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "locales",
+      "category": "i18n",
+      "label": "Action Menu Translations",
+      "description": "Translations for @molecule/app-action-menu-react in 79 languages",
+      "stack": "app",
+      "exports": [
+        "ActionMenuTranslationKey",
+        "ActionMenuTranslations",
+        "af",
+        "am",
+        "ar",
+        "az",
+        "be",
+        "bg",
+        "bn",
+        "bs",
+        "ca",
+        "cs",
+        "cy",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "et",
+        "eu",
+        "fa",
+        "fi",
+        "fil",
+        "fr",
+        "ga",
+        "gl",
+        "gu",
+        "ha",
+        "he",
+        "hi",
+        "hr",
+        "hu",
+        "hy",
+        "id",
+        "ig",
+        "is",
+        "it",
+        "ja",
+        "ka",
+        "kk",
+        "km",
+        "kn",
+        "ko",
+        "ky",
+        "lo",
+        "lt",
+        "lv",
+        "mk",
+        "ml",
+        "mn",
+        "mr",
+        "ms",
+        "mt",
+        "my",
+        "nb",
+        "ne",
+        "nl",
+        "pa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "si",
+        "sk",
+        "sl",
+        "sq",
+        "sr",
+        "sv",
+        "sw",
+        "ta",
+        "te",
+        "th",
+        "tr",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "yo",
+        "zh",
+        "zhTW",
+        "zu"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
+      "path": "packages/app/locales/action-menu"
     },
     "@molecule/app-locales-adjustment-slider": {
       "language": "typescript",
@@ -68719,6 +70667,43 @@
         "memo card"
       ]
     },
+    "@molecule/app-notification-badge-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "notification-badge",
+      "label": "Notification Badge Angular",
+      "description": "Unread count badge and positioned wrapper for attaching to any child",
+      "stack": "app",
+      "exports": [
+        "NotificationBadge",
+        "NotificationBadgeProps",
+        "NotificationDot",
+        "NotificationDotProps",
+        "NotificationWrapper",
+        "NotificationWrapperProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/notification-badge-angular",
+      "intentHints": [
+        "unread badge",
+        "notification dot",
+        "count badge"
+      ]
+    },
     "@molecule/app-notification-badge-react": {
       "language": "typescript",
       "runtime": "node",
@@ -68748,6 +70733,111 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/notification-badge-react",
+      "intentHints": [
+        "unread badge",
+        "notification dot",
+        "count badge"
+      ]
+    },
+    "@molecule/app-notification-badge-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "notification-badge",
+      "label": "Notification Badge Solid",
+      "description": "Unread count badge and positioned wrapper for attaching to any child",
+      "stack": "app",
+      "exports": [
+        "NotificationBadge",
+        "NotificationBadgeProps",
+        "NotificationDot",
+        "NotificationDotProps",
+        "NotificationWrapper",
+        "NotificationWrapperProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/notification-badge-solid",
+      "intentHints": [
+        "unread badge",
+        "notification dot",
+        "count badge"
+      ]
+    },
+    "@molecule/app-notification-badge-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "notification-badge",
+      "label": "Notification Badge Svelte",
+      "description": "Unread count badge and positioned wrapper for attaching to any child",
+      "stack": "app",
+      "exports": [
+        "NotificationBadge",
+        "NotificationBadgeProps",
+        "NotificationDot",
+        "NotificationDotProps",
+        "NotificationWrapper",
+        "NotificationWrapperProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/notification-badge-svelte",
+      "intentHints": [
+        "unread badge",
+        "notification dot",
+        "count badge"
+      ]
+    },
+    "@molecule/app-notification-badge-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "notification-badge",
+      "label": "Notification Badge Vue",
+      "description": "Unread count badge and positioned wrapper for attaching to any child",
+      "stack": "app",
+      "exports": [
+        "NotificationBadge",
+        "NotificationBadgeProps",
+        "NotificationDot",
+        "NotificationDotProps",
+        "NotificationWrapper",
+        "NotificationWrapperProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/notification-badge-vue",
       "intentHints": [
         "unread badge",
         "notification dot",
@@ -70411,6 +72501,47 @@
         "password creator"
       ]
     },
+    "@molecule/app-password-strength-meter-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "password-strength-meter",
+      "label": "Password Strength Meter Angular",
+      "description": "Real-time password strength meter — 5-segment colored bar, score label, optional rule checklist, in-package lightweight scorer",
+      "stack": "app",
+      "exports": [
+        "COMMON_PASSWORDS",
+        "PasswordChecklist",
+        "PasswordScore",
+        "PasswordScoreResult",
+        "PasswordStrengthMeter",
+        "PasswordStrengthMeterProps",
+        "scorePassword"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/password-strength-meter-angular",
+      "intentHints": [
+        "password strength",
+        "password meter",
+        "signup password",
+        "zxcvbn"
+      ]
+    },
     "@molecule/app-password-strength-meter-react": {
       "language": "typescript",
       "runtime": "node",
@@ -70441,6 +72572,123 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/password-strength-meter-react",
+      "intentHints": [
+        "password strength",
+        "password meter",
+        "signup password",
+        "zxcvbn"
+      ]
+    },
+    "@molecule/app-password-strength-meter-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "password-strength-meter",
+      "label": "Password Strength Meter Solid",
+      "description": "Real-time password strength meter — 5-segment colored bar, score label, optional rule checklist, in-package lightweight scorer",
+      "stack": "app",
+      "exports": [
+        "COMMON_PASSWORDS",
+        "PasswordChecklist",
+        "PasswordScore",
+        "PasswordScoreResult",
+        "PasswordStrengthMeter",
+        "PasswordStrengthMeterProps",
+        "scorePassword"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/password-strength-meter-solid",
+      "intentHints": [
+        "password strength",
+        "password meter",
+        "signup password",
+        "zxcvbn"
+      ]
+    },
+    "@molecule/app-password-strength-meter-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "password-strength-meter",
+      "label": "Password Strength Meter Svelte",
+      "description": "Real-time password strength meter — 5-segment colored bar, score label, optional rule checklist, in-package lightweight scorer",
+      "stack": "app",
+      "exports": [
+        "COMMON_PASSWORDS",
+        "PasswordChecklist",
+        "PasswordScore",
+        "PasswordScoreResult",
+        "PasswordStrengthMeter",
+        "PasswordStrengthMeterProps",
+        "scorePassword"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/password-strength-meter-svelte",
+      "intentHints": [
+        "password strength",
+        "password meter",
+        "signup password",
+        "zxcvbn"
+      ]
+    },
+    "@molecule/app-password-strength-meter-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "password-strength-meter",
+      "label": "Password Strength Meter Vue",
+      "description": "Real-time password strength meter — 5-segment colored bar, score label, optional rule checklist, in-package lightweight scorer",
+      "stack": "app",
+      "exports": [
+        "COMMON_PASSWORDS",
+        "PasswordChecklist",
+        "PasswordScore",
+        "PasswordScoreResult",
+        "PasswordStrengthMeter",
+        "PasswordStrengthMeterProps",
+        "scorePassword"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/password-strength-meter-vue",
       "intentHints": [
         "password strength",
         "password meter",
