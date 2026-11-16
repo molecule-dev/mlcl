@@ -35693,7 +35693,11 @@
         "avatar stack",
         "user avatars",
         "stacked avatars",
-        "participant avatars"
+        "participant avatars",
+        "linked user chip",
+        "author byline",
+        "profile identity row",
+        "assignee profile link"
       ]
     },
     "@molecule/app-avatar-stack-solid": {
