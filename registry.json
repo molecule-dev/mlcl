@@ -22091,7 +22091,7 @@
       },
       "intentHints": [
         "articles backend",
-        "blog posts backend",
+        "medium-style blog",
         "article favorites",
         "followed authors feed",
         "article tags",
@@ -40409,46 +40409,218 @@
     "@molecule/app-drag-drop-dndkit": {
       "language": "typescript",
       "runtime": "node",
+      "stack": "app",
       "type": "provider",
       "category": "drag-drop",
       "label": "Drag Drop",
-      "description": "Real @dnd-kit drag-drop provider for @molecule/app-drag-drop — sortable order store plus a React SortableList binding with pointer and keyboard sensors.",
-      "stack": "app",
+      "description": "Real @dnd-kit drag-drop provider for @molecule/app-drag-drop — a framework-neutral sortable order store plus the sensors, axis limits, translated announcements and reorder rule the per-framework sortable lists share.",
       "implements": "@molecule/app-drag-drop",
       "exports": [
         "createDndKitProvider",
         "provider",
-        "createSortableSensors",
-        "resolveSortingStrategy",
-        "SortableDragEndContext",
-        "handleSortableDragEnd",
-        "SortableListProps",
-        "SortableList",
-        "UseSortableItemOptions",
-        "SortableItemState",
-        "useSortableItem",
+        "sortableListSensors",
+        "resolveSortableAxis",
+        "sortableListModifiers",
+        "sortableListPlugins",
+        "coreDragStart",
+        "coreDragOver",
+        "sortableListDrop",
+        "SortableListSensors",
+        "SortableListPlugins",
+        "SortableListModifiers",
+        "SortableListAnnouncer",
+        "SortableListDrop",
+        "sortableListInstructions",
+        "sortableItemRoleDescription",
+        "SortableListLocaleOptions",
+        "SortableListLocale",
         "DndKitConfig",
+        "SortableListOptions",
+        "SortableItemOptions",
         "DndKitSortableInstance",
         "DndKitDraggableInstance",
         "DndKitDroppableInstance"
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@dnd-kit/core",
-        "@dnd-kit/sortable",
-        "@dnd-kit/utilities",
+        "@dnd-kit/abstract",
+        "@dnd-kit/dom",
+        "@dnd-kit/helpers",
         "@molecule/app-drag-drop",
-        "react",
-        "react-dom"
+        "@molecule/app-i18n"
       ],
       "moleculePeers": [
-        "@molecule/app-drag-drop"
+        "@molecule/app-drag-drop",
+        "@molecule/app-i18n"
       ],
       "path": "packages/app/bonds/drag-drop/dndkit",
       "intentHints": [
         "drag and drop",
         "sortable list",
         "reorder items"
+      ]
+    },
+    "@molecule/app-drag-drop-dndkit-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "stack": "app",
+      "type": "feature",
+      "category": "drag-drop",
+      "label": "Drag Drop Dndkit Angular",
+      "intentHints": [
+        "sortable list",
+        "drag and drop reorder",
+        "reorder items"
+      ],
+      "description": "Angular binding for @molecule/app-drag-drop-dndkit — a sortable list that reorders with the pointer, touch and the keyboard, with translated screen-reader announcements.",
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/core",
+        "@dnd-kit/dom",
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit"
+      ],
+      "moleculePeers": [
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit"
+      ],
+      "path": "packages/app/bonds/drag-drop/dndkit-angular",
+      "exports": [
+        "SortableItem",
+        "SortableItemHandle",
+        "SortableListProps",
+        "SortableList",
+        "useSortableItem",
+        "SortableItemState"
+      ]
+    },
+    "@molecule/app-drag-drop-dndkit-react": {
+      "language": "typescript",
+      "runtime": "node",
+      "stack": "app",
+      "type": "feature",
+      "category": "drag-drop",
+      "label": "Drag Drop Dndkit React",
+      "intentHints": [
+        "sortable list",
+        "drag and drop reorder",
+        "reorder items"
+      ],
+      "description": "React binding for @molecule/app-drag-drop-dndkit — a sortable list that reorders with the pointer, touch and the keyboard, with translated screen-reader announcements.",
+      "secrets": [],
+      "runtimeDependencies": [
+        "@dnd-kit/react",
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit",
+        "react",
+        "react-dom"
+      ],
+      "moleculePeers": [
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit"
+      ],
+      "path": "packages/app/bonds/drag-drop/dndkit-react",
+      "exports": [
+        "SortableList",
+        "SortableListProps",
+        "useSortableItem",
+        "SortableItemState"
+      ]
+    },
+    "@molecule/app-drag-drop-dndkit-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "stack": "app",
+      "type": "feature",
+      "category": "drag-drop",
+      "label": "Drag Drop Dndkit Solid",
+      "intentHints": [
+        "sortable list",
+        "drag and drop reorder",
+        "reorder items"
+      ],
+      "description": "Solid binding for @molecule/app-drag-drop-dndkit — a sortable list that reorders with the pointer, touch and the keyboard, with translated screen-reader announcements.",
+      "secrets": [],
+      "runtimeDependencies": [
+        "@dnd-kit/solid",
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit"
+      ],
+      "path": "packages/app/bonds/drag-drop/dndkit-solid",
+      "exports": [
+        "SortableList",
+        "SortableListProps",
+        "useSortableItem",
+        "SortableItemState"
+      ]
+    },
+    "@molecule/app-drag-drop-dndkit-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "stack": "app",
+      "type": "feature",
+      "category": "drag-drop",
+      "label": "Drag Drop Dndkit Svelte",
+      "intentHints": [
+        "sortable list",
+        "drag and drop reorder",
+        "reorder items"
+      ],
+      "description": "Svelte binding for @molecule/app-drag-drop-dndkit — a sortable list that reorders with the pointer, touch and the keyboard, with translated screen-reader announcements.",
+      "secrets": [],
+      "runtimeDependencies": [
+        "@dnd-kit/svelte",
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit"
+      ],
+      "path": "packages/app/bonds/drag-drop/dndkit-svelte",
+      "exports": [
+        "SortableList",
+        "SortableListProps",
+        "useSortableItem",
+        "SortableItemState"
+      ]
+    },
+    "@molecule/app-drag-drop-dndkit-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "stack": "app",
+      "type": "feature",
+      "category": "drag-drop",
+      "label": "Drag Drop Dndkit Vue",
+      "intentHints": [
+        "sortable list",
+        "drag and drop reorder",
+        "reorder items"
+      ],
+      "description": "Vue binding for @molecule/app-drag-drop-dndkit — a sortable list that reorders with the pointer, touch and the keyboard, with translated screen-reader announcements.",
+      "secrets": [],
+      "runtimeDependencies": [
+        "@dnd-kit/vue",
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-drag-drop",
+        "@molecule/app-drag-drop-dndkit"
+      ],
+      "path": "packages/app/bonds/drag-drop/dndkit-vue",
+      "exports": [
+        "SortableListProps",
+        "SortableList",
+        "useSortableItem",
+        "SortableItemState"
       ]
     },
     "@molecule/app-drawing-toolbar-angular": {
@@ -52845,6 +53017,106 @@
         "@molecule/app-i18n"
       ],
       "path": "packages/app/locales/day-timeline"
+    },
+    "@molecule/app-locales-drag-drop-dndkit": {
+      "language": "typescript",
+      "runtime": "node",
+      "stack": "app",
+      "type": "locales",
+      "category": "i18n",
+      "label": "Drag Drop Dndkit Translations",
+      "description": "Translations for @molecule/app-drag-drop-dndkit in 79 languages",
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
+      "path": "packages/app/locales/drag-drop-dndkit",
+      "exports": [
+        "af",
+        "am",
+        "ar",
+        "az",
+        "be",
+        "bg",
+        "bn",
+        "bs",
+        "ca",
+        "cs",
+        "cy",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "et",
+        "eu",
+        "fa",
+        "fi",
+        "fil",
+        "fr",
+        "ga",
+        "gl",
+        "gu",
+        "ha",
+        "he",
+        "hi",
+        "hr",
+        "hu",
+        "hy",
+        "id",
+        "ig",
+        "is",
+        "it",
+        "ja",
+        "ka",
+        "kk",
+        "km",
+        "kn",
+        "ko",
+        "ky",
+        "lo",
+        "lt",
+        "lv",
+        "mk",
+        "ml",
+        "mn",
+        "mr",
+        "ms",
+        "mt",
+        "my",
+        "nb",
+        "ne",
+        "nl",
+        "pa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "si",
+        "sk",
+        "sl",
+        "sq",
+        "sr",
+        "sv",
+        "sw",
+        "ta",
+        "te",
+        "th",
+        "tr",
+        "DragDropDndkitTranslationKey",
+        "DragDropDndkitTranslations",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "yo",
+        "zh",
+        "zhTW",
+        "zu"
+      ]
     },
     "@molecule/app-locales-drawing-toolbar": {
       "language": "typescript",
