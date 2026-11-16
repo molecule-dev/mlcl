@@ -48,6 +48,8 @@ export interface ExtractedExport {
   /** @returns JSDoc text (separate from returnType which is the TS type) */
   returnDescription?: string
   deprecated?: boolean
+  /** The `@deprecated` tag's text: what to use instead, and why. Undefined when the tag is bare. */
+  deprecationNote?: string
   /**
    * The file declaring this export, relative to the package's `src/`
    * (e.g. `authorization.ts`). Carried so a README block that had to be
@@ -643,8 +645,11 @@ function extractDeclaration(
     if (description) result.description = description
 
     // Check deprecated
-    if (jsDoc.getTags().some((tag) => tag.getTagName() === 'deprecated')) {
+    const deprecatedTag = jsDoc.getTags().find((tag) => tag.getTagName() === 'deprecated')
+    if (deprecatedTag) {
       result.deprecated = true
+      const note = unwrapJsdocProse(getTagText(deprecatedTag))
+      if (note) result.deprecationNote = note
     }
 
     // @param / @returns are read for EVERY kind, not just functions: a class

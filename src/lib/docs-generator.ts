@@ -685,6 +685,22 @@ function generateApiSection(exports: ExtractedExport[], packageName: string): st
 }
 
 /**
+ * The line under a deprecated export's heading that says what to use instead. A bare
+ * "(deprecated)" marker tells a reader to stop using the export without saying what replaces it.
+ *
+ * @param exp - The export.
+ * @returns The quoted note, or undefined when the export is not deprecated or its tag is bare.
+ */
+function deprecationLine(exp: ExtractedExport): string | undefined {
+  if (!exp.deprecated || !exp.deprecationNote) return undefined
+  // Every line of a multi-paragraph note stays inside the quote.
+  return `**Deprecated:** ${exp.deprecationNote}`
+    .split('\n')
+    .map((line) => (line ? `> ${line}` : '>'))
+    .join('\n')
+}
+
+/**
  * Format an interface, type alias, enum, or class export with full declaration code block.
  */
 function formatDeclarationExport(exp: ExtractedExport, ctx: ExportBlockContext): string {
@@ -692,6 +708,8 @@ function formatDeclarationExport(exp: ExtractedExport, ctx: ExportBlockContext):
   const deprecated = exp.deprecated ? ' *(deprecated)*' : ''
 
   parts.push(`${'#'.repeat(ctx.level)} \`${displayName(exp, ctx)}\`${deprecated}`)
+  const expDeprecation = deprecationLine(exp)
+  if (expDeprecation) parts.push(expDeprecation)
 
   const description = boundedDescription(exp, ctx)
   if (description) {
@@ -728,6 +746,8 @@ function formatFunctionExportDetailed(fn: ExtractedExport, ctx: ExportBlockConte
     paramNames = 'props'
   }
   parts.push(`${'#'.repeat(ctx.level)} \`${displayName(fn, ctx)}(${paramNames})\`${deprecated}`)
+  const fnDeprecation = deprecationLine(fn)
+  if (fnDeprecation) parts.push(fnDeprecation)
 
   const description = boundedDescription(fn, ctx)
   if (description) {
@@ -756,6 +776,8 @@ function formatConstantExport(c: ExtractedExport, ctx: ExportBlockContext): stri
   const deprecated = c.deprecated ? ' *(deprecated)*' : ''
 
   parts.push(`${'#'.repeat(ctx.level)} \`${displayName(c, ctx)}\`${deprecated}`)
+  const constDeprecation = deprecationLine(c)
+  if (constDeprecation) parts.push(constDeprecation)
 
   const description = boundedDescription(c, ctx)
   if (description) {
@@ -794,6 +816,8 @@ function formatNamespaceExport(ns: ExtractedExport, ctx: ExportBlockContext): st
   const deprecated = ns.deprecated ? ' *(deprecated)*' : ''
 
   parts.push(`${'#'.repeat(ctx.level)} \`${displayName(ns, ctx)}\`${deprecated}`)
+  const nsDeprecation = deprecationLine(ns)
+  if (nsDeprecation) parts.push(nsDeprecation)
 
   const description = boundedDescription(ns, ctx)
   if (description) {

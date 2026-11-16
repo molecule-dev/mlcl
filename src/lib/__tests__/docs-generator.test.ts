@@ -870,6 +870,31 @@ describe('generateMoleculeMd — function formatting', () => {
     )
     expect(result).toContain('*(deprecated)*')
   })
+
+  it('says what replaces a deprecated export, under its heading', () => {
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [
+          {
+            name: 'copyToClipboard',
+            kind: 'function',
+            deprecated: true,
+            deprecationNote: 'Use `copyTextWithFallback()` from `@molecule/app-clipboard`.',
+            description: 'Copies text.',
+          },
+          { name: 'OldConfig', kind: 'interface', deprecated: true },
+        ],
+      }),
+      makeRegistryEntry(),
+      makePackageJson(),
+      makeOptions(),
+    )
+    expect(result).toMatch(
+      /#### `copyToClipboard\(\)` \*\(deprecated\)\*\n\n> \*\*Deprecated:\*\* Use `copyTextWithFallback\(\)` from `@molecule\/app-clipboard`\.\n\nCopies text\./,
+    )
+    // A bare tag keeps the marker alone.
+    expect(result).toMatch(/`OldConfig` \*\(deprecated\)\*\n\n(?!> \*\*Deprecated)/)
+  })
 })
 
 // ============================================================================

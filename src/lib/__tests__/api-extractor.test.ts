@@ -353,6 +353,23 @@ export function oldFn(): void {}
     const fn = result.exports.find((e) => e.name === 'oldFn')
     expect(fn).toBeDefined()
     expect(fn!.deprecated).toBe(true)
+    expect(fn!.deprecationNote).toBe('Use newFn instead.')
+  })
+
+  it('leaves the deprecation note out for a bare @deprecated tag', async () => {
+    const dir = await createTempPackage(
+      'deprecated-bare',
+      `/**
+ * Old function.
+ * @deprecated
+ */
+export function oldFn(): void {}
+`,
+    )
+
+    const fn = extractPackageApi(dir).exports.find((e) => e.name === 'oldFn')
+    expect(fn!.deprecated).toBe(true)
+    expect(fn!.deprecationNote).toBeUndefined()
   })
 
   it('sorts exports by kind: interfaces, types, enums, functions, constants', async () => {

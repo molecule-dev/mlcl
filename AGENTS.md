@@ -344,7 +344,7 @@ For individual functions, classes, and interfaces, the generator renders:
 | Description text (before any `@tag`) | ✅ Yes                                              |
 | `@param name - description`          | ✅ Yes                                              |
 | `@returns description`               | ✅ Yes                                              |
-| `@deprecated`                        | ✅ Yes (badge)                                      |
+| `@deprecated`                        | ✅ Yes (badge, and its text as a quoted note)       |
 | `@example`                           | ❌ **No** — silently dropped for individual exports |
 | `@remarks`                           | ❌ **No** — only used at module level               |
 
