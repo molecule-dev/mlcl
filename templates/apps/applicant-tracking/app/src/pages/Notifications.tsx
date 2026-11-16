@@ -90,16 +90,10 @@ export function Notifications() {
   const [notifs, setNotifs] = useState<Notification[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [quickPrefs, setQuickPrefs] = useState<Record<string, boolean>>(() =>
-    Object.fromEntries(QUICK_PREFS.map((p) => [p.storageKey, p.defaultOn])),
-  )
-
-  useEffect(() => {
-    const stored = readQuickPrefs()
-    if (Object.keys(stored).length > 0) {
-      setQuickPrefs((cur) => ({ ...cur, ...stored }))
-    }
-  }, [])
+  const [quickPrefs, setQuickPrefs] = useState<Record<string, boolean>>(() => ({
+    ...Object.fromEntries(QUICK_PREFS.map((p) => [p.storageKey, p.defaultOn])),
+    ...readQuickPrefs(),
+  }))
 
   const setQuickPref = (storageKey: string, value: boolean) => {
     setQuickPrefs((prev) => {

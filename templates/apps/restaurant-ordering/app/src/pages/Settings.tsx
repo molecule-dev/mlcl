@@ -47,12 +47,22 @@ export function Settings() {
     [user],
   )
 
-  const [name, setName] = useState('')
-  const [phone, setPhone] = useState('')
-  const [address, setAddress] = useState('')
-  const [cuisine, setCuisine] = useState('')
-  const [hours, setHours] =
-    useState<Array<{ day: string; open: string; close: string }>>(DEFAULT_HOURS)
+  const restaurantFields = useForm({
+    defaultValues: { name: '', phone: '', address: '', cuisine: '', hours: DEFAULT_HOURS },
+    values: {
+      name: initialPrefs.restaurantName ?? '',
+      phone: initialPrefs.restaurantPhone ?? '',
+      address: initialPrefs.restaurantAddress ?? '',
+      cuisine: initialPrefs.restaurantCuisine ?? '',
+      hours: initialPrefs.serviceHours ?? DEFAULT_HOURS,
+    },
+    resetKey: user?.id,
+  })
+  const [name, setName] = restaurantFields.asState('name')
+  const [phone, setPhone] = restaurantFields.asState('phone')
+  const [address, setAddress] = restaurantFields.asState('address')
+  const [cuisine, setCuisine] = restaurantFields.asState('cuisine')
+  const [hours, setHours] = restaurantFields.asState('hours')
   const [prefAutoRush, setPrefAutoRush, fillPrefAutoRush] = useForm({
     defaultValues: { value: true },
   }).asState('value')
@@ -71,11 +81,6 @@ export function Settings() {
   const [status, setStatus] = useState<string | null>(null)
 
   useEffect(() => {
-    setName(initialPrefs.restaurantName ?? '')
-    setPhone(initialPrefs.restaurantPhone ?? '')
-    setAddress(initialPrefs.restaurantAddress ?? '')
-    setCuisine(initialPrefs.restaurantCuisine ?? '')
-    setHours(initialPrefs.serviceHours ?? DEFAULT_HOURS)
     fillPrefAutoRush(initialPrefs.prefAutoRush ?? true)
     fillPrefBellSound(initialPrefs.prefBellSound ?? true)
     fillPrefEmailReceipts(initialPrefs.prefEmailReceipts ?? false)
@@ -125,9 +130,14 @@ export function Settings() {
     t,
   ])
 
-  const updateHours = useCallback((idx: number, field: 'open' | 'close', value: string) => {
-    setHours((prev) => prev.map((row, i) => (i === idx ? { ...row, [field]: value } : row)))
-  }, [])
+  const updateHours = useCallback(
+    (idx: number, field: 'open' | 'close', value: string) => {
+      setHours((prev) => prev.map((row, i) => (i === idx ? { ...row, [field]: value } : row)))
+    },
+    [setHours],
+  )
+
+  if (!user) return <p>{t('common.loading', {}, { defaultValue: 'Loading…' })}</p>
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('7xl'), cm.mxAuto, cm.stack(8))}>

@@ -81,7 +81,10 @@ export function Compose() {
   const [params] = useSearchParams()
 
   const [draftId, setDraftId] = useState<string | null>(null)
-  const [recipients, setRecipients] = useState<string[]>([])
+  const [recipients, setRecipients, fillRecipients] = useForm({
+    defaultValues: { value: [] as string[] },
+    resetKey: params.toString(),
+  }).asState('value')
   const [recipientInput, setRecipientInput] = useState('')
   const [cc, setCc, fillCc] = useForm({
     defaultValues: { value: '' },
@@ -101,7 +104,11 @@ export function Compose() {
   }).asState('value')
   // Start in the user's saved default tone (Settings → Preferences) rather than
   // a hardcoded one, so their preference actually drives new drafts.
-  const [tone, setTone] = useState<Tone>(() => loadPreferences().defaultTone)
+  const defaultTone = useMemo(() => loadPreferences().defaultTone, [])
+  const [tone, setTone, fillTone] = useForm({
+    defaultValues: { value: defaultTone },
+    resetKey: params.toString(),
+  }).asState('value')
   const [aiPrompt, setAiPrompt] = useState('')
   const [showCcBcc, setShowCcBcc] = useState(false)
 
@@ -139,10 +146,10 @@ export function Compose() {
           setDraftId(d.id)
           fillSubject(d.subject ?? '')
           fillBody(d.body ?? '')
-          setRecipients(parseList(d.recipients))
+          fillRecipients(parseList(d.recipients))
           fillCc(parseList(d.cc).join(', '))
           fillBcc(parseList(d.bcc).join(', '))
-          if (d.tone) setTone(d.tone as Tone)
+          if (d.tone) fillTone(d.tone as Tone)
           return
         }
         const sentId = replyId ?? forwardId
@@ -164,10 +171,10 @@ export function Compose() {
         // uses "Fwd:" prefix and starts with no recipients (the user picks).
         if (replyId) {
           fillSubject(/^Re:\s/i.test(origSubject) ? origSubject : `Re: ${origSubject}`)
-          setRecipients(sent.recipient_email ? [sent.recipient_email] : [])
+          fillRecipients(sent.recipient_email ? [sent.recipient_email] : [])
         } else {
           fillSubject(/^Fwd:\s/i.test(origSubject) ? origSubject : `Fwd: ${origSubject}`)
-          setRecipients([])
+          fillRecipients([])
         }
         fillBody(
           `\n\n--- ${replyId ? 'On previous send, you wrote' : 'Forwarded message'} ---\n${origBody}`,
@@ -180,7 +187,7 @@ export function Compose() {
     return () => {
       cancelled = true
     }
-  }, [fillBcc, fillBody, fillCc, fillSubject, http, params])
+  }, [fillBcc, fillBody, fillCc, fillRecipients, fillSubject, fillTone, http, params])
 
   const addRecipient = (e: React.KeyboardEvent<HTMLInputElement>) => {
     if ((e.key === 'Enter' || e.key === ',') && recipientInput.trim()) {

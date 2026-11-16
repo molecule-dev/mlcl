@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Switch } from '@molecule/app-ui-react'
 
@@ -151,19 +151,16 @@ function ProfileSection({
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const fields = useForm({
+    defaultValues: { name: '', email: '' },
+    values: profile ? { name: profile.name ?? '', email: profile.email ?? '' } : undefined,
+    resetKey: profile?.id,
+  })
+  const [name, setName] = fields.asState('name')
+  const [email, setEmail] = fields.asState('email')
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
   const [savedAt, setSavedAt] = useState<Date | null>(null)
-
-  useEffect(() => {
-    if (profile && !name) setName(profile.name ?? '')
-  }, [profile, name])
-
-  useEffect(() => {
-    if (profile && !email) setEmail(profile.email ?? '')
-  }, [profile, email])
 
   if (loading) {
     return (
@@ -378,20 +375,23 @@ function PreferencesSection({
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [push, setPush] = useState(true)
-  const [email, setEmail] = useState(true)
-  const [priceDrops, setPriceDrops] = useState(true)
+  const fields = useForm({
+    defaultValues: { push: true, email: true, priceDrops: true },
+    values: profile
+      ? {
+          push: profile.preferences?.push ?? true,
+          email: profile.preferences?.email ?? true,
+          priceDrops: profile.preferences?.price_drops ?? true,
+        }
+      : undefined,
+    resetKey: profile?.id,
+  })
+  const [push, setPush] = fields.asState('push')
+  const [email, setEmail] = fields.asState('email')
+  const [priceDrops, setPriceDrops] = fields.asState('priceDrops')
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [savedAt, setSavedAt] = useState<Date | null>(null)
-
-  useEffect(() => {
-    if (!profile) return
-    const prefs = profile.preferences ?? {}
-    setPush(prefs.push ?? true)
-    setEmail(prefs.email ?? true)
-    setPriceDrops(prefs.price_drops ?? true)
-  }, [profile])
 
   if (!profile) {
     return (

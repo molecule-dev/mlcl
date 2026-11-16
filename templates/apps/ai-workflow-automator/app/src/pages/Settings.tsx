@@ -168,11 +168,13 @@ export function Settings() {
         >
           {active === 'profile' && <ProfileSection user={user ?? null} />}
 
-          {active === 'workspace' && <WorkspaceSection userId={user?.id} />}
+          {active === 'workspace' && user && <WorkspaceSection key={user.id} userId={user.id} />}
 
-          {active === 'security' && <SecuritySection userId={user?.id} />}
+          {active === 'security' && user && <SecuritySection key={user.id} userId={user.id} />}
 
-          {active === 'notifications' && <NotificationsSection userId={user?.id} />}
+          {active === 'notifications' && user && (
+            <NotificationsSection key={user.id} userId={user.id} />
+          )}
 
           {active === 'billing' && (
             <SectionCard
@@ -400,12 +402,6 @@ function WorkspaceSection({ userId }: { userId: string | undefined }) {
   const [savedAt, setSavedAt] = useState<string | null>(null)
   const [dirty, setDirty] = useState(false)
 
-  useEffect(() => {
-    setPrefs(readPrefs(storeKey, DEFAULT_WORKSPACE))
-    setSavedAt(null)
-    setDirty(false)
-  }, [storeKey])
-
   function update<K extends keyof WorkspacePrefs>(field: K, value: WorkspacePrefs[K]) {
     setPrefs((p) => ({ ...p, [field]: value }))
     setDirty(true)
@@ -490,10 +486,6 @@ function SecuritySection({ userId }: { userId: string | undefined }) {
   const { t } = useTranslation()
   const storeKey = useMemo(() => prefsKey(userId, 'security'), [userId])
   const [prefs, setPrefs] = useState<SecurityPrefs>(() => readPrefs(storeKey, DEFAULT_SECURITY))
-
-  useEffect(() => {
-    setPrefs(readPrefs(storeKey, DEFAULT_SECURITY))
-  }, [storeKey])
 
   function toggle(field: keyof SecurityPrefs, next: boolean) {
     const merged = { ...prefs, [field]: next }
@@ -784,10 +776,6 @@ function NotificationsSection({ userId }: { userId: string | undefined }) {
   const [prefs, setPrefs] = useState<NotificationsPrefs>(() =>
     readPrefs(storeKey, DEFAULT_NOTIFICATIONS),
   )
-
-  useEffect(() => {
-    setPrefs(readPrefs(storeKey, DEFAULT_NOTIFICATIONS))
-  }, [storeKey])
 
   function toggle(field: keyof NotificationsPrefs, next: boolean) {
     const merged = { ...prefs, [field]: next }

@@ -1,7 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface TransactionFormModalProps {
@@ -23,25 +23,38 @@ export function TransactionFormModal({
   const { t } = useTranslation()
   const http = useHttpClient()
 
-  const [kind, setKind] = useState<'buy' | 'sell'>(defaultKind)
-  const [symbol, setSymbol] = useState(defaultSymbol)
-  const [shares, setShares] = useState('')
-  const [price, setPrice] = useState('')
-  const [fees, setFees] = useState('')
-  const [account, setAccount] = useState('')
+  const fields = useForm<{
+    kind: 'buy' | 'sell'
+    symbol: string
+    shares: string
+    price: string
+    fees: string
+    account: string
+  }>({
+    defaultValues: {
+      kind: defaultKind,
+      symbol: defaultSymbol,
+      shares: '',
+      price: '',
+      fees: '',
+      account: '',
+    },
+    values: { kind: defaultKind, symbol: defaultSymbol },
+    resetKey: open,
+  })
+  const [kind, setKind] = fields.asState('kind')
+  const [symbol, setSymbol] = fields.asState('symbol')
+  const [shares, setShares] = fields.asState('shares')
+  const [price, setPrice] = fields.asState('price')
+  const [fees, setFees] = fields.asState('fees')
+  const [account, setAccount] = fields.asState('account')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
     if (!open) return
-    setKind(defaultKind)
-    setSymbol(defaultSymbol)
-    setShares('')
-    setPrice('')
-    setFees('')
-    setAccount('')
     setError(null)
-  }, [open, defaultSymbol, defaultKind])
+  }, [open])
 
   useEffect(() => {
     if (!open) return

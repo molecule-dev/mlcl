@@ -90,7 +90,7 @@ function SettingsBody() {
   const [saving, setSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
   const [savedAt, setSavedAt] = useState<number | null>(null)
-  const [widget, setWidget] = useState<WidgetAppearance>(WIDGET_DEFAULTS)
+  const [widget, setWidget] = useState<WidgetAppearance>(loadWidgetAppearance)
   const [widgetSavedAt, setWidgetSavedAt] = useState<number | null>(null)
 
   useEffect(() => {
@@ -108,10 +108,6 @@ function SettingsBody() {
       cancelled = true
     }
   }, [fillWorkspaceName, user?.id, user?.name])
-
-  useEffect(() => {
-    setWidget(loadWidgetAppearance())
-  }, [])
 
   const handleSaveWorkspace = async (event: React.FormEvent) => {
     event.preventDefault()

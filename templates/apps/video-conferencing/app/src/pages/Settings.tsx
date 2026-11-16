@@ -1,6 +1,6 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useState } from 'react'
 
-import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -57,20 +57,19 @@ export function Settings() {
   const http = useHttpClient()
   const user = useUser<UserProfile>()
   const [active, setActive] = useState('profile')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [username, setUsername] = useState('')
+  const profileFields = useForm({
+    defaultValues: { name: '', email: '', username: '' },
+    values: user
+      ? { name: user.name ?? '', email: user.email ?? '', username: user.username ?? '' }
+      : undefined,
+    resetKey: user?.id,
+  })
+  const [name, setName] = profileFields.asState('name')
+  const [email, setEmail] = profileFields.asState('email')
+  const [username, setUsername] = profileFields.asState('username')
   const [saving, setSaving] = useState(false)
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved' | 'error'>('idle')
   const [saveError, setSaveError] = useState<string | null>(null)
-
-  useEffect(() => {
-    if (user) {
-      setName(user.name ?? '')
-      setEmail(user.email ?? '')
-      setUsername(user.username ?? '')
-    }
-  }, [user])
 
   const saveProfile = useCallback(async () => {
     if (!user?.id) return
@@ -91,6 +90,8 @@ export function Settings() {
       setSaving(false)
     }
   }, [email, http, name, user?.id, username])
+
+  if (!user) return <p>{t('common.loading', {}, { defaultValue: 'Loading…' })}</p>
 
   return (
     <div className={cm.stack(8)}>

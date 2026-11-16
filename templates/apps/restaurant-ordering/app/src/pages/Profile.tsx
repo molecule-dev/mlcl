@@ -20,9 +20,16 @@ export function Profile() {
   const http = useHttpClient()
   const user = useUser<User>()
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
+  const profileFields = useForm({
+    defaultValues: { name: '', email: '', phone: '' },
+    values: user
+      ? { name: user.name ?? '', email: user.email ?? '', phone: user.phone ?? '' }
+      : undefined,
+    resetKey: user?.id,
+  })
+  const [name, setName] = profileFields.asState('name')
+  const [email, setEmail] = profileFields.asState('email')
+  const [phone, setPhone] = profileFields.asState('phone')
   const [emergencyName, setEmergencyName, fillEmergencyName] = useForm({
     defaultValues: { emergencyName: '' },
     resetOptions: { keepDirtyValues: true },
@@ -39,14 +46,6 @@ export function Profile() {
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [status, setStatus] = useState<string | null>(null)
-
-  useEffect(() => {
-    if (user) {
-      setName(user.name ?? '')
-      setEmail(user.email ?? '')
-      setPhone(user.phone ?? '')
-    }
-  }, [user])
 
   // Emergency contact lives in the app's own table (not the shared users
   // resource, whose update schema whitelists a fixed field set).
@@ -118,6 +117,8 @@ export function Profile() {
     .join('')
     .slice(0, 2)
     .toUpperCase()
+
+  if (!user) return <p>{t('common.loading', {}, { defaultValue: 'Loading…' })}</p>
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 8), cm.maxW('5xl'), cm.mxAuto, cm.stack(8))}>

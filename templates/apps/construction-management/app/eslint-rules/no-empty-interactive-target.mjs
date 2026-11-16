@@ -441,8 +441,8 @@ export default {
     },
     messages: {
       empty:
-        'This interactive element has no visible content or locally verifiable visual style. An aria-label, title, role or tabIndex does not draw it. Add visible text or a sized SVG (for example the framework Icon), or import CSS that draws and sizes this element. For remote/runtime CSS, verify it in the browser and use a narrow, reasoned ESLint disable.',
-      font: "Class '{{className}}' belongs to {{package}}, but its font setup is absent from the app's entry imports. In src/bonds/index.ts add: import { {{setter}} } from '{{core}}'; import { {{exportName}} } from '{{package}}'; {{setter}}({{exportName}}). Call that setup at startup. Alternatively import a local stylesheet with its @font-face and class rules. For verified remote/runtime styling, use a narrow, reasoned ESLint disable.",
+        'This control has no drawing in its content or imported local CSS. Add visible text, a sized SVG (such as Icon), or local CSS that draws it. An aria-label does not draw a click target.',
+      font: "'{{className}}' has no font. In src/bonds/index.ts import { {{exportName}} } from '{{package}}' and { {{setter}} } from '{{core}}'; call {{setter}}({{exportName}}).",
     },
   },
   create(context) {
@@ -458,6 +458,9 @@ export default {
       return cls ? { className: cls, ...classes.get(cls) } : null
     }
     const available = (node, provider) => {
+      // A text/SVG fallback already draws this element. Retaining an icon class
+      // does not require its font when that font supplies none of the content.
+      if (node.children.some((child) => possibleVisual(child, false))) return true
       sheets ??= loadedStyles(context, providers)
       return (
         sheets.fonts.has(provider.package) ||

@@ -186,6 +186,30 @@ export default tseslint.config(
       'molecule-local': moleculeLocal,
     },
     rules: {
+      // The scaffold's publicViews is an allow-list. A root glob silently opens
+      // every present and future route, including undeclared private routes.
+      // Keep router fallback routes and bounded public subtrees unrestricted.
+      'no-restricted-syntax': [
+        'error',
+        {
+          // Inspect the policy's own array, not metadata arrays or opaque initializer calls.
+          selector: [
+            '',
+            'TSAsExpression > ',
+            'TSSatisfiesExpression > ',
+            'TSSatisfiesExpression > TSAsExpression > ',
+          ]
+            .map(
+              (assertion) =>
+                "VariableDeclarator[id.name='publicViews'] > " +
+                assertion +
+                "ArrayExpression > ObjectExpression > Property:matches([computed=false][key.name='path'], [key.value='path']) > Literal:matches([value='*'], [value='/*'])",
+            )
+            .join(', '),
+          message:
+            'Root wildcards make publicViews allow every route. List public paths instead. For a deliberately public router, use a narrow ESLint disable and guard private routes with AuthGuard.',
+        },
+      ],
       'molecule-local/no-class-code': 'error',
       'molecule-local/no-empty-interactive-target': ['error', { iconFonts }],
       'molecule-local/prefer-declared-clients': 'error',

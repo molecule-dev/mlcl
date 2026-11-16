@@ -1893,7 +1893,9 @@ export function scaffoldRules(parser) {
         },
         messages: {
           overwrite:
-            'This effect replaces state used by an editable field. A loaded/once flag inside the effect does not protect edits made before that fill. Use useForm({ values: loadedData, resetOptions: { keepDirtyValues: true } }) from @molecule/app-react; for local state, guard the fill with a dirty ref set by this field’s change handler, or keep the field unavailable until a one-time fill has completed. Key a form by record identity when switching records.',
+            'Mount a keyed form after its record loads; seed state from that record. Or use useForm({ values: loadedData }) from @molecule/app-react to fill pristine fields without erasing edits.',
+          unfilled:
+            'This draft skips pristine fields after an edit. Mount a keyed form after its record loads, or use useForm({ values: loadedData }) from @molecule/app-react to hydrate fields individually.',
         },
       },
       create(context) {
@@ -1913,6 +1915,189 @@ export function scaffoldRules(parser) {
               guarded,
             } = flow
             const fields = []
+            // Editability is a state/control fact, independent of how a handler is spelled.
+            // A curried helper, useCallback or object method must not hide the field.
+            const mutators = (state) => [
+              ...new Set(
+                state.setter.references
+                  .filter(
+                    (ref) =>
+                      ref.isRead() &&
+                      !effects.some((effect) => flow.contains(effect.node, ref.identifier)),
+                  )
+                  .map((ref) => flow.owner(ref.identifier))
+                  .filter((fn) => {
+                    if (!fn) return false
+                    const name =
+                      fn.id ?? (fn.parent?.type === 'VariableDeclarator' ? fn.parent.id : null)
+                    return !name || variable(name)?.references.length > 0
+                  }),
+              ),
+            ]
+            // A controlled value is a draft only if its own input handler stores it
+            // synchronously. Resolve same-file definitions, including factories, but
+            // stop at imports, deferred callbacks and the first await of each function.
+            const inputStores = (handler, state) => {
+              const seen = new Set()
+              const dereference = (node, aliases, visited = new Set()) => {
+                node = unwrap(node)
+                const binding = variable(node)
+                if (!binding || visited.has(binding)) return node
+                visited.add(binding)
+                if (aliases.has(binding)) return dereference(aliases.get(binding), aliases, visited)
+                const def = binding.defs[0]
+                if (def?.type === 'FunctionName') return def.node
+                if (
+                  def?.type === 'Variable' &&
+                  def.parent.kind === 'const' &&
+                  def.node.id.type === 'Identifier'
+                )
+                  return dereference(def.node.init, aliases, visited)
+                return node
+              }
+              const bind = (fn, args, aliases) => {
+                const next = new Map(aliases)
+                fn.params.forEach((param, i) => {
+                  if (param.type === 'Identifier' && args[i]) next.set(variable(param), args[i])
+                })
+                return next
+              }
+              const firstAwait = (fn) => {
+                let end = Infinity
+                walk(
+                  fn.body,
+                  (part) => {
+                    if (part.type === 'AwaitExpression') end = Math.min(end, part.range[0])
+                  },
+                  (part) => !flow.isFunction(part),
+                )
+                return end
+              }
+              const functionOf = (value, aliases) => {
+                value = dereference(value, aliases)
+                if (value?.type === 'CallExpression' && flow.react(value.callee, 'useCallback'))
+                  value = dereference(value.arguments[0], aliases)
+                if (value?.type === 'MemberExpression') {
+                  const owners = new Set()
+                  const object = dereference(value.object, aliases, owners)
+                  const readonly = () => {
+                    for (const binding of owners) {
+                      if (
+                        binding.defs.some(
+                          (def) => def.node?.parent?.parent?.type === 'ExportNamedDeclaration',
+                        )
+                      )
+                        return false
+                      for (const reference of binding.references) {
+                        if (!reference.isRead()) continue
+                        const identifier = reference.identifier
+                        const parent = identifier.parent
+                        if (
+                          parent?.type === 'VariableDeclarator' &&
+                          parent.init === identifier &&
+                          parent.id.type === 'Identifier' &&
+                          parent.parent.kind === 'const'
+                        ) {
+                          const alias = variable(parent.id)
+                          if (!alias) return false
+                          owners.add(alias)
+                          continue
+                        }
+                        if (parent?.type !== 'MemberExpression' || parent.object !== identifier)
+                          return false
+                        let access = parent
+                        while (
+                          access.parent?.type === 'MemberExpression' &&
+                          access.parent.object === access
+                        )
+                          access = access.parent
+                        const use = access.parent
+                        if (
+                          (use?.type === 'AssignmentExpression' && use.left === access) ||
+                          (use?.type === 'UpdateExpression' && use.argument === access) ||
+                          (use?.type === 'UnaryExpression' && use.operator === 'delete') ||
+                          (use?.type === 'CallExpression' &&
+                            use.callee === access &&
+                            access !== value)
+                        )
+                          return false
+                      }
+                    }
+                    return true
+                  }
+                  let prop
+                  if (
+                    object?.type === 'ObjectExpression' &&
+                    !object.properties.some(
+                      (part) => part.type === 'Property' && part.kind !== 'init',
+                    ) &&
+                    readonly()
+                  )
+                    for (const part of object.properties.toReversed()) {
+                      // Later properties win. An opaque override cannot certify a handler.
+                      if (
+                        part.type === 'SpreadElement' ||
+                        (part.computed && part.key.type !== 'Literal')
+                      )
+                        break
+                      if (
+                        part.type !== 'Property' ||
+                        String(part.key.name ?? part.key.value) !== member(value)
+                      )
+                        continue
+                      if (part.kind === 'init') prop = part
+                      break
+                    }
+                  value = prop && dereference(prop.value, aliases)
+                }
+                return flow.isFunction(value) ? value : null
+              }
+              const invoke = (fn, aliases) => {
+                if (!fn || seen.has(fn)) return false
+                seen.add(fn)
+                const end = firstAwait(fn)
+                let stored = false
+                walk(
+                  fn.body,
+                  (part) => {
+                    if (part.type !== 'CallExpression' || part.range[1] > end) return
+                    const callee = dereference(part.callee, aliases)
+                    if (variable(callee) === state.setter) stored = true
+                    const called = functionOf(callee, aliases)
+                    if (called && invoke(called, bind(called, part.arguments, aliases)))
+                      stored = true
+                  },
+                  (part) => !flow.isFunction(part) && part.range[0] < end,
+                )
+                seen.delete(fn)
+                return stored
+              }
+              const entries = (node, aliases, factories = new Set()) => {
+                node = dereference(node, aliases)
+                if (!node) return false
+                if (variable(node) === state.setter) return true
+                const direct = functionOf(node, aliases)
+                if (direct) return invoke(direct, aliases)
+                if (node.type !== 'CallExpression') return false
+                const factory = functionOf(node.callee, aliases)
+                if (!factory || factory.async || factories.has(factory)) return false
+                const next = bind(factory, node.arguments, aliases)
+                const visited = new Set(factories).add(factory)
+                const returns = []
+                if (factory.body.type !== 'BlockStatement') returns.push(factory.body)
+                else
+                  walk(
+                    factory.body,
+                    (part) => {
+                      if (part.type === 'ReturnStatement' && part.argument)
+                        returns.push(part.argument)
+                    },
+                    (part) => !flow.isFunction(part),
+                  )
+                return returns.some((value) => entries(value, next, visited))
+              }
+              return entries(handler, new Map())
+            }
             walk(flow.source.ast, (node) => {
               if (node.type !== 'JSXOpeningElement') return
               const value = expression(attr(node, 'value')) ?? expression(attr(node, 'checked'))
@@ -1922,49 +2107,98 @@ export function scaffoldRules(parser) {
                   : value
               while (root?.type === 'MemberExpression') root = unwrap(root.object)
               const state = stateFor(root)
-              const change = callback(
-                expression(attr(node, 'onChange')) ?? expression(attr(node, 'onInput')),
-              )
-              if (!state || !change) return
-              let edits = false
-              walk(change.body, (part) => {
-                if (part.type === 'CallExpression' && variable(part.callee) === state.setter)
-                  edits = true
-              })
-              if (edits) fields.push({ node, state, change })
+              const handler =
+                expression(attr(node, 'onChange')) ?? expression(attr(node, 'onInput'))
+              if (!state || !handler) return
+              const mutationBodies = mutators(state).map((fn) => fn.body)
+              if (inputStores(handler, state))
+                fields.push({ node, state, change: callback(handler), mutationBodies, value })
             })
             // A dirty witness must be written by this field's own change handler.
             const dirtyGuards = (field) => {
-              const guards = []
-              walk(field.change.body, (part) => {
-                if (
-                  part.type === 'AssignmentExpression' &&
-                  part.operator === '=' &&
-                  member(part.left) === 'current' &&
-                  part.right.value === true
-                ) {
-                  const ref = variable(part.left.object)
-                  const initial = flow.init(part.left.object)
-                  if (
-                    initial?.type === 'CallExpression' &&
-                    flow.react(initial.callee, 'useRef') &&
-                    initial.arguments[0]?.value === false
-                  )
-                    guards.push({
-                      target: (node) => member(node) === 'current' && variable(node.object) === ref,
-                      ref: true,
-                    })
+              const bodies = []
+              // One logical field may use a local helper without a call graph. Every
+              // mutator of that state must set the same dirty witness. Multiple-field
+              // drafts cannot use one witness to skip their initial fill.
+              for (const body of field.mutationBodies) {
+                const guards = []
+                walk(
+                  body,
+                  (part) => {
+                    if (
+                      part.type === 'AssignmentExpression' &&
+                      part.operator === '=' &&
+                      member(part.left) === 'current' &&
+                      part.right.value === true
+                    ) {
+                      const ref = variable(part.left.object)
+                      const initial = flow.init(part.left.object)
+                      if (
+                        initial?.type === 'CallExpression' &&
+                        flow.react(initial.callee, 'useRef') &&
+                        initial.arguments[0]?.value === false
+                      )
+                        guards.push({
+                          target: (node) =>
+                            member(node) === 'current' && variable(node.object) === ref,
+                          ref: true,
+                          binding: ref,
+                        })
+                    }
+                    if (part.type === 'CallExpression' && part.arguments[0]?.value === true) {
+                      const state = flow.states.find(
+                        (item) =>
+                          variable(part.callee) === item.setter && item.initial?.value === false,
+                      )
+                      if (state)
+                        guards.push({
+                          target: (node) => variable(node) === state.value,
+                          ref: false,
+                          binding: state.value,
+                        })
+                    }
+                  },
+                  (part) => !flow.isFunction(part),
+                )
+                bodies.push(guards)
+              }
+              return (bodies[0] ?? []).filter((guard) =>
+                bodies.every((body) =>
+                  body.some((other) => other.binding === guard.binding && other.ref === guard.ref),
+                ),
+              )
+            }
+            // A scalar dirty witness preserves one value. On an initially defaulted
+            // object shared by several inputs, it can prevent the *other* inputs from
+            // ever receiving their first record. Already-prefilled objects remain valid.
+            const defaultedAggregate = (state, editable) => {
+              const path = (node) => {
+                node = unwrap(node)
+                if (node?.type === 'MemberExpression') {
+                  const key = member(node)
+                  return key == null ? null : `${path(node.object)}.${key}`
                 }
-                if (part.type === 'CallExpression' && part.arguments[0]?.value === true) {
-                  const state = flow.states.find(
-                    (item) =>
-                      variable(part.callee) === item.setter && item.initial?.value === false,
+                return variable(node) === state.value ? '' : null
+              }
+              if (
+                new Set(editable.map((field) => path(field.value)).filter((key) => key !== null))
+                  .size < 2
+              )
+                return false
+              const defaults = (node, seen = new Set()) => {
+                node = unwrap(node)
+                if (!node || seen.has(node)) return false
+                seen.add(node)
+                if (node.type === 'Literal') return true
+                if (node.type === 'ArrayExpression')
+                  return node.elements.every((part) => defaults(part, new Set(seen)))
+                if (node.type === 'ObjectExpression')
+                  return node.properties.every(
+                    (part) => part.type === 'Property' && defaults(part.value, new Set(seen)),
                   )
-                  if (state)
-                    guards.push({ target: (node) => variable(node) === state.value, ref: false })
-                }
-              })
-              return guards
+                return defaults(flow.init(node), seen)
+              }
+              return defaults(state.initial)
             }
             const unavailable = (field, target, settled) => {
               if (target && guarded(field.node, field.state.owner, target, settled)) return true
@@ -2027,14 +2261,14 @@ export function scaffoldRules(parser) {
                   )?.value
                   if (!setter) return
                   const writes = []
-                  walk(field.change.body, (call) => {
+                  walk(field.change?.body, (call) => {
                     if (
                       call.type === 'CallExpression' &&
                       variable(call.callee) === field.state.setter
                     )
                       writes.push(call.arguments[0])
                   })
-                  walk(field.change.body, (call) => {
+                  walk(field.change?.body, (call) => {
                     if (
                       call.type === 'CallExpression' &&
                       variable(call.callee) === variable(setter) &&
@@ -2142,25 +2376,87 @@ export function scaffoldRules(parser) {
                     test.range[0] > lastAwait && flow.implies(test, truth, target, false),
                 )
             }
+            const replacedKeys = (argument) => {
+              const fn = callback(argument)
+              if (!fn || fn.params[0]?.type !== 'Identifier') return null
+              const previous = variable(fn.params[0])
+              const keys = (node) => {
+                node = unwrap(node)
+                if (variable(node) === previous) return new Set()
+                if (node?.type === 'ConditionalExpression') {
+                  const yes = keys(node.consequent),
+                    no = keys(node.alternate)
+                  return yes && no ? new Set([...yes, ...no]) : null
+                }
+                if (
+                  node?.type !== 'ObjectExpression' ||
+                  node.properties[0]?.type !== 'SpreadElement' ||
+                  variable(node.properties[0].argument) !== previous
+                )
+                  return null
+                const result = new Set()
+                for (const prop of node.properties.slice(1)) {
+                  if (prop.type !== 'Property' || (prop.computed && prop.key.type !== 'Literal'))
+                    return null
+                  result.add(String(prop.key.name ?? prop.key.value))
+                }
+                return result
+              }
+              if (fn.body.type !== 'BlockStatement') return keys(fn.body)
+              const returns = []
+              walk(
+                fn.body,
+                (node) => {
+                  if (node.type === 'ReturnStatement') returns.push(keys(node.argument))
+                },
+                (node) => !flow.isFunction(node),
+              )
+              return returns.length && returns.every(Boolean)
+                ? new Set(returns.flatMap((value) => [...value]))
+                : null
+            }
+            const fieldKey = (field) => {
+              let value = unwrap(field.value)
+              if (value?.type === 'LogicalExpression' && value.operator === '??')
+                value = unwrap(value.left)
+              let key = null
+              while (value?.type === 'MemberExpression') {
+                key = member(value)
+                value = unwrap(value.object)
+              }
+              return key == null ? null : String(key)
+            }
             for (const effect of effects)
               for (const write of effect.writes) {
                 if (!write.argument || ['Literal', 'ArrayExpression'].includes(write.argument.type))
                   continue
                 const editable = fields.filter((field) => field.state === write.state)
                 if (!editable.length) continue
+                const replaced = replacedKeys(write.argument)
+                const aggregate = defaultedAggregate(write.state, editable)
+                let skippedInitialFill = false
                 const safe = editable.every((field) => {
+                  if (replaced && fieldKey(field) !== null && !replaced.has(fieldKey(field)))
+                    return true
                   if (unavailable(field)) return true
-                  if (livePreference(write, field)) return true
-                  if (routeMirror(write, field)) return true
+                  // The write that first creates a nullable record also fills every
+                  // field mounted/disabled on that same state. There is no earlier draft.
                   if (
-                    dirtyGuards(field).some(
-                      (guard) =>
-                        (guard.ref || !write.async) &&
-                        (guardedFill(write, effect, guard.target) ||
-                          guardedUpdater(write.argument, guard.target)),
-                    )
+                    write.state.initial?.type === 'Literal' &&
+                    write.state.initial.value === null &&
+                    unavailable(field, (node) => variable(node) === write.state.value, true)
                   )
                     return true
+                  if (livePreference(write, field)) return true
+                  if (routeMirror(write, field)) return true
+                  const dirty = dirtyGuards(field).some(
+                    (guard) =>
+                      (guard.ref || !write.async) &&
+                      (guardedFill(write, effect, guard.target) ||
+                        guardedUpdater(write.argument, guard.target)),
+                  )
+                  if (dirty && !aggregate) return true
+                  if (dirty && aggregate) skippedInitialFill = true
                   // An explicit request cycle owns its unavailable UI through completion.
                   // It is distinct from merely observing that query.data has arrived.
                   if (
@@ -2192,7 +2488,11 @@ export function scaffoldRules(parser) {
                     )
                   )
                 })
-                if (!safe) context.report({ node: write.node, messageId: 'overwrite' })
+                if (!safe)
+                  context.report({
+                    node: write.node,
+                    messageId: skippedInitialFill ? 'unfilled' : 'overwrite',
+                  })
               }
           },
         }
@@ -3999,9 +4299,9 @@ export function scaffoldRules(parser) {
           droppedIntent:
             'This control shows its next value before awaiting work, but its busy guard discards another click while that work is pending. Keep the control disabled for that busy state, or queue the latest intent with useOptimisticValue from @molecule/app-react. An imported callback does not make the busy guard safe.',
           unreadyRecord:
-            '{{fix}} Its handler silently discards the action when {{record}} is missing, and this component’s JSX treats that value as possibly missing. Keep controls mounted during same-record refetches once their initial data exists.',
+            '{{fix}} The handler drops actions until {{record}} loads. Keep it mounted during refetches.',
           unreadyForm:
-            'Add disabled={!{{record}}} to this form’s submit button, or mount the form only when {{record}} exists ({{record}} ? <form …> : null, or inside QueryContent). Its handler silently discards the submit when {{record}} is missing, and this component’s JSX treats that value as possibly missing. Keep it mounted during same-record refetches once its initial data exists.',
+            'Add disabled={!{{record}}} to this form’s submit button, or mount it only when {{record}} exists. It drops early submits. Keep it mounted during refetches.',
         },
       },
       create(context) {
@@ -4908,6 +5208,19 @@ export function scaffoldRules(parser) {
                   ...entry,
                 })),
               )
+            else if (
+              mode === 'dropped-intent' &&
+              node.parent.name?.type === 'JSXIdentifier' &&
+              /^[A-Z]/.test(node.parent.name.name)
+            )
+              controls.push(
+                ...clickHandlers(node.value?.expression).map((entry) => ({
+                  opening: node.parent,
+                  forwardedProp: node.name.name,
+                  forwardedAttribute: node,
+                  ...entry,
+                })),
+              )
             if (node.name.name !== 'onSubmit') return
             // A form submits from its button and from Enter in a field, so the form is the control.
             if (node.parent.name?.type === 'JSXIdentifier' && node.parent.name.name === 'form')
@@ -5582,7 +5895,97 @@ export function scaffoldRules(parser) {
                   })
                 )
               }
-              for (const { opening, handler, conditions, form } of controls) {
+              let components
+              const forwarding = new Map()
+              // Resolve only a suspect callback, and only its direct local component.
+              // Prop spelling alone does not make a callback an input action: the
+              // component must forward that same lexical binding to an enabled native
+              // onClick in its unconditional return. Opaque/guarded renderers stay local.
+              const forwardsClick = (opening, prop) => {
+                const component = flow.variable(opening.name)
+                if (!component) return false
+                let properties = forwarding.get(component)
+                if (!properties) forwarding.set(component, (properties = new Map()))
+                if (properties.has(prop)) return properties.get(prop)
+                properties.set(prop, false)
+                components ??= componentResolver(parser, context)
+                const definition = component.defs[0]
+                const found =
+                  definition?.type === 'ImportBinding'
+                    ? components.imported(
+                        flow.source.ast,
+                        opening.name.name,
+                        resolve(context.cwd, context.filename),
+                      )
+                    : {
+                        node:
+                          definition?.type === 'FunctionName'
+                            ? definition.node
+                            : definition?.node.init,
+                        tree: flow.source.ast,
+                      }
+                const fn = found?.node
+                if (!isFunction(fn)) return false
+                if (
+                  fn.body.type === 'BlockStatement' &&
+                  (fn.body.body.length !== 1 || fn.body.body[0].type !== 'ReturnStatement')
+                )
+                  return false
+                const parameter = fn.params[0]
+                const property =
+                  parameter?.type === 'ObjectPattern'
+                    ? parameter.properties.find(
+                        (part) =>
+                          part.type === 'Property' &&
+                          (!part.computed || part.key.type === 'Literal') &&
+                          (part.key.name ?? part.key.value) === prop,
+                      )
+                    : null
+                const bindingName =
+                  parameter?.type === 'Identifier' ? parameter.name : property?.value?.name
+                if (!bindingName) return false
+                const binding = components.scopes
+                  .get(found.tree)
+                  ?.find((scope) => scope.block === fn)
+                  ?.set.get(bindingName)
+                if (!binding) return false
+                const references = new Set(binding.references.map((ref) => ref.identifier))
+                const forwarded = (value) =>
+                  parameter.type === 'Identifier'
+                    ? value?.type === 'MemberExpression' &&
+                      references.has(value.object) &&
+                      flow.member(value) === prop
+                    : references.has(value)
+                const rendered = (node) => {
+                  if (node?.type === 'JSXFragment') return node.children.some(rendered)
+                  if (node?.type === 'JSXExpressionContainer') return rendered(node.expression)
+                  if (node?.type !== 'JSXElement') return false
+                  const element = node.openingElement
+                  if (element.name.type !== 'JSXIdentifier' || !/^[a-z]/.test(element.name.name))
+                    return false
+                  if (
+                    element.attributes.some(
+                      (attr) =>
+                        attr.type === 'JSXSpreadAttribute' ||
+                        ['disabled', 'hidden', 'inert'].includes(attr.name?.name),
+                    )
+                  )
+                    return false
+                  const click = flow.expression(flow.attr(element, 'onClick'))
+                  return forwarded(click) || node.children.some(rendered)
+                }
+                const result = components.roots(fn).some(rendered)
+                properties.set(prop, result)
+                return result
+              }
+              for (const {
+                opening,
+                handler,
+                conditions,
+                form,
+                forwardedProp,
+                forwardedAttribute,
+              } of controls) {
                 if (reportedControls.has(opening)) continue
                 const relevant = handlers(handler)
                 for (const record of records) {
@@ -5617,6 +6020,18 @@ export function scaffoldRules(parser) {
                         ),
                     )
                   if (!ignoresMissing) continue
+                  if (forwardedProp) {
+                    let effective
+                    for (const attribute of opening.attributes.toReversed()) {
+                      if (attribute.type === 'JSXSpreadAttribute') break
+                      if (attribute.name?.name === forwardedProp) {
+                        effective = attribute
+                        break
+                      }
+                    }
+                    if (effective !== forwardedAttribute || !forwardsClick(opening, forwardedProp))
+                      continue
+                  }
                   if (form) {
                     const buttons = submitters(opening)
                     if (
@@ -5624,16 +6039,17 @@ export function scaffoldRules(parser) {
                       buttons.every((button) => disabledWithout(button, record))
                     )
                       continue
-                  } else if (disabledWithout(opening, record)) continue
+                  } else if (!forwardedProp && disabledWithout(opening, record)) continue
                   if (mountedWithout(opening, record)) continue
                   context.report({
                     node: opening,
                     messageId: form ? 'unreadyForm' : 'unreadyRecord',
                     data: {
                       record: record.name,
-                      fix: takesDisabled(opening)
-                        ? `Add disabled={!${record.name}} to this control, or mount it only when ${record.name} exists.`
-                        : `Mount this control only when ${record.name} exists.`,
+                      fix:
+                        !forwardedProp && takesDisabled(opening)
+                          ? `Add disabled={!${record.name}} to this control, or mount it only when ${record.name} exists.`
+                          : `Mount this control only when ${record.name} exists.`,
                     },
                   })
                   reportedControls.add(opening)

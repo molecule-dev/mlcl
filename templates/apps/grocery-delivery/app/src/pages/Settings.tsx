@@ -403,25 +403,22 @@ function Field({
 }
 
 function PreferencesSection() {
+  const { user } = useAuth<UserProfile>()
+  const { t } = useTranslation()
+  if (!user) return <p>{t('common.loading', {}, { defaultValue: 'Loading…' })}</p>
+  return <PreferencesFields key={user.id} userId={user.id} />
+}
+
+function PreferencesFields({ userId }: { userId: string }) {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const { user } = useAuth<UserProfile>()
-
-  const userId = user?.id ?? ''
-  const [pushEnabled, setPushEnabled] = useState(true)
-  const [emailEnabled, setEmailEnabled] = useState(true)
+  const [initialPrefs] = useState(() => loadLocalPrefs(userId))
+  const [pushEnabled, setPushEnabled] = useState(initialPrefs.push !== false)
+  const [emailEnabled, setEmailEnabled] = useState(initialPrefs.email !== false)
   const [substitutionDefault, setSubstitutionDefault] = useState<
     'best_match' | 'specific_only' | 'refund'
-  >('best_match')
+  >(initialPrefs.substitutionDefault ?? 'best_match')
   const [info, setInfo] = useState<string | null>(null)
-
-  useEffect(() => {
-    if (!userId) return
-    const prefs = loadLocalPrefs(userId)
-    setPushEnabled(prefs.push !== false)
-    setEmailEnabled(prefs.email !== false)
-    setSubstitutionDefault(prefs.substitutionDefault ?? 'best_match')
-  }, [userId])
 
   function persist(next: NotificationPrefs): void {
     if (!userId) return

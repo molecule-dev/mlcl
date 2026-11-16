@@ -119,7 +119,7 @@ export function Settings() {
   // leave them at defaults for a beat after a reload.
   const initialMe = user ?? null
   const [me, setMe] = useState<MeProps | null>(initialMe)
-  const [prefs, setPrefs] = useState<Preferences>(defaultPreferences)
+  const [prefs, setPrefs] = useState<Preferences | null>(null)
   const [nameDraft, setNameDraft, fillNameDraft] = useForm({
     defaultValues: { value: initialMe?.name ?? '' },
   }).asState('value')
@@ -164,7 +164,9 @@ export function Settings() {
         const slice = (res as { data?: { preferences?: unknown } }).data ?? {}
         setPrefs(readPreferences(slice.preferences))
       })
-      .catch(() => {})
+      .catch(() => {
+        if (!cancelled) setPrefs(defaultPreferences())
+      })
     return () => {
       cancelled = true
     }
@@ -465,24 +467,29 @@ export function Settings() {
           { defaultValue: 'Choose what reaches your inbox.' },
         )}
       >
-        {NOTIFICATIONS.map((n) => (
-          <ToggleRow
-            key={n.key}
-            label={t(`settings.notifications.${n.key}.label`, {}, { defaultValue: n.defaultLabel })}
-            description={t(
-              `settings.notifications.${n.key}.description`,
-              {},
-              { defaultValue: n.defaultDescription },
-            )}
-            value={prefs.notifications[n.key] ?? n.defaultValue}
-            onChange={(v) =>
-              persistPreferences({
-                ...prefs,
-                notifications: { ...prefs.notifications, [n.key]: v },
-              })
-            }
-          />
-        ))}
+        {prefs &&
+          NOTIFICATIONS.map((n) => (
+            <ToggleRow
+              key={n.key}
+              label={t(
+                `settings.notifications.${n.key}.label`,
+                {},
+                { defaultValue: n.defaultLabel },
+              )}
+              description={t(
+                `settings.notifications.${n.key}.description`,
+                {},
+                { defaultValue: n.defaultDescription },
+              )}
+              value={prefs.notifications[n.key] ?? n.defaultValue}
+              onChange={(v) =>
+                persistPreferences({
+                  ...prefs,
+                  notifications: { ...prefs.notifications, [n.key]: v },
+                })
+              }
+            />
+          ))}
       </SettingsSection>
 
       <SettingsSection
@@ -493,21 +500,22 @@ export function Settings() {
           { defaultValue: 'How articles render for you.' },
         )}
       >
-        {READING.map((n) => (
-          <ToggleRow
-            key={n.key}
-            label={t(`settings.reading.${n.key}.label`, {}, { defaultValue: n.defaultLabel })}
-            description={t(
-              `settings.reading.${n.key}.description`,
-              {},
-              { defaultValue: n.defaultDescription },
-            )}
-            value={prefs.reading[n.key] ?? n.defaultValue}
-            onChange={(v) =>
-              persistPreferences({ ...prefs, reading: { ...prefs.reading, [n.key]: v } })
-            }
-          />
-        ))}
+        {prefs &&
+          READING.map((n) => (
+            <ToggleRow
+              key={n.key}
+              label={t(`settings.reading.${n.key}.label`, {}, { defaultValue: n.defaultLabel })}
+              description={t(
+                `settings.reading.${n.key}.description`,
+                {},
+                { defaultValue: n.defaultDescription },
+              )}
+              value={prefs.reading[n.key] ?? n.defaultValue}
+              onChange={(v) =>
+                persistPreferences({ ...prefs, reading: { ...prefs.reading, [n.key]: v } })
+              }
+            />
+          ))}
       </SettingsSection>
 
       <SettingsSection

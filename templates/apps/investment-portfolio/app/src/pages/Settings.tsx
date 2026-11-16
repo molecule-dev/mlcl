@@ -95,7 +95,9 @@ export function Settings() {
   const [profileMsg, setProfileMsg] = useState<{ kind: 'ok' | 'err'; text: string } | null>(null)
 
   // Notification prefs state
-  const [prefs, setPrefs] = useState<NotificationPrefs>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<NotificationPrefs>({
+    defaultValues: DEFAULT_PREFS,
+  }).asState()
   const [prefsBusy, setPrefsBusy] = useState<keyof NotificationPrefs | null>(null)
   const [prefsMsg, setPrefsMsg] = useState<string | null>(null)
 
@@ -144,7 +146,7 @@ export function Settings() {
       }
       const p = unwrapSingle<NotificationPrefs>(prefsRes)
       if (p) {
-        setPrefs({
+        fillPrefs({
           price_alerts: Boolean(p.price_alerts),
           rebalance_drift: Boolean(p.rebalance_drift),
           dividends_paid: Boolean(p.dividends_paid),
@@ -155,7 +157,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, fillAdvisorEmail])
+  }, [http, fillAdvisorEmail, fillPrefs])
 
   // Load the user's registered devices (GET /api/devices). Exposed as a
   // callback so a successful revoke can refetch the list.
@@ -248,7 +250,7 @@ export function Settings() {
         setPrefsBusy(null)
       }
     },
-    [http, prefs, prefsBusy, t],
+    [http, prefs, prefsBusy, setPrefs, t],
   )
 
   const handleChangePassword = useCallback(

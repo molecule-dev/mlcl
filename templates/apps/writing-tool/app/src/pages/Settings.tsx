@@ -119,11 +119,15 @@ export function Settings() {
   const [profileSaving, setProfileSaving] = useState(false)
   const [profileMsg, setProfileMsg] = useState<{ kind: 'ok' | 'err'; text: string } | null>(null)
 
-  const [dailyGoal, setDailyGoal] = useState('2000')
-  const [toggles, setToggles] = useState<Record<string, boolean>>(() =>
-    Object.fromEntries(EDITOR_TOGGLES.map((row) => [row.id, row.defaultEnabled])),
-  )
-  const [exportFormat, setExportFormat] = useState<ExportFormat>('md')
+  const [dailyGoal, setDailyGoal, fillDailyGoal] = useForm({
+    defaultValues: { value: '2000' },
+  }).asState('value')
+  const [toggles, setToggles, fillToggles] = useForm<Record<string, boolean>>({
+    defaultValues: Object.fromEntries(EDITOR_TOGGLES.map((row) => [row.id, row.defaultEnabled])),
+  }).asState()
+  const [exportFormat, setExportFormat, fillExportFormat] = useForm<{ value: ExportFormat }>({
+    defaultValues: { value: 'md' },
+  }).asState('value')
   const [prefsMsg, setPrefsMsg] = useState<string | null>(null)
 
   useEffect(() => {
@@ -134,14 +138,14 @@ export function Settings() {
   useEffect(() => {
     try {
       const goal = window.localStorage.getItem(STORAGE_KEYS.goal)
-      if (goal) setDailyGoal(goal)
+      if (goal) fillDailyGoal(goal)
       const tog = window.localStorage.getItem(STORAGE_KEYS.toggles)
-      if (tog) setToggles((prev) => ({ ...prev, ...(JSON.parse(tog) as Record<string, boolean>) }))
-      setExportFormat(readDefaultExportFormat())
+      if (tog) fillToggles((prev) => ({ ...prev, ...(JSON.parse(tog) as Record<string, boolean>) }))
+      fillExportFormat(readDefaultExportFormat())
     } catch (_error) {
       // localStorage unavailable (private mode, server-render) — safe to ignore.
     }
-  }, [])
+  }, [fillDailyGoal, fillExportFormat, fillToggles])
 
   const handleSaveProfile = useCallback(async () => {
     if (!user?.id) return
@@ -185,38 +189,47 @@ export function Settings() {
     }
   }, [user, http, name, email, setUser, t])
 
-  const persistGoal = useCallback((value: string) => {
-    setDailyGoal(value)
-    try {
-      window.localStorage.setItem(STORAGE_KEYS.goal, value)
-    } catch (_error) {
-      // localStorage unavailable (private mode) — preference is held in state only.
-    }
-    setPrefsMsg('Saved')
-  }, [])
-
-  const persistToggle = useCallback((id: string, value: boolean) => {
-    setToggles((prev) => {
-      const next = { ...prev, [id]: value }
+  const persistGoal = useCallback(
+    (value: string) => {
+      setDailyGoal(value)
       try {
-        window.localStorage.setItem(STORAGE_KEYS.toggles, JSON.stringify(next))
+        window.localStorage.setItem(STORAGE_KEYS.goal, value)
       } catch (_error) {
         // localStorage unavailable (private mode) — preference is held in state only.
       }
-      return next
-    })
-    setPrefsMsg('Saved')
-  }, [])
+      setPrefsMsg('Saved')
+    },
+    [setDailyGoal],
+  )
 
-  const persistExport = useCallback((value: ExportFormat) => {
-    setExportFormat(value)
-    try {
-      window.localStorage.setItem(STORAGE_KEYS.exportFormat, value)
-    } catch (_error) {
-      // localStorage unavailable (private mode) — preference is held in state only.
-    }
-    setPrefsMsg('Saved')
-  }, [])
+  const persistToggle = useCallback(
+    (id: string, value: boolean) => {
+      setToggles((prev) => {
+        const next = { ...prev, [id]: value }
+        try {
+          window.localStorage.setItem(STORAGE_KEYS.toggles, JSON.stringify(next))
+        } catch (_error) {
+          // localStorage unavailable (private mode) — preference is held in state only.
+        }
+        return next
+      })
+      setPrefsMsg('Saved')
+    },
+    [setToggles],
+  )
+
+  const persistExport = useCallback(
+    (value: ExportFormat) => {
+      setExportFormat(value)
+      try {
+        window.localStorage.setItem(STORAGE_KEYS.exportFormat, value)
+      } catch (_error) {
+        // localStorage unavailable (private mode) — preference is held in state only.
+      }
+      setPrefsMsg('Saved')
+    },
+    [setExportFormat],
+  )
 
   return (
     <div className={cm.cn(cm.sp('px', 8), cm.sp('py', 10), 'mx-auto w-full max-w-5xl space-y-8')}>

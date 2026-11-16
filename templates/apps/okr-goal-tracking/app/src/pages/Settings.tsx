@@ -2,7 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useGet, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useGet, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -76,20 +76,32 @@ export function Settings() {
     immediate: true,
   })
 
-  const [cadence, setCadence] = useState<'weekly' | 'biweekly'>('weekly')
-  const [reminders, setReminders] = useState(true)
-  const [digest, setDigest] = useState(true)
-  const [coachNudges, setCoachNudges] = useState(false)
+  const fields = useForm({
+    defaultValues: {
+      cadence: 'weekly' as 'weekly' | 'biweekly',
+      reminders: true,
+      digest: true,
+      coachNudges: false,
+    },
+    values: serverSettings
+      ? {
+          cadence: serverSettings.cadence,
+          reminders: Boolean(serverSettings.preferences?.weeklyReminders),
+          digest: Boolean(serverSettings.preferences?.mondayDigest),
+          coachNudges: Boolean(serverSettings.preferences?.coachingNudges),
+        }
+      : undefined,
+  })
+  const [cadence, setCadence] = fields.asState('cadence')
+  const [reminders, setReminders] = fields.asState('reminders')
+  const [digest, setDigest] = fields.asState('digest')
+  const [coachNudges, setCoachNudges] = fields.asState('coachNudges')
   const [savedAt, setSavedAt] = useState<string | null>(null)
   const [saveError, setSaveError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
 
   useEffect(() => {
     if (!serverSettings) return
-    setCadence(serverSettings.cadence)
-    setReminders(Boolean(serverSettings.preferences?.weeklyReminders))
-    setDigest(Boolean(serverSettings.preferences?.mondayDigest))
-    setCoachNudges(Boolean(serverSettings.preferences?.coachingNudges))
     setSavedAt(serverSettings.updated_at)
   }, [serverSettings])
 

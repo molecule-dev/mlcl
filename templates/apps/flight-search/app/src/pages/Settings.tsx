@@ -56,8 +56,15 @@ export function Settings() {
   const setAuthUser = (auth as { setUser?: (u: SessionUser | null) => void } | undefined)?.setUser
 
   const [activeTab, setActiveTab] = useState<(typeof TABS)[number]['id']>('profile')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const profileFields = useForm({
+    defaultValues: { name: '', email: '' },
+    values: sessionUser
+      ? { name: sessionUser.name ?? '', email: sessionUser.email ?? '' }
+      : undefined,
+    resetKey: sessionUser?.id,
+  })
+  const [name, setName] = profileFields.asState('name')
+  const [email, setEmail] = profileFields.asState('email')
   const [home, setHome, fillHome] = useForm({
     defaultValues: { home: '' },
     resetOptions: { keepDirtyValues: true },
@@ -66,21 +73,17 @@ export function Settings() {
     defaultValues: { currency: 'USD' },
     resetOptions: { keepDirtyValues: true },
   }).asState('currency')
-  const [prefs, setPrefs] = useState<Record<string, boolean>>({
-    price_drops: true,
-    fare_alerts: true,
-    weekly_digest: false,
-    expiring_alerts: true,
-  })
+  const [prefs, setPrefs, fillPrefs] = useForm<Record<string, boolean>>({
+    defaultValues: {
+      price_drops: true,
+      fare_alerts: true,
+      weekly_digest: false,
+      expiring_alerts: true,
+    },
+    resetKey: sessionUser?.id,
+  }).asState()
   const [saving, setSaving] = useState(false)
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saved' | 'error'>('idle')
-
-  useEffect(() => {
-    if (sessionUser) {
-      setName(sessionUser.name ?? '')
-      setEmail(sessionUser.email ?? '')
-    }
-  }, [sessionUser])
 
   // Always pull the persisted preferences on mount. The platform user
   // resource NEVER returns `oauthData` on reads (sensitive-column denylist),
@@ -99,7 +102,7 @@ export function Settings() {
         if (typeof p.home_airport === 'string') fillHome(p.home_airport)
         if (typeof p.currency === 'string') fillCurrency(p.currency)
         if (p.notifications && typeof p.notifications === 'object') {
-          setPrefs((prev) => ({ ...prev, ...p.notifications }))
+          fillPrefs((prev) => ({ ...prev, ...p.notifications }))
         }
       })
       .catch(() => {
@@ -108,7 +111,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, fillHome, fillCurrency])
+  }, [http, fillHome, fillCurrency, fillPrefs])
 
   function togglePref(id: string) {
     setPrefs((prev) => ({ ...prev, [id]: !prev[id] }))
@@ -154,6 +157,8 @@ export function Settings() {
       setSaving(false)
     }
   }
+
+  if (!sessionUser) return <p>{t('common.loading', {}, { defaultValue: 'Loading…' })}</p>
 
   return (
     <div className={cm.cn(cm.maxW('5xl'), cm.sp('px', 6), cm.sp('py', 8), cm.mxAuto)}>
