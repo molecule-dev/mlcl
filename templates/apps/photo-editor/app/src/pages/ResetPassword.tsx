@@ -153,7 +153,7 @@ export function ResetPassword() {
 
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !!passwordMismatch}
           data-mol-id="reset-submit"
           className={cm.cn(
             cm.fontWeight('bold'),

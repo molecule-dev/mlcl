@@ -1295,6 +1295,7 @@ export function Tags() {
                     <div style={{ display: 'flex', alignItems: 'center', gap: '0.25rem' }}>
                       {visiblePages(totalPages, currentPage).map((p) => (
                         <button
+                          disabled={!(p !== currentPage)}
                           key={p}
                           data-mol-id={`btn-page-${p}`}
                           onClick={() => {
@@ -1555,6 +1556,7 @@ export function Tags() {
                   {t('form.name', {}, { defaultValue: 'Name' })}
                 </label>
                 <input
+                  disabled={!editingTag}
                   data-mol-id="input-tag-name"
                   type="text"
                   className={cm.input()}

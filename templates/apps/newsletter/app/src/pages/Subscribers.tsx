@@ -234,7 +234,7 @@ function Subscribers() {
           <button
             type="submit"
             data-mol-id="subscribers-add-submit"
-            disabled={adding}
+            disabled={adding || !addEmail.trim()}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),

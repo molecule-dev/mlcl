@@ -829,7 +829,7 @@ function DangerZone() {
           <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
             <button
               type="submit"
-              disabled={deleting || !password}
+              disabled={deleting || !password || !userId}
               data-mol-id="settings-delete-account-confirm"
               className={cm.cn(
                 cm.sp('px', 4),

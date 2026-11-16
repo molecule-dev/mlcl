@@ -104,7 +104,7 @@ export function Editor() {
         actions={
           <button
             type="button"
-            disabled={savingState === 'saving'}
+            disabled={savingState === 'saving' || !params.id}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 'xs' }),
               cm.sp('px', 4),

@@ -197,7 +197,7 @@ export function TemplateEditor() {
               )}
               onConfirm={() => remove()}
               disarmSeconds={6}
-              disabled={saving}
+              disabled={saving || !id}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),

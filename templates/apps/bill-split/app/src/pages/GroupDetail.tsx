@@ -515,7 +515,7 @@ export function GroupDetail() {
             <button
               type="submit"
               data-mol-id="btn-add-member"
-              disabled={addingMember || memberName.trim().length === 0}
+              disabled={addingMember || memberName.trim().length === 0 || !id}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
@@ -599,7 +599,7 @@ export function GroupDetail() {
                     <button
                       type="button"
                       data-mol-id={`btn-record-settle-${transfer.from_member_id}`}
-                      disabled={recordingId === key}
+                      disabled={recordingId === key || !id}
                       onClick={() => void handleRecordSettlement(transfer)}
                       className={cm.cn(
                         cm.sp('px', 3),
@@ -794,7 +794,7 @@ export function GroupDetail() {
           <button
             type="submit"
             data-mol-id="btn-quick-add-expense"
-            disabled={quickSaving || quickDescription.trim().length === 0}
+            disabled={quickSaving || quickDescription.trim().length === 0 || !id || !quickPayerId}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),

@@ -309,7 +309,7 @@ export function Team() {
             <button
               type="button"
               data-testid="team-invite-send"
-              disabled={inviting}
+              disabled={inviting || !inviteEmail.trim()}
               onClick={() => void sendInvite()}
               className={cm.cn(
                 'px-4 py-2 rounded font-mono text-xs font-bold uppercase tracking-widest disabled:opacity-50',

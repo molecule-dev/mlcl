@@ -239,6 +239,7 @@ export function VersionHistory() {
               return (
                 <li key={v.id}>
                   <button
+                    disabled={!(v.version !== activeId)}
                     type="button"
                     onClick={() => {
                       if (v.version !== activeId) listRoute.setFilters({ v: String(v.version) })
@@ -341,7 +342,9 @@ export function VersionHistory() {
                     type="button"
                     onClick={handleRestore}
                     disabled={
-                      restoring || active.version === (page?.version ?? versions[0]!.version)
+                      restoring ||
+                      active.version === (page?.version ?? versions[0]!.version) ||
+                      !params.id
                     }
                     data-testid="version-restore"
                     className={cm.cn(

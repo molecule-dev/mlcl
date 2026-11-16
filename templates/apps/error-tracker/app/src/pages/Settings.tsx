@@ -298,6 +298,7 @@ export function Settings() {
                   }}
                 />
                 <button
+                  disabled={!newProjectName.trim()}
                   type="button"
                   data-testid="new-project-confirm"
                   onClick={() => void createProject()}

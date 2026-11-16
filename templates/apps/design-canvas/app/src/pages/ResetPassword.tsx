@@ -162,7 +162,9 @@ export function ResetPassword() {
         )}
         <button
           type="submit"
-          disabled={isSubmitting || (confirm !== '' && confirm !== password)}
+          disabled={
+            isSubmitting || (confirm !== '' && confirm !== password) || password !== confirm
+          }
           className={cm.cn(
             cm.sp('px', 5),
             cm.sp('py', 3),

@@ -129,6 +129,7 @@ export function Notifications() {
             </span>
             {unread > 0 && (
               <button
+                disabled={!http}
                 type="button"
                 data-mol-id="notifications-mark-all-button"
                 onClick={() => void markAllRead()}
@@ -178,6 +179,7 @@ export function Notifications() {
             return (
               <li key={n.id} data-mol-id={`notification-${n.id}`}>
                 <div
+                  aria-disabled={!unreadItem}
                   role="button"
                   tabIndex={0}
                   className={cm.cn(

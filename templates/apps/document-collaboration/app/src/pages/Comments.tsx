@@ -333,6 +333,7 @@ export function Comments() {
           data-testid="comments-new-body"
         />
         <button
+          disabled={!docId || !draftBody.trim()}
           type="submit"
           className={cm.cn(
             cm.sp('px', 4),
@@ -483,6 +484,7 @@ export function Comments() {
                     </button>
                     {root.is_resolved ? (
                       <button
+                        disabled={!docId}
                         type="button"
                         onClick={() => onReopen(root.id)}
                         className={cm.cn(
@@ -498,6 +500,7 @@ export function Comments() {
                       </button>
                     ) : (
                       <button
+                        disabled={!docId}
                         type="button"
                         onClick={() => onResolve(root.id)}
                         className={cm.cn(
@@ -513,6 +516,7 @@ export function Comments() {
                       </button>
                     )}
                     <button
+                      disabled={!docId}
                       type="button"
                       onClick={() => onDelete(root.id)}
                       className={cm.cn(

@@ -287,7 +287,7 @@ export function Rules() {
           <button
             type="submit"
             data-mol-id="rules-form-submit"
-            disabled={saving}
+            disabled={saving || !draft.name.trim() || !draft.destination.trim()}
             className={cm.cn(
               cm.sp('px', 5),
               cm.sp('py', 2),

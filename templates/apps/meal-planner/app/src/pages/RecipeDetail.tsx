@@ -591,6 +591,7 @@ export function RecipeDetail() {
               {confirmDelete ? (
                 <span className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }))}>
                   <button
+                    disabled={!id}
                     type="button"
                     data-mol-id="recipe-delete-confirm"
                     onClick={() => void handleDelete()}

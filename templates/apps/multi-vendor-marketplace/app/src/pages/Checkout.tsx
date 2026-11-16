@@ -548,7 +548,7 @@ export function Checkout() {
               <button
                 type="button"
                 onClick={advance}
-                disabled={submitting || cart.groups.length === 0}
+                disabled={submitting || cart.groups.length === 0 || !validShipping}
                 data-testid="checkout-advance"
                 className={cm.cn(
                   cm.fontWeight('bold'),

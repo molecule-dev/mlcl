@@ -1119,7 +1119,7 @@ export function TimelinePage({ projectId }: { projectId: string }) {
                 <button
                   type="submit"
                   data-testid="timeline-add-event-submit"
-                  disabled={creating}
+                  disabled={creating || !newMilestoneTitle.trim()}
                   style={{
                     backgroundColor: 'var(--color-primary)',
                     color: 'var(--color-on-error)',

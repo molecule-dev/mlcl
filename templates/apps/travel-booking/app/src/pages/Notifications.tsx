@@ -323,6 +323,7 @@ export function Notifications() {
                   </Link>
                 ) : (
                   <button
+                    disabled={!n.unread}
                     type="button"
                     data-testid={`notification-item-${n.id}`}
                     onClick={() => {

@@ -363,7 +363,7 @@ export function Onboarding() {
         <button
           type="button"
           onClick={back}
-          disabled={stepIndex === 0}
+          disabled={stepIndex === 0 || !(stepIndex > 0)}
           className={cm.cn(
             cm.sp('px', 4),
             cm.sp('py', 2),

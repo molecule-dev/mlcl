@@ -213,7 +213,7 @@ export function TaskDetail() {
         <button
           type="button"
           data-mol-id="task-toggle-button"
-          disabled={busy}
+          disabled={busy || !http}
           onClick={() => void onToggleStatus()}
           className={cm.cn('font-bold uppercase tracking-[0.14em] transition-colors')}
           style={{

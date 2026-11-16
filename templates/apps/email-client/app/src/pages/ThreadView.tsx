@@ -120,6 +120,7 @@ export function ThreadView() {
             className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'text-on-surface-variant')}
           >
             <button
+              disabled={!id}
               type="button"
               onClick={archive}
               data-mol-id="thread-archive"
@@ -135,6 +136,7 @@ export function ThreadView() {
               </span>
             </button>
             <button
+              disabled={!id}
               type="button"
               onClick={remove}
               data-mol-id="thread-delete"
@@ -150,6 +152,7 @@ export function ThreadView() {
               </span>
             </button>
             <button
+              disabled={!id}
               type="button"
               onClick={toggleStar}
               data-mol-id="thread-star"

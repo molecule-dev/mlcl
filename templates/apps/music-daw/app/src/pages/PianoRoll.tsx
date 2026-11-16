@@ -256,6 +256,7 @@ export function PianoRoll() {
             style={{ minHeight: `${totalKeys * keyHeight}px` }}
           >
             <div
+              aria-disabled={!clipId || busy || clipMissing}
               className={cm.cn('absolute inset-0 cursor-crosshair')}
               onClick={handleGridClick}
               onKeyDown={(e) => {
@@ -320,6 +321,7 @@ export function PianoRoll() {
                   const v = (note.velocity ?? 100) / 127
                   return (
                     <button
+                      disabled={busy}
                       key={note.id}
                       type="button"
                       onClick={(e) => {

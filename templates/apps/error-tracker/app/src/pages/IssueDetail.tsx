@@ -431,7 +431,7 @@ export function IssueDetail() {
             <button
               onClick={() => void triageStatus('unresolved')}
               type="button"
-              disabled={actionPending !== null}
+              disabled={actionPending !== null || !id}
               data-action="unresolve"
               className={cm.cn(
                 'px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest border transition-colors hover:bg-surface/5 disabled:opacity-60',
@@ -446,7 +446,7 @@ export function IssueDetail() {
             <button
               onClick={() => void triageStatus('resolved')}
               type="button"
-              disabled={actionPending !== null}
+              disabled={actionPending !== null || !id}
               data-action="resolve"
               className={cm.cn(
                 'px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest transition-opacity hover:opacity-90 disabled:opacity-60',
@@ -461,7 +461,7 @@ export function IssueDetail() {
           <button
             onClick={() => void triageStatus(issue.status === 'ignored' ? 'unresolved' : 'ignored')}
             type="button"
-            disabled={actionPending !== null}
+            disabled={actionPending !== null || !id}
             data-action="ignore"
             className={cm.cn(
               'px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest border transition-colors hover:bg-surface/5 disabled:opacity-60',
@@ -496,6 +496,7 @@ export function IssueDetail() {
                 }}
               >
                 <button
+                  disabled={!id}
                   type="button"
                   onClick={() => void assignTo(null)}
                   className={cm.cn(
@@ -515,6 +516,7 @@ export function IssueDetail() {
                 ) : (
                   team.map((m) => (
                     <button
+                      disabled={!id}
                       type="button"
                       key={m.id}
                       onClick={() => void assignTo(m)}

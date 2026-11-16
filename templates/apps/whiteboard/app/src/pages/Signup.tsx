@@ -225,7 +225,7 @@ export function Signup() {
         )}
         <button
           type="submit"
-          disabled={isSigningUp || (confirm !== '' && confirm !== password)}
+          disabled={isSigningUp || (confirm !== '' && confirm !== password) || password !== confirm}
           className={cm.cn(
             cm.sp('px', 5),
             cm.sp('py', 3),

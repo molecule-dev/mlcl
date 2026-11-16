@@ -185,7 +185,7 @@ export function ShowDetail() {
           type="button"
           data-testid="show-play-latest"
           onClick={handlePlayLatest}
-          disabled={episodes.length === 0}
+          disabled={episodes.length === 0 || !(episodes.length === 0)}
           className={cm.cn(
             cm.flex({ align: 'center', gap: 'sm' }),
             cm.sp('px', 5),

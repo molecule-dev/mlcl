@@ -217,7 +217,7 @@ export function DeckDetail() {
             <div className={cm.cn(cm.flex({ justify: 'end' }))}>
               <button
                 type="submit"
-                disabled={adding || !draftFront.trim() || !draftBack.trim()}
+                disabled={adding || !draftFront.trim() || !draftBack.trim() || !id}
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 2.5),
@@ -370,7 +370,7 @@ export function DeckDetail() {
                     key={tone}
                     type="button"
                     data-mol-id={`deck-rating-${tone}`}
-                    disabled={reviewing}
+                    disabled={reviewing || !id}
                     onClick={() => handleReview(tone)}
                     className={cm.cn(
                       cm.sp('py', 4),

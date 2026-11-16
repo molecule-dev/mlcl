@@ -260,7 +260,7 @@ function ProfileSection() {
       ) : null}
       <button
         type="submit"
-        disabled={saving}
+        disabled={saving || !userId}
         data-testid="profile-save"
         className={cm.cn(
           cm.sp('px', 4),

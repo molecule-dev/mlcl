@@ -291,7 +291,7 @@ export function Courses() {
           <div className={cm.cn(cm.flex({ align: 'center', gap: 2 }))}>
             <button
               type="submit"
-              disabled={creating}
+              disabled={creating || !form.code.trim() || !form.title.trim()}
               data-testid="courses-create-submit"
               className={cm.cn(
                 cm.sp('px', 4),

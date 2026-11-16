@@ -244,7 +244,7 @@ export function ImageDetail() {
                 <button
                   key={action.id}
                   type="button"
-                  disabled={pendingAction === action.id}
+                  disabled={pendingAction === action.id || !params.id}
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'xs' }),
                     cm.sp('px', 4),

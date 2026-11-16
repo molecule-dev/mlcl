@@ -308,75 +308,81 @@ function ProfileSection({ user }: { user: AuthUser | null }) {
       )}
     >
       <form onSubmit={handleSave} data-mol-id="settings-profile-form">
-        <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('mb', 6))}>
-          <div
-            className={cm.cn(
-              cm.flex({ align: 'center', justify: 'center' }),
-              'rounded-full text-white font-bold text-2xl',
-            )}
-            style={{
-              width: 80,
-              height: 80,
-              background:
-                'linear-gradient(135deg, var(--color-node-trigger), var(--color-node-condition))',
-              boxShadow:
-                '0 8px 24px color-mix(in srgb, var(--color-node-trigger) 30%, transparent)',
-            }}
-          >
-            {(name || 'A')[0]?.toUpperCase()}
+        <fieldset style={{ display: 'contents' }} disabled={!user?.id || saving}>
+          <div className={cm.cn(cm.flex({ align: 'center', gap: 'md' }), cm.sp('mb', 6))}>
+            <div
+              className={cm.cn(
+                cm.flex({ align: 'center', justify: 'center' }),
+                'rounded-full text-white font-bold text-2xl',
+              )}
+              style={{
+                width: 80,
+                height: 80,
+                background:
+                  'linear-gradient(135deg, var(--color-node-trigger), var(--color-node-condition))',
+                boxShadow:
+                  '0 8px 24px color-mix(in srgb, var(--color-node-trigger) 30%, transparent)',
+              }}
+            >
+              {(name || 'A')[0]?.toUpperCase()}
+            </div>
+            <div>
+              <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
+                {name || t('settings.profile.unnamedUser', {}, { defaultValue: 'Unnamed user' })}
+              </h3>
+              <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
+                {email || t('settings.profile.noEmail', {}, { defaultValue: 'No email on record' })}
+              </p>
+            </div>
           </div>
-          <div>
-            <h3 className={cm.cn(cm.textSize('lg'), cm.fontWeight('bold'))}>
-              {name || t('settings.profile.unnamedUser', {}, { defaultValue: 'Unnamed user' })}
-            </h3>
-            <p className={cm.cn(cm.textSize('sm'), cm.textMuted)}>
-              {email || t('settings.profile.noEmail', {}, { defaultValue: 'No email on record' })}
+          <div className={cm.cn(cm.grid({ gap: 'md', cols: 2 }), 'grid-cols-1 sm:grid-cols-2')}>
+            <FormField
+              label={t('form.fullName', {}, { defaultValue: 'Full name' })}
+              value={name}
+              molId="settings-profile-name"
+              onChange={(v) => {
+                setName(v)
+                setDirty(true)
+                setSavedAt(null)
+              }}
+            />
+            <FormField
+              label={t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
+              value={email}
+              molId="settings-profile-email"
+              onChange={(v) => {
+                setEmail(v)
+                setDirty(true)
+                setSavedAt(null)
+              }}
+              type="email"
+            />
+          </div>
+          {error && (
+            <p
+              className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'))}
+              style={{ color: 'var(--color-danger-btn)' }}
+              data-mol-id="settings-profile-error"
+              role="alert"
+            >
+              {error}
             </p>
-          </div>
-        </div>
-        <div className={cm.cn(cm.grid({ gap: 'md', cols: 2 }), 'grid-cols-1 sm:grid-cols-2')}>
-          <FormField
-            label={t('form.fullName', {}, { defaultValue: 'Full name' })}
-            value={name}
-            molId="settings-profile-name"
-            onChange={(v) => {
-              setName(v)
-              setDirty(true)
-              setSavedAt(null)
-            }}
-          />
-          <FormField
-            label={t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
-            value={email}
-            molId="settings-profile-email"
-            onChange={(v) => {
-              setEmail(v)
-              setDirty(true)
-              setSavedAt(null)
-            }}
-            type="email"
-          />
-        </div>
-        {error && (
-          <p
-            className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'))}
-            style={{ color: 'var(--color-danger-btn)' }}
-            data-mol-id="settings-profile-error"
-            role="alert"
-          >
-            {error}
-          </p>
-        )}
-        {savedAt && (
-          <p
-            className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'))}
-            style={{ color: 'var(--color-node-action)' }}
-            data-mol-id="settings-profile-saved"
-          >
-            {t('settings.profile.saved', { time: savedAt }, { defaultValue: 'Saved at {{time}}.' })}
-          </p>
-        )}
-        <FormFooter dirty={dirty} saving={saving} onReset={handleReset} />
+          )}
+          {savedAt && (
+            <p
+              className={cm.cn(cm.sp('mt', 4), cm.textSize('sm'))}
+              style={{ color: 'var(--color-node-action)' }}
+              data-mol-id="settings-profile-saved"
+            >
+              {t(
+                'settings.profile.saved',
+                { time: savedAt },
+                { defaultValue: 'Saved at {{time}}.' },
+              )}
+            </p>
+          )}
+          <FormFooter dirty={dirty} saving={saving} onReset={handleReset} />
+        </fieldset>
       </form>
     </SectionCard>
   )

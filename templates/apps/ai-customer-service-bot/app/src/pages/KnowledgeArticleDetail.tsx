@@ -320,7 +320,7 @@ function KnowledgeArticleDetail() {
                   <button
                     data-mol-id="knowledge-detail-save"
                     type="submit"
-                    disabled={saving}
+                    disabled={saving || !id}
                     className={cm.cn(
                       cm.fontWeight('semibold'),
                       cm.textSize('sm'),
@@ -389,7 +389,7 @@ function KnowledgeArticleDetail() {
                     data-mol-id="knowledge-delete-confirm-yes"
                     type="button"
                     onClick={handleDelete}
-                    disabled={saving}
+                    disabled={saving || !id}
                     className={cm.cn(
                       cm.fontWeight('semibold'),
                       cm.textSize('sm'),

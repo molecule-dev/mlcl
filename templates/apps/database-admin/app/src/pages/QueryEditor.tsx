@@ -176,7 +176,7 @@ export function QueryEditor() {
                 type="button"
                 data-mol-id="qe-run"
                 onClick={runQuery}
-                disabled={running}
+                disabled={running || !connectionId}
                 className={cm.cn(
                   'rounded bg-primary px-4 py-2.5 text-sm font-bold text-on-primary disabled:opacity-60',
                 )}
@@ -199,7 +199,7 @@ export function QueryEditor() {
                 type="button"
                 data-mol-id="qe-save-button"
                 onClick={saveSnippet}
-                disabled={saving || !saveName.trim()}
+                disabled={saving || !saveName.trim() || !connectionId}
                 className={cm.cn(
                   'rounded border border-border px-4 py-2.5 text-sm disabled:opacity-60',
                 )}

@@ -246,7 +246,7 @@ export function Lists() {
                   <button
                     type="button"
                     onClick={() => handleAddListToCart(list)}
-                    disabled={list.items.length === 0 || busyListId === list.id}
+                    disabled={list.items.length === 0 || busyListId === list.id || !!busyListId}
                     className={cm.cn(
                       cm.sp('px', 4),
                       cm.sp('py', 2),
@@ -320,7 +320,7 @@ export function Lists() {
                 <button
                   type="button"
                   onClick={() => handleAddSingleItem(item.product_id)}
-                  disabled={busyProductId === item.product_id}
+                  disabled={busyProductId === item.product_id || !!busyProductId}
                   className={cm.cn(
                     cm.sp('px', 3),
                     cm.sp('py', 1),

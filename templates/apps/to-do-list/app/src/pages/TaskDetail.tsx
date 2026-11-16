@@ -1094,7 +1094,7 @@ export function TaskDetail() {
                 <button
                   type="submit"
                   data-mol-id="comment-submit"
-                  disabled={postingComment || !commentDraft.trim()}
+                  disabled={postingComment || !commentDraft.trim() || !id}
                   className={cm.cn(
                     cm.sp('px', 4),
                     cm.sp('py', 2),

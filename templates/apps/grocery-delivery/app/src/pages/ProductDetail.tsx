@@ -215,7 +215,7 @@ export function ProductDetail() {
               <button
                 type="button"
                 onClick={addToCart}
-                disabled={product.in_stock === false || submitting}
+                disabled={product.in_stock === false || submitting || !id}
                 className={cm.cn(
                   cm.sp('px', 6),
                   cm.sp('py', 3),

@@ -416,7 +416,7 @@ export function Billing() {
             pendingLabel={t('common.cancellingEllipsis', {}, { defaultValue: 'Cancelling…' })}
             onConfirm={handleCancel}
             disarmSeconds={8}
-            disabled={actionPending === 'cancel'}
+            disabled={actionPending === 'cancel' || !status}
             color="error"
             variant="outline"
             size="sm"

@@ -297,7 +297,7 @@ export function Profile() {
             <button
               type="button"
               onClick={saveProfile}
-              disabled={saving}
+              disabled={saving || !user?.id}
               data-mol-id="save-profile"
               className={cm.cn(
                 'bg-gradient-to-br from-primary to-primary-container text-white font-bold text-xs uppercase tracking-wide px-4 py-2 rounded-lg hover:shadow-md transition-shadow disabled:opacity-60',

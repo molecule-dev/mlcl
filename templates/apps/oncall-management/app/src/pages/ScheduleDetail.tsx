@@ -648,7 +648,7 @@ export function ScheduleDetail() {
                   </span>
                   <button
                     type="button"
-                    disabled={saving || i === 0}
+                    disabled={saving || i === 0 || !id}
                     onClick={() => reorderMember(m.id, -1)}
                     data-mol-id={`reorder-up-${m.id}`}
                     aria-label={t(
@@ -667,7 +667,7 @@ export function ScheduleDetail() {
                   </button>
                   <button
                     type="button"
-                    disabled={saving || i === (schedule.member_details ?? []).length - 1}
+                    disabled={saving || i === (schedule.member_details ?? []).length - 1 || !id}
                     onClick={() => reorderMember(m.id, 1)}
                     data-mol-id={`reorder-down-${m.id}`}
                     aria-label={t(
@@ -812,7 +812,7 @@ export function ScheduleDetail() {
               </div>
               <button
                 type="button"
-                disabled={!overrideMember || !overrideStart || !overrideEnd || saving}
+                disabled={!overrideMember || !overrideStart || !overrideEnd || saving || !id}
                 onClick={addOverride}
                 data-mol-id="override-submit"
                 className={cm.cn(

@@ -269,7 +269,7 @@ export function Settings() {
                 </label>
                 <button
                   type="submit"
-                  disabled={savingAccount}
+                  disabled={savingAccount || !me}
                   data-mol-id="settings-account-save"
                   className={cm.cn(
                     'inline-flex h-8 w-fit items-center gap-1 rounded bg-primary px-3 font-headline text-xs font-bold text-on-primary transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50',

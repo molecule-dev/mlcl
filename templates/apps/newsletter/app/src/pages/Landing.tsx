@@ -1105,7 +1105,7 @@ function Landing() {
                   type="submit"
                   id="landing-subscribe-submit"
                   data-mol-id="landing-subscribe-submit"
-                  disabled={subscribing}
+                  disabled={subscribing || !email.trim()}
                   className={cm.cn(
                     cm.sp('px', 6),
                     cm.sp('py', 3),

@@ -271,7 +271,7 @@ export function ItemDetail() {
           </button>
           <button
             onClick={trashItem}
-            disabled={deleting}
+            disabled={deleting || !id}
             type="button"
             data-testid="item-detail-trash"
             className={cm.cn(

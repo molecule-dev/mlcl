@@ -513,7 +513,7 @@ export function Booking() {
             )}
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !tutorId}
               className={cm.cn(
                 cm.fontWeight('bold'),
                 cm.textSize('sm'),

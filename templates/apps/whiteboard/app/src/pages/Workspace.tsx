@@ -308,7 +308,7 @@ export function Workspace() {
               </label>
               <button
                 type="submit"
-                disabled={inviting || boards.length === 0}
+                disabled={inviting || boards.length === 0 || !inviteBoardId || !inviteEmail.trim()}
                 data-mol-id="workspace-invite-submit"
                 className={cm.cn(
                   cm.sp('px', 5),

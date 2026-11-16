@@ -332,6 +332,7 @@ export function ProjectDetail() {
                 )}
               />
               <button
+                disabled={!name.trim()}
                 type="button"
                 data-mol-id="project-name-save"
                 onClick={handleSaveName}

@@ -223,7 +223,7 @@ export function Profile() {
             <div className={cm.cn(cm.flex({ gap: 'sm' }))}>
               <button
                 type="submit"
-                disabled={saving}
+                disabled={saving || !user?.id}
                 className={
                   'inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold text-on-primary rounded-full bg-primary hover:bg-primary-dark transition-colors disabled:opacity-60'
                 }
@@ -301,7 +301,7 @@ export function Profile() {
             <div className={cm.cn(cm.flex({ gap: 'sm' }))}>
               <button
                 type="submit"
-                disabled={!deletePassword || deleting}
+                disabled={!deletePassword || deleting || !user?.id}
                 className={
                   'inline-flex items-center gap-2 px-5 py-2.5 text-sm font-bold rounded-full bg-error text-on-error hover:bg-error-hover transition-colors disabled:opacity-50'
                 }

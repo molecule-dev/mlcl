@@ -378,7 +378,7 @@ export function Library() {
                           <button
                             type="button"
                             onClick={() => void handleInsert(tpl)}
-                            disabled={insertingId === tpl.id}
+                            disabled={insertingId === tpl.id || !!insertingId}
                             data-mol-id={`tpl-insert-${tpl.id}`}
                             className={cm.cn(
                               'font-mono text-[10px] uppercase tracking-widest text-[var(--anim-primary)] hover:text-[var(--anim-secondary)] transition-colors disabled:opacity-60',

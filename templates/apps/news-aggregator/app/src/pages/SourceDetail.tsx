@@ -133,6 +133,7 @@ export function SourceDetail() {
             )}
           </div>
           <button
+            disabled={!slug}
             type="button"
             onClick={handleFollowToggle}
             className={cm.cn(

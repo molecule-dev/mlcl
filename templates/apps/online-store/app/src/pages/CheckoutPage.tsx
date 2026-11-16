@@ -1508,6 +1508,7 @@ export function CheckoutPage() {
                   }}
                 />
                 <button
+                  disabled={!promoCode.trim()}
                   type="button"
                   data-mol-id="btn-apply-promo"
                   onClick={handleApplyPromo}

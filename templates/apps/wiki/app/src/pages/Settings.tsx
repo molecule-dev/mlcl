@@ -487,7 +487,7 @@ export function Settings() {
                 <button
                   type="button"
                   onClick={saveProfile}
-                  disabled={status === 'saving'}
+                  disabled={status === 'saving' || !me?.id}
                   data-testid="settings-profile-save"
                   className={cm.cn(
                     cm.flex({ align: 'center', gap: 'xs' }),

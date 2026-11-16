@@ -521,7 +521,7 @@ export function Booking() {
 
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !venueId}
               className={cm.cn(
                 cm.sp('mt', 5),
                 cm.sp('px', 6),

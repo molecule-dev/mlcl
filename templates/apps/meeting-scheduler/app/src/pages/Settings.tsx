@@ -625,7 +625,7 @@ export function Settings() {
                   <button
                     type="submit"
                     data-testid="security-change-pwd"
-                    disabled={pwdSaving || !currentPwd || newPwd.length < 8}
+                    disabled={pwdSaving || !currentPwd || newPwd.length < 8 || !profile?.user?.id}
                     className={cm.cn(
                       cm.sp('px', 5),
                       cm.sp('py', 2),

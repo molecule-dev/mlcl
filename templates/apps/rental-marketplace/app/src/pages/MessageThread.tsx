@@ -325,7 +325,7 @@ export function MessageThread() {
         />
         <button
           type="submit"
-          disabled={sending || !draft.trim()}
+          disabled={sending || !draft.trim() || !id}
           className={cm.cn(
             cm.w(11),
             cm.h(11),

@@ -18,6 +18,7 @@ export default function DirectMessageUserButton({
   const cm = getClassMap()
   return (
     <button
+      disabled={!onClick}
       onClick={() => {
         if (onClick) {
           void onClick()

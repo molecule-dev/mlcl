@@ -420,7 +420,10 @@ export function Fleets() {
           aria-labelledby="new-fleet-heading"
           className={cm.cn('fixed inset-0 z-50 flex items-center justify-center p-4')}
         >
-          <div
+          <button
+            type="button"
+            tabIndex={-1}
+            disabled={!!createBusy}
             aria-hidden="true"
             onClick={() => !createBusy && setShowCreate(false)}
             className={cm.cn('absolute inset-0 bg-on-surface/40 backdrop-blur-sm')}
@@ -537,7 +540,10 @@ export function Fleets() {
               aria-labelledby="manage-fleet-heading"
               className={cm.cn('fixed inset-0 z-50 flex items-center justify-center p-4')}
             >
-              <div
+              <button
+                type="button"
+                tabIndex={-1}
+                disabled={manageBusy}
                 aria-hidden="true"
                 onClick={() => {
                   if (!manageBusy) {

@@ -720,6 +720,7 @@ export function BoardCanvas() {
                 role on the drawing surface. The draw tool draws through its pointer
                 events; the synthetic click after a stroke is suppressed. */}
             <button
+              disabled={tool === 'draw'}
               type="button"
               data-mol-id="board-canvas-place"
               onClick={handleCanvasClick}

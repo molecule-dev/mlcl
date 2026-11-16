@@ -254,7 +254,7 @@ export function Team() {
               </label>
               <button
                 type="submit"
-                disabled={inviting}
+                disabled={inviting || !inviteEmail.trim()}
                 data-mol-id="team-invite-submit"
                 className={cm.cn(
                   cm.sp('px', 4),

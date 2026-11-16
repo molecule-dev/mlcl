@@ -305,6 +305,7 @@ export function Notifications() {
                           </Link>
                         ) : (
                           <div
+                            aria-disabled={!n.unread}
                             role="button"
                             tabIndex={0}
                             className={cm.cn('flex gap-4 px-6 py-5 hover:bg-surface-container-low')}

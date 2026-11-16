@@ -386,7 +386,8 @@ function ConversationDetail() {
                   acting ||
                   !conversation ||
                   conversation.escalated ||
-                  conversation.status === 'resolved'
+                  conversation.status === 'resolved' ||
+                  !id
                 }
                 onClick={handleEscalate}
                 className={cm.cn(
@@ -403,7 +404,7 @@ function ConversationDetail() {
               <button
                 data-mol-id="conversation-resolve"
                 type="button"
-                disabled={acting || !conversation || conversation.status === 'resolved'}
+                disabled={acting || !conversation || conversation.status === 'resolved' || !id}
                 onClick={handleResolve}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 1 }),
@@ -550,7 +551,9 @@ function ConversationDetail() {
               <button
                 data-mol-id="conversation-ai-reply"
                 type="button"
-                disabled={requestingAi || !conversation || conversation.status === 'resolved'}
+                disabled={
+                  requestingAi || !conversation || conversation.status === 'resolved' || !id
+                }
                 onClick={handleRequestAiReply}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 1 }),
@@ -616,7 +619,7 @@ function ConversationDetail() {
                 <button
                   data-mol-id="conversation-customer-send"
                   type="submit"
-                  disabled={sendingCustomer || !customerMessage.trim()}
+                  disabled={sendingCustomer || !customerMessage.trim() || !id}
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('xs'),
@@ -684,7 +687,7 @@ function ConversationDetail() {
                 data-mol-id="conversation-send"
                 type="submit"
                 aria-label={t('common.send', {}, { defaultValue: 'Send' })}
-                disabled={sending || !composer.trim()}
+                disabled={sending || !composer.trim() || !id}
                 className={cm.cn(
                   cm.flex({ align: 'center', justify: 'center' }),
                   cm.w(10),
@@ -785,6 +788,7 @@ function ConversationDetail() {
             </span>
             <div className={cm.cn(cm.flex({ gap: 2 }))}>
               <button
+                disabled={!id}
                 data-mol-id="conversation-feedback-up"
                 type="button"
                 onClick={() => void handleFeedback(5)}
@@ -802,6 +806,7 @@ function ConversationDetail() {
                 {t('conversationDetail.feedbackUp', {}, { defaultValue: 'Helpful' })}
               </button>
               <button
+                disabled={!id}
                 data-mol-id="conversation-feedback-down"
                 type="button"
                 onClick={() => void handleFeedback(1)}

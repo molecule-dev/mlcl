@@ -352,32 +352,34 @@ export function Immunizations() {
             }}
             className="relative"
           >
-            <span
-              aria-hidden="true"
-              className={cm.cn(
-                'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg',
-              )}
-            >
-              location_on
-            </span>
-            <input
-              type="text"
-              value={destination}
-              onChange={(e) => setDestination(e.target.value)}
-              placeholder={t(
-                'immunizations.travel.placeholder',
-                {},
-                { defaultValue: 'Enter destination country...' },
-              )}
-              aria-label={t(
-                'immunizations.travel.placeholder',
-                {},
-                { defaultValue: 'Enter destination country...' },
-              )}
-              className={cm.cn(
-                'w-full pl-9 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none',
-              )}
-            />
+            <fieldset style={{ display: 'contents' }} disabled={!destination.trim()}>
+              <span
+                aria-hidden="true"
+                className={cm.cn(
+                  'material-symbols-outlined absolute left-3 top-1/2 -translate-y-1/2 text-on-surface-variant text-lg',
+                )}
+              >
+                location_on
+              </span>
+              <input
+                type="text"
+                value={destination}
+                onChange={(e) => setDestination(e.target.value)}
+                placeholder={t(
+                  'immunizations.travel.placeholder',
+                  {},
+                  { defaultValue: 'Enter destination country...' },
+                )}
+                aria-label={t(
+                  'immunizations.travel.placeholder',
+                  {},
+                  { defaultValue: 'Enter destination country...' },
+                )}
+                className={cm.cn(
+                  'w-full pl-9 pr-4 py-2 bg-surface-container border border-outline-variant rounded-lg text-sm text-on-surface placeholder:text-on-surface-variant focus:border-primary focus:ring-2 focus:ring-primary/20 transition-all outline-none',
+                )}
+              />
+            </fieldset>
           </form>
           {travelOpen ? (
             <div className={cm.cn(cm.sp('mt', 4), cm.stack(2))} role="status">

@@ -348,6 +348,7 @@ export function PlaylistDetail() {
                 {t('playlistDetail.playAllCta', {}, { defaultValue: 'Play all' })}
               </Link>
               <button
+                disabled={videos.length === 0}
                 type="button"
                 className={cm.cn(
                   'inline-flex items-center gap-2 px-7 py-3.5 mt-5 font-semibold text-[15px] rounded-full border border-surface/30 hover:bg-surface/10 transition-colors',
@@ -525,7 +526,7 @@ export function PlaylistDetail() {
                       </div>
                       <button
                         type="button"
-                        disabled={adding}
+                        disabled={adding || !id}
                         onClick={() => void handleAddVideo(String(opt.id))}
                         className={cm.cn(
                           'px-3 h-9 rounded-full text-xs font-bold uppercase tracking-widest border border-outline-variant hover:bg-surface-container transition-colors disabled:opacity-50',

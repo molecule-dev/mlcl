@@ -302,7 +302,7 @@ export function Automations() {
           <div className={cm.cn(cm.flex({ justify: 'end', gap: 'sm' }), cm.sp('mt', 4))}>
             <button
               type="submit"
-              disabled={submitting || !name.trim()}
+              disabled={submitting || !name.trim() || !spreadsheetId}
               className="inline-flex items-center gap-2 px-4 py-2 text-sm font-bold text-on-primary rounded-full bg-primary hover:opacity-90 transition-opacity disabled:opacity-50"
             >
               {submitting

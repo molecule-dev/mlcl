@@ -349,7 +349,7 @@ export function Editor() {
           <button
             type="button"
             onClick={() => handleAddTrack('audio')}
-            disabled={adding}
+            disabled={adding || !id}
             className={cm.cn(
               'inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-surface-container-lowest border border-outline-variant hover:bg-surface-container transition-colors disabled:opacity-60',
             )}
@@ -364,7 +364,7 @@ export function Editor() {
           <button
             type="button"
             onClick={() => handleAddTrack('midi')}
-            disabled={adding}
+            disabled={adding || !id}
             className={cm.cn(
               'inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-surface-container-lowest border border-outline-variant hover:bg-surface-container transition-colors disabled:opacity-60',
             )}
@@ -378,7 +378,7 @@ export function Editor() {
             <button
               type="button"
               onClick={handleOpenPianoRoll}
-              disabled={openingPianoRoll}
+              disabled={openingPianoRoll || !id}
               className={cm.cn(
                 'inline-flex items-center gap-2 px-4 py-2 rounded-full text-sm font-semibold bg-primary text-on-primary hover:bg-primary/90 transition-colors disabled:opacity-60',
               )}

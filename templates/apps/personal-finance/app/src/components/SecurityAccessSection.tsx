@@ -486,7 +486,7 @@ function SecurityAccessSection() {
                   <button
                     type="submit"
                     data-mol-id="security-two-factor-submit"
-                    disabled={tfLoading}
+                    disabled={tfLoading || !userId}
                     className={cm.cn(
                       cm.sp('px', 4),
                       cm.sp('py', 2),

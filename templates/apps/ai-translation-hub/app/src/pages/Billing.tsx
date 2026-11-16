@@ -500,7 +500,9 @@ export function Billing() {
               <button
                 data-mol-id={`billing-switch-${p.key}`}
                 type="button"
-                disabled={isCurrent || !price?.stripePriceId || busyAction === p.key}
+                disabled={
+                  isCurrent || !price?.stripePriceId || busyAction === p.key || !!busyAction
+                }
                 onClick={() => {
                   void handleSwitchPlan(p)
                 }}

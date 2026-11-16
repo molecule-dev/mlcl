@@ -523,7 +523,7 @@ export function JobDetail() {
             <div className={cm.flex({ align: 'end' })}>
               <button
                 type="button"
-                disabled={acting || (!assignTech && !assignStart)}
+                disabled={acting || (!assignTech && !assignStart) || !id}
                 onClick={assign}
                 className={cm.cn(
                   cm.sp('px', 4),
@@ -608,7 +608,7 @@ export function JobDetail() {
           />
           <button
             type="submit"
-            disabled={!newChecklist.trim()}
+            disabled={!newChecklist.trim() || !id}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),
@@ -667,7 +667,7 @@ export function JobDetail() {
           />
           <button
             type="submit"
-            disabled={!newNote.trim()}
+            disabled={!newNote.trim() || !id}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),
@@ -761,7 +761,7 @@ export function JobDetail() {
               <button
                 key={action.to}
                 type="button"
-                disabled={acting}
+                disabled={acting || !id}
                 onClick={() => setStatus(action.to)}
                 className={cm.cn(
                   cm.sp('px', 4),
@@ -780,7 +780,7 @@ export function JobDetail() {
         {isOpen ? (
           <button
             type="button"
-            disabled={acting}
+            disabled={acting || !id}
             onClick={() => setStatus('cancelled')}
             className={cm.cn(
               cm.sp('px', 4),
@@ -795,7 +795,7 @@ export function JobDetail() {
         {job.status === 'completed' ? (
           <button
             type="button"
-            disabled={acting}
+            disabled={acting || !id}
             onClick={generateInvoice}
             className={cm.cn(
               cm.sp('px', 4),

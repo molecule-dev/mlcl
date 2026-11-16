@@ -308,7 +308,7 @@ function KnowledgeBase() {
                 )}
                 <button
                   type="submit"
-                  disabled={submitting}
+                  disabled={submitting || !title.trim() || !content.trim()}
                   className={cm.cn(
                     cm.fontWeight('bold'),
                     'btn-gradient text-on-primary px-5 py-3 rounded-xl disabled:opacity-50',

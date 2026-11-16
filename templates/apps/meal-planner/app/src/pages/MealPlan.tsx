@@ -291,6 +291,7 @@ export function MealPlan() {
                             )}
                           >
                             <button
+                              disabled={!entry.recipe}
                               type="button"
                               data-mol-id={`entry-open-${entry.id}`}
                               onClick={() =>

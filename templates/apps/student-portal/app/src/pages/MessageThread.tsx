@@ -251,7 +251,7 @@ export function MessageThread() {
               cm.sp('py', 3),
               'inline-flex items-center gap-2 rounded-full bg-primary text-on-primary font-semibold hover:bg-primary/90 transition-colors disabled:opacity-50',
             )}
-            disabled={!draft.trim() || sending}
+            disabled={!draft.trim() || sending || !threadId}
           >
             <span className={cm.cn('material-symbols-outlined text-base')} aria-hidden="true">
               send

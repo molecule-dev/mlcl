@@ -238,6 +238,7 @@ export function Home() {
                   {t('home.empty', {}, { defaultValue: 'No notes yet — start your first one.' })}
                 </p>
                 <button
+                  disabled={!workspace?.id}
                   type="button"
                   onClick={handleNewNote}
                   className={cm.cn(

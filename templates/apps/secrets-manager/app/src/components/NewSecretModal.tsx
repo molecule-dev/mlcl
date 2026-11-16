@@ -257,7 +257,7 @@ export function NewSecretModal({
             </button>
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !name.trim() || !key.trim() || !value}
               data-mol-id="new-secret-submit"
               className={cm.cn(
                 'inline-flex h-8 items-center gap-1 rounded bg-primary px-3 font-headline text-xs font-bold text-on-primary transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60',

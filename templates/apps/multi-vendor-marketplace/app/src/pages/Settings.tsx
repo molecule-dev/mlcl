@@ -379,7 +379,7 @@ export function Settings() {
             <button
               type="button"
               onClick={() => persist()}
-              disabled={saving}
+              disabled={saving || !user?.id}
               data-testid="settings-save"
               className={cm.cn(
                 cm.fontWeight('bold'),
@@ -603,7 +603,7 @@ export function Settings() {
             <button
               type="button"
               onClick={() => persist()}
-              disabled={saving}
+              disabled={saving || !user?.id}
               data-testid="settings-payout-save"
               className={cm.cn(
                 cm.fontWeight('bold'),

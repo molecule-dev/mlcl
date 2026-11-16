@@ -622,7 +622,7 @@ export function Profile() {
                 type="button"
                 data-mol-id="profile-save"
                 onClick={handleSave}
-                disabled={!dirty || saving}
+                disabled={!dirty || saving || !userId}
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 2),

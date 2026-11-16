@@ -422,7 +422,7 @@ export function Templates() {
                 </label>
                 <button
                   type="submit"
-                  disabled={creating}
+                  disabled={creating || !name.trim()}
                   data-mol-id="templates-create-submit"
                   className={cm.cn(
                     cm.sp('px', 5),

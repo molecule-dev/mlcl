@@ -173,6 +173,7 @@ function PostDetailHeader() {
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'lg' }), 'text-on-surface-variant')}>
           <button
+            disabled={!id}
             type="button"
             className={cm.cn(
               cm.flex({ align: 'center' }),
@@ -209,6 +210,7 @@ function PostDetailHeader() {
           </button>
           <div className={cm.cn(cm.h(4), 'w-[px]', 'bg-outline-variant/30')}></div>
           <button
+            disabled={!id}
             type="button"
             className={cm.fv81e5aa82}
             data-mol-id="button-bookmark"

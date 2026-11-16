@@ -421,7 +421,7 @@ export function Settings() {
               <div className={cm.cn('flex items-center justify-end gap-3')}>
                 <button
                   type="submit"
-                  disabled={accountSaving}
+                  disabled={accountSaving || !user?.id}
                   data-mol-id="settings-account-save"
                   className={cm.cn(
                     'px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest hover:opacity-90 disabled:opacity-50',

@@ -332,7 +332,7 @@ export function Messages() {
                 <button
                   type="submit"
                   data-testid="message-submit"
-                  disabled={sending || !draft.trim()}
+                  disabled={sending || !draft.trim() || !activeId}
                   className={cm.cn(
                     cm.sp('px', 4),
                     cm.sp('py', 2),

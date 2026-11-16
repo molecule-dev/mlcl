@@ -491,7 +491,7 @@ export function Settings() {
                     </span>
                     <button
                       type="submit"
-                      disabled={accountStatus === 'saving'}
+                      disabled={accountStatus === 'saving' || !userId}
                       className={cm.cn(
                         cm.fontWeight('bold'),
                         cm.textSize('sm'),
@@ -554,7 +554,7 @@ export function Settings() {
                     )}
                     checked={prefs.emailReplies}
                     onChange={(v) => togglePref('emailReplies', v)}
-                    disabled={prefsStatus === 'saving'}
+                    disabled={prefsStatus === 'saving' || !userId}
                   />
                   <Toggle
                     id="pref-email-mentions"
@@ -570,7 +570,7 @@ export function Settings() {
                     )}
                     checked={prefs.emailMentions}
                     onChange={(v) => togglePref('emailMentions', v)}
-                    disabled={prefsStatus === 'saving'}
+                    disabled={prefsStatus === 'saving' || !userId}
                   />
                   <Toggle
                     id="pref-email-digest"
@@ -584,14 +584,14 @@ export function Settings() {
                     )}
                     checked={prefs.emailDigest}
                     onChange={(v) => togglePref('emailDigest', v)}
-                    disabled={prefsStatus === 'saving'}
+                    disabled={prefsStatus === 'saving' || !userId}
                   />
                   <Toggle
                     id="pref-push-replies"
                     label={t('settings.pushRepliesLabel', {}, { defaultValue: 'Push for replies' })}
                     checked={prefs.pushReplies}
                     onChange={(v) => togglePref('pushReplies', v)}
-                    disabled={prefsStatus === 'saving'}
+                    disabled={prefsStatus === 'saving' || !userId}
                   />
                   <Toggle
                     id="pref-push-votes"
@@ -607,7 +607,7 @@ export function Settings() {
                     )}
                     checked={prefs.pushVotes}
                     onChange={(v) => togglePref('pushVotes', v)}
-                    disabled={prefsStatus === 'saving'}
+                    disabled={prefsStatus === 'saving' || !userId}
                   />
                 </div>
                 <span
@@ -647,7 +647,7 @@ export function Settings() {
                         key={option.id}
                         type="button"
                         onClick={() => togglePref('density', option.id)}
-                        disabled={prefsStatus === 'saving'}
+                        disabled={prefsStatus === 'saving' || !userId}
                         aria-pressed={isActive}
                         data-testid={`density-${option.id}`}
                         className={cm.cn(
@@ -681,7 +681,7 @@ export function Settings() {
                     )}
                     checked={prefs.showFlair}
                     onChange={(v) => togglePref('showFlair', v)}
-                    disabled={prefsStatus === 'saving'}
+                    disabled={prefsStatus === 'saving' || !userId}
                   />
                   <Toggle
                     id="pref-show-thumbnails"
@@ -692,7 +692,7 @@ export function Settings() {
                     )}
                     checked={prefs.showThumbnails}
                     onChange={(v) => togglePref('showThumbnails', v)}
-                    disabled={prefsStatus === 'saving'}
+                    disabled={prefsStatus === 'saving' || !userId}
                   />
                 </div>
                 <span

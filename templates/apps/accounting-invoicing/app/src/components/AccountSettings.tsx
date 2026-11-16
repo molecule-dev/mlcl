@@ -333,7 +333,7 @@ export function AccountSettings() {
           ) : (
             <span aria-hidden="true" />
           )}
-          <Button type="submit" loading={profileSaving}>
+          <Button disabled={!user} type="submit" loading={profileSaving}>
             {profileSaving
               ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })
               : t('common.saveChanges', {}, { defaultValue: 'Save changes' })}
@@ -612,7 +612,7 @@ export function AccountSettings() {
               required
             />
           </div>
-          <Button type="submit" color="error" fullWidth loading={deleting}>
+          <Button disabled={!user} type="submit" color="error" fullWidth loading={deleting}>
             {deleting
               ? t('settings.account.deleting', {}, { defaultValue: 'Deleting…' })
               : t('settings.account.deleteAccount', {}, { defaultValue: 'Delete account' })}
@@ -700,6 +700,7 @@ export function AccountSettings() {
               />
             </div>
             <Button
+              disabled={!user}
               type="submit"
               color={tfModal === 'disable' ? 'error' : undefined}
               fullWidth

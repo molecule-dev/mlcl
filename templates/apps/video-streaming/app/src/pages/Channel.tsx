@@ -301,6 +301,7 @@ export function Channel() {
           </div>
         </div>
         <button
+          disabled={!id}
           type="button"
           onClick={handleSubscribe}
           className={cm.cn(

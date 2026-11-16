@@ -187,7 +187,7 @@ function ForgotPassword() {
                   'w-full indigo-gradient text-on-primary rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all duration-200 disabled:opacity-50',
                 )}
                 type="submit"
-                disabled={loading}
+                disabled={loading || !email.trim()}
               >
                 {loading
                   ? t('common.sendingEllipsis', {}, { defaultValue: 'Sending…' })

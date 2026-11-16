@@ -248,7 +248,7 @@ function SettingsProfileForm() {
           )}
           <button
             onClick={handleSave}
-            disabled={saving}
+            disabled={saving || !userId}
             className={cm.cn(
               cm.sp('px', 8),
               cm.sp('py', 3),

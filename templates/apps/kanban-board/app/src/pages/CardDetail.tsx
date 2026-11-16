@@ -423,7 +423,7 @@ export function CardDetail() {
               />
               <button
                 type="submit"
-                disabled={postingComment || commentBody.trim().length === 0}
+                disabled={postingComment || commentBody.trim().length === 0 || !!card}
                 className={cm.cn(
                   'px-4 py-2 rounded-xl font-bold text-white text-sm shadow-md',
                   'bg-gradient-to-br from-primary to-primary-container hover:opacity-95 transition-opacity disabled:opacity-50',

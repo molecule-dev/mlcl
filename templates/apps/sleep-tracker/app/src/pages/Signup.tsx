@@ -154,7 +154,7 @@ export function Signup() {
 
         <button
           type="submit"
-          disabled={isSigningUp || passwordMismatch}
+          disabled={isSigningUp || passwordMismatch || password !== confirmPassword}
           className={cm.cn(
             cm.sp('py', 3),
             cm.fontWeight('bold'),

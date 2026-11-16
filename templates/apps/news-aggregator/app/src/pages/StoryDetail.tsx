@@ -179,6 +179,7 @@ export function StoryDetail() {
             {fmtAgo(story.published_at)}
           </span>
           <button
+            disabled={!id}
             type="button"
             onClick={handleSaveToggle}
             className={cm.cn(

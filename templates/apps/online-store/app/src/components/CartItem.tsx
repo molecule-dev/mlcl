@@ -84,6 +84,7 @@ function CartItem({ item, onUpdateQuantity, onRemove }: CartItemProps) {
               )}
             >
               <button
+                disabled={qty <= 1}
                 className={cm.cn(
                   cm.sp('px', 3),
                   cm.sp('py', 1),

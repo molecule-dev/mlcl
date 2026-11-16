@@ -199,6 +199,7 @@ export function Notifications() {
                 )}
               >
                 <div
+                  aria-disabled={read}
                   role="button"
                   tabIndex={0}
                   className={cm.cn(

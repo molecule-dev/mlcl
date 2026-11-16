@@ -3855,6 +3855,7 @@ async function scaffoldEslint(projectPath: string, configName = 'eslint.config.j
   for (const file of [
     'prefer-declared-clients.mjs',
     'no-empty-interactive-target.mjs',
+    'no-dropped-action.mjs',
     'no-class-code.mjs',
   ]) {
     await writeGuarded(join(rulesDir, file), await loadTemplate(`shared/${file}`))

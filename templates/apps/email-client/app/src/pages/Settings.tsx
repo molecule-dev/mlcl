@@ -349,7 +349,7 @@ export function Settings() {
                       <button
                         type="button"
                         onClick={saveProfile}
-                        disabled={savingProfile}
+                        disabled={savingProfile || !me?.id}
                         data-mol-id="settings-save-profile"
                         className={cm.cn(
                           cm.sp('px', 4),

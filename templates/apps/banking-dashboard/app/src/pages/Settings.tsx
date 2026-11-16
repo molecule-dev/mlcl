@@ -892,7 +892,7 @@ function TwoFactorPanel({ onClose }: { onClose: () => void }) {
           <button
             type="button"
             data-mol-id="two-factor-enable"
-            disabled={loading}
+            disabled={loading || !userId}
             onClick={() => void startEnable()}
             className={cm.cn(
               cm.sp('px', 4),
@@ -951,7 +951,7 @@ function TwoFactorPanel({ onClose }: { onClose: () => void }) {
           />
           <button
             type="submit"
-            disabled={loading || !token}
+            disabled={loading || !token || !userId}
             data-mol-id="two-factor-verify"
             className={cm.cn(
               cm.sp('px', 4),
@@ -1203,7 +1203,7 @@ function DangerZone() {
           <div className={cm.flex({ gap: 'sm' })}>
             <button
               type="submit"
-              disabled={loading || !password}
+              disabled={loading || !password || !user?.id}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),

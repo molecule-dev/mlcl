@@ -396,6 +396,7 @@ export function ArticleEditor() {
                 )
                 return (
                   <button
+                    disabled={!item.insert}
                     key={item.key}
                     type="button"
                     onClick={() => item.insert && insertAtCursor(item.insert)}

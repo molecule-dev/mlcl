@@ -359,6 +359,7 @@ export function Meeting() {
                     )}
                   />
                   <button
+                    disabled={!newChat.trim()}
                     type="button"
                     onClick={sendChat}
                     aria-label={t('common.send', {}, { defaultValue: 'Send' })}

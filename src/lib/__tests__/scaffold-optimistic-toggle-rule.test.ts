@@ -47,6 +47,10 @@ await copyFile(
   join(dir, 'eslint-rules/no-empty-interactive-target.mjs'),
 )
 await copyFile(
+  join(import.meta.dirname, '../../../templates/shared/no-dropped-action.mjs'),
+  join(dir, 'eslint-rules/no-dropped-action.mjs'),
+)
+await copyFile(
   join(import.meta.dirname, '../../../templates/shared/no-class-code.mjs'),
   join(dir, 'eslint-rules/no-class-code.mjs'),
 )
@@ -165,12 +169,12 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
       'utf8',
     )
     const [result] = await eslint.lintText(source, { filePath: 'ArticlePreview.tsx' })
-    const messages = result.messages.filter((row) => row.messageId === 'droppedIntent')
+    const messages = result.messages.filter((row) => row.messageId === 'droppedAction')
     expect(messages).toHaveLength(1)
     expect(messages[0]).toMatchObject({
-      ruleId: 'molecule-local/no-dropped-optimistic-intent',
+      ruleId: 'molecule-local/no-dropped-action',
       severity: 2,
-      line: 43,
+      line: 56,
     })
   })
 
@@ -187,7 +191,7 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
       },
     )
     expect(
-      result.messages.filter((row) => row.ruleId === 'molecule-local/no-dropped-optimistic-intent'),
+      result.messages.filter((row) => row.ruleId === 'molecule-local/no-dropped-action'),
     ).toEqual([])
   })
 
@@ -997,26 +1001,6 @@ export function Profile({ initial }) {
       invalid: [
         {
           options: [{ persistenceFunctions: fixturePersistence }],
-          name: 'non-X1: a like and count flip followed by a pending guard drops the next click',
-          filename: 'LikeButton.tsx',
-          code: `import { useState } from 'react'
-export function LikeButton({ post }) {
-  const [liked, setLiked] = useState(post.liked)
-  const [count, setCount] = useState(post.likes)
-  const [saving, setSaving] = useState(false)
-  const toggle = async () => {
-    if (saving) return
-    setLiked((current) => !current)
-    setCount((current) => current + (liked ? -1 : 1))
-    setSaving(true)
-    try { await toggleLike(post.id) } finally { setSaving(false) }
-  }
-  return <button onClick={toggle}>{count}</button>
-}`,
-          errors: [{ messageId: 'useOptimisticValue' }],
-        },
-        {
-          options: [{ persistenceFunctions: fixturePersistence }],
           name: 'a toggle chooses POST or DELETE with an if statement',
           filename: 'Bookmark.tsx',
           code: `import { useState } from 'react'
@@ -1252,4 +1236,31 @@ export function StarButton({ repo }) {
       ],
     })
   }
+  describe('refuses the same imported pending-save case through the general action gate', () => {
+    const tester = new RuleTester({ languageOptions: { parser: tseslint.parser } })
+    tester.run('no-dropped-action', plugin!.rules['no-dropped-action'], {
+      valid: [],
+      invalid: [
+        {
+          name: 'non-X1: a like and count flip followed by a pending guard drops the next click',
+          filename: 'LikeButton.tsx',
+          code: `import { useState } from 'react'
+export function LikeButton({ post }) {
+  const [liked, setLiked] = useState(post.liked)
+  const [count, setCount] = useState(post.likes)
+  const [saving, setSaving] = useState(false)
+  const toggle = async () => {
+    if (saving) return
+    setLiked((current) => !current)
+    setCount((current) => current + (liked ? -1 : 1))
+    setSaving(true)
+    try { await toggleLike(post.id) } finally { setSaving(false) }
+  }
+  return <button onClick={toggle}>{count}</button>
+}`,
+          errors: [{ messageId: 'droppedAction' }],
+        },
+      ],
+    })
+  })
 })

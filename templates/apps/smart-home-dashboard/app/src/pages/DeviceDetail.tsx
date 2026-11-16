@@ -208,7 +208,7 @@ export function DeviceDetail() {
               <button
                 type="button"
                 onClick={handleToggle}
-                disabled={toggling}
+                disabled={toggling || !id}
                 data-testid="device-toggle"
                 className={cm.cn(
                   cm.sp('px', 6),

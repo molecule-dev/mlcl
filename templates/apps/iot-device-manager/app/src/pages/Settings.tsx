@@ -309,7 +309,7 @@ function AccountPanel() {
         <div className={cm.cn('md:col-span-2 flex justify-end gap-3')}>
           <button
             type="submit"
-            disabled={busy}
+            disabled={busy || !user}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),

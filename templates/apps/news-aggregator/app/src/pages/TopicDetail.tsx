@@ -147,6 +147,7 @@ export function TopicDetail() {
             </p>
           </div>
           <button
+            disabled={!slug}
             type="button"
             onClick={handleFollowToggle}
             className={cm.cn(

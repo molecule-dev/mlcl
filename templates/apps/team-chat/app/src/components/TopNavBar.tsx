@@ -63,28 +63,30 @@ export default function TopNavBar() {
           data-mol-id="top-nav-search-form"
           className={cm.cn(cm.flex({ align: 'center' }), 'relative')}
         >
-          <span
-            className={cm.cn(
-              cm.textSize('xl'),
-              'material-symbols-outlined absolute left-3 text-on-surface-variant/50',
-            )}
-          >
-            search
-          </span>
-          <input
-            data-mol-id="top-nav-search-input"
-            value={searchQuery}
-            onChange={(e) => setSearchQuery(e.target.value)}
-            className={cm.cn(
-              cm.sp('pl', 10),
-              cm.sp('pr', 4),
-              cm.textSize('sm'),
-              cm.w(80),
-              'py-1.5 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/30 transition-all',
-            )}
-            placeholder={t('topNavBar.search', {}, { defaultValue: 'Search messages' })}
-            type="text"
-          />
+          <fieldset style={{ display: 'contents' }} disabled={!searchQuery.trim()}>
+            <span
+              className={cm.cn(
+                cm.textSize('xl'),
+                'material-symbols-outlined absolute left-3 text-on-surface-variant/50',
+              )}
+            >
+              search
+            </span>
+            <input
+              data-mol-id="top-nav-search-input"
+              value={searchQuery}
+              onChange={(e) => setSearchQuery(e.target.value)}
+              className={cm.cn(
+                cm.sp('pl', 10),
+                cm.sp('pr', 4),
+                cm.textSize('sm'),
+                cm.w(80),
+                'py-1.5 bg-surface-container-low border-none rounded-lg focus:ring-2 focus:ring-primary/30 transition-all',
+              )}
+              placeholder={t('topNavBar.search', {}, { defaultValue: 'Search messages' })}
+              type="text"
+            />
+          </fieldset>
         </form>
         <nav className={cm.cn(cm.flex({ align: 'center', gap: 6 }), 'hidden lg:flex')}>
           <Link

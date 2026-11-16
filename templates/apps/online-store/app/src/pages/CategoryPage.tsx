@@ -301,7 +301,7 @@ function CategoryPage() {
             <button
               type="submit"
               data-mol-id="newsletter-submit"
-              disabled={newsletterSubmitting || newsletterSuccess}
+              disabled={newsletterSubmitting || newsletterSuccess || !newsletterEmail}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),

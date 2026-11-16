@@ -183,7 +183,7 @@ export function Mixing() {
         <button
           type="button"
           onClick={handleExport}
-          disabled={exporting || strips.length === 0}
+          disabled={exporting || strips.length === 0 || !id}
           data-mol-id="mix-export"
           className={cm.cn(
             'inline-flex items-center gap-2 px-4 py-2.5 rounded-full text-sm font-semibold text-white disabled:opacity-60 transition-opacity',

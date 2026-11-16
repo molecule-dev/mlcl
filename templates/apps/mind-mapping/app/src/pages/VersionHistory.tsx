@@ -307,7 +307,7 @@ export function VersionHistory() {
                 <button
                   type="button"
                   onClick={() => handleRestore(selected.id)}
-                  disabled={busy}
+                  disabled={busy || !id}
                   data-mol-id="version-history-restore"
                   className={cm.cn(
                     cm.sp('px', 5),

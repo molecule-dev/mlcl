@@ -645,7 +645,7 @@ export function Profile() {
                     <button
                       type="submit"
                       data-testid="two-factor-submit"
-                      disabled={tfLoading || !tfToken.trim()}
+                      disabled={tfLoading || !tfToken.trim() || !me?.user_id}
                       className={cm.cn(
                         'px-3 py-1.5 rounded font-mono text-[10px] font-bold uppercase tracking-widest disabled:opacity-50',
                       )}

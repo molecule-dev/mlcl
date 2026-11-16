@@ -309,7 +309,7 @@ export function Settings() {
               ) : null}
               <button
                 type="submit"
-                disabled={accountSaving}
+                disabled={accountSaving || !user?.id}
                 data-mol-id="settings-account-save"
                 className={cm.cn(
                   cm.fontWeight('semibold'),
@@ -414,7 +414,7 @@ export function Settings() {
                   ) : null}
                   <button
                     type="submit"
-                    disabled={pwStatus === 'pending'}
+                    disabled={pwStatus === 'pending' || !user?.id}
                     className={cm.cn(
                       cm.fontWeight('semibold'),
                       cm.sp('px', 4),

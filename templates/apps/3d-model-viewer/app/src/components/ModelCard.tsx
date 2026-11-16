@@ -32,6 +32,7 @@ export default function ModelCard({ model }: { model?: ModelCardData }) {
     : t('modelLibraryCard.notUpdatedYet', {}, { defaultValue: 'Not updated yet' })
   return (
     <div
+      aria-disabled={!model?.id}
       role="button"
       tabIndex={0}
       aria-label={modelName}

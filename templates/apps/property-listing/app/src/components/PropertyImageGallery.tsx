@@ -123,6 +123,7 @@ function PropertyImageGallery({ photos: photosProp, title: titleProp, price }: G
         >
           {photos.map((photo, i) => (
             <button
+              disabled={count === 0}
               key={i}
               type="button"
               onClick={() => showPhoto(i)}
@@ -238,6 +239,7 @@ function PropertyImageGallery({ photos: photosProp, title: titleProp, price }: G
           {count > 1 && (
             <>
               <button
+                disabled={count === 0}
                 type="button"
                 aria-label={t('gallery.prevPhoto', {}, { defaultValue: 'Previous photo' })}
                 className={cm.cn(
@@ -252,6 +254,7 @@ function PropertyImageGallery({ photos: photosProp, title: titleProp, price }: G
                 </span>
               </button>
               <button
+                disabled={count === 0}
                 type="button"
                 aria-label={t('gallery.nextPhoto', {}, { defaultValue: 'Next photo' })}
                 className={cm.cn(

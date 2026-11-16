@@ -172,7 +172,7 @@ export function EditConnection() {
             <button
               type="submit"
               data-mol-id="ec-save"
-              disabled={saving}
+              disabled={saving || !connectionId}
               className={cm.cn('rounded bg-primary px-3 py-2 text-sm font-bold text-on-primary')}
             >
               {saving

@@ -322,6 +322,7 @@ export function AccountDetail() {
           ) : null}
           <div className={cm.cn(cm.flex({ gap: 'sm', justify: 'between' }))}>
             <button
+              disabled={!id}
               type="button"
               onClick={() => {
                 void deleteAccount()
@@ -352,7 +353,7 @@ export function AccountDetail() {
               </button>
               <button
                 type="submit"
-                disabled={saving}
+                disabled={saving || !id}
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 2),

@@ -525,7 +525,7 @@ export function ReviewDetail() {
               <button
                 type="button"
                 onClick={runAiReview}
-                disabled={aiLoading}
+                disabled={aiLoading || !itemId}
                 className={cm.cn(
                   'w-full inline-flex items-center justify-center gap-2 border border-primary text-primary font-bold text-sm uppercase tracking-wider px-4 py-3 rounded-lg hover:bg-primary/5 transition-colors disabled:opacity-60',
                 )}
@@ -562,7 +562,7 @@ export function ReviewDetail() {
               <button
                 type="button"
                 onClick={approve}
-                disabled={actionLoading}
+                disabled={actionLoading || !itemId}
                 data-mol-id="approve-content"
                 className={cm.cn(
                   'w-full bg-emerald-600 text-white font-bold text-sm uppercase tracking-wider px-4 py-3 rounded-lg hover:bg-emerald-500 transition-colors disabled:opacity-60',
@@ -577,7 +577,7 @@ export function ReviewDetail() {
                 <button
                   type="button"
                   onClick={escalate}
-                  disabled={actionLoading}
+                  disabled={actionLoading || !itemId}
                   data-mol-id="escalate-content"
                   className={cm.cn(
                     'w-full border border-purple-500 text-purple-500 font-bold text-sm uppercase tracking-wider px-4 py-3 rounded-lg hover:bg-purple-500/10 transition-colors disabled:opacity-60',
@@ -631,7 +631,7 @@ export function ReviewDetail() {
                     <button
                       type="button"
                       onClick={reject}
-                      disabled={actionLoading || !rejectReason}
+                      disabled={actionLoading || !rejectReason || !itemId}
                       className={cm.cn(
                         'flex-1 bg-red-600 text-white font-bold text-xs uppercase tracking-wider px-3 py-2 rounded-md hover:bg-red-500 transition-colors disabled:opacity-50',
                       )}
@@ -708,7 +708,7 @@ export function ReviewDetail() {
               <button
                 type="button"
                 onClick={reopen}
-                disabled={actionLoading}
+                disabled={actionLoading || !itemId}
                 data-mol-id="reopen-review"
                 className={cm.cn(
                   'mt-4 w-full border border-outline-variant text-on-surface-variant font-bold text-xs uppercase tracking-wider px-3 py-2.5 rounded-lg hover:text-on-surface hover:bg-surface-container-low transition-colors disabled:opacity-50',

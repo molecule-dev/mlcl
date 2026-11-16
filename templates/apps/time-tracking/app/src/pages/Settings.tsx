@@ -304,7 +304,7 @@ export function Settings() {
                 <div>
                   <button
                     type="submit"
-                    disabled={savingProfile}
+                    disabled={savingProfile || !profile.id}
                     className={cm.cn(
                       cm.sp('px', 5),
                       cm.sp('py', 2.5),
@@ -367,7 +367,7 @@ export function Settings() {
                 <div>
                   <button
                     type="submit"
-                    disabled={pwSaving || !pwCurrent || !pwNew}
+                    disabled={pwSaving || !pwCurrent || !pwNew || !profile.id}
                     className={cm.cn(
                       cm.sp('px', 5),
                       cm.sp('py', 2.5),

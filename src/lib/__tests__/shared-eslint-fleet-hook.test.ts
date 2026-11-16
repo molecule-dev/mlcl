@@ -63,6 +63,7 @@ it.each([
   'templates/shared/eslint.config.js.tpl',
   'templates/shared/prefer-declared-clients.mjs',
   'templates/shared/no-empty-interactive-target.mjs',
+  'templates/shared/no-dropped-action.mjs',
 ])('checks every workspace after changing %s', (path) => {
   expect(fleetCalls(path)).toEqual(['scripts/verify-template-lint.mjs'])
 })

@@ -296,7 +296,7 @@ export function Profile() {
                 void startEnableTwoFactor()
               }
             }}
-            disabled={tfLoading}
+            disabled={tfLoading || !userId}
             data-mol-id={twoFactorEnabled ? 'two-factor-disable' : 'two-factor-enable'}
             className={cm.cn(
               cm.textSize('xs'),
@@ -533,6 +533,7 @@ export function Profile() {
               />
             </div>
             <Button
+              disabled={!userId}
               type="submit"
               color={tfModal === 'disable' ? 'error' : undefined}
               fullWidth

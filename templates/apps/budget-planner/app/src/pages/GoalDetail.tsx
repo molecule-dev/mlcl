@@ -177,6 +177,7 @@ export function GoalDetail() {
             ) : null}
           </h1>
           <button
+            disabled={!id}
             type="button"
             onClick={() => {
               void deleteGoal()
@@ -266,7 +267,7 @@ export function GoalDetail() {
           </label>
           <button
             type="submit"
-            disabled={contribSubmitting}
+            disabled={contribSubmitting || !id}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),

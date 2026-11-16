@@ -421,7 +421,7 @@ export function Settings() {
                   <button
                     type="button"
                     onClick={handleSaveProfile}
-                    disabled={savingProfile}
+                    disabled={savingProfile || !userId}
                     data-mol-id="settings-save-profile"
                     className={cm.cn(
                       cm.sp('px', 5),
@@ -560,7 +560,7 @@ export function Settings() {
                 <div>
                   <button
                     type="submit"
-                    disabled={savingPassword}
+                    disabled={savingPassword || !userId}
                     data-mol-id="settings-save-password"
                     className={cm.cn(
                       cm.sp('px', 5),
@@ -639,6 +639,7 @@ export function Settings() {
                       </button>
                     ) : (
                       <button
+                        disabled={!userId}
                         type="button"
                         onClick={startEnable}
                         data-mol-id="settings-2fa-enable"
@@ -736,6 +737,7 @@ export function Settings() {
                       />
                     </label>
                     <Button
+                      disabled={!userId}
                       type="submit"
                       color={tfModal === 'disable' ? 'error' : undefined}
                       fullWidth

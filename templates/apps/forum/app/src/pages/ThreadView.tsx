@@ -958,7 +958,7 @@ export function ThreadView() {
                 </span>
                 <button
                   type="submit"
-                  disabled={replyBody.trim().length === 0 || submitting}
+                  disabled={replyBody.trim().length === 0 || submitting || !replyBody.trim()}
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('sm'),

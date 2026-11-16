@@ -279,7 +279,7 @@ export function Settings() {
               </label>
               <button
                 type="button"
-                disabled={saving}
+                disabled={saving || !user?.id}
                 data-mol-id="settings-save"
                 onClick={handleSaveProfile}
                 className={cm.cn(

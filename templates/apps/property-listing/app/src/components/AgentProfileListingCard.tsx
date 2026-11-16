@@ -27,6 +27,7 @@ export function AgentProfileListingCard({ listing }: { listing: PublicListingSum
     'https://picsum.photos/seed/AgentProfileListingCard-1/1200/800'
   return (
     <button
+      disabled={!listing?.id}
       type="button"
       className={cm.cn(
         cm.cursorPointer,

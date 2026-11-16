@@ -405,7 +405,7 @@ export function Monitors() {
                     <select
                       value={monitor.test_id ?? ''}
                       onChange={(e) => bindTest(monitor, e.target.value || null)}
-                      disabled={busyId === monitor.id}
+                      disabled={busyId === monitor.id || !!busyId}
                       className={cm.cn('font-mono text-xs rounded px-2 py-1')}
                       style={{
                         backgroundColor:
@@ -481,7 +481,7 @@ export function Monitors() {
                     <button
                       type="button"
                       onClick={() => runMonitor(monitor)}
-                      disabled={busyId === monitor.id || !monitor.test_id}
+                      disabled={busyId === monitor.id || !monitor.test_id || !!busyId}
                       className={cm.cn(
                         'px-3 py-1.5 rounded-md font-mono text-[11px] font-extrabold uppercase tracking-widest disabled:opacity-50',
                       )}
@@ -498,7 +498,7 @@ export function Monitors() {
                     <button
                       type="button"
                       onClick={() => remove(monitor)}
-                      disabled={busyId === monitor.id}
+                      disabled={busyId === monitor.id || !!busyId}
                       className={cm.cn(
                         'px-3 py-1.5 rounded-md font-mono text-[11px] font-bold uppercase tracking-widest border disabled:opacity-50',
                       )}

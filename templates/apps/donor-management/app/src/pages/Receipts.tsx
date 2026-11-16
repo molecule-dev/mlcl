@@ -244,7 +244,7 @@ export function Receipts() {
                 <button
                   type="button"
                   onClick={generate}
-                  disabled={generating}
+                  disabled={generating || !donorId}
                   className={cm.cn(
                     cm.sp('px', 4),
                     cm.sp('py', 2),

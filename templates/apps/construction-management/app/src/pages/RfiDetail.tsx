@@ -360,7 +360,7 @@ export function RfiDetail() {
           <div className={cm.flex({ align: 'center', gap: 'md', wrap: 'wrap' })}>
             <button
               type="submit"
-              disabled={saving}
+              disabled={saving || !rfiId}
               data-mol-id="rfis-response-submit"
               className={cm.cn(
                 cm.sp('px', 5),
@@ -376,6 +376,7 @@ export function RfiDetail() {
             </button>
             {rfi.status === 'answered' && (
               <button
+                disabled={!rfiId}
                 type="button"
                 data-mol-id="rfis-close-button"
                 onClick={handleClose}

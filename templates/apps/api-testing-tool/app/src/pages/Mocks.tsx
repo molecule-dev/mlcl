@@ -358,7 +358,7 @@ export function Mocks() {
                     <button
                       type="button"
                       onClick={() => togglePublic(mock)}
-                      disabled={busyId === mock.id}
+                      disabled={busyId === mock.id || !!busyId}
                       className={cm.cn(
                         'px-3 py-1.5 rounded-md font-mono text-[11px] font-bold uppercase tracking-widest border transition-colors hover:opacity-80 disabled:opacity-50',
                       )}
@@ -396,7 +396,7 @@ export function Mocks() {
                     <button
                       type="button"
                       onClick={() => remove(mock)}
-                      disabled={busyId === mock.id}
+                      disabled={busyId === mock.id || !!busyId}
                       className={cm.cn(
                         'px-3 py-1.5 rounded-md font-mono text-[11px] font-bold uppercase tracking-widest border transition-colors hover:opacity-80 disabled:opacity-50',
                       )}
@@ -647,7 +647,7 @@ export function Mocks() {
                       <button
                         type="button"
                         onClick={saveEdit}
-                        disabled={busyId === mock.id}
+                        disabled={busyId === mock.id || !editingId}
                         className={cm.cn(
                           'px-4 py-1.5 rounded-md font-mono text-[11px] font-extrabold uppercase tracking-widest disabled:opacity-60',
                         )}

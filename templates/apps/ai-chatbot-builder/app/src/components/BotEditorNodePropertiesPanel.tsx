@@ -86,7 +86,7 @@ function BotEditorNodePropertiesPanel() {
           'bg-primary text-on-primary rounded-xl shadow-lg shadow-primary/20 hover:scale-[1.02] active:scale-[0.98] transition-all',
         )}
         onClick={handleSave}
-        disabled={saving}
+        disabled={saving || !id}
       >
         {t('common.saveChanges', {}, { defaultValue: 'Save Changes' })}
       </button>

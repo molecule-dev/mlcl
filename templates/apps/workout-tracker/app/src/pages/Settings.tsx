@@ -304,7 +304,7 @@ export function Settings() {
                   id="pref-weight-unit"
                   data-testid="pref-weight-unit"
                   value={prefs.weightUnit}
-                  disabled={saving === 'weightUnit'}
+                  disabled={saving === 'weightUnit' || !user?.id}
                   onChange={(e) => update('weightUnit', e.target.value as 'kg' | 'lbs')}
                   className={cm.cn(
                     cm.sp('px', 3),
@@ -355,7 +355,7 @@ export function Settings() {
                   id="pref-distance-unit"
                   data-testid="pref-distance-unit"
                   value={prefs.distanceUnit}
-                  disabled={saving === 'distanceUnit'}
+                  disabled={saving === 'distanceUnit' || !user?.id}
                   onChange={(e) => update('distanceUnit', e.target.value as 'km' | 'mi')}
                   className={cm.cn(
                     cm.sp('px', 3),
@@ -403,7 +403,7 @@ export function Settings() {
                   id="pref-rest-timer"
                   data-testid="pref-rest-timer"
                   value={prefs.restTimerSeconds}
-                  disabled={saving === 'restTimerSeconds'}
+                  disabled={saving === 'restTimerSeconds' || !user?.id}
                   onChange={(e) => update('restTimerSeconds', Number(e.target.value))}
                   className={cm.cn(
                     cm.sp('px', 3),
@@ -657,7 +657,7 @@ export function Settings() {
             <div className={cm.cn(cm.flex({ gap: 'sm' }))}>
               <button
                 type="submit"
-                disabled={deleting}
+                disabled={deleting || !user?.id}
                 data-testid="settings-delete-submit"
                 className={cm.cn(
                   cm.sp('px', 4),

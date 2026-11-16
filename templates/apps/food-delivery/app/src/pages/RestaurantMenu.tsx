@@ -224,7 +224,7 @@ export function RestaurantMenu() {
                 <button
                   type="button"
                   onClick={toggleFavorite}
-                  disabled={favoriteBusy}
+                  disabled={favoriteBusy || !id}
                   aria-pressed={favoriteId != null}
                   aria-label={
                     favoriteId != null

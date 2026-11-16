@@ -295,7 +295,7 @@ export function Profile() {
             type="button"
             onClick={saveIdentity}
             data-testid="save-name"
-            disabled={savingName || (name === originalName && email === originalEmail)}
+            disabled={savingName || (name === originalName && email === originalEmail) || !userId}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),
@@ -398,7 +398,7 @@ export function Profile() {
             type="button"
             onClick={changePassword}
             data-testid="save-password"
-            disabled={savingPassword}
+            disabled={savingPassword || !userId}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),

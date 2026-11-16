@@ -274,7 +274,7 @@ export function Settings() {
           type="button"
           data-test="settings-save"
           onClick={() => void save()}
-          disabled={savingState === 'saving'}
+          disabled={savingState === 'saving' || !userId}
           className={cm.cn(
             cm.sp('px', 6),
             cm.sp('py', 3),
@@ -884,7 +884,7 @@ export function Settings() {
             autoComplete="current-password"
             required
           />
-          <Button type="submit" color="error" fullWidth loading={deleteLoading}>
+          <Button disabled={!userId} type="submit" color="error" fullWidth loading={deleteLoading}>
             {deleteLoading
               ? t('settings.deletingAccount', {}, { defaultValue: 'Deleting…' })
               : t('settings.deleteAccount', {}, { defaultValue: 'Delete account' })}

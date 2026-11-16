@@ -334,7 +334,7 @@ export function Settings() {
             <button
               type="button"
               data-mol-id="settings-save-profile"
-              disabled={savingProfile}
+              disabled={savingProfile || !user?.id}
               onClick={() => void saveProfile()}
               className={cm.cn(
                 cm.sp('px', 4),

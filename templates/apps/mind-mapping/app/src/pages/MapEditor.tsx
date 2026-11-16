@@ -722,11 +722,12 @@ export function MapEditor() {
               cm.textSize('3xl'),
               'font-extrabold tracking-tight text-on-surface bg-transparent border-0 outline-none focus:ring-2 focus:ring-primary/30 rounded-md px-1',
             )}
-            disabled={savingTitle || loading}
+            disabled={savingTitle || loading || !map || !id || titleDraft.trim() === map.title}
           />
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'flex-wrap')}>
           <button
+            disabled={!id}
             type="button"
             onClick={async () => {
               if (!id) return
@@ -857,7 +858,7 @@ export function MapEditor() {
                         key={format}
                         role="menuitem"
                         type="button"
-                        disabled={exportBusy !== null}
+                        disabled={exportBusy !== null || !map}
                         onClick={() => void handleExport(format)}
                         data-mol-id={`map-editor-export-${format}`}
                         className={cm.cn(
@@ -1044,7 +1045,7 @@ export function MapEditor() {
             viewBox="0 0 720 480"
             className={cm.cn(cm.w('full'), 'block h-[520px] touch-none select-none')}
             onClick={handleCanvasClick}
-            onPointerDown={handleCanvasPointerDown}
+            onPointerDown={tool === 'select' ? handleCanvasPointerDown : undefined}
             onPointerMove={handleCanvasPointerMove}
             onPointerUp={handleCanvasPointerUp}
             onPointerLeave={handleCanvasPointerUp}
@@ -1095,7 +1096,9 @@ export function MapEditor() {
                   <g
                     key={node.id}
                     transform={`translate(${node.x}, ${node.y})`}
-                    onPointerDown={(e) => handleNodePointerDown(e, node)}
+                    onPointerDown={
+                      tool === 'add' ? undefined : (e) => handleNodePointerDown(e, node)
+                    }
                     onPointerMove={handleNodePointerMove}
                     onPointerUp={handleNodePointerUp}
                     data-mol-id="map-editor-node"
@@ -1232,6 +1235,7 @@ export function MapEditor() {
               </div>
               <div className={cm.flex({ gap: 'sm' })}>
                 <button
+                  disabled={!id}
                   type="button"
                   onClick={() => handleAddNode(selected.x + NODE_W + 40, selected.y, selected.id)}
                   data-mol-id="map-editor-add-child"

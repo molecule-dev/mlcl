@@ -289,7 +289,7 @@ export function PhotoDetail() {
             <button
               type="button"
               onClick={onFavorite}
-              disabled={favPending}
+              disabled={favPending || !id}
               aria-pressed={!!photo.favorited}
               data-testid="photo-detail-favorite"
               className={cm.cn(

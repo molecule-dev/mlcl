@@ -503,6 +503,7 @@ export function Profile() {
             {t('common.cancel', {}, { defaultValue: 'Cancel' })}
           </button>
           <button
+            disabled={!userId}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),

@@ -152,7 +152,7 @@ export function Favorites() {
                 type="button"
                 data-testid={`unsave-${f.property_id}`}
                 onClick={() => handleRemove(f.property_id)}
-                disabled={removingId === f.property_id}
+                disabled={removingId === f.property_id || !!removingId}
                 className={cm.cn(
                   cm.sp('px', 3),
                   cm.sp('py', 1),

@@ -52,6 +52,7 @@ export function VoteCluster({ score, direction = null, size = 'md', onVote }: Vo
       )}
     >
       <button
+        disabled={!onVote}
         type="button"
         onClick={() => handleClick('up')}
         aria-label={t('voteCluster.upvote', {}, { defaultValue: 'Upvote' })}
@@ -84,6 +85,7 @@ export function VoteCluster({ score, direction = null, size = 'md', onVote }: Vo
         {formatScore(score)}
       </span>
       <button
+        disabled={!onVote}
         type="button"
         onClick={() => handleClick('down')}
         aria-label={t('voteCluster.downvote', {}, { defaultValue: 'Downvote' })}

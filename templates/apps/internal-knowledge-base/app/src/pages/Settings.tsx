@@ -309,7 +309,7 @@ export function Settings() {
               id="settings-name"
               type="text"
               value={nameDraft}
-              disabled={nameSaving || !me}
+              disabled={nameSaving || !me || nameDraft === (me.name ?? '')}
               autoComplete="name"
               onChange={(e) => {
                 setNameSuccess(false)
@@ -363,7 +363,7 @@ export function Settings() {
               id="settings-email"
               type="email"
               value={emailDraft}
-              disabled={emailSaving || !me}
+              disabled={emailSaving || !me || !emailSaving}
               onChange={(e) => {
                 setEmailSuccess(false)
                 setEmailDraft(e.target.value)

@@ -190,7 +190,7 @@ function DealDetailHeader({
               'bg-primary text-on-primary rounded-lg shadow-md hover:opacity-95 active:scale-95 transition-all',
             )}
             onClick={handleMarkAsWon}
-            disabled={markingWon}
+            disabled={markingWon || !deal?.id}
           >
             {markingWon
               ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })

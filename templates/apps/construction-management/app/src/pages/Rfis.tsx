@@ -264,7 +264,7 @@ export function Rfis() {
           )}
           <button
             type="submit"
-            disabled={saving}
+            disabled={saving || !projectId}
             data-mol-id="rfis-create-submit"
             className={cm.cn(
               cm.sp('px', 5),

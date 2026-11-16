@@ -353,7 +353,10 @@ export function Devices() {
           aria-labelledby="register-device-heading"
           className={cm.cn('fixed inset-0 z-50 flex items-center justify-center p-4')}
         >
-          <div
+          <button
+            type="button"
+            tabIndex={-1}
+            disabled={!!createBusy}
             aria-hidden="true"
             onClick={() => !createBusy && setShowCreate(false)}
             className={cm.cn('absolute inset-0 bg-on-surface/40 backdrop-blur-sm')}

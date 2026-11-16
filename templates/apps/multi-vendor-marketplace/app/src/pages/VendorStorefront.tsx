@@ -298,6 +298,7 @@ export function VendorStorefront() {
         </div>
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }))}>
           <button
+            disabled={!slug}
             type="button"
             onClick={toggleFollow}
             data-testid="vendor-storefront-follow"

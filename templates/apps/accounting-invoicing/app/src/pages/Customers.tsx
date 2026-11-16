@@ -211,7 +211,7 @@ export function Customers() {
           <div className={cm.cn(cm.flex({ gap: 'sm', justify: 'end' }))}>
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !form.company.trim()}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),

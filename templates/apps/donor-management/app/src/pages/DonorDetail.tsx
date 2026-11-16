@@ -264,7 +264,7 @@ export function DonorDetail() {
             ) : null}
             <button
               type="submit"
-              disabled={savingNote || !noteBody.trim()}
+              disabled={savingNote || !noteBody.trim() || !id}
               className={cm.cn(
                 cm.sp('px', 3),
                 cm.sp('py', 2),

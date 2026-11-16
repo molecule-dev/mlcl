@@ -334,7 +334,7 @@ export function Billing() {
                 <button
                   type="button"
                   data-mol-id={`tier-${tier.key}-cta`}
-                  disabled={disabled}
+                  disabled={disabled || !(currentCategory !== 'free')}
                   onClick={onClick}
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'center', gap: 'sm' }),

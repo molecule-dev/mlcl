@@ -353,7 +353,7 @@ export function Settings() {
           <div className={cm.flex({ align: 'center', gap: 'md' })}>
             <button
               type="submit"
-              disabled={profileSaving}
+              disabled={profileSaving || !user?.id}
               data-testid="settings-profile-save"
               className={cm.cn(
                 cm.sp('px', 5),

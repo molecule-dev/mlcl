@@ -240,6 +240,7 @@ export function APIKeys() {
               {revealedKey.secret}
             </code>
             <button
+              disabled={!!revealedKey}
               type="button"
               onClick={handleCopyRevealed}
               className={cm.cn(

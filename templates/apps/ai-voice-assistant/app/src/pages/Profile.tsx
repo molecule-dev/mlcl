@@ -404,7 +404,7 @@ function Profile() {
         <button
           type="button"
           onClick={() => void handleSave()}
-          disabled={saving}
+          disabled={saving || !user?.id}
           className={cm.cn(
             cm.roundedFull,
             cm.fontWeight('bold'),

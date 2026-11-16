@@ -310,7 +310,7 @@ export function ArticleView() {
               <button
                 type="button"
                 onClick={handleBookmarkToggle}
-                disabled={togglingBookmark}
+                disabled={togglingBookmark || !id}
                 aria-pressed={bookmarked}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'xs' }),

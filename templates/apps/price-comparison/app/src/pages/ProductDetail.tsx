@@ -387,7 +387,10 @@ export function ProductDetail() {
               type="button"
               onClick={handleAddWatch}
               disabled={
-                watchStatus === 'pending' || watchStatus === 'added' || watchStatus === 'duplicate'
+                watchStatus === 'pending' ||
+                watchStatus === 'added' ||
+                watchStatus === 'duplicate' ||
+                !id
               }
               data-test="add-watchlist"
               className={cm.cn(
@@ -538,7 +541,7 @@ export function ProductDetail() {
             </fieldset>
             <button
               type="submit"
-              disabled={alertStatus === 'pending'}
+              disabled={alertStatus === 'pending' || !id}
               data-test="set-alert"
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center', gap: 'xs' }),

@@ -478,7 +478,7 @@ export function Messages() {
                 />
                 <button
                   type="submit"
-                  disabled={!draft.trim() || sending}
+                  disabled={!draft.trim() || sending || !activeId}
                   className={cm.cn(
                     cm.flex({ align: 'center', justify: 'center' }),
                     'rounded-full text-on-primary shrink-0 transition-transform hover:scale-105 disabled:opacity-40',

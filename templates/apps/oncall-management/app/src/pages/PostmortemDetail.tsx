@@ -345,7 +345,8 @@ export function PostmortemDetail() {
             type="button"
             disabled={
               saving ||
-              (summary === pm.summary && factorsText === pm.contributing_factors.join('\n'))
+              (summary === pm.summary && factorsText === pm.contributing_factors.join('\n')) ||
+              !id
             }
             onClick={saveEdits}
             data-mol-id="postmortem-save"
@@ -361,7 +362,7 @@ export function PostmortemDetail() {
           {pm.status !== 'published' ? (
             <button
               type="button"
-              disabled={saving}
+              disabled={saving || !id}
               onClick={publish}
               data-mol-id="postmortem-publish"
               className={cm.cn(
@@ -493,7 +494,7 @@ export function PostmortemDetail() {
                 >
                   <button
                     type="button"
-                    disabled={saving || item.status === 'done'}
+                    disabled={saving || item.status === 'done' || !id}
                     onClick={() =>
                       setItemStatus(item, item.status === 'open' ? 'in_progress' : 'done')
                     }
@@ -568,7 +569,7 @@ export function PostmortemDetail() {
               />
               <button
                 type="button"
-                disabled={!newItem.trim() || saving}
+                disabled={!newItem.trim() || saving || !id}
                 onClick={addItem}
                 data-mol-id="postmortem-new-item-submit"
                 className={cm.cn(

@@ -268,6 +268,7 @@ export function TransactionDetail() {
             </button>
           ) : null}
           <button
+            disabled={!id}
             type="button"
             onClick={() => {
               void deleteTx()
@@ -441,7 +442,7 @@ export function TransactionDetail() {
             </button>
             <button
               type="submit"
-              disabled={saving}
+              disabled={saving || !id}
               className={cm.cn(
                 cm.sp('px', 5),
                 cm.sp('py', 2),

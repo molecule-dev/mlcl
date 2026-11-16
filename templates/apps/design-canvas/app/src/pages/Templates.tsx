@@ -206,7 +206,7 @@ export function Templates() {
                       e.stopPropagation()
                       void applyTemplate(tpl.id)
                     }}
-                    disabled={usingId === tpl.id}
+                    disabled={usingId === tpl.id || !!usingId}
                     data-mol-id={`template-use-${tpl.id}`}
                     className={cm.cn(
                       cm.sp('px', 3),

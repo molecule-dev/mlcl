@@ -485,7 +485,7 @@ export function EventDetail() {
               </div>
               <button
                 type="button"
-                disabled={totalCount === 0 || purchasing}
+                disabled={totalCount === 0 || purchasing || !selectedTierId || !!selectedTierId}
                 onClick={handlePurchase}
                 data-mol-id="purchase-tickets-button"
                 className={cm.cn(

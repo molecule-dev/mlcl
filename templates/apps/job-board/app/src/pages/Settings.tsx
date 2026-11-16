@@ -335,7 +335,7 @@ export function Settings() {
               ) : null}
               <button
                 type="submit"
-                disabled={profileSaving}
+                disabled={profileSaving || !userId}
                 className={cm.cn(
                   cm.sp('px', 5),
                   cm.sp('py', 2),

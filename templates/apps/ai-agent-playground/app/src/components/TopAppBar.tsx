@@ -119,6 +119,7 @@ export function TopBarActions({ ctaLabel, ctaTo, onCta }: TopBarActionsProps) {
       </div>
       {ctaLabel && (
         <button
+          disabled={!ctaTo}
           className={cm.cn(
             cm.sp('px', 3),
             cm.fontWeight('medium'),

@@ -617,7 +617,7 @@ export function BoardDetail() {
               { defaultValue: 'Delete this list and all its cards?' },
             )}
             onConfirm={() => handleDeleteList(list.id)}
-            disabled={busy}
+            disabled={busy || !board}
             variant="ghost"
             color="error"
             size="sm"

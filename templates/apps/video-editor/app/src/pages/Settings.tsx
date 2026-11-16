@@ -518,7 +518,7 @@ export function Settings() {
                     <button
                       type="submit"
                       data-mol-id="profile-save"
-                      disabled={profileSaving}
+                      disabled={profileSaving || !user?.id}
                       className={cm.cn(
                         cm.fontWeight('semibold'),
                         cm.sp('px', 4),
@@ -647,7 +647,7 @@ export function Settings() {
                           <button
                             type="submit"
                             data-mol-id="password-submit"
-                            disabled={pwBusy}
+                            disabled={pwBusy || !user?.id}
                             className={cm.cn(
                               cm.fontWeight('semibold'),
                               cm.sp('px', 4),
@@ -772,7 +772,7 @@ export function Settings() {
                         <button
                           type="submit"
                           data-mol-id="delete-confirm"
-                          disabled={deleting}
+                          disabled={deleting || !user?.id}
                           className={cm.cn(
                             cm.fontWeight('semibold'),
                             cm.sp('px', 4),

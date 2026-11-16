@@ -159,7 +159,7 @@ export function ResetPassword() {
         ) : null}
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || password !== confirmPassword}
           className={cm.cn(cm.fontWeight('bold'))}
           style={{
             padding: '12px 18px',

@@ -153,7 +153,7 @@ export function Signup() {
 
         <button
           type="submit"
-          disabled={isSigningUp}
+          disabled={isSigningUp || !!passwordMismatch}
           data-mol-id="signup-submit"
           className={cm.cn(
             cm.fontWeight('bold'),

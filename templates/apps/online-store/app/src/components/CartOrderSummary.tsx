@@ -144,7 +144,7 @@ function CartOrderSummary({ subtotal }: CartOrderSummaryProps) {
               )}
               data-mol-id="apply-promo"
               onClick={applyPromo}
-              disabled={promoLoading}
+              disabled={promoLoading || !promoCode}
             >
               {promoLoading
                 ? t('common.loading', {}, { defaultValue: '…' })

@@ -224,7 +224,7 @@ export function ContractDetail() {
               type="button"
               id="send-for-signature"
               onClick={handleSend}
-              disabled={busy !== null}
+              disabled={busy !== null || !id}
               className={cm.cn(
                 cm.sp('px', 5),
                 cm.sp('py', 2),
@@ -243,7 +243,7 @@ export function ContractDetail() {
               type="button"
               id="sign-now"
               onClick={handleSign}
-              disabled={busy !== null}
+              disabled={busy !== null || !id}
               className={cm.cn(
                 cm.sp('px', 5),
                 cm.sp('py', 2),

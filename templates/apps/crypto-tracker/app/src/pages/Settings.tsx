@@ -949,6 +949,7 @@ function SecurityAuthCard() {
               />
             </label>
             <Button
+              disabled={!user?.id}
               type="submit"
               color={tfModal === 'disable' ? 'error' : undefined}
               fullWidth
@@ -1216,7 +1217,7 @@ function SecurityDangerCard() {
               required
             />
           </label>
-          <Button type="submit" color="error" fullWidth loading={loading}>
+          <Button disabled={!user?.id} type="submit" color="error" fullWidth loading={loading}>
             {loading
               ? t('settings.deleteAccountModal.deleting', {}, { defaultValue: 'Deleting…' })
               : t('settings.deleteAccount', {}, { defaultValue: 'Delete account' })}

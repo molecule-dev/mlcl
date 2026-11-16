@@ -180,7 +180,7 @@ export function Settings() {
               <button
                 type="button"
                 onClick={saveProfile}
-                disabled={saving}
+                disabled={saving || !user?.id}
                 data-testid="save-profile"
                 className={cm.cn(
                   cm.sp('px', 5),

@@ -449,7 +449,7 @@ export function QuizPlay() {
                 key={`${question.id}-${idx}`}
                 type="button"
                 onClick={() => handleSubmit(choice)}
-                disabled={showResult}
+                disabled={showResult || !sessionId}
                 data-testid={`answer-${key}`}
                 data-correct={isWinner ? 'true' : 'false'}
                 className={cm.cn(
@@ -513,6 +513,7 @@ export function QuizPlay() {
                   )}
             </p>
             <button
+              disabled={!sessionId}
               type="button"
               onClick={handleNext}
               data-testid="next-question"

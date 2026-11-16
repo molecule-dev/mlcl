@@ -422,7 +422,7 @@ export function IncidentDetail() {
                   <button
                     type="button"
                     onClick={markResolved}
-                    disabled={resolving || incident.status === 'resolved'}
+                    disabled={resolving || incident.status === 'resolved' || !id}
                     data-mol-id="incident-resolve"
                     className={cm.cn(
                       'block w-full text-center px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest hover:opacity-90 disabled:opacity-50 disabled:cursor-not-allowed',

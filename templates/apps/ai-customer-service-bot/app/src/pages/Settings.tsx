@@ -748,7 +748,7 @@ function Settings() {
                 <button
                   data-mol-id="settings-api-create"
                   type="submit"
-                  disabled={creatingToken}
+                  disabled={creatingToken || !tokenLabel.trim()}
                   className={cm.cn(
                     cm.fontWeight('semibold'),
                     cm.textSize('sm'),

@@ -375,7 +375,10 @@ export function Firmware() {
           aria-labelledby="upload-firmware-heading"
           className={cm.cn('fixed inset-0 z-50 flex items-center justify-center p-4')}
         >
-          <div
+          <button
+            type="button"
+            tabIndex={-1}
+            disabled={!!uploadBusy}
             aria-hidden="true"
             onClick={() => !uploadBusy && setShowUpload(false)}
             className={cm.cn('absolute inset-0 bg-on-surface/40 backdrop-blur-sm')}
@@ -523,7 +526,10 @@ export function Firmware() {
           aria-labelledby="rollout-firmware-heading"
           className={cm.cn('fixed inset-0 z-50 flex items-center justify-center p-4')}
         >
-          <div
+          <button
+            type="button"
+            tabIndex={-1}
+            disabled={!!rolloutBusy}
             aria-hidden="true"
             onClick={() => !rolloutBusy && setShowRollout(false)}
             className={cm.cn('absolute inset-0 bg-on-surface/40 backdrop-blur-sm')}

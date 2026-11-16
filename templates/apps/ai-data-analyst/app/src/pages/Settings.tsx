@@ -1059,6 +1059,7 @@ export function Settings() {
                     />
                   </label>
                   <Button
+                    disabled={!userId}
                     type="submit"
                     color={tfModal === 'disable' ? 'error' : undefined}
                     fullWidth

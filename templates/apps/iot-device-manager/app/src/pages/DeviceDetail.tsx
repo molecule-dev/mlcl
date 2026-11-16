@@ -453,7 +453,7 @@ export function DeviceDetail() {
               <button
                 type="button"
                 onClick={() => sendCommand('reboot', { confirm: true })}
-                disabled={busy}
+                disabled={busy || !id}
                 className={cm.cn(
                   'px-4 py-2 rounded-full text-xs font-bold bg-surface/10 backdrop-blur-md hover:bg-surface/20 transition-colors',
                   busy && 'opacity-60 cursor-not-allowed',
@@ -689,7 +689,7 @@ export function DeviceDetail() {
               </button>
               <button
                 type="submit"
-                disabled={busy}
+                disabled={busy || !commandType.trim()}
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),

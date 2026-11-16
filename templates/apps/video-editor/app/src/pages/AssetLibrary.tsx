@@ -328,7 +328,7 @@ export function AssetLibrary() {
               <button
                 type="submit"
                 data-mol-id="asset-form-submit"
-                disabled={creating}
+                disabled={creating || !uploadName.trim() || !uploadUrl.trim()}
                 className={cm.cn(
                   cm.fontWeight('semibold'),
                   cm.sp('px', 4),

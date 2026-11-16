@@ -189,7 +189,7 @@ export function Projects() {
           <button
             type="button"
             data-testid="projects-create-confirm"
-            disabled={creating}
+            disabled={creating || !newName.trim()}
             onClick={() => void createProject()}
             className={cm.cn(
               'px-4 py-2 rounded font-mono text-xs font-bold uppercase tracking-widest disabled:opacity-50',

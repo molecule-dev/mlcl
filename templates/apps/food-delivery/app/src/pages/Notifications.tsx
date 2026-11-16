@@ -267,6 +267,7 @@ export function Notifications() {
                   </Link>
                 ) : (
                   <button
+                    disabled={!n.unread}
                     type="button"
                     onClick={() => {
                       if (n.unread) void markRead(n.id)

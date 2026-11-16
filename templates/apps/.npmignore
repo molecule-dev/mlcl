@@ -13,3 +13,5 @@
 */app/eslint-rules/prefer-declared-clients.mjs
 */api/eslint-rules/no-empty-interactive-target.mjs
 */app/eslint-rules/no-empty-interactive-target.mjs
+*/api/eslint-rules/no-dropped-action.mjs
+*/app/eslint-rules/no-dropped-action.mjs

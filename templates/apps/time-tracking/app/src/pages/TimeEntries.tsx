@@ -450,7 +450,7 @@ export function TimeEntries() {
           <div className={cm.cn(cm.flex({ gap: 'sm' }))}>
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !form.date || !form.start_time || !form.end_time}
               className={cm.cn(
                 cm.sp('px', 5),
                 cm.sp('py', 2.5),

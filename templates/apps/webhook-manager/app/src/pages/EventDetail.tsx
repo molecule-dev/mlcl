@@ -170,7 +170,7 @@ export function EventDetail() {
           <button
             type="button"
             onClick={fireTest}
-            disabled={firing}
+            disabled={firing || !eventId}
             className={cm.cn(
               'inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono font-semibold text-sm transition-colors',
             )}

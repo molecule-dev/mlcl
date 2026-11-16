@@ -619,6 +619,7 @@ export function Editor() {
         <div className={cm.cn(cm.flex({ align: 'center', gap: 'xs' }), 'flex-wrap')}>
           {PALETTE.map((c) => (
             <button
+              disabled={!deck}
               key={c}
               type="button"
               data-testid={`theme-${c.replace('#', '')}`}
@@ -880,6 +881,7 @@ export function Editor() {
             )
           })}
           <button
+            disabled={!id}
             type="button"
             data-testid="add-slide-mobile"
             onClick={() => void addSlide()}
@@ -1029,6 +1031,7 @@ export function Editor() {
               )
             })}
             <button
+              disabled={!id}
               type="button"
               data-testid="add-slide"
               onClick={() => void addSlide()}

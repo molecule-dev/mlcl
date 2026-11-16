@@ -276,6 +276,7 @@ export function NowPlaying() {
               >
                 <span data-testid="now-playing-page-position">{fmtElapsed(elapsed)}</span>
                 <button
+                  disabled={totalDuration <= 0}
                   type="button"
                   className={cm.cn(
                     'flex-1 h-1.5 rounded-full bg-surface-container-high overflow-hidden cursor-pointer',

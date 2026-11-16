@@ -144,7 +144,7 @@ export function VersionHistory() {
             type="button"
             data-mol-id="version-restore"
             onClick={handleRestore}
-            disabled={!active || restoring}
+            disabled={!active || restoring || !id}
             className={cm.cn(
               cm.sp('px', 5),
               cm.sp('py', 2),

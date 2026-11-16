@@ -509,7 +509,7 @@ export function IncidentDetail() {
               ) : (
                 <button
                   type="button"
-                  disabled={actionPending !== null}
+                  disabled={actionPending !== null || !id}
                   onClick={() => void startPostmortem()}
                   data-mol-id="incident-start-postmortem"
                   className={cm.cn(

@@ -244,7 +244,12 @@ function Thread() {
           {sendError}
         </p>
       )}
-      <ReplyInput value={newReply} onChange={setNewReply} onSend={sendReply} disabled={sending} />
+      <ReplyInput
+        value={newReply}
+        onChange={setNewReply}
+        onSend={sendReply}
+        disabled={sending || !newReply.trim() || !messageId}
+      />
     </ChatShell>
   )
 }

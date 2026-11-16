@@ -247,7 +247,7 @@ export function Notifications() {
             if (!marking && unread > 0) onMarkAllRead()
           }}
           type="button"
-          disabled={marking || unread === 0}
+          disabled={marking || unread === 0 || !(unread > 0)}
           className={cm.cn(
             'inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest border transition-colors hover:bg-surface/5 disabled:opacity-50 disabled:cursor-not-allowed',
           )}

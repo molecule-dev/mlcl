@@ -378,7 +378,7 @@ export function Alerts() {
                     {a.status === 'open' && (
                       <button
                         type="button"
-                        disabled={busyId === a.id}
+                        disabled={busyId === a.id || !!busyId}
                         onClick={() => updateStatus(a.id, 'acknowledged')}
                         className={cm.cn(
                           'mt-2 text-[10px] font-bold uppercase tracking-widest text-info hover:underline disabled:opacity-50',
@@ -391,7 +391,7 @@ export function Alerts() {
                     {a.status !== 'resolved' && (
                       <button
                         type="button"
-                        disabled={busyId === a.id}
+                        disabled={busyId === a.id || !!busyId}
                         onClick={() => updateStatus(a.id, 'resolved')}
                         className={cm.cn(
                           'mt-2 text-[10px] font-bold uppercase tracking-widest text-success hover:underline disabled:opacity-50',

@@ -406,7 +406,7 @@ export function Settings() {
               </button>
               <button
                 type="button"
-                disabled={savingProfile}
+                disabled={savingProfile || !user?.id}
                 onClick={() => void handleSaveProfile()}
                 className={cm.cn(
                   'inline-flex items-center gap-2 ml-auto px-6 h-10 rounded-full text-xs font-bold uppercase tracking-widest text-white shadow disabled:opacity-50',

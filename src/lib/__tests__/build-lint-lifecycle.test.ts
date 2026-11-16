@@ -141,8 +141,8 @@ describe('frontend npm build verification', () => {
       const result = await build(app)
       expect(result.code, result.output).not.toBe(0)
       expect(result.output).toMatch(/Control\.tsx/)
-      expect(result.output).toContain('no-dropped-optimistic-intent')
-      expect(result.output).toContain('busy guard discards another click')
+      expect(result.output).toContain('no-dropped-action')
+      expect(result.output).toContain('handler can return without answering')
       await expect(readFile(join(app, 'dist/index.html'))).rejects.toMatchObject({ code: 'ENOENT' })
     },
     90_000,
@@ -165,7 +165,7 @@ describe('frontend npm build verification', () => {
       await fixture(app, unreadyAction)
       const result = await build(app)
       expect(result.code, result.output).not.toBe(0)
-      expect(result.output).toContain('no-dropped-optimistic-intent')
+      expect(result.output).toContain('no-dropped-action')
       expect(result.output).toContain('disabled={!record}')
       await expect(readFile(join(app, 'dist/index.html'))).rejects.toMatchObject({ code: 'ENOENT' })
     },

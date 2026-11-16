@@ -358,7 +358,7 @@ function AutomationsBody() {
               </select>
               <button
                 type="submit"
-                disabled={busy}
+                disabled={busy || !ruleName.trim()}
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),
@@ -528,7 +528,7 @@ function AutomationsBody() {
             <div className={cm.cn(cm.flex({ justify: 'end' }))}>
               <button
                 type="submit"
-                disabled={busy}
+                disabled={busy || !cannedShortcut.trim() || !cannedBody.trim()}
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),

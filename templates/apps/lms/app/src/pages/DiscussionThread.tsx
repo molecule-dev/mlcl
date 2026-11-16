@@ -312,7 +312,7 @@ function DiscussionThread() {
                     'rounded-xl bg-primary text-on-primary hover:bg-primary/90 transition-colors disabled:opacity-50',
                   )}
                   data-mol-id="thread-reply-submit"
-                  disabled={posting || !reply.trim()}
+                  disabled={posting || !reply.trim() || !discussionId}
                   onClick={() => void submitReply()}
                 >
                   {posting

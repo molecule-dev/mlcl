@@ -293,6 +293,7 @@ export function Team() {
             <option value="admin">{t('team.role.admin', {}, { defaultValue: 'Admin' })}</option>
           </select>
           <button
+            disabled={!inviteEmail}
             type="submit"
             className={cm.cn(
               cm.sp('px', 4),

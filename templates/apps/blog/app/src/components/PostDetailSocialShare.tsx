@@ -102,6 +102,7 @@ function PostDetailSocialShare() {
     >
       <div className={cm.flex({ align: 'center', gap: 'lg' })}>
         <button
+          disabled={!id}
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'group')}
           data-mol-id="button-clap-footer"
           aria-pressed={summary.clapped}
@@ -131,6 +132,7 @@ function PostDetailSocialShare() {
           </span>
         </button>
         <button
+          disabled={!post?.id}
           className={cm.cn(cm.flex({ align: 'center', gap: 'sm' }), 'group')}
           data-mol-id="button-comments-footer"
           onClick={() => post?.id && navigate(`/comments?postId=${post.id}`)}

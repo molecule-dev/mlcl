@@ -230,7 +230,7 @@ export function TemplateDetail() {
               <button
                 type="button"
                 onClick={handleUseTemplate}
-                disabled={busy}
+                disabled={busy || !id}
                 data-mol-id="template-detail-use-button"
                 className={cm.cn(
                   cm.sp('px', 5),

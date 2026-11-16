@@ -675,7 +675,7 @@ function Annotations() {
                         e.stopPropagation()
                         void toggleResolved(annotation)
                       }}
-                      disabled={busy === `resolve-${annotation.id}`}
+                      disabled={busy === `resolve-${annotation.id}` || !!busy}
                       className={cm.cn(
                         cm.sp('p', 2),
                         cm.roundedFull,
@@ -716,7 +716,7 @@ function Annotations() {
                         onConfirm={() => deleteAnnotation(annotation)}
                         testId={`annotation-delete-${annotation.id}`}
                         data-mol-id={`annotation-delete-${annotation.id}`}
-                        disabled={busy === `delete-${annotation.id}`}
+                        disabled={busy === `delete-${annotation.id}` || !!busy}
                         size="sm"
                         color="error"
                         variant="ghost"

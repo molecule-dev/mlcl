@@ -228,7 +228,7 @@ export function Receiving() {
           </label>
           <button
             type="submit"
-            disabled={creating}
+            disabled={creating || !supplier.trim()}
             data-testid="receiving-create-submit"
             className={cm.cn(
               cm.sp('px', 4),

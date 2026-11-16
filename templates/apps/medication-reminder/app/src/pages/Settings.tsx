@@ -438,7 +438,7 @@ export function Settings() {
             />
             <button
               type="submit"
-              disabled={saving}
+              disabled={saving || !user?.id}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),

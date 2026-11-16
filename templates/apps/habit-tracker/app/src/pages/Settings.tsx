@@ -841,7 +841,7 @@ export function Settings() {
               required
             />
           </div>
-          <Button type="submit" color="error" fullWidth loading={deleting}>
+          <Button disabled={deleting} type="submit" color="error" fullWidth loading={deleting}>
             {deleting
               ? t('settings.deleteAccountModal.deleting', {}, { defaultValue: 'Deleting…' })
               : t('settings.deleteAccount', {}, { defaultValue: 'Delete account' })}

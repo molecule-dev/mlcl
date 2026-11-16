@@ -303,7 +303,7 @@ export function TrainingModule() {
               <button
                 type="button"
                 data-mol-id="training-start-button"
-                disabled={busy}
+                disabled={busy || !http || !id}
                 onClick={() => void startModule()}
                 className="font-bold uppercase tracking-[0.14em] transition-colors"
                 style={{
@@ -325,7 +325,7 @@ export function TrainingModule() {
               <button
                 type="button"
                 data-mol-id="training-mark-complete-button"
-                disabled={busy}
+                disabled={busy || !http || !id}
                 onClick={() => void markComplete(null)}
                 className="font-bold uppercase tracking-[0.14em] transition-colors"
                 style={{

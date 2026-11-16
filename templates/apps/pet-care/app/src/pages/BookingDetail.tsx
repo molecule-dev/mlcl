@@ -362,6 +362,7 @@ export function BookingDetail() {
             ) : (
               <>
                 <button
+                  disabled={!id}
                   type="button"
                   onClick={cancelBooking}
                   className={cm.cn(
@@ -467,7 +468,7 @@ export function BookingDetail() {
           />
           <button
             type="submit"
-            disabled={sending || !draft.trim()}
+            disabled={sending || !draft.trim() || !id}
             className={cm.cn(
               cm.sp('px', 5),
               cm.sp('py', 3),

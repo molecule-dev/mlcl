@@ -324,7 +324,7 @@ export function PunchList() {
           )}
           <button
             type="submit"
-            disabled={saving}
+            disabled={saving || !projectId}
             data-mol-id="punch-create-submit"
             className={cm.cn(
               cm.sp('px', 5),
@@ -522,6 +522,7 @@ export function PunchList() {
                     />
                   </label>
                   <button
+                    disabled={!assignId}
                     type="submit"
                     data-mol-id="punch-assign-submit"
                     className={cm.cn(

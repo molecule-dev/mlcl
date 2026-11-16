@@ -180,7 +180,7 @@ export function Sign() {
             <button
               type="button"
               data-mol-id="sign-contract"
-              disabled={signing}
+              disabled={signing || !token}
               onClick={handleSign}
               className={cm.cn(
                 cm.sp('px', 6),

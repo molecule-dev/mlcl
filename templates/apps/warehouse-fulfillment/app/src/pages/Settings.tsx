@@ -240,7 +240,7 @@ export function Settings() {
               <button
                 type="button"
                 onClick={save}
-                disabled={saving}
+                disabled={saving || !userId}
                 data-testid="settings-save"
                 className={cm.cn(
                   cm.sp('px', 5),

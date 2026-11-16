@@ -293,6 +293,7 @@ export function BookingDetail() {
             </div>
           </header>
           <button
+            disabled={!booking?.host_id}
             type="button"
             onClick={async () => {
               if (!booking?.host_id) return

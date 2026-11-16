@@ -256,7 +256,7 @@ export function Subcontractors() {
           )}
           <button
             type="submit"
-            disabled={saving}
+            disabled={saving || !projectId}
             data-mol-id="subs-create-submit"
             className={cm.cn(
               cm.sp('px', 5),

@@ -654,7 +654,7 @@ export function SessionDetail() {
                 <button
                   type="button"
                   onClick={handleSubmitReview}
-                  disabled={reviewSubmitting}
+                  disabled={reviewSubmitting || !booking?.id || !booking?.tutor_id}
                   data-testid="review-submit"
                   className={cm.cn(
                     cm.fontWeight('bold'),

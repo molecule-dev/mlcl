@@ -423,7 +423,7 @@ export function ImportTransactions() {
               onClick={() => {
                 void runCommit()
               }}
-              disabled={committing}
+              disabled={committing || preview.rows.length === 0}
               className={cm.cn(
                 cm.sp('px', 5),
                 cm.sp('py', 2),

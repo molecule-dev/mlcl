@@ -198,7 +198,7 @@ export function DeliveryDetail() {
           <button
             type="button"
             onClick={replay}
-            disabled={replaying}
+            disabled={replaying || !id}
             className={cm.cn(
               'inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono font-semibold text-sm transition-all hover:opacity-90 shadow-lg disabled:opacity-50',
             )}

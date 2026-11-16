@@ -372,7 +372,7 @@ export function AlertDetail() {
                 <button
                   type="button"
                   onClick={silenceFor1h}
-                  disabled={silencing}
+                  disabled={silencing || !id}
                   data-mol-id="alert-silence"
                   className={cm.cn(
                     'block w-full text-center px-4 py-2 rounded-md font-mono text-xs font-bold uppercase tracking-widest hover:bg-surface-container disabled:opacity-50 disabled:cursor-not-allowed',

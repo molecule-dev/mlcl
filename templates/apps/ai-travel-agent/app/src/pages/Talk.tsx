@@ -578,7 +578,7 @@ function Talk() {
         <button
           type="button"
           onClick={handleMicToggle}
-          disabled={voiceState === 'processing'}
+          disabled={voiceState === 'processing' || !(voiceState === 'listening')}
           aria-label={t('talk.toggleMic', {}, { defaultValue: 'Toggle microphone' })}
           aria-pressed={voiceState === 'listening'}
           className={cm.cn(

@@ -248,7 +248,7 @@ export function StudySession() {
           <button
             type="button"
             onClick={markReviewed}
-            disabled={marking || marked}
+            disabled={marking || marked || !id}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),

@@ -249,7 +249,7 @@ export function EndpointDetail() {
           <button
             type="button"
             onClick={sendTest}
-            disabled={actionStatus === 'sending'}
+            disabled={actionStatus === 'sending' || !id}
             className={cm.cn(
               'inline-flex items-center gap-2 px-4 py-2 rounded-md font-mono font-semibold text-sm transition-colors disabled:opacity-50',
             )}
@@ -268,6 +268,7 @@ export function EndpointDetail() {
                 : t('endpointDetail.sendTest', {}, { defaultValue: 'Send test' })}
           </button>
           <button
+            disabled={!id}
             type="button"
             onClick={togglePause}
             className={cm.cn(

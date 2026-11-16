@@ -203,7 +203,7 @@ export function CampaignEditor() {
                 // Only already-reached steps are clickable — advancing goes
                 // through the Continue button so each step gets validated.
                 onClick={() => i <= stepIndex && setStep(s)}
-                disabled={i > stepIndex}
+                disabled={i > stepIndex || !(i <= stepIndex)}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 'sm' }),
                   cm.sp('px', 4),
@@ -523,7 +523,7 @@ export function CampaignEditor() {
           <button
             type="button"
             onClick={() => stepIndex > 0 && setStep(STEPS[stepIndex - 1])}
-            disabled={stepIndex === 0}
+            disabled={stepIndex === 0 || !(stepIndex > 0)}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),

@@ -183,7 +183,7 @@ export function Returns() {
           </label>
           <button
             type="submit"
-            disabled={creating}
+            disabled={creating || !reason.trim()}
             data-testid="returns-create-submit"
             className={cm.cn(
               cm.sp('px', 4),

@@ -831,6 +831,7 @@ export function Settings() {
                     />
                   </div>
                   <Button
+                    disabled={!auth.user?.id}
                     type="submit"
                     color={tfModal === 'disable' ? 'error' : undefined}
                     fullWidth
@@ -1006,7 +1007,7 @@ export function Settings() {
                   <div className={cm.cn(cm.flex({ align: 'center' }), 'gap-3')}>
                     <button
                       type="submit"
-                      disabled={deleting}
+                      disabled={deleting || !auth.user?.id}
                       className={cm.cn(
                         cm.sp('px', 5),
                         cm.sp('py', 2),

@@ -21,6 +21,7 @@ await mkdir(join(root, 'eslint-rules'))
 for (const file of [
   'prefer-declared-clients.mjs',
   'no-empty-interactive-target.mjs',
+  'no-dropped-action.mjs',
   'no-class-code.mjs',
 ])
   await copyFile(
@@ -44,8 +45,7 @@ async function findings(source: string): Promise<Linter.LintMessage[]> {
   return reports.flatMap((file) =>
     file.messages.filter(
       (row) =>
-        row.ruleId === 'molecule-local/no-dropped-optimistic-intent' &&
-        row.messageId === 'unreadyRecord',
+        row.ruleId === 'molecule-local/no-dropped-action' && row.messageId === 'droppedAction',
     ),
   )
 }
@@ -226,12 +226,12 @@ describe('scaffold ESLint rejects enabled unloaded-record actions', () => {
       ),
     ).toEqual([])
   })
-  it('does not mistake local optional selection for asynchronous data', async () => {
+  it('requires the same availability gate for a local optional selection', async () => {
     expect(
       await findings(
         "import {useState} from 'react';export function Selection(){const [record,setRecord]=useState(null);const click=()=>{if(!record)return;show(record)};return <button onClick={click}>Inspect selection</button>}",
       ),
-    ).toEqual([])
+    ).toHaveLength(1)
   })
   it('preserves an authentication branch that provides navigation feedback', async () => {
     expect(

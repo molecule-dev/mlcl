@@ -241,7 +241,7 @@ function Settings() {
           )}
           data-mol-id="save-settings-top"
           onClick={handleSave}
-          disabled={loading}
+          disabled={loading || !userData?.id}
         >
           {loading
             ? t('common.savingEllipsis', {}, { defaultValue: 'Saving…' })

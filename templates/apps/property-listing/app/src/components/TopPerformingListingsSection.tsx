@@ -100,6 +100,7 @@ export default function TopPerformingListingsSection({
                 STATUS_CLASS[statusKey] ?? 'bg-surface-container-high text-on-surface-variant'
               return (
                 <tr
+                  aria-disabled={!listing.id}
                   key={listing.id ?? i}
                   className={cm.cn(
                     cm.cursorPointer,

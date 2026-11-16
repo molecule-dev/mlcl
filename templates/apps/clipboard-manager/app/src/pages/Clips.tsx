@@ -641,6 +641,7 @@ export function Clips() {
                   </span>
                 </button>
                 <button
+                  disabled={busy}
                   onClick={handleTogglePin}
                   type="button"
                   aria-pressed={active.isPinned}
@@ -657,6 +658,7 @@ export function Clips() {
                   </span>
                 </button>
                 <button
+                  disabled={busy}
                   onClick={handleToggleFavorite}
                   type="button"
                   aria-pressed={active.isFavorite}
@@ -674,6 +676,7 @@ export function Clips() {
                   </span>
                 </button>
                 <button
+                  disabled={busy}
                   onClick={handleToggleEncrypt}
                   type="button"
                   aria-pressed={active.isSensitive}

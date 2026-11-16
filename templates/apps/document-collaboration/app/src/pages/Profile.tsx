@@ -356,7 +356,7 @@ export function Profile() {
         <button
           type="button"
           onClick={cancel}
-          disabled={loading || saving}
+          disabled={loading || saving || !original}
           className={cm.cn(
             cm.sp('px', 4),
             cm.sp('py', 2),

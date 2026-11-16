@@ -539,6 +539,7 @@ export function IncidentDetail() {
               ) : null}
               <div className={cm.cn('mt-3 flex items-center justify-end gap-2')}>
                 <button
+                  disabled={!draftKey}
                   type="button"
                   data-testid="save-draft-btn"
                   className={cm.cn(

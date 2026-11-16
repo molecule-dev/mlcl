@@ -236,7 +236,7 @@ export function PresentationMode() {
               />
               <button
                 type="submit"
-                disabled={creating}
+                disabled={creating || !id || !newName.trim()}
                 data-mol-id="present-frame-submit"
                 className={cm.cn(
                   cm.sp('px', 5),
@@ -422,7 +422,7 @@ export function PresentationMode() {
             />
             <button
               type="submit"
-              disabled={creating}
+              disabled={creating || !id || !newName.trim()}
               data-mol-id="present-frame-submit"
               className={cm.cn(
                 cm.sp('px', 5),

@@ -355,7 +355,7 @@ export function DailyLogs() {
           )}
           <button
             type="submit"
-            disabled={saving}
+            disabled={saving || !projectId}
             data-mol-id="daily-logs-create-submit"
             className={cm.cn(
               cm.sp('px', 5),
@@ -504,6 +504,7 @@ export function DailyLogs() {
                     </p>
                   )}
                   <button
+                    disabled={!entryLogId}
                     type="submit"
                     data-mol-id="daily-logs-entry-submit"
                     className={cm.cn(

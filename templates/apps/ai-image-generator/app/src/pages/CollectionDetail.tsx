@@ -131,7 +131,7 @@ export function CollectionDetail() {
           <div className={cm.flex({ align: 'center', gap: 'xs' })}>
             <button
               type="button"
-              disabled={shareState === 'pending'}
+              disabled={shareState === 'pending' || !params.id}
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
                 cm.sp('px', 3),

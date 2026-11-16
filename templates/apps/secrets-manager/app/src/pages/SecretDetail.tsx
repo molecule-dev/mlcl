@@ -278,6 +278,7 @@ export function SecretDetail() {
                           : t('secretDetail.reveal', {}, { defaultValue: 'Reveal' })}
                       </button>
                       <button
+                        disabled={!value}
                         type="button"
                         onClick={copy}
                         data-mol-id="secret-value-copy"
@@ -500,7 +501,7 @@ export function SecretDetail() {
                       </label>
                       <button
                         type="submit"
-                        disabled={rotating}
+                        disabled={rotating || !id || !newValue}
                         data-mol-id="secret-rotate-submit"
                         className={cm.cn(
                           'inline-flex h-8 items-center justify-center rounded bg-primary px-3 font-headline text-xs font-bold text-on-primary transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-60',

@@ -181,6 +181,7 @@ export function SavedQueryDetail() {
 
         <div className={cm.cn('flex flex-wrap items-center gap-3')}>
           <button
+            disabled={!queryId}
             type="button"
             data-mol-id="sqd-save"
             onClick={onSave}

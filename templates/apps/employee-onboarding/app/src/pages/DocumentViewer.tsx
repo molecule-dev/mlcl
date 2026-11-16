@@ -315,7 +315,7 @@ export function DocumentViewer() {
                 type="button"
                 data-mol-id="document-sign-button"
                 onClick={() => void onSign()}
-                disabled={signed || busy}
+                disabled={signed || busy || !http}
                 className="font-bold text-white transition-all duration-200"
                 style={{
                   marginTop: '16px',

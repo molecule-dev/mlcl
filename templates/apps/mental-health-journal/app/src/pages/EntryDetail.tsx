@@ -208,7 +208,7 @@ export function EntryDetail() {
             <button
               type="button"
               onClick={handleDelete}
-              disabled={deleting}
+              disabled={deleting || !id}
               data-testid="delete-entry-confirm"
               className={cm.cn(
                 cm.sp('px', 5),

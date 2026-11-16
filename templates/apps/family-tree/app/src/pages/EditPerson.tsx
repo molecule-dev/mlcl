@@ -275,7 +275,7 @@ export function EditPerson() {
           </Link>
           <button
             type="submit"
-            disabled={saving || !form.first_name.trim()}
+            disabled={saving || !form.first_name.trim() || !id}
             data-mol-id="edit-person-submit"
             className={cm.cn(
               cm.textSize('sm'),

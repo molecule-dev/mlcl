@@ -385,7 +385,7 @@ export function PageView() {
             <button
               type="button"
               onClick={handleTrash}
-              disabled={trashing}
+              disabled={trashing || !params.id}
               data-testid="page-view-trash"
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),
@@ -442,7 +442,7 @@ export function PageView() {
             <button
               type="button"
               onClick={handleRegenerate}
-              disabled={regenerating}
+              disabled={regenerating || !params.id}
               data-testid="page-view-summarize"
               className={cm.cn(
                 cm.flex({ align: 'center', gap: 'xs' }),

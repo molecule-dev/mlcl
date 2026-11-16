@@ -368,6 +368,7 @@ export function Notifications() {
                   </Link>
                 ) : (
                   <div
+                    aria-disabled={!unread}
                     className={wrapperClass}
                     role="button"
                     tabIndex={0}

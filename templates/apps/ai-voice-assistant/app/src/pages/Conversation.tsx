@@ -560,7 +560,7 @@ function Conversation() {
         <button
           type="button"
           onClick={handleMicToggle}
-          disabled={voiceState === 'processing'}
+          disabled={voiceState === 'processing' || !(voiceState === 'listening')}
           aria-label={t('conversation.toggleMic', {}, { defaultValue: 'Toggle microphone' })}
           aria-pressed={voiceState === 'listening'}
           className={cm.cn(

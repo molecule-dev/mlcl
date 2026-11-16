@@ -395,7 +395,7 @@ export function Profile() {
             <button
               type="submit"
               data-mol-id="profile-save"
-              disabled={!dirty || saving}
+              disabled={!dirty || saving || !userId}
               className={cm.cn(
                 cm.fontWeight('bold'),
                 cm.textSize('xs'),

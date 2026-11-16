@@ -480,7 +480,7 @@ export function TripDetail() {
                   <button
                     type="submit"
                     data-testid="trip-message-submit"
-                    disabled={actionPending || !hostMessage.trim()}
+                    disabled={actionPending || !hostMessage.trim() || !id}
                     className={cm.cn(
                       cm.sp('px', 5),
                       cm.sp('py', 3),
@@ -553,7 +553,7 @@ export function TripDetail() {
                   <button
                     type="submit"
                     data-testid="trip-cancel-confirm"
-                    disabled={actionPending}
+                    disabled={actionPending || !id}
                     className={cm.cn(
                       cm.sp('px', 5),
                       cm.sp('py', 3),

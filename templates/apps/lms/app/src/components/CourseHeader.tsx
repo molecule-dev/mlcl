@@ -165,6 +165,7 @@ function CourseHeader({ course, modules, activeModuleIdx, onModuleChange }: Cour
           const isLocked = !allCompleted && !hasStarted && idx > activeModuleIdx
           return (
             <button
+              disabled={!!isLocked}
               key={mod.id}
               onClick={() => !isLocked && onModuleChange(idx)}
               aria-pressed={isActive}

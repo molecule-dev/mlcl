@@ -275,6 +275,7 @@ describe('offline npm template locales', () => {
           'eslint.config.js',
           'eslint-rules/prefer-declared-clients.mjs',
           'eslint-rules/no-empty-interactive-target.mjs',
+          'eslint-rules/no-dropped-action.mjs',
         ]) {
           expect(existsSync(join(old.root, 'templates/apps', slug, half, file))).toBe(true)
           expect(existsSync(join(installed, half, file))).toBe(false)

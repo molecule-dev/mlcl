@@ -516,6 +516,7 @@ export function Editor() {
             {t('nav.history', {}, { defaultValue: 'History' })}
           </Link>
           <button
+            disabled={!doc?.id}
             type="button"
             onClick={onPublishToggle}
             className={cm.cn(
@@ -532,6 +533,7 @@ export function Editor() {
               : t('common.publish', {}, { defaultValue: 'Publish' })}
           </button>
           <button
+            disabled={!doc?.id}
             type="button"
             onClick={onTrash}
             className={cm.cn(
@@ -614,6 +616,7 @@ export function Editor() {
               <option value="editor">{t('nav.editor', {}, { defaultValue: 'Editor' })}</option>
             </select>
             <button
+              disabled={!doc?.id || !shareEmail}
               type="submit"
               className={cm.cn(
                 cm.sp('px', 4),
@@ -648,6 +651,7 @@ export function Editor() {
                   </span>
                   <button
                     type="button"
+                    disabled={!doc?.id}
                     onClick={() => onRemoveShare(s.id)}
                     className={cm.cn('text-xs font-extrabold text-error hover:underline')}
                   >

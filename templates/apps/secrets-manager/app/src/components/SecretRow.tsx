@@ -155,7 +155,7 @@ export function SecretRow({ secret, statusLabel, onOpen }: SecretRowProps) {
               ? t('secretRow.hide', {}, { defaultValue: 'Hide value' })
               : t('secretRow.reveal', {}, { defaultValue: 'Hold to reveal value' })
           }
-          disabled={!hasValue}
+          disabled={!hasValue || revealed}
           onClick={(e) => e.stopPropagation()}
           onMouseDown={revealStart}
           onMouseUp={() => setRevealed(false)}

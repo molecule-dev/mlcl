@@ -79,7 +79,7 @@ describe('empty interactive targets', () => {
     )
     expect(messages).toHaveLength(1)
     expect(messages[0]).toMatchObject({ line: 2, severity: 2 })
-    expect(messages[0]?.message).toContain('visible content')
+    expect(messages[0]?.message).toContain('drawing')
     expect(messages[0]?.message).toContain('Icon')
   })
 
@@ -289,7 +289,7 @@ describe('empty interactive targets', () => {
     if ('error' in result) throw new Error(result.error)
     expect(result.ok, JSON.stringify(result)).toBe(false)
     expect(result.report).toContain('FAIL lint')
-    expect(result.results[0].errors.join('\n')).toContain('visible content')
+    expect(result.results[0].errors.join('\n')).toContain('drawing')
     expect(result.results[0].errors.join('\n')).toContain('Control.tsx')
     await writeFile(
       join(app, 'src/Control.tsx'),

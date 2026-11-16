@@ -340,7 +340,7 @@ function AccountSettingsSection() {
                   <button
                     type="button"
                     data-testid="account-delete-confirm-button"
-                    disabled={deleting || confirmEmail !== 'DELETE'}
+                    disabled={deleting || confirmEmail !== 'DELETE' || !user?.id}
                     onClick={handleDelete}
                     className={cm.cn(
                       cm.sp('px', 5),

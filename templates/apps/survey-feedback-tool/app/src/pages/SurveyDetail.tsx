@@ -269,7 +269,7 @@ export function SurveyDetail() {
               <button
                 type="button"
                 data-testid="publish-survey"
-                disabled={publishing}
+                disabled={publishing || !surveyId}
                 onClick={handlePublish}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 2 }),
@@ -296,7 +296,7 @@ export function SurveyDetail() {
               <button
                 type="button"
                 data-testid="close-survey"
-                disabled={closing}
+                disabled={closing || !surveyId}
                 onClick={handleClose}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 2 }),

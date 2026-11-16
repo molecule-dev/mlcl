@@ -306,6 +306,7 @@ export function Notifications() {
                   </Link>
                 ) : (
                   <button
+                    disabled={!n.unread}
                     type="button"
                     onClick={() => n.unread && markRead(n.id)}
                     className={cardClass}

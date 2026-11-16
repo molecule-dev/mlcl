@@ -9,6 +9,7 @@ import simpleImportSort from 'eslint-plugin-simple-import-sort'
 import tseslint from 'typescript-eslint'
 
 import noClassCode from './eslint-rules/no-class-code.mjs'
+import noDroppedAction from './eslint-rules/no-dropped-action.mjs'
 import noEmptyInteractiveTarget from './eslint-rules/no-empty-interactive-target.mjs'
 import preferDeclaredClients, { scaffoldRules } from './eslint-rules/prefer-declared-clients.mjs'
 
@@ -87,6 +88,7 @@ const moleculeLocal = {
   rules: {
     'no-class-code': noClassCode,
     'no-empty-interactive-target': noEmptyInteractiveTarget,
+    'no-dropped-action': noDroppedAction,
     'prefer-declared-clients': preferDeclaredClients,
     ...scaffoldRules(tseslint.parser),
   },
@@ -215,7 +217,7 @@ export default tseslint.config(
       'molecule-local/prefer-declared-clients': 'error',
       'molecule-local/async-collections-have-status': 'error',
       'molecule-local/effects-preserve-form-edits': 'error',
-      'molecule-local/no-dropped-optimistic-intent': 'error',
+      'molecule-local/no-dropped-action': 'error',
       'molecule-local/no-fixed-navigation-truncation': 'warn',
       'molecule-local/unique-update-excludes-self': 'warn',
       ...(routingBond
@@ -230,7 +232,7 @@ export default tseslint.config(
 
       ...(optimisticValue
         ? {
-            'molecule-local/server-toggles-use-optimistic-value': ['warn', { mode: 'advisory' }],
+            'molecule-local/server-toggles-use-optimistic-value': 'warn',
           }
         : {}),
       'molecule-local/buttons-have-an-action': 'warn',

@@ -275,7 +275,7 @@ export function OrderDetail() {
               <button
                 type="button"
                 onClick={handleCancel}
-                disabled={cancelBusy}
+                disabled={cancelBusy || !id}
                 data-testid="cancel-order"
                 className={cm.cn(
                   cm.sp('px', 4),
@@ -362,7 +362,7 @@ export function OrderDetail() {
                 ) : null}
                 <button
                   type="submit"
-                  disabled={rateBusy || rating < 1}
+                  disabled={rateBusy || rating < 1 || !id}
                   data-testid="rate-submit"
                   className={cm.cn(
                     cm.sp('px', 4),

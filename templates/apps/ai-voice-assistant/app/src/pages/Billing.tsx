@@ -365,7 +365,7 @@ function Billing() {
             <button
               type="button"
               onClick={handleUpdatePayment}
-              disabled={working === 'update-payment'}
+              disabled={working === 'update-payment' || !!working}
               className={cm.cn(
                 cm.fontWeight('semibold'),
                 cm.textSize('sm'),

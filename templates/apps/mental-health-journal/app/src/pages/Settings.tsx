@@ -648,7 +648,7 @@ export function Settings() {
               <button
                 type="button"
                 onClick={deleteAccount}
-                disabled={deleting}
+                disabled={deleting || !user?.id}
                 data-testid="delete-account-confirm"
                 className={cm.cn(
                   cm.sp('px', 5),

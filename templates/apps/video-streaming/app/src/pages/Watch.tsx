@@ -576,6 +576,7 @@ export function Watch() {
                   must wrap to a second row, not clip past the viewport. */}
               <div className={cm.cn('flex items-center gap-2 flex-wrap')}>
                 <button
+                  disabled={!video.channel_id}
                   type="button"
                   onClick={handleSubscribe}
                   className={cm.cn(
@@ -659,6 +660,7 @@ export function Watch() {
                     : t('common.share', {}, { defaultValue: 'Share' })}
                 </button>
                 <button
+                  disabled={!id}
                   type="button"
                   onClick={handleSave}
                   className={cm.cn(
@@ -770,7 +772,7 @@ export function Watch() {
                   <button
                     type="button"
                     onClick={handlePostComment}
-                    disabled={!composerBody.trim() || posting}
+                    disabled={!composerBody.trim() || posting || !id}
                     className={cm.cn(
                       'px-4 h-8 rounded-full text-xs font-bold uppercase tracking-widest text-white transition-opacity shadow disabled:opacity-50',
                     )}

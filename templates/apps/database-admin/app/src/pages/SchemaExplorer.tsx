@@ -209,6 +209,7 @@ export function SchemaExplorer() {
                     </button>
                   </div>
                   <button
+                    disabled={!connectionId}
                     type="button"
                     data-mol-id="se-open-table"
                     onClick={onOpenTable}

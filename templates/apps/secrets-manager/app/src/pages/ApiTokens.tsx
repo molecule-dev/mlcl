@@ -274,7 +274,7 @@ export function ApiTokens() {
             </fieldset>
             <button
               type="submit"
-              disabled={submitting}
+              disabled={submitting || !name.trim()}
               data-mol-id="api-token-submit"
               className={cm.cn(
                 'inline-flex h-9 items-center gap-1 rounded bg-primary px-3 font-headline text-xs font-bold text-on-primary transition-colors hover:bg-primary/90 disabled:cursor-not-allowed disabled:opacity-50',

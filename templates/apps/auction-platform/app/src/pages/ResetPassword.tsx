@@ -250,7 +250,7 @@ export function ResetPassword() {
 
         <button
           type="submit"
-          disabled={isSubmitting}
+          disabled={isSubmitting || !!mismatch}
           className={cm.cn(
             cm.sp('py', 3),
             cm.sp('mt', 2),

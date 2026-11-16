@@ -295,7 +295,7 @@ export function AudienceQA() {
         <div className={cm.flex({ align: 'center', justify: 'end', gap: 'sm' })}>
           <button
             type="submit"
-            disabled={submitting || !askText.trim()}
+            disabled={submitting || !askText.trim() || !id}
             className={cm.cn(
               'px-4 py-2 rounded-lg bg-primary text-on-primary text-sm font-bold disabled:opacity-50',
             )}

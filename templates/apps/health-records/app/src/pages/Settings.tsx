@@ -1158,7 +1158,7 @@ export function Settings() {
               </button>
               <button
                 type="submit"
-                disabled={busy === 'delete'}
+                disabled={busy === 'delete' || !user}
                 className={cm.cn(
                   cm.fontWeight('bold'),
                   'px-4 py-2 text-[11px] uppercase tracking-widest rounded-full bg-error text-on-error disabled:opacity-50',
@@ -1269,7 +1269,7 @@ export function Settings() {
                 </button>
                 <button
                   type="submit"
-                  disabled={tfLoading}
+                  disabled={tfLoading || !user}
                   className={
                     tfModal === 'disable'
                       ? cm.cn(

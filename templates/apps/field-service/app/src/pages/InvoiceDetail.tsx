@@ -246,7 +246,7 @@ export function InvoiceDetail() {
         {invoice.status === 'draft' ? (
           <button
             type="button"
-            disabled={acting}
+            disabled={acting || !id}
             onClick={() => act('send')}
             className={cm.cn(
               cm.sp('px', 4),
@@ -262,7 +262,7 @@ export function InvoiceDetail() {
         {invoice.status === 'sent' ? (
           <button
             type="button"
-            disabled={acting}
+            disabled={acting || !id}
             onClick={() => act('pay')}
             className={cm.cn(
               cm.sp('px', 4),

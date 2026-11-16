@@ -355,7 +355,7 @@ function ConversationDetail() {
               <select
                 aria-label={t('form.priority', {}, { defaultValue: 'Priority' })}
                 value={conversation?.priority ?? 'normal'}
-                disabled={!conversation || actioning}
+                disabled={!conversation || actioning || !id}
                 onChange={(e) =>
                   void handlePriorityChange(e.target.value as 'low' | 'normal' | 'high' | 'urgent')
                 }
@@ -379,7 +379,7 @@ function ConversationDetail() {
               <button
                 type="button"
                 onClick={() => void handleResolve()}
-                disabled={!conversation || actioning}
+                disabled={!conversation || actioning || !id}
                 className={cm.cn(
                   cm.sp('px', 3),
                   cm.sp('py', 2),
@@ -543,7 +543,7 @@ function ConversationDetail() {
                 <button
                   type="button"
                   onClick={() => void handleSend()}
-                  disabled={draft.trim().length === 0 || sending}
+                  disabled={draft.trim().length === 0 || sending || !id || !draft.trim()}
                   className={cm.cn(
                     cm.sp('px', 4),
                     cm.sp('py', 2),

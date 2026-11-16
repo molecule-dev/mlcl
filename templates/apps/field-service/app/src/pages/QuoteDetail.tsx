@@ -420,7 +420,7 @@ export function QuoteDetail() {
             <>
               <button
                 type="button"
-                disabled={acting}
+                disabled={acting || !id}
                 onClick={() => act('send')}
                 className={cm.cn(
                   cm.sp('px', 4),
@@ -451,7 +451,7 @@ export function QuoteDetail() {
             <>
               <button
                 type="button"
-                disabled={acting}
+                disabled={acting || !id}
                 onClick={() => act('accept')}
                 className={cm.cn(
                   cm.sp('px', 4),
@@ -465,7 +465,7 @@ export function QuoteDetail() {
               </button>
               <button
                 type="button"
-                disabled={acting}
+                disabled={acting || !id}
                 onClick={() => act('decline')}
                 className={cm.cn(
                   cm.sp('px', 4),

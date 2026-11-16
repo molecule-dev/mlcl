@@ -246,6 +246,7 @@ export function Notifications() {
                       </Link>
                     ) : (
                       <button
+                        disabled={!unread}
                         type="button"
                         onClick={() => unread && void handleMarkOne(n.id)}
                         className={cm.cn(

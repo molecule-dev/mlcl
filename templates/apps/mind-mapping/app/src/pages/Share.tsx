@@ -265,7 +265,7 @@ export function Share() {
           <button
             type="button"
             onClick={handleInvite}
-            disabled={inviting || !inviteEmail.trim()}
+            disabled={inviting || !inviteEmail.trim() || !id}
             data-mol-id="share-invite-button"
             className={cm.cn(
               cm.sp('px', 5),
@@ -413,7 +413,7 @@ export function Share() {
           <button
             type="button"
             onClick={() => handleTogglePublic(!map?.is_public)}
-            disabled={!map}
+            disabled={!map || !id}
             data-mol-id="share-public-toggle"
             aria-pressed={!!map?.is_public}
             className={cm.cn(
@@ -445,6 +445,7 @@ export function Share() {
               )}
             />
             <button
+              disabled={!shareUrl}
               type="button"
               onClick={handleCopy}
               data-mol-id="share-copy-button"

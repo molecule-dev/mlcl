@@ -203,7 +203,7 @@ export function Profile() {
                 <div className={cm.cn('flex items-center gap-2')}>
                   <button
                     type="submit"
-                    disabled={saving}
+                    disabled={saving || !u?.id}
                     data-testid="edit-profile-submit"
                     className={cm.cn(
                       'px-3 py-1.5 rounded-md font-mono text-xs font-bold uppercase tracking-widest hover:opacity-90 disabled:opacity-50',

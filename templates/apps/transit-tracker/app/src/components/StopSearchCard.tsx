@@ -117,7 +117,7 @@ export function StopSearchCard({ variant = 'hero' }: { variant?: 'hero' | 'inlin
         />
         <button
           type="submit"
-          disabled={matches.length === 0}
+          disabled={matches.length === 0 || !(matches.length > 0)}
           data-mol-id="stop-search-submit"
           className={cm.cn(
             cm.sp('px', 5),

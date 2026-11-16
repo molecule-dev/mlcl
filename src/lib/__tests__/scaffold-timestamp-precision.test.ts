@@ -32,6 +32,10 @@ beforeAll(async () => {
     join(shared, 'no-empty-interactive-target.mjs'),
     join(dir, 'eslint-rules/no-empty-interactive-target.mjs'),
   )
+  await copyFile(
+    join(shared, 'no-dropped-action.mjs'),
+    join(dir, 'eslint-rules/no-dropped-action.mjs'),
+  )
   await copyFile(join(shared, 'no-class-code.mjs'), join(dir, 'eslint-rules/no-class-code.mjs'))
   await symlink(dirname(dirname(require.resolve('eslint/package.json'))), join(dir, 'node_modules'))
   eslint = new ESLint({

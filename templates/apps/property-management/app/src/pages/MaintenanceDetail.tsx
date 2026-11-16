@@ -395,7 +395,7 @@ export function MaintenanceDetail() {
               type="button"
               data-testid="maintenance-mark-complete"
               onClick={markComplete}
-              disabled={completing}
+              disabled={completing || !id}
               className={cm.cn(
                 cm.sp('px', 4),
                 cm.sp('py', 2),
@@ -414,7 +414,7 @@ export function MaintenanceDetail() {
             type="button"
             data-testid="maintenance-post-update"
             onClick={postUpdate}
-            disabled={posting || !comment.trim()}
+            disabled={posting || !comment.trim() || !id}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),

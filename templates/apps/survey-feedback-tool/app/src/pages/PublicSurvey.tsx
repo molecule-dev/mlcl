@@ -556,7 +556,7 @@ export function PublicSurvey() {
               <button
                 type="button"
                 onClick={previous}
-                disabled={stepIndex === 0}
+                disabled={stepIndex === 0 || !(stepIndex > 0)}
                 className={cm.cn(
                   cm.flex({ align: 'center', gap: 2 }),
                   cm.sp('px', 4),

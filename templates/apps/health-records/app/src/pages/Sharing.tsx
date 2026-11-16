@@ -375,7 +375,7 @@ export function Sharing() {
                 <button
                   type="button"
                   onClick={() => handleRevoke(s.id)}
-                  disabled={revokingId === s.id}
+                  disabled={revokingId === s.id || !!revokingId}
                   data-mol-id={`revoke-${s.id}`}
                   aria-label={
                     confirmingId === s.id

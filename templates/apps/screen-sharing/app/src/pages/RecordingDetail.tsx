@@ -500,7 +500,7 @@ export function RecordingDetail() {
               <button
                 type="submit"
                 data-mol-id="recording-detail-comment-submit"
-                disabled={!draft.trim() || posting}
+                disabled={!draft.trim() || posting || !id}
                 className={cm.cn(
                   cm.fontWeight('semibold'),
                   cm.textSize('xs'),

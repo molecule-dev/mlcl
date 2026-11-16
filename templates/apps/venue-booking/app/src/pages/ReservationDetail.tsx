@@ -336,6 +336,7 @@ export function ReservationDetail() {
             className={cm.cn(cm.sp('mt', 6), cm.flex({ align: 'center', gap: 'sm', wrap: 'wrap' }))}
           >
             <button
+              disabled={!reservation.venue_id}
               type="button"
               onClick={async () => {
                 if (!reservation.venue_id) return

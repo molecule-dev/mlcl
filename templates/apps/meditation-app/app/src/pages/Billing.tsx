@@ -303,7 +303,7 @@ export function Billing() {
                       type="button"
                       data-testid={`billing-checkout-${tier.key}`}
                       onClick={() => void handleCheckout(price.stripePriceId as string)}
-                      disabled={busyPriceId === price.stripePriceId}
+                      disabled={busyPriceId === price.stripePriceId || !!busyPriceId}
                       className={cm.cn(
                         cm.sp('px', 4),
                         cm.sp('py', 2),
@@ -340,7 +340,7 @@ export function Billing() {
                       type="button"
                       data-testid="billing-cancel"
                       onClick={() => void handleCancel()}
-                      disabled={busyPriceId === 'cancel'}
+                      disabled={busyPriceId === 'cancel' || !!busyPriceId}
                       className={cm.cn(
                         cm.sp('px', 4),
                         cm.sp('py', 2),

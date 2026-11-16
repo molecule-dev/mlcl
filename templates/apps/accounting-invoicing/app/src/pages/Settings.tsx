@@ -533,7 +533,7 @@ export function Settings() {
             <div className={cm.cn(cm.flex({ justify: 'end' }))}>
               <button
                 type="submit"
-                disabled={inviteSubmitting}
+                disabled={inviteSubmitting || !inviteForm.name.trim() || !inviteForm.email.trim()}
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),

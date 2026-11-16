@@ -340,7 +340,7 @@ export function Alerts() {
             <button
               type="button"
               data-testid="alerts-create-confirm"
-              disabled={creating}
+              disabled={creating || !draftName.trim()}
               onClick={() => void createRule()}
               className={cm.cn(
                 'px-4 py-2 rounded font-mono text-xs font-bold uppercase tracking-widest disabled:opacity-50',

@@ -207,7 +207,7 @@ export function TableDetail() {
                   key={opt.value}
                   type="button"
                   onClick={() => handleStatus(opt.value)}
-                  disabled={busy || active}
+                  disabled={busy || active || !id}
                   data-testid={`tabledetail-status-${opt.value}`}
                   className={cm.cn(
                     cm.sp('px', 4),
@@ -233,7 +233,7 @@ export function TableDetail() {
                 { defaultValue: 'Delete this table?' },
               )}
               disarmSeconds={6}
-              disabled={busy}
+              disabled={busy || !id}
               data-testid="tabledetail-delete"
               onConfirm={handleDelete}
             />

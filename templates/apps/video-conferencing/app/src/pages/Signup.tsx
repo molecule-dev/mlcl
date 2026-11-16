@@ -152,7 +152,7 @@ export function Signup() {
             />
             <button
               type="submit"
-              disabled={isPending}
+              disabled={isPending || password !== confirm}
               className={cm.cn(
                 cm.flex({ align: 'center', justify: 'center', gap: 2 }),
                 cm.sp('py', 3),

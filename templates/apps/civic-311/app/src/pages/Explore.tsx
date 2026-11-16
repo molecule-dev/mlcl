@@ -505,7 +505,7 @@ export function ExplorePage() {
                           <button
                             type="button"
                             data-mol-id="explore-featured-confirm"
-                            disabled={confirmingId === featured.id}
+                            disabled={confirmingId === featured.id || !!confirmingId}
                             onClick={() => void handleConfirm(featured.id)}
                             className={cnFeaturedBtn(cm)}
                           >
@@ -629,7 +629,7 @@ export function ExplorePage() {
                                   e.stopPropagation()
                                   void handleConfirm(issue.id)
                                 }}
-                                disabled={confirmingId === issue.id}
+                                disabled={confirmingId === issue.id || !!confirmingId}
                                 className={cm.cn(
                                   cm.sp('px', 3),
                                   'rounded-full border border-primary text-primary text-xs font-semibold py-1 whitespace-nowrap hover:bg-primary-container/30 disabled:opacity-50',

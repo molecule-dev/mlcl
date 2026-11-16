@@ -270,7 +270,7 @@ export function PropertyDetail() {
               <button
                 type="button"
                 onClick={toggleBookmark}
-                disabled={bookmarkBusy}
+                disabled={bookmarkBusy || !id}
                 aria-pressed={bookmarked}
                 className={cm.cn(
                   cm.w(11),

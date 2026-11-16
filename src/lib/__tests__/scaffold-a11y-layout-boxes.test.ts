@@ -23,6 +23,7 @@ await copyFile(
 for (const rule of [
   'prefer-declared-clients',
   'no-empty-interactive-target',
+  'no-dropped-action',
   'no-class-code',
 ] as const) {
   await copyFile(

@@ -297,6 +297,7 @@ function CompactBar() {
           {fmt(player.position)}
         </span>
         <button
+          disabled={totalDuration <= 0}
           type="button"
           aria-label={t('nowPlaying.seekAria', {}, { defaultValue: 'Seek' })}
           onClick={seekFromEvent}

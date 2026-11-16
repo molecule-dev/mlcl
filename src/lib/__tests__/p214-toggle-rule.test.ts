@@ -29,6 +29,10 @@ await copyFile(
   join(root, 'eslint-rules/no-empty-interactive-target.mjs'),
 )
 await copyFile(
+  new URL('../../../templates/shared/no-dropped-action.mjs', import.meta.url),
+  join(root, 'eslint-rules/no-dropped-action.mjs'),
+)
+await copyFile(
   new URL('../../../templates/shared/no-class-code.mjs', import.meta.url),
   join(root, 'eslint-rules/no-class-code.mjs'),
 )

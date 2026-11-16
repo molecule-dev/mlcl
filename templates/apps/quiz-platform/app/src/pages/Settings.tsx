@@ -288,7 +288,7 @@ export function Settings() {
               <div className={cm.cn(cm.flex({ align: 'center', justify: 'end', gap: 2 }))}>
                 <button
                   type="submit"
-                  disabled={savingProfile}
+                  disabled={savingProfile || !user?.id}
                   data-testid="profile-save"
                   className={cm.cn(
                     'px-4 py-2 rounded-xl bg-primary text-white text-xs font-extrabold uppercase tracking-widest disabled:opacity-50',
@@ -435,7 +435,7 @@ export function Settings() {
             <button
               type="button"
               onClick={handleDeleteAccount}
-              disabled={deleting}
+              disabled={deleting || !user?.id}
               data-testid="confirm-delete"
               className={cm.cn(
                 'px-4 py-2 rounded-xl bg-rose-600 text-white text-xs font-extrabold uppercase tracking-widest disabled:opacity-50',

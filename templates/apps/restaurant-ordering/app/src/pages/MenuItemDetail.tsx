@@ -355,7 +355,7 @@ export function MenuItemDetail() {
 
           <button
             onClick={handleSave}
-            disabled={saving}
+            disabled={saving || !id}
             type="button"
             data-testid="menuitem-save"
             className={cm.cn(
@@ -378,7 +378,7 @@ export function MenuItemDetail() {
               { defaultValue: 'Delete this menu item?' },
             )}
             disarmSeconds={6}
-            disabled={saving}
+            disabled={saving || !id}
             data-testid="menuitem-delete"
             onConfirm={handleDelete}
           />

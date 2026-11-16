@@ -208,7 +208,7 @@ export function Locations() {
           </label>
           <button
             type="submit"
-            disabled={creating}
+            disabled={creating || !name.trim()}
             data-testid="locations-create-submit"
             className={cm.cn(
               cm.sp('px', 4),

@@ -139,10 +139,14 @@ export function MiniMap({
 
   const onKeyDown = useCallback(
     (e: React.KeyboardEvent<SVGSVGElement>) => {
-      if (!onPick || !activePin) return
+      if (!onPick) return
       const step = e.shiftKey ? 5 : 1
-      let { x, y } = activePin
+      let { x, y } = activePin ?? { x: GRID_SIZE / 2, y: GRID_SIZE / 2 }
       switch (e.key) {
+        case 'Home':
+          x = GRID_SIZE / 2
+          y = GRID_SIZE / 2
+          break
         case 'ArrowLeft':
           x -= step
           break

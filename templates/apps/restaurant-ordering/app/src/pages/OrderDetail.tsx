@@ -188,7 +188,7 @@ export function OrderDetail() {
               <button
                 type="button"
                 onClick={cancel}
-                disabled={busy}
+                disabled={busy || !id}
                 data-testid="orderdetail-cancel"
                 className={cm.cn(
                   cm.sp('px', 4),
@@ -205,7 +205,7 @@ export function OrderDetail() {
               <button
                 type="button"
                 onClick={advance}
-                disabled={busy}
+                disabled={busy || !id}
                 data-testid="orderdetail-advance"
                 className={cm.cn(
                   cm.sp('px', 5),

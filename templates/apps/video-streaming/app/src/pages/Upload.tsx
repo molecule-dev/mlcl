@@ -469,7 +469,7 @@ export function Upload() {
             <button
               type="button"
               onClick={handlePublish}
-              disabled={submitting}
+              disabled={submitting || !title.trim()}
               className={cm.cn(
                 'ml-auto inline-flex items-center gap-2 px-7 h-11 rounded-full text-sm font-bold uppercase tracking-widest text-white shadow hover:opacity-90 transition-opacity disabled:opacity-60',
               )}

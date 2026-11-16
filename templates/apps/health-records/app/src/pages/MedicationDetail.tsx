@@ -289,7 +289,7 @@ export function MedicationDetail() {
           <button
             type="button"
             onClick={handleRefill}
-            disabled={refilling || refillsLeft <= 0}
+            disabled={refilling || refillsLeft <= 0 || !id}
             className={cm.cn(
               cm.fontWeight('bold'),
               'px-4 py-2 text-[11px] uppercase tracking-widest rounded-full bg-primary text-on-primary shadow-sm hover:shadow-md transition-shadow disabled:opacity-50',

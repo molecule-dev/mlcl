@@ -528,7 +528,7 @@ export function ReportDetailPage() {
                       type="button"
                       data-mol-id="report-staff-apply"
                       onClick={() => void handleStaffApply()}
-                      disabled={staffBusy || (!staffStatus && !staffNote.trim())}
+                      disabled={staffBusy || (!staffStatus && !staffNote.trim()) || !id}
                       className={cm.cn(
                         cm.sp('px', 4),
                         'self-start rounded-lg py-2 text-sm font-semibold',
@@ -742,7 +742,7 @@ export function ReportDetailPage() {
                         type="button"
                         data-mol-id="report-confirm"
                         onClick={handleConfirm}
-                        disabled={confirming}
+                        disabled={confirming || !id}
                         className={cm.cn(
                           cm.sp('px', 4),
                           'rounded-lg py-2 text-sm font-semibold shrink-0',
@@ -793,7 +793,7 @@ export function ReportDetailPage() {
                         'self-start rounded-lg py-2 text-sm font-semibold',
                         'bg-primary text-on-primary hover:opacity-90 disabled:opacity-50',
                       )}
-                      disabled={commenting || !comment.trim()}
+                      disabled={commenting || !comment.trim() || !id}
                     >
                       {commenting
                         ? t('common.submittingEllipsis', {}, { defaultValue: 'Submitting…' })

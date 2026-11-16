@@ -727,7 +727,7 @@ export function Settings() {
                 <input
                   type="checkbox"
                   checked={prefs[n.key]}
-                  disabled={prefsBusy === n.key}
+                  disabled={prefsBusy === n.key || !!prefsBusy}
                   onChange={() => togglePref(n.key)}
                   className={cm.cn('h-4 w-4')}
                 />
@@ -987,7 +987,13 @@ export function Settings() {
                 required
               />
             </label>
-            <Button type="submit" color="error" fullWidth loading={deleteLoading}>
+            <Button
+              disabled={deleteLoading}
+              type="submit"
+              color="error"
+              fullWidth
+              loading={deleteLoading}
+            >
               {deleteLoading
                 ? t('settings.security.deleting', {}, { defaultValue: 'Deleting…' })
                 : t('settings.security.deleteAccount', {}, { defaultValue: 'Delete account' })}

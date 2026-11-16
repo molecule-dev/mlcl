@@ -419,7 +419,7 @@ export function Profile() {
           <button
             type="submit"
             data-mol-id="button-save-profile"
-            disabled={saving}
+            disabled={saving || !userId}
             className={cm.cn(
               cm.sp('px', 4),
               cm.sp('py', 2),
@@ -488,6 +488,7 @@ export function Profile() {
             </button>
           ) : (
             <button
+              disabled={!userId}
               type="button"
               data-mol-id="button-enable-2fa"
               onClick={startEnable2FA}
@@ -913,7 +914,7 @@ export function Profile() {
               <button
                 type="submit"
                 data-mol-id="button-delete-confirm"
-                disabled={deleteSubmitting || !deletePassword}
+                disabled={deleteSubmitting || !deletePassword || !userId}
                 className={cm.cn(
                   cm.sp('px', 4),
                   cm.sp('py', 2),

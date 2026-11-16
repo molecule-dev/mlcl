@@ -315,7 +315,7 @@ export function Team() {
           <button
             type="submit"
             data-mol-id="team-invite-submit"
-            disabled={!inviteEmail.trim() || inviting || !workspace}
+            disabled={!inviteEmail.trim() || inviting || !workspace || !workspace?.id}
             className={cm.cn(
               cm.flex({ align: 'center', gap: 2 }),
               cm.fontWeight('bold'),

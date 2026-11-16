@@ -203,7 +203,7 @@ export function Settings() {
               <button
                 type="submit"
                 data-mol-id="settings-save"
-                disabled={saving}
+                disabled={saving || !user?.id}
                 className={cm.cn('rounded bg-primary px-3 py-2 text-sm font-bold text-on-primary')}
               >
                 {saving
