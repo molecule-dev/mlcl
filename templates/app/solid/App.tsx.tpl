@@ -37,10 +37,11 @@ import { Signup } from './pages/Signup.js'
 // @molecule/app-solid and every molecule package that calls `getRouter()`
 // navigate through it (SPA navigation, the entry's state and key kept), as
 // React's `BrowserRouter` does.
-// `awaitSession` holds every page until a returning visitor's session is restored
-// (one request after a full page load), so public pages read the restored user
-// when that request succeeds. An 'unavailable' session still renders and may
-// have a null user; handle that status separately from sign-out.
+// `awaitSession` waits only while auth status is 'loading'. A stored token AND
+// cached user restore synchronously without a request; token-only and cookie-only
+// sessions need an asynchronous current-user request. Public pages then read the
+// restored user when restoration succeeds. An 'unavailable' session still renders
+// and may have a null user; handle that status separately from sign-out.
 // A visitor with no session to restore makes no request. Keep it.
 function Root(props: RouteSectionProps) {
   const router = createSolidRouter()
