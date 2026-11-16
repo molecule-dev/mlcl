@@ -22,13 +22,10 @@
  * @module
  */
 
-import { exec } from 'node:child_process'
+import { spawn } from 'node:child_process'
 import type { Dirent } from 'node:fs'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { join, relative } from 'node:path'
-import { promisify } from 'node:util'
-
-const execAsync = promisify(exec)
 
 /** The kinds of step `check` can run, in report order. */
 export const CHECK_STEP_KINDS = ['typecheck', 'lint', 'build', 'unit', 'e2e'] as const
@@ -666,20 +663,18 @@ export function formatCheckReport(results: readonly CheckStepResult[], totalMs: 
  * @param step - The step.
  * @returns Its result (never throws).
  */
-async function runStep(root: string, step: PlannedCheckStep): Promise<CheckStepResult> {
+async function runStep(
+  root: string,
+  step: PlannedCheckStep,
+  signal: AbortSignal,
+): Promise<CheckStepResult> {
   const started = Date.now()
   const base = { kind: step.kind, name: step.name, logPath: step.logPath }
   let stdout: string
   let stderr: string
   let exitCode: number | null
   try {
-    const r = await execAsync(step.command, {
-      cwd: step.dir,
-      timeout: step.timeoutMs,
-      killSignal: 'SIGTERM',
-      maxBuffer: 16 * 1024 * 1024,
-      shell: '/bin/bash',
-    })
+    const r = await execCheckCommand(step, signal)
     stdout = r.stdout
     stderr = r.stderr
     exitCode = 0
@@ -745,6 +740,76 @@ async function runStep(root: string, step: PlannedCheckStep): Promise<CheckStepR
   }
 }
 
+/** Run and reap a check's shell and descendants before resolving its timeout. */
+function execCheckCommand(
+  step: PlannedCheckStep,
+  signal: AbortSignal,
+): Promise<{ stdout: string; stderr: string }> {
+  return new Promise((resolve, reject) => {
+    const timeout = (): Error & { killed: boolean } =>
+      Object.assign(new Error('Check command timed out'), { killed: true })
+    if (signal.aborted) {
+      reject(timeout())
+      return
+    }
+    const grouped = process.platform !== 'win32'
+    const child = spawn('/bin/bash', ['-c', step.command], {
+      cwd: step.dir,
+      detached: grouped,
+      stdio: ['ignore', 'pipe', 'pipe'],
+    })
+    let stdout = ''
+    let stderr = ''
+    let stdoutBytes = 0
+    let stderrBytes = 0
+    let failure: Error | undefined
+    const stop = (error: Error): void => {
+      if (failure) return
+      failure = error
+      try {
+        if (grouped && child.pid) process.kill(-child.pid, 'SIGKILL')
+        else child.kill('SIGKILL')
+      } catch (cause) {
+        // The process may exit between the deadline and the signal.
+        if ((cause as NodeJS.ErrnoException).code !== 'ESRCH')
+          failure = new Error('Could not stop the check command', { cause })
+      }
+    }
+    const abort = (): void => stop(timeout())
+    const timer = setTimeout(abort, step.timeoutMs)
+    timer.unref?.()
+    signal.addEventListener('abort', abort, { once: true })
+    const maxBuffer = 16 * 1024 * 1024
+    child.stdout.setEncoding('utf8').on('data', (data: string) => {
+      stdoutBytes += Buffer.byteLength(data)
+      if (stdoutBytes > maxBuffer) stop(new Error('Check stdout exceeded the 16 MiB limit'))
+      else stdout += data
+    })
+    child.stderr.setEncoding('utf8').on('data', (data: string) => {
+      stderrBytes += Buffer.byteLength(data)
+      if (stderrBytes > maxBuffer) stop(new Error('Check stderr exceeded the 16 MiB limit'))
+      else stderr += data
+    })
+    child.once('error', (error) => {
+      failure ??= error
+    })
+    child.once('close', (code, terminationSignal) => {
+      clearTimeout(timer)
+      signal.removeEventListener('abort', abort)
+      if (failure) reject(Object.assign(failure, { stdout, stderr }))
+      else if (code !== 0)
+        reject(
+          Object.assign(new Error(`Check command exited with ${code ?? terminationSignal}`), {
+            code,
+            stdout,
+            stderr,
+          }),
+        )
+      else resolve({ stdout, stderr })
+    })
+  })
+}
+
 function writeLogs(step: PlannedCheckStep, stdout: string, stderr: string): void {
   try {
     mkdirSync(step.logPath.slice(0, step.logPath.lastIndexOf('/')), { recursive: true })
@@ -798,9 +863,14 @@ export async function runCheckLocal(
   }
 
   const plan = planCheckSteps(packages, { steps, e2e, budgetMs })
+  const controller = new AbortController()
+  const remaining = budgetMs - (Date.now() - started)
+  const timer = remaining > 0 ? setTimeout(() => controller.abort(), remaining) : undefined
+  timer?.unref?.()
+  if (remaining <= 0) controller.abort()
   const results = new Map<PlannedCheckStep, CheckStepResult>()
   const run = (step: PlannedCheckStep): Promise<void> =>
-    runStep(root, step).then((r) => {
+    runStep(root, step, controller.signal).then((r) => {
       results.set(step, r)
     })
   // e2e waits for the build: specs that read dist/ (or a server that serves
@@ -814,14 +884,9 @@ export async function runCheckLocal(
       .filter((s) => s.kind !== 'build')
       .map((step) => (step.kind === 'e2e' ? buildsDone.then(() => run(step)) : run(step))),
   ]
-  // Every step has its own timeout under the budget; this is the backstop that
-  // makes a stuck step return the finished steps instead of nothing.
-  let timer: NodeJS.Timeout | undefined
-  const deadline = new Promise<void>((resolve) => {
-    timer = setTimeout(resolve, Math.max(0, budgetMs - (Date.now() - started)))
-    timer.unref?.()
-  })
-  await Promise.race([Promise.allSettled(running), deadline])
+  // Cancellation stops each process group. Await close and log writes before the
+  // caller can remove its project, and never start queued e2e after cancellation.
+  await Promise.allSettled(running)
   if (timer) clearTimeout(timer)
 
   const all: CheckStepResult[] = plan.steps.map(

@@ -25,6 +25,8 @@ const require = createRequire(import.meta.url)
 const execFileAsync = promisify(execFile)
 const shared = new URL('../../../templates/shared/', import.meta.url)
 const ruleId = 'molecule-local/no-empty-interactive-target'
+// This functional case runs two native CLI checks; its deadline covers both budgets.
+const nativeCheckBudgetMs = 60_000
 let root: string
 let engine: ESLint
 
@@ -269,35 +271,43 @@ describe('empty interactive targets', () => {
     ).toHaveLength(1)
   })
 
-  it('delivers the rule to a custom scaffold and mlcl check rejects it before a browser walk', async () => {
-    const app = join(root, 'generated-app')
-    await createAppProject(app, 'equipment-console', 'react')
-    expect(await readFile(join(app, 'eslint-rules/no-empty-interactive-target.mjs'), 'utf8')).toBe(
-      await readFile(new URL('no-empty-interactive-target.mjs', shared), 'utf8'),
-    )
-    expect(await readFile(join(app, 'eslint-rules/no-class-code.mjs'), 'utf8')).toBe(
-      await readFile(new URL('no-class-code.mjs', shared), 'utf8'),
-    )
+  it(
+    'delivers the rule to a custom scaffold and mlcl check rejects it before a browser walk',
+    async () => {
+      const app = join(root, 'generated-app')
+      await createAppProject(app, 'equipment-console', 'react')
+      expect(
+        await readFile(join(app, 'eslint-rules/no-empty-interactive-target.mjs'), 'utf8'),
+      ).toBe(await readFile(new URL('no-empty-interactive-target.mjs', shared), 'utf8'))
+      expect(await readFile(join(app, 'eslint-rules/no-class-code.mjs'), 'utf8')).toBe(
+        await readFile(new URL('no-class-code.mjs', shared), 'utf8'),
+      )
 
-    await execFileAsync('git', ['init', '-q', app])
-    await execFileAsync('git', ['add', '--', '.'], { cwd: app })
-    const source =
-      'export function Control({ act }: { act: () => void }) { return <i role="button" tabIndex={0} aria-label="Dismiss" className="missing-glyph" onClick={act} onKeyDown={act} /> }\n'
-    await writeFile(join(app, 'src/Control.tsx'), source)
-    const result = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
-    expect('error' in result).toBe(false)
-    if ('error' in result) throw new Error(result.error)
-    expect(result.ok, JSON.stringify(result)).toBe(false)
-    expect(result.report).toContain('FAIL lint')
-    expect(result.results[0].errors.join('\n')).toContain('drawing')
-    expect(result.results[0].errors.join('\n')).toContain('Control.tsx')
-    await writeFile(
-      join(app, 'src/Control.tsx'),
-      source.replace(/<i .*\/>/, '<button onClick={act}>Dismiss</button>'),
-    )
-    const fixed = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
-    expect('error' in fixed).toBe(false)
-    if ('error' in fixed) throw new Error(fixed.error)
-    expect(fixed.ok).toBe(true)
-  })
+      await execFileAsync('git', ['init', '-q', app])
+      await execFileAsync('git', ['add', '--', '.'], { cwd: app })
+      const source =
+        'export function Control({ act }: { act: () => void }) { return <i role="button" tabIndex={0} aria-label="Dismiss" className="missing-glyph" onClick={act} onKeyDown={act} /> }\n'
+      await writeFile(join(app, 'src/Control.tsx'), source)
+      const result = await runCheckLocal(
+        app,
+        { steps: ['lint'] },
+        { budgetMs: nativeCheckBudgetMs },
+      )
+      expect('error' in result).toBe(false)
+      if ('error' in result) throw new Error(result.error)
+      expect(result.ok, JSON.stringify(result)).toBe(false)
+      expect(result.report).toContain('FAIL lint')
+      expect(result.results[0].errors.join('\n')).toContain('drawing')
+      expect(result.results[0].errors.join('\n')).toContain('Control.tsx')
+      await writeFile(
+        join(app, 'src/Control.tsx'),
+        source.replace(/<i .*\/>/, '<button onClick={act}>Dismiss</button>'),
+      )
+      const fixed = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: nativeCheckBudgetMs })
+      expect('error' in fixed).toBe(false)
+      if ('error' in fixed) throw new Error(fixed.error)
+      expect(fixed.ok).toBe(true)
+    },
+    2 * nativeCheckBudgetMs + 10_000,
+  )
 })

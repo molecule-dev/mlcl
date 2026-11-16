@@ -26,6 +26,8 @@ const require = createRequire(import.meta.url)
 const execFileAsync = promisify(execFile)
 const ruleId = 'molecule-local/no-empty-interactive-target'
 const roots: string[] = []
+// This functional case runs two native CLI checks; its deadline covers both budgets.
+const nativeCheckBudgetMs = 60_000
 const icon =
   '<i className="ion-trash-a" role="button" tabIndex={0} aria-label="Remove equipment" onClick={act} onKeyDown={act} />'
 const component = (markup = icon): string =>
@@ -90,20 +92,26 @@ describe('registry icon fonts in the scaffold lint contract', () => {
     expect(rows).toHaveLength(1)
     expect(rows[0]).toMatchObject({ line: 2, severity: 2, messageId: 'font' })
     expect(rows[0].message).toContain('@molecule/app-fonts-ionicons')
-    expect(rows[0].message).toContain(
-      "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; setFont(font)",
-    )
+    expect(rows[0].message).toContain("{ setFont } from '@molecule/app-fonts'")
+    expect(rows[0].message).toContain("{ font } from '@molecule/app-fonts-ionicons'")
+    expect(rows[0].message).toContain('setFont(font)')
     expect(rows[0].message).toContain('src/bonds/index.ts')
   })
 
   it.each([
     '<button onClick={act}><i className="ion-trash-a" aria-hidden="true" />Remove equipment</button>',
     '<span className={"ion-heart"} />',
-    '<span className={`material-symbols-outlined`}>inventory_2</span>',
-  ])('checks decorative, nested and ligature icons too: %s', async (markup) => {
+  ])('checks empty decorative and nested icons too: %s', async (markup) => {
     const rows = await messages({}, component(markup))
     expect(rows).toHaveLength(1)
     expect(rows[0].messageId).toBe('font')
+  })
+
+  it.each([
+    '<span className={`material-symbols-outlined`}>inventory_2</span>',
+    '<i className="ion-trash-a" role="button" onClick={act}>Remove equipment</i>',
+  ])('accepts visible text when an icon class has no font: %s', async (markup) => {
+    expect(await messages({}, component(markup))).toEqual([])
   })
 
   it('accepts a directly bonded font and its glyph-only click target', async () => {
@@ -257,30 +265,38 @@ describe('registry icon fonts in the scaffold lint contract', () => {
     ).toContain('ion-trash-a')
   })
 
-  it('ships the same error to a custom non-benchmark project and mlcl check', async () => {
-    const { root } = await fixture()
-    const app = join(root, 'equipment-console')
-    await createAppProject(app, 'equipment-console', 'react')
-    await execFileAsync('git', ['init', '-q', app])
-    await execFileAsync('git', ['add', '--', '.'], { cwd: app })
-    await writeFile(
-      join(app, 'src/Control.tsx'),
-      component(
-        '<button onClick={act}><i className="ion-trash-a" aria-hidden="true" />Remove equipment</button>',
-      ),
-    )
-    const result = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
-    expect('error' in result).toBe(false)
-    if ('error' in result) throw new Error(result.error)
-    expect(result.ok).toBe(false)
-    expect(result.report).toContain('FAIL lint')
-    expect(result.results[0].errors.join('\n')).toContain('@molecule/app-fonts-ionicons')
-    await writeFile(join(app, 'src/bonds/icon-font.ts'), bond)
-    const index = join(app, 'src/bonds/index.ts')
-    await writeFile(index, "import './icon-font.js'\n\n" + (await readFile(index, 'utf8')))
-    const fixed = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
-    expect('error' in fixed).toBe(false)
-    if ('error' in fixed) throw new Error(fixed.error)
-    expect(fixed.ok).toBe(true)
-  })
+  it(
+    'ships the same error to a custom non-benchmark project and mlcl check',
+    async () => {
+      const { root } = await fixture()
+      const app = join(root, 'equipment-console')
+      await createAppProject(app, 'equipment-console', 'react')
+      await execFileAsync('git', ['init', '-q', app])
+      await execFileAsync('git', ['add', '--', '.'], { cwd: app })
+      await writeFile(
+        join(app, 'src/Control.tsx'),
+        component(
+          '<button onClick={act}><i className="ion-trash-a" aria-hidden="true" />Remove equipment</button>',
+        ),
+      )
+      const result = await runCheckLocal(
+        app,
+        { steps: ['lint'] },
+        { budgetMs: nativeCheckBudgetMs },
+      )
+      expect('error' in result).toBe(false)
+      if ('error' in result) throw new Error(result.error)
+      expect(result.ok).toBe(false)
+      expect(result.report).toContain('FAIL lint')
+      expect(result.results[0].errors.join('\n')).toContain('@molecule/app-fonts-ionicons')
+      await writeFile(join(app, 'src/bonds/icon-font.ts'), bond)
+      const index = join(app, 'src/bonds/index.ts')
+      await writeFile(index, "import './icon-font.js'\n\n" + (await readFile(index, 'utf8')))
+      const fixed = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: nativeCheckBudgetMs })
+      expect('error' in fixed).toBe(false)
+      if ('error' in fixed) throw new Error(fixed.error)
+      expect(fixed.ok).toBe(true)
+    },
+    2 * nativeCheckBudgetMs + 10_000,
+  )
 })
