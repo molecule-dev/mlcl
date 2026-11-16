@@ -36898,6 +36898,43 @@
         "image gallery"
       ]
     },
+    "@molecule/app-chart-wrapper-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chart-wrapper",
+      "label": "Chart Wrapper Angular",
+      "description": "Angular ChartCard and ChartLegend wrappers around @molecule/app-charts",
+      "stack": "app",
+      "exports": [
+        "ChartCard",
+        "ChartCardProps",
+        "ChartLegend",
+        "ChartLegendItem",
+        "ChartLegendProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/chart-wrapper-angular",
+      "intentHints": [
+        "chart",
+        "graph",
+        "chart container",
+        "responsive chart"
+      ]
+    },
     "@molecule/app-chart-wrapper-react": {
       "language": "typescript",
       "runtime": "node",
@@ -36926,6 +36963,111 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/chart-wrapper-react",
+      "intentHints": [
+        "chart",
+        "graph",
+        "chart container",
+        "responsive chart"
+      ]
+    },
+    "@molecule/app-chart-wrapper-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chart-wrapper",
+      "label": "Chart Wrapper Solid",
+      "description": "Solid ChartCard and ChartLegend wrappers around @molecule/app-charts",
+      "stack": "app",
+      "exports": [
+        "ChartCard",
+        "ChartCardProps",
+        "ChartLegend",
+        "ChartLegendItem",
+        "ChartLegendProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/chart-wrapper-solid",
+      "intentHints": [
+        "chart",
+        "graph",
+        "chart container",
+        "responsive chart"
+      ]
+    },
+    "@molecule/app-chart-wrapper-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chart-wrapper",
+      "label": "Chart Wrapper Svelte",
+      "description": "Svelte ChartCard and ChartLegend wrappers around @molecule/app-charts",
+      "stack": "app",
+      "exports": [
+        "ChartCard",
+        "ChartCardProps",
+        "ChartLegend",
+        "ChartLegendItem",
+        "ChartLegendProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/chart-wrapper-svelte",
+      "intentHints": [
+        "chart",
+        "graph",
+        "chart container",
+        "responsive chart"
+      ]
+    },
+    "@molecule/app-chart-wrapper-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chart-wrapper",
+      "label": "Chart Wrapper Vue",
+      "description": "Vue ChartCard and ChartLegend wrappers around @molecule/app-charts",
+      "stack": "app",
+      "exports": [
+        "ChartCard",
+        "ChartCardProps",
+        "ChartLegend",
+        "ChartLegendItem",
+        "ChartLegendProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/chart-wrapper-vue",
       "intentHints": [
         "chart",
         "graph",
@@ -37943,6 +38085,51 @@
         "eyedropper"
       ]
     },
+    "@molecule/app-color-picker-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "color-picker",
+      "label": "Color Picker Angular",
+      "description": "HSV slider + RGB sliders + HEX input — controlled color picker for design canvases, photo editors, animation tools",
+      "stack": "app",
+      "exports": [
+        "ColorPicker",
+        "ColorPickerProps",
+        "HsvColor",
+        "RgbColor",
+        "clamp",
+        "hexToRgb",
+        "hsvToRgb",
+        "isValidHex",
+        "rgbToHex",
+        "rgbToHsv"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/color-picker-angular",
+      "intentHints": [
+        "color picker",
+        "hex picker",
+        "hsv picker",
+        "rgb picker",
+        "design canvas color"
+      ]
+    },
     "@molecule/app-color-picker-default": {
       "language": "typescript",
       "runtime": "node",
@@ -38004,6 +38191,135 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/color-picker-react",
+      "intentHints": [
+        "color picker",
+        "hex picker",
+        "hsv picker",
+        "rgb picker",
+        "design canvas color"
+      ]
+    },
+    "@molecule/app-color-picker-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "color-picker",
+      "label": "Color Picker Solid",
+      "description": "HSV slider + RGB sliders + HEX input — controlled color picker for design canvases, photo editors, animation tools",
+      "stack": "app",
+      "exports": [
+        "ColorPicker",
+        "ColorPickerProps",
+        "HsvColor",
+        "RgbColor",
+        "clamp",
+        "hexToRgb",
+        "hsvToRgb",
+        "isValidHex",
+        "rgbToHex",
+        "rgbToHsv"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/color-picker-solid",
+      "intentHints": [
+        "color picker",
+        "hex picker",
+        "hsv picker",
+        "rgb picker",
+        "design canvas color"
+      ]
+    },
+    "@molecule/app-color-picker-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "color-picker",
+      "label": "Color Picker Svelte",
+      "description": "HSV slider + RGB sliders + HEX input — controlled color picker for design canvases, photo editors, animation tools",
+      "stack": "app",
+      "exports": [
+        "ColorPicker",
+        "ColorPickerProps",
+        "HsvColor",
+        "RgbColor",
+        "clamp",
+        "hexToRgb",
+        "hsvToRgb",
+        "isValidHex",
+        "rgbToHex",
+        "rgbToHsv"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/color-picker-svelte",
+      "intentHints": [
+        "color picker",
+        "hex picker",
+        "hsv picker",
+        "rgb picker",
+        "design canvas color"
+      ]
+    },
+    "@molecule/app-color-picker-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "color-picker",
+      "label": "Color Picker Vue",
+      "description": "HSV slider + RGB sliders + HEX input — controlled color picker for design canvases, photo editors, animation tools",
+      "stack": "app",
+      "exports": [
+        "ColorPicker",
+        "ColorPickerProps",
+        "HsvColor",
+        "RgbColor",
+        "clamp",
+        "hexToRgb",
+        "hsvToRgb",
+        "isValidHex",
+        "rgbToHex",
+        "rgbToHsv"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/color-picker-vue",
       "intentHints": [
         "color picker",
         "hex picker",
@@ -48917,6 +49233,49 @@
         "list line item"
       ]
     },
+    "@molecule/app-listing-card-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "listing-card",
+      "label": "Listing Card Angular",
+      "description": "Angular listing/product-card primitives with media, body, actions slots",
+      "stack": "app",
+      "exports": [
+        "ListingCard",
+        "ListingCardActions",
+        "ListingCardActionsProps",
+        "ListingCardBody",
+        "ListingCardBodyProps",
+        "ListingCardMedia",
+        "ListingCardMediaProps",
+        "ListingCardProps",
+        "ListingGrid",
+        "ListingGridProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/listing-card-angular",
+      "intentHints": [
+        "listing card",
+        "marketplace card",
+        "product card",
+        "product listing",
+        "product grid"
+      ]
+    },
     "@molecule/app-listing-card-react": {
       "language": "typescript",
       "runtime": "node",
@@ -48950,6 +49309,129 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/listing-card-react",
+      "intentHints": [
+        "listing card",
+        "marketplace card",
+        "product card",
+        "product listing",
+        "product grid"
+      ]
+    },
+    "@molecule/app-listing-card-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "listing-card",
+      "label": "Listing Card Solid",
+      "description": "Solid listing/product-card primitives with media, body, actions slots",
+      "stack": "app",
+      "exports": [
+        "ListingCard",
+        "ListingCardActions",
+        "ListingCardActionsProps",
+        "ListingCardBody",
+        "ListingCardBodyProps",
+        "ListingCardMedia",
+        "ListingCardMediaProps",
+        "ListingCardProps",
+        "ListingGrid",
+        "ListingGridProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/listing-card-solid",
+      "intentHints": [
+        "listing card",
+        "marketplace card",
+        "product card",
+        "product listing",
+        "product grid"
+      ]
+    },
+    "@molecule/app-listing-card-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "listing-card",
+      "label": "Listing Card Svelte",
+      "description": "Svelte listing/product-card primitives with media, body, actions slots",
+      "stack": "app",
+      "exports": [
+        "ListingCard",
+        "ListingCardActions",
+        "ListingCardActionsProps",
+        "ListingCardBody",
+        "ListingCardBodyProps",
+        "ListingCardMedia",
+        "ListingCardMediaProps",
+        "ListingCardProps",
+        "ListingGrid",
+        "ListingGridProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/listing-card-svelte",
+      "intentHints": [
+        "listing card",
+        "marketplace card",
+        "product card",
+        "product listing",
+        "product grid"
+      ]
+    },
+    "@molecule/app-listing-card-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "listing-card",
+      "label": "Listing Card Vue",
+      "description": "Vue listing/product-card primitives with media, body, actions slots",
+      "stack": "app",
+      "exports": [
+        "ListingCard",
+        "ListingCardActions",
+        "ListingCardActionsProps",
+        "ListingCardBody",
+        "ListingCardBodyProps",
+        "ListingCardMedia",
+        "ListingCardMediaProps",
+        "ListingCardProps",
+        "ListingGrid",
+        "ListingGridProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/listing-card-vue",
       "intentHints": [
         "listing card",
         "marketplace card",
@@ -67810,6 +68292,43 @@
         "notifications inbox screen"
       ]
     },
+    "@molecule/app-now-playing-bar-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "now-playing-bar",
+      "label": "Now Playing Bar Angular",
+      "description": "Persistent now-playing bar — track artwork, title/artist, transport controls (prev/play-pause/next), scrubber, and volume slider",
+      "stack": "app",
+      "exports": [
+        "NowPlayingBar",
+        "NowPlayingBarProps",
+        "NowPlayingTrack",
+        "formatTime"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/now-playing-bar-angular",
+      "intentHints": [
+        "now playing bar",
+        "music mini player",
+        "podcast player bar",
+        "audio dock",
+        "sticky audio player"
+      ]
+    },
     "@molecule/app-now-playing-bar-react": {
       "language": "typescript",
       "runtime": "node",
@@ -67835,6 +68354,111 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/now-playing-bar-react",
+      "intentHints": [
+        "now playing bar",
+        "music mini player",
+        "podcast player bar",
+        "audio dock",
+        "sticky audio player"
+      ]
+    },
+    "@molecule/app-now-playing-bar-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "now-playing-bar",
+      "label": "Now Playing Bar Solid",
+      "description": "Persistent now-playing bar — track artwork, title/artist, transport controls (prev/play-pause/next), scrubber, and volume slider",
+      "stack": "app",
+      "exports": [
+        "NowPlayingBar",
+        "NowPlayingBarProps",
+        "NowPlayingTrack",
+        "formatTime"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/now-playing-bar-solid",
+      "intentHints": [
+        "now playing bar",
+        "music mini player",
+        "podcast player bar",
+        "audio dock",
+        "sticky audio player"
+      ]
+    },
+    "@molecule/app-now-playing-bar-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "now-playing-bar",
+      "label": "Now Playing Bar Svelte",
+      "description": "Persistent now-playing bar — track artwork, title/artist, transport controls (prev/play-pause/next), scrubber, and volume slider",
+      "stack": "app",
+      "exports": [
+        "NowPlayingBar",
+        "NowPlayingBarProps",
+        "NowPlayingTrack",
+        "formatTime"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/now-playing-bar-svelte",
+      "intentHints": [
+        "now playing bar",
+        "music mini player",
+        "podcast player bar",
+        "audio dock",
+        "sticky audio player"
+      ]
+    },
+    "@molecule/app-now-playing-bar-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "now-playing-bar",
+      "label": "Now Playing Bar Vue",
+      "description": "Persistent now-playing bar — track artwork, title/artist, transport controls (prev/play-pause/next), scrubber, and volume slider",
+      "stack": "app",
+      "exports": [
+        "NowPlayingBar",
+        "NowPlayingBarProps",
+        "NowPlayingTrack",
+        "formatTime"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/now-playing-bar-vue",
       "intentHints": [
         "now playing bar",
         "music mini player",
@@ -71679,6 +72303,41 @@
       ],
       "path": "packages/app/frameworks/react-native"
     },
+    "@molecule/app-reading-progress-bar-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "reading-progress-bar",
+      "label": "Reading Progress Bar Angular",
+      "description": "Top-of-page scroll progress bar for article pages",
+      "stack": "app",
+      "exports": [
+        "ReadingProgressBar",
+        "ReadingProgressBarProps",
+        "computeArticleProgress",
+        "computeWindowProgress"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/reading-progress-bar-angular",
+      "intentHints": [
+        "reading progress bar",
+        "scroll progress indicator",
+        "article scroll bar"
+      ]
+    },
     "@molecule/app-reading-progress-bar-react": {
       "language": "typescript",
       "runtime": "node",
@@ -71704,6 +72363,105 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/reading-progress-bar-react",
+      "intentHints": [
+        "reading progress bar",
+        "scroll progress indicator",
+        "article scroll bar"
+      ]
+    },
+    "@molecule/app-reading-progress-bar-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "reading-progress-bar",
+      "label": "Reading Progress Bar Solid",
+      "description": "Top-of-page scroll progress bar for article pages",
+      "stack": "app",
+      "exports": [
+        "ReadingProgressBar",
+        "ReadingProgressBarProps",
+        "computeArticleProgress",
+        "computeWindowProgress"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/reading-progress-bar-solid",
+      "intentHints": [
+        "reading progress bar",
+        "scroll progress indicator",
+        "article scroll bar"
+      ]
+    },
+    "@molecule/app-reading-progress-bar-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "reading-progress-bar",
+      "label": "Reading Progress Bar Svelte",
+      "description": "Top-of-page scroll progress bar for article pages",
+      "stack": "app",
+      "exports": [
+        "ReadingProgressBar",
+        "ReadingProgressBarProps",
+        "computeArticleProgress",
+        "computeWindowProgress"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/reading-progress-bar-svelte",
+      "intentHints": [
+        "reading progress bar",
+        "scroll progress indicator",
+        "article scroll bar"
+      ]
+    },
+    "@molecule/app-reading-progress-bar-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "reading-progress-bar",
+      "label": "Reading Progress Bar Vue",
+      "description": "Top-of-page scroll progress bar for article pages",
+      "stack": "app",
+      "exports": [
+        "ReadingProgressBar",
+        "ReadingProgressBarProps",
+        "computeArticleProgress",
+        "computeWindowProgress"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/reading-progress-bar-vue",
       "intentHints": [
         "reading progress bar",
         "scroll progress indicator",
