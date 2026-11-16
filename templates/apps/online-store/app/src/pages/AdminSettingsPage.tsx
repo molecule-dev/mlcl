@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 // Phase 1 baseline — verbatim JSX of design-online-store-admin-settings.html
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import AdminGeneralSettingsCard from '../components/AdminGeneralSettingsCard.js'
@@ -20,30 +21,45 @@ function AdminSettingsPage() {
   const http = useHttpClient()
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
-  const [store, setStore] = useState({
-    storeName: 'Bazaar',
-    storeUrl: 'bazaar.com',
-    storeDescription: 'Curating the finest digital experiences for the modern world.',
-    logoUrl: '',
-  })
-  const [shipping, setShipping] = useState({
-    freeShippingThreshold: 75,
-    standardRate: 5.99,
-    expressRate: 14.99,
-    estimatedDelivery: '3-5 days',
-  })
-  const [payment, setPayment] = useState({
-    stripeEnabled: true,
-    paypalEnabled: true,
-    applePayEnabled: false,
-  })
-  const [tax, setTax] = useState({ automaticTax: true, taxRate: 8.25, taxRegion: 'US' })
-  const [notifications, setNotifications] = useState({
-    orderConfirmation: true,
-    shippingUpdates: true,
-    marketingEmails: false,
-    reviewRequests: true,
-  })
+  const [store, setStore, fillStore] = useForm({
+    defaultValues: {
+      storeName: 'Bazaar',
+      storeUrl: 'bazaar.com',
+      storeDescription: 'Curating the finest digital experiences for the modern world.',
+      logoUrl: '',
+    },
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
+  const [shipping, setShipping, fillShipping] = useForm({
+    defaultValues: {
+      freeShippingThreshold: 75,
+      standardRate: 5.99,
+      expressRate: 14.99,
+      estimatedDelivery: '3-5 days',
+    },
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
+  const [payment, setPayment, fillPayment] = useForm({
+    defaultValues: {
+      stripeEnabled: true,
+      paypalEnabled: true,
+      applePayEnabled: false,
+    },
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
+  const [tax, setTax, fillTax] = useForm({
+    defaultValues: { automaticTax: true, taxRate: 8.25, taxRegion: 'US' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
+  const [notifications, setNotifications, fillNotifications] = useForm({
+    defaultValues: {
+      orderConfirmation: true,
+      shippingUpdates: true,
+      marketingEmails: false,
+      reviewRequests: true,
+    },
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   useEffect(() => {
     http
       .get('/api/admin')
@@ -55,16 +71,16 @@ function AdminSettingsPage() {
           tax?: typeof tax
           notifications?: typeof notifications
         } | null
-        if (d?.store) setStore(d.store)
-        if (d?.shipping) setShipping(d.shipping)
-        if (d?.payment) setPayment(d.payment)
-        if (d?.tax) setTax(d.tax)
-        if (d?.notifications) setNotifications(d.notifications)
+        if (d?.store) fillStore(d.store)
+        if (d?.shipping) fillShipping(d.shipping)
+        if (d?.payment) fillPayment(d.payment)
+        if (d?.tax) fillTax(d.tax)
+        if (d?.notifications) fillNotifications(d.notifications)
       })
       // Settings fetch is best-effort — on failure the form keeps its
       // sensible defaults and a save will simply write them back.
       .catch(() => {})
-  }, [http])
+  }, [http, fillStore, fillShipping, fillPayment, fillTax, fillNotifications])
   useEffect(() => {
     if (savedAt === null) return
     const timer = setTimeout(() => setSavedAt(null), 2500)

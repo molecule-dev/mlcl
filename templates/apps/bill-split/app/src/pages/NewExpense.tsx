@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
@@ -53,7 +54,10 @@ export function NewExpense() {
   const [searchParams] = useSearchParams()
 
   const [groups, setGroups] = useState<GroupListRow[]>([])
-  const [groupId, setGroupId] = useState('')
+  const [groupId, setGroupId, fillGroupId] = useForm({
+    defaultValues: { groupId: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('groupId')
   const [payerId, setPayerId, fillPayerId] = useForm({
     defaultValues: { value: '' },
     resetKey: JSON.stringify([searchParams.toString()]),
@@ -83,7 +87,7 @@ export function NewExpense() {
         const wanted = searchParams.get('group')
         const initial = rows.find((g) => g.id === wanted) ?? rows[0]
         if (initial) {
-          setGroupId(initial.id)
+          fillGroupId(initial.id)
           fillPayerId(initial.members.find((m) => m.is_self)?.id ?? initial.members[0]?.id ?? '')
           setParticipants(new Set(initial.members.map((m) => m.id)))
         }
@@ -98,7 +102,7 @@ export function NewExpense() {
     return () => {
       cancelled = true
     }
-  }, [fillPayerId, http, searchParams])
+  }, [fillPayerId, http, searchParams, fillGroupId])
 
   const group = useMemo(() => groups.find((g) => g.id === groupId), [groups, groupId])
   const members = group?.members ?? []

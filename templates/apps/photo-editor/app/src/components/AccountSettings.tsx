@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 /**
  * Lustra account-management cards for the Settings page.
  *
@@ -24,6 +25,7 @@ import {
   useAuth,
   useAuthClient,
   useChangePassword,
+  useForm,
   useHttpClient,
   useTranslation,
 } from '@molecule/app-react'
@@ -111,26 +113,34 @@ export function AccountSettings() {
   const { status: pwStatus, error: pwError, changePassword, reset: resetPw } = useChangePassword()
 
   // C6 — email -------------------------------------------------------------
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: user?.email ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
   const [emailTouched, setEmailTouched] = useState(false)
   const [emailState, setEmailState] = useState<'idle' | 'saving' | 'saved'>('idle')
   const [emailError, setEmailError] = useState('')
 
   useEffect(() => {
     // Adopt the profile email once it loads, unless the user already typed.
-    if (!emailTouched && user?.email) setEmail(user.email)
-  }, [user?.email, emailTouched])
+    if (!emailTouched && user?.email) fillEmail(user.email)
+  }, [user?.email, emailTouched, fillEmail])
 
   // C6 — display name ------------------------------------------------------
-  const [name, setName] = useState(user?.name ?? '')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: user?.name ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
   const [nameTouched, setNameTouched] = useState(false)
   const [nameState, setNameState] = useState<'idle' | 'saving' | 'saved'>('idle')
   const [nameError, setNameError] = useState('')
 
   useEffect(() => {
     // Adopt the profile name once it loads, unless the user already typed.
-    if (!nameTouched && user?.name) setName(user.name)
-  }, [user?.name, nameTouched])
+    if (!nameTouched && user?.name) fillName(user.name)
+  }, [user?.name, nameTouched, fillName])
 
   const handleSaveName = async (): Promise<void> => {
     const current = authClient.getState().user

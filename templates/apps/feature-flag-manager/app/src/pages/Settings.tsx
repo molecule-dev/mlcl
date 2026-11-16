@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -70,12 +71,21 @@ export function Settings() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
 
-  const [orgName, setOrgName] = useState('')
+  const [orgName, setOrgName, fillOrgName] = useForm({
+    defaultValues: { orgName: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('orgName')
   const [savingOrg, setSavingOrg] = useState(false)
   const [orgSaved, setOrgSaved] = useState(false)
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('email')
   const [savingAccount, setSavingAccount] = useState(false)
   const [accountSaved, setAccountSaved] = useState(false)
 
@@ -91,10 +101,10 @@ export function Settings() {
         setMe(meData)
         setBilling((billingRes.data as BillingStatus) ?? null)
         const stored = settingsRes.data?.settings ?? {}
-        setOrgName(typeof stored.org_name === 'string' ? stored.org_name : '')
+        fillOrgName(typeof stored.org_name === 'string' ? stored.org_name : '')
         if (meData) {
-          setName(typeof meData.props?.name === 'string' ? meData.props.name : '')
-          setEmail(typeof meData.props?.email === 'string' ? meData.props.email : '')
+          fillName(typeof meData.props?.name === 'string' ? meData.props.name : '')
+          fillEmail(typeof meData.props?.email === 'string' ? meData.props.email : '')
         }
       } catch (e) {
         if (!cancelled) setError(e instanceof Error ? e.message : 'load failed')
@@ -106,7 +116,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillOrgName, fillName, fillEmail])
 
   const onSaveOrg = async () => {
     if (!me) return

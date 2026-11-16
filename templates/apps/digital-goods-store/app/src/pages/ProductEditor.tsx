@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
@@ -46,7 +47,11 @@ export function ProductEditor() {
     resetKey: JSON.stringify([id]),
   }).asState('value')
   const [pricing, setPricing] = useState<'paid' | 'free' | 'pwyw'>('paid')
-  const [priceCents, setPriceCents] = useState(0)
+  const [priceCents, setPriceCents, fillPriceCents] = useForm({
+    defaultValues: { priceCents: 0 },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('priceCents')
   const [coverImage, setCoverImage, fillCoverImage] = useForm({
     defaultValues: { value: '' },
     resetKey: JSON.stringify([id]),
@@ -76,14 +81,14 @@ export function ProductEditor() {
         fillName(p.name)
         fillDescription(p.description ?? '')
         setPricing(p.pricing_model ?? 'paid')
-        setPriceCents(p.price_cents)
+        fillPriceCents(p.price_cents)
         fillCoverImage(p.cover_image ?? '')
         fillCategory(p.category ?? '')
         setStatus((p.status as 'draft' | 'active' | 'archived') ?? 'draft')
       })
       .catch((e: unknown) => setError(e instanceof Error ? e.message : String(e)))
       .finally(() => setLoading(false))
-  }, [fillCategory, fillCoverImage, fillDescription, fillName, http, id, isNew, t])
+  }, [fillCategory, fillCoverImage, fillDescription, fillName, http, id, isNew, t, fillPriceCents])
 
   const handleDelete = async () => {
     if (isNew || !id) return

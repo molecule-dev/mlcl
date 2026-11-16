@@ -1,6 +1,7 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -31,7 +32,13 @@ export function Settings() {
   const http = useHttpClient()
   const auth = useAuth<UserWithBlob>()
   const userId = auth.user?.id ?? null
-  const [prefs, setPrefs] = useState<Preferences>(DEFAULTS)
+  const [prefs, setPrefs, fillPrefs] = useForm<Preferences>({
+    defaultValues: DEFAULTS as Preferences,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<Date | null>(null)
@@ -52,7 +59,7 @@ export function Settings() {
         const res = await http.get<{ warehousePrefs?: Partial<Preferences> }>('/preferences')
         if (cancelled) return
         const stored = res?.data?.warehousePrefs ?? {}
-        setPrefs({ ...DEFAULTS, ...stored })
+        fillPrefs({ ...DEFAULTS, ...stored })
       } catch (_error) {
         if (!cancelled)
           setError(t('settings.loadError', {}, { defaultValue: 'Could not load settings.' }))
@@ -64,7 +71,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, userId, t])
+  }, [http, userId, t, fillPrefs])
 
   async function save() {
     if (!userId) return

@@ -1,9 +1,10 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { unwrapSingle } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -79,14 +80,26 @@ export function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const [prefs, setPrefs] = useState<PreferencesData>({ ...DEFAULTS })
+  const [prefs, setPrefs, fillPrefs] = useForm<PreferencesData>({
+    defaultValues: { ...DEFAULTS } as PreferencesData,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [statusMsg, setStatusMsg] = useState<string | null>(null)
   const [error, setError] = useState<string | null>(null)
-  const [bio, setBio] = useState('')
-  const [city, setCity] = useState('')
-  const [handle, setHandle] = useState('')
+  const [bio, setBio, fillBio] = useForm({
+    defaultValues: { bio: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('bio')
+  const [city, setCity, fillCity] = useForm({
+    defaultValues: { city: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('city')
+  const [handle, setHandle, fillHandle] = useForm({
+    defaultValues: { handle: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('handle')
 
   useEffect(() => {
     let cancelled = false
@@ -97,10 +110,10 @@ export function Settings() {
         if (cancelled) return
         const data = unwrapSingle<PreferencesData>(res.data) ?? {}
         const merged = { ...DEFAULTS, ...data }
-        setPrefs(merged)
-        setHandle(data.handle ?? '')
-        setBio(data.bio ?? '')
-        setCity(data.city ?? '')
+        fillPrefs(merged)
+        fillHandle(data.handle ?? '')
+        fillBio(data.bio ?? '')
+        fillCity(data.city ?? '')
         setLoading(false)
       })
       .catch(() => {
@@ -112,7 +125,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, fillPrefs, fillHandle, fillBio, fillCity])
 
   const persist = async (next: PreferencesData, confirmation: string) => {
     setSaving(true)

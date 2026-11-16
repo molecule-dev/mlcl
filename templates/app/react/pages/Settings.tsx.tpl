@@ -13,6 +13,13 @@
  * no page-level merge is needed. Optional `onSaved` work uses it for other caches/navigation.
  * A custom provider must return its saved profile; the hook does not merge raw deltas.
  *
+ * Other records use `useForm({ defaultValues, values: loadedData,
+ * resetOptions: { keepDirtyValues: true }, resetKey: recordId })` from
+ * `@molecule/app-react`. Its `.asState()` tuple supplies [values, edit, fill]:
+ * pass edit to controls and fill to request callbacks. A scalar can use
+ * `.asState('field')`; an object record uses `.asState()` so each property
+ * keeps its own dirty flag. The record key comes from the request identity.
+ *
  * Adapt it to this app's profile:
  * - widen `AppUser` and `Fields` with the app's own columns, and map them in `toValues`;
  * - map ONLY changed fields in `toPatch` (an omitted field stays omitted — never turn it

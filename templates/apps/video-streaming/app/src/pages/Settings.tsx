@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useRef, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -158,7 +159,11 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const { user } = useAuth<UserProfile & { oauthData?: Record<string, unknown> | null }>()
-  const [toggles, setToggles] = useState<Record<string, boolean>>(DEFAULT_TOGGLES)
+  const [toggles, setToggles, fillToggles] = useForm<Record<string, boolean>>({
+    defaultValues: DEFAULT_TOGGLES as Record<string, boolean>,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const debounceRef = useRef<ReturnType<typeof setTimeout> | null>(null)
   const initialisedRef = useRef(false)
@@ -182,7 +187,7 @@ export function Settings() {
         const env = unwrapSingle<Record<string, unknown>>(res.data) ?? {}
         const prefs = env.preferences
         if (prefs && typeof prefs === 'object') {
-          setToggles((prev) => ({ ...prev, ...(prefs as Record<string, boolean>) }))
+          fillToggles((prev) => ({ ...prev, ...(prefs as Record<string, boolean>) }))
         }
         initialisedRef.current = true
       })
@@ -192,7 +197,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillToggles])
 
   const persist = (next: Record<string, boolean>) => {
     if (!user?.id) return

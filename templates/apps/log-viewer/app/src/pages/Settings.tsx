@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -132,7 +133,11 @@ export function Settings() {
   // Persisted via the app's own server-side channel (GET/PATCH
   // /api/preferences). The platform user resource never returns
   // `oauthData` on reads, so prefs kept there silently reset on reload.
-  const [prefs, setPrefs] = useState<AppPrefs>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<AppPrefs>({
+    defaultValues: DEFAULT_PREFS as AppPrefs,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [prefsLoading, setPrefsLoading] = useState(true)
   const [prefsSaving, setPrefsSaving] = useState(false)
   const [prefsError, setPrefsError] = useState<string | null>(null)
@@ -147,7 +152,7 @@ export function Settings() {
         if (cancelled) return
         const body = (res as { data?: Record<string, unknown> }).data ?? res
         const row = (body as { data?: Record<string, unknown> }).data ?? body
-        setPrefs({
+        fillPrefs({
           hotRetentionDays:
             typeof (row as { hot_retention_days?: number }).hot_retention_days === 'number'
               ? (row as { hot_retention_days: number }).hot_retention_days
@@ -161,7 +166,7 @@ export function Settings() {
       .catch(() => {
         // Defaults are fine when the channel is unavailable — never block
         // the form, but keep the load state honest.
-        if (!cancelled) setPrefs(DEFAULT_PREFS)
+        if (!cancelled) fillPrefs(DEFAULT_PREFS)
       })
       .finally(() => {
         if (!cancelled) setPrefsLoading(false)
@@ -169,7 +174,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillPrefs])
 
   async function savePrefs(e: React.FormEvent) {
     e.preventDefault()

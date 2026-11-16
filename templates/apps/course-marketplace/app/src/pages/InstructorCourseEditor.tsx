@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 /**
  * InstructorCourseEditor — owner-only authoring view.
  *
@@ -11,7 +12,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useTranslation } from '@molecule/app-react'
+import { useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -41,10 +42,26 @@ export function InstructorCourseEditor() {
   const [error, setError] = useState<string | null>(null)
   const [tab, setTab] = useState<Tab>('curriculum')
 
-  const [draftTitle, setDraftTitle] = useState('')
-  const [draftDescription, setDraftDescription] = useState('')
-  const [draftCategory, setDraftCategory] = useState('')
-  const [draftPrice, setDraftPrice] = useState('0')
+  const [draftTitle, setDraftTitle, fillDraftTitle] = useForm({
+    defaultValues: { draftTitle: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: params.id,
+  }).asState('draftTitle')
+  const [draftDescription, setDraftDescription, fillDraftDescription] = useForm({
+    defaultValues: { draftDescription: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: params.id,
+  }).asState('draftDescription')
+  const [draftCategory, setDraftCategory, fillDraftCategory] = useForm({
+    defaultValues: { draftCategory: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: params.id,
+  }).asState('draftCategory')
+  const [draftPrice, setDraftPrice, fillDraftPrice] = useForm({
+    defaultValues: { draftPrice: '0' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: params.id,
+  }).asState('draftPrice')
   const [savingDetails, setSavingDetails] = useState(false)
   const [publishing, setPublishing] = useState(false)
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
@@ -74,10 +91,10 @@ export function InstructorCourseEditor() {
         if (!alive) return
         setCourse(c)
         setLessons(Array.isArray(l) ? l : [])
-        setDraftTitle(c.title ?? '')
-        setDraftDescription(c.description ?? '')
-        setDraftCategory(c.category ?? '')
-        setDraftPrice(((c.price_cents ?? 0) / 100).toFixed(2))
+        fillDraftTitle(c.title ?? '')
+        fillDraftDescription(c.description ?? '')
+        fillDraftCategory(c.category ?? '')
+        fillDraftPrice(((c.price_cents ?? 0) / 100).toFixed(2))
       })
       .catch((err) => {
         if (!alive) return
@@ -90,7 +107,7 @@ export function InstructorCourseEditor() {
     return () => {
       alive = false
     }
-  }, [id])
+  }, [id, fillDraftTitle, fillDraftDescription, fillDraftCategory, fillDraftPrice])
 
   const reload = async () => {
     const [c, l] = await Promise.all([

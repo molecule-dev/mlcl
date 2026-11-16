@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -86,9 +87,17 @@ export function TaskDetail() {
   const [error, setError] = useState<string | null>(null)
   const [savingTitle, setSavingTitle] = useState(false)
   const [editingTitle, setEditingTitle] = useState(false)
-  const [titleDraft, setTitleDraft] = useState('')
+  const [titleDraft, setTitleDraft, fillTitleDraft] = useForm({
+    defaultValues: { titleDraft: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('titleDraft')
   const [editingDescription, setEditingDescription] = useState(false)
-  const [descDraft, setDescDraft] = useState('')
+  const [descDraft, setDescDraft, fillDescDraft] = useForm({
+    defaultValues: { descDraft: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('descDraft')
   const [labelOptions, setLabelOptions] = useState<Label[]>([])
   const [labelMenuOpen, setLabelMenuOpen] = useState(false)
   const [updatingLabel, setUpdatingLabel] = useState(false)
@@ -143,8 +152,8 @@ export function TaskDetail() {
         if (cancelled) return
         setTask(next)
         if (next) {
-          setTitleDraft(next.title)
-          setDescDraft(next.description ?? '')
+          fillTitleDraft(next.title)
+          fillDescDraft(next.description ?? '')
         }
       })
       .catch(() => {
@@ -158,7 +167,7 @@ export function TaskDetail() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [http, id])
+  }, [http, id, fillTitleDraft, fillDescDraft])
 
   useEffect(() => {
     let cancelled = false

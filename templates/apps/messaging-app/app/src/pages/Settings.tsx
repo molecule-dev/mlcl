@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
@@ -6,6 +7,7 @@ import { error as logError } from '@molecule/app-logger'
 import {
   useAuth,
   useChangePassword,
+  useForm,
   useHttpClient,
   useTheme,
   useTranslation,
@@ -94,7 +96,10 @@ export function Settings() {
   // never a hand-rolled documentElement toggle, which the app CSS ignores.
   const { themeName, setTheme } = useTheme()
   const [section, setSection] = useState<Section>('privacy')
-  const [prefs, setPrefs] = useState<Required<Prefs>>(mergeWithDefaults(null))
+  const [prefs, setPrefs, fillPrefs] = useForm<Required<Prefs>>({
+    defaultValues: mergeWithDefaults(null) as Required<Prefs>,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [plan, setPlan] = useState<Plan | null>(null)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [saving, setSaving] = useState(false)
@@ -111,7 +116,7 @@ export function Settings() {
           ? ((prefsRes as { data?: Prefs }).data ?? prefsRes)
           : null
       const merged = mergeWithDefaults(remote as Prefs)
-      setPrefs(merged)
+      fillPrefs(merged)
       // Apply the server-stored theme preference via the theme provider so
       // the choice follows the account across devices.
       const savedTheme = merged.appearance.theme
@@ -123,7 +128,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, setTheme])
+  }, [http, setTheme, fillPrefs])
 
   const persist = async (next: Required<Prefs>) => {
     setSaving(true)

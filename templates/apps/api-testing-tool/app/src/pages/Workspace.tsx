@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useRef, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
@@ -285,8 +286,14 @@ export function Workspace() {
   const [statusTone, setStatusTone] = useState<'ok' | 'error'>('ok')
 
   // Builder state — hydrated from the first saved request, persisted on save/send.
-  const [paramRows, setParamRows] = useState<KVRow[]>([emptyRow()])
-  const [headerRows, setHeaderRows] = useState<KVRow[]>([emptyRow()])
+  const [paramRows, setParamRows, fillParamRows] = useForm({
+    defaultValues: { paramRows: [emptyRow()] as KVRow[] },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('paramRows')
+  const [headerRows, setHeaderRows, fillHeaderRows] = useForm({
+    defaultValues: { headerRows: [emptyRow()] as KVRow[] },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('headerRows')
   const [bodyType, setBodyType, fillBodyType] = useForm<{ value: BodyType }>({
     defaultValues: { value: 'none' },
   }).asState('value')
@@ -346,8 +353,8 @@ export function Workspace() {
         hydratedRef.current = true
         fillMethod((first.method as HttpMethod) ?? 'GET')
         fillUrl(first.url ?? '')
-        setParamRows(rowsFromSaved(first.query_params))
-        setHeaderRows(rowsFromSaved(first.headers))
+        fillParamRows(rowsFromSaved(first.query_params))
+        fillHeaderRows(rowsFromSaved(first.headers))
         fillBodyType(
           first.body_type === 'json' || first.body_type === 'text' ? first.body_type : 'none',
         )
@@ -377,6 +384,8 @@ export function Workspace() {
     fillMethod,
     fillUrl,
     http,
+    fillParamRows,
+    fillHeaderRows,
   ])
 
   /** The full builder payload the API persists. */

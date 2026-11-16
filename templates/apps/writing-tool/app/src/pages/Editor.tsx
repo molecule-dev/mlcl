@@ -1,9 +1,10 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -33,8 +34,16 @@ export function Editor() {
   const docId = id ?? ''
 
   const [doc, setDoc] = useState<DocumentRow | null>(null)
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { title: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('title')
+  const [body, setBody, fillBody] = useForm({
+    defaultValues: { body: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('body')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [saveState, setSaveState] = useState<SaveState>('idle')
@@ -57,8 +66,8 @@ export function Editor() {
           setError(t('editor.notFound', {}, { defaultValue: 'Document not found.' }))
         } else {
           setDoc(row)
-          setTitle(row.title ?? '')
-          setBody(row.body_md ?? '')
+          fillTitle(row.title ?? '')
+          fillBody(row.body_md ?? '')
           setError(null)
         }
       })
@@ -72,7 +81,7 @@ export function Editor() {
     return () => {
       cancelled = true
     }
-  }, [docId, http, t])
+  }, [docId, http, t, fillTitle, fillBody])
 
   const persist = useCallback(
     async (patch: Partial<Pick<DocumentRow, 'title' | 'body_md' | 'status' | 'pinned'>>) => {
@@ -128,7 +137,7 @@ export function Editor() {
         el.setSelectionRange(pos, pos)
       })
     },
-    [body],
+    [body, setBody],
   )
 
   const handlePin = useCallback(async () => {

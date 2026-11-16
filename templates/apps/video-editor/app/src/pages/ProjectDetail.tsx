@@ -1,9 +1,10 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { unwrapSingle } from '@molecule/app-http'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { RushesLayout } from '../components/RushesLayout.js'
@@ -108,7 +109,11 @@ export function ProjectDetail() {
   const [error, setError] = useState<string | null>(null)
   const [deleting, setDeleting] = useState(false)
   const [editingName, setEditingName] = useState(false)
-  const [name, setName] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('name')
 
   useEffect(() => {
     if (!id) return
@@ -122,7 +127,7 @@ export function ProjectDetail() {
         const proj = unwrapSingle<ProjectRow>(projRes.data)
         if (!proj || !proj.id) throw new Error('Project not found')
         setProject(proj as ProjectRow)
-        setName(proj.name ?? '')
+        fillName(proj.name ?? '')
         const [tRes, cRes, eRes] = await Promise.all([
           http.get(`/api/timeline/tracks?projectId=${id}`).catch(() => null),
           http.get(`/api/clips?projectId=${id}`).catch(() => null),
@@ -142,7 +147,7 @@ export function ProjectDetail() {
     return () => {
       cancelled = true
     }
-  }, [id, http])
+  }, [id, http, fillName])
 
   async function handleSaveName() {
     if (!project || !name.trim()) return

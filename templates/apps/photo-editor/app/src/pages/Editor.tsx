@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AdjustmentSlider } from '../components/AdjustmentSlider.js'
@@ -127,7 +128,11 @@ export function Editor() {
   const [loadError, setLoadError] = useState<string | null>(null)
   const [tool, setTool] = useState<ToolId>('transform')
   const [tab, setTab] = useState<'adjust' | 'presets' | 'info'>('adjust')
-  const [adjustments, setAdjustments] = useState<AdjustmentState>(ZERO_ADJUSTMENTS)
+  const [adjustments, setAdjustments, fillAdjustments] = useForm<AdjustmentState>({
+    defaultValues: ZERO_ADJUSTMENTS as AdjustmentState,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: photoId,
+  }).asState()
   const [activePresetId, setActivePresetId] = useState<string | null>(null)
   const [history, setHistory] = useState<EditHistoryEntry[]>([])
   const [saveStatus, setSaveStatus] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
@@ -148,10 +153,10 @@ export function Editor() {
         const hist = parseHistory(res.data.edit_history)
         setHistory(hist)
         if (hist.length > 0) {
-          setAdjustments(hist[hist.length - 1].adjustments)
+          fillAdjustments(hist[hist.length - 1].adjustments)
           setActivePresetId(hist[hist.length - 1].preset_id)
         } else {
-          setAdjustments(ZERO_ADJUSTMENTS)
+          fillAdjustments(ZERO_ADJUSTMENTS)
           setActivePresetId(null)
         }
         setLoadError(null)
@@ -167,7 +172,7 @@ export function Editor() {
     return () => {
       cancelled = true
     }
-  }, [http, photoId])
+  }, [http, photoId, fillAdjustments])
 
   const persistEdit = useCallback(
     (label: string, nextAdjustments: AdjustmentState, presetId: string | null) => {

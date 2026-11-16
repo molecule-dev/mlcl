@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
 import { useForm, useHttpClient, usePush, useTranslation } from '@molecule/app-react'
@@ -20,7 +21,10 @@ function NotificationsSettingsSection() {
   const [emailNotifications, setEmailNotifications, fillEmailNotifications] = useForm({
     defaultValues: { value: true },
   }).asState('value')
-  const [pushNotifications, setPushNotifications] = useState(false)
+  const [pushNotifications, setPushNotifications, fillPushNotifications] = useForm({
+    defaultValues: { pushNotifications: false },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('pushNotifications')
   const [dailyLogReminders, setDailyLogReminders] = useState(true)
   const [rfiUpdates, setRfiUpdates, fillRfiUpdates] = useForm({
     defaultValues: { value: true },
@@ -42,7 +46,7 @@ function NotificationsSettingsSection() {
         if (cancelled) return
         const p = data.preferences ?? {}
         if (typeof p.emailNotifications === 'boolean') fillEmailNotifications(p.emailNotifications)
-        if (typeof p.pushNotifications === 'boolean') setPushNotifications(p.pushNotifications)
+        if (typeof p.pushNotifications === 'boolean') fillPushNotifications(p.pushNotifications)
         if (typeof p.dailyLogReminders === 'boolean') setDailyLogReminders(p.dailyLogReminders)
         if (typeof p.rfiUpdates === 'boolean') fillRfiUpdates(p.rfiUpdates)
         if (typeof p.punchUpdates === 'boolean') fillPunchUpdates(p.punchUpdates)
@@ -54,7 +58,7 @@ function NotificationsSettingsSection() {
     return () => {
       cancelled = true
     }
-  }, [fillEmailNotifications, fillPunchUpdates, fillRfiUpdates, http])
+  }, [fillEmailNotifications, fillPunchUpdates, fillRfiUpdates, http, fillPushNotifications])
 
   const handlePushToggle = async (next: boolean) => {
     setPushNotifications(next)

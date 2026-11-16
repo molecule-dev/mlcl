@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { DesignCanvasLayout } from '../components/DesignCanvasLayout.js'
@@ -64,14 +65,17 @@ export function Profile() {
   const [projects, setProjects] = useState<ProjectRow[]>([])
   const [loading, setLoading] = useState(true)
   const [editing, setEditing] = useState(false)
-  const [draft, setDraft] = useState<ProfilePrefs & { name: string }>({
-    name: '',
-    displayName: '',
-    bio: '',
-    location: '',
-    pronouns: '',
-    publicUrl: '',
-  })
+  const [draft, setDraft, fillDraft] = useForm<ProfilePrefs & { name: string }>({
+    defaultValues: {
+      name: '',
+      displayName: '',
+      bio: '',
+      location: '',
+      pronouns: '',
+      publicUrl: '',
+    } as ProfilePrefs & { name: string },
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [savingProfile, setSavingProfile] = useState(false)
   const [saveStatus, setSaveStatus] = useState<string | null>(null)
 
@@ -86,7 +90,7 @@ export function Profile() {
         setProfile(prof)
         setProjects(projs)
         if (prof) {
-          setDraft({
+          fillDraft({
             name: prof.name ?? '',
             displayName: prof.prefs?.displayName ?? '',
             bio: prof.prefs?.bio ?? '',
@@ -108,7 +112,7 @@ export function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillDraft])
 
   const stats = profile?.stats ?? {
     projects: 0,

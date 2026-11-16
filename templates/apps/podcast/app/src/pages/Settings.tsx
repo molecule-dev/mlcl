@@ -1,6 +1,7 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useRef, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import {
   AccountSection,
   AuthSection,
@@ -57,7 +58,10 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('playback')
-  const [prefs, setPrefs] = useState<Required<Preferences>>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<Required<Preferences>>({
+    defaultValues: DEFAULT_PREFS as Required<Preferences>,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [saving, setSaving] = useState<string | null>(null)
   const debouncers = useRef<Record<string, ReturnType<typeof setTimeout>>>({})
 
@@ -68,7 +72,7 @@ export function Settings() {
       .then((res) => {
         if (cancelled) return
         const fetched = unwrapSingle<Preferences>(res) ?? {}
-        setPrefs((cur) => ({ ...cur, ...fetched }))
+        fillPrefs((cur) => ({ ...cur, ...fetched }))
       })
       .catch(() => {
         /* keep defaults */
@@ -76,7 +80,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillPrefs])
 
   const persist = (patch: Preferences) => {
     setPrefs((cur) => ({ ...cur, ...patch }))

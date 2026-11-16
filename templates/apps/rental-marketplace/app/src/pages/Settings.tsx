@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
@@ -60,11 +61,15 @@ export function Settings() {
   const [profileSaved, setProfileSaved] = useState(false)
   const [profileError, setProfileError] = useState<string | null>(null)
 
-  const [prefs, setPrefs] = useState<PreferencesForm>({
-    pushEnabled: true,
-    emailEnabled: true,
-    priceDropAlerts: true,
-  })
+  const [prefs, setPrefs, fillPrefs] = useForm<PreferencesForm>({
+    defaultValues: {
+      pushEnabled: true,
+      emailEnabled: true,
+      priceDropAlerts: true,
+    } as PreferencesForm,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
 
   useEffect(() => {
     if (!user) return
@@ -93,7 +98,7 @@ export function Settings() {
         }>(res)
         if (!settings) return
         fillProfile((p) => ({ ...p, phone: settings.phone ?? '' }))
-        setPrefs((p) => ({
+        fillPrefs((p) => ({
           pushEnabled: settings.preferences?.pushEnabled ?? p.pushEnabled,
           emailEnabled: settings.preferences?.emailEnabled ?? p.emailEnabled,
           priceDropAlerts: settings.preferences?.priceDropAlerts ?? p.priceDropAlerts,
@@ -106,7 +111,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [fillProfile, http, user])
+  }, [fillProfile, http, user, fillPrefs])
 
   const verifications = useMemo(() => {
     if (!user) return []

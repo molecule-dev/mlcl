@@ -1,6 +1,7 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -50,8 +51,16 @@ export function Profile() {
   const { user } = useAuth<AuthUserShape>()
   const http = useHttpClient()
 
-  const [householdSize, setHouseholdSize] = useState('3')
-  const [goalKwh, setGoalKwh] = useState('600')
+  const [householdSize, setHouseholdSize, fillHouseholdSize] = useForm({
+    defaultValues: { householdSize: '3' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('householdSize')
+  const [goalKwh, setGoalKwh, fillGoalKwh] = useForm({
+    defaultValues: { goalKwh: '600' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('goalKwh')
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
@@ -66,8 +75,8 @@ export function Profile() {
         if (cancelled) return
         const body = unwrapSingle<MeResponse>(payload)
         if (body) {
-          setHouseholdSize(String(body.householdSize ?? 3))
-          setGoalKwh(String(body.goalKwhPerMonth ?? 600))
+          fillHouseholdSize(String(body.householdSize ?? 3))
+          fillGoalKwh(String(body.goalKwhPerMonth ?? 600))
         }
       })
       .catch(() => {
@@ -82,7 +91,7 @@ export function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, fillHouseholdSize, fillGoalKwh])
 
   async function save(e: React.FormEvent): Promise<void> {
     e.preventDefault()

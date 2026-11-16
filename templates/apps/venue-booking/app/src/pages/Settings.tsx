@@ -1,6 +1,7 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTheme, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTheme, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -76,10 +77,22 @@ export function Settings() {
   const [active, setActive] = useState<SectionId>('notifications')
 
   // Notifications + privacy preferences map onto /api/profile/me
-  const [emailNotifs, setEmailNotifs] = useState(true)
-  const [pushNotifs, setPushNotifs] = useState(true)
-  const [smsNotifs, setSmsNotifs] = useState(false)
-  const [emailMarketing, setEmailMarketing] = useState(true)
+  const [emailNotifs, setEmailNotifs, fillEmailNotifs] = useForm({
+    defaultValues: { emailNotifs: true },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('emailNotifs')
+  const [pushNotifs, setPushNotifs, fillPushNotifs] = useForm({
+    defaultValues: { pushNotifs: true },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('pushNotifs')
+  const [smsNotifs, setSmsNotifs, fillSmsNotifs] = useForm({
+    defaultValues: { smsNotifs: false },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('smsNotifs')
+  const [emailMarketing, setEmailMarketing, fillEmailMarketing] = useForm({
+    defaultValues: { emailMarketing: true },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('emailMarketing')
 
   // Language persists on the profile (and on first load also drives i18n).
   // The picker itself reads from useTranslation().locales/locale so the
@@ -88,11 +101,26 @@ export function Settings() {
   // The remaining toggles persist locally — the API doesn't model them
   // yet, but they survive a reload via localStorage so the page still
   // feels real.
-  const [analytics, setAnalytics] = useState(true)
-  const [shareProfile, setShareProfile] = useState(false)
-  const [reduceMotion, setReduceMotion] = useState(false)
-  const [largeText, setLargeText] = useState(false)
-  const [autoConfirm, setAutoConfirm] = useState(true)
+  const [analytics, setAnalytics, fillAnalytics] = useForm({
+    defaultValues: { analytics: true },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('analytics')
+  const [shareProfile, setShareProfile, fillShareProfile] = useForm({
+    defaultValues: { shareProfile: false },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('shareProfile')
+  const [reduceMotion, setReduceMotion, fillReduceMotion] = useForm({
+    defaultValues: { reduceMotion: false },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('reduceMotion')
+  const [largeText, setLargeText, fillLargeText] = useForm({
+    defaultValues: { largeText: false },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('largeText')
+  const [autoConfirm, setAutoConfirm, fillAutoConfirm] = useForm({
+    defaultValues: { autoConfirm: true },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('autoConfirm')
   const [hydrated, setHydrated] = useState(false)
 
   // Hydrate once from the API + localStorage.
@@ -104,10 +132,10 @@ export function Settings() {
         if (cancelled) return
         const profile = unwrapSingle<ProfilePayload>(res)
         if (profile?.notifications) {
-          setEmailNotifs(profile.notifications.email_booking_updates ?? true)
-          setPushNotifs(profile.notifications.push_messages ?? true)
-          setSmsNotifs(profile.notifications.sms_booking_updates ?? false)
-          setEmailMarketing(profile.notifications.email_marketing ?? true)
+          fillEmailNotifs(profile.notifications.email_booking_updates ?? true)
+          fillPushNotifs(profile.notifications.push_messages ?? true)
+          fillSmsNotifs(profile.notifications.sms_booking_updates ?? false)
+          fillEmailMarketing(profile.notifications.email_marketing ?? true)
         }
         if (profile?.language && profile.language !== locale) {
           void setLocale(profile.language)
@@ -120,13 +148,13 @@ export function Settings() {
         if (cancelled) return
         // Hydrate local toggles from localStorage so they survive reloads.
         try {
-          setAnalytics(JSON.parse(localStorage.getItem('alcove.privacy.analytics') ?? 'true'))
-          setShareProfile(
+          fillAnalytics(JSON.parse(localStorage.getItem('alcove.privacy.analytics') ?? 'true'))
+          fillShareProfile(
             JSON.parse(localStorage.getItem('alcove.privacy.shareProfile') ?? 'false'),
           )
-          setReduceMotion(JSON.parse(localStorage.getItem('alcove.a11y.reduceMotion') ?? 'false'))
-          setLargeText(JSON.parse(localStorage.getItem('alcove.a11y.largeText') ?? 'false'))
-          setAutoConfirm(JSON.parse(localStorage.getItem('alcove.host.autoConfirm') ?? 'true'))
+          fillReduceMotion(JSON.parse(localStorage.getItem('alcove.a11y.reduceMotion') ?? 'false'))
+          fillLargeText(JSON.parse(localStorage.getItem('alcove.a11y.largeText') ?? 'false'))
+          fillAutoConfirm(JSON.parse(localStorage.getItem('alcove.host.autoConfirm') ?? 'true'))
         } catch (_error) {
           // Bad JSON in localStorage — keep defaults.
         }
@@ -136,7 +164,18 @@ export function Settings() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps -- run once on mount; locale/setLocale intentionally omitted to avoid re-hydrating on every locale change
-  }, [http])
+  }, [
+    http,
+    fillEmailNotifs,
+    fillPushNotifs,
+    fillSmsNotifs,
+    fillEmailMarketing,
+    fillAnalytics,
+    fillShareProfile,
+    fillReduceMotion,
+    fillLargeText,
+    fillAutoConfirm,
+  ])
 
   // Persist toggles. Each toggle handler patches its slice — we don't
   // batch because patches are cheap and giving the user instant

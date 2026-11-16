@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { type FormEvent, type ReactElement, useEffect, useMemo, useRef, useState } from 'react'
 
 import { requireProvider } from '@molecule/app-markdown'
-import { useTranslation } from '@molecule/app-react'
+import { useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 const cm = getClassMap()
@@ -52,11 +53,27 @@ function slugify(value: string): string {
 export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): ReactElement {
   const { t } = useTranslation()
   const [postId, setPostId] = useState<string | null>(null)
-  const [title, setTitle] = useState('')
-  const [slug, setSlug] = useState('')
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { title: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: editingSlug ?? null,
+  }).asState('title')
+  const [slug, setSlug, fillSlug] = useForm({
+    defaultValues: { slug: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: editingSlug ?? null,
+  }).asState('slug')
   const [slugEdited, setSlugEdited] = useState(false)
-  const [bodyMarkdown, setBodyMarkdown] = useState('')
-  const [draft, setDraft] = useState(true)
+  const [bodyMarkdown, setBodyMarkdown, fillBodyMarkdown] = useForm({
+    defaultValues: { bodyMarkdown: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: editingSlug ?? null,
+  }).asState('bodyMarkdown')
+  const [draft, setDraft, fillDraft] = useForm({
+    defaultValues: { draft: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: editingSlug ?? null,
+  }).asState('draft')
   const [status, setStatus] = useState<Status>(editingSlug ? 'loading' : 'idle')
   const [error, setError] = useState<string | null>(null)
   // Bumped by the "Try again" control below. The load effect keys on it, which
@@ -142,11 +159,11 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
         loadedSlug.current = null
         createUnconfirmed.current = false
         setPostId(null)
-        setTitle('')
-        setSlug('')
+        fillTitle('')
+        fillSlug('')
         setSlugEdited(false)
-        setBodyMarkdown('')
-        setDraft(true)
+        fillBodyMarkdown('')
+        fillDraft(true)
         setError(null)
         setStatus('idle')
       }
@@ -205,11 +222,11 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
         // form would sit on "Loading…" with nothing left to fill it.
         loadedSlug.current = editingSlug
         setPostId(post.id)
-        setTitle(post.title)
-        setSlug(post.slug)
+        fillTitle(post.title)
+        fillSlug(post.slug)
         setSlugEdited(true)
-        setBodyMarkdown(post.body_markdown)
-        setDraft(Boolean(post.draft))
+        fillBodyMarkdown(post.body_markdown)
+        fillDraft(Boolean(post.draft))
         setStatus('idle')
       })
       .catch(() => {
@@ -222,7 +239,7 @@ export function PostEditorPage({ slug: editingSlug }: { slug?: string } = {}): R
     return () => {
       cancelled = true
     }
-  }, [editingSlug, t, reloadKey])
+  }, [editingSlug, t, reloadKey, fillTitle, fillSlug, fillBodyMarkdown, fillDraft])
 
   // Auto-suggest a slug from the title until the author edits the slug directly.
   function onTitleChange(value: string): void {

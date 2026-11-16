@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 /**
  * Settings — profile load/save against /api/profile/me, preferences
  * persisted via PATCH /api/profile/me preferences key (the molecule
@@ -10,7 +11,7 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton, LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -65,12 +66,21 @@ export function Settings() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
+  const { user } = useAuth<{ id?: string }>()
   const [tab, setTab] = useState<(typeof TABS)[number]['key']>('profile')
   const tz = useMemo(() => Intl.DateTimeFormat().resolvedOptions().timeZone || 'Local', [])
 
   const [profile, setProfile] = useState<ProfileMe | null>(null)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
   const [preferences, setPreferences] = useState<Record<string, boolean>>(() =>
     Object.fromEntries(PREFERENCE_KEYS.map((p) => [p.key, p.initial])),
   )
@@ -100,8 +110,8 @@ export function Settings() {
           return
         }
         setProfile(data)
-        setName(data.user.name ?? '')
-        setEmail(data.user.email ?? '')
+        fillName(data.user.name ?? '')
+        fillEmail(data.user.email ?? '')
         setPreferences((prev) => ({
           ...prev,
           ...Object.fromEntries(
@@ -124,7 +134,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, fillName, fillEmail])
 
   const handleSave = useCallback(async () => {
     if (saving) return
@@ -155,7 +165,7 @@ export function Settings() {
     } finally {
       setSaving(false)
     }
-  }, [http, name, email, preferences, profile, t, saving])
+  }, [http, name, email, preferences, profile, t, saving, setName, setEmail])
 
   const handlePasswordChange = useCallback(
     async (e: React.FormEvent) => {

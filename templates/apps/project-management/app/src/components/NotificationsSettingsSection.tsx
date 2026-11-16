@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
 import { useForm, useHttpClient, usePush, useTranslation } from '@molecule/app-react'
@@ -19,7 +20,10 @@ function NotificationsSettingsSection() {
   const [emailNotifications, setEmailNotifications, fillEmailNotifications] = useForm({
     defaultValues: { value: true },
   }).asState('value')
-  const [pushNotifications, setPushNotifications] = useState(false)
+  const [pushNotifications, setPushNotifications, fillPushNotifications] = useForm({
+    defaultValues: { pushNotifications: false },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('pushNotifications')
   const [taskAssignments, setTaskAssignments, fillTaskAssignments] = useForm({
     defaultValues: { value: true },
   }).asState('value')
@@ -40,7 +44,7 @@ function NotificationsSettingsSection() {
         if (cancelled) return
         const p = data.preferences ?? {}
         if (typeof p.emailNotifications === 'boolean') fillEmailNotifications(p.emailNotifications)
-        if (typeof p.pushNotifications === 'boolean') setPushNotifications(p.pushNotifications)
+        if (typeof p.pushNotifications === 'boolean') fillPushNotifications(p.pushNotifications)
         if (typeof p.taskAssignments === 'boolean') fillTaskAssignments(p.taskAssignments)
         if (typeof p.projectUpdates === 'boolean') fillProjectUpdates(p.projectUpdates)
       } catch (_error) {
@@ -51,7 +55,7 @@ function NotificationsSettingsSection() {
     return () => {
       cancelled = true
     }
-  }, [fillEmailNotifications, fillProjectUpdates, fillTaskAssignments, http])
+  }, [fillEmailNotifications, fillProjectUpdates, fillTaskAssignments, http, fillPushNotifications])
 
   const handlePushToggle = async (next: boolean) => {
     setPushNotifications(next)

@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
@@ -96,7 +97,11 @@ export function Editor() {
   const [doc, setDoc] = useState<DocumentRow | null>(null)
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
-  const [content, setContent] = useState('')
+  const [content, setContent, fillContent] = useForm({
+    defaultValues: { content: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('content')
   const [title, setTitle, fillTitle] = useForm({
     defaultValues: { value: '' },
     resetKey: JSON.stringify([id, searchParams.toString()]),
@@ -188,7 +193,7 @@ export function Editor() {
           setError(t('editor.notFound', {}, { defaultValue: 'This document is unavailable.' }))
         } else {
           setDoc(row)
-          setContent(String(row.content ?? ''))
+          fillContent(String(row.content ?? ''))
           fillTitle(String(row.title ?? ''))
           setError(null)
         }
@@ -204,7 +209,7 @@ export function Editor() {
     return () => {
       cancelled = true
     }
-  }, [fillTitle, http, id, isNew, navigate, t, templateId])
+  }, [fillTitle, http, id, isNew, navigate, t, templateId, fillContent])
 
   const wordCount = content.split(/\s+/).filter(Boolean).length
   const charCount = content.length

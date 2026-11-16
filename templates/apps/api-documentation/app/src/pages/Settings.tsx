@@ -1,9 +1,16 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useChangePassword, useHttpClient, useTranslation } from '@molecule/app-react'
+import {
+  useAuth,
+  useChangePassword,
+  useForm,
+  useHttpClient,
+  useTranslation,
+} from '@molecule/app-react'
 import { NotificationsSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -73,11 +80,15 @@ export function Settings() {
 
   const [account, setAccount] = useState<AccountInfo | null>(null)
   const [accountLoading, setAccountLoading] = useState(true)
-  const [accountForm, setAccountForm] = useState<AccountForm>({
-    display_name: '',
-    handle: '',
-    email: '',
-  })
+  const [accountForm, setAccountForm, fillAccountForm] = useForm<AccountForm>({
+    defaultValues: {
+      display_name: '',
+      handle: '',
+      email: '',
+    } as AccountForm,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [accountSaving, setAccountSaving] = useState(false)
   const [accountSavedAt, setAccountSavedAt] = useState<number | null>(null)
   const [accountError, setAccountError] = useState<string | null>(null)
@@ -132,7 +143,7 @@ export function Settings() {
         if (cancelled) return
         const data = unwrapSingle<AccountInfo>(res)
         setAccount(data)
-        setAccountForm({
+        fillAccountForm({
           display_name: data?.display_name ?? '',
           handle: data?.handle ?? '',
           email: data?.email ?? '',
@@ -147,7 +158,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillAccountForm])
 
   function handleSaveAccount(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault()

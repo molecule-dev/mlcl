@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useRef, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -33,14 +34,18 @@ export function Profile() {
   const initial = ((user?.name || user?.email || '?') as string).slice(0, 1).toUpperCase()
   const userId = (user?.id as string | undefined) ?? ''
 
-  const [form, setForm] = useState<ProfileForm>({
-    name: (user?.name as string) || '',
-    headline: '',
-    location: '',
-    skills: '',
-    bio: '',
-    willing_to_relocate: false,
-  })
+  const [form, setForm, fillForm] = useForm<ProfileForm>({
+    defaultValues: {
+      name: (user?.name as string) || '',
+      headline: '',
+      location: '',
+      skills: '',
+      bio: '',
+      willing_to_relocate: false,
+    } as ProfileForm,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -59,7 +64,7 @@ export function Profile() {
       .then((res) => {
         if (cancelled) return
         const profile = unwrapSingle<UserProfileRow>(res)
-        setForm((f) => ({
+        fillForm((f) => ({
           ...f,
           headline: profile?.headline ?? '',
           location: profile?.location ?? '',
@@ -79,7 +84,7 @@ export function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillForm])
 
   function update<K extends keyof ProfileForm>(key: K, value: ProfileForm[K]) {
     setForm((f) => ({ ...f, [key]: value }))

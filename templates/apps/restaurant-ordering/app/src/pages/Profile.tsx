@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation, useUser } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation, useUser } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface User {
@@ -22,8 +23,16 @@ export function Profile() {
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [phone, setPhone] = useState('')
-  const [emergencyName, setEmergencyName] = useState('')
-  const [emergencyPhone, setEmergencyPhone] = useState('')
+  const [emergencyName, setEmergencyName, fillEmergencyName] = useForm({
+    defaultValues: { emergencyName: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('emergencyName')
+  const [emergencyPhone, setEmergencyPhone, fillEmergencyPhone] = useForm({
+    defaultValues: { emergencyPhone: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('emergencyPhone')
   const [emergencySaving, setEmergencySaving] = useState(false)
   const [emergencyStatus, setEmergencyStatus] = useState<string | null>(null)
   const [emergencyError, setEmergencyError] = useState<string | null>(null)
@@ -49,8 +58,8 @@ export function Profile() {
           '/api/emergency-contact',
         )
         if (cancelled || !res.data?.data) return
-        setEmergencyName(res.data.data.contact_name ?? '')
-        setEmergencyPhone(res.data.data.contact_phone ?? '')
+        fillEmergencyName(res.data.data.contact_name ?? '')
+        fillEmergencyPhone(res.data.data.contact_phone ?? '')
       } catch (loadError) {
         logError('profile.emergencyContactLoad', loadError)
       }
@@ -58,7 +67,7 @@ export function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillEmergencyName, fillEmergencyPhone])
 
   const handleSaveEmergency = useCallback(async () => {
     if (!user?.id) return

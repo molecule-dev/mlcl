@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { formatDate, formatMoney, getCurrency, getDateFormat } from '../lib/format.js'
@@ -47,12 +48,36 @@ export function AccountDetail() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [editing, setEditing] = useState(false)
-  const [editName, setEditName] = useState('')
-  const [editInstitution, setEditInstitution] = useState('')
-  const [editMask, setEditMask] = useState('')
-  const [editBalance, setEditBalance] = useState('')
-  const [editOnBudget, setEditOnBudget] = useState(true)
-  const [editClosed, setEditClosed] = useState(false)
+  const [editName, setEditName, fillEditName] = useForm({
+    defaultValues: { editName: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('editName')
+  const [editInstitution, setEditInstitution, fillEditInstitution] = useForm({
+    defaultValues: { editInstitution: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('editInstitution')
+  const [editMask, setEditMask, fillEditMask] = useForm({
+    defaultValues: { editMask: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('editMask')
+  const [editBalance, setEditBalance, fillEditBalance] = useForm({
+    defaultValues: { editBalance: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('editBalance')
+  const [editOnBudget, setEditOnBudget, fillEditOnBudget] = useForm({
+    defaultValues: { editOnBudget: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('editOnBudget')
+  const [editClosed, setEditClosed, fillEditClosed] = useForm({
+    defaultValues: { editClosed: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('editClosed')
   const [saving, setSaving] = useState(false)
   const [editError, setEditError] = useState<string | null>(null)
   const [reload, setReload] = useState(0)
@@ -71,12 +96,12 @@ export function AccountDetail() {
         const acc = unwrapSingle<Account>(aRes)
         setAccount(acc)
         if (acc) {
-          setEditName(acc.name)
-          setEditInstitution(acc.institution ?? '')
-          setEditMask(acc.mask ?? '')
-          setEditBalance((acc.balance_cents / 100).toFixed(2))
-          setEditOnBudget(acc.on_budget)
-          setEditClosed(!!acc.closed)
+          fillEditName(acc.name)
+          fillEditInstitution(acc.institution ?? '')
+          fillEditMask(acc.mask ?? '')
+          fillEditBalance((acc.balance_cents / 100).toFixed(2))
+          fillEditOnBudget(acc.on_budget)
+          fillEditClosed(!!acc.closed)
         }
         setTxs(unwrapList<Transaction>(tRes))
       })
@@ -90,7 +115,18 @@ export function AccountDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t, reload])
+  }, [
+    http,
+    id,
+    t,
+    reload,
+    fillEditName,
+    fillEditInstitution,
+    fillEditMask,
+    fillEditBalance,
+    fillEditOnBudget,
+    fillEditClosed,
+  ])
 
   async function save(e: React.FormEvent) {
     e.preventDefault()

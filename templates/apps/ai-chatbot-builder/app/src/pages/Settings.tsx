@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { unwrapSingle } from '@molecule/app-http'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import {
   AuthSection,
   DevicesSection,
@@ -41,9 +42,21 @@ function Settings() {
   const navigate = useNavigate()
   const [name, setName] = useState(() => (user as { name?: string } | null)?.name || '')
   const [email, setEmail] = useState(() => (user as { email?: string } | null)?.email || '')
-  const [organization, setOrganization] = useState('')
-  const [timezone, setTimezone] = useState(DEFAULT_TZ)
-  const [language, setLanguage] = useState(DEFAULT_LANG)
+  const [organization, setOrganization, fillOrganization] = useForm({
+    defaultValues: { organization: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('organization')
+  const [timezone, setTimezone, fillTimezone] = useForm({
+    defaultValues: { timezone: DEFAULT_TZ },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('timezone')
+  const [language, setLanguage, fillLanguage] = useForm({
+    defaultValues: { language: DEFAULT_LANG },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('language')
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [saveError, setSaveError] = useState<string | null>(null)
@@ -60,9 +73,9 @@ function Settings() {
         const body = unwrapSingle<ProfileResponse>(res.data) ?? ({} as ProfileResponse)
         if (typeof body.name === 'string') setName(body.name)
         if (typeof body.email === 'string') setEmail(body.email)
-        if (typeof body.organization === 'string') setOrganization(body.organization)
-        if (typeof body.timezone === 'string') setTimezone(body.timezone)
-        if (typeof body.language === 'string') setLanguage(body.language)
+        if (typeof body.organization === 'string') fillOrganization(body.organization)
+        if (typeof body.timezone === 'string') fillTimezone(body.timezone)
+        if (typeof body.language === 'string') fillLanguage(body.language)
       })
       .catch(() => {})
       .finally(() => {
@@ -72,7 +85,7 @@ function Settings() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [])
+  }, [fillOrganization, fillTimezone, fillLanguage])
 
   useEffect(() => {
     if (savedAt === null) return

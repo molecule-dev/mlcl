@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { type TransactionRecord, TransactionRow } from '../components/TransactionRow.js'
@@ -51,12 +52,36 @@ export function TransactionDetail() {
 
   // Editing state
   const [editing, setEditing] = useState(false)
-  const [draftPayee, setDraftPayee] = useState('')
-  const [draftAmount, setDraftAmount] = useState('')
-  const [draftDate, setDraftDate] = useState('')
-  const [draftMemo, setDraftMemo] = useState('')
-  const [draftCategory, setDraftCategory] = useState<string>('')
-  const [draftCleared, setDraftCleared] = useState(false)
+  const [draftPayee, setDraftPayee, fillDraftPayee] = useForm({
+    defaultValues: { draftPayee: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('draftPayee')
+  const [draftAmount, setDraftAmount, fillDraftAmount] = useForm({
+    defaultValues: { draftAmount: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('draftAmount')
+  const [draftDate, setDraftDate, fillDraftDate] = useForm({
+    defaultValues: { draftDate: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('draftDate')
+  const [draftMemo, setDraftMemo, fillDraftMemo] = useForm({
+    defaultValues: { draftMemo: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('draftMemo')
+  const [draftCategory, setDraftCategory, fillDraftCategory] = useForm({
+    defaultValues: { draftCategory: '' as string },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('draftCategory')
+  const [draftCleared, setDraftCleared, fillDraftCleared] = useForm({
+    defaultValues: { draftCleared: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('draftCleared')
   const [saving, setSaving] = useState(false)
   const [editError, setEditError] = useState<string | null>(null)
 
@@ -79,12 +104,12 @@ export function TransactionDetail() {
         setCategories(unwrapList<Category>(catRes))
         setAccounts(unwrapList<Account>(accRes))
         if (found) {
-          setDraftPayee(found.payee ?? '')
-          setDraftAmount(((found.amount_cents ?? 0) / 100).toFixed(2))
-          setDraftDate(isoForInput(found.posted_at))
-          setDraftMemo(found.memo ?? '')
-          setDraftCategory((found as { category_id?: string }).category_id ?? '')
-          setDraftCleared(!!found.cleared)
+          fillDraftPayee(found.payee ?? '')
+          fillDraftAmount(((found.amount_cents ?? 0) / 100).toFixed(2))
+          fillDraftDate(isoForInput(found.posted_at))
+          fillDraftMemo(found.memo ?? '')
+          fillDraftCategory((found as { category_id?: string }).category_id ?? '')
+          fillDraftCleared(!!found.cleared)
           // Recent at this payee — we still need a list call for related
           const listRes = await http.get(`/api/transactions?limit=200`).catch(() => null)
           if (cancelled) return
@@ -106,7 +131,18 @@ export function TransactionDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t, reload])
+  }, [
+    http,
+    id,
+    t,
+    reload,
+    fillDraftPayee,
+    fillDraftAmount,
+    fillDraftDate,
+    fillDraftMemo,
+    fillDraftCategory,
+    fillDraftCleared,
+  ])
 
   const accountName = useMemo(() => {
     if (!tx) return ''

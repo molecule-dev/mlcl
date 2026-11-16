@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useTranslation } from '@molecule/app-react'
+import { useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import {
@@ -48,7 +49,10 @@ export function Upload() {
   const [tagsInput, setTagsInput] = useState('')
   const [globalError, setGlobalError] = useState<string | null>(null)
   const [albums, setAlbums] = useState<Album[]>([])
-  const [albumId, setAlbumId] = useState<string>(initialAlbumId)
+  const [albumId, setAlbumId, fillAlbumId] = useForm({
+    defaultValues: { albumId: initialAlbumId as string },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('albumId')
   const [albumsLoading, setAlbumsLoading] = useState(true)
 
   useEffect(() => {
@@ -61,7 +65,7 @@ export function Upload() {
         setAlbumsLoading(false)
         // If the URL pre-selected an album, keep it only if it belongs to the user.
         if (initialAlbumId && !data.some((a) => a.id === initialAlbumId)) {
-          setAlbumId('')
+          fillAlbumId('')
         }
       })
       .catch(() => {
@@ -71,7 +75,7 @@ export function Upload() {
     return () => {
       cancelled = true
     }
-  }, [initialAlbumId])
+  }, [initialAlbumId, fillAlbumId])
 
   const updateQueueItem = useCallback((id: string, patch: Partial<QueuedFile>) => {
     setQueue((q) => q.map((f) => (f.id === id ? { ...f, ...patch } : f)))

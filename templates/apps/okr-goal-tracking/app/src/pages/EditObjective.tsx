@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -37,8 +38,16 @@ export function EditObjective() {
   const http = useHttpClient()
 
   const [objective, setObjective] = useState<ObjectiveWithKrs | null>(null)
-  const [title, setTitle] = useState('')
-  const [description, setDescription] = useState('')
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { title: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('title')
+  const [description, setDescription, fillDescription] = useForm({
+    defaultValues: { description: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('description')
   const [krs, setKrs] = useState<DraftKr[]>([])
   const [audit, setAudit] = useState<AuditEntry[]>([])
   const [loading, setLoading] = useState(true)
@@ -61,8 +70,8 @@ export function EditObjective() {
         if (aborted) return
         const obj = objRes.data
         setObjective(obj)
-        setTitle(obj.title)
-        setDescription(obj.description ?? '')
+        fillTitle(obj.title)
+        fillDescription(obj.description ?? '')
         setKrs(
           (obj.key_results ?? []).map((kr) => ({
             id: kr.id,
@@ -84,7 +93,7 @@ export function EditObjective() {
     return () => {
       aborted = true
     }
-  }, [http, id])
+  }, [http, id, fillTitle, fillDescription])
 
   const updateKr = (krId: string, patch: Partial<DraftKr>) =>
     setKrs((prev) => prev.map((k) => (k.id === krId ? { ...k, ...patch } : k)))

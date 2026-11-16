@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
 import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
@@ -88,7 +89,11 @@ export function Settings() {
     state: '',
     postal: '',
   })
-  const [prefs, setPrefs] = useState<Record<string, boolean>>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<Record<string, boolean>>({
+    defaultValues: DEFAULT_PREFS as Record<string, boolean>,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [payoutAccount, setPayoutAccount, fillPayoutAccount] = useForm<{ value: string }>({
     defaultValues: { value: '' },
   }).asState('value')
@@ -124,14 +129,14 @@ export function Settings() {
         if (body.username) fillUsername(body.username)
         const p = body.prefs ?? {}
         if (Array.isArray(p.addresses)) setAddresses(p.addresses)
-        if (p.notificationPrefs) setPrefs({ ...DEFAULT_PREFS, ...p.notificationPrefs })
+        if (p.notificationPrefs) fillPrefs({ ...DEFAULT_PREFS, ...p.notificationPrefs })
         if (p.payoutAccount?.account) fillPayoutAccount(p.payoutAccount.account)
       })
       .catch(() => {})
     return () => {
       cancelled = true
     }
-  }, [user, http, fillName, fillUsername, fillPayoutAccount])
+  }, [user, http, fillName, fillUsername, fillPayoutAccount, fillPrefs])
 
   useEffect(() => {
     if (savedAt === null) return

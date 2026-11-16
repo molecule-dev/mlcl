@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
@@ -49,9 +50,21 @@ export function Settings() {
   const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [settleMethod, setSettleMethod] = useState<'cash' | 'transfer' | 'app'>('cash')
-  const [notify, setNotify] = useState({ ...DEFAULT_NOTIFY })
-  const [minimizer, setMinimizer] = useState({ ...DEFAULT_MINIMIZER })
-  const [nudgeFrequency, setNudgeFrequency] = useState<'off' | 'weekly' | 'daily'>('weekly')
+  const [notify, setNotify, fillNotify] = useForm({
+    defaultValues: { ...DEFAULT_NOTIFY },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
+  const [minimizer, setMinimizer, fillMinimizer] = useForm({
+    defaultValues: { ...DEFAULT_MINIMIZER },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
+  const [nudgeFrequency, setNudgeFrequency, fillNudgeFrequency] = useForm({
+    defaultValues: { nudgeFrequency: 'weekly' as 'off' | 'weekly' | 'daily' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('nudgeFrequency')
   const [savingProfile, setSavingProfile] = useState(false)
   const [savingPrefs, setSavingPrefs] = useState(false)
   const [profileSaved, setProfileSaved] = useState(false)
@@ -74,12 +87,12 @@ export function Settings() {
     ) {
       setSettleMethod(initialPrefs.method)
     }
-    setNotify({
+    fillNotify({
       expenses: initialPrefs.notify?.expenses ?? DEFAULT_NOTIFY.expenses,
       settlements: initialPrefs.notify?.settlements ?? DEFAULT_NOTIFY.settlements,
       members: initialPrefs.notify?.members ?? DEFAULT_NOTIFY.members,
     })
-    setMinimizer({
+    fillMinimizer({
       simplifyTransfers:
         initialPrefs.minimizer?.simplifyTransfers ?? DEFAULT_MINIMIZER.simplifyTransfers,
       politeNudges: initialPrefs.minimizer?.politeNudges ?? DEFAULT_MINIMIZER.politeNudges,
@@ -89,7 +102,7 @@ export function Settings() {
       initialPrefs.nudgeFrequency === 'weekly' ||
       initialPrefs.nudgeFrequency === 'daily'
     ) {
-      setNudgeFrequency(initialPrefs.nudgeFrequency)
+      fillNudgeFrequency(initialPrefs.nudgeFrequency)
     }
 
     void (async () => {
@@ -109,12 +122,12 @@ export function Settings() {
         ) {
           setSettleMethod(remotePrefs.method)
         }
-        setNotify({
+        fillNotify({
           expenses: remotePrefs.notify?.expenses ?? DEFAULT_NOTIFY.expenses,
           settlements: remotePrefs.notify?.settlements ?? DEFAULT_NOTIFY.settlements,
           members: remotePrefs.notify?.members ?? DEFAULT_NOTIFY.members,
         })
-        setMinimizer({
+        fillMinimizer({
           simplifyTransfers:
             remotePrefs.minimizer?.simplifyTransfers ?? DEFAULT_MINIMIZER.simplifyTransfers,
           politeNudges: remotePrefs.minimizer?.politeNudges ?? DEFAULT_MINIMIZER.politeNudges,
@@ -124,7 +137,7 @@ export function Settings() {
           remotePrefs.nudgeFrequency === 'weekly' ||
           remotePrefs.nudgeFrequency === 'daily'
         ) {
-          setNudgeFrequency(remotePrefs.nudgeFrequency)
+          fillNudgeFrequency(remotePrefs.nudgeFrequency)
         }
       } catch (_error) {
         // network error — keep the snapshot we hydrated from useAuth().user; ignoring is correct
@@ -134,7 +147,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [fillEmail, fillName, http, user])
+  }, [fillEmail, fillName, http, user, fillNotify, fillMinimizer, fillNudgeFrequency])
 
   async function saveProfile(): Promise<void> {
     if (!user?.id) return

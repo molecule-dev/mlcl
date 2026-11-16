@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 // Phase 1 baseline — verbatim JSX of design-lms-settings.html
 // Phase 4 wires every form to its real backend endpoint and persists
 // theme/notification preferences across page reloads via
@@ -5,7 +6,7 @@
 import React, { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useAuth, useHttpClient, useTheme, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTheme, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import AppearanceSettingsCard from '../components/AppearanceSettingsCard.js'
@@ -37,8 +38,16 @@ function Settings() {
   const userId: string | undefined = user?.id
   const http = useHttpClient()
   const { setTheme: applyTheme } = useTheme()
-  const [name, setName] = useState(user?.name || '')
-  const [email, setEmail] = useState(user?.email || '')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: user?.name || '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: user?.email || '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
   const [bio, setBio] = useState('')
   const [profileLoading, setProfileLoading] = useState(false)
   const [profileSuccess, setProfileSuccess] = useState(false)
@@ -56,20 +65,44 @@ function Settings() {
   const originalEmail = user?.email || ''
   const emailChanged = email !== originalEmail && email.trim() !== ''
   const [emailPassword, setEmailPassword] = useState('')
-  const [notifyEmail, setNotifyEmailState] = useState(true)
-  const [notifyCourseUpdates, setNotifyCourseUpdatesState] = useState(true)
-  const [notifyAssignments, setNotifyAssignmentsState] = useState(true)
-  const [notifyDiscussions, setNotifyDiscussionsState] = useState(false)
-  const [theme, setThemeState] = useState<ThemeChoice>('light')
-  const [language, setLanguageState] = useState('en-US')
+  const [notifyEmail, setNotifyEmailState, fillNotifyEmailState] = useForm({
+    defaultValues: { notifyEmail: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('notifyEmail')
+  const [notifyCourseUpdates, setNotifyCourseUpdatesState, fillNotifyCourseUpdatesState] = useForm({
+    defaultValues: { notifyCourseUpdates: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('notifyCourseUpdates')
+  const [notifyAssignments, setNotifyAssignmentsState, fillNotifyAssignmentsState] = useForm({
+    defaultValues: { notifyAssignments: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('notifyAssignments')
+  const [notifyDiscussions, setNotifyDiscussionsState, fillNotifyDiscussionsState] = useForm({
+    defaultValues: { notifyDiscussions: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('notifyDiscussions')
+  const [theme, setThemeState, fillThemeState] = useForm({
+    defaultValues: { theme: 'light' as ThemeChoice },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('theme')
+  const [language, setLanguageState, fillLanguageState] = useForm({
+    defaultValues: { language: 'en-US' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('language')
   const [savedAt, setSavedAt] = useState<number | null>(null)
 
   useEffect(() => {
     if (user) {
-      setName(user.name || '')
-      setEmail(user.email || '')
+      fillName(user.name || '')
+      fillEmail(user.email || '')
     }
-  }, [user])
+  }, [user, fillName, fillEmail])
 
   // Hydrate preferences from the backend so theme + notification toggles
   // round-trip through reload. The page already renders before this fires;
@@ -84,17 +117,17 @@ function Settings() {
         const prefs = body?.preferences ?? body?.data?.preferences
         if (!prefs) return
         if (prefs.theme) {
-          setThemeState(prefs.theme)
+          fillThemeState(prefs.theme)
           if (prefs.theme !== 'system') applyTheme(prefs.theme)
         }
-        if (prefs.language) setLanguageState(prefs.language)
-        if (typeof prefs.notifyEmail === 'boolean') setNotifyEmailState(prefs.notifyEmail)
+        if (prefs.language) fillLanguageState(prefs.language)
+        if (typeof prefs.notifyEmail === 'boolean') fillNotifyEmailState(prefs.notifyEmail)
         if (typeof prefs.notifyCourseUpdates === 'boolean')
-          setNotifyCourseUpdatesState(prefs.notifyCourseUpdates)
+          fillNotifyCourseUpdatesState(prefs.notifyCourseUpdates)
         if (typeof prefs.notifyAssignments === 'boolean')
-          setNotifyAssignmentsState(prefs.notifyAssignments)
+          fillNotifyAssignmentsState(prefs.notifyAssignments)
         if (typeof prefs.notifyDiscussions === 'boolean')
-          setNotifyDiscussionsState(prefs.notifyDiscussions)
+          fillNotifyDiscussionsState(prefs.notifyDiscussions)
       })
       .catch(() => {
         /* not signed in / preferences not yet saved — fall through with defaults */
@@ -102,7 +135,16 @@ function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, applyTheme])
+  }, [
+    http,
+    applyTheme,
+    fillThemeState,
+    fillLanguageState,
+    fillNotifyEmailState,
+    fillNotifyCourseUpdatesState,
+    fillNotifyAssignmentsState,
+    fillNotifyDiscussionsState,
+  ])
 
   useEffect(() => {
     if (savedAt === null) return

@@ -1,6 +1,7 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -53,16 +54,56 @@ function Settings() {
   const http = useHttpClient()
   const userData = user as Record<string, unknown> | null
 
-  const [name, setName] = useState((userData?.name as string) || '')
-  const [email, setEmail] = useState((userData?.email as string) || '')
-  const [bio, setBio] = useState('')
-  const [profileVisible, setProfileVisible] = useState(true)
-  const [showEmail, setShowEmail] = useState(false)
-  const [newFollowers, setNewFollowers] = useState(true)
-  const [commentsNotif, setCommentsNotif] = useState(true)
-  const [mentionsNotif, setMentionsNotif] = useState(false)
-  const [theme, setTheme] = useState<'light' | 'dark' | 'system'>('system')
-  const [fontSize, setFontSize] = useState<'small' | 'medium' | 'large'>('medium')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: (userData?.name as string) || '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: (userData?.email as string) || '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
+  const [bio, setBio, fillBio] = useForm({
+    defaultValues: { bio: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('bio')
+  const [profileVisible, setProfileVisible, fillProfileVisible] = useForm({
+    defaultValues: { profileVisible: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('profileVisible')
+  const [showEmail, setShowEmail, fillShowEmail] = useForm({
+    defaultValues: { showEmail: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('showEmail')
+  const [newFollowers, setNewFollowers, fillNewFollowers] = useForm({
+    defaultValues: { newFollowers: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('newFollowers')
+  const [commentsNotif, setCommentsNotif, fillCommentsNotif] = useForm({
+    defaultValues: { commentsNotif: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('commentsNotif')
+  const [mentionsNotif, setMentionsNotif, fillMentionsNotif] = useForm({
+    defaultValues: { mentionsNotif: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('mentionsNotif')
+  const [theme, setTheme, fillTheme] = useForm({
+    defaultValues: { theme: 'system' as 'light' | 'dark' | 'system' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('theme')
+  const [fontSize, setFontSize, fillFontSize] = useForm({
+    defaultValues: { fontSize: 'medium' as 'small' | 'medium' | 'large' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('fontSize')
   const [loading, setLoading] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
 
@@ -74,18 +115,18 @@ function Settings() {
         if (cancelled) return
         const payload = res.data
         if (!payload || !payload.id) return
-        setName(payload.name ?? '')
-        if (payload.email) setEmail(payload.email)
+        fillName(payload.name ?? '')
+        if (payload.email) fillEmail(payload.email)
         const p = payload.preferences ?? null
         if (p) {
-          setBio(p.bio ?? '')
-          setProfileVisible(p.profileVisible)
-          setShowEmail(p.showEmail)
-          setNewFollowers(p.newFollowers)
-          setCommentsNotif(p.commentsNotif)
-          setMentionsNotif(p.mentionsNotif)
-          setTheme(p.theme)
-          setFontSize(p.fontSize)
+          fillBio(p.bio ?? '')
+          fillProfileVisible(p.profileVisible)
+          fillShowEmail(p.showEmail)
+          fillNewFollowers(p.newFollowers)
+          fillCommentsNotif(p.commentsNotif)
+          fillMentionsNotif(p.mentionsNotif)
+          fillTheme(p.theme)
+          fillFontSize(p.fontSize)
           applyThemeAndFontSize(p.theme, p.fontSize)
         }
       })
@@ -93,7 +134,19 @@ function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [
+    http,
+    fillName,
+    fillEmail,
+    fillBio,
+    fillProfileVisible,
+    fillShowEmail,
+    fillNewFollowers,
+    fillCommentsNotif,
+    fillMentionsNotif,
+    fillTheme,
+    fillFontSize,
+  ])
 
   function handleThemeChange(next: 'light' | 'dark' | 'system') {
     setTheme(next)

@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AppShell } from '../components/AppShell.js'
@@ -96,7 +97,11 @@ function CourseDetail() {
   const [modules, setModules] = useState<UiModule[]>([])
   const [progress, setProgress] = useState<CourseProgress | null>(null)
   const [loading, setLoading] = useState(true)
-  const [activeModuleIdx, setActiveModuleIdx] = useState(0)
+  const [activeModuleIdx, setActiveModuleIdx, fillActiveModuleIdx] = useForm({
+    defaultValues: { activeModuleIdx: 0 },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([courseId]),
+  }).asState('activeModuleIdx')
   const [expandedConcepts, setExpandedConcepts] = useState<Set<number>>(new Set([0]))
   const [selectedLessonId, setSelectedLessonId] = useState<string | null>(null)
 
@@ -148,7 +153,7 @@ function CourseDetail() {
         setCourse(courseRow)
         setModules(moduleResults)
         setProgress(prog)
-        setActiveModuleIdx(0)
+        fillActiveModuleIdx(0)
       } finally {
         if (active) setLoading(false)
       }
@@ -156,7 +161,7 @@ function CourseDetail() {
     return () => {
       active = false
     }
-  }, [courseId, http])
+  }, [courseId, http, fillActiveModuleIdx])
 
   const totalLessons = useMemo(
     () => progress?.totalLessons ?? modules.reduce((sum, m) => sum + m.lessons.length, 0),

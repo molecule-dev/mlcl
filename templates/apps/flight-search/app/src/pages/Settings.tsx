@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -57,8 +58,14 @@ export function Settings() {
   const [activeTab, setActiveTab] = useState<(typeof TABS)[number]['id']>('profile')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
-  const [home, setHome] = useState('')
-  const [currency, setCurrency] = useState('USD')
+  const [home, setHome, fillHome] = useForm({
+    defaultValues: { home: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('home')
+  const [currency, setCurrency, fillCurrency] = useForm({
+    defaultValues: { currency: 'USD' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('currency')
   const [prefs, setPrefs] = useState<Record<string, boolean>>({
     price_drops: true,
     fare_alerts: true,
@@ -89,8 +96,8 @@ export function Settings() {
         if (cancelled) return
         const p = res.data
         if (!p || typeof p !== 'object') return
-        if (typeof p.home_airport === 'string') setHome(p.home_airport)
-        if (typeof p.currency === 'string') setCurrency(p.currency)
+        if (typeof p.home_airport === 'string') fillHome(p.home_airport)
+        if (typeof p.currency === 'string') fillCurrency(p.currency)
         if (p.notifications && typeof p.notifications === 'object') {
           setPrefs((prev) => ({ ...prev, ...p.notifications }))
         }
@@ -101,7 +108,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillHome, fillCurrency])
 
   function togglePref(id: string) {
     setPrefs((prev) => ({ ...prev, [id]: !prev[id] }))

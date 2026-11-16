@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -41,8 +42,14 @@ export function Checkout() {
 
   const [addresses, setAddresses] = useState<Address[]>([])
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethodRow[]>([])
-  const [selectedAddressId, setSelectedAddressId] = useState<string | null>(null)
-  const [selectedPmId, setSelectedPmId] = useState<string | 'card_at_checkout'>('card_at_checkout')
+  const [selectedAddressId, setSelectedAddressId, fillSelectedAddressId] = useForm({
+    defaultValues: { selectedAddressId: null as string | null },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('selectedAddressId')
+  const [selectedPmId, setSelectedPmId, fillSelectedPmId] = useForm({
+    defaultValues: { selectedPmId: 'card_at_checkout' as string | 'card_at_checkout' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('selectedPmId')
   const [submitting, setSubmitting] = useState(false)
   const [error, setError] = useState<string | null>(null)
   const [deliveryFeeCents, setDeliveryFeeCents] = useState<number>(299)
@@ -72,11 +79,11 @@ export function Checkout() {
         const addrList = unwrapList<Address>(addrRes)
         setAddresses(addrList)
         const def = addrList.find((a) => a.is_default) ?? addrList[0] ?? null
-        if (def) setSelectedAddressId(def.id)
+        if (def) fillSelectedAddressId(def.id)
         const pmList = unwrapList<PaymentMethodRow>(pmRes)
         setPaymentMethods(pmList)
         const defPm = pmList.find((p) => p.is_default) ?? pmList[0] ?? null
-        if (defPm) setSelectedPmId(defPm.id)
+        if (defPm) fillSelectedPmId(defPm.id)
         const rest = unwrapSingle<{
           delivery_fee_cents?: number
           latitude?: number | string | null
@@ -93,7 +100,7 @@ export function Checkout() {
     return () => {
       cancelled = true
     }
-  }, [http, cart.restaurantId])
+  }, [http, cart.restaurantId, fillSelectedAddressId, fillSelectedPmId])
 
   const subtotal = cart.subtotalCents
   const tax = Math.round(subtotal * TAX_RATE)

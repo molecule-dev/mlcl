@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BookCover } from '../components/BookCover.js'
@@ -77,12 +78,20 @@ export function BookDetail() {
   const [busy, setBusy] = useState(false)
 
   // Progress form
-  const [page, setPage] = useState('')
+  const [page, setPage, fillPage] = useForm({
+    defaultValues: { page: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('page')
   const [minutes, setMinutes] = useState('')
 
   // Review form
   const [rating, setRating] = useState<number | null>(null)
-  const [review, setReview] = useState('')
+  const [review, setReview, fillReview] = useForm({
+    defaultValues: { review: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('review')
   const [reviewSaved, setReviewSaved] = useState(false)
 
   // Edit form
@@ -123,8 +132,8 @@ export function BookDetail() {
         if (!data) return
         setBook(data)
         setRating(data.my?.rating ?? null)
-        setReview(data.my?.review ?? '')
-        setPage(data.my && data.my.shelf === 'reading' ? String(data.my.current_page) : '')
+        fillReview(data.my?.review ?? '')
+        fillPage(data.my && data.my.shelf === 'reading' ? String(data.my.current_page) : '')
         if (data.my) {
           const sessRes = await http.get(`/sessions?user_book_id=${data.my.id}`).catch(() => null)
           if (sessRes && !cancelled) setSessions(unwrapList<Session>(sessRes))
@@ -140,7 +149,7 @@ export function BookDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t])
+  }, [http, id, t, fillReview, fillPage])
 
   const startEdit = () => {
     if (!book) return

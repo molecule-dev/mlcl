@@ -1,9 +1,10 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 // Phase 1 baseline — verbatim JSX of design-3d-model-viewer-settings.html
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useEffect, useState } from 'react'
 
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -26,11 +27,31 @@ function Settings() {
   const { t } = useTranslation()
   const { user } = useAuth<SettingsUser>()
   const http = useHttpClient()
-  const [firstName, setFirstName] = useState('')
-  const [lastName, setLastName] = useState('')
-  const [username, setUsername] = useState('')
-  const [bio, setBio] = useState('')
-  const [email, setEmail] = useState('')
+  const [firstName, setFirstName, fillFirstName] = useForm({
+    defaultValues: { firstName: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('firstName')
+  const [lastName, setLastName, fillLastName] = useForm({
+    defaultValues: { lastName: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('lastName')
+  const [username, setUsername, fillUsername] = useForm({
+    defaultValues: { username: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('username')
+  const [bio, setBio, fillBio] = useForm({
+    defaultValues: { bio: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('bio')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
 
@@ -43,11 +64,11 @@ function Settings() {
     const apply = (props: SettingsUser | undefined) => {
       if (cancelled || !props) return
       const parts = (props.name || '').split(' ')
-      setFirstName(parts[0] || '')
-      setLastName(parts.slice(1).join(' ') || '')
-      setUsername(props.username || '')
-      setBio(props.bio || '')
-      setEmail(props.email || '')
+      fillFirstName(parts[0] || '')
+      fillLastName(parts.slice(1).join(' ') || '')
+      fillUsername(props.username || '')
+      fillBio(props.bio || '')
+      fillEmail(props.email || '')
     }
     // Seed from the cached user immediately so the form has values.
     apply(user)
@@ -72,7 +93,7 @@ function Settings() {
     return () => {
       cancelled = true
     }
-  }, [user, http])
+  }, [user, http, fillFirstName, fillLastName, fillUsername, fillBio, fillEmail])
 
   useEffect(() => {
     if (savedAt === null) return

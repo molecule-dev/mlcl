@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -120,10 +121,14 @@ export function Settings() {
   const [savedAt, setSavedAt] = useState<number | null>(null)
 
   const [email, setEmail] = useState<string>('')
-  const [notifications, setNotifications] = useState<Record<string, boolean>>(
-    defaultsFor(NOTIFICATIONS),
-  )
-  const [editor, setEditor] = useState<Record<string, boolean>>(defaultsFor(EDITOR))
+  const [notifications, setNotifications, fillNotifications] = useForm<Record<string, boolean>>({
+    defaultValues: defaultsFor(NOTIFICATIONS) as Record<string, boolean>,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
+  const [editor, setEditor, fillEditor] = useForm<Record<string, boolean>>({
+    defaultValues: defaultsFor(EDITOR) as Record<string, boolean>,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
 
   const [tiers, setTiers] = useState<BillingTier[]>([])
   const [status, setStatus] = useState<BillingStatus | null>(null)
@@ -142,8 +147,8 @@ export function Settings() {
       const profile = unwrapSingle<ProfileResponse>(profileRes)
       if (profile) {
         setEmail(profile.email ?? '')
-        setNotifications({ ...defaultsFor(NOTIFICATIONS), ...(profile.notification_prefs ?? {}) })
-        setEditor({ ...defaultsFor(EDITOR), ...(profile.editor_prefs ?? {}) })
+        fillNotifications({ ...defaultsFor(NOTIFICATIONS), ...(profile.notification_prefs ?? {}) })
+        fillEditor({ ...defaultsFor(EDITOR), ...(profile.editor_prefs ?? {}) })
       }
       const tierList = unwrapList<BillingTier>(tiersRes)
       setTiers(tierList)
@@ -154,7 +159,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillNotifications, fillEditor])
 
   const persistNotifications = async (next: Record<string, boolean>): Promise<void> => {
     setSaving('notifications')

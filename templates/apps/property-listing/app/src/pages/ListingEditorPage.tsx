@@ -1,10 +1,11 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import type { HttpResponse } from '@molecule/app-http'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import AdminShell from '../components/AdminShell.js'
@@ -83,7 +84,11 @@ function ListingEditorPage() {
   const navigate = useNavigate()
   const http = useHttpClient()
   const isEditing = Boolean(id)
-  const [form, setForm] = useState<ListingForm>(EMPTY_FORM)
+  const [form, setForm, fillForm] = useForm<ListingForm>({
+    defaultValues: EMPTY_FORM as ListingForm,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState()
   const [loading, setLoading] = useState(false)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -122,7 +127,7 @@ function ListingEditorPage() {
               // JSON.parse failed — features value is not valid JSON, keep empty array
             }
           }
-          setForm({
+          fillForm({
             title: d.title || '',
             address: d.address || '',
             city: d.city || '',
@@ -149,7 +154,7 @@ function ListingEditorPage() {
       )
       .finally(() => setLoading(false))
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id]) // http and t are stable refs; only re-fetch when the listing id changes
+  }, [id, fillForm]) // http and t are stable refs; only re-fetch when the listing id changes
 
   function updateField(key: keyof ListingForm, value: string) {
     setForm((prev) => ({ ...prev, [key]: value }))

@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { EMPTY_PERSON_FORM, PersonForm, type PersonFormValue } from '../components/PersonForm.js'
@@ -15,7 +16,11 @@ export function EditPerson() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
-  const [form, setForm] = useState<PersonFormValue>(EMPTY_PERSON_FORM)
+  const [form, setForm, fillForm] = useForm<PersonFormValue>({
+    defaultValues: EMPTY_PERSON_FORM as PersonFormValue,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -32,7 +37,7 @@ export function EditPerson() {
         if (!payload) {
           setError(t('personDetail.notFound', {}, { defaultValue: 'Person not found.' }))
         } else {
-          setForm({
+          fillForm({
             first_name: payload.first_name ?? '',
             last_name: payload.last_name ?? '',
             maiden_name: payload.maiden_name ?? '',
@@ -55,7 +60,7 @@ export function EditPerson() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id])
+  }, [id, fillForm])
 
   const onChange = (patch: Partial<PersonFormValue>) => setForm((f) => ({ ...f, ...patch }))
 

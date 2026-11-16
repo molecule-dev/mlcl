@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -88,10 +89,26 @@ export function Settings() {
   const setAuthUser = (auth as { setUser?: (u: UserProfile | null) => void } | undefined)?.setUser
 
   const [activeTab, setActiveTab] = useState<(typeof TABS)[number]['id']>('profile')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [home, setHome] = useState('')
-  const [currency, setCurrency] = useState('USD')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: sessionUser?.id,
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: sessionUser?.id,
+  }).asState('email')
+  const [home, setHome, fillHome] = useForm({
+    defaultValues: { home: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: sessionUser?.id,
+  }).asState('home')
+  const [currency, setCurrency, fillCurrency] = useForm({
+    defaultValues: { currency: 'USD' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: sessionUser?.id,
+  }).asState('currency')
   const [prefs, setPrefs] = useState<Record<string, boolean>>({
     disruption_alerts: true,
     departure_alerts: true,
@@ -103,17 +120,17 @@ export function Settings() {
 
   useEffect(() => {
     if (sessionUser) {
-      setName(sessionUser.name ?? '')
-      setEmail(sessionUser.email ?? '')
+      fillName(sessionUser.name ?? '')
+      fillEmail(sessionUser.email ?? '')
       const userPrefs = sessionUser.oauthData?.preferences
-      setHome(userPrefs?.home_stop ?? '')
-      setCurrency(userPrefs?.currency ?? 'USD')
+      fillHome(userPrefs?.home_stop ?? '')
+      fillCurrency(userPrefs?.currency ?? 'USD')
       const notif = userPrefs?.notifications
       if (notif && typeof notif === 'object') {
         setPrefs((prev) => ({ ...prev, ...notif }))
       }
     }
-  }, [sessionUser])
+  }, [sessionUser, fillName, fillEmail, fillHome, fillCurrency])
 
   // Always pull the persisted state on mount. The cached `useAuth().user`
   // is hydrated from localStorage at app boot and only refreshed when the
@@ -134,8 +151,8 @@ export function Settings() {
         const wire = res.data as UserProfile & { props?: UserProfile }
         const fresh = (wire?.props ?? wire) as UserProfile
         if (!fresh) return
-        if (typeof fresh.name === 'string') setName(fresh.name)
-        if (typeof fresh.email === 'string') setEmail(fresh.email)
+        if (typeof fresh.name === 'string') fillName(fresh.name)
+        if (typeof fresh.email === 'string') fillEmail(fresh.email)
       })
       .catch(() => {
         /* fall back to cached sessionUser */
@@ -147,8 +164,8 @@ export function Settings() {
         const wire = res.data as UserPrefs & { props?: UserPrefs }
         const p = (wire?.props ?? wire) as UserPrefs
         if (!p) return
-        if (p.home_stop != null) setHome(p.home_stop)
-        if (p.currency != null) setCurrency(p.currency)
+        if (p.home_stop != null) fillHome(p.home_stop)
+        if (p.currency != null) fillCurrency(p.currency)
         if (p.notifications && typeof p.notifications === 'object') {
           setPrefs((prev) => ({ ...prev, ...p.notifications }))
         }
@@ -159,7 +176,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, sessionUser?.id])
+  }, [http, sessionUser?.id, fillName, fillEmail, fillHome, fillCurrency])
 
   function togglePref(id: string) {
     setPrefs((prev) => ({ ...prev, [id]: !prev[id] }))

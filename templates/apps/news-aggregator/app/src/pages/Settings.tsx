@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -69,7 +70,11 @@ export function Settings() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const { user, setUser, logout } = useAuth<UserProfile & { oauthData?: Record<string, unknown> }>()
-  const [prefs, setPrefs] = useState<Preferences>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<Preferences>({
+    defaultValues: DEFAULT_PREFS as Preferences,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
@@ -95,7 +100,7 @@ export function Settings() {
       .then((resp) => {
         if (cancelled) return
         const stored = resp.data ?? {}
-        setPrefs({
+        fillPrefs({
           breakingAlerts: stored.breakingAlerts ?? DEFAULT_PREFS.breakingAlerts,
           dailyDigest: stored.dailyDigest ?? DEFAULT_PREFS.dailyDigest,
           emailDigest: stored.emailDigest ?? DEFAULT_PREFS.emailDigest,
@@ -113,7 +118,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, user?.id])
+  }, [http, user?.id, fillPrefs])
 
   async function persistPrefs(next: Preferences) {
     setSaving(true)

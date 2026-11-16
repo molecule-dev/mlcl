@@ -1,9 +1,10 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -81,8 +82,16 @@ export function Editor() {
   const navigate = useNavigate()
 
   const [doc, setDoc] = useState<DocumentRow | null>(null)
-  const [title, setTitle] = useState('')
-  const [body, setBody] = useState('')
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { title: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: params.id ?? 'new',
+  }).asState('title')
+  const [body, setBody, fillBody] = useForm({
+    defaultValues: { body: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: params.id ?? 'new',
+  }).asState('body')
   const [shares, setShares] = useState<ShareRow[]>([])
   const [sharesReady, setSharesReady] = useState(false)
 
@@ -102,6 +111,12 @@ export function Editor() {
   }, [doc?.version])
 
   const docId = params.id ?? 'new'
+  // A draft and its pending autosave belong to exactly one selected record.
+  useEffect(() => {
+    dirtyRef.current = false
+    if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current)
+    saveTimeoutRef.current = null
+  }, [docId])
 
   // Resolve "/doc/new" by creating a new doc (optionally from ?template=ID).
   useEffect(() => {
@@ -159,8 +174,8 @@ export function Editor() {
           return
         }
         setDoc(got)
-        setTitle(got.title || '')
-        setBody(blocksToText(got.content ?? DEFAULT_BODY))
+        fillTitle(got.title || '')
+        fillBody(blocksToText(got.content ?? DEFAULT_BODY))
         setStatus('idle')
         setStatusMessage(null)
       })
@@ -175,7 +190,7 @@ export function Editor() {
     return () => {
       cancelled = true
     }
-  }, [docId, http, t])
+  }, [docId, http, t, fillTitle, fillBody])
 
   // Silent re-fetch of the document (realtime path). Unlike the initial load it
   // never flips `status` to loading; it refreshes the body/title ONLY when the
@@ -189,13 +204,13 @@ export function Editor() {
       if (!got) return
       setDoc(got)
       if (!dirtyRef.current) {
-        setTitle(got.title || '')
-        setBody(blocksToText(got.content ?? DEFAULT_BODY))
+        fillTitle(got.title || '')
+        fillBody(blocksToText(got.content ?? DEFAULT_BODY))
       }
     } catch (_error) {
       // Best-effort; the current view stays until the next event/load.
     }
-  }, [docId, http])
+  }, [docId, http, fillTitle, fillBody])
 
   // Live collaboration: react to a peer saving a new document version. The
   // `document:updated` payload is a version-bump NOTIFICATION ({ id, version,
@@ -283,7 +298,7 @@ export function Editor() {
 
   // Debounced autosave on title or body change.
   const persistNow = useCallback(async () => {
-    if (!doc?.id) return
+    if (!doc?.id || String(doc.id) !== docId) return
     setStatus('saving')
     try {
       const next = textToBlocks(body)
@@ -306,10 +321,10 @@ export function Editor() {
       setStatus('error')
       setStatusMessage(t('common.saveFailed', {}, { defaultValue: 'Save failed.' }))
     }
-  }, [doc?.id, body, title, http, t])
+  }, [doc?.id, docId, body, title, http, t])
 
   useEffect(() => {
-    if (!doc?.id || !dirtyRef.current) return
+    if (!doc?.id || String(doc.id) !== docId || !dirtyRef.current) return
     if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current)
     saveTimeoutRef.current = setTimeout(() => {
       void persistNow()
@@ -317,7 +332,7 @@ export function Editor() {
     return () => {
       if (saveTimeoutRef.current) clearTimeout(saveTimeoutRef.current)
     }
-  }, [title, body, doc?.id, persistNow])
+  }, [title, body, doc?.id, docId, persistNow])
 
   const onTitleChange = (value: string): void => {
     setTitle(value)

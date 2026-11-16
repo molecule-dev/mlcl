@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { BookCover } from '../components/BookCover.js'
@@ -87,7 +88,10 @@ export function Challenge() {
   const [finished, setFinished] = useState<Book[]>([])
   const [inProgress, setInProgress] = useState<Book[]>([])
   const [volumeFilter, setVolumeFilter] = useState<'all' | 'finished' | 'reading'>('all')
-  const [goal, setGoal] = useState('24')
+  const [goal, setGoal, fillGoal] = useForm({
+    defaultValues: { goal: '24' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('goal')
   const [saving, setSaving] = useState(false)
   const [goalSaved, setGoalSaved] = useState(false)
   const [loading, setLoading] = useState(true)
@@ -106,7 +110,7 @@ export function Challenge() {
         if (cancelled) return
         const snap = unwrapSingle<ChallengeSnapshot>(challengeRes)
         setChallenge(snap)
-        if (snap && snap.goal_books > 0) setGoal(String(snap.goal_books))
+        if (snap && snap.goal_books > 0) fillGoal(String(snap.goal_books))
         const books = unwrapList<Book>(booksRes)
         const byFinish = books
           .filter((b) => b.my?.finished_at)
@@ -128,7 +132,7 @@ export function Challenge() {
     return () => {
       cancelled = true
     }
-  }, [http, t, year])
+  }, [http, t, year, fillGoal])
 
   const saveGoal = async (e: React.FormEvent) => {
     e.preventDefault()

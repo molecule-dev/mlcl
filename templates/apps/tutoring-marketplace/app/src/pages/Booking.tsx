@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 type AvailabilitySlot = {
@@ -74,7 +75,11 @@ export function Booking() {
   const [availability, setAvailability] = useState<AvailabilitySlot[]>([])
   const [availabilityReady, setAvailabilityReady] = useState(false)
 
-  const [subject, setSubject] = useState('')
+  const [subject, setSubject, fillSubject] = useForm({
+    defaultValues: { subject: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([tutorId]),
+  }).asState('subject')
   const [duration, setDuration] = useState<number>(60)
   const [notes, setNotes] = useState('')
   const [submitting, setSubmitting] = useState(false)
@@ -100,9 +105,9 @@ export function Booking() {
         setAvailability(Array.isArray(slotsData) ? slotsData : [])
         setAvailabilityReady(true)
         if (tutorData?.subjects && tutorData.subjects.length > 0 && !subject) {
-          setSubject(tutorData.subjects[0]!)
+          fillSubject(tutorData.subjects[0]!)
         } else if (tutorData?.subject && !subject) {
-          setSubject(tutorData.subject)
+          fillSubject(tutorData.subject)
         }
       })
       .catch(() => {
@@ -115,7 +120,7 @@ export function Booking() {
       active = false
     }
     // subject intentionally not in deps; only initialised when empty
-  }, [http, tutorId, t]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [http, tutorId, t, fillSubject]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const days = useMemo(() => nextSevenDays(), [])
 

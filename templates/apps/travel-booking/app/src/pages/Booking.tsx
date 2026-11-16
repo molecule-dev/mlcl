@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -67,7 +68,11 @@ export function Booking() {
 
   const [property, setProperty] = useState<Property | null>(null)
   const [rooms, setRooms] = useState<RoomType[]>([])
-  const [selectedRoomId, setSelectedRoomId] = useState<string>('')
+  const [selectedRoomId, setSelectedRoomId, fillSelectedRoomId] = useForm({
+    defaultValues: { selectedRoomId: '' as string },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('selectedRoomId')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [submitting, setSubmitting] = useState(false)
@@ -76,14 +81,22 @@ export function Booking() {
   const [checkOut, setCheckOut] = useState(params.get('check_out') ?? todayISO(11))
   const [guests, setGuests] = useState(Number(params.get('guests') ?? 2))
 
-  const [guest, setGuest] = useState({
-    firstName: '',
-    lastName: '',
-    email: '',
-    phone: '',
-  })
+  const [guest, setGuest, fillGuest] = useForm({
+    defaultValues: {
+      firstName: '',
+      lastName: '',
+      email: '',
+      phone: '',
+    },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState()
   const [paymentMethods, setPaymentMethods] = useState<PaymentMethod[]>([])
-  const [selectedPaymentId, setSelectedPaymentId] = useState<string>('')
+  const [selectedPaymentId, setSelectedPaymentId, fillSelectedPaymentId] = useForm({
+    defaultValues: { selectedPaymentId: '' as string },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('selectedPaymentId')
   const [agreeTerms, setAgreeTerms] = useState(false)
   const [specialRequests, setSpecialRequests] = useState('')
 
@@ -114,10 +127,10 @@ export function Booking() {
           capacity: Number(r.capacity ?? 0),
         }))
         setRooms(roomsList)
-        if (roomsList[0]) setSelectedRoomId(roomsList[0].id)
+        if (roomsList[0]) fillSelectedRoomId(roomsList[0].id)
         const profile = unwrapSingle<ProfileDigest>(profRes)
         if (profile) {
-          setGuest({
+          fillGuest({
             firstName: profile.firstName ?? '',
             lastName: profile.lastName ?? '',
             email: profile.email ?? '',
@@ -126,7 +139,7 @@ export function Booking() {
           const methods = Array.isArray(profile.paymentMethods) ? profile.paymentMethods : []
           setPaymentMethods(methods)
           const def = methods.find((m) => m.isDefault) ?? methods[0]
-          if (def) setSelectedPaymentId(def.id)
+          if (def) fillSelectedPaymentId(def.id)
         }
       })
       .catch(() => {
@@ -139,7 +152,7 @@ export function Booking() {
     return () => {
       cancelled = true
     }
-  }, [id, http, t])
+  }, [id, http, t, fillSelectedRoomId, fillGuest, fillSelectedPaymentId])
 
   const selectedRoom = useMemo(
     () => rooms.find((r) => r.id === selectedRoomId) ?? null,

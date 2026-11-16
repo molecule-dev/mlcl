@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -49,8 +50,16 @@ export function Profile() {
   const http = useHttpClient()
   const user = auth.user
   const [section, setSection] = useState<Section>('identity')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
   const [profile, setProfile, fillProfile] = useForm<ProfileData>({
     defaultValues: useMemo(emptyProfile, []),
     resetKey: JSON.stringify([user?.id]),
@@ -77,8 +86,8 @@ export function Profile() {
   // the only read that survives a reload.
   useEffect(() => {
     if (!user) return
-    setName(user.name ?? '')
-    setEmail(user.email ?? '')
+    fillName(user.name ?? '')
+    fillEmail(user.email ?? '')
     fillProfile({ ...emptyProfile(), ...(user.oauthData?.profile ?? {}) })
     let cancelled = false
     http
@@ -98,7 +107,7 @@ export function Profile() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id])
+  }, [user?.id, fillName, fillEmail])
 
   const patchUser = async (body: Record<string, unknown>) => {
     if (!user?.id) throw new Error('Not signed in')

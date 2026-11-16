@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -37,11 +38,31 @@ function Settings() {
   const navigate = useNavigate()
 
   const initialProfile = user?.oauthData?.propertyhub ?? {}
-  const [firstName, setFirstName] = useState(user?.name?.split(' ')[0] ?? '')
-  const [lastName, setLastName] = useState(user?.name?.split(' ').slice(1).join(' ') ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
-  const [phone, setPhone] = useState(initialProfile.phone ?? '')
-  const [bio, setBio] = useState(initialProfile.bio ?? '')
+  const [firstName, setFirstName, fillFirstName] = useForm({
+    defaultValues: { firstName: user?.name?.split(' ')[0] ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('firstName')
+  const [lastName, setLastName, fillLastName] = useForm({
+    defaultValues: { lastName: user?.name?.split(' ').slice(1).join(' ') ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('lastName')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: user?.email ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
+  const [phone, setPhone, fillPhone] = useForm({
+    defaultValues: { phone: initialProfile.phone ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('phone')
+  const [bio, setBio, fillBio] = useForm({
+    defaultValues: { bio: initialProfile.bio ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('bio')
 
   // Last values the server confirmed — "Discard" reverts to these.
   const [loadedSettings, setLoadedSettings] = useState<PropertyHubProfile>(initialProfile)
@@ -82,9 +103,9 @@ function Settings() {
         const raw = res.data
         const body = raw && typeof raw === 'object' && 'props' in raw ? raw.props : raw
         if (!body || typeof body !== 'object') return
-        setFirstName(body.name?.split(' ')[0] ?? '')
-        setLastName(body.name?.split(' ').slice(1).join(' ') ?? '')
-        setEmail(body.email ?? '')
+        fillFirstName(body.name?.split(' ')[0] ?? '')
+        fillLastName(body.name?.split(' ').slice(1).join(' ') ?? '')
+        fillEmail(body.email ?? '')
       })
       .catch((error: unknown) => {
         // Best-effort freshness refresh — the form already rendered from the
@@ -105,8 +126,8 @@ function Settings() {
             : (raw as PropertyHubProfile | undefined)
         if (!ph || typeof ph !== 'object') return
         setLoadedSettings(ph)
-        if (ph.phone !== undefined) setPhone(ph.phone)
-        if (ph.bio !== undefined) setBio(ph.bio)
+        if (ph.phone !== undefined) fillPhone(ph.phone)
+        if (ph.bio !== undefined) fillBio(ph.bio)
         if (ph.notifyEmail !== undefined) fillNotifyEmail(ph.notifyEmail)
         if (ph.notifySms !== undefined) fillNotifySms(ph.notifySms)
         if (ph.notifyNewLeads !== undefined) fillNotifyNewLeads(ph.notifyNewLeads)
@@ -120,7 +141,19 @@ function Settings() {
     return () => {
       cancelled = true
     }
-  }, [fillNotifyEmail, fillNotifyNewLeads, fillNotifyShowings, fillNotifySms, http, user?.id])
+  }, [
+    fillNotifyEmail,
+    fillNotifyNewLeads,
+    fillNotifyShowings,
+    fillNotifySms,
+    http,
+    user?.id,
+    fillFirstName,
+    fillLastName,
+    fillEmail,
+    fillPhone,
+    fillBio,
+  ])
 
   const [savingProfile, setSavingProfile] = useState(false)
   const [savingPassword, setSavingPassword] = useState(false)

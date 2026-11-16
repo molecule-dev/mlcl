@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 /**
  * Lesson — single-lesson playback view.
  *
@@ -14,7 +15,7 @@ import { Link, useNavigate, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { LessonRow } from '../components/LessonRow.js'
@@ -55,7 +56,11 @@ export function Lesson() {
   const [loading, setLoading] = useState(true)
   const [loadError, setLoadError] = useState<string | null>(null)
   const [tab, setTab] = useState<Tab>('overview')
-  const [notes, setNotes] = useState('')
+  const [notes, setNotes, fillNotes] = useForm({
+    defaultValues: { notes: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: lessonId,
+  }).asState('notes')
   const [completing, setCompleting] = useState(false)
   const [completeError, setCompleteError] = useState<string | null>(null)
   const [watchedSec, setWatchedSec] = useState(0)
@@ -70,7 +75,7 @@ export function Lesson() {
       .then(async (l) => {
         if (!alive) return
         setLesson(l)
-        setNotes(loadNotes(l.id))
+        fillNotes(loadNotes(l.id))
         const courseId = String(l.course_id)
         const [c, siblings] = await Promise.all([
           api<CourseSummary>(`/courses/${courseId}`).catch(() => null),
@@ -91,12 +96,12 @@ export function Lesson() {
     return () => {
       alive = false
     }
-  }, [lessonId])
+  }, [lessonId, fillNotes])
 
   // Save notes to localStorage on every keystroke (debounced via React batching).
   useEffect(() => {
-    if (lesson) saveNotes(lesson.id, notes)
-  }, [lesson, notes])
+    if (lesson && String(lesson.id) === lessonId) saveNotes(lesson.id, notes)
+  }, [lesson, lessonId, notes])
 
   const ordered = useMemo(
     () =>

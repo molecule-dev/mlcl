@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -98,7 +99,11 @@ export function FileDetail() {
   const [error, setError] = useState<string | null>(null)
   const [loading, setLoading] = useState(true)
   const [renaming, setRenaming] = useState(false)
-  const [draftName, setDraftName] = useState('')
+  const [draftName, setDraftName, fillDraftName] = useForm({
+    defaultValues: { draftName: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('draftName')
   const [busyAction, setBusyAction] = useState<string | null>(null)
   const [shareSuccessAt, setShareSuccessAt] = useState<number | null>(null)
 
@@ -120,7 +125,7 @@ export function FileDetail() {
           return
         }
         setFile(f)
-        setDraftName(f.name)
+        fillDraftName(f.name)
         if (f.folder_id) {
           const fr = await http.get<FolderRecord>(`/api/folders/${f.folder_id}`).catch(() => null)
           if (cancelled) return
@@ -145,7 +150,7 @@ export function FileDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t])
+  }, [http, id, t, fillDraftName])
 
   async function handleStar() {
     if (!file) return

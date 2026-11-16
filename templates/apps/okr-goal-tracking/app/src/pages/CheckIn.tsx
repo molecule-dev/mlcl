@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { KeyResultRow } from '../components/KeyResultRow.js'
@@ -44,7 +45,10 @@ export function CheckIn() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [confidence, setConfidence] = useState<Record<string, Confidence>>({})
-  const [values, setValues] = useState<Record<string, string>>({})
+  const [values, setValues, fillValues] = useForm<Record<string, string>>({
+    defaultValues: {} as Record<string, string>,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [note, setNote] = useState('')
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
@@ -71,7 +75,7 @@ export function CheckIn() {
           seedVals[kr.id] = String(toNumber(kr.current_value))
         }
         setConfidence(seedConf)
-        setValues(seedVals)
+        fillValues(seedVals)
         setLoading(false)
       })
       .catch((err: unknown) => {
@@ -82,7 +86,7 @@ export function CheckIn() {
     return () => {
       aborted = true
     }
-  }, [http])
+  }, [http, fillValues])
 
   const krsByObj = useMemo(() => {
     const map = new Map<string, KrRow[]>()

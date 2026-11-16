@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -85,7 +86,10 @@ function Settings() {
   const { t, locale, setLocale, locales } = useTranslation()
   const http = useHttpClient()
   const [voices, setVoices] = useState<VoiceOption[]>([...FALLBACK_VOICES])
-  const [prefs, setPrefs] = useState<Preferences>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<Preferences>({
+    defaultValues: DEFAULT_PREFS as Preferences,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [voicePickedAt, setVoicePickedAt] = useState<number | null>(null)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -117,7 +121,7 @@ function Settings() {
           voicePlaybackEnabled:
             prefsRes.data?.voicePlaybackEnabled ?? DEFAULT_PREFS.voicePlaybackEnabled,
         }
-        setPrefs(merged)
+        fillPrefs(merged)
       } catch (e) {
         if (cancelled) return
         setError(
@@ -132,7 +136,7 @@ function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, fillPrefs])
 
   async function persist(next: Preferences) {
     setError(null)

@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { SimmerTopBar } from '../components/SimmerTopBar.js'
@@ -72,7 +73,11 @@ export function RecipeEdit() {
   const navigate = useNavigate()
   const { id } = useParams<{ id: string }>()
   const isEdit = Boolean(id)
-  const [draft, setDraft] = useState<RecipeDraft>(EMPTY_DRAFT)
+  const [draft, setDraft, fillDraft] = useForm<RecipeDraft>({
+    defaultValues: EMPTY_DRAFT as RecipeDraft,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState()
   const [loading, setLoading] = useState(isEdit)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -95,7 +100,7 @@ export function RecipeEdit() {
           ingredients: Array<{ item_name: string; quantity: number | string; unit: string }>
           steps: Array<{ text: string }>
         }
-        setDraft({
+        fillDraft({
           title: row.title,
           description: row.description ?? '',
           servings: String(num(row.servings)),
@@ -131,7 +136,7 @@ export function RecipeEdit() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t])
+  }, [http, id, t, fillDraft])
 
   const patch = (over: Partial<RecipeDraft>): void => setDraft((d) => ({ ...d, ...over }))
 

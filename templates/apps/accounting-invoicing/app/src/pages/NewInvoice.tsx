@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
@@ -45,7 +46,10 @@ export function NewInvoice() {
   const [customer, setCustomer] = useState('')
   const [issued, setIssued] = useState(new Date().toISOString().slice(0, 10))
   const [due, setDue] = useState('')
-  const [taxRate, setTaxRate] = useState(8.5)
+  const [taxRate, setTaxRate, fillTaxRate] = useForm({
+    defaultValues: { taxRate: 8.5 },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('taxRate')
   // The tax rate defaults to the company's saved "Default tax rate" (Settings),
   // unless the user edits it here first.
   const taxTouched = useRef(false)
@@ -62,7 +66,10 @@ export function NewInvoice() {
   const [currency, setCurrency, fillCurrency] = useForm({
     defaultValues: { value: 'USD' },
   }).asState('value')
-  const [terms, setTerms] = useState('net_30')
+  const [terms, setTerms, fillTerms] = useForm({
+    defaultValues: { terms: 'net_30' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('terms')
   const [lateFee, setLateFee, fillLateFee] = useForm({ defaultValues: { value: false } }).asState(
     'value',
   )
@@ -80,10 +87,10 @@ export function NewInvoice() {
         setCompany(body ?? {})
         const rate = Number(body?.default_tax_rate_pct)
         // Treat 0/unset as "no saved default" and keep the built-in fallback.
-        if (!taxTouched.current && Number.isFinite(rate) && rate > 0) setTaxRate(rate)
+        if (!taxTouched.current && Number.isFinite(rate) && rate > 0) fillTaxRate(rate)
         if (typeof body?.currency === 'string' && body.currency) fillCurrency(body.currency)
         if (typeof body?.payment_terms === 'string' && body.payment_terms)
-          setTerms(body.payment_terms)
+          fillTerms(body.payment_terms)
         if (typeof body?.invoice_late_fee_enabled === 'boolean')
           fillLateFee(body.invoice_late_fee_enabled)
         if (typeof body?.invoice_recurring_enabled === 'boolean')
@@ -95,7 +102,7 @@ export function NewInvoice() {
     return () => {
       active = false
     }
-  }, [fillCurrency, fillLateFee, fillRecurring, http])
+  }, [fillCurrency, fillLateFee, fillRecurring, http, fillTaxRate, fillTerms])
 
   function addLine() {
     setLines([...lines, { id: `l_${nextId++}`, description: '', quantity: 1, unit_price_cents: 0 }])

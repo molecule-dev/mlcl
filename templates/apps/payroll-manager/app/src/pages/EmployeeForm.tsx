@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapSingle } from '../lib/unwrap.js'
@@ -65,7 +66,11 @@ export function EmployeeForm() {
   const { id } = useParams<{ id: string }>()
 
   const isNew = !id || id === 'new'
-  const [form, setForm] = useState<EmployeeFormState>(EMPTY)
+  const [form, setForm, fillForm] = useForm<EmployeeFormState>({
+    defaultValues: EMPTY as EmployeeFormState,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState()
   const [loading, setLoading] = useState(!isNew)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -83,7 +88,7 @@ export function EmployeeForm() {
           setError(t('employeeForm.notFound', {}, { defaultValue: 'Employee not found.' }))
           return
         }
-        setForm({
+        fillForm({
           first_name: emp.first_name ?? '',
           last_name: emp.last_name ?? '',
           email: emp.email ?? '',
@@ -107,7 +112,7 @@ export function EmployeeForm() {
     return () => {
       cancelled = true
     }
-  }, [http, id, isNew, t])
+  }, [http, id, isNew, t, fillForm])
 
   const update = <K extends keyof EmployeeFormState>(k: K, v: EmployeeFormState[K]) =>
     setForm((s) => ({ ...s, [k]: v }))

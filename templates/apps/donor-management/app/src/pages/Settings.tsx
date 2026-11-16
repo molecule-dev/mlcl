@@ -1,6 +1,7 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import {
   AccountSection,
   AuthSection,
@@ -57,7 +58,10 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('organization')
-  const [settings, setSettings] = useState<Required<CompanySettings>>(DEFAULTS)
+  const [settings, setSettings, fillSettings] = useForm<Required<CompanySettings>>({
+    defaultValues: DEFAULTS as Required<CompanySettings>,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [error, setError] = useState<string | null>(null)
@@ -75,7 +79,7 @@ export function Settings() {
       .then((res) => {
         if (cancelled) return
         const data = unwrapSingle<{ settings?: Partial<CompanySettings> }>(res)
-        setSettings({ ...DEFAULTS, ...(data?.settings ?? {}) })
+        fillSettings({ ...DEFAULTS, ...(data?.settings ?? {}) })
       })
       .catch(() =>
         setError(t('settings.loadError', {}, { defaultValue: 'Failed to load settings.' })),
@@ -86,7 +90,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, fillSettings])
 
   async function save() {
     setSaving(true)

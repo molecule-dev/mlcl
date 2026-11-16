@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { type FormEvent, useEffect, useState } from 'react'
 
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useHttpClient, usePush, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, usePush, useTranslation } from '@molecule/app-react'
 import type { PushToggleResult } from '@molecule/app-settings-panel-react'
 import {
   disablePushOnCurrentDevice,
@@ -86,7 +87,10 @@ export function Settings() {
   const { requestPermission, register, unregister } = usePush()
   const user = auth.user
   const [section, setSection] = useState<Section>('notifications')
-  const [settings, setSettings] = useState<SettingsData>(defaults)
+  const [settings, setSettings, fillSettings] = useForm<SettingsData>({
+    defaultValues: defaults as SettingsData,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [saving, setSaving] = useState(false)
   const [message, setMessage] = useState<{ kind: 'ok' | 'error'; text: string } | null>(null)
   const [pushError, setPushError] = useState<string | null>(null)
@@ -97,7 +101,7 @@ export function Settings() {
     // load the persisted slice from the server channel — `GET /users/me`
     // NEVER returns `oauthData` (it is stripped as sensitive server-side), so
     // the server channel is the only source that survives a reload.
-    setSettings(merge(user.oauthData?.settings))
+    fillSettings(merge(user.oauthData?.settings))
     let cancelled = false
     http
       .get('/api/settings/me')
@@ -105,7 +109,7 @@ export function Settings() {
         if (cancelled) return
         const settings = unwrapSingle<{ settings?: Partial<SettingsData> }>(res)?.settings
         const merged = merge(settings)
-        setSettings(merged)
+        fillSettings(merged)
         // Re-seed the session user so other surfaces (dose rows' time
         // format) reflect the persisted preferences without a re-login.
         auth.setUser({ ...user, oauthData: { ...(user.oauthData ?? {}), settings: merged } })
@@ -118,7 +122,7 @@ export function Settings() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user?.id])
+  }, [user?.id, fillSettings])
 
   const persist = async (next: SettingsData) => {
     if (!user?.id) return

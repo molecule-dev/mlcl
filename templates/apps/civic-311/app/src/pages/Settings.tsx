@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
 import { error as logError } from '@molecule/app-logger'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import SettingsAppearanceSection from '../components/SettingsAppearanceSection.js'
@@ -53,25 +54,81 @@ function Settings() {
   const userData = user as Record<string, unknown> | null
   const { t } = useTranslation()
 
-  const [email, setEmail] = useState('')
-  const [name, setName] = useState('')
-  const [jobTitle, setJobTitle] = useState('')
-  const [timezone, setTimezone] = useState(
-    t('settings.defaultTimezone', {}, { defaultValue: '(GMT-08:00) Pacific Time (US & Canada)' }),
-  )
-  const [statusEmail, setStatusEmail] = useState(true)
-  const [watchAreaEmail, setWatchAreaEmail] = useState(true)
-  const [confirmationsEmail, setConfirmationsEmail] = useState(false)
-  const [commentEmail, setCommentEmail] = useState(true)
-  const [weeklyDigest, setWeeklyDigest] = useState(true)
-  const [digestFrequency, setDigestFrequency] = useState(
-    t('settings.defaultDigestFrequency', {}, { defaultValue: 'Every hour' }),
-  )
-  const [theme, setThemeState] = useState<'light' | 'dark' | 'system'>('light')
-  const [language, setLanguage] = useState(
-    t('settings.defaultLanguage', {}, { defaultValue: 'English (US)' }),
-  )
-  const [compactMode, setCompactMode] = useState(false)
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [jobTitle, setJobTitle, fillJobTitle] = useForm({
+    defaultValues: { jobTitle: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('jobTitle')
+  const [timezone, setTimezone, fillTimezone] = useForm({
+    defaultValues: {
+      timezone: t(
+        'settings.defaultTimezone',
+        {},
+        { defaultValue: '(GMT-08:00) Pacific Time (US & Canada)' },
+      ),
+    },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('timezone')
+  const [statusEmail, setStatusEmail, fillStatusEmail] = useForm({
+    defaultValues: { statusEmail: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('statusEmail')
+  const [watchAreaEmail, setWatchAreaEmail, fillWatchAreaEmail] = useForm({
+    defaultValues: { watchAreaEmail: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('watchAreaEmail')
+  const [confirmationsEmail, setConfirmationsEmail, fillConfirmationsEmail] = useForm({
+    defaultValues: { confirmationsEmail: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('confirmationsEmail')
+  const [commentEmail, setCommentEmail, fillCommentEmail] = useForm({
+    defaultValues: { commentEmail: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('commentEmail')
+  const [weeklyDigest, setWeeklyDigest, fillWeeklyDigest] = useForm({
+    defaultValues: { weeklyDigest: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('weeklyDigest')
+  const [digestFrequency, setDigestFrequency, fillDigestFrequency] = useForm({
+    defaultValues: {
+      digestFrequency: t('settings.defaultDigestFrequency', {}, { defaultValue: 'Every hour' }),
+    },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('digestFrequency')
+  const [theme, setThemeState, fillThemeState] = useForm({
+    defaultValues: { theme: 'light' as 'light' | 'dark' | 'system' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('theme')
+  const [language, setLanguage, fillLanguage] = useForm({
+    defaultValues: {
+      language: t('settings.defaultLanguage', {}, { defaultValue: 'English (US)' }),
+    },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('language')
+  const [compactMode, setCompactMode, fillCompactMode] = useForm({
+    defaultValues: { compactMode: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('compactMode')
   const [saving, setSaving] = useState(false)
   const [deactivating, setDeactivating] = useState(false)
   const [message, setMessage] = useState<{ type: 'success' | 'error'; text: string } | null>(null)
@@ -123,32 +180,33 @@ function Settings() {
     let cancelled = false
     async function load() {
       if (userData) {
-        setEmail((userData.email as string) || '')
-        setName((userData.name as string) || '')
+        fillEmail((userData.email as string) || '')
+        fillName((userData.name as string) || '')
       }
       try {
         const res = await http.get<MeResponse>('/api/users/me')
         if (cancelled) return
         const me = (res as unknown as { data?: MeResponse })?.data ?? (res as unknown as MeResponse)
         if (!me) return
-        if (me.email) setEmail(me.email)
-        if (me.name !== null && me.name !== undefined) setName(me.name)
-        if (me.profile?.jobTitle != null) setJobTitle(me.profile.jobTitle)
-        if (me.profile?.timezone != null) setTimezone(me.profile.timezone)
+        if (me.email) fillEmail(me.email)
+        if (me.name !== null && me.name !== undefined) fillName(me.name)
+        if (me.profile?.jobTitle != null) fillJobTitle(me.profile.jobTitle)
+        if (me.profile?.timezone != null) fillTimezone(me.profile.timezone)
         const np = me.notification_preferences ?? {}
-        if (typeof np.statusEmail === 'boolean') setStatusEmail(np.statusEmail)
-        if (typeof np.watchAreaEmail === 'boolean') setWatchAreaEmail(np.watchAreaEmail)
-        if (typeof np.confirmationsEmail === 'boolean') setConfirmationsEmail(np.confirmationsEmail)
-        if (typeof np.commentEmail === 'boolean') setCommentEmail(np.commentEmail)
-        if (typeof np.weeklyDigest === 'boolean') setWeeklyDigest(np.weeklyDigest)
-        if (np.digestFrequency) setDigestFrequency(np.digestFrequency)
+        if (typeof np.statusEmail === 'boolean') fillStatusEmail(np.statusEmail)
+        if (typeof np.watchAreaEmail === 'boolean') fillWatchAreaEmail(np.watchAreaEmail)
+        if (typeof np.confirmationsEmail === 'boolean')
+          fillConfirmationsEmail(np.confirmationsEmail)
+        if (typeof np.commentEmail === 'boolean') fillCommentEmail(np.commentEmail)
+        if (typeof np.weeklyDigest === 'boolean') fillWeeklyDigest(np.weeklyDigest)
+        if (np.digestFrequency) fillDigestFrequency(np.digestFrequency)
         const pr = me.preferences ?? {}
         if (pr.theme) {
-          setThemeState(pr.theme)
+          fillThemeState(pr.theme)
           applyThemeAttribute(pr.theme)
         }
-        if (pr.language) setLanguage(pr.language)
-        if (typeof pr.compactMode === 'boolean') setCompactMode(pr.compactMode)
+        if (pr.language) fillLanguage(pr.language)
+        if (typeof pr.compactMode === 'boolean') fillCompactMode(pr.compactMode)
         // Hydration failure is safe to ignore — form fields stay at their defaults
       } catch (_error) {
         // intentional noop — UI defaults remain; user can still edit and save
@@ -159,7 +217,23 @@ function Settings() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [user, http]) // userData is derived from user — re-running on user change is sufficient
+  }, [
+    user,
+    http,
+    fillEmail,
+    fillName,
+    fillJobTitle,
+    fillTimezone,
+    fillStatusEmail,
+    fillWatchAreaEmail,
+    fillConfirmationsEmail,
+    fillCommentEmail,
+    fillWeeklyDigest,
+    fillDigestFrequency,
+    fillThemeState,
+    fillLanguage,
+    fillCompactMode,
+  ]) // userData is derived from user — re-running on user change is sufficient
 
   async function handleProfileSave() {
     setSaving(true)

@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { type FormEvent, useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
@@ -71,7 +72,10 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('account')
-  const [prefs, setPrefs] = useState<Preferences>(DEFAULT_PREFERENCES)
+  const [prefs, setPrefs, fillPrefs] = useForm<Preferences>({
+    defaultValues: DEFAULT_PREFERENCES as Preferences,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
 
   // Hydrate persisted preferences once — the toggles below PATCH the same
   // endpoint so settings survive reloads and other devices.
@@ -83,7 +87,7 @@ export function Settings() {
         if (cancelled) return
         const row = unwrapSingle<Partial<Preferences>>(res)
         if (row && typeof row === 'object') {
-          setPrefs((prev) => ({ ...prev, ...row }))
+          fillPrefs((prev) => ({ ...prev, ...row }))
         }
       })
       .catch(() => {
@@ -92,7 +96,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillPrefs])
 
   const updatePref = <K extends keyof Preferences>(key: K, value: Preferences[K]): void => {
     const prevValue = prefs[key]

@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
@@ -77,7 +78,11 @@ export function Account() {
   const [profileFeedback, setProfileFeedback] = useState<string | null>(null)
   const [notifSaving, setNotifSaving] = useState(false)
   const [notifFeedback, setNotifFeedback] = useState<string | null>(null)
-  const [notifPrefs, setNotifPrefs] = useState<NotificationPrefs>(NOTIFICATION_DEFAULTS)
+  const [notifPrefs, setNotifPrefs, fillNotifPrefs] = useForm<NotificationPrefs>({
+    defaultValues: NOTIFICATION_DEFAULTS as NotificationPrefs,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [roleSaving, setRoleSaving] = useState(false)
   const [roleFeedback, setRoleFeedback] = useState<string | null>(null)
 
@@ -111,7 +116,7 @@ export function Account() {
         const settings = (res as { data?: AppSettings | null }).data
         if (!settings) return
         if (settings.notifications) {
-          setNotifPrefs({ ...NOTIFICATION_DEFAULTS, ...settings.notifications })
+          fillNotifPrefs({ ...NOTIFICATION_DEFAULTS, ...settings.notifications })
         }
         if (settings.activeRole === 'tutor' || settings.activeRole === 'student') {
           setRole(settings.activeRole)
@@ -129,7 +134,7 @@ export function Account() {
     return () => {
       active = false
     }
-  }, [http]) // eslint-disable-line react-hooks/exhaustive-deps
+  }, [http, fillNotifPrefs]) // eslint-disable-line react-hooks/exhaustive-deps
 
   const userEmail = meData?.email ?? user?.email ?? ''
   const userName = meData?.name ?? user?.name ?? 'Student'

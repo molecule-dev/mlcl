@@ -1,9 +1,11 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import {
   useAuth,
   useChangePassword,
+  useForm,
   useHttpClient,
   useTranslation,
   useUser,
@@ -73,9 +75,21 @@ export function Settings() {
   const [section, setSection] = useState<Section>('profile')
 
   // Profile state
-  const [profileName, setProfileName] = useState('')
-  const [profileEmail, setProfileEmail] = useState('')
-  const [advisorEmail, setAdvisorEmail] = useState('')
+  const [profileName, setProfileName, fillProfileName] = useForm({
+    defaultValues: { profileName: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('profileName')
+  const [profileEmail, setProfileEmail, fillProfileEmail] = useForm({
+    defaultValues: { profileEmail: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('profileEmail')
+  const [advisorEmail, setAdvisorEmail, fillAdvisorEmail] = useForm({
+    defaultValues: { advisorEmail: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('advisorEmail')
   const [taxMethod, setTaxMethod] = useState<'FIFO' | 'LIFO' | 'SpecID'>('FIFO')
   const [profileBusy, setProfileBusy] = useState(false)
   const [profileMsg, setProfileMsg] = useState<{ kind: 'ok' | 'err'; text: string } | null>(null)
@@ -111,9 +125,9 @@ export function Settings() {
   const [revokingDeviceId, setRevokingDeviceId] = useState<string | null>(null)
 
   useEffect(() => {
-    setProfileName(user?.name ?? '')
-    setProfileEmail(user?.email ?? '')
-  }, [user])
+    fillProfileName(user?.name ?? '')
+    fillProfileEmail(user?.email ?? '')
+  }, [user, fillProfileName, fillProfileEmail])
 
   useEffect(() => {
     let cancelled = false
@@ -124,7 +138,7 @@ export function Settings() {
       if (cancelled) return
       const settings = unwrapSingle<UserSettings>(settingsRes)
       if (settings) {
-        setAdvisorEmail(settings.advisor_email ?? '')
+        fillAdvisorEmail(settings.advisor_email ?? '')
         const tm = settings.tax_method as 'FIFO' | 'LIFO' | 'SpecID' | undefined
         if (tm && TAX_OPTIONS.includes(tm)) setTaxMethod(tm)
       }
@@ -141,7 +155,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillAdvisorEmail])
 
   // Load the user's registered devices (GET /api/devices). Exposed as a
   // callback so a successful revoke can refetch the list.

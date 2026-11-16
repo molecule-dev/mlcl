@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import PostEditorAIButton from '../components/PostEditorAIButton.js'
@@ -16,14 +17,34 @@ function PostEditor() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { id: routeId } = useParams<{ id: string }>()
-  const [title, setTitle] = useState('')
-  const [excerpt, setExcerpt] = useState('')
-  const [body, setBody] = useState('')
-  const [tags, setTags] = useState<string[]>([])
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { title: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('title')
+  const [excerpt, setExcerpt, fillExcerpt] = useForm({
+    defaultValues: { excerpt: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('excerpt')
+  const [body, setBody, fillBody] = useForm({
+    defaultValues: { body: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('body')
+  const [tags, setTags, fillTags] = useForm({
+    defaultValues: { tags: [] as string[] },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('tags')
   const [postId, setPostId] = useState<string | null>(routeId ?? null)
   const [loading, setLoading] = useState(false)
   const [error, setError] = useState<string | null>(null)
-  const [coverImage, setCoverImage] = useState<string | null>(null)
+  const [coverImage, setCoverImage, fillCoverImage] = useForm({
+    defaultValues: { coverImage: null as string | null },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([routeId]),
+  }).asState('coverImage')
   const http = useHttpClient()
   const navigate = useNavigate()
 
@@ -45,17 +66,17 @@ function PostEditor() {
         > | null
         if (!body) return
         setPostId((body.id as string) ?? routeId)
-        setTitle((body.title as string) ?? '')
-        setExcerpt((body.excerpt as string) ?? '')
-        setBody((body.content as string) ?? '')
+        fillTitle((body.title as string) ?? '')
+        fillExcerpt((body.excerpt as string) ?? '')
+        fillBody((body.content as string) ?? '')
         const rawTags = body.tags
         if (typeof rawTags === 'string') {
           try {
             const parsed = JSON.parse(rawTags)
-            if (Array.isArray(parsed)) setTags(parsed.map(String))
+            if (Array.isArray(parsed)) fillTags(parsed.map(String))
           } catch (_error) {
             // rawTags is not valid JSON — fall back to comma-separated parsing
-            setTags(
+            fillTags(
               rawTags
                 .split(',')
                 .map((s) => s.trim())
@@ -63,9 +84,9 @@ function PostEditor() {
             )
           }
         } else if (Array.isArray(rawTags)) {
-          setTags(rawTags.map(String))
+          fillTags(rawTags.map(String))
         }
-        setCoverImage((body.cover_image_url as string) || null)
+        fillCoverImage((body.cover_image_url as string) || null)
       })
       .catch((err: unknown) => {
         if (!active) return
@@ -81,7 +102,7 @@ function PostEditor() {
     return () => {
       active = false
     }
-  }, [routeId, http, t])
+  }, [routeId, http, t, fillTitle, fillExcerpt, fillBody, fillTags, fillCoverImage])
   async function handlePublish() {
     setLoading(true)
     setError(null)

@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -72,7 +73,10 @@ export function Settings() {
   const { t, locale, setLocale, locales } = useTranslation()
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('profile')
-  const [prefs, setPrefs] = useState<Preferences>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<Preferences>({
+    defaultValues: DEFAULT_PREFS as Preferences,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
@@ -90,7 +94,7 @@ export function Settings() {
           // Normalize the stored locale to a registered one BEFORE touching
           // either state — an unregistered code would make setLocale throw.
           const savedLocale = resolveSavedLocale(data.locale, locales)
-          setPrefs({ ...DEFAULT_PREFS, ...data, locale: savedLocale ?? locale })
+          fillPrefs({ ...DEFAULT_PREFS, ...data, locale: savedLocale ?? locale })
           // Apply the saved locale to the i18n bond so the UI reflects it.
           if (savedLocale && savedLocale !== locale) {
             void setLocale(savedLocale).catch(() => {
@@ -110,12 +114,12 @@ export function Settings() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [http, t])
+  }, [http, t, fillPrefs])
 
   // Mirror the active i18n locale into prefs so saving persists it.
   useEffect(() => {
     setPrefs((p) => (p.locale === locale ? p : { ...p, locale }))
-  }, [locale])
+  }, [locale, setPrefs])
 
   const updatePref = <K extends keyof Preferences>(key: K, value: Preferences[K]) => {
     setPrefs((p) => ({ ...p, [key]: value }))

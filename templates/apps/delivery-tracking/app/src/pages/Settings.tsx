@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useRef, useState } from 'react'
 
 import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
@@ -31,7 +32,10 @@ export function Settings() {
   const http = useHttpClient()
   const [section, setSection] = useState<Section>('organization')
 
-  const [prefs, setPrefs] = useState<Preferences>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<Preferences>({
+    defaultValues: DEFAULT_PREFS as Preferences,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [prefsLoaded, setPrefsLoaded] = useState(false)
   const [savingPrefs, setSavingPrefs] = useState(false)
   const [prefsSavedAt, setPrefsSavedAt] = useState<string | null>(null)
@@ -49,7 +53,7 @@ export function Settings() {
         if (cancelled || prefsDirtyRef.current) return
         const data = (res?.data ?? {}) as Partial<Preferences> & { data?: Partial<Preferences> }
         const d = (data.data ?? data) as Partial<Preferences>
-        setPrefs({
+        fillPrefs({
           email_on_delivered: d.email_on_delivered ?? true,
           email_on_exception: d.email_on_exception ?? true,
           push_on_status_change: d.push_on_status_change ?? false,
@@ -62,7 +66,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillPrefs])
 
   async function togglePref<K extends keyof Preferences>(key: K, value: boolean) {
     prefsDirtyRef.current = true

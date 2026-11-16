@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 /**
  * Test-chat page: wraps the @molecule/app-chatbot-tester-react sandbox
  * with the app-local SideNavBar + TestChatTopBar + TestChatBotConfigPanel.
@@ -11,7 +12,7 @@ import { Link, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { ChatbotTester, type TesterMessage } from '@molecule/app-chatbot-tester-react'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { AppShell } from '../components/AppShell.js'
@@ -60,7 +61,10 @@ function TestChat() {
   const requestedBotId = searchParams.get('botId')
 
   const [bots, setBots] = useState<BotSummary[]>([])
-  const [botId, setBotId] = useState<string | undefined>(undefined)
+  const [botId, setBotId, fillBotId] = useForm({
+    defaultValues: { botId: undefined as string | undefined },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('botId')
   const [conversationId, setConversationId] = useState<string | undefined>(undefined)
   const [messages, setMessages] = useState<TesterMessage[]>([])
   const [loading, setLoading] = useState(true)
@@ -82,7 +86,7 @@ function TestChat() {
           requestedBotId && list.some((b) => String(b.id) === requestedBotId)
             ? requestedBotId
             : list[0]?.id
-        if (preferred) setBotId(preferred)
+        if (preferred) fillBotId(preferred)
         else setLoading(false)
       })
       .catch(
@@ -98,7 +102,7 @@ function TestChat() {
       active = false
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [http])
+  }, [http, fillBotId])
 
   // Start a fresh test conversation whenever bot changes.
   useEffect(() => {

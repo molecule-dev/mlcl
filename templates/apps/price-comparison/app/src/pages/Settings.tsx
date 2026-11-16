@@ -1,7 +1,14 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { type FormEvent, useCallback, useEffect, useRef, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
-import { useAuth, useChangePassword, useHttpClient, useTranslation } from '@molecule/app-react'
+import {
+  useAuth,
+  useChangePassword,
+  useForm,
+  useHttpClient,
+  useTranslation,
+} from '@molecule/app-react'
 import { NotificationsSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
 import {
@@ -87,9 +94,24 @@ export function Settings() {
   const auth = useAuth<AccountUser>()
   const http = useHttpClient()
   const userId = auth.user?.id ?? ''
-  const [name, setName] = useState(auth.user?.name ?? '')
-  const [email, setEmail] = useState(auth.user?.email ?? '')
-  const [prefs, setPrefs] = useState<Record<string, boolean>>(DEFAULT_PREFS)
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: auth.user?.name ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: auth.user?.email ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('email')
+  const [prefs, setPrefs, fillPrefs] = useForm<Record<string, boolean>>({
+    defaultValues: DEFAULT_PREFS as Record<string, boolean>,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [currency, setCurrency] = useState('USD')
   const [savingState, setSavingState] = useState<'idle' | 'saving' | 'saved' | 'error'>('idle')
   // Track per-field user interaction so an in-flight GET cannot clobber
@@ -127,11 +149,11 @@ export function Settings() {
           (wrapped && typeof wrapped === 'object' && 'props' in wrapped
             ? (wrapped as { props: ApiUser }).props
             : (wrapped as ApiUser)) ?? ({} as ApiUser)
-        if (u.name && !editedName.current) setName(u.name)
-        if (u.email && !editedEmail.current) setEmail(u.email)
+        if (u.name && !editedName.current) fillName(u.name)
+        if (u.email && !editedEmail.current) fillEmail(u.email)
         const oauth = u.oauthData ?? {}
         if (oauth.preferences && !editedPrefs.current)
-          setPrefs({ ...DEFAULT_PREFS, ...oauth.preferences })
+          fillPrefs({ ...DEFAULT_PREFS, ...oauth.preferences })
         if (oauth.currency && !editedCurrency.current) setCurrency(oauth.currency)
       } catch (_error) {
         // non-fatal: settings form pre-fills from auth context if the API call fails
@@ -140,7 +162,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, userId])
+  }, [http, userId, fillName, fillEmail, fillPrefs])
 
   const loadDevices = useCallback(async () => {
     try {

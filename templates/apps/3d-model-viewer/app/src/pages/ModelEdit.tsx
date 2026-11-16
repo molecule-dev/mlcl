@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import ModelEditActionBar from '../components/ModelEditActionBar.js'
@@ -35,14 +36,46 @@ function ModelEdit() {
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [hydrated, setHydrated] = useState(false)
 
-  const [name, setName] = useState('')
-  const [description, setDescription] = useState('')
-  const [category, setCategory] = useState('')
-  const [tags, setTags] = useState<string[]>([])
-  const [viewMode, setViewMode] = useState<ViewMode>('Textured')
-  const [polycount, setPolycount] = useState(0)
-  const [cameraPos, setCameraPos] = useState({ x: '0.000', y: '1.000', z: '3.000' })
-  const [isPublic, setIsPublic] = useState(false)
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('name')
+  const [description, setDescription, fillDescription] = useForm({
+    defaultValues: { description: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('description')
+  const [category, setCategory, fillCategory] = useForm({
+    defaultValues: { category: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('category')
+  const [tags, setTags, fillTags] = useForm({
+    defaultValues: { tags: [] as string[] },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('tags')
+  const [viewMode, setViewMode, fillViewMode] = useForm({
+    defaultValues: { viewMode: 'Textured' as ViewMode },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('viewMode')
+  const [polycount, setPolycount, fillPolycount] = useForm({
+    defaultValues: { polycount: 0 },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('polycount')
+  const [cameraPos, setCameraPos, fillCameraPos] = useForm({
+    defaultValues: { x: '0.000', y: '1.000', z: '3.000' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState()
+  const [isPublic, setIsPublic, fillIsPublic] = useForm({
+    defaultValues: { isPublic: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('isPublic')
 
   useEffect(() => {
     if (!id) {
@@ -64,19 +97,19 @@ function ModelEdit() {
           setError(t('modelEdit.notFound', {}, { defaultValue: 'Model not found.' }))
           return
         }
-        setName(typeof model.name === 'string' ? model.name : '')
-        setDescription(typeof model.description === 'string' ? model.description : '')
-        setCategory(typeof model.category === 'string' ? model.category : '')
-        setTags(Array.isArray(model.tags) ? (model.tags as string[]) : [])
-        setPolycount(Number(model.polygon_count ?? 0))
-        setViewMode(normalizeViewMode(model.environment))
-        setIsPublic(model.visibility === 'public')
+        fillName(typeof model.name === 'string' ? model.name : '')
+        fillDescription(typeof model.description === 'string' ? model.description : '')
+        fillCategory(typeof model.category === 'string' ? model.category : '')
+        fillTags(Array.isArray(model.tags) ? (model.tags as string[]) : [])
+        fillPolycount(Number(model.polygon_count ?? 0))
+        fillViewMode(normalizeViewMode(model.environment))
+        fillIsPublic(model.visibility === 'public')
         const camera = (model.camera_position ?? {}) as {
           x?: number | string
           y?: number | string
           z?: number | string
         }
-        setCameraPos({
+        fillCameraPos({
           x: Number(camera.x ?? 0).toFixed(3),
           y: Number(camera.y ?? 0).toFixed(3),
           z: Number(camera.z ?? 0).toFixed(3),
@@ -98,7 +131,17 @@ function ModelEdit() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id])
+  }, [
+    id,
+    fillName,
+    fillDescription,
+    fillCategory,
+    fillTags,
+    fillPolycount,
+    fillViewMode,
+    fillIsPublic,
+    fillCameraPos,
+  ])
 
   useEffect(() => {
     if (savedAt === null) return

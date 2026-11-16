@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
@@ -87,7 +88,11 @@ export function Settings() {
   const [name, setName, fillName] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [email, setEmail, fillEmail] = useForm({ defaultValues: { value: '' } }).asState('value')
   const [reimbursementMethod, setReimbursementMethod] = useState<'ach' | 'card'>('ach')
-  const [notify, setNotify] = useState({ ...DEFAULT_NOTIFY })
+  const [notify, setNotify, fillNotify] = useForm({
+    defaultValues: { ...DEFAULT_NOTIFY },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [savingProfile, setSavingProfile] = useState(false)
   const [savingPrefs, setSavingPrefs] = useState(false)
   const [profileSaved, setProfileSaved] = useState(false)
@@ -142,7 +147,7 @@ export function Settings() {
         if (prefs.payout_method === 'ach' || prefs.payout_method === 'card') {
           setReimbursementMethod(prefs.payout_method)
         }
-        setNotify({
+        fillNotify({
           submitted: prefs.notify_submitted ?? DEFAULT_NOTIFY.submitted,
           reviewed: prefs.notify_reviewed ?? DEFAULT_NOTIFY.reviewed,
           reimbursed: prefs.notify_reimbursed ?? DEFAULT_NOTIFY.reimbursed,
@@ -155,7 +160,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillNotify])
 
   // Load policies from the API (real, per-user data).
   useEffect(() => {

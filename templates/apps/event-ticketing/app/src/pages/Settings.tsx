@@ -1,6 +1,7 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -82,7 +83,11 @@ export function Settings() {
   const http = useHttpClient()
   const { user } = useAuth<{ id?: string; email?: string }>()
   const [active, setActive] = useState<(typeof SECTIONS)[number]['key']>('profile')
-  const [profile, setProfile] = useState<ProfileShape>(EMPTY_PROFILE)
+  const [profile, setProfile, fillProfile] = useForm<ProfileShape>({
+    defaultValues: EMPTY_PROFILE as ProfileShape,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [profileSavedAt, setProfileSavedAt] = useState<number>(0)
   const [profileBusy, setProfileBusy] = useState(false)
   const [profileError, setProfileError] = useState<string | null>(null)
@@ -116,7 +121,7 @@ export function Settings() {
         ])
         if (cancelled) return
         const p = profileRes.data as ProfileShape
-        setProfile({
+        fillProfile({
           firstName: p.firstName ?? '',
           lastName: p.lastName ?? '',
           displayName: p.displayName ?? '',
@@ -143,7 +148,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, profileSavedAt])
+  }, [http, profileSavedAt, fillProfile])
 
   async function saveProfile() {
     setProfileBusy(true)

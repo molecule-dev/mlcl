@@ -1,9 +1,10 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -68,7 +69,11 @@ export function Settings() {
   const navigate = useNavigate()
 
   const [activeGroup, setActiveGroup] = useState('units')
-  const [prefs, setPrefs] = useState<Preferences>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<Preferences>({
+    defaultValues: DEFAULT_PREFS as Preferences,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [loaded, setLoaded] = useState(false)
   const [saveError, setSaveError] = useState('')
   const [saving, setSaving] = useState<keyof Preferences | null>(null)
@@ -95,7 +100,7 @@ export function Settings() {
         const response = await http.get<SettingsResponse>('/settings')
         if (cancelled) return
         const remote = response.data?.preferences ?? {}
-        setPrefs({ ...DEFAULT_PREFS, ...remote })
+        fillPrefs({ ...DEFAULT_PREFS, ...remote })
         primeWeightUnit(remote.weightUnit)
       } catch (_error) {
         // Prefs fetch failed — keep hardcoded defaults
@@ -107,7 +112,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, user?.id])
+  }, [http, user?.id, fillPrefs])
 
   async function persist(next: Preferences, key: keyof Preferences) {
     if (!user?.id) return

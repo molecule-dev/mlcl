@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useRef, useState } from 'react'
 
 import type { UserProfile } from '@molecule/app-auth'
@@ -83,7 +84,11 @@ export function Settings() {
   const http = useHttpClient()
   const userId = (user?.id as string | undefined) ?? ''
 
-  const [values, setValues] = useState<Record<string, boolean>>(DEFAULTS)
+  const [values, setValues, fillValues] = useForm<Record<string, boolean>>({
+    defaultValues: DEFAULTS as Record<string, boolean>,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [loaded, setLoaded] = useState(false)
   const [saving, setSaving] = useState(false)
   const [saved, setSaved] = useState(false)
@@ -116,7 +121,7 @@ export function Settings() {
         for (const k of Object.keys(persisted)) {
           if (k in DEFAULTS) merged[k] = !!persisted[k]
         }
-        setValues(merged)
+        fillValues(merged)
         lastPersisted.current = merged
         const persistedName = (me?.name as string | null | undefined) ?? null
         if (persistedName !== null && persistedName !== undefined) {
@@ -134,7 +139,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [fillEmail, fillName, http, userId])
+  }, [fillEmail, fillName, http, userId, fillValues])
 
   async function handleSaveProfile(e: React.FormEvent) {
     e.preventDefault()

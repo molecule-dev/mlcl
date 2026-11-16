@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useSearchParams } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, Switch, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -150,9 +151,27 @@ function ProfileSection() {
   const http = useHttpClient()
   const { user: authUser } = useAuth<UserProfile>()
   const userId = authUser?.id
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      authUser && typeof authUser === 'object' && 'id' in authUser ? authUser.id : null,
+    ),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      authUser && typeof authUser === 'object' && 'id' in authUser ? authUser.id : null,
+    ),
+  }).asState('email')
+  const [phone, setPhone, fillPhone] = useForm({
+    defaultValues: { phone: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      authUser && typeof authUser === 'object' && 'id' in authUser ? authUser.id : null,
+    ),
+  }).asState('phone')
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -169,9 +188,9 @@ function ProfileSection() {
         if (cancelled) return
         const me = unwrapSingle<SettingsMe>(res)
         if (me && typeof me === 'object' && 'id' in me) {
-          setName(String(me.name ?? ''))
-          setEmail(String(me.email ?? ''))
-          setPhone(String(me.phone ?? ''))
+          fillName(String(me.name ?? ''))
+          fillEmail(String(me.email ?? ''))
+          fillPhone(String(me.phone ?? ''))
         }
       })
       .catch(() => {
@@ -180,7 +199,7 @@ function ProfileSection() {
     return () => {
       cancelled = true
     }
-  }, [http, userId])
+  }, [http, userId, fillName, fillEmail, fillPhone])
 
   async function handleSave(e: React.FormEvent): Promise<void> {
     e.preventDefault()
@@ -673,7 +692,13 @@ function PreferencesSection() {
   const http = useHttpClient()
   const { user: authUser } = useAuth<UserProfile>()
   const userId = authUser?.id
-  const [prefs, setPrefs] = useState<NotificationPreferences>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<NotificationPreferences>({
+    defaultValues: DEFAULT_PREFS as NotificationPreferences,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      authUser && typeof authUser === 'object' && 'id' in authUser ? authUser.id : null,
+    ),
+  }).asState()
   const [savedAt, setSavedAt] = useState<number | null>(null)
 
   useEffect(() => {
@@ -687,7 +712,7 @@ function PreferencesSection() {
         if (cancelled) return
         const me = unwrapSingle<SettingsMe>(res)
         const p = me?.preferences
-        if (p) setPrefs({ push: !!p.push, email: !!p.email, sms: !!p.sms })
+        if (p) fillPrefs({ push: !!p.push, email: !!p.email, sms: !!p.sms })
       })
       .catch(() => {
         /* ignore */
@@ -695,7 +720,7 @@ function PreferencesSection() {
     return () => {
       cancelled = true
     }
-  }, [http, userId])
+  }, [http, userId, fillPrefs])
 
   async function update(next: NotificationPreferences): Promise<void> {
     if (!userId) return

@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import EmbedCodeSnippet from '../components/EmbedCodeSnippet.js'
@@ -29,11 +30,31 @@ function Embed() {
   const http = useHttpClient()
   const [modelName, setModelName] = useState<string>('')
   const [embedId, setEmbedId] = useState<string | null>(null)
-  const [width, setWidth] = useState(640)
-  const [height, setHeight] = useState(480)
-  const [theme, setTheme] = useState<'light' | 'dark'>('dark')
-  const [autoRotate, setAutoRotate] = useState(true)
-  const [showAnnotations, setShowAnnotations] = useState(false)
+  const [width, setWidth, fillWidth] = useForm({
+    defaultValues: { width: 640 },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('width')
+  const [height, setHeight, fillHeight] = useForm({
+    defaultValues: { height: 480 },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('height')
+  const [theme, setTheme, fillTheme] = useForm({
+    defaultValues: { theme: 'dark' as 'light' | 'dark' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('theme')
+  const [autoRotate, setAutoRotate, fillAutoRotate] = useForm({
+    defaultValues: { autoRotate: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('autoRotate')
+  const [showAnnotations, setShowAnnotations, fillShowAnnotations] = useForm({
+    defaultValues: { showAnnotations: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('showAnnotations')
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
@@ -60,18 +81,18 @@ function Embed() {
       const existing = list[0] as ExistingEmbed | undefined
       if (existing) {
         setEmbedId(existing.id)
-        setWidth(Number(existing.width) || 640)
-        setHeight(Number(existing.height) || 480)
-        setTheme(existing.theme === 'light' ? 'light' : 'dark')
-        setAutoRotate(Boolean(existing.auto_rotate))
-        setShowAnnotations(Boolean(existing.show_annotations))
+        fillWidth(Number(existing.width) || 640)
+        fillHeight(Number(existing.height) || 480)
+        fillTheme(existing.theme === 'light' ? 'light' : 'dark')
+        fillAutoRotate(Boolean(existing.auto_rotate))
+        fillShowAnnotations(Boolean(existing.show_annotations))
       }
     })
     return () => {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [id])
+  }, [id, fillWidth, fillHeight, fillTheme, fillAutoRotate, fillShowAnnotations])
 
   useEffect(() => {
     if (savedAt === null) return

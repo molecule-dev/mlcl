@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -72,9 +73,21 @@ export function HostListingDetail() {
   const [tab, setTab] = useState<Tab>('calendar')
 
   // Pricing form (cents-stable; render in dollars).
-  const [weekdayPrice, setWeekdayPrice] = useState('')
-  const [weekendPrice, setWeekendPrice] = useState('')
-  const [cleaningFee, setCleaningFee] = useState('')
+  const [weekdayPrice, setWeekdayPrice, fillWeekdayPrice] = useForm({
+    defaultValues: { weekdayPrice: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('weekdayPrice')
+  const [weekendPrice, setWeekendPrice, fillWeekendPrice] = useForm({
+    defaultValues: { weekendPrice: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('weekendPrice')
+  const [cleaningFee, setCleaningFee, fillCleaningFee] = useForm({
+    defaultValues: { cleaningFee: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('cleaningFee')
   const [pricingSaved, setPricingSaved] = useState(false)
   const [pricingError, setPricingError] = useState<string | null>(null)
   const [pricingSaving, setPricingSaving] = useState(false)
@@ -93,10 +106,10 @@ export function HostListingDetail() {
         if (l) {
           setListing(l)
           const dollars = l.price_per_night ?? l.price_per_night_cents / 100
-          setWeekdayPrice(`$${dollars.toFixed(0)}`)
-          setWeekendPrice(`$${Math.round(dollars * 1.18)}`)
+          fillWeekdayPrice(`$${dollars.toFixed(0)}`)
+          fillWeekendPrice(`$${Math.round(dollars * 1.18)}`)
           const cleaning = l.cleaning_fee ?? l.cleaning_fee_cents / 100
-          setCleaningFee(`$${cleaning.toFixed(0)}`)
+          fillCleaningFee(`$${cleaning.toFixed(0)}`)
         }
         // Filter bookings down to those for this listing.
         const allBookings = unwrapList<BookingRow & { listing_id: string }>(reservationsRes?.data)
@@ -108,7 +121,7 @@ export function HostListingDetail() {
     return () => {
       cancelled = true
     }
-  }, [http, id])
+  }, [http, id, fillWeekdayPrice, fillWeekendPrice, fillCleaningFee])
 
   const bookedDates = useMemo(() => buildBookedDates(bookings), [bookings])
 

@@ -1,9 +1,11 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import {
   useAuth,
   useChangePassword,
+  useForm,
   useHttpClient,
   usePush,
   useTranslation,
@@ -421,19 +423,27 @@ function ProfileSection() {
   const { t } = useTranslation()
   const http = useHttpClient()
   const { user, refresh } = useAuth<AuthUser>()
-  const [name, setName] = useState<string>('')
-  const [email, setEmail] = useState<string>('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' as string },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' as string },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [error, setError] = useState<string | null>(null)
 
   useEffect(() => {
-    setName(typeof user?.name === 'string' ? user.name : '')
-  }, [user?.name])
+    fillName(typeof user?.name === 'string' ? user.name : '')
+  }, [user?.name, fillName])
 
   useEffect(() => {
-    setEmail(typeof user?.email === 'string' ? user.email : '')
-  }, [user?.email])
+    fillEmail(typeof user?.email === 'string' ? user.email : '')
+  }, [user?.email, fillEmail])
 
   async function save(e: React.FormEvent) {
     e.preventDefault()

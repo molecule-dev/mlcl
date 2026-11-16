@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -219,17 +220,25 @@ function AccountPanel() {
   const http = useHttpClient()
   const user = state.user
 
-  const [name, setName] = useState(user?.name ?? '')
-  const [email, setEmail] = useState(user?.email ?? '')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: user?.name ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: user?.email ?? '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
   const [busy, setBusy] = useState(false)
   const [message, setMessage] = useState<{ kind: 'success' | 'error'; text: string } | null>(null)
 
   useEffect(() => {
     if (user) {
-      setName(user.name ?? '')
-      setEmail(user.email ?? '')
+      fillName(user.name ?? '')
+      fillEmail(user.email ?? '')
     }
-  }, [user])
+  }, [user, fillName, fillEmail])
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()

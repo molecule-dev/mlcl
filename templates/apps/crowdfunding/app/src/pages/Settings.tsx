@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
@@ -46,10 +47,26 @@ export function Settings() {
   const { user, setUser, logout } = useAuth<UserProfile>()
   const [section, setSection] = useState<SectionKey>('profile')
   const [profile, setProfile] = useState<ApiProfile | null>(null)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [bio, setBio] = useState('')
-  const [website, setWebsite] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
+  const [bio, setBio, fillBio] = useForm({
+    defaultValues: { bio: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('bio')
+  const [website, setWebsite, fillWebsite] = useForm({
+    defaultValues: { website: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('website')
   const [prefs, setPrefs, fillPrefs] = useForm<NotificationPrefs>({
     defaultValues: DEFAULT_PREFS,
   }).asState()
@@ -79,11 +96,11 @@ export function Settings() {
         const p = await api.getMyProfile(http)
         if (!alive) return
         setProfile(p)
-        setName(p.name ?? '')
-        setEmail(p.email ?? '')
-        setBio(p.bio ?? '')
+        fillName(p.name ?? '')
+        fillEmail(p.email ?? '')
+        fillBio(p.bio ?? '')
         const websiteFromPrefs = (p.preferences as { website?: string } | undefined)?.website
-        setWebsite(websiteFromPrefs ?? '')
+        fillWebsite(websiteFromPrefs ?? '')
         const npref = (p.preferences as { notifications?: NotificationPrefs } | undefined)
           ?.notifications
         if (npref) fillPrefs({ ...DEFAULT_PREFS, ...npref })
@@ -99,7 +116,7 @@ export function Settings() {
     return () => {
       alive = false
     }
-  }, [fillPrefs, http, t])
+  }, [fillPrefs, http, t, fillName, fillEmail, fillBio, fillWebsite])
 
   // Read the persisted 2FA status from /users/me on mount (best-effort).
   useEffect(() => {

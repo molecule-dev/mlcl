@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
 
@@ -58,7 +59,11 @@ export function Consult() {
   const [appointment, setAppointment] = useState<Appointment | null>(null)
   const [vitals, setVitals] = useState<Vital[]>([])
   const [history, setHistory] = useState<PatientHistory[]>([])
-  const [notes, setNotes] = useState('')
+  const [notes, setNotes, fillNotes] = useForm({
+    defaultValues: { notes: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('notes')
   const [notesSavedAt, setNotesSavedAt] = useState<number | null>(null)
   const [notesSaving, setNotesSaving] = useState(false)
   const lastPersistedNotes = useRef<string>('')
@@ -87,7 +92,7 @@ export function Consult() {
         setVitals(unwrapList<Vital>(v))
         setHistory(unwrapList<PatientHistory>(h))
         const initialNotes = appt && typeof appt.notes === 'string' ? appt.notes : ''
-        setNotes(initialNotes)
+        fillNotes(initialNotes)
         lastPersistedNotes.current = initialNotes
       })
       .catch(() => {
@@ -100,7 +105,7 @@ export function Consult() {
     return () => {
       cancelled = true
     }
-  }, [http, id, t])
+  }, [http, id, t, fillNotes])
 
   useEffect(() => {
     const tid = setInterval(() => setElapsed((e) => e + 1), 1000)

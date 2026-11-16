@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useMemo, useState } from 'react'
 import { useNavigate, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { unwrapList, unwrapSingle } from '../lib/unwrap.js'
@@ -74,7 +75,11 @@ export function BookingCheckout() {
   const [guests, setGuests] = useState(initialGuests)
   const [selectedRoomId, setSelectedRoomId] = useState<string | null>(initialRoomId)
 
-  const [guest, setGuest] = useState({ firstName: '', lastName: '', email: '', phone: '' })
+  const [guest, setGuest, fillGuest] = useForm({
+    defaultValues: { firstName: '', lastName: '', email: '', phone: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState()
   const [paymentMethod, setPaymentMethod] = useState<'card' | 'apple_pay' | 'google_pay'>('card')
 
   useEffect(() => {
@@ -99,7 +104,7 @@ export function BookingCheckout() {
         if (rms.length > 0) setSelectedRoomId((current) => current ?? rms[0].id)
         const profile = unwrapSingle<UserProfile>(uRes)
         if (profile) {
-          setGuest((g) => ({
+          fillGuest((g) => ({
             ...g,
             firstName: g.firstName || profile.first_name || '',
             lastName: g.lastName || profile.last_name || '',
@@ -117,7 +122,7 @@ export function BookingCheckout() {
     return () => {
       cancelled = true
     }
-  }, [id, http, t])
+  }, [id, http, t, fillGuest])
 
   const selectedRoom = useMemo(
     () => rooms.find((r) => r.id === selectedRoomId) ?? rooms[0] ?? null,

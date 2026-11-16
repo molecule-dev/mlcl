@@ -1,9 +1,11 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { type FormEvent, useCallback, useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import {
   useAuth,
   useChangePassword,
+  useForm,
   useHttpClient,
   usePush,
   useTranslation,
@@ -148,9 +150,27 @@ export function Settings() {
   const [section, setSection] = useState<Section>('account')
 
   const [me, setMe] = useState<ProfileMe | null>(null)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [prefs, setPrefs] = useState<Prefs>(DEFAULT_PREFS)
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('email')
+  const [prefs, setPrefs, fillPrefs] = useForm<Prefs>({
+    defaultValues: DEFAULT_PREFS as Prefs,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState()
 
   const [loading, setLoading] = useState(true)
   const [saving, setSaving] = useState(false)
@@ -272,9 +292,9 @@ export function Settings() {
         const data = unwrapSingle<ProfileMe>(res)
         if (!data) throw new Error('Empty profile')
         setMe(data)
-        setName(data.name ?? '')
-        setEmail(data.email ?? '')
-        setPrefs({ ...DEFAULT_PREFS, ...(data.preferences ?? {}) })
+        fillName(data.name ?? '')
+        fillEmail(data.email ?? '')
+        fillPrefs({ ...DEFAULT_PREFS, ...(data.preferences ?? {}) })
         setError(null)
       } catch (err) {
         if (cancelled) return
@@ -288,7 +308,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillName, fillEmail, fillPrefs])
 
   const dirty = useMemo(() => {
     if (!me) return false

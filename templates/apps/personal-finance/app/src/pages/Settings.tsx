@@ -1,6 +1,7 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ThemeToggle } from '@molecule/app-ui-react'
 
@@ -20,8 +21,16 @@ function Settings() {
   const { t, locale, setLocale } = useTranslation()
   const { user } = useAuth<{ id?: string; name?: string; email?: string }>()
   const http = useHttpClient()
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
   const [emailAlerts, setEmailAlerts] = useState(true)
   const [pushNotifications, setPushNotifications] = useState(false)
   const [weeklyDigest, setWeeklyDigest] = useState(true)
@@ -30,10 +39,10 @@ function Settings() {
 
   useEffect(() => {
     if (user) {
-      setName(user.name ?? '')
-      setEmail(user.email ?? '')
+      fillName(user.name ?? '')
+      fillEmail(user.email ?? '')
     }
-  }, [user])
+  }, [user, fillName, fillEmail])
 
   useEffect(() => {
     if (savedAt === null) return

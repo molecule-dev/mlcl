@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useState } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 
@@ -5,6 +6,7 @@ import { error as logError } from '@molecule/app-logger'
 import {
   useAuth,
   useChangePassword,
+  useForm,
   useHttpClient,
   usePush,
   useTranslation,
@@ -130,9 +132,21 @@ export function Settings() {
   const [creatingKey, setCreatingKey] = useState(false)
   const [statusMessage, setStatusMessage] = useState<string | null>(null)
   const [statusKind, setStatusKind] = useState<'success' | 'error'>('success')
-  const [displayName, setDisplayName] = useState<string>('')
-  const [emailValue, setEmailValue] = useState<string>('')
-  const [orgValue, setOrgValue] = useState<string>('')
+  const [displayName, setDisplayName, fillDisplayName] = useForm({
+    defaultValues: { displayName: '' as string },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('displayName')
+  const [emailValue, setEmailValue, fillEmailValue] = useForm({
+    defaultValues: { emailValue: '' as string },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('emailValue')
+  const [orgValue, setOrgValue, fillOrgValue] = useForm({
+    defaultValues: { orgValue: '' as string },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('orgValue')
   const [savingAccount, setSavingAccount] = useState(false)
   const [showPasswordModal, setShowPasswordModal] = useState(false)
   const [currentPassword, setCurrentPassword] = useState('')
@@ -180,9 +194,9 @@ export function Settings() {
 
       const profile = unwrapSingle<ProfileShape>(profileRes)
       if (profile) {
-        setDisplayName(profile.display_name ?? '')
-        setEmailValue(profile.email ?? '')
-        setOrgValue(profile.organization ?? '')
+        fillDisplayName(profile.display_name ?? '')
+        fillEmailValue(profile.email ?? '')
+        fillOrgValue(profile.organization ?? '')
         setTeam([
           {
             id: profile.id ?? 'me',
@@ -193,13 +207,13 @@ export function Settings() {
         ])
         setTeamReady(true)
       } else {
-        setDisplayName((user as { name?: string } | null)?.name ?? '')
-        setEmailValue((user as { email?: string } | null)?.email ?? '')
+        fillDisplayName((user as { name?: string } | null)?.name ?? '')
+        fillEmailValue((user as { email?: string } | null)?.email ?? '')
       }
 
       const settings = unwrapSingle<SettingsShape>(settingsRes)
       if (settings) {
-        if (!profile) setOrgValue(settings.organization ?? '')
+        if (!profile) fillOrgValue(settings.organization ?? '')
         setSources(
           Object.entries(DATA_SOURCE_LABELS).map(([key, label]) => ({
             key,
@@ -216,7 +230,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, user])
+  }, [http, user, fillDisplayName, fillEmailValue, fillOrgValue])
 
   // Registered devices (GET /api/devices) — endpoint is optional; render empty if unavailable.
   const loadDevices = useCallback(async () => {

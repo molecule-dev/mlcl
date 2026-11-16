@@ -1,9 +1,10 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 // Phase 1 baseline — verbatim JSX of design-online-store-settings.html
 // Do not hand-edit; Phase 2 will extract sections one at a time.
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { NotificationsSection } from '@molecule/app-settings-panel-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
@@ -43,10 +44,26 @@ function Settings() {
   const navigate = useNavigate()
   const [signingOut, setSigningOut] = useState(false)
   const [activeSection, setActiveSection] = useState('profile')
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [phone, setPhone] = useState('')
-  const [location, setLocation] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: user?.id,
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: user?.id,
+  }).asState('email')
+  const [phone, setPhone, fillPhone] = useForm({
+    defaultValues: { phone: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: user?.id,
+  }).asState('phone')
+  const [location, setLocation, fillLocation] = useForm({
+    defaultValues: { location: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: user?.id,
+  }).asState('location')
   const [profileSaving, setProfileSaving] = useState(false)
   const [saveError, setSaveError] = useState<string | null>(null)
   const [savedAt, setSavedAt] = useState<number | null>(null)
@@ -54,24 +71,50 @@ function Settings() {
   const [newPassword, setNewPassword] = useState('')
   const [passwordSaving, setPasswordSaving] = useState(false)
   const [passwordError, setPasswordError] = useState<string | null>(null)
-  const [notifyOrderUpdates, setNotifyOrderUpdates] = useState(true)
-  const [notifyPromotions, setNotifyPromotions] = useState(true)
-  const [notifyPriceDrops, setNotifyPriceDrops] = useState(false)
-  const [notifyNewsletter, setNotifyNewsletter] = useState(false)
+  const [notifyOrderUpdates, setNotifyOrderUpdates, fillNotifyOrderUpdates] = useForm({
+    defaultValues: { notifyOrderUpdates: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: user?.id,
+  }).asState('notifyOrderUpdates')
+  const [notifyPromotions, setNotifyPromotions, fillNotifyPromotions] = useForm({
+    defaultValues: { notifyPromotions: true },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: user?.id,
+  }).asState('notifyPromotions')
+  const [notifyPriceDrops, setNotifyPriceDrops, fillNotifyPriceDrops] = useForm({
+    defaultValues: { notifyPriceDrops: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: user?.id,
+  }).asState('notifyPriceDrops')
+  const [notifyNewsletter, setNotifyNewsletter, fillNotifyNewsletter] = useForm({
+    defaultValues: { notifyNewsletter: false },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: user?.id,
+  }).asState('notifyNewsletter')
   useEffect(() => {
     if (user) {
-      setName(user.name || '')
-      setEmail(user.email || '')
+      fillName(user.name || '')
+      fillEmail(user.email || '')
       const od = user.oauthData ?? {}
-      setPhone(od.phone || '')
-      setLocation(od.location || '')
+      fillPhone(od.phone || '')
+      fillLocation(od.location || '')
       const n = od.notifications ?? {}
-      if (typeof n.orderUpdates === 'boolean') setNotifyOrderUpdates(n.orderUpdates)
-      if (typeof n.promotions === 'boolean') setNotifyPromotions(n.promotions)
-      if (typeof n.priceDrops === 'boolean') setNotifyPriceDrops(n.priceDrops)
-      if (typeof n.newsletter === 'boolean') setNotifyNewsletter(n.newsletter)
+      if (typeof n.orderUpdates === 'boolean') fillNotifyOrderUpdates(n.orderUpdates)
+      if (typeof n.promotions === 'boolean') fillNotifyPromotions(n.promotions)
+      if (typeof n.priceDrops === 'boolean') fillNotifyPriceDrops(n.priceDrops)
+      if (typeof n.newsletter === 'boolean') fillNotifyNewsletter(n.newsletter)
     }
-  }, [user])
+  }, [
+    user,
+    fillName,
+    fillEmail,
+    fillPhone,
+    fillLocation,
+    fillNotifyOrderUpdates,
+    fillNotifyPromotions,
+    fillNotifyPriceDrops,
+    fillNotifyNewsletter,
+  ])
   // Server-truth hydration: the platform user resource never returns the
   // oauthData slice on reads, so the auth-client mirror above starts from
   // defaults on a fresh session. /api/settings is the read/merge channel
@@ -91,13 +134,13 @@ function Settings() {
           location?: string
           notifications?: Record<string, boolean>
         }
-        if (typeof s.phone === 'string' && s.phone) setPhone(s.phone)
-        if (typeof s.location === 'string' && s.location) setLocation(s.location)
+        if (typeof s.phone === 'string' && s.phone) fillPhone(s.phone)
+        if (typeof s.location === 'string' && s.location) fillLocation(s.location)
         const n = s.notifications ?? {}
-        if (typeof n.orderUpdates === 'boolean') setNotifyOrderUpdates(n.orderUpdates)
-        if (typeof n.promotions === 'boolean') setNotifyPromotions(n.promotions)
-        if (typeof n.priceDrops === 'boolean') setNotifyPriceDrops(n.priceDrops)
-        if (typeof n.newsletter === 'boolean') setNotifyNewsletter(n.newsletter)
+        if (typeof n.orderUpdates === 'boolean') fillNotifyOrderUpdates(n.orderUpdates)
+        if (typeof n.promotions === 'boolean') fillNotifyPromotions(n.promotions)
+        if (typeof n.priceDrops === 'boolean') fillNotifyPriceDrops(n.priceDrops)
+        if (typeof n.newsletter === 'boolean') fillNotifyNewsletter(n.newsletter)
       })
       .catch(() => {
         // Mirrored values (if any) stay on screen; Save still works.
@@ -106,7 +149,15 @@ function Settings() {
       cancelled = true
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []) // fetch once on mount — http client is stable
+  }, [
+    fillPhone,
+    fillLocation,
+    fillNotifyOrderUpdates,
+    fillNotifyPromotions,
+    fillNotifyPriceDrops,
+    fillNotifyNewsletter,
+    user?.id,
+  ]) // Refill when the account owner changes.
   useEffect(() => {
     if (savedAt === null) return
     const timer = setTimeout(() => setSavedAt(null), 2500)

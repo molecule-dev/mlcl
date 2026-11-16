@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { type FormEvent, useEffect, useState } from 'react'
 import { Link, useLocation, useNavigate } from 'react-router'
 
@@ -104,11 +105,27 @@ export function Settings() {
     }
   }
 
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [city, setCity] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('email')
+  const [city, setCity, fillCity] = useForm({
+    defaultValues: { city: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState('city')
 
-  const [prefs, setPrefs] = useState<PreferenceShape>(DEFAULT_PREFS)
+  const [prefs, setPrefs, fillPrefs] = useForm<PreferenceShape>({
+    defaultValues: DEFAULT_PREFS as PreferenceShape,
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(user && typeof user === 'object' && 'id' in user ? user.id : null),
+  }).asState()
   const [notifs, setNotifs, fillNotifs] = useForm<NotificationFlags>({
     defaultValues: DEFAULT_NOTIFS,
     resetKey: JSON.stringify([user?.id]),
@@ -119,10 +136,10 @@ export function Settings() {
 
   useEffect(() => {
     if (!user) return
-    setName(user.name ?? '')
-    setEmail(user.email ?? '')
-    setCity(user.city ?? '')
-  }, [user])
+    fillName(user.name ?? '')
+    fillEmail(user.email ?? '')
+    fillCity(user.city ?? '')
+  }, [user, fillName, fillEmail, fillCity])
 
   // Hydrate preferences + notifications + city from /api/user-settings.
   useEffect(() => {
@@ -133,8 +150,8 @@ export function Settings() {
       .then((res) => {
         if (cancelled) return
         const body = (res?.data ?? res) as Record<string, unknown>
-        if (typeof body.city === 'string') setCity(body.city)
-        if (isPreferenceShape(body.preferences)) setPrefs(body.preferences)
+        if (typeof body.city === 'string') fillCity(body.city)
+        if (isPreferenceShape(body.preferences)) fillPrefs(body.preferences)
         if (isNotificationFlags(body.notification_prefs)) fillNotifs(body.notification_prefs)
       })
       .catch(() => {
@@ -143,7 +160,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [fillNotifs, http, user?.id])
+  }, [fillNotifs, http, user?.id, fillCity, fillPrefs])
 
   async function handleSave(e?: FormEvent) {
     e?.preventDefault()

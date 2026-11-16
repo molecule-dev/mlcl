@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import type { FormEvent } from 'react'
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
@@ -5,6 +6,7 @@ import { Link, useNavigate } from 'react-router'
 import {
   useAuth,
   useChangePassword,
+  useForm,
   useHttpClient,
   usePush,
   useTranslation,
@@ -84,11 +86,41 @@ export function Settings() {
   const [saving, setSaving] = useState(false)
 
   // Editable form state. Mirrors `profile` but is what the user types into.
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [company, setCompany] = useState('')
-  const [title, setTitle] = useState('')
-  const [signatureName, setSignatureName] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('email')
+  const [company, setCompany, fillCompany] = useForm({
+    defaultValues: { company: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('company')
+  const [title, setTitle, fillTitle] = useForm({
+    defaultValues: { title: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('title')
+  const [signatureName, setSignatureName, fillSignatureName] = useForm({
+    defaultValues: { signatureName: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('signatureName')
   const [notif, setNotif] = useState<NotificationPreferences>({})
 
   // Security section state (change password + 2FA + devices + delete account).
@@ -122,11 +154,11 @@ export function Settings() {
         const p = unwrapSingle<Profile>(res)
         if (cancelled || !p) return
         setProfile(p)
-        setName(p.name || '')
-        setEmail(p.email || '')
-        setCompany(p.company || '')
-        setTitle(p.title || '')
-        setSignatureName(p.signatureName || p.name || '')
+        fillName(p.name || '')
+        fillEmail(p.email || '')
+        fillCompany(p.company || '')
+        fillTitle(p.title || '')
+        fillSignatureName(p.signatureName || p.name || '')
         setNotif(p.notificationPreferences || {})
       })
       .catch((err: unknown) => {
@@ -143,7 +175,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, fillName, fillEmail, fillCompany, fillTitle, fillSignatureName])
 
   // Load the user's registered devices for the security section. The endpoint
   // is optional — render an empty list if it is unavailable. Extracted so the

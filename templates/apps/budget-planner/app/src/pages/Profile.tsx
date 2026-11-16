@@ -1,7 +1,14 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
-import { useAuth, useChangePassword, useHttpClient, useTranslation } from '@molecule/app-react'
+import {
+  useAuth,
+  useChangePassword,
+  useForm,
+  useHttpClient,
+  useTranslation,
+} from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import { APP_NAME } from '../branding.js'
@@ -53,8 +60,20 @@ export function Profile() {
   const navigate = useNavigate()
   const { status: pwStatus, error: pwError, changePassword, reset: resetPw } = useChangePassword()
   const [profile, setProfile] = useState<ProfileResponse | null>(null)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify(
+      auth.user && typeof auth.user === 'object' && 'id' in auth.user ? auth.user.id : null,
+    ),
+  }).asState('email')
   const [saving, setSaving] = useState(false)
   const [feedback, setFeedback] = useState<string | null>(null)
   const [feedbackKind, setFeedbackKind] = useState<'success' | 'error'>('success')
@@ -88,15 +107,15 @@ export function Profile() {
         const p = unwrapSingle<ProfileResponse>(res)
         if (p) {
           setProfile(p)
-          setName(p.name ?? '')
-          setEmail(p.email ?? '')
+          fillName(p.name ?? '')
+          fillEmail(p.email ?? '')
         }
       })
       .catch(() => {})
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillName, fillEmail])
 
   const loadDevices = useCallback(async () => {
     try {

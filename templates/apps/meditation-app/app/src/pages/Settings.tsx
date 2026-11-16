@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { LanguagePicker, ThemeToggle } from '@molecule/app-ui-react'
 
@@ -32,7 +33,10 @@ export function Settings() {
   const { t } = useTranslation()
   const http = useHttpClient()
 
-  const [prefs, setPrefs] = useState<ApiUserPreferences>(DEFAULT_PREFERENCES)
+  const [prefs, setPrefs, fillPrefs] = useForm<ApiUserPreferences>({
+    defaultValues: DEFAULT_PREFERENCES as ApiUserPreferences,
+    resetOptions: { keepDirtyValues: true },
+  }).asState()
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [saving, setSaving] = useState(false)
@@ -45,7 +49,7 @@ export function Settings() {
       .get<ApiUserPreferences>('/preferences')
       .then((res) => {
         if (cancelled) return
-        setPrefs({ ...DEFAULT_PREFERENCES, ...(res.data ?? {}) })
+        fillPrefs({ ...DEFAULT_PREFERENCES, ...(res.data ?? {}) })
         setError(null)
       })
       .catch((err) => {
@@ -58,7 +62,7 @@ export function Settings() {
     return () => {
       cancelled = true
     }
-  }, [http])
+  }, [http, fillPrefs])
 
   const persist = async (patch: Partial<ApiUserPreferences>) => {
     setSaving(true)

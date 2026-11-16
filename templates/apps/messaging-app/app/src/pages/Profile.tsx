@@ -1,7 +1,8 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useState } from 'react'
 
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Button } from '@molecule/app-ui-react'
 
@@ -90,10 +91,22 @@ export function Profile() {
   const [me, setMe] = useState<Me | null>(null)
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [statusText, setStatusText] = useState('')
-  const [phone, setPhone] = useState('')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('email')
+  const [statusText, setStatusText, fillStatusText] = useForm({
+    defaultValues: { statusText: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('statusText')
+  const [phone, setPhone, fillPhone] = useForm({
+    defaultValues: { phone: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('phone')
   const [saving, setSaving] = useState(false)
   const [savedAt, setSavedAt] = useState<number | null>(null)
   const [devices, setDevices] = useState<DeviceFull[]>([])
@@ -111,10 +124,10 @@ export function Profile() {
         const data = unwrapSingle<Me>(res)
         if (data) {
           setMe(data)
-          setName(data.name ?? '')
-          setEmail(data.email ?? '')
-          setStatusText(data.status_text ?? '')
-          setPhone(data.phone ?? '')
+          fillName(data.name ?? '')
+          fillEmail(data.email ?? '')
+          fillStatusText(data.status_text ?? '')
+          fillPhone(data.phone ?? '')
         }
       })
       .catch(() => {
@@ -127,7 +140,7 @@ export function Profile() {
     return () => {
       cancelled = true
     }
-  }, [http, t])
+  }, [http, t, fillName, fillEmail, fillStatusText, fillPhone])
 
   // Load the canonical device list (revoke-aware, with `isCurrent`).
   const loadDevices = useCallback(async () => {

@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -58,7 +59,11 @@ export function Editor() {
   const [error, setError] = useState<string | null>(null)
   const [editingCell, setEditingCell] = useState<{ rowId: string; columnId: string } | null>(null)
   const [editingValue, setEditingValue] = useState('')
-  const [titleDraft, setTitleDraft] = useState('')
+  const [titleDraft, setTitleDraft, fillTitleDraft] = useForm({
+    defaultValues: { titleDraft: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('titleDraft')
   const [renamingTitle, setRenamingTitle] = useState(false)
   /** Which in-page name dialog is open (replaces blocking window.prompt). */
   const [nameDialog, setNameDialog] = useState<'sheet' | 'column' | null>(null)
@@ -87,7 +92,7 @@ export function Editor() {
         const data = res.data
         if (data) {
           setWorkbook(data)
-          setTitleDraft(data.title)
+          fillTitleDraft(data.title)
           if (data.sheets?.length) setActiveSheetId(data.sheets[0]!.id)
         }
       } catch (err) {
@@ -100,7 +105,7 @@ export function Editor() {
     return () => {
       cancelled = true
     }
-  }, [id, http])
+  }, [id, http, fillTitleDraft])
 
   // Re-fetch the active sheet's columns + rows. Shared by the initial load and
   // the realtime silent-refetch path (batch/reorder events carry no mergeable

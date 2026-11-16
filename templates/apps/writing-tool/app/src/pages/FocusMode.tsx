@@ -1,8 +1,9 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { error as logError } from '@molecule/app-logger'
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 import type { DocumentRow } from '../lib/types.js'
@@ -24,7 +25,11 @@ export function FocusMode() {
   const docId = id ?? ''
 
   const [doc, setDoc] = useState<DocumentRow | null>(null)
-  const [body, setBody] = useState('')
+  const [body, setBody, fillBody] = useForm({
+    defaultValues: { body: '' },
+    resetOptions: { keepDirtyValues: true },
+    resetKey: JSON.stringify([id]),
+  }).asState('body')
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
   const [chromeVisible, setChromeVisible] = useState(true)
@@ -44,7 +49,7 @@ export function FocusMode() {
           setError(t('focus.notFound', {}, { defaultValue: 'Document not found.' }))
         } else {
           setDoc(row)
-          setBody(row.body_md ?? '')
+          fillBody(row.body_md ?? '')
           setError(null)
         }
       })
@@ -58,7 +63,7 @@ export function FocusMode() {
     return () => {
       cancelled = true
     }
-  }, [docId, http, t])
+  }, [docId, http, t, fillBody])
 
   const persist = useCallback(
     async (next: string) => {

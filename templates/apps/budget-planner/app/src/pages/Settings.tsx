@@ -1,3 +1,4 @@
+/** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
 import { Link, useNavigate } from 'react-router'
 
@@ -40,16 +41,37 @@ export function Settings() {
   const [section, setSection] = useState<Section>('profile')
   const [profile, setProfile] = useState<ProfileResponse | null>(null)
   const [billing, setBilling] = useState<BillingStatus | null>(null)
-  const [name, setName] = useState('')
-  const [email, setEmail] = useState('')
-  const [currency, setCurrency] = useState('USD')
-  const [dateFormat, setDateFormat] = useState('MMM d, yyyy')
+  const [name, setName, fillName] = useForm({
+    defaultValues: { name: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('name')
+  const [email, setEmail, fillEmail] = useForm({
+    defaultValues: { email: '' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('email')
+  const [currency, setCurrency, fillCurrency] = useForm({
+    defaultValues: { currency: 'USD' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('currency')
+  const [dateFormat, setDateFormat, fillDateFormat] = useForm({
+    defaultValues: { dateFormat: 'MMM d, yyyy' },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('dateFormat')
   const [firstDayOfWeek, setFirstDayOfWeek, fillFirstDayOfWeek] = useForm<{
     value: 'Sunday' | 'Monday' | 'Saturday'
   }>({ defaultValues: { value: 'Sunday' } }).asState('value')
-  const [notifyBudgetOverspent, setNotifyBudgetOverspent] = useState(true)
-  const [notifyGoalMilestones, setNotifyGoalMilestones] = useState(true)
-  const [notifyMonthlyReport, setNotifyMonthlyReport] = useState(true)
+  const [notifyBudgetOverspent, setNotifyBudgetOverspent, fillNotifyBudgetOverspent] = useForm({
+    defaultValues: { notifyBudgetOverspent: true },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('notifyBudgetOverspent')
+  const [notifyGoalMilestones, setNotifyGoalMilestones, fillNotifyGoalMilestones] = useForm({
+    defaultValues: { notifyGoalMilestones: true },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('notifyGoalMilestones')
+  const [notifyMonthlyReport, setNotifyMonthlyReport, fillNotifyMonthlyReport] = useForm({
+    defaultValues: { notifyMonthlyReport: true },
+    resetOptions: { keepDirtyValues: true },
+  }).asState('notifyMonthlyReport')
   const [savingProfile, setSavingProfile] = useState(false)
   const [savingPrefs, setSavingPrefs] = useState(false)
   const [feedback, setFeedback] = useState<string | null>(null)
@@ -66,21 +88,31 @@ export function Settings() {
       const b = unwrapSingle<BillingStatus>(bRes)
       if (p) {
         setProfile(p)
-        setName(p.name ?? '')
-        setEmail(p.email ?? '')
-        setCurrency(p.preferences?.currency ?? 'USD')
-        setDateFormat(p.preferences?.dateFormat ?? 'MMM d, yyyy')
+        fillName(p.name ?? '')
+        fillEmail(p.email ?? '')
+        fillCurrency(p.preferences?.currency ?? 'USD')
+        fillDateFormat(p.preferences?.dateFormat ?? 'MMM d, yyyy')
         fillFirstDayOfWeek(p.preferences?.firstDayOfWeek ?? 'Sunday')
-        setNotifyBudgetOverspent(p.preferences?.notifyBudgetOverspent ?? true)
-        setNotifyGoalMilestones(p.preferences?.notifyGoalMilestones ?? true)
-        setNotifyMonthlyReport(p.preferences?.notifyMonthlyReport ?? true)
+        fillNotifyBudgetOverspent(p.preferences?.notifyBudgetOverspent ?? true)
+        fillNotifyGoalMilestones(p.preferences?.notifyGoalMilestones ?? true)
+        fillNotifyMonthlyReport(p.preferences?.notifyMonthlyReport ?? true)
       }
       if (b) setBilling(b)
     })
     return () => {
       cancelled = true
     }
-  }, [fillFirstDayOfWeek, http])
+  }, [
+    fillFirstDayOfWeek,
+    http,
+    fillName,
+    fillEmail,
+    fillCurrency,
+    fillDateFormat,
+    fillNotifyBudgetOverspent,
+    fillNotifyGoalMilestones,
+    fillNotifyMonthlyReport,
+  ])
 
   function showFeedback(kind: 'success' | 'error', msg: string) {
     setFeedback(msg)

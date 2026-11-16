@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
@@ -93,6 +93,7 @@ export function Builder() {
   const surveyId = id ?? ''
 
   const [survey, setSurvey] = useState<SurveyApi | null>(null)
+  const savedTitle = useRef<{ id: string; title: string } | null>(null)
   const [questions, setQuestions] = useState<BuilderQuestion[]>([])
   const [activeQuestionId, setActiveQuestionId] = useState<string | null>(null)
   const [confirmDeleteId, setConfirmDeleteId] = useState<string | null>(null)
@@ -112,6 +113,7 @@ export function Builder() {
         const body = response?.data
         if (!body) return
         setSurvey(body)
+        savedTitle.current = { id: String(body.id), title: body.title ?? '' }
         const sortedQs = [...(body.questions ?? [])].sort(
           (a, b) => (a.position ?? 0) - (b.position ?? 0),
         )
@@ -200,13 +202,23 @@ export function Builder() {
   }
 
   async function patchSurvey(patch: Partial<SurveyApi>) {
-    if (!surveyId) return
+    if (!surveyId || String(survey?.id) !== surveyId) return
     setSaving(true)
     setError(null)
     try {
       const response = await http.patch<SurveyApi>(`/api/surveys/${surveyId}`, patch)
       const updated = response?.data
-      if (updated) setSurvey((s) => (s ? { ...s, ...updated } : updated))
+      if (updated)
+        setSurvey((current) => {
+          if (!current || String(current.id) !== surveyId) return current
+          const title =
+            patch.title !== undefined && current.title !== patch.title
+              ? current.title
+              : (updated.title ?? current.title)
+          return { ...current, ...updated, title }
+        })
+      if (patch.title !== undefined && savedTitle.current?.id === surveyId)
+        savedTitle.current = { id: surveyId, title: updated?.title ?? patch.title }
     } catch (err) {
       setError(err instanceof Error ? err.message : 'Could not save survey.')
     } finally {
@@ -354,7 +366,10 @@ export function Builder() {
             value={survey?.title ?? ''}
             onChange={(e) => setSurvey((s) => (s ? { ...s, title: e.target.value } : s))}
             onBlur={(e) => {
-              if (survey && e.target.value !== survey.title) {
+              if (
+                savedTitle.current?.id === surveyId &&
+                e.target.value !== savedTitle.current.title
+              ) {
                 patchSurvey({ title: e.target.value })
               }
             }}
