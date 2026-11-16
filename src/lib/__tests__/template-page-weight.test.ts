@@ -23,6 +23,9 @@ import { join } from 'node:path'
 
 import { describe, expect, it } from 'vitest'
 
+import { loadRegistry } from '../registry.js'
+import { generateFontHtml } from '../scaffold.js'
+
 const ROOT = join(import.meta.dirname, '..', '..', '..')
 const APP_TEMPLATES = join(ROOT, 'templates', 'app')
 const FLAGSHIPS = join(ROOT, 'templates', 'apps')
@@ -77,21 +80,19 @@ describe('custom scaffold: pages are imported statically (splitting measured slo
     expect(vite).not.toContain("globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}']")
   })
 
-  it('loads webfonts without blocking the first paint', () => {
-    const html = read('shared', 'index.html.tpl')
-    // Attribute order and the onload body's whitespace follow the template's
-    // prettier formatting (long hrefs break the tag one attribute per line and
-    // expand the inline onload script) — assert the semantics, not the layout.
-    expect(html).toMatch(/rel="preload"\s+as="style"/)
-    expect(html).toMatch(/onload="[^"]*this\.onload\s*=\s*null/)
-    expect(html).toMatch(/onload="[^"]*this\.rel\s*=\s*'stylesheet'/)
-    expect(html).toContain('<noscript>')
-    // A bare stylesheet link to the font host is render-blocking; the only
-    // ones left must be inside the <noscript> fallback.
-    const withoutNoScript = html.replace(/<noscript>[\s\S]*?<\/noscript>/g, '')
-    expect(withoutNoScript).not.toMatch(
-      /<link href="https:\/\/fonts\.googleapis\.com\/css2[^>]*rel="stylesheet"/,
+  it('loads selected local fonts without a redundant default CDN request or blocked paint', () => {
+    const fonts = generateFontHtml(
+      ['@molecule/app-fonts-source-sans-3'],
+      loadRegistry('app'),
+      'module',
     )
+    const html = read('shared', 'index.html.tpl').replace('{{FONT_LINKS}}', fonts.html)
+    expect(html).toContain('@font-face')
+    expect(html).toContain('@molecule/app-fonts-source-sans-3/fonts/SourceSans3-VariableFont.ttf')
+    expect(html).toContain('font-display: swap')
+    // Selected providers own font delivery. The bare shell must not add a
+    // second font family or a remote stylesheet/preconnect behind their backs.
+    expect(html).not.toMatch(/https:\/\/fonts\.(?:googleapis|gstatic)\.com/)
   })
 })
 
