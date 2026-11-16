@@ -20030,7 +20030,8 @@
         "send",
         "sendMany",
         "generateVapidKeys",
-        "getPublicKey"
+        "getPublicKey",
+        "fetchPublicKey"
       ],
       "secrets": [],
       "runtimeDependencies": [

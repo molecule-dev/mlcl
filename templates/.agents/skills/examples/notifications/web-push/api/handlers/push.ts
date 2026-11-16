@@ -4,7 +4,7 @@ import { z } from 'zod'
 
 import { create, deleteById, findMany } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
-import { getProvider, send } from '@molecule/api-push-notifications'
+import { fetchPublicKey, hasProvider, send } from '@molecule/api-push-notifications'
 
 const subscribeSchema = z.object({
   endpoint: z.string().url(),
@@ -31,8 +31,10 @@ const router = Router()
 // ones). Serve it so the client can fetch it right before subscribing; no auth
 // needed. Ask the bonded provider (not `process.env` directly) so provider
 // knowledge stays in the bond; a 503 (never a crash) when push is unconfigured.
-router.get('/public-key', (_req, res) => {
-  const publicKey = getProvider()?.getPublicKey()
+// fetchPublicKey() works with every push bond: the molecule.dev hosted bond keeps
+// its key behind a service call, so its synchronous getPublicKey() is empty until then.
+router.get('/public-key', async (_req, res) => {
+  const publicKey = hasProvider() ? await fetchPublicKey() : undefined
   if (!publicKey) {
     return res.status(503).json({
       error: t('push.notConfigured', undefined, {
