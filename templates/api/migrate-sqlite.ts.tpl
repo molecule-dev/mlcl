@@ -10,7 +10,8 @@
  * via: npm run db:setup
  */
 
-import { existsSync, readdirSync } from 'fs'
+import { existsSync, mkdtempSync, readdirSync, rmSync } from 'fs'
+import { tmpdir } from 'os'
 import { dirname, join } from 'path'
 import { fileURLToPath } from 'url'
 
@@ -45,5 +46,19 @@ export async function runMigrations(): Promise<void> {
 
 // Allow running directly: npm run db:setup
 if (process.argv[1] === fileURLToPath(import.meta.url)) {
-  await runMigrations()
+  // Build verification uses the same runner and bond as boot, against an empty private file.
+  // A dev ledger can hide a broken edited seed. Never reset or touch that database to check it.
+  const verifyFresh = process.argv.includes('--verify-fresh')
+  const temporary = verifyFresh ? mkdtempSync(join(tmpdir(), 'molecule-migrations-')) : null
+  const previousPath = process.env.SQLITE_PATH
+  if (temporary) process.env.SQLITE_PATH = join(temporary, 'verify.db')
+  try {
+    await runMigrations()
+  } finally {
+    if (temporary) {
+      if (previousPath === undefined) delete process.env.SQLITE_PATH
+      else process.env.SQLITE_PATH = previousPath
+      rmSync(temporary, { recursive: true, force: true })
+    }
+  }
 }

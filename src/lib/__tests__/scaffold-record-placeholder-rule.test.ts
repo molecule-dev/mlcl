@@ -61,9 +61,36 @@ const order = (
 }`
 
 describe('a waiting message rendered where a field of the record goes', () => {
+  it('rejects a non-benchmark order page that returns its data region before the order exists', async () => {
+    const rows = await findings(`export function OrderSummary() {
+      const { data: order } = useOrder()
+      if (!order) return <main><section className="order-details"><p>Waiting for order</p></section></main>
+      return <main><section className="order-details"><p>{format(order.total)}</p></section></main>
+    }`)
+    expect(rows).toHaveLength(1)
+    expect(rows[0]?.message).toContain('order.total')
+  })
+  it('keeps an early waiting panel outside the order data region', async () => {
+    const rows = await findings(`export function OrderSummary() {
+      const { data: order } = useOrder()
+      if (!order) return <main><section role="status"><p>Waiting for order</p></section></main>
+      return <main><section className="order-details"><p>{format(order.total)}</p></section></main>
+    }`)
+    expect(rows).toEqual([])
+  })
+  it('keeps the corrected retained profile loading outside its data region', async () => {
+    const source = await readFile(
+      new URL('./fixtures/l3190-profile-placeholder.tsx.txt', import.meta.url),
+      'utf8',
+    )
+    const corrected = source.replace('className="user-info"', 'className="container page"')
+    expect(await findings(corrected)).toEqual([])
+  })
+
   it.each([
     ['p312-profile-loading-before.tsx.txt', 102, 85],
     ['l3164-profile-placeholder.tsx.txt', 86, 68],
+    ['l3190-profile-placeholder.tsx.txt', 45, 68],
     ['p302-profile-loading-before.tsx.txt', 140, 120],
   ])('reports the retained profile page %s', async (fixture, line, fieldLine) => {
     const source = await readFile(new URL(`./fixtures/${fixture}`, import.meta.url), 'utf8')

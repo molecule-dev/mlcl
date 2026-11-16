@@ -5930,7 +5930,107 @@ export function scaffoldRules(parser) {
             return true
           return node.children.some(placeholder)
         }
+        // Early returns can mount the same data region as a later loaded return.
+        // Compare actual JSX ancestry (tags and literal region attributes), never route names
+        // or a project's selectors. A waiting panel outside that region has a different path.
+        const regionPart = (element) => {
+          const tag = tagOf(element)
+          if (!tag) return null
+          const attributes = []
+          for (const attribute of element.openingElement.attributes) {
+            if (attribute.type === 'JSXSpreadAttribute') return null
+            if (!['className', 'id', 'role'].includes(attribute.name?.name)) continue
+            if (attribute.value?.type !== 'Literal') return null
+            attributes.push([attribute.name.name, attribute.value.value])
+          }
+          return JSON.stringify([tag, attributes.sort(([a], [b]) => a.localeCompare(b))])
+        }
+        const textElements = (node, ancestors = [], found = []) => {
+          if (!node || typeof node.type !== 'string') return found
+          if (node.type === 'JSXElement') {
+            const part = regionPart(node)
+            if (part === null) return found
+            found.push({ element: node, parents: ancestors.join('/') })
+            ancestors = [...ancestors, part]
+          }
+          for (const key of context.sourceCode.visitorKeys[node.type] ?? []) {
+            const child = node[key]
+            if (Array.isArray(child)) for (const item of child) textElements(item, ancestors, found)
+            else textElements(child, ancestors, found)
+          }
+          return found
+        }
+        const returned = (node) =>
+          node?.type === 'ReturnStatement'
+            ? node.argument
+            : node?.type === 'BlockStatement' && node.body.length === 1
+              ? returned(node.body[0])
+              : null
+        const earlyReturns = (fn) => {
+          if (fn.body?.type !== 'BlockStatement') return
+          const statements = fn.body.body
+          for (let index = 0; index < statements.length; index++) {
+            const statement = statements[index]
+            if (statement.type !== 'IfStatement' || statement.alternate) continue
+            const subject = presence(statement.test)
+            const variable = subject && variableOf(subject.identifier)
+            if (!variable || !awaited(variable) || subject.present !== false) continue
+            const waiting = returned(statement.consequent)
+            const loaded = statements
+              .slice(index + 1)
+              .find((node) => node.type === 'ReturnStatement')?.argument
+            if (!waiting || !loaded) continue
+            const record = {
+              ...subject,
+              variable,
+              name: [subject.identifier.name, ...subject.path].join('.'),
+            }
+            const fields = textElements(loaded).flatMap(({ element, parents }) => {
+              const field = fieldShown(element, record)
+              return field
+                ? [
+                    {
+                      field,
+                      parents,
+                      tag: tagOf(element),
+                      fieldLine: String(element.loc.start.line),
+                    },
+                  ]
+                : []
+            })
+            for (const { element, parents } of textElements(waiting)) {
+              if (
+                !element.children.some(
+                  (child) =>
+                    child.type !== 'JSXElement' &&
+                    child.type !== 'JSXFragment' &&
+                    placeholder(child),
+                )
+              )
+                continue
+              if (reads(element, record)) continue
+              const field =
+                fields.find(
+                  (candidate) => candidate.parents === parents && candidate.tag === tagOf(element),
+                ) ?? fields.find((candidate) => candidate.parents === parents)
+              if (!field) continue
+              context.report({
+                node: element,
+                messageId: 'sameElement',
+                data: {
+                  location: `${context.filename}:${element.loc.start.line}`,
+                  record: record.name,
+                  field: field.field,
+                  fieldLine: field.fieldLine,
+                },
+              })
+            }
+          }
+        }
         return {
+          'FunctionDeclaration:exit': earlyReturns,
+          'FunctionExpression:exit': earlyReturns,
+          'ArrowFunctionExpression:exit': earlyReturns,
           ConditionalExpression(node) {
             if (node.parent.type !== 'JSXExpressionContainer') return
             let container = node.parent.parent

@@ -445,15 +445,11 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
     pgliteBranchReachable ? PGLITE_PACKAGE : null,
     ...importedProviders,
   ].filter((name): name is string => name !== null)
-  if (needed.length === 0) {
-    // Only the out-of-band runner (and a hand-written one that imports no
-    // provider package) needs none: the SQLite/MySQL templates DO import their
-    // own bond, so `importedProviders` above names them and they are backed.
-    return []
-  }
+  if (needed.length === 0 && !existsSync(join(apiDir, 'package.json'))) return []
   const manifestPath = join(apiDir, 'package.json')
   let manifestBytes: Buffer
   let manifest: {
+    scripts?: Record<string, string>
     dependencies?: Record<string, string>
     devDependencies?: Record<string, string>
   }
@@ -461,6 +457,7 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
     manifestBytes = await readFile(manifestPath)
     manifest = JSON.parse(manifestBytes.toString('utf-8')) as typeof manifest
   } catch (error) {
+    if (needed.length === 0) return []
     console.warn(
       `[migrate-runner] ${manifestPath} is missing or unparseable — cannot back ` +
         `src/scripts/migrate.ts's imports (${needed.join(', ')}): ` +
@@ -490,10 +487,32 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   if (pgliteBranchReachable) promote(PGLITE_PACKAGE)
   for (const provider of importedProviders) promote(provider)
 
-  if (gained.length === 0) return []
-  manifest.dependencies = Object.fromEntries(
-    Object.entries(deps).sort(([a], [b]) => a.localeCompare(b)),
-  )
+  // Only a runner that declares the fresh-file mode may own this build step. Imported/custom
+  // runners and other providers keep their own verification contracts.
+  const freshCommand = 'node dist/scripts/migrate.js --verify-fresh'
+  const freshBuildTail = ' && npm run db:verify'
+  const scripts = manifest.scripts
+  let changedScripts = false
+  if (runner.includes("process.argv.includes('--verify-fresh')") && scripts?.build) {
+    if (!scripts['db:verify'] || scripts['db:verify'] === freshCommand) {
+      if (scripts['db:verify'] !== freshCommand) changedScripts = true
+      scripts['db:verify'] = freshCommand
+      if (!scripts.build.endsWith(freshBuildTail)) {
+        scripts.build += freshBuildTail
+        changedScripts = true
+      }
+    }
+  } else if (scripts?.['db:verify'] === freshCommand) {
+    delete scripts['db:verify']
+    if (scripts.build?.endsWith(freshBuildTail))
+      scripts.build = scripts.build.slice(0, -freshBuildTail.length)
+    changedScripts = true
+  }
+  if (gained.length === 0 && !changedScripts) return []
+  if (gained.length > 0)
+    manifest.dependencies = Object.fromEntries(
+      Object.entries(deps).sort(([a], [b]) => a.localeCompare(b)),
+    )
   try {
     await writeFile(manifestPath, JSON.stringify(manifest, null, 2) + '\n')
   } catch (error) {
