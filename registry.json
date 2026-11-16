@@ -34514,7 +34514,7 @@
       ],
       "declarations": {
         "AuthClient": "interface AuthClient<T = UserProfile, TRegister extends RegisterExtraShape<TRegister> = Record<never, never>> {\n  getState(): AuthState<T>;\n  isAuthenticated(): boolean;\n  getUser(): T | null;\n  getSessionRevision?(): number;\n  setUser(user: T | null): void;\n  getAccessToken(): string | null;\n  setAccessToken(token: string | null): void;\n  setSession(session: AuthSessionSeed<T>): void;\n  getRefreshToken(): string | null;\n  login(credentials: LoginCredentials): Promise<AuthResult<T>>;\n  logout(): Promise<void>;\n  register(data: RegisterData<TRegister>): Promise<AuthResult<T>>;\n  refresh(): Promise<AuthResult<T>>;\n  requestPasswordReset(data: PasswordResetRequest): Promise<void>;\n  confirmPasswordReset(data: PasswordResetConfirm): Promise<void>;\n  updateProfile(data: Partial<T>): Promise<T>;\n  changePassword(oldPassword: string, newPassword: string): Promise<void>;\n  initialize(): Promise<void>;\n  validateSession?(): Promise<void>;\n  whenRestored?(): Promise<void>;\n  subscribe(callback: (state: AuthState<T>) => void): () => void;\n  onAuthChange(callback: (state: AuthState<T>) => void): () => void;\n  getToken?(): string | null;\n  addEventListener(listener: AuthEventListener<T>): () => void;\n  destroy(): void;\n}",
-        "AuthClientConfigOptions": "interface AuthClientConfigOptions<T extends object = UserProfile> {\n  baseURL?: string;\n  loginEndpoint?: string;\n  logoutEndpoint?: string | null;\n  registerEndpoint?: string;\n  refreshEndpoint?: string;\n  profileEndpoint?: string | ((user: Readonly<T>) => string);\n  profileUpdateMethod?: 'PATCH' | 'PUT' | 'POST';\n  profileRequestBody?: (data: Partial<T>) => unknown;\n  currentUserEndpoint?: string;\n  cookieRestore?: 'hint' | 'always';\n  requestTimeout?: number;\n  storagePrefix?: string;\n  tokenKey?: string;\n  authScheme?: string;\n  requestBody?: (kind: 'login' | 'register', payload: Record<string, unknown>) => unknown;\n  mapRequestBody?: (payload: Record<string, unknown>, kind: 'login' | 'register') => unknown;\n  mapAuthResponse?: (data: unknown) => AuthResult<NoInfer<T>> | AuthChallenge;\n  storage?: 'memory' | StorageAdapter;\n  shouldRestoreUser?: (user: T) => boolean;\n  autoRefresh?: boolean;\n  refreshBuffer?: number;\n  forgotPasswordEndpoint?: string;\n  resetPasswordEndpoint?: string;\n  changePasswordEndpoint?: string | ((user: Readonly<T>) => string);\n  changePasswordMethod?: 'POST' | 'PATCH';\n  oauthProviders?: string[];\n  oauthEndpoint?: string;\n}",
+        "AuthClientConfigOptions": "interface AuthClientConfigOptions<T extends object = UserProfile> {\n  requestEnvelope?: string;\n  baseURL?: string;\n  loginEndpoint?: string;\n  logoutEndpoint?: string | null;\n  registerEndpoint?: string;\n  refreshEndpoint?: string;\n  profileEndpoint?: string | ((user: Readonly<T>) => string);\n  profileUpdateMethod?: 'PATCH' | 'PUT' | 'POST';\n  profileRequestBody?: (data: Partial<T>) => unknown;\n  currentUserEndpoint?: string;\n  cookieRestore?: 'hint' | 'always';\n  requestTimeout?: number;\n  storagePrefix?: string;\n  tokenKey?: string;\n  authScheme?: string;\n  requestBody?: (kind: 'login' | 'register', payload: Record<string, unknown>) => unknown;\n  mapRequestBody?: (payload: Record<string, unknown>, kind: 'login' | 'register') => unknown;\n  mapAuthResponse?: (data: unknown) => AuthResult<NoInfer<T>> | AuthChallenge;\n  storage?: 'memory' | StorageAdapter;\n  shouldRestoreUser?: (user: T) => boolean;\n  autoRefresh?: boolean;\n  refreshBuffer?: number;\n  forgotPasswordEndpoint?: string;\n  resetPasswordEndpoint?: string;\n  changePasswordEndpoint?: string | ((user: Readonly<T>) => string);\n  changePasswordMethod?: 'POST' | 'PATCH';\n  oauthProviders?: string[];\n  oauthEndpoint?: string;\n}",
         "AuthResult": "interface AuthResult<T = UserProfile> {\n  user: T;\n  accessToken?: string;\n  refreshToken?: string;\n  expiresAt?: number;\n  twoFactorRequired?: boolean;\n}",
         "AuthState": "interface AuthState<T = UserProfile> {\n  status: AuthStatus;\n  initialized: boolean;\n  authenticated: boolean;\n  user: T | null;\n  loading: boolean;\n  error: string | null;\n}",
         "LoginCredentials": "interface LoginCredentials {\n  email: string;\n  password: string;\n  remember?: boolean;\n  twoFactorToken?: string;\n}",
@@ -34577,7 +34577,8 @@
           "Request and response shapes are independent. Flat login/register bodies need no mapper. When the API reads a named envelope, configure mapRequestBody: (payload: Record<string, unknown>) => ({ account: payload }) with its actual envelope key; mapAuthResponse only reads the answer. Profile writes use their own profileRequestBody: (payload: unknown) => ({ account: payload }). Keep the generated auth bond and the framework auth binding; do not wrap credentials at a page call or add another session store.",
           "Bearer + top-level token: keep `authScheme: 'Bearer'` and the default response mapping; set `currentUserEndpoint` and `profileEndpoint`/`profileUpdateMethod` to the API's current-user GET and profile update route/method.",
           "Custom token API: set `tokenKey` (or `storagePrefix`), `authScheme: 'Token'`, `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod`; use `mapAuthResponse` to turn envelopes such as `{ user: { token, ...user } }` into `{ accessToken, user }`.",
-          "Cookie session: use `storage: 'memory'`, `cookieRestore: 'always'`, configure `currentUserEndpoint`, and keep HTTP `withCredentials: true`; no browser token store is needed. The default `cookieRestore: 'hint'` probes only when the server also sets a readable `mol_auth=1` presence cookie."
+          "Cookie session: use `storage: 'memory'`, `cookieRestore: 'always'`, configure `currentUserEndpoint`, and keep HTTP `withCredentials: true`; no browser token store is needed. The default `cookieRestore: 'hint'` probes only when the server also sets a readable `mol_auth=1` presence cookie.",
+          "When login, registration and profile writes share a body wrapper, configure requestEnvelope: 'member' once to send { member: values } for all three. Explicit mapRequestBody and profileRequestBody override individual operations; mapRequestBody alone applies only to login/register."
         ]
       },
       "intentHints": [
@@ -79356,6 +79357,8 @@
         "TagChipProps",
         "TagInput",
         "TagInputProps",
+        "TagList",
+        "TagListProps",
         "useTagInput",
         "UseTagInputOptions",
         "TagInputFieldProps",
@@ -79380,7 +79383,7 @@
         ],
         "configuration": [
           "Tag/chip entry: import { TagInput } from \"@molecule/app-tag-input-react\" and render `<TagInput value={tags} onChange={setTags} />` with string[] state. Typing then Enter adds a visible text chip and never submits the surrounding form.",
-          "For app-owned markup, import { useTagInput } from \"@molecule/app-tag-input-react\"; const { inputProps, remove } = useTagInput({ value: tags, onChange: setTags }); spread inputProps on the input and render tags.map(...) as text. Keep the array as the form value, rather than splitting a draft string at submit. Read-only tags use TagChip or map the stored array as text. A plain CSV field with no token-entry interaction can stay local."
+          "For app-owned markup, import { useTagInput } from \"@molecule/app-tag-input-react\"; const { inputProps, remove } = useTagInput({ value: tags, onChange: setTags }); spread inputProps on the input and render tags.map(...) as text. Keep the array as the form value, rather than splitting a draft string at submit. Display saved tags on detail and preview screens with <TagList value={record.labels} />; it renders every value in order. Set className/itemClassName or renderTag when the app owns the markup. TagChip remains available for a standalone label. A plain CSV field with no token-entry interaction can stay local."
         ]
       },
       "intentHints": [
@@ -79391,7 +79394,10 @@
         "keywords input",
         "chip input",
         "token input",
-        "tag editor"
+        "tag editor",
+        "display tags",
+        "saved tags",
+        "read-only tags"
       ]
     },
     "@molecule/app-theme": {
