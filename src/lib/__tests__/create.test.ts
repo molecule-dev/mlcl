@@ -556,7 +556,7 @@ describe('Framework-specific patterns', () => {
     const app = await readTemplate('react', 'App.tsx.tpl')
     expect(app).toContain("from 'react-router'")
     expect(app).toContain('BrowserRouter')
-    expect(app).toContain('<Routes>')
+    expect(app).toContain('useRoutes(routes)')
     // Pages wait for the initial restore to settle, so public actions see the
     // restored user when that request succeeds.
     expect(app).toMatch(/<MoleculeProvider\s[^>]*\bawaitSession\b/)

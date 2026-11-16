@@ -1,11 +1,11 @@
 import type { ReactNode } from 'react'
-import { Routes, Route } from 'react-router'
+import { useRoutes } from 'react-router'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
 import { BrowserRouter } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
-import { RouteAccess } from './components/AuthGuard.js'
+import { RouteAccess, type AppRoute } from './components/AuthGuard.js'
 import { AppLayout } from './components/AppLayout.js'
 import { About } from './pages/About.js'
 import { ForgotPassword } from './pages/ForgotPassword.js'
@@ -33,7 +33,9 @@ import { Signup } from './pages/Signup.js'
 // `UserMenu` drawer for the one interaction-only split that is still worth it.
 //
 // main.tsx imports AppRoot separately from App, so replacing page routes cannot
-// silently remove its required export. The access policy lives in AuthGuard.tsx.
+// silently remove its required export. The routes below declare both the page and
+// its access: App and AppRoot use the SAME table. Add a public page once, with
+// access: 'public'; there is no second path allowlist to update.
 // AppRoot's `awaitSession` waits only while auth status is 'loading'. A stored
 // token AND cached user restore synchronously without a request; token-only and
 // cookie-only sessions need an asynchronous current-user request. Public pages
@@ -56,25 +58,30 @@ export function AppRoot({ children }: { children: ReactNode }): ReactNode {
         storage={getStorageProvider()}
         i18n={i18nProvider}
       >
-        <RouteAccess>{children}</RouteAccess>
+        <RouteAccess routes={routes}>{children}</RouteAccess>
       </MoleculeProvider>
     </BrowserRouter>
   )
 }
 
+/** Page elements and access policy share this one declaration. */
+export const routes: AppRoute[] = [
+  { path: '/login', access: 'public', element: <Login /> },
+  { path: '/signup', access: 'public', element: <Signup /> },
+  { path: '/about', access: 'public', element: <About /> },
+  { path: '/forgot-password', access: 'public', element: <ForgotPassword /> },
+  { path: '/reset-password', access: 'public', element: <ResetPassword /> },
+  {
+    access: 'private',
+    element: <AppLayout />,
+    children: [
+      { path: '/', access: 'private', element: <Home /> },
+      { path: '/settings', access: 'private', element: <Settings /> },
+      { path: '/plan-updated', access: 'private', element: <PlanUpdated /> },
+    ],
+  },
+]
+
 export function App() {
-  return (
-    <Routes>
-      <Route path="/login" element={<Login />} />
-      <Route path="/signup" element={<Signup />} />
-      <Route path="/about" element={<About />} />
-      <Route path="/forgot-password" element={<ForgotPassword />} />
-      <Route path="/reset-password" element={<ResetPassword />} />
-      <Route element={<AppLayout />}>
-        <Route path="/" element={<Home />} />
-        <Route path="/settings" element={<Settings />} />
-        <Route path="/plan-updated" element={<PlanUpdated />} />
-      </Route>
-    </Routes>
-  )
+  return useRoutes(routes)
 }

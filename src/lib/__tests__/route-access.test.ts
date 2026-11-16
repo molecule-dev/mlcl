@@ -27,11 +27,17 @@ interface PrivateView {
   query?: Readonly<Record<string, string>>
 }
 
+type AppRoute = router.RouteObject & {
+  access: 'public' | 'private'
+  publicQuery?: Readonly<Record<string, string>>
+  children?: AppRoute[]
+}
+
 interface AccessModule {
   RouteAccess: (props: {
     children: ReactNode
     views?: readonly PrivateView[]
-    publicViews?: readonly PrivateView[]
+    routes: AppRoute[]
   }) => ReactNode
   privateViews: readonly PrivateView[]
 }
@@ -130,6 +136,7 @@ async function mount(
     { path: '/orders' },
     { path: '/orders/:id' },
   ],
+  configureRoutes: (routes: AppRoute[]) => AppRoute[] = (routes) => routes,
 ): Promise<{
   load: ReturnType<typeof vi.fn>
   location: () => router.Location
@@ -140,6 +147,21 @@ async function mount(
     'function',
   )
   const load = vi.fn()
+  const routes = configureRoutes([
+    { path: '/login', access: 'public', element: createElement('p', null, 'Sign in') },
+    ...publicPolicy
+      .filter(({ path }) => path !== '/login')
+      .map(({ path, query }) => ({
+        path,
+        access: 'public' as const,
+        publicQuery: query,
+        element: createElement(List, { load }),
+      })),
+    { path: '*', access: 'private', element: createElement(List, { load }) },
+  ])
+  function Pages(): ReactNode {
+    return router.useRoutes(routes)
+  }
   let location!: router.Location
   let navigate!: ReturnType<typeof router.useNavigate>
   function Location(): null {
@@ -160,19 +182,8 @@ async function mount(
           createElement(Location),
           createElement(module.RouteAccess, {
             views: policy,
-            publicViews: publicPolicy,
-            children: createElement(
-              router.Routes,
-              null,
-              createElement(router.Route, {
-                path: '/login',
-                element: createElement('p', null, 'Sign in'),
-              }),
-              createElement(router.Route, {
-                path: '*',
-                element: createElement(List, { load }),
-              }),
-            ),
+            routes,
+            children: createElement(Pages),
           }),
         ),
       ),
@@ -206,6 +217,101 @@ afterEach(() => {
 })
 
 describe('scaffold route access before page selection', () => {
+  it.each(['/register', '/invitations/team-blue'])(
+    'renders a newly declared public page %s without a second path allowlist',
+    async (url) => {
+      const app = await mount(
+        url,
+        session(),
+        [],
+        [{ path: '/login' }, { path: '/register' }, { path: '/invitations/:code' }],
+      )
+      expect(app.location().pathname).toBe(url)
+      expect(app.load).toHaveBeenCalledExactlyOnceWith('all')
+    },
+  )
+
+  it('requires access on both page and nested route declarations at compile time', () => {
+    const source = readFileSync(
+      join(import.meta.dirname, '../../../templates/app/react/components/AuthGuard.tsx.tpl'),
+      'utf8',
+    )
+    const parsed = ts.createSourceFile('AuthGuard.tsx', source, ts.ScriptTarget.Latest)
+    const routeType = parsed.statements.find(
+      (statement): statement is ts.TypeAliasDeclaration =>
+        ts.isTypeAliasDeclaration(statement) && statement.name.text === 'AppRoute',
+    )
+    expect(routeType).toBeDefined()
+    const file = join(import.meta.dirname, 'route-access-typecheck.tsx')
+    const input = `import type { RouteObject } from 'react-router'
+${routeType!.getText(parsed)}
+const publicPage: AppRoute = { path: '/enroll', access: 'public' }
+const privatePage: AppRoute = { path: '/staff', access: 'private' }
+const nested: AppRoute = { access: 'private', children: [privatePage] }
+// @ts-expect-error Every page declares access.
+const missing: AppRoute = { path: '/enroll' }
+// @ts-expect-error Layout routes cannot hide a nested page's missing policy.
+const missingNested: AppRoute = { access: 'public', children: [{ path: '/enroll' }] }
+void [publicPage, privatePage, nested, missing, missingNested]
+`
+    const options: ts.CompilerOptions = {
+      strict: true,
+      noEmit: true,
+      skipLibCheck: true,
+      module: ts.ModuleKind.NodeNext,
+      moduleResolution: ts.ModuleResolutionKind.NodeNext,
+      target: ts.ScriptTarget.ES2022,
+      types: [],
+    }
+    const host = ts.createCompilerHost(options)
+    const getSourceFile = host.getSourceFile.bind(host)
+    host.getSourceFile = (name, ...args) =>
+      name === file
+        ? ts.createSourceFile(file, input, ts.ScriptTarget.Latest, true, ts.ScriptKind.TSX)
+        : getSourceFile(name, ...args)
+    const program = ts.createProgram([file], options, host)
+    const diagnostics = ts.getPreEmitDiagnostics(program)
+    expect(
+      diagnostics.map((diagnostic) =>
+        ts.flattenDiagnosticMessageText(diagnostic.messageText, '\n'),
+      ),
+    ).toEqual([])
+  })
+
+  it('keeps a public child behind its private layout and honors native route ranking', async () => {
+    const app = await mount(
+      '/teams/blue/share',
+      session(),
+      [],
+      [{ path: '/teams/*' }],
+      (routes) => [
+        ...routes,
+        {
+          path: '/teams/:team',
+          access: 'private',
+          element: createElement(router.Outlet),
+          children: [{ path: 'share', access: 'public', element: routes.at(-1)!.element }],
+        },
+      ],
+    )
+    expect(app.location().pathname).toBe('/login')
+    expect(app.load).not.toHaveBeenCalled()
+  })
+
+  it('renders a nested public index route from the same route declaration', async () => {
+    const app = await mount('/teams/blue', session(), [], [], (routes) => [
+      ...routes,
+      {
+        path: '/teams/:team',
+        access: 'public',
+        element: createElement(router.Outlet),
+        children: [{ index: true, access: 'public', element: routes.at(-1)!.element }],
+      },
+    ])
+    expect(app.location().pathname).toBe('/teams/blue')
+    expect(app.load).toHaveBeenCalledExactlyOnceWith('all')
+  })
+
   it.each(['/orders?view=mine&page=3#rows', '/orders/42/edit'])(
     'redirects a signed-out direct visit to %s before any page request',
     async (url) => {
