@@ -60,9 +60,9 @@ export default function PostListItem({
 
   return (
     <div
-      role="button"
-      tabIndex={0}
-      onClick={openPost}
+      role={id ? 'button' : undefined}
+      tabIndex={id ? 0 : undefined}
+      onClick={id ? openPost : undefined}
       onKeyDown={(e) => {
         if (e.target !== e.currentTarget) return
         if (e.key === 'Enter' || e.key === ' ') {

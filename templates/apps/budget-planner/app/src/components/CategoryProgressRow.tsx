@@ -156,7 +156,7 @@ export function CategoryProgressRow({
               />
               <button
                 type="submit"
-                disabled={saving}
+                disabled={saving || !onAssign}
                 className={cm.cn(
                   cm.sp('px', 2),
                   cm.sp('py', 1),

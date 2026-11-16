@@ -299,7 +299,7 @@ export function Settings() {
                 <button
                   type="button"
                   onClick={saveProfile}
-                  disabled={profileSaving}
+                  disabled={!user || profileSaving}
                   className={cm.cn(
                     cm.sp('px', 5),
                     cm.sp('py', 2),

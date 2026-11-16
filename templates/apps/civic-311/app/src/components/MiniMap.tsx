@@ -186,10 +186,8 @@ export function MiniMap({
         onPick ? 'cursor-crosshair focus:outline-none focus:ring-2 focus:ring-primary' : '',
       )}
       style={{ aspectRatio: aspect }}
-      onClick={(e) => {
-        if (onPick) pick(e.clientX, e.clientY)
-      }}
-      onKeyDown={onKeyDown}
+      onClick={onPick ? (e) => pick(e.clientX, e.clientY) : undefined}
+      onKeyDown={onPick ? onKeyDown : undefined}
     >
       <GridDecor />
       {circles.map((c, i) => (

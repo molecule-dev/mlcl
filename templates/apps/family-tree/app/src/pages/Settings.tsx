@@ -476,6 +476,7 @@ export function Settings() {
               <button
                 type="button"
                 data-mol-id="settings-two-factor"
+                disabled={!user}
                 onClick={openTwoFactor}
                 className={cm.cn(
                   cm.textSize('sm'),
@@ -973,7 +974,7 @@ export function Settings() {
               <button
                 type="button"
                 data-mol-id="two-factor-submit"
-                disabled={tfLoading || tfToken.length < 6}
+                disabled={!user || tfLoading || tfToken.length < 6}
                 onClick={() => void submitTwoFactor(tfModal)}
                 className={cm.cn(
                   cm.textSize('sm'),
@@ -1046,7 +1047,7 @@ export function Settings() {
               </button>
               <button
                 type="submit"
-                disabled={busy === 'delete'}
+                disabled={!user || busy === 'delete'}
                 data-mol-id="delete-account-confirm"
                 className={cm.cn(
                   cm.textSize('sm'),

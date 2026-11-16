@@ -413,6 +413,7 @@ export function Share() {
           <button
             type="button"
             onClick={() => handleTogglePublic(!map?.is_public)}
+            disabled={!map}
             data-mol-id="share-public-toggle"
             aria-pressed={!!map?.is_public}
             className={cm.cn(

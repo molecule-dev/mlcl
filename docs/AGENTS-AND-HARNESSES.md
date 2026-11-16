@@ -58,18 +58,22 @@ recognizes setter calls in imported setup functions but does not prove that thos
 functions execute or that font downloads succeed. Dynamic classes and non-JSX
 templates still need their framework and browser checks.
 
-`molecule-local/no-dropped-optimistic-intent` also rejects a visible, enabled React
-control whose handler silently returns or skips its sole guarded action while a required
-record is unavailable. Disable the control until the record exists, or render it only
-with available data, for example inside `QueryContent`. The check follows effect-filled
-nullable state (including data copied from another hook) and declared query data within
-a module. Both `if (!record) return` and `if (record) { action() }` need this protection.
-Existing JavaScript guards,
-including optional access and derived counts, establish availability; a refresh reached
-after an awaited action does not make that action unavailable. Other helpers remain
-unknown, so use a direct data guard when the linter cannot establish availability.
-The check reads no test files and adds no browser delay. Actions that work without
-that record, and already guarded controls, are unchanged.
+`molecule-local/no-dropped-optimistic-intent` follows this rule: an enabled React
+control on screen must not have a handler whose first act is to return because a
+value that its component's JSX treats as possibly missing is missing, unless the
+control is disabled on that value or mounted only with it. Add `disabled={!record}`
+to the control (every submit button for a form), or mount it with `record && …`
+or `QueryContent`. Both `if (!record) return` and a sole `if (record) action()`
+need this protection.
+
+The check recognizes identifiers tested by JSX `record ? … : …`, `record && …`
+or `record?.field` in the same function. It reads no imported modules or tests and
+does not construct a TypeScript program. Local boolean predicates are not missing
+data. Imported `useParams` results are exempt because route params do not load
+later. Optional access, derived counts and earlier render guards can establish
+that the control is disabled or unmounted. Feedback or useful work before the
+record guard is not a silently discarded action. Other helpers remain unknown,
+so use a direct data guard when the linter cannot establish availability.
 
 In a workspace declaring `@molecule/app-routing-react-router`,
 `molecule-local/url-selections-declare-access` reports a raw URL comparison
