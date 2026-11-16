@@ -70054,6 +70054,14 @@
             "queryHook": "useListQuery",
             "sourceType": "ListQuerySource",
             "since": "1.2.0"
+          },
+          "queryHook": {
+            "name": "useQuery",
+            "input": "getter",
+            "wrap": {
+              "name": "computed",
+              "package": "@angular/core"
+            }
           }
         }
       },
@@ -70145,6 +70153,10 @@
             "hook": "useListRoute",
             "optionsType": "ListRouteOptions",
             "queryHook": "useQuery"
+          },
+          "queryHook": {
+            "name": "useQuery",
+            "input": "value"
           }
         }
       },
@@ -70217,6 +70229,10 @@
             "queryHook": "useListQuery",
             "sourceType": "ListQuerySource",
             "since": "1.2.0"
+          },
+          "queryHook": {
+            "name": "useQuery",
+            "input": "getter"
           }
         }
       },
@@ -70289,6 +70305,11 @@
             "queryHook": "useListQuery",
             "sourceType": "ListQuerySource",
             "since": "1.2.0"
+          },
+          "queryHook": {
+            "name": "useQuery",
+            "input": "store",
+            "package": "svelte/store"
           }
         }
       },
@@ -70390,6 +70411,10 @@
             "queryHook": "useListQuery",
             "sourceType": "ListQuerySource",
             "since": "1.2.0"
+          },
+          "queryHook": {
+            "name": "useQuery",
+            "input": "getter"
           }
         }
       },

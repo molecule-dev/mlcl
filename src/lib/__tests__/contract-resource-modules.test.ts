@@ -13,6 +13,15 @@ import { join } from 'node:path'
 import ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
+import {
+  createQueryResource,
+  getQueryClient,
+  type QueryOptions,
+  resetQueryClient,
+  setProvider,
+} from '@molecule/app-query'
+import { createProvider } from '@molecule/app-query-memory'
+
 import { planAppResourceModules } from '../app-resource-modules.js'
 import {
   parseContract,
@@ -147,6 +156,128 @@ describe('the contract a P317 project was handed', () => {
 })
 
 describe('an inventory API with its own contract', () => {
+  it('keeps named reads distinct from URL controllers when a collection has a /list path', async () => {
+    const contract = parseContract(await fixture('p317-supplied-openapi.yml.txt')) as {
+      paths: Record<string, unknown>
+    }
+    contract.paths['/articles/list'] = structuredClone(contract.paths['/articles/feed'])
+    const { modules } = planContractResourceModules(
+      contract,
+      factory,
+      QUERY,
+      'app',
+      'api.json',
+      factory.listRoute,
+    )
+    const source = modules.find((module) => module.exportName === 'articles')!.source
+    const ast = ts.createSourceFile('articles.ts', source, ts.ScriptTarget.ES2022, true)
+    const names = ast.statements.flatMap((node) =>
+      ts.isFunctionDeclaration(node) && node.name ? [node.name.text] : [],
+    )
+    expect(names).toContain('useArticlesListQuery')
+    expect(names).toContain('useArticlesList')
+    expect(new Set(names).size).toBe(names.length)
+  })
+
+  it('named reads and writes preserve response shapes, bodies and shared cache refresh', async () => {
+    const source = (await plan('inventory-openapi.json.txt')).modules[0].source
+    const emitted = ts.transpileModule(source, {
+      compilerOptions: { module: ts.ModuleKind.CommonJS },
+    }).outputText
+    const rows = [{ sku: 'bolt/a', name: 'Bolt', quantity: 1, status: 'in-stock' }]
+    const requests: unknown[][] = []
+    const http = {
+      get: async (path: string) => {
+        requests.push(['get', path])
+        return { data: path === '/items' ? [...rows] : rows[0] }
+      },
+      post: async (path: string, input: (typeof rows)[number]) => {
+        requests.push(['post', path, input])
+        rows.push(input)
+        return { data: input }
+      },
+      patch: async (path: string, input: { name: string }) => {
+        requests.push(['patch', path, input])
+        rows[0] = { ...rows[0], ...input }
+        return { data: rows[0] }
+      },
+      delete: async (path: string) => {
+        requests.push(['delete', path])
+        rows.shift()
+        return { data: null }
+      },
+    }
+    const exports: Record<string, (...args: unknown[]) => unknown> = {}
+    new Function('require', 'exports', emitted)(
+      (name: string) =>
+        name === QUERY
+          ? { createQueryResource, useQuery: (options: unknown) => options }
+          : { getClient: () => http },
+      exports,
+    )
+    expect(exports.useItems, 'a page imports the list hook without writing a query key').toBeTypeOf(
+      'function',
+    )
+    setProvider(createProvider())
+    try {
+      const query = exports.useItems('warehouse-1') as QueryOptions<typeof rows>
+      expect(await getQueryClient().fetch(query)).toEqual(rows)
+      const newItem = { sku: 'nut', name: 'Nut', quantity: 2, status: 'reserved' }
+      await exports.createItem('warehouse-1', newItem)
+      expect(getQueryClient().getState(query.key).data).toEqual(rows)
+      await exports.updateItem('warehouse-1', 'bolt/a', { name: 'Saved bolt' })
+      const detail = exports.useItem('warehouse-1', 'bolt/a') as QueryOptions<(typeof rows)[number]>
+      expect(getQueryClient().getState(detail.key).data).toEqual(rows[0])
+      await exports.deleteItem('warehouse-1', 'bolt/a')
+      expect(getQueryClient().getState(detail.key).data).toBeNull()
+      expect(getQueryClient().getState(query.key).data).toEqual([newItem])
+      expect(requests).toContainEqual(['post', '/items', newItem])
+      expect(requests).toContainEqual(['patch', '/items/bolt%2Fa', { name: 'Saved bolt' }])
+      expect(exports.useItems(null)).toBeNull()
+      expect(exports.useItem('warehouse-1', null)).toBeNull()
+    } finally {
+      resetQueryClient()
+    }
+  })
+
+  it('named nested writes send the complete envelope and share the parent resource', async () => {
+    const source = (await plan('p317-supplied-openapi.yml.txt')).modules[1].source
+    const emitted = ts.transpileModule(source, {
+      compilerOptions: { module: ts.ModuleKind.CommonJS },
+    }).outputText
+    const requests: unknown[][] = []
+    const result = { id: 12, body: 'hello' }
+    const exports: Record<string, (...args: unknown[]) => unknown> = {}
+    new Function('require', 'exports', emitted)(
+      (name: string) =>
+        name === QUERY
+          ? { createQueryResource, useQuery: (options: unknown) => options }
+          : {
+              getClient: () => ({
+                post: async (path: string, body: unknown) => {
+                  requests.push([path, body])
+                  return { data: { comment: result } }
+                },
+              }),
+            },
+      exports,
+    )
+    expect(exports.createComment, 'nested collection writes have named exports').toBeTypeOf(
+      'function',
+    )
+    setProvider(createProvider())
+    try {
+      expect(
+        await exports.createComment('parent/a', 'viewer-1', { comment: { body: 'hello' } }),
+      ).toEqual(result)
+      expect(requests).toEqual([['/articles/parent%2Fa/comments', { comment: { body: 'hello' } }]])
+      expect(exports.useComments(null, 'viewer-1')).toBeNull()
+      expect(exports.useComment).toBeUndefined()
+    } finally {
+      resetQueryClient()
+    }
+  })
+
   it('reads a bare array, a PATCH update, a toggle and a list with a total', async () => {
     const { modules, skipped } = await plan('inventory-openapi.json.txt')
     expect(modules.map((module) => module.path)).toEqual([
@@ -184,22 +315,30 @@ const FRAMEWORK_QUERIES = [
     useList: `const list = useArticlesList('u1')
   list.route.setPage(2)
   const total: number | undefined = list.data?.articlesCount`,
+    useNamed: `useArticles('u1').data?.articlesCount
+  useArticle('u1', 'slug').data?.title`,
   },
   ...[
     {
       framework: 'vue',
+      useNamed: `useArticles(() => 'u1').value.data?.articlesCount
+  useArticle(() => 'u1', () => 'slug').value.data?.title`,
       useList: `const { route, query } = useArticlesList(() => 'u1')
   route.value.setPage(2)
   const total: number | undefined = query.value.data?.articlesCount`,
     },
     {
       framework: 'solid',
+      useNamed: `useArticles(() => 'u1').data?.articlesCount
+  useArticle(() => 'u1', () => 'slug').data?.title`,
       useList: `const { route, query } = useArticlesList(() => 'u1')
   route.setPage(2)
   const total: number | undefined = query.data?.articlesCount`,
     },
     {
       framework: 'svelte',
+      useNamed: `useArticles('u1').subscribe((state) => state.data?.articlesCount)
+  useArticle('u1', 'slug').subscribe((state) => state.data?.title)`,
       useList: `const { route, query } = useArticlesList('u1')
   route.setPage(2)
   let total: number | undefined
@@ -209,16 +348,19 @@ const FRAMEWORK_QUERIES = [
     },
     {
       framework: 'angular',
+      useNamed: `useArticles(() => 'u1').data?.articlesCount
+  useArticle(() => 'u1', () => 'slug').data?.title`,
       useList: `const { route, query } = useArticlesList('u1')
   route.setPage(2)
   const total: number | undefined = query.data?.articlesCount`,
     },
-  ].map(({ framework, useList }) => ({
+  ].map(({ framework, useList, useNamed }) => ({
     query: `@molecule/app-query-${framework}`,
     entry: join(MOLECULE, `features/query-${framework}/dist/index.d.ts`),
     built: join(MOLECULE, `features/query-${framework}/dist/list-query.d.ts`),
     router: join(MOLECULE, `frameworks/${framework}/dist/index.d.ts`),
     useList,
+    useNamed,
   })),
 ]
 
@@ -256,13 +398,14 @@ describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) 
     const page = join(dir, 'page.ts')
     await writeFile(
       page,
-      `import { articles, articlesFeed, articlesPage, useArticlesList } from './articles.js'
-import { comments } from './comments.js'
-import { items } from './items.js'
+      `import { articles, articlesFeed, articlesPage, useArticlesList, useArticles, useArticle, createArticle } from './articles.js'
+import { comments, useComments, createComment, deleteComment } from './comments.js'
+import { items, createItem, updateItem, deleteItem, setItemReserved } from './items.js'
 import { profiles } from './profiles.js'
 import { tags } from './tags.js'
 export function useList(): number | undefined {
   ${framework.useList}
+  ${framework.useNamed}
   return total
 }
 export async function use(viewer: string, slug: string): Promise<string[]> {
@@ -278,6 +421,16 @@ export async function use(viewer: string, slug: string): Promise<string[]> {
   // @ts-expect-error This tags endpoint declares no query parameters.
   tags.list(viewer, { limit: 1 })
   const total: number = page.articlesCount
+  // @ts-expect-error The complete request envelope is required.
+  createArticle(viewer, { title: 't' })
+  // @ts-expect-error Required fields from the non-benchmark contract are checked.
+  createItem(viewer, { quantity: 1 })
+  await updateItem(viewer, 'sku-1', { sku: 'sku-1', name: 'Bolt' })
+  await deleteItem(viewer, 'sku-1')
+  await setItemReserved(viewer, 'sku-1', true)
+  await createComment(slug, viewer, { comment: { body: 'hi' } })
+  await deleteComment(slug, viewer, 12)
+  useComments(slug, null)
   const created = await articles.create(viewer, { article: { title: 't', description: 'd', body: 'b' } })
   const favorited = await articles.toggle(viewer, created.slug, 'favorite', true)
   const comment = await comments(slug).create(viewer, { comment: { body: 'hi' } })

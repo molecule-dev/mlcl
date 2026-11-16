@@ -41,6 +41,8 @@ export interface CapabilityMapEntry {
   sourceFiles?: string[]
   /** Existing project-relative resource modules built on this package's factory. */
   resourceModules?: string[]
+  /** Named page-facing functions scanned from the modules that actually exist. */
+  resourceModuleCalls?: Array<{ path: string; names: string[] }>
   /** Existing executable framework compositions using this package. */
   recipeModules?: string[]
   /**
@@ -266,6 +268,7 @@ export async function readProjectCapabilityMap(
   }
   // The resource modules already in the project, for the package whose factory they call.
   const resourceModules = new Map<string, string[]>()
+  const resourceModuleCalls = new Map<string, Array<{ path: string; names: string[] }>>()
   for (const entry of entries) {
     const factory = registry.packages[entry.name]?.decisionGuide?.resourceModules
     if (!factory) continue
@@ -281,7 +284,23 @@ export async function readProjectCapabilityMap(
       }
       for (const name of names.filter((file) => /\.[cm]?tsx?$/.test(file)).sort()) {
         const source = await readFile(join(projectRoot, directory, name), 'utf8')
-        if (source.includes(factory.factory)) found.push(`${directory}/${name}`)
+        if (source.includes(factory.factory)) {
+          const path = `${directory}/${name}`
+          found.push(path)
+          const ast = ts.createSourceFile(name, source, ts.ScriptTarget.Latest, true)
+          const names = ast.statements.flatMap((node) =>
+            ts.isFunctionDeclaration(node) &&
+            node.name &&
+            node.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
+              ? [node.name.text]
+              : [],
+          )
+          if (names.length)
+            resourceModuleCalls.set(entry.name, [
+              ...(resourceModuleCalls.get(entry.name) ?? []),
+              { path, names },
+            ])
+        }
       }
     }
     if (found.length > 0) resourceModules.set(entry.name, found)
@@ -316,6 +335,9 @@ export async function readProjectCapabilityMap(
     ...(recipeModules.has(entry.name) ? { recipeModules: recipeModules.get(entry.name) } : {}),
     ...(resourceModules.has(entry.name)
       ? { resourceModules: resourceModules.get(entry.name) }
+      : {}),
+    ...(resourceModuleCalls.has(entry.name)
+      ? { resourceModuleCalls: resourceModuleCalls.get(entry.name) }
       : {}),
     wiredBonds: [
       ...new Set(
@@ -614,6 +636,10 @@ export function renderCapabilityMap(entries: readonly CapabilityMapEntry[]): str
     }
     for (const path of entry.resourceModules ?? [])
       lines.push(`- Resource module, already written — build pages on it: \`${path}\`.`)
+    for (const module of entry.resourceModuleCalls ?? [])
+      lines.push(
+        `- Page imports from \`${module.path}\`: ${module.names.map((name) => `\`${name}\``).join(', ')}.`,
+      )
     for (const path of entry.recipeModules ?? [])
       lines.push(`- Executable framework recipe: \`${path}\`.`)
     for (const guidance of entry.guidance) lines.push(`- ${guidance}`)
@@ -734,6 +760,9 @@ export async function stampCapabilitySourceHeaders(
       ...(entry.resourceModules ?? []).map(
         (module) =>
           `Resource module, already written — build pages on it instead of fetching in an effect: ${module}`,
+      ),
+      ...(entry.resourceModuleCalls ?? []).map(
+        (module) => `Page imports from ${module.path}: ${module.names.join(', ')}`,
       ),
       ...(entry.recipeModules ?? []).map((module) => `Executable framework recipe: ${module}`),
       ...entry.guidance,

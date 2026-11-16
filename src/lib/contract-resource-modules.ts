@@ -43,7 +43,8 @@ import {
   type ResourceModuleFactory,
 } from './app-resource-modules.js'
 import type { DeclaredPackage } from './capability-map.js'
-import { formatGeneratedSource } from './format.js'
+import { formatGeneratedSource, sortImportStatements } from './format.js'
+import { type ResourceHook, resourceHooks, resourceWrites } from './resource-module-facade.js'
 import type { Registry } from './schema.js'
 
 type Json = Record<string, unknown>
@@ -453,6 +454,8 @@ export function planContractResourceModules(
     const pageExports: string[] = []
     const pageNames: string[] = []
     const listHooks: string[] = []
+    const listHookNames: string[] = []
+    const namedReads: ResourceHook[] = []
     const listParamTypes = new Map<string, { name: string; required: boolean }>()
     const listPaths = [...(list && listAnswer ? [base] : []), ...(extraLists.get(base) ?? [])]
     const pathExpression = (path: string): string => {
@@ -508,6 +511,17 @@ export function planContractResourceModules(
         : exportName
       const required = [...parameters.values()].some((parameter) => parameter.required === true)
       listParamTypes.set(path, { name: paramsType, required })
+      const hookName = `use${pascal(name)}${suffix}${pascal(name) === typeName && !suffix ? 'Collection' : ''}`
+      namedReads.push({
+        name: hookName,
+        args: [
+          ...parentParams.map((key) => ({ name: camel(key), type: 'string | null' })),
+          { name: 'viewer', type: 'string | null' },
+          { name: 'params', type: `${paramsType} | null`, ...(required ? {} : { default: '{}' }) },
+        ],
+        result: resultType,
+        read: `${[...parentParams.map((key) => `${camel(key)}Value === null`), 'viewerValue === null', 'paramsValue === null'].join(' || ')} ? null : ${pageName}(${[...parentParams.map((key) => `${camel(key)}Value`), 'viewerValue', 'paramsValue'].join(', ')})`,
+      })
       pageExports.push(
         `/** \`GET ${path}\` whole, as the API answers it: the rows and what it sends beside them. */\n` +
           `export const ${pageName} = (${[...parentParams.map((key) => `${camel(key)}: string`), 'viewer: string', `params: ${paramsType}${required ? '' : ' = {}'}`].join(', ')}): QueryOptions<${resultType}> =>\n` +
@@ -539,6 +553,7 @@ export function planContractResourceModules(
           ([key, value]) => !managed.includes(key) && value.required,
         )
         const hookName = `use${pascal(name)}${suffix}List`
+        listHookNames.push(hookName)
         const defaultLimit = numeric('limit')!.default
         const limit =
           Number.isSafeInteger(defaultLimit) && Number(defaultLimit) > 0
@@ -662,6 +677,36 @@ export function planContractResourceModules(
       describe(path, extraName, `${name}-${path.slice(base.length + 1).replace(/\//g, '-')}`)
     }
 
+    if (detail)
+      namedReads.push({
+        name: `use${typeName}`,
+        args: [
+          ...parentParams.map((key) => ({ name: camel(key), type: 'string | null' })),
+          { name: 'viewer', type: 'string | null' },
+          { name: 'id', type: 'string | number | null | undefined' },
+        ],
+        result: `${typeName} | null`,
+        read: `${[...parentParams.map((key) => `${camel(key)}Value === null`), 'viewerValue === null'].join(' || ')} ? null : ${parentParams.length ? `${exportName}(${camel(parentParams[0])}Value)` : exportName}.detail(viewerValue, idValue == null ? null : String(idValue))`,
+      })
+    // An alternate path ending in /list can otherwise take the URL controller's name.
+    const hookNames = new Set(listHookNames)
+    for (const read of namedReads) {
+      while (hookNames.has(read.name)) read.name += 'Query'
+      hookNames.add(read.name)
+    }
+    const hooks = resourceHooks(factory, namedReads)
+    const namedWrites = resourceWrites({
+      resource: exportName,
+      type: typeName,
+      parents: parentParams.map(camel),
+      create: !!create,
+      ...(createType ? { createType } : {}),
+      update: !!update,
+      ...(updateType ? { updateType } : {}),
+      remove: !!remove,
+      toggles,
+    })
+
     const covered = [
       ...(list && listAnswer ? [`list (GET ${base})`] : []),
       ...(detail ? [`detail (GET ${item})`] : []),
@@ -676,8 +721,21 @@ export function planContractResourceModules(
     // keeps (by name, `type` ignored): a module of only types is an `import type`.
     const values = new Map<string, string[]>([
       [factory.http.package, [factory.http.client]],
-      [factoryPackage, [factory.factory, ...(listHooks.length ? [listRoute!.queryHook] : [])]],
+      [
+        factoryPackage,
+        [
+          ...new Set([
+            factory.factory,
+            ...hooks.values,
+            ...(listHooks.length ? [listRoute!.queryHook] : []),
+          ]),
+        ],
+      ],
       ...(listHooks.length ? [[listRoute!.package, [listRoute!.hook]] as [string, string[]]] : []),
+      ...(hooks.storePackage
+        ? [[hooks.storePackage, ['derived', 'readable']] as [string, string[]]]
+        : []),
+      ...(hooks.wrap ? [[hooks.wrap.package, [hooks.wrap.name]] as [string, string[]]] : []),
     ])
     const types = new Map<string, string[]>()
     const typeImport = (from: string, name: string): void => {
@@ -685,6 +743,7 @@ export function planContractResourceModules(
     }
     if (pageExports.length) typeImport('@molecule/app-query', 'QueryOptions')
     typeImport(factoryPackage, 'QueryResource')
+    if (hooks.storePackage) typeImport(hooks.storePackage, 'Readable')
     if (listHooks.length) {
       typeImport(listRoute!.optionsPackage ?? listRoute!.package, listRoute!.optionsType)
       if (listRoute!.sourceType) typeImport(factoryPackage, listRoute!.sourceType)
@@ -710,6 +769,7 @@ export function planContractResourceModules(
  * again only while it is unchanged (\`mlcl resources --contract ${label}\` after the contract changes).
  *
  * Covers: ${covered.join(', ')}.
+${hooks.source ? ` * Page reads: ${namedReads.map((hook) => `\`${hook.name}(${hook.args.map((arg) => arg.name).join(', ')})\``).join(', ')}.\n * Import these hooks from this file; they return the framework's query result: data/status/error and refetch().\n * List hooks without the List suffix keep URL state local and return the whole response, including totals.\n * Pass null as viewer while restoring auth. The HTTP bond sends credentials.\n` : ''}${namedWrites ? ` * Named writes: ${[...namedWrites.matchAll(/export function (\w+)/g)].map((match) => `\`${match[1]}\``).join(', ')}.\n * Their typed input is the API's complete request body, including any envelope, sent unchanged.\n${createType ? ` * Create with \`create${typeName}(${[...parentParams.map(camel), 'viewer', 'input'].join(', ')})\`; input is \`${createType}\` (declared below).\n` : ''}` : ''} *
  * Read with \`useQuery(${call}.${list && listAnswer ? 'list(viewer, params)' : `detail(viewer, ${camel(param)})`})\`${detail && list && listAnswer ? ` and \`useQuery(${call}.detail(viewer, ${camel(param)}))\`` : ''}.${
    pageNames.length
      ? `\n * \`${pageNames.join('`, `')}\` return${pageNames.length === 1 ? 's' : ''} the whole list answer (rows and totals) for a pager.`
@@ -741,6 +801,10 @@ ${[...declarations.entries()]
 
 ${exported.join('\n\n')}
 ${pageExports.length ? `\n${pageExports.join('\n\n')}\n` : ''}
+${hooks.source}
+
+${namedWrites}
+
 ${listHooks.join('\n\n')}`
     plan.modules.push({
       collection: base,
@@ -748,7 +812,7 @@ ${listHooks.join('\n\n')}`
       exportName,
       typeName,
       operations: covered,
-      source,
+      source: sortImportStatements(source),
     })
     void extraNames
   }

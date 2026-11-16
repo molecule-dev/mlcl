@@ -3,6 +3,7 @@ import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
+import type { Readable } from 'svelte/store'
 import ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
@@ -72,7 +73,9 @@ describe('app modules for declared API resources, written by the create step', (
     await ensureAgentsMd(root)
 
     const articles = await read('app/src/resources/articles.ts')
-    expect(articles).toContain("import { createQueryResource } from '@molecule/app-query-react'")
+    expect(articles).toContain(
+      "import { createQueryResource, useQuery } from '@molecule/app-query-react'",
+    )
     expect(articles).toContain(
       "import { getClient, unwrapList, unwrapSingle } from '@molecule/app-http'",
     )
@@ -110,6 +113,8 @@ describe('app modules for declared API resources, written by the create step', (
     expect(app.endsWith('export const App = () => <main>Desk</main>\n')).toBe(true)
     const agents = await read('AGENTS.md')
     expect(agents).toContain('`app/src/resources/projects.ts`')
+    expect(agents).toContain('`useProjects`, `useProject`, `createProject`, `updateProject`')
+    expect(app).toContain('useProjects, useProject, createProject, updateProject')
   })
 
   it('never rewrites a module the app already has, and is stable on a second run', async () => {
@@ -341,7 +346,142 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
     expect(module?.source).not.toContain('Write with')
     expect(module?.source).not.toContain('each write shows')
     expect(module?.source).toContain(" * `viewer` is the signed-in user's id, or 'anonymous'.")
+    expect(module?.source).not.toContain('export function createInvoice')
+    expect(module?.source).not.toContain('export function updateInvoice')
+    expect(module?.source).toContain('export function useInvoices')
+    expect(module?.source).toContain('export function useInvoice')
   })
+
+  it('offers named reads and only declared writes on the same resource instance', () => {
+    const source = planAppResourceModule(
+      '@molecule/api-resource-invoice',
+      invoices,
+      factory,
+      QUERY,
+      'app',
+    )!.source
+    const emitted = ts.transpileModule(source, {
+      compilerOptions: { module: ts.ModuleKind.CommonJS },
+    }).outputText
+    const calls: unknown[][] = []
+    const resource = {
+      list: (...args: unknown[]) => {
+        calls.push(['list', ...args])
+        return 'rows'
+      },
+      detail: (...args: unknown[]) => {
+        calls.push(['detail', ...args])
+        return 'record'
+      },
+      create: (...args: unknown[]) => {
+        calls.push(['create', ...args])
+        return Promise.resolve('saved')
+      },
+      update: (...args: unknown[]) => {
+        calls.push(['update', ...args])
+        return Promise.resolve('saved')
+      },
+      toggle: (...args: unknown[]) => {
+        calls.push(['toggle', ...args])
+        return Promise.resolve('saved')
+      },
+    }
+    const exports: Record<string, (...args: unknown[]) => unknown> = {}
+    new Function('require', 'exports', emitted)(
+      (name: string) =>
+        name === QUERY
+          ? { createQueryResource: () => resource, useQuery: (query: unknown) => query }
+          : {},
+      exports,
+    )
+    expect(exports.useInvoice, 'a page can import its detail hook directly').toBeTypeOf('function')
+    expect(exports.useInvoices('u1', { status: 'paid' })).toBe('rows')
+    expect(exports.useInvoice('u1', 12)).toBe('record')
+    expect(exports.useInvoice(null, '12')).toBeNull()
+    expect(exports.useInvoices('u1', null)).toBeNull()
+    const input = { number: 'INV-12' }
+    exports.createInvoice('u1', input)
+    exports.updateInvoice('u1', 12, input)
+    exports.setInvoiceFlag('u1', 12, true)
+    expect(calls).toEqual([
+      ['list', 'u1', { status: 'paid' }],
+      ['detail', 'u1', '12'],
+      ['create', 'u1', input],
+      ['update', 'u1', '12', input],
+      ['toggle', 'u1', '12', 'flag', true],
+    ])
+    expect(exports.deleteInvoice).toBeUndefined()
+    expect(exports.setInvoiceSend).toBeUndefined()
+  })
+
+  it('keeps custom factory metadata without an observer usable', () => {
+    const { queryHook: _queryHook, ...withoutObserver } = factory
+    const source = planAppResourceModule(
+      '@molecule/api-resource-invoice',
+      invoices,
+      withoutObserver,
+      QUERY,
+      'app',
+    )!.source
+    expect(source).not.toContain('export function useInvoice')
+    expect(source).toContain('export function createInvoice')
+  })
+
+  it.each(['vue', 'solid', 'svelte', 'angular'])(
+    'keeps the current viewer and id reactive in a %s named hook',
+    async (framework) => {
+      const queryPackage = `@molecule/app-query-${framework}`
+      const metadata = registry.packages[queryPackage].decisionGuide!.resourceModules!
+      const source = planAppResourceModule(
+        '@molecule/api-resource-invoice',
+        invoices,
+        metadata,
+        queryPackage,
+        'app',
+      )!.source
+      const emitted = ts.transpileModule(source, {
+        compilerOptions: { module: ts.ModuleKind.CommonJS },
+      }).outputText
+      const stores = await import('svelte/store')
+      const exports: Record<string, (...args: unknown[]) => unknown> = {}
+      new Function('require', 'exports', emitted)(
+        (name: string) =>
+          name === queryPackage
+            ? {
+                createQueryResource: () => ({
+                  detail: (viewer: string, id: string) => [viewer, id],
+                }),
+                useQuery: (options: unknown) => options,
+              }
+            : name === 'svelte/store'
+              ? stores
+              : { computed: (read: () => unknown) => read },
+        exports,
+      )
+      expect(exports.useInvoice, 'the named reactive detail hook is exported').toBeTypeOf(
+        'function',
+      )
+      let viewer: string | null = null
+      let id = 'one'
+      const viewerStore = stores.writable<string | null>(viewer)
+      const idStore = stores.writable(id)
+      const query = exports.useInvoice(
+        framework === 'svelte' ? viewerStore : () => viewer,
+        framework === 'svelte' ? idStore : () => id,
+      )
+      const read = (): unknown =>
+        framework === 'svelte' ? stores.get(query as Readable<unknown>) : (query as () => unknown)()
+      expect(read()).toBeNull()
+      viewer = 'first'
+      viewerStore.set(viewer)
+      expect(read()).toEqual(['first', 'one'])
+      viewer = 'second'
+      id = 'two'
+      viewerStore.set(viewer)
+      idStore.set(id)
+      expect(read()).toEqual(['second', 'two'])
+    },
+  )
 })
 
 describe('every module the registry can produce', () => {

@@ -22,7 +22,8 @@ import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 
 import type { DeclaredPackage } from './capability-map.js'
-import { formatGeneratedSource } from './format.js'
+import { formatGeneratedSource, sortImportStatements } from './format.js'
+import { resourceHooks, resourceWrites } from './resource-module-facade.js'
 import type { Registry, RegistryEntry } from './schema.js'
 
 /** How an app package declares its resource factory (`decisionGuide.resourceModules`). */
@@ -204,6 +205,37 @@ export function planAppResourceModule(
   const writeDoc = writes.length
     ? ` * Write with ${writes.join(', ')}:\n * each write shows the server's record in the cache and fetches the lists on screen again.\n`
     : ''
+  const listHook = `use${pascal(name)}${pascal(name) === typeName ? 'Collection' : ''}`
+  const hooks = resourceHooks(factory, [
+    {
+      name: listHook,
+      args: [
+        { name: 'viewer', type: 'string | null' },
+        { name: 'params', type: 'Record<string, unknown> | null', default: '{}' },
+      ],
+      result: `${typeName}[]`,
+      read: `viewerValue === null || paramsValue === null ? null : ${exportName}.list(viewerValue, paramsValue)`,
+    },
+    {
+      name: `use${typeName}`,
+      args: [
+        { name: 'viewer', type: 'string | null' },
+        { name: 'id', type: 'string | number | null | undefined' },
+      ],
+      result: `${typeName} | null`,
+      read: `viewerValue === null ? null : ${exportName}.detail(viewerValue, idValue == null ? null : String(idValue))`,
+    },
+  ])
+  const namedWrites = resourceWrites({
+    resource: exportName,
+    type: typeName,
+    parents: [],
+    create: collection.create,
+    update: collection.update !== null,
+    remove: collection.remove,
+    toggles: collection.toggles,
+  })
+  const factoryNames = [factory.factory, ...hooks.values].sort()
   const source = `/**
  * ${typeName} records on the app's shared query cache.
  *
@@ -211,6 +243,7 @@ export function planAppResourceModule(
  * It is this app's code: change the path, the readers and the type to match the API you serve.
  * mlcl does not write it again.
  *
+${hooks.source ? ` * Pages import \`${listHook}\` and \`use${typeName}\` from this file.\n * Call \`use${typeName}(viewer, ${idField})\`; read data/status/error and retry with refetch().\n * Pass null as viewer while restoring auth. The HTTP bond sends credentials.\n` : ''}${namedWrites ? ` * Named writes: ${[...namedWrites.matchAll(/export function (\w+)/g)].map((match) => `\`${match[1]}\``).join(', ')}.\n` : ''} *
  * Read with \`useQuery(${exportName}.list(viewer, params))\` and
  * \`useQuery(${exportName}.detail(viewer, ${idField}))\`.
 ${writeDoc} * \`viewer\` is the signed-in user's id, or 'anonymous'.
@@ -218,7 +251,9 @@ ${writeDoc} * \`viewer\` is the signed-in user's id, or 'anonymous'.
  * Routes: ${routes.join(', ')}
  */
 import { ${httpNames.join(', ')} } from '${factory.http.package}'
-import { ${factory.factory} } from '${factoryPackage}'
+import { ${factoryNames.join(', ')} } from '${factoryPackage}'
+${hooks.storePackage ? `import { derived, type Readable, readable } from '${hooks.storePackage}'\n` : ''}
+${hooks.wrap ? `import { ${hooks.wrap.name} } from '${hooks.wrap.package}'\n` : ''}
 
 /** ${
     record
@@ -238,8 +273,12 @@ export const ${exportName} = ${factory.factory}<${typeName}>({
   readList: (response) => ${factory.http.readList}<${typeName}>(response),
   readOne: (response) => ${factory.http.readOne}<${typeName}>(response),
 })
+
+${hooks.source}
+
+${namedWrites}
 `
-  return { resource, path, exportName, typeName, operations, source }
+  return { resource, path, exportName, typeName, operations, source: sortImportStatements(source) }
 }
 
 /**

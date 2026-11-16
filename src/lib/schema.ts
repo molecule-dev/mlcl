@@ -219,6 +219,29 @@ export const DecisionGuide = z.object({
         readList: z.string().describe('Its reader for a list response'),
         readOne: z.string().describe('Its reader for a single-record response'),
       }),
+      queryHook: z
+        .discriminatedUnion('input', [
+          z.object({
+            name: z.string().regex(/^[A-Za-z_$][\w$]*$/),
+            input: z.enum(['value', 'getter']),
+            wrap: z
+              .object({ name: z.string().regex(/^[A-Za-z_$][\w$]*$/), package: z.string() })
+              .optional()
+              .describe(
+                'A computed factory when the observer requires a signal instead of a getter',
+              ),
+          }),
+          z.object({
+            name: z.string().regex(/^[A-Za-z_$][\w$]*$/),
+            input: z.literal('store'),
+            package: z.string().describe('The package exporting Readable, readable and derived'),
+          }),
+        ])
+        .optional()
+        .describe(
+          'The query observer this factory package exports. Named resource hooks compose it. ' +
+            'Value inputs follow re-renders, getters follow reactive reads, and stores follow subscriptions.',
+        ),
       listRoute: z
         .object({
           package: z.string(),
