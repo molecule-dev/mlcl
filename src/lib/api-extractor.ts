@@ -7,7 +7,6 @@
  * @module
  */
 
-import { readFileSync } from 'node:fs'
 import { basename, dirname, isAbsolute, join, relative, sep } from 'node:path'
 
 import {
@@ -19,11 +18,11 @@ import {
   type JSDocTag,
   Node,
   type ParameterDeclaration,
-  Project,
   type SourceFile,
-  ts,
   type VariableDeclaration,
 } from 'ts-morph'
+
+import { type ApiExtractionSession, createApiExtractionSession } from './api-extraction-session.js'
 
 // ============================================================================
 // Types
@@ -128,95 +127,19 @@ export interface ExtractedModule {
  */
 export function extractPackageApi(
   packageDir: string,
-  options: { rootDir?: string; sourcePackages?: ReadonlyMap<string, string> } = {},
+  options: {
+    rootDir?: string
+    sourcePackages?: ReadonlyMap<string, string>
+    session?: ApiExtractionSession
+  } = {},
 ): ExtractedModule {
   const srcDir = join(packageDir, 'src')
-  const indexPath = join(srcDir, 'index.ts')
   const rootDir = options.rootDir ?? packageTreeRoot(packageDir) ?? packageDir
   const sourcePackageNames = new Map(
     [...(options.sourcePackages ?? [])].map(([name, dir]) => [join(dir, 'src'), name]),
   )
-  const pathsByPackage = new Map<string, Record<string, string[]>>()
-
-  const project = new Project({
-    compilerOptions: {
-      target: 99, // ESNext
-      module: 199, // NodeNext
-      moduleResolution: 99, // NodeNext
-      jsx: ts.JsxEmit.Preserve,
-      declaration: true,
-      strict: true,
-      esModuleInterop: true,
-      skipLibCheck: true,
-      // Load @types/node's ambient globals (the global `Buffer`, `process`,
-      // `NodeJS.*`). Without this, the in-memory ts-morph Project never pulls
-      // @types/node into global scope, so any signature referencing the global
-      // `Buffer` collapses to `any` in the generated README.md (e.g. jwt's
-      // JWT_PRIVATE_KEY: `string | Buffer<ArrayBufferLike>` → `any`). This only
-      // governs ambient-global inclusion — types imported explicitly (e.g.
-      // `import type { ReactNode } from 'react'`) resolve via module resolution
-      // regardless, so app/react/vue/etc. packages are unaffected.
-      types: ['node'],
-    },
-    skipAddingFilesFromTsConfig: true,
-    resolutionHost: (host) => ({
-      resolveModuleNames: (names, from, _reused, redirected, compilerOptions, sourceFile) => {
-        // ts-morph's source files do not carry NodeNext's implied format.
-        // Recover it from the containing tree, so import/require conditions
-        // (including a type import's explicit resolution-mode) remain correct.
-        const resolutionSource = sourceFile && {
-          ...sourceFile,
-          impliedNodeFormat:
-            sourceFile.impliedNodeFormat ??
-            ts.getImpliedNodeFormatForFile(from, undefined, host, compilerOptions),
-        }
-        return names.map((name, index) => {
-          const packageName = name.startsWith('@molecule/') ? moduleNameOf(name) : undefined
-          const siblingDir = packageName && options.sourcePackages?.get(packageName)
-          let paths: Record<string, string[]> | undefined
-          if (siblingDir && packageName) {
-            paths = pathsByPackage.get(packageName)
-            if (!paths) {
-              paths = packageSourcePaths(packageName, siblingDir)
-              pathsByPackage.set(packageName, paths)
-            }
-          }
-          const resolved = ts.resolveModuleName(
-            name,
-            from,
-            paths ? { ...compilerOptions, paths } : compilerOptions,
-            host,
-            undefined,
-            redirected,
-            resolutionSource &&
-              ts.getModeForResolutionAtIndex(resolutionSource, index, compilerOptions),
-          ).resolvedModule
-          // TypeScript paths normally fall back to node_modules when the target
-          // is missing. Never let a deleted source file resurrect stale dist docs.
-          // Non-code imports (for example a bundler's font.woff?url in a test)
-          // can remain unresolved. They supply no declarations to document.
-          if (
-            siblingDir &&
-            resolved &&
-            !resolved.resolvedFileName.startsWith(join(siblingDir, 'src') + sep)
-          ) {
-            throw new Error(`Cannot resolve documented source for ${name} imported by ${from}`)
-          }
-          return resolved
-        })
-      },
-    }),
-  })
-
-  // Add only the files in the package src directory
-  // Include .tsx — component packages (app/features/*) re-export their public API
-  // from .tsx files (`export * from './Foo.js'` → Foo.tsx). Globbing only .ts left
-  // getExportedDeclarations() unable to resolve those re-exports, so 141 component
-  // packages rendered NO API section at all (props undocumented → the executor falls
-  // back to cat-ing the .d.ts, the dominant custom-build cost).
-  project.addSourceFilesAtPaths(join(srcDir, '**/*.{ts,tsx}'))
-
-  const indexFile = project.getSourceFile(indexPath)
+  const session = options.session ?? createApiExtractionSession(options.sourcePackages)
+  const indexFile = session.getIndexFile(packageDir)
   if (!indexFile) {
     return { exports: [] }
   }
@@ -225,7 +148,7 @@ export function extractPackageApi(
   const moduleJsDoc = extractModuleJsDoc(indexFile)
 
   // Extract all public exports
-  const exports = extractExports(indexFile, project, srcDir, rootDir, sourcePackageNames)
+  const exports = extractExports(indexFile, srcDir, rootDir, sourcePackageNames)
 
   return {
     description: moduleJsDoc.description,
@@ -234,48 +157,6 @@ export function extractPackageApi(
     e2e: moduleJsDoc.e2e,
     exports,
   }
-}
-
-/**
- * Use the tree's own package manifest to map public entry points to source.
- * TypeScript still owns paths matching and .js → .ts/.tsx lookup.
- * Reading installed manifests here would reintroduce the export-tree escape.
- */
-function packageSourcePaths(name: string, packageDir: string): Record<string, string[]> {
-  const pkg = JSON.parse(readFileSync(join(packageDir, 'package.json'), 'utf8')) as {
-    types?: string
-    main?: string
-    exports?: unknown
-  }
-  const targets = (value: unknown): string[] => {
-    if (typeof value === 'string') {
-      if (!/^(?:\.\/)?(?:dist|src)\//.test(value)) return []
-      return [
-        join(packageDir, value.replace(/^(?:\.\/)?dist\//, 'src/').replace(/\.d\.ts$/, '.js')),
-      ]
-    }
-    if (!value || typeof value !== 'object') return []
-    return [...new Set(Object.values(value).flatMap(targets))]
-  }
-  const paths: Record<string, string[]> = {
-    [name]: [join(packageDir, 'src/index.js')],
-    [`${name}/*`]: [join(packageDir, 'src/*')],
-  }
-  if (pkg.exports && typeof pkg.exports === 'object') {
-    for (const [key, value] of Object.entries(pkg.exports)) {
-      const mapped = targets(value)
-      if (mapped.length && (key === '.' || key.startsWith('./'))) {
-        paths[key === '.' ? name : `${name}/${key.slice(2)}`] = mapped
-      }
-    }
-  }
-  const rootExport =
-    pkg.exports && typeof pkg.exports === 'object' && '.' in pkg.exports
-      ? pkg.exports['.']
-      : pkg.exports
-  const rootTargets = targets(rootExport ?? pkg.types ?? pkg.main)
-  if (rootTargets.length) paths[name] = rootTargets
-  return paths
 }
 
 // ============================================================================
@@ -525,7 +406,6 @@ function packageTreeRoot(path: string): string | undefined {
  */
 function extractExports(
   indexFile: SourceFile,
-  _project: Project,
   srcDir: string,
   rootDir: string,
   sourcePackageNames: ReadonlyMap<string, string>,

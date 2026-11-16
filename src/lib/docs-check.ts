@@ -42,7 +42,7 @@ export async function checkDocsSerial(
 /**
  * Check README files without writing them. Jobs defaults to one; two uses at
  * most two ordinary Node children, each capped at a 2 GiB heap. A one-package
- * scope stays in this process. Every extraction retains its own compiler Project.
+ * scope stays in this process. Every extraction retains its own compiler program.
  *
  * @param registry - Full registry, including unselected providers and locales
  * @param moleculeDir - Absolute source tree root

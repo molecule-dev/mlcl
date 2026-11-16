@@ -14,6 +14,7 @@ import { join, relative, sep } from 'node:path'
 
 import { ts } from 'ts-morph'
 
+import { createApiExtractionSession } from './api-extraction-session.js'
 import { type ExtractedModule, extractPackageApi } from './api-extractor.js'
 import { generateMoleculeMd, type PackageJson } from './docs-generator.js'
 import { stripFrameworkSuffix } from './features.js'
@@ -254,6 +255,7 @@ export async function generateDocs(
   // One read-only generation needs each package's API only once: its own
   // README and providers inheriting its @e2e text use the same extraction.
   // Keep this Map local so the next generation observes changed source.
+  const session = createApiExtractionSession(sourcePackages)
   const extractedByPath = new Map<string, ExtractedModule>()
   const getExtracted = (entry: RegistryEntry): ExtractedModule => {
     let extracted = extractedByPath.get(entry.path)
@@ -261,6 +263,7 @@ export async function generateDocs(
       extracted = extractPackageApi(join(moleculeDir, entry.path), {
         rootDir: moleculeDir,
         sourcePackages,
+        session,
       })
       extractedByPath.set(entry.path, extracted)
     }
