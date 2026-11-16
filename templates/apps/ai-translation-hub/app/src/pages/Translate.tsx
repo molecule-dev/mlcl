@@ -656,6 +656,7 @@ export function Translate() {
                           {m.value}%
                         </span>
                         <button
+                          disabled={!active}
                           onClick={() => {
                             void handleInsertTm(m.id)
                           }}
