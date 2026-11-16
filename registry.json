@@ -42503,6 +42503,46 @@
         "design canvas base"
       ]
     },
+    "@molecule/app-feature-chapter-list-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chapter-list",
+      "label": "Chapter List Angular",
+      "description": "List of chapters with seek-to and progress highlight — chapter thumbnails, titles, and timestamps for podcast/video playback",
+      "stack": "app",
+      "exports": [
+        "Chapter",
+        "ChapterList",
+        "ChapterListProps",
+        "findActiveChapterIndex",
+        "formatTimestamp"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/feature-chapter-list-angular",
+      "intentHints": [
+        "chapter list",
+        "chapter navigation",
+        "podcast chapters",
+        "video chapters",
+        "seek to chapter",
+        "in-episode navigation",
+        "chapter markers"
+      ]
+    },
     "@molecule/app-feature-chapter-list-react": {
       "language": "typescript",
       "runtime": "node",
@@ -42529,6 +42569,120 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/chapter-list-react",
+      "intentHints": [
+        "chapter list",
+        "chapter navigation",
+        "podcast chapters",
+        "video chapters",
+        "seek to chapter",
+        "in-episode navigation",
+        "chapter markers"
+      ]
+    },
+    "@molecule/app-feature-chapter-list-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chapter-list",
+      "label": "Chapter List Solid",
+      "description": "List of chapters with seek-to and progress highlight — chapter thumbnails, titles, and timestamps for podcast/video playback",
+      "stack": "app",
+      "exports": [
+        "Chapter",
+        "ChapterList",
+        "ChapterListProps",
+        "findActiveChapterIndex",
+        "formatTimestamp"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/feature-chapter-list-solid",
+      "intentHints": [
+        "chapter list",
+        "chapter navigation",
+        "podcast chapters",
+        "video chapters",
+        "seek to chapter",
+        "in-episode navigation",
+        "chapter markers"
+      ]
+    },
+    "@molecule/app-feature-chapter-list-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chapter-list",
+      "label": "Chapter List Svelte",
+      "description": "List of chapters with seek-to and progress highlight — chapter thumbnails, titles, and timestamps for podcast/video playback",
+      "stack": "app",
+      "exports": [
+        "Chapter",
+        "ChapterList",
+        "ChapterListProps",
+        "findActiveChapterIndex",
+        "formatTimestamp"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/feature-chapter-list-svelte",
+      "intentHints": [
+        "chapter list",
+        "chapter navigation",
+        "podcast chapters",
+        "video chapters",
+        "seek to chapter",
+        "in-episode navigation",
+        "chapter markers"
+      ]
+    },
+    "@molecule/app-feature-chapter-list-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chapter-list",
+      "label": "Chapter List Vue",
+      "description": "List of chapters with seek-to and progress highlight — chapter thumbnails, titles, and timestamps for podcast/video playback",
+      "stack": "app",
+      "exports": [
+        "Chapter",
+        "ChapterList",
+        "ChapterListProps",
+        "findActiveChapterIndex",
+        "formatTimestamp"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/feature-chapter-list-vue",
       "intentHints": [
         "chapter list",
         "chapter navigation",
@@ -42936,6 +43090,44 @@
         "clip block"
       ]
     },
+    "@molecule/app-feature-transport-bar-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-transport-bar",
+      "label": "Transport Bar Angular",
+      "description": "Transport-control bar (play / pause / stop / record / skip / loop) used by music-daw + video-editor for editor playback control",
+      "stack": "app",
+      "exports": [
+        "TransportBar",
+        "TransportBarProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/feature-transport-bar-angular",
+      "intentHints": [
+        "transport bar",
+        "playback controls",
+        "play pause stop",
+        "record button",
+        "loop toggle",
+        "skip forward backward",
+        "daw transport",
+        "video editor transport"
+      ]
+    },
     "@molecule/app-feature-transport-bar-react": {
       "language": "typescript",
       "runtime": "node",
@@ -42959,6 +43151,114 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/transport-bar-react",
+      "intentHints": [
+        "transport bar",
+        "playback controls",
+        "play pause stop",
+        "record button",
+        "loop toggle",
+        "skip forward backward",
+        "daw transport",
+        "video editor transport"
+      ]
+    },
+    "@molecule/app-feature-transport-bar-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-transport-bar",
+      "label": "Transport Bar Solid",
+      "description": "Transport-control bar (play / pause / stop / record / skip / loop) used by music-daw + video-editor for editor playback control",
+      "stack": "app",
+      "exports": [
+        "TransportBar",
+        "TransportBarProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/feature-transport-bar-solid",
+      "intentHints": [
+        "transport bar",
+        "playback controls",
+        "play pause stop",
+        "record button",
+        "loop toggle",
+        "skip forward backward",
+        "daw transport",
+        "video editor transport"
+      ]
+    },
+    "@molecule/app-feature-transport-bar-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-transport-bar",
+      "label": "Transport Bar Svelte",
+      "description": "Transport-control bar (play / pause / stop / record / skip / loop) used by music-daw + video-editor for editor playback control",
+      "stack": "app",
+      "exports": [
+        "TransportBar",
+        "TransportBarProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/feature-transport-bar-svelte",
+      "intentHints": [
+        "transport bar",
+        "playback controls",
+        "play pause stop",
+        "record button",
+        "loop toggle",
+        "skip forward backward",
+        "daw transport",
+        "video editor transport"
+      ]
+    },
+    "@molecule/app-feature-transport-bar-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-transport-bar",
+      "label": "Transport Bar Vue",
+      "description": "Transport-control bar (play / pause / stop / record / skip / loop) used by music-daw + video-editor for editor playback control",
+      "stack": "app",
+      "exports": [
+        "TransportBar",
+        "TransportBarProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/feature-transport-bar-vue",
       "intentHints": [
         "transport bar",
         "playback controls",
@@ -45071,7 +45371,6 @@
         "FormProvider",
         "FormOptions",
         "FormResetOptions",
-        "FormUpdateOptions",
         "snapshotFormValue",
         "formValuesEqual",
         "validateValue"
