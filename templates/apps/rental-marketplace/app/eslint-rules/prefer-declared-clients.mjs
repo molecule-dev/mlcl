@@ -3999,9 +3999,9 @@ export function scaffoldRules(parser) {
           droppedIntent:
             'This control shows its next value before awaiting work, but its busy guard discards another click while that work is pending. Keep the control disabled for that busy state, or queue the latest intent with useOptimisticValue from @molecule/app-react. An imported callback does not make the busy guard safe.',
           unreadyRecord:
-            'This enabled control silently discards a click while {{record}} is not available yet. Disable it until that record exists (disabled={!{{record}}}), or render it only with loaded data, for example inside QueryContent. Keep controls available during same-record refetches once their initial data exists.',
+            'Add disabled={!{{record}}} to this control, or mount it only when {{record}} exists. Its handler silently discards the action when {{record}} is missing, and this component’s JSX treats that value as possibly missing. Keep controls mounted during same-record refetches once their initial data exists.',
           unreadyForm:
-            'This form silently discards its submit while {{record}} is not available yet: the form is on screen and its handler returns without doing anything. Disable its submit button until that record exists (disabled={!{{record}}} on the submit button), or render the form only with loaded data ({{record}} ? <form …> : null, or inside QueryContent from @molecule/app-query-react). Keep it mounted during same-record refetches once its initial data exists.',
+            'Add disabled={!{{record}}} to this form’s submit button, or mount the form only when {{record}} exists ({{record}} ? <form …> : null, or inside QueryContent). Its handler silently discards the submit when {{record}} is missing, and this component’s JSX treats that value as possibly missing. Keep it mounted during same-record refetches once its initial data exists.',
         },
       },
       create(context) {
@@ -4978,202 +4978,112 @@ export function scaffoldRules(parser) {
             if (!reactModule) return
             if (mode === 'dropped-intent') {
               const flow = reactStateFlow(context)
-              const records = flow.states
-                .filter(
-                  (state) =>
-                    (!state.initial ||
-                      state.initial.value === null ||
-                      (state.initial.type === 'Identifier' &&
-                        state.initial.name === 'undefined')) &&
-                    // A passive effect can populate state after the first committed render,
-                    // including by copying another hook. A reset-only effect proves no load;
-                    // synchronous layout effects settle before paint. No hook-name guesswork.
-                    flow.effects.some((effect) =>
-                      effect.writes.some(
-                        (write) =>
-                          write.state === state &&
-                          (write.async ||
-                            (flow.react(effect.node.callee, 'useEffect') &&
-                              write.argument &&
-                              write.argument.value !== null &&
-                              !(
-                                write.argument.type === 'Identifier' &&
-                                write.argument.name === 'undefined' &&
-                                !variableFor(write.argument)?.defs.length
-                              ))),
-                      ),
-                    ),
+              // An enabled control must not silently drop an action for a value that this
+              // component's JSX treats as possibly missing, unless disabled or mounted on it.
+              // A TypeScript project exceeded the write-time server's 256 MiB heap budget.
+              // Use the design's single-file fallback: JSX x ? …, x && …, or x?.
+              // No query-package list, imported module parsing, or load provenance is needed.
+              const records = []
+              // Predicate expressions always produce booleans, including false. A JSX test
+              // of one does not establish that a data value can be null or undefined.
+              const predicate = (node, seen = new Set()) => {
+                node = unwrap(node)
+                if (!node || seen.has(node)) return false
+                const next = new Set(seen).add(node)
+                if (node.type === 'Literal') return typeof node.value === 'boolean'
+                if (node.type === 'UnaryExpression' && node.operator === '!') return true
+                if (node.type === 'BinaryExpression')
+                  return [
+                    '==',
+                    '===',
+                    '!=',
+                    '!==',
+                    '<',
+                    '<=',
+                    '>',
+                    '>=',
+                    'in',
+                    'instanceof',
+                  ].includes(node.operator)
+                if (node.type === 'LogicalExpression')
+                  return predicate(node.left, next) && predicate(node.right, next)
+                if (node.type === 'ConditionalExpression')
+                  return predicate(node.consequent, next) && predicate(node.alternate, next)
+                if (node.type === 'CallExpression')
+                  return node.callee.name === 'Boolean' && !variableFor(node.callee)?.defs.length
+                const definition = variableFor(node)?.defs[0]
+                return (
+                  definition?.type === 'Variable' &&
+                  definition.parent.kind === 'const' &&
+                  predicate(definition.node.init, next)
                 )
-                .map((state) => ({
-                  variable: state.value,
-                  field: null,
-                  name: state.value.name,
-                  owner: state.owner,
-                  missing: state.initial?.value === null ? null : undefined,
-                }))
-              // A declared query's data is unavailable before its initial load too. Follow its
-              // binding, not variable names, API routes, test files or application nouns: the
-              // call is `useQuery` from a query package, or a hook (declared in this file or
-              // imported from a relative module) whose returned value is such a call. X1 l3062:
-              // `useArticle()` in `lib/conduit.ts` returned `useQuery(...)`, the page read its
-              // `.data`, and the comment form dropped every submit made before the article loaded.
-              const QUERY_SOURCES = ['@molecule/app-query-react', '@tanstack/react-query']
-              const resolver = componentResolver(parser, context)
-              const importIn = (tree, local) => {
-                for (const statement of tree.body) {
-                  if (statement.type !== 'ImportDeclaration' || statement.importKind === 'type')
-                    continue
-                  const specifier = statement.specifiers.find((item) => item.local.name === local)
-                  if (specifier)
-                    return specifier.importKind === 'type'
-                      ? null
-                      : {
-                          source: statement.source.value,
-                          name: specifier.imported?.name ?? 'default',
-                        }
-                }
-                return null
               }
-              // The expressions a hook returns, with a returned local const read through.
-              const returned = (fn) =>
-                resolver.roots(fn).map((root) => {
-                  if (root?.type !== 'Identifier' || fn.body.type !== 'BlockStatement') return root
-                  let init = root
-                  flow.walk(fn.body, (part) => {
-                    if (
-                      part.type === 'VariableDeclarator' &&
-                      part.id.type === 'Identifier' &&
-                      part.id.name === root.name &&
-                      part.init
-                    )
-                      init = part.init
-                  })
-                  return init
-                })
-              const returnsQuery = (call, tree, filename, depth = 0) => {
-                call = unwrap(call)
-                if (
-                  call?.type !== 'CallExpression' ||
-                  call.callee.type !== 'Identifier' ||
-                  depth > 4
-                )
+              const routeParams = (node, seen = new Set()) => {
+                node = unwrap(node)
+                if (!node || seen.has(node)) return false
+                const next = new Set(seen).add(node)
+                if (node.type === 'MemberExpression') return routeParams(node.object, next)
+                const definition = variableFor(node)?.defs[0]
+                if (definition?.type !== 'Variable' || definition.parent.kind !== 'const')
                   return false
-                const name = call.callee.name
-                const source = importIn(tree, name)
-                if (source) {
-                  if (source.name === 'useQuery') return QUERY_SOURCES.includes(source.source)
-                  if (!source.source.startsWith('.')) return false
-                  const resolved = resolver.imported(tree, name, filename)
-                  return Boolean(
-                    resolved &&
-                    isFunction(resolved.node) &&
-                    returned(resolved.node).some((root) =>
-                      returnsQuery(root, resolved.tree, resolved.filename, depth + 1),
-                    ),
+                const init = unwrap(definition.node.init)
+                if (init?.type === 'CallExpression') {
+                  const callee = unwrap(init.callee)
+                  const imported = variableFor(
+                    callee?.type === 'MemberExpression' ? callee.object : callee,
+                  )?.defs[0]
+                  return (
+                    imported?.type === 'ImportBinding' &&
+                    (callee?.type === 'Identifier'
+                      ? imported.node.imported?.name === 'useParams'
+                      : imported.node.type === 'ImportNamespaceSpecifier' &&
+                        !callee.computed &&
+                        callee.property.name === 'useParams')
                   )
                 }
-                const local = resolver.declaration(tree, name)
-                return (
-                  isFunction(local) &&
-                  returned(local).some((root) => returnsQuery(root, tree, filename, depth + 1))
+                return routeParams(init, next)
+              }
+              const tested = (node, owner) => {
+                node = unwrap(node)
+                if (node?.type === 'UnaryExpression' && node.operator === '!')
+                  return tested(node.argument, owner)
+                const variable = variableFor(node)
+                if (!variable || predicate(node) || routeParams(node)) return
+                if (
+                  records.some((record) => record.variable === variable && record.owner === owner)
                 )
+                  return
+                // Syntax cannot distinguish null from undefined. A guard must protect every
+                // missing value for which its handler would silently skip the action.
+                for (const missing of [null, undefined])
+                  records.push({
+                    variable,
+                    owner,
+                    name: variable.name,
+                    missing,
+                  })
               }
               flow.walk(context.sourceCode.ast, (node) => {
-                if (node.type !== 'VariableDeclarator' || node.init?.type !== 'CallExpression')
-                  return
-                const binding = variableFor(node.init.callee)?.defs[0]
-                const direct =
-                  binding?.type === 'ImportBinding' &&
-                  binding.node.imported?.name === 'useQuery' &&
-                  QUERY_SOURCES.includes(binding.parent.source.value)
-                if (
-                  !direct &&
-                  !(
-                    /^use[A-Z0-9]/.test(node.init.callee.name ?? '') &&
-                    returnsQuery(node.init, context.sourceCode.ast, context.filename)
-                  )
+                if (node.type !== 'JSXExpressionContainer') return
+                const owner = flow.owner(node)
+                if (!owner) return
+                flow.walk(
+                  node.expression,
+                  (part) => {
+                    if (part.type === 'ConditionalExpression') tested(part.test, owner)
+                    if (part.type === 'LogicalExpression' && part.operator === '&&')
+                      tested(part.left, owner)
+                    if (part.type === 'MemberExpression' && part.optional)
+                      tested(part.object, owner)
+                    if (part.type === 'CallExpression' && part.optional) tested(part.callee, owner)
+                  },
+                  (part) => !isFunction(part),
                 )
-                  return
-                if (node.id.type === 'Identifier')
-                  records.push({
-                    variable: variableFor(node.id),
-                    field: 'data',
-                    name: `${node.id.name}.data`,
-                    owner: flow.owner(node),
-                    missing: undefined,
-                  })
-                if (node.id.type === 'ObjectPattern')
-                  for (const property of node.id.properties)
-                    if (
-                      property.type === 'Property' &&
-                      (property.key.name ?? property.key.value) === 'data' &&
-                      property.value.type === 'Identifier'
-                    )
-                      records.push({
-                        variable: variableFor(property.value),
-                        field: null,
-                        name: property.value.name,
-                        owner: flow.owner(node),
-                        missing: undefined,
-                      })
               })
               const refers = (node, record) => {
                 node = unwrap(node)
-                return record.field
-                  ? node?.type === 'MemberExpression' &&
-                      variableFor(node.object) === record.variable &&
-                      (node.computed ? node.property.value : node.property.name) === record.field
-                  : node?.type === 'Identifier' && variableFor(node) === record.variable
+                return node?.type === 'Identifier' && variableFor(node) === record.variable
               }
-              // Keep nullable projections of query data tied to their own lexical binding.
-              // A fallback that supplies a usable value is independent of initial loading.
-              const projection = (node, record) => {
-                node = unwrap(node)
-                if (refers(node, record)) return true
-                if (node?.type === 'MemberExpression') return projection(node.object, record)
-                if (
-                  node?.type === 'LogicalExpression' &&
-                  node.operator === '??' &&
-                  (node.right.value === null ||
-                    (node.right.type === 'Identifier' &&
-                      node.right.name === 'undefined' &&
-                      !variableFor(node.right)?.defs.length))
-                )
-                  return projection(node.left, record)
-                const nullish = (part) =>
-                  part?.value === null ||
-                  (part?.type === 'Identifier' &&
-                    part.name === 'undefined' &&
-                    !variableFor(part)?.defs.length)
-                if (node?.type === 'ConditionalExpression' && nullish(unwrap(node.alternate)))
-                  return projection(node.test, record)
-                if (node?.type === 'LogicalExpression' && node.operator === '&&')
-                  return projection(node.left, record)
-                return false
-              }
-              flow.walk(context.sourceCode.ast, (node) => {
-                if (
-                  node.type !== 'VariableDeclarator' ||
-                  node.id.type !== 'Identifier' ||
-                  node.parent.kind !== 'const'
-                )
-                  return
-                if (records.some((record) => projection(node.init, record)))
-                  records.push({
-                    variable: variableFor(node.id),
-                    field: null,
-                    name: node.id.name,
-                    owner: flow.owner(node),
-                    missing:
-                      (node.init?.type === 'LogicalExpression' &&
-                        node.init.operator === '??' &&
-                        node.init.right.value === null) ||
-                      (node.init?.type === 'ConditionalExpression' &&
-                        unwrap(node.init.alternate)?.value === null)
-                        ? null
-                        : undefined,
-                  })
-              })
               // Does this condition being truth/false prove that this particular record exists?
               const present = (node, truth, record, seen = new Set()) => {
                 node = unwrap(node)
@@ -5220,7 +5130,7 @@ export function scaffoldRules(parser) {
                   present(definition.node.init, truth, record, next)
                 )
               }
-              // Evaluate only availability expressions with this record at its missing initial
+              // Evaluate only availability expressions with this record at its missing
               // value. Other values stay unknown: no loading-flag, route or cross-control inference.
               const UNKNOWN = Symbol('unknown'),
                 TRUTHY = Symbol('truthy'),
@@ -5373,11 +5283,36 @@ export function scaffoldRules(parser) {
                   ? evaluate(definition.node.init, record, next)
                   : UNKNOWN
               }
+              const prefixEnds = new WeakMap()
               const prefixEnd = (fn) => {
+                if (prefixEnds.has(fn)) return prefixEnds.get(fn)
                 let end = Infinity
                 walk(fn.body, (node) => {
-                  if (node.type === 'AwaitExpression') end = Math.min(end, node.range[1])
+                  if (
+                    ![
+                      'CallExpression',
+                      'NewExpression',
+                      'AssignmentExpression',
+                      'UpdateExpression',
+                      'AwaitExpression',
+                    ].includes(node.type)
+                  )
+                    return
+                  // Event bookkeeping alone does not perform the form's action or give feedback.
+                  if (
+                    node.type === 'CallExpression' &&
+                    node.callee.type === 'MemberExpression' &&
+                    ['preventDefault', 'stopPropagation'].includes(flow.member(node.callee)) &&
+                    fn.params.some(
+                      (param) =>
+                        variableFor(param) &&
+                        variableFor(param) === variableFor(node.callee.object),
+                    )
+                  )
+                    return
+                  end = Math.min(end, node.range[1])
                 })
+                prefixEnds.set(fn, end)
                 return end
               }
               const silentReturn = (node) =>
@@ -5521,6 +5456,7 @@ export function scaffoldRules(parser) {
                 if (reportedControls.has(opening)) continue
                 const relevant = handlers(handler)
                 for (const record of records) {
+                  if (record.owner !== flow.owner(opening)) continue
                   if (
                     conditions.some(([test, expected]) => {
                       const actual = truth(evaluate(test, record))
@@ -6565,7 +6501,7 @@ export function scaffoldRules(parser) {
       type: 'problem',
       docs: {
         description:
-          'Reject an enabled control that drops clicks while its record loads or while saving.',
+          'Reject an enabled control whose handler first returns because a value tested for absence in its component’s JSX is missing, unless disabled or mounted on that value; also reject discarded clicks while saving.',
       },
     },
     create(context) {

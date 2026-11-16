@@ -5283,7 +5283,9 @@ export function scaffoldRules(parser) {
                   ? evaluate(definition.node.init, record, next)
                   : UNKNOWN
               }
+              const prefixEnds = new WeakMap()
               const prefixEnd = (fn) => {
+                if (prefixEnds.has(fn)) return prefixEnds.get(fn)
                 let end = Infinity
                 walk(fn.body, (node) => {
                   if (
@@ -5310,6 +5312,7 @@ export function scaffoldRules(parser) {
                     return
                   end = Math.min(end, node.range[1])
                 })
+                prefixEnds.set(fn, end)
                 return end
               }
               const silentReturn = (node) =>
