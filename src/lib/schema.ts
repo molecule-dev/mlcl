@@ -1404,6 +1404,12 @@ export const Registry = z.object({
     )
     .optional()
     .describe('Named theme presets that bundle a theme provider + optional ClassMap override'),
+  pendingPackages: z
+    .record(z.string(), RegistryEntry)
+    .optional()
+    .describe(
+      'Declarations awaiting a served first release. Not part of the installable catalog. The release restores them to packages after publication.',
+    ),
 })
 
 export type Registry = z.infer<typeof Registry>

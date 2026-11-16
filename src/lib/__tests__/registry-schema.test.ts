@@ -91,7 +91,7 @@ describe('registry.json schema validation', () => {
     // Removing a package from the fleet removes its entry, but the release's pin sweep rewrites only
     // the packages it publishes, so the removed package's pin stayed behind (app-locales-react-ui,
     // -react-native-ui and -solid-ui, removed in molecule da2b86914, kept their overrides).
-    const packages = (raw.packages ?? {}) as Record<string, unknown>
+    const packages = { ...raw.pendingPackages, ...raw.packages } as Record<string, unknown>
     const pinned = Object.keys(raw.moleculeVersions?.overrides ?? {})
     expect(
       pinned.filter((name) => !(name in packages)),
