@@ -159,6 +159,8 @@ function loadedStyles(context, providers) {
   const visited = new Set()
   const styles = []
   const fonts = new Set()
+  const modules = new Map()
+  const called = new Set()
   let unknown = false
   const read = (file) => {
     try {
@@ -272,7 +274,9 @@ function loadedStyles(context, providers) {
           name:
             def.node.type === 'ImportNamespaceSpecifier'
               ? '*'
-              : (def.node.imported?.name ?? def.node.imported?.value),
+              : def.node.type === 'ImportDefaultSpecifier'
+                ? 'default'
+                : (def.node.imported?.name ?? def.node.imported?.value),
         }
       }
       if (node?.type === 'MemberExpression') {
@@ -282,10 +286,102 @@ function loadedStyles(context, providers) {
       }
       return null
     }
-    const calls = (node) => {
+    const module = { tree, imported, scopeManager, path }
+    modules.set(path, module)
+    const binding = (node, owner) => {
+      for (const scope of owner.scopeManager?.scopes ?? []) {
+        const reference = scope.references.find((item) => item.identifier === node)
+        if (reference) return reference.resolved
+      }
+      return null
+    }
+    const exportedSetup = (declaration, owner, seen) => {
+      const variable = owner.scopeManager?.scopes
+        .flatMap((scope) => scope.variables)
+        .find((item) => item.defs.some((definition) => definition.node === declaration))
+      // An importer runs after this module's initialization. Do not use a stale
+      // exported initializer when that initialization can replace the binding.
+      if (variable?.references.some((reference) => reference.isWrite() && !reference.init))
+        return null
+      return callable(declaration.init ?? declaration, owner, seen)
+    }
+    const exported = (owner, name, seen = new Set()) => {
+      const key = `${owner.path}:${name}`
+      if (seen.has(key)) return null
+      seen.add(key)
+      for (const statement of owner.tree.body) {
+        if (statement.type === 'ExportDefaultDeclaration' && name === 'default')
+          return statement.declaration.type === 'FunctionDeclaration'
+            ? exportedSetup(statement.declaration, owner, seen)
+            : callable(statement.declaration, owner, seen)
+        if (statement.type === 'ExportNamedDeclaration') {
+          const declaration = statement.declaration
+          if (declaration?.id?.name === name) return exportedSetup(declaration, owner, seen)
+          for (const item of declaration?.declarations ?? [])
+            if (item.id.name === name) return exportedSetup(item, owner, seen)
+          for (const specifier of statement.specifiers ?? []) {
+            if ((specifier.exported.name ?? specifier.exported.value) !== name) continue
+            if (!statement.source) return callable(specifier.local, owner, seen)
+            const target = locate(statement.source.value, owner.path)
+            if (target) visit(target)
+            const next = modules.get(target)
+            if (next) return exported(next, specifier.local.name ?? specifier.local.value, seen)
+          }
+        }
+        if (statement.type === 'ExportAllDeclaration') {
+          const target = locate(statement.source.value, owner.path)
+          if (target) visit(target)
+          const next = modules.get(target)
+          const result = next && exported(next, name, seen)
+          if (result) return result
+        }
+      }
+      return null
+    }
+    const callable = (node, owner, seen = new Set()) => {
+      if (!node || seen.has(node)) return null
+      seen.add(node)
+      if (
+        ['FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression'].includes(node.type)
+      )
+        // Calling a generator creates an iterator without executing its body.
+        return node.generator ? null : { node, owner }
+      if (['TSAsExpression', 'TSSatisfiesExpression', 'TSNonNullExpression'].includes(node.type))
+        return callable(node.expression, owner, seen)
+      if (node.type === 'Identifier') {
+        const variable = binding(node, owner)
+        // A later assignment can replace the function this initializer described.
+        // Reads before that assignment still refer to the original function.
+        if (
+          variable?.references.some(
+            (reference) =>
+              reference.isWrite() &&
+              !reference.init &&
+              reference.identifier.range[0] < node.range[0],
+          )
+        )
+          return null
+        const definition = variable?.defs[0]
+        if (definition?.type === 'FunctionName') return callable(definition.node, owner, seen)
+        if (definition?.type === 'Variable') return callable(definition.node.init, owner, seen)
+      }
+      const source = owner.imported(node)
+      if (!source?.package.startsWith('.')) return null
+      const target = locate(source.package, owner.path)
+      if (target) visit(target)
+      const next = modules.get(target)
+      return next ? exported(next, source.name, seen) : null
+    }
+    const calls = (node, owner = module) => {
+      // A function declaration is not a font setup. Follow only invoked functions,
+      // including imported bond wrappers, rather than every body in the import tree.
+      if (
+        ['FunctionDeclaration', 'FunctionExpression', 'ArrowFunctionExpression'].includes(node.type)
+      )
+        return
       if (node.type === 'CallExpression') {
-        const setter = imported(node.callee)
-        const value = imported(node.arguments[0])
+        const setter = owner.imported(node.callee)
+        const value = owner.imported(node.arguments[0])
         for (const provider of providers)
           if (
             setter?.package === provider.core &&
@@ -294,15 +390,19 @@ function loadedStyles(context, providers) {
             value.name === provider.exportName
           )
             fonts.add(provider.package)
+        const fn = callable(node.callee, owner)
+        if (fn && !called.has(fn.node)) {
+          called.add(fn.node)
+          calls(fn.node.body, fn.owner)
+        }
       }
       for (const key of context.sourceCode.visitorKeys[node.type] ?? []) {
         const value = node[key]
         if (Array.isArray(value)) {
-          for (const child of value) if (child?.type) calls(child)
-        } else if (value?.type) calls(value)
+          for (const child of value) if (child?.type) calls(child, owner)
+        } else if (value?.type) calls(value, owner)
       }
     }
-    if (providers.length) calls(tree)
     for (const statement of tree.body) {
       if (
         !['ImportDeclaration', 'ExportNamedDeclaration', 'ExportAllDeclaration'].includes(
@@ -317,6 +417,7 @@ function loadedStyles(context, providers) {
       const imported = locate(spec, path)
       if (imported) visit(imported)
     }
+    if (providers.length) calls(tree)
   }
   const html = read(join(root, 'index.html'))?.replace(/<!--[\s\S]*?-->/g, '')
   if (html) {
@@ -410,7 +511,7 @@ function styled(node, sheets, visual = STYLE) {
   return false
 }
 
-export default {
+const noEmptyInteractiveTarget = {
   meta: {
     type: 'problem',
     schema: [
@@ -445,7 +546,7 @@ export default {
       font: "'{{className}}' has no font. In src/bonds/index.ts import { {{exportName}} } from '{{package}}' and { {{setter}} } from '{{core}}'; call {{setter}}({{exportName}}).",
     },
   },
-  create(context) {
+  create(context, mode = 'all') {
     let sheets
     const providers = context.options?.[0]?.iconFonts ?? []
     const classes = new Map()
@@ -528,9 +629,11 @@ export default {
       JSXElement(node) {
         const provider = providerFor(node)
         if (provider && !available(node, provider)) {
-          context.report({ node: classAttribute(node), messageId: 'font', data: provider })
+          if (mode !== 'target')
+            context.report({ node: classAttribute(node), messageId: 'font', data: provider })
           return
         }
+        if (mode === 'font') return
         if (!tag(node) || REPLACED.has(tag(node)) || hidden(node) || !interactive(node)) return
         // Contentful projects incur no filesystem traversal from this rule.
         if (!possibleVisual(node, false) && !possibleVisual(node, true))
@@ -539,3 +642,30 @@ export default {
     }
   },
 }
+
+/**
+ * Font setup is a dependency check, independent of an empty click target's sizing.
+ * A reasoned sizing exception must not suppress a missing font dependency.
+ */
+export const requireIconFontSetup = {
+  meta: {
+    ...noEmptyInteractiveTarget.meta,
+    docs: {
+      description: 'Registry icon glyphs require their invoked font setup or local font CSS.',
+    },
+    messages: { font: noEmptyInteractiveTarget.meta.messages.font },
+  },
+  create(context) {
+    return noEmptyInteractiveTarget.create(context, 'font')
+  },
+}
+
+/** Check target geometry separately while sharing the font availability evidence. */
+export const interactiveTargetRule = {
+  meta: noEmptyInteractiveTarget.meta,
+  create(context) {
+    return noEmptyInteractiveTarget.create(context, 'target')
+  },
+}
+
+export default noEmptyInteractiveTarget

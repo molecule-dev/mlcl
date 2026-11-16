@@ -24,7 +24,7 @@ import { createAppProject } from '../scaffold.js'
 const shared = new URL('../../../templates/shared/', import.meta.url)
 const require = createRequire(import.meta.url)
 const execFileAsync = promisify(execFile)
-const ruleId = 'molecule-local/no-empty-interactive-target'
+const ruleId = 'molecule-local/require-icon-font-setup'
 const roots: string[] = []
 // This functional case runs two native CLI checks; its deadline covers both budgets.
 const nativeCheckBudgetMs = 60_000
@@ -56,6 +56,11 @@ async function fixture(
     if (file.endsWith('.mjs'))
       await copyFile(new URL(file, shared), join(root, 'eslint-rules', file))
   }
+  if (process.env.SCAFFOLD_ICON_FONT_RULE)
+    await copyFile(
+      process.env.SCAFFOLD_ICON_FONT_RULE,
+      join(root, 'eslint-rules/no-empty-interactive-target.mjs'),
+    )
   for (const [file, text] of Object.entries({
     'package.json': '{"type":"module"}',
     'index.html': '<script type="module" src="/src/main.tsx"></script>',
@@ -83,10 +88,158 @@ async function messages(
   const { root, engine } = await fixture(files)
   const [result] = await engine.lintText(source, { filePath: join(root, 'src/Control.tsx') })
   expect(result.messages.filter((row) => row.fatal)).toEqual([])
-  return result.messages.filter((row) => row.ruleId === ruleId)
+  return result.messages.filter(
+    (row) =>
+      row.ruleId === ruleId ||
+      (row.ruleId === 'molecule-local/no-empty-interactive-target' && row.messageId === 'font'),
+  )
 }
 
 describe('registry icon fonts in the scaffold lint contract', () => {
+  it.each([
+    ['l3175-Editor.tsx.txt', 'ion-close-round'],
+    ['l3175-ArticlePage.tsx.txt', 'ion-trash-a'],
+    ['l3176-Editor.tsx.txt', 'ion-close-round'],
+    ['l3176-Article.tsx.txt', 'ion-trash-a'],
+  ])('rejects the retained P415 missing font in %s', async (name, glyph) => {
+    const source = await readFile(new URL(`./fixtures/${name}`, import.meta.url), 'utf8')
+    const rows = await messages({}, source)
+    expect(rows.some((row) => row.messageId === 'font' && row.message.includes(`'${glyph}'`))).toBe(
+      true,
+    )
+    expect(rows.every((row) => row.severity === 2)).toBe(true)
+    expect(await messages({ 'src/main.tsx': bond }, source)).toEqual([])
+  })
+
+  it('does not let an empty-target exception hide a missing icon font', async () => {
+    const source = `export function Control({ act }) {
+      return <span>
+        {/* eslint-disable-next-line molecule-local/no-empty-interactive-target -- target geometry is supplied by the theme */}
+        <i className="ion-trash-a" role="button" onClick={act} />
+      </span>
+    }`
+    const rows = await messages({}, source)
+    expect(rows).toHaveLength(1)
+    expect(rows[0]).toMatchObject({ severity: 2, messageId: 'font', line: 4 })
+    expect(await messages({ 'src/main.tsx': bond }, source)).toEqual([])
+  })
+
+  it('does not count a font setter inside an uncalled imported setup function', async () => {
+    const files = {
+      'src/main.tsx': "import './bonds/index.js'",
+      'src/bonds/index.ts':
+        "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; export function setupIcons() { setFont(font) }",
+    }
+    const rows = await messages(files)
+    expect(rows).toHaveLength(1)
+    expect(rows[0]).toMatchObject({ messageId: 'font', severity: 2 })
+    expect(
+      await messages({
+        ...files,
+        'src/main.tsx': "import { setupIcons } from './bonds/index.js'; setupIcons()",
+      }),
+    ).toEqual([])
+  })
+
+  it('does not count an uncalled local or event-only font setup', async () => {
+    const files = {
+      'src/main.tsx':
+        "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; const setup = () => setFont(font); export const App = () => <button onClick={setup}>Enable icons</button>",
+    }
+    expect(await messages(files)).toHaveLength(1)
+    expect(
+      await messages({ ...files, 'src/main.tsx': files['src/main.tsx'] + '; setup()' }),
+    ).toEqual([])
+  })
+
+  it('follows a called setup through a relative re-export and a local alias', async () => {
+    expect(
+      await messages({
+        'src/main.tsx': "import { setup } from './bonds/index.js'; const boot = setup; boot()",
+        'src/bonds/index.ts': "export { setupIcons as setup } from './icons.js'",
+        'src/bonds/icons.ts':
+          "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; export const setupIcons = () => setFont(font)",
+      }),
+    ).toEqual([])
+  })
+
+  it('follows an invoked default-exported setup and an immediately invoked wrapper', async () => {
+    expect(
+      await messages({
+        'src/main.tsx': "import setup from './bonds/icons.js'; (() => setup())()",
+        'src/bonds/icons.ts':
+          "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; export default function setup() { setFont(font) }",
+      }),
+    ).toEqual([])
+  })
+
+  it('does not count a generator body when startup only creates its iterator', async () => {
+    const source =
+      "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; function* setup() { setFont(font) }; setup()"
+    expect(await messages({ 'src/main.tsx': source })).toHaveLength(1)
+    expect(
+      await messages({ 'src/main.tsx': source.replace('function* setup', 'function setup') }),
+    ).toEqual([])
+  })
+
+  it.each([
+    'const real = () => setFont(font); let setup = real; setup = () => {}; setup()',
+    'function setup() { setFont(font) }; setup = () => {}; setup()',
+  ])('does not follow a replaced setup initializer: %s', async (body) => {
+    const imports =
+      "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; "
+    expect(await messages({ 'src/main.tsx': imports + body })).toHaveLength(1)
+    expect(
+      await messages({ 'src/main.tsx': imports + body.replace('setup = () => {}; ', '') }),
+    ).toEqual([])
+  })
+
+  it('keeps an immutable function alias captured before a later reassignment', async () => {
+    expect(
+      await messages({
+        'src/main.tsx':
+          "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; let setup = () => setFont(font); const boot = setup; setup = () => {}; boot()",
+      }),
+    ).toEqual([])
+  })
+
+  it.each([
+    'export function setup() { setFont(font) }; setup = () => {}',
+    'export let setup = () => setFont(font); setup = () => {}',
+  ])(
+    'does not follow an exported setup replaced during module initialization: %s',
+    async (body) => {
+      expect(
+        await messages({
+          'src/main.tsx': "import { setup } from './bonds/icons.js'; setup()",
+          'src/bonds/icons.ts':
+            "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; " +
+            body,
+        }),
+      ).toHaveLength(1)
+    },
+  )
+
+  it('distinguishes a replaced default function from a captured default expression', async () => {
+    const imports =
+      "import { setFont } from '@molecule/app-fonts'; import { font } from '@molecule/app-fonts-ionicons'; "
+    const main = "import setup from './bonds/icons.js'; setup()"
+    expect(
+      await messages({
+        'src/main.tsx': main,
+        'src/bonds/icons.ts':
+          imports + 'export default function setup() { setFont(font) }; setup = () => {}',
+      }),
+    ).toHaveLength(1)
+    expect(
+      await messages({
+        'src/main.tsx': main,
+        'src/bonds/icons.ts':
+          imports + 'let setup = () => setFont(font); export default setup; setup = () => {}',
+      }),
+    ).toEqual([])
+  })
+
   it('names the missing provider and exact bond at the icon class source line', async () => {
     const rows = await messages()
     expect(rows).toHaveLength(1)
@@ -295,7 +448,7 @@ describe('registry icon fonts in the scaffold lint contract', () => {
       const fixed = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: nativeCheckBudgetMs })
       expect('error' in fixed).toBe(false)
       if ('error' in fixed) throw new Error(fixed.error)
-      expect(fixed.ok).toBe(true)
+      expect(fixed.ok, fixed.report).toBe(true)
     },
     2 * nativeCheckBudgetMs + 10_000,
   )

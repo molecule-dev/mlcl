@@ -10,7 +10,10 @@ import tseslint from 'typescript-eslint'
 
 import noClassCode from './eslint-rules/no-class-code.mjs'
 import noDroppedAction from './eslint-rules/no-dropped-action.mjs'
-import noEmptyInteractiveTarget from './eslint-rules/no-empty-interactive-target.mjs'
+import {
+  interactiveTargetRule as noEmptyInteractiveTarget,
+  requireIconFontSetup,
+} from './eslint-rules/no-empty-interactive-target.mjs'
 import preferDeclaredClients, { scaffoldRules } from './eslint-rules/prefer-declared-clients.mjs'
 
 // Exact class names and wiring from registry font utility stylesheets.
@@ -88,6 +91,7 @@ const moleculeLocal = {
   rules: {
     'no-class-code': noClassCode,
     'no-empty-interactive-target': noEmptyInteractiveTarget,
+    'require-icon-font-setup': requireIconFontSetup,
     'no-dropped-action': noDroppedAction,
     'prefer-declared-clients': preferDeclaredClients,
     ...scaffoldRules(tseslint.parser),
@@ -214,6 +218,7 @@ export default tseslint.config(
       ],
       'molecule-local/no-class-code': 'error',
       'molecule-local/no-empty-interactive-target': ['error', { iconFonts }],
+      'molecule-local/require-icon-font-setup': ['error', { iconFonts }],
       'molecule-local/prefer-declared-clients': 'error',
       'molecule-local/async-collections-have-status': 'error',
       'molecule-local/effects-preserve-form-edits': 'error',

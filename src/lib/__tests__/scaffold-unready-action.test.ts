@@ -65,6 +65,23 @@ export function Bookmark() {
 }`
 
 describe('scaffold ESLint rejects enabled unloaded-record actions', () => {
+  it('rejects the retained P415 enabled follow control that drops taps while saving', async () => {
+    const source = await readFile(
+      new URL('./fixtures/l3172-FollowButton.tsx.txt', import.meta.url),
+      'utf8',
+    )
+    const rows = await findings(source)
+    expect(rows).toHaveLength(1)
+    expect(rows[0]).toMatchObject({ severity: 2 })
+    expect(rows[0].message).toContain('disabled={saving}')
+    const corrected = `import { useOptimisticToggle } from '@molecule/app-react'
+      export function FollowControl({ following, save }) {
+        const action = useOptimisticToggle({ value: following, commit: save })
+        return <button onClick={action.toggle}>{action.value ? 'Unfollow' : 'Follow'}</button>
+      }`
+    expect(await findings(corrected)).toEqual([])
+  })
+
   it.each(['positive', 'early-return'])(
     'rejects a query-mirrored record action reconstructed with the %s guard spelling',
     async (spelling) => {
