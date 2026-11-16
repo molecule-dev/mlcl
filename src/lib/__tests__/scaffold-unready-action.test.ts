@@ -326,3 +326,29 @@ describe('scaffold ESLint rejects enabled unloaded-record actions', () => {
     )
   })
 })
+
+// Retains the P414 shape: the form is mounted for a signed-in viewer, while only
+// an unrelated delete button waits for the record. preventDefault is not an action.
+it('reports a signed-in form that silently drops submit before its record loads', async () => {
+  const source = `import {useState} from 'react'
+  export function Discussion({user}) {
+    const [record, setRecord] = useState(null)
+    const [body, setBody] = useState('')
+    function submit(event) { event.preventDefault(); if (!record || !user || !body.trim()) return; save(record.id, body) }
+    return <>{user ? <form onSubmit={submit}><textarea value={body} onChange={e=>setBody(e.target.value)}/><button type="submit">Send</button></form> : null}<button disabled={!record} onClick={()=>remove(record.id)}>Delete</button></>
+  }`
+  const bad = await findings(source)
+  expect(
+    bad.some(
+      (row) => row.message.includes('each submit button') && row.message.includes('!record'),
+    ),
+  ).toBe(true)
+  expect(
+    await findings(
+      source.replace(
+        '<button type="submit">',
+        '<button disabled={!record || !body.trim()} type="submit">',
+      ),
+    ),
+  ).toEqual([])
+})

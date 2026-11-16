@@ -73999,7 +73999,10 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "loading and error states"
+        "loading and error states",
+        "loaded document boundary",
+        "empty collection branch",
+        "view-specific empty state"
       ]
     },
     "@molecule/app-query-memory": {
@@ -74094,7 +74097,10 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "loading and error states"
+        "loading and error states",
+        "loaded document boundary",
+        "empty collection branch",
+        "view-specific empty state"
       ]
     },
     "@molecule/app-query-solid": {
@@ -74170,7 +74176,10 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "loading and error states"
+        "loading and error states",
+        "loaded document boundary",
+        "empty collection branch",
+        "view-specific empty state"
       ]
     },
     "@molecule/app-query-svelte": {
@@ -74247,7 +74256,10 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "loading and error states"
+        "loading and error states",
+        "loaded document boundary",
+        "empty collection branch",
+        "view-specific empty state"
       ]
     },
     "@molecule/app-query-tanstack": {
@@ -74352,7 +74364,10 @@
       "intentHints": [
         "usequery hook",
         "prefetch links on hover",
-        "loading and error states"
+        "loading and error states",
+        "loaded document boundary",
+        "empty collection branch",
+        "view-specific empty state"
       ]
     },
     "@molecule/app-quiz-card-angular": {

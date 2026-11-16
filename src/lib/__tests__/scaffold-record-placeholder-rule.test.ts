@@ -63,6 +63,7 @@ const order = (
 describe('a waiting message rendered where a field of the record goes', () => {
   it.each([
     ['p312-profile-loading-before.tsx.txt', 102, 85],
+    ['l3164-profile-placeholder.tsx.txt', 86, 68],
     ['p302-profile-loading-before.tsx.txt', 140, 120],
   ])('reports the retained profile page %s', async (fixture, line, fieldLine) => {
     const source = await readFile(new URL(`./fixtures/${fixture}`, import.meta.url), 'utf8')
