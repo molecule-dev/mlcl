@@ -3999,7 +3999,7 @@ export function scaffoldRules(parser) {
           droppedIntent:
             'This control shows its next value before awaiting work, but its busy guard discards another click while that work is pending. Keep the control disabled for that busy state, or queue the latest intent with useOptimisticValue from @molecule/app-react. An imported callback does not make the busy guard safe.',
           unreadyRecord:
-            'Add disabled={!{{record}}} to this control, or mount it only when {{record}} exists. Its handler silently discards the action when {{record}} is missing, and this component’s JSX treats that value as possibly missing. Keep controls mounted during same-record refetches once their initial data exists.',
+            '{{fix}} Its handler silently discards the action when {{record}} is missing, and this component’s JSX treats that value as possibly missing. Keep controls mounted during same-record refetches once their initial data exists.',
           unreadyForm:
             'Add disabled={!{{record}}} to this form’s submit button, or mount the form only when {{record}} exists ({{record}} ? <form …> : null, or inside QueryContent). Its handler silently discards the submit when {{record}} is missing, and this component’s JSX treats that value as possibly missing. Keep it mounted during same-record refetches once its initial data exists.',
         },
@@ -4981,7 +4981,7 @@ export function scaffoldRules(parser) {
               // An enabled control must not silently drop an action for a value that this
               // component's JSX treats as possibly missing, unless disabled or mounted on it.
               // A TypeScript project exceeded the write-time server's 256 MiB heap budget.
-              // Use the design's single-file fallback: JSX x ? …, x && …, or x?.
+              // Use the design's single-file fallback: JSX presence tests or x?.
               // No query-package list, imported module parsing, or load provenance is needed.
               const records = []
               // Predicate expressions always produce booleans, including false. A JSX test
@@ -5009,8 +5009,26 @@ export function scaffoldRules(parser) {
                   return predicate(node.left, next) && predicate(node.right, next)
                 if (node.type === 'ConditionalExpression')
                   return predicate(node.consequent, next) && predicate(node.alternate, next)
-                if (node.type === 'CallExpression')
-                  return node.callee.name === 'Boolean' && !variableFor(node.callee)?.defs.length
+                if (node.type === 'CallExpression') {
+                  if (node.callee.name === 'Boolean' && !variableFor(node.callee)?.defs.length)
+                    return true
+                  if (flow.react(node.callee, 'useMemo')) {
+                    const fn = functionFor(node.arguments[0])
+                    if (fn?.expression) return predicate(fn.body, next)
+                    // All explicit exits must be predicates, with no implicit undefined exit.
+                    if (fn?.body.body?.at(-1)?.type !== 'ReturnStatement') return false
+                    const returns = []
+                    flow.walk(
+                      fn.body,
+                      (part) => {
+                        if (part.type === 'ReturnStatement') returns.push(part.argument)
+                      },
+                      (part) => !isFunction(part),
+                    )
+                    return returns.length > 0 && returns.every((part) => predicate(part, next))
+                  }
+                  return false
+                }
                 const definition = variableFor(node)?.defs[0]
                 return (
                   definition?.type === 'Variable' &&
@@ -5043,10 +5061,73 @@ export function scaffoldRules(parser) {
                 }
                 return routeParams(init, next)
               }
+              // Interpret one presence-test language for discovery, guards and disabled.
+              // Null and undefined comparisons both express absence; this syntax-only rule
+              // cannot infer a hook's sentinel. Other predicates and hook flags stay unknown.
+              // `read` supplies the presence of an identifier, or null when it is unknown.
+              const presenceTest = (node, read, seen = new Set()) => {
+                node = unwrap(node)
+                if (!node || seen.has(node)) return null
+                const next = new Set(seen).add(node)
+                if (node.type === 'Identifier') {
+                  const result = read(node)
+                  if (result !== null) return result
+                  const definition = variableFor(node)?.defs[0]
+                  return definition?.type === 'Variable' &&
+                    definition.parent.kind === 'const' &&
+                    definition.node.id.type === 'Identifier'
+                    ? presenceTest(definition.node.init, read, next)
+                    : null
+                }
+                if (node.type === 'Literal')
+                  return typeof node.value === 'boolean' ? node.value : null
+                if (node.type === 'UnaryExpression' && node.operator === '!') {
+                  const result = presenceTest(node.argument, read, next)
+                  return result === null ? null : !result
+                }
+                if (
+                  node.type === 'CallExpression' &&
+                  node.callee.type === 'Identifier' &&
+                  node.callee.name === 'Boolean' &&
+                  !variableFor(node.callee)?.defs.length
+                )
+                  return presenceTest(node.arguments[0], read, next)
+                if (
+                  node.type === 'BinaryExpression' &&
+                  ['==', '!=', '===', '!=='].includes(node.operator)
+                )
+                  for (const [subject, sentinel] of [
+                    [unwrap(node.left), unwrap(node.right)],
+                    [unwrap(node.right), unwrap(node.left)],
+                  ])
+                    if (
+                      subject?.type === 'Identifier' &&
+                      !predicate(subject) &&
+                      ((sentinel?.type === 'Literal' && sentinel.value === null) ||
+                        (sentinel?.type === 'Identifier' &&
+                          sentinel.name === 'undefined' &&
+                          !variableFor(sentinel)?.defs.length))
+                    ) {
+                      const result = presenceTest(subject, read, next)
+                      return result === null ? null : node.operator.includes('!') ? result : !result
+                    }
+                if (node.type === 'LogicalExpression' && ['&&', '||'].includes(node.operator)) {
+                  const left = presenceTest(node.left, read, next),
+                    right = presenceTest(node.right, read, next)
+                  if (node.operator === '&&')
+                    return left === false || right === false ? false : left === true ? right : null
+                  return left === true || right === true ? true : left === false ? right : null
+                }
+                if (node.type === 'ConditionalExpression') {
+                  const condition = presenceTest(node.test, read, next),
+                    yes = presenceTest(node.consequent, read, next),
+                    no = presenceTest(node.alternate, read, next)
+                  return condition === null ? (yes === no ? yes : null) : condition ? yes : no
+                }
+                return null
+              }
               const tested = (node, owner) => {
                 node = unwrap(node)
-                if (node?.type === 'UnaryExpression' && node.operator === '!')
-                  return tested(node.argument, owner)
                 const variable = variableFor(node)
                 if (!variable || predicate(node) || routeParams(node)) return
                 // JSX callbacks close over the component's binding. They are not a new
@@ -5057,26 +5138,42 @@ export function scaffoldRules(parser) {
                   records.some((record) => record.variable === variable && record.owner === owner)
                 )
                   return
-                // Syntax cannot distinguish null from undefined. A guard must protect every
-                // missing value for which its handler would silently skip the action.
-                for (const missing of [null, undefined])
-                  records.push({
-                    variable,
-                    owner,
-                    name: variable.name,
-                    missing,
-                  })
+                records.push({ variable, owner, name: variable.name })
               }
+              const calls = new Map(),
+                escaped = new Set()
               flow.walk(context.sourceCode.ast, (node) => {
+                // Only a helper whose references are all direct local calls has known mount
+                // sites. Passing it as a callback or component leaves its caller unknown.
+                if (node.type === 'Identifier' && node.parent.type !== 'TSTypeQuery') {
+                  const fn = functionFor(node)
+                  if (
+                    fn &&
+                    variableFor(node)?.references.some(
+                      (ref) =>
+                        ref.identifier === node && ref.isRead() && ref.isValueReference !== false,
+                    )
+                  ) {
+                    if (node.parent.type === 'CallExpression' && node.parent.callee === node) {
+                      const sites = calls.get(fn) ?? []
+                      sites.push(node.parent)
+                      calls.set(fn, sites)
+                    } else escaped.add(fn)
+                  }
+                }
                 if (node.type !== 'JSXExpressionContainer') return
                 const owner = flow.owner(node)
                 if (!owner) return
                 flow.walk(
                   node.expression,
                   (part) => {
-                    if (part.type === 'ConditionalExpression') tested(part.test, owner)
-                    if (part.type === 'LogicalExpression' && part.operator === '&&')
-                      tested(part.left, owner)
+                    const discover = (subject) => {
+                      tested(subject, owner)
+                      return null
+                    }
+                    if (part.type === 'ConditionalExpression') presenceTest(part.test, discover)
+                    if (part.type === 'LogicalExpression' && ['&&', '||'].includes(part.operator))
+                      presenceTest(part.left, discover)
                     if (part.type === 'MemberExpression' && part.optional)
                       tested(part.object, owner)
                     if (part.type === 'CallExpression' && part.optional) tested(part.callee, owner)
@@ -5088,51 +5185,16 @@ export function scaffoldRules(parser) {
                 node = unwrap(node)
                 return node?.type === 'Identifier' && variableFor(node) === record.variable
               }
-              // Does this condition being truth/false prove that this particular record exists?
-              const present = (node, truth, record, seen = new Set()) => {
-                node = unwrap(node)
-                if (!node || seen.has(node)) return false
-                const next = new Set(seen).add(node)
-                if (refers(node, record)) return truth
-                if (node.type === 'UnaryExpression' && node.operator === '!')
-                  return present(node.argument, !truth, record, next)
-                if (
-                  node.type === 'LogicalExpression' &&
-                  ((node.operator === '&&' && truth) || (node.operator === '||' && !truth))
-                )
-                  return (
-                    present(node.left, truth, record, next) ||
-                    present(node.right, truth, record, next)
-                  )
-                if (
-                  node.type === 'BinaryExpression' &&
-                  ['==', '===', '!=', '!=='].includes(node.operator)
-                )
-                  for (const [left, right] of [
-                    [node.left, node.right],
-                    [node.right, node.left],
-                  ])
-                    if (
-                      refers(left, record) &&
-                      (right.value === null ||
-                        (right.type === 'Identifier' &&
-                          right.name === 'undefined' &&
-                          !variableFor(right)?.defs.length))
-                    )
-                      return truth === node.operator.includes('!')
-                if (
-                  node.type === 'CallExpression' &&
-                  node.callee.name === 'Boolean' &&
-                  !variableFor(node.callee)?.defs.length
-                )
-                  return present(node.arguments[0], truth, record, next)
-                const definition = variableFor(node)?.defs[0]
-                return (
-                  definition?.type === 'Variable' &&
-                  definition.parent.kind === 'const' &&
-                  definition.node.id.type === 'Identifier' &&
-                  present(definition.node.init, truth, record, next)
-                )
+              const absentTest = (node, record) =>
+                presenceTest(node, (subject) => (refers(subject, record) ? false : null))
+              const present = (node, expected, record) => {
+                let readsRecord = false
+                const result = presenceTest(node, (subject) => {
+                  if (!refers(subject, record)) return null
+                  readsRecord = true
+                  return false
+                })
+                return readsRecord && result === !expected
               }
               // Evaluate only availability expressions with this record at its missing
               // value. Other values stay unknown: no loading-flag, route or cross-control inference.
@@ -5170,7 +5232,7 @@ export function scaffoldRules(parser) {
                   return evaluate(node.expression, record, next)
                 if (node.type === 'ChainExpression')
                   return value(evaluate(node.expression, record, next))
-                if (refers(node, record)) return record.missing
+                if (refers(node, record)) return null
                 if (node.type === 'Literal') return node.value
                 if (node.type === 'ArrayExpression') return node.elements.length === 0 ? [] : TRUTHY
                 if (node.type === 'ObjectExpression') return TRUTHY
@@ -5256,6 +5318,8 @@ export function scaffoldRules(parser) {
                     : UNKNOWN
                 }
                 if (node.type === 'BinaryExpression') {
+                  const presence = absentTest(node, record)
+                  if (presence !== null) return presence
                   const left = value(evaluate(node.left, record, next)),
                     right = value(evaluate(node.right, record, next))
                   if (!primitive(left) || !primitive(right)) return UNKNOWN
@@ -5415,10 +5479,23 @@ export function scaffoldRules(parser) {
                 })
                 return found
               }
+              const takesDisabled = (element) =>
+                element.name.type !== 'JSXIdentifier' ||
+                /^[A-Z]/.test(element.name.name) ||
+                [
+                  'button',
+                  'input',
+                  'select',
+                  'textarea',
+                  'fieldset',
+                  'optgroup',
+                  'option',
+                ].includes(element.name.name)
               // Whether this element is disabled whenever the record is missing.
               const disabledWithout = (element, record) => {
                 const disabled = flow.attr(element, 'disabled')
                 return Boolean(
+                  takesDisabled(element) &&
                   disabled &&
                   (!disabled.value ||
                     truth(
@@ -5435,6 +5512,22 @@ export function scaffoldRules(parser) {
               // its default button, so a form whose every submit button is disabled cannot submit.
               const submitters = (form) => {
                 const found = []
+                const canSubmit = (node, button, seen = new Set()) => {
+                  node = unwrap(node)
+                  if (!node || seen.has(node)) return true
+                  const next = new Set(seen).add(node)
+                  if (node.type === 'Literal')
+                    return button
+                      ? !['button', 'reset'].includes(node.value)
+                      : ['submit', 'image'].includes(node.value)
+                  if (node.type === 'ConditionalExpression')
+                    return (
+                      canSubmit(node.consequent, button, next) ||
+                      canSubmit(node.alternate, button, next)
+                    )
+                  const init = flow.init(node)
+                  return init ? canSubmit(init, button, next) : true
+                }
                 flow.walk(form.parent, (node) => {
                   if (
                     node.type !== 'JSXOpeningElement' ||
@@ -5443,24 +5536,64 @@ export function scaffoldRules(parser) {
                   )
                     return
                   const type = flow.attr(node, 'type')
-                  const value = !type
-                    ? undefined
-                    : type.value?.type === 'Literal'
-                      ? type.value.value
-                      : null
-                  if (node.name.name === 'button' && value !== 'button' && value !== 'reset')
-                    found.push(node)
-                  if (node.name.name === 'input' && (value === 'submit' || value === null))
+                  const button = node.name.name === 'button'
+                  if (
+                    (button || node.name.name === 'input') &&
+                    (type ? canSubmit(flow.expression(type), button) : button)
+                  )
                     found.push(node)
                 })
                 return found
               }
               const reportedControls = new Set()
+              const mountedWithout = (node, record, seen = new Set()) => {
+                const fn = flow.owner(node)
+                if (
+                  flow.conditions(node, fn).some(([test, expected]) => {
+                    const actual = truth(evaluate(test, record))
+                    return actual !== null && actual !== expected
+                  })
+                )
+                  return true
+                if (!fn || escaped.has(fn) || seen.has(fn)) return false
+                // Inline render callbacks share the call's mount site, not a helper's
+                // declaration site (a hoisted helper can run before a preceding return).
+                if (fn.parent?.type === 'CallExpression' && fn.parent.arguments.includes(fn))
+                  return mountedWithout(fn.parent, record, new Set(seen).add(fn))
+                const parameter = fn.params.findIndex((param) => refers(param, record))
+                // A function's own local data cannot inherit its caller's record gate.
+                if (fn === record.owner && parameter < 0) return false
+                const sites = calls.get(fn)
+                return (
+                  Boolean(sites?.length) &&
+                  sites.every((site) => {
+                    let outer = record
+                    if (parameter >= 0) {
+                      const argument = unwrap(site.arguments[parameter])
+                      const variable = variableFor(argument)
+                      if (!variable) return false
+                      outer = {
+                        variable,
+                        owner: variable.scope.variableScope.block,
+                        name: variable.name,
+                      }
+                    }
+                    return mountedWithout(site, outer, new Set(seen).add(fn))
+                  })
+                )
+              }
               for (const { opening, handler, conditions, form } of controls) {
                 if (reportedControls.has(opening)) continue
                 const relevant = handlers(handler)
                 for (const record of records) {
                   if (!flow.contains(record.owner, opening)) continue
+                  // A predicate alias alone is not a nullable data dependency of this handler.
+                  if (
+                    !record.variable.references.some((ref) =>
+                      relevant.some((fn) => flow.contains(fn.body, ref.identifier)),
+                    )
+                  )
+                    continue
                   if (
                     conditions.some(([test, expected]) => {
                       const actual = truth(evaluate(test, record))
@@ -5492,17 +5625,16 @@ export function scaffoldRules(parser) {
                     )
                       continue
                   } else if (disabledWithout(opening, record)) continue
-                  if (
-                    flow.conditions(opening, record.owner).some(([test, expected]) => {
-                      const actual = truth(evaluate(test, record))
-                      return actual !== null && actual !== expected
-                    })
-                  )
-                    continue
+                  if (mountedWithout(opening, record)) continue
                   context.report({
                     node: opening,
                     messageId: form ? 'unreadyForm' : 'unreadyRecord',
-                    data: { record: record.name },
+                    data: {
+                      record: record.name,
+                      fix: takesDisabled(opening)
+                        ? `Add disabled={!${record.name}} to this control, or mount it only when ${record.name} exists.`
+                        : `Mount this control only when ${record.name} exists.`,
+                    },
                   })
                   reportedControls.add(opening)
                   break

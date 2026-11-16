@@ -389,7 +389,7 @@ export function Settings() {
               <button
                 type="button"
                 onClick={saveProfile}
-                disabled={saving}
+                disabled={saving || !profileDraft}
                 data-action="save-profile"
                 style={{
                   padding: '10px 22px',
