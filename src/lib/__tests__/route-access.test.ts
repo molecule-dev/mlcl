@@ -30,6 +30,7 @@ interface PrivateView {
 type AppRoute = router.RouteObject & {
   access: 'public' | 'private'
   publicQuery?: Readonly<Record<string, string>>
+  layout?: 'none'
   children?: AppRoute[]
 }
 
@@ -248,11 +249,14 @@ ${routeType!.getText(parsed)}
 const publicPage: AppRoute = { path: '/enroll', access: 'public' }
 const privatePage: AppRoute = { path: '/staff', access: 'private' }
 const nested: AppRoute = { access: 'private', children: [privatePage] }
+const standalone: AppRoute = { path: '/terminal', access: 'private', layout: 'none' }
+// @ts-expect-error Only an explicit opt-out is supported.
+const invalidLayout: AppRoute = { path: '/terminal', access: 'public', layout: 'guessed' }
 // @ts-expect-error Every page declares access.
 const missing: AppRoute = { path: '/enroll' }
 // @ts-expect-error Layout routes cannot hide a nested page's missing policy.
 const missingNested: AppRoute = { access: 'public', children: [{ path: '/enroll' }] }
-void [publicPage, privatePage, nested, missing, missingNested]
+void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missingNested]
 `
     const options: ts.CompilerOptions = {
       strict: true,
@@ -317,6 +321,15 @@ void [publicPage, privatePage, nested, missing, missingNested]
       ...routes.filter((route) => route.path !== '*'),
       { path: '/equipment/:id/edit', access: 'private', element: routes.at(-1)!.element },
       { path: '*', access: 'public', element: routes.at(-1)!.element },
+    ])
+    expect(app.location().pathname).toBe('/login')
+    expect(app.load).not.toHaveBeenCalled()
+  })
+
+  it('keeps an explicitly shell-free private page protected', async () => {
+    const app = await mount('/terminal', session(), [], [], (routes) => [
+      ...routes,
+      { path: '/terminal', access: 'private', layout: 'none', element: routes.at(-1)!.element },
     ])
     expect(app.location().pathname).toBe('/login')
     expect(app.load).not.toHaveBeenCalled()
@@ -566,6 +579,8 @@ void [publicPage, privatePage, nested, missing, missingNested]
         if (name === './bonds/index.js')
           return { authClient: client, setupProviders: () => undefined }
         if (name === './App.js') return exports
+        if (name === './components/AppLayout.js')
+          return { AppLayout: ({ children }: { children: ReactNode }) => children }
         if (name === './components/AuthGuard.js') return accessModule(client)
         if (name === './pwa.js') return { registerPWA: () => undefined }
         if (name.endsWith('.css')) return {}

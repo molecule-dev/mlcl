@@ -40,6 +40,8 @@ export type AppRoute = RouteObject & {
   access: 'public' | 'private'
   /** Query values required for public access; unrelated parameters are allowed. */
   publicQuery?: Readonly<Record<string, string>>
+  /** Omit to use the app shell; 'none' explicitly opts this branch into its own layout. */
+  layout?: 'none'
   /** Nested routes, with their own explicit access declarations. */
   children?: AppRoute[]
 }

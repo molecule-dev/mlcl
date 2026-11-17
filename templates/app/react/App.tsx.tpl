@@ -6,7 +6,6 @@ import { BrowserRouter } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import type { AppRoute } from './components/AuthGuard.js'
-import { AppLayout } from './components/AppLayout.js'
 import { About } from './pages/About.js'
 import { ForgotPassword } from './pages/ForgotPassword.js'
 import { Home } from './pages/Home.js'
@@ -32,8 +31,8 @@ import { Signup } from './pages/Signup.js'
 // service worker's precache — is the part with a measured gain; see the
 // `UserMenu` drawer for the one interaction-only split that is still worth it.
 //
-// main.tsx owns RouteAccess inside AppRoot's providers, so replacing page routes
-// or this provider wrapper cannot silently remove the access boundary. The routes
+// main.tsx owns AppLayout and RouteAccess inside AppRoot's providers, so replacing
+// page routes or this provider wrapper cannot silently remove those boundaries. The routes
 // below declare both the page and its access: App and main.tsx use the SAME table.
 // Keep the exported table; the entry imports it. Add a public page once, with
 // access: 'public'; there is no second path allowlist to update.
@@ -65,7 +64,11 @@ export function AppRoot({ children }: { children: ReactNode }): ReactNode {
   )
 }
 
-/** Page elements and access policy share this one declaration. */
+/**
+ * Pages render inside the shared app shell, independently of access policy.
+ * A page that deliberately owns its entire layout opts out with `layout: 'none'`.
+ * The opt-out includes that route's descendants; it never changes their access.
+ */
 export const routes: AppRoute[] = [
   { path: '/login', access: 'public', element: <Login /> },
   { path: '/signup', access: 'public', element: <Signup /> },
@@ -74,7 +77,6 @@ export const routes: AppRoute[] = [
   { path: '/reset-password', access: 'public', element: <ResetPassword /> },
   {
     access: 'private',
-    element: <AppLayout />,
     children: [
       { path: '/', access: 'private', element: <Home /> },
       { path: '/settings', access: 'private', element: <Settings /> },

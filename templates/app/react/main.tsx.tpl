@@ -4,6 +4,7 @@ import { setupProviders, authClient } from './bonds/index.js'
 import { registerPWA } from './pwa.js'
 import { App, AppRoot, routes } from './App.js'
 import { RouteAccess } from './components/AuthGuard.js'
+import { AppLayout } from './components/AppLayout.js'
 import './index.css'
 import './theme.css'
 
@@ -21,10 +22,12 @@ authClient.initialize().catch((_error) => {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AppRoot>
-      {/* Keep policy at the entry: a page-router edit cannot remove this boundary. */}
-      <RouteAccess routes={routes}>
-        <App />
-      </RouteAccess>
+      {/* Shell and access are independent: public pages keep navigation too. */}
+      <AppLayout routes={routes}>
+        <RouteAccess routes={routes}>
+          <App />
+        </RouteAccess>
+      </AppLayout>
     </AppRoot>
   </StrictMode>,
 )

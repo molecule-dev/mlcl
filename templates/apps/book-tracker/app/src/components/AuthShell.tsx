@@ -76,7 +76,7 @@ export function AuthShell({ eyebrow, heading, subheading, footer, children }: Au
         <ThemeToggle />
       </header>
 
-      <main
+      <div
         className={cm.cn(
           cm.flex({ direction: 'col', align: 'center', justify: 'center' }),
           cm.flex1,
@@ -118,7 +118,7 @@ export function AuthShell({ eyebrow, heading, subheading, footer, children }: Au
           </AuthShellCard>
           {footer ? <div className={cm.cn(cm.sp('mt', 6), cm.textCenter)}>{footer}</div> : null}
         </div>
-      </main>
+      </div>
 
       <footer
         className={cm.cn(

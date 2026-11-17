@@ -762,12 +762,14 @@ describe('Template variable substitution', () => {
     expect(content).toContain('LOGO_SIZE')
   })
 
-  it('React Login imports branding constants and uses img logo', async () => {
-    const content = await readTemplate('react', 'pages', 'Login.tsx.tpl')
-    expect(content).toContain("from '../branding.js'")
-    expect(content).toContain('APP_NAME')
-    expect(content).toContain('LOGO_SIZE')
-    expect(content).toContain('src="/logo.svg"')
+  it('React auth pages receive branding from the entry shell', async () => {
+    const entry = await readTemplate('react', 'main.tsx.tpl')
+    expect(entry).toContain('<AppLayout routes={routes}>')
+    for (const page of ['Login', 'Signup', 'ForgotPassword', 'ResetPassword']) {
+      const content = await readTemplate('react', 'pages', page + '.tsx.tpl')
+      expect(content).not.toContain('<header')
+      expect(content).not.toContain('<Footer')
+    }
   })
 
   it('all frameworks import branding in Header', async () => {
@@ -828,9 +830,8 @@ describe('Template variable substitution', () => {
     expect(svelteLogo).toContain("'logo.svg'")
   })
 
-  it('all frameworks use img logo in auth pages', async () => {
+  it('standalone auth pages use img logos', async () => {
     const authPages: Record<string, string[]> = {
-      react: ['Login.tsx.tpl', 'Signup.tsx.tpl', 'ForgotPassword.tsx.tpl', 'ResetPassword.tsx.tpl'],
       vue: ['Login.vue.tpl', 'Signup.vue.tpl', 'ForgotPassword.vue.tpl', 'ResetPassword.vue.tpl'],
       solid: ['Login.tsx.tpl', 'Signup.tsx.tpl', 'ForgotPassword.tsx.tpl', 'ResetPassword.tsx.tpl'],
       angular: [
