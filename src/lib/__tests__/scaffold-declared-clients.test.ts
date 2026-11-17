@@ -66,6 +66,27 @@ export function loadStock() {
 `
 
 describe('declared auth and HTTP reuse in generated verification', () => {
+  it.each(['react', 'vue'])(
+    'the generated %s inventory accepts a separate account through the package client',
+    async (framework) => {
+      const app = join(await directory(), 'app')
+      await createAppProject(app, 'stockroom', framework)
+      await addPackages(app, ['@molecule/app-http'])
+      const scoped = `import {createFetchClient} from '@molecule/app-http'
+        const operator = createFetchClient({baseURL:'/api',authScheme:'Token'})
+        export function seedStock(token: string) {
+          operator.setAuthToken(token)
+          return operator.post('/stock', {name:'Paper'})
+        }`
+      expect(await findings(app, scoped)).toEqual([])
+      expect(
+        (await findings(app, scoped.replace('operator.setAuthToken(token)', ''))).map(
+          (message) => message.messageId,
+        ),
+      ).toEqual(['unbonded'])
+    },
+  )
+
   it.each(['react', 'vue', 'react-native'])(
     'the generated %s account config rejects the legacy adapter parameter trap',
     async (framework) => {

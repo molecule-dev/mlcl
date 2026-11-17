@@ -13,8 +13,9 @@
  * one. It is not a sandbox against code written to evade it. Every provider-
  * factory creation must be passed, directly or through an immutable local
  * alias, to setClient or an imported bond('http'/'http-client', …) in the same
- * file, or handed off through an export. Factory options never establish an
- * exemption.
+ * file, handed off through an export, or configured with its own setAuthToken /
+ * setAuthTokenResolver credential. The last case deliberately acts independently
+ * of the visitor's session. Factory options never establish an exemption.
  *
  * Applicability limit: factory hand-off is a single-module check. An exported client or
  * exported factory is not reported in its defining module; whether an importing
@@ -126,7 +127,7 @@ export default {
         '@molecule/app-auth calls requestBody(kind, payload): a one-argument callback receives the operation string, not the form values. Use mapRequestBody: (data) => ({ user: data }) with your API’s envelope, or declare both (kind, payload) positions for an intentional legacy adapter. The first argument is a string, so payload-property reads require the second parameter. Kind-only adapters remain supported.',
       http: '@molecule/app-http is declared: replace this authenticated transport with getClient().request/get/post; keep response/error mapping local. Configure authScheme on createFetchClient and tokenKey in the auth bond; keep setAuthTokenSource and setAuthGate.',
       unbonded:
-        "@molecule/app-http is declared: this {{factory}} result is created without setClient or an HTTP bond, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. Call setClient({{factory}}(...)) or bond('http', …, {{factory}}(...)) once in the existing bonds/ composition root, then use getClient() everywhere.",
+        "@molecule/app-http is declared: this {{factory}} result is created without setClient or an HTTP bond, so it does not receive the app token source that setAuthTokenSource installs on bonded clients (and the getClient() fallback). setAuthGate is global and still applies; it does not install that token source. For the visitor's session, call setClient({{factory}}(...)) or bond('http', …, {{factory}}(...)) once in the existing bonds/ composition root, then use getClient(). For a separate account, keep the package client unbonded and configure its own setAuthToken(token) or setAuthTokenResolver(() => token); do not replace the visitor's client or session.",
     },
   },
   create(context) {
@@ -738,6 +739,25 @@ export default {
       for (const client of clientBonds) add(client)
       return bonded
     }
+    // An explicit token setter owns this client's credential independently of
+    // the visitor's bond. Follow the same immutable bindings as bond detection;
+    // a setter on some other object does not establish this client's ownership.
+    const independentlyAuthenticatedHttpClients = () => {
+      const independent = new Set()
+      for (const call of calls) {
+        const callee = unwrap(call.callee)
+        if (
+          callee?.type !== 'MemberExpression' ||
+          !['setAuthToken', 'setAuthTokenResolver'].includes(key(callee)) ||
+          call.arguments.length !== 1
+        )
+          continue
+        const client = value(callee.object)
+        if (client?.type === 'CallExpression' && clientFactory(client.callee))
+          independent.add(client)
+      }
+      return independent
+    }
     // A single module can prove an export hand-off, not what its importer does.
     // Containers and calls through arbitrary wrappers stay outside this proof.
     const exportedHttpClients = () => {
@@ -1159,9 +1179,11 @@ export default {
         if (packages.http) {
           const bonded = bondedHttpClients()
           const exported = exportedHttpClients()
+          const independent = independentlyAuthenticatedHttpClients()
           for (const node of calls) {
             const factory = clientFactory(node.callee)
-            if (!factory || bonded.has(node) || exported.has(node)) continue
+            if (!factory || bonded.has(node) || exported.has(node) || independent.has(node))
+              continue
             context.report({
               node,
               messageId: 'unbonded',
