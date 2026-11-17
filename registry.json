@@ -69305,11 +69305,12 @@
         "GoogleLogo",
         "LinkedInLogo",
         "MicrosoftLogo",
-        "OAuthProviderLogo",
-        "TwitterLogo",
-        "XLogo",
+        "OAuthLogoProps",
         "OAuthProviderId",
-        "OAuthLogoProps"
+        "OAuthProviderLogo",
+        "OAuthProviderLogoProps",
+        "TwitterLogo",
+        "XLogo"
       ],
       "secrets": [],
       "runtimeDependencies": [
