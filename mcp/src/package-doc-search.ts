@@ -70,7 +70,7 @@ function searchLine(line: string, needle: string, cap: number): string {
   return `${start ? '…' : ''}${line.slice(start, start + cap)}…(line truncated)`
 }
 
-/** Search README lines (one context line either side) and complete declaration blocks. */
+/** Search README lines, complete bounded fenced examples and declaration blocks. */
 export function searchPackageDoc(
   readme: string,
   terms: readonly string[],
@@ -80,13 +80,26 @@ export function searchPackageDoc(
   let truncated = false
   const readmeLines = readme.split(/\r?\n/)
   const headings: string[] = []
+  const examples: Array<[number, number]> = []
   let heading = '(introduction)'
   let fence = ''
-  for (const line of readmeLines) {
-    const marker = line.match(/^\s{0,3}(`{3,}|~{3,})/)
+  let fenceLength = 0
+  let fenceStart = 0
+  for (const [index, line] of readmeLines.entries()) {
+    const marker = line.match(/^ {0,3}(`{3,}|~{3,})(.*)$/)
     if (marker) {
-      if (!fence) fence = marker[1][0]
-      else if (marker[1][0] === fence) fence = ''
+      if (!fence && !(marker[1][0] === '`' && marker[2].includes('`'))) {
+        fence = marker[1][0]
+        fenceLength = marker[1].length
+        fenceStart = index
+      } else if (
+        marker[1][0] === fence &&
+        marker[1].length >= fenceLength &&
+        marker[2].trim() === ''
+      ) {
+        examples.push([fenceStart, index])
+        fence = ''
+      }
     }
     const title = !fence && line.match(/^\s{0,3}#{1,6}\s+(.+?)(?:\s+#+)?\s*$/)
     if (title) heading = title[1]
@@ -106,8 +119,33 @@ export function searchPackageDoc(
     let readmeSize = 0
     let declarationSize = 0
     let last = -1
+    // Keep the first copyable matching example together before spending the README
+    // budget on prose hits. One-line context can drop the other half of an adapter
+    // or a layout. Reuse the CommonMark fence boundaries already needed for headings;
+    // this literal reference search does not need a Markdown rendering dependency.
+    let example: [number, number] | undefined
+    for (const [start, end] of examples) {
+      const text = readmeLines.slice(start, end + 1).join('\n')
+      if (!text.toLowerCase().includes(needle) || text.length > DECLARATION_CHARS) continue
+      const match = readmeLines.findIndex(
+        (line, i) => i >= start && i <= end && line.toLowerCase().includes(needle),
+      )
+      const hit =
+        `README.md:${match + 1} — section ${JSON.stringify(headings[match])}\n` +
+        readmeLines
+          .slice(start, end + 1)
+          .map((line, j) => `${start + j + 1}: ${line}`)
+          .join('\n')
+      if (hit.length <= SOURCE_CHARS) {
+        readmeHits.push(hit)
+        readmeSize += hit.length
+        example = [start, end]
+        break
+      }
+    }
     for (let i = 0; i < readmeLines.length; i++) {
       if (!readmeLines[i].toLowerCase().includes(needle)) continue
+      if (example && i >= example[0] && i <= example[1]) continue
       const start = Math.max(last + 1, i - 1, 0)
       const end = Math.min(readmeLines.length - 1, i + 1)
       if (start > end) continue
@@ -217,5 +255,5 @@ export const docSearchSchema = z
       .max(6),
   ])
   .describe(
-    'Case-insensitive literal string or up to 6 terms. Search README lines with context/headings and available installed dist/**/*.d.ts declarations; never implementation JS.',
+    'Case-insensitive literal string or up to 6 terms. Returns one complete bounded matching fenced example, README context/headings and available installed dist/**/*.d.ts declarations; never implementation JS.',
   )

@@ -312,6 +312,26 @@ void [publicPage, privatePage, nested, missing, missingNested]
     expect(app.load).toHaveBeenCalledExactlyOnceWith('all')
   })
 
+  it('keeps a declared private editor protected beside an explicitly public fallback', async () => {
+    const app = await mount('/equipment/7/edit', session(), [], [], (routes) => [
+      ...routes.filter((route) => route.path !== '*'),
+      { path: '/equipment/:id/edit', access: 'private', element: routes.at(-1)!.element },
+      { path: '*', access: 'public', element: routes.at(-1)!.element },
+    ])
+    expect(app.location().pathname).toBe('/login')
+    expect(app.load).not.toHaveBeenCalled()
+  })
+
+  it('permits an intentionally public fallback without a blanket wildcard refusal', async () => {
+    const app = await mount('/equipment/manual/new-page', session(), [], [], (routes) => [
+      ...routes.filter((route) => route.path !== '*'),
+      { path: '/equipment/:id/edit', access: 'private', element: routes.at(-1)!.element },
+      { path: '*', access: 'public', element: routes.at(-1)!.element },
+    ])
+    expect(app.location().pathname).toBe('/equipment/manual/new-page')
+    expect(app.load).toHaveBeenCalledExactlyOnceWith('all')
+  })
+
   it.each(['/orders?view=mine&page=3#rows', '/orders/42/edit'])(
     'redirects a signed-out direct visit to %s before any page request',
     async (url) => {
@@ -489,58 +509,71 @@ void [publicPage, privatePage, nested, missing, missingNested]
     expect(app.load).toHaveBeenCalledOnce()
   })
 
-  it('mounts the entry-point boundary before App routes that have no page-owned guard', async () => {
-    const client = session()
-    const mounted = vi.fn()
-    function Page(): ReactNode {
-      useEffect(() => mounted(), [])
-      return createElement('p', null, 'Page mounted')
-    }
-    const source = readFileSync(
-      join(import.meta.dirname, '../../../templates/app/react/App.tsx.tpl'),
-      'utf8',
-    )
-    const compiled = ts.transpileModule(source, {
-      compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
-    })
-    const exports: {
-      App?: () => ReactNode
-      AppRoot?: (props: { children: ReactNode }) => ReactNode
-    } = {}
-    new Function('require', 'exports', compiled.outputText)((name: string) => {
-      if (name === 'react/jsx-runtime') return jsx
-      if (name === 'react-router') return router
-      if (name === './components/AppLayout.js') return { AppLayout: router.Outlet }
-      if (name === './components/AuthGuard.js') return accessModule(client)
-      if (name === './bonds/index.js' || name.startsWith('@molecule/'))
-        return scaffoldDependency(client)(name)
-      const page = /^\.\/pages\/(\w+)\.js$/.exec(name)?.[1]
-      if (page)
-        return { [page]: page === 'Login' ? () => createElement('p', null, 'Sign in') : Page }
-      throw new Error(`Unexpected App dependency: ${name}`)
-    }, exports)
-    const entry = ts.transpileModule(
-      readFileSync(join(import.meta.dirname, '../../../templates/app/react/main.tsx.tpl'), 'utf8'),
-      { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX } },
-    )
-    new Function('require', 'exports', entry.outputText)((name: string) => {
-      if (name === 'react/jsx-runtime') return jsx
-      if (name === 'react') return { StrictMode }
-      if (name === 'react-dom/client') {
-        return {
-          createRoot: () => ({ render: (node: Parameters<typeof render>[0]) => render(node) }),
-        }
+  it.each([false, true])(
+    'mounts the entry-point boundary before unguarded pages when AppRoot is replaced: %s',
+    async (replaceWrapper) => {
+      const client = session()
+      const mounted = vi.fn()
+      function Page(): ReactNode {
+        useEffect(() => mounted(), [])
+        return createElement('p', null, 'Page mounted')
       }
-      if (name === './bonds/index.js')
-        return { authClient: client, setupProviders: () => undefined }
-      if (name === './App.js') return exports
-      if (name === './components/AuthGuard.js') return accessModule(client)
-      if (name === './pwa.js') return { registerPWA: () => undefined }
-      if (name.endsWith('.css')) return {}
-      throw new Error(`Unexpected entry dependency: ${name}`)
-    }, {})
-    await act(async () => client.whenRestored!())
-    expect(screen.queryByText('Sign in')).not.toBeNull()
-    expect(mounted).not.toHaveBeenCalled()
-  })
+      let source = readFileSync(
+        join(import.meta.dirname, '../../../templates/app/react/App.tsx.tpl'),
+        'utf8',
+      )
+      // The retained failure replaced AppRoot's provider composition while editing
+      // page routes. Its export survived; the policy wrapper inside it did not.
+      if (replaceWrapper)
+        source = source.replace(
+          '<RouteAccess routes={routes}>{children}</RouteAccess>',
+          '{children}',
+        )
+      const compiled = ts.transpileModule(source, {
+        compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
+      })
+      const exports: {
+        App?: () => ReactNode
+        AppRoot?: (props: { children: ReactNode }) => ReactNode
+      } = {}
+      new Function('require', 'exports', compiled.outputText)((name: string) => {
+        if (name === 'react/jsx-runtime') return jsx
+        if (name === 'react-router') return router
+        if (name === './components/AppLayout.js') return { AppLayout: router.Outlet }
+        if (name === './components/AuthGuard.js') return accessModule(client)
+        if (name === './bonds/index.js' || name.startsWith('@molecule/'))
+          return scaffoldDependency(client)(name)
+        const page = /^\.\/pages\/(\w+)\.js$/.exec(name)?.[1]
+        if (page)
+          return { [page]: page === 'Login' ? () => createElement('p', null, 'Sign in') : Page }
+        throw new Error(`Unexpected App dependency: ${name}`)
+      }, exports)
+      const entry = ts.transpileModule(
+        readFileSync(
+          join(import.meta.dirname, '../../../templates/app/react/main.tsx.tpl'),
+          'utf8',
+        ),
+        { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX } },
+      )
+      new Function('require', 'exports', entry.outputText)((name: string) => {
+        if (name === 'react/jsx-runtime') return jsx
+        if (name === 'react') return { StrictMode }
+        if (name === 'react-dom/client') {
+          return {
+            createRoot: () => ({ render: (node: Parameters<typeof render>[0]) => render(node) }),
+          }
+        }
+        if (name === './bonds/index.js')
+          return { authClient: client, setupProviders: () => undefined }
+        if (name === './App.js') return exports
+        if (name === './components/AuthGuard.js') return accessModule(client)
+        if (name === './pwa.js') return { registerPWA: () => undefined }
+        if (name.endsWith('.css')) return {}
+        throw new Error(`Unexpected entry dependency: ${name}`)
+      }, {})
+      await act(async () => client.whenRestored!())
+      expect(screen.queryByText('Sign in')).not.toBeNull()
+      expect(mounted).not.toHaveBeenCalled()
+    },
+  )
 })

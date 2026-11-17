@@ -5,7 +5,7 @@ import { MoleculeProvider } from '@molecule/app-react'
 import { BrowserRouter } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
-import { RouteAccess, type AppRoute } from './components/AuthGuard.js'
+import type { AppRoute } from './components/AuthGuard.js'
 import { AppLayout } from './components/AppLayout.js'
 import { About } from './pages/About.js'
 import { ForgotPassword } from './pages/ForgotPassword.js'
@@ -32,9 +32,10 @@ import { Signup } from './pages/Signup.js'
 // service worker's precache — is the part with a measured gain; see the
 // `UserMenu` drawer for the one interaction-only split that is still worth it.
 //
-// main.tsx imports AppRoot separately from App, so replacing page routes cannot
-// silently remove its required export. The routes below declare both the page and
-// its access: App and AppRoot use the SAME table. Add a public page once, with
+// main.tsx owns RouteAccess inside AppRoot's providers, so replacing page routes
+// or this provider wrapper cannot silently remove the access boundary. The routes
+// below declare both the page and its access: App and main.tsx use the SAME table.
+// Keep the exported table; the entry imports it. Add a public page once, with
 // access: 'public'; there is no second path allowlist to update.
 // AppRoot's `awaitSession` waits only while auth status is 'loading'. A stored
 // token AND cached user restore synchronously without a request; token-only and
@@ -43,7 +44,7 @@ import { Signup } from './pages/Signup.js'
 // still renders and may have a null user; handle that status separately from sign-out.
 // A visitor with no session to restore makes no request. Keep it.
 /**
- * Entry-point providers and access boundary, kept separate from page routes.
+ * Entry-point providers. main.tsx mounts the access boundary inside these providers.
  * @param props - The application's page routes.
  * @returns The router and bonded providers around the access boundary.
  */
@@ -58,7 +59,7 @@ export function AppRoot({ children }: { children: ReactNode }): ReactNode {
         storage={getStorageProvider()}
         i18n={i18nProvider}
       >
-        <RouteAccess routes={routes}>{children}</RouteAccess>
+        {children}
       </MoleculeProvider>
     </BrowserRouter>
   )

@@ -2,7 +2,8 @@ import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { setupProviders, authClient } from './bonds/index.js'
 import { registerPWA } from './pwa.js'
-import { App, AppRoot } from './App.js'
+import { App, AppRoot, routes } from './App.js'
+import { RouteAccess } from './components/AuthGuard.js'
 import './index.css'
 import './theme.css'
 
@@ -20,7 +21,10 @@ authClient.initialize().catch((_error) => {
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
     <AppRoot>
-      <App />
+      {/* Keep policy at the entry: a page-router edit cannot remove this boundary. */}
+      <RouteAccess routes={routes}>
+        <App />
+      </RouteAccess>
     </AppRoot>
   </StrictMode>,
 )
