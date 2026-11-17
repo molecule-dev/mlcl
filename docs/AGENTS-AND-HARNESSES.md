@@ -59,6 +59,17 @@ static check of direct startup calls and their local/imported setup functions;
 it does not execute runtime branches, component lifecycles or font downloads. Dynamic classes and non-JSX
 templates still need their framework and browser checks.
 
+`molecule-local/single-image-name-link` rejects adjacent image and text links
+with the same accessible name and destination. Combine them into one link, or
+keep the image decorative and link the name; `UserChip` from
+`@molecule/app-avatar-stack-react` provides the latter with `href` and
+`nameLinkProps`. The check handles native anchors and imported React Router
+`Link`/`NavLink` aliases, including a name inside the next layout wrapper. Separate
+rows, different names or destinations, conditional layouts, custom components,
+spread attributes and links with distinct actions/targets are left alone.
+It reads JSX, never tests, selectors or route names. As with other lint policies,
+an intentional exception can use a narrow ESLint disable with its reason.
+
 `molecule-local/no-dropped-optimistic-intent` follows this rule: an enabled React
 control on screen must not have a handler whose first act is to return because a
 value that its component's JSX treats as possibly missing is missing, unless the

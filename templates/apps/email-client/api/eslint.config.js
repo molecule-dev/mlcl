@@ -223,6 +223,7 @@ export default tseslint.config(
       'molecule-local/async-collections-have-status': 'error',
       'molecule-local/effects-preserve-form-edits': 'error',
       'molecule-local/no-dropped-action': 'error',
+      'molecule-local/single-image-name-link': 'error',
       'molecule-local/no-fixed-navigation-truncation': 'warn',
       'molecule-local/unique-update-excludes-self': 'warn',
       ...(routingBond

@@ -1729,6 +1729,127 @@ function componentResolver(parser, context) {
 /** Shared scaffold diagnostics. ESLint supplies the parser used for imported source files. */
 export function scaffoldRules(parser) {
   const rules = {
+    // WCAG technique H2: avoid two adjacent keyboard stops for the same image/name
+    // destination. Inspect only a direct image link and its next static layout sibling;
+    // separate rows, conditional layouts and opaque components remain independent.
+    'single-image-name-link': {
+      meta: {
+        type: 'suggestion',
+        docs: {
+          description:
+            'Combine adjacent image and text links with the same name and destination, or keep the image decorative.',
+        },
+        schema: [],
+        messages: {
+          redundant:
+            'These adjacent image and text links have the same name and destination. Use one link around both, or a decorative image with only the name linked. For a user identity, UserChip from @molecule/app-avatar-stack-react supplies one name link with href and nameLinkProps.',
+        },
+      },
+      create(context) {
+        const source = context.sourceCode
+        const attr = (node, name) =>
+          node.openingElement.attributes.find(
+            (part) => part.type === 'JSXAttribute' && part.name.name === name,
+          )
+        const value = (node) => {
+          if (node?.type === 'Literal' && typeof node.value === 'string')
+            return `text:${node.value}`
+          if (node?.type === 'JSXExpressionContainer') {
+            if (node.expression.type === 'Literal') return value(node.expression)
+            if (
+              ['Identifier', 'MemberExpression', 'TemplateLiteral'].includes(node.expression.type)
+            )
+              return `expression:${source.getText(node.expression)}`
+          }
+          return null
+        }
+        const tag = (node) => node?.openingElement?.name
+        const binding = (node) => {
+          for (let scope = source.getScope(node); scope; scope = scope.upper)
+            if (scope.set.has(node.name)) return scope.set.get(node.name)?.defs[0]
+          return null
+        }
+        const link = (node) => {
+          const name = tag(node)
+          if (name?.type !== 'JSXIdentifier') return null
+          let destination = 'href'
+          if (name.name !== 'a') {
+            const definition = binding(name)
+            if (
+              definition?.type !== 'ImportBinding' ||
+              !['react-router', 'react-router-dom'].includes(definition.parent.source.value) ||
+              !['Link', 'NavLink'].includes(definition.node.imported?.name)
+            )
+              return null
+            destination = 'to'
+          }
+          if (
+            node.openingElement.attributes.some((part) => part.type === 'JSXSpreadAttribute') ||
+            ['aria-label', 'aria-labelledby', 'aria-hidden', 'download', 'target', 'onClick'].some(
+              (name) => attr(node, name),
+            )
+          )
+            return null
+          return value(attr(node, destination)?.value)
+        }
+        const children = (node) =>
+          (node.children ?? []).filter(
+            (child) =>
+              !(child.type === 'JSXText' && child.value.trim() === '') &&
+              !(
+                child.type === 'JSXExpressionContainer' &&
+                (child.expression.type === 'JSXEmptyExpression' ||
+                  (child.expression.type === 'Literal' &&
+                    typeof child.expression.value === 'string' &&
+                    child.expression.value.trim() === ''))
+              ),
+          )
+        const textName = (node) => {
+          const parts = children(node)
+          if (parts.length !== 1) return null
+          const part = parts[0]
+          return part.type === 'JSXText' ? `text:${part.value.trim()}` : value(part)
+        }
+        const imageName = (node) => {
+          const parts = children(node)
+          if (parts.length !== 1) return null
+          const image = parts[0]
+          if (tag(image)?.name !== 'img' || attr(image, 'aria-hidden')) return null
+          const name = value(attr(image, 'alt')?.value)
+          return name === 'text:' ? null : name
+        }
+        const textLinks = (node) => {
+          if (node.type !== 'JSXElement') return []
+          const destination = link(node)
+          if (destination) return [{ node, destination, name: textName(node) }]
+          if (!['div', 'span', 'p', 'small', 'strong', 'b'].includes(tag(node)?.name)) return []
+          if (
+            node.openingElement.attributes.some((part) => part.type === 'JSXSpreadAttribute') ||
+            ['aria-hidden', 'hidden', 'onClick'].some((name) => attr(node, name))
+          )
+            return []
+          return children(node).flatMap(textLinks)
+        }
+        return {
+          JSXElement(node) {
+            const parts = children(node)
+            for (let i = 0; i + 1 < parts.length; i++) {
+              const image = parts[i]
+              if (image.type !== 'JSXElement') continue
+              const destination = link(image)
+              const name = destination && imageName(image)
+              if (!name) continue
+              if (
+                textLinks(parts[i + 1]).some(
+                  (text) => text.destination === destination && text.name === name,
+                )
+              )
+                context.report({ node: image.openingElement, messageId: 'redundant' })
+            }
+          },
+        }
+      },
+    },
     // ESLint owns this syntax policy; neither route names nor supplied tests establish access.
     // Keep a raw URL match independent of the session, or handle access explicitly. TypeScript
     // cannot diagnose a missing navigation effect, and a landing-page probe cannot discover a
