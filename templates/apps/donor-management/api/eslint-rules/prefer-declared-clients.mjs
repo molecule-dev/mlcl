@@ -32,6 +32,9 @@
  * A custom storage key is a credential store when its written value also feeds the
  * bonded HTTP client's setAuthToken in this module. Immutable bindings establish
  * that connection; independent clients, read-only storage and unrelated values do not.
+ * The global setAuthTokenSource callback is also a credential owner when its returned
+ * value comes from browser storage. Local immutable aliases and helper returns are
+ * followed; unrelated storage reads and imported/dynamic helpers are not inferred.
  * Article checks cover awaited updates followed by a lookup using the same lexical
  * slug binding in that function. Cross-module control flow is not inferred.
  * Query checks compare a useQuery key with one extra array around that same binding in a
@@ -113,6 +116,8 @@ export default {
         '@molecule/app-auth is declared: this browser credential store duplicates its session. Configure tokenKey (or storagePrefix) and authScheme in the existing auth bond/config; use getClient().getAccessToken() and the framework auth binding. requestBody/mapAuthResponse/currentUserEndpoint adapt the API.',
       session:
         '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
+      storedCredentialSource:
+        '@molecule/app-auth is declared, but this global HTTP token source reads browser storage instead of its session. Use setAuthTokenSource(() => authClient.getAccessToken()) with the existing auth bond; configure tokenKey and authScheme there. The shared client restores a cached token and user synchronously; a separate token store makes protected pages wait for another session lookup on every document load. A deliberately independent protocol can use a reasoned ESLint disable at this call.',
       logout:
         'This sign-out handler only navigates and leaves the subscribed session signed in. Call useAuth().logout() or the bonded auth client logout() before navigation. If another route owns sign-out, delegate to that action or use a reasoned ESLint disable at this handler.',
       profile:
@@ -420,6 +425,30 @@ export default {
         return definition.node
       const declarator = stableConst(callee)
       return declarator ? localFunction(declarator.init, seen) : null
+    }
+    // Inspect the callback's returned value, not every storage read in its body:
+    // a theme preference beside the bonded client's token is still a preference.
+    const storedCredential = (node, seen = new Set()) => {
+      node = value(node)
+      if (!node || seen.has(node)) return false
+      seen.add(node)
+      if (node.type === 'MemberExpression' && storage(node.object)) return true
+      if (node.type === 'CallExpression') {
+        const callee = unwrap(node.callee)
+        if (
+          callee?.type === 'MemberExpression' &&
+          key(callee) === 'getItem' &&
+          storage(callee.object)
+        )
+          return true
+        const fn = localFunction(callee)
+        return Boolean(fn && functionReturns(fn).some((result) => storedCredential(result, seen)))
+      }
+      if (node.type === 'LogicalExpression')
+        return storedCredential(node.left, seen) || storedCredential(node.right, seen)
+      if (node.type === 'ConditionalExpression')
+        return storedCredential(node.consequent, seen) || storedCredential(node.alternate, seen)
+      return false
     }
     // Follow the binding that already has a package contract, without inferring
     // a domain, renderer or sink. Opaque external data and local APIs stay local.
@@ -1009,6 +1038,12 @@ export default {
       },
       'Program:exit'() {
         if (packages.auth) {
+          for (const call of calls) {
+            if (!imported(call.callee, [HTTP], ['setAuthTokenSource'])) continue
+            const fn = localFunction(call.arguments[0])
+            if (fn && functionReturns(fn).some((result) => storedCredential(result)))
+              context.report({ node: call, messageId: 'storedCredentialSource' })
+          }
           // A key's spelling cannot identify a credential. Its flow to the visitor's
           // bonded transport can: only stable lexical values establish that fact.
           const tokenBinding = (node) => {
