@@ -113,6 +113,7 @@ if (existsSync(tplPath)) {
 
 const failures = []
 let checked = 0
+const ESLINT_TIMEOUT_MS = 300_000
 
 /**
  * Lint one workspace with its own config.
@@ -125,7 +126,11 @@ let checked = 0
 async function lintOne(target) {
   const flags = ['src', '--max-warnings', '0', ...(fix ? ['--fix'] : [])]
   try {
-    await execFileAsync(ESLINT_BIN, flags, { cwd: target.dir, timeout: 300_000, maxBuffer: 32e6 })
+    await execFileAsync(ESLINT_BIN, flags, {
+      cwd: target.dir,
+      timeout: ESLINT_TIMEOUT_MS,
+      maxBuffer: 32e6,
+    })
   } catch (e) {
     const out = `${e.stdout || ''}${e.stderr || ''}`
     const lines = out
@@ -140,7 +145,17 @@ async function lintOne(target) {
       .map((l) => l.trim())
       .filter(Boolean)
       .slice(0, 3)
-    failures.push({ ...target, lines, head })
+    const reason =
+      e.code === 'ERR_CHILD_PROCESS_STDIO_MAXBUFFER'
+        ? 'ESLint exceeded its output buffer'
+        : e.killed
+          ? `ESLint timed out after ${ESLINT_TIMEOUT_MS} ms`
+          : e.signal
+            ? `ESLint terminated with signal ${e.signal}`
+            : typeof e.code === 'number'
+              ? `ESLint exited with code ${e.code}`
+              : `ESLint could not run: ${e.code ?? e.message}`
+    failures.push({ ...target, lines, head, reason })
   }
   checked++
   process.stdout.write(`\r[${checked}/${targets.length}] linted — ${failures.length} failing   `)
@@ -163,16 +178,30 @@ if (failures.length === 0) {
 }
 
 const total = failures.reduce((n, f) => n + f.lines.length, 0)
-console.error(`\n✗ ${failures.length} template workspace(s) with lint problems (${total} total):\n`)
+const toolingFailures = failures.filter((f) => f.lines.length === 0).length
+console.error(
+  `\n✗ ${failures.length} template workspace(s) failed (${total} lint problems, ${toolingFailures} tooling failures):\n`,
+)
 for (const f of failures.slice(0, 40)) {
-  console.error(`  ${f.slug}/${f.ws}  (${f.lines.length})`)
+  console.error(
+    `  ${f.slug}/${f.ws}  (${f.lines.length ? `${f.lines.length} lint problems` : 'tooling failure'})`,
+  )
   for (const l of f.lines.slice(0, 3)) console.error(`    ${l}`)
-  if (f.lines.length === 0) for (const l of f.head) console.error(`    ⚠ ${l}`)
+  if (f.lines.length === 0) {
+    console.error(`    ${f.reason}`)
+    for (const l of f.head) console.error(`    ⚠ ${l}`)
+  }
 }
 if (failures.length > 40) console.error(`  … and ${failures.length - 40} more`)
-console.error(
-  `\nFix these — \`mlcl create\` copies templates out verbatim, so a dirty template ` +
-    `means the user's brand-new project fails \`npm run lint\` before they write a line. ` +
-    `Re-run with --fix to apply the autofixable ones.`,
-)
+if (total > 0)
+  console.error(
+    `\nFix these — \`mlcl create\` copies templates out verbatim, so a dirty template ` +
+      `means the user's brand-new project fails \`npm run lint\` before they write a line. ` +
+      `Re-run with --fix to apply the autofixable ones.`,
+  )
+if (toolingFailures > 0)
+  console.error(
+    '\nResolve the reported ESLint process or configuration failure and rerun these workspaces. ' +
+      'Those processes produced no source lint verdict.',
+  )
 process.exit(1)
