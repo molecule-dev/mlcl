@@ -215,6 +215,7 @@
     "@molecule/api-cron-bullmq": "1.0.3",
     "@molecule/api-cron-node-cron": "1.0.3",
     "@molecule/api-database": "1.2.2",
+    "@molecule/api-database-sqlite": "1.4.3",
     "@molecule/api-emails": "1.0.3",
     "@molecule/api-emails-capture": "1.0.3",
     "@molecule/api-emails-mailgun": "1.0.10",

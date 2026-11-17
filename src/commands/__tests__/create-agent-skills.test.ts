@@ -239,6 +239,7 @@ describe('MCP scaffold_project inherits the delivery', () => {
       '@molecule/app-routing',
       '@molecule/app-routing-react-router',
       '@molecule/app-state',
+      '@molecule/app-ui-react',
     ])
     const routing = result.capabilityMap?.find(
       (entry) => entry.name === '@molecule/app-routing-react-router',
