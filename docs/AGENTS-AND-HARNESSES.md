@@ -109,7 +109,7 @@ For each agent it installs three things:
   one, otherwise by adding one `molecule` entry to its config file (comments
   and other settings are kept);
 - **the Molecule skills**: `build-with-molecule` (start a new app),
-  `extend-with-packages` (add or swap a capability) and `capability-first`
+  `extend-with-packages` (add or swap a capability in any project) and `capability-first`
   (check what a package already provides before writing code);
 - **the conventions**, as a `## Molecule` section in the instructions file the
   agent reads, or as a rules file of its own.
@@ -290,6 +290,17 @@ You:  Add transactional email to this app (it's a molecule project).
 Agent: npx mlcl search "send emails" --stack api
        npx mlcl add @molecule/api-emails-mailgun --inject
        reads node_modules/@molecule/api-emails-mailgun/README.md for usage
+```
+
+**A project Molecule did not create:**
+
+```text
+You:  Add Stripe payments to my Express server.
+Agent: npx mlcl search payments --stack api
+       npx mlcl add @molecule/api-payments-stripe --inject
+       writes src/bonds/ in the project's language and leaves the rest alone
+       adds the two printed lines (import + await setupBonds()) to the server entry
+       puts STRIPE_SECRET_KEY and STRIPE_WEBHOOK_SECRET in .env
 ```
 
 **Provider swap:**

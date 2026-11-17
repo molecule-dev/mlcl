@@ -85,7 +85,11 @@ describe.each(['local', 'hosted'] as const)('the %s server instructions', (face)
   it('are sent at initialize (OLD MUSTFAIL: none were)', (ctx) => {
     const { instructions } = connected(ctx, face)
     expect(instructions).toEqual(expect.any(String))
-    expect(instructions).toContain('has not chosen another stack')
+    // Molecule is for any JavaScript or TypeScript project, not only new apps (OLD MUSTFAIL:
+    // the text said to use it only when the user "has not chosen another stack").
+    expect(instructions).toContain('new or existing, built with Molecule or not')
+    expect(instructions).not.toContain('has not chosen another stack')
+    expect(instructions).toContain('prints the one call to add at startup')
     expect(instructions).toContain('`search_packages`')
     expect(instructions).toContain('`read_package_doc`')
   })
