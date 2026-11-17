@@ -5,10 +5,11 @@
  * run imported one — the request pinned a different API (a supplied OpenAPI file), so each run
  * wrote its own data file for it. The first fixture is that supplied contract, unedited.
  */
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 
 import ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
@@ -364,15 +365,32 @@ const FRAMEWORK_QUERIES = [
   })),
 ]
 
+/**
+ * A framework package's type entry, resolved from the query package that imports it (the
+ * generated modules are compiled in a temp directory, which has no node_modules of its own).
+ *
+ * @param name - The package, e.g. `@angular/core`.
+ * @param from - A file inside the query package.
+ * @returns The path of its `.d.ts` entry.
+ */
+function typesEntry(name: string, from: string): string {
+  const manifest = createRequire(from).resolve(`${name}/package.json`)
+  const pkg = JSON.parse(readFileSync(manifest, 'utf8'))
+  return join(dirname(manifest), pkg.exports?.['.']?.types ?? pkg.types ?? pkg.typings)
+}
+
 describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) => {
   const factory = registry.packages[framework.query].decisionGuide!.resourceModules!
   const listRoute = factory.listRoute!
+  // A binding whose hooks wrap a getter (Angular's `computed`) imports that framework directly.
+  const wrap = factory.queryHook?.wrap?.package
   const declarations: Record<string, string> = {
     [HTTP]: join(MOLECULE, 'core/http/dist/index.d.ts'),
     [framework.query]: framework.entry,
     '@molecule/app-query': join(MOLECULE, 'core/query/dist/index.d.ts'),
     '@molecule/app-routing': join(MOLECULE, 'core/routing/dist/index.d.ts'),
     [listRoute.package]: framework.router,
+    ...(wrap && existsSync(framework.entry) ? { [wrap]: typesEntry(wrap, framework.entry) } : {}),
   }
   const built =
     Object.values(declarations).every((file) => existsSync(file)) && existsSync(framework.built)
