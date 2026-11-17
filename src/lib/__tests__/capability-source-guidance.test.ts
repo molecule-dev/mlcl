@@ -7,7 +7,15 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { buildCapabilityMap } from '../capability-map.js'
 import { getRawRegistry } from '../registry.js'
-import { addPackages, copyTemplateInstance, createAppProject, ensureAgentsMd } from '../scaffold.js'
+import {
+  addPackages,
+  copyTemplateInstance,
+  createApiProject,
+  createAppProject,
+  ensureAgentsMd,
+  getTemplatesDir,
+  readTemplateSetupSqlVersions,
+} from '../scaffold.js'
 import { DecisionGuide, MoleculeMetadata, RegistryEntry } from '../schema.js'
 
 const registry = getRawRegistry()
@@ -39,6 +47,68 @@ async function app(packages: string[], workspace = ''): Promise<string> {
 }
 
 describe('declared recipes beside editable app source', () => {
+  it.each([
+    {
+      pkg: '@molecule/api-resource-follow',
+      snippets: [
+        "import { follow, unfollow, isFollowing, getFollowedIds } from '@molecule/api-resource-follow'",
+        'follows(followerId, targetType, targetId)',
+      ],
+    },
+    {
+      pkg: '@molecule/api-slug',
+      snippets: [
+        "import { uniqueSlugInTable } from '@molecule/api-slug'",
+        'uniqueSlugInTable(table, column, title, { excludeId, fallback })',
+        'uniqueSlug(title, isTaken, options)',
+      ],
+    },
+  ])('puts $pkg calls in the API scaffold router and capability map', async ({ pkg, snippets }) => {
+    await createApiProject(root, 'catalog-api')
+    await addPackages(root, [pkg])
+    const path = join(root, 'src/App/router.ts')
+    const router = await readFile(path, 'utf8')
+
+    await ensureAgentsMd(root)
+
+    const guided = await readFile(path, 'utf8')
+    const map = await readFile(join(root, 'AGENTS.md'), 'utf8')
+    for (const source of [guided, map])
+      for (const snippet of snippets) expect(source).toContain(snippet)
+    expect(guided.endsWith(router)).toBe(true)
+  })
+
+  it('shows the follow recipe in a copied video-streaming flagship with its existing follows table', async () => {
+    const template = join(getTemplatesDir(), 'apps', 'video-streaming')
+    const project = join(root, 'video-streaming')
+    await copyTemplateInstance(
+      template,
+      project,
+      'video-streaming',
+      await readTemplateSetupSqlVersions(template),
+    )
+
+    const source = await readFile(join(project, 'api/src/App/router.ts'), 'utf8')
+    expect(source).toContain(
+      "import { follow, unfollow, isFollowing, getFollowedIds } from '@molecule/api-resource-follow'",
+    )
+    expect(source).toContain('follows(followerId, targetType, targetId)')
+    expect(source).toContain("import { uniqueSlugInTable } from '@molecule/api-slug'")
+    expect(
+      await readFile(join(project, 'api/migrations/0010_video_streaming_tables.sql'), 'utf8'),
+    ).toContain('CREATE TABLE public.follows')
+  })
+
+  it('leaves the API router unchanged when neither API capability is declared', async () => {
+    await createApiProject(root, 'internal-api')
+    const path = join(root, 'src/App/router.ts')
+    const router = await readFile(path, 'utf8')
+
+    await ensureAgentsMd(root)
+
+    expect(await readFile(path, 'utf8')).toBe(router)
+  })
+
   it('delivers the shared tag and query paths in the real React scaffold', async () => {
     await createAppProject(root, 'support-inbox', 'react')
     await addPackages(root, [tagInput, query, '@molecule/app-state', '@molecule/app-react'])

@@ -23474,9 +23474,13 @@
       },
       "decisionGuide": {
         "configuration": [
-          "Custom routes can call follow(viewerId, targetType, canonicalId), unfollow(viewerId, targetType, canonicalId) and isFollowing(viewerId, targetType, canonicalId), then project their own response. isFollowing accepts an absent viewer and returns false without I/O. These services use follows(followerId, targetType, targetId); a username route resolves the target id locally first. Different relationship schemas stay local.",
+          "For a custom HTTP handler, import { follow, unfollow, isFollowing, getFollowedIds } from '@molecule/api-resource-follow'. Resolve the route parameter to a canonical target id and call follow(viewerId, targetType, id), unfollow(viewerId, targetType, id) or isFollowing(viewerId, targetType, id). Keep your paths, validation and response mapping in the handler.",
+          "The services share the installed follows(followerId, targetType, targetId) table. A custom handler can use it without mounting the package routes. For a public view, use viewerId ? await isFollowing(viewerId, targetType, id) : false. Different relationship schemas stay local.",
           "For a displayed collection, call getFollowedIds(viewerId, targetType, ids) once and join with followed.has(id). It returns a Set of followed canonical ids, deduplicates the input, and does no database reads for an absent viewer or empty collection. Target types can be users, documents, topics or any application resource.",
-          "For one target use isFollowing(viewerId, targetType, id). getFollowing(viewerId, options) is a paginated list, so its default page cannot determine follow state for an entire displayed collection."
+          "getFollowing(viewerId, options) pages across target types. To enumerate every followed id for one type, page and filter its results or query the same follows table by followerId and targetType."
+        ],
+        "sourceFiles": [
+          "src/App/router.ts"
         ]
       },
       "intentHints": [
@@ -29344,7 +29348,16 @@
         "unique slug",
         "permalink",
         "pretty urls"
-      ]
+      ],
+      "decisionGuide": {
+        "configuration": [
+          "For a bonded database table, import { uniqueSlugInTable } from '@molecule/api-slug' and call uniqueSlugInTable(table, column, title, { excludeId, fallback }). Pass the current row id as excludeId on update. The helper normalizes the title and tries the plain slug, then numbered suffixes. Keep the unique index to protect concurrent inserts.",
+          "For a custom lookup, import { uniqueSlug } from '@molecule/api-slug' and call uniqueSlug(title, isTaken, options). isTaken(slug) returns true for an occupied candidate, synchronously or via a promise. Use slugify(title, options) from the same package when only normalization is needed."
+        ],
+        "sourceFiles": [
+          "src/App/router.ts"
+        ]
+      }
     },
     "@molecule/api-sms": {
       "language": "typescript",
