@@ -19,7 +19,7 @@
  */
 
 import { existsSync, readFileSync, realpathSync } from 'node:fs'
-import { join } from 'node:path'
+import { dirname, join, relative, sep } from 'node:path'
 
 /** Machine-wide (every project for this user) or the current project only. */
 export type SetupScope = 'machine' | 'project'
@@ -65,6 +65,8 @@ export type InstructionTarget =
   | { kind: 'section'; path: string }
   /** A file of our own in a rules directory, with the agent's frontmatter. */
   | { kind: 'file'; path: string; frontmatter: string }
+  /** A file the agent reads that loads another by an import line (`@AGENTS.md`). */
+  | { kind: 'import'; path: string; line: string }
   /** The agent keeps these settings outside any file. */
   | { kind: 'none'; note: string }
 
@@ -119,19 +121,40 @@ const sameFile = (a: string, b: string): boolean => {
 }
 
 /**
- * Claude Code reads `CLAUDE.md` (or `.claude/CLAUDE.md`), and `AGENTS.md` only
- * when no `CLAUDE.md` exists. A `CLAUDE.md` that IS `AGENTS.md` (a symlink) or
- * imports it (`@AGENTS.md`) already carries the section written there.
+ * Claude Code reads `CLAUDE.md` (or `.claude/CLAUDE.md`). It reads `AGENTS.md` only
+ * when no `CLAUDE.md` exists in the project OR ANY FOLDER ABOVE IT, and only from
+ * v2.1.277 (code.claude.com/docs/en/memory#agents-md). A `CLAUDE.md` that IS
+ * `AGENTS.md` (a symlink) or imports it already carries the section written there.
+ * An import resolves from the importing file's folder, so `.claude/CLAUDE.md` names
+ * the project's file as `@../AGENTS.md` (its `@AGENTS.md` is `.claude/AGENTS.md`).
+ * Without a `CLAUDE.md`, the section goes in `AGENTS.md` and a one-line `CLAUDE.md`
+ * imports it, the documented way to share the file: a project nested under a folder
+ * with its own `CLAUDE.md` (a monorepo package) would otherwise never load the
+ * conventions.
  */
 function claudeProjectInstructions(e: AgentEnvironment): InstructionTarget[] {
   const agents = join(e.cwd, 'AGENTS.md')
   const claude = [join(e.cwd, 'CLAUDE.md'), join(e.cwd, '.claude', 'CLAUDE.md')].find((path) =>
     existsSync(path),
   )
-  if (!claude) return [{ kind: 'section', path: agents }]
-  if (sameFile(claude, agents) || /^@AGENTS\.md\s*$/m.test(readFileSync(claude, 'utf8')))
+  if (!claude)
+    return [
+      { kind: 'section', path: agents },
+      { kind: 'import', path: join(e.cwd, 'CLAUDE.md'), line: '@AGENTS.md' },
+    ]
+  if (sameFile(claude, agents) || importsFile(claude, agents))
     return [{ kind: 'section', path: agents }]
   return [{ kind: 'section', path: claude }]
+}
+
+/** Whether `importer` has an `@<path>` line naming `imported`, resolved from its own folder. */
+function importsFile(importer: string, imported: string): boolean {
+  const target = relative(dirname(importer), imported).split(sep).join('/')
+  const lines = readFileSync(importer, 'utf8').split(/\r?\n/)
+  return lines.some((line) => {
+    const trimmed = line.trim()
+    return trimmed === `@${target}` || trimmed === `@./${target}`
+  })
 }
 
 const cli = (bin: string, args: string[]): McpTarget => ({ kind: 'cli', bin, args })

@@ -117,6 +117,13 @@ describe('mlcl setup', () => {
     expect(readdirSync(home)).toEqual([])
   })
 
+  it('this project only, no CLAUDE.md yet: Claude Code gets one that imports AGENTS.md', async () => {
+    const out = await run(['--yes', '--scope', 'project', '--agent', 'claude-code'])
+    expect(read(project, 'CLAUDE.md')).toBe('@AGENTS.md\n')
+    expect(read(project, 'AGENTS.md')).toContain('## Molecule')
+    expect(out).toContain('CLAUDE.md (imports AGENTS.md)')
+  })
+
   it('defaults to the agents found on this machine', async () => {
     mkdirSync(join(home, '.cursor'))
     const out = await run(['--yes'])

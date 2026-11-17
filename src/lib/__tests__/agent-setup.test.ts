@@ -185,6 +185,18 @@ describe('planSetup', () => {
     for (const s of steps) if ('path' in s) expect(s.path.startsWith(home)).toBe(false)
   })
 
+  it('Claude Code with no CLAUDE.md: the section goes in AGENTS.md and a new CLAUDE.md imports it (OLD MUSTFAIL)', () => {
+    // Claude Code skips AGENTS.md when any folder above the project has a CLAUDE.md,
+    // and before v2.1.277; the import is the documented way that works in every case.
+    const instructions = plan('project', ['claude-code']).flatMap((s) =>
+      s.kind === 'section' || s.kind === 'import' ? [[s.kind, s.path]] : [],
+    )
+    expect(instructions).toEqual([
+      ['section', join(cwd, 'AGENTS.md')],
+      ['import', join(cwd, 'CLAUDE.md')],
+    ])
+  })
+
   it('Claude Code project instructions follow an existing CLAUDE.md', () => {
     writeFileSync(join(cwd, 'CLAUDE.md'), '# rules\n')
     const sections = plan('project', ['claude-code']).flatMap((s) =>
@@ -196,6 +208,18 @@ describe('planSetup', () => {
       s.kind === 'section' ? [s.path] : [],
     )
     expect(imported).toEqual([join(cwd, 'AGENTS.md')])
+    expect(plan('project', ['claude-code']).some((s) => s.kind === 'import')).toBe(false)
+  })
+
+  it('reads an import in .claude/CLAUDE.md from that folder (OLD MUSTFAIL: @AGENTS.md there is .claude/AGENTS.md)', () => {
+    mkdirSync(join(cwd, '.claude'))
+    const nested = join(cwd, '.claude', 'CLAUDE.md')
+    const sections = (): string[] =>
+      plan('project', ['claude-code']).flatMap((s) => (s.kind === 'section' ? [s.path] : []))
+    writeFileSync(nested, '@AGENTS.md\n')
+    expect(sections()).toEqual([nested])
+    writeFileSync(nested, '# rules\n@../AGENTS.md\n')
+    expect(sections()).toEqual([join(cwd, 'AGENTS.md')])
   })
 
   it('says so when an agent has no MCP config at a scope', () => {
@@ -303,6 +327,26 @@ describe('applySetup', () => {
     expect(readFileSync(path, 'utf8')).toBe(
       'model = "o3"\n\n[mcp_servers.molecule]\ncommand = "npx"\n',
     )
+  })
+
+  it('adds the import line once, keeping what the file already says', async () => {
+    const path = join(dir, 'CLAUDE.md')
+    const step: SetupStep = {
+      kind: 'import',
+      component: 'instructions',
+      agents: ['A'],
+      path,
+      line: '@AGENTS.md',
+    }
+    const status = async (): Promise<string[]> =>
+      (await applySetup([step], options())).map((r) => r.status)
+    expect(await status()).toEqual(['written'])
+    expect(readFileSync(path, 'utf8')).toBe('@AGENTS.md\n')
+    expect(await status()).toEqual(['present'])
+    writeFileSync(path, '# rules\n')
+    expect(await status()).toEqual(['updated'])
+    expect(readFileSync(path, 'utf8')).toBe('# rules\n\n@AGENTS.md\n')
+    expect(await status()).toEqual(['present'])
   })
 
   it('writes the capability map beside the section only in the project AGENTS.md', async () => {

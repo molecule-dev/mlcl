@@ -43,6 +43,7 @@ export type SetupStep =
   | { kind: 'skill'; component: 'skills'; agents: string[]; path: string; content: string }
   | { kind: 'section'; component: 'instructions'; agents: string[]; path: string }
   | { kind: 'file'; component: 'instructions'; agents: string[]; path: string; frontmatter: string }
+  | { kind: 'import'; component: 'instructions'; agents: string[]; path: string; line: string }
   | { kind: 'note'; component: SetupComponent; agents: string[]; text: string }
 
 /** How one step went. */
@@ -140,6 +141,14 @@ export function planSetup(input: SetupPlanInput): SetupStep[] {
             add(steps, stepKey, { kind: 'note', component, agents, text: target.note })
           else if (target.kind === 'section')
             add(steps, stepKey, { kind: 'section', component, agents, path: target.path })
+          else if (target.kind === 'import')
+            add(steps, stepKey, {
+              kind: 'import',
+              component,
+              agents,
+              path: target.path,
+              line: target.line,
+            })
           else
             add(steps, stepKey, {
               kind: 'file',
@@ -268,6 +277,22 @@ function appendTomlTable(path: string, table: string, lines: string[]): SetupSte
   return text === '' ? 'written' : 'updated'
 }
 
+/**
+ * An import line (`@AGENTS.md`) in a file the agent reads: the file is created with
+ * just that line when missing, and the line is added at the end when the file lacks it.
+ *
+ * @param path - The file that imports (a project `CLAUDE.md`).
+ * @param line - The import line, exactly as the agent expects it.
+ * @returns `written` for a new file, `updated` when the line was added, else `present`.
+ */
+export function ensureImportLine(path: string, line: string): SetupStepResult['status'] {
+  const text = existsSync(path) ? readFileSync(path, 'utf8') : ''
+  if (text.split(/\r?\n/).some((existing) => existing.trim() === line)) return 'present'
+  mkdirSync(dirname(path), { recursive: true })
+  writeFileSync(path, text.trim() === '' ? `${line}\n` : `${text.trimEnd()}\n\n${line}\n`)
+  return text === '' ? 'written' : 'updated'
+}
+
 async function applyMcp(
   target: McpTarget,
   runCli: CliRunner,
@@ -318,6 +343,8 @@ export async function applySetup(
         results.push({ step, ...(await applyMcp(step.target, options.runCli)) })
       } else if (step.kind === 'skill') {
         results.push({ step, status: writeOwnedFile(step.path, step.content, options.force) })
+      } else if (step.kind === 'import') {
+        results.push({ step, status: ensureImportLine(step.path, step.line) })
       } else if (step.kind === 'file') {
         results.push({
           step,

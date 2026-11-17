@@ -132,6 +132,12 @@ export default class AgentInit extends Command {
         'path' in step ? step.path.replace(`${env.cwd}/`, '').replace(env.home, '~') : ''
       if (status === 'failed') this.error(`${where}: ${detail}`)
       else if (status === 'note') this.log(ui.dim(detail ?? ''))
+      else if (step.kind === 'import')
+        this.log(
+          status === 'present'
+            ? ui.ok(`Already present: ${step.line} in ${where}`)
+            : `${ui.check(status === 'updated' ? 'Updated' : 'Wrote')} ${step.line} → ${ui.id(where)}`,
+        )
       else if (status === 'present' || status === 'kept')
         this.log(ui.ok(`Already present: molecule section in ${where}`))
       else

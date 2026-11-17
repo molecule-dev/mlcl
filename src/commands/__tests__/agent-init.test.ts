@@ -226,6 +226,15 @@ describe('mlcl agent init', () => {
     expect(await readFile(join(dir, 'AGENTS.md'), 'utf8')).toContain('## Molecule')
   })
 
+  it('gives a Claude Code project with no CLAUDE.md one that imports AGENTS.md (OLD MUSTFAIL)', async () => {
+    await mkdir(join(dir, '.claude'), { recursive: true })
+    await run()
+    expect(await readFile(join(dir, 'CLAUDE.md'), 'utf8')).toBe('@AGENTS.md\n')
+    expect(await readFile(join(dir, 'AGENTS.md'), 'utf8')).toContain('## Molecule')
+    await run()
+    expect(await readFile(join(dir, 'CLAUDE.md'), 'utf8')).toBe('@AGENTS.md\n')
+  })
+
   it('leaves a CLAUDE.md that imports AGENTS.md alone (OLD MUSTFAIL: a second copy)', async () => {
     await writeFile(join(dir, 'CLAUDE.md'), '@AGENTS.md\n')
     await run()

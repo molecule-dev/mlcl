@@ -116,7 +116,7 @@ For each agent it installs three things:
 
 | Agent                                           | Every project (`--scope machine`)                                                 | This project (`--scope project`)                           |
 | ----------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| Claude Code                                     | `claude mcp add --scope user`, `~/.claude/skills`, `~/.claude/CLAUDE.md`          | `.mcp.json`, `.claude/skills`, `CLAUDE.md` or `AGENTS.md`  |
+| Claude Code                                     | `claude mcp add --scope user`, `~/.claude/skills`, `~/.claude/CLAUDE.md`          | `.mcp.json`, `.claude/skills`, `AGENTS.md` + `CLAUDE.md`   |
 | Codex                                           | `codex mcp add`, `~/.agents/skills`, `~/.codex/AGENTS.md`                         | `.codex/config.toml`, `.agents/skills`, `AGENTS.md`        |
 | Cursor                                          | `~/.cursor/mcp.json`, `~/.agents/skills` (user rules live in Cursor's settings)   | `.cursor/mcp.json`, `.agents/skills`, `AGENTS.md`          |
 | Gemini CLI                                      | `gemini mcp add -s user`, `~/.agents/skills`, `~/.gemini/GEMINI.md`               | `gemini mcp add -s project`, `.agents/skills`, `GEMINI.md` |
@@ -164,11 +164,15 @@ npx mlcl agent init --force                  # refresh the molecule section
 
 What it writes per harness:
 
-| Harness                                                               | Files written                                                       |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------- |
-| Claude Code                                                           | `AGENTS.md`, plus `CLAUDE.md` when it exists and does not import it |
-| Gemini CLI                                                            | `AGENTS.md` + `GEMINI.md`                                           |
-| Codex, Cursor, Copilot, Devin, OpenCode, Amp, Kiro, Pi, anything else | `AGENTS.md` (the cross-harness standard they all read)              |
+| Harness                                                               | Files written                                                                                                                                                |
+| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Claude Code                                                           | `AGENTS.md`, plus a one-line `CLAUDE.md` (`@AGENTS.md`) when there is none; an existing `CLAUDE.md` that does not import `AGENTS.md` gets the section itself |
+| Gemini CLI                                                            | `AGENTS.md` + `GEMINI.md`                                                                                                                                    |
+| Codex, Cursor, Copilot, Devin, OpenCode, Amp, Kiro, Pi, anything else | `AGENTS.md` (the cross-harness standard they all read)                                                                                                       |
+
+Claude Code skips `AGENTS.md` when a `CLAUDE.md` sits in any folder above the project
+(a package in a monorepo, say), so the `@AGENTS.md` import is what makes the
+conventions load there. `mlcl setup --scope project` writes the same files.
 
 `--global` writes the agent's file for every project instead: the same files
 as the "Every project" column above.

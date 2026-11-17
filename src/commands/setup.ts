@@ -201,6 +201,7 @@ export default class Setup extends Command {
       if (t.kind === 'manual') return 'by hand (instructions below)'
       return show(t.path)
     }
+    if (step.kind === 'import') return `${show(step.path)} (imports ${step.line.replace(/^@/, '')})`
     return show(step.path)
   }
 
