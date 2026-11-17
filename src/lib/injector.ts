@@ -1367,8 +1367,11 @@ export async function writeSynthesizedFiles(
     try {
       if (!file.content) continue
       await mkdir(dirname(file.targetPath), { recursive: true })
+      const content = /\.(?:[cm]?[jt]s|[jt]sx)$/.test(file.targetPath)
+        ? await formatGeneratedSource(file.content, file.targetPath)
+        : file.content
       await snapshotForRollback(file.targetPath, snapshots)
-      await writeFile(file.targetPath, file.content)
+      await writeFile(file.targetPath, content)
       written.push(file.targetPath)
     } catch (error) {
       for (const [path, priorContent] of snapshots) {

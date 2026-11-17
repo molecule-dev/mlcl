@@ -218,14 +218,17 @@ describe('vite-preview-bridge-plugin — strips every bridge from a build', () =
   })
 
   it('keeps everything that is not preview plumbing', () => {
-    const stripped = stripPreviewBridges(scaffoldedHtml)
+    const selectedFont = '<link rel="stylesheet" href="/fonts/selected-provider.css" />'
+    const stripped = stripPreviewBridges(
+      scaffoldedHtml.replace('</head>', `${selectedFont}</head>`),
+    )
 
     expect(stripped).toContain('<div id="root"></div>')
     expect(stripped).toContain('<title>Demo</title>')
     // `mol:` markers that are NOT bridges must survive untouched.
     expect(stripped).toContain('<!-- mol:design-resources -->')
     expect(stripped).toContain('<!-- /mol:design-resources -->')
-    expect(stripped).toContain('Material+Symbols+Outlined')
+    expect(stripped).toContain(selectedFont)
     expect(stripped).toContain('</body>')
     expect(stripped).toContain('</html>')
   })

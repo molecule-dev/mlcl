@@ -23,10 +23,11 @@
  *
  * @module
  */
-
 import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
+import type * as AppReact from '@molecule/app-react'
 
 interface FetchCall {
   url: string
@@ -56,7 +57,8 @@ const translate = (
     String(values?.[name] ?? ''),
   )
 
-vi.mock('@molecule/app-react', () => ({
+vi.mock('@molecule/app-react', async (importOriginal) => ({
+  ...(await importOriginal<typeof AppReact>()),
   useTranslation: () => ({ t: translate }),
 }))
 
