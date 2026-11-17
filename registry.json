@@ -21872,7 +21872,8 @@
         "createArticleSchema",
         "updateArticleSchema",
         "ArticleRequestHandlerMap",
-        "createArticleHandlers"
+        "createArticleHandlers",
+        "uniqueArticleSlug"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -22060,7 +22061,8 @@
         "PaginatedArticles",
         "UpdateArticleInput",
         "AuthorChange",
-        "TagCount"
+        "TagCount",
+        "uniqueArticleSlug"
       ],
       "declarations": {
         "Article": "interface Article {\n  id: string;\n  slug: string;\n  title: string;\n  description: string;\n  body: string;\n  tagList: string[];\n  authorId: string;\n  createdAt: string;\n  updatedAt: string;\n  favoritesCount: number;\n  favorited: boolean;\n}",
@@ -22081,13 +22083,15 @@
         "listArticles": "function listArticles(options?: ListArticlesOptions): Promise<PaginatedArticles>;",
         "popularTags": "function popularTags(limit?: number): Promise<TagCount[]>;",
         "setFavorite": "function setFavorite(slug: string, userId: string, favorite: boolean): Promise<Article | null>;",
+        "uniqueArticleSlug": "function uniqueArticleSlug(title: string, excludeId?: string): Promise<string>;",
         "updateArticle": "function updateArticle(slug: string, userId: string, input: UpdateArticleInput): Promise<AuthorChange<Article>>;"
       },
       "decisionGuide": {
         "configuration": [
           "Configure createArticleHandlers({ mapRequest, mapResponse }) in the generated App/Resource/Article/index.ts wrapper. Keep the shared article operations.",
           "mapRequest can unwrap bodies, rename or resolve query filters, and return an explicit early response. Async mapResponse can batch-load author profiles, project list items, change pagination envelopes and translate error statuses/bodies. Read the package Quick Start for the full recipe.",
-          "The default requestHandlerMap uses flat bodies, raw article responses and { data, total, limit, offset } pages. A different wire format needs configured handlers; a different domain workflow can still call the service functions."
+          "The default requestHandlerMap uses flat bodies, raw article responses and { data, total, limit, offset } pages. A different wire format needs configured handlers; a different domain workflow can still call the service functions.",
+          "For a custom workflow, findArticleRow(slug) reads the stored row and getArticleBySlug(slug, viewerId?) returns hydrated fields. uniqueArticleSlug(title, excludeId?) uses the article resource's reserved slugs, collision checks and fallback without writing; normal creates and updates already apply that policy."
         ]
       },
       "intentHints": [
@@ -23465,11 +23469,12 @@
         "getFollowers": "function getFollowers(targetType: string, targetId: string, options?: PaginationOptions): Promise<PaginatedResult<Follow>>;",
         "getFollowing": "function getFollowing(userId: string, options?: PaginationOptions): Promise<PaginatedResult<Follow>>;",
         "getFollowingCount": "function getFollowingCount(userId: string): Promise<number>;",
-        "isFollowing": "function isFollowing(followerId: string, targetType: string, targetId: string): Promise<boolean>;",
+        "isFollowing": "function isFollowing(followerId: string | null | undefined, targetType: string, targetId: string): Promise<boolean>;",
         "unfollow": "function unfollow(followerId: string, targetType: string, targetId: string): Promise<void>;"
       },
       "decisionGuide": {
         "configuration": [
+          "Custom routes can call follow(viewerId, targetType, canonicalId), unfollow(viewerId, targetType, canonicalId) and isFollowing(viewerId, targetType, canonicalId), then project their own response. isFollowing accepts an absent viewer and returns false without I/O. These services use follows(followerId, targetType, targetId); a username route resolves the target id locally first. Different relationship schemas stay local.",
           "For a displayed collection, call getFollowedIds(viewerId, targetType, ids) once and join with followed.has(id). It returns a Set of followed canonical ids, deduplicates the input, and does no database reads for an absent viewer or empty collection. Target types can be users, documents, topics or any application resource.",
           "For one target use isFollowing(viewerId, targetType, id). getFollowing(viewerId, options) is a paginated list, so its default page cannot determine follow state for an entire displayed collection."
         ]
