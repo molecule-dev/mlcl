@@ -43,21 +43,130 @@ const join = (op, a, b) =>
         : [op, a, b]
 const and = (a, b) => join('&&', a, b)
 const or = (a, b) => join('||', a, b)
-// A propositional contradiction proves that no enabled, mounted action can drop.
-function possible(f, values = new Map()) {
-  const evaluate = (v) => {
-    if (typeof v === 'boolean') return v
-    if (typeof v === 'string') return values.get(v) ?? v
-    const a = evaluate(v[1])
-    return v[0] === '!' ? not(a) : join(v[0], a, evaluate(v[2]))
-  }
-  f = evaluate(f)
+const evaluate = (f, values) => {
   if (typeof f === 'boolean') return f
+  if (typeof f === 'string') return values.get(f) ?? f
+  const a = evaluate(f[1], values)
+  return f[0] === '!' ? not(a) : join(f[0], a, evaluate(f[2], values))
+}
+// A propositional contradiction proves that no enabled, mounted action can drop.
+function satisfyingValues(f, values = new Map()) {
+  f = evaluate(f, values)
+  if (typeof f === 'boolean') return f ? values : null
   let atom = f
   while (Array.isArray(atom)) atom = atom[1]
   return (
-    possible(f, new Map(values).set(atom, false)) || possible(f, new Map(values).set(atom, true))
+    satisfyingValues(f, new Map(values).set(atom, false)) ??
+    satisfyingValues(f, new Map(values).set(atom, true))
   )
+}
+const possible = (f) => satisfyingValues(f) !== null
+// Exact minimum sum of products over source guard facts. Consensus and absorption
+// produce the prime implicants directly from the paths, without expanding 2^N
+// minterms for a simple N-way OR. Choose a minimum cover by counterexamples to
+// coverage: fewest literals, then terms, then shortest stable spelling.
+function minimalCondition(expression, labels) {
+  const atoms = [...labels.keys()]
+  const merge = (a, b, consensus = false) => {
+    const different = a.flatMap((bit, i) =>
+      bit !== null && b[i] !== null && bit !== b[i] ? [i] : [],
+    )
+    if (different.length !== Number(consensus)) return null
+    return a.map((bit, i) => (different.includes(i) ? null : (bit ?? b[i])))
+  }
+  const cubeKey = (bits) => bits.map((bit) => (bit === null ? '-' : Number(bit))).join('')
+  const absorb = (cubes) => {
+    const unique = [...new Map(cubes.map((bits) => [cubeKey(bits), bits])).values()]
+    return unique.filter(
+      (bits, i) =>
+        !unique.some(
+          (other, j) => i !== j && other.every((bit, k) => bit === null || bit === bits[k]),
+        ),
+    )
+  }
+  const products = (f, polarity = true) => {
+    if (typeof f === 'boolean') return f === polarity ? [atoms.map(() => null)] : []
+    if (typeof f === 'string') return [atoms.map((atom) => (atom === f ? polarity : null))]
+    if (f[0] === '!') return products(f[1], !polarity)
+    const a = products(f[1], polarity),
+      b = products(f[2], polarity)
+    return (f[0] === '&&') === polarity
+      ? absorb(
+          a.flatMap((left) =>
+            b.flatMap((right) => {
+              const bits = merge(left, right)
+              return bits ? [bits] : []
+            }),
+          ),
+        )
+      : absorb([...a, ...b])
+  }
+  let cubes = products(expression)
+  for (;;) {
+    const next = [...cubes]
+    for (let i = 0; i < cubes.length; i++)
+      for (let j = i + 1; j < cubes.length; j++) {
+        const bits = merge(cubes[i], cubes[j], true)
+        if (bits) next.push(bits)
+      }
+    const primes = absorb(next)
+    if (primes.map(cubeKey).sort().join(',') === cubes.map(cubeKey).sort().join(',')) break
+    cubes = primes
+  }
+  if (!cubes.length) return 'false'
+  const termText = (bits) =>
+    bits
+      .flatMap((bit, i) => (bit === null ? [] : [labels.get(atoms[i])[Number(bit)]]))
+      .join(' && ') || 'true'
+  // Source fact order preserves short circuits such as !record || record.busy.
+  // Sorting by printed text could dereference record before checking its guard.
+  const termOrder = (a, b) => {
+    for (let i = 0; i < atoms.length; i++)
+      if (a[i] !== b[i]) return a[i] === null ? 1 : b[i] === null ? -1 : Number(a[i]) - Number(b[i])
+    return 0
+  }
+  const textFor = (indices) =>
+    indices
+      .map((i) => cubes[i])
+      .sort(termOrder)
+      .map(termText)
+      .join(' || ')
+  const formulas = cubes.map((bits) =>
+    bits.map((bit, i) => (bit === null ? true : bit ? atoms[i] : not(atoms[i]))).reduce(and, true),
+  )
+  const literals = cubes.map((bits) => bits.filter((bit) => bit !== null).length)
+  let best = cubes.map((_, i) => i),
+    bestCost = literals.reduce((a, b) => a + b, 0),
+    bestText = textFor(best)
+  const visited = new Set()
+  const cover = (chosen, uncovered, cost) => {
+    if (cost > bestCost) return
+    const row = satisfyingValues(uncovered)
+    if (!row) {
+      const text = textFor(chosen)
+      if (
+        cost < bestCost ||
+        (cost === bestCost &&
+          (chosen.length < best.length ||
+            (chosen.length === best.length &&
+              (text.length < bestText.length ||
+                (text.length === bestText.length && text < bestText)))))
+      ) {
+        best = chosen
+        bestCost = cost
+        bestText = text
+      }
+      return
+    }
+    const key = [...chosen].sort((a, b) => a - b).join(',')
+    if (visited.has(key)) return
+    visited.add(key)
+    for (const [i, bits] of cubes.entries())
+      if (bits.every((bit, k) => bit === null || bit === (row.get(atoms[k]) ?? false)))
+        cover([...chosen, i], and(uncovered, not(formulas[i])), cost + literals[i])
+  }
+  cover([], expression, 0)
+  return bestText
 }
 export default {
   meta: {
@@ -219,7 +328,7 @@ export default {
           edits.push({
             start: part.range[0] - n.range[0],
             end: part.range[1] - n.range[0],
-            text: `(${renderText(value, fn, new Set(seen).add(binding))})`,
+            text: renderText(value, fn, new Set(seen).add(binding)),
           })
       })
       let text = source.getText(n)
@@ -268,6 +377,27 @@ export default {
       if (!n || seen.has(n)) return null
       const next = new Set(seen).add(n)
       if (n.type === 'Literal') return n.value === null ? 'null' : typeof n.value
+      const definition = variable(n)?.defs[0]
+      let annotation =
+        n.typeAnnotation?.typeAnnotation ?? definition?.name.typeAnnotation?.typeAnnotation
+      if (!annotation && definition?.type === 'Parameter') {
+        for (const param of definition.node.params) {
+          const pattern = param.type === 'AssignmentPattern' ? param.left : param
+          if (pattern.type !== 'ObjectPattern') continue
+          const property = pattern.properties.find(
+            (p) =>
+              p.type === 'Property' &&
+              (p.value === definition.name || p.value.left === definition.name),
+          )
+          if (property && pattern.typeAnnotation?.typeAnnotation.type === 'TSTypeLiteral')
+            annotation = pattern.typeAnnotation.typeAnnotation.members.find(
+              (member) =>
+                member.type === 'TSPropertySignature' &&
+                (member.key.name ?? member.key.value) === (property.key.name ?? property.key.value),
+            )?.typeAnnotation?.typeAnnotation
+        }
+      }
+      if (annotation?.type === 'TSBooleanKeyword') return 'boolean'
       if (
         (n.type === 'UnaryExpression' && n.operator === '!') ||
         (n.type === 'BinaryExpression' &&
@@ -429,16 +559,111 @@ export default {
         : pure(test) && (rendering || renderValue(test, fn))
           ? [{ test, polarity, fn }]
           : null
-    const guardLabel = ({ test, polarity, fn }) =>
-      polarity
-        ? primitiveType(test) === 'boolean'
-          ? renderText(test, fn)
-          : `!!(${renderText(test, fn)})`
-        : test.type === 'Identifier'
-          ? '!' + renderText(test, fn)
-          : '!(' + renderText(test, fn) + ')'
-    const joinedText = (items, operator) =>
-      items.length === 1 ? items[0] : items.map((item) => `(${item})`).join(` ${operator} `)
+    const equalityInverse = { '===': '!==', '!==': '===', '==': '!=', '!=': '==' }
+    const precedence = (n) => {
+      n = unwrap(n)
+      if (n.type === 'SequenceExpression' || n.type === 'ArrowFunctionExpression') return 0
+      if (n.type === 'AssignmentExpression') return 1
+      if (n.type === 'ConditionalExpression') return 2
+      if (n.type === 'LogicalExpression') return n.operator === '&&' ? 4 : 3
+      if (n.type === 'BinaryExpression')
+        return (
+          {
+            '|': 5,
+            '^': 6,
+            '&': 7,
+            '==': 8,
+            '!=': 8,
+            '===': 8,
+            '!==': 8,
+            '<': 9,
+            '<=': 9,
+            '>': 9,
+            '>=': 9,
+            in: 9,
+            instanceof: 9,
+            '<<': 10,
+            '>>': 10,
+            '>>>': 10,
+            '+': 11,
+            '-': 11,
+            '*': 12,
+            '/': 12,
+            '%': 12,
+            '**': 13,
+          }[n.operator] ?? 0
+        )
+      return n.type === 'UnaryExpression' || n.type === 'AwaitExpression' ? 14 : 15
+    }
+    const operandText = (n, fn, minimum) => {
+      n = unwrap(n)
+      const text = renderText(n, fn)
+      return precedence(n) < minimum ? `(${text})` : text
+    }
+    const guardAtom = (test, polarity, fn, labels) => {
+      if (test.type === 'BinaryExpression' && ['!==', '!='].includes(test.operator)) {
+        test = { ...test, operator: equalityInverse[test.operator] }
+        polarity = !polarity
+      }
+      const atom = key(test)
+      if (!labels.has(atom)) {
+        const equality = test.type === 'BinaryExpression' && equalityInverse[test.operator]
+        const comparison = (operator) =>
+          `${operandText(test.left, fn, 8)} ${operator} ${operandText(test.right, fn, 9)}`
+        labels.set(atom, [
+          equality ? comparison(equalityInverse[test.operator]) : `!${operandText(test, fn, 14)}`,
+          equality
+            ? comparison(test.operator)
+            : primitiveType(test) === 'boolean'
+              ? renderText(test, fn)
+              : `!!${operandText(test, fn, 14)}`,
+        ])
+      }
+      return polarity ? atom : not(atom)
+    }
+    const guardExpression = (test, polarity, fn, labels) => {
+      test = unwrap(test)
+      // A previous disabled prop can call application code. Preserve it as one
+      // fact, evaluated once, before the handler's effect-free render guards.
+      if (!pure(test)) return guardAtom(test, polarity, fn, labels)
+      const expression = (n, positive = true) => guardExpression(n, positive, fn, labels)
+      if (test.type === 'Literal') return polarity === Boolean(test.value)
+      if (test.type === 'Identifier' && test.name === 'undefined' && !variable(test)?.defs.length)
+        return !polarity
+      if (test.type === 'UnaryExpression' && test.operator === '!')
+        return expression(test.argument, !polarity)
+      if (test.type === 'LogicalExpression' && ['&&', '||'].includes(test.operator)) {
+        const value = join(test.operator, expression(test.left), expression(test.right))
+        return polarity ? value : not(value)
+      }
+      if (test.type === 'ConditionalExpression') {
+        const value = or(
+          and(expression(test.test), expression(test.consequent)),
+          and(not(expression(test.test)), expression(test.alternate)),
+        )
+        return polarity ? value : not(value)
+      }
+      if (
+        test.type === 'CallExpression' &&
+        test.callee.name === 'Boolean' &&
+        !variable(test.callee)?.defs.length &&
+        test.arguments.length === 1
+      )
+        return expression(test.arguments[0], polarity)
+      return guardAtom(test, polarity, fn, labels)
+    }
+    const conditionFor = (paths, previous) => {
+      const labels = new Map()
+      const existing = previous ? guardExpression(previous, true, null, labels) : false
+      const value = paths
+        .map((facts) =>
+          facts
+            .map(({ test, polarity, fn }) => guardExpression(test, polarity, fn, labels))
+            .reduce(and, true),
+        )
+        .reduce(or, false)
+      return minimalCondition(or(existing, value), labels)
+    }
     const visibleAt = (guard, control) => {
       const lookup = (name) => {
         for (let scope = source.getScope(control); scope; scope = scope.upper)
@@ -613,20 +838,27 @@ export default {
             joinGuards(guards, guardFacts(n.test, false, null, true)),
           ),
         ]
-      if (n.type === 'LogicalExpression' && ['&&', '||'].includes(n.operator))
+      if (n.type === 'LogicalExpression' && ['&&', '||'].includes(n.operator)) {
+        const left = formula(n.left),
+          takeLeft = n.operator === '||',
+          leftCondition = and(condition, takeLeft ? left : not(left)),
+          leftGuards = joinGuards(guards, guardFacts(n.left, takeLeft, null, true))
         return [
-          ...(n.operator === '||' ? selection(n.left, condition, next, guards) : []),
+          ...(takeLeft
+            ? selection(n.left, leftCondition, next, leftGuards)
+            : [{ fn: null, condition: leftCondition, guards: leftGuards, empty: true }]),
           ...selection(
             n.right,
-            and(condition, n.operator === '&&' ? formula(n.left) : not(formula(n.left))),
+            and(condition, takeLeft ? not(left) : left),
             next,
-            joinGuards(guards, guardFacts(n.left, n.operator === '&&', null, true)),
+            joinGuards(guards, guardFacts(n.left, !takeLeft, null, true)),
           ),
         ]
+      }
       const fn = fnFor(n)
       if (
         (n.type === 'Identifier' && n.name === 'undefined' && !variable(n)?.defs.length) ||
-        (n.type === 'Literal' && (n.value === null || n.value === false))
+        (!fn && primitiveType(n) !== null)
       )
         return [{ fn: null, condition, guards, empty: true }]
       return fn ? [{ fn, condition, guards }] : selection(init(n), condition, next, guards)
@@ -1002,16 +1234,14 @@ export default {
                   )
                 )
                   continue
-                dropped.push(joinedText(facts.map(guardLabel), '&&'))
+                dropped.push(facts)
               }
             if (!dropped.length) continue
-            const conditionText = joinedText([...new Set(dropped)], '||')
-            const disabledText = (target) => {
-              const previous = attribute(target, 'disabled')
-              return previous
-                ? `!!(${source.getText(previous)}) || (${conditionText})`
+            const conditionText = conditionFor(dropped)
+            const disabledText = (target) =>
+              attribute(target, 'disabled')
+                ? conditionFor(dropped, attribute(target, 'disabled'))
                 : conditionText
-            }
             const buttons = form ? submitters(control) : []
             const fix = form
               ? buttons.length

@@ -73,7 +73,10 @@ describe('scaffold ESLint rejects enabled unloaded-record actions', () => {
     const rows = await findings(source)
     expect(rows).toHaveLength(1)
     expect(rows[0]).toMatchObject({ severity: 2 })
-    expect(rows[0].message).toContain('disabled={saving}')
+    expect(rows[0].message).toContain('disabled={!!user && saving}')
+    expect(
+      await findings(source.replace('type="button"', 'type="button" disabled={!!user && saving}')),
+    ).toEqual([])
     const corrected = `import { useOptimisticToggle } from '@molecule/app-react'
       export function FollowControl({ following, save }) {
         const action = useOptimisticToggle({ value: following, commit: save })
@@ -161,17 +164,49 @@ describe('scaffold ESLint rejects enabled unloaded-record actions', () => {
     "status !== 'authenticated' ? undefined : change",
     "status === 'authenticated' && change",
     "status !== 'authenticated' || change",
-    "status === 'authenticated' ? change : () => signIn()",
   ])('checks the initial record behind a conditional handler: %s', async (handler) => {
     const control = `<button onClick={${handler}}>Bookmark</button>`
     const rows = await findings(custom(control))
     expect(rows).toHaveLength(1)
     expect(rows[0]).toMatchObject({ severity: 2, line: 9 })
-    expect(rows[0].message).toContain('disabled={!record}')
+    const disabled = "status !== 'authenticated' || !record"
+    expect(rows[0].message).toContain(`disabled={${disabled}}`)
+    expect(
+      await findings(custom(control.replace('<button ', `<button disabled={${disabled}} `))),
+    ).toEqual([])
     expect(
       await findings(custom(control.replace('<button ', '<button disabled={!record} '))),
+    ).toHaveLength(1)
+    expect(await findings(custom(`record && ${control}`))).toHaveLength(1)
+    expect(await findings(custom(`record && status === 'authenticated' && ${control}`))).toEqual([])
+  })
+  it.each([
+    "status === 'authenticated' ? change : () => signIn()",
+    "status !== 'authenticated' ? () => signIn() : change",
+  ])('keeps a conditional sign-in response available: %s', async (handler) => {
+    const control = `<button onClick={${handler}}>Bookmark</button>`
+    const rows = await findings(custom(control))
+    expect(rows).toHaveLength(1)
+    const disabled = "status === 'authenticated' && !record"
+    expect(rows[0].message).toContain(`disabled={${disabled}}`)
+    expect(
+      await findings(custom(control.replace('<button ', `<button disabled={${disabled}} `))),
     ).toEqual([])
     expect(await findings(custom(`record && ${control}`))).toEqual([])
+  })
+  it('prints a pasteable equipment readiness gate and accepts the corrected control', async () => {
+    const source = `export function Equipment({ status, device, calibrate }) {
+      const change = () => { if (!device) return; calibrate(device.id) }
+      return <button onClick={status === 'connected' && change}>Calibrate equipment</button>
+    }`
+    const rows = await findings(source)
+    expect(rows).toHaveLength(1)
+    expect(rows[0].message).toContain("disabled={status !== 'connected' || !device}")
+    expect(
+      await findings(
+        source.replace('<button ', "<button disabled={status !== 'connected' || !device} "),
+      ),
+    ).toEqual([])
   })
   it('checks an immutable alias of a conditionally selected handler', async () => {
     expect(
