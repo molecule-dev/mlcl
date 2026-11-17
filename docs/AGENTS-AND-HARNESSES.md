@@ -19,15 +19,15 @@ wanting a one-line install) use the hosted read-only endpoint instead:
 
 ## What your agent gets
 
-| Surface                          | What it provides                                                                                                                     |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------ |
-| `mlcl` CLI (`npx`)               | discovery (`search`, `templates`), scaffolding (`create --no-interactive --json`), growth (`add --inject`), reconfiguration (`swap`) |
-| Scaffolded `AGENTS.md`           | the project's conventions, in context the moment any agent opens the project                                                         |
-| `setup`                          | the MCP server, the Molecule skills and those conventions, installed into every agent on the machine (or one project) in one command |
-| `agent init`                     | those same conventions written into any existing project / harness's instruction files                                               |
-| `molecule` MCP server            | the same verbs as structured tools + `read_package_doc` + the `molecule://conventions` resource + a self-install `agent_init` tool   |
-| Claude Code plugin _(at launch)_ | two skills + the MCP server, marketplace-updated                                                                                     |
-| Package READMEs                  | every `@molecule/*` package documents its API/wiring at `node_modules/@molecule/<name>/README.md` — LLM-oriented by design           |
+| Surface                          | What it provides                                                                                                                                                                           |
+| -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `mlcl` CLI (`npx`)               | discovery (`search`, `templates`), scaffolding (`create --no-interactive --json`), growth (`add --inject`), reconfiguration (`swap`)                                                       |
+| Scaffolded `AGENTS.md`           | the project's conventions, in context the moment any agent opens the project                                                                                                               |
+| `setup`                          | the MCP server, the Molecule skills and those conventions, installed into every agent on the machine (or one project) in one command                                                       |
+| `agent init`                     | those same conventions written into any existing project / harness's instruction files                                                                                                     |
+| `molecule` MCP server            | the same verbs as structured tools + `read_package_doc` + the `molecule://conventions` resource + a self-install `agent_init` tool, and startup instructions that say when to use Molecule |
+| Claude Code plugin _(at launch)_ | two skills + the MCP server, marketplace-updated                                                                                                                                           |
+| Package READMEs                  | every `@molecule/*` package documents its API/wiring at `node_modules/@molecule/<name>/README.md` — LLM-oriented by design                                                                 |
 
 Scaffolds also ship the same ESLint rules for every harness. In JSX,
 `molecule-local/no-empty-interactive-target` rejects an empty native interactive

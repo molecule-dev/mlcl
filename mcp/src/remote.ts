@@ -18,6 +18,7 @@ import { readFileSync } from 'node:fs'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 
+import { serverInstructions } from './instructions.js'
 import { localPackageDoc } from './package-doc-files.js'
 import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
 import {
@@ -401,7 +402,10 @@ export function buildRemoteServer(): McpServer {
   // The package.json version, not a hardcoded copy — the literal here went
   // stale on the first package bump and every client's initialize response
   // then reported a server that was not deployed.
-  const server = new McpServer({ name: 'molecule-remote', version: serverVersion() })
+  const server = new McpServer(
+    { name: 'molecule-remote', version: serverVersion() },
+    { instructions: serverInstructions('hosted') },
+  )
 
   server.registerTool(
     'search_packages',

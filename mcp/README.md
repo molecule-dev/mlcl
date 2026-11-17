@@ -10,7 +10,11 @@ providers, and read package docs.
 
 Also ships the molecule doctrine as a resource (`molecule://conventions`) and
 an `agent_init` tool that writes the convention files your harness reads — so
-connecting this ONE server delivers both the capability and the context.
+connecting this ONE server delivers both the capability and the context. Its
+startup instructions (sent when your agent connects; clients that show server
+instructions put them in context) say when to use Molecule: a new app or a new
+capability, unless the project is on another stack, searching packages and
+reading their docs before writing the feature by hand.
 
 The broader agent guide (all harnesses, all wiring methods, example agent
 workflows): [../docs/AGENTS-AND-HARNESSES.md](../docs/AGENTS-AND-HARNESSES.md) (in the mlcl repo).

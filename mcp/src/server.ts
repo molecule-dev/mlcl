@@ -29,6 +29,7 @@ import {
   startLogin,
   whoami,
 } from './auth.js'
+import { serverInstructions } from './instructions.js'
 import { localPackageDoc } from './package-doc-files.js'
 import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
 import { scaffoldProjectCliArgs } from './scaffold-args.js'
@@ -543,7 +544,10 @@ function readCappedFileSync(
 // the same drift remote.ts's constructor and the telemetry payload were fixed
 // for. `serverVersion()` reads the same field `bin/*` and the SDK's serverInfo
 // report.
-const server = new McpServer({ name: 'molecule', version: serverVersion() })
+const server = new McpServer(
+  { name: 'molecule', version: serverVersion() },
+  { instructions: serverInstructions('local') },
+)
 
 server.registerTool(
   'search_packages',
