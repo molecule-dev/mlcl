@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
@@ -10,12 +10,22 @@ import { execa } from 'execa'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT } from '../lib/ddl-exit.js'
 import { appendSecretsToEnvFile, type EnvAppendResult } from '../lib/env-file.js'
+import {
+  existingProjectFiles,
+  inLanguage,
+  projectLanguage,
+  wiringSteps,
+} from '../lib/existing-project.js'
+import { extendApiLocales, extendApiRouter } from '../lib/extend-api-wiring.js'
+import { extendApiBonds, extendAppBonds } from '../lib/extend-app-bonds.js'
 import { collectSecrets, resolveLocalePackages } from '../lib/features.js'
-import { formatGeneratedFiles } from '../lib/format.js'
+import { formatGeneratedFiles, sortImportStatements } from '../lib/format.js'
 import { t } from '../lib/i18n.js'
 import {
+  API_LOCALES_BOND,
   dedupePlannedMigrations,
   executeInjection,
+  type FileOperation,
   filterExcludedPeerDependencies,
   GENERATED_SMOKE_TEST_PATHS,
   type InjectionPlan,
@@ -175,7 +185,10 @@ export default class Inject extends Command {
     // of a raw ENOENT/SyntaxError stack.
     let projectPkg: {
       name?: string
-      molecule?: { framework?: string }
+      type?: string
+      main?: string
+      scripts?: Record<string, string>
+      molecule?: { framework?: string; projectType?: string }
       dependencies?: Record<string, string>
       devDependencies?: Record<string, string>
     }
@@ -227,6 +240,12 @@ export default class Inject extends Command {
       if (binding.kind === 'refused') return projectDeps[name]
       return undefined
     }
+    // A project Molecule did not create: its package.json has no `molecule.projectType`
+    // (every scaffold and template writes one before its first inject). It already has its
+    // own entry point, router, tests and CI, so inject adds only what the packages need —
+    // see `existingProjectFiles`.
+    const existingProject = !projectPkg.molecule?.projectType
+    const language = projectLanguage(projectPath, projectPkg)
     const framework = detectAppFramework(projectDeps, projectPkg.molecule)
     const sharedSubdir = framework ? getSharedCodeDir(framework) : undefined
     const bondsBase = sharedSubdir
@@ -250,6 +269,7 @@ export default class Inject extends Command {
       plans,
       molecules,
       projectPath,
+      Object.keys(projectDeps).filter((name) => name.startsWith('@molecule/')),
     )
     for (const dp of defaultProviderMolecules) {
       if (!molecules.includes(dp)) {
@@ -556,12 +576,75 @@ export default class Inject extends Command {
     // nothing to lose, and the post-injection validator requires them — and the
     // runner is rendered from the target project's own manifest (see
     // synthesizeProjectFiles), so it is correct regardless of what resolved.
-    const migrateRunnerPath = join(projectPath, 'src', 'scripts', 'migrate.ts')
-    const filesToWrite = holisticSynthesisAllowed
-      ? syntheticFiles
-      : syntheticFiles.filter(
-          (f) => f.targetPath === migrateRunnerPath || !existsSync(f.targetPath),
-        )
+    const projectFiles = existingProject
+      ? existingProjectFiles(syntheticFiles, projectPath, language)
+      : syntheticFiles
+    if (existingProject && language !== 'typescript')
+      for (const plan of plans) plan.files = plan.files.map((file) => inLanguage(file, language))
+    const migrateRunnerPath = inLanguage(
+      {
+        action: 'create',
+        targetPath: join(projectPath, 'src', 'scripts', 'migrate.ts'),
+        description: '',
+      },
+      existingProject ? language : 'typescript',
+    ).targetPath
+    // Adding named packages (`-m`, which `mlcl add --inject` passes) synthesizes the
+    // shared files from those packages alone, so an existing copy is never replaced by
+    // one: the API's setupBonds(), locale list and router get the new packages' lines
+    // merged in, and every other existing file stays as it is. Only files rendered from
+    // the whole manifest or the existing file (the migration runner, the app's provider
+    // index and config) are written as synthesized. Replacing them made each
+    // `mlcl add --inject` rewrite setupBonds() to wire the one new provider, dropping
+    // every provider the project already had.
+    const mergeFailures: string[] = []
+    const addedWiring = (file: FileOperation): FileOperation[] => {
+      if (!existsSync(file.targetPath)) return [file]
+      const inProject = (path: string): string =>
+        existingProject
+          ? inLanguage({ action: 'create', targetPath: path, description: '' }, language).targetPath
+          : path
+      // The synthesizer already extends a TypeScript app's provider index (it reads index.ts);
+      // a JavaScript one is extended here.
+      const appIndexMerged = isAppProject && existingProject && language !== 'typescript'
+      const rendered = [
+        migrateRunnerPath,
+        ...(isAppProject && !appIndexMerged ? [bondsIndexPath] : []),
+        ...(isAppProject
+          ? [inProject(join(projectPath, 'src', sharedSubdir ?? '', 'config.ts'))]
+          : []),
+      ]
+      if (rendered.includes(file.targetPath)) return [file]
+      const merge = new Map<string, (existing: string, generated: string) => string>(
+        isAppProject
+          ? appIndexMerged
+            ? [[inProject(bondsIndexPath), extendAppBonds]]
+            : []
+          : [
+              [inProject(bondsIndexPath), extendApiBonds],
+              [inProject(join(bondsBase, `${API_LOCALES_BOND}.ts`)), extendApiLocales],
+              [inProject(join(projectPath, 'src', 'App', 'router.ts')), extendApiRouter],
+            ],
+      ).get(file.targetPath)
+      if (!merge || file.content === undefined) return []
+      try {
+        const existing = readFileSync(file.targetPath, 'utf8')
+        const merged = merge(existing, file.content)
+        // Keep a sorted import block sorted (scaffolds lint it); leave any other order alone.
+        const content =
+          sortImportStatements(existing) === existing ? sortImportStatements(merged) : merged
+        return content === existing ? [] : [{ ...file, content }]
+      } catch (error) {
+        mergeFailures.push(error instanceof Error ? error.message : String(error))
+        return []
+      }
+    }
+    const filesToWrite = !holisticSynthesisAllowed
+      ? projectFiles.filter((f) => f.targetPath === migrateRunnerPath || !existsSync(f.targetPath))
+      : flags.molecule || existingProject
+        ? projectFiles.flatMap(addedWiring)
+        : projectFiles
+    for (const failure of mergeFailures) this.warn(failure)
 
     // Add build tooling devDependencies when a service worker was generated
     if (filesToWrite.some((f) => f.targetPath.endsWith('service-worker.ts'))) {
@@ -745,6 +828,8 @@ export default class Inject extends Command {
     let totalModified = 0
     const errors: string[] = []
     const warnings: string[] = []
+    // What this command wrote: the only files the formatter below may touch.
+    const written: string[] = []
 
     // Execute per-molecule plans (bond files, middleware files, migrations, deps)
     for (const plan of plans) {
@@ -756,6 +841,7 @@ export default class Inject extends Command {
 
       totalCreated += result.filesCreated.length
       totalModified += result.filesModified.length
+      written.push(...result.filesCreated, ...result.filesModified)
       errors.push(...result.errors)
       warnings.push(...result.warnings)
     }
@@ -782,6 +868,7 @@ export default class Inject extends Command {
       // failure those were all rolled back (they no longer exist), so they
       // must not count toward the summary's created total.
       if (!synthesized.error) totalCreated += synthesized.written.length
+      if (!synthesized.error) written.push(...synthesized.written)
       if (synthesized.error) {
         errors.push(synthesized.error)
       }
@@ -897,7 +984,13 @@ export default class Inject extends Command {
 
     // Post-injection validation
     spinner.start(t('commands.inject.spinners.validating'))
-    const validation = await validateInjectionOutput(projectPath)
+    const validation = await validateInjectionOutput(projectPath, {
+      existingProject,
+      bondsIndex: inLanguage(
+        { action: 'create', targetPath: bondsIndexPath, description: '' },
+        existingProject ? language : 'typescript',
+      ).targetPath,
+    })
     spinner.stop(
       validation.valid
         ? t('commands.inject.spinners.validated')
@@ -907,11 +1000,13 @@ export default class Inject extends Command {
     warnings.push(...validation.warnings)
     errors.push(...validation.errors)
 
-    // Format generated code with Prettier
+    // Format what this command wrote, never the project's own files: the project's
+    // formatter (or none) owns those, and reformatting them put unrelated changes
+    // into the user's diff on every `mlcl add --inject`.
     if (flags.format && validation.valid) {
       spinner.start(t('commands.inject.spinners.formatting'))
       try {
-        await formatGeneratedFiles(projectPath)
+        await formatGeneratedFiles(projectPath, written)
         spinner.stop(t('commands.inject.spinners.formatted'))
       } catch (error) {
         this.warn(`Formatting skipped: ${error}`)
@@ -921,7 +1016,8 @@ export default class Inject extends Command {
 
     // Run smoke tests
     let testsPassed = false
-    if (flags.test && validation.valid) {
+    // The generated smoke tests are a scaffold's; a project Molecule did not create gets none.
+    if (flags.test && validation.valid && !existingProject) {
       const hasTests = await this.hasTestFiles(projectPath)
       if (hasTests) {
         spinner.start(t('commands.inject.spinners.testing'))
@@ -1008,10 +1104,29 @@ export default class Inject extends Command {
         `  ${t('commands.inject.messages.runInstall', { num: stepNum++, command: chalk.cyan('npm install') })}`,
       )
     }
-    this.log(
-      `  ${t('commands.inject.messages.runBuild', { num: stepNum++, command: chalk.cyan('npm run build') })}`,
-    )
-    if (!testsPassed) {
+    // A project Molecule did not create runs none of the injected code until its entry file
+    // calls the setup function: name the file and the exact lines.
+    if (existingProject) {
+      const inProject = (path: string): string =>
+        inLanguage({ action: 'create', targetPath: path, description: '' }, language).targetPath
+      for (const step of wiringSteps({
+        projectPath,
+        manifest: projectPkg,
+        language,
+        app: isAppProject,
+        bondsIndex: inProject(bondsIndexPath),
+        router: isAppProject ? undefined : inProject(join(projectPath, 'src', 'App', 'router.ts')),
+        migrateRunner: isAppProject ? undefined : migrateRunnerPath,
+      })) {
+        this.log(`  ${stepNum++}. ${step[0]}`)
+        for (const line of step.slice(1)) this.log(`       ${chalk.cyan(line)}`)
+      }
+    }
+    if (!existingProject || projectPkg.scripts?.build)
+      this.log(
+        `  ${t('commands.inject.messages.runBuild', { num: stepNum++, command: chalk.cyan('npm run build') })}`,
+      )
+    if (!testsPassed && (!existingProject || projectPkg.scripts?.test)) {
       this.log(
         `  ${t('commands.inject.messages.runTest', { num: stepNum, command: chalk.cyan('npm test') })}`,
       )

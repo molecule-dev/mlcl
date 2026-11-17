@@ -1,4 +1,4 @@
-/** Extend an app's composition root without replacing its configuration or exports. */
+/** Extend a project's composition root without replacing its configuration or exports. */
 import { ts } from 'ts-morph'
 
 /**
@@ -11,26 +11,50 @@ import { ts } from 'ts-morph'
  * @throws When the current index has no setupProviders function body to extend.
  */
 export function extendAppBonds(existing: string, generated: string): string {
+  return extendBondsIndex(existing, generated, 'setupProviders')
+}
+
+/**
+ * The API counterpart of {@link extendAppBonds}: add a package's bond setup to an existing
+ * `setupBonds()` without regenerating it. The secrets the new providers read join the
+ * existing `resolveAll([...])` list, setup calls the generator places before that call stay
+ * before it, and a statement marked `KEEP THIS CALL LAST` (the scaffold's activity capture)
+ * stays last.
+ *
+ * @param existing - The project's current `src/bonds/index.ts`.
+ * @param generated - The index the injector generated for the packages being added.
+ * @returns The current index with the added providers wired into `setupBonds()`.
+ * @throws When the current index has no setupBonds function body to extend.
+ */
+export function extendApiBonds(existing: string, generated: string): string {
+  return extendBondsIndex(existing, generated, 'setupBonds')
+}
+
+/** The package that exports the secrets resolver both indexes call. */
+const SECRETS_RESOLVER = '@molecule/api-secrets:resolveAll'
+
+/** The comment the scaffold puts above a setup call that must run after every other one. */
+const KEEP_LAST_MARKER = 'KEEP THIS CALL LAST'
+
+function extendBondsIndex(existing: string, generated: string, setupName: string): string {
   const parse = (source: string): ts.SourceFile =>
     ts.createSourceFile('index.ts', source, ts.ScriptTarget.Latest, true)
   const current = parse(existing)
   const addition = parse(generated)
   const setup = current.statements.find(
     (node): node is ts.FunctionDeclaration =>
-      ts.isFunctionDeclaration(node) && node.name?.text === 'setupProviders',
+      ts.isFunctionDeclaration(node) && node.name?.text === setupName,
   )
   if (!setup?.body)
-    throw new Error(
-      'Cannot extend src/bonds/index.ts: export a setupProviders function with a body.',
-    )
+    throw new Error(`Cannot extend src/bonds/index.ts: export a ${setupName} function with a body.`)
   const incoming = addition.statements.find(
     (node): node is ts.FunctionDeclaration =>
-      ts.isFunctionDeclaration(node) && node.name?.text === 'setupProviders',
+      ts.isFunctionDeclaration(node) && node.name?.text === setupName,
   )
   const imports = current.statements.filter(ts.isImportDeclaration)
   const origins = new Map<string, string>()
   const occupied = new Set<string>()
-  const publicNames = new Set<string>(['setupProviders'])
+  const publicNames = new Set<string>([setupName])
   for (const node of current.statements) {
     if (ts.isImportDeclaration(node)) {
       const clause = node.importClause
@@ -158,20 +182,91 @@ export function extendAppBonds(existing: string, generated: string): string {
     ts.forEachChild(node, collect)
   }
   collect(setup.body)
+  // The call a statement makes, unwrapping `await`.
+  const callOf = (node: ts.Node): ts.CallExpression | undefined => {
+    const expression = ts.isExpressionStatement(node) ? node.expression : undefined
+    const call = expression && ts.isAwaitExpression(expression) ? expression.expression : expression
+    return call && ts.isCallExpression(call) ? call : undefined
+  }
+  // Local names each file gives the secrets resolver.
+  const resolverNames = (file: ts.SourceFile): Set<string> => {
+    const names = new Set<string>()
+    for (const node of file.statements.filter(ts.isImportDeclaration)) {
+      const bindings = node.importClause?.namedBindings
+      if (!bindings || !ts.isNamedImports(bindings)) continue
+      for (const spec of bindings.elements)
+        if (
+          `${(node.moduleSpecifier as ts.StringLiteral).text}:${(spec.propertyName ?? spec.name).text}` ===
+          SECRETS_RESOLVER
+        )
+          names.add(spec.name.text)
+    }
+    return names
+  }
+  const currentResolvers = resolverNames(current)
+  const incomingResolvers = resolverNames(addition)
+  const resolves = (node: ts.Node, names: Set<string>): ts.CallExpression | undefined => {
+    const call = callOf(node)
+    return call && ts.isIdentifier(call.expression) && names.has(call.expression.text)
+      ? call
+      : undefined
+  }
+  const stringKeys = (call: ts.CallExpression): string[] | undefined => {
+    const list = call.arguments[0]
+    if (!list) return undefined
+    if (!ts.isArrayLiteralExpression(list)) return undefined
+    return list.elements.filter(ts.isStringLiteralLike).map((element) => element.text)
+  }
+  const existingResolve = setup.body.statements.find((node) => resolves(node, currentResolvers))
+  const keepLast = setup.body.statements.find((node) =>
+    (ts.getLeadingCommentRanges(existing, node.getFullStart()) ?? []).some((range) =>
+      existing.slice(range.pos, range.end).includes(KEEP_LAST_MARKER),
+    ),
+  )
+  // Calls the generator puts before the secrets resolve (the secrets provider itself) stay
+  // before the project's resolve; the rest go after the project's own calls.
+  const beforeResolve: string[] = []
   const calls: string[] = []
+  let pastResolve = false
   for (const statement of incoming?.body?.statements ?? []) {
+    const resolve = resolves(statement, incomingResolvers)
+    if (resolve && existingResolve) {
+      pastResolve = true
+      const target = resolves(existingResolve, currentResolvers)!
+      const list = target.arguments[0]
+      const keys = stringKeys(resolve) ?? []
+      // A bare resolveAll() already resolves every registered secret.
+      if (!list || keys.length === 0) continue
+      if (!ts.isArrayLiteralExpression(list))
+        throw new Error(
+          `Cannot extend src/bonds/index.ts: add ${keys.join(', ')} to the resolveAll() call by hand.`,
+        )
+      const have = new Set(stringKeys(target) ?? [])
+      const missing = keys.filter((key) => !have.has(key)).map((key) => JSON.stringify(key))
+      if (missing.length === 0) continue
+      const last = list.elements.at(-1)
+      const at = last ? last.end : list.getStart(current) + 1
+      edits.push({ start: at, end: at, text: `${last ? ', ' : ''}${missing.join(', ')}` })
+      continue
+    }
     const transformed = ts.transform(statement, [rewrite])
     const node = transformed.transformed[0]
-    const expression = ts.isExpressionStatement(node) ? node.expression : null
-    const call = expression && ts.isAwaitExpression(expression) ? expression.expression : expression
-    if (
-      !call ||
-      !ts.isCallExpression(call) ||
-      !ts.isIdentifier(call.expression) ||
-      !called.has(call.expression.text)
-    )
-      calls.push(printer.printNode(ts.EmitHint.Unspecified, node, addition))
+    const call = callOf(node)
+    if (!call || !ts.isIdentifier(call.expression) || !called.has(call.expression.text))
+      (existingResolve && !pastResolve ? beforeResolve : calls).push(
+        printer.printNode(ts.EmitHint.Unspecified, node, addition),
+      )
     transformed.dispose()
+  }
+  // Insert above a statement, keeping its leading comments attached to it.
+  const lineStartAbove = (node: ts.Node): number => {
+    const comments = ts.getLeadingCommentRanges(existing, node.getFullStart()) ?? []
+    const first = comments[0]?.pos ?? node.getStart(current)
+    return existing.lastIndexOf('\n', first - 1) + 1
+  }
+  const indentOf = (node: ts.Node): string => {
+    const start = node.getStart(current)
+    return existing.slice(existing.lastIndexOf('\n', start - 1) + 1, start)
   }
   const exports: string[] = []
   for (const node of addition.statements.filter(ts.isExportDeclaration)) {
@@ -191,7 +286,24 @@ export function extendAppBonds(existing: string, generated: string): string {
     const start = imports.at(-1)?.end ?? 0
     edits.push({ start, end: start, text: `\n${[...addedImports, ...exports].join('\n')}\n` })
   }
-  if (calls.length) {
+  if (beforeResolve.length && existingResolve) {
+    const start = lineStartAbove(existingResolve)
+    const indent = indentOf(existingResolve)
+    edits.push({
+      start,
+      end: start,
+      text: beforeResolve.map((call) => `${indent}${call}\n`).join(''),
+    })
+  }
+  if (calls.length && keepLast) {
+    const start = lineStartAbove(keepLast)
+    const indent = indentOf(keepLast)
+    edits.push({
+      start,
+      end: start,
+      text: `${calls.map((call) => `${indent}${call}\n`).join('')}\n`,
+    })
+  } else if (calls.length) {
     const last = setup.body.statements.at(-1)
     const start = last && ts.isReturnStatement(last) ? last.getStart(current) : setup.body.end - 1
     edits.push({ start, end: start, text: `\n${calls.join('\n')}\n` })

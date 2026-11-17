@@ -6189,11 +6189,22 @@ function generateAppBondsSmokeTest(
  * Framework-aware: if the project uses a specific framework (e.g. react-native),
  * prefers a provider with a matching `framework` field over the generic
  * `defaultProvider` (e.g. nativewind over tailwind for RN projects).
+ *
+ * A provider the project already declares counts: adding one package (`mlcl add <pkg>
+ * --inject`) to a SQLite project must not wire Postgres as well — two providers for one
+ * core, the last setup call winning.
+ *
+ * @param plans - The plans of the packages being injected.
+ * @param currentMolecules - The packages being injected.
+ * @param projectPath - The project directory.
+ * @param declared - The `@molecule/*` packages the project's package.json already declares.
+ * @returns The default providers to add.
  */
 export async function resolveDefaultProvidersFromPlans(
   plans: InjectionPlan[],
   currentMolecules: string[],
   projectPath: string,
+  declared: readonly string[] = [],
 ): Promise<string[]> {
   const allNames = new Set(currentMolecules)
 
@@ -6246,10 +6257,15 @@ export async function resolveDefaultProvidersFromPlans(
     if (pkg.molecule?.type !== 'core' || !pkg.molecule?.defaultProvider) continue
 
     // Check if any provider implementing this core already exists
-    const hasProvider = [...allNames, ...additions].some((existing) => {
-      const plan = plans.find((p) => p.molecule === existing)
-      return plan?.moleculePackage?.molecule?.implements === name
-    })
+    const hasProvider =
+      [...allNames, ...additions].some((existing) => {
+        const plan = plans.find((p) => p.molecule === existing)
+        return plan?.moleculePackage?.molecule?.implements === name
+      }) ||
+      declared.some((existing) => {
+        const entry = registry.find((p) => p.name === existing)?.molecule
+        return entry?.type === 'provider' && entry.implements === name
+      })
 
     if (!hasProvider) {
       // Prefer a framework-specific provider when one exists in the registry

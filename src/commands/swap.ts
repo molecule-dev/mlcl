@@ -151,6 +151,25 @@ export default class Swap extends Command {
         this.exit(1)
       }
 
+      // A manifest also declares providers it never wires (the peers a bundle imports, such as
+      // a capture provider beside the real one). The provider to replace is the one the
+      // project's setup file imports; ask only when that does not settle it.
+      if (candidates.length > 1) {
+        const wired: InferredPackage[] = []
+        for (const candidate of candidates) {
+          const { bondsIndexFile, oldBondName } = await resolveBondPaths(
+            projectPath,
+            candidate.name,
+            candidate.name,
+          )
+          const index = await readFile(bondsIndexFile, 'utf-8').catch(() => '')
+          // Bond names are lowercase letters, digits and hyphens (extractBondName).
+          if (new RegExp(`from\\s*['"]\\./${oldBondName}\\.m?js['"]`).test(index))
+            wired.push(candidate)
+        }
+        if (wired.length === 1) candidates.splice(0, candidates.length, ...wired)
+      }
+
       if (candidates.length > 1) {
         spinner.stop(
           chalk.yellow(
@@ -314,6 +333,12 @@ export default class Swap extends Command {
     }
 
     spinner.stop(t('commands.swap.spinners.swapped'))
+    // The files this swap wrote: the only ones the formatter below may touch.
+    const swapWritten = [
+      result.newBondFile,
+      result.bondsIndexFile,
+      join(projectPath, 'package.json'),
+    ]
 
     // The import was rewritten (else applyBondSwap would have aborted). If the
     // setup call wasn't found, the new provider compiles but is never wired —
@@ -368,6 +393,7 @@ export default class Swap extends Command {
     if (newPkg.molecule?.category === 'database') {
       try {
         const runner = await syncMigrateRunner(projectPath, newName)
+        if (runner?.updated) swapWritten.push(runner.path)
         if (runner?.updated) {
           this.log(
             chalk.cyan(
@@ -403,10 +429,10 @@ export default class Swap extends Command {
       spinner.stop(chalk.gray(t('commands.swap.spinners.syncSkipped')))
     }
 
-    // 8. Format
+    // 8. Format the files the swap wrote — never the project's own files.
     if (flags.format) {
       try {
-        await formatGeneratedFiles(projectPath)
+        await formatGeneratedFiles(projectPath, swapWritten)
       } catch (_error) {
         // Formatting is best-effort; a missing prettier or config error should not abort the swap
       }

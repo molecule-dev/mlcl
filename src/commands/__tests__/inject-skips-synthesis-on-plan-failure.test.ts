@@ -96,6 +96,7 @@ describe('mlcl inject skips the synthesized files when a plan failed', () => {
         version: '1.0.0',
         private: true,
         type: 'module',
+        molecule: { projectType: 'api' },
         dependencies: { '@molecule/api-database-pglite': '1.0.3' },
       }),
     )
@@ -151,6 +152,7 @@ describe('mlcl inject skips the synthesized files when a plan failed', () => {
         version: '1.0.0',
         private: true,
         type: 'module',
+        molecule: { projectType: 'api' },
         dependencies: { '@molecule/api-database-postgresql': '1.0.5' },
         devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
       }),

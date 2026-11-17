@@ -5,6 +5,7 @@
  */
 
 import { execFileSync } from 'node:child_process'
+import { existsSync } from 'node:fs'
 import { access, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, extname, join, relative, resolve } from 'node:path'
 
@@ -346,11 +347,18 @@ async function exists(path: string): Promise<boolean> {
  * input (a fenced code block in markdown can lose a blank line on the second pass), and a file
  * one pass leaves behind is still rewritten by the next `prettier --write`.
  *
+ * Pass `only` when the project existed before the command ran (`mlcl inject`, `mlcl swap`):
+ * the files the command wrote are formatted and the project's own files are left as they are.
+ *
  * @param projectPath - Absolute path to the project root (e.g., `molecule-dev/api`).
+ * @param only - Absolute paths of the files to format; omitted, every formattable file is.
  * @returns Number of files that were reformatted.
  */
-export async function formatGeneratedFiles(projectPath: string): Promise<number> {
-  return (await formatPass(projectPath, true)).length
+export async function formatGeneratedFiles(
+  projectPath: string,
+  only?: readonly string[],
+): Promise<number> {
+  return (await formatPass(projectPath, true, only)).length
 }
 
 /**
@@ -366,8 +374,21 @@ export async function unformattedGeneratedFiles(projectPath: string): Promise<st
   return (await formatPass(projectPath, false)).map((path) => relative(projectPath, path)).sort()
 }
 
-async function formatPass(projectPath: string, write: boolean): Promise<string[]> {
-  const files = await discoverFiles(projectPath)
+async function formatPass(
+  projectPath: string,
+  write: boolean,
+  only?: readonly string[],
+): Promise<string[]> {
+  const files = only
+    ? [...new Set(only)].filter(
+        (file) =>
+          FORMATTABLE_EXTENSIONS.has(extname(file)) &&
+          !relative(projectPath, file)
+            .split(/[\\/]/)
+            .some((segment) => SKIP_DIRS.has(segment)) &&
+          existsSync(file),
+      )
+    : await discoverFiles(projectPath)
   const changed: string[] = []
   const pluginPaths = new Map<string, string>()
 

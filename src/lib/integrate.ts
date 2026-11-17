@@ -12,10 +12,13 @@
  * @module
  */
 
+import { existsSync } from 'node:fs'
 import { access, readFile, rm, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
 
 import { isExactVersion } from './exact-version.js'
+import { inLanguage } from './existing-project.js'
+import { swapResolvedSecrets } from './extend-api-wiring.js'
 import { t } from './i18n.js'
 import { bondNameToPascal, extractBondName, generateBondSetupCode } from './injector.js'
 import {
@@ -203,6 +206,11 @@ export interface BondPaths {
   newBondFile: string
   /** Absolute path of the bonds barrel (`index.ts`) that wires the setups. */
   bondsIndexFile: string
+  /**
+   * The extension the project's bond files use: `.ts`, or `.js` / `.mjs` where
+   * `mlcl inject` wrote them for a JavaScript project.
+   */
+  extension: '.ts' | '.js' | '.mjs'
 }
 
 /**
@@ -233,13 +241,17 @@ export async function resolveBondPaths(
 
   const oldBondName = extractBondName(oldName)
   const newBondName = extractBondName(newName)
+  const extension =
+    (['.ts', '.js', '.mjs'] as const).find((ext) => existsSync(join(bondsDir, `index${ext}`))) ??
+    '.ts'
   return {
     bondsDir,
     oldBondName,
     newBondName,
-    oldBondFile: join(bondsDir, `${oldBondName}.ts`),
-    newBondFile: join(bondsDir, `${newBondName}.ts`),
-    bondsIndexFile: join(bondsDir, 'index.ts'),
+    oldBondFile: join(bondsDir, `${oldBondName}${extension}`),
+    newBondFile: join(bondsDir, `${newBondName}${extension}`),
+    bondsIndexFile: join(bondsDir, `index${extension}`),
+    extension,
   }
 }
 
@@ -405,7 +417,9 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
   const { projectPath, oldPkg, newPkg, newName, implementsInterface, newVersion } = input
 
   const paths = await resolveBondPaths(projectPath, oldPkg.name, newName)
-  const { bondsIndexFile, oldBondFile, newBondFile, oldBondName, newBondName } = paths
+  const { bondsIndexFile, oldBondFile, newBondFile, oldBondName, newBondName, extension } = paths
+  // The specifier extension the index imports bond files with.
+  const specifierExt = extension === '.mjs' ? 'mjs' : 'js'
   const oldPascal = bondNameToPascal(oldBondName)
   const newPascal = bondNameToPascal(newBondName)
 
@@ -429,7 +443,7 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
   // `\s*` on purpose — consuming the line's newline would glue the next statement
   // onto the rewritten import.
   const importRe = new RegExp(
-    `import[ \\t]*\\{[ \\t]*setup${oldPascal}[ \\t]*\\}[ \\t]*from[ \\t]*['"]\\.\\/${oldBondName}\\.js['"];?`,
+    `import[ \\t]*\\{[ \\t]*setup${oldPascal}[ \\t]*\\}[ \\t]*from[ \\t]*['"]\\.\\/${oldBondName}\\.${specifierExt}['"];?`,
   )
   const callRe = new RegExp(`setup${oldPascal}[ \\t]*\\([ \\t]*\\)`)
 
@@ -445,18 +459,37 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
   }
 
   const callRewritten = callRe.test(indexContent)
-  const rewrittenIndex = indexContent
-    .replace(importRe, `import { setup${newPascal} } from './${newBondName}.js'`)
-    .replace(callRe, `setup${newPascal}()`)
+  // The startup's resolveAll([...]) list loads only the keys it names from .env, so it
+  // follows the swap: the new provider's keys in, the replaced provider's keys out.
+  const rewrittenIndex = swapResolvedSecrets(
+    indexContent
+      .replace(importRe, `import { setup${newPascal} } from './${newBondName}.${specifierExt}'`)
+      .replace(callRe, `setup${newPascal}()`),
+    (oldPkg.molecule?.secrets ?? []).map((secret) => secret.name),
+    (newPkg.molecule?.secrets ?? []).map((secret) => secret.name),
+  )
 
   // 2. Generate the new bond file content up-front, so a generation failure also
   //    aborts before any destructive change to the project.
-  const bondCode = await generateBondSetupCode(
+  const generatedCode = await generateBondSetupCode(
     newPkg,
     newBondName,
     implementsInterface,
     projectPath,
   )
+  // A JavaScript project's bond files are compiled the way `mlcl inject` wrote them.
+  const bondCode =
+    extension === '.ts'
+      ? generatedCode
+      : (inLanguage(
+          {
+            action: 'create',
+            targetPath: newBondFile.replace(/\.m?js$/, '.ts'),
+            content: generatedCode,
+            description: '',
+          },
+          extension === '.mjs' ? 'commonjs' : 'esm',
+        ).content ?? generatedCode)
 
   // 3. Compute the rewritten package.json (remove old dep, add new pinned, sort).
   const packageJsonPath = join(projectPath, 'package.json')

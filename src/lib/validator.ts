@@ -5,7 +5,7 @@
  * @module
  */
 import { access, readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, relative } from 'node:path'
 
 import { t } from './i18n.js'
 import { getAppFrameworkDeps, getPackageStack } from './registry.js'
@@ -16,13 +16,30 @@ export interface ValidationResult {
   warnings: string[]
 }
 
-/** Check the generated file contract without guessing application behavior. */
-export async function validateInjectionOutput(projectPath: string): Promise<ValidationResult> {
+/** What a project Molecule did not create is checked for instead. */
+export interface ExistingProjectValidation {
+  /** True for a project whose package.json has no `molecule.projectType`. */
+  existingProject?: boolean
+  /** Absolute path of the setup module inject wrote there (it may be `.js` or `.mjs`). */
+  bondsIndex?: string
+}
+
+/**
+ * Check the generated file contract without guessing application behavior. A project Molecule
+ * did not create keeps its own server and router, so only its setup module is required there.
+ */
+export async function validateInjectionOutput(
+  projectPath: string,
+  options: ExistingProjectValidation = {},
+): Promise<ValidationResult> {
   const errors: string[] = []
   const app = await detectAppProjectForValidation(projectPath)
-  const artifacts = app
-    ? ['src/bonds/index.ts']
-    : ['src/server.ts', 'src/App/router.ts', 'src/bonds/index.ts']
+  const artifacts =
+    options.existingProject && options.bondsIndex
+      ? [relative(projectPath, options.bondsIndex)]
+      : app
+        ? ['src/bonds/index.ts']
+        : ['src/server.ts', 'src/App/router.ts', 'src/bonds/index.ts']
   for (const file of artifacts) {
     try {
       await access(join(projectPath, file))

@@ -94,6 +94,7 @@ describe('mlcl inject with an unresolvable requested package', () => {
         version: '1.0.0',
         private: true,
         type: 'module',
+        molecule: { projectType: 'api' },
         dependencies: { [UNRESOLVABLE]: '1.0.0' },
       }),
     )
@@ -115,6 +116,7 @@ describe('mlcl inject with an unresolvable requested package', () => {
         version: '1.0.0',
         private: true,
         type: 'module',
+        molecule: { projectType: 'api' },
         dependencies: {
           '@molecule/api-database-pglite': '1.0.3',
           [UNRESOLVABLE]: '1.0.0',
