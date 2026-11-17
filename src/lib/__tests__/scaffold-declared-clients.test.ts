@@ -67,6 +67,27 @@ export function loadStock() {
 
 describe('declared auth and HTTP reuse in generated verification', () => {
   it.each(['react', 'vue'])(
+    'the generated %s native check rejects a custom store feeding its bonded transport',
+    async (framework) => {
+      const app = join(await directory(), 'app')
+      await createAppProject(app, 'warehouse', framework)
+      await addPackages(app, ['@molecule/app-auth', '@molecule/app-http'])
+      const source = `import {getClient} from '@molecule/app-http'
+export function save(value: string) {
+  localStorage.setItem('warehouse-current', value)
+  getClient().setAuthToken(value)
+}`
+      const rows = await findings(app, source)
+      expect(rows.map((row) => row.messageId)).toEqual(['credential'])
+      expect(rows[0].severity).toBe(2)
+      expect(rows[0].line).toBe(3)
+      expect(
+        await findings(app, source.replace("localStorage.setItem('warehouse-current', value)", '')),
+      ).toEqual([])
+    },
+  )
+
+  it.each(['react', 'vue'])(
     'the generated %s inventory accepts a separate account through the package client',
     async (framework) => {
       const app = join(await directory(), 'app')

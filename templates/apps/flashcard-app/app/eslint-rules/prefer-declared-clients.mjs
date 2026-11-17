@@ -29,6 +29,9 @@
  * the identity of the value passed to setUser.
  * Auth snapshot checks cover a custom React hook seeding state from one client's
  * getState/getUser/getAccessToken contract; form defaults and other stores are not inferred.
+ * A custom storage key is a credential store when its written value also feeds the
+ * bonded HTTP client's setAuthToken in this module. Immutable bindings establish
+ * that connection; independent clients, read-only storage and unrelated values do not.
  * Article checks cover awaited updates followed by a lookup using the same lexical
  * slug binding in that function. Cross-module control flow is not inferred.
  * Query checks compare a useQuery key with one extra array around that same binding in a
@@ -162,6 +165,7 @@ export default {
     )
       return {}
     const calls = []
+    const storageAssignments = []
     const states = []
     const clickHandlers = []
     const clientBonds = []
@@ -942,6 +946,8 @@ export default {
           context.report({ node, messageId: 'markdownHtml' })
       },
       AssignmentExpression(node) {
+        if (node.left.type === 'MemberExpression' && storage(node.left.object))
+          storageAssignments.push(node)
         if (node.left.type !== 'MemberExpression') return
         if (packages.markdown && key(node.left) === 'innerHTML' && markdownResult(node.right))
           context.report({ node, messageId: 'markdownHtml' })
@@ -1002,6 +1008,44 @@ export default {
           states.push(node)
       },
       'Program:exit'() {
+        if (packages.auth) {
+          // A key's spelling cannot identify a credential. Its flow to the visitor's
+          // bonded transport can: only stable lexical values establish that fact.
+          const tokenBinding = (node) => {
+            const binding = variable(value(node))
+            return binding?.defs.length === 1 &&
+              !binding.references.some((ref) => ref.isWrite() && !ref.init)
+              ? binding
+              : null
+          }
+          const tokens = new Set(
+            calls.flatMap((call) => {
+              const callee = unwrap(call.callee)
+              const binding =
+                callee?.type === 'MemberExpression' &&
+                key(callee) === 'setAuthToken' &&
+                httpSource(callee.object) &&
+                tokenBinding(call.arguments[0])
+              return binding ? [binding] : []
+            }),
+          )
+          const checkStored = (node, name, stored) => {
+            const binding = tokenBinding(stored)
+            if (binding && tokens.has(binding) && !credential(name, stored))
+              context.report({ node, messageId: 'credential' })
+          }
+          for (const call of calls) {
+            const callee = unwrap(call.callee)
+            if (
+              callee?.type === 'MemberExpression' &&
+              key(callee) === 'setItem' &&
+              storage(callee.object)
+            )
+              checkStored(call, string(call.arguments[0]), call.arguments[1])
+          }
+          for (const assignment of storageAssignments)
+            checkStored(assignment, key(assignment.left), assignment.right)
+        }
         if (packages.query) {
           const queries = calls.flatMap((call) => {
             if (!imported(call.callee, ['@molecule/app-query-react'], ['useQuery'])) return []
