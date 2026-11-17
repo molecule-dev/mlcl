@@ -38,6 +38,18 @@ beforeEach(() => {
   )
 })
 describe('browse real URL state', () => {
+  it('keeps other categories available when no text search is active', async () => {
+    await mount(<Browse />, '/browse?page=2')
+    expect(host.querySelector<HTMLButtonElement>('[data-mol-id=filter-Design]')?.disabled).toBe(
+      false,
+    )
+    await click('[data-mol-id=filter-Design]')
+    expect(url()).toBe('/browse?category=Design')
+    expect(host.querySelector<HTMLButtonElement>('[data-mol-id=filter-All]')?.disabled).toBe(false)
+    await click('[data-mol-id=filter-All]')
+    expect(url()).toBe('/browse')
+  })
+
   it('keeps a direct page on fetch, resets category/search atomically, and walks history', async () => {
     const initial = '/browse?q=design&page=2&track=a&track=b#rows'
     await mount(<Browse />, initial)

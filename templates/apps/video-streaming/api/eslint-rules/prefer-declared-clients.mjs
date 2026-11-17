@@ -5782,7 +5782,7 @@ export function scaffoldRules(parser) {
     // A branch rendered while a loaded record is missing may not sit in the same parent
     // element as markup that shows a field of that record. Both anchors are local AST facts:
     // data the page waits for (a hook result or state set in an effect), and a displayed field.
-    // Inspect chained ternaries together, including query.data and query.status tests. A
+    // Inspect chained ternaries and sibling guards, including query.data and query.status tests. A
     // component or live-region placeholder has the same placement defect as host text.
     'placeholders-stay-out-of-record-fields': {
       meta: {
@@ -6221,7 +6221,104 @@ export function scaffoldRules(parser) {
             })
           }
         }
+        // JSX siblings guarded by opposite facts have the same parent as a ternary's arms.
+        // Use the record's binding and path, never status prose or a project's selectors.
+        const renderedContainer = (node) => {
+          const parent = node.parent
+          if (
+            [
+              'JSXElement',
+              'JSXFragment',
+              'JSXExpressionContainer',
+              'LogicalExpression',
+              'ConditionalExpression',
+            ].includes(parent?.type)
+          )
+            return renderedContainer(parent)
+          return (
+            parent?.type === 'ReturnStatement' ||
+            (parent?.type === 'ArrowFunctionExpression' && parent.body === node) ||
+            rendered(node)
+          )
+        }
+        const siblings = (node) => {
+          if (!renderedContainer(node)) return
+          const branches = []
+          for (const child of node.children) {
+            if (child.type !== 'JSXExpressionContainer') continue
+            let expression = unwrap(child.expression)
+            if (expression?.type !== 'LogicalExpression' || expression.operator !== '&&') continue
+            const conditions = []
+            const guards = (condition) => {
+              condition = unwrap(condition)
+              if (condition?.type === 'LogicalExpression' && condition.operator === '&&') {
+                guards(condition.left)
+                guards(condition.right)
+              } else {
+                const fact = condition && presence(condition)
+                const variable = fact && variableOf(fact.identifier)
+                if (variable && awaited(variable) && typeof fact.present === 'boolean')
+                  conditions.push({
+                    ...fact,
+                    variable,
+                    name: [fact.identifier.name, ...fact.path].join('.'),
+                  })
+              }
+            }
+            while (expression.type === 'LogicalExpression' && expression.operator === '&&') {
+              guards(expression.left)
+              expression = unwrap(expression.right)
+            }
+            if (['JSXElement', 'JSXFragment'].includes(expression.type))
+              branches.push({ content: expression, conditions })
+          }
+          const reported = new Set()
+          for (const waiting of branches) {
+            if (!placeholder(waiting.content)) continue
+            for (const record of waiting.conditions.filter((fact) => fact.present === false)) {
+              if (reads(waiting.content, record)) continue
+              for (const loaded of branches) {
+                if (
+                  loaded === waiting ||
+                  !loaded.conditions.some(
+                    (fact) =>
+                      fact.present === true &&
+                      fact.variable === record.variable &&
+                      fact.path.join('.') === record.path.join('.'),
+                  )
+                )
+                  continue
+                const candidates = tagOf(loaded.content)
+                  ? [loaded.content]
+                  : loaded.content.type === 'JSXFragment'
+                    ? loaded.content.children
+                    : []
+                const shown = [...candidates]
+                  .reverse()
+                  .map(
+                    (element) => tagOf(element) && { element, field: fieldShown(element, record) },
+                  )
+                  .find((entry) => entry?.field)
+                if (shown && !reported.has(waiting.content)) {
+                  reported.add(waiting.content)
+                  context.report({
+                    node: waiting.content,
+                    messageId: 'sameElement',
+                    data: {
+                      location: `${context.filename}:${waiting.content.loc.start.line}`,
+                      record: record.name,
+                      field: shown.field,
+                      fieldLine: String(shown.element.loc.start.line),
+                    },
+                  })
+                } else if (!shown) regionFields(waiting.content, loaded.content, record, reported)
+              }
+            }
+          }
+        }
         return {
+          'JSXElement:exit': siblings,
+          'JSXFragment:exit': siblings,
           'FunctionDeclaration:exit': earlyReturns,
           'FunctionExpression:exit': earlyReturns,
           'ArrowFunctionExpression:exit': earlyReturns,

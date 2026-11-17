@@ -9,6 +9,8 @@
  * Opaque callbacks passed to another file are outside this rule. No imported files,
  * query provenance, persistence methods, routes or display text are inspected.
  * Boolean implication checks the same condition at the handler and control.
+ * A checkbox/radio's change handler is its selection action. An auxiliary click
+ * which does not prevent that native change need not perform another action.
  */
 const ACTIVATION =
   /^(?:onClick|onDoubleClick|onSubmit|onKeyDown|onKeyUp|onPointerDown|onPointerUp|onMouseDown|onMouseUp)$/
@@ -418,6 +420,50 @@ export default {
       !n.callee.computed &&
       ['preventDefault', 'stopPropagation'].includes(n.callee.property.name) &&
       variable(n.callee.object)?.defs[0]?.type === 'Parameter'
+    const joinGuards = (a, b) => (a === null || b === null ? null : [...a, ...b])
+    // Keep source facts beside the exact proof operation that conjoins them.
+    // An event-local or effectful test cannot become a JSX disabled expression.
+    const guardFacts = (test, polarity, fn, rendering = false) =>
+      typeof formula(test) === 'boolean'
+        ? []
+        : pure(test) && (rendering || renderValue(test, fn))
+          ? [{ test, polarity, fn }]
+          : null
+    const guardLabel = ({ test, polarity, fn }) =>
+      polarity
+        ? primitiveType(test) === 'boolean'
+          ? renderText(test, fn)
+          : `!!(${renderText(test, fn)})`
+        : test.type === 'Identifier'
+          ? '!' + renderText(test, fn)
+          : '!(' + renderText(test, fn) + ')'
+    const joinedText = (items, operator) =>
+      items.length === 1 ? items[0] : items.map((item) => `(${item})`).join(` ${operator} `)
+    const visibleAt = (guard, control) => {
+      const lookup = (name) => {
+        for (let scope = source.getScope(control); scope; scope = scope.upper)
+          if (scope.set.has(name)) return scope.set.get(name)
+        return null
+      }
+      const seen = new Set()
+      let visible = true
+      const visit = (part) => {
+        if (part.type !== 'Identifier') return
+        const binding = variable(part)
+        if (!binding) return
+        if (binding.scope.variableScope.block === guard.fn) {
+          const value = init(part)
+          if (!value || !snapshot(value) || seen.has(binding)) {
+            visible = false
+            return
+          }
+          seen.add(binding)
+          walk(value, visit)
+        } else if (lookup(part.name) !== binding) visible = false
+      }
+      walk(guard.test, visit)
+      return visible
+    }
     // Split short-circuit paths so an event/local-only return never becomes a
     // render-state defect merely because another operand reads component state.
     const branches = (n, expected, fn) => {
@@ -433,7 +479,7 @@ export default {
             right.map((b) => ({
               condition: and(a.condition, b.condition),
               guarded: a.guarded || b.guarded,
-              label: b.guarded ? b.label : a.label,
+              guards: joinGuards(a.guards, b.guards),
             })),
           )
         return [
@@ -442,7 +488,7 @@ export default {
             right.map((b) => ({
               condition: and(a.condition, b.condition),
               guarded: b.guarded,
-              label: b.label,
+              guards: joinGuards(a.guards, b.guards),
             })),
           ),
         ]
@@ -451,13 +497,7 @@ export default {
         {
           condition: expected ? formula(n) : not(formula(n)),
           guarded: renderValue(n, fn),
-          label: expected
-            ? primitiveType(n) === 'boolean'
-              ? renderText(n, fn)
-              : `!!(${renderText(n, fn)})`
-            : n.type === 'Identifier'
-              ? '!' + renderText(n, fn)
-              : '!(' + renderText(n, fn) + ')',
+          guards: guardFacts(n, expected, fn),
         },
       ]
     }
@@ -469,17 +509,17 @@ export default {
         statements,
         condition = true,
         guarded = false,
-        label = '',
+        guards = [],
         prevented = false,
         follow = true,
       ) => {
         if (!statements.length) {
-          if (guarded) paths.push({ condition, label, prevented })
+          if (guarded) paths.push({ condition, guards, prevented })
           return
         }
         const [s, ...rest] = statements
         if (s.type === 'BlockStatement')
-          return run([...s.body, ...rest], condition, guarded, label, prevented, follow)
+          return run([...s.body, ...rest], condition, guarded, guards, prevented, follow)
         if (s.type === 'IfStatement' && pure(s.test)) {
           for (const expected of [true, false])
             for (const path of branches(s.test, expected, fn)) {
@@ -488,7 +528,7 @@ export default {
                 [...(body ? [body] : []), ...rest],
                 and(condition, path.condition),
                 guarded || (path.guarded && renderValue(s.test, fn)),
-                path.guarded && renderValue(s.test, fn) ? path.label : label,
+                joinGuards(guards, guardFacts(s.test, expected, fn) === null ? null : path.guards),
                 prevented,
                 follow && renderValue(s.test, fn),
               )
@@ -501,9 +541,9 @@ export default {
           s.type.startsWith('TS') ||
           (s.type === 'VariableDeclaration' && s.declarations.every((d) => pure(d.init)))
         )
-          return run(rest, condition, guarded, label, prevented, follow)
+          return run(rest, condition, guarded, guards, prevented, follow)
         if (s.type === 'ReturnStatement' && !s.argument) {
-          if (guarded) paths.push({ condition, label, prevented })
+          if (guarded) paths.push({ condition, guards, prevented })
           return
         }
         let e = unwrap(
@@ -518,7 +558,7 @@ export default {
             rest,
             condition,
             guarded,
-            label,
+            guards,
             prevented || e.callee.property.name === 'preventDefault',
             follow,
           )
@@ -528,7 +568,7 @@ export default {
           for (const p of guardPaths(fnFor(e.callee), next))
             paths.push({
               condition: and(condition, p.condition),
-              label: p.label,
+              guards: joinGuards(guards, p.guards),
               prevented: prevented || p.prevented,
             })
         if (
@@ -541,10 +581,7 @@ export default {
           const active = e.operator === '&&' ? formula(e.left) : not(formula(e.left))
           paths.push({
             condition: and(condition, not(active)),
-            label:
-              e.operator === '&&'
-                ? '!(' + renderText(e.left, fn) + ')'
-                : `!!(${renderText(e.left, fn)})`,
+            guards: joinGuards(guards, guardFacts(e.left, e.operator === '||', fn)),
             prevented,
           })
         }
@@ -557,26 +594,42 @@ export default {
       )
       return paths
     }
-    const selection = (n, condition = true, seen = new Set()) => {
+    const selection = (n, condition = true, seen = new Set(), guards = []) => {
       n = unwrap(n)
       if (!n || seen.has(n)) return []
       const next = new Set(seen).add(n)
       if (n.type === 'ConditionalExpression')
         return [
-          ...selection(n.consequent, and(condition, formula(n.test)), next),
-          ...selection(n.alternate, and(condition, not(formula(n.test))), next),
+          ...selection(
+            n.consequent,
+            and(condition, formula(n.test)),
+            next,
+            joinGuards(guards, guardFacts(n.test, true, null, true)),
+          ),
+          ...selection(
+            n.alternate,
+            and(condition, not(formula(n.test))),
+            next,
+            joinGuards(guards, guardFacts(n.test, false, null, true)),
+          ),
         ]
       if (n.type === 'LogicalExpression' && ['&&', '||'].includes(n.operator))
         return [
-          ...(n.operator === '||' ? selection(n.left, condition, next) : []),
+          ...(n.operator === '||' ? selection(n.left, condition, next, guards) : []),
           ...selection(
             n.right,
             and(condition, n.operator === '&&' ? formula(n.left) : not(formula(n.left))),
             next,
+            joinGuards(guards, guardFacts(n.left, n.operator === '&&', null, true)),
           ),
         ]
       const fn = fnFor(n)
-      return fn ? [{ fn, condition }] : selection(init(n), condition, next)
+      if (
+        (n.type === 'Identifier' && n.name === 'undefined' && !variable(n)?.defs.length) ||
+        (n.type === 'Literal' && (n.value === null || n.value === false))
+      )
+        return [{ fn: null, condition, guards, empty: true }]
+      return fn ? [{ fn, condition, guards }] : selection(init(n), condition, next, guards)
     }
     const terminates = (n) =>
       n?.type === 'ReturnStatement' ||
@@ -879,26 +932,105 @@ export default {
                   ),
                 )
             }
-            let reported = false
-            handlers: for (const { fn, condition } of selection(attr.value.expression))
-              for (const path of guardPaths(fn)) {
+            const dropped = []
+            for (const { fn, condition, guards, empty } of selection(attr.value.expression))
+              for (const path of empty
+                ? [{ condition: true, guards: [], prevented: false }]
+                : guardPaths(fn)) {
+                // An omitted optional listener does not make passive markup a control.
+                // Imported components can supply their own fallback or default action.
+                if (
+                  empty &&
+                  !(
+                    native &&
+                    (control.name.name === 'button' ||
+                      (control.name.name === 'input' &&
+                        attribute(control, 'type')?.value === 'button') ||
+                      attribute(control, 'role')?.value === 'button')
+                  )
+                )
+                  continue
                 if (control.name.name === 'a' && attribute(control, 'href') && !path.prevented)
                   continue
+                const change = attribute(control, 'onChange')
+                if (
+                  control.name.name === 'input' &&
+                  ['checkbox', 'radio'].includes(attribute(control, 'type')?.value) &&
+                  [
+                    'Identifier',
+                    'MemberExpression',
+                    'ArrowFunctionExpression',
+                    'FunctionExpression',
+                  ].includes(change?.type) &&
+                  !(change.type === 'Identifier' && change.name === 'undefined') &&
+                  attr.name.name === 'onClick' &&
+                  !path.prevented
+                )
+                  continue
+                const click = attribute(control, 'onClick')
+                if (
+                  native &&
+                  control.name.name === 'button' &&
+                  attr.name.name !== 'onClick' &&
+                  [
+                    'Identifier',
+                    'MemberExpression',
+                    'ArrowFunctionExpression',
+                    'FunctionExpression',
+                  ].includes(click?.type) &&
+                  !(click.type === 'Identifier' && click.name === 'undefined') &&
+                  !path.prevented
+                )
+                  continue
+                if (
+                  native &&
+                  attr.name.name === 'onClick' &&
+                  !path.prevented &&
+                  controls.some(
+                    (candidate) =>
+                      candidate.name.name === 'form' && submitters(candidate).includes(control),
+                  )
+                )
+                  continue
                 if (!possible(and(availability, and(condition, path.condition)))) continue
-                const conditionText = path.label
-                const fix =
-                  takesDisabled(control) || form
-                    ? `Add disabled={${conditionText}} to ${form ? 'each submit button' : 'this control'}, or unmount it on that condition.`
-                    : `Unmount this control while ${conditionText}.`
-                context.report({
-                  node: control,
-                  messageId: 'droppedAction',
-                  data: { fix, condition: conditionText },
-                })
-                reported = true
-                break handlers
+                const facts = joinGuards(guards, path.guards)
+                const targets = form ? submitters(control) : [control]
+                if (
+                  !facts?.length ||
+                  !facts.every((guard) =>
+                    [control, ...targets].every((target) => visibleAt(guard, target)),
+                  )
+                )
+                  continue
+                dropped.push(joinedText(facts.map(guardLabel), '&&'))
               }
-            if (reported) break
+            if (!dropped.length) continue
+            const conditionText = joinedText([...new Set(dropped)], '||')
+            const disabledText = (target) => {
+              const previous = attribute(target, 'disabled')
+              return previous
+                ? `!!(${source.getText(previous)}) || (${conditionText})`
+                : conditionText
+            }
+            const buttons = form ? submitters(control) : []
+            const fix = form
+              ? buttons.length
+                ? `Set each submit button's disabled condition: ${buttons
+                    .map(
+                      (button) =>
+                        `line ${button.loc.start.line}: disabled={${disabledText(button)}}`,
+                    )
+                    .join('; ')}. Or unmount the form on that condition.`
+                : `Unmount this form while ${conditionText}.`
+              : takesDisabled(control)
+                ? `Add disabled={${disabledText(control)}} to this control, or unmount it on that condition.`
+                : `Unmount this control while ${conditionText}.`
+            context.report({
+              node: control,
+              messageId: 'droppedAction',
+              data: { fix, condition: conditionText },
+            })
+            break
           }
       },
     }

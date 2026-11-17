@@ -61,6 +61,30 @@ const order = (
 }`
 
 describe('a waiting message rendered where a field of the record goes', () => {
+  it.each([
+    '{invoice && <p>{invoice.note}</p>}{!invoice && <p>Waiting for invoice</p>}',
+    '{!invoice && query.status === "loading" && <p>Waiting for invoice</p>}{invoice && <><h2>{invoice.number}</h2><p>{invoice.note}</p></>}',
+    '{query.data && <p>{query.data.note}</p>}{query.status === "loading" && <Spinner />}',
+  ])('the shipped config refuses sibling field/status guards: %s', async (body) => {
+    const rows = await findings(`export function Invoice(){
+      const query=useInvoice(); const invoice=query.data;
+      return <section>${body}</section>
+    }`)
+    expect(rows).toHaveLength(1)
+    expect(rows[0]).toMatchObject({ severity: 2 })
+    expect(rows[0]?.message).toMatch(/(?:invoice|query.data)\.note/)
+  })
+
+  it('the shipped config admits status beside the complete invoice region', async () => {
+    expect(
+      await findings(`export function Invoice(){
+      const {data:invoice}=useInvoice();
+      return <main>{invoice && <section><p>{invoice.note}</p></section>}
+        {!invoice && <p role="status">Waiting for invoice</p>}</main>
+    }`),
+    ).toEqual([])
+  })
+
   it('rejects a non-benchmark order page that returns its data region before the order exists', async () => {
     const rows = await findings(`export function OrderSummary() {
       const { data: order } = useOrder()
@@ -130,6 +154,7 @@ describe('a waiting message rendered where a field of the record goes', () => {
     'accounting-invoicing/app/src/pages/CustomerDetail.tsx',
     'ai-travel-agent/app/src/pages/Pay.tsx',
     'api-documentation/app/src/pages/Settings.tsx',
+    'course-marketplace/app/src/pages/Checkout.tsx',
     'flight-search/app/src/pages/Booking.tsx',
     'hotel-booking/app/src/pages/BookingConfirmation.tsx',
   ])('keeps placeholders outside the shipped template record region in %s', async (file) => {

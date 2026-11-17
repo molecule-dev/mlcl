@@ -223,7 +223,7 @@ export function Browse() {
               <div className={cm.cn('flex flex-wrap gap-2')}>
                 {categories.map((c) => (
                   <button
-                    disabled={!query}
+                    disabled={c === activeCategory && !query}
                     key={c}
                     type="button"
                     data-mol-id={`filter-${c}`}
@@ -267,7 +267,6 @@ export function Browse() {
                       )}
                     >
                       <input
-                        disabled={!(activeLevel === l.id)}
                         type="radio"
                         name="filter-level"
                         data-mol-id={`level-${l.id}`}
@@ -307,7 +306,6 @@ export function Browse() {
                       )}
                     >
                       <input
-                        disabled={!(activePrice === b.id)}
                         type="radio"
                         name="filter-price"
                         data-mol-id={`price-${b.id}`}

@@ -159,19 +159,24 @@ export function Checkout() {
           </div>
         )}
 
-        {sessionId && (
+        {sessionId && loading && !status && (
+          <div
+            className={cm.cn('bg-surface-container-lowest rounded-2xl shadow-sm p-12 text-center')}
+          >
+            <p
+              data-mol-id="checkout-loading"
+              className={cm.cn('text-on-surface-variant text-sm')}
+              role="status"
+            >
+              {t('checkout.verifying', {}, { defaultValue: 'Verifying your enrollment…' })}
+            </p>
+          </div>
+        )}
+        {sessionId && (status || error) && (
           <div
             data-mol-id="checkout-result"
             className={cm.cn('bg-surface-container-lowest rounded-2xl shadow-sm p-12 text-center')}
           >
-            {loading && !status && (
-              <p
-                data-mol-id="checkout-loading"
-                className={cm.cn('text-on-surface-variant text-sm')}
-              >
-                {t('checkout.verifying', {}, { defaultValue: 'Verifying your enrollment…' })}
-              </p>
-            )}
             {error && (
               <>
                 <span className={cm.cn('material-symbols-outlined text-5xl text-error mb-3')}>
