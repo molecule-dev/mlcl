@@ -73916,11 +73916,20 @@
       ],
       "bondSetter": "setProvider",
       "path": "packages/app/core/query",
+      "decisionGuide": {
+        "configuration": [
+          "POST/DELETE relationships: use createQueryResource({ name, path, id, http: getClient, readOne }).toggle(viewer, id, action, desired). true sends POST and false sends DELETE; desired is the state wanted after the request. readOne selects the saved record from this API's response envelope.",
+          "Return the saved flag from the commit of useOptimisticToggle or OptimisticToggleButton; for a flag with a count, return both from useOptimisticValue. Verify persistence by reloading and reading the dependent list. APIs that instead accept a boolean PUT/PATCH body use update() or their own explicit adapter."
+        ]
+      },
       "intentHints": [
         "client-side data cache",
         "prefetch on hover",
         "instant page navigation",
-        "cached fetch"
+        "cached fetch",
+        "follow unfollow API client",
+        "favorite unfavorite API client",
+        "resource action toggle"
       ]
     },
     "@molecule/app-query-angular": {
@@ -83757,6 +83766,12 @@
       ],
       "framework": "react",
       "path": "packages/app/frameworks/react-ui",
+      "decisionGuide": {
+        "configuration": [
+          "Server-backed boolean buttons: use OptimisticToggleButton with a loaded value, commit(desired) returning the saved boolean, and complete activeLabel and inactiveLabel actions (for example Unwatch equipment and Watch equipment). Both labels are required; label and aria-pressed follow the displayed state.",
+          "Mount after the initial record loads, key by record identity, and keep the control mounted during refetches. Use createQueryResource().toggle() for a POST/DELETE relationship. Use useOptimisticValue with local markup for a flag plus related count; keep ordinary Button or Switch for local-only state."
+        ]
+      },
       "intentHints": [
         "modal dialog",
         "toast notification",
@@ -83765,7 +83780,10 @@
         "protected route",
         "auth route guard",
         "authenticated route",
-        "protect routes"
+        "protect routes",
+        "favorite unfavorite button",
+        "watch unwatch button",
+        "stateful action label"
       ]
     },
     "@molecule/app-ui-react-native": {
