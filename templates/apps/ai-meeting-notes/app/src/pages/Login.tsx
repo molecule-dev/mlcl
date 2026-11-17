@@ -31,9 +31,7 @@ export function Login() {
     setSubmitting(true)
     setError(null)
     try {
-      await (
-        auth as unknown as { login: (c: { email: string; password: string }) => Promise<void> }
-      ).login({ email, password })
+      await auth.login({ email, password })
       clearAuthForm()
       navigate('/dashboard')
     } catch (err) {

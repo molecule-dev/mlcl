@@ -36,6 +36,9 @@
  * Value checks follow immutable, module-local bindings: an unconditional identity update of
  * a default optimistic controller and a structured markdown render result at an HTML sink.
  * Conditional updates, custom equality, other stores and other renderers are not inferred.
+ * Contract checks reject an imported package value retyped through unknown/any/never
+ * into an app-written object with named function members. Local aliases and types are
+ * followed; data projections, imported adapter types and dynamic index maps stay valid.
  * A one-parameter legacy auth requestBody is ambiguous: its argument is the operation,
  * not the values. Require the two explicit positions or the payload-first mapRequestBody.
  * Only imported auth config types and local factory inputs establish that ownership;
@@ -121,6 +124,8 @@ export default {
         'This optimistic update returns the current value unchanged (or only spreads it). The default shallowEqual comparison sees no change, so commit never runs. Return the desired changed fields, such as { ...current, enabled: !current.enabled }, and update any related count in the same value. Memoizing the input cannot repair an unchanged update.',
       markdownHtml:
         '@molecule/app-markdown render() returns { html, toc }, not an HTML string. Select result.html (or provider.render(source).html) at this HTML sink; passing the whole result renders [object Object] instead of the markdown content.',
+      erasedPackageType:
+        'This assertion replaces the declared {{package}} methods with an app-written function contract through unknown, any or never. Remove the assertion and call the package’s declared members; a type assertion does not convert the value.',
       staleArticleSlug:
         'updateArticle can rename the slug, so this lookup can return null after a successful save. Use the successful update result’s article directly; if another lookup is needed, use article.slug from that result instead of the old slug. The service also sets updatedAt.',
       authRequestBodyOrder:
@@ -143,16 +148,19 @@ export default {
         },
       }
     }
+    const source = context.sourceCode ?? context.getSourceCode()
     if (
       !packages.auth &&
       !packages.http &&
       !packages.article &&
       !packages.query &&
       !packages.optimistic &&
-      !packages.markdown
+      !packages.markdown &&
+      !source.ast.body.some(
+        (node) => node.type === 'ImportDeclaration' && node.source.value.startsWith('@molecule/'),
+      )
     )
       return {}
-    const source = context.sourceCode ?? context.getSourceCode()
     const calls = []
     const states = []
     const clickHandlers = []
@@ -408,6 +416,69 @@ export default {
         return definition.node
       const declarator = stableConst(callee)
       return declarator ? localFunction(declarator.init, seen) : null
+    }
+    // Follow the binding that already has a package contract, without inferring
+    // a domain, renderer or sink. Opaque external data and local APIs stay local.
+    const moleculeValue = (node, seen = new Set()) => {
+      node = unwrap(node)
+      if (!node || seen.has(node)) return null
+      seen.add(node)
+      const binding = variable(node)
+      const definition = binding?.defs[0]
+      if (
+        definition?.type === 'ImportBinding' &&
+        definition.parent.importKind !== 'type' &&
+        definition.node.importKind !== 'type' &&
+        definition.parent.source.value.startsWith('@molecule/')
+      )
+        return definition.parent.source.value
+      const declarator = stableConst(node)
+      if (declarator) return moleculeValue(declarator.init, seen)
+      if (node.type === 'MemberExpression') return moleculeValue(node.object, seen)
+      if (node.type === 'CallExpression') return moleculeValue(node.callee, seen)
+      if (node.type === 'AwaitExpression' || node.type === 'TSInstantiationExpression')
+        return moleculeValue(node.argument ?? node.expression, seen)
+      return null
+    }
+    const callableContract = (node, member = false, seen = new Set()) => {
+      if (!node || seen.has(node)) return false
+      seen.add(node)
+      if (node.type === 'TSFunctionType') return member
+      if (node.type === 'TSUnionType' || node.type === 'TSIntersectionType')
+        return node.types.some((type) => callableContract(type, member, new Set(seen)))
+      if (node.type === 'TSTypeReference' && node.typeName.type === 'Identifier') {
+        const declaration = variable(node.typeName)?.defs.find((def) =>
+          ['TSTypeAliasDeclaration', 'TSInterfaceDeclaration'].includes(def.node.type),
+        )?.node
+        return callableContract(declaration, member, seen)
+      }
+      if (node.type === 'TSTypeAliasDeclaration')
+        return callableContract(node.typeAnnotation, member, seen)
+      const members =
+        node.type === 'TSTypeLiteral'
+          ? node.members
+          : node.type === 'TSInterfaceDeclaration'
+            ? node.body.body
+            : []
+      return members.some(
+        (part) =>
+          (!part.computed || part.key?.type === 'Literal') &&
+          (part.type === 'TSMethodSignature' ||
+            (part.type === 'TSPropertySignature' &&
+              callableContract(part.typeAnnotation?.typeAnnotation, true, new Set(seen)))),
+      )
+    }
+    const erasedPackageType = (node) => {
+      if (!callableContract(node.typeAnnotation)) return null
+      let operand = node.expression
+      while (
+        ['TSNonNullExpression', 'TSSatisfiesExpression', 'ChainExpression'].includes(operand?.type)
+      )
+        operand = operand.expression
+      const assertion = ['TSAsExpression', 'TSTypeAssertion'].includes(operand?.type)
+      const erased = ['TSUnknownKeyword', 'TSAnyKeyword', 'TSNeverKeyword']
+      if (assertion && erased.includes(operand.typeAnnotation.type)) return moleculeValue(operand)
+      return null
     }
     const FRAMEWORK_AUTH = ['@molecule/app-react', '@molecule/app-react-native']
     const clientValue = (node, seen = new Set()) => {
@@ -848,6 +919,10 @@ export default {
       return method === null ? null : (AXIOS_CONFIG.get(method) ?? null)
     }
     return {
+      'TSAsExpression, TSTypeAssertion'(node) {
+        const pkg = erasedPackageType(node)
+        if (pkg) context.report({ node, messageId: 'erasedPackageType', data: { package: pkg } })
+      },
       VariableDeclarator(node) {
         if (packages.auth && authConfigType(node.id.typeAnnotation?.typeAnnotation))
           authConfigs.push(node.init)

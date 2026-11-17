@@ -1,24 +1,21 @@
 import { useState } from 'react'
 
 import { OAuthProviderLogo } from '@molecule/app-oauth-logos-react'
-import { useAuth, useTranslation } from '@molecule/app-react'
+import { useOAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
-type SocialAuthClient = {
-  loginWithGoogle?: () => Promise<void>
-  loginWithGithub?: () => Promise<void>
-}
+import { oauthConfig } from '../config.js'
 
 export default function LoginSocialAuth() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const auth = useAuth() as unknown as SocialAuthClient
+  const oauth = useOAuth(oauthConfig)
   const [isLoading, setIsLoading] = useState(false)
 
   const handleGoogleLogin = async () => {
     setIsLoading(true)
     try {
-      await auth.loginWithGoogle?.()
+      oauth.redirect('google')
     } finally {
       setIsLoading(false)
     }
@@ -27,7 +24,7 @@ export default function LoginSocialAuth() {
   const handleGithubLogin = async () => {
     setIsLoading(true)
     try {
-      await auth.loginWithGithub?.()
+      oauth.redirect('github')
     } finally {
       setIsLoading(false)
     }

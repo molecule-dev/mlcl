@@ -1,12 +1,7 @@
 import { useEffect, useState } from 'react'
 
-import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
+import { useAuth, useAuthClient, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
-
-interface AuthClient {
-  user?: { id?: string }
-  changePassword?: (oldPassword: string, newPassword: string) => Promise<void>
-}
 
 interface TwoFactorSetup {
   QRImageUrl?: string
@@ -16,7 +11,8 @@ interface TwoFactorSetup {
 function SecurityAccessSection() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const auth = useAuth() as unknown as AuthClient
+  const auth = useAuth<{ id?: string }>()
+  const authClient = useAuthClient()
   const http = useHttpClient()
   const userId = auth.user?.id
   const [open, setOpen] = useState(false)
@@ -69,7 +65,7 @@ function SecurityAccessSection() {
       )
       return
     }
-    if (typeof auth.changePassword !== 'function') {
+    if (typeof authClient.changePassword !== 'function') {
       setErr(
         t(
           'securityAccess.passwordEndpointMissing',
@@ -81,7 +77,7 @@ function SecurityAccessSection() {
     }
     setSubmitting(true)
     try {
-      await auth.changePassword(currentPw, newPw)
+      await authClient.changePassword(currentPw, newPw)
       setSuccess(true)
       setCurrentPw('')
       setNewPw('')

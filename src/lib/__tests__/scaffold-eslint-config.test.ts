@@ -88,6 +88,17 @@ afterEach(async () => {
 })
 
 describe('the shared scaffold eslint config', () => {
+  it('rejects copying a package method contract through an unknown assertion', async () => {
+    const [result] = await eslint.lintText(
+      "import { provider } from '@molecule/app-markdown-marked'\n" +
+        'export const renderer = provider as unknown as { render(input: string): string }\n',
+      { filePath: join(dir, 'src/markdown.ts') },
+    )
+    expect(
+      result.messages.filter((message) => message.messageId === 'erasedPackageType'),
+    ).toMatchObject([{ severity: 2, line: 2, ruleId: 'molecule-local/prefer-declared-clients' }])
+  })
+
   // Every project ships this file as `eslint.config.js`, and the platform's format pass runs
   // ESLint over every shipped file, the config included (`npm run lint` covers only `src`). An
   // error here reached every project unseen (a `no-useless-escape` in the router-import regex).
