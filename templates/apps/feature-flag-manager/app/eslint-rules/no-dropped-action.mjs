@@ -98,12 +98,14 @@ export default {
         ? unwrap(d.node.init)
         : null
     }
-    const key = (n) => {
+    const key = (n, seen = new Set()) => {
       n = unwrap(n)
       if (n?.type === 'CallExpression' && !pure(n)) return 'call@' + n.range[0]
       if (n?.type === 'Literal') return 'literal:' + typeof n.value + ':' + String(n.value)
       if (n?.type === 'Identifier') {
         const v = variable(n) ?? n.name
+        const value = init(n)
+        if (value && snapshot(value) && !seen.has(v)) return key(value, new Set(seen).add(v))
         if (!ids.has(v)) ids.set(v, String(ids.size))
         return 'v' + ids.get(v)
       }
@@ -119,9 +121,9 @@ export default {
                   k +
                   ':' +
                   (Array.isArray(v)
-                    ? v.map((p) => (p?.type ? key(p) : JSON.stringify(p))).join(',')
+                    ? v.map((p) => (p?.type ? key(p, seen) : JSON.stringify(p))).join(',')
                     : v?.type
-                      ? key(v)
+                      ? key(v, seen)
                       : JSON.stringify(v)),
               )
               .join(',') +
@@ -163,10 +165,20 @@ export default {
       for (let p = n?.parent; p; p = p.parent) if (isFunction(p)) return p
       return null
     }
+    const snapshot = (p) => {
+      p = unwrap(p)
+      return (
+        p?.type === 'Identifier' ||
+        (p?.type === 'MemberExpression' &&
+          snapshot(p.object) &&
+          (!p.computed || p.property.type === 'Literal'))
+      )
+    }
     const renderValue = (n, fn) => {
       let found = false,
         local = false
-      walk(n, (p) => {
+      const seen = new Set()
+      const visit = (p) => {
         if (
           p.type === 'MemberExpression' &&
           !p.computed &&
@@ -177,10 +189,41 @@ export default {
         if (p.type !== 'Identifier') return
         const v = variable(p),
           scope = v?.scope.variableScope.block
-        if (scope === fn) local = true
-        else if (isFunction(scope) && contains(scope, fn)) found = true
-      })
+        if (scope === fn) {
+          // Taking an immutable snapshot of a render value does not make it event data.
+          // Computed locals and event/ref reads retain the existing local-only boundary.
+          const value = init(p)
+          if (value && snapshot(value) && !seen.has(v)) {
+            seen.add(v)
+            walk(value, visit)
+          } else local = true
+        } else if (isFunction(scope) && contains(scope, fn)) found = true
+      }
+      walk(n, visit)
       return found && !local
+    }
+    const renderText = (n, fn, seen = new Set()) => {
+      const edits = []
+      walk(n, (part) => {
+        const binding = variable(part)
+        if (
+          part.type !== 'Identifier' ||
+          binding?.scope.variableScope.block !== fn ||
+          seen.has(binding)
+        )
+          return
+        const value = init(part)
+        if (value && snapshot(value))
+          edits.push({
+            start: part.range[0] - n.range[0],
+            end: part.range[1] - n.range[0],
+            text: `(${renderText(value, fn, new Set(seen).add(binding))})`,
+          })
+      })
+      let text = source.getText(n)
+      for (const edit of edits.sort((a, b) => b.start - a.start))
+        text = text.slice(0, edit.start) + edit.text + text.slice(edit.end)
+      return text
     }
     const pure = (n) => {
       let result = true
@@ -410,11 +453,11 @@ export default {
           guarded: renderValue(n, fn),
           label: expected
             ? primitiveType(n) === 'boolean'
-              ? source.getText(n)
-              : `!!(${source.getText(n)})`
+              ? renderText(n, fn)
+              : `!!(${renderText(n, fn)})`
             : n.type === 'Identifier'
-              ? '!' + source.getText(n)
-              : '!(' + source.getText(n) + ')',
+              ? '!' + renderText(n, fn)
+              : '!(' + renderText(n, fn) + ')',
         },
       ]
     }
@@ -500,8 +543,8 @@ export default {
             condition: and(condition, not(active)),
             label:
               e.operator === '&&'
-                ? '!(' + source.getText(e.left) + ')'
-                : `!!(${source.getText(e.left)})`,
+                ? '!(' + renderText(e.left, fn) + ')'
+                : `!!(${renderText(e.left, fn)})`,
             prevented,
           })
         }
@@ -549,6 +592,10 @@ export default {
       const next = new Set(seen).add(n)
       let condition = true
       for (let p = n.parent, child = n; p; child = p, p = p.parent) {
+        if (p.type === 'CallExpression' && p.arguments.includes(child)) {
+          const receiver = optionalBase(p.callee)
+          if (receiver) condition = and(condition, formula(receiver))
+        }
         if (p.type === 'ConditionalExpression' && child !== p.test)
           condition = and(
             condition,

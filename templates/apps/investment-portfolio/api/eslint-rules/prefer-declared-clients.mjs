@@ -5698,6 +5698,8 @@ export function scaffoldRules(parser) {
         messages: {
           sameElement:
             '{{location}}: while `{{record}}` is missing this branch renders inside the same parent element as `{{field}}` (line {{fieldLine}}), so a reader can get the placeholder as the field value. Render the waiting or error message outside the region that shows `{{record}}` (return it before this markup, or put it beside the whole region), and render nothing here until `{{record}}` exists.',
+          sameRegion:
+            '{{location}}: this waiting text and `{{field}}` (line {{fieldLine}}) share <{{tag}}> {{region}} (line {{regionLine}}) while `{{record}}` is missing. A reader of that region can get the placeholder as the field value. Render the waiting or error message outside the region that shows `{{record}}`.',
         },
       },
       create(context) {
@@ -6027,15 +6029,107 @@ export function scaffoldRules(parser) {
             }
           }
         }
+        const rendered = (node, seen = new Set()) => {
+          const parent = node.parent
+          if (parent?.type === 'JSXExpressionContainer') return true
+          if (parent?.type !== 'VariableDeclarator' || parent.id.type !== 'Identifier') return false
+          const binding = variableOf(parent.id)
+          if (
+            !binding ||
+            seen.has(binding) ||
+            parent.parent.kind !== 'const' ||
+            binding.references.some((reference) => reference.isWrite() && !reference.init)
+          )
+            return false
+          const next = new Set(seen).add(binding)
+          return binding.references.some(
+            (reference) => !reference.init && rendered(reference.identifier, next),
+          )
+        }
+        const elements = (node, found = []) => {
+          if (!node?.type) return found
+          if (node.type === 'JSXElement') found.push(node)
+          for (const key of context.sourceCode.visitorKeys[node.type] ?? []) {
+            const child = node[key]
+            if (Array.isArray(child)) for (const item of child) elements(item, found)
+            else elements(child, found)
+          }
+          return found
+        }
+        // A rendered conditional can replace a whole named region, with different inner wrappers.
+        // Compare its two roots only; early returns and page-shell ancestry retain their own rule.
+        const sharedRegion = (waiting, loaded) => {
+          const tag = tagOf(waiting)
+          if (!tag || tag !== tagOf(loaded)) return null
+          const named = (node) => {
+            if (
+              node.openingElement.attributes.some(
+                (attribute) => attribute.type === 'JSXSpreadAttribute',
+              )
+            )
+              return []
+            return node.openingElement.attributes.flatMap((attribute) =>
+              ['className', 'id'].includes(attribute.name?.name) &&
+              attribute.value?.type === 'Literal' &&
+              typeof attribute.value.value === 'string' &&
+              attribute.value.value.trim()
+                ? [[attribute.name.name, attribute.value.value]]
+                : [],
+            )
+          }
+          const other = named(loaded)
+          const match = named(waiting).find(([name, value]) =>
+            other.some(([key, text]) => key === name && text === value),
+          )
+          return match
+            ? {
+                tag,
+                region: `${match[0]}=${JSON.stringify(match[1])}`,
+                regionLine: String(waiting.loc.start.line),
+              }
+            : null
+        }
+        const regionFields = (waiting, loaded, record, reported) => {
+          const region = sharedRegion(waiting, loaded)
+          if (!region) return
+          const fields = elements(loaded).flatMap((element) => {
+            const field = fieldShown(element, record)
+            return field
+              ? [{ field, tag: tagOf(element), fieldLine: String(element.loc.start.line) }]
+              : []
+          })
+          for (const element of elements(waiting)) {
+            if (
+              reported.has(element) ||
+              reads(element, record) ||
+              !element.children.some(
+                (child) =>
+                  child.type !== 'JSXElement' && child.type !== 'JSXFragment' && placeholder(child),
+              )
+            )
+              continue
+            const field = fields.find((candidate) => candidate.tag === tagOf(element))
+            if (!field) continue
+            reported.add(element)
+            context.report({
+              node: element,
+              messageId: 'sameRegion',
+              data: {
+                location: `${context.filename}:${element.loc.start.line}`,
+                record: record.name,
+                ...region,
+                field: field.field,
+                fieldLine: field.fieldLine,
+              },
+            })
+          }
+        }
         return {
           'FunctionDeclaration:exit': earlyReturns,
           'FunctionExpression:exit': earlyReturns,
           'ArrowFunctionExpression:exit': earlyReturns,
           ConditionalExpression(node) {
-            if (node.parent.type !== 'JSXExpressionContainer') return
-            let container = node.parent.parent
-            while (container?.type === 'JSXFragment') container = container.parent
-            if (container?.type !== 'JSXElement') return
+            if (!rendered(node)) return
             const subjects = []
             const collect = (branch) => {
               if (branch.type !== 'ConditionalExpression') return
@@ -6092,7 +6186,11 @@ export function scaffoldRules(parser) {
                 }
                 if (shown) break
               }
-              if (!shown) continue
+              if (!shown) {
+                for (const missing of waiting)
+                  for (const ready of loaded) regionFields(missing, ready, record, reported)
+                continue
+              }
               for (const branch of waiting) {
                 if (reported.has(branch) || !placeholder(branch) || reads(branch, record)) continue
                 reported.add(branch)

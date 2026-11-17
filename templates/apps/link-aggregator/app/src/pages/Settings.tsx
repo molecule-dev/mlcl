@@ -45,6 +45,7 @@ export function Settings() {
   const http = useHttpClient()
   const navigate = useNavigate()
   const { user, logout } = useAuth()
+  const userId = (user as { id?: string } | null)?.id
 
   const [section, setSection] = useState<string>('account')
   const [username, setUsername, fillUsername] = useForm({ defaultValues: { value: '' } }).asState(
@@ -168,7 +169,6 @@ export function Settings() {
   }
 
   const deleteAccount = async () => {
-    const userId = (user as { id?: string } | null)?.id
     if (!userId) return
     setDeleting(true)
     setDeleteError(null)
@@ -497,7 +497,7 @@ export function Settings() {
                     <button
                       type="button"
                       onClick={deleteAccount}
-                      disabled={deleting}
+                      disabled={deleting || !userId}
                       className={cm.cn(
                         cm.sp('px', 5),
                         cm.sp('py', 2),
