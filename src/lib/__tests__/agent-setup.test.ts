@@ -224,12 +224,117 @@ describe('planSetup', () => {
 
   it('says so when an agent has no MCP config at a scope', () => {
     const steps = plan('project', ['cline'])
-    expect(steps).toEqual([
+    expect(steps.filter((s) => s.component === 'mcp')).toEqual([
       expect.objectContaining({
         kind: 'note',
         component: 'mcp',
         text: expect.stringMatching(/Cline has no documented MCP config/),
       }),
+    ])
+  })
+
+  /** Where one agent's instructions and skills go: `section`/`file` paths, relative. */
+  const placed = (
+    scope: 'machine' | 'project',
+    id: string,
+  ): { instructions: string[]; skills: string[] } => {
+    const steps = plan(scope, [id])
+    const rel = (path: string): string =>
+      path.startsWith(cwd) ? path.slice(cwd.length + 1) : `~/${path.slice(home.length + 1)}`
+    return {
+      instructions: steps.flatMap((s) =>
+        s.kind === 'section' || s.kind === 'file' ? [rel(s.path)] : [],
+      ),
+      skills: steps.flatMap((s) =>
+        s.kind === 'skill' ? [rel(s.path).replace('/capability-first/SKILL.md', '')] : [],
+      ),
+    }
+  }
+
+  it('gives the agents that once got only the MCP server their rules files and skills (OLD MUSTFAIL)', () => {
+    expect(
+      Object.fromEntries(
+        ['zed', 'crush', 'trae', 'cline', 'junie', 'continue', 'goose'].map((id) => [
+          id,
+          [placed('machine', id), placed('project', id)],
+        ]),
+      ),
+    ).toEqual({
+      zed: [
+        { instructions: ['~/.config/zed/AGENTS.md'], skills: ['~/.agents/skills'] },
+        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+      ],
+      crush: [
+        { instructions: ['~/.config/crush/CRUSH.md'], skills: ['~/.agents/skills'] },
+        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+      ],
+      trae: [
+        { instructions: [], skills: ['~/.trae/skills'] },
+        { instructions: ['.trae/rules/molecule.md'], skills: ['.trae/skills'] },
+      ],
+      cline: [
+        { instructions: ['~/Documents/Cline/Rules/molecule.md'], skills: ['~/.agents/skills'] },
+        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+      ],
+      junie: [
+        { instructions: ['~/.junie/AGENTS.md'], skills: ['~/.agents/skills'] },
+        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+      ],
+      continue: [
+        { instructions: ['~/.continue/rules/molecule.md'], skills: ['~/.continue/skills'] },
+        { instructions: ['.continue/rules/molecule.md'], skills: ['.continue/skills'] },
+      ],
+      goose: [
+        { instructions: ['~/.config/goose/.goosehints'], skills: ['~/.agents/skills'] },
+        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+      ],
+    })
+    expect(plan('machine', ['trae'])).toContainEqual(
+      expect.objectContaining({ kind: 'note', text: expect.stringMatching(/Settings → Rules/) }),
+    )
+    const rules = (id: string): string[] =>
+      plan('project', [id]).flatMap((s) => (s.kind === 'file' ? [s.frontmatter] : []))
+    expect(rules('trae')).toEqual(['---\nalwaysApply: true\n---\n\n'])
+    expect(rules('continue')).toEqual(['---\nname: Molecule\nalwaysApply: true\n---\n\n'])
+  })
+
+  it('puts Zed’s section in the one rules file it reads, never a new AGENTS.md beside it', () => {
+    writeFileSync(join(cwd, 'CLAUDE.md'), '# rules\n')
+    expect(placed('project', 'zed').instructions).toEqual(['CLAUDE.md'])
+    writeFileSync(join(cwd, 'AGENTS.md'), '# agents\n')
+    expect(placed('project', 'zed').instructions).toEqual(['AGENTS.md'])
+    // Cline's `.clinerules` is often a folder: Zed reads files only.
+    mkdirSync(join(cwd, '.clinerules'))
+    expect(placed('project', 'zed').instructions).toEqual(['AGENTS.md'])
+    writeFileSync(join(cwd, '.rules'), 'be brief\n')
+    expect(placed('project', 'zed').instructions).toEqual(['.rules'])
+  })
+
+  it('joins the guidelines level Junie reads now', () => {
+    const junie = join(cwd, '.junie')
+    mkdirSync(join(junie, 'guidelines'), { recursive: true })
+    expect(placed('project', 'junie').instructions).toEqual(['.junie/guidelines/molecule.md'])
+    writeFileSync(join(junie, 'guidelines.md'), '# old\n')
+    expect(placed('project', 'junie').instructions).toEqual(['.junie/guidelines.md'])
+    writeFileSync(join(cwd, 'AGENTS.md'), '# agents\n')
+    expect(placed('project', 'junie').instructions).toEqual(['AGENTS.md'])
+    writeFileSync(join(junie, 'AGENTS.md'), '# junie\n')
+    expect(placed('project', 'junie').instructions).toEqual(['.junie/AGENTS.md'])
+  })
+
+  it('reads XDG_CONFIG_HOME for the agents that keep rules in their config folder', () => {
+    const xdg = join(home, 'xdg')
+    const steps = planSetup({
+      scope: 'machine',
+      harnesses: ['zed', 'crush', 'goose'].map((id) => findHarness(id)!),
+      components: new Set(['instructions']),
+      env: { ...env(), env: { XDG_CONFIG_HOME: xdg } },
+      skills: SKILLS,
+    })
+    expect(steps.flatMap((s) => (s.kind === 'section' ? [s.path] : []))).toEqual([
+      join(xdg, 'zed', 'AGENTS.md'),
+      join(xdg, 'crush', 'CRUSH.md'),
+      join(xdg, 'goose', '.goosehints'),
     ])
   })
 })

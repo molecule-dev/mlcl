@@ -5,20 +5,20 @@
  *
  * One table, read by `mlcl setup`, `mlcl mcp install` and `mlcl agent init`.
  * Every path and command here comes from the agent vendor's own documentation
- * (checked 2026-11-15); an agent whose docs name no file for something gets no
+ * (checked 2026-11-15; Zed through Goose 2026-11-17); an agent whose docs name no file for something gets no
  * entry for it rather than a guess. When a vendor ships a native `mcp add`
  * command, it is used: that command owns the config format, its scopes and its
  * validation.
  *
  * Shared locations are named once and de-duplicated by the caller:
  * `~/.agents/skills` and `<project>/.agents/skills` are read by Codex, Cursor,
- * Gemini CLI, Devin Desktop, OpenCode and Amp; `<project>/AGENTS.md` is read by
+ * Gemini CLI, Devin Desktop, OpenCode, Amp, Zed, Crush, Cline, Junie and Goose; `<project>/AGENTS.md` is read by
  * nearly every agent.
  *
  * @module
  */
 
-import { existsSync, readFileSync, realpathSync } from 'node:fs'
+import { existsSync, readFileSync, realpathSync, statSync } from 'node:fs'
 import { dirname, join, relative, sep } from 'node:path'
 
 /** Machine-wide (every project for this user) or the current project only. */
@@ -80,6 +80,11 @@ export interface AgentHarness {
   aliases?: string[]
   /** The agent documents only its MCP configuration: no skills or instructions files. */
   mcpOnly?: boolean
+  /**
+   * The agent loads only the first project instruction file it finds, so a new
+   * `AGENTS.md` beside the file it reads now would replace that file.
+   */
+  readsFirstFileOnly?: boolean
   /** Whether the agent looks installed for this user. */
   installed: (e: AgentEnvironment) => boolean
   /** How to register the MCP server; empty when the agent has no MCP support at this scope. */
@@ -156,6 +161,61 @@ function importsFile(importer: string, imported: string): boolean {
     return trimmed === `@${target}` || trimmed === `@./${target}`
   })
 }
+
+const isFile = (path: string): boolean => {
+  try {
+    return statSync(path).isFile()
+  } catch (_error) {
+    // Absent: not the file the agent reads.
+    return false
+  }
+}
+
+/**
+ * For an agent that loads only the first of `names` it finds: the section goes in
+ * the file it reads now, or in `AGENTS.md` when the project has none of them.
+ */
+const firstFileSection = (e: AgentEnvironment, names: string[]): InstructionTarget => ({
+  kind: 'section',
+  path: join(e.cwd, names.find((name) => isFile(join(e.cwd, name))) ?? 'AGENTS.md'),
+})
+
+/**
+ * Zed's project rules files, in the order it checks them; it reads the first one
+ * that exists (zed-industries/zed `docs/src/ai/instructions.md`, `RULES_FILE_NAMES`
+ * in `crates/prompt_store/src/prompts.rs`).
+ */
+const ZED_RULES_FILES = [
+  '.rules',
+  '.cursorrules',
+  '.windsurfrules',
+  '.clinerules',
+  join('.github', 'copilot-instructions.md'),
+  'AGENT.md',
+  'AGENTS.md',
+  'CLAUDE.md',
+  'GEMINI.md',
+]
+
+/**
+ * Junie checks `.junie/AGENTS.md`, then `AGENTS.md` with `.junie/rules`, then the
+ * older `.junie/guidelines.md` or `.junie/guidelines/` folder
+ * (junie.jetbrains.com/docs/guidelines-and-memory.html). The section joins the
+ * level the project uses now, so a new `AGENTS.md` never hides its guidelines.
+ */
+function junieProjectInstructions(e: AgentEnvironment): InstructionTarget[] {
+  const junie = join(e.cwd, '.junie')
+  if (isFile(join(junie, 'AGENTS.md')) || isFile(join(e.cwd, 'AGENTS.md')))
+    return [firstFileSection(e, [join('.junie', 'AGENTS.md'), 'AGENTS.md'])]
+  if (isFile(join(junie, 'guidelines.md')))
+    return [{ kind: 'section', path: join(junie, 'guidelines.md') }]
+  if (existsSync(join(junie, 'guidelines')))
+    return [{ kind: 'file', path: join(junie, 'guidelines', 'molecule.md'), frontmatter: '' }]
+  return [projectAgentsMd(e)]
+}
+
+/** A Continue rule that is always in context (continuedev/continue `docs/customize/deep-dives/rules.mdx`). */
+const CONTINUE_RULE_FRONTMATTER = '---\nname: Molecule\nalwaysApply: true\n---\n\n'
 
 const cli = (bin: string, args: string[]): McpTarget => ({ kind: 'cli', bin, args })
 
@@ -412,11 +472,11 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
           ]
         : [projectAgentsMd(e)],
   },
-  // The agents below document only their MCP configuration.
+  // Zed through Goose: paths from each vendor's docs and source, checked 2026-11-17.
   {
     id: 'zed',
-    mcpOnly: true,
     label: 'Zed',
+    readsFirstFileOnly: true,
     installed: (e) => e.onPath('zed') || existsSync(join(xdgConfig(e), 'zed')),
     mcp: (scope, e) => [
       jsonTarget(
@@ -427,12 +487,15 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
         { ...STANDARD_MCP_ENTRY, env: {} },
       ),
     ],
-    skillsDir: () => null,
-    instructions: () => [],
+    // Zed reads skills from these two folders only (`docs/src/ai/skills.md`).
+    skillsDir: agentsSkills,
+    instructions: (scope, e) =>
+      scope === 'machine'
+        ? [{ kind: 'section', path: join(xdgConfig(e), 'zed', 'AGENTS.md') }]
+        : [firstFileSection(e, ZED_RULES_FILES)],
   },
   {
     id: 'crush',
-    mcpOnly: true,
     label: 'Crush',
     installed: (e) => e.onPath('crush') || existsSync(join(xdgConfig(e), 'crush')),
     // Crush's JSON config is deprecated in favour of `crushrc` but stays
@@ -448,12 +511,16 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
         { type: 'stdio', ...STANDARD_MCP_ENTRY },
       ),
     ],
-    skillsDir: () => null,
-    instructions: () => [],
+    skillsDir: agentsSkills,
+    // Crush loads every context file it finds, `AGENTS.md` among them, plus
+    // `CRUSH.md` in its config folder for every project.
+    instructions: (scope, e) =>
+      scope === 'machine'
+        ? [{ kind: 'section', path: join(xdgConfig(e), 'crush', 'CRUSH.md') }]
+        : [projectAgentsMd(e)],
   },
   {
     id: 'trae',
-    mcpOnly: true,
     label: 'Trae',
     installed: (e) => has(e, ['trae'], ['.trae']),
     mcp: (scope, e) =>
@@ -465,12 +532,28 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
               `  {"mcpServers": {"${MCP_SERVER_NAME}": {"command": "npx", "args": ["-y", "molecule-mcp"]}}}`,
             ),
           ],
-    skillsDir: () => null,
-    instructions: () => [],
+    skillsDir: (scope, e) => join(scope === 'machine' ? e.home : e.cwd, '.trae', 'skills'),
+    // Trae reads `AGENTS.md` only when a setting is switched on; `.trae/rules`
+    // is always read, and `alwaysApply` keeps the rule in every chat
+    // (docs.trae.ai/ide/rules).
+    instructions: (scope, e) =>
+      scope === 'machine'
+        ? [
+            {
+              kind: 'none',
+              note: 'Trae keeps user rules in its settings (Settings → Rules), not in a file; the skills cover every project.',
+            },
+          ]
+        : [
+            {
+              kind: 'file',
+              path: join(e.cwd, '.trae', 'rules', 'molecule.md'),
+              frontmatter: '---\nalwaysApply: true\n---\n\n',
+            },
+          ],
   },
   {
     id: 'cline',
-    mcpOnly: true,
     label: 'Cline',
     installed: (e) => has(e, ['cline'], ['.cline']),
     mcp: (scope, e) => {
@@ -486,24 +569,39 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
         ]
       return [jsonTarget(join(e.home, '.cline', 'data', 'settings', 'cline_mcp_settings.json'))]
     },
-    skillsDir: () => null,
-    instructions: () => [],
+    skillsDir: agentsSkills,
+    // Cline combines every rules source; a rules file without frontmatter is
+    // always applied (cline/cline `docs/customization/cline-rules.mdx`).
+    instructions: (scope, e) =>
+      scope === 'machine'
+        ? [
+            {
+              kind: 'file',
+              path: join(e.home, 'Documents', 'Cline', 'Rules', 'molecule.md'),
+              frontmatter: '',
+            },
+          ]
+        : [projectAgentsMd(e)],
   },
   {
     id: 'junie',
-    mcpOnly: true,
     label: 'Junie (JetBrains)',
+    readsFirstFileOnly: true,
     installed: (e) => has(e, ['junie'], ['.junie']),
     mcp: (scope, e) => [
       jsonTarget(join(scope === 'machine' ? e.home : e.cwd, '.junie', 'mcp', 'mcp.json')),
     ],
-    skillsDir: () => null,
-    instructions: () => [],
+    skillsDir: agentsSkills,
+    instructions: (scope, e) =>
+      scope === 'machine'
+        ? [{ kind: 'section', path: join(e.home, '.junie', 'AGENTS.md') }]
+        : junieProjectInstructions(e),
   },
   {
     id: 'continue',
-    mcpOnly: true,
     label: 'Continue',
+    // Its CLI reads the first of AGENTS.md, AGENT.md, CLAUDE.md and CODEX.md.
+    readsFirstFileOnly: true,
     installed: (e) => existsSync(join(e.home, '.continue')),
     // Continue picks up Claude-format JSON files dropped into a project's
     // `.continue/mcpServers/`; its global config is a YAML list.
@@ -519,12 +617,19 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
               '    args: ["-y", "molecule-mcp"]',
             ),
           ],
-    skillsDir: () => null,
-    instructions: () => [],
+    // Continue's IDE extension and CLI both read `.continue/rules` and
+    // `.continue/skills`, in the project and in `~/.continue`.
+    skillsDir: (scope, e) => join(scope === 'machine' ? e.home : e.cwd, '.continue', 'skills'),
+    instructions: (scope, e) => [
+      {
+        kind: 'file',
+        path: join(scope === 'machine' ? e.home : e.cwd, '.continue', 'rules', 'molecule.md'),
+        frontmatter: CONTINUE_RULE_FRONTMATTER,
+      },
+    ],
   },
   {
     id: 'goose',
-    mcpOnly: true,
     label: 'Goose',
     installed: (e) => e.onPath('goose') || existsSync(join(xdgConfig(e), 'goose')),
     mcp: (scope) =>
@@ -542,8 +647,14 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
               '    timeout: 300',
             ),
           ],
-    skillsDir: () => null,
-    instructions: () => [],
+    skillsDir: agentsSkills,
+    // Goose loads `.goosehints` and `AGENTS.md` from the project, and
+    // `.goosehints` from its config folder for every project
+    // (aaif-goose/goose `documentation/` using-goosehints.md, `crates/goose/src/hints/load_hints.rs`).
+    instructions: (scope, e) =>
+      scope === 'machine'
+        ? [{ kind: 'section', path: join(xdgConfig(e), 'goose', '.goosehints') }]
+        : [projectAgentsMd(e)],
   },
   {
     id: 'aider',

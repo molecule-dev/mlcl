@@ -24,6 +24,13 @@ const HARNESS_MARKERS: [string, string[]][] = [
   ['windsurf', ['.windsurf', '.devin']],
   ['kiro', ['.kiro']],
   ['copilot', [join('.github', 'copilot-instructions.md')]],
+  ['zed', ['.zed', '.rules']],
+  ['crush', ['.crush', 'CRUSH.md', 'crush.json', '.crush.json']],
+  ['trae', ['.trae']],
+  ['cline', ['.clinerules', '.cline']],
+  ['junie', ['.junie']],
+  ['continue', ['.continue']],
+  ['goose', ['.goosehints']],
 ]
 
 /** Agents that read only the project's `AGENTS.md`, with no table entry of their own. */
@@ -106,9 +113,11 @@ export default class AgentInit extends Command {
         )
       }
     } else {
-      // AGENTS.md is written for every agent: it is the file the next agent reads too.
+      // AGENTS.md is written for every agent: it is the file the next agent reads
+      // too. Not for an agent that reads only its first instruction file: a new
+      // AGENTS.md would replace the file it reads now (Zed with only CLAUDE.md).
       const agentsMd = join(env.cwd, 'AGENTS.md')
-      if (!steps.some((s) => 'path' in s && s.path === agentsMd))
+      if (!harness?.readsFirstFileOnly && !steps.some((s) => 'path' in s && s.path === agentsMd))
         steps.unshift({
           kind: 'section',
           component: 'instructions',

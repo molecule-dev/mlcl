@@ -275,4 +275,55 @@ describe('mlcl agent init', () => {
     expect(cmd).toBeDefined()
     expect(existsSync(join(dir, 'AGENTS.md'))).toBe(true)
   })
+
+  it('writes Zed’s section into the file it reads and adds no AGENTS.md that would replace it (OLD MUSTFAIL)', async () => {
+    await writeFile(join(dir, 'CLAUDE.md'), '# house rules\n')
+    await run(['--agent', 'zed'])
+    const claude = await readFile(join(dir, 'CLAUDE.md'), 'utf8')
+    expect(claude).toMatch(/^# house rules\n/)
+    expect(claude).toContain('## Molecule')
+    expect(existsSync(join(dir, 'AGENTS.md'))).toBe(false)
+  })
+
+  it('detects Trae and Continue projects and writes the always-on rule files they read', async () => {
+    await mkdir(join(dir, '.trae'), { recursive: true })
+    await run()
+    const trae = await readFile(join(dir, '.trae', 'rules', 'molecule.md'), 'utf8')
+    expect(trae).toMatch(/^---\nalwaysApply: true\n---\n\n## Molecule\n/)
+    await rm(join(dir, '.trae'), { recursive: true })
+    await rm(join(dir, 'AGENTS.md'))
+    await mkdir(join(dir, '.continue'), { recursive: true })
+    await run()
+    const rule = await readFile(join(dir, '.continue', 'rules', 'molecule.md'), 'utf8')
+    expect(rule).toMatch(/^---\nname: Molecule\nalwaysApply: true\n---\n\n## Molecule\n/)
+    // Continue's CLI reads only the first of AGENTS.md, CLAUDE.md, …: none is created.
+    expect(existsSync(join(dir, 'AGENTS.md'))).toBe(false)
+  })
+
+  it('--global writes the rules file of every agent that has one', async () => {
+    const home = await mkdtemp(join(tmpdir(), 'mlcl-agent-init-home-'))
+    const prevHome = process.env.HOME
+    const prevXdg = process.env.XDG_CONFIG_HOME
+    process.env.HOME = home
+    delete process.env.XDG_CONFIG_HOME
+    try {
+      for (const [agent, path] of [
+        ['zed', ['.config', 'zed', 'AGENTS.md']],
+        ['crush', ['.config', 'crush', 'CRUSH.md']],
+        ['cline', ['Documents', 'Cline', 'Rules', 'molecule.md']],
+        ['junie', ['.junie', 'AGENTS.md']],
+        ['continue', ['.continue', 'rules', 'molecule.md']],
+        ['goose', ['.config', 'goose', '.goosehints']],
+      ] as const) {
+        await run(['--agent', agent, '--global'])
+        expect(await readFile(join(home, ...path), 'utf8'), agent).toContain('## Molecule')
+      }
+      await expect(run(['--agent', 'trae', '--global'])).rejects.toThrow(/--global is supported/)
+    } finally {
+      process.env.HOME = prevHome
+      if (prevXdg === undefined) delete process.env.XDG_CONFIG_HOME
+      else process.env.XDG_CONFIG_HOME = prevXdg
+      await rm(home, { recursive: true, force: true })
+    }
+  })
 })

@@ -114,18 +114,28 @@ For each agent it installs three things:
 - **the conventions**, as a `## Molecule` section in the instructions file the
   agent reads, or as a rules file of its own.
 
-| Agent                                           | Every project (`--scope machine`)                                                 | This project (`--scope project`)                           |
-| ----------------------------------------------- | --------------------------------------------------------------------------------- | ---------------------------------------------------------- |
-| Claude Code                                     | `claude mcp add --scope user`, `~/.claude/skills`, `~/.claude/CLAUDE.md`          | `.mcp.json`, `.claude/skills`, `AGENTS.md` + `CLAUDE.md`   |
-| Codex                                           | `codex mcp add`, `~/.agents/skills`, `~/.codex/AGENTS.md`                         | `.codex/config.toml`, `.agents/skills`, `AGENTS.md`        |
-| Cursor                                          | `~/.cursor/mcp.json`, `~/.agents/skills` (user rules live in Cursor's settings)   | `.cursor/mcp.json`, `.agents/skills`, `AGENTS.md`          |
-| Gemini CLI                                      | `gemini mcp add -s user`, `~/.agents/skills`, `~/.gemini/GEMINI.md`               | `gemini mcp add -s project`, `.agents/skills`, `GEMINI.md` |
-| Devin Desktop (Windsurf)                        | `~/.config/devin/mcp_config.json`, `~/.agents/skills`, `~/.devin/global_rules.md` | `.devin/mcp_config.json`, `.agents/skills`, `AGENTS.md`    |
-| OpenCode                                        | `opencode mcp add --global`, `~/.agents/skills`, `~/.config/opencode/AGENTS.md`   | `opencode mcp add`, `.agents/skills`, `AGENTS.md`          |
-| Amp                                             | `~/.config/amp/settings.json`, `~/.agents/skills`, `~/.config/amp/AGENTS.md`      | `.amp/settings.json`, `.agents/skills`, `AGENTS.md`        |
-| GitHub Copilot                                  | `copilot mcp add`, `~/.copilot/skills`, `~/.copilot/copilot-instructions.md`      | `.mcp.json`, `.github/skills`, `AGENTS.md`                 |
-| Kiro                                            | `~/.kiro/settings/mcp.json`, `~/.kiro/skills`, `~/.kiro/steering/molecule.md`     | `.kiro/settings/mcp.json`, `.kiro/skills`, `AGENTS.md`     |
-| Zed, Crush, Trae, Cline, Junie, Continue, Goose | the MCP server only (`mlcl mcp install --agent <name>` does the same)             | the MCP server only                                        |
+| Agent                    | Every project (`--scope machine`)                                                                                | This project (`--scope project`)                                                            |
+| ------------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| Claude Code              | `claude mcp add --scope user`, `~/.claude/skills`, `~/.claude/CLAUDE.md`                                         | `.mcp.json`, `.claude/skills`, `AGENTS.md` + `CLAUDE.md`                                    |
+| Codex                    | `codex mcp add`, `~/.agents/skills`, `~/.codex/AGENTS.md`                                                        | `.codex/config.toml`, `.agents/skills`, `AGENTS.md`                                         |
+| Cursor                   | `~/.cursor/mcp.json`, `~/.agents/skills` (user rules live in Cursor's settings)                                  | `.cursor/mcp.json`, `.agents/skills`, `AGENTS.md`                                           |
+| Gemini CLI               | `gemini mcp add -s user`, `~/.agents/skills`, `~/.gemini/GEMINI.md`                                              | `gemini mcp add -s project`, `.agents/skills`, `GEMINI.md`                                  |
+| Devin Desktop (Windsurf) | `~/.config/devin/mcp_config.json`, `~/.agents/skills`, `~/.devin/global_rules.md`                                | `.devin/mcp_config.json`, `.agents/skills`, `AGENTS.md`                                     |
+| OpenCode                 | `opencode mcp add --global`, `~/.agents/skills`, `~/.config/opencode/AGENTS.md`                                  | `opencode mcp add`, `.agents/skills`, `AGENTS.md`                                           |
+| Amp                      | `~/.config/amp/settings.json`, `~/.agents/skills`, `~/.config/amp/AGENTS.md`                                     | `.amp/settings.json`, `.agents/skills`, `AGENTS.md`                                         |
+| GitHub Copilot           | `copilot mcp add`, `~/.copilot/skills`, `~/.copilot/copilot-instructions.md`                                     | `.mcp.json`, `.github/skills`, `AGENTS.md`                                                  |
+| Kiro                     | `~/.kiro/settings/mcp.json`, `~/.kiro/skills`, `~/.kiro/steering/molecule.md`                                    | `.kiro/settings/mcp.json`, `.kiro/skills`, `AGENTS.md`                                      |
+| Zed                      | `~/.config/zed/settings.json`, `~/.agents/skills`, `~/.config/zed/AGENTS.md`                                     | `.zed/settings.json`, `.agents/skills`, the rules file Zed reads (else `AGENTS.md`)         |
+| Crush                    | `~/.config/crush/crush.json`, `~/.agents/skills`, `~/.config/crush/CRUSH.md`                                     | `.crush.json`, `.agents/skills`, `AGENTS.md`                                                |
+| Trae                     | MCP and user rules in Trae's settings (setup prints the entry), `~/.trae/skills`                                 | `.trae/mcp.json`, `.trae/skills`, `.trae/rules/molecule.md`                                 |
+| Cline                    | `cline mcp add`, `~/.agents/skills`, `~/Documents/Cline/Rules/molecule.md`                                       | `.agents/skills`, `AGENTS.md`                                                               |
+| Junie (JetBrains)        | `~/.junie/mcp/mcp.json`, `~/.agents/skills`, `~/.junie/AGENTS.md`                                                | `.junie/mcp/mcp.json`, `.agents/skills`, the guidelines file Junie reads (else `AGENTS.md`) |
+| Continue                 | MCP in `~/.continue/config.yaml` (setup prints the entry), `~/.continue/skills`, `~/.continue/rules/molecule.md` | `.continue/mcpServers/molecule.json`, `.continue/skills`, `.continue/rules/molecule.md`     |
+| Goose                    | MCP in `~/.config/goose/config.yaml` (setup prints the entry), `~/.agents/skills`, `~/.config/goose/.goosehints` | `.agents/skills`, `AGENTS.md`                                                               |
+
+Zed, Junie and Continue's CLI read only the first instruction file they find, so
+setup adds the section to the file they read now instead of creating an
+`AGENTS.md` that would replace it.
 
 Re-running is safe: anything already in place is left alone, and a skill or
 section you edited is kept until you pass `--force`. Restart your agents
@@ -164,11 +174,14 @@ npx mlcl agent init --force                  # refresh the molecule section
 
 What it writes per harness:
 
-| Harness                                                               | Files written                                                                                                                                                |
-| --------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| Claude Code                                                           | `AGENTS.md`, plus a one-line `CLAUDE.md` (`@AGENTS.md`) when there is none; an existing `CLAUDE.md` that does not import `AGENTS.md` gets the section itself |
-| Gemini CLI                                                            | `AGENTS.md` + `GEMINI.md`                                                                                                                                    |
-| Codex, Cursor, Copilot, Devin, OpenCode, Amp, Kiro, Pi, anything else | `AGENTS.md` (the cross-harness standard they all read)                                                                                                       |
+| Harness                                                                                    | Files written                                                                                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| Claude Code                                                                                | `AGENTS.md`, plus a one-line `CLAUDE.md` (`@AGENTS.md`) when there is none; an existing `CLAUDE.md` that does not import `AGENTS.md` gets the section itself |
+| Gemini CLI                                                                                 | `AGENTS.md` + `GEMINI.md`                                                                                                                                    |
+| Zed, Junie                                                                                 | the section in the one instruction file the agent reads now, else `AGENTS.md`; never a new `AGENTS.md` that would replace that file                          |
+| Trae                                                                                       | `AGENTS.md` + `.trae/rules/molecule.md` (Trae reads `AGENTS.md` only when a setting is on)                                                                   |
+| Continue                                                                                   | `.continue/rules/molecule.md`                                                                                                                                |
+| Codex, Cursor, Copilot, Devin, OpenCode, Amp, Kiro, Crush, Cline, Goose, Pi, anything else | `AGENTS.md` (the cross-harness standard they all read)                                                                                                       |
 
 Claude Code skips `AGENTS.md` when a `CLAUDE.md` sits in any folder above the project
 (a package in a monorepo, say), so the `@AGENTS.md` import is what makes the

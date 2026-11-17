@@ -124,6 +124,27 @@ describe('mlcl setup', () => {
     expect(out).toContain('CLAUDE.md (imports AGENTS.md)')
   })
 
+  it('every project: Zed, Crush, Cline, Junie and Goose get the skills and their rules files (OLD MUSTFAIL)', async () => {
+    await run(['--yes', '--scope', 'machine', '--agent', 'zed,crush,cline,junie,goose,continue'])
+    expect(skillsIn(join(home, '.agents', 'skills'))).toEqual(SKILL_NAMES)
+    expect(skillsIn(join(home, '.continue', 'skills'))).toEqual(SKILL_NAMES)
+    for (const path of [
+      ['.config', 'zed', 'AGENTS.md'],
+      ['.config', 'crush', 'CRUSH.md'],
+      ['Documents', 'Cline', 'Rules', 'molecule.md'],
+      ['.junie', 'AGENTS.md'],
+      ['.config', 'goose', '.goosehints'],
+    ])
+      expect(read(home, ...path), path.join('/')).toMatch(/^## Molecule\n/)
+    expect(read(home, '.continue', 'rules', 'molecule.md')).toMatch(
+      /^---\nname: Molecule\nalwaysApply: true\n---\n\n## Molecule\n/,
+    )
+    expect(
+      JSON.parse(read(home, '.config', 'zed', 'settings.json')).context_servers.molecule,
+    ).toEqual(expect.objectContaining({ command: 'npx' }))
+    expect(readdirSync(project)).toEqual([])
+  })
+
   it('defaults to the agents found on this machine', async () => {
     mkdirSync(join(home, '.cursor'))
     const out = await run(['--yes'])
