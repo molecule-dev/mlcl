@@ -89,6 +89,10 @@ const moleculeDir = process.env.MOLECULE_PACKAGES_DIR
 
 const registry = getRawRegistry()
 const registryPath = getRegistryPath()
+// A package awaiting its first release is declared under `pendingPackages` until the release moves it into
+// `packages`. It is source in this tree like any other, so it counts as registered and its entry is checked the
+// same way. An entry in both maps keeps its installable declaration (as docs-sync's documentedRegistry reads them).
+const entries = { ...(registry.pendingPackages ?? {}), ...registry.packages }
 
 // Optional positional args scope the check to specific packages (registry-relative
 // paths). Normalize trailing slashes so `packages/x/` and `packages/x` both match.
@@ -112,7 +116,7 @@ for (const path of packagePaths) {
   // A private package (a workspace-only test kit) is never published, so mlcl
   // can never install it and the registry must not list it.
   if (isPrivate === true) continue
-  const registeredPath = registry.packages[name]?.path
+  const registeredPath = entries[name]?.path
   if (!registeredPath || join(moleculeDir, registeredPath) !== join(moleculeDir, path))
     unregistered.push({ name, path, registeredPath })
 }
@@ -124,9 +128,9 @@ const peersDrifted = []
 const descriptionsDrifted = []
 const recordDrifted = []
 const declarationsDrifted = []
-const bondSetterNames = bondSetterScope(registry.packages)
-const packageSrc = registryPackageSrc(registry.packages, moleculeDir)
-const declared = declarationScope(registry.packages)
+const bondSetterNames = bondSetterScope(entries)
+const packageSrc = registryPackageSrc(entries, moleculeDir)
+const declared = declarationScope(entries)
 let checked = 0
 let skipped = 0
 
@@ -135,13 +139,13 @@ let skipped = 0
 // scoped package stales the re-exporter too: check it in the same run, transitively.
 const checkPaths = new Set(scopePaths)
 const reexported = new Set(
-  Object.entries(registry.packages)
+  Object.entries(entries)
     .filter(([, entry]) => scopePaths.has(entry.path.replace(/\/+$/, '')))
     .map(([name]) => name),
 )
 for (let grew = reexported.size > 0; grew;) {
   grew = false
-  for (const [name, entry] of Object.entries(registry.packages)) {
+  for (const [name, entry] of Object.entries(entries)) {
     const path = entry.path.replace(/\/+$/, '')
     if (checkPaths.has(path)) continue
     const indexPath = join(moleculeDir, path, 'src/index.ts')
@@ -157,7 +161,7 @@ for (let grew = reexported.size > 0; grew;) {
   }
 }
 
-for (const [name, entry] of Object.entries(registry.packages)) {
+for (const [name, entry] of Object.entries(entries)) {
   if (scopePaths.size > 0 && !checkPaths.has(entry.path.replace(/\/+$/, ''))) continue
 
   const srcPath = join(moleculeDir, entry.path, 'src')

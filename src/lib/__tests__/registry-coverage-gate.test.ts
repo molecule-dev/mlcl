@@ -24,26 +24,32 @@ function runGate(
   scope: string[] = [packagePath],
   wrongPath = false,
   moleculePeers: string[] = [],
+  {
+    table = 'packages',
+    exports = ['probe'],
+  }: { table?: 'packages' | 'pendingPackages'; exports?: string[] } = {},
 ): { status: number | null; output: string } {
   const registry = join(scratch, 'registry.json')
+  const entries = registered
+    ? {
+        [packageName]: {
+          type: 'core',
+          category: 'coverage',
+          stack: 'api',
+          label: 'Coverage probe',
+          description: 'Registry coverage fixture',
+          path: wrongPath ? 'packages/api/core/wrong' : packagePath,
+          exports,
+          moleculePeers,
+        },
+      }
+    : {}
   writeFileSync(
     registry,
     JSON.stringify({
       version: 1,
-      packages: registered
-        ? {
-            [packageName]: {
-              type: 'core',
-              category: 'coverage',
-              stack: 'api',
-              label: 'Coverage probe',
-              description: 'Registry coverage fixture',
-              path: wrongPath ? 'packages/api/core/wrong' : packagePath,
-              exports: ['probe'],
-              moleculePeers,
-            },
-          }
-        : {},
+      packages: table === 'packages' ? entries : {},
+      ...(table === 'pendingPackages' ? { pendingPackages: entries } : {}),
     }),
   )
   const result = spawnSync(
@@ -134,6 +140,21 @@ describe('registry coverage gate', () => {
       }),
     )
     expect(runGate(true).status).toBe(0)
+  })
+
+  it('accepts a package declared under pendingPackages, awaiting its first release', () => {
+    expect(runGate(true, [packagePath], false, [], { table: 'pendingPackages' }).status).toBe(0)
+    expect(runGate(true, [], false, [], { table: 'pendingPackages' }).status).toBe(0)
+  })
+
+  it('checks a pending entry the way it checks an installable one', () => {
+    const result = runGate(true, [packagePath], false, [], {
+      table: 'pendingPackages',
+      exports: ['stale'],
+    })
+    expect(result.status).toBe(1)
+    expect(result.output).toContain('exports are out of sync')
+    expect(result.output).toContain(packageName)
   })
 
   it('allows a scoped package that was deleted in this commit', () => {
