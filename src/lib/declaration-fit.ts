@@ -5,8 +5,8 @@
  * A member's JSDoc is usually most of a long declaration's text. Cutting the
  * declaration at the budget drops whole members — their names, optionality and
  * types — while the comments above them survive. So comments are shortened
- * first ({@link compactDeclarationComments}); a declaration still too long is
- * cut at a member boundary and the members left out are named
+ * first, as few as it takes ({@link fitComments}); a declaration still too long
+ * is cut at a member boundary and the members left out are named
  * ({@link cutAtMemberBoundary}).
  *
  * @module
@@ -105,29 +105,33 @@ function summarizeJsDoc(comment: string): string | null {
   return summary ? `/** ${summary} */` : null
 }
 
+/** What happens to one comment in a rewrite. */
+type CommentAction = 'keep' | 'summary' | 'drop'
+
 /**
- * The same declaration with shorter comments.
+ * `text` with each comment kept, shortened to its JSDoc summary or removed.
  *
- * The result is checked against the original with TypeScript's parser: both
- * must print the same code once comments are removed. When they do not — a
- * construct this rewrite does not understand — the function refuses rather than
- * render a declaration that says something different.
- *
- * @param text - A declaration's source text (an interface, type alias, enum or class).
- * @param mode - How to rewrite the comments; see {@link CommentCompaction}.
- * @returns The rewritten declaration, or `null` when the rewrite was refused.
+ * @param text - A declaration's source text.
+ * @param ranges - Its comments, from {@link commentRanges}.
+ * @param action - What to do with the comment at each index of `ranges`.
+ * @returns The rewritten text, trailing whitespace trimmed.
  */
-export function compactDeclarationComments(text: string, mode: CommentCompaction): string | null {
+function rewriteComments(
+  text: string,
+  ranges: { start: number; end: number; jsdoc: boolean }[],
+  action: (index: number) => CommentAction,
+): string {
   let out = ''
   let last = 0
-  for (const range of commentRanges(text)) {
+  ranges.forEach((range, index) => {
     const comment = text.slice(range.start, range.end)
+    const todo = action(index)
     const replacement =
-      mode === 'summary' ? (range.jsdoc ? summarizeJsDoc(comment) : comment) : null
+      todo === 'keep' ? comment : todo === 'summary' ? summarizeJsDoc(comment) : null
     if (replacement !== null) {
       out += text.slice(last, range.start) + replacement
       last = range.end
-      continue
+      return
     }
     // Removing the comment: take the line with it when nothing else is on that line.
     const lineStart = text.lastIndexOf('\n', range.start - 1) + 1
@@ -141,9 +145,114 @@ export function compactDeclarationComments(text: string, mode: CommentCompaction
       out += text.slice(last, range.start).replace(/[ \t]+$/, '')
       last = range.end
     }
+  })
+  return (out + text.slice(last)).trimEnd()
+}
+
+/**
+ * The same declaration with shorter comments.
+ *
+ * The result is checked against the original with TypeScript's parser: both
+ * must print the same code once comments are removed. When they do not — a
+ * construct this rewrite does not understand — the function refuses rather than
+ * render a declaration that says something different.
+ *
+ * @param text - A declaration's source text (an interface, type alias, enum or class).
+ * @param mode - How to rewrite the comments; see {@link CommentCompaction}.
+ * @returns The rewritten declaration, or `null` when the rewrite was refused.
+ */
+export function compactDeclarationComments(text: string, mode: CommentCompaction): string | null {
+  const ranges = commentRanges(text)
+  const out = rewriteComments(text, ranges, (index) =>
+    mode === 'drop' ? 'drop' : ranges[index].jsdoc ? 'summary' : 'keep',
+  )
+  return sameCode(text, out) ? out : null
+}
+
+/** A declaration fitted by {@link fitComments}, and how many of its comments it gave up. */
+export interface CommentFit {
+  /** The fitted declaration. */
+  text: string
+  /** Comments shortened to their JSDoc summary (and kept). */
+  summarized: number
+  /** Comments left out. */
+  dropped: number
+  /** Every comment the declaration has. */
+  comments: number
+  /** The JSDoc blocks a summary would shorten. */
+  shortenable: number
+}
+
+/**
+ * The declaration with as few comments rewritten as it takes to fit `limit`.
+ * JSDoc blocks are shortened to their first sentence, the one that saves the
+ * most first; only once every block is shortened are comments left out, the
+ * longest first. So a declaration a few characters over the limit keeps every
+ * other comment whole, instead of losing the details of all of them.
+ *
+ * Checked like {@link compactDeclarationComments}: a rewrite that would change
+ * the code is refused.
+ *
+ * @param text - A declaration's source text (an interface, type alias, enum or class).
+ * @param limit - Maximum characters.
+ * @returns The fitted declaration and what it gave up, or `null` when even
+ *   leaving out every comment does not fit, or the rewrite was refused.
+ */
+export function fitComments(text: string, limit: number): CommentFit | null {
+  const ranges = commentRanges(text)
+  const actions: CommentAction[] = ranges.map(() => 'keep')
+  const render = (): string => rewriteComments(text, ranges, (index) => actions[index])
+  let out = render()
+  const comment = (index: number): string => text.slice(ranges[index].start, ranges[index].end)
+  const byLength = (length: (index: number) => number): number[] =>
+    ranges.map((_, index) => index).sort((a, b) => length(b) - length(a))
+  const summary = ranges.map((range, index) =>
+    range.jsdoc ? summarizeJsDoc(comment(index)) : comment(index),
+  )
+  const saving = (index: number): number => comment(index).length - (summary[index]?.length ?? 0)
+  for (const index of byLength(saving)) {
+    if (out.length <= limit) break
+    // A one-line block is its own summary: shortening it saves nothing.
+    if (!ranges[index].jsdoc || saving(index) <= 0) continue
+    actions[index] = 'summary'
+    out = render()
   }
-  out += text.slice(last)
-  return sameCode(text, out) ? out.trimEnd() : null
+  for (const index of byLength((i) =>
+    actions[i] === 'summary' ? (summary[i]?.length ?? 0) : comment(i).length,
+  )) {
+    if (out.length <= limit) break
+    actions[index] = 'drop'
+    out = render()
+  }
+  if (out.length > limit || !sameCode(text, out)) return null
+  const shortenable = ranges.filter((range, index) => range.jsdoc && saving(index) > 0).length
+  // A block with nothing worth a summary is removed when it is shortened.
+  const removed = (index: number): boolean =>
+    actions[index] === 'drop' || (actions[index] === 'summary' && summary[index] === null)
+  return {
+    text: out,
+    summarized: actions.filter((a, index) => a === 'summary' && !removed(index)).length,
+    dropped: actions.filter((_, index) => removed(index)).length,
+    comments: ranges.length,
+    shortenable,
+  }
+}
+
+/**
+ * How many comments a declaration has, and how many are JSDoc blocks a summary
+ * would shorten.
+ *
+ * @param text - A declaration's source text.
+ * @returns The counts.
+ */
+export function countComments(text: string): { comments: number; shortenable: number } {
+  const ranges = commentRanges(text)
+  const shortenable = ranges.filter((range) => {
+    if (!range.jsdoc) return false
+    const comment = text.slice(range.start, range.end)
+    return comment.length > (summarizeJsDoc(comment)?.length ?? 0)
+  }).length
+  return { comments: ranges.length, shortenable }
 }
 
 /**

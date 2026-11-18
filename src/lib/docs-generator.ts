@@ -16,9 +16,10 @@ import { join } from 'node:path'
 
 import type { ExtractedExport, ExtractedModule } from './api-extractor.js'
 import {
-  type CommentCompaction,
   compactDeclarationComments,
+  countComments,
   cutAtMemberBoundary,
+  fitComments,
 } from './declaration-fit.js'
 import { loadAppFrameworks } from './registry.js'
 import type { MoleculeSecret, RegistryEntry } from './schema.js'
@@ -560,37 +561,69 @@ function boundedDescription(exp: ExtractedExport, ctx: ExportBlockContext): stri
  */
 const MAX_OMITTED_MEMBER_NAMES_CHARS = 1500
 
+/** The member comments a fitted declaration shortened or left out. */
+interface CommentsGivenUp {
+  /** Shortened to their first sentence (and kept). */
+  summarized: number
+  /** Left out. */
+  dropped: number
+  /** The declaration's comments. */
+  comments: number
+  /** Its JSDoc blocks a summary shortens. */
+  shortenable: number
+}
+
 /** A declaration fitted to {@link MAX_DECLARATION_CHARS}, and what was given up to fit it. */
 interface FittedDeclaration {
   /** The text to render. */
   text: string
-  /** How member comments were shortened to fit, when they were. */
-  comments?: CommentCompaction
+  /** How many member comments were shortened or left out to fit, when any were. */
+  comments?: CommentsGivenUp
   /** Set when the text was cut: the members left out (empty when the cut was not between members). */
   cut?: { omitted: string[] }
 }
 
 /**
  * Fit a declaration to {@link MAX_DECLARATION_CHARS}, giving up the least
- * useful text first: member comments are shortened to their first sentence,
- * then removed, and only then is the declaration cut — after its last whole
- * member, so the members left out can be named.
+ * useful text first: as few member comments as it takes are shortened to their
+ * first sentence, the longest first, then removed, and only then is the
+ * declaration cut — after its last whole member, so the members left out can be
+ * named.
  *
  * @param source - The declaration's text.
  * @returns The fitted text and what was given up.
  */
 function fitDeclaration(source: string): FittedDeclaration {
   if (source.length <= MAX_DECLARATION_CHARS) return { text: source }
+  const fit = fitComments(source, MAX_DECLARATION_CHARS)
+  if (fit)
+    return {
+      text: fit.text,
+      ...(fit.summarized || fit.dropped
+        ? {
+            comments: {
+              summarized: fit.summarized,
+              dropped: fit.dropped,
+              comments: fit.comments,
+              shortenable: fit.shortenable,
+            },
+          }
+        : {}),
+    }
+  // Too long even without its comments: cut the shortest form at a member boundary.
   let shortest = source
-  let comments: CommentCompaction | undefined
+  let comments: FittedDeclaration['comments']
   for (const mode of ['summary', 'drop'] as const) {
     const compact = compactDeclarationComments(source, mode)
     if (compact === null) break
     // No comments to shorten in this mode: nothing given up, nothing to say.
     if (compact.length >= shortest.trimEnd().length) continue
-    if (compact.length <= MAX_DECLARATION_CHARS) return { text: compact, comments: mode }
     shortest = compact
-    comments = mode
+    const counts = countComments(source)
+    comments =
+      mode === 'summary'
+        ? { ...counts, summarized: counts.shortenable, dropped: 0 }
+        : { ...counts, summarized: 0, dropped: counts.comments }
   }
   const atMember = cutAtMemberBoundary(shortest, MAX_DECLARATION_CHARS)
   if (atMember) return { text: atMember.text, comments, cut: { omitted: atMember.omitted } }
@@ -618,6 +651,29 @@ function omittedMembersLine(names: string[]): string {
 }
 
 /**
+ * The README note's account of the member comments a fitted declaration gave up.
+ *
+ * @param given - What was shortened and left out.
+ * @returns A sentence start, e.g. `The 2 longest member comments are shortened to their first sentence`.
+ */
+function commentsGivenUp(given: CommentsGivenUp): string {
+  if (given.dropped >= given.comments) return 'Member comments are left out'
+  if (given.dropped > 0) {
+    const one = given.dropped === 1
+    if (given.summarized === 0)
+      return one
+        ? 'The longest member comment is left out'
+        : `The ${given.dropped} longest member comments are left out`
+    return `Member comments are shortened to their first sentence, and ${one ? 'the longest is' : `the ${given.dropped} longest are`} left out`
+  }
+  if (given.summarized >= given.shortenable)
+    return 'Member comments are shortened to their first sentence'
+  return given.summarized === 1
+    ? 'The longest member comment is shortened to its first sentence'
+    : `The ${given.summarized} longest member comments are shortened to their first sentence`
+}
+
+/**
  * The signature code block for an export, bounded. A cut block ends with a
  * comment naming the members it leaves out and the file that has the whole
  * declaration; shortened member comments are said so under the block.
@@ -632,8 +688,7 @@ function declarationBlock(exp: ExtractedExport, ctx: ExportBlockContext): string
     : fitted.text
   const block = `\`\`\`typescript\n${body}\n\`\`\``
   if (!fitted.comments) return block
-  const how = fitted.comments === 'summary' ? 'shortened to their first sentence' : 'left out'
-  return `${block}\n\n*(Member comments are ${how} to fit; the full declaration is in \`${where}\`.)*`
+  return `${block}\n\n*(${commentsGivenUp(fitted.comments)} to fit; the full declaration is in \`${where}\`.)*`
 }
 
 /**

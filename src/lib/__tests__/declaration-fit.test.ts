@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest'
 
-import { compactDeclarationComments, cutAtMemberBoundary } from '../declaration-fit.js'
+import {
+  compactDeclarationComments,
+  countComments,
+  cutAtMemberBoundary,
+  fitComments,
+} from '../declaration-fit.js'
 
 const config = `interface ClientConfig {
   /**
@@ -86,6 +91,53 @@ describe('compactDeclarationComments', () => {
     const text = 'type Pair = { left: string; right: string }'
     expect(compactDeclarationComments(text, 'summary')).toBe(text)
     expect(compactDeclarationComments(text, 'drop')).toBe(text)
+  })
+})
+
+describe('fitComments', () => {
+  it('leaves a declaration that fits as it is', () => {
+    expect(fitComments(config, config.length)).toEqual({
+      text: config,
+      summarized: 0,
+      dropped: 0,
+      comments: 3 + 1,
+      shortenable: 3,
+    })
+  })
+
+  it('shortens the block that saves the most first, and only as many as it takes', () => {
+    const fit = fitComments(config, config.length - 1)
+    // The baseURL block (its example) is the longest; the others stay whole.
+    expect(fit?.text).toContain('  /** Base URL of the API. */\n  baseURL: string')
+    expect(fit?.text).toContain('   * @param body - The body the client built.')
+    expect(fit?.text).toContain('   * @deprecated Use `baseURL`.')
+    expect(fit).toMatchObject({ summarized: 1, dropped: 0 })
+  })
+
+  it('leaves out the longest comments only once every block is shortened', () => {
+    const summarized = compactDeclarationComments(config, 'summary') ?? ''
+    const fit = fitComments(config, summarized.length - 1)
+    // The requestBody summary is the longest comment left, so it goes first.
+    expect(fit?.text).not.toContain('Wraps each auth request body')
+    expect(fit?.text).toContain('  /** Base URL of the API. */')
+    expect(fit?.text).toContain('// Section: deprecated settings')
+    expect(fit).toMatchObject({ summarized: 2, dropped: 1 })
+  })
+
+  it('returns null when the code alone does not fit', () => {
+    const dropped = compactDeclarationComments(config, 'drop') ?? ''
+    expect(fitComments(config, dropped.length)).toMatchObject({ dropped: 4 })
+    expect(fitComments(config, dropped.length - 1)).toBeNull()
+  })
+})
+
+describe('countComments', () => {
+  it('counts every comment, and the blocks a summary shortens', () => {
+    expect(countComments(config)).toEqual({ comments: 4, shortenable: 3 })
+    expect(countComments('interface A {\n  /** One line. */\n  a: string\n}')).toEqual({
+      comments: 1,
+      shortenable: 0,
+    })
   })
 })
 

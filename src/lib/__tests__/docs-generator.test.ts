@@ -1134,7 +1134,7 @@ describe('generateMoleculeMd — size bounds', () => {
     expect(result).not.toContain('member3999')
   })
 
-  it('keeps every member of a long commented interface by shortening the member comments', () => {
+  it('keeps every member of a long commented interface by shortening as few member comments as it takes', () => {
     const fields = Array.from({ length: 60 }, (_, i) => `field${i}`)
     const declaration = `interface ClientConfig {\n${fields
       .map(
@@ -1152,11 +1152,48 @@ describe('generateMoleculeMd — size bounds', () => {
       makeOptions(),
     )
     for (const f of fields) expect(result).toContain(`  ${f}?: string`)
-    expect(result).toContain('  /** What field59 sets. */\n  field59?: string\n}\n```')
+    // The longest go first: the two-digit fields name themselves twice, so theirs are longer.
+    expect(result).toContain('  /** What field10 sets. */\n  field10?: string')
+    // The comments that still fit stay whole, their example included.
+    expect(result).toContain("   * createClient({ field0: 'x' })\n   */\n  field0?: string")
     expect(result).toContain(
-      '*(Member comments are shortened to their first sentence to fit; the full declaration is in `node_modules/@molecule/app-client/dist/types.d.ts`.)*',
+      "   * createClient({ field59: 'x' })\n   */\n  field59?: string\n}\n```",
+    )
+    const shortened = result.match(/\/\*\* What field\d+ sets\. \*\//g) ?? []
+    expect(shortened.length).toBeGreaterThan(0)
+    expect(shortened.length).toBeLessThan(fields.length)
+    expect(result).toContain(
+      `*(The ${shortened.length} longest member comments are shortened to their first sentence to fit; the full declaration is in \`node_modules/@molecule/app-client/dist/types.d.ts\`.)*`,
     )
     expect(result).not.toContain('truncated')
+  })
+
+  it('shortens only the longest member comment of a declaration a few characters over the cap', () => {
+    const filler = Array.from(
+      { length: 40 },
+      (_, i) =>
+        `  /**\n   * Field ${i}. ${'Kept whole because it is not the longest. '.repeat(3)}\n   */\n  f${i}: string`,
+    )
+    const longest = `  /**\n   * Makes a POST request. ${'The body is the second argument, never wrapped. '.repeat(6)}\n   */\n  post(url: string, data?: unknown): void`
+    let declaration = `interface Client {\n${longest}\n${filler.join('\n')}\n}`
+    // Pad with members without comments until the declaration is just over the cap.
+    for (let i = 0; declaration.length <= 8010; i++)
+      declaration = declaration.replace(/\n}$/, `\n  pad${i}: string\n}`)
+    const result = generateMoleculeMd(
+      makeExtracted({
+        exports: [{ name: 'Client', kind: 'interface', sourceFile: 'types.ts', declaration }],
+      }),
+      makeRegistryEntry(),
+      makePackageJson({ name: '@molecule/app-client' }),
+      makeOptions(),
+    )
+    expect(result).toContain(
+      '  /** Makes a POST request. */\n  post(url: string, data?: unknown): void',
+    )
+    expect(result.match(/Kept whole because it is not the longest\. Kept whole/g)).toHaveLength(40)
+    expect(result).toContain(
+      '*(The longest member comment is shortened to its first sentence to fit; the full declaration is in ',
+    )
   })
 
   it('leaves member comments out when their first sentences still do not fit', () => {
@@ -1171,8 +1208,13 @@ describe('generateMoleculeMd — size bounds', () => {
       makeOptions(),
     )
     for (const f of fields) expect(result).toContain(`  ${f}: string`)
-    expect(result).not.toContain('carries a single')
-    expect(result).toContain('*(Member comments are left out to fit;')
+    // One-line comments have no shorter summary, so the longest go until the rest fit.
+    expect(result).toContain(
+      `/** field0 ${'carries a single very long first sentence '.repeat(2)}. */`,
+    )
+    const left = fields.filter((f) => !result.includes(`/** ${f} carries`)).length
+    expect(left).toBeGreaterThan(0)
+    expect(result).toContain(`*(The ${left} longest member comments are left out to fit;`)
   })
 
   it('cuts after a whole member and names each member it leaves out', () => {
