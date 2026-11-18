@@ -63,6 +63,17 @@ describe('declared recipes beside editable app source', () => {
         'uniqueSlug(title, isTaken, options)',
       ],
     },
+    {
+      pkg: '@molecule/api-resource-comment',
+      snippets: [
+        "import { createNumberedComment, getCommentsByResource, getCommentByNumber, deleteComment } from '@molecule/api-resource-comment'",
+        'createNumberedComment(resourceType, resourceId, userId, { body })',
+        'getCommentsByResource(resourceType, resourceId, { limit, offset })',
+        'getCommentByNumber(number)',
+        'deleteComment(comment.id, userId)',
+        'comments and comment_numbers',
+      ],
+    },
   ])('puts $pkg calls in the API scaffold router and capability map', async ({ pkg, snippets }) => {
     await createApiProject(root, 'catalog-api')
     await addPackages(root, [pkg])
@@ -99,10 +110,34 @@ describe('declared recipes beside editable app source', () => {
     ).toContain('CREATE TABLE public.follows')
   })
 
-  it('leaves the API router unchanged when neither API capability is declared', async () => {
+  it('puts shared comment calls beside the copied Note Taking router and keeps its storage', async () => {
+    const template = join(getTemplatesDir(), 'apps', 'note-taking')
+    const project = join(root, 'note-taking')
+    await copyTemplateInstance(
+      template,
+      project,
+      'note-taking',
+      await readTemplateSetupSqlVersions(template),
+    )
+
+    const router = await readFile(join(project, 'api/src/App/router.ts'), 'utf8')
+    expect(router).toContain('getCommentByNumber(number)')
+    expect(router).toContain('router.use(templateHandlers)')
+    const migration = 'api/migrations/0010_note_taking_tables.sql'
+    expect(await readFile(join(project, migration), 'utf8')).toContain(
+      await readFile(join(template, migration), 'utf8'),
+    )
+    expect(await readFile(join(project, 'api/__setup__/comment_numbers.sql'), 'utf8')).toContain(
+      'CREATE TABLE IF NOT EXISTS "comment_numbers"',
+    )
+  })
+
+  it('leaves custom storage and its API router unchanged without a declared resource', async () => {
     await createApiProject(root, 'internal-api')
     const path = join(root, 'src/App/router.ts')
-    const router = await readFile(path, 'utf8')
+    const store = `\nexport function recordShipment(id: string) {\n  return query('INSERT INTO shipment_events (id) VALUES ($1)', [id])\n}\n`
+    const router = `import { query } from '@molecule/api-database'\n${await readFile(path, 'utf8')}${store}`
+    await writeFile(path, router)
 
     await ensureAgentsMd(root)
 

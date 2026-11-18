@@ -22656,6 +22656,14 @@
         "getReplies": "function getReplies(commentId: string, options?: PaginationOptions): Promise<PaginatedResult<Comment>>;",
         "updateComment": "function updateComment(commentId: string, userId: string, data: UpdateCommentInput): Promise<Comment | null>;"
       },
+      "decisionGuide": {
+        "sourceFiles": ["src/App/router.ts", "src/App/Resource/Comment/index.ts"],
+        "configuration": [
+          "Keep custom routes, authorization and response mapping in the handler. Use the package's comments and comment_numbers migrations and pass the same resourceType and canonical parent resourceId to create and list.",
+          "For an integer-addressed API, import { createNumberedComment, getCommentsByResource, getCommentByNumber, deleteComment } from '@molecule/api-resource-comment'. Call createNumberedComment(resourceType, resourceId, userId, { body }) and expose its number. Call getCommentsByResource(resourceType, resourceId, { limit, offset }) and map the page's data rows, which carry their stored numbers.",
+          "Resolve an integer with getCommentByNumber(number), check the returned comment's resourceType and resourceId against the requested parent, then call deleteComment(comment.id, userId) for the owner check and delete. A UUID-addressed API can use createComment and getCommentById. For an older imported row without a number, call numberComment(comment.id)."
+        ]
+      },
       "intentHints": [
         "comments backend",
         "threaded comments",
