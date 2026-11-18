@@ -37545,11 +37545,13 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-client-search",
+        "@molecule/app-react",
         "@molecule/app-storage",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-client-search",
+        "@molecule/app-react",
         "@molecule/app-storage"
       ],
       "path": "packages/app/features/client-search-react",
@@ -49098,10 +49100,12 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-keyboard-shortcuts",
+        "@molecule/app-react",
         "react"
       ],
       "moleculePeers": [
-        "@molecule/app-keyboard-shortcuts"
+        "@molecule/app-keyboard-shortcuts",
+        "@molecule/app-react"
       ],
       "path": "packages/app/features/keyboard-shortcuts-react",
       "intentHints": [
@@ -86454,12 +86458,14 @@
         "@dnd-kit/react",
         "@molecule/app-drag-drop",
         "@molecule/app-drag-drop-dndkit",
+        "@molecule/app-react",
         "react",
         "react-dom"
       ],
       "moleculePeers": [
         "@molecule/app-drag-drop",
-        "@molecule/app-drag-drop-dndkit"
+        "@molecule/app-drag-drop-dndkit",
+        "@molecule/app-react"
       ],
       "path": "packages/app/bonds/drag-drop/dndkit-react",
       "intentHints": [
