@@ -34,6 +34,7 @@ describe.each(['app/shared', 'static'])('%s Vite template substitutions', (templ
         VITE_PLUGIN_IMPORT: '',
         BRANDING_IMPORT: './src/branding.js',
         VITE_PLUGINS: plugins,
+        SVELTE_KIT: 'false',
         RESOLVE_EXTENSIONS: '',
         WARMUP_CLIENT_FILES: "['src/main.tsx', 'src/bonds/*.ts']",
       }),
