@@ -140,6 +140,19 @@ async function request<T>(
       { cause: error },
     )
   }
+  return readResponse<T>(response)
+}
+
+/**
+ * Parse a platform response, throwing a {@link PlatformApiError} that carries the server's own
+ * `error` text and `errorKey` (plus Retry-After) for a non-2xx status. Every call reads its
+ * response here, so a refusal says why ("File upload is not available here — connect a
+ * repository instead.") rather than only its status code.
+ *
+ * @param response - The fetch response.
+ * @returns The parsed JSON body (null when empty).
+ */
+async function readResponse<T>(response: Response): Promise<T> {
   const text = await response.text()
   const header = Number(response.headers.get('retry-after'))
   const retryAfter = Number.isFinite(header) && header > 0 ? Math.ceil(header) : undefined
@@ -1340,10 +1353,7 @@ export function uploadImportTarball(
     },
     body,
     signal: AbortSignal.timeout(120_000),
-  }).then(async (r) => {
-    if (!r.ok) throw new PlatformApiError(r.status, `import upload failed (${r.status})`)
-    return r.text().then((t) => (t ? JSON.parse(t) : {}))
-  })
+  }).then(async (r) => (await readResponse<unknown>(r)) ?? {})
 }
 
 // ── SSH key store ───────────────────────────────────────────────────────────
@@ -1415,8 +1425,8 @@ export async function streamLogs(
     headers: authHeader(token),
     signal: AbortSignal.timeout(600_000),
   })
-  if (!response.ok || !response.body)
-    throw new PlatformApiError(response.status, 'log stream failed')
+  if (!response.ok) await readResponse<never>(response)
+  if (!response.body) throw new PlatformApiError(response.status, 'log stream failed')
   const reader = response.body.getReader()
   const decoder = new TextDecoder()
   let buf = ''

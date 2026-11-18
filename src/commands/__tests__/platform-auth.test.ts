@@ -85,10 +85,37 @@ describe('platform calls send the signed-in token', () => {
 
   it('signed out: no authorization header, and the 401 surfaces (counterexample)', async () => {
     process.env.MLCL_CREDENTIALS_FILE = join(dir, 'absent.json')
-    await expect(uploadImportTarball('p1', join(dir, 'repo.tar.gz'))).rejects.toThrow(
-      'import upload failed (401)',
-    )
+    await expect(uploadImportTarball('p1', join(dir, 'repo.tar.gz'))).rejects.toMatchObject({
+      status: 401,
+      message: 'unauthorized',
+    })
     expect(seen).toEqual([{ url: '/projects/p1/git-import-upload', authorization: undefined }])
+  })
+
+  it('a refused upload or stream carries the server reason, not only its status', async () => {
+    signInWithSavedCredentials()
+    server.removeAllListeners('request')
+    server.on('request', (req, res) => {
+      req.resume()
+      req.on('end', () => {
+        res.writeHead(501, { 'content-type': 'application/json' })
+        res.end(
+          JSON.stringify({
+            error: 'File upload is not available here — connect a repository instead.',
+            errorKey: 'git.error.uploadUnavailable',
+          }),
+        )
+      })
+    })
+    await expect(uploadImportTarball('p1', join(dir, 'repo.tar.gz'))).rejects.toMatchObject({
+      status: 501,
+      errorKey: 'git.error.uploadUnavailable',
+      message: 'File upload is not available here — connect a repository instead.',
+    })
+    await expect(streamLogs('p1', () => undefined)).rejects.toMatchObject({
+      status: 501,
+      errorKey: 'git.error.uploadUnavailable',
+    })
   })
 
   it('the shared request helper keeps the same precedence', async () => {
