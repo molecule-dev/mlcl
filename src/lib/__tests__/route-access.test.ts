@@ -523,7 +523,7 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
   })
 
   it.each([false, true])(
-    'mounts the entry-point boundary before unguarded pages when AppRoot is replaced: %s',
+    'keeps routing and the access boundary outside a rewritten AppRoot: %s',
     async (replaceWrapper) => {
       const client = session()
       const mounted = vi.fn()
@@ -531,17 +531,10 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
         useEffect(() => mounted(), [])
         return createElement('p', null, 'Page mounted')
       }
-      let source = readFileSync(
+      const source = readFileSync(
         join(import.meta.dirname, '../../../templates/app/react/App.tsx.tpl'),
         'utf8',
       )
-      // The retained failure replaced AppRoot's provider composition while editing
-      // page routes. Its export survived; the policy wrapper inside it did not.
-      if (replaceWrapper)
-        source = source.replace(
-          '<RouteAccess routes={routes}>{children}</RouteAccess>',
-          '{children}',
-        )
       const compiled = ts.transpileModule(source, {
         compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
       })
@@ -561,6 +554,18 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
           return { [page]: page === 'Login' ? () => createElement('p', null, 'Sign in') : Page }
         throw new Error(`Unexpected App dependency: ${name}`)
       }, exports)
+      if (replaceWrapper) {
+        // The app retained its provider export while rewriting it to contain only
+        // the bonded providers. Probe the runtime context before its children use it.
+        exports.AppRoot = function RewrittenProviders({ children }) {
+          if (!router.useInRouterContext()) return createElement('p', null, 'Router missing')
+          return createElement(
+            AuthProvider,
+            { client },
+            createElement(I18nProvider, { provider: createSimpleI18nProvider('en') }, children),
+          )
+        }
+      }
       const entry = ts.transpileModule(
         readFileSync(
           join(import.meta.dirname, '../../../templates/app/react/main.tsx.tpl'),
@@ -579,6 +584,7 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
         if (name === './bonds/index.js')
           return { authClient: client, setupProviders: () => undefined }
         if (name === './App.js') return exports
+        if (name === '@molecule/app-routing-react-router') return scaffoldDependency(client)(name)
         if (name === './components/AppLayout.js')
           return { AppLayout: ({ children }: { children: ReactNode }) => children }
         if (name === './components/AuthGuard.js') return accessModule(client)
@@ -587,6 +593,7 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
         throw new Error(`Unexpected entry dependency: ${name}`)
       }, {})
       await act(async () => client.whenRestored!())
+      expect(screen.queryByText('Router missing')).toBeNull()
       expect(screen.queryByText('Sign in')).not.toBeNull()
       expect(mounted).not.toHaveBeenCalled()
     },

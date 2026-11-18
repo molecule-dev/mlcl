@@ -1,5 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
+import { BrowserRouter } from '@molecule/app-routing-react-router'
 import { setupProviders, authClient } from './bonds/index.js'
 import { App, AppRoot, routes } from './App.js'
 import { RouteAccess } from './components/AuthGuard.js'
@@ -20,13 +21,15 @@ authClient.initialize().catch((_error) => {
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <AppRoot>
-      {/* Shell and access are independent: public pages keep navigation too. */}
-      <AppLayout routes={routes}>
-        <RouteAccess routes={routes}>
-          <App />
-        </RouteAccess>
-      </AppLayout>
-    </AppRoot>
+    <BrowserRouter>
+      <AppRoot>
+        {/* Shell and access are independent: public pages keep navigation too. */}
+        <AppLayout routes={routes}>
+          <RouteAccess routes={routes}>
+            <App />
+          </RouteAccess>
+        </AppLayout>
+      </AppRoot>
+    </BrowserRouter>
   </StrictMode>,
 )

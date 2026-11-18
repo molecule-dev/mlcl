@@ -2,7 +2,6 @@ import type { ReactNode } from 'react'
 import { useRoutes } from 'react-router'
 import { getClient as getHttpClient } from '@molecule/app-http'
 import { MoleculeProvider } from '@molecule/app-react'
-import { BrowserRouter } from '@molecule/app-routing-react-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import type { AppRoute } from './components/AuthGuard.js'
@@ -31,9 +30,9 @@ import { Signup } from './pages/Signup.js'
 // service worker's precache — is the part with a measured gain; see the
 // `UserMenu` drawer for the one interaction-only split that is still worth it.
 //
-// main.tsx owns AppLayout and RouteAccess inside AppRoot's providers, so replacing
-// page routes or this provider wrapper cannot silently remove those boundaries. The routes
-// below declare both the page and its access: App and main.tsx use the SAME table.
+// main.tsx mounts the browser router outside AppRoot and AppLayout and RouteAccess
+// inside AppRoot's providers. Keep this file focused on providers and page routes.
+// The routes below declare both the page and its access: App and main.tsx use the SAME table.
 // Keep the exported table; the entry imports it. Add a public page once, with
 // access: 'public'; there is no second path allowlist to update.
 // AppRoot's `awaitSession` waits only while auth status is 'loading'. A stored
@@ -43,24 +42,22 @@ import { Signup } from './pages/Signup.js'
 // still renders and may have a null user; handle that status separately from sign-out.
 // A visitor with no session to restore makes no request. Keep it.
 /**
- * Entry-point providers. main.tsx mounts the access boundary inside these providers.
- * @param props - The application's page routes.
- * @returns The router and bonded providers around the access boundary.
+ * Bonded providers for the application. The entry point supplies the router and access boundary.
+ * @param props - The application shell and pages.
+ * @returns The children with the application's bonded providers.
  */
 export function AppRoot({ children }: { children: ReactNode }): ReactNode {
   return (
-    <BrowserRouter>
-      <MoleculeProvider
-        auth={authClient}
-        awaitSession
-        http={getHttpClient()}
-        theme={themeProvider}
-        storage={getStorageProvider()}
-        i18n={i18nProvider}
-      >
-        {children}
-      </MoleculeProvider>
-    </BrowserRouter>
+    <MoleculeProvider
+      auth={authClient}
+      awaitSession
+      http={getHttpClient()}
+      theme={themeProvider}
+      storage={getStorageProvider()}
+      i18n={i18nProvider}
+    >
+      {children}
+    </MoleculeProvider>
   )
 }
 
