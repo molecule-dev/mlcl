@@ -5013,7 +5013,13 @@ export function scaffoldRules(parser) {
               (branch) =>
                 branch && branch.range[0] <= node.range[0] && node.range[1] <= branch.range[1],
             )
-          return { fn: target.node, findBinding: (node) => bindings.get(node), writesDesired }
+          return {
+            fn: target.node,
+            filename: target.filename,
+            findBinding: (node) => bindings.get(node),
+            writesDesired,
+            selectsDesired: (test) => unwrap(test)?.type === 'Identifier' && readsDesired(test),
+          }
         }
         // An async callback can update local state or read data. Prove a write from the
         // actual HTTP binding before treating it as a server mutation.
@@ -5392,9 +5398,50 @@ export function scaffoldRules(parser) {
             (write) => (yes.has('DELETE') && no.has(write)) || (no.has('DELETE') && yes.has(write)),
           )
         }
+        // A controller orders saves, but cannot fix a transport that uses the desired value
+        // backwards. For an imported two-verb action, show the actual choice before offering
+        // any rewrite. Some flags explicitly mean removal, so the direction is advisory.
+        const deletionFirstAdvice = (save) => {
+          if (save.type !== 'CallExpression') return null
+          const writer = importedWriter(save, unwrap(save.callee))
+          if (!writer) return null
+          const samePath = (left, right) => {
+            if (left?.type === 'Literal')
+              return typeof left.value === 'string' && right?.value === left.value
+            if (left?.type !== 'Identifier' || right?.type !== 'Identifier') return false
+            const binding = writer.findBinding(left)
+            return binding && binding === writer.findBinding(right)
+          }
+          let branch
+          walk(writer.fn.body, (node) => {
+            if (
+              branch ||
+              node.type !== 'ConditionalExpression' ||
+              !writer.selectsDesired(node.test)
+            )
+              return
+            const remove = unwrap(node.consequent)
+            const add = unwrap(node.alternate)
+            if (
+              callName(remove) === 'delete' &&
+              callName(add) === 'post' &&
+              remove.arguments?.length === 1 &&
+              add.arguments?.length === 1 &&
+              samePath(remove.arguments[0], add.arguments[0]) &&
+              persistenceCall(remove, new Set(), writer.findBinding) &&
+              persistenceCall(add, new Set(), writer.findBinding)
+            )
+              branch = node
+          })
+          if (!branch) return null
+          const location = `${relative(context.cwd, writer.filename)}:${branch.loc.start.line}`
+          return `${location} sends DELETE for true and POST for false at the same path. Check the API's direction before moving this call into commit. If POST sets the flag and DELETE clears it, use the generated resource setter or createQueryResource().toggle(viewer, id, action, desired) with the desired boolean. If true means removal in this API, keep that mapping and test both directions.`
+        }
         // The rewrite uses the component's own state, updater, request and response reads.
         // It is advice, never an automatic edit: auth guards and app-specific callbacks stay.
         const rewriteFor = (fn, save) => {
+          const actionAdvice = deletionFirstAdvice(save)
+          if (actionAdvice) return actionAdvice
           let unverifiedResource = null
           const fromSave = (expression, seen = new Set()) => {
             const node = unwrap(expression)

@@ -204,8 +204,37 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
       const messages = await lintToggle('split-write', splitToggle, splitWriter)
       expect(messages).toHaveLength(1)
       expect(messages[0]).toMatchObject({ line: 9, severity: 1 })
-      expect(messages[0]?.message).toContain('A reload can read the old value before the save commits')
+      expect(messages[0]?.message).toContain(
+        'A reload can read the old value before the save commits',
+      )
       expect(messages[0]?.message).toContain('render the saved record')
+      expect(messages[0]?.message).toContain('await save(')
+    })
+
+    it('names an imported DELETE-for-true branch before recommending a toggle migration', async () => {
+      const reversed = splitWriter.replace(
+        'await http().post(path) : await http().delete(path)',
+        'await http().delete(path) : await http().post(path)',
+      )
+      const messages = await lintToggle('inverted-write', splitToggle, reversed)
+      expect(messages).toHaveLength(1)
+      expect(messages[0]).toMatchObject({ line: 9, severity: 1 })
+      expect(messages[0]?.message).toContain(
+        'inverted-write/preferences.ts:6 sends DELETE for true and POST for false',
+      )
+      expect(messages[0]?.message).toContain('use the generated resource setter')
+      expect(messages[0]?.message).not.toContain('```tsx')
+    })
+
+    it('keeps custom actions on different paths out of the direction advice', async () => {
+      const distinct = splitWriter.replace(
+        'await http().post(path) : await http().delete(path)',
+        "await http().delete(path) : await http().post('/pending-preferences')",
+      )
+      const messages = await lintToggle('distinct-paths', splitToggle, distinct)
+      expect(messages).toHaveLength(1)
+      expect(messages[0]?.message).toContain('await save(')
+      expect(messages[0]?.message).not.toContain('sends DELETE for true')
     })
 
     it('allows rendering the saved flag after acknowledgment', async () => {
