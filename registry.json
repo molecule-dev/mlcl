@@ -46579,6 +46579,7 @@
       "stack": "app",
       "alwaysInclude": true,
       "exports": [
+        "HttpAuthRestore",
         "setAuthGate",
         "awaitAuthGate",
         "AuthTokenResolver",
@@ -46692,7 +46693,8 @@
         "configuration": [
           "Bearer or another token scheme: construct the bonded client with `baseURL` and `authScheme: 'Bearer'` (or `authScheme: 'Token'`); pass the shared `authConfig.authScheme` rather than attaching headers per request.",
           "Cookie sessions: construct with `withCredentials: true`; the browser sends the cookie, so no Authorization interceptor or token store is needed.",
-          "Session restore: keep `setAuthTokenSource` for the current token and `setAuthGate` for restore; delaying a request alone does not attach its credential."
+          "Session restore: keep `setAuthTokenSource` for the current token and `setAuthGate` for restore; delaying a request alone does not attach its credential.",
+          "Custom HTTP session restore: use setAuthGate({ client, restore }) with the bonded client. The callback's request uses its token and interceptors and bypasses the gate even after an await. Ordinary requests still wait for the restore."
         ]
       },
       "intentHints": [
@@ -74208,6 +74210,7 @@
           "src/App.tsx"
         ],
         "configuration": [
+          "Declare a parameterized page with defineRoute(path, { Component: Page }). Page receives a typed params prop directly from React Router. Use the callback form when the route also supplies local props.",
           "URL-selected tabs or list views: render `ListRouteNav` from this package. Pass `selections={{ all: { path: \"/orders\", query: { view: undefined }, label: t(\"orders.all\", undefined, { defaultValue: \"All orders\" }) }, open: { path: \"/orders\", query: { view: \"open\" }, label: t(\"orders.open\", undefined, { defaultValue: \"Open orders\" }) } }}` and a translated `aria-label`. The shared declaration keeps every choice visible across related routes; links navigate to their declared path and reset page through useListRoute. Active styling comes from the URL. Use `Tabs` from the UI package for genuinely local panels.",
           "React Router URL lists: start with `const pages = useListRoute()` from `@molecule/app-routing-react-router`; `filters` and `selections` are optional. Use `page`, `offset` and `params` for requests, `href({ page: 2 })` for links. Pass `pageSize` (default 20) to match the request limit and footer; `offset` is `(page - 1) * pageSize`. Do not mirror URL values in state.",
           "A route with its own path params uses the hook unchanged: on `/category/books` matched by `/category/:slug`, `pages.href({ page: 2 })` is `/category/books?page=2`, without a duplicate query filter. On `/?view=mine` it is `/?view=mine&page=2` (existing query order, page last). Page one omits `page`; unrelated queries and hash survive. Filter or selection changes reset page atomically. Add `path` only to change path params, or `selections` to link between views.",
