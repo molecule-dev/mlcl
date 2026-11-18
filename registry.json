@@ -49802,7 +49802,9 @@
       "intentHints": [
         "list item row",
         "generic row",
-        "list line item"
+        "list line item",
+        "interactive list row",
+        "server backed row toggle"
       ]
     },
     "@molecule/app-list-item-row-solid": {
@@ -71667,7 +71669,9 @@
         "loading and error states",
         "loaded document boundary",
         "empty collection branch",
-        "view-specific empty state"
+        "view-specific empty state",
+        "edit form initial values",
+        "query record form"
       ]
     },
     "@molecule/app-query-solid": {
@@ -74123,6 +74127,7 @@
         "RouteMatch",
         "RouteParams",
         "RouterConfig",
+        "defineRoute",
         "MoleculeRouterProvider",
         "useMoleculeRouter",
         "useIsActive",
@@ -74198,7 +74203,9 @@
         "url routes react",
         "url backed pagination filters",
         "public route",
-        "url selected tabs"
+        "url selected tabs",
+        "typed route params",
+        "typed route declaration"
       ]
     },
     "@molecule/app-routing-solid-router": {
