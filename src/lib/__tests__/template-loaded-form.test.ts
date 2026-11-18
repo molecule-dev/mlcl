@@ -1,6 +1,7 @@
 // @vitest-environment jsdom
 import { act, cleanup, fireEvent, render, screen } from '@testing-library/react'
 import { createElement } from 'react'
+import { MemoryRouter } from 'react-router'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import type * as AppReact from '@molecule/app-react'
@@ -84,6 +85,10 @@ vi.mock('../../../templates/apps/blog/app/src/components/SettingsTopNavBar.js', 
 
 import Settings from '../../../templates/apps/blog/app/src/pages/Settings.js'
 
+// The page navigates after an account deletion, so it renders inside the app's router.
+const page = (): ReturnType<typeof createElement> =>
+  createElement(MemoryRouter, null, createElement(Settings))
+
 afterEach(cleanup)
 beforeEach(() => {
   fixture.user = { id: 'reader-a', name: 'Cached reader', email: 'cached@example.test' }
@@ -120,7 +125,7 @@ describe('the shipped blog edit form uses the shared dirty-preserving controller
         finish = resolve
       }),
     )
-    render(createElement(Settings))
+    render(page())
     fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'My draft' } })
     await act(async () => {
       finish(loaded())
@@ -132,19 +137,19 @@ describe('the shipped blog edit form uses the shared dirty-preserving controller
 
   it('accepts a late value when the user has not edited the field', async () => {
     fixture.get.mockResolvedValue(loaded())
-    render(createElement(Settings))
+    render(page())
     await act(async () => {})
     expect((screen.getByLabelText('Name') as HTMLInputElement).value).toBe('Server reader')
   })
 
   it('starts a fresh form and load for a different record owner', async () => {
     fixture.get.mockResolvedValue(loaded())
-    const view = render(createElement(Settings))
+    const view = render(page())
     await act(async () => {})
     fireEvent.change(screen.getByLabelText('Name'), { target: { value: 'Reader A draft' } })
     fixture.user = { id: 'reader-b', name: 'Reader B', email: 'b@example.test' }
     fixture.get.mockResolvedValue(loaded('Reader B on server'))
-    view.rerender(createElement(Settings))
+    view.rerender(page())
     await act(async () => {})
     expect((screen.getByLabelText('Name') as HTMLInputElement).value).toBe('Reader B on server')
     expect(fixture.get).toHaveBeenCalledTimes(2)
