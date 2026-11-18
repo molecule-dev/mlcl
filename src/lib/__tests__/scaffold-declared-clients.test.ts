@@ -323,9 +323,16 @@ export const authConfig: AuthClientConfig = {
       }
       await writeFile(
         join(app, 'src/config.ts'),
-        `export const authConfig = {
+        `export interface StaffProfile { label: string }
+        export const authConfig = {
           profileEndpoint: () => '/staff/current', profileUpdateMethod: 'PUT' as const,
         }`,
+      )
+      const authBond = join(app, 'src/bonds/auth-default.ts')
+      const originalBond = await readFile(authBond, 'utf8')
+      await writeFile(
+        authBond,
+        `import type { StaffProfile } from '../config.js'\n${originalBond}\nexport type Profile = StaffProfile\n`,
       )
       const broken = `import {useAuth, useAuthClient, useHttpClient} from '@molecule/app-react'
         import {useNavigate} from 'react-router'
@@ -346,6 +353,13 @@ export const authConfig: AuthClientConfig = {
           "async () => { await auth.logout(); navigate('/dashboard') }",
         )
       expect(await findings(app, fixed)).toEqual([])
+      if (kind === 'flagship') {
+        const rotated = `import { authClient } from './bonds/index.js'\n${fixed.replace(
+          'auth.setUser(answer.data)',
+          'authClient.setSession({ user: answer.data.user, accessToken: answer.data.token })',
+        )}`
+        expect(await findings(app, rotated)).toEqual([])
+      }
     },
   )
 

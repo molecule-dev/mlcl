@@ -26,7 +26,7 @@
  * Session-action omissions use React hook identities and the scaffold's literal
  * src/config + direct auth-default bond. Dynamic config and other composition
  * roots are not inferred. Local call discovery does not prove branch timing or
- * the identity of the value passed to setUser.
+ * the identity of the value passed to a session publisher.
  * Auth snapshot checks cover a custom React hook seeding state from one client's
  * getState/getUser/getAccessToken contract; form defaults and other stores are not inferred.
  * A custom storage key is a credential store when its written value also feeds the
@@ -121,7 +121,7 @@ export default {
       logout:
         'This sign-out handler only navigates and leaves the subscribed session signed in. Call useAuth().logout() or the bonded auth client logout() before navigation. If another route owns sign-out, delegate to that action or use a reasoned ESLint disable at this handler.',
       profile:
-        'This write targets the configured auth profile endpoint but does not publish the saved user. Use useAuth().updateProfile(changes), or call the bonded auth client setUser(savedUser) with the canonical response in this handler before navigation. Otherwise subscribed views and the next form visit keep the old profile.',
+        'This write targets the configured auth profile endpoint but does not publish the saved user. Use useAuth().updateProfile(changes), or publish the canonical response through the bonded client in this handler before navigation. Call setUser(savedUser), or setSession({ user, accessToken }) if the response also rotates the token.',
       authSubscription:
         'This hook seeds a React auth snapshot but never subscribes its setter to that client. Other consumers keep the signed-out snapshot after login. Use useAuth from @molecule/app-react, or subscribe to this client in an effect, update this snapshot on each notification, and return the unsubscribe cleanup.',
       renderNavigation:
@@ -596,18 +596,94 @@ export default {
       }
       return null
     }
+    // Only parse known scaffold source files. Cache them for this linted file,
+    // so a new lint pass sees any intervening edits to the configuration.
+    const projectModules = new Map()
+    const projectModule = (stem) => {
+      const parser = context.languageOptions?.parser
+      if (!parser?.parseForESLint) return null
+      if (projectModules.has(stem)) return projectModules.get(stem)
+      for (const extension of ['ts', 'js', 'mjs']) {
+        const path = `${stem}.${extension}`
+        try {
+          const text = path === filename ? source.text : readFileSync(path, 'utf8')
+          const { ast } = parser.parseForESLint(text, {
+            sourceType: 'module',
+            ecmaVersion: 'latest',
+            filePath: path,
+            tsconfigRootDir: packages.root,
+            project: false,
+            projectService: false,
+          })
+          projectModules.set(stem, ast)
+          return ast
+        } catch (error) {
+          if (
+            error.code !== 'ENOENT' &&
+            error.code !== 'ENOTDIR' &&
+            !(error instanceof SyntaxError) &&
+            error.name !== 'TSError'
+          )
+            throw error
+        }
+      }
+      projectModules.set(stem, null)
+      return null
+    }
+    const importedName = (ast, module, name) => {
+      for (const declaration of ast.body) {
+        if (
+          declaration.type !== 'ImportDeclaration' ||
+          declaration.importKind === 'type' ||
+          declaration.source.value !== module
+        )
+          continue
+        const specifier = declaration.specifiers.find(
+          (entry) =>
+            entry.type === 'ImportSpecifier' &&
+            entry.importKind !== 'type' &&
+            entry.imported.name === name,
+        )
+        if (specifier) return specifier.local.name
+      }
+    }
+    const barrelExportsAuthClient = (stem) => {
+      const barrel = projectModule(stem)
+      if (!barrel) return false
+      const from = './auth-default.js'
+      const localClient = importedName(barrel, from, 'authClient')
+      return barrel.body.some(
+        (node) =>
+          node.type === 'ExportNamedDeclaration' &&
+          node.exportKind !== 'type' &&
+          node.specifiers.some(
+            (entry) =>
+              entry.type === 'ExportSpecifier' &&
+              entry.exportKind !== 'type' &&
+              entry.exported.name === 'authClient' &&
+              (node.source
+                ? node.source.value === from && entry.local.name === 'authClient'
+                : entry.local.name === localClient),
+          ),
+      )
+    }
     const authSource = (node) => {
       node = clientValue(node)
       const definition = variable(node)?.defs[0]
-      if (definition?.type === 'ImportBinding' && definition.node.imported?.name === 'authClient') {
+      if (
+        definition?.type === 'ImportBinding' &&
+        definition.node.imported?.name === 'authClient' &&
+        definition.parent.importKind !== 'type' &&
+        definition.node.importKind !== 'type'
+      ) {
         const module = definition.parent.source.value
-        if (
-          module.startsWith('.') &&
-          packages.root &&
-          resolve(dirname(filename), module).replace(/\.[cm]?[jt]s$/, '') ===
-            join(packages.root, 'src/bonds/auth-default')
-        )
-          return true
+        if (module.startsWith('.') && packages.root) {
+          const target = resolve(dirname(filename), module).replace(/\.[cm]?[jt]s$/, '')
+          return (
+            target === join(packages.root, 'src/bonds/auth-default') ||
+            (target === join(packages.root, 'src/bonds/index') && barrelExportsAuthClient(target))
+          )
+        }
       }
       return (
         node?.type === 'CallExpression' &&
@@ -655,7 +731,7 @@ export default {
     // ESLint supplies the parser and scope graph. Inspect calls in the action,
     // including called local helpers and Promise continuations, not unused closures
     // or another handler's publication. This is omission feedback, not a proof of
-    // every branch's timing or the response value passed to setUser.
+    // every branch's timing or the response value passed to a session publisher.
     const actionCalls = (fn, seen = new Set()) => {
       if (!fn?.body || seen.has(fn)) return []
       seen.add(fn)
@@ -686,33 +762,9 @@ export default {
     }
     // The scaffold's authored src/config is the source of the profile contract.
     // Parse literal configuration with ESLint's parser; never execute it or guess
-    // routes from words such as "user". Dynamic/imported contracts stay outside
-    // this syntax-only check. No configuration cache can hide an intervening edit.
+    // routes from words such as "user". Dynamic contracts stay outside this check.
     const profileTarget = () => {
-      const parser = context.languageOptions?.parser
-      if (!parser?.parseForESLint || !packages.root) return null
-      const parseFile = (path) => {
-        try {
-          const text = path === filename ? source.text : readFileSync(path, 'utf8')
-          return parser.parseForESLint(text, {
-            sourceType: 'module',
-            ecmaVersion: 'latest',
-            filePath: path,
-            tsconfigRootDir: packages.root,
-            project: false,
-            projectService: false,
-          }).ast
-        } catch (error) {
-          if (
-            error.code === 'ENOENT' ||
-            error.code === 'ENOTDIR' ||
-            error instanceof SyntaxError ||
-            error.name === 'TSError'
-          )
-            return null
-          throw error
-        }
-      }
+      if (!packages.root) return null
       const declarations = (ast) =>
         ast.body.flatMap((statement) => {
           const declaration =
@@ -724,27 +776,17 @@ export default {
       // Do not treat an unused config as the bonded contract. Recognize the
       // scaffold's direct factory + config argument/spread + setClient wiring. An override
       // or a custom composition root cannot be resolved here and stays quiet.
-      const bond = ['ts', 'js', 'mjs']
-        .map((extension) =>
-          parseFile(join(packages.root, 'src', 'bonds', `auth-default.${extension}`)),
-        )
-        .find(Boolean)
+      const bond = projectModule(join(packages.root, 'src/bonds/auth-default'))
       if (!bond) return null
-      const importedName = (module, name) =>
-        bond.body
-          .find((node) => node.type === 'ImportDeclaration' && node.source.value === module)
-          ?.specifiers.find(
-            (node) => node.type === 'ImportSpecifier' && node.imported.name === name,
-          )?.local.name
-      const factory = importedName(AUTH, 'createJWTAuthClient')
-      const configImport = importedName('../config.js', 'authConfig')
-      const setter = importedName(AUTH, 'setClient')
+      const factory = importedName(bond, AUTH, 'createJWTAuthClient')
+      const configImport = importedName(bond, '../config.js', 'authConfig')
+      const setter = importedName(bond, AUTH, 'setClient')
       const wrappers = [
         'createDefaultAuthClient',
         'createDefaultAuthClientWithHttpSync',
         'createDefaultAuthClientWithFetchClient',
       ]
-        .map((name) => importedName('@molecule/app-bonds-default-react', name))
+        .map((name) => importedName(bond, '@molecule/app-bonds-default-react', name))
         .filter(Boolean)
       const client = declarations(bond).find(
         (node) =>
@@ -793,37 +835,33 @@ export default {
         )
       }
       if (!wrapped && !bonded(bond)) return null
-      for (const extension of ['ts', 'js', 'mjs']) {
-        const configPath = join(packages.root, 'src', `config.${extension}`)
-        const ast = parseFile(configPath)
-        if (!ast) continue
-        const config = unwrap(declarations(ast).find((node) => node.id.name === 'authConfig')?.init)
-        if (
-          config?.type !== 'ObjectExpression' ||
-          config.properties.some((prop) => prop.type === 'SpreadElement')
-        )
-          return null
-        const field = (name) =>
-          config.properties.findLast((prop) => (prop.key.name ?? prop.key.value) === name)
-        const literal = (node) => {
-          node = unwrap(node)
-          if (FUNCTIONS.includes(node?.type)) {
-            const returns = functionReturns(node)
-            node = returns.length === 1 ? unwrap(returns[0]) : null
-          }
-          if (node?.type === 'Literal' && typeof node.value === 'string') return node.value
-          if (node?.type === 'TemplateLiteral' && node.expressions.length === 0)
-            return node.quasis[0].value.cooked
-          return null
+      const ast = projectModule(join(packages.root, 'src/config'))
+      if (!ast) return null
+      const config = unwrap(declarations(ast).find((node) => node.id.name === 'authConfig')?.init)
+      if (
+        config?.type !== 'ObjectExpression' ||
+        config.properties.some((prop) => prop.type === 'SpreadElement')
+      )
+        return null
+      const field = (name) =>
+        config.properties.findLast((prop) => (prop.key.name ?? prop.key.value) === name)
+      const literal = (node) => {
+        node = unwrap(node)
+        if (FUNCTIONS.includes(node?.type)) {
+          const returns = functionReturns(node)
+          node = returns.length === 1 ? unwrap(returns[0]) : null
         }
-        const endpoint = literal(field('profileEndpoint')?.value)
-        const methodField = field('profileUpdateMethod')
-        const method = methodField ? literal(methodField.value) : 'PATCH'
-        return endpoint && ['PUT', 'PATCH', 'POST'].includes(method)
-          ? { endpoint, method: method.toLowerCase() }
-          : null
+        if (node?.type === 'Literal' && typeof node.value === 'string') return node.value
+        if (node?.type === 'TemplateLiteral' && node.expressions.length === 0)
+          return node.quasis[0].value.cooked
+        return null
       }
-      return null
+      const endpoint = literal(field('profileEndpoint')?.value)
+      const methodField = field('profileUpdateMethod')
+      const method = methodField ? literal(methodField.value) : 'PATCH'
+      return endpoint && ['PUT', 'PATCH', 'POST'].includes(method)
+        ? { endpoint, method: method.toLowerCase() }
+        : null
     }
     // Bonding is deliberately a creation-site fact. Only an identifier
     // declarator can hold that client itself; a destructured method cannot.
@@ -1326,7 +1364,13 @@ export default {
               )
                 continue
               const fn = ownerFunction(node)
-              if (!fn || !actionCalls(fn).some((call) => authAction(call.callee, 'setUser')))
+              if (
+                !fn ||
+                !actionCalls(fn).some(
+                  (call) =>
+                    authAction(call.callee, 'setUser') || authAction(call.callee, 'setSession'),
+                )
+              )
                 context.report({ node, messageId: 'profile' })
             }
         }
