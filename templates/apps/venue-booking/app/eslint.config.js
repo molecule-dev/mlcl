@@ -1,4 +1,5 @@
 import { readFileSync } from 'node:fs'
+import process from 'node:process'
 import { URL } from 'node:url'
 
 import eslint from '@eslint/js'
@@ -345,6 +346,10 @@ export default tseslint.config(
       'molecule-local/no-empty-interactive-target': ['error', { iconFonts }],
       'molecule-local/require-icon-font-setup': ['error', { iconFonts }],
       'molecule-local/prefer-declared-clients': 'error',
+      'molecule-local/no-in-app-document-navigation': [
+        'error',
+        { apiBase: process.env.VITE_API_URL ?? '/api' },
+      ],
       'molecule-local/async-collections-have-status': 'error',
       'molecule-local/effects-preserve-form-edits': 'error',
       'molecule-local/no-dropped-action': 'error',

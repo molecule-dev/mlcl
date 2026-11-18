@@ -1,4 +1,4 @@
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -52,6 +52,7 @@ const FEATURES: ReadonlyArray<{
 const TRUST_LOGOS = ['Lattice', 'Ramp', 'Notion', 'Linear', 'Replicate', 'Vercel']
 
 export function Landing() {
+  const navigate = useNavigate()
   const cm = getClassMap()
   const { t } = useTranslation()
   const sampleAttendees = [
@@ -173,10 +174,10 @@ export function Landing() {
               status="starting"
               attendees={sampleAttendees}
               onJoin={() => {
-                window.location.href = '/signup'
+                void navigate('/signup')
               }}
               onDetails={() => {
-                window.location.href = '/login'
+                void navigate('/login')
               }}
             />
           </div>

@@ -1,5 +1,5 @@
 import React, { useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { OAuthProviderLogo } from '@molecule/app-oauth-logos-react'
@@ -13,6 +13,7 @@ function startOAuth(provider: string) {
 }
 
 export function Login() {
+  const navigate = useNavigate()
   // Inter is served locally (index.html @font-face) — never load it from Google.
   // Apply it to the body for page-level consistency while this page is mounted.
   React.useEffect(() => {
@@ -51,7 +52,7 @@ export function Login() {
     try {
       await auth.login({ email, password })
       clearAuthForm()
-      window.location.href = '/'
+      void navigate('/')
     } catch (_error) {
       // Auth failure surfaced to the user via setError — no additional logging needed
       setError(t('login.error', {}, { defaultValue: 'Invalid email or password.' }))

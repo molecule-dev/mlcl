@@ -1,7 +1,14 @@
 import { useEffect } from 'react'
+import { Link } from 'react-router'
 
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
-import { useAuth, useHttpClient, useTranslation, useVerifyPaymentReturn } from '@molecule/app-react'
+import {
+  useAuth,
+  useAuthClient,
+  useHttpClient,
+  useTranslation,
+  useVerifyPaymentReturn,
+} from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Button, Flex, LoadErrorBanner, Spinner } from '@molecule/app-ui-react'
 
@@ -11,7 +18,8 @@ import { Header } from '../components/Header.js'
 export function PlanUpdated() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const { state, refresh } = useAuth()
+  const { state } = useAuth()
+  const authClient = useAuthClient()
   const http = useHttpClient()
   const userId = (state.user as { id?: string } | null | undefined)?.id
   // The checkout provider returns the buyer here with the payment id in the
@@ -19,14 +27,7 @@ export function PlanUpdated() {
   // the session cookie applies, is what actually grants the plan.
   const verification = useVerifyPaymentReturn()
 
-  // Stripe webhook updates `users.planKey` asynchronously after Checkout.
-  // The page lands here while the cached user record still reflects the
-  // pre-checkout plan. Re-fetch the canonical user via the cookie-backed http
-  // client (post-M1-1 the bearer is in-memory + an httpOnly cookie, NOT
-  // localStorage — never hand-attach a token), rewrite the cached copy so the
-  // next mount of any page (Dashboard, Profile, etc.) picks up the new plan,
-  // then call refresh() to wake any in-memory subscribers. The hard reload on
-  // "Return home" below also re-inits the running auth client from storage.
+  // Publish the verified plan to the shared session so mounted consumers update.
   useEffect(() => {
     // Reading the plan before the checkout return is confirmed would show the
     // pre-purchase plan; re-runs once verification settles.
@@ -39,18 +40,10 @@ export function PlanUpdated() {
         if (cancelled) return
         const body = (res?.data ?? res) as Record<string, unknown> | null
         if (!body) return
-        try {
-          const raw = window.localStorage.getItem('molecule:auth:user')
-          if (raw) {
-            const parsed = JSON.parse(raw) as Record<string, unknown>
-            const props = (body.props ?? body) as Record<string, unknown>
-            const next = { ...parsed, ...props }
-            window.localStorage.setItem('molecule:auth:user', JSON.stringify(next))
-          }
-        } catch (_error) {
-          // localStorage write failures are non-fatal — refresh() still wakes subscribers.
-        }
-        await refresh().catch(() => null)
+        const user = authClient.getUser()
+        if (!user || user.id !== userId) return
+        const profile = (body.props ?? body) as Record<string, unknown>
+        authClient.setUser({ ...user, ...profile })
       } catch (_error) {
         // Network blip — the next page mount will see whatever the cache holds.
       }
@@ -58,14 +51,7 @@ export function PlanUpdated() {
     return () => {
       cancelled = true
     }
-  }, [userId, http, refresh, verification.status])
-
-  // Hard navigation forces the molecule auth client to re-init from the
-  // refreshed localStorage so consuming pages observe the new planKey.
-  const handleReturn = (e: React.MouseEvent<HTMLAnchorElement>) => {
-    e.preventDefault()
-    window.location.assign('/')
-  }
+  }, [userId, http, authClient, verification.status])
 
   if (!state.initialized) {
     return (
@@ -152,10 +138,9 @@ export function PlanUpdated() {
             },
           )}
         </p>
-        <a
-          href="/"
+        <Link
+          to="/"
           data-mol-id="plan-updated-back"
-          onClick={handleReturn}
           className={cm.cn(
             cm.sp('px', 5),
             cm.sp('py', 3),
@@ -164,7 +149,7 @@ export function PlanUpdated() {
           )}
         >
           <Button>{t('planUpdated.returnHome', {}, { defaultValue: 'Return Home' })}</Button>
-        </a>
+        </Link>
       </div>
     </ContentPageShell>
   )

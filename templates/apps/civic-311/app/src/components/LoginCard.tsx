@@ -3,12 +3,16 @@ import { Link, useNavigate } from 'react-router'
 
 import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { OAuthProviderLogo } from '@molecule/app-oauth-logos-react'
-import { useAuth, useTranslation } from '@molecule/app-react'
+import { useAuth, useOAuth, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
+
+import { oauthConfig } from '../config.js'
+
 function LoginCard() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const { login } = useAuth()
+  const { redirect } = useOAuth(oauthConfig)
   const navigate = useNavigate()
   // Cross-view auth form persistence (email shared across Login/Signup/
   // Forgot/Reset, cleared on success) via the shared @molecule hook.
@@ -229,7 +233,7 @@ function LoginCard() {
                   'rounded-lg bg-surface-container-high text-on-surface hover:bg-surface-variant transition-colors group',
                 )}
                 onClick={() => {
-                  window.location.href = `/auth/${provider}`
+                  redirect(provider)
                 }}
                 aria-label={t(labelKey, {}, { defaultValue: fallback })}
               >

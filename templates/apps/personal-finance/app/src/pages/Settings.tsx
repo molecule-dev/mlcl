@@ -1,5 +1,6 @@
 /** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -17,9 +18,10 @@ import SettingsPageHeader from '../components/SettingsPageHeader.js'
 import SettingsSaveButton from '../components/SettingsSaveButton.js'
 import SettingsTopNavBar from '../components/SettingsTopNavBar.js'
 function Settings() {
+  const navigate = useNavigate()
   const cm = getClassMap()
   const { t, locale, setLocale } = useTranslation()
-  const { user } = useAuth<{ id?: string; name?: string; email?: string }>()
+  const { user, logout } = useAuth<{ id?: string; name?: string; email?: string }>()
   const http = useHttpClient()
   const [name, setName, fillName] = useForm({
     defaultValues: { name: '' },
@@ -73,7 +75,8 @@ function Settings() {
     // arm/commit) — this handler only runs on the committing click.
     try {
       await http.delete(`/api/users/${(user as { id: string }).id}`)
-      window.location.href = '/login'
+      await logout()
+      void navigate('/login')
     } catch (_error) {
       // best-effort delete; if it fails the server-side session will expire naturally
     }

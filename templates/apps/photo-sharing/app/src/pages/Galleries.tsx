@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { requireProvider } from '@molecule/app-gallery'
 import { useTranslation } from '@molecule/app-react'
@@ -27,6 +27,7 @@ const COVER_GRADIENTS = [
  * real, working destinations.
  */
 export function Galleries() {
+  const navigate = useNavigate()
   const cm = getClassMap()
   const { t } = useTranslation()
   const [galleries, setGalleries] = useState<Gallery[] | null>(null)
@@ -103,7 +104,7 @@ export function Galleries() {
       } catch (_error) {
         // No gallery provider bonded (should not happen — the bond is wired in
         // bonds/index.ts) — fall back to the photo detail page.
-        window.location.href = `/photos/${p.id}`
+        void navigate(`/photos/${p.id}`)
       }
     }
     return (

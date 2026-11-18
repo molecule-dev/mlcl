@@ -1,4 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -72,6 +73,7 @@ function fmtRelative(iso: string | null): string {
 }
 
 export function Profile() {
+  const navigate = useNavigate()
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
@@ -539,7 +541,7 @@ export function Profile() {
               value="••••••••••"
               action={t('profile.change', {}, { defaultValue: 'Change' })}
               onAction={() => {
-                window.location.assign('/forgot-password')
+                void navigate('/forgot-password')
               }}
             />
           </Card>

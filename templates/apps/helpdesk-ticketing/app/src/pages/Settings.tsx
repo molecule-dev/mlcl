@@ -1,5 +1,6 @@
 /** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
@@ -40,8 +41,9 @@ interface MeResponse {
 }
 
 function Settings() {
+  const navigate = useNavigate()
   const cm = getClassMap()
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
   const http = useHttpClient()
   const userData = user as Record<string, unknown> | null
   const { t } = useTranslation()
@@ -231,7 +233,8 @@ function Settings() {
     setDeactivating(true)
     try {
       await http.put('/api/users/me/deactivate', {})
-      window.location.href = '/login'
+      await logout()
+      void navigate('/login')
     } catch (error) {
       logError('settings.handleDeactivate', error)
       setMessage({

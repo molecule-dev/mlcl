@@ -9,7 +9,7 @@
  */
 
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { Link } from 'react-router'
+import { Link, useNavigate } from 'react-router'
 
 import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -63,6 +63,7 @@ const PREFERENCE_KEYS = [
 ] as const
 
 export function Settings() {
+  const navigate = useNavigate()
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
@@ -217,9 +218,9 @@ export function Settings() {
     try {
       await authClient.logout?.()
     } finally {
-      window.location.href = '/login'
+      void navigate('/login')
     }
-  }, [])
+  }, [navigate])
 
   return (
     <div className={cm.cn(cm.stack(8), cm.sp('p', 8), 'max-w-[1200px] mx-auto')}>

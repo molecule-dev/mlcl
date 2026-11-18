@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router'
+import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -58,6 +58,7 @@ function writeProgress(state: StoredProgress) {
 }
 
 export function PickList() {
+  const navigate = useNavigate()
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
@@ -146,7 +147,7 @@ export function PickList() {
       const next = status === 'pending' || status === 'picking' ? 'packed' : status
       await http.patch(`/orders/${orderId}`, { status: next })
       void track({ name: 'order.packed', properties: { orderId } })
-      window.location.href = `/orders/${orderId}`
+      void navigate(`/orders/${orderId}`)
     } finally {
       setAdvancing(false)
     }

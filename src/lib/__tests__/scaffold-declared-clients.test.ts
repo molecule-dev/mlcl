@@ -36,7 +36,7 @@ afterEach(async () => {
   for (const dir of dirs.splice(0)) await rm(dir, { recursive: true, force: true })
 })
 
-async function findings(app: string, source: string): Promise<Linter.LintMessage[]> {
+async function findings(app: string, source: string, rule = RULE): Promise<Linter.LintMessage[]> {
   const config = join(
     app,
     existsSync(join(app, 'eslint.config.js')) ? 'eslint.config.js' : 'eslint.config.mjs',
@@ -49,7 +49,7 @@ async function findings(app: string, source: string): Promise<Linter.LintMessage
   })
   const [result] = await eslint.lintText(source, { filePath: join(app, 'src/stock.tsx') })
   expect(result.messages.filter((message) => message.fatal)).toEqual([])
-  return result.messages.filter((message) => message.ruleId === RULE)
+  return result.messages.filter((message) => message.ruleId === rule)
 }
 
 const localClients = `import { createContext, useState } from 'react'
@@ -78,14 +78,37 @@ export function save(value: string) {
   getClient().setAuthToken(value)
 }`
       const rows = await findings(app, source)
-      expect(rows.map((row) => row.messageId)).toEqual(['credential'])
+      expect(rows.map((row) => row.messageId)).toEqual(['credential', 'clientCredential'])
       expect(rows[0].severity).toBe(2)
       expect(rows[0].line).toBe(3)
       expect(
-        await findings(app, source.replace("localStorage.setItem('warehouse-current', value)", '')),
+        await findings(
+          app,
+          `import { getClient as getAuth } from '@molecule/app-auth'
+import { setAuthTokenSource } from '@molecule/app-http'
+setAuthTokenSource(() => getAuth().getAccessToken())`,
+        ),
       ).toEqual([])
     },
   )
+
+  it('the generated React lint rejects a document navigation and accepts the router hook', async () => {
+    const app = join(await directory(), 'app')
+    await createAppProject(app, 'warehouse', 'react')
+    const rule = 'molecule-local/no-in-app-document-navigation'
+    const rows = await findings(app, "window.location.assign('/warehouse')", rule)
+    expect(rows.map(({ messageId, severity }) => [messageId, severity])).toEqual([
+      ['documentNavigation', 2],
+    ])
+    expect(rows[0].message).toContain('useNavigate()')
+    const fixed = `import { useNavigate } from 'react-router'
+export function Warehouse() {
+  const navigate = useNavigate()
+  return <button type="button" onClick={() => navigate('/warehouse')}>Open</button>
+}`
+    expect(await findings(app, fixed, rule)).toEqual([])
+    expect(await findings(app, "location.href = '/api/download'", rule)).toEqual([])
+  })
 
   it.each(['react', 'vue'])(
     'the generated %s inventory accepts a separate account through the package client',

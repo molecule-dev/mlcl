@@ -1,4 +1,5 @@
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
@@ -53,6 +54,7 @@ const formatNum = (n: number | undefined): string => {
  * handles both wrapped (`{ data: [] }`) and raw (`[]`) responses.
  */
 export function Pricing() {
+  const navigate = useNavigate()
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
@@ -86,7 +88,7 @@ export function Pricing() {
   const upgrade = async (priceId: string | null): Promise<void> => {
     if (!priceId) return
     if (!auth.isAuthenticated) {
-      window.location.assign('/login')
+      void navigate('/login')
       return
     }
     setStarting(true)

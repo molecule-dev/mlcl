@@ -32,11 +32,9 @@
  * A custom storage key is a credential store when its written value also feeds the
  * bonded HTTP client's setAuthToken in this module. Immutable bindings establish
  * that connection; independent clients, read-only storage and unrelated values do not.
- * The global setAuthTokenSource callback is also a credential owner when its returned
- * value comes from browser storage. Local immutable aliases and helper returns are
- * followed; unrelated storage reads and imported/dynamic helpers are not inferred.
- * The same data flow applies to Authorization overrides on requests made by the
- * bonded HTTP client. Separate client instances keep their own credentials.
+ * The app's HTTP token source, token setters and Authorization overrides use the
+ * declared auth client's token. The sink establishes ownership even if the
+ * credential comes from another module. Separate services can use their own keys.
  * Article checks cover awaited updates followed by a lookup using the same lexical
  * slug binding in that function. Cross-module control flow is not inferred.
  * Query checks compare a useQuery key with one extra array around that same binding in a
@@ -53,11 +51,12 @@
  * opaque configs, spreads and callbacks are not inferred.
  */
 import { readFileSync } from 'node:fs'
-import { dirname, isAbsolute, join, parse, resolve } from 'node:path'
+import { basename, dirname, isAbsolute, join, parse, relative, resolve, sep } from 'node:path'
 import { URL } from 'node:url'
 
 const AUTH = '@molecule/app-auth'
 const HTTP = '@molecule/app-http'
+const DEFAULT_API_BASE = '/api'
 // mlcl/registry.json's app `http` bond category: the core and every provider factory.
 const HTTP_FACTORIES = [
   { module: HTTP, name: 'createFetchClient' },
@@ -69,7 +68,8 @@ const TEST =
 
 /** Read only the nearest package: workspace hoisting does not declare a capability. */
 function declared(filename, cwd) {
-  let dir = dirname(isAbsolute(filename) ? filename : resolve(cwd, filename))
+  const file = isAbsolute(filename) ? filename : resolve(cwd, filename)
+  let dir = dirname(file)
   for (;;) {
     let text
     try {
@@ -86,7 +86,11 @@ function declared(filename, cwd) {
       }
       return {
         root: dir,
-        auth: pkg.name !== AUTH && Object.hasOwn(dependencies, AUTH),
+        auth:
+          pkg.name !== AUTH &&
+          basename(dir) !== 'api' &&
+          relative(dir, file).split(sep)[0] !== 'api' &&
+          Object.hasOwn(dependencies, AUTH),
         http: pkg.name !== HTTP && Object.hasOwn(dependencies, HTTP),
         article: Object.hasOwn(dependencies, '@molecule/api-resource-article'),
         query:
@@ -100,6 +104,26 @@ function declared(filename, cwd) {
     }
     if (dir === parse(dir).root) return { auth: false, http: false }
     dir = dirname(dir)
+  }
+}
+
+const sessionRepair =
+  'Use your app’s login call, then authClient.setSession({ accessToken, user }) and read the session with useAuth(). Storing the token and user together lets the app restore the session immediately on document load.'
+
+function literalString(node) {
+  if (node?.type === 'Literal' && typeof node.value === 'string') return node.value
+  if (node?.type === 'TemplateLiteral' && node.expressions.length === 0)
+    return node.quasis[0].value.cooked
+  return null
+}
+
+/** Return a statically named HTTP host, including its port when present. */
+function httpHost(target) {
+  if (!target || !/^(?:https?:)?\/\//i.test(target)) return null
+  try {
+    return new URL(target, 'http://localhost').host
+  } catch {
+    return null
   }
 }
 
@@ -118,10 +142,15 @@ export default {
         '@molecule/app-auth is declared: this browser credential store duplicates its session. Configure tokenKey (or storagePrefix) and authScheme in the existing auth bond/config; use getClient().getAccessToken() and the framework auth binding. requestBody/mapAuthResponse/currentUserEndpoint adapt the API.',
       session:
         '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
-      storedCredentialSource:
-        '@molecule/app-auth is declared, but this global HTTP token source reads browser storage instead of its session. Use setAuthTokenSource(() => authClient.getAccessToken()) with the existing auth bond; configure tokenKey and authScheme there. The shared client restores a cached token and user synchronously; a separate token store makes protected pages wait for another session lookup on every document load. A deliberately independent protocol can use a reasoned ESLint disable at this call.',
-      storedRequestCredential:
-        '@molecule/app-auth is declared, but this request replaces the bonded HTTP Authorization header with a browser-stored credential. Remove the Authorization override. Configure tokenKey and authScheme in the existing auth/HTTP bonds and use the framework auth binding for session state. A separate account can use its own explicitly configured client.',
+      credentialSource:
+        'The app’s HTTP token source must read the declared auth client. Use setAuthTokenSource(() => authClient.getAccessToken()) in the app’s HTTP bond. ' +
+        sessionRepair,
+      clientCredential:
+        'The app’s HTTP client must use the declared auth client’s token. Wire setAuthTokenSource(() => authClient.getAccessToken()) in the app’s HTTP bond. ' +
+        sessionRepair,
+      requestCredential:
+        'This Authorization header overrides the app’s session credential. Remove the Authorization override and configure authScheme in the app’s HTTP bond. ' +
+        sessionRepair,
       logout:
         'This sign-out handler only navigates and leaves the subscribed session signed in. Call useAuth().logout() or the bonded auth client logout() before navigation. If another route owns sign-out, delegate to that action or use a reasoned ESLint disable at this handler.',
       profile:
@@ -175,6 +204,7 @@ export default {
       return {}
     const calls = []
     const storageAssignments = []
+    const defaultHeaderAssignments = []
     const states = []
     const clickHandlers = []
     const clientBonds = []
@@ -220,13 +250,7 @@ export default {
         return value(definition.node.init, seen)
       return node
     }
-    const string = (node) => {
-      node = value(node)
-      if (node?.type === 'Literal' && typeof node.value === 'string') return node.value
-      if (node?.type === 'TemplateLiteral' && node.expressions.length === 0)
-        return node.quasis[0].value.cooked
-      return null
-    }
+    const string = (node) => literalString(value(node))
     const credential = (name, stored) => {
       const candidate = value(stored)
       if (
@@ -429,34 +453,6 @@ export default {
         return definition.node
       const declarator = stableConst(callee)
       return declarator ? localFunction(declarator.init, seen) : null
-    }
-    // Inspect the callback's returned value, not every storage read in its body:
-    // a theme preference beside the bonded client's token is still a preference.
-    const storedCredential = (node, seen = new Set()) => {
-      node = value(node)
-      if (!node || seen.has(node)) return false
-      seen.add(node)
-      if (node.type === 'MemberExpression' && storage(node.object)) return true
-      if (node.type === 'CallExpression') {
-        const callee = unwrap(node.callee)
-        if (
-          callee?.type === 'MemberExpression' &&
-          key(callee) === 'getItem' &&
-          storage(callee.object)
-        )
-          return true
-        const fn = localFunction(callee)
-        return Boolean(fn && functionReturns(fn).some((result) => storedCredential(result, seen)))
-      }
-      if (node.type === 'LogicalExpression')
-        return storedCredential(node.left, seen) || storedCredential(node.right, seen)
-      if (node.type === 'ConditionalExpression')
-        return storedCredential(node.consequent, seen) || storedCredential(node.alternate, seen)
-      if (node.type === 'TemplateLiteral')
-        return node.expressions.some((expression) => storedCredential(expression, seen))
-      if (node.type === 'BinaryExpression' && node.operator === '+')
-        return storedCredential(node.left, seen) || storedCredential(node.right, seen)
-      return false
     }
     // Follow the binding that already has a package contract, without inferring
     // a domain, renderer or sink. Opaque external data and local APIs stay local.
@@ -675,27 +671,31 @@ export default {
           ),
       )
     }
+    const projectImport = (node, name) => {
+      const definition = variable(clientValue(node))?.defs[0]
+      if (
+        definition?.type !== 'ImportBinding' ||
+        definition.node.imported?.name !== name ||
+        definition.parent.importKind === 'type' ||
+        definition.node.importKind === 'type' ||
+        !definition.parent.source.value.startsWith('.') ||
+        !packages.root
+      )
+        return null
+      return resolve(dirname(filename), definition.parent.source.value).replace(/\.[cm]?[jt]s$/, '')
+    }
     const authSource = (node) => {
       node = clientValue(node)
-      const definition = variable(node)?.defs[0]
+      const target = projectImport(node, 'authClient')
       if (
-        definition?.type === 'ImportBinding' &&
-        definition.node.imported?.name === 'authClient' &&
-        definition.parent.importKind !== 'type' &&
-        definition.node.importKind !== 'type'
-      ) {
-        const module = definition.parent.source.value
-        if (module.startsWith('.') && packages.root) {
-          const target = resolve(dirname(filename), module).replace(/\.[cm]?[jt]s$/, '')
-          return (
-            target === join(packages.root, 'src/bonds/auth-default') ||
-            (target === join(packages.root, 'src/bonds/index') && barrelExportsAuthClient(target))
-          )
-        }
-      }
+        target &&
+        (target === join(packages.root, 'src/bonds/auth-default') ||
+          (target === join(packages.root, 'src/bonds/index') && barrelExportsAuthClient(target)))
+      )
+        return true
       return (
         node?.type === 'CallExpression' &&
-        (imported(node.callee, [AUTH], ['getClient']) ||
+        (imported(node.callee, [AUTH], ['getClient', 'createJWTAuthClient']) ||
           imported(node.callee, FRAMEWORK_AUTH, ['useAuth', 'useAuthClient']))
       )
     }
@@ -739,6 +739,133 @@ export default {
       ['put', 2],
       ['patch', 2],
     ])
+    const httpUtilities = ['get', 'post', 'put', 'patch', 'del']
+    const noCredential = (node) =>
+      !node ||
+      (node.type === 'Literal' && (node.value === null || node.value === '')) ||
+      global(node, ['undefined'])
+    const sessionCredential = (node, header = false, seen = new Set()) => {
+      node = value(node)
+      if (noCredential(node)) return true
+      if (seen.has(node)) return false
+      seen = new Set(seen).add(node)
+      const allowed = (part) => sessionCredential(part, header, seen)
+      if (node.type === 'CallExpression') {
+        if (authAction(node.callee, 'getAccessToken')) return true
+        const fn = localFunction(node.callee)
+        return Boolean(fn?.body && functionReturns(fn).every(allowed))
+      }
+      if (node.type === 'ConditionalExpression')
+        return allowed(node.consequent) && allowed(node.alternate)
+      if (node.type === 'LogicalExpression' && node.operator !== '&&')
+        return allowed(node.left) && allowed(node.right)
+      if (header && node.type === 'TemplateLiteral' && node.expressions.length === 1)
+        return sessionCredential(node.expressions[0], false, seen)
+      if (header && node.type === 'BinaryExpression' && node.operator === '+' && string(node.left))
+        return sessionCredential(node.right, false, seen)
+      return false
+    }
+    const sessionTokenSource = (node) => {
+      if (noCredential(value(node)) || authAction(node, 'getAccessToken')) return true
+      const fn = localFunction(node)
+      return Boolean(fn?.body && functionReturns(fn).every((result) => sessionCredential(result)))
+    }
+    const configFile = packages.root && join(packages.root, 'src/config')
+    const isApiBaseImport = (node) =>
+      configFile && projectImport(node, 'API_BASE_URL') === configFile
+    let cachedApiBase
+    const appApiBase = () => {
+      if (cachedApiBase !== undefined) return cachedApiBase
+      const config = configFile && projectModule(configFile)
+      const apiBase = config?.body
+        .flatMap((statement) => statement.declaration?.declarations ?? statement.declarations ?? [])
+        .find((part) => part.id.name === 'API_BASE_URL')?.init
+      const base = unwrap(apiBase)
+      const fallback =
+        base?.type === 'LogicalExpression' && ['||', '??'].includes(base.operator)
+          ? unwrap(base.right)
+          : base
+      cachedApiBase = literalString(fallback) ?? DEFAULT_API_BASE
+      return cachedApiBase
+    }
+    const checkHttpCredentials = (bonded) => {
+      const factoryBase = (node) => {
+        if (node?.type === 'CallExpression' && clientFactory(node.callee))
+          return property(node.arguments[0], 'baseURL', new Set(), true)
+        return null
+      }
+      const appClient = (node, baseNode) => {
+        if (
+          httpSource(node) ||
+          bonded.has(node) ||
+          projectImport(node, 'httpClient') === join(packages.root, 'src/bonds/http-default') ||
+          isApiBaseImport(baseNode)
+        )
+          return true
+        const base = string(baseNode)
+        return (
+          base === '' ||
+          (base !== null && base.replace(/\/$/, '') === appApiBase().replace(/\/$/, ''))
+        )
+      }
+      const urlHost = (node) => {
+        node = value(node)
+        if (node?.type !== 'TemplateLiteral' || node.expressions.length === 0)
+          return httpHost(literalString(node))
+        const prefix = node.quasis[0].value.cooked
+        // The first interpolation may be part of the host itself.
+        return /^(?:https?:)?\/\/[^/?#]+[/?#]/i.test(prefix) ? httpHost(prefix) : null
+      }
+      const appHost = (baseNode) => {
+        if (baseNode && !isApiBaseImport(baseNode)) return httpHost(string(baseNode))
+        const enabled = [...bonded].map(factoryBase).find(Boolean)
+        return httpHost(string(enabled) ?? appApiBase())
+      }
+      const checkHeaderValue = (node, header) => {
+        if (header && !sessionCredential(header, true))
+          context.report({ node, messageId: 'requestCredential' })
+      }
+      const reportHeader = (node, headers) => {
+        checkHeaderValue(node, property(headers, 'authorization'))
+      }
+      for (const call of calls) {
+        const callee = unwrap(call.callee)
+        if (imported(callee, [HTTP], ['setAuthTokenSource'])) {
+          if (!sessionTokenSource(call.arguments[0]))
+            context.report({ node: call, messageId: 'credentialSource' })
+          continue
+        }
+        const member = callee?.type === 'MemberExpression' ? callee : null
+        const utility = imported(callee, [HTTP], httpUtilities)
+          ? httpUtilities.find((name) => imported(callee, [HTTP], [name]))
+          : null
+        const method = utility === 'del' ? 'delete' : (utility ?? (member && key(member)))
+        const index = httpRequestConfig.get(method)
+        if (index === undefined && method !== 'setAuthToken') continue
+        const receiver = clientValue(member?.object)
+        const baseNode = factoryBase(receiver)
+        if (!utility && !appClient(receiver, baseNode)) continue
+        if (method === 'setAuthToken') {
+          if (!sessionCredential(call.arguments[0]))
+            context.report({ node: call, messageId: 'clientCredential' })
+          continue
+        }
+        const options = call.arguments[index]
+        const host = urlHost(method === 'request' ? property(options, 'url') : call.arguments[0])
+        if (host && host !== appHost(baseNode)) continue
+        reportHeader(call, property(options, 'headers'))
+      }
+      for (const call of calls) {
+        if (clientFactory(call.callee) && appClient(call, factoryBase(call)))
+          reportHeader(call, property(call.arguments[0], 'defaultHeaders'))
+      }
+      for (const { node, client, direct } of defaultHeaderAssignments) {
+        const receiver = clientValue(client)
+        if (!appClient(receiver, factoryBase(receiver))) continue
+        if (direct) checkHeaderValue(node, node.right)
+        else reportHeader(node, node.right)
+      }
+    }
     const ownerFunction = (node) => {
       for (let parent = node.parent; parent; parent = parent.parent)
         if (FUNCTIONS.includes(parent.type)) return parent
@@ -1032,6 +1159,17 @@ export default {
         if (node.left.type === 'MemberExpression' && storage(node.left.object))
           storageAssignments.push(node)
         if (node.left.type !== 'MemberExpression') return
+        if (packages.auth && node.operator === '=') {
+          const member = node.left.object
+          if (key(node.left) === 'defaultHeaders')
+            defaultHeaderAssignments.push({ node, client: member, direct: false })
+          else if (
+            member.type === 'MemberExpression' &&
+            key(member) === 'defaultHeaders' &&
+            key(node.left)?.toLowerCase() === 'authorization'
+          )
+            defaultHeaderAssignments.push({ node, client: member.object, direct: true })
+        }
         if (packages.markdown && key(node.left) === 'innerHTML' && markdownResult(node.right))
           context.report({ node, messageId: 'markdownHtml' })
         mutate(node.left.object, key(node.left), node.right)
@@ -1091,24 +1229,9 @@ export default {
           states.push(node)
       },
       'Program:exit'() {
+        const bonded = bondedHttpClients()
         if (packages.auth) {
-          for (const call of calls) {
-            const callee = unwrap(call.callee)
-            if (imported(callee, [HTTP], ['setAuthTokenSource'])) {
-              const fn = localFunction(call.arguments[0])
-              if (fn && functionReturns(fn).some((result) => storedCredential(result)))
-                context.report({ node: call, messageId: 'storedCredentialSource' })
-            } else if (callee?.type === 'MemberExpression' && httpSource(callee.object)) {
-              const index = httpRequestConfig.get(key(callee))
-              if (index === undefined) continue
-              const authorization = property(
-                property(call.arguments[index], 'headers'),
-                'authorization',
-              )
-              if (storedCredential(authorization))
-                context.report({ node: call, messageId: 'storedRequestCredential' })
-            }
-          }
+          checkHttpCredentials(bonded)
           // A key's spelling cannot identify a credential. Its flow to the visitor's
           // bonded transport can: only stable lexical values establish that fact.
           const tokenBinding = (node) => {
@@ -1402,7 +1525,6 @@ export default {
             }
         }
         if (packages.http) {
-          const bonded = bondedHttpClients()
           const exported = exportedHttpClients()
           const independent = independentlyAuthenticatedHttpClients()
           for (const node of calls) {
@@ -1832,9 +1954,82 @@ function componentResolver(parser, context) {
   return { scopes, unwrap, imported, roots, declaration }
 }
 
+const noInAppDocumentNavigation = {
+  meta: {
+    type: 'problem',
+    docs: { description: 'Use the app router when navigating to a page within the app' },
+    schema: [
+      {
+        type: 'object',
+        properties: { apiBase: { type: 'string' } },
+        additionalProperties: false,
+      },
+    ],
+    messages: {
+      documentNavigation:
+        'This starts a new document load for an app page. Use client-side navigation. In React, call useNavigate() from react-router in the component and call its returned function from the event handler{{options}}.',
+    },
+  },
+  create(context) {
+    const source = context.sourceCode
+    const rootRelative = /^\/(?![/\\])/
+    const apiBases = [DEFAULT_API_BASE, context.options[0]?.apiBase]
+      .filter((base) => base && rootRelative.test(base))
+      .map((base) => new URL(base, 'http://localhost').pathname.replace(/\/$/, ''))
+    const name = (member) =>
+      member?.type === 'MemberExpression'
+        ? member.computed
+          ? literalString(member.property)
+          : member.property.name
+        : null
+    const global = (node, names) => {
+      if (node?.type !== 'Identifier' || !names.includes(node.name)) return false
+      for (let scope = source.getScope(node); scope; scope = scope.upper) {
+        if (scope.set.get(node.name)?.defs.length) return false
+      }
+      return true
+    }
+    const isLocation = (node) =>
+      global(node, ['location']) ||
+      (name(node) === 'location' && global(node.object, ['window', 'globalThis', 'self']))
+    const check = (node, target, replace = false) => {
+      const whole = literalString(target)
+      const prefix = whole ?? (target?.type === 'TemplateLiteral' && target.quasis[0].value.cooked)
+      const clean = prefix && prefix.replace(/[\n\r\t]/g, '')
+      if (!clean || !rootRelative.test(clean)) return
+      const path =
+        whole === null ? clean.split(/[?#]/, 1)[0] : new URL(clean, 'http://localhost').pathname
+      if (
+        apiBases.some(
+          (base) =>
+            path.startsWith(`${base}/`) || (path === base && (whole !== null || path !== clean)),
+        )
+      )
+        return
+      context.report({
+        node,
+        messageId: 'documentNavigation',
+        data: { options: replace ? ' with { replace: true }' : '' },
+      })
+    }
+    return {
+      CallExpression(node) {
+        const method = name(node.callee)
+        if (['assign', 'replace'].includes(method) && isLocation(node.callee.object))
+          check(node, node.arguments[0], method === 'replace')
+      },
+      AssignmentExpression(node) {
+        if (node.operator === '=' && name(node.left) === 'href' && isLocation(node.left.object))
+          check(node, node.right)
+      },
+    }
+  },
+}
+
 /** Shared scaffold diagnostics. ESLint supplies the parser used for imported source files. */
 export function scaffoldRules(parser) {
   const rules = {
+    'no-in-app-document-navigation': noInAppDocumentNavigation,
     // WCAG technique H2: avoid two adjacent keyboard stops for the same image/name
     // destination. Inspect only a direct image link and its next static layout sibling;
     // separate rows, conditional layouts and opaque components remain independent.
@@ -4764,10 +4959,11 @@ export function scaffoldRules(parser) {
           resolver ??= componentResolver(parser, context)
           const target = resolver.imported(context.sourceCode.ast, callee.name, context.filename)
           if (!isFunction(target?.node)) return null
-          const exported = target.tree.body.some(({ type, declaration }) =>
-            type === 'ExportNamedDeclaration' &&
-            declaration?.range[0] <= target.node.range[0] &&
-            target.node.range[1] <= declaration.range[1],
+          const exported = target.tree.body.some(
+            ({ type, declaration }) =>
+              type === 'ExportNamedDeclaration' &&
+              declaration?.range[0] <= target.node.range[0] &&
+              target.node.range[1] <= declaration.range[1],
           )
           if (!exported) return null
           let bindings = siblingBindings.get(target.tree)
@@ -4783,19 +4979,28 @@ export function scaffoldRules(parser) {
           const readsDesired = (expression) => {
             let reads = false
             walk(expression, (node) => {
-              if (bindings.get(node)?.defs.some((def) => def.type === 'Parameter' && params.has(def.name)))
+              if (
+                bindings
+                  .get(node)
+                  ?.defs.some((def) => def.type === 'Parameter' && params.has(def.name))
+              )
                 reads = true
             })
             return reads
           }
           const branches = []
           walk(target.node.body, (node) => {
-            if (['IfStatement', 'ConditionalExpression'].includes(node.type) && readsDesired(node.test))
+            if (
+              ['IfStatement', 'ConditionalExpression'].includes(node.type) &&
+              readsDesired(node.test)
+            )
               branches.push(node.consequent, node.alternate)
           })
           const writesDesired = (node) =>
-            node.arguments.some(readsDesired) || branches.some((branch) =>
-              branch && branch.range[0] <= node.range[0] && node.range[1] <= branch.range[1],
+            node.arguments.some(readsDesired) ||
+            branches.some(
+              (branch) =>
+                branch && branch.range[0] <= node.range[0] && node.range[1] <= branch.range[1],
             )
           return { fn: target.node, findBinding: (node) => bindings.get(node), writesDesired }
         }
@@ -4825,7 +5030,8 @@ export function scaffoldRules(parser) {
           const origin = (id) => {
             const def = findBinding(id)?.defs[0]
             return def?.type === 'ImportBinding' &&
-              def.parent.importKind !== 'type' && def.node.importKind !== 'type'
+              def.parent.importKind !== 'type' &&
+              def.node.importKind !== 'type'
               ? def.parent.source.value
               : null
           }
@@ -4856,8 +5062,12 @@ export function scaffoldRules(parser) {
                 const wrapper = functionFor(factory, findBinding)
                 if (!wrapper || wrapper.params.length || expression.arguments.length) return false
                 const body = wrapper.body
-                const returned = body.type === 'BlockStatement' && body.body.length === 1 &&
-                  body.body[0].type === 'ReturnStatement' ? body.body[0].argument : body
+                const returned =
+                  body.type === 'BlockStatement' &&
+                  body.body.length === 1 &&
+                  body.body[0].type === 'ReturnStatement'
+                    ? body.body[0].argument
+                    : body
                 return client(returned, visited)
               }
               return (
@@ -4906,7 +5116,9 @@ export function scaffoldRules(parser) {
           const local = functionFor(callee, findBinding)
           const writer = local
             ? { fn: local, findBinding }
-            : findBinding === variableFor ? importedWriter(node, callee) : null
+            : findBinding === variableFor
+              ? importedWriter(node, callee)
+              : null
           if (!writer) return false
           let persists = false
           walk(writer.fn.body, (child) => {

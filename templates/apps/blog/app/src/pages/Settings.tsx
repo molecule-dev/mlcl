@@ -1,5 +1,6 @@
 /** Loaded form fields use the bonded form controller: edit setters mark dirty; fill setters preserve edits. */
 import { useEffect, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -48,9 +49,10 @@ function applyThemeAndFontSize(
 }
 
 function Settings() {
+  const navigate = useNavigate()
   const cm = getClassMap()
   const { t } = useTranslation()
-  const { user } = useAuth()
+  const { user, logout } = useAuth()
   const http = useHttpClient()
   const userData = user as Record<string, unknown> | null
 
@@ -208,7 +210,8 @@ function Settings() {
   async function handleDeleteAccount() {
     try {
       await http.delete(`/api/users/${userData?.id}`)
-      window.location.href = '/'
+      await logout()
+      void navigate('/')
     } catch (e) {
       setMessage({
         type: 'error',

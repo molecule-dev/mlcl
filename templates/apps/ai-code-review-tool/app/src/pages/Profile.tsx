@@ -1,4 +1,5 @@
 import { useEffect, useMemo, useState } from 'react'
+import { useNavigate } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
@@ -37,6 +38,7 @@ const DAY_MS = 24 * 60 * 60 * 1000
 const HEATMAP_DAYS = 28
 
 export function Profile() {
+  const navigate = useNavigate()
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
@@ -452,7 +454,7 @@ export function Profile() {
             <button
               type="button"
               onClick={() => {
-                window.location.href = '/settings'
+                void navigate('/settings')
               }}
               data-mol-id="profile-manage-accounts"
               className={cm.cn(
