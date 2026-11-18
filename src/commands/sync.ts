@@ -4,7 +4,7 @@ import { join, relative, resolve, sep } from 'node:path'
 
 import { Args, Command, Flags } from '@oclif/core'
 
-import { writeProjectFile } from '../lib/platform.js'
+import { sandboxExec, writeProjectFile } from '../lib/platform.js'
 import { ui } from '../lib/ui.js'
 import { projectFlag, requireAuth } from '../shared/project-flag.js'
 
@@ -164,6 +164,30 @@ function* walk(root: string, dir: string): Generator<string> {
 }
 
 /**
+ * The project's app directory under `/workspace`, as its sandbox records it in
+ * `/etc/mol/app-root` (the marker every platform shell path reads to find the app). A scaffolded
+ * project lives at `/workspace/<appDir>` beside the platform-owned workspace root, whose
+ * `package.json` lists the baked dependencies; writing a project's own `package.json` there
+ * breaks the sandbox. No marker, or one naming `/workspace`, is a root-layout project: `''`.
+ *
+ * @param projectId - The molecule.dev project id.
+ * @param exec - Runs a shell command in the sandbox (injected for tests).
+ * @returns The workspace-relative app directory, or `''` for a root-layout project.
+ */
+export async function sandboxAppDir(
+  projectId: string,
+  exec: typeof sandboxExec = sandboxExec,
+): Promise<string> {
+  const out = await exec(projectId, 'cat /etc/mol/app-root 2>/dev/null || true')
+  const root = (out.stdout ?? '').trim().replace(/\/+$/, '')
+  if (!root || root === '/workspace') return ''
+  const match = /^\/workspace\/([A-Za-z0-9._-]+)$/.exec(root)
+  if (!match || match[1] === '.' || match[1].includes('..'))
+    throw new Error(`the sandbox names an unexpected app root (${root}); pass --dest`)
+  return match[1]
+}
+
+/**
  * Push a local project tree into a project's sandbox — every text file under
  * the directory is written through the files API (`PUT /projects/:id/files/*`),
  * so what the sandbox holds is what you have on disk. Whatever .gitignore excludes stays
@@ -205,8 +229,7 @@ export default class Sync extends Command {
     concurrency: Flags.integer({ description: 'Parallel writes', default: 6 }),
     dest: Flags.string({
       description:
-        'Workspace-relative directory to write under (the platform scaffolds a project at /workspace/<appDir>, e.g. `my-app`)',
-      default: '',
+        "Workspace-relative directory to write under. Default: the project's app directory the sandbox records (e.g. `my-app`); `.` writes at the workspace root",
     }),
   }
 
@@ -215,7 +238,13 @@ export default class Sync extends Command {
     const { args, flags } = await this.parse(Sync)
     const root = resolve(args.dir)
     if (!statSync(root).isDirectory()) this.error(`${root} is not a directory`, { exit: 1 })
-    const dest = (flags.dest ?? '').replace(/\\/g, '/').replace(/^\/+|\/+$/g, '')
+    const dest =
+      flags.dest === undefined
+        ? await sandboxAppDir(flags.project)
+        : flags.dest
+            .replace(/\\/g, '/')
+            .replace(/^\/+|\/+$/g, '')
+            .replace(/^\.$/, '')
     const only = (flags.only ?? []).map((p) =>
       p.replace(/\\/g, '/').replace(/^\.\//, '').replace(/\/+$/, ''),
     )

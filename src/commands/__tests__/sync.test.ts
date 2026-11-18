@@ -12,7 +12,7 @@ import { dirname, join } from 'node:path'
 import { Command, Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import Sync, { isSecretPath, visibleFromGit } from '../sync.js'
+import Sync, { isSecretPath, sandboxAppDir, visibleFromGit } from '../sync.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
 
@@ -59,13 +59,27 @@ describe('sync — what gets uploaded', () => {
   let server: Server
   let dir: string
   const sent: string[] = []
+  const execs: string[] = []
+  // What the sandbox's /etc/mol/app-root holds ('': a root-layout project with no marker).
+  let appRoot = ''
 
   beforeEach(async () => {
     sent.length = 0
+    execs.length = 0
+    appRoot = ''
     vi.spyOn(Command.prototype, 'log').mockImplementation(() => {})
     server = createServer((req, res) => {
-      sent.push(decodeURIComponent((req.url ?? '').replace(/^.*\/files\//, '')))
       res.writeHead(200, { 'content-type': 'application/json' })
+      if ((req.url ?? '').endsWith('/sandbox/exec')) {
+        let body = ''
+        req.on('data', (chunk) => (body += chunk))
+        req.on('end', () => {
+          execs.push((JSON.parse(body) as { command: string }).command)
+          res.end(JSON.stringify({ stdout: appRoot ? appRoot + '\n' : '', exitCode: 0 }))
+        })
+        return
+      }
+      sent.push(decodeURIComponent((req.url ?? '').replace(/^.*\/files\//, '')))
       res.end('{}')
     })
     await new Promise<void>((resolve) => server.listen(0, '127.0.0.1', resolve))
@@ -92,10 +106,30 @@ describe('sync — what gets uploaded', () => {
     writeFileSync(full, content)
   }
 
-  const run = async (): Promise<void> => {
+  const run = async (...extra: string[]): Promise<void> => {
     const config = await Config.load(MLCL_ROOT)
-    await new Sync([dir, '--project', 'p1'], config).run()
+    await new Sync([dir, '--project', 'p1', ...extra], config).run()
   }
+
+  it('writes under the app directory the sandbox records, never over the workspace root', async () => {
+    // 2026-11-18: a sync with no --dest wrote a project's package.json over /workspace/package.json,
+    // the platform-owned root that lists the baked dependencies, and the deploy built my-app anyway.
+    appRoot = '/workspace/my-app'
+    write('package.json', '{}\n')
+    write('app/index.html', '<p>hi</p>\n')
+    await run()
+    expect(execs).toEqual(['cat /etc/mol/app-root 2>/dev/null || true'])
+    expect(sent.sort()).toEqual(['my-app/app/index.html', 'my-app/package.json'])
+  })
+
+  it('--dest wins without asking the sandbox, and --dest . writes at the workspace root', async () => {
+    appRoot = '/workspace/my-app'
+    write('src/index.ts', 'export {}\n')
+    await run('--dest', 'other')
+    await run('--dest', '.')
+    expect(execs).toEqual([])
+    expect(sent).toEqual(['other/src/index.ts', 'src/index.ts'])
+  })
 
   it('follows .gitignore in a git repository and never sends credentials or oversized files', async () => {
     execFileSync('git', ['init', '-q'], { cwd: dir })
@@ -125,5 +159,25 @@ describe('sync — what gets uploaded', () => {
     write('.env', 'A=1')
     await run()
     expect(sent).toEqual(['src/index.ts'])
+  })
+})
+
+describe('sandboxAppDir', () => {
+  const answering = (stdout?: string) => async () => ({ stdout, exitCode: 0 })
+
+  it('reads the app directory from the marker', async () => {
+    await expect(sandboxAppDir('p1', answering('/workspace/my-app\n'))).resolves.toBe('my-app')
+    await expect(sandboxAppDir('p1', answering('/workspace/shop/'))).resolves.toBe('shop')
+  })
+
+  it('treats no marker, or one naming /workspace, as a root-layout project', async () => {
+    await expect(sandboxAppDir('p1', answering(''))).resolves.toBe('')
+    await expect(sandboxAppDir('p1', answering(undefined))).resolves.toBe('')
+    await expect(sandboxAppDir('p1', answering('/workspace\n'))).resolves.toBe('')
+  })
+
+  it('refuses a marker outside the workspace or one that climbs out of it', async () => {
+    for (const root of ['/etc', '/workspace/a/b', '/workspace/..', 'relative'])
+      await expect(sandboxAppDir('p1', answering(root))).rejects.toThrow(/pass --dest/)
   })
 })

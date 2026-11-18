@@ -2861,8 +2861,8 @@ ARGUMENTS
 FLAGS
   -p, --project=<value>      (required) molecule.dev project id
       --concurrency=<value>  [default: 6] Parallel writes
-      --dest=<value>         Workspace-relative directory to write under (the platform scaffolds a project at
-                             /workspace/<appDir>, e.g. `my-app`)
+      --dest=<value>         Workspace-relative directory to write under. Default: the project's app directory the
+                             sandbox records (e.g. `my-app`); `.` writes at the workspace root
       --dry-run              List what would be sent; send nothing
       --only=<value>...      Only send files under this project-relative path (repeatable)
 
