@@ -83812,8 +83812,8 @@
         "import": "import { sveltekit } from '@sveltejs/kit/vite'",
         "usage": "sveltekit()"
       },
-      "buildScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json && vite build",
-      "typecheckScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json",
+      "buildScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --fail-on-warnings && vite build",
+      "typecheckScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --fail-on-warnings",
       "sharedCodeDir": "lib",
       "fileExtension": "ts",
       "htmlTemplate": "app.html",

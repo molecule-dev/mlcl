@@ -93,3 +93,39 @@ describe('jsx-a11y allows only the list roles a bullet-less list needs', () => {
     ])
   })
 })
+
+describe('jsx-a11y reads a focusable separator as the widget WAI-ARIA makes it', () => {
+  it('a window splitter with aria-valuenow, tabIndex and key handling passes', async () => {
+    expect(
+      await a11y(
+        '<div role="separator" aria-orientation="vertical" aria-label="Resize" aria-valuenow={50} aria-valuemin={0} aria-valuemax={100} tabIndex={0} onKeyDown={key} style={{ width: 4, background: "currentColor" }} />',
+      ),
+    ).toEqual([])
+  })
+
+  it('a separator without aria-valuenow is still not focusable', async () => {
+    expect(
+      await a11y(
+        '<div role="separator" tabIndex={0} onKeyDown={key} style={{ width: 4, background: "currentColor" }} />',
+      ),
+    ).toEqual(
+      expect.arrayContaining([
+        'jsx-a11y/no-noninteractive-element-interactions',
+        'jsx-a11y/no-noninteractive-tabindex',
+      ]),
+    )
+  })
+
+  it('aria-valuenow does not make any other role focusable', async () => {
+    expect(
+      await a11y(
+        '<div role="note" aria-valuenow={50} tabIndex={0} onKeyDown={key} style={{ width: 4, background: "currentColor" }} />',
+      ),
+    ).toEqual(
+      expect.arrayContaining([
+        'jsx-a11y/no-noninteractive-element-interactions',
+        'jsx-a11y/no-noninteractive-tabindex',
+      ]),
+    )
+  })
+})

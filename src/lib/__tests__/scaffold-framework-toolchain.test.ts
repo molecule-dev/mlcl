@@ -148,6 +148,20 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
     )
   })
 
+  // Svelte reports accessibility defects as compiler warnings (a clickable <div> with no key
+  // handler or role: a11y_click_events_have_key_events, a11y_no_static_element_interactions), and
+  // its ESLint config has no jsx-a11y to fail them, so plain svelte-check passed them while the
+  // React app's prebuild lint failed the same markup (measured 2026-11-18 on a fresh scaffold:
+  // 2 warnings, exit 0). Molecule's own Svelte packages build with --fail-on-warnings too.
+  it('fails its build on the compiler warnings its type checker reports', async () => {
+    const { scripts } = await manifest(framework)
+    for (const name of ['build', 'typecheck'] as const)
+      if (scripts[name]?.includes('svelte-check'))
+        expect(scripts[name], `${name} must fail on Svelte's warnings`).toMatch(
+          /svelte-check [^&]*--fail-on-warnings/,
+        )
+  })
+
   it('runs its mocked tests in Node, whatever its vite plugin prefers', async () => {
     const config = await readFile(join(roots[framework], 'vite.config.ts'), 'utf8')
     expect(config).toMatch(/test:\s*\{[\s\S]*environment:\s*'node'/)
