@@ -90,12 +90,35 @@ function retryHint(retryAfterSeconds: number | undefined, errorKey: string | und
   return errorKey === 'service.busy' ? ' Try again in a minute.' : ''
 }
 
+/**
+ * The token every platform call sends. Precedence: explicit arg > CI env var (MOLECULE_TOKEN) >
+ * stored credentials file. Each raw `fetch` in this module uses it too: the tarball upload and the
+ * log stream once sent only an explicit token, which no command passes, so both got 401 for every
+ * signed-in user.
+ *
+ * @param token - An explicit token, when the caller has one.
+ * @returns The token to send, or undefined when signed out.
+ */
+function authToken(token?: string): string | undefined {
+  return token ?? process.env.MOLECULE_TOKEN ?? readCredentials()?.token
+}
+
+/**
+ * The authorization header for {@link authToken}, empty when signed out.
+ *
+ * @param token - An explicit token, when the caller has one.
+ * @returns Headers to spread into a request.
+ */
+function authHeader(token?: string): Record<string, string> {
+  const resolved = authToken(token)
+  return resolved ? { authorization: `Bearer ${resolved}` } : {}
+}
+
 async function request<T>(
   path: string,
   init: { method?: string; body?: unknown; token?: string; timeoutMs?: number } = {},
 ): Promise<T> {
-  // Precedence: explicit arg > CI env var (MOLECULE_TOKEN) > stored credentials file.
-  const token = init.token ?? process.env.MOLECULE_TOKEN ?? readCredentials()?.token
+  const token = authToken(init.token)
   let response: Response
   try {
     response = await fetch(`${apiBaseUrl()}${path}`, {
@@ -412,7 +435,7 @@ export async function revokeApiToken(id: string, token?: string): Promise<{ revo
 
 /** Decode the LOCAL token's deviceId claim (no network) — which row is this machine. */
 export function localDeviceId(): string | null {
-  const token = process.env.MOLECULE_TOKEN ?? readCredentials()?.token
+  const token = authToken()
   if (!token) return null
   const part = token.split('.')[1]
   if (!part) return null
@@ -1312,7 +1335,7 @@ export function uploadImportTarball(
   return fetch(`${apiBaseUrl()}/projects/${projectId}/git-import-upload`, {
     method: 'POST',
     headers: {
-      ...(token ? { authorization: `Bearer ${token}` } : {}),
+      ...authHeader(token),
       'content-type': 'application/gzip',
     },
     body,
@@ -1389,7 +1412,7 @@ export async function streamLogs(
   token?: string,
 ): Promise<void> {
   const response = await fetch(`${apiBaseUrl()}/projects/${projectId}/logs/stream`, {
-    headers: token ? { authorization: `Bearer ${token}` } : {},
+    headers: authHeader(token),
     signal: AbortSignal.timeout(600_000),
   })
   if (!response.ok || !response.body)
