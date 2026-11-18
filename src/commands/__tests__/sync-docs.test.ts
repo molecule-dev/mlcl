@@ -3,6 +3,7 @@ import { resolve } from 'node:path'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { checkDocs } from '../../lib/docs-check.js'
+import type * as DocsSync from '../../lib/docs-sync.js'
 import { generateDocs } from '../../lib/docs-sync.js'
 import SyncDocs from '../sync-docs.js'
 
@@ -10,8 +11,7 @@ vi.mock('../../lib/docs-check.js', () => ({
   checkDocs: vi.fn(async () => ({ checked: ['alpha', 'beta'], different: [] })),
 }))
 vi.mock('../../lib/docs-sync.js', async (importOriginal) => ({
-  documentedRegistry: (await importOriginal<typeof import('../../lib/docs-sync.js')>())
-    .documentedRegistry,
+  documentedRegistry: (await importOriginal<typeof DocsSync>()).documentedRegistry,
   generateDocs: vi.fn(async () => []),
 }))
 vi.mock('../../lib/registry.js', () => ({
