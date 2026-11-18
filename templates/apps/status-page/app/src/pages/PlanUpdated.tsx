@@ -1,6 +1,7 @@
 import { useEffect } from 'react'
 import { Link } from 'react-router'
 
+import type { UserProfile } from '@molecule/app-auth'
 import { ContentPageShell } from '@molecule/app-legal-pages-react'
 import {
   useAuth,
@@ -18,10 +19,10 @@ import { Header } from '../components/Header.js'
 export function PlanUpdated() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const { state } = useAuth()
-  const authClient = useAuthClient()
+  const { state } = useAuth<UserProfile>()
+  const authClient = useAuthClient<UserProfile>()
   const http = useHttpClient()
-  const userId = (state.user as { id?: string } | null | undefined)?.id
+  const userId = state.user?.id
   // The checkout provider returns the buyer here with the payment id in the
   // query (`?provider=…&sessionId=…`). Confirming it from THIS origin, where
   // the session cookie applies, is what actually grants the plan.
