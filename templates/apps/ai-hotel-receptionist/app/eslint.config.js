@@ -80,19 +80,144 @@ try {
 // and leaked credentials — is covered by `npm audit` + Dependabot + gitleaks in
 // .github/workflows/security.yml. See SECURITY.md → "Why not eslint-plugin-security?".
 
-/**
- * Local rule enforcing "no silent error swallows": every `catch` must bind the
- * error so it can be logged, re-thrown, or — as a documented `catch (_error)`
- * noop — intentionally ignored. Set to 'warn' so it surfaces as an advisory in
- * your editor / CI without blocking the build; paired with no-unused-vars
- * `caughtErrors` it also flags a bound-but-ignored error.
- */
+// A status wrapper with no content or identity of its own should not also mount
+// when a sibling with the same tag and classes renders items from the same list.
+const noDuplicateListWrapper = {
+  meta: {
+    type: 'problem',
+    schema: [],
+    messages: {
+      duplicate:
+        'This wrapper stays empty when the collection has items and duplicates the list wrapper at line {{line}}. Use one wrapper for both states or render the empty state outside the list.',
+    },
+  },
+  create(context) {
+    const unchain = (node) => (node?.type === 'ChainExpression' ? node.expression : node)
+    const jsxValue = (node) => (node?.type === 'JSXExpressionContainer' ? node.expression : node)
+
+    // Compare plain, statically named reads in the same lexical scope. Calls and
+    // computed property reads cannot prove that the two siblings share a guard.
+    function reference(node) {
+      const expression = unchain(node)
+      if (expression?.type === 'Identifier') return expression.name
+      if (
+        expression?.type !== 'MemberExpression' ||
+        expression.computed ||
+        expression.property.type !== 'Identifier'
+      )
+        return null
+      const owner = reference(expression.object)
+      return owner ? `${owner}${expression.optional ? '?.' : '.'}${expression.property.name}` : null
+    }
+
+    function receiver(node, name) {
+      const expression = unchain(node)
+      return expression?.type === 'MemberExpression' &&
+        !expression.computed &&
+        expression.property.type === 'Identifier' &&
+        expression.property.name === name
+        ? reference(expression.object)
+        : null
+    }
+
+    function andTerms(node) {
+      return node.type === 'LogicalExpression' && node.operator === '&&'
+        ? [...andTerms(node.left), ...andTerms(node.right)]
+        : [node]
+    }
+
+    function guardKey(node) {
+      if (node?.type === 'UnaryExpression' && node.operator === '!') {
+        const value = reference(node.argument)
+        return value && `!${value}`
+      }
+      return reference(node)
+    }
+
+    function wrapper(child) {
+      let element = jsxValue(child)
+      const guards = []
+      while (element.type === 'LogicalExpression' && element.operator === '&&') {
+        guards.push(...andTerms(element.left).map(guardKey))
+        element = element.right
+      }
+      if (element.type !== 'JSXElement') return null
+      const { name, attributes } = element.openingElement
+      if (name.type !== 'JSXIdentifier' || !/^[a-z][a-z0-9]*$/.test(name.name)) return null
+      if (attributes.some((attribute) => attribute.type === 'JSXSpreadAttribute')) return null
+      const classAttributes = attributes.filter((attribute) => attribute.name.name === 'className')
+      if (classAttributes.length !== 1) return null
+      const value = jsxValue(classAttributes[0].value)
+      if (value?.type !== 'Literal' || typeof value.value !== 'string') return null
+      // HTML class tokens are split by ASCII whitespace, including in a JSX string literal.
+      const classes = [...new Set(value.value.split(/[\t\n\f\r ]+/).filter(Boolean))]
+        .sort()
+        .join(' ')
+      if (!classes) return null
+      const contents = element.children
+        .map(jsxValue)
+        .filter(
+          (node) =>
+            node.type !== 'JSXEmptyExpression' && (node.type !== 'JSXText' || node.value.trim()),
+        )
+      return { element, signature: `${name.name} ${classes}`, attributes, guards, contents }
+    }
+
+    function fallbackReceiver(node) {
+      if (node?.type !== 'ConditionalExpression') return null
+      const isNull = (arm) => arm.type === 'Literal' && arm.value === null
+      if (isNull(node.consequent)) return receiver(node.test, 'length')
+      if (
+        isNull(node.alternate) &&
+        node.test.type === 'UnaryExpression' &&
+        node.test.operator === '!'
+      )
+        return receiver(node.test.argument, 'length')
+      return null
+    }
+
+    function checkSiblings(node) {
+      if (node.children.length < 2) return
+      const wrappers = node.children.map(wrapper).filter(Boolean)
+      if (wrappers.length < 2) return
+      const lists = wrappers.flatMap((item) => {
+        const collections = item.contents
+          .map(unchain)
+          .map((child) => (child.type === 'CallExpression' ? receiver(child.callee, 'map') : null))
+          .filter(Boolean)
+        return collections.length ? [{ ...item, collections }] : []
+      })
+      for (const fallback of wrappers) {
+        if (fallback.attributes.length !== 1 || fallback.contents.length !== 1) continue
+        const collection = fallbackReceiver(fallback.contents[0])
+        if (!collection) continue
+        const list = lists.find(
+          (item) =>
+            item.signature === fallback.signature &&
+            item.collections.includes(collection) &&
+            fallback.guards.every((guard, index) => guard && guard === item.guards[index]),
+        )
+        if (list) {
+          context.report({
+            node: fallback.element.openingElement,
+            messageId: 'duplicate',
+            data: { line: list.element.loc.start.line },
+          })
+        }
+      }
+    }
+
+    return { JSXElement: checkSiblings, JSXFragment: checkSiblings }
+  },
+}
+
 const moleculeLocal = {
   rules: {
     'no-class-code': noClassCode,
     'no-empty-interactive-target': noEmptyInteractiveTarget,
     'require-icon-font-setup': requireIconFontSetup,
     'no-dropped-action': noDroppedAction,
+    'no-duplicate-list-wrapper': noDuplicateListWrapper,
     'prefer-declared-clients': preferDeclaredClients,
     ...scaffoldRules(tseslint.parser),
   },
@@ -223,6 +348,7 @@ export default tseslint.config(
       'molecule-local/async-collections-have-status': 'error',
       'molecule-local/effects-preserve-form-edits': 'error',
       'molecule-local/no-dropped-action': 'error',
+      'molecule-local/no-duplicate-list-wrapper': 'error',
       'molecule-local/single-image-name-link': 'error',
       'molecule-local/no-fixed-navigation-truncation': 'warn',
       'molecule-local/unique-update-excludes-self': 'warn',

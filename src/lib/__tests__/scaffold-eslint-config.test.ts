@@ -20,7 +20,7 @@ import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { ESLint } from 'eslint'
+import { ESLint, type Linter } from 'eslint'
 import ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
@@ -85,6 +85,77 @@ beforeEach(async () => {
 
 afterEach(async () => {
   await rm(dir, { recursive: true, force: true })
+})
+
+describe('collection wrappers in the shared scaffold config', () => {
+  const wrapper = 'className="catalog-grid divided"'
+  const empty = '<li>No matching products.</li>'
+  const items = 'result.rows?.map((row) => <li key={row.id}>{row.name}</li>)'
+  const list = `<ul ${wrapper}>{${items}}</ul>`
+  const fallback = `<ul ${wrapper}>{result.rows?.length ? null : ${empty}}</ul>`
+
+  async function findings(children: string): Promise<Linter.LintMessage[]> {
+    const [result] = await eslint.lintText(
+      [
+        'export function Catalog({ result }) {',
+        '  return <>',
+        ...children.split('\n').map((line) => `    ${line}`),
+        '  </>',
+        '}',
+      ].join('\n'),
+      { filePath: join(dir, 'src/Catalog.tsx') },
+    )
+    expect(result.fatalErrorCount).toBe(0)
+    return result.messages.filter(
+      (message) => message.ruleId === 'molecule-local/no-duplicate-list-wrapper',
+    )
+  }
+
+  it.each([
+    [
+      'a shared loading guard',
+      `{!result.loading && ${fallback}}\n{!result.loading && Boolean(result.rows?.length) && ${list}}`,
+    ],
+    ['an unconditional placeholder', `${fallback}\n{Boolean(result.rows?.length) && ${list}}`],
+    [
+      'reordered class tokens and an inverted empty check',
+      `<ul className="divided catalog-grid">{!result.rows?.length ? ${empty} : null}</ul>\n${list}`,
+    ],
+  ])('refuses the duplicate wrapper with %s', async (_name, children) => {
+    const result = await findings(children)
+    expect(result).toMatchObject([{ severity: 2, line: 3, messageId: 'duplicate' }])
+    expect(result[0].message).toContain('at line 4')
+  })
+
+  it.each([
+    ['a single list wrapper', `<ul ${wrapper}>{result.rows?.length ? ${items} : ${empty}}</ul>`],
+    [
+      'a separate empty status',
+      `{!result.rows?.length && <p role="status">No matching products.</p>}\n${list}`,
+    ],
+    [
+      'mutually exclusive siblings',
+      `{!result.rows?.length && ${fallback}}\n{Boolean(result.rows?.length) && ${list}}`,
+    ],
+    ['another collection', `${fallback.replace('result.rows', 'result.featured')}\n${list}`],
+    ['two lists that both contain items', `${list}\n${list}`],
+    ['different wrapper classes', `${fallback.replace('divided', 'compact')}\n${list}`],
+    [
+      'a nonbreaking space inside a class token',
+      `${fallback.replace('catalog-grid divided', 'catalog-grid\u00a0divided')}\n${list}`,
+    ],
+    [
+      'a wrapper with its own accessible name',
+      `${fallback.replace('<ul', '<ul aria-label="Search messages"')}\n${list}`,
+    ],
+    [
+      'a class overridden by a spread',
+      `${fallback}\n${list.replace(wrapper, `${wrapper} {...result.listProps}`)}`,
+    ],
+    ['repeated calls that may disagree', `{canRender() && ${fallback}}\n{canRender() && ${list}}`],
+  ])('allows %s', async (_name, children) => {
+    expect(await findings(children)).toEqual([])
+  })
 })
 
 describe('the shared scaffold eslint config', () => {
