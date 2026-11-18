@@ -144,6 +144,17 @@ describe('scaffold shell defaults independently of route access', () => {
     },
   )
 
+  it('keeps the home link after navigating from sign in to sign up', async () => {
+    mount('/login', undefined, true)
+    const signUp = screen.getByRole('button', { name: 'auth.login.signUp' })
+    await act(async () => fireEvent.click(signUp))
+    expect(screen.getByRole('heading', { name: 'auth.signup.signUp' })).toBeTruthy()
+    const home = screen.queryByRole('link', { name: 'Home' })
+    expect(home).not.toBeNull()
+    await act(async () => fireEvent.click(home!))
+    expect(screen.getByRole('heading', { name: 'Home' })).toBeTruthy()
+  })
+
   it('allows a deliberate full-screen page through an explicit route opt-out', () => {
     mount('/kiosk', (routes) => {
       routes.push({

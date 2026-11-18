@@ -27,7 +27,7 @@ setFont(font)
 // Names and event behavior are ordinary equipment controls, independent of a spec.
 interface FixtureOptions {
   sizingExemption?: boolean
-  privateUseCss?: boolean
+  css?: string
 }
 
 const shapes: [string, string, FixtureOptions][] = [
@@ -54,12 +54,18 @@ const shapes: [string, string, FixtureOptions][] = [
   [
     'private-use CSS glyph',
     '<i className="ion-close-round" role="button" tabIndex={0} aria-label="Remove equipment" onClick={act} onKeyDown={act} />',
-    { privateUseCss: true },
+    // Geometry and a private-use code point cannot draw a glyph without its font.
+    { css: '.ion-close-round::before { content: "\\f129"; }' },
   ],
   [
     'contentful button with an empty glyph',
     '<button onClick={act}><i className="ion-trash-a" aria-hidden="true" />Remove equipment</button>',
     {},
+  ],
+  [
+    'a sized button with an unpainted icon child',
+    '<button className="equipment-remove" aria-label="Remove equipment" onClick={act}><i className="ion-trash-a" aria-hidden="true" /></button>',
+    { css: '.equipment-remove { display: inline-flex; width: 2rem; height: 2rem; }' },
   ],
   [
     'multiple classes',
@@ -91,13 +97,8 @@ async function project(markup: string, options: FixtureOptions = {}): Promise<st
 }
 `,
   )
-  // Deliberately draw only a private-use glyph. Dimensions and a CSS content
-  // declaration cannot provide the font that maps this codepoint to a drawing.
-  if (options.privateUseCss) {
-    await writeFile(
-      join(root, 'src/control.css'),
-      '.ion-close-round::before, .ion-trash-a::before { content: "\\f129"; }\n',
-    )
+  if (options.css) {
+    await writeFile(join(root, 'src/control.css'), `${options.css}\n`)
     const main = join(root, 'src/main.tsx')
     await writeFile(main, "import './control.css'\n" + (await readFile(main, 'utf8')))
   }
