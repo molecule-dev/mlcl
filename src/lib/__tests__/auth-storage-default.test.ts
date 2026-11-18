@@ -151,8 +151,11 @@ describe('the scaffolded app keeps its session across a reload', () => {
     // stored token AND user are `authenticated` on the FIRST render, and only a
     // 401/403 from the background re-check clears the session
     // (xr-molecule-flash-m177).
-    expect(content).toContain('synchronously only when BOTH a stored token AND cached user exist')
-    expect(content).toContain('token-only and cookie-only restores are asynchronous')
+    expect(content).toContain('starts restoration even when the app entry omits `initialize()`')
+    expect(content).toContain('A stored token and cached user restore synchronously')
+    expect(content).toContain('A visitor without a session candidate is signed out immediately')
+    expect(content).toContain('Token-only and cookie-only restores are asynchronous')
+    expect(content).toContain('`AuthProvider` holds children only while the session is loading')
     expect(content).toContain('only a 401/403 clears the session')
     // The old, wrong classification ("a 4xx clears it") is gone.
     expect(content).not.toContain('a 4xx clears it')
