@@ -156,7 +156,8 @@ describe('the scaffolded app keeps its session across a reload', () => {
     expect(content).toContain('A visitor without a session candidate is signed out immediately')
     expect(content).toContain('Token-only and cookie-only restores are asynchronous')
     expect(content).toContain('`AuthProvider` holds children only while the session is loading')
-    expect(content).toContain('only a 401/403 clears the session')
+    expect(content).toContain('HTTP 401/403 clears it by default')
+    expect(content).toContain('currentUserRejectionStatuses?: readonly number[]')
     // The old, wrong classification ("a 4xx clears it") is gone.
     expect(content).not.toContain('a 4xx clears it')
     // The generic sentence is replaced, not duplicated.

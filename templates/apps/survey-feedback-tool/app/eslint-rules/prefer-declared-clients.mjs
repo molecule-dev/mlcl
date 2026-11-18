@@ -29,9 +29,9 @@
  * the identity of the value passed to a session publisher.
  * Auth snapshot checks cover a custom React hook seeding state from one client's
  * getState/getUser/getAccessToken contract; form defaults and other stores are not inferred.
- * A custom storage key is a credential store when its written value also feeds the
- * bonded HTTP client's setAuthToken in this module. Immutable bindings establish
- * that connection; independent clients, read-only storage and unrelated values do not.
+ * A custom storage key is a credential store when the bonded auth config owns it or
+ * its written value also feeds the bonded HTTP client's setAuthToken in this module.
+ * Independent clients, read-only storage and unrelated values remain separate.
  * The app's HTTP token source, token setters and Authorization overrides use the
  * declared auth client's token. The sink establishes ownership even if the
  * credential comes from another module. Separate services can use their own keys.
@@ -139,7 +139,7 @@ export default {
       manifest:
         'Cannot check declared clients: {{reason}}. Repair the nearest package.json before verifying reuse.',
       credential:
-        '@molecule/app-auth is declared: this browser credential store duplicates its session. Configure tokenKey (or storagePrefix) and authScheme in the existing auth bond/config; use getClient().getAccessToken() and the framework auth binding. requestBody/mapAuthResponse/currentUserEndpoint adapt the API.',
+        '@molecule/app-auth is declared: this browser credential store duplicates its session. Use the bonded client to sign in or out. For an exact browser key, set tokenKey in the auth config and omit storage: "memory". Configure authScheme in that config, and read getClient().getAccessToken() or the framework auth binding.',
       session:
         '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
       credentialSource:
@@ -259,7 +259,10 @@ export default {
           authAction(candidate.callee, 'getRefreshToken'))
       )
         return true
-      return ['molecule:auth:accessToken', 'molecule:auth:refreshToken'].includes(name)
+      return (
+        ['molecule:auth:accessToken', 'molecule:auth:refreshToken'].includes(name) ||
+        (name !== null && name === configuredTokenKey())
+      )
     }
     const identity = (node) => {
       const resolved = value(node)
@@ -914,10 +917,10 @@ export default {
       visit(fn.body)
       return found
     }
-    // The scaffold's authored src/config is the source of the profile contract.
+    // The scaffold's authored src/config is the source of the bonded auth contract.
     // Parse literal configuration with ESLint's parser; never execute it or guess
     // routes from words such as "user". Dynamic contracts stay outside this check.
-    const profileTarget = () => {
+    const bondedAuthFields = (names) => {
       if (!packages.root) return null
       const declarations = (ast) =>
         ast.body.flatMap((statement) => {
@@ -968,10 +971,7 @@ export default {
           options.properties.some(
             (prop) =>
               prop.type === 'Property' &&
-              (prop.computed ||
-                ['profileEndpoint', 'profileUpdateMethod'].includes(
-                  prop.key.name ?? prop.key.value,
-                )),
+              (prop.computed || names.includes(prop.key.name ?? prop.key.value)),
           ))
       )
         return null
@@ -994,11 +994,23 @@ export default {
       const config = unwrap(declarations(ast).find((node) => node.id.name === 'authConfig')?.init)
       if (
         config?.type !== 'ObjectExpression' ||
-        config.properties.some((prop) => prop.type === 'SpreadElement')
+        config.properties.some((prop) => prop.type !== 'Property' || prop.computed)
       )
         return null
-      const field = (name) =>
+      return (name) =>
         config.properties.findLast((prop) => (prop.key.name ?? prop.key.value) === name)
+    }
+    let tokenKey
+    const configuredTokenKey = () => {
+      if (tokenKey === undefined) {
+        const field = bondedAuthFields(['tokenKey'])?.('tokenKey')
+        tokenKey = literalString(unwrap(field?.value))
+      }
+      return tokenKey
+    }
+    const profileTarget = () => {
+      const field = bondedAuthFields(['profileEndpoint', 'profileUpdateMethod'])
+      if (!field) return null
       const literal = (node) => {
         node = unwrap(node)
         if (FUNCTIONS.includes(node?.type)) {
@@ -6655,20 +6667,54 @@ export function scaffoldRules(parser) {
           }
           return JSON.stringify([tag, attributes.sort(([a], [b]) => a.localeCompare(b))])
         }
-        const textElements = (node, ancestors = [], found = []) => {
-          if (!node || typeof node.type !== 'string') return found
-          if (node.type === 'JSXElement') {
-            const part = regionPart(node)
-            if (part === null) return found
-            found.push({ element: node, parents: ancestors.join('/') })
-            ancestors = [...ancestors, part]
+        const textElements = (root, includeWaitingLeaves = false) => {
+          const found = []
+          const visit = (node, ancestors) => {
+            if (!node || typeof node.type !== 'string') return
+            if (node.type === 'JSXElement') {
+              const part = regionPart(node)
+              if (part !== null || includeWaitingLeaves)
+                found.push({ element: node, parents: ancestors.join('/'), stable: part !== null })
+              if (part === null) return
+              ancestors = [...ancestors, part]
+            }
+            for (const key of context.sourceCode.visitorKeys[node.type] ?? []) {
+              const child = node[key]
+              if (Array.isArray(child)) for (const item of child) visit(item, ancestors)
+              else visit(child, ancestors)
+            }
           }
-          for (const key of context.sourceCode.visitorKeys[node.type] ?? []) {
-            const child = node[key]
-            if (Array.isArray(child)) for (const item of child) textElements(item, ancestors, found)
-            else textElements(child, ancestors, found)
-          }
+          visit(root, [])
           return found
+        }
+        let resolver
+        const waitingTag = (element) => {
+          const tag = tagOf(element)
+          if (tag) return tag
+          const name = element.openingElement.name
+          if (name.type !== 'JSXIdentifier') return null
+          const binding = variableOf(name)
+          const definition = binding?.defs[0]
+          if (
+            !definition ||
+            binding.references.some((reference) => reference.isWrite() && !reference.init)
+          )
+            return null
+          resolver ??= componentResolver(parser, context)
+          const component =
+            definition.type === 'ImportBinding'
+              ? resolver.imported(context.sourceCode.ast, name.name, context.filename)?.node
+              : definition.type === 'FunctionName'
+                ? definition.node
+                : definition.type === 'Variable' && definition.parent.kind === 'const'
+                  ? definition.node.init
+                  : null
+          const roots = resolver.roots(component)
+          // A single host root is observable across a local component boundary. A
+          // component whose root depends on runtime choices remains opaque here.
+          if (roots.length !== 1) return null
+          const root = unwrap(roots[0])
+          return tagOf(root) && root.children.some(placeholder) ? tagOf(root) : null
         }
         const returned = (node) =>
           node?.type === 'ReturnStatement'
@@ -6708,8 +6754,12 @@ export function scaffoldRules(parser) {
                   ]
                 : []
             })
-            for (const { element, parents } of textElements(waiting)) {
+            for (const { element, parents, stable } of textElements(waiting, true)) {
+              const neighboring = fields.filter((candidate) => candidate.parents === parents)
+              if (!neighboring.length) continue
+              const host = tagOf(element)
               if (
+                host &&
                 !element.children.some(
                   (child) =>
                     child.type !== 'JSXElement' &&
@@ -6719,10 +6769,10 @@ export function scaffoldRules(parser) {
               )
                 continue
               if (reads(element, record)) continue
+              const tag = waitingTag(element)
               const field =
-                fields.find(
-                  (candidate) => candidate.parents === parents && candidate.tag === tagOf(element),
-                ) ?? fields.find((candidate) => candidate.parents === parents)
+                neighboring.find((candidate) => candidate.tag === tag) ??
+                (stable ? neighboring[0] : null)
               if (!field) continue
               context.report({
                 node: element,

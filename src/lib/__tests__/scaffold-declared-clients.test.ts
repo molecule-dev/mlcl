@@ -66,6 +66,50 @@ export function loadStock() {
 `
 
 describe('declared auth and HTTP reuse in generated verification', () => {
+  it('the generated React check keeps writes to the configured session key in the auth bond', async () => {
+    const app = join(await directory(), 'app')
+    await createAppProject(app, 'member-directory', 'react')
+    await addPackages(app, ['@molecule/app-auth', '@molecule/app-http'])
+    const bond = synthesizeAppProjectFiles([], ['@molecule/app-auth'], app, loadRegistry()).find(
+      (file) => file.targetPath.endsWith('bonds/auth-default.ts'),
+    )
+    if (!bond || bond.content === undefined) throw new Error('Missing generated auth bond')
+    await writeFile(bond.targetPath, bond.content)
+    const config = join(app, 'src/config.ts')
+    await writeFile(
+      config,
+      (await readFile(config, 'utf8')).replace(
+        'export const authConfig = {',
+        "export const authConfig = {\n  tokenKey: 'directory.access',",
+      ),
+    )
+    const manual = `import {authClient} from './bonds/auth-default.js'
+const TOKEN_KEY = 'directory.access'
+function publish(value: string | null) { authClient.setAccessToken(value) }
+export function persist(value: string | null) {
+  if (value) window.localStorage.setItem(TOKEN_KEY, value)
+  else window.localStorage.removeItem(TOKEN_KEY)
+  publish(value)
+}`
+    const rows = await findings(app, manual)
+    expect(rows.map(({ line, messageId, severity }) => [line, messageId, severity])).toEqual([
+      [5, 'credential', 2],
+      [6, 'credential', 2],
+    ])
+    expect(rows[0]?.message).toContain('getClient().getAccessToken()')
+    expect(
+      await findings(app, manual.replace('directory.access', 'directory.import-service')),
+    ).toEqual([])
+    expect(
+      await findings(
+        app,
+        `import {authClient} from './bonds/auth-default.js'
+      export const debug = () => authClient.getAccessToken()
+      export const keyExists = () => !!localStorage.getItem('directory.access')`,
+      ),
+    ).toEqual([])
+  })
+
   it.each(['react', 'vue'])(
     'the generated %s native check rejects a custom store feeding its bonded transport',
     async (framework) => {
@@ -405,7 +449,13 @@ export const authConfig: AuthClientConfig = {
     const app = join(await directory(), 'app')
     await createAppProject(app, 'stockroom', 'react')
     await addPackages(app, ['@molecule/app-auth', '@molecule/app-http'])
-    // Keep this integration about the new write, exactly as changed-file lint runs.
+    // Exercise the scaffold config and real lint runner on the file with the new write.
+    const manifestPath = join(app, 'package.json')
+    const manifest = JSON.parse(await readFile(manifestPath, 'utf8')) as {
+      scripts: Record<string, string>
+    }
+    manifest.scripts.lint = 'eslint src/stock.ts'
+    await writeFile(manifestPath, JSON.stringify(manifest))
     // Git metadata and logs belong to this throwaway project, not the parent checkout.
     await execFileAsync('git', ['init', '-q', app])
     await execFileAsync('git', ['add', '--', '.'], { cwd: app })

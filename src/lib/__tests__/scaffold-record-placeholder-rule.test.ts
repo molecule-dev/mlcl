@@ -1,4 +1,4 @@
-import { copyFile, mkdir, mkdtemp, readFile, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -102,6 +102,54 @@ describe('a waiting message rendered where a field of the record goes', () => {
     }`)
     expect(rows).toEqual([])
   })
+  it('reports an imported waiting paragraph in an early return at the component use', async () => {
+    await mkdir(join(root, 'src'), { recursive: true })
+    await writeFile(
+      join(root, 'src/Notice.tsx'),
+      `export function Notice({ children, failed }) {
+      return <p className={failed ? 'error' : 'waiting'} role={failed ? 'alert' : 'status'}>{children}</p>
+    }
+    export function Panel({ children }) { return <div role="status">{children}</div> }`,
+    )
+    const summary = `import { Notice as Pending, Panel } from './Notice.js'
+      export function OrderSummary({id}) {
+        const query = useOrder(id)
+        const [order, setOrder] = useState(null)
+        useEffect(() => { if (query.data) setOrder(query.data) }, [query.data])
+        if (!order) return <main><section className="order-details"><div><Pending failed={query.error}>Waiting for order</Pending></div></section></main>
+        return <main><section className="order-details"><div><p>{order.note ?? ''}</p></div></section></main>
+      }`
+    const rows = await findings(summary)
+    expect(rows).toHaveLength(1)
+    expect(rows[0]).toMatchObject({ line: 6, severity: 2 })
+    expect(rows[0]?.message).toContain('order.note')
+    expect(rows[0]?.message).toContain('outside the region')
+    expect(
+      await findings(
+        summary.replaceAll('Pending', 'Panel').replace('Notice as Panel, Panel', 'Panel'),
+      ),
+    ).toEqual([])
+    expect(
+      await findings(
+        summary.replace(
+          '<section className="order-details"><div><Pending',
+          '<section className="order-status"><div><Pending',
+        ),
+      ),
+    ).toEqual([])
+    expect(
+      await findings(summary.replace('if (!order)', 'const Pending = Panel\n        if (!order)')),
+    ).toEqual([])
+  })
+
+  it('keeps the Book Tracker template’s initial detail state separate from its record', async () => {
+    const source = await readFile(
+      new URL('../../../templates/apps/book-tracker/app/src/pages/BookDetail.tsx', import.meta.url),
+      'utf8',
+    )
+    expect(await findings(source)).toEqual([])
+  })
+
   it('keeps the corrected retained profile loading outside its data region', async () => {
     const source = await readFile(
       new URL('./fixtures/l3190-profile-placeholder.tsx.txt', import.meta.url),
