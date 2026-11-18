@@ -224,11 +224,15 @@ export interface PlatformDeployment {
 }
 
 /** POST /projects/:id/deployments — trigger a production deploy (builds in the sandbox, launches the runtime container). */
-export function createDeployment(projectId: string, token?: string): Promise<PlatformDeployment> {
+export function createDeployment(
+  projectId: string,
+  token?: string,
+  options: { hosting?: 'auto' | 'static' | 'machine' } = {},
+): Promise<PlatformDeployment> {
   // The platform wraps the row in `{ data }`; older builds returned it bare.
   return request<{ data?: PlatformDeployment } & PlatformDeployment>(
     `/projects/${projectId}/deployments`,
-    { method: 'POST', body: {}, token },
+    { method: 'POST', body: { hosting: options.hosting }, token },
   ).then((r) => r.data ?? r)
 }
 
@@ -1027,6 +1031,13 @@ export function putProjectProtection(
     method: 'PUT',
     body: { enabled },
     token,
+  })
+}
+
+/** PUT /admin/production-routing-canary/:projectId — select a protected live Fly project. */
+export function putProductionRoutingCanary(projectId: string): Promise<{ projectId: string }> {
+  return request(`/admin/production-routing-canary/${encodeURIComponent(projectId)}`, {
+    method: 'PUT',
   })
 }
 

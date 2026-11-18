@@ -16,6 +16,10 @@ export default class Deploy extends Command {
 
   static override flags = {
     project: Flags.string({ char: 'p', description: 'molecule.dev project id', required: true }),
+    hosting: Flags.option({
+      options: ['auto', 'static', 'machine'] as const,
+      description: 'Choose the hosting target for this deployment',
+    })(),
     follow: Flags.boolean({
       description: 'Poll until the deploy finishes and print the live URL',
       default: false,
@@ -27,7 +31,7 @@ export default class Deploy extends Command {
     requireAuth()
 
     this.log(ui.dim('Triggering deploy…'))
-    const deployment = await createDeployment(flags.project)
+    const deployment = await createDeployment(flags.project, undefined, { hosting: flags.hosting })
     this.log(
       `${ui.check('Deployment started')} ${ui.id(deployment.id)} ${ui.dim(`(${deployment.status})`)}`,
     )
