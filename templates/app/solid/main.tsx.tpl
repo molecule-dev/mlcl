@@ -1,6 +1,5 @@
 import { render } from 'solid-js/web'
 import { authClient, setupProviders } from './bonds/index.js'
-import { registerPWA } from './pwa.js'
 import { App } from './App.js'
 import './index.css'
 import './theme.css'
@@ -17,5 +16,3 @@ authClient.initialize().catch((_error) => {
 })
 
 render(() => <App />, document.getElementById('root')!)
-
-registerPWA()

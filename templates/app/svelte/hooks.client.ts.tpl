@@ -1,5 +1,4 @@
 import { authClient, setupProviders } from '$lib/bonds/index.js'
-import { registerPWA } from '$lib/pwa.js'
 
 setupProviders()
 
@@ -11,5 +10,3 @@ setupProviders()
 authClient.initialize().catch((_error) => {
   // Intentionally ignored: the failure is already published as auth status.
 })
-
-registerPWA()

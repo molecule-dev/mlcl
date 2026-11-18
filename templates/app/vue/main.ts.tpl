@@ -20,7 +20,6 @@ import PlanUpdated from './pages/PlanUpdated.vue'
 import ResetPassword from './pages/ResetPassword.vue'
 import Settings from './pages/Settings.vue'
 import Signup from './pages/Signup.vue'
-import { registerPWA } from './pwa.js'
 
 // Pages are imported STATICALLY, and that is a measured decision, not an
 // oversight. Route-level splitting was tried here and made this scaffold
@@ -88,5 +87,3 @@ authClient.initialize().catch((_error) => {
 })
 
 app.mount('#root')
-
-registerPWA()

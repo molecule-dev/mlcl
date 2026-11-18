@@ -11,7 +11,6 @@ import { setRouter } from '@molecule/app-routing'
 import { provideMoleculeRouter } from '@molecule/app-routing-angular-router'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
-import { registerPWA } from './pwa.js'
 import { AppComponent } from './app.component.js'
 import { AuthGuardComponent } from './components/auth.guard.js'
 import { AppLayoutComponent } from './components/app-layout.component.js'
@@ -107,5 +106,3 @@ bootstrapApplication(AppComponent, {
     provideEnvironmentInitializer(() => setRouter(inject(ROUTER))),
   ],
 })
-
-registerPWA()

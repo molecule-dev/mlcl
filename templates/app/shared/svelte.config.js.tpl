@@ -6,6 +6,8 @@ const config = {
   preprocess: vitePreprocess(),
   kit: {
     adapter: adapter(),
+    // The worker's URL and scope are shared by root and nested routes.
+    paths: { relative: false },
   },
 }
 

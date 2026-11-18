@@ -15,25 +15,32 @@
  * These tests pin the ONE implementation: the template re-exports the package,
  * the registry makes the package `alwaysInclude` so every generated app's
  * `package.json` actually carries it, every flagship template's `pwa.ts` is the
- * same re-export, and a static site (no service worker) still excludes it.
+ * same re-export, and a static site still excludes it. The build must keep the
+ * worker active after a replacement entry drops the package call.
  *
  * @module
  */
 
-import { readdir, readFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { mkdtemp, readdir, readFile, rm, symlink, writeFile } from 'node:fs/promises'
+import type { Server } from 'node:http'
+import { createRequire } from 'node:module'
+import { tmpdir } from 'node:os'
+import { dirname, join } from 'node:path'
 
+import { chromium, type Page } from '@playwright/test'
+import { build, createServer, preview } from 'vite'
 import { describe, expect, it } from 'vitest'
 
 import { isStaticExcluded } from '../../commands/create.js'
 import { getMoleculeVersion, loadAppFrameworks, loadRegistry } from '../registry.js'
-import { getTemplateRequiredPackages } from '../scaffold.js'
+import { createAppProject, getTemplateRequiredPackages } from '../scaffold.js'
 import type { InferredPackage } from '../schema.js'
 
 const ROOT = join(import.meta.dirname, '..', '..', '..')
 const TEMPLATES = join(ROOT, 'templates')
 const PACKAGE_NAME = '@molecule/app-pwa-default'
 const RE_EXPORT = `export { registerPWA } from '${PACKAGE_NAME}'\n`
+const require = createRequire(import.meta.url)
 
 /** Flagship template slugs under `templates/apps/`. */
 async function flagshipSlugs(): Promise<string[]> {
@@ -55,7 +62,7 @@ describe('the scaffolded pwa.ts is @molecule/app-pwa-default, not a copy', () =>
     expect(template).not.toContain('addEventListener')
   })
 
-  it('the canonical Vite config leaves registration to the web app startup', async () => {
+  it('the web scaffolds leave registration to the build and keep VitePWA auto-registration off', async () => {
     const vite = await readFile(join(TEMPLATES, 'app', 'shared', 'vite.config.ts.tpl'), 'utf-8')
     expect(vite).toContain('injectRegister: false as const')
     for (const entry of [
@@ -67,8 +74,7 @@ describe('the scaffolded pwa.ts is @molecule/app-pwa-default, not a copy', () =>
       'svelte/hooks.client.ts.tpl',
     ]) {
       const startup = await readFile(join(TEMPLATES, 'app', entry), 'utf-8')
-      expect(startup, entry).toMatch(/import \{ registerPWA \} from ['"].*\/pwa\.js['"]/)
-      expect(startup.match(/^registerPWA\(\)$/gm), entry).toHaveLength(1)
+      expect(startup, entry).not.toContain('registerPWA')
     }
   })
 
@@ -149,5 +155,154 @@ describe('the scaffolded pwa.ts is @molecule/app-pwa-default, not a copy', () =>
     expect(
       isStaticExcluded(registry.find((pkg) => pkg.name === '@molecule/app-state-zustand')),
     ).toBe(false)
+  })
+})
+
+describe('generated app service workers', () => {
+  async function withApp(
+    check: (root: string, page: Page) => Promise<void>,
+    { legacy = false, pwa = true } = {},
+  ): Promise<void> {
+    const root = await mkdtemp(join(tmpdir(), 'scaffold-pwa-'))
+    try {
+      await createAppProject(root, 'equipment-console', 'react')
+      await symlink(
+        dirname(dirname(require.resolve('vite/package.json'))),
+        join(root, 'node_modules'),
+      )
+      await writeFile(
+        join(root, 'src/main.tsx'),
+        (legacy ? "import { registerPWA } from './pwa.js'; registerPWA();\n" : '') +
+          "document.querySelector('#root')!.textContent = 'Equipment console'\n",
+      )
+      if (!pwa) {
+        const config = join(root, 'vite.config.ts')
+        await writeFile(
+          config,
+          (await readFile(config, 'utf8')).replace(/VitePWA\(pwaOptions\),\s*/, ''),
+        )
+      }
+      const browser = await chromium.launch()
+      try {
+        const page = await browser.newPage()
+        await check(root, page)
+      } finally {
+        await browser.close()
+      }
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  }
+
+  function origin(server: Server | null): string {
+    const address = server?.address()
+    if (!address || typeof address === 'string') throw new Error('Expected a loopback TCP listener')
+    return `http://127.0.0.1:${address.port}`
+  }
+
+  async function withPreview(root: string, check: (url: string) => Promise<void>): Promise<void> {
+    await build({ root, configLoader: 'runner', logLevel: 'silent' })
+    const server = await preview({
+      root,
+      configLoader: 'runner',
+      logLevel: 'silent',
+      preview: { host: '127.0.0.1', port: 0, open: false },
+      plugins: [
+        {
+          name: 'test-api',
+          configurePreviewServer(previewServer) {
+            previewServer.middlewares.use((req, res, next) => {
+              if (!req.url?.startsWith('/api/') && req.url !== '/health') return next()
+              res.end(`API ${req.url}`)
+            })
+          },
+        },
+      ],
+    })
+    try {
+      await check(origin(server.httpServer))
+    } finally {
+      await server.close()
+    }
+  }
+
+  it('serves the next document from the worker after the entry is replaced', async () => {
+    await withApp((root, page) =>
+      withPreview(root, async (url) => {
+        const navigations: string[] = []
+        page.on('framenavigated', (frame) => navigations.push(frame.url()))
+        await page.goto(url)
+        await expect
+          .poll(() => page.evaluate(() => !!navigator.serviceWorker.controller))
+          .toBe(true)
+        expect(navigations).toEqual([`${url}/`])
+        const response = await page.goto(`${url}/equipment/calibration`)
+        expect(response?.fromServiceWorker()).toBe(true)
+        expect(await page.locator('#root').textContent()).toBe('Equipment console')
+      }),
+    )
+  })
+
+  it('passes OAuth and health navigations through while the app shell stays cached', async () => {
+    await withApp(
+      (root, page) =>
+        withPreview(root, async (url) => {
+          await page.goto(url)
+          await expect
+            .poll(() => page.evaluate(() => !!navigator.serviceWorker.controller))
+            .toBe(true)
+          for (const route of [
+            '/api/users/oauth/github?returnTo=%2F',
+            '/api/users/log-in/oauth',
+            '/health',
+          ]) {
+            const response = await page.goto(url + route)
+            expect(response?.fromServiceWorker(), route).toBe(false)
+            expect(await response?.text()).toBe(`API ${route}`)
+          }
+          const shell = await page.goto(`${url}/apiculture`)
+          expect(shell?.fromServiceWorker()).toBe(true)
+        }),
+      { legacy: true },
+    )
+  })
+
+  it('builds and serves a page without registering when VitePWA is removed', async () => {
+    await withApp(
+      (root, page) =>
+        withPreview(root, async (url) => {
+          await page.goto(url)
+          expect(await page.locator('#root').textContent()).toBe('Equipment console')
+          expect(await page.evaluate(() => navigator.serviceWorker.getRegistrations())).toEqual([])
+          await expect(readFile(join(root, 'dist/sw.js'))).rejects.toMatchObject({ code: 'ENOENT' })
+        }),
+      { pwa: false },
+    )
+  })
+
+  it('serves live edits without installing a worker in Vite dev', async () => {
+    await withApp(async (root, page) => {
+      const server = await createServer({
+        root,
+        configLoader: 'runner',
+        logLevel: 'silent',
+        cacheDir: join(root, '.vite'),
+        server: { host: '127.0.0.1', port: 0, open: false },
+      })
+      try {
+        await server.listen()
+        await page.goto(origin(server.httpServer))
+        expect(await page.locator('#root').textContent()).toBe('Equipment console')
+        await writeFile(
+          join(root, 'src/main.tsx'),
+          "document.querySelector('#root')!.textContent = 'Edited console'\n",
+        )
+        await page.reload()
+        expect(await page.locator('#root').textContent()).toBe('Edited console')
+        expect(await page.evaluate(() => navigator.serviceWorker.getRegistrations())).toEqual([])
+      } finally {
+        await server.close()
+      }
+    })
   })
 })

@@ -1,7 +1,6 @@
 import { StrictMode } from 'react'
 import { createRoot } from 'react-dom/client'
 import { setupProviders, authClient } from './bonds/index.js'
-import { registerPWA } from './pwa.js'
 import { App } from './App.js'
 import './index.css'
 import './theme.css'
@@ -22,5 +21,3 @@ createRoot(document.getElementById('root')!).render(
     <App />
   </StrictMode>,
 )
-
-registerPWA()

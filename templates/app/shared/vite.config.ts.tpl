@@ -12,9 +12,9 @@ import {
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { defineConfig, type Plugin } from 'vite'
+import { defineConfig, normalizePath, type Plugin } from 'vite'
 import { rootRelativeAssetsPlugin } from '@molecule/app-vite-config-default/assets'
-{{TAILWIND_IMPORT}}import { VitePWA } from 'vite-plugin-pwa'
+{{TAILWIND_IMPORT}}import { VitePWA, type VitePluginPWAAPI } from 'vite-plugin-pwa'
 {{VITE_PLUGIN_IMPORT}}import { APP_DESCRIPTION, APP_NAME, BRAND_COLOR } from '{{BRANDING_IMPORT}}'
 import { stripPreviewBridgePlugin } from './vite-preview-bridge-plugin.js'
 
@@ -93,10 +93,11 @@ if (moleculeDir) {
   }
 }
 
+const svelteKit = {{SVELTE_KIT}}
 const pwaOptions = {
   registerType: 'prompt' as const,
-  // The app's registerPWA() call owns registration. Removing that call must
-  // not activate VitePWA's separate automatic registrar during the build.
+  // The default package owns controller changes so the first claim leaves
+  // the initial page and its in-flight navigation alone.
   injectRegister: false as const,
   includeAssets: ['icons/*.svg', 'favicon.svg', 'og-image.svg'],
   manifest: {
@@ -127,12 +128,57 @@ const pwaOptions = {
     // them made a fresh install download the whole app (249 entries, 2.2 MB,
     // plus ~5 MB of fonts) before the worker could even take control.
     globPatterns: ['**/*.{html,ico,png,svg}', 'assets/index-*.js', 'assets/index-*.css'],
+    // OAuth and other server routes still go to the network on document loads.
+    navigateFallbackDenylist: [/^\/(?:api|health|socket\.io)(?:\/|\?|$)/],
+    // SvelteKit serves its documents itself and does not emit a Vite index.html.
+    ...(svelteKit
+      ? {
+          navigateFallback: null,
+          globPatterns: ['**/*.{ico,png,svg,css}', '_app/immutable/entry/*.{js,mjs}'],
+        }
+      : {}),
     // No runtime API caching. The old rule matched every /api/ request with
     // NetworkFirst, which tried to cache SSE/streaming GETs (EventSource,
     // text/event-stream) and threw "Cache.put() encountered a network error", and
     // parked authenticated API responses in shared cache. Let /api/ pass straight
     // through to the network.
     runtimeCaching: [],
+  },
+}
+
+const pwaRegistration = "import { registerPWA } from '@molecule/app-pwa-default'; registerPWA()"
+let pwa: VitePluginPWAAPI | undefined
+const pwaRegistrationPlugin: Plugin = {
+  name: 'molecule:pwa-registration',
+  apply: 'build',
+  configResolved(config) {
+    pwa = config.plugins.find((plugin) => plugin.name === 'vite-plugin-pwa')?.api
+  },
+  transformIndexHtml: {
+    // Run before Vite processes the HTML imports so the registrar is bundled
+    // in the precached page entry, even when the app replaces its own entry.
+    order: 'pre',
+    handler() {
+      if (pwa?.disabled !== false) return
+      return [{ tag: 'script', attrs: { type: 'module' }, children: pwaRegistration }]
+    },
+  },
+  transform(code, id) {
+    if (!svelteKit || pwa?.disabled !== false || this.environment.config.consumer !== 'client') {
+      return
+    }
+    // SvelteKit emits its own HTML. Use the client bootstrap input configured
+    // by SvelteKit for this build, which exists even without user client hooks.
+    const { input } = this.environment.config.build.rollupOptions
+    const entry =
+      typeof input === 'string'
+        ? input
+        : Array.isArray(input)
+          ? undefined
+          : (input?.['entry/start'] ?? input?.bundle)
+    if (entry && id === normalizePath(entry)) {
+      return { code: `${code}\n${pwaRegistration}\n`, map: null }
+    }
   },
 }
 

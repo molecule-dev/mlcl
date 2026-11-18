@@ -5154,6 +5154,7 @@ export async function createAppProject(
       vitePlugin,
       buildTooling?.vitePlugin?.usage,
       'VitePWA(pwaOptions)',
+      'pwaRegistrationPlugin',
       'rootRelativeAssetsPlugin()',
       'previewConsoleLogPlugin',
       'stripPreviewBridgePlugin()',
@@ -5170,6 +5171,7 @@ export async function createAppProject(
         : '',
       VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
       VITE_PLUGINS: pluginsLine,
+      SVELTE_KIT: String(htmlFile === 'app.html'),
       BRANDING_IMPORT: brandingImportPath,
       RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
       WARMUP_CLIENT_FILES: viteWarmupClientFiles(
