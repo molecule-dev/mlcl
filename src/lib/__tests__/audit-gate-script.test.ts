@@ -133,6 +133,43 @@ describe('audit-gate CLI', () => {
     expect(audit(twoAdvisories, 1, [first, { ...second, expires: '2000-01-01' }]).status).toBe(1)
   })
 
+  it('accepts the recorded picomatch advisory through the CLI dependency chain only while covered', () => {
+    const { accepted } = JSON.parse(
+      readFileSync(new URL('../../../.audit-allowlist.json', import.meta.url), 'utf8'),
+    ) as { accepted: object[] }
+    const { packages } = JSON.parse(
+      readFileSync(new URL('../../../package-lock.json', import.meta.url), 'utf8'),
+    ) as { packages: Record<string, { version?: string }> }
+    // Recreate the audit for the affected releases in the lock when the advisory landed.
+    // Once those versions leave the lockfile, this can pass without the exception.
+    const affected = Object.entries(packages).some(
+      ([path, entry]) =>
+        /(^|\/)node_modules\/picomatch$/.test(path) &&
+        ['2.3.2', '4.0.5', '4.0.7'].includes(entry.version ?? ''),
+    )
+    const advisory = 'https://github.com/advisories/GHSA-fc5q-39xc-vjpf'
+    const dependency = { severity: 'high', via: ['tinyglobby'], fixAvailable: false }
+    const chain = affected
+      ? {
+          picomatch: { severity: 'high', via: [{ url: advisory }], fixAvailable: false },
+          tinyglobby: { ...dependency, via: ['picomatch'] },
+          '@oclif/core': dependency,
+        }
+      : {}
+    expect(audit({ ...clean, vulnerabilities: chain }, affected ? 1 : 0, accepted).status).toBe(0)
+    const newFinding = {
+      ...dependency,
+      via: [...dependency.via, { url: 'https://github.com/advisories/GHSA-unrelated-control' }],
+    }
+    const result = audit(
+      { ...clean, vulnerabilities: { ...chain, '@oclif/core': newFinding } },
+      1,
+      accepted,
+    )
+    expect(result.status).toBe(1)
+    expect(result.stderr).toContain('unaccepted: GHSA-unrelated-control')
+  })
+
   it('needs no entry for a low advisory riding along an accepted chain', () => {
     const expires = new Date(Date.now() + 86_400_000).toISOString().slice(0, 10)
     const report = {
