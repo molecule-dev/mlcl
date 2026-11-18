@@ -32489,6 +32489,43 @@
         "social feed"
       ]
     },
+    "@molecule/app-activity-timeline-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "activity-timeline",
+      "label": "Activity Timeline Angular",
+      "description": "Vertical event timeline with connector line + dot markers",
+      "stack": "app",
+      "exports": [
+        "ActivityTimeline",
+        "ActivityTimelineDot",
+        "ActivityTimelineRow",
+        "TimelineEventData",
+        "TimelineKindTone"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/activity-timeline-angular",
+      "intentHints": [
+        "activity timeline",
+        "event timeline",
+        "chronological event view",
+        "timeline view"
+      ]
+    },
     "@molecule/app-activity-timeline-react": {
       "language": "typescript",
       "runtime": "node",
@@ -32517,6 +32554,111 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/activity-timeline-react",
+      "intentHints": [
+        "activity timeline",
+        "event timeline",
+        "chronological event view",
+        "timeline view"
+      ]
+    },
+    "@molecule/app-activity-timeline-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "activity-timeline",
+      "label": "Activity Timeline Solid",
+      "description": "Vertical event timeline with connector line + dot markers",
+      "stack": "app",
+      "exports": [
+        "ActivityTimeline",
+        "ActivityTimelineDot",
+        "ActivityTimelineRow",
+        "TimelineEventData",
+        "TimelineKindTone"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/activity-timeline-solid",
+      "intentHints": [
+        "activity timeline",
+        "event timeline",
+        "chronological event view",
+        "timeline view"
+      ]
+    },
+    "@molecule/app-activity-timeline-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "activity-timeline",
+      "label": "Activity Timeline Svelte",
+      "description": "Vertical event timeline with connector line + dot markers",
+      "stack": "app",
+      "exports": [
+        "ActivityTimeline",
+        "ActivityTimelineDot",
+        "ActivityTimelineRow",
+        "TimelineEventData",
+        "TimelineKindTone"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/activity-timeline-svelte",
+      "intentHints": [
+        "activity timeline",
+        "event timeline",
+        "chronological event view",
+        "timeline view"
+      ]
+    },
+    "@molecule/app-activity-timeline-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "activity-timeline",
+      "label": "Activity Timeline Vue",
+      "description": "Vertical event timeline with connector line + dot markers",
+      "stack": "app",
+      "exports": [
+        "ActivityTimeline",
+        "ActivityTimelineDot",
+        "ActivityTimelineRow",
+        "TimelineEventData",
+        "TimelineKindTone"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/activity-timeline-vue",
       "intentHints": [
         "activity timeline",
         "event timeline",
@@ -32686,6 +32828,49 @@
         "formatted address"
       ]
     },
+    "@molecule/app-adjustment-slider-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "adjustment-slider",
+      "label": "Adjustment Slider Angular",
+      "description": "Bipolar (zero-center) adjustment slider for photo-editor / DAW / animation parameters (brightness, exposure, gain, etc.) with double-click reset and arrow-key nudging",
+      "stack": "app",
+      "exports": [
+        "AdjustmentSlider",
+        "AdjustmentSliderFormatter",
+        "AdjustmentSliderProps",
+        "clampStep",
+        "defaultFormatter",
+        "defaultResetValue",
+        "keyboardNudge"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/adjustment-slider-angular",
+      "intentHints": [
+        "adjustment slider",
+        "bipolar slider",
+        "zero center slider",
+        "brightness slider",
+        "exposure slider",
+        "saturation slider",
+        "photo editor slider",
+        "daw parameter slider"
+      ]
+    },
     "@molecule/app-adjustment-slider-react": {
       "language": "typescript",
       "runtime": "node",
@@ -32725,6 +32910,168 @@
         "daw parameter slider"
       ]
     },
+    "@molecule/app-adjustment-slider-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "adjustment-slider",
+      "label": "Adjustment Slider Solid",
+      "description": "Bipolar (zero-center) adjustment slider for photo-editor / DAW / animation parameters (brightness, exposure, gain, etc.) with double-click reset and arrow-key nudging",
+      "stack": "app",
+      "exports": [
+        "AdjustmentSlider",
+        "AdjustmentSliderFormatter",
+        "AdjustmentSliderProps",
+        "clampStep",
+        "defaultFormatter",
+        "defaultResetValue",
+        "keyboardNudge"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/adjustment-slider-solid",
+      "intentHints": [
+        "adjustment slider",
+        "bipolar slider",
+        "zero center slider",
+        "brightness slider",
+        "exposure slider",
+        "saturation slider",
+        "photo editor slider",
+        "daw parameter slider"
+      ]
+    },
+    "@molecule/app-adjustment-slider-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "adjustment-slider",
+      "label": "Adjustment Slider Svelte",
+      "description": "Bipolar (zero-center) adjustment slider for photo-editor / DAW / animation parameters (brightness, exposure, gain, etc.) with double-click reset and arrow-key nudging",
+      "stack": "app",
+      "exports": [
+        "AdjustmentSlider",
+        "AdjustmentSliderFormatter",
+        "AdjustmentSliderProps",
+        "clampStep",
+        "defaultFormatter",
+        "defaultResetValue",
+        "keyboardNudge"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/adjustment-slider-svelte",
+      "intentHints": [
+        "adjustment slider",
+        "bipolar slider",
+        "zero center slider",
+        "brightness slider",
+        "exposure slider",
+        "saturation slider",
+        "photo editor slider",
+        "daw parameter slider"
+      ]
+    },
+    "@molecule/app-adjustment-slider-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "adjustment-slider",
+      "label": "Adjustment Slider Vue",
+      "description": "Bipolar (zero-center) adjustment slider for photo-editor / DAW / animation parameters (brightness, exposure, gain, etc.) with double-click reset and arrow-key nudging",
+      "stack": "app",
+      "exports": [
+        "AdjustmentSlider",
+        "AdjustmentSliderFormatter",
+        "AdjustmentSliderProps",
+        "clampStep",
+        "defaultFormatter",
+        "defaultResetValue",
+        "keyboardNudge"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/adjustment-slider-vue",
+      "intentHints": [
+        "adjustment slider",
+        "bipolar slider",
+        "zero center slider",
+        "brightness slider",
+        "exposure slider",
+        "saturation slider",
+        "photo editor slider",
+        "daw parameter slider"
+      ]
+    },
+    "@molecule/app-admin-table-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "admin-table",
+      "label": "Admin Table Angular",
+      "description": "Generic data table with bulk-select + row actions",
+      "stack": "app",
+      "exports": [
+        "AdminTable",
+        "AdminTableColumn",
+        "AdminTableProps",
+        "AdminTableRowAction",
+        "AdminTableRowActions",
+        "AdminTableRowActionsProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/admin-table-angular",
+      "intentHints": [
+        "admin table",
+        "admin grid",
+        "data table with actions",
+        "selectable rows",
+        "row actions"
+      ]
+    },
     "@molecule/app-admin-table-react": {
       "language": "typescript",
       "runtime": "node",
@@ -32754,6 +33101,117 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/admin-table-react",
+      "intentHints": [
+        "admin table",
+        "admin grid",
+        "data table with actions",
+        "selectable rows",
+        "row actions"
+      ]
+    },
+    "@molecule/app-admin-table-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "admin-table",
+      "label": "Admin Table Solid",
+      "description": "Generic data table with bulk-select + row actions",
+      "stack": "app",
+      "exports": [
+        "AdminTable",
+        "AdminTableColumn",
+        "AdminTableProps",
+        "AdminTableRowAction",
+        "AdminTableRowActions",
+        "AdminTableRowActionsProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/admin-table-solid",
+      "intentHints": [
+        "admin table",
+        "admin grid",
+        "data table with actions",
+        "selectable rows",
+        "row actions"
+      ]
+    },
+    "@molecule/app-admin-table-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "admin-table",
+      "label": "Admin Table Svelte",
+      "description": "Generic data table with bulk-select + row actions",
+      "stack": "app",
+      "exports": [
+        "AdminTable",
+        "AdminTableColumn",
+        "AdminTableProps",
+        "AdminTableRowAction",
+        "AdminTableRowActions",
+        "AdminTableRowActionsProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/admin-table-svelte",
+      "intentHints": [
+        "admin table",
+        "admin grid",
+        "data table with actions",
+        "selectable rows",
+        "row actions"
+      ]
+    },
+    "@molecule/app-admin-table-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "admin-table",
+      "label": "Admin Table Vue",
+      "description": "Generic data table with bulk-select + row actions",
+      "stack": "app",
+      "exports": [
+        "AdminTable",
+        "AdminTableColumn",
+        "AdminTableProps",
+        "AdminTableRowAction",
+        "AdminTableRowActions",
+        "AdminTableRowActionsProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/admin-table-vue",
       "intentHints": [
         "admin table",
         "admin grid",
@@ -34233,6 +34691,45 @@
         "play sound"
       ]
     },
+    "@molecule/app-audio-recorder-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "audio-recorder",
+      "label": "Audio Recorder Angular",
+      "description": "Mic permission + MediaRecorder wrapper that emits a Blob — voice notes, meeting capture, AI voice agents",
+      "stack": "app",
+      "exports": [
+        "AudioRecorder",
+        "AudioRecorderProps",
+        "AudioRecorderState",
+        "AudioRecording"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/audio-recorder-angular",
+      "intentHints": [
+        "audio recorder",
+        "voice recorder",
+        "mic capture",
+        "voice note",
+        "mediarecorder"
+      ]
+    },
     "@molecule/app-audio-recorder-react": {
       "language": "typescript",
       "runtime": "node",
@@ -34260,6 +34757,117 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/audio-recorder-react",
+      "intentHints": [
+        "audio recorder",
+        "voice recorder",
+        "mic capture",
+        "voice note",
+        "mediarecorder"
+      ]
+    },
+    "@molecule/app-audio-recorder-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "audio-recorder",
+      "label": "Audio Recorder Solid",
+      "description": "Mic permission + MediaRecorder wrapper that emits a Blob — voice notes, meeting capture, AI voice agents",
+      "stack": "app",
+      "exports": [
+        "AudioRecorder",
+        "AudioRecorderProps",
+        "AudioRecorderState",
+        "AudioRecording"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/audio-recorder-solid",
+      "intentHints": [
+        "audio recorder",
+        "voice recorder",
+        "mic capture",
+        "voice note",
+        "mediarecorder"
+      ]
+    },
+    "@molecule/app-audio-recorder-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "audio-recorder",
+      "label": "Audio Recorder Svelte",
+      "description": "Mic permission + MediaRecorder wrapper that emits a Blob — voice notes, meeting capture, AI voice agents",
+      "stack": "app",
+      "exports": [
+        "AudioRecorder",
+        "AudioRecorderProps",
+        "AudioRecorderState",
+        "AudioRecording"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/audio-recorder-svelte",
+      "intentHints": [
+        "audio recorder",
+        "voice recorder",
+        "mic capture",
+        "voice note",
+        "mediarecorder"
+      ]
+    },
+    "@molecule/app-audio-recorder-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "audio-recorder",
+      "label": "Audio Recorder Vue",
+      "description": "Mic permission + MediaRecorder wrapper that emits a Blob — voice notes, meeting capture, AI voice agents",
+      "stack": "app",
+      "exports": [
+        "AudioRecorder",
+        "AudioRecorderProps",
+        "AudioRecorderState",
+        "AudioRecording"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/audio-recorder-vue",
       "intentHints": [
         "audio recorder",
         "voice recorder",
@@ -34620,6 +35228,47 @@
         "register account"
       ]
     },
+    "@molecule/app-auth-brand-header-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth-brand-header",
+      "label": "Auth Brand Header Angular",
+      "description": "Brand header for auth pages — gradient material-symbol chip + large wordmark + tagline.",
+      "stack": "app",
+      "exports": [
+        "AuthBrandHeader",
+        "AuthBrandHeaderChip",
+        "AuthBrandHeaderChipProps",
+        "AuthBrandHeaderProps",
+        "AuthBrandHeaderTagline",
+        "AuthBrandHeaderTaglineProps",
+        "AuthBrandHeaderWordmark",
+        "AuthBrandHeaderWordmarkProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/auth-brand-header-angular",
+      "intentHints": [
+        "auth page branding",
+        "login page logo header",
+        "signup brand header wordmark tagline",
+        "auth screen header chip",
+        "branded login header"
+      ]
+    },
     "@molecule/app-auth-brand-header-react": {
       "language": "typescript",
       "runtime": "node",
@@ -34649,6 +35298,123 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/auth-brand-header-react",
+      "intentHints": [
+        "auth page branding",
+        "login page logo header",
+        "signup brand header wordmark tagline",
+        "auth screen header chip",
+        "branded login header"
+      ]
+    },
+    "@molecule/app-auth-brand-header-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth-brand-header",
+      "label": "Auth Brand Header Solid",
+      "description": "Brand header for auth pages — gradient material-symbol chip + large wordmark + tagline.",
+      "stack": "app",
+      "exports": [
+        "AuthBrandHeader",
+        "AuthBrandHeaderChip",
+        "AuthBrandHeaderChipProps",
+        "AuthBrandHeaderProps",
+        "AuthBrandHeaderTagline",
+        "AuthBrandHeaderTaglineProps",
+        "AuthBrandHeaderWordmark",
+        "AuthBrandHeaderWordmarkProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/auth-brand-header-solid",
+      "intentHints": [
+        "auth page branding",
+        "login page logo header",
+        "signup brand header wordmark tagline",
+        "auth screen header chip",
+        "branded login header"
+      ]
+    },
+    "@molecule/app-auth-brand-header-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth-brand-header",
+      "label": "Auth Brand Header Svelte",
+      "description": "Brand header for auth pages — gradient material-symbol chip + large wordmark + tagline.",
+      "stack": "app",
+      "exports": [
+        "AuthBrandHeader",
+        "AuthBrandHeaderChip",
+        "AuthBrandHeaderChipProps",
+        "AuthBrandHeaderProps",
+        "AuthBrandHeaderTagline",
+        "AuthBrandHeaderTaglineProps",
+        "AuthBrandHeaderWordmark",
+        "AuthBrandHeaderWordmarkProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/auth-brand-header-svelte",
+      "intentHints": [
+        "auth page branding",
+        "login page logo header",
+        "signup brand header wordmark tagline",
+        "auth screen header chip",
+        "branded login header"
+      ]
+    },
+    "@molecule/app-auth-brand-header-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth-brand-header",
+      "label": "Auth Brand Header Vue",
+      "description": "Brand header for auth pages — gradient material-symbol chip + large wordmark + tagline.",
+      "stack": "app",
+      "exports": [
+        "AuthBrandHeader",
+        "AuthBrandHeaderChip",
+        "AuthBrandHeaderChipProps",
+        "AuthBrandHeaderProps",
+        "AuthBrandHeaderTagline",
+        "AuthBrandHeaderTaglineProps",
+        "AuthBrandHeaderWordmark",
+        "AuthBrandHeaderWordmarkProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/auth-brand-header-vue",
       "intentHints": [
         "auth page branding",
         "login page logo header",
@@ -34702,6 +35468,71 @@
         "popup oauth",
         "no-navigation auth",
         "upgrade modal"
+      ]
+    },
+    "@molecule/app-auth-shell-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth-shell",
+      "label": "Auth Shell Angular",
+      "description": "Auth-page layout shell — centered card with heading/subheading/form/footer + back-link below. Composable children for per-app decorative background + brand mark.",
+      "stack": "app",
+      "exports": [
+        "AuthFormFields",
+        "AuthFormState",
+        "AuthFormStateProvider",
+        "AuthFormStateProviderProps",
+        "AuthShell",
+        "AuthShellBackLink",
+        "AuthShellBackLinkProps",
+        "AuthShellCard",
+        "AuthShellCardColumn",
+        "AuthShellCardColumnProps",
+        "AuthShellCardProps",
+        "AuthShellContainer",
+        "AuthShellContainerProps",
+        "AuthShellDecoration",
+        "AuthShellFooter",
+        "AuthShellHeading",
+        "AuthShellHeadingProps",
+        "AuthShellPanel",
+        "AuthShellPanelProps",
+        "AuthShellProps",
+        "AuthShellSplit",
+        "AuthShellSplitProps",
+        "AuthShellSplitRow",
+        "AuthShellSplitRowProps",
+        "DEFAULT_AUTH_FORM_STATE_KEY",
+        "UseAuthFormStateOptions",
+        "useAuthFormState",
+        "useAuthFormStateContext"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-logger",
+        "@molecule/app-storage",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-logger",
+        "@molecule/app-storage",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/auth-shell-angular",
+      "intentHints": [
+        "login page layout",
+        "signup page shell",
+        "centered auth card",
+        "sign in form wrapper",
+        "auth screen with brand mark"
       ]
     },
     "@molecule/app-auth-shell-react": {
@@ -34758,6 +35589,195 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/auth-shell-react",
+      "intentHints": [
+        "login page layout",
+        "signup page shell",
+        "centered auth card",
+        "sign in form wrapper",
+        "auth screen with brand mark"
+      ]
+    },
+    "@molecule/app-auth-shell-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth-shell",
+      "label": "Auth Shell Solid",
+      "description": "Auth-page layout shell — centered card with heading/subheading/form/footer + back-link below. Composable children for per-app decorative background + brand mark.",
+      "stack": "app",
+      "exports": [
+        "AuthFormFields",
+        "AuthFormState",
+        "AuthFormStateProvider",
+        "AuthFormStateProviderProps",
+        "AuthShell",
+        "AuthShellBackLink",
+        "AuthShellBackLinkProps",
+        "AuthShellCard",
+        "AuthShellCardColumn",
+        "AuthShellCardColumnProps",
+        "AuthShellCardProps",
+        "AuthShellContainer",
+        "AuthShellContainerProps",
+        "AuthShellDecoration",
+        "AuthShellFooter",
+        "AuthShellHeading",
+        "AuthShellHeadingProps",
+        "AuthShellPanel",
+        "AuthShellPanelProps",
+        "AuthShellProps",
+        "AuthShellSplit",
+        "AuthShellSplitProps",
+        "AuthShellSplitRow",
+        "AuthShellSplitRowProps",
+        "DEFAULT_AUTH_FORM_STATE_KEY",
+        "UseAuthFormStateOptions",
+        "useAuthFormState",
+        "useAuthFormStateContext"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-logger",
+        "@molecule/app-solid",
+        "@molecule/app-storage",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-logger",
+        "@molecule/app-solid",
+        "@molecule/app-storage",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/auth-shell-solid",
+      "intentHints": [
+        "login page layout",
+        "signup page shell",
+        "centered auth card",
+        "sign in form wrapper",
+        "auth screen with brand mark"
+      ]
+    },
+    "@molecule/app-auth-shell-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth-shell",
+      "label": "Auth Shell Svelte",
+      "description": "Auth-page layout shell — centered card with heading/subheading/form/footer + back-link below. Composable children for per-app decorative background + brand mark.",
+      "stack": "app",
+      "exports": [
+        "AuthFormFields",
+        "AuthFormState",
+        "AuthFormStateProvider",
+        "AuthFormStateProviderProps",
+        "AuthShell",
+        "AuthShellBackLink",
+        "AuthShellBackLinkProps",
+        "AuthShellCard",
+        "AuthShellCardColumn",
+        "AuthShellCardColumnProps",
+        "AuthShellCardProps",
+        "AuthShellContainer",
+        "AuthShellContainerProps",
+        "AuthShellDecoration",
+        "AuthShellFooter",
+        "AuthShellHeading",
+        "AuthShellHeadingProps",
+        "AuthShellPanel",
+        "AuthShellPanelProps",
+        "AuthShellProps",
+        "AuthShellSplit",
+        "AuthShellSplitProps",
+        "AuthShellSplitRow",
+        "AuthShellSplitRowProps",
+        "DEFAULT_AUTH_FORM_STATE_KEY",
+        "UseAuthFormStateOptions",
+        "useAuthFormState",
+        "useAuthFormStateContext"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-logger",
+        "@molecule/app-storage",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-logger",
+        "@molecule/app-storage",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/auth-shell-svelte",
+      "intentHints": [
+        "login page layout",
+        "signup page shell",
+        "centered auth card",
+        "sign in form wrapper",
+        "auth screen with brand mark"
+      ]
+    },
+    "@molecule/app-auth-shell-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "auth-shell",
+      "label": "Auth Shell Vue",
+      "description": "Auth-page layout shell — centered card with heading/subheading/form/footer + back-link below. Composable children for per-app decorative background + brand mark.",
+      "stack": "app",
+      "exports": [
+        "AuthFormFields",
+        "AuthFormState",
+        "AuthFormStateProvider",
+        "AuthFormStateProviderProps",
+        "AuthShell",
+        "AuthShellBackLink",
+        "AuthShellBackLinkProps",
+        "AuthShellCard",
+        "AuthShellCardColumn",
+        "AuthShellCardColumnProps",
+        "AuthShellCardProps",
+        "AuthShellContainer",
+        "AuthShellContainerProps",
+        "AuthShellDecoration",
+        "AuthShellFooter",
+        "AuthShellHeading",
+        "AuthShellHeadingProps",
+        "AuthShellPanel",
+        "AuthShellPanelProps",
+        "AuthShellProps",
+        "AuthShellSplit",
+        "AuthShellSplitProps",
+        "AuthShellSplitRow",
+        "AuthShellSplitRowProps",
+        "DEFAULT_AUTH_FORM_STATE_KEY",
+        "UseAuthFormStateOptions",
+        "useAuthFormState",
+        "useAuthFormStateContext"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-logger",
+        "@molecule/app-storage",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-logger",
+        "@molecule/app-storage",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/auth-shell-vue",
       "intentHints": [
         "login page layout",
         "signup page shell",
@@ -36902,6 +37922,39 @@
         "responsive card layout"
       ]
     },
+    "@molecule/app-carousel-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "carousel",
+      "label": "Carousel Angular",
+      "description": "Image / card carousel with arrows, dots, autoplay, controlled-optional index",
+      "stack": "app",
+      "exports": [
+        "Carousel",
+        "CarouselProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/carousel-angular",
+      "intentHints": [
+        "carousel",
+        "slider",
+        "image gallery"
+      ]
+    },
     "@molecule/app-carousel-react": {
       "language": "typescript",
       "runtime": "node",
@@ -36927,6 +37980,99 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/carousel-react",
+      "intentHints": [
+        "carousel",
+        "slider",
+        "image gallery"
+      ]
+    },
+    "@molecule/app-carousel-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "carousel",
+      "label": "Carousel Solid",
+      "description": "Image / card carousel with arrows, dots, autoplay, controlled-optional index",
+      "stack": "app",
+      "exports": [
+        "Carousel",
+        "CarouselProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/carousel-solid",
+      "intentHints": [
+        "carousel",
+        "slider",
+        "image gallery"
+      ]
+    },
+    "@molecule/app-carousel-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "carousel",
+      "label": "Carousel Svelte",
+      "description": "Image / card carousel with arrows, dots, autoplay, controlled-optional index",
+      "stack": "app",
+      "exports": [
+        "Carousel",
+        "CarouselProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/carousel-svelte",
+      "intentHints": [
+        "carousel",
+        "slider",
+        "image gallery"
+      ]
+    },
+    "@molecule/app-carousel-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "carousel",
+      "label": "Carousel Vue",
+      "description": "Image / card carousel with arrows, dots, autoplay, controlled-optional index",
+      "stack": "app",
+      "exports": [
+        "Carousel",
+        "CarouselProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/carousel-vue",
       "intentHints": [
         "carousel",
         "slider",
@@ -37200,6 +38346,46 @@
         "dashboard chart"
       ]
     },
+    "@molecule/app-chatbot-tester-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chatbot-tester",
+      "label": "Chatbot Tester Angular",
+      "description": "Bot-picker + transcript + composer sandbox UI",
+      "stack": "app",
+      "exports": [
+        "ChatbotTester",
+        "ChatbotTesterInput",
+        "ChatbotTesterInputProps",
+        "ChatbotTesterMessages",
+        "ChatbotTesterMessagesProps",
+        "ChatbotTesterProps",
+        "TesterBotOption",
+        "TesterMessage"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/chatbot-tester-angular",
+      "intentHints": [
+        "chatbot tester",
+        "chat playground",
+        "bot sandbox",
+        "chat preview"
+      ]
+    },
     "@molecule/app-chatbot-tester-react": {
       "language": "typescript",
       "runtime": "node",
@@ -37231,6 +38417,120 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/chatbot-tester-react",
+      "intentHints": [
+        "chatbot tester",
+        "chat playground",
+        "bot sandbox",
+        "chat preview"
+      ]
+    },
+    "@molecule/app-chatbot-tester-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chatbot-tester",
+      "label": "Chatbot Tester Solid",
+      "description": "Bot-picker + transcript + composer sandbox UI",
+      "stack": "app",
+      "exports": [
+        "ChatbotTester",
+        "ChatbotTesterInput",
+        "ChatbotTesterInputProps",
+        "ChatbotTesterMessages",
+        "ChatbotTesterMessagesProps",
+        "ChatbotTesterProps",
+        "TesterBotOption",
+        "TesterMessage"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/chatbot-tester-solid",
+      "intentHints": [
+        "chatbot tester",
+        "chat playground",
+        "bot sandbox",
+        "chat preview"
+      ]
+    },
+    "@molecule/app-chatbot-tester-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chatbot-tester",
+      "label": "Chatbot Tester Svelte",
+      "description": "Bot-picker + transcript + composer sandbox UI",
+      "stack": "app",
+      "exports": [
+        "ChatbotTester",
+        "ChatbotTesterInput",
+        "ChatbotTesterInputProps",
+        "ChatbotTesterMessages",
+        "ChatbotTesterMessagesProps",
+        "ChatbotTesterProps",
+        "TesterBotOption",
+        "TesterMessage"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/chatbot-tester-svelte",
+      "intentHints": [
+        "chatbot tester",
+        "chat playground",
+        "bot sandbox",
+        "chat preview"
+      ]
+    },
+    "@molecule/app-chatbot-tester-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "chatbot-tester",
+      "label": "Chatbot Tester Vue",
+      "description": "Bot-picker + transcript + composer sandbox UI",
+      "stack": "app",
+      "exports": [
+        "ChatbotTester",
+        "ChatbotTesterInput",
+        "ChatbotTesterInputProps",
+        "ChatbotTesterMessages",
+        "ChatbotTesterMessagesProps",
+        "ChatbotTesterProps",
+        "TesterBotOption",
+        "TesterMessage"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/chatbot-tester-vue",
       "intentHints": [
         "chatbot tester",
         "chat playground",
@@ -37400,6 +38700,45 @@
         "task checklist"
       ]
     },
+    "@molecule/app-class-schedule-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "class-schedule",
+      "label": "Class Schedule Angular",
+      "description": "Weekly class-schedule grid — 7-day × N-hour time grid with absolutely positioned events, click-event vs click-empty-slot dispatch, side-by-side stacking for overlaps",
+      "stack": "app",
+      "exports": [
+        "ClassSchedule",
+        "ClassScheduleProps",
+        "ScheduleEvent",
+        "ScheduleSlot",
+        "assignLanes",
+        "formatHourLabel"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/class-schedule-angular",
+      "intentHints": [
+        "class schedule",
+        "weekly schedule",
+        "timetable",
+        "school schedule",
+        "virtual classroom schedule"
+      ]
+    },
     "@molecule/app-class-schedule-react": {
       "language": "typescript",
       "runtime": "node",
@@ -37427,6 +38766,117 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/class-schedule-react",
+      "intentHints": [
+        "class schedule",
+        "weekly schedule",
+        "timetable",
+        "school schedule",
+        "virtual classroom schedule"
+      ]
+    },
+    "@molecule/app-class-schedule-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "class-schedule",
+      "label": "Class Schedule Solid",
+      "description": "Weekly class-schedule grid — 7-day × N-hour time grid with absolutely positioned events, click-event vs click-empty-slot dispatch, side-by-side stacking for overlaps",
+      "stack": "app",
+      "exports": [
+        "ClassSchedule",
+        "ClassScheduleProps",
+        "ScheduleEvent",
+        "ScheduleSlot",
+        "assignLanes",
+        "formatHourLabel"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/class-schedule-solid",
+      "intentHints": [
+        "class schedule",
+        "weekly schedule",
+        "timetable",
+        "school schedule",
+        "virtual classroom schedule"
+      ]
+    },
+    "@molecule/app-class-schedule-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "class-schedule",
+      "label": "Class Schedule Svelte",
+      "description": "Weekly class-schedule grid — 7-day × N-hour time grid with absolutely positioned events, click-event vs click-empty-slot dispatch, side-by-side stacking for overlaps",
+      "stack": "app",
+      "exports": [
+        "ClassSchedule",
+        "ClassScheduleProps",
+        "ScheduleEvent",
+        "ScheduleSlot",
+        "assignLanes",
+        "formatHourLabel"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/class-schedule-svelte",
+      "intentHints": [
+        "class schedule",
+        "weekly schedule",
+        "timetable",
+        "school schedule",
+        "virtual classroom schedule"
+      ]
+    },
+    "@molecule/app-class-schedule-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "class-schedule",
+      "label": "Class Schedule Vue",
+      "description": "Weekly class-schedule grid — 7-day × N-hour time grid with absolutely positioned events, click-event vs click-empty-slot dispatch, side-by-side stacking for overlaps",
+      "stack": "app",
+      "exports": [
+        "ClassSchedule",
+        "ClassScheduleProps",
+        "ScheduleEvent",
+        "ScheduleSlot",
+        "assignLanes",
+        "formatHourLabel"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/class-schedule-vue",
       "intentHints": [
         "class schedule",
         "weekly schedule",
@@ -39145,6 +40595,40 @@
         "contact picker"
       ]
     },
+    "@molecule/app-cookie-banner-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "cookie-banner",
+      "label": "Cookie Banner Angular",
+      "description": "GDPR / cookie consent banner with accept/reject + per-category controls",
+      "stack": "app",
+      "exports": [
+        "CookieBanner",
+        "CookieBannerProps",
+        "CookieCategory"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/cookie-banner-angular",
+      "intentHints": [
+        "cookie consent",
+        "gdpr banner",
+        "cookie notice"
+      ]
+    },
     "@molecule/app-cookie-banner-react": {
       "language": "typescript",
       "runtime": "node",
@@ -39171,6 +40655,102 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/cookie-banner-react",
+      "intentHints": [
+        "cookie consent",
+        "gdpr banner",
+        "cookie notice"
+      ]
+    },
+    "@molecule/app-cookie-banner-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "cookie-banner",
+      "label": "Cookie Banner Solid",
+      "description": "GDPR / cookie consent banner with accept/reject + per-category controls",
+      "stack": "app",
+      "exports": [
+        "CookieBanner",
+        "CookieBannerProps",
+        "CookieCategory"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/cookie-banner-solid",
+      "intentHints": [
+        "cookie consent",
+        "gdpr banner",
+        "cookie notice"
+      ]
+    },
+    "@molecule/app-cookie-banner-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "cookie-banner",
+      "label": "Cookie Banner Svelte",
+      "description": "GDPR / cookie consent banner with accept/reject + per-category controls",
+      "stack": "app",
+      "exports": [
+        "CookieBanner",
+        "CookieBannerProps",
+        "CookieCategory"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/cookie-banner-svelte",
+      "intentHints": [
+        "cookie consent",
+        "gdpr banner",
+        "cookie notice"
+      ]
+    },
+    "@molecule/app-cookie-banner-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "cookie-banner",
+      "label": "Cookie Banner Vue",
+      "description": "GDPR / cookie consent banner with accept/reject + per-category controls",
+      "stack": "app",
+      "exports": [
+        "CookieBanner",
+        "CookieBannerProps",
+        "CookieCategory"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/cookie-banner-vue",
       "intentHints": [
         "cookie consent",
         "gdpr banner",
@@ -39996,6 +41576,50 @@
         "data table implementation"
       ]
     },
+    "@molecule/app-data-table-ui-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "data-table-ui",
+      "label": "Data Table UI Angular",
+      "description": "Card data table + table chrome primitives (toolbar, footer, row-with-actions, empty row) — standalone, renders its own table elements",
+      "stack": "app",
+      "exports": [
+        "DataTableCard",
+        "DataTableCardProps",
+        "DataTableColumn",
+        "RowWithActions",
+        "RowWithActionsProps",
+        "TableEmpty",
+        "TableEmptyProps",
+        "TableFooter",
+        "TableFooterProps",
+        "TableToolbar",
+        "TableToolbarProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/data-table-ui-angular",
+      "intentHints": [
+        "data table",
+        "sortable table",
+        "table with columns",
+        "list view",
+        "user table"
+      ]
+    },
     "@molecule/app-data-table-ui-react": {
       "language": "typescript",
       "runtime": "node",
@@ -40030,6 +41654,132 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/data-table-ui-react",
+      "intentHints": [
+        "data table",
+        "sortable table",
+        "table with columns",
+        "list view",
+        "user table"
+      ]
+    },
+    "@molecule/app-data-table-ui-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "data-table-ui",
+      "label": "Data Table UI Solid",
+      "description": "Card data table + table chrome primitives (toolbar, footer, row-with-actions, empty row) — standalone, renders its own table elements",
+      "stack": "app",
+      "exports": [
+        "DataTableCard",
+        "DataTableCardProps",
+        "DataTableColumn",
+        "RowWithActions",
+        "RowWithActionsProps",
+        "TableEmpty",
+        "TableEmptyProps",
+        "TableFooter",
+        "TableFooterProps",
+        "TableToolbar",
+        "TableToolbarProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/data-table-ui-solid",
+      "intentHints": [
+        "data table",
+        "sortable table",
+        "table with columns",
+        "list view",
+        "user table"
+      ]
+    },
+    "@molecule/app-data-table-ui-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "data-table-ui",
+      "label": "Data Table UI Svelte",
+      "description": "Card data table + table chrome primitives (toolbar, footer, row-with-actions, empty row) — standalone, renders its own table elements",
+      "stack": "app",
+      "exports": [
+        "DataTableCard",
+        "DataTableCardProps",
+        "DataTableColumn",
+        "RowWithActions",
+        "RowWithActionsProps",
+        "TableEmpty",
+        "TableEmptyProps",
+        "TableFooter",
+        "TableFooterProps",
+        "TableToolbar",
+        "TableToolbarProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/data-table-ui-svelte",
+      "intentHints": [
+        "data table",
+        "sortable table",
+        "table with columns",
+        "list view",
+        "user table"
+      ]
+    },
+    "@molecule/app-data-table-ui-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "data-table-ui",
+      "label": "Data Table UI Vue",
+      "description": "Card data table + table chrome primitives (toolbar, footer, row-with-actions, empty row) — standalone, renders its own table elements",
+      "stack": "app",
+      "exports": [
+        "DataTableCard",
+        "DataTableCardProps",
+        "DataTableColumn",
+        "RowWithActions",
+        "RowWithActionsProps",
+        "TableEmpty",
+        "TableEmptyProps",
+        "TableFooter",
+        "TableFooterProps",
+        "TableToolbar",
+        "TableToolbarProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/data-table-ui-vue",
       "intentHints": [
         "data table",
         "sortable table",
@@ -40105,6 +41855,45 @@
         "date range input"
       ]
     },
+    "@molecule/app-day-timeline-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "day-timeline",
+      "label": "Day Timeline Angular",
+      "description": "Vertical 24h day-of-events timeline — itinerary planner, daily agenda, schedule view",
+      "stack": "app",
+      "exports": [
+        "DayTimeline",
+        "DayTimelineEvent",
+        "DayTimelineProps",
+        "formatHour"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/day-timeline-angular",
+      "intentHints": [
+        "day timeline",
+        "daily agenda",
+        "itinerary",
+        "schedule view",
+        "events by hour"
+      ]
+    },
     "@molecule/app-day-timeline-react": {
       "language": "typescript",
       "runtime": "node",
@@ -40132,6 +41921,117 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/day-timeline-react",
+      "intentHints": [
+        "day timeline",
+        "daily agenda",
+        "itinerary",
+        "schedule view",
+        "events by hour"
+      ]
+    },
+    "@molecule/app-day-timeline-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "day-timeline",
+      "label": "Day Timeline Solid",
+      "description": "Vertical 24h day-of-events timeline — itinerary planner, daily agenda, schedule view",
+      "stack": "app",
+      "exports": [
+        "DayTimeline",
+        "DayTimelineEvent",
+        "DayTimelineProps",
+        "formatHour"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/day-timeline-solid",
+      "intentHints": [
+        "day timeline",
+        "daily agenda",
+        "itinerary",
+        "schedule view",
+        "events by hour"
+      ]
+    },
+    "@molecule/app-day-timeline-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "day-timeline",
+      "label": "Day Timeline Svelte",
+      "description": "Vertical 24h day-of-events timeline — itinerary planner, daily agenda, schedule view",
+      "stack": "app",
+      "exports": [
+        "DayTimeline",
+        "DayTimelineEvent",
+        "DayTimelineProps",
+        "formatHour"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/day-timeline-svelte",
+      "intentHints": [
+        "day timeline",
+        "daily agenda",
+        "itinerary",
+        "schedule view",
+        "events by hour"
+      ]
+    },
+    "@molecule/app-day-timeline-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "day-timeline",
+      "label": "Day Timeline Vue",
+      "description": "Vertical 24h day-of-events timeline — itinerary planner, daily agenda, schedule view",
+      "stack": "app",
+      "exports": [
+        "DayTimeline",
+        "DayTimelineEvent",
+        "DayTimelineProps",
+        "formatHour"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/day-timeline-vue",
       "intentHints": [
         "day timeline",
         "daily agenda",
@@ -41571,6 +43471,51 @@
         "rich text toolbar"
       ]
     },
+    "@molecule/app-embed-snippet-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "embed-snippet",
+      "label": "Embed Snippet Angular",
+      "description": "Configurable iframe-snippet generator + copy button — pre-formatted HTML/script snippets for embeddable widgets",
+      "stack": "app",
+      "exports": [
+        "EmbedSnippet",
+        "EmbedSnippetControls",
+        "EmbedSnippetLanguage",
+        "EmbedSnippetProps",
+        "EmbedSnippetThemeOption",
+        "EmbedSnippetValues",
+        "coerceDimension",
+        "substituteTemplate"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/embed-snippet-angular",
+      "intentHints": [
+        "embed code",
+        "copy embed",
+        "iframe snippet",
+        "share widget",
+        "embeddable"
+      ]
+    },
     "@molecule/app-embed-snippet-react": {
       "language": "typescript",
       "runtime": "node",
@@ -41591,6 +43536,7 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-clipboard",
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
@@ -41598,12 +43544,142 @@
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-clipboard",
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/embed-snippet-react",
+      "intentHints": [
+        "embed code",
+        "copy embed",
+        "iframe snippet",
+        "share widget",
+        "embeddable"
+      ]
+    },
+    "@molecule/app-embed-snippet-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "embed-snippet",
+      "label": "Embed Snippet Solid",
+      "description": "Configurable iframe-snippet generator + copy button — pre-formatted HTML/script snippets for embeddable widgets",
+      "stack": "app",
+      "exports": [
+        "EmbedSnippet",
+        "EmbedSnippetControls",
+        "EmbedSnippetLanguage",
+        "EmbedSnippetProps",
+        "EmbedSnippetThemeOption",
+        "EmbedSnippetValues",
+        "coerceDimension",
+        "substituteTemplate"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/embed-snippet-solid",
+      "intentHints": [
+        "embed code",
+        "copy embed",
+        "iframe snippet",
+        "share widget",
+        "embeddable"
+      ]
+    },
+    "@molecule/app-embed-snippet-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "embed-snippet",
+      "label": "Embed Snippet Svelte",
+      "description": "Configurable iframe-snippet generator + copy button — pre-formatted HTML/script snippets for embeddable widgets",
+      "stack": "app",
+      "exports": [
+        "EmbedSnippet",
+        "EmbedSnippetControls",
+        "EmbedSnippetLanguage",
+        "EmbedSnippetProps",
+        "EmbedSnippetThemeOption",
+        "EmbedSnippetValues",
+        "coerceDimension",
+        "substituteTemplate"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/embed-snippet-svelte",
+      "intentHints": [
+        "embed code",
+        "copy embed",
+        "iframe snippet",
+        "share widget",
+        "embeddable"
+      ]
+    },
+    "@molecule/app-embed-snippet-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "embed-snippet",
+      "label": "Embed Snippet Vue",
+      "description": "Configurable iframe-snippet generator + copy button — pre-formatted HTML/script snippets for embeddable widgets",
+      "stack": "app",
+      "exports": [
+        "EmbedSnippet",
+        "EmbedSnippetControls",
+        "EmbedSnippetLanguage",
+        "EmbedSnippetProps",
+        "EmbedSnippetThemeOption",
+        "EmbedSnippetValues",
+        "coerceDimension",
+        "substituteTemplate"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/embed-snippet-vue",
       "intentHints": [
         "embed code",
         "copy embed",
@@ -41661,6 +43737,40 @@
         "support widget"
       ]
     },
+    "@molecule/app-emoji-reactions-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "emoji-reactions",
+      "label": "Emoji Reactions Angular",
+      "description": "Generic emoji reaction-bar with toggle + add-reaction popover",
+      "stack": "app",
+      "exports": [
+        "EmojiReaction",
+        "EmojiReactions",
+        "EmojiReactionsProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/emoji-reactions-angular",
+      "intentHints": [
+        "emoji reactions",
+        "like buttons",
+        "reactions bar"
+      ]
+    },
     "@molecule/app-emoji-reactions-react": {
       "language": "typescript",
       "runtime": "node",
@@ -41687,6 +43797,102 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/emoji-reactions-react",
+      "intentHints": [
+        "emoji reactions",
+        "like buttons",
+        "reactions bar"
+      ]
+    },
+    "@molecule/app-emoji-reactions-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "emoji-reactions",
+      "label": "Emoji Reactions Solid",
+      "description": "Generic emoji reaction-bar with toggle + add-reaction popover",
+      "stack": "app",
+      "exports": [
+        "EmojiReaction",
+        "EmojiReactions",
+        "EmojiReactionsProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/emoji-reactions-solid",
+      "intentHints": [
+        "emoji reactions",
+        "like buttons",
+        "reactions bar"
+      ]
+    },
+    "@molecule/app-emoji-reactions-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "emoji-reactions",
+      "label": "Emoji Reactions Svelte",
+      "description": "Generic emoji reaction-bar with toggle + add-reaction popover",
+      "stack": "app",
+      "exports": [
+        "EmojiReaction",
+        "EmojiReactions",
+        "EmojiReactionsProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/emoji-reactions-svelte",
+      "intentHints": [
+        "emoji reactions",
+        "like buttons",
+        "reactions bar"
+      ]
+    },
+    "@molecule/app-emoji-reactions-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "emoji-reactions",
+      "label": "Emoji Reactions Vue",
+      "description": "Generic emoji reaction-bar with toggle + add-reaction popover",
+      "stack": "app",
+      "exports": [
+        "EmojiReaction",
+        "EmojiReactions",
+        "EmojiReactionsProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/emoji-reactions-vue",
       "intentHints": [
         "emoji reactions",
         "like buttons",
@@ -42090,6 +44296,45 @@
         "focal length"
       ]
     },
+    "@molecule/app-faceted-search-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "faceted-search",
+      "label": "Faceted Search Angular",
+      "description": "Segmented control + filter pill + fixed filter bar (overlays at topOffsetPx)",
+      "stack": "app",
+      "exports": [
+        "FacetedSearchBar",
+        "FacetedSearchBarProps",
+        "FilterPill",
+        "FilterPillProps",
+        "SegmentedControl",
+        "SegmentedControlProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/faceted-search-angular",
+      "intentHints": [
+        "faceted search",
+        "faceted filtering",
+        "filter pills",
+        "search filters",
+        "segmented control"
+      ]
+    },
     "@molecule/app-faceted-search-react": {
       "language": "typescript",
       "runtime": "node",
@@ -42119,6 +44364,117 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/faceted-search-react",
+      "intentHints": [
+        "faceted search",
+        "faceted filtering",
+        "filter pills",
+        "search filters",
+        "segmented control"
+      ]
+    },
+    "@molecule/app-faceted-search-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "faceted-search",
+      "label": "Faceted Search Solid",
+      "description": "Segmented control + filter pill + fixed filter bar (overlays at topOffsetPx)",
+      "stack": "app",
+      "exports": [
+        "FacetedSearchBar",
+        "FacetedSearchBarProps",
+        "FilterPill",
+        "FilterPillProps",
+        "SegmentedControl",
+        "SegmentedControlProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/faceted-search-solid",
+      "intentHints": [
+        "faceted search",
+        "faceted filtering",
+        "filter pills",
+        "search filters",
+        "segmented control"
+      ]
+    },
+    "@molecule/app-faceted-search-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "faceted-search",
+      "label": "Faceted Search Svelte",
+      "description": "Segmented control + filter pill + fixed filter bar (overlays at topOffsetPx)",
+      "stack": "app",
+      "exports": [
+        "FacetedSearchBar",
+        "FacetedSearchBarProps",
+        "FilterPill",
+        "FilterPillProps",
+        "SegmentedControl",
+        "SegmentedControlProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/faceted-search-svelte",
+      "intentHints": [
+        "faceted search",
+        "faceted filtering",
+        "filter pills",
+        "search filters",
+        "segmented control"
+      ]
+    },
+    "@molecule/app-faceted-search-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "faceted-search",
+      "label": "Faceted Search Vue",
+      "description": "Segmented control + filter pill + fixed filter bar (overlays at topOffsetPx)",
+      "stack": "app",
+      "exports": [
+        "FacetedSearchBar",
+        "FacetedSearchBarProps",
+        "FilterPill",
+        "FilterPillProps",
+        "SegmentedControl",
+        "SegmentedControlProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/faceted-search-vue",
       "intentHints": [
         "faceted search",
         "faceted filtering",
@@ -42908,6 +45264,45 @@
         "draw midi notes"
       ]
     },
+    "@molecule/app-feature-thread-tree-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "thread-tree",
+      "label": "Thread Tree Angular",
+      "description": "Nested comment tree with per-node collapse, auto-collapse below a configurable depth, and parent-line indicator. Recursive renderer with depth-based indentation and reply / vote slots.",
+      "stack": "app",
+      "exports": [
+        "Comment",
+        "ThreadTree",
+        "ThreadTreeProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/feature-thread-tree-angular",
+      "intentHints": [
+        "comment tree",
+        "nested comments",
+        "threaded discussion",
+        "hn-style thread",
+        "reply tree",
+        "collapsible comments"
+      ]
+    },
     "@molecule/app-feature-thread-tree-react": {
       "language": "typescript",
       "runtime": "node",
@@ -42934,6 +45329,117 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/thread-tree-react",
+      "intentHints": [
+        "comment tree",
+        "nested comments",
+        "threaded discussion",
+        "hn-style thread",
+        "reply tree",
+        "collapsible comments"
+      ]
+    },
+    "@molecule/app-feature-thread-tree-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "thread-tree",
+      "label": "Thread Tree Solid",
+      "description": "Nested comment tree with per-node collapse, auto-collapse below a configurable depth, and parent-line indicator. Recursive renderer with depth-based indentation and reply / vote slots.",
+      "stack": "app",
+      "exports": [
+        "Comment",
+        "ThreadTree",
+        "ThreadTreeProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/feature-thread-tree-solid",
+      "intentHints": [
+        "comment tree",
+        "nested comments",
+        "threaded discussion",
+        "hn-style thread",
+        "reply tree",
+        "collapsible comments"
+      ]
+    },
+    "@molecule/app-feature-thread-tree-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "thread-tree",
+      "label": "Thread Tree Svelte",
+      "description": "Nested comment tree with per-node collapse, auto-collapse below a configurable depth, and parent-line indicator. Recursive renderer with depth-based indentation and reply / vote slots.",
+      "stack": "app",
+      "exports": [
+        "Comment",
+        "ThreadTree",
+        "ThreadTreeProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/feature-thread-tree-svelte",
+      "intentHints": [
+        "comment tree",
+        "nested comments",
+        "threaded discussion",
+        "hn-style thread",
+        "reply tree",
+        "collapsible comments"
+      ]
+    },
+    "@molecule/app-feature-thread-tree-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "thread-tree",
+      "label": "Thread Tree Vue",
+      "description": "Nested comment tree with per-node collapse, auto-collapse below a configurable depth, and parent-line indicator. Recursive renderer with depth-based indentation and reply / vote slots.",
+      "stack": "app",
+      "exports": [
+        "Comment",
+        "ThreadTree",
+        "ThreadTreeProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/feature-thread-tree-vue",
       "intentHints": [
         "comment tree",
         "nested comments",
@@ -43163,6 +45669,54 @@
         "video editor transport"
       ]
     },
+    "@molecule/app-feature-video-scrubber-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-video-scrubber",
+      "label": "Video Scrubber Angular",
+      "description": "Frame-accurate video scrubber for video-editor — timeline strip with thumbnail filmstrip, playhead, and frame-by-frame stepping; composes with @molecule/app-feature-video-timeline-react",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_FPS",
+        "DEFAULT_THUMBNAIL_COUNT",
+        "DEFAULT_THUMBNAIL_HEIGHT",
+        "Thumbnail",
+        "VideoScrubber",
+        "VideoScrubberProps",
+        "computeFilmstripTicks",
+        "formatFrameNumber",
+        "frameToTime",
+        "selectClosestThumbnail",
+        "snapTimeToFrame",
+        "timeToFrame"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/feature-video-scrubber-angular",
+      "intentHints": [
+        "video scrubber",
+        "frame scrubber",
+        "playhead scrubber",
+        "video editor scrubber",
+        "thumbnail filmstrip",
+        "frame by frame",
+        "timeline strip",
+        "video preview thumbnails"
+      ]
+    },
     "@molecule/app-feature-video-scrubber-react": {
       "language": "typescript",
       "runtime": "node",
@@ -43196,6 +45750,144 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/video-scrubber-react",
+      "intentHints": [
+        "video scrubber",
+        "frame scrubber",
+        "playhead scrubber",
+        "video editor scrubber",
+        "thumbnail filmstrip",
+        "frame by frame",
+        "timeline strip",
+        "video preview thumbnails"
+      ]
+    },
+    "@molecule/app-feature-video-scrubber-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-video-scrubber",
+      "label": "Video Scrubber Solid",
+      "description": "Frame-accurate video scrubber for video-editor — timeline strip with thumbnail filmstrip, playhead, and frame-by-frame stepping; composes with @molecule/app-feature-video-timeline-react",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_FPS",
+        "DEFAULT_THUMBNAIL_COUNT",
+        "DEFAULT_THUMBNAIL_HEIGHT",
+        "Thumbnail",
+        "VideoScrubber",
+        "VideoScrubberProps",
+        "computeFilmstripTicks",
+        "formatFrameNumber",
+        "frameToTime",
+        "selectClosestThumbnail",
+        "snapTimeToFrame",
+        "timeToFrame"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/feature-video-scrubber-solid",
+      "intentHints": [
+        "video scrubber",
+        "frame scrubber",
+        "playhead scrubber",
+        "video editor scrubber",
+        "thumbnail filmstrip",
+        "frame by frame",
+        "timeline strip",
+        "video preview thumbnails"
+      ]
+    },
+    "@molecule/app-feature-video-scrubber-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-video-scrubber",
+      "label": "Video Scrubber Svelte",
+      "description": "Frame-accurate video scrubber for video-editor — timeline strip with thumbnail filmstrip, playhead, and frame-by-frame stepping; composes with @molecule/app-feature-video-timeline-react",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_FPS",
+        "DEFAULT_THUMBNAIL_COUNT",
+        "DEFAULT_THUMBNAIL_HEIGHT",
+        "Thumbnail",
+        "VideoScrubber",
+        "VideoScrubberProps",
+        "computeFilmstripTicks",
+        "formatFrameNumber",
+        "frameToTime",
+        "selectClosestThumbnail",
+        "snapTimeToFrame",
+        "timeToFrame"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/feature-video-scrubber-svelte",
+      "intentHints": [
+        "video scrubber",
+        "frame scrubber",
+        "playhead scrubber",
+        "video editor scrubber",
+        "thumbnail filmstrip",
+        "frame by frame",
+        "timeline strip",
+        "video preview thumbnails"
+      ]
+    },
+    "@molecule/app-feature-video-scrubber-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "feature-video-scrubber",
+      "label": "Video Scrubber Vue",
+      "description": "Frame-accurate video scrubber for video-editor — timeline strip with thumbnail filmstrip, playhead, and frame-by-frame stepping; composes with @molecule/app-feature-video-timeline-react",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_FPS",
+        "DEFAULT_THUMBNAIL_COUNT",
+        "DEFAULT_THUMBNAIL_HEIGHT",
+        "Thumbnail",
+        "VideoScrubber",
+        "VideoScrubberProps",
+        "computeFilmstripTicks",
+        "formatFrameNumber",
+        "frameToTime",
+        "selectClosestThumbnail",
+        "snapTimeToFrame",
+        "timeToFrame"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/feature-video-scrubber-vue",
       "intentHints": [
         "video scrubber",
         "frame scrubber",
@@ -43944,6 +46636,62 @@
         "bottom right button"
       ]
     },
+    "@molecule/app-flow-canvas-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "flow-canvas",
+      "label": "Flow Canvas Angular",
+      "description": "Angular node-and-edge flow canvas — drag nodes, connect ports, pan + zoom, build DAGs / workflows visually",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_NODE_HEIGHT",
+        "DEFAULT_NODE_WIDTH",
+        "FlowCanvas",
+        "FlowCanvasProps",
+        "FlowChange",
+        "FlowEdge",
+        "FlowNode",
+        "FlowNodeRenderer",
+        "FlowNodeRenderers",
+        "FlowPoint",
+        "FlowSelection",
+        "FlowViewport",
+        "addEdge",
+        "bezierPath",
+        "clientToWorld",
+        "defaultSourcePort",
+        "defaultTargetPort",
+        "moveNode",
+        "removeEdge",
+        "removeNode",
+        "translateNode"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/flow-canvas-angular",
+      "intentHints": [
+        "flow canvas",
+        "node editor",
+        "dag builder",
+        "workflow editor",
+        "graph builder",
+        "visual workflow",
+        "node and edge editor"
+      ]
+    },
     "@molecule/app-flow-canvas-react": {
       "language": "typescript",
       "runtime": "node",
@@ -43986,6 +46734,168 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/flow-canvas-react",
+      "intentHints": [
+        "flow canvas",
+        "node editor",
+        "dag builder",
+        "workflow editor",
+        "graph builder",
+        "visual workflow",
+        "node and edge editor"
+      ]
+    },
+    "@molecule/app-flow-canvas-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "flow-canvas",
+      "label": "Flow Canvas Solid",
+      "description": "Solid node-and-edge flow canvas — drag nodes, connect ports, pan + zoom, build DAGs / workflows visually",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_NODE_HEIGHT",
+        "DEFAULT_NODE_WIDTH",
+        "FlowCanvas",
+        "FlowCanvasProps",
+        "FlowChange",
+        "FlowEdge",
+        "FlowNode",
+        "FlowNodeRenderer",
+        "FlowNodeRenderers",
+        "FlowPoint",
+        "FlowSelection",
+        "FlowViewport",
+        "addEdge",
+        "bezierPath",
+        "clientToWorld",
+        "defaultSourcePort",
+        "defaultTargetPort",
+        "moveNode",
+        "removeEdge",
+        "removeNode",
+        "translateNode"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/flow-canvas-solid",
+      "intentHints": [
+        "flow canvas",
+        "node editor",
+        "dag builder",
+        "workflow editor",
+        "graph builder",
+        "visual workflow",
+        "node and edge editor"
+      ]
+    },
+    "@molecule/app-flow-canvas-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "flow-canvas",
+      "label": "Flow Canvas Svelte",
+      "description": "Svelte node-and-edge flow canvas — drag nodes, connect ports, pan + zoom, build DAGs / workflows visually",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_NODE_HEIGHT",
+        "DEFAULT_NODE_WIDTH",
+        "FlowCanvas",
+        "FlowCanvasProps",
+        "FlowChange",
+        "FlowEdge",
+        "FlowNode",
+        "FlowNodeRenderer",
+        "FlowNodeRenderers",
+        "FlowPoint",
+        "FlowSelection",
+        "FlowViewport",
+        "addEdge",
+        "bezierPath",
+        "clientToWorld",
+        "defaultSourcePort",
+        "defaultTargetPort",
+        "moveNode",
+        "removeEdge",
+        "removeNode",
+        "translateNode"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/flow-canvas-svelte",
+      "intentHints": [
+        "flow canvas",
+        "node editor",
+        "dag builder",
+        "workflow editor",
+        "graph builder",
+        "visual workflow",
+        "node and edge editor"
+      ]
+    },
+    "@molecule/app-flow-canvas-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "flow-canvas",
+      "label": "Flow Canvas Vue",
+      "description": "Vue node-and-edge flow canvas — drag nodes, connect ports, pan + zoom, build DAGs / workflows visually",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_NODE_HEIGHT",
+        "DEFAULT_NODE_WIDTH",
+        "FlowCanvas",
+        "FlowCanvasProps",
+        "FlowChange",
+        "FlowEdge",
+        "FlowNode",
+        "FlowNodeRenderer",
+        "FlowNodeRenderers",
+        "FlowPoint",
+        "FlowSelection",
+        "FlowViewport",
+        "addEdge",
+        "bezierPath",
+        "clientToWorld",
+        "defaultSourcePort",
+        "defaultTargetPort",
+        "moveNode",
+        "removeEdge",
+        "removeNode",
+        "translateNode"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/flow-canvas-vue",
       "intentHints": [
         "flow canvas",
         "node editor",
@@ -46166,6 +49076,48 @@
         "sync workout data"
       ]
     },
+    "@molecule/app-heatmap-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "heatmap",
+      "label": "Heatmap Angular",
+      "description": "GitHub-contributions-style year-grid activity heatmap (SVG, no library dep)",
+      "stack": "app",
+      "exports": [
+        "Heatmap",
+        "HeatmapCell",
+        "HeatmapDay",
+        "HeatmapProps",
+        "bucketValue",
+        "computeQuantileThresholds"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/heatmap-angular",
+      "intentHints": [
+        "heatmap",
+        "activity heatmap",
+        "github contributions chart",
+        "year grid heatmap",
+        "consistency heatmap",
+        "attendance heatmap",
+        "xp by day",
+        "review by day"
+      ]
+    },
     "@molecule/app-heatmap-react": {
       "language": "typescript",
       "runtime": "node",
@@ -46193,6 +49145,126 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/heatmap-react",
+      "intentHints": [
+        "heatmap",
+        "activity heatmap",
+        "github contributions chart",
+        "year grid heatmap",
+        "consistency heatmap",
+        "attendance heatmap",
+        "xp by day",
+        "review by day"
+      ]
+    },
+    "@molecule/app-heatmap-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "heatmap",
+      "label": "Heatmap Solid",
+      "description": "GitHub-contributions-style year-grid activity heatmap (SVG, no library dep)",
+      "stack": "app",
+      "exports": [
+        "Heatmap",
+        "HeatmapCell",
+        "HeatmapDay",
+        "HeatmapProps",
+        "bucketValue",
+        "computeQuantileThresholds"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/heatmap-solid",
+      "intentHints": [
+        "heatmap",
+        "activity heatmap",
+        "github contributions chart",
+        "year grid heatmap",
+        "consistency heatmap",
+        "attendance heatmap",
+        "xp by day",
+        "review by day"
+      ]
+    },
+    "@molecule/app-heatmap-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "heatmap",
+      "label": "Heatmap Svelte",
+      "description": "GitHub-contributions-style year-grid activity heatmap (SVG, no library dep)",
+      "stack": "app",
+      "exports": [
+        "Heatmap",
+        "HeatmapCell",
+        "HeatmapDay",
+        "HeatmapProps",
+        "bucketValue",
+        "computeQuantileThresholds"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/heatmap-svelte",
+      "intentHints": [
+        "heatmap",
+        "activity heatmap",
+        "github contributions chart",
+        "year grid heatmap",
+        "consistency heatmap",
+        "attendance heatmap",
+        "xp by day",
+        "review by day"
+      ]
+    },
+    "@molecule/app-heatmap-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "heatmap",
+      "label": "Heatmap Vue",
+      "description": "GitHub-contributions-style year-grid activity heatmap (SVG, no library dep)",
+      "stack": "app",
+      "exports": [
+        "Heatmap",
+        "HeatmapCell",
+        "HeatmapDay",
+        "HeatmapProps",
+        "bucketValue",
+        "computeQuantileThresholds"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/heatmap-vue",
       "intentHints": [
         "heatmap",
         "activity heatmap",
@@ -46361,6 +49433,51 @@
         "contact help"
       ]
     },
+    "@molecule/app-hero-metric-card-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "hero-metric-card",
+      "label": "Hero Metric Card Angular",
+      "description": "Top-of-dashboard hero metric card — large primary value, optional trend chip + progress-ring slot, accent border",
+      "stack": "app",
+      "exports": [
+        "HeroMetricAccent",
+        "HeroMetricCard",
+        "HeroMetricCardProps",
+        "HeroMetricSemanticAccent",
+        "HeroMetricTrend",
+        "HeroMetricTrendChip",
+        "HeroMetricTrendChipProps",
+        "HeroMetricTrendDirection"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/hero-metric-card-angular",
+      "intentHints": [
+        "hero metric card",
+        "dashboard hero",
+        "headline metric",
+        "primary metric card",
+        "today hero",
+        "vitals hero",
+        "calorie ring card"
+      ]
+    },
     "@molecule/app-hero-metric-card-react": {
       "language": "typescript",
       "runtime": "node",
@@ -46394,6 +49511,135 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/hero-metric-card-react",
+      "intentHints": [
+        "hero metric card",
+        "dashboard hero",
+        "headline metric",
+        "primary metric card",
+        "today hero",
+        "vitals hero",
+        "calorie ring card"
+      ]
+    },
+    "@molecule/app-hero-metric-card-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "hero-metric-card",
+      "label": "Hero Metric Card Solid",
+      "description": "Top-of-dashboard hero metric card — large primary value, optional trend chip + progress-ring slot, accent border",
+      "stack": "app",
+      "exports": [
+        "HeroMetricAccent",
+        "HeroMetricCard",
+        "HeroMetricCardProps",
+        "HeroMetricSemanticAccent",
+        "HeroMetricTrend",
+        "HeroMetricTrendChip",
+        "HeroMetricTrendChipProps",
+        "HeroMetricTrendDirection"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/hero-metric-card-solid",
+      "intentHints": [
+        "hero metric card",
+        "dashboard hero",
+        "headline metric",
+        "primary metric card",
+        "today hero",
+        "vitals hero",
+        "calorie ring card"
+      ]
+    },
+    "@molecule/app-hero-metric-card-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "hero-metric-card",
+      "label": "Hero Metric Card Svelte",
+      "description": "Top-of-dashboard hero metric card — large primary value, optional trend chip + progress-ring slot, accent border",
+      "stack": "app",
+      "exports": [
+        "HeroMetricAccent",
+        "HeroMetricCard",
+        "HeroMetricCardProps",
+        "HeroMetricSemanticAccent",
+        "HeroMetricTrend",
+        "HeroMetricTrendChip",
+        "HeroMetricTrendChipProps",
+        "HeroMetricTrendDirection"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/hero-metric-card-svelte",
+      "intentHints": [
+        "hero metric card",
+        "dashboard hero",
+        "headline metric",
+        "primary metric card",
+        "today hero",
+        "vitals hero",
+        "calorie ring card"
+      ]
+    },
+    "@molecule/app-hero-metric-card-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "hero-metric-card",
+      "label": "Hero Metric Card Vue",
+      "description": "Top-of-dashboard hero metric card — large primary value, optional trend chip + progress-ring slot, accent border",
+      "stack": "app",
+      "exports": [
+        "HeroMetricAccent",
+        "HeroMetricCard",
+        "HeroMetricCardProps",
+        "HeroMetricSemanticAccent",
+        "HeroMetricTrend",
+        "HeroMetricTrendChip",
+        "HeroMetricTrendChipProps",
+        "HeroMetricTrendDirection"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/hero-metric-card-vue",
       "intentHints": [
         "hero metric card",
         "dashboard hero",
@@ -47893,6 +51139,42 @@
         "gallery of photos"
       ]
     },
+    "@molecule/app-image-gallery-editor-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "image-gallery-editor",
+      "label": "Image Gallery Editor Angular",
+      "description": "Hero drop zone + thumbnail slot grid",
+      "stack": "app",
+      "exports": [
+        "ImageGalleryEditor",
+        "ImageGalleryEditorProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-icons",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-icons",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/image-gallery-editor-angular",
+      "intentHints": [
+        "image gallery editor",
+        "image upload grid",
+        "photo gallery editor",
+        "drag and drop images"
+      ]
+    },
     "@molecule/app-image-gallery-editor-react": {
       "language": "typescript",
       "runtime": "node",
@@ -47920,6 +51202,108 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/image-gallery-editor-react",
+      "intentHints": [
+        "image gallery editor",
+        "image upload grid",
+        "photo gallery editor",
+        "drag and drop images"
+      ]
+    },
+    "@molecule/app-image-gallery-editor-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "image-gallery-editor",
+      "label": "Image Gallery Editor Solid",
+      "description": "Hero drop zone + thumbnail slot grid",
+      "stack": "app",
+      "exports": [
+        "ImageGalleryEditor",
+        "ImageGalleryEditorProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-icons",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-icons",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/image-gallery-editor-solid",
+      "intentHints": [
+        "image gallery editor",
+        "image upload grid",
+        "photo gallery editor",
+        "drag and drop images"
+      ]
+    },
+    "@molecule/app-image-gallery-editor-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "image-gallery-editor",
+      "label": "Image Gallery Editor Svelte",
+      "description": "Hero drop zone + thumbnail slot grid",
+      "stack": "app",
+      "exports": [
+        "ImageGalleryEditor",
+        "ImageGalleryEditorProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-icons",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-icons",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/image-gallery-editor-svelte",
+      "intentHints": [
+        "image gallery editor",
+        "image upload grid",
+        "photo gallery editor",
+        "drag and drop images"
+      ]
+    },
+    "@molecule/app-image-gallery-editor-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "image-gallery-editor",
+      "label": "Image Gallery Editor Vue",
+      "description": "Hero drop zone + thumbnail slot grid",
+      "stack": "app",
+      "exports": [
+        "ImageGalleryEditor",
+        "ImageGalleryEditorProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-icons",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-icons",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/image-gallery-editor-vue",
       "intentHints": [
         "image gallery editor",
         "image upload grid",
@@ -49217,6 +52601,49 @@
         "use keyboard shortcut hook"
       ]
     },
+    "@molecule/app-kpi-card-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "kpi-card",
+      "label": "KPI Card Angular",
+      "description": "Angular KPI / metric card components with trend, icon, and grid variants",
+      "stack": "app",
+      "exports": [
+        "KpiCard",
+        "KpiCardAccentSide",
+        "KpiCardGrid",
+        "KpiCardGridProps",
+        "KpiCardProps",
+        "KpiCardTrend",
+        "KpiCardTrendProps",
+        "KpiTrendDirection"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/kpi-card-angular",
+      "intentHints": [
+        "kpi",
+        "kpis",
+        "metric card",
+        "dashboard stat",
+        "summary card",
+        "summary tile",
+        "metric tile"
+      ]
+    },
     "@molecule/app-kpi-card-react": {
       "language": "typescript",
       "runtime": "node",
@@ -49258,6 +52685,171 @@
         "metric tile"
       ]
     },
+    "@molecule/app-kpi-card-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "kpi-card",
+      "label": "KPI Card Solid",
+      "description": "Solid KPI / metric card components with trend, icon, and grid variants",
+      "stack": "app",
+      "exports": [
+        "KpiCard",
+        "KpiCardAccentSide",
+        "KpiCardGrid",
+        "KpiCardGridProps",
+        "KpiCardProps",
+        "KpiCardTrend",
+        "KpiCardTrendProps",
+        "KpiTrendDirection"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/kpi-card-solid",
+      "intentHints": [
+        "kpi",
+        "kpis",
+        "metric card",
+        "dashboard stat",
+        "summary card",
+        "summary tile",
+        "metric tile"
+      ]
+    },
+    "@molecule/app-kpi-card-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "kpi-card",
+      "label": "KPI Card Svelte",
+      "description": "Svelte KPI / metric card components with trend, icon, and grid variants",
+      "stack": "app",
+      "exports": [
+        "KpiCard",
+        "KpiCardAccentSide",
+        "KpiCardGrid",
+        "KpiCardGridProps",
+        "KpiCardProps",
+        "KpiCardTrend",
+        "KpiCardTrendProps",
+        "KpiTrendDirection"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/kpi-card-svelte",
+      "intentHints": [
+        "kpi",
+        "kpis",
+        "metric card",
+        "dashboard stat",
+        "summary card",
+        "summary tile",
+        "metric tile"
+      ]
+    },
+    "@molecule/app-kpi-card-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "kpi-card",
+      "label": "KPI Card Vue",
+      "description": "Vue KPI / metric card components with trend, icon, and grid variants",
+      "stack": "app",
+      "exports": [
+        "KpiCard",
+        "KpiCardAccentSide",
+        "KpiCardGrid",
+        "KpiCardGridProps",
+        "KpiCardProps",
+        "KpiCardTrend",
+        "KpiCardTrendProps",
+        "KpiTrendDirection"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/kpi-card-vue",
+      "intentHints": [
+        "kpi",
+        "kpis",
+        "metric card",
+        "dashboard stat",
+        "summary card",
+        "summary tile",
+        "metric tile"
+      ]
+    },
+    "@molecule/app-layer-panel-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "layer-panel",
+      "label": "Layer Panel Angular",
+      "description": "Photoshop-style reorderable layer stack with visibility/lock toggles, opacity/blend-mode metadata, and inline rename — drag-to-reorder via pointer events",
+      "stack": "app",
+      "exports": [
+        "Layer",
+        "LayerBlendMode",
+        "LayerPanel",
+        "LayerPanelProps",
+        "formatOpacityPercent",
+        "moveLayer"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/layer-panel-angular",
+      "intentHints": [
+        "layer panel",
+        "layers list",
+        "layer stack",
+        "photoshop layers",
+        "figma layers",
+        "z-order panel"
+      ]
+    },
     "@molecule/app-layer-panel-react": {
       "language": "typescript",
       "runtime": "node",
@@ -49289,6 +52881,126 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/layer-panel-react",
+      "intentHints": [
+        "layer panel",
+        "layers list",
+        "layer stack",
+        "photoshop layers",
+        "figma layers",
+        "z-order panel"
+      ]
+    },
+    "@molecule/app-layer-panel-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "layer-panel",
+      "label": "Layer Panel Solid",
+      "description": "Photoshop-style reorderable layer stack with visibility/lock toggles, opacity/blend-mode metadata, and inline rename — drag-to-reorder via pointer events",
+      "stack": "app",
+      "exports": [
+        "Layer",
+        "LayerBlendMode",
+        "LayerPanel",
+        "LayerPanelProps",
+        "formatOpacityPercent",
+        "moveLayer"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/layer-panel-solid",
+      "intentHints": [
+        "layer panel",
+        "layers list",
+        "layer stack",
+        "photoshop layers",
+        "figma layers",
+        "z-order panel"
+      ]
+    },
+    "@molecule/app-layer-panel-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "layer-panel",
+      "label": "Layer Panel Svelte",
+      "description": "Photoshop-style reorderable layer stack with visibility/lock toggles, opacity/blend-mode metadata, and inline rename — drag-to-reorder via pointer events",
+      "stack": "app",
+      "exports": [
+        "Layer",
+        "LayerBlendMode",
+        "LayerPanel",
+        "LayerPanelProps",
+        "formatOpacityPercent",
+        "moveLayer"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/layer-panel-svelte",
+      "intentHints": [
+        "layer panel",
+        "layers list",
+        "layer stack",
+        "photoshop layers",
+        "figma layers",
+        "z-order panel"
+      ]
+    },
+    "@molecule/app-layer-panel-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "layer-panel",
+      "label": "Layer Panel Vue",
+      "description": "Photoshop-style reorderable layer stack with visibility/lock toggles, opacity/blend-mode metadata, and inline rename — drag-to-reorder via pointer events",
+      "stack": "app",
+      "exports": [
+        "Layer",
+        "LayerBlendMode",
+        "LayerPanel",
+        "LayerPanelProps",
+        "formatOpacityPercent",
+        "moveLayer"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/layer-panel-vue",
       "intentHints": [
         "layer panel",
         "layers list",
@@ -50389,6 +54101,106 @@
         "@molecule/app-i18n"
       ],
       "path": "packages/app/locales/adjustment-slider"
+    },
+    "@molecule/app-locales-admin-table": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "locales",
+      "category": "i18n",
+      "label": "Admin Table Translations",
+      "description": "Translations for @molecule/app-admin-table-react in 79 languages",
+      "stack": "app",
+      "exports": [
+        "AdminTableTranslationKey",
+        "AdminTableTranslations",
+        "af",
+        "am",
+        "ar",
+        "az",
+        "be",
+        "bg",
+        "bn",
+        "bs",
+        "ca",
+        "cs",
+        "cy",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "et",
+        "eu",
+        "fa",
+        "fi",
+        "fil",
+        "fr",
+        "ga",
+        "gl",
+        "gu",
+        "ha",
+        "he",
+        "hi",
+        "hr",
+        "hu",
+        "hy",
+        "id",
+        "ig",
+        "is",
+        "it",
+        "ja",
+        "ka",
+        "kk",
+        "km",
+        "kn",
+        "ko",
+        "ky",
+        "lo",
+        "lt",
+        "lv",
+        "mk",
+        "ml",
+        "mn",
+        "mr",
+        "ms",
+        "mt",
+        "my",
+        "nb",
+        "ne",
+        "nl",
+        "pa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "si",
+        "sk",
+        "sl",
+        "sq",
+        "sr",
+        "sv",
+        "sw",
+        "ta",
+        "te",
+        "th",
+        "tr",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "yo",
+        "zh",
+        "zhTW",
+        "zu"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
+      "path": "packages/app/locales/admin-table"
     },
     "@molecule/app-locales-ai-chat": {
       "language": "typescript",
@@ -52889,6 +56701,106 @@
         "@molecule/app-i18n"
       ],
       "path": "packages/app/locales/charts"
+    },
+    "@molecule/app-locales-chatbot-tester": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "locales",
+      "category": "i18n",
+      "label": "Chatbot Tester Translations",
+      "description": "Translations for @molecule/app-chatbot-tester-react in 79 languages",
+      "stack": "app",
+      "exports": [
+        "ChatbotTesterTranslationKey",
+        "ChatbotTesterTranslations",
+        "af",
+        "am",
+        "ar",
+        "az",
+        "be",
+        "bg",
+        "bn",
+        "bs",
+        "ca",
+        "cs",
+        "cy",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "et",
+        "eu",
+        "fa",
+        "fi",
+        "fil",
+        "fr",
+        "ga",
+        "gl",
+        "gu",
+        "ha",
+        "he",
+        "hi",
+        "hr",
+        "hu",
+        "hy",
+        "id",
+        "ig",
+        "is",
+        "it",
+        "ja",
+        "ka",
+        "kk",
+        "km",
+        "kn",
+        "ko",
+        "ky",
+        "lo",
+        "lt",
+        "lv",
+        "mk",
+        "ml",
+        "mn",
+        "mr",
+        "ms",
+        "mt",
+        "my",
+        "nb",
+        "ne",
+        "nl",
+        "pa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "si",
+        "sk",
+        "sl",
+        "sq",
+        "sr",
+        "sv",
+        "sw",
+        "ta",
+        "te",
+        "th",
+        "tr",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "yo",
+        "zh",
+        "zhTW",
+        "zu"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
+      "path": "packages/app/locales/chatbot-tester"
     },
     "@molecule/app-locales-checklist": {
       "language": "typescript",
@@ -58692,6 +62604,106 @@
       ],
       "path": "packages/app/locales/ide"
     },
+    "@molecule/app-locales-image-gallery-editor": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "locales",
+      "category": "i18n",
+      "label": "Image Gallery Editor Translations",
+      "description": "Translations for @molecule/app-image-gallery-editor-react in 79 languages",
+      "stack": "app",
+      "exports": [
+        "ImageGalleryEditorTranslationKey",
+        "ImageGalleryEditorTranslations",
+        "af",
+        "am",
+        "ar",
+        "az",
+        "be",
+        "bg",
+        "bn",
+        "bs",
+        "ca",
+        "cs",
+        "cy",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "et",
+        "eu",
+        "fa",
+        "fi",
+        "fil",
+        "fr",
+        "ga",
+        "gl",
+        "gu",
+        "ha",
+        "he",
+        "hi",
+        "hr",
+        "hu",
+        "hy",
+        "id",
+        "ig",
+        "is",
+        "it",
+        "ja",
+        "ka",
+        "kk",
+        "km",
+        "kn",
+        "ko",
+        "ky",
+        "lo",
+        "lt",
+        "lv",
+        "mk",
+        "ml",
+        "mn",
+        "mr",
+        "ms",
+        "mt",
+        "my",
+        "nb",
+        "ne",
+        "nl",
+        "pa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "si",
+        "sk",
+        "sl",
+        "sq",
+        "sr",
+        "sv",
+        "sw",
+        "ta",
+        "te",
+        "th",
+        "tr",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "yo",
+        "zh",
+        "zhTW",
+        "zu"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
+      "path": "packages/app/locales/image-gallery-editor"
+    },
     "@molecule/app-locales-inbox-row": {
       "language": "typescript",
       "runtime": "node",
@@ -62392,6 +66404,106 @@
         "@molecule/app-i18n"
       ],
       "path": "packages/app/locales/quiz-card"
+    },
+    "@molecule/app-locales-rating-display": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "locales",
+      "category": "i18n",
+      "label": "Rating Display Translations",
+      "description": "Translations for @molecule/app-rating-display-react in 79 languages",
+      "stack": "app",
+      "exports": [
+        "RatingDisplayTranslationKey",
+        "RatingDisplayTranslations",
+        "af",
+        "am",
+        "ar",
+        "az",
+        "be",
+        "bg",
+        "bn",
+        "bs",
+        "ca",
+        "cs",
+        "cy",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "et",
+        "eu",
+        "fa",
+        "fi",
+        "fil",
+        "fr",
+        "ga",
+        "gl",
+        "gu",
+        "ha",
+        "he",
+        "hi",
+        "hr",
+        "hu",
+        "hy",
+        "id",
+        "ig",
+        "is",
+        "it",
+        "ja",
+        "ka",
+        "kk",
+        "km",
+        "kn",
+        "ko",
+        "ky",
+        "lo",
+        "lt",
+        "lv",
+        "mk",
+        "ml",
+        "mn",
+        "mr",
+        "ms",
+        "mt",
+        "my",
+        "nb",
+        "ne",
+        "nl",
+        "pa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "si",
+        "sk",
+        "sl",
+        "sq",
+        "sr",
+        "sv",
+        "sw",
+        "ta",
+        "te",
+        "th",
+        "tr",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "yo",
+        "zh",
+        "zhTW",
+        "zu"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
+      "path": "packages/app/locales/rating-display"
     },
     "@molecule/app-locales-rating-form": {
       "language": "typescript",
@@ -67064,6 +71176,61 @@
         "frequent flyer tier"
       ]
     },
+    "@molecule/app-map-drawing-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "map-drawing",
+      "label": "Map Drawing Angular",
+      "description": "Map polygon / circle / pin / line drawing primitives for geofence editing — composes with @molecule/app-maps for the underlying map backend",
+      "stack": "app",
+      "exports": [
+        "ActiveTool",
+        "DrawingTool",
+        "GeoJsonGeometry",
+        "GeoJsonLineString",
+        "GeoJsonPoint",
+        "GeoJsonPolygon",
+        "MapDrawing",
+        "MapDrawingBackend",
+        "MapDrawingProps",
+        "MapDrawingToolbar",
+        "MapDrawingToolbarProps",
+        "MapShape",
+        "ScreenPoint",
+        "ShapeSelection",
+        "closeRing",
+        "haversineDistanceMeters",
+        "identityBackend",
+        "pointInRect",
+        "toRadians"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/map-drawing-angular",
+      "intentHints": [
+        "geofence editor",
+        "draw polygon on map",
+        "draw circle on map",
+        "draw pin on map",
+        "fleet management zones",
+        "delivery zone editor",
+        "property boundary editor",
+        "venue footprint editor"
+      ]
+    },
     "@molecule/app-map-drawing-react": {
       "language": "typescript",
       "runtime": "node",
@@ -67104,6 +71271,165 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/map-drawing-react",
+      "intentHints": [
+        "geofence editor",
+        "draw polygon on map",
+        "draw circle on map",
+        "draw pin on map",
+        "fleet management zones",
+        "delivery zone editor",
+        "property boundary editor",
+        "venue footprint editor"
+      ]
+    },
+    "@molecule/app-map-drawing-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "map-drawing",
+      "label": "Map Drawing Solid",
+      "description": "Map polygon / circle / pin / line drawing primitives for geofence editing — composes with @molecule/app-maps for the underlying map backend",
+      "stack": "app",
+      "exports": [
+        "ActiveTool",
+        "DrawingTool",
+        "GeoJsonGeometry",
+        "GeoJsonLineString",
+        "GeoJsonPoint",
+        "GeoJsonPolygon",
+        "MapDrawing",
+        "MapDrawingBackend",
+        "MapDrawingProps",
+        "MapDrawingToolbar",
+        "MapDrawingToolbarProps",
+        "MapShape",
+        "ScreenPoint",
+        "ShapeSelection",
+        "closeRing",
+        "haversineDistanceMeters",
+        "identityBackend",
+        "pointInRect",
+        "toRadians"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/map-drawing-solid",
+      "intentHints": [
+        "geofence editor",
+        "draw polygon on map",
+        "draw circle on map",
+        "draw pin on map",
+        "fleet management zones",
+        "delivery zone editor",
+        "property boundary editor",
+        "venue footprint editor"
+      ]
+    },
+    "@molecule/app-map-drawing-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "map-drawing",
+      "label": "Map Drawing Svelte",
+      "description": "Map polygon / circle / pin / line drawing primitives for geofence editing — composes with @molecule/app-maps for the underlying map backend",
+      "stack": "app",
+      "exports": [
+        "ActiveTool",
+        "DrawingTool",
+        "GeoJsonGeometry",
+        "GeoJsonLineString",
+        "GeoJsonPoint",
+        "GeoJsonPolygon",
+        "MapDrawing",
+        "MapDrawingBackend",
+        "MapDrawingProps",
+        "MapDrawingToolbar",
+        "MapDrawingToolbarProps",
+        "MapShape",
+        "ScreenPoint",
+        "ShapeSelection",
+        "closeRing",
+        "haversineDistanceMeters",
+        "identityBackend",
+        "pointInRect",
+        "toRadians"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/map-drawing-svelte",
+      "intentHints": [
+        "geofence editor",
+        "draw polygon on map",
+        "draw circle on map",
+        "draw pin on map",
+        "fleet management zones",
+        "delivery zone editor",
+        "property boundary editor",
+        "venue footprint editor"
+      ]
+    },
+    "@molecule/app-map-drawing-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "map-drawing",
+      "label": "Map Drawing Vue",
+      "description": "Map polygon / circle / pin / line drawing primitives for geofence editing — composes with @molecule/app-maps for the underlying map backend",
+      "stack": "app",
+      "exports": [
+        "ActiveTool",
+        "DrawingTool",
+        "GeoJsonGeometry",
+        "GeoJsonLineString",
+        "GeoJsonPoint",
+        "GeoJsonPolygon",
+        "MapDrawing",
+        "MapDrawingBackend",
+        "MapDrawingProps",
+        "MapDrawingToolbar",
+        "MapDrawingToolbarProps",
+        "MapShape",
+        "ScreenPoint",
+        "ShapeSelection",
+        "closeRing",
+        "haversineDistanceMeters",
+        "identityBackend",
+        "pointInRect",
+        "toRadians"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/map-drawing-vue",
       "intentHints": [
         "geofence editor",
         "draw polygon on map",
@@ -67559,6 +71885,56 @@
         "drug schedule row"
       ]
     },
+    "@molecule/app-message-bubble-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "message-bubble",
+      "label": "Message Bubble Angular",
+      "description": "Angular message bubble, composer, list, and thread indicator for chat UIs",
+      "stack": "app",
+      "exports": [
+        "MessageAttachment",
+        "MessageAttachments",
+        "MessageAttachmentsProps",
+        "MessageAuthor",
+        "MessageBubble",
+        "MessageBubbleProps",
+        "MessageComposer",
+        "MessageComposerProps",
+        "MessageData",
+        "MessageList",
+        "MessageListProps",
+        "MessageMeta",
+        "MessageMetaProps",
+        "MessageReaction",
+        "MessageReactions",
+        "MessageReactionsProps",
+        "ThreadIndicator",
+        "ThreadIndicatorProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/message-bubble-angular",
+      "intentHints": [
+        "chat message bubble",
+        "message bubble",
+        "conversation line",
+        "chat ui"
+      ]
+    },
     "@molecule/app-message-bubble-react": {
       "language": "typescript",
       "runtime": "node",
@@ -67600,6 +71976,150 @@
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/message-bubble-react",
+      "intentHints": [
+        "chat message bubble",
+        "message bubble",
+        "conversation line",
+        "chat ui"
+      ]
+    },
+    "@molecule/app-message-bubble-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "message-bubble",
+      "label": "Message Bubble Solid",
+      "description": "Solid message bubble, composer, list, and thread indicator for chat UIs",
+      "stack": "app",
+      "exports": [
+        "MessageAttachment",
+        "MessageAttachments",
+        "MessageAttachmentsProps",
+        "MessageAuthor",
+        "MessageBubble",
+        "MessageBubbleProps",
+        "MessageComposer",
+        "MessageComposerProps",
+        "MessageData",
+        "MessageList",
+        "MessageListProps",
+        "MessageMeta",
+        "MessageMetaProps",
+        "MessageReaction",
+        "MessageReactions",
+        "MessageReactionsProps",
+        "ThreadIndicator",
+        "ThreadIndicatorProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/message-bubble-solid",
+      "intentHints": [
+        "chat message bubble",
+        "message bubble",
+        "conversation line",
+        "chat ui"
+      ]
+    },
+    "@molecule/app-message-bubble-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "message-bubble",
+      "label": "Message Bubble Svelte",
+      "description": "Svelte message bubble, composer, list, and thread indicator for chat UIs",
+      "stack": "app",
+      "exports": [
+        "MessageAttachment",
+        "MessageAttachments",
+        "MessageAttachmentsProps",
+        "MessageAuthor",
+        "MessageBubble",
+        "MessageBubbleProps",
+        "MessageComposer",
+        "MessageComposerProps",
+        "MessageData",
+        "MessageList",
+        "MessageListProps",
+        "MessageMeta",
+        "MessageMetaProps",
+        "MessageReaction",
+        "MessageReactions",
+        "MessageReactionsProps",
+        "ThreadIndicator",
+        "ThreadIndicatorProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/message-bubble-svelte",
+      "intentHints": [
+        "chat message bubble",
+        "message bubble",
+        "conversation line",
+        "chat ui"
+      ]
+    },
+    "@molecule/app-message-bubble-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "message-bubble",
+      "label": "Message Bubble Vue",
+      "description": "Vue message bubble, composer, list, and thread indicator for chat UIs",
+      "stack": "app",
+      "exports": [
+        "MessageAttachment",
+        "MessageAttachments",
+        "MessageAttachmentsProps",
+        "MessageAuthor",
+        "MessageBubble",
+        "MessageBubbleProps",
+        "MessageComposer",
+        "MessageComposerProps",
+        "MessageData",
+        "MessageList",
+        "MessageListProps",
+        "MessageMeta",
+        "MessageMetaProps",
+        "MessageReaction",
+        "MessageReactions",
+        "MessageReactionsProps",
+        "ThreadIndicator",
+        "ThreadIndicatorProps"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/message-bubble-vue",
       "intentHints": [
         "chat message bubble",
         "message bubble",
@@ -68829,6 +73349,50 @@
         "in-app notifications"
       ]
     },
+    "@molecule/app-notifications-page-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "notifications-page",
+      "label": "Notifications Page Angular",
+      "description": "Drop-in Notifications page composing notification-feed/center components — header, filters, mark-all-read, paginated list, empty state.",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_TYPE_ICONS",
+        "NotificationsPage",
+        "NotificationsPageFilter",
+        "NotificationsPageItem",
+        "NotificationsPageProps",
+        "NotificationsPageResult",
+        "NotificationsPageTypeIconMap",
+        "resolveTypeIcon"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-notification-feed-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-i18n",
+        "@molecule/app-notification-feed-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/notifications-page-angular",
+      "intentHints": [
+        "notifications page",
+        "in-app notifications view",
+        "mark all read page",
+        "notifications inbox screen"
+      ]
+    },
     "@molecule/app-notifications-page-react": {
       "language": "typescript",
       "runtime": "node",
@@ -68862,6 +73426,132 @@
         "@molecule/app-ui"
       ],
       "path": "packages/app/features/notifications-page-react",
+      "intentHints": [
+        "notifications page",
+        "in-app notifications view",
+        "mark all read page",
+        "notifications inbox screen"
+      ]
+    },
+    "@molecule/app-notifications-page-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "notifications-page",
+      "label": "Notifications Page Solid",
+      "description": "Drop-in Notifications page composing notification-feed/center components — header, filters, mark-all-read, paginated list, empty state.",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_TYPE_ICONS",
+        "NotificationsPage",
+        "NotificationsPageFilter",
+        "NotificationsPageItem",
+        "NotificationsPageProps",
+        "NotificationsPageResult",
+        "NotificationsPageTypeIconMap",
+        "resolveTypeIcon"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-notification-feed-solid",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-notification-feed-solid",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/notifications-page-solid",
+      "intentHints": [
+        "notifications page",
+        "in-app notifications view",
+        "mark all read page",
+        "notifications inbox screen"
+      ]
+    },
+    "@molecule/app-notifications-page-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "notifications-page",
+      "label": "Notifications Page Svelte",
+      "description": "Drop-in Notifications page composing notification-feed/center components — header, filters, mark-all-read, paginated list, empty state.",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_TYPE_ICONS",
+        "NotificationsPage",
+        "NotificationsPageFilter",
+        "NotificationsPageItem",
+        "NotificationsPageProps",
+        "NotificationsPageResult",
+        "NotificationsPageTypeIconMap",
+        "resolveTypeIcon"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-notification-feed-svelte",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-notification-feed-svelte",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/notifications-page-svelte",
+      "intentHints": [
+        "notifications page",
+        "in-app notifications view",
+        "mark all read page",
+        "notifications inbox screen"
+      ]
+    },
+    "@molecule/app-notifications-page-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "notifications-page",
+      "label": "Notifications Page Vue",
+      "description": "Drop-in Notifications page composing notification-feed/center components — header, filters, mark-all-read, paginated list, empty state.",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_TYPE_ICONS",
+        "NotificationsPage",
+        "NotificationsPageFilter",
+        "NotificationsPageItem",
+        "NotificationsPageProps",
+        "NotificationsPageResult",
+        "NotificationsPageTypeIconMap",
+        "resolveTypeIcon"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-notification-feed-vue",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-notification-feed-vue",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/notifications-page-vue",
       "intentHints": [
         "notifications page",
         "in-app notifications view",
@@ -70178,6 +74868,52 @@
         "page controls"
       ]
     },
+    "@molecule/app-password-generator-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "password-generator",
+      "label": "Password Generator Angular",
+      "description": "Configurable secure password generator UI with length slider + character class toggles + regenerate + copy-to-clipboard",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_CHARSET",
+        "MAX_LENGTH",
+        "MIN_LENGTH",
+        "PasswordCharsetOptions",
+        "PasswordGenerator",
+        "PasswordGeneratorProps",
+        "buildCharset",
+        "clampLength",
+        "generatePassword"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/password-generator-angular",
+      "intentHints": [
+        "password generator",
+        "generate password",
+        "secure password",
+        "random password",
+        "password creator"
+      ]
+    },
     "@molecule/app-password-generator-react": {
       "language": "typescript",
       "runtime": "node",
@@ -70199,6 +74935,7 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-clipboard",
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
@@ -70206,12 +74943,145 @@
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-clipboard",
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/password-generator-react",
+      "intentHints": [
+        "password generator",
+        "generate password",
+        "secure password",
+        "random password",
+        "password creator"
+      ]
+    },
+    "@molecule/app-password-generator-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "password-generator",
+      "label": "Password Generator Solid",
+      "description": "Configurable secure password generator UI with length slider + character class toggles + regenerate + copy-to-clipboard",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_CHARSET",
+        "MAX_LENGTH",
+        "MIN_LENGTH",
+        "PasswordCharsetOptions",
+        "PasswordGenerator",
+        "PasswordGeneratorProps",
+        "buildCharset",
+        "clampLength",
+        "generatePassword"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/password-generator-solid",
+      "intentHints": [
+        "password generator",
+        "generate password",
+        "secure password",
+        "random password",
+        "password creator"
+      ]
+    },
+    "@molecule/app-password-generator-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "password-generator",
+      "label": "Password Generator Svelte",
+      "description": "Configurable secure password generator UI with length slider + character class toggles + regenerate + copy-to-clipboard",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_CHARSET",
+        "MAX_LENGTH",
+        "MIN_LENGTH",
+        "PasswordCharsetOptions",
+        "PasswordGenerator",
+        "PasswordGeneratorProps",
+        "buildCharset",
+        "clampLength",
+        "generatePassword"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/password-generator-svelte",
+      "intentHints": [
+        "password generator",
+        "generate password",
+        "secure password",
+        "random password",
+        "password creator"
+      ]
+    },
+    "@molecule/app-password-generator-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "password-generator",
+      "label": "Password Generator Vue",
+      "description": "Configurable secure password generator UI with length slider + character class toggles + regenerate + copy-to-clipboard",
+      "stack": "app",
+      "exports": [
+        "DEFAULT_CHARSET",
+        "MAX_LENGTH",
+        "MIN_LENGTH",
+        "PasswordCharsetOptions",
+        "PasswordGenerator",
+        "PasswordGeneratorProps",
+        "buildCharset",
+        "clampLength",
+        "generatePassword"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-clipboard",
+        "@molecule/app-i18n",
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/password-generator-vue",
       "intentHints": [
         "password generator",
         "generate password",
@@ -79302,6 +84172,55 @@
         "category tabs"
       ]
     },
+    "@molecule/app-tag-input-angular": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "tag-input",
+      "label": "Tag Input Angular",
+      "description": "Angular tags/labels/keywords input — a tag-token (chip) input, a markup-free useTagInput hook for app-owned markup, and tag-chip display",
+      "stack": "app",
+      "exports": [
+        "TagChip",
+        "TagChipProps",
+        "TagInput",
+        "TagInputFieldProps",
+        "TagInputProps",
+        "TagList",
+        "TagListProps",
+        "UseTagInputOptions",
+        "UseTagInputResult",
+        "useTagInput"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@angular/common",
+        "@angular/core",
+        "@angular/platform-browser",
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "moleculePeers": [
+        "@molecule/app-angular",
+        "@molecule/app-ui",
+        "@molecule/app-ui-angular"
+      ],
+      "path": "packages/app/features/tag-input-angular",
+      "intentHints": [
+        "tags input",
+        "tag input",
+        "add tags",
+        "labels input",
+        "keywords input",
+        "chip input",
+        "token input",
+        "tag editor",
+        "display tags",
+        "saved tags",
+        "read-only tags"
+      ]
+    },
     "@molecule/app-tag-input-react": {
       "language": "typescript",
       "runtime": "node",
@@ -79350,6 +84269,147 @@
         "labels and keywords input",
         "chip input and token input",
         "tag editor to add tags",
+        "display tags",
+        "saved tags",
+        "read-only tags"
+      ]
+    },
+    "@molecule/app-tag-input-solid": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "tag-input",
+      "label": "Tag Input Solid",
+      "description": "Solid tags/labels/keywords input — a tag-token (chip) input, a markup-free useTagInput hook for app-owned markup, and tag-chip display",
+      "stack": "app",
+      "exports": [
+        "TagChip",
+        "TagChipProps",
+        "TagInput",
+        "TagInputFieldProps",
+        "TagInputProps",
+        "TagList",
+        "TagListProps",
+        "UseTagInputOptions",
+        "UseTagInputResult",
+        "useTagInput"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid",
+        "solid-js"
+      ],
+      "moleculePeers": [
+        "@molecule/app-solid",
+        "@molecule/app-ui",
+        "@molecule/app-ui-solid"
+      ],
+      "path": "packages/app/features/tag-input-solid",
+      "intentHints": [
+        "tags input",
+        "tag input",
+        "add tags",
+        "labels input",
+        "keywords input",
+        "chip input",
+        "token input",
+        "tag editor",
+        "display tags",
+        "saved tags",
+        "read-only tags"
+      ]
+    },
+    "@molecule/app-tag-input-svelte": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "tag-input",
+      "label": "Tag Input Svelte",
+      "description": "Svelte tags/labels/keywords input — a tag-token (chip) input, a markup-free useTagInput hook for app-owned markup, and tag-chip display",
+      "stack": "app",
+      "exports": [
+        "TagChip",
+        "TagChipProps",
+        "TagInput",
+        "TagInputFieldProps",
+        "TagInputProps",
+        "TagList",
+        "TagListProps",
+        "UseTagInputOptions",
+        "UseTagInputResult",
+        "useTagInput"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte",
+        "svelte"
+      ],
+      "moleculePeers": [
+        "@molecule/app-svelte",
+        "@molecule/app-ui",
+        "@molecule/app-ui-svelte"
+      ],
+      "path": "packages/app/features/tag-input-svelte",
+      "intentHints": [
+        "tags input",
+        "tag input",
+        "add tags",
+        "labels input",
+        "keywords input",
+        "chip input",
+        "token input",
+        "tag editor",
+        "display tags",
+        "saved tags",
+        "read-only tags"
+      ]
+    },
+    "@molecule/app-tag-input-vue": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "tag-input",
+      "label": "Tag Input Vue",
+      "description": "Vue tags/labels/keywords input — a tag-token (chip) input, a markup-free useTagInput hook for app-owned markup, and tag-chip display",
+      "stack": "app",
+      "exports": [
+        "TagChip",
+        "TagChipProps",
+        "TagInput",
+        "TagInputFieldProps",
+        "TagInputProps",
+        "TagList",
+        "TagListProps",
+        "UseTagInputOptions",
+        "UseTagInputResult",
+        "useTagInput"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue",
+        "vue"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-vue",
+        "@molecule/app-vue"
+      ],
+      "path": "packages/app/features/tag-input-vue",
+      "intentHints": [
+        "tags input",
+        "tag input",
+        "add tags",
+        "labels input",
+        "keywords input",
+        "chip input",
+        "token input",
+        "tag editor",
         "display tags",
         "saved tags",
         "read-only tags"
