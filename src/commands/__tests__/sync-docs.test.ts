@@ -9,9 +9,17 @@ import SyncDocs from '../sync-docs.js'
 vi.mock('../../lib/docs-check.js', () => ({
   checkDocs: vi.fn(async () => ({ checked: ['alpha', 'beta'], different: [] })),
 }))
-vi.mock('../../lib/docs-sync.js', () => ({ generateDocs: vi.fn(async () => []) }))
+vi.mock('../../lib/docs-sync.js', async (importOriginal) => ({
+  documentedRegistry: (await importOriginal<typeof import('../../lib/docs-sync.js')>())
+    .documentedRegistry,
+  generateDocs: vi.fn(async () => []),
+}))
 vi.mock('../../lib/registry.js', () => ({
-  getRawRegistry: () => ({ packages: { alpha: { path: '.' }, beta: { path: '.' } } }),
+  getRawRegistry: () => ({
+    packages: { alpha: { path: '.' }, beta: { path: '.' } },
+    // Awaiting its first release: documented like any other package.
+    pendingPackages: { gamma: { path: '.' } },
+  }),
 }))
 const root = resolve(import.meta.dirname, '../../..')
 const previousJobs = process.env.MLCL_DOCS_JOBS
@@ -72,6 +80,12 @@ describe('sync-docs process selection', () => {
       'not in the registry',
     )
     expect(checkDocs).not.toHaveBeenCalled()
+  })
+
+  it('regenerates one package awaiting its first release (pendingPackages)', async () => {
+    // 2026-11-18: a release gate found nine pending READMEs stale and -p refused each one as unregistered.
+    await run(['--generate', '--package=gamma'])
+    expect(generateDocs).toHaveBeenCalledWith(expect.anything(), expect.any(String), ['gamma'])
   })
 
   it('propagates worker failure through the real command', async () => {

@@ -8,7 +8,7 @@ import chalk from 'chalk'
 
 import { checkDocs } from '../lib/docs-check.js'
 import { stripGeneratedTimestamp } from '../lib/docs-generator.js'
-import { generateDocs } from '../lib/docs-sync.js'
+import { documentedRegistry, generateDocs } from '../lib/docs-sync.js'
 import {
   type DocIssue,
   fixLanguageCount,
@@ -226,7 +226,10 @@ export default class SyncDocs extends Command {
     const spinner = p.spinner()
     spinner.start(flags.check ? 'Checking README.md files...' : 'Generating README.md files...')
 
-    if (flags.package && !registry.packages[flags.package]) {
+    // A package awaiting its first release (`pendingPackages`) is documented like any other
+    // (documentedRegistry), so -p must find it too: it was refused as unregistered, which left the
+    // one-package regeneration a release gate asks for impossible for exactly those packages.
+    if (flags.package && !documentedRegistry(registry).packages[flags.package]) {
       // A typo'd or unregistered -p previously matched nothing and reported
       // success — a false green that let unregistered packages drift
       // unmaintained. Fail loudly instead.
