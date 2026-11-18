@@ -47,6 +47,7 @@ const destination = '`/people/${encodeURIComponent(person.handle)}`'
 const image = `<a href={${destination}}><img src={person.image} alt={person.name} /></a>`
 const name = `<a href={${destination}}>{person.name}</a>`
 const row = `<div>${image}<div>${name}<small>{person.role}</small></div></div>`
+const describedImageRow = row.replace('alt={person.name}', 'alt={`${person.name} portrait`}')
 const source = (markup: string): string => `export function Identity({ person }: {
   person: { name: string; handle: string; image: string; role: string }
 }) { return ${markup} }`
@@ -71,6 +72,16 @@ describe('adjacent image/name links', () => {
     expect(
       findings(`import { Link as ProfileLink } from 'react-router';\n${source(markup)}`),
     ).toHaveLength(1)
+  })
+
+  it('reports the image link when its alt text decorates the same displayed name', () => {
+    const markup = describedImageRow
+      .replaceAll('<a href=', '<ProfileLink to=')
+      .replaceAll('</a>', '</ProfileLink>')
+      .replace('<div><ProfileLink', '<div>\n<ProfileLink')
+    expect(
+      findings(`import { Link as ProfileLink } from 'react-router';\n${source(markup)}`),
+    ).toMatchObject([{ line: 5, column: 1, messageId: 'redundant' }])
   })
 
   it('supports NavLink, comments and whitespace separating the two links', () => {
@@ -107,6 +118,14 @@ describe('adjacent image/name links', () => {
       row.replace('href={' + destination + '}><img', 'href="/portrait"><img'),
     ],
     ['different purposes', row.replace('alt={person.name}', 'alt="View full portrait"')],
+    [
+      'an image description using a different value',
+      row.replace('alt={person.name}', 'alt={`Portrait by ${person.role}`}'),
+    ],
+    [
+      'an image description identifying two different values',
+      row.replace('alt={person.name}', 'alt={`${person.name} and ${person.role}`}'),
+    ],
     ['a link with its own action', row.replace('<a href=', '<a onClick={openMenu} href=')],
     ['a distinct target', row.replace('<a href=', '<a target="_blank" href=')],
     ['an explicitly named link', row.replace('<a href=', '<a aria-label="View portrait" href=')],
@@ -155,7 +174,7 @@ describe('generated native first-build lifecycle', () => {
     manifest.scripts.lint = 'eslint src/Identity.tsx --max-warnings 0'
     manifest.scripts.build = 'node -e "console.log(\'IDENTITY_BUILD_REACHED\')"'
     await writeFile(manifestPath, JSON.stringify(manifest))
-    await writeFile(file, source(row))
+    await writeFile(file, source(describedImageRow))
     const build = async (): Promise<{ code: number; output: string }> => {
       try {
         const result = await execFileAsync('npm', ['run', 'build'], { cwd: root, timeout: 120_000 })

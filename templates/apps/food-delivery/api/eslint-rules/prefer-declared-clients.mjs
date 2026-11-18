@@ -2061,12 +2061,12 @@ export function scaffoldRules(parser) {
         type: 'suggestion',
         docs: {
           description:
-            'Combine adjacent image and text links with the same name and destination, or keep the image decorative.',
+            'Combine adjacent image and text links for the same name and destination, or keep the image decorative.',
         },
         schema: [],
         messages: {
           redundant:
-            'These adjacent image and text links have the same name and destination. Use one link around both, or a decorative image with only the name linked. For a user identity, UserChip from @molecule/app-avatar-stack-react supplies one name link with href and nameLinkProps.',
+            'These adjacent image and text links use the same displayed name and destination. Use one link around both, or a decorative image with only the name linked. For a user identity, UserChip from @molecule/app-avatar-stack-react supplies one name link with href and nameLinkProps.',
         },
       },
       create(context) {
@@ -2078,13 +2078,9 @@ export function scaffoldRules(parser) {
         const value = (node) => {
           if (node?.type === 'Literal' && typeof node.value === 'string')
             return `text:${node.value}`
-          if (node?.type === 'JSXExpressionContainer') {
-            if (node.expression.type === 'Literal') return value(node.expression)
-            if (
-              ['Identifier', 'MemberExpression', 'TemplateLiteral'].includes(node.expression.type)
-            )
-              return `expression:${source.getText(node.expression)}`
-          }
+          if (node?.type === 'JSXExpressionContainer') return value(node.expression)
+          if (['Identifier', 'MemberExpression', 'TemplateLiteral'].includes(node?.type))
+            return `expression:${source.getText(node)}`
           return null
         }
         const tag = (node) => node?.openingElement?.name
@@ -2134,13 +2130,18 @@ export function scaffoldRules(parser) {
           const part = parts[0]
           return part.type === 'JSXText' ? `text:${part.value.trim()}` : value(part)
         }
-        const imageName = (node) => {
-          const parts = children(node)
-          if (parts.length !== 1) return null
-          const image = parts[0]
-          if (tag(image)?.name !== 'img' || attr(image, 'aria-hidden')) return null
-          const name = value(attr(image, 'alt')?.value)
-          return name === 'text:' ? null : name
+        const imageNames = (node) => {
+          const [image, ...others] = children(node)
+          if (others.length || tag(image)?.name !== 'img' || attr(image, 'aria-hidden')) return []
+          const alt = attr(image, 'alt')?.value
+          const name = value(alt)
+          if (!name || name === 'text:') return []
+          const expression = alt.expression
+          // Descriptive words can surround a single name. Match the interpolation
+          // itself so the decision does not depend on the language of those words.
+          if (expression?.type === 'TemplateLiteral' && expression.expressions.length === 1)
+            return [name, value(expression.expressions[0])].filter(Boolean)
+          return [name]
         }
         const textLinks = (node) => {
           if (node.type !== 'JSXElement') return []
@@ -2161,11 +2162,12 @@ export function scaffoldRules(parser) {
               const image = parts[i]
               if (image.type !== 'JSXElement') continue
               const destination = link(image)
-              const name = destination && imageName(image)
-              if (!name) continue
+              if (!destination) continue
+              const names = imageNames(image)
+              if (!names.length) continue
               if (
                 textLinks(parts[i + 1]).some(
-                  (text) => text.destination === destination && text.name === name,
+                  (text) => text.destination === destination && names.includes(text.name),
                 )
               )
                 context.report({ node: image.openingElement, messageId: 'redundant' })

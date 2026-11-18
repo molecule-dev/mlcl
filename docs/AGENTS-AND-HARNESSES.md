@@ -60,15 +60,14 @@ it does not execute runtime branches, component lifecycles or font downloads. Dy
 templates still need their framework and browser checks.
 
 `molecule-local/single-image-name-link` rejects adjacent image and text links
-with the same accessible name and destination. Combine them into one link, or
-keep the image decorative and link the name; `UserChip` from
-`@molecule/app-avatar-stack-react` provides the latter with `href` and
-`nameLinkProps`. The check handles native anchors and imported React Router
-`Link`/`NavLink` aliases, including a name inside the next layout wrapper. Separate
-rows, different names or destinations, conditional layouts, custom components,
-spread attributes and links with distinct actions/targets are left alone.
-It reads JSX, never tests, selectors or route names. As with other lint policies,
-an intentional exception can use a narrow ESLint disable with its reason.
+that share a destination and the same displayed name. The check includes alt
+text that adds descriptive words around a single interpolation of that name.
+Combine the image and name in one link, or use `UserChip` from
+`@molecule/app-avatar-stack-react` with `href` and `nameLinkProps` to link the name
+and render the image decoratively. The rule reads native anchors and imported
+React Router `Link`/`NavLink` aliases, including a name inside the next layout
+wrapper. It uses only JSX names and link destinations. An intentional exception
+can use a narrow ESLint disable with its reason.
 
 `molecule-local/no-dropped-optimistic-intent` follows this rule: an enabled React
 control on screen must not have a handler whose first act is to return because a
