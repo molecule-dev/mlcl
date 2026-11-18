@@ -1,6 +1,6 @@
-import { mkdtemp, rm } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 
 import ts from 'typescript'
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
@@ -15,7 +15,7 @@ import {
 import * as ai from '../ai.js'
 import { buildCapabilityMap } from '../capability-map.js'
 import type { InjectionPlan } from '../injector.js'
-import { synthesizeProjectFiles } from '../injector.js'
+import { synthesizeProjectFiles, writeSynthesizedFiles } from '../injector.js'
 import { getRawRegistry, loadRegistry } from '../registry.js'
 import { MoleculeMetadata, RegistryEntry } from '../schema.js'
 
@@ -58,12 +58,19 @@ async function synthesize(resource: InjectionPlan): ReturnType<typeof synthesize
   return synthesizeProjectFiles([resource], [resource.molecule], directory, undefined, 'express')
 }
 
-function execute(source: string, exports: Record<string, unknown>): Record<string, unknown> {
+function execute(
+  source: string,
+  exports: Record<string, unknown>,
+  modules: Record<string, Record<string, unknown>> = {},
+): Record<string, unknown> {
   const result: Record<string, unknown> = {}
   const js = ts.transpileModule(source, {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
   }).outputText
-  new Function('require', 'exports', js)(() => exports, result)
+  new Function('require', 'exports', js)(
+    (specifier: string) => modules[specifier] ?? exports,
+    result,
+  )
   return result
 }
 
@@ -137,6 +144,98 @@ async function call(
 }
 
 describe('resource options factories in generated composition roots', () => {
+  it('applies the feature handler’s wire format on the mounted package operation', async () => {
+    const factory = 'createAnnouncementHandlers'
+    const resource = plan('@molecule/api-resource-announcement', factory)
+    resource.moleculePackage!.molecule!.category = 'announcements'
+    const files = await synthesize(resource)
+    const wrapper = join(directory, 'src/App/Resource/Announcement/index.ts')
+    const handler = join(directory, 'src/handlers/announcements.ts')
+    const written = await writeSynthesizedFiles(
+      files.filter((file) => file.targetPath === wrapper || file.targetPath === handler),
+    )
+    expect(written.error).toBeNull()
+
+    // An application author adds request and response shaping in the feature handler.
+    // The old wrapper still runs the same package operation, but with its flat wire format.
+    await mkdir(dirname(handler), { recursive: true })
+    const configuration = `export const wireFormat = {
+  mapRequest: (req) => ({ body: req.body.record }),
+  mapResponse: (result) => result.statusCode >= 400
+    ? result
+    : { ...result, body: { record: result.body, public: true } },
+}`
+    await writeFile(handler, configuration)
+    const wrapperSource = await readFile(wrapper, 'utf8')
+    const configured = execute(
+      wrapperSource,
+      { [factory]: fixtureMap },
+      { '../../../handlers/announcements.js': execute(await readFile(handler, 'utf8'), {}) },
+    ).requestHandlerMap as ReturnType<typeof fixtureMap>
+    expect(await call(configured, { record: { title: 'Quarterly update' } })).toEqual({
+      status: 201,
+      body: { record: { title: 'Quarterly update' }, public: true },
+    })
+    expect(await call(configured, { record: {} })).toEqual({
+      status: 400,
+      body: { error: 'title is required' },
+    })
+    expect(written.written).toContain(handler)
+
+    const reinjected = await synthesizeProjectFiles(
+      [resource],
+      [resource.molecule],
+      directory,
+      undefined,
+      'express',
+    )
+    expect(reinjected.some((file) => [handler, wrapper].includes(file.targetPath))).toBe(false)
+    expect(await readFile(handler, 'utf8')).toBe(configuration)
+  })
+
+  it('keeps existing feature handlers and their legacy inline resource configuration', async () => {
+    const factory = 'createAnnouncementHandlers'
+    const resource = plan('@molecule/api-resource-announcement', factory)
+    directory = await mkdtemp(join(tmpdir(), 'mlcl-configurable-resource-'))
+    resource.moleculePackage!.molecule!.category = 'announcements'
+    const handler = join(directory, 'src/handlers/announcements.ts')
+    const wrapper = join(directory, 'src/App/Resource/Announcement/index.ts')
+    const localHandler = 'export const custom = true\n'
+    await mkdir(dirname(handler), { recursive: true })
+    await writeFile(handler, localHandler)
+
+    const generate = (): ReturnType<typeof synthesizeProjectFiles> =>
+      synthesizeProjectFiles([resource], [resource.molecule], directory, undefined, 'express')
+    const files = await generate()
+    expect(files.some((file) => file.targetPath === handler)).toBe(false)
+    const wrapperSource = files.find((file) => file.targetPath === wrapper)!.content!
+    const configured = configure(wrapperSource, factory)
+    await mkdir(dirname(wrapper), { recursive: true })
+    await writeFile(wrapper, configured)
+
+    expect((await generate()).some((file) => file.targetPath === wrapper)).toBe(false)
+    expect(await readFile(handler, 'utf8')).toBe(localHandler)
+    expect(await readFile(wrapper, 'utf8')).toBe(configured)
+  })
+
+  it('does not replace a custom handler created after the scaffold planned its files', async () => {
+    const resource = plan('@molecule/api-resource-announcement', 'createAnnouncementHandlers')
+    resource.moleculePackage!.molecule!.category = 'announcements'
+    const files = await synthesize(resource)
+    const handler = join(directory, 'src/handlers/announcements.ts')
+    const wrapper = join(directory, 'src/App/Resource/Announcement/index.ts')
+    const localHandler = 'export const custom = true\n'
+    await mkdir(dirname(handler), { recursive: true })
+    await writeFile(handler, localHandler)
+
+    const result = await writeSynthesizedFiles(
+      files.filter((file) => file.targetPath === wrapper || file.targetPath === handler),
+    )
+    expect(result).toMatchObject({ error: expect.stringContaining('EEXIST'), written: [] })
+    expect(await readFile(handler, 'utf8')).toBe(localHandler)
+    await expect(readFile(wrapper, 'utf8')).rejects.toMatchObject({ code: 'ENOENT' })
+  })
+
   it.each(['createAnnouncementHandlers', 'buildArchiveEndpoints'])(
     'configures %s without rewriting a handler or depending on an article name',
     async (factory) => {
@@ -174,8 +273,15 @@ describe('resource options factories in generated composition roots', () => {
     const wrapper = String(
       files.find((f) => f.targetPath.endsWith('/Resource/Article/index.ts'))!.content,
     )
+    const handler = files.find((file) =>
+      file.targetPath.endsWith('/handlers/articles.ts'),
+    )!.content!
     const createArticleHandlers = vi.fn(fixtureMap)
-    execute(wrapper, { createArticleHandlers, requestHandlerMap: fixtureMap() })
+    execute(
+      wrapper,
+      { createArticleHandlers, requestHandlerMap: fixtureMap() },
+      { '../../../handlers/articles.js': execute(handler, {}) },
+    )
     expect(createArticleHandlers).toHaveBeenCalledExactlyOnceWith({})
   })
 

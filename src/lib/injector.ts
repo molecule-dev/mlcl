@@ -12,18 +12,19 @@
  * @module
  */
 
-import { existsSync, readFileSync } from 'node:fs'
+import { existsSync, lstatSync, readFileSync } from 'node:fs'
 import {
   access,
   copyFile,
   mkdir,
+  open,
   readdir,
   readFile,
   realpath,
   rm,
   writeFile,
 } from 'node:fs/promises'
-import { dirname, isAbsolute, join, relative, sep } from 'node:path'
+import { basename, dirname, isAbsolute, join, relative, sep } from 'node:path'
 
 import { ts } from 'ts-morph'
 
@@ -280,6 +281,8 @@ export interface FileOperation {
   content?: string
   description: string
   transformations?: FileTransformation[]
+  /** An app-owned source must still be absent when a synthesized plan is written. */
+  createOnly?: boolean
 }
 
 export interface FileTransformation {
@@ -1370,8 +1373,18 @@ export async function writeSynthesizedFiles(
       const content = /\.(?:[cm]?[jt]s|[jt]sx)$/.test(file.targetPath)
         ? await formatGeneratedSource(file.content, file.targetPath)
         : file.content
-      await snapshotForRollback(file.targetPath, snapshots)
-      await writeFile(file.targetPath, content)
+      if (file.createOnly) {
+        const handle = await open(file.targetPath, 'wx')
+        snapshots.set(file.targetPath, null)
+        try {
+          await handle.writeFile(content)
+        } finally {
+          await handle.close()
+        }
+      } else {
+        await snapshotForRollback(file.targetPath, snapshots)
+        await writeFile(file.targetPath, content)
+      }
       written.push(file.targetPath)
     } catch (error) {
       for (const [path, priorContent] of snapshots) {
@@ -3210,7 +3223,8 @@ export async function synthesizeProjectFiles(
 
   // Generate resource wrappers with factory calls
   for (const plan of routablePlans) {
-    if (!plan.moleculePackage) continue
+    const pkg = plan.moleculePackage
+    if (!pkg) continue
     const resourceName = extractResourceName(plan.molecule)
     const wrapperPath = join(projectPath, 'src', 'App', 'Resource', resourceName, 'index.ts')
     // `resourceName` is derived from the molecule NAME, which is data:
@@ -3227,9 +3241,23 @@ export async function synthesizeProjectFiles(
       continue
     }
 
+    const factory = requestHandlerMapFactory(pkg, pkg.exports.length ? pkg.exports : undefined)
+    // A configurable wrapper is an existing project's composition root. In
+    // particular, older projects may still have their wire format inline here.
+    if (factory && lstatSync(wrapperPath, { throwIfNoEntry: false })) continue
+    const wireFormat = factory ? resourceWireFormatFile(projectPath, pkg, factory) : null
+    const localWireFormat =
+      wireFormat && !files.some((file) => file.targetPath === wireFormat.targetPath)
+        ? wireFormat
+        : null
+    if (localWireFormat) files.push(localWireFormat)
+
     const rawContent = await generateWrapperContent(
-      plan.moleculePackage,
+      pkg,
       authContract?.resourcePackage === plan.molecule ? authContract : undefined,
+      localWireFormat
+        ? `../../../handlers/${basename(localWireFormat.targetPath, '.ts')}.js`
+        : undefined,
     )
     // The module opens with the package's service declarations, so a handler the map does not
     // cover is written from the real signatures instead of a read of the package's .d.ts files.
@@ -4354,9 +4382,10 @@ self.addEventListener('message', (event) => {
 async function generateWrapperContent(
   pkg: InferredPackage,
   authContract?: AuthContract,
+  wireFormatModule?: string,
 ): Promise<string> {
   if (authContract || pkg.molecule?.requestHandlerMapFactory)
-    return generateWrapperContentHeuristic(pkg, authContract)
+    return generateWrapperContentHeuristic(pkg, authContract, wireFormatModule)
   if (isAIAvailable()) {
     try {
       return await generateWrapperContentAI(pkg)
@@ -4429,6 +4458,44 @@ function requestHandlerMapFactory(
 }
 
 /**
+ * Put the real options for a mounted resource alongside the app's handlers.
+ * An occupied path or a redirected handler directory keeps the inline wrapper.
+ */
+function resourceWireFormatFile(
+  projectPath: string,
+  pkg: InferredPackage,
+  factory: string,
+): FileOperation | null {
+  const category = pkg.molecule?.category
+  if (!category || !/^[a-z][a-z0-9-]*$/.test(category) || category === 'index') return null
+
+  const source = join(projectPath, 'src')
+  const handlers = join(source, 'handlers')
+  for (const dir of [source, handlers]) {
+    const entry = lstatSync(dir, { throwIfNoEntry: false })
+    if (entry && !entry.isDirectory()) return null
+  }
+  const targetPath = join(handlers, `${category}.ts`)
+  if (lstatSync(targetPath, { throwIfNoEntry: false })) return null
+
+  return {
+    action: 'create',
+    createOnly: true,
+    targetPath,
+    description: `Expose the mounted ${pkg.name} handlers' wire format`,
+    content: `import type { ${factory} } from '${pkg.name}'
+
+// The mounted package handlers use these options for request and response mapping.
+// Add HTTP shaping here. The package handles validation, authorization and storage.
+export const wireFormat: NonNullable<Parameters<typeof ${factory}>[0]> = {
+  // mapRequest: (req) => ({ body: req.body?.entry }),
+  // mapResponse: (response) => response,
+}
+`,
+  }
+}
+
+/**
  * Heuristic resource wrapper generation (fallback).
  *
  * Prefer a declared options factory, then the `createRequestHandlerMap`
@@ -4443,6 +4510,7 @@ function requestHandlerMapFactory(
 async function generateWrapperContentHeuristic(
   pkg: InferredPackage,
   authContract?: AuthContract,
+  wireFormatModule?: string,
 ): Promise<string> {
   const exports = pkg.exports.length > 0 ? pkg.exports : await scanExportsFromPath(pkg.path)
   const accessors = routerAccessorExports(exports)
@@ -4454,6 +4522,14 @@ async function generateWrapperContentHeuristic(
       .filter((name) => reExports.has(name))
       .map((name) => `export { ${name} } from '${pkg.name}'`)
       .join('\n')
+    if (wireFormatModule) {
+      return `import { ${optionsFactory} } from '${pkg.name}'
+
+import { wireFormat } from '${wireFormatModule}'
+
+${extraReExports ? extraReExports + '\n\n' : ''}export const requestHandlerMap = ${optionsFactory}(wireFormat)
+`
+    }
     return `import { ${optionsFactory} } from '${pkg.name}'
 
 ${extraReExports ? extraReExports + '\n\n' : ''}// Configure this map's wire format here; the package keeps validation and authorization.
