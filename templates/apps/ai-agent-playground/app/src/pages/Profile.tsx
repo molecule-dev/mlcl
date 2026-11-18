@@ -8,6 +8,7 @@ import { useCallback, useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
 import type { UserProfile } from '@molecule/app-auth'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useAuth, useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
@@ -166,11 +167,11 @@ export function Profile() {
   }
 
   async function copyToken(): Promise<void> {
-    try {
-      await navigator.clipboard?.writeText?.(apiToken || '')
+    const copied = await copyTextWithFallback(apiToken || '')
+    if (copied) {
       setInfo(t('profile.tokenCopiedToast', {}, { defaultValue: 'Token copied.' }))
-    } catch (err) {
-      setError(err instanceof Error ? err.message : String(err))
+    } else {
+      setError(t('profile.tokenCopyFailed', {}, { defaultValue: 'Could not copy the token.' }))
     }
   }
 

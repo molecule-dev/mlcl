@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 interface EmbedWidgetSectionProps {
@@ -21,7 +22,7 @@ export default function EmbedWidgetSection({
   const [message, setMessage] = useState(initialMessage)
 
   const handleCopy = useCallback(() => {
-    navigator.clipboard.writeText(snippetCode)
+    void copyTextWithFallback(snippetCode)
   }, [snippetCode])
 
   return (

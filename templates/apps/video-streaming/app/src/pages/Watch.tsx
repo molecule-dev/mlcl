@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -384,14 +385,12 @@ export function Watch() {
     }
   }
 
-  const handleShare = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href)
+  const handleShare = () => {
+    void copyTextWithFallback(window.location.href).then((copied) => {
+      if (!copied) return
       setShareCopied(true)
       setTimeout(() => setShareCopied(false), 1800)
-    } catch (_error) {
-      /* Clipboard access is optional; browser may block it — ignore. */
-    }
+    })
   }
 
   const handlePostComment = async () => {

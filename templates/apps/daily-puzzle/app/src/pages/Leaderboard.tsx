@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -358,10 +359,10 @@ export function Leaderboard() {
                   (m) => `${m.rank}. ${m.name}${m.score ? ` — ${m.score}` : ' — solving…'}`,
                 ),
               ].join('\n')
-              void navigator.clipboard.writeText(text).then(
-                () => setCopied(true),
-                () => setCopied(true),
-              )
+              void copyTextWithFallback(text).then((copied) => {
+                if (!copied) return
+                setCopied(true)
+              })
             }}
             className={cm.button({ variant: 'ghost', color: 'secondary', size: 'sm' })}
             data-mol-id="mini-league-copy"

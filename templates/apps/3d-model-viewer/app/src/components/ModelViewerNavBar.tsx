@@ -1,6 +1,7 @@
 import { useState } from 'react'
 import { Link } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -68,9 +69,11 @@ function ModelViewerNavBar({ modelName }: { modelName?: string }) {
               'py-1.5 text-on-surface-variant hover:text-on-surface hover:bg-surface/5 transition-all duration-300',
             )}
             onClick={() => {
-              navigator.clipboard.writeText(window.location.href)
-              setCopied(true)
-              setTimeout(() => setCopied(false), 2000)
+              void copyTextWithFallback(window.location.href).then((copied) => {
+                if (!copied) return
+                setCopied(true)
+                setTimeout(() => setCopied(false), 2000)
+              })
             }}
           >
             {copied

@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 // ConfirmButton: shared two-step destructive-action button — first click arms
@@ -284,9 +285,11 @@ function Annotations() {
           <div className="hidden md:flex gap-1">
             <button
               onClick={() => {
-                navigator.clipboard.writeText(window.location.href)
-                setCopied(true)
-                setTimeout(() => setCopied(false), 2000)
+                void copyTextWithFallback(window.location.href).then((copied) => {
+                  if (!copied) return
+                  setCopied(true)
+                  setTimeout(() => setCopied(false), 2000)
+                })
               }}
               className={cm.cn(
                 cm.sp('px', 4),

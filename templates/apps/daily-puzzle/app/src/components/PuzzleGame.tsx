@@ -2,6 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 import { Link } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -255,11 +256,10 @@ export function PuzzleGame({ date }: PuzzleGameProps) {
       state.status === 'won',
       finalStats?.currentStreak,
     )
-    try {
-      await navigator.clipboard.writeText(text)
+    if (await copyTextWithFallback(text)) {
       setCopied(true)
       showToast(t('play.shareCopied', {}, { defaultValue: 'Copied to clipboard' }))
-    } catch (_error) {
+    } else {
       // Clipboard unavailable (permissions, non-secure context) — surface the
       // card in the toast so the user can still read/transcribe it.
       showToast(text)

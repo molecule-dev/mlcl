@@ -2,6 +2,7 @@ import { type FormEvent, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
@@ -95,14 +96,11 @@ export function SecretDetail() {
 
   const copy = async () => {
     if (!value) return
-    try {
-      await navigator.clipboard.writeText(value)
+    if (await copyTextWithFallback(value)) {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
       // Metadata only — never the secret value in telemetry.
       void track({ name: 'secret.copied', properties: { secret_id: id } })
-    } catch (_error) {
-      /* clipboard not available */
     }
   }
 

@@ -29,6 +29,8 @@
     "@molecule/app-billing-react": "4.0.1",
     "@molecule/app-bonds-default-react": "3.1.0",
     "@molecule/app-charts": "1.0.6",
+    "@molecule/app-clipboard": "1.0.5",
+    "@molecule/app-clipboard-web": "1.0.2",
     "@molecule/app-code-editor": "1.0.3",
     "@molecule/app-data-table": "1.0.4",
     "@molecule/app-device": "1.0.3",

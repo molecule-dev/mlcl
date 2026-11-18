@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react'
 import { useNavigate, useParams } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import type { RealtimeConnection } from '@molecule/app-realtime'
 import { getClassMap } from '@molecule/app-ui'
@@ -164,12 +165,9 @@ export function HostLobby() {
 
   async function handleCopy() {
     if (!session) return
-    try {
-      await navigator.clipboard.writeText(session.join_code)
+    if (await copyTextWithFallback(session.join_code)) {
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
-    } catch (_error) {
-      // Clipboard write may be denied by the browser; silently ignore
     }
   }
 

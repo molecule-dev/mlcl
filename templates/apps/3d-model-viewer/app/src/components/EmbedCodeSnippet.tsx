@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -24,7 +25,8 @@ function EmbedCodeSnippet({ modelId, embedId, width, height }: EmbedCodeSnippetP
   const tokenPath = embedId ? `embed/${embedId}` : `embed/preview/${modelId}`
   const embedCode = `<iframe src="${origin}/${tokenPath}" width="${width}" height="${height}" frameborder="0" allow="autoplay; fullscreen; xr-spatial-tracking" web-share></iframe>`
   const handleCopy = () => {
-    navigator.clipboard.writeText(embedCode).then(() => {
+    void copyTextWithFallback(embedCode).then((copied) => {
+      if (!copied) return
       setCopied(true)
       setTimeout(() => setCopied(false), 2000)
     })

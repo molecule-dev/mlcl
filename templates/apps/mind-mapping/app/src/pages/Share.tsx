@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -158,11 +159,9 @@ export function Share() {
 
   const handleCopy = async () => {
     if (!shareUrl) return
-    try {
-      await navigator.clipboard.writeText(shareUrl)
+    if (await copyTextWithFallback(shareUrl)) {
       setInfo(t('share.copySuccess', {}, { defaultValue: 'Link copied.' }))
-    } catch (error) {
-      logError('share.copy', error)
+    } else {
       setError(t('share.copyError', {}, { defaultValue: 'Could not copy link.' }))
     }
   }

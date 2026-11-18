@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { useNavigate } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -130,12 +131,12 @@ export function Profile() {
   const apiBase = `${window.location.origin}/api`
 
   const copyApiBase = async () => {
-    try {
-      await navigator.clipboard.writeText(`${window.location.origin}/api`)
+    const copied = await copyTextWithFallback(`${window.location.origin}/api`)
+    if (copied) {
       setApiCopied(true)
       window.setTimeout(() => setApiCopied(false), 2000)
-    } catch (err) {
-      console.error('[profile] clipboard copy failed', err)
+    } else {
+      console.error('[profile] clipboard copy failed')
     }
   }
 

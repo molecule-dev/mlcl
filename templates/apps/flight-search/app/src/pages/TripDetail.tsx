@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
@@ -234,8 +235,7 @@ export function TripDetail() {
       if (typeof nav.share === 'function') {
         await nav.share(shareData)
         setShareStatus('shared')
-      } else if (window.navigator.clipboard?.writeText) {
-        await window.navigator.clipboard.writeText(window.location.href)
+      } else if (await copyTextWithFallback(window.location.href)) {
         setShareStatus('copied')
       } else {
         setShareStatus('error')

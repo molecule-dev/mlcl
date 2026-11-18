@@ -2,6 +2,7 @@ import { useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -46,14 +47,11 @@ export function ItemDetail() {
   const { item, loading, error: fetchError } = useItemDetail(id, refreshKey)
 
   const copy = async (key: string, text: string) => {
-    try {
-      await navigator.clipboard.writeText(text)
+    if (await copyTextWithFallback(text)) {
       // Domain analytics — which field was copied, never its value.
       void track({ name: 'credential.copied', properties: { item_id: id, field: key } })
       setCopiedKey(key)
       setTimeout(() => setCopiedKey(null), 1500)
-    } catch (_error) {
-      // clipboard API unavailable in non-secure contexts; copy failure is non-fatal
     }
   }
 

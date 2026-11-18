@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -102,12 +103,9 @@ export function Profile() {
   const followedArtists = useMemo(() => artists.filter((a) => a.followed).slice(0, 6), [artists])
 
   const handleShare = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href)
+    if (await copyTextWithFallback(window.location.href)) {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 2000)
-    } catch (_error) {
-      // clipboard unavailable (permissions / insecure context) — nothing to surface
     }
   }
 

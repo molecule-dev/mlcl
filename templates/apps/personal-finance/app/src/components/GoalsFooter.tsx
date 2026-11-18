@@ -1,3 +1,4 @@
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -43,7 +44,7 @@ function GoalsFooter() {
                     { defaultValue: "You're currently saving {{percent}} more than last month." },
                   ),
                 })
-              : navigator.clipboard.writeText(window.location.href)
+              : void copyTextWithFallback(window.location.href)
           }
         >
           <span className={cm.cn('material-symbols-outlined')} data-icon="share">

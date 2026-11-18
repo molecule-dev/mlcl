@@ -17,6 +17,7 @@ import { useCallback, useEffect, useMemo, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { error as logError } from '@molecule/app-logger'
 import { useForm, useHttpClient, useOptimisticValue, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -328,17 +329,11 @@ function EventTypeEditorForm({ id }: { id: string | undefined }) {
 
   function handleCopyLink() {
     const url = `${window.location.origin}/book/${liveSlug}`
-    if (navigator.clipboard?.writeText) {
-      navigator.clipboard.writeText(url).then(
-        () => {
-          setCopyState('copied')
-          setTimeout(() => setCopyState('idle'), 1500)
-        },
-        () => {
-          /* swallow — not critical, button stays in idle state */
-        },
-      )
-    }
+    void copyTextWithFallback(url).then((copied) => {
+      if (!copied) return
+      setCopyState('copied')
+      setTimeout(() => setCopyState('idle'), 1500)
+    })
   }
 
   if (!loaded) {

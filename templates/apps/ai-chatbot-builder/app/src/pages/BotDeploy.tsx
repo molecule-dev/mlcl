@@ -3,6 +3,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { unwrapSingle } from '@molecule/app-http'
 import { useForm, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -73,14 +74,12 @@ function BotDeploy() {
     `        data-initial-message="${initialMessage.replace(/"/g, '&quot;')}"></script>`
 
   function handleCopyCode() {
-    navigator.clipboard
-      .writeText(widgetSnippet)
-      .then(() => {
+    void copyTextWithFallback(widgetSnippet).then((copied) => {
+      if (copied) {
         setCopyError(null)
         setCodeCopied(true)
         setTimeout(() => setCodeCopied(false), 2000)
-      })
-      .catch(() => {
+      } else {
         setCopyError(
           t(
             'botDeploy.copyFailed',
@@ -91,7 +90,8 @@ function BotDeploy() {
             },
           ),
         )
-      })
+      }
+    })
   }
 
   // The former BotDeployTopBar, folded into the shared shell's top bar:

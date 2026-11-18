@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { unwrapSingle } from '@molecule/app-http'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -96,14 +97,12 @@ export function ExportDetail() {
   async function handleCopy() {
     if (!exp?.output_url && !exp) return
     const url = exp.output_url || `${window.location.origin}/export/${exp.id}`
-    try {
-      await navigator.clipboard.writeText(url)
-      setCopied(true)
-      setTimeout(() => setCopied(false), 2_000)
-    } catch (_error) {
-      // clipboard API rejection is handled by surfacing a UI error message
+    if (!(await copyTextWithFallback(url))) {
       setError(t('exportDetail.copyFailed', {}, { defaultValue: 'Could not copy to clipboard.' }))
+      return
     }
+    setCopied(true)
+    setTimeout(() => setCopied(false), 2_000)
   }
 
   if (loading) {

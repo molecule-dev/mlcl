@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Alert, PromptDialog } from '@molecule/app-ui-react'
@@ -34,9 +35,8 @@ async function shareProfile(handle: string, openManualCopy: (url: string) => voi
   } catch (_error) {
     // user cancelled the native share — fall through to clipboard
   }
-  try {
-    await navigator.clipboard.writeText(url)
-  } catch (_error) {
+  const copied = await copyTextWithFallback(url)
+  if (!copied) {
     // clipboard blocked — open the shared prompt dialog so the URL stays
     // reachable (window.prompt hangs headless e2e and is awkward on touch)
     openManualCopy(url)
@@ -77,18 +77,17 @@ export function ProfileHeaderCard({
   }
 
   const submitShareCopy = async (value: string): Promise<void> => {
-    try {
-      await navigator.clipboard.writeText(value)
-      setShareError(null)
-    } catch (_error) {
+    const copied = await copyTextWithFallback(value)
+    if (!copied) {
       const message = t(
         'profileHeaderCard.copyFailed',
         {},
         { defaultValue: 'Automatic copy failed — select the link and copy it manually.' },
       )
       setShareError(message)
-      throw new Error(message, { cause: _error })
+      throw new Error(message)
     }
+    setShareError(null)
   }
 
   const closeShareDialog = (): void => {

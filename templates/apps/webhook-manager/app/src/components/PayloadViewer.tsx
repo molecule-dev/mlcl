@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -124,15 +125,13 @@ export function PayloadViewer({
   const truncated = lines.length > maxLines
   const visibleText = truncated ? lines.slice(0, maxLines).join('\n') : fullText
 
-  const handleCopy = async () => {
-    try {
-      const stringified = typeof value === 'string' ? value : JSON.stringify(value, null, 2)
-      await navigator.clipboard.writeText(stringified)
+  const handleCopy = () => {
+    const stringified = typeof value === 'string' ? value : JSON.stringify(value, null, 2)
+    void copyTextWithFallback(stringified).then((copied) => {
+      if (!copied) return
       setCopied(true)
       setTimeout(() => setCopied(false), 1600)
-    } catch (_error) {
-      /* clipboard not available — silent noop, no fallback needed */
-    }
+    })
   }
 
   return (

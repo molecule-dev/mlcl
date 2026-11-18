@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -185,14 +186,12 @@ export function PlaylistDetail() {
     if (pick) navigate(`/watch/${pick.id}`)
   }
 
-  const handleShare = async () => {
-    try {
-      await navigator.clipboard.writeText(window.location.href)
+  const handleShare = () => {
+    void copyTextWithFallback(window.location.href).then((copied) => {
+      if (!copied) return
       setShareCopied(true)
       setTimeout(() => setShareCopied(false), 1800)
-    } catch (_error) {
-      // Clipboard access is optional; browser may block it — leave UI as-is.
-    }
+    })
   }
 
   const openAddPicker = async () => {

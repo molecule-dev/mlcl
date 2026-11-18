@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Switch } from '@molecule/app-ui-react'
@@ -20,7 +21,8 @@ function BotDeployShareLinkCard({ shareUrl, botId }: BotDeployShareLinkCardProps
     (botId ? `${origin}/test-chat?bot=${encodeURIComponent(botId)}` : `${origin}/test-chat`)
 
   function handleCopyUrl() {
-    navigator.clipboard.writeText(url).then(() => {
+    void copyTextWithFallback(url).then((copied) => {
+      if (!copied) return
       setUrlCopied(true)
       setTimeout(() => setUrlCopied(false), 2000)
     })

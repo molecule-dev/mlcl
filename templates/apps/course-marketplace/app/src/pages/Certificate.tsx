@@ -10,6 +10,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { PromptDialog } from '@molecule/app-ui-react'
@@ -108,13 +109,12 @@ export function Certificate() {
 
   const copyShareLink = async () => {
     const link = window.location.href
-    try {
-      await navigator.clipboard.writeText(link)
+    const copied = await copyTextWithFallback(link)
+    if (copied) {
       setLinkCopied(true)
       setTimeout(() => setLinkCopied(false), 2000)
-      // intentional noop: clipboard rejection falls through to the PromptDialog fallback
-    } catch (_error) {
-      // Fallback if clipboard API rejects (insecure context etc.): surface the
+    } else {
+      // Clipboard unavailable (insecure context etc.): surface the
       // link in a real dialog so it can be copied manually.
       setShareLink(link)
       setShareFallbackOpen(true)
@@ -274,9 +274,12 @@ export function Certificate() {
         confirmMolId="cert-share-link-confirm"
         cancelMolId="cert-share-link-cancel"
         onSubmit={async (value) => {
-          // Resolve closes the dialog; a rejection (clipboard unavailable)
-          // keeps it open so the link can be selected and copied manually.
-          await navigator.clipboard.writeText(value)
+          // Resolving closes the dialog; a rejection keeps it open so the
+          // link can be selected and copied manually.
+          const copied = await copyTextWithFallback(value)
+          if (!copied) {
+            throw new Error('clipboard copy failed')
+          }
           setLinkCopied(true)
           setTimeout(() => setLinkCopied(false), 2000)
         }}

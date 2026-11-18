@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -328,9 +329,11 @@ export function SharePreview() {
                 <button
                   type="button"
                   onClick={() => {
-                    void navigator.clipboard?.writeText(embedSnippet).catch(() => {})
-                    setEmbedCopied(true)
-                    window.setTimeout(() => setEmbedCopied(false), 2000)
+                    void copyTextWithFallback(embedSnippet).then((copied) => {
+                      if (!copied) return
+                      setEmbedCopied(true)
+                      window.setTimeout(() => setEmbedCopied(false), 2000)
+                    })
                   }}
                   data-mol-id="share-embed-copy"
                   aria-label={t(

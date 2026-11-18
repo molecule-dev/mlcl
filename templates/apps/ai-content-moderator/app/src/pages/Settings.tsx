@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { Link, useSearchParams } from 'react-router'
 
 import type { UserProfile } from '@molecule/app-auth'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { error as logError } from '@molecule/app-logger'
 import { useAuth, useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
@@ -175,11 +176,10 @@ export function Settings() {
 
   async function copyToken() {
     if (!pendingToken) return
-    try {
-      await navigator.clipboard.writeText(pendingToken)
+    if (await copyTextWithFallback(pendingToken)) {
       setFeedback(t('settings.api.copied', {}, { defaultValue: 'Token copied to clipboard.' }))
-    } catch (_error) {
-      // Clipboard API unavailable — user is shown a fallback message to copy manually
+    } else {
+      // Clipboard unavailable — user is shown a fallback message to copy manually
       setFeedback(
         t(
           'settings.api.copyManually',

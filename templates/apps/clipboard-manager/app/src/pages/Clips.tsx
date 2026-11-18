@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { t } from '@molecule/app-i18n'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -194,7 +195,8 @@ export function Clips() {
         if (typeof res.data?.content !== 'string') return
         text = res.data.content
       }
-      await navigator.clipboard?.writeText(text)
+      const copied = await copyTextWithFallback(text)
+      if (!copied) return
       setCopied(true)
       void track({
         name: 'clip.copied',
@@ -203,7 +205,7 @@ export function Clips() {
       if (copyTimer.current) clearTimeout(copyTimer.current)
       copyTimer.current = setTimeout(() => setCopied(false), 2000)
     } catch (_error) {
-      /* clipboard may be blocked in test envs */
+      /* the on-demand fetch of decrypted content may fail */
     }
   }, [active, http])
 

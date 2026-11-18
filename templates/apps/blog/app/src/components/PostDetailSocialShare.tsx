@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { useNavigate } from 'react-router'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -84,11 +85,11 @@ function PostDetailSocialShare() {
 
   const copyLink = async () => {
     const href = typeof window !== 'undefined' ? window.location.href : ''
-    try {
-      await navigator.clipboard?.writeText(href)
+    const copied = await copyTextWithFallback(href)
+    if (copied) {
       setShareNote(t('common.copied', {}, { defaultValue: 'Link copied to clipboard.' }))
-    } catch (_error) {
-      // Clipboard API unavailable or denied — show the URL so the user can copy manually
+    } else {
+      // Clipboard unavailable or denied — show the URL so the user can copy manually
       setShareNote(
         t('postDetailSocialShare.copyFallback', { href }, { defaultValue: 'Copy: {{href}}' }),
       )

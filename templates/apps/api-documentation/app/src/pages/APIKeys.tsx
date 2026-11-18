@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -102,11 +103,10 @@ export function APIKeys() {
 
   function handleCopyRevealed() {
     if (!revealedKey) return
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      void navigator.clipboard.writeText(revealedKey.secret).then(() => {
-        setRevealCopied(true)
-      })
-    }
+    void copyTextWithFallback(revealedKey.secret).then((copied) => {
+      if (!copied) return
+      setRevealCopied(true)
+    })
   }
 
   function handleRevoke(id: string) {

@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -55,13 +56,9 @@ export default function LicenseKeyDisplay({
   const formatted = formatLicenseKey(licenseKey)
 
   const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(formatted)
+    if (await copyTextWithFallback(formatted)) {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 2000)
-    } catch (_error) {
-      // clipboard write failed (permissions denied or unsupported); reset copy state silently
-      setCopied(false)
     }
   }
 

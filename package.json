@@ -275,6 +275,8 @@
     "@molecule/app-chart-wrapper-react": "4.0.0",
     "@molecule/app-charts": "1.0.6",
     "@molecule/app-charts-chartjs": "1.0.3",
+    "@molecule/app-clipboard": "1.0.5",
+    "@molecule/app-clipboard-web": "1.0.2",
     "@molecule/app-code-editor": "1.0.3",
     "@molecule/app-color-picker-react": "4.0.1",
     "@molecule/app-data-table-ui-react": "4.0.2",

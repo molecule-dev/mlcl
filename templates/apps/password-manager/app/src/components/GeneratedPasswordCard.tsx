@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -39,12 +40,9 @@ export function GeneratedPasswordCard({
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
-    try {
-      await navigator.clipboard.writeText(password)
+    if (await copyTextWithFallback(password)) {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
-    } catch (_error) {
-      // clipboard API unavailable in non-secure contexts; copy failure is non-fatal
     }
   }
 

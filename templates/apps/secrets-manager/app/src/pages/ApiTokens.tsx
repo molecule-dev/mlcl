@@ -1,6 +1,7 @@
 import { type FormEvent, useEffect, useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
@@ -123,12 +124,9 @@ export function ApiTokens() {
 
   const copyPlaintext = async () => {
     if (!plaintext) return
-    try {
-      await navigator.clipboard.writeText(plaintext)
+    if (await copyTextWithFallback(plaintext)) {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
-    } catch (_error) {
-      /* clipboard unavailable */
     }
   }
 

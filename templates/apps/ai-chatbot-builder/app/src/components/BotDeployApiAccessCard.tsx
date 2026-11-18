@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -21,7 +22,8 @@ export default function BotDeployApiAccessCard({ botId }: BotDeployApiAccessCard
   const totalRequests = 1000
 
   function handleCopyKey() {
-    navigator.clipboard.writeText(apiKey).then(() => {
+    void copyTextWithFallback(apiKey).then((copied) => {
+      if (!copied) return
       setKeyCopied(true)
       setTimeout(() => setKeyCopied(false), 2000)
     })

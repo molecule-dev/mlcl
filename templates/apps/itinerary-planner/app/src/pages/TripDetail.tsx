@@ -9,6 +9,7 @@ import { type FormEvent, useCallback, useEffect, useMemo, useRef, useState } fro
 import { Link, useParams, useSearchParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -205,11 +206,8 @@ export function TripDetail() {
       const url = `${window.location.origin}/trips/${trip.id}?share=${updated.share_token}`
       setShareInfo({ url, copied: false })
       void track({ name: 'itinerary.shared', properties: { trip_id: trip.id } })
-      try {
-        await navigator.clipboard.writeText(url)
+      if (await copyTextWithFallback(url)) {
         setShareInfo({ url, copied: true })
-      } catch (_error) {
-        // clipboard may not be available — keep url visible
       }
     } catch (err) {
       setError(

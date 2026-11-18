@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -145,11 +146,7 @@ function CourseHeader({ course, modules, activeModuleIdx, onModuleChange }: Cour
           )}
           data-mol-id="btn-share"
           onClick={() => {
-            try {
-              navigator.clipboard?.writeText(window.location.href)
-            } catch (_error) {
-              // Clipboard API unavailable — share silently fails
-            }
+            void copyTextWithFallback(window.location.href)
           }}
         >
           {t('courseHeader.share', {}, { defaultValue: 'Share Course' })}

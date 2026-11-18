@@ -1,5 +1,6 @@
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -35,14 +36,9 @@ export function SDKKeyDisplay({ envName, envTone, sdkKey }: SDKKeyDisplayProps) 
   const [copied, setCopied] = useState(false)
 
   const handleCopy = async () => {
-    if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      try {
-        await navigator.clipboard.writeText(sdkKey)
-        setCopied(true)
-        window.setTimeout(() => setCopied(false), 1500)
-      } catch (_error) {
-        // Clipboard unavailable in this context — the copy button is best-effort.
-      }
+    if (await copyTextWithFallback(sdkKey)) {
+      setCopied(true)
+      window.setTimeout(() => setCopied(false), 1500)
     }
   }
 

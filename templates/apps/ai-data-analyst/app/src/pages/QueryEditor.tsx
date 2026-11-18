@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { error as logError } from '@molecule/app-logger'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { useListRoute } from '@molecule/app-routing-react-router'
@@ -176,12 +177,10 @@ export function QueryEditor() {
 
   async function copySql() {
     if (!result) return
-    try {
-      await navigator.clipboard.writeText(result.generated_sql)
+    if (await copyTextWithFallback(result.generated_sql)) {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 1500)
-    } catch (err) {
-      logError(err instanceof Error ? err : new Error(String(err)))
+    } else {
       setError(t('queryEditor.copyFailed', {}, { defaultValue: 'Could not copy to clipboard.' }))
     }
   }

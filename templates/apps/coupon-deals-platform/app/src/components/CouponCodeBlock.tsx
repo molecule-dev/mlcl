@@ -10,6 +10,7 @@
  */
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -31,34 +32,15 @@ export function CouponCodeBlock({ code, caption, showQr = false, onCopy }: Coupo
 
   async function copy() {
     setCopyFailed(false)
-    let ok = false
+    let ok: boolean
     if (onCopy) {
       await onCopy(code)
       ok = true
-    } else if (typeof navigator !== 'undefined' && navigator.clipboard) {
-      ok = await navigator.clipboard.writeText(code).then(
-        () => true,
-        () => false,
-      )
-    }
-    if (!ok) {
-      // Clipboard API can be unavailable (insecure context / permissions) —
-      // fall back to the legacy execCommand path before admitting failure,
-      // so "Copy" never silently lies about having copied.
-      try {
-        const scratch = document.createElement('textarea')
-        scratch.value = code
-        scratch.setAttribute('readonly', '')
-        scratch.style.position = 'fixed'
-        scratch.style.opacity = '0'
-        document.body.appendChild(scratch)
-        scratch.select()
-        ok = document.execCommand('copy')
-        document.body.removeChild(scratch)
-      } catch (_error) {
-        // Intentional noop — execCommand unavailability is handled by `ok`.
-        ok = false
-      }
+    } else {
+      // The bonded clipboard provider handles the Clipboard API and the
+      // legacy execCommand fallback itself, and resolves `false` instead of
+      // throwing when nothing copied.
+      ok = await copyTextWithFallback(code)
     }
     if (ok) {
       setCopied(true)

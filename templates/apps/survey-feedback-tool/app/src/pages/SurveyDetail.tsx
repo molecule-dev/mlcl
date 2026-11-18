@@ -2,6 +2,7 @@ import { useEffect, useMemo, useState } from 'react'
 import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -163,11 +164,10 @@ export function SurveyDetail() {
 
   async function handleCopyShareUrl() {
     if (!shareUrl) return
-    try {
-      await navigator.clipboard.writeText(shareUrl)
+    if (await copyTextWithFallback(shareUrl)) {
       setCopyState('copied')
       setTimeout(() => setCopyState('idle'), 1600)
-    } catch (_error) {
+    } else {
       // Clipboard write failed — error state is shown to the user via setCopyState
       setCopyState('error')
       setTimeout(() => setCopyState('idle'), 2400)

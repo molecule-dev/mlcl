@@ -1,5 +1,6 @@
 import { useCallback, useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 interface ApiAccessSectionProps {
@@ -24,7 +25,7 @@ export default function ApiAccessSection({
   const rateLimitPercent = Math.round((rateLimitUsed / rateLimitTotal) * 100)
 
   const handleCopyKey = useCallback(() => {
-    navigator.clipboard.writeText(apiKey)
+    void copyTextWithFallback(apiKey)
   }, [apiKey])
 
   return (

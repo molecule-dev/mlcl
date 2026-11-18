@@ -8,6 +8,7 @@
  */
 import { useState } from 'react'
 
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -42,13 +43,9 @@ export function ShareLinkCard({
   const meta = visibilityCopy[visibility] ?? visibilityCopy.private
 
   const handleCopy = async () => {
-    try {
-      await navigator.clipboard?.writeText(url)
+    if (await copyTextWithFallback(url)) {
       setCopied(true)
       window.setTimeout(() => setCopied(false), 2000)
-    } catch (_error) {
-      // clipboard write failure is recoverable — UI already shows unchecked state
-      setCopied(false)
     }
   }
 

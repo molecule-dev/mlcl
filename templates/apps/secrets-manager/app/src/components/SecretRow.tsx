@@ -1,6 +1,7 @@
 import { useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
@@ -74,14 +75,11 @@ export function SecretRow({ secret, statusLabel, onOpen }: SecretRowProps) {
   async function handleCopy(event: React.MouseEvent) {
     event.stopPropagation()
     if (!hasValue) return
-    try {
-      await navigator.clipboard.writeText(secret.value as string)
+    if (await copyTextWithFallback(secret.value as string)) {
       setCopied(true)
       setTimeout(() => setCopied(false), 1500)
       // Metadata only — never the secret value in telemetry.
       void track({ name: 'secret.copied', properties: { secret_id: secret.id } })
-    } catch (_error) {
-      /* clipboard not available — silently noop */
     }
   }
 

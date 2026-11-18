@@ -1,8 +1,8 @@
 import { useState } from 'react'
 
 import { track } from '@molecule/app-analytics'
+import { copyTextWithFallback } from '@molecule/app-clipboard'
 import { getClient as getHttpClient } from '@molecule/app-http'
-import { error as logError } from '@molecule/app-logger'
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 import { ConfirmButton } from '@molecule/app-ui-react'
@@ -180,27 +180,15 @@ export function APIKeys() {
     }
   }
 
-  const copyKey = async (key: string) => {
-    try {
-      await navigator.clipboard.writeText(key)
+  const copyKey = (key: string) => {
+    void copyTextWithFallback(key).then((copied) => {
+      if (!copied) {
+        setError('Failed to copy.')
+        return
+      }
       setCopied(key)
       setTimeout(() => setCopied(null), 2000)
-    } catch (_error) {
-      // Browser denied clipboard — fall back to a temporary textarea.
-      const ta = document.createElement('textarea')
-      ta.value = key
-      document.body.appendChild(ta)
-      ta.select()
-      try {
-        document.execCommand('copy')
-        setCopied(key)
-        setTimeout(() => setCopied(null), 2000)
-      } catch (execError) {
-        setError('Failed to copy.')
-        logError('copyKey.execCommand', execError)
-      }
-      document.body.removeChild(ta)
-    }
+    })
   }
 
   return (
