@@ -46,6 +46,24 @@ export interface GeneratedDoc {
 }
 
 /**
+ * The registry the docs are generated from: the installable catalog plus the
+ * declarations awaiting their first release (`pendingPackages`). A pending
+ * package is source in this tree like any other: its README ships with its
+ * first publish, and the packages it translates or re-exports name it. The
+ * release moves entries between the two maps, so docs that read only
+ * `packages` changed with each move and never checked a first publish.
+ * An entry in both maps keeps its installable declaration.
+ *
+ * @param registry - The registry as read.
+ * @returns The same registry with every pending package in `packages`.
+ */
+export function documentedRegistry(registry: Registry): Registry {
+  const pending = registry.pendingPackages ?? {}
+  if (Object.keys(pending).length === 0) return registry
+  return { ...registry, packages: { ...pending, ...registry.packages } }
+}
+
+/**
  * Resolve a feature package's companion locale bond, if one exists. Tries the
  * exact suffix first, then with a trailing framework suffix stripped — locale
  * bonds are framework-agnostic, so a feature like
@@ -219,6 +237,7 @@ export async function generateDocs(
   moleculeDir: string,
   packageNames?: Iterable<string>,
 ): Promise<GeneratedDoc[]> {
+  registry = documentedRegistry(registry)
   const scope = packageNames ? new Set(packageNames) : undefined
   const entries = Object.entries(registry.packages).filter(([name]) => !scope || scope.has(name))
   // Resolve every sibling against THIS tree, even during scoped generation.

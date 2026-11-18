@@ -52,7 +52,12 @@ import { fileURLToPath } from 'node:url'
 
 import { manifestChangeAffectsDocs } from '../src/lib/doc-inputs.js'
 import { stripGeneratedTimestamp } from '../src/lib/docs-generator.js'
-import { companionLocaleFor, discoverReexporters, generateDocs } from '../src/lib/docs-sync.js'
+import {
+  companionLocaleFor,
+  discoverReexporters,
+  documentedRegistry,
+  generateDocs,
+} from '../src/lib/docs-sync.js'
 import { getRawRegistry } from '../src/lib/registry.js'
 
 const __dir = dirname(fileURLToPath(import.meta.url))
@@ -74,7 +79,8 @@ if (!useChanged && pathArgs.length === 0) {
   process.exit(2)
 }
 
-const registry = getRawRegistry()
+// Pending packages are documented like installable ones (docs-sync documentedRegistry).
+const registry = documentedRegistry(getRawRegistry())
 
 // entry.path -> package name
 const nameByPath = new Map()
