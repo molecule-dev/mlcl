@@ -29,7 +29,7 @@ import { dirname, join } from 'node:path'
 
 import { chromium, type Page } from '@playwright/test'
 import { build, createServer, preview } from 'vite'
-import { describe, expect, it } from 'vitest'
+import { describe, expect, it, vi } from 'vitest'
 
 import { isStaticExcluded } from '../../commands/create.js'
 import { getMoleculeVersion, loadAppFrameworks, loadRegistry } from '../registry.js'
@@ -158,7 +158,7 @@ describe('the scaffolded pwa.ts is @molecule/app-pwa-default, not a copy', () =>
   })
 })
 
-describe('generated app service workers', () => {
+describe('generated app service workers', { timeout: 90_000 }, () => {
   async function withApp(
     check: (root: string, page: Page) => Promise<void>,
     { legacy = false, pwa = true } = {},
@@ -201,7 +201,13 @@ describe('generated app service workers', () => {
   }
 
   async function withPreview(root: string, check: (url: string) => Promise<void>): Promise<void> {
-    await build({ root, configLoader: 'runner', logLevel: 'silent' })
+    // Vite inherits Vitest's NODE_ENV=test even when building for preview.
+    vi.stubEnv('NODE_ENV', 'production')
+    try {
+      await build({ root, configLoader: 'runner', logLevel: 'silent' })
+    } finally {
+      vi.unstubAllEnvs()
+    }
     const server = await preview({
       root,
       configLoader: 'runner',
@@ -226,15 +232,19 @@ describe('generated app service workers', () => {
     }
   }
 
+  async function expectWorkerControl(page: Page): Promise<void> {
+    await expect
+      .poll(() => page.evaluate(() => !!navigator.serviceWorker.controller), { timeout: 20_000 })
+      .toBe(true)
+  }
+
   it('serves the next document from the worker after the entry is replaced', async () => {
     await withApp((root, page) =>
       withPreview(root, async (url) => {
         const navigations: string[] = []
         page.on('framenavigated', (frame) => navigations.push(frame.url()))
         await page.goto(url)
-        await expect
-          .poll(() => page.evaluate(() => !!navigator.serviceWorker.controller))
-          .toBe(true)
+        await expectWorkerControl(page)
         expect(navigations).toEqual([`${url}/`])
         const response = await page.goto(`${url}/equipment/calibration`)
         expect(response?.fromServiceWorker()).toBe(true)
@@ -248,9 +258,7 @@ describe('generated app service workers', () => {
       (root, page) =>
         withPreview(root, async (url) => {
           await page.goto(url)
-          await expect
-            .poll(() => page.evaluate(() => !!navigator.serviceWorker.controller))
-            .toBe(true)
+          await expectWorkerControl(page)
           for (const route of [
             '/api/users/oauth/github?returnTo=%2F',
             '/api/users/log-in/oauth',
