@@ -45983,6 +45983,7 @@
       "description": "Top app-shell header: branded logo + appName on the left, slotted actions (theme toggle, user menu, extras) on the right",
       "stack": "app",
       "exports": [
+        "AppHeaderNavigation",
         "AppHeaderProps",
         "AppHeader"
       ],
@@ -46004,7 +46005,9 @@
         "app header",
         "top header bar",
         "branded header",
-        "header with logo and user menu"
+        "header with logo and user menu",
+        "primary navigation with native links",
+        "brand and account links in top navigation"
       ]
     },
     "@molecule/app-header-solid": {
@@ -71476,7 +71479,8 @@
         "cached fetch",
         "follow unfollow api client",
         "favorite unfavorite api client",
-        "resource action toggle"
+        "resource action toggle",
+        "record action path with required id"
       ]
     },
     "@molecule/app-query-angular": {
@@ -71615,6 +71619,7 @@
         "QueryContentProps",
         "QueryContentSlots",
         "QueryOptionsInput",
+        "QueryRecordContentProps",
         "QueryResource",
         "QueryResourceConfig",
         "ResourceHttp",
@@ -71676,7 +71681,8 @@
         "empty collection branch",
         "view-specific empty state",
         "edit form initial values",
-        "query record form"
+        "query record form",
+        "record action waits for a loaded id"
       ]
     },
     "@molecule/app-query-solid": {
