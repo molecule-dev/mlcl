@@ -71467,8 +71467,8 @@
         "prefetch on hover",
         "instant page navigation",
         "cached fetch",
-        "follow unfollow API client",
-        "favorite unfavorite API client",
+        "follow unfollow api client",
+        "favorite unfavorite api client",
         "resource action toggle"
       ]
     },
@@ -79285,12 +79285,9 @@
       "intentHints": [
         "tags input",
         "tag input",
-        "add tags",
-        "labels input",
-        "keywords input",
-        "chip input",
-        "token input",
-        "tag editor",
+        "labels and keywords input",
+        "chip input and token input",
+        "tag editor to add tags",
         "display tags",
         "saved tags",
         "read-only tags"
@@ -81342,13 +81339,10 @@
         "toast notification",
         "alert banner",
         "toggle switch",
-        "protected route",
-        "auth route guard",
-        "authenticated route",
-        "protect routes",
+        "protected route for an authenticated session",
+        "auth route guard to protect routes",
         "favorite unfavorite button",
-        "watch unwatch button",
-        "stateful action label"
+        "watch unwatch button with a stateful action label"
       ]
     },
     "@molecule/app-ui-react-native": {
