@@ -671,6 +671,13 @@ export default {
           ),
       )
     }
+    // SvelteKit puts scaffold config and bonds under src/lib. The other web
+    // scaffolds put them directly under src.
+    const appSources = packages.root
+      ? ['src', 'src/lib'].map((path) => join(packages.root, path))
+      : []
+    const isScaffoldModule = (target, module) =>
+      appSources.some((dir) => target === join(dir, module))
     const projectImport = (node, name) => {
       const definition = variable(clientValue(node))?.defs[0]
       if (
@@ -678,19 +685,24 @@ export default {
         definition.node.imported?.name !== name ||
         definition.parent.importKind === 'type' ||
         definition.node.importKind === 'type' ||
-        !definition.parent.source.value.startsWith('.') ||
         !packages.root
       )
         return null
-      return resolve(dirname(filename), definition.parent.source.value).replace(/\.[cm]?[jt]s$/, '')
+      const specifier = definition.parent.source.value
+      const target = specifier.startsWith('.')
+        ? resolve(dirname(filename), specifier)
+        : specifier.startsWith('$lib/')
+          ? resolve(packages.root, 'src/lib', specifier.slice('$lib/'.length))
+          : null
+      return target?.replace(/\.[cm]?[jt]s$/, '') ?? null
     }
     const authSource = (node) => {
       node = clientValue(node)
       const target = projectImport(node, 'authClient')
       if (
         target &&
-        (target === join(packages.root, 'src/bonds/auth-default') ||
-          (target === join(packages.root, 'src/bonds/index') && barrelExportsAuthClient(target)))
+        (isScaffoldModule(target, 'bonds/auth-default') ||
+          (isScaffoldModule(target, 'bonds/index') && barrelExportsAuthClient(target)))
       )
         return true
       return (
@@ -770,13 +782,12 @@ export default {
       const fn = localFunction(node)
       return Boolean(fn?.body && functionReturns(fn).every((result) => sessionCredential(result)))
     }
-    const configFile = packages.root && join(packages.root, 'src/config')
     const isApiBaseImport = (node) =>
-      configFile && projectImport(node, 'API_BASE_URL') === configFile
+      isScaffoldModule(projectImport(node, 'API_BASE_URL'), 'config')
     let cachedApiBase
     const appApiBase = () => {
       if (cachedApiBase !== undefined) return cachedApiBase
-      const config = configFile && projectModule(configFile)
+      const config = appSources.map((dir) => projectModule(join(dir, 'config'))).find(Boolean)
       const apiBase = config?.body
         .flatMap((statement) => statement.declaration?.declarations ?? statement.declarations ?? [])
         .find((part) => part.id.name === 'API_BASE_URL')?.init
@@ -798,7 +809,7 @@ export default {
         if (
           httpSource(node) ||
           bonded.has(node) ||
-          projectImport(node, 'httpClient') === join(packages.root, 'src/bonds/http-default') ||
+          isScaffoldModule(projectImport(node, 'httpClient'), 'bonds/http-default') ||
           isApiBaseImport(baseNode)
         )
           return true
