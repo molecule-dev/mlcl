@@ -35,6 +35,8 @@
  * The global setAuthTokenSource callback is also a credential owner when its returned
  * value comes from browser storage. Local immutable aliases and helper returns are
  * followed; unrelated storage reads and imported/dynamic helpers are not inferred.
+ * The same data flow applies to Authorization overrides on requests made by the
+ * bonded HTTP client. Separate client instances keep their own credentials.
  * Article checks cover awaited updates followed by a lookup using the same lexical
  * slug binding in that function. Cross-module control flow is not inferred.
  * Query checks compare a useQuery key with one extra array around that same binding in a
@@ -118,6 +120,8 @@ export default {
         '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
       storedCredentialSource:
         '@molecule/app-auth is declared, but this global HTTP token source reads browser storage instead of its session. Use setAuthTokenSource(() => authClient.getAccessToken()) with the existing auth bond; configure tokenKey and authScheme there. The shared client restores a cached token and user synchronously; a separate token store makes protected pages wait for another session lookup on every document load. A deliberately independent protocol can use a reasoned ESLint disable at this call.',
+      storedRequestCredential:
+        '@molecule/app-auth is declared, but this request replaces the bonded HTTP Authorization header with a browser-stored credential. Remove the Authorization override. Configure tokenKey and authScheme in the existing auth/HTTP bonds and use the framework auth binding for session state. A separate account can use its own explicitly configured client.',
       logout:
         'This sign-out handler only navigates and leaves the subscribed session signed in. Call useAuth().logout() or the bonded auth client logout() before navigation. If another route owns sign-out, delegate to that action or use a reasoned ESLint disable at this handler.',
       profile:
@@ -323,7 +327,7 @@ export default {
         return property(node.left, name, seen, exact) ?? property(node.right, name, seen, exact)
       for (const [prop, next] of mutations.get(identity(node)) ?? []) if (matches(prop)) return next
       if (node.type === 'ObjectExpression') {
-        for (const prop of node.properties) {
+        for (const prop of [...node.properties].reverse()) {
           if (prop.type === 'SpreadElement') {
             const found = property(prop.argument, name, seen, exact)
             if (found) return found
@@ -448,6 +452,10 @@ export default {
         return storedCredential(node.left, seen) || storedCredential(node.right, seen)
       if (node.type === 'ConditionalExpression')
         return storedCredential(node.consequent, seen) || storedCredential(node.alternate, seen)
+      if (node.type === 'TemplateLiteral')
+        return node.expressions.some((expression) => storedCredential(expression, seen))
+      if (node.type === 'BinaryExpression' && node.operator === '+')
+        return storedCredential(node.left, seen) || storedCredential(node.right, seen)
       return false
     }
     // Follow the binding that already has a package contract, without inferring
@@ -723,6 +731,14 @@ export default {
           imported(node.callee, FRAMEWORK_AUTH, ['useHttpClient']))
       )
     }
+    const httpRequestConfig = new Map([
+      ['request', 0],
+      ['get', 1],
+      ['delete', 1],
+      ['post', 2],
+      ['put', 2],
+      ['patch', 2],
+    ])
     const ownerFunction = (node) => {
       for (let parent = node.parent; parent; parent = parent.parent)
         if (FUNCTIONS.includes(parent.type)) return parent
@@ -1077,10 +1093,21 @@ export default {
       'Program:exit'() {
         if (packages.auth) {
           for (const call of calls) {
-            if (!imported(call.callee, [HTTP], ['setAuthTokenSource'])) continue
-            const fn = localFunction(call.arguments[0])
-            if (fn && functionReturns(fn).some((result) => storedCredential(result)))
-              context.report({ node: call, messageId: 'storedCredentialSource' })
+            const callee = unwrap(call.callee)
+            if (imported(callee, [HTTP], ['setAuthTokenSource'])) {
+              const fn = localFunction(call.arguments[0])
+              if (fn && functionReturns(fn).some((result) => storedCredential(result)))
+                context.report({ node: call, messageId: 'storedCredentialSource' })
+            } else if (callee?.type === 'MemberExpression' && httpSource(callee.object)) {
+              const index = httpRequestConfig.get(key(callee))
+              if (index === undefined) continue
+              const authorization = property(
+                property(call.arguments[index], 'headers'),
+                'authorization',
+              )
+              if (storedCredential(authorization))
+                context.report({ node: call, messageId: 'storedRequestCredential' })
+            }
           }
           // A key's spelling cannot identify a credential. Its flow to the visitor's
           // bonded transport can: only stable lexical values establish that fact.
