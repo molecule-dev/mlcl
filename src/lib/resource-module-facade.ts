@@ -109,8 +109,12 @@ export function resourceWrites(options: {
     values: string[],
     result: string,
   ): void => {
+    const usage =
+      method === 'toggle'
+        ? 'Await the saved record before showing a completed change or opening a page that reads it.\n * The detail query receives the saved record and tracked lists refresh.'
+        : `Call ${resource}.${method}; the request body is sent unchanged and tracked reads refresh.`
     functions.push(
-      `/** Call ${resource}.${method}; the request body is sent unchanged and tracked reads refresh. */\n` +
+      `/** ${usage} */\n` +
         `export function ${name}(${[...parents.map((key) => `${key}: string`), 'viewer: string', ...args].join(', ')}): Promise<${result}> {\n` +
         `  return ${call}.${method}(viewer${values.length ? `, ${values.join(', ')}` : ''})\n}`,
     )

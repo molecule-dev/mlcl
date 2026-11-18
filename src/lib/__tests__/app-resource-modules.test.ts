@@ -90,6 +90,7 @@ describe('app modules for declared API resources, written by the create step', (
     expect(articles).toContain("  id: 'slug',")
     expect(articles).toContain("path: '/articles',")
     expect(articles).toContain('`articles.toggle`')
+    expect(articles).toContain('Await the saved record before showing a completed change')
 
     // A non-benchmark resource: projects are addressed by id and updated with PATCH.
     const projects = await read('app/src/resources/projects.ts')
@@ -105,7 +106,7 @@ describe('app modules for declared API resources, written by the create step', (
       `//   ${ARTICLE} (article): GET /somewhere\n//     app module: app/src/resources/articles.ts (articles: list, detail, create, update, remove, toggle)`,
     )
     expect(router).toContain('//     app module: app/src/resources/projects.ts (projects: ')
-    expect(router.startsWith(GENERATED_ROUTER_MARKER)).toBe(true)
+    expect(router).toContain(`${GENERATED_ROUTER_MARKER}\n`)
 
     const app = await read('app/src/App.tsx')
     expect(app).toContain('Resource module, already written')
@@ -153,12 +154,13 @@ describe('app modules for declared API resources, written by the create step', (
     ['the app does not declare the factory package', [ARTICLE], [HTTP]],
     ['the project declares no resource', ['@molecule/api-logger'], [QUERY, HTTP]],
     ['every declared resource is nested under another record', [COMMENT], [QUERY, HTTP]],
-  ])('writes nothing when %s', async (_name, api, app) => {
+  ])('writes no resource module when %s', async (_name, api, app) => {
     await project(api, app)
     const router = await read('api/src/App/router.ts')
     await ensureAgentsMd(root)
     expect(existsSync(join(root, 'app/src/resources'))).toBe(false)
-    expect(await read('api/src/App/router.ts')).toBe(router)
+    // Package recipes may prepend a guide to an otherwise unchanged router.
+    expect((await read('api/src/App/router.ts')).endsWith(router)).toBe(true)
   })
 })
 

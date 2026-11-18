@@ -4658,7 +4658,7 @@ export function scaffoldRules(parser) {
         ],
         messages: {
           useOptimisticValue:
-            'This shows a toggled value at once and saves it with its own request, so a pending guard can drop the next click, or a slower response/refetch can replace it. Use `useOptimisticValue` from `@molecule/app-react`. {{rewrite}}',
+            'This shows a toggled value before the server saves it. A reload can read the old value before the save commits. If the new label signals completion, render the saved record and show pending separately. For deliberately immediate feedback, use `useOptimisticValue` from `@molecule/app-react` to order saves, and wait for pending to clear before reading the result from another page. {{rewrite}}',
           awaitRefetch:
             '{{location}}: This toggle waits for its save and a query refetch before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, move this save into commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads and keep it mounted during refetches. Preserve authentication checks; pending saves must not discard clicks.',
           awaitSave:
@@ -4671,6 +4671,8 @@ export function scaffoldRules(parser) {
         const candidates = []
         const submitHandlers = new Set()
         const helperCommits = new Set()
+        const siblingBindings = new WeakMap()
+        let resolver
         const isFunction = (node) =>
           node?.type === 'FunctionDeclaration' ||
           node?.type === 'FunctionExpression' ||
@@ -4703,16 +4705,16 @@ export function scaffoldRules(parser) {
           }
           return null
         }
-        const functionFor = (node) => {
+        const functionFor = (node, findBinding = variableFor) => {
           const expression = unwrap(node)
           if (isFunction(expression)) return expression
-          const definition = variableFor(expression)?.defs[0]
+          const definition = findBinding(expression)?.defs[0]
           const value =
             definition?.type === 'FunctionName' ? definition.node : definition?.node.init
           if (value?.type === 'CallExpression' && isFunction(value.arguments[0])) {
             const callee = unwrap(value.callee)
             const namespace = callee?.type === 'MemberExpression'
-            const binding = variableFor(namespace ? callee.object : callee)?.defs[0]
+            const binding = findBinding(namespace ? callee.object : callee)?.defs[0]
             const hook = namespace
               ? callee.computed
                 ? callee.property.value
@@ -4739,16 +4741,73 @@ export function scaffoldRules(parser) {
                 : callee.property.name
               : null
         }
-        // Promise use alone does not imply persistence (animations, dialogs and analytics
-        // also return promises). Recognize HTTP/mutation methods, application save actions,
-        // and imported API clients. This remains a structural warning, not a whole-program
-        // proof that an arbitrarily named custom function reaches a server.
-        const persistenceCall = (node, seen = new Set()) => {
+        // Look through a directly imported, named function. Reuse the scaffold's source
+        // resolver and that file's lexical bindings. One import hop is enough for the common
+        // component/transport split, and keeps unrelated imports and opaque adapters out.
+        const importedWriter = (call, callee) => {
+          const binding = variableFor(callee)?.defs[0]
+          if (
+            !parser ||
+            !isAbsolute(context.filename) ||
+            binding?.type !== 'ImportBinding' ||
+            binding.node.type !== 'ImportSpecifier' ||
+            !binding.parent.source.value.startsWith('.')
+          )
+            return null
+          const owner = enclosingFunction(call)
+          if (!owner) return null
+          const names = toggledNames(owner)
+          const desired = call.arguments.flatMap((argument, index) =>
+            toggled(argument, names) ? [index] : [],
+          )
+          if (!desired.length) return null
+          resolver ??= componentResolver(parser, context)
+          const target = resolver.imported(context.sourceCode.ast, callee.name, context.filename)
+          if (!isFunction(target?.node)) return null
+          const exported = target.tree.body.some(({ type, declaration }) =>
+            type === 'ExportNamedDeclaration' &&
+            declaration?.range[0] <= target.node.range[0] &&
+            target.node.range[1] <= declaration.range[1],
+          )
+          if (!exported) return null
+          let bindings = siblingBindings.get(target.tree)
+          if (!bindings) {
+            bindings = new WeakMap()
+            for (const scope of resolver.scopes.get(target.tree) ?? [])
+              for (const variable of scope.variables)
+                for (const reference of variable.references)
+                  bindings.set(reference.identifier, variable)
+            siblingBindings.set(target.tree, bindings)
+          }
+          const params = new Set(desired.map((index) => target.node.params[index]))
+          const readsDesired = (expression) => {
+            let reads = false
+            walk(expression, (node) => {
+              if (bindings.get(node)?.defs.some((def) => def.type === 'Parameter' && params.has(def.name)))
+                reads = true
+            })
+            return reads
+          }
+          const branches = []
+          walk(target.node.body, (node) => {
+            if (['IfStatement', 'ConditionalExpression'].includes(node.type) && readsDesired(node.test))
+              branches.push(node.consequent, node.alternate)
+          })
+          const writesDesired = (node) =>
+            node.arguments.some(readsDesired) || branches.some((branch) =>
+              branch && branch.range[0] <= node.range[0] && node.range[1] <= branch.range[1],
+            )
+          return { fn: target.node, findBinding: (node) => bindings.get(node), writesDesired }
+        }
+        // An async callback can update local state or read data. Prove a write from the
+        // actual HTTP binding before treating it as a server mutation.
+        const persistenceCall = (node, seen = new Set(), findBinding = variableFor) => {
           if (node?.type !== 'CallExpression' || seen.has(node)) return false
           seen.add(node)
           const callee = unwrap(node.callee)
-          if (setters.has(variableFor(callee))) return false
+          if (setters.has(findBinding(callee))) return false
           if (
+            findBinding === variableFor &&
             (context.options[0]?.persistenceFunctions ?? []).includes(
               context.sourceCode.getText(node.callee),
             )
@@ -4764,8 +4823,11 @@ export function scaffoldRules(parser) {
             'superagent',
           ])
           const origin = (id) => {
-            const def = variableFor(id)?.defs[0]
-            return def?.type === 'ImportBinding' ? def.parent.source.value : null
+            const def = findBinding(id)?.defs[0]
+            return def?.type === 'ImportBinding' &&
+              def.parent.importKind !== 'type' && def.node.importKind !== 'type'
+              ? def.parent.source.value
+              : null
           }
           const client = (expression, visited = new Set()) => {
             expression = unwrap(expression)
@@ -4773,15 +4835,15 @@ export function scaffoldRules(parser) {
             visited.add(expression)
             if (expression.type === 'Identifier') {
               if (modules.has(origin(expression))) return true
-              const def = variableFor(expression)?.defs[0]
+              const def = findBinding(expression)?.defs[0]
               return def?.type === 'Variable' && client(def.node.init, visited)
             }
             if (expression.type === 'CallExpression') {
               const factory = unwrap(expression.callee)
               if (factory.type === 'Identifier') {
-                const def = variableFor(factory)?.defs[0]
-                return (
-                  def?.type === 'ImportBinding' &&
+                const def = findBinding(factory)?.defs[0]
+                if (
+                  origin(factory) &&
                   ['getClient', 'useHttpClient'].includes(def.node.imported?.name) &&
                   (modules.has(def.parent.source.value) ||
                     [
@@ -4790,6 +4852,13 @@ export function scaffoldRules(parser) {
                       '@molecule/app-react-native',
                     ].includes(def.parent.source.value))
                 )
+                  return true
+                const wrapper = functionFor(factory, findBinding)
+                if (!wrapper || wrapper.params.length || expression.arguments.length) return false
+                const body = wrapper.body
+                const returned = body.type === 'BlockStatement' && body.body.length === 1 &&
+                  body.body[0].type === 'ReturnStatement' ? body.body[0].argument : body
+                return client(returned, visited)
               }
               return (
                 factory.type === 'MemberExpression' &&
@@ -4809,7 +4878,7 @@ export function scaffoldRules(parser) {
           if (
             callee.type === 'Identifier' &&
             callee.name === 'fetch' &&
-            !variableFor(callee)?.defs.length
+            !findBinding(callee)?.defs.length
           ) {
             const options = unwrap(node.arguments[1])
             return (
@@ -4834,11 +4903,20 @@ export function scaffoldRules(parser) {
             modules.has(origin(callee))
           )
             return true
-          const fn = functionFor(callee)
-          if (!fn) return false
+          const local = functionFor(callee, findBinding)
+          const writer = local
+            ? { fn: local, findBinding }
+            : findBinding === variableFor ? importedWriter(node, callee) : null
+          if (!writer) return false
           let persists = false
-          walk(fn.body, (child) => {
-            if (child.type === 'CallExpression' && persistenceCall(child, seen)) persists = true
+          walk(writer.fn.body, (child) => {
+            if (
+              !persists &&
+              child.type === 'CallExpression' &&
+              (!writer.writesDesired || writer.writesDesired(child)) &&
+              persistenceCall(child, seen, writer.findBinding)
+            )
+              persists = true
           })
           return persists
         }
@@ -5531,6 +5609,7 @@ export function scaffoldRules(parser) {
                 serialized(fn)
               )
                 continue
+              if (!shownBefore(fn, namesFor(fn), node)) continue
               let hit = false
               const refetch = kind === 'call' && refreshAfter(fn, node)
               if (kind === 'method') {
@@ -5603,21 +5682,12 @@ export function scaffoldRules(parser) {
                       (branch) => branch.type === 'AwaitExpression',
                     ))
               }
-              const optimistic = shownBefore(fn, namesFor(fn), node)
-              if (!hit || !optimistic) continue
+              if (!hit) continue
               reported.add(fn)
               context.report({
                 node,
-                messageId: optimistic
-                  ? 'useOptimisticValue'
-                  : refetch
-                    ? 'awaitRefetch'
-                    : 'awaitSave',
-                data: optimistic
-                  ? { rewrite: rewriteFor(fn, node) }
-                  : {
-                      location: `${context.filename}:${node.loc.start.line}:${node.loc.start.column + 1}`,
-                    },
+                messageId: 'useOptimisticValue',
+                data: { rewrite: rewriteFor(fn, node) },
               })
             }
           },

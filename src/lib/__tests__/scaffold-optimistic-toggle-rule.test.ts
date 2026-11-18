@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath, pathToFileURL } from 'node:url'
 
-import { ESLint, type Rule, RuleTester } from 'eslint'
+import { ESLint, type Linter, type Rule, RuleTester } from 'eslint'
 import ts from 'typescript'
 import tseslint from 'typescript-eslint'
 import { afterAll, describe, expect, it } from 'vitest'
@@ -19,8 +19,8 @@ import {
  * The scaffold rule that names `useOptimisticValue` for a hand-rolled server-backed toggle that
  * changes the button at once. The invalid cases include the shapes of X1 runs whose "should
  * unfavorite an article" test failed (l1285, l1296, l1297, 2026-11-04) and non-X1 toggles (a
- * grocery checkbox, a setting switch, a star button). A toggle that displays its saved response
- * also gets an advisory: it cannot change until that request answers.
+ * grocery checkbox, a setting switch, a star button). Controls that display the saved response
+ * are valid.
  */
 const require = createRequire(import.meta.url)
 const template = fileURLToPath(
@@ -161,7 +161,82 @@ export function FavoriteButton({ article }: { article: Article }) {
 }
 `
 
+const splitToggle = `import { useState } from 'react'
+import { savePreference as save } from './preferences.js'
+
+export function Alerts({ preference }) {
+  const [enabled, setEnabled] = useState(preference.enabled)
+  const toggle = async () => {
+    const next = !enabled
+    setEnabled(next)
+    const confirmed = await save(preference.id, next)
+    setEnabled(confirmed.enabled)
+  }
+  return <button onClick={toggle}>{enabled ? 'Turn off' : 'Turn on'}</button>
+}`
+
+const splitWriter = `import { getClient as getHttp } from '@molecule/app-http'
+const http = () => getHttp()
+
+export async function savePreference(id: string, enabled: boolean) {
+  const path = '/preferences/' + id
+  const response = enabled ? await http().post(path) : await http().delete(path)
+  return response.data
+}`
+
 describe('molecule-local/server-toggles-use-optimistic-value', () => {
+  describe('writes delegated to an imported function', () => {
+    async function lintToggle(
+      name: string,
+      component: string,
+      adapter: string,
+    ): Promise<Linter.LintMessage[]> {
+      const folder = join(dir, name)
+      await mkdir(folder)
+      await writeFile(join(folder, 'preferences.ts'), adapter)
+      const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
+      const [result] = await eslint.lintText(component, { filePath: join(folder, 'Alerts.tsx') })
+      expect(result.messages.filter((message) => message.fatal)).toEqual([])
+      return result.messages.filter((message) => message.ruleId === ruleId)
+    }
+
+    it('finds an early display update even when the mutation lives in a sibling module', async () => {
+      const messages = await lintToggle('split-write', splitToggle, splitWriter)
+      expect(messages).toHaveLength(1)
+      expect(messages[0]).toMatchObject({ line: 9, severity: 1 })
+      expect(messages[0]?.message).toContain('A reload can read the old value before the save commits')
+      expect(messages[0]?.message).toContain('render the saved record')
+    })
+
+    it('allows rendering the saved flag after acknowledgment', async () => {
+      const confirmed = splitToggle.replace('    setEnabled(next)\n', '')
+      expect(await lintToggle('confirmed-write', confirmed, splitWriter)).toEqual([])
+    })
+
+    it('keeps an imported read-only adapter quiet', async () => {
+      const read = splitWriter.replaceAll(/\.(post|delete)\(/g, '.get(')
+      expect(await lintToggle('split-read', splitToggle, read)).toEqual([])
+    })
+
+    it('keeps unrelated writes that ignore the changed flag quiet', async () => {
+      const telemetry = `import { getClient } from '@molecule/app-http'
+export async function savePreference(id: string, enabled: boolean) {
+  await getClient().post('/events', { id })
+  return { enabled }
+}`
+      expect(await lintToggle('unrelated-write', splitToggle, telemetry)).toEqual([])
+    })
+
+    it('keeps a local client shadowing the HTTP factory quiet', async () => {
+      const local = `import { getClient } from '@molecule/app-http'
+export async function savePreference(id: string, enabled: boolean) {
+  const getClient = () => ({ post: (id: string) => ({ data: { enabled, id } }) })
+  return getClient().post(id).data
+}`
+      expect(await lintToggle('local-shadow', splitToggle, local)).toEqual([])
+    })
+  })
+
   it('rejects the retained P358 enabled busy guard once, as a default native error', async () => {
     const eslint = new ESLint({ cwd: dir, overrideConfigFile: configPath })
     const source = await readFile(
