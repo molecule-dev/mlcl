@@ -232,8 +232,12 @@ describe('MCP scaffold_project inherits the delivery', () => {
     const result = JSON.parse(output) as {
       capabilityMap?: Array<{ name: string; configuration: string[]; guidance: string[] }>
     }
+    // Every declared package whose registry entry carries configuration guidance; api-slug is
+    // declared as the scaffolded peer of the blog's api-resource-tag.
     expect(result.capabilityMap?.map((entry) => entry.name)).toEqual([
+      '@molecule/api-resource-comment',
       '@molecule/api-resource-user',
+      '@molecule/api-slug',
       '@molecule/app-auth',
       '@molecule/app-http',
       '@molecule/app-routing',
