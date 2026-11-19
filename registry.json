@@ -1939,6 +1939,77 @@
         "image synthesis"
       ]
     },
+    "@molecule/api-ai-image-generation-minimax": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-image-generation",
+      "label": "MiniMax H3-Image (hosted)",
+      "description": "MiniMax H3-Image generation provider for molecule.dev — hosted text-to-image and multi-reference image editing (up to 16 references, ~16 MP) over api.minimax.io",
+      "stack": "api",
+      "implements": "@molecule/api-ai-image-generation",
+      "exports": [
+        "DEFAULT_BASE_URL",
+        "DEFAULT_MODEL",
+        "DEFAULT_TIMEOUT_MS",
+        "MINIMAX_IMAGE_MAX_REFERENCE_IMAGES",
+        "MINIMAX_IMAGE_MODELS",
+        "MinimaxImageError",
+        "MinimaxImageGenerationConfig",
+        "MinimaxImageProvider",
+        "aiImageGenerationMinimaxSecretDefinitions",
+        "createProvider",
+        "provider"
+      ],
+      "secrets": [
+        {
+          "name": "MINIMAX_API_KEY",
+          "required": true,
+          "label": "MiniMax API key",
+          "setupUrl": "https://platform.minimax.io/",
+          "instructions": "Create an interface key in the MiniMax platform user center."
+        },
+        {
+          "name": "MINIMAX_BASE_URL",
+          "required": false,
+          "label": "MiniMax API base URL",
+          "setupUrl": "https://platform.minimax.io/docs",
+          "instructions": "Override only for a broker or compatible endpoint. Defaults to https://api.minimax.io.",
+          "example": "https://api.minimax.io"
+        },
+        {
+          "name": "MINIMAX_IMAGE_MODEL",
+          "required": false,
+          "label": "MiniMax image model id",
+          "setupUrl": "https://platform.minimax.io/docs/guides/image-generation",
+          "instructions": "One of MiniMax-H3-Image, MiniMax-H3-Image-Highspeed. Defaults to MiniMax-H3-Image.",
+          "example": "MiniMax-H3-Image"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-image-generation",
+        "@molecule/api-bond",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-image-generation",
+        "@molecule/api-bond",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-image-generation/minimax",
+      "intentHints": [
+        "minimax image",
+        "minimax h3 image",
+        "hailuo image",
+        "minimax text to image",
+        "minimax image editing",
+        "16 megapixel image generation",
+        "edit images from reference photos"
+      ],
+      "egressHosts": [
+        "api.minimax.io"
+      ]
+    },
     "@molecule/api-ai-image-generation-molecule": {
       "language": "typescript",
       "runtime": "node",
@@ -4412,6 +4483,78 @@
       ],
       "egressHosts": [
         "api.ltx.io"
+      ]
+    },
+    "@molecule/api-ai-video-generation-minimax": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "ai-video-generation",
+      "label": "MiniMax H3 (hosted)",
+      "description": "MiniMax H3 video generation provider for molecule.dev — hosted text/image-to-video with native synchronized stereo audio (up to 2K, 15 s) over api.minimax.io's async task API",
+      "stack": "api",
+      "implements": "@molecule/api-ai-video-generation",
+      "exports": [
+        "DEFAULT_BASE_URL",
+        "DEFAULT_DURATION_SECONDS",
+        "DEFAULT_MODEL",
+        "DEFAULT_RATIO",
+        "DEFAULT_RESOLUTION",
+        "DEFAULT_TIMEOUT_MS",
+        "MINIMAX_VIDEO_MODELS",
+        "MINIMAX_VIDEO_RATIOS",
+        "MINIMAX_VIDEO_RESOLUTIONS",
+        "MinimaxVideoError",
+        "MinimaxVideoGenerationConfig",
+        "aiVideoGenerationMinimaxSecretDefinitions",
+        "createProvider",
+        "provider"
+      ],
+      "secrets": [
+        {
+          "name": "MINIMAX_API_KEY",
+          "required": true,
+          "label": "MiniMax API key",
+          "setupUrl": "https://platform.minimax.io/",
+          "instructions": "Create an interface key in the MiniMax platform user center."
+        },
+        {
+          "name": "MINIMAX_BASE_URL",
+          "required": false,
+          "label": "MiniMax API base URL",
+          "setupUrl": "https://platform.minimax.io/docs",
+          "instructions": "Override only for a broker or compatible endpoint. Defaults to https://api.minimax.io.",
+          "example": "https://api.minimax.io"
+        },
+        {
+          "name": "MINIMAX_VIDEO_MODEL",
+          "required": false,
+          "label": "MiniMax video model id",
+          "setupUrl": "https://platform.minimax.io/docs/guides/video-generation",
+          "instructions": "One of MiniMax-H3, MiniMax-H3-Highspeed, MiniMax-H3-Lite, MiniMax-H3-Max. Defaults to MiniMax-H3.",
+          "example": "MiniMax-H3"
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-ai-video-generation",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-ai-video-generation",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/ai-video-generation/minimax",
+      "intentHints": [
+        "minimax video",
+        "minimax h3",
+        "hailuo video",
+        "minimax text to video",
+        "minimax image to video",
+        "video with native audio",
+        "synchronized audio video generation"
+      ],
+      "egressHosts": [
+        "api.minimax.io"
       ]
     },
     "@molecule/api-ai-workflow-engine": {
@@ -93472,152 +93615,9 @@
       "@molecule/app-tag-input-angular": "1.1.0",
       "@molecule/app-tag-input-solid": "1.1.0",
       "@molecule/app-tag-input-svelte": "1.1.0",
-      "@molecule/app-tag-input-vue": "1.1.0"
-    }
-  },
-  "pendingPackages": {
-    "@molecule/api-ai-image-generation-minimax": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "ai-image-generation",
-      "label": "MiniMax H3-Image (hosted)",
-      "description": "MiniMax H3-Image generation provider for molecule.dev — hosted text-to-image and multi-reference image editing (up to 16 references, ~16 MP) over api.minimax.io",
-      "stack": "api",
-      "implements": "@molecule/api-ai-image-generation",
-      "exports": [
-        "DEFAULT_BASE_URL",
-        "DEFAULT_MODEL",
-        "DEFAULT_TIMEOUT_MS",
-        "MINIMAX_IMAGE_MAX_REFERENCE_IMAGES",
-        "MINIMAX_IMAGE_MODELS",
-        "MinimaxImageError",
-        "MinimaxImageGenerationConfig",
-        "MinimaxImageProvider",
-        "aiImageGenerationMinimaxSecretDefinitions",
-        "createProvider",
-        "provider"
-      ],
-      "secrets": [
-        {
-          "name": "MINIMAX_API_KEY",
-          "required": true,
-          "label": "MiniMax API key",
-          "setupUrl": "https://platform.minimax.io/",
-          "instructions": "Create an interface key in the MiniMax platform user center."
-        },
-        {
-          "name": "MINIMAX_BASE_URL",
-          "required": false,
-          "label": "MiniMax API base URL",
-          "setupUrl": "https://platform.minimax.io/docs",
-          "instructions": "Override only for a broker or compatible endpoint. Defaults to https://api.minimax.io.",
-          "example": "https://api.minimax.io"
-        },
-        {
-          "name": "MINIMAX_IMAGE_MODEL",
-          "required": false,
-          "label": "MiniMax image model id",
-          "setupUrl": "https://platform.minimax.io/docs/guides/image-generation",
-          "instructions": "One of MiniMax-H3-Image, MiniMax-H3-Image-Highspeed. Defaults to MiniMax-H3-Image.",
-          "example": "MiniMax-H3-Image"
-        }
-      ],
-      "runtimeDependencies": [
-        "@molecule/api-ai-image-generation",
-        "@molecule/api-bond",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-ai-image-generation",
-        "@molecule/api-bond",
-        "@molecule/api-secrets"
-      ],
-      "path": "packages/api/bonds/ai-image-generation/minimax",
-      "intentHints": [
-        "minimax image",
-        "minimax h3 image",
-        "hailuo image",
-        "minimax text to image",
-        "minimax image editing",
-        "16 megapixel image generation",
-        "edit images from reference photos"
-      ],
-      "egressHosts": [
-        "api.minimax.io"
-      ]
-    },
-    "@molecule/api-ai-video-generation-minimax": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "provider",
-      "category": "ai-video-generation",
-      "label": "MiniMax H3 (hosted)",
-      "description": "MiniMax H3 video generation provider for molecule.dev — hosted text/image-to-video with native synchronized stereo audio (up to 2K, 15 s) over api.minimax.io's async task API",
-      "stack": "api",
-      "implements": "@molecule/api-ai-video-generation",
-      "exports": [
-        "DEFAULT_BASE_URL",
-        "DEFAULT_DURATION_SECONDS",
-        "DEFAULT_MODEL",
-        "DEFAULT_RATIO",
-        "DEFAULT_RESOLUTION",
-        "DEFAULT_TIMEOUT_MS",
-        "MINIMAX_VIDEO_MODELS",
-        "MINIMAX_VIDEO_RATIOS",
-        "MINIMAX_VIDEO_RESOLUTIONS",
-        "MinimaxVideoError",
-        "MinimaxVideoGenerationConfig",
-        "aiVideoGenerationMinimaxSecretDefinitions",
-        "createProvider",
-        "provider"
-      ],
-      "secrets": [
-        {
-          "name": "MINIMAX_API_KEY",
-          "required": true,
-          "label": "MiniMax API key",
-          "setupUrl": "https://platform.minimax.io/",
-          "instructions": "Create an interface key in the MiniMax platform user center."
-        },
-        {
-          "name": "MINIMAX_BASE_URL",
-          "required": false,
-          "label": "MiniMax API base URL",
-          "setupUrl": "https://platform.minimax.io/docs",
-          "instructions": "Override only for a broker or compatible endpoint. Defaults to https://api.minimax.io.",
-          "example": "https://api.minimax.io"
-        },
-        {
-          "name": "MINIMAX_VIDEO_MODEL",
-          "required": false,
-          "label": "MiniMax video model id",
-          "setupUrl": "https://platform.minimax.io/docs/guides/video-generation",
-          "instructions": "One of MiniMax-H3, MiniMax-H3-Highspeed, MiniMax-H3-Lite, MiniMax-H3-Max. Defaults to MiniMax-H3.",
-          "example": "MiniMax-H3"
-        }
-      ],
-      "runtimeDependencies": [
-        "@molecule/api-ai-video-generation",
-        "@molecule/api-secrets"
-      ],
-      "moleculePeers": [
-        "@molecule/api-ai-video-generation",
-        "@molecule/api-secrets"
-      ],
-      "path": "packages/api/bonds/ai-video-generation/minimax",
-      "intentHints": [
-        "minimax video",
-        "minimax h3",
-        "hailuo video",
-        "minimax text to video",
-        "minimax image to video",
-        "video with native audio",
-        "synchronized audio video generation"
-      ],
-      "egressHosts": [
-        "api.minimax.io"
-      ]
+      "@molecule/app-tag-input-vue": "1.1.0",
+      "@molecule/api-ai-image-generation-minimax": "1.1.0",
+      "@molecule/api-ai-video-generation-minimax": "1.1.0"
     }
   }
 }
