@@ -43,9 +43,11 @@ import {
   type ResourceModuleFactory,
 } from './app-resource-modules.js'
 import type { DeclaredPackage } from './capability-map.js'
+import { resourceErrorMessage, resourceErrorPaths } from './contract-resource-errors.js'
 import { formatGeneratedSource, sortImportStatements } from './format.js'
 import { type ResourceHook, resourceHooks, resourceWrites } from './resource-module-facade.js'
 import { resourceRecordView } from './resource-record-view.js'
+import { RESOURCE_AUTH_PACKAGE, resourceViewer, scopedResources } from './resource-viewer.js'
 import type { Registry } from './schema.js'
 
 type Json = Record<string, unknown>
@@ -142,7 +144,7 @@ export function planContractResourceModules(
   workspace: string,
   label: string,
   listRoute?: ResourceModuleFactory['listRoute'],
-  pageSupport = { view: true, toggle: true },
+  pageSupport: { view: boolean; toggle: boolean; auth?: boolean } = { view: true, toggle: true },
 ): ContractResourcePlan {
   const plan: ContractResourcePlan = { modules: [], skipped: [] }
   if (!isObject(contract) || !isObject(contract.paths)) return plan
@@ -181,6 +183,16 @@ export function planContractResourceModules(
   const find = (method: string, path: string): Operation | undefined =>
     operations.find((operation) => operation.method === method && operation.path === path)
 
+  const responseSchema = (node: unknown): unknown => {
+    const response = resolve(node).value
+    const content = isObject(response) && isObject(response.content) ? response.content : null
+    const media = content
+      ? (content['application/json'] ??
+        Object.entries(content).find(([type]) => /json/.test(type))?.[1])
+      : null
+    return isObject(media) ? media.schema : undefined
+  }
+
   /** The JSON schema of an operation's success answer, with the name of a referenced schema. */
   const answer = (
     operation: Operation | undefined,
@@ -191,14 +203,9 @@ export function planContractResourceModules(
     if (!responses) return null
     const status = ['200', '201', '2XX', 'default'].find((code) => code in responses)
     if (!status) return null
-    const response = resolve(responses[status]).value
-    const content = isObject(response) && isObject(response.content) ? response.content : null
-    const media = content
-      ? (content['application/json'] ??
-        Object.entries(content).find(([type]) => /json/.test(type))?.[1])
-      : null
-    if (!isObject(media) || media.schema === undefined) return null
-    const resolved = resolve(media.schema)
+    const schema = responseSchema(responses[status])
+    if (schema === undefined) return null
+    const resolved = resolve(schema)
     return { schema: resolved.value, name: resolved.name }
   }
   /** The JSON schema of an operation's request body. */
@@ -523,12 +530,12 @@ export function planContractResourceModules(
 
     // ---- contract-typed list reads and URL controllers -----------------------------------
     const pageExports: string[] = []
-    const pageNames: string[] = []
     const listHooks: string[] = []
     const listHookNames: string[] = []
     const namedReads: ResourceHook[] = []
-    const listParamTypes = new Map<string, { name: string; required: boolean }>()
     const listPaths = [...(list && listAnswer ? [base] : []), ...(extraLists.get(base) ?? [])]
+    const published = (value: string): string =>
+      pageSupport.auth ? `inResourceSession(viewer, ${value})` : value
     const pathExpression = (path: string): string => {
       const text = toColon(path).replace(
         /:([A-Za-z_]\w*)/g,
@@ -547,10 +554,11 @@ export function planContractResourceModules(
       if (shape.extra)
         declarations.set(pageType, `export interface ${pageType} ${objectType(schema, 0)}`)
       const resultType = shape.extra ? pageType : `${typeName}[]`
-      const pageReader =
+      const pageValue =
         !shape.extra && shape.key
-          ? `(response) => (response.data as { ${propertyKey(shape.key)}: ${resultType} })${access(shape.key)}`
-          : `(response) => response.data as ${resultType}`
+          ? `(response.data as { ${propertyKey(shape.key)}: ${resultType} })${access(shape.key)}`
+          : `response.data as ${resultType}`
+      const pageReader = `(response) => ${published(pageValue)}`
       // Operation parameters override path-level parameters, including referenced declarations.
       const item = resolve((document.paths as Json)[path]).value
       const parameters = new Map<string, Json>()
@@ -577,25 +585,27 @@ export function planContractResourceModules(
               .join('; ')} }`,
       )
       drain()
-      pageNames.push(pageName)
-      const resourceCall = parentArgs.length ? `${exportName}(${parentArgs[0]})` : exportName
+      const pageWithViewer = `${pageName}ForViewer`
+      const resourceCall = `${exportName}(${['viewer', ...parentArgs].join(', ')})`
       const required = [...parameters.values()].some((parameter) => parameter.required === true)
-      listParamTypes.set(path, { name: paramsType, required })
       const hookName = `use${pascal(name)}${suffix}${pascal(name) === typeName && !suffix ? 'Collection' : ''}`
       namedReads.push({
         name: hookName,
         args: [
           ...parentArgs.map((name) => ({ name, type: 'string | null' })),
-          { name: 'viewer', type: 'string | null' },
           { name: 'params', type: `${paramsType} | null`, ...(required ? {} : { default: '{}' }) },
         ],
         result: resultType,
-        read: `${[...parentArgs.map((name) => `${name}Value === null`), 'viewerValue === null', 'paramsValue === null'].join(' || ')} ? null : ${pageName}(${[...parentArgs.map((name) => `${name}Value`), 'viewerValue', 'paramsValue'].join(', ')})`,
+        read: `${[...parentArgs.map((name) => `${name}Value === null`), 'viewerValue === null', 'paramsValue === null'].join(' || ')} ? null : ${pageWithViewer}(${['viewerValue', ...parentArgs.map((name) => `${name}Value`), 'paramsValue'].join(', ')})`,
       })
+      const pageArgs = [...parentArgs.map((name) => `${name}: string`), `params: ${paramsType}`]
       pageExports.push(
-        `/** \`GET ${path}\` whole, as the API answers it: the rows and what it sends beside them. */\n` +
-          `export const ${pageName} = (${[...parentArgs.map((name) => `${name}: string`), 'viewer: string', `params: ${paramsType}${required ? '' : ' = {}'}`].join(', ')}): QueryOptions<${resultType}> =>\n` +
-          `  ${resourceCall}.listPage(viewer, { ...params }, ${pageReader}, ${pathExpression(path)})`,
+        `function ${pageWithViewer}(${['viewer: string', ...pageArgs].join(', ')}): QueryOptions<${resultType}> {\n` +
+          `  return ${resourceCall}.listPage(viewer, { ...params }, ${pageReader}, ${pathExpression(path)})\n}\n\n` +
+          `/** Query options for warming \`GET ${path}\` for the active session. */\n` +
+          `export function ${pageName}(${pageArgs.join(', ')}${required ? '' : ' = {}'}): QueryOptions<${resultType}> | null {\n` +
+          `  const viewer = getResourceViewer()\n` +
+          `  return viewer === null ? null : ${pageWithViewer}(${['viewer', ...parentArgs, 'params'].join(', ')})\n}`,
       )
       // Only a declared limit/offset contract is paged this way. Cursor/page-number APIs and
       // non-list screens retain their own valid contract instead of receiving guessed params.
@@ -631,10 +641,10 @@ export function planContractResourceModules(
             : null
         const filterType = filters.map((key) => JSON.stringify(key)).join(' | ') || 'never'
         const routeCall = `${listRoute.hook}({ ...options,${limit ? ` pageSize: options.pageSize ?? ${limit},` : ''} filters: { ${filters.map((key) => `${propertyKey(key)}: {}`).join(', ')}${filters.length ? ', ' : ''}...options.filters } })`
-        const pageArgs = (list: string): string =>
+        const routeArgs = (list: string): string =>
           [
-            ...parentArgs,
             'viewer',
+            ...parentArgs,
             `{ ...params, ${filters.map((key) => `${propertyKey(key)}: ${list}.filters[${JSON.stringify(key)}], `).join('')}limit: ${list}.pageSize, offset: ${list}.offset }`,
           ].join(', ')
         const sourceType = listRoute.sourceType
@@ -649,17 +659,19 @@ export function planContractResourceModules(
           const inputs = [...parentArgs, 'viewer', 'params'].join(', ')
           listHooks.push(
             `/** URL paging and filters, one cached read, and refetch; writes use ${resourceCall}. */\n` +
-              `export function ${hookName}<Selection extends string = string>(${[...parentArgs.map((name) => `${name}: ${sourceType}<string>`), `viewer: ${sourceType}<string | null>`, `params: ${sourceType}<Omit<${paramsType}, ${omitted}>>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult}; query: ReturnType<typeof ${listRoute.queryHook}<${resultType}, { ${[...parentArgs.map((name) => `${name}: string; `), 'viewer: string | null; '].join('')}params: Omit<${paramsType}, ${omitted}> }, ${filterType}>> } {\n` +
+              `export function ${hookName}<Selection extends string = string>(${[...parentArgs.map((name) => `${name}: ${sourceType}<string>`), `params: ${sourceType}<Omit<${paramsType}, ${omitted}>>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult}; query: ReturnType<typeof ${listRoute.queryHook}<${resultType}, { ${[...parentArgs.map((name) => `${name}: string; `), 'viewer: string | null; '].join('')}params: Omit<${paramsType}, ${omitted}> }, ${filterType}>> } {\n` +
+              `  const viewer = useResourceViewer()\n` +
               `  const route = ${routeCall}\n` +
-              `  const query = ${listRoute.queryHook}(route, { ${inputs} }, ({ ${inputs} }, list) => ${pageName}(${pageArgs('list')}))\n` +
+              `  const query = ${listRoute.queryHook}(route, { ${inputs} }, ({ ${inputs} }, list) => ${pageWithViewer}(${routeArgs('list')}))\n` +
               `  return { route, query }\n}`,
           )
         } else
           listHooks.push(
             `/** URL paging and filters, one cached read, and refetch; writes use ${resourceCall}. */\n` +
-              `export function ${hookName}<Selection extends string = string>(${[...parentArgs.map((name) => `${name}: string`), 'viewer: string | null', `params: Omit<${paramsType}, ${omitted}>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult} } & ReturnType<typeof ${listRoute.queryHook}<${resultType}>> {\n` +
+              `export function ${hookName}<Selection extends string = string>(${[...parentArgs.map((name) => `${name}: string`), `params: Omit<${paramsType}, ${omitted}>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult} } & ReturnType<typeof ${listRoute.queryHook}<${resultType}>> {\n` +
+              `  const viewer = useResourceViewer()\n` +
               `  const route = ${routeCall}\n` +
-              `  const query = ${listRoute.queryHook}(viewer !== null && route.canLoad ? ${pageName}(${pageArgs('route')}) : null)\n` +
+              `  const query = ${listRoute.queryHook}(viewer !== null && route.canLoad ? ${pageWithViewer}(${routeArgs('route')}) : null)\n` +
               `  return { route, ...query }\n}`,
           )
       }
@@ -673,78 +685,32 @@ export function planContractResourceModules(
     ].join(', ')
     const readList = listAnswer
       ? listAnswer.key
-        ? `(response) => (response.data as { ${propertyKey(listAnswer.key)}: ${typeName}[] })${access(listAnswer.key)}`
-        : `(response) => response.data as ${typeName}[]`
+        ? `(response) => ${published(`(response.data as { ${propertyKey(listAnswer.key)}: ${typeName}[] })${access(listAnswer.key)}`)}`
+        : `(response) => ${published(`response.data as ${typeName}[]`)}`
       : null
-    const readOne = one
-      ? one.key
-        ? `(response) => (response.data as { ${propertyKey(one.key)}: ${typeName} | null })${access(one.key)}`
-        : `(response) => response.data as ${typeName} | null`
-      : null
+    const recordValue = one?.key
+      ? `(response.data as { ${propertyKey(one.key)}: ${typeName} | null })${access(one.key)}`
+      : `response.data as ${typeName} | null`
+    const readOne = one || pageSupport.auth ? `(response) => ${published(recordValue)}` : null
     const resourceFor = (path: string, resourceName: string): string => {
-      const ownList = listShape(answer(find('get', path))?.schema)
-      const ownReader = ownList
-        ? ownList.key
-          ? `(response) => (response.data as { ${propertyKey(ownList.key)}: ${typeName}[] })${access(ownList.key)}`
-          : `(response) => response.data as ${typeName}[]`
-        : readList
       return (
         `${factory.factory}<${generics}>({\n` +
         `  name: ${resourceName},\n  path: ${pathExpression(path)},` +
         (!idField || idField === 'id' ? '' : `\n  id: ${JSON.stringify(idField)},`) +
         (update?.method === 'patch' ? `\n  updateMethod: 'patch',` : '') +
-        `\n  http: ${factory.http.client},` +
-        (ownReader ? `\n  readList: ${ownReader},` : '') +
+        `\n  http: ${session.http},` +
+        (readList ? `\n  readList: ${readList},` : '') +
         (readOne ? `\n  readOne: ${readOne},` : '') +
         `\n})`
       )
     }
-    const exported: string[] = []
-    // A resource factory offers every operation; the contract may not. Keep unavailable
-    // methods out of the generated public type rather than teaching a page a nonexistent route.
-    const resourceType = (path: string): string => {
-      const methods =
-        path === base
-          ? [
-              ...(listPaths.length ? ['listPage'] : []),
-              ...(detail ? ['detail'] : []),
-              ...(create ? ['create'] : []),
-              ...(update ? ['update'] : []),
-              ...(remove ? ['remove'] : []),
-              ...(toggles.length ? ['toggle'] : []),
-              'refresh',
-            ]
-          : ['listPage', 'refresh']
-      const params = listParamTypes.get(path)
-      return (
-        `Pick<QueryResource<${generics}>, ${methods.map((method) => JSON.stringify(method)).join(' | ')}>` +
-        (params
-          ? ` & { list(viewer: string, params${params.required ? '' : '?'}: ${params.name}): QueryOptions<${typeName}[]> }`
-          : '')
-      )
-    }
+    const resources: string[] = []
     const describe = (path: string, exportedName: string, resourceName: string): void => {
-      if (parentArgs.length === 0) {
-        exported.push(
-          `export const ${exportedName}: ${resourceType(path)} = ${resourceFor(path, `'${resourceName}'`)}`,
-        )
-        return
-      }
-      const key = parentArgs[0]
-      exported.push(
-        `const ${exportedName}By = new Map<string, ${resourceType(path)}>()\n` +
-          `/** The ${resourceName} of one ${singular(segmentsOf(base).at(-3) ?? 'record')}: the same object for the same ${key}, so its lists stay tracked. */\n` +
-          `export const ${exportedName} = (${key}: string): ${resourceType(path)} => {\n` +
-          `  let resource = ${exportedName}By.get(${key})\n` +
-          `  if (!resource) {\n    resource = ${resourceFor(path, `\`${resourceName}:\${${key}}\``)}\n    ${exportedName}By.set(${key}, resource)\n  }\n  return resource\n}`,
+      const [parent] = parentArgs
+      resources.push(
+        `const ${exportedName} = scopeResource((${[pageSupport.auth ? 'viewer' : '_viewer', ...parentArgs.map((name) => `${name}: string`)].join(', ')}) =>\n` +
+          `  ${resourceFor(path, parent ? `\`${resourceName}:\${${parent}}\`` : JSON.stringify(resourceName))},\n)`,
       )
-    }
-    describe(base, exportName, name)
-    const extraNames: string[] = []
-    for (const path of extraLists.get(base) ?? []) {
-      const extraName = `${exportName}${pascal(path.slice(base.length + 1).replace(/\//g, '-'))}`
-      extraNames.push(extraName)
-      describe(path, extraName, `${name}-${path.slice(base.length + 1).replace(/\//g, '-')}`)
     }
 
     const detailRead: ResourceHook | undefined = detail
@@ -752,11 +718,10 @@ export function planContractResourceModules(
           name: `use${typeName}`,
           args: [
             ...parentArgs.map((name) => ({ name, type: 'string | null' })),
-            { name: 'viewer', type: 'string | null' },
             { name: 'id', type: 'string | number | null | undefined' },
           ],
           result: `${typeName} | null`,
-          read: `${[...parentArgs.map((name) => `${name}Value === null`), 'viewerValue === null'].join(' || ')} ? null : ${parentArgs.length ? `${exportName}(${parentArgs[0]}Value)` : exportName}.detail(viewerValue, idValue == null ? null : String(idValue))`,
+          read: `${[...parentArgs.map((name) => `${name}Value === null`), 'viewerValue === null'].join(' || ')} ? null : ${exportName}(${['viewerValue', ...parentArgs.map((name) => `${name}Value`)].join(', ')}).detail(viewerValue, idValue == null ? null : String(idValue))`,
         }
       : undefined
     if (detailRead) namedReads.push(detailRead)
@@ -801,6 +766,14 @@ export function planContractResourceModules(
           }
         : {}),
     })
+    const session = resourceViewer(
+      factory,
+      pageSupport.auth ?? false,
+      !!(hooks.source || listHooks.length || optimistic),
+      !!recordView?.file,
+      !!(create || update || remove || toggles.length),
+    )
+    describe(base, exportName, name)
 
     const covered = [
       ...(list && listAnswer ? [`list (GET ${base})`] : []),
@@ -811,11 +784,26 @@ export function planContractResourceModules(
       ...toggles.map((action) => `toggle ${action} (POST/DELETE ${item}/${action})`),
       ...(extraLists.get(base) ?? []).map((path) => `list (GET ${path})`),
     ]
-    const call = parentArgs.length ? `${exportName}(${parentArgs[0]})` : exportName
+    const errorName = `${typeName.charAt(0).toLowerCase()}${typeName.slice(1)}ErrorMessage`
+    const errorSchemas = operations
+      .filter(({ path }) =>
+        [base, item, ...listPaths, ...toggles.map((action) => `${item}/${action}`)].includes(path),
+      )
+      .flatMap(({ operation }) =>
+        isObject(operation.responses)
+          ? Object.entries(operation.responses)
+              .filter(([code]) => /^(?:[45][\dX]{2}|default)$/i.test(code))
+              .map(([, response]) => responseSchema(response))
+          : [],
+      )
+    const errors = resourceErrorMessage(
+      errorName,
+      resourceErrorPaths(errorSchemas, (node) => resolve(node).value),
+    )
     // One import per module, its names in the order the scaffold's `simple-import-sort` lint
     // keeps (by name, `type` ignored): a module of only types is an `import type`.
     const values = new Map<string, string[]>([
-      [factory.http.package, [factory.http.client]],
+      [factory.http.package, [factory.http.client, 'HttpError']],
       [
         factoryPackage,
         [
@@ -839,6 +827,10 @@ export function planContractResourceModules(
     const typeImport = (from: string, name: string): void => {
       types.set(from, [...(types.get(from) ?? []), name])
     }
+    for (const [from, names] of session.imports)
+      for (const name of names)
+        if (name.startsWith('type ')) typeImport(from, name.slice(5))
+        else valueImport(from, name)
     if (optimistic) valueImport(optimistic.package, 'useOptimisticValue')
     if (optimistic && page?.framework === 'vue' && toggleActions.some((action) => !action.field))
       valueImport('vue', 'computed')
@@ -854,7 +846,6 @@ export function planContractResourceModules(
       }
     }
     if (pageExports.length) typeImport('@molecule/app-query', 'QueryOptions')
-    typeImport(factoryPackage, 'QueryResource')
     if (hooks.storePackage) typeImport(hooks.storePackage, 'Readable')
     if (listHooks.length) {
       typeImport(listRoute!.optionsPackage ?? listRoute!.package, listRoute!.optionsType)
@@ -879,37 +870,19 @@ export function planContractResourceModules(
       ? ` * ${namedWrites.toggleDocs.join('\n * ')}\n * Keep each toggle control mounted and enabled while saving. Pending is for feedback, and clicks queue.\n`
       : ''
     const createDoc = createType
-      ? ` * Create with \`create${typeName}(${[...parentArgs, 'viewer', 'input'].join(', ')})\`. Pass the complete \`${createType}\` body declared below.\n`
+      ? ` * Create with \`create${typeName}(${[...parentArgs, 'input'].join(', ')})\`. Pass the complete \`${createType}\` body declared below.\n`
       : ''
     const source = `/**
  * ${pascal(name)} on the app's shared query cache, as ${label} declares them.
  *
- * Generated by mlcl from the API contract. It is this app's code: edit it freely. mlcl writes it
- * again only while it is unchanged (\`mlcl resources --contract ${label}\` after the contract changes).
+ * Generated by mlcl from the API contract. This module is the supported client for these routes.
+ * Regenerate with \`mlcl resources --contract ${label}\` after the contract changes.
  *
  * Covers: ${covered.join(', ')}.
-${viewDoc}${toggleDoc}${hooks.source ? ` * Page reads: ${namedReads.map((hook) => `\`${hook.name}(${hook.args.map((arg) => arg.name).join(', ')})\``).join(', ')}.\n * Import these hooks from this file; they return the framework's query result: data/status/error and refetch().\n * List hooks without the List suffix keep URL state local and return the whole response, including totals.\n * Pass null as viewer while restoring auth. The HTTP bond sends credentials.\n` : ''}${namedWrites.names.length ? ` * Named writes: ${namedWrites.names.map((name) => `\`${name}\``).join(', ')}.\n * Their typed input is the API's complete request body, including any envelope, sent unchanged.\n${createDoc}` : ''} *
- * Read with \`useQuery(${call}.${list && listAnswer ? 'list(viewer, params)' : `detail(viewer, ${camel(param)})`})\`${detail && list && listAnswer ? ` and \`useQuery(${call}.detail(viewer, ${camel(param)}))\`` : ''}.${
-   pageNames.length
-     ? `\n * \`${pageNames.join('`, `')}\` return${pageNames.length === 1 ? 's' : ''} the whole list answer (rows and totals) for a pager.`
-     : ''
- }${
-   create || update || remove || (toggles.length && !optimistic)
-     ? `\n * Write with ${[
-         create ? 'create' : '',
-         update ? 'update' : '',
-         remove ? 'remove' : '',
-         toggles.length && !optimistic ? 'toggle' : '',
-       ]
-         .filter(Boolean)
-         .map((operation) => `\`${call}.${operation}\``)
-         .join(
-           ', ',
-         )}: each write shows the server's record in the cache and fetches the lists on screen again.`
-     : ''
- }
- * \`viewer\` is the signed-in user's id, or 'anonymous'.
-${listHooks.length ? ` * List pages use \`${listHooks.map((source) => /export function (\w+)/.exec(source)![1]).join('`, `')}\`: URL state, limit/offset and query/refetch are already wired.\n * Pass null as viewer while restoring auth; route options configure paths, filters and protected selections.\n` : ''}
+${viewDoc}${toggleDoc}${hooks.source ? ` * Page reads: ${namedReads.map((hook) => `\`${hook.name}(${hook.args.map((arg) => arg.name).join(', ')})\``).join(', ')}.\n * The hooks expose data, status, error and refetch(). Lists return the whole response, including totals.\n` : ''}${namedWrites.names.length ? ` * Named writes: ${namedWrites.names.map((name) => `\`${name}\``).join(', ')}.\n * Their typed input is the API's complete request body, including any envelope, sent unchanged.\n${createDoc}` : ''}${listHooks.length ? ` * List pages use ${listHookNames.map((name) => `\`${name}\``).join(', ')} for URL paging and filters.\n` : ''} *
+ * ${pageSupport.auth ? 'Reads and writes use the current auth session automatically. Reads pause until auth settles.' : 'Reads and writes share the public cache.'}
+ * A successful write publishes the saved detail or deletion and refetches up to four recently read lists for this resource and session.
+ * Writes reject with the HTTP error, and query failures appear in error. Show \`${errorName}(error)\` for the contract's validation message or a generic fallback.
  */
 ${importLines.join('\n')}
 
@@ -918,13 +891,19 @@ ${[...declarations.entries()]
   .map(([, text]) => text)
   .join('\n\n')}
 
-${exported.join('\n\n')}
+${session.source}
+
+${scopedResources}
+
+${resources.join('\n\n')}
 ${pageExports.length ? `\n${pageExports.join('\n\n')}\n` : ''}
 ${hooks.source}
 
 ${recordView?.source ?? ''}
 
 ${namedWrites.source}
+
+${errors}
 
 ${listHooks.join('\n\n')}`
     plan.modules.push({
@@ -943,7 +922,6 @@ ${listHooks.join('\n\n')}`
           }
         : {}),
     })
-    void extraNames
   }
 
   // Everything the contract serves that no module covers, said once per path.
@@ -987,6 +965,7 @@ async function declaredPageApis(
   listRoute?: ResourceModuleFactory['listRoute']
   view: boolean
   toggle: boolean
+  auth: boolean
 }> {
   let manifest: Record<string, Record<string, string> | undefined> = {}
   try {
@@ -1009,6 +988,7 @@ async function declaredPageApis(
         ? listRoute
         : undefined,
     view: !!recordPage && declaresAtLeast(version(declaration.name), recordPage.viewSince),
+    auth: beside(RESOURCE_AUTH_PACKAGE),
     toggle:
       !!recordPage &&
       beside(recordPage.optimisticValue.package) &&

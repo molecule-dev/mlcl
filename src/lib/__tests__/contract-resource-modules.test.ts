@@ -125,16 +125,14 @@ describe('the contract a P317 project was handed', () => {
     expect(articles).toContain('export type ArticleCreate = { article: NewArticle }')
     expect(articles).toContain('createQueryResource<Article, ArticleCreate, ArticleUpdate>')
     // The list answer carries a count beside the rows: its own typed query, for a pager.
-    expect(articles).toContain('export const articlesPage = (')
+    expect(articles).toContain('export function articlesPage(')
     expect(articles).toMatch(/export interface ArticlesPage \{[^]*articlesCount: number/)
-    expect(articles).toContain("path: '/articles/feed'")
+    expect(articles).toContain("'/articles/feed'")
   })
 
   it('makes a nested collection a function of its parent, one resource per parent', async () => {
     const comments = (await plan('p317-supplied-openapi.yml.txt')).modules[1].source
-    expect(comments).toContain(
-      'export const comments = (slug: string): Pick<QueryResource<Comment, CommentCreate>',
-    )
+    expect(comments).toContain('const comments = scopeResource((_viewer, slug: string)')
     expect(comments).toContain('path: `/articles/${encodeURIComponent(slug)}/comments`')
     expect(comments).toContain('(response.data as { comments: Comment[] }).comments')
     expect(comments).toMatch(/export interface Comment \{[^}]*id: number/)
@@ -222,21 +220,21 @@ describe('an inventory API with its own contract', () => {
     )
     setProvider(createProvider())
     try {
-      const query = exports.useItems('warehouse-1') as QueryOptions<typeof rows>
+      const query = exports.useItems() as QueryOptions<typeof rows>
       expect(await getQueryClient().fetch(query)).toEqual(rows)
       const newItem = { sku: 'nut', name: 'Nut', quantity: 2, status: 'reserved' }
-      await exports.createItem('warehouse-1', newItem)
+      await exports.createItem(newItem)
       expect(getQueryClient().getState(query.key).data).toEqual(rows)
-      await exports.updateItem('warehouse-1', 'bolt/a', { name: 'Saved bolt' })
-      const detail = exports.useItem('warehouse-1', 'bolt/a') as QueryOptions<(typeof rows)[number]>
+      await exports.updateItem('bolt/a', { name: 'Saved bolt' })
+      const detail = exports.useItem('bolt/a') as QueryOptions<(typeof rows)[number]>
       expect(getQueryClient().getState(detail.key).data).toEqual(rows[0])
-      await exports.deleteItem('warehouse-1', 'bolt/a')
+      await exports.deleteItem('bolt/a')
       expect(getQueryClient().getState(detail.key).data).toBeNull()
       expect(getQueryClient().getState(query.key).data).toEqual([newItem])
       expect(requests).toContainEqual(['post', '/items', newItem])
       expect(requests).toContainEqual(['patch', '/items/bolt%2Fa', { name: 'Saved bolt' }])
       expect(exports.useItems(null)).toBeNull()
-      expect(exports.useItem('warehouse-1', null)).toBeNull()
+      expect(exports.useItem(null)).toBeNull()
     } finally {
       resetQueryClient()
     }
@@ -269,11 +267,11 @@ describe('an inventory API with its own contract', () => {
     )
     setProvider(createProvider())
     try {
-      expect(
-        await exports.createComment('parent/a', 'viewer-1', { comment: { body: 'hello' } }),
-      ).toEqual(result)
+      expect(await exports.createComment('parent/a', { comment: { body: 'hello' } })).toEqual(
+        result,
+      )
       expect(requests).toEqual([['/articles/parent%2Fa/comments', { comment: { body: 'hello' } }]])
-      expect(exports.useComments(null, 'viewer-1')).toBeNull()
+      expect(exports.useComments(null)).toBeNull()
       expect(exports.useComment).toBeUndefined()
     } finally {
       resetQueryClient()
@@ -296,7 +294,7 @@ describe('an inventory API with its own contract', () => {
     expect(modules[0].operations).toContain('toggle reserved (POST/DELETE /items/{sku}/reserved)')
     const counts = modules[1]
     expect(counts.exportName).toBe('stockCounts')
-    expect(counts.source).toContain('export const stockCountsPage = (')
+    expect(counts.source).toContain('export function stockCountsPage(')
     expect(counts.source).toContain('total: number')
     expect(skipped).toEqual([expect.objectContaining({ path: '/health' })])
   })
@@ -315,34 +313,34 @@ const FRAMEWORK_QUERIES = [
     entry: join(MOLECULE, 'features/query-react/src/index.ts'),
     built: join(MOLECULE, 'features/query-react/dist/resource.d.ts'),
     router: join(MOLECULE, 'bonds/routing/react-router/dist/index.d.ts'),
-    useList: `const list = useArticlesList('u1')
+    useList: `const list = useArticlesList()
   list.route.setPage(2)
   const total: number | undefined = list.data?.articlesCount`,
-    useNamed: `useArticles('u1').data?.articlesCount
-  useArticle('u1', 'slug').data?.title`,
+    useNamed: `useArticles().data?.articlesCount
+  useArticle('slug').data?.title`,
   },
   ...[
     {
       framework: 'vue',
-      useNamed: `useArticles(() => 'u1').value.data?.articlesCount
-  useArticle(() => 'u1', () => 'slug').value.data?.title`,
-      useList: `const { route, query } = useArticlesList(() => 'u1')
+      useNamed: `useArticles().value.data?.articlesCount
+  useArticle(() => 'slug').value.data?.title`,
+      useList: `const { route, query } = useArticlesList()
   route.value.setPage(2)
   const total: number | undefined = query.value.data?.articlesCount`,
     },
     {
       framework: 'solid',
-      useNamed: `useArticles(() => 'u1').data?.articlesCount
-  useArticle(() => 'u1', () => 'slug').data?.title`,
-      useList: `const { route, query } = useArticlesList(() => 'u1')
+      useNamed: `useArticles().data?.articlesCount
+  useArticle(() => 'slug').data?.title`,
+      useList: `const { route, query } = useArticlesList()
   route.setPage(2)
   const total: number | undefined = query.data?.articlesCount`,
     },
     {
       framework: 'svelte',
-      useNamed: `useArticles('u1').subscribe((state) => state.data?.articlesCount)
-  useArticle('u1', 'slug').subscribe((state) => state.data?.title)`,
-      useList: `const { route, query } = useArticlesList('u1')
+      useNamed: `useArticles().subscribe((state) => state.data?.articlesCount)
+  useArticle('slug').subscribe((state) => state.data?.title)`,
+      useList: `const { route, query } = useArticlesList()
   route.setPage(2)
   let total: number | undefined
   query.subscribe((state) => {
@@ -351,9 +349,9 @@ const FRAMEWORK_QUERIES = [
     },
     {
       framework: 'angular',
-      useNamed: `useArticles(() => 'u1').data?.articlesCount
-  useArticle(() => 'u1', () => 'slug').data?.title`,
-      useList: `const { route, query } = useArticlesList('u1')
+      useNamed: `useArticles().data?.articlesCount
+  useArticle(() => 'slug').data?.title`,
+      useList: `const { route, query } = useArticlesList()
   route.setPage(2)
   const total: number | undefined = query.data?.articlesCount`,
     },
@@ -389,6 +387,7 @@ describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) 
   const wrap = factory.queryHook?.wrap?.package
   const declarations: Record<string, string> = {
     [HTTP]: join(MOLECULE, 'core/http/dist/index.d.ts'),
+    '@molecule/app-auth': join(MOLECULE, 'core/auth/dist/index.d.ts'),
     [framework.query]: framework.entry,
     '@molecule/app-query': join(MOLECULE, 'core/query/dist/index.d.ts'),
     '@molecule/app-routing': join(MOLECULE, 'core/routing/dist/index.d.ts'),
@@ -414,6 +413,7 @@ describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) 
         'app',
         'specs/openapi.yml',
         listRoute,
+        { view: true, toggle: true, auth: name === 'p317-supplied-openapi.yml.txt' },
       ).modules) {
         const file = join(dir, `${module.exportName}.ts`)
         await writeFile(file, module.source)
@@ -427,48 +427,47 @@ describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) 
     const page = join(dir, 'page.ts')
     await writeFile(
       page,
-      `import { articles, articlesFeed, articlesPage, useArticlesList, useArticles, useArticle, createArticle } from './articles.js'
-import { comments, useComments, createComment, deleteComment } from './comments.js'
-import { items, type Item, createItem, updateItem, deleteItem, setItemReserved, useItemReserved } from './items.js'
-import { profiles } from './profiles.js'
-import { tags } from './tags.js'
+      `import { articlesFeedPage, articlesPage, useArticlesList, useArticles, useArticle, createArticle, setArticleFavorite } from './articles.js'
+import { useComments, createComment, deleteComment } from './comments.js'
+import { type Item, createItem, updateItem, deleteItem, setItemReserved, useItemReserved } from './items.js'
+import { setProfileFollow } from './profiles.js'
+import { tagsList } from './tags.js'
 export function useList(): number | undefined {
   ${framework.useList}
   ${framework.useNamed}
   return total
 }
-export function useReserve(viewer: string, record: Item): void {
-  useItemReserved(viewer, record).set(true)
+export function useReserve(record: Item): void {
+  useItemReserved(record).set(true)
 }
-export async function use(viewer: string, slug: string): Promise<string[]> {
-  const page = await articlesPage(viewer, { limit: 10 }).fetch(new AbortController().signal)
+export async function use(slug: string): Promise<string[]> {
+  const page = await articlesPage({ limit: 10 })?.fetch(new AbortController().signal)
   // @ts-expect-error This contract declares limit/offset, not page.
-  articlesPage(viewer, { page: 2 })
-  // @ts-expect-error The resource's row-only list has the same query contract.
-  articles.list(viewer, { page: 2 })
-  // @ts-expect-error The alternate feed is read-only.
-  articlesFeed.create(viewer, {})
-  // @ts-expect-error This contract has no profile collection list.
-  profiles.list(viewer)
+  articlesPage({ page: 2 })
+  // @ts-expect-error The generated reader derives the session.
+  useArticles('reader')
+  // @ts-expect-error The generated write also derives the session.
+  createComment(slug, 'reader', { comment: { body: 'hi' } })
   // @ts-expect-error This tags endpoint declares no query parameters.
-  tags.list(viewer, { limit: 1 })
-  const total: number = page.articlesCount
+  tagsList({ limit: 1 })
+  const total: number | undefined = page?.articlesCount
+  await articlesFeedPage({ limit: 10 })?.fetch(new AbortController().signal)
   // @ts-expect-error The complete request envelope is required.
-  createArticle(viewer, { title: 't' })
+  createArticle({ title: 't' })
   // @ts-expect-error Required fields from the non-benchmark contract are checked.
-  createItem(viewer, { quantity: 1 })
-  await updateItem(viewer, 'sku-1', { sku: 'sku-1', name: 'Bolt' })
-  await deleteItem(viewer, 'sku-1')
-  await setItemReserved(viewer, 'sku-1', true)
-  await createComment(slug, viewer, { comment: { body: 'hi' } })
-  await deleteComment(slug, viewer, 12)
+  createItem({ quantity: 1 })
+  await updateItem('sku-1', { sku: 'sku-1', name: 'Bolt' })
+  await deleteItem('sku-1')
+  await setItemReserved('sku-1', true)
+  await createComment(slug, { comment: { body: 'hi' } })
+  await deleteComment(slug, 12)
   useComments(slug, null)
-  const created = await articles.create(viewer, { article: { title: 't', description: 'd', body: 'b' } })
-  const favorited = await articles.toggle(viewer, created.slug, 'favorite', true)
-  const comment = await comments(slug).create(viewer, { comment: { body: 'hi' } })
-  const profile = await profiles.toggle(viewer, favorited.author.username, 'follow', true)
-  const item = await items.update(viewer, 'sku-1', { sku: 'sku-1', name: 'Bolt' })
-  const names: string[] = (await tags.list(viewer).fetch(new AbortController().signal)) ?? []
+  const created = await createArticle({ article: { title: 't', description: 'd', body: 'b' } })
+  const favorited = await setArticleFavorite(created.slug, true)
+  const comment = await createComment(slug, { comment: { body: 'hi' } })
+  const profile = await setProfileFollow(favorited.author.username, true)
+  const item = await updateItem('sku-1', { sku: 'sku-1', name: 'Bolt' })
+  const names: string[] = (await tagsList()?.fetch(new AbortController().signal)) ?? []
   return [String(total), String(comment.id), profile.username, item.status, ...names]
 }
 `,
@@ -564,7 +563,7 @@ describe('writing the modules into a project', () => {
     await writeFile(join(root, 'specs/openapi.json'), await fixture('inventory-openapi.json.txt'))
     await pin(factory.since)
     const old = await source()
-    expect(old).toContain('export function setItemReserved')
+    expect(old).toContain('export async function setItemReserved')
     expect(old).not.toMatch(/useItemReserved|ItemView/)
     await pin(binding.viewSince, '3.2.0')
     const views = await source()
@@ -574,7 +573,7 @@ describe('writing the modules into a project', () => {
     const current = await source()
     const header = current.split('*/', 1)[0]
     expect(header).toContain('ItemView')
-    expect(header).toContain('useItemReserved(viewer, record)')
+    expect(header).toContain('useItemReserved(record)')
     expect(header).not.toContain('setItemReserved')
   })
 
@@ -653,7 +652,7 @@ describe('writing the modules into a project', () => {
     const articles = after.written[0].source
     expect(articles).toContain('export function useArticlesList')
     // Each argument is a reactive source, read by the package's list query.
-    expect(articles).toContain('viewer: ListQuerySource<string | null>')
+    expect(articles).not.toContain('viewer: ListQuerySource<string | null>')
     expect(articles).toMatch(/useListQuery\(\s*route,\s*\{ viewer, params \}/)
     expect(articles).toContain('limit: list.pageSize, offset: list.offset')
     expect(articles).toContain(

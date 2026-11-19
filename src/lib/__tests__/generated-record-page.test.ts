@@ -3,11 +3,12 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-import { cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
+import { act, cleanup, fireEvent, render, screen, waitFor } from '@testing-library/react'
 import * as React from 'react'
 import ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import * as auth from '@molecule/app-auth'
 import { resetQueryClient, setProvider } from '@molecule/app-query'
 import { createProvider } from '@molecule/app-query-memory'
 import * as queryReact from '@molecule/app-query-react'
@@ -29,13 +30,10 @@ interface Pin {
 }
 
 interface PageModule {
-  usePage: (viewer: string, id: string) => { data: Page | null | undefined }
-  setPagePin: (viewer: string, id: string, on: boolean) => Promise<Page>
-  usePagePin?: (viewer: string, record: Page) => Pin
-  usePageMark?: (
-    viewer: string,
-    record: Page,
-  ) => {
+  usePage: (id: string) => { data: Page | null | undefined }
+  setPagePin: (id: string, on: boolean) => Promise<Page>
+  usePagePin?: (record: Page) => Pin
+  usePageMark?: (record: Page) => {
     value: Page
     pending: boolean
     error: unknown
@@ -44,7 +42,6 @@ interface PageModule {
   }
   PageView?: React.ComponentType<{
     parentId?: string
-    viewer: string
     id: string
     pending: React.ReactNode
     missing: React.ReactNode
@@ -69,6 +66,7 @@ function loadGenerated(source: string, http: object): PageModule {
   }).outputText
   const imports: Record<string, unknown> = {
     react: React,
+    '@molecule/app-auth': auth,
     '@molecule/app-http': { getClient: () => http },
     '@molecule/app-query-react': queryReact,
     '@molecule/app-react': appReact,
@@ -82,13 +80,15 @@ function loadGenerated(source: string, http: object): PageModule {
   return exports as unknown as PageModule
 }
 
-function generated(http: object, contract = noteContract): PageModule {
+function generated(http: object, contract = noteContract, withAuth = false): PageModule {
   const [module] = planContractResourceModules(
     contract,
     factory,
     query,
     'app',
     'openapi.json',
+    undefined,
+    { view: true, toggle: true, auth: withAuth },
   ).modules
   return loadGenerated(module.source, http)
 }
@@ -106,16 +106,16 @@ describe('generated Note-taking pin and record view', () => {
     const remove = vi.fn(async () => answer(initial))
     const module = generated({ post, delete: remove })
 
-    function useGuardedPin(viewer: string, record: Page): Pin {
+    function useGuardedPin(record: Page): Pin {
       const [value, show] = React.useState(record.pinned)
       const [pending, save] = React.useState(false)
       async function toggle(): Promise<void> {
-        if (pending || !viewer) return
+        if (pending) return
         const next = !value
         show(next)
         save(true)
         try {
-          show((await module.setPagePin(viewer, record.id, next)).pinned)
+          show((await module.setPagePin(record.id, next)).pinned)
         } finally {
           save(false)
         }
@@ -126,7 +126,7 @@ describe('generated Note-taking pin and record view', () => {
     // The old generator supplied only the setter, so this control reproduces the pending guard.
     const usePin = module.usePagePin ?? useGuardedPin
     function Button(): React.ReactElement {
-      const pin = usePin('reader', initial)
+      const pin = usePin(initial)
       return React.createElement(
         'button',
         { 'aria-busy': pin.pending, onClick: pin.toggle },
@@ -156,7 +156,7 @@ describe('generated Note-taking pin and record view', () => {
     const children = (page: Page): React.ReactElement =>
       React.createElement('article', {}, React.createElement('p', {}, page.title))
     function GuardedView(): React.ReactElement {
-      const { data } = module.usePage('reader', initial.id)
+      const { data } = module.usePage(initial.id)
       return data
         ? children(data)
         : React.createElement('article', {}, data === null ? missing : pending)
@@ -164,7 +164,6 @@ describe('generated Note-taking pin and record view', () => {
     const View = module.PageView ?? GuardedView
     const view = (id: string): React.ReactElement =>
       React.createElement(View, {
-        viewer: 'reader',
         id,
         pending,
         missing,
@@ -184,21 +183,27 @@ describe('generated Note-taking pin and record view', () => {
 
   it('mounts fresh record content when a nested page changes viewer or parent', async () => {
     const get = vi.fn(async (_path: string) => answer(initial))
+    const client = auth.createJWTAuthClient<{ handle: string }>({
+      storage: 'memory',
+      autoRefresh: false,
+    })
+    auth.setClient(client)
+    client.setSession({ accessToken: 'reader', user: { handle: 'reader' } })
     const { PageView } = generated(
       { get },
       {
         ...noteContract,
         paths: { '/notebooks/{id}/pages/{pageId}': noteContract.paths['/pages/{id}'] },
       },
+      true,
     )
     expect(PageView).toBeTypeOf('function')
     function RecordContent(): React.ReactElement {
       const [draft, setDraft] = React.useState('Unedited')
       return React.createElement('button', { onClick: () => setDraft('Edited') }, draft)
     }
-    const page = (viewer: string, parentId: string): React.ReactElement =>
+    const page = (parentId: string): React.ReactElement =>
       React.createElement(PageView!, {
-        viewer,
         parentId,
         id: initial.id,
         pending: null,
@@ -206,13 +211,16 @@ describe('generated Note-taking pin and record view', () => {
         error: () => null,
         children: () => React.createElement(RecordContent),
       })
-    const view = render(page('reader', 'book 1'))
+    const view = render(page('book 1'))
     fireEvent.click(await screen.findByRole('button', { name: 'Unedited' }))
     expect(screen.getByRole('button', { name: 'Edited' })).toBeTruthy()
-    view.rerender(page('writer', 'book 2'))
+    act(() => client.setSession({ accessToken: 'writer', user: { handle: 'writer' } }))
     expect(await screen.findByRole('button', { name: 'Unedited' })).toBeTruthy()
     fireEvent.click(screen.getByRole('button', { name: 'Unedited' }))
-    view.rerender(page('reader', 'book 1'))
+    view.rerender(page('book 2'))
+    expect(await screen.findByRole('button', { name: 'Unedited' })).toBeTruthy()
+    fireEvent.click(screen.getByRole('button', { name: 'Unedited' }))
+    view.rerender(page('book 1'))
     // Switching to a cached record must also remount the loaded child.
     expect(screen.getByRole('button', { name: 'Unedited' })).toBeTruthy()
     expect(get.mock.calls.map(([path]) => path)).toEqual(
@@ -221,6 +229,7 @@ describe('generated Note-taking pin and record view', () => {
         '/notebooks/book%202/pages/page%201',
       ]),
     )
+    client.destroy()
   })
 
   it('queues an unnamed flag and shows the saved record after the newest save fails', async () => {
@@ -237,7 +246,7 @@ describe('generated Note-taking pin and record view', () => {
     const { usePageMark } = generated({ post, delete: remove }, { ...contract, paths })
     expect(usePageMark).toBeTypeOf('function')
     function Button(): React.ReactElement {
-      const mark = usePageMark!('reader', initial)
+      const mark = usePageMark!(initial)
       const title = `${mark.error ? 'Save failed. ' : ''}${mark.value.title}`
       return React.createElement('button', { onClick: () => mark.toggle(mark.value.pinned) }, title)
     }
@@ -267,7 +276,7 @@ describe('generated Note-taking pin and record view', () => {
         },
       },
     )
-    expect(Object.keys(module).sort()).toEqual(['PageView', 'pages', 'usePage'].sort())
+    expect(Object.keys(module).sort()).toEqual(['PageView', 'pageErrorMessage', 'usePage'].sort())
 
     function CompactSwitch(): React.ReactElement {
       const [compact, setCompact] = React.useState(false)

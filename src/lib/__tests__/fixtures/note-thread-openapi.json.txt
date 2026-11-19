@@ -1,0 +1,72 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "Comments on notes", "version": "1.0.0" },
+  "paths": {
+    "/pages/{pageId}/comments": {
+      "get": {
+        "responses": {
+          "200": {
+            "description": "Note's comments",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "comments": {
+                      "type": "array",
+                      "items": { "$ref": "#/components/schemas/NoteComment" }
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      },
+      "post": {
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "required": ["text"],
+                "properties": { "text": { "type": "string" } }
+              }
+            }
+          }
+        },
+        "responses": {
+          "201": {
+            "description": "Saved comment",
+            "content": { "application/json": { "schema": { "$ref": "#/components/schemas/NoteComment" } } }
+          },
+          "422": { "$ref": "#/components/responses/Validation" }
+        }
+      }
+    }
+  },
+  "components": {
+    "responses": {
+      "Validation": {
+        "description": "Field validation messages",
+        "content": { "application/json": { "schema": { "$ref": "#/components/schemas/Validation" } } }
+      }
+    },
+    "schemas": {
+      "NoteComment": {
+        "type": "object",
+        "required": ["id", "text"],
+        "properties": { "id": { "type": "integer" }, "text": { "type": "string" } }
+      },
+      "Validation": {
+        "type": "object",
+        "properties": {
+          "errors": {
+            "type": "object",
+            "additionalProperties": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    }
+  }
+}

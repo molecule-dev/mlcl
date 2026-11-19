@@ -89,12 +89,13 @@ describe('app modules for declared API resources, written by the create step', (
     expect(articles).not.toContain('tagList: string\n')
     expect(articles).toContain("  id: 'slug',")
     expect(articles).toContain("path: '/articles',")
-    expect(articles).toContain('`articles.toggle`')
+    expect(articles).toContain('`setArticleFavorite`')
     expect(articles).toContain('call this setter from a queued commit')
 
     // A non-benchmark resource: projects are addressed by id and updated with PATCH.
     const projects = await read('app/src/resources/projects.ts')
-    expect(projects).toContain('export const projects = createQueryResource<Project>({')
+    expect(projects).toContain('const projects = scopeResource((_viewer) =>')
+    expect(projects).toContain('createQueryResource<Project>({')
     expect(projects).toContain("updateMethod: 'patch',")
     expect(projects).not.toContain("  id: '")
 
@@ -302,7 +303,7 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
       'detail',
       'create',
       'update',
-      "toggle(viewer, id, 'flag', on)",
+      "toggle(id, 'flag', on)",
     ])
     // A row and a response that differ: the stored row keeps totals in cents and tags as JSON
     // text; the declared record is what the app gets.
@@ -347,9 +348,9 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
     expect(module?.operations).toEqual(['list', 'detail'])
     expect(module?.source).not.toContain('Write with')
     expect(module?.source).not.toContain('each write shows')
-    expect(module?.source).toContain(" * `viewer` is the signed-in user's id, or 'anonymous'.")
-    expect(module?.source).not.toContain('export function createInvoice')
-    expect(module?.source).not.toContain('export function updateInvoice')
+    expect(module?.source).toContain('Reads and writes share the public cache.')
+    expect(module?.source).not.toContain('export async function createInvoice')
+    expect(module?.source).not.toContain('export async function updateInvoice')
     expect(module?.source).toContain('export function useInvoices')
     expect(module?.source).toContain('export function useInvoice')
   })
@@ -372,6 +373,7 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
         return 'rows'
       },
       detail: (...args: unknown[]) => {
+        if (args[1] === null) return null
         calls.push(['detail', ...args])
         return 'record'
       },
@@ -397,20 +399,20 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
       exports,
     )
     expect(exports.useInvoice, 'a page can import its detail hook directly').toBeTypeOf('function')
-    expect(exports.useInvoices('u1', { status: 'paid' })).toBe('rows')
-    expect(exports.useInvoice('u1', 12)).toBe('record')
-    expect(exports.useInvoice(null, '12')).toBeNull()
-    expect(exports.useInvoices('u1', null)).toBeNull()
+    expect(exports.useInvoices({ status: 'paid' })).toBe('rows')
+    expect(exports.useInvoice(12)).toBe('record')
+    expect(exports.useInvoice(null)).toBeNull()
+    expect(exports.useInvoices(null)).toBeNull()
     const input = { number: 'INV-12' }
-    exports.createInvoice('u1', input)
-    exports.updateInvoice('u1', 12, input)
-    exports.setInvoiceFlag('u1', 12, true)
+    exports.createInvoice(input)
+    exports.updateInvoice(12, input)
+    exports.setInvoiceFlag(12, true)
     expect(calls).toEqual([
-      ['list', 'u1', { status: 'paid' }],
-      ['detail', 'u1', '12'],
-      ['create', 'u1', input],
-      ['update', 'u1', '12', input],
-      ['toggle', 'u1', '12', 'flag', true],
+      ['list', 'public', { status: 'paid' }],
+      ['detail', 'public', '12'],
+      ['create', 'public', input],
+      ['update', 'public', '12', input],
+      ['toggle', 'public', '12', 'flag', true],
     ])
     expect(exports.deleteInvoice).toBeUndefined()
     expect(exports.setInvoiceSend).toBeUndefined()
@@ -426,11 +428,11 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
       'app',
     )!.source
     expect(source).not.toContain('export function useInvoice')
-    expect(source).toContain('export function createInvoice')
+    expect(source).toContain('export async function createInvoice')
   })
 
   it.each(['vue', 'solid', 'svelte', 'angular'])(
-    'keeps the current viewer and id reactive in a %s named hook',
+    'keeps the current id reactive in a %s named hook with a public cache',
     async (framework) => {
       const queryPackage = `@molecule/app-query-${framework}`
       const metadata = registry.packages[queryPackage].decisionGuide!.resourceModules!
@@ -463,25 +465,18 @@ CREATE INDEX IF NOT EXISTS "idx_invoices_paid" ON "invoices" ("paidAt");`,
       expect(exports.useInvoice, 'the named reactive detail hook is exported').toBeTypeOf(
         'function',
       )
-      let viewer: string | null = null
-      let id = 'one'
-      const viewerStore = stores.writable<string | null>(viewer)
+      let id: string | null = null
       const idStore = stores.writable(id)
-      const query = exports.useInvoice(
-        framework === 'svelte' ? viewerStore : () => viewer,
-        framework === 'svelte' ? idStore : () => id,
-      )
+      const query = exports.useInvoice(framework === 'svelte' ? idStore : () => id)
       const read = (): unknown =>
         framework === 'svelte' ? stores.get(query as Readable<unknown>) : (query as () => unknown)()
-      expect(read()).toBeNull()
-      viewer = 'first'
-      viewerStore.set(viewer)
-      expect(read()).toEqual(['first', 'one'])
-      viewer = 'second'
-      id = 'two'
-      viewerStore.set(viewer)
+      expect(read()).toEqual(['public', null])
+      id = 'one'
       idStore.set(id)
-      expect(read()).toEqual(['second', 'two'])
+      expect(read()).toEqual(['public', 'one'])
+      id = 'two'
+      idStore.set(id)
+      expect(read()).toEqual(['public', 'two'])
     },
   )
 })
@@ -500,7 +495,7 @@ describe('every module the registry can produce', () => {
     expect(modules.length).toBeGreaterThan(10)
     expect(new Set(modules.map((module) => module.path)).size).toBe(modules.length)
     for (const module of modules)
-      expect(module.source).toContain(`export const ${module.exportName} =`)
+      expect(module.source).toContain(`const ${module.exportName} = scopeResource(`)
   })
 
   // The sibling molecule checkout holds the built declarations of the factory. A standalone

@@ -40,7 +40,7 @@ function reactiveOptions(
       return `${name}: ${input}${initial === undefined ? '' : ` = ${initial}`}`
     })
     .join(', ')
-  const names = args.map(({ name }) => name)
+  const names = ['viewer', ...args.map(({ name }) => name)]
   const block = `{\n${expression ? `    return ${body}` : body}\n  }`
   if (binding.input === 'store') {
     const stores = names.map((name) => `resourceStore(${name})`).join(', ')
@@ -88,6 +88,7 @@ export function resourceHooks(
     return (
       `/** Observe this read; null inputs pause it. Writes below publish the saved record and refresh lists. */\n` +
       `export function ${hook.name}(${signature}): ReturnType<typeof ${binding.name}<${hook.result}>> {\n` +
+      `  const viewer = useResourceViewer()\n` +
       `  return ${binding.name}(${call})\n}`
     )
   })
@@ -131,12 +132,11 @@ function resourceToggle(
 ): string {
   const args = [
     ...parents.map((parent) => ({ name: parent, type: 'string' })),
-    { name: 'viewer', type: 'string' },
     { name: 'record', type },
     ...(binding.idField ? [] : [{ name: 'id', type: 'string | number' }]),
   ]
   const target = binding.idField ? `recordValue[${JSON.stringify(binding.idField)}]` : 'idValue'
-  const send = `${setter}(${[...parents.map((parent) => `${parent}Value`), 'viewerValue', 'id', 'on'].join(', ')})`
+  const send = `${setter}ForViewer(${['viewerValue', ...parents.map((parent) => `${parent}Value`), 'id', 'on'].join(', ')})`
   const state = field ? 'boolean' : `{ record: ${type}; desired: boolean | null }`
   const flag = field ? `[${JSON.stringify(field)}] === true` : ''
   const { signature, call } = reactiveOptions(
@@ -149,6 +149,7 @@ function resourceToggle(
           `      equals: (a: ${state}, b: ${state}) => a.desired === b.desired && (a.desired !== null || a.record === b.record),\n` +
           `      commit: async ({ desired: on }: ${state}, confirmed: ${state}): Promise<${state}> => {\n` +
           `        if (on === null) return confirmed\n`) +
+      `        if (viewerValue === null || viewerValue !== getResourceViewer()) throw new Error('The session changed.')\n` +
       `        if (id == null || String(id) === '') throw new Error('A record ID is required')\n` +
       `        return ${field ? `(await ${send})${flag}` : `{ record: await ${send}, desired: on }`}\n` +
       `      },\n    }`,
@@ -178,6 +179,7 @@ function resourceToggle(
   return (
     `/** ${description} Keep the control keyed to its viewer and record and leave it enabled during saves. */\n` +
     `export function ${name}(${signature}): ${typeResult} & ${action} {\n` +
+    `  const viewer = useResourceViewer()\n` +
     `  const queue = useOptimisticValue<${state}>(${call})\n${result}\n}`
   )
 }
@@ -202,8 +204,8 @@ export function resourceWrites(options: {
   toggleBinding?: ToggleBinding
 }): { source: string; names: string[]; toggleDocs: string[] } {
   const { resource, type, parents } = options
-  const call = parents.length ? `${resource}(${parents.join(', ')})` : resource
-  const resourceType = parents.length ? `ReturnType<typeof ${resource}>` : `typeof ${resource}`
+  const call = `${resource}(${['viewer', ...parents].join(', ')})`
+  const resourceType = `ReturnType<typeof ${resource}>`
   const pascal = (name: string): string =>
     name
       .split(/[-_]/)
@@ -218,16 +220,27 @@ export function resourceWrites(options: {
     args: string[],
     values: string[],
     result: string,
+    toggleHook = false,
   ): void => {
     const usage =
       method === 'toggle'
         ? 'Save the desired toggle value and publish the saved record to the query cache. Use the generated toggle hook when available, or call this setter from a queued commit. Await it before navigating or reloading to read the saved change.'
         : `Call ${resource}.${method}; the request body is sent unchanged and tracked reads refresh.`
     names.push(name)
+    const params = [...parents.map((key) => `${key}: string`), ...args].join(', ')
+    const innerArgs = [...parents, ...args.map((arg) => arg.split(':')[0])]
+    const invoke = `${call}.${method}(viewer${values.length ? `, ${values.join(', ')}` : ''})`
+    if (toggleHook) {
+      functions.push(
+        `function ${name}ForViewer(viewer: string, ${params}): Promise<${result}> {\n` +
+          `  return ${invoke}\n}`,
+      )
+    }
     functions.push(
       `/** ${usage} */\n` +
-        `export function ${name}(${[...parents.map((key) => `${key}: string`), 'viewer: string', ...args].join(', ')}): Promise<${result}> {\n` +
-        `  return ${call}.${method}(viewer${values.length ? `, ${values.join(', ')}` : ''})\n}`,
+        `export async function ${name}(${params}): Promise<${result}> {\n` +
+        `  const viewer = getWriteViewer()\n` +
+        `  return ${toggleHook ? `${name}ForViewer(${['viewer', ...innerArgs].join(', ')})` : invoke}\n}`,
     )
   }
   if (options.create)
@@ -263,6 +276,7 @@ export function resourceWrites(options: {
       ['id: string | number', 'on: boolean'],
       ['String(id)', JSON.stringify(action), 'on'],
       type,
+      options.toggleBinding !== undefined,
     )
     const binding = options.toggleBinding
     if (!binding) continue
@@ -271,9 +285,7 @@ export function resourceWrites(options: {
     while (binding.usedNames.has(hook)) hook += 'Toggle'
     binding.usedNames.add(hook)
     functions.push(resourceToggle(binding, type, parents, hook, setter, field))
-    const signature = [...parents, 'viewer', 'record', ...(binding.idField ? [] : ['id'])].join(
-      ', ',
-    )
+    const signature = [...parents, 'record', ...(binding.idField ? [] : ['id'])].join(', ')
     toggleDocs.push(
       `\`${hook}(${signature})\` ${field ? 'shows the desired flag immediately. Render value and call toggle() on click.' : 'shows the saved record in value. Call set(on) or toggle(savedOn).'}`,
     )

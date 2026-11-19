@@ -34,9 +34,9 @@ export function resourceRecordView(
   const props = `${name}Props`
   const args = detail.args.map(({ name }) => name)
   const types = detail.args.map(({ name, type }) => `  ${name}: ${type}`).join('\n')
-  const key = (values: string[]): string => {
+  const key = (viewer: string, values: string[]): string => {
     const id = values.at(-1)!
-    return `JSON.stringify([${[...values.slice(0, -1), `${id} == null ? null : String(${id})`].join(', ')}])`
+    return `JSON.stringify([${[viewer, ...values.slice(0, -1), `${id} == null ? null : String(${id})`].join(', ')}])`
   }
   const doc = `Detail pages use \`${name}\` with ${args.map((arg) => `\`${arg}\``).join(', ')} and loaded-record content. Pass pending, missing and error content to the view.`
   const jsx = `\`<${name} ${args.map((arg) => `${arg}={${arg}}`).join(' ')}>{renderRecord}</${name}>\``
@@ -55,8 +55,9 @@ export function resourceRecordView(
         imports: ['react', ['createElement', 'type ReactNode']],
         source: `${shape}\n\n${description}
 export function ${name}(props: ${props}): ReactNode {
+  const viewer = useResourceViewer()
   const query = ${call(fromProps)}
-  return createElement(QueryContent<${record} | null>, { ...props, query, recordKey: ${key(fromProps)} })
+  return createElement(QueryContent<${record} | null>, { ...props, query, recordKey: ${key('viewer', fromProps)} })
 }`,
       }
     case 'solid':
@@ -65,10 +66,11 @@ export function ${name}(props: ${props}): ReactNode {
         imports: ['solid-js', ['createComponent', 'type JSX', 'mergeProps']],
         source: `${shape}\n\n${description}
 export function ${name}(props: ${props}): JSX.Element {
+  const viewer = useResourceViewer()
   const query = ${call(fromGetters)}
   return createComponent(QueryContent<${record} | null>, mergeProps(props, {
     query,
-    get recordKey() { return ${key(fromProps)} },
+    get recordKey() { return ${key('viewer()', fromProps)} },
   }))
 }`,
       }
@@ -78,8 +80,9 @@ export function ${name}(props: ${props}): JSX.Element {
         imports: ['vue', ['defineComponent', 'h']],
         source: `${shape}\n\n${description}
 export const ${name} = defineComponent((props: ${props}) => {
+  const viewer = useResourceViewer()
   const query = ${call(fromGetters)}
-  return () => h(QueryContent<${record} | null>, { ...props, query: query.value, recordKey: ${key(fromProps)} })
+  return () => h(QueryContent<${record} | null>, { ...props, query: query.value, recordKey: ${key('viewer()', fromProps)} })
 }, { props: ${JSON.stringify([...args, 'children', 'pending', 'missing', 'error'])} })`,
       }
     case 'angular': {
@@ -100,8 +103,9 @@ ${detail.args.map(({ name, type }) => `  readonly ${name} = input<${type}>(null)
   readonly pending = input<NonNullable<QueryContentProps<${record}>['pending']> | null>(null)
   readonly missing = input<NonNullable<QueryContentProps<${record}>['missing']> | null>(null)
   readonly error = input<NonNullable<QueryContentProps<${record}>['error']> | null>(null)
+  private readonly viewer = useResourceViewer()
   protected readonly query = ${call(fromSignals.map((value) => `() => ${value}`))}
-  protected readonly recordKey = computed(() => ${key(fromSignals)})
+  protected readonly recordKey = computed(() => ${key('this.viewer()', fromSignals)})
 }`,
       }
     }
@@ -116,15 +120,16 @@ ${detail.args.map(({ name, type }) => `  readonly ${name} = input<${type}>(null)
 
   import { QueryContent, type QueryContentProps } from '${queryPackage}'
 
-  import { type ${record}, ${detail.name} } from './${collection}.js'
+  import { type ${record}, ${detail.name}, useResourceViewer } from './${collection}.js'
 
   ${shape.replaceAll('\n', '\n  ')}
 
   const { ${args.join(', ')}, children, pending, missing, error }: ${props} = $props()
+  const viewer = useResourceViewer()
   const query = ${call(args.map((arg) => `toStore(() => ${arg})`))}
 </script>
 
-<QueryContent {query} recordKey={${key(args)}} {children} {pending} {missing} {error} />
+<QueryContent {query} recordKey={${key('$viewer', args)}} {children} {pending} {missing} {error} />
 `,
         },
       }
