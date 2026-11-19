@@ -8,8 +8,9 @@
  * cannot certify a literal class locally; a narrow, reasoned ESLint disable can
  * document runtime styling that has been verified in the browser.
  * Native control boxes, SVG graphics and presentational dismissal backdrops are
- * outside this check; their dimensions/content are supplied by the browser or
- * drawing attributes instead of an HTML inline element's text content.
+ * outside the geometry check; their dimensions/content are supplied by the browser or
+ * drawing attributes. A native button's box still cannot draw an empty icon used
+ * as its only content.
  * Local CSS is reached through this module and the nearest workspace's index.html,
  * including module imports, HTML style/link elements and CSS @imports. A matching
  * visual declaration is evidence of styling, not proof of its computed visibility.
@@ -72,6 +73,8 @@ const EVENTS =
   /^(?:onClick|onDoubleClick|onPointerDown|onPointerUp|onMouseDown|onMouseUp|onKeyDown|onKeyUp)$/
 const STYLE =
   /(?:^|;)\s*(?:content|background(?:-[\w-]+)?|mask(?:-image)?|(?:min-|max-)?(?:width|height|inline-size|block-size)|padding(?:-[\w-]+)?|border(?:-[\w-]+)?)\s*:\s*(?!\s*(?:none|normal|auto|0(?:px|em|rem|%)?|["']{2})\s*(?:;|$))[^;]+/i
+const BUTTON_DRAWING =
+  /(?:^|;)\s*(?:content|background(?:-image)?|mask(?:-image)?)\s*:\s*(?!\s*(?:none|normal|transparent|["']{2})\s*(?:;|$))[^;]+/i
 
 function attribute(node, name) {
   return node.openingElement.attributes.find(
@@ -126,6 +129,26 @@ function interactive(node) {
         (!literal(attr.value).known || !!literal(attr.value).value),
     )
   )
+}
+
+/** A named native button whose only authored content is one literal icon element. */
+function soleButtonIcon(node) {
+  if (
+    tag(node) !== 'button' ||
+    !attribute(node, 'aria-label') ||
+    hidden(node) ||
+    attribute(node, 'children') ||
+    attribute(node, 'dangerouslySetInnerHTML') ||
+    node.openingElement.attributes.some((attr) => attr.type === 'JSXSpreadAttribute')
+  )
+    return null
+  const children = node.children.filter((child) =>
+    child.type === 'JSXText'
+      ? child.value.trim() !== ''
+      : child.type !== 'JSXExpressionContainer' || expressionContent(child.expression),
+  )
+  const [icon] = children
+  return children.length === 1 && icon.type === 'JSXElement' && tag(icon) === 'i' ? icon : null
 }
 
 /** False only when the expression is statically known to render nothing. */
@@ -543,6 +566,8 @@ const noEmptyInteractiveTarget = {
     messages: {
       empty:
         'This control has no drawing in its content or imported local CSS. Add visible text, a sized SVG (such as Icon), or local CSS that draws it. An aria-label does not draw a click target.',
+      undrawnIcon:
+        "'{{className}}' does not draw this button's only icon. Use a class supplied by the loaded icon font, a sized SVG (such as Icon), or visible text.",
       font: "'{{className}}' has no font. In src/bonds/index.ts import { {{exportName}} } from '{{package}}' and { {{setter}} } from '{{core}}'; call {{setter}}({{exportName}}).",
     },
   },
@@ -634,6 +659,22 @@ const noEmptyInteractiveTarget = {
           return
         }
         if (mode === 'font') return
+        const icon = soleButtonIcon(node)
+        const iconClass = icon && classAttribute(icon)
+        const iconName = literal(iconClass?.value).value
+        if (
+          icon &&
+          typeof iconName === 'string' &&
+          iconName.trim() &&
+          !providerFor(icon) &&
+          !possibleVisual(icon, true) &&
+          !styled(node, sheets, BUTTON_DRAWING)
+        )
+          context.report({
+            node: iconClass,
+            messageId: 'undrawnIcon',
+            data: { className: iconName },
+          })
         if (!tag(node) || REPLACED.has(tag(node)) || hidden(node) || !interactive(node)) return
         // Contentful projects incur no filesystem traversal from this rule.
         if (!possibleVisual(node, false) && !possibleVisual(node, true))
