@@ -5009,9 +5009,9 @@ export function scaffoldRules(parser) {
           useOptimisticValue:
             'This shows a toggled value before the server saves it. A reload can read the old value before the save commits. If the new label signals completion, render the saved record and show pending separately. For deliberately immediate feedback, use `useOptimisticValue` from `@molecule/app-react` to order saves, and wait for pending to clear before reading the result from another page. {{rewrite}}',
           awaitRefetch:
-            '{{location}}: This toggle waits for its save and a query refetch before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, move this save into commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads and keep it mounted during refetches. Preserve authentication checks; pending saves must not discard clicks.',
+            'This toggle waits for its save and a query refetch before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, move this save into commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads and keep it mounted during refetches. Preserve authentication checks; pending saves must not discard clicks.',
           awaitSave:
-            '{{location}}: This toggle waits for its save before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, save in commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads. Preserve authentication checks and keep the control mounted during saves.',
+            'This toggle waits for its save before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, save in commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads. Preserve authentication checks and keep the control mounted during saves.',
         },
       },
       create(context) {
@@ -6124,7 +6124,7 @@ export function scaffoldRules(parser) {
         schema: [],
         messages: {
           inert:
-            '{{location}}: No action or external binding hook is declared on this type=button element or its local JSX ancestors. Add its handler, props/ref, or an explicit external binding hook. If a containing component owns delegation, document that at this element.',
+            'No action or external binding hook is declared on this type=button element or its local JSX ancestors. Add its handler, props/ref, or an explicit external binding hook. If a containing component owns delegation, document that at this element.',
         },
       },
       create(context) {
@@ -6180,7 +6180,6 @@ export function scaffoldRules(parser) {
             context.report({
               node,
               messageId: 'inert',
-              data: { location: `${context.filename}:${node.loc.start.line}` },
             })
           },
         }
@@ -6205,7 +6204,7 @@ export function scaffoldRules(parser) {
         schema: [],
         messages: {
           useQuery:
-            '{{location}}: `{{name}}` awaits a loader in an effect and stores its result in component state. This workspace declares @molecule/app-query-react. If the loader reads shared server data, use useQuery for shared requests and invalidation; keep measurement, subscription and side-effect hooks local.',
+            '`{{name}}` awaits a loader in an effect and stores its result in component state. This workspace declares @molecule/app-query-react. If the loader reads shared server data, use useQuery for shared requests and invalidation; keep measurement, subscription and side-effect hooks local.',
         },
       },
       create(context) {
@@ -6339,11 +6338,7 @@ export function scaffoldRules(parser) {
             context.report({
               node: node.id ?? node,
               messageId: 'useQuery',
-              data: {
-                name,
-                location:
-                  context.filename.split(/[\\/]/).slice(-2).join('/') + ':' + node.loc.start.line,
-              },
+              data: { name },
             })
             return
           }
@@ -6373,7 +6368,7 @@ export function scaffoldRules(parser) {
         schema: [],
         messages: {
           unreachable:
-            '{{location}}: this link’s selected state reads `{{read}}` from `?{{key}}=`, while its target on line {{linkLine}} is `{{target}}`. If the target should select this view, align the expression with its path or set `?{{key}}={{value}}` in the link.',
+            'This link’s selected state reads `{{read}}` from `?{{key}}=`, while its target on line {{linkLine}} is `{{target}}`. If the target should select this view, align the expression with its path or set `?{{key}}={{value}}` in the link.',
         },
       },
       create(context) {
@@ -6517,10 +6512,6 @@ export function scaffoldRules(parser) {
                 node: read.node,
                 messageId: 'unreachable',
                 data: {
-                  location:
-                    context.filename.split(/[\\/]/).slice(-2).join('/') +
-                    ':' +
-                    read.node.loc.start.line,
                   read: source.getText(read.node),
                   key: read.key,
                   value: read.value,
@@ -6548,9 +6539,9 @@ export function scaffoldRules(parser) {
         schema: [],
         messages: {
           sameElement:
-            '{{location}}: while `{{record}}` is missing this branch renders inside the same parent element as `{{field}}` (line {{fieldLine}}), so a reader can get the placeholder as the field value. Render the waiting or error message outside the region that shows `{{record}}` (return it before this markup, or put it beside the whole region), and render nothing here until `{{record}}` exists.',
+            'While `{{record}}` is missing this branch renders inside the same parent element as `{{field}}` (line {{fieldLine}}), so a reader can get the placeholder as the field value. Render the waiting or error message outside the region that shows `{{record}}` (return it before this markup, or put it beside the whole region), and render nothing here until `{{record}}` exists.',
           sameRegion:
-            '{{location}}: this waiting text and `{{field}}` (line {{fieldLine}}) share <{{tag}}> {{region}} (line {{regionLine}}) while `{{record}}` is missing. A reader of that region can get the placeholder as the field value. Render the waiting or error message outside the region that shows `{{record}}`.',
+            'This waiting text and `{{field}}` (line {{fieldLine}}) share <{{tag}}> {{region}} (line {{regionLine}}) while `{{record}}` is missing. A reader of that region can get the placeholder as the field value. Render the waiting or error message outside the region that shows `{{record}}`.',
         },
       },
       create(context) {
@@ -6909,7 +6900,6 @@ export function scaffoldRules(parser) {
                 node: element,
                 messageId: 'sameElement',
                 data: {
-                  location: `${context.filename}:${element.loc.start.line}`,
                   record: record.name,
                   field: field.field,
                   fieldLine: field.fieldLine,
@@ -7004,7 +6994,6 @@ export function scaffoldRules(parser) {
               node: element,
               messageId: 'sameRegion',
               data: {
-                location: `${context.filename}:${element.loc.start.line}`,
                 record: record.name,
                 ...region,
                 field: field.field,
@@ -7097,7 +7086,6 @@ export function scaffoldRules(parser) {
                     node: waiting.content,
                     messageId: 'sameElement',
                     data: {
-                      location: `${context.filename}:${waiting.content.loc.start.line}`,
                       record: record.name,
                       field: shown.field,
                       fieldLine: String(shown.element.loc.start.line),
@@ -7184,7 +7172,6 @@ export function scaffoldRules(parser) {
                   node: branch,
                   messageId: 'sameElement',
                   data: {
-                    location: `${context.filename}:${branch.loc.start.line}`,
                     record: record.name,
                     ...shown,
                   },
