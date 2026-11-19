@@ -8,6 +8,8 @@
  * Other custom callback props require a disabled prop on that same JSX control.
  * Opaque callbacks passed to another file are outside this rule. No imported files,
  * query provenance, persistence methods, routes or display text are inspected.
+ * In a hook's own file, an optimistic toggle returned with its display state
+ * must queue calls or expose when it is unavailable. A private ref cannot do that.
  * Boolean implication checks the same condition at the handler and control.
  * A checkbox/radio's change handler is its selection action. An auxiliary click
  * which does not prevent that native change need not perform another action.
@@ -179,6 +181,8 @@ export default {
     messages: {
       droppedAction:
         'Clicks drop while {{condition}}. {{fix}} Queue toggles with a generated hook or useOptimisticValue and keep them enabled.',
+      privatePendingToggle:
+        'This optimistic action silently drops the next call while {{guard}} is true. Use the generated toggle hook or useOptimisticValue to queue changes, or expose reactive saving state and disable the control during the save.',
     },
   },
   create(context) {
@@ -275,6 +279,147 @@ export default {
     const owner = (n) => {
       for (let p = n?.parent; p; p = p.parent) if (isFunction(p)) return p
       return null
+    }
+    const member = (node) =>
+      node?.type === 'MemberExpression' && !node.computed ? node.property.name : null
+    const returnedDisplayChanges = (call, display) => {
+      const setter = variable(call.callee)
+      const declaration = setter?.defs[0]?.node
+      if (
+        declaration?.id?.type !== 'ArrayPattern' ||
+        !reactHook(declaration.init?.callee, 'useState') ||
+        variable(declaration.id.elements[1]) !== setter
+      )
+        return false
+      const state = variable(declaration.id.elements[0])
+      const update = unwrap(call.arguments[0])
+      const updater = isFunction(update) && update.expression ? update : null
+      const previous = updater && variable(updater.params[0])
+      const next = updater ? unwrap(updater.body) : update
+      const reads = (node, field) => {
+        const identifier = field ? (member(node) === field ? node.object : null) : node
+        const binding = variable(identifier)
+        return !!binding && (binding === state || binding === previous)
+      }
+      const flips = (node, field) => {
+        const value = init(node) ?? unwrap(node)
+        return (
+          value?.type === 'UnaryExpression' &&
+          value.operator === '!' &&
+          reads(unwrap(value.argument), field)
+        )
+      }
+      if (!display.length) return false
+      if (flips(next, null) && display.every((node) => reads(node, null))) return true
+      if (
+        next?.type !== 'ObjectExpression' ||
+        next.properties.some((p) => p.type !== 'Property' || p.computed || p.kind !== 'init')
+      )
+        return false
+      const fields = new Map(next.properties.map((p) => [p.key.name ?? p.key.value, p.value]))
+      const displayed = display.map(member)
+      return (
+        displayed.some((field) => field && flips(fields.get(field), field)) &&
+        display.every((node, i) => {
+          const field = displayed[i]
+          const value = unwrap(fields.get(field))
+          return (
+            field &&
+            reads(node, field) &&
+            (flips(value, field) ||
+              (value?.type === 'BinaryExpression' &&
+                ['+', '-'].includes(value.operator) &&
+                reads(unwrap(value.left), field)))
+          )
+        })
+      )
+    }
+    const returnedToggleGuard = (result) => {
+      const hook = owner(result)
+      if (result.parent !== hook?.body || result.argument?.type !== 'ObjectExpression') return
+      const properties = result.argument.properties
+      if (properties.some((p) => p.type !== 'Property' || p.kind !== 'init')) return
+      const actions = properties.filter((p) => fnFor(p.value)?.async)
+      if (actions.length !== 1) return
+      const [action] = actions
+      const handler = fnFor(action.value)
+      if (owner(handler) !== hook || handler.body.type !== 'BlockStatement') return
+
+      // Only prove a private boolean lock held across an awaited call. A ref
+      // shared or read anywhere else could be part of a different contract.
+      const body = handler.body.body
+      const guard = body.find(
+        (n) =>
+          n.type === 'IfStatement' &&
+          !n.alternate &&
+          n.consequent.type === 'ReturnStatement' &&
+          !n.consequent.argument &&
+          member(n.test) === 'current',
+      )
+      if (!guard) return
+      const ref = variable(guard.test.object)
+      const initialization = init(guard.test.object)
+      if (
+        !reactHook(initialization?.callee, 'useRef') ||
+        initialization.arguments[0]?.value !== false
+      )
+        return
+      const index = body.indexOf(guard)
+      // Earlier returns (e.g. a login redirect) may handle different input.
+      // Work performed on a path that reaches this guard could handle this call.
+      if (
+        body.slice(0, index).some((n) => {
+          if (n.type !== 'IfStatement' || n.alternate || !pure(n.test)) return true
+          const branch = n.consequent
+          return (
+            (branch.type === 'BlockStatement' ? branch.body.at(-1) : branch)?.type !==
+            'ReturnStatement'
+          )
+        })
+      )
+        return
+      const assignment = (statement, value) => {
+        const write = statement?.expression
+        return write?.type === 'AssignmentExpression' &&
+          write.operator === '=' &&
+          member(write.left) === 'current' &&
+          variable(write.left.object) === ref &&
+          write.right.value === value
+          ? write.left.object
+          : null
+      }
+      const work = body.at(-1)
+      const lock = assignment(body[index + 1], true)
+      const unlock = work?.type === 'TryStatement' && assignment(work.finalizer?.body.at(-1), false)
+      if (!lock || !unlock) return
+      const uses = new Set([guard.test.object, lock, unlock])
+      if (ref.references.some((r) => !r.init && !uses.has(r.identifier))) return
+      let wait
+      walk(work.block, (n) => {
+        if (!wait && n.type === 'AwaitExpression' && unwrap(n.argument)?.type === 'CallExpression')
+          wait = n
+      })
+      if (!wait) return
+
+      // Prove the returned state exposes the inverse (and optionally a count
+      // adjustment) during that wait. Leave extra returned state and opaque
+      // modifiers alone because they can expose availability to callers.
+      const beforeWork = body.slice(index + 2, -1)
+      const [statement, ...otherStatements] = beforeWork.filter(
+        (n) => n.type !== 'VariableDeclaration',
+      )
+      const call = statement?.type === 'ExpressionStatement' && statement.expression
+      if (otherStatements.length || call?.type !== 'CallExpression') return
+      const display = properties.filter((p) => p !== action).map((p) => unwrap(p.value))
+      if (!returnedDisplayChanges(call, display)) return
+      if (
+        variable(call.callee).references.some(
+          ({ identifier }) =>
+            call.range[1] < identifier.range[0] && identifier.range[0] < wait.range[0],
+        )
+      )
+        return
+      return guard.test
     }
     const snapshot = (p) => {
       p = unwrap(p)
@@ -424,6 +569,7 @@ export default {
       const next = new Set(seen).add(n),
         f = (p) => formula(p, next)
       if (n.type === 'Literal') return Boolean(n.value)
+      if (isFunction(n)) return true
       if (n.type === 'Identifier') {
         if (n.name === 'undefined' && !variable(n)?.defs.length) return false
         if (argumentsFor.has(variable(n))) return f(argumentsFor.get(variable(n)))
@@ -1061,6 +1207,15 @@ export default {
       return found
     }
     return {
+      ReturnStatement(node) {
+        const guard = returnedToggleGuard(node)
+        if (guard)
+          context.report({
+            node: guard,
+            messageId: 'privatePendingToggle',
+            data: { guard: source.getText(guard) },
+          })
+      },
       JSXOpeningElement(n) {
         controls.push(n)
       },

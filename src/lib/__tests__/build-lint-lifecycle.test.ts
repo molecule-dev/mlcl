@@ -38,6 +38,28 @@ export function Control({ data, save }: { data: { id: string } | null; save: (id
   return <button type="button" onClick={act}>Reserve</button>
 }
 `
+const privateAction = `import { useRef, useState } from 'react'
+
+export function useBookmark(save: (marked: boolean) => Promise<void>) {
+  const [marked, setMarked] = useState(false)
+  const writing = useRef(false)
+  async function toggle(): Promise<void> {
+    if (writing.current) return
+    writing.current = true
+    const next = !marked
+    setMarked(next)
+    try { await save(next) } finally { writing.current = false }
+  }
+  return { marked, toggle }
+}
+`
+const bookmarkControl = `import { useBookmark } from './useBookmark.js'
+
+export function Control({ save }: { save: (marked: boolean) => Promise<void> }) {
+  const { marked, toggle } = useBookmark(save)
+  return <button type="button" onClick={toggle}>{marked ? 'Unbookmark' : 'Bookmark'}</button>
+}
+`
 let root: string
 let custom: string
 let flagship: string
@@ -142,7 +164,7 @@ describe('frontend npm build verification', () => {
       expect(result.code, result.output).not.toBe(0)
       expect(result.output).toMatch(/Control\.tsx/)
       expect(result.output).toContain('no-dropped-action')
-      expect(result.output).toContain('handler can return without answering')
+      expect(result.output).toContain('Clicks drop while busy')
       await expect(readFile(join(app, 'dist/index.html'))).rejects.toMatchObject({ code: 'ENOENT' })
     },
     90_000,
@@ -152,6 +174,39 @@ describe('frontend npm build verification', () => {
     await fixture(
       custom,
       droppedIntent.replace('onClick={toggle}', 'disabled={busy} onClick={toggle}'),
+    )
+    const result = await build(custom)
+    expect(result.code, result.output).toBe(0)
+    expect(await readFile(join(custom, 'dist/index.html'), 'utf8')).toContain('Equipment console')
+  }, 90_000)
+
+  it('refuses a private pending guard in an imported action hook before bundling', async () => {
+    await fixture(custom, bookmarkControl)
+    await writeFile(join(custom, 'src/useBookmark.ts'), privateAction)
+    const result = await build(custom)
+    expect(result.code, result.output).not.toBe(0)
+    expect(result.output).toContain('useBookmark.ts')
+    expect(result.output).toContain('silently drops the next call while writing.current')
+    expect(result.output).toContain('no-dropped-action')
+    await expect(readFile(join(custom, 'dist/index.html'))).rejects.toMatchObject({
+      code: 'ENOENT',
+    })
+  }, 90_000)
+
+  it('builds when the caller disables the bookmark control during the save', async () => {
+    await fixture(
+      custom,
+      bookmarkControl
+        .replace('{ marked, toggle }', '{ marked, toggle, pending }')
+        .replace('onClick={toggle}', 'disabled={pending} onClick={toggle}'),
+    )
+    await writeFile(
+      join(custom, 'src/useBookmark.ts'),
+      privateAction
+        .replace('const writing', 'const [pending, setPending] = useState(false)\n  const writing')
+        .replace('writing.current = true', 'writing.current = true\n    setPending(true)')
+        .replace('writing.current = false', 'writing.current = false; setPending(false)')
+        .replace('{ marked, toggle }', '{ marked, toggle, pending }'),
     )
     const result = await build(custom)
     expect(result.code, result.output).toBe(0)
