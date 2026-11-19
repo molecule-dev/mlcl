@@ -548,6 +548,9 @@ async function formatPass(
     : await discoverFiles(projectPath)
   const changed: string[] = []
   const pluginPaths = new Map<string, string>()
+  // A generator may have looked a directory's configuration up before writing it, and prettier
+  // keeps every lookup (even one made with `useCache: false`): read what is on disk now.
+  await prettier.clearConfigCache()
 
   for (const filePath of files) {
     const content = await readFile(filePath, 'utf-8')
@@ -675,7 +678,7 @@ function ownPlugin(plugin: string, cwd: string): string {
 export async function formatGeneratedMarkdown(md: string, filePath: string): Promise<string> {
   const MAX_PASSES = 4
   try {
-    const config = await prettier.resolveConfig(filePath)
+    const config = await prettier.resolveConfig(filePath, { useCache: false })
     const options = { ...config, filepath: filePath, parser: 'markdown' as const }
     let current = md
     for (let pass = 0; pass < MAX_PASSES; pass++) {
