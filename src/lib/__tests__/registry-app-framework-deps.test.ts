@@ -9,7 +9,7 @@
  * A framework whose identifying packages live ONLY in its `devDependencies`
  * therefore contributed NOTHING to the list, and the heuristic could never
  * recognise it: `appFrameworks.svelte` ships `dependencies: {}` with `svelte`,
- * `@sveltejs/kit`, `@sveltejs/adapter-auto` and `@sveltejs/vite-plugin-svelte`
+ * `@sveltejs/kit`, `@sveltejs/adapter-static` and `@sveltejs/vite-plugin-svelte`
  * all under `devDependencies` (the registry's own entry), so a Svelte project
  * was invisible to it. The consequence is not cosmetic — the flag it decides
  * routes secrets into `app/.env` vs `api/.env`, runs the API-only

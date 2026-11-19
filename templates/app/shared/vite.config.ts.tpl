@@ -14,9 +14,19 @@ import { fileURLToPath } from 'node:url'
 
 import { defineConfig, normalizePath, type Plugin } from 'vite'
 import { rootRelativeAssetsPlugin } from '@molecule/app-vite-config-default/assets'
+import {
+  svelteKitPrecache,
+  svelteKitPwaPlugins,
+  svelteKitStaticSite,
+} from '@molecule/app-vite-config-default/sveltekit'
 {{TAILWIND_IMPORT}}import { VitePWA, type VitePluginPWAAPI } from 'vite-plugin-pwa'
 {{VITE_PLUGIN_IMPORT}}import { APP_DESCRIPTION, APP_NAME, BRAND_COLOR } from '{{BRANDING_IMPORT}}'
-import { stripPreviewBridgePlugin } from './vite-preview-bridge-plugin.js'
+import {
+  assertNoBridgeReferences,
+  dropBridgeAssets,
+  stripPreviewBridgePlugin,
+  stripPreviewBridges,
+} from './vite-preview-bridge-plugin.js'
 
 // Discover @molecule/* packages to exclude from pre-bundling.
 // Bond state uses module-level singletons — pre-bundling creates duplicate
@@ -93,9 +103,11 @@ if (moleculeDir) {
   }
 }
 
-// In a SvelteKit app, kit's own config is the `sveltekit({ … })` call in `plugins` below;
-// its `paths.relative: false` gives the service worker one URL and scope from the root
-// and from nested routes.
+// In a SvelteKit app, kit's own config is the `sveltekit({ … })` call in `plugins` below:
+// adapter-static writes the deployable site to dist/ with its fallback page as index.html
+// (the deployed front answers every page request with it, as for a Vite app), and
+// `paths.relative: false` gives every page the same absolute asset URLs and the service
+// worker one URL and scope.
 const svelteKit = {{SVELTE_KIT}}
 // Workbox fetches each precache entry in order before the worker can serve the shell.
 // Apple launch artwork is linked in the HTML and loaded by the device as needed.
@@ -105,7 +117,8 @@ const pwaOptions = {
   // The default package owns controller changes so the first claim leaves
   // the initial page and its in-flight navigation alone.
   injectRegister: false as const,
-  includeAssets: ['icons/*.svg', `!${launchArtwork}`, 'favicon.svg', 'og-image.svg'],
+  // The precache glob below already takes every icon the manifest names.
+  includeManifestIcons: false,
   manifest: {
     name: APP_NAME,
     short_name: APP_NAME,
@@ -137,13 +150,9 @@ const pwaOptions = {
     globIgnores: ['**/node_modules/**/*', launchArtwork],
     // OAuth and other server routes still go to the network on document loads.
     navigateFallbackDenylist: [/^\/(?:api|health|socket\.io)(?:\/|\?|$)/],
-    // SvelteKit serves its documents itself and does not emit a Vite index.html.
-    ...(svelteKit
-      ? {
-          navigateFallback: null,
-          globPatterns: ['**/*.{ico,png,svg,css}', '_app/immutable/entry/*.{js,mjs}'],
-        }
-      : {}),
+    // SvelteKit's hashed files live under _app/immutable/, and its shell is several
+    // files rather than one entry: precache the ones a page load needs.
+    ...(svelteKit ? svelteKitPrecache() : {}),
     // No runtime API caching. The old rule matched every /api/ request with
     // NetworkFirst, which tried to cache SSE/streaming GETs (EventSource,
     // text/event-stream) and threw "Cache.put() encountered a network error", and
@@ -161,15 +170,21 @@ const pwaRegistrationPlugin: Plugin = {
   configResolved(config) {
     pwa = config.plugins.find((plugin) => plugin.name === 'vite-plugin-pwa')?.api
   },
-  transformIndexHtml: {
-    // Run before Vite processes the HTML imports so the registrar is bundled
-    // in the precached page entry, even when the app replaces its own entry.
-    order: 'pre',
-    handler() {
-      if (pwa?.disabled !== false) return
-      return [{ tag: 'script', attrs: { type: 'module' }, children: pwaRegistration }]
-    },
-  },
+  // SvelteKit never calls `transformIndexHtml` (and warns about every plugin that has
+  // one); `transform` below adds the registrar to kit's client entry instead.
+  ...(svelteKit
+    ? {}
+    : {
+        transformIndexHtml: {
+          // Run before Vite processes the HTML imports so the registrar is bundled
+          // in the precached page entry, even when the app replaces its own entry.
+          order: 'pre' as const,
+          handler() {
+            if (pwa?.disabled !== false) return
+            return [{ tag: 'script', attrs: { type: 'module' }, children: pwaRegistration }]
+          },
+        },
+      }),
   transform(code, id) {
     if (!svelteKit || pwa?.disabled !== false || this.environment.config.consumer !== 'client') {
       return
@@ -324,6 +339,24 @@ const apiProxy = {
     ws: true,
   },
 }
+
+// SvelteKit writes its pages itself and its adapter writes the site after every bundle
+// closes, so vite-plugin-pwa's HTML hooks and its service-worker step move to
+// `svelteKitSite`, which runs on the site the adapter wrote: it strips the preview
+// bridges, adds the manifest link, generates the worker, and makes `vite preview` answer
+// from the site as the deployed front does.
+const pwaPlugins = svelteKit ? svelteKitPwaPlugins(VitePWA(pwaOptions)) : VitePWA(pwaOptions)
+const svelteKitSite = svelteKit
+  ? svelteKitStaticSite({
+      pwa: () => pwa,
+      transformPage: stripPreviewBridges,
+      finishSite: (site) => {
+        dropBridgeAssets(site)
+        assertNoBridgeReferences(site)
+      },
+      previewPassThrough: Object.keys(apiProxy),
+    })
+  : null
 
 export default defineConfig({
 {{VITE_PLUGINS}}{{RESOLVE_EXTENSIONS}}

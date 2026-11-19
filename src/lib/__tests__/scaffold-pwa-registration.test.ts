@@ -178,10 +178,7 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
       )
       if (!pwa) {
         const config = join(root, 'vite.config.ts')
-        await writeFile(
-          config,
-          (await readFile(config, 'utf8')).replace(/VitePWA\(pwaOptions\),\s*/, ''),
-        )
+        await writeFile(config, (await readFile(config, 'utf8')).replace(/\bpwaPlugins,\s*/, ''))
       }
       const browser = await chromium.launch()
       try {

@@ -4164,16 +4164,20 @@ export async function applyStaticSiteOverlay(
   // build's entry config and its env types — so they go through the guarded
   // write: a failure mid-flight restores the working bytes instead of leaving a
   // truncated vite.config.ts that no longer parses.
+  const staticViteConfig = join(appPath, 'vite.config.ts')
   await writeGuarded(
-    join(appPath, 'vite.config.ts'),
-    await loadTemplate('static/vite.config.ts.tpl', {
-      TAILWIND_IMPORT: buildTooling?.vitePlugin?.import
-        ? buildTooling.vitePlugin.import + '\n'
-        : '',
-      VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
-      VITE_PLUGINS: pluginsLine,
-      RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
-    }),
+    staticViteConfig,
+    await formatGeneratedSource(
+      await loadTemplate('static/vite.config.ts.tpl', {
+        TAILWIND_IMPORT: buildTooling?.vitePlugin?.import
+          ? buildTooling.vitePlugin.import + '\n'
+          : '',
+        VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
+        VITE_PLUGINS: pluginsLine,
+        RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
+      }),
+      staticViteConfig,
+    ),
   )
   await writeFile(
     join(appPath, 'vite-static-site-plugin.ts'),
@@ -5166,32 +5170,37 @@ export async function createAppProject(
     [
       vitePlugin,
       buildTooling?.vitePlugin?.usage,
-      'VitePWA(pwaOptions)',
+      'pwaPlugins',
       'pwaRegistrationPlugin',
       'rootRelativeAssetsPlugin()',
       'previewConsoleLogPlugin',
-      'stripPreviewBridgePlugin()',
+      'stripPreviewBridgePlugin({ svelteKit })',
+      'svelteKitSite',
     ].filter((p): p is string => Boolean(p)),
   )
 
   const extraConfig = fwConfig.viteExtraConfig ?? ''
 
+  const viteConfig = join(projectPath, 'vite.config.ts')
   await writeFile(
-    join(projectPath, 'vite.config.ts'),
-    await loadTemplate('app/shared/vite.config.ts.tpl', {
-      TAILWIND_IMPORT: buildTooling?.vitePlugin?.import
-        ? buildTooling.vitePlugin.import + '\n'
-        : '',
-      VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
-      VITE_PLUGINS: pluginsLine,
-      SVELTE_KIT: String(htmlFile === 'app.html'),
-      BRANDING_IMPORT: brandingImportPath,
-      RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
-      WARMUP_CLIENT_FILES: viteWarmupClientFiles(
-        htmlFile === 'app.html' ? undefined : mainEntry,
-        sharedSubdir ? `src/${sharedSubdir}/bonds` : 'src/bonds',
-      ),
-    }),
+    viteConfig,
+    await formatGeneratedSource(
+      await loadTemplate('app/shared/vite.config.ts.tpl', {
+        TAILWIND_IMPORT: buildTooling?.vitePlugin?.import
+          ? buildTooling.vitePlugin.import + '\n'
+          : '',
+        VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
+        VITE_PLUGINS: pluginsLine,
+        SVELTE_KIT: String(htmlFile === 'app.html'),
+        BRANDING_IMPORT: brandingImportPath,
+        RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
+        WARMUP_CLIENT_FILES: viteWarmupClientFiles(
+          htmlFile === 'app.html' ? undefined : mainEntry,
+          sharedSubdir ? `src/${sharedSubdir}/bonds` : 'src/bonds',
+        ),
+      }),
+      viteConfig,
+    ),
   )
 
   // The vite.config.ts above imports `./vite-preview-bridge-plugin.js`; write that
@@ -5510,15 +5519,12 @@ export interface FontFileToCopy {
 }
 
 /**
- * The `plugins:` line of a generated `vite.config.ts`, exactly as the project's own
- * prettier keeps it: one line when every plugin fits the print width (100 — every
- * scaffolded `.prettierrc`), otherwise one plugin per line with a trailing comma.
- * The plugin set depends on the selected framework and styling tooling, so the
- * emitter, not the template, decides the shape.
+ * The `plugins:` line of a generated `vite.config.ts`, one plugin per line. The plugin
+ * set depends on the selected framework and styling tooling, and a registry plugin call
+ * can be longer than a line, so the scaffold formats the whole config with prettier
+ * after filling the template.
  */
 function vitePluginsLine(plugins: string[]): string {
-  const oneLine = `  plugins: [${plugins.join(', ')}],`
-  if (oneLine.length <= 100) return oneLine
   return ['  plugins: [', ...plugins.map((p) => `    ${p},`), '  ],'].join('\n')
 }
 

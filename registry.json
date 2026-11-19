@@ -91787,7 +91787,7 @@
       "devDependencies": {
         "svelte": "5.57.2",
         "@sveltejs/kit": "3.2.0",
-        "@sveltejs/adapter-auto": "8.0.1",
+        "@sveltejs/adapter-static": "4.0.1",
         "@sveltejs/vite-plugin-svelte": "7.1.2",
         "svelte-check": "4.7.7",
         "eslint-plugin-svelte": "3.23.1",
@@ -91815,8 +91815,8 @@
         ]
       },
       "vitePlugin": {
-        "import": "import adapter from '@sveltejs/adapter-auto'\nimport { sveltekit } from '@sveltejs/kit/vite'\nimport { vitePreprocess } from '@sveltejs/vite-plugin-svelte'",
-        "usage": "sveltekit({ adapter: adapter(), paths: { relative: false }, preprocess: vitePreprocess() })"
+        "import": "import adapter from '@sveltejs/adapter-static'\nimport { sveltekit } from '@sveltejs/kit/vite'\nimport { vitePreprocess } from '@sveltejs/vite-plugin-svelte'",
+        "usage": "sveltekit({ adapter: adapter({ pages: 'dist', assets: 'dist', fallback: 'index.html' }), paths: { relative: false }, preprocess: vitePreprocess() })"
       },
       "buildScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --fail-on-warnings && vite build",
       "typecheckScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --fail-on-warnings",

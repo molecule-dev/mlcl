@@ -941,7 +941,7 @@ export function appEntryModule(
  * Derived from all appFrameworks dependency keys in the registry. A framework
  * whose markers live ONLY in `devDependencies` contributes its devDependencies
  * instead of nothing: `appFrameworks.svelte` declares `dependencies: {}` with
- * `svelte`, `@sveltejs/kit`, `@sveltejs/adapter-auto` and
+ * `svelte`, `@sveltejs/kit`, `@sveltejs/adapter-static` and
  * `@sveltejs/vite-plugin-svelte` under `devDependencies`, so a Svelte project
  * was invisible to the "is this an app project?" check both callers run
  * (`inject.ts`'s `detectAppProject`, `validator.ts`'s

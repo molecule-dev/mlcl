@@ -255,10 +255,23 @@ const dropBridgeAssetsOnBuild: Plugin = {
  * Every preview plugin, as one entry for `plugins: [...]` (Vite flattens nested
  * plugin arrays). Kept under the original name so every scaffolded
  * `vite.config.ts` picks up the e2e transport without changing.
+ *
+ * In a SvelteKit app (`{ svelteKit: true }`) only the e2e transport is returned, without
+ * its `transformIndexHtml` hook: kit writes its own HTML, its adapter writes the site after
+ * every bundle closes, and the config strips, drops and asserts on the finished site
+ * instead (`svelteKitStaticSite`). The e2e client reaches kit's pages through the plugin's
+ * response middleware.
  */
-export const stripPreviewBridgePlugin = (): Plugin[] => [
-  stripBridgesOnBuild,
-  assertNoBridgeReferencesOnBuild,
-  dropBridgeAssetsOnBuild,
-  molE2EPreviewPlugin(),
-]
+export const stripPreviewBridgePlugin = ({ svelteKit = false } = {}): Plugin[] => {
+  const e2ePreview = molE2EPreviewPlugin()
+  if (!svelteKit) {
+    return [
+      stripBridgesOnBuild,
+      assertNoBridgeReferencesOnBuild,
+      dropBridgeAssetsOnBuild,
+      e2ePreview,
+    ]
+  }
+  const { transformIndexHtml: _html, ...withoutHtml } = e2ePreview
+  return [withoutHtml]
+}
