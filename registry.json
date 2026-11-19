@@ -41690,9 +41690,7 @@
       ],
       "path": "packages/app/bonds/drag-drop/dndkit",
       "intentHints": [
-        "drag and drop",
-        "sortable list",
-        "reorder items"
+        "drag and drop"
       ]
     },
     "@molecule/app-drag-drop-dndkit-angular": {
@@ -52002,7 +52000,6 @@
         "marketplace card",
         "product card",
         "product listing",
-        "product grid",
         "record card",
         "feed card",
         "card toggle",
@@ -74195,7 +74192,6 @@
       },
       "intentHints": [
         "usequery hook",
-        "prefetch links on hover",
         "loading and error states",
         "loaded document boundary",
         "empty collection branch",
@@ -76737,14 +76733,10 @@
       },
       "intentHints": [
         "react router",
-        "client side routing react",
-        "page navigation react router",
-        "url routes react",
         "url backed pagination filters",
         "public route",
         "url selected tabs",
         "typed route params",
-        "typed route declaration",
         "typed route links",
         "navigate to saved record",
         "url selected list results"
