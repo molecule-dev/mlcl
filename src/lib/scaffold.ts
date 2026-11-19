@@ -76,6 +76,7 @@ import {
   loadToolchain,
   requirePackageByRole,
 } from './registry.js'
+import { withSuppliedStylesheet } from './scaffold-supplied-stylesheet.js'
 import type { BuildTooling, InferredPackage, MoleculeSecret } from './schema.js'
 import { generateSecretValues } from './secret-generate.js'
 import {
@@ -2872,12 +2873,15 @@ export async function copyTemplateInstance(
     const appPath = join(destDir, 'app')
     const nmPrefix = resolveNmPrefix(appPath)
     const css = await readFile(indexCssPath, 'utf-8')
-    const fixed = css.replace(
+    const relocated = css.replace(
       /@source\s+"((?:\.\.\/)+)node_modules\//g,
       (_m) => `@source "${nmPrefix}/node_modules/`,
     )
+    const fixed = await withSuppliedStylesheet(dirname(indexCssPath), relocated)
     if (fixed !== css) {
       await writeGuarded(indexCssPath, fixed)
+    }
+    if (relocated !== css) {
       mlclDebug(
         `[scaffold] Rewrote @source node_modules paths in app/src/index.css to use nmPrefix="${nmPrefix}"`,
       )
@@ -5338,7 +5342,8 @@ export async function createAppProject(
     mlclDebug(
       `[scaffold] Writing CSS (${stylingCss.length} bytes) → ${join(projectPath, 'src', 'index.css')}`,
     )
-    await writeFile(join(projectPath, 'src', 'index.css'), stylingCss)
+    const src = join(projectPath, 'src')
+    await writeFile(join(src, 'index.css'), await withSuppliedStylesheet(src, stylingCss))
   } else {
     mlclDebug(`[scaffold] No CSS template — using base CSS`)
     await writeFile(join(projectPath, 'src', 'index.css'), baseCss)

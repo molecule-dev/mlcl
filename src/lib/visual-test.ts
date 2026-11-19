@@ -14,6 +14,7 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { getRawRegistry, loadAppFrameworks, loadToolchain } from './registry.js'
+import { withSuppliedStylesheet } from './scaffold-supplied-stylesheet.js'
 
 /** Supported frameworks for visual testing */
 export const VISUAL_TEST_FRAMEWORKS = [
@@ -132,6 +133,9 @@ export async function createShowcaseProject(
       await cp(join(fwDir, file), join(srcDir, file))
     }
   }
+
+  const indexCss = join(srcDir, 'index.css')
+  await writeFile(indexCss, await withSuppliedStylesheet(srcDir, await readFile(indexCss, 'utf8')))
 
   // 3. Write package.json
   await writeFile(
