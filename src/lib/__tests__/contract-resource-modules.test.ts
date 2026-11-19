@@ -201,8 +201,15 @@ describe('an inventory API with its own contract', () => {
     const source = modules[0].source
     const example = source.split('*/', 1)[0].match(/\* (const list = useItemsList\(\))/)?.[1]
     expect(example, 'the generated module shows the URL list in a page').toBeDefined()
+    const protectedExample = source.match(/`(useItemsList\(\{\}, \{ selections, auth \}\))`/)?.[1]
+    expect(
+      protectedExample,
+      'the generated module shows how to protect a URL selection',
+    ).toBeDefined()
     const { outputText } = ts.transpileModule(
-      `${source}\nexport function examplePage() { ${example}; return list }`,
+      `${source}
+      export function examplePage() { ${example}; return list }
+      export function protectedPage(selections, auth) { return ${protectedExample} }`,
       { compilerOptions: { module: ts.ModuleKind.CommonJS } },
     )
     let search = ''
@@ -240,6 +247,10 @@ describe('an inventory API with its own contract', () => {
     const exports = {} as {
       examplePage: () => { options: QueryOptions<typeof rows> }
       useItems: (params: null) => { options: null }
+      protectedPage: (
+        selections: ListRouteOptions['selections'],
+        auth: ListRouteOptions['auth'],
+      ) => { route: { redirectTo?: string }; options: QueryOptions<typeof rows> | null }
     }
     new Function('require', 'exports', outputText)(
       (name: keyof typeof files) => files[name],
@@ -255,6 +266,22 @@ describe('an inventory API with its own contract', () => {
         { category: 'metal', limit: 12, offset: 12 },
       ])
       expect(exports.useItems(null).options).toBeNull()
+
+      const selections = {
+        all: { path: '/warehouse' },
+        assigned: { path: '/warehouse', query: { view: 'assigned' }, requiresAuth: true },
+      }
+      const signedOut = { status: 'unauthenticated', redirectTo: '/sign-in' } as const
+      search = '?view=assigned'
+      expect(exports.protectedPage(selections, signedOut)).toMatchObject({
+        route: { redirectTo: '/sign-in' },
+        options: null,
+      })
+      expect(
+        exports.protectedPage(selections, { ...signedOut, status: 'authenticated' }).options,
+      ).not.toBeNull()
+      search = ''
+      expect(exports.protectedPage(selections, signedOut).options).not.toBeNull()
     } finally {
       resetQueryClient()
     }
