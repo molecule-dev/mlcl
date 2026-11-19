@@ -81925,10 +81925,16 @@
       "stack": "app",
       "implements": "@molecule/app-routing",
       "exports": [
-        "createSvelteKitRouter",
-        "createSvelteKitNavigation",
-        "provider",
+        "*",
         "GuardResult",
+        "KitAfterNavigate",
+        "KitGotoOptions",
+        "KitNavigateListener",
+        "KitNavigationTarget",
+        "KitNavigationType",
+        "KitPage",
+        "KitPageState",
+        "KitUrl",
         "NavigateOptions",
         "NavigationGuard",
         "QueryParams",
@@ -81939,22 +81945,18 @@
         "RouteParams",
         "Router",
         "RouterConfig",
-        "KitPageState",
-        "KitGotoOptions",
-        "KitPage",
-        "KitNavigationType",
-        "KitNavigationTarget",
-        "KitAfterNavigate",
-        "KitNavigateListener",
-        "SvelteKitNavigation",
         "SvelteKitExports",
-        "SvelteKitRouterOptions"
+        "SvelteKitNavigation",
+        "SvelteKitRouterOptions",
+        "createSvelteKitNavigation",
+        "createSvelteKitRouter",
+        "provider"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-routing",
-        "svelte"
+        "@sveltejs/kit"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
