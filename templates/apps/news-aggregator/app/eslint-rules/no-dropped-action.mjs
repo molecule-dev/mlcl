@@ -178,7 +178,7 @@ export default {
     schema: [],
     messages: {
       droppedAction:
-        'The handler can drop clicks while {{condition}}. Queue server-backed toggles with the generated hook or useOptimisticValue and keep them enabled during saves. For an unavailable action, apply this change. {{fix}}',
+        'Clicks drop while {{condition}}. {{fix}} Queue toggles with a generated hook or useOptimisticValue and keep them enabled.',
     },
   },
   create(context) {
@@ -1245,15 +1245,15 @@ export default {
             const buttons = form ? submitters(control) : []
             const fix = form
               ? buttons.length
-                ? `Set each submit button's disabled condition: ${buttons
+                ? `Add ${buttons
                     .map(
                       (button) =>
-                        `line ${button.loc.start.line}: disabled={${disabledText(button)}}`,
+                        `disabled={${disabledText(button)}} on line ${button.loc.start.line}`,
                     )
-                    .join('; ')}. Or unmount the form on that condition.`
+                    .join(', ')} or unmount the unavailable form.`
                 : `Unmount this form while ${conditionText}.`
               : takesDisabled(control)
-                ? `Add disabled={${disabledText(control)}} to this control, or unmount it on that condition.`
+                ? `Add disabled={${disabledText(control)}} or unmount the unavailable control.`
                 : `Unmount this control while ${conditionText}.`
             context.report({
               node: control,

@@ -2605,14 +2605,15 @@ export function scaffoldRules(parser) {
         type: 'problem',
         schema: [],
         docs: {
-          description:
-            'Prevent an effect from filling editable field state after edits are possible.',
+          description: 'Hydrate editable fields when their record arrives while preserving edits.',
         },
         messages: {
           overwrite:
-            'Mount a keyed form after its record loads; seed state from that record. Or use useForm({ values: loadedData }) from @molecule/app-react to fill pristine fields without erasing edits.',
+            'This effect can overwrite an editable field after it mounts. Use useForm({ values: loadedData }) from @molecule/app-react to fill pristine fields without erasing edits.',
           unfilled:
-            'This draft skips pristine fields after an edit. Mount a keyed form after its record loads, or use useForm({ values: loadedData }) from @molecule/app-react to hydrate fields individually.',
+            'This draft skips pristine fields after an edit. Use useForm({ values: loadedData }) from @molecule/app-react to fill pristine fields without erasing edits.',
+          earlyMount:
+            'This form mounts before its record arrives, so its initial state stays empty. Use useForm({ values: loadedData }) from @molecule/app-react to fill pristine fields without erasing edits.',
         },
       },
       create(context) {
@@ -2632,6 +2633,7 @@ export function scaffoldRules(parser) {
               guarded,
             } = flow
             const fields = []
+            const keyedChildren = []
             // Editability is a state/control fact, independent of how a handler is spelled.
             // A curried helper, useCallback or object method must not hide the field.
             const mutators = (state) => [
@@ -2817,6 +2819,7 @@ export function scaffoldRules(parser) {
             }
             walk(flow.source.ast, (node) => {
               if (node.type !== 'JSXOpeningElement') return
+              if (node.name.type === 'JSXIdentifier' && attr(node, 'key')) keyedChildren.push(node)
               const value = expression(attr(node, 'value')) ?? expression(attr(node, 'checked'))
               let root =
                 value?.type === 'LogicalExpression' && value.operator === '??'
@@ -2940,6 +2943,92 @@ export function scaffoldRules(parser) {
               }
               return false
             }
+            // A route key is already stable before its loaded record arrives. Follow the
+            // JSX prop into the local child's editable initializers to prove that the
+            // first render can capture an unloaded record.
+            const sameRead = (left, right) => {
+              left = unwrap(left)
+              right = unwrap(right)
+              const binding = variable(left)
+              if (binding) return variable(right) === binding
+              return (
+                member(left) != null &&
+                member(left) === member(right) &&
+                sameRead(left.object, right.object)
+              )
+            }
+            const readsProp = (state, name) => {
+              const param = state.owner.params[0]
+              const props = variable(param)
+              const part =
+                param?.type === 'ObjectPattern'
+                  ? param.properties.find((part) => (part.key?.name ?? part.key?.value) === name)
+                  : null
+              const local = variable(
+                part?.value.type === 'AssignmentPattern' ? part.value.left : part?.value,
+              )
+              let reads = false
+              walk(state.initial, (node) => {
+                if (local && variable(node) === local) reads = true
+                if (props && member(node) === name && variable(node.object) === props) reads = true
+              })
+              return reads
+            }
+            if (fields.length)
+              for (const node of keyedChildren) {
+                const definition = variable(node.name)?.defs[0]
+                const child =
+                  definition?.type === 'FunctionName' ? definition.node : callback(node.name)
+                if (!child) continue
+                const editable = fields.filter(
+                  (field) => field.state.owner === child && !unavailable(field),
+                )
+                const key = expression(attr(node, 'key'))
+                const identity =
+                  key?.type === 'LogicalExpression' &&
+                  ['??', '||'].includes(key.operator) &&
+                  key.right.type === 'Literal'
+                    ? unwrap(key.left)
+                    : key
+                if (
+                  !editable.length ||
+                  !identity ||
+                  (!variable(identity) && member(identity) == null)
+                )
+                  continue
+                const conditions = flow.conditions(node, flow.owner(node))
+                for (const prop of node.attributes) {
+                  if (prop.type !== 'JSXAttribute' || prop.name.name === 'key') continue
+                  const value = expression(prop)
+                  if (
+                    value?.type !== 'LogicalExpression' ||
+                    !['??', '||'].includes(value.operator) ||
+                    !(value.right.value === null || value.right.name === 'undefined')
+                  )
+                    continue
+                  const loaded = (part) => sameRead(part, value.left)
+                  let keyPart = identity
+                  while (member(keyPart) != null && !loaded(keyPart))
+                    keyPart = unwrap(keyPart.object)
+                  if (loaded(keyPart)) continue
+                  const ready = conditions.some(([test, truth]) => {
+                    if (flow.implies(test, truth, loaded, true)) return true
+                    // A create/edit form can mount without a record on the create route.
+                    // Its edit guard must cover the same identity used to key the child.
+                    if (truth || test.type !== 'LogicalExpression' || test.operator !== '&&')
+                      return false
+                    return [
+                      [test.left, test.right],
+                      [test.right, test.left],
+                    ].some(
+                      ([id, pending]) =>
+                        sameRead(id, identity) && flow.implies(pending, true, loaded, false),
+                    )
+                  })
+                  if (!ready && editable.some(({ state }) => readsProp(state, prop.name.name)))
+                    context.report({ node: prop, messageId: 'earlyMount' })
+                }
+              }
             const livePreference = (write, field) => {
               // These framework contracts publish the selection immediately. Mirroring their
               // notification is not asynchronous draft hydration. Match both ends, not names.
