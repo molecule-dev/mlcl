@@ -59,11 +59,12 @@ describe('a button that cannot do anything', () => {
       new URL('./fixtures/p312-article-preview-before.tsx.txt', import.meta.url),
       'utf8',
     )
-    const rows = await findings(source)
+    const [file] = await engine.lintText(source, { filePath: 'src/Control.tsx' })
+    expect(file.filePath).toBe(join(root, 'src/Control.tsx'))
+    const rows = file.messages.filter((row) => row.ruleId === RULE)
     expect(rows).toHaveLength(1)
     expect(rows[0]).toMatchObject({ line: 28, severity: 1 })
-    expect(rows[0]?.message).toContain('Control.tsx:28')
-    expect(rows[0]?.message).toContain('No action or external binding hook')
+    expect(rows[0]?.message).toMatch(/^No action or external binding hook/)
   })
 
   it('reports a non-benchmark invoice row whose copy-link button has no handler', async () => {
