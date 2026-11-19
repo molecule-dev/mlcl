@@ -1237,6 +1237,12 @@ export const AppFrameworkConfig = z.object({
     .string()
     .optional()
     .describe('Source file extension for this framework (defaults to "tsx")'),
+  entryModule: z
+    .string()
+    .optional()
+    .describe(
+      'The module index.html loads, under src/ and without its extension (defaults to "main"). React uses "bootstrap": it imports initializeApp from main and mounts the router with its route access.',
+    ),
   htmlTemplate: z.string().optional().describe('HTML template filename (defaults to "index.html")'),
   publicDir: z
     .string()
