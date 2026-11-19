@@ -329,7 +329,7 @@ describe('toolchain version sync', () => {
     const SECOND_RENDER_PATH: Record<string, string> = {
       // Prerenders every route to static HTML after the bundle; its dev server
       // must render through the SAME entry, or dev and the published site differ.
-      'static-site': 'tsc --noEmit && vite build && node scripts/prerender.mjs',
+      'static-site': 'tsc --noEmit && node scripts/prerender.mjs --build',
       // No Vite and no React: one Node script writes every page as HTML. Its dev
       // server (scripts/dev.ts) runs this SAME script on every change, so dev and
       // the published site cannot differ.

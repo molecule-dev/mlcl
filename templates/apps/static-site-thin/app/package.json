@@ -63,6 +63,7 @@
   "molecule": {
     "projectType": "static",
     "framework": "none",
-    "devServer": "script"
+    "devServer": "script",
+    "suppliedStylesheet": "public/supplied-styles/entry.css"
   }
 }

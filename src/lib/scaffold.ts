@@ -4017,7 +4017,9 @@ const STATIC_SITE_REMOVES = [
   'src/components/UserMenu.tsx',
   'src/components/OAuthButtons.tsx',
   'src/components/FloatingInput.tsx',
+  'src/components/Icon.tsx',
   'src/components/SettingsPanel.tsx',
+  'src/components/ThemeToggle.tsx',
   'src/pwa.ts',
 ]
 
@@ -4144,7 +4146,7 @@ export async function applyStaticSiteOverlay(
   pkg.scripts = {
     ...pkg.scripts,
     dev: 'vite',
-    build: 'tsc --noEmit && vite build && node scripts/prerender.mjs',
+    build: 'tsc --noEmit && node scripts/prerender.mjs --build',
     preview: 'vite preview',
   }
   for (const dep of STATIC_SITE_DROPPED_DEV_DEPS) delete pkg.devDependencies?.[dep]
@@ -4220,6 +4222,15 @@ export async function applyStaticSiteOverlay(
 
   for (const rel of [...STATIC_SITE_REMOVES, ...(appEntry === staticEntry ? [] : [appEntry])]) {
     await rm(join(appPath, rel), { force: true })
+  }
+  // The static site does not include the auth scaffold's legal-page routes.
+  // Its UI locale modules remain in the page graph.
+  const locales = join(appPath, 'src', 'locales')
+  if (!existsSync(locales)) return
+  for (const locale of await readdir(locales, { withFileTypes: true })) {
+    if (!locale.isDirectory()) continue
+    await rm(join(locales, locale.name, 'privacyPolicy.ts'), { force: true })
+    await rm(join(locales, locale.name, 'termsOfService.ts'), { force: true })
   }
 }
 
@@ -5346,7 +5357,8 @@ export async function createAppProject(
     await writeFile(join(src, 'index.css'), await withSuppliedStylesheet(src, stylingCss))
   } else {
     mlclDebug(`[scaffold] No CSS template — using base CSS`)
-    await writeFile(join(projectPath, 'src', 'index.css'), baseCss)
+    const src = join(projectPath, 'src')
+    await writeFile(join(src, 'index.css'), await withSuppliedStylesheet(src, baseCss))
   }
 
   // Create the default theme.css (template override replaces this if provided).

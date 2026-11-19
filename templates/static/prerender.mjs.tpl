@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 /**
  * Prerender — turns the client build into a static site, in Node, with no
- * browser. Runs after `vite build` (see the `build` script in package.json).
+ * browser. Pass --build to build the client shell and prerender it in one run.
  *
  * 1. Bundles src/entry-server.tsx with Vite's SSR build (the same config and
  *    the same @molecule/* packages as the client bundle) and imports it.
@@ -28,16 +28,22 @@ import { fileURLToPath, pathToFileURL } from 'node:url'
 
 import { build } from 'vite'
 
+import { rootRelativeAssetsPlugin } from '@molecule/app-vite-config-default/assets'
+
 const appRoot = resolve(dirname(fileURLToPath(import.meta.url)), '..')
 const DIST = join(appRoot, 'dist')
 const SSR_OUT = join(appRoot, 'node_modules', '.cache', 'mol-prerender')
+const configFile = join(appRoot, 'vite.config.ts')
+const buildClient = process.argv.includes('--build')
+const plugins = buildClient ? [rootRelativeAssetsPlugin({ prerender: true })] : []
 
 /** Bundle the server entry with the app's own Vite config and import it. */
 async function loadEntry() {
   await build({
-    configFile: join(appRoot, 'vite.config.ts'),
+    configFile,
     root: appRoot,
-    logLevel: 'error',
+    plugins,
+    logLevel: buildClient ? 'warn' : 'error',
     build: {
       ssr: join(appRoot, 'src', 'entry-server.tsx'),
       outDir: SSR_OUT,
@@ -109,6 +115,7 @@ async function writeOutput(sitePath, content) {
 }
 
 async function main() {
+  if (buildClient) await build({ root: appRoot, configFile, plugins })
   const shellPath = join(DIST, 'index.html')
   if (!existsSync(shellPath)) {
     throw new Error(`prerender: ${shellPath} is missing — run \`vite build\` first`)

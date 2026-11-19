@@ -18,6 +18,8 @@ export interface Site {
   basePath: string
   /** The public origin, no trailing slash. */
   siteUrl: string
+  /** Public stylesheet loaded after the site's own CSS when it has been supplied. */
+  suppliedStylesheet?: string
   /** A site-relative path (`/about/`, `feed.xml`) as an href under the base path. */
   withBase(path: string): string
   /** SITE_URL + base path + path. */

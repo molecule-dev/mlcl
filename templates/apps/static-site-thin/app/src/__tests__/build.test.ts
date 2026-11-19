@@ -40,6 +40,34 @@ describe('outputFileOf', () => {
 })
 
 describe('buildSite on the template content', () => {
+  it('loads a supplied theme and its assets on every page under the configured base path', async () => {
+    const root = appWith({ 'workshop.md': post('Workshop', '2026-01-12') })
+    const supplied = join(root, 'public/supplied-styles')
+    mkdirSync(supplied, { recursive: true })
+    writeFileSync(join(supplied, 'entry.css'), '')
+    const outDir = join(root, 'dist')
+    const build = (): ReturnType<typeof buildSite> =>
+      buildSite({ root, outDir, basePath: '/field-notes/' })
+    await build()
+    expect(readFileSync(join(outDir, 'index.html'), 'utf8')).not.toContain('supplied-styles')
+    const css = '@layer brand { h1 { background: url(./tool.svg) } }'
+    writeFileSync(join(supplied, 'entry.css'), css)
+    writeFileSync(join(supplied, 'tool.svg'), '<svg/>')
+    await build()
+    for (const file of ['index.html', 'workshop/index.html', '404.html']) {
+      const html = readFileSync(join(outDir, file), 'utf8')
+      expect(html).toContain('href="/field-notes/supplied-styles/entry.css"')
+      expect(html.indexOf('/field-notes/supplied-styles/entry.css')).toBeGreaterThan(
+        html.indexOf('/field-notes/styles.css'),
+      )
+    }
+    expect(readFileSync(join(outDir, 'supplied-styles/entry.css'), 'utf8')).toBe(css)
+    expect(readFileSync(join(outDir, 'supplied-styles/tool.svg'), 'utf8')).toBe('<svg/>')
+    expect(readFileSync(join(outDir, 'styles.css'), 'utf8')).toMatch(
+      /^@layer molecule-site-defaults \{/,
+    )
+  })
+
   it('writes every page and file the site promises', async () => {
     const outDir = mkdtempSync(join(tmpdir(), 'thin-dist-'))
     const { files, posts } = await buildSite({

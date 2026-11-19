@@ -14,6 +14,7 @@ import {
   readFileSync,
   renameSync,
   rmSync,
+  statSync,
   writeFileSync,
 } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
@@ -212,6 +213,9 @@ export async function buildSite(options: {
 }): Promise<BuildResult> {
   const { root, outDir } = options
   const site = createSite({ basePath: options.basePath, siteUrl: options.siteUrl })
+  const suppliedStylesheet = 'supplied-styles/entry.css'
+  const supplied = statSync(join(root, 'public', suppliedStylesheet), { throwIfNoEntry: false })
+  if (supplied?.isFile() && supplied.size > 0) site.suppliedStylesheet = suppliedStylesheet
   const posts = await loadPosts(root)
   // Provenance first: the post pages show it, and provenance.json publishes it —
   // for every post; one without transcripts is all human.
@@ -268,7 +272,11 @@ export async function buildSite(options: {
     // other order made every site override lose (the layout's --mn-measure beat
     // the site's own).
     const styles = join(staging, 'styles.css')
-    writeFileSync(styles, marginNotesCss + (existsSync(styles) ? readFileSync(styles, 'utf8') : ''))
+    const defaults = marginNotesCss + (existsSync(styles) ? readFileSync(styles, 'utf8') : '')
+    writeFileSync(
+      styles,
+      site.suppliedStylesheet ? `@layer molecule-site-defaults {\n${defaults}\n}\n` : defaults,
+    )
   } catch (error) {
     rmSync(staging, { recursive: true, force: true })
     throw error

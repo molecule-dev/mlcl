@@ -213,6 +213,19 @@ describe('runCheckLocal', () => {
     expect(result.ok).toBe(true)
     expect(result.report).toContain('PASS build')
     expect(result.report).toContain('dist/: 1 file')
+    expect(result.report).not.toContain('unreached-source')
+  })
+
+  it('passes through the native Vite diagnostic on a successful build', async () => {
+    const warning = '[molecule:unreached-source] "src/unused.css" is outside the Vite build graph.'
+    const root = fixtureDir({
+      'package.json': JSON.stringify({ scripts: { build: 'node build.mjs' } }),
+      'build.mjs': `process.stderr.write(${JSON.stringify(warning + '\n')})`,
+    })
+    const result = await runCheckLocal(root, { steps: ['build'] }, { budgetMs: 30_000 })
+    if ('error' in result) throw new Error(result.error)
+    expect(result.ok).toBe(true)
+    expect(result.report).toContain(warning)
   })
 
   it('reports a failing script with its real output', async () => {

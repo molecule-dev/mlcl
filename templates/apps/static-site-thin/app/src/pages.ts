@@ -118,7 +118,11 @@ export function layout({ site, path, title, description, main, head = '' }: Page
   <link rel="alternate" type="application/rss+xml" title="${escapeHtml(APP_NAME)}" href="${site.withBase(FEED_RSS_PATH)}" />
   <link rel="alternate" type="application/atom+xml" title="${escapeHtml(APP_NAME)}" href="${site.withBase(FEED_ATOM_PATH)}" />
   <link rel="icon" href="${site.withBase('/favicon.svg')}" type="image/svg+xml" />
-  <link rel="stylesheet" href="${site.withBase('/styles.css')}" />
+  <link rel="stylesheet" href="${site.withBase('/styles.css')}" />${
+    site.suppliedStylesheet
+      ? `\n  <link rel="stylesheet" href="${site.withBase(site.suppliedStylesheet)}" />`
+      : ''
+  }
   <script src="${site.withBase('/site.js')}" defer></script>
   ${head}
 </head>

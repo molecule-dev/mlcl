@@ -111,6 +111,8 @@ export interface CheckStepResult {
   summary?: string
   /** For a build: what its output dir now contains. */
   manifest?: string
+  /** Selected Vite diagnostics, including warnings from passing builds. */
+  buildWarnings?: string[]
   /** Why it was skipped (status `skipped`). */
   reason?: string
   logPath: string
@@ -642,6 +644,7 @@ export function formatCheckReport(results: readonly CheckStepResult[], totalMs: 
     out.push(
       `${tag} ${r.name} ${secs(r.durationMs)}${detail.length ? ` — ${detail.join('; ')}` : ''}`,
     )
+    for (const warning of r.buildWarnings ?? []) out.push(`  ${warning}`)
     if (r.status !== 'passed') {
       for (const e of r.errors) out.push(`  ${e}`)
       // The log ONLY when the list above is not all of it — a pointer under a step
@@ -723,6 +726,20 @@ async function runStep(
   const { errors, total, summary } = extractStepErrors(step.kind, cleanLog, root, step.dir, failed)
   const manifest =
     step.kind === 'build' && !failed && step.outDirs ? buildManifest(step.dir, step.outDirs) : null
+  const buildWarnings =
+    step.kind === 'build' && !failed
+      ? [
+          ...new Set(
+            cleanLog
+              .split('\n')
+              .map((line) => stripAnsi(line).trim())
+              .filter((line) => line.startsWith('[molecule:unreached-source] ')),
+          ),
+        ]
+      : []
+  const warnings = buildWarnings.slice(0, MAX_REPORTED_ERRORS).map((line) => clip(line))
+  if (buildWarnings.length > warnings.length)
+    warnings.push(`${buildWarnings.length - warnings.length} more warnings in ${step.logPath}`)
   return {
     ...base,
     status: failed ? 'failed' : 'passed',
@@ -737,6 +754,7 @@ async function runStep(
       return text ? { summary: text } : {}
     })(),
     ...(manifest ? { manifest: formatManifest(manifest) } : {}),
+    ...(warnings.length ? { buildWarnings: warnings } : {}),
   }
 }
 
