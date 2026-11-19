@@ -204,10 +204,8 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
       const messages = await lintToggle('split-write', splitToggle, splitWriter)
       expect(messages).toHaveLength(1)
       expect(messages[0]).toMatchObject({ line: 9, severity: 1 })
-      expect(messages[0]?.message).toContain(
-        'A reload can read the old value before the save commits',
-      )
-      expect(messages[0]?.message).toContain('render the saved record')
+      expect(messages[0]?.message).toContain('Use the generated toggle hook')
+      expect(messages[0]?.message).toContain('wait for the save before navigating')
       expect(messages[0]?.message).toContain('await save(')
     })
 
