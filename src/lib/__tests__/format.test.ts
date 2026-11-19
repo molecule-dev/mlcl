@@ -7,6 +7,7 @@ import { afterAll, describe, expect, it } from 'vitest'
 import {
   formatGeneratedFiles,
   formatGeneratedSource,
+  sortImportStatements,
   unformattedGeneratedFiles,
 } from '../format.js'
 
@@ -22,6 +23,19 @@ afterAll(async () => {
   for (const dir of tempDirs) {
     await rm(dir, { recursive: true, force: true })
   }
+})
+
+describe('sortImportStatements', () => {
+  it('orders a same-named type and value as the scaffold import lint does', () => {
+    const single = "import { derived, readable, type Readable } from 'svelte/store'"
+    const multi = "import {\n  derived,\n  readable,\n  type Readable,\n} from 'svelte/store'"
+    expect(sortImportStatements(single)).toBe(
+      "import { derived, type Readable, readable } from 'svelte/store'",
+    )
+    expect(sortImportStatements(multi)).toBe(
+      "import {\n  derived,\n  type Readable,\n  readable,\n} from 'svelte/store'",
+    )
+  })
 })
 
 describe('formatGeneratedSource', () => {

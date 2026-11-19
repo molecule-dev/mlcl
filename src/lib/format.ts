@@ -31,12 +31,13 @@ function extractModulePath(text: string): string {
   return text
 }
 
-/**
- * Sort key for a single named specifier.  Strips leading `type ` so that
- * `type Foo` sorts next to `Foo` (alphabetically by name).
- */
-function specifierSortKey(s: string): string {
-  return s.replace(/^type\s+/, '').toLowerCase()
+const importNameOrder = new Intl.Collator('en', { sensitivity: 'base', numeric: true })
+
+/** Order named imports as the scaffold's import lint does, ignoring the `type` modifier. */
+function compareSpecifiers(a: string, b: string): number {
+  const left = a.replace(/^type\s+/, '')
+  const right = b.replace(/^type\s+/, '')
+  return importNameOrder.compare(left, right) || (left < right ? -1 : left > right ? 1 : 0)
 }
 
 /**
@@ -56,7 +57,7 @@ function sortSingleLineSpecifiers(line: string): string {
     .filter(Boolean)
   if (items.length <= 1) return line
 
-  items.sort((a, b) => specifierSortKey(a).localeCompare(specifierSortKey(b)))
+  items.sort(compareSpecifiers)
   return `${prefix}{ ${items.join(', ')} }${suffix}`
 }
 
@@ -76,18 +77,13 @@ function sortMultiLineSpecifiers(blockLines: string[]): string[] {
   const interior = blockLines.slice(1, -1)
 
   // Extract specifier names from interior lines
-  const specifiers = interior.map((line) => {
-    const trimmed = line.trim().replace(/,$/, '')
-    return { original: trimmed, sortKey: specifierSortKey(trimmed) }
-  })
-
-  specifiers.sort((a, b) => a.sortKey.localeCompare(b.sortKey))
+  const specifiers = interior.map((line) => line.trim().replace(/,$/, '')).sort(compareSpecifiers)
 
   // Detect indentation from first interior line
   const indentMatch = interior[0]?.match(/^(\s+)/)
   const indent = indentMatch ? indentMatch[1] : '  '
 
-  const sortedInterior = specifiers.map((s) => `${indent}${s.original},`)
+  const sortedInterior = specifiers.map((specifier) => `${indent}${specifier},`)
   return [first, ...sortedInterior, last]
 }
 
