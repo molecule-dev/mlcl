@@ -3594,6 +3594,8 @@
         "rerunOfRunningSuite",
         "repeatingFailureNote",
         "whitespaceTolerantReplace",
+        "SAME_MODULE_MARK",
+        "sameModuleNote",
         "parseCheckCommand",
         "parseCheckProblem",
         "fusedLine",
