@@ -922,6 +922,20 @@ export function loadAppFrameworks(): Record<string, AppFrameworkConfig> {
 }
 
 /**
+ * The module a framework's `index.html` loads, relative to the app root (`src/main.tsx`,
+ * `src/bootstrap.tsx` for React). Read from the framework's registry `entryModule` and
+ * `fileExtension`, so a framework that mounts its app from another module needs no CLI change.
+ *
+ * @param config - The framework's registry configuration.
+ * @returns The entry module's path, such as `src/bootstrap.tsx`.
+ */
+export function appEntryModule(
+  config: Pick<AppFrameworkConfig, 'entryModule' | 'fileExtension'>,
+): string {
+  return `src/${config.entryModule ?? 'main'}.${config.fileExtension ?? 'tsx'}`
+}
+
+/**
  * Get the set of npm dependency names that identify app projects.
  *
  * Derived from all appFrameworks dependency keys in the registry. A framework

@@ -66,6 +66,7 @@ import {
 } from './migration-dialect.js'
 import { missingMoleculePeers } from './peer-closure.js'
 import {
+  appEntryModule,
   detectAppFramework,
   getMoleculeVersion,
   getRawRegistry,
@@ -4013,7 +4014,6 @@ const STATIC_SITE_REMOVES = [
   'src/components/OAuthButtons.tsx',
   'src/components/FloatingInput.tsx',
   'src/components/SettingsPanel.tsx',
-  'src/bootstrap.tsx',
   'src/pwa.ts',
 ]
 
@@ -4198,14 +4198,19 @@ export async function applyStaticSiteOverlay(
     ...extraVars,
   })
 
+  // The static set mounts from its own src/main.tsx. When the app scaffold's entry module is
+  // another file (React: src/bootstrap.tsx, the registry entryModule), index.html moves to
+  // main.tsx and that module goes.
+  const appEntry = appEntryModule(fwConfig)
+  const staticEntry = 'src/main.tsx'
   const index = join(appPath, 'index.html')
-  if (existsSync(index)) {
+  if (appEntry !== staticEntry && existsSync(index)) {
     const source = await readFile(index, 'utf8')
-    const html = source.replace('src="/src/bootstrap.tsx"', 'src="/src/main.tsx"')
+    const html = source.replace(`src="/${appEntry}"`, `src="/${staticEntry}"`)
     if (html !== source) await writeGuarded(index, html)
   }
 
-  for (const rel of STATIC_SITE_REMOVES) {
+  for (const rel of [...STATIC_SITE_REMOVES, ...(appEntry === staticEntry ? [] : [appEntry])]) {
     await rm(join(appPath, rel), { force: true })
   }
 }
@@ -4983,9 +4988,8 @@ export async function createAppProject(
   // Framework-specific paths derived from registry config
   const sharedSubdir = fwConfig.sharedCodeDir // e.g. "lib" for SvelteKit
   const sharedDir = sharedSubdir ? join(projectPath, 'src', sharedSubdir) : join(projectPath, 'src')
-  const ext = fwConfig.fileExtension ?? 'tsx'
   // The module `index.html` loads (and the dev server warms up first).
-  const mainEntry = framework === 'react' ? 'src/bootstrap.tsx' : `src/main.${ext}`
+  const mainEntry = appEntryModule(fwConfig)
   // A NAME from the registry (`schema.ts`: "Static assets directory name"), resolved
   // against this project here. Everything below joins it with `projectPath`, EXCEPT
   // the preview-bridge injectors, which take a directory: those get
