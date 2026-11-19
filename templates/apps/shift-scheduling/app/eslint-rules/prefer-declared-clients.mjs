@@ -2899,6 +2899,18 @@ export function scaffoldRules(parser) {
                 return node.properties.every(
                   (part) => part.type === 'Property' && constantSeed(part.value, new Set(seen)),
                 )
+              const key = member(node)
+              if (key != null) {
+                const object = unwrap(flow.init(node.object) ?? node.object)
+                if (object?.type !== 'ObjectExpression') return false
+                for (const part of object.properties.toReversed()) {
+                  if (part.type !== 'Property' || (part.computed && part.key.type !== 'Literal'))
+                    return false
+                  if (String(part.key.name ?? part.key.value) === String(key))
+                    return part.kind === 'init' && constantSeed(part.value, seen)
+                }
+                return false
+              }
               return constantSeed(flow.init(node), seen)
             }
             // A scalar dirty witness preserves one value. On an initially defaulted
