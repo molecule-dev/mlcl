@@ -55799,6 +55799,7 @@
         "ListingCardMedia",
         "ListingCardMediaProps",
         "ListingCardProps",
+        "ListingCardToggleProps",
         "ListingGrid",
         "ListingGridProps"
       ],
@@ -55887,6 +55888,7 @@
         "ListingCardMedia",
         "ListingCardMediaProps",
         "ListingCardProps",
+        "ListingCardToggleProps",
         "ListingGrid",
         "ListingGridProps"
       ],
@@ -55928,6 +55930,7 @@
         "ListingCardMedia",
         "ListingCardMediaProps",
         "ListingCardProps",
+        "ListingCardToggleProps",
         "ListingGrid",
         "ListingGridProps"
       ],
@@ -55969,6 +55972,7 @@
         "ListingCardMedia",
         "ListingCardMediaProps",
         "ListingCardProps",
+        "ListingCardToggleProps",
         "ListingGrid",
         "ListingGridProps"
       ],
