@@ -73,6 +73,26 @@ describe('empty interactive targets', () => {
     expect(result.messages.map((message) => message.ruleId)).toEqual([ruleId])
   })
 
+  it('checks the only glyph of a native remove button on a notes page', async () => {
+    await writeFile(join(root, 'src/labels.css'), '.remove { background: none; border: 0 }')
+    const button =
+      '<button type="button" className="remove" onClick={act} aria-label={label}><i className="missing-dismiss-glyph" /></button>'
+    const source = `import './labels.css'\n${control(button)}`
+    expect(await findings(source)).toMatchObject([
+      { line: 3, severity: 2, messageId: 'undrawnIcon' },
+    ])
+    await writeFile(join(root, 'src/labels.css'), '.missing-dismiss-glyph::before { content: "×" }')
+    expect(await findings(source)).toEqual([])
+  })
+
+  it.each([
+    '<button aria-label={label} style={props.iconStyle}><i className="unused" /></button>',
+    '<button aria-label={label} className={props.iconClass}><i className="unused" /></button>',
+    '<button aria-label={label} aria-hidden="true"><i className="unused" /></button>',
+  ])('lets an independently styled or hidden button own its rendering: %s', async (markup) => {
+    expect(await findings(control(markup))).toEqual([])
+  })
+
   it('rejects a named, keyboard-accessible but undrawn target at its source line', async () => {
     const messages = await findings(
       control(

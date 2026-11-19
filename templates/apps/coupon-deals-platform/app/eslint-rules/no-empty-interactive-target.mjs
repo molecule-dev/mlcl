@@ -133,10 +133,14 @@ function interactive(node) {
 
 /** A named native button whose only authored content is one literal icon element. */
 function soleButtonIcon(node) {
+  const classes = classAttribute(node)
   if (
     tag(node) !== 'button' ||
     !attribute(node, 'aria-label') ||
     hidden(node) ||
+    !interactive(node) ||
+    attribute(node, 'style') ||
+    (classes && !literal(classes.value).known) ||
     attribute(node, 'children') ||
     attribute(node, 'dangerouslySetInnerHTML') ||
     node.openingElement.attributes.some((attr) => attr.type === 'JSXSpreadAttribute')
