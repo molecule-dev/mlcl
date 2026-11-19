@@ -136,7 +136,7 @@ setAuthTokenSource(() => getAuth().getAccessToken())`,
     },
   )
 
-  it('the generated React lint rejects a document navigation and accepts the router hook', async () => {
+  it('the generated React lint requires a link for a click that only opens another page', async () => {
     const app = join(await directory(), 'app')
     await createAppProject(app, 'warehouse', 'react')
     const rule = 'molecule-local/no-in-app-document-navigation'
@@ -145,12 +145,33 @@ setAuthTokenSource(() => getAuth().getAccessToken())`,
       ['documentNavigation', 2],
     ])
     expect(rows[0].message).toContain('useNavigate()')
-    const fixed = `import { useNavigate } from 'react-router'
+    const navigationButton = `import { useNavigate } from 'react-router'
 export function Warehouse() {
   const navigate = useNavigate()
-  return <button type="button" onClick={() => navigate('/warehouse')}>Open</button>
+  const openWarehouse = () => navigate('/warehouse')
+  return <button type="button" onClick={openWarehouse}>Open</button>
 }`
-    expect(await findings(app, fixed, rule)).toEqual([])
+    expect(
+      (await findings(app, navigationButton, rule)).map(({ messageId, severity }) => [
+        messageId,
+        severity,
+      ]),
+    ).toEqual([['routeButton', 2]])
+    const link = `import { Link } from 'react-router'
+export function Warehouse() {
+  return <Link to="/warehouse">Open</Link>
+}`
+    expect(await findings(app, link, rule)).toEqual([])
+    expect(
+      await findings(
+        app,
+        navigationButton.replace(
+          "() => navigate('/warehouse')",
+          "async () => { await saveInventory(); navigate('/warehouse') }",
+        ),
+        rule,
+      ),
+    ).toEqual([])
     expect(await findings(app, "location.href = '/api/download'", rule)).toEqual([])
   })
 

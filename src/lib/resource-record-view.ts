@@ -51,7 +51,7 @@ export function resourceRecordView(
   switch (framework) {
     case 'react':
       return {
-        doc: `Detail pages use ${jsx}. Put the page markup in renderRecord. Pass pending, missing and error content to the view.`,
+        doc: `Detail pages use ${jsx}. Render from the record supplied to renderRecord so the module's writes update the display. Pass pending, missing and error content to the view.`,
         imports: ['react', ['createElement', 'type ReactNode']],
         source: `${shape}\n\n${description}
 export function ${name}(props: ${props}): ReactNode {

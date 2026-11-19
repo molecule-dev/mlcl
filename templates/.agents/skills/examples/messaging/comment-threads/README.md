@@ -61,6 +61,13 @@ bare array, a `{ data }` envelope, AND this pagination shape → the flat rows. 
 exactly this; `res.data` alone is the envelope, so an `Array.isArray(res.data)` guard would yield
 an empty thread.)
 
+## Comment body
+
+Pass the saved body string to `ThreadTree`. It renders the complete text in a paragraph,
+preserves line breaks, and wraps long words. In a flat list with custom card markup, put
+the body string in a `<p>` inside the card. Keep headings and other structured content in
+their own block elements.
+
 ## Anti-patterns
 
 - Do not rebuild a comment tree component or a comment backend. Use

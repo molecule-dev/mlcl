@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { Link, useNavigate, useParams } from 'react-router'
+import { Link, useParams } from 'react-router'
 
 import { track } from '@molecule/app-analytics'
 import { useHttpClient, useTranslation } from '@molecule/app-react'
@@ -67,7 +67,6 @@ export function RestaurantMenu() {
   const { t } = useTranslation()
   const { id } = useParams<{ id: string }>()
   const http = useHttpClient()
-  const navigate = useNavigate()
   const cart = useCart()
   const [restaurant, setRestaurant] = useState<Restaurant | null>(null)
   const [items, setItems] = useState<MenuItem[]>([])
@@ -181,10 +180,6 @@ export function RestaurantMenu() {
   const cartSubtotal = restaurantLines.reduce((n, l) => n + l.qty * l.price_cents, 0)
 
   const sectionsInOrder = Array.from(new Set(items.map((i) => i.section)))
-
-  function goToCheckout(): void {
-    navigate('/checkout')
-  }
 
   return (
     <div
@@ -397,9 +392,8 @@ export function RestaurantMenu() {
                 <span>{t('nav.subtotal', {}, { defaultValue: 'Subtotal' })}</span>
                 <span data-testid="cart-subtotal">{fmt(cartSubtotal)}</span>
               </div>
-              <button
-                type="button"
-                onClick={goToCheckout}
+              <Link
+                to="/checkout"
                 data-testid="cart-checkout"
                 className={cm.cn(
                   cm.sp('px', 4),
@@ -410,7 +404,7 @@ export function RestaurantMenu() {
                 )}
               >
                 {t('restaurantMenu.checkoutCta', {}, { defaultValue: 'Go to checkout' })}
-              </button>
+              </Link>
             </>
           )}
         </div>

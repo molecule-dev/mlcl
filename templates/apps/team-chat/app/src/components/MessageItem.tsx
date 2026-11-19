@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate } from 'react-router'
+import { Link } from 'react-router'
 
 import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -9,11 +9,7 @@ import ReactionButton from './ReactionButton.js'
 export function MessageItem() {
   const cm = getClassMap()
   const { t } = useTranslation()
-  const navigate = useNavigate()
-
-  const handleProfileClick = () => {
-    navigate('/profile/sarah-kim')
-  }
+  const profile = '/profile/sarah-kim'
 
   return (
     <div
@@ -23,8 +19,9 @@ export function MessageItem() {
         'group rounded-lg message-hover transition-colors',
       )}
     >
-      <button
-        type="button"
+      <Link
+        to={profile}
+        tabIndex={-1}
         aria-label={t(
           'messageItem.authorName',
           { name: 'Sarah Kim' },
@@ -37,7 +34,6 @@ export function MessageItem() {
           cm.cursorPointer,
           'rounded-lg overflow-hidden',
         )}
-        onClick={handleProfileClick}
       >
         <img
           className={cm.cn(cm.w('full'), cm.h('full'), 'object-cover')}
@@ -45,20 +41,19 @@ export function MessageItem() {
           src="https://picsum.photos/seed/MessageItem-1/1200/800"
           alt=""
         />
-      </button>
+      </Link>
       <div className={cm.flex1}>
         <div className={cm.cn(cm.flex({ align: 'baseline', gap: 2 }), cm.sp('mb', 1))}>
-          <button
-            type="button"
+          <Link
+            to={profile}
             className={cm.cn(
               cm.fontWeight('bold'),
               cm.cursorPointer,
               'text-foreground hover:underline',
             )}
-            onClick={handleProfileClick}
           >
             {t('messageItem.authorName', { name: 'Sarah Kim' }, { defaultValue: '{{name}}' })}
-          </button>
+          </Link>
           <span className={cm.cn('text-[11px] text-on-surface-variant')}>
             {t('messageItem.timestamp', { time: '10:23 AM' }, { defaultValue: '{{time}}' })}
           </span>

@@ -26,7 +26,7 @@ test.describe('/reports', () => {
   test('"New report" CTA navigates to /query', async ({ page }) => {
     await signup(page)
     await page.goto(APP_BASE + '/reports')
-    await page.getByRole('button', { name: /new report/i }).click()
+    await page.getByRole('link', { name: /new report/i }).click()
     await expect(page).toHaveURL(/\/query/)
   })
 

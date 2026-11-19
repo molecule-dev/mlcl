@@ -11,6 +11,8 @@ import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 
+import { createElement, type ReactNode } from 'react'
+import { renderToStaticMarkup } from 'react-dom/server'
 import { compile as compileSvelte } from 'svelte/compiler'
 import ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
@@ -23,6 +25,7 @@ import {
   setProvider,
 } from '@molecule/app-query'
 import { createProvider } from '@molecule/app-query-memory'
+import { QueryContent } from '@molecule/app-query-react'
 
 import { planAppResourceModules } from '../app-resource-modules.js'
 import {
@@ -235,6 +238,63 @@ describe('an inventory API with its own contract', () => {
       expect(requests).toContainEqual(['patch', '/items/bolt%2Fa', { name: 'Saved bolt' }])
       expect(exports.useItems(null)).toBeNull()
       expect(exports.useItem(null)).toBeNull()
+    } finally {
+      resetQueryClient()
+    }
+  })
+
+  it('the generated inventory view renders replaced labels on the same saved record', async () => {
+    const source = (await plan('inventory-openapi.json.txt')).modules[0].source
+    const { outputText } = ts.transpileModule(source, {
+      compilerOptions: { module: ts.ModuleKind.CommonJS },
+    })
+    let item = { sku: 'bolt/a', name: 'Bolt', quantity: 1, labels: ['Hardware', 'Bulk'] }
+    const http = {
+      get: async () => ({ data: item }),
+      patch: async () => {
+        item = { ...item, labels: [] }
+        return { data: item }
+      },
+    }
+    type Item = typeof item
+    const generated = {} as {
+      updateItem: (id: string, input: Pick<Item, 'sku' | 'name'>) => Promise<Item>
+      ItemView: (props: { id: string; children: (record: Item) => ReactNode }) => ReactNode
+    }
+    let detail: QueryOptions<Item> | undefined
+    const runtime = {
+      react: { createElement },
+      [QUERY]: {
+        createQueryResource,
+        QueryContent,
+        useQuery: (options: QueryOptions<Item>) => {
+          detail = options
+          return getQueryClient().getState(options.key)
+        },
+      },
+      [HTTP]: { getClient: () => http },
+    }
+    new Function('require', 'exports', outputText)(
+      (name: keyof typeof runtime) => runtime[name],
+      generated,
+    )
+    expect(generated.ItemView).toBeTypeOf('function')
+    setProvider(createProvider())
+    try {
+      const render = (): string =>
+        renderToStaticMarkup(
+          createElement(generated.ItemView, {
+            id: item.sku,
+            children: (record) =>
+              createElement('p', null, `${record.name}: ${record.labels.join(', ')}`),
+          }),
+        )
+      expect(render()).toBe('')
+      expect(detail).toBeDefined()
+      await getQueryClient().fetch(detail!)
+      expect(render()).toContain('Bolt: Hardware, Bulk')
+      await generated.updateItem(item.sku, { sku: item.sku, name: item.name })
+      expect(render()).toBe('<p>Bolt: </p>')
     } finally {
       resetQueryClient()
     }

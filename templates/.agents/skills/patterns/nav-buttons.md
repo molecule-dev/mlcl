@@ -5,7 +5,7 @@ title: Navigation buttons / CTAs
 hooks: [Link, useNavigate]
 ---
 
-# Buttons that navigate
+# Route links and action buttons
 
 **Rule of thumb:**
 
@@ -13,12 +13,20 @@ hooks: [Link, useNavigate]
 - Does the click trigger an action (submit, open modal) and THEN maybe navigate? → `<button onClick={...}>` + `useNavigate()`
 
 ```tsx
-// Plain nav CTA — replace the stitch <button>Sign up</button> with:
-<Link to="/signup" className="...stitch classes...">Sign up</Link>
+// Open a page with a real link.
+;<Link to="/drafts/new" className={actionClass}>
+  New draft
+</Link>
 
-// Action that navigates — keep the button, add an onClick:
+// Save the draft, then navigate to the saved record.
 const navigate = useNavigate()
-<button onClick={() => navigate('/posts/new')}>New post</button>
+async function saveAndOpenDraft() {
+  const saved = await saveDraft(draft)
+  navigate('/drafts/' + saved.id)
+}
+;<button type="button" onClick={saveAndOpenDraft}>
+  Save draft
+</button>
 ```
 
 **Anti-patterns:**

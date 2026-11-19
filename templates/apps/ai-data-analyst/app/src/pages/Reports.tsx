@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
-import { useNavigate } from 'react-router'
+import { Link } from 'react-router'
 
 import { useHttpClient, useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
@@ -12,7 +12,6 @@ export function Reports() {
   const cm = getClassMap()
   const { t } = useTranslation()
   const http = useHttpClient()
-  const navigate = useNavigate()
   const [reports, setReports] = useState<ReportThumbnailData[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
@@ -37,10 +36,6 @@ export function Reports() {
   useEffect(() => {
     void load()
   }, [load])
-
-  function handleNewReport() {
-    navigate('/query')
-  }
 
   const scheduled = reports.filter((r) => r.schedule).length
 
@@ -82,9 +77,8 @@ export function Reports() {
             )}
           </p>
         </div>
-        <button
-          type="button"
-          onClick={handleNewReport}
+        <Link
+          to="/query"
           className={cm.cn(
             cm.flex({ align: 'center', gap: 2 }),
             cm.sp('px', 4),
@@ -102,7 +96,7 @@ export function Reports() {
             add
           </span>
           {t('reports.newCta', {}, { defaultValue: 'New report' })}
-        </button>
+        </Link>
       </div>
 
       {error ? (
