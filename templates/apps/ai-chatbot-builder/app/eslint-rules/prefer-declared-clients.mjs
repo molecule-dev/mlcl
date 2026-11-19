@@ -35,6 +35,8 @@
  * The app's HTTP token source, token setters and Authorization overrides use the
  * declared auth client's token. The sink establishes ownership even if the
  * credential comes from another module. Separate services can use their own keys.
+ * Restoring the bonded auth client from a browser storage read creates a second
+ * session source. Follow the returned value through local and project helpers.
  * Article checks cover awaited updates followed by a lookup using the same lexical
  * slug binding in that function. Cross-module control flow is not inferred.
  * Query checks compare a useQuery key with one extra array around that same binding in a
@@ -51,7 +53,17 @@
  * opaque configs, spreads and callbacks are not inferred.
  */
 import { readFileSync } from 'node:fs'
-import { basename, dirname, isAbsolute, join, parse, relative, resolve, sep } from 'node:path'
+import {
+  basename,
+  dirname,
+  extname,
+  isAbsolute,
+  join,
+  parse,
+  relative,
+  resolve,
+  sep,
+} from 'node:path'
 import { URL } from 'node:url'
 
 const AUTH = '@molecule/app-auth'
@@ -141,7 +153,7 @@ export default {
       credential:
         '@molecule/app-auth is declared: this browser credential store duplicates its session. Use the bonded client to sign in or out. For an exact browser key, set tokenKey in the auth config and omit storage: "memory". Configure authScheme in that config, and read getClient().getAccessToken() or the framework auth binding.',
       session:
-        '@molecule/app-auth is declared: this local session state duplicates its client. Read the framework auth binding or getClient().getState(); configure tokenKey, authScheme, requestBody, mapAuthResponse and currentUserEndpoint in the existing auth bond/config instead of adding a session context/store.',
+        'This call restores the bonded auth client from a separate browser store. Set tokenKey in the auth config and use the default browser storage. Configure currentUserEndpoint and any extra currentUserRejectionStatuses there. Read status and user from the framework auth binding.',
       credentialSource:
         'The app’s HTTP token source must read the declared auth client. Use setAuthTokenSource(() => authClient.getAccessToken()) in the app’s HTTP bond. ' +
         sessionRepair,
@@ -209,10 +221,13 @@ export default {
     const clickHandlers = []
     const clientBonds = []
     const authConfigs = []
+    const sessionUpdates = []
     const mutations = new Map()
+    const importedReferences = new WeakMap()
 
     const variable = (node) => {
       if (node?.type !== 'Identifier') return null
+      if (importedReferences.has(node)) return importedReferences.get(node)
       for (let scope = source.getScope(node); scope; scope = scope.upper) {
         const found = scope.set.get(node.name)
         if (found) return found
@@ -431,7 +446,7 @@ export default {
       if (
         binding?.defs.length !== 1 ||
         definition.type !== 'Variable' ||
-        definition.node.parent.kind !== 'const' ||
+        definition.parent.kind !== 'const' ||
         definition.node.id.type !== 'Identifier' ||
         !definition.node.init ||
         binding.references.some((ref) => ref.isWrite() && !ref.init)
@@ -603,38 +618,41 @@ export default {
       }
       return null
     }
-    // Only parse known scaffold source files. Cache them for this linted file,
-    // so a new lint pass sees any intervening edits to the configuration.
+    // Cache only for this linted file, so another lint pass sees any edits.
     const projectModules = new Map()
-    const projectModule = (stem) => {
+    const readProjectModule = (path) => {
+      if (path === filename) return source
       const parser = context.languageOptions?.parser
       if (!parser?.parseForESLint) return null
-      if (projectModules.has(stem)) return projectModules.get(stem)
-      for (const extension of ['ts', 'js', 'mjs']) {
-        const path = `${stem}.${extension}`
-        try {
-          const text = path === filename ? source.text : readFileSync(path, 'utf8')
-          const { ast } = parser.parseForESLint(text, {
-            sourceType: 'module',
-            ecmaVersion: 'latest',
-            filePath: path,
-            tsconfigRootDir: packages.root,
-            project: false,
-            projectService: false,
-          })
-          projectModules.set(stem, ast)
-          return ast
-        } catch (error) {
-          if (
-            error.code !== 'ENOENT' &&
-            error.code !== 'ENOTDIR' &&
-            !(error instanceof SyntaxError) &&
-            error.name !== 'TSError'
-          )
-            throw error
-        }
+      if (projectModules.has(path)) return projectModules.get(path)
+      let parsed = null
+      try {
+        parsed = parser.parseForESLint(readFileSync(path, 'utf8'), {
+          sourceType: 'module',
+          ecmaVersion: 'latest',
+          filePath: path,
+          tsconfigRootDir: packages.root,
+          project: false,
+          projectService: false,
+        })
+      } catch (error) {
+        if (
+          error.code !== 'ENOENT' &&
+          error.code !== 'ENOTDIR' &&
+          error.code !== 'EISDIR' &&
+          !(error instanceof SyntaxError) &&
+          error.name !== 'TSError'
+        )
+          throw error
       }
-      projectModules.set(stem, null)
+      projectModules.set(path, parsed)
+      return parsed
+    }
+    const projectModule = (stem) => {
+      for (const extension of ['ts', 'js', 'mjs']) {
+        const parsed = readProjectModule(`${stem}.${extension}`)
+        if (parsed) return parsed.ast
+      }
       return null
     }
     const importedName = (ast, module, name) => {
@@ -681,6 +699,12 @@ export default {
       : []
     const isScaffoldModule = (target, module) =>
       appSources.some((dir) => target === join(dir, module))
+    const projectImportPath = (specifier, importer) =>
+      specifier.startsWith('.')
+        ? resolve(dirname(importer), specifier)
+        : specifier.startsWith('$lib/')
+          ? resolve(packages.root, 'src/lib', specifier.slice('$lib/'.length))
+          : null
     const projectImport = (node, name) => {
       const definition = variable(clientValue(node))?.defs[0]
       if (
@@ -691,15 +715,10 @@ export default {
         !packages.root
       )
         return null
-      const specifier = definition.parent.source.value
-      const target = specifier.startsWith('.')
-        ? resolve(dirname(filename), specifier)
-        : specifier.startsWith('$lib/')
-          ? resolve(packages.root, 'src/lib', specifier.slice('$lib/'.length))
-          : null
+      const target = projectImportPath(definition.parent.source.value, filename)
       return target?.replace(/\.[cm]?[jt]s$/, '') ?? null
     }
-    const authSource = (node) => {
+    const authSource = (node, bondedOnly = false) => {
       node = clientValue(node)
       const target = projectImport(node, 'authClient')
       if (
@@ -710,9 +729,111 @@ export default {
         return true
       return (
         node?.type === 'CallExpression' &&
-        (imported(node.callee, [AUTH], ['getClient', 'createJWTAuthClient']) ||
+        (imported(node.callee, [AUTH], ['getClient']) ||
+          (!bondedOnly && imported(node.callee, [AUTH], ['createJWTAuthClient'])) ||
           imported(node.callee, FRAMEWORK_AUTH, ['useAuth', 'useAuthClient']))
       )
+    }
+    const indexedModules = new WeakSet()
+    const importedReader = (callee, importer) => {
+      callee = clientValue(callee)
+      const member = callee?.type === 'MemberExpression'
+      const definition = variable(member ? clientValue(callee.object) : callee)?.defs[0]
+      if (
+        definition?.type !== 'ImportBinding' ||
+        (definition.node.type === 'ImportNamespaceSpecifier') !== member ||
+        definition.parent.importKind === 'type' ||
+        definition.node.importKind === 'type'
+      )
+        return null
+      const name = member ? key(callee) : (definition.node.imported?.name ?? 'default')
+      if (!name) return null
+      const target = projectImportPath(definition.parent.source.value, importer)
+      if (!target) return null
+      const parts = relative(packages.root, target).split(sep)
+      if (parts[0] === '..' || parts.includes('node_modules')) return null
+
+      const extension = extname(target)
+      const candidates =
+        {
+          '.js': [target, target.slice(0, -3) + '.ts', target.slice(0, -3) + '.tsx'],
+          '.jsx': [target, target.slice(0, -4) + '.tsx'],
+          '.mjs': [target, target.slice(0, -4) + '.mts'],
+          '.cjs': [target, target.slice(0, -4) + '.cts'],
+        }[extension] ??
+        (extension ? [target] : ['.ts', '.tsx', '.js', '.jsx'].map((ext) => target + ext))
+      for (const path of candidates) {
+        if (!/\.[cm]?[jt]sx?$/.test(path)) continue
+        const parsed = readProjectModule(path)
+        if (!parsed) continue
+        if (!parsed.scopeManager) return null
+        if (parsed !== source && !indexedModules.has(parsed)) {
+          for (const scope of parsed.scopeManager.scopes) {
+            for (const binding of scope.variables)
+              for (const identifier of binding.identifiers)
+                importedReferences.set(identifier, binding)
+            for (const { identifier, resolved } of scope.references)
+              importedReferences.set(identifier, resolved)
+          }
+          indexedModules.add(parsed)
+        }
+        for (const statement of parsed.ast.body) {
+          if (statement.type === 'ExportDefaultDeclaration' && name === 'default')
+            return { fn: localFunction(statement.declaration), path }
+          if (
+            statement.type !== 'ExportNamedDeclaration' ||
+            statement.exportKind === 'type' ||
+            statement.source
+          )
+            continue
+          const declaration = statement.declaration
+          if (declaration?.type === 'FunctionDeclaration' && declaration.id?.name === name)
+            return { fn: localFunction(declaration.id), path }
+          if (declaration?.type === 'VariableDeclaration' && declaration.kind === 'const') {
+            const binding = declaration.declarations.find((part) => part.id.name === name)
+            if (binding) return { fn: localFunction(binding.init), path }
+          }
+          const exported = statement.specifiers.find(
+            (part) => part.exportKind !== 'type' && part.exported.name === name,
+          )
+          if (exported) return { fn: localFunction(exported.local), path }
+        }
+        return null
+      }
+      return null
+    }
+    const storedSessionToken = (node, importer, seen = new Set()) => {
+      node = value(node)
+      if (!node || seen.has(node)) return false
+      seen.add(node)
+      const stored = (part) => storedSessionToken(part, importer, seen)
+      if (node.type === 'ConditionalExpression')
+        return stored(node.consequent) || stored(node.alternate)
+      if (node.type === 'LogicalExpression')
+        return stored(node.right) || (node.operator !== '&&' && stored(node.left))
+      if (node.type === 'AwaitExpression') return stored(node.argument)
+      if (node.type === 'MemberExpression') return node.computed && storage(node.object)
+      if (node.type !== 'CallExpression') return false
+      const callee = unwrap(node.callee)
+      if (callee.type === 'MemberExpression' && key(callee) === 'getItem' && storage(callee.object))
+        return true
+      const local = localFunction(callee)
+      if (local) return functionReturns(local).some(stored)
+      const reader = importedReader(callee, importer)
+      return functionReturns(reader?.fn).some((result) =>
+        storedSessionToken(result, reader.path, seen),
+      )
+    }
+    const sessionAccessToken = (input) => {
+      const session = value(input)
+      if (session?.type !== 'ObjectExpression' || mutations.has(session)) return null
+      // A later spread or unknown property may replace the token at runtime.
+      const field = session.properties.findLast((prop) => {
+        if (prop.type !== 'Property') return true
+        const name = key(prop)
+        return name == null || name === 'accessToken'
+      })
+      return field?.type === 'Property' && key(field) === 'accessToken' ? field.value : null
     }
     const authAction = (callee, method, seen = new Set()) => {
       callee = unwrap(callee)
@@ -1222,6 +1343,8 @@ export default {
         }
         if (callee.type === 'MemberExpression') {
           const method = key(callee)
+          if (packages.auth && (method === 'setAccessToken' || method === 'setSession'))
+            sessionUpdates.push({ node, receiver: callee.object, method })
           if (method === 'set' || method === 'append')
             mutate(callee.object, string(node.arguments[0]), node.arguments[1])
           if (
@@ -1255,6 +1378,12 @@ export default {
         const bonded = bondedHttpClients()
         if (packages.auth) {
           checkHttpCredentials(bonded)
+          for (const { node, receiver, method } of sessionUpdates) {
+            if (!authSource(receiver, true)) continue
+            const token =
+              method === 'setSession' ? sessionAccessToken(node.arguments[0]) : node.arguments[0]
+            if (storedSessionToken(token, filename)) context.report({ node, messageId: 'session' })
+          }
           // A key's spelling cannot identify a credential. Its flow to the visitor's
           // bonded transport can: only stable lexical values establish that fact.
           const tokenBinding = (node) => {

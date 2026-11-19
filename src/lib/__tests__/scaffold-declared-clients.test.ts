@@ -356,6 +356,64 @@ export const authConfig: AuthClientConfig = {
     expect(await findings(join(project, 'api'), localClients)).toEqual([])
   })
 
+  it('the flagship check rejects restoring bonded auth from a separate browser store', async () => {
+    const template = join(ROOT, 'templates/apps/inventory-management')
+    const project = join(await directory(), 'project')
+    await copyTemplateInstance(
+      template,
+      project,
+      'stockroom',
+      await readTemplateSetupSqlVersions(template),
+    )
+    const app = join(project, 'app')
+    const provider = join(app, 'src/stock-session.tsx')
+    await execFileAsync('git', ['init', '-q', project])
+    await execFileAsync('git', ['add', '--', '.'], { cwd: project })
+    await writeFile(
+      join(app, 'src/stock-preferences.ts'),
+      `const key = 'stock.sort'
+export function readPreference() { return localStorage.getItem(key) }
+export function savePreference(value: string) { localStorage.setItem(key, value) }
+`,
+    )
+    await writeFile(
+      provider,
+      `import { authClient } from './bonds/auth-default.js'
+import { readPreference } from './stock-preferences.js'
+
+export function restore() {
+  const stored = readPreference()
+  if (stored) authClient.setAccessToken(stored)
+}
+`,
+    )
+    const bad = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
+    if ('error' in bad) throw new Error(bad.error)
+    expect(bad.ok).toBe(false)
+    expect(bad.results[0].status).toBe('failed')
+    expect(bad.results[0].errors.join('\n')).toMatch(
+      /stock-session\.tsx:6: .*tokenKey.*currentUserEndpoint/,
+    )
+
+    await writeFile(
+      provider,
+      `import { useAuth } from '@molecule/app-react'
+import { createContext } from 'react'
+
+const Session = createContext<ReturnType<typeof useAuth>['state'] | null>(null)
+
+export function AuthView() {
+  const { state } = useAuth()
+  return <Session.Provider value={state} />
+}
+`,
+    )
+    const good = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
+    if ('error' in good) throw new Error(good.error)
+    expect(good.ok).toBe(true)
+    expect(good.results[0].status).toBe('passed')
+  })
+
   it('a generated project without the declarations may own its clients', async () => {
     const app = join(await directory(), 'app')
     await createAppProject(app, 'stockroom', 'react')
