@@ -89004,6 +89004,7 @@
         "UserMenuPopoverTrigger",
         "UserMenuPopoverTriggerProps",
         "UserMenuProps",
+        "adoptHostDataMolId",
         "asTemplate",
         "cn",
         "createOptimisticValue",
