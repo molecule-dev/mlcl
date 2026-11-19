@@ -2,7 +2,7 @@ import { relative, resolve } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
 
-import { readDeclaredPackages } from '../lib/capability-map.js'
+import { readDeclaredPackages, resourceModuleCallsFromSource } from '../lib/capability-map.js'
 import { writeContractResourceModules } from '../lib/contract-resource-modules.js'
 import { getRawRegistry } from '../lib/registry.js'
 
@@ -49,13 +49,18 @@ export default class Resources extends Command {
       await readDeclaredPackages(projectRoot),
     )
     const summary = {
-      written: result.written.map((module) => ({
-        path: module.path,
-        export: module.exportName,
-        type: module.typeName,
-        covers: module.operations,
-        ...(module.view ? { view: module.view.path } : {}),
-      })),
+      written: result.written.map((module) => {
+        const calls = resourceModuleCallsFromSource(module.path, module.source)
+        return {
+          path: module.path,
+          resource: module.exportName,
+          export: calls.find((name) => name.startsWith('use')) ?? calls[0],
+          calls,
+          type: module.typeName,
+          covers: module.operations,
+          ...(module.view ? { view: module.view.path } : {}),
+        }
+      }),
       removed: result.removed,
       kept: result.kept,
       skipped: result.skipped,
@@ -65,7 +70,7 @@ export default class Resources extends Command {
       this.log(JSON.stringify(summary, null, 2))
     } else {
       for (const module of summary.written) {
-        this.log(`wrote ${module.path} (${module.export}: ${module.covers.join(', ')})`)
+        this.log(`wrote ${module.path} (${module.resource}: ${module.covers.join(', ')})`)
         if (module.view) this.log(`record view at ${module.view}`)
       }
       for (const path of summary.removed) this.log(`removed ${path} (no longer in the contract)`)

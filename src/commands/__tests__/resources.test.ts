@@ -66,6 +66,21 @@ describe('mlcl resources', () => {
     )
   })
 
+  it('reports callable exports so a page can import the generated client', async () => {
+    writeFileSync(join(dir, 'specs/openapi.json'), INVENTORY)
+    const report = JSON.parse((await run('--contract', 'specs/openapi.json', '--json')).join('\n'))
+    const [items] = report.written
+    const source = readFileSync(join(dir, items.path), 'utf8')
+    expect(items).toMatchObject({
+      resource: 'items',
+      export: 'useItems',
+      calls: expect.arrayContaining(['useItems', 'createItem', 'itemErrorMessage']),
+    })
+    for (const name of items.calls) {
+      expect(source).toMatch(new RegExp(`export (?:async )?function ${name}\\(`))
+    }
+  })
+
   it('names a contract beside the project by its path from the project', async () => {
     const beside = join(dir, '..', `${dir.split('/').pop()}-fixtures`)
     mkdirSync(beside, { recursive: true })

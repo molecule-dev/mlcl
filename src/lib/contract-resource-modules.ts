@@ -58,7 +58,7 @@ export interface ContractResourceModule {
   collection: string
   /** Project-relative path of the module, e.g. `app/src/resources/comments.ts`. */
   path: string
-  /** The exported resource, e.g. `comments`. */
+  /** The resource name, e.g. `comments`. */
   exportName: string
   /** The exported record type, e.g. `Comment`. */
   typeName: string

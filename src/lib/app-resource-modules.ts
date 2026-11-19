@@ -38,7 +38,7 @@ export interface AppResourceModule {
   resource: string
   /** Project-relative path of the module, e.g. `app/src/resources/invoices.ts`. */
   path: string
-  /** The exported resource, e.g. `invoices`. */
+  /** The resource name, e.g. `invoices`. */
   exportName: string
   /** The exported record type, e.g. `Invoice`. */
   typeName: string

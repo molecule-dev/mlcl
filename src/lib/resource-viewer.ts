@@ -136,13 +136,15 @@ async function resourceRequest<T>(
 
 function resourceHttp(viewer: string): ResourceHttp {
   const client: ResourceHttp & ReturnType<typeof ${factory.http.client}> = ${factory.http.client}()
+  const writeOptions = (signal: AbortSignal): { signal: AbortSignal; timeoutWithSignal: boolean } =>
+    ({ signal, timeoutWithSignal: true })
   return {
     get: (path, options) =>
       resourceRequest(viewer, (signal) => client.get(path, { ...options, signal }), options?.signal),
-    post: (path, body) => resourceRequest(viewer, (signal) => client.post(path, body, { signal })),
-    put: (path, body) => resourceRequest(viewer, (signal) => client.put(path, body, { signal })),
-    patch: (path, body) => resourceRequest(viewer, (signal) => client.patch(path, body, { signal })),
-    delete: (path) => resourceRequest(viewer, (signal) => client.delete(path, { signal })),
+    post: (path, body) => resourceRequest(viewer, (signal) => client.post(path, body, writeOptions(signal))),
+    put: (path, body) => resourceRequest(viewer, (signal) => client.put(path, body, writeOptions(signal))),
+    patch: (path, body) => resourceRequest(viewer, (signal) => client.patch(path, body, writeOptions(signal))),
+    delete: (path) => resourceRequest(viewer, (signal) => client.delete(path, writeOptions(signal))),
   }
 }`
     : `function getResourceViewer(): string | null {
@@ -161,9 +163,9 @@ function watchResourceViewer(notify: (viewer: string | null) => void): () => voi
   const observe = observer
     ? `
 
-${view && framework === 'svelte' ? 'export ' : ''}function useResourceViewer(): ${observer.type} {
+function useResourceViewer(): ${observer.type} {
   ${auth ? observer.body : `return ${observer.publicValue}`}
-}`
+}${view && framework === 'svelte' ? '\n\nexport { useResourceViewer }' : ''}`
     : ''
   const write = writes
     ? `

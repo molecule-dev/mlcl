@@ -242,7 +242,9 @@ describe('generated Note-taking comment thread', () => {
     const client = await generate(true)
     const entered = Promise.withResolvers<void>()
     const release = Promise.withResolvers<void>()
+    let requestOptions: unknown
     http.getClient().addRequestInterceptor(async (config) => {
+      requestOptions = config
       entered.resolve()
       await release.promise
       return config
@@ -259,6 +261,10 @@ describe('generated Note-taking comment thread', () => {
     release.resolve()
     expect(await write).toBeInstanceOf(Error)
     expect(sent).toEqual([])
+    expect(requestOptions).toMatchObject({
+      timeoutWithSignal: true,
+      signal: expect.any(AbortSignal),
+    })
   })
 
   it.each([

@@ -287,14 +287,7 @@ export async function readProjectCapabilityMap(
         if (source.includes(factory.factory)) {
           const path = `${directory}/${name}`
           found.push(path)
-          const ast = ts.createSourceFile(name, source, ts.ScriptTarget.Latest, true)
-          const names = ast.statements.flatMap((node) =>
-            ts.isFunctionDeclaration(node) &&
-            node.name &&
-            node.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
-              ? [node.name.text]
-              : [],
-          )
+          const names = resourceModuleCallsFromSource(name, source)
           if (names.length)
             resourceModuleCalls.set(entry.name, [
               ...(resourceModuleCalls.get(entry.name) ?? []),
@@ -357,6 +350,24 @@ export async function readProjectCapabilityMap(
       ),
     ),
   }))
+}
+
+/**
+ * List the named functions a generated resource module actually lets a page import.
+ *
+ * @param path - The module's filename.
+ * @param source - The module's TypeScript source.
+ * @returns Public function names in source order.
+ */
+export function resourceModuleCallsFromSource(path: string, source: string): string[] {
+  const ast = ts.createSourceFile(path, source, ts.ScriptTarget.Latest, true)
+  return ast.statements.flatMap((node) =>
+    ts.isFunctionDeclaration(node) &&
+    node.name &&
+    node.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword)
+      ? [node.name.text]
+      : [],
+  )
 }
 
 /** Read actual exports before directing a project to edit a configuration variable. */
