@@ -121,7 +121,17 @@ interface ToggleBinding {
   usedNames: Set<string>
 }
 
-/** Emit one hook over the framework's queue. Commits still go through the resource's cache. */
+/** A framework's expression for a toggle's visible value, with the named imports it calls. */
+interface VisibleValue {
+  expression: string
+  imports: [from: string, name: string][]
+}
+
+/**
+ * Emit one hook over the framework's queue. Commits still go through the resource's cache.
+ *
+ * @returns The hook's source and the named imports its body calls beyond the queue's own.
+ */
 function resourceToggle(
   binding: ToggleBinding,
   type: string,
@@ -129,7 +139,7 @@ function resourceToggle(
   name: string,
   setter: string,
   field: string | undefined,
-): string {
+): { source: string; imports: VisibleValue['imports'] } {
   const args = [
     ...parents.map((parent) => ({ name: parent, type: 'string' })),
     { name: 'record', type },
@@ -165,13 +175,29 @@ function resourceToggle(
     ? '{ toggle: () => void }'
     : `{ set: (on: boolean) => void; toggle: (savedOn: boolean) => void }`
   const value = field ? 'flag' : 'record'
-  const visible = {
-    react: `currentValue(queue.value, options.value).${value}`,
-    vue: `computed(() => currentValue(queue.value.value, options().value).${value})`,
-    svelte: `derived([queue.value, options], ([current, next]) => currentValue(current, next.value).${value})`,
-    solid: `() => currentValue(queue.value(), options().value).${value}`,
-    angular: `computed(() => currentValue(queue.value(), options().value).${value})`,
-  }[binding.framework]
+  // Each expression names what it calls, so a module can never use a helper it did not import.
+  // Svelte's `derived` comes with the store package the query binding declares.
+  const { expression: visible, imports } = (
+    {
+      react: { expression: `currentValue(queue.value, options.value).${value}`, imports: [] },
+      vue: {
+        expression: `computed(() => currentValue(queue.value.value, options().value).${value})`,
+        imports: [['vue', 'computed']],
+      },
+      svelte: {
+        expression: `derived([queue.value, options], ([current, next]) => currentValue(current, next.value).${value})`,
+        imports: [],
+      },
+      solid: {
+        expression: `() => currentValue(queue.value(), options().value).${value}`,
+        imports: [],
+      },
+      angular: {
+        expression: `computed(() => currentValue(queue.value(), options().value).${value})`,
+        imports: [['@angular/core', 'computed']],
+      },
+    } satisfies Record<ToggleBinding['framework'], VisibleValue>
+  )[binding.framework]
   const baseline = {
     value: 'options.value',
     getter: 'options().value',
@@ -187,7 +213,7 @@ function resourceToggle(
   const description = field
     ? 'Render the hook value and call toggle() on click.'
     : 'Render the saved record in value. Use set(on), or pass the saved flag to toggle(savedOn).'
-  return (
+  const source =
     `/** ${description} Leave the control enabled during saves so clicks can queue. */\n` +
     `export function ${name}(${signature}): ${typeResult} & ${action} {\n` +
     `  const viewer = useResourceViewer()\n` +
@@ -202,7 +228,7 @@ function resourceToggle(
     `    })\n  }\n` +
     `  return { value: ${visible}, pending: queue.pending, error: queue.error,\n` +
     `    set: (on) => update(() => on),\n${result}\n  }\n}`
-  )
+  return { source, imports }
 }
 
 /**
@@ -223,7 +249,7 @@ export function resourceWrites(options: {
   remove: boolean
   toggles: ResourceToggle[]
   toggleBinding?: ToggleBinding
-}): { source: string; names: string[]; toggleDocs: string[] } {
+}): { source: string; names: string[]; toggleDocs: string[]; imports: VisibleValue['imports'] } {
   const { resource, type, parents } = options
   const call = `${resource}(${['viewer', ...parents].join(', ')})`
   const resourceType = `ReturnType<typeof ${resource}>`
@@ -235,6 +261,7 @@ export function resourceWrites(options: {
   const functions: string[] = []
   const names: string[] = []
   const toggleDocs: string[] = []
+  const imports: VisibleValue['imports'] = []
   const write = (
     name: string,
     method: string,
@@ -305,11 +332,13 @@ export function resourceWrites(options: {
     let hook = `use${suffix}`
     while (binding.usedNames.has(hook)) hook += 'Toggle'
     binding.usedNames.add(hook)
-    functions.push(resourceToggle(binding, type, parents, hook, setter, field))
+    const toggle = resourceToggle(binding, type, parents, hook, setter, field)
+    functions.push(toggle.source)
+    imports.push(...toggle.imports)
     const signature = [...parents, 'record', ...(binding.idField ? [] : ['id'])].join(', ')
     toggleDocs.push(
       `\`${hook}(${signature})\` ${field ? 'shows the desired flag immediately. Render value and call toggle() on click.' : 'shows the saved record in value. Call set(on) or toggle(savedOn).'}`,
     )
   }
-  return { source: functions.join('\n\n'), names, toggleDocs }
+  return { source: functions.join('\n\n'), names, toggleDocs, imports }
 }

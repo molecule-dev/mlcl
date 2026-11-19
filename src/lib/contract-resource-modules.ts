@@ -830,7 +830,7 @@ export function planContractResourceModules(
         if (name.startsWith('type ')) typeImport(from, name.slice(5))
         else valueImport(from, name)
     if (optimistic) valueImport(optimistic.package, 'useOptimisticValue')
-    if (optimistic && page?.framework === 'vue') valueImport('vue', 'computed')
+    for (const [from, name] of namedWrites.imports) valueImport(from, name)
     if (optimistic && hooks.storePackage) valueImport(hooks.storePackage, 'get')
     if (recordView?.source) {
       valueImport(factoryPackage, 'QueryContent')
