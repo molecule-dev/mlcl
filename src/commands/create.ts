@@ -107,25 +107,28 @@ export function injectWarningLines(stderr: string): string[] {
  * not compile against (`no exported member 'authClient'`). Next steps that went straight to
  * `npm run dev` led to exactly that build. The inject command names this CLI's own version:
  * another version's registry pins other versions than the ones just installed, which the injector
- * refuses, and `--force` replaces the stub files the skipped run left.
+ * refuses, and `--force` replaces the stub files the skipped run left. The same inject copies the
+ * font files an app serves from its static directory (SvelteKit, Angular), which a scaffold made
+ * before `npm install` cannot find.
  *
  * @param pending - What the scaffold left undone.
  * @param pending.installNeeded - Whether `npm install` has yet to run (skipped or failed).
  * @param pending.injectSkipped - Each workspace whose integration code was not generated,
  *   relative to the project root (`.`, `app`, `api`).
+ * @param pending.assetsPending - Each workspace whose font files are not copied yet.
  * @param pending.cliVersion - This CLI's version.
  * @returns The commands, one per entry, run from the project root.
  */
 export function pendingSetupSteps(pending: {
   installNeeded: boolean
   injectSkipped: readonly string[]
+  assetsPending?: readonly string[]
   cliVersion: string
 }): string[] {
+  const injects = [...new Set([...pending.injectSkipped, ...(pending.assetsPending ?? [])])]
   return [
     ...(pending.installNeeded ? ['npm install'] : []),
-    ...pending.injectSkipped.map(
-      (workspace) => `npx mlcl@${pending.cliVersion} inject --force -p ${workspace}`,
-    ),
+    ...injects.map((workspace) => `npx mlcl@${pending.cliVersion} inject --force -p ${workspace}`),
   ]
 }
 
@@ -1451,17 +1454,28 @@ export default class Create extends Command {
       log(t('commands.create.messages.sqlCopied'))
     }
 
-    // Step 11.5: Copy local font files to static assets fonts/
-    if (fontResult.fontFiles.length > 0) {
+    // Step 11.5: Copy local font files to static assets fonts/. A file no node_modules holds
+    // yet (the packages are not installed) is copied by the inject the next steps name.
+    const assetsPending: string[] = []
+    const fontWorkspace = hasAppSubdir ? 'app' : projectType === 'app' ? '.' : undefined
+    if (fontResult.fontFiles.length > 0 && fontWorkspace) {
       const fwPublicDir = framework
         ? (loadAppFrameworks()[framework]?.publicDir ?? 'public')
         : 'public'
-      if (hasAppSubdir) {
-        await copyFontFiles(join(projectPath, 'app'), fontResult.fontFiles, fwPublicDir)
-      } else if (projectType === 'app') {
-        await copyFontFiles(projectPath, fontResult.fontFiles, fwPublicDir)
-      }
-      log(t('commands.create.messages.fontsCopied'))
+      const missing = await copyFontFiles(
+        join(projectPath, fontWorkspace),
+        fontResult.fontFiles,
+        fwPublicDir,
+      )
+      if (missing.length > 0) assetsPending.push(fontWorkspace)
+      log(
+        t(
+          missing.length > 0
+            ? 'commands.create.messages.fontsPending'
+            : 'commands.create.messages.fontsCopied',
+          { dir: `${fwPublicDir}/fonts/` },
+        ),
+      )
     }
 
     // The root gets the packages' formatter config, so every tool formats its files alike.
@@ -1548,6 +1562,7 @@ export default class Create extends Command {
     for (const step of pendingSetupSteps({
       installNeeded,
       injectSkipped,
+      assetsPending,
       cliVersion: this.config.version,
     }))
       say(`  ${step}`)
@@ -1590,6 +1605,7 @@ export default class Create extends Command {
             pendingSetup: pendingSetupSteps({
               installNeeded,
               injectSkipped,
+              assetsPending,
               cliVersion: this.config.version,
             }),
             ...(apiAuthContract ? { authGuidance: AUTH_PRECONFIGURATION_GUIDANCE } : {}),

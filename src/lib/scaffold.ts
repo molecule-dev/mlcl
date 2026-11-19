@@ -5979,13 +5979,20 @@ export function assertSafeFontMeta(
 
 /**
  * Copy font files from installed packages to a project's static assets fonts/ directory.
+ *
+ * @param projectPath - The app workspace.
+ * @param fontFiles - The files the font packages declare.
+ * @param publicDir - The framework's static assets directory (`static` for SvelteKit).
+ * @returns Each file no node_modules holds yet (`<package>/<fontsDir>/<file>`), which a later
+ *   inject copies once the packages are installed.
  */
 export async function copyFontFiles(
   projectPath: string,
   fontFiles: FontFileToCopy[],
   publicDir = 'public',
-): Promise<void> {
-  if (fontFiles.length === 0) return
+): Promise<string[]> {
+  if (fontFiles.length === 0) return []
+  const missing: string[] = []
 
   const fontsDir = join(projectPath, publicDir, 'fonts')
   await mkdir(fontsDir, { recursive: true })
@@ -6041,10 +6048,9 @@ export async function copyFontFiles(
         // Try next candidate — font file absent from this node_modules location
       }
     }
-    if (!copied) {
-      console.warn(`Font file not found: ${packageName}/${pkgFontsDir}/${file}`)
-    }
+    if (!copied) missing.push(`${packageName}/${pkgFontsDir}/${file}`)
   }
+  return missing
 }
 
 /**
@@ -6179,7 +6185,8 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
   // unwritable target) left the project with that file GONE — public/fonts
   // emptied, the @font-face block still pointing at files that no longer exist.
   if (fontFiles.length > 0 && fontAssetMode === 'copy') {
-    await copyFontFiles(projectPath, fontFiles, publicDir)
+    for (const file of await copyFontFiles(projectPath, fontFiles, publicDir))
+      console.warn(`Font file not found: ${file}`)
   }
 
   // The sync OWNS only the families its declared font packages provide — never

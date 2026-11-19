@@ -150,6 +150,24 @@ describe('mlcl create — the next steps after an unfinished scaffold', () => {
     expect(json.injectSkipped).toEqual(['api', 'app'])
   })
 
+  it('an injected --skip-install Svelte scaffold names the inject that copies its fonts', async () => {
+    // SvelteKit serves copied font files from static/fonts, and nothing is installed to copy.
+    const { lines, json, version } = await create(
+      ['--type', 'app', '--framework', 'svelte'],
+      'succeeds',
+    )
+    expect(lines).toContain(
+      'Font files go to static/fonts/ once the packages are installed (the inject step below copies them)',
+    )
+    expect(nextSteps(lines).slice(0, 3)).toEqual([
+      'cd proj',
+      'npm install',
+      `npx mlcl@${version} inject --force -p .`,
+    ])
+    expect(json.injectSkipped).toEqual([])
+    expect(json.pendingSetup).toEqual(['npm install', `npx mlcl@${version} inject --force -p .`])
+  })
+
   it('an injected --skip-install scaffold still needs only npm install', async () => {
     const { lines, json } = await create(['--type', 'app', '--framework', 'react'], 'succeeds')
     const steps = nextSteps(lines)
@@ -165,6 +183,17 @@ describe('pendingSetupSteps', () => {
     expect(
       pendingSetupSteps({ installNeeded: false, injectSkipped: [], cliVersion: '2.1.80' }),
     ).toEqual([])
+  })
+
+  it('names one inject for a workspace that is both uninjected and missing fonts', () => {
+    expect(
+      pendingSetupSteps({
+        installNeeded: true,
+        injectSkipped: ['app'],
+        assetsPending: ['app'],
+        cliVersion: '9.9.9',
+      }),
+    ).toEqual(['npm install', 'npx mlcl@9.9.9 inject --force -p app'])
   })
 
   it('names an inject even when the install ran, and pins the CLI version', () => {

@@ -139,7 +139,9 @@ export const messages: LocaleMessages = {
   'commands.create.messages.envGenFullStack': 'Generated .env files for api and app',
   'commands.create.messages.envGenSingle': 'Generated .env file',
   'commands.create.messages.sqlCopied': 'Copied SQL setup scripts',
-  'commands.create.messages.fontsCopied': 'Copied font files to public/fonts/',
+  'commands.create.messages.fontsCopied': 'Copied font files to {dir}',
+  'commands.create.messages.fontsPending':
+    'Font files go to {dir} once the packages are installed (the inject step below copies them)',
   'commands.create.messages.envVars': 'Required environment variables:',
   'commands.create.messages.nextSteps': 'Next steps:',
   'commands.create.messages.editEnvFullStack': '# Edit api/.env and app/.env with your credentials',
