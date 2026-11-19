@@ -42,3 +42,8 @@ npm-debug.log*
 tmp/
 templates/apps/*/e2e/results.json
 templates/apps/*/e2e/observations/_artifacts/
+
+# Agent scratch: work product is committed or deleted before a session ends; this catches leftovers
+# (the workspace root ignores the same pattern, which does not reach this repo).
+.agent-scratch-*
+/.agent-scratch/
