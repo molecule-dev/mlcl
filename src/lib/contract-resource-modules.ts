@@ -901,6 +901,16 @@ export function planContractResourceModules(
       hooks.source && unfilteredReads.length
         ? ` * Unfiltered requests use ${unfilteredReads.map(({ name }) => `\`${name}({})\``).join(', ')}. Pass \`null\` to pause a read.\n`
         : ''
+    const defaultRead = defaultListHooks[0]
+      ? `${defaultListHooks[0]}()`
+      : hooks.source && unfilteredReads[0]
+        ? `${unfilteredReads[0].name}({})`
+        : null
+    const listContentDoc =
+      pageSupport.view && page?.framework === 'react' && defaultRead
+        ? ` * In the page, render the loaded list with \`QueryContent\`. Give \`empty\` a \`when\` predicate and a \`render\` function for a settled empty list; \`renderList\` receives the loaded response.\n` +
+          ` * \`\`\`tsx\n * import { QueryContent } from '${factoryPackage}'\n * const list = ${defaultRead}\n * return <QueryContent query={list} empty={empty}>{renderList}</QueryContent>\n * \`\`\`\n`
+        : ''
     const source = `/**
  * ${pascal(name)} on the app's shared query cache, as ${label} declares them.
  *
@@ -908,7 +918,7 @@ export function planContractResourceModules(
  * Regenerate with \`mlcl resources --contract ${label}\` after the contract changes.
  *
  * Covers: ${covered.join(', ')}.
-${listDoc}${viewDoc}${toggleDoc}${hooks.source ? ` * Page reads: ${namedReads.map((hook) => `\`${hook.name}(${hook.args.map((arg) => arg.name).join(', ')})\``).join(', ')}.\n * The hooks expose data, status, error and refetch(). Lists return the whole response, including totals.\n` : ''}${optionalParamsDoc}${namedWrites.names.length ? ` * Named writes: ${namedWrites.names.map((name) => `\`${name}\``).join(', ')}.\n * Their typed input is the API's complete request body, including any envelope, sent unchanged.\n${createDoc}` : ''} *
+${listDoc}${viewDoc}${listContentDoc}${toggleDoc}${hooks.source ? ` * Page reads: ${namedReads.map((hook) => `\`${hook.name}(${hook.args.map((arg) => arg.name).join(', ')})\``).join(', ')}.\n * The hooks expose data, status, error and refetch(). Lists return the whole response, including totals.\n` : ''}${optionalParamsDoc}${namedWrites.names.length ? ` * Named writes: ${namedWrites.names.map((name) => `\`${name}\``).join(', ')}.\n * Their typed input is the API's complete request body, including any envelope, sent unchanged.\n${createDoc}` : ''} *
  * ${pageSupport.auth ? 'Reads and writes use the current auth session automatically. Reads pause until auth settles.' : 'Reads and writes share the public cache.'}
  * A successful write publishes the saved detail or deletion and refetches up to four recently read lists for this resource and session.
  * Writes reject with the HTTP error, and query failures appear in error. Show \`${errorName}(error)\` for the contract's validation message or a generic fallback.
