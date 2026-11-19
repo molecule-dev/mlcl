@@ -271,7 +271,11 @@ export async function formatGeneratedSource(content: string, filePath: string): 
   const config =
     (await prettier.resolveConfig(filePath, { editorconfig: true, useCache: false })) ??
     PRETTIER_CONFIG
-  const plugins = resolvePackagePlugins(config.plugins, dirname(filePath), new Map())
+  // A generator may format before creating the destination directory. Resolve packages from
+  // its nearest existing ancestor, where Node would begin finding installed plugins anyway.
+  let directory = dirname(resolve(filePath))
+  while (!existsSync(directory)) directory = dirname(directory)
+  const plugins = resolvePackagePlugins(config.plugins, directory, new Map())
   return prettier.format(content, { ...config, plugins, filepath: filePath })
 }
 

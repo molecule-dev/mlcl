@@ -45,6 +45,20 @@ describe('formatGeneratedSource', () => {
     await expect(formatGeneratedSource('export const =', join(dir, 'bad.ts'))).rejects.toThrow()
   })
 
+  it('resolves the Svelte formatter before the generated directory exists', async () => {
+    const dir = await createTempDir('generated-svelte')
+    await writeFile(
+      join(dir, '.prettierrc'),
+      JSON.stringify({ semi: false, singleQuote: true, plugins: ['prettier-plugin-svelte'] }),
+    )
+    const result = formatGeneratedSource(
+      '<script>const title = "Notes";</script><p>{title}</p>',
+      join(dir, 'src', 'resources', 'page-view.svelte'),
+    )
+    await expect(result).resolves.toContain("const title = 'Notes'\n")
+    await expect(result).resolves.toContain('<p>{title}</p>')
+  })
+
   it('sees a formatter config created after an earlier emission', async () => {
     const dir = await createTempDir('generated-late-config')
     const path = join(dir, 'generated.ts')
