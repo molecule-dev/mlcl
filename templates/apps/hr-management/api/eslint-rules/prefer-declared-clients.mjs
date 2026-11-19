@@ -5007,11 +5007,11 @@ export function scaffoldRules(parser) {
         ],
         messages: {
           useOptimisticValue:
-            'This shows a toggled value before the server saves it. A reload can read the old value before the save commits. If the new label signals completion, render the saved record and show pending separately. For deliberately immediate feedback, use `useOptimisticValue` from `@molecule/app-react` to order saves, and wait for pending to clear before reading the result from another page. {{rewrite}}',
+            'This toggle saves clicks independently. Use the generated toggle hook or `useOptimisticValue` from `@molecule/app-react` to queue clicks during saves. Keep the control enabled and wait for the save before navigating to read the result. {{rewrite}}',
           awaitRefetch:
-            'This toggle waits for its save and a query refetch before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, move this save into commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads and keep it mounted during refetches. Preserve authentication checks; pending saves must not discard clicks.',
+            'This toggle waits for a save and refetch. Prefer the generated toggle hook or use `useOptimisticValue` from `@molecule/app-react` with the loaded value and saved result. Preserve authentication checks. Keep the loaded control mounted and enabled during saves and refreshes.',
           awaitSave:
-            'This toggle waits for its save before changing the control. Use `useOptimisticValue` from `@molecule/app-react`: seed value from the loaded record, save in commit and return the confirmed value, render the hook value, and call update(current => !current) on click. Enable the control only after its initial record loads. Preserve authentication checks and keep the control mounted during saves.',
+            'This toggle waits for its own save. Prefer the generated toggle hook or use `useOptimisticValue` from `@molecule/app-react` with the loaded value and saved result. Preserve authentication checks. Keep the loaded control mounted and enabled so later clicks queue.',
         },
       },
       create(context) {
@@ -5626,7 +5626,7 @@ export function scaffoldRules(parser) {
           if (unverifiedResource)
             return `First verify the saved resource read by ${unverifiedResource}. unwrapSingle unwraps data, not named resource keys: a response body { record: value } remains { record: value }. If the API uses a named envelope, select its actual field before notifying the parent or returning confirmed values. For a bare resource body, keep that resource directly. This single-file scan cannot prove that field, so it cannot supply a runnable migration for this save. Then move the verified save into useOptimisticValue, keep the control mounted, and key it by record identity.`
           if (writesBefore(fn, save).some(({ state }) => state.seed?.type === 'ObjectExpression'))
-            return 'Keep the control disabled while this request is pending, or queue each intent with useOptimisticValue. Its commit must choose one request from the desired field value and return the saved result. Preserve auth checks and the server response shape; verify both directions with a delayed first response.'
+            return 'Queue clicks with the generated toggle hook or useOptimisticValue. Its commit chooses the request from the desired field value and returns the saved result. Preserve auth checks and the response shape. Verify both directions with a delayed first response.'
           const writes = writesBefore(fn, save)
           const selected = [...new Map(writes.map((write) => [write.state.setter, write])).values()]
           if (!selected.length)

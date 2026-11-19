@@ -178,7 +178,7 @@ export default {
     schema: [],
     messages: {
       droppedAction:
-        '{{fix}} The handler can return without answering the action while {{condition}}.',
+        'The handler can drop clicks while {{condition}}. Queue server-backed toggles with the generated hook or useOptimisticValue and keep them enabled during saves. For an unavailable action, apply this change. {{fix}}',
     },
   },
   create(context) {
