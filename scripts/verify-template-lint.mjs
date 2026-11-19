@@ -26,11 +26,12 @@
  *   node scripts/verify-template-lint.mjs --app-only  # skip api/
  *   node scripts/verify-template-lint.mjs --fix       # apply eslint --fix
  *   node scripts/verify-template-lint.mjs <slug> ...  # only the named templates
+ *   --diagnostics-file=<path>                         # write all failing paths for lint-health
  */
 import { execFile } from 'node:child_process'
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { cpus } from 'node:os'
-import { dirname, join } from 'node:path'
+import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 import { promisify } from 'node:util'
 
@@ -63,6 +64,13 @@ const args = process.argv.slice(2)
 const appOnly = args.includes('--app-only')
 const fix = args.includes('--fix')
 const slugs = args.filter((a) => !a.startsWith('--'))
+const diagnosticsFile = args
+  .find((arg) => arg.startsWith('--diagnostics-file='))
+  ?.slice('--diagnostics-file='.length)
+
+function writeDiagnostics(files) {
+  if (diagnosticsFile) writeFileSync(diagnosticsFile, JSON.stringify(files))
+}
 
 const apps = (
   slugs.length
@@ -98,6 +106,7 @@ if (existsSync(tplPath)) {
     .map((t) => join(t.dir, 'eslint.config.js'))
     .filter((p) => readFileSync(p, 'utf8') !== tpl)
   if (stale.length > 0) {
+    writeDiagnostics(stale)
     console.error(
       `\n✗ ${stale.length} template eslint.config.js differ from templates/shared/eslint.config.js.tpl:\n`,
     )
@@ -124,7 +133,7 @@ const ESLINT_TIMEOUT_MS = 300_000
  * @param target - The workspace to lint.
  */
 async function lintOne(target) {
-  const flags = ['src', '--max-warnings', '0', ...(fix ? ['--fix'] : [])]
+  const flags = ['src', '--max-warnings', '0', '--format', 'json', ...(fix ? ['--fix'] : [])]
   try {
     await execFileAsync(ESLINT_BIN, flags, {
       cwd: target.dir,
@@ -132,15 +141,24 @@ async function lintOne(target) {
       maxBuffer: 32e6,
     })
   } catch (e) {
-    const out = `${e.stdout || ''}${e.stderr || ''}`
-    const lines = out
-      .split('\n')
-      .map((l) => l.trim())
-      .filter((l) => /^\d+:\d+/.test(l))
+    let files = []
+    if (e.code === 1) {
+      try {
+        files = JSON.parse(e.stdout).filter(({ messages }) => messages.length > 0)
+      } catch (_error) {
+        // JSON output without file diagnostics cannot establish source drift.
+      }
+    }
+    const lines = files.flatMap(({ filePath, messages }) =>
+      messages.map(
+        (m) =>
+          `${relative(target.dir, filePath)} ${m.line ?? 0}:${m.column ?? 0} ${m.severity === 2 ? 'error' : 'warning'} ${m.message}${m.ruleId ? `  ${m.ruleId}` : ''}`,
+      ),
+    )
     // Zero problem lines but a non-zero exit is a TOOLING failure (eslint
     // crash, config error, ENOENT), not lint dirt — keep the raw head so the
     // report shows what actually broke instead of an empty detail list.
-    const head = out
+    const head = (e.stderr || e.stdout || '')
       .split('\n')
       .map((l) => l.trim())
       .filter(Boolean)
@@ -155,7 +173,7 @@ async function lintOne(target) {
             : typeof e.code === 'number'
               ? `ESLint exited with code ${e.code}`
               : `ESLint could not run: ${e.code ?? e.message}`
-    failures.push({ ...target, lines, head, reason })
+    failures.push({ ...target, lines, head, reason, paths: files.map(({ filePath }) => filePath) })
   }
   checked++
   process.stdout.write(`\r[${checked}/${targets.length}] linted — ${failures.length} failing   `)
@@ -179,6 +197,7 @@ if (failures.length === 0) {
 
 const total = failures.reduce((n, f) => n + f.lines.length, 0)
 const toolingFailures = failures.filter((f) => f.lines.length === 0).length
+writeDiagnostics(failures.flatMap(({ paths }) => (paths.length ? paths : [null])))
 console.error(
   `\n✗ ${failures.length} template workspace(s) failed (${total} lint problems, ${toolingFailures} tooling failures):\n`,
 )

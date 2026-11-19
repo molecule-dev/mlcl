@@ -1,5 +1,13 @@
 import { spawnSync, type SpawnSyncReturns } from 'node:child_process'
-import { copyFileSync, mkdirSync, mkdtempSync, rmSync, symlinkSync, writeFileSync } from 'node:fs'
+import {
+  copyFileSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  symlinkSync,
+  writeFileSync,
+} from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -12,7 +20,10 @@ afterEach(() => {
 })
 
 /** Run the real gate with one inventory workspace and a controlled ESLint executable. */
-function lintResult(program: string): SpawnSyncReturns<string> {
+function lintResult(
+  program: string,
+  report = false,
+): SpawnSyncReturns<string> & { paths?: unknown } {
   const root = mkdtempSync(join(tmpdir(), 'template-lint-diagnostics-'))
   roots.push(root)
   const cli = join(root, 'mlcl')
@@ -30,7 +41,10 @@ function lintResult(program: string): SpawnSyncReturns<string> {
   })
   const script = join(cli, 'scripts/verify-template-lint.mjs')
   copyFileSync(join(import.meta.dirname, '../../../scripts/verify-template-lint.mjs'), script)
-  return spawnSync(process.execPath, [script], { encoding: 'utf8', timeout: 20_000 })
+  const diagnostics = join(root, 'diagnostics.json')
+  const args = report ? [script, `--diagnostics-file=${diagnostics}`] : [script]
+  const result = spawnSync(process.execPath, args, { encoding: 'utf8', timeout: 20_000 })
+  return { ...result, paths: report ? JSON.parse(readFileSync(diagnostics, 'utf8')) : undefined }
 }
 
 describe('template lint reports the native failure it received', () => {
@@ -45,10 +59,13 @@ describe('template lint reports the native failure it received', () => {
 
   it('retains the actual source diagnostic and its autofix guidance', () => {
     const result = lintResult(
-      "console.log('  4:2 error Unused stock variable'); process.exitCode = 1",
+      `console.log(JSON.stringify([{
+        filePath: process.cwd() + '/src/stock.ts',
+        messages: [{ line: 4, column: 2, severity: 2, message: 'Unused stock variable' }],
+      }])); process.exitCode = 1`,
     )
     expect(result.status).toBe(1)
-    expect(result.stderr).toContain('4:2 error Unused stock variable')
+    expect(result.stderr).toContain('src/stock.ts 4:2 error Unused stock variable')
     expect(result.stderr).toContain('Re-run with --fix')
   }, 30_000)
 
@@ -56,5 +73,11 @@ describe('template lint reports the native failure it received', () => {
     const result = lintResult('process.exitCode = 0')
     expect(result.status).toBe(0)
     expect(result.stdout).toContain('1 workspaces, 0 problems')
+  }, 30_000)
+
+  it('reports a tooling failure without a file to the cron', () => {
+    const result = lintResult('process.exitCode = 2', true)
+    expect(result.status).toBe(1)
+    expect(result.paths).toEqual([null])
   }, 30_000)
 })
