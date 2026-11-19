@@ -94,12 +94,15 @@ if (moleculeDir) {
 }
 
 const svelteKit = {{SVELTE_KIT}}
+// Workbox fetches each precache entry in order before the worker can serve the shell.
+// Apple launch artwork is linked in the HTML and loaded by the device as needed.
+const launchArtwork = 'icons/splash-+([0-9])x+([0-9]).svg'
 const pwaOptions = {
   registerType: 'prompt' as const,
   // The default package owns controller changes so the first claim leaves
   // the initial page and its in-flight navigation alone.
   injectRegister: false as const,
-  includeAssets: ['icons/*.svg', 'favicon.svg', 'og-image.svg'],
+  includeAssets: ['icons/*.svg', `!${launchArtwork}`, 'favicon.svg', 'og-image.svg'],
   manifest: {
     name: APP_NAME,
     short_name: APP_NAME,
@@ -128,6 +131,7 @@ const pwaOptions = {
     // them made a fresh install download the whole app (249 entries, 2.2 MB,
     // plus ~5 MB of fonts) before the worker could even take control.
     globPatterns: ['**/*.{html,ico,png,svg}', 'assets/index-*.js', 'assets/index-*.css'],
+    globIgnores: ['**/node_modules/**/*', launchArtwork],
     // OAuth and other server routes still go to the network on document loads.
     navigateFallbackDenylist: [/^\/(?:api|health|socket\.io)(?:\/|\?|$)/],
     // SvelteKit serves its documents itself and does not emit a Vite index.html.

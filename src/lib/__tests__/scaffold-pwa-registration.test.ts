@@ -255,6 +255,43 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
     )
   })
 
+  it('installs an offline shell without precaching the Apple launch images', async () => {
+    await withApp(async (root, page) => {
+      await writeFile(join(root, 'public/icons/splash-legend.svg'), '<svg/>')
+      await withPreview(root, async (url) => {
+        await page.goto(url)
+        await expectWorkerControl(page)
+        const cachedPaths = await page.evaluate(async () => {
+          const keys = await Promise.all(
+            (await caches.keys()).map(async (name) => (await caches.open(name)).keys()),
+          )
+          return keys.flat().map((entry) => new URL(entry.url).pathname)
+        })
+        expect(cachedPaths).toEqual(
+          expect.arrayContaining([
+            '/index.html',
+            '/icons/icon-192.svg',
+            '/icons/splash-legend.svg',
+          ]),
+        )
+        expect(cachedPaths.filter((path) => /^\/icons\/splash-\d+x\d+\.svg$/.test(path))).toEqual(
+          [],
+        )
+        const splash = '/icons/splash-640x1136.svg'
+        expect(
+          await page.locator(`link[rel="apple-touch-startup-image"][href="${splash}"]`).count(),
+        ).toBe(1)
+        const launchImage = await page.request.get(url + splash)
+        expect(launchImage.headers()['content-type']).toContain('image/svg+xml')
+        expect(await launchImage.text()).toContain('<svg')
+        await page.context().setOffline(true)
+        const response = await page.goto(`${url}/equipment/calibration`)
+        expect(response?.fromServiceWorker()).toBe(true)
+        expect(await page.locator('#root').textContent()).toBe('Equipment console')
+      })
+    })
+  })
+
   it('passes OAuth and health navigations through while the app shell stays cached', async () => {
     await withApp(
       (root, page) =>
