@@ -191,7 +191,8 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
         await browser.close()
       }
     } finally {
-      await rm(root, { recursive: true, force: true })
+      // A dev server can still be writing its cache as it closes: rm retries ENOTEMPTY.
+      await rm(root, { recursive: true, force: true, maxRetries: 5, retryDelay: 100 })
     }
   }
 
