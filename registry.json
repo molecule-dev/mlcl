@@ -93284,12 +93284,9 @@
       "intentHints": [
         "tags input",
         "tag input",
-        "add tags",
-        "labels input",
-        "keywords input",
-        "chip input",
-        "token input",
-        "tag editor",
+        "labels and keywords input",
+        "chip input and token input",
+        "tag editor to add tags",
         "display tags",
         "saved tags",
         "read-only tags"
@@ -93331,12 +93328,9 @@
       "intentHints": [
         "tags input",
         "tag input",
-        "add tags",
-        "labels input",
-        "keywords input",
-        "chip input",
-        "token input",
-        "tag editor",
+        "labels and keywords input",
+        "chip input and token input",
+        "tag editor to add tags",
         "display tags",
         "saved tags",
         "read-only tags"
@@ -93378,12 +93372,9 @@
       "intentHints": [
         "tags input",
         "tag input",
-        "add tags",
-        "labels input",
-        "keywords input",
-        "chip input",
-        "token input",
-        "tag editor",
+        "labels and keywords input",
+        "chip input and token input",
+        "tag editor to add tags",
         "display tags",
         "saved tags",
         "read-only tags"
@@ -93425,12 +93416,9 @@
       "intentHints": [
         "tags input",
         "tag input",
-        "add tags",
-        "labels input",
-        "keywords input",
-        "chip input",
-        "token input",
-        "tag editor",
+        "labels and keywords input",
+        "chip input and token input",
+        "tag editor to add tags",
         "display tags",
         "saved tags",
         "read-only tags"

@@ -1088,6 +1088,11 @@ export default class SyncRegistry extends Command {
    *   (auto-included companions), ui.hidden, and the framework/infrastructure
    *   types (selected by framework config / auto-wiring, never by intent).
    *
+   * A declaration awaiting its first release (`pendingPackages`) is held to the same
+   * rules: the release moves it into `packages` once npm serves it, so a hint it
+   * breaks would first be reported in the middle of that release (2026-11-19: four
+   * tag-input ports kept 11 hints after the React package was trimmed to 8).
+   *
    * @returns Number of blocking violations (0 = pass).
    */
   private checkIntentHints(): number {
@@ -1095,7 +1100,8 @@ export default class SyncRegistry extends Command {
     spinner.start('Validating intent hints...')
 
     const registry = getRawRegistry()
-    const packages = registry.packages
+    // A name is in one section or the other, never both (the registry schema refuses that).
+    const packages = { ...registry.packages, ...registry.pendingPackages }
 
     const violations: string[] = []
     const hintOwners = new Map<string, string[]>()

@@ -1,3 +1,5 @@
+import { mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { Config } from '@oclif/core'
@@ -20,6 +22,36 @@ describe('authored registry intent hints', () => {
   it('passes the same intent-hint validation CI runs', async () => {
     const config = await Config.load(join(import.meta.dirname, '..', '..', '..'))
     await expect(SyncRegistry.run(['--check-intent-hints'], config)).resolves.toBeUndefined()
+  })
+
+  // The release moves a pending declaration into `packages` once npm serves it, so a hint it
+  // breaks must be caught before that release, not during it.
+  it('holds a declaration awaiting its first release to the same rules (OLD MUSTFAIL: passed)', async () => {
+    const config = await Config.load(join(import.meta.dirname, '..', '..', '..'))
+    const dir = mkdtempSync(join(tmpdir(), 'pending-hints-'))
+    const check = (intentHints: string[]): Promise<unknown> => {
+      const fixture = structuredClone(registry)
+      fixture.pendingPackages = {
+        ...fixture.pendingPackages,
+        '@molecule/app-pending-fixture-vue': {
+          ...registry.packages['@molecule/app-tag-input-react'],
+          intentHints,
+        },
+      }
+      const path = join(dir, `registry-${intentHints.length}.json`)
+      writeFileSync(path, `${JSON.stringify(fixture, null, 2)}\n`)
+      process.env.MLCL_REGISTRY_PATH = path
+      return SyncRegistry.run(['--check-intent-hints'], config)
+    }
+    const hints = Array.from({ length: 9 }, (_, i) => `pending fixture hint ${'abcdefghi'[i]}`)
+    try {
+      await expect(check(hints)).rejects.toThrow(/EEXIT: 1/)
+      // Counterexample: the same declaration within the cap passes.
+      await expect(check(hints.slice(0, 8))).resolves.toBeUndefined()
+    } finally {
+      delete process.env.MLCL_REGISTRY_PATH
+      rmSync(dir, { recursive: true, force: true })
+    }
   })
 
   it.each([
