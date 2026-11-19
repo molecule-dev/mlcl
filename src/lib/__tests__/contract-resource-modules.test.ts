@@ -25,6 +25,7 @@ import {
 } from '@molecule/app-query'
 import { createProvider } from '@molecule/app-query-memory'
 import { QueryContent } from '@molecule/app-query-react'
+import { type ListRouteOptions, resolveListRoute } from '@molecule/app-routing'
 
 import { planAppResourceModules } from '../app-resource-modules.js'
 import {
@@ -182,6 +183,83 @@ describe('an inventory API with its own contract', () => {
     expect(new Set(names).size).toBe(names.length)
   })
 
+  it('the generated URL-list example loads all inventory with no category and refines the same query', async () => {
+    const contract = JSON.parse(await fixture('inventory-openapi.json.txt'))
+    contract.paths['/items'].get.parameters = [
+      { name: 'limit', in: 'query', schema: { type: 'integer', default: 12 } },
+      { name: 'offset', in: 'query', schema: { type: 'integer' } },
+      { name: 'category', in: 'query', schema: { type: 'string' } },
+    ]
+    const { modules } = planContractResourceModules(
+      contract,
+      factory,
+      QUERY,
+      'app',
+      'specs/openapi.json',
+      factory.listRoute,
+    )
+    const source = modules[0].source
+    const example = source.split('*/', 1)[0].match(/\* (const list = useItemsList\(\))/)?.[1]
+    expect(example, 'the generated module shows the URL list in a page').toBeDefined()
+    const { outputText } = ts.transpileModule(
+      `${source}\nexport function examplePage() { ${example}; return list }`,
+      { compilerOptions: { module: ts.ModuleKind.CommonJS } },
+    )
+    let search = ''
+    const requests: object[] = []
+    const rows = [
+      { sku: 'bolt', category: 'metal' },
+      { sku: 'basket', category: 'paper' },
+    ]
+    const files = {
+      [factory.listRoute!.package]: {
+        useListRoute: (options: ListRouteOptions) =>
+          resolveListRoute(
+            { location: { pathname: '/warehouse', search, hash: '' } },
+            options,
+            () => undefined,
+          ),
+      },
+      [QUERY]: {
+        createQueryResource,
+        useQuery: (options: QueryOptions<typeof rows> | null) => ({ options }),
+      },
+      [HTTP]: {
+        getClient: () => ({
+          get: async (_path: string, config: { params: { category?: string } }) => {
+            requests.push(config.params)
+            return {
+              data: rows.filter(
+                (item) => !config.params.category || item.category === config.params.category,
+              ),
+            }
+          },
+        }),
+      },
+    }
+    const exports = {} as {
+      examplePage: () => { options: QueryOptions<typeof rows> }
+      useItems: (params: null) => { options: null }
+    }
+    new Function('require', 'exports', outputText)(
+      (name: keyof typeof files) => files[name],
+      exports,
+    )
+    setProvider(createProvider())
+    try {
+      expect(await getQueryClient().fetch(exports.examplePage().options)).toEqual(rows)
+      search = '?category=metal&page=2'
+      expect(await getQueryClient().fetch(exports.examplePage().options)).toEqual(rows.slice(0, 1))
+      expect(requests).toEqual([
+        { limit: 12, offset: 0 },
+        { category: 'metal', limit: 12, offset: 12 },
+      ])
+      expect(exports.useItems(null).options).toBeNull()
+    } finally {
+      resetQueryClient()
+    }
+  })
+
   it('named reads and writes preserve response shapes, bodies and shared cache refresh', async () => {
     const source = (await plan('inventory-openapi.json.txt')).modules[0].source
     const emitted = ts.transpileModule(source, {
@@ -245,9 +323,19 @@ describe('an inventory API with its own contract', () => {
 
   it('the generated inventory view renders replaced labels on the same saved record', async () => {
     const source = (await plan('inventory-openapi.json.txt')).modules[0].source
-    const { outputText } = ts.transpileModule(source, {
-      compilerOptions: { module: ts.ModuleKind.CommonJS },
-    })
+    const example = source.split('*/', 1)[0].match(/\* ```tsx\n([\s\S]*?)\n \* ```/)?.[1]
+    expect(
+      example,
+      'the generated detail view shows how to display the saved strings',
+    ).toBeDefined()
+    const jsx = example!.replace(/^ +\* ?/gm, '')
+    const { outputText } = ts.transpileModule(
+      `${source}\nimport * as React from 'react'\nexport function Example({ id }: { id: string }) { return (${jsx}) }`,
+      {
+        fileName: 'items.tsx',
+        compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.React },
+      },
+    )
     let item = { sku: 'bolt/a', name: 'Bolt', quantity: 1, labels: ['Hardware', 'Bulk'] }
     const http = {
       get: async () => ({ data: item }),
@@ -259,7 +347,7 @@ describe('an inventory API with its own contract', () => {
     type Item = typeof item
     const generated = {} as {
       updateItem: (id: string, input: Pick<Item, 'sku' | 'name'>) => Promise<Item>
-      ItemView: (props: { id: string; children: (record: Item) => ReactNode }) => ReactNode
+      Example: (props: { id: string }) => ReactNode
     }
     let detail: QueryOptions<Item> | undefined
     const runtime = {
@@ -278,23 +366,16 @@ describe('an inventory API with its own contract', () => {
       (name: keyof typeof runtime) => runtime[name],
       generated,
     )
-    expect(generated.ItemView).toBeTypeOf('function')
     setProvider(createProvider())
     try {
       const render = (): string =>
-        renderToStaticMarkup(
-          createElement(generated.ItemView, {
-            id: item.sku,
-            children: (record) =>
-              createElement('p', null, `${record.name}: ${record.labels.join(', ')}`),
-          }),
-        )
+        renderToStaticMarkup(createElement(generated.Example, { id: item.sku }))
       expect(render()).toBe('')
       expect(detail).toBeDefined()
       await getQueryClient().fetch(detail!)
-      expect(render()).toContain('Bolt: Hardware, Bulk')
+      expect(render()).toBe('<ul><li>Hardware</li><li>Bulk</li></ul>')
       await generated.updateItem(item.sku, { sku: item.sku, name: item.name })
-      expect(render()).toBe('<p>Bolt: </p>')
+      expect(render()).toBe('<ul></ul>')
     } finally {
       resetQueryClient()
     }

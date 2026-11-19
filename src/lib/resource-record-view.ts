@@ -21,6 +21,7 @@ type Framework = NonNullable<ResourceModuleFactory['recordPage']>['framework']
  * @param collection - The resource module's filename stem.
  * @param record - The loaded record type.
  * @param detail - The named detail hook and its inputs.
+ * @param savedStrings - A declared string array to show in a loaded React view example.
  * @returns The view's source, imports and module header example.
  */
 export function resourceRecordView(
@@ -29,6 +30,7 @@ export function resourceRecordView(
   collection: string,
   record: string,
   detail: ResourceHook,
+  savedStrings?: string,
 ): ResourceRecordView {
   const name = `${record}View`
   const props = `${name}Props`
@@ -49,9 +51,22 @@ export function resourceRecordView(
   const call = (values: string[]): string => `${detail.name}(${values.join(', ')})`
 
   switch (framework) {
-    case 'react':
+    case 'react': {
+      const example = savedStrings
+        ? `
+ * Render saved lists from the loaded record. A save updates the same view:
+ * \`\`\`tsx
+ * <${name} ${args.map((arg) => `${arg}={${arg}}`).join(' ')}>
+ *   {(record) => (
+ *     <ul>
+ *       {(record.${savedStrings} ?? []).map((value, index) => <li key={index}>{value}</li>)}
+ *     </ul>
+ *   )}
+ * </${name}>
+ * \`\`\``
+        : ''
       return {
-        doc: `Detail pages use ${jsx}. Render from the record supplied to renderRecord so the module's writes update the display. Pass pending, missing and error content to the view.`,
+        doc: `Detail pages use ${jsx}. Render from the record supplied to renderRecord so the module's writes update the display. Pass pending, missing and error content to the view.${example}`,
         imports: ['react', ['createElement', 'type ReactNode']],
         source: `${shape}\n\n${description}
 export function ${name}(props: ${props}): ReactNode {
@@ -60,6 +75,7 @@ export function ${name}(props: ${props}): ReactNode {
   return createElement(QueryContent<${record} | null>, { ...props, query, recordKey: ${key('viewer', fromProps)} })
 }`,
       }
+    }
     case 'solid':
       return {
         doc: `Detail pages use ${jsx}. Read the record accessor in renderRecord. Pass pending, missing and error content to the view.`,

@@ -532,6 +532,8 @@ export function planContractResourceModules(
     const pageExports: string[] = []
     const listHooks: string[] = []
     const listHookNames: string[] = []
+    const defaultListHooks: string[] = []
+    const unfilteredReads: ResourceHook[] = []
     const namedReads: ResourceHook[] = []
     const listPaths = [...(list && listAnswer ? [base] : []), ...(extraLists.get(base) ?? [])]
     const pathExpression = (path: string): string => {
@@ -587,7 +589,7 @@ export function planContractResourceModules(
       const resourceCall = `${exportName}(${['viewer', ...parentArgs].join(', ')})`
       const required = [...parameters.values()].some((parameter) => parameter.required === true)
       const hookName = `use${pascal(name)}${suffix}${pascal(name) === typeName && !suffix ? 'Collection' : ''}`
-      namedReads.push({
+      const hook: ResourceHook = {
         name: hookName,
         args: [
           ...parentArgs.map((name) => ({ name, type: 'string | null' })),
@@ -595,7 +597,9 @@ export function planContractResourceModules(
         ],
         result: resultType,
         read: `${[...parentArgs.map((name) => `${name}Value === null`), 'viewerValue === null', 'paramsValue === null'].join(' || ')} ? null : ${pageWithViewer}(${['viewerValue', ...parentArgs.map((name) => `${name}Value`), 'paramsValue'].join(', ')})`,
-      })
+      }
+      namedReads.push(hook)
+      if (!required && parentArgs.length === 0) unfilteredReads.push(hook)
       const pageArgs = [...parentArgs.map((name) => `${name}: string`), `params: ${paramsType}`]
       pageExports.push(
         `function ${pageWithViewer}(${['viewer: string', ...pageArgs].join(', ')}): QueryOptions<${resultType}> {\n` +
@@ -632,6 +636,7 @@ export function planContractResourceModules(
         )
         const hookName = `use${pascal(name)}${suffix}List`
         listHookNames.push(hookName)
+        if (!remainingRequired && parentArgs.length === 0) defaultListHooks.push(hookName)
         const defaultLimit = numeric('limit')!.default
         const limit =
           Number.isSafeInteger(defaultLimit) && Number(defaultLimit) > 0
@@ -731,9 +736,25 @@ export function planContractResourceModules(
     }
     const hooks = resourceHooks(factory, namedReads)
     const page = factory.recordPage
+    const savedStrings =
+      detailRead &&
+      Object.keys(recordFields).find((key) => {
+        if (!/^[A-Za-z_$][\w$]*$/.test(key)) return false
+        const field = resolve(recordFields[key]).value
+        if (!isObject(field) || field.type !== 'array') return false
+        const item = resolve(field.items).value
+        return isObject(item) && item.type === 'string'
+      })
     const recordView =
       pageSupport.view && page && factory.queryHook && detailRead
-        ? resourceRecordView(page.framework, factoryPackage, name, typeName, detailRead)
+        ? resourceRecordView(
+            page.framework,
+            factoryPackage,
+            name,
+            typeName,
+            detailRead,
+            savedStrings,
+          )
         : undefined
     const optimistic =
       pageSupport.toggle && page && factory.queryHook && toggles.length
@@ -870,6 +891,16 @@ export function planContractResourceModules(
     const createDoc = createType
       ? ` * Create with \`create${typeName}(${[...parentArgs, 'input'].join(', ')})\`. Pass the complete \`${createType}\` body declared below.\n`
       : ''
+    const listDoc = listHooks.length
+      ? ` * For URL-selected lists, use ${listHookNames.map((hook) => `\`${hook}\``).join(', ')} to read paging and filters from the route.\n` +
+        (defaultListHooks.length
+          ? ` * In a page component, call the hook for its endpoint. A URL without filters still loads rows.\n${defaultListHooks.map((hook) => ` * \`\`\`ts\n * const list = ${hook}()\n * \`\`\`\n`).join('')}`
+          : '')
+      : ''
+    const optionalParamsDoc =
+      hooks.source && unfilteredReads.length
+        ? ` * Unfiltered requests use ${unfilteredReads.map(({ name }) => `\`${name}({})\``).join(', ')}. Pass \`null\` to pause a read.\n`
+        : ''
     const source = `/**
  * ${pascal(name)} on the app's shared query cache, as ${label} declares them.
  *
@@ -877,7 +908,7 @@ export function planContractResourceModules(
  * Regenerate with \`mlcl resources --contract ${label}\` after the contract changes.
  *
  * Covers: ${covered.join(', ')}.
-${viewDoc}${toggleDoc}${hooks.source ? ` * Page reads: ${namedReads.map((hook) => `\`${hook.name}(${hook.args.map((arg) => arg.name).join(', ')})\``).join(', ')}.\n * The hooks expose data, status, error and refetch(). Lists return the whole response, including totals.\n` : ''}${namedWrites.names.length ? ` * Named writes: ${namedWrites.names.map((name) => `\`${name}\``).join(', ')}.\n * Their typed input is the API's complete request body, including any envelope, sent unchanged.\n${createDoc}` : ''}${listHooks.length ? ` * List pages use ${listHookNames.map((name) => `\`${name}\``).join(', ')} for URL paging and filters.\n` : ''} *
+${listDoc}${viewDoc}${toggleDoc}${hooks.source ? ` * Page reads: ${namedReads.map((hook) => `\`${hook.name}(${hook.args.map((arg) => arg.name).join(', ')})\``).join(', ')}.\n * The hooks expose data, status, error and refetch(). Lists return the whole response, including totals.\n` : ''}${optionalParamsDoc}${namedWrites.names.length ? ` * Named writes: ${namedWrites.names.map((name) => `\`${name}\``).join(', ')}.\n * Their typed input is the API's complete request body, including any envelope, sent unchanged.\n${createDoc}` : ''} *
  * ${pageSupport.auth ? 'Reads and writes use the current auth session automatically. Reads pause until auth settles.' : 'Reads and writes share the public cache.'}
  * A successful write publishes the saved detail or deletion and refetches up to four recently read lists for this resource and session.
  * Writes reject with the HTTP error, and query failures appear in error. Show \`${errorName}(error)\` for the contract's validation message or a generic fallback.
