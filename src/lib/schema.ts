@@ -1322,95 +1322,110 @@ export type StagingDriverRegistryEntry = z.infer<typeof StagingDriverRegistryEnt
  * The centralized molecule registry — single source of truth for all packages.
  * Lives at mlcl/registry.json and is auto-updated by mlcl commands.
  */
-export const Registry = z.object({
-  version: z.literal(1),
-  packages: z.record(z.string(), RegistryEntry),
-  typeDefaults: z
-    .record(
-      z.string(),
-      z.object({
-        implicitPeers: z.array(z.string()).describe('Packages to auto-add as peer deps'),
-      }),
-    )
-    .optional()
-    .describe('Default settings per package type (resource, provider, etc.)'),
-  apiFrameworks: z
-    .record(z.string(), ApiFrameworkConfig)
-    .optional()
-    .describe('API framework configurations for code generation'),
-  appFrameworks: z
-    .record(z.string(), AppFrameworkConfig)
-    .optional()
-    .describe('App framework configurations for project scaffolding'),
-  stagingDrivers: z
-    .record(z.string(), StagingDriverRegistryEntry)
-    .optional()
-    .describe('Staging driver configurations for ephemeral environments'),
-  toolchain: z
-    .object({
-      shared: z
-        .record(z.string(), z.string())
-        .default({})
-        .describe('Dev dependencies shared across all generated projects'),
-      api: z
-        .record(z.string(), z.string())
-        .default({})
-        .describe('Dev dependencies specific to generated API projects'),
-      app: z
-        .record(z.string(), z.string())
-        .default({})
-        .describe('Dev dependencies specific to generated App projects'),
-      moleculePackage: z
-        .record(z.string(), z.string())
-        .default({})
-        .describe('Dev dependencies for scaffolded molecule packages'),
-    })
-    .optional()
-    .describe('Pinned toolchain versions for generated projects and packages'),
-  moleculeVersions: z
-    .object({
-      default: z
-        .string()
-        .describe(
-          'Exact version every @molecule/* package pins to (the monorepo lockstep version). No ^/~ — exact only.',
-        ),
-      overrides: z
-        .record(z.string(), z.string())
-        .default({})
-        .describe(
-          'Per-package exact version overrides for @molecule/* packages that diverge from the default.',
-        ),
-    })
-    .optional()
-    .describe(
-      'Exact published versions for @molecule/* packages — the single source of truth for the version scaffolded projects pin each @molecule dependency to.',
-    ),
-  themePresets: z
-    .record(
-      z.string(),
-      z.object({
-        label: z.string().describe('Human-readable name for CLI menus'),
-        description: z.string().describe('Short description for UI hint text'),
-        themeProvider: z
+export const Registry = z
+  .object({
+    version: z.literal(1),
+    packages: z.record(z.string(), RegistryEntry),
+    typeDefaults: z
+      .record(
+        z.string(),
+        z.object({
+          implicitPeers: z.array(z.string()).describe('Packages to auto-add as peer deps'),
+        }),
+      )
+      .optional()
+      .describe('Default settings per package type (resource, provider, etc.)'),
+    apiFrameworks: z
+      .record(z.string(), ApiFrameworkConfig)
+      .optional()
+      .describe('API framework configurations for code generation'),
+    appFrameworks: z
+      .record(z.string(), AppFrameworkConfig)
+      .optional()
+      .describe('App framework configurations for project scaffolding'),
+    stagingDrivers: z
+      .record(z.string(), StagingDriverRegistryEntry)
+      .optional()
+      .describe('Staging driver configurations for ephemeral environments'),
+    toolchain: z
+      .object({
+        shared: z
+          .record(z.string(), z.string())
+          .default({})
+          .describe('Dev dependencies shared across all generated projects'),
+        api: z
+          .record(z.string(), z.string())
+          .default({})
+          .describe('Dev dependencies specific to generated API projects'),
+        app: z
+          .record(z.string(), z.string())
+          .default({})
+          .describe('Dev dependencies specific to generated App projects'),
+        moleculePackage: z
+          .record(z.string(), z.string())
+          .default({})
+          .describe('Dev dependencies for scaffolded molecule packages'),
+      })
+      .optional()
+      .describe('Pinned toolchain versions for generated projects and packages'),
+    moleculeVersions: z
+      .object({
+        default: z
           .string()
           .describe(
-            'Theme provider package to use (replaces default @molecule/app-theme provider)',
+            'Exact version every @molecule/* package pins to (the monorepo lockstep version). No ^/~ — exact only.',
           ),
-        classMapProvider: z
-          .string()
-          .optional()
-          .describe('ClassMap provider package to use instead of the default (e.g. glass effects)'),
-      }),
-    )
-    .optional()
-    .describe('Named theme presets that bundle a theme provider + optional ClassMap override'),
-  pendingPackages: z
-    .record(z.string(), RegistryEntry)
-    .optional()
-    .describe(
-      'Declarations awaiting a served first release. Not part of the installable catalog. The release restores them to packages after publication.',
-    ),
-})
+        overrides: z
+          .record(z.string(), z.string())
+          .default({})
+          .describe(
+            'Per-package exact version overrides for @molecule/* packages that diverge from the default.',
+          ),
+      })
+      .optional()
+      .describe(
+        'Exact published versions for @molecule/* packages — the single source of truth for the version scaffolded projects pin each @molecule dependency to.',
+      ),
+    themePresets: z
+      .record(
+        z.string(),
+        z.object({
+          label: z.string().describe('Human-readable name for CLI menus'),
+          description: z.string().describe('Short description for UI hint text'),
+          themeProvider: z
+            .string()
+            .describe(
+              'Theme provider package to use (replaces default @molecule/app-theme provider)',
+            ),
+          classMapProvider: z
+            .string()
+            .optional()
+            .describe(
+              'ClassMap provider package to use instead of the default (e.g. glass effects)',
+            ),
+        }),
+      )
+      .optional()
+      .describe('Named theme presets that bundle a theme provider + optional ClassMap override'),
+    pendingPackages: z
+      .record(z.string(), RegistryEntry)
+      .optional()
+      .describe(
+        'Declarations awaiting a served first release. Not part of the installable catalog. The release restores them to packages after publication.',
+      ),
+  })
+  .superRefine((registry, ctx) => {
+    // A declaration is installable or pending, never both: 2026-11-19 a copy of 116 pending ports
+    // back into packages put each one in both sections, and the catalog offered packages npm only
+    // served as a stage placeholder.
+    for (const name of Object.keys(registry.pendingPackages ?? {}))
+      if (Object.hasOwn(registry.packages, name))
+        ctx.addIssue({
+          code: 'custom',
+          path: ['pendingPackages', name],
+          message: `${name} is in both packages and pendingPackages; keep it in pendingPackages until its first version is on npm (the release moves it to packages), or in packages alone once it is published`,
+        })
+  })
 
 export type Registry = z.infer<typeof Registry>
 

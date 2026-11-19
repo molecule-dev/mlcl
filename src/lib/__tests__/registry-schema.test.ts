@@ -33,6 +33,31 @@ describe('registry.json schema validation', () => {
     }
   })
 
+  it('refuses a declaration in both packages and pendingPackages', () => {
+    // 2026-11-19: 116 pending ports copied back into packages sat in both sections, so the catalog
+    // offered packages npm only served as a stage placeholder.
+    const name = Object.keys(raw.packages)[0]
+    const entry = raw.packages[name]
+    const { [name]: _moved, ...rest } = raw.packages
+    const both = { ...raw, pendingPackages: { ...raw.pendingPackages, [name]: entry } }
+    const result = Registry.safeParse(both)
+    expect(result.success).toBe(false)
+    expect(result.error?.issues.map((issue) => issue.path.join('.'))).toEqual([
+      `pendingPackages.${name}`,
+    ])
+    expect(result.error?.issues[0]?.message).toMatch(/in both packages and pendingPackages/)
+    expect(() => serializeRegistry(both)).toThrow(/in both packages and pendingPackages/)
+    // counterexamples: pending alone, and published alone
+    expect(
+      Registry.safeParse({
+        ...raw,
+        packages: rest,
+        pendingPackages: { ...raw.pendingPackages, [name]: entry },
+      }).success,
+    ).toBe(true)
+    expect(Registry.safeParse(raw).success).toBe(true)
+  })
+
   it('is stored in the key order sync-registry writes', () => {
     // sync-registry rewrites the whole file through Registry.parse, which emits each entry's keys in schema
     // order. A hand edit that places a key elsewhere is moved by the next scan of ANY package, so that scan's

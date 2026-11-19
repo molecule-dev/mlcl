@@ -555,8 +555,12 @@ describe('Framework-specific patterns', () => {
   it('React uses react-router for routing', async () => {
     const app = await readTemplate('react', 'App.tsx.tpl')
     expect(app).toContain("from 'react-router'")
-    expect(app).toContain('BrowserRouter')
     expect(app).toContain('useRoutes(routes)')
+    // The entry point mounts the router around <App />, so a rewrite of App's providers
+    // cannot drop it (b5d987c42b: P461 l3540's rewrite left a blank page behind a green check).
+    const main = await readTemplate('react', 'main.tsx.tpl')
+    expect(main).toMatch(/<BrowserRouter>[\s\S]*<App \/>[\s\S]*<\/BrowserRouter>/)
+    expect(app).not.toContain('BrowserRouter')
     // Pages wait for the initial restore to settle, so public actions see the
     // restored user when that request succeeds.
     expect(app).toMatch(/<MoleculeProvider\s[^>]*\bawaitSession\b/)
