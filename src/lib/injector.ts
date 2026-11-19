@@ -4642,6 +4642,7 @@ function scaffoldRouteList(routes: ReadonlyArray<{ method: string; path: string 
 function generatedRouterHeader(
   resourcePlans: InjectionPlan[],
   optionalFeatures: Set<string>,
+  authContract?: AuthContract,
 ): string {
   const mounted = resourcePlans.flatMap((plan) => {
     const pkg = plan.moleculePackage
@@ -4686,6 +4687,14 @@ function generatedRouterHeader(
         'resolves to { ok, user, token } — token is the session these mounts accept — so no ' +
         'route calls sign(), hash() or compare() for an account.',
     )
+    if (authContract?.resourcePackage !== accounts.molecule) {
+      lines.push(
+        '// For an API whose contract requires an Authorization header, use this mount:',
+        '// router.use(userAuthorization.verifyMiddleware({ allowCookieSession: false }))',
+        '// This stops sign-in from setting session cookies and stops protected routes accepting them.',
+        '// For a custom header scheme, set scheme here and authScheme on the app HTTP client.',
+      )
+    }
   }
   return lines.join('\n')
 }
@@ -4830,7 +4839,7 @@ function generateRouterContentHeuristic(
 
   // The header comes FIRST so both `sortImportStatements` and a reader keep it above the
   // imports: it is the file's own statement of what it is and what it mounts.
-  lines.push(generatedRouterHeader(resourcePlans, optionalFeatures))
+  lines.push(generatedRouterHeader(resourcePlans, optionalFeatures, authContract))
   lines.push(fw.routerImport)
 
   // Import from resource wrappers: the handler map where the resource has active

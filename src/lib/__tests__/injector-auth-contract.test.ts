@@ -3,7 +3,9 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import ts from 'typescript'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+
+import { authorization } from '@molecule/api-resource-user'
 
 import { disableAI } from '../ai.js'
 import type { AuthContract } from '../auth-contract.js'
@@ -251,6 +253,32 @@ describe('injector consumes the same auth contract as the app', () => {
       )
       expect(repeated.some((file) => file.targetPath === routerPath)).toBe(false)
     }
+  })
+
+  it('shows how a header-only API selects authorization at the generated mount', async () => {
+    const files = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
+    const router = String(
+      files.find((file) => file.targetPath.endsWith(join('App', 'router.ts')))!.content,
+    )
+    const example = router
+      .split('\n')
+      .find((line) => line.startsWith('// router.use(userAuthorization.verifyMiddleware('))
+    expect(example, 'the generated router exposes an executable header-only mount').toBeDefined()
+    const liveMount = router
+      .split('\n')
+      .find((line) => line.startsWith('router.use(userAuthorization.'))!
+    const exercise = async (mount: string): Promise<boolean> => {
+      const use = vi.fn()
+      new Function('router', 'userAuthorization', mount)({ use }, authorization)
+      const middleware = use.mock.calls[0]![0] as ReturnType<typeof authorization.verifyMiddleware>
+      const res = { locals: { session: { userId: 'account' }, authSessionSource: 'cookie' } }
+      const next = vi.fn()
+      await middleware({ headers: {} } as never, res as never, next)
+      expect(next).toHaveBeenCalledOnce()
+      return Boolean(res.locals.session)
+    }
+    expect(await exercise(example!.slice(3))).toBe(false)
+    expect(await exercise(liveMount)).toBe(true)
   })
 
   it('keeps the default package router and wrapper when no project contract exists', async () => {
