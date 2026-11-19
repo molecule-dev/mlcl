@@ -20,7 +20,11 @@ export interface ValidationResult {
 export interface ExistingProjectValidation {
   /** True for a project whose package.json has no `molecule.projectType`. */
   existingProject?: boolean
-  /** Absolute path of the setup module inject wrote there (it may be `.js` or `.mjs`). */
+  /**
+   * Absolute path of the setup module inject wrote: under the framework's shared code
+   * directory (`src/lib/bonds/index.ts` in a SvelteKit app), and in a project Molecule did
+   * not create it may be `.js` or `.mjs`. Defaults to `src/bonds/index.ts`.
+   */
   bondsIndex?: string
 }
 
@@ -34,12 +38,13 @@ export async function validateInjectionOutput(
 ): Promise<ValidationResult> {
   const errors: string[] = []
   const app = await detectAppProjectForValidation(projectPath)
+  const bondsIndex = options.bondsIndex
+    ? relative(projectPath, options.bondsIndex)
+    : 'src/bonds/index.ts'
   const artifacts =
-    options.existingProject && options.bondsIndex
-      ? [relative(projectPath, options.bondsIndex)]
-      : app
-        ? ['src/bonds/index.ts']
-        : ['src/server.ts', 'src/App/router.ts', 'src/bonds/index.ts']
+    (options.existingProject && options.bondsIndex) || app
+      ? [bondsIndex]
+      : ['src/server.ts', 'src/App/router.ts', bondsIndex]
   for (const file of artifacts) {
     try {
       await access(join(projectPath, file))

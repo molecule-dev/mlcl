@@ -75,6 +75,27 @@ describe('validateInjectionOutput', () => {
     expect(result.errors).toContain('Missing critical file: src/bonds/index.ts')
   })
 
+  it('checks a SvelteKit app for the setup module inject wrote under src/lib', async () => {
+    const tmp = await createTempProject()
+    tempDirs.push(tmp)
+    await writeProjectFile(
+      tmp,
+      'package.json',
+      JSON.stringify({ molecule: { projectType: 'app', framework: 'svelte' } }),
+    )
+    await writeProjectFile(
+      tmp,
+      'src/lib/bonds/index.ts',
+      `export function setupProviders(): void {}\n`,
+    )
+
+    const result = await validateInjectionOutput(tmp, {
+      bondsIndex: join(tmp, 'src/lib/bonds/index.ts'),
+    })
+
+    expect(result).toEqual({ valid: true, errors: [], warnings: [] })
+  })
+
   it('reports "Missing critical file: src/server.ts" for project without server.ts', async () => {
     const tmp = await createTempProject()
     tempDirs.push(tmp)
