@@ -700,10 +700,13 @@ export default {
       : []
     const isScaffoldModule = (target, module) =>
       appSources.some((dir) => target === join(dir, module))
+    // A SvelteKit app's vite.config.ts aliases both `$lib` (SvelteKit 2) and `#lib`
+    // (SvelteKit 3) to src/lib.
+    const libAlias = /^[$#]lib(?:\/|$)/
     const projectImportPath = (specifier, importer) =>
       specifier.startsWith('.')
         ? resolve(dirname(importer), specifier)
-        : specifier.startsWith('$lib/')
+        : libAlias.test(specifier)
           ? resolve(packages.root, 'src/lib', specifier.slice('$lib/'.length))
           : null
     const projectImport = (node, name) => {
