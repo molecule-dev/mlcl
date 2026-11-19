@@ -2888,6 +2888,19 @@ export function scaffoldRules(parser) {
                 ),
               )
             }
+            const constantSeed = (node, seen = new Set()) => {
+              node = unwrap(node)
+              if (!node || seen.has(node)) return false
+              seen.add(node)
+              if (node.type === 'Literal') return true
+              if (node.type === 'ArrayExpression')
+                return node.elements.every((part) => constantSeed(part, new Set(seen)))
+              if (node.type === 'ObjectExpression')
+                return node.properties.every(
+                  (part) => part.type === 'Property' && constantSeed(part.value, new Set(seen)),
+                )
+              return constantSeed(flow.init(node), seen)
+            }
             // A scalar dirty witness preserves one value. On an initially defaulted
             // object shared by several inputs, it can prevent the *other* inputs from
             // ever receiving their first record. Already-prefilled objects remain valid.
@@ -2905,20 +2918,7 @@ export function scaffoldRules(parser) {
                   .size < 2
               )
                 return false
-              const defaults = (node, seen = new Set()) => {
-                node = unwrap(node)
-                if (!node || seen.has(node)) return false
-                seen.add(node)
-                if (node.type === 'Literal') return true
-                if (node.type === 'ArrayExpression')
-                  return node.elements.every((part) => defaults(part, new Set(seen)))
-                if (node.type === 'ObjectExpression')
-                  return node.properties.every(
-                    (part) => part.type === 'Property' && defaults(part.value, new Set(seen)),
-                  )
-                return defaults(flow.init(node), seen)
-              }
-              return defaults(state.initial)
+              return constantSeed(state.initial)
             }
             const unavailable = (field, target, settled) => {
               if (target && guarded(field.node, field.state.owner, target, settled)) return true
@@ -2983,7 +2983,12 @@ export function scaffoldRules(parser) {
                 const editable = fields.filter(
                   (field) => field.state.owner === child && !unavailable(field),
                 )
-                const key = expression(attr(node, 'key'))
+                // Only explicit props after the last spread have a known value. A spread
+                // can replace either the key or the record passed to the child.
+                const attributes = node.attributes.slice(
+                  node.attributes.findLastIndex((part) => part.type === 'JSXSpreadAttribute') + 1,
+                )
+                const key = expression(attributes.findLast((part) => part.name.name === 'key'))
                 const identity =
                   key?.type === 'LogicalExpression' &&
                   ['??', '||'].includes(key.operator) &&
@@ -2997,13 +3002,17 @@ export function scaffoldRules(parser) {
                 )
                   continue
                 const conditions = flow.conditions(node, flow.owner(node))
-                for (const prop of node.attributes) {
-                  if (prop.type !== 'JSXAttribute' || prop.name.name === 'key') continue
+                const seen = new Set(['key'])
+                for (const prop of attributes.toReversed()) {
+                  const name = prop.name.name
+                  if (seen.has(name)) continue
+                  seen.add(name)
                   const value = expression(prop)
                   if (
                     value?.type !== 'LogicalExpression' ||
                     !['??', '||'].includes(value.operator) ||
-                    !(value.right.value === null || value.right.name === 'undefined')
+                    !(value.right.value === null || value.right.name === 'undefined') ||
+                    constantSeed(value.left)
                   )
                     continue
                   const loaded = (part) => sameRead(part, value.left)
@@ -3025,7 +3034,7 @@ export function scaffoldRules(parser) {
                         sameRead(id, identity) && flow.implies(pending, true, loaded, false),
                     )
                   })
-                  if (!ready && editable.some(({ state }) => readsProp(state, prop.name.name)))
+                  if (!ready && editable.some(({ state }) => readsProp(state, name)))
                     context.report({ node: prop, messageId: 'earlyMount' })
                 }
               }
