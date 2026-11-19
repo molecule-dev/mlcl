@@ -225,7 +225,6 @@ export function planAppResourceModule(
     toggles: collection.toggles.map((action) => ({ action })),
   })
   const session = resourceViewer(factory, auth, !!hooks.source, false, !!namedWrites.source)
-  const received = (value: string): string => (auth ? `inResourceSession(viewer, ${value})` : value)
   const frameworkImports = new Map<string, string[]>()
   const addImport = (from: string, names: string[]): void => {
     frameworkImports.set(from, [...new Set([...(frameworkImports.get(from) ?? []), ...names])])
@@ -271,8 +270,8 @@ const ${exportName} = scopeResource((${auth ? 'viewer' : '_viewer'}) => ${factor
     collection.update === 'patch' ? `\n  updateMethod: 'patch',` : ''
   }
   http: ${session.http},
-  readList: (response) => ${received(`${factory.http.readList}<${typeName}>(response)`)},
-  readOne: (response) => ${received(`${factory.http.readOne}<${typeName}>(response)`)},
+  readList: (response) => ${factory.http.readList}<${typeName}>(response),
+  readOne: (response) => ${factory.http.readOne}<${typeName}>(response),
 }))
 
 ${hooks.source}

@@ -137,50 +137,71 @@ function resourceToggle(
   ]
   const target = binding.idField ? `recordValue[${JSON.stringify(binding.idField)}]` : 'idValue'
   const send = `${setter}ForViewer(${['viewerValue', ...parents.map((parent) => `${parent}Value`), 'id', 'on'].join(', ')})`
-  const state = field ? 'boolean' : `{ record: ${type}; desired: boolean | null }`
+  const state = field
+    ? '{ scope: string; flag: boolean }'
+    : `{ scope: string; record: ${type}; desired: boolean | null }`
   const flag = field ? `[${JSON.stringify(field)}] === true` : ''
+  const targetScope = [
+    'viewerValue',
+    ...parents.map((parent) => `${parent}Value`),
+    'id == null ? null : String(id)',
+  ]
   const { signature, call } = reactiveOptions(
     binding.observer,
     args,
-    `    const id = ${target}\n` +
+    `    const id = ${target}\n    const scope = JSON.stringify([${targetScope.join(', ')}])\n` +
       (field
-        ? `    return {\n      value: recordValue${flag},\n      commit: async (on: boolean): Promise<boolean> => {\n`
-        : `    return {\n      value: { record: recordValue, desired: null },\n` +
-          `      equals: (a: ${state}, b: ${state}) => a.desired === b.desired && (a.desired !== null || a.record === b.record),\n` +
-          `      commit: async ({ desired: on }: ${state}, confirmed: ${state}): Promise<${state}> => {\n` +
+        ? `    return {\n      value: { scope, flag: recordValue${flag} },\n      commit: async ({ scope: owner, flag: on }: ${state}): Promise<${state}> => {\n`
+        : `    return {\n      value: { scope, record: recordValue, desired: null },\n` +
+          `      equals: (a: ${state}, b: ${state}) => a.scope === b.scope && a.desired === b.desired && (a.desired !== null || a.record === b.record),\n` +
+          `      commit: async ({ scope: owner, desired: on }: ${state}, confirmed: ${state}): Promise<${state}> => {\n` +
           `        if (on === null) return confirmed\n`) +
-      `        if (viewerValue === null || viewerValue !== getResourceViewer()) throw new Error('The session changed.')\n` +
+      `        if (owner !== scope || viewerValue === null || viewerValue !== getResourceViewer()) throw new Error('The record or session changed.')\n` +
       `        if (id == null || String(id) === '') throw new Error('A record ID is required')\n` +
-      `        return ${field ? `(await ${send})${flag}` : `{ record: await ${send}, desired: on }`}\n` +
+      `        return ${field ? `{ scope, flag: (await ${send})${flag} }` : `{ scope, record: await ${send}, desired: on }`}\n` +
       `      },\n    }`,
   )
-  const queue = `ReturnType<typeof useOptimisticValue<${state}>>`
   const action = field
     ? '{ toggle: () => void }'
     : `{ set: (on: boolean) => void; toggle: (savedOn: boolean) => void }`
-  const recordValue = {
-    react: 'queue.value.record',
-    vue: 'computed(() => queue.value.value.record)',
-    svelte: 'derived(queue.value, (current) => current.record)',
-    solid: '() => queue.value().record',
-    angular: 'computed(() => queue.value().record)',
+  const value = field ? 'flag' : 'record'
+  const visible = {
+    react: `currentValue(queue.value, options.value).${value}`,
+    vue: `computed(() => currentValue(queue.value.value, options().value).${value})`,
+    svelte: `derived([queue.value, options], ([current, next]) => currentValue(current, next.value).${value})`,
+    solid: `() => currentValue(queue.value(), options().value).${value}`,
+    angular: `computed(() => currentValue(queue.value(), options().value).${value})`,
   }[binding.framework]
+  const baseline = {
+    value: 'options.value',
+    getter: 'options().value',
+    store: 'get(options).value',
+  }[binding.observer.input]
   const result = field
-    ? `  return { ...queue, toggle: () => queue.update((on) => !on) }`
-    : `  return { value: ${recordValue}, pending: queue.pending, error: queue.error,\n` +
-      `    set: (on) => queue.update((current) => ({ ...current, desired: on })),\n` +
-      `    toggle: (savedOn) => queue.update((current) => ({ ...current, desired: !(current.desired ?? savedOn) })),\n  }`
+    ? `    update: (change) => update((current) => change(current.flag)),\n` +
+      `    toggle: () => update((current) => !current.flag),`
+    : `    toggle: (savedOn) => update((current) => !(current.desired ?? savedOn)),`
   const typeResult = field
-    ? queue
+    ? 'ReturnType<typeof useOptimisticValue<boolean>>'
     : `Pick<ReturnType<typeof useOptimisticValue<${type}>>, 'value' | 'pending' | 'error'>`
   const description = field
     ? 'Render the hook value and call toggle() on click.'
     : 'Render the saved record in value. Use set(on), or pass the saved flag to toggle(savedOn).'
   return (
-    `/** ${description} Keep the control keyed to its viewer and record and leave it enabled during saves. */\n` +
+    `/** ${description} Leave the control enabled during saves so clicks can queue. */\n` +
     `export function ${name}(${signature}): ${typeResult} & ${action} {\n` +
     `  const viewer = useResourceViewer()\n` +
-    `  const queue = useOptimisticValue<${state}>(${call})\n${result}\n}`
+    `  const options = ${call}\n` +
+    `  const queue = useOptimisticValue<${state}>(options)\n` +
+    `  const currentValue = (current: ${state}, baseline: ${state}): ${state} => current.scope === baseline.scope ? current : baseline\n` +
+    `  const update = (change: (current: ${state}) => boolean): void => {\n` +
+    `    const baseline = ${baseline}\n` +
+    `    queue.update((queued) => {\n` +
+    `      const current = currentValue(queued, baseline)\n` +
+    `      return { ...current, ${field ? 'flag' : 'desired'}: change(current) }\n` +
+    `    })\n  }\n` +
+    `  return { value: ${visible}, pending: queue.pending, error: queue.error,\n` +
+    `    set: (on) => update(() => on),\n${result}\n  }\n}`
   )
 }
 

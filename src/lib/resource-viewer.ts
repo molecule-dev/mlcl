@@ -75,11 +75,13 @@ export function resourceViewer(
   const framework = factory.recordPage?.framework
   const observer = reads && framework ? observers[framework] : null
   const imports: [string, string[]][] = []
-  if (auth)
+  if (auth) {
     imports.push([
       RESOURCE_AUTH_PACKAGE,
       ['getClient as getAuthClient', 'hasClient as hasAuthClient'],
     ])
+    imports.push(['@molecule/app-query', ['type ResourceHttp']])
+  }
   if (observer && auth) imports.push([observer.from, observer.imports])
   if (observer && !auth && framework === 'angular')
     imports.push([observer.from, ['computed', 'type Signal']])
@@ -110,16 +112,44 @@ function getResourceViewer(): string | null {
   return resourceIdentity(client) + ':' + account
 }
 
-function inResourceSession<T>(viewer: string, value: T): T {
+async function resourceRequest<T>(
+  viewer: string,
+  send: (signal: AbortSignal) => Promise<T>,
+  signal?: AbortSignal,
+): Promise<T> {
   if (getResourceViewer() !== viewer) throw new Error('The session changed.')
-  return value
+  const owner = new AbortController()
+  const stop = watchResourceViewer((active) => {
+    if (active !== viewer) owner.abort()
+  })
+  try {
+    const requestSignal = signal ? AbortSignal.any([signal, owner.signal]) : owner.signal
+    requestSignal.throwIfAborted()
+    const response = await send(requestSignal)
+    requestSignal.throwIfAborted()
+    if (getResourceViewer() !== viewer) throw new Error('The session changed.')
+    return response
+  } finally {
+    stop()
+  }
+}
+
+function resourceHttp(viewer: string): ResourceHttp {
+  const client: ResourceHttp & ReturnType<typeof ${factory.http.client}> = ${factory.http.client}()
+  return {
+    get: (path, options) =>
+      resourceRequest(viewer, (signal) => client.get(path, { ...options, signal }), options?.signal),
+    post: (path, body) => resourceRequest(viewer, (signal) => client.post(path, body, { signal })),
+    put: (path, body) => resourceRequest(viewer, (signal) => client.put(path, body, { signal })),
+    patch: (path, body) => resourceRequest(viewer, (signal) => client.patch(path, body, { signal })),
+    delete: (path) => resourceRequest(viewer, (signal) => client.delete(path, { signal })),
+  }
 }`
     : `function getResourceViewer(): string | null {
   return 'public'
 }`
-  const watch =
-    auth && observer
-      ? `
+  const watch = auth
+    ? `
 
 function watchResourceViewer(notify: (viewer: string | null) => void): () => void {
   if (!hasAuthClient()) return () => {}
@@ -127,7 +157,7 @@ function watchResourceViewer(notify: (viewer: string | null) => void): () => voi
   notify(getResourceViewer())
   return stop
 }`
-      : ''
+    : ''
   const observe = observer
     ? `
 
@@ -147,7 +177,7 @@ function getWriteViewer(): string {
   return {
     source: source + watch + observe + write,
     imports,
-    http: auth ? `() => inResourceSession(viewer, ${factory.http.client}())` : factory.http.client,
+    http: auth ? '() => resourceHttp(viewer)' : factory.http.client,
   }
 }
 

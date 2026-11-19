@@ -534,8 +534,6 @@ export function planContractResourceModules(
     const listHookNames: string[] = []
     const namedReads: ResourceHook[] = []
     const listPaths = [...(list && listAnswer ? [base] : []), ...(extraLists.get(base) ?? [])]
-    const published = (value: string): string =>
-      pageSupport.auth ? `inResourceSession(viewer, ${value})` : value
     const pathExpression = (path: string): string => {
       const text = toColon(path).replace(
         /:([A-Za-z_]\w*)/g,
@@ -558,7 +556,7 @@ export function planContractResourceModules(
         !shape.extra && shape.key
           ? `(response.data as { ${propertyKey(shape.key)}: ${resultType} })${access(shape.key)}`
           : `response.data as ${resultType}`
-      const pageReader = `(response) => ${published(pageValue)}`
+      const pageReader = `(response) => ${pageValue}`
       // Operation parameters override path-level parameters, including referenced declarations.
       const item = resolve((document.paths as Json)[path]).value
       const parameters = new Map<string, Json>()
@@ -685,13 +683,13 @@ export function planContractResourceModules(
     ].join(', ')
     const readList = listAnswer
       ? listAnswer.key
-        ? `(response) => ${published(`(response.data as { ${propertyKey(listAnswer.key)}: ${typeName}[] })${access(listAnswer.key)}`)}`
-        : `(response) => ${published(`response.data as ${typeName}[]`)}`
+        ? `(response) => (response.data as { ${propertyKey(listAnswer.key)}: ${typeName}[] })${access(listAnswer.key)}`
+        : `(response) => response.data as ${typeName}[]`
       : null
     const recordValue = one?.key
       ? `(response.data as { ${propertyKey(one.key)}: ${typeName} | null })${access(one.key)}`
       : `response.data as ${typeName} | null`
-    const readOne = one || pageSupport.auth ? `(response) => ${published(recordValue)}` : null
+    const readOne = one ? `(response) => ${recordValue}` : null
     const resourceFor = (path: string, resourceName: string): string => {
       return (
         `${factory.factory}<${generics}>({\n` +
@@ -832,8 +830,8 @@ export function planContractResourceModules(
         if (name.startsWith('type ')) typeImport(from, name.slice(5))
         else valueImport(from, name)
     if (optimistic) valueImport(optimistic.package, 'useOptimisticValue')
-    if (optimistic && page?.framework === 'vue' && toggleActions.some((action) => !action.field))
-      valueImport('vue', 'computed')
+    if (optimistic && page?.framework === 'vue') valueImport('vue', 'computed')
+    if (optimistic && hooks.storePackage) valueImport(hooks.storePackage, 'get')
     if (recordView?.source) {
       valueImport(factoryPackage, 'QueryContent')
       typeImport(factoryPackage, 'QueryContentProps')

@@ -236,6 +236,31 @@ describe('generated Note-taking comment thread', () => {
     )
   })
 
+  it('cancels an old write before the HTTP transport can use the new account', async () => {
+    const authClient = setup()
+    authClient.setSession({ accessToken: 'alice', user: { handle: 'alice' } })
+    const client = await generate(true)
+    const entered = Promise.withResolvers<void>()
+    const release = Promise.withResolvers<void>()
+    http.getClient().addRequestInterceptor(async (config) => {
+      entered.resolve()
+      await release.promise
+      return config
+    })
+    const sent: (string | null)[] = []
+    vi.stubGlobal('fetch', async (_url: string, request: RequestInit) => {
+      request.signal?.throwIfAborted()
+      sent.push(new Headers(request.headers).get('authorization'))
+      return Response.json({ id: 2, text: 'Delayed' })
+    })
+    const write = client.createComment(noteId, { text: 'Delayed' }).catch((cause: unknown) => cause)
+    await entered.promise
+    authClient.setSession({ accessToken: 'bob', user: { handle: 'bob' } })
+    release.resolve()
+    expect(await write).toBeInstanceOf(Error)
+    expect(sent).toEqual([])
+  })
+
   it.each([
     ['validation', 'Comments must be at least 30 characters.'],
     ['network', 'Request failed. Please try again.'],

@@ -181,6 +181,47 @@ describe('generated Note-taking pin and record view', () => {
     expect(screen.queryByRole('article')).toBeNull()
   })
 
+  it('keeps a queued click on the session that made it even when the control stays mounted', async () => {
+    const authClient = auth.createJWTAuthClient<{ handle: string }>({
+      storage: 'memory',
+      autoRefresh: false,
+    })
+    auth.setClient(authClient)
+    authClient.setSession({ accessToken: 'reader', user: { handle: 'reader' } })
+    const first = Promise.withResolvers<ReturnType<typeof answer>>()
+    const post = vi.fn(() => first.promise)
+    const remove = vi.fn(async () => answer(initial))
+    const { usePagePin } = generated({ post, delete: remove }, noteContract, true)
+    expect(usePagePin).toBeTypeOf('function')
+
+    function Button(): React.ReactElement {
+      const pin = usePagePin!(initial)
+      return React.createElement(
+        'button',
+        { 'aria-busy': pin.pending, onClick: pin.toggle },
+        pin.value ? 'Unpin' : 'Pin',
+      )
+    }
+
+    try {
+      render(React.createElement(Button))
+      fireEvent.click(screen.getByRole('button', { name: 'Pin' }))
+      fireEvent.click(screen.getByRole('button', { name: 'Unpin' }))
+      fireEvent.click(screen.getByRole('button', { name: 'Pin' }))
+      expect(post).toHaveBeenCalledTimes(1)
+      act(() => authClient.setSession({ accessToken: 'writer', user: { handle: 'writer' } }))
+      first.resolve(answer({ ...initial, pinned: true }))
+      await waitFor(() =>
+        expect(screen.getByRole('button').getAttribute('aria-busy')).toBe('false'),
+      )
+      expect(post).toHaveBeenCalledTimes(1)
+      expect(remove).not.toHaveBeenCalled()
+      expect(screen.getByRole('button', { name: 'Pin' })).toBeTruthy()
+    } finally {
+      authClient.destroy()
+    }
+  })
+
   it('mounts fresh record content when a nested page changes viewer or parent', async () => {
     const get = vi.fn(async (_path: string) => answer(initial))
     const client = auth.createJWTAuthClient<{ handle: string }>({
