@@ -2184,7 +2184,10 @@ const noInAppDocumentNavigation = {
     }
     const localDefinition = (node) => {
       const variable = binding(node)
-      if (variable?.defs.length !== 1 || variable.references.some((ref) => ref.isWrite() && !ref.init))
+      if (
+        variable?.defs.length !== 1 ||
+        variable.references.some((ref) => ref.isWrite() && !ref.init)
+      )
         return null
       return variable.defs[0]
     }
@@ -2239,13 +2242,19 @@ const noInAppDocumentNavigation = {
       if (click?.type !== 'JSXExpressionContainer' || click.expression.type !== 'Identifier') return
       const def = localDefinition(click.expression)
       const fn = def?.type === 'FunctionName' ? def.node : initializer(def)
-      if (!fn || !['ArrowFunctionExpression', 'FunctionExpression', 'FunctionDeclaration'].includes(fn.type))
+      if (
+        !fn ||
+        !['ArrowFunctionExpression', 'FunctionExpression', 'FunctionDeclaration'].includes(fn.type)
+      )
         return
       if (fn.async || fn.generator || fn.params.length) return
       let call = fn.body
       if (call.type === 'BlockStatement') {
         const [only] = call.body
-        if (call.body.length !== 1 || !['ExpressionStatement', 'ReturnStatement'].includes(only.type))
+        if (
+          call.body.length !== 1 ||
+          !['ExpressionStatement', 'ReturnStatement'].includes(only.type)
+        )
           return
         call = only.type === 'ExpressionStatement' ? only.expression : only.argument
       }
