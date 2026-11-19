@@ -390,11 +390,8 @@ it('reports a signed-in form that silently drops submit before its record loads'
     return <>{user ? <form onSubmit={submit}><textarea value={body} onChange={e=>setBody(e.target.value)}/><button type="submit">Send</button></form> : null}<button disabled={!record} onClick={()=>remove(record.id)}>Delete</button></>
   }`
   const bad = await findings(source)
-  expect(
-    bad.some(
-      (row) => row.message.includes('each submit button') && row.message.includes('!record'),
-    ),
-  ).toBe(true)
+  expect(bad).toMatchObject([{ severity: 2, line: 6 }])
+  expect(bad[0]?.message).toMatch(/disabled=\{[^}]*!record/)
   expect(
     await findings(
       source.replace(
