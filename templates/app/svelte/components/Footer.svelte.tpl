@@ -1,6 +1,6 @@
 <script lang="ts">
-  import { APP_NAME } from '$lib/branding.js'
-  import { loadContent } from '$lib/config.js'
+  import { APP_NAME } from '#lib/branding.js'
+  import { loadContent } from '#lib/config.js'
 
   import { AppFooter } from '@molecule/app-footer-svelte'
 </script>

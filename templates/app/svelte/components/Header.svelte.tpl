@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { APP_NAME, LOGO_SIZE } from '$lib/branding.js'
+  import { APP_NAME, LOGO_SIZE } from '#lib/branding.js'
 
   import { AppHeader } from '@molecule/app-header-svelte'
 

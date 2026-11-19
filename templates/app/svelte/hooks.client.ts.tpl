@@ -1,4 +1,4 @@
-import { authClient, setupProviders } from '$lib/bonds/index.js'
+import { authClient, setupProviders } from '#lib/bonds/index.js'
 
 setupProviders()
 

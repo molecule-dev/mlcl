@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { oauthConfig } from '$lib/config.js'
+  import { oauthConfig } from '#lib/config.js'
 
   import { OAuthButtons as MoleculeOAuthButtons } from '@molecule/app-auth-ui-svelte'
 </script>

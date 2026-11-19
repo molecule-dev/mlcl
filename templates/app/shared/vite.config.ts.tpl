@@ -93,6 +93,9 @@ if (moleculeDir) {
   }
 }
 
+// In a SvelteKit app, kit's own config is the `sveltekit({ … })` call in `plugins` below;
+// its `paths.relative: false` gives the service worker one URL and scope from the root
+// and from nested routes.
 const svelteKit = {{SVELTE_KIT}}
 // Workbox fetches each precache entry in order before the worker can serve the shell.
 // Apple launch artwork is linked in the HTML and loaded by the device as needed.

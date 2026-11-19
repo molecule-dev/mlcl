@@ -454,9 +454,9 @@ describe('SvelteKit template structure', () => {
     const content = await readTemplate('svelte', 'hooks.client.ts.tpl')
     expect(content).toContain('setupProviders()')
     expect(content).toContain('authClient.initialize()')
-    expect(content).toContain("from '$lib/bonds/index.js'")
+    expect(content).toContain("from '#lib/bonds/index.js'")
     // authClient now comes from bonds, not config
-    expect(content).not.toContain("from '$lib/config.js'")
+    expect(content).not.toContain("from '#lib/config.js'")
   })
 
   it('+layout.ts disables SSR', async () => {
@@ -469,8 +469,8 @@ describe('SvelteKit template structure', () => {
     expect(content).toContain('setMoleculeContext')
     expect(content).toContain("from '@molecule/app-svelte'")
     // authClient and themeProvider both come from bonds
-    expect(content).toContain("from '$lib/bonds/index.js'")
-    expect(content).not.toContain("from '$lib/config.js'")
+    expect(content).toContain("from '#lib/bonds/index.js'")
+    expect(content).not.toContain("from '#lib/config.js'")
     expect(content).toContain('authClient')
     expect(content).toContain('themeProvider')
   })
@@ -608,7 +608,9 @@ describe('Framework-specific patterns', () => {
     expect(files).toContain('routes/login/+page.svelte.tpl')
     // No client-side router library
     const layout = await readTemplate('svelte', 'routes', '+layout.svelte.tpl')
-    expect(layout).toContain("from '$app/stores'")
+    expect(layout).toContain("from '$app/state'")
+    // Kit's base path (or `#` under hash routing) reaches the router as the root href.
+    expect(layout).toContain("rootHref: resolve('/')")
     // The molecule Router over SvelteKit's navigation is built in the layout
     // (afterNavigate must run during component initialisation); in-app
     // navigation routes through it, exactly as the React scaffold's
@@ -791,7 +793,7 @@ describe('Template variable substitution', () => {
     expect(angularHeader).toContain("from '../branding.js'")
 
     const svelteHeader = await readTemplate('svelte', 'components', 'Header.svelte.tpl')
-    expect(svelteHeader).toContain("from '$lib/branding.js'")
+    expect(svelteHeader).toContain("from '#lib/branding.js'")
   })
 
   it('all frameworks use img logo in Header', async () => {
@@ -1155,9 +1157,9 @@ describe('Create pipeline simulation', () => {
     expect(config).not.toContain('{{PROJECT_NAME}}')
 
     const hooks = await readFile(join(projectDir, 'src', 'hooks.client.ts'), 'utf-8')
-    expect(hooks).toContain("from '$lib/bonds/index.js'")
-    // authClient now comes from bonds, not $lib/config
-    expect(hooks).not.toContain("from '$lib/config.js'")
+    expect(hooks).toContain("from '#lib/bonds/index.js'")
+    // authClient now comes from bonds, not #lib/config
+    expect(hooks).not.toContain("from '#lib/config.js'")
 
     // Branding has the substituted project name
     const branding = await readFile(join(projectDir, 'src', 'lib', 'branding.ts'), 'utf-8')
@@ -1165,8 +1167,8 @@ describe('Create pipeline simulation', () => {
     expect(branding).not.toContain('{{PROJECT_NAME}}')
 
     const layout = await readFile(join(projectDir, 'src', 'routes', '+layout.svelte'), 'utf-8')
-    expect(layout).toContain("from '$lib/bonds/index.js'")
-    expect(layout).not.toContain("from '$lib/config.js'")
+    expect(layout).toContain("from '#lib/bonds/index.js'")
+    expect(layout).not.toContain("from '#lib/config.js'")
     expect(layout).not.toContain('{{PROJECT_NAME}}')
 
     const layoutTs = await readFile(join(projectDir, 'src', 'routes', '+layout.ts'), 'utf-8')

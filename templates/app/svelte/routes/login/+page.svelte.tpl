@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { APP_NAME, LOGO_SIZE } from '$lib/branding.js'
+  import { APP_NAME, LOGO_SIZE } from '#lib/branding.js'
 
   import { useAuth, useLocation, useLogin, useNavigate, useTranslation } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'

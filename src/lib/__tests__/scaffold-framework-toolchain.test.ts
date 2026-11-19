@@ -30,7 +30,7 @@ const FRAMEWORKS = Object.keys(loadAppFrameworks()).filter((name) => name !== 'r
 const TSC_EXTENSIONS = new Set(['.ts', '.tsx', '.mts', '.cts'])
 
 /** Specifiers resolved by the framework or the bundler, not by an npm package. */
-const NOT_PACKAGES = /^(\.|\/|\$app\/|\$lib|\$env\/|virtual:|node:|@molecule\/)/
+const NOT_PACKAGES = /^(\.|\/|\$app\/|\$env\/|virtual:|node:|@molecule\/)/
 
 const roots: Record<string, string> = {}
 
@@ -49,6 +49,7 @@ async function manifest(framework: string): Promise<{
   scripts: Record<string, string>
   dependencies: Record<string, string>
   devDependencies: Record<string, string>
+  imports?: Record<string, string>
 }> {
   return JSON.parse(await readFile(join(roots[framework], 'package.json'), 'utf8'))
 }
@@ -58,6 +59,16 @@ async function sourceFiles(framework: string): Promise<string[]> {
   return files
     .filter((file) => /\.(ts|tsx|vue|svelte)$/.test(file))
     .map((file) => join('src', file))
+}
+
+/**
+ * Whether a `#` specifier matches a key of the app's package.json `imports` (`#lib/*`
+ * covers `#lib/config.js`).
+ */
+function subpathImported(specifier: string, imports: Record<string, string> = {}): boolean {
+  return Object.keys(imports).some((key) =>
+    key.endsWith('/*') ? specifier.startsWith(key.slice(0, -1)) : specifier === key,
+  )
 }
 
 /** The npm package a bare specifier names (`@scope/name/sub` → `@scope/name`). */
@@ -120,8 +131,8 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
     }
   })
 
-  it('declares every third-party package its source imports', async () => {
-    const { dependencies, devDependencies } = await manifest(framework)
+  it('declares every third-party package and subpath import its source imports', async () => {
+    const { dependencies, devDependencies, imports } = await manifest(framework)
     const declared = new Set([...Object.keys(dependencies), ...Object.keys(devDependencies)])
     const undeclared: string[] = []
     for (const file of [...(await sourceFiles(framework)), 'vite.config.ts']) {
@@ -133,6 +144,11 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
       for (const match of text.matchAll(/\bfrom\s+['"]([^'"]+)['"]|\bimport\s+['"]([^'"]+)['"]/g)) {
         const specifier = match[1] ?? match[2]
         if (NOT_PACKAGES.test(specifier)) continue
+        // A `#` specifier resolves through the app's own package.json `imports`.
+        if (specifier.startsWith('#')) {
+          if (!subpathImported(specifier, imports)) undeclared.push(`${file}: ${specifier}`)
+          continue
+        }
         const name = packageOf(specifier)
         if (builtinModules.includes(name) || declared.has(name)) continue
         undeclared.push(`${file}: ${specifier}`)

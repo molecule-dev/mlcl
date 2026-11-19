@@ -1,9 +1,10 @@
 <script lang="ts">
   import '../index.css'
   import '../theme.css'
-  import { afterNavigate, goto, replaceState } from '$app/navigation'
-  import { page } from '$app/stores'
-  import { authClient, i18nProvider, themeProvider } from '$lib/bonds/index.js'
+  import { authClient, i18nProvider, themeProvider } from '#lib/bonds/index.js'
+  import { afterNavigate, goto } from '$app/navigation'
+  import { resolve } from '$app/paths'
+  import { page } from '$app/state'
   import type { Snippet } from 'svelte'
 
   import { getClient as getHttpClient } from '@molecule/app-http'
@@ -22,7 +23,7 @@
   // `BrowserRouter` does. `afterNavigate` must run during component
   // initialisation, which is why it is built here, in the root layout, once.
   const router = createSvelteKitRouter(
-    createSvelteKitNavigation({ goto, replaceState, page, afterNavigate }),
+    createSvelteKitNavigation({ goto, page, afterNavigate, rootHref: resolve('/') }),
   )
   setRouter(router)
 

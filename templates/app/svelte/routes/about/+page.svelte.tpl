@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { APP_DESCRIPTION, APP_NAME, WEBSITE_URL } from '$lib/branding.js'
+  import { APP_DESCRIPTION, APP_NAME, WEBSITE_URL } from '#lib/branding.js'
 
   import { useTranslation } from '@molecule/app-svelte'
   import { getClassMap } from '@molecule/app-ui'

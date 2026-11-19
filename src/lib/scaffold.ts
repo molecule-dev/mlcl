@@ -5087,6 +5087,7 @@ export async function createAppProject(
     version: '0.0.1',
     private: true,
     type: 'module',
+    ...(fwConfig.packageImports ? { imports: fwConfig.packageImports } : {}),
     scripts: {
       dev: 'vite',
       prebuild: 'npm run lint',
@@ -5212,14 +5213,12 @@ export async function createAppProject(
     BRAND_COLOR: '#4070e0',
   }
   if (htmlFile === 'app.html') {
-    // SvelteKit: app.html in src/ + svelte.config.js
+    // SvelteKit: app.html in src/. Kit's own config is the `sveltekit({ … })` call in
+    // vite.config.ts (the registry's `appFrameworks.svelte.vitePlugin`): SvelteKit 3
+    // reads no svelte.config.js.
     await writeFile(
       join(projectPath, 'src', htmlFile),
       await loadTemplate('app/shared/app.html.tpl', htmlVars),
-    )
-    await writeFile(
-      join(projectPath, 'svelte.config.js'),
-      await loadTemplate('app/shared/svelte.config.js.tpl'),
     )
   } else {
     // Standard Vite: index.html at project root

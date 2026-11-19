@@ -81981,7 +81981,7 @@
         "configuration": [
           "SvelteKit URL lists: `const { page, offset, params, href } = useListRoute({ pageSize: 20 })` from `@molecule/app-svelte`. Each field is a store: use `$page`, `$offset` and `$params` for requests and `href({ page: 2 })` for links; filter or selection changes reset to page one. Pass a store of options when they depend on reactive state. Read the location through the molecule router, not `$page` from `$app/stores`.",
           "The URL alone selects the view: hiding its link does not guard a direct visit. Protected views use `requiresAuth: true` and `auth: { status, redirectTo }`; load only while `canLoad` is true. Only a confirmed `unauthenticated` status redirects (with `state.returnTo`); `loading` and `unavailable` wait. Example: `useListRoute(derived(state, ($state) => ({ selections: { all: { path: '/orders' }, mine: { path: '/orders', query: { view: 'mine' }, requiresAuth: true } }, auth: { status: $state.status, redirectTo: '/login' } })))`, with `const { state } = createAuthStores()` from `@molecule/app-svelte` and `derived` from `svelte/store`.",
-          "A one-time credential (reset token or OAuth `code`): `const token = useConsumedSearchParam('token')` from `@molecule/app-svelte` keeps the value and removes that URL key; read `$token[0]`, clear it with `$token[1]('')`. `src/routes/+layout.svelte` builds the router with `createSvelteKitRouter(createSvelteKitNavigation({ goto, replaceState, page, afterNavigate }))`; keep it in the root layout."
+          "A one-time credential (reset token or OAuth `code`): `const token = useConsumedSearchParam('token')` from `@molecule/app-svelte` keeps the value and removes that URL key; read `$token[0]`, clear it with `$token[1]('')`. `src/routes/+layout.svelte` builds the router with `createSvelteKitRouter(createSvelteKitNavigation({ goto, page, afterNavigate, rootHref: resolve('/') }))`; keep it in the root layout."
         ]
       },
       "intentHints": [
@@ -91786,8 +91786,8 @@
       "dependencies": {},
       "devDependencies": {
         "svelte": "5.57.2",
-        "@sveltejs/kit": "2.63.0",
-        "@sveltejs/adapter-auto": "7.0.1",
+        "@sveltejs/kit": "3.2.0",
+        "@sveltejs/adapter-auto": "8.0.1",
         "@sveltejs/vite-plugin-svelte": "7.1.2",
         "svelte-check": "4.7.7",
         "eslint-plugin-svelte": "3.23.1",
@@ -91795,7 +91795,7 @@
       },
       "tsconfig": {},
       "tsconfigOverride": {
-        "extends": "./.svelte-kit/tsconfig.json",
+        "extends": "$app/tsconfig",
         "compilerOptions": {
           "allowJs": true,
           "checkJs": true,
@@ -91807,15 +91807,24 @@
           "sourceMap": true,
           "strict": true,
           "moduleResolution": "bundler"
-        }
+        },
+        "include": [
+          "src",
+          "tests",
+          "vite.config.ts"
+        ]
       },
       "vitePlugin": {
-        "import": "import { sveltekit } from '@sveltejs/kit/vite'",
-        "usage": "sveltekit()"
+        "import": "import adapter from '@sveltejs/adapter-auto'\nimport { sveltekit } from '@sveltejs/kit/vite'\nimport { vitePreprocess } from '@sveltejs/vite-plugin-svelte'",
+        "usage": "sveltekit({ adapter: adapter(), paths: { relative: false }, preprocess: vitePreprocess() })"
       },
       "buildScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --fail-on-warnings && vite build",
       "typecheckScript": "svelte-kit sync && svelte-check --tsconfig ./tsconfig.json --fail-on-warnings",
       "sharedCodeDir": "lib",
+      "packageImports": {
+        "#lib": "./src/lib",
+        "#lib/*": "./src/lib/*"
+      },
       "fileExtension": "ts",
       "htmlTemplate": "app.html",
       "publicDir": "static",

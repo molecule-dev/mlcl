@@ -1233,6 +1233,12 @@ export const AppFrameworkConfig = z.object({
     .describe(
       'Subdirectory under src/ for shared code (e.g. "lib" for SvelteKit). Omit for src/ root.',
     ),
+  packageImports: z
+    .record(z.string(), z.string())
+    .optional()
+    .describe(
+      "Subpath imports written to the app's package.json `imports` (SvelteKit 3 reaches src/lib as `#lib`).",
+    ),
   fileExtension: z
     .string()
     .optional()
