@@ -90749,14 +90749,22 @@
       "description": "Drop-in createDefaultViteConfig() factory used by every flagship app vite.config.ts. Captures react + tailwindcss + VitePWA plugin setup, molecule package pre-bundle exclusion, dev server proxy, env conventions.",
       "stack": "app",
       "exports": [
-        "singleReactAliases",
-        "isInstalled",
-        "createDefaultViteConfig",
         "DefaultViteConfigBranding",
-        "moleculePushServiceWorkerPlugin",
         "PUSH_SW_FILENAME",
         "PUSH_SW_SOURCE",
-        "rootRelativeAssetsPlugin"
+        "SVELTEKIT_CLIENT_MANIFEST",
+        "SVELTEKIT_SITE_DIR",
+        "SvelteKitPrecache",
+        "SvelteKitStaticSiteOptions",
+        "createDefaultViteConfig",
+        "isInstalled",
+        "moleculePushServiceWorkerPlugin",
+        "rootRelativeAssetsPlugin",
+        "singleReactAliases",
+        "svelteKitPrecache",
+        "svelteKitPwaPlugins",
+        "svelteKitShellFiles",
+        "svelteKitStaticSite"
       ],
       "secrets": [],
       "runtimeDependencies": [
