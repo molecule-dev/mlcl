@@ -186,5 +186,6 @@ jobs:
       - name: Publish summary
         working-directory: mlcl
         run: |
-          echo "✓ mlcl@$(node -p 'require("./package.json").version') on npm"
-          echo "✓ molecule-mcp@$(node -p 'require("./mcp/package.json").version') on npm"
+          # npm accepts a publish before it serves it (mlcl has taken 10-56 min), so this says published, not served.
+          echo "✓ mlcl@$(node -p 'require("./package.json").version') published; npm serves it once its processing finishes"
+          echo "✓ molecule-mcp@$(node -p 'require("./mcp/package.json").version') published or already on npm"
