@@ -4013,6 +4013,7 @@ const STATIC_SITE_REMOVES = [
   'src/components/OAuthButtons.tsx',
   'src/components/FloatingInput.tsx',
   'src/components/SettingsPanel.tsx',
+  'src/bootstrap.tsx',
   'src/pwa.ts',
 ]
 
@@ -4196,6 +4197,13 @@ export async function applyStaticSiteOverlay(
     PROJECT_NAME: projectName,
     ...extraVars,
   })
+
+  const index = join(appPath, 'index.html')
+  if (existsSync(index)) {
+    const source = await readFile(index, 'utf8')
+    const html = source.replace('src="/src/bootstrap.tsx"', 'src="/src/main.tsx"')
+    if (html !== source) await writeGuarded(index, html)
+  }
 
   for (const rel of STATIC_SITE_REMOVES) {
     await rm(join(appPath, rel), { force: true })
@@ -4977,7 +4985,7 @@ export async function createAppProject(
   const sharedDir = sharedSubdir ? join(projectPath, 'src', sharedSubdir) : join(projectPath, 'src')
   const ext = fwConfig.fileExtension ?? 'tsx'
   // The module `index.html` loads (and the dev server warms up first).
-  const mainEntry = `src/main.${ext}`
+  const mainEntry = framework === 'react' ? 'src/bootstrap.tsx' : `src/main.${ext}`
   // A NAME from the registry (`schema.ts`: "Static assets directory name"), resolved
   // against this project here. Everything below joins it with `projectPath`, EXCEPT
   // the preview-bridge injectors, which take a directory: those get

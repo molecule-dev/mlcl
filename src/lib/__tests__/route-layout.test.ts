@@ -89,14 +89,16 @@ function mount(url: string, configure?: (routes: PageRoute[]) => void, realPages
     throw new Error(`Unexpected template dependency: ${name}`)
   }
   const layout = evaluate('app/react/components/AppLayout.tsx.tpl', baseDependency)
+  const main = evaluate('app/react/main.tsx.tpl', baseDependency)
   const dependency = (name: string): unknown => {
     if (name === './components/AppLayout.js') return layout
     if (name === './App.js') return app
+    if (name === './main.js') return main
     return baseDependency(name)
   }
   const app = evaluate('app/react/App.tsx.tpl', dependency)
   configure?.(app.routes as PageRoute[])
-  evaluate('app/react/main.tsx.tpl', dependency)
+  evaluate('app/react/bootstrap.tsx.tpl', dependency)
 }
 
 beforeEach(() => {

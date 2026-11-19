@@ -66,6 +66,7 @@ describe('the scaffolded pwa.ts is @molecule/app-pwa-default, not a copy', () =>
     const vite = await readFile(join(TEMPLATES, 'app', 'shared', 'vite.config.ts.tpl'), 'utf-8')
     expect(vite).toContain('injectRegister: false as const')
     for (const entry of [
+      'react/bootstrap.tsx.tpl',
       'react/main.tsx.tpl',
       'react-native-web/main.tsx.tpl',
       'vue/main.ts.tpl',
@@ -171,7 +172,7 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
         join(root, 'node_modules'),
       )
       await writeFile(
-        join(root, 'src/main.tsx'),
+        join(root, 'src/bootstrap.tsx'),
         (legacy ? "import { registerPWA } from './pwa.js'; registerPWA();\n" : '') +
           "document.querySelector('#root')!.textContent = 'Equipment console'\n",
       )
@@ -302,7 +303,7 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
         await page.goto(origin(server.httpServer))
         expect(await page.locator('#root').textContent()).toBe('Equipment console')
         await writeFile(
-          join(root, 'src/main.tsx'),
+          join(root, 'src/bootstrap.tsx'),
           "document.querySelector('#root')!.textContent = 'Edited console'\n",
         )
         await page.reload()

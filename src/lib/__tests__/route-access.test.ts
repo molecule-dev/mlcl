@@ -1,5 +1,7 @@
 // @vitest-environment jsdom
 import { readFileSync } from 'node:fs'
+import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { act, cleanup, render, screen } from '@testing-library/react'
@@ -21,6 +23,8 @@ import {
 } from '@molecule/app-react'
 import { setClassMap, type UIClassMap } from '@molecule/app-ui'
 import { AuthGuard, LoadErrorBanner } from '@molecule/app-ui-react'
+
+import { createAppProject } from '../scaffold.js'
 
 interface PrivateView {
   path: string
@@ -522,9 +526,13 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
     expect(app.load).toHaveBeenCalledOnce()
   })
 
-  it.each([false, true])(
-    'keeps routing and the access boundary outside a rewritten AppRoot: %s',
-    async (replaceWrapper) => {
+  it.each([
+    { providers: false, startup: false },
+    { providers: true, startup: false },
+    { providers: true, startup: true },
+  ])(
+    'keeps route access with rewritten providers=$providers and startup=$startup',
+    async ({ providers, startup }) => {
       const client = session()
       const mounted = vi.fn()
       function Page(): ReactNode {
@@ -554,7 +562,7 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
           return { [page]: page === 'Login' ? () => createElement('p', null, 'Sign in') : Page }
         throw new Error(`Unexpected App dependency: ${name}`)
       }, exports)
-      if (replaceWrapper) {
+      if (providers) {
         // The app retained its provider export while rewriting it to contain only
         // the bonded providers. Probe the runtime context before its children use it.
         exports.AppRoot = function RewrittenProviders({ children }) {
@@ -566,14 +574,22 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
           )
         }
       }
-      const entry = ts.transpileModule(
+      const main = ts.transpileModule(
         readFileSync(
           join(import.meta.dirname, '../../../templates/app/react/main.tsx.tpl'),
           'utf8',
         ),
         { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX } },
       )
-      new Function('require', 'exports', entry.outputText)((name: string) => {
+      const bootstrap = ts.transpileModule(
+        readFileSync(
+          join(import.meta.dirname, '../../../templates/app/react/bootstrap.tsx.tpl'),
+          'utf8',
+        ),
+        { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX } },
+      )
+      const initialized = vi.fn()
+      const dependencies = (name: string): unknown => {
         if (name === 'react/jsx-runtime') return jsx
         if (name === 'react') return { StrictMode }
         if (name === 'react-dom/client') {
@@ -581,8 +597,8 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
             createRoot: () => ({ render: (node: Parameters<typeof render>[0]) => render(node) }),
           }
         }
-        if (name === './bonds/index.js')
-          return { authClient: client, setupProviders: () => undefined }
+        if (name === './bonds/index.js') return { authClient: client, setupProviders: initialized }
+        if (name === './main.js') return appStartup
         if (name === './App.js') return exports
         if (name === '@molecule/app-routing-react-router') return scaffoldDependency(client)(name)
         if (name === './components/AppLayout.js')
@@ -591,11 +607,69 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
         if (name === './pwa.js') return { registerPWA: () => undefined }
         if (name.endsWith('.css')) return {}
         throw new Error(`Unexpected entry dependency: ${name}`)
-      }, {})
+      }
+      const appStartup = startup
+        ? {
+            initializeApp() {
+              initialized()
+              void client.initialize()
+            },
+          }
+        : {}
+      if (!startup) new Function('require', 'exports', main.outputText)(dependencies, appStartup)
+      new Function('require', 'exports', bootstrap.outputText)(dependencies, {})
       await act(async () => client.whenRestored!())
+      expect(initialized).toHaveBeenCalledOnce()
       expect(screen.queryByText('Router missing')).toBeNull()
       expect(screen.queryByText('Sign in')).not.toBeNull()
       expect(mounted).not.toHaveBeenCalled()
     },
   )
+
+  it('reports missing route access and startup exports when both app modules replace the entry', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'shipping-portal-'))
+    try {
+      await createAppProject(root, 'shipping-portal', 'react')
+      await writeFile(
+        join(root, 'src/App.tsx'),
+        [
+          "import type { ReactNode } from 'react'",
+          "import { BrowserRouter, Route, Routes } from 'react-router'",
+          'export function AppRoot({ children }: { children: ReactNode }) {',
+          '  return <BrowserRouter>{children}</BrowserRouter>',
+          '}',
+          'export function App() {',
+          '  return <Routes><Route path="/shipments/new" element={<h1>New shipment</h1>} /></Routes>',
+          '}',
+        ].join('\n'),
+      )
+      await writeFile(
+        join(root, 'src/main.tsx'),
+        [
+          "import { createRoot } from 'react-dom/client'",
+          "import { App, AppRoot } from './App.js'",
+          "createRoot(document.getElementById('root')!).render(<AppRoot><App /></AppRoot>)",
+        ].join('\n'),
+      )
+      const html = await readFile(join(root, 'index.html'), 'utf8')
+      const entry = join(root, /type="module" src="\/(src\/[^"]+)"/.exec(html)![1]!)
+      const program = ts.createProgram([entry], {
+        jsx: ts.JsxEmit.ReactJSX,
+        module: ts.ModuleKind.NodeNext,
+        noEmit: true,
+        skipLibCheck: true,
+        types: [],
+      })
+      const missingImports = program
+        .getSemanticDiagnostics(program.getSourceFile(entry))
+        .filter(({ code }) => code === 2305 || code === 2459)
+        .map(({ messageText }) => ts.flattenDiagnosticMessageText(messageText, '\n'))
+      expect(missingImports).toEqual([
+        expect.stringContaining("'routes'"),
+        expect.stringContaining("'initializeApp'"),
+      ])
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  })
 })

@@ -30,9 +30,9 @@ import { Signup } from './pages/Signup.js'
 // service worker's precache — is the part with a measured gain; see the
 // `UserMenu` drawer for the one interaction-only split that is still worth it.
 //
-// main.tsx mounts the browser router outside AppRoot and AppLayout and RouteAccess
+// bootstrap.tsx mounts the browser router outside AppRoot and AppLayout and RouteAccess
 // inside AppRoot's providers. Keep this file focused on providers and page routes.
-// The routes below declare both the page and its access: App and main.tsx use the SAME table.
+// The routes below declare both the page and its access: App and bootstrap.tsx use the same table.
 // Keep the exported table; the entry imports it. Add a public page once, with
 // access: 'public'; there is no second path allowlist to update.
 // AppRoot's `awaitSession` waits only while auth status is 'loading'. A stored

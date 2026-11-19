@@ -110,6 +110,7 @@ describe('Template file inventory', () => {
     const files = await listTemplateFiles('react')
     expect(files).toEqual([
       'App.tsx.tpl',
+      'bootstrap.tsx.tpl',
       'components/AppLayout.tsx.tpl',
       'components/AuthGuard.tsx.tpl',
       'components/FloatingInput.tsx.tpl',
@@ -558,8 +559,8 @@ describe('Framework-specific patterns', () => {
     expect(app).toContain('useRoutes(routes)')
     // The entry point mounts the router around <App />, so a rewrite of App's providers
     // cannot drop it (b5d987c42b: P461 l3540's rewrite left a blank page behind a green check).
-    const main = await readTemplate('react', 'main.tsx.tpl')
-    expect(main).toMatch(/<BrowserRouter>[\s\S]*<App \/>[\s\S]*<\/BrowserRouter>/)
+    const entry = await readTemplate('react', 'bootstrap.tsx.tpl')
+    expect(entry).toMatch(/<BrowserRouter>[\s\S]*<App \/>[\s\S]*<\/BrowserRouter>/)
     expect(app).not.toContain('BrowserRouter')
     // Pages wait for the initial restore to settle, so public actions see the
     // restored user when that request succeeds.
@@ -767,7 +768,7 @@ describe('Template variable substitution', () => {
   })
 
   it('React auth pages receive branding from the entry shell', async () => {
-    const entry = await readTemplate('react', 'main.tsx.tpl')
+    const entry = await readTemplate('react', 'bootstrap.tsx.tpl')
     expect(entry).toContain('<AppLayout routes={routes}>')
     for (const page of ['Login', 'Signup', 'ForgotPassword', 'ResetPassword']) {
       const content = await readTemplate('react', 'pages', page + '.tsx.tpl')

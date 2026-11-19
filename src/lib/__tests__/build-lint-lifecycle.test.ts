@@ -241,6 +241,10 @@ describe('frontend npm build verification', () => {
     const manifest = JSON.parse(await readFile(join(app, 'package.json'), 'utf8'))
     expect(manifest.scripts.prebuild).toBe('npm run lint')
     expect(manifest.scripts.build).toContain('prerender.mjs')
+    expect(await readFile(join(app, 'index.html'), 'utf8')).toContain('src="/src/main.tsx"')
+    await expect(readFile(join(app, 'src/bootstrap.tsx'), 'utf8')).rejects.toMatchObject({
+      code: 'ENOENT',
+    })
   })
 
   it.each(['vue', 'svelte', 'solid', 'angular'])(
