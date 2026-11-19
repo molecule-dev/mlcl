@@ -50717,6 +50717,7 @@
       "stack": "app",
       "exports": [
         "AppHeader",
+        "AppHeaderNavigation",
         "AppHeaderProps"
       ],
       "secrets": [],
@@ -50787,6 +50788,7 @@
       "stack": "app",
       "exports": [
         "AppHeader",
+        "AppHeaderNavigation",
         "AppHeaderProps"
       ],
       "secrets": [],
@@ -50819,6 +50821,7 @@
       "stack": "app",
       "exports": [
         "AppHeader",
+        "AppHeaderNavigation",
         "AppHeaderProps"
       ],
       "secrets": [],
@@ -50851,6 +50854,7 @@
       "stack": "app",
       "exports": [
         "AppHeader",
+        "AppHeaderNavigation",
         "AppHeaderProps"
       ],
       "secrets": [],
