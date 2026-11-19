@@ -65,6 +65,38 @@ export function AppRoot({ children }: { children: ReactNode }): ReactNode {
  * Pages render inside the shared app shell, independently of access policy.
  * A page that deliberately owns its entire layout opts out with `layout: 'none'`.
  * The opt-out includes that route's descendants; it never changes their access.
+ *
+ * For URL filters loaded from the API, use one route declaration for each
+ * choice's link and the list it loads. Mount the same view at /inventory
+ * and /inventory/:category so the links stay visible while results load.
+ *
+ * @example
+ * ```tsx
+ * import type { ReactNode } from 'react'
+ * import { ListRouteNav } from '@molecule/app-routing-react-router'
+ *
+ * export function InventoryFilters({
+ *   categories,
+ *   navigationLabel,
+ *   renderResults,
+ * }: {
+ *   categories: readonly string[]
+ *   navigationLabel: string
+ *   renderResults: (category: string | undefined, page: number) => ReactNode
+ * }) {
+ *   const selections = Object.fromEntries(
+ *     categories.map((category) => [
+ *       category,
+ *       { label: category, path: '/inventory/:category', params: { category } },
+ *     ]),
+ *   )
+ *   return (
+ *     <ListRouteNav aria-label={navigationLabel} selections={selections} list={{}}>
+ *       {({ params, page }) => renderResults(params.category, page)}
+ *     </ListRouteNav>
+ *   )
+ * }
+ * ```
  */
 export const routes: AppRoute[] = [
   { path: '/login', access: 'public', element: <Login /> },
