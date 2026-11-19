@@ -45,6 +45,7 @@ import {
 import type { DeclaredPackage } from './capability-map.js'
 import { formatGeneratedSource, sortImportStatements } from './format.js'
 import { type ResourceHook, resourceHooks, resourceWrites } from './resource-module-facade.js'
+import { resourceRecordView } from './resource-record-view.js'
 import type { Registry } from './schema.js'
 
 type Json = Record<string, unknown>
@@ -63,6 +64,8 @@ export interface ContractResourceModule {
   operations: string[]
   /** The module's source, unformatted. */
   source: string
+  /** Native view source, when the framework needs a separate component file. */
+  view?: { path: string; source: string }
 }
 
 /** A contract path that got no module, and why. */
@@ -100,6 +103,20 @@ const singular = (name: string): string =>
         ? name.slice(0, -1)
         : name
 
+/** Association comes from a unique required boolean with the action's name in the schema. */
+function toggleFieldNames(action: string): Set<string> {
+  const name = action.replace(/[-_]/g, '')
+  const stem = name.replace(/e$/, '')
+  const doubled = /[aeiou][^aeiou]$/.test(name) ? name + name.at(-1) : name
+  return new Set(
+    [name, `${stem}ed`, `${stem}ing`, `${doubled}ed`, `${doubled}ing`].flatMap((word) => [
+      word,
+      `is${word}`,
+      `has${word}`,
+    ]),
+  )
+}
+
 /** Reads a contract file's text: JSON or YAML. */
 export function parseContract(text: string): unknown {
   const trimmed = text.trimStart()
@@ -115,6 +132,7 @@ export function parseContract(text: string): unknown {
  * @param workspace - The app workspace relative to the project root (`app`, or `` for one package).
  * @param label - How the header names the contract (its project-relative path).
  * @param listRoute - Optional installed URL list binding, supplied by the composition root.
+ * @param pageSupport - Which page APIs the workspace's declared versions support.
  * @returns The modules, in collection order, and the paths that got none.
  */
 export function planContractResourceModules(
@@ -124,6 +142,7 @@ export function planContractResourceModules(
   workspace: string,
   label: string,
   listRoute?: ResourceModuleFactory['listRoute'],
+  pageSupport = { view: true, toggle: true },
 ): ContractResourcePlan {
   const plan: ContractResourcePlan = { modules: [], skipped: [] }
   if (!isObject(contract) || !isObject(contract.paths)) return plan
@@ -293,6 +312,25 @@ export function planContractResourceModules(
       plan.skipped.push({ path: base, reason: 'nested under more than one parent record' })
       continue
     }
+    const parentArgs = parentParams.map((key) => {
+      const name = camel(key)
+      return [
+        'id',
+        'viewer',
+        'params',
+        'options',
+        'record',
+        'children',
+        'pending',
+        'missing',
+        'error',
+        'query',
+        'recordKey',
+        'resource',
+      ].includes(name)
+        ? `parent${pascal(key)}`
+        : name
+    })
     if (taken.has(name)) {
       plan.skipped.push({ path: base, reason: `another collection is already named ${name}` })
       continue
@@ -405,9 +443,43 @@ export function planContractResourceModules(
     const one = singleAnswer ? oneShape(singleAnswer.schema, singleAnswer.name) : null
     const recordSource = one?.record ?? listAnswer?.items
     const recordResolved = resolve(recordSource)
+    const fields = (schema: unknown): Json => {
+      const value = resolve(schema).value
+      return isObject(value) && isObject(value.properties) ? value.properties : {}
+    }
+    const recordFields = fields(recordSource)
+    const idField = [param, 'id'].find((key) => {
+      const schema = resolve(recordFields[key]).value
+      return isObject(schema) && ['string', 'integer', 'number'].includes(String(schema.type))
+    })
+    const requiredBoolean = (schema: unknown, key: string): boolean => {
+      const value = resolve(schema).value
+      const property = resolve(fields(value)[key]).value
+      return (
+        isObject(value) &&
+        Array.isArray(value.required) &&
+        value.required.includes(key) &&
+        isObject(property) &&
+        property.nullable !== true &&
+        (property.type === 'boolean' || typeof property.const === 'boolean')
+      )
+    }
+    const toggleFlag = (action: string): string | undefined => {
+      const names = toggleFieldNames(action)
+      const answers = ['post', 'delete'].map((method) => {
+        const response = answer(find(method, `${item}/${action}`))
+        return response && oneShape(response.schema, response.name)?.record
+      })
+      const candidates = Object.keys(recordFields).filter(
+        (key) =>
+          names.has(key.replace(/[-_]/g, '').toLowerCase()) &&
+          requiredBoolean(recordSource, key) &&
+          answers.every((schema) => requiredBoolean(schema, key)),
+      )
+      return candidates.length === 1 ? candidates[0] : undefined
+    }
     const typeName = pascal((recordResolved.name ?? singular(name)).replace(/[^A-Za-z0-9]+/g, '-'))
     const rowResolved = resolve(listAnswer?.items)
-    let recordIsScalar = false
     if (
       isObject(recordResolved.value) &&
       (recordResolved.value.type === 'object' || isObject(recordResolved.value.properties))
@@ -436,7 +508,6 @@ export function planContractResourceModules(
         `export interface ${typeName} ${objectType(recordResolved.value, 0, absent)}`,
       )
     } else {
-      recordIsScalar = true
       declarations.set(typeName, `export type ${typeName} = ${typeOf(recordSource, 0)}`)
     }
     drain()
@@ -461,7 +532,8 @@ export function planContractResourceModules(
     const pathExpression = (path: string): string => {
       const text = toColon(path).replace(
         /:([A-Za-z_]\w*)/g,
-        (_m, key: string) => `\${encodeURIComponent(${camel(key)})}`,
+        (_m, key: string) =>
+          `\${encodeURIComponent(${parentArgs[parentParams.indexOf(key)] ?? camel(key)})}`,
       )
       return text.includes('${') ? `\`${text}\`` : `'${text}'`
     }
@@ -506,25 +578,23 @@ export function planContractResourceModules(
       )
       drain()
       pageNames.push(pageName)
-      const resourceCall = parentParams.length
-        ? `${exportName}(${camel(parentParams[0])})`
-        : exportName
+      const resourceCall = parentArgs.length ? `${exportName}(${parentArgs[0]})` : exportName
       const required = [...parameters.values()].some((parameter) => parameter.required === true)
       listParamTypes.set(path, { name: paramsType, required })
       const hookName = `use${pascal(name)}${suffix}${pascal(name) === typeName && !suffix ? 'Collection' : ''}`
       namedReads.push({
         name: hookName,
         args: [
-          ...parentParams.map((key) => ({ name: camel(key), type: 'string | null' })),
+          ...parentArgs.map((name) => ({ name, type: 'string | null' })),
           { name: 'viewer', type: 'string | null' },
           { name: 'params', type: `${paramsType} | null`, ...(required ? {} : { default: '{}' }) },
         ],
         result: resultType,
-        read: `${[...parentParams.map((key) => `${camel(key)}Value === null`), 'viewerValue === null', 'paramsValue === null'].join(' || ')} ? null : ${pageName}(${[...parentParams.map((key) => `${camel(key)}Value`), 'viewerValue', 'paramsValue'].join(', ')})`,
+        read: `${[...parentArgs.map((name) => `${name}Value === null`), 'viewerValue === null', 'paramsValue === null'].join(' || ')} ? null : ${pageName}(${[...parentArgs.map((name) => `${name}Value`), 'viewerValue', 'paramsValue'].join(', ')})`,
       })
       pageExports.push(
         `/** \`GET ${path}\` whole, as the API answers it: the rows and what it sends beside them. */\n` +
-          `export const ${pageName} = (${[...parentParams.map((key) => `${camel(key)}: string`), 'viewer: string', `params: ${paramsType}${required ? '' : ' = {}'}`].join(', ')}): QueryOptions<${resultType}> =>\n` +
+          `export const ${pageName} = (${[...parentArgs.map((name) => `${name}: string`), 'viewer: string', `params: ${paramsType}${required ? '' : ' = {}'}`].join(', ')}): QueryOptions<${resultType}> =>\n` +
           `  ${resourceCall}.listPage(viewer, { ...params }, ${pageReader}, ${pathExpression(path)})`,
       )
       // Only a declared limit/offset contract is paged this way. Cursor/page-number APIs and
@@ -563,7 +633,7 @@ export function planContractResourceModules(
         const routeCall = `${listRoute.hook}({ ...options,${limit ? ` pageSize: options.pageSize ?? ${limit},` : ''} filters: { ${filters.map((key) => `${propertyKey(key)}: {}`).join(', ')}${filters.length ? ', ' : ''}...options.filters } })`
         const pageArgs = (list: string): string =>
           [
-            ...parentParams.map(camel),
+            ...parentArgs,
             'viewer',
             `{ ...params, ${filters.map((key) => `${propertyKey(key)}: ${list}.filters[${JSON.stringify(key)}], `).join('')}limit: ${list}.pageSize, offset: ${list}.offset }`,
           ].join(', ')
@@ -576,10 +646,10 @@ export function planContractResourceModules(
           // A binding whose hooks run once (a setup function, not a render) reads each argument
           // reactively: every argument is the package's source type, and its list query reads
           // their current values, so a changed viewer, parent id or params value moves the query.
-          const inputs = [...parentParams.map(camel), 'viewer', 'params'].join(', ')
+          const inputs = [...parentArgs, 'viewer', 'params'].join(', ')
           listHooks.push(
             `/** URL paging and filters, one cached read, and refetch; writes use ${resourceCall}. */\n` +
-              `export function ${hookName}<Selection extends string = string>(${[...parentParams.map((key) => `${camel(key)}: ${sourceType}<string>`), `viewer: ${sourceType}<string | null>`, `params: ${sourceType}<Omit<${paramsType}, ${omitted}>>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult}; query: ReturnType<typeof ${listRoute.queryHook}<${resultType}, { ${[...parentParams.map((key) => `${camel(key)}: string; `), 'viewer: string | null; '].join('')}params: Omit<${paramsType}, ${omitted}> }, ${filterType}>> } {\n` +
+              `export function ${hookName}<Selection extends string = string>(${[...parentArgs.map((name) => `${name}: ${sourceType}<string>`), `viewer: ${sourceType}<string | null>`, `params: ${sourceType}<Omit<${paramsType}, ${omitted}>>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult}; query: ReturnType<typeof ${listRoute.queryHook}<${resultType}, { ${[...parentArgs.map((name) => `${name}: string; `), 'viewer: string | null; '].join('')}params: Omit<${paramsType}, ${omitted}> }, ${filterType}>> } {\n` +
               `  const route = ${routeCall}\n` +
               `  const query = ${listRoute.queryHook}(route, { ${inputs} }, ({ ${inputs} }, list) => ${pageName}(${pageArgs('list')}))\n` +
               `  return { route, query }\n}`,
@@ -587,7 +657,7 @@ export function planContractResourceModules(
         } else
           listHooks.push(
             `/** URL paging and filters, one cached read, and refetch; writes use ${resourceCall}. */\n` +
-              `export function ${hookName}<Selection extends string = string>(${[...parentParams.map((key) => `${camel(key)}: string`), 'viewer: string | null', `params: Omit<${paramsType}, ${omitted}>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult} } & ReturnType<typeof ${listRoute.queryHook}<${resultType}>> {\n` +
+              `export function ${hookName}<Selection extends string = string>(${[...parentArgs.map((name) => `${name}: string`), 'viewer: string | null', `params: Omit<${paramsType}, ${omitted}>${remainingRequired ? '' : ' = {}'}`, `options: ${listRoute.optionsType}<${filterType}, Selection> = {}`].join(', ')}): { route: ${routeResult} } & ReturnType<typeof ${listRoute.queryHook}<${resultType}>> {\n` +
               `  const route = ${routeCall}\n` +
               `  const query = ${listRoute.queryHook}(viewer !== null && route.canLoad ? ${pageName}(${pageArgs('route')}) : null)\n` +
               `  return { route, ...query }\n}`,
@@ -621,7 +691,7 @@ export function planContractResourceModules(
       return (
         `${factory.factory}<${generics}>({\n` +
         `  name: ${resourceName},\n  path: ${pathExpression(path)},` +
-        (param === 'id' || recordIsScalar ? '' : `\n  id: '${param}',`) +
+        (!idField || idField === 'id' ? '' : `\n  id: ${JSON.stringify(idField)},`) +
         (update?.method === 'patch' ? `\n  updateMethod: 'patch',` : '') +
         `\n  http: ${factory.http.client},` +
         (ownReader ? `\n  readList: ${ownReader},` : '') +
@@ -654,13 +724,13 @@ export function planContractResourceModules(
       )
     }
     const describe = (path: string, exportedName: string, resourceName: string): void => {
-      if (parentParams.length === 0) {
+      if (parentArgs.length === 0) {
         exported.push(
           `export const ${exportedName}: ${resourceType(path)} = ${resourceFor(path, `'${resourceName}'`)}`,
         )
         return
       }
-      const key = camel(parentParams[0])
+      const key = parentArgs[0]
       exported.push(
         `const ${exportedName}By = new Map<string, ${resourceType(path)}>()\n` +
           `/** The ${resourceName} of one ${singular(segmentsOf(base).at(-3) ?? 'record')}: the same object for the same ${key}, so its lists stay tracked. */\n` +
@@ -677,17 +747,19 @@ export function planContractResourceModules(
       describe(path, extraName, `${name}-${path.slice(base.length + 1).replace(/\//g, '-')}`)
     }
 
-    if (detail)
-      namedReads.push({
-        name: `use${typeName}`,
-        args: [
-          ...parentParams.map((key) => ({ name: camel(key), type: 'string | null' })),
-          { name: 'viewer', type: 'string | null' },
-          { name: 'id', type: 'string | number | null | undefined' },
-        ],
-        result: `${typeName} | null`,
-        read: `${[...parentParams.map((key) => `${camel(key)}Value === null`), 'viewerValue === null'].join(' || ')} ? null : ${parentParams.length ? `${exportName}(${camel(parentParams[0])}Value)` : exportName}.detail(viewerValue, idValue == null ? null : String(idValue))`,
-      })
+    const detailRead: ResourceHook | undefined = detail
+      ? {
+          name: `use${typeName}`,
+          args: [
+            ...parentArgs.map((name) => ({ name, type: 'string | null' })),
+            { name: 'viewer', type: 'string | null' },
+            { name: 'id', type: 'string | number | null | undefined' },
+          ],
+          result: `${typeName} | null`,
+          read: `${[...parentArgs.map((name) => `${name}Value === null`), 'viewerValue === null'].join(' || ')} ? null : ${parentArgs.length ? `${exportName}(${parentArgs[0]}Value)` : exportName}.detail(viewerValue, idValue == null ? null : String(idValue))`,
+        }
+      : undefined
+    if (detailRead) namedReads.push(detailRead)
     // An alternate path ending in /list can otherwise take the URL controller's name.
     const hookNames = new Set(listHookNames)
     for (const read of namedReads) {
@@ -695,16 +767,39 @@ export function planContractResourceModules(
       hookNames.add(read.name)
     }
     const hooks = resourceHooks(factory, namedReads)
+    const page = factory.recordPage
+    const recordView =
+      pageSupport.view && page && factory.queryHook && detailRead
+        ? resourceRecordView(page.framework, factoryPackage, name, typeName, detailRead)
+        : undefined
+    const optimistic =
+      pageSupport.toggle && page && factory.queryHook && toggles.length
+        ? page.optimisticValue
+        : undefined
+    const toggleActions = toggles.map((action) => ({
+      action,
+      ...(optimistic ? { field: toggleFlag(action) } : {}),
+    }))
     const namedWrites = resourceWrites({
       resource: exportName,
       type: typeName,
-      parents: parentParams.map(camel),
+      parents: parentArgs,
       create: !!create,
       ...(createType ? { createType } : {}),
       update: !!update,
       ...(updateType ? { updateType } : {}),
       remove: !!remove,
-      toggles,
+      toggles: toggleActions,
+      ...(optimistic && page && factory.queryHook
+        ? {
+            toggleBinding: {
+              observer: factory.queryHook,
+              framework: page.framework,
+              idField,
+              usedNames: hookNames,
+            },
+          }
+        : {}),
     })
 
     const covered = [
@@ -716,7 +811,7 @@ export function planContractResourceModules(
       ...toggles.map((action) => `toggle ${action} (POST/DELETE ${item}/${action})`),
       ...(extraLists.get(base) ?? []).map((path) => `list (GET ${path})`),
     ]
-    const call = parentParams.length ? `${exportName}(${camel(parentParams[0])})` : exportName
+    const call = parentArgs.length ? `${exportName}(${parentArgs[0]})` : exportName
     // One import per module, its names in the order the scaffold's `simple-import-sort` lint
     // keeps (by name, `type` ignored): a module of only types is an `import type`.
     const values = new Map<string, string[]>([
@@ -738,8 +833,25 @@ export function planContractResourceModules(
       ...(hooks.wrap ? [[hooks.wrap.package, [hooks.wrap.name]] as [string, string[]]] : []),
     ])
     const types = new Map<string, string[]>()
+    const valueImport = (from: string, name: string): void => {
+      values.set(from, [...new Set([...(values.get(from) ?? []), name])])
+    }
     const typeImport = (from: string, name: string): void => {
       types.set(from, [...(types.get(from) ?? []), name])
+    }
+    if (optimistic) valueImport(optimistic.package, 'useOptimisticValue')
+    if (optimistic && page?.framework === 'vue' && toggleActions.some((action) => !action.field))
+      valueImport('vue', 'computed')
+    if (recordView?.source) {
+      valueImport(factoryPackage, 'QueryContent')
+      typeImport(factoryPackage, 'QueryContentProps')
+    }
+    if (recordView?.imports) {
+      const [from, names] = recordView.imports
+      for (const name of names) {
+        if (name.startsWith('type ')) typeImport(from, name.slice(5))
+        else valueImport(from, name)
+      }
     }
     if (pageExports.length) typeImport('@molecule/app-query', 'QueryOptions')
     typeImport(factoryPackage, 'QueryResource')
@@ -762,6 +874,13 @@ export function planContractResourceModules(
         const names = [...values.get(from)!, ...typeNames.map((typeName) => `type ${typeName}`)]
         return `import { ${names.sort(byName).join(', ')} } from '${from}'`
       })
+    const viewDoc = recordView ? ` * ${recordView.doc}\n` : ''
+    const toggleDoc = namedWrites.toggleDocs.length
+      ? ` * ${namedWrites.toggleDocs.join('\n * ')}\n * Keep each toggle control mounted and enabled while saving. Pending is for feedback, and clicks queue.\n`
+      : ''
+    const createDoc = createType
+      ? ` * Create with \`create${typeName}(${[...parentArgs, 'viewer', 'input'].join(', ')})\`. Pass the complete \`${createType}\` body declared below.\n`
+      : ''
     const source = `/**
  * ${pascal(name)} on the app's shared query cache, as ${label} declares them.
  *
@@ -769,18 +888,18 @@ export function planContractResourceModules(
  * again only while it is unchanged (\`mlcl resources --contract ${label}\` after the contract changes).
  *
  * Covers: ${covered.join(', ')}.
-${hooks.source ? ` * Page reads: ${namedReads.map((hook) => `\`${hook.name}(${hook.args.map((arg) => arg.name).join(', ')})\``).join(', ')}.\n * Import these hooks from this file; they return the framework's query result: data/status/error and refetch().\n * List hooks without the List suffix keep URL state local and return the whole response, including totals.\n * Pass null as viewer while restoring auth. The HTTP bond sends credentials.\n` : ''}${namedWrites ? ` * Named writes: ${[...namedWrites.matchAll(/export function (\w+)/g)].map((match) => `\`${match[1]}\``).join(', ')}.\n * Their typed input is the API's complete request body, including any envelope, sent unchanged.\n${createType ? ` * Create with \`create${typeName}(${[...parentParams.map(camel), 'viewer', 'input'].join(', ')})\`; input is \`${createType}\` (declared below).\n` : ''}` : ''} *
+${viewDoc}${toggleDoc}${hooks.source ? ` * Page reads: ${namedReads.map((hook) => `\`${hook.name}(${hook.args.map((arg) => arg.name).join(', ')})\``).join(', ')}.\n * Import these hooks from this file; they return the framework's query result: data/status/error and refetch().\n * List hooks without the List suffix keep URL state local and return the whole response, including totals.\n * Pass null as viewer while restoring auth. The HTTP bond sends credentials.\n` : ''}${namedWrites.names.length ? ` * Named writes: ${namedWrites.names.map((name) => `\`${name}\``).join(', ')}.\n * Their typed input is the API's complete request body, including any envelope, sent unchanged.\n${createDoc}` : ''} *
  * Read with \`useQuery(${call}.${list && listAnswer ? 'list(viewer, params)' : `detail(viewer, ${camel(param)})`})\`${detail && list && listAnswer ? ` and \`useQuery(${call}.detail(viewer, ${camel(param)}))\`` : ''}.${
    pageNames.length
      ? `\n * \`${pageNames.join('`, `')}\` return${pageNames.length === 1 ? 's' : ''} the whole list answer (rows and totals) for a pager.`
      : ''
  }${
-   create || update || remove || toggles.length
+   create || update || remove || (toggles.length && !optimistic)
      ? `\n * Write with ${[
          create ? 'create' : '',
          update ? 'update' : '',
          remove ? 'remove' : '',
-         toggles.length ? 'toggle' : '',
+         toggles.length && !optimistic ? 'toggle' : '',
        ]
          .filter(Boolean)
          .map((operation) => `\`${call}.${operation}\``)
@@ -803,7 +922,9 @@ ${exported.join('\n\n')}
 ${pageExports.length ? `\n${pageExports.join('\n\n')}\n` : ''}
 ${hooks.source}
 
-${namedWrites}
+${recordView?.source ?? ''}
+
+${namedWrites.source}
 
 ${listHooks.join('\n\n')}`
     plan.modules.push({
@@ -813,6 +934,14 @@ ${listHooks.join('\n\n')}`
       typeName,
       operations: covered,
       source: sortImportStatements(source),
+      ...(recordView?.file
+        ? {
+            view: {
+              path: [workspace, factory.directory, recordView.file.name].filter(Boolean).join('/'),
+              source: recordView.file.source,
+            },
+          }
+        : {}),
     })
     void extraNames
   }
@@ -848,47 +977,46 @@ export interface ContractModulesResult {
 
 const sha = (text: string): string => createHash('sha256').update(text).digest('hex')
 
-/**
- * The factory's URL list binding, when this workspace can compile its list hooks: the binding's
- * package is declared beside the factory, and the declared factory version is at or above the
- * binding's `since` (the version that added its list query).
- *
- * @param projectRoot - The project root.
- * @param factory - The declared resource factory.
- * @param declaration - The factory package's declaration.
- * @param declared - The project's declared packages with their workspaces.
- * @returns The list binding, or undefined when list hooks would not compile.
- */
-async function declaredListRoute(
+/** Additional APIs the generated module may import from this workspace's declared packages. */
+async function declaredPageApis(
   projectRoot: string,
   factory: ResourceModuleFactory,
   declaration: DeclaredPackage,
   declared: readonly DeclaredPackage[],
-): Promise<ResourceModuleFactory['listRoute']> {
-  const listRoute = factory.listRoute
-  if (
-    !listRoute ||
-    !declared.some(
-      (item) => item.name === listRoute.package && item.workspace === declaration.workspace,
-    )
-  )
-    return undefined
-  if (!listRoute.since) return listRoute
-  let manifest: Record<string, Record<string, string> | undefined>
+): Promise<{
+  listRoute?: ResourceModuleFactory['listRoute']
+  view: boolean
+  toggle: boolean
+}> {
+  let manifest: Record<string, Record<string, string> | undefined> = {}
   try {
     manifest = JSON.parse(
       await readFile(join(projectRoot, declaration.workspace, 'package.json'), 'utf8'),
     ) as typeof manifest
   } catch (_error) {
     // factoryIsDeclared read this manifest a moment ago; unreadable now proves no version.
-    return undefined
   }
-  return declaresAtLeast(
-    manifest.dependencies?.[declaration.name] ?? manifest.devDependencies?.[declaration.name],
-    listRoute.since,
-  )
-    ? listRoute
-    : undefined
+  const beside = (name: string): boolean =>
+    declared.some((item) => item.name === name && item.workspace === declaration.workspace)
+  const version = (name: string): string | undefined =>
+    manifest.dependencies?.[name] ?? manifest.devDependencies?.[name]
+  const { listRoute, recordPage } = factory
+  return {
+    listRoute:
+      listRoute &&
+      beside(listRoute.package) &&
+      (!listRoute.since || declaresAtLeast(version(declaration.name), listRoute.since))
+        ? listRoute
+        : undefined,
+    view: !!recordPage && declaresAtLeast(version(declaration.name), recordPage.viewSince),
+    toggle:
+      !!recordPage &&
+      beside(recordPage.optimisticValue.package) &&
+      declaresAtLeast(
+        version(recordPage.optimisticValue.package),
+        recordPage.optimisticValue.since,
+      ),
+  }
 }
 
 /**
@@ -947,13 +1075,15 @@ export async function writeContractResourceModules(
   const label = absolute.startsWith(`${projectRoot}/`)
     ? absolute.slice(projectRoot.length + 1)
     : contractPath
+  const apis = await declaredPageApis(projectRoot, factory, declaration, declared)
   const plan = planContractResourceModules(
     contract,
     factory,
     declaration.name,
     declaration.workspace,
     label,
-    await declaredListRoute(projectRoot, factory, declaration, declared),
+    apis.listRoute,
+    apis,
   )
   result.skipped = plan.skipped
   const directory = join(projectRoot, declaration.workspace, factory.directory)
@@ -971,29 +1101,54 @@ export async function writeContractResourceModules(
     scaffolded.set(module.path, await formatGeneratedSource(module.source, target))
   }
   const files: Record<string, string> = {}
-  for (const module of plan.modules) {
-    const target = join(projectRoot, module.path)
-    const formatted = await formatGeneratedSource(module.source, target)
-    let current: string | null = null
-    try {
-      current = await readFile(target, 'utf8')
-    } catch (_error) {
-      // Not there yet: written below.
-    }
-    const ours = current !== null && manifest.files[module.path] === sha(current)
-    const untouchedScaffold = current !== null && scaffolded.get(module.path) === current
+  const planned = new Set(
+    plan.modules.flatMap((module) =>
+      module.view ? [module.path, module.view.path] : [module.path],
+    ),
+  )
+  const save = async (file: {
+    path: string
+    source: string
+  }): Promise<'written' | 'kept' | 'same'> => {
+    const target = join(projectRoot, file.path)
+    const formatted = await formatGeneratedSource(file.source, target).catch((error: unknown) => {
+      // Existing Svelte projects can generate the component without configuring a formatter.
+      if (
+        target.endsWith('.svelte') &&
+        error instanceof Error &&
+        error.name === 'UndefinedParserError'
+      )
+        return file.source
+      throw error
+    })
+    const current = await readFile(target, 'utf8').catch((error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return null
+      throw error
+    })
+    const ours = current !== null && manifest.files[file.path] === sha(current)
+    const untouchedScaffold = current !== null && scaffolded.get(file.path) === current
     if (current !== null && !ours && !untouchedScaffold) {
-      result.kept.push(module.path)
-      continue
+      result.kept.push(file.path)
+      return 'kept'
     }
-    files[module.path] = sha(formatted)
-    if (current === formatted) continue
+    files[file.path] = sha(formatted)
+    if (current === formatted) return 'same'
     await mkdir(dirname(target), { recursive: true })
     await writeFile(target, formatted, 'utf8')
-    result.written.push(module)
+    return 'written'
+  }
+  for (const module of plan.modules) {
+    const primary = await save(module)
+    if (primary === 'kept') {
+      if (module.view && manifest.files[module.view.path])
+        files[module.view.path] = manifest.files[module.view.path]
+      continue
+    }
+    const view = module.view ? await save(module.view) : 'same'
+    if (primary === 'written' || view === 'written') result.written.push(module)
   }
   for (const [path, hash] of Object.entries(manifest.files)) {
-    if (path in files || plan.modules.some((module) => module.path === path)) continue
+    if (path in files || planned.has(path)) continue
     const target = join(projectRoot, path)
     if (!existsSync(target)) continue
     if (sha(await readFile(target, 'utf8')) === hash) {

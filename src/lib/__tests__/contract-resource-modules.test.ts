@@ -11,6 +11,7 @@ import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 
+import { compile as compileSvelte } from 'svelte/compiler'
 import ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
@@ -109,7 +110,7 @@ describe('the contract a P317 project was handed', () => {
     const { modules } = await plan('p317-supplied-openapi.yml.txt')
     const articles = modules[0].source
     expect(articles).toContain("path: '/articles'")
-    expect(articles).toContain("id: 'slug'")
+    expect(articles).toMatch(/id: ['"]slug['"]/)
     expect(articles).toContain(
       'readList: (response) => (response.data as { articles: Article[] }).articles',
     )
@@ -288,7 +289,7 @@ describe('an inventory API with its own contract', () => {
     const items = modules[0].source
     expect(items).toContain('readList: (response) => response.data as Item[]')
     expect(items).toContain('readOne: (response) => response.data as Item | null')
-    expect(items).toContain("id: 'sku'")
+    expect(items).toMatch(/id: ['"]sku['"]/)
     expect(items).toContain("updateMethod: 'patch'")
     expect(items).toContain(`status: "in-stock" | "reserved" | "discontinued"`)
     expect(items).toContain('location?: string | null')
@@ -308,6 +309,7 @@ describe('an inventory API with its own contract', () => {
  */
 const FRAMEWORK_QUERIES = [
   {
+    framework: 'react',
     query: QUERY,
     // Compile the current contract, without rewriting a linked installation's dist during a cohort.
     entry: join(MOLECULE, 'features/query-react/src/index.ts'),
@@ -356,6 +358,7 @@ const FRAMEWORK_QUERIES = [
   const total: number | undefined = query.data?.articlesCount`,
     },
   ].map(({ framework, useList, useNamed }) => ({
+    framework,
     query: `@molecule/app-query-${framework}`,
     entry: join(MOLECULE, `features/query-${framework}/dist/index.d.ts`),
     built: join(MOLECULE, `features/query-${framework}/dist/list-query.d.ts`),
@@ -390,6 +393,10 @@ describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) 
     '@molecule/app-query': join(MOLECULE, 'core/query/dist/index.d.ts'),
     '@molecule/app-routing': join(MOLECULE, 'core/routing/dist/index.d.ts'),
     [listRoute.package]: framework.router,
+    [factory.recordPage!.optimisticValue.package]: join(
+      MOLECULE,
+      `frameworks/${framework.framework}/dist/index.d.ts`,
+    ),
     ...(wrap && existsSync(framework.entry) ? { [wrap]: typesEntry(wrap, framework.entry) } : {}),
   }
   const built =
@@ -411,6 +418,10 @@ describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) 
         const file = join(dir, `${module.exportName}.ts`)
         await writeFile(file, module.source)
         files.push(file)
+        if (module.view) {
+          const result = compileSvelte(module.view.source, { filename: module.view.path })
+          expect(result.warnings).toEqual([])
+        }
       }
     // A consumer: the calls a page makes, typed end to end.
     const page = join(dir, 'page.ts')
@@ -418,13 +429,16 @@ describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) 
       page,
       `import { articles, articlesFeed, articlesPage, useArticlesList, useArticles, useArticle, createArticle } from './articles.js'
 import { comments, useComments, createComment, deleteComment } from './comments.js'
-import { items, createItem, updateItem, deleteItem, setItemReserved } from './items.js'
+import { items, type Item, createItem, updateItem, deleteItem, setItemReserved, useItemReserved } from './items.js'
 import { profiles } from './profiles.js'
 import { tags } from './tags.js'
 export function useList(): number | undefined {
   ${framework.useList}
   ${framework.useNamed}
   return total
+}
+export function useReserve(viewer: string, record: Item): void {
+  useItemReserved(viewer, record).set(true)
 }
 export async function use(viewer: string, slug: string): Promise<string[]> {
   const page = await articlesPage(viewer, { limit: 10 }).fetch(new AbortController().signal)
@@ -529,6 +543,78 @@ describe('writing the modules into a project', () => {
     expect(result.reason).toContain('version')
   })
 
+  it('uses only the record-page APIs supported by the app manifest', async () => {
+    const binding = factory.recordPage!
+    const react = binding.optimisticValue.package
+    const declared = [...P317_DECLARED, { name: react, workspace: 'app' }]
+    const pin = (queryVersion: string, reactVersion?: string): Promise<void> =>
+      writeFile(
+        join(root, 'app/package.json'),
+        JSON.stringify({
+          dependencies: {
+            [QUERY]: queryVersion,
+            [HTTP]: '1.0.0',
+            ...(reactVersion ? { [react]: reactVersion } : {}),
+          },
+        }),
+      )
+    const source = async (): Promise<string> =>
+      (await writeContractResourceModules(root, 'specs/openapi.json', registry, declared))
+        .written[0].source
+    await writeFile(join(root, 'specs/openapi.json'), await fixture('inventory-openapi.json.txt'))
+    await pin(factory.since)
+    const old = await source()
+    expect(old).toContain('export function setItemReserved')
+    expect(old).not.toMatch(/useItemReserved|ItemView/)
+    await pin(binding.viewSince, '3.2.0')
+    const views = await source()
+    expect(views).toContain('export function ItemView')
+    expect(views).not.toContain('useItemReserved')
+    await pin(binding.viewSince, binding.optimisticValue.since)
+    const current = await source()
+    const header = current.split('*/', 1)[0]
+    expect(header).toContain('ItemView')
+    expect(header).toContain('useItemReserved(viewer, record)')
+    expect(header).not.toContain('setItemReserved')
+  })
+
+  it('preserves an edited Svelte record view and removes an untouched one with its collection', async () => {
+    const name = '@molecule/app-query-svelte'
+    const factory = registry.packages[name].decisionGuide!.resourceModules!
+    const contract = 'specs/openapi.json'
+    const inventory = JSON.parse(await fixture('inventory-openapi.json.txt')) as {
+      paths: Record<string, unknown>
+    }
+    inventory.paths['/supplies/{sku}'] = inventory.paths['/items/{sku}']
+    await writeFile(join(root, contract), JSON.stringify(inventory))
+    await writeFile(
+      join(root, 'app/package.json'),
+      JSON.stringify({
+        dependencies: { [name]: factory.recordPage!.viewSince, [HTTP]: '1.0.0' },
+      }),
+    )
+    const declared = [name, HTTP].map((name) => ({ name, workspace: 'app' }))
+    const generate = (): ReturnType<typeof writeContractResourceModules> =>
+      writeContractResourceModules(root, contract, registry, declared)
+    const first = await generate()
+    expect(first.written[0].view?.path).toBe('app/src/resources/items-view.svelte')
+    const viewPath = first.written[0].view!.path
+    const view = await read(viewPath)
+    expect(view).toContain('<QueryContent')
+    expect((await generate()).written).toEqual([])
+    await writeFile(join(root, viewPath), `${view}\n<!-- customized -->\n`)
+    expect((await generate()).kept).toContain(viewPath)
+    expect(await read(viewPath)).toContain('customized')
+    delete inventory.paths['/supplies/{sku}']
+    await writeFile(join(root, contract), JSON.stringify(inventory))
+    expect((await generate()).removed).toEqual([
+      'app/src/resources/supplies.ts',
+      'app/src/resources/supplies-view.svelte',
+    ])
+    expect(existsSync(join(root, 'app/src/resources/supplies-view.svelte'))).toBe(false)
+    expect(existsSync(join(root, viewPath))).toBe(true)
+  })
+
   it('wires the URL list hook only when the matching router is declared', async () => {
     await writeFile(join(root, 'specs/openapi.yml'), await fixture('p317-supplied-openapi.yml.txt'))
     const without = await generate()
@@ -570,7 +656,9 @@ describe('writing the modules into a project', () => {
     expect(articles).toContain('viewer: ListQuerySource<string | null>')
     expect(articles).toMatch(/useListQuery\(\s*route,\s*\{ viewer, params \}/)
     expect(articles).toContain('limit: list.pageSize, offset: list.offset')
-    expect(articles).toContain("import { useListRoute } from '@molecule/app-vue'")
+    expect(articles).toContain(
+      "import { useListRoute, useOptimisticValue } from '@molecule/app-vue'",
+    )
     expect(articles).toContain("import type { ListRouteOptions } from '@molecule/app-routing'")
   })
 

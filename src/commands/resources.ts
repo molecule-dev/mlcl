@@ -54,6 +54,7 @@ export default class Resources extends Command {
         export: module.exportName,
         type: module.typeName,
         covers: module.operations,
+        ...(module.view ? { view: module.view.path } : {}),
       })),
       removed: result.removed,
       kept: result.kept,
@@ -63,8 +64,10 @@ export default class Resources extends Command {
     if (flags.json) {
       this.log(JSON.stringify(summary, null, 2))
     } else {
-      for (const module of summary.written)
+      for (const module of summary.written) {
         this.log(`wrote ${module.path} (${module.export}: ${module.covers.join(', ')})`)
+        if (module.view) this.log(`record view at ${module.view}`)
+      }
       for (const path of summary.removed) this.log(`removed ${path} (no longer in the contract)`)
       for (const path of summary.kept) this.log(`kept ${path} (edited since it was generated)`)
       for (const skip of summary.skipped) this.log(`no module for ${skip.path}: ${skip.reason}`)

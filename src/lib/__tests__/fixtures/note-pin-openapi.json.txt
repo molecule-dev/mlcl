@@ -1,0 +1,44 @@
+{
+  "openapi": "3.0.3",
+  "info": { "title": "Note-taking pin API", "version": "1.0.0" },
+  "paths": {
+    "/pages/{id}": {
+      "parameters": [{ "$ref": "#/components/parameters/PageId" }],
+      "get": { "responses": { "200": { "$ref": "#/components/responses/Note" } } }
+    },
+    "/pages/{id}/pin": {
+      "parameters": [{ "$ref": "#/components/parameters/PageId" }],
+      "post": { "responses": { "200": { "$ref": "#/components/responses/Note" } } },
+      "delete": { "responses": { "200": { "$ref": "#/components/responses/Note" } } }
+    }
+  },
+  "components": {
+    "parameters": {
+      "PageId": { "name": "id", "in": "path", "required": true, "schema": { "type": "string" } }
+    },
+    "responses": {
+      "Note": {
+        "description": "Saved note",
+        "content": {
+          "application/json": {
+            "schema": {
+              "type": "object",
+              "properties": { "note": { "$ref": "#/components/schemas/Page" } }
+            }
+          }
+        }
+      }
+    },
+    "schemas": {
+      "Page": {
+        "type": "object",
+        "required": ["id", "title", "pinned"],
+        "properties": {
+          "id": { "type": "string" },
+          "title": { "type": "string" },
+          "pinned": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

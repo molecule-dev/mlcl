@@ -242,6 +242,20 @@ export const DecisionGuide = z.object({
           'The query observer this factory package exports. Named resource hooks compose it. ' +
             'Value inputs follow re-renders, getters follow reactive reads, and stores follow subscriptions.',
         ),
+      recordPage: z
+        .object({
+          framework: z.enum(['react', 'vue', 'svelte', 'solid', 'angular']),
+          viewSince: z.string().regex(/^\d+\.\d+\.\d+$/),
+          optimisticValue: z.object({
+            package: z.string(),
+            since: z.string().regex(/^\d+\.\d+\.\d+$/),
+          }),
+        })
+        .optional()
+        .describe(
+          'Framework syntax for bound QueryContent views and the declared binding that exports ' +
+            'useOptimisticValue. Each minimum version covers the API the generated code calls.',
+        ),
       listRoute: z
         .object({
           package: z.string(),
@@ -1223,12 +1237,6 @@ export const AppFrameworkConfig = z.object({
     .string()
     .optional()
     .describe('Source file extension for this framework (defaults to "tsx")'),
-  entryModule: z
-    .string()
-    .optional()
-    .describe(
-      'The module index.html loads, under src/ and without its extension (defaults to "main"). React uses "bootstrap": it imports initializeApp from main and mounts the router with its route access.',
-    ),
   htmlTemplate: z.string().optional().describe('HTML template filename (defaults to "index.html")'),
   publicDir: z
     .string()

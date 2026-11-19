@@ -74069,6 +74069,14 @@
               "package": "@angular/core"
             }
           },
+          "recordPage": {
+            "framework": "angular",
+            "viewSince": "1.4.0",
+            "optimisticValue": {
+              "package": "@molecule/app-angular",
+              "since": "3.6.0"
+            }
+          },
           "listRoute": {
             "package": "@molecule/app-angular",
             "hook": "useListRoute",
@@ -74182,6 +74190,14 @@
             "name": "useQuery",
             "input": "value"
           },
+          "recordPage": {
+            "framework": "react",
+            "viewSince": "1.8.0",
+            "optimisticValue": {
+              "package": "@molecule/app-react",
+              "since": "3.3.0"
+            }
+          },
           "listRoute": {
             "package": "@molecule/app-routing-react-router",
             "hook": "useListRoute",
@@ -74264,6 +74280,14 @@
           "queryHook": {
             "name": "useQuery",
             "input": "getter"
+          },
+          "recordPage": {
+            "framework": "solid",
+            "viewSince": "1.4.0",
+            "optimisticValue": {
+              "package": "@molecule/app-solid",
+              "since": "3.6.0"
+            }
           },
           "listRoute": {
             "package": "@molecule/app-solid",
@@ -74349,6 +74373,14 @@
             "name": "useQuery",
             "input": "store",
             "package": "svelte/store"
+          },
+          "recordPage": {
+            "framework": "svelte",
+            "viewSince": "1.4.0",
+            "optimisticValue": {
+              "package": "@molecule/app-svelte",
+              "since": "3.6.0"
+            }
           },
           "listRoute": {
             "package": "@molecule/app-svelte",
@@ -74461,6 +74493,14 @@
           "queryHook": {
             "name": "useQuery",
             "input": "getter"
+          },
+          "recordPage": {
+            "framework": "vue",
+            "viewSince": "1.4.0",
+            "optimisticValue": {
+              "package": "@molecule/app-vue",
+              "since": "3.6.0"
+            }
           },
           "listRoute": {
             "package": "@molecule/app-vue",

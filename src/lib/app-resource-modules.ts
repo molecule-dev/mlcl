@@ -233,7 +233,7 @@ export function planAppResourceModule(
     create: collection.create,
     update: collection.update !== null,
     remove: collection.remove,
-    toggles: collection.toggles,
+    toggles: collection.toggles.map((action) => ({ action })),
   })
   const factoryNames = [factory.factory, ...hooks.values].sort()
   const source = `/**
@@ -243,7 +243,7 @@ export function planAppResourceModule(
  * It is this app's code: change the path, the readers and the type to match the API you serve.
  * mlcl does not write it again.
  *
-${hooks.source ? ` * Pages import \`${listHook}\` and \`use${typeName}\` from this file.\n * Call \`use${typeName}(viewer, ${idField})\`; read data/status/error and retry with refetch().\n * Pass null as viewer while restoring auth. The HTTP bond sends credentials.\n` : ''}${namedWrites ? ` * Named writes: ${[...namedWrites.matchAll(/export function (\w+)/g)].map((match) => `\`${match[1]}\``).join(', ')}.\n` : ''} *
+${hooks.source ? ` * Pages import \`${listHook}\` and \`use${typeName}\` from this file.\n * Call \`use${typeName}(viewer, ${idField})\`; read data/status/error and retry with refetch().\n * Pass null as viewer while restoring auth. The HTTP bond sends credentials.\n` : ''}${namedWrites.names.length ? ` * Named writes: ${namedWrites.names.map((name) => `\`${name}\``).join(', ')}.\n` : ''} *
  * Read with \`useQuery(${exportName}.list(viewer, params))\` and
  * \`useQuery(${exportName}.detail(viewer, ${idField}))\`.
 ${writeDoc} * \`viewer\` is the signed-in user's id, or 'anonymous'.
@@ -276,7 +276,7 @@ export const ${exportName} = ${factory.factory}<${typeName}>({
 
 ${hooks.source}
 
-${namedWrites}
+${namedWrites.source}
 `
   return { resource, path, exportName, typeName, operations, source: sortImportStatements(source) }
 }

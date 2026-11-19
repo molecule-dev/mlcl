@@ -90,7 +90,7 @@ describe('app modules for declared API resources, written by the create step', (
     expect(articles).toContain("  id: 'slug',")
     expect(articles).toContain("path: '/articles',")
     expect(articles).toContain('`articles.toggle`')
-    expect(articles).toContain('Await the saved record before showing a completed change')
+    expect(articles).toContain('call this setter from a queued commit')
 
     // A non-benchmark resource: projects are addressed by id and updated with PATCH.
     const projects = await read('app/src/resources/projects.ts')
