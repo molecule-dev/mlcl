@@ -27,8 +27,9 @@
  * src/config + direct auth-default bond. Dynamic config and other composition
  * roots are not inferred. Local call discovery does not prove branch timing or
  * the identity of the value passed to a session publisher.
- * Auth snapshot checks cover a custom React hook seeding state from one client's
- * getState/getUser/getAccessToken contract; form defaults and other stores are not inferred.
+ * Auth snapshot checks cover a custom React hook seeding a combined session
+ * snapshot, and a component or hook storing the bonded user's profile and token
+ * in separate state slots. Form defaults that project a profile field stay local.
  * A custom storage key is a credential store when the bonded auth config owns it or
  * its written value also feeds the bonded HTTP client's setAuthToken in this module.
  * Independent clients, read-only storage and unrelated values remain separate.
@@ -168,7 +169,7 @@ export default {
       profile:
         'This write targets the configured auth profile endpoint but does not publish the saved user. Use useAuth().updateProfile(changes), or publish the canonical response through the bonded client in this handler before navigation. Call setUser(savedUser), or setSession({ user, accessToken }) if the response also rotates the token.',
       authSubscription:
-        'This hook seeds a React auth snapshot but never subscribes its setter to that client. Other consumers keep the signed-out snapshot after login. Use useAuth from @molecule/app-react, or subscribe to this client in an effect, update this snapshot on each notification, and return the unsubscribe cleanup.',
+        'This React session snapshot can go stale. Keep AppRoot or mount AuthProvider with the bonded client. Use useAuth() from @molecule/app-react or subscribe to that client.',
       renderNavigation:
         'This component calls the useNavigate result during render. React Router cannot navigate on the initial render, so a signed-out deep link can stay on the protected URL. Return <Navigate to={destination} replace /> or use AuthGuard from @molecule/app-ui-react; put imperative navigation in an effect or event handler.',
       nestedQueryKey:
@@ -1038,6 +1039,24 @@ export default {
       visit(fn.body)
       return found
     }
+    const subscribesToAuthSnapshot = (owner, client, setter) => {
+      const ownerCalls = actionCalls(owner)
+      for (const call of [...ownerCalls]) {
+        if (imported(call.callee, ['react'], ['useEffect', 'useLayoutEffect']))
+          ownerCalls.push(...actionCalls(localFunction(call.arguments[0])))
+      }
+      return ownerCalls.some((call) => {
+        const callee = unwrap(call.callee)
+        return (
+          callee.type === 'MemberExpression' &&
+          ['subscribe', 'onAuthChange'].includes(key(callee)) &&
+          identity(callee.object) === client &&
+          actionCalls(localFunction(call.arguments[0])).some(
+            (notify) => variable(notify.callee) === variable(setter),
+          )
+        )
+      })
+    }
     // The scaffold's authored src/config is the source of the bonded auth contract.
     // Parse literal configuration with ESLint's parser; never execute it or guess
     // routes from words such as "user". Dynamic contracts stay outside this check.
@@ -1563,13 +1582,36 @@ export default {
             if (/^[A-Z]/.test(name ?? '') && ownerFunction(call) === component)
               context.report({ node: call, messageId: 'renderNavigation' })
           }
+          const splitSnapshots = new Map()
           for (const state of states) {
             if (!imported(state.callee, ['react'], ['useState'])) continue
-            const hook = ownerFunction(state)
-            const name = hook?.id?.name ?? hook?.parent?.id?.name
+            const owner = ownerFunction(state)
+            const name = owner?.id?.name ?? owner?.parent?.id?.name ?? ''
+            const hook = /^use[A-Z]/.test(name)
             const seed = state.arguments[0]
             const setter = state.parent.id?.type === 'ArrayPattern' && state.parent.id.elements[1]
-            if (!/^use[A-Z]/.test(name ?? '') || !seed || setter?.type !== 'Identifier') continue
+            if ((!hook && !/^[A-Z]/.test(name)) || !seed || setter?.type !== 'Identifier') continue
+
+            const initializer = localFunction(seed)
+            const results = initializer ? functionReturns(initializer) : [seed]
+            const read = results.length === 1 ? value(results[0]) : null
+            const getter = read?.type === 'CallExpression' ? unwrap(read.callee) : null
+            if (getter?.type === 'MemberExpression') {
+              const field = key(getter)
+              if (
+                (field === 'getUser' || field === 'getAccessToken') &&
+                authSource(getter.object, true)
+              ) {
+                const client = identity(getter.object)
+                const snapshots = splitSnapshots.get(owner) ?? new Map()
+                const fields = snapshots.get(client) ?? []
+                fields.push({ field, state, setter })
+                snapshots.set(client, fields)
+                splitSnapshots.set(owner, snapshots)
+              }
+            }
+
+            if (!hook) continue
             const clients = new Map()
             for (const call of calls) {
               if (call.range[0] < seed.range[0] || call.range[1] > seed.range[1]) continue
@@ -1584,28 +1626,24 @@ export default {
               readers.add(key(callee))
               clients.set(client, readers)
             }
-            const hookCalls = actionCalls(hook)
-            for (const call of [...hookCalls]) {
-              if (imported(call.callee, ['react'], ['useEffect', 'useLayoutEffect']))
-                hookCalls.push(...actionCalls(localFunction(call.arguments[0])))
-            }
             for (const [client, readers] of clients) {
-              if (readers.size !== 3) continue
-              const subscribed = hookCalls.some((call) => {
-                const callee = unwrap(call.callee)
-                return (
-                  callee.type === 'MemberExpression' &&
-                  ['subscribe', 'onAuthChange'].includes(key(callee)) &&
-                  identity(callee.object) === client &&
-                  actionCalls(localFunction(call.arguments[0])).some(
-                    (notify) => variable(notify.callee) === variable(setter),
-                  )
-                )
-              })
-              if (!subscribed) {
+              if (readers.size === 3 && !subscribesToAuthSnapshot(owner, client, setter)) {
                 context.report({ node: state, messageId: 'authSubscription' })
                 break
               }
+            }
+          }
+          for (const [owner, snapshots] of splitSnapshots) {
+            for (const [client, fields] of snapshots) {
+              if (
+                !fields.some(({ field }) => field === 'getUser') ||
+                !fields.some(({ field }) => field === 'getAccessToken')
+              )
+                continue
+              const stale = fields.find(
+                ({ setter }) => !subscribesToAuthSnapshot(owner, client, setter),
+              )
+              if (stale) context.report({ node: stale.state, messageId: 'authSubscription' })
             }
           }
           // A deliberately narrow sign-out omission: a named click handler whose

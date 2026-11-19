@@ -414,6 +414,60 @@ export function AuthView() {
     expect(good.results[0].status).toBe('passed')
   })
 
+  it('the Note Taking check rejects a private React session snapshot and accepts a custom auth UI', async () => {
+    const template = join(ROOT, 'templates/apps/note-taking')
+    const project = join(await directory(), 'project')
+    await copyTemplateInstance(
+      template,
+      project,
+      'notes',
+      await readTemplateSetupSqlVersions(template),
+    )
+    const app = join(project, 'app')
+    const view = join(app, 'src/note-account.tsx')
+    await execFileAsync('git', ['init', '-q', project])
+    await execFileAsync('git', ['add', '--', '.'], { cwd: project })
+    await writeFile(
+      view,
+      `import { useEffect, useState } from 'react'
+
+import { authClient } from './bonds/auth-default.js'
+
+export function NoteAccount(): React.ReactNode {
+  const [user, setUser] = useState(() => authClient.getUser())
+  const [token, setToken] = useState(() => authClient.getAccessToken())
+  useEffect(() => {
+    void authClient.initialize().then(() => {
+      setUser(authClient.getUser())
+      setToken(authClient.getAccessToken())
+    })
+  }, [])
+  return <p>{user && token ? user.email : 'Sign in to see private notes'}</p>
+}
+`,
+    )
+    const bad = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
+    if ('error' in bad) throw new Error(bad.error)
+    expect(bad.results[0].errors.join('\n')).toMatch(/note-account\.tsx:6: .*useAuth/)
+    expect(bad.ok).toBe(false)
+
+    await writeFile(
+      view,
+      `import type { UserProfile } from '@molecule/app-auth'
+import { useAuth } from '@molecule/app-react'
+
+export function NoteAccount(): React.ReactNode {
+  const { status, user } = useAuth<UserProfile>()
+  return <p>{status === 'authenticated' ? user?.email : 'Sign in to see private notes'}</p>
+}
+`,
+    )
+    const good = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
+    if ('error' in good) throw new Error(good.error)
+    expect(good.ok).toBe(true)
+    expect(good.results[0].status).toBe('passed')
+  })
+
   it('a generated project without the declarations may own its clients', async () => {
     const app = join(await directory(), 'app')
     await createAppProject(app, 'stockroom', 'react')
