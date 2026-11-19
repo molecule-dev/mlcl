@@ -81494,6 +81494,7 @@
         "parseQuery",
         "resolveLinkPath",
         "resolveListRoute",
+        "routerLinkHref",
         "setRouter",
         "stringifyQuery",
         "toHistoryStateRecord"
