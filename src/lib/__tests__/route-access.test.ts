@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 import { readFileSync } from 'node:fs'
-import { mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { mkdtemp, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -25,6 +25,7 @@ import { setClassMap, type UIClassMap } from '@molecule/app-ui'
 import { AuthGuard, LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { createAppProject } from '../scaffold.js'
+import { generatedEntry } from './generated-entry.js'
 
 interface PrivateView {
   path: string
@@ -651,8 +652,7 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
           "createRoot(document.getElementById('root')!).render(<AppRoot><App /></AppRoot>)",
         ].join('\n'),
       )
-      const html = await readFile(join(root, 'index.html'), 'utf8')
-      const entry = join(root, /type="module" src="\/(src\/[^"]+)"/.exec(html)![1]!)
+      const entry = join(root, await generatedEntry(root))
       const program = ts.createProgram([entry], {
         jsx: ts.JsxEmit.ReactJSX,
         module: ts.ModuleKind.NodeNext,

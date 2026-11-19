@@ -11,6 +11,7 @@ import { afterEach, describe, expect, it } from 'vitest'
 import { loadRegistry } from '../registry.js'
 import { createAppProject, generateFontHtml, getTemplatesDir } from '../scaffold.js'
 import type { InferredPackage } from '../schema.js'
+import { generatedEntry } from './generated-entry.js'
 
 const require = createRequire(import.meta.url)
 const roots: string[] = []
@@ -90,7 +91,7 @@ describe('the scaffold shell uses its declared font providers', () => {
     // Use the real generated shell, local font assets and Vite production build.
     // A small equipment editor isolates document loading from auth and save latency.
     await writeFile(
-      join(root, 'src/main.tsx'),
+      join(root, await generatedEntry(root)),
       `document.getElementById('root').innerHTML = '<form><input name="title" aria-label="Equipment"><button>Save equipment</button></form>'
 document.body.style.fontFamily = 'Arimo'
 document.querySelector('form').onsubmit = async (event) => {
