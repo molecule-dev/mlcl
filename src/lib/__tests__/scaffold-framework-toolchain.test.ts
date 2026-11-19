@@ -19,9 +19,9 @@ import { extname, join } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
-import { sortImportStatements } from '../format.js'
 import { loadAppFrameworks } from '../registry.js'
 import { createAppProject } from '../scaffold.js'
+import { importOrderProblems } from './import-order-lint.js'
 
 /** Web frameworks scaffolded through `createAppProject` (react-native has its own scaffolder). */
 const FRAMEWORKS = Object.keys(loadAppFrameworks()).filter((name) => name !== 'react-native')
@@ -177,7 +177,7 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
       const blocks = /\.(vue|svelte)$/.test(file)
         ? [...text.matchAll(/<script[^>]*>([\s\S]*?)<\/script>/g)].map((match) => match[1])
         : [text]
-      if (blocks.some((block) => sortImportStatements(block) !== block)) unsorted.push(file)
+      if (blocks.some((block) => importOrderProblems(block, file).length > 0)) unsorted.push(file)
     }
     expect(unsorted).toEqual([])
   })

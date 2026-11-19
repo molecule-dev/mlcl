@@ -964,7 +964,9 @@ describe('synthesizeProjectFiles', () => {
     expect(content).toContain('api/src/handlers/index.ts')
     expect(content).toContain('instead of replacing this file')
     // And the header SURVIVES the import sort the write path applies.
-    expect(sortImportStatements(content).startsWith(GENERATED_ROUTER_MARKER)).toBe(true)
+    expect(sortImportStatements(content, 'router.ts').startsWith(GENERATED_ROUTER_MARKER)).toBe(
+      true,
+    )
   })
 
   /**
@@ -983,7 +985,9 @@ describe('synthesizeProjectFiles', () => {
       'createAccount({ username, email, password }, { req, res }) and signIn({ email, password }, { req, res }) from @molecule/api-resource-user',
     )
     expect(content).toContain('no route calls sign(), hash() or compare() for an account')
-    expect(sortImportStatements(content).startsWith(GENERATED_ROUTER_MARKER)).toBe(true)
+    expect(sortImportStatements(content, 'router.ts').startsWith(GENERATED_ROUTER_MARKER)).toBe(
+      true,
+    )
   })
 
   it('says nothing about accounts for an API with no user package, or one that predates them', async () => {

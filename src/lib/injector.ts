@@ -1457,7 +1457,7 @@ export async function executeInjection(
       } else if (op.action === 'create' && op.content) {
         await snapshotForRollback(op.targetPath, rollbackSnapshots)
         const content = /\.(ts|tsx|mjs)$/.test(op.targetPath)
-          ? sortImportStatements(op.content)
+          ? sortImportStatements(op.content, op.targetPath)
           : op.content
         await writeFile(op.targetPath, content)
         result.filesCreated.push(op.targetPath)
@@ -3264,7 +3264,7 @@ export async function synthesizeProjectFiles(
     const content =
       renderPackageDeclarationsComment(plan.molecule, getRawRegistry().packages[plan.molecule]) +
       (authContract?.resourcePackage === plan.molecule
-        ? await formatGeneratedSource(sortImportStatements(rawContent), wrapperPath)
+        ? await formatGeneratedSource(sortImportStatements(rawContent, wrapperPath), wrapperPath)
         : rawContent)
 
     files.push({
@@ -3286,7 +3286,7 @@ export async function synthesizeProjectFiles(
     authContract,
   )
   const routerContent = authContract
-    ? await formatGeneratedSource(sortImportStatements(rawRouterContent), routerPath)
+    ? await formatGeneratedSource(sortImportStatements(rawRouterContent, routerPath), routerPath)
     : rawRouterContent
   const injectedRouterContent = await routerContentForInjection(
     routerPath,
@@ -3456,7 +3456,7 @@ export function setupEntitlements(): void {
   // Sort imports in all generated source files for consistent lint-clean output
   for (const file of files) {
     if (file.content && /\.(ts|tsx|mjs)$/.test(file.targetPath)) {
-      file.content = sortImportStatements(file.content)
+      file.content = sortImportStatements(file.content, file.targetPath)
     }
   }
 
@@ -3835,7 +3835,7 @@ ${setupCalls.join('\n') || '  // No providers configured'}
   // Sort imports in all generated source files for consistent lint-clean output
   for (const file of files) {
     if (file.content && /\.(ts|tsx|mjs)$/.test(file.targetPath)) {
-      file.content = sortImportStatements(file.content)
+      file.content = sortImportStatements(file.content, file.targetPath)
     }
   }
 

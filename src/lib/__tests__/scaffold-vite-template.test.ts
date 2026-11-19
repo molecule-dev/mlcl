@@ -38,6 +38,7 @@ describe.each(['app/shared', 'static'])('%s Vite template substitutions', (templ
         RESOLVE_EXTENSIONS: '',
         WARMUP_CLIENT_FILES: "['src/main.tsx', 'src/bonds/*.ts']",
       }),
+      'vite.config.ts',
     )
     expect(output).not.toMatch(/\{\{[A-Z_]+\}\}/)
     expect(output).toContain(plugins)

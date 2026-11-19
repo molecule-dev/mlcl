@@ -2138,7 +2138,7 @@ export async function injectActivityCaptureBoot(apiPath: string): Promise<boolea
     src.slice(0, firstImport) +
     "import { setupActivityCapture } from './_activity-capture.js'\n" +
     src.slice(firstImport)
-  src = sortImportStatements(src)
+  src = sortImportStatements(src, indexPath)
 
   // 2b. Insert the call as the LAST statement of setupBonds(). The function's
   //     closing brace is the first column-0 `}` after its declaration in the
@@ -3691,7 +3691,7 @@ async function loadTemplate(
   const processed = processTemplate(content, vars)
   // Sort imports in generated source files for lint-clean output
   if (/\.(ts|tsx|js|mjs)\.tpl$/.test(relativePath)) {
-    return sortImportStatements(processed)
+    return sortImportStatements(processed, relativePath.replace(/\.tpl$/, ''))
   }
   return processed
 }
@@ -5406,10 +5406,8 @@ export async function copyTemplateFiles(
 
   // Copy shared pwa.ts (SW registration + update banner)
   const pwaContent = await readFile(join(templatesDir, 'shared', 'pwa.ts.tpl'), 'utf-8')
-  await writeFile(
-    join(configDir, 'pwa.ts'),
-    sortImportStatements(processTemplate(pwaContent, vars)),
-  )
+  const pwaPath = join(configDir, 'pwa.ts')
+  await writeFile(pwaPath, sortImportStatements(processTemplate(pwaContent, vars), pwaPath))
 
   // Copy shared locales/ directory (i18n translations)
   const localesSrcDir = join(templatesDir, 'shared', 'locales')
@@ -5498,7 +5496,7 @@ export async function copyTemplateDir(
       const outputName = entry.name.replace(/\.tpl$/, '')
       let processed = processTemplate(content, vars)
       if (/\.(ts|tsx|js|mjs)\.tpl$/.test(entry.name)) {
-        processed = sortImportStatements(processed)
+        processed = sortImportStatements(processed, outputName)
       }
       await writeFile(join(destDir, outputName), processed)
     }

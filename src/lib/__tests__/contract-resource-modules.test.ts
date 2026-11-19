@@ -7,9 +7,8 @@
  */
 import { existsSync, readFileSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
-import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
-import { dirname, join } from 'node:path'
+import { join } from 'node:path'
 
 import { createElement, type ReactNode } from 'react'
 import { renderToStaticMarkup } from 'react-dom/server'
@@ -33,8 +32,9 @@ import {
   planContractResourceModules,
   writeContractResourceModules,
 } from '../contract-resource-modules.js'
-import { formatGeneratedSource, sortImportStatements } from '../format.js'
+import { formatGeneratedSource } from '../format.js'
 import { getRawRegistry } from '../registry.js'
+import { importOrderProblems } from './import-order-lint.js'
 
 const registry = getRawRegistry()
 const QUERY = '@molecule/app-query-react'
@@ -427,24 +427,25 @@ const FRAMEWORK_QUERIES = [
 ]
 
 /**
- * A framework package's type entry, resolved from the query package that imports it (the
- * generated modules are compiled in a temp directory, which has no node_modules of its own).
+ * Where TypeScript finds a package's types from the query package that depends on it, as it does in
+ * the app: the generated modules are compiled in a temp directory, which has no node_modules of its own.
  *
- * @param name - The package, e.g. `@angular/core`.
+ * @param name - A bare specifier a generated module imports, e.g. `react` or `@angular/core`.
  * @param from - A file inside the query package.
- * @returns The path of its `.d.ts` entry.
+ * @returns The declaration file it resolves to, or undefined when it does not resolve.
  */
-function typesEntry(name: string, from: string): string {
-  const manifest = createRequire(from).resolve(`${name}/package.json`)
-  const pkg = JSON.parse(readFileSync(manifest, 'utf8'))
-  return join(dirname(manifest), pkg.exports?.['.']?.types ?? pkg.types ?? pkg.typings)
+function typesEntry(name: string, from: string): string | undefined {
+  return ts.resolveModuleName(
+    name,
+    from,
+    { module: ts.ModuleKind.NodeNext, moduleResolution: ts.ModuleResolutionKind.NodeNext },
+    ts.sys,
+  ).resolvedModule?.resolvedFileName
 }
 
 describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) => {
   const factory = registry.packages[framework.query].decisionGuide!.resourceModules!
   const listRoute = factory.listRoute!
-  // A binding whose hooks wrap a getter (Angular's `computed`) imports that framework directly.
-  const wrap = factory.queryHook?.wrap?.package
   const declarations: Record<string, string> = {
     [HTTP]: join(MOLECULE, 'core/http/dist/index.d.ts'),
     '@molecule/app-auth': join(MOLECULE, 'core/auth/dist/index.d.ts'),
@@ -456,7 +457,6 @@ describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) 
       MOLECULE,
       `frameworks/${framework.framework}/dist/index.d.ts`,
     ),
-    ...(wrap && existsSync(framework.entry) ? { [wrap]: typesEntry(wrap, framework.entry) } : {}),
   }
   const built =
     Object.values(declarations).every((file) => existsSync(file)) && existsSync(framework.built)
@@ -533,6 +533,18 @@ export async function use(slug: string): Promise<string[]> {
 `,
     )
     files.push(page)
+    // Every other package a module imports (the framework itself: react, vue, @angular/core)
+    // resolves from the query package, as it does in the app.
+    const paths = Object.fromEntries(
+      Object.entries(declarations).map(([name, file]): [string, string[]] => [name, [file]]),
+    )
+    for (const file of files)
+      for (const { fileName: name } of ts.preProcessFile(readFileSync(file, 'utf8'))
+        .importedFiles) {
+        const resolved =
+          name.startsWith('.') || paths[name] ? undefined : typesEntry(name, framework.entry)
+        if (resolved) paths[name] = [resolved]
+      }
     const program = ts.createProgram(files, {
       jsx: ts.JsxEmit.ReactJSX,
       target: ts.ScriptTarget.ES2022,
@@ -541,7 +553,7 @@ export async function use(slug: string): Promise<string[]> {
       strict: true,
       noEmit: true,
       skipLibCheck: true,
-      paths: Object.fromEntries(Object.entries(declarations).map(([name, file]) => [name, [file]])),
+      paths,
     })
     const problems = ts
       .getPreEmitDiagnostics(program)
@@ -560,7 +572,7 @@ export async function use(slug: string): Promise<string[]> {
         listRoute,
       ).modules) {
         const formatted = await formatGeneratedSource(module.source, join(root, module.path))
-        expect(sortImportStatements(formatted), module.path).toBe(formatted)
+        expect(importOrderProblems(formatted, module.path), module.path).toEqual([])
       }
   })
 

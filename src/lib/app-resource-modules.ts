@@ -278,7 +278,14 @@ ${hooks.source}
 
 ${namedWrites.source}
 `
-  return { resource, path, exportName, typeName, operations, source: sortImportStatements(source) }
+  return {
+    resource,
+    path,
+    exportName,
+    typeName,
+    operations,
+    source: sortImportStatements(source, path),
+  }
 }
 
 /**

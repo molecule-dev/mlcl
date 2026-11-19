@@ -632,7 +632,9 @@ export default class Inject extends Command {
         const merged = merge(existing, file.content)
         // Keep a sorted import block sorted (scaffolds lint it); leave any other order alone.
         const content =
-          sortImportStatements(existing) === existing ? sortImportStatements(merged) : merged
+          sortImportStatements(existing, file.targetPath) === existing
+            ? sortImportStatements(merged, file.targetPath)
+            : merged
         return content === existing ? [] : [{ ...file, content }]
       } catch (error) {
         mergeFailures.push(error instanceof Error ? error.message : String(error))

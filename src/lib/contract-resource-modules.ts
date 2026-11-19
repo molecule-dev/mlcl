@@ -904,13 +904,14 @@ ${namedWrites.source}
 ${errors}
 
 ${listHooks.join('\n\n')}`
+    const modulePath = [workspace, factory.directory, `${name}.ts`].filter(Boolean).join('/')
     plan.modules.push({
       collection: base,
-      path: [workspace, factory.directory, `${name}.ts`].filter(Boolean).join('/'),
+      path: modulePath,
       exportName,
       typeName,
       operations: covered,
-      source: sortImportStatements(source),
+      source: sortImportStatements(source, modulePath),
       ...(recordView?.file
         ? {
             view: {

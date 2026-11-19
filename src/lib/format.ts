@@ -10,236 +10,393 @@ import { access, readdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, extname, join, relative, resolve } from 'node:path'
 
 import * as prettier from 'prettier'
+import { ts } from 'ts-morph'
 
-/** A single import statement — may span multiple lines. */
-interface ImportBlock {
-  /** All source lines that make up this import (preserves formatting). */
-  lines: string[]
-  /** The module path from the `from '...'` clause, used for sorting. */
-  modulePath: string
+/**
+ * The import groups of the scaffold's `simple-import-sort` lint rule
+ * (`templates/shared/eslint.config.js.tpl`): `node:` builtins, other packages, `@molecule/*`,
+ * then relative paths, each group separated by a blank line.
+ */
+export const SCAFFOLD_IMPORT_GROUPS: readonly (readonly string[])[] = [
+  ['^node:'],
+  ['^[^.]'],
+  ['^@molecule/'],
+  ['^\\.'],
+]
+
+const importOrder = new Intl.Collator('en', { sensitivity: 'base', numeric: true })
+
+/**
+ * `simple-import-sort`'s comparison: case-insensitive and numeric, then by code unit.
+ *
+ * @param a - The first string.
+ * @param b - The second string.
+ * @returns A negative number, zero or a positive number, as for `Array.prototype.sort`.
+ */
+function compareText(a: string, b: string): number {
+  return importOrder.compare(a, b) || (a < b ? -1 : a > b ? 1 : 0)
+}
+
+const PATH_PUNCTUATION: Record<string, string> = { '.': '_', '/': '-', _: '.', '-': '/' }
+
+/**
+ * The rule's sort key for a module path: `.` and `..` read as `./` and `../`, a parent
+ * directory sorts before its files, and `.` and `/` sort before other punctuation, so
+ * `react/jsx-runtime` precedes `react-dom` and `../../x` precedes `../x`.
+ *
+ * @param path - The module path.
+ * @returns The key compared in place of the path.
+ */
+function pathKey(path: string): string {
+  return path
+    .replace(/^[./]*\.$/, '$&/')
+    .replace(/^[./]*\/$/, '$&,')
+    .replace(/[./_-]/g, (char) => PATH_PUNCTUATION[char] ?? char)
+}
+
+/** A comment in the trivia between two statements. */
+interface Comment {
+  start: number
+  end: number
+  line: boolean
+}
+
+/** One import statement of a chunk, printed with the comments that move with it. */
+interface ImportItem {
+  code: string
+  start: number
+  end: number
+  path: string
+  kind: 'type' | 'value'
+  /** side-effect 0, namespace 1, default 2, named only 3 (the rule's order for one path). */
+  style: number
+  index: number
+  /** The printed item ends with a line comment. */
+  endsWithLineComment: boolean
 }
 
 /**
- * Extract the module path from an import statement.
- * Handles both `import { x } from 'path'` and side-effect `import 'path'`.
+ * The comments in `text[from, to)`, which holds only whitespace and comments.
+ *
+ * @param text - The source.
+ * @param from - The start of the trivia.
+ * @param to - The end of the trivia.
+ * @param stopAtCode - Stop at the first character that is neither whitespace nor a comment.
+ * @returns Each comment's range.
  */
-function extractModulePath(text: string): string {
-  const fromMatch = text.match(/from\s+['"]([^'"]+)['"]/)
-  if (fromMatch) return fromMatch[1]
-  const sideEffectMatch = text.match(/import\s+['"]([^'"]+)['"]/)
-  if (sideEffectMatch) return sideEffectMatch[1]
-  return text
-}
-
-const importNameOrder = new Intl.Collator('en', { sensitivity: 'base', numeric: true })
-
-/** Order named imports as the scaffold's import lint does, ignoring the `type` modifier. */
-function compareSpecifiers(a: string, b: string): number {
-  const left = a.replace(/^type\s+/, '')
-  const right = b.replace(/^type\s+/, '')
-  return importNameOrder.compare(left, right) || (left < right ? -1 : left > right ? 1 : 0)
-}
-
-/**
- * Sort named specifiers inside a single-line import's braces.
- *
- * `import { c, a, type B } from 'x'` → `import { a, type B, c } from 'x'`
- */
-function sortSingleLineSpecifiers(line: string): string {
-  // Match: everything before '{', the specifier list, everything after '}'
-  const match = line.match(/^(import\s+(?:type\s+)?)\{([^}]+)\}(.*)$/)
-  if (!match) return line
-
-  const [, prefix, specifiers, suffix] = match
-  const items = specifiers
-    .split(',')
-    .map((s) => s.trim())
-    .filter(Boolean)
-  if (items.length <= 1) return line
-
-  items.sort(compareSpecifiers)
-  return `${prefix}{ ${items.join(', ')} }${suffix}`
-}
-
-/**
- * Sort named specifiers inside a multi-line import block.
- *
- * Sorts the interior lines (between `import {` and `} from '...'`) alphabetically.
- */
-function sortMultiLineSpecifiers(blockLines: string[]): string[] {
-  if (blockLines.length <= 2) return blockLines
-
-  // First line: `import {` or `import type {`
-  // Last line: `} from '...'`
-  // Interior lines: `  specifier,`
-  const first = blockLines[0]
-  const last = blockLines[blockLines.length - 1]
-  const interior = blockLines.slice(1, -1)
-
-  // Extract specifier names from interior lines
-  const specifiers = interior.map((line) => line.trim().replace(/,$/, '')).sort(compareSpecifiers)
-
-  // Detect indentation from first interior line
-  const indentMatch = interior[0]?.match(/^(\s+)/)
-  const indent = indentMatch ? indentMatch[1] : '  '
-
-  const sortedInterior = specifiers.map((specifier) => `${indent}${specifier},`)
-  return [first, ...sortedInterior, last]
-}
-
-/**
- * Check if an import is a side-effect import (no bindings).
- * e.g. `import './polyfills'` or `import 'reflect-metadata'`
- */
-function isSideEffectImport(line: string): boolean {
-  return /^import\s+['"]/.test(line.trim())
-}
-
-/**
- * Sort import statements at the top of a TS/JS file.
- *
- * Handles both single-line (`import { foo } from 'bar'`) and multi-line
- * imports (`import {\n  foo,\n  bar,\n} from 'baz'`).
- *
- * Groups (separated by blank lines, sorted by module path within each):
- *   0. Side-effect imports (`import './polyfills'`) — always first
- *   1. `node:` prefixed imports
- *   2. External package imports
- *   3. `@molecule/` scoped imports
- *   4. Relative (`./` or `../`) imports
- *
- * Within each import, named specifiers inside `{ }` are sorted alphabetically.
- *
- * Matches the `simple-import-sort` ESLint plugin group configuration used in
- * generated projects: `[['^node:'], ['^[^.]'], ['^@molecule/'], ['^\\.']`
- */
-export function sortImportStatements(content: string): string {
-  const lines = content.split('\n')
-
-  // Parse the contiguous import block at the top of the file into ImportBlocks.
-  const importBlocks: ImportBlock[] = []
-  let firstImportLine = -1
-  let lastImportLine = -1
-  let i = 0
-
-  while (i < lines.length) {
-    const trimmed = lines[i].trim()
-
-    // Start of an import statement
-    if (trimmed.startsWith('import ') || trimmed.startsWith('import{')) {
-      if (firstImportLine === -1) firstImportLine = i
-
-      // Check if this is a complete single-line import (has `from` on same line)
-      // or a side-effect import (e.g. `import './polyfills'`)
-      if (/from\s+['"]/.test(trimmed) || /^import\s+['"]/.test(trimmed)) {
-        // Single-line import — sort specifiers within braces
-        const sorted = sortSingleLineSpecifiers(lines[i])
-        importBlocks.push({
-          lines: [sorted],
-          modulePath: extractModulePath(sorted),
-        })
-        lastImportLine = i
-        i++
-      } else {
-        // Multi-line import — consume until we find the `from '...'` line
-        const blockLines = [lines[i]]
-        let j = i + 1
-        while (j < lines.length) {
-          blockLines.push(lines[j])
-          if (/from\s+['"]/.test(lines[j])) {
-            break
-          }
-          j++
-        }
-        // Sort specifiers within the multi-line block
-        const sortedBlock = sortMultiLineSpecifiers(blockLines)
-        importBlocks.push({
-          lines: sortedBlock,
-          modulePath: extractModulePath(sortedBlock.join('\n')),
-        })
-        lastImportLine = j
-        i = j + 1
-      }
-    } else if (
-      firstImportLine !== -1 &&
-      trimmed !== '' &&
-      !trimmed.startsWith('//') &&
-      !trimmed.startsWith('/*') &&
-      !trimmed.startsWith('*') &&
-      !trimmed.startsWith('*/') &&
-      !trimmed.startsWith('/// ')
-    ) {
-      // Non-import, non-blank, non-comment line after imports started — end of import block
+function commentsIn(text: string, from: number, to: number, stopAtCode = false): Comment[] {
+  const comments: Comment[] = []
+  let at = from
+  if (at === 0 && text.startsWith('#!')) at = Math.max(text.indexOf('\n'), 0)
+  while (at < to) {
+    if (text.startsWith('//', at)) {
+      const newline = text.indexOf('\n', at)
+      const end = Math.min(newline < 0 ? to : newline, to)
+      comments.push({ start: at, end: text[end - 1] === '\r' ? end - 1 : end, line: true })
+      at = end
+    } else if (text.startsWith('/*', at)) {
+      const close = text.indexOf('*/', at + 2)
+      const end = close < 0 ? to : Math.min(close + 2, to)
+      comments.push({ start: at, end, line: false })
+      at = end
+    } else if (stopAtCode && !/\s/.test(text[at] ?? '')) {
       break
     } else {
-      // Blank line, comment, or pre-import content — skip
-      i++
+      at++
     }
   }
+  return comments
+}
 
-  if (importBlocks.length === 0) return content
+/**
+ * The rule's whitespace between an import and a comment that moves with it: a run of blank
+ * lines becomes one line break.
+ *
+ * @param whitespace - The whitespace between them.
+ * @returns The whitespace without blank lines.
+ */
+function withoutBlankLines(whitespace: string): string {
+  const items = whitespace.split(/(\r?\n)/)
+  return (items.length >= 5 ? [...items.slice(0, 2), ...items.slice(-1)] : items).join('')
+}
 
-  // Even with a single import, specifiers may have been re-sorted above.
-  // Rebuild if there's only one block.
-  if (importBlocks.length === 1) {
-    return [
-      ...lines.slice(0, firstImportLine),
-      ...importBlocks[0].lines,
-      ...lines.slice(lastImportLine + 1),
-    ].join('\n')
+/**
+ * The text of an import with its named imports in the rule's order: by imported name, then
+ * local name, a `type` import before a value import of the same name. A sorted list is left
+ * as written; a list to reorder is rewritten in the formatter's layout (one line, or one
+ * import per line when the braces span lines), each comment moving with the import it
+ * precedes.
+ *
+ * @param text - The source.
+ * @param node - The import statement.
+ * @param sourceFile - Its parsed file.
+ * @param end - Where the statement's printed text ends.
+ * @returns The statement's text.
+ */
+function printImport(
+  text: string,
+  node: ts.ImportDeclaration,
+  sourceFile: ts.SourceFile,
+  end: number,
+): string {
+  const start = node.getStart(sourceFile)
+  const named = node.importClause?.namedBindings
+  if (!named || !ts.isNamedImports(named) || named.elements.length < 2) {
+    return text.slice(start, end)
   }
+  const elements = [...named.elements]
+  const nameOf = (name: ts.ModuleExportName): string => name.text
+  const sorted = elements
+    .map((element, index) => ({ element, index }))
+    .sort(
+      (a, b) =>
+        compareText(
+          nameOf(a.element.propertyName ?? a.element.name),
+          nameOf(b.element.propertyName ?? b.element.name),
+        ) ||
+        compareText(a.element.name.text, b.element.name.text) ||
+        Number(b.element.isTypeOnly) - Number(a.element.isTypeOnly) ||
+        a.index - b.index,
+    )
+    .map(({ element }) => element)
+  if (sorted.every((element, index) => element === elements[index])) return text.slice(start, end)
 
-  // Categorize by module path
-  const sideEffectImports: ImportBlock[] = []
-  const nodeImports: ImportBlock[] = []
-  const externalImports: ImportBlock[] = []
-  const moleculeImports: ImportBlock[] = []
-  const relativeImports: ImportBlock[] = []
-
-  for (const block of importBlocks) {
-    // Side-effect imports (no bindings) go first, regardless of path
-    if (isSideEffectImport(block.lines[0])) {
-      sideEffectImports.push(block)
-    } else if (block.modulePath.startsWith('node:')) {
-      nodeImports.push(block)
-    } else if (block.modulePath.startsWith('./') || block.modulePath.startsWith('../')) {
-      relativeImports.push(block)
-    } else if (block.modulePath.startsWith('@molecule/')) {
-      moleculeImports.push(block)
-    } else {
-      externalImports.push(block)
-    }
+  const open = named.getStart(sourceFile)
+  const close = named.end - 1
+  const inner = text.slice(open + 1, close)
+  // Each import carries the comments written before it; one written after the last import
+  // stays at the end of the list.
+  const withComments = (element: ts.ImportSpecifier): string =>
+    text
+      .slice(element.pos, element.end)
+      .replace(/^[\s,]+/, '')
+      .trim()
+  const last = elements[elements.length - 1]
+  const tail = last
+    ? text
+        .slice(last.end, close)
+        .replace(/^\s*,?/, '')
+        .trim()
+    : ''
+  let list: string
+  if (/\r?\n/.test(inner)) {
+    const indent = /\n([ \t]*)\S/.exec(inner)?.[1] ?? '  '
+    const closing = /\n([ \t]*)$/.exec(inner)?.[1] ?? ''
+    const lines = sorted.map((element) =>
+      withComments(element)
+        .split('\n')
+        .map((line) => `${indent}${line.trim()}`)
+        .join('\n'),
+    )
+    list = `\n${lines.join(',\n')},${tail ? `\n${indent}${tail}` : ''}\n${closing}`
+  } else {
+    list = ` ${sorted.map(withComments).join(', ')}${tail ? ` ${tail}` : ''} `
   }
+  return text.slice(start, open + 1) + list + text.slice(close, end)
+}
 
-  // Sort each group by module path (side-effect imports keep original order)
-  const byPath = (a: ImportBlock, b: ImportBlock): number =>
-    a.modulePath.localeCompare(b.modulePath)
-  nodeImports.sort(byPath)
-  externalImports.sort(byPath)
-  moleculeImports.sort(byPath)
-  relativeImports.sort(byPath)
+/**
+ * The style the rule orders imports of one path by.
+ *
+ * @param node - The import statement.
+ * @returns side-effect 0, namespace 1, default 2, named only 3.
+ */
+function importStyle(node: ts.ImportDeclaration): number {
+  const clause = node.importClause
+  if (!clause) return 0
+  if (clause.name) return 2
+  return clause.namedBindings && ts.isNamespaceImport(clause.namedBindings) ? 1 : 3
+}
 
-  // Build sorted block with blank lines between non-empty groups.
-  // Side-effect imports go first without a blank line separator (matching
-  // simple-import-sort's default behavior when no \u0000 group is configured).
-  const groups = [nodeImports, externalImports, moleculeImports, relativeImports].filter(
-    (g) => g.length > 0,
+/**
+ * Sorts one chunk of consecutive import statements as the scaffold's `simple-import-sort`
+ * rule does, and returns the edit.
+ *
+ * @param text - The source.
+ * @param chunk - The import statements.
+ * @param sourceFile - Their parsed file.
+ * @param groups - The rule's groups.
+ * @returns The range the chunk's imports occupy and its sorted text.
+ */
+function sortChunk(
+  text: string,
+  chunk: ts.ImportDeclaration[],
+  sourceFile: ts.SourceFile,
+  groups: readonly (readonly RegExp[])[],
+): { start: number; end: number; sorted: string } {
+  const lineOf = (pos: number): number => sourceFile.getLineAndCharacterOfPosition(pos).line
+  const lastNode = chunk[chunk.length - 1]
+  // A semicolon-free file can start the next statement with `;` on the line after the
+  // last import; that semicolon belongs to the statement, not the import.
+  const ends = chunk.map((node) =>
+    node === lastNode &&
+    text[node.end - 1] === ';' &&
+    lineOf(node.end - 1) !== lineOf(node.moduleSpecifier.end)
+      ? node.moduleSpecifier.end
+      : node.end,
   )
-  const sorted: string[] = []
-  // Side-effect imports first, no trailing blank line
-  for (const block of sideEffectImports) {
-    sorted.push(...block.lines)
+  // Where the trivia after an import ends: the next import, or the first code after the chunk.
+  const nextStart = (index: number): number => {
+    const following = chunk[index + 1]
+    if (following) return following.getStart(sourceFile)
+    const end = ends[index] ?? text.length
+    const comments = commentsIn(text, end, text.length, true)
+    let at = comments[comments.length - 1]?.end ?? end
+    while (at < text.length && /\s/.test(text[at] ?? '')) at++
+    return at
   }
-  for (let g = 0; g < groups.length; g++) {
-    if (g > 0) sorted.push('')
-    for (const block of groups[g]) {
-      sorted.push(...block.lines)
+  const items: ImportItem[] = chunk.map((node, index) => {
+    const nodeStart = node.getStart(sourceFile)
+    const end = ends[index] ?? node.end
+    const previousLine = index === 0 ? lineOf(nodeStart) - 1 : lineOf(ends[index - 1] ?? 0)
+    const before = commentsIn(
+      text,
+      index === 0 ? node.pos : (ends[index - 1] ?? 0),
+      nodeStart,
+    ).filter(
+      (comment) =>
+        lineOf(comment.start) <= lineOf(nodeStart) &&
+        lineOf(comment.end) > previousLine &&
+        (index > 0 || lineOf(comment.start) > previousLine),
+    )
+    const after = commentsIn(text, end, nextStart(index)).filter(
+      (comment) => lineOf(comment.end) === lineOf(end) && comment.start >= end,
+    )
+    const first = before[0]?.start ?? nodeStart
+    const lastComment = after[after.length - 1]
+    const last = lastComment?.end ?? end
+    let previous = first
+    while (previous > 0 && /[ \t\r\n]/.test(text[previous - 1] ?? '')) previous--
+    const leading = text.slice(previous, first).split(/\r?\n/)
+    const indentation =
+      previous === 0 || leading.length > 1 ? (leading[leading.length - 1] ?? '') : ''
+    let next = last
+    while (next < text.length && /[ \t\r\n]/.test(text[next] ?? '')) next++
+    const trailing = text.slice(last, next).split(/\r?\n/)[0] ?? ''
+    const code =
+      indentation +
+      before
+        .map(
+          (comment, i) =>
+            text.slice(comment.start, comment.end) +
+            withoutBlankLines(text.slice(comment.end, before[i + 1]?.start ?? nodeStart)),
+        )
+        .join('') +
+      printImport(text, node, sourceFile, end) +
+      after
+        .map(
+          (comment, i) =>
+            withoutBlankLines(text.slice(after[i - 1]?.end ?? end, comment.start)) +
+            text.slice(comment.start, comment.end),
+        )
+        .join('') +
+      trailing
+    return {
+      code,
+      start: first - indentation.length,
+      end: last + trailing.length,
+      path: ts.isStringLiteral(node.moduleSpecifier) ? node.moduleSpecifier.text : '',
+      kind: node.importClause?.isTypeOnly ? 'type' : 'value',
+      style: importStyle(node),
+      index,
+      endsWithLineComment: lastComment?.line === true,
     }
-  }
+  })
 
-  return [...lines.slice(0, firstImportLine), ...sorted, ...lines.slice(lastImportLine + 1)].join(
-    '\n',
+  // Each import joins the group whose pattern matches the most of its key: a side-effect
+  // import's path is prefixed with NUL and a type import's suffixed, as the rule does.
+  const grouped = groups.map((group) => group.map((): ImportItem[] => []))
+  const rest: ImportItem[] = []
+  for (const item of items) {
+    const key =
+      item.style === 0 ? `\0${item.path}` : item.kind === 'type' ? `${item.path}\0` : item.path
+    let best = rest
+    let longest = -1
+    for (const [g, group] of groups.entries()) {
+      for (const [r, regex] of group.entries()) {
+        const match = regex.exec(key)
+        const target = grouped[g]?.[r]
+        if (match && target && match[0].length > longest) {
+          longest = match[0].length
+          best = target
+        }
+      }
+    }
+    best.push(item)
+  }
+  const byRule = (a: ImportItem, b: ImportItem): number =>
+    a.style === 0 && b.style === 0
+      ? a.index - b.index
+      : a.style === 0
+        ? -1
+        : b.style === 0
+          ? 1
+          : compareText(pathKey(a.path), pathKey(b.path)) ||
+            compareText(a.path, b.path) ||
+            compareText(a.kind, b.kind) ||
+            a.style - b.style ||
+            a.index - b.index
+  const newline = /\r\n/.test(text) ? '\r\n' : '\n'
+  const sortedGroups = [...grouped, [rest]]
+    .map((group) => group.filter((items) => items.length > 0))
+    .filter((group) => group.length > 0)
+    .map((group) => group.map((groupItems) => [...groupItems].sort(byRule)))
+  let sorted = sortedGroups
+    .map((group) =>
+      group.map((groupItems) => groupItems.map((item) => item.code).join(newline)).join(newline),
+    )
+    .join(newline + newline)
+
+  const lastSorted = sortedGroups.flat(2).at(-1)
+  const lastOriginal = items[items.length - 1]
+  if (lastSorted?.endsWithLineComment && lastOriginal) {
+    // A line comment now ending the block would swallow code that follows on its line.
+    const following = text.slice(lastOriginal.end).split(/\r?\n/)[0] ?? ''
+    if (following.trim() !== '') sorted += newline
+  }
+  return { start: items[0]?.start ?? 0, end: lastOriginal?.end ?? 0, sorted }
+}
+
+/**
+ * Sort a TS/JS file's imports exactly as the scaffold's `simple-import-sort` rule does
+ * ({@link SCAFFOLD_IMPORT_GROUPS}), so generated files lint clean: every run of consecutive
+ * imports is grouped and ordered, side-effect imports keep their order at the head of the
+ * package group, named imports are ordered inside their braces, and comments move with the
+ * import they belong to.
+ *
+ * @param content - The file's source.
+ * @param fileName - The path the content is written to: a `.tsx`/`.jsx` name parses JSX.
+ * @returns The source with sorted imports.
+ */
+export function sortImportStatements(content: string, fileName: string): string {
+  const kind = /\.[jt]sx$/.test(fileName) ? ts.ScriptKind.TSX : ts.ScriptKind.TS
+  const sourceFile = ts.createSourceFile(fileName, content, ts.ScriptTarget.Latest, true, kind)
+  const groups = SCAFFOLD_IMPORT_GROUPS.map((group) =>
+    group.map((source) => new RegExp(source, 'u')),
   )
+  const chunks: ts.ImportDeclaration[][] = []
+  const collect = (statements: readonly ts.Statement[]): void => {
+    let chunk: ts.ImportDeclaration[] = []
+    for (const statement of statements) {
+      if (ts.isImportDeclaration(statement)) {
+        chunk.push(statement)
+        continue
+      }
+      if (chunk.length > 0) chunks.push(chunk)
+      chunk = []
+      if (ts.isModuleDeclaration(statement) && statement.body && ts.isModuleBlock(statement.body)) {
+        collect(statement.body.statements)
+      }
+    }
+    if (chunk.length > 0) chunks.push(chunk)
+  }
+  collect(sourceFile.statements)
+  let result = content
+  for (const chunk of chunks.reverse()) {
+    const { start, end, sorted } = sortChunk(content, chunk, sourceFile, groups)
+    result = result.slice(0, start) + sorted + result.slice(end)
+  }
+  return result
 }
 
 /**

@@ -29,10 +29,10 @@ describe('sortImportStatements', () => {
   it('orders a same-named type and value as the scaffold import lint does', () => {
     const single = "import { derived, readable, type Readable } from 'svelte/store'"
     const multi = "import {\n  derived,\n  readable,\n  type Readable,\n} from 'svelte/store'"
-    expect(sortImportStatements(single)).toBe(
+    expect(sortImportStatements(single, 'module.ts')).toBe(
       "import { derived, type Readable, readable } from 'svelte/store'",
     )
-    expect(sortImportStatements(multi)).toBe(
+    expect(sortImportStatements(multi, 'module.ts')).toBe(
       "import {\n  derived,\n  type Readable,\n  readable,\n} from 'svelte/store'",
     )
   })
