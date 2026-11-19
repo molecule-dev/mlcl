@@ -22,6 +22,11 @@ import {
 const ROOT = join(import.meta.dirname, '../../..')
 const RULE = 'molecule-local/prefer-declared-clients'
 const execFileAsync = promisify(execFile)
+// A whole-template type-aware lint takes 0.5–28 s here, longer while a cohort or a release shares the machine
+// (2026-11-19: 26 s and 22 s for the first lint of the inventory case, against the old 20 s budget). The budget only stops
+// a hang; the verdict is the lint result. LINT_TEST_MS fits two lints and the project copy.
+const LINT_BUDGET_MS = 120_000
+const LINT_TEST_MS = 2 * LINT_BUDGET_MS + 30_000
 const dirs: string[] = []
 
 async function directory(): Promise<string> {
@@ -377,29 +382,31 @@ export const authConfig: AuthClientConfig = {
     expect(await findings(join(project, 'api'), localClients)).toEqual([])
   })
 
-  it('the flagship check rejects restoring bonded auth from a separate browser store', async () => {
-    const template = join(ROOT, 'templates/apps/inventory-management')
-    const project = join(await directory(), 'project')
-    await copyTemplateInstance(
-      template,
-      project,
-      'stockroom',
-      await readTemplateSetupSqlVersions(template),
-    )
-    const app = join(project, 'app')
-    const provider = join(app, 'src/stock-session.tsx')
-    await execFileAsync('git', ['init', '-q', project])
-    await execFileAsync('git', ['add', '--', '.'], { cwd: project })
-    await writeFile(
-      join(app, 'src/stock-preferences.ts'),
-      `const key = 'stock.sort'
+  it(
+    'the flagship check rejects restoring bonded auth from a separate browser store',
+    async () => {
+      const template = join(ROOT, 'templates/apps/inventory-management')
+      const project = join(await directory(), 'project')
+      await copyTemplateInstance(
+        template,
+        project,
+        'stockroom',
+        await readTemplateSetupSqlVersions(template),
+      )
+      const app = join(project, 'app')
+      const provider = join(app, 'src/stock-session.tsx')
+      await execFileAsync('git', ['init', '-q', project])
+      await execFileAsync('git', ['add', '--', '.'], { cwd: project })
+      await writeFile(
+        join(app, 'src/stock-preferences.ts'),
+        `const key = 'stock.sort'
 export function readPreference() { return localStorage.getItem(key) }
 export function savePreference(value: string) { localStorage.setItem(key, value) }
 `,
-    )
-    await writeFile(
-      provider,
-      `import { authClient } from './bonds/auth-default.js'
+      )
+      await writeFile(
+        provider,
+        `import { authClient } from './bonds/auth-default.js'
 import { readPreference } from './stock-preferences.js'
 
 export function restore() {
@@ -407,18 +414,18 @@ export function restore() {
   if (stored) authClient.setAccessToken(stored)
 }
 `,
-    )
-    const bad = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
-    if ('error' in bad) throw new Error(bad.error)
-    expect(bad.ok).toBe(false)
-    expect(bad.results[0].status).toBe('failed')
-    expect(bad.results[0].errors.join('\n')).toMatch(
-      /stock-session\.tsx:6: .*tokenKey.*currentUserEndpoint/,
-    )
+      )
+      const bad = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: LINT_BUDGET_MS })
+      if ('error' in bad) throw new Error(bad.error)
+      expect(bad.ok).toBe(false)
+      expect(bad.results[0].status).toBe('failed')
+      expect(bad.results[0].errors.join('\n')).toMatch(
+        /stock-session\.tsx:6: .*tokenKey.*currentUserEndpoint/,
+      )
 
-    await writeFile(
-      provider,
-      `import { useAuth } from '@molecule/app-react'
+      await writeFile(
+        provider,
+        `import { useAuth } from '@molecule/app-react'
 import { createContext } from 'react'
 
 const Session = createContext<ReturnType<typeof useAuth>['state'] | null>(null)
@@ -428,29 +435,33 @@ export function AuthView() {
   return <Session.Provider value={state} />
 }
 `,
-    )
-    const good = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
-    if ('error' in good) throw new Error(good.error)
-    expect(good.ok).toBe(true)
-    expect(good.results[0].status).toBe('passed')
-  })
+      )
+      const good = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: LINT_BUDGET_MS })
+      if ('error' in good) throw new Error(good.error)
+      expect(good.ok).toBe(true)
+      expect(good.results[0].status).toBe('passed')
+    },
+    LINT_TEST_MS,
+  )
 
-  it('the Note Taking check rejects a private React session snapshot and accepts a custom auth UI', async () => {
-    const template = join(ROOT, 'templates/apps/note-taking')
-    const project = join(await directory(), 'project')
-    await copyTemplateInstance(
-      template,
-      project,
-      'notes',
-      await readTemplateSetupSqlVersions(template),
-    )
-    const app = join(project, 'app')
-    const view = join(app, 'src/note-account.tsx')
-    await execFileAsync('git', ['init', '-q', project])
-    await execFileAsync('git', ['add', '--', '.'], { cwd: project })
-    await writeFile(
-      view,
-      `import { useEffect, useState } from 'react'
+  it(
+    'the Note Taking check rejects a private React session snapshot and accepts a custom auth UI',
+    async () => {
+      const template = join(ROOT, 'templates/apps/note-taking')
+      const project = join(await directory(), 'project')
+      await copyTemplateInstance(
+        template,
+        project,
+        'notes',
+        await readTemplateSetupSqlVersions(template),
+      )
+      const app = join(project, 'app')
+      const view = join(app, 'src/note-account.tsx')
+      await execFileAsync('git', ['init', '-q', project])
+      await execFileAsync('git', ['add', '--', '.'], { cwd: project })
+      await writeFile(
+        view,
+        `import { useEffect, useState } from 'react'
 
 import { authClient } from './bonds/auth-default.js'
 
@@ -466,15 +477,15 @@ export function NoteAccount(): React.ReactNode {
   return <p>{user && token ? user.email : 'Sign in to see private notes'}</p>
 }
 `,
-    )
-    const bad = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
-    if ('error' in bad) throw new Error(bad.error)
-    expect(bad.results[0].errors.join('\n')).toMatch(/note-account\.tsx:6: .*useAuth/)
-    expect(bad.ok).toBe(false)
+      )
+      const bad = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: LINT_BUDGET_MS })
+      if ('error' in bad) throw new Error(bad.error)
+      expect(bad.results[0].errors.join('\n')).toMatch(/note-account\.tsx:6: .*useAuth/)
+      expect(bad.ok).toBe(false)
 
-    await writeFile(
-      view,
-      `import type { UserProfile } from '@molecule/app-auth'
+      await writeFile(
+        view,
+        `import type { UserProfile } from '@molecule/app-auth'
 import { useAuth } from '@molecule/app-react'
 
 export function NoteAccount(): React.ReactNode {
@@ -482,12 +493,14 @@ export function NoteAccount(): React.ReactNode {
   return <p>{status === 'authenticated' ? user?.email : 'Sign in to see private notes'}</p>
 }
 `,
-    )
-    const good = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
-    if ('error' in good) throw new Error(good.error)
-    expect(good.ok).toBe(true)
-    expect(good.results[0].status).toBe('passed')
-  })
+      )
+      const good = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: LINT_BUDGET_MS })
+      if ('error' in good) throw new Error(good.error)
+      expect(good.ok).toBe(true)
+      expect(good.results[0].status).toBe('passed')
+    },
+    LINT_TEST_MS,
+  )
 
   it('a generated project without the declarations may own its clients', async () => {
     const app = join(await directory(), 'app')
@@ -578,34 +591,38 @@ export function NoteAccount(): React.ReactNode {
     ).toEqual([])
   })
 
-  it('mlcl check reports the lint error through its existing structured result', async () => {
-    const app = join(await directory(), 'app')
-    await createAppProject(app, 'stockroom', 'react')
-    await addPackages(app, ['@molecule/app-auth', '@molecule/app-http'])
-    // Exercise the scaffold config and real lint runner on the file with the new write.
-    const manifestPath = join(app, 'package.json')
-    const manifest = JSON.parse(await readFile(manifestPath, 'utf8')) as {
-      scripts: Record<string, string>
-    }
-    manifest.scripts.lint = 'eslint src/stock.ts'
-    await writeFile(manifestPath, JSON.stringify(manifest))
-    // Git metadata and logs belong to this throwaway project, not the parent checkout.
-    await execFileAsync('git', ['init', '-q', app])
-    await execFileAsync('git', ['add', '--', '.'], { cwd: app })
-    await writeFile(
-      join(app, 'src/stock.ts'),
-      `export function inventory(): Promise<Response> {
+  it(
+    'mlcl check reports the lint error through its existing structured result',
+    async () => {
+      const app = join(await directory(), 'app')
+      await createAppProject(app, 'stockroom', 'react')
+      await addPackages(app, ['@molecule/app-auth', '@molecule/app-http'])
+      // Exercise the scaffold config and real lint runner on the file with the new write.
+      const manifestPath = join(app, 'package.json')
+      const manifest = JSON.parse(await readFile(manifestPath, 'utf8')) as {
+        scripts: Record<string, string>
+      }
+      manifest.scripts.lint = 'eslint src/stock.ts'
+      await writeFile(manifestPath, JSON.stringify(manifest))
+      // Git metadata and logs belong to this throwaway project, not the parent checkout.
+      await execFileAsync('git', ['init', '-q', app])
+      await execFileAsync('git', ['add', '--', '.'], { cwd: app })
+      await writeFile(
+        join(app, 'src/stock.ts'),
+        `export function inventory(): Promise<Response> {
       return fetch('/stock/items', { headers: { Authorization: 'Token abc' } })
     }\n`,
-    )
-    const result = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: 20_000 })
-    expect('error' in result).toBe(false)
-    if ('error' in result) throw new Error(result.error)
-    expect(result.ok).toBe(false)
-    expect(result.report).toContain('FAIL lint')
-    expect(result.results[0].status).toBe('failed')
-    expect(result.results[0].errors.join('\n')).toContain('@molecule/app-http is declared')
-    expect(result.results[0].errors.join('\n')).toContain('authScheme')
-    expect(result.results[0].errors.join('\n')).toContain('tokenKey')
-  })
+      )
+      const result = await runCheckLocal(app, { steps: ['lint'] }, { budgetMs: LINT_BUDGET_MS })
+      expect('error' in result).toBe(false)
+      if ('error' in result) throw new Error(result.error)
+      expect(result.ok).toBe(false)
+      expect(result.report).toContain('FAIL lint')
+      expect(result.results[0].status).toBe('failed')
+      expect(result.results[0].errors.join('\n')).toContain('@molecule/app-http is declared')
+      expect(result.results[0].errors.join('\n')).toContain('authScheme')
+      expect(result.results[0].errors.join('\n')).toContain('tokenKey')
+    },
+    LINT_TEST_MS,
+  )
 })
