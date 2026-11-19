@@ -9,7 +9,8 @@
  * 2.1.80). Running `npm install` and then this CLI's own `inject --force` makes the same project build.
  *
  * Runs the REAL oclif command against a temp directory; only the inject child is replaced, by one
- * that fails exactly as the injector's refusal does.
+ * that fails exactly as the injector's refusal does, and the font copy reports every file as not
+ * installed (see the mock below).
  *
  * @module
  */
@@ -21,7 +22,23 @@ import { join } from 'node:path'
 import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import type * as Scaffold from '../../lib/scaffold.js'
 import Create, { pendingSetupSteps } from '../create.js'
+
+// Every case here is a scaffold with no package on disk. copyFontFiles looks for each font package
+// in the node_modules of every directory above the project, so under a TMPDIR inside a workspace
+// (a sandboxed reviewer's, 2026-11-19) it found the workspace's own copies and the Svelte case lost
+// its "Font files go to static/fonts/" step. Report every file as not installed, as a real
+// --skip-install scaffold in an empty directory does; font-copy-path-containment.test.ts covers the
+// real lookup.
+vi.mock('../../lib/scaffold.js', async (importOriginal) => {
+  const actual = await importOriginal<typeof Scaffold>()
+  return {
+    ...actual,
+    copyFontFiles: async (_projectPath: string, fontFiles: Scaffold.FontFileToCopy[]) =>
+      fontFiles.map(({ packageName, fontsDir, file }) => `${packageName}/${fontsDir}/${file}`),
+  }
+})
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
 

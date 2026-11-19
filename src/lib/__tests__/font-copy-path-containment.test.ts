@@ -89,6 +89,26 @@ describe('copyFontFiles — a metadata path never leaves node_modules', () => {
     expect(await readFile(copiedFile('Fixture-Regular.woff2'), 'utf-8')).toBe('woff2-fixture')
   })
 
+  it('returns each file no node_modules holds yet, and copies the ones it finds', async () => {
+    // A --skip-install scaffold: mlcl create names the inject that copies a missing file later.
+    const fontDir = join(root, 'project', 'node_modules', '@molecule', 'app-font-fixture', 'fonts')
+    await mkdir(fontDir, { recursive: true })
+    await writeFile(join(fontDir, 'Fixture-Regular.woff2'), 'woff2-fixture')
+
+    const missing = await copyFontFiles(projectPath(), [
+      {
+        packageName: '@molecule/app-font-fixture',
+        fontsDir: 'fonts',
+        file: 'Fixture-Regular.woff2',
+      },
+      { packageName: '@molecule/app-font-not-installed', fontsDir: 'fonts', file: 'Absent.woff2' },
+    ])
+
+    expect(missing).toEqual(['@molecule/app-font-not-installed/fonts/Absent.woff2'])
+    expect(existsSync(copiedFile('Fixture-Regular.woff2'))).toBe(true)
+    expect(existsSync(copiedFile('Absent.woff2'))).toBe(false)
+  })
+
   it('refuses a fontsDir carrying a path separator, even one that stays inside the package', async () => {
     // The other two metadata segments the header names. The resolved path here
     // is INSIDE node_modules (so the containment check alone would allow it) —
