@@ -3860,6 +3860,7 @@ async function scaffoldEslint(projectPath: string, configName = 'eslint.config.j
     'prefer-declared-clients.mjs',
     'no-empty-interactive-target.mjs',
     'no-dropped-action.mjs',
+    'no-stand-in-query-record.mjs',
     'no-class-code.mjs',
   ]) {
     await writeGuarded(join(rulesDir, file), await loadTemplate(`shared/${file}`))

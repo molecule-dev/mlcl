@@ -7,6 +7,8 @@ import { pathToFileURL } from 'node:url'
 import { ESLint, type Linter } from 'eslint'
 import { afterAll, describe, expect, it } from 'vitest'
 
+import { copySharedEslintRules } from './shared-eslint-rules.js'
+
 const RULE = 'molecule-local/fetch-hooks-use-the-query-cache'
 const require = createRequire(import.meta.url)
 const roots: string[] = []
@@ -26,22 +28,7 @@ async function configFor(
       new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),
     join(root, 'eslint.config.mjs'),
   )
-  await copyFile(
-    new URL('../../../templates/shared/prefer-declared-clients.mjs', import.meta.url),
-    join(root, 'eslint-rules/prefer-declared-clients.mjs'),
-  )
-  await copyFile(
-    new URL('../../../templates/shared/no-empty-interactive-target.mjs', import.meta.url),
-    join(root, 'eslint-rules/no-empty-interactive-target.mjs'),
-  )
-  await copyFile(
-    new URL('../../../templates/shared/no-dropped-action.mjs', import.meta.url),
-    join(root, 'eslint-rules/no-dropped-action.mjs'),
-  )
-  await copyFile(
-    new URL('../../../templates/shared/no-class-code.mjs', import.meta.url),
-    join(root, 'eslint-rules/no-class-code.mjs'),
-  )
+  await copySharedEslintRules(root)
   await symlink(
     dirname(dirname(require.resolve('eslint/package.json'))),
     join(root, 'node_modules'),

@@ -7,6 +7,8 @@ import { pathToFileURL } from 'node:url'
 import { ESLint } from 'eslint'
 import { afterAll, describe, expect, it } from 'vitest'
 
+import { copySharedEslintRules } from './shared-eslint-rules.js'
+
 /**
  * The templates' jsx-a11y gate reads Molecule's layout boxes (Flex, Grid, Container, Spacer) as the
  * plain <div> they render, so a mouse-only `<Flex onClick>` fails lint the way a `<div onClick>` does.
@@ -20,17 +22,7 @@ await copyFile(
     new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),
   join(root, 'eslint.config.mjs'),
 )
-for (const rule of [
-  'prefer-declared-clients',
-  'no-empty-interactive-target',
-  'no-dropped-action',
-  'no-class-code',
-] as const) {
-  await copyFile(
-    new URL(`../../../templates/shared/${rule}.mjs`, import.meta.url),
-    join(root, `eslint-rules/${rule}.mjs`),
-  )
-}
+await copySharedEslintRules(root)
 await symlink(dirname(dirname(require.resolve('eslint/package.json'))), join(root, 'node_modules'))
 afterAll(() => rm(root, { recursive: true, force: true }))
 const config = (await import(pathToFileURL(join(root, 'eslint.config.mjs')).href)).default

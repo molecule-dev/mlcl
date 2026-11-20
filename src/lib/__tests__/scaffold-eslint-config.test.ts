@@ -24,6 +24,8 @@ import { ESLint, type Linter } from 'eslint'
 import ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
+import { copySharedEslintRules } from './shared-eslint-rules.js'
+
 const require = createRequire(import.meta.url)
 
 /** The one config every scaffolded workspace receives. */
@@ -54,23 +56,7 @@ beforeEach(async () => {
   // imports have to resolve from a directory under node_modules — so it is
   // copied to .mjs next to a link to the installed tree.
   await copyFile(TEMPLATE, join(dir, 'eslint.config.mjs'))
-  await mkdir(join(dir, 'eslint-rules'))
-  await copyFile(
-    join(import.meta.dirname, '../../../templates/shared/prefer-declared-clients.mjs'),
-    join(dir, 'eslint-rules/prefer-declared-clients.mjs'),
-  )
-  await copyFile(
-    join(import.meta.dirname, '../../../templates/shared/no-empty-interactive-target.mjs'),
-    join(dir, 'eslint-rules/no-empty-interactive-target.mjs'),
-  )
-  await copyFile(
-    join(import.meta.dirname, '../../../templates/shared/no-dropped-action.mjs'),
-    join(dir, 'eslint-rules/no-dropped-action.mjs'),
-  )
-  await copyFile(
-    join(import.meta.dirname, '../../../templates/shared/no-class-code.mjs'),
-    join(dir, 'eslint-rules/no-class-code.mjs'),
-  )
+  await copySharedEslintRules(dir)
   await symlink(NODE_MODULES, join(dir, 'node_modules'), 'dir')
   eslint = new ESLint({
     cwd: dir,

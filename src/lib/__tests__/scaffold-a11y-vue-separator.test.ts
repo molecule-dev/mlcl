@@ -7,6 +7,8 @@ import { pathToFileURL } from 'node:url'
 import { ESLint } from 'eslint'
 import { afterAll, describe, expect, it } from 'vitest'
 
+import { copySharedEslintRules } from './shared-eslint-rules.js'
+
 /**
  * The templates' Vue a11y gate (eslint-plugin-vuejs-accessibility, which the shared ESLint config turns on from
  * a Vue app's devDependencies) reads a focusable separator as the widget WAI-ARIA makes it, as jsx-a11y does for
@@ -22,17 +24,7 @@ await copyFile(
     new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),
   join(vueRoot, 'eslint.config.mjs'),
 )
-for (const rule of [
-  'prefer-declared-clients',
-  'no-empty-interactive-target',
-  'no-dropped-action',
-  'no-class-code',
-] as const) {
-  await copyFile(
-    new URL(`../../../templates/shared/${rule}.mjs`, import.meta.url),
-    join(vueRoot, `eslint-rules/${rule}.mjs`),
-  )
-}
+await copySharedEslintRules(vueRoot)
 await writeFile(
   join(vueRoot, 'package.json'),
   JSON.stringify({

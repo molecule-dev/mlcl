@@ -15,6 +15,7 @@ import {
   interactiveTargetRule as noEmptyInteractiveTarget,
   requireIconFontSetup,
 } from './eslint-rules/no-empty-interactive-target.mjs'
+import noStandInQueryRecord from './eslint-rules/no-stand-in-query-record.mjs'
 import preferDeclaredClients, { scaffoldRules } from './eslint-rules/prefer-declared-clients.mjs'
 
 // Exact class names and wiring from registry font utility stylesheets.
@@ -260,6 +261,7 @@ const moleculeLocal = {
     'require-icon-font-setup': requireIconFontSetup,
     'no-dropped-action': noDroppedAction,
     'no-duplicate-list-wrapper': noDuplicateListWrapper,
+    'no-stand-in-query-record': noStandInQueryRecord,
     'prefer-declared-clients': preferDeclaredClients,
     ...scaffoldRules(tseslint.parser),
   },
@@ -442,13 +444,20 @@ export default tseslint.config(
 
       ...(optimisticValue
         ? {
-            'molecule-local/server-toggles-use-optimistic-value': 'warn',
+            // An error, not a warning: a warning leaves `npm run lint` green, so a toggle whose
+            // state never follows the saved record ships.
+            'molecule-local/server-toggles-use-optimistic-value': 'error',
           }
         : {}),
       'molecule-local/buttons-have-an-action': 'warn',
       'molecule-local/placeholders-stay-out-of-record-fields': 'error',
       'molecule-local/links-reach-the-view-they-select': 'warn',
-      ...(queryCache ? { 'molecule-local/fetch-hooks-use-the-query-cache': 'warn' } : {}),
+      ...(queryCache
+        ? {
+            'molecule-local/fetch-hooks-use-the-query-cache': 'warn',
+            'molecule-local/no-stand-in-query-record': 'error',
+          }
+        : {}),
       'molecule-local/no-block-in-paragraph': 'warn',
       'molecule-local/require-catch-binding': 'warn',
       // A full date-time prefix without its milliseconds or UTC marker loses

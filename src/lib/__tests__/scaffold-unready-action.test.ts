@@ -1,4 +1,4 @@
-import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
+import { copyFile, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -9,6 +9,8 @@ import { ESLint, type Linter } from 'eslint'
 import ts from 'typescript'
 import { afterAll, describe, expect, it } from 'vitest'
 
+import { copySharedEslintRules } from './shared-eslint-rules.js'
+
 const require = createRequire(import.meta.url)
 const root = await mkdtemp(join(tmpdir(), 'unready-record-action-'))
 await writeFile(
@@ -17,18 +19,11 @@ await writeFile(
     dependencies: { '@molecule/app-react': '1.0.0', '@molecule/app-query-react': '1.0.0' },
   }),
 )
-await mkdir(join(root, 'eslint-rules'))
-for (const file of [
-  'prefer-declared-clients.mjs',
-  'no-empty-interactive-target.mjs',
-  'no-dropped-action.mjs',
-  'no-class-code.mjs',
-])
+await copySharedEslintRules(root)
+if (process.env.DECLARED_CLIENT_RULE)
   await copyFile(
-    file === 'prefer-declared-clients.mjs' && process.env.DECLARED_CLIENT_RULE
-      ? process.env.DECLARED_CLIENT_RULE
-      : new URL(`../../../templates/shared/${file}`, import.meta.url),
-    join(root, 'eslint-rules', file),
+    process.env.DECLARED_CLIENT_RULE,
+    join(root, 'eslint-rules', 'prefer-declared-clients.mjs'),
   )
 await copyFile(
   new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),

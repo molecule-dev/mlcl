@@ -15,6 +15,8 @@ import {
   type OptimisticValueOptions,
 } from '@molecule/app-state'
 
+import { copySharedEslintRules } from './shared-eslint-rules.js'
+
 /**
  * The scaffold rule that names `useOptimisticValue` for a hand-rolled server-backed toggle that
  * changes the button at once. The invalid cases include the shapes of X1 runs whose "should
@@ -38,22 +40,7 @@ await writeFile(
 const configPath = join(dir, 'eslint.config.mjs')
 await copyFile(template, configPath)
 await mkdir(join(dir, 'eslint-rules'))
-await copyFile(
-  join(import.meta.dirname, '../../../templates/shared/prefer-declared-clients.mjs'),
-  join(dir, 'eslint-rules/prefer-declared-clients.mjs'),
-)
-await copyFile(
-  join(import.meta.dirname, '../../../templates/shared/no-empty-interactive-target.mjs'),
-  join(dir, 'eslint-rules/no-empty-interactive-target.mjs'),
-)
-await copyFile(
-  join(import.meta.dirname, '../../../templates/shared/no-dropped-action.mjs'),
-  join(dir, 'eslint-rules/no-dropped-action.mjs'),
-)
-await copyFile(
-  join(import.meta.dirname, '../../../templates/shared/no-class-code.mjs'),
-  join(dir, 'eslint-rules/no-class-code.mjs'),
-)
+await copySharedEslintRules(dir)
 await symlink(
   dirname(dirname(require.resolve('eslint/package.json'))),
   join(dir, 'node_modules'),
@@ -203,7 +190,8 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
     it('finds an early display update even when the mutation lives in a sibling module', async () => {
       const messages = await lintToggle('split-write', splitToggle, splitWriter)
       expect(messages).toHaveLength(1)
-      expect(messages[0]).toMatchObject({ line: 9, severity: 1 })
+      // An error: the shipped config fails `npm run lint` on this toggle (a warning did not).
+      expect(messages[0]).toMatchObject({ line: 9, severity: 2 })
       expect(messages[0]?.message).toContain('Use the generated toggle hook')
       expect(messages[0]?.message).toContain('wait for the save before navigating')
       expect(messages[0]?.message).toContain('await save(')
@@ -216,7 +204,7 @@ describe('molecule-local/server-toggles-use-optimistic-value', () => {
       )
       const messages = await lintToggle('inverted-write', splitToggle, reversed)
       expect(messages).toHaveLength(1)
-      expect(messages[0]).toMatchObject({ line: 9, severity: 1 })
+      expect(messages[0]).toMatchObject({ line: 9, severity: 2 })
       expect(messages[0]?.message).toContain(
         'inverted-write/preferences.ts:6 sends DELETE for true and POST for false',
       )
@@ -637,7 +625,7 @@ export function Saved({record, onChange}) {
     expect(finding?.message).not.toContain('First verify the saved resource')
   })
 
-  it('loads from the real template as a warning that names the hook', async () => {
+  it('loads from the real template and names the hook', async () => {
     expect(rule).toBeDefined()
     const eslint = new ESLint({
       cwd: dir,

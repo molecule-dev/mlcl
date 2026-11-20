@@ -7,6 +7,8 @@ import { ESLint, type Rule, RuleTester } from 'eslint'
 import tseslint from 'typescript-eslint'
 import { afterAll, describe, expect, it } from 'vitest'
 
+import { copySharedEslintRules } from './shared-eslint-rules.js'
+
 const require = createRequire(import.meta.url)
 const template = fileURLToPath(
   new URL('../../../templates/shared/eslint.config.js.tpl', import.meta.url),
@@ -23,22 +25,7 @@ await writeFile(
 const configPath = join(dir, 'eslint.config.mjs')
 await copyFile(template, configPath)
 await mkdir(join(dir, 'eslint-rules'))
-await copyFile(
-  join(import.meta.dirname, '../../../templates/shared/prefer-declared-clients.mjs'),
-  join(dir, 'eslint-rules/prefer-declared-clients.mjs'),
-)
-await copyFile(
-  join(import.meta.dirname, '../../../templates/shared/no-empty-interactive-target.mjs'),
-  join(dir, 'eslint-rules/no-empty-interactive-target.mjs'),
-)
-await copyFile(
-  join(import.meta.dirname, '../../../templates/shared/no-dropped-action.mjs'),
-  join(dir, 'eslint-rules/no-dropped-action.mjs'),
-)
-await copyFile(
-  join(import.meta.dirname, '../../../templates/shared/no-class-code.mjs'),
-  join(dir, 'eslint-rules/no-class-code.mjs'),
-)
+await copySharedEslintRules(dir)
 await symlink(
   dirname(dirname(require.resolve('eslint/package.json'))),
   join(dir, 'node_modules'),

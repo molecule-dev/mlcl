@@ -8,6 +8,8 @@ import { fileURLToPath } from 'node:url'
 import { ESLint } from 'eslint'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
+import { copySharedEslintRules } from './shared-eslint-rules.js'
+
 const require = createRequire(import.meta.url)
 const shared = fileURLToPath(new URL('../../../templates/shared/', import.meta.url))
 let dir: string
@@ -23,20 +25,7 @@ beforeAll(async () => {
     }),
   )
   await copyFile(join(shared, 'eslint.config.js.tpl'), join(dir, 'eslint.config.mjs'))
-  await mkdir(join(dir, 'eslint-rules'))
-  await copyFile(
-    join(shared, 'prefer-declared-clients.mjs'),
-    join(dir, 'eslint-rules/prefer-declared-clients.mjs'),
-  )
-  await copyFile(
-    join(shared, 'no-empty-interactive-target.mjs'),
-    join(dir, 'eslint-rules/no-empty-interactive-target.mjs'),
-  )
-  await copyFile(
-    join(shared, 'no-dropped-action.mjs'),
-    join(dir, 'eslint-rules/no-dropped-action.mjs'),
-  )
-  await copyFile(join(shared, 'no-class-code.mjs'), join(dir, 'eslint-rules/no-class-code.mjs'))
+  await copySharedEslintRules(dir)
   await symlink(dirname(dirname(require.resolve('eslint/package.json'))), join(dir, 'node_modules'))
   eslint = new ESLint({
     cwd: dir,

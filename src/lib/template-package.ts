@@ -18,6 +18,7 @@ export const TEMPLATE_SHARED_ESLINT = [
   'templates/shared/prefer-declared-clients.mjs',
   'templates/shared/no-empty-interactive-target.mjs',
   'templates/shared/no-dropped-action.mjs',
+  'templates/shared/no-stand-in-query-record.mjs',
 ] as const
 
 /** Size plus representation checks: exclusion without restoration data cannot pass. */

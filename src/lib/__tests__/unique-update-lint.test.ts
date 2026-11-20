@@ -1,4 +1,4 @@
-import { copyFile, mkdir, mkdtemp, rm, symlink } from 'node:fs/promises'
+import { copyFile, mkdtemp, rm, symlink } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -7,6 +7,7 @@ import { ESLint, type Linter } from 'eslint'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { createApiProject } from '../scaffold.js'
+import { copySharedEslintRules } from './shared-eslint-rules.js'
 
 const require = createRequire(import.meta.url)
 const ROOT = join(import.meta.dirname, '../../..')
@@ -20,23 +21,7 @@ beforeAll(async () => {
     join(ROOT, 'templates/shared/eslint.config.js.tpl'),
     join(dir, 'eslint.config.mjs'),
   )
-  await mkdir(join(dir, 'eslint-rules'))
-  await copyFile(
-    join(ROOT, 'templates/shared/prefer-declared-clients.mjs'),
-    join(dir, 'eslint-rules/prefer-declared-clients.mjs'),
-  )
-  await copyFile(
-    join(ROOT, 'templates/shared/no-empty-interactive-target.mjs'),
-    join(dir, 'eslint-rules/no-empty-interactive-target.mjs'),
-  )
-  await copyFile(
-    join(ROOT, 'templates/shared/no-dropped-action.mjs'),
-    join(dir, 'eslint-rules/no-dropped-action.mjs'),
-  )
-  await copyFile(
-    join(ROOT, 'templates/shared/no-class-code.mjs'),
-    join(dir, 'eslint-rules/no-class-code.mjs'),
-  )
+  await copySharedEslintRules(dir)
   await symlink(dirname(dirname(require.resolve('eslint/package.json'))), join(dir, 'node_modules'))
   eslint = new ESLint({
     cwd: dir,
