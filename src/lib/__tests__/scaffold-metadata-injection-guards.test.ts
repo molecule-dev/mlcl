@@ -135,6 +135,20 @@ describe('font metadata that could leave its markup context is refused', () => {
     expect(html, 'nothing may be built from the refused values').toBe('')
   })
 
+  it.each([
+    ['format', 'woff2 unexpected-token'],
+    ['unicodeRange', 'U+0000-00FF; unexpected-token'],
+  ])('refuses invalid %s in a face descriptor', (field, value) => {
+    const font = {
+      family: 'Fixture Font',
+      source: 'local',
+      faces: [{ file: 'face.woff2', weight: 400, [field]: value }],
+    }
+    expect(() => generateFontHtml(['@molecule/app-fonts-hostile'], fontPackage(font))).toThrow(
+      `faces[].${field}`,
+    )
+  })
+
   it('every real registry font declaration passes the guard unchanged', async () => {
     // The fleet check lives with the guard: a shape rule tightened past what a
     // published package declares must fail HERE, not on a user's `mlcl create`.

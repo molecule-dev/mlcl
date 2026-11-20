@@ -77,7 +77,7 @@ import {
   requirePackageByRole,
 } from './registry.js'
 import { withSuppliedStylesheet } from './scaffold-supplied-stylesheet.js'
-import type { BuildTooling, InferredPackage, MoleculeSecret } from './schema.js'
+import type { BuildTooling, FontMetadata, InferredPackage, MoleculeSecret } from './schema.js'
 import { generateSecretValues } from './secret-generate.js'
 import {
   describeSetupSqlDestinationConflict,
@@ -5744,15 +5744,13 @@ export function generateFontHtml(
 
     if (font.source === 'local' && font.faces) {
       for (const face of font.faces) {
-        const fileUrl =
-          fontAssetMode === 'module'
-            ? `${pkg.name}/${font.fontsDir ?? 'fonts'}/${face.file}`
-            : `/fonts/${face.file}`
-        // Vite resolves inline CSS asset URLs, but not bare package URLs in
-        // preload hrefs. Module mode relies on the first-paint face declaration
-        // instead of issuing a broken preload; legacy public preloads stay intact.
-        if (fontAssetMode === 'copy' && face.file.endsWith('.woff2') && !font.utilityCss)
-          preloadFaces.push(fileUrl)
+        const { fileUrl, declaration, preload } = renderLocalFontFace(
+          pkg.name,
+          font,
+          face,
+          fontAssetMode,
+        )
+        if (preload) preloadFaces.push(fileUrl)
         if (fontAssetMode === 'copy') {
           fontFiles.push({
             packageName: pkg.name,
@@ -5760,48 +5758,8 @@ export function generateFontHtml(
             file: face.file,
           })
         }
-
-        const style = face.style ?? 'normal'
-        const format = inferFontFormat(face.file)
-        const localNames = deriveLocalNames(font.family, face.weight, face.variable)
-        const srcParts = [
-          ...localNames.map((n) => `local('${n}')`),
-          `url('${fileUrl}')${format ? ` format('${format}')` : ''}`,
-        ]
-
-        // Variable faces go inside @supports — need deeper indentation (8/10 vs 6/8)
-        const indent = face.variable ? '        ' : '      '
-        const propIndent = face.variable ? '          ' : '        '
-
-        // Format src on multiple lines when it exceeds printWidth
-        const singleLineSrc = `${propIndent}src: ${srcParts.join(', ')};`
-        const srcLines =
-          singleLineSrc.length <= 100
-            ? [singleLineSrc]
-            : [
-                `${propIndent}src:`,
-                ...srcParts.map(
-                  (part, i) => `${propIndent}  ${part}${i < srcParts.length - 1 ? ',' : ';'}`,
-                ),
-              ]
-
-        const declaration = [
-          `${indent}@font-face {`,
-          `${propIndent}font-family: '${font.family}';`,
-          ...srcLines,
-          `${propIndent}font-weight: ${face.weight};`,
-          face.variable ? null : `${propIndent}font-style: ${style};`,
-          `${propIndent}font-display: ${font.utilityCss ? 'block' : 'swap'};`, // icon fonts: block (blank beats raw ligature text)
-          `${indent}}`,
-        ]
-          .filter((l) => l !== null)
-          .join('\n')
-
-        if (face.variable) {
-          variableFaces.push(declaration)
-        } else {
-          staticFaces.push(declaration)
-        }
+        const group = face.variable ? variableFaces : staticFaces
+        group.push(declaration)
       }
 
       // Icon fonts (Material Symbols) ship a utility class the glyphs need
@@ -5863,6 +5821,98 @@ export function generateFontHtml(
   const html = inner ? `    <!-- mol:fonts -->\n${inner}\n    <!-- /mol:fonts -->` : ''
 
   return { html, fontFiles }
+}
+
+type FontFaceMetadata = NonNullable<FontMetadata['faces']>[number]
+type ProjectFontMetadata = Omit<FontMetadata, 'role'> & { packageName: string }
+
+/**
+ * Wrap a range list like the scaffold's formatter wraps CSS declarations.
+ *
+ * @param range - A validated, comma-separated CSS unicode-range.
+ * @param indent - Indentation of the property.
+ * @returns The declaration lines for the generated style block.
+ */
+function renderUnicodeRange(range: string, indent: string): string[] {
+  const ranges = range.split(',').map((value) => value.trim())
+  const singleLine = `${indent}unicode-range: ${ranges.join(', ')};`
+  if (singleLine.length <= 100) return [singleLine]
+
+  const lines = [`${indent}unicode-range:`]
+  const continuation = `${indent}  `
+  let line = continuation
+  for (const [index, value] of ranges.entries()) {
+    const token = `${value}${index === ranges.length - 1 ? ';' : ','}`
+    if (line !== continuation && line.length + 1 + token.length > 100) {
+      lines.push(line)
+      line = continuation
+    }
+    line += line === continuation ? token : ` ${token}`
+  }
+  return [...lines, line]
+}
+
+/**
+ * Render the same face at creation and when syncing an existing app.
+ *
+ * @param packageName - The owning font package.
+ * @param font - The family and asset directory.
+ * @param face - The local font file and its CSS descriptors.
+ * @param mode - How the app serves the file.
+ * @returns The CSS rule and whether its URL can be preloaded.
+ */
+function renderLocalFontFace(
+  packageName: string,
+  font: Omit<FontMetadata, 'role'>,
+  face: FontFaceMetadata,
+  mode: 'copy' | 'module',
+): { declaration: string; fileUrl: string; preload: boolean } {
+  const fileUrl =
+    mode === 'module'
+      ? `${packageName}/${font.fontsDir ?? 'fonts'}/${face.file}`
+      : `/fonts/${face.file}`
+  const format = face.format ?? inferFontFormat(face.file)
+  const localNames =
+    face.unicodeRange || face.style === 'italic'
+      ? []
+      : deriveLocalNames(font.family, face.weight, face.variable)
+  const url = `url('${fileUrl}')`
+  const srcParts = [
+    ...localNames.map((name) => `local('${name}')`),
+    `${url}${format ? ` format('${format}')` : ''}`,
+  ]
+  const indent = face.variable ? '        ' : '      '
+  const propIndent = indent + '  '
+  const singleLineSrc = `${propIndent}src: ${srcParts.join(', ')};`
+  let srcLines = [singleLineSrc]
+  if (singleLineSrc.length > 100) {
+    if (srcParts.length > 1) {
+      srcLines = [
+        `${propIndent}src:`,
+        ...srcParts.map(
+          (part, index) => `${propIndent}  ${part}${index < srcParts.length - 1 ? ',' : ';'}`,
+        ),
+      ]
+    } else if (format) {
+      srcLines = [`${propIndent}src: ${url}`, `${propIndent}  format('${format}');`]
+    }
+  }
+  const declaration = [
+    `${indent}@font-face {`,
+    `${propIndent}font-family: '${font.family}';`,
+    ...srcLines,
+    `${propIndent}font-weight: ${face.weight};`,
+    face.style || !face.variable ? `${propIndent}font-style: ${face.style ?? 'normal'};` : null,
+    `${propIndent}font-display: ${font.utilityCss ? 'block' : 'swap'};`,
+    ...(face.unicodeRange ? renderUnicodeRange(face.unicodeRange, propIndent) : []),
+    `${indent}}`,
+  ]
+    .filter((line) => line !== null)
+    .join('\n')
+  // Let the browser select the range before requesting the asset. Bare module
+  // paths also cannot be preloaded because Vite only rewrites the CSS URL.
+  const preload = mode === 'copy' && format === 'woff2' && !font.utilityCss && !face.unicodeRange
+  return { declaration, fileUrl, preload }
 }
 
 /**
@@ -5934,6 +5984,9 @@ const FONT_META_SHAPES = {
   weight: /^(\d{1,4}( \d{1,4})?|normal|bold)$/,
   /** A CSS font-style. */
   style: /^(normal|italic|oblique)$/,
+  /** A single CSS format hint or unicode range component. */
+  format: /^[a-z0-9-]+$/i,
+  unicodeRange: /^U\+(?:[0-9a-f]{1,6}(?:-[0-9a-f]{1,6})?|(?=[0-9a-f?]{1,6}$)[0-9a-f]*\?+)$/i,
   /** An absolute https stylesheet URL / preconnect origin — the attribute contexts. */
   httpsUrl: /^https:\/\/[^\s"'<>]*$/,
 }
@@ -5954,15 +6007,7 @@ const FONT_META_SHAPES = {
  * @throws When any value could break out of the markup it renders into.
  */
 export function assertSafeFontMeta(
-  font: {
-    family?: string
-    source: string
-    fontsDir?: string
-    faces?: Array<{ file: string; weight: number | string; style?: string; variable?: boolean }>
-    url?: string
-    preconnect?: string[]
-    utilityCss?: string
-  },
+  font: Omit<FontMetadata, 'role' | 'family'> & { family?: string },
   packageName: string,
   fontAssetMode: 'copy' | 'module' = 'copy',
 ): void {
@@ -5988,6 +6033,19 @@ export function assertSafeFontMeta(
       refuse('faces[].weight', face.weight)
     if (face.style !== undefined && !FONT_META_SHAPES.style.test(face.style))
       refuse('faces[].style', face.style)
+    if (
+      face.format !== undefined &&
+      (typeof face.format !== 'string' || !FONT_META_SHAPES.format.test(face.format))
+    )
+      refuse('faces[].format', face.format)
+    if (
+      face.unicodeRange !== undefined &&
+      (typeof face.unicodeRange !== 'string' ||
+        face.unicodeRange
+          .split(',')
+          .some((range) => !FONT_META_SHAPES.unicodeRange.test(range.trim())))
+    )
+      refuse('faces[].unicodeRange', face.unicodeRange)
   }
   if (font.url !== undefined && !FONT_META_SHAPES.httpsUrl.test(font.url)) refuse('url', font.url)
   for (const origin of font.preconnect ?? []) {
@@ -5995,6 +6053,28 @@ export function assertSafeFontMeta(
   }
   if (font.utilityCss !== undefined && /<\/style/i.test(font.utilityCss))
     refuse('utilityCss', '(contains </style>)')
+}
+
+/**
+ * Find node_modules candidates in lookup order for a scaffolded app.
+ *
+ * @param projectPath - The app workspace.
+ * @returns Directory paths that can contain installed font packages.
+ */
+function fontNodeModules(projectPath: string): string[] {
+  // npm workspaces hoist packages — walk up from projectPath until we find
+  // node_modules containing the font package, or hit the filesystem root.
+  // The old 3-level limit missed workspace roots (e.g. when scaffolding
+  // into mlcl/.tmp/ which is 4+ levels below molecule-workspace/).
+  const nmCandidates: string[] = []
+  let dir = projectPath
+  for (let i = 0; i < 10; i++) {
+    nmCandidates.push(join(dir, 'node_modules'))
+    const parent = dirname(dir)
+    if (parent === dir) break // filesystem root
+    dir = parent
+  }
+  return nmCandidates
 }
 
 /**
@@ -6017,18 +6097,7 @@ export async function copyFontFiles(
   const fontsDir = join(projectPath, publicDir, 'fonts')
   await mkdir(fontsDir, { recursive: true })
 
-  // npm workspaces hoist packages — walk up from projectPath until we find
-  // node_modules containing the font package, or hit the filesystem root.
-  // The old 3-level limit missed workspace roots (e.g. when scaffolding
-  // into mlcl/.tmp/ which is 4+ levels below molecule-workspace/).
-  const nmCandidates: string[] = []
-  let dir = projectPath
-  for (let i = 0; i < 10; i++) {
-    nmCandidates.push(join(dir, 'node_modules'))
-    const parent = dirname(dir)
-    if (parent === dir) break // filesystem root
-    dir = parent
-  }
+  const nmCandidates = fontNodeModules(projectPath)
 
   for (const { packageName, fontsDir: pkgFontsDir, file } of fontFiles) {
     // These segments come from package/registry metadata (`molecule.font`), not
@@ -6120,25 +6189,11 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
   const publicDir = (framework && appFrameworks[framework]?.publicDir) ?? 'public'
 
   // npm workspaces hoist packages — walk up to find node_modules
-  const nmCandidates = [
-    join(projectPath, 'node_modules'),
-    join(dirname(projectPath), 'node_modules'),
-    join(dirname(dirname(projectPath)), 'node_modules'),
-  ]
+  const nmCandidates = fontNodeModules(projectPath)
 
   // Discover font metadata from installed packages
   const fontFiles: FontFileToCopy[] = []
-  const fontMetas: Array<{
-    /** The package the metadata came from — a refusal names it (see assertSafeFontMeta). */
-    packageName: string
-    family: string
-    source: string
-    fontsDir?: string
-    faces?: Array<{ file: string; weight: number | string; style?: string; variable?: boolean }>
-    url?: string
-    preconnect?: string[]
-    utilityCss?: string
-  }> = []
+  const fontMetas: ProjectFontMetadata[] = []
 
   // Look up font metadata from centralized registry (preferred) or package.json (fallback)
   const registry = getRawRegistry()
@@ -6204,10 +6259,29 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
   // produce a file (the font package absent from every node_modules candidate, an
   // unwritable target) left the project with that file GONE — public/fonts
   // emptied, the @font-face block still pointing at files that no longer exist.
-  if (fontFiles.length > 0 && fontAssetMode === 'copy') {
-    for (const file of await copyFontFiles(projectPath, fontFiles, publicDir))
-      console.warn(`Font file not found: ${file}`)
-  }
+  const missing = new Set(
+    fontAssetMode === 'copy' ? await copyFontFiles(projectPath, fontFiles, publicDir) : [],
+  )
+  const availableFontMetas = fontMetas.filter((font) => {
+    // This also guards the paths checked below for module assets.
+    assertSafeFontMeta(font, font.packageName, fontAssetMode)
+    if (font.source !== 'local' || !font.faces?.length) return true
+    const dir = `${font.packageName}/${font.fontsDir ?? 'fonts'}`
+    if (fontAssetMode === 'module') {
+      // When an app still pins the older bond version, Vite will resolve to
+      // that install even if a later version is hoisted in another directory.
+      const nm = nmCandidates.find((candidate) =>
+        existsSync(join(candidate, font.packageName, 'package.json')),
+      )
+      for (const face of font.faces) {
+        if (!nm || !existsSync(join(nm, dir, face.file))) missing.add(`${dir}/${face.file}`)
+      }
+    }
+    // Switch a family only after the whole set is available. An old install
+    // can still be serving the previous filenames from the existing font block.
+    return font.faces.every((face) => !missing.has(`${dir}/${face.file}`))
+  })
+  for (const file of missing) console.warn(`Font file not found: ${file}`)
 
   // The sync OWNS only the families its declared font packages provide — never
   // the whole `public/fonts/` directory nor the whole font block. A template's
@@ -6220,7 +6294,9 @@ export async function syncProjectAssets(projectPath: string): Promise<void> {
   // referenced, so the block write runs BEFORE the cleanup — and a failed block
   // write (a full disk) throws out of here with every file still in place.
   const html =
-    fontMetas.length > 0 ? await updateHtmlFontBlock(projectPath, fontMetas, fontAssetMode) : null
+    fontMetas.length > 0
+      ? await updateHtmlFontBlock(projectPath, availableFontMetas, fontAssetMode)
+      : null
 
   if (fontFiles.length > 0 && fontAssetMode === 'copy') {
     const fontsDir = join(projectPath, publicDir, 'fonts')
@@ -6413,16 +6489,7 @@ function cssRulePresent(document: string, css: string): boolean {
  */
 async function updateHtmlFontBlock(
   projectPath: string,
-  fontMetas: Array<{
-    packageName: string
-    family: string
-    source: string
-    fontsDir?: string
-    faces?: Array<{ file: string; weight: number | string; style?: string; variable?: boolean }>
-    url?: string
-    preconnect?: string[]
-    utilityCss?: string
-  }>,
+  fontMetas: ProjectFontMetadata[],
   fontAssetMode: 'copy' | 'module' = 'copy',
 ): Promise<string | null> {
   // Try index.html first, then src/app.html (Svelte)
@@ -6444,6 +6511,7 @@ async function updateHtmlFontBlock(
   if (fontAssetMode === 'module' && htmlPath !== candidates[0]) {
     throw new Error('Module font assets require Vite index.html; app.html must use copy mode')
   }
+  if (fontMetas.length === 0) return htmlContent
 
   // Build the new font block
   const lines: string[] = []
@@ -6455,64 +6523,19 @@ async function updateHtmlFontBlock(
   const preloadFaces: string[] = []
 
   for (const font of fontMetas) {
-    // The values below are interpolated into the document verbatim — the same
-    // untrusted metadata the copy paths are containment-checked against (see
-    // assertSafeFontMeta). The throw surfaces as the caller's "Asset sync
-    // skipped" warning, naming the package whose declaration cannot render.
-    assertSafeFontMeta(font, font.packageName, fontAssetMode)
     if (font.source === 'system') continue
 
     if (font.source === 'local' && font.faces) {
       for (const face of font.faces) {
-        const fileUrl =
-          fontAssetMode === 'module'
-            ? `${font.packageName}/${font.fontsDir ?? 'fonts'}/${face.file}`
-            : `/fonts/${face.file}`
-        // Match create-time module handling: Vite does not rewrite a package
-        // preload href, so only copy mode emits public preload links.
-        if (fontAssetMode === 'copy' && face.file.endsWith('.woff2') && !font.utilityCss)
-          preloadFaces.push(fileUrl)
-        const style = face.style ?? 'normal'
-        const format = inferFontFormat(face.file)
-        const localNames = deriveLocalNames(font.family, face.weight, face.variable)
-        const srcParts = [
-          ...localNames.map((n) => `local('${n}')`),
-          `url('${fileUrl}')${format ? ` format('${format}')` : ''}`,
-        ]
-
-        // Variable faces go inside @supports — need deeper indentation (8/10 vs 6/8)
-        const indent = face.variable ? '        ' : '      '
-        const propIndent = face.variable ? '          ' : '        '
-
-        // Format src on multiple lines when it exceeds printWidth
-        const singleLineSrc = `${propIndent}src: ${srcParts.join(', ')};`
-        const srcLines =
-          singleLineSrc.length <= 100
-            ? [singleLineSrc]
-            : [
-                `${propIndent}src:`,
-                ...srcParts.map(
-                  (part, i) => `${propIndent}  ${part}${i < srcParts.length - 1 ? ',' : ';'}`,
-                ),
-              ]
-
-        const declaration = [
-          `${indent}@font-face {`,
-          `${propIndent}font-family: '${font.family}';`,
-          ...srcLines,
-          `${propIndent}font-weight: ${face.weight};`,
-          face.variable ? null : `${propIndent}font-style: ${style};`,
-          `${propIndent}font-display: ${font.utilityCss ? 'block' : 'swap'};`, // icon fonts: block (blank beats raw ligature text)
-          `${indent}}`,
-        ]
-          .filter((l) => l !== null)
-          .join('\n')
-
-        if (face.variable) {
-          variableFaces.push(declaration)
-        } else {
-          staticFaces.push(declaration)
-        }
+        const { fileUrl, declaration, preload } = renderLocalFontFace(
+          font.packageName,
+          font,
+          face,
+          fontAssetMode,
+        )
+        if (preload) preloadFaces.push(fileUrl)
+        const group = face.variable ? variableFaces : staticFaces
+        group.push(declaration)
       }
 
       // Icon fonts ship a utility class (`.material-symbols-outlined`) — emit it

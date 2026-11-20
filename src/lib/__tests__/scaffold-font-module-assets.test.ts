@@ -2,10 +2,12 @@ import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
+import { format } from 'prettier'
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { loadRegistry } from '../registry.js'
 import { createAppProject, generateFontHtml, syncProjectAssets } from '../scaffold.js'
+import { FontMetadata } from '../schema.js'
 
 const roots: string[] = []
 const fontName = '@molecule/app-fonts-fixture'
@@ -56,6 +58,91 @@ afterEach(() => {
 })
 
 describe('caller-declared font assets', () => {
+  const splitFont = {
+    ...font,
+    role: 'sans',
+    faces: [
+      {
+        file: 'fixture.woff2',
+        weight: '400 700',
+        style: 'italic',
+        variable: true,
+        format: 'woff2',
+        unicodeRange: 'U+0400-04FF',
+      },
+      {
+        file: 'fixture-latin.woff2',
+        weight: '400 700',
+        style: 'italic',
+        variable: true,
+        format: 'woff2',
+        unicodeRange: 'U+0000-00FF',
+      },
+    ],
+  }
+
+  it('copies all registry-listed ranges without preloading them at scaffold creation', () => {
+    const original = loadRegistry('app').find(
+      (pkg) => pkg.name === '@molecule/app-fonts-source-sans-3',
+    )!
+    const pkg = {
+      ...original,
+      molecule: { ...original.molecule!, font: FontMetadata.parse(splitFont) },
+    }
+    const { fontFiles, html } = generateFontHtml([pkg.name], [pkg])
+    expect(fontFiles.map(({ file }) => file)).toEqual(['fixture.woff2', 'fixture-latin.woff2'])
+    expect(html).toContain("url('/fonts/fixture.woff2') format('woff2')")
+    expect(html).toContain('unicode-range: U+0400-04FF;')
+    expect(html).toContain("url('/fonts/fixture-latin.woff2') format('woff2')")
+    expect(html).toContain('unicode-range: U+0000-00FF;')
+    expect(html.match(/font-style: italic;/g)).toHaveLength(2)
+    expect(html).not.toContain('rel="preload"')
+  })
+
+  it('copies and emits both ranges on sync', async () => {
+    const root = fixture('copy')
+    const pkgDir = join(root, 'node_modules', fontName)
+    writeFileSync(join(pkgDir, 'fonts', 'fixture-latin.woff2'), 'LATIN-FONT-BYTES')
+    writeFileSync(
+      join(pkgDir, 'package.json'),
+      JSON.stringify({ name: fontName, molecule: { font: splitFont } }),
+    )
+
+    await syncProjectAssets(root)
+
+    const html = readFileSync(join(root, 'index.html'), 'utf8')
+    expect(html).toContain('unicode-range: U+0400-04FF;')
+    expect(html).toContain('unicode-range: U+0000-00FF;')
+    expect(html).not.toContain('rel="preload"')
+    expect(readFileSync(join(root, 'public/fonts/fixture.woff2'), 'utf8')).toBe(
+      'COMPLETE-FONT-BYTES',
+    )
+    expect(readFileSync(join(root, 'public/fonts/fixture-latin.woff2'), 'utf8')).toBe(
+      'LATIN-FONT-BYTES',
+    )
+  })
+
+  it.each(['copy', 'module'])(
+    'keeps working font rules when a %s asset is missing',
+    async (mode) => {
+      const root = fixture(mode)
+      const pkgDir = join(root, 'node_modules', fontName)
+      const htmlPath = join(root, 'index.html')
+      const publicFont = join(root, 'public/fonts/old.woff2')
+      writeFileSync(publicFont, 'PREVIOUS-FONT-BYTES')
+      writeFileSync(
+        join(pkgDir, 'package.json'),
+        JSON.stringify({ name: fontName, molecule: { font: splitFont } }),
+      )
+      const before = readFileSync(htmlPath, 'utf8')
+
+      await syncProjectAssets(root)
+
+      expect(readFileSync(htmlPath, 'utf8')).toBe(before)
+      expect(readFileSync(publicFont, 'utf8')).toBe('PREVIOUS-FONT-BYTES')
+    },
+  )
+
   it('keeps default generation byte-identical to explicit copy mode', () => {
     const packages = loadRegistry('app')
     const names = ['@molecule/app-fonts-source-sans-3']
@@ -75,6 +162,22 @@ describe('caller-declared font assets', () => {
     )
     expect(result.html).toContain('font-weight: 200 900')
     expect(result.html).toContain("local('Source Sans Pro')")
+  })
+
+  it('formats long URL and range declarations for the bundled font providers', async () => {
+    const packages = loadRegistry('app')
+    const rangedFonts = packages.filter((pkg) =>
+      pkg.molecule?.font?.faces?.some((face) => face.unicodeRange),
+    )
+    expect(rangedFonts.length).toBeGreaterThan(0)
+    for (const pkg of rangedFonts) {
+      const { html } = generateFontHtml([pkg.name], packages, 'module')
+      const document = `<html>\n  <head>\n${html}\n  </head>\n</html>\n`
+      expect(
+        await format(document, { parser: 'html', printWidth: 100, singleQuote: true }),
+        pkg.name,
+      ).toBe(document)
+    }
   })
 
   it('persists only an explicit mode in the generated app manifest', async () => {

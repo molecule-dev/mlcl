@@ -326,6 +326,40 @@ export const AuthContractMetadata = z.object({
 })
 
 /**
+ * Font metadata for font provider packages
+ */
+export const FontMetadata = z.object({
+  role: z.string().describe('Font role: sans, serif, mono, or icon'),
+  family: z.string().describe('CSS font-family name'),
+  source: z.string().describe('Source type: google, bunny, local, system, custom'),
+  url: z.string().optional().describe('Font CSS stylesheet URL (CDN fonts)'),
+  preconnect: z.array(z.string()).optional().describe('Preconnect origins (CDN fonts)'),
+  utilityCss: z
+    .string()
+    .optional()
+    .describe('Extra CSS injected after @font-face (icon fonts: the utility class)'),
+  fontsDir: z
+    .string()
+    .optional()
+    .describe('Directory within package containing font files (local fonts)'),
+  faces: z
+    .array(
+      z.object({
+        file: z.string().describe('Font filename within fontsDir'),
+        weight: z.union([z.number(), z.string()]).describe('CSS font-weight (number or range)'),
+        style: z.string().optional().describe('CSS font-style (default: normal)'),
+        variable: z.boolean().optional().describe('Variable font — wrap in @supports'),
+        format: z.string().optional().describe("CSS source format hint such as 'woff2'"),
+        unicodeRange: z.string().optional().describe('CSS unicode-range for this file'),
+      }),
+    )
+    .optional()
+    .describe('@font-face declarations (local fonts)'),
+})
+
+export type FontMetadata = z.infer<typeof FontMetadata>
+
+/**
  * Package metadata from the centralized registry (registry.json).
  * This is the authoritative source — the CLI reads it, never hardcodes it.
  */
@@ -426,35 +460,9 @@ export const MoleculeMetadata = z.object({
         ' copy another version’s schema.',
     ),
   exports: z.array(z.string()).optional().describe('Named exports from index.ts (pre-computed)'),
-  font: z
-    .object({
-      role: z.string().describe('Font role: sans, serif, mono, or icon'),
-      family: z.string().describe('CSS font-family name'),
-      source: z.string().describe('Source type: google, bunny, local, system, custom'),
-      utilityCss: z
-        .string()
-        .optional()
-        .describe('Extra CSS injected after @font-face (icon fonts: the utility class)'),
-      url: z.string().optional().describe('Font CSS stylesheet URL (CDN fonts)'),
-      preconnect: z.array(z.string()).optional().describe('Preconnect origins (CDN fonts)'),
-      fontsDir: z
-        .string()
-        .optional()
-        .describe('Directory within package containing font files (local fonts)'),
-      faces: z
-        .array(
-          z.object({
-            file: z.string().describe('Font filename within fontsDir'),
-            weight: z.union([z.number(), z.string()]).describe('CSS font-weight (number or range)'),
-            style: z.string().optional().describe('CSS font-style (default: normal)'),
-            variable: z.boolean().optional().describe('Variable font — wrap in @supports'),
-          }),
-        )
-        .optional()
-        .describe('@font-face declarations (local fonts)'),
-    })
-    .optional()
-    .describe('Font metadata for CLI font style generation (font provider packages only)'),
+  font: FontMetadata.optional().describe(
+    'Font metadata for CLI font style generation (font provider packages only)',
+  ),
 
   // Build tooling metadata for project scaffolding (styling providers, etc.)
   buildTooling: z
@@ -726,38 +734,6 @@ export type InferredPackage = z.infer<typeof InferredPackage>
 // ============================================================================
 // Centralized Registry (source of truth for all molecule packages)
 // ============================================================================
-
-/**
- * Font metadata for font provider packages
- */
-export const FontMetadata = z.object({
-  role: z.string().describe('Font role: sans, serif, mono, or icon'),
-  family: z.string().describe('CSS font-family name'),
-  source: z.string().describe('Source type: google, bunny, local, system, custom'),
-  url: z.string().optional().describe('Font CSS stylesheet URL (CDN fonts)'),
-  preconnect: z.array(z.string()).optional().describe('Preconnect origins (CDN fonts)'),
-  utilityCss: z
-    .string()
-    .optional()
-    .describe('Extra CSS injected after @font-face (icon fonts: the utility class)'),
-  fontsDir: z
-    .string()
-    .optional()
-    .describe('Directory within package containing font files (local fonts)'),
-  faces: z
-    .array(
-      z.object({
-        file: z.string().describe('Font filename within fontsDir'),
-        weight: z.union([z.number(), z.string()]).describe('CSS font-weight (number or range)'),
-        style: z.string().optional().describe('CSS font-style (default: normal)'),
-        variable: z.boolean().optional().describe('Variable font — wrap in @supports'),
-      }),
-    )
-    .optional()
-    .describe('@font-face declarations (local fonts)'),
-})
-
-export type FontMetadata = z.infer<typeof FontMetadata>
 
 /**
  * A single entry in the centralized molecule registry.

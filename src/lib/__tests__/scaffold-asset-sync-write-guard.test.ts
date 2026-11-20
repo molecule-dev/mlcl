@@ -53,7 +53,10 @@ vi.mock('node:fs/promises', async (importOriginal) => {
   }
 })
 
+import { getRawRegistry } from '../registry.js'
 import { syncProjectAssets } from '../scaffold.js'
+
+const provider = '@molecule/app-fonts-inter'
 
 const INDEX_HTML = `<!DOCTYPE html>
 <html lang="en">
@@ -77,8 +80,12 @@ beforeEach(() => {
   // index.html font-block write (see syncProjectAssets).
   writeFileSync(
     join(projectDir, 'package.json'),
-    JSON.stringify({ name: 'font-app', dependencies: { '@molecule/app-fonts-inter': '1.0.0' } }),
+    JSON.stringify({ name: 'font-app', dependencies: { [provider]: '1.0.0' } }),
   )
+  const font = getRawRegistry().packages[provider]!.font!
+  const fontDir = join(projectDir, 'node_modules', provider, font.fontsDir ?? 'fonts')
+  mkdirSync(fontDir, { recursive: true })
+  for (const face of font.faces ?? []) writeFileSync(join(fontDir, face.file), 'FONT-FIXTURE')
   writeFileSync(join(projectDir, 'index.html'), INDEX_HTML)
   mkdirSync(join(projectDir, 'public', 'fonts'), { recursive: true })
 })
@@ -110,7 +117,7 @@ describe('syncProjectAssets — a failed index.html write', () => {
 
     const html = readFileSync(join(projectDir, 'index.html'), 'utf-8')
     expect(html).not.toBe(INDEX_HTML)
-    expect(html).toContain("url('/fonts/Inter-Regular.ttf')")
+    expect(html).toContain("url('/fonts/Inter-Regular.woff2')")
     // The declarations themselves are what the write produces: the fixture
     // carries exactly ONE hand-written `@font-face` and the sync replaces it
     // with the generated set. The closing marker this used to assert is already

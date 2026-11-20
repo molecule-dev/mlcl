@@ -26,7 +26,20 @@ vi.mock('node:fs/promises', async (importOriginal) => {
 import { getRawRegistry } from '../registry.js'
 import { syncProjectAssets } from '../scaffold.js'
 
+/** Install a fixture containing every face the catalog requires for this package. */
+function installFontFixture(projectDir: string, packageName: string): string[] {
+  const metadata = getRawRegistry().packages[packageName]?.font
+  const pkgFonts = join(projectDir, 'node_modules', packageName, metadata?.fontsDir ?? 'fonts')
+  const files = metadata?.faces?.map((face) => face.file) ?? []
+  expect(files.length, packageName).toBeGreaterThan(0)
+  mkdirSync(pkgFonts, { recursive: true })
+  for (const file of files) writeFileSync(join(pkgFonts, file), `NEW-${file}`)
+  return files
+}
+
 describe('syncProjectAssets font sync failure ordering', () => {
+  const inter = '@molecule/app-fonts-inter'
+  const regular = 'Inter-Regular.woff2'
   let projectDir: string
 
   beforeEach(() => {
@@ -37,12 +50,12 @@ describe('syncProjectAssets font sync failure ordering', () => {
       join(projectDir, 'package.json'),
       JSON.stringify({
         name: 'font-app',
-        dependencies: { '@molecule/app-fonts-inter': '1.0.0' },
+        dependencies: { [inter]: '1.0.0' },
       }),
     )
     // The files a PREVIOUS provider left: one the new set also names (stale
     // content) and one it does not (the swapped-out provider's leftover).
-    writeFileSync(join(projectDir, 'public', 'fonts', 'Inter-Regular.ttf'), 'OLD-REGULAR')
+    writeFileSync(join(projectDir, 'public', 'fonts', regular), 'OLD-REGULAR')
     writeFileSync(join(projectDir, 'public', 'fonts', 'legacy-font.ttf'), 'LEGACY')
     // The missing-package case below explicitly fails copies, so a workspace
     // install above TMPDIR cannot supply a replacement behind the fixture's back.
@@ -61,29 +74,19 @@ describe('syncProjectAssets font sync failure ordering', () => {
 
     // The file the new set names but the copy could not produce must still be
     // there with its old content — the @font-face block keeps resolving.
-    expect(readFileSync(join(projectDir, 'public', 'fonts', 'Inter-Regular.ttf'), 'utf-8')).toBe(
-      'OLD-REGULAR',
-    )
+    expect(readFileSync(join(projectDir, 'public', 'fonts', regular), 'utf-8')).toBe('OLD-REGULAR')
     // The leftover the new set does NOT name is still cleared.
     expect(existsSync(join(projectDir, 'public', 'fonts', 'legacy-font.ttf'))).toBe(false)
   })
 
   it('replaces a font file when the copy succeeds and still clears the stale leftovers', async () => {
-    // Give the walk-up node_modules search a package to copy from.
-    const pkgFonts = join(projectDir, 'node_modules', '@molecule', 'app-fonts-inter', 'fonts')
-    mkdirSync(pkgFonts, { recursive: true })
-    for (const file of ['Inter-Regular.ttf', 'Inter-Bold.ttf']) {
-      writeFileSync(join(pkgFonts, file), `NEW-${file}`)
-    }
+    const files = installFontFixture(projectDir, inter)
 
     await syncProjectAssets(projectDir)
 
-    expect(readFileSync(join(projectDir, 'public', 'fonts', 'Inter-Regular.ttf'), 'utf-8')).toBe(
-      'NEW-Inter-Regular.ttf',
-    )
-    expect(readFileSync(join(projectDir, 'public', 'fonts', 'Inter-Bold.ttf'), 'utf-8')).toBe(
-      'NEW-Inter-Bold.ttf',
-    )
+    for (const file of files) {
+      expect(readFileSync(join(projectDir, 'public', 'fonts', file), 'utf-8')).toBe(`NEW-${file}`)
+    }
     expect(existsSync(join(projectDir, 'public', 'fonts', 'legacy-font.ttf'))).toBe(false)
   })
 })
@@ -157,6 +160,7 @@ describe('syncProjectAssets font ownership', () => {
     // Unreferenced by the document — a genuine leftover.
     writeFileSync(join(projectDir, 'public', 'fonts', 'Inter-Regular.ttf'), 'STALE')
     writeFileSync(join(projectDir, 'index.html'), CURATED_INDEX_HTML)
+    installFontFixture(projectDir, '@molecule/app-fonts-arimo')
   })
 
   afterEach(() => {
@@ -175,7 +179,9 @@ describe('syncProjectAssets font ownership', () => {
     )
     // The managed family is still emitted (the sync's own job) …
     expect(html).toContain("font-family: 'Arimo'")
-    expect(html).toContain('/fonts/Arimo-VariableFont_wght.ttf')
+    expect(html).toContain('/fonts/Arimo-VariableFont_wght.woff2')
+    expect(html).toContain('/fonts/Arimo-VariableFont_wght-latin.woff2')
+    expect(html).not.toContain('/fonts/Arimo-VariableFont_wght.ttf')
     // … and a file nothing points at is still cleared.
     expect(existsSync(join(projectDir, 'public', 'fonts', 'Inter-Regular.ttf'))).toBe(false)
   })
@@ -218,6 +224,7 @@ describe('syncProjectAssets icon-font utility CSS', () => {
       join(projectDir, 'package.json'),
       JSON.stringify({ name: 'icon-app', dependencies: { [ICON_PACKAGE]: '1.0.0' } }),
     )
+    installFontFixture(projectDir, ICON_PACKAGE)
     // The block `generateFontHtml` wrote at create time: the icon font's
     // `@font-face` and its utility rule inside the block's `<style>`.
     const font = getRawRegistry().packages[ICON_PACKAGE]?.font as

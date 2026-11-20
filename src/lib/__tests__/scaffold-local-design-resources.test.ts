@@ -1,19 +1,17 @@
 /** The generated shell must use the selected fonts without an extra CDN dependency. */
-import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
-import { createRequire } from 'node:module'
+import { copyFile, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { dirname, join } from 'node:path'
+import { join } from 'node:path'
 
 import { chromium } from '@playwright/test'
 import { build, preview } from 'vite'
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { loadRegistry } from '../registry.js'
-import { createAppProject, generateFontHtml, getTemplatesDir } from '../scaffold.js'
+import { copyFontFiles, createAppProject, generateFontHtml, getTemplatesDir } from '../scaffold.js'
 import type { InferredPackage } from '../schema.js'
 import { generatedEntry } from './generated-entry.js'
 
-const require = createRequire(import.meta.url)
 const roots: string[] = []
 const packages = loadRegistry('app')
 const textFont = '@molecule/app-fonts-arimo'
@@ -47,7 +45,7 @@ describe('the scaffold shell uses its declared font providers', () => {
       expect(html).not.toMatch(/(?:href|src)=["']https?:\/\//)
       expect(html).toContain("font-family: 'Arimo'")
       expect(html).toContain("font-family: 'Ionicons'")
-      expect(html).toContain('/fonts/ionicons.woff')
+      expect(html).toContain('/fonts/ionicons.woff2')
       expect(html).toContain('.ion-trash-a:before')
     },
   )
@@ -77,23 +75,48 @@ describe('the scaffold shell uses its declared font providers', () => {
   })
 
   it('builds a non-benchmark editor with local fonts and no external font requests across reloads', async () => {
-    const { root, fonts } = await scaffold('react', [textFont])
-    await symlink(
-      dirname(dirname(require.resolve('vite/package.json'))),
-      join(root, 'node_modules'),
+    const provider = packages.find((pkg) => pkg.name === textFont)!
+    const sources = {
+      'Equipment-Latin.woff2': 'Inter-VariableFont.woff2',
+      'Equipment-Full.ttf': 'Arimo-VariableFont_wght.ttf',
+    }
+    const { root, fonts } = await scaffold(
+      'react',
+      [textFont],
+      [
+        {
+          ...provider,
+          molecule: {
+            ...provider.molecule!,
+            font: {
+              family: 'Equipment Sans',
+              role: 'sans',
+              source: 'local',
+              faces: [
+                { file: 'Equipment-Latin.woff2', weight: 400, unicodeRange: 'U+0000-00FF' },
+                { file: 'Equipment-Full.ttf', weight: 400, unicodeRange: 'U+0400-04FF' },
+              ],
+            },
+          },
+        },
+      ],
     )
     for (const face of fonts.fontFiles) {
-      const target = join(root, 'public/fonts', face.file)
-      await mkdir(dirname(target), { recursive: true })
-      // The CLI's own curated font pool is available in standalone CI too.
-      await copyFile(join(getTemplatesDir(), 'shared/fonts', face.file), target)
+      const installed = join(root, 'node_modules', face.packageName, face.fontsDir)
+      await mkdir(installed, { recursive: true })
+      // Real font binaries from the existing pool keep the browser test runnable in standalone CI.
+      await copyFile(
+        join(getTemplatesDir(), 'shared/fonts', sources[face.file as keyof typeof sources]),
+        join(installed, face.file),
+      )
     }
+    expect(await copyFontFiles(root, fonts.fontFiles)).toEqual([])
     // Use the real generated shell, local font assets and Vite production build.
     // A small equipment editor isolates document loading from auth and save latency.
     await writeFile(
       join(root, await generatedEntry(root)),
       `document.getElementById('root').innerHTML = '<form><input name="title" aria-label="Equipment"><button>Save equipment</button></form>'
-document.body.style.fontFamily = 'Arimo'
+document.body.style.fontFamily = 'Equipment Sans'
 document.querySelector('form').onsubmit = async (event) => {
   event.preventDefault()
   const answer = await fetch('/api/equipment', { method: 'POST' })
@@ -116,7 +139,13 @@ document.querySelector('form').onsubmit = async (event) => {
       if (!address || typeof address === 'string') throw new Error('No preview TCP port')
       const page = await browser.newPage()
       const remote: string[] = []
+      const localFonts: string[] = []
       let saves = 0
+      page.on('response', (response) => {
+        if (response.request().resourceType() === 'font' && response.ok()) {
+          localFonts.push(new URL(response.url()).pathname)
+        }
+      })
       await page.route('**/*', async (route) => {
         const url = new URL(route.request().url())
         if (url.hostname !== '127.0.0.1') {
@@ -142,7 +171,16 @@ document.querySelector('form').onsubmit = async (event) => {
       expect(remote).toEqual([])
       expect(saves).toBe(4)
       await page.evaluate(() => document.fonts.ready)
-      expect(await page.evaluate(() => document.fonts.check('16px Arimo'))).toBe(true)
+      expect(new Set(localFonts)).toEqual(new Set(['/fonts/Equipment-Latin.woff2']))
+      const full = page.waitForResponse(
+        (response) => response.url().endsWith('/fonts/Equipment-Full.ttf') && response.ok(),
+      )
+      await page.evaluate(() => {
+        const text = document.createElement('p')
+        text.textContent = 'Привет мир'
+        document.body.append(text)
+      })
+      await full
     } finally {
       try {
         await browser?.close()
