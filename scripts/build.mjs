@@ -11,7 +11,7 @@
  * once do not write into each other's output.
  */
 import { spawnSync } from 'node:child_process'
-import { existsSync, renameSync, rmSync } from 'node:fs'
+import { existsSync, renameSync, rmSync, writeFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -21,6 +21,9 @@ const next = join(root, `dist.build-${process.pid}`)
 const old = join(root, `dist.old-${process.pid}`)
 const dist = join(root, 'dist')
 const tsc = createRequire(import.meta.url).resolve('typescript/bin/tsc')
+// bin/stale-build.js compares src/ with the time this compile STARTED: a file saved during it may
+// not be in the output.
+const startedAt = Date.now()
 
 const res = spawnSync(
   process.execPath,
@@ -34,6 +37,7 @@ if (res.status !== 0) {
   rmSync(next, { recursive: true, force: true })
   process.exit(res.status ?? 1)
 }
+writeFileSync(join(next, '.build-started'), `${startedAt}\n`)
 if (existsSync(dist)) renameSync(dist, old)
 renameSync(next, dist)
 rmSync(old, { recursive: true, force: true })

@@ -107,12 +107,17 @@ export default tseslint.config(
     },
   },
   {
-    // Repo tooling under scripts/ is plain Node ESM, not library source: it uses
-    // the runtime globals directly and its helpers are local. Mirrors the same
+    // Repo tooling under scripts/, and the CLI entry under bin/, is plain Node ESM, not library
+    // source: it uses the runtime globals directly and its helpers are local. Mirrors the same
     // block molecule and molecule-dev/api already carry — without it these files
     // reported 62 `no-undef` for `console`/`process` alone, which is why
     // `npm run lint` never covered scripts/ at all.
-    files: ['scripts/**/*.{mjs,js}', 'mcp/scripts/**/*.{mjs,js}', 'templates/shared/*.mjs'],
+    files: [
+      'bin/**/*.{mjs,js}',
+      'scripts/**/*.{mjs,js}',
+      'mcp/scripts/**/*.{mjs,js}',
+      'templates/shared/*.mjs',
+    ],
     languageOptions: {
       globals: {
         console: 'readonly',
