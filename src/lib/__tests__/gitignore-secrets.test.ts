@@ -14,7 +14,7 @@
  * exported `ENV_SECRETS_GITIGNORE` block, and the live React Native scaffold
  * output — so a future source can never silently regress.
  */
-import { execFileSync } from 'node:child_process'
+import { execFileSync, spawnSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
 import { mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
@@ -64,6 +64,11 @@ afterEach(async () => {
  * Drop the given `.gitignore` content into a fresh git repo and report, per
  * candidate path, whether git would ignore it — the real `git check-ignore`
  * semantics rather than a brittle text match.
+ *
+ * One `git check-ignore` call answers for every candidate: it prints each path
+ * it ignores, negations applied. A call per candidate made the flagship sweep
+ * spawn about 2,600 git processes, about 30 s alone, and it ran past the 30 s
+ * test timeout in a full parallel run (2026-11-20).
  */
 async function ignoredStatus(
   gitignoreContent: string,
@@ -72,18 +77,15 @@ async function ignoredStatus(
   const repo = await mkdtemp(join(workdir, 'repo-'))
   execFileSync('git', ['init', '-q'], { cwd: repo })
   await writeFile(join(repo, '.gitignore'), gitignoreContent)
-  const result: Record<string, boolean> = {}
-  for (const candidate of candidates) {
-    try {
-      // Exit 0 → ignored; exit 1 → not ignored (throws).
-      execFileSync('git', ['check-ignore', '-q', '--', candidate], { cwd: repo })
-      result[candidate] = true
-    } catch (_error) {
-      // Non-zero exit is git's "not ignored" signal — the expected, non-error path.
-      result[candidate] = false
-    }
-  }
-  return result
+  const run = spawnSync('git', ['check-ignore', '--', ...candidates], {
+    cwd: repo,
+    encoding: 'utf8',
+  })
+  // Exit 0: some candidate is ignored; 1: none is. Anything else is git failing.
+  if (run.status !== 0 && run.status !== 1)
+    throw new Error(`git check-ignore exited ${run.status}: ${run.stderr}`)
+  const ignored = new Set(run.stdout.split('\n').filter(Boolean))
+  return Object.fromEntries(candidates.map((candidate) => [candidate, ignored.has(candidate)]))
 }
 
 async function expectEnvSemantics(content: string, label: string): Promise<void> {
