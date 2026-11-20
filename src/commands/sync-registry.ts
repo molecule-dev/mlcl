@@ -1149,7 +1149,8 @@ export default class SyncRegistry extends Command {
     }
 
     for (const [hint, owners] of hintOwners) {
-      if (owners.length < 2 || sharedHintAllowed(owners, packages)) continue
+      if (owners.length < 2 || sharedHintAllowed(owners, packages, registry.appFrameworks ?? {}))
+        continue
       violations.push(
         `${chalk.red('✗')} duplicate hint ${chalk.dim(JSON.stringify(hint))} on: ${owners.join(', ')}`,
       )

@@ -4,8 +4,7 @@
  * @module
  */
 
-/** The framework suffixes a framework-specific package name ends with (`-react-native` before `-react`). */
-const FRAMEWORK_SUFFIXES = ['react-native', 'react', 'vue', 'svelte', 'solid', 'angular'] as const
+import { type AppFrameworkInstalls, packageFramework } from './package-search.js'
 
 /** The registry fields this rule reads. */
 export interface HintOwnerEntry {
@@ -15,20 +14,10 @@ export interface HintOwnerEntry {
   multiSelect?: boolean
   /** The framework the package is for, when the registry records it. */
   framework?: string
-}
-
-/**
- * The framework a package is for: its registry `framework`, else the framework suffix of its
- * name (`@molecule/app-footer-vue` → `vue`), the same inference molecule-dev's intent matcher
- * uses to keep a project's candidates to its own framework.
- *
- * @param name - The package name.
- * @param entry - The package's registry entry.
- * @returns The framework, or `null` for a framework-neutral package.
- */
-export function packageFramework(name: string, entry: HintOwnerEntry): string | null {
-  if (entry.framework) return entry.framework
-  return FRAMEWORK_SUFFIXES.find((suffix) => name.endsWith(`-${suffix}`)) ?? null
+  /** The package's stack (`app` or `api`). */
+  stack?: string
+  /** The package's dependencies and peers, as sync-registry records them. */
+  runtimeDependencies?: string[]
 }
 
 /**
@@ -37,13 +26,22 @@ export function packageFramework(name: string, entry: HintOwnerEntry): string | 
  * (`@molecule/app-footer-react` and `@molecule/app-footer-vue`), because the intent matcher
  * only offers a project the packages of its own framework, so they never compete.
  *
+ * A package's framework is the one its dependencies name ({@link packageFramework}, the rule
+ * search, the catalog and `mlcl create` use), not its name: `@molecule/app-embeddable-chat-widget`
+ * peers React and carries no `-react` suffix, and its Vue, Svelte, Solid and Angular ports are
+ * its counterparts. A counterpart's name is the shared stem plus its framework suffix, or the
+ * stem itself. A framework-neutral package (`@molecule/app-footer`, which every project is
+ * offered) never shares a hint with a framework's package.
+ *
  * @param owners - The names of the packages that carry the hint (two or more).
  * @param packages - The registry's `packages` map.
+ * @param appFrameworks - The registry's `appFrameworks`, whose dependencies identify each framework.
  * @returns True when the shared hint is allowed.
  */
 export function sharedHintAllowed(
   owners: readonly string[],
   packages: Readonly<Record<string, HintOwnerEntry>>,
+  appFrameworks: Record<string, AppFrameworkInstalls>,
 ): boolean {
   const categories = new Set(owners.map((name) => packages[name]?.category))
   if (categories.size === 1 && owners.every((name) => packages[name]?.multiSelect === true))
@@ -51,10 +49,10 @@ export function sharedHintAllowed(
   const frameworks = new Set<string>()
   const stems = new Set<string>()
   for (const name of owners) {
-    const framework = packageFramework(name, packages[name] ?? {})
-    if (!framework || !name.endsWith(`-${framework}`)) return false
+    const framework = packageFramework(packages[name] ?? {}, appFrameworks)
+    if (!framework) return false
     frameworks.add(framework)
-    stems.add(name.slice(0, -(framework.length + 1)))
+    stems.add(name.endsWith(`-${framework}`) ? name.slice(0, -(framework.length + 1)) : name)
   }
   return frameworks.size === owners.length && stems.size === 1
 }
