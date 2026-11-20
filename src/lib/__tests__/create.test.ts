@@ -106,7 +106,7 @@ describe('Template file inventory', () => {
     }
   })
 
-  it('React has 20 template files', async () => {
+  it('React has 19 template files', async () => {
     const files = await listTemplateFiles('react')
     expect(files).toEqual([
       'App.tsx.tpl',
@@ -119,7 +119,6 @@ describe('Template file inventory', () => {
       'components/Icon.tsx.tpl',
       'components/OAuthButtons.tsx.tpl',
       'components/SettingsPanel.tsx.tpl',
-      'components/ThemeToggle.tsx.tpl',
       'components/UserMenu.tsx.tpl',
       'main.tsx.tpl',
       'pages/About.tsx.tpl',
@@ -178,11 +177,10 @@ describe('Template file inventory', () => {
     ])
   })
 
-  it('Svelte has 20 SvelteKit template files', async () => {
+  it('Svelte has 19 SvelteKit template files', async () => {
     const files = await listTemplateFiles('svelte')
     expect(files).toEqual([
       'components/AppLayout.svelte.tpl',
-      'components/AuthGuard.svelte.tpl',
       'components/Footer.svelte.tpl',
       'components/Header.svelte.tpl',
       'components/OAuthButtons.svelte.tpl',
@@ -480,13 +478,10 @@ describe('SvelteKit template structure', () => {
     expect(layout).toContain('$props()')
     expect(layout).toContain('{@render children()}')
     // The reactive redirect is a rune ($effect) inside the shared
-    // @molecule/app-ui-svelte AuthGuard, which the scaffold's RouteAccess
-    // composes (the guard wrapper keeps it as the in-page extension point).
+    // @molecule/app-ui-svelte AuthGuard, which the scaffold's RouteAccess composes.
     const access = await readTemplate('svelte', 'components', 'RouteAccess.svelte.tpl')
     expect(access).toContain("from '@molecule/app-ui-svelte'")
     expect(access).toContain('AuthGuard')
-    const guard = await readTemplate('svelte', 'components', 'AuthGuard.svelte.tpl')
-    expect(guard).toContain("from '@molecule/app-ui-svelte'")
   })
 
   it('+layout.svelte has the access boundary and app layout', async () => {
@@ -1279,13 +1274,9 @@ describe('Auth patterns across frameworks', () => {
   })
 
   it('all frameworks have theme toggle', async () => {
-    // react now shims the shared ThemeToggle from @molecule/app-ui-react
-    // (the toggleTheme logic lives in the shared component); svelte imports
-    // that same shared component from @molecule/app-ui-svelte — mounted by
-    // the auth pages and rendered by the shell header's default toggle slot.
-    const reactToggle = await readTemplate('react', 'components', 'ThemeToggle.tsx.tpl')
-    expect(reactToggle).toContain('ThemeToggle')
-    expect(reactToggle).toMatch(/@molecule\/app-ui-react|toggleTheme/)
+    // The shared header renders the default toggle.
+    const reactHeader = await readTemplate('react', 'components', 'Header.tsx.tpl')
+    expect(reactHeader).toContain("from '@molecule/app-header-react'")
 
     const svelteLogin = await readTemplate('svelte', 'routes', 'login', '+page.svelte.tpl')
     expect(svelteLogin).toContain('<ThemeToggle />')

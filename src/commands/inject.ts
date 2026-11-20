@@ -553,18 +553,8 @@ export default class Inject extends Command {
     }
 
     const registryPackages = loadRegistry()
-    const skipServiceWorker = framework
-      ? loadAppFrameworks()[framework]?.skipCustomServiceWorker === true
-      : false
     const syntheticFiles = isAppProject
-      ? synthesizeAppProjectFiles(
-          plans,
-          molecules,
-          projectPath,
-          registryPackages,
-          sharedSubdir,
-          skipServiceWorker,
-        )
+      ? synthesizeAppProjectFiles(plans, molecules, projectPath, registryPackages, sharedSubdir)
       : await synthesizeProjectFiles(plans, molecules, projectPath, registryPackages)
 
     // Only the manifest-derived migration runner may be REWRITTEN while a
@@ -647,25 +637,6 @@ export default class Inject extends Command {
         ? projectFiles.flatMap(addedWiring)
         : projectFiles
     for (const failure of mergeFailures) this.warn(failure)
-
-    // Add build tooling devDependencies when a service worker was generated
-    if (filesToWrite.some((f) => f.targetPath.endsWith('service-worker.ts'))) {
-      // Find the plan whose package generates the service worker (registry-driven)
-      const swPlan = plans.find((p) => {
-        const regPkg = registryPackages?.find((rp) => rp.name === p.molecule)
-        return regPkg?.molecule?.generates?.includes('service-worker')
-      })
-      const targetPlan = swPlan ?? plans[0]
-      if (targetPlan) {
-        const regPkg = registryPackages?.find((rp) => rp.name === targetPlan.molecule)
-        const devDeps = regPkg?.molecule?.buildTooling?.devDependencies
-        if (devDeps) {
-          for (const [name, version] of Object.entries(devDeps)) {
-            targetPlan.dependencies.push({ name, version, type: 'devDependency' })
-          }
-        }
-      }
-    }
 
     spinner.stop(t('commands.inject.spinners.planned'))
 

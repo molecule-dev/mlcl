@@ -2276,27 +2276,30 @@ _See code: [src/commands/project/settings.ts](https://github.com/molecule-dev/ml
 
 ## `mlcl resources`
 
-Generate typed app resource modules (list, detail, writes on the shared query cache) from an OpenAPI contract
+Generate typed app resource clients from a declared API package or an OpenAPI contract
 
 ```
 USAGE
-  $ mlcl resources -c <value> [-p <value>] [--json]
+  $ mlcl resources [-c <value>] [--package <value>] [-p <value>] [--json]
 
 FLAGS
-  -c, --contract=<value>  (required) The OpenAPI 3 file (YAML or JSON), relative to the project
+  -c, --contract=<value>  The OpenAPI 3 file (YAML or JSON), relative to the project
   -p, --project=<value>   [default: .] The project root (default: the current directory)
       --json              Output machine-readable JSON
+      --package=<value>   The declared API resource package the app needs a client for
 
 DESCRIPTION
-  Generate typed app resource modules (list, detail, writes on the shared query cache) from an OpenAPI contract
+  Generate typed app resource clients from a declared API package or an OpenAPI contract
 
 EXAMPLES
+  $ mlcl resources --package @molecule/api-resource-project
+
   $ mlcl resources --contract specs/openapi.yml
 
   $ mlcl resources --contract api/openapi.json --project ./my-app --json
 ```
 
-_See code: [src/commands/resources.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.83/src/commands/resources.ts)_
+_See code: [src/commands/resources.ts](https://github.com/molecule-dev/mlcl/blob/v2.2.5/src/commands/resources.ts)_
 
 ## `mlcl sandbox exec`
 

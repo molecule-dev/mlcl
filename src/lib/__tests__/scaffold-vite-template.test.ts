@@ -36,6 +36,7 @@ describe.each(['app/shared', 'static'])('%s Vite template substitutions', (templ
         VITE_PLUGINS: plugins,
         SVELTE_KIT: 'false',
         RESOLVE_EXTENSIONS: '',
+        FRAMEWORK_CONFIG: '{}',
         WARMUP_CLIENT_FILES: "['src/main.tsx', 'src/bonds/*.ts']",
       }),
       'vite.config.ts',

@@ -32,7 +32,7 @@ import {
   ensureClaudeSkillsLink,
   writeAgentSkillFiles,
 } from './agent-skills.js'
-import { writeAppResourceModules } from './app-resource-modules.js'
+import { factoryIsDeclared, planAppResourceModules } from './app-resource-modules.js'
 import {
   type AuthContract,
   authContractFromRegistry,
@@ -2393,33 +2393,32 @@ export async function ensureAgentsMd(
 ): Promise<void> {
   const target = join(projectRoot, 'AGENTS.md')
   const declarations = declared ? [...declared] : undefined
-  await writeFrameworkRecipes(
-    projectRoot,
-    getTemplatesDir(),
-    getRawRegistry(),
-    declarations
-      ? declarations.map((item) =>
-          typeof item === 'string' ? { name: item, workspace: '' } : item,
-        )
-      : await readDeclaredPackages(projectRoot),
-  )
-  // Before the headers: a module written here is named in the capability map they render.
-  await writeAppResourceModules(
-    projectRoot,
-    getRawRegistry(),
-    declarations
-      ? declarations.map((item) =>
-          typeof item === 'string' ? { name: item, workspace: '' } : item,
-        )
-      : await readDeclaredPackages(projectRoot),
-  )
-  await stampCapabilitySourceHeaders(projectRoot, getRawRegistry(), declarations)
-  const { existsSync } = await import('node:fs')
+  const registry = getRawRegistry()
+  const packages = declarations
+    ? declarations.map((item) => (typeof item === 'string' ? { name: item, workspace: '' } : item))
+    : await readDeclaredPackages(projectRoot)
+  await writeFrameworkRecipes(projectRoot, getTemplatesDir(), registry, packages)
+  await stampCapabilitySourceHeaders(projectRoot, registry, declarations)
   if (existsSync(target)) return
   const template = await loadTemplate('shared/AGENTS.md.tpl')
-  const entries = await readProjectCapabilityMap(projectRoot, getRawRegistry(), declarations)
+  const entries = await readProjectCapabilityMap(projectRoot, registry, declarations)
   const capabilityMap = renderCapabilityMap(entries)
-  await writeFile(target, capabilityMap ? `${template.trimEnd()}\n\n${capabilityMap}\n` : template)
+  const modules = planAppResourceModules(registry, packages)
+  const resourceGuide =
+    modules.length && (await factoryIsDeclared(projectRoot, registry, packages))
+      ? [
+          '## API resource clients',
+          '',
+          'Generate a client for the API collection your page uses. Import the client from the path the command reports.',
+          '',
+          ...modules.map(({ resource }) => `- \`npx mlcl resources --package ${resource}\``),
+        ].join('\n')
+      : ''
+  const sections = [capabilityMap, resourceGuide].filter(Boolean)
+  await writeFile(
+    target,
+    sections.length ? `${template.trimEnd()}\n\n${sections.join('\n\n')}\n` : template,
+  )
 }
 
 /**
@@ -3999,8 +3998,7 @@ export async function createFullStackProject(
 /**
  * Files the standard app scaffold writes that a static site has no use for:
  * the auth pages, the signed-in profile page and the user menu (nobody logs in
- * to a static site), the settings panel, the PWA registration (no service
- * worker — a static host serves plain files). Removed after `createAppProject`
+ * to a static site), and the settings panel. Removed after `createAppProject`
  * so the static overlay never has to know how the app scaffold writes them.
  * Every app page the static set does not provide must be listed here
  * (`create.test.ts` checks it).
@@ -4019,8 +4017,6 @@ const STATIC_SITE_REMOVES = [
   'src/components/FloatingInput.tsx',
   'src/components/Icon.tsx',
   'src/components/SettingsPanel.tsx',
-  'src/components/ThemeToggle.tsx',
-  'src/pwa.ts',
 ]
 
 /** Build-tooling devDeps a static site drops — no service worker, no PWA. */
@@ -5208,7 +5204,7 @@ export async function createAppProject(
         VITE_PLUGINS: pluginsLine,
         SVELTE_KIT: String(htmlFile === 'app.html'),
         BRANDING_IMPORT: brandingImportPath,
-        RESOLVE_EXTENSIONS: extraConfig ? `\n  ${extraConfig}` : '',
+        FRAMEWORK_CONFIG: extraConfig ? `{\n  ${extraConfig}\n}` : '{}',
         WARMUP_CLIENT_FILES: viteWarmupClientFiles(
           htmlFile === 'app.html' ? undefined : mainEntry,
           sharedSubdir ? `src/${sharedSubdir}/bonds` : 'src/bonds',
@@ -5428,11 +5424,6 @@ export async function copyTemplateFiles(
     join(configDir, 'branding.ts'),
     withHeader(processTemplate(brandingContent, vars), BRANDING_HEADER),
   )
-
-  // Copy shared pwa.ts (SW registration + update banner)
-  const pwaContent = await readFile(join(templatesDir, 'shared', 'pwa.ts.tpl'), 'utf-8')
-  const pwaPath = join(configDir, 'pwa.ts')
-  await writeFile(pwaPath, sortImportStatements(processTemplate(pwaContent, vars), pwaPath))
 
   // Copy shared locales/ directory (i18n translations)
   const localesSrcDir = join(templatesDir, 'shared', 'locales')

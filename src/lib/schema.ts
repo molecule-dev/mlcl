@@ -287,8 +287,8 @@ export const DecisionGuide = z.object({
     .optional()
     .describe(
       'This app package can describe an API resource as one module (list, detail and writes on ' +
-        'the shared cache). mlcl create writes one such module per declared resource package ' +
-        'that is a plain collection, when the HTTP package is declared beside this one. An ' +
+        'the shared cache). mlcl resources --package writes a client for a declared API collection ' +
+        'when the HTTP package is declared beside this one. An ' +
         'existing module is never rewritten.',
     ),
 })
@@ -1245,9 +1245,7 @@ export const AppFrameworkConfig = z.object({
   skipCustomServiceWorker: z
     .boolean()
     .optional()
-    .describe(
-      'Skip generating src/service-worker.ts. Set for frameworks like SvelteKit that auto-compile service workers from src/, which conflicts with vite-plugin-pwa generateSW mode.',
-    ),
+    .describe('Legacy registry setting. The app build owns service-worker generation.'),
   uiFramework: z
     .string()
     .optional()

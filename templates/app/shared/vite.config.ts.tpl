@@ -12,7 +12,7 @@ import {
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { defineConfig, normalizePath, type Plugin } from 'vite'
+import { defineConfig, mergeConfig, normalizePath, type Plugin } from 'vite'
 import { rootRelativeAssetsPlugin } from '@molecule/app-vite-config-default/assets'
 import {
   svelteKitPrecache,
@@ -358,8 +358,8 @@ const svelteKitSite = svelteKit
     })
   : null
 
-export default defineConfig({
-{{VITE_PLUGINS}}{{RESOLVE_EXTENSIONS}}
+const appConfig = defineConfig({
+{{VITE_PLUGINS}}
   resolve: {
     preserveSymlinks: true,
     // One module identity per @molecule package, whichever install path an
@@ -481,3 +481,5 @@ export default defineConfig({
     environment: 'node',
   },
 })
+
+export default mergeConfig(appConfig, {{FRAMEWORK_CONFIG}})

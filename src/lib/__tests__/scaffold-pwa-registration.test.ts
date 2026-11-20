@@ -1,22 +1,8 @@
 /**
- * The generated `src/pwa.ts` must BE `@molecule/app-pwa-default`, never a copy
- * of it.
- *
- * The service-worker registration is written into every app scaffold, and it
- * used to be an inline copy of `registerPWA()` held in
- * `templates/app/shared/pwa.ts.tpl`. That copy missed the first-claim guard
- * (`hadController` — a page with no worker yet is CLAIMED on its first visit
- * when the worker activates, and reloading on that `controllerchange` aborted
- * whatever navigation was in flight, so every fresh browser context — every
- * end-to-end run — saw pages reload under it). The fix landed in the package
- * (molecule `bdea8c2a4`) and could not reach the scaffold, because the
- * scaffold owned a duplicate.
- *
- * These tests pin the ONE implementation: the template re-exports the package,
- * the registry makes the package `alwaysInclude` so every generated app's
- * `package.json` actually carries it, every flagship template's `pwa.ts` is the
- * same re-export, and a static site still excludes it. The build must keep the
- * worker active after a replacement entry drops the package call.
+ * Web scaffolds register the generated worker at build time through
+ * `@molecule/app-pwa-default`. The package owns the first-claim guard, which lets
+ * the first navigation finish when the worker takes control. Older app entries
+ * and flagships can also call the package through their existing re-export.
  *
  * @module
  */
@@ -40,6 +26,7 @@ const ROOT = join(import.meta.dirname, '..', '..', '..')
 const TEMPLATES = join(ROOT, 'templates')
 const PACKAGE_NAME = '@molecule/app-pwa-default'
 const RE_EXPORT = `export { registerPWA } from '${PACKAGE_NAME}'\n`
+const WEB_FRAMEWORKS = ['react', 'react-native-web', 'vue', 'svelte', 'solid', 'angular'] as const
 const require = createRequire(import.meta.url)
 
 /** Flagship template slugs under `templates/apps/`. */
@@ -51,16 +38,24 @@ async function flagshipSlugs(): Promise<string[]> {
     .sort()
 }
 
-describe('the scaffolded pwa.ts is @molecule/app-pwa-default, not a copy', () => {
-  it('the shared app template re-exports the package instead of implementing it', async () => {
-    const template = await readFile(join(TEMPLATES, 'app', 'shared', 'pwa.ts.tpl'), 'utf-8')
-    expect(template).toBe(RE_EXPORT)
-    // The inline copy's tells — any of these coming back means a second
-    // implementation exists again and the next package fix will miss it.
-    expect(template).not.toContain('virtual:pwa-register')
-    expect(template).not.toContain('controllerchange')
-    expect(template).not.toContain('addEventListener')
-  })
+describe('scaffolded PWA registration', () => {
+  it.each(WEB_FRAMEWORKS)(
+    'registers the package through the %s Vite config without a source shim',
+    async (framework) => {
+      const root = await mkdtemp(join(tmpdir(), 'pwa-source-'))
+      try {
+        await createAppProject(root, 'equipment-console', framework)
+        const shared = loadAppFrameworks()[framework].sharedCodeDir ?? ''
+        await expect(readFile(join(root, 'src', shared, 'pwa.ts'))).rejects.toMatchObject({
+          code: 'ENOENT',
+        })
+        const config = await readFile(join(root, 'vite.config.ts'), 'utf8')
+        expect(config).toContain(`import { registerPWA } from '${PACKAGE_NAME}'; registerPWA()`)
+      } finally {
+        await rm(root, { recursive: true, force: true })
+      }
+    },
+  )
 
   it('the web scaffolds leave registration to the build and keep VitePWA auto-registration off', async () => {
     const vite = await readFile(join(TEMPLATES, 'app', 'shared', 'vite.config.ts.tpl'), 'utf-8')
@@ -79,7 +74,7 @@ describe('the scaffolded pwa.ts is @molecule/app-pwa-default, not a copy', () =>
     }
   })
 
-  it('every framework whose scaffold writes src/pwa.ts requires the package', () => {
+  it('every web framework requires the registration package', () => {
     const registry = loadRegistry('app')
     const frameworks = loadAppFrameworks()
     function frameworkPackage(framework: string): InferredPackage | undefined {
@@ -91,12 +86,7 @@ describe('the scaffolded pwa.ts is @molecule/app-pwa-default, not a copy', () =>
       )
     }
 
-    // The template that writes `src/pwa.ts` belongs to these frameworks. The
-    // dependency has to reach the generated `package.json` for an explicit
-    // `--packages` list as well as the interactive menu, which is what
-    // `templateRequires` is for.
-    const writesPwa = ['react', 'react-native-web', 'vue', 'svelte', 'solid', 'angular']
-    for (const framework of writesPwa) {
+    for (const framework of WEB_FRAMEWORKS) {
       const required = getTemplateRequiredPackages(
         framework,
         frameworkPackage(framework),
@@ -167,6 +157,7 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
     const root = await mkdtemp(join(tmpdir(), 'scaffold-pwa-'))
     try {
       await createAppProject(root, 'equipment-console', 'react')
+      if (legacy) await writeFile(join(root, 'src/pwa.ts'), RE_EXPORT)
       await symlink(
         dirname(dirname(require.resolve('vite/package.json'))),
         join(root, 'node_modules'),

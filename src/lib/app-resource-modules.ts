@@ -1,9 +1,8 @@
 /**
  * App-side modules for the API resources a project declares.
  *
- * A resource package wires its routes into the API at scaffold time, and the app got nothing:
- * every page that read or changed the resource was written from scratch. For each declared
- * resource that is a plain collection, this writes one small app module that describes it to
+ * When an app adds a page for a declared API resource, `mlcl resources --package`
+ * writes the client for that resource. The module describes a plain collection to
  * the app's resource factory (list, detail, create, update, remove and toggles on the shared
  * query cache), typed from the record the resource's API returns.
  *
@@ -11,8 +10,7 @@
  * registry (`decisionGuide.resourceModules`), the resources come from the project's manifests,
  * and routes, tables and SQL are read from each resource's registry entry.
  *
- * The modules are the app's code from the moment they are written: an existing file is never
- * rewritten, and this runs at `mlcl create` only, so a module the app deleted stays deleted.
+ * The app owns the module once the command writes it. Existing files stay intact.
  *
  * @module
  */
@@ -382,51 +380,43 @@ export function declaresAtLeast(range: string | undefined, since: string): boole
   return true
 }
 
-/** The line a generated API router carries for a package's routes (`injector.ts`). */
-const mountLine = (resource: string): RegExp =>
-  new RegExp(`^//   ${resource.replace(/[.*+?^${}()|[\]\\/]/g, '\\$&')} \\([^)]*\\): .*$`, 'm')
-
 /**
- * Write the app modules that do not exist yet, and name each one beside its package's routes
- * in the generated API router.
+ * Write a client for a single declared resource once the app needs its routes.
  *
  * @param projectRoot - The project root.
  * @param registry - The registry whose metadata describes the packages.
  * @param declared - The project's declared packages with their workspaces.
- * @returns The modules written by this call (an existing file is left as it is).
+ * @param resource - The declared API resource package to generate.
+ * @returns The client written or kept, or the reason the package cannot supply one.
  */
-export async function writeAppResourceModules(
+export async function writeAppResourceModule(
   projectRoot: string,
   registry: Registry,
   declared: readonly DeclaredPackage[],
-): Promise<AppResourceModule[]> {
-  const written: AppResourceModule[] = []
-  const modules = planAppResourceModules(registry, declared)
-  if (modules.length === 0 || !(await factoryIsDeclared(projectRoot, registry, declared)))
-    return written
-  for (const module of modules) {
-    const target = join(projectRoot, module.path)
-    if (existsSync(target)) continue
-    await mkdir(dirname(target), { recursive: true })
-    // A declared record can carry a long union or an inline object: format it as the project's
-    // own Prettier would, so a fresh scaffold passes its own format check.
-    await writeFile(target, await formatGeneratedSource(module.source, target), 'utf8')
-    written.push(module)
+  resource: string,
+): Promise<{ written: AppResourceModule[]; kept: string[]; reason?: string }> {
+  const result = { written: [], kept: [] }
+  const module = planAppResourceModules(registry, declared).find(
+    (item) => item.resource === resource,
+  )
+  if (!module) {
+    return { ...result, reason: `no app resource client available for ${resource}` }
   }
-  if (written.length === 0) return written
-  for (const workspace of new Set(declared.map((item) => item.workspace))) {
-    const router = join(projectRoot, workspace, 'src', 'App', 'router.ts')
-    if (!existsSync(router)) continue
-    let source = await readFile(router, 'utf8')
-    for (const module of written) {
-      const note = `//     app module: ${module.path} (${module.exportName}: ${module.operations
-        .map((operation) => operation.replace(/\(.*$/, ''))
-        .filter((operation, index, all) => all.indexOf(operation) === index)
-        .join(', ')})`
-      if (source.includes(note)) continue
-      source = source.replace(mountLine(module.resource), (line) => `${line}\n${note}`)
+  if (!(await factoryIsDeclared(projectRoot, registry, declared))) {
+    return {
+      ...result,
+      reason: 'the declared resource factory version does not support generated modules',
     }
-    await writeFile(router, source, 'utf8')
   }
-  return written
+  const target = join(projectRoot, module.path)
+  if (existsSync(target)) return { ...result, kept: [module.path] }
+  const source = await formatGeneratedSource(module.source, target)
+  await mkdir(dirname(target), { recursive: true })
+  try {
+    await writeFile(target, source, { flag: 'wx' })
+  } catch (error) {
+    if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error
+    return { ...result, kept: [module.path] }
+  }
+  return { ...result, written: [module] }
 }

@@ -1235,54 +1235,15 @@ describe('synthesizeAppProjectFiles', () => {
     conflicts: [],
   })
 
-  it('generates service-worker.ts when @molecule/app-version is included', () => {
-    const plans = [makePlan('@molecule/app-version')]
-    const molecules = ['@molecule/app-version']
-
-    const files = synthesizeAppProjectFiles(plans, molecules, '/tmp/test-app', registryPackages)
-
-    const swFile = files.find((f) => f.targetPath.endsWith('service-worker.ts'))
-    expect(swFile).toBeDefined()
-    expect(swFile!.content).toContain('precacheAndRoute')
-    expect(swFile!.content).toContain('SKIP_WAITING')
-    expect(swFile!.content).toContain("createHandlerBoundToURL('/index.html')")
-  })
-
-  it('does not generate service-worker.ts without @molecule/app-version', () => {
-    const plans = [makePlan('@molecule/app-auth')]
-    const molecules = ['@molecule/app-auth']
-
-    const files = synthesizeAppProjectFiles(plans, molecules, '/tmp/test-app', registryPackages)
-
-    const swFile = files.find((f) => f.targetPath.endsWith('service-worker.ts'))
-    expect(swFile).toBeUndefined()
-  })
-
-  it('includes push notification handlers when @molecule/app-push is included', () => {
-    const plans = [makePlan('@molecule/app-version'), makePlan('@molecule/app-push')]
-    const molecules = ['@molecule/app-version', '@molecule/app-push']
-
-    const files = synthesizeAppProjectFiles(plans, molecules, '/tmp/test-app', registryPackages)
-
-    const swFile = files.find((f) => f.targetPath.endsWith('service-worker.ts'))
-    expect(swFile).toBeDefined()
-    expect(swFile!.content).toContain("addEventListener('push'")
-    expect(swFile!.content).toContain('showNotification')
-    expect(swFile!.content).toContain('onnotificationclick')
-    expect(swFile!.content).toContain("case 'WINDOW_FOCUSED':")
-  })
-
-  it('excludes push handlers when only version is included', () => {
-    const plans = [makePlan('@molecule/app-version')]
-    const molecules = ['@molecule/app-version']
-
-    const files = synthesizeAppProjectFiles(plans, molecules, '/tmp/test-app', registryPackages)
-
-    const swFile = files.find((f) => f.targetPath.endsWith('service-worker.ts'))
-    expect(swFile).toBeDefined()
-    expect(swFile!.content).not.toContain("addEventListener('push'")
-    expect(swFile!.content).not.toContain('showNotification')
-    expect(swFile!.content).not.toContain("case 'WINDOW_FOCUSED':")
+  it('leaves service-worker generation to the app build even when push is selected', () => {
+    const packages = ['@molecule/app-version', '@molecule/app-push']
+    const files = synthesizeAppProjectFiles(
+      packages.map((name) => makePlan(name)),
+      packages,
+      '/tmp/test-app',
+      registryPackages,
+    )
+    expect(files.some(({ targetPath }) => targetPath.endsWith('service-worker.ts'))).toBe(false)
   })
 
   it('always generates bonds/index.ts', () => {

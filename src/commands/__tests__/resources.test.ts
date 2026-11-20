@@ -1,5 +1,5 @@
 /**
- * `mlcl resources --contract <file>`: the app's resource modules from the contract it serves.
+ * The `mlcl resources` command writes clients for packages or a contract.
  * The generator has its own tests (`lib/__tests__/contract-resource-modules.test.ts`); this runs
  * the command any harness calls.
  */
@@ -98,6 +98,33 @@ describe('mlcl resources', () => {
 
   it('fails, and writes nothing, when the project has no such contract', async () => {
     await expect(run('--contract', 'specs/missing.yml')).rejects.toThrow()
+    expect(existsSync(join(dir, 'app/src/resources'))).toBe(false)
+  })
+
+  it('generates only the requested declared package and preserves the client on reruns', async () => {
+    const project = '@molecule/api-resource-project'
+    const article = '@molecule/api-resource-article'
+    writeFileSync(
+      join(dir, 'api/package.json'),
+      JSON.stringify({ dependencies: { [project]: '1.0.0', [article]: '1.0.0' } }),
+    )
+    const args = ['--package', project, '--json']
+    const report = JSON.parse((await run(...args)).join('\n'))
+    expect(report.written).toEqual([
+      expect.objectContaining({ path: 'app/src/resources/projects.ts', export: 'useProjects' }),
+    ])
+    expect(existsSync(join(dir, 'app/src/resources/articles.ts'))).toBe(false)
+
+    const path = join(dir, report.written[0].path)
+    writeFileSync(path, 'export const edited = true\n')
+    const again = JSON.parse((await run(...args)).join('\n'))
+    expect(again.written).toEqual([])
+    expect(again.kept).toEqual(['app/src/resources/projects.ts'])
+    expect(readFileSync(path, 'utf8')).toBe('export const edited = true\n')
+  })
+
+  it('refuses an undeclared resource package without writing a client', async () => {
+    await expect(run('--package', '@molecule/api-resource-project')).rejects.toThrow()
     expect(existsSync(join(dir, 'app/src/resources'))).toBe(false)
   })
 })

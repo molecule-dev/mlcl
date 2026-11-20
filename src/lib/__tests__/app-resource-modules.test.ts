@@ -12,7 +12,9 @@ import {
   planAppResourceModules,
   resourceCollection,
   resourceRecordName,
+  writeAppResourceModule,
 } from '../app-resource-modules.js'
+import { readDeclaredPackages } from '../capability-map.js'
 import { GENERATED_ROUTER_MARKER } from '../injector.js'
 import { getRawRegistry } from '../registry.js'
 import { scanResponseRecord } from '../response-record.js'
@@ -66,12 +68,24 @@ async function project(api: string[], app: string[], queryVersion = SINCE): Prom
   )
 }
 const read = (path: string): Promise<string> => readFile(join(root, path), 'utf8')
+const generate = async (resource: string): ReturnType<typeof writeAppResourceModule> =>
+  writeAppResourceModule(root, registry, await readDeclaredPackages(root), resource)
 
-describe('app modules for declared API resources, written by the create step', () => {
-  it('writes one typed module per plain collection and names it where the builder reads', async () => {
+describe('on-demand app clients for declared API resources', () => {
+  it('scaffolds client commands without writing unused runtime source', async () => {
     await project([ARTICLE, PROJECT, COMMENT], [QUERY, HTTP])
     await ensureAgentsMd(root)
+    expect(existsSync(join(root, 'app/src/resources'))).toBe(false)
+    const guide = await read('AGENTS.md')
+    expect(guide).toContain(`npx mlcl resources --package ${ARTICLE}`)
+    expect(guide).toContain(`npx mlcl resources --package ${PROJECT}`)
+    expect(guide).not.toContain(`npx mlcl resources --package ${COMMENT}`)
+  })
 
+  it('writes a typed client only for the selected API collection', async () => {
+    await project([ARTICLE, PROJECT, COMMENT], [QUERY, HTTP])
+    await generate(ARTICLE)
+    expect(existsSync(join(root, 'app/src/resources/projects.ts'))).toBe(false)
     const articles = await read('app/src/resources/articles.ts')
     expect(articles).toContain(
       "import { createQueryResource, useQuery } from '@molecule/app-query-react'",
@@ -93,6 +107,7 @@ describe('app modules for declared API resources, written by the create step', (
     expect(articles).toContain('call this setter from a queued commit')
 
     // A non-benchmark resource: projects are addressed by id and updated with PATCH.
+    await generate(PROJECT)
     const projects = await read('app/src/resources/projects.ts')
     expect(projects).toContain('const projects = scopeResource((_viewer) =>')
     expect(projects).toContain('createQueryResource<Project>({')
@@ -100,23 +115,8 @@ describe('app modules for declared API resources, written by the create step', (
     expect(projects).not.toContain("  id: '")
 
     // Comments hang under another record: not a plain collection, so no module.
+    expect((await generate(COMMENT)).reason).toContain('no app resource client available')
     expect(existsSync(join(root, 'app/src/resources/comments.ts'))).toBe(false)
-
-    const router = await read('api/src/App/router.ts')
-    expect(router).toContain(
-      `//   ${ARTICLE} (article): GET /somewhere\n//     app module: app/src/resources/articles.ts (articles: list, detail, create, update, remove, toggle)`,
-    )
-    expect(router).toContain('//     app module: app/src/resources/projects.ts (projects: ')
-    expect(router).toContain(`${GENERATED_ROUTER_MARKER}\n`)
-
-    const app = await read('app/src/App.tsx')
-    expect(app).toContain('Resource module, already written')
-    expect(app).toContain('app/src/resources/articles.ts')
-    expect(app.endsWith('export const App = () => <main>Desk</main>\n')).toBe(true)
-    const agents = await read('AGENTS.md')
-    expect(agents).toContain('`app/src/resources/projects.ts`')
-    expect(agents).toContain('`useProjects`, `useProject`, `createProject`, `updateProject`')
-    expect(app).toContain('useProjects, useProject, createProject, updateProject')
   })
 
   it('never rewrites a module the app already has, and is stable on a second run', async () => {
@@ -124,15 +124,15 @@ describe('app modules for declared API resources, written by the create step', (
     await mkdir(join(root, 'app/src/resources'), { recursive: true })
     const mine = "export const articles = 'this app serves articles its own way'\n"
     await writeFile(join(root, 'app/src/resources/articles.ts'), mine)
-    await ensureAgentsMd(root)
+    expect((await generate(ARTICLE)).kept).toEqual(['app/src/resources/articles.ts'])
+    await generate(PROJECT)
     expect(await read('app/src/resources/articles.ts')).toBe(mine)
     expect(existsSync(join(root, 'app/src/resources/projects.ts'))).toBe(true)
-    // The app's own module was not written by this run, so the router does not claim it.
     expect(await read('api/src/App/router.ts')).not.toContain('resources/articles.ts')
 
     await writeFile(join(root, 'app/src/resources/projects.ts'), '// customised\n')
     const router = await read('api/src/App/router.ts')
-    await ensureAgentsMd(root)
+    await generate(PROJECT)
     expect(await read('app/src/resources/projects.ts')).toBe('// customised\n')
     expect(await read('app/src/resources/articles.ts')).toBe(mine)
     expect(await read('api/src/App/router.ts')).toBe(router)
@@ -146,7 +146,7 @@ describe('app modules for declared API resources, written by the create step', (
     ['workspace:*', true],
   ])('follows the declared factory version %s (written: %s)', async (version, expected) => {
     await project([ARTICLE], [QUERY, HTTP], version)
-    await ensureAgentsMd(root)
+    await generate(ARTICLE)
     expect(existsSync(join(root, 'app/src/resources/articles.ts'))).toBe(expected)
   })
 
