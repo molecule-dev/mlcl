@@ -48,6 +48,12 @@
  *       → check only the given package paths (registry-relative `entry.path`);
  *         fast + concurrency-safe — used by molecule's pre-commit hook, which
  *         passes only the packages whose `src/` it is committing.
+ *   node scripts/check-registry-exports.mjs --fallback-registry=<path> <package paths>…
+ *       → a package also passes when its entry in <path> agrees with its source. The hook
+ *         passes mlcl HEAD's registry: the working-tree registry is shared, and another
+ *         session's uncommitted entry for the same package refused a commit that changed none
+ *         of its exports (2026-11-20, app-ui-react). A package neither registry agrees with
+ *         is still refused.
  *
  * Runs via tsx against mlcl SOURCE (not dist), so it needs no build — the
  * scanner/registry subgraph imports zero @molecule/* packages, which matters
@@ -96,7 +102,20 @@ const entries = { ...(registry.pendingPackages ?? {}), ...registry.packages }
 
 // Optional positional args scope the check to specific packages (registry-relative
 // paths). Normalize trailing slashes so `packages/x/` and `packages/x` both match.
-const scopePaths = new Set(process.argv.slice(2).map((p) => p.replace(/\/+$/, '')))
+const args = process.argv.slice(2)
+const fallbackPath = args
+  .find((a) => a.startsWith('--fallback-registry='))
+  ?.slice('--fallback-registry='.length)
+// The fallback registry's entries, read the same way (a pending package counts as registered).
+const fallbackEntries = fallbackPath
+  ? (() => {
+      const raw = JSON.parse(readFileSync(fallbackPath, 'utf8'))
+      return { ...(raw.pendingPackages ?? {}), ...raw.packages }
+    })()
+  : null
+const scopePaths = new Set(
+  args.filter((a) => !a.startsWith('--')).map((p) => p.replace(/\/+$/, '')),
+)
 
 // Compare source packages TO the registry before iterating registry entries.
 // Otherwise an omitted package is never visited and even an explicitly scoped
@@ -116,9 +135,10 @@ for (const path of packagePaths) {
   // A private package (a workspace-only test kit) is never published, so mlcl
   // can never install it and the registry must not list it.
   if (isPrivate === true) continue
-  const registeredPath = entries[name]?.path
-  if (!registeredPath || join(moleculeDir, registeredPath) !== join(moleculeDir, path))
-    unregistered.push({ name, path, registeredPath })
+  const registeredAt = (map) =>
+    Boolean(map?.[name]?.path) && join(moleculeDir, map[name].path) === join(moleculeDir, path)
+  if (!registeredAt(entries) && !registeredAt(fallbackEntries))
+    unregistered.push({ name, path, registeredPath: entries[name]?.path })
 }
 
 const drifted = []
@@ -161,26 +181,31 @@ for (let grew = reexported.size > 0; grew;) {
   }
 }
 
-for (const [name, entry] of Object.entries(entries)) {
-  if (scopePaths.size > 0 && !checkPaths.has(entry.path.replace(/\/+$/, ''))) continue
-
+/**
+ * One package's drift against one registry entry, pushed onto `sink`'s lists.
+ *
+ * @param {string} name - The package name.
+ * @param {object} entry - Its registry entry.
+ * @param {Record<string, object[]>} sink - The drift lists to push onto.
+ * @returns {Promise<boolean>} False when the package has no scannable `src/` (skipped, as
+ *   refreshExports skips it).
+ */
+async function checkEntry(name, entry, sink) {
   const srcPath = join(moleculeDir, entry.path, 'src')
   let scanned
   try {
     scanned = await scanExports(srcPath, packageSrc)
   } catch (_error) {
     // No src/ dir (or scan failed) — same as refreshExports, which skips these.
-    skipped++
-    continue
+    return false
   }
-  checked++
 
   const have = [...(entry.exports ?? [])].sort()
   const want = [...scanned].sort()
   if (JSON.stringify(have) !== JSON.stringify(want)) {
     const missing = want.filter((x) => !have.includes(x))
     const extra = have.filter((x) => !want.includes(x))
-    drifted.push({ name, missing, extra })
+    sink.drifted.push({ name, missing, extra })
   }
 
   // Required @molecule peers, by sync-registry's own rule (refreshExports: non-optional @molecule/*
@@ -202,14 +227,14 @@ for (const [name, entry] of Object.entries(entries)) {
         .sort()
       const havePeers = Array.isArray(entry.moleculePeers) ? [...entry.moleculePeers].sort() : null
       if (JSON.stringify(havePeers) !== JSON.stringify(wantPeers))
-        peersDrifted.push({ name, have: havePeers, want: wantPeers })
+        sink.peersDrifted.push({ name, have: havePeers, want: wantPeers })
       // The description, by sync-registry's own rule: the manifest's text when it has one.
       if (
         typeof manifest.description === 'string' &&
         manifest.description.trim() !== '' &&
         entry.description !== manifest.description
       )
-        descriptionsDrifted.push({ name, have: entry.description, want: manifest.description })
+        sink.descriptionsDrifted.push({ name, have: entry.description, want: manifest.description })
     }
   }
 
@@ -218,7 +243,7 @@ for (const [name, entry] of Object.entries(entries)) {
   if (ROUTE_SCANNED_TYPES.has(entry.type) && existsSync(srcPath)) {
     const scannedRoutes = await scanForRoutes(srcPath)
     if (routesSignature(entry.routes) !== routesSignature(scannedRoutes)) {
-      routeDrifted.push({ name, have: entry.routes?.length ?? 0, want: scannedRoutes.length })
+      sink.routeDrifted.push({ name, have: entry.routes?.length ?? 0, want: scannedRoutes.length })
     }
   }
 
@@ -240,7 +265,7 @@ for (const [name, entry] of Object.entries(entries)) {
       const changed = [...new Set([...have.keys(), ...want.keys()])].filter(
         (field) => have.get(field) !== want.get(field),
       )
-      recordDrifted.push({
+      sink.recordDrifted.push({
         name,
         record: scannedRecord?.name ?? haveRecord?.name ?? recordName,
         changed: changed.map(
@@ -257,7 +282,7 @@ for (const [name, entry] of Object.entries(entries)) {
   if (bondSetterNames.has(name) && existsSync(srcPath)) {
     const scannedSetter = await scanBondSetter(srcPath, scanned)
     const have = entry.bondSetter ?? null
-    if (have !== scannedSetter) setterDrifted.push({ name, have, want: scannedSetter })
+    if (have !== scannedSetter) sink.setterDrifted.push({ name, have, want: scannedSetter })
   }
 
   // declarations — same scope and scan as sync-registry's refreshExports. A changed type a
@@ -271,8 +296,52 @@ for (const [name, entry] of Object.entries(entries)) {
     const stale = [...new Set([...Object.keys(have), ...Object.keys(want)])].filter(
       (n) => have[n] !== want[n],
     )
-    if (unresolved.length || stale.length) declarationsDrifted.push({ name, unresolved, stale })
+    if (unresolved.length || stale.length)
+      sink.declarationsDrifted.push({ name, unresolved, stale })
   }
+  return true
+}
+
+const DRIFT_LISTS = [
+  'drifted',
+  'routeDrifted',
+  'setterDrifted',
+  'peersDrifted',
+  'descriptionsDrifted',
+  'recordDrifted',
+  'declarationsDrifted',
+]
+const newSink = () => Object.fromEntries(DRIFT_LISTS.map((list) => [list, []]))
+const drifts = (sink) => DRIFT_LISTS.some((list) => sink[list].length > 0)
+const totals = {
+  drifted,
+  routeDrifted,
+  setterDrifted,
+  peersDrifted,
+  descriptionsDrifted,
+  recordDrifted,
+  declarationsDrifted,
+}
+// Packages whose entry only the fallback registry agrees with.
+const pairedWithFallback = []
+for (const [name, entry] of Object.entries(entries)) {
+  if (scopePaths.size > 0 && !checkPaths.has(entry.path.replace(/\/+$/, ''))) continue
+  const sink = newSink()
+  if (!(await checkEntry(name, entry, sink))) {
+    skipped++
+    continue
+  }
+  checked++
+  const fallback = fallbackEntries?.[name]
+  if (drifts(sink) && fallback?.path === entry.path) {
+    const again = newSink()
+    await checkEntry(name, fallback, again)
+    if (!drifts(again)) {
+      pairedWithFallback.push(name)
+      continue
+    }
+  }
+  for (const list of DRIFT_LISTS) totals[list].push(...sink[list])
 }
 
 if (unregistered.length > 0) {
@@ -393,6 +462,10 @@ if (
   process.exit(1)
 }
 
+if (pairedWithFallback.length > 0)
+  console.log(
+    `ℹ ${pairedWithFallback.join(', ')}: in sync with ${fallbackPath}, not ${registryPath}, whose entry carries a change no commit has made yet`,
+  )
 const scope = scopePaths.size > 0 ? `${checked} scoped` : `${checked}`
 console.log(
   `✓ registry exports + routes + bond setters + bond-file declarations + required peers + descriptions + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
