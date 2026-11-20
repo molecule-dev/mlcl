@@ -1,6 +1,6 @@
 import { expect, test } from '@molecule/app-e2e-fixtures-default'
 
-import { APP_BASE, login, signup, uniqueEmail } from './_helpers.js'
+import { APP_BASE, login, logout, signup, uniqueEmail } from './_helpers.js'
 
 test.describe('auth', () => {
   test('signup creates a session and lands on an authenticated page', async ({ page }) => {
@@ -92,5 +92,20 @@ test.describe('auth', () => {
     await expect(page).toHaveURL(/\/login/, { timeout: 10_000 })
     await login(page, email, password)
     await expect(page).not.toHaveURL(/\/login|\/signup/)
+  })
+
+  test('sign-in returns to the requested orders query and fragment', async ({ page }) => {
+    const { email, password } = await signup(page, uniqueEmail('fd-return'))
+    await page.goto(APP_BASE + '/restaurants')
+    await logout(page)
+
+    const target = APP_BASE + '/orders?page=2#history'
+    await page.goto(target)
+    await expect(page).toHaveURL(APP_BASE + '/login')
+
+    await page.locator('#email').fill(email)
+    await page.locator('#password').fill(password)
+    await page.locator('button[type="submit"]').click()
+    await expect(page).toHaveURL(target)
   })
 })

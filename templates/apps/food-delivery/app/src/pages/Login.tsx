@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Link, useLocation, useNavigate } from 'react-router'
+import { Link, type Path, useLocation, useNavigate } from 'react-router'
 
 import { useAuthFormState } from '@molecule/app-auth-shell-react'
 import { useLogin, useTranslation } from '@molecule/app-react'
@@ -17,7 +17,7 @@ export function Login() {
   const { t } = useTranslation()
   const navigate = useNavigate()
   const location = useLocation()
-  const from = (location.state as { from?: { pathname: string } })?.from?.pathname || '/restaurants'
+  const from = (location.state as { from?: Path } | null)?.from
   const { status, error, login } = useLogin()
   // Cross-view auth form persistence (email shared across Login/Signup/
   // Forgot/Reset, cleared on success) via the shared @molecule hook.
@@ -38,7 +38,7 @@ export function Login() {
     try {
       await login({ email, password })
       clearAuthForm()
-      navigate(from, { replace: true })
+      navigate(from?.pathname ? from : '/restaurants', { replace: true })
     } catch (_error) {
       // Error state is tracked inside the useLogin hook
     }
