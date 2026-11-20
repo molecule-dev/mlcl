@@ -26,6 +26,7 @@
     "@molecule/app-auth": "3.6.0",
     "@molecule/app-auth-shell-react": "4.0.3",
     "@molecule/app-auth-ui-react": "4.0.1",
+    "@molecule/app-bond": "1.0.5",
     "@molecule/app-bonds-default-react": "3.1.0",
     "@molecule/app-clipboard": "1.0.5",
     "@molecule/app-clipboard-web": "1.0.2",
