@@ -1,3 +1,4 @@
+import { existsSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
@@ -25,6 +26,18 @@ beforeAll(async () => {
 })
 
 afterAll(async () => rm(root, { recursive: true, force: true }))
+
+// The bundles below resolve the scaffold's imports from mlcl's own install. A build dependency
+// the Tailwind tooling declares but mlcl does not install resolved only in the workspace, through
+// its hoisted copy, and failed in CI and the release's suite as an unresolved import inside the
+// Vite build (`@tailwindcss/typography`, 2026-11-20).
+it('installs every build dependency the Tailwind scaffold declares', () => {
+  const styling = getRawRegistry().packages?.['@molecule/app-styling-tailwind']?.buildTooling
+  const declared = Object.keys(styling?.devDependencies ?? {})
+  expect(declared.length).toBeGreaterThan(0)
+  const missing = declared.filter((name) => !existsSync(join(nodeModules, name, 'package.json')))
+  expect(missing, "add them to mlcl's devDependencies").toEqual([])
+})
 
 async function scaffoldCustom(app: string): Promise<void> {
   const styling = getRawRegistry().packages?.['@molecule/app-styling-tailwind']?.buildTooling

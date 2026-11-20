@@ -4955,6 +4955,39 @@ export function buildExtraUiSourceScans(selectedPackages: string[], nmPrefix: st
   return scans.length > 0 ? '\n' + scans.join('\n') : ''
 }
 
+/** Stands in for an empty font block until {@link dropEmptyFontLinksLine} removes its line. */
+const EMPTY_FONT_LINKS = '<!-- mol:font-links-empty -->'
+
+/**
+ * The `{{FONT_LINKS}}` value for an entry document template.
+ *
+ * `index.html.tpl` and `app.html.tpl` put the placeholder on a line of its own,
+ * indented like the `<head>` children around it, and {@link generateFontHtml}
+ * indents every line of its block, the first included. Substituted as given, the
+ * opening `<!-- mol:fonts -->` sat 8 spaces deep and `prettier --write` rewrote
+ * every new app's entry document. The asset sync used to hide that by rewriting
+ * the whole block, until it stopped touching a project with no installed font
+ * package, which is every `--skip-install` create (2026-11-20). The template's
+ * line supplies the first line's indentation, so it is dropped here.
+ *
+ * @param fontLinks - The font block as {@link generateFontHtml} renders it, or ''.
+ * @returns The value to substitute; a marker {@link dropEmptyFontLinksLine} removes when empty.
+ */
+function entryDocumentFontLinks(fontLinks: string): string {
+  return fontLinks.replace(/^[ \t]+/, '') || EMPTY_FONT_LINKS
+}
+
+/**
+ * Remove the placeholder's line when there is no font block, rather than leave
+ * a whitespace-only line that prettier would rewrite.
+ *
+ * @param document - The entry document with `{{FONT_LINKS}}` substituted.
+ * @returns The document without the empty placeholder's line.
+ */
+function dropEmptyFontLinksLine(document: string): string {
+  return document.replace(/^[ \t]*<!-- mol:font-links-empty -->\n/m, '')
+}
+
 /**
  * Create an App project skeleton (Vite frontend).
  *
@@ -5228,7 +5261,7 @@ export async function createAppProject(
   // index.html / app.html
   const htmlVars = {
     PROJECT_NAME: projectName,
-    FONT_LINKS: fontLinks,
+    FONT_LINKS: entryDocumentFontLinks(fontLinks),
     APP_DESCRIPTION: 'Built with Molecule.dev',
     BRAND_COLOR: '#4070e0',
   }
@@ -5238,17 +5271,19 @@ export async function createAppProject(
     // reads no svelte.config.js.
     await writeFile(
       join(projectPath, 'src', htmlFile),
-      await loadTemplate('app/shared/app.html.tpl', htmlVars),
+      dropEmptyFontLinksLine(await loadTemplate('app/shared/app.html.tpl', htmlVars)),
     )
   } else {
     // Standard Vite: index.html at project root
     await writeFile(
       join(projectPath, htmlFile),
-      await loadTemplate('app/shared/index.html.tpl', {
-        ...htmlVars,
-        MAIN_ENTRY: `/${mainEntry}`,
-        ROOT_ELEMENT: fwConfig.htmlRootElement ?? '<div id="root"></div>',
-      }),
+      dropEmptyFontLinksLine(
+        await loadTemplate('app/shared/index.html.tpl', {
+          ...htmlVars,
+          MAIN_ENTRY: `/${mainEntry}`,
+          ROOT_ELEMENT: fwConfig.htmlRootElement ?? '<div id="root"></div>',
+        }),
+      ),
     )
   }
 

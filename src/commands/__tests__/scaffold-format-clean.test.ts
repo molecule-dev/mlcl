@@ -24,7 +24,7 @@ import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { unformattedGeneratedFiles } from '../../lib/format.js'
-import { ensureRootFormatterConfig } from '../../lib/scaffold.js'
+import { createAppProject, ensureRootFormatterConfig } from '../../lib/scaffold.js'
 import Create from '../create.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
@@ -103,6 +103,25 @@ describe('a multi-package root formats like its packages', () => {
     await ensureRootFormatterConfig(root)
     expect(await readFile(join(root, '.prettierrc'), 'utf8')).toBe('{ "semi": true }\n')
     expect(await readFile(join(root, '.prettierignore'), 'utf8')).toContain('node_modules/')
+  })
+})
+
+describe('the entry document places the font block like its other <head> children', () => {
+  it('drops the placeholder line of an app created with no font block', async () => {
+    const app = join(dir, 'no-fonts')
+    await createAppProject(app, 'no-fonts', 'react', false, '')
+    const html = await readFile(join(app, 'index.html'), 'utf8')
+    expect(html).not.toMatch(/^[ \t]+$/m)
+    expect(html).not.toMatch(/FONT_LINKS|mol:font-links-empty/)
+    expect(html).toContain('    <!-- /mol:design-resources -->\n    <link rel="apple-touch-icon"')
+  })
+
+  it('indents the opening marker of a supplied font block like the lines around it', async () => {
+    const app = join(dir, 'with-fonts')
+    const block = '    <!-- mol:fonts -->\n    <style></style>\n    <!-- /mol:fonts -->'
+    await createAppProject(app, 'with-fonts', 'react', false, block)
+    const html = await readFile(join(app, 'index.html'), 'utf8')
+    expect(html).toContain(`    <!-- /mol:design-resources -->\n${block}\n    <link`)
   })
 })
 

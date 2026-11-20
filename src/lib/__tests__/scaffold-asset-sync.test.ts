@@ -460,6 +460,11 @@ describe('syncProjectAssets reports a document it cannot place the block in', ()
       join(projectDir, 'package.json'),
       JSON.stringify({ name: 'bare-app', dependencies: { '@molecule/app-fonts-inter': '1.0.0' } }),
     )
+    // The app's own install supplies the declared font. Without it the case passed only where
+    // mlcl's module resolution reached the package (the workspace's hoisted install). mlcl's own
+    // install (CI, the release's suite) does not hold it, so every face was missing, the family
+    // was dropped and there was no block to place (2026-11-20).
+    installFontFixture(projectDir, '@molecule/app-fonts-inter')
     // No mol:fonts marker and no apple-touch-icon link.
     writeFileSync(
       join(projectDir, 'index.html'),
