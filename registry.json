@@ -81709,6 +81709,7 @@
       "exports": [
         "BrowserRouterConfig",
         "ConsumedSearchParam",
+        "DEFAULT_SIGN_IN_PATH",
         "GuardResult",
         "HISTORY_STATE_VALUE_KEY",
         "HistoryRouterOptions",
@@ -81726,6 +81727,7 @@
         "NavigationAction",
         "NavigationGuard",
         "QueryParams",
+        "RedirectSignedOutRejectionsOptions",
         "RouteChangeListener",
         "RouteDefinition",
         "RouteLocation",
@@ -81737,6 +81739,11 @@
         "RouterConfig",
         "RouterHistory",
         "RouterLinkOptions",
+        "SignInRequiredHttpSource",
+        "SignInRequiredRequest",
+        "SignInRequiredSessionSource",
+        "SignInRequiredSessionState",
+        "SignInRequiredSources",
         "createBrowserRouter",
         "createConsumedSearchParam",
         "createHistoryRouter",
@@ -81750,18 +81757,21 @@
         "getQuery",
         "getRouter",
         "isRouterLinkClick",
+        "isSignInPathname",
         "listRouteRedirect",
         "matchPath",
         "matchRoutePattern",
         "navigate",
         "parseLocation",
         "parseQuery",
+        "redirectSignedOutRejections",
         "resolveLinkPath",
         "resolveListRoute",
         "routerLinkHref",
         "setRouter",
         "stringifyQuery",
-        "toHistoryStateRecord"
+        "toHistoryStateRecord",
+        "watchSignedOutRejection"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -81857,11 +81867,13 @@
         "@angular/core",
         "@angular/router",
         "@molecule/app-angular",
+        "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing"
       ],
       "moleculePeers": [
         "@molecule/app-angular",
+        "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing"
       ],
@@ -82165,12 +82177,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing",
         "@solidjs/router",
         "solid-js"
       ],
       "moleculePeers": [
+        "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing"
       ],
@@ -82213,6 +82227,18 @@
         "KitPage",
         "KitPageState",
         "KitUrl",
+        "ListRouteAuth",
+        "ListRouteChange",
+        "ListRouteFilter",
+        "ListRouteNav",
+        "ListRouteNavItem",
+        "ListRouteNavItemState",
+        "ListRouteNavProps",
+        "ListRouteOptions",
+        "ListRouteResult",
+        "ListRouteSelection",
+        "MoleculeRouterProvider",
+        "MoleculeRouterProviderProps",
         "NavigateOptions",
         "NavigationGuard",
         "QueryParams",
@@ -82226,17 +82252,28 @@
         "SvelteKitExports",
         "SvelteKitNavigation",
         "SvelteKitRouterOptions",
+        "UseConsumedSearchParamStore",
+        "UseListRouteResult",
         "createSvelteKitNavigation",
         "createSvelteKitRouter",
-        "provider"
+        "provider",
+        "useConsumedSearchParam",
+        "useIsActive",
+        "useListRoute",
+        "useMoleculeNavigate",
+        "useMoleculeQuery",
+        "useMoleculeRouter"
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing",
-        "@sveltejs/kit"
+        "@sveltejs/kit",
+        "svelte"
       ],
       "moleculePeers": [
+        "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing"
       ],
@@ -82324,12 +82361,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing",
         "vue",
         "vue-router"
       ],
       "moleculePeers": [
+        "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing"
       ],
