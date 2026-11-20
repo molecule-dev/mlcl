@@ -11,8 +11,7 @@ test.describe('Signup → feed', () => {
 
     // The feed must list at least one real sub in the side rail / chip rail.
     // The seed migration creates `general`. After signup, it should be visible.
-    const sidebarText = await page.locator('body').innerText()
-    expect(sidebarText.toLowerCase()).toContain('general')
+    await expect(page.locator('body')).toContainText(/general/i)
 
     // Confirm session persistence across reload — still on /feed, not bounced.
     await page.reload()
