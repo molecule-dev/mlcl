@@ -231,6 +231,9 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
   it('serves the next document from the worker after the entry is replaced', async () => {
     await withApp((root, page) =>
       withPreview(root, async (url) => {
+        const workerFiles = (await readdir(join(root, 'dist'))).filter((name) =>
+          name.startsWith('workbox-'),
+        )
         const navigations: string[] = []
         page.on('framenavigated', (frame) => navigations.push(frame.url()))
         await page.goto(url)
@@ -239,6 +242,7 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
         const response = await page.goto(`${url}/equipment/calibration`)
         expect(response?.fromServiceWorker()).toBe(true)
         expect(await page.locator('#root').textContent()).toBe('Equipment console')
+        expect(workerFiles).toEqual([])
       }),
     )
   })

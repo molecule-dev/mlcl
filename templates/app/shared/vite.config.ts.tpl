@@ -140,6 +140,8 @@ const pwaOptions = {
     // sticks on "Updating…". Claim clients so activation drives the one reload in
     // registerPWA.
     clientsClaim: true,
+    // Install the worker without a serial Workbox runtime fetch on a cold visit.
+    inlineWorkboxRuntime: true,
     maximumFileSizeToCacheInBytes: 10 * 1024 * 1024,
     // Precache the SHELL only: the HTML, the entry JS/CSS and the icons.
     // Everything the router splits out (page and locale chunks) and the font
