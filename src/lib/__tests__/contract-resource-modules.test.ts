@@ -8,9 +8,10 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { basename, join } from 'node:path'
 
 import { createElement, type ReactNode } from 'react'
+import * as jsxRuntime from 'react/jsx-runtime'
 import { renderToStaticMarkup } from 'react-dom/server'
 import { compile as compileSvelte } from 'svelte/compiler'
 import ts from 'typescript'
@@ -52,6 +53,12 @@ const plan = async (name: string): Promise<ReturnType<typeof planContractResourc
     'app',
     'specs/openapi.yml',
   )
+
+function listExample(source: string): string | undefined {
+  return [...source.split('*/', 1)[0].matchAll(/\* ```tsx\n([\s\S]*?)\n \* ```/g)]
+    .map((match) => match[1].replace(/^ +\* ?/gm, ''))
+    .find((block) => block.includes('query={list}'))
+}
 
 /** The packages a P317 project declared: its API's resource packages and the app's query cache. */
 const P317_DECLARED = [
@@ -287,97 +294,107 @@ describe('an inventory API with its own contract', () => {
     }
   })
 
-  it('the generated list page shows an empty action only after the selected inventory loads', async () => {
-    const contract = JSON.parse(await fixture('inventory-openapi.json.txt'))
-    contract.paths['/items'].get.parameters = [
-      { name: 'limit', in: 'query', schema: { type: 'integer' } },
-      { name: 'offset', in: 'query', schema: { type: 'integer' } },
-    ]
-    const inventory = (view: boolean): string =>
-      planContractResourceModules(
-        contract,
-        factory,
-        QUERY,
-        'app',
-        'openapi.json',
-        factory.listRoute,
-        {
-          view,
-          toggle: false,
-        },
-      ).modules[0].source
-    const source = inventory(true)
-    const example = [...source.split('*/', 1)[0].matchAll(/\* ```tsx\n([\s\S]*?)\n \* ```/g)]
-      .map((match) => match[1].replace(/^ +\* ?/gm, ''))
-      .find((block) => block.includes('useItemsList()'))
-    expect(example, 'the resource supplies a copyable list rendering example').toBeDefined()
-    expect(inventory(false).split('*/', 1)[0]).not.toContain('QueryContent')
+  it.each(['array', 'page'] as const)(
+    'the generated list page renders one selected empty element for a loaded %s',
+    async (shape) => {
+      const contract = JSON.parse(await fixture('inventory-openapi.json.txt'))
+      const items = contract.paths['/items'].get
+      items.parameters = [
+        { name: 'limit', in: 'query', schema: { type: 'integer' } },
+        { name: 'offset', in: 'query', schema: { type: 'integer' } },
+      ]
+      if (shape === 'page') {
+        const response = items.responses['200'].content['application/json']
+        response.schema = {
+          type: 'object',
+          properties: {
+            'stock items': response.schema,
+            total: { type: 'integer' },
+          },
+          required: ['total'],
+        }
+      }
+      const inventory = (view: boolean): string =>
+        planContractResourceModules(
+          contract,
+          factory,
+          QUERY,
+          'app',
+          'openapi.json',
+          factory.listRoute,
+          {
+            view,
+            toggle: false,
+          },
+        ).modules[0].source
+      const example = listExample(inventory(true))
+      expect(example, 'the resource supplies a copyable list rendering example').toBeDefined()
+      expect(listExample(inventory(false))).toBeUndefined()
 
-    const { outputText } = ts.transpileModule(
-      `import * as React from 'react'
-       import { useItemsList } from './items.js'
-       ${example!
-         .split('\n')
-         .filter((line) => line.startsWith('import '))
-         .join('\n')}
-       export function Inventory({ empty, renderList }) {
-         ${example!
-           .split('\n')
-           .filter((line) => !line.startsWith('import '))
-           .join('\n')}
-       }`,
-      {
+      type Row = { sku: string }
+      type Result = Row[] | { 'stock items'?: Row[]; total: number }
+      const result = (rows: Row[]): Result =>
+        shape === 'array' ? rows : { 'stock items': rows, total: rows.length }
+      let query: { data?: Result; status: 'idle' | 'success'; isPreviousData?: boolean } = {
+        status: 'idle',
+      }
+      const { outputText } = ts.transpileModule(example!, {
         fileName: 'inventory.tsx',
-        compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.React },
-      },
-    )
-    type Row = { sku: string }
-    let query: { data?: Row[]; status: 'idle' | 'success'; isPreviousData?: boolean } = {
-      status: 'idle',
-    }
-    const modules = {
-      react: { createElement },
-      [QUERY]: { QueryContent },
-      './items.js': { useItemsList: () => query },
-    }
-    const exports = {} as {
-      Inventory: (props: {
-        empty: { when: (rows: Row[]) => boolean; render: () => ReactNode }
-        renderList: (rows: Row[]) => ReactNode
-      }) => ReactNode
-    }
-    new Function('require', 'exports', outputText)(
-      (name: keyof typeof modules) => modules[name],
-      exports,
-    )
-    const render = (): string =>
-      renderToStaticMarkup(
-        createElement(
-          'main',
+        compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
+      })
+      const modules = {
+        'react/jsx-runtime': jsxRuntime,
+        [QUERY]: { QueryContent },
+        './items.js': { useItemsList: () => query },
+      }
+      const exports = {} as {
+        ItemsResults: (props: {
+          emptyState: ReactNode
+          renderResults: (data: Result) => ReactNode
+        }) => ReactNode
+      }
+      const renderResults = (data: Result): ReactNode => {
+        const rows = Array.isArray(data) ? data : (data['stock items'] ?? [])
+        return createElement(
+          'ul',
           null,
-          createElement('nav', null, createElement('a', { href: '/inventory/new' }, 'New item')),
-          createElement(exports.Inventory, {
-            empty: {
-              when: (rows) => rows.length === 0,
-              render: () => createElement('a', { href: '/inventory/new' }, 'Add the first item'),
-            },
-            renderList: (rows) =>
-              createElement(
-                'ul',
-                null,
-                rows.map(({ sku }) => createElement('li', { key: sku }, sku)),
-              ),
-          }),
-        ),
+          rows.map(({ sku }) => createElement('li', { key: sku }, sku)),
+        )
+      }
+      new Function('require', 'exports', outputText)(
+        (name: keyof typeof modules) => modules[name],
+        exports,
       )
-    expect(render()).not.toContain('Add the first item')
-    query = { status: 'idle', data: [], isPreviousData: true }
-    expect(render()).not.toContain('Add the first item')
-    query = { status: 'success', data: [{ sku: 'bolt' }] }
-    expect(render()).toContain('<li>bolt</li>')
-    query = { status: 'success', data: [] }
-    expect(render()).toContain('Add the first item')
-  })
+      const render = (): string =>
+        renderToStaticMarkup(
+          createElement(
+            'main',
+            null,
+            createElement('nav', null, createElement('a', { href: '/inventory/new' }, 'New item')),
+            createElement(exports.ItemsResults, {
+              emptyState: createElement(
+                'section',
+                { className: 'warehouse-empty' },
+                createElement('a', { href: '/inventory/new' }, 'Add the first item'),
+              ),
+              renderResults,
+            }),
+          ),
+        )
+      expect(render()).not.toContain('Add the first item')
+      query = { status: 'idle', data: result([]), isPreviousData: true }
+      expect(render()).not.toContain('Add the first item')
+      query = { status: 'success', data: result([{ sku: 'bolt' }]) }
+      expect(render()).toContain('<li>bolt</li>')
+      expect(render()).not.toContain('warehouse-empty')
+      query = { status: 'success', data: shape === 'array' ? [] : { total: 0 } }
+      expect(render()).toContain(
+        '<section class="warehouse-empty"><a href="/inventory/new">Add the first item</a></section>',
+      )
+      expect(render().match(/warehouse-empty/g)).toHaveLength(1)
+      expect(render()).not.toContain('<ul>')
+    },
+  )
 
   it('named reads and writes preserve response shapes, bodies and shared cache refresh', async () => {
     const source = (await plan('inventory-openapi.json.txt')).modules[0].source
@@ -675,9 +692,15 @@ describe.each(FRAMEWORK_QUERIES)('every $query module type-checks', (framework) 
         listRoute,
         { view: true, toggle: true, auth: name === 'p317-supplied-openapi.yml.txt' },
       ).modules) {
-        const file = join(dir, `${module.exportName}.ts`)
+        const file = join(dir, basename(module.path))
         await writeFile(file, module.source)
         files.push(file)
+        const example = listExample(module.source)
+        if (example) {
+          const file = join(dir, `${module.exportName}-results.tsx`)
+          await writeFile(file, example)
+          files.push(file)
+        }
         if (module.view) {
           const result = compileSvelte(module.view.source, { filename: module.view.path })
           expect(result.warnings).toEqual([])
@@ -738,6 +761,11 @@ export async function use(slug: string): Promise<string[]> {
     const paths = Object.fromEntries(
       Object.entries(declarations).map(([name, file]): [string, string[]] => [name, [file]]),
     )
+    if (framework.framework === 'react') {
+      const runtime = typesEntry('react/jsx-runtime', framework.entry)
+      expect(runtime).toBeDefined()
+      paths['react/jsx-runtime'] = [runtime!]
+    }
     for (const file of files)
       for (const { fileName: name } of ts.preProcessFile(readFileSync(file, 'utf8'))
         .importedFiles) {

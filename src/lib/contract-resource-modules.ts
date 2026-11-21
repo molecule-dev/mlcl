@@ -532,8 +532,8 @@ export function planContractResourceModules(
     const pageExports: string[] = []
     const listHooks: string[] = []
     const listHookNames: string[] = []
-    const defaultListHooks: string[] = []
-    const unfilteredReads: ResourceHook[] = []
+    const defaultListHooks: { name: string; rowsKey: string | null }[] = []
+    const unfilteredReads: (ResourceHook & { rowsKey: string | null })[] = []
     const namedReads: ResourceHook[] = []
     const listPaths = [...(list && listAnswer ? [base] : []), ...(extraLists.get(base) ?? [])]
     const pathExpression = (path: string): string => {
@@ -589,8 +589,10 @@ export function planContractResourceModules(
       const resourceCall = `${exportName}(${['viewer', ...parentArgs].join(', ')})`
       const required = [...parameters.values()].some((parameter) => parameter.required === true)
       const hookName = `use${pascal(name)}${suffix}${pascal(name) === typeName && !suffix ? 'Collection' : ''}`
-      const hook: ResourceHook = {
+      const rowsKey = shape.extra ? shape.key : null
+      const hook: (typeof unfilteredReads)[number] = {
         name: hookName,
+        rowsKey,
         args: [
           ...parentArgs.map((name) => ({ name, type: 'string | null' })),
           { name: 'params', type: `${paramsType} | null`, ...(required ? {} : { default: '{}' }) },
@@ -636,7 +638,8 @@ export function planContractResourceModules(
         )
         const hookName = `use${pascal(name)}${suffix}List`
         listHookNames.push(hookName)
-        if (!remainingRequired && parentArgs.length === 0) defaultListHooks.push(hookName)
+        if (!remainingRequired && parentArgs.length === 0)
+          defaultListHooks.push({ name: hookName, rowsKey })
         const defaultLimit = numeric('limit')!.default
         const limit =
           Number.isSafeInteger(defaultLimit) && Number(defaultLimit) > 0
@@ -894,7 +897,7 @@ export function planContractResourceModules(
     const listDoc = listHooks.length
       ? ` * For URL-selected lists, use ${listHookNames.map((hook) => `\`${hook}\``).join(', ')} to read paging and filters from the route.\n` +
         (defaultListHooks.length
-          ? ` * In a page component, call the hook for its endpoint. A URL without filters still loads rows.\n${defaultListHooks.map((hook) => ` * \`\`\`ts\n * const list = ${hook}()\n * \`\`\`\n`).join('')}`
+          ? ` * In a page component, call the hook for its endpoint. A URL without filters still loads rows.\n${defaultListHooks.map(({ name }) => ` * \`\`\`ts\n * const list = ${name}()\n * \`\`\`\n`).join('')}`
           : '')
       : ''
     const optionalParamsDoc =
@@ -903,17 +906,50 @@ export function planContractResourceModules(
         : ''
     const protectedListDoc =
       defaultListHooks[0] && listRoute && page?.framework === 'react'
-        ? ` * For a page with private URL selections, call \`${defaultListHooks[0]}({}, { selections, auth })\`. Set \`requiresAuth: true\` on each private selection and pass \`status\` and \`redirectTo\` in \`auth\`. The route redirects signed-out visitors, and the list waits for access before requesting data.\n`
+        ? ` * For a page with private URL selections, call \`${defaultListHooks[0].name}({}, { selections, auth })\`. Set \`requiresAuth: true\` on each private selection and pass \`status\` and \`redirectTo\` in \`auth\`. The route redirects signed-out visitors, and the list waits for access before requesting data.\n`
         : ''
-    const defaultRead = defaultListHooks[0]
-      ? `${defaultListHooks[0]}()`
-      : hooks.source && unfilteredReads[0]
-        ? `${unfilteredReads[0].name}({})`
-        : null
+    const listRead = defaultListHooks[0] ?? (hooks.source ? unfilteredReads[0] : undefined)
     const listContentDoc =
-      pageSupport.view && page?.framework === 'react' && defaultRead
-        ? ` * In the page, render the loaded list with \`QueryContent\`. Give \`empty\` a \`when\` predicate and a \`render\` function for a settled empty list; \`renderList\` receives the loaded response.\n` +
-          ` * \`\`\`tsx\n * import { QueryContent } from '${factoryPackage}'\n * const list = ${defaultRead}\n * return <QueryContent query={list} empty={empty}>{renderList}</QueryContent>\n * \`\`\`\n`
+      pageSupport.view && page?.framework === 'react' && listRead
+        ? [
+            'Copy this list view into a component beside this module.',
+            'Pass one complete empty element, with its class and any recovery action, as emptyState.',
+            'QueryContent renders it directly after an empty response. renderResults receives the full nonempty response.',
+            '```tsx',
+            "import type { ReactNode } from 'react'",
+            '',
+            `import { QueryContent } from '${factoryPackage}'`,
+            '',
+            `import { ${listRead.name} } from './${name}.js'`,
+            '',
+            `type ListResult = NonNullable<ReturnType<typeof ${listRead.name}>['data']>`,
+            '',
+            `export function ${pascal(name)}Results({`,
+            '  emptyState,',
+            '  renderResults,',
+            '}: {',
+            '  emptyState: ReactNode',
+            '  renderResults: (result: ListResult) => ReactNode',
+            '}): ReactNode {',
+            `  const list = ${listRead.name}()`,
+            '  return (',
+            '    <QueryContent',
+            '      query={list}',
+            '      empty={{',
+            listRead.rowsKey === null
+              ? '        when: (result) => result.length === 0,'
+              : `        when: (result) => (result${access(listRead.rowsKey).replaceAll('*/', '*\\u002f')}?.length ?? 0) === 0,`,
+            '        render: () => emptyState,',
+            '      }}',
+            '    >',
+            '      {renderResults}',
+            '    </QueryContent>',
+            '  )',
+            '}',
+            '```',
+          ]
+            .map((line) => ` *${line ? ' ' + line : ''}\n`)
+            .join('')
         : ''
     const source = `/**
  * ${pascal(name)} on the app's shared query cache, as ${label} declares them.
