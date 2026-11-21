@@ -3216,7 +3216,12 @@ export function scaffoldRules(parser) {
                 const attributes = node.attributes.slice(
                   node.attributes.findLastIndex((part) => part.type === 'JSXSpreadAttribute') + 1,
                 )
-                const key = expression(attributes.findLast((part) => part.name.name === 'key'))
+                const keyProp = expression(attributes.findLast((part) => part.name.name === 'key'))
+                const keyBinding = variable(keyProp)?.defs[0]
+                const key =
+                  keyBinding?.node.id?.type === 'Identifier'
+                    ? (flow.init(keyProp) ?? keyProp)
+                    : keyProp
                 const identity =
                   key?.type === 'LogicalExpression' &&
                   ['??', '||'].includes(key.operator) &&
@@ -3241,14 +3246,25 @@ export function scaffoldRules(parser) {
                       context.report({ node: prop, messageId: 'earlyMount' })
                     continue
                   }
+                  const nullFallback =
+                    value?.type === 'LogicalExpression' &&
+                    ['??', '||'].includes(value.operator) &&
+                    (value.right.value === null || value.right.name === 'undefined')
+                  const record = nullFallback ? unwrap(value.left) : value
+                  // An optional access can supply the same missing seed as an explicit
+                  // fallback. Its receiver is also a valid readiness guard.
+                  let access = record
+                  while (member(access) != null && !access.optional) access = unwrap(access.object)
+                  const receiver =
+                    access?.type === 'MemberExpression' && access.optional
+                      ? unwrap(access.object)
+                      : null
                   if (
-                    value?.type !== 'LogicalExpression' ||
-                    !['??', '||'].includes(value.operator) ||
-                    !(value.right.value === null || value.right.name === 'undefined') ||
-                    constantSeed(value.left)
+                    (!nullFallback && (!receiver || constantSeed(receiver))) ||
+                    constantSeed(record)
                   )
                     continue
-                  const loaded = (part) => sameRead(part, value.left)
+                  const loaded = (part) => sameRead(part, record) || sameRead(part, receiver)
                   let keyPart = identity
                   while (member(keyPart) != null && !loaded(keyPart))
                     keyPart = unwrap(keyPart.object)
