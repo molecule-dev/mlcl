@@ -98,7 +98,9 @@ export interface SearchOptions {
    * import is left out, framework-neutral packages stay. Every framework binding
    * exports the same hook names (`useProfileForm`, …), so without it a symbol
    * query returns each framework's package with the same score, and only the
-   * caller knows which one its project can import.
+   * caller knows which one its project can import. Without it, a feature's
+   * framework counterparts share one place in the ranking (React's first) and
+   * the others follow every other hit (see {@link onePlacePerFeature}).
    */
   framework?: string
   /**
@@ -357,8 +359,64 @@ export function searchPackages(
       score,
     })
   }
-  return ranked
-    .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
+  ranked.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
+  return (accepted ? ranked : onePlacePerFeature(ranked, Object.keys(appFrameworks ?? {})))
     .slice(0, limit)
     .map(({ score: _score, ...hit }) => hit)
+}
+
+/**
+ * Without a framework filter, give a feature's framework counterparts one place in the ranking.
+ *
+ * Counterparts are packages whose names differ only in a trailing framework key of the registry's
+ * `appFrameworks` (`…-react`, `…-vue`, `…-svelte`, …). The group takes the place of its best hit,
+ * led by its best-scoring member and, among equal scores, by the framework `appFrameworks` lists
+ * first (React). Its other members follow every other hit. Otherwise each matching feature fills
+ * five places of the limit window, and a caller that names no framework sees a fifth as many
+ * capabilities. A query that names a framework (`waveform angular`) still leads with that one,
+ * since its name scores higher.
+ *
+ * @param ranked - Hits sorted by score, then name.
+ * @param frameworks - The registry's `appFrameworks` keys, in its order.
+ * @returns The same hits, each feature's counterparts after its leading one.
+ */
+function onePlacePerFeature<T extends { name: string; score: number }>(
+  ranked: T[],
+  frameworks: string[],
+): T[] {
+  if (frameworks.length === 0) return ranked
+  // The longest key first, so `-react-native-web` is not read as `-web` or `-react`.
+  const suffixes = [...frameworks].sort((a, b) => b.length - a.length)
+  const counterpart = (name: string): { feature: string; rank: number } | undefined => {
+    const key = suffixes.find((framework) => name.endsWith(`-${framework}`))
+    return key
+      ? { feature: name.slice(0, -key.length - 1), rank: frameworks.indexOf(key) }
+      : undefined
+  }
+  const groups = new Map<string, Array<{ hit: T; rank: number }>>()
+  for (const hit of ranked) {
+    const found = counterpart(hit.name)
+    if (!found) continue
+    const members = groups.get(found.feature) ?? []
+    members.push({ hit, rank: found.rank })
+    groups.set(found.feature, members)
+  }
+  const leading: T[] = []
+  const following: T[] = []
+  const placed = new Set<string>()
+  for (const hit of ranked) {
+    const found = counterpart(hit.name)
+    if (!found) {
+      leading.push(hit)
+      continue
+    }
+    if (placed.has(found.feature)) continue
+    placed.add(found.feature)
+    const [lead, ...others] = (groups.get(found.feature) ?? [])
+      .sort((a, b) => b.hit.score - a.hit.score || a.rank - b.rank)
+      .map(({ hit: member }) => member)
+    leading.push(lead)
+    following.push(...others)
+  }
+  return [...leading, ...following]
 }

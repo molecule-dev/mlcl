@@ -23,14 +23,16 @@ function pkg(name: string, hints: string[] = [], exports: string[] = []): Inferr
   }
 }
 
-/** The command's existing one-score ordering against the full canonical catalog. */
+const appFrameworks = loadAppFrameworks()
+
+/**
+ * The command's ranking against the full canonical catalog, as `mlcl search` runs it outside a
+ * project: the registry's appFrameworks and no framework filter.
+ */
 function names(query: string): string[] {
-  return packages
-    .map((p) => ({ name: p.name, score: scorePackage(p, query) }))
-    .filter((hit) => hit.score > 0)
-    .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
-    .slice(0, 20)
-    .map((hit) => hit.name)
+  return searchPackages(packages.map(toSearchEntry), query, { appFrameworks }).map(
+    (hit) => hit.name,
+  )
 }
 
 describe('search capability and symbol relevance', () => {
@@ -72,14 +74,15 @@ describe('search capability and symbol relevance', () => {
 
   // Every framework binding exports the same hook names, so a symbol query
   // finds each of them with the same score; the project's framework picks one.
+  // Without one they come in the registry's appFrameworks order, React's first.
   // app-react-native re-exports app-react's hooks, and its entry lists them.
   const bindings = [
-    '@molecule/app-angular',
     '@molecule/app-react',
-    '@molecule/app-react-native',
-    '@molecule/app-solid',
-    '@molecule/app-svelte',
     '@molecule/app-vue',
+    '@molecule/app-svelte',
+    '@molecule/app-solid',
+    '@molecule/app-angular',
+    '@molecule/app-react-native',
   ]
   it.each(['useProfileForm', 'useprofileform', 'useProfileForm()'])(
     'finds every framework binding exporting %s',
@@ -252,6 +255,48 @@ describe('search capability and symbol relevance', () => {
     expect(routing.slice(0, 3).map((hit) => hit.name)).toContain(
       '@molecule/app-routing-react-router',
     )
+  })
+
+  it("gives a feature's framework counterparts one place when no framework is named", () => {
+    const frameworks = ['react', 'vue', 'svelte', 'solid', 'angular']
+    const entries = [
+      ...frameworks.map((framework) => ({
+        name: `@molecule/app-feature-wave-${framework}`,
+        stack: 'app',
+        category: 'audio-waveform',
+        label: `Wave ${framework}`,
+        description: 'Draws an audio waveform',
+        framework,
+      })),
+      {
+        name: '@molecule/app-wave-peaks',
+        stack: 'app',
+        category: 'audio',
+        label: 'Peaks',
+        description: 'Waveform peaks',
+      },
+    ]
+    const run = (query: string, framework?: string): string[] =>
+      searchPackages(entries, query, { appFrameworks, framework }).map((hit) => hit.name)
+
+    // All six score the same: React's counterpart leads its group (the registry lists it first,
+    // although angular sorts first by name), the other feature comes next, then the rest of the
+    // group in the registry's framework order.
+    expect(run('waveform')).toEqual([
+      '@molecule/app-feature-wave-react',
+      '@molecule/app-wave-peaks',
+      ...['vue', 'svelte', 'solid', 'angular'].map((key) => `@molecule/app-feature-wave-${key}`),
+    ])
+    // A query naming a framework leads with that framework's counterpart.
+    expect(run('waveform angular').slice(0, 2)).toEqual([
+      '@molecule/app-feature-wave-angular',
+      '@molecule/app-wave-peaks',
+    ])
+    // Counterexample: a framework filter keeps only the importable counterpart, in score order.
+    expect(run('waveform', 'vue')).toEqual([
+      '@molecule/app-feature-wave-vue',
+      '@molecule/app-wave-peaks',
+    ])
   })
 
   it('keeps exact package names above incidental symbols and rejects unrelated phrase matches', () => {

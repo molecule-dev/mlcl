@@ -50,18 +50,40 @@ const call = async (query: string): Promise<string[]> =>
 /**
  * The CLI pipeline the hosted transport must reproduce, computed independently
  * of the hosted server: `loadRegistry(<stack>)`'s declared-stack filter, the
- * canonical scorer, then ranking and the limit window.
+ * canonical scorer, ranking, one place per feature for framework counterparts
+ * (names that differ only in a trailing `appFrameworks` key, when the registry
+ * has them), then the limit window.
  */
 function expected(
   pool: InferredPackage[],
   query: string,
-  options: { stack?: 'api' | 'app'; limit?: number } = {},
+  options: { stack?: 'api' | 'app'; limit?: number; frameworks?: string[] } = {},
 ): string[] {
-  return pool
+  const ranked = pool
     .filter((pkg) => !options.stack || pkg.molecule?.stack === options.stack)
     .map((pkg) => ({ name: pkg.name, score: scorePackage(pkg, query) }))
     .filter((hit) => hit.score > 0)
     .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
+  const frameworks = options.frameworks ?? []
+  const keyOf = (name: string): string | undefined =>
+    frameworks.filter((key) => name.endsWith(`-${key}`)).sort((a, b) => b.length - a.length)[0]
+  // A core named like its bindings' base (`@molecule/app-query`) is not one of them.
+  const featureOf = (name: string): string => {
+    const key = keyOf(name)
+    return key ? `counterparts of ${name.slice(0, -key.length - 1)}` : name
+  }
+  // Each feature in the order its best hit ranks, its members by score, then framework order.
+  const features = [...new Set(ranked.map((hit) => featureOf(hit.name)))]
+  const members = features.map((feature) =>
+    ranked
+      .filter((hit) => featureOf(hit.name) === feature)
+      .sort(
+        (a, b) =>
+          b.score - a.score ||
+          frameworks.indexOf(keyOf(a.name) ?? '') - frameworks.indexOf(keyOf(b.name) ?? ''),
+      ),
+  )
+  return [...members.map((group) => group[0]), ...members.flatMap((group) => group.slice(1))]
     .slice(0, options.limit ?? 20)
     .map((hit) => hit.name)
 }
@@ -144,7 +166,9 @@ describe.skipIf(!available)('hosted MCP search — actual protocol parity with t
     // Use the actual raw entry shape, not a fixture that hides missing exports.
     writeFileSync(registryFile, JSON.stringify(registry))
     clearCaches()
-    expect(await call(query)).toEqual(expected(packages, query))
+    expect(await call(query)).toEqual(
+      expected(packages, query, { frameworks: Object.keys(registry.appFrameworks) }),
+    )
   })
 
   it('preserves phrase and category boundaries and rejects invented/partial symbols generically', async () => {
