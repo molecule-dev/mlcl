@@ -1,7 +1,7 @@
 import { useState } from 'react'
 
 import { useTranslation } from '@molecule/app-react'
-import { TagInput } from '@molecule/app-tag-input-react'
+import { TagInput, TagList, type TagListProps } from '@molecule/app-tag-input-react'
 
 /**
  * A tags/labels field built on the shared `<TagInput>` from
@@ -42,6 +42,11 @@ export function TagsInput({
       }}
     />
   )
+}
+
+/** Display the saved record's tags on a detail page or a preview. */
+export function SavedTags({ value, ...presentation }: TagListProps) {
+  return value.length ? <TagList {...presentation} value={value} /> : null
 }
 
 export default TagsInput

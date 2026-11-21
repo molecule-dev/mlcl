@@ -1,6 +1,7 @@
 ---
 name: tags-input
 intent: |
+  - "Edit tag chips and show saved tags on detail and preview screens"
   - "Tags input"
   - "Add labels / keywords"
   - "Chip / token input"
@@ -20,17 +21,17 @@ keywords:
     categories,
     categorize,
     multi-value,
+    saved tags,
   ]
+planPhrases: [tag chips, tags input, label chips, saved tags]
 ---
 
 # Tags input (chip/token field)
 
-**When to copy this example:** the user wants to enter a set of short
-values — tags, labels, keywords, skills — as removable chips, not a
-comma-separated string.
+Use this example to edit tags, labels, keywords or skills as removable chips
+and display the saved values wherever readers need them.
 
-**Works out of the box — no provider to bond.** `<TagInput>` is a
-self-contained React component.
+`<TagInput>` and `<SavedTags>` use the app's ClassMap and i18n setup.
 
 ## What you'll install
 
@@ -41,15 +42,21 @@ npm install @molecule/app-tag-input-react --workspace=app
 
 ## Files in this example
 
-| Path                           | What it does                                                                                                                                        |
-| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `app/components/TagsInput.tsx` | Holds the `string[]` state and renders the shared `<TagInput>`. Adds a `normalize` that lowercases + de-dupes, and forwards changes via `onChange`. |
+| Path                           | What it does                                                                                          |
+| ------------------------------ | ----------------------------------------------------------------------------------------------------- |
+| `app/components/TagsInput.tsx` | Exports a controlled editor built on `<TagInput>` and a read-only `<SavedTags>` built on `<TagList>`. |
 
-Usage — you own the array:
+Keep the editor's array in the form and send it with the other fields. On the
+detail page, pass the tags from the loaded or newly saved record to `<SavedTags>`.
+Use the same component in a preview that shows tags.
 
 ```tsx
 <TagsInput initialTags={['react', 'typescript']} maxTags={10} onChange={setSkills} />
+<SavedTags value={record.labels} aria-label="Skills" />
 ```
+
+`<SavedTags>` hides an empty list. Use `className` and `itemClassName` for the
+app's styles or `renderTag` for custom content such as a link.
 
 ## Anti-patterns
 
@@ -71,6 +78,6 @@ Usage — you own the array:
 
 ## Verify
 
-Typing a value + Enter (or comma/Tab) adds a chip → duplicates and blank
-entries are rejected → removing a chip updates the array → the parent
-receives the new `string[]` via `onChange`.
+Add two values with Enter, save, and check that both appear after opening or
+reloading the detail page. Remove all tags, save the empty array, and check
+that the detail page clears them. Blank and duplicate entries are rejected.
