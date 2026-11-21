@@ -52,10 +52,10 @@ afterEach(() => {
 
 describe('synthesis makes no duplicate model request', () => {
   it('asks once for the shared vi.mock block, not once per smoke test', async () => {
-    const plan = await planInjection('@molecule/api-resource-user', project)
+    const plan = await planInjection('@molecule/api-resource-device', project)
     expect(plan.moleculePackage, 'the resource plan must resolve for this test').toBeTruthy()
 
-    await synthesizeProjectFiles([plan], ['@molecule/api-resource-user'], project)
+    await synthesizeProjectFiles([plan], ['@molecule/api-resource-device'], project)
 
     // It did ask the model (a stubbed-away AI path would make this vacuous).
     expect(requests.all.length).toBeGreaterThan(1)

@@ -74,9 +74,10 @@ export async function scanResourceRouter(
   exports: readonly string[],
   routes: Routes,
 ): Promise<string | undefined> {
-  if (!routes.length || routes.some((route) => route.optional)) return undefined
+  if (!routes.length) return undefined
   const explicit = await sourceFile(join(srcPath, 'scaffold-router.ts'))
   if (explicit) return explicit.text
+  if (routes.some((route) => route.optional)) return undefined
 
   const map = await sourceFile(join(srcPath, 'requestHandlerMap.ts'))
   const handlers = map && handlerFiles(map, routes)
@@ -122,8 +123,12 @@ export async function scanResourceRouter(
       for (const binding of bindings.elements) {
         if (local && !exports.includes((binding.propertyName ?? binding.name).text))
           return undefined
-        if (specifier === '../service.js' && !clause.isTypeOnly && !binding.isTypeOnly)
-          usesService = true
+        if (!clause.isTypeOnly && !binding.isTypeOnly) {
+          // HTTP-first packages still own their data code. Copy only adapters
+          // that can call services through their public imports.
+          if (specifier === '@molecule/api-database') return undefined
+          if (local) usesService = true
+        }
         names.add(`${clause.isTypeOnly ? 'type ' : ''}${binding.getText(file)}`)
       }
       modules.set(target, names)

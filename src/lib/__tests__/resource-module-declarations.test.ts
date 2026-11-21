@@ -52,7 +52,15 @@ function plan(name: string): InjectionPlan {
 }
 
 async function wrapperOf(name: string, resource: string): Promise<string> {
-  const files = await synthesizeProjectFiles([plan(name)], [name], root, undefined, 'express')
+  const injection = plan(name)
+  const entry = injection.moleculePackage!
+  // Exercise the legacy wrapper path explicitly for packages without editable
+  // Express source, independently of the current default for User.
+  injection.moleculePackage = {
+    ...entry,
+    molecule: { ...entry.molecule, expressRouter: undefined },
+  }
+  const files = await synthesizeProjectFiles([injection], [name], root, undefined, 'express')
   const wrapper = files.find((file) =>
     file.targetPath.endsWith(join('Resource', resource, 'index.ts')),
   )

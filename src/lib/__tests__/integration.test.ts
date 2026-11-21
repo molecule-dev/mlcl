@@ -125,14 +125,40 @@ describe('file synthesis (full molecule set)', () => {
     expect(routerFile!.content).toContain('export const router')
   })
 
-  it('router has all expected User routes', () => {
+  it('mounts editable account routes and separately mounts enabled providers', () => {
     const routerFile = synthesizedFiles.find((f) => f.targetPath.endsWith('router.ts'))!
     const content = routerFile.content!
+    const auth = synthesizedFiles.find((f) => f.targetPath.endsWith('handlers/auth.ts'))?.content
 
-    expect(content).toContain('/users')
-    expect(content).toContain('/users/log-in')
-    expect(content).toContain('/users/log-in/oauth')
-    expect(content).toContain('verify-payment/:provider')
+    expect(content).toContain('router.use(resourceUserRouter)')
+    expect(content).toContain('router.use(resourceUserOauthRouter)')
+    expect(content).toContain('router.use(resourceUserPaymentsRouter)')
+    expect(auth).toContain("router.post('/users', async (req, res) => {")
+    expect(auth).toContain('await logIn(req, res)')
+    expect(auth).toContain("'/users/log-in/oauth'")
+    expect(auth).toContain("'/users/:id/verify-payment/:provider'")
+  })
+
+  it('adds provider mounts on reinjection while keeping the edited account routes', async () => {
+    const project = join(testProject, 'native-auth')
+    await mkdir(project)
+    const account = plans.find((plan) => plan.molecule === '@molecule/api-resource-user')!
+    const registry = loadRegistry()
+    const initial = await synthesizeProjectFiles([account], [account.molecule], project, registry)
+    const appRouter = initial.find((f) => f.targetPath.endsWith('router.ts'))!
+    const auth = initial.find((f) => f.targetPath.endsWith('handlers/auth.ts'))!
+    expect(appRouter.content).toContain('router.use(resourceUserRouter)')
+    expect(appRouter.content).not.toContain('PaymentsRouter')
+    expect(appRouter.content).not.toContain('OauthRouter')
+    for (const file of [appRouter, auth]) {
+      await mkdir(dirname(file.targetPath), { recursive: true })
+      await writeFile(file.targetPath, `// App edit\n${file.content}`)
+    }
+    const extended = await synthesizeProjectFiles([account], TEST_MOLECULES, project, registry)
+    expect(extended.some((f) => f.targetPath === auth.targetPath)).toBe(false)
+    expect(extended.find((f) => f.targetPath === appRouter.targetPath)?.content).toContain(
+      'router.use(resourceUserPaymentsRouter)',
+    )
   })
 
   it('router has Device routes', () => {
@@ -184,14 +210,12 @@ describe('file synthesis (full molecule set)', () => {
     expect(content).toContain('service-payment')
   })
 
-  it('synthesizes User resource wrapper', () => {
-    const userWrapper = synthesizedFiles.find((f) =>
-      f.targetPath.includes('Resource/User/index.ts'),
-    )
-    expect(userWrapper).toBeDefined()
-    expect(userWrapper!.content).toContain('createRequestHandlerMap')
-    expect(userWrapper!.content).toContain('createRequestHandler')
-    expect(userWrapper!.content).toContain('authorization')
+  it('uses the native auth and rate limit services in the editable User routes', () => {
+    const content = synthesizedFiles.find((f) => f.targetPath.endsWith('handlers/auth.ts'))?.content
+    expect(content).toContain('authorizers.auth()')
+    expect(content).toContain('authorizers.authSelf()')
+    expect(content).toContain('authorizers.requireWebhookAuthenticity()')
+    expect(content).toContain('authorizers.rateLimit(')
   })
 
   it('synthesizes Device resource wrapper', () => {
@@ -254,7 +278,7 @@ describe('validation of synthesized output', () => {
     const resourceDir = join(testProject, 'src', 'App', 'Resource')
     const dirs = await readdir(resourceDir)
 
-    expect(dirs).toContain('User')
+    expect(dirs).not.toContain('User')
     expect(dirs).toContain('Device')
   })
 })
@@ -305,24 +329,35 @@ describe('expected route coverage', () => {
   ]
 
   it('synthesized router has all expected routes', () => {
-    const routerFile = synthesizedFiles.find((f) => f.targetPath.endsWith('router.ts'))!
-    const content = routerFile.content!
+    const content = synthesizedFiles
+      .filter(
+        (f) => f.targetPath.endsWith('router.ts') || f.targetPath.endsWith('handlers/auth.ts'),
+      )
+      .map((f) => f.content)
+      .join('\n')
 
     for (const route of EXPECTED_ROUTES) {
       // The emitter writes a mount on one line when it fits the scaffold's
       // prettier print width and breaks after the open paren otherwise — match
       // both shapes.
       const pattern = new RegExp(
-        `router\\.${route.method}\\(\\s*\`${route.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}\``,
+        `(?:router|oauthRouter|paymentsRouter)\\.${route.method}\\(\\s*['\`]${route.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['\`]`,
       )
       expect(content).toMatch(pattern)
     }
   })
 
   it('synthesized router has exactly the expected number of routes', () => {
-    const routerFile = synthesizedFiles.find((f) => f.targetPath.endsWith('router.ts'))!
-    const routeCount = (routerFile.content!.match(/router\.(get|post|patch|put|delete)\(/g) || [])
-      .length
+    const routeCount = synthesizedFiles
+      .filter(
+        (f) => f.targetPath.endsWith('router.ts') || f.targetPath.endsWith('handlers/auth.ts'),
+      )
+      .flatMap(
+        (f) =>
+          f.content?.match(
+            /(?:router|oauthRouter|paymentsRouter)\.(get|post|patch|put|delete)\(/g,
+          ) ?? [],
+      ).length
 
     expect(routeCount).toBe(EXPECTED_ROUTES.length)
   })

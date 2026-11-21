@@ -186,6 +186,18 @@ describe('registry', () => {
   })
 
   describe('route registration (scan-routes drift guard)', () => {
+    it('carries editable routes for service-backed catalogs, notifications and accounts', () => {
+      const { packages } = getRawRegistry()
+      expect(packages['@molecule/api-resource-ai-models'].expressRouter).toContain('router.get')
+      expect(packages['@molecule/api-resource-notification'].expressRouter).toContain(
+        '@molecule/api-notification-center',
+      )
+      expect(packages['@molecule/api-resource-user'].expressRouter).toContain(
+        'export const oauthRouter',
+      )
+      expect(packages['@molecule/api-resource-cart'].expressRouter).toBeUndefined()
+    })
+
     it('keeps the shipped editable routers in sync with their owning packages', async () => {
       const registry = getRawRegistry()
       const moleculeDir = join(dirname(getRegistryPath()), '..', 'molecule')

@@ -3039,13 +3039,20 @@ ${bondLines.join('\n')}
  */
 function routerMountNames(text: string): string[] {
   const maps = text.matchAll(/import\s*\{\s*requestHandlerMap\s+as\s+(\w+)\s*\}/g)
-  const handlers = text.matchAll(
-    /import (resource\w+Router) from ['"]\.\.\/handlers\/([\w-]+)\.js['"]/g,
-  )
   return [
     ...Array.from(maps, ([, name]) => name),
-    ...Array.from(handlers, ([, name, file]) => `${name}:${file}`),
+    ...Array.from(
+      editableRouterImports(text),
+      ([, name, features, file]) => `${name}:${file}:${features?.replace(/\W/g, '') ?? ''}`,
+    ),
   ].sort()
+}
+
+/** Recognize the default router and any optional provider routers from its module. */
+function editableRouterImports(text: string): IterableIterator<RegExpMatchArray> {
+  return text.matchAll(
+    /import\s+(resource\w+Router)(?:,\s*\{([^}]+)\})?\s+from\s+['"]\.\.\/handlers\/([\w-]+)\.js['"]/g,
+  )
 }
 
 /**
@@ -3225,14 +3232,17 @@ export async function synthesizeProjectFiles(
     const source = pkg.molecule?.expressRouter
     const factory = requestHandlerMapFactory(pkg, pkg.exports.length ? pkg.exports : undefined)
     const wrapperExists = lstatSync(wrapperPath, { throwIfNoEntry: false })
-    if ((factory || source) && wrapperExists) continue
-    if (fw === 'express' && source && authContract?.resourcePackage !== pkg.name) {
+    const useEditableSource =
+      source && fw === 'express' && authContract?.resourcePackage !== pkg.name
+    if ((factory || useEditableSource) && wrapperExists) continue
+    if (useEditableSource) {
       const resource = resourceRouterFile(
         projectPath,
         pkg,
         source,
         existingRouter ?? '',
         resourceRouters,
+        optionalFeatures,
       )
       if (resource) {
         resourceRouters.set(plan.molecule, resource)
@@ -4303,6 +4313,7 @@ function requestHandlerMapFactory(
 interface ResourceRouter {
   file: string
   binding: string
+  features: { exported: string; binding: string }[]
 }
 
 /** Use the existing mount on reinjection, or pick a free path beside the app's handlers. */
@@ -4312,12 +4323,19 @@ function resourceRouterFile(
   content: string,
   existingRouter: string,
   selected: ReadonlyMap<string, ResourceRouter>,
+  enabled: ReadonlySet<string>,
 ): ResourceRouter | undefined {
   const category = pkg.molecule?.category
   if (!category || !/^[a-z][a-z0-9-]*$/.test(category) || category === 'index') return undefined
   const name = extractResourceName(pkg.name)
   if (!/^\w+$/.test(name)) return undefined
   const binding = `resource${name}Router`
+  const features = [...new Set(pkg.routes.map((route) => route.optional))]
+    .filter((feature): feature is string => feature !== undefined && enabled.has(feature))
+    .map((feature) => ({
+      exported: `${camelizeShortName(feature)}Router`,
+      binding: `resource${name}${bondNameToPascal(feature)}Router`,
+    }))
 
   const source = join(projectPath, 'src')
   const handlers = join(source, 'handlers')
@@ -4326,17 +4344,17 @@ function resourceRouterFile(
     if (entry && !entry.isDirectory()) return undefined
   }
   const used = new Set([...selected.values()].map((resource) => resource.file))
-  const mounted = existingRouter.match(
-    new RegExp(`import ${binding} from ['"]\\.\\./handlers/([\\w-]+)\\.js['"]`),
-  )?.[1]
-  if (mounted && !used.has(mounted)) return { file: mounted, binding }
+  const mounted = [...editableRouterImports(existingRouter)].find(
+    (match) => match[1] === binding,
+  )?.[3]
+  if (mounted && !used.has(mounted)) return { file: mounted, binding, features }
   for (const file of [category, `${category}-resource`]) {
     if (used.has(file)) continue
     const target = join(handlers, `${file}.ts`)
     const entry = lstatSync(target, { throwIfNoEntry: false })
     // A flagship can carry the package's complete router at its usual path.
     if (!entry || (entry.isFile() && readFileSync(target, 'utf8') === content)) {
-      return { file, binding }
+      return { file, binding, features }
     }
   }
 }
@@ -4521,10 +4539,13 @@ function generatedRouterHeader(
       ['createAccount', 'signIn'].every((name) => plan.moleculePackage?.exports?.includes(name)),
   )
   if (accounts) {
+    const editable = resourceRouters.get(accounts.molecule)
     lines.push('//')
     lines.push(
-      '// Sign-up or sign-in with paths, envelopes or error bodies of your own: write those routes ' +
-        'in api/src/handlers/ and call createAccount({ username, email, password }, { req, res }) ' +
+      (editable
+        ? `// Edit sign-up and sign-in paths or JSON in api/src/handlers/${editable.file}.ts. New account routes can `
+        : '// For sign-up or sign-in with your own paths or JSON, write routes in api/src/handlers/ and ') +
+        'call createAccount({ username, email, password }, { req, res }) ' +
         'and signIn({ email, password }, { req, res }) from @molecule/api-resource-user. Each ' +
         'resolves to { ok, user, token } — token is the session these mounts accept — so no ' +
         'route calls sign(), hash() or compare() for an account.',
@@ -4700,7 +4721,13 @@ function generateRouterContentHeuristic(
       lines.push(`import { authorization as ${camelName}Authorization } from '${from}'`)
     }
     if (resource) {
-      lines.push(`import ${resource.binding} from '../handlers/${resource.file}.js'`)
+      const { binding, features, file } = resource
+      const from = `from '../handlers/${file}.js'`
+      const names = features.map((feature) => `${feature.exported} as ${feature.binding}`)
+      const named = names.length ? `, { ${names.join(', ')} }` : ''
+      const singleLine = `import ${binding}${named} ${from}`
+      if (singleLine.length <= PRETTIER_PRINT_WIDTH || !names.length) lines.push(singleLine)
+      else lines.push(`import ${binding}, {`, ...names.map((name) => `  ${name},`), `} ${from}`)
     } else if (resourcesWithRoutes.has(plan.molecule)) {
       lines.push(`import { requestHandlerMap as ${name} } from './Resource/${name}/index.js'`)
     }
@@ -4728,7 +4755,11 @@ function generateRouterContentHeuristic(
     if (!plan.moleculePackage) continue
     const resource = resourceRouters.get(plan.molecule)
     if (resource) {
-      lines.push(`router.use(${resource.binding})`, '')
+      lines.push(
+        `router.use(${resource.binding})`,
+        ...resource.features.map((feature) => `router.use(${feature.binding})`),
+        '',
+      )
       continue
     }
     const importName = extractResourceName(plan.molecule)
@@ -5339,9 +5370,13 @@ async function generateMoleculeViMocks(
   allMolecules: string[],
   resourcePlans: InjectionPlan[],
 ): Promise<string> {
-  // The declared options factory fixes the wrapper's call signature. Keep its
-  // mocks on the same contract rather than asking a model to infer it again.
-  if (resourcePlans.some((plan) => plan.moleculePackage?.molecule?.requestHandlerMapFactory))
+  // The route adapters' public exports give the smoke test its mock contract.
+  if (
+    resourcePlans.some((plan) => {
+      const resource = plan.moleculePackage?.molecule
+      return resource?.requestHandlerMapFactory || resource?.expressRouter
+    })
+  )
     return generateMoleculeViMocksHeuristic(allMolecules, resourcePlans)
   if (isAIAvailable()) {
     try {
@@ -5476,10 +5511,23 @@ function generateMoleculeViMocksHeuristic(
           for (const handler of handlers) lines.push(`    ${handler}: vi.fn(() => vi.fn()),`)
           lines.push(`  },`)
         }
+        if (pkgExports.includes('authorizers')) {
+          lines.push(`  authorizers: new Proxy({}, {`)
+          lines.push(
+            `    get: () => () => (_req: unknown, _res: unknown, next: () => void) => next(),`,
+          )
+          lines.push(`  }),`)
+        }
         if (pkgExports.includes('resource')) lines.push(`  resource: {},`)
         if (hasAuthorization) lines.push(AUTHORIZATION_MOCK_ENTRY)
         if (optionsFactory) {
-          const provided = new Set([optionsFactory.name, 'handlers', 'resource', 'authorization'])
+          const provided = new Set([
+            optionsFactory.name,
+            'handlers',
+            'authorizers',
+            'resource',
+            'authorization',
+          ])
           for (const name of pkgExports)
             if (optionsFactory.reExports.includes(name) && !provided.has(name))
               lines.push(`  ${name}: vi.fn(),`)

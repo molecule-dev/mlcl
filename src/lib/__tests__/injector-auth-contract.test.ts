@@ -281,20 +281,18 @@ describe('injector consumes the same auth contract as the app', () => {
     expect(await exercise(liveMount)).toBe(true)
   })
 
-  it('keeps the default package router and wrapper when no project contract exists', async () => {
+  it('keeps the native routes and session gate when no project contract exists', async () => {
     const files = await synthesizeProjectFiles([plan()], [RESOURCE], root, undefined, 'express')
     const router = String(
       files.find((file) => file.targetPath.endsWith(join('App', 'router.ts')))!.content,
     )
-    const wrapper = String(
-      files.find((file) => file.targetPath.endsWith(join('Resource', 'User', 'index.ts')))!.content,
+    const auth = String(
+      files.find((file) => file.targetPath.endsWith(join('handlers', 'auth.ts')))!.content,
     )
     expect(router).toContain('userAuthorization.verifyMiddleware()')
-    expect(router).toContain('router.post(`/users/log-in`')
-    expect(wrapper).toContain(
-      'export const requestHandlerMap = createRequestHandlerMap(createRequestHandler)',
-    )
-    expect(wrapper).not.toContain('adaptAuthHandler')
+    expect(router).toContain('router.use(resourceUserRouter)')
+    expect(auth).toContain("router.post('/users/log-in', rateLimitAuth, async")
+    expect(auth).not.toContain('adaptAuthHandler')
   })
 
   it.each([

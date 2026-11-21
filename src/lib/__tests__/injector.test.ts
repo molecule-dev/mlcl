@@ -742,7 +742,7 @@ describe('synthesizeProjectFiles', () => {
     expect(bondsIndex!.content).toContain('setupBonds')
   })
 
-  it('generates User resource wrapper', async () => {
+  it('generates editable User routes from the package adapters', async () => {
     const files = await synthesizeProjectFiles(
       [userPlan],
       ['@molecule/api-resource-user', '@molecule/api-resource'],
@@ -750,11 +750,11 @@ describe('synthesizeProjectFiles', () => {
       registryPackages,
     )
 
-    const wrapper = files.find((f) => f.targetPath.includes('Resource/User/index.ts'))
-    expect(wrapper).toBeDefined()
-    expect(wrapper!.content).toContain('createRequestHandlerMap')
-    expect(wrapper!.content).toContain('createRequestHandler')
-    expect(wrapper!.content).toContain('authorization')
+    expect(files.some((f) => f.targetPath.includes('Resource/User/index.ts'))).toBe(false)
+    const auth = files.find((f) => f.targetPath.includes('handlers/auth.ts'))?.content
+    expect(auth).toContain('handlers.create(resource)')
+    expect(auth).toContain('handlers.logIn(resource)')
+    expect(auth).toContain('authorizers.authSelf()')
   })
 
   it('generates Device resource wrapper', async () => {
@@ -799,7 +799,7 @@ describe('synthesizeProjectFiles', () => {
   })
 
   it('filters optional routes based on installed molecules', async () => {
-    // Without stripe installed, stripe routes should be excluded
+    // Provider routers are mounted only when the feature is installed.
     const files = await synthesizeProjectFiles(
       [userPlan],
       ['@molecule/api-resource-user', '@molecule/api-resource'],
@@ -809,8 +809,8 @@ describe('synthesizeProjectFiles', () => {
 
     const router = files.find((f) => f.targetPath.includes('router.ts'))
     expect(router).toBeDefined()
-    expect(router!.content).not.toContain('verifyStripeSubscription')
-    expect(router!.content).not.toContain('verify-stripe-subscription')
+    expect(router!.content).not.toContain('resourceUserPaymentsRouter')
+    expect(router!.content).not.toContain('resourceUserOauthRouter')
   })
 
   it('includes optional routes when feature is installed', async () => {
@@ -823,7 +823,7 @@ describe('synthesizeProjectFiles', () => {
 
     const router = files.find((f) => f.targetPath.includes('router.ts'))
     expect(router).toBeDefined()
-    expect(router!.content).toContain('verifyPayment')
+    expect(router!.content).toContain('router.use(resourceUserPaymentsRouter)')
   })
 
   it('generates smoke tests', async () => {
@@ -841,7 +841,8 @@ describe('synthesizeProjectFiles', () => {
 
     const routeTest = files.find((f) => f.targetPath.includes('routes.test.ts'))
     expect(routeTest).toBeDefined()
-    expect(routeTest!.content).toContain('requestHandlerMap')
+    expect(routeTest!.content).toContain("import('../handlers/auth.js')")
+    expect(routeTest!.content).toContain('authorizers: new Proxy')
   })
 
   it('opens both generated smoke tests with the GENERATED SCAFFOLDING banner', async () => {
@@ -956,9 +957,9 @@ describe('synthesizeProjectFiles', () => {
     expect(content.startsWith(GENERATED_ROUTER_MARKER)).toBe(true)
     // What it mounts, at the /api prefix server.ts gives this router.
     expect(content).toContain('server.ts mounts this router at /api')
-    expect(content).toContain('@molecule/api-resource-user (User):')
+    expect(content).toContain('@molecule/api-resource-user: edit api/src/handlers/auth.ts')
     expect(content).toContain('@molecule/api-resource-device (Device):')
-    expect(content).toContain('POST /users')
+    expect(content).toContain('router.use(resourceUserRouter)')
     expect(content).toContain('GET /devices')
     // Where the app adds routes and edits resource routes.
     expect(content).toContain('api/src/handlers/index.ts')
