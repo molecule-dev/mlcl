@@ -22043,6 +22043,7 @@
         "@molecule/api-resource-follow",
         "@molecule/api-resource-reaction",
         "@molecule/api-slug",
+        "express",
         "zod"
       ],
       "moleculePeers": [
@@ -27707,6 +27708,7 @@
         "@molecule/api-resource-device",
         "@molecule/api-secrets",
         "@molecule/api-two-factor",
+        "express",
         "uuid",
         "zod"
       ],
