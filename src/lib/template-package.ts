@@ -16,6 +16,7 @@ export const TEMPLATE_PACKAGE_BUDGET = {
 export const TEMPLATE_SHARED_ESLINT = [
   'templates/shared/eslint.config.js.tpl',
   'templates/shared/prefer-declared-clients.mjs',
+  'templates/shared/prefer-generated-resource-clients.mjs',
   'templates/shared/no-empty-interactive-target.mjs',
   'templates/shared/no-dropped-action.mjs',
   'templates/shared/no-stand-in-query-record.mjs',

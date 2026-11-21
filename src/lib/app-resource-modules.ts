@@ -15,12 +15,12 @@
  * @module
  */
 
-import { existsSync } from 'node:fs'
 import { mkdir, readFile, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 
 import type { DeclaredPackage } from './capability-map.js'
 import { formatGeneratedSource, sortImportStatements } from './format.js'
+import { type ResourceClientRoute, writeResourceClientLint } from './resource-client-lint.js'
 import { resourceHooks, resourceWrites } from './resource-module-facade.js'
 import { RESOURCE_AUTH_PACKAGE, resourceViewer, scopedResources } from './resource-viewer.js'
 import type { Registry, RegistryEntry } from './schema.js'
@@ -34,6 +34,8 @@ export type ResourceModuleFactory = NonNullable<
 export interface AppResourceModule {
   /** The resource package the module is for. */
   resource: string
+  /** App workspace relative to the project root. */
+  workspace: string
   /** Project-relative path of the module, e.g. `app/src/resources/invoices.ts`. */
   path: string
   /** The resource name, e.g. `invoices`. */
@@ -42,6 +44,8 @@ export interface AppResourceModule {
   typeName: string
   /** The calls the module supports, e.g. `list`, `detail`, `toggle(…, 'flag', on)`. */
   operations: string[]
+  /** Routes with a callable export, used by the scaffold's lint. */
+  routes: ResourceClientRoute[]
   /** The module's source. */
   source: string
 }
@@ -185,7 +189,7 @@ export function planAppResourceModule(
     ...(collection.remove ? ['remove'] : []),
     ...collection.toggles.map((action) => `toggle(${idField}, '${action}', on)`),
   ]
-  const routes = (entry.routes ?? [])
+  const documentedRoutes = (entry.routes ?? [])
     .filter(
       (route) => route.path === collection.base || route.path.startsWith(`${collection.base}/`),
     )
@@ -222,6 +226,21 @@ export function planAppResourceModule(
     remove: collection.remove,
     toggles: collection.toggles.map((action) => ({ action })),
   })
+  const itemPath = `${collection.base}/:${collection.param}`
+  const clientRoutes: ResourceClientRoute[] = []
+  const route = (path: string, methods: string, exportName: string | undefined): void => {
+    if (exportName) clientRoutes.push({ path, methods, exportName })
+  }
+  if (hooks.source) {
+    route(collection.base, 'GET', listHook)
+    route(itemPath, 'GET', `use${typeName}`)
+  }
+  const { calls } = namedWrites
+  route(collection.base, 'POST', calls.create)
+  if (collection.update) route(itemPath, collection.update.toUpperCase(), calls.update)
+  route(itemPath, 'DELETE', calls.remove)
+  for (const [action, name] of calls.toggles) route(`${itemPath}/${action}`, 'POST/DELETE', name)
+
   const session = resourceViewer(factory, auth, !!hooks.source, false, !!namedWrites.source)
   const frameworkImports = new Map<string, string[]>()
   const addImport = (from: string, names: string[]): void => {
@@ -243,7 +262,7 @@ export function planAppResourceModule(
 ${hooks.source ? ` * Pages import \`${listHook}(params)\` and \`use${typeName}(${idField})\` from this file.\n * Read data, status and error from the query and retry with refetch().\n` : ''}${namedWrites.names.length ? ` * Named writes: ${namedWrites.names.map((name) => `\`${name}\``).join(', ')}.\n * Writes publish the saved detail and refresh recently read lists for this resource and session.\n` : ''} *
  * ${auth ? 'Reads and writes use the current auth session automatically. Reads pause until auth settles.' : 'Reads and writes share the public cache.'}
  *
- * Routes: ${routes.join(', ')}
+ * Routes: ${documentedRoutes.join(', ')}
  */
 import { ${httpNames.join(', ')} } from '${factory.http.package}'
 import { ${factoryNames.join(', ')} } from '${factoryPackage}'
@@ -278,10 +297,12 @@ ${namedWrites.source}
 `
   return {
     resource,
+    workspace,
     path,
     exportName,
     typeName,
     operations,
+    routes: clientRoutes,
     source: sortImportStatements(source, path),
   }
 }
@@ -409,14 +430,24 @@ export async function writeAppResourceModule(
     }
   }
   const target = join(projectRoot, module.path)
-  if (existsSync(target)) return { ...result, kept: [module.path] }
   const source = await formatGeneratedSource(module.source, target)
   await mkdir(dirname(target), { recursive: true })
+  let written = true
   try {
     await writeFile(target, source, { flag: 'wx' })
   } catch (error) {
     if ((error as NodeJS.ErrnoException).code !== 'EEXIST') throw error
-    return { ...result, kept: [module.path] }
+    written = false
   }
-  return { ...result, written: [module] }
+  const generated = written || (await readFile(target, 'utf8')) === source
+  const kept = written ? [] : [module.path]
+  await writeResourceClientLint(
+    projectRoot,
+    module.workspace,
+    ['--package', resource],
+    generated ? [module] : [],
+    kept,
+    [...new Set(registry.packages[resource].routes?.map(({ path }) => path))],
+  )
+  return { written: written ? [module] : [], kept }
 }

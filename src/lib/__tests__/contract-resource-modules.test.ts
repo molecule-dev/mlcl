@@ -457,6 +457,57 @@ describe('an inventory API with its own contract', () => {
     }
   })
 
+  it('uses a contract’s PUT/DELETE toggle without changing its ordinary POST create', async () => {
+    const contract = JSON.parse(
+      await readFile(join(import.meta.dirname, 'fixtures/inventory-openapi.json.txt'), 'utf8'),
+    )
+    const action = contract.paths['/items/{sku}/reserved']
+    action.put = action.post
+    delete action.post
+    const { modules } = planContractResourceModules(contract, factory, QUERY, '', 'openapi.json')
+    const module = modules.find(({ exportName }) => exportName === 'items')!
+    expect(module.routes).toContainEqual({
+      path: '/items/{sku}/reserved',
+      methods: 'PUT/DELETE',
+      exportName: 'useItemReserved',
+    })
+
+    const { outputText } = ts.transpileModule(module.source, {
+      compilerOptions: { module: ts.ModuleKind.CommonJS },
+    })
+    const row = { sku: 'bolt/a', name: 'Bolt', status: 'reserved' }
+    const requests: unknown[][] = []
+    const request = (method: string) => async (path: string, body?: unknown) => {
+      requests.push([method, path, body])
+      return { data: row }
+    }
+    const client = {
+      get: request('get'),
+      post: request('post'),
+      put: request('put'),
+      patch: request('patch'),
+      delete: request('delete'),
+    }
+    const exports: Record<string, (...args: unknown[]) => unknown> = {}
+    new Function('require', 'exports', outputText)(
+      (name: string) => (name === QUERY ? { createQueryResource } : { getClient: () => client }),
+      exports,
+    )
+    setProvider(createProvider())
+    try {
+      await exports.createItem(row)
+      await exports.setItemReserved(row.sku, true)
+      await exports.setItemReserved(row.sku, false)
+      expect(requests).toEqual([
+        ['post', '/items', row],
+        ['put', '/items/bolt%2Fa/reserved', undefined],
+        ['delete', '/items/bolt%2Fa/reserved', undefined],
+      ])
+    } finally {
+      resetQueryClient()
+    }
+  })
+
   it('the generated inventory view renders replaced labels on the same saved record', async () => {
     const source = (await plan('inventory-openapi.json.txt')).modules[0].source
     const example = source.split('*/', 1)[0].match(/\* ```tsx\n([\s\S]*?)\n \* ```/)?.[1]

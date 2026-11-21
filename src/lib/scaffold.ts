@@ -3858,6 +3858,7 @@ async function scaffoldEslint(projectPath: string, configName = 'eslint.config.j
   await mkdir(rulesDir, { recursive: true })
   for (const file of [
     'prefer-declared-clients.mjs',
+    'prefer-generated-resource-clients.mjs',
     'no-empty-interactive-target.mjs',
     'no-dropped-action.mjs',
     'no-stand-in-query-record.mjs',

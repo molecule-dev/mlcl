@@ -11,8 +11,8 @@ import { getRawRegistry } from '../lib/registry.js'
  * Write app resource clients from a declared API package or OpenAPI contract.
  *
  * Run it once the contract exists (a supplied OpenAPI file, or one the project keeps) and again
- * whenever it changes: files this command wrote and nobody edited are rewritten or removed with
- * the contract, and an edited file is left as it is.
+ * whenever it changes. The generated block in the app's scaffold ESLint config records
+ * the covered routes and requires the generated files. App edits to clients are preserved.
  */
 export default class Resources extends Command {
   static override description =

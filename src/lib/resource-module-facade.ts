@@ -249,7 +249,13 @@ export function resourceWrites(options: {
   remove: boolean
   toggles: ResourceToggle[]
   toggleBinding?: ToggleBinding
-}): { source: string; names: string[]; toggleDocs: string[]; imports: VisibleValue['imports'] } {
+}): {
+  source: string
+  names: string[]
+  toggleDocs: string[]
+  imports: VisibleValue['imports']
+  calls: { create?: string; update?: string; remove?: string; toggles: Map<string, string> }
+} {
   const { resource, type, parents } = options
   const call = `${resource}(${['viewer', ...parents].join(', ')})`
   const resourceType = `ReturnType<typeof ${resource}>`
@@ -260,11 +266,12 @@ export function resourceWrites(options: {
       .join('')
   const functions: string[] = []
   const names: string[] = []
+  const calls: ReturnType<typeof resourceWrites>['calls'] = { toggles: new Map() }
   const toggleDocs: string[] = []
   const imports: VisibleValue['imports'] = []
   const write = (
     name: string,
-    method: string,
+    method: 'create' | 'update' | 'remove' | 'toggle',
     args: string[],
     values: string[],
     result: string,
@@ -275,6 +282,7 @@ export function resourceWrites(options: {
         ? 'Save the desired toggle value and publish the saved record to the query cache. Use the generated toggle hook when available, or call this setter from a queued commit. Await it before navigating or reloading to read the saved change.'
         : `Call ${resource}.${method}; the request body is sent unchanged and tracked reads refresh.`
     names.push(name)
+    if (method !== 'toggle') calls[method] = name
     const params = [...parents.map((key) => `${key}: string`), ...args].join(', ')
     const innerArgs = [...parents, ...args.map((arg) => arg.split(':')[0])]
     const invoke = `${call}.${method}(viewer${values.length ? `, ${values.join(', ')}` : ''})`
@@ -327,11 +335,15 @@ export function resourceWrites(options: {
       options.toggleBinding !== undefined,
     )
     const binding = options.toggleBinding
-    if (!binding) continue
+    if (!binding) {
+      calls.toggles.set(action, setter)
+      continue
+    }
     names.pop()
     let hook = `use${suffix}`
     while (binding.usedNames.has(hook)) hook += 'Toggle'
     binding.usedNames.add(hook)
+    calls.toggles.set(action, hook)
     const toggle = resourceToggle(binding, type, parents, hook, setter, field)
     functions.push(toggle.source)
     imports.push(...toggle.imports)
@@ -340,5 +352,5 @@ export function resourceWrites(options: {
       `\`${hook}(${signature})\` ${field ? 'shows the desired flag immediately. Render value and call toggle() on click.' : 'shows the saved record in value. Call set(on) or toggle(savedOn).'}`,
     )
   }
-  return { source: functions.join('\n\n'), names, toggleDocs, imports }
+  return { source: functions.join('\n\n'), names, toggleDocs, imports, calls }
 }

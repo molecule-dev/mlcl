@@ -58,7 +58,7 @@ describe('a hand-written copy of the query hook', () => {
   ])('reports the retained hook %s', async (fixture, name, line) => {
     const rows = await findings(withQueryCache, await retained(fixture))
     expect(rows).toHaveLength(1)
-    expect(rows[0]).toMatchObject({ line, severity: 1 })
+    expect(rows[0]).toMatchObject({ line, severity: 2 })
     expect(rows[0]?.message).toContain(`\`${name}\` awaits a loader`)
     expect(rows[0]?.message).toContain('If the loader reads shared server data')
   })

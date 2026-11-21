@@ -45,6 +45,7 @@ import {
 import type { DeclaredPackage } from './capability-map.js'
 import { resourceErrorMessage, resourceErrorPaths } from './contract-resource-errors.js'
 import { formatGeneratedSource, sortImportStatements } from './format.js'
+import { type ResourceClientRoute, writeResourceClientLint } from './resource-client-lint.js'
 import { type ResourceHook, resourceHooks, resourceWrites } from './resource-module-facade.js'
 import { resourceRecordView } from './resource-record-view.js'
 import { RESOURCE_AUTH_PACKAGE, resourceViewer, scopedResources } from './resource-viewer.js'
@@ -64,6 +65,8 @@ export interface ContractResourceModule {
   typeName: string
   /** The contract operations the module covers, e.g. `list`, `create`, `toggle favorite`. */
   operations: string[]
+  /** Routes with a callable export, used by the scaffold's lint. */
+  routes: ResourceClientRoute[]
   /** The module's source, unformatted. */
   source: string
   /** Native view source, when the framework needs a separate component file. */
@@ -79,6 +82,8 @@ export interface SkippedContractPath {
 /** What a contract yields. */
 export interface ContractResourcePlan {
   modules: ContractResourceModule[]
+  /** Declared paths, including those with no generated export. */
+  paths: string[]
   skipped: SkippedContractPath[]
 }
 
@@ -146,7 +151,7 @@ export function planContractResourceModules(
   listRoute?: ResourceModuleFactory['listRoute'],
   pageSupport: { view: boolean; toggle: boolean; auth?: boolean } = { view: true, toggle: true },
 ): ContractResourcePlan {
-  const plan: ContractResourcePlan = { modules: [], skipped: [] }
+  const plan: ContractResourcePlan = { modules: [], paths: [], skipped: [] }
   if (!isObject(contract) || !isObject(contract.paths)) return plan
   const document = contract
 
@@ -266,6 +271,7 @@ export function planContractResourceModules(
   // Every path that could be a collection: its last segment is a word, and it lists (GET on it)
   // or holds records (GET on `<it>/{id}`).
   const paths = [...new Set(operations.map((operation) => operation.path))]
+  plan.paths = paths
   const itemOf = (base: string): string | undefined =>
     paths.find((path) => {
       const rest = path.startsWith(`${base}/`) ? path.slice(base.length + 1) : ''
@@ -349,14 +355,19 @@ export function planContractResourceModules(
     const create = find('post', base)
     const update = item ? (find('put', item) ?? find('patch', item)) : undefined
     const remove = item ? find('delete', item) : undefined
-    const toggles = item
-      ? paths
-          .filter(
-            (path) => path.startsWith(`${item}/`) && SEGMENT.test(path.slice(item.length + 1)),
-          )
-          .filter((path) => find('post', path) && find('delete', path))
-          .map((path) => path.slice(item.length + 1))
-      : []
+    const enableMethods = new Map<string, 'post' | 'put'>()
+    if (item) {
+      for (const path of paths) {
+        if (!path.startsWith(`${item}/`) || !find('delete', path)) continue
+        const action = path.slice(item.length + 1)
+        if (!SEGMENT.test(action)) continue
+        const enable = find('post', path) ? 'post' : find('put', path) ? 'put' : null
+        if (enable) enableMethods.set(action, enable)
+      }
+    }
+    const toggles = [...enableMethods.keys()]
+    const toggleVerbs = (action: string): string =>
+      `${enableMethods.get(action)!.toUpperCase()}/DELETE`
     const listAnswer = listShape(answer(list)?.schema)
     if (!listAnswer && !detail) {
       plan.skipped.push({ path: base, reason: 'neither lists records nor returns one by id' })
@@ -473,7 +484,7 @@ export function planContractResourceModules(
     }
     const toggleFlag = (action: string): string | undefined => {
       const names = toggleFieldNames(action)
-      const answers = ['post', 'delete'].map((method) => {
+      const answers = [enableMethods.get(action)!, 'delete'].map((method) => {
         const response = answer(find(method, `${item}/${action}`))
         return response && oneShape(response.schema, response.name)?.record
       })
@@ -535,6 +546,7 @@ export function planContractResourceModules(
     const defaultListHooks: { name: string; rowsKey: string | null }[] = []
     const unfilteredReads: (ResourceHook & { rowsKey: string | null })[] = []
     const namedReads: ResourceHook[] = []
+    const listReaders = new Map<string, { hook: ResourceHook; options: string; urlHook?: string }>()
     const listPaths = [...(list && listAnswer ? [base] : []), ...(extraLists.get(base) ?? [])]
     const pathExpression = (path: string): string => {
       const text = toColon(path).replace(
@@ -601,6 +613,11 @@ export function planContractResourceModules(
         read: `${[...parentArgs.map((name) => `${name}Value === null`), 'viewerValue === null', 'paramsValue === null'].join(' || ')} ? null : ${pageWithViewer}(${['viewerValue', ...parentArgs.map((name) => `${name}Value`), 'paramsValue'].join(', ')})`,
       }
       namedReads.push(hook)
+      const reader: { hook: ResourceHook; options: string; urlHook?: string } = {
+        hook,
+        options: pageName,
+      }
+      listReaders.set(path, reader)
       if (!required && parentArgs.length === 0) unfilteredReads.push(hook)
       const pageArgs = [...parentArgs.map((name) => `${name}: string`), `params: ${paramsType}`]
       pageExports.push(
@@ -637,6 +654,7 @@ export function planContractResourceModules(
           ([key, value]) => !managed.includes(key) && value.required,
         )
         const hookName = `use${pascal(name)}${suffix}List`
+        reader.urlHook = hookName
         listHookNames.push(hookName)
         if (!remainingRequired && parentArgs.length === 0)
           defaultListHooks.push({ name: hookName, rowsKey })
@@ -698,13 +716,31 @@ export function planContractResourceModules(
       ? `(response.data as { ${propertyKey(one.key)}: ${typeName} | null })${access(one.key)}`
       : `response.data as ${typeName} | null`
     const readOne = one ? `(response) => ${recordValue}` : null
+    const putActions = toggles.filter((action) => enableMethods.get(action) === 'put')
     const resourceFor = (path: string, resourceName: string): string => {
+      // The query resource owns the cache and calls POST for its enable operation. Its HTTP
+      // adapter sends PUT for the contract's PUT actions, while creates still use POST.
+      const http = putActions.length
+        ? `() => {
+            const client = (${session.http})()
+            const base = ${pathExpression(path)}
+            return {
+              get: client.get.bind(client),
+              post: (path, body) => path !== base && ${JSON.stringify(putActions)}.includes(path.slice(path.lastIndexOf('/') + 1))
+                ? client.put(path, body)
+                : client.post(path, body),
+              put: client.put.bind(client),
+              patch: client.patch.bind(client),
+              delete: client.delete.bind(client),
+            }
+          }`
+        : session.http
       return (
         `${factory.factory}<${generics}>({\n` +
         `  name: ${resourceName},\n  path: ${pathExpression(path)},` +
         (!idField || idField === 'id' ? '' : `\n  id: ${JSON.stringify(idField)},`) +
         (update?.method === 'patch' ? `\n  updateMethod: 'patch',` : '') +
-        `\n  http: ${session.http},` +
+        `\n  http: ${http},` +
         (readList ? `\n  readList: ${readList},` : '') +
         (readOne ? `\n  readOne: ${readOne},` : '') +
         `\n})`
@@ -803,9 +839,26 @@ export function planContractResourceModules(
       ...(create ? [`create (POST ${base})`] : []),
       ...(update ? [`update (${update.method.toUpperCase()} ${item})`] : []),
       ...(remove ? [`remove (DELETE ${item})`] : []),
-      ...toggles.map((action) => `toggle ${action} (POST/DELETE ${item}/${action})`),
+      ...toggles.map((action) => `toggle ${action} (${toggleVerbs(action)} ${item}/${action})`),
       ...(extraLists.get(base) ?? []).map((path) => `list (GET ${path})`),
     ]
+    const routes: ResourceClientRoute[] = []
+    const route = (path: string, methods: string, exportName: string | undefined): void => {
+      if (exportName) routes.push({ path, methods, exportName })
+    }
+    for (const [path, reader] of listReaders) {
+      route(path, 'GET', reader.urlHook ?? (hooks.source ? reader.hook.name : reader.options))
+    }
+    if (item && hooks.source) route(item, 'GET', detailRead?.name)
+    const { calls } = namedWrites
+    route(base, 'POST', calls.create)
+    if (item) {
+      if (update) route(item, update.method.toUpperCase(), calls.update)
+      route(item, 'DELETE', calls.remove)
+      for (const [action, name] of calls.toggles)
+        route(`${item}/${action}`, toggleVerbs(action), name)
+    }
+
     const errorName = `${typeName.charAt(0).toLowerCase()}${typeName.slice(1)}ErrorMessage`
     const errorSchemas = operations
       .filter(({ path }) =>
@@ -992,6 +1045,7 @@ ${listHooks.join('\n\n')}`
       exportName,
       typeName,
       operations: covered,
+      routes,
       source: sortImportStatements(source, modulePath),
       ...(recordView?.file
         ? {
@@ -1161,6 +1215,7 @@ export async function writeContractResourceModules(
     scaffolded.set(module.path, await formatGeneratedSource(module.source, target))
   }
   const files: Record<string, string> = {}
+  const registered: { path: string; view?: string; routes: ResourceClientRoute[] }[] = []
   const planned = new Set(
     plan.modules.flatMap((module) =>
       module.view ? [module.path, module.view.path] : [module.path],
@@ -1205,17 +1260,29 @@ export async function writeContractResourceModules(
       continue
     }
     const view = module.view ? await save(module.view) : 'same'
+    registered.push({
+      path: module.path,
+      routes: module.routes,
+      ...(module.view && view !== 'kept' ? { view: module.view.path } : {}),
+    })
     if (primary === 'written' || view === 'written') result.written.push(module)
   }
   for (const [path, hash] of Object.entries(manifest.files)) {
     if (path in files || planned.has(path)) continue
     const target = join(projectRoot, path)
     if (!existsSync(target)) continue
-    if (sha(await readFile(target, 'utf8')) === hash) {
-      await rm(target)
-      result.removed.push(path)
-    } else result.kept.push(path)
+    if (sha(await readFile(target, 'utf8')) === hash) result.removed.push(path)
+    else result.kept.push(path)
   }
+  await writeResourceClientLint(
+    projectRoot,
+    declaration.workspace,
+    ['--contract', label],
+    registered,
+    result.kept.filter((path) => planned.has(path)),
+    plan.paths,
+  )
+  for (const path of result.removed) await rm(join(projectRoot, path), { force: true })
   if (plan.modules.length > 0 || Object.keys(manifest.files).length > 0) {
     await mkdir(directory, { recursive: true })
     await writeFile(
