@@ -6,12 +6,9 @@
 # Each workspace's ESLint config and shared rule modules are byte copies of
 # templates/shared/ (the workspace's sync-eslint-rules),
 # and copyTemplateInstance writes those shared files into every api/ and app/
-# (scaffoldEslint). Ship each canonical module once instead of hundreds of copies.
+# (scaffoldEslint, from TEMPLATE_ESLINT_RULES in src/lib/template-package.ts). Ship each
+# canonical module once instead of hundreds of copies; the pack check refuses any copy.
 */api/eslint.config.js
 */app/eslint.config.js
-*/api/eslint-rules/prefer-declared-clients.mjs
-*/app/eslint-rules/prefer-declared-clients.mjs
-*/api/eslint-rules/no-empty-interactive-target.mjs
-*/app/eslint-rules/no-empty-interactive-target.mjs
-*/api/eslint-rules/no-dropped-action.mjs
-*/app/eslint-rules/no-dropped-action.mjs
+*/api/eslint-rules/
+*/app/eslint-rules/

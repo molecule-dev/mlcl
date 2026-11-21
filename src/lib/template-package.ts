@@ -12,15 +12,31 @@ export const TEMPLATE_PACKAGE_BUDGET = {
   files: 32_000,
 } as const
 
-/** The shared files every flagship workspace's ESLint config and rule are written from. */
+/**
+ * The local ESLint rule modules every scaffolded workspace gets in `eslint-rules/`, each written
+ * from `templates/shared/<file>`. Flagship workspaces carry byte copies (the workspace's
+ * sync-eslint-rules); the package leaves those copies out (templates/apps/.npmignore) and
+ * scaffoldEslint writes these back, so a rule added here ships once, not once per workspace.
+ */
+export const TEMPLATE_ESLINT_RULES = [
+  'prefer-declared-clients.mjs',
+  'prefer-generated-resource-clients.mjs',
+  'no-empty-interactive-target.mjs',
+  'no-dropped-action.mjs',
+  'no-stand-in-query-record.mjs',
+  'no-resource-table-writes.mjs',
+  'no-class-code.mjs',
+] as const
+
+/** The shared files every flagship workspace's ESLint config and rules are written from. */
 export const TEMPLATE_SHARED_ESLINT = [
   'templates/shared/eslint.config.js.tpl',
-  'templates/shared/prefer-declared-clients.mjs',
-  'templates/shared/prefer-generated-resource-clients.mjs',
-  'templates/shared/no-empty-interactive-target.mjs',
-  'templates/shared/no-dropped-action.mjs',
-  'templates/shared/no-stand-in-query-record.mjs',
+  ...TEMPLATE_ESLINT_RULES.map((file) => `templates/shared/${file}` as const),
 ] as const
+
+/** A workspace's synced ESLint config or rule copy, which the package must not carry. */
+const WORKSPACE_ESLINT_COPY =
+  /^templates\/apps\/[^/]+\/(?:api|app)\/(?:eslint\.config\.js|eslint-rules\/)/
 
 /** Size plus representation checks: exclusion without restoration data cannot pass. */
 export function templatePackageIssues(pack: TemplatePackManifest): string[] {
@@ -41,6 +57,10 @@ export function templatePackageIssues(pack: TemplatePackManifest): string[] {
       if (!shipped.has(shared))
         issues.push(`template ESLint copies missing their shared source: ${shared}`)
   for (const file of shipped) {
+    if (WORKSPACE_ESLINT_COPY.test(file))
+      issues.push(
+        `template workspace ESLint copy shipped (scaffoldEslint writes it from templates/shared; leave it out in templates/apps/.npmignore): ${file.replace(/^templates\/apps\/[^/]+\//, '*/')}`,
+      )
     const locales = /^templates\/apps\/([^/]+)\/app\/src\/locales\/(.+)$/.exec(file)
     if (!locales) continue
     const [, app, rel] = locales

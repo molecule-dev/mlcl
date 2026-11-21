@@ -89,6 +89,7 @@ import {
 } from './setup-sql.js'
 import { restoreTemplateDotfiles } from './template-dotfiles.js'
 import { restoreTemplateLocales } from './template-locales.js'
+import { TEMPLATE_ESLINT_RULES } from './template-package.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -3856,15 +3857,7 @@ export async function createApiProject(
 async function scaffoldEslint(projectPath: string, configName = 'eslint.config.js'): Promise<void> {
   const rulesDir = join(projectPath, 'eslint-rules')
   await mkdir(rulesDir, { recursive: true })
-  for (const file of [
-    'prefer-declared-clients.mjs',
-    'prefer-generated-resource-clients.mjs',
-    'no-empty-interactive-target.mjs',
-    'no-dropped-action.mjs',
-    'no-stand-in-query-record.mjs',
-    'no-resource-table-writes.mjs',
-    'no-class-code.mjs',
-  ]) {
+  for (const file of TEMPLATE_ESLINT_RULES) {
     await writeGuarded(join(rulesDir, file), await loadTemplate(`shared/${file}`))
   }
   await writeGuarded(

@@ -28,7 +28,11 @@ import {
   restoreTemplateLocales,
   TEMPLATE_LOCALES_ARCHIVE,
 } from '../template-locales.js'
-import { TEMPLATE_SHARED_ESLINT, templatePackageIssues } from '../template-package.js'
+import {
+  TEMPLATE_ESLINT_RULES,
+  TEMPLATE_SHARED_ESLINT,
+  templatePackageIssues,
+} from '../template-package.js'
 import { singlePackResult } from './npm-pack-json.js'
 
 const ROOT = resolve(import.meta.dirname, '../../..')
@@ -162,8 +166,41 @@ describe('offline npm template locales', () => {
     expect(
       templatePackageIssues({ size: 1, unpackedSize: 1, files: [workspace, ...shared] }),
     ).toEqual([])
+    // A workspace's synced rule copy is refused by name, whichever rule it is (2.2.8: two new
+    // rules shipped 606 copies and the package passed its 32,000-file budget).
+    const copy = { path: 'templates/apps/a/app/eslint-rules/no-resource-table-writes.mjs', size: 1 }
+    expect(
+      templatePackageIssues({ size: 1, unpackedSize: 1, files: [workspace, ...shared, copy] }),
+    ).toEqual([
+      'template workspace ESLint copy shipped (scaffoldEslint writes it from templates/shared; leave it out in templates/apps/.npmignore): */app/eslint-rules/no-resource-table-writes.mjs',
+    ])
     // A package without flagship workspaces needs neither.
     expect(templatePackageIssues({ size: 1, unpackedSize: 1, files: [] })).toEqual([])
+  })
+
+  it('every flagship workspace rule copy is one the scaffold writes back from templates/shared', () => {
+    // The package leaves each workspace's whole eslint-rules/ folder out, so a rule file there that
+    // TEMPLATE_ESLINT_RULES does not list would be lost from every installed template.
+    const apps = join(ROOT, 'templates/apps')
+    const unknown: string[] = []
+    let copies = 0
+    for (const app of readdirSync(apps, { withFileTypes: true }))
+      for (const half of app.isDirectory() ? ['api', 'app'] : []) {
+        const rules = join(apps, app.name, half, 'eslint-rules')
+        if (!existsSync(rules)) continue
+        for (const file of readdirSync(rules)) {
+          copies++
+          if (
+            !(TEMPLATE_ESLINT_RULES as readonly string[]).includes(file) ||
+            !readFileSync(join(rules, file)).equals(
+              readFileSync(join(ROOT, 'templates/shared', file)),
+            )
+          )
+            unknown.push(`${app.name}/${half}/eslint-rules/${file}`)
+        }
+      }
+    expect(copies).toBeGreaterThan(1000)
+    expect(unknown).toEqual([])
   })
 
   it('a source checkout wins over a stale manifest, and a template without locales is unchanged', async () => {
@@ -270,15 +307,14 @@ describe('offline npm template locales', () => {
         )
       // The package leaves each workspace's synced ESLint copies out (the old one carried them),
       // and the scaffold writes the shared ones back.
+      const workspaceEslint = [
+        'eslint.config.js',
+        ...TEMPLATE_ESLINT_RULES.map((file) => `eslint-rules/${file}`),
+      ]
       for (const half of ['app', 'api'])
-        for (const file of [
-          'eslint.config.js',
-          'eslint-rules/prefer-declared-clients.mjs',
-          'eslint-rules/no-empty-interactive-target.mjs',
-          'eslint-rules/no-dropped-action.mjs',
-        ]) {
-          expect(existsSync(join(old.root, 'templates/apps', slug, half, file))).toBe(true)
-          expect(existsSync(join(installed, half, file))).toBe(false)
+        for (const file of workspaceEslint) {
+          expect(existsSync(join(old.root, 'templates/apps', slug, half, file)), file).toBe(true)
+          expect(existsSync(join(installed, half, file)), file).toBe(false)
         }
       const after = join(f.dir, 'after')
       await copyTemplateInstance(installed, after, 'same-project', versions)
@@ -292,12 +328,10 @@ describe('offline npm template locales', () => {
         expect(readFileSync(join(after, half, 'eslint.config.js'))).toEqual(
           readFileSync(join(ROOT, 'templates/shared/eslint.config.js.tpl')),
         )
-        expect(readFileSync(join(after, half, 'eslint-rules/prefer-declared-clients.mjs'))).toEqual(
-          readFileSync(join(ROOT, 'templates/shared/prefer-declared-clients.mjs')),
-        )
-        expect(
-          readFileSync(join(after, half, 'eslint-rules/no-empty-interactive-target.mjs')),
-        ).toEqual(readFileSync(join(ROOT, 'templates/shared/no-empty-interactive-target.mjs')))
+        for (const file of TEMPLATE_ESLINT_RULES)
+          expect(readFileSync(join(after, half, 'eslint-rules', file)), file).toEqual(
+            readFileSync(join(ROOT, 'templates/shared', file)),
+          )
       }
       expect(
         Object.keys(tree(after)).filter((p) => p.includes('/locales/')).length,
