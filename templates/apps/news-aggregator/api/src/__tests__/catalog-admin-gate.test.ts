@@ -24,7 +24,7 @@ const findById = vi.fn(async (table: string, id: string) => {
   return { id }
 })
 const create = vi.fn(async (..._a: unknown[]) => ({ data: { id: 'cat-1' } }))
-const updateById = vi.fn(async (..._a: unknown[]) => ({ data: { ok: true } }))
+const updateById = vi.fn(async (..._a: unknown[]) => ({ affected: 1, data: { ok: true } }))
 const findOne = vi.fn(async (..._a: unknown[]) => null)
 const findMany = vi.fn(async (..._a: unknown[]) => [])
 
@@ -149,7 +149,10 @@ describe('shared-catalog admin gate (broken-access-control fix)', () => {
         const res = await call(route.path, 'editor-1')
         expect(res.status).toBeLessThan(300)
         // requireAdmin lazily persists the role promotion for the editor.
-        expect(updateById).toHaveBeenCalledWith('users', 'editor-1', { role: 'admin' })
+        expect(updateById).toHaveBeenCalledWith('users', 'editor-1', {
+          role: 'admin',
+          updatedAt: expect.any(String),
+        })
       })
     })
   }

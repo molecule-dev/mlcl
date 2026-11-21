@@ -8,7 +8,6 @@
  */
 import { Router } from 'express'
 
-import bookmarks from './bookmarks.js'
 import categories from './categories.js'
 import moderation from './moderation.js'
 import notifications from './notifications.js'
@@ -25,7 +24,6 @@ router.use('/votes', votes)
 router.use('/moderation', moderation)
 router.use('/profiles', profiles)
 router.use('/notifications', notifications)
-router.use('/bookmarks', bookmarks)
 router.use('/preferences', preferences)
 
 export default router

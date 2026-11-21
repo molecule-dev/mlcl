@@ -641,8 +641,9 @@ export const MoleculeMetadata = z.object({
     .optional()
     .describe(
       'Export that takes RequestHandlerOptions and returns the resource HTTP handler map. ' +
-        'Scaffold a local options object instead of re-exporting the fixed map.',
+        'Used for a package without a scaffold Express router.',
     ),
+  expressRouter: z.string().optional().describe('Public service-backed Express router source'),
   shortName: z
     .string()
     .optional()
@@ -652,6 +653,10 @@ export const MoleculeMetadata = z.object({
   decisionGuide: DecisionGuide.optional().describe(
     'Decision-time configuration guidance for this package; consumed by the generated capability map.',
   ),
+  tableWriteServices: z
+    .record(z.string(), z.array(z.string()).min(1))
+    .optional()
+    .describe('Public mutation services for a setup table, shown by scaffold ESLint'),
   authContract: AuthContractMetadata.optional().describe(
     'Auth transport options shared with the app composition root; routes remain in routes.',
   ),
@@ -969,8 +974,13 @@ export const RegistryEntry = z.object({
     .optional()
     .describe(
       'Export that takes RequestHandlerOptions and returns the resource HTTP handler map. ' +
-        'Scaffold a local options object instead of re-exporting the fixed map.',
+        'Used for a package without a scaffold Express router.',
     ),
+  expressRouter: z.string().optional().describe('Public service-backed Express router source'),
+  tableWriteServices: z
+    .record(z.string(), z.array(z.string()).min(1))
+    .optional()
+    .describe('Public mutation services for a setup table, shown by scaffold ESLint'),
   shortName: z
     .string()
     .optional()

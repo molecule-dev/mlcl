@@ -24,7 +24,7 @@ import {
   rm,
   writeFile,
 } from 'node:fs/promises'
-import { basename, dirname, isAbsolute, join, relative, sep } from 'node:path'
+import { dirname, isAbsolute, join, relative, sep } from 'node:path'
 
 import { ts } from 'ts-morph'
 
@@ -120,7 +120,7 @@ import {
   loadRegistry,
   requirePackageByRole,
 } from './registry.js'
-import { optionalPeersOf, scanPackage } from './scanner.js'
+import { optionalPeersOf, scanPackage, tablesCreatedBySql } from './scanner.js'
 import type { InferredPackage } from './schema.js'
 import {
   bindIntendedVersion,
@@ -885,33 +885,7 @@ function stringRecord(value: Record<string, unknown> | undefined): Record<string
   return record
 }
 
-/**
- * The tables a package SQL file creates, in the order its `CREATE TABLE`
- * statements appear.
- *
- * One SQL file commonly ships several tables (`records.sql` creates
- * `records` AND `record_labels`), and a package's `tables` metadata names the
- * file once per table. Planning one migration per TABLE entry copied the whole
- * file once per table — two byte-identical migrations for one schema file (X0
- * xr-molecule-flash-l03: the restored pair told the model to delete either
- * copy, and obeying both left the app with no `records`). The migration is
- * named after the FIRST table the file creates, and covers the rest.
- *
- * `--` comments are stripped first: a note that mentions a `CREATE TABLE` must
- * not decide the filename.
- *
- * @param sql - The SQL file's text.
- * @returns The created table names, first occurrence only.
- */
-export function tablesCreatedBySql(sql: string): string[] {
-  const withoutComments = sql.replace(/--[^\n]*/g, '')
-  const names = new Set<string>()
-  for (const match of withoutComments.matchAll(
-    /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?(?:["`]?[A-Za-z_][A-Za-z0-9_]*["`]?\s*\.\s*)?["`]?([A-Za-z_][A-Za-z0-9_]*)["`]?/gi,
-  ))
-    names.add(match[1])
-  return [...names]
-}
+export { tablesCreatedBySql } from './scanner.js'
 
 /**
  * A package's tables ordered so each comes after the tables its SQL references
@@ -3058,16 +3032,20 @@ ${bondLines.join('\n')}
 // =============================================================================
 
 /**
- * The `requestHandlerMap as X` mounts a router text carries, sorted — the package list in the
- * form the generated file records it.
+ * Package routes imported by the scaffold router, in a stable order.
  *
  * @param text - A router file's text.
  * @returns The mount identifiers.
  */
 function routerMountNames(text: string): string[] {
-  return [...text.matchAll(/import\s*\{\s*requestHandlerMap\s+as\s+(\w+)\s*\}/g)]
-    .map((match) => match[1])
-    .sort()
+  const maps = text.matchAll(/import\s*\{\s*requestHandlerMap\s+as\s+(\w+)\s*\}/g)
+  const handlers = text.matchAll(
+    /import (resource\w+Router) from ['"]\.\.\/handlers\/([\w-]+)\.js['"]/g,
+  )
+  return [
+    ...Array.from(maps, ([, name]) => name),
+    ...Array.from(handlers, ([, name, file]) => `${name}:${file}`),
+  ].sort()
 }
 
 /**
@@ -3159,19 +3137,12 @@ function mergeContractRouter(existing: string, generated: string): string {
  * update their route blocks in place, so app middleware is neither a rewrite trigger nor
  * collateral damage.
  */
-async function routerContentForInjection(
-  routerPath: string,
+function routerContentForInjection(
+  existing: string | null,
   generated: string,
   contractDriven = false,
-): Promise<string | undefined> {
-  let existing: string
-  try {
-    existing = await readFile(routerPath, 'utf-8')
-  } catch (error) {
-    if ((error as NodeJS.ErrnoException)?.code === 'ENOENT') return generated
-    console.warn(`[injector] leaving ${routerPath} untouched — it could not be read`)
-    return undefined
-  }
+): string | undefined {
+  if (existing === null) return undefined
   if (!existing.includes(GENERATED_ROUTER_MARKER)) {
     return untouchedRouter(existing) ? generated : undefined
   }
@@ -3187,7 +3158,7 @@ async function routerContentForInjection(
  * Synthesize holistic project files from all injection plans.
  *
  * Creates files that require a global view of all molecules:
- * - Resource wrappers (with factory calls)
+ * - Editable resource routers and wrappers for packages that expose HTTP maps
  * - router.ts (all routes from all resources)
  * - server.ts (API app with middleware, bonds, error handling)
  * - bonds/index.ts (setupBonds function calling all bond + service setups)
@@ -3209,6 +3180,15 @@ export async function synthesizeProjectFiles(
   const optionalFeatures = deriveOptionalFeatures(allMolecules, registryPackages)
 
   const authContract = readProjectAuthContract(projectPath)
+  const routerPath = join(projectPath, 'src', 'App', 'router.ts')
+  const existingRouter = await readFile(routerPath, 'utf8').catch(
+    (error: NodeJS.ErrnoException) => {
+      if (error.code === 'ENOENT') return ''
+      console.warn(`[injector] leaving ${routerPath} untouched — it could not be read`)
+      return null
+    },
+  )
+  const resourceRouters = new Map<string, ResourceRouter>()
 
   // Generate wrappers for resources that have active routes — plus any resource
   // exporting `authorization`, whose wrapper the router imports for the global
@@ -3221,7 +3201,8 @@ export async function synthesizeProjectFiles(
     return plan.moleculePackage.routes.some((r) => !r.optional || optionalFeatures.has(r.optional))
   })
 
-  // Generate resource wrappers with factory calls
+  // Write the resource's HTTP source into a new app. Previously generated wrappers
+  // can hold app configuration, and stay mounted when that app is reinjected.
   for (const plan of routablePlans) {
     const pkg = plan.moleculePackage
     if (!pkg) continue
@@ -3241,23 +3222,37 @@ export async function synthesizeProjectFiles(
       continue
     }
 
+    const source = pkg.molecule?.expressRouter
     const factory = requestHandlerMapFactory(pkg, pkg.exports.length ? pkg.exports : undefined)
-    // A configurable wrapper is an existing project's composition root. In
-    // particular, older projects may still have their wire format inline here.
-    if (factory && lstatSync(wrapperPath, { throwIfNoEntry: false })) continue
-    const wireFormat = factory ? resourceWireFormatFile(projectPath, pkg, factory) : null
-    const localWireFormat =
-      wireFormat && !files.some((file) => file.targetPath === wireFormat.targetPath)
-        ? wireFormat
-        : null
-    if (localWireFormat) files.push(localWireFormat)
+    const wrapperExists = lstatSync(wrapperPath, { throwIfNoEntry: false })
+    if ((factory || source) && wrapperExists) continue
+    if (fw === 'express' && source && authContract?.resourcePackage !== pkg.name) {
+      const resource = resourceRouterFile(
+        projectPath,
+        pkg,
+        source,
+        existingRouter ?? '',
+        resourceRouters,
+      )
+      if (resource) {
+        resourceRouters.set(plan.molecule, resource)
+        const targetPath = join(projectPath, 'src', 'handlers', `${resource.file}.ts`)
+        if (!lstatSync(targetPath, { throwIfNoEntry: false })) {
+          files.push({
+            action: 'create',
+            createOnly: true,
+            targetPath,
+            description: `Create editable ${pkg.name} Express router`,
+            content: source,
+          })
+        }
+        continue
+      }
+    }
 
     const rawContent = await generateWrapperContent(
       pkg,
       authContract?.resourcePackage === plan.molecule ? authContract : undefined,
-      localWireFormat
-        ? `../../../handlers/${basename(localWireFormat.targetPath, '.ts')}.js`
-        : undefined,
     )
     // The module opens with the package's service declarations, so a handler the map does not
     // cover is written from the real signatures instead of a read of the package's .d.ts files.
@@ -3277,19 +3272,19 @@ export async function synthesizeProjectFiles(
 
   // Generate router.ts — only when the package list changed (see shouldWriteRouter): the file
   // is generated, but it is also where the app's own edits beside the mounts live.
-  const routerPath = join(projectPath, 'src', 'App', 'router.ts')
   const rawRouterContent = generateRouterContent(
     resourcePlans,
     allMolecules,
     registryPackages,
     fw,
     authContract,
+    resourceRouters,
   )
   const routerContent = authContract
     ? await formatGeneratedSource(sortImportStatements(rawRouterContent, routerPath), routerPath)
     : rawRouterContent
-  const injectedRouterContent = await routerContentForInjection(
-    routerPath,
+  const injectedRouterContent = routerContentForInjection(
+    existingRouter,
     routerContent,
     Boolean(authContract),
   )
@@ -3443,7 +3438,7 @@ export function setupEntitlements(): void {
     description: 'Generate server smoke tests',
   })
 
-  const routeTestContent = generateRouteSmokeTest(routablePlans, moleculeMocks)
+  const routeTestContent = generateRouteSmokeTest(routablePlans, moleculeMocks, resourceRouters)
   if (routeTestContent) {
     files.push({
       action: 'create',
@@ -4231,10 +4226,9 @@ export function setup${pascal}(): void {
 async function generateWrapperContent(
   pkg: InferredPackage,
   authContract?: AuthContract,
-  wireFormatModule?: string,
 ): Promise<string> {
   if (authContract || pkg.molecule?.requestHandlerMapFactory)
-    return generateWrapperContentHeuristic(pkg, authContract, wireFormatModule)
+    return generateWrapperContentHeuristic(pkg, authContract)
   if (isAIAvailable()) {
     try {
       return await generateWrapperContentAI(pkg)
@@ -4306,41 +4300,44 @@ function requestHandlerMapFactory(
   return factory
 }
 
-/**
- * Put the real options for a mounted resource alongside the app's handlers.
- * An occupied path or a redirected handler directory keeps the inline wrapper.
- */
-function resourceWireFormatFile(
+interface ResourceRouter {
+  file: string
+  binding: string
+}
+
+/** Use the existing mount on reinjection, or pick a free path beside the app's handlers. */
+function resourceRouterFile(
   projectPath: string,
   pkg: InferredPackage,
-  factory: string,
-): FileOperation | null {
+  content: string,
+  existingRouter: string,
+  selected: ReadonlyMap<string, ResourceRouter>,
+): ResourceRouter | undefined {
   const category = pkg.molecule?.category
-  if (!category || !/^[a-z][a-z0-9-]*$/.test(category) || category === 'index') return null
+  if (!category || !/^[a-z][a-z0-9-]*$/.test(category) || category === 'index') return undefined
+  const name = extractResourceName(pkg.name)
+  if (!/^\w+$/.test(name)) return undefined
+  const binding = `resource${name}Router`
 
   const source = join(projectPath, 'src')
   const handlers = join(source, 'handlers')
   for (const dir of [source, handlers]) {
     const entry = lstatSync(dir, { throwIfNoEntry: false })
-    if (entry && !entry.isDirectory()) return null
+    if (entry && !entry.isDirectory()) return undefined
   }
-  const targetPath = join(handlers, `${category}.ts`)
-  if (lstatSync(targetPath, { throwIfNoEntry: false })) return null
-
-  return {
-    action: 'create',
-    createOnly: true,
-    targetPath,
-    description: `Expose the mounted ${pkg.name} handlers' wire format`,
-    content: `import type { ${factory} } from '${pkg.name}'
-
-// The mounted package handlers use these options for request and response mapping.
-// Add HTTP shaping here. The package handles validation, authorization and storage.
-export const wireFormat: NonNullable<Parameters<typeof ${factory}>[0]> = {
-  // mapRequest: (req) => ({ body: req.body?.entry }),
-  // mapResponse: (response) => response,
-}
-`,
+  const used = new Set([...selected.values()].map((resource) => resource.file))
+  const mounted = existingRouter.match(
+    new RegExp(`import ${binding} from ['"]\\.\\./handlers/([\\w-]+)\\.js['"]`),
+  )?.[1]
+  if (mounted && !used.has(mounted)) return { file: mounted, binding }
+  for (const file of [category, `${category}-resource`]) {
+    if (used.has(file)) continue
+    const target = join(handlers, `${file}.ts`)
+    const entry = lstatSync(target, { throwIfNoEntry: false })
+    // A flagship can carry the package's complete router at its usual path.
+    if (!entry || (entry.isFile() && readFileSync(target, 'utf8') === content)) {
+      return { file, binding }
+    }
   }
 }
 
@@ -4359,7 +4356,6 @@ export const wireFormat: NonNullable<Parameters<typeof ${factory}>[0]> = {
 async function generateWrapperContentHeuristic(
   pkg: InferredPackage,
   authContract?: AuthContract,
-  wireFormatModule?: string,
 ): Promise<string> {
   const exports = pkg.exports.length > 0 ? pkg.exports : await scanExportsFromPath(pkg.path)
   const accessors = routerAccessorExports(exports)
@@ -4371,14 +4367,6 @@ async function generateWrapperContentHeuristic(
       .filter((name) => reExports.has(name))
       .map((name) => `export { ${name} } from '${pkg.name}'`)
       .join('\n')
-    if (wireFormatModule) {
-      return `import { ${optionsFactory} } from '${pkg.name}'
-
-import { wireFormat } from '${wireFormatModule}'
-
-${extraReExports ? extraReExports + '\n\n' : ''}export const requestHandlerMap = ${optionsFactory}(wireFormat)
-`
-    }
     return `import { ${optionsFactory} } from '${pkg.name}'
 
 ${extraReExports ? extraReExports + '\n\n' : ''}// Configure this map's wire format here; the package keeps validation and authorization.
@@ -4492,6 +4480,7 @@ function generatedRouterHeader(
   resourcePlans: InjectionPlan[],
   optionalFeatures: Set<string>,
   authContract?: AuthContract,
+  resourceRouters = new Map<string, ResourceRouter>(),
 ): string {
   const mounted = resourcePlans.flatMap((plan) => {
     const pkg = plan.moleculePackage
@@ -4507,7 +4496,12 @@ function generatedRouterHeader(
   if (mounted.length > 0) {
     lines.push('// Mounted here — server.ts mounts this router at /api:')
     for (const mount of mounted) {
-      lines.push(`//   ${mount.package} (${mount.name}): ${scaffoldRouteList(mount.routes)}`)
+      const resource = resourceRouters.get(mount.package)
+      if (resource) {
+        lines.push(`//   ${mount.package}: edit api/src/handlers/${resource.file}.ts`)
+      } else {
+        lines.push(`//   ${mount.package} (${mount.name}): ${scaffoldRouteList(mount.routes)}`)
+      }
     }
   } else {
     lines.push('// It mounts no package routes: none of the selected packages declares any.')
@@ -4515,8 +4509,7 @@ function generatedRouterHeader(
   lines.push('//')
   lines.push(
     '// To ADD a route, put it in api/src/handlers/index.ts — the app router the scaffold mounts ' +
-      'here — instead of replacing this file. Removing a package mount below unmounts every ' +
-      'route listed with it.',
+      'here. To change a resource route, edit its handler file above and call the package services.',
   )
   // Sign-up and sign-in at the app's own paths or envelopes are the routes a project most often
   // writes beside these mounts, and the ones it hand-signed a token for (12 of 14 clean X1
@@ -4603,6 +4596,7 @@ function generateRouterContent(
   registryPackages?: InferredPackage[],
   apiFramework: string = DEFAULT_API_FRAMEWORK,
   authContract?: AuthContract,
+  resourceRouters = new Map<string, ResourceRouter>(),
 ): string {
   return generateRouterContentHeuristic(
     resourcePlans,
@@ -4610,6 +4604,7 @@ function generateRouterContent(
     registryPackages,
     apiFramework,
     authContract,
+    resourceRouters,
   )
 }
 
@@ -4623,6 +4618,7 @@ function generateRouterContentHeuristic(
   registryPackages?: InferredPackage[],
   apiFramework: string = DEFAULT_API_FRAMEWORK,
   authContract?: AuthContract,
+  resourceRouters = new Map<string, ResourceRouter>(),
 ): string {
   if (authContract?.resourcePackage) {
     const replacements = new Map(authContract.routes.map((route) => [route.handler, route]))
@@ -4688,7 +4684,7 @@ function generateRouterContentHeuristic(
 
   // The header comes FIRST so both `sortImportStatements` and a reader keep it above the
   // imports: it is the file's own statement of what it is and what it mounts.
-  lines.push(generatedRouterHeader(resourcePlans, optionalFeatures, authContract))
+  lines.push(generatedRouterHeader(resourcePlans, optionalFeatures, authContract, resourceRouters))
   lines.push(fw.routerImport)
 
   // Import from resource wrappers: the handler map where the resource has active
@@ -4698,12 +4694,14 @@ function generateRouterContentHeuristic(
     if (!resourceImports.has(plan.molecule)) continue
     const name = extractResourceName(plan.molecule)
     const camelName = name.charAt(0).toLowerCase() + name.slice(1)
+    const resource = resourceRouters.get(plan.molecule)
     if (authorizationImports.has(plan.molecule)) {
-      lines.push(
-        `import { authorization as ${camelName}Authorization } from './Resource/${name}/index.js'`,
-      )
+      const from = resource ? plan.molecule : `./Resource/${name}/index.js`
+      lines.push(`import { authorization as ${camelName}Authorization } from '${from}'`)
     }
-    if (resourcesWithRoutes.has(plan.molecule)) {
+    if (resource) {
+      lines.push(`import ${resource.binding} from '../handlers/${resource.file}.js'`)
+    } else if (resourcesWithRoutes.has(plan.molecule)) {
       lines.push(`import { requestHandlerMap as ${name} } from './Resource/${name}/index.js'`)
     }
   }
@@ -4728,6 +4726,11 @@ function generateRouterContentHeuristic(
   // Wire routes for each resource
   for (const plan of resourcePlans) {
     if (!plan.moleculePackage) continue
+    const resource = resourceRouters.get(plan.molecule)
+    if (resource) {
+      lines.push(`router.use(${resource.binding})`, '')
+      continue
+    }
     const importName = extractResourceName(plan.molecule)
 
     for (const route of plan.moleculePackage.routes) {
@@ -5703,7 +5706,11 @@ describe('router', () => {
  *   AI-backed builder is a metered request, so neither smoke test may rebuild
  *   it.
  */
-function generateRouteSmokeTest(resourcePlans: InjectionPlan[], moleculeMocks = ''): string | null {
+function generateRouteSmokeTest(
+  resourcePlans: InjectionPlan[],
+  moleculeMocks = '',
+  resourceRouters = new Map<string, ResourceRouter>(),
+): string | null {
   if (resourcePlans.length === 0) return null
 
   const lines: string[] = []
@@ -5722,6 +5729,17 @@ function generateRouteSmokeTest(resourcePlans: InjectionPlan[], moleculeMocks = 
   for (const plan of resourcePlans) {
     if (!plan.moleculePackage) continue
     const name = extractResourceName(plan.molecule)
+    const resource = resourceRouters.get(plan.molecule)
+    if (resource) {
+      lines.push(`describe('Resource: ${name}', () => {`)
+      lines.push(`  it('exports an Express router', async () => {`)
+      lines.push(`    const { default: router } = await import('../handlers/${resource.file}.js')`)
+      lines.push(`    expect(typeof router).toBe('function')`)
+      lines.push(`  })`)
+      lines.push(`})`)
+      lines.push('')
+      continue
+    }
 
     // Collect expected handler names from routes
     const handlerNames = new Set<string>()

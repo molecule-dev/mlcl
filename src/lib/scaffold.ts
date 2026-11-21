@@ -3861,6 +3861,7 @@ async function scaffoldEslint(projectPath: string, configName = 'eslint.config.j
     'no-empty-interactive-target.mjs',
     'no-dropped-action.mjs',
     'no-stand-in-query-record.mjs',
+    'no-resource-table-writes.mjs',
     'no-class-code.mjs',
   ]) {
     await writeGuarded(join(rulesDir, file), await loadTemplate(`shared/${file}`))
@@ -4795,8 +4796,11 @@ export async function wireTemplateApiRouters(apiPath: string): Promise<void> {
     routerContent = importLines.join('\n') + '\n\n' + routerContent
   }
 
-  if (!routerContent.endsWith('\n')) routerContent += '\n'
-  routerContent += '\n' + mountLines.join('\n') + '\n'
+  const routerLines = routerContent.trimEnd().split('\n')
+  const firstResource = routerLines.findIndex(isResourceRouteMount)
+  const at = firstResource === -1 ? routerLines.length : firstResource
+  routerLines.splice(at, 0, ...mountLines, '')
+  routerContent = routerLines.join('\n')
 
   // Guarded like every in-place rewrite in this module: the router PRE-EXISTS
   // (this step only ever runs to modify it), and a write that fails mid-flight
@@ -4807,6 +4811,10 @@ export async function wireTemplateApiRouters(apiPath: string): Promise<void> {
   mlclDebug(
     `[scaffold] Wired template handlers/routes into App/router.ts (${mountLines.length} mounts)`,
   )
+}
+
+function isResourceRouteMount(line: string): boolean {
+  return /^router\.(?:(?:get|post|put|patch|delete|all)\(|use\(resource\w+Router\))/.test(line)
 }
 
 /**
@@ -4903,9 +4911,7 @@ export async function ensureBaseHandlersIndex(apiPath: string): Promise<void> {
     `// in ../handlers takes precedence over a built-in route below at the same path.\n` +
     `router.use(handlers)\n`
   const routeLines = routerContent.split('\n')
-  const firstRoute = routeLines.findIndex((line) =>
-    /^router\.(get|post|put|patch|delete|all)\(/.test(line),
-  )
+  const firstRoute = routeLines.findIndex(isResourceRouteMount)
   if (firstRoute >= 0) {
     routeLines.splice(firstRoute, 0, ...mount.trimEnd().split('\n'), '')
     routerContent = routeLines.join('\n')

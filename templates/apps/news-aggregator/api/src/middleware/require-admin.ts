@@ -1,8 +1,11 @@
 import type { NextFunction, Request, Response } from 'express'
+import { z } from 'zod'
 
-import { findById, updateById } from '@molecule/api-database'
+import { findById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
+import { update } from '@molecule/api-resource'
+import { resource } from '@molecule/api-resource-user'
 
 /**
  * Editor / operator allow-list. Set `ADMIN_EMAILS` in the API `.env` to a
@@ -16,6 +19,11 @@ const adminEmails = (process.env.ADMIN_EMAILS || '')
   .split(',')
   .map((email) => email.trim().toLowerCase())
   .filter(Boolean)
+
+const promoteEditor = update({
+  ...resource,
+  schema: z.object({ role: z.literal('admin'), updatedAt: z.string() }),
+})
 
 interface NewsUser {
   id?: string
@@ -73,7 +81,8 @@ export const requireAdmin = async (
       // of truth on subsequent requests. Best-effort: a write failure must not
       // lock the editor out of their own catalog.
       try {
-        await updateById('users', userId, { role: 'admin' })
+        const result = await promoteEditor({ id: userId, props: { role: 'admin' } })
+        if (result.statusCode !== 200) logger.warn('Failed to persist admin role promotion', result)
       } catch (error) {
         logger.warn({ error }, 'Failed to persist admin role promotion')
       }

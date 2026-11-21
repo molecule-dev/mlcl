@@ -1,8 +1,9 @@
 /** Exercise the verification surface every harness receives, not a prompt. */
 import { execFile } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
+import { createRequire } from 'node:module'
+import { dirname, join } from 'node:path'
 import { promisify } from 'node:util'
 
 import { ESLint, type Linter } from 'eslint'
@@ -20,6 +21,9 @@ import {
 } from '../scaffold.js'
 
 const ROOT = join(import.meta.dirname, '../../..')
+const LINT_MODULES = dirname(
+  dirname(dirname(createRequire(import.meta.url).resolve('@eslint/js/package.json'))),
+)
 const RULE = 'molecule-local/prefer-declared-clients'
 const execFileAsync = promisify(execFile)
 // A whole-template type-aware lint takes 0.5–28 s here, longer while a cohort or a release shares the machine
@@ -34,6 +38,7 @@ async function directory(): Promise<string> {
   await mkdir(temp, { recursive: true })
   const dir = await mkdtemp(join(temp, 'declared-clients-'))
   dirs.push(dir)
+  await symlink(LINT_MODULES, join(dir, 'node_modules'), 'dir')
   return dir
 }
 

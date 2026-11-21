@@ -19,6 +19,7 @@ import {
   loadToolchain,
   requirePackageByRole,
 } from '../registry.js'
+import { scanResourceRouter } from '../resource-router-source.js'
 import {
   extractHandlerMapKeys,
   ROUTE_SCANNED_TYPES,
@@ -185,6 +186,20 @@ describe('registry', () => {
   })
 
   describe('route registration (scan-routes drift guard)', () => {
+    it('keeps the shipped editable routers in sync with their owning packages', async () => {
+      const registry = getRawRegistry()
+      const moleculeDir = join(dirname(getRegistryPath()), '..', 'molecule')
+      const drifted: string[] = []
+      for (const [name, entry] of Object.entries(registry.packages)) {
+        if (entry.type !== 'resource' || !entry.routes?.length) continue
+        const srcPath = join(moleculeDir, entry.path, 'src')
+        if (!existsSync(srcPath)) continue
+        const source = await scanResourceRouter(srcPath, name, entry.exports ?? [], entry.routes)
+        if (source !== entry.expressRouter) drifted.push(name)
+      }
+      expect(drifted, 'Run mlcl sync-registry --scan-routes').toEqual([])
+    })
+
     // Regression guard for registry `routes` drift. `routes` was written once at
     // `mlcl init` and then only hand-edited, so it drifted from `src/routes.ts`:
     // project's entry carried `authenticate` — for project the GLOBAL auth marker

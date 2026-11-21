@@ -9,6 +9,7 @@ import {
   mountDefaultUserSecurityRoutes,
 } from '@molecule/api-bonds-default-express'
 
+import bookmarks from '../handlers/bookmarks.js'
 import templateHandlers from '../handlers/index.js'
 import billingRoutes from '../routes/billing.js'
 import { requestHandlerMap as Device } from './Resource/Device/index.js'
@@ -29,4 +30,5 @@ mountDefaultUserSecurityRoutes(router, User)
 mountDefaultUserBillingRoutes(router, User)
 
 router.use(templateHandlers)
+router.use(bookmarks)
 router.use('/billing', billingRoutes)

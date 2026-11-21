@@ -80,13 +80,6 @@ describe('generated resource module declarations', () => {
     )
   })
 
-  it('opens an options-factory module the same way', async () => {
-    const wrapper = await wrapperOf('@molecule/api-resource-article', 'Article')
-    expect(wrapper).toContain(' *   function listArticles(options?: ListArticlesOptions)')
-    expect(wrapper).toContain(' *   interface Article {')
-    expect(wrapper).toContain('export const requestHandlerMap = createArticleHandlers(wireFormat)')
-  })
-
   it('writes no header for a resource that lists nothing', async () => {
     expect(getRawRegistry().packages['@molecule/api-resource-tag']?.declare).toBeUndefined()
     const wrapper = await wrapperOf('@molecule/api-resource-tag', 'Tag')

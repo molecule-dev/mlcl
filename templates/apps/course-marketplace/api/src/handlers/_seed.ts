@@ -32,7 +32,12 @@
 
 import crypto from 'node:crypto'
 
+import { z } from 'zod'
+
 import { count, create, findMany, findOne } from '@molecule/api-database'
+import { create as createResource } from '@molecule/api-resource'
+import { createReview } from '@molecule/api-resource-review'
+import { propsSchema, resource } from '@molecule/api-resource-user'
 
 const DEMO_INSTRUCTOR_EMAIL = 'demo-instructor@example.com'
 const DEMO_INSTRUCTOR_USERNAME = 'demoinstructor'
@@ -699,30 +704,33 @@ const SEED_COURSES: SeedCourse[] = [
 ]
 
 async function ensureDemoInstructor(): Promise<{ id: string; created: boolean }> {
-  const existing = await findOne<Record<string, unknown>>('users', [
+  const existing = await findOne<{ id: string }>('users', [
     { field: 'email', operator: '=', value: DEMO_INSTRUCTOR_EMAIL },
   ])
-  if (existing) {
-    return { id: String(existing.id), created: false }
-  }
-  const userId = crypto.randomUUID()
-  await create('users', {
-    id: userId,
-    name: 'Sarah Dillard',
-    username: DEMO_INSTRUCTOR_USERNAME,
-    email: DEMO_INSTRUCTOR_EMAIL,
-    is_instructor: true,
-    instructor_bio:
-      'Sarah has spent 15 years shipping design systems and developer tooling at category-defining companies. She teaches the studio practice she wishes she had when she started.',
-    instructor_avatar_url: 'https://i.pravatar.cc/256?u=demo-instructor',
-    createdAt: new Date(),
-    updatedAt: new Date(),
+  if (existing) return { id: existing.id, created: false }
+
+  // This is a catalogue author. The resource's validated row creation leaves no login row.
+  const createInstructor = createResource({
+    ...resource,
+    schema: propsSchema.extend({
+      is_instructor: z.boolean(),
+      instructor_bio: z.string(),
+      instructor_avatar_url: z.string(),
+    }),
   })
-  // Deliberately NO `usersSecrets` row: the demo instructor must exist so the
-  // catalog/instructor pages render, but it must NOT be loginable. Without a
-  // password hash, the shared login handler returns 403 at its `!secrets`
-  // check, so there is no committed-credential backdoor.
-  return { id: userId, created: true }
+  const result = await createInstructor({
+    props: {
+      name: 'Sarah Dillard',
+      username: DEMO_INSTRUCTOR_USERNAME,
+      email: DEMO_INSTRUCTOR_EMAIL,
+      is_instructor: true,
+      instructor_bio:
+        'Sarah has spent 15 years shipping design systems and developer tooling at category-defining companies. She teaches the studio practice she wishes she had when she started.',
+      instructor_avatar_url: 'https://i.pravatar.cc/256?u=demo-instructor',
+    },
+  })
+  if (!result.body.props) throw new Error(result.body.error)
+  return { id: result.body.props.id, created: true }
 }
 
 /**
@@ -798,16 +806,10 @@ export async function seedGlobalCatalogIfEmpty(): Promise<{
     // for the same course (the table has a unique (resourceType, resourceId,
     // userId) constraint, so distinct reviewer ids are mandatory).
     for (const review of course.reviews) {
-      await create('reviews', {
-        resourceType: 'course',
-        resourceId: cId,
-        userId: crypto.randomUUID(),
+      await createReview('course', cId, crypto.randomUUID(), {
         rating: review.rating,
         title: review.title,
         body: `${review.body} \u2014 ${review.reviewer_name}`,
-        helpful: 0,
-        createdAt: new Date(),
-        updatedAt: new Date(),
       })
       reviewsCreated++
     }

@@ -960,9 +960,9 @@ describe('synthesizeProjectFiles', () => {
     expect(content).toContain('@molecule/api-resource-device (Device):')
     expect(content).toContain('POST /users')
     expect(content).toContain('GET /devices')
-    // How to ADD a route instead of replacing the file.
+    // Where the app adds routes and edits resource routes.
     expect(content).toContain('api/src/handlers/index.ts')
-    expect(content).toContain('instead of replacing this file')
+    expect(content).toContain('To change a resource route, edit its handler file')
     // And the header SURVIVES the import sort the write path applies.
     expect(sortImportStatements(content, 'router.ts').startsWith(GENERATED_ROUTER_MARKER)).toBe(
       true,

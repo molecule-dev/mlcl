@@ -198,6 +198,8 @@ vi.mock('@molecule/api-resource-device', () => ({
 }))
 
 vi.mock('@molecule/api-resource-user', () => ({
+  handlers: { verifyTwoFactor: vi.fn(() => vi.fn()) },
+  resource: { name: 'User', tableName: 'users' },
   createRequestHandlerMap: () => ({
     create: vi.fn(),
     logIn: vi.fn(),

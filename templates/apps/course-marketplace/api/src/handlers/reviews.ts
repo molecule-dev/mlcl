@@ -20,8 +20,6 @@ import { z } from 'zod'
 import { getUserId, uuidParamSchema as idParamSchema } from '@molecule/api-bonds-default-express'
 import {
   count,
-  create,
-  deleteById,
   findById,
   findMany,
   findOne,
@@ -30,6 +28,7 @@ import {
 } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { validateBody, validateParams } from '@molecule/api-middleware-validation'
+import { createReview, deleteReview, updateReview } from '@molecule/api-resource-review'
 
 const router = Router()
 
@@ -130,19 +129,13 @@ router.post('/', validateBody(createReviewSchema), async (req: Request, res: Res
       })
       return
     }
-    const result = await create('reviews', {
-      resourceType: 'course',
-      resourceId: body.course_id,
-      userId,
+    const review = await createReview('course', body.course_id, userId, {
       rating: body.rating,
       title: body.title,
       body: body.body,
-      helpful: 0,
-      createdAt: new Date(),
-      updatedAt: new Date(),
     })
     await recomputeRatings(body.course_id)
-    res.status(201).json(result.data ?? result)
+    res.status(201).json(review)
   } catch (error) {
     console.error(error)
     res.status(500).json({
@@ -178,9 +171,15 @@ router.patch(
         return
       }
       const body = req.body as z.infer<typeof updateReviewSchema>
-      const result = await updateById('reviews', idOf(req), { ...body, updatedAt: new Date() })
+      const review = await updateReview(idOf(req), userId, body)
+      if (!review) {
+        res
+          .status(404)
+          .json({ error: t('reviews.notFound', undefined, { defaultValue: 'Review not found' }) })
+        return
+      }
       await recomputeRatings(String(existing.resourceId))
-      res.json(result.data ?? result)
+      res.json(review)
     } catch (error) {
       console.error(error)
       res.status(500).json({
@@ -212,7 +211,12 @@ router.delete('/:id', validateParams(idParamSchema), async (req: Request, res: R
         .json({ error: t('reviews.forbidden', undefined, { defaultValue: 'Not your review' }) })
       return
     }
-    await deleteById('reviews', idOf(req))
+    if (!(await deleteReview(idOf(req), userId))) {
+      res
+        .status(404)
+        .json({ error: t('reviews.notFound', undefined, { defaultValue: 'Review not found' }) })
+      return
+    }
     await recomputeRatings(String(existing.resourceId))
     res.status(204).end()
   } catch (error) {

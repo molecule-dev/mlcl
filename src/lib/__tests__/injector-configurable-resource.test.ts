@@ -58,19 +58,12 @@ async function synthesize(resource: InjectionPlan): ReturnType<typeof synthesize
   return synthesizeProjectFiles([resource], [resource.molecule], directory, undefined, 'express')
 }
 
-function execute(
-  source: string,
-  exports: Record<string, unknown>,
-  modules: Record<string, Record<string, unknown>> = {},
-): Record<string, unknown> {
+function execute(source: string, exports: Record<string, unknown>): Record<string, unknown> {
   const result: Record<string, unknown> = {}
   const js = ts.transpileModule(source, {
     compilerOptions: { module: ts.ModuleKind.CommonJS, target: ts.ScriptTarget.ES2022 },
   }).outputText
-  new Function('require', 'exports', js)(
-    (specifier: string) => modules[specifier] ?? exports,
-    result,
-  )
+  new Function('require', 'exports', js)(() => exports, result)
   return result
 }
 
@@ -143,44 +136,39 @@ async function call(
   return { status, body: payload }
 }
 
-describe('resource options factories in generated composition roots', () => {
-  it('applies the feature handler’s wire format on the mounted package operation', async () => {
+describe('resource routes in generated composition roots', () => {
+  it('mounts a complete service router and keeps app edits on reinjection', async () => {
     const factory = 'createAnnouncementHandlers'
     const resource = plan('@molecule/api-resource-announcement', factory)
     resource.moleculePackage!.molecule!.category = 'announcements'
+    resource.moleculePackage!.molecule!.expressRouter = `import { Router } from 'express'
+
+import { publish } from '@molecule/api-resource-announcement'
+
+const router = Router()
+router.post('/entries', async (req, res): Promise<void> => {
+  const entry = await publish(req.body)
+  res.status(201).json(entry)
+})
+
+export default router
+`
     const files = await synthesize(resource)
     const wrapper = join(directory, 'src/App/Resource/Announcement/index.ts')
     const handler = join(directory, 'src/handlers/announcements.ts')
+    const router = join(directory, 'src/App/router.ts')
+    expect(files.some((file) => file.targetPath === wrapper)).toBe(false)
     const written = await writeSynthesizedFiles(
-      files.filter((file) => file.targetPath === wrapper || file.targetPath === handler),
+      files.filter((file) => [handler, router].includes(file.targetPath)),
     )
     expect(written.error).toBeNull()
-
-    // An application author adds request and response shaping in the feature handler.
-    // The old wrapper still runs the same package operation, but with its flat wire format.
-    await mkdir(dirname(handler), { recursive: true })
-    const configuration = `export const wireFormat = {
-  mapRequest: (req) => ({ body: req.body.record }),
-  mapResponse: (result) => result.statusCode >= 400
-    ? result
-    : { ...result, body: { record: result.body, public: true } },
-}`
-    await writeFile(handler, configuration)
-    const wrapperSource = await readFile(wrapper, 'utf8')
-    const configured = execute(
-      wrapperSource,
-      { [factory]: fixtureMap },
-      { '../../../handlers/announcements.js': execute(await readFile(handler, 'utf8'), {}) },
-    ).requestHandlerMap as ReturnType<typeof fixtureMap>
-    expect(await call(configured, { record: { title: 'Quarterly update' } })).toEqual({
-      status: 201,
-      body: { record: { title: 'Quarterly update' }, public: true },
-    })
-    expect(await call(configured, { record: {} })).toEqual({
-      status: 400,
-      body: { error: 'title is required' },
-    })
+    expect(await readFile(router, 'utf8')).toContain('router.use(resourceAnnouncementRouter)')
     expect(written.written).toContain(handler)
+
+    const source = await readFile(handler, 'utf8')
+    const edited = source.replace('json(entry)', 'json({ entry })')
+    expect(edited).not.toBe(source)
+    await writeFile(handler, edited)
 
     const reinjected = await synthesizeProjectFiles(
       [resource],
@@ -190,7 +178,8 @@ describe('resource options factories in generated composition roots', () => {
       'express',
     )
     expect(reinjected.some((file) => [handler, wrapper].includes(file.targetPath))).toBe(false)
-    expect(await readFile(handler, 'utf8')).toBe(configuration)
+    expect(await readFile(handler, 'utf8')).toBe(edited)
+    expect(reinjected.some((file) => file.targetPath === router)).toBe(false)
   })
 
   it('keeps existing feature handlers and their legacy inline resource configuration', async () => {
@@ -221,6 +210,9 @@ describe('resource options factories in generated composition roots', () => {
   it('does not replace a custom handler created after the scaffold planned its files', async () => {
     const resource = plan('@molecule/api-resource-announcement', 'createAnnouncementHandlers')
     resource.moleculePackage!.molecule!.category = 'announcements'
+    resource.moleculePackage!.molecule!.expressRouter = `import { Router } from 'express'
+export default Router()
+`
     const files = await synthesize(resource)
     const handler = join(directory, 'src/handlers/announcements.ts')
     const wrapper = join(directory, 'src/App/Resource/Announcement/index.ts')
@@ -266,29 +258,32 @@ describe('resource options factories in generated composition roots', () => {
     },
   )
 
-  it('selects the article factory from the shipped registry', async () => {
+  it('scaffolds article HTTP code that calls the published services', async () => {
     const pkg = loadRegistry().find((entry) => entry.name === '@molecule/api-resource-article')!
     const resource = { ...plan(pkg.name), moleculePackage: pkg }
     const files = await synthesize(resource)
-    const wrapper = String(
-      files.find((f) => f.targetPath.endsWith('/Resource/Article/index.ts'))!.content,
-    )
     const handler = files.find((file) =>
       file.targetPath.endsWith('/handlers/articles.ts'),
     )!.content!
-    const createArticleHandlers = vi.fn(fixtureMap)
-    execute(
-      wrapper,
-      { createArticleHandlers, requestHandlerMap: fixtureMap() },
-      { '../../../handlers/articles.js': execute(handler, {}) },
+    expect(handler).toContain("router.post('/articles', async")
+    expect(handler).toContain('await createArticle(')
+    expect(handler).toContain('await listArticles(')
+    expect(handler).toContain('await getFeed(')
+    expect(handler).not.toContain('createArticleHandlers')
+    expect(files.some((file) => file.targetPath.endsWith('/Resource/Article/index.ts'))).toBe(false)
+    expect(files.find((file) => file.targetPath.endsWith('/App/router.ts'))?.content).toContain(
+      'edit api/src/handlers/articles.ts',
     )
-    expect(createArticleHandlers).toHaveBeenCalledExactlyOnceWith({})
+    expect(
+      files.find((file) => file.targetPath.endsWith('/__tests__/routes.test.ts'))?.content,
+    ).toContain("import('../handlers/articles.js')")
   })
 
-  it('includes article wire format configuration in the declared capability map', () => {
+  it('points the declared capability map at the editable article routes', () => {
     const pkg = loadRegistry().find((entry) => entry.name === '@molecule/api-resource-article')!
     const entry = buildCapabilityMap(getRawRegistry(), [{ name: pkg.name, workspace: 'api' }])[0]
-    expect(entry?.configuration.some((line) => line.includes('createArticleHandlers'))).toBe(true)
+    expect(entry?.sourceFiles).toContain('src/handlers/articles.ts')
+    expect(entry?.configuration.some((line) => line.includes('listArticles'))).toBe(true)
   })
 
   it('keeps a resource without options metadata on its existing static map', async () => {

@@ -4,6 +4,8 @@ import type { AddressInfo } from 'node:net'
 import express, { type Request, type Response } from 'express'
 import { afterAll, beforeAll, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import type { WhereCondition } from '@molecule/api-database'
+
 // Regression tests for [M-5]: the self-service two-factor route must run the
 // REAL TOTP lifecycle — a live token verified against a pending (enable) or
 // active (disable) secret — never a bare `twoFactorEnabled` flag write. The
@@ -54,10 +56,26 @@ const updateById = vi.fn(async (table: string, id: string, writes: Record<string
   if (row) Object.assign(row, writes)
   return { data: row }
 })
+const updateMany = vi.fn(
+  async (_table: string, where: WhereCondition[], writes: Record<string, unknown>) => {
+    const row = secrets[String(where.find((condition) => condition.field === 'id')?.value)]
+    if (!row) return { affected: 0 }
+    const step = where.find((condition) => condition.field === 'lastTwoFactorTimeStep')
+    const previous = row.lastTwoFactorTimeStep
+    const matches =
+      step?.operator === 'is_null'
+        ? previous === null
+        : previous !== null && previous < Number(step?.value)
+    if (!matches) return { affected: 0 }
+    Object.assign(row, writes)
+    return { affected: 1 }
+  },
+)
 
 vi.mock('@molecule/api-database', () => ({
   findById: (...a: unknown[]) => findById(...(a as [string, string])),
   updateById: (...a: unknown[]) => updateById(...(a as [string, string, Record<string, unknown>])),
+  updateMany: (...a: [string, WhereCondition[], Record<string, unknown>]) => updateMany(...a),
 }))
 
 vi.mock('@molecule/api-bonds-default-express', () => ({

@@ -406,6 +406,23 @@ function inferRouteFromHandler(handlerName: string, resourceName: string): Infer
 }
 
 /**
+ * The tables created by a SQL file in order, ignoring comments.
+ *
+ * @param sql - The setup SQL.
+ * @returns Each declared table name once, including quoted names.
+ */
+export function tablesCreatedBySql(sql: string): string[] {
+  const statements = sql.replace(/\/\*[\s\S]*?\*\//g, '').replace(/--[^\n]*/g, '')
+  const names = new Set<string>()
+  for (const match of statements.matchAll(
+    /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?(?:["`]?[A-Za-z_]\w*["`]?\s*\.\s*)?(?:"((?:[^"]|"")+)"|`([^`]+)`|'([^']+)'|(\w+))/gi,
+  )) {
+    names.add(match[1]?.replaceAll('""', '"') ?? match[2] ?? match[3] ?? match[4])
+  }
+  return [...names]
+}
+
+/**
  * The directory a package keeps its setup SQL in, or null when it ships none.
  *
  * Resource and utility packages ship setup SQL in `src/__setup__/` (the one
@@ -421,7 +438,6 @@ function inferRouteFromHandler(handlerName: string, resourceName: string): Infer
  */
 async function resolveSetupDir(packagePath: string): Promise<string | null> {
   const setupPaths = [join(packagePath, 'src', '__setup__'), join(packagePath, 'setup')]
-  const createTable = /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?["']?(\w+)["']?/gi
 
   for (const setupPath of setupPaths) {
     let files: string[]
@@ -433,7 +449,7 @@ async function resolveSetupDir(packagePath: string): Promise<string | null> {
     }
     for (const file of files) {
       const content = await readFile(join(setupPath, file), 'utf-8')
-      if ([...content.matchAll(createTable)].length > 0) return setupPath
+      if (tablesCreatedBySql(content).length) return setupPath
     }
   }
   return null
@@ -452,16 +468,7 @@ export async function scanForTables(packagePath: string): Promise<InferredTable[
     const sqlPath = join(setupPath, file)
     const content = await readFile(sqlPath, 'utf-8')
 
-    // Extract table names from CREATE TABLE statements
-    const tableMatches = content.matchAll(
-      /CREATE\s+TABLE\s+(?:IF\s+NOT\s+EXISTS\s+)?["']?(\w+)["']?/gi,
-    )
-    for (const match of tableMatches) {
-      tables.push({
-        name: match[1],
-        sqlFile: sqlPath,
-      })
-    }
+    for (const name of tablesCreatedBySql(content)) tables.push({ name, sqlFile: sqlPath })
   }
 
   return tables

@@ -157,6 +157,7 @@ vi.mock('@molecule/api-middleware-cors-express', () => ({}))
 vi.mock('@molecule/api-password-bcrypt', () => ({}))
 
 vi.mock('@molecule/api-resource', () => ({
+  update: vi.fn(),
   createRequestHandler: (fn: unknown) => fn,
 }))
 
@@ -180,6 +181,7 @@ vi.mock('@molecule/api-resource-tag', () => ({
 }))
 
 vi.mock('@molecule/api-resource-user', () => ({
+  resource: { name: 'User', tableName: 'users' },
   createRequestHandlerMap: () => ({
     create: vi.fn(),
     logIn: vi.fn(),

@@ -19,9 +19,11 @@ import { type Request, type Response, Router } from 'express'
 import { z } from 'zod'
 
 import { getUserId, uuidParamSchema as idParamSchema } from '@molecule/api-bonds-default-express'
-import { count, findById, findMany, updateById, type WhereCondition } from '@molecule/api-database'
+import { count, findById, findMany, type WhereCondition } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { validateBody, validateParams } from '@molecule/api-middleware-validation'
+import { update } from '@molecule/api-resource'
+import { resource } from '@molecule/api-resource-user'
 
 import { decorateCourses, decorateInstructor } from './_decorate.js'
 
@@ -32,6 +34,15 @@ const idOf = (req: Request): string => String(req.params.id)
 const becomeInstructorSchema = z.object({
   bio: z.string().max(2000).optional(),
   avatar_url: z.string().url().optional(),
+})
+const updateInstructor = update({
+  ...resource,
+  schema: z.object({
+    is_instructor: z.boolean(),
+    instructor_bio: z.string(),
+    instructor_avatar_url: z.string(),
+    updatedAt: z.string(),
+  }),
 })
 
 const listQuerySchema = z.object({
@@ -98,14 +109,18 @@ router.post(
         return
       }
       const body = req.body as z.infer<typeof becomeInstructorSchema>
-      const result = await updateById<Record<string, unknown>>('users', userId, {
-        is_instructor: true,
-        instructor_bio:
-          body.bio ?? 'New to teaching on Lectura — share what you know with the world.',
-        instructor_avatar_url: body.avatar_url ?? `https://i.pravatar.cc/256?u=${userId}`,
-        updatedAt: new Date(),
+      const result = await updateInstructor({
+        id: userId,
+        props: {
+          is_instructor: true,
+          instructor_bio:
+            body.bio ?? 'New to teaching on Lectura — share what you know with the world.',
+          instructor_avatar_url: body.avatar_url ?? `https://i.pravatar.cc/256?u=${userId}`,
+        },
       })
-      const user = (result.data ?? result) as Record<string, unknown>
+      if (result.statusCode !== 200) throw new Error('Could not save instructor profile')
+      const user = await findById<Record<string, unknown>>('users', userId)
+      if (!user) throw new Error('Updated instructor profile is missing')
       res.json(await decorateInstructor(user))
     } catch (error) {
       console.error(error)

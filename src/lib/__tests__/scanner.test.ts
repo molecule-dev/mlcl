@@ -23,7 +23,9 @@ import {
   registryPackageSrc,
   scanExports,
   scanForRoutes,
+  scanForTables,
   scanPackage,
+  tablesCreatedBySql,
   validatePackagePlacement,
 } from '../scanner.js'
 
@@ -41,6 +43,26 @@ const GRADE_PATH = join(PACKAGES_ROOT, 'api', 'resources', 'grade')
 const CORS_PATH = join(PACKAGES_ROOT, 'api', 'middleware', 'cors')
 const PASSWORD_PATH = join(PACKAGES_ROOT, 'api', 'core', 'password')
 const BOND_PATH = join(PACKAGES_ROOT, 'api', 'infrastructure', 'bond')
+
+it('preserves the full names of package-owned SQL tables', async () => {
+  const directory = await mkdtemp(join(tmpdir(), 'quoted-migration-'))
+  try {
+    const setup = join(directory, 'src', '__setup__')
+    await mkdir(setup, { recursive: true })
+    const sqlFile = join(setup, 'shares.sql')
+    const sql = `-- CREATE TABLE distractor (id text);
+CREATE TABLE IF NOT EXISTS "public"."resource-shares" (id text);
+CREATE TABLE IF NOT EXISTS "resource-share-links" (id text);`
+    await writeFile(sqlFile, sql)
+    expect(tablesCreatedBySql(sql)).toEqual(['resource-shares', 'resource-share-links'])
+    expect(await scanForTables(directory)).toEqual([
+      { name: 'resource-shares', sqlFile },
+      { name: 'resource-share-links', sqlFile },
+    ])
+  } finally {
+    await rm(directory, { recursive: true, force: true })
+  }
+})
 
 // The real-molecule-package tests need the molecule SIBLING checkout, which a
 // standalone mlcl clone (its own CI) does not have — same posture as the

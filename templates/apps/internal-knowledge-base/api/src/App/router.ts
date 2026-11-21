@@ -10,6 +10,7 @@ import {
   mountDefaultUserVerifyPaymentRoutes,
 } from '@molecule/api-bonds-default-express'
 
+import bookmarks from '../handlers/bookmarks.js'
 import templateHandlers from '../handlers/index.js'
 import usersTwoFactor from '../handlers/users-2fa.js'
 import billingRoutes from '../routes/billing.js'
@@ -43,4 +44,5 @@ mountDefaultUserBillingRoutes(router, User)
 mountDefaultUserVerifyPaymentRoutes(router, User)
 
 router.use(templateHandlers)
+router.use(bookmarks)
 router.use('/billing', billingRoutes)

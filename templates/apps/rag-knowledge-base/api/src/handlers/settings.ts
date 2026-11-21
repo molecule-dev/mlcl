@@ -2,10 +2,12 @@ import { type Request, type Response, Router } from 'express'
 import { z } from 'zod'
 
 import { getUserId } from '@molecule/api-bonds-default-express'
-import { findById, updateById } from '@molecule/api-database'
+import { findById } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
+import { update } from '@molecule/api-resource'
+import { resource } from '@molecule/api-resource-user'
 
 /**
  * Server-side channel for the Settings page's per-user app preferences.
@@ -35,6 +37,7 @@ const ragSettingsSchema = z.object({
 const patchSchema = z.object({
   rag: ragSettingsSchema,
 })
+const updateUser = update(resource)
 
 /** The `rag` slice as stored — every field optional so partial rows resolve. */
 interface StoredRagSettings {
@@ -103,7 +106,8 @@ router.patch('/', validateBody(patchSchema), async (req: Request, res: Response)
     const oauth: Record<string, unknown> =
       user?.oauthData && typeof user.oauthData === 'object' ? { ...user.oauthData } : {}
     oauth.rag = { ...readStoredRag(user), ...body.rag }
-    await updateById('users', userId, { oauthData: oauth })
+    const result = await updateUser({ id: userId, props: { oauthData: oauth } })
+    if (result.statusCode !== 200) throw new Error('Could not save retrieval defaults')
     const rag = oauth.rag as StoredRagSettings
     res.json({
       rag: {

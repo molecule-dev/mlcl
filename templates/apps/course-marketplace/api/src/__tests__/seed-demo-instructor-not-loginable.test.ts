@@ -32,7 +32,7 @@ const createCalls: CreateCall[] = []
 const createMock = vi.fn(async (table: string, values: Record<string, unknown>) => {
   createCalls.push({ table, values })
   // Courses need an id echoed back so the seed can attach lessons/reviews.
-  return { data: { id: `${table}-${createCalls.length}` } }
+  return { affected: 1, data: { ...values, id: values.id ?? `${table}-${createCalls.length}` } }
 })
 
 vi.mock('@molecule/api-database', () => ({

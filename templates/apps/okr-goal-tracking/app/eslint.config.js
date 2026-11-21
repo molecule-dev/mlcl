@@ -15,6 +15,9 @@ import {
   interactiveTargetRule as noEmptyInteractiveTarget,
   requireIconFontSetup,
 } from './eslint-rules/no-empty-interactive-target.mjs'
+import noResourceTableWrites, {
+  resourceTableOwners,
+} from './eslint-rules/no-resource-table-writes.mjs'
 import noStandInQueryRecord from './eslint-rules/no-stand-in-query-record.mjs'
 import preferDeclaredClients, { scaffoldRules } from './eslint-rules/prefer-declared-clients.mjs'
 
@@ -42,9 +45,184 @@ const iconFonts = [
 ]
 // END REGISTRY ICON FONTS
 
+// Package setup tables and write APIs from the registry, maintained by sync:eslint-rules.
+// BEGIN REGISTRY RESOURCE TABLES
+const resourceTables = [
+  {
+    package: '@molecule/api-resource-activity-feed',
+    tables: ['activities', 'activity_seen_status'],
+    services: {},
+  },
+  { package: '@molecule/api-resource-address', tables: ['addresses'], services: {} },
+  { package: '@molecule/api-resource-ai-conversation', tables: ['conversations'], services: {} },
+  { package: '@molecule/api-resource-api-key', tables: ['api_keys'], services: {} },
+  {
+    package: '@molecule/api-resource-article',
+    tables: ['articles', 'article_tags', 'follows', 'reactions'],
+    services: {
+      articles: ['createArticle', 'updateArticle', 'deleteArticle'],
+      article_tags: ['createArticle', 'updateArticle', 'deleteArticle'],
+      reactions: ['setFavorite'],
+    },
+  },
+  { package: '@molecule/api-resource-booking', tables: ['bookings'], services: {} },
+  {
+    package: '@molecule/api-resource-bookmark',
+    tables: ['bookmarks'],
+    services: { bookmarks: ['addBookmark', 'removeBookmark'] },
+  },
+  { package: '@molecule/api-resource-cart', tables: ['carts', 'cart_items'], services: {} },
+  {
+    package: '@molecule/api-resource-comment',
+    tables: ['comment_numbers', 'comments'],
+    services: {
+      comments: ['createComment', 'createNumberedComment', 'updateComment', 'deleteComment'],
+      comment_numbers: ['createNumberedComment', 'numberComment'],
+    },
+  },
+  {
+    package: '@molecule/api-resource-course',
+    tables: ['courses', 'course_modules', 'course_module_items', 'course_enrollments'],
+    services: {},
+  },
+  { package: '@molecule/api-resource-device', tables: ['devices'], services: {} },
+  {
+    package: '@molecule/api-resource-device-auth-token',
+    tables: ['device_auth_tokens'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-event-type',
+    tables: ['event_types', 'availability_rules'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-feature-flag',
+    tables: ['feature_flags', 'feature_flag_targeting_rules'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-firmware',
+    tables: ['firmware_versions', 'firmware_rollouts', 'firmware_update_tasks'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-follow',
+    tables: ['follows'],
+    services: { follows: ['follow', 'unfollow'] },
+  },
+  {
+    package: '@molecule/api-resource-forum-thread',
+    tables: ['forum_threads', 'forum_replies', 'forum_votes'],
+    services: {},
+  },
+  { package: '@molecule/api-resource-grade', tables: ['grades'], services: {} },
+  {
+    package: '@molecule/api-resource-inventory',
+    tables: ['inventory_stock', 'inventory_reservations', 'inventory_movements'],
+    services: {},
+  },
+  { package: '@molecule/api-resource-invoice', tables: ['invoices'], services: {} },
+  {
+    package: '@molecule/api-resource-journal-entry',
+    tables: ['journal_entries', 'mood_entries'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-medication',
+    tables: ['medications', 'medication_logs'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-meeting',
+    tables: ['meetings', 'meeting_action_items'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-message',
+    tables: ['message_threads', 'messages'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-notification',
+    tables: ['notifications', 'notification_preferences'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-order',
+    tables: ['orders', 'order_items', 'order_events'],
+    services: {},
+  },
+  { package: '@molecule/api-resource-payment', tables: ['payments'], services: {} },
+  { package: '@molecule/api-resource-payment-method', tables: ['payment_methods'], services: {} },
+  {
+    package: '@molecule/api-resource-product',
+    tables: ['products', 'product_variants'],
+    services: {},
+  },
+  { package: '@molecule/api-resource-project', tables: ['projects'], services: {} },
+  {
+    package: '@molecule/api-resource-property',
+    tables: ['properties', 'property_units', 'property_photos', 'property_amenities'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-reaction',
+    tables: ['reactions'],
+    services: { reactions: ['addReaction', 'removeReaction'] },
+  },
+  { package: '@molecule/api-resource-readings', tables: ['readings'], services: {} },
+  {
+    package: '@molecule/api-resource-review',
+    tables: ['reviews', 'review_helpful'],
+    services: {
+      reviews: ['createReview', 'updateReview', 'deleteReview'],
+      review_helpful: ['markHelpful'],
+    },
+  },
+  { package: '@molecule/api-resource-room-type', tables: ['room_types'], services: {} },
+  {
+    package: '@molecule/api-resource-share',
+    tables: ['resource-share-links', 'resource-shares'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-status-page',
+    tables: ['checks', 'incidents', 'services', 'uptimeWindows'],
+    services: {},
+  },
+  { package: '@molecule/api-resource-subscriber', tables: ['subscribers'], services: {} },
+  { package: '@molecule/api-resource-tag', tables: ['tags', 'resource_tags'], services: {} },
+  { package: '@molecule/api-resource-task', tables: ['tasks'], services: {} },
+  { package: '@molecule/api-resource-template', tables: ['resource-templates'], services: {} },
+  {
+    package: '@molecule/api-resource-thread',
+    tables: ['threads', 'thread_messages', 'thread_read_status'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-user',
+    tables: ['users', 'usersSecrets'],
+    services: { users: ['createAccount', 'provisionUser'], usersSecrets: ['createAccount'] },
+  },
+  { package: '@molecule/api-resource-version-history', tables: ['versions'], services: {} },
+  {
+    package: '@molecule/api-resource-wiki-page',
+    tables: ['wiki_spaces', 'wiki_pages'],
+    services: {},
+  },
+  {
+    package: '@molecule/api-resource-workspace',
+    tables: ['workspaces', 'workspace_members', 'workspace_invites'],
+    services: {},
+  },
+]
+// END REGISTRY RESOURCE TABLES
+
 // Resolve declared capability contracts once for this workspace.
 // Read this config's own workspace manifest, never a hoisted parent manifest.
 let apiWorkspace = false
+let resourceOwners = {}
 // Whether this workspace declares the shared query cache (its hooks replace a hand-written one).
 let queryCache = false
 let routingBond = false
@@ -69,6 +247,11 @@ try {
   optimisticValue = '@molecule/app-react' in dependencies || '@molecule/app-state' in dependencies
   apiWorkspace = Object.keys(dependencies).some((name) => name.startsWith('@molecule/api-'))
   reactWorkspace = 'react' in dependencies
+  resourceOwners = resourceTableOwners(
+    resourceTables,
+    { ...dependencies, ...devDependencies },
+    new URL('./migrations/', import.meta.url),
+  )
 } catch (error) {
   if (error.code !== 'ENOENT') throw error
 }
@@ -261,6 +444,7 @@ const moleculeLocal = {
     'require-icon-font-setup': requireIconFontSetup,
     'no-dropped-action': noDroppedAction,
     'no-duplicate-list-wrapper': noDuplicateListWrapper,
+    'no-resource-table-writes': noResourceTableWrites,
     'no-stand-in-query-record': noStandInQueryRecord,
     'prefer-declared-clients': preferDeclaredClients,
     ...scaffoldRules(tseslint.parser),
@@ -464,6 +648,7 @@ export default tseslint.config(
       // information: two updates in one second can serialize as the same value.
       // Date-only keys and clock-only display slices remain valid.
       ...(apiWorkspace ? { 'molecule-local/no-unanswered-optional-guard': 'error' } : {}),
+      'molecule-local/no-resource-table-writes': ['error', resourceOwners],
 
       '@typescript-eslint/no-unused-vars': [
         'warn',

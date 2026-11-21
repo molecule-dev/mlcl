@@ -188,6 +188,8 @@ vi.mock('@molecule/api-resource-thread', () => ({
 }))
 
 vi.mock('@molecule/api-resource-user', () => ({
+  handlers: { resetPassword: vi.fn(() => vi.fn()) },
+  resource: { name: 'User', tableName: 'users' },
   createRequestHandlerMap: () => ({
     create: vi.fn(),
     logIn: vi.fn(),

@@ -16,10 +16,11 @@ import type { Request, Response } from 'express'
 import { Router } from 'express'
 import { z } from 'zod'
 
-import { create, deleteById, findMany, findOne } from '@molecule/api-database'
+import { findOne } from '@molecule/api-database'
 import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody, validateQuery } from '@molecule/api-middleware-validation'
+import { addBookmark, getBookmarks, removeBookmark } from '@molecule/api-resource-bookmark'
 
 const router = Router()
 
@@ -45,19 +46,13 @@ router.get('/', validateQuery(listQuery), async (req: Request, res: Response) =>
         .json({ error: t('common.unauthorized', {}, { defaultValue: 'Unauthorized' }) })
     }
     const { resourceType, folder, page, limit } = req.query as unknown as z.infer<typeof listQuery>
-    const where: { field: string; operator: string; value: unknown }[] = [
-      { field: 'userId', operator: '=', value: userId },
-    ]
-    if (resourceType) where.push({ field: 'resourceType', operator: '=', value: resourceType })
-    if (folder) where.push({ field: 'folder', operator: '=', value: folder })
-
-    const rows = await findMany<Record<string, unknown>>('bookmarks', {
-      where: where as never,
-      orderBy: [{ field: 'createdAt', direction: 'desc' }],
+    const { data } = await getBookmarks(userId, {
+      resourceType,
+      folder,
       limit,
       offset: (page - 1) * limit,
     })
-    res.json({ data: rows })
+    res.json({ data })
   } catch (error) {
     logger.error('bookmarks.list', error)
     res
@@ -83,15 +78,8 @@ router.post('/', validateBody(createSchema), async (req: Request, res: Response)
     if (existing) {
       return res.status(200).json(existing)
     }
-    const result = await create('bookmarks', {
-      userId,
-      resourceType: body.resourceType,
-      resourceId: body.resourceId,
-      folder: body.folder ?? null,
-      createdAt: new Date(),
-      updatedAt: new Date(),
-    })
-    res.status(201).json(result.data)
+    const bookmark = await addBookmark(userId, body.resourceType, body.resourceId, body.folder)
+    res.status(201).json(bookmark)
   } catch (error) {
     logger.error('bookmarks.create', error)
     res
@@ -120,7 +108,7 @@ router.delete('/:resourceType/:resourceId', async (req: Request, res: Response) 
         .status(404)
         .json({ error: t('bookmark.notFound', {}, { defaultValue: 'Bookmark not found' }) })
     }
-    await deleteById('bookmarks', String(owned.id))
+    await removeBookmark(userId, resourceType, resourceId)
     res.status(204).send()
   } catch (error) {
     logger.error('bookmarks.delete', error)

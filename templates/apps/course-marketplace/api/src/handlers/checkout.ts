@@ -21,6 +21,7 @@ import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody } from '@molecule/api-middleware-validation'
 import { getClient as getStripe, verifyWebhookSignature } from '@molecule/api-payments-stripe'
+import { PaymentRecordConflictError, paymentRecordService } from '@molecule/api-resource-payment'
 
 const router = Router()
 
@@ -47,37 +48,36 @@ async function fulfillCourseCheckout(args: {
   paymentRef: string
   receiptUrl?: string | null
 }): Promise<{ enrollmentId: string; paymentId: string }> {
-  const existingPayment = await findOne<Record<string, unknown>>('payments', [
-    { field: 'transactionId', operator: '=', value: args.paymentRef },
-  ])
-
-  let paymentId: string
-  if (existingPayment) {
-    paymentId = String(existingPayment.id)
-  } else {
-    // The `payments` table is the canonical @molecule/api-resource-payment
-    // schema (userId/transactionId/productId/platformKey/data/receipt) — not
-    // a per-app schema with amount/currency/status columns. Stash the
-    // course id, money fields, and Stripe receipt URL inside `data` so we
-    // don't need a migration just to track per-purchase metadata.
-    const paymentResult = await create<Record<string, unknown>>('payments', {
-      id: crypto.randomUUID(),
-      userId: args.userId,
-      transactionId: args.paymentRef,
-      productId: args.courseId,
-      platformKey: 'stripe',
-      data: {
-        amountCents: args.amountCents,
-        currency: (args.currency || 'USD').toUpperCase(),
-        status: 'completed',
-        courseId: args.courseId,
-        receiptUrl: args.receiptUrl ?? null,
-      },
-      receipt: args.receiptUrl ?? null,
-    })
-    const row = (paymentResult.data ?? paymentResult) as Record<string, unknown>
-    paymentId = String(row.id)
+  const payment = (): Promise<{ id: string; userId: string; productId: string } | null> =>
+    findOne('payments', [
+      { field: 'platformKey', operator: '=', value: 'stripe' },
+      { field: 'transactionId', operator: '=', value: args.paymentRef },
+    ])
+  let recorded = await payment()
+  if (!recorded) {
+    try {
+      await paymentRecordService.store({
+        userId: args.userId,
+        transactionId: args.paymentRef,
+        productId: args.courseId,
+        platformKey: 'stripe',
+        data: {
+          amountCents: args.amountCents,
+          currency: (args.currency || 'USD').toUpperCase(),
+          status: 'completed',
+          courseId: args.courseId,
+          receiptUrl: args.receiptUrl ?? null,
+        },
+        receipt: args.receiptUrl ?? undefined,
+      })
+    } catch (error) {
+      if (!(error instanceof PaymentRecordConflictError)) throw error
+    }
+    recorded = await payment()
   }
+  if (recorded?.userId !== args.userId || recorded.productId !== args.courseId)
+    throw new Error('Payment record does not match this checkout')
+  const paymentId = recorded.id
 
   const existingEnrollment = await findOne<Record<string, unknown>>('enrollments', [
     { field: 'user_id', operator: '=', value: args.userId },

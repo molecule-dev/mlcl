@@ -18,11 +18,12 @@ import { type Request, type RequestHandler, type Response, Router } from 'expres
 import { z } from 'zod'
 
 import { getUserId } from '@molecule/api-bonds-default-express'
-import { count, create, deleteById, findById, findOne, query } from '@molecule/api-database'
+import { count, findById, findOne, query } from '@molecule/api-database'
 import { enforceLimit } from '@molecule/api-entitlements'
 import { t } from '@molecule/api-i18n'
 import { logger } from '@molecule/api-logger'
 import { validateBody, validateParams, validateQuery } from '@molecule/api-middleware-validation'
+import { addBookmark, type Bookmark, removeBookmark } from '@molecule/api-resource-bookmark'
 
 import type { NewsAggregatorLimits } from '../tiers.js'
 
@@ -146,15 +147,10 @@ router.post(
         return
       }
 
-      const result = await create('bookmarks', {
-        userId,
-        resourceType: RESOURCE_TYPE,
-        resourceId: article_id,
-      })
-      const created = result.data as { id?: string } | undefined
+      const created = await addBookmark(userId, RESOURCE_TYPE, article_id)
       res.status(201).json({
         bookmarked: true,
-        id: created?.id,
+        id: created.id,
         data: { ...created, article_id },
       })
     } catch (error) {
@@ -192,7 +188,7 @@ router.delete(
         res.json({ bookmarked: false })
         return
       }
-      await deleteById('bookmarks', existing.id)
+      await removeBookmark(userId, RESOURCE_TYPE, storyId)
       res.json({ bookmarked: false })
     } catch (error) {
       logger.error('bookmarks.deleteByStory', error)
@@ -213,7 +209,7 @@ router.delete('/:id', validateParams(idParamsSchema), async (req: Request, res: 
       return
     }
     const id = getParam(req.params.id)
-    const existing = await findById<{ userId?: string }>('bookmarks', id)
+    const existing = await findById<Bookmark>('bookmarks', id)
     if (!existing) {
       res.status(404).json({
         error: t('bookmarks.notFound', undefined, { defaultValue: 'Bookmark not found' }),
@@ -226,7 +222,7 @@ router.delete('/:id', validateParams(idParamsSchema), async (req: Request, res: 
       })
       return
     }
-    await deleteById('bookmarks', id)
+    await removeBookmark(userId, existing.resourceType, existing.resourceId)
     res.status(204).end()
   } catch (error) {
     logger.error('bookmarks.delete', error)

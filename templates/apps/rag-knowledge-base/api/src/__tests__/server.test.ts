@@ -183,6 +183,7 @@ vi.mock('@molecule/api-payments-stripe', () => ({}))
 vi.mock('@molecule/api-push-notifications', () => ({}))
 
 vi.mock('@molecule/api-resource', () => ({
+  update: vi.fn(),
   createRequestHandler: (fn: unknown) => fn,
 }))
 
@@ -214,6 +215,7 @@ vi.mock('@molecule/api-resource-payment', () => ({
 }))
 
 vi.mock('@molecule/api-resource-user', () => ({
+  resource: { name: 'User', tableName: 'users' },
   createRequestHandlerMap: () => ({
     create: vi.fn(),
     logIn: vi.fn(),

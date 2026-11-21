@@ -14,6 +14,7 @@ import {
   getRegistryPath,
   writeRegistryFile,
 } from '../lib/registry.js'
+import { scanResourceRouter } from '../lib/resource-router-source.js'
 import { scanResponseRecord } from '../lib/response-record.js'
 import {
   bondSetterScope,
@@ -963,7 +964,14 @@ export default class SyncRegistry extends Command {
       }
 
       const scanned = await scanForRoutes(srcPath)
-      if (routesSignature(entry.routes) === routesSignature(scanned)) {
+      const expressRouter =
+        entry.type === 'resource'
+          ? await scanResourceRouter(srcPath, name, entry.exports ?? [], scanned)
+          : undefined
+      if (
+        routesSignature(entry.routes) === routesSignature(scanned) &&
+        entry.expressRouter === expressRouter
+      ) {
         unchanged++
         continue
       }
@@ -973,6 +981,8 @@ export default class SyncRegistry extends Command {
       )
       if (scanned.length > 0) entry.routes = scanned
       else delete entry.routes
+      if (expressRouter) entry.expressRouter = expressRouter
+      else delete entry.expressRouter
       updated++
     }
 
