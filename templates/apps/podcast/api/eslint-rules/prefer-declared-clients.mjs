@@ -2694,6 +2694,18 @@ export function scaffoldRules(parser) {
           const fn = owner(node)
           return effects.find((effect) => effect.fn === fn)?.owner ?? fn
         }
+        // A component's redirect also covers the callbacks written inside it (a loader handed to a
+        // request hook): they exist only while that component renders, and a signed-out direct
+        // visit still leaves through its <Navigate>. On 2026-11-21 (P491 l3778) a Home page with
+        // `if (following && status === 'unauthenticated') return <Navigate …>` was flagged for
+        // `following && !user` in its useApiData loader; the rewrite that satisfied this rule hid
+        // the Your Feed tab from signed-in readers. A guard in another component still covers nothing.
+        const covers = (guardOwner, inner) => {
+          if (guardOwner === inner) return true
+          for (let node = inner; guardOwner && node; node = node.parent)
+            if (node === guardOwner) return true
+          return false
+        }
         const navigates = (node) => {
           node = unwrap(node)
           if (node?.type === 'ReturnStatement') return navigates(node.argument)
@@ -2736,7 +2748,7 @@ export function scaffoldRules(parser) {
               // require our helper. This is guard presence, not proof of its boolean logic.
               const guarded = guards.some(
                 (guard) =>
-                  renderOwner(guard) === combination.owner &&
+                  covers(renderOwner(guard), combination.owner) &&
                   session(guard) &&
                   selections(guard).some((selection) => combination.selected.includes(selection)),
               )
