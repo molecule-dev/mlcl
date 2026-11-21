@@ -349,9 +349,10 @@ watcher when finished; final verification still uses the complete suite.
 
 ## Troubleshooting
 
-| Symptom                          | Fix                                                                                                     |
-| -------------------------------- | ------------------------------------------------------------------------------------------------------- |
-| `command not found: mlcl`        | use `npx mlcl …`, or `npm i -g mlcl`                                                                    |
-| MCP tools don't appear           | restart the harness after config changes; check its MCP panel (`/mcp` in Claude Code) for launch errors |
-| `create` says framework required | you're on a custom build without `--template`; add `--framework react`                                  |
-| search finds nothing             | try broader capability words (`email` not `ses`), or browse the catalog                                 |
+| Symptom                                           | Fix                                                                                                                                                                  |
+| ------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `command not found: mlcl`                         | use `npx mlcl …`, or `npm i -g mlcl`                                                                                                                                 |
+| `The mlcl CLI could not be started` (an MCP tool) | the server runs the published CLI through npx when none is installed: install Node.js 22+ (it ships npx) and check the npm registry is reachable, or `npm i -g mlcl` |
+| MCP tools don't appear                            | restart the harness after config changes; check its MCP panel (`/mcp` in Claude Code) for launch errors                                                              |
+| `create` says framework required                  | you're on a custom build without `--template`; add `--framework react`                                                                                               |
+| search finds nothing                              | try broader capability words (`email` not `ses`), or browse the catalog                                                                                              |

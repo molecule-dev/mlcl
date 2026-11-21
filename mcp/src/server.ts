@@ -5,10 +5,11 @@
  * Thin, typed tools over the `mlcl` CLI's `--json` surface (the CLI is the
  * single source of truth; this server adds MCP tool schemas so agents that
  * prefer structured tools over shelling out get first-class molecule
- * support). The CLI binary is resolved as:
+ * support). The CLI binary is resolved as (cli-command.ts):
  *
  *   1. $MOLECULE_MCP_CLI (explicit override — used by tests / dev)
- *   2. `mlcl` on PATH (the published npm package)
+ *   2. `mlcl` on PATH (a global install of the published npm package)
+ *   3. the published package through npx, fetched once and then run directly
  *
  * Read-heavy tools are safe by construction; the scaffold tool only ever runs
  * `mlcl create --no-interactive` with explicit arguments.
@@ -29,6 +30,7 @@ import {
   startLogin,
   whoami,
 } from './auth.js'
+import { CLI_TIMEOUT_DEFAULT_MS, type CliCommand, cliCommand, forgetCli } from './cli-command.js'
 import { serverInstructions } from './instructions.js'
 import { localPackageDoc } from './package-doc-files.js'
 import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
@@ -41,11 +43,17 @@ import {
 } from './services.js'
 import { serverVersion, tracked } from './telemetry.js'
 
-const CLI = process.env.MOLECULE_MCP_CLI ?? 'mlcl'
+/**
+ * The fixable setup step a CLI that cannot start is, not a raw `spawn mlcl ENOENT`. Without an
+ * override or a global install the server runs the published CLI through npx (cli-command.ts), so
+ * this is reached only when that also cannot start: no npx, or no way to reach the npm registry.
+ */
+/** Whether execa's own message is a spawn ENOENT: the program itself is missing. */
+const spawnMissing = (originalMessage: string | undefined): boolean =>
+  /^spawn\b[^\n]*\bENOENT\b/.test(originalMessage ?? '')
 
-/** The fixable setup step a missing CLI is, not a raw `spawn mlcl ENOENT`. */
 const CLI_NOT_FOUND =
-  'The mlcl CLI was not found on PATH. Install it with `npm install -g mlcl` (then run `mlcl login` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.'
+  'The mlcl CLI could not be started: it is not on PATH and npx could not run the published one. Install Node.js 22 or later (it ships npx) and check that the npm registry is reachable, or install the CLI with `npm install -g mlcl` (then run `mlcl login` for cloud tools), or point MOLECULE_MCP_CLI at its entry script.'
 
 /**
  * How long one `mlcl` run may take before it is killed — ten minutes, the same
@@ -58,7 +66,7 @@ const CLI_NOT_FOUND =
  */
 const CLI_TIMEOUT_MS = ((): number => {
   const parsed = Number(process.env.MOLECULE_MCP_CLI_TIMEOUT_MS)
-  return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : 10 * 60_000
+  return Number.isSafeInteger(parsed) && parsed > 0 ? parsed : CLI_TIMEOUT_DEFAULT_MS
 })()
 
 /**
@@ -127,7 +135,7 @@ async function runCli(
   // own `spawn <bin> ENOENT` in `originalMessage`), so a missing CLI arrives at
   // the `failed` branch below like any other failure — there is nothing to
   // catch, and a catch here would only hold dead code.
-  const { stdout, failed, stderr, originalMessage, exitCode } = await execa(CLI, args, {
+  const spawnOptions = {
     cwd,
     reject: false,
     // The CLI's interactive confirms read stdin; spawned from the server, an
@@ -145,7 +153,16 @@ async function runCli(
     // process-group leader and signals the GROUP (execa 10; a no-op on Windows,
     // which has no process groups).
     killDescendants: true,
-  })
+  } as const
+  let cli: CliCommand = await cliCommand()
+  let result = await execa(cli.file, [...cli.prefix, ...args], spawnOptions)
+  if (cli.source === 'npx' && cli.prefix.length === 0 && spawnMissing(result.originalMessage)) {
+    // The npx cache entry this process resolved was removed since (`npm cache clean`): ask npx again.
+    forgetCli()
+    cli = await cliCommand()
+    result = await execa(cli.file, [...cli.prefix, ...args], spawnOptions)
+  }
+  const { stdout, failed, stderr, originalMessage, exitCode } = result
   if (failed) {
     // A missing CLI is a SPAWN failure: no exit code, and execa's own
     // `spawn <bin> ENOENT` in `originalMessage`. Test THAT, never /ENOENT/ over
@@ -153,8 +170,12 @@ async function runCli(
     // `ENOENT: no such file or directory, open '…/package.json'`, so a
     // substring match there rewrote a real, fixable failure into an install
     // hint for a CLI that was running fine.
-    if (/^spawn\b[^\n]*\bENOENT\b/.test(originalMessage ?? '')) {
-      throw new Error(CLI_NOT_FOUND)
+    if (spawnMissing(originalMessage)) {
+      throw new Error(
+        cli.source === 'override'
+          ? 'MOLECULE_MCP_CLI names a program that could not be started. Point it at the entry script of an mlcl checkout (bin/run.js), or unset it to use the installed or published CLI.'
+          : CLI_NOT_FOUND,
+      )
     }
     // The OTHER spawn failure that never lets the CLI run: an argument list the
     // operating system refuses as too long (E2BIG — Linux caps ONE argument at 32

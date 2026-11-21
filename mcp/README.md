@@ -61,9 +61,10 @@ the client needs its launch command. Shorter paths: the hosted endpoint —
 `claude mcp add --transport http molecule https://mcp.molecule.dev/mcp`, one URL for
 any HTTP-capable client, or paste it into Lovable/v0/bolt connector forms —
 the [Smithery](https://smithery.ai)/[Glama](https://glama.ai)/[PulseMCP](https://www.pulsemcp.com)
-registry listings (one-click), and for Claude Code the full plugin —
-`/plugin marketplace add molecule-dev/molecule-claude-code` then
-`/plugin install molecule@molecule` (skills + this server, marketplace-updated).
+registry listings (one-click), and for Claude Code the full plugin once its
+marketplace repo is public at launch — `/plugin marketplace add
+molecule-dev/molecule-claude-code` then `/plugin install molecule@molecule`
+(skills + this server, marketplace-updated).
 
 ## Tools
 
@@ -180,8 +181,10 @@ token-minting tool on purpose: a person creates tokens, an agent does not.
 
 ## Configuration
 
-- Local mode shells out to the `mlcl` binary (resolved from PATH; override
-  for local/dev with `MOLECULE_MCP_CLI=/path/to/mlcl/bin/run.js`).
+- Local mode runs the `mlcl` CLI: `MOLECULE_MCP_CLI=/path/to/mlcl/bin/run.js`
+  when set (local/dev), else `mlcl` on PATH (a global install), else the
+  published CLI through npx, fetched once when the server starts and then run
+  from npx's cache. No separate CLI install is needed.
 - Remote mode env: `MOLECULE_REGISTRY_URL` / `MOLECULE_TEMPLATES_URL`
   (default: the mlcl repo's raw GitHub URLs once public; `*_FILE` overrides
   for local dev) and `PORT`.
@@ -192,9 +195,9 @@ token-minting tool on purpose: a person creates tokens, an agent does not.
 
 ## Requirements
 
-- Node.js ≥ 22; local mode additionally needs `mlcl` resolvable (override
-  with `MOLECULE_MCP_CLI=/path/to/bin/run.js`
-  for local/dev use).
+- Node.js ≥ 22 (it ships npx). Local mode needs network access to the npm
+  registry the first time, unless `mlcl` is installed globally or
+  `MOLECULE_MCP_CLI=/path/to/bin/run.js` points at a checkout.
 
 ## License
 

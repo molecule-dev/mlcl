@@ -111,10 +111,9 @@ describe('a failing mlcl run is reported as itself', () => {
       expect(message, 'the CLI’s own failure is surfaced').toContain(
         "ENOENT: no such file or directory, open '/tmp/absent/package.json'",
       )
-      expect(
-        message,
-        'a CLI that RAN is never reported as a CLI that is not on PATH',
-      ).not.toContain('was not found on PATH')
+      expect(message, 'a CLI that RAN is never reported as a CLI that could not start').not.toMatch(
+        /could not be started/,
+      )
     } finally {
       await close()
     }
@@ -127,7 +126,8 @@ describe('a failing mlcl run is reported as itself', () => {
       const result = await call('search_packages', { query: 'payments' })
 
       expect(result.isError, 'a missing CLI fails the tool call').toBe(true)
-      expect(textOf(result)).toContain('was not found on PATH')
+      // The override is what names the missing program, so the message says so.
+      expect(textOf(result)).toContain('MOLECULE_MCP_CLI names a program that could not be started')
     } finally {
       await close()
     }

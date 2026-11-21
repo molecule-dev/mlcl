@@ -4,10 +4,13 @@
  */
 import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js'
 
+import { warmCli } from './cli-command.js'
 import { moleculeServer } from './server.js'
 
-async function main() {
+async function main(): Promise<void> {
   await moleculeServer.connect(new StdioServerTransport())
+  // Fetch the CLI (when it is not installed) while the client is still reading the tool list.
+  warmCli()
   process.stderr.write('molecule-mcp ready\n')
 }
 
