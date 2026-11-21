@@ -267,14 +267,41 @@ export function tomlDefinesTable(text: string, table: string): boolean {
   return false
 }
 
-/** The TOML table Codex reads, appended when the file does not define it yet. */
-function appendTomlTable(path: string, table: string, lines: string[]): SetupStepResult['status'] {
+/** The bare key a TOML `key = value` line sets, or null for any other line. */
+const tomlLineKey = (line: string): string | null =>
+  /^\s*([A-Za-z0-9_-]+)\s*=/.exec(line.replace(/#.*$/, ''))?.[1] ?? null
+
+/**
+ * The TOML table Codex reads, holding every key of `lines`. The table is appended when the file
+ * does not define it. When it is a `[table]` block, each key of `lines` the block does not set yet
+ * goes at the end of the block, and every key it already sets keeps its value: a user's own command
+ * or timeout wins. A table defined any other way (dotted keys, an inline table) is left as it is.
+ */
+function ensureTomlTable(path: string, table: string, lines: string[]): SetupStepResult['status'] {
   const text = existsSync(path) ? readFileSync(path, 'utf8') : ''
-  if (tomlDefinesTable(text, table)) return 'present'
-  mkdirSync(dirname(path), { recursive: true })
-  const block = `[${table}]\n${lines.join('\n')}\n`
-  writeFileSync(path, text.trim() === '' ? block : `${text.trimEnd()}\n\n${block}`)
-  return text === '' ? 'written' : 'updated'
+  if (!tomlDefinesTable(text, table)) {
+    mkdirSync(dirname(path), { recursive: true })
+    const block = `[${table}]\n${lines.join('\n')}\n`
+    writeFileSync(path, text.trim() === '' ? block : `${text.trimEnd()}\n\n${block}`)
+    return text === '' ? 'written' : 'updated'
+  }
+  const rows = text.split('\n')
+  const heading = (row: string): string | null =>
+    /^\[\[?\s*([^\]]+?)\s*\]\]?$/
+      .exec(row.replace(/#.*$/, '').trim())?.[1]
+      .replace(/\s*\.\s*/g, '.') ?? null
+  const start = rows.findIndex((row) => heading(row) === table)
+  if (start < 0) return 'present'
+  let end = rows.findIndex((row, at) => at > start && heading(row) !== null)
+  if (end < 0) end = rows.length
+  const set = new Set(rows.slice(start + 1, end).map(tomlLineKey))
+  const missing = lines.filter((line) => !set.has(tomlLineKey(line)))
+  if (missing.length === 0) return 'present'
+  let last = end - 1
+  while (last > start && rows[last].trim() === '') last--
+  rows.splice(last + 1, 0, ...missing)
+  writeFileSync(path, rows.join('\n'))
+  return 'updated'
 }
 
 /**
@@ -299,6 +326,12 @@ async function applyMcp(
 ): Promise<Omit<SetupStepResult, 'step'>> {
   switch (target.kind) {
     case 'cli': {
+      if (
+        target.unlessToml &&
+        existsSync(target.unlessToml.path) &&
+        tomlDefinesTable(readFileSync(target.unlessToml.path, 'utf8'), target.unlessToml.table)
+      )
+        return { status: 'present' }
       const { ok, output } = await runCli(target.bin, target.args)
       const last = output.trim().split('\n').pop() ?? ''
       if (ok) return { status: 'written', detail: last }
@@ -315,7 +348,7 @@ async function applyMcp(
       }
     }
     case 'toml':
-      return { status: appendTomlTable(target.path, target.table, target.lines) }
+      return { status: ensureTomlTable(target.path, target.table, target.lines) }
     case 'manual':
       return { status: 'manual', detail: target.lines.join('\n') }
   }

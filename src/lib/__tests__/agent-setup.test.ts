@@ -465,3 +465,137 @@ describe('applySetup', () => {
     expect(existsSync(join(dir, 'CLAUDE.md'))).toBe(false)
   })
 })
+
+describe('Codex MCP limits', () => {
+  // Codex's defaults (10 s to start, 60 s per tool call) cut a first `npx -y molecule-mcp` start
+  // and a scaffold or add_package call short. `codex mcp add` has no flag for them and rewrites the
+  // whole table each time it runs, so setup adds them to the table and never re-runs the installer
+  // over one that exists.
+  let home: string
+  let codexHome: string
+  let config: string
+  beforeEach(() => {
+    home = mkdtempSync(join(tmpdir(), 'setup-codex-home-'))
+    codexHome = join(home, '.codex')
+    config = join(codexHome, 'config.toml')
+  })
+  afterEach(() => {
+    rmSync(home, { recursive: true, force: true })
+  })
+  const steps = (onPath: string[]): SetupStep[] => {
+    const codex = findHarness('codex')
+    if (!codex) throw new Error('no codex harness')
+    return planSetup({
+      scope: 'machine',
+      harnesses: [codex],
+      components: new Set(['mcp']),
+      env: {
+        home,
+        cwd: home,
+        env: { CODEX_HOME: codexHome },
+        onPath: (bin) => onPath.includes(bin),
+      },
+      skills: {},
+    })
+  }
+  /** `codex mcp add` as Codex runs it: the table is replaced with command and args alone. */
+  const calls: string[] = []
+  const codexAdd: CliRunner = async (bin, args) => {
+    calls.push([bin, ...args].join(' '))
+    const text = existsSync(config) ? readFileSync(config, 'utf8') : ''
+    const kept = text
+      .split(/\n(?=\[)/)
+      .filter((block) => !block.startsWith('[mcp_servers.molecule]'))
+    mkdirSync(codexHome, { recursive: true })
+    const table = '[mcp_servers.molecule]\ncommand = "npx"\nargs = ["-y", "molecule-mcp"]\n'
+    writeFileSync(config, [...kept.filter((b) => b.trim()), table].join('\n'))
+    return { ok: true, output: "Added global MCP server 'molecule'.\n" }
+  }
+  const apply = async (planned: SetupStep[]): Promise<string[]> =>
+    (
+      await applySetup(planned, { instructions: '', cwd: home, force: false, runCli: codexAdd })
+    ).map((r) => r.status)
+  const limits = (text: string): Record<string, number> => {
+    const block = text.split('[mcp_servers.molecule]')[1]?.split(/\n\[/)[0] ?? ''
+    return Object.fromEntries(
+      [...block.matchAll(/^(startup_timeout_sec|tool_timeout_sec) = (\d+)$/gm)].map((m) => [
+        m[1],
+        Number(m[2]),
+      ]),
+    )
+  }
+
+  beforeEach(() => {
+    calls.length = 0
+  })
+
+  it('runs codex mcp add once, then adds both limits to the table it wrote', async () => {
+    expect(await apply(steps(['codex']))).toEqual(['written', 'updated'])
+    expect(calls).toEqual(['codex mcp add molecule -- npx -y molecule-mcp'])
+    expect(limits(readFileSync(config, 'utf8'))).toEqual({
+      startup_timeout_sec: 120,
+      tool_timeout_sec: 660,
+    })
+    // A second setup leaves the table alone: re-running the installer would drop the limits.
+    expect(await apply(steps(['codex']))).toEqual(['present', 'present'])
+    expect(calls).toHaveLength(1)
+    expect(limits(readFileSync(config, 'utf8'))).toEqual({
+      startup_timeout_sec: 120,
+      tool_timeout_sec: 660,
+    })
+  })
+
+  it('adds the limits to an install from an older setup, keeping the user’s values and other tables', async () => {
+    mkdirSync(codexHome, { recursive: true })
+    const before = [
+      'model = "gpt-6.2-sol"',
+      '',
+      '[mcp_servers.molecule]',
+      'command = "npx"',
+      'args = ["-y", "molecule-mcp"]',
+      'tool_timeout_sec = 900',
+      '',
+      '[mcp_servers.molecule.env]',
+      'DO_NOT_TRACK = "1"',
+      '',
+      '[profiles.fast]',
+      'model = "x"',
+      '',
+    ].join('\n')
+    writeFileSync(config, before)
+    expect(await apply(steps(['codex']))).toEqual(['present', 'updated'])
+    expect(calls).toEqual([])
+    const after = readFileSync(config, 'utf8')
+    expect(limits(after)).toEqual({ tool_timeout_sec: 900, startup_timeout_sec: 120 })
+    expect(after).toBe(
+      before.replace(
+        'tool_timeout_sec = 900\n',
+        'tool_timeout_sec = 900\nstartup_timeout_sec = 120\n',
+      ),
+    )
+  })
+
+  it('writes the same table without the codex CLI', async () => {
+    expect(await apply(steps([]))).toEqual(['written'])
+    expect(readFileSync(config, 'utf8')).toBe(
+      '[mcp_servers.molecule]\ncommand = "npx"\nargs = ["-y", "molecule-mcp"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n',
+    )
+  })
+
+  it('leaves a table defined as an inline table alone', async () => {
+    mkdirSync(codexHome, { recursive: true })
+    const before = '[mcp_servers]\nmolecule = { command = "npx", args = ["-y", "molecule-mcp"] }\n'
+    writeFileSync(config, before)
+    expect(await apply(steps(['codex']))).toEqual(['present', 'present'])
+    expect(readFileSync(config, 'utf8')).toBe(before)
+  })
+
+  it('gives a tool call longer than the server lets the CLI run', async () => {
+    const { CLI_TIMEOUT_DEFAULT_MS } = await import('../../../mcp/src/cli-command.js')
+    const planned = steps([]).flatMap((s) =>
+      s.kind === 'mcp' && s.target.kind === 'toml' ? [s.target] : [],
+    )
+    const tool = Number(/tool_timeout_sec = (\d+)/.exec(planned[0].lines.join('\n'))?.[1])
+    expect(tool * 1000).toBeGreaterThan(CLI_TIMEOUT_DEFAULT_MS)
+  })
+})

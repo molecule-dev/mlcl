@@ -30,6 +30,18 @@ export const MCP_SERVER_NAME = 'molecule'
 /** The command that starts the server. */
 export const MCP_SERVER_COMMAND = ['npx', '-y', 'molecule-mcp'] as const
 
+/**
+ * Codex's MCP limits for the server, in the TOML table setup writes. Codex's defaults are a 10 s
+ * start and a 60 s tool call; on a machine without the packages yet, `npx -y molecule-mcp`
+ * downloads the server before it can answer, and a scaffold or `add_package` call runs the CLI for
+ * up to its own 10 min limit (`CLI_TIMEOUT_DEFAULT_MS` in mcp/src/cli-command.ts). Codex cutting
+ * the call first hides the CLI's answer, so the tool limit sits a minute above the CLI's.
+ */
+export const CODEX_MCP_TIMEOUT_LINES = [
+  'startup_timeout_sec = 120',
+  'tool_timeout_sec = 660',
+] as const
+
 /** The `{command, args}` entry most JSON configs take. */
 export const STANDARD_MCP_ENTRY: Readonly<Record<string, unknown>> = {
   command: 'npx',
@@ -50,11 +62,18 @@ export interface AgentEnvironment {
 
 /** One way to register the MCP server with an agent. */
 export type McpTarget =
-  /** Run the agent's own installer (`claude mcp add …`). */
-  | { kind: 'cli'; bin: string; args: string[] }
+  /**
+   * Run the agent's own installer (`claude mcp add …`). With `unlessToml`, the installer is
+   * skipped when that file already defines that table: `codex mcp add` rewrites the whole
+   * table, so a second run would drop every key added to it since (timeouts, `env`).
+   */
+  | { kind: 'cli'; bin: string; args: string[]; unlessToml?: { path: string; table: string } }
   /** Merge `molecule` into a JSON / JSONC file under `keys`, keeping comments. */
   | { kind: 'json'; path: string; keys: string[]; entry: Record<string, unknown> }
-  /** Append a `[table]` to a TOML file when it is not there yet. */
+  /**
+   * A `[table]` in a TOML file holding every key of `lines`: appended when the file lacks the
+   * table, and a key the table does not set yet is added to it. A key already set is kept.
+   */
   | { kind: 'toml'; path: string; table: string; lines: string[] }
   /** No safe writer: print what to add by hand. */
   | { kind: 'manual'; lines: string[] }
@@ -217,7 +236,11 @@ function junieProjectInstructions(e: AgentEnvironment): InstructionTarget[] {
 /** A Continue rule that is always in context (continuedev/continue `docs/customize/deep-dives/rules.mdx`). */
 const CONTINUE_RULE_FRONTMATTER = '---\nname: Molecule\nalwaysApply: true\n---\n\n'
 
-const cli = (bin: string, args: string[]): McpTarget => ({ kind: 'cli', bin, args })
+const cli = (
+  bin: string,
+  args: string[],
+  unlessToml?: { path: string; table: string },
+): McpTarget => (unlessToml ? { kind: 'cli', bin, args, unlessToml } : { kind: 'cli', bin, args })
 
 const manual = (...lines: string[]): McpTarget => ({ kind: 'manual', lines })
 
@@ -283,17 +306,30 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     installed: (e) => has(e, ['codex'], ['.codex']) || Boolean(e.env.CODEX_HOME),
     // `codex mcp add` has no scope flag and writes ~/.codex/config.toml; a
     // project's own servers go in .codex/config.toml (trusted projects only).
+    // It has no timeout flag either (`-c` is not saved), so the timeouts are
+    // added to the table it wrote.
     mcp: (scope, e) => {
+      const table = `mcp_servers.${MCP_SERVER_NAME}`
       const toml = (path: string): McpTarget => ({
         kind: 'toml',
         path,
-        table: `mcp_servers.${MCP_SERVER_NAME}`,
-        lines: ['command = "npx"', 'args = ["-y", "molecule-mcp"]'],
+        table,
+        lines: [
+          `command = "${MCP_SERVER_COMMAND[0]}"`,
+          `args = ${JSON.stringify(MCP_SERVER_COMMAND.slice(1)).replace(/","/g, '", "')}`,
+          ...CODEX_MCP_TIMEOUT_LINES,
+        ],
       })
       if (scope === 'project') return [toml(join(e.cwd, '.codex', 'config.toml'))]
-      if (e.onPath('codex'))
-        return [cli('codex', ['mcp', 'add', MCP_SERVER_NAME, '--', ...MCP_SERVER_COMMAND])]
-      return [toml(join(e.env.CODEX_HOME || join(e.home, '.codex'), 'config.toml'))]
+      const path = join(e.env.CODEX_HOME || join(e.home, '.codex'), 'config.toml')
+      if (!e.onPath('codex')) return [toml(path)]
+      return [
+        cli('codex', ['mcp', 'add', MCP_SERVER_NAME, '--', ...MCP_SERVER_COMMAND], {
+          path,
+          table,
+        }),
+        toml(path),
+      ]
     },
     skillsDir: agentsSkills,
     instructions: (scope, e) =>
