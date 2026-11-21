@@ -26,21 +26,25 @@ const rule = module.scaffoldRules(tseslint.parser)['single-image-name-link'] ?? 
   create: () => ({}),
 }
 const linter = new Linter()
+const config: Linter.Config[] = [
+  {
+    files: ['**/*.tsx'],
+    languageOptions: { parser: tseslint.parser },
+    plugins: { 'molecule-local': { rules: { 'single-image-name-link': rule } } },
+    rules: { [id]: 'error' },
+  },
+]
 function findings(source: string): Linter.LintMessage[] {
-  const messages = linter.verify(
-    source,
-    [
-      {
-        files: ['**/*.tsx'],
-        languageOptions: { parser: tseslint.parser },
-        plugins: { 'molecule-local': { rules: { 'single-image-name-link': rule } } },
-        rules: { [id]: 'error' },
-      },
-    ],
-    { filename: 'Identity.tsx' },
-  )
+  const messages = linter.verify(source, config, { filename: 'Identity.tsx' })
   expect(messages.filter((message) => message.fatal)).toEqual([])
   return messages.filter((message) => message.ruleId === id)
+}
+/** ESLint's own --fix result; the fixed source must parse and leave nothing for the rule. */
+function fixed(source: string): string {
+  const result = linter.verifyAndFix(source, config, { filename: 'Identity.tsx' })
+  expect(result.fixed).toBe(true)
+  expect(findings(result.output)).toEqual([])
+  return result.output
 }
 
 const destination = '`/people/${encodeURIComponent(person.handle)}`'
@@ -62,7 +66,43 @@ describe('adjacent image/name links', () => {
     expect(result).toHaveLength(1)
     expect(result[0].messageId).toBe('redundant')
     expect(result[0].line).toBeGreaterThan(0)
-    expect(result[0].message).toContain('UserChip')
+    expect(result[0].message).toContain('aria-hidden="true" tabIndex={-1}')
+    expect(result[0].message).not.toContain('UserChip')
+  })
+
+  it('fixes itself by hiding the image link, keeping its markup, classes and destination', () => {
+    const classed = row.replace('<a href=', '<a className={cm.avatarLink} href=')
+    expect(fixed(source(classed))).toBe(
+      source(
+        classed.replace(
+          `<a className={cm.avatarLink} href={${destination}}>`,
+          `<a className={cm.avatarLink} href={${destination}} aria-hidden="true" tabIndex={-1}>`,
+        ),
+      ),
+    )
+  })
+
+  it('replaces an existing tabIndex instead of adding a second one', () => {
+    const tabbed = row.replace('<a href=', '<a tabIndex={0} href=')
+    expect(fixed(source(tabbed))).toBe(
+      source(
+        tabbed.replace(
+          `<a tabIndex={0} href={${destination}}>`,
+          `<a tabIndex={-1} href={${destination}} aria-hidden="true">`,
+        ),
+      ),
+    )
+  })
+
+  it.each([
+    ['an empty alt', row.replace('alt={person.name}', 'alt=""')],
+    ['an empty expression alt', row.replace('alt={person.name}', "alt={''}")],
+    ['no alt', row.replace(' alt={person.name}', '')],
+  ])('reports and fixes a nameless image link beside its name link (%s)', (_label, markup) => {
+    expect(findings(source(markup))).toMatchObject([{ messageId: 'unnamed' }])
+    expect(fixed(source(markup))).toContain(
+      `<a href={${destination}} aria-hidden="true" tabIndex={-1}>`,
+    )
   })
 
   it('resolves imported router aliases and the same dynamic destination', () => {
@@ -139,6 +179,19 @@ describe('adjacent image/name links', () => {
     ],
     ['conditional layouts', `<div>${image}{expanded ? ${name} : null}</div>`],
     ['unrelated content between the links', `<div>${image}<p>{person.role}</p>${name}</div>`],
+    ['an image-only link with no name link beside it', `<div>${image}</div>`],
+    [
+      'a nameless image link beside a different destination',
+      `<div><a href="/gallery"><img src={person.image} alt="" /></a>${name}</div>`,
+    ],
+    [
+      'a nameless image link beside a link without text',
+      `<div><a href={${destination}}><img src={person.image} alt="" /></a><a href={${destination}}><Icon /></a></div>`,
+    ],
+    [
+      'an image link already hidden',
+      row.replace('<a href=', '<a aria-hidden="true" tabIndex={-1} href='),
+    ],
   ])('allows %s', (_label, markup) => {
     expect(findings(source(markup))).toEqual([])
   })
@@ -154,7 +207,7 @@ function Demo({ ProfileLink, person }) { return ${markup} }`
 })
 
 describe('generated native first-build lifecycle', () => {
-  it('stops redundant identity links before build and accepts the corrected row', async () => {
+  it('warns on redundant identity links, and the scaffold lint:fix script hides the image link', async () => {
     const container = await mkdtemp(join(tmpdir(), 'identity-first-build-'))
     roots.push(container)
     const root = join(container, 'app')
@@ -169,28 +222,34 @@ describe('generated native first-build lifecycle', () => {
     const manifest = JSON.parse(await readFile(manifestPath, 'utf8')) as {
       scripts: Record<string, string>
     }
-    // Preserve the scaffold's real prebuild. The marker proves whether npm passed
-    // that hook, without bundling an unrelated application as part of this test.
-    manifest.scripts.lint = 'eslint src/Identity.tsx --max-warnings 0'
+    // Keep the scaffold's real prebuild and lint flags; lint only this file. The marker proves
+    // whether npm passed that hook, without bundling an unrelated application in this test.
+    expect(manifest.scripts.lint).toBe('eslint src/')
+    expect(manifest.scripts['lint:fix']).toBe('eslint src/ --fix')
+    manifest.scripts.lint = 'eslint src/Identity.tsx'
+    manifest.scripts['lint:fix'] = 'eslint src/Identity.tsx --fix'
     manifest.scripts.build = 'node -e "console.log(\'IDENTITY_BUILD_REACHED\')"'
     await writeFile(manifestPath, JSON.stringify(manifest))
     await writeFile(file, source(describedImageRow))
-    const build = async (): Promise<{ code: number; output: string }> => {
+    const run = async (script: string): Promise<{ code: number; output: string }> => {
       try {
-        const result = await execFileAsync('npm', ['run', 'build'], { cwd: root, timeout: 120_000 })
+        const result = await execFileAsync('npm', ['run', script], { cwd: root, timeout: 120_000 })
         return { code: 0, output: result.stdout + result.stderr }
       } catch (error) {
         const result = error as { code: number; stdout: string; stderr: string }
         return { code: result.code, output: result.stdout + result.stderr }
       }
     }
-    const bad = await build()
-    expect(bad.code, bad.output).toBe(1)
-    expect(bad.output).toContain(id)
-    expect(bad.output).not.toContain('IDENTITY_BUILD_REACHED')
-    await writeFile(file, source(`<div><img src={person.image} alt="" />${name}</div>`))
-    const corrected = await build()
-    expect(corrected.code, corrected.output).toBe(0)
-    expect(corrected.output).toContain('IDENTITY_BUILD_REACHED')
+    // A fixable warning, like the scaffold's other fixable rules: the build is reached.
+    const warned = await run('build')
+    expect(warned.code, warned.output).toBe(0)
+    expect(warned.output).toContain(id)
+    expect(warned.output).toContain('IDENTITY_BUILD_REACHED')
+    const fix = await run('lint:fix')
+    expect(fix.code, fix.output).toBe(0)
+    expect(await readFile(file, 'utf8')).toContain(`aria-hidden="true" tabIndex={-1}`)
+    const clean = await run('lint')
+    expect(clean.code, clean.output).toBe(0)
+    expect(clean.output).not.toContain(id)
   }, 270_000)
 })

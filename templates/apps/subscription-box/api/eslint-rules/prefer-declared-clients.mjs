@@ -2297,9 +2297,13 @@ export function scaffoldRules(parser) {
     // WCAG technique H2: avoid two adjacent keyboard stops for the same image/name
     // destination. Inspect only a direct image link and its next static layout sibling;
     // separate rows, conditional layouts and opaque components remain independent.
+    // The fix hides the image link from assistive technology and the tab order, so the
+    // markup, classes and click target stay as written; the deploy applies it like every
+    // other ESLint fix, and the rule is a warning like the scaffold's other fixable rules.
     'single-image-name-link': {
       meta: {
         type: 'suggestion',
+        fixable: 'code',
         docs: {
           description:
             'Combine adjacent image and text links for the same name and destination, or keep the image decorative.',
@@ -2307,7 +2311,9 @@ export function scaffoldRules(parser) {
         schema: [],
         messages: {
           redundant:
-            'These adjacent image and text links use the same displayed name and destination. Use one link around both, or a decorative image with only the name linked. For a user identity, UserChip from @molecule/app-avatar-stack-react supplies one name link with href and nameLinkProps.',
+            'These adjacent image and text links use the same displayed name and destination, so keyboard and screen-reader users meet the same link twice. ESLint --fix hides the image link (aria-hidden="true" tabIndex={-1}); or use one link around both.',
+          unnamed:
+            'This image link has no name (its image has an empty or missing alt) and sits beside a text link to the same destination. ESLint --fix hides the image link (aria-hidden="true" tabIndex={-1}); or use one link around both.',
         },
       },
       create(context) {
@@ -2371,6 +2377,14 @@ export function scaffoldRules(parser) {
           const part = parts[0]
           return part.type === 'JSXText' ? `text:${part.value.trim()}` : value(part)
         }
+        // The link's only child is an image without a name of its own (empty or missing alt).
+        const unnamedImage = (node) => {
+          const [image, ...others] = children(node)
+          if (others.length || tag(image)?.name !== 'img' || attr(image, 'aria-hidden'))
+            return false
+          const alt = attr(image, 'alt')
+          return !alt || value(alt.value) === 'text:'
+        }
         const imageNames = (node) => {
           const [image, ...others] = children(node)
           if (others.length || tag(image)?.name !== 'img' || attr(image, 'aria-hidden')) return []
@@ -2396,6 +2410,24 @@ export function scaffoldRules(parser) {
             return []
           return children(node).flatMap(textLinks)
         }
+        // aria-hidden="true" tabIndex={-1} on the image link: an existing tabIndex is replaced,
+        // never duplicated, and the attributes go after the last one (or after the tag and any
+        // type arguments).
+        const hideImageLink = (opening) => (fixer) => {
+          const tabIndex = opening.attributes.find(
+            (part) => part.type === 'JSXAttribute' && part.name.name === 'tabIndex',
+          )
+          const after =
+            opening.attributes.at(-1) ??
+            opening.typeArguments ??
+            opening.typeParameters ??
+            opening.name
+          if (!tabIndex) return fixer.insertTextAfter(after, ' aria-hidden="true" tabIndex={-1}')
+          return [
+            fixer.replaceText(tabIndex, 'tabIndex={-1}'),
+            fixer.insertTextAfter(after, ' aria-hidden="true"'),
+          ]
+        }
         return {
           JSXElement(node) {
             const parts = children(node)
@@ -2405,13 +2437,20 @@ export function scaffoldRules(parser) {
               const destination = link(image)
               if (!destination) continue
               const names = imageNames(image)
-              if (!names.length) continue
+              const unnamed = !names.length && unnamedImage(image)
+              if (!names.length && !unnamed) continue
               if (
                 textLinks(parts[i + 1]).some(
-                  (text) => text.destination === destination && names.includes(text.name),
+                  (text) =>
+                    text.destination === destination &&
+                    (unnamed ? Boolean(text.name) : names.includes(text.name)),
                 )
               )
-                context.report({ node: image.openingElement, messageId: 'redundant' })
+                context.report({
+                  node: image.openingElement,
+                  messageId: unnamed ? 'unnamed' : 'redundant',
+                  fix: hideImageLink(image.openingElement),
+                })
             }
           },
         }
@@ -2721,11 +2760,11 @@ export function scaffoldRules(parser) {
         },
         messages: {
           overwrite:
-            'This effect can overwrite an editable field after it mounts. Use useForm({ values: loadedData }) from @molecule/app-react to fill pristine fields without erasing edits.',
+            'This effect can overwrite typed edits. Render the form once its record loads, keyed by record.id, fields from props; or useForm({ values: record }) from @molecule/app-react.',
           unfilled:
-            'This draft skips pristine fields after an edit. Use useForm({ values: loadedData }) from @molecule/app-react to fill pristine fields without erasing edits.',
+            'This draft skips pristine fields after an edit. Render the form once its record loads, keyed by record.id, fields from props; or useForm({ values: record }) from @molecule/app-react.',
           earlyMount:
-            'This form mounts before its record arrives, so its initial state stays empty. Use useForm({ values: loadedData }) from @molecule/app-react to fill pristine fields without erasing edits.',
+            'This form mounts empty, before its record. Render the form once its record loads, keyed by record.id, fields from props; or useForm({ values: record }) from @molecule/app-react.',
         },
       },
       create(context) {
@@ -3505,7 +3544,7 @@ export function scaffoldRules(parser) {
         },
         messages: {
           pending:
-            'This collection starts as [] and is filled asynchronously in an effect, so length === 0 also means the request is still pending. Start it as null and render loading before checking length, or guard this empty branch with a completion flag settled by this collection’s own request. With a query hook, render its status/error separately and check data only after success.',
+            '`{{name}}` starts as [] and is filled asynchronously in an effect, so its length === 0 also means the request is still pending. Start it as null and render loading before checking length, or guard this empty branch with a completion flag settled by this collection’s own request. With a query hook, render its status/error separately and check data only after success.',
           item: 'This empty placeholder carries every class of this collection’s actionable mapped items, so anything that finds those items by class finds it as another item. Render the empty status separately with its own class; keep item styling on real records.',
           pendingQuery:
             '`{{name}}` is [] until this query’s request settles, because its `data` is undefined while loading, so this empty branch also shows before the data arrives. Render loading from the query’s status first and show the empty state only once it has succeeded, or render the list through QueryContent.',
@@ -3712,7 +3751,12 @@ export function scaffoldRules(parser) {
                 loaders.length &&
                 !completed
               )
-                context.report({ node, messageId: 'pending' })
+                context.report({
+                  node,
+                  messageId: 'pending',
+                  // Name it: a note that only says "this collection" sent a fix to the wrong one.
+                  data: { name: context.sourceCode.getText(collection) },
+                })
               else {
                 const pending = pendingQueryData(collection)
                 if (pending) context.report({ node, messageId: 'pendingQuery', data: pending })

@@ -179,8 +179,7 @@ export default {
     },
     schema: [],
     messages: {
-      droppedAction:
-        'Clicks drop while {{condition}}. {{fix}} Queue toggles with a generated hook or useOptimisticValue and keep them enabled.',
+      droppedAction: 'Clicks drop while {{condition}}. {{fix}}',
       privatePendingToggle:
         'This optimistic action silently drops the next call while {{guard}} is true. Use the generated toggle hook or useOptimisticValue to queue changes, or expose reactive saving state and disable the control during the save.',
     },
@@ -810,6 +809,19 @@ export default {
         .reduce(or, false)
       return minimalCondition(or(existing, value), labels)
     }
+    // When the control can act: the negated drop condition, wrapped for use before `&& …`.
+    const availableFor = (paths) => {
+      const labels = new Map()
+      const value = paths
+        .map((facts) =>
+          facts
+            .map(({ test, polarity, fn }) => guardExpression(test, polarity, fn, labels))
+            .reduce(and, true),
+        )
+        .reduce(or, false)
+      const text = minimalCondition(not(value), labels)
+      return text.includes(' || ') ? `(${text})` : text
+    }
     const visibleAt = (guard, control) => {
       const lookup = (name) => {
         for (let scope = source.getScope(control); scope; scope = scope.upper)
@@ -1398,6 +1410,10 @@ export default {
                 ? conditionFor(dropped, attribute(target, 'disabled'))
                 : conditionText
             const buttons = form ? submitters(control) : []
+            // Rendering only when the action can run is offered for a single control alone: hiding a
+            // form while `!body.trim()` also hides the field that would make it available. No early
+            // render return is offered either, since the guard may be state the page itself changes.
+            const whenAble = `only when it can act: {${availableFor(dropped)} && …}.`
             const fix = form
               ? buttons.length
                 ? `Add ${buttons
@@ -1405,11 +1421,11 @@ export default {
                       (button) =>
                         `disabled={${disabledText(button)}} on line ${button.loc.start.line}`,
                     )
-                    .join(', ')} or unmount the unavailable form.`
+                    .join(', ')}.`
                 : `Unmount this form while ${conditionText}.`
               : takesDisabled(control)
-                ? `Add disabled={${disabledText(control)}} or unmount the unavailable control.`
-                : `Unmount this control while ${conditionText}.`
+                ? `Add disabled={${disabledText(control)}}, or render it ${whenAble}`
+                : `Render it ${whenAble}`
             context.report({
               node: control,
               messageId: 'droppedAction',

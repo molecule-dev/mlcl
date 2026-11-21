@@ -624,7 +624,8 @@ export default tseslint.config(
       'molecule-local/effects-preserve-form-edits': 'error',
       'molecule-local/no-dropped-action': 'error',
       'molecule-local/no-duplicate-list-wrapper': 'error',
-      'molecule-local/single-image-name-link': 'error',
+      // Fixable: the deploy applies its ESLint fix, like the other fixable warnings here.
+      'molecule-local/single-image-name-link': 'warn',
       'molecule-local/no-fixed-navigation-truncation': 'warn',
       'molecule-local/unique-update-excludes-self': 'warn',
       ...(routingBond
