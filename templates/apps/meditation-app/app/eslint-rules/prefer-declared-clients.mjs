@@ -3098,6 +3098,59 @@ export function scaffoldRules(parser) {
               })
               return reads
             }
+            // A route-keyed form can also receive a truthy object from local state before
+            // its effect replaces that object with the loaded record. A truthiness guard
+            // over that state admits the placeholder. Keep other readiness guards opaque.
+            const earlyRecord = (value, identity, conditions) => {
+              const branches =
+                value?.type === 'ConditionalExpression'
+                  ? [value.consequent, value.alternate]
+                  : [value]
+              const read = branches.find((branch) => stateFor(branch))
+              const state = stateFor(read)
+              if (!state || !branches.every((branch) => branch === read || constantSeed(branch)))
+                return false
+              const seed = state.initial
+              if (seed?.type !== 'ConditionalExpression' || !sameRead(seed.test, identity))
+                return false
+              const placeholder = flow.init(seed.consequent) ?? unwrap(seed.consequent)
+              if (placeholder?.type !== 'ObjectExpression' || !constantSeed(placeholder))
+                return false
+              const replaces = effects.some(({ writes }) =>
+                writes.some(
+                  ({ state: target, async, argument }) =>
+                    target === state &&
+                    async &&
+                    !flow.isFunction(argument) &&
+                    !constantSeed(argument),
+                ),
+              )
+              if (!replaces) return false
+              const session = (node) => {
+                const binding = variable(member(node) == null ? node : node.object)?.defs[0]
+                const call = binding?.node?.init
+                const imported = variable(call?.callee)?.defs[0]
+                return (
+                  imported?.type === 'ImportBinding' &&
+                  imported.parent.source.value === '@molecule/app-react' &&
+                  imported.node.imported?.name === 'useAuth'
+                )
+              }
+              const admits = (test, truth) => {
+                test = unwrap(test)
+                if (sameRead(test, read) || sameRead(test, identity)) return truth
+                if (test?.type === 'UnaryExpression' && test.operator === '!')
+                  return admits(test.argument, !truth)
+                // A session check can coexist with an edit that still needs to load its record.
+                return (
+                  test?.type === 'BinaryExpression' &&
+                  ['===', '!=='].includes(test.operator) &&
+                  ((test.right.type === 'Literal' && session(test.left)) ||
+                    (test.left.type === 'Literal' && session(test.right)))
+                )
+              }
+              return conditions.every(([test, truth]) => admits(test, truth))
+            }
             if (fields.length)
               for (const node of keyedChildren) {
                 const definition = variable(node.name)?.defs[0]
@@ -3132,6 +3185,11 @@ export function scaffoldRules(parser) {
                   if (seen.has(name)) continue
                   seen.add(name)
                   const value = expression(prop)
+                  if (earlyRecord(value, identity, conditions)) {
+                    if (editable.some(({ state }) => readsProp(state, name)))
+                      context.report({ node: prop, messageId: 'earlyMount' })
+                    continue
+                  }
                   if (
                     value?.type !== 'LogicalExpression' ||
                     !['??', '||'].includes(value.operator) ||
