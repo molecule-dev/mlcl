@@ -21,6 +21,7 @@ import {
   useAuthClient,
   useTranslation,
 } from '@molecule/app-react'
+import { MemoryRouter } from '@molecule/app-routing-react-router'
 import { setClassMap, type UIClassMap } from '@molecule/app-ui'
 import { AuthGuard, LoadErrorBanner } from '@molecule/app-ui-react'
 
@@ -58,9 +59,11 @@ function scaffoldDependency(client?: AuthClient<UserProfile>): (name: string) =>
     if (name === '@molecule/app-storage') return { getProvider: () => undefined }
     if (name === '../bonds/index.js' || name === './bonds/index.js') return { authClient: client }
     if (name === '@molecule/app-routing-react-router') {
+      // The bond's own memory router: like its BrowserRouter it mounts the molecule router that
+      // AuthGuard's useLocation reads, which a bare react-router MemoryRouter does not.
       return {
         BrowserRouter: ({ children }: { children: ReactNode }) =>
-          createElement(router.MemoryRouter, { initialEntries: ['/settings'] }, children),
+          createElement(MemoryRouter, { initialEntries: ['/settings'] }, children),
       }
     }
     if (name === '@molecule/app-react') {
@@ -183,7 +186,7 @@ async function mount(
         I18nProvider,
         { provider: createSimpleI18nProvider('en') },
         createElement(
-          router.MemoryRouter,
+          MemoryRouter,
           { initialEntries: ['/previous', url], initialIndex: 1 },
           createElement(Location),
           createElement(module.RouteAccess, {
