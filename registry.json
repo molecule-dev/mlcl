@@ -101764,6 +101764,8 @@
         "createDefaultViteConfig",
         "createFrameworkViteConfig",
         "isInstalled",
+        "isMoleculePackageScript",
+        "moleculeDistWithoutSourcemap",
         "moleculePushServiceWorkerPlugin",
         "rootRelativeAssetsPlugin",
         "singleReactAliases",
