@@ -36,7 +36,9 @@ interface PackageLine {
 
 const sortByName = (a: PackageLine, b: PackageLine): number => a.name.localeCompare(b.name)
 
-function includesStack(stack: CatalogStack, entryStack: 'api' | 'app'): boolean {
+function includesStack(stack: CatalogStack, entryStack: RegistryEntry['stack']): boolean {
+  // Project dev tooling comes with every scaffold; no catalog offers it as a capability.
+  if (entryStack === 'tooling') return false
   if (stack === 'full-stack') return true
   return stack === entryStack
 }

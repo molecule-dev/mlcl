@@ -45,7 +45,7 @@ export interface SearchSourceEntry {
   /** Full package name, e.g. `@molecule/api-payments-stripe`. */
   name: string
   /** Declared stack. Absent only in a malformed/legacy registry entry. */
-  stack?: 'api' | 'app'
+  stack?: 'api' | 'app' | 'tooling'
   category?: string
   label?: string
   description?: string
@@ -232,7 +232,8 @@ export const DEFAULT_SEARCH_LIMIT = 20
  * @returns The stack to report on the hit.
  */
 function resolveStack(entry: SearchSourceEntry): 'api' | 'app' {
-  return entry.stack ?? (entry.name.includes('/app-') ? 'app' : 'api')
+  if (entry.stack === 'api' || entry.stack === 'app') return entry.stack
+  return entry.name.includes('/app-') ? 'app' : 'api'
 }
 
 /**
@@ -334,6 +335,9 @@ export function searchPackages(
     // The rule `loadRegistry(stack)` applies — declared stack equality — kept
     // here so the transport that has no loader (hosted MCP) filters identically.
     if (stack && entry.stack !== stack) continue
+    // Project dev tooling (the shared ESLint config) comes with every scaffold; it is not a
+    // capability a project adds.
+    if (entry.stack === 'tooling') continue
     if (accepted) {
       const written = appFrameworks
         ? packageFramework(entry, appFrameworks)

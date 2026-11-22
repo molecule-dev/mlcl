@@ -103,6 +103,29 @@ describe('search capability and symbol relevance', () => {
     expect(hits.map((hit) => hit.name).filter((name) => bindings.includes(name))).toEqual([binding])
   })
 
+  it('never offers a tooling package as a capability, with or without a stack filter', () => {
+    const entries = [
+      {
+        name: '@molecule/eslint-config',
+        stack: 'tooling' as const,
+        label: 'ESLint config',
+        description: 'ESLint config',
+      },
+      {
+        name: '@molecule/app-eslint-report',
+        stack: 'app' as const,
+        label: 'ESLint report',
+        description: 'ESLint report',
+      },
+    ]
+    expect(searchPackages(entries, 'eslint').map((hit) => hit.name)).toEqual([
+      '@molecule/app-eslint-report',
+    ])
+    expect(searchPackages(entries, 'eslint', { stack: 'app' }).map((hit) => hit.name)).toEqual([
+      '@molecule/app-eslint-report',
+    ])
+  })
+
   it('counterexample: a framework keeps framework-neutral packages', () => {
     const all = searchPackages(packages.map(toSearchEntry), 'payments', { limit: 100 })
     const vue = searchPackages(packages.map(toSearchEntry), 'payments', {

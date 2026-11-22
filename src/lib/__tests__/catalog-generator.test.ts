@@ -75,4 +75,35 @@ describe('catalog-generator', () => {
     const out = buildCatalog({ registry, framework: 'react', stack: 'api' })
     expect(out).not.toContain('@molecule/app-')
   })
+
+  it('offers no tooling package, even a hinted one, in any stack', () => {
+    const withTooling: Registry = {
+      ...registry,
+      packages: {
+        ...registry.packages,
+        '@molecule/lint-thing': {
+          language: 'typescript',
+          runtime: 'node',
+          type: 'utility',
+          category: 'lint-thing',
+          label: 'Lint thing',
+          description: 'Shared lint config',
+          stack: 'tooling',
+          exports: [],
+          secrets: [],
+          runtimeDependencies: [],
+          path: 'packages/tooling/lint-thing',
+          intentHints: ['social login'],
+        },
+      },
+    }
+    for (const stack of ['api', 'app', 'full-stack'] as const) {
+      const out = buildCatalog({ registry: withTooling, framework: 'react', stack })
+      expect(out).not.toContain('@molecule/lint-thing')
+    }
+    // Counterexample: the same intent still lists its app packages.
+    expect(buildCatalog({ registry: withTooling, framework: 'react', stack: 'app' })).toMatch(
+      /## Intent: social login[\s\S]*?@molecule\/app-oauth-logos-react/,
+    )
+  })
 })

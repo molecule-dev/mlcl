@@ -104569,6 +104569,37 @@
         "topic cloud",
         "weighted vocabulary"
       ]
+    },
+    "@molecule/eslint-config": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "utility",
+      "category": "eslint-config",
+      "label": "ESLint Config",
+      "description": "The ESLint flat config every Molecule workspace runs: TypeScript, import order, accessibility and the molecule-local rules, switched on by the workspace's own package.json.",
+      "stack": "tooling",
+      "exports": [
+        "moleculeEslintConfig",
+        "moleculeLocalPlugin"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@eslint/js",
+        "eslint",
+        "eslint-config-prettier",
+        "eslint-plugin-jsx-a11y",
+        "eslint-plugin-react-hooks",
+        "eslint-plugin-simple-import-sort",
+        "eslint-plugin-svelte",
+        "eslint-plugin-vue",
+        "eslint-plugin-vuejs-accessibility",
+        "typescript-eslint"
+      ],
+      "moleculePeers": [],
+      "ui": {
+        "hidden": true
+      },
+      "path": "packages/tooling/eslint-config"
     }
   },
   "typeDefaults": {

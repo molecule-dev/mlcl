@@ -149,17 +149,33 @@ describe('registry.json schema validation', () => {
     expect(invalid, 'Packages with invalid type').toEqual([])
   })
 
-  it('every package should have stack set to api or app', () => {
+  it('every package should have stack set to api, app or tooling', () => {
     const invalid: string[] = []
 
     for (const [name, entry] of Object.entries(raw.packages ?? {})) {
       const e = entry as Record<string, unknown>
-      if (e.stack !== 'api' && e.stack !== 'app') {
+      if (e.stack !== 'api' && e.stack !== 'app' && e.stack !== 'tooling') {
         invalid.push(`${name}: stack="${e.stack}"`)
       }
     }
 
     expect(invalid, 'Packages missing or invalid stack field').toEqual([])
+  })
+
+  it('names every api and app package by its stack, and no tooling package by either', () => {
+    // Consumers read the stack from the name (@molecule/eslint-config turns on its api rules for a
+    // workspace with any @molecule/api-* dependency), so the two must never disagree.
+    const mismatched: string[] = []
+
+    for (const [name, entry] of Object.entries(raw.packages ?? {})) {
+      const stack = (entry as Record<string, unknown>).stack
+      const prefix = /^@molecule\/(api|app)-/.exec(name)?.[1]
+      if ((stack === 'tooling' && prefix) || (stack !== 'tooling' && prefix !== stack)) {
+        mismatched.push(`${name}: stack="${stack}"`)
+      }
+    }
+
+    expect(mismatched, 'Packages whose name prefix disagrees with their stack').toEqual([])
   })
 
   it('provider packages should declare implements', () => {

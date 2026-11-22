@@ -6817,35 +6817,38 @@ export function getTemplateRequiredPackages(
 }
 
 /**
- * Add @molecule packages to a project's package.json dependencies.
+ * Add @molecule packages to a project's package.json dependencies (or devDependencies, for
+ * dev tooling).
  *
  * Each package is pinned to the EXACT version from the registry
  * (`moleculeVersions` via {@link getMoleculeVersion}) — never a `^`/`~` range —
  * unless a `versionOverrides` entry is supplied (e.g. a `file:` path when wiring
  * local workspace packages during create).
+ *
+ * @param projectPath - The workspace whose package.json is written.
+ * @param packages - Package names.
+ * @param versionOverrides - Versions that replace the registry pin.
+ * @param section - The manifest section the packages go into.
  */
 export async function addPackages(
   projectPath: string,
   packages: string[],
   versionOverrides?: Record<string, string>,
+  section: 'dependencies' | 'devDependencies' = 'dependencies',
 ): Promise<void> {
   const packageJsonPath = join(projectPath, 'package.json')
   const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
-
-  if (!packageJson.dependencies) {
-    packageJson.dependencies = {}
-  }
+  const entries: Record<string, string> = { ...packageJson[section] }
 
   for (const pkg of packages) {
-    packageJson.dependencies[pkg] = versionOverrides?.[pkg] ?? getMoleculeVersion(pkg)
+    entries[pkg] = versionOverrides?.[pkg] ?? getMoleculeVersion(pkg)
   }
 
-  packageJson.dependencies = Object.keys(packageJson.dependencies)
-    .sort()
-    .reduce((obj: Record<string, string>, key) => {
-      obj[key] = packageJson.dependencies[key]
-      return obj
-    }, {})
+  packageJson[section] = Object.fromEntries(
+    Object.keys(entries)
+      .sort()
+      .map((key) => [key, entries[key]]),
+  )
 
   // Guarded like every other in-place rewrite in this module: this manifest
   // already exists (create wrote it moments earlier), and a write that fails

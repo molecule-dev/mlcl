@@ -17,6 +17,7 @@ import {
   loadMoleculeVersions,
   loadRegistry,
   loadToolchain,
+  packagesByStack,
   requirePackageByRole,
 } from '../registry.js'
 import { scanResourceRouter } from '../resource-router-source.js'
@@ -313,6 +314,28 @@ describe('registry', () => {
 
     it('should return undefined for unrecognizable names', () => {
       expect(getPackageStack('@molecule/shared-something')).toBeUndefined()
+    })
+
+    it('should return tooling for project dev tooling', () => {
+      expect(getPackageStack('@molecule/eslint-config')).toBe('tooling')
+    })
+  })
+
+  describe('packagesByStack', () => {
+    it('splits names by the workspace that installs them, dev tooling apart', () => {
+      expect(
+        packagesByStack([
+          '@molecule/app-i18n',
+          '@molecule/eslint-config',
+          '@molecule/api-database',
+          '@molecule/shared-something',
+          '@molecule/api-logger',
+        ]),
+      ).toEqual({
+        api: ['@molecule/api-database', '@molecule/api-logger'],
+        app: ['@molecule/app-i18n'],
+        tooling: ['@molecule/eslint-config'],
+      })
     })
   })
 

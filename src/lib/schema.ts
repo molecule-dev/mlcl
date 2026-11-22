@@ -417,9 +417,11 @@ export const MoleculeMetadata = z.object({
       ' at all — absence is never read as support.',
   ),
   stack: z
-    .enum(['api', 'app'])
+    .enum(['api', 'app', 'tooling'])
     .optional()
-    .describe('Which stack this package belongs to (api = backend, app = frontend)'),
+    .describe(
+      'Which stack this package belongs to (api = backend, app = frontend, tooling = project dev tooling both workspaces install as a devDependency and no source imports, such as the shared ESLint config)',
+    ),
   framework: z
     .enum(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'])
     .optional()
@@ -772,8 +774,10 @@ export const RegistryEntry = z.object({
   label: z.string().describe('Human-readable name for UI'),
   description: z.string().describe('Short description for UI hint text'),
   stack: z
-    .enum(['api', 'app'])
-    .describe('Which stack this package belongs to (api = backend, app = frontend)'),
+    .enum(['api', 'app', 'tooling'])
+    .describe(
+      'Which stack this package belongs to (api = backend, app = frontend, tooling = project dev tooling both workspaces install as a devDependency and no source imports, such as the shared ESLint config)',
+    ),
   implements: z
     .string()
     .optional()

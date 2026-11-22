@@ -20,7 +20,7 @@ import {
 } from '../lib/integrate.js'
 import { syncMigrateRunner } from '../lib/migrate-runner.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
-import { getMoleculeVersion, getPackageStack, loadRegistry } from '../lib/registry.js'
+import { getMoleculeVersion, loadRegistry } from '../lib/registry.js'
 import { syncProjectAssets } from '../lib/scaffold.js'
 import type { InferredPackage } from '../lib/schema.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
@@ -83,7 +83,6 @@ export default class Swap extends Command {
     // 1. Resolve the new provider from the registry
     spinner.start(t('commands.swap.spinners.resolving'))
 
-    const stack = getPackageStack(newName) ?? 'app'
     const registry = [...loadRegistry('api'), ...loadRegistry('app')]
     const newPkg = registry.find((pkg) => pkg.name === newName)
 
@@ -100,6 +99,8 @@ export default class Swap extends Command {
     }
 
     const implementsInterface = newPkg.molecule.implements
+    // A provider is in the api or app registry (loaded above), so its stack is one of the two.
+    const stack = newPkg.molecule.stack === 'api' ? 'api' : 'app'
     spinner.stop(
       t('commands.swap.spinners.resolved', {
         name: chalk.cyan(newName),

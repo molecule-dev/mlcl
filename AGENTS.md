@@ -113,11 +113,12 @@ Never use `localStorage`/`sessionStorage`/`AsyncStorage` directly. Accept `Stora
 ### 9. Package Naming
 
 - Backend: `@molecule/api-*`, Frontend: `@molecule/app-*`
+- Project dev tooling that both workspaces install as a devDependency and no app or api source imports is named by its tool's own convention and has stack `tooling` (`@molecule/eslint-config`, in `packages/tooling/`). Search, catalogs and the create UI never offer it as a capability; the scaffold declares it.
 - Names must be specific enough to be unambiguous. Ask: "Could this name mean something else?" If yes, add a qualifier (e.g., `app-ai-chat` not `app-chat`).
 
 ### 10. Registry Entry (Required for Every Package)
 
-Every package must have an entry in `mlcl/registry.json` with at minimum: `type`, `category`, `stack` (`"api"` or `"app"`), `label`, `description`, `language`, `runtime`, `path`. Providers also need `implements` and `secrets`. (Locale bonds carry no special field — the feature they translate is inferred from the package name, see `inferTranslatedPackage` in `docs-generator.ts`.) The `mlcl init` command auto-creates registry entries. Individual `package.json` files do NOT contain molecule metadata — the registry is the single source of truth.
+Every package must have an entry in `mlcl/registry.json` with at minimum: `type`, `category`, `stack` (`"api"`, `"app"` or `"tooling"`), `label`, `description`, `language`, `runtime`, `path`. Providers also need `implements` and `secrets`. (Locale bonds carry no special field — the feature they translate is inferred from the package name, see `inferTranslatedPackage` in `docs-generator.ts`.) The `mlcl init` command auto-creates registry entries. Individual `package.json` files do NOT contain molecule metadata — the registry is the single source of truth.
 
 ### 11. Exact Dependency Pinning
 
@@ -440,7 +441,7 @@ The single source of truth for all molecule package metadata and framework confi
 }
 ```
 
-**Required fields**: `type`, `category`, `stack` (`"api"` or `"app"`), `label`, `description`. Providers also need `implements`. **Defaulted fields** (auto-filled if omitted): `language` (`"typescript"`), `runtime` (`"node"`), `exports` (`[]`), `secrets` (`[]`). Optional: `bondWiring`, `buildTooling`, `appBondSetup`, `providerExportName`, `bondSetter`, `defaultBond`, `defaultBondSetup`, `defaultProvider`, `alwaysInclude`, `multiSelect`, `egressHosts`.
+**Required fields**: `type`, `category`, `stack` (`"api"`, `"app"` or `"tooling"`), `label`, `description`. Providers also need `implements`. **Defaulted fields** (auto-filled if omitted): `language` (`"typescript"`), `runtime` (`"node"`), `exports` (`[]`), `secrets` (`[]`). Optional: `bondWiring`, `buildTooling`, `appBondSetup`, `providerExportName`, `bondSetter`, `defaultBond`, `defaultBondSetup`, `defaultProvider`, `alwaysInclude`, `multiSelect`, `egressHosts`.
 
 **`defaultBondSetup`** — how the generated `<defaultBond>.ts` is built: `factory` and `setter` (both from the core package), optional `configImport` (a value from `../config.js` spread into the factory call), `configImports` (more names imported from `../config.js` WITHOUT being spread — for a value a `configExtend` entry reads, as `@molecule/app-http` does with `baseURL: API_BASE_URL`), `extraImports` (named exports the bond also needs, each `{ names, from }`), `configExtend` (extra named values passed to the factory alongside the config), and `setupAfter` (packages whose bond setup must RUN FIRST — the generated `setupProviders()` is a stable topological sort over it, so a bond that reads another bond's client, as app-auth mirrors the auth token into the HTTP client, names `@molecule/app-http`; never fix such an order with a hardcoded name in the generator). An `extraImports` entry whose `from` is the bond's OWN package merges into the single import of that package instead of emitting a second one (`import { createBrowserStorageAdapter, createJWTAuthClient, setClient } from '@molecule/app-auth'`) — a duplicated module import is what the scaffold's own `simple-import-sort` lint rejects, and the generator sorts the names the same way that lint does. There is no field for app source modules alongside the bond: an adapter the app should own is imported from the package that ships it (2026-10-17, when `@molecule/app-auth` began exporting `createBrowserStorageAdapter`).
 

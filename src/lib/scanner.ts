@@ -635,6 +635,8 @@ export async function scanExports(
     module: ts.ModuleKind.ESNext,
     moduleResolution: ts.ModuleResolutionKind.Bundler,
     jsx: ts.JsxEmit.Preserve,
+    // A package whose sources are JavaScript (a lint config, its rules) re-exports `.mjs` modules.
+    allowJs: true,
     noLib: true,
     types: [],
   }

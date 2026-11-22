@@ -185,14 +185,33 @@ export function findRegistryPackage(name: string): InferredPackage | undefined {
  * Get the stack for a package from registry metadata (not name parsing).
  * Falls back to name-based inference for packages not in the registry.
  */
-export function getPackageStack(name: string): 'api' | 'app' | undefined {
+export function getPackageStack(name: string): 'api' | 'app' | 'tooling' | undefined {
   const pkg = findRegistryPackage(name)
   const stack = pkg?.molecule?.stack
-  if (stack === 'api' || stack === 'app') return stack
+  if (stack) return stack
   // Fallback for packages not in the registry
   if (name.startsWith('@molecule/api-')) return 'api'
   if (name.startsWith('@molecule/app-')) return 'app'
   return undefined
+}
+
+/**
+ * Split package names by the workspace that installs them: an api or app package goes into its
+ * own workspace's dependencies, and a tooling package into every workspace's devDependencies.
+ * A name with no stack is left out.
+ *
+ * @param names - Package names.
+ * @returns The names of each stack, in their original order.
+ */
+export function packagesByStack(
+  names: readonly string[],
+): Record<'api' | 'app' | 'tooling', string[]> {
+  const byStack: Record<'api' | 'app' | 'tooling', string[]> = { api: [], app: [], tooling: [] }
+  for (const name of names) {
+    const stack = getPackageStack(name)
+    if (stack) byStack[stack].push(name)
+  }
+  return byStack
 }
 
 /**

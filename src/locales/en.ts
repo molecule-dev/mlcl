@@ -66,6 +66,8 @@ export const messages: LocaleMessages = {
     'The database cannot run the SQL this project needs, so the app would never boot. The project was created but not injected — run {command} to see the exact file and construct.',
   'commands.add.errors.workspaceUnknown':
     'This is a full-stack project root, and {name} is not an api or app package, so it is unclear which of api/ and app/ it belongs in. Run the command from inside that folder.',
+  'commands.add.errors.toolingAtRoot':
+    '{name} is dev tooling for both api/ and app/. Run `mlcl add {name}` from inside each folder; it goes into devDependencies.',
   'commands.add.errors.notFound':
     '{name} was not found on npm or in the molecule registry, so nothing was added. Check the spelling (`mlcl search <words>` lists real packages).',
   'commands.add.errors.installFailed':

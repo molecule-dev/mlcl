@@ -168,6 +168,21 @@ describe('generateMoleculeMd — standard packages', () => {
     expect(result).toContain('npm install @molecule/api-database')
   })
 
+  it('installs a tooling package as a devDependency with its required peers only', () => {
+    const result = generateMoleculeMd(
+      makeExtracted(),
+      makeRegistryEntry({ stack: 'tooling', runtimeDependencies: ['eslint-plugin-jsx-a11y'] }),
+      makePackageJson({
+        name: '@molecule/eslint-config',
+        peerDependencies: { eslint: '^10.0.0', 'eslint-plugin-vue': '^10.0.0' },
+        peerDependenciesMeta: { 'eslint-plugin-vue': { optional: true } },
+      }),
+      makeOptions(),
+    )
+    expect(result).toContain('```bash\nnpm install -D @molecule/eslint-config eslint\n```')
+    expect(result).not.toMatch(/npm install -D[^\n]*eslint-plugin-vue/)
+  })
+
   it('includes runtime dependencies in install command', () => {
     const result = generateMoleculeMd(
       makeExtracted(),

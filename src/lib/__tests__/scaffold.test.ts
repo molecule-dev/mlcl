@@ -702,6 +702,30 @@ describe('scaffold', () => {
       expect(pkg.dependencies['@molecule/app-ui']).not.toMatch(/^[\^~]/)
     })
 
+    it('writes dev tooling into devDependencies and leaves dependencies alone', async () => {
+      await writeFile(
+        join(tempDir, 'package.json'),
+        JSON.stringify(
+          {
+            name: 'test',
+            dependencies: { '@molecule/api-database': '1.0.0' },
+            devDependencies: { vitest: '4.1.12' },
+          },
+          null,
+          2,
+        ),
+      )
+
+      await addPackages(tempDir, ['@molecule/eslint-config'], undefined, 'devDependencies')
+      const pkg = JSON.parse(await readFile(join(tempDir, 'package.json'), 'utf-8'))
+
+      expect(pkg.dependencies).toEqual({ '@molecule/api-database': '1.0.0' })
+      expect(Object.keys(pkg.devDependencies)).toEqual(['@molecule/eslint-config', 'vitest'])
+      expect(pkg.devDependencies['@molecule/eslint-config']).toBe(
+        getMoleculeVersion('@molecule/eslint-config'),
+      )
+    })
+
     it('should sort dependencies alphabetically', async () => {
       await writeFile(
         join(tempDir, 'package.json'),

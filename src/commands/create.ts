@@ -25,10 +25,10 @@ import { t } from '../lib/i18n.js'
 import { frameworksAcceptedBy } from '../lib/package-search.js'
 import {
   getMoleculeVersion,
-  getPackageStack,
   loadAppFrameworks,
   loadRegistry,
   loadThemePresets,
+  packagesByStack,
 } from '../lib/registry.js'
 import {
   addPackages,
@@ -1249,9 +1249,10 @@ export default class Create extends Command {
       return
     }
 
+    // Dev tooling (stack `tooling`) goes into each workspace's devDependencies.
+    const byStack = packagesByStack(uniquePackages)
     if (isFullStack) {
-      const apiPkgs = uniquePackages.filter((name) => getPackageStack(name) === 'api')
-      const appPkgs = uniquePackages.filter((name) => getPackageStack(name) === 'app')
+      const { api: apiPkgs, app: appPkgs, tooling: toolingPkgs } = byStack
       const apiPath = join(projectPath, 'api')
       const appPath = join(projectPath, 'app')
       log(`API packages (${apiPkgs.length}): ${apiPkgs.join(', ')}`)
@@ -1260,6 +1261,10 @@ export default class Create extends Command {
       spinner?.start(t('commands.create.spinners.addingPackages'))
       if (apiPkgs.length > 0) await addPackages(apiPath, apiPkgs)
       if (appPkgs.length > 0) await addPackages(appPath, appPkgs)
+      if (toolingPkgs.length > 0) {
+        await addPackages(apiPath, toolingPkgs, undefined, 'devDependencies')
+        await addPackages(appPath, toolingPkgs, undefined, 'devDependencies')
+      }
       spinner?.stop(
         t('commands.create.spinners.addedFullStack', {
           apiCount: apiPkgs.length,
@@ -1274,7 +1279,13 @@ export default class Create extends Command {
       )
     } else {
       spinner?.start(t('commands.create.spinners.addingPackages'))
-      await addPackages(hasAppSubdir ? join(projectPath, 'app') : projectPath, uniquePackages)
+      const workspacePath = hasAppSubdir ? join(projectPath, 'app') : projectPath
+      await addPackages(
+        workspacePath,
+        uniquePackages.filter((name) => !byStack.tooling.includes(name)),
+      )
+      if (byStack.tooling.length > 0)
+        await addPackages(workspacePath, byStack.tooling, undefined, 'devDependencies')
       spinner?.stop(t('commands.create.spinners.addedPackages', { count: uniquePackages.length }))
       log(t('commands.create.spinners.addedPackages', { count: uniquePackages.length }))
     }

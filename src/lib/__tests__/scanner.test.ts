@@ -632,6 +632,22 @@ describe('export scanning', () => {
     expect(exports).not.toContain('*') // everything resolved — no placeholder
   })
 
+  it('resolves `export * from` to JavaScript modules a package writes as .mjs', async () => {
+    // A lint-config package keeps its rules and factory as JavaScript beside a typed index.
+    const dir = await createTempDir('mjs-reexport')
+    await writeFile(
+      join(dir, 'index.ts'),
+      `export * from './config.mjs'\nexport * from './types.js'\n`,
+    )
+    await writeFile(
+      join(dir, 'config.mjs'),
+      `export async function lintConfig() { return [] }\nexport const plugin = { rules: {} }\nexport default plugin\n`,
+    )
+    await writeFile(join(dir, 'types.ts'), `export interface LintOptions { strict: boolean }\n`)
+
+    expect((await scanExports(dir)).sort()).toEqual(['LintOptions', 'lintConfig', 'plugin'])
+  })
+
   it('resolves nested barrels, cycles, type aliases and namespaces using public export semantics', async () => {
     const dir = await createTempDir('nested-exports')
     await mkdir(join(dir, 'hooks'))

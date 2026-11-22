@@ -34,6 +34,7 @@ export interface PackageJson {
   description?: string
   dependencies?: Record<string, string>
   peerDependencies?: Record<string, string>
+  peerDependenciesMeta?: Record<string, { optional?: boolean }>
   devDependencies?: Record<string, string>
 }
 
@@ -369,6 +370,14 @@ function generateMetadataSection(entry: RegistryEntry): string {
 }
 
 function generateInstallSection(pkg: PackageJson, entry: RegistryEntry): string {
+  // Project dev tooling is a devDependency, installed with the peers a project must provide;
+  // its own dependencies come with it.
+  if (entry.stack === 'tooling') {
+    const peers = Object.keys(pkg.peerDependencies ?? {}).filter(
+      (peer) => !pkg.peerDependenciesMeta?.[peer]?.optional,
+    )
+    return `## Installation\n\`\`\`bash\nnpm install -D ${[pkg.name, ...peers].join(' ')}\n\`\`\``
+  }
   const parts = [`npm install ${pkg.name}`]
 
   // Add runtime dependencies

@@ -15,7 +15,7 @@ import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../l
 import { databasePackageOf } from '../lib/migration-dialect.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { missingMoleculePeers } from '../lib/peer-closure.js'
-import { getMoleculeVersion } from '../lib/registry.js'
+import { getMoleculeVersion, getPackageStack } from '../lib/registry.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 
 const execAsync = promisify(exec)
@@ -66,6 +66,8 @@ export default class Add extends Command {
       this.warn(t('commands.add.warnings.namingConvention', { name: moleculeName }))
     }
 
+    const stack = getPackageStack(moleculeName)
+
     // A full-stack project keeps its dependencies in `api/` and `app/`, not at the root. Run from the
     // root, the package used to land in the root package.json and `--inject` scaffolded a phantom
     // second project there, leaving the real one unwired, with a success exit. Pick the workspace from
@@ -77,12 +79,11 @@ export default class Add extends Command {
         existsSync(join(workDir, 'api', 'package.json')) &&
         existsSync(join(workDir, 'app', 'package.json'))
       if (isFullStackRoot) {
-        const stack = /^@molecule\/api-/.test(moleculeName)
-          ? 'api'
-          : /^@molecule\/app-/.test(moleculeName)
-            ? 'app'
-            : null
-        if (!stack) {
+        if (stack === 'tooling') {
+          p.cancel(t('commands.add.errors.toolingAtRoot', { name: moleculeName }))
+          this.exit(1)
+        }
+        if (stack !== 'api' && stack !== 'app') {
           p.cancel(t('commands.add.errors.workspaceUnknown', { name: moleculeName }))
           this.exit(1)
         }
@@ -180,7 +181,8 @@ export default class Add extends Command {
         }
       }
 
-      const depKey = flags.dev ? 'devDependencies' : 'dependencies'
+      // Dev tooling (stack `tooling`) is a devDependency without `--dev`.
+      const depKey = flags.dev || stack === 'tooling' ? 'devDependencies' : 'dependencies'
       packageJson[depKey] = packageJson[depKey] ?? {}
       packageJson[depKey][moleculeName] = resolvedVersion
 
