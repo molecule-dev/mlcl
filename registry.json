@@ -101770,6 +101770,8 @@
       "stack": "app",
       "exports": [
         "DefaultViteConfigBranding",
+        "FrameworkViteConfigOptions",
+        "FrameworkViteConfigSvelteKit",
         "PUSH_SW_FILENAME",
         "PUSH_SW_SOURCE",
         "SVELTEKIT_CLIENT_MANIFEST",
@@ -101777,6 +101779,7 @@
         "SvelteKitPrecache",
         "SvelteKitStaticSiteOptions",
         "createDefaultViteConfig",
+        "createFrameworkViteConfig",
         "isInstalled",
         "moleculePushServiceWorkerPlugin",
         "rootRelativeAssetsPlugin",
