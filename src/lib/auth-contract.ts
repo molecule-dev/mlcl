@@ -301,6 +301,13 @@ export function renderAuthContract(contract: AuthContract): RenderedAuthContract
     ...(contract.cookie
       ? [`  storage: 'memory' as const,`, `  cookieRestore: 'always' as const,`]
       : []),
+    // The Molecule user resource sets an httpOnly session cookie and the readable `mol_auth`
+    // hint on every sign-in, so the client restores the session from the cookie and needs no
+    // script-readable bearer copy (the flagships pin the same line). An external contract keeps
+    // the factory's Web Storage default: it may have no cookie to restore from.
+    ...(contract.origin === 'registry' && !contract.cookie && !contract.tokenKey
+      ? [`  storage: 'memory' as const,`]
+      : []),
     `  loginEndpoint: ${endpoint(login, 'login')},`,
     `  registerEndpoint: ${endpoint(register, 'register')},`,
     ...(logout && !isLegacyRoute('logout', logout)

@@ -4,8 +4,9 @@ export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
 
 /*
  * What the shared auth client already handles:
- * - `getAccessToken()` returns a stored token during restore; only 401/403 clears
- *   the session, while network/5xx failures retain it.
+ * - `getAccessToken()` returns the stored token. With `storage: 'memory'` a session
+ *   restored from the httpOnly cookie has none, so decide signed-in from `status`/`user`.
+ *   Only 401/403 clears the session; network/5xx failures retain it.
  * - `tokenKey`/`storagePrefix`, `authScheme`, `mapAuthResponse`,
  *   `currentUserEndpoint`, and `profileEndpoint`/`profileUpdateMethod` adapt the API.
  * - `logout()` and `refresh()` own sign-out and token refresh.
@@ -107,15 +108,14 @@ export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
   // Keep this with its method when adapting the app to a different API.
 {{PROFILE_UPDATE_CONFIG}}
 {{AUTH_ADAPTER_CONFIG}}{{PASSWORD_ROUTE_CONFIG}}
-  // The auth factory defaults to its own browser storage adapter. The generated bond
-  // passes this config through, so an explicit `storage` choice takes precedence.
-  // To keep a bearer out of script-reachable storage with an HttpOnly session cookie,
-  // set `storage: 'memory'`. Set `cookieRestore: 'always'` to probe an external cookie
-  // without a readable hint. The default `cookieRestore: 'hint'` needs the server's
-  // readable `mol_auth=1` cookie.
-  // To expose the exact key `localStorage.getItem('app.jwt')`, set `tokenKey: 'app.jwt'`
-  // here and let the client use its default browser storage. Read status and token
-  // from the same client. Use the memory storage above for a cookie-only session.
+  // With the Molecule user resource, `storage: 'memory'` above keeps the bearer token out of
+  // script-reachable storage: the API's httpOnly session cookie and its readable `mol_auth=1`
+  // hint restore the session on reload (`cookieRestore: 'hint'`, the default). Without a
+  // `storage` line the auth factory uses browser storage, which an API that issues no cookie
+  // needs. Set `cookieRestore: 'always'` to probe an external cookie without a readable hint.
+  // To expose the exact key `localStorage.getItem('app.jwt')`, set `tokenKey: 'app.jwt'` and
+  // remove any `storage: 'memory'` line, so the client keeps the token in browser storage at
+  // that key. Read status and token from the same client; never keep a second copy.
   // This API issues no refresh token — the durable session is an httpOnly cookie
   // the server refreshes — so there is nothing for the client to refresh. Set this
   // true only for an API with a refresh endpoint that returns refresh tokens.

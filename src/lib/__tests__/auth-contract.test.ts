@@ -206,6 +206,18 @@ describe('API-derived app-auth configuration', () => {
     expect(rendered.routeFields).toContain("tokenKey: 'accounts.session.v1'")
     expect(rendered.routeFields).toContain("loginEndpoint: '/sessions'")
     expect(rendered.guidance).toContain('keep it and use the shared HTTP client')
+    // A contract that reads the token at its own key keeps the factory's browser storage.
+    expect(rendered.routeFields).not.toContain('storage:')
+  })
+
+  // 2026-11-22 smoke-test review: a custom build kept the bearer token in script-readable
+  // browser storage beside the user resource's httpOnly session cookie.
+  it('keeps the Molecule user resource token in memory; an external contract keeps browser storage', () => {
+    const pkg = loadRegistry().find((entry) => entry.name === '@molecule/api-resource-user')!
+    const registry = renderAuthContract(authContractFromRegistry(pkg)).routeFields
+    expect(registry.match(/storage: 'memory' as const/g)).toHaveLength(1)
+    const external = renderAuthContract(authContractFromOpenApi(contractDocument())).routeFields
+    expect(external).not.toContain('storage:')
   })
 
   it('reads a JSON document from the caller-supplied path', async () => {
