@@ -198,6 +198,12 @@ router. The filter is by map MEMBERSHIP, never by name — grade keys its own
   agents) and fails the commit if `registry.json` is stale, naming the fix. Runs
   via tsx against mlcl source — no build needed. Skips gracefully if mlcl is
   absent or its deps aren't installed (e.g. a standalone molecule clone).
+- **mlcl pre-commit** (`.husky/pre-commit`) — the other direction. A commit that changes
+  a package's registry entry (its description, runtime dependencies, a new locale bond that its
+  feature's README now names) runs `scripts/check-registry-docs.mjs`: the READMEs of the changed
+  packages and of the packages that list them, at molecule HEAD, must match the staged registry. It
+  names the READMEs and the regenerate command; commit those in molecule first, then the registry.
+  A pin, toolchain or framework-version edit checks nothing.
 - **`npm run verify:registry-exports`** (mlcl or workspace root) — run the same
   check manually over the whole fleet (`mlcl/scripts/check-registry-exports.mjs`,
   via tsx; pass package paths to scope it). Build-independent: the scanner subgraph
@@ -277,8 +283,10 @@ Run regeneration yourself only for:
 
 - Uncommitted work you want reflected immediately: `npm run sync-docs:changed`
 - Direct `registry.json` metadata edits (type, category, label, description,
-  implements, secrets) — nothing changes in the molecule worktree, so no scope
-  can see it: `node bin/run.js sync-docs --generate` (optionally `-p`)
+  implements, secrets, runtime dependencies) — nothing changes in the molecule worktree, so
+  molecule's hook cannot see it; mlcl's pre-commit refuses the registry commit and names the
+  READMEs to regenerate (`node --import tsx scripts/regen-molecule-docs.mjs <package dirs>`),
+  which you commit in molecule first
 - Changes to the doc generator itself (`docs-generator.ts`,
   `api-extractor.ts`, `docs-sync.ts`): full `--generate`
 

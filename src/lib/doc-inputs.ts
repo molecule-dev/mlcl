@@ -187,3 +187,75 @@ export function registryChangeAffectsDocs(
     return true
   }
 }
+
+/** The registry sections whose entries are keyed by package name, each one a README input. */
+const PACKAGE_REGISTRY_SECTIONS = ['packages', 'pendingPackages']
+
+/**
+ * Registry sections the docs pipeline never reads, beyond the version pins. Checked by reading
+ * every registry access in `docs-generator.ts`, `docs-sync.ts`, `features.ts` and
+ * `regen-molecule-docs.mjs`: they read `packages`, `pendingPackages` and the KEYS of
+ * `appFrameworks` (the framework suffixes `stripFrameworkSuffix` removes), nothing else.
+ */
+const UNREAD_REGISTRY_SECTIONS = ['version', 'typeDefaults', 'apiFrameworks', 'stagingDrivers']
+
+/**
+ * The packages whose registry entry a registry.json edit changes, so a caller can check those
+ * packages' READMEs (the regenerator adds the READMEs that list them: a core's providers, a
+ * locale's feature) instead of the whole fleet.
+ *
+ * An entry added, removed or changed in `packages` or `pendingPackages` counts. A changed set of
+ * `appFrameworks` names, a change to a section this module has never seen, or a missing or
+ * unparseable side can alter any README, so the answer is `null`. The version pins and the other
+ * unread sections are ignored, as is a framework's own configuration.
+ *
+ * @param before - The pre-change registry.json contents, or `null` when absent/unreadable.
+ * @param after - The post-change registry.json contents, or `null` when absent/unreadable.
+ * @returns The changed package names, sorted; `[]` when no README input changed; `null` when the
+ *   change can alter any README.
+ */
+export function registryChangedPackages(
+  before: string | null | undefined,
+  after: string | null | undefined,
+): string[] | null {
+  if (before === null || before === undefined || after === null || after === undefined) return null
+  let old: unknown
+  let now: unknown
+  try {
+    old = JSON.parse(before)
+    now = JSON.parse(after)
+  } catch (_error) {
+    // A malformed registry is not provably limited to some packages.
+    return null
+  }
+  const isObject = (value: unknown): value is Record<string, unknown> =>
+    value !== null && typeof value === 'object' && !Array.isArray(value)
+  if (!isObject(old) || !isObject(now)) return null
+  const ignored = new Set([...NON_DOC_REGISTRY_SECTIONS, ...UNREAD_REGISTRY_SECTIONS])
+  for (const section of new Set([...Object.keys(old), ...Object.keys(now)])) {
+    if (ignored.has(section) || PACKAGE_REGISTRY_SECTIONS.includes(section)) continue
+    const a = old[section]
+    const b = now[section]
+    if (
+      section === 'appFrameworks' &&
+      (a === undefined || isObject(a)) &&
+      (b === undefined || isObject(b))
+    ) {
+      if (
+        JSON.stringify(Object.keys(a ?? {}).sort()) !== JSON.stringify(Object.keys(b ?? {}).sort())
+      )
+        return null
+      continue
+    }
+    if (JSON.stringify(a) !== JSON.stringify(b)) return null
+  }
+  const changed = new Set<string>()
+  for (const section of PACKAGE_REGISTRY_SECTIONS) {
+    const a = old[section] ?? {}
+    const b = now[section] ?? {}
+    if (!isObject(a) || !isObject(b)) return null
+    for (const name of new Set([...Object.keys(a), ...Object.keys(b)]))
+      if (JSON.stringify(a[name]) !== JSON.stringify(b[name])) changed.add(name)
+  }
+  return [...changed].sort()
+}

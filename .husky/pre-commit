@@ -106,6 +106,18 @@ if [ -n "$FMT$LINT$E2E_SLUGS$LINT_SLUGS" ] || [ "$LINT_ALL" = 1 ]; then
   )
 fi
 
+# A registry entry is half of a molecule README's input (its description, runtime dependencies, a
+# locale bond the feature now lists), so a registry commit must not leave molecule HEAD's READMEs
+# stale (2026-11-22: 73c34e11fe recorded runtime dependencies for six packages and their READMEs
+# stayed stale until the release's docs gate refused it). Checks only the packages whose entries
+# changed, against molecule HEAD; a pin or toolchain edit checks nothing. Reads the index, so it runs
+# for a private-index commit too. Skipped without a molecule checkout or tsx.
+if staged_diff --name-only -- registry.json | grep -q . &&
+  [ -d ../molecule/.git ] && { [ -d node_modules/tsx ] || [ -d ../node_modules/tsx ]; }; then
+  run_check check-registry-docs node --import tsx scripts/check-registry-docs.mjs \
+    ${MOL_PRECOMMIT_BASE:+"--base=$MOL_PRECOMMIT_BASE"}
+fi
+
 # The vendored scanner comparison also reads the workspace working tree.
 if [ "${1:-}" = --index-only ]; then exit 0; fi
 

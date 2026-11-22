@@ -1,7 +1,11 @@
 import { describe, expect, it } from 'vitest'
 
 import type { ExtractedModule } from '../api-extractor.js'
-import { manifestChangeAffectsDocs, registryChangeAffectsDocs } from '../doc-inputs.js'
+import {
+  manifestChangeAffectsDocs,
+  registryChangeAffectsDocs,
+  registryChangedPackages,
+} from '../doc-inputs.js'
 import { generateMoleculeMd, stripGeneratedTimestamp } from '../docs-generator.js'
 import type { RegistryEntry } from '../schema.js'
 
@@ -249,6 +253,48 @@ describe('registryChangeAffectsDocs — version pins are not doc inputs', () => 
     expect(registryChangeAffectsDocs(null, registry())).toBe(true)
     expect(registryChangeAffectsDocs(registry(), null)).toBe(true)
     expect(registryChangeAffectsDocs('{ not json', registry())).toBe(true)
+  })
+})
+
+describe('registryChangedPackages — which READMEs a registry edit can change', () => {
+  const ai = { type: 'core', category: 'ai', stack: 'api' }
+  const openai = { type: 'provider', category: 'ai', stack: 'api', implements: '@molecule/api-ai' }
+
+  it('names nothing for the version pins, the toolchain or a framework configuration', () => {
+    const bumped = registry({
+      toolchain: { moleculePackage: { vitest: '4.1.12' } },
+      moleculeVersions: { '@molecule/api-ai': '1.0.2' },
+      appFrameworks: { react: { dependencies: { react: '19.2.5' } } },
+      apiFrameworks: { express: { dependencies: { express: '5.2.2' } } },
+    })
+    expect(registryChangedPackages(registry(), bumped)).toEqual([])
+  })
+
+  it('names each added, removed or changed entry', () => {
+    const before = registry({
+      packages: { '@molecule/api-ai': ai, '@molecule/api-ai-openai': openai },
+    })
+    const after = registry({
+      packages: { '@molecule/api-ai': { ...ai, description: 'AI' } },
+      pendingPackages: { '@molecule/api-ai-new': openai },
+    })
+    expect(registryChangedPackages(before, after)).toEqual([
+      '@molecule/api-ai',
+      '@molecule/api-ai-new',
+      '@molecule/api-ai-openai',
+    ])
+  })
+
+  it('can change any README when the framework names or an unknown section change', () => {
+    expect(registryChangedPackages(registry(), registry({ appFrameworks: { vue: {} } }))).toBeNull()
+    expect(registryChangedPackages(registry(), registry({ newSection: { a: 1 } }))).toBeNull()
+  })
+
+  it('can change any README when a side is missing or malformed', () => {
+    expect(registryChangedPackages(null, registry())).toBeNull()
+    expect(registryChangedPackages(registry(), '{ not json')).toBeNull()
+    expect(registryChangedPackages(registry(), '[]')).toBeNull()
+    expect(registryChangedPackages(registry(), registry({ packages: [] }))).toBeNull()
   })
 })
 
