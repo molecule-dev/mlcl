@@ -17,9 +17,13 @@ import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
 import { Config } from '@oclif/core'
-import { afterEach, beforeEach, describe, expect, it } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import Setup from '../setup.js'
+
+// Setup starts the MCP server once after registering it (lib/mcp-warm.ts); never spawn npx here.
+const warm = vi.hoisted(() => vi.fn(async () => ({ version: '9.9.9', ms: 1234 })))
+vi.mock('../../lib/mcp-warm.js', () => ({ warmMcpServer: warm }))
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
 const SKILL_NAMES = ['build-with-molecule', 'capability-first', 'extend-with-packages']
@@ -188,5 +192,40 @@ describe('mlcl setup', () => {
     const out = await run(['--yes', '--agent', 'claude-code', '--skip', 'skills,instructions'])
     expect(out).toContain('claude mcp add --scope user molecule -- npx -y molecule-mcp')
     expect(process.exitCode).toBeUndefined()
+  })
+
+  // 2026-11-22 smoke test: in a fresh home the first `npx -y molecule-mcp` downloaded the server
+  // (9.5 s) and headless Claude Code started its session with no Molecule tool at all.
+  describe('starts the registered MCP server once, so the first agent session finds it cached', () => {
+    beforeEach(() => {
+      warm.mockClear()
+      warm.mockImplementation(async () => ({ version: '9.9.9', ms: 1234 }))
+    })
+
+    it('after registering it, and says which version answered', async () => {
+      const out = await run(['--yes', '--agent', 'codex', '--skip', 'skills,instructions'])
+      expect(warm).toHaveBeenCalledTimes(1)
+      expect(warm).toHaveBeenCalledWith('npx', ['-y', 'molecule-mcp'])
+      expect(out).toContain('npx -y molecule-mcp starts')
+      expect(out).toContain('(9.9.9, 1.2 s)')
+      expect(process.exitCode).toBeUndefined()
+    })
+
+    it('fails setup when the server does not start', async () => {
+      warm.mockImplementation(async () => {
+        throw new Error('exited with code 1 before answering')
+      })
+      const out = await run(['--yes', '--agent', 'codex', '--skip', 'skills,instructions'])
+      expect(out).toContain('npx -y molecule-mcp did not start:')
+      expect(out).toContain('exited with code 1 before answering')
+      expect(out).toContain('1 step(s) failed')
+      expect(process.exitCode).toBe(1)
+    })
+
+    it('not when the MCP server was left out or only printed as manual steps', async () => {
+      await run(['--yes', '--agent', 'codex', '--skip', 'mcp'])
+      await run(['--yes', '--agent', 'claude-code', '--skip', 'skills,instructions'])
+      expect(warm).not.toHaveBeenCalled()
+    })
   })
 })

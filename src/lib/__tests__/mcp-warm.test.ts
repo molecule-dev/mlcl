@@ -1,0 +1,89 @@
+/**
+ * `warmMcpServer`: `mlcl setup` starts `npx -y molecule-mcp` once and waits for its `initialize`
+ * answer, so the npx cache is warm before the first agent session (2026-11-22 smoke test: a cold
+ * first start left headless Claude Code with no Molecule tools).
+ *
+ * @module
+ */
+
+import { EventEmitter } from 'node:events'
+
+import { describe, expect, it } from 'vitest'
+
+import { type McpSpawn, warmMcpServer } from '../mcp-warm.js'
+
+/** The fake child's handles. */
+interface FakeChild {
+  spawnImpl: McpSpawn
+  written: string[]
+  killed: () => boolean
+  say: (line: string) => void
+  exit: (code: number) => void
+}
+
+/**
+ * A fake child: records what was written and lets the test answer on stdout or exit.
+ *
+ * @returns Its handles.
+ */
+function fakeChild(): FakeChild {
+  const events = new EventEmitter()
+  const stdout = new EventEmitter()
+  const written: string[] = []
+  let killed = false
+  const child = {
+    stdin: { write: (chunk: string) => written.push(chunk), end: () => undefined },
+    stdout: {
+      on: (event: 'data', listener: (chunk: string) => void) => stdout.on(event, listener),
+    },
+    on: (event: string, listener: (...args: never[]) => void) => events.on(event, listener),
+    kill: () => {
+      killed = true
+    },
+  }
+  const spawnImpl: McpSpawn = () => child as unknown as ReturnType<McpSpawn>
+  return {
+    spawnImpl,
+    written,
+    killed: () => killed,
+    say: (line: string) => stdout.emit('data', line),
+    exit: (code: number) => events.emit('exit', code),
+  }
+}
+
+describe('warmMcpServer', () => {
+  it('sends initialize and resolves with the version the server answers, then stops it', async () => {
+    const child = fakeChild()
+    const pending = warmMcpServer('npx', ['-y', 'molecule-mcp'], { spawnImpl: child.spawnImpl })
+    expect(JSON.parse(child.written[0]).method).toBe('initialize')
+    child.say('molecule-mcp ready\n') // a log line is not the answer
+    child.say('{"jsonrpc":"2.0","id":1,"result":{"serverInfo":{"name":"molecule",')
+    child.say('"version":"0.3.4"}}}\n') // the answer can arrive in pieces
+    await expect(pending).resolves.toMatchObject({ version: '0.3.4' })
+    expect(child.killed()).toBe(true)
+  })
+
+  it('rejects when the server exits before answering', async () => {
+    const child = fakeChild()
+    const pending = warmMcpServer('npx', ['-y', 'molecule-mcp'], { spawnImpl: child.spawnImpl })
+    child.exit(1)
+    await expect(pending).rejects.toThrow('exited with code 1 before answering')
+  })
+
+  it('rejects and stops the server when it does not answer in time', async () => {
+    const child = fakeChild()
+    const pending = warmMcpServer('npx', ['-y', 'molecule-mcp'], {
+      spawnImpl: child.spawnImpl,
+      timeoutMs: 20,
+    })
+    await expect(pending).rejects.toThrow('no answer within 0 s')
+    expect(child.killed()).toBe(true)
+  })
+
+  it('rejects an answer that names no version', async () => {
+    const child = fakeChild()
+    const pending = warmMcpServer('npx', ['-y', 'molecule-mcp'], { spawnImpl: child.spawnImpl })
+    child.say('{"jsonrpc":"2.0","id":1,"result":{}}\n')
+    await expect(pending).rejects.toThrow('without a server version')
+  })
+})

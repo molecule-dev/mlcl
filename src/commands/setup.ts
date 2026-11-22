@@ -10,6 +10,7 @@ import {
   type AgentHarness,
   detectInstalledHarnesses,
   findHarness,
+  MCP_SERVER_COMMAND,
   type SetupScope,
 } from '../lib/agent-harnesses.js'
 import {
@@ -24,6 +25,7 @@ import {
 } from '../lib/agent-setup.js'
 import { loadSetupSkills } from '../lib/agent-skills.js'
 import { readProjectCapabilityMap, renderCapabilityMap } from '../lib/capability-map.js'
+import { warmMcpServer } from '../lib/mcp-warm.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 import { ui } from '../lib/ui.js'
 
@@ -170,7 +172,26 @@ export default class Setup extends Command {
     })
     this.printResults(results, show)
 
-    const failed = results.filter((r) => r.status === 'failed').length
+    // Start the server once now, as the agents will: the first start downloads it, and an agent
+    // that does that itself can begin its session before the tools are there (see lib/mcp-warm.ts).
+    let warmFailed = false
+    const registered = new Set<SetupStepResult['status']>(['written', 'updated', 'present'])
+    if (results.some((r) => r.step.kind === 'mcp' && registered.has(r.status))) {
+      const [command, ...args] = MCP_SERVER_COMMAND
+      try {
+        const warm = await warmMcpServer(command, args)
+        this.log(
+          `  ${ui.check(`${MCP_SERVER_COMMAND.join(' ')} starts`)} ${ui.dim(`(${warm.version}, ${(warm.ms / 1000).toFixed(1)} s)`)}`,
+        )
+      } catch (error) {
+        warmFailed = true
+        this.log(
+          `  ${ui.cross(`${MCP_SERVER_COMMAND.join(' ')} did not start:`)} ${ui.warn(error instanceof Error ? error.message : String(error))}`,
+        )
+      }
+    }
+
+    const failed = results.filter((r) => r.status === 'failed').length + (warmFailed ? 1 : 0)
     const kept = results.some((r) => r.status === 'kept')
     if (kept) this.log(ui.dim('\nKept files you edited; --force replaces them with this version.'))
     if (failed) {
