@@ -3,7 +3,10 @@ import { act } from 'react'
 import { beforeEach, describe, expect, it, vi } from 'vitest'
 
 const { request } = vi.hoisted(() => ({ request: vi.fn() }))
-vi.mock('@molecule/app-react', () => ({
+// The routing bond's router components need the real `RouterProvider`: stand in for the
+// hooks the pages call, keep the rest.
+vi.mock('@molecule/app-react', async (importOriginal) => ({
+  ...(await importOriginal<Record<string, unknown>>()),
   useTranslation: () => ({
     t: (key: string, _values?: unknown, options?: { defaultValue?: string }) =>
       options?.defaultValue ?? key,

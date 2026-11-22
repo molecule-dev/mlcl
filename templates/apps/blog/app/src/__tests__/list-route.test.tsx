@@ -12,7 +12,10 @@ const { http, session, t } = vi.hoisted(() => ({
       String(values[key] ?? ''),
     ),
 }))
-vi.mock('@molecule/app-react', () => ({
+// The routing bond's router components need the real `RouterProvider`: stand in for the
+// hooks the pages call, keep the rest.
+vi.mock('@molecule/app-react', async (importOriginal) => ({
+  ...(await importOriginal<Record<string, unknown>>()),
   useHttpClient: () => http,
   useTranslation: () => ({ t }),
   useAuth: () => session,
