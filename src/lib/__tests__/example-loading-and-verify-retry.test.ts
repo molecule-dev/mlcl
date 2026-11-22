@@ -21,6 +21,7 @@ import { act, createElement, type ReactNode } from 'react'
 import { createRoot, type Root } from 'react-dom/client'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
+import type * as AppReact from '@molecule/app-react'
 import { BrowserRouter } from '@molecule/app-routing-react-router'
 
 const translate = (
@@ -36,7 +37,11 @@ vi.mock('@molecule/app-ui', () => ({
   getClassMap: () => new Proxy({}, { get: () => () => undefined }),
 }))
 
-vi.mock('@molecule/app-react', () => ({ useTranslation: () => ({ t: translate }) }))
+// The real binding, so the routing bond's BrowserRouter gets its RouterProvider; only these hooks are faked.
+vi.mock('@molecule/app-react', async (importOriginal) => ({
+  ...(await importOriginal<typeof AppReact>()),
+  useTranslation: () => ({ t: translate }),
+}))
 
 vi.mock('@molecule/app-data-table-ui-react', () => ({
   DataTableCard: (props: { rows: Array<{ id: string }>; loading?: boolean }) =>

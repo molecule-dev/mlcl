@@ -4,9 +4,12 @@ import { cleanup, fireEvent, render, screen } from '@testing-library/react'
 import React, { type ReactNode, StrictMode } from 'react'
 import { afterEach, expect, it, vi } from 'vitest'
 
+import type * as AppReact from '@molecule/app-react'
 import { BrowserRouter } from '@molecule/app-routing-react-router'
 
-vi.mock('@molecule/app-react', () => ({
+// The real binding, so the routing bond's BrowserRouter gets its RouterProvider; only these hooks are faked.
+vi.mock('@molecule/app-react', async (importOriginal) => ({
+  ...(await importOriginal<typeof AppReact>()),
   useTranslation: () => ({
     t: (key: string, _values: unknown, options: { defaultValue?: string }) =>
       options?.defaultValue ?? key,

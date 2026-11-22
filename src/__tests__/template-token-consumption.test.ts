@@ -13,10 +13,13 @@ import React, { StrictMode } from 'react'
 import { useLocation, useNavigate } from 'react-router'
 import { afterEach, expect, it, vi } from 'vitest'
 
+import type * as AppReact from '@molecule/app-react'
 import { BrowserRouter } from '@molecule/app-routing-react-router'
 
 const { post } = vi.hoisted(() => ({ post: vi.fn().mockRejectedValue(new Error('retry')) }))
-vi.mock('@molecule/app-react', () => ({
+// The real binding, so the routing bond's BrowserRouter gets its RouterProvider; only these hooks are faked.
+vi.mock('@molecule/app-react', async (importOriginal) => ({
+  ...(await importOriginal<typeof AppReact>()),
   useTranslation: () => ({
     t: (key: string, _values: unknown, options: { defaultValue?: string }) =>
       options?.defaultValue ?? key,
