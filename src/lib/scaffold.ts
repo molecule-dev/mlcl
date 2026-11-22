@@ -2863,9 +2863,9 @@ export async function copyTemplateInstance(
   //
   // app/e2e is a location the template itself never has (it keeps e2e/ at
   // its root), and vitest's default include matches `*.spec.ts` — so every
-  // app vite config (createDefaultViteConfig in @molecule/app-vite-config-
-  // default, the inline flagship configs, and the custom vite.config.ts.tpl)
-  // sets `test.exclude` for `**/e2e/**`, or `npm test` in app/ collects the
+  // app vite config (createFrameworkViteConfig in @molecule/app-vite-config-
+  // default, which the flagship and custom configs use, and the static-site
+  // config) sets `test.exclude` for `**/e2e/**`, or `npm test` in app/ collects the
   // Playwright specs and fails out of the box. Guarded by the
   // `template-static-site` entry of scripts/typecheck-scaffold.mjs.
   const e2eSrcDir = join(templateDir, 'e2e')
@@ -5237,7 +5237,7 @@ export async function createAppProject(
   }
 
   await writeFile(join(projectPath, 'package.json'), JSON.stringify(packageJson, null, 2) + '\n')
-  // The e2e runner + bonds the vite config's preview plugin file imports (one place
+  // The e2e runner + bonds the vite config's preview plugin imports (one place
   // for custom apps; templates get the same through copyTemplateInstance).
   await ensureE2EManifest(projectPath)
   await writeFile(join(projectPath, '.npmrc'), await loadTemplate('shared/npmrc.tpl'))
@@ -5270,40 +5270,27 @@ export async function createAppProject(
 
   // vite.config.ts (framework-specific, from registry)
   mlclDebug(`[scaffold] Generating vite.config.ts + package.json`)
-  const viteImport = fwConfig.vitePlugin?.import ?? ''
-  const vitePlugin = fwConfig.vitePlugin?.usage ?? ''
-  const pluginsLine = vitePluginsLine(
-    [
-      vitePlugin,
-      buildTooling?.vitePlugin?.usage,
-      'pwaPlugins',
-      'pwaRegistrationPlugin',
-      'rootRelativeAssetsPlugin()',
-      'stripPreviewBridgePlugin({ svelteKit })',
-      'svelteKitSite',
-    ].filter((p): p is string => Boolean(p)),
-  )
-
-  const extraConfig = fwConfig.viteExtraConfig ?? ''
-
   const viteConfig = join(projectPath, 'vite.config.ts')
   await writeFile(
     viteConfig,
     await formatGeneratedSource(
-      await loadTemplate('app/shared/vite.config.ts.tpl', {
-        TAILWIND_IMPORT: buildTooling?.vitePlugin?.import
-          ? buildTooling.vitePlugin.import + '\n'
-          : '',
-        VITE_PLUGIN_IMPORT: viteImport ? viteImport + '\n' : '',
-        VITE_PLUGINS: pluginsLine,
-        SVELTE_KIT: String(htmlFile === 'app.html'),
-        BRANDING_IMPORT: brandingImportPath,
-        FRAMEWORK_CONFIG: extraConfig ? `{\n  ${extraConfig}\n}` : '{}',
-        WARMUP_CLIENT_FILES: viteWarmupClientFiles(
-          htmlFile === 'app.html' ? undefined : mainEntry,
-          sharedSubdir ? `src/${sharedSubdir}/bonds` : 'src/bonds',
-        ),
-      }),
+      await loadTemplate(
+        'app/shared/vite.config.ts.tpl',
+        appViteConfigTemplateVars({
+          // The framework's plugin and the styling's build plugin;
+          // createFrameworkViteConfig adds the rest.
+          plugins: [fwConfig.vitePlugin, buildTooling?.vitePlugin].flatMap(
+            (plugin): ViteConfigPlugin[] => (plugin?.usage ? [plugin] : []),
+          ),
+          svelteKit: htmlFile === 'app.html',
+          extraConfig: fwConfig.viteExtraConfig,
+          brandingImport: brandingImportPath,
+          warmupClientFiles: viteWarmupClientFiles(
+            htmlFile === 'app.html' ? undefined : mainEntry,
+            sharedSubdir ? `src/${sharedSubdir}/bonds` : 'src/bonds',
+          ),
+        }),
+      ),
       viteConfig,
     ),
   )
@@ -5599,10 +5586,89 @@ export interface FontFileToCopy {
  * set depends on the selected framework and styling tooling, and a registry plugin call
  * can be longer than a line, so the scaffold formats the whole config with prettier
  * after filling the template.
+ *
+ * @param plugins - The plugin calls, in order.
+ * @returns The `plugins: [...]` property, indented for the config object.
  */
 function vitePluginsLine(plugins: string[]): string {
   return ['  plugins: [', ...plugins.map((p) => `    ${p},`), '  ],'].join('\n')
 }
+
+/** A Vite plugin a registry entry names: its import line and its call in `plugins`. */
+export interface ViteConfigPlugin {
+  /** The import statement, e.g. `import react from '@vitejs/plugin-react'`. */
+  import?: string
+  /** The call that goes in `plugins`, e.g. `react()`. */
+  usage?: string
+}
+
+/** What {@link appViteConfigTemplateVars} builds a custom app's `vite.config.ts` from. */
+export interface AppViteConfigTemplateOptions {
+  /** The framework's and the styling's Vite plugins, in that order. */
+  plugins: ViteConfigPlugin[]
+  /** Whether the app is a SvelteKit app (its page is `src/app.html`). */
+  svelteKit: boolean
+  /** The framework's extra config (registry `viteExtraConfig`), merged over the factory's. */
+  extraConfig?: string
+  /** The module the branding constants are imported from. */
+  brandingImport: string
+  /** The `server.warmup.clientFiles` array literal ({@link viteWarmupClientFiles}). */
+  warmupClientFiles: string
+}
+
+/**
+ * The values `app/shared/vite.config.ts.tpl` is filled with for a custom app. The config
+ * itself comes from `createFrameworkViteConfig` (`@molecule/app-vite-config-default/framework`);
+ * the template passes it the framework's plugins and, for SvelteKit, the hooks that take the
+ * preview bridges out of the site its adapter writes. The scaffold formats the filled
+ * template with prettier, since a registry plugin call can be longer than a line.
+ *
+ * @param options - The framework's plugins and settings.
+ * @returns The template variables.
+ */
+export function appViteConfigTemplateVars(
+  options: AppViteConfigTemplateOptions,
+): Record<string, string> {
+  const { plugins, svelteKit, extraConfig } = options
+  const imports = plugins.flatMap((plugin) => (plugin.import ? [plugin.import] : []))
+  return {
+    PLUGIN_IMPORTS: imports.map((line) => line + '\n').join(''),
+    VITE_NAMES: extraConfig ? 'defineConfig, mergeConfig' : 'defineConfig',
+    E2E_PREVIEW_NAMES: svelteKit
+      ? 'assertNoBridgeReferences, dropBridgeAssets, stripPreviewBridgePlugin, stripPreviewBridges'
+      : 'stripPreviewBridgePlugin',
+    VITE_PLUGINS: vitePluginsLine(
+      plugins.flatMap((plugin) => (plugin.usage ? [plugin.usage] : [])),
+    ),
+    SVELTE_KIT_OPTION: svelteKit ? SVELTE_KIT_VITE_OPTION : '',
+    STRIP_PREVIEW_BRIDGES: svelteKit
+      ? 'stripPreviewBridgePlugin({ svelteKit: true })'
+      : 'stripPreviewBridgePlugin()',
+    BRANDING_IMPORT: options.brandingImport,
+    CONFIG_EXPORT: extraConfig
+      ? `export default defineConfig(mergeConfig(config, {\n  ${extraConfig}\n}))`
+      : 'export default defineConfig(config)',
+    WARMUP_CLIENT_FILES: options.warmupClientFiles,
+  }
+}
+
+/**
+ * The `svelteKit` option a SvelteKit app's generated vite.config.ts passes to
+ * `createFrameworkViteConfig`. Kit writes its own pages and its adapter writes the site
+ * (`dist/`, with its fallback page as `index.html`), so the preview bridges are removed
+ * from that site rather than from Vite's HTML.
+ */
+const SVELTE_KIT_VITE_OPTION = [
+  '',
+  '  // Kit writes its own pages: the preview bridges come out of the site its adapter writes.',
+  '  svelteKit: {',
+  '    transformPage: stripPreviewBridges,',
+  '    finishSite: (site) => {',
+  '      dropBridgeAssets(site)',
+  '      assertNoBridgeReferences(site)',
+  '    },',
+  '  },',
+].join('\n')
 
 /**
  * The dev server's `warmup.clientFiles` list of a generated `vite.config.ts`: the

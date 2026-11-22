@@ -179,8 +179,12 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
   })
 
   it('runs its mocked tests in Node, whatever its vite plugin prefers', async () => {
+    // createFrameworkViteConfig sets test.environment: 'node' in the app's own config,
+    // which a framework plugin's preference (vite-plugin-solid's jsdom) does not
+    // override; nothing the scaffold adds may set another one.
     const config = await readFile(join(roots[framework], 'vite.config.ts'), 'utf8')
-    expect(config).toMatch(/test:\s*\{[\s\S]*environment:\s*'node'/)
+    expect(config).toContain('createFrameworkViteConfig(branding, {')
+    expect(config).not.toMatch(/environment:/)
   })
 
   // The app's `lint` script runs simple-import-sort as a warning, so an unsorted import
@@ -203,8 +207,9 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
   // does not (a SvelteKit app did, with React's entry names).
   it('warms up only files it wrote', async () => {
     const config = await readFile(join(roots[framework], 'vite.config.ts'), 'utf8')
-    const list = /clientFiles:\s*\[([^\]]*)\]/.exec(config)?.[1]
-    expect(list, 'vite.config.ts declares server.warmup.clientFiles').toBeDefined()
+    // `warmup` is the server.warmup.clientFiles list createFrameworkViteConfig sets.
+    const list = /\bwarmup:\s*\[([^\]]*)\]/.exec(config)?.[1]
+    expect(list, 'vite.config.ts passes its warmup files').toBeDefined()
     const entries = [...(list ?? '').matchAll(/'([^']+)'/g)].map((match) => match[1])
     expect(entries.length).toBeGreaterThan(0)
     const missing: string[] = []

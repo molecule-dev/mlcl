@@ -49,8 +49,13 @@ describe('scaffolded PWA registration', () => {
         await expect(readFile(join(root, 'src', shared, 'pwa.ts'))).rejects.toMatchObject({
           code: 'ENOENT',
         })
+        // createFrameworkViteConfig adds the registrar to the build only while VitePWA is
+        // in the config (@molecule/app-vite-config-default's pwa-registration.test.ts); the
+        // builds below run it in a browser.
         const config = await readFile(join(root, 'vite.config.ts'), 'utf8')
-        expect(config).toContain(`import { registerPWA } from '${PACKAGE_NAME}'; registerPWA()`)
+        expect(config).toContain(
+          "import { createFrameworkViteConfig } from '@molecule/app-vite-config-default/framework'",
+        )
       } finally {
         await rm(root, { recursive: true, force: true })
       }
@@ -58,8 +63,11 @@ describe('scaffolded PWA registration', () => {
   )
 
   it('the web scaffolds leave registration to the build and keep VitePWA auto-registration off', async () => {
+    // VitePWA, and its injectRegister: false, come from createFrameworkViteConfig.
     const vite = await readFile(join(TEMPLATES, 'app', 'shared', 'vite.config.ts.tpl'), 'utf-8')
-    expect(vite).toContain('injectRegister: false as const')
+    expect(vite).toContain('createFrameworkViteConfig(')
+    expect(vite).not.toContain('VitePWA')
+    expect(vite).not.toContain('injectRegister')
     for (const entry of [
       'react/bootstrap.tsx.tpl',
       'react/main.tsx.tpl',
@@ -168,8 +176,23 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
           "document.querySelector('#root')!.textContent = 'Equipment console'\n",
       )
       if (!pwa) {
+        // An app drops the PWA by filtering VitePWA's plugins out of the generated config.
         const config = join(root, 'vite.config.ts')
-        await writeFile(config, (await readFile(config, 'utf8')).replace(/\bpwaPlugins,\s*/, ''))
+        const source = await readFile(config, 'utf8')
+        const exportLine = 'export default defineConfig(config)'
+        expect(source).toContain(exportLine)
+        await writeFile(
+          config,
+          source.replace(
+            exportLine,
+            [
+              'config.plugins = config.plugins.filter(',
+              "  (plugin) => !Array.isArray(plugin) || !plugin.some((member) => member && 'name' in member && member.name === 'vite-plugin-pwa'),",
+              ')',
+              exportLine,
+            ].join('\n'),
+          ),
+        )
       }
       const browser = await chromium.launch()
       try {

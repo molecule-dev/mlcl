@@ -73,11 +73,12 @@ describe('custom scaffold: pages are imported statically (splitting measured slo
   })
 
   it('precaches the shell, not every emitted chunk', () => {
+    // The precache is createFrameworkViteConfig's: the HTML, the icons and the files the
+    // first page load runs, read from the bundle (tested with a real build in
+    // @molecule/app-vite-config-default). The template must not set a second one.
     const vite = read('shared', 'vite.config.ts.tpl')
-    expect(vite).toContain(
-      "globPatterns: ['**/*.{html,ico,png,svg}', 'assets/index-*.js', 'assets/index-*.css']",
-    )
-    expect(vite).not.toContain("globPatterns: ['**/*.{js,css,html,ico,png,svg,woff,woff2}']")
+    expect(vite).toContain('createFrameworkViteConfig(')
+    expect(vite).not.toContain('globPatterns')
   })
 
   it('loads selected local fonts without a redundant default CDN request or blocked paint', () => {
