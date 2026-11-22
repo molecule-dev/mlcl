@@ -34529,11 +34529,12 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-analytics",
-        "react",
-        "react-router"
+        "@molecule/app-react",
+        "react"
       ],
       "moleculePeers": [
-        "@molecule/app-analytics"
+        "@molecule/app-analytics",
+        "@molecule/app-react"
       ],
       "path": "packages/app/features/analytics-react",
       "intentHints": [
@@ -36579,8 +36580,7 @@
         "@molecule/app-react",
         "@molecule/app-storage",
         "@molecule/app-ui",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-logger",
@@ -53234,8 +53234,7 @@
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
@@ -54153,8 +54152,7 @@
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
@@ -60557,8 +60555,7 @@
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
@@ -81856,8 +81853,7 @@
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
@@ -84172,8 +84168,7 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
@@ -86596,8 +86591,7 @@
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
@@ -91254,6 +91248,10 @@
         "RouterProps",
         "RouterProvider",
         "RouterProviderProps",
+        "StaticRouter",
+        "StaticRouterProps",
+        "StaticRouterProvider",
+        "StaticRouterProviderProps",
         "createReactRouter",
         "defineRoute",
         "lazyPage",
@@ -91917,7 +91915,7 @@
       "type": "feature",
       "category": "safe-link",
       "label": "Safe Link",
-      "description": "SafeLink React Router wrapper that appends a #top fragment when target matches current path. Avoids dead-link probes that return no URL/DOM mutation on same-path clicks.",
+      "description": "SafeLink React router wrapper that appends a #top fragment when target matches current path. Avoids dead-link probes that return no URL/DOM mutation on same-path clicks.",
       "stack": "app",
       "exports": [
         "SafeLink",
@@ -91925,10 +91923,12 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "react",
-        "react-router"
+        "@molecule/app-react",
+        "react"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-react"
+      ],
       "path": "packages/app/features/safe-link-react",
       "intentHints": [
         "safe link",
@@ -93341,8 +93341,7 @@
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "@molecule/app-utilities",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-auth",
@@ -93984,7 +93983,7 @@
       "type": "feature",
       "category": "sidebar-layout",
       "label": "Sidebar Layout React",
-      "description": "Vertical sidebar app shell: brand block + vertical NavLinks + user-menu slot, with React Router Outlet for nested routes",
+      "description": "Vertical sidebar app shell: brand block + vertical NavLinks + user-menu slot, with a router outlet for nested routes",
       "stack": "app",
       "exports": [
         "SidebarNavItem",
@@ -93996,8 +93995,7 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
@@ -97068,8 +97066,7 @@
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
@@ -99425,7 +99422,7 @@
       "type": "feature",
       "category": "top-nav-layout",
       "label": "Top Nav Layout React",
-      "description": "Sticky top-nav app shell: brand link + horizontal NavLinks + user-menu slot, with React Router <Outlet /> for nested routes",
+      "description": "Sticky top-nav app shell: brand link + horizontal NavLinks + user-menu slot, with a router outlet for nested routes",
       "stack": "app",
       "exports": [
         "TopNavItem",
@@ -99436,8 +99433,7 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
-        "react",
-        "react-router"
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
@@ -100999,8 +100995,7 @@
         "@molecule/app-react",
         "@molecule/app-ui",
         "react",
-        "react-dom",
-        "react-router"
+        "react-dom"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
