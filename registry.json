@@ -27894,7 +27894,7 @@
         "src/__setup__/users.sql": "CREATE TABLE IF NOT EXISTS \"users\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"createdAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"updatedAt\" timestamptz DEFAULT current_timestamp NOT NULL,\n  \"username\" varchar(255),\n  \"name\" text,\n  \"email\" varchar(1023) UNIQUE,\n  \"emailVerified\" boolean DEFAULT false NOT NULL,\n  \"avatar\" text,\n  \"bio\" text,\n  \"twoFactorEnabled\" boolean DEFAULT false,\n  \"oauthServer\" text,\n  \"oauthId\" text,\n  \"oauthData\" jsonb,\n  \"planKey\" text,\n  \"planExpiresAt\" timestamptz,\n  \"planAutoRenews\" boolean DEFAULT false\n);\nCREATE INDEX IF NOT EXISTS \"users_createdAt_index\" ON \"users\" (\"createdAt\");\nCREATE INDEX IF NOT EXISTS \"users_updatedAt_index\" ON \"users\" (\"updatedAt\");\nCREATE INDEX IF NOT EXISTS \"users_username_index\" ON \"users\" (\"username\");\nCREATE INDEX IF NOT EXISTS \"users_email_index\" ON \"users\" (\"email\");\n",
         "src/__setup__/usersSecrets.sql": "CREATE TABLE IF NOT EXISTS \"usersSecrets\" (\n  \"id\" uuid UNIQUE PRIMARY KEY NOT NULL,\n  \"passwordHash\" text,\n  \"passwordResetToken\" text,\n  \"passwordResetTokenAt\" timestamptz,\n  \"pendingTwoFactorSecret\" text,\n  \"twoFactorSecret\" text,\n  \"lastTwoFactorTimeStep\" integer\n);\n"
       },
-      "setupSqlVersion": "1.10.4",
+      "setupSqlVersion": "1.11.0",
       "reExports": [
         "authorization"
       ],
@@ -55516,40 +55516,6 @@
         "localization",
         "locale switching",
         "multilingual app"
-      ]
-    },
-    "@molecule/app-i18n-default": {
-      "language": "typescript",
-      "runtime": "node",
-      "type": "feature",
-      "category": "i18n-default",
-      "label": "i18n Default Setup",
-      "description": "Default i18n bond setup with 80-language definitions, lazy-loading wrapper, and locale persistence via storage bond, for every app framework.",
-      "stack": "app",
-      "exports": [
-        "LANGUAGE_DEFINITIONS",
-        "LanguageDefinition",
-        "PackageLocaleBond",
-        "PackageLocaleLoader",
-        "SetupI18nDefaultOptions",
-        "setupI18nDefault"
-      ],
-      "secrets": [],
-      "runtimeDependencies": [
-        "@molecule/app-i18n",
-        "@molecule/app-locales-common",
-        "@molecule/app-storage"
-      ],
-      "moleculePeers": [
-        "@molecule/app-i18n",
-        "@molecule/app-locales-common",
-        "@molecule/app-storage"
-      ],
-      "path": "packages/app/features/i18n-default",
-      "intentHints": [
-        "i18n default",
-        "localization defaults",
-        "default translations"
       ]
     },
     "@molecule/app-i18n-default-react": {
@@ -103854,7 +103820,7 @@
       "@molecule/api-locales-tag": "1.0.4",
       "@molecule/api-locales-trash": "1.0.2",
       "@molecule/api-locales-uploads": "1.0.3",
-      "@molecule/api-locales-user": "1.1.4",
+      "@molecule/api-locales-user": "1.2.0",
       "@molecule/api-locales-user-payments": "1.0.5",
       "@molecule/api-logger": "1.0.3",
       "@molecule/api-logger-console": "1.0.2",
@@ -103988,7 +103954,7 @@
       "@molecule/api-resource-task": "1.0.6",
       "@molecule/api-resource-template": "1.0.9",
       "@molecule/api-resource-thread": "1.0.8",
-      "@molecule/api-resource-user": "1.10.4",
+      "@molecule/api-resource-user": "1.11.0",
       "@molecule/api-resource-version-history": "1.0.9",
       "@molecule/api-resource-wiki-page": "1.0.7",
       "@molecule/api-resource-workspace": "1.0.10",
@@ -104163,7 +104129,7 @@
       "@molecule/app-e2e": "1.2.5",
       "@molecule/app-e2e-fixtures-default": "1.2.6",
       "@molecule/app-e2e-playwright": "1.0.4",
-      "@molecule/app-e2e-preview": "1.0.14",
+      "@molecule/app-e2e-preview": "1.1.0",
       "@molecule/app-editor-layout-react": "4.0.0",
       "@molecule/app-editor-toolbar-react": "4.0.0",
       "@molecule/app-embed-snippet-react": "4.1.0",
@@ -104586,7 +104552,7 @@
       "@molecule/app-video-player-react": "4.0.2",
       "@molecule/app-virtual-scroll": "1.0.4",
       "@molecule/app-virtual-scroll-tanstack": "1.0.3",
-      "@molecule/app-vite-config-default": "1.4.3",
+      "@molecule/app-vite-config-default": "1.5.0",
       "@molecule/app-vote-cluster-react": "4.0.0",
       "@molecule/app-vue": "3.9.0",
       "@molecule/app-weather-card-react": "4.0.2",
@@ -105550,6 +105516,42 @@
       "@molecule/app-word-cloud-solid": "1.1.0",
       "@molecule/app-word-cloud-svelte": "1.1.0",
       "@molecule/app-word-cloud-vue": "1.1.0"
+    }
+  },
+  "pendingPackages": {
+    "@molecule/app-i18n-default": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "i18n-default",
+      "label": "i18n Default Setup",
+      "description": "Default i18n bond setup with 80-language definitions, lazy-loading wrapper, and locale persistence via storage bond, for every app framework.",
+      "stack": "app",
+      "exports": [
+        "LANGUAGE_DEFINITIONS",
+        "LanguageDefinition",
+        "PackageLocaleBond",
+        "PackageLocaleLoader",
+        "SetupI18nDefaultOptions",
+        "setupI18nDefault"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-locales-common",
+        "@molecule/app-storage"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-locales-common",
+        "@molecule/app-storage"
+      ],
+      "path": "packages/app/features/i18n-default",
+      "intentHints": [
+        "i18n default",
+        "localization defaults",
+        "default translations"
+      ]
     }
   }
 }

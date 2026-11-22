@@ -122,7 +122,7 @@
     "@molecule/app-version": "1.1.2",
     "@molecule/app-virtual-scroll": "1.0.4",
     "@molecule/app-virtual-scroll-tanstack": "1.0.3",
-    "@molecule/app-vite-config-default": "1.4.3",
+    "@molecule/app-vite-config-default": "1.5.0",
     "@tanstack/virtual-core": "3.19.7",
     "quill": "2.0.3",
     "react": "19.3.1",
