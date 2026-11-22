@@ -330,6 +330,13 @@ describe('scaffolded auth token storage (M1-1 / L1-1)', () => {
     ).toEqual([])
   })
 
+  it('the base template keeps the token in memory explicitly for the Molecule user resource', () => {
+    // The base template's storage line is generated; this fixture is its byte-pinned output for
+    // the registry user-resource contract (auth-contract.test.ts compares it to a real copy).
+    const rendered = join(LIB, '__tests__', 'fixtures', 'default-auth-config.txt')
+    expect(authConfigBlock(rendered)).toMatch(/storage\s*:\s*'memory'\s+as\s+const/)
+  })
+
   it('actually checks a meaningful number of config files (guard against a broken glob)', () => {
     // If this drops to ~0 the tests above are vacuously passing — fail loudly instead.
     expect(authConfigFiles().length).toBeGreaterThan(50)
