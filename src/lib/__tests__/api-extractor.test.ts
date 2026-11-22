@@ -435,6 +435,53 @@ export function connect(url: string, options?: { timeout: number }): void {}
     expect(urlParam!.description).toBe('Connection string')
   })
 
+  it('reads the *\\/ JSDoc writes for a comment closer as * then /, in prose and examples', async () => {
+    const dir = await createTempPackage(
+      'escaped-closer',
+      `/**
+ * Loads every \`**\\/*.sql\` file.
+ *
+ * @example
+ * \`\`\`ts
+ * const body = { /* the event *\\/ }
+ * \`\`\`
+ *
+ * @remarks
+ * Keep the \`**\\/e2e/**\` entry.
+ *
+ * @module
+ */
+
+/**
+ * Run the setup files.
+ *
+ * @param sqlPattern - Glob of the SQL files (default: \`**\\/__setup__/*.sql\`)
+ * @returns The files matched by \`**\\/*.sql\`.
+ */
+export function setup(sqlPattern: string): string[] {
+  return [sqlPattern]
+}
+
+/** Fetch options. */
+export interface FetchOptions {
+  /** Defaults to \`*\\/*\`. */
+  accept?: string
+}
+`,
+    )
+
+    const result = extractPackageApi(dir)
+    expect(result.description).toBe('Loads every `**/*.sql` file.')
+    expect(result.examples![0]).toContain('const body = { /* the event */ }')
+    expect(result.remarks).toBe('Keep the `**/e2e/**` entry.')
+    const fn = result.exports.find((e) => e.name === 'setup')!
+    expect(fn.params![0]!.description).toBe('Glob of the SQL files (default: `**/__setup__/*.sql`)')
+    expect(fn.returnDescription).toBe('The files matched by `**/*.sql`.')
+    // Counterexample: a declaration is code, where the escape is what keeps the comment open.
+    const options = result.exports.find((e) => e.name === 'FetchOptions')!
+    expect(options.declaration).toContain('/** Defaults to `*\\/*`. */')
+  })
+
   it('normalizes eslint-generated destructured-param placeholders (root0 → props)', async () => {
     // `jsdoc/require-param` auto-names an inline-destructured param `({ a }: P)`
     // `root0` and its members `root0.a`; the generated docs must never leak that.

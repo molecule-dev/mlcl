@@ -226,7 +226,7 @@ function parseJsDocComment(comment: string): ModuleJsDoc {
     .replace(/^\/\*\*/, '')
     .replace(/\*\/$/, '')
     .split('\n')
-    .map((line) => line.replace(/^\s*\*\s?/, ''))
+    .map((line) => asWritten(line.replace(/^\s*\*\s?/, '')))
 
   const content = lines.join('\n').trim()
 
@@ -298,7 +298,7 @@ function parseJsDocFromNode(jsDoc: JSDoc): ModuleJsDoc {
   const result: ModuleJsDoc = { examples: [] }
 
   // Get description
-  const description = jsDoc.getDescription().trim()
+  const description = asWritten(jsDoc.getDescription()).trim()
   if (description) {
     result.description = description
   }
@@ -521,7 +521,7 @@ function extractDeclaration(
   // Get JSDoc
   const jsDoc = getDeclarationJsDoc(declaration)
   if (jsDoc) {
-    const description = jsDoc.getDescription().trim()
+    const description = asWritten(jsDoc.getDescription()).trim()
     if (description) result.description = description
 
     // Check deprecated
@@ -931,7 +931,7 @@ function unwrapJsdocProse(text: string): string {
  * Extract a parameter from a JSDoc @param tag.
  */
 function extractParamFromTag(tag: JSDocTag): ExtractedParam | null {
-  const text = unwrapJsdocProse(tag.getText())
+  const text = unwrapJsdocProse(asWritten(tag.getText()))
   // Match: @param name - description | @param {type} name - description |
   // @param name.member - description. `name` may be a dotted destructured-member
   // path (e.g. `root0.children`), so capture the whole `[\w.$]+` run — a bare
@@ -1010,12 +1010,24 @@ function extractReturnType(declaration: ExportedDeclarations): string | undefine
 // ============================================================================
 
 /**
+ * JSDoc text as its author meant it. A comment cannot hold its own closer, so JSDoc writes
+ * `*\/` for a `*` followed by `/`: a glob such as `**\/*.sql`, or a comment inside an
+ * example. The README is not a comment, so it shows the two characters the author meant.
+ *
+ * @param text - Text read from a JSDoc comment.
+ * @returns The text with each `*\/` read as `*` then `/`.
+ */
+function asWritten(text: string): string {
+  return text.split('*\\/').join('*/')
+}
+
+/**
  * Get the text content of a JSDoc tag (everything after the tag name).
  * Strips trailing JSDoc comment markers (bare `*` lines) that ts-morph
  * may include when the tag is followed by blank comment lines or other tags.
  */
 function getTagText(tag: JSDocTag): string {
-  const fullText = tag.getText()
+  const fullText = asWritten(tag.getText())
   const tagName = tag.getTagName()
   // Remove the @tagName prefix and trim
   let afterTag = fullText.slice(fullText.indexOf(`@${tagName}`) + tagName.length + 1).trim()
