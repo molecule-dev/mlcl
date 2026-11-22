@@ -112,7 +112,9 @@ export const messages: LocaleMessages = {
   'commands.create.spinners.addingPackages': 'Adding molecule packages...',
   'commands.create.spinners.addedFullStack': 'Added {apiCount} API + {appCount} App packages',
   'commands.create.spinners.addedPackages': 'Added {count} packages',
-  'commands.create.spinners.installing': 'Installing dependencies...',
+  'commands.create.spinners.installing':
+    'Installing dependencies (a first install takes a few minutes, and npm prints nothing until it is done)...',
+  'commands.create.progress.running': '{step} is still running ({seconds} s)',
   'commands.create.spinners.installed': 'Dependencies installed',
   'commands.create.spinners.installFailed': 'npm install failed - run it manually',
   'commands.create.spinners.injecting': 'Generating {workspace} integration code...',

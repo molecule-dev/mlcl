@@ -230,7 +230,9 @@ npx mlcl create app --type api --packages @molecule/api-database-sqlite \
 ```
 
 `create --json` prints a single result object — path, type, packages,
-secrets to fill in `.env` — and suppresses all progress chatter.
+secrets to fill in `.env` — and no step-by-step output. While a slow step runs
+(`npm install`, which takes a few minutes the first time, and the code
+generation after it) a line on stderr says it is still running, every 30 s.
 
 ## Using it with AI agents
 
@@ -845,7 +847,7 @@ FLAGS
   --api-contract=<value>  OpenAPI 3.1 JSON document whose auth operations configure the generated app-auth bond
   --force                 Scaffold into a directory that already holds a project (existing files are overwritten)
   --framework=<value>     Frontend framework (app only)
-  --json                  Print a machine-readable JSON result instead of progress output (implies --no-interactive)
+  --json                  Print a machine-readable JSON result instead of progress output; a slow step still reports on stderr (implies --no-interactive)
   --no-interactive        Run without interactive prompts (requires --type and name arg)
   --packages=<value>      Comma-separated list of @molecule package names to include
   --require-inject        [env: MLCL_REQUIRE_INJECT] Fail when the integration code cannot be generated, instead of

@@ -7,6 +7,7 @@ import { execa } from 'execa'
 
 import { AUTH_PRECONFIGURATION_GUIDANCE, readOpenApiAuthContract } from '../lib/auth-contract.js'
 import { readProjectCapabilityMap } from '../lib/capability-map.js'
+import { withHeartbeat } from '../lib/create-progress.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT, isDdlCompatibilityFailure } from '../lib/ddl-exit.js'
 import {
@@ -275,7 +276,7 @@ export default class Create extends Command {
     }),
     json: Flags.boolean({
       description:
-        'Print a machine-readable JSON result instead of progress output (implies --no-interactive)',
+        'Print a machine-readable JSON result instead of progress output; a slow step still reports on stderr (implies --no-interactive)',
       default: false,
     }),
     force: Flags.boolean({
@@ -618,9 +619,13 @@ export default class Create extends Command {
         )
         let installNeeded = flags['skip-install'] === true
         if (!flags['skip-install']) {
-          const { execa } = await import('execa')
           try {
-            await execa('npm', ['install'], { cwd: projectPath })
+            await this.runSlowStep(
+              'npm install',
+              t('commands.create.spinners.installing'),
+              () => execa('npm', ['install'], { cwd: projectPath }),
+              { json: flags.json === true },
+            )
             say(ui.check('Installed dependencies.'))
           } catch (error) {
             installNeeded = true
@@ -1180,10 +1185,13 @@ export default class Create extends Command {
     if (isStatusPageEdge) {
       let installNeeded = flags['skip-install'] === true
       if (!flags['skip-install']) {
-        spinner?.start(t('commands.create.spinners.installing'))
-        log(t('commands.create.spinners.installing'))
         try {
-          await execa('npm', ['install'], { cwd: projectPath })
+          await this.runSlowStep(
+            'npm install',
+            t('commands.create.spinners.installing'),
+            () => execa('npm', ['install'], { cwd: projectPath }),
+            { json: flags.json === true, spinner },
+          )
           spinner?.stop(t('commands.create.spinners.installed'))
           log(t('commands.create.spinners.installed'))
         } catch (error) {
@@ -1274,10 +1282,13 @@ export default class Create extends Command {
     // Step 9: Install dependencies
     let installNeeded = flags['skip-install'] === true
     if (!flags['skip-install']) {
-      spinner?.start(t('commands.create.spinners.installing'))
-      log(t('commands.create.spinners.installing'))
       try {
-        await execa('npm', ['install'], { cwd: projectPath })
+        await this.runSlowStep(
+          'npm install',
+          t('commands.create.spinners.installing'),
+          () => execa('npm', ['install'], { cwd: projectPath }),
+          { json: flags.json === true, spinner },
+        )
         spinner?.stop(t('commands.create.spinners.installed'))
         log(t('commands.create.spinners.installed'))
       } catch (error) {
@@ -1299,10 +1310,13 @@ export default class Create extends Command {
       // Inject both workspaces
       for (const workspace of ['api', 'app']) {
         const wsPath = join(projectPath, workspace)
-        spinner?.start(t('commands.create.spinners.injecting', { workspace }))
-        log(t('commands.create.spinners.injecting', { workspace }))
         try {
-          await this.runInject(wsPath, fastInject)
+          await this.runSlowStep(
+            `mlcl inject -p ${workspace}`,
+            t('commands.create.spinners.injecting', { workspace }),
+            () => this.runInject(wsPath, fastInject),
+            { json: flags.json === true, spinner },
+          )
           spinner?.stop(t('commands.create.spinners.injected', { workspace }))
           log(t('commands.create.spinners.injected', { workspace }))
         } catch (e) {
@@ -1337,11 +1351,14 @@ export default class Create extends Command {
         }
       }
     } else {
-      spinner?.start(t('commands.create.spinners.injectingSingle'))
-      log(t('commands.create.spinners.injectingSingle'))
       const injectPath = hasAppSubdir ? join(projectPath, 'app') : projectPath
       try {
-        await this.runInject(injectPath, fastInject)
+        await this.runSlowStep(
+          `mlcl inject -p ${hasAppSubdir ? 'app' : '.'}`,
+          t('commands.create.spinners.injectingSingle'),
+          () => this.runInject(injectPath, fastInject),
+          { json: flags.json === true, spinner },
+        )
         spinner?.stop(t('commands.create.spinners.injectedSingle'))
         log(t('commands.create.spinners.injectedSingle'))
       } catch (e) {
@@ -1717,6 +1734,39 @@ export default class Create extends Command {
       packages: [...new Set(packages)],
       secrets,
     }
+  }
+
+  /**
+   * Run a slow scaffold step (`npm install`, the injector), saying that it is still running
+   * every `HEARTBEAT_MS` until it settles (`lib/create-progress.ts`): npm prints
+   * nothing while it resolves a first install, and a caller that sees no output for minutes
+   * stops the command as hung. An interactive run shows the lines in its spinner. Otherwise
+   * they go to stdout, or to stderr under `--json`, whose stdout carries only the result object.
+   *
+   * @param step - The command the step runs, as the lines name it (`npm install`).
+   * @param start - The line that announces the step.
+   * @param work - The step.
+   * @param output - Where the lines go.
+   * @param output.json - Whether `--json` was passed.
+   * @param output.spinner - The interactive run's spinner, when it has one.
+   * @returns What the step returns.
+   */
+  private async runSlowStep<T>(
+    step: string,
+    start: string,
+    work: () => Promise<T>,
+    { json, spinner }: { json: boolean; spinner?: ReturnType<typeof p.spinner> | null },
+  ): Promise<T> {
+    const report = (line: string): void => {
+      if (spinner) spinner.message(line)
+      else if (json) this.logToStderr(line)
+      else this.log(line)
+    }
+    if (spinner) spinner.start(start)
+    else report(start)
+    return withHeartbeat(work, (seconds) =>
+      report(t('commands.create.progress.running', { step, seconds })),
+    )
   }
 
   private async runInject(projectPath: string, fast = false): Promise<void> {
