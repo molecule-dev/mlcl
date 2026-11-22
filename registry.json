@@ -89791,16 +89791,17 @@
       "stack": "app",
       "implements": "@molecule/app-routing",
       "exports": [
-        "NextHistoryOptions",
-        "NextHistory",
-        "createNextHistory",
-        "createNextSnapshotHistory",
-        "useMoleculeRouter",
-        "createMiddlewareGuard",
-        "createNextRouter",
-        "provider",
+        "MiddlewareGuardRule",
+        "MoleculeRouterProvider",
+        "MoleculeRouterProviderProps",
         "NavigateOptions",
         "NavigationGuard",
+        "NextHistory",
+        "NextHistoryOptions",
+        "NextNavigation",
+        "NextParams",
+        "NextRouterConfig",
+        "NextSearchParams",
         "QueryParams",
         "RouteChangeListener",
         "RouteDefinition",
@@ -89809,29 +89810,32 @@
         "RouteParams",
         "Router",
         "RouterConfig",
-        "NextNavigation",
-        "NextParams",
-        "NextSearchParams",
-        "NextRouterConfig",
-        "MiddlewareGuardRule",
+        "createLinkHref",
+        "createMiddlewareGuard",
+        "createNextHistory",
+        "createNextRouter",
+        "createNextSnapshotHistory",
+        "dynamicPath",
         "generatePath",
         "matchPath",
+        "parseCatchAllParams",
         "parseQuery",
+        "provider",
         "stringifyQuery",
-        "createLinkHref",
-        "dynamicPath",
-        "parseCatchAllParams"
+        "useMoleculeRouter"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-logger",
+        "@molecule/app-react",
         "@molecule/app-routing",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-logger",
+        "@molecule/app-react",
         "@molecule/app-routing"
       ],
       "framework": "react",
@@ -89964,6 +89968,7 @@
         "@molecule/app-bond",
         "@molecule/app-http",
         "@molecule/app-i18n",
+        "@molecule/app-react",
         "@molecule/app-routing",
         "react",
         "react-dom",
@@ -89972,6 +89977,7 @@
       "moleculePeers": [
         "@molecule/app-bond",
         "@molecule/app-i18n",
+        "@molecule/app-react",
         "@molecule/app-routing"
       ],
       "framework": "react",
@@ -90065,13 +90071,15 @@
         "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing",
+        "@molecule/app-solid",
         "@solidjs/router",
         "solid-js"
       ],
       "moleculePeers": [
         "@molecule/app-bond",
         "@molecule/app-i18n",
-        "@molecule/app-routing"
+        "@molecule/app-routing",
+        "@molecule/app-solid"
       ],
       "framework": "solid",
       "path": "packages/app/bonds/routing/solid-router",
@@ -90104,12 +90112,12 @@
       "exports": [
         "*",
         "GuardResult",
-        "KitAfterNavigate",
         "KitGotoOptions",
         "KitNavigateListener",
-        "KitNavigationTarget",
+        "KitNavigating",
         "KitNavigationType",
         "KitPage",
+        "KitPageChange",
         "KitPageState",
         "KitUrl",
         "ListRouteAuth",
@@ -90154,13 +90162,15 @@
         "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing",
+        "@molecule/app-svelte",
         "@sveltejs/kit",
         "svelte"
       ],
       "moleculePeers": [
         "@molecule/app-bond",
         "@molecule/app-i18n",
-        "@molecule/app-routing"
+        "@molecule/app-routing",
+        "@molecule/app-svelte"
       ],
       "framework": "svelte",
       "path": "packages/app/bonds/routing/sveltekit",
@@ -90249,13 +90259,15 @@
         "@molecule/app-bond",
         "@molecule/app-i18n",
         "@molecule/app-routing",
+        "@molecule/app-vue",
         "vue",
         "vue-router"
       ],
       "moleculePeers": [
         "@molecule/app-bond",
         "@molecule/app-i18n",
-        "@molecule/app-routing"
+        "@molecule/app-routing",
+        "@molecule/app-vue"
       ],
       "framework": "vue",
       "path": "packages/app/bonds/routing/vue-router",
