@@ -19,6 +19,7 @@ import {
   resolveBondPaths,
 } from '../lib/integrate.js'
 import { syncMigrateRunner } from '../lib/migrate-runner.js'
+import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { getMoleculeVersion, getPackageStack, loadRegistry } from '../lib/registry.js'
 import { syncProjectAssets } from '../lib/scaffold.js'
 import type { InferredPackage } from '../lib/schema.js'
@@ -411,7 +412,7 @@ export default class Swap extends Command {
     if (flags.install) {
       spinner.start(t('commands.swap.spinners.installing'))
       try {
-        await execa('npm', ['install'], { cwd: projectPath })
+        await execa('npm', ['install'], { cwd: npmInstallRoot(projectPath) })
         spinner.stop(t('commands.swap.spinners.installed'))
       } catch (error) {
         spinner.stop(chalk.yellow(t('commands.swap.spinners.installFailed')))

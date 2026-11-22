@@ -110,6 +110,7 @@ import { t } from './i18n.js'
 import { generateLocaleArrayCode } from './locales.js'
 import { readMigrateRunner } from './migrate-runner.js'
 import { migrationDialectHeader, projectDatabasePackage } from './migration-dialect.js'
+import { npmInstallRoot } from './npm-install-root.js'
 import {
   findPackageByRole,
   findRegistryPackage,
@@ -1679,7 +1680,7 @@ async function updatePackageJson(
  */
 async function runNpmInstall(projectPath: string): Promise<void> {
   await execa('npm', ['install'], {
-    cwd: projectPath,
+    cwd: npmInstallRoot(projectPath),
     stdio: 'pipe', // Don't inherit to avoid cluttering output
   })
 }

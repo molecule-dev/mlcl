@@ -13,6 +13,7 @@ import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { t } from '../lib/i18n.js'
 import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../lib/integrate.js'
 import { databasePackageOf } from '../lib/migration-dialect.js'
+import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { missingMoleculePeers } from '../lib/peer-closure.js'
 import { getMoleculeVersion } from '../lib/registry.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
@@ -220,7 +221,7 @@ export default class Add extends Command {
         spinner.start(t('commands.add.spinners.installing'))
 
         try {
-          await execAsync('npm install', { cwd: workDir })
+          await execAsync('npm install', { cwd: npmInstallRoot(workDir) })
           spinner.stop(t('commands.add.spinners.installed'))
         } catch (error) {
           this.warn(`npm install failed: ${error}`)
