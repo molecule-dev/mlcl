@@ -61,12 +61,20 @@ describe.each(CONFIGS)('%s', (relative) => {
 })
 
 describe('the app templates pin React as well', () => {
-  it.each(['app/shared/vite.config.ts.tpl', 'apps/static-site/app/vite.config.ts'])(
-    '%s keeps its single-React alias',
-    (relative) => {
-      // Adding Molecule packages to dedupe must not replace the absolute React
-      // alias — dedupe alone did not stop an app-local React copy.
-      expect(readFileSync(join(TEMPLATES, relative), 'utf8')).toContain('alias: singleReactAliases')
-    },
-  )
+  it('app/shared/vite.config.ts.tpl keeps its single-React alias', () => {
+    // Adding Molecule packages to dedupe must not replace the absolute React
+    // alias — dedupe alone did not stop an app-local React copy.
+    expect(readFileSync(join(TEMPLATES, 'app/shared/vite.config.ts.tpl'), 'utf8')).toContain(
+      'alias: singleReactAliases',
+    )
+  })
+
+  it('apps/static-site/app/vite.config.ts resolves React from the app root in the browser only', () => {
+    // A directory alias maps react-dom/static to its CommonJS shim and keeps the dev SSR
+    // runner from externalizing React, so no route prerendered (`module is not defined`).
+    const source = readFileSync(join(TEMPLATES, 'apps/static-site/app/vite.config.ts'), 'utf8')
+    expect(source).toContain('singleReactPlugin,')
+    expect(source).toContain("applyToEnvironment: (environment) => environment.name === 'client'")
+    expect(source).not.toContain('alias: singleReactAliases')
+  })
 })
