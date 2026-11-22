@@ -5,15 +5,16 @@ import { fileURLToPath } from 'url'
 
 import { setupBonds } from './bonds/index.js'
 
-// Capture runtime errors and write to a well-known file so the IDE's
-// auto-verification can detect them and feed them to the AI for fixing.
-const ERROR_LOG = '/workspace/.api-errors.log'
+// The molecule.dev IDE sets MOL_API_ERROR_LOG to the file it reads fatal API errors from.
+const ERROR_LOG = process.env.MOL_API_ERROR_LOG
 process.on('uncaughtExceptionMonitor', (err) => {
   const entry = `[${new Date().toISOString()}] Uncaught exception: ${err.stack || err.message}\n`
-  try {
-    appendFileSync(ERROR_LOG, entry)
-  } catch (_error) {
-    // An unavailable IDE log must not replace the original fatal error.
+  if (ERROR_LOG) {
+    try {
+      appendFileSync(ERROR_LOG, entry)
+    } catch (_error) {
+      // An unavailable IDE log must not replace the original fatal error.
+    }
   }
   console.error(entry)
 })

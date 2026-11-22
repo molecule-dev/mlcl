@@ -32,6 +32,7 @@ async function runServer(
   source: string,
   bonds: string,
   unwritableLog = false,
+  ideLog = true,
 ): Promise<ReturnType<typeof spawnSync> & { errorLog: string }> {
   const root = await mkdtemp(join(tmpdir(), 'startup-exit-status-'))
   try {
@@ -46,19 +47,21 @@ async function runServer(
     await symlink(modules, join(root, 'node_modules'), 'dir')
     await writeFile(
       join(root, 'server.js'),
-      ts.transpileModule(
-        source.replaceAll('/workspace/.api-errors.log', join(root, '.api-errors.log')),
-        {
-          compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
-        },
-      ).outputText,
+      ts.transpileModule(source, {
+        compilerOptions: { target: ts.ScriptTarget.ES2022, module: ts.ModuleKind.ESNext },
+      }).outputText,
     )
     await writeFile(join(root, 'bonds/index.js'), bonds)
     const result = spawnSync('npm', ['run', 'start'], {
       cwd: root,
       encoding: 'utf8',
       timeout: 5000,
-      env: { ...process.env, NODE_OPTIONS: '' },
+      // The molecule.dev sandbox names the IDE log in MOL_API_ERROR_LOG; anywhere else it is unset.
+      env: {
+        ...process.env,
+        NODE_OPTIONS: '',
+        MOL_API_ERROR_LOG: ideLog ? join(root, '.api-errors.log') : '',
+      },
     })
     return {
       ...result,
@@ -122,6 +125,22 @@ describe('generated API fatal error exit status', () => {
     expect(result.status).toBe(1)
     expect(String(result.stderr)).toContain('missing-startup-provider')
     expect(String(result.stderr)).not.toContain('EISDIR')
+  }, 15_000)
+
+  it('writes no IDE log when MOL_API_ERROR_LOG is unset, and still fails', async () => {
+    const source = await generatedServer()
+    // No fixed path: an app run outside the molecule.dev sandbox has no IDE log to write.
+    expect(source).not.toContain('/workspace/')
+    const result = await runServer(
+      source,
+      'export async function setupBonds() { await import("missing-startup-provider") }',
+      false,
+      false,
+    )
+    expect(result.error).toBeUndefined()
+    expect(result.status).toBe(1)
+    expect(String(result.stderr)).toContain('missing-startup-provider')
+    expect(result.errorLog).toBe('')
   }, 15_000)
 
   it('keeps a handled rejection successful', async () => {
