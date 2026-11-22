@@ -32,7 +32,7 @@ npx mlcl add @molecule/api-emails-mailgun --inject  # transactional email
 npx mlcl add @molecule/api-payments-stripe --inject # billing that isn't duct tape
 
 # 4. Each package wires itself: bonds in src/bonds/, migrations, routes.
-#    Read node_modules/@molecule/<name>/README.md for its API.
+#    Read its API with npx mlcl docs @molecule/<name>.
 
 # 5. Swap anything, anytime:
 npx mlcl swap @molecule/api-emails-ses -r @molecule/api-emails-mailgun

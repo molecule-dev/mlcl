@@ -1,6 +1,14 @@
-import { z } from 'zod'
+// GENERATED FILE — DO NOT EDIT.
+//
+// Byte-for-byte copy of `mlcl/src/lib/package-doc-search.ts`, made standalone so this package keeps its own
+// build and deploy closure. Regenerate after ANY edit to the owner:
+//   node scripts/generate-mcp-package-docs.mjs
+// Drift fails src/lib/__tests__/mcp-doc-owner-drift.test.ts.
 
-/** Literal, bounded README/type-reference search. Mirrored in molecule-mcp (no shared runtime dependency). */
+/**
+ * Literal, bounded README/type-reference search. Owned by mlcl (`src/lib/package-doc-search.ts`);
+ * molecule-mcp carries a generated copy and molecule-dev a byte-identical one (both checked).
+ */
 
 /** One installed declaration file; paths are relative to the package root. */
 export interface DocDeclaration {
@@ -234,26 +242,3 @@ export function searchPackageDoc(
     ...(note ? { note } : {}),
   }
 }
-
-/** The same bounded search input on stdio and hosted MCP. */
-export const docSearchSchema = z
-  .union([
-    z
-      .string()
-      .min(1)
-      .max(200)
-      .refine((term) => !!term.trim()),
-    z
-      .array(
-        z
-          .string()
-          .min(1)
-          .max(200)
-          .refine((term) => !!term.trim()),
-      )
-      .min(1)
-      .max(6),
-  ])
-  .describe(
-    'Case-insensitive literal string or up to 6 terms. Returns one complete bounded matching fenced example, README context/headings and available installed dist/**/*.d.ts declarations; never implementation JS.',
-  )

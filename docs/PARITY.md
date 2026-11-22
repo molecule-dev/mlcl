@@ -156,7 +156,8 @@ Status legend: ✅ parity · 🔶 partial · ⬜ gap · ➖ N/A
 | Template gallery         | GET /templates | local-equivalent (bundled registry) | `templates`                      | `list_templates`            | ✅     |
 | Package search           | —              | local-equivalent                    | `search`                         | `search_packages`           | ✅     |
 | Add/inject/swap packages | —              | local-equivalent                    | `add/inject/swap`                | `add_package/swap_provider` | ✅     |
-| Package docs             | —              | local-equivalent                    | (node_modules READMEs)           | `read_package_doc`          | ✅     |
+| Package docs             | —              | local-equivalent                    | `docs`                           | `read_package_doc`          | ✅     |
+| Example slices           | —              | local-equivalent (bundled examples) | `examples`                       | `find_example`              | ✅     |
 | Staging envs             | —              | local-equivalent                    | `stage up/down/list/status/logs` | —                           | ✅     |
 | Agent wiring             | —              | local-equivalent                    | `agent init`, `mcp install`      | `agent_init`                | ✅     |
 

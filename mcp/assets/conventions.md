@@ -63,8 +63,8 @@ on molecule.dev with no vendor account, billed to a molecule.dev project key
 1. **Inspect.** Start with `## Declared capability map` below when present. Map
    every feature in the plan to its declared package and configuration; otherwise
    use `npx mlcl search <capability>` (or `search_packages` over MCP). Read the
-   package's contract with `read_package_doc` or at
-   `node_modules/@molecule/<name>/README.md` before using it OR deciding not to.
+   package's contract with `read_package_doc` or `npx mlcl docs @molecule/<name>`
+   before using it OR deciding not to.
    Write `use @molecule/<name> with <configuration>` or
    `Not using @molecule/<name> because <reason> (doc read)` for each feature. A
    different storage key, header scheme, response envelope or endpoint is
@@ -84,8 +84,8 @@ do not extract a package for them.
 **Inside a molecule-built project:** follow its AGENTS.md — prefer
 `@molecule/*` packages over hand-rolled code, keep provider wiring in
 `src/bonds/`, style via ClassMap (`getClassMap()`), route all user-facing text
-through i18n. Every installed package documents its own API at
-`node_modules/@molecule/<name>/README.md`.
+through i18n. Read an installed package's API with `npx mlcl docs @molecule/<name>`
+(`--section <name>` for one function, `--search <term>` for a literal).
 
 **While implementing a supplied Playwright suite:** start `npx mlcl test-feedback
 --suite <spec-directory> --sources <app-source-directory> --command "<the suite’s native

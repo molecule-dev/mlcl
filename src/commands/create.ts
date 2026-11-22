@@ -48,6 +48,7 @@ import {
   scaffoldSecurityWorkflow,
 } from '../lib/scaffold.js'
 import type { InferredPackage, MoleculeSecret } from '../lib/schema.js'
+import { writeStopHooks } from '../lib/stop-hooks.js'
 import { ui } from '../lib/ui.js'
 
 /**
@@ -572,13 +573,15 @@ export default class Create extends Command {
           { idePreview: flags['ide-preview'] },
         )
         await ensureRootFormatterConfig(projectPath)
-        await ensureAgentsMd(projectPath)
         // The template is copied as built, so its own shape decides the catalog
-        // scope — `flags.type` was filled from the template above.
+        // scope — `flags.type` was filled from the template above. Skills first:
+        // AGENTS.md lists the skills the project has on disk.
         await ensureAgentSkills(projectPath, {
           projectType: flags.type ?? 'full-stack',
-          framework: flags.framework,
+          framework: flags.framework ?? templateFramework,
         })
+        writeStopHooks(projectPath, this.config.version)
+        await ensureAgentsMd(projectPath)
         await ensureRootNpmrc(projectPath)
         await ensureReadmeMd(projectPath, projectName, flags.type ?? 'full-stack', flags.framework)
         await stampMoleculeMetadata(projectPath)
@@ -1163,6 +1166,7 @@ export default class Create extends Command {
       const { ensureAgentSkills, ensureRootNpmrc, ensureReadmeMd, stampMoleculeMetadata } =
         await import('../lib/scaffold.js')
       await ensureAgentSkills(projectPath, { projectType, framework })
+      writeStopHooks(projectPath, this.config.version)
       await ensureRootNpmrc(projectPath)
       await ensureReadmeMd(projectPath, projectName, projectType, framework)
       await stampMoleculeMetadata(projectPath)

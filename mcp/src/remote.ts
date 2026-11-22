@@ -25,7 +25,9 @@ import {
   serverInstructions,
 } from './instructions.js'
 import { localPackageDoc } from './package-doc-files.js'
-import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
+import { docSearchSchema, docSectionSchema } from './doc-search-schema.js'
+import { searchPackageDoc } from './package-doc-search.js'
+import { packageDocView } from './package-doc-view.js'
 import {
   type AppFrameworkInstalls,
   searchPackages,
@@ -587,7 +589,7 @@ export function buildRemoteServer(): McpServer {
     {
       title: 'Read a package README',
       description:
-        "Fetch a @molecule/* package's generated usage reference (API, examples, wiring) — the authoritative published doc. For “where is X”, use search before grepping package internals: literal README lines with headings, then any locally installed type declarations.",
+        "Fetch a @molecule/* package's generated usage reference (API, examples, wiring), the authoritative published doc: the whole README when it is short, its overview and an index of its sections and exported names when it is long. Pass section for one heading or exported function or type in full. For “where is X”, use search before grepping package internals: literal README lines with headings, then any locally installed type declarations.",
       inputSchema: {
         // Bounded, like the sibling `search_packages` query: this is a public,
         // unauthenticated server, and the name is interpolated into the outbound
@@ -596,9 +598,10 @@ export function buildRemoteServer(): McpServer {
         // budget's full rate. A package short name is under 100 characters.
         name: z.string().max(200).describe('Package name, with or without the @molecule/ scope'),
         search: docSearchSchema.optional(),
+        section: docSectionSchema.optional(),
       },
     },
-    tracked('read_package_doc', async ({ name, search }) => {
+    tracked('read_package_doc', async ({ name, search, section }) => {
       const short = name.replace(/^@molecule\//, '')
       // The same package-name shape the stdio server's path guard enforces (see
       // mcp/src/server.ts): a name is a single descending segment, so it cannot
@@ -607,6 +610,8 @@ export function buildRemoteServer(): McpServer {
       if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(short)) {
         return text(`Invalid package name "${short}" — expected @molecule/<name>.`)
       }
+      if (search !== undefined && section !== undefined)
+        return text('Use either search or section, not both.')
       const terms = typeof search === 'string' ? [search] : search
       const local = terms ? localPackageDoc(short, import.meta.dirname) : null
       if (local && terms)
@@ -623,11 +628,12 @@ export function buildRemoteServer(): McpServer {
                 'Published README; declaration files are unavailable on this host.',
               ).doc,
             )
-          if (doc.length > 100_000)
-            return text(
-              `${doc.slice(0, 100_000)}\n\n[…truncated — full doc: https://www.molecule.dev/packages/${short}]`,
-            )
-          return text(doc)
+          return text(
+            packageDocView(doc, {
+              section,
+              sectionHint: `read_package_doc with section: "<heading>"`,
+            }).text,
+          )
         }
       } catch (_error) {
         // fall through to the pointer below

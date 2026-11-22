@@ -32,12 +32,15 @@ import {
 } from './auth.js'
 import { CLI_TIMEOUT_DEFAULT_MS, type CliCommand, cliCommand, forgetCli } from './cli-command.js'
 import {
+  FIND_EXAMPLE_DESCRIPTION,
   LIST_TEMPLATES_DESCRIPTION,
   LIST_TEMPLATES_SLUG_DESCRIPTION,
   serverInstructions,
 } from './instructions.js'
 import { localPackageDoc } from './package-doc-files.js'
-import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
+import { docSearchSchema, docSectionSchema } from './doc-search-schema.js'
+import { searchPackageDoc } from './package-doc-search.js'
+import { packageDocView } from './package-doc-view.js'
 import { scaffoldProjectCliArgs } from './scaffold-args.js'
 import {
   callHostedService,
@@ -627,6 +630,41 @@ server.registerTool(
 )
 
 server.registerTool(
+  'find_example',
+  {
+    title: 'Find a working example slice',
+    description: FIND_EXAMPLE_DESCRIPTION,
+    inputSchema: {
+      query: z
+        .string()
+        .max(300)
+        .optional()
+        .describe('What the feature does, in plain words ("let people log in with Google")'),
+      slice: z
+        .string()
+        .max(100)
+        .regex(/^[a-z0-9][a-z0-9-]*\/[a-z0-9][a-z0-9-]*\/?$/)
+        .optional()
+        .describe('A slice to print, as the results name it (auth/oauth-google-login)'),
+      file: z
+        .string()
+        .max(300)
+        .optional()
+        .describe("With slice: one of the slice's files, as its file list names it"),
+    },
+  },
+  tracked('find_example', async ({ query, slice, file }) => {
+    if (slice !== undefined)
+      return text(
+        await runCli(['examples', '--json', ...(file ? ['--file', file] : []), '--', slice]),
+      )
+    if (file !== undefined) return text('Pass slice with file: the file belongs to one slice.')
+    // `--` ends the flags, so a query that starts with a dash is still a query.
+    return text(await runCli(['examples', '--json', ...(query?.trim() ? ['--', query] : [])]))
+  }),
+)
+
+server.registerTool(
   'scaffold_project',
   {
     title: 'Scaffold a molecule project',
@@ -717,7 +755,7 @@ server.registerTool(
   {
     title: 'Read a package README',
     description:
-      'Read the generated usage reference for an installed @molecule/* package (API, examples, wiring) from node_modules. For “where is X”, use search before grepping package internals: literal README lines with headings, then installed type declarations.',
+      'Read the generated usage reference for an installed @molecule/* package (API, examples, wiring) from node_modules: the whole README when it is short, its overview and an index of its sections and exported names when it is long. Pass section for one heading or exported function or type in full. For “where is X”, use search before grepping package internals: literal README lines with headings, then installed type declarations.',
     inputSchema: {
       // Bounded, like the sibling `search_packages` query: the name is joined
       // into node_modules paths AND echoed verbatim into this tool's result
@@ -727,13 +765,14 @@ server.registerTool(
       // call. A package short name is under 100 characters.
       name: z.string().max(200).describe('Package name without the @molecule/ scope or with it'),
       search: docSearchSchema.optional(),
+      section: docSectionSchema.optional(),
       directory: z
         .string()
         .optional()
         .describe('Project root to resolve node_modules from (default cwd)'),
     },
   },
-  tracked('read_package_doc', async ({ name, directory, search }) => {
+  tracked('read_package_doc', async ({ name, directory, search, section }) => {
     const short = name.replace(/^@molecule\//, '')
     // Path-join guard: a crafted name must not escape node_modules — and the
     // character class alone did not say that. `..` is three characters from the
@@ -746,58 +785,34 @@ server.registerTool(
     if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(short)) {
       return text(`Invalid package name "${short}" — expected a plain @molecule/<name>.`)
     }
+    if (search !== undefined && section !== undefined)
+      return text('Use either search or section, not both.')
     const base = directory ?? process.cwd()
-    if (search !== undefined) {
-      const local = localPackageDoc(short, base)
-      if (local)
-        return text(
-          searchPackageDoc(
-            local.readme,
-            typeof search === 'string' ? [search] : search,
-            local.declarations,
-            local.note,
-          ).doc,
-        )
+    // Walks UP from the given directory like Node's module resolution: in a full-stack scaffold the
+    // packages hoist to the project root's node_modules while the user points the tool at api/ or
+    // app/.
+    const local = localPackageDoc(short, base)
+    if (!local)
       return text(
-        `No local README found for @molecule/${short} — is it installed near ${echoOf(base)}?`,
+        `No local README found for @molecule/${short} — is it installed near ${echoOf(base)}? Run search_packages to find it, add_package to install it, or browse https://www.molecule.dev/packages/${short}`,
       )
-    }
-    // Walk UP from the given directory like Node's module resolution: in a
-    // full-stack scaffold the packages hoist to the PROJECT ROOT's
-    // node_modules while the user points the tool at api/ or app/.
-    for (const dir of candidateDirs(base)) {
-      for (const p of [
-        join(dir, 'node_modules', '@molecule', short, 'README.md'),
-        join(dir, 'node_modules', '@molecule', short, 'dist', 'README.md'),
-      ]) {
-        try {
-          const doc = readFileSync(p, 'utf8')
-          if (doc.length > 200_000)
-            return text(`${doc.slice(0, 200_000)}\n\n[…truncated — full doc at ${p}]`)
-          return text(doc)
-        } catch (_error) {
-          /* try next path */
-        }
-      }
-    }
+    if (search !== undefined)
+      return text(
+        searchPackageDoc(
+          local.readme,
+          typeof search === 'string' ? [search] : search,
+          local.declarations,
+          local.note,
+        ).doc,
+      )
     return text(
-      `No local README found for @molecule/${short} — is it installed near ${base}? Run search_packages to find it, add_package to install it, or browse https://www.molecule.dev/packages/${short}`,
+      packageDocView(local.readme, {
+        section,
+        sectionHint: `read_package_doc with section: "<heading>"`,
+      }).text,
     )
   }),
 )
-
-/** `base` and up to four of its ancestors — five entries at most (see the loop). */
-function candidateDirs(base: string): string[] {
-  const dirs: string[] = []
-  let cur = base
-  for (let i = 0; i < 5 && cur; i++) {
-    dirs.push(cur)
-    const parent = dirname(cur)
-    if (parent === cur) break
-    cur = parent
-  }
-  return dirs
-}
 
 // ── Self-installation surface ────────────────────────────────────────────────
 // Once a harness adds this ONE server, it also carries the molecule doctrine
@@ -824,13 +839,15 @@ server.registerTool(
   {
     title: 'Run the project’s checks',
     description:
-      'Run the project’s own checks — typecheck, lint, build, unit tests, e2e — discovered from its package.json scripts, concurrently with e2e after the build, and get ONE compact report back: per step passed/failed with duration, the first actionable errors (tsc/eslint/vitest/Playwright shapes), and the build’s output manifest. The whole verification loop in one call instead of hand-running each script and grepping its output. The full log of a failed step is kept at node_modules/.cache/mlcl-check/.',
+      'Run the project’s own checks — typecheck, lint and build by default; unit tests and e2e with steps: "unit,e2e" — discovered from its package.json scripts, concurrently with e2e after the build, and get ONE compact report back: per step passed/failed with duration, the first actionable errors (tsc/eslint/vitest/Playwright shapes), and the build’s output manifest. The whole verification loop in one call instead of hand-running each script and grepping its output. The full log of a failed step is kept at node_modules/.cache/mlcl-check/.',
     inputSchema: {
       directory: z.string().optional().describe('Project root (default cwd)'),
       steps: z
         .string()
         .optional()
-        .describe('Only these steps, comma-separated: typecheck, lint, build, unit, e2e'),
+        .describe(
+          'Only these steps, comma-separated: typecheck, lint, build, unit, e2e (default: typecheck, lint, build)',
+        ),
       e2e: z
         .string()
         .optional()

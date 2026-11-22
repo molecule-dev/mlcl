@@ -1,3 +1,10 @@
+// GENERATED FILE — DO NOT EDIT.
+//
+// Byte-for-byte copy of `mlcl/src/lib/package-doc-files.ts`, made standalone so this package keeps its own
+// build and deploy closure. Regenerate after ANY edit to the owner:
+//   node scripts/generate-mcp-package-docs.mjs
+// Drift fails src/lib/__tests__/mcp-doc-owner-drift.test.ts.
+
 import * as fs from 'node:fs'
 import { dirname, resolve } from 'node:path'
 

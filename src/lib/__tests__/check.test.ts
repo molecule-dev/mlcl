@@ -239,6 +239,48 @@ describe('runCheckLocal', () => {
     expect(result.report).toContain('exploded')
   })
 
+  it('runs typecheck, lint and build by default, and the tests only when asked for', async () => {
+    const ran = (name: string): string => `node -e "require('fs').writeFileSync('${name}-ran', '')"`
+    const root = fixtureDir({
+      'package.json': JSON.stringify({
+        scripts: {
+          typecheck: ran('typecheck'),
+          lint: ran('lint'),
+          build: ran('build'),
+          test: ran('unit'),
+          'test:e2e': ran('e2e'),
+        },
+      }),
+    })
+    const events: string[] = []
+    const result = await runCheckLocal(
+      root,
+      {},
+      { budgetMs: 60_000, onProgress: (event) => events.push(`${event.type} ${event.step.kind}`) },
+    )
+    if ('error' in result) throw new Error(result.error)
+    expect(result.results.map((r) => r.kind).sort()).toEqual(['build', 'lint', 'typecheck'])
+    for (const step of ['typecheck', 'lint', 'build']) {
+      expect(readFileSync(join(root, `${step}-ran`), 'utf8')).toBe('')
+      expect(events).toContain(`start ${step}`)
+      expect(events).toContain(`finish ${step}`)
+    }
+    expect(events.indexOf('start build')).toBeLessThan(events.indexOf('finish build'))
+    const tests = await runCheckLocal(root, { steps: ['unit'] }, { budgetMs: 60_000 })
+    if ('error' in tests) throw new Error(tests.error)
+    expect(tests.results.map((r) => r.kind)).toEqual(['unit'])
+    expect(readFileSync(join(root, 'unit-ran'), 'utf8')).toBe('')
+  })
+
+  it('runs e2e too when an e2e filter is given without steps', async () => {
+    const root = fixtureDir({
+      'package.json': JSON.stringify({ scripts: { build: 'true', 'test:e2e': 'true' } }),
+    })
+    const result = await runCheckLocal(root, { e2e: 'e2e/a.spec.ts' }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    expect(result.results.map((r) => r.kind)).toContain('e2e')
+  })
+
   it('rejects unknown step names before running anything', async () => {
     const result = await runCheckLocal(process.cwd(), { steps: ['nope' as never] })
     expect('error' in result && result.error).toContain('Unknown step(s): nope')

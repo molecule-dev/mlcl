@@ -143,10 +143,10 @@ describe('renderLocalPackageCatalog — framework-scoped, locally actionable', (
     expect(catalog).not.toContain('`@molecule/app-')
   })
 
-  it('teaches the LOCAL add path and README location, never the sandbox ones', () => {
+  it('teaches the LOCAL add and docs commands, never the sandbox ones', () => {
     const catalog = renderLocalPackageCatalog({ registry, projectType: 'app', framework: 'react' })
     expect(catalog).toContain('npx mlcl add @molecule/<name> --inject')
-    expect(catalog).toContain('node_modules/@molecule/<name>/README.md')
+    expect(catalog).toContain('npx mlcl docs @molecule/<name>')
     // The sandbox's pre-installed-superset wording/paths do not apply here: a
     // scaffolded checkout has neither `/workspace` nor a fleet pre-installed.
     expect(catalog).not.toContain('/workspace')

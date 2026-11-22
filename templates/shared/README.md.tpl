@@ -35,7 +35,7 @@ npx mlcl add @molecule/api-payments-stripe --inject
 npx mlcl swap @molecule/api-database-mysql
 ```
 
-Read any installed package's docs at `node_modules/@molecule/<name>/README.md`.
+Read any installed package's docs with `npx mlcl docs @molecule/<name>` (the README is at `node_modules/@molecule/<name>/README.md`).
 
 ## AI agents
 

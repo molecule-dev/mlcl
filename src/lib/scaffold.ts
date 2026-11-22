@@ -30,6 +30,7 @@ import { fileURLToPath } from 'node:url'
 import {
   buildLocalAgentSkillFiles,
   ensureClaudeSkillsLink,
+  renderSkillIndex,
   writeAgentSkillFiles,
 } from './agent-skills.js'
 import { factoryIsDeclared, planAppResourceModules } from './app-resource-modules.js'
@@ -2461,7 +2462,7 @@ export async function ensureAgentsMd(
           ...modules.map(({ resource }) => `- \`npx mlcl resources --package ${resource}\``),
         ].join('\n')
       : ''
-  const sections = [capabilityMap, resourceGuide].filter(Boolean)
+  const sections = [renderSkillIndex(projectRoot), capabilityMap, resourceGuide].filter(Boolean)
   await writeFile(
     target,
     sections.length ? `${template.trimEnd()}\n\n${sections.join('\n\n')}\n` : template,

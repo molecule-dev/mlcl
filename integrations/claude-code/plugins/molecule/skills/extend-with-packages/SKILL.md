@@ -39,8 +39,9 @@ Keep code that already provides a capability unless the user asks to replace it.
    Add them once. Later `add --inject` runs need nothing more.
 4. **Fill any new secrets** the package needs (listed in the command output and its README),
    in `.env`.
-5. **Read its usage reference** at `node_modules/@molecule/<name>/README.md`: generated,
-   always current, with `@example` wiring.
+5. **Read its usage reference** with `npx mlcl docs @molecule/<name>`: generated, always
+   current, with `@example` wiring. A long README prints its overview and section index;
+   `--section <name>` prints one function or heading, `--search <term>` finds a literal.
 
 ## Swap a provider
 

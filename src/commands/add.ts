@@ -9,6 +9,7 @@ import chalk from 'chalk'
 import { execa } from 'execa'
 
 import { AUTH_PRECONFIGURATION_GUIDANCE } from '../lib/auth-contract.js'
+import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { t } from '../lib/i18n.js'
 import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../lib/integrate.js'
@@ -262,9 +263,20 @@ export default class Add extends Command {
           workDir,
           ...(flags['no-install'] ? ['--no-install'] : []),
         ])
+        this.log(
+          t('commands.add.messages.readDocs', {
+            command: chalk.cyan(`npx mlcl docs ${moleculeName}`),
+          }),
+        )
         return
       }
 
+      // The AGENTS.md capability map lists the project's packages: keep it current.
+      try {
+        await refreshAgentsCapabilityMap(npmInstallRoot(workDir))
+      } catch (error) {
+        this.warn(`Could not update the capability map in AGENTS.md: ${error}`)
+      }
       p.outro(chalk.green(`✓ ${t('commands.add.messages.success', { name: moleculeName })}`))
 
       this.log('')
@@ -281,6 +293,11 @@ export default class Add extends Command {
           `  ${t('commands.add.messages.stepInject', { num: 1, command: chalk.cyan('mlcl inject') })}`,
         )
       }
+      this.log(
+        t('commands.add.messages.readDocs', {
+          command: chalk.cyan(`npx mlcl docs ${moleculeName}`),
+        }),
+      )
     } catch (error) {
       spinner.stop(t('commands.add.spinners.addFailed'))
       throw error

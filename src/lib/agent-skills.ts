@@ -8,6 +8,13 @@
  *    reuse-before-writing workflow). `patterns/` and `examples/` sit beside them
  *    and are copy-source corpora, NOT skills: indexing either would inject it
  *    always-on and crowd the skill budget.
+ *  - the project skills authored under `templates/project-skills/<name>/SKILL.md`
+ *    (api-patterns, database, styling, …): how a Molecule project's own code is
+ *    written. They are the same files the Molecule harness's sandbox scaffold
+ *    delivers, so every harness reads one text. Unlike the shared skills,
+ *    `mlcl setup` never installs them into a harness, since they describe a
+ *    Molecule project's layout and would mislead in any other codebase, and a
+ *    project receives only those that fit its shape ({@link PROJECT_SKILL_SCOPE}).
  *  - `molecule-packages/SKILL.md`, the framework-scoped @molecule catalog,
  *    rendered from `registry.json` by the existing `buildCatalog` owner — this
  *    module adds no second scorer.
@@ -40,6 +47,101 @@ export const AGENT_SKILLS_DIR = '.agents/skills'
  */
 export const RESERVED_SKILL_DIRS: ReadonlySet<string> = new Set(['patterns', 'examples'])
 
+/** Where the project skills are authored, relative to an mlcl `templates/` directory. */
+export const PROJECT_SKILLS_DIR = 'project-skills'
+
+/** Which project shapes a project skill applies to. */
+interface ProjectSkillScope {
+  /** The project has an API (`api`), an app (`app`), or either (both listed). */
+  readonly sides: ReadonlyArray<'api' | 'app'>
+  /** App frameworks its examples are written for; absent when any framework fits. */
+  readonly frameworks?: readonly string[]
+}
+
+/**
+ * Every project skill and the projects it applies to. A skill directory without an
+ * entry here is refused, so a new skill is scoped on purpose.
+ */
+export const PROJECT_SKILL_SCOPE: Readonly<Record<string, ProjectSkillScope>> = {
+  'api-patterns': { sides: ['api'] },
+  'app-patterns': { sides: ['app'], frameworks: ['react'] },
+  auth: { sides: ['api'] },
+  'bond-system': { sides: ['api', 'app'] },
+  database: { sides: ['api'] },
+  'fix-build': { sides: ['api', 'app'] },
+  i18n: { sides: ['api', 'app'] },
+  security: { sides: ['api', 'app'] },
+  styling: { sides: ['app'], frameworks: ['react'] },
+}
+
+/**
+ * The sides a project of this shape has. Status pages are their own shapes and get
+ * no project skill.
+ *
+ * @param projectType - A `mlcl create --type` value.
+ * @returns The sides, empty for a shape the project skills do not describe.
+ */
+function projectSides(projectType: string): Array<'api' | 'app'> {
+  switch (projectType) {
+    case 'full-stack':
+      return ['api', 'app']
+    case 'api':
+      return ['api']
+    case 'app':
+    case 'static':
+      return ['app']
+    default:
+      return []
+  }
+}
+
+/**
+ * Point a project skill's paths at a single-workspace project. The skills are written
+ * for the full-stack layout (`api/src/…`, `app/src/…`); an API-only project's
+ * `api/src/handlers` is `src/handlers`, and an app-only project's `app/src/pages`
+ * is `src/pages`. Routes (`/api/…`) and package names (`@molecule/api-…`) are left
+ * alone, the same guard molecule.dev's path baking uses.
+ *
+ * @param content - The skill text.
+ * @param sides - The project's sides.
+ * @returns The text with the one workspace's prefix removed.
+ */
+function forProjectLayout(content: string, sides: ReadonlyArray<'api' | 'app'>): string {
+  if (sides.length !== 1) return content
+  return content.replace(new RegExp(`(^|[^/\\w.-])${sides[0]}/`, 'g'), '$1')
+}
+
+/**
+ * Read the project skills that fit a project.
+ *
+ * @param templatesDir - An mlcl `templates/` directory.
+ * @param project.projectType - A `mlcl create --type` value.
+ * @param project.framework - The app framework, when the project has one (`react` when unset).
+ * @returns Relative skill path (`<name>/SKILL.md`) → content; empty when the tree is absent.
+ * @throws {Error} When a skill directory has no {@link PROJECT_SKILL_SCOPE} entry.
+ */
+export function loadProjectSkills(
+  templatesDir: string,
+  project: { projectType: string; framework?: string | null },
+): Record<string, string> {
+  const root = join(templatesDir, PROJECT_SKILLS_DIR)
+  if (!existsSync(root)) return {}
+  const sides = projectSides(project.projectType)
+  const framework = project.framework ?? 'react'
+  const out: Record<string, string> = {}
+  for (const entry of readdirSync(root, { withFileTypes: true })) {
+    const file = join(root, entry.name, 'SKILL.md')
+    if (!entry.isDirectory() || !existsSync(file)) continue
+    const scope = PROJECT_SKILL_SCOPE[entry.name]
+    if (!Object.hasOwn(PROJECT_SKILL_SCOPE, entry.name) || !scope)
+      throw new Error(`project skill "${entry.name}" has no PROJECT_SKILL_SCOPE entry`)
+    if (!scope.sides.some((side) => sides.includes(side))) continue
+    if (scope.frameworks && sides.includes('app') && !scope.frameworks.includes(framework)) continue
+    out[`${entry.name}/SKILL.md`] = forProjectLayout(readFileSync(file, 'utf-8'), sides)
+  }
+  return out
+}
+
 /** The generated catalog's skill directory (and its file, relative to the skills root). */
 export const PACKAGE_CATALOG_SKILL = 'molecule-packages'
 export const PACKAGE_CATALOG_SKILL_FILE = `${PACKAGE_CATALOG_SKILL}/SKILL.md`
@@ -61,9 +163,9 @@ description: Catalog of the @molecule/* packages available to this project, grou
 
 Everything below is published on the public npm registry. Add one with
 \`npx mlcl add @molecule/<name> --inject\` — it writes the dependency, the bond
-wiring, and any peer packages a provider needs. Read the installed
-\`node_modules/@molecule/<name>/README.md\` before using its API; it documents
-the interface, usage examples and wiring.
+wiring, and any peer packages a provider needs. Read its docs with
+\`npx mlcl docs @molecule/<name>\` before using its API; they document the
+interface, usage examples and wiring.
 
 **Prefer a @molecule/* package over writing custom code.** If a package exists
 for the feature, use it — unless the user named a specific library or asked for
@@ -180,7 +282,8 @@ export function renderLocalPackageCatalog(opts: {
 
 /**
  * Every skill file a scaffolded project receives, keyed relative to
- * `.agents/skills`.
+ * `.agents/skills`: the shared skills, the project skills that fit its shape, and
+ * the package catalog.
  *
  * The generated catalog is assigned after the shared skills so that a canonical
  * directory of the same name can never shadow it — the catalog has exactly one
@@ -198,9 +301,45 @@ export function buildLocalAgentSkillFiles(opts: {
   projectType: string
   framework?: string | null
 }): Record<string, string> {
-  const files = loadSharedSkills(opts.templatesDir)
+  const files = {
+    ...loadSharedSkills(opts.templatesDir),
+    ...loadProjectSkills(opts.templatesDir, opts),
+  }
   files[PACKAGE_CATALOG_SKILL_FILE] = renderLocalPackageCatalog(opts)
   return files
+}
+
+/**
+ * The "Skills" section of a project's AGENTS.md: one row per skill the project has on disk, with
+ * the description from its frontmatter, so the table lists exactly what was delivered.
+ *
+ * @param projectRoot - Absolute path to the project root.
+ * @returns The Markdown section, or an empty string when the project has no skills.
+ */
+export function renderSkillIndex(projectRoot: string): string {
+  const root = join(projectRoot, AGENT_SKILLS_DIR)
+  if (!existsSync(root)) return ''
+  const rows: string[] = []
+  for (const name of readdirSync(root).sort()) {
+    if (RESERVED_SKILL_DIRS.has(name)) continue
+    const file = join(root, name, 'SKILL.md')
+    if (!existsSync(file)) continue
+    const frontmatter = readFileSync(file, 'utf-8').match(/^---\r?\n([\s\S]*?)\r?\n---/)?.[1] ?? ''
+    const description = frontmatter.match(/^description:\s*(.+)$/m)?.[1]?.trim() ?? ''
+    rows.push(
+      `| **${name}** | ${description.replaceAll('|', '\\|')} | \`${AGENT_SKILLS_DIR}/${name}/SKILL.md\` |`,
+    )
+  }
+  if (rows.length === 0) return ''
+  return [
+    '## Skills',
+    '',
+    'Detailed guides for this project. Read the one that matches the work before writing it.',
+    '',
+    '| Skill | When to read | Path |',
+    '| --- | --- | --- |',
+    ...rows,
+  ].join('\n')
 }
 
 /** What a write touched, and what it left alone. */

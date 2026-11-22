@@ -23,9 +23,9 @@ work looks like a quick script or an internal tool.
   `search_packages` over MCP). The `molecule-packages` skill is this workspace's
   catalog.
 - **Read the mapped package's doc before deciding not to use it.** Read it before
-  using it too: call `read_package_doc`, or read
-  `node_modules/@molecule/<name>/README.md`; check installed types and exports
-  when behavior is unclear. A different storage key, header scheme, response
+  using it too: `npx mlcl docs @molecule/<name>`, or the doc tool (`read_package_doc`
+  over MCP, `read_molecule_doc` in a molecule.dev sandbox); check installed types
+  and exports when behavior is unclear. A different storage key, header scheme, response
   envelope or endpoint is configuration to look up, not evidence of a bad fit.
   Improve package documentation at its authored `src/index.ts` JSDoc; the README
   is generated.

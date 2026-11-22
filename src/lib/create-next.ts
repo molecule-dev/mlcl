@@ -35,6 +35,7 @@ export function projectOrientation(projectPath: string): string[] {
   if (handlers) lines.push(t('commands.create.messages.orientationHandlers', { dir: handlers }))
   const pages = PAGE_DIRS.find(has)
   if (pages) lines.push(t('commands.create.messages.orientationPages', { dir: pages }))
+  lines.push(t('commands.create.messages.orientationDocs'))
   lines.push(t('commands.create.messages.orientationCheck'))
   return lines
 }

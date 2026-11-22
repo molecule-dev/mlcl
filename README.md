@@ -264,8 +264,8 @@ stack of the packages `npx mlcl search <capability>` finds; scaffold with
 conventions —
 prefer @molecule/* packages over hand-rolled code, provider wiring only in
 src/bonds/ (swap with `npx mlcl swap`), ClassMap styling, i18n for all
-user-facing text, and each package's README at
-node_modules/@molecule/<name>/README.md for usage.
+user-facing text, and `npx mlcl docs @molecule/<name>` for each package's
+usage.
 ```
 
 Every project `mlcl create` scaffolds ships an `AGENTS.md` — so whichever
@@ -314,8 +314,11 @@ One pinned dev dependency (`eslint-plugin-jsx-a11y`) still declares eslint ^9
 peers while the toolchain pins eslint 10. The file explains itself and tells
 you when to delete it.
 
-**Where are the docs for package X?** In the package:
-`node_modules/@molecule/<name>/README.md` — generated from source, always
+**Where are the docs for package X?** `npx mlcl docs @molecule/<name>` prints
+them: the whole README when it is short, its overview and an index of its
+sections and exported names when it is long, one with `--section <name>`, or
+the lines matching `--search <term>`. The README itself is
+`node_modules/@molecule/<name>/README.md`, generated from source and always
 current. Online: <https://www.molecule.dev/packages>. Everything concatenated
 for LLM consumption: <https://www.molecule.dev/llms-full.txt>.
 

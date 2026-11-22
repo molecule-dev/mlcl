@@ -165,6 +165,9 @@ export default class Search extends Command {
       if (hit.description) this.log(`      ${ui.dim(hit.description)}`)
       this.log(`      ${ui.dim('add with:')} ${ui.cmd(`mlcl add ${hit.name} --inject`)}`)
     }
+    this.log(
+      `\n${ui.dim("Read a package's API before choosing or using it:")} ${ui.cmd('mlcl docs <name>')} ${ui.dim('(--section <name> for one function)')}`,
+    )
     this.log('')
   }
 }

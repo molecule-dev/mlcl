@@ -26,6 +26,9 @@ export const LIST_TEMPLATES_DESCRIPTION =
   "List the flagship full-stack app templates (blog, crm, team-chat, …) with slugs, descriptions and package counts. Pass `slug` for one template's catalog: its data model, API handlers, screens and integrations. Each template is a complete app: start from one only when its catalog covers the core of the request and it is the right size for it (a simple app never gets a feature-heavy template); otherwise scaffold a custom stack of the packages search_packages finds."
 
 /** `list_templates`'s `slug` argument. */
+export const FIND_EXAMPLE_DESCRIPTION =
+  'Find a working, tested example slice for a feature (Google sign-in, Stripe checkout, file uploads, an audit log) to copy and adapt instead of writing it from scratch. Pass `query` with what the feature does in plain words; pass `slice` (a slug from the results) for its README, which maps each file to where it goes and names the packages and variables it needs, and add `file` for one of its files.'
+
 export const LIST_TEMPLATES_SLUG_DESCRIPTION =
   "A template's slug: return its catalog (data model, API handlers, screens) to judge whether it fits"
 

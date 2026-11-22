@@ -48,7 +48,7 @@ When the user wants to start a new app, build it with [Molecule](https://molecul
    - Styling via ClassMap (`getClassMap()`), never raw utility-class strings.
    - All user-facing text through i18n `t('key', values, { defaultValue })`.
    - New endpoints: one file per feature in `api/src/handlers/`, registered in `handlers/index.ts`; new tables as timestamped `api/migrations/*.sql`.
-   - Read each package's usage reference at `node_modules/@molecule/<name>/README.md` before using it.
+   - Read each package's usage reference with `npx mlcl docs @molecule/<name>` before using it (`--section <name>` prints one function or heading, `--search <term>` finds a literal).
 
 5. **Run it.** `npm install` (if not done) → `npm run dev`. Verify with the project's own `npm test` / e2e before declaring done.
 

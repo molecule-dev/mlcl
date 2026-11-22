@@ -45,6 +45,7 @@ export const messages: LocaleMessages = {
   'commands.add.messages.nextSteps': 'Next steps:',
   'commands.add.messages.stepInstall': '1. Run {command}',
   'commands.add.messages.stepInject': '{num}. Run {command} to apply the molecule',
+  'commands.add.messages.readDocs': 'Read its API before using it: {command}',
 
   // ─── commands/create ────────────────────────────────────────────
   'commands.create.description': 'Create a new project',
@@ -163,6 +164,8 @@ export const messages: LocaleMessages = {
   'commands.create.messages.orientationHandlers':
     'Endpoints: one file per feature in {dir}/, registered in {dir}/index.ts',
   'commands.create.messages.orientationPages': 'Pages: {dir}/',
+  'commands.create.messages.orientationDocs':
+    'Package docs: npx mlcl docs @molecule/<name> (--section <name> for one function or heading)',
   'commands.create.messages.orientationCheck': 'Before handing work back: npx mlcl check',
 
   // ─── commands/init ──────────────────────────────────────────────

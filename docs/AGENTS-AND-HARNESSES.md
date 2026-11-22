@@ -27,7 +27,7 @@ wanting a one-line install) use the hosted read-only endpoint instead:
 | `agent init`                     | those same conventions written into any existing project / harness's instruction files                                                                                                     |
 | `molecule` MCP server            | the same verbs as structured tools + `read_package_doc` + the `molecule://conventions` resource + a self-install `agent_init` tool, and startup instructions that say when to use Molecule |
 | Claude Code plugin _(at launch)_ | two skills + the MCP server, marketplace-updated                                                                                                                                           |
-| Package READMEs                  | every `@molecule/*` package documents its API/wiring at `node_modules/@molecule/<name>/README.md` — LLM-oriented by design                                                                 |
+| Package READMEs                  | every `@molecule/*` package documents its API/wiring in a generated README — `npx mlcl docs @molecule/<name>` reads it a section at a time — LLM-oriented by design                        |
 
 Scaffolds also ship the same ESLint rules for every harness. In JSX,
 `molecule-local/no-empty-interactive-target` rejects an empty native interactive
@@ -166,8 +166,8 @@ stack of the packages `npx mlcl search <capability>` finds; scaffold with
 conventions —
 prefer @molecule/* packages over hand-rolled code, provider wiring only in
 src/bonds/ (swap with `npx mlcl swap`), ClassMap styling, i18n for all
-user-facing text, and each package's README at
-node_modules/@molecule/<name>/README.md for usage.
+user-facing text, and `npx mlcl docs @molecule/<name>` for each package's
+usage.
 ```
 
 No configuration exists that this doesn't work with. Everything below just
@@ -346,6 +346,14 @@ watcher when finished; final verification still uses the complete suite.
   project exists — `agent init` sections are for _before_ that / other repos.
 - A project scaffold ships `.npmrc` with `legacy-peer-deps=true` and a comment
   explaining when to delete it (an eslint plugin peer-range lag; harmless).
+- A project scaffold declares a stop hook for Claude Code
+  (`.claude/settings.json`), Codex (`.codex/hooks.json`) and Cursor
+  (`.cursor/hooks.json`). When the agent stops after changing files, it runs
+  `npx mlcl check --stop-hook <harness>` (typecheck and lint), prints nothing on a
+  pass, and hands the errors back to the agent on a failure, for at most three
+  rounds in a row. Codex runs a project hook once you trust it in `/hooks`;
+  Claude Code and Cursor run it in a trusted folder. A hook file that already
+  exists is left as it is.
 - Structured tools are read-heavy by design; the only write tools are
   `scaffold_project` / `add_package` / `swap_provider` / `agent_init`, each
   an explicit CLI invocation with explicit arguments.

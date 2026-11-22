@@ -30,6 +30,13 @@ import { join, relative } from 'node:path'
 /** The kinds of step `check` can run, in report order. */
 export const CHECK_STEP_KINDS = ['typecheck', 'lint', 'build', 'unit', 'e2e'] as const
 
+/**
+ * The steps a check with no `steps` runs: the quick pass after an edit. The tests take minutes
+ * (a first e2e run downloads a browser), so they run when asked for (`--steps unit,e2e`), as the
+ * Molecule harness's `check` tool leaves them to its test runner.
+ */
+export const DEFAULT_CHECK_STEPS = ['typecheck', 'lint', 'build'] as const
+
 /** One kind of check step. */
 export type CheckStepKind = (typeof CHECK_STEP_KINDS)[number]
 
@@ -843,19 +850,26 @@ export interface CheckInput {
   e2e?: unknown
 }
 
+/** A step starting, or finishing with its result, as {@link runCheckLocal} reports it. */
+export type CheckProgress =
+  | { type: 'start'; step: PlannedCheckStep }
+  | { type: 'finish'; step: PlannedCheckStep; result: CheckStepResult }
+
 /**
  * Run the project's checks concurrently (e2e once the build is done) and
  * return one report — the local twin of the IDE `check` tool's loop.
  *
  * @param root - The project root to check (default cwd).
- * @param input - `steps` (subset) and `e2e` (spec filter).
- * @param options - `budgetMs` for the whole call (default 15 min).
+ * @param input - `steps` (subset; {@link DEFAULT_CHECK_STEPS} when empty, plus e2e when an
+ *   `e2e` filter is given) and `e2e` (spec filter).
+ * @param options - `budgetMs` for the whole call (default 15 min), and `onProgress`, called as each
+ *   step starts and finishes.
  * @returns `{ ok, report, results }`, or `{ error }` when nothing could be discovered.
  */
 export async function runCheckLocal(
   root: string,
   input: CheckInput,
-  options: { budgetMs?: number } = {},
+  options: { budgetMs?: number; onProgress?: (event: CheckProgress) => void } = {},
 ): Promise<{ ok: boolean; report: string; results: CheckStepResult[] } | { error: string }> {
   const started = Date.now()
   const budgetMs = options.budgetMs ?? 15 * 60_000
@@ -872,8 +886,10 @@ export async function runCheckLocal(
       error: `Unknown step(s): ${unknown.map(String).join(', ')}. Valid steps: ${CHECK_STEP_KINDS.join(', ')}.`,
     }
   }
-  const steps = rawSteps as CheckStepKind[]
   const e2e = typeof input.e2e === 'string' ? input.e2e : undefined
+  const steps: CheckStepKind[] = rawSteps.length
+    ? (rawSteps as CheckStepKind[])
+    : [...DEFAULT_CHECK_STEPS, ...(e2e ? (['e2e'] as const) : [])]
 
   const packages = discoverPackages(root)
   if (packages.length === 0) {
@@ -887,10 +903,13 @@ export async function runCheckLocal(
   timer?.unref?.()
   if (remaining <= 0) controller.abort()
   const results = new Map<PlannedCheckStep, CheckStepResult>()
-  const run = (step: PlannedCheckStep): Promise<void> =>
-    runStep(root, step, controller.signal).then((r) => {
+  const run = (step: PlannedCheckStep): Promise<void> => {
+    options.onProgress?.({ type: 'start', step })
+    return runStep(root, step, controller.signal).then((r) => {
       results.set(step, r)
+      options.onProgress?.({ type: 'finish', step, result: r })
     })
+  }
   // e2e waits for the build: specs that read dist/ (or a server that serves
   // it) otherwise run while the build is rewriting it, and report failures
   // that are gone a second later.
