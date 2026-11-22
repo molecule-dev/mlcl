@@ -11,7 +11,13 @@ Use it whenever a task needs a capability, unless the user asked for another
 library. Keep code that already provides a capability unless the user asks to
 replace it.
 
-**Adding a capability to any project, this one included:**
+**Which path:** a new app, or a directory with no project in it yet, starts
+with a scaffold (**Starting a new app**, below): a template when one fits,
+otherwise a custom stack of the packages `mlcl search` finds, so the frontend
+and the backend both start wired. A project that already exists gets packages
+added to it.
+
+**Adding a capability to an existing project, this one included:**
 
 1. `npx mlcl search <capability>` (or `search_packages` over MCP) — a named
    vendor usually has its own provider

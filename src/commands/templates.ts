@@ -65,8 +65,11 @@ export default class Templates extends Command {
       return
     }
 
+    // The custom-stack line sits in the header because an agent often reads only the top of this
+    // list: with no close template, the answer is still a scaffold, not a hand-built project.
     this.log(
-      `\n${ui.heading(`${entries.length} templates`)} ${ui.dim('— scaffold with:')} ${ui.cmd('mlcl create <name> --template <slug>')}\n`,
+      `\n${ui.heading(`${entries.length} templates`)} ${ui.dim('— scaffold with:')} ${ui.cmd('mlcl create <name> --template <slug>')}\n` +
+        `${ui.dim('None close? Scaffold a custom stack:')} ${ui.cmd('mlcl create <name> --type full-stack --framework react --packages <the @molecule/* packages mlcl search finds> --no-interactive')}\n`,
     )
     for (const [slug, t] of entries) {
       this.log(
