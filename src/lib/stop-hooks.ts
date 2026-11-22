@@ -2,11 +2,11 @@
  * The stop hooks a scaffold declares, one per harness that has them, each running
  * `mlcl check --stop-hook <harness>` (`check-stop-hook.ts`) when the agent is about to stop:
  *
- * - Claude Code: `.claude/settings.json`, through the `.claude` → `.agents` link. Claude Code
- *   loads a project settings file written during the session, so the hook applies from the first
- *   stop after `mlcl create .`.
+ * - Claude Code: `.claude/settings.json`, through the `.claude` → `.agents` link. Claude Code's
+ *   file watcher loads a settings file written during the session within seconds, so the hook
+ *   applies to the session that ran `mlcl create .` (a stop right after the write misses it).
  * - Codex: `.codex/hooks.json`. Codex runs a project hook once the user has reviewed and trusted
- *   it (`/hooks`).
+ *   it (`/hooks`); until then neither the TUI nor `codex exec` runs it.
  * - Cursor: `.cursor/hooks.json`, in any trusted workspace.
  *
  * The command names the mlcl version that scaffolded the project, so the check a project runs does

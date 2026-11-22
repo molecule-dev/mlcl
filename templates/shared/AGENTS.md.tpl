@@ -93,9 +93,10 @@ to delete it) — do not "clean it up".
   this project's own scripts — and prints one compact report with the first
   actionable errors. `npx mlcl check --steps unit,e2e` runs the
   tests. Use both before handing work back.
-- When you stop, the project's stop hook (Claude Code, Codex, Cursor) runs
-  typecheck and lint if files changed and hands any errors back to you, up to
-  three rounds. Fix them at their cause.
+- When you stop, the project's stop hook runs typecheck and lint if files
+  changed and hands any errors back to you, up to three rounds. Fix them at
+  their cause. Claude Code and Cursor run it; Codex runs it only after the user
+  trusts it in `/hooks`, so in Codex run `npx mlcl check` yourself.
 - **The tests that came with the template are the app's rules.** When one
   fails after your change, fix the code — do not edit, invert or delete the
   test to match what you built. Change a shipped test only when the user asks
