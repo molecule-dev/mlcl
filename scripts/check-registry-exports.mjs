@@ -30,6 +30,12 @@
  * Synthase rank by the registry copy. Two hand-written texts had drifted apart in 298 packages, so
  * the registry copy is the manifest's, scanned like the required peers.
  *
+ * And for `runtimeDependencies` — every package.json dependency and peer, by name. molecule-dev's
+ * install and plan guards read it to map a third-party library to the package that wraps it, and
+ * the README's install line lists it. A manifest change the registry missed (five framework
+ * bindings gained their optional routing-bond peers on 2026-11-22) passed this gate and was
+ * refused only by the release's full `sync-registry --check`.
+ *
  * And for `responseRecord` — the record a resource's API returns, read from the interface its
  * package exports (`Article`, not the stored `ArticleRow`). `mlcl create` types the app
  * module it writes for a resource from this copy, because a scaffold in production has only
@@ -162,6 +168,7 @@ const routeDrifted = []
 const setterDrifted = []
 const peersDrifted = []
 const descriptionsDrifted = []
+const dependenciesDrifted = []
 const recordDrifted = []
 const declarationsDrifted = []
 const bondSetterNames = bondSetterScope(entries)
@@ -244,6 +251,20 @@ async function checkEntry(name, entry, sink) {
       const havePeers = Array.isArray(entry.moleculePeers) ? [...entry.moleculePeers].sort() : null
       if (JSON.stringify(havePeers) !== JSON.stringify(wantPeers))
         sink.peersDrifted.push({ name, have: havePeers, want: wantPeers })
+      // runtimeDependencies, by sync-registry's own rule: dependencies and peers, every name, sorted.
+      const wantDeps = [
+        ...new Set([
+          ...Object.keys(manifest.dependencies ?? {}),
+          ...Object.keys(manifest.peerDependencies ?? {}),
+        ]),
+      ].sort()
+      const haveDeps = [...(entry.runtimeDependencies ?? [])].sort()
+      if (JSON.stringify(haveDeps) !== JSON.stringify(wantDeps))
+        sink.dependenciesDrifted.push({
+          name,
+          missing: wantDeps.filter((dep) => !haveDeps.includes(dep)),
+          extra: haveDeps.filter((dep) => !wantDeps.includes(dep)),
+        })
       // The description, by sync-registry's own rule: the manifest's text when it has one.
       if (
         typeof manifest.description === 'string' &&
@@ -324,6 +345,7 @@ const DRIFT_LISTS = [
   'setterDrifted',
   'peersDrifted',
   'descriptionsDrifted',
+  'dependenciesDrifted',
   'recordDrifted',
   'declarationsDrifted',
 ]
@@ -335,6 +357,7 @@ const totals = {
   setterDrifted,
   peersDrifted,
   descriptionsDrifted,
+  dependenciesDrifted,
   recordDrifted,
   declarationsDrifted,
 }
@@ -449,6 +472,22 @@ if (descriptionsDrifted.length > 0) {
   )
 }
 
+if (dependenciesDrifted.length > 0) {
+  console.error(
+    `\n✗ registry.json runtime dependencies are out of sync (${dependenciesDrifted.length} package(s)):\n`,
+  )
+  for (const { name, missing, extra } of dependenciesDrifted) {
+    const parts = []
+    if (missing.length) parts.push(`missing ${JSON.stringify(missing)}`)
+    if (extra.length) parts.push(`stale ${JSON.stringify(extra)}`)
+    console.error(`  ${name}: ${parts.join(', ')}`)
+  }
+  console.error(
+    '\nThe registry lists every package.json dependency and peer of a package.' +
+      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports',
+  )
+}
+
 if (recordDrifted.length > 0) {
   console.error(
     `\n✗ registry.json response records are out of sync (${recordDrifted.length} package(s)):\n`,
@@ -472,7 +511,8 @@ if (
   setterDrifted.length > 0 ||
   declarationsDrifted.length > 0 ||
   peersDrifted.length > 0 ||
-  descriptionsDrifted.length > 0
+  descriptionsDrifted.length > 0 ||
+  dependenciesDrifted.length > 0
 ) {
   console.error(`Then commit ${registryPath}\n`)
   process.exit(1)
@@ -484,5 +524,5 @@ if (pairedWithFallback.length > 0)
   )
 const scope = scopePaths.size > 0 ? `${checked} scoped` : `${checked}`
 console.log(
-  `✓ registry exports + routes + bond setters + bond-file declarations + required peers + descriptions + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
+  `✓ registry exports + routes + bond setters + bond-file declarations + required peers + runtime dependencies + descriptions + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
 )

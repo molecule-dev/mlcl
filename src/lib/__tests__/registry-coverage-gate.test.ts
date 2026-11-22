@@ -1,5 +1,5 @@
 import { spawnSync } from 'node:child_process'
-import { mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -18,6 +18,27 @@ beforeEach(() => {
 })
 
 afterEach(() => rmSync(scratch, { recursive: true, force: true }))
+
+/**
+ * The probe manifest's dependency and peer names, as sync-registry records them, so a case here
+ * judges only the field it is about.
+ *
+ * @returns The sorted names, or none when the probe has no manifest.
+ */
+function manifestDependencies(): string[] {
+  const manifestPath = join(scratch, packagePath, 'package.json')
+  if (!existsSync(manifestPath)) return []
+  const manifest = JSON.parse(readFileSync(manifestPath, 'utf8')) as {
+    dependencies?: Record<string, string>
+    peerDependencies?: Record<string, string>
+  }
+  return [
+    ...new Set([
+      ...Object.keys(manifest.dependencies ?? {}),
+      ...Object.keys(manifest.peerDependencies ?? {}),
+    ]),
+  ].sort()
+}
 
 function runGate(
   registered: boolean,
@@ -41,6 +62,7 @@ function runGate(
           path: wrongPath ? 'packages/api/core/wrong' : packagePath,
           exports,
           moleculePeers,
+          runtimeDependencies: manifestDependencies(),
         },
       }
     : {}
