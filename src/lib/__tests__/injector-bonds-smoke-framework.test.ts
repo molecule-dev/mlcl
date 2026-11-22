@@ -92,7 +92,51 @@ describe('bonds smoke test on every framework', () => {
       '/tmp/test-app',
       loadRegistry(),
     ).find((f) => f.targetPath === '/tmp/test-app/src/__tests__/bonds.test.ts')
-    expect(file?.content).toContain("vi.mock('@molecule/app-bonds-default', () => ({")
-    expect(file?.content).not.toContain("vi.mock('@molecule/app-bonds-default', async")
+    const mock = mockOf(file?.content ?? '', '@molecule/app-bonds-default')
+    expect(mock).toContain('setupAppThemeCssVariables: vi.fn(),')
+    expect(mock).toContain('createDefaultHttpClient: vi.fn(() =>')
+    expect(mock).not.toContain('setupAllDefaultBonds')
+  })
+
+  it('keeps the real exports a loaded package calls at import, stubbing only the recorded functions', () => {
+    // A test run resolves @molecule packages through Vite, so a mock reaches every real
+    // package that imports the mocked one: `@molecule/app-ui-tailwind` calls `cva` from
+    // `@molecule/app-styling` as it loads, and the old `cva: {}` placeholder threw
+    // "cva is not a function" in 10 flagship bonds tests.
+    const file = synthesizeAppProjectFiles(
+      [plan],
+      ['@molecule/app-theme', '@molecule/app-theme-css-variables', '@molecule/app-styling'],
+      '/tmp/test-app',
+      loadRegistry(),
+    ).find((f) => f.targetPath === '/tmp/test-app/src/__tests__/bonds.test.ts')
+    const mock = mockOf(file?.content ?? '', '@molecule/app-styling')
+    expect(mock.split('\n').slice(0, 2)).toEqual([
+      "vi.mock('@molecule/app-styling', async (importOriginal) => ({",
+      '  ...(await importOriginal<Record<string, unknown>>()),',
+    ])
+    expect(mock).toContain('setClassMerger: vi.fn(),')
+    expect(mock).not.toMatch(/\b(cva|cn|themeToCSS): /)
+  })
+  it('keeps the full stub for a provider, whose real module may need a browser', () => {
+    // The project's bond files receive the provider stub; loading the real
+    // `@molecule/app-rich-text-quill` would load Quill, which reads `document` as it loads
+    // and fails a node test.
+    const file = synthesizeAppProjectFiles(
+      [plan],
+      ['@molecule/app-theme', '@molecule/app-theme-css-variables', '@molecule/app-rich-text-quill'],
+      '/tmp/test-app',
+      loadRegistry(),
+    ).find((f) => f.targetPath === '/tmp/test-app/src/__tests__/bonds.test.ts')
+    const mock = mockOf(file?.content ?? '', '@molecule/app-rich-text-quill')
+    expect(mock.split('\n')[0]).toBe("vi.mock('@molecule/app-rich-text-quill', () => ({")
+    expect(mock).not.toContain('importOriginal')
   })
 })
+
+/** The generated `vi.mock` call for one package, through its closing line. */
+function mockOf(content: string, pkg: string): string {
+  const start = content.indexOf(`vi.mock('${pkg}',`)
+  if (start < 0) return ''
+  // The mock's own closing line: a factory entry inside it closes with `}))` too.
+  return content.slice(start, content.indexOf('\n}))', start) + 4)
+}

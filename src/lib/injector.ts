@@ -5950,15 +5950,25 @@ function generateAppBondsSmokeTest(
     lines.push('')
   }
 
-  // Mock all @molecule/* packages based on registry exports
+  // Mock the @molecule/* packages based on registry exports. A provider (registry type
+  // `provider`) is what this test stands in for: the project's bond files receive the stub,
+  // and its real module would load a vendor library that may need a browser (Quill reads
+  // `document` as it loads). Every other package keeps its real exports, with only the
+  // functions this test records or stubs replaced (setters, factories, getters): a real
+  // module the test loads (a shared setup, a package it imports) resolves these packages
+  // through Vite and gets the mock, so a placeholder in place of a real export (`cva: {}`)
+  // is what that module would call as it loads.
   const moleculePkgs = allMolecules
     .filter((m) => m.startsWith('@molecule/') && !sharedSetupPackages.has(m))
     .sort()
 
-  lines.push(`// Mock all @molecule/* packages`)
+  lines.push(
+    `// Mock the @molecule/* packages: providers stubbed, the rest real with recorded functions stubbed`,
+  )
   for (const pkg of moleculePkgs) {
     const regEntry = registry.packages[pkg]
     const exports = regEntry?.exports ?? []
+    const isProvider = regEntry?.type === 'provider'
 
     if (exports.length === 0) {
       // No exports on record (a package subpath such as `<locale bond>/loader.js`): mock the
@@ -6035,21 +6045,33 @@ function generateAppBondsSmokeTest(
         )
       } else if (/^(get|is|has|use)[A-Z]/.test(exp)) {
         mockEntries.push(`  ${exp}: vi.fn()`)
-      } else {
-        // Named export — mock as empty object (covers provider, classMap, iconSet, etc.)
+      } else if (isProvider) {
+        // A provider's named export (its provider object, class map, icon set) as an empty object.
         mockEntries.push(`  ${exp}: {}`)
       }
+      // Any other package's named export (`cva`, a component, a constant) stays real.
     }
 
-    if (mockEntries.length > 0) {
-      lines.push(`vi.mock('${pkg}', () => ({`)
-      // Every member carries its trailing comma: the exploded object is what the
-      // project's own prettier (trailingComma: 'all') keeps.
-      lines.push(mockEntries.map((entry) => `${entry},`).join('\n'))
-      lines.push(`}))`)
-    } else {
-      lines.push(`vi.mock('${pkg}', () => ({}))`)
+    if (isProvider) {
+      if (mockEntries.length === 0) lines.push(`vi.mock('${pkg}', () => ({}))`)
+      else {
+        lines.push(`vi.mock('${pkg}', () => ({`)
+        // Every member carries its trailing comma: the exploded object is what the
+        // project's own prettier (trailingComma: 'all') keeps.
+        lines.push(mockEntries.map((entry) => `${entry},`).join('\n'))
+        lines.push(`}))`)
+      }
+      lines.push('')
+      continue
     }
+    // A package with nothing to stub is left unmocked: its real exports are the mock.
+    if (mockEntries.length === 0) continue
+    lines.push(`vi.mock('${pkg}', async (importOriginal) => ({`)
+    lines.push('  ...(await importOriginal<Record<string, unknown>>()),')
+    // Every member carries its trailing comma: the exploded object is what the
+    // project's own prettier (trailingComma: 'all') keeps.
+    lines.push(mockEntries.map((entry) => `${entry},`).join('\n'))
+    lines.push(`}))`)
     lines.push('')
   }
 
