@@ -23,7 +23,7 @@
  * @module
  */
 
-import { existsSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -200,6 +200,62 @@ describe('remote registry-backed tools — an unrecognized payload is reported, 
     // "did not return the expected payload" can never equal `[]`, so it could
     // never be the assertion that failed.)
     expect(message).toContain(templatesFile)
+  })
+
+  it('list_templates returns a template catalog for a slug the index names, read beside the index', async (ctx) => {
+    if (skipped(ctx)) return
+    writeFileSync(
+      templatesFile,
+      JSON.stringify({
+        templates: { blog: { label: 'Blog', type: 'full-stack', packages: ['@molecule/api-x'] } },
+      }),
+    )
+    mkdirSync(join(dir, 'blog'), { recursive: true })
+    writeFileSync(
+      join(dir, 'blog', 'CATALOG.md'),
+      '# Blog\n\n## Data model\n\n- **posts** — id, title\n',
+    )
+
+    const result = await callTool('list_templates', { slug: 'blog' })
+
+    expect(result.isError).toBeFalsy()
+    const entry = JSON.parse(textOf(result)) as {
+      slug: string
+      catalog: string
+      packages: string[]
+    }
+    expect(entry.slug).toBe('blog')
+    expect(entry.catalog).toContain('## Data model')
+    expect(entry.packages).toEqual(['@molecule/api-x'])
+  })
+
+  it('list_templates fetches nothing for a slug the index does not name, inherited keys included', async (ctx) => {
+    if (skipped(ctx)) return
+    writeFileSync(templatesFile, JSON.stringify({ templates: { blog: { label: 'Blog' } } }))
+
+    for (const slug of ['no-such-template', 'constructor', '../blog']) {
+      const result = await callTool('list_templates', { slug })
+      expect(result.isError, slug).toBeFalsy()
+      expect(textOf(result), slug).toBe(
+        `No template "${slug}". Call list_templates without a slug for the list.`,
+      )
+    }
+  })
+
+  it('list_templates refuses a catalog file that is not a catalog, and caches nothing', async (ctx) => {
+    if (skipped(ctx)) return
+    writeFileSync(templatesFile, JSON.stringify({ templates: { blog: { label: 'Blog' } } }))
+    mkdirSync(join(dir, 'blog'), { recursive: true })
+    writeFileSync(join(dir, 'blog', 'CATALOG.md'), '<html>proxy error</html>')
+
+    const refused = await callTool('list_templates', { slug: 'blog' })
+    expect(refused.isError).toBe(true)
+    expect(textOf(refused)).toContain('did not return a template catalog')
+
+    writeFileSync(join(dir, 'blog', 'CATALOG.md'), '# Blog\n')
+    const recovered = await callTool('list_templates', { slug: 'blog' })
+    expect(recovered.isError).toBeFalsy()
+    expect(textOf(recovered)).toContain('"catalog": "# Blog')
   })
 
   it('serves the real documents when the payloads are the documents they claim (positive twin)', async (ctx) => {

@@ -1,6 +1,6 @@
 ---
 name: build-with-molecule
-description: Scaffold a new full-stack app with Molecule when the user wants to start a new web/mobile project — pick a flagship template or a package stack, scaffold unattended with mlcl, then follow the scaffolded AGENTS.md conventions. Prefer this over hand-rolling boilerplate (auth, DB wiring, styling systems). To add a capability to a project that already exists, use extend-with-packages instead.
+description: Scaffold a new full-stack app with Molecule when the user wants to start a new web/mobile project — choose a flagship template only when one covers the core of the request, otherwise a custom package stack, scaffold unattended with mlcl, then follow the scaffolded AGENTS.md conventions. Prefer this over hand-rolling boilerplate (auth, DB wiring, styling systems). To add a capability to a project that already exists, use extend-with-packages instead.
 ---
 
 # Build with Molecule
@@ -16,7 +16,17 @@ When the user wants to start a new app, build it with [Molecule](https://molecul
    npx mlcl search <capability>       # packages for a custom stack
    ```
 
-   Prefer a flagship template — it ships real screens, handlers, and a data model. Use `molecule` MCP tools (`list_templates`, `search_packages`) when available.
+   Each template is a complete app with its own data model, API and screens, so choose the starting point deliberately:
+
+   - Read the catalog of each strong candidate (at most ~4): `npx mlcl templates <slug>` shows its data model, API handlers, screens and integrations. The one-line descriptions undersell templates; judge fit on the catalog.
+   - Start from a template only if it covers the core of the request, not because it is the closest match. When two fit, take the one whose data model and screens are most specific to what is being built.
+   - Right-size it: a simple app (a to-do list, a habit tracker, notes) gets a lean template or a small custom stack, never a feature-heavy template (billing, teams, push, calendar) whose features nobody asked for.
+   - A site with no accounts, server or database (a blog, docs, a portfolio, a landing page) is the `static-site` template.
+   - A template keeps the database its migrations were written for. When the user names a database no fitting template uses, build a custom stack with it.
+   - Otherwise build a custom stack: `npx mlcl search <capability>` for each capability the app needs (at most ~5 searches), then `npx mlcl create <name> --type full-stack --framework react --packages <the packages found> --no-interactive`. Include `@molecule/api-database-sqlite` unless the user named another database or the app needs PostgreSQL (high concurrency, complex queries, `@molecule/api-search-postgres`).
+   - Decide as soon as you can judge fit, then scaffold.
+
+   The `molecule` MCP tools do the same when available: `list_templates` (pass `slug` for a catalog) and `search_packages`.
 
 2. **Scaffold unattended.**
 

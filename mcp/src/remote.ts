@@ -14,11 +14,16 @@
  *     README for each @molecule/* package), also cached 10 minutes
  */
 import { readFileSync } from 'node:fs'
+import { dirname, join } from 'node:path'
 
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 
-import { serverInstructions } from './instructions.js'
+import {
+  LIST_TEMPLATES_DESCRIPTION,
+  LIST_TEMPLATES_SLUG_DESCRIPTION,
+  serverInstructions,
+} from './instructions.js'
 import { localPackageDoc } from './package-doc-files.js'
 import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
 import {
@@ -387,6 +392,56 @@ async function fetchJsonUncached<T>(
   return data
 }
 
+/**
+ * One template's catalog (its CATALOG.md: data model, API handlers, screens, integrations), read
+ * from beside the templates index: the same repository directory as {@link TEMPLATES_URL}, or the
+ * directory of MOLECULE_TEMPLATES_FILE. The caller checks `slug` against the index first, so only
+ * a known template's file is requested and the cache holds at most one entry per template.
+ *
+ * Cached, shared and gated like {@link fetchJson}: callers that arrive during a fetch share it, and
+ * a non-2xx answer, or a body that is not a catalog (a proxy's error page), throws and caches
+ * nothing, so the next call retries.
+ *
+ * @param slug - A slug present in the templates index.
+ * @param timeoutMs - Abort bound for the outbound fetch.
+ * @returns The catalog's Markdown.
+ */
+export async function fetchTemplateCatalog(
+  slug: string,
+  timeoutMs: number = FETCH_TIMEOUT_MS,
+): Promise<string> {
+  const source = TEMPLATES_FILE
+    ? join(dirname(TEMPLATES_FILE), slug, 'CATALOG.md')
+    : new URL(`${encodeURIComponent(slug)}/CATALOG.md`, TEMPLATES_URL).href
+  const key = `catalog:${source}`
+  const generation = cacheGeneration
+  const hit = cache.get(key)
+  if (hit && Date.now() - hit.at < CACHE_TTL_MS) return hit.data as string
+  const pendingKey = `catalog:${generation}:${source}`
+  const pending = inFlight.get(pendingKey)
+  if (pending) return (await pending) as string
+  const work = (async (): Promise<string> => {
+    let catalog: string
+    if (TEMPLATES_FILE) {
+      catalog = readFileSync(source, 'utf8')
+    } else {
+      const response = await fetch(source, { signal: AbortSignal.timeout(timeoutMs) })
+      if (!response.ok) throw new Error(`GET ${source} failed: HTTP ${response.status}`)
+      catalog = await response.text()
+    }
+    // Every catalog opens with its template's title.
+    if (!catalog.startsWith('# ')) throw new Error(`${source} did not return a template catalog`)
+    if (generation === cacheGeneration) cache.set(key, { at: Date.now(), data: catalog })
+    return catalog
+  })()
+  inFlight.set(pendingKey, work)
+  try {
+    return await work
+  } finally {
+    inFlight.delete(pendingKey)
+  }
+}
+
 // Ranking, stack filtering and the result DTO live in `./package-search.js` — a
 // GENERATED verbatim copy of the canonical owner
 // (`mlcl/src/lib/package-search.ts`) shared with `mlcl search` and the stdio
@@ -473,11 +528,14 @@ export function buildRemoteServer(): McpServer {
     'list_templates',
     {
       title: 'List molecule app templates',
-      description:
-        'List the flagship full-stack app templates (blog, crm, team-chat, …) — the fastest starting point for a new app.',
-      inputSchema: {},
+      description: LIST_TEMPLATES_DESCRIPTION,
+      inputSchema: {
+        // Bounded like the other names this public server interpolates into an outbound URL; it
+        // is also checked against the index before anything is fetched.
+        slug: z.string().max(100).optional().describe(LIST_TEMPLATES_SLUG_DESCRIPTION),
+      },
     },
-    tracked('list_templates', async () => {
+    tracked('list_templates', async ({ slug }) => {
       // Same gate as `search_packages`, and for the same reason: `t.templates
       // ?? {}` used to answer an unrecognized payload with an EMPTY gallery —
       // a wrong answer ("there are no templates") instead of the upstream
@@ -488,6 +546,28 @@ export function buildRemoteServer(): McpServer {
           { label?: string; description?: string; type?: string; packages?: string[] }
         >
       }>(TEMPLATES_URL, TEMPLATES_FILE, FETCH_TIMEOUT_MS, isTemplatesPayload)
+      if (slug !== undefined) {
+        // Own keys only: `constructor` is inherited by every parsed object.
+        const entry = Object.hasOwn(t.templates, slug) ? t.templates[slug] : undefined
+        if (!entry)
+          return text(`No template "${slug}". Call list_templates without a slug for the list.`)
+        const catalog = await fetchTemplateCatalog(slug)
+        return text(
+          JSON.stringify(
+            {
+              slug,
+              label: entry.label ?? slug,
+              description: entry.description ?? '',
+              type: entry.type ?? 'full-stack',
+              packages: entry.packages ?? [],
+              create: `npx mlcl create my-app --template ${slug} --no-interactive`,
+              catalog,
+            },
+            null,
+            2,
+          ),
+        )
+      }
       const list = Object.entries(t.templates)
         .sort(([a], [b]) => a.localeCompare(b))
         .map(([slug, e]) => ({

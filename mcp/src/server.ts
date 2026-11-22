@@ -31,7 +31,11 @@ import {
   whoami,
 } from './auth.js'
 import { CLI_TIMEOUT_DEFAULT_MS, type CliCommand, cliCommand, forgetCli } from './cli-command.js'
-import { serverInstructions } from './instructions.js'
+import {
+  LIST_TEMPLATES_DESCRIPTION,
+  LIST_TEMPLATES_SLUG_DESCRIPTION,
+  serverInstructions,
+} from './instructions.js'
 import { localPackageDoc } from './package-doc-files.js'
 import { docSearchSchema, searchPackageDoc } from './package-doc-search.js'
 import { scaffoldProjectCliArgs } from './scaffold-args.js'
@@ -609,11 +613,17 @@ server.registerTool(
   'list_templates',
   {
     title: 'List molecule app templates',
-    description:
-      'List the flagship full-stack app templates (blog, crm, team-chat, …) with slugs, descriptions, and package counts — the fastest starting point for a new app.',
-    inputSchema: {},
+    description: LIST_TEMPLATES_DESCRIPTION,
+    inputSchema: {
+      slug: z.string().max(100).optional().describe(LIST_TEMPLATES_SLUG_DESCRIPTION),
+    },
   },
-  tracked('list_templates', async () => text(await runCli(['templates', '--json']))),
+  tracked('list_templates', async ({ slug }) =>
+    // `mlcl templates <slug>` refuses a slug that is not a template.
+    text(
+      await runCli(slug === undefined ? ['templates', '--json'] : ['templates', slug, '--json']),
+    ),
+  ),
 )
 
 server.registerTool(
@@ -621,10 +631,15 @@ server.registerTool(
   {
     title: 'Scaffold a molecule project',
     description:
-      'Create a new project with mlcl — either from a flagship template (preferred) or a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22. SLOW BY DESIGN: with an install it can take several minutes — call it once and wait; a slow response is not a failure, do not retry. `directory` must already exist (it becomes the spawn cwd).',
+      'Create a new project with mlcl: from a flagship template when its catalog (list_templates with its slug) covers the core of the request, otherwise from a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22. SLOW BY DESIGN: with an install it can take several minutes — call it once and wait; a slow response is not a failure, do not retry. `directory` must already exist (it becomes the spawn cwd).',
     inputSchema: {
       name: z.string().describe('Project name (lowercase slug)'),
-      template: z.string().optional().describe('Template slug from list_templates (preferred)'),
+      template: z
+        .string()
+        .optional()
+        .describe(
+          'Template slug from list_templates, when that template covers the core of the request',
+        ),
       type: z
         .enum(['api', 'app', 'full-stack', 'static', 'status-page', 'status-page-edge'])
         .optional(),

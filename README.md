@@ -255,10 +255,13 @@ The full guide with every harness, config path, and example workflow:
 The paste-anywhere block:
 
 ```text
-Build this app with molecule.dev: run `npx mlcl templates` and pick the closest
-flagship template (or `npx mlcl search <capability>` to find packages for a
-custom stack); scaffold with `npx mlcl create <name> --template <slug>
---no-interactive --json`; then follow the scaffolded AGENTS.md conventions —
+Build this app with molecule.dev: run `npx mlcl templates` and choose the
+starting point by its rules: a flagship template only when its catalog
+(`npx mlcl templates <slug>`) covers the core of the app, otherwise a custom
+stack of the packages `npx mlcl search <capability>` finds; scaffold with
+`npx mlcl create <name> --template <slug> --no-interactive --json` (or
+`--packages <list>` for a custom stack); then follow the scaffolded AGENTS.md
+conventions —
 prefer @molecule/* packages over hand-rolled code, provider wiring only in
 src/bonds/ (swap with `npx mlcl swap`), ClassMap styling, i18n for all
 user-facing text, and each package's README at

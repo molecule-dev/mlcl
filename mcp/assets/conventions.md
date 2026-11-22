@@ -12,10 +12,10 @@ library. Keep code that already provides a capability unless the user asks to
 replace it.
 
 **Which path:** a new app, or a directory with no project in it yet, starts
-with a scaffold (**Starting a new app**, below): a template when one fits,
-otherwise a custom stack of the packages `mlcl search` finds, so the frontend
-and the backend both start wired. A project that already exists gets packages
-added to it.
+with a scaffold (**Starting a new app**, below): a template when one covers the
+core of the request, otherwise a custom stack of the packages `mlcl search`
+finds, so the frontend and the backend both start wired. A project that already
+exists gets packages added to it.
 
 **Adding a capability to an existing project, this one included:**
 
@@ -37,11 +37,20 @@ on molecule.dev with no vendor account, billed to a molecule.dev project key
 
 **Starting a new app:**
 
-1. `npx mlcl templates` — pick a flagship template (blog, crm, team-chat, …),
-   or `npx mlcl search <capability>` to find packages for a custom stack
+1. `npx mlcl templates` lists the flagship templates (blog, crm, team-chat, …).
+   Each template is a complete app with its own data model, API and screens, so choose the starting point deliberately:
+
+   - Read the catalog of each strong candidate (at most ~4): `npx mlcl templates <slug>` shows its data model, API handlers, screens and integrations. The one-line descriptions undersell templates; judge fit on the catalog.
+   - Start from a template only if it covers the core of the request, not because it is the closest match. When two fit, take the one whose data model and screens are most specific to what is being built.
+   - Right-size it: a simple app (a to-do list, a habit tracker, notes) gets a lean template or a small custom stack, never a feature-heavy template (billing, teams, push, calendar) whose features nobody asked for.
+   - A site with no accounts, server or database (a blog, docs, a portfolio, a landing page) is the `static-site` template.
+   - A template keeps the database its migrations were written for. When the user names a database no fitting template uses, build a custom stack with it.
+   - Otherwise build a custom stack: `npx mlcl search <capability>` for each capability the app needs (at most ~5 searches), then `npx mlcl create <name> --type full-stack --framework react --packages <the packages found> --no-interactive`. Include `@molecule/api-database-sqlite` unless the user named another database or the app needs PostgreSQL (high concurrency, complex queries, `@molecule/api-search-postgres`).
+   - Decide as soon as you can judge fit, then scaffold.
+
 2. Scaffold unattended:
    `npx mlcl create <name> --template <slug> --no-interactive`
-   (or `--type full-stack --framework react --packages @molecule/...`)
+   (or `--type full-stack --framework react --packages @molecule/...` for a custom stack)
 3. Add `--json` for machine-readable output
 
 **More commands:**

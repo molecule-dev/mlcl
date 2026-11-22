@@ -1,15 +1,17 @@
 /**
- * `mlcl templates` without `--json`: the header names the custom-stack scaffold as well as the
- * template one. Agents often read only the first lines of this long list (`| head -40`), and one
- * that finds no close template must still learn that a new app starts with a scaffold rather than
- * a hand-built project.
+ * `mlcl templates` is where a harness decides how a new app starts. Its header carries the
+ * starting-point rules (a template only when one covers the core of the request, otherwise a
+ * custom stack), because agents often read only the first lines of this long list (`| head -40`).
+ * `mlcl templates <slug>` prints that template's catalog, the document the rules say to judge fit
+ * on.
  */
 import { join } from 'node:path'
-import { format } from 'node:util'
+import { format, stripVTControlCharacters } from 'node:util'
 
 import { Config } from '@oclif/core'
 import { beforeAll, describe, expect, it, vi } from 'vitest'
 
+import { STARTING_POINT_LEAD, startingPointRules } from '../../lib/starting-point.js'
 import Templates from '../templates.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
@@ -20,7 +22,7 @@ beforeAll(async () => {
   config = await Config.load(MLCL_ROOT)
 })
 
-/** Run the real command and return what it printed. */
+/** Run the real command and return what it printed, with terminal colours removed. */
 async function run(argv: string[]): Promise<string> {
   let stdout = ''
   const log = vi.spyOn(console, 'log').mockImplementation((...args: unknown[]) => {
@@ -31,16 +33,43 @@ async function run(argv: string[]): Promise<string> {
   } finally {
     log.mockRestore()
   }
-  return stdout
+  return stripVTControlCharacters(stdout)
 }
 
 describe('mlcl templates', () => {
-  it('names both scaffolds in the first lines of the list', async () => {
-    const top = (await run([])).split('\n').slice(0, 4).join('\n')
-    expect(top).toContain('mlcl create <name> --template <slug>')
-    expect(top).toMatch(
-      /None close\? Scaffold a custom stack:.*mlcl create <name> --type full-stack --framework react --packages .* --no-interactive/,
+  it('puts the starting-point rules in the lines an agent reads first', async () => {
+    const rules = startingPointRules('mlcl')
+    const top = (await run([])).split('\n').slice(0, rules.length + 3)
+    expect(top.join('\n')).toContain('mlcl create <name> --template <slug>')
+    expect(top).toContain(STARTING_POINT_LEAD)
+    for (const rule of rules) expect(top).toContain(`  • ${rule}`)
+    expect(top.join('\n')).toMatch(
+      /mlcl create <name> --type full-stack --framework react --packages .* --no-interactive/,
     )
+    expect(top.join('\n')).not.toMatch(/closest template|None close/i)
+  })
+
+  it('prints a template catalog for a slug, then the command that scaffolds it', async () => {
+    const out = await run(['online-store'])
+    expect(out).toContain('## Data model')
+    expect(out).toContain('## API surface (handlers)')
+    expect(out).toContain('mlcl create <name> --template online-store --no-interactive')
+  })
+
+  it('returns the catalog in the JSON form too', async () => {
+    const entry = JSON.parse(await run(['online-store', '--json'])) as {
+      slug: string
+      catalog: string | null
+      packages: string[]
+    }
+    expect(entry.slug).toBe('online-store')
+    expect(entry.catalog).toContain('## Data model')
+    expect(entry.packages.length).toBeGreaterThan(0)
+  })
+
+  it('refuses a slug that is not a template, including an inherited object key', async () => {
+    await expect(run(['no-such-template'])).rejects.toThrow(/No template "no-such-template"/)
+    await expect(run(['constructor'])).rejects.toThrow(/No template "constructor"/)
   })
 
   it('keeps the JSON listing to template entries', async () => {

@@ -285,7 +285,7 @@ export default class Create extends Command {
     }),
     template: Flags.string({
       description:
-        'App template slug (e.g., blog, crm, online-store). Run `mlcl templates` to list all available templates.',
+        "App template slug (e.g., blog, crm, online-store). Run `mlcl templates` for the list and the rules for choosing, and `mlcl templates <slug>` for one template's catalog.",
     }),
     'api-contract': Flags.string({
       description:
