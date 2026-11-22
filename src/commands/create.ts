@@ -303,11 +303,21 @@ export default class Create extends Command {
     // plain lowercase slug, the same rule the interactive prompt enforces.
     // Without this, a non-interactive `mlcl create ../../elsewhere` silently
     // scaffolds (and installs) outside the working directory.
+    // `.` (or `./`) means the current directory, as in `npm init` and
+    // `create-vite .`: an agent working in an empty repo reaches for it first
+    // (2026-11-22 smoke test: Codex's `mlcl create .` was refused and it had to
+    // retry with "$PWD"). Its final segment is then the directory's own name.
     if (args.name !== undefined) {
       const segments = args.name.split(/[\\/]/).filter((seg) => seg.length > 0 && seg !== '.')
-      const finalSegment = segments[segments.length - 1]
-      if (segments.length === 0 || segments.includes('..') || !/^[a-z0-9-]+$/.test(finalSegment)) {
-        this.error(t('commands.create.errors.nameInvalid', { name: args.name }))
+      const here = segments.length === 0 && /^\.[\\/]?$/.test(args.name)
+      const finalSegment = here ? basename(process.cwd()) : segments[segments.length - 1]
+      if (
+        (segments.length === 0 && !here) ||
+        segments.includes('..') ||
+        !/^[a-z0-9-]+$/.test(finalSegment)
+      ) {
+        const name = here ? `${args.name} (${finalSegment})` : args.name
+        this.error(t('commands.create.errors.nameInvalid', { name }))
       }
     }
 
