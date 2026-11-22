@@ -112,13 +112,13 @@ import { readMigrateRunner } from './migrate-runner.js'
 import { migrationDialectHeader, projectDatabasePackage } from './migration-dialect.js'
 import { npmInstallRoot } from './npm-install-root.js'
 import {
-  findPackageByRole,
   findRegistryPackage,
   getMoleculeVersion,
   getPackageStack,
   getRawRegistry,
   loadApiFrameworks,
   loadRegistry,
+  packagesByRole,
   requirePackageByRole,
 } from './registry.js'
 import { optionalPeersOf, scanPackage, tablesCreatedBySql } from './scanner.js'
@@ -4134,8 +4134,12 @@ function generateDefaultBondSetup(
   // i18n generatorType needs locale-specific template
   if (appBondSetup?.generatorType === 'i18n') {
     const exportName = appBondSetup.exportName ?? `${category}Provider`
-    const defaultSetupPackage = findPackageByRole('app', 'feature', 'i18n-default')
-    if (defaultSetupPackage && bindings.includes(defaultSetupPackage)) {
+    // The default-setup package the app installs. Both @molecule/app-i18n-default and the name it
+    // replaced, @molecule/app-i18n-default-react, have this role; the bond imports the one the app has.
+    const defaultSetupPackage = packagesByRole('app', 'feature', 'i18n-default').find((name) =>
+      bindings.includes(name),
+    )
+    if (defaultSetupPackage) {
       return generateI18nDefaultSetupBond(
         capability ? bondHeader : undefined,
         defaultSetupPackage,

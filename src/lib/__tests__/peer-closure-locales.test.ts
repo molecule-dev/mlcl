@@ -51,7 +51,9 @@ describe('missingMoleculePeers and companion locales', () => {
       if (unplanned.length > 0) open.push(`${pkg.name}: ${unplanned.join(', ')}`)
     }
     expect(open).toEqual([])
-  })
+    // Every registry package closed in turn: about 20 s alone, past vitest's 30 s default when
+    // the whole suite shares the machine (2026-11-22).
+  }, 120_000)
 })
 
 describe('closeMoleculePeers', () => {

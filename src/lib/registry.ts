@@ -225,12 +225,29 @@ export function findPackageByRole(
   type: string,
   category: string,
 ): string | undefined {
-  const all = loadRegistry()
-  const match = all.find((p) => {
-    const mol = p.molecule as Record<string, unknown> | undefined
-    return mol?.stack === stack && mol?.type === type && mol?.category === category
-  })
-  return match?.name
+  return packagesByRole(stack, type, category)[0]
+}
+
+/**
+ * Every package with a role (stack + type + category), in registry order.
+ *
+ * A role usually has one package. A renamed package keeps its successor's role
+ * while projects still install it (`@molecule/app-i18n-default-react` beside
+ * `@molecule/app-i18n-default`), so code that generates files for a project
+ * picks the one the project installed from this list, not the first match.
+ *
+ * @param stack - The package's stack.
+ * @param type - The package's type.
+ * @param category - The package's category.
+ * @returns The package names, in registry order.
+ */
+export function packagesByRole(stack: 'api' | 'app', type: string, category: string): string[] {
+  return loadRegistry()
+    .filter((p) => {
+      const mol = p.molecule as Record<string, unknown> | undefined
+      return mol?.stack === stack && mol?.type === type && mol?.category === category
+    })
+    .map((p) => p.name)
 }
 
 /**

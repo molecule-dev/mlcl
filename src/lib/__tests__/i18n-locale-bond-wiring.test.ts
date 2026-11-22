@@ -25,7 +25,7 @@ import {
   synthesizeAppProjectFiles,
   synthesizeProjectFiles,
 } from '../injector.js'
-import { findPackageByRole, getRawRegistry, loadRegistry } from '../registry.js'
+import { findPackageByRole, getRawRegistry, loadRegistry, packagesByRole } from '../registry.js'
 
 const ROOT = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..')
 /** The prettier config every scaffolded app ships. */
@@ -125,6 +125,19 @@ describe("the scaffolded app's i18n bond", () => {
   ])('is printed the way the app formats it, with %s', async (_label, count) => {
     const bond = i18nBond([i18nCore, defaultSetup, commonBond, ...localeBonds.slice(0, count)])
     expect(await check(bond, { ...PRETTIER, parser: 'typescript' })).toBe(true)
+  })
+
+  // Every flagship installs the package app-i18n-default replaced. The role lookup names the new
+  // one first, and a bond generated from that name for these apps was the plain provider: an
+  // `mlcl add --inject` in a flagship replaced its setupI18nDefault bond (2026-11-22).
+  it('imports setupI18nDefault from whichever default-setup package the app installs', () => {
+    const setups = packagesByRole('app', 'feature', 'i18n-default')
+    expect(setups).toContain('@molecule/app-i18n-default-react')
+    for (const setup of setups) {
+      const bond = i18nBond([i18nCore, setup, commonBond, localeBonds[0]])
+      expect(bond).toContain(`import { setupI18nDefault as setupI18nProvider } from '${setup}'`)
+      expect(bond).not.toContain('createSimpleI18nProvider')
+    }
   })
 
   it('keeps the plain provider when the default-setup package is not installed', () => {

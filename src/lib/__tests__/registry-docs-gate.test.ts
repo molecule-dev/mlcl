@@ -121,7 +121,9 @@ beforeEach(() => {
   git(mlcl, 'add', 'registry.json')
   git(mlcl, 'commit', '-qm', 'registry')
   commitReadme(registry())
-})
+  // The README regeneration runs tsx in a child process: seconds alone, longer on a loaded
+  // machine, and vitest's default hook timeout is 10 s (2026-11-22: three cases timed out here).
+}, 120_000)
 
 afterEach(() => rmSync(scratch, { recursive: true, force: true }))
 

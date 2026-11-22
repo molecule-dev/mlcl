@@ -53,7 +53,7 @@ describe('React query defaults use the existing registry provider contract', () 
             '--skip-install',
             ...(name === 'tanstack' ? ['--packages', '@molecule/app-query-tanstack'] : []),
           ],
-          { cwd: ROOT, encoding: 'utf8', timeout: 30_000, stdio: 'pipe' },
+          { cwd: ROOT, encoding: 'utf8', timeout: 120_000, stdio: 'pipe' },
         )
         const pkg = JSON.parse(await readFile(join(project, 'app', 'package.json'), 'utf8')) as {
           dependencies: Record<string, string>
@@ -91,5 +91,8 @@ describe('React query defaults use the existing registry provider contract', () 
         await rm(scratch, { recursive: true, force: true })
       }
     },
+    // A real `mlcl create` in a child process: about 12 s alone, past vitest's 30 s default when
+    // the whole suite shares the machine (2026-11-22).
+    120_000,
   )
 })
