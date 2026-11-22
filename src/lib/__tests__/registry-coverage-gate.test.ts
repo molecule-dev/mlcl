@@ -161,4 +161,16 @@ describe('registry coverage gate', () => {
     rmSync(join(scratch, packagePath), { recursive: true })
     expect(runGate(false).status).toBe(0)
   })
+
+  it.each([
+    ['a path relative to mlcl', `../molecule/${packagePath}`],
+    ['an absolute path', `/${packagePath}`],
+    ['a package name', packageName],
+    ['a path climbing out of packages/', `packages/../${packagePath}`],
+  ])('refuses %s instead of checking it as a deleted package', (_shape, path) => {
+    const result = runGate(false, [path])
+    expect(result.output).toContain('relative to the molecule root')
+    expect(result.output).toContain(path)
+    expect(result.status).toBe(2)
+  })
 })

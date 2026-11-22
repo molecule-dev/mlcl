@@ -116,6 +116,22 @@ const fallbackEntries = fallbackPath
 const scopePaths = new Set(
   args.filter((a) => !a.startsWith('--')).map((p) => p.replace(/\/+$/, '')),
 )
+// A scoped path with no manifest counts as a deleted package, so one in another shape
+// (`../molecule/packages/…`, absolute, a package name) would be checked as nothing and pass.
+const misshapen = [...scopePaths].filter((p) => {
+  const segments = p.split('/')
+  return (
+    segments[0] !== 'packages' ||
+    segments.length < 2 ||
+    segments.some((x) => x === '' || x === '.' || x === '..')
+  )
+})
+if (misshapen.length) {
+  console.error(
+    `✗ check-registry-exports: scoped paths are package directories relative to the molecule root (packages/<stack>/<group>/<name>), not: ${misshapen.join(', ')}`,
+  )
+  process.exit(2)
+}
 
 // Compare source packages TO the registry before iterating registry entries.
 // Otherwise an omitted package is never visited and even an explicitly scoped
