@@ -2501,6 +2501,53 @@ export function setup${pascal}(): void {
 }
 
 /**
+ * The body of a generated i18n bond's setup that saves the chosen locale through the bonded
+ * storage provider and restores it on the next visit.
+ *
+ * Every storage call's promise ends in a handler. The read used to sit unreturned inside the
+ * import's `.then`, so a rejected read (no storage provider bonded yet) skipped the trailing
+ * `.catch` and was an unhandled rejection; a fresh React app's own bonds test reported two
+ * (2026-11-22). `@molecule/app-i18n-default`'s setupI18nDefault handles them the same way.
+ *
+ * @param provider - The bond's i18n provider variable.
+ * @param storagePkg - The storage core package.
+ * @returns The statements, indented for the setup function's body.
+ */
+function localePersistenceSetup(provider: string, storagePkg: string): string {
+  return `  // Persist locale selection through the bonded storage provider.
+  //
+  // The import is dynamic for ORDERING, not optionality — the storage core is
+  // alwaysInclude, so it ships in every generated app. Deferring by a microtask
+  // makes this wiring run after EVERY setup*() call in bonds/index.ts; the i18n
+  // bond is set up before the storage bond, so a static import + a direct get()
+  // here would throw "no storage provider bonded" and locale restore would break.
+  // Bundlers report this as INEFFECTIVE_DYNAMIC_IMPORT — that warning is expected.
+  import('${storagePkg}')
+    .then(({ get, set }) => {
+      ${provider}.onLocaleChange((locale: string) => {
+        set('molecule-locale', locale).catch((_error: unknown) => {
+          // Storage refused the write (no provider bonded, or the browser blocks
+          // storage): the new locale still applies, it is just not remembered.
+        })
+      })
+      // Returned, so a failed read reaches the catch below.
+      return get<string>('molecule-locale').then((saved: string | null) => {
+        if (saved && saved !== ${provider}.getLocale()) {
+          ${provider}.setLocale(saved).catch((_error: unknown) => {
+            // The saved locale is no longer registered (pruned as unsupported, or
+            // dropped in an app update) — keep the default locale instead of
+            // surfacing an unhandled rejection on every boot.
+          })
+        }
+      })
+    })
+    .catch((_error: unknown) => {
+      // No storage provider bonded (or the wiring above threw) — locale
+      // persistence is skipped and the default locale still applies.
+    })`
+}
+
+/**
  * Generate i18n bond setup code that exports the provider instance.
  *
  * The i18n provider has a setter (setProvider) AND needs to be exported
@@ -2556,31 +2603,7 @@ ${generateLocaleArrayCode()},
 export function setup${pascal}(): void {
   setProvider(i18nProvider)
 
-  // Persist locale selection through the bonded storage provider.
-  //
-  // The import is dynamic for ORDERING, not optionality — the storage core is
-  // alwaysInclude, so it ships in every generated app. Deferring by a microtask
-  // makes this wiring run after EVERY setup*() call in bonds/index.ts; the i18n
-  // bond is set up before the storage bond, so a static import + a direct get()
-  // here would throw "no storage provider bonded" and locale restore would break.
-  // Bundlers report this as INEFFECTIVE_DYNAMIC_IMPORT — that warning is expected.
-  import('${storagePkg}')
-    .then(({ get, set }) => {
-      i18nProvider.onLocaleChange((locale: string) => set('molecule-locale', locale))
-      get<string>('molecule-locale').then((saved: string | null) => {
-        if (saved && saved !== i18nProvider.getLocale()) {
-          i18nProvider.setLocale(saved).catch(() => {
-            // The saved locale is no longer registered (pruned as unsupported, or
-            // dropped in an app update) — keep the default locale instead of
-            // surfacing an unhandled rejection on every boot.
-          })
-        }
-      })
-    })
-    .catch(() => {
-      // No storage provider bonded (or the wiring above threw) — locale
-      // persistence is skipped and the default locale still applies.
-    })
+${localePersistenceSetup('i18nProvider', storagePkg)}
 }
 `
 }
@@ -4139,31 +4162,7 @@ ${generateLocaleArrayCode()},
 export function setup${pascal}(): void {
   ${setup.setter}(${exportName})
 
-  // Persist locale selection through the bonded storage provider.
-  //
-  // The import is dynamic for ORDERING, not optionality — the storage core is
-  // alwaysInclude, so it ships in every generated app. Deferring by a microtask
-  // makes this wiring run after EVERY setup*() call in bonds/index.ts; the i18n
-  // bond is set up before the storage bond, so a static import + a direct get()
-  // here would throw "no storage provider bonded" and locale restore would break.
-  // Bundlers report this as INEFFECTIVE_DYNAMIC_IMPORT — that warning is expected.
-  import('${storagePkg}')
-    .then(({ get, set }) => {
-      ${exportName}.onLocaleChange((locale: string) => set('molecule-locale', locale))
-      get<string>('molecule-locale').then((saved: string | null) => {
-        if (saved && saved !== ${exportName}.getLocale()) {
-          ${exportName}.setLocale(saved).catch(() => {
-            // The saved locale is no longer registered (pruned as unsupported, or
-            // dropped in an app update) — keep the default locale instead of
-            // surfacing an unhandled rejection on every boot.
-          })
-        }
-      })
-    })
-    .catch(() => {
-      // No storage provider bonded (or the wiring above threw) — locale
-      // persistence is skipped and the default locale still applies.
-    })
+${localePersistenceSetup(exportName, storagePkg)}
 }
 `
   }
