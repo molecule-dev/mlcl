@@ -55506,6 +55506,40 @@
         "multilingual app"
       ]
     },
+    "@molecule/app-i18n-default": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "feature",
+      "category": "i18n-default",
+      "label": "i18n Default Setup",
+      "description": "Default i18n bond setup with 80-language definitions, lazy-loading wrapper, and locale persistence via storage bond, for every app framework.",
+      "stack": "app",
+      "exports": [
+        "LANGUAGE_DEFINITIONS",
+        "LanguageDefinition",
+        "PackageLocaleBond",
+        "PackageLocaleLoader",
+        "SetupI18nDefaultOptions",
+        "setupI18nDefault"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n",
+        "@molecule/app-locales-common",
+        "@molecule/app-storage"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n",
+        "@molecule/app-locales-common",
+        "@molecule/app-storage"
+      ],
+      "path": "packages/app/features/i18n-default",
+      "intentHints": [
+        "i18n default",
+        "localization defaults",
+        "default translations"
+      ]
+    },
     "@molecule/app-i18n-default-react": {
       "language": "typescript",
       "runtime": "node",
