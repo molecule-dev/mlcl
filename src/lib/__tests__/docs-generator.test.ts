@@ -193,6 +193,41 @@ describe('generateMoleculeMd — standard packages', () => {
     expect(result).toContain('npm install @molecule/api-database pg pg-pool')
   })
 
+  it('leaves optional peers out of the install command and marks them optional', () => {
+    const result = generateMoleculeMd(
+      makeExtracted(),
+      makeRegistryEntry({
+        runtimeDependencies: [
+          '@molecule/app-routing',
+          '@molecule/app-routing-next',
+          '@molecule/app-routing-react-router',
+          'pg',
+        ],
+      }),
+      makePackageJson({
+        dependencies: { pg: '8.16.3' },
+        peerDependencies: {
+          '@molecule/app-routing': '^1.0.0',
+          '@molecule/app-routing-next': '^1.0.0',
+          '@molecule/app-routing-react-router': '^1.0.0',
+        },
+        peerDependenciesMeta: {
+          '@molecule/app-routing-next': { optional: true },
+          '@molecule/app-routing-react-router': { optional: true },
+        },
+      }),
+      makeOptions(),
+    )
+    expect(result).toContain(
+      '```bash\nnpm install @molecule/api-database @molecule/app-routing pg\n```',
+    )
+    expect(result).not.toMatch(/npm install [^\n]*app-routing-(next|react-router)/)
+    expect(result).toContain('- `@molecule/app-routing` ^1.0.0\n')
+    expect(result).toContain('- `@molecule/app-routing-next` ^1.0.0 *(optional)*')
+    expect(result).toContain('- `@molecule/app-routing-react-router` *(optional)*')
+    expect(result).toContain('- `pg`\n')
+  })
+
   it('generates Quick Start section from examples', () => {
     const result = generateMoleculeMd(
       makeExtracted({ examples: ['const db = connect()'] }),

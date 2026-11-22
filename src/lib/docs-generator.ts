@@ -369,32 +369,47 @@ function generateMetadataSection(entry: RegistryEntry): string {
   return `## Type\n\`${entry.type}\``
 }
 
+/**
+ * Whether the package's `peerDependenciesMeta` marks a peer optional: an add-on the package
+ * works without, which a project installs only when it wants that feature.
+ *
+ * @param pkg - The package's manifest.
+ * @param name - A dependency name.
+ * @returns True for an optional peer.
+ */
+function isOptionalPeer(pkg: PackageJson, name: string): boolean {
+  return pkg.peerDependenciesMeta?.[name]?.optional === true
+}
+
 function generateInstallSection(pkg: PackageJson, entry: RegistryEntry): string {
   // Project dev tooling is a devDependency, installed with the peers a project must provide;
   // its own dependencies come with it.
   if (entry.stack === 'tooling') {
     const peers = Object.keys(pkg.peerDependencies ?? {}).filter(
-      (peer) => !pkg.peerDependenciesMeta?.[peer]?.optional,
+      (peer) => !isOptionalPeer(pkg, peer),
     )
     return `## Installation\n\`\`\`bash\nnpm install -D ${[pkg.name, ...peers].join(' ')}\n\`\`\``
   }
   const parts = [`npm install ${pkg.name}`]
 
-  // Add runtime dependencies
-  if (entry.runtimeDependencies && entry.runtimeDependencies.length > 0) {
-    parts[0] += ' ' + entry.runtimeDependencies.join(' ')
+  // Add runtime dependencies. Optional peers stay out of the command: they are alternatives
+  // or add-ons, and listing them told a reader of @molecule/app-react to install both the
+  // Next and the React Router routing bonds.
+  const installed = (entry.runtimeDependencies ?? []).filter((dep) => !isOptionalPeer(pkg, dep))
+  if (installed.length > 0) {
+    parts[0] += ' ' + installed.join(' ')
   }
 
   // Add dev dependencies hint for runtime deps that need @types
-  const devTypeDeps = entry.runtimeDependencies
-    ?.filter((dep) => {
+  const devTypeDeps = installed
+    .filter((dep) => {
       // Check if @types/<dep> exists in package.json devDeps
       const typeDep = `@types/${dep}`
       return pkg.devDependencies?.[typeDep]
     })
     .map((dep) => `@types/${dep}`)
 
-  if (devTypeDeps && devTypeDeps.length > 0) {
+  if (devTypeDeps.length > 0) {
     parts.push(`npm install -D ${devTypeDeps.join(' ')}`)
   }
 
@@ -952,7 +967,10 @@ function generateInjectionNotes(
   // Requirements — derived from peerDependencies
   const peers = pkg.peerDependencies
   if (peers && Object.keys(peers).length > 0) {
-    const peerLines = Object.entries(peers).map(([dep, version]) => `- \`${dep}\` ${version}`)
+    const peerLines = Object.entries(peers).map(
+      ([dep, version]) =>
+        `- \`${dep}\` ${version}${isOptionalPeer(pkg, dep) ? ' *(optional)*' : ''}`,
+    )
     subsections.push(`### Requirements\n\nPeer dependencies:\n${peerLines.join('\n')}`)
   }
 
@@ -968,7 +986,9 @@ function generateInjectionNotes(
 
   // Runtime Dependencies — derived from registry
   if (entry.runtimeDependencies && entry.runtimeDependencies.length > 0) {
-    const depLines = entry.runtimeDependencies.map((d) => `- \`${d}\``)
+    const depLines = entry.runtimeDependencies.map(
+      (d) => `- \`${d}\`${isOptionalPeer(pkg, d) ? ' *(optional)*' : ''}`,
+    )
     subsections.push(`### Runtime Dependencies\n\n${depLines.join('\n')}`)
   }
 
