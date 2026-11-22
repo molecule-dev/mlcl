@@ -55569,9 +55569,9 @@
       ],
       "path": "packages/app/features/i18n-default-react",
       "intentHints": [
-        "i18n default",
-        "localization defaults",
-        "default translations"
+        "react i18n default",
+        "react localization defaults",
+        "react default translations"
       ]
     },
     "@molecule/app-i18n-i18next": {
@@ -55614,8 +55614,8 @@
       "path": "packages/app/bonds/i18n/i18next",
       "intentHints": [
         "i18n language switch",
-        "internationalization react",
-        "translate strings react"
+        "internationalization i18next",
+        "translate strings"
       ]
     },
     "@molecule/app-i18n-react-i18next": {
