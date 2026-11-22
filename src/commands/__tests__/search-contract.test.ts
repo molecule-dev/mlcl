@@ -222,6 +222,28 @@ describe('mlcl search — discovery contract the stdio MCP forwards', () => {
     }
   })
 
+  it('reads every word of an unquoted query, wherever the flags sit', async () => {
+    const quoted = await runJson(['schema validation', '--stack', 'api'])
+    expect(quoted.map((hit) => hit.name)).toEqual([API_TARGET])
+    expect(await runJson(['schema', 'validation', '--stack', 'api'])).toEqual(quoted)
+    expect(await runJson(['schema', '--stack', 'api', 'validation'])).toEqual(quoted)
+  })
+
+  it('refuses a mistyped flag instead of searching for it', async () => {
+    // Non-strict parsing still rejects a flag the command does not declare, so a typo never
+    // becomes part of the query.
+    stdout = ''
+    stderr = ''
+    captureStreams()
+    try {
+      await expect(Search.run(['form', '--stak', 'api'], config)).rejects.toThrow(
+        /Nonexistent flag: --stak/,
+      )
+    } finally {
+      restoreStreams()
+    }
+  })
+
   it('refuses an empty query', async () => {
     stdout = ''
     stderr = ''

@@ -85,8 +85,15 @@ export default class Search extends Command {
   ]
 
   static override args = {
-    query: Args.string({ description: 'Search query', required: true }),
+    query: Args.string({
+      description: 'Search query; several words need no quotes (mlcl search send emails)',
+      required: true,
+    }),
   }
+
+  // A query is natural language, and an agent writes `mlcl search tool lending` as often as
+  // `mlcl search "tool lending"`: every word after the first is part of the query, not an error.
+  static override strict = false
 
   static override flags = {
     stack: Flags.string({
@@ -108,9 +115,9 @@ export default class Search extends Command {
   }
 
   public async run(): Promise<void> {
-    const { args, flags } = await this.parse(Search)
-    setTelemetryContext({ searchQuery: (args.query ?? '').slice(0, 100) })
-    const q = (args.query ?? '').trim()
+    const { argv, flags } = await this.parse(Search)
+    const q = (argv as string[]).join(' ').trim()
+    setTelemetryContext({ searchQuery: q.slice(0, 100) })
     if (!q) this.error('Provide a search query, e.g. mlcl search payments')
 
     // The shared owner applies the stack filter BEFORE ranking/truncation and
