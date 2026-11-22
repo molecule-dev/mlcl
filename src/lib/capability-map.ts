@@ -11,6 +11,7 @@ import { isAbsolute, join, posix, relative as relativePath, sep } from 'node:pat
 
 import { ts } from 'ts-morph'
 
+import { CAPABILITY_MAP_MARKER, removeSection, renderSection } from './instruction-section.js'
 import { getRawRegistry } from './registry.js'
 import type { Registry, RegistryEntry } from './schema.js'
 
@@ -629,7 +630,7 @@ function prefixed(workspace: string, path: string): string {
 export function renderCapabilityMap(entries: readonly CapabilityMapEntry[]): string {
   if (entries.length === 0) return ''
   const lines = [
-    '## Declared capability map',
+    CAPABILITY_MAP_MARKER,
     '',
     "Generated from this project's package manifests and `mlcl/registry.json`. Map every feature in the plan to a declared package and its configuration. Read that package's doc before deciding; write `use @molecule/<name> with <configuration>` or `not using @molecule/<name> because <reason>` after the doc read. An API-shape difference is configuration to look up, not a reason to write a parallel implementation.",
     '',
@@ -824,4 +825,29 @@ export async function stampCapabilityBondHeaders(
     }
   }
   return changed
+}
+
+/**
+ * Rewrite the capability map in a project's `AGENTS.md` from its manifests, so the map an agent
+ * reads lists a package as soon as `mlcl add`, `inject` or `swap` changes it. A file without the
+ * map (the user's own `AGENTS.md`, or no file) is left as it is.
+ *
+ * @param projectRoot - The project root, where `AGENTS.md` and the root manifest are.
+ * @returns True when the file changed.
+ */
+export async function refreshAgentsCapabilityMap(projectRoot: string): Promise<boolean> {
+  const target = join(projectRoot, 'AGENTS.md')
+  let existing: string
+  try {
+    existing = await readFile(target, 'utf8')
+  } catch (_error) {
+    return false
+  }
+  if (!new RegExp(`^${CAPABILITY_MAP_MARKER}[\t ]*$`, 'm').test(existing)) return false
+  const map = renderCapabilityMap(await readProjectCapabilityMap(projectRoot))
+  if (!map) return removeSection(target, CAPABILITY_MAP_MARKER)
+  const { text } = renderSection(existing, map, true, CAPABILITY_MAP_MARKER)
+  if (text === existing) return false
+  await writeFile(target, text)
+  return true
 }

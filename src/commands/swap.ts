@@ -6,6 +6,7 @@ import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { appendSecretsToEnvFile, type EnvAppendResult } from '../lib/env-file.js'
 import { collectSecrets } from '../lib/features.js'
@@ -438,6 +439,13 @@ export default class Swap extends Command {
       } catch (_error) {
         // Formatting is best-effort; a missing prettier or config error should not abort the swap
       }
+    }
+
+    // The AGENTS.md capability map lists the project's packages: keep it current.
+    try {
+      await refreshAgentsCapabilityMap(npmInstallRoot(projectPath))
+    } catch (error) {
+      this.warn(`Could not update the capability map in AGENTS.md: ${error}`)
     }
 
     p.outro(chalk.green(t('commands.swap.messages.success', { old: oldPkg.name, new: newName })))

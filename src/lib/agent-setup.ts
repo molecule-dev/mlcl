@@ -25,7 +25,7 @@ import {
   type McpTarget,
   type SetupScope,
 } from './agent-harnesses.js'
-import { ensureSection, removeSection } from './instruction-section.js'
+import { CAPABILITY_MAP_MARKER, ensureSection, removeSection } from './instruction-section.js'
 import { mergeJsonConfigEntry } from './json-config-entry.js'
 
 /** The three things setup can install. */
@@ -33,9 +33,6 @@ export type SetupComponent = 'mcp' | 'skills' | 'instructions'
 
 /** Every component, in the order they are applied. */
 export const SETUP_COMPONENTS: readonly SetupComponent[] = ['mcp', 'skills', 'instructions']
-
-/** The heading of the per-project capability map section in `AGENTS.md`. */
-export const CAPABILITY_MAP_MARKER = '## Declared capability map'
 
 /** One thing a setup run does. */
 export type SetupStep =

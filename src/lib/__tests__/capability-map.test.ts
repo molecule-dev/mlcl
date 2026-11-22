@@ -7,6 +7,7 @@ import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 import {
   buildCapabilityMap,
   readProjectCapabilityMap,
+  refreshAgentsCapabilityMap,
   renderCapabilityMap,
   stampCapabilityBondHeaders,
 } from '../capability-map.js'
@@ -128,5 +129,43 @@ describe('declared capability map', () => {
     expect(first).toContain("authScheme: 'Token'")
     expect(first).toContain("storage: 'memory'")
     expect(await readFile(configPath, 'utf8')).toBe(config)
+  })
+})
+
+describe('refreshAgentsCapabilityMap', () => {
+  const declare = (dependencies: Record<string, string>): Promise<void> =>
+    writeFile(join(dir, 'app', 'package.json'), JSON.stringify({ dependencies }))
+
+  it('rewrites the map in AGENTS.md after a package is declared, keeping the sections around it', async () => {
+    await writeFile(
+      join(dir, 'package.json'),
+      JSON.stringify({ private: true, workspaces: ['app'] }),
+    )
+    await mkdir(join(dir, 'app'))
+    await declare({ '@molecule/app-auth': '1.0.0' })
+    const map = renderCapabilityMap(await readProjectCapabilityMap(dir))
+    const agents = join(dir, 'AGENTS.md')
+    await writeFile(
+      agents,
+      `# Project\n\nIntro.\n\n${map}\n\n## API resource clients\n\nKeep me.\n`,
+    )
+
+    await declare({ '@molecule/app-auth': '1.0.0', '@molecule/app-http': '1.0.0' })
+    expect(await refreshAgentsCapabilityMap(dir)).toBe(true)
+    const text = await readFile(agents, 'utf8')
+    expect(text).toContain('`@molecule/app-http`')
+    expect(text.startsWith('# Project\n\nIntro.\n\n## Declared capability map\n')).toBe(true)
+    expect(text.endsWith('\n\n## API resource clients\n\nKeep me.\n')).toBe(true)
+    expect(text.match(/^## Declared capability map$/gm)).toHaveLength(1)
+    expect(await refreshAgentsCapabilityMap(dir)).toBe(false)
+  })
+
+  it('leaves an AGENTS.md without a map, or no AGENTS.md, as it is', async () => {
+    await mkdir(join(dir, 'app'))
+    await declare({ '@molecule/app-auth': '1.0.0' })
+    expect(await refreshAgentsCapabilityMap(dir)).toBe(false)
+    await writeFile(join(dir, 'AGENTS.md'), '# Mine\n\nMy rules.\n')
+    expect(await refreshAgentsCapabilityMap(dir)).toBe(false)
+    expect(await readFile(join(dir, 'AGENTS.md'), 'utf8')).toBe('# Mine\n\nMy rules.\n')
   })
 })

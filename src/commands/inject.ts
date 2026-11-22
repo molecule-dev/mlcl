@@ -7,6 +7,7 @@ import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT } from '../lib/ddl-exit.js'
 import { appendSecretsToEnvFile, type EnvAppendResult } from '../lib/env-file.js'
@@ -1062,6 +1063,13 @@ export default class Inject extends Command {
       for (const error of errors) {
         this.log(`  ${chalk.red('•')} ${error}`)
       }
+    }
+
+    // The AGENTS.md capability map lists the project's packages: keep it current.
+    try {
+      await refreshAgentsCapabilityMap(npmInstallRoot(projectPath))
+    } catch (error) {
+      this.warn(`Could not update the capability map in AGENTS.md: ${error}`)
     }
 
     p.outro(

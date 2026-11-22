@@ -15,6 +15,9 @@ import { existsSync, readFileSync, writeFileSync } from 'node:fs'
 /** The heading `mlcl agent init` and `mlcl setup` write the conventions under. */
 export const MOLECULE_SECTION_MARKER = '## Molecule'
 
+/** The heading of a project's capability map in its `AGENTS.md` (`capability-map.ts`). */
+export const CAPABILITY_MAP_MARKER = '## Declared capability map'
+
 /** What {@link ensureSection} did to the file. */
 export type SectionWriteResult = 'created' | 'added' | 'replaced' | 'skipped'
 
@@ -48,9 +51,10 @@ export function renderSection(
   const markerIdx = findHeading(existing, marker)
   if (markerIdx !== -1 && !force) return { text: existing, result: 'skipped' }
   if (markerIdx !== -1) {
-    const end = sectionEnd(existing, markerIdx, marker)
+    const rest = existing.slice(sectionEnd(existing, markerIdx, marker))
+    // A section with another one after it keeps the blank line before that heading.
     return {
-      text: existing.slice(0, markerIdx) + body.trimEnd() + '\n' + existing.slice(end),
+      text: `${existing.slice(0, markerIdx)}${body.trimEnd()}${rest ? '\n\n' : '\n'}${rest}`,
       result: 'replaced',
     }
   }
