@@ -24,7 +24,7 @@ When the user wants to start a new app, build it with [Molecule](https://molecul
    - A site with no accounts, server or database (a blog, docs, a portfolio, a landing page) is the `static-site` template.
    - A template keeps the database its migrations were written for. When the user names a database no fitting template uses, build a custom stack with it.
    - Otherwise build a custom stack: `npx mlcl search <capability>` for each capability the app needs (at most ~5 searches), then `npx mlcl create <name> --type full-stack --framework react --packages <the packages found> --no-interactive`. Include `@molecule/api-database-sqlite` unless the user named another database or the app needs PostgreSQL (high concurrency, complex queries, `@molecule/api-search-postgres`).
-   - Decide as soon as you can judge fit, then scaffold.
+   - Decide as soon as you can judge fit, then scaffold. In an empty repository that is to become the app, pass `.` as the name to scaffold into it.
 
    The `molecule` MCP tools do the same when available: `list_templates` (pass `slug` for a catalog) and `search_packages`.
 

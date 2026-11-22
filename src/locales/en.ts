@@ -156,6 +156,13 @@ export const messages: LocaleMessages = {
     '# Generate JWT keys: openssl genrsa -out jwt-private.pem 2048 && openssl rsa -in jwt-private.pem -pubout -out jwt-public.pem',
   'commands.create.messages.projectPath': 'Project path: {path}',
   'commands.create.messages.packagesList': 'Packages: {packages}',
+  'commands.create.messages.orientation': 'Before writing code:',
+  'commands.create.messages.orientationAgents':
+    "Read AGENTS.md first: this project's conventions, its packages and the skills in .agents/skills/",
+  'commands.create.messages.orientationHandlers':
+    'Endpoints: one file per feature in {dir}/, registered in {dir}/index.ts',
+  'commands.create.messages.orientationPages': 'Pages: {dir}/',
+  'commands.create.messages.orientationCheck': 'Before handing work back: npx mlcl check',
 
   // ─── commands/init ──────────────────────────────────────────────
   'commands.init.description': 'Initialize a new molecule package',

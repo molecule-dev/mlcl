@@ -15,7 +15,7 @@
  * @module
  */
 
-import { mkdtemp, rm } from 'node:fs/promises'
+import { mkdir, mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -86,6 +86,7 @@ describe('mlcl create — the next steps after an unfinished scaffold', () => {
   async function create(
     args: string[],
     inject: 'refuses' | 'succeeds',
+    names: { human: string; json: string } = { human: 'proj', json: 'proj-json' },
   ): Promise<{ lines: string[]; json: Record<string, unknown>; version: string }> {
     const config = await Config.load(MLCL_ROOT)
     const run = async (name: string, extra: string[]): Promise<string[]> => {
@@ -109,11 +110,11 @@ describe('mlcl create — the next steps after an unfinished scaffold', () => {
       }
       return logged
     }
-    const lines = (await run('proj', []))
+    const lines = (await run(names.human, []))
       .join('\n')
       .split('\n')
       .map((line) => line.trim())
-    const printed = await run('proj-json', ['--json'])
+    const printed = await run(names.json, ['--json'])
     const jsonText = printed.find((text) => text.startsWith('{'))
     if (!jsonText) throw new Error(`create --json printed no result object:\n${printed.join('\n')}`)
     const json: unknown = JSON.parse(jsonText)
@@ -183,6 +184,53 @@ describe('mlcl create — the next steps after an unfinished scaffold', () => {
     ])
     expect(json.injectSkipped).toEqual([])
     expect(json.pendingSetup).toEqual(['npm install', `npx mlcl@${version} inject --force -p .`])
+  })
+
+  /**
+   * The lines after "Before writing code:", up to the first blank line.
+   *
+   * @param lines - Every printed line, trimmed.
+   * @returns The orientation lines.
+   */
+  const orientation = (lines: string[]): string[] => {
+    const start = lines.lastIndexOf('Before writing code:')
+    if (start < 0) throw new Error(`no "Before writing code:" in:\n${lines.join('\n')}`)
+    const rest = lines.slice(start + 1)
+    const end = rest.indexOf('')
+    return end < 0 ? rest : rest.slice(0, end)
+  }
+
+  it('a full-stack scaffold ends by naming AGENTS.md, where code goes, and the check', async () => {
+    const { lines, json } = await create(
+      ['--type', 'full-stack', '--framework', 'react'],
+      'succeeds',
+    )
+    expect(orientation(lines)).toEqual([
+      "Read AGENTS.md first: this project's conventions, its packages and the skills in .agents/skills/",
+      'Endpoints: one file per feature in api/src/handlers/, registered in api/src/handlers/index.ts',
+      'Pages: app/src/pages/',
+      'Before handing work back: npx mlcl check',
+    ])
+    expect(json.next).toEqual(orientation(lines))
+  })
+
+  it('an app-only scaffold names no endpoint directory it does not have', async () => {
+    const { lines, json } = await create(['--type', 'app', '--framework', 'react'], 'succeeds')
+    const said = orientation(lines)
+    expect(said.some((line) => line.startsWith('Endpoints:'))).toBe(false)
+    expect(said.at(-1)).toBe('Before handing work back: npx mlcl check')
+    expect(json.next).toEqual(said)
+  })
+
+  it('a scaffold into the current directory (mlcl create .) starts its next steps without a cd', async () => {
+    const here = join(dir, 'empty-repo')
+    await mkdir(here)
+    process.chdir(here)
+    const { lines } = await create(['--type', 'app', '--framework', 'react'], 'succeeds', {
+      human: '.',
+      json: 'proj-json',
+    })
+    expect(nextSteps(lines)[0]).toBe('npm install')
   })
 
   it('an injected --skip-install scaffold still needs only npm install', async () => {

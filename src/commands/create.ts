@@ -7,6 +7,7 @@ import { execa } from 'execa'
 
 import { AUTH_PRECONFIGURATION_GUIDANCE, readOpenApiAuthContract } from '../lib/auth-contract.js'
 import { readProjectCapabilityMap } from '../lib/capability-map.js'
+import { changeDirectoryStep, projectOrientation } from '../lib/create-next.js'
 import { withHeartbeat } from '../lib/create-progress.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT, isDdlCompatibilityFailure } from '../lib/ddl-exit.js'
@@ -636,7 +637,8 @@ export default class Create extends Command {
         }
         say('')
         say(ui.heading(t('commands.create.messages.nextSteps')))
-        say(`  ${ui.cmd(`cd ${projectName}`)}`)
+        const cdStep = changeDirectoryStep(projectPath)
+        if (cdStep) say(`  ${ui.cmd(cdStep)}`)
         for (const step of pendingSetupSteps({
           installNeeded,
           injectSkipped: [],
@@ -645,6 +647,10 @@ export default class Create extends Command {
           say(`  ${ui.cmd(step)}`)
         say(`  ${ui.dim('# edit api/.env and app/.env with your credentials')}`)
         say(`  ${ui.cmd('npm run dev')}`)
+        const orientation = projectOrientation(projectPath)
+        say('')
+        say(ui.heading(t('commands.create.messages.orientation')))
+        for (const line of orientation) say(`  ${line}`)
         if (flags.json) {
           this.log(
             JSON.stringify(
@@ -666,6 +672,7 @@ export default class Create extends Command {
                   cliVersion: this.config.version,
                 }),
                 capabilityMap: await readProjectCapabilityMap(projectPath),
+                next: orientation,
               },
               null,
               2,
@@ -1210,7 +1217,8 @@ export default class Create extends Command {
           ? t('commands.create.messages.nextSteps')
           : chalk.bold(t('commands.create.messages.nextSteps')),
       )
-      say(`  cd ${projectName}`)
+      const cdStep = changeDirectoryStep(projectPath)
+      if (cdStep) say(`  ${cdStep}`)
       for (const step of pendingSetupSteps({
         installNeeded,
         injectSkipped: [],
@@ -1218,6 +1226,10 @@ export default class Create extends Command {
       }))
         say(`  ${step}`)
       say('  npx wrangler dev')
+      const orientation = projectOrientation(projectPath)
+      say('')
+      say(t('commands.create.messages.orientation'))
+      for (const line of orientation) say(`  ${line}`)
       if (nonInteractive) {
         say('')
         say(t('commands.create.messages.projectPath', { path: projectPath }))
@@ -1240,6 +1252,7 @@ export default class Create extends Command {
                 cliVersion: this.config.version,
               }),
               capabilityMap: await readProjectCapabilityMap(projectPath),
+              next: orientation,
             },
             null,
             2,
@@ -1606,7 +1619,8 @@ export default class Create extends Command {
         ? t('commands.create.messages.nextSteps')
         : chalk.bold(t('commands.create.messages.nextSteps')),
     )
-    say(`  cd ${projectName}`)
+    const cdStep = changeDirectoryStep(projectPath)
+    if (cdStep) say(`  ${cdStep}`)
     for (const step of pendingSetupSteps({
       installNeeded,
       injectSkipped,
@@ -1630,6 +1644,14 @@ export default class Create extends Command {
       say(`  ${t('commands.create.messages.generateJwt')}`)
     }
     say(`  npm run dev`)
+    const orientation = projectOrientation(projectPath)
+    say('')
+    say(
+      nonInteractive
+        ? t('commands.create.messages.orientation')
+        : chalk.bold(t('commands.create.messages.orientation')),
+    )
+    for (const line of orientation) say(`  ${line}`)
 
     if (nonInteractive) {
       say('')
@@ -1658,6 +1680,7 @@ export default class Create extends Command {
             }),
             ...(apiAuthContract ? { authGuidance: AUTH_PRECONFIGURATION_GUIDANCE } : {}),
             capabilityMap: await readProjectCapabilityMap(projectPath),
+            next: orientation,
           },
           null,
           2,
