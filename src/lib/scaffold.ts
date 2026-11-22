@@ -1857,6 +1857,52 @@ export async function injectPreviewLivenessBridge(
   return true
 }
 
+/**
+ * Give an HTML entry document the molecule.dev IDE preview bridges, or none at all.
+ *
+ * The five bridges only talk to the IDE that frames the live preview (URL bar, snapshots,
+ * runtime errors, UI commands, liveness), so a project the user runs on its own has no use for
+ * them. `mlcl create` writes them only when the host asks: `--ide-preview`, or
+ * `MLCL_IDE_PREVIEW=1`, which molecule.dev's scaffold sets. Without it the liveness region a
+ * template bakes into its entry document is removed as well. A production build strips the
+ * bridges either way (`vite-preview-bridge-plugin.ts`).
+ *
+ * @param htmlPath - Absolute path to the scaffolded HTML entry file.
+ * @param publicDir - The app's configured static dir, when the caller knows it.
+ * @param idePreview - Whether the project will run inside the molecule.dev IDE preview.
+ */
+export async function applyPreviewBridges(
+  htmlPath: string,
+  publicDir: string | undefined,
+  idePreview: boolean,
+): Promise<void> {
+  if (!idePreview) {
+    if (!existsSync(htmlPath)) return
+    const html = await readFile(htmlPath, 'utf-8')
+    const region = PREVIEW_LIVENESS_REGION.exec(html)
+    if (region) {
+      await writeGuarded(
+        htmlPath,
+        html.slice(0, region.index) + html.slice(region.index + region[0].length),
+      )
+    }
+    return
+  }
+  // The molecule:navigate sender (URL bar, Back/Forward): a flagship's static index.html
+  // predates the protocol, so without it the IDE URL bar stays frozen.
+  await injectPreviewNavBridge(htmlPath, publicDir)
+  // The snapshot + self-healing-readiness bridge (blurred last-good frame, stuck-overlay heal).
+  await injectPreviewSnapshotBridge(htmlPath, publicDir)
+  // Runtime-failure detection (heartbeat, runtime-error forwarding, blank-render signal): a
+  // custom build has no baked sender, so this is its only runtime detection.
+  await injectPreviewRuntimeBridge(htmlPath, publicDir)
+  // The live-preview control bridge: Synthase reads the UI by data-mol-id and clicks/fills it.
+  await injectPreviewInteractBridge(htmlPath, publicDir)
+  // Move the baked liveness bridge (13 KB of the document) into the static directory and
+  // leave the one-line reference; a document without the region is left alone.
+  await injectPreviewLivenessBridge(htmlPath, publicDir)
+}
+
 // ---------------------------------------------------------------------------
 // IDE8 — activity-capture PRODUCER wiring (docs/BAAS-activity.md §3-4)
 //
@@ -2724,6 +2770,7 @@ export async function copyTemplateInstance(
   projectName: string,
   setupSqlVersions: Readonly<Record<string, string | undefined>>,
   authContract?: AuthContract,
+  options: { idePreview?: boolean } = {},
 ): Promise<void> {
   if (!existsSync(templateDir)) {
     throw new Error(`Template directory not found: ${templateDir}`)
@@ -2935,33 +2982,9 @@ export async function copyTemplateInstance(
   // for the preview-bridge injectors below.
   const indexHtmlPath = join(destDir, 'app', 'index.html')
 
-  // Inject the molecule:navigate sender (PV2 URL bar + PV3 Back/Forward). Flagship
-  // templates ship a static index.html that predates this protocol, so without
-  // this the copied preview never reports its client-side navigations and the IDE
-  // URL bar / Back-Forward stay frozen. Idempotent; runs regardless of branding.ts.
-  await injectPreviewNavBridge(indexHtmlPath)
-
-  // Inject the snapshot + self-healing-readiness bridge (P2-16 blurred last-good
-  // frame + P2-15 stuck-overlay self-heal). Same single-source rule as the nav
-  // bridge — one place reaches every flagship. Idempotent; no-op outside the IDE.
-  await injectPreviewSnapshotBridge(indexHtmlPath)
-
-  // Inject the runtime-failure-detection bridge (heartbeat → freeze detection,
-  // runtime-error forwarding, blank-render signal). Same single-source rule — the one
-  // place a CUSTOM build (no baked sender) gets any runtime detection. Idempotent.
-  await injectPreviewRuntimeBridge(indexHtmlPath)
-
-  // Inject the live-preview control bridge (Synthase reads the on-screen UI by
-  // data-mol-id + clicks/fills to verify a feature end-to-end). Same single-source
-  // rule as the other bridges — one place reaches every flagship. Idempotent;
-  // no-op outside the IDE. Mirrors molecule-dev's imported-app proxy bundle.
-  await injectPreviewInteractBridge(indexHtmlPath)
-
-  // Move the LIVENESS bridge each template bakes into its index.html (13 KB of
-  // the document, sentinel-delimited) into the app's static directory and leave
-  // the one-line reference. Runs FIRST of the two bridge groups in terms of what
-  // the executor sees, and never adds the bridge to a template that lacks it.
-  await injectPreviewLivenessBridge(indexHtmlPath)
+  // The IDE preview bridges, only for a project the molecule.dev IDE will frame (one place
+  // reaches every flagship; see applyPreviewBridges). Idempotent.
+  await applyPreviewBridges(indexHtmlPath, undefined, options.idePreview === true)
 
   // Wire the IDE8 activity-capture PRODUCER into the copied API boot so a
   // captured email/webhook/push fired in a molecule.dev sandbox surfaces in the
@@ -3860,10 +3883,49 @@ async function scaffoldEslint(projectPath: string, configName = 'eslint.config.j
   for (const file of TEMPLATE_ESLINT_RULES) {
     await writeGuarded(join(rulesDir, file), await loadTemplate(`shared/${file}`))
   }
-  await writeGuarded(
-    join(projectPath, configName),
-    await loadTemplate('shared/eslint.config.js.tpl'),
-  )
+  const config = await loadTemplate('shared/eslint.config.js.tpl')
+  await writeGuarded(join(projectPath, configName), config)
+  await declareEslintConfigImports(projectPath, config)
+}
+
+/**
+ * Declare every package the shared ESLint config imports in the workspace's own manifest.
+ *
+ * A flagship's manifest is copied as the template authored it, and inside this workspace the
+ * config's plugins resolve through hoisting, so a template that never declared one still lints
+ * here. A user's standalone copy then failed `npm run build` (its prebuild lint) with
+ * ERR_MODULE_NOT_FOUND for `eslint-plugin-react-hooks` (2026-11-22: 150 of 152 flagship apps).
+ * Missing packages are added at the registry toolchain's pin; an existing pin is kept.
+ *
+ * @param projectPath - The workspace directory (holds package.json).
+ * @param config - The ESLint config text just written there.
+ */
+async function declareEslintConfigImports(projectPath: string, config: string): Promise<void> {
+  const manifestPath = join(projectPath, 'package.json')
+  if (!existsSync(manifestPath)) return
+  const pkg = JSON.parse(await readFile(manifestPath, 'utf8')) as {
+    dependencies?: Record<string, string>
+    devDependencies?: Record<string, string>
+  }
+  const shared = loadToolchain().shared as Record<string, string>
+  const missing: Record<string, string> = {}
+  for (const [, specifier] of config.matchAll(/^import\b[^'"]*['"]([^'"]+)['"]/gm)) {
+    if (specifier.startsWith('.') || specifier.startsWith('node:')) continue
+    const name = specifier.startsWith('@')
+      ? specifier.split('/').slice(0, 2).join('/')
+      : specifier.split('/')[0]!
+    if (pkg.dependencies?.[name] || pkg.devDependencies?.[name]) continue
+    const pin = shared[name]
+    if (!pin) {
+      throw new Error(
+        `shared/eslint.config.js.tpl imports ${name}, which the registry toolchain does not pin`,
+      )
+    }
+    missing[name] = pin
+  }
+  if (Object.keys(missing).length === 0) return
+  pkg.devDependencies = sortKeys({ ...(pkg.devDependencies ?? {}), ...missing })
+  await writeFile(manifestPath, JSON.stringify(pkg, null, 2) + '\n')
 }
 
 /**
@@ -5293,26 +5355,9 @@ export async function createAppProject(
   // else is index.html at the project root. Idempotent — see injectPreviewNavBridge.
   const htmlEntryPath =
     htmlFile === 'app.html' ? join(projectPath, 'src', htmlFile) : join(projectPath, htmlFile)
-  await injectPreviewNavBridge(htmlEntryPath, publicDirPath)
-
-  // Inject the snapshot + self-healing-readiness bridge (P2-16 blurred last-good
-  // frame + P2-15 stuck-overlay self-heal) right after the nav bridge, into the
-  // same freshly written HTML entry. Idempotent — see injectPreviewSnapshotBridge.
-  await injectPreviewSnapshotBridge(htmlEntryPath, publicDirPath)
-
-  // Inject the runtime-failure-detection bridge (heartbeat → freeze detection,
-  // runtime-error forwarding, blank-render signal). This is a CUSTOM build, so there
-  // is no baked sender — this injection is its ONLY runtime detection. Idempotent.
-  await injectPreviewRuntimeBridge(htmlEntryPath, publicDirPath)
-
-  // Inject the live-preview control bridge (Synthase reads/clicks the preview UI to
-  // verify a feature end-to-end). This is a CUSTOM build with no proxy bundle, so this
-  // injection is its ONLY interaction channel. Idempotent — see injectPreviewInteractBridge.
-  await injectPreviewInteractBridge(htmlEntryPath, publicDirPath)
-
-  // Move the baked liveness bridge out of the freshly written entry (13 KB of it)
-  // into the app's static directory. Idempotent — see injectPreviewLivenessBridge.
-  await injectPreviewLivenessBridge(htmlEntryPath, publicDirPath)
+  // `create` passes the host's --ide-preview choice through the template variables, beside
+  // AUTH_CONTRACT_JSON. Idempotent — see applyPreviewBridges.
+  await applyPreviewBridges(htmlEntryPath, publicDirPath, extraVars.IDE_PREVIEW === '1')
 
   // Contract-derived source must see the project's rules on its first format.
   await writeFile(

@@ -248,6 +248,14 @@ export default class Create extends Command {
       default: false,
       env: 'MLCL_REQUIRE_INJECT',
     }),
+    // The molecule.dev IDE frames the live preview and talks to it through five bridge scripts;
+    // a project the user runs on its own carries none. The host sets MLCL_IDE_PREVIEW=1, which an
+    // mlcl older than this flag ignores.
+    'ide-preview': Flags.boolean({
+      description: t('commands.create.flags.idePreview'),
+      default: false,
+      env: 'MLCL_IDE_PREVIEW',
+    }),
     type: Flags.string({
       description: t('commands.create.flags.type'),
       options: ['api', 'app', 'full-stack', 'static', 'status-page', 'status-page-edge'],
@@ -559,6 +567,7 @@ export default class Create extends Command {
           projectName,
           setupSqlVersions,
           apiAuthContract,
+          { idePreview: flags['ide-preview'] },
         )
         await ensureRootFormatterConfig(projectPath)
         await ensureAgentsMd(projectPath)
@@ -901,6 +910,7 @@ export default class Create extends Command {
       apiAuthContract.resourcePackage = resources[0]
     }
     if (apiAuthContract) extraVars.AUTH_CONTRACT_JSON = JSON.stringify(apiAuthContract)
+    if (flags['ide-preview']) extraVars.IDE_PREVIEW = '1'
     for (const name of selectedPackageNames) {
       const pkg = allPackages.find((p) => p.name === name)
       const bondWiring = pkg?.molecule?.bondWiring as

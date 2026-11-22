@@ -50,6 +50,8 @@ export const messages: LocaleMessages = {
   'commands.create.flags.skipInstall': 'Skip npm install',
   'commands.create.flags.requireInject':
     'Fail when the integration code cannot be generated, instead of leaving it for a later mlcl inject (also MLCL_REQUIRE_INJECT=1)',
+  'commands.create.flags.idePreview':
+    'Add the molecule.dev IDE live-preview bridge scripts to the app (also MLCL_IDE_PREVIEW=1)',
   'commands.create.flags.type': 'Project type (api, app, or full-stack)',
   'commands.create.flags.framework': 'Frontend framework (app only)',
   'commands.create.flags.packages': 'Comma-separated list of @molecule package names to include',

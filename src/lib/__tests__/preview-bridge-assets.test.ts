@@ -262,7 +262,7 @@ describe('the bridge assets belong to the PROJECT, not to the process cwd (flash
     // absolutely — a sibling test that happens to create it must not fail this one.
     const outside = join(process.cwd(), 'public', '__mol', 'bridges', 'nav-bridge.js')
     const outsideBefore = existsSync(outside)
-    await createAppProject(projectPath, 'cap-app', 'react')
+    await createAppProject(projectPath, 'cap-app', 'react', false, '', { IDE_PREVIEW: '1' })
 
     for (const name of BRIDGES) {
       expect(
@@ -274,6 +274,17 @@ describe('the bridge assets belong to the PROJECT, not to the process cwd (flash
     for (const name of BRIDGES)
       expect(document, `${name} reference`).toContain(`<script src="/__mol/bridges/${name}.js">`)
     expect(existsSync(outside), 'nothing written outside the project').toBe(outsideBefore)
+  })
+
+  // 2026-11-22 smoke-test review: a project the user runs on its own carried the five IDE
+  // bridges (wildcard postMessage to window.parent) that only the molecule.dev IDE talks to.
+  it('writes no bridge, no reference and no baked liveness region without --ide-preview', async () => {
+    const projectPath = join(await mkdtemp(join(tmpdir(), 'mlcl-standalone-')), 'my-app')
+    await createAppProject(projectPath, 'solo-app', 'react')
+    expect(existsSync(join(projectPath, 'public', '__mol')), 'no __mol directory').toBe(false)
+    const document = await readFile(join(projectPath, 'index.html'), 'utf-8')
+    expect(document).not.toMatch(/mol:[a-z-]*bridge|__mol|__molecule_log|postMessage/)
+    expect(document).toContain('<div id="root"></div>')
   })
 
   it('refuses a bare directory name, so the next caller cannot misplace them silently', async () => {
