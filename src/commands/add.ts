@@ -273,7 +273,10 @@ export default class Add extends Command {
 
       // The AGENTS.md capability map lists the project's packages: keep it current.
       try {
-        await refreshAgentsCapabilityMap(npmInstallRoot(workDir))
+        // From a full-stack root, `add` moved into the package's workspace: the root is where it ran.
+        await refreshAgentsCapabilityMap(
+          workDir === process.cwd() ? npmInstallRoot(workDir) : process.cwd(),
+        )
       } catch (error) {
         this.warn(`Could not update the capability map in AGENTS.md: ${error}`)
       }

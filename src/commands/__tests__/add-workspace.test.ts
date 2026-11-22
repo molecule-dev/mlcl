@@ -15,6 +15,7 @@ import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { AUTH_PRECONFIGURATION_GUIDANCE } from '../../lib/auth-contract.js'
+import { readProjectCapabilityMap, renderCapabilityMap } from '../../lib/capability-map.js'
 import { missingMoleculePeers } from '../../lib/peer-closure.js'
 import Add from '../add.js'
 
@@ -38,6 +39,24 @@ describe('mlcl add from a full-stack project root', () => {
     process.chdir(prevCwd)
     vi.restoreAllMocks()
     await rm(dir, { recursive: true, force: true })
+  })
+
+  it('lists the added package in the AGENTS.md capability map', async () => {
+    writeFileSync(
+      join(dir, 'app', 'package.json'),
+      `${JSON.stringify({ name: 'x', dependencies: { '@molecule/app-auth': '1.0.0' } })}\n`,
+    )
+    const map = renderCapabilityMap(await readProjectCapabilityMap(dir))
+    writeFileSync(join(dir, 'AGENTS.md'), `# Project\n\n${map}\n`)
+    expect(map).not.toContain('`@molecule/app-http`')
+    const config = await Config.load(MLCL_ROOT)
+    const cmd = new Add(['@molecule/app-http', '--no-install'], config)
+    vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
+    vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+    await cmd.run()
+    const agents = readFileSync(join(dir, 'AGENTS.md'), 'utf8')
+    expect(agents).toContain('`@molecule/app-http`')
+    expect(agents).toContain('`@molecule/app-auth`')
   })
 
   it('refuses a package whose stack it cannot tell, and writes nothing', async () => {
