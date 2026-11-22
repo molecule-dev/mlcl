@@ -1,19 +1,12 @@
 /// <reference types="vitest/config" />
-import type { IncomingMessage } from 'node:http'
 import { createRequire } from 'node:module'
-import {
-  appendFileSync,
-  existsSync,
-  readdirSync,
-  readFileSync,
-  statSync,
-  writeFileSync,
-} from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { defineConfig, type Plugin } from 'vite'
-{{TAILWIND_IMPORT}}{{VITE_PLUGIN_IMPORT}}import { stripPreviewBridgePlugin } from './vite-preview-bridge-plugin.js'
+import { defineConfig } from 'vite'
+{{TAILWIND_IMPORT}}{{VITE_PLUGIN_IMPORT}}import { stripPreviewBridgePlugin } from '@molecule/app-e2e-preview/vite'
+
 import { staticSitePlugin } from './vite-static-site-plugin.js'
 
 // ---------------------------------------------------------------------------
@@ -101,84 +94,6 @@ try {
   localePackages = Object.keys(appPkg.dependencies ?? {}).filter(isLocaleBondPackage)
 } catch (_error) {
   /* no readable package.json — keep every @molecule package excluded */
-}
-
-// Dev-only middleware: the live-preview bridge (index.html) POSTs the running
-// app's console output to /__molecule_log; append it to /tmp/browser.log so the
-// molecule IDE's AI agent can read it via its read_logs tool. No-op in a build.
-//
-// The sink feeds the AI executor, so a foreign page must not be able to append
-// attacker-chosen lines into it (persistent prompt-injection / log poisoning).
-// Gate by Origin: allow requests with no Origin header (non-browser clients),
-// requests whose Origin host equals the request's own Host (the framed app
-// itself — localhost or any sandbox preview host, any port), or the molecule
-// IDE preview proxy origin; everything else gets a 403.
-const isOwnPreviewOrigin = (req: IncomingMessage): boolean => {
-  const rawOrigin = req.headers.origin
-  const origin = Array.isArray(rawOrigin) ? rawOrigin[0] : rawOrigin
-  if (!origin) return true
-  let originHost: string
-  try {
-    originHost = new URL(origin).hostname
-  } catch (_error) {
-    return false // malformed / opaque ("null") Origin — fail closed
-  }
-  const ownHost = String(req.headers.host ?? '')
-    .replace(/:\d+$/, '')
-    .replace(/^\[/, '')
-    .replace(/\]$/, '')
-  return (
-    originHost === ownHost ||
-    originHost === 'localhost' ||
-    originHost === '127.0.0.1' ||
-    originHost === '::1' ||
-    originHost.endsWith('.preview.molecule.dev')
-  )
-}
-
-const previewConsoleLogPlugin: Plugin = {
-  name: 'molecule-preview-console-log',
-  apply: 'serve',
-  configureServer(server) {
-    const LOG = '/tmp/browser.log'
-    const MAX_BYTES = 512 * 1024
-    server.middlewares.use('/__molecule_log', (req, res) => {
-      if (req.method !== 'POST') {
-        res.statusCode = 405
-        res.end()
-        return
-      }
-      if (!isOwnPreviewOrigin(req)) {
-        res.statusCode = 403
-        res.end()
-        return
-      }
-      let body = ''
-      req.on('data', (chunk) => {
-        body += chunk
-        if (body.length > 1_000_000) req.destroy()
-      })
-      req.on('end', () => {
-        try {
-          const entries = JSON.parse(body) as Array<{ l?: string; m?: string; t?: number }>
-          const lines =
-            entries
-              .map(
-                (e) =>
-                  `[${new Date(e.t || Date.now()).toISOString()}] [${e.l || 'log'}] ${e.m || ''}`,
-              )
-              .join('\n') + '\n'
-          appendFileSync(LOG, lines)
-          const size = statSync(LOG).size
-          if (size > MAX_BYTES) writeFileSync(LOG, readFileSync(LOG).subarray(size - MAX_BYTES))
-        } catch (_error) {
-          /* ignore malformed batches */
-        }
-        res.statusCode = 204
-        res.end()
-      })
-    })
-  },
 }
 
 // ── Dev-server watcher: poll the site tree in a molecule sandbox ──

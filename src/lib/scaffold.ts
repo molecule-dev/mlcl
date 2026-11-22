@@ -665,8 +665,8 @@ const PREVIEW_NAV_BRIDGE_SCRIPT = `    <!-- mol:nav-bridge -->
 // `publicDir` is Vite's static directory: the files are served at the app root in
 // `vite dev` and `vite preview` with no plugin involvement. Production stays
 // bridge-free: the strip plugin removes the referencing tags on `vite build` AND
-// deletes the now-unreferenced files from the build output (see
-// templates/app/shared/vite-preview-bridge-plugin.ts.tpl).
+// deletes the now-unreferenced files from the build output
+// (`stripPreviewBridgePlugin` from `@molecule/app-e2e-preview/vite`).
 //
 // The bridge LITERALS stay whole (sentinel comment + `<script>` tags + body): the
 // sentinel is what keeps the injectors idempotent, and molecule-dev keeps
@@ -1865,7 +1865,7 @@ export async function injectPreviewLivenessBridge(
  * them. `mlcl create` writes them only when the host asks: `--ide-preview`, or
  * `MLCL_IDE_PREVIEW=1`, which molecule.dev's scaffold sets. Without it the liveness region a
  * template bakes into its entry document is removed as well. A production build strips the
- * bridges either way (`vite-preview-bridge-plugin.ts`).
+ * bridges either way (`stripPreviewBridgePlugin` from `@molecule/app-e2e-preview/vite`).
  *
  * @param htmlPath - Absolute path to the scaffolded HTML entry file.
  * @param publicDir - The app's configured static dir, when the caller knows it.
@@ -3125,7 +3125,7 @@ const E2E_PACKAGES = [
 
 /**
  * Give an app's package.json the e2e tooling its vite config already imports
- * (`vite-preview-bridge-plugin.ts` pulls in `@molecule/app-e2e-preview/vite`):
+ * (`stripPreviewBridgePlugin` comes from `@molecule/app-e2e-preview/vite`):
  * `@molecule/app-e2e` (Playwright's test/expect/page with the browser as a
  * swappable bond), the preview + playwright bonds, `@playwright/test` (the
  * runner — it never downloads browsers on install) and a `test:e2e` script.
@@ -4215,7 +4215,6 @@ export async function applyStaticSiteOverlay(
       vitePlugin,
       buildTooling?.vitePlugin?.usage,
       'staticSitePlugin()',
-      'previewConsoleLogPlugin',
       'stripPreviewBridgePlugin()',
     ].filter((p): p is string => Boolean(p)),
   )
@@ -5280,7 +5279,6 @@ export async function createAppProject(
       'pwaPlugins',
       'pwaRegistrationPlugin',
       'rootRelativeAssetsPlugin()',
-      'previewConsoleLogPlugin',
       'stripPreviewBridgePlugin({ svelteKit })',
       'svelteKitSite',
     ].filter((p): p is string => Boolean(p)),
@@ -5308,17 +5306,6 @@ export async function createAppProject(
       }),
       viteConfig,
     ),
-  )
-
-  // The vite.config.ts above imports `./vite-preview-bridge-plugin.js`; write that
-  // companion plugin so a production build (`vite build`) STRIPS the dev-only
-  // molecule preview/diagnostics bridge from index.html. The bridge posts
-  // `molecule:*` runtime diagnostics to `window.parent` with a wildcard target
-  // origin for the IDE's live preview — it must never ship to a deployed app that
-  // could be framed cross-origin. Dev (`vite`) keeps it; only the build strips it.
-  await writeFile(
-    join(projectPath, 'vite-preview-bridge-plugin.ts'),
-    await loadTemplate('app/shared/vite-preview-bridge-plugin.ts.tpl'),
   )
 
   // index.html / app.html

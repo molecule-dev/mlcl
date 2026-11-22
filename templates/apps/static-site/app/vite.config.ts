@@ -1,13 +1,5 @@
 /// <reference types="vitest/config" />
-import type { IncomingMessage } from 'node:http'
-import {
-  appendFileSync,
-  existsSync,
-  readdirSync,
-  readFileSync,
-  statSync,
-  writeFileSync,
-} from 'node:fs'
+import { existsSync, readdirSync, readFileSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { dirname, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -16,8 +8,9 @@ import tailwindcss from '@tailwindcss/vite'
 import react from '@vitejs/plugin-react'
 import { defineConfig, type Plugin } from 'vite'
 
+import { stripPreviewBridgePlugin } from '@molecule/app-e2e-preview/vite'
+
 import { contentPlugin } from './vite-content-plugin.js'
-import { stripPreviewBridgePlugin } from './vite-preview-bridge-plugin.js'
 import { staticSitePlugin } from './vite-static-site-plugin.js'
 
 // ---------------------------------------------------------------------------
@@ -64,14 +57,22 @@ const declaredOptimizeIncludes: string[] = []
 const optimizeResolver = createRequire(import.meta.url)
 // `react`/`react-dom` pinned to the one copy this app resolves: an install
 // inside the app otherwise leaves a second React beside the one the @molecule
-// packages resolve, and the page goes blank with "Invalid hook call".
-const singleReactAliases: Record<string, string> = {}
-for (const name of ['react', 'react-dom']) {
-  try {
-    singleReactAliases[name] = dirname(optimizeResolver.resolve(`${name}/package.json`))
-  } catch (_error) {
-    // Not installed: nothing to pin.
-  }
+// packages resolve, and the page goes blank with "Invalid hook call". Every
+// import of them in the browser resolves as if this app imported it, through the
+// package's exports map and Vite's pre-bundled copy. Not a directory alias: that
+// maps `react-dom/static` to the file of that name rather than the exports
+// entry, and Vite never externalizes an aliased import, so the dev server's SSR
+// runner loaded React's CommonJS inline and no route prerendered (`module is not
+// defined`). The runner keeps the bare names external (see `ssr` below).
+const appImporter = resolve(dirname(fileURLToPath(import.meta.url)), 'package.json')
+const singleReactPlugin: Plugin = {
+  name: 'static-site-single-react',
+  enforce: 'pre',
+  applyToEnvironment: (environment) => environment.name === 'client',
+  resolveId(source, _importer, options) {
+    if (!/^react(?:-dom)?(?:\/|$)/.test(source)) return null
+    return this.resolve(source, appImporter, { ...options, skipSelf: true })
+  },
 }
 const findMoleculeDir = (): string | null => {
   let dir = dirname(fileURLToPath(import.meta.url))
@@ -127,84 +128,6 @@ try {
   /* no readable package.json — keep every @molecule package excluded */
 }
 
-// Dev-only middleware: the live-preview bridge (index.html) POSTs the running
-// app's console output to /__molecule_log; append it to /tmp/browser.log so the
-// molecule IDE's AI agent can read it via its read_logs tool. No-op in a build.
-//
-// The sink feeds the AI executor, so a foreign page must not be able to append
-// attacker-chosen lines into it (persistent prompt-injection / log poisoning).
-// Gate by Origin: allow requests with no Origin header (non-browser clients),
-// requests whose Origin host equals the request's own Host (the framed app
-// itself — localhost or any sandbox preview host, any port), or the molecule
-// IDE preview proxy origin; everything else gets a 403.
-const isOwnPreviewOrigin = (req: IncomingMessage): boolean => {
-  const rawOrigin = req.headers.origin
-  const origin = Array.isArray(rawOrigin) ? rawOrigin[0] : rawOrigin
-  if (!origin) return true
-  let originHost: string
-  try {
-    originHost = new URL(origin).hostname
-  } catch (_error) {
-    return false // malformed / opaque ("null") Origin — fail closed
-  }
-  const ownHost = String(req.headers.host ?? '')
-    .replace(/:\d+$/, '')
-    .replace(/^\[/, '')
-    .replace(/\]$/, '')
-  return (
-    originHost === ownHost ||
-    originHost === 'localhost' ||
-    originHost === '127.0.0.1' ||
-    originHost === '::1' ||
-    originHost.endsWith('.preview.molecule.dev')
-  )
-}
-
-const previewConsoleLogPlugin: Plugin = {
-  name: 'molecule-preview-console-log',
-  apply: 'serve',
-  configureServer(server) {
-    const LOG = '/tmp/browser.log'
-    const MAX_BYTES = 512 * 1024
-    server.middlewares.use('/__molecule_log', (req, res) => {
-      if (req.method !== 'POST') {
-        res.statusCode = 405
-        res.end()
-        return
-      }
-      if (!isOwnPreviewOrigin(req)) {
-        res.statusCode = 403
-        res.end()
-        return
-      }
-      let body = ''
-      req.on('data', (chunk) => {
-        body += chunk
-        if (body.length > 1_000_000) req.destroy()
-      })
-      req.on('end', () => {
-        try {
-          const entries = JSON.parse(body) as Array<{ l?: string; m?: string; t?: number }>
-          const lines =
-            entries
-              .map(
-                (e) =>
-                  `[${new Date(e.t || Date.now()).toISOString()}] [${e.l || 'log'}] ${e.m || ''}`,
-              )
-              .join('\n') + '\n'
-          appendFileSync(LOG, lines)
-          const size = statSync(LOG).size
-          if (size > MAX_BYTES) writeFileSync(LOG, readFileSync(LOG).subarray(size - MAX_BYTES))
-        } catch (_error) {
-          /* ignore malformed batches */
-        }
-        res.statusCode = 204
-        res.end()
-      })
-    })
-  },
-}
-
 // ── Dev-server watcher: poll the site tree in a molecule sandbox ──
 //
 // chokidar's inotify watch is pinned to the INODE of each directory it walks. Replace a
@@ -226,11 +149,11 @@ const watchPolling =
 export default defineConfig(({ command }) => ({
   base: BASE_PATH,
   plugins: [
+    singleReactPlugin,
     react(),
     tailwindcss(),
     contentPlugin(),
     staticSitePlugin(),
-    previewConsoleLogPlugin,
     stripPreviewBridgePlugin(),
   ],
   resolve: {
@@ -244,9 +167,8 @@ export default defineConfig(({ command }) => ({
     // setup that ran), and React contexts duplicate the same way. Dedupe
     // resolves each listed package from the project root through Vite's normal
     // package resolution, so exports maps, conditions and subpaths still apply.
-    // React keeps its absolute alias below.
+    // The browser also pins React to one copy (`singleReactPlugin` above).
     dedupe: ['react', 'react-dom', 'react-router', 'react-router-dom', ...moleculePackages],
-    alias: singleReactAliases,
   },
   optimizeDeps: {
     exclude: moleculePackages.filter((name) => !isLocaleBondPackage(name)),

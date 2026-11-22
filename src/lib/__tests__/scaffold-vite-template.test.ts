@@ -18,7 +18,6 @@ describe.each(['app/shared', 'static'])('%s Vite template substitutions', (templ
         '    frameworkPluginWithOptions(),',
         '    stylingPluginWithOptions(),',
         '    staticOrPwaPluginWithOptions(),',
-        '    previewConsoleLogPlugin,',
         '    stripPreviewBridgePlugin(),',
         '  ],',
       ].join('\n'),
