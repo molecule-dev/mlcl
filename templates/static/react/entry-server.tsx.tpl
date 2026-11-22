@@ -1,5 +1,6 @@
 import { renderToStaticMarkup } from 'react-dom/server'
-import { StaticRouter } from 'react-router'
+
+import { StaticRouter } from '@molecule/app-routing-react-router'
 
 import type { StaticFile } from '../vite-static-site-plugin.js'
 import { App } from './App.js'

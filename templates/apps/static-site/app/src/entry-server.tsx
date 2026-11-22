@@ -1,8 +1,8 @@
 import { prerender } from 'react-dom/static'
-import { StaticRouter } from 'react-router'
 
 import { type Feed, serializeAtom1, serializeRss2 } from '@molecule/api-feed-rss'
 import { createProvider as createSitemap } from '@molecule/api-sitemap-xml'
+import { StaticRouter } from '@molecule/app-routing-react-router'
 
 import type { StaticFile } from '../vite-static-site-plugin.js'
 import { App } from './App.js'
