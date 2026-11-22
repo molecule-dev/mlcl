@@ -15,7 +15,7 @@ import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../l
 import { databasePackageOf } from '../lib/migration-dialect.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { missingMoleculePeers } from '../lib/peer-closure.js'
-import { getMoleculeVersion, getPackageStack } from '../lib/registry.js'
+import { getMoleculeVersion, getPackageStack, getRawRegistry } from '../lib/registry.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 
 const execAsync = promisify(exec)
@@ -57,9 +57,19 @@ export default class Add extends Command {
     setTelemetryContext({ packages: args.molecule })
     // `pkg@1.2.3` names one exact version; a bare name uses the registry pin for
     // a registered `@molecule/*` package (see `resolveAddVersion`).
-    const { name: moleculeName, requestedVersion } = parseAddArgument(args.molecule)
+    const parsed = parseAddArgument(args.molecule)
+    const { requestedVersion } = parsed
+    let moleculeName = parsed.name
 
     p.intro(chalk.bgCyan(` ${t('commands.add.labels.intro')} `))
+
+    // A renamed package: add the package that replaced it. An exact version asked for
+    // (`pkg@1.2.3`) is a version of the old name, so it is installed as asked.
+    const replacement = getRawRegistry().packages[moleculeName]?.replacedBy
+    if (replacement && !requestedVersion) {
+      p.log.warn(t('commands.add.warnings.replaced', { name: moleculeName, replacement }))
+      moleculeName = replacement
+    }
 
     // Validate molecule name
     if (!moleculeName.startsWith('@molecule/')) {

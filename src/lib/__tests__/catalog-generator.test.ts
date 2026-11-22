@@ -76,6 +76,23 @@ describe('catalog-generator', () => {
     expect(out).not.toContain('@molecule/app-')
   })
 
+  it('lists a renamed package under its replacement only, in every stack', () => {
+    const entry = registry.packages['@molecule/app-i18n-default']
+    expect(entry, 'the fixture registry has the default i18n setup').toBeDefined()
+    const renamed: Registry = {
+      ...registry,
+      packages: {
+        ...registry.packages,
+        '@molecule/app-i18n-default-old': { ...entry, replacedBy: '@molecule/app-i18n-default' },
+      },
+    }
+    for (const stack of ['app', 'full-stack'] as const) {
+      const out = buildCatalog({ registry: renamed, framework: 'react', stack })
+      expect(out).not.toContain('@molecule/app-i18n-default-old')
+      expect(out).toMatch(/@molecule\/app-i18n-default(?![-\w])/)
+    }
+  })
+
   it('offers no tooling package, even a hinted one, in any stack', () => {
     const withTooling: Registry = {
       ...registry,

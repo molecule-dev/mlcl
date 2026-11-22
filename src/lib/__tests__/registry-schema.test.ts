@@ -178,6 +178,34 @@ describe('registry.json schema validation', () => {
     expect(mismatched, 'Packages whose name prefix disagrees with their stack').toEqual([])
   })
 
+  it('names a registered, offered package of the same stack in every replacedBy', () => {
+    // Search, the catalogs and role lookups offer the replacement in the renamed package's place, so
+    // a replacement that is missing, on another stack or renamed again would offer nothing.
+    const problems = (
+      packages: Record<string, { stack?: string; replacedBy?: string }>,
+    ): string[] =>
+      Object.entries(packages).flatMap(([name, entry]) => {
+        const to = entry.replacedBy
+        if (to === undefined) return []
+        const target = packages[to]
+        if (to === name) return [`${name}: replaced by itself`]
+        if (!target) return [`${name}: replaced by ${to}, which is not registered`]
+        if (target.stack !== entry.stack) return [`${name}: replaced by ${to} on another stack`]
+        if (target.replacedBy) return [`${name}: replaced by ${to}, which was renamed too`]
+        return []
+      })
+    expect(problems(raw.packages ?? {})).toEqual([])
+    // The check itself refuses each wrong shape.
+    expect(
+      problems({
+        '@molecule/app-a': { stack: 'app', replacedBy: '@molecule/app-missing' },
+        '@molecule/app-b': { stack: 'app', replacedBy: '@molecule/api-b' },
+        '@molecule/api-b': { stack: 'api' },
+        '@molecule/app-c': { stack: 'app', replacedBy: '@molecule/app-a' },
+      }),
+    ).toHaveLength(3)
+  })
+
   it('provider packages should declare implements', () => {
     const missing: string[] = []
 

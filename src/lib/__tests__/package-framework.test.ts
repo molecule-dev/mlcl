@@ -94,7 +94,10 @@ describe('framework-scoped agent catalog', () => {
     expect(rnw).toContain('@molecule/app-routing-react-router`')
     expect(rnw).not.toContain('@molecule/app-vue`')
     const vue = buildCatalog({ registry, framework: 'vue', stack: 'app' })
-    expect(vue).toContain('@molecule/app-i18n-default-react`')
+    expect(vue).toContain('@molecule/app-i18n-default`')
+    // The name app-i18n-default replaced is not offered again, in any framework's catalog.
+    expect(vue).not.toContain('@molecule/app-i18n-default-react')
+    expect(rnw).not.toContain('@molecule/app-i18n-default-react')
     // Counterexample: React packages stay out of a Vue project's catalog.
     expect(vue).not.toContain('@molecule/app-query-react`')
     expect(vue).not.toContain('@molecule/app-routing-react-router`')

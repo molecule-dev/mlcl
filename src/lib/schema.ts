@@ -422,6 +422,12 @@ export const MoleculeMetadata = z.object({
     .describe(
       'Which stack this package belongs to (api = backend, app = frontend, tooling = project dev tooling both workspaces install as a devDependency and no source imports, such as the shared ESLint config)',
     ),
+  replacedBy: z
+    .string()
+    .optional()
+    .describe(
+      'The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and `mlcl add` of this name adds the replacement.',
+    ),
   framework: z
     .enum(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'])
     .optional()
@@ -777,6 +783,12 @@ export const RegistryEntry = z.object({
     .enum(['api', 'app', 'tooling'])
     .describe(
       'Which stack this package belongs to (api = backend, app = frontend, tooling = project dev tooling both workspaces install as a devDependency and no source imports, such as the shared ESLint config)',
+    ),
+  replacedBy: z
+    .string()
+    .optional()
+    .describe(
+      'The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and `mlcl add` of this name adds the replacement.',
     ),
   implements: z
     .string()

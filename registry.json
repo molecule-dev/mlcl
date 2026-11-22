@@ -55560,6 +55560,7 @@
       "label": "i18n Default Setup",
       "description": "Default i18n bond setup with 80-language definitions, lazy-loading wrapper, and locale persistence via storage bond. Used by every flagship app — 113 lines of byte-identical wiring across the fleet.",
       "stack": "app",
+      "replacedBy": "@molecule/app-i18n-default",
       "exports": [
         "LanguageDefinition",
         "LANGUAGE_DEFINITIONS",

@@ -103,6 +103,30 @@ describe('search capability and symbol relevance', () => {
     expect(hits.map((hit) => hit.name).filter((name) => bindings.includes(name))).toEqual([binding])
   })
 
+  it('offers a renamed package only under the name that replaced it', () => {
+    const entries = [
+      {
+        name: '@molecule/app-widget-react',
+        stack: 'app' as const,
+        replacedBy: '@molecule/app-widget',
+        label: 'Widget',
+        description: 'Widget setup',
+      },
+      {
+        name: '@molecule/app-widget',
+        stack: 'app' as const,
+        label: 'Widget',
+        description: 'Widget setup',
+      },
+    ]
+    expect(searchPackages(entries, 'widget').map((hit) => hit.name)).toEqual([
+      '@molecule/app-widget',
+    ])
+    expect(searchPackages(entries, 'widget react').map((hit) => hit.name)).toEqual([
+      '@molecule/app-widget',
+    ])
+  })
+
   it('never offers a tooling package as a capability, with or without a stack filter', () => {
     const entries = [
       {

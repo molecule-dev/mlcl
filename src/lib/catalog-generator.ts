@@ -16,7 +16,7 @@
  * @module
  */
 
-import { frameworksAcceptedBy, packageFramework } from './package-search.js'
+import { frameworksAcceptedBy, isOfferedPackage, packageFramework } from './package-search.js'
 import type { Registry, RegistryEntry } from './schema.js'
 
 export type CatalogStack = 'api' | 'app' | 'full-stack'
@@ -37,8 +37,6 @@ interface PackageLine {
 const sortByName = (a: PackageLine, b: PackageLine): number => a.name.localeCompare(b.name)
 
 function includesStack(stack: CatalogStack, entryStack: RegistryEntry['stack']): boolean {
-  // Project dev tooling comes with every scaffold; no catalog offers it as a capability.
-  if (entryStack === 'tooling') return false
   if (stack === 'full-stack') return true
   return stack === entryStack
 }
@@ -76,7 +74,7 @@ export function buildCatalog({ registry, framework, stack }: BuildCatalogOptions
   const inFramework = frameworkCatalogFilter(registry, framework)
 
   for (const [name, entry] of Object.entries(registry.packages)) {
-    if (!includesStack(stack, entry.stack)) continue
+    if (!isOfferedPackage(entry) || !includesStack(stack, entry.stack)) continue
     if (!inFramework(entry)) continue
     if (entry.ui?.hidden) continue
 

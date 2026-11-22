@@ -1,7 +1,7 @@
 /**
  * App i18n bond setup.
  *
- * Uses @molecule/app-i18n-default-react to wire the i18n provider with:
+ * Uses @molecule/app-i18n-default to wire the i18n provider with:
  *  - Your app's English UI strings (enUi)
  *  - A per-locale lazy loader for non-English UI strings (lazyLoadUi)
  *  - Companion locale bonds for every @molecule/app-* package this app depends on
@@ -16,7 +16,7 @@
  * to refresh the packageLocales list below.
  */
 
-import { setupI18nDefault } from '@molecule/app-i18n-default-react'
+import { setupI18nDefault } from '@molecule/app-i18n-default'
 import * as authLocales from '@molecule/app-locales-auth'
 import * as formsLocales from '@molecule/app-locales-forms'
 import * as httpLocales from '@molecule/app-locales-http'

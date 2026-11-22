@@ -33,6 +33,30 @@ const mockPackage = (overrides: Partial<InferredPackage>): InferredPackage => ({
 // ---------------------------------------------------------------------------
 
 describe('buildFeatureMenu', () => {
+  it('offers a renamed package under its replacement only', () => {
+    const pkg = (name: string, replacedBy?: string): InferredPackage =>
+      mockPackage({
+        name,
+        molecule: {
+          type: 'feature',
+          category: 'widget',
+          label: name,
+          ui: { order: 3 },
+          secrets: [],
+          runtimeDependencies: [],
+          ...(replacedBy ? { replacedBy } : {}),
+        },
+      })
+    // The renamed entry first, as registry order puts '@molecule/app-a-widget' before it.
+    const result = buildFeatureMenu([
+      pkg('@molecule/app-a-widget', '@molecule/app-widget'),
+      pkg('@molecule/app-widget'),
+    ])
+    const widget = result.features.find((f) => f.category === 'widget')
+    expect(widget?.primary.name).toBe('@molecule/app-widget')
+    expect(widget?.bundledPackages.map((p) => p.name)).toEqual([])
+  })
+
   it('separates alwaysInclude packages from features', () => {
     const always = mockPackage({
       name: '@molecule/api-logger',

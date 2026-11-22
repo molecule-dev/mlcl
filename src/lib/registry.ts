@@ -218,14 +218,17 @@ export function packagesByStack(
  * Find a package by its role (stack + type + category) in the registry.
  *
  * Used by the injector to resolve infrastructure and core package names
- * at generation time instead of hardcoding them.
+ * at generation time instead of hardcoding them. When a package was renamed,
+ * the role names its replacement, not the entry marked `replacedBy`.
  */
 export function findPackageByRole(
   stack: 'api' | 'app',
   type: string,
   category: string,
 ): string | undefined {
-  return packagesByRole(stack, type, category)[0]
+  const names = packagesByRole(stack, type, category)
+  const offered = names.find((name) => !getRawRegistry().packages[name]?.replacedBy)
+  return offered ?? names[0]
 }
 
 /**
@@ -234,7 +237,8 @@ export function findPackageByRole(
  * A role usually has one package. A renamed package keeps its successor's role
  * while projects still install it (`@molecule/app-i18n-default-react` beside
  * `@molecule/app-i18n-default`), so code that generates files for a project
- * picks the one the project installed from this list, not the first match.
+ * picks the one the project installed from this list; {@link findPackageByRole}
+ * names the one not marked `replacedBy`.
  *
  * @param stack - The package's stack.
  * @param type - The package's type.

@@ -11,6 +11,7 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
+import { isOfferedPackage } from './package-search.js'
 import { loadAppFrameworks } from './registry.js'
 import type { InferredPackage, MoleculeSecret } from './schema.js'
 
@@ -57,6 +58,8 @@ export function buildFeatureMenu(scannedPackages: InferredPackage[]): {
   // like axios, but is always included itself).
   const byCategory = new Map<string, InferredPackage[]>()
   for (const pkg of withMolecule) {
+    // A renamed package is offered under its replacement's name only.
+    if (!isOfferedPackage(pkg.molecule!)) continue
     if (pkg.molecule!.alwaysInclude && !(pkg.molecule!.ui?.order != null)) continue
     const cat = pkg.molecule!.category
     if (!byCategory.has(cat)) byCategory.set(cat, [])

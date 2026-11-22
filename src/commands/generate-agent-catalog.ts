@@ -9,6 +9,7 @@ import {
   type CatalogStack,
   frameworkCatalogFilter,
 } from '../lib/catalog-generator.js'
+import { isOfferedPackage } from '../lib/package-search.js'
 import { getRawRegistry, loadAppFrameworks } from '../lib/registry.js'
 
 const STACKS: readonly CatalogStack[] = ['api', 'app', 'full-stack']
@@ -91,6 +92,7 @@ export default class GenerateAgentCatalog extends Command {
     const inFramework = frameworkCatalogFilter(registry, framework)
     for (const [name, entry] of Object.entries(registry.packages)) {
       if (stack !== 'full-stack' && entry.stack !== stack) continue
+      if (!isOfferedPackage(entry)) continue
       if (!inFramework(entry)) continue
       if (entry.ui?.hidden) continue
       const hints = entry.intentHints ?? []

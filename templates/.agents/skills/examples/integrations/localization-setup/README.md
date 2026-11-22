@@ -24,7 +24,7 @@ cd /workspace
 npm install @molecule/api-i18n-simple --workspace=api
 
 # App: i18n default setup (lazy-loading + 79-language support)
-npm install @molecule/app-i18n-default-react --workspace=app
+npm install @molecule/app-i18n-default --workspace=app
 
 # Companion locale bonds — one per @molecule/app-* feature package your app uses.
 # Each companion bond ships ALL 79 languages automatically.
@@ -49,7 +49,7 @@ npm install @molecule/app-locales-auth @molecule/app-locales-forms @molecule/app
   must be `t('key', vars, { defaultValue: 'English fallback' })`.
 - Do not invent `@molecule/api-i18n-i18next` or
   `@molecule/app-react-i18n` — the packages are
-  `@molecule/api-i18n-simple` (API bond) + `@molecule/app-i18n-default-react` (app bond).
+  `@molecule/api-i18n-simple` (API bond) + `@molecule/app-i18n-default` (app bond).
 - Do NOT use per-language packages. `@molecule/api-locales-en`,
   `@molecule/api-locales-es`, `@molecule/api-locales-fr`, etc. do NOT exist.
   Locale bonds are per-feature (e.g. `@molecule/app-locales-auth`,

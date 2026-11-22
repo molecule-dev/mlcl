@@ -28,6 +28,7 @@ export const messages: LocaleMessages = {
     'Could not resolve {name} from npm — pinned {version} from the local molecule registry. Adjust the version in package.json if you target a different release.',
   'commands.add.warnings.versionFallback':
     'Could not resolve {name} from npm — using "{version}". Set an exact version in package.json before publishing.',
+  'commands.add.warnings.replaced': '{name} was renamed to {replacement}; adding {replacement}.',
   'commands.add.warnings.namingConvention':
     'Package "{name}" doesn\'t follow @molecule/* naming convention',
   'commands.add.spinners.adding': 'Adding {name}...',

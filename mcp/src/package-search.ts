@@ -41,11 +41,28 @@
  * non-array `exports`, must degrade to a score (or no match), never throw
  * inside the tool handler.
  */
+/**
+ * Whether a project can be offered this package. Not the dev tooling every scaffold installs
+ * (`stack: 'tooling'`, such as the shared ESLint config), and not a package renamed to another
+ * (`replacedBy`: projects that installed the old name keep it, nothing offers it again). Search,
+ * the catalogs, the create menu and the role lookups all apply this one rule.
+ *
+ * @param entry - A registry entry, or a package's registry metadata.
+ * @param entry.stack - Its declared stack.
+ * @param entry.replacedBy - The package that replaced it, if any.
+ * @returns True when it may be offered.
+ */
+export function isOfferedPackage(entry: { stack?: string; replacedBy?: string }): boolean {
+  return entry.stack !== 'tooling' && !entry.replacedBy
+}
+
 export interface SearchSourceEntry {
   /** Full package name, e.g. `@molecule/api-payments-stripe`. */
   name: string
   /** Declared stack. Absent only in a malformed/legacy registry entry. */
   stack?: 'api' | 'app' | 'tooling'
+  /** The package that took this one's place under a new name, when it was renamed. */
+  replacedBy?: string
   category?: string
   label?: string
   description?: string
@@ -335,9 +352,7 @@ export function searchPackages(
     // The rule `loadRegistry(stack)` applies — declared stack equality — kept
     // here so the transport that has no loader (hosted MCP) filters identically.
     if (stack && entry.stack !== stack) continue
-    // Project dev tooling (the shared ESLint config) comes with every scaffold; it is not a
-    // capability a project adds.
-    if (entry.stack === 'tooling') continue
+    if (!isOfferedPackage(entry)) continue
     if (accepted) {
       const written = appFrameworks
         ? packageFramework(entry, appFrameworks)
