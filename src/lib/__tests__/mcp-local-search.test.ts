@@ -26,6 +26,7 @@ import {
   cliRegistryPath,
   searchLocalRegistry,
 } from '../../../mcp/src/local-search.js'
+import type * as Remote from '../../../mcp/src/remote.js'
 import Search from '../../commands/search.js'
 import { clearRegistryCache } from '../registry.js'
 
@@ -217,10 +218,23 @@ function standIn(name: string, marker: string): string {
   return bin
 }
 
-/** Start the real stdio server on a CLI and call `search_packages` once. */
-async function searchThroughServer(cli: string, query: string): Promise<string> {
+/**
+ * Start the real stdio server on a CLI and call `search_packages` once, from `cwd` (an empty
+ * directory by default), with npm's README reader replaced by `npmReadme`.
+ */
+async function searchThroughServer(
+  cli: string,
+  query: string,
+  { cwd = emptyDir(), npmReadme = async (): Promise<string | undefined> => undefined } = {},
+): Promise<string> {
   process.env.MOLECULE_MCP_CLI = cli
   vi.resetModules()
+  vi.doMock('../../../mcp/src/remote.js', async (importOriginal) => ({
+    ...(await importOriginal<typeof Remote>()),
+    fetchPackageReadme: npmReadme,
+  }))
+  const before = process.cwd()
+  process.chdir(cwd)
   const { moleculeServer } = await import('../../../mcp/src/server.js')
   const { Client } = await import(join(SDK_ESM, 'client', 'index.js'))
   const { InMemoryTransport } = await import(join(SDK_ESM, 'inMemory.js'))
@@ -235,7 +249,16 @@ async function searchThroughServer(cli: string, query: string): Promise<string> 
     return (result.content ?? []).map((block) => block.text ?? '').join('\n')
   } finally {
     await client.close()
+    process.chdir(before)
+    vi.doUnmock('../../../mcp/src/remote.js')
   }
+}
+
+/** A new empty directory, removed after the run. */
+function emptyDir(): string {
+  const dir = mkdtempSync(join(tmpdir(), 'mlcl-local-search-cwd-'))
+  dirs.push(dir)
+  return dir
 }
 
 describe('the stdio search_packages tool', () => {
@@ -254,6 +277,24 @@ describe('the stdio search_packages tool', () => {
         install: 'npx mlcl add @molecule/api-uploads --inject',
       },
     ])
+  })
+
+  it('gives the first hits their Quick Start, from the installed README or npm (OLD MUSTFAIL)', async (ctx) => {
+    if (!existsSync(DEPS_MARKER)) return ctx.skip()
+    const bin = standIn('mlcl', 'SPAWNED')
+    const quickStart = "import { receiveUploads } from '@molecule/api-uploads'"
+    const readme = `# @molecule/api-uploads\n\n## Quick Start\n\n\`\`\`ts\n${quickStart}\n\`\`\`\n`
+    const project = emptyDir()
+    mkdirSync(join(project, 'node_modules', '@molecule', 'api-uploads'), { recursive: true })
+    writeFileSync(join(project, 'node_modules', '@molecule', 'api-uploads', 'README.md'), readme)
+    const installed = await searchThroughServer(bin, 'file uploads', { cwd: project })
+    expect(JSON.parse(installed)[0].quickStart).toBe(quickStart)
+    const asked: string[] = []
+    const fromNpm = await searchThroughServer(bin, 'file uploads', {
+      npmReadme: async (short: string) => (asked.push(short), readme),
+    })
+    expect(asked).toEqual(['api-uploads'])
+    expect(JSON.parse(fromNpm)[0].quickStart).toBe(quickStart)
   })
 
   it('starts the CLI when the command is not an mlcl package', async (ctx) => {

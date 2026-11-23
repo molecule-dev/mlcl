@@ -35,6 +35,7 @@ import {
   type SearchSourceEntry,
   unknownFrameworkMessage,
 } from './package-search.js'
+import { withQuickStarts } from './search-quick-start.js'
 import { serverVersion, tracked } from './telemetry.js'
 import { LOAD_UP_FRONT } from './tool-loading.js'
 
@@ -462,7 +463,7 @@ export function buildRemoteServer(): McpServer {
       _meta: LOAD_UP_FRONT,
       title: 'Search @molecule packages',
       description:
-        'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, label, description, common-shape configuration when declared, and the install command; `stack` restricts results to one stack and `framework` to one UI framework (plus framework-neutral packages). Prefer an existing package over hand-rolling any capability and read its doc before rejecting it.',
+        'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, label, description, common-shape configuration when declared, and the install command; the first three carry their Quick Start (the import and the call); `stack` restricts results to one stack and `framework` to one UI framework (plus framework-neutral packages). Prefer an existing package over hand-rolling any capability and read its doc before rejecting it.',
       inputSchema: {
         // Bounded: the scorer splits the query on whitespace and runs one pass
         // over EVERY fleet package (~900) for each token, so the work one
@@ -510,7 +511,10 @@ export function buildRemoteServer(): McpServer {
         query,
         { stack, framework, appFrameworks, limit },
       )
-      return text(searchResultsJson(hits))
+      // The first hits' Quick Start (./search-quick-start.ts), from the README cache read_package_doc fills.
+      return text(
+        await withQuickStarts(searchResultsJson(hits), (short) => fetchPackageReadme(short)),
+      )
     }),
   )
 

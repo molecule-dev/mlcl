@@ -44,6 +44,7 @@ import { searchPackageDoc } from './package-doc-search.js'
 import { packageDocView } from './package-doc-view.js'
 import { fetchPackageReadme } from './remote.js'
 import { scaffoldProjectCliArgs } from './scaffold-args.js'
+import { withQuickStarts } from './search-quick-start.js'
 import {
   callHostedService,
   createApiKeyIntoEnv,
@@ -586,7 +587,7 @@ server.registerTool(
     _meta: LOAD_UP_FRONT,
     title: 'Search @molecule packages',
     description:
-      'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login", "file uploads"). Returns matching packages with stack, category, common-shape configuration when declared, and the install command. ALWAYS prefer an existing package over hand-rolling a capability; read its doc before rejecting it.',
+      'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login", "file uploads"). Returns matching packages with stack, category, common-shape configuration when declared, and the install command; the first three carry their Quick Start (the import and the call). ALWAYS prefer an existing package over hand-rolling a capability; read its doc before rejecting it.',
     inputSchema: {
       // Bounded, and passed to the CLI as an argv word: an unbounded query is a
       // scoring pass over the whole fleet per whitespace-separated token, and a
@@ -611,13 +612,23 @@ server.registerTool(
     // In process over the CLI's own registry file: the same answer without a CLI start-up per
     // search (./local-search.ts). Spawned only when the command is not an mlcl package.
     const registry = cliRegistryPath(await cliCommand())
-    if (registry)
-      return text(searchLocalRegistry(registry, { query, stack, framework, limit }, process.cwd()))
-    const args = ['search', query, '--json']
-    if (stack) args.push('--stack', stack)
-    if (framework) args.push('--framework', framework)
-    if (limit) args.push('--limit', String(limit))
-    return text(await runCli(args))
+    let json: string
+    if (registry) {
+      json = searchLocalRegistry(registry, { query, stack, framework, limit }, process.cwd())
+    } else {
+      const args = ['search', query, '--json']
+      if (stack) args.push('--stack', stack)
+      if (framework) args.push('--framework', framework)
+      if (limit) args.push('--limit', String(limit))
+      json = await runCli(args)
+    }
+    // The first hits' Quick Start, read as read_package_doc reads a README (./search-quick-start.ts).
+    return text(
+      await withQuickStarts(
+        json,
+        async (short) => localPackageDoc(short, process.cwd())?.readme ?? fetchPackageReadme(short),
+      ),
+    )
   }),
 )
 
