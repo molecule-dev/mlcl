@@ -1317,6 +1317,20 @@ export default class Create extends Command {
       log(t('commands.create.spinners.addedPackages', { count: uniquePackages.length }))
     }
 
+    // The activity-capture packages the API wiring after inject declares, declared now so the
+    // install below fetches them (`addActivityCaptureDependencies`).
+    {
+      const captureApiPath = isFullStack
+        ? join(projectPath, 'api')
+        : projectType === 'api'
+          ? projectPath
+          : null
+      if (captureApiPath) {
+        const { addActivityCaptureDependencies } = await import('../lib/scaffold.js')
+        await addActivityCaptureDependencies(captureApiPath)
+      }
+    }
+
     // Step 9: Install dependencies
     let installNeeded = flags['skip-install'] === true
     // What the install below sees, so the steps after it can tell whether they declared more.

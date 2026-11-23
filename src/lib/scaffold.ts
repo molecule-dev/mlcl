@@ -2314,10 +2314,15 @@ const ACTIVITY_CAPTURE_DEPENDENCIES = [
  * `save-exact=true`). Idempotent: an existing entry is left at whatever version
  * it already pins rather than being rewritten underneath the project.
  *
+ * `mlcl create` calls it before its first `npm install`, so that install fetches them:
+ * declared only by {@link injectActivityCaptureBoot}, after the install and the inject
+ * that needs it, they made create install a second time for 13 packages (2026-11-23
+ * scaffold eval). The wiring step declares them again, which changes nothing.
+ *
  * @param apiPath - Absolute path to the API workspace.
  * @returns Whether `package.json` was modified.
  */
-async function addActivityCaptureDependencies(apiPath: string): Promise<boolean> {
+export async function addActivityCaptureDependencies(apiPath: string): Promise<boolean> {
   const pkgPath = join(apiPath, 'package.json')
   if (!existsSync(pkgPath)) return false
 
