@@ -1,20 +1,33 @@
 # mlcl — the Molecule.dev CLI
 
-Scaffold and manage production full-stack apps from 1025+ composable,
-swappable `@molecule/*` packages.
+Find, add, wire and swap `@molecule/*` packages in any JavaScript or TypeScript
+project, new or existing, from your terminal or your coding agent.
 
-`mlcl create` gives you a real, conventional TypeScript project — Express API,
-React app, database with migrations, auth, i18n — not a toy. Every capability
-is a package behind a **bond** (a swappable provider interface), so you can
-change PostgreSQL for MySQL, Mailgun for SES, or one OAuth provider for
-another by changing one wiring file, not rewriting your app.
+[Molecule](https://www.molecule.dev) is a library of 1924+ composable, swappable
+packages: auth, database, payments, email, uploads, AI, search, PDFs, push and
+more. Each capability sits behind an interface, and a **bond** (a provider
+package) connects that interface to a vendor. Your code calls `sendMail()` from
+`@molecule/api-emails`, never the Mailgun SDK, so moving to SES means changing
+one wiring file, not the code that sends email. The packages work in projects
+Molecule did not create.
 
-- **Start from a working app**: 152+ flagship templates (blog, CRM, team chat,
-  online store, …) — real screens, real handlers, real data models.
-- **Stay decoupled**: cores define interfaces; bonds implement them. Your code
-  talks to `bond('email')`, never to a vendor SDK.
-- **Own everything**: the output is plain TypeScript you can read, edit, and
-  deploy anywhere. Apache-2.0 packages; your app is yours.
+With `mlcl` (and the `molecule-mcp` server, which gives AI agents the same
+commands as tools) you can:
+
+- **Find a package by what it does**: `mlcl search "send emails"`.
+- **Read its docs**, generated from its source: `mlcl docs @molecule/<name>`.
+- **Add and wire it**: `mlcl add @molecule/<name> --inject` installs the package
+  and writes its provider wiring.
+- **Swap its provider** for another vendor: `mlcl swap @molecule/<provider>`.
+- **Copy a working example** of a feature: `mlcl examples "Stripe checkout"`.
+- **Check the project**: `mlcl check` runs its typecheck, lint, build and tests.
+- **Operate it**: environment variables, databases, staging, and deploys on
+  molecule.dev.
+- **Start a new app**, from the packages you choose or from a template:
+  `mlcl create`.
+
+Everything is Apache-2.0, and the code it writes is plain TypeScript (or
+JavaScript) you can read, edit and run anywhere.
 
 ## Install
 
@@ -25,7 +38,8 @@ npm install -g mlcl   # or just use npx mlcl … everywhere
 Node.js ≥ 22.
 
 **Using a coding agent?** Run this once, so every agent on your machine
-(Claude Code, Codex, Cursor, Gemini CLI, Copilot, …) builds the Molecule way:
+(Claude Code, Codex, Cursor, Gemini CLI, Copilot, …) reaches for Molecule
+packages before writing a capability by hand:
 
 ```bash
 npx mlcl setup   # asks where (every project, or this one) and which agents
@@ -37,36 +51,31 @@ the Molecule conventions for each agent. Details: [Using it with AI agents](#usi
 > `mlcl` and `molecule-mcp` are on npm — every `npx mlcl …` and
 > `npx -y molecule-mcp` below runs as written, as do the `@molecule/*` packages.
 
-## Quickstart (60 seconds)
+## Quickstart
+
+In a project you already have (any directory with a `package.json`):
 
 ```bash
-npx mlcl create my-app --template blog --no-interactive
-cd my-app
-# put credentials in api/.env and app/.env (local defaults work for Postgres/SQLite)
-npm run dev            # api on :4000-ish, app on :3000
+npx mlcl search "send emails"                        # find a package by capability
+npx mlcl docs @molecule/api-emails-mailgun           # read it
+npx mlcl add @molecule/api-emails-mailgun --inject   # install it and wire it
 ```
 
-You get: Express API with routes and migrations, React app with real screens,
-auth, i18n, tests, e2e specs, `.env` templates, CI security workflows, and an
-`AGENTS.md` that teaches any AI coding agent the project's conventions.
-
-## Pick a starting point
-
-**Option A — flagship template (recommended).** A complete, polished app you
-shape from:
+`add --inject` prints what it wrote and, in a project Molecule did not create,
+the setup call to add once at startup. Your code then sends mail with
+`sendMail()` from `@molecule/api-emails`, and moving to another vendor is one
+command:
 
 ```bash
-npx mlcl templates                       # browse all 150
-npx mlcl templates --json | head -30     # machine-readable
-npx mlcl create store --template online-store --no-interactive
+npx mlcl swap @molecule/api-emails-ses
 ```
 
-Templates carry their own framework and full package list — no other flags
-needed. Try: `blog`, `crm`, `team-chat`, `online-store`, `project-management`,
-`helpdesk-ticketing`, `ai-chatbot-builder`, `database-admin`, …
-(the full gallery with screenshots: <https://www.molecule.dev/templates>).
+No project yet? See [Start a new app](#start-a-new-app).
 
-**Option B — exactly the stack you want:**
+## Add, wire and swap packages
+
+These commands work in any project with a `package.json`, whether or not
+Molecule created it:
 
 ```bash
 # Find packages by capability, not by guessing names:
@@ -74,26 +83,10 @@ npx mlcl search payments
 npx mlcl search "send emails" --stack api
 npx mlcl search "social login" --json
 
-# Compose them:
-npx mlcl create my-api \
-  --type api \
-  --packages @molecule/api-database-postgresql,@molecule/api-resource-user \
-  --no-interactive
+# Read a package's docs (the installed copy, else the published one):
+npx mlcl docs @molecule/api-payments-stripe
+npx mlcl docs @molecule/api-payments-stripe --search webhook
 
-npx mlcl create my-app \
-  --type full-stack --framework react \
-  --packages @molecule/api-database-postgresql,@molecule/app-auth \
-  --no-interactive
-```
-
-Types: `api` · `app` · `full-stack` · `static` · `status-page` · `status-page-edge`.
-The scaffold auto-resolves default providers, transitive companions, locale
-bonds, and template-required packages — you name the capabilities, mlcl closes
-the dependency set.
-
-## Grow and reconfigure the project
-
-```bash
 # Add a capability: installs the package AND generates its bond wiring,
 # peer deps, migrations, and routes in one step:
 npx mlcl add @molecule/api-emails-mailgun --inject
@@ -107,14 +100,111 @@ npx mlcl swap @molecule/api-emails-ses -r @molecule/api-emails-mailgun   # sever
 
 # Preview what injection would do, change nothing:
 npx mlcl inject --dry-run
+
+# A working, tested example of a feature, with a map of where each file goes:
+npx mlcl examples "Stripe checkout"
+
+# Run the project's own checks and print one short report:
+npx mlcl check
 ```
+
+In a project Molecule did not create, `add --inject` writes only the provider
+files under `src/bonds/` and a setup function (`setupBonds()` for an API,
+`setupProviders()` for an app), in the project's own language, and prints the
+lines that call it from your entry file. Your entry point, router, tests and
+formatting stay as they are. The full flow, and the conventions each command
+looks for: [docs/INTEGRATE-EXISTING-APP.md](docs/INTEGRATE-EXISTING-APP.md).
+
+## Using it with AI agents
+
+Most people build through an agent (Claude Code, Codex, Cursor, Gemini CLI,
+OpenCode, Windsurf, Cline, Zed, …). `npx mlcl setup` wires every one of them in
+one command; the other ways below cover one agent, or a chat with no install:
+
+| Method | What to run / paste | Get |
+|---|---|---|
+| **Recommended** | `npx mlcl setup` | for every agent on the machine (or `--scope project` for this project): the `molecule` MCP server, the Molecule skills and the conventions, each in the place that agent reads them |
+| **Zero setup** | paste the block below into any agent chat | the agent finds, adds and wires packages (or starts a new app) through the CLI and follows the conventions |
+| **Conventions only** | `npx mlcl agent init` | the conventions written into the files your agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where that agent reads them) |
+| **MCP tools only** | `npx mlcl mcp install` | the `molecule` MCP server (package search, docs, add, swap, examples, checks, env, deploys, scaffolding and the hosted tasks) registered with one agent — Claude Code, Codex, Cursor, Gemini CLI, Copilot, OpenCode, Devin/Windsurf, Kiro, Amp, Zed, Crush, Trae, Cline, Junie, … |
+| **Hosted URL** | `claude mcp add --transport http molecule https://mcp.molecule.dev/mcp` — or paste the URL into Lovable / v0 / bolt.new / Base44 connectors | the read tools (search/docs/templates/conventions) with no local install |
+| **Claude Code plugin** (at launch) | `/plugin marketplace add molecule-dev/molecule-claude-code` → `/plugin install molecule@molecule` | skills + MCP bundled, marketplace-updated |
+
+The full guide with every harness, config path, and example workflow:
+[docs/AGENTS-AND-HARNESSES.md](docs/AGENTS-AND-HARNESSES.md).
+
+The paste-anywhere block:
+
+```text
+Build this app with molecule.dev: for each capability it needs (auth,
+payments, email, uploads, AI, search, …), find a package with
+`npx mlcl search <capability>`, read it with `npx mlcl docs @molecule/<name>`,
+and install and wire it with `npx mlcl add @molecule/<name> --inject` (swap
+its provider later with `npx mlcl swap`); prefer @molecule/* packages over
+hand-rolled code. With no project yet, run `npx mlcl templates`: start from a
+flagship template only when its catalog (`npx mlcl templates <slug>`) covers
+the core of the app, otherwise from a custom stack of the packages you found;
+scaffold with `npx mlcl create <name> --template <slug> --no-interactive --json`
+(or `--packages <list>` for a custom stack). In a project Molecule created,
+follow its AGENTS.md conventions: provider wiring only in src/bonds/, ClassMap
+styling, i18n for all user-facing text.
+```
+
+`npx mlcl agent init` writes the conventions into a project's own agent files,
+and every project `mlcl create` makes ships them in its `AGENTS.md`, so
+whichever agent opens the project (even one that has never heard of molecule)
+gets them in context immediately.
+
+## Start a new app
+
+`mlcl create` scaffolds a conventional TypeScript project from the same
+packages: an Express API with routes and migrations, a frontend, or both, with
+tests, `.env` templates, CI security workflows, and an `AGENTS.md` that teaches
+any AI coding agent the project's conventions.
+
+**From the packages you choose.** Name the capabilities; mlcl resolves the
+default providers, transitive companions, locale bonds and template-required
+packages, and closes the dependency set:
+
+```bash
+npx mlcl create my-api \
+  --type api \
+  --packages @molecule/api-database-postgresql,@molecule/api-resource-user \
+  --no-interactive
+
+npx mlcl create my-app \
+  --type full-stack --framework react \
+  --packages @molecule/api-database-postgresql,@molecule/app-auth \
+  --no-interactive
+```
+
+Types: `api` · `app` · `full-stack` · `static` · `status-page` · `status-page-edge`.
+
+**From a template**, when one covers the core of what you are building.
+There are 152+ flagship templates (blog, CRM, team chat, online store, …),
+each with its own data model, API handlers, screens, framework and package
+list:
+
+```bash
+npx mlcl templates                       # the list
+npx mlcl templates online-store          # one template's data model, API and screens
+npx mlcl create store --template online-store --no-interactive
+cd store
+# put credentials in api/.env and app/.env (local defaults work for Postgres/SQLite)
+npm run dev                              # api on :4000-ish, app on :3000
+```
+
+The full gallery with screenshots: <https://www.molecule.dev/templates>.
 
 ## Operate the project (env, database, deploy)
 
 The IDE's operational surface, on your machine:
 
 ```bash
-# Environment variables — local .env (format-preserving, values masked on list):
+# Environment variables — which ones the code and installed packages need:
+npx mlcl env check                     # --fix writes the fixable ones
+
+# Local .env (format-preserving, values masked on list):
 npx mlcl env list --raw
 npx mlcl env set STRIPE_SECRET_KEY=sk_test_…
 npx mlcl env get DATABASE_URL          # for scripts: $(mlcl env get DATABASE_URL)
@@ -215,16 +305,11 @@ client can send it as `Authorization: Bearer <token>`.
   session (`mlcl login`).
 - **If one leaks:** `mlcl token revoke <name>`.
 
-Read any installed package's usage reference — generated, always current:
-
-```bash
-less node_modules/@molecule/api-emails-mailgun/README.md
-```
-
 **Machine-readable results** (for scripts, CI, and agents):
 
 ```bash
 npx mlcl search auth --json
+npx mlcl env check --json
 npx mlcl create app --type api --packages @molecule/api-database-sqlite \
   --no-interactive --json
 ```
@@ -233,51 +318,6 @@ npx mlcl create app --type api --packages @molecule/api-database-sqlite \
 secrets to fill in `.env` — and no step-by-step output. While a slow step runs
 (`npm install`, which takes a few minutes the first time, and the code
 generation after it) a line on stderr says it is still running, every 30 s.
-
-## Using it with AI agents
-
-Most people build through an agent (Claude Code, Codex, Cursor, Gemini CLI,
-OpenCode, Windsurf, Cline, Zed, …). `npx mlcl setup` wires every one of them in
-one command; the other ways below cover one agent, or a chat with no install:
-
-| Method | What to run / paste | Get |
-|---|---|---|
-| **Recommended** | `npx mlcl setup` | for every agent on the machine (or `--scope project` for this project): the `molecule` MCP server, the Molecule skills and the conventions, each in the place that agent reads them |
-| **Zero setup** | paste the block below into any agent chat | the agent scaffolds + follows conventions via the CLI |
-| **Conventions only** | `npx mlcl agent init` | the conventions written into the files your agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where that agent reads them) |
-| **MCP tools only** | `npx mlcl mcp install` | the `molecule` MCP server (search/scaffold/add/swap/docs) registered with one agent — Claude Code, Codex, Cursor, Gemini CLI, Copilot, OpenCode, Devin/Windsurf, Kiro, Amp, Zed, Crush, Trae, Cline, Junie, … |
-| **Hosted URL** | `claude mcp add --transport http molecule https://mcp.molecule.dev/mcp` — or paste the URL into Lovable / v0 / bolt.new / Base44 connectors | the read tools (search/templates/docs/conventions) with no local install |
-| **Claude Code plugin** (at launch) | `/plugin marketplace add molecule-dev/molecule-claude-code` → `/plugin install molecule@molecule` | skills + MCP bundled, marketplace-updated |
-
-The full guide with every harness, config path, and example workflow:
-[docs/AGENTS-AND-HARNESSES.md](docs/AGENTS-AND-HARNESSES.md).
-
-The paste-anywhere block:
-
-```text
-Build this app with molecule.dev: run `npx mlcl templates` and choose the
-starting point by its rules: a flagship template only when its catalog
-(`npx mlcl templates <slug>`) covers the core of the app, otherwise a custom
-stack of the packages `npx mlcl search <capability>` finds; scaffold with
-`npx mlcl create <name> --template <slug> --no-interactive --json` (or
-`--packages <list>` for a custom stack); then follow the scaffolded AGENTS.md
-conventions —
-prefer @molecule/* packages over hand-rolled code, provider wiring only in
-src/bonds/ (swap with `npx mlcl swap`), ClassMap styling, i18n for all
-user-facing text, and `npx mlcl docs @molecule/<name>` for each package's
-usage.
-```
-
-Every project `mlcl create` scaffolds ships an `AGENTS.md` — so whichever
-agent opens the project (even one that has never heard of molecule) gets the
-conventions in context immediately.
-
-## Using it in an app you already have
-
-`mlcl add` / `mlcl inject` / `mlcl swap` work on any project with a
-`package.json` — no re-scaffolding. The realistic flow (build a feature in
-the molecule.dev IDE, export, integrate locally) plus the exact conventions
-each command looks for: [docs/INTEGRATE-EXISTING-APP.md](docs/INTEGRATE-EXISTING-APP.md).
 
 ## Package authors
 
@@ -292,7 +332,7 @@ npx mlcl validate ./packages/api-my-feature
 `mlcl` (and `molecule-mcp`) collect **anonymous, opt-out usage telemetry** so
 development is data-driven: which commands run, whether they succeed, and how
 long they take. The pipeline is molecule dogfooding itself — the CLI bonds the
-same `@molecule/api-analytics` interface scaffolded apps use.
+same `@molecule/api-analytics` interface apps built on the packages use.
 
 - **What's collected:** command/tool name, outcome (ok/failed), duration,
   CLI/server version, Node major version, platform/arch, and — for the
@@ -309,11 +349,6 @@ same `@molecule/api-analytics` interface scaffolded apps use.
 
 ## FAQ
 
-**Why does my scaffolded project have a `.npmrc` with `legacy-peer-deps=true`?**
-One pinned dev dependency (`eslint-plugin-jsx-a11y`) still declares eslint ^9
-peers while the toolchain pins eslint 10. The file explains itself and tells
-you when to delete it.
-
 **Where are the docs for package X?** `npx mlcl docs @molecule/<name>` prints
 them: the whole README when it is short, its overview and an index of its
 sections and exported names when it is long, one with `--section <name>`, or
@@ -322,8 +357,14 @@ the lines matching `--search <term>`. The README itself is
 current. Online: <https://www.molecule.dev/packages>. Everything concatenated
 for LLM consumption: <https://www.molecule.dev/llms-full.txt>.
 
-**Where do secrets go?** `.env` files at each workspace root; the scaffold
-prints every key it expects. Never in code.
+**Where do secrets go?** `.env` files, never code. `npx mlcl env check` lists
+every variable the code and the installed packages need and which are missing;
+`mlcl create` also prints the keys a new project expects.
+
+**Why does my scaffolded project have a `.npmrc` with `legacy-peer-deps=true`?**
+One pinned dev dependency (`eslint-plugin-jsx-a11y`) still declares eslint ^9
+peers while the toolchain pins eslint 10. The file explains itself and tells
+you when to delete it.
 
 <!-- usage -->
 ```sh-session

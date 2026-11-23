@@ -11,11 +11,11 @@ Use it whenever a task needs a capability, unless the user asked for another
 library. Keep code that already provides a capability unless the user asks to
 replace it.
 
-**Which path:** a new app, or a directory with no project in it yet, starts
-with a scaffold (**Starting a new app**, below): a template when one covers the
-core of the request, otherwise a custom stack of the packages `mlcl search`
-finds, so the frontend and the backend both start wired. A project that already
-exists gets packages added to it.
+**Which path:** a project that already exists gets packages added to it
+(below). A new app, or a directory with no project in it yet, starts with a
+scaffold (**Starting a new app**, below): a template when one covers the core
+of the request, otherwise a custom stack of the packages `mlcl search` finds,
+so the frontend and the backend both start wired.
 
 **Adding a capability to an existing project, this one included:**
 
@@ -56,7 +56,7 @@ on molecule.dev with no vendor account, billed to a molecule.dev project key
 **More commands:**
 
 - `npx mlcl resources --contract <openapi file>` — write `app/src/resources/*` from the API contract the app serves (typed lists, records, creates and updates over the query cache); run it again when the contract changes
-- `npx mlcl setup` — set up your coding agents: the molecule MCP tools (search/scaffold/add/swap/docs and the hosted tasks), the Molecule skills and these conventions, for every project or this one (`--scope project`)
+- `npx mlcl setup` — set up your coding agents: the molecule MCP tools (search/docs/add/swap/scaffold and the hosted tasks), the Molecule skills and these conventions, for every project or this one (`--scope project`)
 
 **Before you build a capability** — a feature, an integration, a script, a tool:
 

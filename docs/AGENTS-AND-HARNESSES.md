@@ -1,8 +1,11 @@
 # Molecule + AI coding agents — the complete guide
 
-Molecule is built agent-first: the CLI is non-interactive by flag, emits JSON,
-and every scaffolded project teaches your agent its conventions. This guide
-covers every supported harness and every wiring method, with examples.
+Molecule's `@molecule/*` packages work in any JavaScript or TypeScript
+project, and its tools are built for agents: the CLI is non-interactive by flag
+and emits JSON, the MCP server gives an agent the same commands as tools, and
+the conventions tell it to reach for a package before writing a capability by
+hand. This guide covers every supported harness and every wiring method, with
+examples.
 
 > `mlcl` and `molecule-mcp` are on npm, along with every `@molecule/*`
 > package; the commands below run as written.
@@ -11,7 +14,8 @@ covers every supported harness and every wiring method, with examples.
 project on this machine, or this project only) and which of your agents, then
 installs the molecule MCP server, the Molecule skills and the conventions for
 each one. Or install the Claude Code plugin, or just paste the prompt block from
-the README into any agent. Then ask your agent to build something. URL-only clients (Lovable/v0/bolt connectors, and any harness
+the README into any agent. Then ask your agent for what you need, in a project
+you already have or a new one. URL-only clients (Lovable/v0/bolt connectors, and any harness
 wanting a one-line install) use the hosted read-only endpoint instead:
 `https://mcp.molecule.dev/mcp`.
 
@@ -21,12 +25,12 @@ wanting a one-line install) use the hosted read-only endpoint instead:
 
 | Surface                          | What it provides                                                                                                                                                                           |
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
-| `mlcl` CLI (`npx`)               | discovery (`search`, `templates`), scaffolding (`create --no-interactive --json`), growth (`add --inject`), reconfiguration (`swap`)                                                       |
-| Scaffolded `AGENTS.md`           | the project's conventions, in context the moment any agent opens the project                                                                                                               |
+| `mlcl` CLI (`npx`)               | discovery (`search`, `docs`, `examples`), growth (`add --inject`), reconfiguration (`swap`), checks (`check`), new projects (`templates`, `create --no-interactive --json`)                |
+| A project's `AGENTS.md`          | the project's conventions, in context the moment any agent opens the project (`mlcl create` writes it; `agent init` adds it to any project)                                                |
 | `setup`                          | the MCP server, the Molecule skills and those conventions, installed into every agent on the machine (or one project) in one command                                                       |
 | `agent init`                     | those same conventions written into any existing project / harness's instruction files                                                                                                     |
 | `molecule` MCP server            | the same verbs as structured tools + `read_package_doc` + the `molecule://conventions` resource + a self-install `agent_init` tool, and startup instructions that say when to use Molecule |
-| Claude Code plugin _(at launch)_ | two skills + the MCP server, marketplace-updated                                                                                                                                           |
+| Claude Code plugin _(at launch)_ | three skills + the MCP server, marketplace-updated                                                                                                                                         |
 | Package READMEs                  | every `@molecule/*` package documents its API/wiring in a generated README — `npx mlcl docs @molecule/<name>` reads it a section at a time — LLM-oriented by design                        |
 
 Scaffolds also ship the same ESLint rules for every harness. In JSX,
@@ -157,17 +161,18 @@ Paste this into Claude Code, Codex, Cursor, Gemini CLI, OpenCode, Cline,
 Windsurf, Zed, or any chat-based agent:
 
 ```text
-Build this app with molecule.dev: run `npx mlcl templates` and choose the
-starting point by its rules: a flagship template only when its catalog
-(`npx mlcl templates <slug>`) covers the core of the app, otherwise a custom
-stack of the packages `npx mlcl search <capability>` finds; scaffold with
-`npx mlcl create <name> --template <slug> --no-interactive --json` (or
-`--packages <list>` for a custom stack); then follow the scaffolded AGENTS.md
-conventions —
-prefer @molecule/* packages over hand-rolled code, provider wiring only in
-src/bonds/ (swap with `npx mlcl swap`), ClassMap styling, i18n for all
-user-facing text, and `npx mlcl docs @molecule/<name>` for each package's
-usage.
+Build this app with molecule.dev: for each capability it needs (auth,
+payments, email, uploads, AI, search, …), find a package with
+`npx mlcl search <capability>`, read it with `npx mlcl docs @molecule/<name>`,
+and install and wire it with `npx mlcl add @molecule/<name> --inject` (swap
+its provider later with `npx mlcl swap`); prefer @molecule/* packages over
+hand-rolled code. With no project yet, run `npx mlcl templates`: start from a
+flagship template only when its catalog (`npx mlcl templates <slug>`) covers
+the core of the app, otherwise from a custom stack of the packages you found;
+scaffold with `npx mlcl create <name> --template <slug> --no-interactive --json`
+(or `--packages <list>` for a custom stack). In a project Molecule created,
+follow its AGENTS.md conventions: provider wiring only in src/bonds/, ClassMap
+styling, i18n for all user-facing text.
 ```
 
 No configuration exists that this doesn't work with. Everything below just
@@ -205,9 +210,11 @@ as the "Every project" column above.
 
 ## Method 3 — the MCP server (tools, one command or one line)
 
-`molecule-mcp` exposes structured tools: `search_packages`, `list_templates`,
-`scaffold_project`, `add_package`, `swap_provider`, `read_package_doc`,
-`agent_init` — plus the `molecule://conventions` resource.
+`molecule-mcp` exposes structured tools: `search_packages`, `read_package_doc`,
+`add_package`, `swap_provider`, `find_example`, `check_project`, `agent_init`,
+`list_templates`, `scaffold_project`, the env, deploy and sandbox tools, and the
+hosted tasks (`web_search`, `render_pdf`, …) — plus the `molecule://conventions`
+resource.
 
 ```bash
 npx mlcl mcp install                 # detect + register (uses the harness's own installer when it has one)
@@ -248,15 +255,15 @@ client needs a different shape (OpenCode does; the installer knows).
 /plugin install molecule@molecule
 ```
 
-Bundles the `build-with-molecule` and `extend-with-packages` skills plus the
-MCP server, updated through the marketplace. Skills trigger on intent
-("build me X" / "add payments"), and tools come with it.
+Bundles the `extend-with-packages`, `capability-first` and `build-with-molecule`
+skills plus the MCP server, updated through the marketplace. Skills trigger on
+intent ("add payments" / "build me X"), and tools come with it.
 
 ## Method 5 — the hosted remote endpoint (no local install)
 
 The read-only face of the server, served over HTTP at
 `https://mcp.molecule.dev/mcp` (see [../mcp/DEPLOY.md](../mcp/DEPLOY.md)). Tools:
-`search_packages`, `list_templates`, `read_package_doc`, and the
+`search_packages`, `read_package_doc`, `list_templates`, and the
 `molecule://conventions` resource; the catalog streams live from the public
 repo and docs from npm.
 
@@ -274,29 +281,6 @@ mid-build. The graduation path for their exported apps:
 ---
 
 ## Example agent workflows
-
-**Greenfield, a template that fits:**
-
-```text
-You:  Build me a helpdesk app with molecule.
-Agent: runs  npx mlcl templates            → helpdesk-ticketing is a candidate
-       runs  npx mlcl templates helpdesk-ticketing
-                                           → its catalog covers tickets, SLAs and a knowledge base
-       runs  npx mlcl create helpdesk --template helpdesk-ticketing \
-               --no-interactive --json
-       fills .env keys it can, tells you the rest
-       follows the scaffolded AGENTS.md for every edit after that
-```
-
-**Greenfield, custom stack:**
-
-```text
-You:  Build an API with Postgres, users, and Stripe subscriptions.
-Agent: npx mlcl search subscriptions --json
-       npx mlcl create sub-api --type api \
-         --packages @molecule/api-database-postgresql,@molecule/api-resource-user,@molecule/api-payments-stripe \
-         --no-interactive --json
-```
 
 **Existing project, new capability:**
 
@@ -326,9 +310,32 @@ Agent: npx mlcl swap @molecule/api-database-mysql --no-interactive --install
        updates .env DATABASE_URL, runs migrations
 ```
 
+**New app, a template that fits:**
+
+```text
+You:  Build me a helpdesk app with molecule.
+Agent: runs  npx mlcl templates            → helpdesk-ticketing is a candidate
+       runs  npx mlcl templates helpdesk-ticketing
+                                           → its catalog covers tickets, SLAs and a knowledge base
+       runs  npx mlcl create helpdesk --template helpdesk-ticketing \
+               --no-interactive --json
+       fills .env keys it can, tells you the rest
+       follows the scaffolded AGENTS.md for every edit after that
+```
+
+**New app, custom stack:**
+
+```text
+You:  Build an API with Postgres, users, and Stripe subscriptions.
+Agent: npx mlcl search subscriptions --json
+       npx mlcl create sub-api --type api \
+         --packages @molecule/api-database-postgresql,@molecule/api-resource-user,@molecule/api-payments-stripe \
+         --no-interactive --json
+```
+
 **MCP-tool path** (harness with `molecule` connected): the agent calls
-`list_templates` / `search_packages` / `scaffold_project` / `add_package` /
-`swap_provider` / `read_package_doc` directly instead of shelling out.
+`search_packages` / `read_package_doc` / `add_package` / `swap_provider` /
+`list_templates` / `scaffold_project` directly instead of shelling out.
 
 ---
 

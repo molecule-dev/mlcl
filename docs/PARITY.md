@@ -10,7 +10,7 @@ Decisions:
 
 - `parity` — a CLI command and/or MCP tool exists (listed)
 - `local-equivalent` — the CLI does it locally instead of via the platform
-  (scaffolding, staging, .env editing — the CLI's raison d'être)
+  (scaffolding, adding and wiring packages, staging, .env editing)
 - `ide-only` — deliberately not surfaced in the CLI (interactive UI surface;
   listed so the decision is explicit, not an accident)
 - `gap` — no coverage yet; tracked for build-out

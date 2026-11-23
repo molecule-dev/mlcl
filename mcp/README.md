@@ -1,9 +1,12 @@
 # molecule-mcp
 
 The [Molecule.dev](https://molecule.dev) MCP server — structured tools over the
-`mlcl` CLI for any MCP-capable coding agent: search the `@molecule/*` package
-fleet, list flagship app templates, scaffold projects, add/wire packages, swap
-providers, and read package docs.
+`mlcl` CLI for any MCP-capable coding agent, in any JavaScript or TypeScript
+project, new or existing: search the `@molecule/*` packages by capability, read
+their docs, add and wire them, swap providers, find working examples, run the
+project's checks, manage env and deploys, and run hosted tasks (web search, PDF
+rendering, image generation, …) with no vendor account. It can also start a new
+app from a custom stack or a template.
 
 > On npm as `molecule-mcp`: the `npx -y molecule-mcp` entries below run as
 > written.
@@ -12,9 +15,10 @@ Also ships the molecule doctrine as a resource (`molecule://conventions`) and
 an `agent_init` tool that writes the convention files your harness reads — so
 connecting this ONE server delivers both the capability and the context. Its
 startup instructions (sent when your agent connects; clients that show server
-instructions put them in context) say when to use Molecule: a new app or a new
-capability, unless the project is on another stack, searching packages and
-reading their docs before writing the feature by hand.
+instructions put them in context) say when to use Molecule: whenever a task in
+a JavaScript or TypeScript project needs a capability, unless the user asked
+for another library, search the packages and read their docs before writing the
+capability by hand.
 
 The broader agent guide (all harnesses, all wiring methods, example agent
 workflows): [../docs/AGENTS-AND-HARNESSES.md](../docs/AGENTS-AND-HARNESSES.md) (in the mlcl repo).
@@ -68,27 +72,29 @@ molecule-dev/molecule-claude-code` then `/plugin install molecule@molecule`
 
 ## Tools
 
-| Tool                   | What it does                                                          |
-| ---------------------- | --------------------------------------------------------------------- |
-| `search_packages`      | Search `@molecule/*` by capability ("payments", "social login")       |
-| `list_templates`       | The flagship app gallery (blog, crm, team-chat, …)                    |
-| `scaffold_project`     | `mlcl create` unattended, JSON result                                 |
-| `add_package`          | Install + wire a package (`mlcl add --inject`)                        |
-| `swap_provider`        | Swap a wired provider (`mlcl swap`)                                   |
-| `read_package_doc`     | A package's generated usage README (walks up to hoisted node_modules) |
-| `agent_init`           | Write the molecule conventions into this project's agent files        |
-| `login` / `login_poll` | Browser device-code login (same token as the CLI — see below)         |
-| `whoami` / `logout`    | Login status / clear the token                                        |
-| `list_projects`        | Your molecule.dev projects (ids for `create_api_key`)                 |
-| `create_api_key`       | Mint a project API key into the project `.env` (never shown in chat)  |
-| `check_env_vars`       | Which env vars the app needs (code reads + package declarations) and which are missing |
-| `list_env_vars` / `get_env_var` / `set_env_var` / `unset_env_var` | Local `.env` CRUD (values masked unless revealed) |
-| `push_env_vars` / `pull_env_vars` | Sync local `.env` with the molecule.dev project env        |
-| `export_project`       | Download the no-lock-in eject bundle (.tar.gz: code + db dump + .env) |
-| `embed_text`           | Embeddings on molecule.dev, billed to the project — no OpenAI account |
-| `text_to_speech`       | Speech audio from text on molecule.dev, written to a local file       |
-| `transcribe_audio`     | Text from a local audio file on molecule.dev (whisper-1)              |
-| `moderate_content`     | Moderation scores for text or a local image on molecule.dev           |
+| Tool                                                              | What it does                                                                           |
+| ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `search_packages`                                                 | Search `@molecule/*` by capability ("payments", "social login")                        |
+| `read_package_doc`                                                | A package's generated usage README (walks up to hoisted node_modules)                  |
+| `add_package`                                                     | Install + wire a package (`mlcl add --inject`)                                         |
+| `swap_provider`                                                   | Swap a wired provider (`mlcl swap`)                                                    |
+| `find_example`                                                    | A working, tested example of a feature, with where each file goes                      |
+| `check_project`                                                   | Run the project's typecheck, lint, build and tests; one short report                   |
+| `agent_init`                                                      | Write the molecule conventions into this project's agent files                         |
+| `list_templates`                                                  | The flagship app gallery (blog, crm, team-chat, …), for a new app                      |
+| `scaffold_project`                                                | `mlcl create` unattended, JSON result                                                  |
+| `login` / `login_poll`                                            | Browser device-code login (same token as the CLI — see below)                          |
+| `whoami` / `logout`                                               | Login status / clear the token                                                         |
+| `list_projects`                                                   | Your molecule.dev projects (ids for `create_api_key`)                                  |
+| `create_api_key`                                                  | Mint a project API key into the project `.env` (never shown in chat)                   |
+| `check_env_vars`                                                  | Which env vars the app needs (code reads + package declarations) and which are missing |
+| `list_env_vars` / `get_env_var` / `set_env_var` / `unset_env_var` | Local `.env` CRUD (values masked unless revealed)                                      |
+| `push_env_vars` / `pull_env_vars`                                 | Sync local `.env` with the molecule.dev project env                                    |
+| `export_project`                                                  | Download the no-lock-in eject bundle (.tar.gz: code + db dump + .env)                  |
+| `embed_text`                                                      | Embeddings on molecule.dev, billed to the project — no OpenAI account                  |
+| `text_to_speech`                                                  | Speech audio from text on molecule.dev, written to a local file                        |
+| `transcribe_audio`                                                | Text from a local audio file on molecule.dev (whisper-1)                               |
+| `moderate_content`                                                | Moderation scores for text or a local image on molecule.dev                            |
 
 Plus the `molecule://conventions` resource — the molecule doctrine
 (packages before hand-rolled code, bonds for providers, ClassMap, i18n) that
@@ -103,23 +109,23 @@ your agent can read as context.
 //      "label":"Stripe","description":"Stripe payment provider…",
 //      "install":"mlcl add @molecule/api-payments-stripe --inject"}, …]
 
-// scaffold_project — unattended scaffold, JSON result
+// read_package_doc — the package's own generated usage reference
+{ "name": "api-payments-stripe", "directory": "/abs/my-project/api" }
+
+// add_package / swap_provider — add a capability to any project, change its vendor
+{ "name": "@molecule/api-emails-mailgun" }
+{ "new_provider": "@molecule/api-database-mysql", "replace": "@molecule/api-database-postgresql" }
+
+// agent_init — make the current project molecule-aware (idempotent)
+{ "directory": "/abs/my-project" }
+
+// scaffold_project — start a new app, unattended, JSON result
 { "name": "my-store", "template": "online-store", "skip_install": false }
 // → {"project":"my-store","path":"/abs/my-store","type":"full-stack",
 //     "packages":[…],"secrets":["STRIPE_SECRET_KEY",…]}
 
-// custom stack instead of a template
+// a new app from a custom stack instead of a template
 { "name": "api", "type": "api", "packages": "@molecule/api-database-postgresql,@molecule/api-resource-user" }
-
-// add_package / swap_provider — grow and reconfigure
-{ "name": "@molecule/api-emails-mailgun" }
-{ "new_provider": "@molecule/api-database-mysql", "replace": "@molecule/api-database-postgresql" }
-
-// read_package_doc — the package's own generated usage reference
-{ "name": "api-payments-stripe", "directory": "/abs/my-project/api" }
-
-// agent_init — make the current project molecule-aware (idempotent)
-{ "directory": "/abs/my-project" }
 ```
 
 ## Hosted services
@@ -163,7 +169,7 @@ app code reaches the same service through a normal, swappable bond.
   `mlcl` CLI. What every CLI harness registers.
 - **Hosted HTTP** (`molecule-mcp-serve` / `node dist/http.js`): the read-only
   face, live at `https://mcp.molecule.dev/mcp` —
-  search/templates/docs/conventions served from the live registry and npm, no
+  search/docs/templates/conventions served from the live registry and npm, no
   local install needed. This is the surface URL-based clients use: Lovable
   chat connectors, v0 MCP integrations, bolt.new Connectors, and the short
   install (`claude mcp add --transport http molecule https://mcp.molecule.dev/mcp`).

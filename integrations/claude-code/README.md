@@ -1,9 +1,10 @@
 # Molecule for Claude Code — plugin + marketplace
 
-The install-once surface for Claude Code: two skills (scaffold a new app,
-extend/swap packages) plus the `molecule` MCP server (`molecule-mcp`) bundled
-via `.mcp.json`, so tools like `search_packages` / `list_templates` /
-`scaffold_project` are available without any shell-out.
+The install-once surface for Claude Code: three skills (add or swap a
+capability in any project, check what a package already provides before writing
+code, start a new app) plus the `molecule` MCP server (`molecule-mcp`) bundled
+via `.mcp.json`, so tools like `search_packages` / `read_package_doc` /
+`add_package` are available without any shell-out.
 
 ## Layout
 
@@ -11,8 +12,9 @@ via `.mcp.json`, so tools like `search_packages` / `list_templates` /
 .claude-plugin/marketplace.json     # marketplace "molecule" (future standalone repo root — see runbook below)
 plugins/molecule/                   # the plugin
   .claude-plugin/plugin.json        # manifest (only file allowed in .claude-plugin/)
-  skills/build-with-molecule/SKILL.md
   skills/extend-with-packages/SKILL.md
+  skills/capability-first/SKILL.md
+  skills/build-with-molecule/SKILL.md
   .mcp.json                         # bundled molecule-mcp server
 ```
 
@@ -20,7 +22,7 @@ plugins/molecule/                   # the plugin
 
 ```bash
 claude --plugin-dir ./plugins/molecule
-# then in the session: the skills trigger on "build me X" / "add payments",
+# then in the session: the skills trigger on "add payments" / "build me X",
 # and `molecule` MCP tools appear once molecule-mcp is on PATH or the
 # .mcp.json command is overridden to a local build:
 #   {"mcpServers":{"molecule":{"command":"node","args":["<repo>/mlcl/mcp/bin/run.js"]}}}

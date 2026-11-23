@@ -6,11 +6,11 @@ staged with exact copy so submission is paste-and-click.
 ## Canonical listing copy
 
 - **Name:** `molecule` (server `molecule-mcp`) · **Display:** Molecule.dev
-- **Tagline:** Build production full-stack apps from 1025+ composable, swappable packages — scaffold, extend, and swap providers with one command.
-- **Short description (≤100 chars):** Scaffold, extend, and provider-swap production full-stack apps with Molecule.
+- **Tagline:** 1924+ composable, swappable `@molecule/*` packages for any JavaScript or TypeScript project — your agent finds, adds, wires and swaps them.
+- **Short description (≤100 chars):** Find, add, wire and swap composable @molecule/* packages in any JS or TS project.
 - **Long description:**
-  > Molecule.dev scaffolds real, production-grade TypeScript apps from 1025+ composable `@molecule/*` packages behind swappable bonds. This server gives your agent structured tools to search the package fleet, list 152+ flagship app templates, scaffold projects unattended, add/wire packages, swap providers without rewrites, and read each package's generated docs — plus the molecule conventions as a resource (`molecule://conventions`) and a self-install tool for your project's agent files.
-- **Tags/categories:** scaffolding, boilerplate, fullstack, code-generation, typescript, developer-tools
+  > Molecule.dev is a library of 1924+ composable `@molecule/*` packages for JavaScript and TypeScript projects (auth, database, payments, email, uploads, AI, search, PDFs, push and more), each behind an interface with swappable providers. This server gives your agent structured tools to search the packages by capability, read each one's generated docs, add and wire one into any project (including one Molecule did not create), swap providers without rewrites, find working examples and run the project's checks. It also runs hosted tasks with no vendor account (web search, page fetching, PDF rendering, image generation and more), billed to a molecule.dev project key, and starts new apps from a custom stack or one of 152+ flagship templates — plus the molecule conventions as a resource (`molecule://conventions`) and a self-install tool for your project's agent files.
+- **Tags/categories:** developer-tools, typescript, javascript, packages, ai-agents, mcp, fullstack
 - **Links:** repo `github.com/molecule-dev/mlcl` · npm `npmjs.com/package/molecule-mcp` · site `molecule.dev` · docs `…/blob/main/docs/AGENTS-AND-HARNESSES.md`
 - **Install line:** `npx mlcl setup` (every agent on the machine, with the Molecule skills), `npx mlcl mcp install` (one agent), or the standard entry `npx -y molecule-mcp`
 
@@ -37,7 +37,7 @@ Lovable (chat connectors), v0 (MCP integrations), bolt.new (Connectors),
 and Base44 all accept MCP servers — but REMOTE (HTTP URL) ones. molecule-mcp's hosted
 read-only face is built (`mcp/src/http.ts` + `remote.ts`; deploy runbook in
 `mcp/DEPLOY.md`): `https://mcp.molecule.dev/mcp` serving the read tools
-(search/templates/docs + the conventions resource). Deploying it unlocks all
+(search/docs/templates + the conventions resource). Deploying it unlocks all
 three builders as additional surfaces AND gives every CLI harness the short
 one-URL install. The graduation-path story for their exported apps is
 meanwhile covered by [FROM-VIBECODING.md](FROM-VIBECODING.md).
