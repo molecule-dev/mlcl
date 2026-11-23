@@ -18,7 +18,7 @@ import { build, createServer, preview } from 'vite'
 import { describe, expect, it, vi } from 'vitest'
 
 import { isStaticExcluded } from '../../commands/create.js'
-import { getMoleculeVersion, loadAppFrameworks, loadRegistry } from '../registry.js'
+import { getMoleculeVersion, loadAppFrameworks, loadRegistry, loadToolchain } from '../registry.js'
 import { createAppProject, getTemplateRequiredPackages } from '../scaffold.js'
 import type { InferredPackage } from '../schema.js'
 
@@ -82,7 +82,10 @@ describe('scaffolded PWA registration', () => {
     }
   })
 
-  it('every web framework requires the registration package', () => {
+  // A default `mlcl create` app spent ~200 of its ~820 installed packages on vite-plugin-pwa's
+  // build tree (workbox-build) without asking for a worker: the PWA is opt-in, and web push
+  // (which delivers through the worker) brings it.
+  it('a web scaffold installs the PWA only when it chose the registration package', async () => {
     const registry = loadRegistry('app')
     const frameworks = loadAppFrameworks()
     function frameworkPackage(framework: string): InferredPackage | undefined {
@@ -93,24 +96,40 @@ describe('scaffolded PWA registration', () => {
           pkg.molecule?.framework === framework,
       )
     }
-
-    for (const framework of WEB_FRAMEWORKS) {
+    for (const framework of [...WEB_FRAMEWORKS, 'react-native']) {
       const required = getTemplateRequiredPackages(
         framework,
         frameworkPackage(framework),
         frameworks[framework],
       )
-      expect(required, `${framework} scaffold must require ${PACKAGE_NAME}`).toContain(PACKAGE_NAME)
+      expect(required, `${framework} scaffold must not require ${PACKAGE_NAME}`).not.toContain(
+        PACKAGE_NAME,
+      )
     }
+    expect(
+      registry.find((pkg) => pkg.name === '@molecule/app-push')?.molecule?.moleculePeers,
+    ).toContain(PACKAGE_NAME)
 
-    // React Native ships no service worker and no `src/pwa.ts` — pulling vite
-    // tooling into its dependency tree would be wrong.
-    const rnRequired = getTemplateRequiredPackages(
-      'react-native',
-      frameworkPackage('react-native'),
-      frameworks['react-native'],
-    )
-    expect(rnRequired).not.toContain(PACKAGE_NAME)
+    const pin = loadToolchain().app['vite-plugin-pwa']
+    expect(pin).toMatch(/^\d+\.\d+\.\d+$/)
+    for (const [selected, withPwa] of [
+      [[], false],
+      [[PACKAGE_NAME], true],
+    ] as const) {
+      const root = await mkdtemp(join(tmpdir(), 'pwa-opt-in-'))
+      try {
+        await createAppProject(root, 'equipment-console', 'react', false, '', {}, [...selected])
+        const manifest = JSON.parse(await readFile(join(root, 'package.json'), 'utf8')) as {
+          devDependencies: Record<string, string>
+        }
+        const env = await readFile(join(root, 'src', 'vite-env.d.ts'), 'utf8')
+        expect(manifest.devDependencies['vite-plugin-pwa']).toBe(withPwa ? pin : undefined)
+        expect(env.includes('/// <reference types="vite-plugin-pwa/client" />')).toBe(withPwa)
+        expect(env).toContain('/// <reference types="vite/client" />')
+      } finally {
+        await rm(root, { recursive: true, force: true })
+      }
+    }
   })
 
   it('every flagship template app uses the same re-export and declares the dependency', async () => {
@@ -164,7 +183,7 @@ describe('generated app service workers', { timeout: 90_000 }, () => {
   ): Promise<void> {
     const root = await mkdtemp(join(tmpdir(), 'scaffold-pwa-'))
     try {
-      await createAppProject(root, 'equipment-console', 'react')
+      await createAppProject(root, 'equipment-console', 'react', false, '', {}, [PACKAGE_NAME])
       if (legacy) await writeFile(join(root, 'src/pwa.ts'), RE_EXPORT)
       await symlink(
         dirname(dirname(require.resolve('vite/package.json'))),

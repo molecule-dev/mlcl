@@ -1,3 +1,2 @@
 /// <reference types="vite/client" />
-/// <reference types="vite-plugin-pwa/client" />
-{{EXTRA_TYPE_DECLARATIONS}}
+{{PWA_CLIENT_TYPES}}{{EXTRA_TYPE_DECLARATIONS}}

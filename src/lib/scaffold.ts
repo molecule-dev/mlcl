@@ -4080,6 +4080,26 @@ const STATIC_SITE_REMOVES = [
   'src/components/SettingsPanel.tsx',
 ]
 
+/**
+ * The app toolchain pins a project writes. The pins the PWA package brings (`vite-plugin-pwa`, its
+ * runtime dependency) go in only when the project selected that package: without it the Vite
+ * config builds no service worker, and the plugin's build tree (`workbox-build` with Babel and
+ * Rollup) was about 200 of a default app's ~820 installed packages.
+ *
+ * @param selectedPackages - The `@molecule/*` packages the project scaffolds with.
+ * @param appToolchain - The registry's `toolchain.app` pins.
+ * @returns The pins to write.
+ */
+export function appToolchainFor(
+  selectedPackages: readonly string[],
+  appToolchain: Record<string, string>,
+): Record<string, string> {
+  const pwa = requirePackageByRole('app', 'feature', 'pwa-default')
+  if (selectedPackages.includes(pwa)) return appToolchain
+  const brought = new Set(getRawRegistry().packages[pwa]?.runtimeDependencies ?? [])
+  return Object.fromEntries(Object.entries(appToolchain).filter(([name]) => !brought.has(name)))
+}
+
 /** Build-tooling devDeps a static site drops — no service worker, no PWA. */
 const STATIC_SITE_DROPPED_DEV_DEPS = [
   'vite-plugin-pwa',
@@ -5220,7 +5240,7 @@ export async function createAppProject(
     devDependencies: {
       ...(buildTooling?.devDependencies ?? {}),
       ...toolchain.shared,
-      ...toolchain.app,
+      ...appToolchainFor(selectedPackages, toolchain.app),
       ...(fwConfig.devDependencies ?? {}),
       [requirePackageByRole('app', 'feature', 'vite-config-default')]: getMoleculeVersion(
         requirePackageByRole('app', 'feature', 'vite-config-default'),
@@ -5377,14 +5397,22 @@ export async function createAppProject(
     await loadTemplate('app/shared/bonds-index.ts.tpl'),
   )
 
-  // Vite + PWA type declarations + framework-specific module declarations (from registry).
+  // Vite + PWA type declarations + framework-specific module declarations (from registry). The
+  // PWA client types come from vite-plugin-pwa, which only a project with the PWA package installs.
   // An empty declaration list must not leave the template's trailing blank line: the
   // file has to be exactly what the project's own prettier keeps.
   const extraDecl = fwConfig.typeDeclarations ? '\n' + fwConfig.typeDeclarations : ''
   await writeFile(
     join(projectPath, 'src', 'vite-env.d.ts'),
     (
-      await loadTemplate('app/shared/vite-env.d.ts.tpl', { EXTRA_TYPE_DECLARATIONS: extraDecl })
+      await loadTemplate('app/shared/vite-env.d.ts.tpl', {
+        PWA_CLIENT_TYPES: selectedPackages.includes(
+          requirePackageByRole('app', 'feature', 'pwa-default'),
+        )
+          ? '/// <reference types="vite-plugin-pwa/client" />\n'
+          : '',
+        EXTRA_TYPE_DECLARATIONS: extraDecl,
+      })
     ).replace(/\n+$/, '\n'),
   )
 
