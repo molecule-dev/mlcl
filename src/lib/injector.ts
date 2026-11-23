@@ -2971,8 +2971,15 @@ export function setup${pascal}(): void {
     }
   }
 
-  const allSetterImports = [setter, ...additionalPairs.map((p) => p.setter)].join(', ')
-  const allProviderImports = [provider, ...additionalPairs.map((p) => p.provider)].join(', ')
+  // Wrapped as prettier wraps them: three body-parser setters overran the print width.
+  const setterImports = importStatement(
+    [setter, ...additionalPairs.map((p) => p.setter)],
+    interfacePackage,
+  )
+  const providerImports = importStatement(
+    [provider, ...additionalPairs.map((p) => p.provider)],
+    pkg.name,
+  )
   // Local font faces load from `<basePath>fonts/<file>`; a site served under a
   // sub-path (Vite `base`, BASE_PATH) 404s every face at `/fonts/…` unless the
   // app passes the base it already knows. Only the app knows it — the bond
@@ -2999,8 +3006,8 @@ export function setup${pascal}(): void {
  * Wires ${pkg.name} to ${interfacePackage}
  */
 
-import { ${allSetterImports} } from '${interfacePackage}'
-import { ${allProviderImports} } from '${pkg.name}'
+${setterImports}
+${providerImports}
 
 export function setup${pascal}(): void {
 ${allSetupCalls}
