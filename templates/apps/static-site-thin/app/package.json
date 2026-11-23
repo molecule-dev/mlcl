@@ -38,15 +38,15 @@
     "@molecule/app-locales-i18n": "1.0.6",
     "@molecule/app-logger": "1.1.0",
     "@molecule/app-margin-notes-html": "1.0.9",
-    "@molecule/app-markdown": "1.0.4",
-    "@molecule/app-markdown-marked": "1.0.3"
+    "@molecule/app-markdown": "1.1.0",
+    "@molecule/app-markdown-marked": "1.1.0"
   },
   "devDependencies": {
     "@molecule/app-e2e": "1.2.5",
     "@molecule/app-e2e-fixtures-default": "1.2.6",
     "@molecule/app-e2e-playwright": "1.0.4",
     "@molecule/app-e2e-preview": "1.1.0",
-    "@molecule/eslint-config": "1.1.1",
+    "@molecule/eslint-config": "1.1.2",
     "@playwright/test": "1.64.1",
     "@types/node": "26.6.5",
     "eslint": "10.15.0",
