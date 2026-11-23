@@ -17,7 +17,7 @@
  */
 import { execFileSync } from 'node:child_process'
 import { existsSync } from 'node:fs'
-import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readdir, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
@@ -159,6 +159,23 @@ describe('mlcl inject in a project Molecule did not create (OLD MUSTFAIL)', () =
     expect(logged).toContain('In src/server.js, before the server starts listening:')
     expect(logged).toContain("import { setupBonds } from './bonds/index.js'")
 
+    // Every package the setup files import is one the project declares. This node_modules is the
+    // workspace's, where @molecule/api-secrets resolves, but a real project that never added it
+    // failed to build on the generated `import { resolveAll } from '@molecule/api-secrets'`
+    // (harness eval `add`, 2026-11-23).
+    const manifest = JSON.parse(await readFile(join(path, 'package.json'), 'utf8'))
+    const declared = { ...manifest.dependencies, ...manifest.devDependencies }
+    for (const file of await readdir(join(path, 'src/bonds'))) {
+      const text = await readFile(join(path, 'src/bonds', file), 'utf8')
+      for (const [, spec] of text.matchAll(/from '([^.'][^']*)'/g)) {
+        const name = spec
+          .split('/')
+          .slice(0, spec.startsWith('@') ? 2 : 1)
+          .join('/')
+        expect(Object.keys(declared), `src/bonds/${file} imports ${name}`).toContain(name)
+      }
+    }
+
     // The consumer path: the generated setup really bonds the provider.
     const out = execFileSync(
       process.execPath,
@@ -178,6 +195,34 @@ describe('mlcl inject in a project Molecule did not create (OLD MUSTFAIL)', () =
       },
     )
     expect(out.toString().trim()).toBe('true')
+  })
+
+  it('wires a provider with no secrets without importing a secrets package the project lacks', async () => {
+    // Harness eval `add`, 2026-11-23: `mlcl add @molecule/api-uploads-filesystem --inject` in an
+    // Express app wrote `import { resolveAll } from '@molecule/api-secrets'`, a package nothing
+    // installed, and the app's next build failed with TS2307.
+    const path = await project(
+      'mlcl-inject-nosecrets-',
+      {
+        name: 'notes-api',
+        version: '1.0.0',
+        type: 'module',
+        scripts: { build: 'tsc', start: 'node dist/server.js' },
+        dependencies: { express: '5.2.1', '@molecule/api-uploads-filesystem': '1.0.0' },
+        devDependencies: { typescript: '6.0.3' },
+      },
+      {
+        'tsconfig.json': '{ "compilerOptions": { "module": "NodeNext", "strict": true } }\n',
+        'src/server.ts': "import express from 'express'\nexpress().listen(3000)\n",
+      },
+    )
+    await inject(path, '@molecule/api-uploads-filesystem')
+    const index = await readFile(join(path, 'src/bonds/index.ts'), 'utf8')
+    expect(index).toContain('setupUploadsFilesystem()')
+    expect(index).not.toContain('@molecule/api-secrets')
+    expect(index).not.toContain('resolveAll')
+    const manifest = JSON.parse(await readFile(join(path, 'package.json'), 'utf8'))
+    expect(Object.keys(manifest.dependencies)).not.toContain('@molecule/api-secrets')
   })
 
   it('writes ES modules as .mjs in a CommonJS package and imports them dynamically', async () => {

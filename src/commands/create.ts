@@ -23,6 +23,7 @@ import {
 } from '../lib/features.js'
 import { formatGeneratedFiles } from '../lib/format.js'
 import { t } from '../lib/i18n.js'
+import { declaredDependencies, newDeclarations } from '../lib/manifest-declarations.js'
 import { frameworksAcceptedBy } from '../lib/package-search.js'
 import {
   getMoleculeVersion,
@@ -1316,6 +1317,10 @@ export default class Create extends Command {
 
     // Step 9: Install dependencies
     let installNeeded = flags['skip-install'] === true
+    // What the install below sees, so the steps after it can tell whether they declared more.
+    const declaredAtInstall = flags['skip-install']
+      ? undefined
+      : await declaredDependencies(projectPath)
     if (!flags['skip-install']) {
       try {
         await this.runSlowStep(
@@ -1557,6 +1562,31 @@ export default class Create extends Command {
 
     // The root gets the packages' formatter config, so every tool formats its files alike.
     if (hasAppSubdir) await ensureRootFormatterConfig(projectPath)
+
+    // The steps after the install declare packages too: inject (it plans against the installed
+    // copies), the activity-capture wiring (it needs the bonds inject writes) and the peer closure.
+    // A project handed back with packages its install never saw fails its first build: the capture
+    // wiring's packages stopped every custom full-stack API at TS2307 until someone ran
+    // `npm install`. Install once more when anything was declared since; npm adds only those.
+    if (declaredAtInstall && !installNeeded) {
+      const added = newDeclarations(declaredAtInstall, await declaredDependencies(projectPath))
+      if (added.length > 0) {
+        log(t('commands.create.messages.installingDeclaredLater', { count: added.length }))
+        try {
+          await this.runSlowStep(
+            'npm install',
+            t('commands.create.spinners.installing'),
+            () => execa('npm', ['install'], { cwd: projectPath }),
+            { json: flags.json === true, spinner },
+          )
+          spinner?.stop(t('commands.create.spinners.installed'))
+        } catch (error) {
+          installNeeded = true
+          spinner?.stop(chalk.yellow(t('commands.create.spinners.installFailed')))
+          this.warn(`npm install failed: ${error instanceof Error ? error.message : String(error)}`)
+        }
+      }
+    }
 
     // Format the whole generated project, root files included. A --skip-install scaffold skips
     // this pass: it formats every file (about 7.5 s for a full-stack React project) on a path

@@ -146,6 +146,8 @@ export const messages: LocaleMessages = {
   'commands.create.messages.reinstallingLog': 'Reinstalling with resolved file: paths...',
   'commands.create.messages.envGenFullStack': 'Generated .env files for api and app',
   'commands.create.messages.envGenSingle': 'Generated .env file',
+  'commands.create.messages.installingDeclaredLater':
+    'Installing {count} packages declared after the first install',
   'commands.create.messages.sqlCopied': 'Copied SQL setup scripts',
   'commands.create.messages.fontsCopied': 'Copied font files to {dir}',
   'commands.create.messages.fontsPending':

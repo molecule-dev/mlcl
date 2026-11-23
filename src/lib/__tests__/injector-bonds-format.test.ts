@@ -22,6 +22,7 @@ describe('generated bond setup is a formatter fixed point', () => {
       ],
       [],
       names,
+      ['@molecule/api-secrets', '@molecule/api-secrets-env'],
     )
     const config = JSON.parse(
       await readFile(join(getTemplatesDir(), 'api', 'prettierrc.json.tpl'), 'utf8'),
@@ -42,6 +43,7 @@ describe('generated bond setup is a formatter fixed point', () => {
     )
     expect(content).toContain('monitor.register(createDatabaseCheck())')
     expect(content).toContain('monitor.register(createCacheCheck())')
+    expect(content).not.toContain('resolveAll')
     expect(content).toBe(await prettier.format(content, { ...config, parser: 'typescript' }))
   })
 })

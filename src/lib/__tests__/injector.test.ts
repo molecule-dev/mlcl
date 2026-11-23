@@ -1182,7 +1182,7 @@ describe('generateBondsIndexContent', () => {
       setups,
       [],
       [],
-      ['@molecule/api-entitlements', '@molecule/api-payments-stripe'],
+      ['@molecule/api-secrets', '@molecule/api-entitlements', '@molecule/api-payments-stripe'],
     )
 
     expect(content).toContain("import { setupEntitlements } from '../tiers.js'")
@@ -1210,6 +1210,31 @@ describe('generateBondsIndexContent', () => {
 
     expect(content).not.toContain("from '../tiers.js'")
     expect(content).not.toContain('setupEntitlements()')
+  })
+
+  // Harness eval `add`, 2026-11-23: a project Molecule did not create has no
+  // @molecule/api-secrets unless it added one, and the import failed its build (TS2307).
+  it('resolves secrets only in a project that depends on @molecule/api-secrets', () => {
+    const setups: BondSetup[] = [
+      {
+        providerPackage: '@molecule/api-uploads-filesystem',
+        interfacePackage: '@molecule/api-uploads',
+        interfaceType: 'uploads',
+        setupCode: 'mock',
+      },
+    ]
+    const without = generateBondsIndexContent(setups, [], [], ['@molecule/api-uploads-filesystem'])
+    expect(without).not.toContain('@molecule/api-secrets')
+    expect(without).not.toContain('resolveAll')
+    expect(without).toContain('Promise<void> {\n  setupUploadsFilesystem()\n}')
+    const withSecrets = generateBondsIndexContent(
+      setups,
+      [],
+      [],
+      ['@molecule/api-secrets', '@molecule/api-uploads-filesystem'],
+    )
+    expect(withSecrets).toContain("import { resolveAll } from '@molecule/api-secrets'")
+    expect(withSecrets).toContain('  await resolveAll()\n  setupUploadsFilesystem()')
   })
 })
 
@@ -1956,5 +1981,139 @@ describe('regular dependency pinning', () => {
     // The refusal rolls back: the manifest is the pre-injection bytes — an
     // unpinnable dependency never lands as a range.
     expect(await readFile(join(projectDir, 'package.json'), 'utf-8')).toBe(original)
+  })
+})
+
+// ============================================================================
+// a package declared as dev tooling brings dev tooling
+// ============================================================================
+
+describe('dependencies of a package declared in devDependencies', () => {
+  /** A plan for `molecule` whose only effect is writing `dependencies`. */
+  function planFor(molecule: string, dependencies: InjectionPlan['dependencies']): InjectionPlan {
+    return {
+      molecule,
+      moleculePackage: {
+        name: molecule,
+        version: '1.0.0',
+        dependencies: {},
+        peerDependencies: {},
+        type: 'utility',
+        routes: [],
+        tables: [],
+        exports: [],
+        path: '/fake',
+      },
+      files: [],
+      dependencies,
+      migrations: [],
+      bondSetup: null,
+      conflicts: [],
+    }
+  }
+
+  /** What `mlcl create` plans for `@molecule/eslint-config`: itself, a dependency, peers. */
+  const lintPlan = (): InjectionPlan =>
+    planFor('@molecule/eslint-config', [
+      { name: 'typescript-eslint', version: '8.72.0', type: 'dependency' },
+      { name: 'eslint-plugin-jsx-a11y', version: '^6.10.2', type: 'peerDependency' },
+      { name: 'eslint', version: '^10.0.0', type: 'peerDependency' },
+      { name: '@molecule/eslint-config', version: '1.1.2', type: 'dependency' },
+    ])
+
+  async function project(name: string, manifest: object): Promise<string> {
+    const dir = join(tempDir, name)
+    await mkdir(dir, { recursive: true })
+    await writeFile(join(dir, 'package.json'), JSON.stringify(manifest))
+    return dir
+  }
+
+  interface Manifest {
+    dependencies?: Record<string, string>
+    devDependencies?: Record<string, string>
+  }
+  const readManifest = async (dir: string): Promise<Manifest> =>
+    JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8')) as Manifest
+
+  it('writes them to devDependencies and leaves the package where the manifest declares it', async () => {
+    const dir = await project('exec-test-dev-owned', {
+      name: 'test',
+      dependencies: { express: '5.2.1' },
+      devDependencies: { '@molecule/eslint-config': '1.1.2', eslint: '10.0.3' },
+    })
+
+    const result = await executeInjection(lintPlan(), dir, { autoInstall: false })
+    expect(result.success).toBe(true)
+
+    const pkg = await readManifest(dir)
+    // What a running app needs is unchanged: no linter reaches production.
+    expect(pkg.dependencies).toEqual({ express: '5.2.1' })
+    expect(pkg.devDependencies).toEqual({
+      '@molecule/eslint-config': '1.1.2',
+      eslint: '10.0.3', // already declared: its pin is kept
+      'eslint-plugin-jsx-a11y': '6.10.2', // a peer range pins to its floor
+      'typescript-eslint': '8.72.0',
+    })
+  })
+
+  it('keeps a runtime declaration where it is instead of adding a dev copy', async () => {
+    const dir = await project('exec-test-dev-owned-runtime-dep', {
+      name: 'test',
+      dependencies: { 'typescript-eslint': '8.70.0' },
+      devDependencies: { '@molecule/eslint-config': '1.1.2' },
+    })
+
+    await executeInjection(lintPlan(), dir, { autoInstall: false })
+
+    const pkg = await readManifest(dir)
+    expect(pkg.dependencies?.['typescript-eslint']).toBe('8.70.0')
+    expect(pkg.devDependencies ?? {}).not.toHaveProperty(['typescript-eslint'])
+  })
+
+  it('moves a dev entry to dependencies when a runtime package needs it, keeping one declaration', async () => {
+    const dir = await project('exec-test-dev-then-runtime', {
+      name: 'test',
+      dependencies: { '@molecule/api-test-runtime': '1.0.0' },
+      devDependencies: { '@molecule/eslint-config': '1.1.2' },
+    })
+
+    await executeInjection(lintPlan(), dir, { autoInstall: false })
+    await executeInjection(
+      planFor('@molecule/api-test-runtime', [
+        { name: 'typescript-eslint', version: '8.72.1', type: 'dependency' },
+        { name: '@molecule/api-test-runtime', version: '1.0.0', type: 'dependency' },
+      ]),
+      dir,
+      { autoInstall: false },
+    )
+
+    const pkg = await readManifest(dir)
+    expect(pkg.dependencies?.['typescript-eslint']).toBe('8.72.0')
+    expect(pkg.devDependencies ?? {}).not.toHaveProperty(['typescript-eslint'])
+  })
+
+  it('still writes a runtime package and what it brings to dependencies', async () => {
+    const dir = await project('exec-test-runtime-owned', {
+      name: 'test',
+      dependencies: { '@molecule/api-test-runtime': '1.0.0' },
+    })
+
+    await executeInjection(
+      planFor('@molecule/api-test-runtime', [
+        { name: 'ms', version: '2.1.3', type: 'dependency' },
+        { name: 'left-pad', version: '^1.3.0', type: 'peerDependency' },
+        { name: '@molecule/api-test-runtime', version: '1.0.0', type: 'dependency' },
+      ]),
+      dir,
+      { autoInstall: false },
+    )
+
+    const pkg = await readManifest(dir)
+    expect(pkg.dependencies).toEqual({
+      '@molecule/api-test-runtime': '1.0.0',
+      'left-pad': '1.3.0',
+      ms: '2.1.3',
+    })
+    expect(pkg.devDependencies).toBeUndefined()
   })
 })

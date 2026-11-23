@@ -1513,7 +1513,7 @@ export async function executeInjection(
       // not leave the project a corrupt package.json — the one write that
       // used to sit outside the rollback set.
       await snapshotForRollback(join(projectPath, 'package.json'), rollbackSnapshots)
-      await updatePackageJson(projectPath, plan.dependencies)
+      await updatePackageJson(projectPath, plan.dependencies, plan.molecule)
       result.filesModified.push(join(projectPath, 'package.json'))
     }
 
@@ -1648,16 +1648,43 @@ function pinDependencyVersion(name: string, version: string): string {
 }
 
 /**
- * Update package.json with new dependencies
+ * Update package.json with an injected package's dependencies.
+ *
+ * A package the manifest declares only in `devDependencies` is development
+ * tooling (`@molecule/eslint-config`, the e2e runner, the Vite config), so what
+ * it brings, its own dependencies and its peers, is development tooling too: it
+ * goes to `devDependencies`, and the package's own entry stays where the
+ * manifest put it. A bare `mlcl inject` (the last step of `mlcl create`) plans
+ * every declared `@molecule/*` package, dev ones included; writing their
+ * dependencies to `dependencies` gave every new project ESLint's plugins and
+ * Playwright as production dependencies, so `npm audit --omit=dev` reported the
+ * linter's advisories against the running app.
+ *
+ * @param projectPath - The workspace whose package.json is updated.
+ * @param dependencies - The plan's dependency changes.
+ * @param owner - The package the plan injects.
  */
 async function updatePackageJson(
   projectPath: string,
   dependencies: DependencyChange[],
+  owner: string,
 ): Promise<void> {
   const packageJsonPath = join(projectPath, 'package.json')
   const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
+  const devTooling =
+    packageJson.dependencies?.[owner] === undefined &&
+    packageJson.devDependencies?.[owner] !== undefined
 
   for (const dep of dependencies) {
+    if (devTooling) {
+      // A declaration in either section already owns the pin.
+      if (packageJson.dependencies?.[dep.name] || packageJson.devDependencies[dep.name]) continue
+      packageJson.devDependencies[dep.name] =
+        dep.type === 'peerDependency'
+          ? pinPeerVersion(dep.name, dep.version)
+          : pinDependencyVersion(dep.name, dep.version)
+      continue
+    }
     if (dep.type === 'dependency') {
       packageJson.dependencies = packageJson.dependencies ?? {}
       // Don't overwrite existing versions
@@ -1665,7 +1692,12 @@ async function updatePackageJson(
         // Exact pin only — see pinDependencyVersion: a range arriving in an
         // injected package's own dependencies used to be written verbatim, so
         // npm resolved it at install time in a manifest that must pin exact.
-        packageJson.dependencies[dep.name] = pinDependencyVersion(dep.name, dep.version)
+        // A runtime package that needs what is declared as dev tooling (a dev
+        // package's dependency, injected earlier) takes it over at that pin,
+        // so the manifest keeps one declaration.
+        const devPin = packageJson.devDependencies?.[dep.name]
+        packageJson.dependencies[dep.name] = devPin ?? pinDependencyVersion(dep.name, dep.version)
+        if (devPin !== undefined) delete packageJson.devDependencies[dep.name]
       }
     } else if (dep.type === 'devDependency') {
       packageJson.devDependencies = packageJson.devDependencies ?? {}
@@ -5351,6 +5383,11 @@ ${localesCall}  // No providers to wire. Add bonds via mlcl inject.
       : ['  await resolveAll([', ...secretKeys.map((key) => `    '${key}',`), '  ])'].join('\n')
 
   const secretsPkg = requirePackageByRole('api', 'core', 'secrets')
+  // Secrets are resolved at startup only in a project that depends on the secrets core. A
+  // project Molecule did not create has none unless it added one (its own startup loads its
+  // environment), and importing it there failed the build with TS2307 (harness eval `add`,
+  // 2026-11-23: `mlcl add @molecule/api-uploads-filesystem --inject` into an Express app).
+  const resolvesSecrets = allMolecules.includes(secretsPkg)
 
   // Auto-register health checks when monitoring is installed alongside database/cache.
   // Use registry metadata to detect monitoring core and database/cache providers.
@@ -5401,6 +5438,8 @@ ${localesCall}  // No providers to wire. Add bonds via mlcl inject.
     : ''
   const entitlementsCall = hasEntitlements ? `\n  setupEntitlements()` : ''
 
+  const wiring = `${entitlementsCall}${otherSetupCalls ? `\n${otherSetupCalls}` : ''}${monitoringRegistration}`
+
   return `/**
  * Use the installed packages' public interfaces and this provider wiring first.
  * Build the feature and verify the app's end-to-end behavior; do not audit
@@ -5410,15 +5449,13 @@ ${localesCall}  // No providers to wire. Add bonds via mlcl inject.
  * Configure or compose existing bonds; use a typed adapter/provider for custom
  * behavior, and retain a minimal reproducer when a shared package needs a fix.
  */
-import { resolveAll } from '${secretsPkg}'
-${monitoringImport}${entitlementsImport}${localesImport}${imports}
+${resolvesSecrets ? `import { resolveAll } from '${secretsPkg}'\n` : ''}${monitoringImport}${entitlementsImport}${localesImport}${imports}
 
 /**
- * Initialize all providers and service bonds.
- * Resolves all registered secrets before wiring providers.
+ * Initialize all providers and service bonds.${resolvesSecrets ? '\n * Resolves all registered secrets before wiring providers.' : ''}
  */
 export async function setupBonds(): Promise<void> {
-${localesCall}${secretsSetupCalls ? `  // Secrets provider must be bonded first so resolveAll can load .env values\n${secretsSetupCalls}\n\n` : ''}${resolveCall}${entitlementsCall}${otherSetupCalls ? `\n${otherSetupCalls}` : ''}${monitoringRegistration}
+${localesCall}${secretsSetupCalls ? `  // Secrets provider must be bonded first so resolveAll can load .env values\n${secretsSetupCalls}\n\n` : ''}${resolvesSecrets ? `${resolveCall}${wiring}` : wiring.replace(/^\n/, '')}
 }
 `
 }
