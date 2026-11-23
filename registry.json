@@ -103741,7 +103741,8 @@
         "useVersion",
         "useWatch",
         "useWorkspace",
-        "useWorkspaceProvider"
+        "useWorkspaceProvider",
+        "toChildArray"
       ],
       "secrets": [],
       "runtimeDependencies": [
