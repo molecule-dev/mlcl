@@ -1,7 +1,5 @@
-import { exec } from 'node:child_process'
 import { access, readFile, writeFile } from 'node:fs/promises'
 import { join } from 'node:path'
-import { promisify } from 'node:util'
 
 import * as p from '@clack/prompts'
 import { Args, Command, Flags } from '@oclif/core'
@@ -14,13 +12,12 @@ import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { t } from '../lib/i18n.js'
 import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../lib/integrate.js'
 import { databasePackageOf } from '../lib/migration-dialect.js'
+import { npmInstall } from '../lib/npm-install.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { missingMoleculePeers } from '../lib/peer-closure.js'
 import { getMoleculeVersion, getPackageStack, getRawRegistry } from '../lib/registry.js'
 import { createSpinner } from '../lib/spinner.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
-
-const execAsync = promisify(exec)
 
 export default class Add extends Command {
   static override description = t('commands.add.description')
@@ -235,7 +232,7 @@ export default class Add extends Command {
         spinner.start(t('commands.add.spinners.installing'))
 
         try {
-          await execAsync('npm install', { cwd: npmInstallRoot(workDir) })
+          await npmInstall(npmInstallRoot(workDir))
           spinner.stop(t('commands.add.spinners.installed'))
         } catch (error) {
           this.warn(`npm install failed: ${error}`)

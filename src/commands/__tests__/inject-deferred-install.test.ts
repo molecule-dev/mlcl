@@ -139,7 +139,7 @@ describe('mlcl inject runs the deferred npm install', () => {
     await runInject(project, [])
 
     expect(execaMock).toHaveBeenCalledTimes(1)
-    expect(execaMock).toHaveBeenCalledWith('npm', ['install'], {
+    expect(execaMock).toHaveBeenCalledWith('npm', ['install', '--no-audit', '--no-fund'], {
       cwd: project,
       stdio: 'pipe',
     })

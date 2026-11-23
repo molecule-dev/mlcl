@@ -13,6 +13,7 @@ import { cp, mkdir, readdir, readFile, symlink, writeFile } from 'node:fs/promis
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
+import { npmInstallArgs } from './npm-install.js'
 import { getRawRegistry, loadAppFrameworks, loadToolchain } from './registry.js'
 import { withSuppliedStylesheet } from './scaffold-supplied-stylesheet.js'
 
@@ -206,7 +207,7 @@ export async function startShowcaseServer(
   port: number,
 ): Promise<ShowcaseProject> {
   // Install npm deps (framework runtime + Vite + Tailwind)
-  const install = spawn('npm', ['install', '--ignore-scripts'], {
+  const install = spawn('npm', [...npmInstallArgs(), '--ignore-scripts'], {
     cwd: dir,
     stdio: ['ignore', 'pipe', 'pipe'],
     env: { ...process.env, NODE_ENV: 'development' },

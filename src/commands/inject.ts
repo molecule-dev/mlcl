@@ -44,6 +44,7 @@ import {
   migrationDialectHeader,
   projectDatabasePackage,
 } from '../lib/migration-dialect.js'
+import { npmInstall } from '../lib/npm-install.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
 import {
   detectAppFramework,
@@ -904,7 +905,7 @@ export default class Inject extends Command {
     // step and the next-steps hint names the manual install.
     if (flags.install) {
       try {
-        await execa('npm', ['install'], { cwd: npmInstallRoot(projectPath), stdio: 'pipe' })
+        await npmInstall(npmInstallRoot(projectPath))
       } catch (error) {
         warnings.push(`npm install failed: ${error}`)
       }

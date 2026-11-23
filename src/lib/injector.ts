@@ -88,8 +88,6 @@ function migrationFileTableSegment(tableName: string): string {
   return tableName.replace(/[\\/]+/g, '_')
 }
 
-import { execa } from 'execa'
-
 import { generateCode, isAIAvailable } from './ai.js'
 import { buildPackageContext, loadMoleculeMdBatch } from './ai-context.js'
 import {
@@ -110,6 +108,7 @@ import { t } from './i18n.js'
 import { generateLocaleArrayCode, SUPPORTED_LOCALES } from './locales.js'
 import { readMigrateRunner } from './migrate-runner.js'
 import { migrationDialectHeader, projectDatabasePackage } from './migration-dialect.js'
+import { npmInstall } from './npm-install.js'
 import { npmInstallRoot } from './npm-install-root.js'
 import {
   findRegistryPackage,
@@ -1733,10 +1732,7 @@ async function updatePackageJson(
  * Run npm install in the project
  */
 async function runNpmInstall(projectPath: string): Promise<void> {
-  await execa('npm', ['install'], {
-    cwd: npmInstallRoot(projectPath),
-    stdio: 'pipe', // Don't inherit to avoid cluttering output
-  })
+  await npmInstall(npmInstallRoot(projectPath))
 }
 
 /**

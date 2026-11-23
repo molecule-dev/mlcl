@@ -4,7 +4,6 @@ import { join, relative } from 'node:path'
 import * as p from '@clack/prompts'
 import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
-import { execa } from 'execa'
 
 import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
@@ -20,6 +19,7 @@ import {
   resolveBondPaths,
 } from '../lib/integrate.js'
 import { syncMigrateRunner } from '../lib/migrate-runner.js'
+import { npmInstall } from '../lib/npm-install.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { getMoleculeVersion, loadRegistry } from '../lib/registry.js'
 import { syncProjectAssets } from '../lib/scaffold.js'
@@ -415,7 +415,7 @@ export default class Swap extends Command {
     if (flags.install) {
       spinner.start(t('commands.swap.spinners.installing'))
       try {
-        await execa('npm', ['install'], { cwd: npmInstallRoot(projectPath) })
+        await npmInstall(npmInstallRoot(projectPath))
         spinner.stop(t('commands.swap.spinners.installed'))
       } catch (error) {
         spinner.stop(chalk.yellow(t('commands.swap.spinners.installFailed')))

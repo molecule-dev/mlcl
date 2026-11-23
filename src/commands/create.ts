@@ -24,6 +24,7 @@ import {
 import { formatGeneratedFiles } from '../lib/format.js'
 import { t } from '../lib/i18n.js'
 import { declaredDependencies, newDeclarations } from '../lib/manifest-declarations.js'
+import { npmInstall } from '../lib/npm-install.js'
 import { frameworksAcceptedBy } from '../lib/package-search.js'
 import {
   getMoleculeVersion,
@@ -629,7 +630,7 @@ export default class Create extends Command {
             await this.runSlowStep(
               'npm install',
               t('commands.create.spinners.installing'),
-              () => execa('npm', ['install'], { cwd: projectPath }),
+              () => npmInstall(projectPath),
               { json: flags.json === true },
             )
             say(ui.check('Installed dependencies.'))
@@ -1209,7 +1210,7 @@ export default class Create extends Command {
           await this.runSlowStep(
             'npm install',
             t('commands.create.spinners.installing'),
-            () => execa('npm', ['install'], { cwd: projectPath }),
+            () => npmInstall(projectPath),
             { json: flags.json === true, spinner },
           )
           spinner?.stop(t('commands.create.spinners.installed'))
@@ -1327,7 +1328,7 @@ export default class Create extends Command {
         await this.runSlowStep(
           'npm install',
           t('commands.create.spinners.installing'),
-          () => execa('npm', ['install'], { cwd: projectPath }),
+          () => npmInstall(projectPath),
           { json: flags.json === true, spinner },
         )
         spinner?.stop(t('commands.create.spinners.installed'))
@@ -1577,7 +1578,8 @@ export default class Create extends Command {
           await this.runSlowStep(
             'npm install',
             t('commands.create.spinners.installing'),
-            () => execa('npm', ['install'], { cwd: projectPath }),
+            // Seconds after the first install: its cache answers for everything but the new names.
+            () => npmInstall(projectPath, { preferOffline: true }),
             { json: flags.json === true, spinner },
           )
           spinner?.stop(t('commands.create.spinners.installed'))
