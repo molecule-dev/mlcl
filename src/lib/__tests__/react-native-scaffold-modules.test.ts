@@ -95,6 +95,16 @@ describe('react-native scaffold writes the modules its generated code imports', 
     expect(config).not.toContain('import.meta.env?.VITE_API_URL')
   })
 
+  it("loads each locale's content module through require.context, which Metro bundles", async () => {
+    // Metro fails the whole bundle on an import() whose path is a template literal.
+    const config = await readFile(join(projectPath, 'src', 'config.ts'), 'utf-8')
+    expect(config).toContain(
+      "const content = require.context('./locales', true, /\\.ts$/)(`./${loc}/${module}.ts`)",
+    )
+    expect(config).not.toContain('import(`./locales/')
+    expect(config).not.toContain('{{')
+  })
+
   it('gets the format scripts and formatter config every web scaffold has', async () => {
     const pkg = JSON.parse(await readFile(join(projectPath, 'package.json'), 'utf-8'))
     expect(pkg.scripts['format:check']).toMatch(/^prettier --check /)

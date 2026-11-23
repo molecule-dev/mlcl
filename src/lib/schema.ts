@@ -1223,6 +1223,12 @@ export const AppFrameworkConfig = z.object({
     .describe(
       'Expression passed to `setFont(font, { basePath })` in a generated font bond. Defaults to the Vite document base `import.meta.env.BASE_URL`; null when the platform has no document base (React Native) so the bond calls `setFont(font)` alone.',
     ),
+  bundler: z
+    .enum(['vite', 'metro'])
+    .optional()
+    .describe(
+      'The bundler that builds the app: `vite` (the default) or `metro` (Expo). Generated code that loads files by name follows it: Vite splits a template-literal `import()` and has `import.meta.glob`; Metro bundles only an `import()` of a literal path and has `require.context`.',
+    ),
   tsconfigOverride: z
     .record(z.string(), z.unknown())
     .optional()

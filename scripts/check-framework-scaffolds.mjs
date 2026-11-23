@@ -2,8 +2,9 @@
 /**
  * A fresh app scaffold of one app framework passes its own scripts, as a user runs them.
  *
- *   node scripts/check-framework-scaffolds.mjs <framework> [--no-test] [--keep]
+ *   node scripts/check-framework-scaffolds.mjs <framework> [--no-test] [--keep] [--packs <dir>]
  *   node scripts/check-framework-scaffolds.mjs --list   # the framework names, as JSON
+ *   node scripts/check-framework-scaffolds.mjs --classes <app dir>   # only the classes step
  *
  * It runs this checkout's CLI (`bin/run.js`, so build it first): `mlcl create --type app
  * --framework <framework>`, in a temporary directory outside any workspace, then `npm install`
@@ -11,8 +12,10 @@
  * the user to run once the packages are installed: with no molecule checkout beside the CLI, as in
  * CI or on a user's machine, create cannot read the packages, so the bond files come from this
  * step), then the app's `typecheck`, `lint`, `format:check`,
- * `test` and `build` scripts (each one the scaffold defines), and checks that eslint read every
- * source file under src/. Each framework renders its own templates (templates/app/<framework>/),
+ * `test` and `build` scripts (each one the scaffold defines), checks that eslint read every
+ * source file under src/, and checks that every class the app's bonded ClassMap returns gets a
+ * style in the app's own build (`classes`, scripts/scaffold-classes.mjs: on a device that is
+ * NativeWind's compiler; on the web, the CSS the build wrote). Each framework renders its own templates (templates/app/<framework>/),
  * so a template or a pin change can break one framework's scaffold while every other passes:
  * on 2026-11-22 the svelte layout kept passing `afterNavigate` after the pin moved to
  * @molecule/app-routing-sveltekit 3.0.0, whose `SvelteKitExports` reads `navigating` instead,
@@ -20,13 +23,18 @@
  *
  * The framework names are registry.json's `appFrameworks` keys; CI runs one job per name.
  * MLCL_SCAFFOLD_TMP names the parent directory for the scaffold (default: the OS temp dir).
+ * --packs <dir> installs each `npm pack` tarball in <dir> in place of its registry pin (a direct
+ * dependency and an `overrides` entry), to check a scaffold change against packages that are not
+ * published yet; CI and Release never pass it.
  * Exits 1 naming each failed step with the tail of its output.
  */
-import { spawnSync } from 'node:child_process'
-import { mkdtempSync, readdirSync, readFileSync, rmSync } from 'node:fs'
+import { execFileSync, spawnSync } from 'node:child_process'
+import { mkdtempSync, readdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
-import { dirname, join, relative } from 'node:path'
+import { dirname, join, relative, resolve } from 'node:path'
 import { fileURLToPath } from 'node:url'
+
+import { checkScaffoldClasses } from './scaffold-classes.mjs'
 
 const MLCL = join(dirname(fileURLToPath(import.meta.url)), '..')
 const frameworks = Object.keys(
@@ -37,10 +45,29 @@ if (args.includes('--list')) {
   console.log(JSON.stringify(frameworks))
   process.exit(0)
 }
-const framework = args.find((arg) => !arg.startsWith('--'))
+/**
+ * The value after a flag.
+ *
+ * @param {string} flag - The flag.
+ * @returns {string | undefined} Its value, when given.
+ */
+const flagValue = (flag) => (args.includes(flag) ? args[args.indexOf(flag) + 1] : undefined)
+const classesOnly = flagValue('--classes')
+if (classesOnly) {
+  const result = await checkScaffoldClasses(resolve(classesOnly))
+  if (!result.ok) {
+    console.error(`✗ ${classesOnly} [classes]\n${result.output}`)
+    process.exit(1)
+  }
+  console.log(`✓ ${classesOnly} [classes]: ${result.output}`)
+  process.exit(0)
+}
+const packs = flagValue('--packs')
+const flagValues = new Set([packs].filter(Boolean))
+const framework = args.find((arg) => !arg.startsWith('--') && !flagValues.has(arg))
 if (!framework || !frameworks.includes(framework)) {
   console.error(
-    `usage: check-framework-scaffolds.mjs <framework> [--no-test] [--keep]; ` +
+    `usage: check-framework-scaffolds.mjs <framework> [--no-test] [--keep] [--packs <dir>]; ` +
       `the framework is one of registry.json's appFrameworks: ${frameworks.join(', ')}`,
   )
   process.exit(2)
@@ -85,6 +112,34 @@ function unlintedSources(dir) {
     .map((file) => relative(dir, file))
 }
 
+/**
+ * Points the app's package.json at the tarballs in a directory: each one replaces the pin of the
+ * package it holds, as a direct dependency (when the app has one) and in `overrides`, so every
+ * package that depends on it gets the same copy.
+ *
+ * @param {string} dir - The app.
+ * @param {string} packDir - The directory of `npm pack` tarballs.
+ * @returns {string[]} The packages replaced.
+ */
+function usePacks(dir, packDir) {
+  const file = join(dir, 'package.json')
+  const pkg = JSON.parse(readFileSync(file, 'utf8'))
+  const names = []
+  for (const tarball of readdirSync(packDir).filter((name) => name.endsWith('.tgz'))) {
+    const path = resolve(packDir, tarball)
+    const manifest = JSON.parse(
+      execFileSync('tar', ['-xOzf', path, 'package/package.json'], { encoding: 'utf8' }),
+    )
+    const spec = `file:${path}`
+    for (const field of ['dependencies', 'devDependencies'])
+      if (pkg[field]?.[manifest.name]) pkg[field][manifest.name] = spec
+    pkg.overrides = { ...pkg.overrides, [manifest.name]: spec }
+    names.push(manifest.name)
+  }
+  writeFileSync(file, JSON.stringify(pkg, null, 2) + '\n')
+  return names
+}
+
 // The project name is the directory name and must be lowercase; mkdtemp's suffix names the parent.
 const parent = mkdtempSync(join(process.env.MLCL_SCAFFOLD_TMP ?? tmpdir(), 'mlcl-scaffold-'))
 const dir = join(parent, `app-${framework}`)
@@ -110,6 +165,7 @@ try {
   )
   if (!created.ok) failures.push({ step: 'create', output: created.output })
   else {
+    if (packs) console.log(`packs in place of their pins: ${usePacks(dir, packs).join(', ')}`)
     const installed = run('npm', ['install', '--no-audit', '--no-fund'], dir)
     const injected = installed.ok
       ? run(
@@ -133,12 +189,21 @@ try {
       const scripts = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8')).scripts ?? {}
       const steps = ['typecheck', 'lint', 'format:check', ...(noTest ? [] : ['test']), 'build']
       for (const step of steps.filter((name) => scripts[name])) {
-        const result = run('npm', ['run', step], dir)
+        // A fresh scaffold lints with no warning: the platform's build check runs ESLint with
+        // --max-warnings 0, so a warning there fails the user's first build.
+        const extra = step === 'lint' ? ['--', '--max-warnings', '0'] : []
+        const result = run('npm', ['run', step, ...extra], dir)
         ran.push(step)
         if (!result.ok) failures.push({ step, output: result.output })
       }
       if (!scripts.build)
         failures.push({ step: 'build', output: 'the scaffold has no build script' })
+      // A web app is judged on the CSS its build wrote, so a failed build has nothing to judge.
+      if (!failures.some((failure) => failure.step === 'build')) {
+        const classes = await checkScaffoldClasses(dir)
+        ran.push('classes')
+        if (!classes.ok) failures.push({ step: 'classes', output: classes.output })
+      }
       if (scripts.lint) {
         const unread = unlintedSources(dir)
         ran.push('lint-coverage')

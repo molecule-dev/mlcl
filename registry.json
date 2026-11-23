@@ -34676,6 +34676,7 @@
         "LoggerProvider",
         "LoginStateManager",
         "MaybeSignal",
+        "MolPlacement",
         "MolWrapEachChild",
         "MoleculeAuthService",
         "MoleculeFormInstance",
@@ -34711,6 +34712,7 @@
         "SessionReady",
         "SessionReadyProps",
         "SignupStateManager",
+        "SlotReader",
         "StateProvider",
         "StorageProvider",
         "StorageValueState",
@@ -34783,9 +34785,12 @@
         "createSignupState",
         "createVersionService",
         "hasContent",
+        "heldElement",
         "localOnlyMessages",
         "placeContent",
+        "placeContentBefore",
         "placeElement",
+        "placeElementBefore",
         "provideAuth",
         "provideChat",
         "provideDomPlacement",
@@ -34801,9 +34806,11 @@
         "provideTheme",
         "provideWorkspace",
         "readMaybeSignal",
+        "renderedParent",
         "resetAIModelsCache",
         "resetChatStoresForTests",
         "setElementPresent",
+        "setHostRoot",
         "t",
         "useAIModels",
         "useAsyncState",
@@ -34845,6 +34852,7 @@
         "useParams",
         "usePasswordReset",
         "usePatch",
+        "usePlacement",
         "usePlatform",
         "usePost",
         "usePreview",
@@ -85365,9 +85373,12 @@
       "runtimeDependencies": [
         "@angular/common",
         "@angular/core",
-        "@angular/platform-browser"
+        "@angular/platform-browser",
+        "@molecule/app-angular"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-angular"
+      ],
       "path": "packages/app/features/oauth-logos-angular",
       "intentHints": [
         "oauth",
@@ -88437,9 +88448,11 @@
         "@angular/common",
         "@angular/core",
         "@angular/platform-browser",
+        "@molecule/app-angular",
         "@molecule/app-query"
       ],
       "moleculePeers": [
+        "@molecule/app-angular",
         "@molecule/app-query"
       ],
       "path": "packages/app/features/query-angular",
@@ -91405,19 +91418,28 @@
         "RouteMatch",
         "RouteParams",
         "Router",
-        "RouterConfig"
+        "RouterConfig",
+        "toNavigationTheme",
+        "themeStore",
+        "useNavigationTheme",
+        "NavigationThemeColors",
+        "NavigationTheme",
+        "NavigationThemeBases",
+        "ThemeStore"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-routing",
+        "@molecule/app-theme",
         "@react-navigation/native",
         "react",
         "react-native"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
-        "@molecule/app-routing"
+        "@molecule/app-routing",
+        "@molecule/app-theme"
       ],
       "framework": "react-native",
       "bondWiring": {
@@ -91430,7 +91452,8 @@
         "mobile screen navigation",
         "native stack navigator",
         "react native routes",
-        "navigate between screens"
+        "navigate between screens",
+        "react navigation theme"
       ]
     },
     "@molecule/app-routing-react-router": {
@@ -94702,6 +94725,8 @@
         "AuthProvider",
         "AuthProviderProps",
         "AuthState",
+        "BodyPortal",
+        "BodyPortalProps",
         "CapacitorAppPrimitives",
         "ChatContext",
         "ChatProvider",
@@ -97985,6 +98010,7 @@
         "AuthProvider",
         "AuthProviderProps",
         "AuthState",
+        "BodyPortal",
         "CapacitorAppStore",
         "ChangePasswordStore",
         "ChatProvider",
@@ -98839,6 +98865,53 @@
         "frosted glass ui",
         "translucent glassmorphism theme",
         "glass blur theme preset"
+      ]
+    },
+    "@molecule/app-theme-nativewind": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "theme",
+      "label": "NativeWind",
+      "description": "NativeWind theme provider for molecule.dev: the web theme palette and light/dark mode on React Native",
+      "stack": "app",
+      "implements": "@molecule/app-theme",
+      "exports": [
+        "createNativeWindThemeProvider",
+        "lightTheme",
+        "darkTheme",
+        "NativeWindThemeStorage",
+        "NativeWindThemeConfig",
+        "NativeWindThemeProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-storage",
+        "@molecule/app-theme",
+        "@molecule/app-theme-css-variables",
+        "@molecule/app-ui-tailwind",
+        "nativewind",
+        "react-native"
+      ],
+      "moleculePeers": [
+        "@molecule/app-storage",
+        "@molecule/app-theme",
+        "@molecule/app-theme-css-variables",
+        "@molecule/app-ui-tailwind"
+      ],
+      "framework": "react-native",
+      "appBondSetup": {
+        "exportName": "themeProvider",
+        "reExport": true,
+        "generatorType": "theme"
+      },
+      "path": "packages/app/bonds/theme/nativewind",
+      "intentHints": [
+        "react native dark mode",
+        "nativewind theme provider",
+        "react native theme colors",
+        "expo dark mode",
+        "follow device appearance"
       ]
     },
     "@molecule/app-three-viewer-angular": {
@@ -100835,6 +100908,7 @@
         "ConfirmDialogProps",
         "Container",
         "ContainerProps",
+        "DomContext",
         "Dropdown",
         "DropdownLabel",
         "DropdownSeparator",
@@ -100851,6 +100925,7 @@
         "FormEventHandler",
         "FormField",
         "FormFieldContext",
+        "FormFieldDomContext",
         "FormFieldProps",
         "FormProps",
         "Grid",
@@ -100979,6 +101054,7 @@
         "adoptHostDataMolId",
         "asTemplate",
         "cn",
+        "createDomContext",
         "createOptimisticValue",
         "createScrollLock",
         "fieldContext",
@@ -101044,7 +101120,9 @@
       "runtimeDependencies": [
         "@molecule/app-styling",
         "@molecule/app-ui",
-        "@molecule/app-ui-tailwind"
+        "@molecule/app-ui-tailwind",
+        "nativewind",
+        "tailwindcss"
       ],
       "moleculePeers": [
         "@molecule/app-ui-tailwind"
@@ -101056,7 +101134,8 @@
         "tailwind for react native",
         "nativewind classmap",
         "utility classes react native",
-        "tailwind mobile styling"
+        "tailwind mobile styling",
+        "nativewind tailwind preset"
       ]
     },
     "@molecule/app-ui-react": {
@@ -101637,6 +101716,7 @@
         "DropdownProps",
         "DropdownSeparator",
         "DropdownSeparatorProps",
+        "DropdownTriggerProps",
         "EmptyState",
         "EmptyStateProps",
         "EventHandler",
@@ -102271,7 +102351,18 @@
         "ClassValue",
         "CVAConfig",
         "cn",
-        "cva"
+        "cva",
+        "ThemeColorTokenKey",
+        "colorTokens",
+        "parseColor",
+        "mixSrgb",
+        "resolveColorTokens",
+        "formatColor",
+        "themeVariables",
+        "ThemeColorInput",
+        "ColorOperand",
+        "ColorToken",
+        "RGBA"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -105066,18 +105157,23 @@
       "label": "React Native",
       "hint": "Mobile (iOS/Android)",
       "dependencies": {
-        "react": "19.3.1",
-        "react-native": "0.79.2",
+        "react": "19.0.0",
+        "react-native": "0.79.6",
         "expo": "53.0.27",
         "nativewind": "4.2.7",
         "react-native-reanimated": "3.17.4",
         "@react-navigation/native": "7.1.28",
         "@react-navigation/native-stack": "7.13.0",
-        "react-native-screens": "4.23.0",
-        "react-native-safe-area-context": "5.6.2"
+        "react-native-screens": "4.11.1",
+        "react-native-safe-area-context": "5.4.0",
+        "@react-native-async-storage/async-storage": "2.1.2",
+        "expo-system-ui": "5.0.11",
+        "react-dom": "19.0.0",
+        "react-native-web": "0.20.0",
+        "@expo/metro-runtime": "5.0.5"
       },
       "devDependencies": {
-        "@types/react": "19.3.0",
+        "@types/react": "19.0.14",
         "babel-preset-expo": "13.2.5",
         "tailwindcss": "3.4.19",
         "vite": "8.3.5",
@@ -105087,12 +105183,14 @@
         "jsx": "react-jsx",
         "types": [
           "vite/client",
-          "node"
+          "node",
+          "expo/types"
         ]
       },
       "apiBaseUrlExpr": "process.env.EXPO_PUBLIC_API_URL || 'http://localhost:4000'",
       "apiUrlEnvKey": "EXPO_PUBLIC_API_URL",
       "fontBasePathExpr": null,
+      "bundler": "metro",
       "e2e": false
     },
     "react-native-web": {
@@ -107119,7 +107217,8 @@
       "@molecule/app-ide-vue": "1.1.1",
       "@molecule/app-locales-node-editor-panel": "1.1.0",
       "@molecule/eslint-config": "1.1.2",
-      "@molecule/app-locales-markdown": "1.1.0"
+      "@molecule/app-locales-markdown": "1.1.0",
+      "@molecule/app-theme-nativewind": "1.0.0"
     }
   }
 }

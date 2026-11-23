@@ -5438,6 +5438,18 @@ export async function createAppProject(
 const DEFAULT_API_BASE_URL_EXPR = "import.meta.env?.VITE_API_URL || '/api'"
 
 /**
+ * How config.ts's `loadContent` reaches `locales/<code>/<module>.ts`, by the app's
+ * `appFrameworks[framework].bundler`. Vite splits a template-literal `import()` into one chunk
+ * per file. Metro bundles only an `import()` of a literal path and fails the whole bundle on
+ * this one, so a Metro app asks `require.context` (Expo's Metro config enables it): it bundles
+ * the directory, and a file runs only when it is asked for.
+ */
+const LOCALE_CONTENT_MODULE: Record<'vite' | 'metro', string> = {
+  vite: 'await import(`./locales/${loc}/${module}.ts`)',
+  metro: "require.context('./locales', true, /\\.ts$/)(`./${loc}/${module}.ts`)",
+}
+
+/**
  * Write the shared app files every app workspace has, whatever its framework:
  * `config.ts`, `branding.ts` and the `locales/` tree.
  *
@@ -5473,6 +5485,7 @@ async function copySharedAppFiles(
     PROJECT_NAME: projectName,
     OAUTH_PROVIDERS: '',
     API_BASE_URL_EXPR: fwCfg.apiBaseUrlExpr ?? DEFAULT_API_BASE_URL_EXPR,
+    LOCALE_CONTENT_MODULE: LOCALE_CONTENT_MODULE[fwCfg.bundler ?? 'vite'],
     AUTH_CONFIG_GUIDANCE: auth.guidance,
     AUTH_ROUTE_CONFIG: auth.routeFields,
     CURRENT_USER_ROUTE_CONFIG: auth.currentUserField,
@@ -5556,6 +5569,22 @@ export function frameworkSourceExtensions(framework: string): string[] {
     }
   }
   walk(join(getTemplatesDir(), 'app', framework))
+  return [...found].sort()
+}
+
+/**
+ * The source extensions of the files under a directory, `ts` always included.
+ *
+ * @param dir - The directory (an app's `src/`).
+ * @returns The extensions, sorted.
+ */
+export function sourceExtensionsIn(dir: string): string[] {
+  const found = new Set(['ts'])
+  if (existsSync(dir))
+    for (const file of readdirSync(dir, { recursive: true, encoding: 'utf8' })) {
+      const extension = /\.([a-z]+)$/.exec(file)?.[1]
+      if (extension && SOURCE_EXTENSIONS.has(extension)) found.add(extension)
+    }
   return [...found].sort()
 }
 
@@ -8067,7 +8096,9 @@ export async function createReactNativeAppProject(
   const toolchain = loadToolchain()
   const appFrameworks = loadAppFrameworks()
   const fwConfig = appFrameworks['react-native'] ?? { dependencies: {}, devDependencies: {} }
-  const formatGlob = sourceGlob(frameworkSourceExtensions('react-native'))
+  // This scaffold writes its components (src/App.tsx, src/screens/) itself rather than from
+  // templates/app/<framework>/, so the format scripts are widened once src/ is written, below.
+  const formatGlob = sourceGlob(['ts'])
 
   await mkdir(projectPath, { recursive: true })
   await mkdir(join(projectPath, 'src'), { recursive: true })
@@ -8101,7 +8132,11 @@ export async function createReactNativeAppProject(
       start: 'expo start',
       ios: 'expo run:ios',
       android: 'expo run:android',
-      build: 'tsc --noEmit',
+      web: 'expo start --web',
+      // Type-checks, then bundles every platform with Metro, as a web app's build runs Vite: a
+      // module Metro cannot bundle fails here, not on a device. Without Hermes bytecode, which
+      // a release build compiles itself and whose compiler has no Linux arm64 binary.
+      build: 'tsc --noEmit && expo export --no-bytecode',
       typecheck: 'tsc --noEmit',
       // The generated bonds smoke test is a vitest test (vi.mock/import.meta.glob)
       // — the same generator every web scaffold runs under `vitest run`.
@@ -8152,7 +8187,8 @@ export async function createReactNativeAppProject(
       lib: ['ES2022'],
       ...(fwConfig.tsconfig ?? {}),
     },
-    include: ['src/**/*', '*.ts', '*.tsx'],
+    // NativeWind names its env file here itself (rewriting the file) when the list lacks it.
+    include: ['src/**/*', '*.ts', '*.tsx', 'nativewind-env.d.ts'],
     exclude: ['node_modules', 'dist'],
   }
 
@@ -8165,6 +8201,9 @@ export async function createReactNativeAppProject(
       slug: projectName,
       version: '1.0.0',
       orientation: 'portrait',
+      // Follow the device's light/dark setting (Expo defaults to light; Android reads it
+      // through expo-system-ui). The theme bond follows it until the person picks a theme.
+      userInterfaceStyle: 'automatic',
       icon: './assets/icon.png',
       splash: {
         image: './assets/splash.png',
@@ -8192,19 +8231,37 @@ export async function createReactNativeAppProject(
     join(projectPath, 'metro.config.js'),
     `const { getDefaultConfig } = require('expo/metro-config')
 const { withNativeWind } = require('nativewind/metro')
+const fs = require('fs')
 const path = require('path')
 
+// Expo finds an npm workspace root itself (watchFolders, nodeModulesPaths).
 const config = getDefaultConfig(__dirname)
 
-// Support npm workspace symlinks for @molecule/* packages
-const workspaceRoot = path.resolve(__dirname, '../..')
-config.watchFolders = [workspaceRoot]
-config.resolver.nodeModulesPaths = [
-  path.resolve(__dirname, 'node_modules'),
-  path.resolve(workspaceRoot, 'node_modules'),
-]
+// Expo keeps Metro's transform cache in the OS temp directory, shared by every project on the
+// machine, and a cached module carries the absolute path of the project that built it: a second
+// copy of the same app bundled the first copy's paths. Each app keeps its own, with its file map
+// (which Metro writes only into a directory that exists, and otherwise drops without a word).
+const cacheDir = path.join(__dirname, 'node_modules', '.cache', 'metro')
+fs.mkdirSync(cacheDir, { recursive: true })
+config.cacheStores = ({ FileStore }) => [new FileStore({ root: cacheDir })]
+config.fileMapCacheDirectory = cacheDir
 
-module.exports = withNativeWind(config, { input: './src/global.css' })
+// The source imports its own modules as './x.js' (TypeScript's NodeNext rule); Metro looks for
+// the file as written. A relative '.js' import with no .js file resolves without the extension,
+// so Metro picks the .ts/.tsx source (and a .ios/.android/.web variant).
+config.resolver.resolveRequest = (context, moduleName, platform) => {
+  if (
+    moduleName.startsWith('.') &&
+    moduleName.endsWith('.js') &&
+    !fs.existsSync(path.resolve(path.dirname(context.originModulePath), moduleName))
+  ) {
+    return context.resolveRequest(context, moduleName.slice(0, -3), platform)
+  }
+  return context.resolveRequest(context, moduleName, platform)
+}
+
+// inlineRem: 16 gives rem sizes (text-sm, p-4, …) the web's 16px; NativeWind's default is 14.
+module.exports = withNativeWind(config, { input: './src/global.css', inlineRem: 16 })
 `,
   )
 
@@ -8215,7 +8272,17 @@ module.exports = withNativeWind(config, { input: './src/global.css' })
   api.cache(true)
   return {
     presets: [
-      ['babel-preset-expo', { jsxImportSource: 'nativewind' }],
+      [
+        'babel-preset-expo',
+        {
+          jsxImportSource: 'nativewind',
+          // Hermes cannot parse import.meta, and packages written for the web read it
+          // (import.meta.url for a font file's URL). This makes it an object on a device:
+          // import.meta.url is the bundle's URL, and import.meta.env is undefined, so an
+          // app reads its public variables as process.env.EXPO_PUBLIC_*.
+          unstable_transformImportMeta: true,
+        },
+      ],
       'nativewind/babel',
     ],
     // NativeWind's animated components and the app's own animations run on
@@ -8241,17 +8308,17 @@ module.exports = withNativeWind(config, { input: './src/global.css' })
   // ---- tailwind.config.js ----
   await writeFile(
     join(projectPath, 'tailwind.config.js'),
-    `/** @type {import('tailwindcss').Config} */
+    `const molecule = require('@molecule/app-ui-nativewind/preset')
+
+/** @type {import('tailwindcss').Config} */
 module.exports = {
-  // The @molecule ClassMap bonds ship pre-built class strings in their dist —
-  // scan them too, or the classes getClassMap() returns are never generated.
-  content: [
-    './src/**/*.{ts,tsx}',
-    './node_modules/@molecule/app-ui-nativewind/dist/**/*.{js,ts}',
-    './node_modules/@molecule/app-ui-tailwind/dist/**/*.{js,ts}',
-    './node_modules/@molecule/app-styling-tailwind/dist/**/*.{js,ts}',
-  ],
-  presets: [require('nativewind/preset')],
+  // The @molecule ClassMap bonds ship their class strings in their dist: scan them
+  // too, or the classes getClassMap() returns are never generated. moleculeContent
+  // finds those folders wherever npm installed them.
+  content: ['./src/**/*.{ts,tsx}', ...molecule.moleculeContent(__dirname)],
+  // The Molecule preset gives every ClassMap class its web value: the theme colours
+  // (CSS variables the theme bond sets), fonts, animations and Tailwind 4's scales.
+  presets: [require('nativewind/preset'), molecule],
   theme: {
     extend: {},
   },
@@ -8274,13 +8341,14 @@ registerRootComponent(App)
   await writeFile(
     join(projectPath, 'src', 'App.tsx'),
     `import './global.css'
-
+import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
-import { NavigationContainer } from '@react-navigation/native'
-import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
 import { t } from '@molecule/app-i18n'
+import { useNavigationTheme } from '@molecule/app-routing-react-navigation'
+
 import { setupProviders } from './bonds/index.js'
 import { HomeScreen } from './screens/Home.js'
 
@@ -8289,10 +8357,15 @@ setupProviders()
 
 const Stack = createNativeStackNavigator()
 
+// Headers, tab bars and screen backgrounds take the molecule theme's colours.
+const navigationThemes = { light: DefaultTheme, dark: DarkTheme }
+
 export function App(): React.ReactElement {
+  const navigationTheme = useNavigationTheme(navigationThemes)
+
   return (
     <SafeAreaProvider>
-      <NavigationContainer>
+      <NavigationContainer theme={navigationTheme}>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
             name="Home"
@@ -8312,8 +8385,11 @@ export function App(): React.ReactElement {
     join(projectPath, 'src', 'screens', 'Home.tsx'),
     `import React from 'react'
 import { Text, View } from 'react-native'
-import { getClassMap } from '@molecule/app-ui'
+
 import { t } from '@molecule/app-i18n'
+import { getClassMap } from '@molecule/app-ui'
+
+import { APP_NAME } from '../branding.js'
 
 export function HomeScreen(): React.ReactElement {
   const cm = getClassMap()
@@ -8321,7 +8397,7 @@ export function HomeScreen(): React.ReactElement {
   return (
     <View className={cm.cn(cm.flex1, cm.center, cm.page)}>
       <Text className={cm.cn(cm.textSize('2xl'), cm.fontWeight('bold'))}>
-        {t('home.welcome', { name: '${projectName}' }, { defaultValue: 'Welcome to ${projectName}' })}
+        {t('home.welcome', { name: APP_NAME }, { defaultValue: 'Welcome to {{name}}' })}
       </Text>
       <Text className={cm.cn(cm.sp('mt', 2), cm.textMuted)}>
         {t('home.subtitle', undefined, { defaultValue: 'Built with molecule.dev' })}
@@ -8337,6 +8413,16 @@ export function HomeScreen(): React.ReactElement {
   // generated bonds' `../config.js` and `../locales/en/ui.js` imports name files
   // that exist. Written here, before `mlcl inject` runs in this same create.
   await copySharedAppFiles(projectPath, 'react-native', projectName, extraVars)
+
+  // The format scripts cover every source extension written under src/ (App.tsx included). Read
+  // back from disk: scaffoldEslint added its devDependencies to the file written above.
+  const writtenGlob = sourceGlob(sourceExtensionsIn(join(projectPath, 'src')))
+  const manifest = JSON.parse(await readFile(join(projectPath, 'package.json'), 'utf-8')) as {
+    scripts: Record<string, string>
+  }
+  manifest.scripts.format = `prettier --write ${writtenGlob}`
+  manifest.scripts['format:check'] = `prettier --check ${writtenGlob}`
+  await writeFile(join(projectPath, 'package.json'), JSON.stringify(manifest, null, 2) + '\n')
 
   // NOTE: `src/bonds/index.ts` is NOT stubbed here. The injector writes it from
   // the packages' bond plans (the way every web scaffold gets it); a stub that

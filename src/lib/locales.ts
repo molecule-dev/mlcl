@@ -98,7 +98,7 @@ export const SUPPORTED_LOCALES: LocaleDefinition[] = [
  *
  * Produces TypeScript code like:
  *   { code: 'en', name: 'English', direction: 'ltr' as const, translations: en },
- *   { code: 'af', name: 'Afrikaans', direction: 'ltr' as const, loader: lazyLocale('af') },
+ *   { code: 'af', name: 'Afrikaans', direction: 'ltr' as const, loader: lazyLocale(() => import('../locales/af/ui.js')) },
  *   ...
  */
 export function generateLocaleArrayCode(): string {
@@ -106,6 +106,6 @@ export function generateLocaleArrayCode(): string {
     if (locale.code === 'en') {
       return `  { code: '${locale.code}', name: '${locale.name}', direction: '${locale.direction}' as const, translations: en }`
     }
-    return `  { code: '${locale.code}', name: '${locale.name}', direction: '${locale.direction}' as const, loader: lazyLocale('${locale.code}') }`
+    return `  { code: '${locale.code}', name: '${locale.name}', direction: '${locale.direction}' as const, loader: lazyLocale(() => import('../locales/${locale.code}/ui.js')) }`
   }).join(',\n')
 }

@@ -137,7 +137,7 @@ export async function loadContent(module: string): Promise<void> {
   const provider = getI18nProvider()
   const locale = provider.getLocale()
   const loader = async (loc: string): Promise<void> => {
-    const content = await import(`./locales/${loc}/${module}.ts`)
+    const content = {{LOCALE_CONTENT_MODULE}}
     provider.addTranslations(loc, content[module])
   }
   registerContent(module, loader)

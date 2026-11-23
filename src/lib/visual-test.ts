@@ -16,7 +16,18 @@ import { join } from 'node:path'
 import { getRawRegistry, loadAppFrameworks, loadToolchain } from './registry.js'
 import { withSuppliedStylesheet } from './scaffold-supplied-stylesheet.js'
 
-/** Supported frameworks for visual testing */
+/**
+ * Supported frameworks for visual testing.
+ *
+ * `react-native-web` renders the React Native components with the web ClassMap and the web
+ * Tailwind build; it is not what a device runs (the NativeWind ClassMap, its Tailwind preset
+ * and NativeWind's native style compiler). A device screenshot needs an iOS or Android
+ * simulator, which neither this machine (aarch64 Linux) nor CI (ubuntu) has. The device
+ * styling is checked without pixels instead: the scaffold check's `classes` step
+ * (scripts/check-framework-scaffolds.mjs) compiles every ClassMap class of an installed
+ * react-native app with NativeWind's own compiler, and `@molecule/app-theme-nativewind`'s
+ * tests render through NativeWind's native runtime.
+ */
 export const VISUAL_TEST_FRAMEWORKS = [
   'react',
   'vue',

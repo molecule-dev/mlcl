@@ -61,6 +61,16 @@ describe('locales', () => {
       }
     })
 
+    it('imports each locale by a literal path, which Metro (React Native) can bundle', () => {
+      // Metro rejects an import() whose path is a template literal; Vite and webpack split
+      // a literal path as well.
+      const lines = generateLocaleArrayCode().split('\n').slice(1)
+      for (const [index, line] of lines.entries()) {
+        const code = SUPPORTED_LOCALES[index + 1].code
+        expect(line).toContain(`loader: lazyLocale(() => import('../locales/${code}/ui.js'))`)
+      }
+    })
+
     it('includes code, name, and direction for each locale', () => {
       const code = generateLocaleArrayCode()
       for (const locale of SUPPORTED_LOCALES) {

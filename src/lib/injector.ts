@@ -107,7 +107,7 @@ import {
 import { isExactVersion } from './exact-version.js'
 import { formatGeneratedSource, sortImportStatements } from './format.js'
 import { t } from './i18n.js'
-import { generateLocaleArrayCode } from './locales.js'
+import { generateLocaleArrayCode, SUPPORTED_LOCALES } from './locales.js'
 import { readMigrateRunner } from './migrate-runner.js'
 import { migrationDialectHeader, projectDatabasePackage } from './migration-dialect.js'
 import { npmInstallRoot } from './npm-install-root.js'
@@ -2500,9 +2500,13 @@ function generateAppThemeBondSetup(
 
   // Check if this is the default provider or a theme preset.
   // Preset providers ship curated themes — use them as-is (no color overrides).
-  // The default provider exports generic themes that benefit from customization.
+  // The default provider exports generic themes that benefit from customization,
+  // and so does a framework's own provider (a registry `framework`), which the
+  // scaffold picks in place of the default on that framework
+  // (@molecule/app-theme-nativewind on react-native).
   const coreEntry = findRegistryPackage(pkg.molecule.implements)
-  const isDefaultProvider = coreEntry?.molecule?.defaultProvider === pkg.name
+  const isDefaultProvider =
+    coreEntry?.molecule?.defaultProvider === pkg.name || Boolean(pkg.molecule.framework)
 
   const typeImport = `import type { Theme } from '${pkg.molecule.implements}'`
   const setterImport = `import { setProvider } from '${pkg.molecule.implements}'`
@@ -2685,8 +2689,9 @@ import { ${importName} } from '${pkg.name}'
 
 import { ui as en } from '../locales/en/ui.js'
 
-const lazyLocale = (code: string) => () =>
-  import(\`../locales/\${code}/ui.ts\`).then((m: { ui: Record<string, string> }) => m.ui)
+// One import per locale: every bundler (Vite, Metro, webpack) splits a static import() path.
+const lazyLocale = (load: () => Promise<{ ui: Record<string, string> }>) => () =>
+  load().then((m) => m.ui)
 
 export const i18nProvider = ${
     providerRef === 'provider'
@@ -3743,6 +3748,7 @@ export function synthesizeAppProjectFiles(
           cat!,
           coreAppSetup,
           allMolecules,
+          loadAppFrameworks()[getProjectAppFramework(projectPath) ?? '']?.bundler,
         ),
         description: `Generate default ${cat} bond setup`,
       })
@@ -4063,6 +4069,9 @@ export function installedLocaleBonds(
  * @param exportName - The exported provider instance's name (`i18nProvider`).
  * @param pascal - The bond's PascalCase name (`I18nDefault`), for its setup function.
  * @param bindings - Every package the app installs.
+ * @param bundler - The app's bundler (`appFrameworks[framework].bundler`). Vite lists the
+ *   languages with `import.meta.glob`; Metro has no such call and bundles only an `import()` of
+ *   a literal path, so a Metro app gets one import per language the scaffold writes.
  * @returns The bond file's source.
  */
 export function generateI18nDefaultSetupBond(
@@ -4071,6 +4080,7 @@ export function generateI18nDefaultSetupBond(
   exportName: string,
   pascal: string,
   bindings: readonly string[],
+  bundler: 'vite' | 'metro' = 'vite',
 ): string {
   const bonds = installedLocaleBonds(bindings, 'app', setupPackage)
   const bondHeader =
@@ -4097,13 +4107,30 @@ export function generateI18nDefaultSetupBond(
       : inline.length <= PRETTIER_PRINT_WIDTH
         ? `\n${inline}`
         : `\n  packageLocaleLoaders: [\n${bonds.map(({ local }) => `    ${local},`).join('\n')}\n  ],`
-  return `${bondHeader}
+  // A key prettier leaves bare (`it`) or quotes (`'zh-TW'`), as the app's format check expects.
+  const metroImports = SUPPORTED_LOCALES.map(({ code }) => {
+    const key = /^[a-z]+$/.test(code) ? code : `'${code}'`
+    return `  ${key}: () => import('../locales/${code}/ui.js'),`
+  }).join('\n')
+  const languages =
+    bundler === 'metro'
+      ? `// One import per language the scaffold wrote: Metro bundles only an import() of a literal
+// path. Each file runs only when the app switches to that language.
+const localeFiles: Record<string, () => Promise<{ ui: Record<string, string> }>> = {
+${metroImports}
+}
 
-${imports.join('\n')}
+const lazyLoadUi = async (code: string): Promise<Record<string, string>> => {
+  const load = localeFiles[code]
+  return load ? (await load()).ui : {}
+}
 
-import { ui as en } from '../locales/en/ui.js'
-
-// A language is offered when its locales/<code>/ui.ts exists. Each file is a separate chunk,
+export const ${exportName} = setupI18nProvider({
+  enUi: en,
+  lazyLoadUi,
+  supportedLocales: Object.keys(localeFiles),${loaders}
+})`
+      : `// A language is offered when its locales/<code>/ui.ts exists. Each file is a separate chunk,
 // fetched only when the app switches to that language; nothing is fetched to build the list.
 const localeFiles = import.meta.glob<{ ui: Record<string, string> }>('../locales/*/ui.ts')
 
@@ -4119,7 +4146,14 @@ export const ${exportName} = setupI18nProvider({
   enUi: en,
   lazyLoadUi,
   supportedLocales: Object.keys(localeFiles).map(localeCode),${loaders}
-})
+})`
+  return `${bondHeader}
+
+${imports.join('\n')}
+
+import { ui as en } from '../locales/en/ui.js'
+
+${languages}
 
 /**
  * Called from bonds/index.ts. \`setupI18nProvider\` above already bonded the provider, loads each
@@ -4166,6 +4200,7 @@ function generateDefaultBondSetup(
   category: string,
   appBondSetup?: { exportName?: string; reExport?: boolean; generatorType?: string } | null,
   bindings: readonly string[] = [],
+  bundler: 'vite' | 'metro' = 'vite',
 ): string {
   const imports: string[] = []
   // An extraImport FROM the bond's own package is not a second module: it names
@@ -4253,6 +4288,7 @@ function generateDefaultBondSetup(
         exportName,
         pascal,
         bindings,
+        bundler,
       )
     }
     const storagePkg = requirePackageByRole('app', 'core', 'storage')
@@ -4263,8 +4299,9 @@ function generateDefaultBondSetup(
 
 ${i18nImports.join('\n')}
 
-const lazyLocale = (code: string) => () =>
-  import(\`../locales/\${code}/ui.ts\`).then((m: { ui: Record<string, string> }) => m.ui)
+// One import per locale: every bundler (Vite, Metro, webpack) splits a static import() path.
+const lazyLocale = (load: () => Promise<{ ui: Record<string, string> }>) => () =>
+  load().then((m) => m.ui)
 
 export const ${exportName} = ${setup.factory}('en', [
 ${generateLocaleArrayCode()},
@@ -6125,8 +6162,10 @@ function generateAppBondsSmokeTest(
         // HTTP token synchronization calls setAuthToken on clients hydrated by the shared source;
         // interceptor registrars return their unsubscribe function, hence `vi.fn(() => vi.fn())`.
         const authEventMock = exp === 'createJWTAuthClient' ? ['addEventListener: vi.fn()'] : []
+        // A theme provider's factory (registry appBondSetup.generatorType 'theme'): the
+        // generated bond file creates it at import time and the bonds read its theme.
         const themeMock =
-          exp === 'createCSSVariablesThemeProvider'
+          regEntry?.appBondSetup?.generatorType === 'theme'
             ? [
                 'getTheme: vi.fn(() => ({})),',
                 'setTheme: vi.fn(),',

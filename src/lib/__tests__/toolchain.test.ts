@@ -8,7 +8,7 @@
  */
 
 import { readdirSync, readFileSync } from 'node:fs'
-import { dirname, join } from 'node:path'
+import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { describe, expect, it } from 'vitest'
@@ -170,6 +170,15 @@ describe('toolchain version sync', () => {
       'NativeWind 4 compiles through react-native-css-interop, whose tailwindcss peer is ~3, ' +
       'while the web fleet is on Tailwind 4; an Expo app is never installed into the sandbox ' +
       'workspace the fleet shares',
+    'appFrameworks.react-native.dependencies react':
+      "React Native 0.79's renderer throws at startup unless react is exactly the version it " +
+      'was built with, 19.0.0, which is the version Expo SDK 53 installs',
+    'appFrameworks.react-native.dependencies react-dom':
+      'react-native-web renders the web target through react-dom, which throws unless it is ' +
+      "exactly react's version (19.0.0 in an Expo SDK 53 app)",
+    'appFrameworks.react-native.devDependencies @types/react':
+      "Expo SDK 53 pairs react 19.0.0 with @types/react ~19.0.10; the fleet's 19.3 types " +
+      'describe APIs react 19.0.0 does not have',
   }
 
   it('template fleet pins each dep to a single version (no internal splits)', () => {
@@ -241,6 +250,21 @@ describe('toolchain version sync', () => {
     expect(stale, 'remove each fleet pin exception that no longer differs').toEqual([])
   })
 
+  /**
+   * Molecule package pins that cannot follow the template fleet, each with the reason. A key is
+   * the package directory under molecule/packages and the dependency.
+   */
+  const MOLECULE_PIN_EXCEPTIONS: Record<string, string> = {
+    'app/bonds/ui/nativewind tailwindcss':
+      "NativeWind 4 compiles the package's Tailwind preset through react-native-css-interop, " +
+      'whose tailwindcss peer is ~3, while the web fleet is on Tailwind 4; it is a devDependency ' +
+      'for the preset build and tests, which no app installs',
+    'app/bonds/theme/nativewind tailwindcss':
+      "The theme bond's tests compile the preset's theme-colour classes with NativeWind 4, whose " +
+      'react-native-css-interop compiler needs tailwindcss ~3; it is a devDependency, which no ' +
+      'app installs',
+  }
+
   it('template fleet pins match molecule package pins for shared deps', () => {
     // Sandboxes install molecule packages and the user app in one npm
     // workspace, so a dep pinned differently by a molecule package and by
@@ -256,6 +280,8 @@ describe('toolchain version sync', () => {
     expect(moleculeStat.length).toBeGreaterThan(0)
 
     const moleculePins = new Map<string, Set<string>>()
+    /** `<package dir> <dep>` → the version that package pins. */
+    const pinnedBy = new Map<string, string>()
     const walk = (dir: string): void => {
       for (const entry of readdirSync(dir, { withFileTypes: true })) {
         if (entry.name === 'node_modules' || entry.name === 'dist') continue
@@ -272,11 +298,14 @@ describe('toolchain version sync', () => {
           } catch (_error) {
             continue // unparsable stray file — not a package manifest
           }
+          const packageDir = relative(moleculeDir, dir)
           for (const [dep, version] of Object.entries({
             ...pkg.dependencies,
             ...pkg.devDependencies,
           })) {
             if (dep.startsWith('@molecule/')) continue
+            pinnedBy.set(`${packageDir} ${dep}`, version)
+            if (`${packageDir} ${dep}` in MOLECULE_PIN_EXCEPTIONS) continue
             let set = moleculePins.get(dep)
             if (!set) moleculePins.set(dep, (set = new Set()))
             set.add(version)
@@ -303,6 +332,13 @@ describe('toolchain version sync', () => {
       mismatches,
       'template fleet and molecule packages disagree on shared dep versions — this splits root hoisting in the sandbox npm workspace; align them',
     ).toEqual([])
+    // An exception whose package no longer pins the dep apart from the fleet is stale.
+    const stale = Object.keys(MOLECULE_PIN_EXCEPTIONS).filter((key) => {
+      const pinned = pinnedBy.get(key)
+      const fleetSet = fleet.get(key.split(' ')[1])
+      return !pinned || fleetSet?.size !== 1 || [...fleetSet][0] === pinned
+    })
+    expect(stale, 'remove each molecule pin exception that no longer differs').toEqual([])
   })
 
   it('no toolchain versions use ^ or ~ prefixes', () => {
