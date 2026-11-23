@@ -101074,6 +101074,7 @@
         "provideDomContext",
         "reapplyRestAttributes",
         "removeDomContext",
+        "rendersNode",
         "resolveIcon",
         "shallowEqual",
         "styleText",
