@@ -316,8 +316,23 @@ describe('runCheckLocal', () => {
     const root = playwrightProject(
       "  1) [chromium] › e2e/smoke.spec.ts:27 › renders — Error: browserType.launch: Executable doesn't exist at /home/u/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell",
     )
-    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    const events: string[] = []
+    const result = await runCheckLocal(
+      root,
+      { steps: ['e2e'] },
+      {
+        budgetMs: 60_000,
+        onProgress: (event) => events.push(event.type === 'note' ? event.text : event.type),
+      },
+    )
     if ('error' in result) throw new Error(result.error)
+    // Said as the install starts, so a caller watching the output knows what the step is doing
+    // (OLD MUSTFAIL: an agent saw the install in `ps` and went looking for the browser itself).
+    expect(events).toEqual([
+      'start',
+      'has no Playwright browser: installing chromium, then running it again',
+      'finish',
+    ])
     const [e2e] = result.results
     expect(e2e.status).toBe('passed')
     expect(readFileSync(join(root, 'installed.txt'), 'utf8')).toBe('--only-shell chromium\n')

@@ -61,6 +61,8 @@ export default class Check extends Command {
       if (event.type === 'start') {
         running.add(event.step.name)
         process.stderr.write(`check: ${event.step.name} started\n`)
+      } else if (event.type === 'note') {
+        process.stderr.write(`check: ${event.step.name} ${event.text}\n`)
       } else {
         running.delete(event.step.name)
         const seconds = Math.round(event.result.durationMs / 1000)

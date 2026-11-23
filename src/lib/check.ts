@@ -693,18 +693,25 @@ export function missingPlaywrightBrowsers(log: string): string[] | null {
  *
  * @param root - The check root (display paths).
  * @param step - The step.
+ * @param signal - Aborts the step.
+ * @param note - Told when the step starts the install, so a caller watching the output sees why
+ *   it takes longer (an agent that saw a `playwright install` it did not start went looking for
+ *   the browser itself, harness eval `check`, 2026-11-23).
  * @returns Its result (never throws).
  */
 async function runStep(
   root: string,
   step: PlannedCheckStep,
   signal: AbortSignal,
+  note: (text: string) => void = () => {},
 ): Promise<CheckStepResult> {
   const first = await runStepOnce(root, step, signal)
   if (step.kind !== 'e2e' || first.status !== 'failed' || !step.command.includes('playwright'))
     return first
   const install = missingPlaywrightBrowsers(readLog(step.logPath))
   if (!install) return first
+  const browsers = install.filter((a) => !a.startsWith('-')).join(', ')
+  note(`has no Playwright browser: installing ${browsers}, then running it again`)
   try {
     await execCheckCommand(
       { ...step, command: `npx --no-install playwright install ${install.join(' ')}` },
@@ -715,11 +722,11 @@ async function runStep(
     return first
   }
   const again = await runStepOnce(root, step, signal)
-  const note = `installed the Playwright browser first (${install.filter((a) => !a.startsWith('-')).join(', ')})`
+  const installed = `installed the Playwright browser first (${browsers})`
   return {
     ...again,
     durationMs: again.durationMs + first.durationMs,
-    summary: again.summary ? `${note}, ${again.summary}` : note,
+    summary: again.summary ? `${installed}, ${again.summary}` : installed,
   }
 }
 
@@ -944,6 +951,8 @@ export function selectedCheckSteps(
 /** A step starting, or finishing with its result, as {@link runCheckLocal} reports it. */
 export type CheckProgress =
   | { type: 'start'; step: PlannedCheckStep }
+  /** Something a running step does besides its command, said as it starts (a browser install). */
+  | { type: 'note'; step: PlannedCheckStep; text: string }
   | { type: 'finish'; step: PlannedCheckStep; result: CheckStepResult }
 
 /**
@@ -954,7 +963,7 @@ export type CheckProgress =
  * @param input - `steps` (subset; {@link DEFAULT_CHECK_STEPS} when empty, plus e2e when an
  *   `e2e` filter is given) and `e2e` (spec filter).
  * @param options - `budgetMs` for the whole call (default 15 min), and `onProgress`, called as each
- *   step starts and finishes.
+ *   step starts and finishes, and when a step starts work besides its command.
  * @returns `{ ok, report, results }`, or `{ error }` when nothing could be discovered.
  */
 export async function runCheckLocal(
@@ -983,7 +992,9 @@ export async function runCheckLocal(
   const results = new Map<PlannedCheckStep, CheckStepResult>()
   const run = (step: PlannedCheckStep): Promise<void> => {
     options.onProgress?.({ type: 'start', step })
-    return runStep(root, step, controller.signal).then((r) => {
+    return runStep(root, step, controller.signal, (text) =>
+      options.onProgress?.({ type: 'note', step, text }),
+    ).then((r) => {
       results.set(step, r)
       options.onProgress?.({ type: 'finish', step, result: r })
     })
