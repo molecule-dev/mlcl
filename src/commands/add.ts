@@ -17,6 +17,7 @@ import { databasePackageOf } from '../lib/migration-dialect.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { missingMoleculePeers } from '../lib/peer-closure.js'
 import { getMoleculeVersion, getPackageStack, getRawRegistry } from '../lib/registry.js'
+import { createSpinner } from '../lib/spinner.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 
 const execAsync = promisify(exec)
@@ -113,7 +114,7 @@ export default class Add extends Command {
       this.exit(1)
     }
 
-    const spinner = p.spinner()
+    const spinner = createSpinner()
 
     // Add to dependencies
     spinner.start(t('commands.add.spinners.adding', { name: moleculeName }))

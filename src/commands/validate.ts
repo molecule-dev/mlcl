@@ -8,6 +8,7 @@ import chalk from 'chalk'
 import { t } from '../lib/i18n.js'
 import { findRegistryPackage, getPackageStack } from '../lib/registry.js'
 import { scanPackage, validatePackagePlacement } from '../lib/scanner.js'
+import { createSpinner } from '../lib/spinner.js'
 
 export default class Validate extends Command {
   static override description = t('commands.validate.description')
@@ -38,7 +39,7 @@ export default class Validate extends Command {
       p.intro(chalk.bgCyan(` ${t('commands.validate.labels.intro')} `))
     }
 
-    const spinner = flags.json ? null : p.spinner()
+    const spinner = flags.json ? null : createSpinner()
     spinner?.start(t('commands.validate.spinners.validating'))
 
     const issues: { level: 'error' | 'warning' | 'info'; message: string }[] = []

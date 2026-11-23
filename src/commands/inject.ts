@@ -66,6 +66,7 @@ import {
   resolveSetupSqlSources,
   setupSqlFileContent,
 } from '../lib/setup-sql.js'
+import { createSpinner } from '../lib/spinner.js'
 import { validateInjectionOutput } from '../lib/validator.js'
 
 /**
@@ -153,7 +154,7 @@ export default class Inject extends Command {
 
     p.intro(chalk.bgCyan(` ${t('commands.inject.labels.intro')} `))
 
-    const spinner = p.spinner()
+    const spinner = createSpinner()
 
     const projectPath = flags.path === '.' ? process.cwd() : flags.path
 

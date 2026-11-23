@@ -5,6 +5,7 @@ import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
+import { createSpinner } from '../../lib/spinner.js'
 import { addEnvironment, allocatePort, branchToSlug, loadDriver } from '../../lib/staging.js'
 
 export default class StageUp extends Command {
@@ -63,7 +64,7 @@ export default class StageUp extends Command {
     }
 
     // 4. Check driver prerequisites
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start(`Checking ${driver.config.label} prerequisites...`)
 
     const prereqs = await driver.provider.checkPrerequisites()

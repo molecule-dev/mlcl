@@ -4,6 +4,7 @@ import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
+import { createSpinner } from '../../lib/spinner.js'
 import {
   branchToSlug,
   getEnvironment,
@@ -67,7 +68,7 @@ export default class StageDown extends Command {
         }
       }
 
-      const spinner = p.spinner()
+      const spinner = createSpinner()
       for (const env of envs) {
         spinner.start(`Tearing down ${chalk.cyan(env.slug)}...`)
         await this.teardownEnv(env.slug, env.driver, projectPath)
@@ -119,7 +120,7 @@ export default class StageDown extends Command {
       }
     }
 
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start(`Tearing down ${chalk.cyan(slug)}...`)
     await this.teardownEnv(slug, driverName, projectPath)
     await removeEnvironment(projectPath, slug)

@@ -10,6 +10,7 @@ import { inferFromDescription, type InferredMetadata } from '../lib/infer.js'
 import { loadRegistry, updateRegistryEntry } from '../lib/registry.js'
 import { detectMonorepoRoot, resolvePackageDirectory, scaffoldPackage } from '../lib/scaffold.js'
 import type { RegistryEntry } from '../lib/schema.js'
+import { createSpinner } from '../lib/spinner.js'
 
 export default class Init extends Command {
   static override description = t('commands.init.description')
@@ -117,7 +118,7 @@ export default class Init extends Command {
     const scaffoldOpts = dirExists ? { skipExisting: true } : undefined
 
     if (flags.interactive) {
-      const spinner = p.spinner()
+      const spinner = createSpinner()
       spinner.start(t('commands.init.spinners.creating'))
       const result = await scaffoldPackage(targetDir, meta, scaffoldOpts)
       this.addToRegistry(meta, result.path)

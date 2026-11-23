@@ -32,6 +32,7 @@ import {
 } from '../lib/scanner.js'
 import { readPackageVersion } from '../lib/setup-sql.js'
 import { planSetupSqlEntrySync } from '../lib/setup-sql-version.js'
+import { createSpinner } from '../lib/spinner.js'
 
 export default class SyncRegistry extends Command {
   // Internal maintenance command — hidden from the public CLI surface (still
@@ -181,7 +182,7 @@ export default class SyncRegistry extends Command {
    * @returns Number of versions updated.
    */
   private syncToolchain(dryRun: boolean, standalone = true): number {
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start('Syncing toolchain versions...')
 
     const registry = getRawRegistry()
@@ -425,7 +426,7 @@ export default class SyncRegistry extends Command {
    * @returns Number of versions updated.
    */
   private syncFrameworks(dryRun: boolean, standalone = true): number {
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start('Syncing framework versions...')
 
     const registry = getRawRegistry()
@@ -553,7 +554,7 @@ export default class SyncRegistry extends Command {
    * @returns Number of packages with updated exports.
    */
   private async refreshExports(dryRun: boolean, standalone = true): Promise<number> {
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start('Scanning source exports...')
 
     const registry = getRawRegistry()
@@ -789,7 +790,7 @@ export default class SyncRegistry extends Command {
    * @returns Number of packages whose `tables`/`setupSql` changed.
    */
   private async refreshTables(dryRun: boolean, standalone = true): Promise<number> {
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start('Scanning SQL setup tables...')
 
     const registry = getRawRegistry()
@@ -940,7 +941,7 @@ export default class SyncRegistry extends Command {
    * @returns Number of packages whose `routes` changed.
    */
   private async refreshRoutes(dryRun: boolean, standalone = true): Promise<number> {
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start('Scanning resource routes...')
 
     const registry = getRawRegistry()
@@ -1036,7 +1037,7 @@ export default class SyncRegistry extends Command {
    * @returns Number of packages whose `responseRecord` changed.
    */
   private refreshRecords(dryRun: boolean, standalone = true): number {
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start('Scanning resource records...')
 
     const registry = getRawRegistry()
@@ -1106,7 +1107,7 @@ export default class SyncRegistry extends Command {
    * @returns Number of blocking violations (0 = pass).
    */
   private checkIntentHints(): number {
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start('Validating intent hints...')
 
     const registry = getRawRegistry()

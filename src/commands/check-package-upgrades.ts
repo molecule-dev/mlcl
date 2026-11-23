@@ -16,6 +16,7 @@ import {
 } from '../lib/package-upgrades.js'
 import { clearRegistryCache, getRegistryPath } from '../lib/registry.js'
 import type { Registry } from '../lib/schema.js'
+import { createSpinner } from '../lib/spinner.js'
 
 /**
  * Build the real version fetcher backed by `npm view <pkg> version`.
@@ -165,7 +166,7 @@ export default class CheckPackageUpgrades extends Command {
         }
       : registry
 
-    const spinner = flags.json ? null : p.spinner()
+    const spinner = flags.json ? null : createSpinner()
     spinner?.start('Querying npm for newer versions...')
 
     const candidates = await collectUpgradeCandidates({

@@ -49,6 +49,7 @@ import {
   scaffoldSecurityWorkflow,
 } from '../lib/scaffold.js'
 import type { InferredPackage, MoleculeSecret } from '../lib/schema.js'
+import { createSpinner } from '../lib/spinner.js'
 import { writeStopHooks } from '../lib/stop-hooks.js'
 import { ui } from '../lib/ui.js'
 
@@ -898,7 +899,7 @@ export default class Create extends Command {
     const log = (msg: string): void => {
       if (nonInteractive) say(msg)
     }
-    const spinner = nonInteractive ? null : p.spinner()
+    const spinner = nonInteractive ? null : createSpinner()
 
     // This caller creates the configured Vite index.html below. Svelte's
     // app.html and non-Vite callers retain the static-copy asset contract.

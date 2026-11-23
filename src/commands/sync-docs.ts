@@ -18,6 +18,7 @@ import {
 } from '../lib/docs-validator.js'
 import { getRawRegistry } from '../lib/registry.js'
 import type { Registry } from '../lib/schema.js'
+import { createSpinner } from '../lib/spinner.js'
 
 export default class SyncDocs extends Command {
   // Internal maintenance command — hidden from the public CLI surface (still
@@ -87,7 +88,7 @@ export default class SyncDocs extends Command {
       return
     }
 
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start('Scanning README.md files...')
 
     const issues = await validateDocs(moleculeDir, registry, flags.package)
@@ -121,7 +122,7 @@ export default class SyncDocs extends Command {
     const unfixableCount = issues.length - fixableCount
 
     if (flags.fix && fixableCount > 0) {
-      const fixSpinner = p.spinner()
+      const fixSpinner = createSpinner()
       fixSpinner.start('Applying fixes...')
 
       let fixed = 0
@@ -223,7 +224,7 @@ export default class SyncDocs extends Command {
     moleculeDir: string,
     flags: { check: boolean; generate: boolean; package?: string; jobs?: number },
   ): Promise<void> {
-    const spinner = p.spinner()
+    const spinner = createSpinner()
     spinner.start(flags.check ? 'Checking README.md files...' : 'Generating README.md files...')
 
     // A package awaiting its first release (`pendingPackages`) is documented like any other

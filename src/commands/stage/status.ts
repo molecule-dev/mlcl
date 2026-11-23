@@ -4,6 +4,7 @@ import * as p from '@clack/prompts'
 import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
+import { createSpinner } from '../../lib/spinner.js'
 import { branchToSlug, getEnvironment, loadDriver } from '../../lib/staging.js'
 
 export default class StageStatus extends Command {
@@ -86,7 +87,7 @@ export default class StageStatus extends Command {
     // Health check
     try {
       const driver = await loadDriver(env.driver)
-      const spinner = p.spinner()
+      const spinner = createSpinner()
       spinner.start('Checking health...')
 
       try {

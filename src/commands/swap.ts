@@ -24,6 +24,7 @@ import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { getMoleculeVersion, loadRegistry } from '../lib/registry.js'
 import { syncProjectAssets } from '../lib/scaffold.js'
 import type { InferredPackage } from '../lib/schema.js'
+import { createSpinner } from '../lib/spinner.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 
 export default class Swap extends Command {
@@ -79,7 +80,7 @@ export default class Swap extends Command {
       this.exit(1)
     }
 
-    const spinner = p.spinner()
+    const spinner = createSpinner()
 
     // 1. Resolve the new provider from the registry
     spinner.start(t('commands.swap.spinners.resolving'))
