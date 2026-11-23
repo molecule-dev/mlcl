@@ -49,7 +49,7 @@
     "@molecule/api-locales-resource": "1.0.3",
     "@molecule/api-locales-secrets": "1.0.3",
     "@molecule/api-locales-uploads": "1.0.3",
-    "@molecule/api-locales-user": "1.2.0",
+    "@molecule/api-locales-user": "1.2.1",
     "@molecule/api-locales-user-payments": "1.0.5",
     "@molecule/api-logger": "1.0.3",
     "@molecule/api-middleware-body-parser": "1.0.3",
