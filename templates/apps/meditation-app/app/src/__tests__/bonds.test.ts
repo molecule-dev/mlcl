@@ -15,7 +15,7 @@ vi.mock('@molecule/app-bonds-default-react', async (importOriginal) => ({
   setupAllDefaultBonds: vi.fn(),
 }))
 
-vi.mock('@molecule/app-i18n-default-react', async (importOriginal) => ({
+vi.mock('@molecule/app-i18n-default', async (importOriginal) => ({
   ...(await importOriginal<Record<string, unknown>>()),
   setupI18nDefault: vi.fn(() => ({})),
 }))

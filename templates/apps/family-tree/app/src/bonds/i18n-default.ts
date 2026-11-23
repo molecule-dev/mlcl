@@ -1,14 +1,14 @@
 /**
  * Default i18n bond setup
  *
- * Uses setupI18nDefault from @molecule/app-i18n-default-react. English comes from the app's own
+ * Uses setupI18nDefault from @molecule/app-i18n-default. English comes from the app's own
  * locales/en/ui.ts; every other language loads when the app switches to it, from the app's
  * locales/<code>/ui.ts and from each companion locale bond the app installs, listed below.
  * `mlcl add <package> --inject` (or `mlcl inject`) rewrites this file with the new list.
  * Swap to a different i18n provider by replacing this bond.
  */
 
-import { setupI18nDefault as setupI18nProvider } from '@molecule/app-i18n-default-react'
+import { setupI18nDefault as setupI18nProvider } from '@molecule/app-i18n-default'
 import { loadLocaleModule as authLocales } from '@molecule/app-locales-auth/loader.js'
 import { loadLocaleModule as authShellLocales } from '@molecule/app-locales-auth-shell/loader.js'
 import { loadLocaleModule as billingLocales } from '@molecule/app-locales-billing/loader.js'

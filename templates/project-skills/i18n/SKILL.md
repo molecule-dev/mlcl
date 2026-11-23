@@ -158,4 +158,4 @@ lazy-loads each locale's `ui.ts` on demand — no extra wiring needed.
 Because every `t()` call already passes a `defaultValue` (English fallback),
 adding keys to `ui.ts` is optional polish — the app works without it. The
 wiring lives in `app/src/bonds/i18n-default.ts` (`setupI18nProvider({ enUi, ... })`
-from `@molecule/app-i18n-default-react`); adding keys needs no change there.
+from `@molecule/app-i18n-default`); adding keys needs no change there.

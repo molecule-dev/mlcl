@@ -206,6 +206,49 @@ describe('registry.json schema validation', () => {
     ).toHaveLength(3)
   })
 
+  it('scaffolds no renamed or unregistered package through templateRequires', () => {
+    // A framework's templateRequires goes into every project it scaffolds, so a renamed package
+    // there keeps installing the deprecated name after search and the catalogs stopped offering it.
+    type Requiring = { templateRequires?: string[] }
+    const problems = (
+      packages: Record<string, { replacedBy?: string } & Requiring>,
+      frameworks: Record<string, Requiring>,
+    ): string[] =>
+      [
+        ...Object.entries(packages).map(([name, entry]) => [name, entry] as const),
+        ...Object.entries(frameworks).map(
+          ([name, entry]) => [`appFrameworks.${name}`, entry] as const,
+        ),
+      ].flatMap(([name, entry]) =>
+        (entry.templateRequires ?? []).flatMap((required) => {
+          const target = packages[required]
+          if (!target) return [`${name}: requires ${required}, which is not registered`]
+          if (target.replacedBy)
+            return [
+              `${name}: requires ${required}; require ${target.replacedBy}, which replaced it`,
+            ]
+          return []
+        }),
+      )
+    expect(
+      problems(raw.packages ?? {}, (raw.appFrameworks ?? {}) as Record<string, Requiring>),
+    ).toEqual([])
+    // The check itself refuses each wrong shape, on a package and on an app framework.
+    expect(
+      problems(
+        {
+          '@molecule/app-a': { replacedBy: '@molecule/app-b' },
+          '@molecule/app-b': {},
+          '@molecule/app-x': { templateRequires: ['@molecule/app-a', '@molecule/app-b'] },
+        },
+        { web: { templateRequires: ['@molecule/app-missing'] } },
+      ),
+    ).toEqual([
+      '@molecule/app-x: requires @molecule/app-a; require @molecule/app-b, which replaced it',
+      'appFrameworks.web: requires @molecule/app-missing, which is not registered',
+    ])
+  })
+
   it('provider packages should declare implements', () => {
     const missing: string[] = []
 
