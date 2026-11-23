@@ -25,7 +25,7 @@ import {
   LIST_TEMPLATES_SLUG_DESCRIPTION,
   serverInstructions,
 } from './instructions.js'
-import { localPackageDoc, npmRegistryUrl } from './package-doc-files.js'
+import { fetchPublishedReadme, localPackageDoc } from './package-doc-files.js'
 import { searchPackageDoc } from './package-doc-search.js'
 import { packageDocView } from './package-doc-view.js'
 import {
@@ -74,16 +74,14 @@ const cache = new Map<string, { at: number; data: unknown }>()
  * Resolved package READMEs, keyed by the npm package name, with the same TTL as
  * {@link cache}.
  *
- * The npm registry serves a README only inside the FULL packument for a package
- * — `https://registry.npmjs.org/@molecule%2F<name>` — which nests one manifest
- * per published VERSION (`/<name>/latest` carries no `readme`). At this fleet's
- * release cadence that document is ~270 kB for a package with a few dozen
- * versions, and it grows with every publish, while the tool only ever reads the
- * one `readme` field (~64 kB). Without a cache, every `read_package_doc` call —
- * a public, unauthenticated endpoint — re-downloaded and re-parsed the whole
- * thing, so a client asking about the same package repeatedly paid the full
- * egress and CPU each time (and the load on registry.npmjs.org scaled with the
- * call rate rather than the package count). Only a SUCCESSFUL lookup is cached:
+ * A published README is read from the `latest` version's tarball
+ * ({@link fetchPublishedReadme}): the packument's `readme` field is cut at
+ * 65,536 characters, which dropped most of the larger packages' API sections.
+ * The tarball of a large package is a few hundred kB. Without a cache, every
+ * `read_package_doc` call — a public, unauthenticated endpoint — re-downloaded
+ * and re-parsed it, so a client asking about the same package repeatedly paid the
+ * full egress and CPU each time (and the load on registry.npmjs.org scaled with
+ * the call rate rather than the package count). Only a SUCCESSFUL lookup is cached:
  * a missing/unreadable README keeps the file's own policy — the next call
  * retries the network — and the map is capped so a long-lived server cannot
  * accumulate one cached doc per package name in the fleet.
@@ -224,20 +222,11 @@ async function fetchPackageReadmeUncached(
   timeoutMs: number,
   generation: number,
 ): Promise<string | undefined> {
-  const response = await fetch(`${npmRegistryUrl()}@molecule%2F${short}`, {
-    signal: AbortSignal.timeout(timeoutMs),
-  })
-  // A non-2xx is a FAILURE, not a body without a readme — the same gate
-  // {@link fetchJson} applies. An error body deserializes as happily as a
-  // packument does (a 404's `{"error":"Not found"}`, a 429/503's JSON error
-  // from the registry itself — routine for unauthenticated packument traffic),
-  // so without the gate an outage answered every call with "doc not fetched",
-  // the same sentence a package that genuinely has no README gets.
-  if (!response.ok) {
-    throw new Error(`GET ${npmRegistryUrl()}@molecule/${short} failed: HTTP ${response.status}`)
-  }
-  const meta = (await response.json()) as { readme?: string }
-  if (typeof meta.readme !== 'string' || meta.readme.length === 0) return undefined
+  // A registry error is a FAILURE, not a package without a README (fetchPublishedReadme throws
+  // on any non-2xx but a 404): an outage must not read as "doc not fetched" for every package.
+  const published = await fetchPublishedReadme(short, { timeoutMs })
+  if (!published) return undefined
+  const meta = { readme: published.readme }
   if (generation !== cacheGeneration) return meta.readme
   if (readmeCache.size >= README_CACHE_LIMIT && !readmeCache.has(short)) {
     const oldest = readmeCache.keys().next().value

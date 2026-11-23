@@ -24,6 +24,8 @@ import { fileURLToPath } from 'node:url'
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
+import { lookups, registryFetch } from './helpers/npm-registry.js'
+
 /** The `molecule-mcp` package — its own node_modules holds the MCP SDK. */
 const MCP_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..', 'mcp')
 /**
@@ -51,9 +53,10 @@ let seq = 0
 const uniqueName = (): string => `doc-cache-test-${seq++}`
 
 /**
- * Answer the next `fetch` calls with an npm-shaped body. The spy KEEPS its
- * arguments: the request URL is part of this tool's contract (the README only
- * exists in the FULL packument at the `%2F`-encoded scoped URL), and a stub
+ * Answer the next `fetch` calls like npm: a body with a `readme` is served as
+ * a published package (its `/latest` manifest and tarball, helpers/npm-registry.ts),
+ * any other body as every answer. The spy KEEPS its arguments: the request URL
+ * is part of this tool's contract (the `%2F`-encoded scoped URL), and a stub
  * that discards every argument let that contract regress invisibly — a
  * stubbed 200 answers `registry.npmjs.org/<name>` exactly as cheerfully as
  * the real endpoint 404s it.
@@ -62,8 +65,13 @@ function stubRegistry(
   body: unknown,
   opts: { reject?: Error; status?: number } = {},
 ): ReturnType<typeof vi.fn> {
-  const spy = vi.fn(async () => {
+  const published =
+    typeof (body as { readme?: unknown }).readme === 'string'
+      ? registryFetch({ readme: (body as { readme: string }).readme })
+      : null
+  const spy = vi.fn(async (url: string) => {
     if (opts.reject) throw opts.reject
+    if (published) return published(url)
     return new Response(JSON.stringify(body), {
       status: opts.status ?? 200,
       headers: { 'content-type': 'application/json' },
@@ -93,12 +101,13 @@ describe('mcp remote package-doc fetch', () => {
 
     expect(first).toBe(readme)
     expect(second).toBe(readme)
-    // The README lives only in the FULL packument — the `%2F`-encoded scoped
-    // URL. An unscoped or unencoded URL is a 404 against the real registry,
-    // and this stub's 200 would have hidden the regression completely.
-    expect(fetchSpy.mock.calls[0]?.[0]).toBe(`https://registry.npmjs.org/@molecule%2F${name}`)
-    // The assertion that fails without the cache: two lookups, ONE request.
-    expect(fetchSpy).toHaveBeenCalledTimes(1)
+    // The `%2F`-encoded scoped URL: an unscoped or unencoded one is a 404 against
+    // the real registry, and this stub's 200 would have hidden the regression.
+    expect(fetchSpy.mock.calls[0]?.[0]).toBe(
+      `https://registry.npmjs.org/@molecule%2F${name}/latest`,
+    )
+    // The assertion that fails without the cache: two lookups, ONE fetch of the doc.
+    expect(lookups(fetchSpy)).toBe(1)
   })
 
   it('shares one outbound fetch between callers that ask for the SAME package at once', async (ctx) => {
@@ -113,30 +122,30 @@ describe('mcp remote package-doc fetch', () => {
     // call rate rather than the package count" defect the cache exists to
     // remove, still reachable at the moment load is highest.
     let release: (() => void) | null = null
-    const spy = vi.fn(async () => {
-      await new Promise<void>((resolve) => {
-        release = resolve
-      })
-      return new Response(JSON.stringify({ readme: '# Shared' }), {
-        status: 200,
-        headers: { 'content-type': 'application/json' },
-      })
+    const serve = registryFetch({ readme: '# Shared' })
+    const spy = vi.fn(async (url: string) => {
+      if (url.endsWith('/latest'))
+        await new Promise<void>((resolve) => {
+          release = resolve
+        })
+      return serve(url)
     })
     vi.stubGlobal('fetch', spy)
+    vi.stubEnv('npm_config_registry', '')
 
     const first = fetchPackageReadme(name)
     const second = fetchPackageReadme(name)
 
     // The assertion that fails without the shared in-flight entry: two callers,
-    // ONE request — and it is made before either has settled.
-    expect(spy).toHaveBeenCalledTimes(1)
+    // ONE lookup — and it is made before either has settled.
+    expect(lookups(spy)).toBe(1)
 
     release!()
     expect(await first).toBe('# Shared')
     expect(await second).toBe('# Shared')
     // …and the settled value is cached, so a later caller does not ask again.
     expect(await fetchPackageReadme(name)).toBe('# Shared')
-    expect(spy).toHaveBeenCalledTimes(1)
+    expect(lookups(spy)).toBe(1)
   })
 
   it('shares one outbound fetch for a registry/templates document too', async (ctx) => {
@@ -271,7 +280,7 @@ describe('mcp remote package-doc fetch', () => {
     await fetchPackageReadme(a)
     await fetchPackageReadme(b)
 
-    expect(fetchSpy).toHaveBeenCalledTimes(2)
+    expect(lookups(fetchSpy)).toBe(2)
   })
 
   it('caches nothing when the registry carries no README, so the next call retries', async (ctx) => {
@@ -285,7 +294,7 @@ describe('mcp remote package-doc fetch', () => {
     expect(await fetchPackageReadme(name)).toBeUndefined()
     expect(await fetchPackageReadme(name)).toBeUndefined()
 
-    expect(fetchSpy).toHaveBeenCalledTimes(2)
+    expect(lookups(fetchSpy)).toBe(2)
   })
 
   it('caches nothing when the fetch fails, so a transient failure does not stick', async (ctx) => {
@@ -299,7 +308,7 @@ describe('mcp remote package-doc fetch', () => {
 
     const healthy = stubRegistry({ readme: '# Back' })
     expect(await fetchPackageReadme(name)).toBe('# Back')
-    expect(healthy).toHaveBeenCalledTimes(1)
+    expect(lookups(healthy)).toBe(1)
   })
 
   it('treats a non-2xx registry answer as a failure and caches nothing — the next call retries', async (ctx) => {
@@ -323,7 +332,7 @@ describe('mcp remote package-doc fetch', () => {
     // …and recovery needs no restart: a healthy answer after the outage lands.
     const healthy = stubRegistry({ readme: '# After the outage' })
     expect(await fetchPackageReadme(name)).toBe('# After the outage')
-    expect(healthy).toHaveBeenCalledTimes(1)
+    expect(lookups(healthy)).toBe(1)
   })
 
   it('evicts the least recently USED entry, so a re-read package survives the cap', async (ctx) => {
@@ -340,7 +349,7 @@ describe('mcp remote package-doc fetch', () => {
     // inserted (each earlier one has already been evicted).
     const names = Array.from({ length: README_CACHE_LIMIT + 5 }, () => uniqueName())
     for (const name of names) await fetchPackageReadme(name)
-    const filled = fetchSpy.mock.calls.length
+    const filled = lookups(fetchSpy)
     expect(filled).toBe(names.length)
 
     const oldest = names[names.length - README_CACHE_LIMIT] as string
@@ -348,25 +357,21 @@ describe('mcp remote package-doc fetch', () => {
 
     // Re-read the oldest cached entry — it is now the most recently USED…
     await fetchPackageReadme(oldest)
-    expect(
-      fetchSpy,
-      'a re-read of a cached package must not hit the network',
-    ).toHaveBeenCalledTimes(filled)
+    expect(lookups(fetchSpy), 'a re-read of a cached package must not hit the network').toBe(filled)
 
     // …so a NEW package at the cap evicts the entry that was not touched since
     // it was cached, and the re-read one survives.
     await fetchPackageReadme(uniqueName())
-    expect(fetchSpy).toHaveBeenCalledTimes(filled + 1)
+    expect(lookups(fetchSpy)).toBe(filled + 1)
     await fetchPackageReadme(oldest)
     expect(
-      fetchSpy,
+      lookups(fetchSpy),
       'the re-read package must still be cached (an insertion-order cap evicts it)',
-    ).toHaveBeenCalledTimes(filled + 1)
+    ).toBe(filled + 1)
     await fetchPackageReadme(nextOldest)
-    expect(
-      fetchSpy,
-      'the package untouched since it was cached is the one evicted',
-    ).toHaveBeenCalledTimes(filled + 2)
+    expect(lookups(fetchSpy), 'the package untouched since it was cached is the one evicted').toBe(
+      filled + 2,
+    )
   })
 
   it('re-fetches once the cached entry is older than the 10-minute TTL', async (ctx) => {
@@ -381,7 +386,7 @@ describe('mcp remote package-doc fetch', () => {
 
       await fetchPackageReadme(name)
       await fetchPackageReadme(name)
-      expect(fetchSpy).toHaveBeenCalledTimes(1)
+      expect(lookups(fetchSpy)).toBe(1)
 
       // Just INSIDE the documented window the entry still serves. Without this
       // probe the suite only pinned "a lookup ten minutes later re-fetches" —
@@ -391,12 +396,12 @@ describe('mcp remote package-doc fetch', () => {
       // so the entry's age is measured from the fetch above throughout.
       vi.setSystemTime(Date.now() + 9 * 60_000)
       await fetchPackageReadme(name)
-      expect(fetchSpy, 'an entry inside its TTL must not re-fetch').toHaveBeenCalledTimes(1)
+      expect(lookups(fetchSpy), 'an entry inside its TTL must not re-fetch').toBe(1)
 
       // …and just past it, it does.
       vi.setSystemTime(Date.now() + 60_000 + 1)
       await fetchPackageReadme(name)
-      expect(fetchSpy, 'a stale entry must re-fetch').toHaveBeenCalledTimes(2)
+      expect(lookups(fetchSpy), 'a stale entry must re-fetch').toBe(2)
     } finally {
       vi.useRealTimers()
     }
@@ -412,15 +417,13 @@ describe('mcp remote package-doc fetch', () => {
     const fetchSpy = stubRegistry({ readme: '# Cap' })
     const names = Array.from({ length: README_CACHE_LIMIT + 1 }, () => uniqueName())
     for (const name of names) await fetchPackageReadme(name)
-    const filled = fetchSpy.mock.calls.length
+    const filled = lookups(fetchSpy)
     expect(filled).toBe(names.length)
 
     await fetchPackageReadme(names[0])
-    expect(fetchSpy, 'the oldest entry must have been evicted at the cap').toHaveBeenCalledTimes(
-      filled + 1,
-    )
+    expect(lookups(fetchSpy), 'the oldest entry must have been evicted at the cap').toBe(filled + 1)
 
     await fetchPackageReadme(names[names.length - 1])
-    expect(fetchSpy, 'the newest entry must still be cached').toHaveBeenCalledTimes(filled + 1)
+    expect(lookups(fetchSpy), 'the newest entry must still be cached').toBe(filled + 1)
   })
 })

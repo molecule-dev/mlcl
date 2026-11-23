@@ -11,6 +11,7 @@ import {
   parseDocSearch,
   searchPackageDoc,
 } from '../../../mcp/src/package-doc-search.js'
+import { lookups, registryFetch } from './helpers/npm-registry.js'
 
 const roots: string[] = []
 afterEach(() => {
@@ -319,19 +320,19 @@ describe('read_package_doc MCP search consumers', () => {
 
   it('searches the existing hosted published README source and states missing type availability', async () => {
     vi.spyOn(docFiles, 'localPackageDoc').mockReturnValue(null)
-    const fetch = vi.fn(
-      async () => new Response(JSON.stringify({ readme: README }), { status: 200 }),
-    )
+    const fetch = vi.fn(registryFetch({ readme: README }))
     vi.stubGlobal('fetch', fetch)
+    vi.stubEnv('npm_config_registry', '')
     try {
       const result = text(
         await remoteCall({ name: 'api-doc-search-uninstalled-fixture', search: 'Bearer' }),
       )
       expect(result).toContain('README.md:5')
       expect(result).toContain('declaration files are unavailable on this host')
-      expect(fetch).toHaveBeenCalledTimes(1)
+      expect(lookups(fetch)).toBe(1)
     } finally {
       vi.unstubAllGlobals()
+      vi.unstubAllEnvs()
     }
   })
 

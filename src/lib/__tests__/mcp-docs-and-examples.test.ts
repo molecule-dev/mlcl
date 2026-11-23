@@ -15,6 +15,7 @@ import { join } from 'node:path'
 import { afterAll, afterEach, describe, expect, it, vi } from 'vitest'
 
 import { DOC_VIEW_MAX_CHARS } from '../package-doc-view.js'
+import { registryFetch } from './helpers/npm-registry.js'
 
 const MCP_DIR = join(import.meta.dirname, '..', '..', '..', 'mcp')
 const SDK_ESM = join(MCP_DIR, 'node_modules', '@modelcontextprotocol', 'sdk', 'dist', 'esm')
@@ -111,19 +112,20 @@ describe('read_package_doc', () => {
     it('is read from npm, and says so', async (ctx) => {
       if (skipped(ctx)) return
       const asked: string[] = []
+      const serve = registryFetch({ readme: '# @molecule/api-remote\n\nRemote overview.\n' })
       vi.stubGlobal('fetch', async (url: string) => {
         asked.push(String(url))
-        return new Response(
-          JSON.stringify({ readme: '# @molecule/api-remote\n\nRemote overview.\n' }),
-          { status: 200, headers: { 'content-type': 'application/json' } },
-        )
+        return serve(url)
       })
       vi.stubEnv('npm_config_registry', '')
       const call = await connect()
       const doc = textOf(await call('read_package_doc', { name: 'api-remote', directory: temp() }))
       expect(doc).toContain('Remote overview.')
       expect(doc).toContain('Published README from npm')
-      expect(asked).toEqual(['https://registry.npmjs.org/@molecule%2Fapi-remote'])
+      expect(asked).toEqual([
+        'https://registry.npmjs.org/@molecule%2Fapi-remote/latest',
+        'https://registry.npmjs.org/@molecule/api-remote/-/api-remote-1.0.0.tgz',
+      ])
       const found = textOf(
         await call('read_package_doc', {
           name: 'api-remote',
@@ -137,15 +139,22 @@ describe('read_package_doc', () => {
     it('asks the registry npm is configured with', async (ctx) => {
       if (skipped(ctx)) return
       const asked: string[] = []
+      const serve = registryFetch(
+        { readme: '# @molecule/api-mirror\n\nMirrored.\n' },
+        'https://npm.example.com/repository/npm/',
+      )
       vi.stubGlobal('fetch', async (url: string) => {
         asked.push(String(url))
-        return new Response(JSON.stringify({ readme: '# @molecule/api-mirror\n\nMirrored.\n' }))
+        return serve(url)
       })
       vi.stubEnv('npm_config_registry', 'https://npm.example.com/repository/npm/')
       const call = await connect()
       const doc = textOf(await call('read_package_doc', { name: 'api-mirror', directory: temp() }))
       expect(doc).toContain('Mirrored.')
-      expect(asked).toEqual(['https://npm.example.com/repository/npm/@molecule%2Fapi-mirror'])
+      expect(asked).toEqual([
+        'https://npm.example.com/repository/npm/@molecule%2Fapi-mirror/latest',
+        'https://npm.example.com/repository/npm/@molecule/api-mirror/-/api-mirror-1.0.0.tgz',
+      ])
     })
 
     it('points to search_packages when npm has no README', async (ctx) => {

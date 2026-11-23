@@ -26,6 +26,8 @@ import { fileURLToPath } from 'node:url'
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
+import { lookups, registryFetch } from './helpers/npm-registry.js'
+
 /** The `molecule-mcp` package — its own node_modules holds the MCP SDK. */
 const MCP_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..', 'mcp')
 /**
@@ -50,6 +52,7 @@ let server: Server | null = null
 
 afterEach(async () => {
   vi.unstubAllGlobals()
+  vi.unstubAllEnvs()
   if (server) {
     server.closeAllConnections()
     await new Promise((resolve) => server!.close(resolve))
@@ -135,23 +138,23 @@ describe('mcp remote cache reset — work in flight is part of the state', () =>
     if (skipped(ctx)) return
     const { clearRemoteCaches, fetchPackageReadme } = await import('../../../mcp/src/remote.js')
 
-    /** One entry per request: settle it to hand that request its answer. */
+    /** One entry per lookup: settle it to hand that lookup its manifest (and so its README). */
     const releases: Array<() => void> = []
-    const stub = vi.fn(
-      () =>
-        new Promise<Response>((resolve) => {
-          const hit = releases.length + 1
-          releases.push(() =>
-            resolve(
-              new Response(JSON.stringify({ readme: `readme-${hit}` }), {
-                status: 200,
-                headers: { 'content-type': 'application/json' },
-              }),
-            ),
-          )
-        }),
+    // Lookup N is answered by a registry whose latest version is 1.0.N, holding `readme-N`.
+    const registries = [1, 2].map((n) =>
+      registryFetch({ readme: `readme-${n}`, version: `1.0.${n}` }),
     )
+    const stub = vi.fn(async (url: string) => {
+      if (url.endsWith('/latest')) {
+        const hit = releases.length
+        await new Promise<void>((resolve) => releases.push(resolve))
+        return registries[hit]!(url)
+      }
+      const version = Number(url.match(/-1\.0\.(\d+)\.tgz$/)?.[1])
+      return registries[version - 1]!(url)
+    })
     vi.stubGlobal('fetch', stub)
+    vi.stubEnv('npm_config_registry', '')
     const name = `reset-inflight-probe-${process.pid}`
 
     const first = fetchPackageReadme(name, 5_000)
@@ -173,6 +176,6 @@ describe('mcp remote cache reset — work in flight is part of the state', () =>
     expect(await fetchPackageReadme(name, 5_000), 'the cache must hold the post-reset doc').toBe(
       'readme-2',
     )
-    expect(stub, 'the third lookup must come from the cache').toHaveBeenCalledTimes(2)
+    expect(lookups(stub), 'the third lookup must come from the cache').toBe(2)
   })
 })

@@ -13,7 +13,7 @@
 
 import { Args, Command, Flags } from '@oclif/core'
 
-import { localPackageDoc, npmRegistryUrl } from '../lib/package-doc-files.js'
+import { fetchPublishedReadme, localPackageDoc } from '../lib/package-doc-files.js'
 import { parseDocSearch, searchPackageDoc } from '../lib/package-doc-search.js'
 import { packageDocView } from '../lib/package-doc-view.js'
 
@@ -39,20 +39,7 @@ interface PackageDocResult {
  * @returns The README and version, or null when npm has no README for it.
  */
 async function publishedReadme(name: string): Promise<{ readme: string; version?: string } | null> {
-  const response = await fetch(`${npmRegistryUrl()}@molecule%2F${name}`, {
-    signal: AbortSignal.timeout(NPM_TIMEOUT_MS),
-    headers: { accept: 'application/json' },
-  })
-  if (response.status === 404) return null
-  if (!response.ok) throw new Error(`npm answered ${response.status} for @molecule/${name}`)
-  const packument = (await response.json()) as {
-    readme?: unknown
-    'dist-tags'?: { latest?: unknown }
-  }
-  const readme = typeof packument.readme === 'string' ? packument.readme : ''
-  if (!readme.trim() || readme.startsWith('ERROR: No README data found')) return null
-  const latest = packument['dist-tags']?.latest
-  return { readme, ...(typeof latest === 'string' ? { version: latest } : {}) }
+  return fetchPublishedReadme(name, { timeoutMs: NPM_TIMEOUT_MS })
 }
 
 export default class Docs extends Command {

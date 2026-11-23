@@ -11,6 +11,7 @@ import { format, stripVTControlCharacters } from 'node:util'
 import { Config } from '@oclif/core'
 import { afterEach, beforeAll, describe, expect, it, vi } from 'vitest'
 
+import { PACKUMENT_README_LIMIT, registryFetch } from '../../lib/__tests__/helpers/npm-registry.js'
 import Docs from '../docs.js'
 import Examples from '../examples.js'
 
@@ -86,29 +87,40 @@ describe('mlcl docs', () => {
 
   it('reads the published README from npm when the package is not installed', async () => {
     process.chdir(project(README))
-    const fetch = vi.fn(
-      async () =>
-        new Response(
-          JSON.stringify({
-            readme: '# @molecule/api-other\n\nFrom npm.\n',
-            'dist-tags': { latest: '1.2.3' },
-          }),
-          {
-            status: 200,
-          },
-        ),
-    )
+    const published = { readme: '# @molecule/api-other\n\nFrom npm.\n', version: '1.2.3' }
+    const fetch = vi.fn(registryFetch(published))
     vi.stubGlobal('fetch', fetch)
     vi.stubEnv('npm_config_registry', '')
     const { out, exit } = await run(Docs, ['api-other'])
     expect(exit).toBe(0)
-    expect(fetch.mock.calls[0]?.[0]).toBe('https://registry.npmjs.org/@molecule%2Fapi-other')
+    expect(fetch.mock.calls.map((call) => String(call[0]))).toEqual([
+      'https://registry.npmjs.org/@molecule%2Fapi-other/latest',
+      'https://registry.npmjs.org/@molecule/api-other/-/api-other-1.2.3.tgz',
+    ])
     expect(out).toContain('# @molecule/api-other (npm, 1.2.3)')
     expect(out).toContain('From npm.')
     // Under npm or npx the registry npm is configured with answers (a company mirror, a local one).
+    const local = vi.fn(registryFetch(published, 'http://127.0.0.1:4873/'))
+    vi.stubGlobal('fetch', local)
     vi.stubEnv('npm_config_registry', 'http://127.0.0.1:4873')
-    await run(Docs, ['api-other'])
-    expect(fetch.mock.calls[1]?.[0]).toBe('http://127.0.0.1:4873/@molecule%2Fapi-other')
+    expect((await run(Docs, ['api-other'])).out).toContain('From npm.')
+    expect(local.mock.calls[0]?.[0]).toBe('http://127.0.0.1:4873/@molecule%2Fapi-other/latest')
+    vi.unstubAllEnvs()
+  })
+
+  // Scaffold eval, 2026-11-23: npm cuts a packument's `readme` at 65,536 characters, so
+  // `mlcl docs @molecule/app-react --section useLogin` (README 123 kB, the section at 94 kB) failed
+  // and Codex read the package's dist files instead.
+  it('reads a long published README whole, from the tarball', async () => {
+    process.chdir(project(README))
+    const filler = `${'filler line\n'.repeat(Math.ceil(PACKUMENT_README_LIMIT / 12) + 100)}`
+    const readme = `# @molecule/api-long\n\nLong.\n\n## API\n\n${filler}\n#### \`lateFunction()\`\n\nPast the cut.\n`
+    expect(readme.length).toBeGreaterThan(PACKUMENT_README_LIMIT)
+    vi.stubGlobal('fetch', vi.fn(registryFetch({ readme })))
+    vi.stubEnv('npm_config_registry', '')
+    const { out, exit } = await run(Docs, ['api-long', '--section', 'lateFunction'])
+    expect(exit).toBe(0)
+    expect(out).toContain('Past the cut.')
     vi.unstubAllEnvs()
   })
 
