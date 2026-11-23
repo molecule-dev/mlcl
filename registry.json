@@ -34869,7 +34869,8 @@
         "useVersion",
         "useWatch",
         "useWorkspace",
-        "useWorkspaceProvider"
+        "useWorkspaceProvider",
+        "useHostPresence"
       ],
       "secrets": [],
       "runtimeDependencies": [
