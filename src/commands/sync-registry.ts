@@ -14,6 +14,7 @@ import {
   getRegistryPath,
   writeRegistryFile,
 } from '../lib/registry.js'
+import { registryPinException } from '../lib/registry-pin-exceptions.js'
 import { scanResourceRouter } from '../lib/resource-router-source.js'
 import { scanResponseRecord } from '../lib/response-record.js'
 import {
@@ -235,6 +236,14 @@ export default class SyncRegistry extends Command {
 
       for (const [pkg, currentVersion] of Object.entries(deps as Record<string, string>)) {
         const refVersion = ref[pkg]
+        const kept = registryPinException(`toolchain.${section}`, pkg)
+        if (kept) {
+          unchanged++
+          changes.push(
+            `${chalk.dim('=')} ${section}.${chalk.dim(pkg)}: ${currentVersion} ${chalk.dim(`(kept: ${kept})`)}`,
+          )
+          continue
+        }
         if (!refVersion) {
           unresolved++
           changes.push(
@@ -471,6 +480,15 @@ export default class SyncRegistry extends Command {
       for (const [pkg, currentVersion] of Object.entries(deps)) {
         const refVersion = refVersions[pkg]
         const label = `${frameworkType}.${frameworkName}.${depSection}`
+        // A pin the exception ledger names stays at its own version (the reason is recorded there).
+        const kept = registryPinException(label, pkg)
+        if (kept) {
+          unchanged++
+          changes.push(
+            `${chalk.dim('=')} ${label}.${chalk.dim(pkg)}: ${currentVersion} ${chalk.dim(`(kept: ${kept})`)}`,
+          )
+          continue
+        }
         if (!refVersion) {
           unresolved++
           changes.push(

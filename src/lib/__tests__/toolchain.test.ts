@@ -13,6 +13,8 @@ import { fileURLToPath } from 'node:url'
 
 import { describe, expect, it } from 'vitest'
 
+import { REGISTRY_PIN_EXCEPTIONS } from '../registry-pin-exceptions.js'
+
 const __dir = dirname(fileURLToPath(import.meta.url))
 const mlclRoot = join(__dir, '..', '..', '..')
 
@@ -161,25 +163,8 @@ describe('toolchain version sync', () => {
 
   const isExact = (v: string): boolean => /^\d/.test(v)
 
-  /**
-   * Registry pins that cannot follow the template fleet, each with the reason. A key is the
-   * mismatch's `<source> <dep>` label.
-   */
-  const FLEET_PIN_EXCEPTIONS: Record<string, string> = {
-    'appFrameworks.react-native.devDependencies tailwindcss':
-      'NativeWind 4 compiles through react-native-css-interop, whose tailwindcss peer is ~3, ' +
-      'while the web fleet is on Tailwind 4; an Expo app is never installed into the sandbox ' +
-      'workspace the fleet shares',
-    'appFrameworks.react-native.dependencies react':
-      "React Native 0.79's renderer throws at startup unless react is exactly the version it " +
-      'was built with, 19.0.0, which is the version Expo SDK 53 installs',
-    'appFrameworks.react-native.dependencies react-dom':
-      'react-native-web renders the web target through react-dom, which throws unless it is ' +
-      "exactly react's version (19.0.0 in an Expo SDK 53 app)",
-    'appFrameworks.react-native.devDependencies @types/react':
-      "Expo SDK 53 pairs react 19.0.0 with @types/react ~19.0.10; the fleet's 19.3 types " +
-      'describe APIs react 19.0.0 does not have',
-  }
+  /** Registry pins that cannot follow the template fleet (the shared ledger `sync-registry` keeps). */
+  const FLEET_PIN_EXCEPTIONS = REGISTRY_PIN_EXCEPTIONS
 
   it('template fleet pins each dep to a single version (no internal splits)', () => {
     // The two gates below use the fleet's unanimous pin as the reference and
