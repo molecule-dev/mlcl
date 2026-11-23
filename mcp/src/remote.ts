@@ -19,13 +19,13 @@ import { dirname, join } from 'node:path'
 import { McpServer } from '@modelcontextprotocol/sdk/server/mcp.js'
 import { z } from 'zod'
 
+import { docSearchSchema, docSectionSchema } from './doc-search-schema.js'
 import {
   LIST_TEMPLATES_DESCRIPTION,
   LIST_TEMPLATES_SLUG_DESCRIPTION,
   serverInstructions,
 } from './instructions.js'
-import { localPackageDoc } from './package-doc-files.js'
-import { docSearchSchema, docSectionSchema } from './doc-search-schema.js'
+import { localPackageDoc, npmRegistryUrl } from './package-doc-files.js'
 import { searchPackageDoc } from './package-doc-search.js'
 import { packageDocView } from './package-doc-view.js'
 import {
@@ -224,7 +224,7 @@ async function fetchPackageReadmeUncached(
   timeoutMs: number,
   generation: number,
 ): Promise<string | undefined> {
-  const response = await fetch(`https://registry.npmjs.org/@molecule%2F${short}`, {
+  const response = await fetch(`${npmRegistryUrl()}@molecule%2F${short}`, {
     signal: AbortSignal.timeout(timeoutMs),
   })
   // A non-2xx is a FAILURE, not a body without a readme — the same gate
@@ -234,7 +234,7 @@ async function fetchPackageReadmeUncached(
   // so without the gate an outage answered every call with "doc not fetched",
   // the same sentence a package that genuinely has no README gets.
   if (!response.ok) {
-    throw new Error(`GET registry.npmjs.org/@molecule/${short} failed: HTTP ${response.status}`)
+    throw new Error(`GET ${npmRegistryUrl()}@molecule/${short} failed: HTTP ${response.status}`)
   }
   const meta = (await response.json()) as { readme?: string }
   if (typeof meta.readme !== 'string' || meta.readme.length === 0) return undefined
@@ -527,64 +527,6 @@ export function buildRemoteServer(): McpServer {
   )
 
   server.registerTool(
-    'list_templates',
-    {
-      title: 'List molecule app templates',
-      description: LIST_TEMPLATES_DESCRIPTION,
-      inputSchema: {
-        // Bounded like the other names this public server interpolates into an outbound URL; it
-        // is also checked against the index before anything is fetched.
-        slug: z.string().max(100).optional().describe(LIST_TEMPLATES_SLUG_DESCRIPTION),
-      },
-    },
-    tracked('list_templates', async ({ slug }) => {
-      // Same gate as `search_packages`, and for the same reason: `t.templates
-      // ?? {}` used to answer an unrecognized payload with an EMPTY gallery —
-      // a wrong answer ("there are no templates") instead of the upstream
-      // failure, and one cached for 10 minutes.
-      const t = await fetchJson<{
-        templates: Record<
-          string,
-          { label?: string; description?: string; type?: string; packages?: string[] }
-        >
-      }>(TEMPLATES_URL, TEMPLATES_FILE, FETCH_TIMEOUT_MS, isTemplatesPayload)
-      if (slug !== undefined) {
-        // Own keys only: `constructor` is inherited by every parsed object.
-        const entry = Object.hasOwn(t.templates, slug) ? t.templates[slug] : undefined
-        if (!entry)
-          return text(`No template "${slug}". Call list_templates without a slug for the list.`)
-        const catalog = await fetchTemplateCatalog(slug)
-        return text(
-          JSON.stringify(
-            {
-              slug,
-              label: entry.label ?? slug,
-              description: entry.description ?? '',
-              type: entry.type ?? 'full-stack',
-              packages: entry.packages ?? [],
-              create: `npx mlcl create my-app --template ${slug} --no-interactive`,
-              catalog,
-            },
-            null,
-            2,
-          ),
-        )
-      }
-      const list = Object.entries(t.templates)
-        .sort(([a], [b]) => a.localeCompare(b))
-        .map(([slug, e]) => ({
-          slug,
-          label: e.label ?? slug,
-          description: e.description ?? '',
-          type: e.type ?? 'full-stack',
-          packageCount: e.packages?.length ?? 0,
-          create: `npx mlcl create my-app --template ${slug} --no-interactive`,
-        }))
-      return text(JSON.stringify(list, null, 2))
-    }),
-  )
-
-  server.registerTool(
     'read_package_doc',
     {
       title: 'Read a package README',
@@ -641,6 +583,64 @@ export function buildRemoteServer(): McpServer {
       return text(
         `Doc not fetched for @molecule/${short} — browse https://www.molecule.dev/packages/${short}`,
       )
+    }),
+  )
+
+  server.registerTool(
+    'list_templates',
+    {
+      title: 'List molecule app templates',
+      description: LIST_TEMPLATES_DESCRIPTION,
+      inputSchema: {
+        // Bounded like the other names this public server interpolates into an outbound URL; it
+        // is also checked against the index before anything is fetched.
+        slug: z.string().max(100).optional().describe(LIST_TEMPLATES_SLUG_DESCRIPTION),
+      },
+    },
+    tracked('list_templates', async ({ slug }) => {
+      // Same gate as `search_packages`, and for the same reason: `t.templates
+      // ?? {}` used to answer an unrecognized payload with an EMPTY gallery —
+      // a wrong answer ("there are no templates") instead of the upstream
+      // failure, and one cached for 10 minutes.
+      const t = await fetchJson<{
+        templates: Record<
+          string,
+          { label?: string; description?: string; type?: string; packages?: string[] }
+        >
+      }>(TEMPLATES_URL, TEMPLATES_FILE, FETCH_TIMEOUT_MS, isTemplatesPayload)
+      if (slug !== undefined) {
+        // Own keys only: `constructor` is inherited by every parsed object.
+        const entry = Object.hasOwn(t.templates, slug) ? t.templates[slug] : undefined
+        if (!entry)
+          return text(`No template "${slug}". Call list_templates without a slug for the list.`)
+        const catalog = await fetchTemplateCatalog(slug)
+        return text(
+          JSON.stringify(
+            {
+              slug,
+              label: entry.label ?? slug,
+              description: entry.description ?? '',
+              type: entry.type ?? 'full-stack',
+              packages: entry.packages ?? [],
+              create: `npx mlcl create my-app --template ${slug} --no-interactive`,
+              catalog,
+            },
+            null,
+            2,
+          ),
+        )
+      }
+      const list = Object.entries(t.templates)
+        .sort(([a], [b]) => a.localeCompare(b))
+        .map(([slug, e]) => ({
+          slug,
+          label: e.label ?? slug,
+          description: e.description ?? '',
+          type: e.type ?? 'full-stack',
+          packageCount: e.packages?.length ?? 0,
+          create: `npx mlcl create my-app --template ${slug} --no-interactive`,
+        }))
+      return text(JSON.stringify(list, null, 2))
     }),
   )
 

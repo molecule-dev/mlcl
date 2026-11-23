@@ -99,11 +99,17 @@ describe('mlcl docs', () => {
         ),
     )
     vi.stubGlobal('fetch', fetch)
+    vi.stubEnv('npm_config_registry', '')
     const { out, exit } = await run(Docs, ['api-other'])
     expect(exit).toBe(0)
     expect(fetch.mock.calls[0]?.[0]).toBe('https://registry.npmjs.org/@molecule%2Fapi-other')
     expect(out).toContain('# @molecule/api-other (npm, 1.2.3)')
     expect(out).toContain('From npm.')
+    // Under npm or npx the registry npm is configured with answers (a company mirror, a local one).
+    vi.stubEnv('npm_config_registry', 'http://127.0.0.1:4873')
+    await run(Docs, ['api-other'])
+    expect(fetch.mock.calls[1]?.[0]).toBe('http://127.0.0.1:4873/@molecule%2Fapi-other')
+    vi.unstubAllEnvs()
   })
 
   it('exits 1 for a missing section or package, and 2 for a name that is not a package name', async () => {

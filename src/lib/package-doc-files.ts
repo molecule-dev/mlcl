@@ -128,3 +128,20 @@ export function localPackageDoc(
     dir = parent
   }
 }
+
+/** The public npm registry, used when npm names no other. */
+const PUBLIC_NPM_REGISTRY = 'https://registry.npmjs.org/'
+
+/**
+ * The npm registry a package that is not installed is read from: the one npm is configured with
+ * when this process runs under npm or npx (`npm_config_registry`), so a company mirror or a local
+ * registry serves the doc, otherwise the public registry.
+ *
+ * @param env - The process environment.
+ * @returns The registry URL, ending in `/`.
+ */
+export function npmRegistryUrl(env: NodeJS.ProcessEnv = process.env): string {
+  const configured = env.npm_config_registry?.trim()
+  const url = configured && /^https?:\/\//i.test(configured) ? configured : PUBLIC_NPM_REGISTRY
+  return url.endsWith('/') ? url : `${url}/`
+}

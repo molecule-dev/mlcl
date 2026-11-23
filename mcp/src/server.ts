@@ -31,6 +31,7 @@ import {
   whoami,
 } from './auth.js'
 import { CLI_TIMEOUT_DEFAULT_MS, type CliCommand, cliCommand, forgetCli } from './cli-command.js'
+import { docSearchSchema, docSectionSchema } from './doc-search-schema.js'
 import {
   FIND_EXAMPLE_DESCRIPTION,
   LIST_TEMPLATES_DESCRIPTION,
@@ -38,9 +39,9 @@ import {
   serverInstructions,
 } from './instructions.js'
 import { localPackageDoc } from './package-doc-files.js'
-import { docSearchSchema, docSectionSchema } from './doc-search-schema.js'
 import { searchPackageDoc } from './package-doc-search.js'
 import { packageDocView } from './package-doc-view.js'
+import { fetchPackageReadme } from './remote.js'
 import { scaffoldProjectCliArgs } from './scaffold-args.js'
 import {
   callHostedService,
@@ -613,97 +614,75 @@ server.registerTool(
 )
 
 server.registerTool(
-  'list_templates',
+  'read_package_doc',
   {
-    title: 'List molecule app templates',
-    description: LIST_TEMPLATES_DESCRIPTION,
-    inputSchema: {
-      slug: z.string().max(100).optional().describe(LIST_TEMPLATES_SLUG_DESCRIPTION),
-    },
-  },
-  tracked('list_templates', async ({ slug }) =>
-    // `mlcl templates <slug>` refuses a slug that is not a template.
-    text(
-      await runCli(slug === undefined ? ['templates', '--json'] : ['templates', slug, '--json']),
-    ),
-  ),
-)
-
-server.registerTool(
-  'find_example',
-  {
-    title: 'Find a working example slice',
-    description: FIND_EXAMPLE_DESCRIPTION,
-    inputSchema: {
-      query: z
-        .string()
-        .max(300)
-        .optional()
-        .describe('What the feature does, in plain words ("let people log in with Google")'),
-      slice: z
-        .string()
-        .max(100)
-        .regex(/^[a-z0-9][a-z0-9-]*\/[a-z0-9][a-z0-9-]*\/?$/)
-        .optional()
-        .describe('A slice to print, as the results name it (auth/oauth-google-login)'),
-      file: z
-        .string()
-        .max(300)
-        .optional()
-        .describe("With slice: one of the slice's files, as its file list names it"),
-    },
-  },
-  tracked('find_example', async ({ query, slice, file }) => {
-    if (slice !== undefined)
-      return text(
-        await runCli(['examples', '--json', ...(file ? ['--file', file] : []), '--', slice]),
-      )
-    if (file !== undefined) return text('Pass slice with file: the file belongs to one slice.')
-    // `--` ends the flags, so a query that starts with a dash is still a query.
-    return text(await runCli(['examples', '--json', ...(query?.trim() ? ['--', query] : [])]))
-  }),
-)
-
-server.registerTool(
-  'scaffold_project',
-  {
-    title: 'Scaffold a molecule project',
+    title: 'Read a package README',
     description:
-      'Create a new project with mlcl: from a flagship template when its catalog (list_templates with its slug) covers the core of the request, otherwise from a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22. SLOW BY DESIGN: with an install it can take several minutes — call it once and wait; a slow response is not a failure, do not retry. `directory` must already exist (it becomes the spawn cwd).',
+      'Read the generated usage reference for a @molecule/* package (API, examples, wiring), from node_modules when installed and from npm when not: the whole README when it is short, its overview and an index of its sections and exported names when it is long. Pass section for one heading or exported function or type in full. For “where is X”, use search before grepping package internals: literal README lines with headings, then installed type declarations.',
     inputSchema: {
-      name: z.string().describe('Project name (lowercase slug)'),
-      template: z
+      // Bounded, like the sibling `search_packages` query: the name is joined
+      // into node_modules paths AND echoed verbatim into this tool's result
+      // (`Invalid package name "…"` / `No local README found for @molecule/…`),
+      // so an unbounded name is a node_modules walk over paths sized by the
+      // caller and up to a megabyte of it copied back into the transcript per
+      // call. A package short name is under 100 characters.
+      name: z.string().max(200).describe('Package name without the @molecule/ scope or with it'),
+      search: docSearchSchema.optional(),
+      section: docSectionSchema.optional(),
+      directory: z
         .string()
         .optional()
-        .describe(
-          'Template slug from list_templates, when that template covers the core of the request',
-        ),
-      type: z
-        .enum(['api', 'app', 'full-stack', 'static', 'status-page', 'status-page-edge'])
-        .optional(),
-      framework: z
-        .string()
-        .optional()
-        .describe('Frontend framework (default react; templates carry their own)'),
-      packages: z
-        .string()
-        .optional()
-        .describe('Comma-separated @molecule/* names for a custom stack'),
-      api_contract: z
-        .string()
-        .optional()
-        .describe(
-          'Path to an OpenAPI 3.1 JSON document; its auth operations preconfigure the app auth bond',
-        ),
-      skip_install: z.boolean().optional(),
-      directory: z.string().optional().describe('Directory to scaffold in (default cwd)'),
+        .describe('Project root to resolve node_modules from (default cwd)'),
     },
   },
-  tracked('scaffold_project', async (options) => {
-    const { directory } = options
-    const out = await runCli(scaffoldProjectCliArgs(options), directory)
-    const start = out.indexOf('{')
-    return text(start === -1 ? out : out.slice(start))
+  tracked('read_package_doc', async ({ name, directory, search, section }) => {
+    const short = name.replace(/^@molecule\//, '')
+    // Path-join guard: a crafted name must not escape node_modules — and the
+    // character class alone did not say that. `..` is three characters from the
+    // old class, and `join()` RESOLVES it: `name: '..'` read
+    // `<dir>/node_modules/README.md` (and `<dir>/node_modules/dist/README.md`
+    // through the second candidate), a file belonging to no molecule package,
+    // returned as that package's doc. A package name is npm's shape — it cannot
+    // begin with `.` or `_` — so the first character is what keeps every name a
+    // single descending segment.
+    if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(short)) {
+      return text(`Invalid package name "${short}" — expected a plain @molecule/<name>.`)
+    }
+    if (search !== undefined && section !== undefined)
+      return text('Use either search or section, not both.')
+    const base = directory ?? process.cwd()
+    // Walks UP from the given directory like Node's module resolution: in a full-stack scaffold the
+    // packages hoist to the project root's node_modules while the user points the tool at api/ or
+    // app/.
+    const local = localPackageDoc(short, base)
+    // A package that is not installed yet is read from npm, as `mlcl docs` and the hosted server
+    // do: deciding whether to install it is what the doc is for. Answering "No local README"
+    // sent both harnesses to fetch molecule.dev pages and unpack npm tarballs for the same text
+    // (harness eval `docs`, 2026-11-23: 4 extra steps and ~7 s per agent).
+    let readme = local?.readme
+    let note = local?.note
+    if (!readme) {
+      readme = await fetchPackageReadme(short).catch(() => undefined)
+      note = 'Published README from npm: the package is not installed here.'
+    }
+    if (!readme)
+      return text(
+        `No README found for @molecule/${short}: it is not installed near ${echoOf(base)} and npm did not return one. Run search_packages to find the package, or browse https://www.molecule.dev/packages/${short}`,
+      )
+    if (search !== undefined)
+      return text(
+        searchPackageDoc(
+          readme,
+          typeof search === 'string' ? [search] : search,
+          local?.declarations ?? [],
+          note,
+        ).doc,
+      )
+    const view = packageDocView(readme, {
+      section,
+      sectionHint: `read_package_doc with section: "<heading>"`,
+    }).text
+    return text(local ? view : `${note}\n\n${view}`)
   }),
 )
 
@@ -751,87 +730,38 @@ server.registerTool(
 )
 
 server.registerTool(
-  'read_package_doc',
+  'find_example',
   {
-    title: 'Read a package README',
-    description:
-      'Read the generated usage reference for an installed @molecule/* package (API, examples, wiring) from node_modules: the whole README when it is short, its overview and an index of its sections and exported names when it is long. Pass section for one heading or exported function or type in full. For “where is X”, use search before grepping package internals: literal README lines with headings, then installed type declarations.',
+    title: 'Find a working example slice',
+    description: FIND_EXAMPLE_DESCRIPTION,
     inputSchema: {
-      // Bounded, like the sibling `search_packages` query: the name is joined
-      // into node_modules paths AND echoed verbatim into this tool's result
-      // (`Invalid package name "…"` / `No local README found for @molecule/…`),
-      // so an unbounded name is a node_modules walk over paths sized by the
-      // caller and up to a megabyte of it copied back into the transcript per
-      // call. A package short name is under 100 characters.
-      name: z.string().max(200).describe('Package name without the @molecule/ scope or with it'),
-      search: docSearchSchema.optional(),
-      section: docSectionSchema.optional(),
-      directory: z
+      query: z
         .string()
+        .max(300)
         .optional()
-        .describe('Project root to resolve node_modules from (default cwd)'),
+        .describe('What the feature does, in plain words ("let people log in with Google")'),
+      slice: z
+        .string()
+        .max(100)
+        .regex(/^[a-z0-9][a-z0-9-]*\/[a-z0-9][a-z0-9-]*\/?$/)
+        .optional()
+        .describe('A slice to print, as the results name it (auth/oauth-google-login)'),
+      file: z
+        .string()
+        .max(300)
+        .optional()
+        .describe("With slice: one of the slice's files, as its file list names it"),
     },
   },
-  tracked('read_package_doc', async ({ name, directory, search, section }) => {
-    const short = name.replace(/^@molecule\//, '')
-    // Path-join guard: a crafted name must not escape node_modules — and the
-    // character class alone did not say that. `..` is three characters from the
-    // old class, and `join()` RESOLVES it: `name: '..'` read
-    // `<dir>/node_modules/README.md` (and `<dir>/node_modules/dist/README.md`
-    // through the second candidate), a file belonging to no molecule package,
-    // returned as that package's doc. A package name is npm's shape — it cannot
-    // begin with `.` or `_` — so the first character is what keeps every name a
-    // single descending segment.
-    if (!/^[A-Za-z0-9][A-Za-z0-9._-]*$/.test(short)) {
-      return text(`Invalid package name "${short}" — expected a plain @molecule/<name>.`)
-    }
-    if (search !== undefined && section !== undefined)
-      return text('Use either search or section, not both.')
-    const base = directory ?? process.cwd()
-    // Walks UP from the given directory like Node's module resolution: in a full-stack scaffold the
-    // packages hoist to the project root's node_modules while the user points the tool at api/ or
-    // app/.
-    const local = localPackageDoc(short, base)
-    if (!local)
+  tracked('find_example', async ({ query, slice, file }) => {
+    if (slice !== undefined)
       return text(
-        `No local README found for @molecule/${short} — is it installed near ${echoOf(base)}? Run search_packages to find it, add_package to install it, or browse https://www.molecule.dev/packages/${short}`,
+        await runCli(['examples', '--json', ...(file ? ['--file', file] : []), '--', slice]),
       )
-    if (search !== undefined)
-      return text(
-        searchPackageDoc(
-          local.readme,
-          typeof search === 'string' ? [search] : search,
-          local.declarations,
-          local.note,
-        ).doc,
-      )
-    return text(
-      packageDocView(local.readme, {
-        section,
-        sectionHint: `read_package_doc with section: "<heading>"`,
-      }).text,
-    )
+    if (file !== undefined) return text('Pass slice with file: the file belongs to one slice.')
+    // `--` ends the flags, so a query that starts with a dash is still a query.
+    return text(await runCli(['examples', '--json', ...(query?.trim() ? ['--', query] : [])]))
   }),
-)
-
-// ── Self-installation surface ────────────────────────────────────────────────
-// Once a harness adds this ONE server, it also carries the molecule doctrine
-// (resource below) and can wire a project's agent files itself — so the
-// install story per harness is a single MCP config line, nothing else.
-
-server.registerTool(
-  'agent_init',
-  {
-    title: 'Make this project molecule-aware',
-    description:
-      'Write the molecule conventions + mlcl quickstart into the agent instruction files the active harness reads (AGENTS.md standard section, plus Cursor rules / Claude skill / Gemini extension / Windsurf rule when their markers are present). Idempotent — never clobbers user edits.',
-    inputSchema: {
-      directory: z.string().optional().describe('Project root (default cwd)'),
-    },
-  },
-  tracked('agent_init', async ({ directory }) =>
-    text(await runCli(['agent', 'init'], directory ?? process.cwd())),
-  ),
 )
 
 server.registerTool(
@@ -893,6 +823,86 @@ server.registerTool(
         : out,
     )
   }),
+)
+
+server.registerTool(
+  'list_templates',
+  {
+    title: 'List molecule app templates',
+    description: LIST_TEMPLATES_DESCRIPTION,
+    inputSchema: {
+      slug: z.string().max(100).optional().describe(LIST_TEMPLATES_SLUG_DESCRIPTION),
+    },
+  },
+  tracked('list_templates', async ({ slug }) =>
+    // `mlcl templates <slug>` refuses a slug that is not a template.
+    text(
+      await runCli(slug === undefined ? ['templates', '--json'] : ['templates', slug, '--json']),
+    ),
+  ),
+)
+
+server.registerTool(
+  'scaffold_project',
+  {
+    title: 'Scaffold a molecule project',
+    description:
+      'Create a new project with mlcl: from a flagship template when its catalog (list_templates with its slug) covers the core of the request, otherwise from a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22. SLOW BY DESIGN: with an install it can take several minutes — call it once and wait; a slow response is not a failure, do not retry. `directory` must already exist (it becomes the spawn cwd).',
+    inputSchema: {
+      name: z.string().describe('Project name (lowercase slug)'),
+      template: z
+        .string()
+        .optional()
+        .describe(
+          'Template slug from list_templates, when that template covers the core of the request',
+        ),
+      type: z
+        .enum(['api', 'app', 'full-stack', 'static', 'status-page', 'status-page-edge'])
+        .optional(),
+      framework: z
+        .string()
+        .optional()
+        .describe('Frontend framework (default react; templates carry their own)'),
+      packages: z
+        .string()
+        .optional()
+        .describe('Comma-separated @molecule/* names for a custom stack'),
+      api_contract: z
+        .string()
+        .optional()
+        .describe(
+          'Path to an OpenAPI 3.1 JSON document; its auth operations preconfigure the app auth bond',
+        ),
+      skip_install: z.boolean().optional(),
+      directory: z.string().optional().describe('Directory to scaffold in (default cwd)'),
+    },
+  },
+  tracked('scaffold_project', async (options) => {
+    const { directory } = options
+    const out = await runCli(scaffoldProjectCliArgs(options), directory)
+    const start = out.indexOf('{')
+    return text(start === -1 ? out : out.slice(start))
+  }),
+)
+
+// ── Self-installation surface ────────────────────────────────────────────────
+// Once a harness adds this ONE server, it also carries the molecule doctrine
+// (resource below) and can wire a project's agent files itself — so the
+// install story per harness is a single MCP config line, nothing else.
+
+server.registerTool(
+  'agent_init',
+  {
+    title: 'Make this project molecule-aware',
+    description:
+      'Write the molecule conventions + mlcl quickstart into the agent instruction files the active harness reads (AGENTS.md standard section, plus Cursor rules / Claude skill / Gemini extension / Windsurf rule when their markers are present). Idempotent — never clobbers user edits.',
+    inputSchema: {
+      directory: z.string().optional().describe('Project root (default cwd)'),
+    },
+  },
+  tracked('agent_init', async ({ directory }) =>
+    text(await runCli(['agent', 'init'], directory ?? process.cwd())),
+  ),
 )
 
 server.registerResource(

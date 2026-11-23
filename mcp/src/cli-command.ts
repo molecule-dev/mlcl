@@ -12,13 +12,13 @@
  * The order is: `$MOLECULE_MCP_CLI` (an explicit override), an `mlcl` on PATH (a
  * global install), then the published CLI through npx, the same way this server
  * was started. The npx step asks npx once for the cached binary's path (`npx
- * --yes --package mlcl@latest -c "command -v mlcl"`): later calls run that file
+ * --yes --package mlcl -c "command -v mlcl"`): later calls run that file
  * directly, so they cost no registry round trip, and npx keeps a single cache
  * entry because the spec string never changes. {@link warmCli} starts that step
  * when the server starts, so the download (about 25 s, once per machine) happens
  * while the agent is still reading the tool list rather than inside a tool call
  * that a client may time out. Where the shell probe cannot run (Windows), each
- * call goes through `npx --yes mlcl@latest` instead.
+ * call goes through `npx --yes mlcl` instead.
  *
  * @module
  */
@@ -31,7 +31,7 @@ import { execa } from 'execa'
 export interface CliCommand {
   /** The program to spawn. */
   file: string
-  /** Arguments placed before the CLI argv (`['--yes', 'mlcl@latest']` for npx). */
+  /** Arguments placed before the CLI argv (`['--yes', 'mlcl']` for npx). */
   prefix: string[]
   /** Where the command came from, for messages. */
   source: 'override' | 'path' | 'npx'
@@ -43,8 +43,13 @@ export interface CliCommand {
  */
 export const CLI_TIMEOUT_DEFAULT_MS = 10 * 60_000
 
-/** The npm spec the npx step installs: the current release, like `npm install -g mlcl`. */
-export const MLCL_NPX_SPEC = 'mlcl@latest'
+/**
+ * The npm spec the npx step installs: `mlcl`, spelled exactly as `npx mlcl setup` and every skill
+ * spell it. npx keys its cache by the spec string, so `mlcl@latest` was a second full download of
+ * the CLI beside the agent's `npx mlcl` (harness eval `find`, 2026-11-23). The bare spec still
+ * moves to a new release: npx installs the current `latest` into the same cache entry.
+ */
+export const MLCL_NPX_SPEC = 'mlcl'
 
 /** What the resolver reads from its environment; injectable for tests. */
 export interface CliResolverDeps {

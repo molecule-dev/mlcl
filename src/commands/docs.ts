@@ -13,7 +13,7 @@
 
 import { Args, Command, Flags } from '@oclif/core'
 
-import { localPackageDoc } from '../lib/package-doc-files.js'
+import { localPackageDoc, npmRegistryUrl } from '../lib/package-doc-files.js'
 import { parseDocSearch, searchPackageDoc } from '../lib/package-doc-search.js'
 import { packageDocView } from '../lib/package-doc-view.js'
 
@@ -33,13 +33,13 @@ interface PackageDocResult {
 }
 
 /**
- * A package's published README and latest version, from the npm registry.
+ * A package's published README and latest version, from the npm registry npm is configured with.
  *
  * @param name - The package name without its scope.
  * @returns The README and version, or null when npm has no README for it.
  */
 async function publishedReadme(name: string): Promise<{ readme: string; version?: string } | null> {
-  const response = await fetch(`https://registry.npmjs.org/@molecule%2F${name}`, {
+  const response = await fetch(`${npmRegistryUrl()}@molecule%2F${name}`, {
     signal: AbortSignal.timeout(NPM_TIMEOUT_MS),
     headers: { accept: 'application/json' },
   })

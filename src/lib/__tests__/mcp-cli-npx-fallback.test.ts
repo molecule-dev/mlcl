@@ -20,16 +20,30 @@
  * @module
  */
 
-import { chmodSync, existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } from 'node:fs'
+import {
+  chmodSync,
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import { afterAll, beforeAll, describe, expect, it, vi } from 'vitest'
 
-import { type CliResolverDeps, createCliResolver } from '../../../mcp/src/cli-command.js'
+import {
+  type CliResolverDeps,
+  createCliResolver,
+  MLCL_NPX_SPEC,
+} from '../../../mcp/src/cli-command.js'
+import { loadSetupSkills } from '../agent-skills.js'
 
-const MCP_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..', 'mcp')
+const MLCL_DIR = join(dirname(fileURLToPath(import.meta.url)), '..', '..', '..')
+const MCP_DIR = join(MLCL_DIR, 'mcp')
 const SDK_ESM = join(MCP_DIR, 'node_modules', '@modelcontextprotocol', 'sdk', 'dist', 'esm')
 const DEPS_MARKER = join(MCP_DIR, 'node_modules', '@modelcontextprotocol', 'sdk', 'package.json')
 
@@ -83,7 +97,7 @@ describe('which mlcl the MCP server runs', () => {
     const [first, second] = await Promise.all([resolver.command(), resolver.command()])
     expect(first).toEqual({ file: cached, prefix: [], source: 'npx' })
     expect(second).toEqual(first)
-    expect(d.runs).toEqual([['npx', '--yes', '--package', 'mlcl@latest', '-c', 'command -v mlcl']])
+    expect(d.runs).toEqual([['npx', '--yes', '--package', 'mlcl', '-c', 'command -v mlcl']])
   })
 
   it('runs each call through npx when the cached path cannot be read', async () => {
@@ -91,7 +105,7 @@ describe('which mlcl the MCP server runs', () => {
       const command = await createCliResolver(deps({ probe })).command()
       expect(command, `probe answered ${JSON.stringify(probe)}`).toEqual({
         file: 'npx',
-        prefix: ['--yes', 'mlcl@latest'],
+        prefix: ['--yes', 'mlcl'],
         source: 'npx',
       })
     }
@@ -99,7 +113,7 @@ describe('which mlcl the MCP server runs', () => {
 
   it('goes straight to per-call npx on Windows, where the shell probe cannot run', async () => {
     const d = deps({ platform: 'win32', env: { PATH: 'C:\\node' } })
-    expect((await createCliResolver(d).command()).prefix).toEqual(['--yes', 'mlcl@latest'])
+    expect((await createCliResolver(d).command()).prefix).toEqual(['--yes', 'mlcl'])
     expect(d.runs).toEqual([])
   })
 
@@ -110,6 +124,22 @@ describe('which mlcl the MCP server runs', () => {
       files: ['C:\\Users\\u\\AppData\\Roaming\\npm\\mlcl.cmd'],
     })
     expect((await createCliResolver(d).command()).source).toBe('path')
+  })
+
+  // npx keys its cache by the spec string: `mlcl@latest` here beside the agents' `npx mlcl` was a
+  // second 18–23 s download of the whole CLI (harness eval `find`, 2026-11-23).
+  it('asks npx for mlcl spelled as setup, the skills and the conventions spell it', () => {
+    const texts = [
+      readFileSync(join(MLCL_DIR, 'templates', 'shared', 'agent-init-section.md.tpl'), 'utf8'),
+      readFileSync(join(MCP_DIR, 'assets', 'conventions.md'), 'utf8'),
+      ...Object.values(loadSetupSkills(join(MLCL_DIR, 'templates'))),
+    ]
+    const specs = new Set(
+      texts.flatMap((text) =>
+        [...text.matchAll(/\bnpx (?:-y |--yes )?(mlcl(?:@\S+)?)/g)].map((m) => m[1]),
+      ),
+    )
+    expect([...specs]).toEqual([MLCL_NPX_SPEC])
   })
 })
 

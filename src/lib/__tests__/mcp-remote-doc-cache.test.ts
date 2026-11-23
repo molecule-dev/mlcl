@@ -70,11 +70,14 @@ function stubRegistry(
     })
   })
   vi.stubGlobal('fetch', spy)
+  // The public registry, whatever npm the test runner was started under is configured with.
+  vi.stubEnv('npm_config_registry', '')
   return spy
 }
 
 afterEach(() => {
   vi.unstubAllGlobals()
+  vi.unstubAllEnvs()
 })
 
 describe('mcp remote package-doc fetch', () => {

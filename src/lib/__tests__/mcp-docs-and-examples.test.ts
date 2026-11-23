@@ -12,7 +12,7 @@ import { chmodSync, existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } 
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterAll, describe, expect, it, vi } from 'vitest'
+import { afterAll, afterEach, describe, expect, it, vi } from 'vitest'
 
 import { DOC_VIEW_MAX_CHARS } from '../package-doc-view.js'
 
@@ -97,6 +97,65 @@ describe('read_package_doc', () => {
       }),
     )
     expect(both).toBe('Use either search or section, not both.')
+  })
+
+  // Harness eval `docs`, 2026-11-23: in a project without the package, the tool answered "No local
+  // README found" and both Claude Code and Codex went on to fetch molecule.dev pages and unpack npm
+  // tarballs for the README that `mlcl docs` reads from npm.
+  describe('a package that is not installed', () => {
+    afterEach(() => {
+      vi.unstubAllGlobals()
+      vi.unstubAllEnvs()
+    })
+
+    it('is read from npm, and says so', async (ctx) => {
+      if (skipped(ctx)) return
+      const asked: string[] = []
+      vi.stubGlobal('fetch', async (url: string) => {
+        asked.push(String(url))
+        return new Response(
+          JSON.stringify({ readme: '# @molecule/api-remote\n\nRemote overview.\n' }),
+          { status: 200, headers: { 'content-type': 'application/json' } },
+        )
+      })
+      vi.stubEnv('npm_config_registry', '')
+      const call = await connect()
+      const doc = textOf(await call('read_package_doc', { name: 'api-remote', directory: temp() }))
+      expect(doc).toContain('Remote overview.')
+      expect(doc).toContain('Published README from npm')
+      expect(asked).toEqual(['https://registry.npmjs.org/@molecule%2Fapi-remote'])
+      const found = textOf(
+        await call('read_package_doc', {
+          name: 'api-remote',
+          directory: temp(),
+          search: 'overview',
+        }),
+      )
+      expect(found).toContain('Remote overview.')
+    })
+
+    it('asks the registry npm is configured with', async (ctx) => {
+      if (skipped(ctx)) return
+      const asked: string[] = []
+      vi.stubGlobal('fetch', async (url: string) => {
+        asked.push(String(url))
+        return new Response(JSON.stringify({ readme: '# @molecule/api-mirror\n\nMirrored.\n' }))
+      })
+      vi.stubEnv('npm_config_registry', 'https://npm.example.com/repository/npm/')
+      const call = await connect()
+      const doc = textOf(await call('read_package_doc', { name: 'api-mirror', directory: temp() }))
+      expect(doc).toContain('Mirrored.')
+      expect(asked).toEqual(['https://npm.example.com/repository/npm/@molecule%2Fapi-mirror'])
+    })
+
+    it('points to search_packages when npm has no README', async (ctx) => {
+      if (skipped(ctx)) return
+      vi.stubGlobal('fetch', async () => new Response('{"error":"Not found"}', { status: 404 }))
+      const call = await connect()
+      const doc = textOf(await call('read_package_doc', { name: 'api-nothing', directory: temp() }))
+      expect(doc).toContain('No README found for @molecule/api-nothing')
+      expect(doc).toContain('search_packages')
+    })
   })
 })
 
