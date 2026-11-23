@@ -1187,7 +1187,14 @@ export default class Create extends Command {
     // Every app gets a runnable `e2e/`: the bond wiring (which browser — the live
     // preview inside a molecule sandbox, real Playwright elsewhere) always, and a
     // playwright.config.ts + smoke spec when no template supplied specs of its own.
-    if (isFullStack || isStatic || projectType === 'app') {
+    // A web app gets a runnable Playwright suite. A framework the registry marks
+    // `e2e: false` (React Native) has no browser to drive, so Playwright's config
+    // and specs would be tooling the app can never run — and `tsc` still
+    // type-checks them, so they broke `npm run build`.
+    if (
+      (isFullStack || isStatic || projectType === 'app') &&
+      loadAppFrameworks()[framework ?? '']?.e2e !== false
+    ) {
       const { ensureE2EFiles } = await import('../lib/scaffold.js')
       await ensureE2EFiles(hasAppSubdir ? join(projectPath, 'app') : projectPath)
     }
@@ -1489,11 +1496,14 @@ export default class Create extends Command {
     }
 
     // Generate .env template (from package metadata secrets)
+    // The app's public API-base-URL variable is the framework's (registry `apiUrlEnvKey`):
+    // Vite reads VITE_API_URL, Expo reads EXPO_PUBLIC_API_URL, the name config.ts consumes.
+    const appEnvKey = loadAppFrameworks()[framework ?? '']?.apiUrlEnvKey ?? 'VITE_API_URL'
     if (isFullStack) {
       const apiSecrets = allSelectedSecrets.filter((s) => !s.name.startsWith('VITE_'))
       const appSecrets = allSelectedSecrets.filter((s) => s.name.startsWith('VITE_'))
       await generateEnvFile(join(projectPath, 'api'), apiSecrets, 'api')
-      await generateEnvFile(join(projectPath, 'app'), appSecrets, 'app')
+      await generateEnvFile(join(projectPath, 'app'), appSecrets, 'app', projectName, appEnvKey)
       log(t('commands.create.messages.envGenFullStack'))
     } else if (isStatic) {
       // App-only site under app/: only the VITE_ secrets apply, no API env.
@@ -1501,11 +1511,13 @@ export default class Create extends Command {
         join(projectPath, 'app'),
         allSelectedSecrets.filter((s) => s.name.startsWith('VITE_')),
         'app',
+        projectName,
+        appEnvKey,
       )
       log(t('commands.create.messages.envGenSingle'))
     } else {
       const envType = projectType === 'app' ? 'app' : 'api'
-      await generateEnvFile(projectPath, allSelectedSecrets, envType)
+      await generateEnvFile(projectPath, allSelectedSecrets, envType, projectName, appEnvKey)
       log(t('commands.create.messages.envGenSingle'))
     }
 

@@ -35,6 +35,7 @@ import {
   resolveDefaultProvidersFromPlans,
   synthesizeAppProjectFiles,
   synthesizeProjectFiles,
+  withholdBaseProviderBonds,
   writeSynthesizedFiles,
 } from '../lib/injector.js'
 import { ensureMigrateRunnerImports } from '../lib/migrate-runner.js'
@@ -319,6 +320,15 @@ export default class Inject extends Command {
     })
     plans.length = 0
     plans.push(...resolvablePlans)
+    // A provider installed because another provider of its core builds on it gets no bond of
+    // its own: two setters for one core leave the last setup call in charge.
+    for (const { base, extendedBy } of withholdBaseProviderBonds(plans)) {
+      this.log(
+        chalk.gray(
+          `  ${base} stays installed for ${extendedBy}, which builds on it; no bond of its own`,
+        ),
+      )
+    }
     for (const failure of resolutionFailures) {
       // An explicit `-m` selection that is neither installed nor pinned has no
       // version to bind to, and `inject` has no version flag to bind it with (r7

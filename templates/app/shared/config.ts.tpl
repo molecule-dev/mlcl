@@ -1,6 +1,6 @@
 import { getProvider as getI18nProvider, registerContent } from '@molecule/app-i18n'
 
-export const API_BASE_URL = import.meta.env?.VITE_API_URL || '/api'
+export const API_BASE_URL = {{API_BASE_URL_EXPR}}
 
 /*
  * What the shared auth client already handles:

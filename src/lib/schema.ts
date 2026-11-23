@@ -1204,6 +1204,25 @@ export const AppFrameworkConfig = z.object({
     .record(z.string(), z.unknown())
     .default({})
     .describe('Framework-specific tsconfig compilerOptions overrides'),
+  apiBaseUrlExpr: z
+    .string()
+    .optional()
+    .describe(
+      "Expression the generated config.ts assigns to API_BASE_URL. Defaults to the Vite convention `import.meta.env?.VITE_API_URL || '/api'`; a Metro/Expo app reads `process.env.EXPO_PUBLIC_API_URL` instead.",
+    ),
+  apiUrlEnvKey: z
+    .string()
+    .optional()
+    .describe(
+      "The app's public API-base-URL variable that `mlcl create` writes into the app's .env, and the name `apiBaseUrlExpr` reads. Defaults to Vite's `VITE_API_URL`; Expo inlines `EXPO_PUBLIC_*` variables instead.",
+    ),
+  fontBasePathExpr: z
+    .string()
+    .nullable()
+    .optional()
+    .describe(
+      'Expression passed to `setFont(font, { basePath })` in a generated font bond. Defaults to the Vite document base `import.meta.env.BASE_URL`; null when the platform has no document base (React Native) so the bond calls `setFont(font)` alone.',
+    ),
   tsconfigOverride: z
     .record(z.string(), z.unknown())
     .optional()
@@ -1289,6 +1308,12 @@ export const AppFrameworkConfig = z.object({
     .optional()
     .describe(
       'Peer dependency names to exclude from injection. Used when a build-time alias replaces an npm package (e.g. react-native is aliased to a DOM shim in react-native-web).',
+    ),
+  e2e: z
+    .boolean()
+    .optional()
+    .describe(
+      'Whether a scaffold of this framework gets the shared Playwright e2e suite (defaults to true). A native app has no browser to drive, so Playwright files would be tooling it can never run — while `tsc` still type-checks them.',
     ),
   viteExtraConfig: z
     .string()

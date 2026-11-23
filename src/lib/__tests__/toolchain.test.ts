@@ -161,6 +161,17 @@ describe('toolchain version sync', () => {
 
   const isExact = (v: string): boolean => /^\d/.test(v)
 
+  /**
+   * Registry pins that cannot follow the template fleet, each with the reason. A key is the
+   * mismatch's `<source> <dep>` label.
+   */
+  const FLEET_PIN_EXCEPTIONS: Record<string, string> = {
+    'appFrameworks.react-native.devDependencies tailwindcss':
+      'NativeWind 4 compiles through react-native-css-interop, whose tailwindcss peer is ~3, ' +
+      'while the web fleet is on Tailwind 4; an Expo app is never installed into the sandbox ' +
+      'workspace the fleet shares',
+  }
+
   it('template fleet pins each dep to a single version (no internal splits)', () => {
     // The two gates below use the fleet's unanimous pin as the reference and
     // skip deps the fleet disagrees on — so a split WITHIN the fleet would
@@ -210,7 +221,7 @@ describe('toolchain version sync', () => {
         if (fleetSet?.size !== 1) continue // absent from fleet, or fleet itself split
         const [fleetVersion] = fleetSet
         if (!isExact(fleetVersion) || !isExact(version)) continue
-        if (fleetVersion !== version) {
+        if (fleetVersion !== version && !(`${label} ${dep}` in FLEET_PIN_EXCEPTIONS)) {
           mismatches.push(`${label} ${dep}: registry=${version}, templates=${fleetVersion}`)
         }
       }
@@ -220,6 +231,14 @@ describe('toolchain version sync', () => {
       mismatches,
       'registry pins drifted from the template fleet — a dep bump swept one side only; update registry.json (or the templates) so both agree',
     ).toEqual([])
+    // An exception whose pin has come back in line with the fleet is stale.
+    const stale = Object.keys(FLEET_PIN_EXCEPTIONS).filter((key) => {
+      const [label, dep] = key.split(' ')
+      const deps = sources.find(([source]) => source === label)?.[1] ?? {}
+      const fleetSet = fleet.get(dep)
+      return !deps[dep] || fleetSet?.size !== 1 || [...fleetSet][0] === deps[dep]
+    })
+    expect(stale, 'remove each fleet pin exception that no longer differs').toEqual([])
   })
 
   it('template fleet pins match molecule package pins for shared deps', () => {

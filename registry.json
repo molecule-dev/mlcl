@@ -91412,6 +91412,10 @@
         "@molecule/app-routing"
       ],
       "framework": "react-native",
+      "bondWiring": {
+        "type": "none",
+        "bondCategory": "routing"
+      },
       "path": "packages/app/bonds/routing/react-navigation",
       "intentHints": [
         "react navigation routing",
@@ -105056,6 +105060,8 @@
         "react": "19.3.1",
         "react-native": "0.79.2",
         "expo": "53.0.27",
+        "nativewind": "4.2.7",
+        "react-native-reanimated": "3.17.4",
         "@react-navigation/native": "7.1.28",
         "@react-navigation/native-stack": "7.13.0",
         "react-native-screens": "4.23.0",
@@ -105063,11 +105069,22 @@
       },
       "devDependencies": {
         "@types/react": "19.3.0",
-        "babel-preset-expo": "13.2.5"
+        "babel-preset-expo": "13.2.5",
+        "tailwindcss": "3.4.19",
+        "vite": "8.3.5",
+        "vitest": "4.1.12"
       },
       "tsconfig": {
-        "jsx": "react-jsx"
-      }
+        "jsx": "react-jsx",
+        "types": [
+          "vite/client",
+          "node"
+        ]
+      },
+      "apiBaseUrlExpr": "process.env.EXPO_PUBLIC_API_URL || 'http://localhost:4000'",
+      "apiUrlEnvKey": "EXPO_PUBLIC_API_URL",
+      "fontBasePathExpr": null,
+      "e2e": false
     },
     "react-native-web": {
       "label": "React Native Web",

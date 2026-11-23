@@ -117,6 +117,7 @@ import {
   getPackageStack,
   getRawRegistry,
   loadApiFrameworks,
+  loadAppFrameworks,
   loadRegistry,
   packagesByRole,
   requirePackageByRole,
@@ -204,6 +205,27 @@ export function getProjectApiFramework(projectPath: string): string {
   } catch (_error) {
     // package.json absent or unparseable — safe to fall back to express default
     return DEFAULT_API_FRAMEWORK
+  }
+}
+
+/**
+ * Read the app framework from a target project's package.json.
+ *
+ * App projects record it in `molecule.framework` (every scaffold does), which is
+ * how generated app code learns the platform it runs on — Vite serves assets
+ * under `import.meta.env.BASE_URL`, Expo has no document base at all.
+ *
+ * @param projectPath - The app workspace.
+ * @returns The registry app-framework key, or undefined when the manifest names none.
+ */
+export function getProjectAppFramework(projectPath: string): string | undefined {
+  try {
+    const pkg = JSON.parse(readFileSync(join(projectPath, 'package.json'), 'utf-8'))
+    const framework = pkg.molecule?.framework
+    return typeof framework === 'string' && framework ? framework : undefined
+  } catch (_error) {
+    // package.json absent or unparseable — the caller falls back to the platform default
+    return undefined
   }
 }
 
@@ -1932,6 +1954,51 @@ export function middlewareIdentifier(name: string): string {
  * Extract a short name from a package name by stripping the @molecule/ prefix
  * and known type segments. Prefers registry shortName when available.
  */
+/**
+ * Withhold the bond of a provider that another planned provider of the SAME core builds on.
+ *
+ * A provider can extend another provider of its own core: `@molecule/app-ui-nativewind` and
+ * `@molecule/app-ui-tailwind-glass` build their ClassMap on `@molecule/app-ui-tailwind`'s and
+ * declare it as a peer, so the base is installed for their imports. It is not a second bond:
+ * two setters for one singleton core leave whichever setup call runs last in charge, and
+ * `setupProviders()` orders them by bond file name, so a React Native app ran the web ClassMap
+ * after the native one. The base keeps its plan (its dependencies are still written); its
+ * bond file, its bonds/index export and its `bondSetup` go.
+ *
+ * @param plans - Every resolved plan of this injection; withheld plans are edited in place.
+ * @returns Each withheld provider with the provider that builds on it.
+ */
+export function withholdBaseProviderBonds(
+  plans: InjectionPlan[],
+): { base: string; extendedBy: string }[] {
+  const providers = plans.filter((plan) => plan.bondSetup)
+  const peersOf = (plan: InjectionPlan): Record<string, string> =>
+    plan.moleculePackage?.peerDependencies ?? {}
+  const withheld: { plan: InjectionPlan; extendedBy: string }[] = []
+  for (const base of providers) {
+    const extender = providers.find(
+      (other) =>
+        other !== base &&
+        other.bondSetup!.interfacePackage === base.bondSetup!.interfacePackage &&
+        base.molecule in peersOf(other) &&
+        // Two providers that each name the other say nothing about which one is the base.
+        !(other.molecule in peersOf(base)),
+    )
+    if (extender) withheld.push({ plan: base, extendedBy: extender.molecule })
+  }
+  for (const { plan } of withheld) {
+    const setupCode = plan.bondSetup!.setupCode
+    const indexExport = `export * from './${extractBondName(plan.molecule)}.js'\n`
+    plan.files = plan.files.filter(
+      (file) =>
+        !(file.action === 'create' && file.content === setupCode) &&
+        !(file.action === 'modify' && file.content === indexExport),
+    )
+    plan.bondSetup = null
+  }
+  return withheld.map(({ plan, extendedBy }) => ({ base: plan.molecule, extendedBy }))
+}
+
 function extractShortName(packageName: string): string {
   // Strip @molecule/ prefix and known type segments
   return packageName
@@ -2876,10 +2943,18 @@ export function setup${pascal}(): void {
   // Local font faces load from `<basePath>fonts/<file>`; a site served under a
   // sub-path (Vite `base`, BASE_PATH) 404s every face at `/fonts/…` unless the
   // app passes the base it already knows. Only the app knows it — the bond
-  // cannot discover it reliably in both dev and the built site.
+  // cannot discover it reliably in both dev and the built site. A platform with
+  // no document base says so with `fontBasePathExpr: null` (React Native), and
+  // the bond then passes no base at all.
+  const fontBasePathExpr =
+    loadAppFrameworks()[getProjectAppFramework(projectPath) ?? '']?.fontBasePathExpr
+  const fontBasePath =
+    fontBasePathExpr === undefined ? 'import.meta.env.BASE_URL' : fontBasePathExpr
   const setterCall =
     setter === 'setFont' && interfacePackage === '@molecule/app-fonts'
-      ? `${setter}(${providerCall}, { basePath: import.meta.env.BASE_URL })`
+      ? fontBasePath === null
+        ? `${setter}(${providerCall})`
+        : `${setter}(${providerCall}, { basePath: ${fontBasePath} })`
       : `${setter}(${providerCall})`
   const allSetupCalls = [setterCall, ...additionalPairs.map((p) => `${p.setter}(${p.provider})`)]
     .map((call) => `  ${call}`)
