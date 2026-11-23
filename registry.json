@@ -91377,6 +91377,7 @@
       "exports": [
         "useMoleculeRouter",
         "createReactNavigationRouter",
+        "NavigationAction",
         "NavigationRef",
         "NavigationState",
         "ReactNavigationConfig",
