@@ -90,7 +90,6 @@ import {
 } from './setup-sql.js'
 import { restoreTemplateDotfiles } from './template-dotfiles.js'
 import { restoreTemplateLocales } from './template-locales.js'
-import { TEMPLATE_ESLINT_RULES } from './template-package.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -3871,32 +3870,30 @@ export async function createApiProject(
 }
 
 /**
- * Deliver the same verification contract to custom and template projects.
- * The rule reads the nearest manifest at lint time, so unused capabilities and
- * packages later added/removed need no generated options or harness policy.
+ * Deliver the same verification contract to custom and template projects: an
+ * `eslint.config.js` that runs @molecule/eslint-config. The config reads the
+ * workspace's own manifest at lint time, so unused capabilities and packages
+ * later added/removed need no generated options or harness policy.
  *
  * @param projectPath - Workspace whose lint script uses the shared config.
  * @param configName - Use an explicit module extension for non-ESM packages.
  */
 async function scaffoldEslint(projectPath: string, configName = 'eslint.config.js'): Promise<void> {
-  const rulesDir = join(projectPath, 'eslint-rules')
-  await mkdir(rulesDir, { recursive: true })
-  for (const file of TEMPLATE_ESLINT_RULES) {
-    await writeGuarded(join(rulesDir, file), await loadTemplate(`shared/${file}`))
-  }
   const config = await loadTemplate('shared/eslint.config.js.tpl')
   await writeGuarded(join(projectPath, configName), config)
   await declareEslintConfigImports(projectPath, config)
 }
 
 /**
- * Declare every package the shared ESLint config imports in the workspace's own manifest.
+ * Declare every package the shared ESLint config imports in the workspace's own manifest, with
+ * `eslint`, which runs it.
  *
  * A flagship's manifest is copied as the template authored it, and inside this workspace the
  * config's plugins resolve through hoisting, so a template that never declared one still lints
  * here. A user's standalone copy then failed `npm run build` (its prebuild lint) with
  * ERR_MODULE_NOT_FOUND for `eslint-plugin-react-hooks` (2026-11-22: 150 of 152 flagship apps).
- * Missing packages are added at the registry toolchain's pin; an existing pin is kept.
+ * A missing `@molecule/*` package is added at the registry's molecule pin and any other at the
+ * registry toolchain's; an existing pin is kept.
  *
  * @param projectPath - The workspace directory (holds package.json).
  * @param config - The ESLint config text just written there.
@@ -3910,16 +3907,21 @@ async function declareEslintConfigImports(projectPath: string, config: string): 
   }
   const shared = loadToolchain().shared as Record<string, string>
   const missing: Record<string, string> = {}
+  const names = new Set(['eslint'])
   for (const [, specifier] of config.matchAll(/^import\b[^'"]*['"]([^'"]+)['"]/gm)) {
     if (specifier.startsWith('.') || specifier.startsWith('node:')) continue
-    const name = specifier.startsWith('@')
-      ? specifier.split('/').slice(0, 2).join('/')
-      : specifier.split('/')[0]!
+    names.add(
+      specifier.startsWith('@')
+        ? specifier.split('/').slice(0, 2).join('/')
+        : specifier.split('/')[0]!,
+    )
+  }
+  for (const name of names) {
     if (pkg.dependencies?.[name] || pkg.devDependencies?.[name]) continue
-    const pin = shared[name]
+    const pin = name.startsWith('@molecule/') ? getMoleculeVersion(name) : shared[name]
     if (!pin) {
       throw new Error(
-        `shared/eslint.config.js.tpl imports ${name}, which the registry toolchain does not pin`,
+        `the shared ESLint config needs ${name}, which the registry toolchain does not pin`,
       )
     }
     missing[name] = pin

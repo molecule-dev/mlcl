@@ -401,6 +401,7 @@
     "@molecule/app-video-hls": "1.0.3",
     "@molecule/app-vite-config-default": "1.7.0",
     "@molecule/app-vue": "3.11.0",
+    "@molecule/eslint-config": "1.1.1",
     "@oclif/test": "5.0.3",
     "@playwright/test": "1.64.1",
     "@tailwindcss/typography": "0.5.20",

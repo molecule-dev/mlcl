@@ -22,7 +22,6 @@ import { Config } from '@oclif/core'
 import { ESLint } from 'eslint'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { copySharedEslintRules } from '../../lib/__tests__/shared-eslint-rules.js'
 import Resources from '../resources.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
@@ -84,7 +83,6 @@ describe('mlcl resources', () => {
     const app = join(dir, workspace)
     const config = join(app, configName)
     copyFileSync(join(MLCL_ROOT, 'templates/shared/eslint.config.js.tpl'), config)
-    await copySharedEslintRules(app)
     symlinkSync(NODE_MODULES, join(app, 'node_modules'), 'dir')
     return lintFor(workspace, configName)
   }

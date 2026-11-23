@@ -4,7 +4,10 @@
  * groups the scaffold's ESLint config sets, judges the sorter's output.
  */
 import { readFileSync } from 'node:fs'
+import { mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
+import { pathToFileURL } from 'node:url'
 
 import { describe, expect, it } from 'vitest'
 
@@ -20,15 +23,24 @@ function characters(source: string): string {
 }
 
 describe('SCAFFOLD_IMPORT_GROUPS', () => {
-  it('are the groups the scaffold’s ESLint config gives simple-import-sort', () => {
-    const config = readFileSync(
+  it('are the groups the scaffold’s ESLint config gives simple-import-sort', async () => {
+    // The scaffold's eslint.config.js is @molecule/eslint-config's config, so the groups are
+    // the ones that config sets for a workspace.
+    const template = readFileSync(
       join(import.meta.dirname, '..', '..', '..', 'templates', 'shared', 'eslint.config.js.tpl'),
       'utf8',
     )
-    const declared =
-      /'simple-import-sort\/imports':\s*\[\s*'warn',\s*\{\s*groups:\s*(\[.*\]),/.exec(config)?.[1]
-    expect(declared).toBeDefined()
-    expect(JSON.parse((declared ?? '').replaceAll("'", '"'))).toEqual(SCAFFOLD_IMPORT_GROUPS)
+    expect(template).toContain("from '@molecule/eslint-config'")
+    const workspace = await mkdtemp(join(tmpdir(), 'import-sort-groups-'))
+    try {
+      await writeFile(join(workspace, 'package.json'), '{}\n')
+      const { moleculeEslintConfig } = await import('@molecule/eslint-config')
+      const config = await moleculeEslintConfig(pathToFileURL(join(workspace, 'eslint.config.js')))
+      const settings = config.flatMap((entry) => entry.rules?.['simple-import-sort/imports'] ?? [])
+      expect(settings).toEqual(['warn', { groups: SCAFFOLD_IMPORT_GROUPS }])
+    } finally {
+      await rm(workspace, { recursive: true, force: true })
+    }
   })
 })
 

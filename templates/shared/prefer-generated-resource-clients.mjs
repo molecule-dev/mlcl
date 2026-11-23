@@ -1,18 +1,20 @@
 /** Source literals for a generated API route belong in its resource client. */
 import { statSync } from 'node:fs'
 import { dirname } from 'node:path'
-import { fileURLToPath } from 'node:url'
+import { fileURLToPath, URL } from 'node:url'
 
 const DYNAMIC = '\u0000'
 
 const segments = (path) => path.replace(/\/+$/, '').split('/').slice(1)
 const parameters = /^(?::[\w-]+|\{[^/{}]+\})$/
 
+/** A route's static segments (null for a parameter) and how many are static. */
 function routeShape(path) {
   const parts = segments(path).map((segment) => (parameters.test(segment) ? null : segment))
   return { parts, specificity: parts.filter((part) => part !== null).length }
 }
 
+/** The most specific generated routes with a client that a statically known request path matches. */
 function matchRoutes(value, routes, apiBase) {
   // An interpolated API origin followed by a static path has the same shape as that path.
   if (value.startsWith(DYNAMIC + '/')) value = value.slice(1)
@@ -65,7 +67,12 @@ const wrappers = new Set([
 
 const propertyName = (node) => (node.computed ? node.property.value : node.property.name)
 
+/**
+ * A test for whether a source literal is a navigation target (a link, a navigate call, a route
+ * path, or a `const` read only in those places) rather than an API request.
+ */
 function navigationTargets(source) {
+  /** The variable an identifier resolves to in its scope chain. */
   function binding(node) {
     if (node?.type !== 'Identifier') return undefined
     let scope = source.getScope(node)
@@ -76,6 +83,7 @@ function navigationTargets(source) {
     }
   }
 
+  /** The navigation API (`navigate`, `router` or the routing namespace) a node evaluates to. */
   function origin(node, seen = new Set()) {
     if (!node || seen.has(node)) return undefined
     seen.add(node)
@@ -112,6 +120,7 @@ function navigationTargets(source) {
     }
   }
 
+  /** Whether a value reaches a navigation call or link as its target. */
   function destination(node) {
     let parent = node.parent
     while (

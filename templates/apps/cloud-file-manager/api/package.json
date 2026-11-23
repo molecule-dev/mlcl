@@ -111,7 +111,7 @@
     "zod": "4.6.7"
   },
   "devDependencies": {
-    "@eslint/js": "10.0.1",
+    "@molecule/eslint-config": "1.1.1",
     "@types/busboy": "1.5.5",
     "@types/connect-busboy": "1.0.3",
     "@types/express": "5.0.6",
@@ -119,13 +119,9 @@
     "@types/node": "26.6.5",
     "@types/pg": "8.23.1",
     "eslint": "10.15.0",
-    "eslint-config-prettier": "10.1.8",
-    "eslint-plugin-jsx-a11y": "6.10.2",
-    "eslint-plugin-simple-import-sort": "14.0.0",
     "prettier": "3.9.10",
     "tsx": "4.23.15",
     "typescript": "6.0.3",
-    "typescript-eslint": "8.72.0",
     "vitest": "4.1.12"
   },
   "molecule": {

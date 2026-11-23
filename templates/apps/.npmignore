@@ -3,12 +3,9 @@
 */app/src/locales/*/
 !*/app/src/locales/en/
 
-# Each workspace's ESLint config and shared rule modules are byte copies of
-# templates/shared/ (the workspace's sync-eslint-rules),
-# and copyTemplateInstance writes those shared files into every api/ and app/
-# (scaffoldEslint, from TEMPLATE_ESLINT_RULES in src/lib/template-package.ts). Ship each
-# canonical module once instead of hundreds of copies; the pack check refuses any copy.
+# Each workspace's ESLint config is a byte copy of templates/shared/eslint.config.js.tpl
+# (the workspace's sync-eslint-rules), and copyTemplateInstance writes that template into
+# every api/ and app/ (scaffoldEslint in src/lib/scaffold.ts). Ship it once instead of
+# hundreds of copies; the pack check refuses any copy.
 */api/eslint.config.js
 */app/eslint.config.js
-*/api/eslint-rules/
-*/app/eslint-rules/

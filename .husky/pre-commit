@@ -132,3 +132,14 @@ if staged_diff --name-only --diff-filter=ACM |
     (cd .. && node scripts/sync-secret-scanner.mjs --check) || exit 1
   fi
 fi
+
+# ESLint copy drift (cross-repo). Each flagship workspace's eslint.config.js is a copy of
+# templates/shared/eslint.config.js.tpl, and templates/shared/prefer-generated-resource-clients.mjs
+# is a copy of @molecule/eslint-config's rule (../scripts/sync-eslint-rules.mjs). Only checked
+# when one of them is staged; skipped in a standalone clone.
+if staged_diff --name-only --diff-filter=ACM |
+  grep -qE '^templates/(shared/(eslint\.config\.js\.tpl|prefer-generated-resource-clients\.mjs)|apps/[^/]+/(app|api)/eslint\.config\.js)$'; then
+  if [ -f ../scripts/sync-eslint-rules.mjs ]; then
+    (cd .. && node scripts/sync-eslint-rules.mjs --check) || exit 1
+  fi
+fi

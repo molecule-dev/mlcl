@@ -380,9 +380,11 @@ export const authConfig: AuthClientConfig = {
     const app = join(project, 'app')
     const messages = await findings(app, localClients)
     expect(messages.map((message) => message.messageId).sort()).toEqual(['http'])
-    expect(await readFile(join(app, 'eslint-rules/prefer-declared-clients.mjs'), 'utf8')).toBe(
-      await readFile(join(ROOT, 'templates/shared/prefer-declared-clients.mjs'), 'utf8'),
+    // The check comes from @molecule/eslint-config through the shared config; no rule is copied.
+    expect(await readFile(join(app, 'eslint.config.js'), 'utf8')).toBe(
+      await readFile(join(ROOT, 'templates/shared/eslint.config.js.tpl'), 'utf8'),
     )
+    expect(existsSync(join(app, 'eslint-rules'))).toBe(false)
     // The API has its own manifest: the app's declarations cannot redirect backend code.
     expect(await findings(join(project, 'api'), localClients)).toEqual([])
   })

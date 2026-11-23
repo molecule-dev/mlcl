@@ -1,5 +1,6 @@
 /** The rule as a flagship's own config and a custom scaffold deliver it, through mlcl check. */
 import { execFile } from 'node:child_process'
+import { existsSync } from 'node:fs'
 import { mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
@@ -10,6 +11,7 @@ import { ESLint } from 'eslint'
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
 import { runCheckLocal } from '../check.js'
+import { getMoleculeVersion } from '../registry.js'
 import { createAppProject } from '../scaffold.js'
 
 const require = createRequire(import.meta.url)
@@ -63,11 +65,15 @@ describe('empty interactive targets', () => {
     async () => {
       const app = join(root, 'generated-app')
       await createAppProject(app, 'equipment-console', 'react')
-      expect(
-        await readFile(join(app, 'eslint-rules/no-empty-interactive-target.mjs'), 'utf8'),
-      ).toBe(await readFile(new URL('no-empty-interactive-target.mjs', shared), 'utf8'))
-      expect(await readFile(join(app, 'eslint-rules/no-class-code.mjs'), 'utf8')).toBe(
-        await readFile(new URL('no-class-code.mjs', shared), 'utf8'),
+      // The rule comes from @molecule/eslint-config, which the scaffold's config imports and its
+      // manifest declares at the registry pin; no rule module is copied into the project.
+      expect(await readFile(join(app, 'eslint.config.js'), 'utf8')).toBe(
+        await readFile(new URL('eslint.config.js.tpl', shared), 'utf8'),
+      )
+      expect(existsSync(join(app, 'eslint-rules'))).toBe(false)
+      const manifest = JSON.parse(await readFile(join(app, 'package.json'), 'utf8'))
+      expect(manifest.devDependencies['@molecule/eslint-config']).toBe(
+        getMoleculeVersion('@molecule/eslint-config'),
       )
 
       await execFileAsync('git', ['init', '-q', app])

@@ -3,7 +3,6 @@ import { mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promis
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
-import { pathToFileURL } from 'node:url'
 import { promisify } from 'node:util'
 
 import { Linter, type Rule } from 'eslint'
@@ -16,10 +15,9 @@ const require = createRequire(import.meta.url)
 const execFileAsync = promisify(execFile)
 const roots: string[] = []
 const id = 'molecule-local/single-image-name-link'
-const templates = join(import.meta.dirname, '../../../templates/shared')
-const module = (await import(
-  pathToFileURL(join(templates, 'prefer-declared-clients.mjs')).href
-)) as { scaffoldRules: (parser: unknown) => Record<string, Rule.RuleModule> }
+const module = (await import('@molecule/eslint-config/rules/prefer-declared-clients.mjs')) as {
+  scaffoldRules: (parser: unknown) => Record<string, Rule.RuleModule>
+}
 // A prior scaffold has no listener for this policy, rather than a broken ESLint
 // configuration. This also lets the exact pre-fix source run the regression cases.
 const rule = module.scaffoldRules(tseslint.parser)['single-image-name-link'] ?? {

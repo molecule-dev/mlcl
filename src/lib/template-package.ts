@@ -13,28 +13,24 @@ export const TEMPLATE_PACKAGE_BUDGET = {
 } as const
 
 /**
- * The local ESLint rule modules every scaffolded workspace gets in `eslint-rules/`, each written
- * from `templates/shared/<file>`. Flagship workspaces carry byte copies (the workspace's
- * sync-eslint-rules); the package leaves those copies out (templates/apps/.npmignore) and
- * scaffoldEslint writes these back, so a rule added here ships once, not once per workspace.
+ * The shared ESLint files the installed package reads from `templates/shared/`:
+ *
+ * - the config template. Each flagship workspace's `eslint.config.js` is a byte copy of it (the
+ *   workspace's sync-eslint-rules); the package leaves those copies out
+ *   (templates/apps/.npmignore) and scaffoldEslint writes the template back.
+ * - the generated-resource-clients rule, which `mlcl resources` copies into a workspace whose
+ *   config predates @molecule/eslint-config and still imports it from `./eslint-rules/`
+ *   (resource-client-lint.ts).
  */
-export const TEMPLATE_ESLINT_RULES = [
-  'prefer-declared-clients.mjs',
-  'prefer-generated-resource-clients.mjs',
-  'no-empty-interactive-target.mjs',
-  'no-dropped-action.mjs',
-  'no-stand-in-query-record.mjs',
-  'no-resource-table-writes.mjs',
-  'no-class-code.mjs',
-] as const
-
-/** The shared files every flagship workspace's ESLint config and rules are written from. */
 export const TEMPLATE_SHARED_ESLINT = [
   'templates/shared/eslint.config.js.tpl',
-  ...TEMPLATE_ESLINT_RULES.map((file) => `templates/shared/${file}` as const),
+  'templates/shared/prefer-generated-resource-clients.mjs',
 ] as const
 
-/** A workspace's synced ESLint config or rule copy, which the package must not carry. */
+/**
+ * A workspace's synced ESLint config, or an `eslint-rules/` copy from before
+ * @molecule/eslint-config: the package must carry neither.
+ */
 const WORKSPACE_ESLINT_COPY =
   /^templates\/apps\/[^/]+\/(?:api|app)\/(?:eslint\.config\.js|eslint-rules\/)/
 
@@ -50,8 +46,8 @@ export function templatePackageIssues(pack: TemplatePackManifest): string[] {
       issues.push(`template package budget: ${actual} ${label} exceeds ${limit}`)
   }
   const shipped = new Set(pack.files.map((f) => f.path))
-  // templates/apps/.npmignore leaves each workspace's ESLint copies out; scaffoldEslint
-  // writes these shared files into every flagship api/ and app/ instead.
+  // templates/apps/.npmignore leaves each workspace's ESLint config out; scaffoldEslint
+  // writes the shared template into every flagship api/ and app/ instead.
   if ([...shipped].some((f) => /^templates\/apps\/[^/]+\/(api|app)\/package\.json$/.test(f)))
     for (const shared of TEMPLATE_SHARED_ESLINT)
       if (!shipped.has(shared))
@@ -59,7 +55,7 @@ export function templatePackageIssues(pack: TemplatePackManifest): string[] {
   for (const file of shipped) {
     if (WORKSPACE_ESLINT_COPY.test(file))
       issues.push(
-        `template workspace ESLint copy shipped (scaffoldEslint writes it from templates/shared; leave it out in templates/apps/.npmignore): ${file.replace(/^templates\/apps\/[^/]+\//, '*/')}`,
+        `template workspace ESLint copy shipped (scaffoldEslint writes the config from templates/shared; leave it out in templates/apps/.npmignore): ${file.replace(/^templates\/apps\/[^/]+\//, '*/')}`,
       )
     const locales = /^templates\/apps\/([^/]+)\/app\/src\/locales\/(.+)$/.exec(file)
     if (!locales) continue

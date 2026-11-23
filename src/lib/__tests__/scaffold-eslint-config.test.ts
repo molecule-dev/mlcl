@@ -6,6 +6,7 @@
  * @module
  */
 
+import { existsSync } from 'node:fs'
 import { copyFile, mkdir, mkdtemp, readFile, rm, symlink, writeFile } from 'node:fs/promises'
 import { createRequire } from 'node:module'
 import { dirname, join } from 'node:path'
@@ -14,7 +15,8 @@ import { fileURLToPath } from 'node:url'
 import { ESLint } from 'eslint'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import { copySharedEslintRules } from './shared-eslint-rules.js'
+import { getMoleculeVersion, loadToolchain } from '../registry.js'
+import { createAppProject } from '../scaffold.js'
 
 const require = createRequire(import.meta.url)
 
@@ -46,7 +48,6 @@ beforeEach(async () => {
   // imports have to resolve from a directory under node_modules — so it is
   // copied to .mjs next to a link to the installed tree.
   await copyFile(TEMPLATE, join(dir, 'eslint.config.mjs'))
-  await copySharedEslintRules(dir)
   await symlink(NODE_MODULES, join(dir, 'node_modules'), 'dir')
   eslint = new ESLint({
     cwd: dir,
@@ -77,4 +78,49 @@ describe('the shared scaffold eslint config', () => {
         .map((message) => `${message.line}: ${message.ruleId ?? message.message}`),
     ).toEqual([])
   })
+})
+
+/** The plugins @molecule/eslint-config brings, which a scaffold therefore no longer declares. */
+const BROUGHT = [
+  '@eslint/js',
+  'eslint-config-prettier',
+  'eslint-plugin-jsx-a11y',
+  'eslint-plugin-react-hooks',
+  'eslint-plugin-simple-import-sort',
+  'typescript-eslint',
+]
+
+describe('what a scaffolded workspace receives', () => {
+  it('a config that imports only @molecule/eslint-config', async () => {
+    const text = await readFile(TEMPLATE, 'utf8')
+    expect([...text.matchAll(/^import\b[^'"]*['"]([^'"]+)['"]/gm)].map((m) => m[1])).toEqual([
+      '@molecule/eslint-config',
+    ])
+  })
+
+  // The config switches framework rules on from the workspace's own devDependencies, so a Vue or
+  // Svelte app must still declare its plugins, and every app the config package and eslint.
+  it.each([
+    ['react', []],
+    ['vue', ['eslint-plugin-vue', 'eslint-plugin-vuejs-accessibility', 'vue-eslint-parser']],
+    ['svelte', ['eslint-plugin-svelte']],
+  ] as const)(
+    'a %s app declares the config package at the registry pin, eslint and its framework plugins',
+    async (framework, plugins) => {
+      const app = join(dir, 'generated-' + framework)
+      await createAppProject(app, 'equipment-console', framework)
+      expect(await readFile(join(app, 'eslint.config.js'), 'utf8')).toBe(
+        await readFile(TEMPLATE, 'utf8'),
+      )
+      expect(existsSync(join(app, 'eslint-rules'))).toBe(false)
+      const { devDependencies = {} } = JSON.parse(await readFile(join(app, 'package.json'), 'utf8'))
+      expect(devDependencies['@molecule/eslint-config']).toBe(
+        getMoleculeVersion('@molecule/eslint-config'),
+      )
+      expect(devDependencies.eslint).toBe(loadToolchain().shared.eslint)
+      for (const plugin of plugins) expect(devDependencies[plugin], plugin).toBeDefined()
+      for (const plugin of BROUGHT) expect(devDependencies[plugin], plugin).toBeUndefined()
+    },
+    120_000,
+  )
 })

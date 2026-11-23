@@ -110,7 +110,14 @@ describe.each(FRAMEWORKS)('a fresh %s app', (framework) => {
       // eslint-plugin-svelte), which the shared config loads only when declared.
       const plugin = `eslint-plugin-${extension.slice(1)}`
       expect(devDependencies, `${plugin} must lint the ${extension} files`).toHaveProperty(plugin)
-      expect(config, `eslint.config.js never loads ${plugin}`).toContain(`import('${plugin}')`)
+    }
+    if (extensions.size > 0) {
+      // @molecule/eslint-config loads each declared framework plugin (its own tests lint .vue
+      // and .svelte files through it), so the workspace config must be that package's.
+      expect(devDependencies).toHaveProperty('@molecule/eslint-config')
+      expect(config, 'eslint.config.js is not @molecule/eslint-config').toContain(
+        "from '@molecule/eslint-config'",
+      )
     }
   })
 

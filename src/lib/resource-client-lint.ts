@@ -138,7 +138,9 @@ export async function writeResourceClientLint(
           "'molecule-local/fetch-hooks-use-the-query-cache': 'warn'",
           "'molecule-local/fetch-hooks-use-the-query-cache': 'error'",
         )
-  if (next.length) {
+  // A config that runs @molecule/eslint-config gets the rule from that package. A config written
+  // before the package imports the rule from its own eslint-rules/, so the file is supplied here.
+  if (next.length && updated.includes(ROUTE_IMPORT)) {
     const rule = join(root, 'eslint-rules', RULE_FILE)
     await mkdir(dirname(rule), { recursive: true })
     try {
