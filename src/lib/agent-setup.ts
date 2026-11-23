@@ -12,7 +12,15 @@
  * @module
  */
 
-import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
+import {
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  rmdirSync,
+  rmSync,
+  writeFileSync,
+} from 'node:fs'
 import { homedir } from 'node:os'
 import { dirname, join } from 'node:path'
 
@@ -38,6 +46,8 @@ export const SETUP_COMPONENTS: readonly SetupComponent[] = ['mcp', 'skills', 'in
 export type SetupStep =
   | { kind: 'mcp'; component: 'mcp'; agents: string[]; target: McpTarget }
   | { kind: 'skill'; component: 'skills'; agents: string[]; path: string; content: string }
+  /** A Molecule skill an earlier setup installed there that this one does not: removed when unedited. */
+  | { kind: 'retire-skill'; component: 'skills'; agents: string[]; path: string; content: string }
   | { kind: 'section'; component: 'instructions'; agents: string[]; path: string }
   | { kind: 'file'; component: 'instructions'; agents: string[]; path: string; frontmatter: string }
   | { kind: 'import'; component: 'instructions'; agents: string[]; path: string; line: string }
@@ -46,7 +56,8 @@ export type SetupStep =
 /** How one step went. */
 export interface SetupStepResult {
   step: SetupStep
-  status: 'written' | 'updated' | 'present' | 'kept' | 'manual' | 'note' | 'failed'
+  status:
+    'written' | 'updated' | 'present' | 'kept' | 'removed' | 'absent' | 'manual' | 'note' | 'failed'
   /** The failure reason, the CLI's last line, or what to do by hand. */
   detail?: string
 }
@@ -59,6 +70,11 @@ export interface SetupPlanInput {
   env: AgentEnvironment
   /** Skill path relative to a skills directory (`<name>/SKILL.md`) → content. */
   skills: Record<string, string>
+  /**
+   * Skills an earlier setup installed that this one never does (`<name>/SKILL.md` → the content it
+   * installed). An unedited copy is removed, so a re-run ends where a first run does.
+   */
+  retiredSkills?: Record<string, string>
 }
 
 const add = <T extends { agents: string[] }>(
@@ -81,10 +97,11 @@ const add = <T extends { agents: string[] }>(
  * @returns The steps, MCP first, then skills, then instructions.
  */
 export function planSetup(input: SetupPlanInput): SetupStep[] {
-  const { scope, harnesses, components, env, skills } = input
+  const { scope, harnesses, components, env, skills, retiredSkills = {} } = input
   const steps: SetupStep[] = []
   const stepKey = (step: SetupStep): string => {
     if (step.kind === 'note') return `note:${step.component}:${step.text}`
+    if (step.kind === 'retire-skill') return `retire:${step.path}`
     if (step.kind === 'mcp') {
       const t = step.target
       return t.kind === 'cli'
@@ -124,9 +141,27 @@ export function planSetup(input: SetupPlanInput): SetupStep[] {
       } else if (component === 'skills') {
         const dir = harness.skillsDir(scope, env)
         if (!dir) continue
-        for (const [relative, content] of Object.entries(skills))
+        // One copy of the guidance per agent. The instruction section says what the skills say,
+        // and an agent that opens a matching skill before acting spends a model turn on it: Codex
+        // read extend-with-packages before every answer (harness eval `find`, 2026-11-23: 20.7 s
+        // with the skills, 12.6 s without). So the skills go only to an agent setup writes no
+        // instructions for (Cursor and Trae keep user rules in their settings).
+        const instructed =
+          components.has('instructions') &&
+          harness.instructions(scope, env).some((target) => target.kind !== 'none')
+        for (const [relative, content] of Object.entries(instructed ? {} : skills))
           add(steps, stepKey, {
             kind: 'skill',
+            component,
+            agents,
+            path: join(dir, ...relative.split('/')),
+            content,
+          })
+        for (const [relative, content] of Object.entries(
+          instructed ? { ...retiredSkills, ...skills } : retiredSkills,
+        ))
+          add(steps, stepKey, {
+            kind: 'retire-skill',
             component,
             agents,
             path: join(dir, ...relative.split('/')),
@@ -158,7 +193,9 @@ export function planSetup(input: SetupPlanInput): SetupStep[] {
       }
     }
   }
-  return steps
+  // A skills directory two agents read (`~/.agents/skills`) keeps a skill while either agent gets it.
+  const installed = new Set(steps.flatMap((step) => (step.kind === 'skill' ? [step.path] : [])))
+  return steps.filter((step) => step.kind !== 'retire-skill' || !installed.has(step.path))
 }
 
 /**
@@ -237,6 +274,27 @@ const writeOwnedFile = (
   mkdirSync(dirname(path), { recursive: true })
   writeFileSync(path, content)
   return 'written'
+}
+
+/**
+ * Remove a file setup wrote earlier, unless the user edited it (`force` removes it anyway), and its
+ * folder once that is empty.
+ *
+ * @param path - The file.
+ * @param content - What setup wrote there.
+ * @param force - Remove an edited copy too.
+ * @returns `removed`, `kept` (edited) or `absent`.
+ */
+const retireOwnedFile = (
+  path: string,
+  content: string,
+  force: boolean,
+): SetupStepResult['status'] => {
+  if (!existsSync(path)) return 'absent'
+  if (!force && readFileSync(path, 'utf8') !== content) return 'kept'
+  rmSync(path)
+  if (readdirSync(dirname(path)).length === 0) rmdirSync(dirname(path))
+  return 'removed'
 }
 
 /**
@@ -373,6 +431,8 @@ export async function applySetup(
         results.push({ step, ...(await applyMcp(step.target, options.runCli)) })
       } else if (step.kind === 'skill') {
         results.push({ step, status: writeOwnedFile(step.path, step.content, options.force) })
+      } else if (step.kind === 'retire-skill') {
+        results.push({ step, status: retireOwnedFile(step.path, step.content, options.force) })
       } else if (step.kind === 'import') {
         results.push({ step, status: ensureImportLine(step.path, step.line) })
       } else if (step.kind === 'file') {

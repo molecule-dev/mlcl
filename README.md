@@ -45,8 +45,8 @@ packages before writing a capability by hand:
 npx mlcl setup   # asks where (every project, or this one) and which agents
 ```
 
-It registers the `molecule` MCP server, installs the Molecule skills and writes
-the Molecule conventions for each agent. Details: [Using it with AI agents](#using-it-with-ai-agents).
+It registers the `molecule` MCP server and writes the Molecule conventions for
+each agent (an agent with no rules file gets the Molecule skills instead). Details: [Using it with AI agents](#using-it-with-ai-agents).
 
 > `mlcl` and `molecule-mcp` are on npm — every `npx mlcl …` and
 > `npx -y molecule-mcp` below runs as written, as do the `@molecule/*` packages.
@@ -123,7 +123,7 @@ one command; the other ways below cover one agent, or a chat with no install:
 
 | Method | What to run / paste | Get |
 |---|---|---|
-| **Recommended** | `npx mlcl setup` | for every agent on the machine (or `--scope project` for this project): the `molecule` MCP server, the Molecule skills and the conventions, each in the place that agent reads them |
+| **Recommended** | `npx mlcl setup` | for every agent on the machine (or `--scope project` for this project): the `molecule` MCP server and the conventions (or the Molecule skills, for an agent with no rules file), each in the place that agent reads them |
 | **Zero setup** | paste the block below into any agent chat | the agent finds, adds and wires packages (or starts a new app) through the CLI and follows the conventions |
 | **Conventions only** | `npx mlcl agent init` | the conventions written into the files your agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where that agent reads them) |
 | **MCP tools only** | `npx mlcl mcp install` | the `molecule` MCP server (package search, docs, add, swap, examples, checks, env, deploys, scaffolding and the hosted tasks) registered with one agent — Claude Code, Codex, Cursor, Gemini CLI, Copilot, OpenCode, Devin/Windsurf, Kiro, Amp, Zed, Crush, Trae, Cline, Junie, … |
@@ -605,7 +605,7 @@ _See code: [src/commands/add.ts](https://github.com/molecule-dev/mlcl/blob/v2.1.
 
 ## `mlcl agent init`
 
-Write the Molecule conventions + mlcl quickstart into the instruction files your coding agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where the agent reads those). `mlcl setup` also installs the MCP server and the Molecule skills
+Write the Molecule conventions + mlcl quickstart into the instruction files your coding agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where the agent reads those). `mlcl setup` also installs the MCP server
 
 ```
 USAGE
@@ -622,7 +622,7 @@ FLAGS
 
 DESCRIPTION
   Write the Molecule conventions + mlcl quickstart into the instruction files your coding agent reads (AGENTS.md, plus
-  CLAUDE.md or GEMINI.md where the agent reads those). `mlcl setup` also installs the MCP server and the Molecule skills
+  CLAUDE.md or GEMINI.md where the agent reads those). `mlcl setup` also installs the MCP server
 
 EXAMPLES
   $ mlcl agent init            # detect the agent in this project and write its files
@@ -2043,7 +2043,7 @@ _See code: [src/commands/logs/index.ts](https://github.com/molecule-dev/mlcl/blo
 
 ## `mlcl mcp install`
 
-Register the molecule MCP server with one coding agent, using the agent’s own installer when it has one. `mlcl setup` does this for every agent at once, with the Molecule skills and conventions
+Register the molecule MCP server with one coding agent, using the agent’s own installer when it has one. `mlcl setup` does this for every agent at once, with the Molecule conventions
 
 ```
 USAGE
@@ -2059,7 +2059,7 @@ FLAGS
 
 DESCRIPTION
   Register the molecule MCP server with one coding agent, using the agent’s own installer when it has one. `mlcl setup`
-  does this for every agent at once, with the Molecule skills and conventions
+  does this for every agent at once, with the Molecule conventions
 
 EXAMPLES
   $ mlcl mcp install             # the first agent found on this machine
@@ -2484,7 +2484,7 @@ _See code: [src/commands/search.ts](https://github.com/molecule-dev/mlcl/blob/v2
 
 ## `mlcl setup`
 
-Set up your coding agents to build the Molecule way: registers the molecule MCP server, installs the Molecule skills, and writes the Molecule conventions, for every project on this machine or for this project only
+Set up your coding agents to build the Molecule way: registers the molecule MCP server and writes the Molecule conventions (or installs the Molecule skills for an agent with no rules file), for every project on this machine or for this project only
 
 ```
 USAGE
@@ -2505,8 +2505,9 @@ FLAGS
                            <options: mcp|skills|instructions>
 
 DESCRIPTION
-  Set up your coding agents to build the Molecule way: registers the molecule MCP server, installs the Molecule skills,
-  and writes the Molecule conventions, for every project on this machine or for this project only
+  Set up your coding agents to build the Molecule way: registers the molecule MCP server and writes the Molecule
+  conventions (or installs the Molecule skills for an agent with no rules file), for every project on this machine or
+  for this project only
 
 EXAMPLES
   $ mlcl setup                                   # choose where and which agents

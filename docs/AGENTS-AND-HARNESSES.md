@@ -12,8 +12,8 @@ examples.
 
 **The one-paragraph version:** run `npx mlcl setup`. It asks where (every
 project on this machine, or this project only) and which of your agents, then
-installs the molecule MCP server, the Molecule skills and the conventions for
-each one. Or install the Claude Code plugin, or just paste the prompt block from
+installs the molecule MCP server and the conventions for each one (the Molecule
+skills instead, for an agent with no rules file). Or install the Claude Code plugin, or just paste the prompt block from
 the README into any agent. Then ask your agent for what you need, in a project
 you already have or a new one. URL-only clients (Lovable/v0/bolt connectors, and any harness
 wanting a one-line install) use the hosted read-only endpoint instead:
@@ -27,7 +27,7 @@ wanting a one-line install) use the hosted read-only endpoint instead:
 | -------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
 | `mlcl` CLI (`npx`)               | discovery (`search`, `docs`, `examples`), growth (`add --inject`), reconfiguration (`swap`), checks (`check`), new projects (`templates`, `create --no-interactive --json`)                |
 | A project's `AGENTS.md`          | the project's conventions, in context the moment any agent opens the project (`mlcl create` writes it; `agent init` adds it to any project)                                                |
-| `setup`                          | the MCP server, the Molecule skills and those conventions, installed into every agent on the machine (or one project) in one command                                                       |
+| `setup`                          | the MCP server and those conventions, installed into every agent on the machine (or one project) in one command                                                                            |
 | `agent init`                     | those same conventions written into any existing project / harness's instruction files                                                                                                     |
 | `molecule` MCP server            | the same verbs as structured tools + `read_package_doc` + the `molecule://conventions` resource + a self-install `agent_init` tool, and startup instructions that say when to use Molecule |
 | Claude Code plugin _(at launch)_ | three skills + the MCP server, marketplace-updated                                                                                                                                         |
@@ -117,17 +117,24 @@ npx mlcl setup --scope project --agent claude-code,cursor --yes
 npx mlcl setup --dry-run                          # list what it would write, change nothing
 ```
 
-For each agent it installs three things:
+For each agent it installs:
 
 - **the MCP server**, through the agent's own `mcp add` command where it has
   one, otherwise by adding one `molecule` entry to its config file (comments
   and other settings are kept);
-- **the Molecule skills**: `build-with-molecule` (start a new app) and
-  `extend-with-packages` (add or swap a capability in any project). A project
-  `mlcl create` makes also has its own skills in `.agents/skills/`, `capability-first`
-  (check what a package already provides before writing code) among them;
 - **the conventions**, as a `## Molecule` section in the instructions file the
-  agent reads, or as a rules file of its own.
+  agent reads, or as a rules file of its own;
+- **the Molecule skills**, only for an agent that gets no conventions file
+  (Cursor and Trae keep user rules in their settings, or you passed
+  `--skip instructions`): `build-with-molecule` (start a new app) and
+  `extend-with-packages` (add or swap a capability in any project). They say
+  what the conventions say, and an agent that has both opens the matching skill
+  before it acts. A re-run removes the copies an earlier setup installed where
+  the conventions now go, unless you edited them. A project `mlcl create` makes
+  also has its own skills in `.agents/skills/`, `capability-first` (check what a
+  package already provides before writing code) among them.
+
+The skills folders in the table are where they go when an agent gets them.
 
 | Agent                    | Every project (`--scope machine`)                                                                                | This project (`--scope project`)                                                            |
 | ------------------------ | ---------------------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |

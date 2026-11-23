@@ -122,7 +122,7 @@ describe('planSetup', () => {
       skills: SKILLS,
     })
 
-  it('machine scope: native installers with the user scope, one shared ~/.agents/skills copy', () => {
+  it('machine scope: native installers with the user scope, skills only where no instructions go', () => {
     const steps = plan(
       'machine',
       ['claude-code', 'codex', 'cursor', 'gemini'],
@@ -136,13 +136,16 @@ describe('planSetup', () => {
       'codex mcp add molecule -- npx -y molecule-mcp',
       'gemini mcp add -s user molecule npx -y molecule-mcp',
     ])
+    // Cursor keeps user rules in its settings, so the skills are its copy of the guidance; Codex
+    // and Gemini read the same ~/.agents/skills, which keeps the skill for Cursor.
     const skills = steps.filter((s) => s.kind === 'skill')
     expect(skills.map((s) => [s.kind === 'skill' && s.path, s.agents])).toEqual([
+      [join(home, '.agents', 'skills', 'capability-first', 'SKILL.md'), ['Cursor']],
+    ])
+    // Claude Code gets the CLAUDE.md section, and an earlier setup's copy of the skill goes.
+    const retired = steps.filter((s) => s.kind === 'retire-skill')
+    expect(retired.map((s) => [s.kind === 'retire-skill' && s.path, s.agents])).toEqual([
       [join(home, '.claude', 'skills', 'capability-first', 'SKILL.md'), ['Claude Code']],
-      [
-        join(home, '.agents', 'skills', 'capability-first', 'SKILL.md'),
-        ['Codex', 'Cursor', 'Gemini CLI'],
-      ],
     ])
     const sections = steps.flatMap((s) => (s.kind === 'section' ? [s.path] : []))
     expect(sections).toEqual([
@@ -155,6 +158,27 @@ describe('planSetup', () => {
     )
     // Nothing lands in the project.
     for (const s of steps) if ('path' in s) expect(s.path.startsWith(cwd)).toBe(false)
+  })
+
+  it('installs the skills for every agent when the instructions are left out, and retires an old one', () => {
+    const steps = planSetup({
+      scope: 'machine',
+      harnesses: ['claude-code', 'codex'].map((id) => findHarness(id)!),
+      components: new Set(['mcp', 'skills'] as const),
+      env: env(['claude', 'codex']),
+      skills: SKILLS,
+      retiredSkills: { 'old-skill/SKILL.md': 'old\n' },
+    })
+    const paths = (kind: SetupStep['kind']): string[] =>
+      steps.flatMap((s) => (s.kind === kind && 'path' in s ? [s.path.slice(home.length + 1)] : []))
+    expect(paths('skill')).toEqual([
+      '.claude/skills/capability-first/SKILL.md',
+      '.agents/skills/capability-first/SKILL.md',
+    ])
+    expect(paths('retire-skill')).toEqual([
+      '.claude/skills/old-skill/SKILL.md',
+      '.agents/skills/old-skill/SKILL.md',
+    ])
   })
 
   it('project scope: one AGENTS.md section and one merged .mcp.json entry for every agent', () => {
@@ -177,9 +201,11 @@ describe('planSetup', () => {
         mcpJson[0].target.kind === 'json' &&
         mcpJson[0].target.entry.tools,
     ).toEqual(['*'])
-    // Copilot reads .github/skills, Claude .claude/skills, Codex/OpenCode .agents/skills.
+    // Every one of them reads the AGENTS.md section (Claude Code through its CLAUDE.md import), so
+    // no skill is written; an earlier setup's copies in .claude/, .github/ and .agents/ go.
+    expect(steps.filter((s) => s.kind === 'skill')).toEqual([])
     const dirs = steps.flatMap((s) =>
-      s.kind === 'skill' ? [s.path.slice(cwd.length + 1).split('/')[0]] : [],
+      s.kind === 'retire-skill' ? [s.path.slice(cwd.length + 1).split('/')[0]] : [],
     )
     expect(dirs).toEqual(['.claude', '.github', '.agents'])
     for (const s of steps) if ('path' in s) expect(s.path.startsWith(home)).toBe(false)
@@ -251,7 +277,7 @@ describe('planSetup', () => {
     }
   }
 
-  it('gives the agents that once got only the MCP server their rules files and skills (OLD MUSTFAIL)', () => {
+  it('gives the agents that once got only the MCP server their rules files, or skills where none exist (OLD MUSTFAIL)', () => {
     expect(
       Object.fromEntries(
         ['zed', 'crush', 'trae', 'cline', 'junie', 'continue', 'goose'].map((id) => [
@@ -261,32 +287,33 @@ describe('planSetup', () => {
       ),
     ).toEqual({
       zed: [
-        { instructions: ['~/.config/zed/AGENTS.md'], skills: ['~/.agents/skills'] },
-        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+        { instructions: ['~/.config/zed/AGENTS.md'], skills: [] },
+        { instructions: ['AGENTS.md'], skills: [] },
       ],
       crush: [
-        { instructions: ['~/.config/crush/CRUSH.md'], skills: ['~/.agents/skills'] },
-        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+        { instructions: ['~/.config/crush/CRUSH.md'], skills: [] },
+        { instructions: ['AGENTS.md'], skills: [] },
       ],
+      // Trae keeps user rules in its settings: machine-wide, the skills are its guidance.
       trae: [
         { instructions: [], skills: ['~/.trae/skills'] },
-        { instructions: ['.trae/rules/molecule.md'], skills: ['.trae/skills'] },
+        { instructions: ['.trae/rules/molecule.md'], skills: [] },
       ],
       cline: [
-        { instructions: ['~/Documents/Cline/Rules/molecule.md'], skills: ['~/.agents/skills'] },
-        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+        { instructions: ['~/Documents/Cline/Rules/molecule.md'], skills: [] },
+        { instructions: ['AGENTS.md'], skills: [] },
       ],
       junie: [
-        { instructions: ['~/.junie/AGENTS.md'], skills: ['~/.agents/skills'] },
-        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+        { instructions: ['~/.junie/AGENTS.md'], skills: [] },
+        { instructions: ['AGENTS.md'], skills: [] },
       ],
       continue: [
-        { instructions: ['~/.continue/rules/molecule.md'], skills: ['~/.continue/skills'] },
-        { instructions: ['.continue/rules/molecule.md'], skills: ['.continue/skills'] },
+        { instructions: ['~/.continue/rules/molecule.md'], skills: [] },
+        { instructions: ['.continue/rules/molecule.md'], skills: [] },
       ],
       goose: [
-        { instructions: ['~/.config/goose/.goosehints'], skills: ['~/.agents/skills'] },
-        { instructions: ['AGENTS.md'], skills: ['.agents/skills'] },
+        { instructions: ['~/.config/goose/.goosehints'], skills: [] },
+        { instructions: ['AGENTS.md'], skills: [] },
       ],
     })
     expect(plan('machine', ['trae'])).toContainEqual(
@@ -415,6 +442,35 @@ describe('applySetup', () => {
     expect(readFileSync(skill, 'utf8')).toBe('my edits\n')
     expect((await applySetup(steps, options(runner({}), true)))[0].status).toBe('updated')
     expect(readFileSync(skill, 'utf8')).toBe('v2\n')
+  })
+
+  it('removes a retired skill an earlier setup wrote, keeps an edited one until forced', async () => {
+    const skill = (name: string): string => join(dir, 'skills', name, 'SKILL.md')
+    const retire = (name: string): SetupStep => ({
+      kind: 'retire-skill',
+      component: 'skills',
+      agents: ['A'],
+      path: skill(name),
+      content: 'v1\n',
+    })
+    for (const name of ['unedited', 'edited']) {
+      mkdirSync(join(dir, 'skills', name), { recursive: true })
+      writeFileSync(skill(name), name === 'edited' ? 'my edits\n' : 'v1\n')
+    }
+    const steps = ['unedited', 'edited', 'never-installed'].map(retire)
+    expect((await applySetup(steps, options())).map((r) => r.status)).toEqual([
+      'removed',
+      'kept',
+      'absent',
+    ])
+    // The skill's folder goes with it; the edited copy stays as the user left it.
+    expect(existsSync(join(dir, 'skills', 'unedited'))).toBe(false)
+    expect(readFileSync(skill('edited'), 'utf8')).toBe('my edits\n')
+    expect((await applySetup(steps, options(runner({}), true))).map((r) => r.status)).toEqual([
+      'absent',
+      'removed',
+      'absent',
+    ])
   })
 
   it('appends the Codex TOML table to an existing config without touching the rest', async () => {

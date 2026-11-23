@@ -243,7 +243,19 @@ export function loadHostSkills(templatesDir: string): Record<string, string> {
 }
 
 /**
- * Every skill `mlcl setup` installs: the host-only ones. The shared workflow
+ * The skills earlier versions of `mlcl setup` installed and this one never does: the shared
+ * workflow skills (`capability-first`), which come with each scaffolded project now. Setup removes
+ * an unedited copy of each.
+ *
+ * @param templatesDir - An mlcl `templates/` directory.
+ * @returns Relative skill path (`<name>/SKILL.md`) → the content setup installed.
+ */
+export function loadRetiredSetupSkills(templatesDir: string): Record<string, string> {
+  return loadSharedSkills(templatesDir)
+}
+
+/**
+ * Every skill `mlcl setup` installs, for an agent it writes no instructions for: the host-only ones. The shared workflow
  * skills are left out: every Molecule project receives them in its own
  * `.agents/skills`, and outside one they point at a capability map and
  * `src/bonds/` files that do not exist, while `extend-with-packages` already

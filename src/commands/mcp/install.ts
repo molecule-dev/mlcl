@@ -34,7 +34,7 @@ const PROJECT_MARKERS: [string, string][] = [
 
 export default class McpInstall extends Command {
   static override description =
-    'Register the molecule MCP server with one coding agent, using the agent’s own installer when it has one. `mlcl setup` does this for every agent at once, with the Molecule skills and conventions'
+    'Register the molecule MCP server with one coding agent, using the agent’s own installer when it has one. `mlcl setup` does this for every agent at once, with the Molecule conventions'
 
   static override examples = [
     '<%= config.bin %> mcp install             # the first agent found on this machine',

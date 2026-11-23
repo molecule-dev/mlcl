@@ -50,7 +50,7 @@ function detectHarness(root: string): string {
 
 export default class AgentInit extends Command {
   static override description =
-    'Write the Molecule conventions + mlcl quickstart into the instruction files your coding agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where the agent reads those). `mlcl setup` also installs the MCP server and the Molecule skills'
+    'Write the Molecule conventions + mlcl quickstart into the instruction files your coding agent reads (AGENTS.md, plus CLAUDE.md or GEMINI.md where the agent reads those). `mlcl setup` also installs the MCP server'
 
   static override examples = [
     '<%= config.bin %> agent init            # detect the agent in this project and write its files',
@@ -164,9 +164,7 @@ export default class AgentInit extends Command {
     this.log(
       `  ${ui.cmd('"Build me a blog with molecule"')} ${ui.dim('— it now knows to reach for mlcl.')}`,
     )
-    this.log(
-      `\n${ui.dim('For the MCP tools (search_packages, scaffold_project, …) and the Molecule skills, run:')}`,
-    )
+    this.log(`\n${ui.dim('For the MCP tools (search_packages, scaffold_project, …), run:')}`)
     this.log(`  ${ui.cmd(`npx mlcl setup${flags.global ? '' : ' --scope project'}`)}`)
   }
 }

@@ -12,7 +12,7 @@ staged with exact copy so submission is paste-and-click.
   > Molecule.dev is a library of 1924+ composable `@molecule/*` packages for JavaScript and TypeScript projects (auth, database, payments, email, uploads, AI, search, PDFs, push and more), each behind an interface with swappable providers. This server gives your agent structured tools to search the packages by capability, read each one's generated docs, add and wire one into any project (including one Molecule did not create), swap providers without rewrites, find working examples and run the project's checks. It also runs hosted tasks with no vendor account (web search, page fetching, PDF rendering, image generation and more), billed to a molecule.dev project key, and starts new apps from a custom stack or one of 152+ flagship templates — plus the molecule conventions as a resource (`molecule://conventions`) and a self-install tool for your project's agent files.
 - **Tags/categories:** developer-tools, typescript, javascript, packages, ai-agents, mcp, fullstack
 - **Links:** repo `github.com/molecule-dev/mlcl` · npm `npmjs.com/package/molecule-mcp` · site `molecule.dev` · docs `…/blob/main/docs/AGENTS-AND-HARNESSES.md`
-- **Install line:** `npx mlcl setup` (every agent on the machine, with the Molecule skills), `npx mlcl mcp install` (one agent), or the standard entry `npx -y molecule-mcp`
+- **Install line:** `npx mlcl setup` (every agent on the machine, with the Molecule conventions), `npx mlcl mcp install` (one agent), or the standard entry `npx -y molecule-mcp`
 
 ## The directories, in priority order
 

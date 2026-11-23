@@ -1,4 +1,4 @@
-import { readFileSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 
 import * as p from '@clack/prompts'
@@ -23,7 +23,7 @@ import {
   type SetupStep,
   type SetupStepResult,
 } from '../lib/agent-setup.js'
-import { loadSetupSkills } from '../lib/agent-skills.js'
+import { loadRetiredSetupSkills, loadSetupSkills } from '../lib/agent-skills.js'
 import { readProjectCapabilityMap, renderCapabilityMap } from '../lib/capability-map.js'
 import { warmMcpServer } from '../lib/mcp-warm.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
@@ -40,7 +40,7 @@ const COMPONENT_TITLES: Record<SetupComponent, string> = {
 
 export default class Setup extends Command {
   static override description =
-    'Set up your coding agents to build the Molecule way: registers the molecule MCP server, installs the Molecule skills, and writes the Molecule conventions, for every project on this machine or for this project only'
+    'Set up your coding agents to build the Molecule way: registers the molecule MCP server and writes the Molecule conventions (or installs the Molecule skills for an agent with no rules file), for every project on this machine or for this project only'
 
   static override examples = [
     '<%= config.bin %> setup                                   # choose where and which agents',
@@ -139,6 +139,7 @@ export default class Setup extends Command {
       components,
       env,
       skills: loadSetupSkills(join(this.config.root, 'templates')),
+      retiredSkills: loadRetiredSetupSkills(join(this.config.root, 'templates')),
     })
     const show = (path: string): string => this.displayPath(path, env)
 
@@ -198,7 +199,7 @@ export default class Setup extends Command {
       this.log(ui.warn(`\n${failed} step(s) failed; the rest are done.`))
       process.exitCode = 1
     }
-    const done = 'Restart your agents to load the Molecule tools and skills.'
+    const done = 'Restart your agents to load Molecule.'
     if (interactive) p.outro(done)
     else this.log(`\n${done}`)
   }
@@ -226,7 +227,7 @@ export default class Setup extends Command {
     return show(step.path)
   }
 
-  /** Skill steps collapse to one line per skills directory. */
+  /** Skill steps collapse to one line per skills directory (one for installs, one for removals). */
   private grouped<T extends { step: SetupStep }>(
     items: T[],
     show: (path: string) => string,
@@ -234,9 +235,9 @@ export default class Setup extends Command {
     const groups = new Map<string, { line: string; agents: string[]; items: T[] }>()
     for (const item of items) {
       const { step } = item
-      const key = step.kind === 'skill' ? `skills:${dirname(dirname(step.path))}` : `${groups.size}`
-      const line =
-        step.kind === 'skill' ? `${show(dirname(dirname(step.path)))}/` : this.describe(step, show)
+      const skill = step.kind === 'skill' || step.kind === 'retire-skill'
+      const key = skill ? `${step.kind}:${dirname(dirname(step.path))}` : `${groups.size}`
+      const line = skill ? `${show(dirname(dirname(step.path)))}/` : this.describe(step, show)
       const group = groups.get(key) ?? { line, agents: [], items: [] }
       for (const agent of step.agents) if (!group.agents.includes(agent)) group.agents.push(agent)
       group.items.push(item)
@@ -247,13 +248,23 @@ export default class Setup extends Command {
 
   private printPlan(steps: SetupStep[], show: (path: string) => string): void {
     for (const component of SETUP_COMPONENTS) {
-      const mine = steps.filter((s) => s.component === component).map((step) => ({ step }))
+      // A removal is planned only where an earlier setup left the file.
+      const mine = steps
+        .filter((s) => s.component === component)
+        .filter((s) => s.kind !== 'retire-skill' || existsSync(s.path))
+        .map((step) => ({ step }))
       if (mine.length === 0) continue
       this.log(`\n${ui.cmd(COMPONENT_TITLES[component])}`)
       for (const group of this.grouped(mine, show)) {
+        const skillNames = group.items.flatMap(({ step }) =>
+          step.kind === 'skill' || step.kind === 'retire-skill'
+            ? [step.path.split('/').at(-2)]
+            : [],
+        )
+        const retiring = group.items[0].step.kind === 'retire-skill'
         const names =
-          component === 'skills'
-            ? ` ${ui.dim(group.items.map(({ step }) => (step.kind === 'skill' ? step.path.split('/').at(-2) : '')).join(', '))}`
+          skillNames.length > 0
+            ? ` ${ui.dim(`${retiring ? 'remove unedited: ' : ''}${skillNames.join(', ')}`)}`
             : ''
         this.log(`  ${group.line}${names} ${ui.dim(`(${group.agents.join(', ')})`)}`)
       }
@@ -266,12 +277,15 @@ export default class Setup extends Command {
       updated: 'updated',
       present: 'already set up',
       kept: 'kept your edited copy',
+      removed: 'removed (setup no longer installs it)',
+      absent: '',
       manual: 'add by hand',
       note: '',
       failed: 'failed',
     }
     for (const component of SETUP_COMPONENTS) {
-      const mine = results.filter((r) => r.step.component === component)
+      // Nothing to say about an old skill that was never there.
+      const mine = results.filter((r) => r.step.component === component && r.status !== 'absent')
       if (mine.length === 0) continue
       this.log(`\n${ui.cmd(COMPONENT_TITLES[component])}`)
       for (const group of this.grouped(mine, show)) {

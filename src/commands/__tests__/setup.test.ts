@@ -26,9 +26,10 @@ const warm = vi.hoisted(() => vi.fn(async () => ({ version: '9.9.9', ms: 1234 })
 vi.mock('../../lib/mcp-warm.js', () => ({ warmMcpServer: warm }))
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
-// capability-first is not among them: every Molecule project receives it in its own .agents/skills, and outside
-// one it points at a capability map and src/bonds/ that do not exist (Codex opened it beside extend-with-packages
-// on every request, 2026-11-23).
+// The skills go only to an agent setup writes no conventions for (Cursor and Trae keep user rules in
+// their settings): the conventions say the same, and Codex opened a matching skill before every answer
+// (harness eval find, 2026-11-23). capability-first is not among them: every Molecule project receives it
+// in its own .agents/skills, and outside one it points at a capability map and src/bonds/ that do not exist.
 const SKILL_NAMES = ['build-with-molecule', 'extend-with-packages']
 
 describe('mlcl setup', () => {
@@ -79,13 +80,12 @@ describe('mlcl setup', () => {
   const read = (...parts: string[]): string => readFileSync(join(...parts), 'utf8')
   const skillsIn = (dir: string): string[] => readdirSync(dir).sort()
 
-  it('machine-wide: MCP, skills and conventions for each chosen agent, nothing in the project', async () => {
+  it('machine-wide: MCP and conventions for each chosen agent, skills for the one with no rules file', async () => {
     await run(['--yes', '--scope', 'machine', '--agent', 'claude-code,codex,cursor,kiro'])
-    // Skills: Claude Code's own folder, the shared ~/.agents folder (Codex,
-    // Cursor), and Kiro's.
-    expect(skillsIn(join(home, '.claude', 'skills'))).toEqual(SKILL_NAMES)
+    // Skills: only Cursor's, in the ~/.agents folder it shares with Codex.
+    expect(existsSync(join(home, '.claude', 'skills'))).toBe(false)
     expect(skillsIn(join(home, '.agents', 'skills'))).toEqual(SKILL_NAMES)
-    expect(skillsIn(join(home, '.kiro', 'skills'))).toEqual(SKILL_NAMES)
+    expect(existsSync(join(home, '.kiro', 'skills'))).toBe(false)
     expect(read(home, '.agents', 'skills', 'extend-with-packages', 'SKILL.md')).toBe(
       read(MLCL_ROOT, 'templates', 'host-skills', 'extend-with-packages', 'SKILL.md'),
     )
@@ -114,9 +114,9 @@ describe('mlcl setup', () => {
       args: ['-y', 'molecule-mcp'],
       tools: ['*'],
     })
-    expect(skillsIn(join(project, '.claude', 'skills'))).toEqual(SKILL_NAMES)
-    expect(skillsIn(join(project, '.github', 'skills'))).toEqual(SKILL_NAMES)
-    expect(skillsIn(join(project, '.agents', 'skills'))).toEqual(SKILL_NAMES)
+    // Every one of them reads a conventions file, so no skill is written.
+    for (const dir of ['.claude', '.github', '.agents'])
+      expect(existsSync(join(project, dir, 'skills')), dir).toBe(false)
     expect(read(project, 'AGENTS.md')).toContain('## Molecule')
     expect(read(project, 'GEMINI.md')).toContain('## Molecule')
     expect(read(project, 'CLAUDE.md')).toBe('@AGENTS.md\n')
@@ -131,10 +131,10 @@ describe('mlcl setup', () => {
     expect(out).toContain('CLAUDE.md (imports AGENTS.md)')
   })
 
-  it('every project: Zed, Crush, Cline, Junie and Goose get the skills and their rules files (OLD MUSTFAIL)', async () => {
+  it('every project: Zed, Crush, Cline, Junie and Goose get their rules files (OLD MUSTFAIL)', async () => {
     await run(['--yes', '--scope', 'machine', '--agent', 'zed,crush,cline,junie,goose,continue'])
-    expect(skillsIn(join(home, '.agents', 'skills'))).toEqual(SKILL_NAMES)
-    expect(skillsIn(join(home, '.continue', 'skills'))).toEqual(SKILL_NAMES)
+    expect(existsSync(join(home, '.agents', 'skills'))).toBe(false)
+    expect(existsSync(join(home, '.continue', 'skills'))).toBe(false)
     for (const path of [
       ['.config', 'zed', 'AGENTS.md'],
       ['.config', 'crush', 'CRUSH.md'],
@@ -166,7 +166,8 @@ describe('mlcl setup', () => {
 
   it('--dry-run lists the plan and writes nothing', async () => {
     const out = await run(['--dry-run', '--agent', 'claude-code,cursor'])
-    expect(out).toContain('~/.claude/skills/')
+    expect(out).toContain('~/.agents/skills/')
+    expect(out).not.toContain('~/.claude/skills/')
     expect(out).toContain('~/.cursor/mcp.json')
     expect(out).toContain('Dry run')
     expect(readdirSync(home)).toEqual([])
@@ -179,16 +180,57 @@ describe('mlcl setup', () => {
   })
 
   it('a re-run changes nothing; an edited skill is kept until --force', async () => {
-    await run(['--yes', '--agent', 'codex'])
+    await run(['--yes', '--agent', 'cursor'])
     const skill = join(home, '.agents', 'skills', 'extend-with-packages', 'SKILL.md')
-    const toml = read(home, '.codex', 'config.toml')
+    const mcp = read(home, '.cursor', 'mcp.json')
     writeFileSync(skill, 'my edits\n')
-    const again = await run(['--yes', '--agent', 'codex'])
+    const again = await run(['--yes', '--agent', 'cursor'])
     expect(again).toContain('kept your edited copy')
     expect(read(skill)).toBe('my edits\n')
-    expect(read(home, '.codex', 'config.toml')).toBe(toml)
-    await run(['--yes', '--agent', 'codex', '--force'])
+    expect(read(home, '.cursor', 'mcp.json')).toBe(mcp)
+    await run(['--yes', '--agent', 'cursor', '--force'])
     expect(read(skill)).toContain('name: extend-with-packages')
+  })
+
+  it('gives Claude Code the skills when the conventions are left out', async () => {
+    await run(['--yes', '--agent', 'claude-code', '--skip', 'mcp,instructions'])
+    expect(skillsIn(join(home, '.claude', 'skills'))).toEqual(SKILL_NAMES)
+    expect(read(home, '.claude', 'skills', 'extend-with-packages', 'SKILL.md')).toBe(
+      read(MLCL_ROOT, 'templates', 'host-skills', 'extend-with-packages', 'SKILL.md'),
+    )
+  })
+
+  it('removes the skills an earlier setup installed once the conventions carry them (OLD MUSTFAIL)', async () => {
+    // An earlier setup wrote these three; the user edited one of them.
+    const skills = join(home, '.claude', 'skills')
+    const earlier: Record<string, string> = {
+      'extend-with-packages': read(
+        MLCL_ROOT,
+        'templates',
+        'host-skills',
+        'extend-with-packages',
+        'SKILL.md',
+      ),
+      'capability-first': read(
+        MLCL_ROOT,
+        'templates',
+        '.agents',
+        'skills',
+        'capability-first',
+        'SKILL.md',
+      ),
+      'build-with-molecule': 'my edits\n',
+    }
+    for (const [name, text] of Object.entries(earlier)) {
+      mkdirSync(join(skills, name), { recursive: true })
+      writeFileSync(join(skills, name, 'SKILL.md'), text)
+    }
+    const out = await run(['--yes', '--agent', 'claude-code', '--skip', 'mcp'])
+    expect(skillsIn(skills)).toEqual(['build-with-molecule'])
+    expect(read(skills, 'build-with-molecule', 'SKILL.md')).toBe('my edits\n')
+    expect(out).toContain('removed (setup no longer installs it)')
+    expect(out).toContain('kept your edited copy')
+    expect(read(home, '.claude', 'CLAUDE.md')).toContain('## Molecule')
   })
 
   it('prints the steps for an agent it cannot configure by file', async () => {
