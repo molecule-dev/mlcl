@@ -32,7 +32,7 @@ export const CHECK_STEP_KINDS = ['typecheck', 'lint', 'build', 'unit', 'e2e'] as
 
 /**
  * The steps a check with no `steps` runs: the quick pass after an edit. The tests take minutes
- * (a first e2e run downloads a browser), so they run when asked for (`--steps unit,e2e`), as the
+ * (a machine's first e2e run installs its Playwright browser), so they run when asked for (`--steps unit,e2e`), as the
  * Molecule harness's `check` tool leaves them to its test runner.
  */
 export const DEFAULT_CHECK_STEPS = ['typecheck', 'lint', 'build'] as const
@@ -667,13 +667,73 @@ export function formatCheckReport(results: readonly CheckStepResult[], totalMs: 
 }
 
 /**
- * Run one planned step locally and shape its result.
+ * The `playwright install` arguments for the browsers a failed Playwright run reports missing
+ * (`Executable doesn't exist at …/ms-playwright/chromium_headless_shell-1248/…`), or null when it
+ * failed for another reason. A machine's first e2e run has no browser.
+ *
+ * @param log - The run's output.
+ * @returns The install arguments, or null.
+ */
+export function missingPlaywrightBrowsers(log: string): string[] | null {
+  const missing = new Set(
+    [...log.matchAll(/Executable doesn't exist at \S*?ms-playwright[\\/]([a-z_]+)-\d+[\\/]/g)].map(
+      (m) => m[1],
+    ),
+  )
+  const others = ['firefox', 'webkit', 'ffmpeg'].filter((name) => missing.has(name))
+  if (missing.has('chromium')) return ['chromium', ...others]
+  // Headless runs launch Chromium's headless shell alone.
+  if (missing.has('chromium_headless_shell')) return ['--only-shell', 'chromium', ...others]
+  return others.length > 0 ? others : null
+}
+
+/**
+ * Run one planned step locally and shape its result. An e2e step that fails only because its
+ * Playwright browser is not installed installs that browser and runs once more.
  *
  * @param root - The check root (display paths).
  * @param step - The step.
  * @returns Its result (never throws).
  */
 async function runStep(
+  root: string,
+  step: PlannedCheckStep,
+  signal: AbortSignal,
+): Promise<CheckStepResult> {
+  const first = await runStepOnce(root, step, signal)
+  if (step.kind !== 'e2e' || first.status !== 'failed' || !step.command.includes('playwright'))
+    return first
+  const install = missingPlaywrightBrowsers(readLog(step.logPath))
+  if (!install) return first
+  try {
+    await execCheckCommand(
+      { ...step, command: `npx --no-install playwright install ${install.join(' ')}` },
+      signal,
+    )
+  } catch (_error) {
+    // The install failed (offline, no permission): the first run's report says what is missing.
+    return first
+  }
+  const again = await runStepOnce(root, step, signal)
+  const note = `installed the Playwright browser first (${install.filter((a) => !a.startsWith('-')).join(', ')})`
+  return {
+    ...again,
+    durationMs: again.durationMs + first.durationMs,
+    summary: again.summary ? `${note}, ${again.summary}` : note,
+  }
+}
+
+/** A step's full log, or '' when it was not written. */
+function readLog(path: string): string {
+  try {
+    return readFileSync(path, 'utf8')
+  } catch (_error) {
+    // Never written (the step did not spawn): nothing to read.
+    return ''
+  }
+}
+
+async function runStepOnce(
   root: string,
   step: PlannedCheckStep,
   signal: AbortSignal,

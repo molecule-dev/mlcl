@@ -1,5 +1,13 @@
 import { execFileSync } from 'node:child_process'
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, symlinkSync, writeFileSync } from 'node:fs'
+import {
+  existsSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  symlinkSync,
+  writeFileSync,
+} from 'node:fs'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
 import { dirname, join } from 'node:path'
@@ -12,6 +20,7 @@ import {
   discoverPackages,
   extractStepErrors,
   formatCheckReport,
+  missingPlaywrightBrowsers,
   planCheckSteps,
   runCheckLocal,
 } from '../check.js'
@@ -281,9 +290,73 @@ describe('runCheckLocal', () => {
     expect(result.results.map((r) => r.kind)).toContain('e2e')
   })
 
+  /** A project whose `playwright` fails like a real one with no browser until `playwright install` runs. */
+  function playwrightProject(failure: string): string {
+    const root = fixtureDir({
+      'package.json': JSON.stringify({ name: 'e2e-fixture' }),
+      'playwright.config.ts': 'export default {}\n',
+      'node_modules/.bin/playwright': [
+        '#!/bin/sh',
+        'if [ "$1" = install ]; then shift; echo "$*" >> installed.txt; exit 0; fi',
+        'if [ -f installed.txt ]; then echo "  2 passed (1.0s)"; exit 0; fi',
+        'cat <<"EOF"',
+        failure,
+        'EOF',
+        'exit 1',
+        '',
+      ].join('\n'),
+    })
+    execFileSync('chmod', ['+x', join(root, 'node_modules', '.bin', 'playwright')])
+    return root
+  }
+
+  it('installs the browser a first e2e run reports missing, then runs it again', async () => {
+    // A fresh machine has no Playwright browser: the run fails with this line, and an agent read it,
+    // installed Chromium by hand and ran the step a second time (harness eval, 2026-11-23).
+    const root = playwrightProject(
+      "  1) [chromium] › e2e/smoke.spec.ts:27 › renders — Error: browserType.launch: Executable doesn't exist at /home/u/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell",
+    )
+    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    const [e2e] = result.results
+    expect(e2e.status).toBe('passed')
+    expect(readFileSync(join(root, 'installed.txt'), 'utf8')).toBe('--only-shell chromium\n')
+    expect(e2e.summary).toContain('installed the Playwright browser first (chromium)')
+  })
+
+  it('leaves an e2e run that failed for another reason alone', async () => {
+    const root = playwrightProject(
+      '  1) [chromium] › e2e/smoke.spec.ts:27 › renders — Error: expect(received).toBe(expected)',
+    )
+    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    expect(result.results[0].status).toBe('failed')
+    expect(existsSync(join(root, 'installed.txt'))).toBe(false)
+  })
+
   it('rejects unknown step names before running anything', async () => {
     const result = await runCheckLocal(process.cwd(), { steps: ['nope' as never] })
     expect('error' in result && result.error).toContain('Unknown step(s): nope')
+  })
+})
+
+describe('missingPlaywrightBrowsers', () => {
+  const missing = (dir: string): string =>
+    `Error: browserType.launch: Executable doesn't exist at /h/.cache/ms-playwright/${dir}/chrome`
+  it('installs only what the run could not launch', () => {
+    expect(missingPlaywrightBrowsers(missing('chromium_headless_shell-1248/x'))).toEqual([
+      '--only-shell',
+      'chromium',
+    ])
+    expect(missingPlaywrightBrowsers(missing('chromium-1248/x'))).toEqual(['chromium'])
+    expect(
+      missingPlaywrightBrowsers(
+        `${missing('chromium_headless_shell-1248/x')}\n${missing('firefox-1500/x')}`,
+      ),
+    ).toEqual(['--only-shell', 'chromium', 'firefox'])
+  })
+  it('returns null for any other failure', () => {
+    expect(missingPlaywrightBrowsers('Error: expect(received).toBe(expected)')).toBeNull()
   })
 })
 
