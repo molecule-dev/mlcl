@@ -607,12 +607,15 @@ describe('Framework-specific patterns', () => {
     // Kit's base path (or `#` under hash routing) reaches the router as the root href.
     expect(layout).toContain("rootHref: resolve('/')")
     // The molecule Router over SvelteKit's navigation is built in the layout
-    // (afterNavigate must run during component initialisation); in-app
+    // (it watches kit's page from the component that builds it); in-app
     // navigation routes through it, exactly as the React scaffold's
     // BrowserRouter does.
     expect(layout).toContain("from '$app/navigation'")
     expect(layout).toContain('createSvelteKitRouter(')
     expect(layout).toContain('createSvelteKitNavigation(')
+    // app-routing-sveltekit 3 reads kit's `navigating` state; it no longer takes `afterNavigate`.
+    expect(layout).toContain('createSvelteKitNavigation({ goto, page, navigating, rootHref')
+    expect(layout).not.toContain('afterNavigate')
   })
 
   it('Solid uses @solidjs/router for routing', async () => {

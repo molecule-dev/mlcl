@@ -2,9 +2,9 @@
   import '../index.css'
   import '../theme.css'
   import { authClient, i18nProvider, themeProvider } from '#lib/bonds/index.js'
-  import { afterNavigate, goto } from '$app/navigation'
+  import { goto } from '$app/navigation'
   import { resolve } from '$app/paths'
-  import { page } from '$app/state'
+  import { navigating, page } from '$app/state'
   import type { Snippet } from 'svelte'
 
   import { getClient as getHttpClient } from '@molecule/app-http'
@@ -20,10 +20,10 @@
   // One molecule Router over SvelteKit's navigation: `useRouter()` from
   // @molecule/app-svelte and every molecule package that calls `getRouter()`
   // navigate through it (SPA navigation, the entry's state kept), as React's
-  // `BrowserRouter` does. `afterNavigate` must run during component
-  // initialisation, which is why it is built here, in the root layout, once.
+  // `BrowserRouter` does. The navigation watches kit's `page` from the component
+  // that builds it, which is why it is built here, in the root layout, once.
   const router = createSvelteKitRouter(
-    createSvelteKitNavigation({ goto, page, afterNavigate, rootHref: resolve('/') }),
+    createSvelteKitNavigation({ goto, page, navigating, rootHref: resolve('/') }),
   )
   setRouter(router)
 
