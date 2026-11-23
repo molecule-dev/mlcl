@@ -17,7 +17,13 @@ import { createHash } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-import { checkLogDir, type CheckStepKind, runCheckLocal } from './check.js'
+import {
+  type CheckInput,
+  checkLogDir,
+  type CheckStepKind,
+  runCheckLocal,
+  selectedCheckSteps,
+} from './check.js'
 
 /** The harnesses whose stop hook `mlcl check --stop-hook` answers. */
 export const STOP_HOOK_HARNESSES = ['claude', 'codex', 'cursor'] as const
@@ -224,6 +230,34 @@ export function stopHookReason(report: string): string {
 export function stopHookOutput(harness: StopHookHarness, reason: string): string {
   if (harness === 'cursor') return JSON.stringify({ followup_message: reason })
   return JSON.stringify({ decision: 'block', reason })
+}
+
+/**
+ * Run a check the agent asked for (`mlcl check`, which the MCP `check_project` tool runs too) and,
+ * when it ran every step the hook runs and passed, record it as the hook's last pass, so a stop on
+ * the unchanged tree checks nothing. In the 2026-11-23 check eval, both agents ended on a passing
+ * `mlcl check`, and the Stop hook then ran typecheck and lint again.
+ *
+ * @param root - The project root.
+ * @param input - The check's steps and e2e filter, as {@link runCheckLocal} takes them.
+ * @param options - Passed to {@link runCheckLocal}.
+ * @returns What {@link runCheckLocal} returns.
+ */
+export async function runRecordedCheck(
+  root: string,
+  input: CheckInput,
+  options: Parameters<typeof runCheckLocal>[2] = {},
+): ReturnType<typeof runCheckLocal> {
+  const selected = selectedCheckSteps(input)
+  const covers =
+    'steps' in selected && STOP_HOOK_STEPS.every((step) => selected.steps.includes(step))
+  // Taken before the run, as the hook takes it: a file changed while the check ran is checked
+  // at the next stop.
+  const fingerprint = covers ? treeFingerprint(root) : null
+  const result = await runCheckLocal(root, input, options)
+  if (fingerprint !== null && !('error' in result) && result.ok)
+    writeStopHookState(root, { passed: fingerprint, blocks: readStopHookState(root).blocks })
+  return result
 }
 
 /**

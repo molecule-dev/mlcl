@@ -22,6 +22,7 @@ import { afterEach, describe, expect, it } from 'vitest'
 import {
   parseStopHookInput,
   readHookInput,
+  runRecordedCheck,
   runStopHook,
   STOP_HOOK_MAX_BLOCKS,
   stopHookOutput,
@@ -116,6 +117,36 @@ describe('runStopHook', () => {
     }
     expect(answer.followup_message).toContain('TS2322')
     expect(parseStopHookInput(stop(2))).toEqual({ sessionId: 'c1', continuing: true })
+  })
+
+  it("skips the stop after the agent's own passing check of the same tree", async () => {
+    const { root, runs } = project()
+    writeFileSync(join(root, 'src', 'a.ts'), 'const a: number = 1\n')
+    const own = await runRecordedCheck(root, {})
+    expect('ok' in own && own.ok).toBe(true)
+    expect(runs()).toBe(1)
+    expect(await runStopHook(root, 'claude', claudeStop(false))).toBeNull()
+    expect(runs()).toBe(1)
+    // A file changed after the agent's check is checked at the stop.
+    writeFileSync(join(root, 'src', 'a.ts'), "const a: number = 'bad'\n")
+    expect(await runStopHook(root, 'claude', claudeStop(false))).not.toBeNull()
+    expect(runs()).toBe(2)
+  })
+
+  it('still checks at the stop after an own check that skipped a hook step or failed', async () => {
+    const { root, runs } = project()
+    writeFileSync(join(root, 'src', 'a.ts'), 'const a: number = 1\n')
+    // Lint alone does not cover the hook's typecheck.
+    await runRecordedCheck(root, { steps: 'lint' })
+    expect(runs()).toBe(0)
+    expect(await runStopHook(root, 'claude', claudeStop(false))).toBeNull()
+    expect(runs()).toBe(1)
+
+    const failing = project()
+    const own = await runRecordedCheck(failing.root, { steps: ['typecheck', 'lint'] })
+    expect('ok' in own && own.ok).toBe(false)
+    expect(await runStopHook(failing.root, 'claude', claudeStop(false))).not.toBeNull()
+    expect(failing.runs()).toBe(2)
   })
 
   it('lets the agent stop before the dependencies are installed', async () => {

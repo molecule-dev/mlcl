@@ -850,6 +850,37 @@ export interface CheckInput {
   e2e?: unknown
 }
 
+/**
+ * The steps a check input selects: the ones it names, or {@link DEFAULT_CHECK_STEPS} (plus e2e when
+ * it gives an e2e filter) when it names none.
+ *
+ * @param input - `steps` (an array, or a comma- or space-separated string) and `e2e`.
+ * @returns The steps, or the refusal naming what is not a step.
+ */
+export function selectedCheckSteps(
+  input: CheckInput,
+): { steps: CheckStepKind[] } | { error: string } {
+  const rawSteps = Array.isArray(input.steps)
+    ? input.steps
+    : typeof input.steps === 'string'
+      ? input.steps.split(/[\s,]+/).filter(Boolean)
+      : []
+  const unknown = rawSteps.filter(
+    (s) => typeof s !== 'string' || !(CHECK_STEP_KINDS as readonly string[]).includes(s),
+  )
+  if (unknown.length > 0) {
+    return {
+      error: `Unknown step(s): ${unknown.map(String).join(', ')}. Valid steps: ${CHECK_STEP_KINDS.join(', ')}.`,
+    }
+  }
+  const e2e = typeof input.e2e === 'string' ? input.e2e : undefined
+  return {
+    steps: rawSteps.length
+      ? (rawSteps as CheckStepKind[])
+      : [...DEFAULT_CHECK_STEPS, ...(e2e ? (['e2e'] as const) : [])],
+  }
+}
+
 /** A step starting, or finishing with its result, as {@link runCheckLocal} reports it. */
 export type CheckProgress =
   | { type: 'start'; step: PlannedCheckStep }
@@ -873,23 +904,10 @@ export async function runCheckLocal(
 ): Promise<{ ok: boolean; report: string; results: CheckStepResult[] } | { error: string }> {
   const started = Date.now()
   const budgetMs = options.budgetMs ?? 15 * 60_000
-  const rawSteps = Array.isArray(input.steps)
-    ? input.steps
-    : typeof input.steps === 'string'
-      ? input.steps.split(/[\s,]+/)
-      : []
-  const unknown = rawSteps.filter(
-    (s) => typeof s !== 'string' || !(CHECK_STEP_KINDS as readonly string[]).includes(s),
-  )
-  if (unknown.length > 0) {
-    return {
-      error: `Unknown step(s): ${unknown.map(String).join(', ')}. Valid steps: ${CHECK_STEP_KINDS.join(', ')}.`,
-    }
-  }
+  const selected = selectedCheckSteps(input)
+  if ('error' in selected) return selected
+  const { steps } = selected
   const e2e = typeof input.e2e === 'string' ? input.e2e : undefined
-  const steps: CheckStepKind[] = rawSteps.length
-    ? (rawSteps as CheckStepKind[])
-    : [...DEFAULT_CHECK_STEPS, ...(e2e ? (['e2e'] as const) : [])]
 
   const packages = discoverPackages(root)
   if (packages.length === 0) {

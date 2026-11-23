@@ -1,13 +1,9 @@
 import { Command, Flags } from '@oclif/core'
 
-import {
-  CHECK_STEP_KINDS,
-  type CheckProgress,
-  DEFAULT_CHECK_STEPS,
-  runCheckLocal,
-} from '../lib/check.js'
+import { CHECK_STEP_KINDS, type CheckProgress, DEFAULT_CHECK_STEPS } from '../lib/check.js'
 import {
   readHookInput,
+  runRecordedCheck,
   runStopHook,
   STOP_HOOK_HARNESSES,
   type StopHookHarness,
@@ -72,7 +68,9 @@ export default class Check extends Command {
       }
     }
     const result = await withHeartbeat(
-      () => runCheckLocal(root, { steps: flags.steps, e2e: flags.e2e }, { onProgress: progress }),
+      // A pass of every step the Stop hook runs is recorded, so the stop that follows skips it.
+      () =>
+        runRecordedCheck(root, { steps: flags.steps, e2e: flags.e2e }, { onProgress: progress }),
       (elapsed) => {
         if (running.size)
           process.stderr.write(`check: still running ${[...running].join(', ')} (${elapsed}s)\n`)
