@@ -583,7 +583,7 @@ export default class Create extends Command {
           projectType: flags.type ?? 'full-stack',
           framework: flags.framework ?? templateFramework,
         })
-        writeStopHooks(projectPath, this.config.version)
+        writeStopHooks(projectPath)
         await ensureAgentsMd(projectPath)
         await ensureRootNpmrc(projectPath)
         await ensureReadmeMd(projectPath, projectName, flags.type ?? 'full-stack', flags.framework)
@@ -1169,7 +1169,7 @@ export default class Create extends Command {
       const { ensureAgentSkills, ensureRootNpmrc, ensureReadmeMd, stampMoleculeMetadata } =
         await import('../lib/scaffold.js')
       await ensureAgentSkills(projectPath, { projectType, framework })
-      writeStopHooks(projectPath, this.config.version)
+      writeStopHooks(projectPath)
       await ensureRootNpmrc(projectPath)
       await ensureReadmeMd(projectPath, projectName, projectType, framework)
       await stampMoleculeMetadata(projectPath)

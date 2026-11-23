@@ -9,8 +9,13 @@
  *   it (`/hooks`); until then neither the TUI nor `codex exec` runs it.
  * - Cursor: `.cursor/hooks.json`, in any trusted workspace.
  *
- * The command names the mlcl version that scaffolded the project, so the check a project runs does
- * not change under it. A file that already exists is left as it is.
+ * The command is `npx --yes mlcl`, spelled as every doc and skill spells it, so it runs the CLI the
+ * agent's own `npx mlcl` already cached. npx keys its cache by the spec string: the hook used to name
+ * the scaffolding version (`mlcl@<version>`), and its first run downloaded the whole CLI again
+ * inside the hook (about 90 s in the 2026-11-23 scaffold eval, after the agent had finished). The
+ * check is the project's own type-check and lint, so a newer mlcl runs the same tools.
+ *
+ * A file that already exists is left as it is.
  *
  * @module
  */
@@ -23,17 +28,18 @@ import { STOP_HOOK_MAX_BLOCKS } from './check-stop-hook.js'
 /** Seconds a harness waits for the hook: the check's own budget, plus `npx` resolving mlcl. */
 const HOOK_TIMEOUT_SECONDS = 360
 
+/** The command each hook runs, before the harness name. */
+export const STOP_HOOK_COMMAND = 'npx --yes mlcl check --stop-hook'
+
 /**
  * The hook files for a project, by path relative to its root.
  *
- * @param cliVersion - The mlcl version the hooks run.
  * @param claudeDir - Where `.claude` resolves to, relative to the root (`.agents` through the
  *   scaffold's link, or the user's own `.claude`).
  * @returns The files' JSON text.
  */
-export function stopHookFiles(cliVersion: string, claudeDir: string): Record<string, string> {
-  const check = (harness: string): string =>
-    `npx --yes mlcl@${cliVersion} check --stop-hook ${harness}`
+export function stopHookFiles(claudeDir: string): Record<string, string> {
+  const check = (harness: string): string => `${STOP_HOOK_COMMAND} ${harness}`
   const json = (value: unknown): string => `${JSON.stringify(value, null, 2)}\n`
   return {
     [join(claudeDir, 'settings.json')]: json({
@@ -89,13 +95,12 @@ export function stopHookFiles(cliVersion: string, claudeDir: string): Record<str
  * `.claude` resolves to; with no `.claude` (the link was refused) there is none.
  *
  * @param projectRoot - The project root.
- * @param cliVersion - The mlcl version the hooks run.
  * @returns The paths written, relative to the root.
  */
-export function writeStopHooks(projectRoot: string, cliVersion: string): string[] {
+export function writeStopHooks(projectRoot: string): string[] {
   const claudeDir = claudeSettingsDir(projectRoot)
   const written: string[] = []
-  for (const [path, text] of Object.entries(stopHookFiles(cliVersion, claudeDir ?? '.claude'))) {
+  for (const [path, text] of Object.entries(stopHookFiles(claudeDir ?? '.claude'))) {
     if (claudeDir === null && path.startsWith('.claude')) continue
     const target = join(projectRoot, path)
     if (existsSync(target)) continue

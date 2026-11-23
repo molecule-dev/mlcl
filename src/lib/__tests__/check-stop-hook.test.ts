@@ -147,18 +147,23 @@ describe('writeStopHooks', () => {
     const root = temp('mlcl-stop-hooks-')
     mkdirSync(join(root, '.agents'))
     symlinkSync('.agents', join(root, '.claude'), 'dir')
-    expect(writeStopHooks(root, '9.9.9').sort()).toEqual([
+    expect(writeStopHooks(root).sort()).toEqual([
       '.agents/settings.json',
       '.codex/hooks.json',
       '.cursor/hooks.json',
     ])
     const claude = JSON.parse(readFileSync(join(root, '.claude', 'settings.json'), 'utf8'))
+    // The bare spec the agent's own `npx mlcl` uses: npx keys its cache by the spec string, and
+    // `mlcl@<version>` downloaded the whole CLI a second time inside the hook.
     expect(claude.hooks.Stop[0].hooks[0].command).toBe(
-      'cd "$CLAUDE_PROJECT_DIR" && npx --yes mlcl@9.9.9 check --stop-hook claude',
+      'cd "$CLAUDE_PROJECT_DIR" && npx --yes mlcl check --stop-hook claude',
     )
     const codex = JSON.parse(readFileSync(join(root, '.codex', 'hooks.json'), 'utf8'))
-    expect(codex.hooks.Stop[0].hooks[0].command).toContain('check --stop-hook codex')
+    expect(codex.hooks.Stop[0].hooks[0].command).toMatch(
+      / && npx --yes mlcl check --stop-hook codex$/,
+    )
     const cursor = JSON.parse(readFileSync(join(root, '.cursor', 'hooks.json'), 'utf8'))
+    expect(cursor.hooks.stop[0].command).toBe('npx --yes mlcl check --stop-hook cursor')
     expect(cursor).toMatchObject({
       version: 1,
       hooks: { stop: [{ loop_limit: STOP_HOOK_MAX_BLOCKS }] },
@@ -170,21 +175,15 @@ describe('writeStopHooks', () => {
     mkdirSync(join(own, '.claude'))
     mkdirSync(join(own, '.cursor'))
     writeFileSync(join(own, '.cursor', 'hooks.json'), '{"mine":true}\n')
-    expect(writeStopHooks(own, '9.9.9').sort()).toEqual([
-      '.claude/settings.json',
-      '.codex/hooks.json',
-    ])
+    expect(writeStopHooks(own).sort()).toEqual(['.claude/settings.json', '.codex/hooks.json'])
     expect(readFileSync(join(own, '.cursor', 'hooks.json'), 'utf8')).toBe('{"mine":true}\n')
 
     const bare = temp('mlcl-stop-hooks-bare-')
-    expect(writeStopHooks(bare, '9.9.9').sort()).toEqual([
-      '.codex/hooks.json',
-      '.cursor/hooks.json',
-    ])
+    expect(writeStopHooks(bare).sort()).toEqual(['.codex/hooks.json', '.cursor/hooks.json'])
   })
 
   it('names one hook file per harness', () => {
-    expect(Object.keys(stopHookFiles('1.0.0', '.agents')).sort()).toEqual([
+    expect(Object.keys(stopHookFiles('.agents')).sort()).toEqual([
       '.agents/settings.json',
       '.codex/hooks.json',
       '.cursor/hooks.json',
