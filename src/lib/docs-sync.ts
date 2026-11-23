@@ -213,6 +213,28 @@ export function discoverReexporters(
   return byTarget
 }
 
+/** A `@molecule/<name>` mention: not a glob (`@molecule/api-*`) or a placeholder (`@molecule/{stack}-x`). */
+const PACKAGE_MENTION = /@molecule\/([a-z0-9][a-z0-9-]*[a-z0-9])(?![a-z0-9-]|\*|\/\*)/g
+
+/**
+ * The `@molecule/<name>` mentions in a README that name no package in the docs registry, sorted.
+ * A reader, most often an agent, runs `mlcl docs` or `npm install` on each name it is shown, so a
+ * name that does not exist costs it a failed command and a search (harness eval `add`, 2026-11-23:
+ * Codex ran `npx mlcl docs @molecule/utilities-files` after body-parser-express named it).
+ *
+ * @param md - Generated README text.
+ * @param known - Every documented package name (`documentedRegistry(registry).packages`).
+ * @returns The names that are not packages.
+ */
+export function unknownPackageMentions(md: string, known: ReadonlySet<string>): string[] {
+  const unknown = new Set<string>()
+  for (const match of md.matchAll(PACKAGE_MENTION)) {
+    const name = `@molecule/${match[1]}`
+    if (!known.has(name)) unknown.add(name)
+  }
+  return [...unknown].sort()
+}
+
 /**
  * Generate README.md content for the given packages (every registry package
  * when `packageNames` is omitted). Pure generation — callers decide whether to
@@ -231,6 +253,8 @@ export function discoverReexporters(
  * @param moleculeDir - Absolute path to the molecule repo root
  * @param packageNames - Optional package-name scope; omit for the whole fleet
  * @returns Generated docs in registry order
+ * @throws {Error} When a generated README names a `@molecule/*` package the registry does not have
+ *   (`unknownPackageMentions`): every such README and name, with the fix.
  */
 export async function generateDocs(
   registry: Registry,
@@ -290,6 +314,7 @@ export async function generateDocs(
   }
 
   const docs: GeneratedDoc[] = []
+  const misnamed: string[] = []
 
   for (const [name, entry] of entries) {
     const pkgDir = join(moleculeDir, entry.path)
@@ -334,6 +359,9 @@ export async function generateDocs(
       knownPackages,
     })
 
+    const unknown = unknownPackageMentions(md, knownPackages)
+    if (unknown.length) misnamed.push(`  ${entry.path}/README.md (${name}): ${unknown.join(', ')}`)
+
     const readmePath = join(pkgDir, 'README.md')
     docs.push({
       name,
@@ -342,6 +370,16 @@ export async function generateDocs(
       md: await formatGeneratedMarkdown(md, readmePath),
     })
   }
+
+  if (misnamed.length)
+    throw new Error(
+      [
+        'These READMEs name @molecule packages that registry.json does not have:',
+        ...misnamed,
+        'Use the real name (`mlcl search <capability>` finds it) in the package JSDoc or registry description,',
+        'or describe the thing without a package name. A package added in this change needs its registry entry.',
+      ].join('\n'),
+    )
 
   return docs
 }

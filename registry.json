@@ -12198,7 +12198,7 @@
       "type": "locales",
       "category": "i18n",
       "label": "AI Anthropic Translations",
-      "description": "Translations for @molecule/api-bond-ai-anthropic in 79 languages",
+      "description": "Translations for @molecule/api-ai-anthropic in 79 languages",
       "stack": "api",
       "exports": [
         "AiAnthropicTranslationKey",
