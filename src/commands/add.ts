@@ -6,6 +6,7 @@ import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { afterAddGuidance } from '../lib/add-guidance.js'
 import { AUTH_PRECONFIGURATION_GUIDANCE } from '../lib/auth-contract.js'
 import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
@@ -261,11 +262,7 @@ export default class Add extends Command {
           workDir,
           ...(flags['no-install'] ? ['--no-install'] : []),
         ])
-        this.log(
-          t('commands.add.messages.readDocs', {
-            command: chalk.cyan(`npx mlcl docs ${moleculeName}`),
-          }),
-        )
+        for (const line of afterAddGuidance(moleculeName)) this.log(line)
         return
       }
 
@@ -294,11 +291,7 @@ export default class Add extends Command {
           `  ${t('commands.add.messages.stepInject', { num: 1, command: chalk.cyan('mlcl inject') })}`,
         )
       }
-      this.log(
-        t('commands.add.messages.readDocs', {
-          command: chalk.cyan(`npx mlcl docs ${moleculeName}`),
-        }),
-      )
+      for (const line of afterAddGuidance(moleculeName)) this.log(line)
     } catch (error) {
       spinner.stop(t('commands.add.spinners.addFailed'))
       throw error

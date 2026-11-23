@@ -46,6 +46,9 @@ export const messages: LocaleMessages = {
   'commands.add.messages.stepInstall': '1. Run {command}',
   'commands.add.messages.stepInject': '{num}. Run {command} to apply the molecule',
   'commands.add.messages.readDocs': 'Read its API before using it: {command}',
+  'commands.add.messages.useCore': 'Your code calls it through {core}. Read that API: {command}',
+  'commands.add.messages.envVars': 'It reads these environment variables: {names}',
+  'commands.add.messages.envVarOptional': '{name} (optional)',
 
   // ─── commands/create ────────────────────────────────────────────
   'commands.create.description': 'Create a new project',
