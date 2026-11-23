@@ -35,6 +35,8 @@ export interface CliCommand {
   prefix: string[]
   /** Where the command came from, for messages. */
   source: 'override' | 'path' | 'npx'
+  /** The file a bare `file` name resolves to on PATH (`source: 'path'`). */
+  path?: string
 }
 
 /**
@@ -78,21 +80,21 @@ const defaultDeps: CliResolverDeps = {
 }
 
 /**
- * Whether an executable named `name` is in one of the PATH directories.
+ * The first executable named `name` in the PATH directories.
  *
  * @param name - The program name.
  * @param deps - The environment to read.
- * @returns True when a PATH entry holds it.
+ * @returns Its path, or undefined when no PATH entry holds it.
  */
-function onPath(name: string, deps: CliResolverDeps): boolean {
+function findOnPath(name: string, deps: CliResolverDeps): string | undefined {
   const windows = deps.platform === 'win32'
   const { delimiter, join } = windows ? win32 : posix
   const names = windows ? [`${name}.cmd`, `${name}.exe`, name] : [name]
   // Windows spells the variable `Path`; Node's process.env reads it case-insensitively, a plain object does not.
-  return (deps.env.PATH ?? deps.env.Path ?? '')
-    .split(delimiter)
-    .filter(Boolean)
-    .some((dir) => names.some((candidate) => deps.exists(join(dir, candidate))))
+  for (const dir of (deps.env.PATH ?? deps.env.Path ?? '').split(delimiter).filter(Boolean))
+    for (const candidate of names)
+      if (deps.exists(join(dir, candidate))) return join(dir, candidate)
+  return undefined
 }
 
 /**
@@ -111,7 +113,8 @@ export function createCliResolver(deps: CliResolverDeps = defaultDeps): {
   const resolve = async (): Promise<CliCommand> => {
     const override = deps.env.MOLECULE_MCP_CLI
     if (override) return { file: override, prefix: [], source: 'override' }
-    if (onPath('mlcl', deps)) return { file: 'mlcl', prefix: [], source: 'path' }
+    const global = findOnPath('mlcl', deps)
+    if (global) return { file: 'mlcl', prefix: [], source: 'path', path: global }
     const perCall: CliCommand = { file: 'npx', prefix: ['--yes', MLCL_NPX_SPEC], source: 'npx' }
     if (deps.platform === 'win32') return perCall
     const probed = await deps.run('npx', [

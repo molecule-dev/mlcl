@@ -43,7 +43,9 @@ describe('hosted MCP search owner is generated from the CLI owner', () => {
     const generated = readFileSync(GENERATED_PATH, 'utf8')
     // No imports at all: the pure owner needs none, and any import would pull
     // the CLI/workspace graph into the image that ships only `mcp/`.
-    expect(generated).not.toMatch(/^\s*(?:import|export\s+[^;]*\s+from)\s/m)
+    // A re-export names its module in quotes: without them, `export function …` followed lines
+    // later by the word "from" in a JSDoc sentence read as one.
+    expect(generated).not.toMatch(/^\s*(?:import\s|export\s[^;]*?\sfrom\s*['"])/m)
     // …and nothing in the CODE reaches a Node/filesystem/vendor/CLI surface.
     // Comments are stripped first: the banner and the owner's JSDoc name those
     // boundaries while explaining why the copy must not use them. (The

@@ -31,9 +31,12 @@ import { packageDocView } from './package-doc-view.js'
 import {
   type AppFrameworkInstalls,
   searchPackages,
+  searchResultsJson,
   type SearchSourceEntry,
+  unknownFrameworkMessage,
 } from './package-search.js'
 import { serverVersion, tracked } from './telemetry.js'
+import { LOAD_UP_FRONT } from './tool-loading.js'
 
 const REGISTRY_URL =
   process.env.MOLECULE_REGISTRY_URL ??
@@ -456,6 +459,7 @@ export function buildRemoteServer(): McpServer {
   server.registerTool(
     'search_packages',
     {
+      _meta: LOAD_UP_FRONT,
       title: 'Search @molecule packages',
       description:
         'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login"). Returns matching packages with stack, category, label, description, common-shape configuration when declared, and the install command; `stack` restricts results to one stack and `framework` to one UI framework (plus framework-neutral packages). Prefer an existing package over hand-rolling any capability and read its doc before rejecting it.',
@@ -499,25 +503,21 @@ export function buildRemoteServer(): McpServer {
       const appFrameworks = isRecord(registry.appFrameworks)
         ? (registry.appFrameworks as Record<string, AppFrameworkInstalls>)
         : {}
-      if (framework && !appFrameworks[framework])
-        throw new Error(
-          `Unknown framework "${framework}". Known: ${Object.keys(appFrameworks).join(', ')}`,
-        )
+      const unknown = framework && unknownFrameworkMessage(framework, appFrameworks)
+      if (unknown) throw new Error(unknown)
       const hits = searchPackages(
         Object.entries(packages).map(([name, entry]): SearchSourceEntry => ({ ...entry, name })),
         query,
         { stack, framework, appFrameworks, limit },
-      ).map((hit) => ({
-        ...hit,
-        install: `npx mlcl add ${hit.name} --inject`,
-      }))
-      return text(JSON.stringify(hits, null, 2))
+      )
+      return text(searchResultsJson(hits))
     }),
   )
 
   server.registerTool(
     'read_package_doc',
     {
+      _meta: LOAD_UP_FRONT,
       title: 'Read a package README',
       description:
         "Fetch a @molecule/* package's generated usage reference (API, examples, wiring), the authoritative published doc: the whole README when it is short, its overview and an index of its sections and exported names when it is long. Pass section for one heading or exported function or type in full. For “where is X”, use search before grepping package internals: literal README lines with headings, then any locally installed type declarations.",
@@ -578,6 +578,7 @@ export function buildRemoteServer(): McpServer {
   server.registerTool(
     'list_templates',
     {
+      _meta: LOAD_UP_FRONT,
       title: 'List molecule app templates',
       description: LIST_TEMPLATES_DESCRIPTION,
       inputSchema: {

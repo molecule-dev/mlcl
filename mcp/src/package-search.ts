@@ -385,6 +385,80 @@ export function searchPackages(
 }
 
 /**
+ * The command that installs and wires a hit, as every search surface prints it. `npx mlcl` is how
+ * every doc and skill spells the CLI: it runs with or without a global install, where a bare
+ * `mlcl add` fails in a home that has none.
+ *
+ * @param name - Full package name.
+ * @returns The command line.
+ */
+export function installCommand(name: string): string {
+  return `npx mlcl add ${name} --inject`
+}
+
+/**
+ * Search hits as the JSON text `mlcl search --json` prints and both MCP servers return.
+ *
+ * @param hits - Ranked hits from {@link searchPackages}.
+ * @returns Indented JSON: one array of hits, each with its {@link installCommand}.
+ */
+export function searchResultsJson(hits: readonly SearchHit[]): string {
+  return JSON.stringify(
+    hits.map((hit) => ({ ...hit, install: installCommand(hit.name) })),
+    null,
+    2,
+  )
+}
+
+/**
+ * The refusal for a framework the registry does not list, or undefined when it lists it.
+ *
+ * @param framework - The framework the caller asked for.
+ * @param appFrameworks - The registry's `appFrameworks`.
+ * @returns The message every search surface shows, or undefined.
+ */
+export function unknownFrameworkMessage(
+  framework: string,
+  appFrameworks: Record<string, unknown>,
+): string | undefined {
+  return Object.hasOwn(appFrameworks, framework)
+    ? undefined
+    : `Unknown framework "${framework}". Known: ${Object.keys(appFrameworks).join(', ')}`
+}
+
+/** Where a project declares its framework, relative to its root: the app half first. */
+export const FRAMEWORK_MANIFESTS: readonly string[] = ['app/package.json', 'package.json']
+
+/**
+ * The UI framework a project declares: the `molecule.framework` marker `mlcl create` writes into
+ * every app's package.json, read from its app half (a full-stack project) or the root's own
+ * package.json. Dependencies are not consulted: a package that merely depends on React (mlcl
+ * itself, for its tests) is not a React app.
+ *
+ * @param readManifest - Reads one of {@link FRAMEWORK_MANIFESTS}; undefined when it is absent.
+ * @returns The declared framework key, or undefined when no manifest declares one.
+ */
+export function declaredFramework(
+  readManifest: (relativePath: string) => string | undefined,
+): string | undefined {
+  for (const manifest of FRAMEWORK_MANIFESTS) {
+    const source = readManifest(manifest)
+    if (source === undefined) continue
+    let pkg: unknown
+    try {
+      pkg = JSON.parse(source)
+    } catch (_error) {
+      // An unreadable manifest declares nothing; search then ranks every framework's packages,
+      // as it does outside a project.
+      continue
+    }
+    const framework = (pkg as { molecule?: { framework?: unknown } } | null)?.molecule?.framework
+    if (typeof framework === 'string' && framework) return framework
+  }
+  return undefined
+}
+
+/**
  * Without a framework filter, give a feature's framework counterparts one place in the ranking.
  *
  * Counterparts are packages whose names differ only in a trailing framework key of the registry's

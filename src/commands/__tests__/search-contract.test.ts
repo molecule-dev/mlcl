@@ -176,11 +176,28 @@ describe('mlcl search — discovery contract the stdio MCP forwards', () => {
       category: 'validation',
       label: 'Schema',
       description: 'schema validation helpers',
-      install: `mlcl add ${API_TARGET} --inject`,
+      install: `npx mlcl add ${API_TARGET} --inject`,
     })
     expect(Object.keys(hit).sort()).toEqual(
       ['category', 'description', 'install', 'label', 'name', 'stack'].sort(),
     )
+  })
+
+  it('never offers a package renamed to another, as the hosted server does not', async () => {
+    const registry = crowdedRegistry()
+    registry.packages['@molecule/api-form-schema-legacy'] = entry({
+      stack: 'api',
+      category: 'validation',
+      label: 'Schema',
+      description: 'schema validation helpers',
+      path: 'packages/api/features/form-schema-legacy',
+      replacedBy: API_TARGET,
+    })
+    writeFileSync(registryFile, JSON.stringify(registry))
+    clearRegistryCache()
+
+    const hits = await runJson(['form schema', '--stack', 'api'])
+    expect(hits.map((hit) => hit.name)).toEqual([API_TARGET])
   })
 
   it('returns declared configuration guidance when the package has it', async () => {

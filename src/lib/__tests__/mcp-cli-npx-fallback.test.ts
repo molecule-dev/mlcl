@@ -85,6 +85,7 @@ describe('which mlcl the MCP server runs', () => {
       file: 'mlcl',
       prefix: [],
       source: 'path',
+      path: '/opt/node/bin/mlcl',
     })
     expect(d.runs).toEqual([])
   })

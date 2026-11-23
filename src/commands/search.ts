@@ -3,7 +3,15 @@ import { join } from 'node:path'
 
 import { Args, Command, Flags } from '@oclif/core'
 
-import { scoreSearchEntry, searchPackages, type SearchSourceEntry } from '../lib/package-search.js'
+import {
+  declaredFramework,
+  installCommand,
+  scoreSearchEntry,
+  searchPackages,
+  searchResultsJson,
+  type SearchSourceEntry,
+  unknownFrameworkMessage,
+} from '../lib/package-search.js'
 import { loadAppFrameworks, loadRegistry } from '../lib/registry.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 import { ui } from '../lib/ui.js'
@@ -23,6 +31,9 @@ export function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
   return {
     name: pkg.name,
     stack: pkg.molecule?.stack,
+    // Without it search offered a renamed package (app-i18n-default-react) that the hosted
+    // server, which passes the raw entry, leaves out.
+    replacedBy: pkg.molecule?.replacedBy,
     category: pkg.molecule?.category,
     label: pkg.molecule?.label,
     description: pkg.description,
@@ -44,20 +55,10 @@ export function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
  * @returns The declared framework key, or undefined when no project declares one.
  */
 export function projectFramework(dir: string): string | undefined {
-  for (const manifest of [join(dir, 'app', 'package.json'), join(dir, 'package.json')]) {
-    if (!existsSync(manifest)) continue
-    let pkg: { molecule?: { framework?: unknown } }
-    try {
-      pkg = JSON.parse(readFileSync(manifest, 'utf8'))
-    } catch (_error) {
-      // An unreadable manifest declares nothing; search then ranks every
-      // framework's packages, as it does outside a project.
-      continue
-    }
-    const framework = pkg?.molecule?.framework
-    if (typeof framework === 'string' && framework) return framework
-  }
-  return undefined
+  return declaredFramework((manifest) => {
+    const file = join(dir, manifest)
+    return existsSync(file) ? readFileSync(file, 'utf8') : undefined
+  })
 }
 
 /**
@@ -124,10 +125,8 @@ export default class Search extends Command {
     // emits the DTO both transports expose (the hosted MCP imports the same
     // logic as generated standalone code — see lib/package-search.ts).
     const appFrameworks = loadAppFrameworks()
-    if (flags.framework && !appFrameworks[flags.framework])
-      this.error(
-        `Unknown framework "${flags.framework}". Known: ${Object.keys(appFrameworks).join(', ')}`,
-      )
+    const unknown = flags.framework && unknownFrameworkMessage(flags.framework, appFrameworks)
+    if (unknown) this.error(unknown)
     // The registry's appFrameworks say which package frameworks the project can
     // import: a react-native-web project keeps React and react-native packages.
     const hits = searchPackages(loadRegistry().map(toSearchEntry), q, {
@@ -138,16 +137,7 @@ export default class Search extends Command {
     })
 
     if (flags.json) {
-      this.log(
-        JSON.stringify(
-          hits.map((hit) => ({
-            ...hit,
-            install: `mlcl add ${hit.name} --inject`,
-          })),
-          null,
-          2,
-        ),
-      )
+      this.log(searchResultsJson(hits))
       return
     }
 
@@ -163,10 +153,10 @@ export default class Search extends Command {
     for (const hit of hits) {
       this.log(`  ${ui.id(hit.name)}  ${ui.badge(hit.stack, hit.category)}`)
       if (hit.description) this.log(`      ${ui.dim(hit.description)}`)
-      this.log(`      ${ui.dim('add with:')} ${ui.cmd(`mlcl add ${hit.name} --inject`)}`)
+      this.log(`      ${ui.dim('add with:')} ${ui.cmd(installCommand(hit.name))}`)
     }
     this.log(
-      `\n${ui.dim("Read a package's API before choosing or using it:")} ${ui.cmd('mlcl docs <name>')} ${ui.dim('(--section <name> for one function)')}`,
+      `\n${ui.dim("Read a package's API before choosing or using it:")} ${ui.cmd('npx mlcl docs <name>')} ${ui.dim('(--section <name> for one function)')}`,
     )
     this.log('')
   }

@@ -38,6 +38,7 @@ import {
   LIST_TEMPLATES_SLUG_DESCRIPTION,
   serverInstructions,
 } from './instructions.js'
+import { cliRegistryPath, searchLocalRegistry } from './local-search.js'
 import { localPackageDoc } from './package-doc-files.js'
 import { searchPackageDoc } from './package-doc-search.js'
 import { packageDocView } from './package-doc-view.js'
@@ -50,6 +51,7 @@ import {
   ServiceCallError,
 } from './services.js'
 import { serverVersion, tracked } from './telemetry.js'
+import { LOAD_UP_FRONT } from './tool-loading.js'
 
 /**
  * The fixable setup step a CLI that cannot start is, not a raw `spawn mlcl ENOENT`. Without an
@@ -581,6 +583,7 @@ const server = new McpServer(
 server.registerTool(
   'search_packages',
   {
+    _meta: LOAD_UP_FRONT,
     title: 'Search @molecule packages',
     description:
       'Search the @molecule/* package fleet by name or capability (e.g. "payments", "social login", "file uploads"). Returns matching packages with stack, category, common-shape configuration when declared, and the install command. ALWAYS prefer an existing package over hand-rolling a capability; read its doc before rejecting it.',
@@ -605,6 +608,11 @@ server.registerTool(
     },
   },
   tracked('search_packages', async ({ query, stack, framework, limit }) => {
+    // In process over the CLI's own registry file: the same answer without a CLI start-up per
+    // search (./local-search.ts). Spawned only when the command is not an mlcl package.
+    const registry = cliRegistryPath(await cliCommand())
+    if (registry)
+      return text(searchLocalRegistry(registry, { query, stack, framework, limit }, process.cwd()))
     const args = ['search', query, '--json']
     if (stack) args.push('--stack', stack)
     if (framework) args.push('--framework', framework)
@@ -616,6 +624,7 @@ server.registerTool(
 server.registerTool(
   'read_package_doc',
   {
+    _meta: LOAD_UP_FRONT,
     title: 'Read a package README',
     description:
       'Read the generated usage reference for a @molecule/* package (API, examples, wiring), from node_modules when installed and from npm when not: the whole README when it is short, its overview and an index of its sections and exported names when it is long. Pass section for one heading or exported function or type in full. For “where is X”, use search before grepping package internals: literal README lines with headings, then installed type declarations.',
@@ -689,6 +698,7 @@ server.registerTool(
 server.registerTool(
   'add_package',
   {
+    _meta: LOAD_UP_FRONT,
     title: 'Add a package to this project',
     description:
       'Install and wire a @molecule/* package into the project at directory (mlcl add --inject: writes the dependency, generates the bond wiring, peers, migrations, routes). SLOW BY DESIGN: it runs a real `npm install` (typically 1–3 minutes) — call it once and wait; a slow response is not a failure, do not retry.',
@@ -767,6 +777,7 @@ server.registerTool(
 server.registerTool(
   'check_project',
   {
+    _meta: LOAD_UP_FRONT,
     title: 'Run the project’s checks',
     description:
       'Run the project’s own checks — typecheck, lint and build by default; unit tests and e2e with steps: "unit,e2e" — discovered from its package.json scripts, concurrently with e2e after the build, and get ONE compact report back: per step passed/failed with duration, the first actionable errors (tsc/eslint/vitest/Playwright shapes), and the build’s output manifest. The whole verification loop in one call instead of hand-running each script and grepping its output. The full log of a failed step is kept at node_modules/.cache/mlcl-check/.',
@@ -828,6 +839,7 @@ server.registerTool(
 server.registerTool(
   'list_templates',
   {
+    _meta: LOAD_UP_FRONT,
     title: 'List molecule app templates',
     description: LIST_TEMPLATES_DESCRIPTION,
     inputSchema: {
@@ -845,6 +857,7 @@ server.registerTool(
 server.registerTool(
   'scaffold_project',
   {
+    _meta: LOAD_UP_FRONT,
     title: 'Scaffold a molecule project',
     description:
       'Create a new project with mlcl: from a flagship template when its catalog (list_templates with its slug) covers the core of the request, otherwise from a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22. SLOW BY DESIGN: with an install it can take several minutes — call it once and wait; a slow response is not a failure, do not retry. `directory` must already exist (it becomes the spawn cwd).',
