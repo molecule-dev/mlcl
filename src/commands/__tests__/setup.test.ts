@@ -26,7 +26,10 @@ const warm = vi.hoisted(() => vi.fn(async () => ({ version: '9.9.9', ms: 1234 })
 vi.mock('../../lib/mcp-warm.js', () => ({ warmMcpServer: warm }))
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
-const SKILL_NAMES = ['build-with-molecule', 'capability-first', 'extend-with-packages']
+// capability-first is not among them: every Molecule project receives it in its own .agents/skills, and outside
+// one it points at a capability map and src/bonds/ that do not exist (Codex opened it beside extend-with-packages
+// on every request, 2026-11-23).
+const SKILL_NAMES = ['build-with-molecule', 'extend-with-packages']
 
 describe('mlcl setup', () => {
   let home: string
@@ -83,8 +86,8 @@ describe('mlcl setup', () => {
     expect(skillsIn(join(home, '.claude', 'skills'))).toEqual(SKILL_NAMES)
     expect(skillsIn(join(home, '.agents', 'skills'))).toEqual(SKILL_NAMES)
     expect(skillsIn(join(home, '.kiro', 'skills'))).toEqual(SKILL_NAMES)
-    expect(read(home, '.agents', 'skills', 'capability-first', 'SKILL.md')).toBe(
-      read(MLCL_ROOT, 'templates', '.agents', 'skills', 'capability-first', 'SKILL.md'),
+    expect(read(home, '.agents', 'skills', 'extend-with-packages', 'SKILL.md')).toBe(
+      read(MLCL_ROOT, 'templates', 'host-skills', 'extend-with-packages', 'SKILL.md'),
     )
     // MCP: Cursor's file, Codex's TOML (no CLI on PATH), Kiro's file.
     expect(JSON.parse(read(home, '.cursor', 'mcp.json')).mcpServers.molecule.command).toBe('npx')
@@ -177,7 +180,7 @@ describe('mlcl setup', () => {
 
   it('a re-run changes nothing; an edited skill is kept until --force', async () => {
     await run(['--yes', '--agent', 'codex'])
-    const skill = join(home, '.agents', 'skills', 'capability-first', 'SKILL.md')
+    const skill = join(home, '.agents', 'skills', 'extend-with-packages', 'SKILL.md')
     const toml = read(home, '.codex', 'config.toml')
     writeFileSync(skill, 'my edits\n')
     const again = await run(['--yes', '--agent', 'codex'])
@@ -185,7 +188,7 @@ describe('mlcl setup', () => {
     expect(read(skill)).toBe('my edits\n')
     expect(read(home, '.codex', 'config.toml')).toBe(toml)
     await run(['--yes', '--agent', 'codex', '--force'])
-    expect(read(skill)).toContain('name: capability-first')
+    expect(read(skill)).toContain('name: extend-with-packages')
   })
 
   it('prints the steps for an agent it cannot configure by file', async () => {

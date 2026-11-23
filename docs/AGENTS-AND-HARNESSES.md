@@ -122,9 +122,10 @@ For each agent it installs three things:
 - **the MCP server**, through the agent's own `mcp add` command where it has
   one, otherwise by adding one `molecule` entry to its config file (comments
   and other settings are kept);
-- **the Molecule skills**: `build-with-molecule` (start a new app),
-  `extend-with-packages` (add or swap a capability in any project) and `capability-first`
-  (check what a package already provides before writing code);
+- **the Molecule skills**: `build-with-molecule` (start a new app) and
+  `extend-with-packages` (add or swap a capability in any project). A project
+  `mlcl create` makes also has its own skills in `.agents/skills/`, `capability-first`
+  (check what a package already provides before writing code) among them;
 - **the conventions**, as a `## Molecule` section in the instructions file the
   agent reads, or as a rules file of its own.
 
@@ -255,8 +256,7 @@ client needs a different shape (OpenCode does; the installer knows).
 /plugin install molecule@molecule
 ```
 
-Bundles the `extend-with-packages`, `capability-first` and `build-with-molecule`
-skills plus the MCP server, updated through the marketplace. Skills trigger on
+Bundles the `extend-with-packages` and `build-with-molecule` skills plus the MCP server, updated through the marketplace. Skills trigger on
 intent ("add payments" / "build me X"), and tools come with it.
 
 ## Method 5 — the hosted remote endpoint (no local install)

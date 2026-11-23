@@ -1,7 +1,7 @@
 {
   "name": "molecule",
   "description": "Use Molecule in Claude Code — find, add, wire and swap composable @molecule/* packages in any JavaScript or TypeScript project, or start a new app from them",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "author": {
     "name": "Molecule Dev, Inc.",
     "url": "https://molecule.dev"

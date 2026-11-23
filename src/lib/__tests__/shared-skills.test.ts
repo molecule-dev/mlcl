@@ -6,8 +6,9 @@
  *     time by molecule-dev and written into every sandbox
  *     (`loadTemplateSkills`); the sandbox is where a weak executor decides
  *     whether to hand-roll a capability or reuse a package.
- *   - copies: the Claude Code plugin and this repo's own `.agents/skills`, for
- *     harnesses that never run that scaffold.
+ *   - copies: this repo's own `.agents/skills`, for agents working on mlcl. The
+ *     Claude Code plugin is installed machine-wide, like `mlcl setup`, so it ships
+ *     the host-only skills alone (`loadSetupSkills`).
  *
  * A copy edited on its own is the drift this file fails on.
  *
@@ -26,19 +27,18 @@ const RESERVED = new Set(['patterns', 'examples'])
 
 /** The host copies every shared skill must have (see scripts/sync-shared-skills.mjs). */
 const HOST_COPY_TEMPLATES = [
-  (name: string): string =>
-    join(
-      MLCL_ROOT,
-      'integrations',
-      'claude-code',
-      'plugins',
-      'molecule',
-      'skills',
-      name,
-      'SKILL.md',
-    ),
   (name: string): string => join(MLCL_ROOT, '.agents', 'skills', name, 'SKILL.md'),
 ]
+
+/** The Claude Code plugin's skills directory. */
+const PLUGIN_SKILLS = join(
+  MLCL_ROOT,
+  'integrations',
+  'claude-code',
+  'plugins',
+  'molecule',
+  'skills',
+)
 
 /** Skill directories authored in the canonical tree. */
 function sharedSkillNames(): string[] {
@@ -58,6 +58,12 @@ describe('shared skills — one authored source, host copies in lockstep', () =>
 
   it('authors at least the capability-first workflow', () => {
     expect(names).toContain('capability-first')
+  })
+
+  it('stays out of the machine-wide plugin', () => {
+    // A project skill installed for every project points at files only a Molecule project has, and it
+    // matched every request beside extend-with-packages.
+    for (const name of names) expect(existsSync(join(PLUGIN_SKILLS, name))).toBe(false)
   })
 
   for (const name of names) {
@@ -153,7 +159,7 @@ describe('host-only skills — authored in templates/host-skills, copied into th
       expect(description.length).toBeLessThan(1024)
     })
     it(`${name}: the plugin copy is byte-identical`, () => {
-      const copy = HOST_COPY_TEMPLATES[0](name)
+      const copy = join(PLUGIN_SKILLS, name, 'SKILL.md')
       expect(existsSync(copy), 'run node scripts/sync-shared-skills.mjs').toBe(true)
       expect(readFileSync(copy, 'utf8'), 'run node scripts/sync-shared-skills.mjs').toBe(canonical)
     })

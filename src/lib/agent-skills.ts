@@ -243,16 +243,20 @@ export function loadHostSkills(templatesDir: string): Record<string, string> {
 }
 
 /**
- * Every skill `mlcl setup` installs: the shared workflow skills plus the
- * host-only ones. The package catalog is left out: it is scoped to one
- * project's stack, and the MCP `search_packages` tool answers the same question
- * for any project.
+ * Every skill `mlcl setup` installs: the host-only ones. The shared workflow
+ * skills are left out: every Molecule project receives them in its own
+ * `.agents/skills`, and outside one they point at a capability map and
+ * `src/bonds/` files that do not exist, while `extend-with-packages` already
+ * says to search before writing a capability. Installed machine-wide, both
+ * matched every request, and Codex opened the two of them before answering.
+ * The package catalog is left out too: it is scoped to one project's stack,
+ * and the MCP `search_packages` tool answers the same question for any project.
  *
  * @param templatesDir - An mlcl `templates/` directory.
  * @returns Relative skill path (`<name>/SKILL.md`) → content.
  */
 export function loadSetupSkills(templatesDir: string): Record<string, string> {
-  return { ...loadSharedSkills(templatesDir), ...loadHostSkills(templatesDir) }
+  return loadHostSkills(templatesDir)
 }
 
 /**

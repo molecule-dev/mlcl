@@ -7,12 +7,10 @@
  * `templates/.agents/skills/<name>/SKILL.md` — the file the molecule-dev
  * scaffold reads at scaffold time and writes into every sandbox
  * (`loadTemplateSkills` in `molecule-dev/api/src/ai/agents-dir-template.ts`).
- * Harnesses that never run that scaffold read a checked-in copy instead:
- *
- *   - `integrations/claude-code/plugins/molecule/skills/<name>/SKILL.md`
- *     (the Claude Code plugin users install)
- *   - `.agents/skills/<name>/SKILL.md`
- *     (agents working in this repo; `.claude` → `.agents` is a symlink)
+ * `mlcl create` writes it into every scaffolded project too. Agents working in
+ * this repo read a checked-in copy: `.agents/skills/<name>/SKILL.md` (`.claude` →
+ * `.agents` is a symlink). The Claude Code plugin is installed machine-wide, like
+ * `mlcl setup`, so it carries only the host-only skills below.
  *
  * The host-only skills (`build-with-molecule`, `extend-with-packages`) are
  * authored once in `templates/host-skills/<name>/SKILL.md`, which `mlcl setup`
@@ -44,10 +42,7 @@ export const SHARED_SKILLS = [
   {
     name: 'capability-first',
     source: 'templates/.agents/skills',
-    copies: [
-      'integrations/claude-code/plugins/molecule/skills/capability-first/SKILL.md',
-      '.agents/skills/capability-first/SKILL.md',
-    ],
+    copies: ['.agents/skills/capability-first/SKILL.md'],
   },
   // Host-only skills: `mlcl setup` installs them into a user's agents
   // (machine-wide or per project) and the Claude Code plugin bundles them. They

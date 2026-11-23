@@ -1,8 +1,7 @@
 # Molecule for Claude Code — plugin + marketplace
 
-The install-once surface for Claude Code: three skills (add or swap a
-capability in any project, check what a package already provides before writing
-code, start a new app) plus the `molecule` MCP server (`molecule-mcp`) bundled
+The install-once surface for Claude Code: two skills (add or swap a
+capability in any project, start a new app) plus the `molecule` MCP server (`molecule-mcp`) bundled
 via `.mcp.json`, so tools like `search_packages` / `read_package_doc` /
 `add_package` are available without any shell-out.
 
@@ -13,7 +12,6 @@ via `.mcp.json`, so tools like `search_packages` / `read_package_doc` /
 plugins/molecule/                   # the plugin
   .claude-plugin/plugin.json        # manifest (only file allowed in .claude-plugin/)
   skills/extend-with-packages/SKILL.md
-  skills/capability-first/SKILL.md
   skills/build-with-molecule/SKILL.md
   .mcp.json                         # bundled molecule-mcp server
 ```
