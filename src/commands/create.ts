@@ -1506,25 +1506,41 @@ export default class Create extends Command {
     // The app's public API-base-URL variable is the framework's (registry `apiUrlEnvKey`):
     // Vite reads VITE_API_URL, Expo reads EXPO_PUBLIC_API_URL, the name config.ts consumes.
     const appEnvKey = loadAppFrameworks()[framework ?? '']?.apiUrlEnvKey ?? 'VITE_API_URL'
+    // Each .env file and the required variables it leaves empty. Generated keys (the JWT pair),
+    // registry defaults and optional variables are not listed: telling the developer to set them
+    // sent an agent to generate JWT keys the scaffold had already written (2026-11-23 eval).
+    const envLeftToSet = new Map<string, string[]>()
     if (isFullStack) {
       const apiSecrets = allSelectedSecrets.filter((s) => !s.name.startsWith('VITE_'))
       const appSecrets = allSelectedSecrets.filter((s) => s.name.startsWith('VITE_'))
-      await generateEnvFile(join(projectPath, 'api'), apiSecrets, 'api')
-      await generateEnvFile(join(projectPath, 'app'), appSecrets, 'app', projectName, appEnvKey)
+      envLeftToSet.set(
+        'api/.env',
+        await generateEnvFile(join(projectPath, 'api'), apiSecrets, 'api'),
+      )
+      envLeftToSet.set(
+        'app/.env',
+        await generateEnvFile(join(projectPath, 'app'), appSecrets, 'app', projectName, appEnvKey),
+      )
       log(t('commands.create.messages.envGenFullStack'))
     } else if (isStatic) {
       // App-only site under app/: only the VITE_ secrets apply, no API env.
-      await generateEnvFile(
-        join(projectPath, 'app'),
-        allSelectedSecrets.filter((s) => s.name.startsWith('VITE_')),
-        'app',
-        projectName,
-        appEnvKey,
+      envLeftToSet.set(
+        'app/.env',
+        await generateEnvFile(
+          join(projectPath, 'app'),
+          allSelectedSecrets.filter((s) => s.name.startsWith('VITE_')),
+          'app',
+          projectName,
+          appEnvKey,
+        ),
       )
       log(t('commands.create.messages.envGenSingle'))
     } else {
       const envType = projectType === 'app' ? 'app' : 'api'
-      await generateEnvFile(projectPath, allSelectedSecrets, envType, projectName, appEnvKey)
+      envLeftToSet.set(
+        '.env',
+        await generateEnvFile(projectPath, allSelectedSecrets, envType, projectName, appEnvKey),
+      )
       log(t('commands.create.messages.envGenSingle'))
     }
 
@@ -1649,17 +1665,12 @@ export default class Create extends Command {
     say('')
     if (!nonInteractive) p.outro(chalk.green(t('commands.create.messages.success')))
 
-    const uniqueSecretNames = [...new Set(allSelectedSecrets.map((s) => s.name))]
-    if (uniqueSecretNames.length > 0) {
+    const envFilesToFill = [...envLeftToSet].filter(([, names]) => names.length > 0)
+    for (const [file, names] of envFilesToFill) {
       say('')
-      say(
-        nonInteractive
-          ? t('commands.create.messages.envVars')
-          : chalk.bold(t('commands.create.messages.envVars')),
-      )
-      for (const name of uniqueSecretNames) {
-        say(`  ${name}`)
-      }
+      const heading = t('commands.create.messages.envVars', { file })
+      say(nonInteractive ? heading : chalk.bold(heading))
+      for (const name of names) say(`  ${name}`)
     }
 
     say('')
@@ -1677,20 +1688,9 @@ export default class Create extends Command {
       cliVersion: this.config.version,
     }))
       say(`  ${step}`)
-    if (uniqueSecretNames.length > 0) {
-      if (isFullStack) {
-        say(`  ${t('commands.create.messages.editEnvFullStack')}`)
-      } else {
-        say(`  ${t('commands.create.messages.editEnv')}`)
-      }
-    }
-    if (
-      uniquePackages.some((name) => {
-        const pkg = allPackages.find((p) => p.name === name)
-        return pkg?.molecule?.cliHint === 'generate-jwt-keys'
-      })
-    ) {
-      say(`  ${t('commands.create.messages.generateJwt')}`)
+    if (envFilesToFill.length > 0) {
+      const file = envFilesToFill.map(([name]) => name).join(' and ')
+      say(`  ${t('commands.create.messages.editEnv', { file })}`)
     }
     say(`  npm run dev`)
     const orientation = projectOrientation(projectPath)
@@ -1718,7 +1718,8 @@ export default class Create extends Command {
             framework: framework ?? null,
             template: flags.template ?? null,
             packages: uniquePackages,
-            secrets: uniqueSecretNames,
+            secrets: [...new Set(allSelectedSecrets.map((s) => s.name))],
+            envToSet: Object.fromEntries(envFilesToFill),
             installSkipped: flags['skip-install'] === true,
             injectSkipped,
             pendingSetup: pendingSetupSteps({

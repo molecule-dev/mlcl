@@ -656,7 +656,6 @@ export const MoleculeMetadata = z.object({
     .string()
     .optional()
     .describe('Short name for file/variable naming (avoids parsing package name)'),
-  cliHint: z.string().optional().describe('Hint for CLI post-creation messages'),
   optionalFeature: z.string().optional().describe('Feature flag name for optional route filtering'),
   decisionGuide: DecisionGuide.optional().describe(
     'Decision-time configuration guidance for this package; consumed by the generated capability map.',
@@ -1001,7 +1000,6 @@ export const RegistryEntry = z.object({
     .string()
     .optional()
     .describe('Short name for file/variable naming (avoids parsing package name)'),
-  cliHint: z.string().optional().describe('Hint for CLI post-creation messages'),
   optionalFeature: z.string().optional().describe('Feature flag name for optional route filtering'),
   generates: z
     .array(z.string())

@@ -155,12 +155,9 @@ export const messages: LocaleMessages = {
   'commands.create.messages.fontsCopied': 'Copied font files to {dir}',
   'commands.create.messages.fontsPending':
     'Font files go to {dir} once the packages are installed (the inject step below copies them)',
-  'commands.create.messages.envVars': 'Required environment variables:',
+  'commands.create.messages.envVars': 'Required environment variables, empty in {file}:',
   'commands.create.messages.nextSteps': 'Next steps:',
-  'commands.create.messages.editEnvFullStack': '# Edit api/.env and app/.env with your credentials',
-  'commands.create.messages.editEnv': '# Edit .env with your credentials',
-  'commands.create.messages.generateJwt':
-    '# Generate JWT keys: openssl genrsa -out jwt-private.pem 2048 && openssl rsa -in jwt-private.pem -pubout -out jwt-public.pem',
+  'commands.create.messages.editEnv': '# Set the required variables above in {file}',
   'commands.create.messages.projectPath': 'Project path: {path}',
   'commands.create.messages.packagesList': 'Packages: {packages}',
   'commands.create.messages.orientation': 'Before writing code:',
