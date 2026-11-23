@@ -1,11 +1,12 @@
 /**
  * `mlcl create` installs what its own steps declare after the first `npm install`.
  *
- * The install runs before inject, because inject plans against the installed copies. Inject then
- * writes `api/src/bonds/index.ts`, and the activity-capture wiring that follows it declares its
- * packages (`@molecule/api-activity`, its HTTP sink and the capture decorators). Those were never
- * installed, so every custom full-stack scaffold handed back an API whose first build stopped at
- * TS2307 until someone ran `npm install`; on 2026-11-23 Claude Code and Codex both did.
+ * The install runs before inject, because inject plans against the installed copies, and inject
+ * then declares the third-party packages its bond files import. Packages declared after the
+ * install were never installed, so a custom full-stack scaffold handed back an API whose first
+ * build stopped at TS2307 until someone ran `npm install`; on 2026-11-23 Claude Code and Codex
+ * both did. (The activity-capture packages were the first such case; they are declared before the
+ * install now: `create-capture-before-install.test.ts`.)
  *
  * Runs the REAL oclif command against a temp directory. Only the children are replaced: `npm
  * install` records what the manifests declare when it runs, and inject writes the bonds file the
@@ -75,9 +76,11 @@ describe('mlcl create — packages declared after the first install', () => {
    * Run `mlcl create proj` for a full-stack React app, with install.
    *
    * @param bonds - Whether the inject child writes the API's bonds file, as the real one does.
+   * @param declares - Dependencies the inject child adds to the API manifest, as the real one adds
+   *   the packages its bond files import.
    * @returns The warnings it printed.
    */
-  async function create(bonds: boolean): Promise<string[]> {
+  async function create(bonds: boolean, declares: Record<string, string> = {}): Promise<string[]> {
     const config = await Config.load(MLCL_ROOT)
     const cmd = new Create(
       ['proj', '--type', 'full-stack', '--framework', 'react', '--no-interactive'],
@@ -96,26 +99,32 @@ describe('mlcl create — packages declared after the first install', () => {
       if (!bonds || basename(path) !== 'api') return
       await mkdir(join(path, 'src', 'bonds'), { recursive: true })
       await writeFile(join(path, 'src', 'bonds', 'index.ts'), BONDS_INDEX)
+      const manifestPath = join(path, 'package.json')
+      const manifest = JSON.parse(await readFile(manifestPath, 'utf-8')) as {
+        dependencies?: Record<string, string>
+      }
+      manifest.dependencies = { ...manifest.dependencies, ...declares }
+      await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
     })
     await cmd.run()
     return warnings
   }
 
-  it('installs again once the activity-capture wiring has declared its packages', async () => {
-    await create(true)
+  it('installs again once inject has declared a package the install did not see', async () => {
+    await create(true, { 'late-dependency': '1.0.0' })
 
     const api = JSON.parse(await readFile(join(dir, 'proj', 'api', 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
     }
-    expect(api.dependencies['@molecule/api-activity']).toBeDefined()
+    expect(api.dependencies['late-dependency']).toBeDefined()
     expect(installs).toHaveLength(2)
-    expect(installs[0]).not.toContain('@molecule/api-activity')
+    expect(installs[0]).not.toContain('late-dependency')
     // The last install saw every package the project declares.
     expect(installs[1]).toEqual(Object.keys(api.dependencies))
   })
 
-  it('installs once when nothing is declared after the install', async () => {
-    await create(false)
+  it('installs once when nothing is declared after the install, the capture wiring included', async () => {
+    await create(true)
 
     const api = JSON.parse(await readFile(join(dir, 'proj', 'api', 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
