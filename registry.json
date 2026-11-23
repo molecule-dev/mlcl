@@ -55558,7 +55558,7 @@
       "type": "feature",
       "category": "i18n-default",
       "label": "i18n Default Setup",
-      "description": "Default i18n bond setup with 80-language definitions, lazy-loading wrapper, and locale persistence via storage bond. Used by every flagship app — 113 lines of byte-identical wiring across the fleet.",
+      "description": "Renamed to @molecule/app-i18n-default, which it re-exports unchanged; import from @molecule/app-i18n-default instead.",
       "stack": "app",
       "replacedBy": "@molecule/app-i18n-default",
       "exports": [
@@ -55572,6 +55572,7 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-i18n",
+        "@molecule/app-i18n-default",
         "@molecule/app-locales-common",
         "@molecule/app-storage"
       ],
@@ -71851,6 +71852,106 @@
       ],
       "path": "packages/app/locales/margin-notes"
     },
+    "@molecule/app-locales-markdown": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "locales",
+      "category": "i18n",
+      "label": "Markdown Translations",
+      "description": "Translations for @molecule/app-markdown in 79 languages",
+      "stack": "app",
+      "exports": [
+        "af",
+        "am",
+        "ar",
+        "az",
+        "be",
+        "bg",
+        "bn",
+        "bs",
+        "ca",
+        "cs",
+        "cy",
+        "da",
+        "de",
+        "el",
+        "en",
+        "es",
+        "et",
+        "eu",
+        "fa",
+        "fi",
+        "fil",
+        "fr",
+        "ga",
+        "gl",
+        "gu",
+        "ha",
+        "he",
+        "hi",
+        "hr",
+        "hu",
+        "hy",
+        "id",
+        "ig",
+        "is",
+        "it",
+        "ja",
+        "ka",
+        "kk",
+        "km",
+        "kn",
+        "ko",
+        "ky",
+        "lo",
+        "lt",
+        "lv",
+        "mk",
+        "ml",
+        "mn",
+        "mr",
+        "ms",
+        "mt",
+        "my",
+        "nb",
+        "ne",
+        "nl",
+        "pa",
+        "pl",
+        "pt",
+        "ro",
+        "ru",
+        "si",
+        "sk",
+        "sl",
+        "sq",
+        "sr",
+        "sv",
+        "sw",
+        "ta",
+        "te",
+        "th",
+        "tr",
+        "MarkdownTranslationKey",
+        "MarkdownTranslations",
+        "uk",
+        "ur",
+        "uz",
+        "vi",
+        "yo",
+        "zh",
+        "zhTW",
+        "zu"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/app-i18n"
+      ],
+      "path": "packages/app/locales/markdown"
+    },
     "@molecule/app-locales-medication-row": {
       "language": "typescript",
       "runtime": "node",
@@ -81399,21 +81500,30 @@
       "description": "Markdown rendering core interface for molecule.dev.",
       "stack": "app",
       "exports": [
+        "checkElementAttributes",
+        "escapeAttributeValue",
+        "MARKDOWN_ELEMENTS",
+        "MarkdownElement",
         "setProvider",
         "getProvider",
         "hasProvider",
         "requireProvider",
+        "createHeadingSlugger",
         "TocEntry",
         "RenderedMarkdown",
         "MarkdownOptions",
-        "MarkdownProvider"
+        "MarkdownProvider",
+        "isSafeMarkdownUrl",
+        "isRefusedMarkdownUrl"
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/app-bond"
+        "@molecule/app-bond",
+        "@molecule/app-i18n"
       ],
       "moleculePeers": [
-        "@molecule/app-bond"
+        "@molecule/app-bond",
+        "@molecule/app-i18n"
       ],
       "bondSetter": "setProvider",
       "path": "packages/app/core/markdown",
@@ -81447,10 +81557,13 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-i18n",
         "@molecule/app-markdown",
-        "marked"
+        "marked",
+        "marked-footnote"
       ],
       "moleculePeers": [
+        "@molecule/app-i18n",
         "@molecule/app-markdown"
       ],
       "path": "packages/app/bonds/markdown/marked",
@@ -81469,7 +81582,7 @@
       "type": "provider",
       "category": "markdown",
       "label": "react-markdown",
-      "description": "Built-in regex-based markdown renderer for @molecule/app-markdown (sanitized HTML output, no GFM tables)",
+      "description": "Markdown provider for @molecule/app-markdown backed by react-markdown and remark-gfm",
       "stack": "app",
       "implements": "@molecule/app-markdown",
       "exports": [
@@ -81480,13 +81593,16 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-i18n",
         "@molecule/app-markdown",
         "react",
         "react-dom",
         "react-markdown",
+        "rehype-raw",
         "remark-gfm"
       ],
       "moleculePeers": [
+        "@molecule/app-i18n",
         "@molecule/app-markdown"
       ],
       "path": "packages/app/bonds/markdown/react-markdown",
@@ -103637,6 +103753,7 @@
         "@molecule/app-ui",
         "@molecule/app-utilities",
         "@molecule/app-version",
+        "vitest",
         "vue"
       ],
       "moleculePeers": [
