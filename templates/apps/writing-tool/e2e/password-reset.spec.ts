@@ -75,6 +75,6 @@ test.describe('/reset-password', () => {
     ).toBeDefined()
     // Token is invalid, so the API should reject with 401 — but the route
     // MUST exist (no 404). 404 here means the App/router.ts is broken.
-    expect(post?.status, 'reset-password route must be mounted').not.toBe(404)
+    expect(post!.status, 'reset-password route must be mounted').not.toBe(404)
   })
 })

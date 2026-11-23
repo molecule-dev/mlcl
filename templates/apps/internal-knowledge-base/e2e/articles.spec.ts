@@ -70,7 +70,8 @@ test('ArticleEditor: publish flips status; survives reload', async ({ page }) =>
     `/articles/${a.id}`,
   )
   expect(got.body?.status).toBe('published')
-  expect(got.body?.published_at).not.toBeNull()
+  expect(got.body).toBeDefined()
+  expect(got.body!.published_at).not.toBeNull()
 
   // After reload, status pill still says published.
   await page.reload()

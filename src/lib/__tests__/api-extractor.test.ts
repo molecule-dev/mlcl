@@ -46,7 +46,8 @@ describe('extractPackageApi', () => {
     const rest = api.exports.find((entry) => entry.name === 'collect')!
     expect(rest.signature).toBe('(...values: string[]) => string[]')
     expect(rest.declaration).toBe('function collect(...values: string[]): string[]')
-    expect(rest.params?.[0].optional).toBeUndefined()
+    expect(rest.params).toBeDefined()
+    expect(rest.params![0].optional).toBeUndefined()
     expect(api.exports.find((entry) => entry.name === 'array')?.declaration).toBe(
       'function array(values?: string[]): void',
     )

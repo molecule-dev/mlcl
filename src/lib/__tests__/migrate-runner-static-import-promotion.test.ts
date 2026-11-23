@@ -66,7 +66,7 @@ describe('ensureMigrateRunnerImports — a statically imported bond is promoted'
     const manifest = await manifestOf(project)
     // The pin MOVES (same version, production key) rather than being re-pinned.
     expect(manifest.dependencies?.['@molecule/api-database-sqlite']).toBe('1.2.3')
-    expect(manifest.devDependencies?.['@molecule/api-database-sqlite']).toBeUndefined()
+    expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-sqlite'])
   })
 
   it('moves the MySQL bond out of devDependencies', async () => {
@@ -81,7 +81,7 @@ describe('ensureMigrateRunnerImports — a statically imported bond is promoted'
     expect(gained).toContain('@molecule/api-database-mysql')
     const manifest = await manifestOf(project)
     expect(manifest.dependencies?.['@molecule/api-database-mysql']).toBe('2.0.1')
-    expect(manifest.devDependencies?.['@molecule/api-database-mysql']).toBeUndefined()
+    expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-mysql'])
   })
 
   it('keeps promoting the PostgreSQL bond and the wrapper the Postgres render imports', async () => {

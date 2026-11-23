@@ -51,7 +51,10 @@ test.describe('/trips/:id (TripDetail) page', () => {
         headers: apiHeaders(accessToken),
       })
       .then((r) => r.json())) as { flight_payload?: Record<string, unknown> }
-    expect(before.flight_payload?.checked_in_at, 'not checked-in yet').toBeFalsy()
+    expect(
+      before.flight_payload === undefined || !before.flight_payload.checked_in_at,
+      'not checked-in yet',
+    ).toBe(true)
 
     await page.getByTestId('trip-check-in').click()
     await page.waitForTimeout(2000)

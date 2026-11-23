@@ -65,7 +65,8 @@ test('Kitchen-sink journey: signup → space → article → publish → bookmar
     `/articles/${articleId}`,
   )
   expect(got.body?.status).toBe('published')
-  expect(got.body?.published_at).not.toBeNull()
+  expect(got.body).toBeDefined()
+  expect(got.body!.published_at).not.toBeNull()
 
   // 4. View the published article and bookmark it
   await page.goto(`${APP_BASE}/article/${articleId}`)

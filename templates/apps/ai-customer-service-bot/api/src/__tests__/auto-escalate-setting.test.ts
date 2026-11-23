@@ -58,7 +58,9 @@ describe('auto_escalate gates the [ESCALATE] action', () => {
   it('does NOT escalate when auto_escalate is off, even if the model requests it', async () => {
     await run({ auto_escalate: false })
     expect(escalationCreated()).toBe(false)
-    expect(convUpdate()?.status).toBeUndefined()
+    const update = convUpdate()
+    expect(update).toBeDefined()
+    expect(update!.status).toBeUndefined()
   })
 
   it('defaults to escalating when no settings row exists', async () => {

@@ -756,7 +756,8 @@ describe('preflightSqlCompatibility', () => {
       versions: versionsFor([DUCKDB, COMMENT]),
       packages,
     })
-    expect(report?.capabilities).toBeUndefined()
+    expect(report).not.toBeNull()
+    expect(report!.capabilities).toBeUndefined()
     expect(report?.issues.map((issue) => issue.kind)).toEqual(['missing-capability'])
   })
 

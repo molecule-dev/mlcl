@@ -367,7 +367,7 @@ describe('settle gate (the executor must not read a half-loaded page as a broken
     harness.post({ id: 's3', action: 'snapshot' })
     const [res] = results(harness, 's3')
     expect(res?.ok).toBe(true)
-    expect(res?.stillSettling).toBeUndefined()
+    expect(res!.stillSettling).toBeUndefined()
   })
 
   it('an OUTGOING document never answers a navigation snapshot', async () => {
@@ -389,7 +389,7 @@ describe('settle gate (the executor must not read a half-loaded page as a broken
     harness.post({ id: 's5', action: 'snapshot', minLoadedAt: 1 })
     const [res] = results(harness, 's5')
     expect(res?.ok).toBe(true)
-    expect(res?.stillSettling).toBeUndefined()
+    expect(res!.stillSettling).toBeUndefined()
   })
 
   it('auto-waits for a target that mounts a moment later instead of "not found"', async () => {

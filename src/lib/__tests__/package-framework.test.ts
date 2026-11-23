@@ -83,7 +83,7 @@ describe('packageFramework', () => {
   it('loadRegistry carries the derived framework without changing the raw registry', () => {
     const query = loadRegistry().find((pkg) => pkg.name === '@molecule/app-query-react')
     expect(query?.molecule?.framework).toBe('react')
-    expect(registry.packages['@molecule/app-query-react']?.framework).toBeUndefined()
+    expect(registry.packages['@molecule/app-query-react'].framework).toBeUndefined()
   })
 })
 

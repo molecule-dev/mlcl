@@ -78,7 +78,7 @@ test.describe('clips page', () => {
     const rows = (await res.json()) as Array<{ is_sensitive: boolean; content: string | null }>
     const flagged = rows.find((r) => r.is_sensitive)
     expect(flagged).toBeTruthy()
-    expect(flagged?.content).not.toBe('sk_live_VERY_SECRET')
+    expect(flagged!.content).not.toBe('sk_live_VERY_SECRET')
   })
 
   test('pinning a clip flips the API row + lifts it into the Pinned section', async ({ page }) => {

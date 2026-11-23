@@ -346,7 +346,7 @@ test.describe('backend invariants', () => {
     expect(created, 'newly-created key must show up in /api/api-keys').toBeTruthy()
     expect(created?.mask, 'list endpoint must return the masked preview').toBeTruthy()
     expect(
-      (created as { key?: string })?.key,
+      (created as { key?: string })!.key,
       'list endpoint must NOT leak the full key after creation',
     ).toBeUndefined()
   })

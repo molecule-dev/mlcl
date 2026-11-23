@@ -302,7 +302,7 @@ describe('framework-scoped URL list guidance', () => {
     expect(actual?.href({ page: 2 })).toBe(href)
     expect(actual?.params).toEqual(params)
     expect(actual?.filters).toEqual({})
-    expect(actual?.selection).toBeUndefined()
+    expect(actual!.selection).toBeUndefined()
   })
 
   it('delivers type-correct protected list guidance for an app-owned session state', () => {

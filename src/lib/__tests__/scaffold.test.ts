@@ -875,8 +875,8 @@ describe('scaffold', () => {
           // OWNS the declaration: a devDependencies copy would install a
           // different version than the one the manifest appears to pin.
           expect(manifest.dependencies).toEqual(runtime)
-          expect(manifest.devDependencies?.[e2e]).toBeUndefined()
-          expect(manifest.devDependencies?.['@playwright/test']).toBeUndefined()
+          expect(manifest.devDependencies ?? {}).not.toHaveProperty([e2e])
+          expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@playwright/test'])
           expect(manifest.devDependencies?.typescript).toBe('5.0.0')
           // Tooling it did not have is still added, in the dev section.
           expect(manifest.devDependencies?.['@molecule/app-e2e']).toBe(
@@ -894,7 +894,7 @@ describe('scaffold', () => {
           await ensureE2EManifest(dir)
           const manifest = await readManifest(dir)
           expect(manifest.dependencies?.[e2e]).toBe('0.9.0')
-          expect(manifest.devDependencies?.[e2e]).toBeUndefined()
+          expect(manifest.devDependencies ?? {}).not.toHaveProperty([e2e])
         },
       )
     })
@@ -907,7 +907,7 @@ describe('scaffold', () => {
           await ensureE2EManifest(dir)
           const manifest = await readManifest(dir)
           expect(manifest.dependencies?.[e2e]).toBe('0.9.0')
-          expect(manifest.devDependencies?.[e2e]).toBeUndefined()
+          expect(manifest.devDependencies ?? {}).not.toHaveProperty([e2e])
         },
       )
     })
@@ -918,7 +918,7 @@ describe('scaffold', () => {
         await ensureE2EManifest(dir)
         const manifest = await readManifest(dir)
         expect(manifest.devDependencies?.[e2e]).toBe('0.0.1-devpin')
-        expect(manifest.dependencies?.[e2e]).toBeUndefined()
+        expect(manifest.dependencies ?? {}).not.toHaveProperty([e2e])
       })
     })
 

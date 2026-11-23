@@ -89,7 +89,7 @@ describe('generated resource module declarations', () => {
   })
 
   it('writes no header for a resource that lists nothing', async () => {
-    expect(getRawRegistry().packages['@molecule/api-resource-tag']?.declare).toBeUndefined()
+    expect(getRawRegistry().packages['@molecule/api-resource-tag'].declare).toBeUndefined()
     const wrapper = await wrapperOf('@molecule/api-resource-tag', 'Tag')
     expect(wrapper).not.toContain('/**')
   })

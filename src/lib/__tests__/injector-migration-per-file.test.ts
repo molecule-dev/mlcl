@@ -111,7 +111,7 @@ describe('one migration per package SQL file', () => {
     expect(position?.name).toMatch(/_create_article_tags_table\.sql$/)
     expect(position?.tables).toEqual(['article_tags'])
     expect(position?.content).toContain('ADD COLUMN IF NOT EXISTS "position"')
-    expect(position?.content).not.toBe(articles?.content)
+    expect(position.content).not.toBe(articles.content)
 
     // Dependency order: the file that creates `articles` comes first, and the
     // per-file timestamps keep them ordered on disk.

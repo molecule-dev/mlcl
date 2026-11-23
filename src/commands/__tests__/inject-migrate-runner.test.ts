@@ -271,7 +271,7 @@ describe('mlcl inject backs the migration runner it writes', () => {
       const manifest = await readManifest()
       // The pin MOVED (keeping the version the manifest carried)…
       expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
-      expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBeUndefined()
+      expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-pglite'])
       // …and the wrapper is declared behind the runner's static import.
       expect(manifest.dependencies['@molecule/api-bonds-default-express']).toBe(
         getMoleculeVersion('@molecule/api-bonds-default-express'),

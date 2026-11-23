@@ -178,7 +178,8 @@ describe('TPL1 — useAuthFormState retains shared fields across auth views', ()
     expect(valueOf('password')).toBe('')
     // And nothing password-shaped was written to the shared store.
     const stored = (await storage.get('molecule.auth.form-state')) as Record<string, unknown> | null
-    expect(stored?.password).toBeUndefined()
+    expect(stored).not.toBeNull()
+    expect(stored!.password).toBeUndefined()
   })
 
   it('clears the shared fields on successful auth', async () => {

@@ -290,7 +290,8 @@ describe('conversations handler', () => {
     })
 
     expect(res.status).toBe(200)
-    expect(chatParams[0]?.model).toBeUndefined()
+    expect(chatParams[0]).toBeDefined()
+    expect(chatParams[0]!.model).toBeUndefined()
   })
 })
 

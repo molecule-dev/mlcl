@@ -61,7 +61,8 @@ test.describe('documents', () => {
     expect(after.length).toBeGreaterThan(before.length)
     const found = after.find((d) => d.id === created.id)
     expect(found?.title).toContain('e2e-upload-')
-    expect(found?.file_url ?? null).not.toBeNull()
+    expect(found, 'the created document should appear in the list').toBeDefined()
+    expect(found!.file_url ?? null).not.toBeNull()
   })
 
   test('Documents page exposes upload trigger button and hidden file input', async ({ page }) => {

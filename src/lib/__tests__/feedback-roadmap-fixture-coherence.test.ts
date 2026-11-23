@@ -269,7 +269,7 @@ describe('feedback-roadmap fixtures — the seed rows and the served reports agr
     for (const row of rows) {
       const post = seedPosts.find((p) => p.id === row.id)
       expect(post, `top_open row ${row.id} is not a seeded post`).toBeDefined()
-      expect(post?.merged_into, `top_open row ${row.id} is a merged duplicate`).toBeUndefined()
+      expect(post!.merged_into, `top_open row ${row.id} is a merged duplicate`).toBeUndefined()
       expect(post?.status, `top_open row ${row.id} is not open`).toBe('open')
     }
     expect(rows.map((row) => row.id)).toEqual(expectedTopOpen.map((post) => post.id))

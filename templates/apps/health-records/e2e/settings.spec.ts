@@ -89,7 +89,7 @@ test.describe('settings', () => {
     const afterBundle = (await rotate.json()) as ProfileBundle
     expect(afterBundle.security?.encryptionKeyVersion ?? 0).toBeGreaterThan(beforeVersion)
     expect(afterBundle.security?.encryptionKeyFingerprint).toBeTruthy()
-    expect(afterBundle.security?.encryptionKeyFingerprint).not.toBe(beforeFingerprint)
+    expect(afterBundle.security!.encryptionKeyFingerprint).not.toBe(beforeFingerprint)
     expect(afterBundle.security?.lastEncryptionKeyRotation).toBeTruthy()
   })
 

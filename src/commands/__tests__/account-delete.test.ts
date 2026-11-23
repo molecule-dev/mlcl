@@ -70,7 +70,8 @@ describe('account delete', () => {
   it('sends no body when the password is left blank', async () => {
     prompt.answer = ''
     await run()
-    expect(requests[0]?.body).toBeUndefined()
+    expect(requests[0]).toBeDefined()
+    expect(requests[0]!.body).toBeUndefined()
   })
 
   it('deletes nothing when the prompt is cancelled', async () => {

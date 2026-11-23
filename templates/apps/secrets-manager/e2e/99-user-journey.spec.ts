@@ -129,7 +129,8 @@ test.describe('user journey: signup → vault → secret → audit → settings 
     const revoked = (tokensAfter.json as Array<{ id: string; revoked_at: string | null }>).find(
       (t) => t.id === tokenRow!.id,
     )
-    expect(revoked?.revoked_at, 'revoked_at must be stamped after revoke').not.toBeNull()
+    expect(revoked, 'the revoked token should still be listed').toBeDefined()
+    expect(revoked!.revoked_at, 'revoked_at must be stamped after revoke').not.toBeNull()
 
     // 9. Profile name edit persists.
     await page.goto(APP_BASE + '/profile')

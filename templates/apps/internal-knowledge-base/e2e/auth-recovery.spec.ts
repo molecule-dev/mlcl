@@ -51,5 +51,5 @@ test('Reset password page posts to /api/users/reset-password (not /api/users/pas
   expect(post, 'reset-password POST should target /users/reset-password').toBeDefined()
   // Token is invalid, so server returns an error — we just need to confirm
   // the request was sent to the right path (not /users/password which 404s).
-  expect(post?.status).not.toBe(404)
+  expect(post!.status).not.toBe(404)
 })

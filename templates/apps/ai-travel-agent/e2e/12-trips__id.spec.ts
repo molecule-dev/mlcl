@@ -47,7 +47,7 @@ test.describe('/trips/:id (one trip: delay, rebook, split)', () => {
     expect(old?.status).toBe('rebooked')
     const next = detail.bookings.find((b) => b.id !== booking.id)
     expect(next?.status).toBe('booked')
-    expect(next?.flight_id).not.toBe(booking.flight_id)
+    expect(next!.flight_id).not.toBe(booking.flight_id)
   })
 
   test('"Move to next flight" rebooks on request', async ({ page }) => {

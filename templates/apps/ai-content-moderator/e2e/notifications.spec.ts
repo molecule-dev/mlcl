@@ -75,7 +75,8 @@ test.describe('notifications page', () => {
     })
     const rows: Array<{ id: string; read_at: string | null }> = await r.json()
     const targetRow = rows.find((x) => x.id === target.id)
-    expect(targetRow?.read_at, 'target row should be marked read').not.toBeNull()
+    expect(targetRow, 'target notification row should exist').toBeDefined()
+    expect(targetRow!.read_at, 'target row should be marked read').not.toBeNull()
     // The other row should still be unread.
     const others = rows.filter((x) => x.id !== target.id && x.read_at === null)
     expect(others.length).toBeGreaterThan(0)

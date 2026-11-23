@@ -62,7 +62,8 @@ test.describe('notifications', () => {
     })
     const list = (await res.json()) as Array<{ id: string; read_at: string | null }>
     const row = list.find((n) => n.id === note.id)
-    expect(row?.read_at, 'read_at should be set after PUT').not.toBeNull()
+    expect(row, 'the notification row should exist').toBeDefined()
+    expect(row!.read_at, 'read_at should be set after PUT').not.toBeNull()
   })
 
   test('dismiss DELETEs /api/notifications/:id and the row vanishes', async ({ page }) => {

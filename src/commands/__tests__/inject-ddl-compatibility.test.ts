@@ -226,10 +226,7 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
     })
     const { outcome, output } = await runInject(project, ADDRESS)
     expect(output).not.toContain("cannot run this project's database setup")
-    expect(
-      (outcome as { oclif?: { exit?: number } } | undefined)?.oclif?.exit,
-      output,
-    ).toBeUndefined()
+    expect(outcome, output).toBeNull()
   })
 
   it('refuses setup SQL the runner WILL replay from the project’s own __setup__ copy', async () => {
@@ -282,10 +279,7 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
     })
     const { outcome, output } = await runInject(project, null)
     expect(output).not.toContain("cannot run this project's database setup")
-    expect(
-      (outcome as { oclif?: { exit?: number } } | undefined)?.oclif?.exit,
-      output,
-    ).toBeUndefined()
+    expect(outcome, output).toBeNull()
     // The on-disk SQL a boot WILL replay is still judged on this path.
     expect(output).not.toContain('bundles no setup SQL')
   })
@@ -348,10 +342,7 @@ describe('mlcl inject — setup-SQL compatibility preflight', () => {
     })
     await installPackage(project, WORKFLOW, { version: await fixtureVersion(WORKFLOW) })
     const { outcome, output } = await runInject(project, WORKFLOW)
-    expect(
-      (outcome as { oclif?: { exit?: number } } | undefined)?.oclif?.exit,
-      output,
-    ).toBeUndefined()
+    expect(outcome, output).toBeNull()
     expect(output).not.toContain("cannot run this project's database setup")
     const written = await readFile(join(project, '__setup__', 'workflow.sql'), 'utf-8')
     expect(written).toContain('CREATE TABLE')

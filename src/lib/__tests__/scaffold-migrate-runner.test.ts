@@ -86,7 +86,7 @@ describe('custom-create migration-runner wiring', () => {
       devDependencies?: Record<string, string>
     }
     expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
-    expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBeUndefined()
+    expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-pglite'])
   })
 
   it('copySqlSetupScripts leaves a database-less project alone', async () => {

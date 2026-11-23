@@ -1156,7 +1156,7 @@ describe('ensureMigrateRunnerImports', () => {
     // The pin MOVED (version kept — an explicit `mlcl add` resolved it), it
     // did not duplicate across keys.
     expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
-    expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBeUndefined()
+    expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-pglite'])
   })
 
   it('promotes the pin for the dual runner too — the gated branch still fires in browser-profile deploys', async () => {
@@ -1184,7 +1184,7 @@ describe('ensureMigrateRunnerImports', () => {
     await ensureMigrateRunnerImports(dir)
     const manifest = await readManifest()
     expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
-    expect(manifest.devDependencies?.['@molecule/api-database-pglite']).toBeUndefined()
+    expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-pglite'])
   })
 
   it('promotes a devDependencies-only PostgreSQL pin — the emitted pg machinery must survive a production prune', async () => {
@@ -1213,7 +1213,7 @@ describe('ensureMigrateRunnerImports', () => {
     const manifest = await readManifest()
     // The pin MOVED (version kept), it did not duplicate across keys.
     expect(manifest.dependencies['@molecule/api-database-postgresql']).toBe('1.0.2')
-    expect(manifest.devDependencies?.['@molecule/api-database-postgresql']).toBeUndefined()
+    expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-postgresql'])
   })
 
   it('backs a DuckDB runner’s only import, moving its devDependencies pin into production', async () => {
@@ -1235,7 +1235,7 @@ describe('ensureMigrateRunnerImports', () => {
     const manifest = await readManifest()
     // The pin MOVED with the version the manifest already carried.
     expect(manifest.dependencies['@molecule/api-database-duckdb']).toBe('1.1.0')
-    expect(manifest.devDependencies?.['@molecule/api-database-duckdb']).toBeUndefined()
+    expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-duckdb'])
   })
 
   it('backs every bond a dual render emitted from devDependencies, wrapper included', async () => {
@@ -1319,7 +1319,7 @@ describe('ensureMigrateRunnerImports', () => {
       devDependencies?: Record<string, string>
     }
     expect(swapped.dependencies['@molecule/api-database-postgresql']).toBe('1.0.5')
-    expect(swapped.devDependencies?.['@molecule/api-database-postgresql']).toBeUndefined()
+    expect(swapped.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-postgresql'])
     expect(swapped.dependencies['@molecule/api-bonds-default-express']).toBe(
       getMoleculeVersion('@molecule/api-bonds-default-express'),
     )
@@ -1526,7 +1526,7 @@ describe('syncMigrateRunner', () => {
       devDependencies?: Record<string, string>
     }
     expect(swapped.dependencies['@molecule/api-database-pglite']).toBe('1.0.0')
-    expect(swapped.devDependencies?.['@molecule/api-database-pglite']).toBeUndefined()
+    expect(swapped.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-pglite'])
     expect(swapped.dependencies['@molecule/api-bonds-default-express']).toBe(
       getMoleculeVersion('@molecule/api-bonds-default-express'),
     )

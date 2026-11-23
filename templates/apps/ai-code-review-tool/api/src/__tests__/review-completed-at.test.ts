@@ -95,6 +95,8 @@ describe('review PUT derives lifecycle timestamps on status transition', () => {
   it('sets started_at when marked running', async () => {
     await run({ status: 'running' }, makeRes())
     expect(typeof patch()?.started_at).toBe('string')
-    expect(patch()?.completed_at).toBeUndefined()
+    const updated = patch()
+    expect(updated).toBeDefined()
+    expect(updated!.completed_at).toBeUndefined()
   })
 })

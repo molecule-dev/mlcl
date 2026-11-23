@@ -64,6 +64,6 @@ test.describe('presets', () => {
     const presets = (await list.json()) as Array<{ name: string; user_id: string | null }>
     const created = presets.find((p) => p.name === 'My custom look')
     expect(created).toBeTruthy()
-    expect(created?.user_id).not.toBeNull()
+    expect(created!.user_id).not.toBeNull()
   })
 })

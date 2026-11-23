@@ -98,7 +98,8 @@ test.describe('/notifications', () => {
     const updated = (after.json as Array<{ id: string; read_at: string | null }>).find(
       (n) => n.id === id,
     )
-    expect(updated?.read_at, 'read_at must be stamped after marking row read').not.toBeNull()
+    expect(updated, 'the notification row should exist').toBeDefined()
+    expect(updated!.read_at, 'read_at must be stamped after marking row read').not.toBeNull()
   })
 
   test('DELETE /api/notifications/:id removes the row', async ({ page }) => {

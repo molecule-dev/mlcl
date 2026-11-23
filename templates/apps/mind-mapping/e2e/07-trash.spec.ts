@@ -19,7 +19,9 @@ test.describe('Trash', () => {
 
     const live = await page.request.get(`${API_BASE}/maps`, { headers: apiHeaders(accessToken) })
     const liveBody = (await live.json()) as Array<{ id: string; trashed_at: string | null }>
-    expect(liveBody.find((m) => m.id === map.id)?.trashed_at).toBeFalsy()
+    const restored = liveBody.find((m) => m.id === map.id)
+    expect(restored).toBeDefined()
+    expect(restored!.trashed_at).toBeFalsy()
   })
 
   test('Permanent delete removes the row entirely', async ({ page }) => {
