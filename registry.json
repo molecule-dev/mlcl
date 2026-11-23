@@ -94921,6 +94921,7 @@
         "getThemeProvider",
         "getWorkspaceProvider",
         "localOnlyMessages",
+        "rendersNode",
         "resetAIModelsCache",
         "resetChatStoresForTests",
         "useAIModels",
