@@ -1,0 +1,39 @@
+name: Framework scaffolds
+
+# Every app framework's fresh scaffold, installed from npm at the pins registry.json writes, passes
+# its own typecheck, lint, format, test and build (scripts/check-framework-scaffolds.mjs; one job per
+# registry.json appFrameworks key). CI runs it on every push, and Release runs it before it
+# publishes, so a template or pin change that breaks one framework's scaffold cannot ship in the CLI.
+on:
+  workflow_call:
+
+jobs:
+  frameworks:
+    runs-on: ubuntu-latest
+    outputs:
+      names: ${{ steps.list.outputs.names }}
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22.23.4'
+      - id: list
+        run: echo "names=$(node scripts/check-framework-scaffolds.mjs --list)" >> "$GITHUB_OUTPUT"
+
+  scaffold:
+    needs: frameworks
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        framework: ${{ fromJSON(needs.frameworks.outputs.names) }}
+    name: scaffold (${{ matrix.framework }})
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22.23.4'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: node scripts/check-framework-scaffolds.mjs ${{ matrix.framework }}

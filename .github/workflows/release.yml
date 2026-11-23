@@ -11,6 +11,7 @@ run-name: 'Release (${{ inputs.requester }})'
 #   2. npm test (989+ tests incl. toolchain drift, registry sync)
 #   3. scripts/prepublish-verify.mjs (tarball hygiene + secrets + paths)
 #   4. scripts/check-parity-coverage.mjs (IDE⇄CLI parity manifest covers all routes)
+#   5. framework-scaffolds.yml (each app framework's fresh scaffold passes its own scripts)
 #
 # Auth paths (either works):
 #   - vars.NPM_TRUSTED_PUBLISHING == 'true'  → OIDC (npm ≥11.5.1), no stored secret
@@ -36,7 +37,11 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
+  framework-scaffolds:
+    uses: ./.github/workflows/framework-scaffolds.yml
+
   release:
+    needs: framework-scaffolds
     runs-on: ubuntu-latest
     permissions:
       contents: read

@@ -109,6 +109,11 @@ jobs:
         working-directory: mlcl
         continue-on-error: true # TODO: flip to hard when molecule-dev is a CI sibling
 
+  # Each app framework's fresh scaffold passes its own scripts, installed from npm at the
+  # registry's pins (framework-scaffolds.yml).
+  framework-scaffolds:
+    uses: ./.github/workflows/framework-scaffolds.yml
+
   lint:
     runs-on: ubuntu-latest
     steps:
