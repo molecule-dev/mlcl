@@ -22,8 +22,9 @@ const Tags = lazyPage(() => import('./pages/Tags.js').then((m) => ({ default: m.
  * The site's routes — the URL space src/content.ts describes. The router
  * around this component is the entry's job: `main.tsx` mounts it in a
  * `BrowserRouter` (dev + hydration) and `entry-server.tsx` renders it in a
- * `StaticRouter` at build time. `/:slug` must stay last: it catches any
- * one-segment path that is not a fixed page.
+ * `StaticRouter` at build time, both from `@molecule/app-routing-react-router`.
+ * `/:slug` must stay last: it catches any one-segment path that is not a fixed
+ * page.
  */
 export function App() {
   return (

@@ -12,9 +12,9 @@ import { NotFound } from './pages/NotFound.js'
 /**
  * The site's routes. The router around this component is the entry's job:
  * `main.tsx` mounts it in a `BrowserRouter` (dev + hydration) and
- * `entry-server.tsx` renders it in a `StaticRouter` at build time. Add a
- * page here AND to `STATIC_PATHS` in entry-server.tsx, or the build will not
- * write its HTML.
+ * `entry-server.tsx` renders it in a `StaticRouter` at build time, both from
+ * `@molecule/app-routing-react-router`. Add a page here AND to `STATIC_PATHS`
+ * in entry-server.tsx, or the build will not write its HTML.
  */
 export function App() {
   return (
