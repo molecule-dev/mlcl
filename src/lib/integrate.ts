@@ -13,14 +13,18 @@
  */
 
 import { existsSync } from 'node:fs'
-import { access, readFile, rm, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { access, readdir, readFile, rm, writeFile } from 'node:fs/promises'
+import { dirname, join } from 'node:path'
+
+import { ts } from 'ts-morph'
 
 import { isExactVersion } from './exact-version.js'
 import { inLanguage } from './existing-project.js'
 import { swapResolvedSecrets } from './extend-api-wiring.js'
+import { sortImportStatements } from './format.js'
 import { t } from './i18n.js'
 import { bondNameToPascal, extractBondName, generateBondSetupCode } from './injector.js'
+import { missingMoleculePeers } from './peer-closure.js'
 import {
   detectAppFramework,
   findRegistryPackage,
@@ -304,6 +308,11 @@ export interface BondSwapResult extends BondPaths {
    * the new provider is never initialized, so the caller should warn the user.
    */
   callRewritten: boolean
+  /**
+   * The package the app keeps that still requires the replaced provider (a default-bonds
+   * package that imports it), when the swap left that provider pinned for it.
+   */
+  keptFor?: string
 }
 
 /**
@@ -351,35 +360,94 @@ function peerOnlyDependencies(
   )
   if (candidates.length === 0) return []
 
-  const registry = new Map(loadRegistry().map((pkg) => [pkg.name, pkg]))
   // Everything the manifest still holds apart from the candidates: the app's
   // own selections and the peers of the databases/resources it keeps.
   const kept = [...declared].filter((name) => name !== replaced.name && !candidates.includes(name))
-  const queue = [...kept, newName]
-  // A core's defaultProvider is part of the closure only when nothing else in
-  // the manifest provides its category — mirror `ensureMoleculePeerClosure` so
-  // a candidate that IS something's default provider is not dropped. (A swap
-  // onto another database provides the `database` category, so the leftover
-  // DuckDB bond is not a default provider here either.)
-  for (const name of [...kept, newName]) {
-    const fallback = registry.get(name)?.molecule?.defaultProvider
-    if (!fallback) continue
-    const provided = [...kept, newName].some((other) => {
-      const meta = registry.get(other)?.molecule
-      return meta?.implements === name && meta.type !== 'framework'
-    })
-    if (!provided) queue.push(fallback)
-  }
-  // Transitive closure over the same `moleculePeers` edges the scaffold
-  // writes: a peer of a peer is required too.
-  const required = new Set<string>()
-  while (queue.length > 0) {
-    const name = queue.shift()!
-    if (required.has(name)) continue
-    required.add(name)
-    for (const peer of registry.get(name)?.molecule?.moleculePeers ?? []) queue.push(peer)
-  }
+  const required = new Set([...kept, newName, ...missingMoleculePeers([...kept, newName])])
   return candidates.filter((name) => !required.has(name))
+}
+
+/** A default-bonds package's all-in-one setup the bonds index calls: `setupAllDefaultBonds()`. */
+interface DefaultBondsCall {
+  /** The setup's name. */
+  name: string
+  /** Where the line after its call statement starts. */
+  after: number
+  /** The call statement's indentation. */
+  indent: string
+}
+
+/**
+ * The call the bonds index makes to a default-bonds package's all-in-one setup
+ * (`setupAllDefaultBonds` from `@molecule/app-bonds-default-react`, or any `@molecule/*-bonds-default*`
+ * package), which wires the providers an app does not import a setup for one by one.
+ *
+ * @param source - The bonds index.
+ * @returns The call, or undefined when the index makes none (or more than one).
+ */
+function defaultBondsCall(source: string): DefaultBondsCall | undefined {
+  const file = ts.createSourceFile('index.ts', source, ts.ScriptTarget.Latest, true)
+  const names = new Set<string>()
+  for (const node of file.statements) {
+    if (
+      !ts.isImportDeclaration(node) ||
+      !ts.isStringLiteral(node.moduleSpecifier) ||
+      !/^@molecule\/[\w-]*bonds-default[\w-]*$/.test(node.moduleSpecifier.text)
+    )
+      continue
+    const bindings = node.importClause?.namedBindings
+    if (bindings && ts.isNamedImports(bindings))
+      for (const element of bindings.elements)
+        if (/^setupAll\w*$/.test(element.name.text)) names.add(element.name.text)
+  }
+  const calls: DefaultBondsCall[] = []
+  const visit = (node: ts.Node): void => {
+    if (
+      ts.isExpressionStatement(node) &&
+      ts.isCallExpression(node.expression) &&
+      ts.isIdentifier(node.expression.expression) &&
+      names.has(node.expression.expression.text)
+    ) {
+      const start = node.getStart(file)
+      const lineStart = source.lastIndexOf('\n', start - 1) + 1
+      const lineEnd = source.indexOf('\n', node.end)
+      calls.push({
+        name: node.expression.expression.text,
+        after: lineEnd < 0 ? source.length : lineEnd + 1,
+        indent: source.slice(lineStart, start),
+      })
+    }
+    ts.forEachChild(node, visit)
+  }
+  visit(file)
+  return calls.length === 1 ? calls[0] : undefined
+}
+
+/**
+ * Whether a file in the bonds directory other than the old bond itself imports the old bond.
+ *
+ * @param bondsDir - The bonds directory.
+ * @param oldBondFile - The old bond file.
+ * @param specifier - The specifier a sibling imports it by (`./app-fonts-arimo.js`).
+ * @param index - The index file and its content after the swap.
+ * @param index.file - The index file.
+ * @param index.content - Its content after the swap.
+ * @returns True when another bond file still imports it.
+ */
+async function bondImported(
+  bondsDir: string,
+  oldBondFile: string,
+  specifier: string,
+  index: { file: string; content: string },
+): Promise<boolean> {
+  const quoted = new RegExp(`['"]${specifier.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['"]`)
+  for (const entry of await readdir(bondsDir)) {
+    const file = join(bondsDir, entry)
+    if (file === oldBondFile || !/\.[cm]?[jt]sx?$/.test(entry)) continue
+    const content = file === index.file ? index.content : await readFile(file, 'utf-8')
+    if (quoted.test(content)) return true
+  }
+  return false
 }
 
 /**
@@ -400,6 +468,19 @@ function peerOnlyDependencies(
  *    deleted **last** (only after every other write succeeds) and any failure
  *    rolls back package.json + index.ts and removes the freshly-written new bond
  *    file — never a half-applied state.
+ *
+ * **A provider the default bonds wire.** An index that calls a default-bonds package's
+ *    `setupAllDefaultBonds()` (every flagship) imports no setup of its own for the fonts, router,
+ *    storage, styling, icons or clipboard that call wires. When the index names the old provider's
+ *    setup nowhere, the new provider's setup is imported and called on the line after that call,
+ *    and the bond it makes replaces the default's. An old setup imported from a package instead of
+ *    the bond file (an `/optional/` wiring) is rewritten like one imported from the bond file.
+ *    The old bond file is removed only when no other bond file imports it.
+ *
+ * **A provider another package still requires stays pinned.** When the closure of the packages
+ * the app keeps (`missingMoleculePeers`) still needs the old provider, as a default-bonds package
+ * that imports it does, the manifest keeps it and its peers (`result.keptFor` names that package):
+ * the project installs with legacy-peer-deps, so npm would not install it as a peer.
  *
  * The bonds directory is resolved via {@link resolveBondPaths} (framework-aware),
  * not a hardcoded `src/bonds`.
@@ -446,8 +527,27 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
     `import[ \\t]*\\{[ \\t]*setup${oldPascal}[ \\t]*\\}[ \\t]*from[ \\t]*['"]\\.\\/${oldBondName}\\.${specifierExt}['"];?`,
   )
   const callRe = new RegExp(`setup${oldPascal}[ \\t]*\\([ \\t]*\\)`)
+  // The same import from a package (an `/optional/` wiring of a default-bonds package).
+  const packageImportRe = new RegExp(
+    `import[ \\t]*\\{[ \\t]*setup${oldPascal}[ \\t]*\\}[ \\t]*from[ \\t]*['"][^'"\\n]+['"];?`,
+  )
+  const oldImport = importRe.test(indexContent)
+    ? importRe
+    : packageImportRe.test(indexContent)
+      ? packageImportRe
+      : undefined
+  // Named nowhere: the default bonds wire it, and the new setup goes after theirs.
+  const defaults =
+    oldImport || new RegExp(`\\bsetup${oldPascal}\\b`).test(indexContent)
+      ? undefined
+      : defaultBondsCall(indexContent)
+  const wiring: { oldImport: RegExp } | { defaults: DefaultBondsCall } | undefined = oldImport
+    ? { oldImport }
+    : defaults
+      ? { defaults }
+      : undefined
 
-  if (!importRe.test(indexContent)) {
+  if (!wiring) {
     throw new BondSwapError(
       t('commands.swap.errors.indexNoMatch', {
         bond: oldBondName,
@@ -457,17 +557,6 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
       'index-no-match',
     )
   }
-
-  const callRewritten = callRe.test(indexContent)
-  // The startup's resolveAll([...]) list loads only the keys it names from .env, so it
-  // follows the swap: the new provider's keys in, the replaced provider's keys out.
-  const rewrittenIndex = swapResolvedSecrets(
-    indexContent
-      .replace(importRe, `import { setup${newPascal} } from './${newBondName}.${specifierExt}'`)
-      .replace(callRe, `setup${newPascal}()`),
-    (oldPkg.molecule?.secrets ?? []).map((secret) => secret.name),
-    (newPkg.molecule?.secrets ?? []).map((secret) => secret.name),
-  )
 
   // 2. Generate the new bond file content up-front, so a generation failure also
   //    aborts before any destructive change to the project.
@@ -491,13 +580,69 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
           extension === '.mjs' ? 'commonjs' : 'esm',
         ).content ?? generatedCode)
 
+  const newImport = `import { setup${newPascal} } from './${newBondName}.${specifierExt}'`
+  let wired: string
+  let callRewritten: boolean
+  if ('oldImport' in wiring) {
+    callRewritten = callRe.test(indexContent)
+    const rewired = indexContent
+      .replace(wiring.oldImport, newImport)
+      .replace(callRe, `setup${newPascal}()`)
+    // A package import replaced by a bond file's moves to the relative imports' group.
+    wired = wiring.oldImport === importRe ? rewired : sortImportStatements(rewired, bondsIndexFile)
+  } else {
+    const call = wiring.defaults
+    const file = ts.createSourceFile('index.ts', indexContent, ts.ScriptTarget.Latest, true)
+    const lastImport = file.statements.filter(ts.isImportDeclaration).at(-1)
+    const importAt = lastImport ? lastImport.end : 0
+    const withCall =
+      indexContent.slice(0, call.after) +
+      `${call.indent}// Runs after ${call.name}() so this ${implementsInterface} provider replaces its default.\n` +
+      `${call.indent}setup${newPascal}()\n` +
+      indexContent.slice(call.after)
+    wired = sortImportStatements(
+      `${withCall.slice(0, importAt)}\n${newImport}${withCall.slice(importAt)}`,
+      bondsIndexFile,
+    )
+    callRewritten = true
+  }
+  // The startup's resolveAll([...]) list loads only the keys it names from .env, so it
+  // follows the swap: the new provider's keys in, the replaced provider's keys out.
+  const rewrittenIndex = swapResolvedSecrets(
+    wired,
+    (oldPkg.molecule?.secrets ?? []).map((secret) => secret.name),
+    (newPkg.molecule?.secrets ?? []).map((secret) => secret.name),
+  )
+  // A bond file another bond still imports stays.
+  const removeOldBond = !(await bondImported(
+    dirname(bondsIndexFile),
+    oldBondFile,
+    `./${oldBondName}.${specifierExt}`,
+    { file: bondsIndexFile, content: rewrittenIndex },
+  ))
+
   // 3. Compute the rewritten package.json (remove old dep, add new pinned, sort).
   const packageJsonPath = join(projectPath, 'package.json')
   const packageJsonRaw = await readFile(packageJsonPath, 'utf-8')
   const packageJson = JSON.parse(packageJsonRaw)
   const depKey = packageJson.dependencies?.[oldPkg.name] ? 'dependencies' : 'devDependencies'
   packageJson[depKey] = packageJson[depKey] ?? {}
-  delete packageJson[depKey][oldPkg.name]
+  // A package the app keeps can still require the replaced provider:
+  // `@molecule/app-bonds-default-react` imports every default it wires, and
+  // `@molecule/api-bonds-default-express` its database and mail providers. The project
+  // installs with legacy-peer-deps, so npm installs no peer the manifest leaves out,
+  // and that package fails to load. Such a provider stays pinned, and so do its peers.
+  const registry = new Map(loadRegistry().map((pkg) => [pkg.name, pkg]))
+  const remaining = [
+    ...Object.keys(packageJson.dependencies ?? {}),
+    ...Object.keys(packageJson.devDependencies ?? {}),
+  ].filter((name) => name !== oldPkg.name)
+  const keptFor = missingMoleculePeers([...remaining, newName], registry).includes(oldPkg.name)
+    ? (remaining.find((name) =>
+        registry.get(name)?.molecule?.moleculePeers?.includes(oldPkg.name),
+      ) ?? remaining.find((name) => missingMoleculePeers([name], registry).includes(oldPkg.name)))
+    : undefined
+  if (!keptFor) delete packageJson[depKey][oldPkg.name]
   packageJson[depKey][newName] = newVersion
   // 3b. Drop the pins that existed ONLY as the replaced provider's molecule
   // peers. `mlcl create` closes every manifest over the registry's
@@ -510,7 +655,7 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
   // PostgreSQL database) and `databasePackageOf` stamped the DuckDB header on
   // SQLite/MySQL apps. The set is computed from the same closure contract, not
   // a provider list — see {@link peerOnlyDependencies}.
-  for (const orphan of peerOnlyDependencies(packageJson, oldPkg, newName)) {
+  for (const orphan of keptFor ? [] : peerOnlyDependencies(packageJson, oldPkg, newName)) {
     delete packageJson.dependencies?.[orphan]
     delete packageJson.devDependencies?.[orphan]
   }
@@ -531,7 +676,7 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
     // Old bond name always differs from the new one (extractBondName encodes the
     // provider), so this never removes the file we just wrote. force:true makes an
     // already-absent old bond a no-op (the index still referenced it — now fixed).
-    await rm(oldBondFile, { force: true })
+    if (removeOldBond) await rm(oldBondFile, { force: true })
   } catch (error) {
     // Roll back every write performed so far; restore the originals and drop the
     // freshly-written new bond file. The old bond file is deleted last, so on any
@@ -545,5 +690,5 @@ export async function applyBondSwap(input: BondSwapInput): Promise<BondSwapResul
     )
   }
 
-  return { ...paths, callRewritten }
+  return { ...paths, callRewritten, ...(keptFor ? { keptFor } : {}) }
 }
