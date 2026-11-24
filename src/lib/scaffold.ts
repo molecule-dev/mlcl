@@ -8379,13 +8379,18 @@ registerRootComponent(App)
   await writeFile(
     join(projectPath, 'src', 'App.tsx'),
     `import './global.css'
-import { DarkTheme, DefaultTheme, NavigationContainer } from '@react-navigation/native'
+import {
+  createNavigationContainerRef,
+  DarkTheme,
+  DefaultTheme,
+  NavigationContainer,
+} from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import React from 'react'
 import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 import { t } from '@molecule/app-i18n'
-import { useNavigationTheme } from '@molecule/app-routing-react-navigation'
+import { useMoleculeRouter, useNavigationTheme } from '@molecule/app-routing-react-navigation'
 
 import { setupProviders } from './bonds/index.js'
 import { HomeScreen } from './screens/Home.js'
@@ -8398,12 +8403,20 @@ const Stack = createNativeStackNavigator()
 // Headers, tab bars and screen backgrounds take the molecule theme's colours.
 const navigationThemes = { light: DefaultTheme, dark: DarkTheme }
 
+// The path of each screen: @molecule/app-routing's navigate('/') opens Home. Give every screen
+// you add to the navigator a path here, or molecule packages cannot navigate to it.
+const navigationRef = createNavigationContainerRef()
+const linking = { screens: { Home: '/' } }
+
 export function App(): React.ReactElement {
   const navigationTheme = useNavigationTheme(navigationThemes)
+  // Bonds the molecule router to this navigator: without it, navigate() from any molecule
+  // package goes to a fallback router and nothing happens on the device.
+  useMoleculeRouter({ navigationRef, linking })
 
   return (
     <SafeAreaProvider>
-      <NavigationContainer theme={navigationTheme}>
+      <NavigationContainer ref={navigationRef} theme={navigationTheme}>
         <Stack.Navigator initialRouteName="Home">
           <Stack.Screen
             name="Home"
