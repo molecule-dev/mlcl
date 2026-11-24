@@ -25,6 +25,7 @@ import { getMoleculeVersion, loadRegistry } from '../lib/registry.js'
 import { syncProjectAssets } from '../lib/scaffold.js'
 import type { InferredPackage } from '../lib/schema.js'
 import { createSpinner } from '../lib/spinner.js'
+import { dropReplacedProviderDependencies } from '../lib/swap-orphans.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 
 export default class Swap extends Command {
@@ -350,6 +351,14 @@ export default class Swap extends Command {
     if (!result.callRewritten) {
       this.warn(t('commands.swap.warnings.setupCallNotWired', { file: rel(result.bondsIndexFile) }))
     }
+    // The preview said "remove": the bond file went, but the pin stays for the package that needs it.
+    if (result.keptFor) {
+      this.log(
+        chalk.cyan(
+          `  ${t('commands.swap.messages.keptFor', { old: oldPkg.name, keptFor: result.keptFor, new: newName })}`,
+        ),
+      )
+    }
 
     // 6b. Append the new provider's secrets to .env — swapping to a
     // credentialed provider (e.g. mailgun → sendgrid) must leave the project
@@ -412,6 +421,20 @@ export default class Swap extends Command {
     }
 
     // 7. npm install
+    // Before the install, while the old provider is still installed: its own libraries, which inject
+    // declared in the app, go when nothing else uses them (../lib/swap-orphans.ts).
+    try {
+      const dropped = dropReplacedProviderDependencies(projectPath, oldPkg.name, newName)
+      if (dropped.length > 0)
+        this.log(
+          chalk.cyan(
+            `  ${t('commands.swap.messages.droppedDependencies', { names: dropped.join(', '), old: oldPkg.name })}`,
+          ),
+        )
+    } catch (error) {
+      this.warn(`Could not remove ${oldPkg.name}'s own libraries from package.json: ${error}`)
+    }
+
     if (flags.install) {
       spinner.start(t('commands.swap.spinners.installing'))
       try {

@@ -304,6 +304,10 @@ export const messages: LocaleMessages = {
   'commands.swap.errors.multipleProvidersDetail':
     'Use --replace to specify which provider to swap out.',
   'commands.swap.prompts.whichToReplace': 'Which provider should be replaced?',
+  'commands.swap.messages.droppedDependencies':
+    'Removed {names} from package.json: only {old} used them',
+  'commands.swap.messages.keptFor':
+    'Kept {old} in package.json: {keptFor} still requires it. Your code now uses {new}.',
   'commands.swap.messages.migrateRunnerUpdated': 'Updated {file} for the new database',
   'commands.swap.messages.convertMigrations':
     'Your migrations/ files are written for the previous database: convert them to the new dialect, point DATABASE_URL at the new database, and move any data you want to keep.',

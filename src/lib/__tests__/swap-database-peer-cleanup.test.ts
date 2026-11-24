@@ -392,4 +392,26 @@ describe('mlcl swap — MotherDuck’s DuckDB peer does not outrank the swapped-
     expect(await readFile(join(dir, 'package.json'), 'utf-8')).toBe(before)
     expect(existsSync(join(dir, 'src', 'bonds', 'database-duckdb.ts'))).toBe(false)
   })
+
+  it('removes the driver only the replaced database bond used (OLD MUSTFAIL)', async () => {
+    // inject declares a bond's own dependencies in the app; a swap kept PostgreSQL's `pg` for good.
+    const dir = await postgresAppWithCascadeMigration()
+    const manifest = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8'))
+    manifest.dependencies.pg = '8.16.3'
+    await writeFile(join(dir, 'package.json'), JSON.stringify(manifest, null, 2) + '\n')
+    await mkdir(join(dir, 'node_modules', POSTGRESQL), { recursive: true })
+    await writeFile(
+      join(dir, 'node_modules', POSTGRESQL, 'package.json'),
+      JSON.stringify({ name: POSTGRESQL, version: '1.3.2', dependencies: { pg: '8.16.3' } }),
+    )
+    expect(await readFile(join(dir, 'src', 'scripts', 'migrate.ts'), 'utf-8')).toMatch(/from 'pg'/)
+
+    expect(await swap(dir, SQLITE, POSTGRESQL)).toBeUndefined()
+    const after = await dependencies(dir)
+    expect(after[SQLITE]).toBeDefined()
+    expect(after).not.toHaveProperty('pg')
+    expect(await readFile(join(dir, 'src', 'scripts', 'migrate.ts'), 'utf-8')).not.toMatch(
+      /from 'pg'/,
+    )
+  })
 })
