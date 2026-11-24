@@ -126,6 +126,58 @@ describe('planCheckSteps', () => {
     expect(steps).toHaveLength(0)
   })
 
+  // A scaffolded app's build is `tsc --noEmit && vite build` with a `prebuild` of `npm run lint`:
+  // run whole beside the typecheck and lint steps, it ran both again and took 10.8 s of an 11.2 s
+  // check where Vite needed 4.5 s (harness eval `scaffold`, 2026-11-24).
+  const app = pkg({
+    scripts: {
+      build: 'tsc --noEmit && vite build',
+      prebuild: 'npm run lint',
+      typecheck: 'tsc --noEmit',
+      lint: 'eslint src/',
+    },
+  })
+
+  it('builds without repeating the typecheck and lint the check runs beside it (OLD MUSTFAIL)', () => {
+    const { steps } = planCheckSteps([app], { budgetMs: BUDGET })
+    expect(steps.find((s) => s.kind === 'build')?.command).toBe(
+      `npm exec --silent --no -c 'vite build'`,
+    )
+    expect(steps.map((s) => s.kind).sort()).toEqual(['build', 'lint', 'typecheck'])
+  })
+
+  it('counterexample: a build run alone keeps its own typecheck and lint', () => {
+    const { steps } = planCheckSteps([app], { budgetMs: BUDGET, steps: ['build'] })
+    expect(steps[0].command).toBe('npm run --silent build')
+  })
+
+  it('counterexample: keeps a prebuild that is not the lint, and the postbuild', () => {
+    const codegen = pkg({
+      scripts: {
+        build: "tsc --noEmit && vite build --mode 'prod'",
+        prebuild: 'node scripts/generate-routes.mjs',
+        postbuild: 'node scripts/verify-dist.mjs',
+        typecheck: 'tsc --noEmit',
+      },
+    })
+    const { steps } = planCheckSteps([codegen], { budgetMs: BUDGET, steps: ['typecheck', 'build'] })
+    expect(steps.find((s) => s.kind === 'build')?.command).toBe(
+      `npm run --silent prebuild && npm exec --silent --no -c 'vite build --mode '\\''prod'\\''' && npm run --silent postbuild`,
+    )
+  })
+
+  it('counterexample: a build that does not repeat a check step runs as written', () => {
+    const api = pkg({
+      scripts: {
+        build: 'tsc && npm run db:verify',
+        typecheck: 'tsc --noEmit',
+        lint: 'eslint src/',
+      },
+    })
+    const { steps } = planCheckSteps([api], { budgetMs: BUDGET })
+    expect(steps.find((s) => s.kind === 'build')?.command).toBe('npm run --silent build')
+  })
+
   it('caps each step at the budget', () => {
     const { steps } = planCheckSteps([pkg({ scripts: { build: 'tsc' } })], {
       budgetMs: 5_000,
