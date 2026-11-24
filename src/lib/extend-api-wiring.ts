@@ -8,14 +8,16 @@
  */
 import { ts } from 'ts-morph'
 
-const parse = (name: string, source: string): ts.SourceFile =>
+/** Parses a TypeScript source with parent pointers set. */
+export const parse = (name: string, source: string): ts.SourceFile =>
   ts.createSourceFile(name, source, ts.ScriptTarget.Latest, true)
 
-const specifierOf = (node: ts.ImportDeclaration): string =>
+/** The module an import declaration names. */
+export const specifierOf = (node: ts.ImportDeclaration): string =>
   (node.moduleSpecifier as ts.StringLiteral).text
 
 /** Every local name a file's imports bind. */
-function importedNames(file: ts.SourceFile): Set<string> {
+export function importedNames(file: ts.SourceFile): Set<string> {
   const names = new Set<string>()
   for (const node of file.statements.filter(ts.isImportDeclaration)) {
     const clause = node.importClause
@@ -29,7 +31,7 @@ function importedNames(file: ts.SourceFile): Set<string> {
 }
 
 /** Apply non-overlapping insertions, last first, so earlier offsets stay valid. */
-function applyEdits(text: string, edits: Array<{ at: number; text: string }>): string {
+export function applyEdits(text: string, edits: Array<{ at: number; text: string }>): string {
   for (const edit of [...edits].sort((a, b) => b.at - a.at))
     text = text.slice(0, edit.at) + edit.text + text.slice(edit.at)
   return text
