@@ -1,7 +1,6 @@
 import {
   AccountSection,
   AuthSection,
-  BillingSection,
   DevicesSection,
   LogOutDeleteSection,
   NotificationsSection,
@@ -19,7 +18,6 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       <AccountSection />
       <AuthSection />
       <NotificationsSection />
-      <BillingSection />
       <UpgradeButton />
       <DevicesSection />
       <ThisDeviceSection />

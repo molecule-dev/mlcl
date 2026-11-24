@@ -1,12 +1,12 @@
 import {
   AccountSection,
   AuthSection,
-  BillingSection,
   DevicesSection,
   LogOutDeleteSection,
   NotificationsSection,
   SettingsContainer,
   ThisDeviceSection,
+  TiersUpgradeSection,
 } from '@molecule/app-settings-panel-react'
 import { Separator } from '@molecule/app-ui-react'
 
@@ -18,7 +18,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       <AccountSection />
       <AuthSection />
       <NotificationsSection />
-      <BillingSection />
+      <TiersUpgradeSection />
       <DevicesSection />
       <ThisDeviceSection />
       <Separator />

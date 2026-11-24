@@ -18,7 +18,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       <AccountSection />
       <AuthSection />
       <NotificationsSection />
-      <BillingSection />
+      <BillingSection upgradeTo="/billing" />
       <DevicesSection />
       <ThisDeviceSection />
       <Separator />
