@@ -40,11 +40,11 @@ Totals — pages: 24, elements: 103, forms: 7, routes: 20
 | ----------------------- | -------------------------------------------- | ------------------------------------ |
 | form-loginform-48       | form at app/src/components/LoginForm.tsx:48  | app/src/components/LoginForm.tsx:48  |
 | form-signupform-51      | form at app/src/components/SignupForm.tsx:51 | app/src/components/SignupForm.tsx:51 |
-| form-board-682          | form at app/src/pages/Board.tsx:682          | app/src/pages/Board.tsx:682          |
-| form-dashboard-801      | form at app/src/pages/Dashboard.tsx:801      | app/src/pages/Dashboard.tsx:801      |
+| form-board-683          | form at app/src/pages/Board.tsx:683          | app/src/pages/Board.tsx:683          |
+| form-dashboard-822      | form at app/src/pages/Dashboard.tsx:822      | app/src/pages/Dashboard.tsx:822      |
 | form-forgotpassword-135 | form at app/src/pages/ForgotPassword.tsx:135 | app/src/pages/ForgotPassword.tsx:135 |
 | form-resetpassword-131  | form at app/src/pages/ResetPassword.tsx:131  | app/src/pages/ResetPassword.tsx:131  |
-| form-timeline-1016      | form at app/src/pages/Timeline.tsx:1016      | app/src/pages/Timeline.tsx:1016      |
+| form-timeline-1018      | form at app/src/pages/Timeline.tsx:1018      | app/src/pages/Timeline.tsx:1018      |
 
 ## Elements (103)
 
@@ -72,15 +72,15 @@ Totals — pages: 24, elements: 103, forms: 7, routes: 20
 | link-loginform-112-----                                  | link     | , )}                                                             | app/src/components/LoginForm.tsx:112                    |
 | input-loginform-120                                      | input    | input at app/src/components/LoginForm.tsx:120                    | app/src/components/LoginForm.tsx:120                    |
 | button-loginform-138--------                             | button   | , } })}                                                          | app/src/components/LoginForm.tsx:138                    |
-| input-notificationssettingssection-127                   | input    | input at app/src/components/NotificationsSettingsSection.tsx:127 | app/src/components/NotificationsSettingsSection.tsx:127 |
-| input-notificationssettingssection-167                   | input    | input at app/src/components/NotificationsSettingsSection.tsx:167 | app/src/components/NotificationsSettingsSection.tsx:167 |
-| input-notificationssettingssection-207                   | input    | input at app/src/components/NotificationsSettingsSection.tsx:207 | app/src/components/NotificationsSettingsSection.tsx:207 |
-| input-notificationssettingssection-247                   | input    | input at app/src/components/NotificationsSettingsSection.tsx:247 | app/src/components/NotificationsSettingsSection.tsx:247 |
-| button-notificationssettingssection-282----              | button   | , )                                                              | app/src/components/NotificationsSettingsSection.tsx:282 |
-| input-profilesettingssection-104                         | input    | input at app/src/components/ProfileSettingsSection.tsx:104       | app/src/components/ProfileSettingsSection.tsx:104       |
-| input-profilesettingssection-132                         | input    | input at app/src/components/ProfileSettingsSection.tsx:132       | app/src/components/ProfileSettingsSection.tsx:132       |
-| textarea-profilesettingssection-157                      | textarea | textarea at app/src/components/ProfileSettingsSection.tsx:157    | app/src/components/ProfileSettingsSection.tsx:157       |
-| button-profilesettingssection-185--loading               | button   | {loading                                                         | app/src/components/ProfileSettingsSection.tsx:185       |
+| input-notificationssettingssection-137                   | input    | input at app/src/components/NotificationsSettingsSection.tsx:137 | app/src/components/NotificationsSettingsSection.tsx:137 |
+| input-notificationssettingssection-177                   | input    | input at app/src/components/NotificationsSettingsSection.tsx:177 | app/src/components/NotificationsSettingsSection.tsx:177 |
+| input-notificationssettingssection-217                   | input    | input at app/src/components/NotificationsSettingsSection.tsx:217 | app/src/components/NotificationsSettingsSection.tsx:217 |
+| input-notificationssettingssection-257                   | input    | input at app/src/components/NotificationsSettingsSection.tsx:257 | app/src/components/NotificationsSettingsSection.tsx:257 |
+| button-notificationssettingssection-292----              | button   | , )                                                              | app/src/components/NotificationsSettingsSection.tsx:292 |
+| input-profilesettingssection-106                         | input    | input at app/src/components/ProfileSettingsSection.tsx:106       | app/src/components/ProfileSettingsSection.tsx:106       |
+| input-profilesettingssection-134                         | input    | input at app/src/components/ProfileSettingsSection.tsx:134       | app/src/components/ProfileSettingsSection.tsx:134       |
+| textarea-profilesettingssection-159                      | textarea | textarea at app/src/components/ProfileSettingsSection.tsx:159    | app/src/components/ProfileSettingsSection.tsx:159       |
+| button-profilesettingssection-187--loading               | button   | {loading                                                         | app/src/components/ProfileSettingsSection.tsx:187       |
 | button-settingstopappbar-52-notifications                | button   | notifications                                                    | app/src/components/SettingsTopAppBar.tsx:52             |
 | link-settingstopappbar-75-help-outline                   | link     | help_outline                                                     | app/src/components/SettingsTopAppBar.tsx:75             |
 | link-signinprompt-13-----                                | link     | , )}                                                             | app/src/components/SignInPrompt.tsx:13                  |
@@ -108,23 +108,23 @@ Totals — pages: 24, elements: 103, forms: 7, routes: 20
 | link-board-379-----                                      | link     | , )}                                                             | app/src/pages/Board.tsx:379                             |
 | button-board-388-add-----                                | button   | add , )}                                                         | app/src/pages/Board.tsx:388                             |
 | button-board-469                                         | button   | button at app/src/pages/Board.tsx:469                            | app/src/pages/Board.tsx:469                             |
-| button-board-581                                         | button   | button at app/src/pages/Board.tsx:581                            | app/src/pages/Board.tsx:581                             |
-| input-board-696                                          | input    | input at app/src/pages/Board.tsx:696                             | app/src/pages/Board.tsx:696                             |
-| select-board-714                                         | select   | select at app/src/pages/Board.tsx:714                            | app/src/pages/Board.tsx:714                             |
-| input-board-740                                          | input    | input at app/src/pages/Board.tsx:740                             | app/src/pages/Board.tsx:740                             |
-| button-board-751-----                                    | button   | , )}                                                             | app/src/pages/Board.tsx:751                             |
-| button-board-759-------t-common-creat                    | button   | , ) : t(common.create, , )}                                      | app/src/pages/Board.tsx:759                             |
-| button-dashboard-248                                     | button   | button at app/src/pages/Dashboard.tsx:248                        | app/src/pages/Dashboard.tsx:248                         |
-| input-dashboard-290                                      | input    | input at app/src/pages/Dashboard.tsx:290                         | app/src/pages/Dashboard.tsx:290                         |
-| link-dashboard-418-----                                  | link     | , )}                                                             | app/src/pages/Dashboard.tsx:418                         |
-| button-dashboard-470                                     | button   | button at app/src/pages/Dashboard.tsx:470                        | app/src/pages/Dashboard.tsx:470                         |
-| button-dashboard-570-----                                | button   | , )}                                                             | app/src/pages/Dashboard.tsx:570                         |
-| button-dashboard-607--t--dashboard-create                | button   | {t( dashboard.createFirstProject,                                | app/src/pages/Dashboard.tsx:607                         |
-| link-dashboard-644--p-classname--cm-cn-                  | link     | <p className={cm.cn(font-bold text-on-surf                       | app/src/pages/Dashboard.tsx:644                         |
-| input-dashboard-815                                      | input    | input at app/src/pages/Dashboard.tsx:815                         | app/src/pages/Dashboard.tsx:815                         |
-| textarea-dashboard-837                                   | textarea | textarea at app/src/pages/Dashboard.tsx:837                      | app/src/pages/Dashboard.tsx:837                         |
-| button-dashboard-851-----                                | button   | , )}                                                             | app/src/pages/Dashboard.tsx:851                         |
-| button-dashboard-862----                                 | button   | , )                                                              | app/src/pages/Dashboard.tsx:862                         |
+| button-board-582                                         | button   | button at app/src/pages/Board.tsx:582                            | app/src/pages/Board.tsx:582                             |
+| input-board-697                                          | input    | input at app/src/pages/Board.tsx:697                             | app/src/pages/Board.tsx:697                             |
+| select-board-715                                         | select   | select at app/src/pages/Board.tsx:715                            | app/src/pages/Board.tsx:715                             |
+| input-board-741                                          | input    | input at app/src/pages/Board.tsx:741                             | app/src/pages/Board.tsx:741                             |
+| button-board-752-----                                    | button   | , )}                                                             | app/src/pages/Board.tsx:752                             |
+| button-board-760-------t-common-creat                    | button   | , ) : t(common.create, , )}                                      | app/src/pages/Board.tsx:760                             |
+| button-dashboard-264                                     | button   | button at app/src/pages/Dashboard.tsx:264                        | app/src/pages/Dashboard.tsx:264                         |
+| input-dashboard-306                                      | input    | input at app/src/pages/Dashboard.tsx:306                         | app/src/pages/Dashboard.tsx:306                         |
+| link-dashboard-438-----                                  | link     | , )}                                                             | app/src/pages/Dashboard.tsx:438                         |
+| button-dashboard-490                                     | button   | button at app/src/pages/Dashboard.tsx:490                        | app/src/pages/Dashboard.tsx:490                         |
+| button-dashboard-590-----                                | button   | , )}                                                             | app/src/pages/Dashboard.tsx:590                         |
+| button-dashboard-627--t--dashboard-create                | button   | {t( dashboard.createFirstProject,                                | app/src/pages/Dashboard.tsx:627                         |
+| link-dashboard-665--p-classname--cm-cn-                  | link     | <p className={cm.cn(font-bold text-on-surf                       | app/src/pages/Dashboard.tsx:665                         |
+| input-dashboard-836                                      | input    | input at app/src/pages/Dashboard.tsx:836                         | app/src/pages/Dashboard.tsx:836                         |
+| textarea-dashboard-858                                   | textarea | textarea at app/src/pages/Dashboard.tsx:858                      | app/src/pages/Dashboard.tsx:858                         |
+| button-dashboard-872-----                                | button   | , )}                                                             | app/src/pages/Dashboard.tsx:872                         |
+| button-dashboard-883----                                 | button   | , )                                                              | app/src/pages/Dashboard.tsx:883                         |
 | link-forgotpassword-85--------                           | link     | , } })}                                                          | app/src/pages/ForgotPassword.tsx:85                     |
 | input-forgotpassword-162                                 | input    | input at app/src/pages/ForgotPassword.tsx:162                    | app/src/pages/ForgotPassword.tsx:162                    |
 | button-forgotpassword-181--loading                       | button   | {loading                                                         | app/src/pages/ForgotPassword.tsx:181                    |
@@ -143,16 +143,16 @@ Totals — pages: 24, elements: 103, forms: 7, routes: 20
 | button-timeline-387                                      | button   | button at app/src/pages/Timeline.tsx:387                         | app/src/pages/Timeline.tsx:387                          |
 | button-timeline-420                                      | button   | button at app/src/pages/Timeline.tsx:420                         | app/src/pages/Timeline.tsx:420                          |
 | button-timeline-444                                      | button   | button at app/src/pages/Timeline.tsx:444                         | app/src/pages/Timeline.tsx:444                          |
-| button-timeline-509                                      | button   | button at app/src/pages/Timeline.tsx:509                         | app/src/pages/Timeline.tsx:509                          |
-| button-timeline-527                                      | button   | button at app/src/pages/Timeline.tsx:527                         | app/src/pages/Timeline.tsx:527                          |
-| button-timeline-853                                      | button   | button at app/src/pages/Timeline.tsx:853                         | app/src/pages/Timeline.tsx:853                          |
-| link-timeline-932                                        | link     | link at app/src/pages/Timeline.tsx:932                           | app/src/pages/Timeline.tsx:932                          |
-| button-timeline-954                                      | button   | button at app/src/pages/Timeline.tsx:954                         | app/src/pages/Timeline.tsx:954                          |
-| input-timeline-1043                                      | input    | input at app/src/pages/Timeline.tsx:1043                         | app/src/pages/Timeline.tsx:1043                         |
-| input-timeline-1062                                      | input    | input at app/src/pages/Timeline.tsx:1062                         | app/src/pages/Timeline.tsx:1062                         |
-| textarea-timeline-1081                                   | textarea | textarea at app/src/pages/Timeline.tsx:1081                      | app/src/pages/Timeline.tsx:1081                         |
-| button-timeline-1102                                     | button   | button at app/src/pages/Timeline.tsx:1102                        | app/src/pages/Timeline.tsx:1102                         |
-| button-timeline-1117                                     | button   | button at app/src/pages/Timeline.tsx:1117                        | app/src/pages/Timeline.tsx:1117                         |
+| button-timeline-510                                      | button   | button at app/src/pages/Timeline.tsx:510                         | app/src/pages/Timeline.tsx:510                          |
+| button-timeline-528                                      | button   | button at app/src/pages/Timeline.tsx:528                         | app/src/pages/Timeline.tsx:528                          |
+| button-timeline-855                                      | button   | button at app/src/pages/Timeline.tsx:855                         | app/src/pages/Timeline.tsx:855                          |
+| link-timeline-934                                        | link     | link at app/src/pages/Timeline.tsx:934                           | app/src/pages/Timeline.tsx:934                          |
+| button-timeline-956                                      | button   | button at app/src/pages/Timeline.tsx:956                         | app/src/pages/Timeline.tsx:956                          |
+| input-timeline-1045                                      | input    | input at app/src/pages/Timeline.tsx:1045                         | app/src/pages/Timeline.tsx:1045                         |
+| input-timeline-1064                                      | input    | input at app/src/pages/Timeline.tsx:1064                         | app/src/pages/Timeline.tsx:1064                         |
+| textarea-timeline-1083                                   | textarea | textarea at app/src/pages/Timeline.tsx:1083                      | app/src/pages/Timeline.tsx:1083                         |
+| button-timeline-1104                                     | button   | button at app/src/pages/Timeline.tsx:1104                        | app/src/pages/Timeline.tsx:1104                         |
+| button-timeline-1119                                     | button   | button at app/src/pages/Timeline.tsx:1119                        | app/src/pages/Timeline.tsx:1119                         |
 
 ## Backend Routes (20)
 

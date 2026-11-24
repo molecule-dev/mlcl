@@ -240,12 +240,12 @@
       "name": null
     },
     {
-      "id": "link-authfooter-44-----",
+      "id": "link-authfooter-48-----without-the-valu",
       "role": "link",
       "tag": "Link",
       "file": "app/src/components/AuthFooter.tsx",
-      "line": 44,
-      "label": ", )}",
+      "line": 48,
+      "label": "} — without the values object it rendered the placeholder li",
       "href": null,
       "type": null,
       "name": null
@@ -257,6 +257,17 @@
       "file": "app/src/components/AuthHeader.tsx",
       "line": 43,
       "label": ", } })}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-brandwordmark-80",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BrandWordmark.tsx",
+      "line": 80,
+      "label": "link at app/src/components/BrandWordmark.tsx:80",
       "href": "/",
       "type": null,
       "name": null
@@ -339,111 +350,111 @@
       "name": null
     },
     {
-      "id": "input-notificationssettingssection-131",
+      "id": "input-notificationssettingssection-141",
       "role": "input",
       "tag": "input",
       "file": "app/src/components/NotificationsSettingsSection.tsx",
-      "line": 131,
-      "label": "input at app/src/components/NotificationsSettingsSection.tsx:131",
+      "line": 141,
+      "label": "input at app/src/components/NotificationsSettingsSection.tsx:141",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-notificationssettingssection-171",
+      "id": "input-notificationssettingssection-181",
       "role": "input",
       "tag": "input",
       "file": "app/src/components/NotificationsSettingsSection.tsx",
-      "line": 171,
-      "label": "input at app/src/components/NotificationsSettingsSection.tsx:171",
+      "line": 181,
+      "label": "input at app/src/components/NotificationsSettingsSection.tsx:181",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-notificationssettingssection-211",
+      "id": "input-notificationssettingssection-221",
       "role": "input",
       "tag": "input",
       "file": "app/src/components/NotificationsSettingsSection.tsx",
-      "line": 211,
-      "label": "input at app/src/components/NotificationsSettingsSection.tsx:211",
+      "line": 221,
+      "label": "input at app/src/components/NotificationsSettingsSection.tsx:221",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-notificationssettingssection-251",
+      "id": "input-notificationssettingssection-261",
       "role": "input",
       "tag": "input",
       "file": "app/src/components/NotificationsSettingsSection.tsx",
-      "line": 251,
-      "label": "input at app/src/components/NotificationsSettingsSection.tsx:251",
+      "line": 261,
+      "label": "input at app/src/components/NotificationsSettingsSection.tsx:261",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-notificationssettingssection-286----",
+      "id": "button-notificationssettingssection-296----",
       "role": "button",
       "tag": "button",
       "file": "app/src/components/NotificationsSettingsSection.tsx",
-      "line": 286,
+      "line": 296,
       "label": ", )",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-profilesettingssection-104",
+      "id": "input-profilesettingssection-106",
       "role": "input",
       "tag": "input",
       "file": "app/src/components/ProfileSettingsSection.tsx",
-      "line": 104,
-      "label": "input at app/src/components/ProfileSettingsSection.tsx:104",
+      "line": 106,
+      "label": "input at app/src/components/ProfileSettingsSection.tsx:106",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-profilesettingssection-132",
+      "id": "input-profilesettingssection-134",
       "role": "input",
       "tag": "input",
       "file": "app/src/components/ProfileSettingsSection.tsx",
-      "line": 132,
-      "label": "input at app/src/components/ProfileSettingsSection.tsx:132",
+      "line": 134,
+      "label": "input at app/src/components/ProfileSettingsSection.tsx:134",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "textarea-profilesettingssection-157",
+      "id": "textarea-profilesettingssection-159",
       "role": "textarea",
       "tag": "textarea",
       "file": "app/src/components/ProfileSettingsSection.tsx",
-      "line": 157,
-      "label": "textarea at app/src/components/ProfileSettingsSection.tsx:157",
+      "line": 159,
+      "label": "textarea at app/src/components/ProfileSettingsSection.tsx:159",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-profilesettingssection-185--loading",
+      "id": "button-profilesettingssection-187--loading",
       "role": "button",
       "tag": "button",
       "file": "app/src/components/ProfileSettingsSection.tsx",
-      "line": 185,
+      "line": 187,
       "label": "{loading",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-projectnav-24",
+      "id": "link-projectnav-27",
       "role": "link",
       "tag": "NavLink",
       "file": "app/src/components/ProjectNav.tsx",
-      "line": 24,
-      "label": "link at app/src/components/ProjectNav.tsx:24",
+      "line": 27,
+      "label": "link at app/src/components/ProjectNav.tsx:27",
       "href": null,
       "type": null,
       "name": null
@@ -559,274 +570,846 @@
       "name": null
     },
     {
-      "id": "link-about-121-----",
+      "id": "link-about-357-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/About.tsx",
-      "line": 121,
+      "line": 357,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-about-380-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/About.tsx",
+      "line": 380,
       "label": ", )}",
       "href": "/signup",
       "type": null,
       "name": null
     },
     {
-      "id": "button-dailylogs-153",
+      "id": "button-dailylogs-223",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 153,
-      "label": "button at app/src/pages/DailyLogs.tsx:153",
+      "line": 223,
+      "label": "button at app/src/pages/DailyLogs.tsx:223",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-dailylogs-184",
+      "id": "input-dailylogs-254",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 184,
-      "label": "input at app/src/pages/DailyLogs.tsx:184",
+      "line": 254,
+      "label": "input at app/src/pages/DailyLogs.tsx:254",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "select-dailylogs-197",
+      "id": "select-dailylogs-273",
       "role": "select",
       "tag": "select",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 197,
-      "label": "select at app/src/pages/DailyLogs.tsx:197",
+      "line": 273,
+      "label": "select at app/src/pages/DailyLogs.tsx:273",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-dailylogs-214",
+      "id": "input-dailylogs-296",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 214,
-      "label": "input at app/src/pages/DailyLogs.tsx:214",
+      "line": 296,
+      "label": "input at app/src/pages/DailyLogs.tsx:296",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-dailylogs-228",
+      "id": "input-dailylogs-316",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 228,
-      "label": "input at app/src/pages/DailyLogs.tsx:228",
+      "line": 316,
+      "label": "input at app/src/pages/DailyLogs.tsx:316",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "textarea-dailylogs-243",
+      "id": "textarea-dailylogs-337",
       "role": "textarea",
       "tag": "textarea",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 243,
-      "label": "textarea at app/src/pages/DailyLogs.tsx:243",
+      "line": 337,
+      "label": "textarea at app/src/pages/DailyLogs.tsx:337",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-dailylogs-256-------t-dailylogs-su",
+      "id": "button-dailylogs-356",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 256,
-      "label": ", ) : t(dailyLogs.submit, , )}",
+      "line": 356,
+      "label": "button at app/src/pages/DailyLogs.tsx:356",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-dailylogs-294-----",
+      "id": "button-dailylogs-427",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 294,
-      "label": ", )}",
+      "line": 427,
+      "label": "button at app/src/pages/DailyLogs.tsx:427",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-dailylogs-317",
+      "id": "input-dailylogs-463",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 317,
-      "label": "input at app/src/pages/DailyLogs.tsx:317",
+      "line": 463,
+      "label": "input at app/src/pages/DailyLogs.tsx:463",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-dailylogs-330",
+      "id": "input-dailylogs-486",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 330,
-      "label": "input at app/src/pages/DailyLogs.tsx:330",
+      "line": 486,
+      "label": "input at app/src/pages/DailyLogs.tsx:486",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-dailylogs-339-----",
+      "id": "button-dailylogs-506",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 339,
-      "label": ", )}",
+      "line": 506,
+      "label": "button at app/src/pages/DailyLogs.tsx:506",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-dailylogs-371-----",
+      "id": "link-dailylogs-708-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 371,
+      "line": 708,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-dashboard-136-----",
+      "id": "link-dashboard-149-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/Dashboard.tsx",
-      "line": 136,
+      "line": 149,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-dashboard-188--",
+      "id": "link-dashboard-204--",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/Dashboard.tsx",
-      "line": 188,
+      "line": 204,
       "label": "#",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-dashboard-246",
+      "id": "link-dashboard-382",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/Dashboard.tsx",
-      "line": 246,
-      "label": "link at app/src/pages/Dashboard.tsx:246",
+      "line": 382,
+      "label": "link at app/src/pages/Dashboard.tsx:382",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-dashboard-296",
+      "id": "link-dashboard-441",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/Dashboard.tsx",
-      "line": 296,
-      "label": "link at app/src/pages/Dashboard.tsx:296",
+      "line": 441,
+      "label": "link at app/src/pages/Dashboard.tsx:441",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-forgotpassword-85--------",
+      "id": "link-dashboard-499",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Dashboard.tsx",
+      "line": 499,
+      "label": "link at app/src/pages/Dashboard.tsx:499",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-123--------",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 85,
+      "line": 123,
       "label": ", } })}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-forgotpassword-162",
+      "id": "input-forgotpassword-200",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 162,
-      "label": "input at app/src/pages/ForgotPassword.tsx:162",
+      "line": 200,
+      "label": "input at app/src/pages/ForgotPassword.tsx:200",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-forgotpassword-181--loading",
+      "id": "button-forgotpassword-219--loading",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 181,
+      "line": 219,
       "label": "{loading",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-forgotpassword-206-----",
+      "id": "link-forgotpassword-248-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 206,
+      "line": 248,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-landing-70-----",
+      "id": "link-landing-166",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/Landing.tsx",
-      "line": 70,
+      "line": 166,
+      "label": "link at app/src/pages/Landing.tsx:166",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-180-----",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 180,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-landing-77-----",
+      "id": "link-landing-186-----",
       "role": "link",
-      "tag": "Link",
+      "tag": "a",
       "file": "app/src/pages/Landing.tsx",
-      "line": 77,
+      "line": 186,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-landing-120-----",
+      "id": "link-landing-195-----",
       "role": "link",
-      "tag": "Link",
+      "tag": "a",
       "file": "app/src/pages/Landing.tsx",
-      "line": 120,
+      "line": 195,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-landing-132-----",
+      "id": "link-landing-204-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/Landing.tsx",
+      "line": 204,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-216-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 216,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-227",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 227,
+      "label": "link at app/src/pages/Landing.tsx:227",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-378",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 378,
+      "label": "link at app/src/pages/Landing.tsx:378",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-396",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 396,
+      "label": "link at app/src/pages/Landing.tsx:396",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-694-add--t-landing-actio",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 694,
+      "label": "add {t(landing.actionCreate",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1111-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1111,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1202-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1202,
+      "label": ", )}",
+      "href": "/dashboard",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1207-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1207,
+      "label": ", )}",
+      "href": "/dashboard",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1212-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1212,
+      "label": ", )}",
+      "href": "/dashboard",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1217-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1217,
+      "label": ", )}",
+      "href": "/pricing",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1235-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1235,
+      "label": ", )}",
+      "href": "/about",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1240-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1240,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1245-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1245,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1266-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1266,
+      "label": ", )}",
+      "href": "/privacy",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-1271-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 1271,
+      "label": ", )}",
+      "href": "/terms",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-pricing-281-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Pricing.tsx",
+      "line": 281,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-privacy-189---------",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Privacy.tsx",
+      "line": 189,
+      "label": ". , )} →",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-projectdetail-105-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ProjectDetail.tsx",
+      "line": 105,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-projectdetail-276-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ProjectDetail.tsx",
+      "line": 276,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-projectdetail-283-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ProjectDetail.tsx",
+      "line": 283,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-projectdetail-290-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ProjectDetail.tsx",
+      "line": 290,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-projectdetail-297-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ProjectDetail.tsx",
+      "line": 297,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-projects-135",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Projects.tsx",
+      "line": 135,
+      "label": "button at app/src/pages/Projects.tsx:135",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-projects-164",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Projects.tsx",
+      "line": 164,
+      "label": "input at app/src/pages/Projects.tsx:164",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-projects-187",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Projects.tsx",
+      "line": 187,
+      "label": "input at app/src/pages/Projects.tsx:187",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-projects-209",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Projects.tsx",
+      "line": 209,
+      "label": "select at app/src/pages/Projects.tsx:209",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-projects-232",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Projects.tsx",
+      "line": 232,
+      "label": "input at app/src/pages/Projects.tsx:232",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-projects-255",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Projects.tsx",
+      "line": 255,
+      "label": "button at app/src/pages/Projects.tsx:255",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-projects-274",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Projects.tsx",
+      "line": 274,
+      "label": "input at app/src/pages/Projects.tsx:274",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-projects-305--div-classname--cm-f",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Projects.tsx",
+      "line": 305,
+      "label": "<div className={cm.flex({",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-punchlist-189",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 189,
+      "label": "button at app/src/pages/PunchList.tsx:189",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-punchlist-220",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 220,
+      "label": "input at app/src/pages/PunchList.tsx:220",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-punchlist-243",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 243,
+      "label": "select at app/src/pages/PunchList.tsx:243",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-punchlist-267",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 267,
+      "label": "textarea at app/src/pages/PunchList.tsx:267",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-punchlist-287",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 287,
+      "label": "input at app/src/pages/PunchList.tsx:287",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-punchlist-304",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 304,
+      "label": "input at app/src/pages/PunchList.tsx:304",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-punchlist-325",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 325,
+      "label": "button at app/src/pages/PunchList.tsx:325",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-punchlist-351",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 351,
+      "label": "button at app/src/pages/PunchList.tsx:351",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-punchlist-451",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 451,
+      "label": "button at app/src/pages/PunchList.tsx:451",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-punchlist-466",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 466,
+      "label": "button at app/src/pages/PunchList.tsx:466",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-punchlist-482",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 482,
+      "label": "button at app/src/pages/PunchList.tsx:482",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-punchlist-511",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 511,
+      "label": "input at app/src/pages/PunchList.tsx:511",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-punchlist-524",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 524,
+      "label": "button at app/src/pages/PunchList.tsx:524",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-punchlist-605-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 605,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-170-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 170,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-182",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 182,
+      "label": "input at app/src/pages/ResetPassword.tsx:182",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-197--loading",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 197,
+      "label": "{loading",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-230-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 230,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-rfidetail-132-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/RfiDetail.tsx",
       "line": 132,
       "label": ", )}",
       "href": null,
@@ -834,639 +1417,298 @@
       "name": null
     },
     {
-      "id": "link-landing-183-----",
+      "id": "link-rfidetail-151-----",
       "role": "link",
       "tag": "Link",
-      "file": "app/src/pages/Landing.tsx",
-      "line": 183,
-      "label": ", )}",
-      "href": "/terms",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-landing-186-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Landing.tsx",
-      "line": 186,
-      "label": ", )}",
-      "href": "/privacy",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-projectdetail-75-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ProjectDetail.tsx",
-      "line": 75,
-      "label": ", )}",
-      "href": "/projects",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-projectdetail-152-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ProjectDetail.tsx",
-      "line": 152,
+      "file": "app/src/pages/RfiDetail.tsx",
+      "line": 151,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-projectdetail-159-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ProjectDetail.tsx",
-      "line": 159,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-projectdetail-166-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ProjectDetail.tsx",
-      "line": 166,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-projectdetail-173-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ProjectDetail.tsx",
-      "line": 173,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-projects-129",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Projects.tsx",
-      "line": 129,
-      "label": "button at app/src/pages/Projects.tsx:129",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-projects-158",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Projects.tsx",
-      "line": 158,
-      "label": "input at app/src/pages/Projects.tsx:158",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-projects-171",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Projects.tsx",
-      "line": 171,
-      "label": "input at app/src/pages/Projects.tsx:171",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "select-projects-183",
-      "role": "select",
-      "tag": "select",
-      "file": "app/src/pages/Projects.tsx",
-      "line": 183,
-      "label": "select at app/src/pages/Projects.tsx:183",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-projects-200",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Projects.tsx",
-      "line": 200,
-      "label": "input at app/src/pages/Projects.tsx:200",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-projects-217-------t-projects-cre",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Projects.tsx",
-      "line": 217,
-      "label": ", ) : t(projects.createButton, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-projects-230",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Projects.tsx",
-      "line": 230,
-      "label": "input at app/src/pages/Projects.tsx:230",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "link-projects-257--span-classname--cm-",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Projects.tsx",
-      "line": 257,
-      "label": "<span className={cm.cn(cm.textSize(xs), cm.fontWeight(semibo",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-punchlist-148",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 148,
-      "label": "button at app/src/pages/PunchList.tsx:148",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-punchlist-179",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 179,
-      "label": "input at app/src/pages/PunchList.tsx:179",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "select-punchlist-192",
-      "role": "select",
-      "tag": "select",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 192,
-      "label": "select at app/src/pages/PunchList.tsx:192",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "textarea-punchlist-210",
+      "id": "textarea-rfidetail-330",
       "role": "textarea",
       "tag": "textarea",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 210,
-      "label": "textarea at app/src/pages/PunchList.tsx:210",
+      "file": "app/src/pages/RfiDetail.tsx",
+      "line": 330,
+      "label": "textarea at app/src/pages/RfiDetail.tsx:330",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-punchlist-224",
+      "id": "input-rfidetail-346",
       "role": "input",
       "tag": "input",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 224,
-      "label": "input at app/src/pages/PunchList.tsx:224",
+      "file": "app/src/pages/RfiDetail.tsx",
+      "line": 346,
+      "label": "input at app/src/pages/RfiDetail.tsx:346",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-punchlist-235",
+      "id": "button-rfidetail-361",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RfiDetail.tsx",
+      "line": 361,
+      "label": "button at app/src/pages/RfiDetail.tsx:361",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-rfidetail-378",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/RfiDetail.tsx",
+      "line": 378,
+      "label": "button at app/src/pages/RfiDetail.tsx:378",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-rfis-141",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Rfis.tsx",
+      "line": 141,
+      "label": "button at app/src/pages/Rfis.tsx:141",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-rfis-172",
       "role": "input",
       "tag": "input",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 235,
-      "label": "input at app/src/pages/PunchList.tsx:235",
+      "file": "app/src/pages/Rfis.tsx",
+      "line": 172,
+      "label": "input at app/src/pages/Rfis.tsx:172",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-punchlist-250-------t-punch-submit",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 250,
-      "label": ", ) : t(punch.submit, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-punchlist-270",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 270,
-      "label": "button at app/src/pages/PunchList.tsx:270",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-punchlist-340-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 340,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-punchlist-349-------t-punch-assign",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 349,
-      "label": ", ) : t(punch.assign, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-punchlist-359-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 359,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-punchlist-376",
+      "id": "input-rfis-190",
       "role": "input",
       "tag": "input",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 376,
-      "label": "input at app/src/pages/PunchList.tsx:376",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-punchlist-384-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 384,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-punchlist-399-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 399,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-resetpassword-163-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 163,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-resetpassword-175",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 175,
-      "label": "input at app/src/pages/ResetPassword.tsx:175",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-resetpassword-190--loading",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/ResetPassword.tsx",
+      "file": "app/src/pages/Rfis.tsx",
       "line": 190,
-      "label": "{loading",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-resetpassword-223-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 223,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-rfidetail-110-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/RfiDetail.tsx",
-      "line": 110,
-      "label": ", )}",
-      "href": "/projects",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-rfidetail-120-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/RfiDetail.tsx",
-      "line": 120,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "textarea-rfidetail-197",
-      "role": "textarea",
-      "tag": "textarea",
-      "file": "app/src/pages/RfiDetail.tsx",
-      "line": 197,
-      "label": "textarea at app/src/pages/RfiDetail.tsx:197",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-rfidetail-207",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/RfiDetail.tsx",
-      "line": 207,
-      "label": "input at app/src/pages/RfiDetail.tsx:207",
+      "label": "input at app/src/pages/Rfis.tsx:190",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-rfidetail-218-------t-rfis-respond",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/RfiDetail.tsx",
-      "line": 218,
-      "label": ", ) : t(rfis.respond, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-rfidetail-227-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/RfiDetail.tsx",
-      "line": 227,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-rfis-118",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Rfis.tsx",
-      "line": 118,
-      "label": "button at app/src/pages/Rfis.tsx:118",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-rfis-149",
+      "id": "input-rfis-208",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Rfis.tsx",
-      "line": 149,
-      "label": "input at app/src/pages/Rfis.tsx:149",
+      "line": 208,
+      "label": "input at app/src/pages/Rfis.tsx:208",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-rfis-161",
+      "id": "input-rfis-226",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Rfis.tsx",
-      "line": 161,
-      "label": "input at app/src/pages/Rfis.tsx:161",
+      "line": 226,
+      "label": "input at app/src/pages/Rfis.tsx:226",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-rfis-173",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Rfis.tsx",
-      "line": 173,
-      "label": "input at app/src/pages/Rfis.tsx:173",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-rfis-185",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Rfis.tsx",
-      "line": 185,
-      "label": "input at app/src/pages/Rfis.tsx:185",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "textarea-rfis-198",
+      "id": "textarea-rfis-245",
       "role": "textarea",
       "tag": "textarea",
       "file": "app/src/pages/Rfis.tsx",
-      "line": 198,
-      "label": "textarea at app/src/pages/Rfis.tsx:198",
+      "line": 245,
+      "label": "textarea at app/src/pages/Rfis.tsx:245",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-rfis-212-------t-rfis-submit-",
+      "id": "button-rfis-265",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Rfis.tsx",
-      "line": 212,
-      "label": ", ) : t(rfis.submit, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-rfis-232",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Rfis.tsx",
-      "line": 232,
-      "label": "button at app/src/pages/Rfis.tsx:232",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-rfis-269--p-classname--cm-cn-",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Rfis.tsx",
-      "line": 269,
-      "label": "<p className={cm.cn(cm.textSize(xs), cm",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-rfis-305-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Rfis.tsx",
-      "line": 305,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-subcontractors-124",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Subcontractors.tsx",
-      "line": 124,
-      "label": "button at app/src/pages/Subcontractors.tsx:124",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-subcontractors-155",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Subcontractors.tsx",
-      "line": 155,
-      "label": "input at app/src/pages/Subcontractors.tsx:155",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-subcontractors-168",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Subcontractors.tsx",
-      "line": 168,
-      "label": "input at app/src/pages/Subcontractors.tsx:168",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-subcontractors-180",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Subcontractors.tsx",
-      "line": 180,
-      "label": "input at app/src/pages/Subcontractors.tsx:180",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-subcontractors-192",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Subcontractors.tsx",
-      "line": 192,
-      "label": "input at app/src/pages/Subcontractors.tsx:192",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-subcontractors-209-------t-subs-submit-",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Subcontractors.tsx",
-      "line": 209,
-      "label": ", ) : t(subs.submit, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-subcontractors-265-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Subcontractors.tsx",
       "line": 265,
+      "label": "button at app/src/pages/Rfis.tsx:265",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-rfis-291",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Rfis.tsx",
+      "line": 291,
+      "label": "button at app/src/pages/Rfis.tsx:291",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-rfis-330--div-classname--cm-f",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Rfis.tsx",
+      "line": 330,
+      "label": "<div className={cm.flex({ align: center, justify: between,",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-rfis-478--",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Rfis.tsx",
+      "line": 478,
+      "label": "#",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-rfis-513-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Rfis.tsx",
+      "line": 513,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-subcontractors-275-----",
+      "id": "button-subcontractors-144",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Subcontractors.tsx",
-      "line": 275,
+      "line": 144,
+      "label": "button at app/src/pages/Subcontractors.tsx:144",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-subcontractors-175",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Subcontractors.tsx",
+      "line": 175,
+      "label": "input at app/src/pages/Subcontractors.tsx:175",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-subcontractors-198",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Subcontractors.tsx",
+      "line": 198,
+      "label": "input at app/src/pages/Subcontractors.tsx:198",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-subcontractors-216",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Subcontractors.tsx",
+      "line": 216,
+      "label": "input at app/src/pages/Subcontractors.tsx:216",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-subcontractors-234",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Subcontractors.tsx",
+      "line": 234,
+      "label": "input at app/src/pages/Subcontractors.tsx:234",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-subcontractors-257",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Subcontractors.tsx",
+      "line": 257,
+      "label": "button at app/src/pages/Subcontractors.tsx:257",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-subcontractors-330-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Subcontractors.tsx",
+      "line": 330,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-subcontractors-294-----",
+      "id": "button-subcontractors-340",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Subcontractors.tsx",
+      "line": 340,
+      "label": "button at app/src/pages/Subcontractors.tsx:340",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-subcontractors-379-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/Subcontractors.tsx",
-      "line": 294,
+      "line": 379,
       "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-terms-206-00--master-service-a",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Terms.tsx",
+      "line": 206,
+      "label": "00. Master Service Agreement Preamble →",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-terms-216-------",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Terms.tsx",
+      "line": 216,
+      "label": ", )} →",
       "href": null,
       "type": null,
       "name": null
@@ -1490,133 +1732,68 @@
       "fields": []
     },
     {
-      "id": "form-dailylogs-174",
+      "id": "form-dailylogs-244",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 174,
-      "label": "form at app/src/pages/DailyLogs.tsx:174",
+      "line": 244,
+      "label": "form at app/src/pages/DailyLogs.tsx:244",
       "onSubmit": true,
-      "fields": [
-        {
-          "name": "daily-logs-field-date",
-          "type": "date"
-        },
-        {
-          "name": "daily-logs-field-weather",
-          "type": "text"
-        },
-        {
-          "name": "daily-logs-field-notes",
-          "type": "text"
-        }
-      ]
+      "fields": []
     },
     {
-      "id": "form-dailylogs-311",
+      "id": "form-dailylogs-457",
       "file": "app/src/pages/DailyLogs.tsx",
-      "line": 311,
-      "label": "form at app/src/pages/DailyLogs.tsx:311",
+      "line": 457,
+      "label": "form at app/src/pages/DailyLogs.tsx:457",
       "onSubmit": true,
-      "fields": [
-        {
-          "name": "daily-logs-entry-area",
-          "type": "text"
-        },
-        {
-          "name": "daily-logs-entry-work",
-          "type": "text"
-        }
-      ]
+      "fields": []
     },
     {
-      "id": "form-forgotpassword-135",
+      "id": "form-forgotpassword-173",
       "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 135,
-      "label": "form at app/src/pages/ForgotPassword.tsx:135",
+      "line": 173,
+      "label": "form at app/src/pages/ForgotPassword.tsx:173",
       "onSubmit": true,
       "fields": []
     },
     {
-      "id": "form-projects-148",
+      "id": "form-projects-154",
       "file": "app/src/pages/Projects.tsx",
-      "line": 148,
-      "label": "form at app/src/pages/Projects.tsx:148",
-      "onSubmit": true,
-      "fields": [
-        {
-          "name": "projects-field-name",
-          "type": "text"
-        },
-        {
-          "name": "projects-field-code",
-          "type": "text"
-        },
-        {
-          "name": "projects-field-phase",
-          "type": "text"
-        }
-      ]
-    },
-    {
-      "id": "form-punchlist-169",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 169,
-      "label": "form at app/src/pages/PunchList.tsx:169",
-      "onSubmit": true,
-      "fields": [
-        {
-          "name": "punch-field-location",
-          "type": "text"
-        },
-        {
-          "name": "punch-field-severity",
-          "type": "text"
-        },
-        {
-          "name": "punch-field-description",
-          "type": "text"
-        },
-        {
-          "name": "punch-field-assignee",
-          "type": "text"
-        },
-        {
-          "name": "punch-field-photo",
-          "type": "url"
-        }
-      ]
-    },
-    {
-      "id": "form-punchlist-371",
-      "file": "app/src/pages/PunchList.tsx",
-      "line": 371,
-      "label": "form at app/src/pages/PunchList.tsx:371",
-      "onSubmit": true,
-      "fields": [
-        {
-          "name": "punch-assign-name",
-          "type": "text"
-        }
-      ]
-    },
-    {
-      "id": "form-resetpassword-131",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 131,
-      "label": "form at app/src/pages/ResetPassword.tsx:131",
+      "line": 154,
+      "label": "form at app/src/pages/Projects.tsx:154",
       "onSubmit": true,
       "fields": []
     },
     {
-      "id": "form-rfidetail-192",
+      "id": "form-punchlist-210",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 210,
+      "label": "form at app/src/pages/PunchList.tsx:210",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-punchlist-500",
+      "file": "app/src/pages/PunchList.tsx",
+      "line": 500,
+      "label": "form at app/src/pages/PunchList.tsx:500",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-138",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 138,
+      "label": "form at app/src/pages/ResetPassword.tsx:138",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-rfidetail-325",
       "file": "app/src/pages/RfiDetail.tsx",
-      "line": 192,
-      "label": "form at app/src/pages/RfiDetail.tsx:192",
+      "line": 325,
+      "label": "form at app/src/pages/RfiDetail.tsx:325",
       "onSubmit": true,
       "fields": [
-        {
-          "name": "rfis-response-body",
-          "type": "text"
-        },
         {
           "name": "rfis-response-final",
           "type": "checkbox"
@@ -1624,73 +1801,39 @@
       ]
     },
     {
-      "id": "form-rfis-139",
+      "id": "form-rfis-162",
       "file": "app/src/pages/Rfis.tsx",
-      "line": 139,
-      "label": "form at app/src/pages/Rfis.tsx:139",
+      "line": 162,
+      "label": "form at app/src/pages/Rfis.tsx:162",
       "onSubmit": true,
-      "fields": [
-        {
-          "name": "rfis-field-title",
-          "type": "text"
-        },
-        {
-          "name": "rfis-field-originator",
-          "type": "text"
-        },
-        {
-          "name": "rfis-field-drawings",
-          "type": "text"
-        },
-        {
-          "name": "rfis-field-due",
-          "type": "date"
-        },
-        {
-          "name": "rfis-field-question",
-          "type": "text"
-        }
-      ]
+      "fields": []
     },
     {
-      "id": "form-subcontractors-145",
+      "id": "form-subcontractors-165",
       "file": "app/src/pages/Subcontractors.tsx",
-      "line": 145,
-      "label": "form at app/src/pages/Subcontractors.tsx:145",
+      "line": 165,
+      "label": "form at app/src/pages/Subcontractors.tsx:165",
       "onSubmit": true,
-      "fields": [
-        {
-          "name": "subs-field-trade",
-          "type": "text"
-        },
-        {
-          "name": "subs-field-company",
-          "type": "text"
-        },
-        {
-          "name": "subs-field-contact",
-          "type": "text"
-        }
-      ]
+      "fields": []
     }
   ],
   "routes": [
     {
       "id": "route-delete-dailylogs--id",
       "method": "DELETE",
-      "mountedPath": "/dailyLogs/:id",
+      "mountedPath": "/daily-logs/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/dailyLogs.ts",
-      "line": 320,
+      "line": 316,
       "resource": "dailyLogs"
     },
     {
       "id": "route-delete-dailylogs--id-entries--entryid",
       "method": "DELETE",
-      "mountedPath": "/dailyLogs/:id/entries/:entryId",
+      "mountedPath": "/daily-logs/:id/entries/:entryId",
       "rawPath": "/:id/entries/:entryId",
       "handlerFile": "api/src/handlers/dailyLogs.ts",
-      "line": 293,
+      "line": 289,
       "resource": "dailyLogs"
     },
     {
@@ -1699,16 +1842,16 @@
       "mountedPath": "/projects/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/projects.ts",
-      "line": 167,
+      "line": 159,
       "resource": "projects"
     },
     {
       "id": "route-delete-punchitems--id",
       "method": "DELETE",
-      "mountedPath": "/punchItems/:id",
+      "mountedPath": "/punch-items/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/punchItems.ts",
-      "line": 232,
+      "line": 233,
       "resource": "punchItems"
     },
     {
@@ -1726,7 +1869,7 @@
       "mountedPath": "/rfis/:id/responses/:responseId",
       "rawPath": "/:id/responses/:responseId",
       "handlerFile": "api/src/handlers/rfis.ts",
-      "line": 285,
+      "line": 283,
       "resource": "rfis"
     },
     {
@@ -1735,25 +1878,25 @@
       "mountedPath": "/subcontractors/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/subcontractors.ts",
-      "line": 179,
+      "line": 167,
       "resource": "subcontractors"
     },
     {
       "id": "route-get-dailylogs-",
       "method": "GET",
-      "mountedPath": "/dailyLogs",
+      "mountedPath": "/daily-logs",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/dailyLogs.ts",
-      "line": 90,
+      "line": 92,
       "resource": "dailyLogs"
     },
     {
       "id": "route-get-dailylogs--id",
       "method": "GET",
-      "mountedPath": "/dailyLogs/:id",
+      "mountedPath": "/daily-logs/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/dailyLogs.ts",
-      "line": 131,
+      "line": 127,
       "resource": "dailyLogs"
     },
     {
@@ -1771,7 +1914,7 @@
       "mountedPath": "/projects",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/projects.ts",
-      "line": 55,
+      "line": 47,
       "resource": "projects"
     },
     {
@@ -1780,13 +1923,13 @@
       "mountedPath": "/projects/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/projects.ts",
-      "line": 73,
+      "line": 65,
       "resource": "projects"
     },
     {
       "id": "route-get-punchitems-",
       "method": "GET",
-      "mountedPath": "/punchItems",
+      "mountedPath": "/punch-items",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/punchItems.ts",
       "line": 63,
@@ -1795,10 +1938,10 @@
     {
       "id": "route-get-punchitems--id",
       "method": "GET",
-      "mountedPath": "/punchItems/:id",
+      "mountedPath": "/punch-items/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/punchItems.ts",
-      "line": 95,
+      "line": 98,
       "resource": "punchItems"
     },
     {
@@ -1807,7 +1950,7 @@
       "mountedPath": "/rfis",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/rfis.ts",
-      "line": 97,
+      "line": 89,
       "resource": "rfis"
     },
     {
@@ -1816,7 +1959,7 @@
       "mountedPath": "/rfis/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/rfis.ts",
-      "line": 126,
+      "line": 118,
       "resource": "rfis"
     },
     {
@@ -1849,19 +1992,19 @@
     {
       "id": "route-post-dailylogs-",
       "method": "POST",
-      "mountedPath": "/dailyLogs",
+      "mountedPath": "/daily-logs",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/dailyLogs.ts",
-      "line": 159,
+      "line": 155,
       "resource": "dailyLogs"
     },
     {
       "id": "route-post-dailylogs--id-entries",
       "method": "POST",
-      "mountedPath": "/dailyLogs/:id/entries",
+      "mountedPath": "/daily-logs/:id/entries",
       "rawPath": "/:id/entries",
       "handlerFile": "api/src/handlers/dailyLogs.ts",
-      "line": 265,
+      "line": 261,
       "resource": "dailyLogs"
     },
     {
@@ -1870,25 +2013,25 @@
       "mountedPath": "/projects",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/projects.ts",
-      "line": 93,
+      "line": 85,
       "resource": "projects"
     },
     {
       "id": "route-post-punchitems-",
       "method": "POST",
-      "mountedPath": "/punchItems",
+      "mountedPath": "/punch-items",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/punchItems.ts",
-      "line": 116,
+      "line": 119,
       "resource": "punchItems"
     },
     {
       "id": "route-post-punchitems--id-status",
       "method": "POST",
-      "mountedPath": "/punchItems/:id/status",
+      "mountedPath": "/punch-items/:id/status",
       "rawPath": "/:id/status",
       "handlerFile": "api/src/handlers/punchItems.ts",
-      "line": 193,
+      "line": 194,
       "resource": "punchItems"
     },
     {
@@ -1897,7 +2040,7 @@
       "mountedPath": "/rfis",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/rfis.ts",
-      "line": 153,
+      "line": 147,
       "resource": "rfis"
     },
     {
@@ -1906,7 +2049,7 @@
       "mountedPath": "/rfis/:id/responses",
       "rawPath": "/:id/responses",
       "handlerFile": "api/src/handlers/rfis.ts",
-      "line": 242,
+      "line": 238,
       "resource": "rfis"
     },
     {
@@ -1915,7 +2058,7 @@
       "mountedPath": "/rfis/:id/status",
       "rawPath": "/:id/status",
       "handlerFile": "api/src/handlers/rfis.ts",
-      "line": 313,
+      "line": 311,
       "resource": "rfis"
     },
     {
@@ -1930,10 +2073,10 @@
     {
       "id": "route-put-dailylogs--id",
       "method": "PUT",
-      "mountedPath": "/dailyLogs/:id",
+      "mountedPath": "/daily-logs/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/dailyLogs.ts",
-      "line": 231,
+      "line": 227,
       "resource": "dailyLogs"
     },
     {
@@ -1942,16 +2085,16 @@
       "mountedPath": "/projects/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/projects.ts",
-      "line": 131,
+      "line": 123,
       "resource": "projects"
     },
     {
       "id": "route-put-punchitems--id",
       "method": "PUT",
-      "mountedPath": "/punchItems/:id",
+      "mountedPath": "/punch-items/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/punchItems.ts",
-      "line": 165,
+      "line": 166,
       "resource": "punchItems"
     },
     {
@@ -1960,7 +2103,7 @@
       "mountedPath": "/rfis/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/rfis.ts",
-      "line": 208,
+      "line": 202,
       "resource": "rfis"
     },
     {
@@ -1969,13 +2112,13 @@
       "mountedPath": "/subcontractors/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/subcontractors.ts",
-      "line": 142,
+      "line": 140,
       "resource": "subcontractors"
     }
   ],
   "totals": {
     "pages": 19,
-    "elements": 123,
+    "elements": 145,
     "forms": 12,
     "routes": 33
   }

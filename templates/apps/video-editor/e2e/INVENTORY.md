@@ -39,9 +39,9 @@ Totals — pages: 19, elements: 112, forms: 10, routes: 32
 | form-login-62          | form at app/src/pages/Login.tsx:62          | app/src/pages/Login.tsx:62          |
 | form-newproject-205    | form at app/src/pages/NewProject.tsx:205    | app/src/pages/NewProject.tsx:205    |
 | form-resetpassword-73  | form at app/src/pages/ResetPassword.tsx:73  | app/src/pages/ResetPassword.tsx:73  |
-| form-settings-443      | form at app/src/pages/Settings.tsx:443      | app/src/pages/Settings.tsx:443      |
-| form-settings-577      | form at app/src/pages/Settings.tsx:577      | app/src/pages/Settings.tsx:577      |
-| form-settings-714      | form at app/src/pages/Settings.tsx:714      | app/src/pages/Settings.tsx:714      |
+| form-settings-449      | form at app/src/pages/Settings.tsx:449      | app/src/pages/Settings.tsx:449      |
+| form-settings-583      | form at app/src/pages/Settings.tsx:583      | app/src/pages/Settings.tsx:583      |
+| form-settings-720      | form at app/src/pages/Settings.tsx:720      | app/src/pages/Settings.tsx:720      |
 | form-signup-89         | form at app/src/pages/Signup.tsx:89         | app/src/pages/Signup.tsx:89         |
 
 ## Elements (112)
@@ -56,9 +56,9 @@ Totals — pages: 19, elements: 112, forms: 10, routes: 32
 | link-renderjobcard-154-----                   | link   | , )}                                                         | app/src/components/RenderJobCard.tsx:154   |
 | link-rushesauthshell-171-----                 | link   | , )}                                                         | app/src/components/RushesAuthShell.tsx:171 |
 | link-rushesauthshell-174-----                 | link   | , )}                                                         | app/src/components/RushesAuthShell.tsx:174 |
-| link-rusheslayout-168                         | link   | link at app/src/components/RushesLayout.tsx:168              | app/src/components/RushesLayout.tsx:168    |
-| link-rusheslayout-191                         | link   | link at app/src/components/RushesLayout.tsx:191              | app/src/components/RushesLayout.tsx:191    |
-| button-rusheslayout-321                       | button | button at app/src/components/RushesLayout.tsx:321            | app/src/components/RushesLayout.tsx:321    |
+| link-rusheslayout-169                         | link   | link at app/src/components/RushesLayout.tsx:169              | app/src/components/RushesLayout.tsx:169    |
+| link-rusheslayout-192                         | link   | link at app/src/components/RushesLayout.tsx:192              | app/src/components/RushesLayout.tsx:192    |
+| button-rusheslayout-322                       | button | button at app/src/components/RushesLayout.tsx:322            | app/src/components/RushesLayout.tsx:322    |
 | link-about-189-----                           | link   | , )}                                                         | app/src/pages/About.tsx:189                |
 | link-assetdetail-141-------                   | link   | ← , )}                                                       | app/src/pages/AssetDetail.tsx:141          |
 | link-assetdetail-266                          | link   | link at app/src/pages/AssetDetail.tsx:266                    | app/src/pages/AssetDetail.tsx:266          |
@@ -83,11 +83,11 @@ Totals — pages: 19, elements: 112, forms: 10, routes: 32
 | button-editor-360                             | button | button at app/src/pages/Editor.tsx:360                       | app/src/pages/Editor.tsx:360               |
 | button-editor-402                             | button | button at app/src/pages/Editor.tsx:402                       | app/src/pages/Editor.tsx:402               |
 | button-editor-502                             | button | button at app/src/pages/Editor.tsx:502                       | app/src/pages/Editor.tsx:502               |
-| link-exportdetail-135-------                  | link   | ← , )}                                                       | app/src/pages/ExportDetail.tsx:135         |
-| link-exportdetail-214--                       | link   | ↗                                                            | app/src/pages/ExportDetail.tsx:214         |
-| button-exportdetail-392                       | button | button at app/src/pages/ExportDetail.tsx:392                 | app/src/pages/ExportDetail.tsx:392         |
-| link-exportdetail-412                         | link   | link at app/src/pages/ExportDetail.tsx:412                   | app/src/pages/ExportDetail.tsx:412         |
-| link-exportdetail-431-------                  | link   | ← , )}                                                       | app/src/pages/ExportDetail.tsx:431         |
+| link-exportdetail-134-------                  | link   | ← , )}                                                       | app/src/pages/ExportDetail.tsx:134         |
+| link-exportdetail-213--                       | link   | ↗                                                            | app/src/pages/ExportDetail.tsx:213         |
+| button-exportdetail-391                       | button | button at app/src/pages/ExportDetail.tsx:391                 | app/src/pages/ExportDetail.tsx:391         |
+| link-exportdetail-411                         | link   | link at app/src/pages/ExportDetail.tsx:411                   | app/src/pages/ExportDetail.tsx:411         |
+| link-exportdetail-430-------                  | link   | ← , )}                                                       | app/src/pages/ExportDetail.tsx:430         |
 | select-exportqueue-247                        | select | select at app/src/pages/ExportQueue.tsx:247                  | app/src/pages/ExportQueue.tsx:247          |
 | select-exportqueue-277                        | select | select at app/src/pages/ExportQueue.tsx:277                  | app/src/pages/ExportQueue.tsx:277          |
 | select-exportqueue-300                        | select | select at app/src/pages/ExportQueue.tsx:300                  | app/src/pages/ExportQueue.tsx:300          |
@@ -118,36 +118,36 @@ Totals — pages: 19, elements: 112, forms: 10, routes: 32
 | button-newproject-407                         | button | button at app/src/pages/NewProject.tsx:407                   | app/src/pages/NewProject.tsx:407           |
 | link-notfound-72-home-----                    | link   | home , )}                                                    | app/src/pages/NotFound.tsx:72              |
 | link-notfound-85-dashboard-----               | link   | dashboard , )}                                               | app/src/pages/NotFound.tsx:85              |
-| link-projectdetail-235-------                 | link   | ← , )}                                                       | app/src/pages/ProjectDetail.tsx:235        |
-| link-projectdetail-259                        | link   | link at app/src/pages/ProjectDetail.tsx:259                  | app/src/pages/ProjectDetail.tsx:259        |
-| input-projectdetail-317                       | input  | input at app/src/pages/ProjectDetail.tsx:317                 | app/src/pages/ProjectDetail.tsx:317        |
-| button-projectdetail-329-----                 | button | , )}                                                         | app/src/pages/ProjectDetail.tsx:329        |
-| button-projectdetail-342                      | button | button at app/src/pages/ProjectDetail.tsx:342                | app/src/pages/ProjectDetail.tsx:342        |
-| button-projectdetail-370-edit                 | button | edit                                                         | app/src/pages/ProjectDetail.tsx:370        |
-| button-projectdetail-410                      | button | button at app/src/pages/ProjectDetail.tsx:410                | app/src/pages/ProjectDetail.tsx:410        |
-| button-projectdetail-426                      | button | button at app/src/pages/ProjectDetail.tsx:426                | app/src/pages/ProjectDetail.tsx:426        |
-| link-projectdetail-502-----                   | link   | , )}                                                         | app/src/pages/ProjectDetail.tsx:502        |
-| link-projectdetail-535--                      | link   | .                                                            | app/src/pages/ProjectDetail.tsx:535        |
+| link-projectdetail-240-------                 | link   | ← , )}                                                       | app/src/pages/ProjectDetail.tsx:240        |
+| link-projectdetail-264                        | link   | link at app/src/pages/ProjectDetail.tsx:264                  | app/src/pages/ProjectDetail.tsx:264        |
+| input-projectdetail-322                       | input  | input at app/src/pages/ProjectDetail.tsx:322                 | app/src/pages/ProjectDetail.tsx:322        |
+| button-projectdetail-334                      | button | button at app/src/pages/ProjectDetail.tsx:334                | app/src/pages/ProjectDetail.tsx:334        |
+| button-projectdetail-348                      | button | button at app/src/pages/ProjectDetail.tsx:348                | app/src/pages/ProjectDetail.tsx:348        |
+| button-projectdetail-376-edit                 | button | edit                                                         | app/src/pages/ProjectDetail.tsx:376        |
+| button-projectdetail-416                      | button | button at app/src/pages/ProjectDetail.tsx:416                | app/src/pages/ProjectDetail.tsx:416        |
+| button-projectdetail-432                      | button | button at app/src/pages/ProjectDetail.tsx:432                | app/src/pages/ProjectDetail.tsx:432        |
+| link-projectdetail-508-----                   | link   | , )}                                                         | app/src/pages/ProjectDetail.tsx:508        |
+| link-projectdetail-541--                      | link   | .                                                            | app/src/pages/ProjectDetail.tsx:541        |
 | link-resetpassword-63-----                    | link   | , )}                                                         | app/src/pages/ResetPassword.tsx:63         |
 | input-resetpassword-78                        | input  | input at app/src/pages/ResetPassword.tsx:78                  | app/src/pages/ResetPassword.tsx:78         |
 | input-resetpassword-99                        | input  | input at app/src/pages/ResetPassword.tsx:99                  | app/src/pages/ResetPassword.tsx:99         |
 | button-resetpassword-144                      | button | button at app/src/pages/ResetPassword.tsx:144                | app/src/pages/ResetPassword.tsx:144        |
-| button-settings-370                           | button | button at app/src/pages/Settings.tsx:370                     | app/src/pages/Settings.tsx:370             |
-| input-settings-476                            | input  | input at app/src/pages/Settings.tsx:476                      | app/src/pages/Settings.tsx:476             |
-| input-settings-497                            | input  | input at app/src/pages/Settings.tsx:497                      | app/src/pages/Settings.tsx:497             |
-| button-settings-512                           | button | button at app/src/pages/Settings.tsx:512                     | app/src/pages/Settings.tsx:512             |
-| button-settings-558                           | button | button at app/src/pages/Settings.tsx:558                     | app/src/pages/Settings.tsx:558             |
-| input-settings-602                            | input  | input at app/src/pages/Settings.tsx:602                      | app/src/pages/Settings.tsx:602             |
-| input-settings-625                            | input  | input at app/src/pages/Settings.tsx:625                      | app/src/pages/Settings.tsx:625             |
-| button-settings-641                           | button | button at app/src/pages/Settings.tsx:641                     | app/src/pages/Settings.tsx:641             |
-| button-settings-661                           | button | button at app/src/pages/Settings.tsx:661                     | app/src/pages/Settings.tsx:661             |
-| button-settings-699                           | button | button at app/src/pages/Settings.tsx:699                     | app/src/pages/Settings.tsx:699             |
-| input-settings-750                            | input  | input at app/src/pages/Settings.tsx:750                      | app/src/pages/Settings.tsx:750             |
-| button-settings-766                           | button | button at app/src/pages/Settings.tsx:766                     | app/src/pages/Settings.tsx:766             |
-| button-settings-782                           | button | button at app/src/pages/Settings.tsx:782                     | app/src/pages/Settings.tsx:782             |
-| button-settings-1046                          | button | button at app/src/pages/Settings.tsx:1046                    | app/src/pages/Settings.tsx:1046            |
-| button-settings-1161                          | button | button at app/src/pages/Settings.tsx:1161                    | app/src/pages/Settings.tsx:1161            |
-| button-settings-1182                          | button | button at app/src/pages/Settings.tsx:1182                    | app/src/pages/Settings.tsx:1182            |
+| button-settings-376                           | button | button at app/src/pages/Settings.tsx:376                     | app/src/pages/Settings.tsx:376             |
+| input-settings-482                            | input  | input at app/src/pages/Settings.tsx:482                      | app/src/pages/Settings.tsx:482             |
+| input-settings-503                            | input  | input at app/src/pages/Settings.tsx:503                      | app/src/pages/Settings.tsx:503             |
+| button-settings-518                           | button | button at app/src/pages/Settings.tsx:518                     | app/src/pages/Settings.tsx:518             |
+| button-settings-564                           | button | button at app/src/pages/Settings.tsx:564                     | app/src/pages/Settings.tsx:564             |
+| input-settings-608                            | input  | input at app/src/pages/Settings.tsx:608                      | app/src/pages/Settings.tsx:608             |
+| input-settings-631                            | input  | input at app/src/pages/Settings.tsx:631                      | app/src/pages/Settings.tsx:631             |
+| button-settings-647                           | button | button at app/src/pages/Settings.tsx:647                     | app/src/pages/Settings.tsx:647             |
+| button-settings-667                           | button | button at app/src/pages/Settings.tsx:667                     | app/src/pages/Settings.tsx:667             |
+| button-settings-705                           | button | button at app/src/pages/Settings.tsx:705                     | app/src/pages/Settings.tsx:705             |
+| input-settings-756                            | input  | input at app/src/pages/Settings.tsx:756                      | app/src/pages/Settings.tsx:756             |
+| button-settings-772                           | button | button at app/src/pages/Settings.tsx:772                     | app/src/pages/Settings.tsx:772             |
+| button-settings-788                           | button | button at app/src/pages/Settings.tsx:788                     | app/src/pages/Settings.tsx:788             |
+| button-settings-1052                          | button | button at app/src/pages/Settings.tsx:1052                    | app/src/pages/Settings.tsx:1052            |
+| button-settings-1167                          | button | button at app/src/pages/Settings.tsx:1167                    | app/src/pages/Settings.tsx:1167            |
+| button-settings-1188                          | button | button at app/src/pages/Settings.tsx:1188                    | app/src/pages/Settings.tsx:1188            |
 | link-signup-78-----                           | link   | , )}                                                         | app/src/pages/Signup.tsx:78                |
 | input-signup-95                               | input  | input at app/src/pages/Signup.tsx:95                         | app/src/pages/Signup.tsx:95                |
 | input-signup-110                              | input  | input at app/src/pages/Signup.tsx:110                        | app/src/pages/Signup.tsx:110               |

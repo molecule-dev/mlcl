@@ -1,0 +1,1716 @@
+{
+  "slug": "venue-booking",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-landing",
+      "path": "/",
+      "component": "Landing",
+      "file": "app/src/pages/Landing.tsx"
+    },
+    {
+      "id": "page-about",
+      "path": "/about",
+      "component": "About",
+      "file": "app/src/pages/About.tsx"
+    },
+    {
+      "id": "page-account",
+      "path": "/account",
+      "component": "Account",
+      "file": "app/src/pages/Account.tsx"
+    },
+    {
+      "id": "page-booking",
+      "path": "/book/:venueId",
+      "component": "Booking",
+      "file": "app/src/pages/Booking.tsx"
+    },
+    {
+      "id": "page-bookingconfirmation",
+      "path": "/booking/confirmation/:id",
+      "component": "BookingConfirmation",
+      "file": "app/src/pages/BookingConfirmation.tsx"
+    },
+    {
+      "id": "page-favorites",
+      "path": "/favorites",
+      "component": "Favorites",
+      "file": "app/src/pages/Favorites.tsx"
+    },
+    {
+      "id": "page-forgotpassword",
+      "path": "/forgot-password",
+      "component": "ForgotPassword",
+      "file": "app/src/pages/ForgotPassword.tsx"
+    },
+    {
+      "id": "page-hostdashboard",
+      "path": "/host",
+      "component": "HostDashboard",
+      "file": "app/src/pages/HostDashboard.tsx"
+    },
+    {
+      "id": "page-login",
+      "path": "/login",
+      "component": "Login",
+      "file": "app/src/pages/Login.tsx"
+    },
+    {
+      "id": "page-messages",
+      "path": "/messages",
+      "component": "Messages",
+      "file": "app/src/pages/Messages.tsx"
+    },
+    {
+      "id": "page-messagethread",
+      "path": "/messages/:id",
+      "component": "MessageThread",
+      "file": "app/src/pages/MessageThread.tsx"
+    },
+    {
+      "id": "page-notifications",
+      "path": "/notifications",
+      "component": "Notifications",
+      "file": "app/src/pages/Notifications.tsx"
+    },
+    {
+      "id": "page-planupdated",
+      "path": "/plan-updated",
+      "component": "PlanUpdated",
+      "file": "app/src/pages/PlanUpdated.tsx"
+    },
+    {
+      "id": "page-pricing",
+      "path": "/pricing",
+      "component": "Pricing",
+      "file": "app/src/pages/Pricing.tsx"
+    },
+    {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
+      "id": "page-reservations",
+      "path": "/reservations",
+      "component": "Reservations",
+      "file": "app/src/pages/Reservations.tsx"
+    },
+    {
+      "id": "page-reservationdetail",
+      "path": "/reservations/:id",
+      "component": "ReservationDetail",
+      "file": "app/src/pages/ReservationDetail.tsx"
+    },
+    {
+      "id": "page-resetpassword",
+      "path": "/reset-password",
+      "component": "ResetPassword",
+      "file": "app/src/pages/ResetPassword.tsx"
+    },
+    {
+      "id": "page-search",
+      "path": "/search",
+      "component": "Search",
+      "file": "app/src/pages/Search.tsx"
+    },
+    {
+      "id": "page-settings",
+      "path": "/settings",
+      "component": "Settings",
+      "file": "app/src/pages/Settings.tsx"
+    },
+    {
+      "id": "page-signup",
+      "path": "/signup",
+      "component": "Signup",
+      "file": "app/src/pages/Signup.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
+    },
+    {
+      "id": "page-venuedetail",
+      "path": "/venue/:id",
+      "component": "VenueDetail",
+      "file": "app/src/pages/VenueDetail.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "input-alcoveherosearchcard-143",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/AlcoveHeroSearchCard.tsx",
+      "line": 143,
+      "label": "input at app/src/components/AlcoveHeroSearchCard.tsx:143",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-alcoveherosearchcard-176",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/components/AlcoveHeroSearchCard.tsx",
+      "line": 176,
+      "label": "select at app/src/components/AlcoveHeroSearchCard.tsx:176",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-alcoveherosearchcard-209",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/AlcoveHeroSearchCard.tsx",
+      "line": 209,
+      "label": "input at app/src/components/AlcoveHeroSearchCard.tsx:209",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-alcoveherosearchcard-237",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/components/AlcoveHeroSearchCard.tsx",
+      "line": 237,
+      "label": "input at app/src/components/AlcoveHeroSearchCard.tsx:237",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-alcoveherosearchcard-250-search",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/AlcoveHeroSearchCard.tsx",
+      "line": 250,
+      "label": "search",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-alcovelayout-68",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AlcoveLayout.tsx",
+      "line": 68,
+      "label": "link at app/src/components/AlcoveLayout.tsx:68",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-alcovelayout-91",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/AlcoveLayout.tsx",
+      "line": 91,
+      "label": "link at app/src/components/AlcoveLayout.tsx:91",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-brandwordmark-52",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BrandWordmark.tsx",
+      "line": 52,
+      "label": "link at app/src/components/BrandWordmark.tsx:52",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-categorytile-30--img-src--alt-----sp",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/CategoryTile.tsx",
+      "line": 30,
+      "label": "<img src= alt=, } space },",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-reservationrow-108--div-classname-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/ReservationRow.tsx",
+      "line": 108,
+      "label": "<div className=",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-venuelistingcard-100-alt--t-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/VenueListingCard.tsx",
+      "line": 100,
+      "label": "alt={t(",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-venuelistingcard-152",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/VenueListingCard.tsx",
+      "line": 152,
+      "label": "button at app/src/components/VenueListingCard.tsx:152",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-account-234",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Account.tsx",
+      "line": 234,
+      "label": "button at app/src/pages/Account.tsx:234",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-account-308----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Account.tsx",
+      "line": 308,
+      "label": ", )",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-account-324--",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Account.tsx",
+      "line": 324,
+      "label": ",",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-account-356-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Account.tsx",
+      "line": 356,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-account-449",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Account.tsx",
+      "line": 449,
+      "label": "button at app/src/pages/Account.tsx:449",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-account-483",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Account.tsx",
+      "line": 483,
+      "label": "button at app/src/pages/Account.tsx:483",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-account-551",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Account.tsx",
+      "line": 551,
+      "label": "button at app/src/pages/Account.tsx:551",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-account-647",
+      "role": "input",
+      "tag": "Input",
+      "file": "app/src/pages/Account.tsx",
+      "line": 647,
+      "label": "input at app/src/pages/Account.tsx:647",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-account-655-------t-account-secu",
+      "role": "button",
+      "tag": "Button",
+      "file": "app/src/pages/Account.tsx",
+      "line": 655,
+      "label": ", ) : t(account.security.verify, , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-booking-195",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 195,
+      "label": "input at app/src/pages/Booking.tsx:195",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-booking-217",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 217,
+      "label": "input at app/src/pages/Booking.tsx:217",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-booking-239",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 239,
+      "label": "input at app/src/pages/Booking.tsx:239",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-booking-278",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 278,
+      "label": "input at app/src/pages/Booking.tsx:278",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-booking-300",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 300,
+      "label": "input at app/src/pages/Booking.tsx:300",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-booking-322",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 322,
+      "label": "input at app/src/pages/Booking.tsx:322",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-booking-345",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 345,
+      "label": "input at app/src/pages/Booking.tsx:345",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-booking-369",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 369,
+      "label": "select at app/src/pages/Booking.tsx:369",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-booking-396",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 396,
+      "label": "textarea at app/src/pages/Booking.tsx:396",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-booking-522",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 522,
+      "label": "button at app/src/pages/Booking.tsx:522",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-booking-543-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 543,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bookingconfirmation-188-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/BookingConfirmation.tsx",
+      "line": 188,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-bookingconfirmation-199-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/BookingConfirmation.tsx",
+      "line": 199,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-favorites-144",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Favorites.tsx",
+      "line": 144,
+      "label": "button at app/src/pages/Favorites.tsx:144",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-favorites-294-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Favorites.tsx",
+      "line": 294,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-favorites-314",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Favorites.tsx",
+      "line": 314,
+      "label": "button at app/src/pages/Favorites.tsx:314",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-54-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 54,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-106",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 106,
+      "label": "input at app/src/pages/ForgotPassword.tsx:106",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-139--issubmitting",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 139,
+      "label": "{isSubmitting",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-hostdashboard-431--span-classname--cm-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/HostDashboard.tsx",
+      "line": 431,
+      "label": "<span className={cm.cn(",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-hostdashboard-481-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/HostDashboard.tsx",
+      "line": 481,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-129-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 129,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-139-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 139,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-150-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 150,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-165-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 165,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-175--t--landing-nav-join",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 175,
+      "label": "{t( landing.nav.join,",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-237------ar",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 237,
+      "label": ", )} ar",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-306-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 306,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-502-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 502,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-513-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 513,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-545-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 545,
+      "label": ", )}",
+      "href": "/search",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-548-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 548,
+      "label": ", )}",
+      "href": "/pricing",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-559-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 559,
+      "label": ", )}",
+      "href": "/privacy",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-562-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 562,
+      "label": ", )}",
+      "href": "/terms",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-573-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 573,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-576-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 576,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-579-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 579,
+      "label": ", )}",
+      "href": "/host",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-597-molecule-dev",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 597,
+      "label": "Molecule.dev",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-73-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 73,
+      "label": ", )}",
+      "href": "/signup",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-90",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 90,
+      "label": "input at app/src/pages/Login.tsx:90",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-120-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 120,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-131",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 131,
+      "label": "input at app/src/pages/Login.tsx:131",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-login-160--isloggingin",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 160,
+      "label": "{isLoggingIn",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-messagethread-141-arrow-back",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MessageThread.tsx",
+      "line": 141,
+      "label": "arrow_back",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-messagethread-178-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/MessageThread.tsx",
+      "line": 178,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-messagethread-238-attach-file",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MessageThread.tsx",
+      "line": 238,
+      "label": "attach_file",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "textarea-messagethread-249",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/MessageThread.tsx",
+      "line": 249,
+      "label": "textarea at app/src/pages/MessageThread.tsx:249",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-messagethread-266",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/MessageThread.tsx",
+      "line": 266,
+      "label": "button at app/src/pages/MessageThread.tsx:266",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-messages-111",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Messages.tsx",
+      "line": 111,
+      "label": "button at app/src/pages/Messages.tsx:111",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-messages-159-alt-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Messages.tsx",
+      "line": 159,
+      "label": "alt=",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-90-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 90,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-101-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 101,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-163",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 163,
+      "label": "button at app/src/pages/Notifications.tsx:163",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-182",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 182,
+      "label": "button at app/src/pages/Notifications.tsx:182",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-209",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 209,
+      "label": "button at app/src/pages/Notifications.tsx:209",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notifications-272--span",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 272,
+      "label": "<span",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-planupdated-94-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/PlanUpdated.tsx",
+      "line": 94,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-reservationdetail-140-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ReservationDetail.tsx",
+      "line": 140,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-reservationdetail-154-arrow-back",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ReservationDetail.tsx",
+      "line": 154,
+      "label": "arrow_back",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reservationdetail-338",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ReservationDetail.tsx",
+      "line": 338,
+      "label": "button at app/src/pages/ReservationDetail.tsx:338",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-reservationdetail-423-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ReservationDetail.tsx",
+      "line": 423,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-reservations-103",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Reservations.tsx",
+      "line": 103,
+      "label": "button at app/src/pages/Reservations.tsx:103",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-reservations-148-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Reservations.tsx",
+      "line": 148,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-69-arrow-back-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 69,
+      "label": "arrow_back , )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-94",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 94,
+      "label": "input at app/src/pages/ResetPassword.tsx:94",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-124",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 124,
+      "label": "input at app/src/pages/ResetPassword.tsx:124",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-168--isloggingin",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 168,
+      "label": "{isLoggingIn",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-search-234",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Search.tsx",
+      "line": 234,
+      "label": "button at app/src/pages/Search.tsx:234",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-search-257",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Search.tsx",
+      "line": 257,
+      "label": "button at app/src/pages/Search.tsx:257",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-search-277",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Search.tsx",
+      "line": 277,
+      "label": "button at app/src/pages/Search.tsx:277",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-search-378",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Search.tsx",
+      "line": 378,
+      "label": "button at app/src/pages/Search.tsx:378",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-52--span-classname--cm-",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 52,
+      "label": "<span className={cm.cn( absolute top-1 w-5 h-5 rounded-full ",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-246",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 246,
+      "label": "button at app/src/pages/Settings.tsx:246",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-settings-425",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 425,
+      "label": "select at app/src/pages/Settings.tsx:425",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-472",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 472,
+      "label": "input at app/src/pages/Settings.tsx:472",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-signup-93-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 93,
+      "label": ", )}",
+      "href": "/login",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-signup-111",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 111,
+      "label": "input at app/src/pages/Signup.tsx:111",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-135",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 135,
+      "label": "input at app/src/pages/Signup.tsx:135",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-160",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 160,
+      "label": "input at app/src/pages/Signup.tsx:160",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-189",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 189,
+      "label": "input at app/src/pages/Signup.tsx:189",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-signup-219",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 219,
+      "label": "input at app/src/pages/Signup.tsx:219",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-signup-263--issigningup",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 263,
+      "label": "{isSigningUp",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-venuedetail-134-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/VenueDetail.tsx",
+      "line": 134,
+      "label": ", )}",
+      "href": "/search",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-venuedetail-564",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/VenueDetail.tsx",
+      "line": 564,
+      "label": "input at app/src/pages/VenueDetail.tsx:564",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-venuedetail-584",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/VenueDetail.tsx",
+      "line": 584,
+      "label": "input at app/src/pages/VenueDetail.tsx:584",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-venuedetail-608",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/VenueDetail.tsx",
+      "line": 608,
+      "label": "input at app/src/pages/VenueDetail.tsx:608",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-venuedetail-628",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/VenueDetail.tsx",
+      "line": 628,
+      "label": "input at app/src/pages/VenueDetail.tsx:628",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-venuedetail-688",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/VenueDetail.tsx",
+      "line": 688,
+      "label": "link at app/src/pages/VenueDetail.tsx:688",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [
+    {
+      "id": "form-alcoveherosearchcard-125",
+      "file": "app/src/components/AlcoveHeroSearchCard.tsx",
+      "line": 125,
+      "label": "form at app/src/components/AlcoveHeroSearchCard.tsx:125",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-account-630",
+      "file": "app/src/pages/Account.tsx",
+      "line": 630,
+      "label": "form at app/src/pages/Account.tsx:630",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-booking-169",
+      "file": "app/src/pages/Booking.tsx",
+      "line": 169,
+      "label": "form at app/src/pages/Booking.tsx:169",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-forgotpassword-95",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 95,
+      "label": "form at app/src/pages/ForgotPassword.tsx:95",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-login-79",
+      "file": "app/src/pages/Login.tsx",
+      "line": 79,
+      "label": "form at app/src/pages/Login.tsx:79",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-messagethread-230",
+      "file": "app/src/pages/MessageThread.tsx",
+      "line": 230,
+      "label": "form at app/src/pages/MessageThread.tsx:230",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-resetpassword-83",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 83,
+      "label": "form at app/src/pages/ResetPassword.tsx:83",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-99",
+      "file": "app/src/pages/Signup.tsx",
+      "line": 99,
+      "label": "form at app/src/pages/Signup.tsx:99",
+      "onSubmit": true,
+      "fields": []
+    }
+  ],
+  "routes": [
+    {
+      "id": "route-delete-favorites--id",
+      "method": "DELETE",
+      "mountedPath": "/favorites/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/favorites.ts",
+      "line": 78,
+      "resource": "favorites"
+    },
+    {
+      "id": "route-delete-favorites-by-venue--venueid",
+      "method": "DELETE",
+      "mountedPath": "/favorites/by-venue/:venueId",
+      "rawPath": "/by-venue/:venueId",
+      "handlerFile": "api/src/handlers/favorites.ts",
+      "line": 97,
+      "resource": "favorites"
+    },
+    {
+      "id": "route-delete-reviews--id",
+      "method": "DELETE",
+      "mountedPath": "/reviews/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/reviews.ts",
+      "line": 159,
+      "resource": "reviews"
+    },
+    {
+      "id": "route-delete-venues--id",
+      "method": "DELETE",
+      "mountedPath": "/venues/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/venues.ts",
+      "line": 281,
+      "resource": "venues"
+    },
+    {
+      "id": "route-get-bookings-",
+      "method": "GET",
+      "mountedPath": "/bookings",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 75,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-get-bookings--id",
+      "method": "GET",
+      "mountedPath": "/bookings/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 125,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-get-favorites-",
+      "method": "GET",
+      "mountedPath": "/favorites",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/favorites.ts",
+      "line": 27,
+      "resource": "favorites"
+    },
+    {
+      "id": "route-get-host-metrics-",
+      "method": "GET",
+      "mountedPath": "/host_metrics",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/host_metrics.ts",
+      "line": 28,
+      "resource": "host_metrics"
+    },
+    {
+      "id": "route-get-messages-",
+      "method": "GET",
+      "mountedPath": "/messages",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/messages.ts",
+      "line": 49,
+      "resource": "messages"
+    },
+    {
+      "id": "route-get-messages--id",
+      "method": "GET",
+      "mountedPath": "/messages/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/messages.ts",
+      "line": 80,
+      "resource": "messages"
+    },
+    {
+      "id": "route-get-notifications-",
+      "method": "GET",
+      "mountedPath": "/notifications",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 19,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-get-profile-me",
+      "method": "GET",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 78,
+      "resource": "profile"
+    },
+    {
+      "id": "route-get-reservations-",
+      "method": "GET",
+      "mountedPath": "/reservations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/reservations.ts",
+      "line": 78,
+      "resource": "reservations"
+    },
+    {
+      "id": "route-get-reservations--id",
+      "method": "GET",
+      "mountedPath": "/reservations/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/reservations.ts",
+      "line": 117,
+      "resource": "reservations"
+    },
+    {
+      "id": "route-get-reviews-",
+      "method": "GET",
+      "mountedPath": "/reviews",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/reviews.ts",
+      "line": 48,
+      "resource": "reviews"
+    },
+    {
+      "id": "route-get-venues-",
+      "method": "GET",
+      "mountedPath": "/venues",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/venues.ts",
+      "line": 103,
+      "resource": "venues"
+    },
+    {
+      "id": "route-get-venues--id",
+      "method": "GET",
+      "mountedPath": "/venues/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/venues.ts",
+      "line": 149,
+      "resource": "venues"
+    },
+    {
+      "id": "route-get-venues--id-availability",
+      "method": "GET",
+      "mountedPath": "/venues/:id/availability",
+      "rawPath": "/:id/availability",
+      "handlerFile": "api/src/handlers/venues.ts",
+      "line": 316,
+      "resource": "venues"
+    },
+    {
+      "id": "route-patch-profile-me",
+      "method": "PATCH",
+      "mountedPath": "/profile/me",
+      "rawPath": "/me",
+      "handlerFile": "api/src/handlers/profile.ts",
+      "line": 92,
+      "resource": "profile"
+    },
+    {
+      "id": "route-post-bookings-",
+      "method": "POST",
+      "mountedPath": "/bookings",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 165,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-post-favorites-",
+      "method": "POST",
+      "mountedPath": "/favorites",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/favorites.ts",
+      "line": 42,
+      "resource": "favorites"
+    },
+    {
+      "id": "route-post-messages-",
+      "method": "POST",
+      "mountedPath": "/messages",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/messages.ts",
+      "line": 175,
+      "resource": "messages"
+    },
+    {
+      "id": "route-post-messages--id-messages",
+      "method": "POST",
+      "mountedPath": "/messages/:id/messages",
+      "rawPath": "/:id/messages",
+      "handlerFile": "api/src/handlers/messages.ts",
+      "line": 132,
+      "resource": "messages"
+    },
+    {
+      "id": "route-post-reservations-",
+      "method": "POST",
+      "mountedPath": "/reservations",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/reservations.ts",
+      "line": 151,
+      "resource": "reservations"
+    },
+    {
+      "id": "route-post-reviews-",
+      "method": "POST",
+      "mountedPath": "/reviews",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/reviews.ts",
+      "line": 75,
+      "resource": "reviews"
+    },
+    {
+      "id": "route-post-venues-",
+      "method": "POST",
+      "mountedPath": "/venues",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/venues.ts",
+      "line": 173,
+      "resource": "venues"
+    },
+    {
+      "id": "route-put-bookings--id-cancel",
+      "method": "PUT",
+      "mountedPath": "/bookings/:id/cancel",
+      "rawPath": "/:id/cancel",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 343,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-put-bookings--id-confirm",
+      "method": "PUT",
+      "mountedPath": "/bookings/:id/confirm",
+      "rawPath": "/:id/confirm",
+      "handlerFile": "api/src/handlers/bookings.ts",
+      "line": 284,
+      "resource": "bookings"
+    },
+    {
+      "id": "route-put-notifications--id-read",
+      "method": "PUT",
+      "mountedPath": "/notifications/:id/read",
+      "rawPath": "/:id/read",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 33,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-put-notifications-read-all",
+      "method": "PUT",
+      "mountedPath": "/notifications/read-all",
+      "rawPath": "/read-all",
+      "handlerFile": "api/src/handlers/notifications.ts",
+      "line": 58,
+      "resource": "notifications"
+    },
+    {
+      "id": "route-put-reservations--id-cancel",
+      "method": "PUT",
+      "mountedPath": "/reservations/:id/cancel",
+      "rawPath": "/:id/cancel",
+      "handlerFile": "api/src/handlers/reservations.ts",
+      "line": 294,
+      "resource": "reservations"
+    },
+    {
+      "id": "route-put-reviews--id",
+      "method": "PUT",
+      "mountedPath": "/reviews/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/reviews.ts",
+      "line": 126,
+      "resource": "reviews"
+    },
+    {
+      "id": "route-put-venues--id",
+      "method": "PUT",
+      "mountedPath": "/venues/:id",
+      "rawPath": "/:id",
+      "handlerFile": "api/src/handlers/venues.ts",
+      "line": 244,
+      "resource": "venues"
+    }
+  ],
+  "totals": {
+    "pages": 23,
+    "elements": 109,
+    "forms": 8,
+    "routes": 33
+  }
+}

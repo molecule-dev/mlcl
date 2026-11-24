@@ -9,6 +9,12 @@
       "file": "app/src/pages/Landing.tsx"
     },
     {
+      "id": "page-about",
+      "path": "/about",
+      "component": "About",
+      "file": "app/src/pages/About.tsx"
+    },
+    {
       "id": "page-analytics",
       "path": "/analytics",
       "component": "Analytics",
@@ -75,6 +81,12 @@
       "file": "app/src/pages/Notifications.tsx"
     },
     {
+      "id": "page-privacy",
+      "path": "/privacy",
+      "component": "Privacy",
+      "file": "app/src/pages/Privacy.tsx"
+    },
+    {
       "id": "page-resetpassword",
       "path": "/reset-password",
       "component": "ResetPassword",
@@ -103,16 +115,33 @@
       "path": "/sources/:id",
       "component": "SourceDetail",
       "file": "app/src/pages/SourceDetail.tsx"
+    },
+    {
+      "id": "page-terms",
+      "path": "/terms",
+      "component": "Terms",
+      "file": "app/src/pages/Terms.tsx"
     }
   ],
   "elements": [
     {
-      "id": "link-authshell-83-----",
+      "id": "link-authshell-102-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/components/AuthShell.tsx",
-      "line": 83,
+      "line": 102,
       "label": ", )}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-brandwordmark-79",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/BrandWordmark.tsx",
+      "line": 79,
+      "label": "link at app/src/components/BrandWordmark.tsx:79",
       "href": "/",
       "type": null,
       "name": null
@@ -129,990 +158,1056 @@
       "name": null
     },
     {
-      "id": "link-documentcard-87--span-classname--cm-",
+      "id": "link-documentcard-91--span",
       "role": "link",
       "tag": "Link",
       "file": "app/src/components/DocumentCard.tsx",
-      "line": 87,
-      "label": "<span className={cm.cn(",
+      "line": 91,
+      "label": "<span",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-floatinginput-18",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/FloatingInput.tsx",
-      "line": 18,
-      "label": "input at app/src/components/FloatingInput.tsx:18",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-oauthbuttons-38",
+      "id": "button-mobilenavshell-80",
       "role": "button",
       "tag": "button",
-      "file": "app/src/components/OAuthButtons.tsx",
-      "line": 38,
-      "label": "button at app/src/components/OAuthButtons.tsx:38",
+      "file": "app/src/components/MobileNavShell.tsx",
+      "line": 80,
+      "label": "button at app/src/components/MobileNavShell.tsx:80",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-settingspanel-180",
-      "role": "input",
-      "tag": "Input",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 180,
-      "label": "input at app/src/components/SettingsPanel.tsx:180",
-      "href": null,
-      "type": "text",
+      "id": "link-mobilenavshell-102",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/MobileNavShell.tsx",
+      "line": 102,
+      "label": "link at app/src/components/MobileNavShell.tsx:102",
+      "href": "/ask",
+      "type": null,
       "name": null
     },
     {
-      "id": "button-settingspanel-199",
+      "id": "button-mobilenavshell-117",
       "role": "button",
-      "tag": "Button",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 199,
-      "label": "button at app/src/components/SettingsPanel.tsx:199",
+      "tag": "button",
+      "file": "app/src/components/MobileNavShell.tsx",
+      "line": 117,
+      "label": "button at app/src/components/MobileNavShell.tsx:117",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-settingspanel-237-settings-upgrade",
+      "id": "button-mobilenavshell-140",
       "role": "button",
-      "tag": "Button",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 237,
-      "label": "settings.upgrade",
+      "tag": "button",
+      "file": "app/src/components/MobileNavShell.tsx",
+      "line": 140,
+      "label": "button at app/src/components/MobileNavShell.tsx:140",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-settingspanel-290",
-      "role": "button",
-      "tag": "Button",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 290,
-      "label": "button at app/src/components/SettingsPanel.tsx:290",
+      "id": "link-mobilenavshell-166",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/MobileNavShell.tsx",
+      "line": 166,
+      "label": "link at app/src/components/MobileNavShell.tsx:166",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-settingspanel-293",
-      "role": "button",
-      "tag": "Button",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 293,
-      "label": "button at app/src/components/SettingsPanel.tsx:293",
+      "id": "link-publictopnav-39-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PublicTopNav.tsx",
+      "line": 39,
+      "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-settingspanel-314",
-      "role": "input",
-      "tag": "Input",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 314,
-      "label": "input at app/src/components/SettingsPanel.tsx:314",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-settingspanel-325",
-      "role": "input",
-      "tag": "Input",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 325,
-      "label": "input at app/src/components/SettingsPanel.tsx:325",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-settingspanel-334",
-      "role": "button",
-      "tag": "Button",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 334,
-      "label": "button at app/src/components/SettingsPanel.tsx:334",
+      "id": "link-publictopnav-54-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PublicTopNav.tsx",
+      "line": 54,
+      "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-settingspanel-355",
-      "role": "input",
-      "tag": "Input",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 355,
-      "label": "input at app/src/components/SettingsPanel.tsx:355",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-settingspanel-363",
-      "role": "button",
-      "tag": "Button",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 363,
-      "label": "button at app/src/components/SettingsPanel.tsx:363",
+      "id": "link-publictopnav-64-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PublicTopNav.tsx",
+      "line": 64,
+      "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-sourceconnectorcard-101--span-classname---",
+      "id": "link-sourceconnectorcard-96--span-classname---",
       "role": "link",
       "tag": "Link",
       "file": "app/src/components/SourceConnectorCard.tsx",
-      "line": 101,
+      "line": 96,
       "label": "<span className=),",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-themetoggle-12------------",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ThemeToggle.tsx",
-      "line": 12,
-      "label": "/> ) : ( )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-usermenu-17",
-      "role": "button",
-      "tag": "Button",
-      "file": "app/src/components/UserMenu.tsx",
-      "line": 17,
-      "label": "button at app/src/components/UserMenu.tsx:17",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-ask-176",
+      "id": "input-ask-228",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Ask.tsx",
-      "line": 176,
-      "label": "input at app/src/pages/Ask.tsx:176",
+      "line": 228,
+      "label": "input at app/src/pages/Ask.tsx:228",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-ask-189-------t-ask-submit--",
+      "id": "button-ask-254",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Ask.tsx",
-      "line": 189,
-      "label": ", ) : t(ask.submit, , )}",
+      "line": 254,
+      "label": "button at app/src/pages/Ask.tsx:254",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-ask-208",
+      "id": "button-ask-285",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Ask.tsx",
-      "line": 208,
-      "label": "button at app/src/pages/Ask.tsx:208",
+      "line": 285,
+      "label": "button at app/src/pages/Ask.tsx:285",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-billing-231",
+      "id": "button-billing-306",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Billing.tsx",
-      "line": 231,
-      "label": "button at app/src/pages/Billing.tsx:231",
+      "line": 306,
+      "label": "button at app/src/pages/Billing.tsx:306",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-billing-263-------t-billing-canc",
+      "id": "button-billing-349",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Billing.tsx",
-      "line": 263,
-      "label": ", ) : t(billing.cancel.button, , )}",
+      "line": 349,
+      "label": "button at app/src/pages/Billing.tsx:349",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-documentdetail-113-arrow-back-----",
+      "id": "link-documentdetail-148--span-classname--sty",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/DocumentDetail.tsx",
-      "line": 113,
-      "label": "arrow_back , )}",
-      "href": "/documents",
+      "line": 148,
+      "label": "<span className= style=} aria-hidden=true",
+      "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-documents-219",
+      "id": "link-documentdetail-184--span-classname--sty",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/DocumentDetail.tsx",
+      "line": 184,
+      "label": "<span className= style=} aria-hidden=true",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-documents-252",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Documents.tsx",
-      "line": 219,
-      "label": "input at app/src/pages/Documents.tsx:219",
+      "line": 252,
+      "label": "input at app/src/pages/Documents.tsx:252",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-documents-227-------t-documents-up",
+      "id": "button-documents-260",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Documents.tsx",
-      "line": 227,
-      "label": ", ) : t(documents.uploadButton, , )}",
+      "line": 260,
+      "label": "button at app/src/pages/Documents.tsx:260",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-documents-238-------t-documents-op",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Documents.tsx",
-      "line": 238,
-      "label": ", ) : t(documents.openPaste, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-documents-261",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Documents.tsx",
-      "line": 261,
-      "label": "input at app/src/pages/Documents.tsx:261",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "textarea-documents-269",
-      "role": "textarea",
-      "tag": "textarea",
-      "file": "app/src/pages/Documents.tsx",
-      "line": 269,
-      "label": "textarea at app/src/pages/Documents.tsx:269",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-documents-277-------t-documents-co",
+      "id": "button-documents-277",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Documents.tsx",
       "line": 277,
-      "label": ", ) : t(documents.composer.save, , )}",
+      "label": "button at app/src/pages/Documents.tsx:277",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-documents-322",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Documents.tsx",
-      "line": 322,
-      "label": "button at app/src/pages/Documents.tsx:322",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-documents-344",
+      "id": "input-documents-313",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Documents.tsx",
-      "line": 344,
-      "label": "input at app/src/pages/Documents.tsx:344",
+      "line": 313,
+      "label": "input at app/src/pages/Documents.tsx:313",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "link-forgotpassword-35-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 35,
-      "label": ", )}",
-      "href": "/login",
+      "id": "textarea-documents-329",
+      "role": "textarea",
+      "tag": "textarea",
+      "file": "app/src/pages/Documents.tsx",
+      "line": 329,
+      "label": "textarea at app/src/pages/Documents.tsx:329",
+      "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-forgotpassword-57-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 57,
-      "label": ", )}",
-      "href": "/login",
+      "id": "button-documents-345",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Documents.tsx",
+      "line": 345,
+      "label": "button at app/src/pages/Documents.tsx:345",
+      "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-forgotpassword-69",
+      "id": "button-documents-398",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Documents.tsx",
+      "line": 398,
+      "label": "button at app/src/pages/Documents.tsx:398",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-documents-432",
       "role": "input",
       "tag": "input",
-      "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 69,
-      "label": "input at app/src/pages/ForgotPassword.tsx:69",
+      "file": "app/src/pages/Documents.tsx",
+      "line": 432,
+      "label": "input at app/src/pages/Documents.tsx:432",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-forgotpassword-89-------t-forgotpasswo",
+      "id": "button-documents-459",
       "role": "button",
       "tag": "button",
-      "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 89,
-      "label": ", ) : t(forgotPassword.submit, , )}",
+      "file": "app/src/pages/Documents.tsx",
+      "line": 459,
+      "label": "button at app/src/pages/Documents.tsx:459",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-history-75",
+      "id": "link-forgotpassword-44-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 44,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-forgotpassword-102-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 102,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-forgotpassword-140",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 140,
+      "label": "input at app/src/pages/ForgotPassword.tsx:140",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-forgotpassword-176",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/ForgotPassword.tsx",
+      "line": 176,
+      "label": "button at app/src/pages/ForgotPassword.tsx:176",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-history-126",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/History.tsx",
-      "line": 75,
-      "label": "input at app/src/pages/History.tsx:75",
+      "line": 126,
+      "label": "input at app/src/pages/History.tsx:126",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-knowledgegraph-108-----",
+      "id": "button-knowledgegraph-203",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/KnowledgeGraph.tsx",
-      "line": 108,
-      "label": ", )}",
+      "line": 203,
+      "label": "button at app/src/pages/KnowledgeGraph.tsx:203",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-knowledgegraph-118-------",
+      "id": "button-knowledgegraph-223",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/KnowledgeGraph.tsx",
-      "line": 118,
-      "label": ", , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-landing-53-psychology",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Landing.tsx",
-      "line": 53,
-      "label": "psychology",
-      "href": "/",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-landing-63-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Landing.tsx",
-      "line": 63,
-      "label": ", )}",
-      "href": "/login",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-landing-66-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Landing.tsx",
-      "line": 66,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-landing-99------arrow-forward",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Landing.tsx",
-      "line": 99,
-      "label": ", )} arrow_forward",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-landing-107-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Landing.tsx",
-      "line": 107,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-landing-206------arrow-forward",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Landing.tsx",
-      "line": 206,
-      "label": ", )} arrow_forward",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-login-41-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Login.tsx",
-      "line": 41,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-login-61",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Login.tsx",
-      "line": 61,
-      "label": "input at app/src/pages/Login.tsx:61",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "link-login-84-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/Login.tsx",
-      "line": 84,
-      "label": ", )}",
-      "href": "/forgot-password",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-login-90",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Login.tsx",
-      "line": 90,
-      "label": "input at app/src/pages/Login.tsx:90",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-login-100",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Login.tsx",
-      "line": 100,
-      "label": "button at app/src/pages/Login.tsx:100",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-login-125-------t-login-submit",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Login.tsx",
-      "line": 125,
-      "label": ", ) : t(login.submit, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-members-164-person-add-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Members.tsx",
-      "line": 164,
-      "label": "person_add , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-members-188",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Members.tsx",
-      "line": 188,
-      "label": "input at app/src/pages/Members.tsx:188",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "select-members-201",
-      "role": "select",
-      "tag": "select",
-      "file": "app/src/pages/Members.tsx",
-      "line": 201,
-      "label": "select at app/src/pages/Members.tsx:201",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-members-213-------t-members-invi",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Members.tsx",
-      "line": 213,
-      "label": ", ) : t(members.invite.submit, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-members-223-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Members.tsx",
       "line": 223,
+      "label": "button at app/src/pages/KnowledgeGraph.tsx:223",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-89",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 89,
+      "label": "link at app/src/pages/Landing.tsx:89",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-103-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 103,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-members-283-------t-members-revo",
+      "id": "input-landing-404",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 404,
+      "label": "input at app/src/pages/Landing.tsx:404",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-landing-665-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 665,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-707-molecule-dev",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 707,
+      "label": "Molecule.dev",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-718-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 718,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-landing-727-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Landing.tsx",
+      "line": 727,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-login-55-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 55,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-94",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 94,
+      "label": "input at app/src/pages/Login.tsx:94",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "link-login-129-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Login.tsx",
+      "line": 129,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-login-150",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Login.tsx",
+      "line": 150,
+      "label": "input at app/src/pages/Login.tsx:150",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-login-168",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 168,
+      "label": "button at app/src/pages/Login.tsx:168",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-login-201",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Login.tsx",
+      "line": 201,
+      "label": "button at app/src/pages/Login.tsx:201",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-members-199",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Members.tsx",
-      "line": 283,
-      "label": ", ) : t(members.revoke, , )}",
+      "line": 199,
+      "label": "button at app/src/pages/Members.tsx:199",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-notfound-39-forum-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/NotFound.tsx",
-      "line": 39,
-      "label": "forum , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-notfound-47-home-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/NotFound.tsx",
-      "line": 47,
-      "label": "home , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-resetpassword-48-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 48,
-      "label": ", )}",
-      "href": "/login",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-resetpassword-61-email",
+      "id": "input-members-248",
       "role": "input",
       "tag": "input",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 61,
-      "label": "email",
-      "href": null,
-      "type": "email",
-      "name": null
-    },
-    {
-      "id": "input-resetpassword-74-token",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 74,
-      "label": "token",
+      "file": "app/src/pages/Members.tsx",
+      "line": 248,
+      "label": "input at app/src/pages/Members.tsx:248",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-resetpassword-86-password",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 86,
-      "label": "password",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-resetpassword-90",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 90,
-      "label": "button at app/src/pages/ResetPassword.tsx:90",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-resetpassword-106-confirm",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 106,
-      "label": "confirm",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-resetpassword-124-------t-resetpasswor",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/ResetPassword.tsx",
-      "line": 124,
-      "label": ", ) : t(resetPassword.submit, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-settings-240",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 240,
-      "label": "input at app/src/pages/Settings.tsx:240",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-settings-249",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 249,
-      "label": "input at app/src/pages/Settings.tsx:249",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-settings-259-------t-settings-pro",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 259,
-      "label": ", ) : t(settings.profile.save, , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-settings-291",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 291,
-      "label": "input at app/src/pages/Settings.tsx:291",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-settings-303",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 303,
-      "label": "input at app/src/pages/Settings.tsx:303",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-settings-315",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 315,
-      "label": "input at app/src/pages/Settings.tsx:315",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "select-settings-328",
+      "id": "select-members-271",
       "role": "select",
       "tag": "select",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 328,
-      "label": "select at app/src/pages/Settings.tsx:328",
+      "file": "app/src/pages/Members.tsx",
+      "line": 271,
+      "label": "select at app/src/pages/Members.tsx:271",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-settings-339-------t-settings-ret",
+      "id": "button-members-289",
       "role": "button",
       "tag": "button",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 339,
-      "label": ", ) : t(settings.retrieval.save, , )}",
+      "file": "app/src/pages/Members.tsx",
+      "line": 289,
+      "label": "button at app/src/pages/Members.tsx:289",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-settings-385",
+      "id": "button-members-305-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Members.tsx",
+      "line": 305,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-members-478",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Members.tsx",
+      "line": 478,
+      "label": "button at app/src/pages/Members.tsx:478",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-89--span",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 89,
+      "label": "<span",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-109--span-classname-",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 109,
+      "label": "<span className=",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-304",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 304,
+      "label": "button at app/src/pages/Notifications.tsx:304",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-notifications-319",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Notifications.tsx",
+      "line": 319,
+      "label": "button at app/src/pages/Notifications.tsx:319",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-resetpassword-65-----",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 65,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-104",
       "role": "input",
       "tag": "input",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 385,
-      "label": "input at app/src/pages/Settings.tsx:385",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 104,
+      "label": "input at app/src/pages/ResetPassword.tsx:104",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-settings-393-key-----",
+      "id": "input-resetpassword-149",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 149,
+      "label": "input at app/src/pages/ResetPassword.tsx:149",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-resetpassword-192",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 192,
+      "label": "input at app/src/pages/ResetPassword.tsx:192",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-210",
       "role": "button",
       "tag": "button",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 393,
-      "label": "key , )}",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 210,
+      "label": "button at app/src/pages/ResetPassword.tsx:210",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-settings-430-----",
+      "id": "input-resetpassword-254",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 254,
+      "label": "input at app/src/pages/ResetPassword.tsx:254",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-resetpassword-304",
       "role": "button",
       "tag": "button",
+      "file": "app/src/pages/ResetPassword.tsx",
+      "line": 304,
+      "label": "button at app/src/pages/ResetPassword.tsx:304",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-327",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 327,
+      "label": "input at app/src/pages/Settings.tsx:327",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-344",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 344,
+      "label": "input at app/src/pages/Settings.tsx:344",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-354",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 354,
+      "label": "button at app/src/pages/Settings.tsx:354",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-410",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 410,
+      "label": "input at app/src/pages/Settings.tsx:410",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-430",
+      "role": "input",
+      "tag": "input",
       "file": "app/src/pages/Settings.tsx",
       "line": 430,
+      "label": "input at app/src/pages/Settings.tsx:430",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "input-settings-450",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 450,
+      "label": "input at app/src/pages/Settings.tsx:450",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "select-settings-475",
+      "role": "select",
+      "tag": "select",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 475,
+      "label": "select at app/src/pages/Settings.tsx:475",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-486",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 486,
+      "label": "button at app/src/pages/Settings.tsx:486",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-577",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 577,
+      "label": "button at app/src/pages/Settings.tsx:577",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "input-settings-607",
+      "role": "input",
+      "tag": "input",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 607,
+      "label": "input at app/src/pages/Settings.tsx:607",
+      "href": null,
+      "type": "text",
+      "name": null
+    },
+    {
+      "id": "button-settings-619",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 619,
+      "label": "button at app/src/pages/Settings.tsx:619",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-640",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 640,
+      "label": "button at app/src/pages/Settings.tsx:640",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-762-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 762,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-signup-49-----",
+      "id": "button-settings-775-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 775,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-settings-787-----",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 787,
+      "label": ", )}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-signup-72-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/Signup.tsx",
-      "line": 49,
+      "line": 72,
       "label": ", )}",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-signup-65",
+      "id": "input-signup-105",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Signup.tsx",
-      "line": 65,
-      "label": "input at app/src/pages/Signup.tsx:65",
+      "line": 105,
+      "label": "input at app/src/pages/Signup.tsx:105",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-signup-82",
+      "id": "input-signup-141",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Signup.tsx",
-      "line": 82,
-      "label": "input at app/src/pages/Signup.tsx:82",
+      "line": 141,
+      "label": "input at app/src/pages/Signup.tsx:141",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-signup-102",
+      "id": "input-signup-186",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Signup.tsx",
-      "line": 102,
-      "label": "input at app/src/pages/Signup.tsx:102",
+      "line": 186,
+      "label": "input at app/src/pages/Signup.tsx:186",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-signup-121",
+      "id": "input-signup-234",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Signup.tsx",
-      "line": 121,
-      "label": "input at app/src/pages/Signup.tsx:121",
+      "line": 234,
+      "label": "input at app/src/pages/Signup.tsx:234",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-signup-131",
+      "id": "button-signup-252",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Signup.tsx",
-      "line": 131,
-      "label": "button at app/src/pages/Signup.tsx:131",
+      "line": 252,
+      "label": "button at app/src/pages/Signup.tsx:252",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-signup-152",
+      "id": "input-signup-296",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Signup.tsx",
-      "line": 152,
-      "label": "input at app/src/pages/Signup.tsx:152",
+      "line": 296,
+      "label": "input at app/src/pages/Signup.tsx:296",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-signup-176-------t-signup-submi",
+      "id": "button-signup-346",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Signup.tsx",
-      "line": 176,
-      "label": ", ) : t(signup.submit, , )}",
+      "line": 346,
+      "label": "button at app/src/pages/Signup.tsx:346",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "link-sourcedetail-95-arrow-back-----",
+      "id": "link-sourcedetail-186--span-classname--sty",
       "role": "link",
       "tag": "Link",
       "file": "app/src/pages/SourceDetail.tsx",
-      "line": 95,
-      "label": "arrow_back , )}",
-      "href": "/sources",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-sources-182-add-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Sources.tsx",
-      "line": 182,
-      "label": "add , )}",
+      "line": 186,
+      "label": "<span className= style=} aria-hidden=true",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "select-sources-206",
+      "id": "link-sourcedetail-213--span-classname--sty",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/SourceDetail.tsx",
+      "line": 213,
+      "label": "<span className= style=} aria-hidden=true",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-sourcedetail-299",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/SourceDetail.tsx",
+      "line": 299,
+      "label": "button at app/src/pages/SourceDetail.tsx:299",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-sourcedetail-395",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/SourceDetail.tsx",
+      "line": 395,
+      "label": "link at app/src/pages/SourceDetail.tsx:395",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-sources-241",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/pages/Sources.tsx",
+      "line": 241,
+      "label": "button at app/src/pages/Sources.tsx:241",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "select-sources-287",
       "role": "select",
       "tag": "select",
       "file": "app/src/pages/Sources.tsx",
-      "line": 206,
-      "label": "select at app/src/pages/Sources.tsx:206",
+      "line": 287,
+      "label": "select at app/src/pages/Sources.tsx:287",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "input-sources-221",
+      "id": "input-sources-314",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Sources.tsx",
-      "line": 221,
-      "label": "input at app/src/pages/Sources.tsx:221",
+      "line": 314,
+      "label": "input at app/src/pages/Sources.tsx:314",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "input-sources-235",
+      "id": "input-sources-342",
       "role": "input",
       "tag": "input",
       "file": "app/src/pages/Sources.tsx",
-      "line": 235,
-      "label": "input at app/src/pages/Sources.tsx:235",
+      "line": 342,
+      "label": "input at app/src/pages/Sources.tsx:342",
       "href": null,
       "type": "text",
       "name": null
     },
     {
-      "id": "button-sources-246-------t-sources-add-",
+      "id": "button-sources-357",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Sources.tsx",
-      "line": 246,
-      "label": ", ) : t(sources.add.submit, , )}",
+      "line": 357,
+      "label": "button at app/src/pages/Sources.tsx:357",
       "href": null,
       "type": null,
       "name": null
     },
     {
-      "id": "button-sources-256-----",
+      "id": "button-sources-373-----",
       "role": "button",
       "tag": "button",
       "file": "app/src/pages/Sources.tsx",
-      "line": 256,
+      "line": 373,
       "label": ", )}",
       "href": null,
       "type": null,
@@ -1121,138 +1216,91 @@
   ],
   "forms": [
     {
-      "id": "form-settingspanel-311",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 311,
-      "label": "form at app/src/components/SettingsPanel.tsx:311",
-      "onSubmit": true,
-      "fields": [
-        {
-          "name": "current-pw",
-          "type": "password"
-        },
-        {
-          "name": "new-pw",
-          "type": "password"
-        }
-      ]
-    },
-    {
-      "id": "form-settingspanel-352",
-      "file": "app/src/components/SettingsPanel.tsx",
-      "line": 352,
-      "label": "form at app/src/components/SettingsPanel.tsx:352",
-      "onSubmit": true,
-      "fields": [
-        {
-          "name": "delete-pw",
-          "type": "password"
-        }
-      ]
-    },
-    {
-      "id": "form-ask-170",
+      "id": "form-ask-209",
       "file": "app/src/pages/Ask.tsx",
-      "line": 170,
-      "label": "form at app/src/pages/Ask.tsx:170",
-      "onSubmit": true,
+      "line": 209,
+      "label": "form at app/src/pages/Ask.tsx:209",
+      "onSubmit": false,
       "fields": []
     },
     {
-      "id": "form-documents-256",
+      "id": "form-documents-304",
       "file": "app/src/pages/Documents.tsx",
-      "line": 256,
-      "label": "form at app/src/pages/Documents.tsx:256",
-      "onSubmit": true,
+      "line": 304,
+      "label": "form at app/src/pages/Documents.tsx:304",
+      "onSubmit": false,
       "fields": []
     },
     {
-      "id": "form-forgotpassword-62",
+      "id": "form-forgotpassword-112",
       "file": "app/src/pages/ForgotPassword.tsx",
-      "line": 62,
-      "label": "form at app/src/pages/ForgotPassword.tsx:62",
+      "line": 112,
+      "label": "form at app/src/pages/ForgotPassword.tsx:112",
       "onSubmit": true,
       "fields": []
     },
     {
-      "id": "form-login-50",
+      "id": "form-login-66",
       "file": "app/src/pages/Login.tsx",
-      "line": 50,
-      "label": "form at app/src/pages/Login.tsx:50",
+      "line": 66,
+      "label": "form at app/src/pages/Login.tsx:66",
       "onSubmit": true,
       "fields": []
     },
     {
-      "id": "form-members-176",
+      "id": "form-members-226",
       "file": "app/src/pages/Members.tsx",
-      "line": 176,
-      "label": "form at app/src/pages/Members.tsx:176",
-      "onSubmit": true,
+      "line": 226,
+      "label": "form at app/src/pages/Members.tsx:226",
+      "onSubmit": false,
       "fields": []
     },
     {
-      "id": "form-resetpassword-53",
+      "id": "form-resetpassword-75",
       "file": "app/src/pages/ResetPassword.tsx",
-      "line": 53,
-      "label": "form at app/src/pages/ResetPassword.tsx:53",
-      "onSubmit": true,
-      "fields": [
-        {
-          "name": "email",
-          "type": "email"
-        },
-        {
-          "name": "token",
-          "type": "text"
-        },
-        {
-          "name": "password",
-          "type": "<expr>"
-        },
-        {
-          "name": "confirm",
-          "type": "<expr>"
-        }
-      ]
-    },
-    {
-      "id": "form-settings-232",
-      "file": "app/src/pages/Settings.tsx",
-      "line": 232,
-      "label": "form at app/src/pages/Settings.tsx:232",
+      "line": 75,
+      "label": "form at app/src/pages/ResetPassword.tsx:75",
       "onSubmit": true,
       "fields": []
     },
     {
-      "id": "form-settings-283",
+      "id": "form-settings-307",
       "file": "app/src/pages/Settings.tsx",
-      "line": 283,
-      "label": "form at app/src/pages/Settings.tsx:283",
+      "line": 307,
+      "label": "form at app/src/pages/Settings.tsx:307",
       "onSubmit": true,
       "fields": []
     },
     {
-      "id": "form-settings-380",
+      "id": "form-settings-390",
       "file": "app/src/pages/Settings.tsx",
-      "line": 380,
-      "label": "form at app/src/pages/Settings.tsx:380",
+      "line": 390,
+      "label": "form at app/src/pages/Settings.tsx:390",
       "onSubmit": true,
       "fields": []
     },
     {
-      "id": "form-signup-58",
+      "id": "form-settings-602",
+      "file": "app/src/pages/Settings.tsx",
+      "line": 602,
+      "label": "form at app/src/pages/Settings.tsx:602",
+      "onSubmit": true,
+      "fields": []
+    },
+    {
+      "id": "form-signup-83",
       "file": "app/src/pages/Signup.tsx",
-      "line": 58,
-      "label": "form at app/src/pages/Signup.tsx:58",
+      "line": 83,
+      "label": "form at app/src/pages/Signup.tsx:83",
       "onSubmit": true,
       "fields": []
     },
     {
-      "id": "form-sources-194",
+      "id": "form-sources-265",
       "file": "app/src/pages/Sources.tsx",
-      "line": 194,
-      "label": "form at app/src/pages/Sources.tsx:194",
-      "onSubmit": true,
+      "line": 265,
+      "label": "form at app/src/pages/Sources.tsx:265",
+      "onSubmit": false,
       "fields": []
     }
   ],
@@ -1263,7 +1311,7 @@
       "mountedPath": "/api-tokens/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/api-tokens.ts",
-      "line": 86,
+      "line": 81,
       "resource": "api-tokens"
     },
     {
@@ -1272,7 +1320,7 @@
       "mountedPath": "/collections/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/collections.ts",
-      "line": 131,
+      "line": 128,
       "resource": "collections"
     },
     {
@@ -1281,7 +1329,7 @@
       "mountedPath": "/documents/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/documents.ts",
-      "line": 215,
+      "line": 242,
       "resource": "documents"
     },
     {
@@ -1290,7 +1338,7 @@
       "mountedPath": "/graph/edges/:id",
       "rawPath": "/edges/:id",
       "handlerFile": "api/src/handlers/graph.ts",
-      "line": 77,
+      "line": 124,
       "resource": "graph"
     },
     {
@@ -1299,7 +1347,7 @@
       "mountedPath": "/members/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/members.ts",
-      "line": 109,
+      "line": 105,
       "resource": "members"
     },
     {
@@ -1308,7 +1356,7 @@
       "mountedPath": "/notifications/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/notifications.ts",
-      "line": 109,
+      "line": 105,
       "resource": "notifications"
     },
     {
@@ -1317,7 +1365,7 @@
       "mountedPath": "/qa/conversations/:id",
       "rawPath": "/conversations/:id",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 165,
+      "line": 175,
       "resource": "qa"
     },
     {
@@ -1326,7 +1374,7 @@
       "mountedPath": "/qa/entries/:id",
       "rawPath": "/entries/:id",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 247,
+      "line": 257,
       "resource": "qa"
     },
     {
@@ -1335,7 +1383,7 @@
       "mountedPath": "/sources/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/sources.ts",
-      "line": 157,
+      "line": 142,
       "resource": "sources"
     },
     {
@@ -1344,26 +1392,8 @@
       "mountedPath": "/api-tokens",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/api-tokens.ts",
-      "line": 29,
+      "line": 22,
       "resource": "api-tokens"
-    },
-    {
-      "id": "route-get-billing-status",
-      "method": "GET",
-      "mountedPath": "/billing/status",
-      "rawPath": "/status",
-      "handlerFile": "api/src/routes/billing.ts",
-      "line": 111,
-      "resource": "billing"
-    },
-    {
-      "id": "route-get-billing-tiers",
-      "method": "GET",
-      "mountedPath": "/billing/tiers",
-      "rawPath": "/tiers",
-      "handlerFile": "api/src/routes/billing.ts",
-      "line": 129,
-      "resource": "billing"
     },
     {
       "id": "route-get-collections-",
@@ -1371,7 +1401,7 @@
       "mountedPath": "/collections",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/collections.ts",
-      "line": 29,
+      "line": 22,
       "resource": "collections"
     },
     {
@@ -1380,7 +1410,7 @@
       "mountedPath": "/collections/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/collections.ts",
-      "line": 51,
+      "line": 45,
       "resource": "collections"
     },
     {
@@ -1389,7 +1419,7 @@
       "mountedPath": "/documents",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/documents.ts",
-      "line": 76,
+      "line": 85,
       "resource": "documents"
     },
     {
@@ -1398,7 +1428,7 @@
       "mountedPath": "/documents/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/documents.ts",
-      "line": 90,
+      "line": 102,
       "resource": "documents"
     },
     {
@@ -1407,7 +1437,16 @@
       "mountedPath": "/graph/edges",
       "rawPath": "/edges",
       "handlerFile": "api/src/handlers/graph.ts",
-      "line": 28,
+      "line": 73,
+      "resource": "graph"
+    },
+    {
+      "id": "route-get-graph-nodes",
+      "method": "GET",
+      "mountedPath": "/graph/nodes",
+      "rawPath": "/nodes",
+      "handlerFile": "api/src/handlers/graph.ts",
+      "line": 19,
       "resource": "graph"
     },
     {
@@ -1416,7 +1455,7 @@
       "mountedPath": "/members",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/members.ts",
-      "line": 31,
+      "line": 24,
       "resource": "members"
     },
     {
@@ -1425,7 +1464,7 @@
       "mountedPath": "/notifications",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/notifications.ts",
-      "line": 30,
+      "line": 23,
       "resource": "notifications"
     },
     {
@@ -1434,7 +1473,7 @@
       "mountedPath": "/qa/conversations",
       "rawPath": "/conversations",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 89,
+      "line": 91,
       "resource": "qa"
     },
     {
@@ -1443,7 +1482,7 @@
       "mountedPath": "/qa/conversations/:id",
       "rawPath": "/conversations/:id",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 123,
+      "line": 129,
       "resource": "qa"
     },
     {
@@ -1452,7 +1491,7 @@
       "mountedPath": "/qa/entries",
       "rawPath": "/entries",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 183,
+      "line": 193,
       "resource": "qa"
     },
     {
@@ -1461,7 +1500,7 @@
       "mountedPath": "/qa/entries/:id",
       "rawPath": "/entries/:id",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 197,
+      "line": 207,
       "resource": "qa"
     },
     {
@@ -1470,7 +1509,7 @@
       "mountedPath": "/qa/history",
       "rawPath": "/history",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 342,
+      "line": 352,
       "resource": "qa"
     },
     {
@@ -1479,8 +1518,26 @@
       "mountedPath": "/qa/stats",
       "rawPath": "/stats",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 270,
+      "line": 280,
       "resource": "qa"
+    },
+    {
+      "id": "route-get-reports-analytics",
+      "method": "GET",
+      "mountedPath": "/reports/analytics",
+      "rawPath": "/analytics",
+      "handlerFile": "api/src/handlers/reports.ts",
+      "line": 58,
+      "resource": "reports"
+    },
+    {
+      "id": "route-get-settings-",
+      "method": "GET",
+      "mountedPath": "/settings",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/settings.ts",
+      "line": 71,
+      "resource": "settings"
     },
     {
       "id": "route-get-sources-",
@@ -1488,7 +1545,7 @@
       "mountedPath": "/sources",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/sources.ts",
-      "line": 49,
+      "line": 30,
       "resource": "sources"
     },
     {
@@ -1497,8 +1554,17 @@
       "mountedPath": "/sources/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/sources.ts",
-      "line": 71,
+      "line": 53,
       "resource": "sources"
+    },
+    {
+      "id": "route-patch-settings-",
+      "method": "PATCH",
+      "mountedPath": "/settings",
+      "rawPath": "/",
+      "handlerFile": "api/src/handlers/settings.ts",
+      "line": 100,
+      "resource": "settings"
     },
     {
       "id": "route-post-api-tokens-",
@@ -1506,26 +1572,8 @@
       "mountedPath": "/api-tokens",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/api-tokens.ts",
-      "line": 56,
+      "line": 50,
       "resource": "api-tokens"
-    },
-    {
-      "id": "route-post-billing-cancel",
-      "method": "POST",
-      "mountedPath": "/billing/cancel",
-      "rawPath": "/cancel",
-      "handlerFile": "api/src/routes/billing.ts",
-      "line": 82,
-      "resource": "billing"
-    },
-    {
-      "id": "route-post-billing-checkout",
-      "method": "POST",
-      "mountedPath": "/billing/checkout",
-      "rawPath": "/checkout",
-      "handlerFile": "api/src/routes/billing.ts",
-      "line": 36,
-      "resource": "billing"
     },
     {
       "id": "route-post-collections-",
@@ -1533,7 +1581,7 @@
       "mountedPath": "/collections",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/collections.ts",
-      "line": 76,
+      "line": 71,
       "resource": "collections"
     },
     {
@@ -1542,7 +1590,7 @@
       "mountedPath": "/documents",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/documents.ts",
-      "line": 120,
+      "line": 135,
       "resource": "documents"
     },
     {
@@ -1551,7 +1599,7 @@
       "mountedPath": "/graph/edges",
       "rawPath": "/edges",
       "handlerFile": "api/src/handlers/graph.ts",
-      "line": 50,
+      "line": 96,
       "resource": "graph"
     },
     {
@@ -1560,7 +1608,7 @@
       "mountedPath": "/members",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/members.ts",
-      "line": 53,
+      "line": 47,
       "resource": "members"
     },
     {
@@ -1569,7 +1617,7 @@
       "mountedPath": "/notifications",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/notifications.ts",
-      "line": 52,
+      "line": 46,
       "resource": "notifications"
     },
     {
@@ -1578,7 +1626,7 @@
       "mountedPath": "/qa/ask",
       "rawPath": "/ask",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 410,
+      "line": 422,
       "resource": "qa"
     },
     {
@@ -1587,7 +1635,7 @@
       "mountedPath": "/qa/conversations",
       "rawPath": "/conversations",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 103,
+      "line": 105,
       "resource": "qa"
     },
     {
@@ -1596,7 +1644,7 @@
       "mountedPath": "/qa/entries",
       "rawPath": "/entries",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 214,
+      "line": 224,
       "resource": "qa"
     },
     {
@@ -1605,7 +1653,7 @@
       "mountedPath": "/sources",
       "rawPath": "/",
       "handlerFile": "api/src/handlers/sources.ts",
-      "line": 96,
+      "line": 79,
       "resource": "sources"
     },
     {
@@ -1614,7 +1662,7 @@
       "mountedPath": "/collections/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/collections.ts",
-      "line": 101,
+      "line": 97,
       "resource": "collections"
     },
     {
@@ -1623,7 +1671,7 @@
       "mountedPath": "/documents/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/documents.ts",
-      "line": 169,
+      "line": 190,
       "resource": "documents"
     },
     {
@@ -1632,7 +1680,7 @@
       "mountedPath": "/members/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/members.ts",
-      "line": 79,
+      "line": 74,
       "resource": "members"
     },
     {
@@ -1641,7 +1689,7 @@
       "mountedPath": "/notifications/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/notifications.ts",
-      "line": 79,
+      "line": 74,
       "resource": "notifications"
     },
     {
@@ -1650,7 +1698,7 @@
       "mountedPath": "/qa/conversations/:id",
       "rawPath": "/conversations/:id",
       "handlerFile": "api/src/handlers/qa.ts",
-      "line": 144,
+      "line": 150,
       "resource": "qa"
     },
     {
@@ -1659,14 +1707,14 @@
       "mountedPath": "/sources/:id",
       "rawPath": "/:id",
       "handlerFile": "api/src/handlers/sources.ts",
-      "line": 126,
+      "line": 110,
       "resource": "sources"
     }
   ],
   "totals": {
-    "pages": 17,
-    "elements": 92,
-    "forms": 13,
+    "pages": 20,
+    "elements": 99,
+    "forms": 11,
     "routes": 45
   }
 }

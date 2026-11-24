@@ -1,0 +1,195 @@
+{
+  "slug": "static-site",
+  "generatedAt": "deterministic",
+  "pages": [
+    {
+      "id": "page-home",
+      "path": "/",
+      "component": "Home",
+      "file": "app/src/pages/Home.tsx"
+    },
+    {
+      "id": "page-post",
+      "path": "/:slug",
+      "component": "Post",
+      "file": "app/src/pages/Post.tsx"
+    },
+    {
+      "id": "page-about",
+      "path": "/about",
+      "component": "About",
+      "file": "app/src/pages/About.tsx"
+    },
+    {
+      "id": "page-home",
+      "path": "/page/:page",
+      "component": "Home",
+      "file": "app/src/pages/Home.tsx"
+    },
+    {
+      "id": "page-tags",
+      "path": "/tags",
+      "component": "Tags",
+      "file": "app/src/pages/Tags.tsx"
+    },
+    {
+      "id": "page-tag",
+      "path": "/tags/:tag",
+      "component": "Tag",
+      "file": "app/src/pages/Tag.tsx"
+    }
+  ],
+  "elements": [
+    {
+      "id": "link-footer-64--------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/Footer.tsx",
+      "line": 64,
+      "label": ", } })}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-footer-68",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/components/Footer.tsx",
+      "line": 68,
+      "label": "link at app/src/components/Footer.tsx:68",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-header-28",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/Header.tsx",
+      "line": 28,
+      "label": "link at app/src/components/Header.tsx:28",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-header-44---",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/components/Header.tsx",
+      "line": 44,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "button-header-70--rect-y-0",
+      "role": "button",
+      "tag": "button",
+      "file": "app/src/components/Header.tsx",
+      "line": 70,
+      "label": "<rect y=0",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-pagination-20---",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/Pagination.tsx",
+      "line": 20,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-pagination-30---",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/Pagination.tsx",
+      "line": 30,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-postcard-19",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/PostCard.tsx",
+      "line": 19,
+      "label": "link at app/src/components/PostCard.tsx:19",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-taglist-21",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/components/TagList.tsx",
+      "line": 21,
+      "label": "link at app/src/components/TagList.tsx:21",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-about-30---",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/About.tsx",
+      "line": 30,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-notfound-30---",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/NotFound.tsx",
+      "line": 30,
+      "label": ")}",
+      "href": "/",
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-post-72---",
+      "role": "link",
+      "tag": "a",
+      "file": "app/src/pages/Post.tsx",
+      "line": 72,
+      "label": ")}",
+      "href": null,
+      "type": null,
+      "name": null
+    },
+    {
+      "id": "link-tags-26---------",
+      "role": "link",
+      "tag": "Link",
+      "file": "app/src/pages/Tags.tsx",
+      "line": 26,
+      "label": ", }) })}",
+      "href": null,
+      "type": null,
+      "name": null
+    }
+  ],
+  "forms": [],
+  "routes": [],
+  "totals": {
+    "pages": 6,
+    "elements": 13,
+    "forms": 0,
+    "routes": 0
+  }
+}
