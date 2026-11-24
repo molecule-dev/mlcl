@@ -84397,19 +84397,21 @@
       "stack": "app",
       "exports": [
         "fmtRelativeShort",
+        "NotificationFeed",
         "FeedItem",
-        "NotificationFeedProps",
-        "NotificationFeed"
+        "NotificationFeedProps"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/notification-feed-react",
       "intentHints": [
