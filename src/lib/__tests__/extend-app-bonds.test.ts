@@ -7,8 +7,10 @@ import ts from 'typescript'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
 import { extendAppBonds } from '../extend-app-bonds.js'
+import { formatGeneratedSource, sortImportStatements } from '../format.js'
 import { planInjection, synthesizeAppProjectFiles } from '../injector.js'
 import { loadRegistry } from '../registry.js'
+import { importOrderProblems } from './import-order-lint.js'
 
 let root: string
 beforeEach(async () => {
@@ -127,6 +129,43 @@ export function setupProviders(): void { setupTracking({ authClient }) }
     ;(mod.setupProviders as () => void)()
     expect(calls).toEqual(['first', 'second'])
     expect(merged.match(/from ['"]\.\/setups\.js['"]/g)).toHaveLength(1)
+  })
+
+  it("adds a provider's export to the index's own run of them, in the lint rule's order", async () => {
+    const existing = [
+      "import { setupAuthDefault } from './auth-default.js'",
+      "import { setupI18nDefault } from './i18n-default.js'",
+      '',
+      "export { authClient } from './auth-default.js'",
+      "export { i18nProvider } from './i18n-default.js'",
+      '',
+      'export function setupProviders(): void {',
+      '  setupAuthDefault()',
+      '  setupI18nDefault()',
+      '}',
+      '',
+    ].join('\n')
+    const generated = [
+      "import { setupAppThemeNativewind } from './app-theme-nativewind.js'",
+      "import { setupAuthDefault } from './auth-default.js'",
+      "export { themeProvider } from './app-theme-nativewind.js'",
+      "export { authClient } from './auth-default.js'",
+      'export function setupProviders(): void {',
+      '  setupAuthDefault()',
+      '  setupAppThemeNativewind()',
+      '}',
+    ].join('\n')
+    // What inject writes: the merge, its imports sorted, then the project's prettier.
+    const index = await formatGeneratedSource(
+      sortImportStatements(extendAppBonds(existing, generated), 'index.ts'),
+      join(root, 'src/bonds/index.ts'),
+    )
+    expect(importOrderProblems(index, 'index.ts')).toEqual([])
+    expect([...index.matchAll(/^export \{ (\w+) \} from/gm)].map((match) => match[1])).toEqual([
+      'themeProvider',
+      'authClient',
+      'i18nProvider',
+    ])
   })
 
   it('still writes the complete index for a fresh app', async () => {

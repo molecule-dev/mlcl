@@ -54,6 +54,18 @@ function pathKey(path: string): string {
     .replace(/[./_-]/g, (char) => PATH_PUNCTUATION[char] ?? char)
 }
 
+/**
+ * The order `simple-import-sort` puts two module paths in, inside one group of imports or one
+ * run of `export … from` statements.
+ *
+ * @param a - The first module path.
+ * @param b - The second module path.
+ * @returns A negative number, zero or a positive number, as for `Array.prototype.sort`.
+ */
+export function compareModulePaths(a: string, b: string): number {
+  return compareText(pathKey(a), pathKey(b)) || compareText(a, b)
+}
+
 /** A comment in the trivia between two statements. */
 interface Comment {
   start: number

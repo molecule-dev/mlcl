@@ -1,6 +1,8 @@
 /** Extend a project's composition root without replacing its configuration or exports. */
 import { ts } from 'ts-morph'
 
+import { compareModulePaths } from './format.js'
+
 /**
  * Use TypeScript's syntax tree for import identities and the startup body. Preserve the app's
  * code, including async startup and custom setup arguments; add only missing generated wiring.
@@ -35,6 +37,40 @@ const SECRETS_RESOLVER = '@molecule/api-secrets:resolveAll'
 
 /** The comment the scaffold puts above a setup call that must run after every other one. */
 const KEEP_LAST_MARKER = 'KEEP THIS CALL LAST'
+
+/**
+ * The index's first run of consecutive `export … from` statements, when nothing but whitespace
+ * separates them (a comment between two would not survive a re-sort).
+ *
+ * @param file - The parsed index.
+ * @param source - Its text.
+ * @returns The run's span and each statement's path and text, or undefined when it has none.
+ */
+function fromExportRun(
+  file: ts.SourceFile,
+  source: string,
+): { start: number; end: number; entries: Array<{ path: string; text: string }> } | undefined {
+  const entries: Array<{ path: string; text: string }> = []
+  let start = -1
+  let end = -1
+  for (const node of file.statements) {
+    const from =
+      ts.isExportDeclaration(node) &&
+      node.moduleSpecifier &&
+      ts.isStringLiteral(node.moduleSpecifier)
+        ? node.moduleSpecifier.text
+        : undefined
+    if (from === undefined) {
+      if (entries.length) break
+      continue
+    }
+    if (entries.length && source.slice(end, node.getStart(file)).trim() !== '') break
+    if (!entries.length) start = node.getStart(file)
+    end = node.end
+    entries.push({ path: from, text: source.slice(node.getStart(file), node.end) })
+  }
+  return entries.length ? { start, end, entries } : undefined
+}
 
 function extendBondsIndex(existing: string, generated: string, setupName: string): string {
   const parse = (source: string): ts.SourceFile =>
@@ -268,7 +304,11 @@ function extendBondsIndex(existing: string, generated: string, setupName: string
     const start = node.getStart(current)
     return existing.slice(existing.lastIndexOf('\n', start - 1) + 1, start)
   }
+  // A generated `export … from` joins the index's own run of them, in the order the scaffold's
+  // `simple-import-sort/exports` rule keeps: placed after the imports instead, it starts a second
+  // run, and the blank line between the two is a lint warning in every extended project.
   const exports: string[] = []
+  const fromExports: Array<{ path: string; text: string }> = []
   for (const node of addition.statements.filter(ts.isExportDeclaration)) {
     if (!node.exportClause || !ts.isNamedExports(node.exportClause)) continue
     const specs = node.exportClause.elements.filter((spec) => !publicNames.has(spec.name.text))
@@ -278,10 +318,22 @@ function extendBondsIndex(existing: string, generated: string, setupName: string
       const renamed = node.moduleSpecifier ? local : (rename.get(local) ?? local)
       return renamed === spec.name.text ? renamed : `${renamed} as ${spec.name.text}`
     })
-    exports.push(
-      `export { ${names.join(', ')} }${node.moduleSpecifier ? ` from ${node.moduleSpecifier.getText(addition)}` : ''};`,
-    )
+    const text = `export { ${names.join(', ')} }${node.moduleSpecifier ? ` from ${node.moduleSpecifier.getText(addition)}` : ''};`
+    if (node.moduleSpecifier && ts.isStringLiteral(node.moduleSpecifier))
+      fromExports.push({ path: node.moduleSpecifier.text, text })
+    else exports.push(text)
   }
+  const run = fromExportRun(current, existing)
+  if (run && fromExports.length) {
+    const merged = [...run.entries, ...fromExports].sort((a, b) =>
+      compareModulePaths(a.path, b.path),
+    )
+    edits.push({
+      start: run.start,
+      end: run.end,
+      text: merged.map((entry) => entry.text).join('\n'),
+    })
+  } else exports.unshift(...fromExports.map((entry) => entry.text))
   if (addedImports.length || exports.length) {
     const start = imports.at(-1)?.end ?? 0
     edits.push({ start, end: start, text: `\n${[...addedImports, ...exports].join('\n')}\n` })

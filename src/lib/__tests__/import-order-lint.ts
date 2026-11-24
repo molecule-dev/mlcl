@@ -1,6 +1,6 @@
 /**
- * The scaffold's own import-order rule (`simple-import-sort`, with the groups the scaffold's ESLint
- * config sets), run on one script. Tests ask it, not mlcl's sorter, whether generated imports are in
+ * The scaffold's own import- and export-order rules (`simple-import-sort`, with the groups the
+ * scaffold's ESLint config sets), run on one script. Tests ask it, not mlcl's sorter, whether generated imports are in
  * order: a sorter checked against itself passes whatever it does.
  *
  * @module
@@ -37,6 +37,7 @@ export function importOrderProblems(source: string, fileName: string): string[] 
           'warn',
           { groups: SCAFFOLD_IMPORT_GROUPS.map((group) => [...group]) },
         ],
+        'simple-import-sort/exports': 'warn',
       },
     },
   ]
