@@ -217,17 +217,6 @@
       "name": null
     },
     {
-      "id": "link-versotodayhero-134-------t-versotodayhe",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/VersoTodayHero.tsx",
-      "line": 134,
-      "label": ", ) : t(versoTodayHero.continueCta, , { defaultValue: Contin",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-forgotpassword-48-----",
       "role": "link",
       "tag": "Link",
@@ -1252,7 +1241,7 @@
   ],
   "totals": {
     "pages": 17,
-    "elements": 69,
+    "elements": 68,
     "forms": 7,
     "routes": 36
   }

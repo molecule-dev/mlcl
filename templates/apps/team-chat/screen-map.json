@@ -5,7 +5,7 @@
     {
       "name": "Dashboard",
       "templateFile": "app/pages/Dashboard.tsx",
-      "components": ["app/components/ChatLayout.tsx"],
+      "components": [],
       "route": "/",
       "auth": true,
       "type": "design_match",
@@ -16,7 +16,7 @@
     {
       "name": "Channel",
       "templateFile": "app/pages/Channel.tsx",
-      "components": ["app/components/ChatLayout.tsx"],
+      "components": [],
       "route": "/channels/:channelId",
       "auth": true,
       "type": "design_match",
@@ -27,7 +27,7 @@
     {
       "name": "Thread",
       "templateFile": "app/pages/Thread.tsx",
-      "components": ["app/components/ChatLayout.tsx"],
+      "components": [],
       "route": "/channels/:channelId/threads/:messageId",
       "auth": true,
       "type": "design_match",
@@ -83,7 +83,7 @@
     {
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
-      "components": ["app/components/ChatLayout.tsx"],
+      "components": [],
       "route": "/settings",
       "auth": true,
       "type": "generate_new",

@@ -143,28 +143,6 @@
   ],
   "elements": [
     {
-      "id": "button-addleadfab-12-person-add",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AddLeadFab.tsx",
-      "line": 12,
-      "label": "person_add",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-addlistingslate-12--div-classname--cm-c",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AddListingSlate.tsx",
-      "line": 12,
-      "label": "<div className={cm.cn(",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-adminshell-67",
       "role": "link",
       "tag": "Link",
@@ -248,17 +226,6 @@
       "file": "app/src/components/AgentAnalyticsFooter.tsx",
       "line": 44,
       "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-agentanalyticsheader-79",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AgentAnalyticsHeader.tsx",
-      "line": 79,
-      "label": "button at app/src/components/AgentAnalyticsHeader.tsx:79",
       "href": null,
       "type": null,
       "name": null
@@ -407,105 +374,6 @@
       "name": null
     },
     {
-      "id": "button-agentlayout-76-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AgentLayout.tsx",
-      "line": 76,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-agentlayout-185--h1-style----fontfam",
-      "role": "link",
-      "tag": "NavLink",
-      "file": "app/src/components/AgentLayout.tsx",
-      "line": 185,
-      "label": "<h1 style={{ fontFamily: Manrope, sans-serif, fontSize: 18px",
-      "href": "/",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-agentlayout-220",
-      "role": "link",
-      "tag": "NavLink",
-      "file": "app/src/components/AgentLayout.tsx",
-      "line": 220,
-      "label": "link at app/src/components/AgentLayout.tsx:220",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-agentlayout-261",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/AgentLayout.tsx",
-      "line": 261,
-      "label": "link at app/src/components/AgentLayout.tsx:261",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-agentlayout-282-support-agent-----",
-      "role": "link",
-      "tag": "NavLink",
-      "file": "app/src/components/AgentLayout.tsx",
-      "line": 282,
-      "label": "support_agent , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-agentlayout-295-logout-----",
-      "role": "link",
-      "tag": "NavLink",
-      "file": "app/src/components/AgentLayout.tsx",
-      "line": 295,
-      "label": "logout , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-agentlayout-349",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/AgentLayout.tsx",
-      "line": 349,
-      "label": "input at app/src/components/AgentLayout.tsx:349",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-agentlayout-369",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AgentLayout.tsx",
-      "line": 369,
-      "label": "button at app/src/components/AgentLayout.tsx:369",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-agentlayout-414",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/AgentLayout.tsx",
-      "line": 414,
-      "label": "link at app/src/components/AgentLayout.tsx:414",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "input-agentprofilecontactform-82",
       "role": "input",
       "tag": "input",
@@ -622,127 +490,6 @@
       "file": "app/src/components/Footer.tsx",
       "line": 52,
       "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-leadcard-84",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LeadCard.tsx",
-      "line": 84,
-      "label": "button at app/src/components/LeadCard.tsx:84",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-leadcard-99",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LeadCard.tsx",
-      "line": 99,
-      "label": "button at app/src/components/LeadCard.tsx:99",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-leadsfilterbar-12",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LeadsFilterBar.tsx",
-      "line": 12,
-      "label": "button at app/src/components/LeadsFilterBar.tsx:12",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-leadsfilterbar-30",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LeadsFilterBar.tsx",
-      "line": 30,
-      "label": "button at app/src/components/LeadsFilterBar.tsx:30",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-leadsfilterbar-48",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LeadsFilterBar.tsx",
-      "line": 48,
-      "label": "button at app/src/components/LeadsFilterBar.tsx:48",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-leadsfilterbar-66",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LeadsFilterBar.tsx",
-      "line": 66,
-      "label": "button at app/src/components/LeadsFilterBar.tsx:66",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-leadsfilterbar-84",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LeadsFilterBar.tsx",
-      "line": 84,
-      "label": "button at app/src/components/LeadsFilterBar.tsx:84",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-leadsfilterbar-103--span-classname--dat",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LeadsFilterBar.tsx",
-      "line": 103,
-      "label": "<span className= data-icon=filter_list",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-listingcard-135-edit",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ListingCard.tsx",
-      "line": 135,
-      "label": "edit",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-listingcard-145-delete",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ListingCard.tsx",
-      "line": 145,
-      "label": "delete",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-listingcarditem-166-edit",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ListingCardItem.tsx",
-      "line": 166,
-      "label": "edit",
       "href": null,
       "type": null,
       "name": null
@@ -1012,116 +759,6 @@
       "name": null
     },
     {
-      "id": "button-loginsocialauth-37-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LoginSocialAuth.tsx",
-      "line": 37,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-loginsocialauth-50-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LoginSocialAuth.tsx",
-      "line": 50,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-lostleadcard-78-visibility",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LostLeadCard.tsx",
-      "line": 78,
-      "label": "visibility",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-lostleadcard-92",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LostLeadCard.tsx",
-      "line": 92,
-      "label": "button at app/src/components/LostLeadCard.tsx:92",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-pagination-39-chevron-left",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/Pagination.tsx",
-      "line": 39,
-      "label": "chevron_left",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-pagination-53",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/Pagination.tsx",
-      "line": 53,
-      "label": "button at app/src/components/Pagination.tsx:53",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-pagination-68",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/Pagination.tsx",
-      "line": 68,
-      "label": "button at app/src/components/Pagination.tsx:68",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-pagination-83",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/Pagination.tsx",
-      "line": 83,
-      "label": "button at app/src/components/Pagination.tsx:83",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-pagination-101",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/Pagination.tsx",
-      "line": 101,
-      "label": "button at app/src/components/Pagination.tsx:101",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-pagination-116-chevron-right",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/Pagination.tsx",
-      "line": 116,
-      "label": "chevron_right",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "button-propertyagentcard-57-calendar-month",
       "role": "button",
       "tag": "button",
@@ -1342,45 +979,12 @@
       "name": null
     },
     {
-      "id": "button-publiclistinglayout-25",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/PublicListingLayout.tsx",
-      "line": 25,
-      "label": "button at app/src/components/PublicListingLayout.tsx:25",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-savedpropertiesemptystate-52",
       "role": "link",
       "tag": "Link",
       "file": "app/src/components/SavedPropertiesEmptyState.tsx",
       "line": 52,
       "label": "link at app/src/components/SavedPropertiesEmptyState.tsx:52",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-savedpropertiespagecard-38--span-classname-",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SavedPropertiesPageCard.tsx",
-      "line": 38,
-      "label": "<span className=",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-savedpropertiespagecard-131-delete",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SavedPropertiesPageCard.tsx",
-      "line": 131,
-      "label": "delete",
       "href": null,
       "type": null,
       "name": null
@@ -1815,28 +1419,6 @@
       "name": null
     },
     {
-      "id": "button-searchpropertycard-51",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SearchPropertyCard.tsx",
-      "line": 51,
-      "label": "button at app/src/components/SearchPropertyCard.tsx:51",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-searchpropertycard-91",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SearchPropertyCard.tsx",
-      "line": 91,
-      "label": "button at app/src/components/SearchPropertyCard.tsx:91",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "button-settingsbottomactionbar-40",
       "role": "button",
       "tag": "button",
@@ -2008,17 +1590,6 @@
       "file": "app/src/components/TopAppBar.tsx",
       "line": 138,
       "label": "button at app/src/components/TopAppBar.tsx:138",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-topperforminglistingssection-51--",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/TopPerformingListingsSection.tsx",
-      "line": 51,
-      "label": ",",
       "href": null,
       "type": null,
       "name": null
@@ -2966,7 +2537,7 @@
   ],
   "totals": {
     "pages": 23,
-    "elements": 232,
+    "elements": 193,
     "forms": 5,
     "routes": 25
   }

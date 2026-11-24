@@ -273,17 +273,6 @@
       "name": null
     },
     {
-      "id": "link-tripitineraryrow-81--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/TripItineraryRow.tsx",
-      "line": 81,
-      "label": "<div className={cm.cn( w-40 aspect-[4/3] flex-shrink-0 bg-su",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "button-account-93",
       "role": "button",
       "tag": "button",
@@ -1432,7 +1421,7 @@
   ],
   "totals": {
     "pages": 19,
-    "elements": 90,
+    "elements": 89,
     "forms": 7,
     "routes": 29
   }

@@ -137,17 +137,6 @@
   ],
   "elements": [
     {
-      "id": "link-activityfeeditem-100",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/ActivityFeedItem.tsx",
-      "line": 100,
-      "label": "link at app/src/components/ActivityFeedItem.tsx:100",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-authshell-56",
       "role": "link",
       "tag": "Link",
@@ -210,17 +199,6 @@
       "line": 99,
       "label": "link at app/src/components/BrandWordmark.tsx:99",
       "href": "/",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-templatecard-35--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/TemplateCard.tsx",
-      "line": 35,
-      "label": "<div className={cm.cn(",
-      "href": null,
       "type": null,
       "name": null
     },
@@ -1822,7 +1800,7 @@
   ],
   "totals": {
     "pages": 22,
-    "elements": 124,
+    "elements": 122,
     "forms": 9,
     "routes": 27
   }

@@ -318,61 +318,6 @@
       "name": null
     },
     {
-      "id": "button-driverdashboardpage-140----------",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/DriverDashboardPage.tsx",
-      "line": 140,
-      "label": ", )} > )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-driverdashboardpage-150----------",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/DriverDashboardPage.tsx",
-      "line": 150,
-      "label": ", )} > )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-driverdashboardpage-160-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/DriverDashboardPage.tsx",
-      "line": 160,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-driverdashboardpage-209-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/DriverDashboardPage.tsx",
-      "line": 209,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-driverdashboardpage-247-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/DriverDashboardPage.tsx",
-      "line": 247,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-favorites-101-----",
       "role": "link",
       "tag": "Link",
@@ -626,127 +571,6 @@
       "name": null
     },
     {
-      "id": "button-menupage-239--item-description---",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 239,
-      "label": "{item.description && ( <p clas",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-menupage-311--",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 311,
-      "label": "-",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-menupage-320--",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 320,
-      "label": "+",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-menupage-328--times-",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 328,
-      "label": "&times;",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-menupage-346-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 346,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-menupage-374--times-",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 374,
-      "label": "&times;",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-menupage-406",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 406,
-      "label": "input at app/src/pages/MenuPage.tsx:406",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "textarea-menupage-433",
-      "role": "textarea",
-      "tag": "textarea",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 433,
-      "label": "textarea at app/src/pages/MenuPage.tsx:433",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-menupage-447--",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 447,
-      "label": "-",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-menupage-456--",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 456,
-      "label": "+",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-menupage-465-------",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/MenuPage.tsx",
-      "line": 465,
-      "label": ", )} -",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "button-notifications-158",
       "role": "button",
       "tag": "button",
@@ -886,17 +710,6 @@
       "line": 210,
       "label": ", )}",
       "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-ordertrackingpage-169-----",
-      "role": "link",
-      "tag": "a",
-      "file": "app/src/pages/OrderTrackingPage.tsx",
-      "line": 169,
-      "label": ", )}",
-      "href": "/orders",
       "type": null,
       "name": null
     },
@@ -1061,50 +874,6 @@
       "file": "app/src/pages/RestaurantMenu.tsx",
       "line": 395,
       "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-restaurantspage-111",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/RestaurantsPage.tsx",
-      "line": 111,
-      "label": "input at app/src/pages/RestaurantsPage.tsx:111",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-restaurantspage-125-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/RestaurantsPage.tsx",
-      "line": 125,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-restaurantspage-133",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/RestaurantsPage.tsx",
-      "line": 133,
-      "label": "button at app/src/pages/RestaurantsPage.tsx:133",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-restaurantspage-156-alt----------",
-      "role": "link",
-      "tag": "a",
-      "file": "app/src/pages/RestaurantsPage.tsx",
-      "line": 156,
-      "label": "alt= /> ) : (",
       "href": null,
       "type": null,
       "name": null
@@ -1843,7 +1612,7 @@
   ],
   "totals": {
     "pages": 21,
-    "elements": 112,
+    "elements": 91,
     "forms": 8,
     "routes": 45
   }

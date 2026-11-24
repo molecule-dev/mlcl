@@ -361,17 +361,6 @@
       "name": null
     },
     {
-      "id": "input-uploaddropzone-198",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/UploadDropZone.tsx",
-      "line": 198,
-      "label": "input at app/src/components/UploadDropZone.tsx:198",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
       "id": "link-usermenu-40-----",
       "role": "link",
       "tag": "Link",
@@ -1577,7 +1566,7 @@
   ],
   "totals": {
     "pages": 19,
-    "elements": 92,
+    "elements": 91,
     "forms": 10,
     "routes": 40
   }

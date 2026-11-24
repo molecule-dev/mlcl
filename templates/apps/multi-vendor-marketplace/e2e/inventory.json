@@ -287,28 +287,6 @@
       "name": null
     },
     {
-      "id": "link-vendrymarkethero-118-storefront",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/VendryMarketHero.tsx",
-      "line": 118,
-      "label": "storefront",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-vendrymarkethero-133-add-business",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/VendryMarketHero.tsx",
-      "line": 133,
-      "label": "add_business",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-vendryordercard-176",
       "role": "link",
       "tag": "Link",
@@ -2254,7 +2232,7 @@
   ],
   "totals": {
     "pages": 25,
-    "elements": 149,
+    "elements": 147,
     "forms": 5,
     "routes": 46
   }

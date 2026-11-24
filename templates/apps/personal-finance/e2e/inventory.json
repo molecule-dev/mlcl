@@ -462,56 +462,12 @@
       "name": null
     },
     {
-      "id": "button-budgetprogresspanel-37-more-horiz",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BudgetProgressPanel.tsx",
-      "line": 37,
-      "label": "more_horiz",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-budgetprogresspanel-58",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BudgetProgressPanel.tsx",
-      "line": 58,
-      "label": "button at app/src/components/BudgetProgressPanel.tsx:58",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-budgetprogresspanel-73",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BudgetProgressPanel.tsx",
-      "line": 73,
-      "label": "button at app/src/components/BudgetProgressPanel.tsx:73",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "button-budgetsummarycard-176",
       "role": "button",
       "tag": "button",
       "file": "app/src/components/BudgetSummaryCard.tsx",
       "line": 176,
       "label": "button at app/src/components/BudgetSummaryCard.tsx:176",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-categoriespageheader-27-add",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/CategoriesPageHeader.tsx",
-      "line": 27,
-      "label": "add",
       "href": null,
       "type": null,
       "name": null
@@ -534,39 +490,6 @@
       "file": "app/src/components/CategoriesTopNavBar.tsx",
       "line": 91,
       "label": "link at app/src/components/CategoriesTopNavBar.tsx:91",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-categoryallocationchart-24-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/CategoryAllocationChart.tsx",
-      "line": 24,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-categorycard-62-edit",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/CategoryCard.tsx",
-      "line": 62,
-      "label": "edit",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-categorycard-77-delete",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/CategoryCard.tsx",
-      "line": 77,
-      "label": "delete",
       "href": null,
       "type": null,
       "name": null
@@ -602,193 +525,6 @@
       "label": "input at app/src/components/CommunicationsSection.tsx:119",
       "href": null,
       "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-connectbankcta-57-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ConnectBankCta.tsx",
-      "line": 57,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-creditcardcard-10--div-classname-",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/CreditCardCard.tsx",
-      "line": 10,
-      "label": "<div className=",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardaccountoverview-11--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardAccountOverview.tsx",
-      "line": 11,
-      "label": "<div className={cm.cn( cm.sp(p, 3), cm.textPrimary",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardaccountoverview-57--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardAccountOverview.tsx",
-      "line": 57,
-      "label": "<div className={cm.cn( cm.sp(p, 3), bg-surface ro",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardaccountoverview-102--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardAccountOverview.tsx",
-      "line": 102,
-      "label": "<div className={cm.cn( cm.sp(p, 3), bg-surface ro",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardbudgetgoalssidebar-14",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardBudgetGoalsSidebar.tsx",
-      "line": 14,
-      "label": "link at app/src/components/DashboardBudgetGoalsSidebar.tsx:14",
-      "href": "/goals",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardherosection-12",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardHeroSection.tsx",
-      "line": 12,
-      "label": "link at app/src/components/DashboardHeroSection.tsx:12",
-      "href": "/accounts",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardherosection-15",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardHeroSection.tsx",
-      "line": 15,
-      "label": "link at app/src/components/DashboardHeroSection.tsx:15",
-      "href": "/accounts",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardrecentactivity-23-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardRecentActivity.tsx",
-      "line": 23,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardrecentactivity-34",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardRecentActivity.tsx",
-      "line": 34,
-      "label": "link at app/src/components/DashboardRecentActivity.tsx:34",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardrecentactivity-41--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardRecentActivity.tsx",
-      "line": 41,
-      "label": "<div className={cm.cn( cm.w(12),",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardrecentactivity-108--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardRecentActivity.tsx",
-      "line": 108,
-      "label": "<div className={cm.cn( cm.w(12),",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardrecentactivity-195--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardRecentActivity.tsx",
-      "line": 195,
-      "label": "<div className={cm.cn( cm.w(12),",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardrecentactivity-268--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardRecentActivity.tsx",
-      "line": 268,
-      "label": "<div className={cm.cn( cm.w(12),",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardrecentactivity-333--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardRecentActivity.tsx",
-      "line": 333,
-      "label": "<div className={cm.cn( cm.w(12),",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardrecentactivity-409--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardRecentActivity.tsx",
-      "line": 409,
-      "label": "<div className={cm.cn( cm.w(12),",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardrecentactivity-480--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardRecentActivity.tsx",
-      "line": 480,
-      "label": "<div className={cm.cn( cm.w(12),",
-      "href": null,
-      "type": null,
       "name": null
     },
     {
@@ -847,39 +583,6 @@
       "name": null
     },
     {
-      "id": "button-educationcategorycard-36-edit",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EducationCategoryCard.tsx",
-      "line": 36,
-      "label": "edit",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-educationcategorycard-50-delete",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EducationCategoryCard.tsx",
-      "line": 50,
-      "label": "delete",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-expensecategoriessection-58",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/ExpenseCategoriesSection.tsx",
-      "line": 58,
-      "label": "link at app/src/components/ExpenseCategoriesSection.tsx:58",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-financeshell-41--------",
       "role": "link",
       "tag": "Link",
@@ -897,28 +600,6 @@
       "file": "app/src/components/FinanceShell.tsx",
       "line": 128,
       "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-freelancecategorycard-37-edit",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FreelanceCategoryCard.tsx",
-      "line": 37,
-      "label": "edit",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-freelancecategorycard-51-delete",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FreelanceCategoryCard.tsx",
-      "line": 51,
-      "label": "delete",
       "href": null,
       "type": null,
       "name": null
@@ -985,72 +666,6 @@
       "file": "app/src/components/Header.tsx",
       "line": 30,
       "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-incomecategoriessection-58",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/IncomeCategoriesSection.tsx",
-      "line": 58,
-      "label": "link at app/src/components/IncomeCategoriesSection.tsx:58",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-incomevsexpensescard-48-more-horiz",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/IncomeVsExpensesCard.tsx",
-      "line": 48,
-      "label": "more_horiz",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-incomevsexpensescard-63-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/IncomeVsExpensesCard.tsx",
-      "line": 63,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-incomevsexpensescard-135-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/IncomeVsExpensesCard.tsx",
-      "line": 135,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-investmentscategorycard-58",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/InvestmentsCategoryCard.tsx",
-      "line": 58,
-      "label": "button at app/src/components/InvestmentsCategoryCard.tsx:58",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-investmentscategorycard-73",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/InvestmentsCategoryCard.tsx",
-      "line": 73,
-      "label": "button at app/src/components/InvestmentsCategoryCard.tsx:73",
       "href": null,
       "type": null,
       "name": null
@@ -1127,17 +742,6 @@
       "tag": "button",
       "file": "app/src/components/LoginGlobalFooter.tsx",
       "line": 56,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-networthovertimecard-108-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/NetWorthOverTimeCard.tsx",
-      "line": 108,
       "label": ", )}",
       "href": null,
       "type": null,
@@ -1227,50 +831,6 @@
       "file": "app/src/components/ReportsPageHeader.tsx",
       "line": 54,
       "label": "button at app/src/components/ReportsPageHeader.tsx:54",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-salarycategorycard-36",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SalaryCategoryCard.tsx",
-      "line": 36,
-      "label": "button at app/src/components/SalaryCategoryCard.tsx:36",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-salarycategorycard-51",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SalaryCategoryCard.tsx",
-      "line": 51,
-      "label": "button at app/src/components/SalaryCategoryCard.tsx:51",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-savinggoalcard-63-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SavingGoalCard.tsx",
-      "line": 63,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-savingsratecard-88-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/SavingsRateCard.tsx",
-      "line": 88,
-      "label": ", )}",
       "href": null,
       "type": null,
       "name": null
@@ -1469,61 +1029,6 @@
       "file": "app/src/components/SocialLoginButtons.tsx",
       "line": 31,
       "label": "button at app/src/components/SocialLoginButtons.tsx:31",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-spendingbycategorycard-49-more-horiz",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SpendingByCategoryCard.tsx",
-      "line": 49,
-      "label": "more_horiz",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-spendingbycategorycard-63-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SpendingByCategoryCard.tsx",
-      "line": 63,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-spendingbycategorycard-75-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SpendingByCategoryCard.tsx",
-      "line": 75,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-spendingbycategorycard-177-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/SpendingByCategoryCard.tsx",
-      "line": 177,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-spendinginsightcard-37-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/SpendingInsightCard.tsx",
-      "line": 37,
-      "label": ", )}",
       "href": null,
       "type": null,
       "name": null
@@ -2965,7 +2470,7 @@
   ],
   "totals": {
     "pages": 23,
-    "elements": 223,
+    "elements": 178,
     "forms": 11,
     "routes": 30
   }

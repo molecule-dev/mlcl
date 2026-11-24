@@ -41,8 +41,8 @@ vi.mock('../../../templates/apps/ai-meeting-notes/app/src/components/AuthShell.j
 }))
 
 import { Login } from '../../../templates/apps/ai-meeting-notes/app/src/pages/Login.js'
+import LoginOAuthButtons from '../../../templates/apps/blog/app/src/components/LoginOAuthButtons.js'
 import SecurityAccessSection from '../../../templates/apps/personal-finance/app/src/components/SecurityAccessSection.js'
-import LoginSocialAuth from '../../../templates/apps/property-listing/app/src/components/LoginSocialAuth.js'
 
 beforeEach(() => vi.clearAllMocks())
 afterEach(cleanup)
@@ -69,10 +69,10 @@ describe('template actions use the declared authentication contracts', () => {
   })
 
   it('uses the OAuth hook for both configured providers', async () => {
-    const view = render(createElement(LoginSocialAuth))
-    fireEvent.click(view.getByRole('button', { name: 'Google' }))
+    const view = render(createElement(LoginOAuthButtons))
+    fireEvent.click(view.container.querySelector('[data-mol-id="button-oauth-google"]')!)
     await waitFor(() => expect(calls.redirect).toHaveBeenCalledWith('google'))
-    fireEvent.click(view.getByRole('button', { name: 'GitHub' }))
+    fireEvent.click(view.container.querySelector('[data-mol-id="button-oauth-github"]')!)
     await waitFor(() => expect(calls.redirect).toHaveBeenCalledWith('github'))
   })
 

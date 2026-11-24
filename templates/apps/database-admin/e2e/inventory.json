@@ -119,17 +119,6 @@
   ],
   "elements": [
     {
-      "id": "link-connectioncard-175-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/ConnectionCard.tsx",
-      "line": 175,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "input-databaseadminlayout-159",
       "role": "input",
       "tag": "input",
@@ -1146,7 +1135,7 @@
   ],
   "totals": {
     "pages": 19,
-    "elements": 73,
+    "elements": 72,
     "forms": 7,
     "routes": 18
   }

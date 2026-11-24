@@ -208,17 +208,6 @@
       "name": null
     },
     {
-      "id": "button-setrow-112",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SetRow.tsx",
-      "line": 112,
-      "label": "button at app/src/components/SetRow.tsx:112",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-workouthistoryrow-45",
       "role": "link",
       "tag": "Link",
@@ -1713,7 +1702,7 @@
   ],
   "totals": {
     "pages": 21,
-    "elements": 105,
+    "elements": 104,
     "forms": 11,
     "routes": 37
   }

@@ -515,50 +515,6 @@
       "name": null
     },
     {
-      "id": "button-export-64",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Export.tsx",
-      "line": 64,
-      "label": "button at app/src/pages/Export.tsx:64",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-export-81",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/pages/Export.tsx",
-      "line": 81,
-      "label": "input at app/src/pages/Export.tsx:81",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-export-97",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Export.tsx",
-      "line": 97,
-      "label": "button at app/src/pages/Export.tsx:97",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-export-109-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/pages/Export.tsx",
-      "line": 109,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "input-forgotpassword-96",
       "role": "input",
       "tag": "input",
@@ -1752,7 +1708,7 @@
   ],
   "totals": {
     "pages": 19,
-    "elements": 107,
+    "elements": 103,
     "forms": 9,
     "routes": 42
   }

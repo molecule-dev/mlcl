@@ -131,116 +131,6 @@
   ],
   "elements": [
     {
-      "id": "select-aibehaviorsection-59",
-      "role": "select",
-      "tag": "select",
-      "file": "app/src/components/AIBehaviorSection.tsx",
-      "line": 59,
-      "label": "select at app/src/components/AIBehaviorSection.tsx:59",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-aibehaviorsection-178",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/AIBehaviorSection.tsx",
-      "line": 178,
-      "label": "input at app/src/components/AIBehaviorSection.tsx:178",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "textarea-aibehaviorsection-236",
-      "role": "textarea",
-      "tag": "textarea",
-      "file": "app/src/components/AIBehaviorSection.tsx",
-      "line": 236,
-      "label": "textarea at app/src/components/AIBehaviorSection.tsx:236",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-aibehaviorsection-271",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/AIBehaviorSection.tsx",
-      "line": 271,
-      "label": "input at app/src/components/AIBehaviorSection.tsx:271",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-accesssecuritysection-59",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/AccessSecuritySection.tsx",
-      "line": 59,
-      "label": "input at app/src/components/AccessSecuritySection.tsx:59",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-accesssecuritysection-100",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/AccessSecuritySection.tsx",
-      "line": 100,
-      "label": "input at app/src/components/AccessSecuritySection.tsx:100",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-accesssecuritysection-197",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AccessSecuritySection.tsx",
-      "line": 197,
-      "label": "button at app/src/components/AccessSecuritySection.tsx:197",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-apiaccesssection-158--span",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ApiAccessSection.tsx",
-      "line": 158,
-      "label": "<span",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-apiaccesssection-180",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ApiAccessSection.tsx",
-      "line": 180,
-      "label": "button at app/src/components/ApiAccessSection.tsx:180",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-apiaccesssection-258",
-      "role": "link",
-      "tag": "a",
-      "file": "app/src/components/ApiAccessSection.tsx",
-      "line": 258,
-      "label": "link at app/src/components/ApiAccessSection.tsx:258",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-appshell-72-----ai----",
       "role": "link",
       "tag": "Link",
@@ -285,28 +175,6 @@
       "name": null
     },
     {
-      "id": "button-appearancesection-121--span-style--",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AppearanceSection.tsx",
-      "line": 121,
-      "label": "<span style=,",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-appearancesection-158",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/AppearanceSection.tsx",
-      "line": 158,
-      "label": "input at app/src/components/AppearanceSection.tsx:158",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
       "id": "button-botanalyticsconversationschart-36-----",
       "role": "button",
       "tag": "button",
@@ -324,28 +192,6 @@
       "file": "app/src/components/BotAnalyticsConversationsChart.tsx",
       "line": 46,
       "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-botanalyticsrecentconversationspanel-31-filter-list",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BotAnalyticsRecentConversationsPanel.tsx",
-      "line": 31,
-      "label": "filter_list",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-botanalyticsrecentconversationspanel-556-------",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BotAnalyticsRecentConversationsPanel.tsx",
-      "line": 556,
-      "label": ", , )}",
       "href": null,
       "type": null,
       "name": null
@@ -406,50 +252,6 @@
       "name": null
     },
     {
-      "id": "select-botconfigpanel-68",
-      "role": "select",
-      "tag": "select",
-      "file": "app/src/components/BotConfigPanel.tsx",
-      "line": 68,
-      "label": "select at app/src/components/BotConfigPanel.tsx:68",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-botconfigpanel-225",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/BotConfigPanel.tsx",
-      "line": 225,
-      "label": "input at app/src/components/BotConfigPanel.tsx:225",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-botconfigpanel-259",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/BotConfigPanel.tsx",
-      "line": 259,
-      "label": "input at app/src/components/BotConfigPanel.tsx:259",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-botconfigpanel-325",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BotConfigPanel.tsx",
-      "line": 325,
-      "label": "button at app/src/components/BotConfigPanel.tsx:325",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-botdeployanalyticsteaser-40-----",
       "role": "link",
       "tag": "Link",
@@ -489,50 +291,6 @@
       "file": "app/src/components/BotDeployApiAccessCard.tsx",
       "line": 191,
       "label": "link at app/src/components/BotDeployApiAccessCard.tsx:191",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-botdeploychannelintegrationssection-117--div-classname--cm-c",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BotDeployChannelIntegrationsSection.tsx",
-      "line": 117,
-      "label": "<div className={cm.cn(",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-botdeploychannelintegrationssection-196--div-classname--cm-c",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BotDeployChannelIntegrationsSection.tsx",
-      "line": 196,
-      "label": "<div className={cm.cn(",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-botdeploychannelintegrationssection-273--div-classname--cm-c",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BotDeployChannelIntegrationsSection.tsx",
-      "line": 273,
-      "label": "<div className={cm.cn(",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-botdeploychannelintegrationssection-350--div-classname--cm-c",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BotDeployChannelIntegrationsSection.tsx",
-      "line": 350,
-      "label": "<div className={cm.cn(",
       "href": null,
       "type": null,
       "name": null
@@ -654,39 +412,6 @@
       "file": "app/src/components/BotSettingsAccessSection.tsx",
       "line": 152,
       "label": "button at app/src/components/BotSettingsAccessSection.tsx:152",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-botsettingsaccesssecuritysection-59",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/BotSettingsAccessSecuritySection.tsx",
-      "line": 59,
-      "label": "input at app/src/components/BotSettingsAccessSecuritySection.tsx:59",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-botsettingsaccesssecuritysection-90",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/BotSettingsAccessSecuritySection.tsx",
-      "line": 90,
-      "label": "input at app/src/components/BotSettingsAccessSecuritySection.tsx:90",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-botsettingsaccesssecuritysection-161",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/BotSettingsAccessSecuritySection.tsx",
-      "line": 161,
-      "label": "button at app/src/components/BotSettingsAccessSecuritySection.tsx:161",
       "href": null,
       "type": null,
       "name": null
@@ -824,88 +549,11 @@
       "name": null
     },
     {
-      "id": "link-botsemptystate-64-rocket-launch-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/BotsEmptyState.tsx",
-      "line": 64,
-      "label": "rocket_launch , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-botsgrid-88-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/components/BotsGrid.tsx",
       "line": 88,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-botslistfooter-54-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/BotsListFooter.tsx",
-      "line": 54,
-      "label": ", )}",
-      "href": "/help",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-botslistfooter-57-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/BotsListFooter.tsx",
-      "line": 57,
-      "label": ", )}",
-      "href": "/settings/api-keys",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-botslistfooter-60-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/BotsListFooter.tsx",
-      "line": 60,
-      "label": ", )}",
-      "href": "/help",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-botspagefooter-119-----",
-      "role": "link",
-      "tag": "a",
-      "file": "app/src/components/BotsPageFooter.tsx",
-      "line": 119,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-botspagefooter-132-----",
-      "role": "link",
-      "tag": "a",
-      "file": "app/src/components/BotsPageFooter.tsx",
-      "line": 132,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-botspagefooter-145-----",
-      "role": "link",
-      "tag": "a",
-      "file": "app/src/components/BotsPageFooter.tsx",
-      "line": 145,
       "label": ", )}",
       "href": null,
       "type": null,
@@ -919,72 +567,6 @@
       "line": 83,
       "label": "link at app/src/components/BrandWordmark.tsx:83",
       "href": "/",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-categoryfilterbar-38-------",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/CategoryFilterBar.tsx",
-      "line": 38,
-      "label": ", , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-connectedintegrationcard-75-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ConnectedIntegrationCard.tsx",
-      "line": 75,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-connectedintegrationcard-86-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ConnectedIntegrationCard.tsx",
-      "line": 86,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-conversationslinechart-65-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ConversationsLineChart.tsx",
-      "line": 65,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-conversationslinechart-76-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ConversationsLineChart.tsx",
-      "line": 76,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-dangerzonesection-75",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/DangerZoneSection.tsx",
-      "line": 75,
-      "label": "button at app/src/components/DangerZoneSection.tsx:75",
-      "href": null,
       "type": null,
       "name": null
     },
@@ -1006,182 +588,6 @@
       "file": "app/src/components/DashboardPageHeader.tsx",
       "line": 49,
       "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-databasehealthpanel-84--t-",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/DatabaseHealthPanel.tsx",
-      "line": 84,
-      "label": "{t(",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-editortoolbar-77",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EditorToolbar.tsx",
-      "line": 77,
-      "label": "button at app/src/components/EditorToolbar.tsx:77",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-editortoolbar-103",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EditorToolbar.tsx",
-      "line": 103,
-      "label": "button at app/src/components/EditorToolbar.tsx:103",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-embedwidgetsection-114-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EmbedWidgetSection.tsx",
-      "line": 114,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-embedwidgetsection-120-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EmbedWidgetSection.tsx",
-      "line": 120,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-embedwidgetsection-200",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/EmbedWidgetSection.tsx",
-      "line": 200,
-      "label": "input at app/src/components/EmbedWidgetSection.tsx:200",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-embedwidgetsection-323",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EmbedWidgetSection.tsx",
-      "line": 323,
-      "label": "button at app/src/components/EmbedWidgetSection.tsx:323",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-flowcanvas-75--div-classname----st",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FlowCanvas.tsx",
-      "line": 75,
-      "label": "<div className=)} style=}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-flowcanvas-119",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FlowCanvas.tsx",
-      "line": 119,
-      "label": "button at app/src/components/FlowCanvas.tsx:119",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-flowcanvas-174",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FlowCanvas.tsx",
-      "line": 174,
-      "label": "button at app/src/components/FlowCanvas.tsx:174",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-flowcanvas-216",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FlowCanvas.tsx",
-      "line": 216,
-      "label": "button at app/src/components/FlowCanvas.tsx:216",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-flowcanvas-258-----defa",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FlowCanvas.tsx",
-      "line": 258,
-      "label": ", { defa",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-flowcanvas-330",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FlowCanvas.tsx",
-      "line": 330,
-      "label": "button at app/src/components/FlowCanvas.tsx:330",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-flowcanvas-371",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FlowCanvas.tsx",
-      "line": 371,
-      "label": "button at app/src/components/FlowCanvas.tsx:371",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-flownode-29",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FlowNode.tsx",
-      "line": 29,
-      "label": "button at app/src/components/FlowNode.tsx:29",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-flownode-119--div-classname----ro",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/FlowNode.tsx",
-      "line": 119,
-      "label": "<div className= $ rounded-xl $)} ${isAiSelected ? shadow-[0_",
       "href": null,
       "type": null,
       "name": null
@@ -1308,17 +714,6 @@
       "name": null
     },
     {
-      "id": "input-integrationsheader-78",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/IntegrationsHeader.tsx",
-      "line": 78,
-      "label": "input at app/src/components/IntegrationsHeader.tsx:78",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
       "id": "button-integrationsmessagingsection-141",
       "role": "button",
       "tag": "button",
@@ -1352,144 +747,12 @@
       "name": null
     },
     {
-      "id": "button-intentclassificationflownode-52",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/IntentClassificationFlowNode.tsx",
-      "line": 52,
-      "label": "button at app/src/components/IntentClassificationFlowNode.tsx:52",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasedatabasehealth-107----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseDatabaseHealth.tsx",
-      "line": 107,
-      "label": ", )",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "button-knowledgebasepageheader-34-add",
       "role": "button",
       "tag": "button",
       "file": "app/src/components/KnowledgeBasePageHeader.tsx",
       "line": 34,
       "label": "add",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-knowledgebasesourcecard-76",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/KnowledgeBaseSourceCard.tsx",
-      "line": 76,
-      "label": "input at app/src/components/KnowledgeBaseSourceCard.tsx:76",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasesourcecard-158-more-vert",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseSourceCard.tsx",
-      "line": 158,
-      "label": "more_vert",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasesourcecard-179",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseSourceCard.tsx",
-      "line": 179,
-      "label": "button at app/src/components/KnowledgeBaseSourceCard.tsx:179",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasesourcecard-203--span",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseSourceCard.tsx",
-      "line": 203,
-      "label": "<span",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasesourcecardapi-109-more-vert",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseSourceCardApi.tsx",
-      "line": 109,
-      "label": "more_vert",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasesourcecardapi-132",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseSourceCardApi.tsx",
-      "line": 132,
-      "label": "button at app/src/components/KnowledgeBaseSourceCardApi.tsx:132",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasesourcecardapi-147",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseSourceCardApi.tsx",
-      "line": 147,
-      "label": "button at app/src/components/KnowledgeBaseSourceCardApi.tsx:147",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasesourcecardfaq-105-more-vert",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseSourceCardFaq.tsx",
-      "line": 105,
-      "label": "more_vert",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasesourcecardfaq-126",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseSourceCardFaq.tsx",
-      "line": 126,
-      "label": "button at app/src/components/KnowledgeBaseSourceCardFaq.tsx:126",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-knowledgebasesourcecardfaq-148",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/KnowledgeBaseSourceCardFaq.tsx",
-      "line": 148,
-      "label": "button at app/src/components/KnowledgeBaseSourceCardFaq.tsx:148",
       "href": null,
       "type": null,
       "name": null
@@ -1649,121 +912,11 @@
       "name": null
     },
     {
-      "id": "link-myactivebotspanel-53-------span-classname",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/MyActiveBotsPanel.tsx",
-      "line": 53,
-      "label": ", )} <span className= data-icon=chevr",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-myactivebotspanel-116-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/MyActiveBotsPanel.tsx",
-      "line": 116,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-mybotssectionheader-14-----",
       "role": "link",
       "tag": "Link",
       "file": "app/src/components/MyBotsSectionHeader.tsx",
       "line": 14,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-performanceanalyticsbanner-62",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/PerformanceAnalyticsBanner.tsx",
-      "line": 62,
-      "label": "button at app/src/components/PerformanceAnalyticsBanner.tsx:62",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-profilesection-123",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/ProfileSection.tsx",
-      "line": 123,
-      "label": "input at app/src/components/ProfileSection.tsx:123",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-profilesection-157",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/ProfileSection.tsx",
-      "line": 157,
-      "label": "input at app/src/components/ProfileSection.tsx:157",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-profilesection-230",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/ProfileSection.tsx",
-      "line": 230,
-      "label": "input at app/src/components/ProfileSection.tsx:230",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "select-profilesection-263",
-      "role": "select",
-      "tag": "select",
-      "file": "app/src/components/ProfileSection.tsx",
-      "line": 263,
-      "label": "select at app/src/components/ProfileSection.tsx:263",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "select-profilesection-315",
-      "role": "select",
-      "tag": "select",
-      "file": "app/src/components/ProfileSection.tsx",
-      "line": 315,
-      "label": "select at app/src/components/ProfileSection.tsx:315",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-recentconversationstable-78",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/RecentConversationsTable.tsx",
-      "line": 78,
-      "label": "button at app/src/components/RecentConversationsTable.tsx:78",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-recentconversationstable-359-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/RecentConversationsTable.tsx",
-      "line": 359,
       "label": ", )}",
       "href": null,
       "type": null,
@@ -1776,17 +929,6 @@
       "file": "app/src/components/RecentIntelligencePanel.tsx",
       "line": 97,
       "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-responseformatoption-18--t--response-format-",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ResponseFormatOption.tsx",
-      "line": 18,
-      "label": "{t( response-format-option.${label .toLowerCase() .replace(/",
       "href": null,
       "type": null,
       "name": null
@@ -1913,17 +1055,6 @@
       "name": null
     },
     {
-      "id": "button-settingstabbar-13",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SettingsTabBar.tsx",
-      "line": 13,
-      "label": "button at app/src/components/SettingsTabBar.tsx:13",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "button-settingstabsbar-35",
       "role": "button",
       "tag": "button",
@@ -1985,17 +1116,6 @@
       "file": "app/src/components/TestChatBotConfigPanel.tsx",
       "line": 264,
       "label": "button at app/src/components/TestChatBotConfigPanel.tsx:264",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-topintentssection-69-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/TopIntentsSection.tsx",
-      "line": 69,
-      "label": ", )}",
       "href": null,
       "type": null,
       "name": null
@@ -3073,7 +2193,7 @@
   ],
   "totals": {
     "pages": 21,
-    "elements": 236,
+    "elements": 156,
     "forms": 7,
     "routes": 31
   }

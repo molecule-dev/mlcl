@@ -5,7 +5,7 @@
     {
       "name": "AgentAnalyticsPage",
       "templateFile": "app/pages/AgentAnalyticsPage.tsx",
-      "components": ["app/components/AgentLayout.tsx"],
+      "components": [],
       "route": "/admin/analytics",
       "auth": true,
       "type": "generate_new",
@@ -16,7 +16,7 @@
     {
       "name": "AgentDashboard",
       "templateFile": "app/pages/AgentDashboard.tsx",
-      "components": ["app/components/AgentLayout.tsx"],
+      "components": [],
       "route": "/admin/dashboard",
       "auth": true,
       "type": "design_match",
@@ -26,7 +26,7 @@
     {
       "name": "AgentLeadsPage",
       "templateFile": "app/pages/AgentLeadsPage.tsx",
-      "components": ["app/components/AgentLayout.tsx"],
+      "components": [],
       "route": "/admin/leads",
       "auth": true,
       "type": "generate_new",
@@ -37,7 +37,7 @@
     {
       "name": "AgentListingsPage",
       "templateFile": "app/pages/AgentListingsPage.tsx",
-      "components": ["app/components/AgentLayout.tsx"],
+      "components": [],
       "route": "/admin/listings",
       "auth": true,
       "type": "generate_new",
@@ -48,7 +48,7 @@
     {
       "name": "AgentProfilePage",
       "templateFile": "app/pages/AgentProfilePage.tsx",
-      "components": ["app/components/PublicListingLayout.tsx"],
+      "components": [],
       "route": "/agent/:id",
       "auth": false,
       "type": "generate_new",
@@ -59,7 +59,7 @@
     {
       "name": "AgentShowingsPage",
       "templateFile": "app/pages/AgentShowingsPage.tsx",
-      "components": ["app/components/AgentLayout.tsx"],
+      "components": [],
       "route": "/admin/showings",
       "auth": true,
       "type": "generate_new",
@@ -81,7 +81,7 @@
     {
       "name": "ListingEditorPage",
       "templateFile": "app/pages/ListingEditorPage.tsx",
-      "components": ["app/components/AgentLayout.tsx"],
+      "components": [],
       "route": "/admin/listings/new",
       "auth": true,
       "type": "generate_new",
@@ -103,7 +103,7 @@
     {
       "name": "PropertyDetailPage",
       "templateFile": "app/pages/PropertyDetailPage.tsx",
-      "components": ["app/components/PublicListingLayout.tsx"],
+      "components": [],
       "route": "/property/:id",
       "auth": false,
       "type": "design_match",
@@ -124,7 +124,7 @@
     {
       "name": "SavedPropertiesPage",
       "templateFile": "app/pages/SavedPropertiesPage.tsx",
-      "components": ["app/components/PublicListingLayout.tsx"],
+      "components": [],
       "route": "/saved",
       "auth": false,
       "type": "design_match",
@@ -134,7 +134,7 @@
     {
       "name": "SearchPage",
       "templateFile": "app/pages/SearchPage.tsx",
-      "components": ["app/components/PublicListingLayout.tsx"],
+      "components": [],
       "route": "/",
       "auth": false,
       "type": "design_match",
@@ -144,7 +144,7 @@
     {
       "name": "Settings",
       "templateFile": "app/pages/Settings.tsx",
-      "components": ["app/components/AgentLayout.tsx"],
+      "components": [],
       "route": "/admin/settings",
       "auth": true,
       "type": "generate_new",

@@ -10,7 +10,7 @@ import { Footer } from '../components/Footer.js'
  *
  * Marketing surface — anyone can hit `/pricing` to see the tier ladder.
  * Heading + per-limit captions go through `t()` so the keys live in
- * `app/src/locales/en.ts`. The PricingPage component itself is wired
+ * `app/src/locales/<code>/ui.ts`. The PricingPage component itself is wired
  * up via `@molecule/app-billing-react`; we only override the per-app
  * label rendering and the page title.
  */

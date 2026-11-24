@@ -584,17 +584,6 @@
       "name": null
     },
     {
-      "id": "input-adminproductstableheader-19",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/AdminProductsTableHeader.tsx",
-      "line": 19,
-      "label": "input at app/src/components/AdminProductsTableHeader.tsx:19",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
       "id": "button-adminsettingssavebar-34",
       "role": "button",
       "tag": "button",
@@ -3571,7 +3560,7 @@
   ],
   "totals": {
     "pages": 25,
-    "elements": 265,
+    "elements": 264,
     "forms": 10,
     "routes": 45
   }

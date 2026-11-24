@@ -268,17 +268,6 @@
       "name": null
     },
     {
-      "id": "link-heroeventcard-211",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/HeroEventCard.tsx",
-      "line": 211,
-      "label": "link at app/src/components/HeroEventCard.tsx:211",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-attendees-170-arrow-back-----",
       "role": "link",
       "tag": "Link",
@@ -1971,7 +1960,7 @@
   ],
   "totals": {
     "pages": 20,
-    "elements": 133,
+    "elements": 132,
     "forms": 6,
     "routes": 36
   }

@@ -10,7 +10,7 @@
  * @module
  */
 
-import { access, cp, mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
+import { access, cp, mkdir, mkdtemp, readdir, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -197,8 +197,9 @@ describe('swapping a provider the default bonds wire', () => {
   })
 
   it('swaps a default-wired provider that has no bond file of its own', async () => {
+    // The flagships keep no bond file for a provider `setupAllDefaultBonds()` wires.
     const { dir, bonds } = await flagship()
-    await rm(join(bonds, 'app-fonts-arimo.ts'), { force: true })
+    expect(await exists(join(bonds, 'app-fonts-arimo.ts'))).toBe(false)
 
     expect(await swap(dir, '@molecule/app-fonts-inter')).toBeUndefined()
 
@@ -214,6 +215,7 @@ describe('swapping a provider the default bonds wire', () => {
       join(bonds, 'index.ts'),
       'export async function setupProviders(): Promise<void> {}\n',
     )
+    const before = (await readdir(bonds)).sort()
     const registry = loadRegistry('app')
     const thrown = await applyBondSwap({
       projectPath: dir,
@@ -228,8 +230,8 @@ describe('swapping a provider the default bonds wire', () => {
     )
     expect(thrown).toBeInstanceOf(BondSwapError)
     expect((thrown as BondSwapError).code).toBe('index-no-match')
-    expect(await exists(join(bonds, 'app-fonts-arimo.ts'))).toBe(true)
-    expect(await exists(join(bonds, 'app-fonts-inter.ts'))).toBe(false)
+    // A refused swap writes no bond file and removes none.
+    expect((await readdir(bonds)).sort()).toEqual(before)
   })
 
   it('rewrites an old setup imported from a package, and keeps a bond file another bond imports', async () => {

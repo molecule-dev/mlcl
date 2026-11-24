@@ -157,50 +157,6 @@
       "name": null
     },
     {
-      "id": "button-annotationpins-15",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AnnotationPins.tsx",
-      "line": 15,
-      "label": "button at app/src/components/AnnotationPins.tsx:15",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-annotationpins-72",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AnnotationPins.tsx",
-      "line": 72,
-      "label": "button at app/src/components/AnnotationPins.tsx:72",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-annotationpins-108",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AnnotationPins.tsx",
-      "line": 108,
-      "label": "button at app/src/components/AnnotationPins.tsx:108",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-annotationpins-144",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/AnnotationPins.tsx",
-      "line": 144,
-      "label": "button at app/src/components/AnnotationPins.tsx:144",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-appshell-93--div-classname----cm",
       "role": "link",
       "tag": "Link",
@@ -285,28 +241,6 @@
       "line": 84,
       "label": "link at app/src/components/BrandWordmark.tsx:84",
       "href": "/",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardmodelcard2-10--div-classname----as",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardModelCard2.tsx",
-      "line": 10,
-      "label": "<div className=), aspect-[16/10] bg-on-background relative o",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-dashboardmodelcard3-10--div-classname----as",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DashboardModelCard3.tsx",
-      "line": 10,
-      "label": "<div className=), aspect-[16/10] bg-on-background relative o",
-      "href": null,
       "type": null,
       "name": null
     },
@@ -407,39 +341,6 @@
       "label": "input at app/src/components/EmbedDimensionsPanel.tsx:140",
       "href": null,
       "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-embedpreviewframe-94",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EmbedPreviewFrame.tsx",
-      "line": 94,
-      "label": "button at app/src/components/EmbedPreviewFrame.tsx:94",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-embedpreviewframe-106-360",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EmbedPreviewFrame.tsx",
-      "line": 106,
-      "label": "360",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-embedpreviewframe-115-fullscreen",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/EmbedPreviewFrame.tsx",
-      "line": 115,
-      "label": "fullscreen",
-      "href": null,
-      "type": null,
       "name": null
     },
     {
@@ -570,28 +471,6 @@
       "file": "app/src/components/HeroCopy.tsx",
       "line": 40,
       "label": "link at app/src/components/HeroCopy.tsx:40",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-heroctabuttons-12-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/HeroCtaButtons.tsx",
-      "line": 12,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-heroctabuttons-20",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/HeroCtaButtons.tsx",
-      "line": 20,
-      "label": "button at app/src/components/HeroCtaButtons.tsx:20",
       "href": null,
       "type": null,
       "name": null
@@ -773,17 +652,6 @@
       "name": null
     },
     {
-      "id": "input-loginemailfield-35",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/LoginEmailField.tsx",
-      "line": 35,
-      "label": "input at app/src/components/LoginEmailField.tsx:35",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
       "id": "input-loginform-88",
       "role": "input",
       "tag": "input",
@@ -834,61 +702,6 @@
       "file": "app/src/components/LoginForm.tsx",
       "line": 182,
       "label": "button at app/src/components/LoginForm.tsx:182",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-loginpasswordfield-35-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/LoginPasswordField.tsx",
-      "line": 35,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-loginpasswordfield-45",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/LoginPasswordField.tsx",
-      "line": 45,
-      "label": "input at app/src/components/LoginPasswordField.tsx:45",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-loginpasswordfield-55",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LoginPasswordField.tsx",
-      "line": 55,
-      "label": "button at app/src/components/LoginPasswordField.tsx:55",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-loginsignupprompt-20-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/LoginSignUpPrompt.tsx",
-      "line": 20,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-loginsubmitbutton-9",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/LoginSubmitButton.tsx",
-      "line": 9,
-      "label": "button at app/src/components/LoginSubmitButton.tsx:9",
       "href": null,
       "type": null,
       "name": null
@@ -990,94 +803,6 @@
       "label": "360",
       "href": null,
       "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modeleditrendersettings-47-------span-classname",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelEditRenderSettings.tsx",
-      "line": 47,
-      "label": ", )} <span className={material-symbols-outlined text-[20px] ",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modeleditrendersettings-64-------span-classname",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelEditRenderSettings.tsx",
-      "line": 64,
-      "label": ", )} <span className={material-symbols-outlined text-[20px] ",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modeleditrendersettings-81-------span-classname",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelEditRenderSettings.tsx",
-      "line": 81,
-      "label": ", )} <span className={material-symbols-outlined text-[20px] ",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modeleditrendersettings-98-------span-classname",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelEditRenderSettings.tsx",
-      "line": 98,
-      "label": ", )} <span className={material-symbols-outlined text-[20px] ",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-modeleditrendersettings-148",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/ModelEditRenderSettings.tsx",
-      "line": 148,
-      "label": "input at app/src/components/ModelEditRenderSettings.tsx:148",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-modeleditrendersettings-204",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/ModelEditRenderSettings.tsx",
-      "line": 204,
-      "label": "input at app/src/components/ModelEditRenderSettings.tsx:204",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-modeleditrendersettings-228",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/ModelEditRenderSettings.tsx",
-      "line": 228,
-      "label": "input at app/src/components/ModelEditRenderSettings.tsx:228",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-modeleditrendersettings-252",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/ModelEditRenderSettings.tsx",
-      "line": 252,
-      "label": "input at app/src/components/ModelEditRenderSettings.tsx:252",
-      "href": null,
-      "type": "text",
       "name": null
     },
     {
@@ -1213,50 +938,6 @@
       "name": null
     },
     {
-      "id": "button-modelinspectorpanel-34",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelInspectorPanel.tsx",
-      "line": 34,
-      "label": "button at app/src/components/ModelInspectorPanel.tsx:34",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modelinspectorpanel-84",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelInspectorPanel.tsx",
-      "line": 84,
-      "label": "button at app/src/components/ModelInspectorPanel.tsx:84",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modelinspectorpanel-239",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelInspectorPanel.tsx",
-      "line": 239,
-      "label": "button at app/src/components/ModelInspectorPanel.tsx:239",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modelinspectorpanel-274",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelInspectorPanel.tsx",
-      "line": 274,
-      "label": "button at app/src/components/ModelInspectorPanel.tsx:274",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-modellibrarycard-66--img-alt--classname-",
       "role": "link",
       "tag": "Link",
@@ -1285,50 +966,6 @@
       "file": "app/src/components/ModelLibraryCard.tsx",
       "line": 123,
       "label": "more_vert",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modellibraryfilterrow-53",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelLibraryFilterRow.tsx",
-      "line": 53,
-      "label": "button at app/src/components/ModelLibraryFilterRow.tsx:53",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-modellibraryfilterrow-91",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/ModelLibraryFilterRow.tsx",
-      "line": 91,
-      "label": "input at app/src/components/ModelLibraryFilterRow.tsx:91",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-modellibraryfilterrow-110",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelLibraryFilterRow.tsx",
-      "line": 110,
-      "label": "button at app/src/components/ModelLibraryFilterRow.tsx:110",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modellibraryfilterrow-141",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelLibraryFilterRow.tsx",
-      "line": 141,
-      "label": "button at app/src/components/ModelLibraryFilterRow.tsx:141",
       "href": null,
       "type": null,
       "name": null
@@ -1395,50 +1032,6 @@
       "file": "app/src/components/ModelLibraryHeader.tsx",
       "line": 90,
       "label": "cloud_upload , )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modellibrarypagination-20-chevron-left",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelLibraryPagination.tsx",
-      "line": 20,
-      "label": "chevron_left",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modellibrarypagination-34",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelLibraryPagination.tsx",
-      "line": 34,
-      "label": "button at app/src/components/ModelLibraryPagination.tsx:34",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modellibrarypagination-65",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelLibraryPagination.tsx",
-      "line": 65,
-      "label": "button at app/src/components/ModelLibraryPagination.tsx:65",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modellibrarypagination-91-chevron-right",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelLibraryPagination.tsx",
-      "line": 91,
-      "label": "chevron_right",
       "href": null,
       "type": null,
       "name": null
@@ -1527,72 +1120,6 @@
       "file": "app/src/components/ModelViewerNavBar.tsx",
       "line": 91,
       "label": "settings",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modelviewport-38",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelViewport.tsx",
-      "line": 38,
-      "label": "button at app/src/components/ModelViewport.tsx:38",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modelviewport-73",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelViewport.tsx",
-      "line": 73,
-      "label": "button at app/src/components/ModelViewport.tsx:73",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modelviewport-167-360",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelViewport.tsx",
-      "line": 167,
-      "label": "360",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modelviewport-179-pan-tool",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelViewport.tsx",
-      "line": 179,
-      "label": "pan_tool",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modelviewport-191-zoom-in",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelViewport.tsx",
-      "line": 191,
-      "label": "zoom_in",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-modelviewport-203-layers",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/ModelViewport.tsx",
-      "line": 203,
-      "label": "layers",
       "href": null,
       "type": null,
       "name": null
@@ -1730,160 +1257,6 @@
       "name": null
     },
     {
-      "id": "link-recentmodelcard-10--div-classname----as",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/RecentModelCard.tsx",
-      "line": 10,
-      "label": "<div className=), aspect-[16/10] bg-on-background relative o",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-recentmodelsheader-16-----",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/RecentModelsHeader.tsx",
-      "line": 16,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-recentmodelssection-61--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/RecentModelsSection.tsx",
-      "line": 61,
-      "label": "<div className={cm.cn( cm.cursorPointer, bg-surface-containe",
-      "href": "/models/${model.id}",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-settingsavatarsection-52",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SettingsAvatarSection.tsx",
-      "line": 52,
-      "label": "button at app/src/components/SettingsAvatarSection.tsx:52",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-settingsavatarsection-82",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SettingsAvatarSection.tsx",
-      "line": 82,
-      "label": "button at app/src/components/SettingsAvatarSection.tsx:82",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-settingsavatarsection-96",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/SettingsAvatarSection.tsx",
-      "line": 96,
-      "label": "input at app/src/components/SettingsAvatarSection.tsx:96",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "button-settingsavatarsection-103-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SettingsAvatarSection.tsx",
-      "line": 103,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-settingsformactions-20-----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SettingsFormActions.tsx",
-      "line": 20,
-      "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-settingsformactions-32----",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/SettingsFormActions.tsx",
-      "line": 32,
-      "label": ", )",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "input-settingsprofileformgrid-41",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/SettingsProfileFormGrid.tsx",
-      "line": 41,
-      "label": "input at app/src/components/SettingsProfileFormGrid.tsx:41",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-settingsprofileformgrid-65",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/SettingsProfileFormGrid.tsx",
-      "line": 65,
-      "label": "input at app/src/components/SettingsProfileFormGrid.tsx:65",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-settingsprofileformgrid-99",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/SettingsProfileFormGrid.tsx",
-      "line": 99,
-      "label": "input at app/src/components/SettingsProfileFormGrid.tsx:99",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "input-settingsprofileformgrid-139",
-      "role": "input",
-      "tag": "input",
-      "file": "app/src/components/SettingsProfileFormGrid.tsx",
-      "line": 139,
-      "label": "input at app/src/components/SettingsProfileFormGrid.tsx:139",
-      "href": null,
-      "type": "text",
-      "name": null
-    },
-    {
-      "id": "textarea-settingsprofileformgrid-164",
-      "role": "textarea",
-      "tag": "textarea",
-      "file": "app/src/components/SettingsProfileFormGrid.tsx",
-      "line": 164,
-      "label": "textarea at app/src/components/SettingsProfileFormGrid.tsx:164",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-signupprompt-15-----",
       "role": "link",
       "tag": "Link",
@@ -1961,17 +1334,6 @@
       "name": null
     },
     {
-      "id": "link-uploadbutton-9-cloud-upload--span-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/UploadButton.tsx",
-      "line": 9,
-      "label": "cloud_upload <span className={cm.cn(cm.fontWeight(medium",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "input-uploaddropzone-73",
       "role": "input",
       "tag": "input",
@@ -2000,17 +1362,6 @@
       "file": "app/src/components/UploadPageHeader.tsx",
       "line": 46,
       "label": ", )}",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-uploadqueueitem-76-close",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/UploadQueueItem.tsx",
-      "line": 76,
-      "label": "close",
       "href": null,
       "type": null,
       "name": null
@@ -2630,7 +1981,7 @@
       "mountedPath": "/user/avatar",
       "rawPath": "/avatar",
       "handlerFile": "api/src/handlers/avatar.ts",
-      "line": 102,
+      "line": 170,
       "resource": "avatar"
     },
     {
@@ -2702,7 +2053,7 @@
       "mountedPath": "/user/avatar/:fileId",
       "rawPath": "/avatar/:fileId",
       "handlerFile": "api/src/handlers/avatar.ts",
-      "line": 131,
+      "line": 199,
       "resource": "avatar"
     },
     {
@@ -2783,7 +2134,7 @@
       "mountedPath": "/user/avatar",
       "rawPath": "/avatar",
       "handlerFile": "api/src/handlers/avatar.ts",
-      "line": 51,
+      "line": 42,
       "resource": "avatar"
     },
     {
@@ -2834,7 +2185,7 @@
   ],
   "totals": {
     "pages": 18,
-    "elements": 221,
+    "elements": 162,
     "forms": 4,
     "routes": 28
   }

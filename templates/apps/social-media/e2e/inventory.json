@@ -350,28 +350,6 @@
       "name": null
     },
     {
-      "id": "button-storyrail-68--span-classname--cm-",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/StoryRail.tsx",
-      "line": 68,
-      "label": "<span className={cm.cn( relative inline-flex w-[64px] h-[64p",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "button-storyrail-99",
-      "role": "button",
-      "tag": "button",
-      "file": "app/src/components/StoryRail.tsx",
-      "line": 99,
-      "label": "button at app/src/components/StoryRail.tsx:99",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-suggestionsrail-73-----",
       "role": "link",
       "tag": "Link",
@@ -1730,7 +1708,7 @@
   ],
   "totals": {
     "pages": 19,
-    "elements": 104,
+    "elements": 102,
     "forms": 7,
     "routes": 45
   }

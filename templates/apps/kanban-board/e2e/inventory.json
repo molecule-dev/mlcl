@@ -113,28 +113,6 @@
   ],
   "elements": [
     {
-      "id": "link-activityfeeditem-75--img-src--alt-",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/ActivityFeedItem.tsx",
-      "line": 75,
-      "label": "<img src= alt=",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-boardherocard-58--div",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/BoardHeroCard.tsx",
-      "line": 58,
-      "label": "<div",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-brandwordmark-84",
       "role": "link",
       "tag": "Link",
@@ -164,17 +142,6 @@
       "line": 59,
       "label": "link at app/src/components/DriftboardAuthShell.tsx:59",
       "href": "/",
-      "type": null,
-      "name": null
-    },
-    {
-      "id": "link-driftboardkanbancard-83--",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/DriftboardKanbanCard.tsx",
-      "line": 83,
-      "label": ">",
-      "href": null,
       "type": null,
       "name": null
     },
@@ -1579,7 +1546,7 @@
   ],
   "totals": {
     "pages": 18,
-    "elements": 90,
+    "elements": 87,
     "forms": 7,
     "routes": 46
   }

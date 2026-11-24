@@ -131,17 +131,6 @@
   ],
   "elements": [
     {
-      "id": "link-activityfeedrow-66--div-classname--cm-c",
-      "role": "link",
-      "tag": "Link",
-      "file": "app/src/components/ActivityFeedRow.tsx",
-      "line": 66,
-      "label": "<div className={cm.cn(",
-      "href": null,
-      "type": null,
-      "name": null
-    },
-    {
       "id": "link-brandwordmark-92",
       "role": "link",
       "tag": "Link",
@@ -1437,7 +1426,7 @@
   ],
   "totals": {
     "pages": 21,
-    "elements": 82,
+    "elements": 81,
     "forms": 7,
     "routes": 38
   }
