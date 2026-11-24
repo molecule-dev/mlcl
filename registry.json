@@ -91430,6 +91430,7 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-i18n",
+        "@molecule/app-logger",
         "@molecule/app-routing",
         "@molecule/app-theme",
         "@react-navigation/native",
@@ -91438,6 +91439,7 @@
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
+        "@molecule/app-logger",
         "@molecule/app-routing",
         "@molecule/app-theme"
       ],
