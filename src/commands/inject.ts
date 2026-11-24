@@ -19,6 +19,7 @@ import {
 } from '../lib/existing-project.js'
 import { extendApiLocales, extendApiRouter } from '../lib/extend-api-wiring.js'
 import { extendApiBonds, extendAppBonds } from '../lib/extend-app-bonds.js'
+import { appI18nBondFile, extendAppLocales } from '../lib/extend-app-wiring.js'
 import { collectSecrets, resolveLocalePackages } from '../lib/features.js'
 import { formatGeneratedFiles, sortImportStatements } from '../lib/format.js'
 import { t } from '../lib/i18n.js'
@@ -30,6 +31,7 @@ import {
   filterExcludedPeerDependencies,
   GENERATED_SMOKE_TEST_PATHS,
   type InjectionPlan,
+  installedLocaleBonds,
   planInjection,
   type PlanInjectionOptions,
   resolveDefaultProvidersFromPlans,
@@ -38,6 +40,7 @@ import {
   withholdBaseProviderBonds,
   writeSynthesizedFiles,
 } from '../lib/injector.js'
+import { installedAsDeclared, installInputs } from '../lib/install-needed.js'
 import { ensureMigrateRunnerImports } from '../lib/migrate-runner.js'
 import {
   databasePackageOf,
@@ -116,6 +119,7 @@ export default class Inject extends Command {
     molecule: Flags.string({
       char: 'm',
       description: t('commands.inject.flags.molecule'),
+      multiple: true,
     }),
     path: Flags.string({
       char: 'p',
@@ -138,8 +142,9 @@ export default class Inject extends Command {
       allowNo: true,
     }),
     ai: Flags.boolean({
-      description: 'Use AI for code generation (falls back to heuristics when disabled)',
-      default: true,
+      description:
+        'Generate wiring code with the Anthropic API, billed to ANTHROPIC_API_KEY (default: the built-in generators)',
+      default: false,
       allowNo: true,
     }),
   }
@@ -147,11 +152,11 @@ export default class Inject extends Command {
   public async run(): Promise<void> {
     const { flags } = await this.parse(Inject)
 
-    // Disable AI code generation when --no-ai is passed (fast heuristic fallback)
-    if (!flags.ai) {
-      const { disableAI } = await import('../lib/ai.js')
-      disableAI()
-    }
+    // AI code generation only on request: a key in the environment is usually the
+    // calling agent's own, and each request is billed to it and slows the injection.
+    const { disableAI, enableAI } = await import('../lib/ai.js')
+    if (flags.ai) enableAI()
+    else disableAI()
 
     p.intro(chalk.bgCyan(` ${t('commands.inject.labels.intro')} `))
 
@@ -162,8 +167,8 @@ export default class Inject extends Command {
     // Step 1: Find molecules to inject
     spinner.start(t('commands.inject.spinners.finding'))
 
-    const molecules = flags.molecule
-      ? [flags.molecule]
+    const molecules = flags.molecule?.length
+      ? [...new Set(flags.molecule)]
       : await this.findPendingMolecules(projectPath)
 
     spinner.stop(t('commands.inject.spinners.found', { count: molecules.length }))
@@ -338,7 +343,8 @@ export default class Inject extends Command {
       // the registry pin; telling the operator to run `npm install` would be
       // advice about a package the manifest does not name.
       const unpinnedSelection =
-        flags.molecule === failure.molecule && bindingFor(failure.molecule).kind === 'unbound'
+        (flags.molecule ?? []).includes(failure.molecule) &&
+        bindingFor(failure.molecule).kind === 'unbound'
       this.warn(
         unpinnedSelection
           ? t('commands.inject.messages.packageNotInstalled', {
@@ -398,7 +404,7 @@ export default class Inject extends Command {
     // `__setup__/` after the preflight passes — so the judged set and the written
     // set are one list (F10).
     if (!isAppProject) {
-      const selectedPackages = flags.molecule ? [flags.molecule] : []
+      const selectedPackages = flags.molecule ?? []
       const registryPackages = loadRegistry()
       const planFor = (name: string): InjectionPlan | undefined =>
         plans.find((plan) => plan.molecule === name)
@@ -569,7 +575,32 @@ export default class Inject extends Command {
     const registryPackages = loadRegistry()
     const syntheticFiles = isAppProject
       ? synthesizeAppProjectFiles(plans, molecules, projectPath, registryPackages, sharedSubdir)
-      : await synthesizeProjectFiles(plans, molecules, projectPath, registryPackages)
+      : await synthesizeProjectFiles(plans, molecules, projectPath, registryPackages, undefined, {
+          // existingProjectFiles drops every __tests__/ file of such a project.
+          smokeTests: !existingProject,
+        })
+    // An app loads a companion locale bond in its i18n bond, which is the i18n core's default
+    // bond: synthesized from the named packages alone it is not written at all, so an add that
+    // brought a locale bond left it unloaded. Render it from every package the project declares,
+    // and the merge below adds the loaders the project's copy lacks.
+    const i18nBondPath = join(bondsBase, appI18nBondFile())
+    if (
+      isAppProject &&
+      flags.molecule?.length &&
+      installedLocaleBonds(molecules, 'app').length > 0 &&
+      !syntheticFiles.some((file) => file.targetPath === i18nBondPath)
+    ) {
+      const declared = Object.keys(projectDeps).filter((name) => name.startsWith('@molecule/'))
+      const whole = synthesizeAppProjectFiles(
+        plans,
+        [...new Set([...declared, ...molecules])],
+        projectPath,
+        registryPackages,
+        sharedSubdir,
+      )
+      const i18nBond = whole.find((file) => file.targetPath === i18nBondPath)
+      if (i18nBond) syntheticFiles.push(i18nBond)
+    }
 
     // Only the manifest-derived migration runner may be REWRITTEN while a
     // request is unresolved: every other synthesized file is derived from the
@@ -621,9 +652,11 @@ export default class Inject extends Command {
       if (rendered.includes(file.targetPath)) return [file]
       const merge = new Map<string, (existing: string, generated: string) => string>(
         isAppProject
-          ? appIndexMerged
-            ? [[inProject(bondsIndexPath), extendAppBonds]]
-            : []
+          ? [
+              ...(appIndexMerged ? ([[inProject(bondsIndexPath), extendAppBonds]] as const) : []),
+              // A companion locale bond the add declares is loaded, not only installed.
+              [inProject(join(bondsBase, appI18nBondFile())), extendAppLocales],
+            ]
           : [
               [inProject(bondsIndexPath), extendApiBonds],
               [inProject(join(bondsBase, `${API_LOCALES_BOND}.ts`)), extendApiLocales],
@@ -645,9 +678,13 @@ export default class Inject extends Command {
         return []
       }
     }
+    // A bare inject (what `mlcl add` without --inject says to run) keeps the project's copies
+    // the same way: only `--force`, which `mlcl create` passes, writes every file as rendered.
+    // Writing over them replaced a created app's auth bond, and the HTTP client bonded in it,
+    // with a plain JWT client.
     const filesToWrite = !holisticSynthesisAllowed
       ? projectFiles.filter((f) => f.targetPath === migrateRunnerPath || !existsSync(f.targetPath))
-      : flags.molecule || existingProject
+      : flags.molecule?.length || existingProject || !flags.force
         ? projectFiles.flatMap(addedWiring)
         : projectFiles
     for (const failure of mergeFailures) this.warn(failure)
@@ -809,6 +846,8 @@ export default class Inject extends Command {
       }
     }
 
+    // What an install would read before any write, so a run that changed none of it can skip one.
+    const installInputsBefore = installInputs(projectPath)
     spinner.start(t('commands.inject.spinners.executing'))
 
     let totalCreated = 0
@@ -902,8 +941,13 @@ export default class Inject extends Command {
     // packages node_modules did not have, and the smoke tests below failed on
     // the missing modules instead of the injection. A failure warns and
     // continues (the same policy `mlcl add` uses); `--no-install` skips the
-    // step and the next-steps hint names the manual install.
-    if (flags.install) {
+    // step and the next-steps hint names the manual install. A run that changed nothing an install
+    // reads, in a tree that already holds every declared pin, has nothing to install (the inject
+    // half of `mlcl add --inject`, whose add just installed): see ../lib/install-needed.ts.
+    if (
+      flags.install &&
+      !(installInputs(projectPath) === installInputsBefore && installedAsDeclared(projectPath))
+    ) {
       try {
         await npmInstall(npmInstallRoot(projectPath))
       } catch (error) {

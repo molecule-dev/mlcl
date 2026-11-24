@@ -217,7 +217,7 @@ export const messages: LocaleMessages = {
   'commands.inject.description': 'Execute molecule injection with preview',
   'commands.inject.flags.dryRun': 'Show what would be done without making changes',
   'commands.inject.flags.force': 'Overwrite existing files and skip confirmation prompts',
-  'commands.inject.flags.molecule': 'Specific molecule to inject',
+  'commands.inject.flags.molecule': 'Specific molecule to inject (repeat for several)',
   'commands.inject.flags.path': 'Path to the project',
   'commands.inject.flags.install': 'Run npm install after injection',
   'commands.inject.flags.test': 'Run smoke tests after injection',

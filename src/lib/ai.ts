@@ -2,7 +2,11 @@
  * AI code generation module — wraps the Anthropic SDK for molecule code generation.
  *
  * Used in Phase 2 (Assembly) to generate wiring code from README.md context.
- * Falls back gracefully when ANTHROPIC_API_KEY is not set.
+ * Off unless the caller turns it on (`mlcl inject --ai`, {@link enableAI}) AND
+ * ANTHROPIC_API_KEY is set: each request is billed to that key and adds seconds
+ * to an injection, and the heuristics write the same files (every scaffold uses
+ * them). A key in the environment alone is not a request for it: coding agents
+ * such as Claude Code run with one for their own use.
  *
  * @module
  */
@@ -18,19 +22,27 @@ function getClient(): Anthropic {
   return _client
 }
 
-/** Runtime override — set to false to force heuristic code generation. */
-let _aiEnabled = true
+/** Whether this process asked for AI code generation (`--ai`). */
+let _aiEnabled = false
 
 /**
- * Check if AI code generation is available and enabled.
+ * Check if AI code generation was asked for and has a key to use.
  */
 export function isAIAvailable(): boolean {
   return _aiEnabled && !!process.env.ANTHROPIC_API_KEY
 }
 
 /**
- * Disable AI code generation for this process. Once disabled, `isAIAvailable()`
- * returns false and all generation falls back to heuristics.
+ * Turn on AI code generation for this process (`mlcl inject --ai`). It is used
+ * only while ANTHROPIC_API_KEY is set.
+ */
+export function enableAI(): void {
+  _aiEnabled = true
+}
+
+/**
+ * Turn AI code generation off for this process: `isAIAvailable()` returns false
+ * and all generation uses the heuristics.
  */
 export function disableAI(): void {
   _aiEnabled = false

@@ -22,12 +22,15 @@ describe('ai', () => {
   })
 
   describe('isAIAvailable', () => {
-    it('should return true when ANTHROPIC_API_KEY is set', async () => {
+    // A key in the environment is not a request: coding agents run with one for their own use.
+    it('should return true only when asked for (--ai) and ANTHROPIC_API_KEY is set', async () => {
       const origKey = process.env.ANTHROPIC_API_KEY
       process.env.ANTHROPIC_API_KEY = 'test-key'
       try {
         // Re-import to get fresh module
-        const { isAIAvailable } = await import('../ai.js')
+        const { enableAI, isAIAvailable } = await import('../ai.js')
+        expect(isAIAvailable()).toBe(false)
+        enableAI()
         expect(isAIAvailable()).toBe(true)
       } finally {
         if (origKey !== undefined) {

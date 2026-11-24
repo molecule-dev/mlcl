@@ -25,7 +25,11 @@ import { fileURLToPath } from 'node:url'
 import { Config } from '@oclif/core'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
-import { planInjection, resolveDefaultProvidersFromPlans } from '../../lib/injector.js'
+import {
+  generateI18nDefaultSetupBond,
+  planInjection,
+  resolveDefaultProvidersFromPlans,
+} from '../../lib/injector.js'
 import Inject from '../inject.js'
 
 vi.mock('execa', () => ({ execa: vi.fn() }))
@@ -57,10 +61,22 @@ async function project(
   return dir
 }
 
-async function inject(path: string, molecule: string): Promise<string> {
+async function inject(
+  path: string,
+  molecules: string | string[],
+  extra: string[] = [],
+): Promise<string> {
   const config = await Config.load(MLCL_ROOT)
   const cmd = new Inject(
-    ['-m', molecule, '-p', path, '--no-install', '--no-test', '--no-ai'],
+    [
+      ...[molecules].flat().flatMap((name) => ['-m', name]),
+      '-p',
+      path,
+      '--no-install',
+      '--no-test',
+      '--no-ai',
+      ...extra,
+    ],
     config,
   )
   vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
@@ -281,5 +297,108 @@ describe('default providers respect the provider a project already declares (OLD
     expect(await resolveDefaultProvidersFromPlans([plan], molecules, path, [])).toContain(
       '@molecule/api-database-postgresql',
     )
+  })
+})
+
+// `mlcl add <pkg> --inject` declares a package's companion locale bond and names it with -m, but
+// the app's i18n bond already existed and was kept as it was, so the package's UI text never
+// loaded. A full `mlcl inject` wrote it.
+describe('mlcl inject -m loads a new app locale bond in the existing i18n bond (OLD MUSTFAIL)', () => {
+  it('adds the locale bond loader and keeps the ones the bond already had', async () => {
+    const setup = '@molecule/app-i18n-default'
+    const existing = generateI18nDefaultSetupBond(undefined, setup, 'i18nProvider', 'I18nDefault', [
+      setup,
+      '@molecule/app-locales-auth',
+    ])
+    const path = await project(
+      'mlcl-inject-app-locales-',
+      {
+        name: 'demo-app',
+        version: '1.0.0',
+        private: true,
+        type: 'module',
+        molecule: { projectType: 'app', framework: 'react' },
+        dependencies: {
+          react: '19.2.4',
+          '@molecule/app-i18n': '1.0.0',
+          '@molecule/app-i18n-default': '1.0.0',
+          '@molecule/app-locales-auth': '1.0.0',
+          '@molecule/app-clipboard': '1.0.0',
+          '@molecule/app-locales-clipboard': '1.0.0',
+        },
+      },
+      { 'src/bonds/i18n-default.ts': existing },
+    )
+    await inject(path, ['@molecule/app-clipboard', '@molecule/app-locales-clipboard'])
+
+    const bond = await readFile(join(path, 'src/bonds/i18n-default.ts'), 'utf8')
+    expect(bond).toContain('@molecule/app-locales-clipboard/loader.js')
+    expect(bond).toContain('@molecule/app-locales-auth/loader.js')
+  })
+
+  it('leaves the bond alone when the add brings no locale bond (counterexample)', async () => {
+    const setup = '@molecule/app-i18n-default'
+    const existing = generateI18nDefaultSetupBond(undefined, setup, 'i18nProvider', 'I18nDefault', [
+      setup,
+      '@molecule/app-locales-auth',
+    ])
+    const path = await project(
+      'mlcl-inject-app-locales-none-',
+      {
+        name: 'demo-app',
+        version: '1.0.0',
+        private: true,
+        type: 'module',
+        molecule: { projectType: 'app', framework: 'react' },
+        dependencies: {
+          react: '19.2.4',
+          '@molecule/app-i18n': '1.0.0',
+          '@molecule/app-i18n-default': '1.0.0',
+          '@molecule/app-locales-auth': '1.0.0',
+          '@molecule/app-analytics': '1.0.0',
+          '@molecule/app-analytics-posthog': '1.0.0',
+        },
+      },
+      { 'src/bonds/i18n-default.ts': existing },
+    )
+    await inject(path, '@molecule/app-analytics-posthog')
+    expect(await readFile(join(path, 'src/bonds/i18n-default.ts'), 'utf8')).toBe(existing)
+  })
+})
+
+// `mlcl add <package>` without --inject ends with "Run mlcl inject". In a project Molecule
+// created, that bare inject rendered every shared file from the manifest and wrote it over the
+// project's copy: a flagship's auth bond, which also bonds the HTTP client every relative
+// package request needs, became a plain JWT client and those requests went to the page origin.
+describe('mlcl inject with no -m keeps the shared files a created project has (OLD MUSTFAIL)', () => {
+  const AUTH_BOND = "// the project's auth bond\nexport function setupAuthDefault(): void {}\n"
+  const created = (): Promise<string> =>
+    project(
+      'mlcl-inject-bare-',
+      {
+        name: 'demo-app',
+        version: '1.0.0',
+        private: true,
+        type: 'module',
+        molecule: { projectType: 'app', framework: 'react' },
+        dependencies: {
+          react: '19.2.4',
+          '@molecule/app-auth': '3.6.0',
+          '@molecule/app-http': '1.10.0',
+        },
+      },
+      { 'src/bonds/auth-default.ts': AUTH_BOND },
+    )
+
+  it('leaves an existing auth bond as it is', async () => {
+    const path = await created()
+    await inject(path, [])
+    expect(await readFile(join(path, 'src/bonds/auth-default.ts'), 'utf8')).toBe(AUTH_BOND)
+  })
+
+  it('counterexample: --force still writes it', async () => {
+    const path = await created()
+    await inject(path, [], ['--force'])
+    expect(await readFile(join(path, 'src/bonds/auth-default.ts'), 'utf8')).not.toBe(AUTH_BOND)
   })
 })

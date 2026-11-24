@@ -14,7 +14,7 @@
  * @module
  */
 
-import { mkdir, mkdtemp, rm, writeFile } from 'node:fs/promises'
+import { mkdir, mkdtemp, readFile, rm, writeFile } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
@@ -166,6 +166,38 @@ describe('mlcl inject runs the deferred npm install', () => {
       (event, index) => index > installAt && event.startsWith('write:'),
     )
     for (const event of lateWrites) expect(event.endsWith('/.env')).toBe(true)
+  })
+
+  /** Inject once without installing, then install a copy of every declared pin but those in `missing`. */
+  async function injectedAndInstalled(missing: string[] = []): Promise<string> {
+    const project = await writeApiProject()
+    execaMock.mockResolvedValue({ stdout: '', stderr: '' } as never)
+    await runInject(project, ['--no-install'])
+    const { dependencies = {}, devDependencies = {} } = JSON.parse(
+      await readFile(join(project, 'package.json'), 'utf8'),
+    ) as Record<string, Record<string, string>>
+    for (const [name, version] of Object.entries({ ...dependencies, ...devDependencies })) {
+      await mkdir(join(project, 'node_modules', name), { recursive: true })
+      await writeFile(
+        join(project, 'node_modules', name, 'package.json'),
+        JSON.stringify({ name, version: missing.includes(name) ? '0.0.1' : version }),
+      )
+    }
+    return project
+  }
+
+  it('skips an install that has nothing to do: same manifest, every pin installed (OLD MUSTFAIL)', async () => {
+    // The inject half of `mlcl add --inject` re-ran the install add had just run (harness eval `add`).
+    const project = await injectedAndInstalled()
+    await runInject(project, ['--force'])
+    expect(execaMock).not.toHaveBeenCalled()
+  })
+
+  it('counterexample: installs when a declared pin is installed at another version', async () => {
+    // A peer the plan does not inject, so the stale copy is only an install's business.
+    const project = await injectedAndInstalled(['@molecule/api-secrets'])
+    await runInject(project, ['--force'])
+    expect(execaMock).toHaveBeenCalledTimes(1)
   })
 
   it('skips the install under --no-install', async () => {

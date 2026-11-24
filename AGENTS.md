@@ -479,7 +479,7 @@ Gated by `src/lib/__tests__/egress-hosts.test.ts` — shape rules on every decla
 
 ## AI-Driven Code Generation
 
-The injector uses AI (Anthropic API) for code generation when `ANTHROPIC_API_KEY` is set, with heuristic fallback otherwise.
+The injector can use AI (Anthropic API) for code generation, but only when asked: `mlcl inject --ai` with `ANTHROPIC_API_KEY` set. Without the flag it uses the heuristics, which every scaffold uses. A key in the environment is not a request for AI: coding agents run with one, and each request is billed to it and adds seconds to an injection.
 
 - **`src/lib/ai.ts`** — Anthropic client wrapper (`generateCode()`, `generateCodeBatch()`)
 - **`src/lib/ai-context.ts`** — Tiered context builders:

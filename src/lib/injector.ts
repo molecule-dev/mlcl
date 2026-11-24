@@ -3309,6 +3309,8 @@ function routerContentForInjection(
  * - server.ts (API app with middleware, bonds, error handling)
  * - bonds/index.ts (setupBonds function calling all bond + service setups)
  * - Service bond files (device service, payment services)
+ * - The server and route smoke tests, unless `smokeTests` is false (a project
+ *   Molecule did not create keeps its own tests)
  */
 export async function synthesizeProjectFiles(
   plans: InjectionPlan[],
@@ -3316,6 +3318,7 @@ export async function synthesizeProjectFiles(
   projectPath: string,
   registryPackages?: InferredPackage[],
   apiFramework?: string,
+  { smokeTests = true }: { smokeTests?: boolean } = {},
 ): Promise<FileOperation[]> {
   const fw = apiFramework ?? getProjectApiFramework(projectPath)
   const files: FileOperation[] = []
@@ -3579,22 +3582,27 @@ export function setupEntitlements(): void {
   // and its latency on every injection. It is built ONCE here and handed to
   // both: one request per synthesis, and the two files can never disagree about
   // how a package is mocked.
-  const moleculeMocks = await generateMoleculeViMocks(allMolecules, resourcePlans)
-  files.push({
-    action: 'create',
-    targetPath: join(projectPath, GENERATED_SMOKE_TEST_PATHS[1]),
-    content: generateServerSmokeTest(allMolecules, registryPackages, moleculeMocks),
-    description: 'Generate server smoke tests',
-  })
-
-  const routeTestContent = generateRouteSmokeTest(routablePlans, moleculeMocks, resourceRouters)
-  if (routeTestContent) {
+  //
+  // A project Molecule did not create keeps its own tests (`smokeTests: false`):
+  // nothing is built for it, so `--ai` sends no request for files it drops.
+  if (smokeTests) {
+    const moleculeMocks = await generateMoleculeViMocks(allMolecules, resourcePlans)
     files.push({
       action: 'create',
-      targetPath: join(projectPath, GENERATED_SMOKE_TEST_PATHS[0]),
-      content: routeTestContent,
-      description: 'Generate route smoke tests',
+      targetPath: join(projectPath, GENERATED_SMOKE_TEST_PATHS[1]),
+      content: generateServerSmokeTest(allMolecules, registryPackages, moleculeMocks),
+      description: 'Generate server smoke tests',
     })
+
+    const routeTestContent = generateRouteSmokeTest(routablePlans, moleculeMocks, resourceRouters)
+    if (routeTestContent) {
+      files.push({
+        action: 'create',
+        targetPath: join(projectPath, GENERATED_SMOKE_TEST_PATHS[0]),
+        content: routeTestContent,
+        description: 'Generate route smoke tests',
+      })
+    }
   }
 
   // Sort imports in all generated source files for consistent lint-clean output
