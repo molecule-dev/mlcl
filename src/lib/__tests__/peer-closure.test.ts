@@ -14,25 +14,32 @@ import { closeMoleculePeers, missingMoleculePeers } from '../peer-closure.js'
 import { getMoleculeVersion } from '../registry.js'
 
 describe('closeMoleculePeers', () => {
-  it('declares the cores a capture provider requires, at the registry pins, sorted', () => {
+  it('declares the cores a provider requires, at the registry pins, sorted', () => {
     const manifest = {
       name: 'x-api',
-      dependencies: { zod: '4.1.12', '@molecule/api-emails-capture': '1.0.0' },
+      dependencies: { zod: '4.1.12', '@molecule/api-emails-mailgun': '1.0.0' },
     }
     const added = closeMoleculePeers(manifest)
     expect(added).toContain('@molecule/api-emails')
-    expect(added).toContain('@molecule/api-activity')
+    expect(added).toContain('@molecule/api-bond')
     for (const name of added) expect(manifest.dependencies[name]).toBe(getMoleculeVersion(name))
     // Declared pins are kept as written.
-    expect(manifest.dependencies['@molecule/api-emails-capture']).toBe('1.0.0')
+    expect(manifest.dependencies['@molecule/api-emails-mailgun']).toBe('1.0.0')
     expect(manifest.dependencies.zod).toBe('4.1.12')
     const keys = Object.keys(manifest.dependencies)
     expect(keys).toEqual([...keys].sort())
     expect(missingMoleculePeers(keys)).toEqual([])
   })
 
+  // A capture provider imports only its core's types, so the core is an optional peer.
+  it('leaves out a peer the package marks optional', () => {
+    const added = missingMoleculePeers(['@molecule/api-emails-capture'])
+    expect(added).toContain('@molecule/api-activity')
+    expect(added).not.toContain('@molecule/api-emails')
+  })
+
   it('changes nothing in a manifest that is already closed', () => {
-    const manifest = { dependencies: { '@molecule/api-emails-capture': '1.0.0' } }
+    const manifest = { dependencies: { '@molecule/api-emails-mailgun': '1.0.0' } }
     closeMoleculePeers(manifest)
     const closed = JSON.stringify(manifest)
     expect(closeMoleculePeers(manifest)).toEqual([])
@@ -41,7 +48,7 @@ describe('closeMoleculePeers', () => {
 
   it('never re-declares a peer that devDependencies already holds', () => {
     const manifest = {
-      dependencies: { '@molecule/api-emails-capture': '1.0.0' },
+      dependencies: { '@molecule/api-emails-mailgun': '1.0.0' },
       devDependencies: { '@molecule/api-emails': '1.0.0' },
     }
     expect(closeMoleculePeers(manifest)).not.toContain('@molecule/api-emails')
