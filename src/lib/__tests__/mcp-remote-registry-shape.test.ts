@@ -229,6 +229,32 @@ describe('remote registry-backed tools — an unrecognized payload is reported, 
     expect(entry.packages).toEqual(['@molecule/api-x'])
   })
 
+  it('list_templates lists each template on one line, as mlcl templates does (OLD MUSTFAIL)', async (ctx) => {
+    if (skipped(ctx)) return
+    writeFileSync(
+      templatesFile,
+      JSON.stringify({
+        templates: {
+          blog: { label: 'Blog', description: 'Posts and comments', type: 'full-stack' },
+          'static-site': {
+            label: 'Static Site',
+            description: 'A site with no server',
+            type: 'static',
+          },
+        },
+      }),
+    )
+
+    const result = await callTool('list_templates', {})
+
+    expect(result.isError).toBeFalsy()
+    const lines = textOf(result).split('\n')
+    expect(lines[0]).toContain('2 templates.')
+    expect(lines).toContain(`  ${'blog'.padEnd(28)} Posts and comments`)
+    expect(lines).toContain(`  ${'static-site'.padEnd(28)} A site with no server (static)`)
+    expect(textOf(result)).not.toContain('"label"')
+  })
+
   it('list_templates fetches nothing for a slug the index does not name, inherited keys included', async (ctx) => {
     if (skipped(ctx)) return
     writeFileSync(templatesFile, JSON.stringify({ templates: { blog: { label: 'Blog' } } }))
@@ -272,7 +298,8 @@ describe('remote registry-backed tools — an unrecognized payload is reported, 
 
     const templates = await callTool('list_templates')
     expect(templates.isError).toBeFalsy()
-    expect(textOf(templates)).toContain('"slug": "blog"')
+    // No description: the line falls back to the label.
+    expect(textOf(templates)).toContain(`  ${'blog'.padEnd(28)} Blog`)
   })
 
   it('refuses a query long enough to make the scoring pass scale with its tokens', async (ctx) => {

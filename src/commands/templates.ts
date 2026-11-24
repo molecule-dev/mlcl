@@ -94,11 +94,11 @@ export default class Templates extends Command {
           .join('\n') +
         '\n',
     )
+    // One line per template: its slug, then its description. The label repeats the slug in
+    // words, so it is left out; so is the type of the full-stack majority.
     for (const [slug, t] of entries) {
-      this.log(
-        `  ${ui.id(slug.padEnd(28))} ${(t.label ?? slug) + (t.type ? ui.dim(` (${t.type})`) : '')}`,
-      )
-      if (t.description) this.log(`  ${''.padEnd(28)} ${ui.dim(t.description)}`)
+      const type = t.type && t.type !== 'full-stack' ? ui.dim(` (${t.type})`) : ''
+      this.log(`  ${ui.id(slug.padEnd(28))} ${t.description ?? t.label ?? ''}${type}`)
     }
     this.log('')
   }

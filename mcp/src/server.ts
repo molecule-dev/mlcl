@@ -858,10 +858,10 @@ server.registerTool(
     },
   },
   tracked('list_templates', async ({ slug }) =>
-    // `mlcl templates <slug>` refuses a slug that is not a template.
-    text(
-      await runCli(slug === undefined ? ['templates', '--json'] : ['templates', slug, '--json']),
-    ),
+    // `mlcl templates <slug>` refuses a slug that is not a template. The list comes as text, one
+    // line per template under the rules for choosing: its JSON form repeats each slug as a label
+    // and a create command, about 49 KB an agent reads before every new app.
+    text(await runCli(slug === undefined ? ['templates'] : ['templates', slug, '--json'])),
   ),
 )
 

@@ -5,6 +5,7 @@
  * `mlcl templates <slug>` prints that template's catalog, the document the rules say to judge fit
  * on.
  */
+import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 import { format, stripVTControlCharacters } from 'node:util'
 
@@ -70,6 +71,25 @@ describe('mlcl templates', () => {
   it('refuses a slug that is not a template, including an inherited object key', async () => {
     await expect(run(['no-such-template'])).rejects.toThrow(/No template "no-such-template"/)
     await expect(run(['constructor'])).rejects.toThrow(/No template "constructor"/)
+  })
+
+  // The list is read before every new app: as JSON it was 49 KB (each slug repeated as a label and
+  // a create command), and the text form gave each template a second line for its label.
+  it('lists each template on one line: its slug and its description (OLD MUSTFAIL)', async () => {
+    const registry = JSON.parse(
+      readFileSync(join(MLCL_ROOT, 'templates', 'apps', 'registry.json'), 'utf8'),
+    ) as { templates: Record<string, { label?: string; description?: string; type?: string }> }
+    const lines = (await run([])).split('\n')
+    const listed = lines.filter((line) => /^ {2}[a-z0-9-]+ +\S/.test(line))
+    expect(listed).toHaveLength(Object.keys(registry.templates).length)
+    for (const [slug, entry] of Object.entries(registry.templates)) {
+      const line = listed.find((candidate) => candidate.trimStart().startsWith(`${slug} `))
+      expect(line, slug).toContain(entry.description ?? '')
+      if (entry.type && entry.type !== 'full-stack') expect(line).toContain(`(${entry.type})`)
+      else expect(line).not.toContain('(full-stack)')
+    }
+    // No line holds a label alone, as the old second line per template did.
+    expect(lines.some((line) => line.trim() === '3D Model Viewer (full-stack)')).toBe(false)
   })
 
   it('keeps the JSON listing to template entries', async () => {

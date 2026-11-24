@@ -179,9 +179,9 @@ function script(file: string, body: string): void {
   chmodSync(file, 0o755)
 }
 
-/** A stand-in for the published CLI as npx caches it: answers `templates --json`. */
+/** A stand-in for the published CLI as npx caches it: names a template and echoes its arguments. */
 const fakeMlcl = (file: string, template: string): void =>
-  script(file, `echo '{"templates":[{"name":"${template}"}]}'`)
+  script(file, `echo '{"templates":[{"name":"${template}"}]}' "args: $*"`)
 
 describe('a CLI-backed tool on a machine with no global mlcl', () => {
   const saved = { PATH: process.env.PATH, MOLECULE_MCP_CLI: process.env.MOLECULE_MCP_CLI }
@@ -224,6 +224,8 @@ describe('a CLI-backed tool on a machine with no global mlcl', () => {
       expect(text).not.toMatch(/not found on PATH|could not be started/)
       expect(status).toBe('ok')
       expect(text).toContain('stand-in-template')
+      // The list is read as text, one line per template: its JSON form is about 49 KB.
+      expect(text).toMatch(/args: templates\s*$/)
     },
   )
 

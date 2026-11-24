@@ -624,17 +624,17 @@ export function buildRemoteServer(): McpServer {
           ),
         )
       }
-      const list = Object.entries(t.templates)
+      // One line per template, as `mlcl templates` prints it: the JSON form repeated each slug as
+      // a label and a create command, about 49 KB an agent reads before every new app.
+      const lines = Object.entries(t.templates)
         .sort(([a], [b]) => a.localeCompare(b))
-        .map(([slug, e]) => ({
-          slug,
-          label: e.label ?? slug,
-          description: e.description ?? '',
-          type: e.type ?? 'full-stack',
-          packageCount: e.packages?.length ?? 0,
-          create: `npx mlcl create my-app --template ${slug} --no-interactive`,
-        }))
-      return text(JSON.stringify(list, null, 2))
+        .map(([slug, e]) => {
+          const type = e.type && e.type !== 'full-stack' ? ` (${e.type})` : ''
+          return `  ${slug.padEnd(28)} ${e.description ?? e.label ?? ''}${type}`
+        })
+      return text(
+        `${lines.length} templates. Read a candidate's catalog with list_templates and its slug; scaffold one with npx mlcl create <name> --template <slug> --no-interactive.\n\n${lines.join('\n')}`,
+      )
     }),
   )
 
