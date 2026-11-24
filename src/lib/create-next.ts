@@ -10,7 +10,7 @@
  * @module
  */
 
-import { existsSync } from 'node:fs'
+import { existsSync, readdirSync } from 'node:fs'
 import { join, relative } from 'node:path'
 
 import { t } from './i18n.js'
@@ -20,6 +20,9 @@ const HANDLER_DIRS = ['api/src/handlers', 'src/handlers']
 
 /** Where a project's app pages live: the full-stack layout first, then a bare app. */
 const PAGE_DIRS = ['app/src/pages', 'src/pages']
+
+/** A page component file, in any framework the scaffold writes. */
+const PAGE_FILE = /\.(tsx|jsx|ts|vue|svelte)$/
 
 /**
  * The orientation lines for a scaffolded project, from the files on disk.
@@ -34,7 +37,23 @@ export function projectOrientation(projectPath: string): string[] {
   const handlers = HANDLER_DIRS.find((dir) => has(`${dir}/index.ts`))
   if (handlers) lines.push(t('commands.create.messages.orientationHandlers', { dir: handlers }))
   const pages = PAGE_DIRS.find(has)
-  if (pages) lines.push(t('commands.create.messages.orientationPages', { dir: pages }))
+  if (pages) {
+    lines.push(t('commands.create.messages.orientationPages', { dir: pages }))
+    // An agent told "add nothing else" read the scaffold's own pages (settings, password reset,
+    // about) as features it had added, and spent a minute and a half deleting them.
+    const count = readdirSync(join(projectPath, pages)).filter((file) =>
+      PAGE_FILE.test(file),
+    ).length
+    if (count > 0)
+      lines.push(
+        t(
+          handlers
+            ? 'commands.create.messages.orientationStarterWithApi'
+            : 'commands.create.messages.orientationStarter',
+          { count, dir: pages },
+        ),
+      )
+  }
   lines.push(t('commands.create.messages.orientationDocs'))
   lines.push(t('commands.create.messages.orientationCheck'))
   return lines

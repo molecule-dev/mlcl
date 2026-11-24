@@ -166,6 +166,10 @@ export const messages: LocaleMessages = {
   'commands.create.messages.orientationHandlers':
     'Endpoints: one file per feature in {dir}/, registered in {dir}/index.ts',
   'commands.create.messages.orientationPages': 'Pages: {dir}/',
+  'commands.create.messages.orientationStarter':
+    'It is a working app, not a blank one: its {count} pages in {dir}/ are part of the scaffold, not features you added. Build on them, and remove one only when the user asks for that.',
+  'commands.create.messages.orientationStarterWithApi':
+    'It is a working app, not a blank one: its {count} pages in {dir}/ and the API routes its packages mount are part of the scaffold, not features you added. Build on them, and remove one only when the user asks for that.',
   'commands.create.messages.orientationDocs':
     'Package docs: npx mlcl docs @molecule/<name> (--section <name> for one function or heading)',
   'commands.create.messages.orientationCheck': 'Before handing work back: npx mlcl check',
