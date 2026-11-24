@@ -100846,6 +100846,7 @@
         "ButtonProps",
         "InputType",
         "InputProps",
+        "FloatingInputProps",
         "TextareaProps",
         "SelectOption",
         "SelectProps",
