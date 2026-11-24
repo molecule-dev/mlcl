@@ -13,6 +13,7 @@ import { loadLocaleModule as aiChatLocales } from '@molecule/app-locales-ai-chat
 import { loadLocaleModule as authLocales } from '@molecule/app-locales-auth/loader.js'
 import { loadLocaleModule as authShellLocales } from '@molecule/app-locales-auth-shell/loader.js'
 import { loadLocaleModule as billingLocales } from '@molecule/app-locales-billing/loader.js'
+import { loadLocaleModule as clipboardLocales } from '@molecule/app-locales-clipboard/loader.js'
 import { loadLocaleModule as codeEditorLocales } from '@molecule/app-locales-code-editor/loader.js'
 import { loadLocaleModule as footerLocales } from '@molecule/app-locales-footer/loader.js'
 import { loadLocaleModule as formsLocales } from '@molecule/app-locales-forms/loader.js'
@@ -22,6 +23,7 @@ import { loadLocaleModule as iconsLocales } from '@molecule/app-locales-icons/lo
 import { loadLocaleModule as ideLocales } from '@molecule/app-locales-ide/loader.js'
 import { loadLocaleModule as lifecycleLocales } from '@molecule/app-locales-lifecycle/loader.js'
 import { loadLocaleModule as livePreviewLocales } from '@molecule/app-locales-live-preview/loader.js'
+import { loadLocaleModule as markdownLocales } from '@molecule/app-locales-markdown/loader.js'
 import { loadLocaleModule as oauthButtonsLocales } from '@molecule/app-locales-oauth-buttons/loader.js'
 import { loadLocaleModule as planUpdatedPageLocales } from '@molecule/app-locales-plan-updated-page/loader.js'
 import { loadLocaleModule as pushLocales } from '@molecule/app-locales-push/loader.js'
@@ -77,6 +79,8 @@ export const i18nProvider = setupI18nProvider({
     uiLocales,
     utilitiesLocales,
     versionLocales,
+    clipboardLocales,
+    markdownLocales,
   ],
 })
 

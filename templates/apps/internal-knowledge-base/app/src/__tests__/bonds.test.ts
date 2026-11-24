@@ -29,6 +29,14 @@ vi.mock('../bonds/app-analytics.js', async (importOriginal) => {
   }
 })
 
+vi.mock('../bonds/app-markdown-marked.js', async (importOriginal) => {
+  const actual = await importOriginal<Record<string, unknown>>()
+  return {
+    ...actual,
+    setupAppMarkdownMarked: vi.fn(actual.setupAppMarkdownMarked as () => unknown),
+  }
+})
+
 vi.mock('../bonds/app-theme-css-variables.js', async (importOriginal) => {
   const actual = await importOriginal<Record<string, unknown>>()
   return {
@@ -999,6 +1007,7 @@ const bondFiles = import.meta.glob<Record<string, unknown>>('../bonds/**/*.ts')
 /** The setups bonds/index.ts imported from project bond files when it was generated. */
 const wiredSetups: ReadonlyArray<readonly [file: string, name: string]> = [
   ['../bonds/app-analytics.ts', 'setupAppAnalytics'],
+  ['../bonds/app-markdown-marked.ts', 'setupAppMarkdownMarked'],
   ['../bonds/app-theme-css-variables.ts', 'setupAppThemeCssVariables'],
   ['../bonds/auth-default.ts', 'setupAuthDefault'],
   ['../bonds/http-client-fetch.ts', 'setupHttpClientFetch'],
