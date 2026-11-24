@@ -100796,6 +100796,7 @@
         "ScrollAreaProps",
         "SvgPaintProps",
         "SvgProps",
+        "SvgMarkupProps",
         "SvgPathProps",
         "SvgRectProps",
         "SvgCircleProps",
