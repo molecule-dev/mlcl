@@ -100805,6 +100805,7 @@
         "SvgPolyProps",
         "SvgGroupProps",
         "SvgTextProps",
+        "NativeGridClasses",
         "NativeClassSplit",
         "UIClassMapNativeSplit",
         "setProvider",
