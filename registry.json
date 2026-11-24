@@ -6143,8 +6143,7 @@
         "@molecule/api-channel"
       ],
       "moleculePeers": [
-        "@molecule/api-activity",
-        "@molecule/api-channel"
+        "@molecule/api-activity"
       ],
       "path": "packages/api/bonds/channel/capture",
       "intentHints": [
@@ -8684,8 +8683,7 @@
         "@molecule/api-emails"
       ],
       "moleculePeers": [
-        "@molecule/api-activity",
-        "@molecule/api-emails"
+        "@molecule/api-activity"
       ],
       "path": "packages/api/bonds/emails/capture",
       "intentHints": [
@@ -20188,8 +20186,7 @@
         "@molecule/api-push-notifications"
       ],
       "moleculePeers": [
-        "@molecule/api-activity",
-        "@molecule/api-push-notifications"
+        "@molecule/api-activity"
       ],
       "path": "packages/api/bonds/push-notifications/capture",
       "intentHints": [
@@ -29727,8 +29724,7 @@
         "@molecule/api-sms"
       ],
       "moleculePeers": [
-        "@molecule/api-activity",
-        "@molecule/api-sms"
+        "@molecule/api-activity"
       ],
       "path": "packages/api/bonds/sms/capture",
       "intentHints": [
@@ -32210,8 +32206,7 @@
         "@molecule/api-webhook"
       ],
       "moleculePeers": [
-        "@molecule/api-activity",
-        "@molecule/api-webhook"
+        "@molecule/api-activity"
       ],
       "path": "packages/api/bonds/webhook/capture",
       "intentHints": [
