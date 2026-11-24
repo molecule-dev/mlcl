@@ -6,7 +6,7 @@ This project was scaffolded with [mlcl](https://molecule.dev) — the Molecule.d
 
 - **Capabilities come from `@molecule/*` packages behind swappable bonds.** Before hand-rolling a feature, check for a package: `npx mlcl search <capability>` (or browse <https://www.molecule.dev/packages>). Install and wire one with `npx mlcl add @molecule/<name> --inject`.
 - **Project skills live in `.agents/skills/`** (the table under "Skills" says when to read each). Read `capability-first` before building a capability — it is the inspect → reuse → adapt → create order — `molecule-packages` for this project's package catalog, and the skill for the kind of code you are about to write (`api-patterns` for an endpoint, `database` for a query or migration, `styling` for a component) before writing it.
-- **Provider wiring lives in `src/bonds/`** (`api/src/bonds/`, `app/src/bonds/`). Swap a provider (PostgreSQL → MySQL, Mailgun → SES, one OAuth provider for another) with `npx mlcl swap @molecule/<new-provider>` (pass `-r @molecule/<old-provider-package>` when the category has several wired), or by editing the one bond file. Vendor SDKs normally live inside a bond, which keeps the app swappable; an SDK imported elsewhere works, it just ties that code to the vendor.
+- **Provider wiring lives in `src/bonds/`** (`api/src/bonds/`, `app/src/bonds/`): one file per wired package, named after it (`database-sqlite.ts`, `app-ui-tailwind.ts`), and `<category>-default.ts` for a core configured in place rather than swapped (`auth-default.ts` holds the auth client's options). The capability map below names each one's file (`Wired bond:`). Swap a provider (PostgreSQL → MySQL, Mailgun → SES, one OAuth provider for another) with `npx mlcl swap @molecule/<new-provider>` (pass `-r @molecule/<old-provider-package>` when the category has several wired), or by editing the one bond file. Vendor SDKs normally live inside a bond, which keeps the app swappable; an SDK imported elsewhere works, it just ties that code to the vendor.
 - **Read a package's docs before using it:** `npx mlcl docs @molecule/<name>`. Every `@molecule/*` package ships a generated README with its API, examples and wiring; a long one prints its overview and an index of its sections and exported names, `--section <name>` prints one in full, and `--search <term>` finds a literal in the README and type declarations.
 - **Styling** in the scaffolded components goes through the ClassMap bond — `getClassMap()` from `@molecule/app-ui` and its framework bindings — so a styling-library swap only touches that bond. Your own CSS and utility classes work too (pass raw classes through `cm.cn(...)`); they just won't follow a ClassMap swap.
 - **All user-facing text through i18n** — `t('key', values, { defaultValue })` with translations in the locale bonds; never hardcode strings in components.
@@ -75,8 +75,9 @@ to delete it) — do not "clean it up".
 
 - **Run the e2e specs** — every scaffold ships `app/e2e/` (or `e2e/`) with a
   working `playwright.config.ts` and a real browser via
-  `@molecule/app-e2e-playwright` (Chromium downloads on first run; no preview
-  tab needed — the specs run against the dev server or a built preview):
+  `@molecule/app-e2e-playwright` (`npx mlcl check --steps e2e` installs Chromium
+  on a machine without it; no preview tab needed — the runner starts the dev
+  server, and the API beside it, when nothing answers yet, or uses a running one):
   `npx playwright test e2e/<file>.spec.ts`. A requirement about an
   interaction or a painted state (hover, focus, scroll, a sticky bar, a
   phone-width layout) is proven only by driving the interaction and measuring
