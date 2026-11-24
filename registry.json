@@ -33,6 +33,44 @@
       "bondSetter": "setSink",
       "path": "packages/api/core/activity"
     },
+    "@molecule/api-activity-capture": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "utility",
+      "category": "activity",
+      "label": "Activity capture",
+      "description": "Records the email, SMS, push, webhook and channel messages your API sends in the molecule.dev Activity panel: captured in the dev sandbox, delivered and recorded in production.",
+      "stack": "api",
+      "exports": [
+        "setupActivityCapture"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-activity",
+        "@molecule/api-activity-http",
+        "@molecule/api-bond",
+        "@molecule/api-channel-capture",
+        "@molecule/api-emails-capture",
+        "@molecule/api-logger",
+        "@molecule/api-push-capture",
+        "@molecule/api-secrets",
+        "@molecule/api-sms-capture",
+        "@molecule/api-webhook-capture"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-logger",
+        "@molecule/api-secrets"
+      ],
+      "setupLast": "setupActivityCapture",
+      "path": "packages/api/utilities/activity-capture",
+      "intentHints": [
+        "activity panel",
+        "capture sent emails",
+        "record outgoing messages",
+        "sandbox email capture"
+      ]
+    },
     "@molecule/api-activity-console": {
       "language": "typescript",
       "runtime": "node",

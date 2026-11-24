@@ -656,6 +656,13 @@ export const MoleculeMetadata = z.object({
     .string()
     .optional()
     .describe('Short name for file/variable naming (avoids parsing package name)'),
+  setupLast: z
+    .string()
+    .optional()
+    .describe(
+      'An async function the API package exports that the generated setupBonds() awaits last, ' +
+        'after every provider is bonded, so it can wrap them (setupActivityCapture)',
+    ),
   optionalFeature: z.string().optional().describe('Feature flag name for optional route filtering'),
   decisionGuide: DecisionGuide.optional().describe(
     'Decision-time configuration guidance for this package; consumed by the generated capability map.',
@@ -1000,6 +1007,13 @@ export const RegistryEntry = z.object({
     .string()
     .optional()
     .describe('Short name for file/variable naming (avoids parsing package name)'),
+  setupLast: z
+    .string()
+    .optional()
+    .describe(
+      'An async function the API package exports that the generated setupBonds() awaits last, ' +
+        'after every provider is bonded, so it can wrap them (setupActivityCapture)',
+    ),
   optionalFeature: z.string().optional().describe('Feature flag name for optional route filtering'),
   generates: z
     .array(z.string())
