@@ -100922,7 +100922,8 @@
         "AccentTone",
         "UIClassMap",
         "extendClassMap",
-        "ClassMapOverrides"
+        "ClassMapOverrides",
+        "AriaBoolean"
       ],
       "secrets": [],
       "runtimeDependencies": [
