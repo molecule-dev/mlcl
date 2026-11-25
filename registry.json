@@ -44851,7 +44851,9 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/app-bond"
+        "@molecule/app-bond",
+        "@molecule/app-ui-react",
+        "react"
       ],
       "moleculePeers": [
         "@molecule/app-bond"
@@ -44866,7 +44868,18 @@
         "dnd",
         "kanban drag",
         "drag handles"
-      ]
+      ],
+      "subpathExports": {
+        "./react": [
+          "DragDropRenderer",
+          "DragDropRendererProvider",
+          "DragMoveControls",
+          "DragScopeProps",
+          "DragSourceProps",
+          "DragTargetProps",
+          "useDragDropRenderer"
+        ]
+      }
     },
     "@molecule/app-drag-drop-dndkit": {
       "language": "typescript",
@@ -59480,12 +59493,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-drag-drop",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-drag-drop",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
@@ -90738,7 +90753,7 @@
       "type": "feature",
       "category": "reorderable-list",
       "label": "Reorderable List React",
-      "description": "Vertical drag-handle reorder list with onReorder callback (HTML5 drag — mouse/pointer only, no touch)",
+      "description": "Vertical drag-handle reorder list with accessible move controls for React DOM and React Native",
       "stack": "app",
       "exports": [
         "ReorderableItem",
@@ -90747,12 +90762,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-drag-drop",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-drag-drop",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
