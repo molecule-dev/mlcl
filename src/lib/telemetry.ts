@@ -12,14 +12,20 @@
  *     Events carry: command name, outcome, duration, CLI/Node versions,
  *     platform/arch, and a random install id (uuid in ~/.mlcl/telemetry-id —
  *     delete the file to rotate it).
- *   - NEVER BREAKS THE CLI: every emit is fire-and-forget with a 5s timeout;
- *     failures are swallowed (logged only under MLCL_DEBUG=1).
+ *   - NEVER SLOWS OR BREAKS THE CLI: each event goes to a detached process
+ *     (./telemetry-send.ts), so the command exits without waiting on the network.
+ *     That process gives up after 5 s; failures are swallowed (shown only under
+ *     MLCL_DEBUG=1). Sent from the command's own process, an open request kept
+ *     Node from exiting: every command ended only when the collector answered,
+ *     5 s behind a firewall that drops packets (harness eval `add`, 2026-11-25).
  *   - NO-OP WITHOUT ENDPOINT: unset URL (or unreachable endpoint) = silence.
  */
+import { spawn } from 'node:child_process'
 import { randomUUID } from 'node:crypto'
 import { existsSync, mkdirSync, readFileSync, writeFileSync } from 'node:fs'
 import { homedir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, extname, join } from 'node:path'
+import { fileURLToPath } from 'node:url'
 
 import { apiBaseUrl } from './platform.js'
 
@@ -61,22 +67,58 @@ export function anonymousInstallId(): string {
   }
 }
 
-let providerReady = false
+/** This CLI's version, from its package.json (two levels up from both src/lib and dist/lib). */
+function cliVersion(): string {
+  try {
+    const manifest = JSON.parse(
+      readFileSync(new URL('../../package.json', import.meta.url), 'utf8'),
+    ) as { version?: unknown }
+    return typeof manifest.version === 'string' ? manifest.version : 'unknown'
+  } catch (_error) {
+    // A copy without its package.json still reports the event.
+    return 'unknown'
+  }
+}
 
-async function ensureProvider(): Promise<void> {
-  if (providerReady) return
-  providerReady = true
-  const { setProvider } = await import('@molecule/api-analytics')
-  const { createHttpAnalyticsProvider } = await import('@molecule/api-analytics-http')
-  setProvider(
-    createHttpAnalyticsProvider({
-      url: telemetryUrl(),
-      source: 'mlcl',
-      onError: (error) => {
-        if (process.env.MLCL_DEBUG === '1') console.error('[telemetry] emit failed:', error)
-      },
-    }),
-  )
+/** The flags of `argv` that load code before a module (`--import tsx`, `--require=x`). */
+function loaderFlags(argv: readonly string[]): string[] {
+  const kept: string[] = []
+  for (let i = 0; i < argv.length; i++) {
+    const flag = argv[i]!
+    if (
+      /^(--import|--require|-r|--loader|--experimental-loader)$/.test(flag) &&
+      i + 1 < argv.length
+    )
+      kept.push(flag, argv[++i]!)
+    else if (/^--(import|require|loader|experimental-loader)=/.test(flag)) kept.push(flag)
+  }
+  return kept
+}
+
+/**
+ * Hand one event to a detached `telemetry-send` process and return at once: nothing in this
+ * process waits for it, so the command exits on its own schedule.
+ *
+ * @param url - The collector endpoint.
+ * @param event - The event to send.
+ */
+function sendDetached(url: string, event: Record<string, unknown>): void {
+  const self = fileURLToPath(import.meta.url)
+  const ext = extname(self)
+  const sender = join(dirname(self), `telemetry-send${ext}`)
+  // From source (`.ts`), the loader this process runs under (tsx) runs the sender too. Only the
+  // loader flags pass on: an `-e` would run its code instead, an `--inspect` claim the debugger port.
+  const flags = ext === '.ts' ? loaderFlags(process.execArgv) : []
+  const debug = process.env.MLCL_DEBUG === '1'
+  const child = spawn(process.execPath, [...flags, sender, url, JSON.stringify(event)], {
+    detached: true,
+    stdio: ['ignore', 'ignore', debug ? 'inherit' : 'ignore'],
+    windowsHide: true,
+  })
+  child.on('error', (error) => {
+    if (debug) console.error('[telemetry] could not start the sender:', error)
+  })
+  child.unref()
 }
 
 export interface TelemetryEventProps {
@@ -113,42 +155,40 @@ export function publicPackageNames(value: string | undefined): string | undefine
   return kept.length > 0 ? kept.join(',') : undefined
 }
 
-/** Fire-and-forget event emission — resolves immediately; never throws. */
+/** Send the event from a detached process ({@link sendDetached}): returns at once, never throws. */
 export function trackCliEvent(props: TelemetryEventProps): void {
   if (!telemetryEnabled()) return
-  void (async () => {
-    try {
-      await ensureProvider()
-      const { track } = await import('@molecule/api-analytics')
-      await track({
-        name: 'cli.command',
-        anonymousId: anonymousInstallId(),
-        properties: {
-          command: props.command,
-          ok: props.ok,
-          durationMs: Math.round(props.durationMs),
-          errorName: props.errorName,
-          template: props.template,
-          packages: publicPackageNames(props.packages)?.slice(0, 200),
-          // A search query is free text a person typed: never sent.
-          harness: props.harness,
-          projectType: props.projectType,
-          framework: props.framework,
-          loginMethod: props.loginMethod,
-          deployOutcome: props.deployOutcome,
-          swapFrom: publicPackageNames(props.swapFrom)?.slice(0, 80),
-          swapTo: publicPackageNames(props.swapTo)?.slice(0, 80),
-          cliVersion: '2.0.0',
-          nodeMajor: Number.parseInt(process.versions.node.split('.')[0] ?? '0', 10),
-          platform: process.platform,
-          arch: process.arch,
-        },
-      })
-    } catch (_error) {
-      // Never break the CLI over telemetry — the bond already swallows emit
-      // failures; this guards the lazy-import/bonding path itself.
-    }
-  })()
+  const url = telemetryUrl()
+  if (!url) return
+  try {
+    sendDetached(url, {
+      name: 'cli.command',
+      anonymousId: anonymousInstallId(),
+      properties: {
+        command: props.command,
+        ok: props.ok,
+        durationMs: Math.round(props.durationMs),
+        errorName: props.errorName,
+        template: props.template,
+        packages: publicPackageNames(props.packages)?.slice(0, 200),
+        // A search query is free text a person typed: never sent.
+        harness: props.harness,
+        projectType: props.projectType,
+        framework: props.framework,
+        loginMethod: props.loginMethod,
+        deployOutcome: props.deployOutcome,
+        swapFrom: publicPackageNames(props.swapFrom)?.slice(0, 80),
+        swapTo: publicPackageNames(props.swapTo)?.slice(0, 80),
+        cliVersion: cliVersion(),
+        nodeMajor: Number.parseInt(process.versions.node.split('.')[0] ?? '0', 10),
+        platform: process.platform,
+        arch: process.arch,
+      },
+    })
+  } catch (error) {
+    // Never break the CLI over telemetry: a sender that cannot start (no process slots) loses one event.
+    if (process.env.MLCL_DEBUG === '1') console.error('[telemetry] not sent:', error)
+  }
 }
 
 /**
