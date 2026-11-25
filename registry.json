@@ -1577,14 +1577,12 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation"
       ],
       "moleculePeers": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation"
@@ -1617,14 +1615,12 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation"
       ],
       "moleculePeers": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation"
@@ -2487,7 +2483,6 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-logger",
@@ -2495,7 +2490,6 @@
       ],
       "moleculePeers": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-logger",
@@ -2656,14 +2650,12 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation"
       ],
       "moleculePeers": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation"
@@ -2788,7 +2780,6 @@
         "@molecule/api-ai",
         "@molecule/api-ai-embeddings",
         "@molecule/api-ai-vector-store",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation"
@@ -2797,7 +2788,6 @@
         "@molecule/api-ai",
         "@molecule/api-ai-embeddings",
         "@molecule/api-ai-vector-store",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation"
@@ -4754,7 +4744,6 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-http",
         "@molecule/api-i18n",
@@ -4762,7 +4751,6 @@
       ],
       "moleculePeers": [
         "@molecule/api-ai",
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-http",
         "@molecule/api-i18n",
@@ -22387,6 +22375,9 @@
         "create",
         "Handler",
         "Response",
+        "RequestMappingResult",
+        "RequestHandlerOptions",
+        "adaptHandler",
         "createRequestHandler",
         "del",
         "MoleculeRequest",
@@ -22398,12 +22389,13 @@
         "querySchema",
         "query",
         "read",
-        "ErrorFallback",
         "respondError",
-        "update",
-        "RequestMappingResult",
-        "RequestHandlerOptions",
-        "adaptHandler"
+        "ErrorFallback",
+        "getUserId",
+        "requireUser",
+        "getParamId",
+        "idParamSchema",
+        "update"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -24367,18 +24359,18 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-middleware-validation"
+        "@molecule/api-middleware-validation",
+        "@molecule/api-resource"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -24472,18 +24464,18 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-middleware-validation"
+        "@molecule/api-middleware-validation",
+        "@molecule/api-resource"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -24583,22 +24575,22 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-logger",
         "@molecule/api-middleware-validation",
         "@molecule/api-realtime",
+        "@molecule/api-resource",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-logger",
         "@molecule/api-middleware-validation",
-        "@molecule/api-realtime"
+        "@molecule/api-realtime",
+        "@molecule/api-resource"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -24843,19 +24835,19 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "@molecule/api-slug",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "@molecule/api-slug"
       ],
       "thirdPartyDependencies": {
@@ -25309,18 +25301,18 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-middleware-validation"
+        "@molecule/api-middleware-validation",
+        "@molecule/api-resource"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -25417,22 +25409,22 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-encryption",
         "@molecule/api-i18n",
         "@molecule/api-logger",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-encryption",
         "@molecule/api-i18n",
         "@molecule/api-logger",
-        "@molecule/api-middleware-validation"
+        "@molecule/api-middleware-validation",
+        "@molecule/api-resource"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -25530,18 +25522,18 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-middleware-validation"
+        "@molecule/api-middleware-validation",
+        "@molecule/api-resource"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -25630,18 +25622,18 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-middleware-validation"
+        "@molecule/api-middleware-validation",
+        "@molecule/api-resource"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -27197,18 +27189,18 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-middleware-validation"
+        "@molecule/api-middleware-validation",
+        "@molecule/api-resource"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -28345,18 +28337,18 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
-        "@molecule/api-middleware-validation"
+        "@molecule/api-middleware-validation",
+        "@molecule/api-resource"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -29401,20 +29393,20 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "@molecule/api-search",
         "@molecule/api-slug",
         "express",
         "zod"
       ],
       "moleculePeers": [
-        "@molecule/api-bonds-default-express",
         "@molecule/api-database",
         "@molecule/api-i18n",
         "@molecule/api-middleware-validation",
+        "@molecule/api-resource",
         "@molecule/api-search",
         "@molecule/api-slug"
       ],
