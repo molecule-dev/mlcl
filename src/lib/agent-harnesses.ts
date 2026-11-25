@@ -74,11 +74,36 @@ export const CODEX_MCP_TIMEOUT_LINES = [
   'tool_timeout_sec = 660',
 ] as const
 
+const NPM_CONFIG_KEYS = [
+  'registry',
+  'userconfig',
+  'globalconfig',
+  'cache',
+  'prefix',
+  'cafile',
+  'strict_ssl',
+  'proxy',
+  'https_proxy',
+  'noproxy',
+  'offline',
+  'prefer_offline',
+  'ignore_scripts',
+] as const
+
+const PLAYWRIGHT_ENV_KEYS = [
+  'PLAYWRIGHT_BROWSERS_PATH',
+  'PLAYWRIGHT_DOWNLOAD_HOST',
+  'PLAYWRIGHT_CHROMIUM_DOWNLOAD_HOST',
+  'PLAYWRIGHT_FIREFOX_DOWNLOAD_HOST',
+  'PLAYWRIGHT_WEBKIT_DOWNLOAD_HOST',
+  'PLAYWRIGHT_DOWNLOAD_CONNECTION_TIMEOUT',
+] as const
+
 /**
  * The environment variables the server's work reads, which Codex must hand it. Codex starts an MCP
  * server with a short list of its own (HOME, LANG, PATH, TERM and TMPDIR of the variables an eval
  * box sets, Codex 0.166) unless its table names more in `env_vars`, by exact name: a name not set is
- * skipped, and a pattern (`NPM_CONFIG_*`) matches nothing. Without the list, the proxy that reaches the network is gone, so `check_project`'s
+ * skipped, and a pattern (`NPM_CONFIG_*`) matches nothing. Without the list, `check_project`'s
  * Playwright browser install failed and the agent installed it from its own shell (harness eval
  * `check`, 2026-11-25), npm installs lose the registry and CA settings, and an opt-out
  * (`DO_NOT_TRACK=1`, `MOLECULE_TELEMETRY=0`) never reaches the server.
@@ -95,30 +120,47 @@ export const MCP_SERVER_ENV_VARS = [
   'DO_NOT_TRACK',
   'MLCL_CREDENTIALS_FILE',
   'MLCL_DEBUG',
+  'MLCL_REQUIRE_INJECT',
+  'MLCL_IDE_PREVIEW',
+  'MLCL_ACTIVITY_CAPTURE',
   'MOLECULE_MCP_CLI',
   'MOLECULE_MCP_CLI_TIMEOUT_MS',
+  'MOLECULE_MCP_NO_UPDATE',
+  'MOLECULE_PACKAGES_DIR',
   'MLCL_REGISTRY_PATH',
+  'MLCL_REGISTRY_LOCK_WAIT_MS',
   // The network: a proxy and its CA, which npm, Playwright and Node's fetch read.
   'HTTPS_PROXY',
   'HTTP_PROXY',
+  'ALL_PROXY',
   'NO_PROXY',
   'https_proxy',
   'http_proxy',
+  'all_proxy',
   'no_proxy',
   'NODE_USE_ENV_PROXY',
   'NODE_EXTRA_CA_CERTS',
-  // npm's own settings, in both spellings npm reads.
-  'NPM_CONFIG_REGISTRY',
-  'NPM_CONFIG_USERCONFIG',
-  'NPM_CONFIG_CACHE',
-  'NPM_CONFIG_PREFIX',
-  'npm_config_registry',
-  'npm_config_userconfig',
-  'npm_config_cache',
-  'npm_config_prefix',
+  'NODE_USE_SYSTEM_CA',
+  'SSL_CERT_FILE',
+  'SSL_CERT_DIR',
+  // npm normalizes these names after inheriting them from Codex.
+  ...NPM_CONFIG_KEYS.flatMap((key) => [`NPM_CONFIG_${key.toUpperCase()}`, `npm_config_${key}`]),
+  // Windows command resolution, home and browser cache, plus Linux's browser cache override.
+  'Path',
+  'PATHEXT',
+  'SystemRoot',
+  'SYSTEMROOT',
+  'ComSpec',
+  'COMSPEC',
+  'USERPROFILE',
+  'APPDATA',
+  'LOCALAPPDATA',
+  'TEMP',
+  'TMP',
+  'XDG_CACHE_HOME',
   // Where Playwright keeps and fetches its browsers.
-  'PLAYWRIGHT_BROWSERS_PATH',
-  'PLAYWRIGHT_DOWNLOAD_HOST',
+  ...PLAYWRIGHT_ENV_KEYS,
+  ...PLAYWRIGHT_ENV_KEYS.map((key) => `npm_config_${key.toLowerCase()}`),
 ] as const
 
 /**
@@ -546,7 +588,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
       const table = `mcp_servers.${MCP_SERVER_NAME}`
       const [command, ...args] = mcpServerCommand(scope, e)
       const commandLines = (bin: string, argv: readonly string[]): string[] => [
-        `command = "${bin}"`,
+        `command = ${JSON.stringify(bin)}`,
         `args = ${tomlStrings(argv)}`,
       ]
       const toml = (path: string): McpTarget => ({

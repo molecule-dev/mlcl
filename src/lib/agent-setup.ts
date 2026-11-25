@@ -301,7 +301,8 @@ const retireOwnedFile = (
  * Whether a TOML text already defines the dotted `table` (`mcp_servers.molecule`):
  * as a `[table]` / `[table.sub]` header, as a key inside its parent table
  * (`[mcp_servers]` then `molecule = {…}` or `molecule.command = …`), or as a
- * dotted key at the top level. Bare keys only, which is what Codex writes.
+ * dotted key at the top level. A quoted part (`[mcp_servers."molecule"]`, `"command" = …`) names
+ * the same key as the bare one.
  */
 export function tomlDefinesTable(text: string, table: string): boolean {
   let header = ''
@@ -310,27 +311,43 @@ export function tomlDefinesTable(text: string, table: string): boolean {
     if (!line) continue
     const heading = /^\[\[?\s*([^\]]+?)\s*\]\]?$/.exec(line)
     if (heading) {
-      header = heading[1].replace(/\s*\.\s*/g, '.')
+      header = tomlDottedName(heading[1])
       if (header === table || header.startsWith(`${table}.`)) return true
       continue
     }
-    const key = /^([A-Za-z0-9_.\-\s]+?)\s*=/.exec(line)?.[1].replace(/\s*\.\s*/g, '.')
+    const key = /^([\w.\-\s"']+?)\s*=/.exec(line)?.[1]
     if (!key) continue
-    const full = header ? `${header}.${key}` : key
+    const full = header ? `${header}.${tomlDottedName(key)}` : tomlDottedName(key)
     if (full === table || full.startsWith(`${table}.`)) return true
   }
   return false
 }
 
-/** The dotted name a TOML `[table]` / `[[table]]` heading line opens, or null for any other line. */
-const tomlHeading = (row: string): string | null =>
-  /^\[\[?\s*([^\]]+?)\s*\]\]?$/
-    .exec(row.replace(/#.*$/, '').trim())?.[1]
-    .replace(/\s*\.\s*/g, '.') ?? null
+/** A dotted TOML name with its spaces and the quotes of its simple parts removed: `a . "b"` → `a.b`. */
+const tomlDottedName = (name: string): string =>
+  name
+    .trim()
+    .replace(/\s*\.\s*/g, '.')
+    .replace(/(["'])([\w-]+)\1/g, '$2')
 
-/** The bare key a TOML `key = value` line sets, or null for any other line. */
-const tomlLineKey = (line: string): string | null =>
-  /^\s*([A-Za-z0-9_-]+)\s*=/.exec(line.replace(/#.*$/, ''))?.[1] ?? null
+/** The dotted name a TOML `[table]` / `[[table]]` heading line opens, or null for any other line. */
+const tomlHeading = (row: string): string | null => {
+  const name = /^\[\[?\s*([^\]]+?)\s*\]\]?$/.exec(row.replace(/#.*$/, '').trim())?.[1]
+  return name === undefined ? null : tomlDottedName(name)
+}
+
+/** The key a TOML `key = value` line sets, bare or quoted (`"command"`), or null for any other line. */
+const tomlLineKey = (line: string): string | null => {
+  const match = /^\s*(?:(["'])([\w-]+)\1|([\w-]+))\s*=/.exec(line.replace(/#.*$/, ''))
+  return match ? (match[2] ?? match[3]) : null
+}
+
+/**
+ * The setting a key holds: a timeout in seconds and the same timeout in milliseconds
+ * (`startup_timeout_sec`, `startup_timeout_ms`) are one setting, and the user's unit wins.
+ */
+const tomlSetting = (line: string): string | null =>
+  tomlLineKey(line)?.replace(/_(?:sec|ms)$/, '') ?? null
 
 /** A TOML line with its comment and every space removed, to compare one value with another. */
 const tomlLineValue = (line: string): string => line.replace(/#.*$/, '').replace(/\s+/g, '')
@@ -341,7 +358,8 @@ const tomlLineValue = (line: string): string => line.replace(/#.*$/, '').replace
  * goes at the end of the block, and every key it already sets keeps its value: a user's own command
  * or timeout wins. The exception is a block holding every line of `legacyLines` (an older setup's
  * command): those lines take the value `lines` gives their key. A table defined any other way
- * (dotted keys, an inline table) is left as it is.
+ * (dotted keys, an inline table), and a block that sets `url` (a streamable HTTP registration,
+ * which takes no command, timeouts or environment), are left as they are.
  */
 function ensureTomlTable(
   path: string,
@@ -362,6 +380,7 @@ function ensureTomlTable(
   let end = rows.findIndex((row, at) => at > start && tomlHeading(row) !== null)
   if (end < 0) end = rows.length
   const block = rows.slice(start + 1, end)
+  if (block.some((row) => tomlLineKey(row) === 'url')) return 'present'
   const legacy = new Set(legacyLines.map(tomlLineValue))
   let replaced = false
   if (
@@ -375,8 +394,8 @@ function ensureTomlTable(
       rows[at] = next
       replaced = true
     }
-  const set = new Set(rows.slice(start + 1, end).map(tomlLineKey))
-  const missing = lines.filter((line) => !set.has(tomlLineKey(line)))
+  const set = new Set(rows.slice(start + 1, end).map(tomlSetting))
+  const missing = lines.filter((line) => !set.has(tomlSetting(line)))
   if (missing.length === 0) {
     if (!replaced) return 'present'
     writeFileSync(path, rows.join('\n'))

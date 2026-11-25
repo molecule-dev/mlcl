@@ -733,12 +733,47 @@ ${split.more()}`,
     )
   })
 
-  it('leaves a table defined as an inline table alone', async () => {
+  it.each([
+    '[mcp_servers]\nmolecule = { command = "npx", args = ["-y", "molecule-mcp"] }\n',
+    '[mcp_servers]\nmolecule.command = "npx"\nmolecule.args = ["-y", "molecule-mcp"]\n',
+    'mcp_servers.molecule.command = "npx"\nmcp_servers.molecule.args = ["-y", "molecule-mcp"]\n',
+    '[mcp_servers.molecule.env]\nHTTPS_PROXY = "http://proxy.test:8080"\n',
+  ])('preserves a server without a standalone table block (%j)', async (before) => {
     mkdirSync(codexHome, { recursive: true })
-    const before = '[mcp_servers]\nmolecule = { command = "npx", args = ["-y", "molecule-mcp"] }\n'
     writeFileSync(config, before)
     expect(await apply(steps(['codex']))).toEqual(['present', 'present'])
     expect(readFileSync(config, 'utf8')).toBe(before)
+  })
+
+  it('preserves a quoted env_vars key in an existing table before adding other properties', async () => {
+    mkdirSync(codexHome, { recursive: true })
+    const before = `[mcp_servers."molecule"]\ncommand = "node"\nargs = ["${run()}"]\n'env_vars' = ["HTTPS_PROXY"]\n`
+    writeFileSync(config, before)
+    expect(await apply(steps(['codex']))).toEqual(['present', 'updated'])
+    const [primary] = readFileSync(config, 'utf8').split('[mcp_servers.molecule_more]')
+    expect(primary).toContain('\'env_vars\' = ["HTTPS_PROXY"]')
+    expect(primary).not.toContain('\nenv_vars =')
+    expect(primary).not.toContain('\n[mcp_servers.molecule]\n')
+    expect(primary).toContain('\ntool_timeout_sec = 660\n')
+    expect(await apply(steps(['codex']))).toEqual(['present', 'present'])
+  })
+
+  it('preserves a streamable HTTP registration', async () => {
+    mkdirSync(codexHome, { recursive: true })
+    const before = '[mcp_servers.molecule]\nurl = "https://molecule.test/mcp"\n'
+    writeFileSync(config, before)
+    expect(await apply(steps(['codex']))).toEqual(['present', 'present'])
+    expect(readFileSync(config, 'utf8')).toBe(before)
+  })
+
+  it('adds env_vars alongside quoted command keys and the millisecond startup timeout', async () => {
+    mkdirSync(codexHome, { recursive: true })
+    const before =
+      '[mcp_servers.molecule]\n"command" = "npx"\n"args" = ["-y", "molecule-mcp@0.3.0"]\nstartup_timeout_ms = 90000\n"tool_timeout_sec" = 900\n'
+    writeFileSync(config, before)
+    expect(await apply(steps(['codex']))).toEqual(['present', 'updated'])
+    expect(readFileSync(config, 'utf8')).toBe(`${before}${CODEX_MCP_ENV_LINE}\n`)
+    expect(await apply(steps(['codex']))).toEqual(['present', 'present'])
   })
 
   it('gives a tool call longer than the server lets the CLI run', async () => {
