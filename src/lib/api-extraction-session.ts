@@ -58,7 +58,7 @@ export function createApiExtractionSession(
   host.getDefaultLibLocation = () => '/node_modules/typescript/lib'
   host.getCanonicalFileName = (file) => resolve(file)
   host.useCaseSensitiveFileNames = () => true
-  host.getSourceFile = (file) => {
+  host.getSourceFile = (file, languageVersionOrOptions) => {
     const path = resolve(file)
     let source = files.get(path)
     if (source) {
@@ -68,9 +68,12 @@ export function createApiExtractionSession(
       if (!host.fileExists(path)) return undefined
       const text = host.readFile(path)
       if (text === undefined) return undefined
-      // Match ts-morph's parser: target + parent nodes, without the compiler
-      // host's extra module-detection options (which can turn scripts into modules).
-      source = ts.createSourceFile(path, text, compilerOptions.target!, true)
+      // Parse with the options the program passes, as tsc does: they carry the file's implied
+      // module format and module detection. A file in a "type": "module" package is a module
+      // without any import or export, so its `declare module 'x'` augments x; parsed as a script,
+      // it declared an ambient module that replaced x for the whole program (2026-11-25: every
+      // IconName read as any once @molecule/app-ide-panel-logic was in the program).
+      source = ts.createSourceFile(path, text, languageVersionOrOptions, true)
       const bytes = text.length * 2
       if (bytes <= MAX_CACHED_SOURCE_BYTES) {
         while (cachedSourceBytes + bytes > MAX_CACHED_SOURCE_BYTES) {
@@ -85,17 +88,8 @@ export function createApiExtractionSession(
     return source
   }
   host.resolveModuleNames = (names, from, _reused, redirected, options, sourceFile) => {
-    // ts-morph's parsed files have no implied NodeNext format. Recover the
-    // containing tree's format, including explicit type-import resolution modes.
-    const resolutionSource = sourceFile && {
-      ...sourceFile,
-      impliedNodeFormat:
-        sourceFile.impliedNodeFormat ??
-        ts.getImpliedNodeFormatForFile(from, undefined, host, options),
-    }
     return names.map((name, index) => {
-      const mode =
-        resolutionSource && ts.getModeForResolutionAtIndex(resolutionSource, index, options)
+      const mode = sourceFile && ts.getModeForResolutionAtIndex(sourceFile, index, options)
       const key = JSON.stringify([name, from, mode])
       if (resolutions.has(key)) return resolutions.get(key)
       const packageName = name.startsWith('@molecule/')

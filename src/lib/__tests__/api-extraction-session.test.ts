@@ -145,6 +145,20 @@ describe('independent package programs with shared compiler work', () => {
     expect(full.find((doc) => doc.name === second)!.md).toBe(alone[0].md)
   })
 
+  // 2026-11-25: @molecule/app-ide-panel-logic's import-free icon-names.ts was read as a script, so its
+  // `declare module '@molecule/app-icons'` replaced that module and vue-ui's README typed IconName as any.
+  it('reads an import-free declare module in a type: module package as an augmentation, as tsc does', async () => {
+    const { root, registry, dir } = await fixture()
+    await put(
+      join(dir(first), 'src/augmentation.ts'),
+      `declare module '${shared}' { interface Person { firstOnly: number } }\n`,
+    )
+    const md = (await generateDocs(registry, root, [first]))[0].md
+    expect(md).toContain('base: string')
+    expect(md).toContain('firstOnly: number')
+    expect(md).not.toContain('snapshot: any')
+  })
+
   it("retains each package's unimported global roots without leaking them to other packages", async () => {
     const { root, registry, dir } = await fixture()
     for (const [name, property] of [
