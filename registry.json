@@ -53649,13 +53649,11 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
-        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui",
-        "@molecule/app-ui-react"
+        "@molecule/app-ui"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -54115,13 +54113,11 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
-        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui",
-        "@molecule/app-ui-react"
+        "@molecule/app-ui"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -54391,14 +54387,12 @@
         "@molecule/app-feature-track-lane-react",
         "@molecule/app-react",
         "@molecule/app-ui",
-        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-feature-track-lane-react",
         "@molecule/app-react",
-        "@molecule/app-ui",
-        "@molecule/app-ui-react"
+        "@molecule/app-ui"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -86462,13 +86456,11 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
-        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui",
-        "@molecule/app-ui-react"
+        "@molecule/app-ui"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -106643,7 +106635,6 @@
         "TagListProps",
         "UseTagInputOptions",
         "TagInputFieldProps",
-        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -106699,7 +106690,6 @@
         "useTagInput",
         "UseTagInputOptions",
         "TagInputFieldProps",
-        "TagInputTextFieldProps",
         "UseTagInputResult"
       ],
       "secrets": [],
@@ -106758,7 +106748,6 @@
         "TagInputProps",
         "UseTagInputOptions",
         "TagInputFieldProps",
-        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -106809,7 +106798,6 @@
         "TagInputProps",
         "UseTagInputOptions",
         "TagInputFieldProps",
-        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -106860,7 +106848,6 @@
         "TagInputProps",
         "UseTagInputOptions",
         "TagInputFieldProps",
-        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -109290,7 +109277,6 @@
         "NativeGridClasses",
         "NativeClassSplit",
         "UIClassMapNativeSplit",
-        "fieldLayout",
         "OverlayTarget",
         "OverlayDismissReason",
         "OverlayLayerKind",
