@@ -5536,7 +5536,6 @@
       "label": "API Bonds Default (Express)",
       "description": "Default API bond setup for Express apps — per-concern setup functions plus a consolidated setup, wiring the byte-identical bond configuration (config-env, database, jwt, middleware, password, secrets, device, two-factor, and more) shared across the molecule fleet.",
       "stack": "api",
-      "selection": "scaffold-only",
       "exports": [
         "createBillingRouter",
         "getUserId",
@@ -30585,7 +30584,6 @@
       "label": "API Server Default (Express)",
       "description": "Default Express server factory: bonds setup, DB migrations, body/cookie/cors middleware, /api router mount, /health endpoint, 401 normalization, optional HTTPS via self-signed pem certs. Extracts 80-line server.ts shipped by 79 fleet apps.",
       "stack": "api",
-      "selection": "scaffold-only",
       "exports": [
         "TaggedError",
         "classifyTaggedError",
@@ -40300,7 +40298,6 @@
       "label": "App Bonds Default",
       "description": "Framework-neutral default app-side bond wirings (auth/http factories, state, fonts, storage, styling, theme, ClassMap, icons, clipboard, optional providers) shared by the per-framework @molecule/app-bonds-default-* packages.",
       "stack": "app",
-      "selection": "scaffold-only",
       "exports": [
         "createDefaultHttpClient",
         "createDefaultHttpClientWithAuthBearer",
@@ -40422,7 +40419,6 @@
       "label": "App Bonds Default (Angular)",
       "description": "Default app-side bond wirings for Angular: the framework-neutral defaults from @molecule/app-bonds-default plus the Angular router setup and bootstrapApp().",
       "stack": "app",
-      "selection": "scaffold-only",
       "exports": [
         "bootstrapApp",
         "setupAppRoutingAngularRouter",
@@ -40534,7 +40530,6 @@
       "label": "App Bonds Default (React)",
       "description": "Default app-side bond wirings for React + Tailwind ClassMap + react-router + localStorage + fonts + icons. Per-concern setup functions plus setupAllDefaultBonds, consolidating the byte-identical per-app bond wiring across the fleet.",
       "stack": "app",
-      "selection": "scaffold-only",
       "exports": [
         "createDefaultHttpClient",
         "createDefaultHttpClientWithAuthBearer",
@@ -40673,7 +40668,6 @@
       "label": "App Bonds Default (Solid)",
       "description": "Default app-side bond wirings for Solid: the framework-neutral defaults from @molecule/app-bonds-default plus the Solid router setup and bootstrapApp().",
       "stack": "app",
-      "selection": "scaffold-only",
       "exports": [
         "bootstrapApp",
         "setupAppRoutingSolidRouter",
@@ -40781,7 +40775,6 @@
       "label": "App Bonds Default (Svelte)",
       "description": "Default app-side bond wirings for Svelte: the framework-neutral defaults from @molecule/app-bonds-default plus the Svelte router setup and bootstrapApp().",
       "stack": "app",
-      "selection": "scaffold-only",
       "exports": [
         "bootstrapApp",
         "setupAppRoutingSvelteKit",
@@ -40887,7 +40880,6 @@
       "label": "App Bonds Default (Vue)",
       "description": "Default app-side bond wirings for Vue: the framework-neutral defaults from @molecule/app-bonds-default plus the Vue router setup and bootstrapApp().",
       "stack": "app",
-      "selection": "scaffold-only",
       "exports": [
         "bootstrapApp",
         "setupAppRoutingVueRouter",
@@ -63667,6 +63659,33 @@
         "click to edit",
         "editable text field"
       ]
+    },
+    "@molecule/app-inline-style-dom": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "utility",
+      "category": "ui",
+      "label": "Inline Style DOM",
+      "description": "React-compatible inline style serialization and DOM updates",
+      "stack": "app",
+      "exports": [
+        "CSSStyle",
+        "InlineStyleBinding",
+        "toCssPropertyName",
+        "reactStyleText",
+        "toStyleProps",
+        "bindInlineStyle"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [],
+      "moleculePeers": [],
+      "path": "packages/app/utilities/inline-style-dom",
+      "intentHints": [
+        "serialize React style objects to CSS",
+        "inline style property map",
+        "update and remove inline DOM styles"
+      ],
+      "quickStart": "import { bindInlineStyle, reactStyleText } from '@molecule/app-inline-style-dom'\n\nconst style = { marginTop: 8, opacity: 0.5, '--accentHue': 280 }\nconst attribute = reactStyleText(style)\nconst element = document.querySelector<HTMLElement>('[data-mol-id=\"preview\"]')\nif (element) {\n  const binding = bindInlineStyle(element, style)\n  binding.update({ marginTop: 0, opacity: 1 })\n}"
     },
     "@molecule/app-integration-card-angular": {
       "language": "typescript",
@@ -109811,7 +109830,9 @@
         "adoptHostDataMolId",
         "ReapplyRestAttributesOptions",
         "styleText",
+        "reactStyleText",
         "kebab",
+        "toStyleProps",
         "cn",
         "WebDragDirective",
         "WebHoverDirective",
@@ -109825,6 +109846,7 @@
         "@molecule/app-angular",
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-inline-style-dom",
         "@molecule/app-overlay-dom",
         "@molecule/app-pointer-events-dom",
         "@molecule/app-ui"
@@ -110401,12 +110423,15 @@
         "ToastProps",
         "TooltipProps",
         "cn",
+        "reactStyleText",
+        "toStyleProps",
         "webWheelZoom"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-inline-style-dom",
         "@molecule/app-overlay-dom",
         "@molecule/app-pointer-events-dom",
         "@molecule/app-solid",
@@ -110851,6 +110876,9 @@
         "UserMenuPopoverContextValue",
         "USER_MENU_POPOVER_CONTEXT",
         "cn",
+        "CSSStyle",
+        "reactStyle",
+        "reactStyleText",
         "getIconData",
         "statusIconMap",
         "webWheelZoom"
@@ -110859,6 +110887,7 @@
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-inline-style-dom",
         "@molecule/app-overlay-dom",
         "@molecule/app-pointer-events-dom",
         "@molecule/app-svelte",
@@ -111378,12 +111407,15 @@
         "TooltipPlacement",
         "TooltipProps",
         "cn",
+        "reactStyleProps",
+        "VueStyle",
         "vWebWheelZoom"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-inline-style-dom",
         "@molecule/app-overlay-dom",
         "@molecule/app-pointer-events-dom",
         "@molecule/app-ui",
