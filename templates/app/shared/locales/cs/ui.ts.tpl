@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Neznámé',
   'settings.logOut': 'Odhlásit se',
+  'userMenu.logOut': 'Odhlásit se',
   'settings.deleteAccount': 'Smazat účet',
   'settings.changePasswordModal.title': 'Změna hesla',
   'settings.changePasswordModal.error': 'Nepodařilo se změnit heslo.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Ověření předplatného selhalo.',
   'user.payment.unknownPlan': 'Neznámý plán.',
   'user.payment.invalidWebhookEvent': 'Neplatná událost webhooku.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Zapnuto',
+  'settings.twoFactorEnable': 'Umožnit',
+  'settings.twoFactorDisable': 'Zakázat',
+  'settings.twoFactorEnableTitle': 'Povolit dvoufaktorové ověřování',
+  'settings.twoFactorDisableTitle': 'Zakázat dvoufaktorové ověřování',
+  'settings.twoFactorScan':
+    'Naskenujte tento QR kód pomocí ověřovací aplikace a poté zadejte 6místný kód.',
+  'settings.twoFactorQrAlt': 'Dvoufázový QR kód',
+  'settings.twoFactorCode': 'Ověřovací kód',
+  'settings.twoFactorVerify': 'Ověřit a povolit',
+  'settings.twoFactorInvalidCode': 'Neplatný kód',
+  'settings.twoFactorUnavailable': 'Dvoufázové ověřování není pro tuto aplikaci k dispozici.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Upgradujte svůj tarif',
+  'settings.billing.subscribe': 'Upsat',
+  'settings.billing.checkoutFailed': 'Nepodařilo se zahájit platbu.',
+  'settings.billing.cancel': 'Zrušit',
+  'settings.billing.cancelConfirm': 'Zrušit předplatné?',
+  'settings.billing.cancelFailed': 'Nepodařilo se zrušit.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Vaši platbu jsme zatím nemohli potvrdit.',
+  'planUpdated.retry': 'Zkuste to znovu',
+{{/feature}}
 }

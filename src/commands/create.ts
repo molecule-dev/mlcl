@@ -1,3 +1,4 @@
+import { existsSync, readFileSync, rmSync } from 'node:fs'
 import { basename, isAbsolute, join } from 'node:path'
 
 import * as p from '@clack/prompts'
@@ -7,11 +8,22 @@ import { execa } from 'execa'
 
 import { AUTH_PRECONFIGURATION_GUIDANCE, readOpenApiAuthContract } from '../lib/auth-contract.js'
 import { readProjectCapabilityMap } from '../lib/capability-map.js'
-import { changeDirectoryStep, projectOrientation } from '../lib/create-next.js'
+import { runRecordedCheck } from '../lib/check-stop-hook.js'
+import {
+  changeDirectoryStep,
+  type CreateVerification,
+  projectOrientation,
+  requestedCapabilityMap,
+  summarizeVerification,
+  verificationFields,
+  verificationLines,
+} from '../lib/create-next.js'
 import { withHeartbeat } from '../lib/create-progress.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT, isDdlCompatibilityFailure } from '../lib/ddl-exit.js'
+import { providerTemplateVars } from '../lib/feature-files.js'
 import {
+  buildAppFeatureMenu,
   buildFeatureMenu,
   collectFeaturePackages,
   collectSecrets,
@@ -21,17 +33,19 @@ import {
   resolveLocalePackages,
   resolveTransitivePeers,
 } from '../lib/features.js'
-import { formatGeneratedFiles } from '../lib/format.js'
 import { t } from '../lib/i18n.js'
+import { writeInstallScriptEntries } from '../lib/install-scripts.js'
 import { declaredDependencies, newDeclarations } from '../lib/manifest-declarations.js'
 import { npmInstall } from '../lib/npm-install.js'
-import { frameworksAcceptedBy } from '../lib/package-search.js'
+import { deriveOptionalFeatures, featureTemplatePackages } from '../lib/optional-features.js'
+import { serviceWorkerPackageFor } from '../lib/peer-closure.js'
 import {
   getMoleculeVersion,
   loadAppFrameworks,
   loadRegistry,
   loadThemePresets,
   packagesByStack,
+  requirePackageByRole,
 } from '../lib/registry.js'
 import {
   addPackages,
@@ -47,10 +61,12 @@ import {
   generateEnvFile,
   generateFontHtml,
   getTemplateRequiredPackages,
+  getTemplatesDir,
   scaffoldSecurityWorkflow,
 } from '../lib/scaffold.js'
 import type { InferredPackage, MoleculeSecret } from '../lib/schema.js'
 import { createSpinner } from '../lib/spinner.js'
+import { applyStarterLock, readStarterLock } from '../lib/starter-lock.js'
 import { writeStopHooks } from '../lib/stop-hooks.js'
 import { ui } from '../lib/ui.js'
 
@@ -245,6 +261,14 @@ export default class Create extends Command {
       description: t('commands.create.flags.skipInstall'),
       default: false,
     }),
+    // An installed project runs its own check, and the result says what passed: an agent then has
+    // no reason to run it before changing anything. A caller that scaffolds in bulk and builds later
+    // passes --no-verify.
+    verify: Flags.boolean({
+      description: t('commands.create.flags.verify'),
+      default: true,
+      allowNo: true,
+    }),
     // A host that boots the project at once (molecule.dev's sandbox scaffold) needs the wiring
     // now: on 2026-11-14 a production scaffold whose injector refused one package exited 0 with
     // an app whose providers were never generated, and the failure surfaced only at the deploy's
@@ -261,6 +285,15 @@ export default class Create extends Command {
       description: t('commands.create.flags.idePreview'),
       default: false,
       env: 'MLCL_IDE_PREVIEW',
+    }),
+    // A molecule.dev project records the emails, SMS, push and webhooks it sends in the IDE's
+    // Activity panel; a project run anywhere else would carry the capture wiring and its packages
+    // for nothing. The host sets MLCL_ACTIVITY_CAPTURE=1, which an mlcl older than this flag
+    // ignores (it wires capture into every API).
+    'activity-capture': Flags.boolean({
+      description: t('commands.create.flags.activityCapture'),
+      default: false,
+      env: 'MLCL_ACTIVITY_CAPTURE',
     }),
     type: Flags.string({
       description: t('commands.create.flags.type'),
@@ -573,7 +606,7 @@ export default class Create extends Command {
           projectName,
           setupSqlVersions,
           apiAuthContract,
-          { idePreview: flags['ide-preview'] },
+          { idePreview: flags['ide-preview'], activityCapture: flags['activity-capture'] },
         )
         await ensureRootFormatterConfig(projectPath)
         // The template is copied as built, so its own shape decides the catalog
@@ -630,7 +663,7 @@ export default class Create extends Command {
             await this.runSlowStep(
               'npm install',
               t('commands.create.spinners.installing'),
-              () => npmInstall(projectPath),
+              () => npmInstall(projectPath, { wholeTree: true }),
               { json: flags.json === true },
             )
             say(ui.check('Installed dependencies.'))
@@ -641,6 +674,10 @@ export default class Create extends Command {
             )
           }
         }
+        const verification = installNeeded
+          ? null
+          : await this.verifyCreated(projectPath, flags.verify, { json: flags.json === true })
+        if (verification) for (const line of verificationLines(verification)) say(line)
         say('')
         say(ui.heading(t('commands.create.messages.nextSteps')))
         const cdStep = changeDirectoryStep(projectPath)
@@ -653,7 +690,7 @@ export default class Create extends Command {
           say(`  ${ui.cmd(step)}`)
         say(`  ${ui.dim('# edit api/.env and app/.env with your credentials')}`)
         say(`  ${ui.cmd('npm run dev')}`)
-        const orientation = projectOrientation(projectPath)
+        const orientation = projectOrientation(projectPath, verification?.ok === true)
         say('')
         say(ui.heading(t('commands.create.messages.orientation')))
         for (const line of orientation) say(`  ${line}`)
@@ -678,6 +715,7 @@ export default class Create extends Command {
                   cliVersion: this.config.version,
                 }),
                 capabilityMap: await readProjectCapabilityMap(projectPath),
+                ...verificationFields(verification),
                 next: orientation,
               },
               null,
@@ -796,20 +834,7 @@ export default class Create extends Command {
     // Build feature menus per stack
     const apiMenu =
       apiPackages.length > 0 ? buildFeatureMenu(apiPackages) : { alwaysInclude: [], features: [] }
-    const appMenu =
-      appPackages.length > 0 ? buildFeatureMenu(appPackages) : { alwaysInclude: [], features: [] }
-
-    // For app packages, keep the providers a project of this framework can import
-    // (a react-native-web project imports React providers too: frameworksAcceptedBy).
-    if (framework) {
-      const accepted = new Set(frameworksAcceptedBy(framework, loadAppFrameworks()))
-      for (const feature of appMenu.features) {
-        feature.providers = feature.providers.filter((prov) => {
-          const provFramework = prov.molecule?.framework
-          return !provFramework || accepted.has(provFramework)
-        })
-      }
-    }
+    const appMenu = buildAppFeatureMenu(appPackages, framework)
 
     // Merge always-include from both stacks
     const alwaysInclude = [...apiMenu.alwaysInclude, ...appMenu.alwaysInclude]
@@ -929,15 +954,7 @@ export default class Create extends Command {
     }
     if (apiAuthContract) extraVars.AUTH_CONTRACT_JSON = JSON.stringify(apiAuthContract)
     if (flags['ide-preview']) extraVars.IDE_PREVIEW = '1'
-    for (const name of selectedPackageNames) {
-      const pkg = allPackages.find((p) => p.name === name)
-      const bondWiring = pkg?.molecule?.bondWiring as
-        { type?: string; bondCategory?: string } | undefined
-      if (bondWiring?.type !== 'named' || !bondWiring.bondCategory) continue
-      const key = `${bondWiring.bondCategory.toUpperCase()}_PROVIDERS`
-      const shortName = name.split('-').pop()!
-      extraVars[key] = extraVars[key] ? `${extraVars[key]}, '${shortName}'` : `'${shortName}'`
-    }
+    Object.assign(extraVars, providerTemplateVars(selectedPackageNames, allPackages))
 
     // Step 7: Resolve full package list (template requirements + default providers)
     // Done before project creation so templates can adapt to selected providers.
@@ -947,6 +964,12 @@ export default class Create extends Command {
       log(`Template-required packages: ${templateRequired.join(', ') || '(none)'}`)
       selectedPackageNames.push(...templateRequired)
     }
+    // A molecule.dev project records what its API sends in the Activity panel. That is one
+    // package, whose setup call the generated bonds index awaits last (`setupLast`).
+    if (flags['activity-capture'] && (isFullStack || projectType === 'api')) {
+      const capture = requirePackageByRole('api', 'utility', 'activity')
+      if (!selectedPackageNames.includes(capture)) selectedPackageNames.push(capture)
+    }
     const bundledPackages = resolveFeatureBundledPackages(selectedPackageNames, allPackages)
     log(`Feature-bundled packages auto-resolved: ${bundledPackages.join(', ') || '(none)'}`)
     selectedPackageNames.push(...bundledPackages)
@@ -954,6 +977,20 @@ export default class Create extends Command {
     const defaultProviders = resolveDefaultProviders(selectedPackageNames, allPackages)
     log(`Default providers auto-resolved: ${defaultProviders.join(', ') || '(none)'}`)
     selectedPackageNames.push(...defaultProviders)
+
+    if (framework) {
+      // The packages only a feature's pages use (the OAuth buttons' auth-ui package), when the
+      // stack brings that feature: the same derivation the app templates and the API router use.
+      // Read after bundling, since a bundled package can bring a feature (a payments provider
+      // brings the billing routes, and with them the billing section).
+      const featurePackages = featureTemplatePackages(
+        join(getTemplatesDir(), 'app'),
+        framework,
+        deriveOptionalFeatures(selectedPackageNames, allPackages),
+      )
+      log(`Feature template packages: ${featurePackages.join(', ') || '(none)'}`)
+      selectedPackageNames.push(...featurePackages)
+    }
 
     // Theme preset resolution: swap default theme provider + add classMap provider
     const themePresets = loadThemePresets()
@@ -1009,6 +1046,15 @@ export default class Create extends Command {
       const dropped = selectedPackageNames.filter((name) => !kept.includes(name))
       selectedPackageNames.splice(0, selectedPackageNames.length, ...kept)
       log(`Static site: excluded ${dropped.join(', ') || '(none)'}`)
+    }
+    // Web push needs the service worker the PWA package registers, an optional peer of the push
+    // package: a selection that names push gets it here, the peer walk below never does.
+    const workerPackage = serviceWorkerPackageFor(
+      selectedPackageNames,
+      new Map(allPackages.map((p) => [p.name, p])),
+    )
+    if (workerPackage && !selectedPackageNames.includes(workerPackage)) {
+      selectedPackageNames.push(workerPackage)
     }
     const transitivePeers = resolveTransitivePeers(selectedPackageNames, allPackages)
     log(`Transitive peer companions auto-resolved: ${transitivePeers.join(', ') || '(none)'}`)
@@ -1210,7 +1256,7 @@ export default class Create extends Command {
           await this.runSlowStep(
             'npm install',
             t('commands.create.spinners.installing'),
-            () => npmInstall(projectPath),
+            () => npmInstall(projectPath, { wholeTree: true }),
             { json: flags.json === true, spinner },
           )
           spinner?.stop(t('commands.create.spinners.installed'))
@@ -1223,6 +1269,13 @@ export default class Create extends Command {
         }
       }
 
+      const verification = installNeeded
+        ? null
+        : await this.verifyCreated(projectPath, flags.verify, {
+            json: flags.json === true,
+            spinner,
+          })
+      if (verification) for (const line of verificationLines(verification)) say(line)
       say('')
       if (!nonInteractive) p.outro(chalk.green(t('commands.create.messages.success')))
       say('')
@@ -1240,7 +1293,7 @@ export default class Create extends Command {
       }))
         say(`  ${step}`)
       say('  npx wrangler dev')
-      const orientation = projectOrientation(projectPath)
+      const orientation = projectOrientation(projectPath, verification?.ok === true)
       say('')
       say(t('commands.create.messages.orientation'))
       for (const line of orientation) say(`  ${line}`)
@@ -1265,7 +1318,11 @@ export default class Create extends Command {
                 injectSkipped: [],
                 cliVersion: this.config.version,
               }),
-              capabilityMap: await readProjectCapabilityMap(projectPath),
+              capabilityMap: requestedCapabilityMap(
+                await readProjectCapabilityMap(projectPath),
+                flags.packages,
+              ),
+              ...verificationFields(verification),
               next: orientation,
             },
             null,
@@ -1317,17 +1374,17 @@ export default class Create extends Command {
       log(t('commands.create.spinners.addedPackages', { count: uniquePackages.length }))
     }
 
-    // The activity-capture packages the API wiring after inject declares, declared now so the
-    // install below fetches them (`addActivityCaptureDependencies`).
+    // AGENTS.md before the install, from the manifests so far: the README points an agent at it,
+    // and an agent reads the project while the install runs (r19 eval: Codex listed AGENTS.md
+    // a minute before create wrote it). It is written again once inject and the peer closure have
+    // declared the rest, unless something else changed it meanwhile.
+    let earlyAgentsMd: string | null = null
     {
-      const captureApiPath = isFullStack
-        ? join(projectPath, 'api')
-        : projectType === 'api'
-          ? projectPath
-          : null
-      if (captureApiPath) {
-        const { addActivityCaptureDependencies } = await import('../lib/scaffold.js')
-        await addActivityCaptureDependencies(captureApiPath)
+      const agentsMd = join(projectPath, 'AGENTS.md')
+      if (!existsSync(agentsMd)) {
+        const { ensureAgentsMd } = await import('../lib/scaffold.js')
+        await ensureAgentsMd(projectPath)
+        earlyAgentsMd = existsSync(agentsMd) ? readFileSync(agentsMd, 'utf8') : null
       }
     }
 
@@ -1337,12 +1394,29 @@ export default class Create extends Command {
     const declaredAtInstall = flags['skip-install']
       ? undefined
       : await declaredDependencies(projectPath)
+    // Install from mlcl's resolved lock for this framework: npm resolves only what the stack names
+    // beyond it, instead of the whole tree from nothing (lib/starter-lock.ts).
+    const lockFramework = projectType === 'api' ? undefined : framework
+    const starterLock =
+      !flags['skip-install'] &&
+      (projectType === 'full-stack' || projectType === 'api' || projectType === 'app') &&
+      applyStarterLock(projectPath, lockFramework) > 0
+    if (starterLock) log(t('commands.create.messages.starterLock'))
+    // With no install here, the project's own `npm install` gets the install-script decisions of
+    // the tree the starter lock describes (npmInstall writes them on every install mlcl runs).
+    if (
+      flags['skip-install'] &&
+      (projectType === 'full-stack' || projectType === 'api' || projectType === 'app')
+    )
+      writeInstallScriptEntries(projectPath, {
+        lock: readStarterLock(lockFramework)?.packages,
+      })
     if (!flags['skip-install']) {
       try {
         await this.runSlowStep(
           'npm install',
           t('commands.create.spinners.installing'),
-          () => npmInstall(projectPath),
+          () => npmInstall(projectPath, { wholeTree: true }),
           { json: flags.json === true, spinner },
         )
         spinner?.stop(t('commands.create.spinners.installed'))
@@ -1480,23 +1554,6 @@ export default class Create extends Command {
       }
     }
 
-    // Wire the IDE8 activity-capture PRODUCER into the just-generated API boot
-    // (custom builds + the package-driven flagship fallback). The baked flagship
-    // fast path wires it in copyTemplateInstance and returns before here, so this
-    // covers every OTHER path from one place. No-op outside the molecule.dev IDE
-    // (guarded on MOLECULE_ACTIVITY_URL); idempotent. App-only builds have no API.
-    {
-      const activityApiPath = isFullStack
-        ? join(projectPath, 'api')
-        : projectType === 'api'
-          ? projectPath
-          : null
-      if (activityApiPath) {
-        const { injectActivityCaptureBoot } = await import('../lib/scaffold.js')
-        await injectActivityCaptureBoot(activityApiPath)
-      }
-    }
-
     // Close the manifests' @molecule peers again now that every step that declares
     // packages has run: the closure above precedes `addPackages` and the capture
     // wiring, and the project installs with --legacy-peer-deps, which adds no peers.
@@ -1513,6 +1570,13 @@ export default class Create extends Command {
     // list the same packages, including peers the closure adds (api-resource-user).
     {
       const { ensureAgentsMd } = await import('../lib/scaffold.js')
+      const agentsMd = join(projectPath, 'AGENTS.md')
+      if (
+        earlyAgentsMd !== null &&
+        existsSync(agentsMd) &&
+        readFileSync(agentsMd, 'utf8') === earlyAgentsMd
+      )
+        rmSync(agentsMd)
       await ensureAgentsMd(projectPath)
     }
 
@@ -1596,20 +1660,21 @@ export default class Create extends Command {
     if (hasAppSubdir) await ensureRootFormatterConfig(projectPath)
 
     // The steps after the install declare packages too: inject (it plans against the installed
-    // copies), the activity-capture wiring (it needs the bonds inject writes) and the peer closure.
-    // A project handed back with packages its install never saw fails its first build: the capture
-    // wiring's packages stopped every custom full-stack API at TS2307 until someone ran
-    // `npm install`. Install once more when anything was declared since; npm adds only those.
+    // copies) and the peer closure. A project handed back with packages its install never saw
+    // fails its first build (TS2307 until someone runs `npm install`). Install once more when
+    // anything was declared since; npm adds only those.
     if (declaredAtInstall && !installNeeded) {
       const added = newDeclarations(declaredAtInstall, await declaredDependencies(projectPath))
       if (added.length > 0) {
         log(t('commands.create.messages.installingDeclaredLater', { count: added.length }))
+        // The first install pruned the lock entries of what it did not see declared.
+        if (starterLock) applyStarterLock(projectPath, lockFramework)
         try {
           await this.runSlowStep(
             'npm install',
             t('commands.create.spinners.installing'),
             // Seconds after the first install: its cache answers for everything but the new names.
-            () => npmInstall(projectPath, { preferOffline: true }),
+            () => npmInstall(projectPath, { preferOffline: true, wholeTree: true }),
             { json: flags.json === true, spinner },
           )
           spinner?.stop(t('commands.create.spinners.installed'))
@@ -1621,24 +1686,10 @@ export default class Create extends Command {
       }
     }
 
-    // Format the whole generated project, root files included. A --skip-install scaffold skips
-    // this pass: it formats every file (about 7.5 s for a full-stack React project) on a path
-    // that must stay fast, such as a hosting platform's per-project scaffold. Its output is kept
-    // formatter-clean at the source instead — the templates and generators themselves — and
-    // `scaffold-format-clean.test.ts` fails on any file a scaffold leaves for `prettier --write`.
-    if (!flags['skip-install']) {
-      spinner?.start(t('commands.create.spinners.formatting'))
-      try {
-        await formatGeneratedFiles(projectPath)
-        spinner?.stop(t('commands.create.spinners.formatted'))
-        log(t('commands.create.spinners.formatted'))
-      } catch (error) {
-        spinner?.stop(chalk.yellow(t('commands.create.spinners.formattingSkipped')))
-        this.warn(
-          `Prettier formatting failed: ${error instanceof Error ? error.message : String(error)}`,
-        )
-      }
-    }
+    // No formatter pass: a scaffold is written formatter-clean at the source (the templates and the
+    // generators), and inject formats the files it writes. Formatting the whole project cost 1.5-1.9 s
+    // of every installed create (r18 eval, 2026-11-24). `scaffold-format-clean.test.ts` fails on any
+    // file a scaffold leaves for `prettier --write`.
 
     // Run smoke tests (skip when --skip-install: no deps to test against)
     if (!flags['skip-install']) {
@@ -1673,6 +1724,14 @@ export default class Create extends Command {
         this.warn(`Smoke tests failed: ${error instanceof Error ? error.message : String(error)}`)
       }
     }
+    const verification =
+      flags['skip-install'] || installNeeded
+        ? null
+        : await this.verifyCreated(projectPath, flags.verify, {
+            json: flags.json === true,
+            spinner,
+          })
+    if (verification) for (const line of verificationLines(verification)) say(line)
 
     // Done
     if (apiAuthContract) say(AUTH_PRECONFIGURATION_GUIDANCE)
@@ -1707,7 +1766,7 @@ export default class Create extends Command {
       say(`  ${t('commands.create.messages.editEnv', { file })}`)
     }
     say(`  npm run dev`)
-    const orientation = projectOrientation(projectPath)
+    const orientation = projectOrientation(projectPath, verification?.ok === true)
     say('')
     say(
       nonInteractive
@@ -1743,7 +1802,11 @@ export default class Create extends Command {
               cliVersion: this.config.version,
             }),
             ...(apiAuthContract ? { authGuidance: AUTH_PRECONFIGURATION_GUIDANCE } : {}),
-            capabilityMap: await readProjectCapabilityMap(projectPath),
+            capabilityMap: requestedCapabilityMap(
+              await readProjectCapabilityMap(projectPath),
+              flags.packages,
+            ),
+            ...verificationFields(verification),
             next: orientation,
           },
           null,
@@ -1777,6 +1840,7 @@ export default class Create extends Command {
         label: f.label,
         hint: f.description,
       })),
+      initialValues: features.filter((f) => f.checked).map((f) => f.category),
       required: false,
     })
 
@@ -1832,6 +1896,31 @@ export default class Create extends Command {
       packages: [...new Set(packages)],
       secrets,
     }
+  }
+
+  /**
+   * Run the new project's own check (`mlcl check`'s default steps), recorded for the stop hook so
+   * the agent's first stop has nothing to re-run.
+   *
+   * @param projectPath - The installed project.
+   * @param run - False under --no-verify.
+   * @param progress - Where progress goes (the spinner, or stderr under --json).
+   * @returns What the check came to, or null when it did not run.
+   */
+  private async verifyCreated(
+    projectPath: string,
+    run: boolean,
+    progress: { json: boolean; spinner?: ReturnType<typeof p.spinner> | null },
+  ): Promise<CreateVerification | null> {
+    if (!run) return null
+    const result = await this.runSlowStep(
+      'mlcl check',
+      t('commands.create.spinners.verifying'),
+      () => runRecordedCheck(projectPath, {}),
+      progress,
+    )
+    progress.spinner?.stop(t('commands.create.spinners.verifying'))
+    return summarizeVerification(result)
   }
 
   /**

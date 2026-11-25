@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Офлайн',
   'settings.unknown': 'Неизвестно',
   'settings.logOut': 'Изход',
+  'userMenu.logOut': 'Изход',
   'settings.deleteAccount': 'Изтриване на акаунт',
   'settings.changePasswordModal.title': 'Смяна на парола',
   'settings.changePasswordModal.error': 'Неуспешна смяна на паролата.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Неуспешна верификация на абонамента.',
   'user.payment.unknownPlan': 'Неизвестен план.',
   'user.payment.invalidWebhookEvent': 'Невалидно уебхук събитие.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Включено',
+  'settings.twoFactorEnable': 'Активиране',
+  'settings.twoFactorDisable': 'Деактивиране',
+  'settings.twoFactorEnableTitle': 'Активиране на двуфакторно удостоверяване',
+  'settings.twoFactorDisableTitle': 'Деактивиране на двуфакторно удостоверяване',
+  'settings.twoFactorScan':
+    'Сканирайте този QR код с приложението си за удостоверяване, след което въведете 6-цифрения код.',
+  'settings.twoFactorQrAlt': 'Двуфакторен QR код',
+  'settings.twoFactorCode': 'Код за удостоверяване',
+  'settings.twoFactorVerify': 'Проверка и активиране',
+  'settings.twoFactorInvalidCode': 'Невалиден код',
+  'settings.twoFactorUnavailable': 'Двуфакторното удостоверяване не е налично за това приложение.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Надстройте плана си',
+  'settings.billing.subscribe': 'Абониране',
+  'settings.billing.checkoutFailed': 'Плащането не можа да започне.',
+  'settings.billing.cancel': 'Отказ',
+  'settings.billing.cancelConfirm': 'Да анулираме абонамента си?',
+  'settings.billing.cancelFailed': 'Не можа да се отмени.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Все още не успяхме да потвърдим плащането ви.',
+  'planUpdated.retry': 'Опитай отново',
+{{/feature}}
 }

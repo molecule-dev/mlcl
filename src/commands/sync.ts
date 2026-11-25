@@ -1,12 +1,42 @@
 import { execFileSync } from 'node:child_process'
-import { readdirSync, readFileSync, statSync } from 'node:fs'
+import { existsSync, readdirSync, readFileSync, statSync } from 'node:fs'
 import { join, relative, resolve, sep } from 'node:path'
 
 import { Args, Command, Flags } from '@oclif/core'
 
 import { sandboxExec, writeProjectFile } from '../lib/platform.js'
+import { requirePackageByRole } from '../lib/registry.js'
 import { ui } from '../lib/ui.js'
 import { projectFlag, requireAuth } from '../shared/project-flag.js'
+
+/**
+ * The line `mlcl sync` prints when the project's API does not record what it sends in the
+ * molecule.dev Activity panel, with the command that adds it. Sync never edits the tree itself.
+ *
+ * @param root - The project root being synced.
+ * @returns The line, or null when the API has the package or the project has no API.
+ */
+export function activityCaptureHint(root: string): string | null {
+  const capture = requirePackageByRole('api', 'utility', 'activity')
+  for (const [dir, cd] of [
+    [join(root, 'api'), 'cd api && '],
+    [root, ''],
+  ] as const) {
+    const index = join(dir, 'src', 'bonds', 'index.ts')
+    if (!existsSync(index) || !readFileSync(index, 'utf8').includes('function setupBonds('))
+      continue
+    let manifest: { dependencies?: Record<string, string> }
+    try {
+      manifest = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8')) as typeof manifest
+    } catch (_error) {
+      // No readable manifest: not an API mlcl can add a package to, so there is nothing to suggest.
+      continue
+    }
+    if (manifest.dependencies?.[capture]) return null
+    return `This API's emails, SMS, push and webhooks will not show in the Activity panel. To record them: ${cd}mlcl add ${capture} --inject`
+  }
+  return null
+}
 
 /** Directories never worth sending: installs, builds, VCS and tool output. */
 const SKIP_DIRS = new Set([
@@ -316,5 +346,7 @@ export default class Sync extends Command {
       )
       for (const f of skippedBinary) this.log(ui.dim(`  ${f}`))
     }
+    const hint = activityCaptureHint(root)
+    if (hint) this.log(ui.dim(`\n${hint}`))
   }
 }

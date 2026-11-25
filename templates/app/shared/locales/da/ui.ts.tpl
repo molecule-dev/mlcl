@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Ukendt',
   'settings.logOut': 'Log ud',
+  'userMenu.logOut': 'Log ud',
   'settings.deleteAccount': 'Slet konto',
   'settings.changePasswordModal.title': 'Skift adgangskode',
   'settings.changePasswordModal.error': 'Kunne ikke ændre adgangskoden.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Kunne ikke verificere abonnement.',
   'user.payment.unknownPlan': 'Ukendt plan.',
   'user.payment.invalidWebhookEvent': 'Ugyldig webhook-hændelse.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'På',
+  'settings.twoFactorEnable': 'Aktivér',
+  'settings.twoFactorDisable': 'Deaktiver',
+  'settings.twoFactorEnableTitle': 'Aktivér tofaktorgodkendelse',
+  'settings.twoFactorDisableTitle': 'Deaktiver tofaktorgodkendelse',
+  'settings.twoFactorScan':
+    'Scan denne QR-kode med din autentificeringsapp, og indtast derefter den 6-cifrede kode.',
+  'settings.twoFactorQrAlt': 'To-faktor QR-kode',
+  'settings.twoFactorCode': 'Godkendelseskode',
+  'settings.twoFactorVerify': 'Bekræft og aktiver',
+  'settings.twoFactorInvalidCode': 'Ugyldig kode',
+  'settings.twoFactorUnavailable': 'Tofaktorgodkendelse er ikke tilgængelig for denne app.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Opgrader din plan',
+  'settings.billing.subscribe': 'Abonner',
+  'settings.billing.checkoutFailed': 'Kunne ikke starte betaling.',
+  'settings.billing.cancel': 'Annuller',
+  'settings.billing.cancelConfirm': 'Opsige dit abonnement?',
+  'settings.billing.cancelFailed': 'Kunne ikke annullere.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Vi kunne ikke bekræfte din betaling endnu.',
+  'planUpdated.retry': 'Prøv igen',
+{{/feature}}
 }

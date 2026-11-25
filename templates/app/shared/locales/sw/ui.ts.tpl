@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Nje ya mtandao',
   'settings.unknown': 'Haijulikani',
   'settings.logOut': 'Toka',
+  'userMenu.logOut': 'Toka',
   'settings.deleteAccount': 'Futa akaunti',
   'settings.changePasswordModal.title': 'Badilisha Nenosiri',
   'settings.changePasswordModal.error': 'Imeshindwa kubadilisha nenosiri.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Imeshindwa kuthibitisha usajili.',
   'user.payment.unknownPlan': 'Mpango usiojulikana.',
   'user.payment.invalidWebhookEvent': 'Tukio la webhook batili.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Imewashwa',
+  'settings.twoFactorEnable': 'Washa',
+  'settings.twoFactorDisable': 'Zima',
+  'settings.twoFactorEnableTitle': 'Washa uthibitishaji wa vipengele viwili',
+  'settings.twoFactorDisableTitle': 'Zima uthibitishaji wa vipengele viwili',
+  'settings.twoFactorScan':
+    'Changanua msimbo huu wa QR ukitumia programu yako ya kithibitishaji, kisha weka msimbo wa tarakimu 6.',
+  'settings.twoFactorQrAlt': 'Msimbo wa QR wa vipengele viwili',
+  'settings.twoFactorCode': 'Nambari ya uthibitishaji',
+  'settings.twoFactorVerify': 'Thibitisha na uwashe',
+  'settings.twoFactorInvalidCode': 'Nambari batili',
+  'settings.twoFactorUnavailable':
+    'Uthibitishaji wa vipengele viwili haupatikani kwa programu hii.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Boresha mpango wako',
+  'settings.billing.subscribe': 'Jisajili',
+  'settings.billing.checkoutFailed': 'Haikuweza kuanza kulipa.',
+  'settings.billing.cancel': 'Ghairi',
+  'settings.billing.cancelConfirm': 'Ghairi usajili wako?',
+  'settings.billing.cancelFailed': 'Haikuweza kughairi.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Hatukuweza kuthibitisha malipo yako bado.',
+  'planUpdated.retry': 'Jaribu tena',
+{{/feature}}
 }

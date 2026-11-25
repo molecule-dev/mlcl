@@ -16,12 +16,19 @@ import { getClassMap, setClassMap } from '@molecule/app-ui'
 import { Button, Flex, Form } from '@molecule/app-ui-react'
 import { classMap } from '@molecule/app-ui-tailwind'
 
+import { readAppTemplate } from './helpers/app-templates.js'
+
 const templates = join(import.meta.dirname, '../../../templates')
 type PageRoute = router.RouteObject & { access?: 'public' | 'private'; layout?: 'none' }
 
 /** Execute the authored template; only external services and page contents are substituted. */
 function evaluate(file: string, dependency: (name: string) => unknown): Record<string, unknown> {
-  const source = readFileSync(join(templates, file), 'utf8')
+  // A custom app template (`app/<framework>/...`) is read as a scaffold with every feature writes it.
+  const [, framework, path] = /^app\/([^/]+)\/(.+)$/.exec(file) ?? []
+  const source =
+    framework && path
+      ? readAppTemplate(framework, path)
+      : readFileSync(join(templates, file), 'utf8')
   const compiled = ts.transpileModule(source, {
     compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
   })

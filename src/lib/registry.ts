@@ -1035,13 +1035,14 @@ export function getSharedCodeDir(framework: string): string | undefined {
 
 /**
  * Load pinned toolchain versions from the registry.
- * Returns shared, api, app, and moleculePackage dev dependency maps.
+ * Returns the shared, api, app, moleculePackage and postgres dev dependency maps.
  */
 export function loadToolchain(): {
   shared: Record<string, string>
   api: Record<string, string>
   app: Record<string, string>
   moleculePackage: Record<string, string>
+  postgres: Record<string, string>
 } {
   const registry = getRawRegistry()
   return {
@@ -1049,7 +1050,18 @@ export function loadToolchain(): {
     api: registry.toolchain?.api ?? {},
     app: registry.toolchain?.app ?? {},
     moleculePackage: registry.toolchain?.moleculePackage ?? {},
+    postgres: registry.toolchain?.postgres ?? {},
   }
+}
+
+/**
+ * The registry's install-script decisions: for each third-party package with an install script
+ * that a Molecule project can install, whether the script must run (`installScripts`).
+ *
+ * @returns The decisions by npm package name.
+ */
+export function loadInstallScriptDecisions(): Record<string, { run: boolean; reason: string }> {
+  return getRawRegistry().installScripts ?? {}
 }
 
 /**

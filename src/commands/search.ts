@@ -39,8 +39,13 @@ export function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
     description: pkg.description,
     exports: pkg.exports,
     framework: pkg.molecule?.framework,
+    // The hosted server passes the raw entry, which carries them: the framework a package is
+    // written for is read from them, and an equal score goes to the package others build on.
+    runtimeDependencies: pkg.molecule?.runtimeDependencies,
     intentHints: pkg.molecule?.intentHints,
     decisionGuide: pkg.molecule?.decisionGuide,
+    quickStart: pkg.molecule?.quickStart,
+    secrets: pkg.molecule?.secrets,
   }
 }
 
@@ -154,9 +159,13 @@ export default class Search extends Command {
       this.log(`  ${ui.id(hit.name)}  ${ui.badge(hit.stack, hit.category)}`)
       if (hit.description) this.log(`      ${ui.dim(hit.description)}`)
       this.log(`      ${ui.dim('add with:')} ${ui.cmd(installCommand(hit.name))}`)
+      if (hit.envVars) this.log(`      ${ui.dim('reads:')} ${hit.envVars.join(', ')}`)
+      // The first hits' Quick Start (package-search.ts, QUICK_START_HITS): which package and its call.
+      if (hit.quickStart)
+        for (const line of hit.quickStart.split('\n')) this.log(`      ${ui.dim('│')} ${line}`)
     }
     this.log(
-      `\n${ui.dim("Read a package's API before choosing or using it:")} ${ui.cmd('npx mlcl docs <name>')} ${ui.dim('(--section <name> for one function)')}`,
+      `\n${ui.dim("Read a package's doc before writing code against it or deciding not to use it:")} ${ui.cmd('npx mlcl docs <name>')} ${ui.dim('(--section "<heading>" for one function or heading)')}`,
     )
     this.log('')
   }

@@ -1,8 +1,5 @@
 // @vitest-environment jsdom
 
-import { readFileSync } from 'node:fs'
-import { join } from 'node:path'
-
 import * as React from 'react'
 import { act, createElement, type ReactNode } from 'react'
 import * as jsx from 'react/jsx-runtime'
@@ -13,6 +10,8 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import { usePromise, type UsePromiseState } from '@molecule/app-react'
 import { getClassMap, setClassMap, type UIClassMap } from '@molecule/app-ui'
 import { Form } from '@molecule/app-ui-react'
+
+import { readAppTemplate } from './helpers/app-templates.js'
 
 Object.assign(globalThis, { IS_REACT_ACT_ENVIRONMENT: true })
 const roots: Root[] = []
@@ -38,10 +37,7 @@ function page(
   submit: () => Promise<unknown>,
   navigate: ReturnType<typeof vi.fn>,
 ): React.ComponentType {
-  const source = readFileSync(
-    join(import.meta.dirname, `../../../templates/app/react/pages/${name}.tsx.tpl`),
-    'utf8',
-  )
+  const source = readAppTemplate('react', `pages/${name}.tsx.tpl`)
   const compiled = ts.transpileModule(source, {
     compilerOptions: {
       module: ts.ModuleKind.CommonJS,

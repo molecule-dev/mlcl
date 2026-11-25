@@ -118,6 +118,8 @@ describe('mlcl add --inject — setup-SQL compatibility preflight', () => {
     expect(output).toContain(DUCKDB)
     expect(output).toContain(`${COMMENT}:src/__setup__/comments.sql`)
     expect(output).toContain('ON DELETE CASCADE')
+    // The refusal is the one message: no "Failed to add" line after it.
+    expect(output).not.toContain('Failed to add')
     // The manifest is untouched — the whole point of the repair.
     expect(await readFile(join(dir, 'package.json'), 'utf-8')).toBe(manifestBefore)
     expect(handoff).not.toHaveBeenCalled()
@@ -167,6 +169,7 @@ describe('mlcl add --inject — setup-SQL compatibility preflight', () => {
     const { outcome, output, handoff } = await addWithInject(POSTGRESQL, `${COMMENT}@1.0.0`)
     expect((outcome as { oclif?: { exit?: number } }).oclif?.exit).toBe(1)
     expect(output).toContain('@1.0.0 is not available')
+    expect(output).not.toContain('Failed to add')
     expect(await readFile(join(dir, 'package.json'), 'utf-8')).toBe(manifestBefore)
     expect(handoff).not.toHaveBeenCalled()
   })
@@ -175,6 +178,9 @@ describe('mlcl add --inject — setup-SQL compatibility preflight', () => {
     const { outcome, output, handoff } = await addWithInject(POSTGRESQL, `${COMMENT}@^1.2.0`)
     expect((outcome as { oclif?: { exit?: number } }).oclif?.exit).toBe(1)
     expect(output).toContain('does not name one exact version')
+    // One failure line, naming the package: it used to be "Failed to add molecule", twice.
+    expect(output.match(/Failed to add/g)).toEqual(['Failed to add'])
+    expect(output).toContain(`Failed to add ${COMMENT}`)
     expect(await readFile(join(dir, 'package.json'), 'utf-8')).toBe(manifestBefore)
     expect(handoff).not.toHaveBeenCalled()
   })

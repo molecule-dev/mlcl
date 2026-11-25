@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ഓഫ്‌ലൈന്‍',
   'settings.unknown': 'അജ്ഞാതം',
   'settings.logOut': 'ലോഗ് ഔട്ട്',
+  'userMenu.logOut': 'ലോഗ് ഔട്ട്',
   'settings.deleteAccount': 'അക്കൗണ്ട് ഇല്ലാതാക്കുക',
   'settings.changePasswordModal.title': 'പാസ്‌വേഡ് മാറ്റുക',
   'settings.changePasswordModal.error': 'പാസ്‌വേഡ് മാറ്റുന്നതില്‍ പരാജയപ്പെട്ടു.',
@@ -241,4 +242,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'സബ്‌സ്‌ക്രിപ്ഷൻ സ്ഥിരീകരിക്കുന്നതിൽ പരാജയപ്പെട്ടു.',
   'user.payment.unknownPlan': 'അജ്ഞാത പ്ലാൻ.',
   'user.payment.invalidWebhookEvent': 'അസാധുവായ വെബ്‌ഹുക്ക് ഇവന്റ്.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ഓൺ',
+  'settings.twoFactorEnable': 'പ്രാപ്തമാക്കുക',
+  'settings.twoFactorDisable': 'പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorEnableTitle': 'രണ്ട്-ഘടക പ്രാമാണീകരണം പ്രാപ്തമാക്കുക',
+  'settings.twoFactorDisableTitle': 'ടു-ഫാക്ടർ പ്രാമാണീകരണം പ്രവർത്തനരഹിതമാക്കുക',
+  'settings.twoFactorScan':
+    'നിങ്ങളുടെ ഓതന്റിക്കേറ്റർ ആപ്പ് ഉപയോഗിച്ച് ഈ QR കോഡ് സ്കാൻ ചെയ്യുക, തുടർന്ന് 6 അക്ക കോഡ് നൽകുക.',
+  'settings.twoFactorQrAlt': 'ടു-ഫാക്ടർ QR കോഡ്',
+  'settings.twoFactorCode': 'പ്രാമാണീകരണ കോഡ്',
+  'settings.twoFactorVerify': 'പരിശോധിച്ചുറപ്പിക്കുക, പ്രാപ്തമാക്കുക',
+  'settings.twoFactorInvalidCode': 'കോഡ് അസാധുവാണ്',
+  'settings.twoFactorUnavailable': 'ഈ ആപ്പിന് ടു-ഫാക്ടർ പ്രാമാണീകരണം ലഭ്യമല്ല.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'നിങ്ങളുടെ പ്ലാൻ അപ്‌ഗ്രേഡ് ചെയ്യുക',
+  'settings.billing.subscribe': 'സബ്സ്ക്രൈബ് ചെയ്യുക',
+  'settings.billing.checkoutFailed': 'ചെക്ക്ഔട്ട് ആരംഭിക്കാൻ കഴിഞ്ഞില്ല.',
+  'settings.billing.cancel': 'റദ്ദാക്കുക',
+  'settings.billing.cancelConfirm': 'നിങ്ങളുടെ സബ്‌സ്‌ക്രിപ്‌ഷൻ റദ്ദാക്കണോ?',
+  'settings.billing.cancelFailed': 'റദ്ദാക്കാൻ കഴിഞ്ഞില്ല.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'നിങ്ങളുടെ പേയ്‌മെന്റ് ഞങ്ങൾക്ക് ഇതുവരെ സ്ഥിരീകരിക്കാൻ കഴിഞ്ഞില്ല.',
+  'planUpdated.retry': 'വീണ്ടും ശ്രമിക്കുക',
+{{/feature}}
 }

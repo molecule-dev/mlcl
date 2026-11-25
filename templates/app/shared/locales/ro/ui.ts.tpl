@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Necunoscut',
   'settings.logOut': 'Deconectare',
+  'userMenu.logOut': 'Deconectare',
   'settings.deleteAccount': 'Șterge contul',
   'settings.changePasswordModal.title': 'Schimbă parola',
   'settings.changePasswordModal.error': 'Nu s-a putut schimba parola.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Nu s-a putut verifica abonamentul.',
   'user.payment.unknownPlan': 'Plan necunoscut.',
   'user.payment.invalidWebhookEvent': 'Eveniment webhook invalid.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Activată',
+  'settings.twoFactorEnable': 'Permite',
+  'settings.twoFactorDisable': 'Dezactivare',
+  'settings.twoFactorEnableTitle': 'Activați autentificarea cu doi factori',
+  'settings.twoFactorDisableTitle': 'Dezactivați autentificarea cu doi factori',
+  'settings.twoFactorScan':
+    'Scanați acest cod QR cu aplicația de autentificare, apoi introduceți codul de 6 cifre.',
+  'settings.twoFactorQrAlt': 'Cod QR cu doi factori',
+  'settings.twoFactorCode': 'Cod de autentificare',
+  'settings.twoFactorVerify': 'Verificați și activați',
+  'settings.twoFactorInvalidCode': 'Cod nevalid',
+  'settings.twoFactorUnavailable':
+    'Autentificarea cu doi factori nu este disponibilă pentru această aplicație.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Actualizați-vă planul',
+  'settings.billing.subscribe': 'Abonează-te',
+  'settings.billing.checkoutFailed': 'Nu s-a putut iniția plata.',
+  'settings.billing.cancel': 'Anulați',
+  'settings.billing.cancelConfirm': 'Anulați abonamentul?',
+  'settings.billing.cancelFailed': 'Nu s-a putut anula.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Nu am putut încă să vă confirmăm plata.',
+  'planUpdated.retry': 'Încearcă din nou',
+{{/feature}}
 }

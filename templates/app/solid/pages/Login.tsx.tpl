@@ -7,8 +7,12 @@ import { Button, Flex, Form } from '@molecule/app-ui-solid'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
+{{#feature oauth}}
 import { OAuthButtons } from '../components/OAuthButtons.js'
+{{/feature}}
+{{#feature footer}}
 import { Footer } from '../components/Footer.js'
+{{/feature}}
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 export function Login() {
@@ -21,7 +25,9 @@ export function Login() {
   const { isAuthenticated } = useAuth()
   const [email, setEmail] = createSignal('')
   const [password, setPassword] = createSignal('')
+{{#feature two-factor}}
   const [twoFactorToken, setTwoFactorToken] = createSignal('')
+{{/feature}}
 
   // Route into the app whenever a session exists — covers the OAuth callback
   // completing on this page (its exchange sets auth state without a submit)
@@ -31,6 +37,7 @@ export function Login() {
   })
 
   const handleSubmit = async () => {
+{{#feature two-factor}}
     // The 2FA field is always rendered; only send a token when the user
     // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
     // stays on this page until a valid code is entered).
@@ -41,6 +48,10 @@ export function Login() {
       ...(token ? { twoFactorToken: token } : {}),
     })
     if (result.twoFactorRequired) return
+{{/feature}}
+{{^feature two-factor}}
+    await login({ email: email(), password: password() })
+{{/feature}}
     navigate(from, { replace: true })
   }
 
@@ -93,6 +104,7 @@ export function Login() {
                 placeholder={t('auth.login.password')}
               />
             </div>
+{{#feature two-factor}}
             <div class={cm.authField}>
               <FloatingInput
                 type="number"
@@ -102,6 +114,7 @@ export function Login() {
                 placeholder={t('auth.login.twoFactor')}
               />
             </div>
+{{/feature}}
             <div class={cm.authButtonRow}>
               <Button
                 type="button"
@@ -123,6 +136,7 @@ export function Login() {
               </Button>
             </div>
           </Form>
+{{#feature emails}}
           <div class={cm.authAfterSubmit}>
             <button
               type="button"
@@ -132,10 +146,15 @@ export function Login() {
               {t('auth.login.forgotPassword')}
             </button>
           </div>
+{{/feature}}
+{{#feature oauth}}
           <OAuthButtons />
+{{/feature}}
         </div>
       </main>
+{{#feature footer}}
       <Footer />
+{{/feature}}
     </div>
   )
 }

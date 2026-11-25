@@ -67,6 +67,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ອອບລາຍ',
   'settings.unknown': 'ບໍ່ຮູ້',
   'settings.logOut': 'ອອກຈາກລະບົບ',
+  'userMenu.logOut': 'ອອກຈາກລະບົບ',
   'settings.deleteAccount': 'ລຶບບັນຊີ',
   'settings.changePasswordModal.title': 'ປ່ຽນລະຫັດຜ່ານ',
   'settings.changePasswordModal.error': 'ປ່ຽນລະຫັດຜ່ານບໍ່ສຳເລັດ.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'ບໍ່ສາມາດຢືນຢັນການສະໝັກສະມາຊິກໄດ້.',
   'user.payment.unknownPlan': 'ແຜນບໍ່ຮູ້ຈັກ.',
   'user.payment.invalidWebhookEvent': 'ເຫດການ webhook ບໍ່ຖືກຕ້ອງ.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ເປີດ',
+  'settings.twoFactorEnable': 'ເປີດໃຊ້',
+  'settings.twoFactorDisable': 'ປິດການໃຊ້ງານ',
+  'settings.twoFactorEnableTitle': 'ເປີດໃຊ້ການພິສູດຢືນຢັນສອງປັດໄຈ',
+  'settings.twoFactorDisableTitle': 'ປິດການພິສູດຢືນຢັນສອງປັດໄຈ',
+  'settings.twoFactorScan':
+    'ສະແກນລະຫັດ QR ນີ້ດ້ວຍແອັບຕົວພິສູດຢືນຢັນຕົວຕົນຂອງທ່ານ, ຈາກນັ້ນໃສ່ລະຫັດ 6 ຕົວເລກ.',
+  'settings.twoFactorQrAlt': 'ລະຫັດ QR ສອງປັດໄຈ',
+  'settings.twoFactorCode': 'ລະຫັດການພິສູດຢືນຢັນຕົວຕົນ',
+  'settings.twoFactorVerify': 'ຢືນຢັນ ແລະ ເປີດໃຊ້',
+  'settings.twoFactorInvalidCode': 'ລະຫັດບໍ່ຖືກຕ້ອງ',
+  'settings.twoFactorUnavailable': 'ການພິສູດຢືນຢັນສອງປັດໄຈບໍ່ສາມາດໃຊ້ໄດ້ສຳລັບແອັບນີ້.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'ອັບເກຣດແຜນການຂອງທ່ານ',
+  'settings.billing.subscribe': 'ສະໝັກສະມາຊິກ',
+  'settings.billing.checkoutFailed': 'ບໍ່ສາມາດເລີ່ມການຈ່າຍເງິນໄດ້.',
+  'settings.billing.cancel': 'ຍົກເລີກ',
+  'settings.billing.cancelConfirm': 'ຍົກເລີກການສະໝັກໃຊ້ຂອງທ່ານບໍ?',
+  'settings.billing.cancelFailed': 'ບໍ່ສາມາດຍົກເລີກໄດ້.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'ພວກເຮົາບໍ່ສາມາດຢືນຢັນການຈ່າຍເງິນຂອງທ່ານໄດ້ເທື່ອ.',
+  'planUpdated.retry': 'ລອງໃໝ່ອີກຄັ້ງ',
+{{/feature}}
 }

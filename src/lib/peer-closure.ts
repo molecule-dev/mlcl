@@ -18,7 +18,7 @@
  */
 
 import { resolveLocalePackages } from './features.js'
-import { getMoleculeVersion, loadRegistry } from './registry.js'
+import { getMoleculeVersion, loadRegistry, requirePackageByRole } from './registry.js'
 import type { InferredPackage } from './schema.js'
 
 /**
@@ -100,6 +100,63 @@ function closePeers(
       missing.push(peer)
     }
   }
+}
+
+/**
+ * The package that registers the app's service worker, when a package the user chose needs it.
+ *
+ * Web push (`generates: ['service-worker-push']`, `@molecule/app-push`) works only in an app
+ * that registers a service worker, and the PWA package that registers it is an OPTIONAL peer:
+ * every app with a framework binding holds `@molecule/app-push` because the binding exposes its
+ * hooks, and a peer walk must not install the worker's build toolchain (vite-plugin-pwa and
+ * workbox, about 190 packages) into an app that sends no push. So the worker comes with a
+ * deliberate choice of the push package (`mlcl create --packages`, `mlcl add`), never with a
+ * peer walk.
+ *
+ * @param chosen - The packages the user named, before any peer closure.
+ * @param registryPackages - The registry by name; read from `registry.json` when omitted.
+ * @returns The worker package's name when a chosen package needs it, else `undefined`.
+ */
+export function serviceWorkerPackageFor(
+  chosen: Iterable<string>,
+  registryPackages: Map<string, InferredPackage> = new Map(loadRegistry().map((p) => [p.name, p])),
+): string | undefined {
+  const needsWorker = [...chosen].some((name) =>
+    (registryPackages.get(name)?.molecule?.generates ?? []).includes('service-worker-push'),
+  )
+  return needsWorker ? requirePackageByRole('app', 'feature', 'pwa-default') : undefined
+}
+
+/** Peer types whose wiring is a project file: a provider's bond setup, a locale bond's registration. */
+const WIRED_PEER_TYPES = new Set(['provider', 'locales'])
+
+/**
+ * The packages `mlcl add --inject` hands to `mlcl inject`: the one the user named, then the
+ * `@molecule/*` packages `add` declared with it whose wiring is a project file: each provider
+ * (its bond setup) and locale bond (its registration), and the service worker package push needs.
+ * Cores, middleware cores and infrastructure have no wiring of their own; their providers do it.
+ *
+ * Injecting the named package alone left its required providers installed but never bonded:
+ * `mlcl add @molecule/api-uploads-filesystem --inject` declared the body parser and its Express
+ * provider, and the first upload failed with "No upload parser factory has been bonded".
+ *
+ * @param named - The package the user named.
+ * @param declared - The packages `add` declared with it (its missing peers, and the worker).
+ * @param registryPackages - The registry by name; read from `registry.json` when omitted.
+ * @returns The named package first, then the declared ones to wire, in declaration order.
+ */
+export function moleculesToInject(
+  named: string,
+  declared: Iterable<string>,
+  registryPackages: Map<string, InferredPackage> = new Map(loadRegistry().map((p) => [p.name, p])),
+): string[] {
+  const worker = serviceWorkerPackageFor([named], registryPackages)
+  const wired = [...declared].filter(
+    (name) =>
+      name !== named &&
+      (name === worker || WIRED_PEER_TYPES.has(registryPackages.get(name)?.molecule?.type ?? '')),
+  )
+  return [named, ...new Set(wired)]
 }
 
 /** A `package.json`, as far as the closure reads and writes it. */

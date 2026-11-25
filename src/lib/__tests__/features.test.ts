@@ -4,6 +4,7 @@ import {
   buildFeatureMenu,
   collectFeaturePackages,
   collectSecrets,
+  defaultCheckedAppPackages,
   resolveDefaultProviders,
   resolveFeatureBundledPackages,
   resolveLocalePackages,
@@ -943,11 +944,31 @@ describe('resolveLocalePackages', () => {
   it('resolves a sub-feature locale no package owns through the package its name extends', () => {
     const all = [
       mockPackage({ name: '@molecule/api-resource-user' }),
+      mockPackage({ name: '@molecule/api-payments' }),
       locale('@molecule/api-locales-user-payments'),
     ]
-    expect(resolveLocalePackages(['@molecule/api-resource-user'], all, FW)).toEqual([
-      '@molecule/api-locales-user-payments',
-    ])
+    expect(
+      resolveLocalePackages(['@molecule/api-resource-user', '@molecule/api-payments'], all, FW),
+    ).toEqual(['@molecule/api-locales-user-payments'])
+    // A provider names the feature as well as its core does.
+    expect(
+      resolveLocalePackages(
+        ['@molecule/api-resource-user', '@molecule/api-payments-stripe'],
+        all,
+        FW,
+      ),
+    ).toEqual(['@molecule/api-locales-user-payments'])
+  })
+
+  // r18 scaffold eval (2026-11-24): every custom stack with accounts installed the user resource's
+  // payment strings, with no payments package to show them.
+  it('leaves out a sub-feature locale whose feature the stack lacks (OLD MUSTFAIL)', () => {
+    const all = [
+      mockPackage({ name: '@molecule/api-resource-user' }),
+      mockPackage({ name: '@molecule/api-payments' }),
+      locale('@molecule/api-locales-user-payments'),
+    ]
+    expect(resolveLocalePackages(['@molecule/api-resource-user'], all, FW)).toEqual([])
   })
 
   it("leaves another package's locale bond to that package (a provider of a selected core)", () => {
@@ -974,5 +995,26 @@ describe('resolveLocalePackages', () => {
       FW,
     )
     expect(result).toEqual([])
+  })
+})
+
+// A caller that creates with --no-interactive --packages (molecule.dev) names the starter a person
+// gets from the interactive menu: these packages, read from the real registry and templates.
+describe('defaultCheckedAppPackages', () => {
+  it('is the settings panel and footer of the framework', () => {
+    expect(defaultCheckedAppPackages('react').sort()).toEqual([
+      '@molecule/app-footer-react',
+      '@molecule/app-settings-panel-react',
+    ])
+    expect(defaultCheckedAppPackages('vue').sort()).toEqual([
+      '@molecule/app-footer-vue',
+      '@molecule/app-settings-panel-vue',
+    ])
+  })
+
+  // Counterexample: react-native-web writes its own settings drawer and footer, so the packages
+  // would change nothing in it.
+  it('is none for react-native-web', () => {
+    expect(defaultCheckedAppPackages('react-native-web')).toEqual([])
   })
 })

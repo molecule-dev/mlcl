@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Офлайн',
   'settings.unknown': 'Белгісіз',
   'settings.logOut': 'Шығу',
+  'userMenu.logOut': 'Шығу',
   'settings.deleteAccount': 'Тіркелгіні жою',
   'settings.changePasswordModal.title': 'Құпиясөзді өзгерту',
   'settings.changePasswordModal.error': 'Құпиясөзді өзгерту сәтсіз аяқталды.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Жазылымды тексеру сәтсіз аяқталды.',
   'user.payment.unknownPlan': 'Белгісіз жоспар.',
   'user.payment.invalidWebhookEvent': 'Жарамсыз вебхук оқиғасы.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Қосулы',
+  'settings.twoFactorEnable': 'Қосу',
+  'settings.twoFactorDisable': 'Өшіру',
+  'settings.twoFactorEnableTitle': 'Екі факторлы аутентификацияны қосу',
+  'settings.twoFactorDisableTitle': 'Екі факторлы аутентификацияны өшіру',
+  'settings.twoFactorScan':
+    'Осы QR кодын аутентификация қолданбасымен сканерлеңіз, содан кейін 6 таңбалы кодты енгізіңіз.',
+  'settings.twoFactorQrAlt': 'Екі факторлы QR коды',
+  'settings.twoFactorCode': 'Аутентификация коды',
+  'settings.twoFactorVerify': 'Тексеру және қосу',
+  'settings.twoFactorInvalidCode': 'Жарамсыз код',
+  'settings.twoFactorUnavailable': 'Бұл қолданба үшін екі факторлы аутентификация қолжетімді емес.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Жоспарыңызды жаңартыңыз',
+  'settings.billing.subscribe': 'Жазылу',
+  'settings.billing.checkoutFailed': 'Касса басталмады.',
+  'settings.billing.cancel': 'Бас тарту',
+  'settings.billing.cancelConfirm': 'Жазылымыңыздан бас тарту керек пе?',
+  'settings.billing.cancelFailed': 'Бас тарту мүмкін болмады.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Төлеміңізді әлі растай алмадық.',
+  'planUpdated.retry': 'Қайтадан байқап көріңіз',
+{{/feature}}
 }

@@ -23,6 +23,12 @@ import {
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from './Icon.js'
 import { Footer } from './Footer.js'
+{{#feature two-factor}}
+import { TwoFactorSetting } from './TwoFactorSetting.js'
+{{/feature}}
+{{#feature billing}}
+import { BillingSection } from './BillingSection.js'
+{{/feature}}
 
 interface Device {
   id: string
@@ -57,16 +63,9 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
   const [currentPassword, setCurrentPassword] = useState('')
   const [newPassword, setNewPassword] = useState('')
 
-  // 2FA
-  const [twoFactorEnabled, setTwoFactorEnabled] = useState(false)
-  const [twoFactorLoading, setTwoFactorLoading] = useState(false)
-
   // Devices
   const [devices, setDevices] = useState<Device[]>([])
   const [devicesLoading, setDevicesLoading] = useState(true)
-
-  // Plan
-  const [plan] = useState<string>('Free')
 
   // Delete account
   const [showDeleteModal, setShowDeleteModal] = useState(false)
@@ -116,18 +115,6 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
       resetPw()
     } catch (_error) {
       // Error tracked in hook state
-    }
-  }
-
-  const handleToggle2FA = async (enabled: boolean) => {
-    setTwoFactorLoading(true)
-    try {
-      await http.patch(`/users/${user?.id}`, { data: { twoFactorEnabled: enabled } })
-      setTwoFactorEnabled(enabled)
-    } catch (_error) {
-      // Revert on failure
-    } finally {
-      setTwoFactorLoading(false)
     }
   }
 
@@ -204,15 +191,9 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             <Button variant="outline" size="sm" onClick={() => setShowPasswordModal(true)}>
               {t('settings.changePassword')}
             </Button>
-            <Flex align="center" justify="between">
-              <span className={cm.textSize('sm')}>{t('settings.twoFactor')}</span>
-              <Switch
-                checked={twoFactorEnabled}
-                onChange={(e) => handleToggle2FA((e.target as HTMLInputElement).checked)}
-                disabled={twoFactorLoading}
-                size="sm"
-              />
-            </Flex>
+{{#feature two-factor}}
+            <TwoFactorSetting />
+{{/feature}}
           </div>
         </section>
       )}
@@ -230,20 +211,10 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
         </Flex>
       </section>
 
-      {/* Billing */}
-      <section>
-        <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.billing')}</h3>
-        <Flex align="center" justify="between">
-          <span className={cm.textSize('sm')}>
-            {t('settings.plan')}
-            <strong>{plan}</strong>
-          </span>
-          <Button variant="outline" size="sm">
-            {t('settings.upgrade')}
-          </Button>
-        </Flex>
-      </section>
+{{#feature billing}}
+      <BillingSection />
 
+{{/feature}}
       {/* Devices */}
       <section>
         <Flex align="center" gap="sm" className={cm.sp('mb', 3)}>

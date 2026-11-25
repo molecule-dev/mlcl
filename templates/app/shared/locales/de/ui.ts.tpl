@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Unbekannt',
   'settings.logOut': 'Abmelden',
+  'userMenu.logOut': 'Abmelden',
   'settings.deleteAccount': 'Konto löschen',
   'settings.changePasswordModal.title': 'Passwort ändern',
   'settings.changePasswordModal.error': 'Passwort konnte nicht geändert werden.',
@@ -240,4 +241,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Abonnement konnte nicht verifiziert werden.',
   'user.payment.unknownPlan': 'Unbekannter Tarif.',
   'user.payment.invalidWebhookEvent': 'Ungültiges Webhook-Ereignis.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Aktiv',
+  'settings.twoFactorEnable': 'Aktivieren',
+  'settings.twoFactorDisable': 'Deaktivieren',
+  'settings.twoFactorEnableTitle': 'Aktivieren Sie die Zwei-Faktor-Authentifizierung.',
+  'settings.twoFactorDisableTitle': 'Zwei-Faktor-Authentifizierung deaktivieren',
+  'settings.twoFactorScan':
+    'Scannen Sie diesen QR-Code mit Ihrer Authentifizierungs-App und geben Sie anschließend den 6-stelligen Code ein.',
+  'settings.twoFactorQrAlt': 'Zwei-Faktor-QR-Code',
+  'settings.twoFactorCode': 'Authentifizierungscode',
+  'settings.twoFactorVerify': 'Überprüfen und aktivieren',
+  'settings.twoFactorInvalidCode': 'Ungültiger Code',
+  'settings.twoFactorUnavailable':
+    'Die Zwei-Faktor-Authentifizierung ist für diese App nicht verfügbar.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Aktualisieren Sie Ihren Tarif',
+  'settings.billing.subscribe': 'Abonnieren',
+  'settings.billing.checkoutFailed': 'Bezahlvorgang konnte nicht gestartet werden.',
+  'settings.billing.cancel': 'Abbrechen',
+  'settings.billing.cancelConfirm': 'Abo kündigen?',
+  'settings.billing.cancelFailed': 'Kündigung nicht möglich.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Wir konnten Ihre Zahlung noch nicht bestätigen.',
+  'planUpdated.retry': 'Versuchen Sie es erneut',
+{{/feature}}
 }

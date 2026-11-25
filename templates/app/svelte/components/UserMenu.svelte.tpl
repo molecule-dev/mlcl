@@ -1,3 +1,4 @@
+{{#feature settings}}
 <script lang="ts">
   import { UserMenu as MoleculeUserMenu } from '@molecule/app-ui-svelte'
 
@@ -15,3 +16,23 @@
 <MoleculeUserMenu>
   <SettingsPanel />
 </MoleculeUserMenu>
+{{/feature}}
+{{^feature settings}}
+<script lang="ts">
+  import { useAuth, useTranslation } from '@molecule/app-svelte'
+  import { Button } from '@molecule/app-ui-svelte'
+
+  const { isAuthenticated, logout } = useAuth()
+  const { t } = useTranslation()
+</script>
+
+<!--
+  The signed-in user's log-out button. A settings page and drawer come with the settings panel
+  package (`npx mlcl add @molecule/app-settings-panel-svelte --inject`).
+-->
+{#if $isAuthenticated}
+  <Button variant="ghost" size="sm" data-mol-id="log-out" onClick={() => void logout()}>
+    {t('userMenu.logOut', undefined, { defaultValue: 'Log out' })}
+  </Button>
+{/if}
+{{/feature}}

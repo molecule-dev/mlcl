@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Nieznane',
   'settings.logOut': 'Wyloguj się',
+  'userMenu.logOut': 'Wyloguj się',
   'settings.deleteAccount': 'Usuń konto',
   'settings.changePasswordModal.title': 'Zmień hasło',
   'settings.changePasswordModal.error': 'Nie udało się zmienić hasła.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Weryfikacja subskrypcji nie powiodła się.',
   'user.payment.unknownPlan': 'Nieznany plan.',
   'user.payment.invalidWebhookEvent': 'Nieprawidłowe zdarzenie webhooka.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Włączone',
+  'settings.twoFactorEnable': 'Włączać',
+  'settings.twoFactorDisable': 'Wyłączyć',
+  'settings.twoFactorEnableTitle': 'Włącz uwierzytelnianie dwuskładnikowe',
+  'settings.twoFactorDisableTitle': 'Wyłącz uwierzytelnianie dwuskładnikowe',
+  'settings.twoFactorScan':
+    'Zeskanuj ten kod QR za pomocą aplikacji uwierzytelniającej, a następnie wprowadź 6-cyfrowy kod.',
+  'settings.twoFactorQrAlt': 'Dwuskładnikowy kod QR',
+  'settings.twoFactorCode': 'Kod uwierzytelniający',
+  'settings.twoFactorVerify': 'Zweryfikuj i włącz',
+  'settings.twoFactorInvalidCode': 'Nieprawidłowy kod',
+  'settings.twoFactorUnavailable':
+    'Uwierzytelnianie dwuskładnikowe nie jest dostępne w tej aplikacji.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Ulepsz swój plan',
+  'settings.billing.subscribe': 'Subskrybuj',
+  'settings.billing.checkoutFailed': 'Nie udało się rozpocząć płatności.',
+  'settings.billing.cancel': 'Anuluj',
+  'settings.billing.cancelConfirm': 'Czy anulować subskrypcję?',
+  'settings.billing.cancelFailed': 'Nie udało się anulować.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Nie mogliśmy jeszcze potwierdzić Twojej płatności.',
+  'planUpdated.retry': 'Spróbuj ponownie',
+{{/feature}}
 }

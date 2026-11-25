@@ -1,33 +1,8 @@
 /**
- * `injectActivityCaptureBoot` writes THREE things that only work together: the
- * producer module (`src/bonds/_activity-capture.ts`), the wiring in
- * `src/bonds/index.ts`, and the module's `@molecule/api-activity*` imports in the
- * workspace `package.json`. Its own comment states the rule — "nothing may be
- * left importing undeclared packages" — but only the index write was covered:
- *
- *  - a failed index write removed the module again, yet left the TRUNCATED
- *    index (writeFile truncates first) still carrying the
- *    `from './_activity-capture.js'` import it had just added — a dangling
- *    import of a module the same catch deleted, i.e. a project that no longer
- *    compiles;
- *  - a failed MANIFEST write (step 3) was worse: the index and module stayed
- *    wired while the imports they need were never declared, which is exactly
- *    the TS2307 the step exists to prevent.
- *
- * Both failure points now roll the whole step back: the index is restored to its
- * pre-injection bytes (the manifest by `writeGuarded`, the index by this
- * function's own rollback) and the module goes back to what it was — removed
- * when this call created it, restored to its own bytes when it predated the
- * call. The module's OWN write is guarded for the same reason (a truncated
- * producer is a module `bonds/index.ts` imports): a failed write there restores
- * the module instead of leaving the partial file behind. So a failed run leaves
- * the project exactly as it was.
- *
- * The IDEMPOTENT branch is the same transaction and is covered here too: an
- * already-wired index is refreshed with this mlcl's canonical module, whose
- * imports the declaration step must add — a failed declaration there used to
- * leave the refreshed module behind over a manifest that does not back it, in a
- * project that compiled before the refresh.
+ * `injectActivityCaptureBoot` writes two things that only work together: the import and call in
+ * `src/bonds/index.ts` and the package's declaration in the workspace `package.json`. An index that
+ * imports an undeclared package fails tsc, so a failed write must leave both as they were, and a
+ * short write (ENOSPC) must not leave either truncated.
  *
  * @module
  */
@@ -99,73 +74,23 @@ afterEach(() => {
 const indexPath = (): string => join(apiDir, 'src', 'bonds', 'index.ts')
 const modulePath = (): string => join(apiDir, 'src', 'bonds', '_activity-capture.ts')
 
-describe('injectActivityCaptureBoot — a failed write rolls the wiring back', () => {
-  it('restores bonds/index.ts and removes the producer module when the index write fails', async () => {
+const LEGACY_INDEX = BONDS_INDEX.replace(
+  "import { setupEmailsMailgun } from './emails-mailgun.js'\n",
+  "import { setupActivityCapture } from './_activity-capture.js'\nimport { setupEmailsMailgun } from './emails-mailgun.js'\n",
+).replace('  setupEmailsMailgun()\n', '  setupEmailsMailgun()\n  await setupActivityCapture()\n')
+
+describe('injectActivityCaptureBoot — a failed write leaves the API as it was', () => {
+  it('restores bonds/index.ts when its write fails', async () => {
+    const manifestBefore = readFileSync(join(apiDir, 'package.json'), 'utf-8')
     shortWrite.path = indexPath()
 
     await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
 
-    // The truncated index would still carry the import of a module the cleanup
-    // just deleted — a dangling import. The file must be its old self.
     expect(readFileSync(indexPath(), 'utf-8')).toBe(BONDS_INDEX)
-    expect(existsSync(modulePath())).toBe(false)
+    expect(readFileSync(join(apiDir, 'package.json'), 'utf-8')).toBe(manifestBefore)
   })
 
-  it('unwires the producer when the manifest write fails, so nothing imports undeclared packages', async () => {
-    const manifestPath = join(apiDir, 'package.json')
-    const manifestBefore = readFileSync(manifestPath, 'utf-8')
-    shortWrite.path = manifestPath
-
-    await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
-
-    // Wiring rolled back …
-    expect(readFileSync(indexPath(), 'utf-8')).toBe(BONDS_INDEX)
-    expect(existsSync(modulePath())).toBe(false)
-    // … and the manifest is the bytes it started as, not a truncated file.
-    expect(readFileSync(manifestPath, 'utf-8')).toBe(manifestBefore)
-  })
-
-  it('leaves no truncated producer when the WIRING branch fails writing the module', async () => {
-    // The fresh-wiring write of `src/bonds/_activity-capture.ts` (the module
-    // this call CREATES, before the index is touched). The sibling test above
-    // arms the same path but only on the idempotent REFRESH branch, so replacing
-    // this `writeGuarded` with a bare `writeFile` was invisible: a short write
-    // would leave a TRUNCATED producer behind — a file the index imports, i.e. a
-    // project that stops compiling — while the index was never rewritten.
-    shortWrite.path = modulePath()
-
-    await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
-
-    // The half-written module is gone (this call created it) …
-    expect(existsSync(modulePath())).toBe(false)
-    // … and the index is untouched, since the failed write precedes it.
-    expect(readFileSync(indexPath(), 'utf-8')).toBe(BONDS_INDEX)
-  })
-
-  it('restores the existing producer module when its own write fails mid-flight', async () => {
-    // The idempotent path: bonds/index.ts ALREADY imports the producer, so this
-    // call only refreshes the module. A write that failed mid-flight there used
-    // to leave a TRUNCATED `_activity-capture.ts` — a file the index (and so
-    // server.ts at boot) imports, i.e. a project that no longer starts.
-    const wired = BONDS_INDEX.replace(
-      "import { setupEmailsMailgun } from './emails-mailgun.js'",
-      "import { setupEmailsMailgun } from './emails-mailgun.js'\nimport { setupActivityCapture } from './_activity-capture.js'",
-    )
-    writeFileSync(indexPath(), wired)
-    writeFileSync(modulePath(), '// the producer this project shipped with\n')
-    shortWrite.path = modulePath()
-
-    await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
-
-    expect(readFileSync(modulePath(), 'utf-8')).toBe('// the producer this project shipped with\n')
-    expect(readFileSync(indexPath(), 'utf-8')).toBe(wired)
-  })
-
-  it('puts a pre-existing producer module back — never deletes it — when a later write fails', async () => {
-    // The module already exists (an earlier run, or a template that ships it)
-    // but the index is not wired yet. The rollback must restore the module's own
-    // bytes; `rm` would delete a file this call only overwrote.
-    writeFileSync(modulePath(), '// the producer this project shipped with\n')
+  it('unwires the index when the manifest write fails, so nothing imports an undeclared package', async () => {
     const manifestPath = join(apiDir, 'package.json')
     const manifestBefore = readFileSync(manifestPath, 'utf-8')
     shortWrite.path = manifestPath
@@ -173,54 +98,29 @@ describe('injectActivityCaptureBoot — a failed write rolls the wiring back', (
     await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
 
     expect(readFileSync(indexPath(), 'utf-8')).toBe(BONDS_INDEX)
-    expect(readFileSync(modulePath(), 'utf-8')).toBe('// the producer this project shipped with\n')
     expect(readFileSync(manifestPath, 'utf-8')).toBe(manifestBefore)
   })
 
-  it('restores the existing producer module when the dependency declaration fails on the refresh path', async () => {
-    // The OTHER branch of the same transaction: the index is already wired, so
-    // this call only refreshes the module — and the refreshed module may import
-    // capture packages this project's manifest never declared (that is what the
-    // declaration step is for). A failed declaration used to leave the NEW module
-    // behind over a manifest that does not back it: TS2307 at build,
-    // ERR_MODULE_NOT_FOUND at boot, in a project that compiled before the refresh
-    // ran. Same rule as the wiring branch — a failed run leaves the project as it
-    // was.
-    const wired = BONDS_INDEX.replace(
-      "import { setupEmailsMailgun } from './emails-mailgun.js'",
-      "import { setupEmailsMailgun } from './emails-mailgun.js'\nimport { setupActivityCapture } from './_activity-capture.js'",
-    )
-    writeFileSync(indexPath(), wired)
-    const priorModule = '// the producer this project shipped with\n'
-    writeFileSync(modulePath(), priorModule)
-    const manifestPath = join(apiDir, 'package.json')
-    const manifestBefore = readFileSync(manifestPath, 'utf-8')
-    shortWrite.path = manifestPath
+  it('keeps the old generated module when moving its index onto the package fails', async () => {
+    writeFileSync(indexPath(), LEGACY_INDEX)
+    writeFileSync(modulePath(), 'export async function setupActivityCapture() {}\n')
+    shortWrite.path = join(apiDir, 'package.json')
 
     await expect(injectActivityCaptureBoot(apiDir)).rejects.toThrow(/ENOSPC/)
 
-    expect(readFileSync(modulePath(), 'utf-8')).toBe(priorModule)
-    // …and the index it was already wired into is untouched.
-    expect(readFileSync(indexPath(), 'utf-8')).toBe(wired)
-    expect(readFileSync(manifestPath, 'utf-8')).toBe(manifestBefore)
+    expect(readFileSync(indexPath(), 'utf-8')).toBe(LEGACY_INDEX)
+    expect(existsSync(modulePath())).toBe(true)
   })
 
-  it('wires all three when every write succeeds', async () => {
-    // The positive twin: without it, the assertions above would hold for a
-    // function that never writes anything.
+  it('wires and declares the package when every write succeeds', async () => {
     expect(await injectActivityCaptureBoot(apiDir)).toBe(true)
 
     expect(readFileSync(indexPath(), 'utf-8')).toContain(
-      "import { setupActivityCapture } from './_activity-capture.js'",
+      "import { setupActivityCapture } from '@molecule/api-activity-capture'",
     )
-    expect(existsSync(modulePath())).toBe(true)
     const manifest = JSON.parse(readFileSync(join(apiDir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
     }
-    // An exact pin, not merely a present key: the closure exists so a production
-    // install (`--omit=dev`, no hoisted workspace) resolves this import, and a
-    // range or a placeholder version would leave that broken while a
-    // presence-only assertion stayed green.
-    expect(manifest.dependencies['@molecule/api-activity']).toMatch(/^\d+\.\d+\.\d+$/)
+    expect(manifest.dependencies['@molecule/api-activity-capture']).toMatch(/^\d+\.\d+\.\d+$/)
   })
 })

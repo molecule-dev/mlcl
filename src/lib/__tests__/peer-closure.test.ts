@@ -10,7 +10,7 @@
 
 import { describe, expect, it } from 'vitest'
 
-import { closeMoleculePeers, missingMoleculePeers } from '../peer-closure.js'
+import { closeMoleculePeers, missingMoleculePeers, moleculesToInject } from '../peer-closure.js'
 import { getMoleculeVersion } from '../registry.js'
 
 describe('closeMoleculePeers', () => {
@@ -73,5 +73,38 @@ describe('closeMoleculePeers', () => {
     expect(manifest).toEqual({
       dependencies: { 'left-pad': '1.3.0', '@molecule/not-a-package': '1.0.0' },
     })
+  })
+})
+
+describe('moleculesToInject', () => {
+  it('wires the providers and locale bonds declared with a package, never its cores', () => {
+    // `mlcl add @molecule/api-uploads-filesystem --inject` injected the provider alone, and the
+    // first upload failed with "No upload parser factory has been bonded" (harness eval add).
+    const named = '@molecule/api-uploads-filesystem'
+    const declared = missingMoleculePeers([named])
+    expect(declared).toContain('@molecule/api-middleware-body-parser-express')
+    const injected = moleculesToInject(named, declared)
+    expect(injected[0]).toBe(named)
+    expect(injected).toContain('@molecule/api-middleware-body-parser-express')
+    expect(injected).toContain('@molecule/api-locales-uploads')
+    for (const quiet of [
+      '@molecule/api-uploads',
+      '@molecule/api-middleware-body-parser',
+      '@molecule/api-bond',
+      '@molecule/api-i18n',
+    ])
+      expect(injected, quiet).not.toContain(quiet)
+  })
+
+  it('wires the service worker push brings', () => {
+    const worker = '@molecule/app-pwa-default'
+    const declared = [worker, ...missingMoleculePeers(['@molecule/app-push', worker])]
+    expect(moleculesToInject('@molecule/app-push', declared)).toContain(worker)
+  })
+
+  it('injects a package alone when nothing was declared with it', () => {
+    expect(moleculesToInject('@molecule/api-cache-memory', [])).toEqual([
+      '@molecule/api-cache-memory',
+    ])
   })
 })

@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Van mreže',
   'settings.unknown': 'Nepoznato',
   'settings.logOut': 'Odjavi se',
+  'userMenu.logOut': 'Odjavi se',
   'settings.deleteAccount': 'Obriši račun',
   'settings.changePasswordModal.title': 'Promjena lozinke',
   'settings.changePasswordModal.error': 'Promjena lozinke nije uspjela.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Neuspješna verifikacija pretplate.',
   'user.payment.unknownPlan': 'Nepoznat plan.',
   'user.payment.invalidWebhookEvent': 'Nevažeći webhook događaj.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Uključeno',
+  'settings.twoFactorEnable': 'Omogući',
+  'settings.twoFactorDisable': 'Onemogući',
+  'settings.twoFactorEnableTitle': 'Omogući dvofaktorsku autentifikaciju',
+  'settings.twoFactorDisableTitle': 'Onemogućite dvofaktorsku autentifikaciju',
+  'settings.twoFactorScan':
+    'Skenirajte ovaj QR kod pomoću aplikacije za autentifikaciju, a zatim unesite 6-cifreni kod.',
+  'settings.twoFactorQrAlt': 'Dvofaktorski QR kod',
+  'settings.twoFactorCode': 'Autentifikacijski kod',
+  'settings.twoFactorVerify': 'Potvrdi i omogući',
+  'settings.twoFactorInvalidCode': 'Nevažeći kod',
+  'settings.twoFactorUnavailable': 'Dvofaktorska autentifikacija nije dostupna za ovu aplikaciju.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Nadogradite svoj plan',
+  'settings.billing.subscribe': 'Pretplatite se',
+  'settings.billing.checkoutFailed': 'Nije moguće započeti plaćanje.',
+  'settings.billing.cancel': 'Otkaži',
+  'settings.billing.cancelConfirm': 'Otkazati pretplatu?',
+  'settings.billing.cancelFailed': 'Nije moguće otkazati.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Još nismo mogli potvrditi vašu uplatu.',
+  'planUpdated.retry': 'Pokušajte ponovo',
+{{/feature}}
 }

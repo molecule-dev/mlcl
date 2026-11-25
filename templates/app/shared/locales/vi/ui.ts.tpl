@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Ngoại tuyến',
   'settings.unknown': 'Không xác định',
   'settings.logOut': 'Đăng xuất',
+  'userMenu.logOut': 'Đăng xuất',
   'settings.deleteAccount': 'Xóa tài khoản',
   'settings.changePasswordModal.title': 'Đổi mật khẩu',
   'settings.changePasswordModal.error': 'Đổi mật khẩu thất bại.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Xác minh đăng ký thất bại.',
   'user.payment.unknownPlan': 'Gói không xác định.',
   'user.payment.invalidWebhookEvent': 'Sự kiện webhook không hợp lệ.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Đang bật',
+  'settings.twoFactorEnable': 'Cho phép',
+  'settings.twoFactorDisable': 'Vô hiệu hóa',
+  'settings.twoFactorEnableTitle': 'Kích hoạt xác thực hai yếu tố',
+  'settings.twoFactorDisableTitle': 'Vô hiệu hóa xác thực hai yếu tố',
+  'settings.twoFactorScan':
+    'Quét mã QR này bằng ứng dụng xác thực của bạn, sau đó nhập mã 6 chữ số.',
+  'settings.twoFactorQrAlt': 'Mã QR hai yếu tố',
+  'settings.twoFactorCode': 'Mã xác thực',
+  'settings.twoFactorVerify': 'Xác minh và kích hoạt',
+  'settings.twoFactorInvalidCode': 'Mã không hợp lệ',
+  'settings.twoFactorUnavailable': 'Ứng dụng này không hỗ trợ xác thực hai yếu tố.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Nâng cấp gói dịch vụ của bạn',
+  'settings.billing.subscribe': 'Đăng ký',
+  'settings.billing.checkoutFailed': 'Không thể bắt đầu thanh toán.',
+  'settings.billing.cancel': 'Hủy',
+  'settings.billing.cancelConfirm': 'Hủy đăng ký của quý vị?',
+  'settings.billing.cancelFailed': 'Không thể hủy.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Chúng tôi chưa thể xác nhận thanh toán của bạn.',
+  'planUpdated.retry': 'Hãy thử lại',
+{{/feature}}
 }

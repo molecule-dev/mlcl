@@ -122,11 +122,13 @@ export const API_BASE_URL = {{API_BASE_URL_EXPR}}
   autoRefresh: false,
 }
 
+{{#feature oauth}}
 export const oauthConfig = {
   baseURL: API_BASE_URL,
   oauthProviders: [{{OAUTH_PROVIDERS}}],
   oauthEndpoint: '/users/oauth',
 }
+{{/feature}}
 
 /**
  * Lazily load a locale content module and register it for automatic

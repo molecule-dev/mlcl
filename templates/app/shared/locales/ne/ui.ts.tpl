@@ -67,6 +67,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'अफलाइन',
   'settings.unknown': 'अज्ञात',
   'settings.logOut': 'लग आउट',
+  'userMenu.logOut': 'लग आउट',
   'settings.deleteAccount': 'खाता मेटाउनुहोस्',
   'settings.changePasswordModal.title': 'पासवर्ड परिवर्तन गर्नुहोस्',
   'settings.changePasswordModal.error': 'पासवर्ड परिवर्तन गर्न असफल भयो।',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'सदस्यता प्रमाणित गर्न असफल।',
   'user.payment.unknownPlan': 'अज्ञात योजना।',
   'user.payment.invalidWebhookEvent': 'अमान्य वेबहुक इभेन्ट।',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'सक्रिय',
+  'settings.twoFactorEnable': 'सक्षम पार्नुहोस्',
+  'settings.twoFactorDisable': 'असक्षम पार्नुहोस्',
+  'settings.twoFactorEnableTitle': 'दुई-कारक प्रमाणीकरण सक्षम गर्नुहोस्',
+  'settings.twoFactorDisableTitle': 'दुई-कारक प्रमाणीकरण असक्षम गर्नुहोस्',
+  'settings.twoFactorScan':
+    'आफ्नो प्रमाणक एप प्रयोग गरी यो QR कोड स्क्यान गर्नुहोस्, त्यसपछि ६-अङ्कको कोड प्रविष्ट गर्नुहोस्।',
+  'settings.twoFactorQrAlt': 'दुई-कारक QR कोड',
+  'settings.twoFactorCode': 'प्रमाणीकरण कोड',
+  'settings.twoFactorVerify': 'प्रमाणित गर्नुहोस् र सक्षम गर्नुहोस्',
+  'settings.twoFactorInvalidCode': 'अमान्य कोड',
+  'settings.twoFactorUnavailable': 'यस एपको लागि दुई-कारक प्रमाणीकरण उपलब्ध छैन।',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'आफ्नो योजना अपग्रेड गर्नुहोस्',
+  'settings.billing.subscribe': 'सदस्यता लिनुहोस्',
+  'settings.billing.checkoutFailed': 'चेकआउट सुरु गर्न सकिएन।',
+  'settings.billing.cancel': 'रद्द गर्नुहोस्',
+  'settings.billing.cancelConfirm': 'तपाईंको सदस्यता रद्द गर्ने हो?',
+  'settings.billing.cancelFailed': 'रद्द गर्न सकिएन।',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'हामीले तपाईंको भुक्तानी अझै पुष्टि गर्न सकेनौं।',
+  'planUpdated.retry': 'फेरि प्रयास गर्नुहोस्',
+{{/feature}}
 }

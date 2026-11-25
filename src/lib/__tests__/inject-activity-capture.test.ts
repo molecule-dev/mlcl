@@ -1,49 +1,33 @@
 /**
- * IDE8 — activity-capture PRODUCER wiring (docs/BAAS-activity.md §3-4).
+ * Activity capture in a molecule.dev project is one package, `@molecule/api-activity-capture`.
  *
- * Guards the producer half the audit found missing: the molecule.dev sandbox
- * already injects `MOLECULE_ACTIVITY_URL` and the `/v1/activity` ingest + SSE +
- * panel are built, but NOTHING in a scaffolded app read that env — no app called
- * `setSink(createHttpSink())` and no capture provider was bonded, so `record()`
- * always no-oped and the panel was always empty for real activity.
+ * - A generated bonds index awaits the package's `setupLast` function after every other bond,
+ *   whenever the package is installed, so `mlcl create --activity-capture` and a later
+ *   `mlcl add @molecule/api-activity-capture` write the same index, and a provider added after it
+ *   is still wired above the call.
+ * - A flagship's bonds index is copied, not generated: `injectActivityCaptureBoot` adds the import,
+ *   the call and the dependency to the copy, and moves an index that imports the
+ *   `_activity-capture.ts` module older scaffolds generated onto the package.
  *
- * Two layers:
- *  - injection: `injectActivityCaptureBoot` writes `_activity-capture.ts` and
- *    wires `setupActivityCapture()` as the LAST statement of `setupBonds()`,
- *    idempotently.
- *  - runtime: the produced module calls `setSink` AND routes the bonded email
- *    provider through the capture provider ONLY when `MOLECULE_ACTIVITY_URL` is
- *    set, and the full producer chain (sendMail → record → HTTP sink → fetch)
- *    POSTs the event to the configured ingest endpoint.
+ * What the call does at runtime is tested in the package itself.
  *
- * The runtime layer also guards `MOLECULE_ACTIVITY_MODE`, which decides whether
- * a side effect is DELIVERED. `intercept` (the default, and what a dev sandbox
- * gets) REPLACES the real provider, so nothing is sent. `tee` (what a production
- * deploy gets) WRAPS it, so the real send happens and its real outcome is
- * recorded — a deployed app's emails must actually reach their recipients.
+ * @module
  */
-import {
-  existsSync,
-  mkdirSync,
-  mkdtempSync,
-  readdirSync,
-  readFileSync,
-  rmSync,
-  writeFileSync,
-} from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
+import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
+import { disableAI } from '../ai.js'
+import { generateBondsIndexContent, synthesizeProjectFiles } from '../injector.js'
 import { missingMoleculePeers } from '../peer-closure.js'
+import { loadRegistry } from '../registry.js'
 import { injectActivityCaptureBoot } from '../scaffold.js'
 
-/**
- * A minimal hand-curated `bonds/index.ts` shaped like every flagship ships: an
- * import block (external + relative groups) and a `setupBonds()` that wires the
- * real providers. The injection must add the producer import in its sorted slot
- * and the call as the LAST statement (after the real providers are bonded).
- */
+const CAPTURE = '@molecule/api-activity-capture'
+
+/** The shape every flagship's hand-curated `bonds/index.ts` has. */
 const FIXTURE_BONDS_INDEX = `import { resolveAll } from '@molecule/api-secrets'
 
 import { setupEmailsMailgun } from './emails-mailgun.js'
@@ -57,310 +41,199 @@ export async function setupBonds(): Promise<void> {
 }
 `
 
-describe('injectActivityCaptureBoot (IDE8 producer wiring)', () => {
+/** The body of `setupBonds()`, one statement per line. */
+function setupBondsBody(index: string): string[] {
+  const start = index.indexOf('export async function setupBonds(): Promise<void> {')
+  const end = index.indexOf('\n}', start)
+  return index
+    .slice(start, end)
+    .split('\n')
+    .slice(1)
+    .map((line) => line.trim())
+    .filter((line) => line && !line.startsWith('//'))
+}
+
+describe('the generated API bonds index', () => {
+  const registry = loadRegistry()
+  const mailgun = {
+    providerPackage: '@molecule/api-emails-mailgun',
+  } as Parameters<typeof generateBondsIndexContent>[0][number]
+
+  it('awaits the capture setup last when the package is installed', () => {
+    const index = generateBondsIndexContent(
+      [mailgun],
+      [],
+      [],
+      ['@molecule/api-secrets', '@molecule/api-emails-mailgun', CAPTURE],
+      registry,
+    )
+    expect(index).toContain(`import { setupActivityCapture } from '${CAPTURE}'`)
+    expect(setupBondsBody(index).at(-1)).toBe('await setupActivityCapture()')
+  })
+
+  it('stays last when a provider is added after it', () => {
+    const smtp = { providerPackage: '@molecule/api-emails-smtp' } as typeof mailgun
+    const index = generateBondsIndexContent(
+      [mailgun, smtp],
+      [],
+      [],
+      [
+        '@molecule/api-secrets',
+        '@molecule/api-emails-mailgun',
+        CAPTURE,
+        '@molecule/api-emails-smtp',
+      ],
+      registry,
+    )
+    expect(setupBondsBody(index).at(-1)).toBe('await setupActivityCapture()')
+  })
+
+  // Counterexample: a project made outside molecule.dev, which does not have the package.
+  it('has no capture call without the package', () => {
+    const index = generateBondsIndexContent(
+      [mailgun],
+      [],
+      [],
+      ['@molecule/api-secrets', '@molecule/api-emails-mailgun'],
+      registry,
+    )
+    expect(index).not.toContain('setupActivityCapture')
+  })
+
+  // A project from before the package: the regenerated index keeps awaiting its own module.
+  it('awaits a project module passed as a local last setup', () => {
+    const index = generateBondsIndexContent(
+      [mailgun],
+      [],
+      [],
+      ['@molecule/api-secrets', '@molecule/api-emails-mailgun'],
+      registry,
+      [{ exportName: 'setupActivityCapture', from: './_activity-capture.js' }],
+    )
+    expect(index).toContain("import { setupActivityCapture } from './_activity-capture.js'")
+    expect(setupBondsBody(index).at(-1)).toBe('await setupActivityCapture()')
+  })
+
+  it('awaits it in an API with no providers too', () => {
+    const index = generateBondsIndexContent([], [], [], [CAPTURE], registry)
+    expect(setupBondsBody(index).at(-1)).toBe('await setupActivityCapture()')
+  })
+})
+
+// `mlcl inject` regenerates an API's bonds index whole. A project created before the package
+// awaits the module an older mlcl generated; the regeneration used to drop that call.
+describe('an inject of a project with the older generated module', () => {
   let apiDir: string
+  const modulePath = (): string => join(apiDir, 'src', 'bonds', '_activity-capture.ts')
+  const plan = async (
+    molecules: string[],
+  ): Promise<Awaited<ReturnType<typeof synthesizeProjectFiles>>> =>
+    synthesizeProjectFiles([], molecules, apiDir, loadRegistry(), 'express', { smokeTests: false })
+  const bondsIndex = (files: Awaited<ReturnType<typeof synthesizeProjectFiles>>): string =>
+    String(files.find((f) => f.targetPath === join(apiDir, 'src', 'bonds', 'index.ts'))?.content)
 
   beforeEach(() => {
-    // The temp dir is deliberately IN this directory, not os.tmpdir(): the
-    // tests dynamically `import()` the GENERATED `src/bonds/_activity-capture.ts`
-    // so vitest transforms it, and files outside the workspace root are outside
-    // vite's serve allow list. The flip side is that the tree must not litter:
-    // sweep any dir a crashed or timed-out run left behind before making a new
-    // one.
-    for (const stale of readdirSync(import.meta.dirname)) {
-      if (stale.startsWith('ide8-tmp-'))
-        rmSync(join(import.meta.dirname, stale), { recursive: true, force: true })
-    }
-    apiDir = mkdtempSync(join(import.meta.dirname, 'ide8-tmp-'))
+    disableAI()
+    apiDir = mkdtempSync(join(tmpdir(), 'mlcl-legacy-capture-'))
     mkdirSync(join(apiDir, 'src', 'bonds'), { recursive: true })
-    writeFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), FIXTURE_BONDS_INDEX)
-    // …and the api manifest every real workspace has: it is where the producer
-    // module's `@molecule/api-activity*` imports are declared (see the suite's
-    // "no package.json" case below).
-    writeFileSync(
-      join(apiDir, 'package.json'),
-      `${JSON.stringify({ name: 'ide8-tmp' }, null, 2)}\n`,
-    )
+    writeFileSync(modulePath(), 'export async function setupActivityCapture() {}\n')
+    writeFileSync(join(apiDir, 'package.json'), JSON.stringify({ name: 'demo-api' }))
   })
+  afterEach(() => rmSync(apiDir, { recursive: true, force: true }))
 
-  afterEach(() => {
-    rmSync(apiDir, { recursive: true, force: true })
-    delete process.env.MOLECULE_ACTIVITY_URL
-    delete process.env.MOLECULE_VAULT_TOKEN
-    delete process.env.MOLECULE_APP_ID
-    delete process.env.MOLECULE_ACTIVITY_MODE
-    vi.restoreAllMocks()
-  })
-
-  it('writes the producer module and wires setupBonds idempotently', async () => {
-    const first = await injectActivityCaptureBoot(apiDir)
-    expect(first).toBe(true)
-    expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(true)
-
-    const index = readFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), 'utf-8')
+  it('keeps awaiting the module last while the package is not installed', async () => {
+    const files = await plan(['@molecule/api-secrets'])
+    const index = bondsIndex(files)
     expect(index).toContain("import { setupActivityCapture } from './_activity-capture.js'")
-
-    // The call must come AFTER the real providers so capturable categories can be
-    // swapped, and inside setupBonds (before its closing brace).
-    const callIdx = index.indexOf('await setupActivityCapture()')
-    expect(callIdx).toBeGreaterThan(index.indexOf('setupEmailsMailgun()'))
-    expect(callIdx).toBeGreaterThan(0)
-
-    // Re-running is a no-op — never double-wires.
-    expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
-    const again = readFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), 'utf-8')
-    expect(again.match(/await setupActivityCapture\(\)/g)).toHaveLength(1)
-    expect(again.match(/from '\.\/_activity-capture\.js'/g)).toHaveLength(1)
+    expect(setupBondsBody(index).at(-1)).toBe('await setupActivityCapture()')
+    expect(files.some((f) => f.action === 'delete')).toBe(false)
   })
 
-  it('declares the packages the capture providers require along with them', async () => {
-    // `mlcl create` closes the manifest's peers BEFORE this step, and the project
-    // installs with --legacy-peer-deps (no peers installed): an exported X1 app
-    // (l2171) declared every capture provider but none of the cores they wrap.
-    await injectActivityCaptureBoot(apiDir)
-    const { dependencies } = JSON.parse(readFileSync(join(apiDir, 'package.json'), 'utf-8')) as {
+  it('awaits the package and deletes the module once the package is installed', async () => {
+    const files = await plan(['@molecule/api-secrets', CAPTURE])
+    const index = bondsIndex(files)
+    expect(index).not.toContain('./_activity-capture.js')
+    expect(index.match(/await setupActivityCapture\(\)/g)).toHaveLength(1)
+    expect(files.filter((f) => f.action === 'delete').map((f) => f.targetPath)).toEqual([
+      modulePath(),
+    ])
+  })
+
+  // Counterexample: a project without the module gets no capture call from it.
+  it('adds nothing for a project that never had the module', async () => {
+    rmSync(modulePath())
+    const files = await plan(['@molecule/api-secrets'])
+    expect(bondsIndex(files)).not.toContain('setupActivityCapture')
+    expect(files.some((f) => f.action === 'delete')).toBe(false)
+  })
+})
+
+describe('injectActivityCaptureBoot (a copied flagship API)', () => {
+  let apiDir: string
+  const indexPath = (): string => join(apiDir, 'src', 'bonds', 'index.ts')
+  const manifest = (): { dependencies: Record<string, string> } =>
+    JSON.parse(readFileSync(join(apiDir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
     }
-    for (const core of [
-      '@molecule/api-emails',
-      '@molecule/api-sms',
-      '@molecule/api-channel',
-      '@molecule/api-webhook',
-    ])
-      expect(dependencies[core], core).toMatch(/^\d+\.\d+\.\d+$/)
-    expect(missingMoleculePeers(Object.keys(dependencies))).toEqual([])
-  })
 
-  it('leaves no producer module behind when bonds/index.ts cannot be wired', async () => {
-    // Neither an import block to extend nor a `setupBonds()` to anchor the
-    // call against — the injection cannot proceed.
-    const unwireable = 'export const bonds: string[] = []\n'
-    writeFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), unwireable)
-
-    expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
-
-    // The module's `@molecule/api-activity*` imports are undeclared here — a
-    // stray copy left behind (written before the anchor checks, with no wiring
-    // and no declared dependencies) failed the project's tsc with TS2307.
-    expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
-    expect(readFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), 'utf-8')).toBe(unwireable)
-  })
-
-  it('imports the activity sink DYNAMICALLY, and the docs say so', async () => {
-    await injectActivityCaptureBoot(apiDir)
-    const module = readFileSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'), 'utf-8')
-    // The module reaches both packages through `import()` calls with LITERAL
-    // specifiers — dynamic at runtime, but still resolved by `tsc`, which is why
-    // the manifest has to declare them (and why a missing one is a build error).
-    expect(module).toContain("import('@molecule/api-activity')")
-    expect(module).toContain("import('@molecule/api-activity-http')")
-    expect(
-      module,
-      'a static import of the sink would contradict the manifest integration',
-    ).not.toMatch(/^import\b[^\n]*@molecule\/api-activity/m)
-
-    // …and the scaffolder's prose must describe the module it writes: it called
-    // these two "static imports", which reads as a boot-time import and is not
-    // what the generated file has.
-    const scaffold = readFileSync(join(import.meta.dirname, '..', 'scaffold.ts'), 'utf-8')
-    expect(
-      scaffold,
-      'the activity-capture docs call the sink’s imports "static" — the generated module imports them dynamically',
-    ).not.toMatch(/static imports|`@molecule\/api-activity` statically/)
-  })
-
-  it('leaves no producer module behind when there is no setupBonds to anchor the call', async () => {
+  beforeEach(() => {
+    apiDir = mkdtempSync(join(tmpdir(), 'mlcl-activity-capture-'))
+    mkdirSync(join(apiDir, 'src', 'bonds'), { recursive: true })
+    writeFileSync(indexPath(), FIXTURE_BONDS_INDEX)
     writeFileSync(
-      join(apiDir, 'src', 'bonds', 'index.ts'),
-      "import { resolveAll } from '@molecule/api-secrets'\n\nexport const bonds = () => resolveAll([])\n",
+      join(apiDir, 'package.json'),
+      JSON.stringify({ name: 'demo-api', dependencies: { '@molecule/api-secrets': '1.0.0' } }),
     )
+  })
+  afterEach(() => rmSync(apiDir, { recursive: true, force: true }))
+
+  it('imports the package, awaits its setup last and declares it, once', async () => {
+    expect(await injectActivityCaptureBoot(apiDir)).toBe(true)
+    const index = readFileSync(indexPath(), 'utf-8')
+    expect(index).toContain(`import { setupActivityCapture } from '${CAPTURE}'`)
+    expect(setupBondsBody(index).at(-1)).toBe('await setupActivityCapture()')
+    expect(manifest().dependencies[CAPTURE]).toMatch(/^\d+\.\d+\.\d+$/)
+    // Nothing generated beside the index.
+    expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
 
     expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
-    expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
+    expect(readFileSync(indexPath(), 'utf-8')).toBe(index)
   })
 
-  it('leaves no producer module behind when the api workspace has no package.json', async () => {
-    // The manifest is where the module's `@molecule/api-activity*` imports are
-    // DECLARED. `addActivityCaptureDependencies` reports "no manifest" by
-    // returning false rather than throwing, so without the up-front refusal the
-    // wiring landed with no rollback and no error: a project importing packages
-    // nothing can declare or install (TS2307 / ERR_MODULE_NOT_FOUND), silently.
+  it('declares the cores the package peers on, which --legacy-peer-deps would not install', async () => {
+    await injectActivityCaptureBoot(apiDir)
+    expect(missingMoleculePeers(Object.keys(manifest().dependencies))).toEqual([])
+    expect(manifest().dependencies['@molecule/api-bond']).toBeDefined()
+  })
+
+  it('moves an index that imports the old generated module onto the package', async () => {
+    const legacy = FIXTURE_BONDS_INDEX.replace(
+      "import { setupEmailsMailgun } from './emails-mailgun.js'\n",
+      "import { setupActivityCapture } from './_activity-capture.js'\nimport { setupEmailsMailgun } from './emails-mailgun.js'\n",
+    ).replace(
+      '  setupEmailsMailgun()\n',
+      '  setupEmailsMailgun()\n  await setupActivityCapture()\n',
+    )
+    writeFileSync(indexPath(), legacy)
+    writeFileSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'), 'export {}\n')
+
+    expect(await injectActivityCaptureBoot(apiDir)).toBe(true)
+    const index = readFileSync(indexPath(), 'utf-8')
+    expect(index).not.toContain('./_activity-capture.js')
+    expect(index).toContain(`import { setupActivityCapture } from '${CAPTURE}'`)
+    expect(index.match(/await setupActivityCapture\(\)/g)).toHaveLength(1)
+    expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
+    expect(manifest().dependencies[CAPTURE]).toBeDefined()
+  })
+
+  it('leaves an API without setupBonds or without a manifest alone', async () => {
+    writeFileSync(indexPath(), 'export const nothing = 1\n')
+    expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
+    expect(manifest().dependencies[CAPTURE]).toBeUndefined()
+
+    writeFileSync(indexPath(), FIXTURE_BONDS_INDEX)
     rmSync(join(apiDir, 'package.json'))
-
     expect(await injectActivityCaptureBoot(apiDir)).toBe(false)
-
-    expect(existsSync(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))).toBe(false)
-    expect(readFileSync(join(apiDir, 'src', 'bonds', 'index.ts'), 'utf-8')).toBe(
-      FIXTURE_BONDS_INDEX,
-    )
-  })
-
-  it('no-op when MOLECULE_ACTIVITY_URL is unset: no sink, real provider untouched', async () => {
-    await injectActivityCaptureBoot(apiDir)
-    const mod = await import(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))
-    const { bond, get, unbond } = await import('@molecule/api-bond')
-    const { hasSink } = await import('@molecule/api-activity')
-
-    unbond('activity-sink')
-    unbond('email')
-    const realEmail = {
-      sendMail: async () => ({ accepted: ['u@e.com'], rejected: [], messageId: 'real-send' }),
-    }
-    bond('email', realEmail)
-    delete process.env.MOLECULE_ACTIVITY_URL
-
-    await mod.setupActivityCapture()
-
-    expect(hasSink()).toBe(false)
-    expect(get('email')).toBe(realEmail) // real provider stays bonded — never captured
-  })
-
-  it('boot wiring calls setSink + swaps capturable provider when MOLECULE_ACTIVITY_URL is set, and POSTs the captured event', async () => {
-    await injectActivityCaptureBoot(apiDir)
-    const mod = await import(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))
-    const { bond, get, unbond } = await import('@molecule/api-bond')
-    const { hasSink } = await import('@molecule/api-activity')
-
-    unbond('activity-sink')
-    unbond('email')
-    const realEmail = {
-      sendMail: async () => ({ accepted: ['u@e.com'], rejected: [], messageId: 'real-send' }),
-    }
-    bond('email', realEmail)
-
-    const fetchMock = vi.fn(
-      async (_url: string, _init: RequestInit): Promise<Response> =>
-        new Response('{}', { status: 200 }),
-    )
-    vi.stubGlobal('fetch', fetchMock)
-
-    process.env.MOLECULE_ACTIVITY_URL = 'https://api.molecule.dev/v1/activity'
-    process.env.MOLECULE_VAULT_TOKEN = 'mvt_test-token'
-    process.env.MOLECULE_APP_ID = 'project-123'
-
-    await mod.setupActivityCapture()
-
-    // 1. The HTTP activity sink is bonded — record() is no longer a no-op.
-    expect(hasSink()).toBe(true)
-
-    // 2. The email category was swapped for the intercept-only capture provider.
-    const email = get('email') as {
-      sendMail: (m: unknown) => Promise<{ messageId: string }>
-    }
-    expect(email).not.toBe(realEmail)
-
-    // 3. The full producer chain: a sendMail() is CAPTURED (synthetic success)
-    //    and POSTed to the ingest endpoint with the runtime auth headers.
-    const result = await email.sendMail({ to: 'user@example.com', subject: 'Welcome' })
-    expect(result.messageId).toMatch(/^captured-/)
-
-    expect(fetchMock).toHaveBeenCalledTimes(1)
-    // The call-count check above IS the guard — `.toBeDefined()` on the result
-    // of `calls.at(0)` could never fail once it passed, and said nothing.
-    const [url, init] = fetchMock.mock.calls.at(0) as [string, RequestInit]
-    expect(url).toBe('https://api.molecule.dev/v1/activity')
-    expect(init.method).toBe('POST')
-    const headers = init.headers as Record<string, string>
-    expect(headers.Authorization).toBe('Bearer mvt_test-token')
-    expect(headers['X-Molecule-App-Id']).toBe('project-123')
-    const event = JSON.parse(init.body as string) as { type: string; status: string }
-    expect(event.type).toBe('email')
-    expect(event.status).toBe('captured')
-
-    unbond('activity-sink')
-    unbond('email')
-  })
-
-  it('tee mode WRAPS the real provider: the side effect is delivered AND recorded', async () => {
-    await injectActivityCaptureBoot(apiDir)
-    const mod = await import(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))
-    const { bond, get, unbond } = await import('@molecule/api-bond')
-
-    unbond('activity-sink')
-    unbond('email')
-    const sendMail = vi.fn(async () => ({
-      accepted: ['u@e.com'],
-      rejected: [],
-      messageId: 'real-send',
-    }))
-    const realEmail = { sendMail }
-    bond('email', realEmail)
-
-    const fetchMock = vi.fn(
-      async (_url: string, _init: RequestInit): Promise<Response> =>
-        new Response('{}', { status: 200 }),
-    )
-    vi.stubGlobal('fetch', fetchMock)
-
-    process.env.MOLECULE_ACTIVITY_URL = 'https://api.molecule.dev/v1/activity'
-    process.env.MOLECULE_VAULT_TOKEN = 'mvt_test-token'
-    process.env.MOLECULE_APP_ID = 'project-123'
-    // What a PRODUCTION deploy gets. Production side effects must be delivered
-    // AND captured — never intercepted.
-    process.env.MOLECULE_ACTIVITY_MODE = 'tee'
-
-    await mod.setupActivityCapture()
-
-    const email = get('email') as {
-      sendMail: (m: unknown) => Promise<{ messageId: string }>
-    }
-    // Wrapped, not replaced.
-    expect(email).not.toBe(realEmail)
-
-    const result = await email.sendMail({ to: 'user@example.com', subject: 'Welcome' })
-
-    // The REAL transport really sent it and the caller sees the REAL result —
-    // a deployed app must never get a synthetic `captured-` id back.
-    expect(sendMail).toHaveBeenCalledTimes(1)
-    expect(result.messageId).toBe('real-send')
-
-    // ...and the real delivery is still recorded, as 'sent' rather than 'captured'.
-    expect(fetchMock).toHaveBeenCalledTimes(1)
-    // As above: the count is the guard, so no `.toBeDefined()` on the entry.
-    const [, init] = fetchMock.mock.calls.at(0) as [string, RequestInit]
-    const event = JSON.parse(init.body as string) as { type: string; status: string }
-    expect(event.type).toBe('email')
-    expect(event.status).toBe('sent')
-
-    unbond('activity-sink')
-    unbond('email')
-  })
-
-  it('an unrecognized MOLECULE_ACTIVITY_MODE falls back to intercept (the dev default)', async () => {
-    await injectActivityCaptureBoot(apiDir)
-    const mod = await import(join(apiDir, 'src', 'bonds', '_activity-capture.ts'))
-    const { bond, get, unbond } = await import('@molecule/api-bond')
-
-    unbond('activity-sink')
-    unbond('email')
-    const sendMail = vi.fn(async () => ({
-      accepted: ['u@e.com'],
-      rejected: [],
-      messageId: 'real-send',
-    }))
-    bond('email', { sendMail })
-
-    vi.stubGlobal(
-      'fetch',
-      vi.fn(async (): Promise<Response> => new Response('{}', { status: 200 })),
-    )
-
-    process.env.MOLECULE_ACTIVITY_URL = 'https://api.molecule.dev/v1/activity'
-    process.env.MOLECULE_ACTIVITY_MODE = 'something-else'
-
-    await mod.setupActivityCapture()
-
-    const email = get('email') as {
-      sendMail: (m: unknown) => Promise<{ messageId: string }>
-    }
-    const result = await email.sendMail({ to: 'user@example.com', subject: 'Welcome' })
-
-    // Only the explicit 'tee' opts into delivery — anything else keeps the
-    // "captured, not delivered" dev semantics this module shipped with.
-    expect(result.messageId).toMatch(/^captured-/)
-    expect(sendMail).not.toHaveBeenCalled()
-
-    unbond('activity-sink')
-    unbond('email')
+    expect(readFileSync(indexPath(), 'utf-8')).toBe(FIXTURE_BONDS_INDEX)
   })
 })

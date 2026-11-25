@@ -5,8 +5,12 @@
   import { getClassMap } from '@molecule/app-ui'
   import { Button, Flex, FloatingInput, Form, ThemeToggle } from '@molecule/app-ui-svelte'
 
+{{#feature footer}}
   import Footer from '../../components/Footer.svelte'
+{{/feature}}
+{{#feature oauth}}
   import OAuthButtons from '../../components/OAuthButtons.svelte'
+{{/feature}}
   import { LOGO_SRC } from '../../lib/logo.js'
 
   const cm = getClassMap()
@@ -24,7 +28,9 @@
 
   let email = $state('')
   let password = $state('')
+{{#feature two-factor}}
   let twoFactorToken = $state('')
+{{/feature}}
 
   // Route into the app whenever a session exists — covers the OAuth callback
   // completing on this page (its exchange sets auth state without a submit)
@@ -36,6 +42,7 @@
   const isLoggingIn = $derived($status === 'pending')
 
   async function handleSubmit(): Promise<void> {
+{{#feature two-factor}}
     // The 2FA field is always rendered; only send a token when the user
     // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
     // stays on this page until a valid code is entered).
@@ -45,6 +52,10 @@
       ...(twoFactorToken.trim() ? { twoFactorToken: twoFactorToken.trim() } : {}),
     })
     if (result.twoFactorRequired) return
+{{/feature}}
+{{^feature two-factor}}
+    await login({ email, password })
+{{/feature}}
     navigate(from, { replace: true })
   }
 </script>
@@ -87,6 +98,7 @@
             placeholder={t('auth.login.password')}
           />
         </div>
+{{#feature two-factor}}
         <div class={cm.authField}>
           <FloatingInput
             type="number"
@@ -96,6 +108,7 @@
             placeholder={t('auth.login.twoFactor')}
           />
         </div>
+{{/feature}}
         <div class={cm.authButtonRow}>
           <Button
             type="button"
@@ -117,6 +130,7 @@
           </Button>
         </div>
       </Form>
+{{#feature emails}}
       <div class={cm.authAfterSubmit}>
         <button
           type="button"
@@ -126,8 +140,13 @@
           {t('auth.login.forgotPassword')}
         </button>
       </div>
+{{/feature}}
+{{#feature oauth}}
       <OAuthButtons />
+{{/feature}}
     </div>
   </main>
+{{#feature footer}}
   <Footer />
+{{/feature}}
 </div>

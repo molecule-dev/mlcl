@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Bezsaistē',
   'settings.unknown': 'Nezināms',
   'settings.logOut': 'Izrakstīties',
+  'userMenu.logOut': 'Izrakstīties',
   'settings.deleteAccount': 'Dzēst kontu',
   'settings.changePasswordModal.title': 'Mainīt paroli',
   'settings.changePasswordModal.error': 'Neizdevās mainīt paroli.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Abonēšanas verifikācija neizdevās.',
   'user.payment.unknownPlan': 'Nezināms plāns.',
   'user.payment.invalidWebhookEvent': 'Nederīgs webhook notikums.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Ieslēgts',
+  'settings.twoFactorEnable': 'Iespējot',
+  'settings.twoFactorDisable': 'Atspējot',
+  'settings.twoFactorEnableTitle': 'Iespējot divfaktoru autentifikāciju',
+  'settings.twoFactorDisableTitle': 'Atspējot divfaktoru autentifikāciju',
+  'settings.twoFactorScan':
+    'Noskenējiet šo QR kodu ar savu autentifikācijas lietotni un pēc tam ievadiet 6 ciparu kodu.',
+  'settings.twoFactorQrAlt': 'Divfaktoru QR kods',
+  'settings.twoFactorCode': 'Autentifikācijas kods',
+  'settings.twoFactorVerify': 'Verificēt un iespējot',
+  'settings.twoFactorInvalidCode': 'Nederīgs kods',
+  'settings.twoFactorUnavailable': 'Divfaktoru autentifikācija šai lietotnei nav pieejama.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Jauniniet savu plānu',
+  'settings.billing.subscribe': 'Abonēt',
+  'settings.billing.checkoutFailed': 'Nevarēja sākt norēķināšanos.',
+  'settings.billing.cancel': 'Atcelt',
+  'settings.billing.cancelConfirm': 'Vai atcelt abonementu?',
+  'settings.billing.cancelFailed': 'Nevarēja atcelt.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Mēs vēl nevarējām apstiprināt jūsu maksājumu.',
+  'planUpdated.retry': 'Mēģiniet vēlreiz',
+{{/feature}}
 }

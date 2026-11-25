@@ -67,6 +67,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ከመስመር ውጭ',
   'settings.unknown': 'ያልታወቀ',
   'settings.logOut': 'ውጣ',
+  'userMenu.logOut': 'ውጣ',
   'settings.deleteAccount': 'መለያ ሰርዝ',
   'settings.changePasswordModal.title': 'የይለፍ ቃል ቀይር',
   'settings.changePasswordModal.error': 'የይለፍ ቃል መቀየር አልተሳካም።',
@@ -236,4 +237,29 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'ምዝገባን ማረጋገጥ አልተሳካም።',
   'user.payment.unknownPlan': 'ያልታወቀ ዕቅድ።',
   'user.payment.invalidWebhookEvent': 'ልክ ያልሆነ የዌብሁክ ክስተት።',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'በርቷል',
+  'settings.twoFactorEnable': 'አንቃ',
+  'settings.twoFactorDisable': 'አሰናክል',
+  'settings.twoFactorEnableTitle': 'ባለ ሁለት ደረጃ ማረጋገጫን ያንቁ',
+  'settings.twoFactorDisableTitle': 'ባለ ሁለት ደረጃ ማረጋገጫን ያሰናክሉ',
+  'settings.twoFactorScan': 'ይህንን የQR ኮድ በአረጋጋጭ መተግበሪያዎ ይቃኙ፣ ከዚያም ባለ 6 አሃዝ ኮድ ያስገቡ።',
+  'settings.twoFactorQrAlt': 'ባለ ሁለት ደረጃ QR ኮድ',
+  'settings.twoFactorCode': 'የማረጋገጫ ኮድ',
+  'settings.twoFactorVerify': 'አረጋግጥ እና አንቃ',
+  'settings.twoFactorInvalidCode': 'ልክ ያልሆነ ኮድ',
+  'settings.twoFactorUnavailable': 'ለዚህ መተግበሪያ የሁለት-ደረጃ ማረጋገጫ አይገኝም።',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'ዕቅድዎን ያሻሽሉ',
+  'settings.billing.subscribe': 'ሰብስክራይብ ያድርጉ',
+  'settings.billing.checkoutFailed': 'ክፍያ መፈጸም መጀመር አልተቻለም።',
+  'settings.billing.cancel': 'ሰርዝ',
+  'settings.billing.cancelConfirm': 'የደንበኝነት ምዝገባዎን ይሰርዙ?',
+  'settings.billing.cancelFailed': 'መሰረዝ አልተቻለም።',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'ክፍያዎን እስካሁን ማረጋገጥ አልቻልንም።',
+  'planUpdated.retry': 'እንደገና ሞክር',
+{{/feature}}
 }

@@ -1,3 +1,4 @@
+{{#feature settings}}
 <script setup lang="ts">
 import { defineAsyncComponent, defineComponent, h } from 'vue'
 
@@ -27,3 +28,21 @@ const UserMenuPanel = defineComponent({
     <UserMenuPanel />
   </MoleculeUserMenu>
 </template>
+{{/feature}}
+{{^feature settings}}
+<script setup lang="ts">
+import { Button } from '@molecule/app-ui-vue'
+import { useAuth, useTranslation } from '@molecule/app-vue'
+
+// The signed-in user's log-out button. A settings page and drawer come with the settings panel
+// package (`npx mlcl add @molecule/app-settings-panel-vue --inject`).
+const { isAuthenticated, logout } = useAuth()
+const { t } = useTranslation()
+</script>
+
+<template>
+  <Button v-if="isAuthenticated" variant="ghost" size="sm" data-mol-id="log-out" @click="logout()">
+    {{ t('userMenu.logOut', undefined, { defaultValue: 'Log out' }) }}
+  </Button>
+</template>
+{{/feature}}

@@ -241,6 +241,86 @@ describe('mlcl inject in a project Molecule did not create (OLD MUSTFAIL)', () =
     expect(Object.keys(manifest.dependencies)).not.toContain('@molecule/api-secrets')
   })
 
+  it('wires every package -m names: the uploads provider and the body parser it needs', async () => {
+    // `mlcl add @molecule/api-uploads-filesystem --inject` passes the providers it declared too;
+    // injected alone, the body parser stayed unbonded and the first upload failed (harness eval add).
+    const uploads = '@molecule/api-uploads-filesystem'
+    const parser = '@molecule/api-middleware-body-parser-express'
+    const path = await project(
+      'mlcl-inject-several-',
+      {
+        name: 'notes-api',
+        version: '1.0.0',
+        type: 'module',
+        scripts: { start: 'node src/server.js' },
+        dependencies: {
+          express: '5.2.1',
+          '@molecule/api-bond': '1.0.0',
+          '@molecule/api-i18n': '1.0.0',
+          '@molecule/api-uploads': '1.0.0',
+          '@molecule/api-middleware-body-parser': '1.0.0',
+          [parser]: '1.0.0',
+          [uploads]: '1.0.0',
+        },
+      },
+      { 'src/server.js': "import express from 'express'\nexpress().listen(3000)\n" },
+    )
+    await inject(path, [uploads, parser])
+    const index = await readFile(join(path, 'src/bonds/index.js'), 'utf8')
+    expect(index).toContain('setupUploadsFilesystem()')
+    expect(index).toContain('setupMiddlewareBodyParserExpress()')
+
+    // The consumer path: the generated setup bonds the upload parser receiveUploads() runs.
+    const out = execFileSync(
+      process.execPath,
+      [
+        '--input-type=module',
+        '-e',
+        "const { setupBonds } = await import('./src/bonds/index.js'); await setupBonds(); const b = await import('@molecule/api-middleware-body-parser'); console.log(typeof b.getUploadParserFactory())",
+      ],
+      { cwd: path },
+    )
+    expect(out.toString().trim()).toBe('function')
+  })
+
+  // r20 harness eval (2026-11-24): `mlcl add … --inject` printed the next steps, then the Quick
+  // Start and every declaration it imports. Claude Code read the output through `| tail -30`, saw
+  // only types, and spent two more steps finding the setup call and where the files go.
+  it('ends with the next steps, after how to call the added package (OLD MUSTFAIL)', async () => {
+    const uploads = '@molecule/api-uploads-filesystem'
+    const parser = '@molecule/api-middleware-body-parser-express'
+    const path = await project(
+      'mlcl-inject-guide-',
+      {
+        name: 'notes-api',
+        version: '1.0.0',
+        type: 'module',
+        scripts: { start: 'node src/server.js', build: 'tsc' },
+        dependencies: {
+          express: '5.2.1',
+          '@molecule/api-bond': '1.0.0',
+          '@molecule/api-i18n': '1.0.0',
+          '@molecule/api-uploads': '1.0.0',
+          '@molecule/api-middleware-body-parser': '1.0.0',
+          [parser]: '1.0.0',
+          [uploads]: '1.0.0',
+        },
+      },
+      { 'src/server.js': "import express from 'express'\nexpress().listen(3000)\n" },
+    )
+    const lines = (await inject(path, [uploads, parser], ['--guide', uploads])).split('\n')
+    const at = (text: string): number => lines.findIndex((line) => line.includes(text))
+    // The guidance (the core's Quick Start and declarations, or the pointer to its doc) is one
+    // block, printed whole before the steps.
+    const guidance = at('Your code calls it through @molecule/api-uploads')
+    expect(guidance).toBeGreaterThanOrEqual(0)
+    expect(at('Next steps')).toBeGreaterThan(guidance)
+    // The last lines are the steps: the setup call and the build.
+    const tail = lines.slice(-6).join('\n')
+    expect(tail).toContain('await setupBonds()')
+    expect(tail).toContain('npm run build')
+  })
+
   it('writes ES modules as .mjs in a CommonJS package and imports them dynamically', async () => {
     const path = await project(
       'mlcl-inject-cjs-',

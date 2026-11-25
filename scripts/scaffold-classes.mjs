@@ -22,7 +22,7 @@ import { execFileSync } from 'node:child_process'
 import { existsSync, mkdtempSync, readdirSync, readFileSync, rmSync } from 'node:fs'
 import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 import { pathToFileURL } from 'node:url'
 
 /**
@@ -139,6 +139,22 @@ function cssFiles(dir) {
 }
 
 /**
+ * A path under the `node_modules` the app resolves from: its own, or a parent's, where a workspace
+ * install (a full-stack project's root) hoists it.
+ *
+ * @param {string} app - The installed app.
+ * @param {string} path - The path under `node_modules`.
+ * @returns {string} The first that exists, or the app's own when none does.
+ */
+function installedPath(app, path) {
+  for (let dir = app; ; dir = dirname(dir)) {
+    const candidate = join(dir, 'node_modules', path)
+    if (existsSync(candidate)) return candidate
+    if (dirname(dir) === dir) return join(app, 'node_modules', path)
+  }
+}
+
+/**
  * Checks that every class of the app's bonded ClassMap has a style in the app's own build.
  * For a web app, run it after the app's `build` script.
  *
@@ -148,7 +164,7 @@ function cssFiles(dir) {
 export async function checkScaffoldClasses(app) {
   const pkg = bondedClassMapPackage(app)
   if (!pkg) return { ok: true, output: 'no bond file sets a ClassMap' }
-  const entry = join(app, 'node_modules', pkg, 'dist', 'index.js')
+  const entry = installedPath(app, join(pkg, 'dist', 'index.js'))
   const { classMap } = await import(pathToFileURL(entry).href)
   const classes = classMapClasses(classMap)
   const failures = []
@@ -179,7 +195,7 @@ export async function checkScaffoldClasses(app) {
       for (const os of ['ios', 'web']) {
         const out = join(tmp, `${os}.css`)
         execFileSync(
-          join(app, 'node_modules', '.bin', 'tailwindcss'),
+          installedPath(app, join('.bin', 'tailwindcss')),
           ['-c', 'tailwind.config.js', ...(input ? ['-i', input] : []), '-o', out],
           { cwd: app, env: { ...process.env, NATIVEWIND_OS: os }, stdio: 'pipe' },
         )

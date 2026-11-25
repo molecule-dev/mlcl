@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Atsijungęs',
   'settings.unknown': 'Nežinoma',
   'settings.logOut': 'Atsijungti',
+  'userMenu.logOut': 'Atsijungti',
   'settings.deleteAccount': 'Ištrinti paskyrą',
   'settings.changePasswordModal.title': 'Keisti slaptažodį',
   'settings.changePasswordModal.error': 'Nepavyko pakeisti slaptažodžio.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Prenumeratos patvirtinimas nepavyko.',
   'user.payment.unknownPlan': 'Nežinomas planas.',
   'user.payment.invalidWebhookEvent': 'Netinkamas webhook įvykis.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Įjungta',
+  'settings.twoFactorEnable': 'Įjungti',
+  'settings.twoFactorDisable': 'Išjungti',
+  'settings.twoFactorEnableTitle': 'Įgalinti dviejų veiksnių autentifikavimą',
+  'settings.twoFactorDisableTitle': 'Išjungti dviejų veiksnių autentifikavimą',
+  'settings.twoFactorScan':
+    'Nuskaitykite šį QR kodą naudodami autentifikavimo programėlę ir įveskite 6 skaitmenų kodą.',
+  'settings.twoFactorQrAlt': 'Dviejų veiksnių QR kodas',
+  'settings.twoFactorCode': 'Autentifikavimo kodas',
+  'settings.twoFactorVerify': 'Patvirtinti ir įgalinti',
+  'settings.twoFactorInvalidCode': 'Neteisingas kodas',
+  'settings.twoFactorUnavailable': 'Dviejų veiksnių autentifikavimas šiai programai negalimas.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Atnaujinkite savo planą',
+  'settings.billing.subscribe': 'Prenumeruoti',
+  'settings.billing.checkoutFailed': 'Nepavyko pradėti atsiskaitymo.',
+  'settings.billing.cancel': 'Atšaukti',
+  'settings.billing.cancelConfirm': 'Atšaukti prenumeratą?',
+  'settings.billing.cancelFailed': 'Nepavyko atšaukti.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Mes dar negalėjome patvirtinti jūsų mokėjimo.',
+  'planUpdated.retry': 'Bandykite dar kartą',
+{{/feature}}
 }

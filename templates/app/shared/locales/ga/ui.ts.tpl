@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'As líne',
   'settings.unknown': 'Anaithnid',
   'settings.logOut': 'Logáil amach',
+  'userMenu.logOut': 'Logáil amach',
   'settings.deleteAccount': 'Scrios cuntas',
   'settings.changePasswordModal.title': 'Athraigh pasfhocal',
   'settings.changePasswordModal.error': 'Theip ar athrú an phasfhocail.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Theip ar fhíorú síntiúis.',
   'user.payment.unknownPlan': 'Plean anaithnid.',
   'user.payment.invalidWebhookEvent': 'Imeacht webhook neamhbhailí.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Ar siúl',
+  'settings.twoFactorEnable': 'Cumasaigh',
+  'settings.twoFactorDisable': 'Díchumasaigh',
+  'settings.twoFactorEnableTitle': 'Cumasaigh fíordheimhniú dhá fhachtóir',
+  'settings.twoFactorDisableTitle': 'Díchumasaigh fíordheimhniú dhá fhachtóir',
+  'settings.twoFactorScan':
+    'Scan an cód QR seo le d’aip fíordheimhnitheora, agus ansin cuir isteach an cód 6 dhigit.',
+  'settings.twoFactorQrAlt': 'Cód QR dhá fhachtóir',
+  'settings.twoFactorCode': 'Cód fíordheimhnithe',
+  'settings.twoFactorVerify': 'Fíoraigh & cumasaigh',
+  'settings.twoFactorInvalidCode': 'Cód neamhbhailí',
+  'settings.twoFactorUnavailable': 'Níl fíordheimhniú dhá fhachtóir ar fáil don aip seo.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Uasghrádaigh do phlean',
+  'settings.billing.subscribe': 'Liostáil',
+  'settings.billing.checkoutFailed': 'Níorbh fhéidir an tseiceáil amach a thosú.',
+  'settings.billing.cancel': 'Cealaigh',
+  'settings.billing.cancelConfirm': 'Do shíntiús a chealú?',
+  'settings.billing.cancelFailed': 'Níorbh fhéidir cealú.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Ní raibh muid in ann d’íocaíocht a dheimhniú go fóill.',
+  'planUpdated.retry': 'Déan iarracht arís',
+{{/feature}}
 }

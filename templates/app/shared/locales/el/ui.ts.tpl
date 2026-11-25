@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Αποσυνδεδεμένο',
   'settings.unknown': 'Άγνωστο',
   'settings.logOut': 'Αποσύνδεση',
+  'userMenu.logOut': 'Αποσύνδεση',
   'settings.deleteAccount': 'Διαγραφή λογαριασμού',
   'settings.changePasswordModal.title': 'Αλλαγή κωδικού',
   'settings.changePasswordModal.error': 'Αποτυχία αλλαγής κωδικού.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Αποτυχία επαλήθευσης συνδρομής.',
   'user.payment.unknownPlan': 'Άγνωστο πλάνο.',
   'user.payment.invalidWebhookEvent': 'Μη έγκυρο συμβάν webhook.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Ενεργή',
+  'settings.twoFactorEnable': 'Καθιστώ ικανό',
+  'settings.twoFactorDisable': 'Καθιστώ ανίκανο',
+  'settings.twoFactorEnableTitle': 'Ενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
+  'settings.twoFactorDisableTitle': 'Απενεργοποίηση ελέγχου ταυτότητας δύο παραγόντων',
+  'settings.twoFactorScan':
+    'Σαρώστε αυτόν τον κωδικό QR με την εφαρμογή ελέγχου ταυτότητας και, στη συνέχεια, εισαγάγετε τον 6ψήφιο κωδικό.',
+  'settings.twoFactorQrAlt': 'Κωδικός QR δύο παραγόντων',
+  'settings.twoFactorCode': 'Κωδικός ελέγχου ταυτότητας',
+  'settings.twoFactorVerify': 'Επαλήθευση και ενεργοποίηση',
+  'settings.twoFactorInvalidCode': 'Μη έγκυρος κωδικός',
+  'settings.twoFactorUnavailable':
+    'Ο έλεγχος ταυτότητας δύο παραγόντων δεν είναι διαθέσιμος για αυτήν την εφαρμογή.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Αναβαθμίστε το πρόγραμμά σας',
+  'settings.billing.subscribe': 'Συνεισφέρω',
+  'settings.billing.checkoutFailed': 'Δεν ήταν δυνατή η εκκίνηση της πληρωμής.',
+  'settings.billing.cancel': 'Ακύρωση',
+  'settings.billing.cancelConfirm': 'Ακύρωση της συνδρομής σας;',
+  'settings.billing.cancelFailed': 'Δεν ήταν δυνατή η ακύρωση.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Δεν μπορέσαμε να επιβεβαιώσουμε ακόμη την πληρωμή σας.',
+  'planUpdated.retry': 'Δοκιμάστε ξανά',
+{{/feature}}
 }

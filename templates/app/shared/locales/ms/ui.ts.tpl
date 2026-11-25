@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Luar talian',
   'settings.unknown': 'Tidak diketahui',
   'settings.logOut': 'Log keluar',
+  'userMenu.logOut': 'Log keluar',
   'settings.deleteAccount': 'Padam akaun',
   'settings.changePasswordModal.title': 'Tukar Kata Laluan',
   'settings.changePasswordModal.error': 'Gagal menukar kata laluan.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Gagal mengesahkan langganan.',
   'user.payment.unknownPlan': 'Pelan tidak dikenali.',
   'user.payment.invalidWebhookEvent': 'Acara webhook tidak sah.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Hidup',
+  'settings.twoFactorEnable': 'Dayakan',
+  'settings.twoFactorDisable': 'Lumpuhkan',
+  'settings.twoFactorEnableTitle': 'Dayakan pengesahan dua faktor',
+  'settings.twoFactorDisableTitle': 'Lumpuhkan pengesahan dua faktor',
+  'settings.twoFactorScan':
+    'Imbas kod QR ini dengan aplikasi pengesah anda, kemudian masukkan kod 6 digit.',
+  'settings.twoFactorQrAlt': 'Kod QR dua faktor',
+  'settings.twoFactorCode': 'Kod pengesahan',
+  'settings.twoFactorVerify': 'Sahkan & dayakan',
+  'settings.twoFactorInvalidCode': 'Kod tidak sah',
+  'settings.twoFactorUnavailable': 'Pengesahan dua faktor tidak tersedia untuk aplikasi ini.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Naik taraf pelan anda',
+  'settings.billing.subscribe': 'Langgan',
+  'settings.billing.checkoutFailed': 'Tidak dapat memulakan pembayaran.',
+  'settings.billing.cancel': 'Batal',
+  'settings.billing.cancelConfirm': 'Batalkan langganan anda?',
+  'settings.billing.cancelFailed': 'Tidak dapat membatalkan.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Kami belum dapat mengesahkan pembayaran anda.',
+  'planUpdated.retry': 'Cuba lagi',
+{{/feature}}
 }

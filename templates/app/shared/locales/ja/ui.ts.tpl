@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'オフライン',
   'settings.unknown': '不明',
   'settings.logOut': 'ログアウト',
+  'userMenu.logOut': 'ログアウト',
   'settings.deleteAccount': 'アカウントを削除',
   'settings.changePasswordModal.title': 'パスワードを変更',
   'settings.changePasswordModal.error': 'パスワードの変更に失敗しました。',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'サブスクリプションの確認に失敗しました。',
   'user.payment.unknownPlan': '不明なプランです。',
   'user.payment.invalidWebhookEvent': '無効なWebhookイベントです。',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'オン',
+  'settings.twoFactorEnable': '有効にする',
+  'settings.twoFactorDisable': '無効にする',
+  'settings.twoFactorEnableTitle': '二段階認証を有効にする',
+  'settings.twoFactorDisableTitle': '二段階認証を無効にする',
+  'settings.twoFactorScan':
+    '認証アプリでこのQRコードをスキャンし、表示された6桁のコードを入力してください。',
+  'settings.twoFactorQrAlt': '二要素認証QRコード',
+  'settings.twoFactorCode': '認証コード',
+  'settings.twoFactorVerify': '確認して有効化する',
+  'settings.twoFactorInvalidCode': '無効なコード',
+  'settings.twoFactorUnavailable': 'このアプリでは二段階認証は利用できません。',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'プランをアップグレードする',
+  'settings.billing.subscribe': '登録する',
+  'settings.billing.checkoutFailed': 'チェックアウトを開始できませんでした。',
+  'settings.billing.cancel': 'キャンセル',
+  'settings.billing.cancelConfirm': 'サブスクリプションをキャンセルしますか?',
+  'settings.billing.cancelFailed': '解約できませんでした。',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'お支払いの確認がまだできていません。',
+  'planUpdated.retry': 'もう一度やり直してください',
+{{/feature}}
 }

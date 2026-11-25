@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': '오프라인',
   'settings.unknown': '알 수 없음',
   'settings.logOut': '로그아웃',
+  'userMenu.logOut': '로그아웃',
   'settings.deleteAccount': '계정 삭제',
   'settings.changePasswordModal.title': '비밀번호 변경',
   'settings.changePasswordModal.error': '비밀번호 변경에 실패했습니다.',
@@ -239,4 +240,29 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': '구독 확인에 실패했습니다.',
   'user.payment.unknownPlan': '알 수 없는 요금제입니다.',
   'user.payment.invalidWebhookEvent': '유효하지 않은 웹훅 이벤트입니다.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': '켜짐',
+  'settings.twoFactorEnable': '할 수 있게 하다',
+  'settings.twoFactorDisable': '장애를 입히다',
+  'settings.twoFactorEnableTitle': '2단계 인증을 활성화하세요',
+  'settings.twoFactorDisableTitle': '2단계 인증을 비활성화합니다.',
+  'settings.twoFactorScan': '인증 앱으로 이 QR 코드를 스캔한 다음 6자리 코드를 입력하세요.',
+  'settings.twoFactorQrAlt': '이중 인증 QR 코드',
+  'settings.twoFactorCode': '인증 코드',
+  'settings.twoFactorVerify': '확인 및 활성화',
+  'settings.twoFactorInvalidCode': '잘못된 코드',
+  'settings.twoFactorUnavailable': '이 앱에서는 2단계 인증을 사용할 수 없습니다.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': '요금제를 업그레이드하세요',
+  'settings.billing.subscribe': '구독하기',
+  'settings.billing.checkoutFailed': '결제를 시작할 수 없습니다.',
+  'settings.billing.cancel': '취소',
+  'settings.billing.cancelConfirm': '구독을 취소하시겠습니까?',
+  'settings.billing.cancelFailed': '취소할 수 없습니다.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': '아직 결제 확인이 완료되지 않았습니다.',
+  'planUpdated.retry': '다시 시도해 보세요',
+{{/feature}}
 }

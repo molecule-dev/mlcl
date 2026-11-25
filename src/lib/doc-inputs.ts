@@ -147,6 +147,25 @@ export function manifestChangeAffectsDocs(
 const NON_DOC_REGISTRY_SECTIONS = ['toolchain', 'moleculeVersions']
 
 /**
+ * Package entry fields that are NOT documentation inputs: `quickStart` is copied FROM the README
+ * (../lib/registry-quick-start.ts), so a change to it never makes a README stale.
+ */
+const NON_DOC_ENTRY_FIELDS = ['quickStart']
+
+/**
+ * A package entry without its {@link NON_DOC_ENTRY_FIELDS}.
+ *
+ * @param entry - A registry package entry, or anything else (returned as it is).
+ * @returns The entry's documentation inputs.
+ */
+function docEntry(entry: unknown): unknown {
+  if (entry === null || typeof entry !== 'object' || Array.isArray(entry)) return entry
+  const copy = { ...(entry as Record<string, unknown>) }
+  for (const field of NON_DOC_ENTRY_FIELDS) delete copy[field]
+  return copy
+}
+
+/**
  * A registry with its version-pin sections removed, serialized for comparison.
  *
  * @param raw - A registry.json document.
@@ -160,6 +179,13 @@ function registryProjection(raw: string): string {
   }
   const registry = parsed as Record<string, unknown>
   for (const section of NON_DOC_REGISTRY_SECTIONS) delete registry[section]
+  for (const section of PACKAGE_REGISTRY_SECTIONS) {
+    const entries = registry[section]
+    if (entries !== null && typeof entries === 'object' && !Array.isArray(entries))
+      registry[section] = Object.fromEntries(
+        Object.entries(entries).map(([name, entry]) => [name, docEntry(entry)]),
+      )
+  }
   return JSON.stringify(registry)
 }
 
@@ -255,7 +281,7 @@ export function registryChangedPackages(
     const b = now[section] ?? {}
     if (!isObject(a) || !isObject(b)) return null
     for (const name of new Set([...Object.keys(a), ...Object.keys(b)]))
-      if (JSON.stringify(a[name]) !== JSON.stringify(b[name])) changed.add(name)
+      if (JSON.stringify(docEntry(a[name])) !== JSON.stringify(docEntry(b[name]))) changed.add(name)
   }
   return [...changed].sort()
 }

@@ -103,6 +103,7 @@ import {
   renderPackageDeclarationsComment,
 } from './capability-map.js'
 import { isExactVersion } from './exact-version.js'
+import { routerWithAddedFeatures, routerWithFeatures } from './feature-routers.js'
 import { formatGeneratedSource, sortImportStatements } from './format.js'
 import { t } from './i18n.js'
 import { generateLocaleArrayCode, SUPPORTED_LOCALES } from './locales.js'
@@ -110,6 +111,7 @@ import { readMigrateRunner } from './migrate-runner.js'
 import { migrationDialectHeader, projectDatabasePackage } from './migration-dialect.js'
 import { npmInstall } from './npm-install.js'
 import { npmInstallRoot } from './npm-install-root.js'
+import { deriveOptionalFeatures } from './optional-features.js'
 import {
   findRegistryPackage,
   getMoleculeVersion,
@@ -297,7 +299,8 @@ export interface InjectionPlan {
 }
 
 export interface FileOperation {
-  action: 'create' | 'modify' | 'copy' | 'transform'
+  /** `delete` removes a file the plan replaces (a rollback restores it). */
+  action: 'create' | 'modify' | 'copy' | 'transform' | 'delete'
   sourcePath?: string
   targetPath: string
   content?: string
@@ -1364,6 +1367,14 @@ export async function writeSynthesizedFiles(
   const written: string[] = []
   for (const file of files) {
     try {
+      if (file.action === 'delete') {
+        if (existsSync(file.targetPath)) {
+          await snapshotForRollback(file.targetPath, snapshots)
+          await rm(file.targetPath)
+          written.push(file.targetPath)
+        }
+        continue
+      }
       if (!file.content) continue
       await mkdir(dirname(file.targetPath), { recursive: true })
       const content = /\.(?:[cm]?[jt]s|[jt]sx)$/.test(file.targetPath)
@@ -1467,6 +1478,12 @@ export async function executeInjection(
         }
         await writeFile(op.targetPath, content)
         result.filesCreated.push(op.targetPath)
+      } else if (op.action === 'delete') {
+        if (existsSync(op.targetPath)) {
+          await snapshotForRollback(op.targetPath, rollbackSnapshots)
+          await rm(op.targetPath)
+          result.filesModified.push(op.targetPath)
+        }
       } else if (op.action === 'modify') {
         // Append content if file exists, create if not
         try {
@@ -1670,15 +1687,44 @@ async function updatePackageJson(
 ): Promise<void> {
   const packageJsonPath = join(projectPath, 'package.json')
   const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
-  const devTooling =
+  declareDependencies(packageJson, dependencies, owner)
+  await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
+}
+
+/** A `package.json`, as far as {@link declareDependencies} reads and writes it. */
+export interface DeclaringManifest {
+  dependencies?: Record<string, string>
+  devDependencies?: Record<string, string>
+  [field: string]: unknown
+}
+
+/**
+ * Declares an injected package's dependencies in a manifest, in place, exactly as `mlcl inject`
+ * writes them: the rules of {@link updatePackageJson}, with both dependency maps sorted. `mlcl add
+ * --inject` calls it before its one install, so the inject that follows has nothing left to
+ * declare and installs nothing.
+ *
+ * @param packageJson - The manifest, changed in place.
+ * @param dependencies - The plan's dependency changes.
+ * @param owner - The package the plan injects.
+ */
+export function declareDependencies(
+  packageJson: DeclaringManifest,
+  dependencies: readonly DependencyChange[],
+  owner: string,
+): void {
+  // The owner's devDependencies when the manifest declares it only there: dev tooling.
+  const tooling =
     packageJson.dependencies?.[owner] === undefined &&
     packageJson.devDependencies?.[owner] !== undefined
+      ? packageJson.devDependencies
+      : undefined
 
   for (const dep of dependencies) {
-    if (devTooling) {
+    if (tooling) {
       // A declaration in either section already owns the pin.
-      if (packageJson.dependencies?.[dep.name] || packageJson.devDependencies[dep.name]) continue
-      packageJson.devDependencies[dep.name] =
+      if (packageJson.dependencies?.[dep.name] || tooling[dep.name]) continue
+      tooling[dep.name] =
         dep.type === 'peerDependency'
           ? pinPeerVersion(dep.name, dep.version)
           : pinDependencyVersion(dep.name, dep.version)
@@ -1696,7 +1742,8 @@ async function updatePackageJson(
         // so the manifest keeps one declaration.
         const devPin = packageJson.devDependencies?.[dep.name]
         packageJson.dependencies[dep.name] = devPin ?? pinDependencyVersion(dep.name, dep.version)
-        if (devPin !== undefined) delete packageJson.devDependencies[dep.name]
+        if (devPin !== undefined && packageJson.devDependencies)
+          delete packageJson.devDependencies[dep.name]
       }
     } else if (dep.type === 'devDependency') {
       packageJson.devDependencies = packageJson.devDependencies ?? {}
@@ -1724,8 +1771,6 @@ async function updatePackageJson(
   if (packageJson.devDependencies) {
     packageJson.devDependencies = sortObject(packageJson.devDependencies)
   }
-
-  await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
 }
 
 /**
@@ -3389,14 +3434,29 @@ export async function synthesizeProjectFiles(
       if (resource) {
         resourceRouters.set(plan.molecule, resource)
         const targetPath = join(projectPath, 'src', 'handlers', `${resource.file}.ts`)
+        // A feature router's code is written only with its feature (`feature-routers.ts`); a
+        // later inject that brings one adds its block to the project's own file.
+        const features = [
+          ...new Set(pkg.routes.flatMap((route) => (route.optional ? [route.optional] : []))),
+        ]
         if (!lstatSync(targetPath, { throwIfNoEntry: false })) {
           files.push({
             action: 'create',
             createOnly: true,
             targetPath,
             description: `Create editable ${pkg.name} Express router`,
-            content: source,
+            content: routerWithFeatures(source, features, optionalFeatures),
           })
+        } else {
+          const existing = await readFile(targetPath, 'utf8')
+          const added = routerWithAddedFeatures(existing, source, features, optionalFeatures)
+          if (added)
+            files.push({
+              action: 'modify',
+              targetPath,
+              description: `Add the feature routes of ${pkg.name} the stack now has`,
+              content: added,
+            })
         }
         continue
       }
@@ -3499,6 +3559,20 @@ export async function synthesizeProjectFiles(
       return secrets.map((s) => s.name)
     })
     .filter((key, i, arr) => arr.indexOf(key) === i) // deduplicate
+  // A project created before activity capture was a package has the module an older mlcl
+  // generated, `src/bonds/_activity-capture.ts`, awaited last in setupBonds(). The regenerated
+  // index keeps awaiting it (an inject used to drop the call, and the Activity panel went empty)
+  // until the project installs the package whose `setupLast` has the same name; then the index
+  // awaits the package and the old module goes.
+  const legacyCapture = join(projectPath, 'src', 'bonds', '_activity-capture.ts')
+  const legacyExport = 'setupActivityCapture'
+  const captureReplaced = (registryPackages ?? []).some(
+    (pkg) => allMolecules.includes(pkg.name) && pkg.molecule?.setupLast === legacyExport,
+  )
+  const localLastSetups =
+    existsSync(legacyCapture) && !captureReplaced
+      ? [{ exportName: legacyExport, from: './_activity-capture.js' }]
+      : []
   files.push({
     action: 'create',
     targetPath: join(projectPath, 'src', 'bonds', 'index.ts'),
@@ -3508,9 +3582,17 @@ export async function synthesizeProjectFiles(
       secretKeys,
       allMolecules,
       registryPackages,
+      localLastSetups,
     ),
     description: 'Generate bonds index with setupBonds function',
   })
+  if (existsSync(legacyCapture) && captureReplaced) {
+    files.push({
+      action: 'delete',
+      targetPath: legacyCapture,
+      description: 'Remove the generated activity-capture module the package replaces',
+    })
+  }
   const apiLocaleBonds = installedLocaleBonds(allMolecules, 'api')
   if (apiLocaleBonds.length > 0) {
     files.push({
@@ -4951,29 +5033,6 @@ function generateRouterContentHeuristic(
 }
 
 /**
- * Derive optional features from installed package names using registry metadata.
- * Reads the `optionalFeature` field from registry entries instead of hardcoding
- * patterns like 'oauth' or 'stripe'.
- */
-function deriveOptionalFeatures(
-  allMolecules: string[],
-  registryPackages?: InferredPackage[],
-): Set<string> {
-  const features = new Set<string>()
-
-  if (registryPackages) {
-    for (const pkg of registryPackages) {
-      if (!allMolecules.includes(pkg.name)) continue
-      const meta = pkg.molecule as Record<string, unknown> | undefined
-      const feature = meta?.optionalFeature as string | undefined
-      if (feature) features.add(feature)
-    }
-  }
-
-  return features
-}
-
-/**
  * Generate server.ts content.
  *
  * Uses the heuristic which detects middleware from registry metadata —
@@ -5346,6 +5405,9 @@ export function setupLocales(): void {
 
 /**
  * Generate bonds/index.ts content with a setupBonds function.
+ *
+ * `localLastSetups` are functions of the project's own modules awaited last, beside the installed
+ * packages' `setupLast` functions (the activity-capture module an older mlcl generated).
  */
 export function generateBondsIndexContent(
   bondSetups: BondSetup[],
@@ -5353,18 +5415,31 @@ export function generateBondsIndexContent(
   secretKeys: string[] = [],
   allMolecules: string[] = [],
   registryPackages?: InferredPackage[],
+  localLastSetups: Array<{ exportName: string; from: string }> = [],
 ): string {
   const hasLocales = installedLocaleBonds(allMolecules, 'api').length > 0
   const localesImport = hasLocales
     ? `import { setupLocales } from './${API_LOCALES_BOND}.js'\n`
     : ''
   const localesCall = hasLocales ? '  setupLocales()\n' : ''
+  // A package that wraps bonded providers (its registry `setupLast`, e.g. setupActivityCapture)
+  // is awaited after every one of them, in package-name order.
+  const lastSetups = (registryPackages ?? [])
+    .filter((p) => allMolecules.includes(p.name) && p.molecule?.setupLast)
+    .map((p) => ({ name: p.name, exportName: p.molecule!.setupLast! }))
+    .sort((a, b) => (a.name < b.name ? -1 : a.name > b.name ? 1 : 0))
+    .concat(localLastSetups.map(({ exportName, from }) => ({ name: from, exportName })))
+  const lastImports = lastSetups
+    .map(({ name, exportName }) => `import { ${exportName} } from '${name}'\n`)
+    .join('')
+  const lastCalls = lastSetups.map(({ exportName }) => `\n  await ${exportName}()`).join('')
   if (bondSetups.length === 0 && serviceBondNames.length === 0) {
-    return `${localesImport ? `${localesImport}\n` : ''}/**
+    const imports = `${lastImports}${localesImport}`
+    return `${imports ? `${imports}\n` : ''}/**
  * Bond setup - no providers configured.
  */
 export async function setupBonds(): Promise<void> {
-${localesCall}  // No providers to wire. Add bonds via mlcl inject.
+${localesCall}  // No providers to wire. Add bonds via mlcl inject.${lastCalls}
 }
 `
   }
@@ -5486,7 +5561,7 @@ ${localesCall}  // No providers to wire. Add bonds via mlcl inject.
     : ''
   const entitlementsCall = hasEntitlements ? `\n  setupEntitlements()` : ''
 
-  const wiring = `${entitlementsCall}${otherSetupCalls ? `\n${otherSetupCalls}` : ''}${monitoringRegistration}`
+  const wiring = `${entitlementsCall}${otherSetupCalls ? `\n${otherSetupCalls}` : ''}${monitoringRegistration}${lastCalls}`
 
   return `/**
  * Use the installed packages' public interfaces and this provider wiring first.
@@ -5497,7 +5572,7 @@ ${localesCall}  // No providers to wire. Add bonds via mlcl inject.
  * Configure or compose existing bonds; use a typed adapter/provider for custom
  * behavior, and retain a minimal reproducer when a shared package needs a fix.
  */
-${resolvesSecrets ? `import { resolveAll } from '${secretsPkg}'\n` : ''}${monitoringImport}${entitlementsImport}${localesImport}${imports}
+${resolvesSecrets ? `import { resolveAll } from '${secretsPkg}'\n` : ''}${monitoringImport}${lastImports}${entitlementsImport}${localesImport}${imports}
 
 /**
  * Initialize all providers and service bonds.${resolvesSecrets ? '\n * Resolves all registered secrets before wiring providers.' : ''}
@@ -6040,12 +6115,16 @@ function generateAppBondsSmokeTest(
 
   lines.push(`import { describe, expect, it, vi } from 'vitest'`)
   lines.push('')
+  // A static import, loaded while vitest collects the file: an `await import()` inside the first
+  // test paid for every bond module within its 5 s timeout and timed out beside `mlcl check`'s
+  // e2e and build (harness eval check, 2026-11-25). The vi.mock() calls below are hoisted above it.
+  lines.push(`import * as bonds from '../bonds/index.js'`)
+  lines.push('')
 
   // Mock config to avoid importing real app config (used by auth-default bond)
   lines.push(`// Mock config to avoid importing real app config`)
   lines.push(`vi.mock('../config.js', () => ({`)
   lines.push(`  authConfig: {},`)
-  lines.push(`  oauthConfig: {},`)
   lines.push(`  loadContent: vi.fn(),`)
   lines.push(`  API_BASE_URL: '',`)
   lines.push(`}))`)
@@ -6265,17 +6344,15 @@ function generateAppBondsSmokeTest(
 
   // Test cases
   lines.push(`describe('bonds/index', () => {`)
-  lines.push(`  it('exports setupProviders function', async () => {`)
-  lines.push(`    const mod = await import('../bonds/index.js')`)
-  lines.push(`    expect(typeof mod.setupProviders).toBe('function')`)
+  lines.push(`  it('exports setupProviders function', () => {`)
+  lines.push(`    expect(typeof bonds.setupProviders).toBe('function')`)
   lines.push(`  })`)
   lines.push('')
   lines.push(`  it('setupProviders completes without error', async () => {`)
-  lines.push(`    const { setupProviders } = await import('../bonds/index.js')`)
   // The generated setupProviders is sync, but a project may make it async: wrapping the
   // call fails the test on a sync throw AND on a rejection, which `.not.toThrow()` misses.
   lines.push(
-    `    await expect(Promise.resolve().then(() => setupProviders())).resolves.toBeUndefined()`,
+    `    await expect(Promise.resolve().then(() => bonds.setupProviders())).resolves.toBeUndefined()`,
   )
   lines.push(`  })`)
 
@@ -6301,7 +6378,6 @@ function generateAppBondsSmokeTest(
     const checksHttp = httpSetup?.name === 'setupHttpClientFetch'
     lines.push('')
     lines.push(`  it('calls imported setup boundaries with project providers', async () => {`)
-    lines.push(`    const { setupProviders } = await import('../bonds/index.js')`)
     if (checksHttp) {
       lines.push(bondModule('httpBond', httpSetup))
       lines.push(`    const httpCore = await import('@molecule/app-http')`)
@@ -6311,7 +6387,7 @@ function generateAppBondsSmokeTest(
       lines.push(`    const themeCore = await import('@molecule/app-theme')`)
     }
     lines.push('    vi.clearAllMocks()')
-    lines.push('    await setupProviders()')
+    lines.push('    await bonds.setupProviders()')
     const projectSetups = setupImports.filter((setup) => fromBondFile(setup))
     for (const setup of setupImports.filter((setup) => !fromBondFile(setup))) {
       // One line when it fits, else prettier's broken form (the argument on its
@@ -6358,10 +6434,9 @@ function generateAppBondsSmokeTest(
 
   if (reExportNames.length > 0) {
     lines.push('')
-    lines.push(`  it('exports provider instances', async () => {`)
-    lines.push(`    const mod = await import('../bonds/index.js')`)
+    lines.push(`  it('exports provider instances', () => {`)
     for (const name of reExportNames) {
-      lines.push(`    expect(mod.${name}).toBeDefined()`)
+      lines.push(`    expect(bonds.${name}).toBeDefined()`)
     }
     lines.push(`  })`)
   }

@@ -2,7 +2,7 @@
 /**
  * A fresh app scaffold of one app framework passes its own scripts, as a user runs them.
  *
- *   node scripts/check-framework-scaffolds.mjs <framework> [--no-test] [--keep] [--packs <dir>]
+ *   node scripts/check-framework-scaffolds.mjs <framework> [--with-features] [--no-test] [--keep] [--packs <dir>]
  *   node scripts/check-framework-scaffolds.mjs --list   # the framework names, as JSON
  *   node scripts/check-framework-scaffolds.mjs --classes <app dir>   # only the classes step
  *
@@ -22,6 +22,10 @@
  * and every fresh svelte app failed svelte-check until a local run of the workspace gate saw it.
  *
  * The framework names are registry.json's `appFrameworks` keys; CI runs one job per name.
+ * --with-features scaffolds a full-stack project instead, with one package for each optional
+ * feature the framework's templates gate (registry `optionalFeature`: password reset, two-factor,
+ * payments, OAuth, push, the settings page, the footer), and checks its app: without them a
+ * scaffold writes none of their pages, so the plain app check never compiles that code.
  * MLCL_SCAFFOLD_TMP names the parent directory for the scaffold (default: the OS temp dir).
  * --packs <dir> installs each `npm pack` tarball in <dir> in place of its registry pin (a direct
  * dependency and an `overrides` entry), to check a scaffold change against packages that are not
@@ -67,13 +71,40 @@ const flagValues = new Set([packs].filter(Boolean))
 const framework = args.find((arg) => !arg.startsWith('--') && !flagValues.has(arg))
 if (!framework || !frameworks.includes(framework)) {
   console.error(
-    `usage: check-framework-scaffolds.mjs <framework> [--no-test] [--keep] [--packs <dir>]; ` +
+    `usage: check-framework-scaffolds.mjs <framework> [--with-features] [--no-test] [--keep] [--packs <dir>]; ` +
       `the framework is one of registry.json's appFrameworks: ${frameworks.join(', ')}`,
   )
   process.exit(2)
 }
 const noTest = args.includes('--no-test')
 const keep = args.includes('--keep')
+const withFeatures = args.includes('--with-features')
+
+/**
+ * One package for each optional feature this framework's templates gate, the first by name: a
+ * feature an API provider brings (any stack) or this framework's own package (the settings panel).
+ *
+ * @returns {Promise<string[]>} The package names.
+ */
+async function featurePackages() {
+  const { frameworkTemplateFeatures } = await import('../dist/lib/optional-features.js')
+  const { loadRegistry } = await import('../dist/lib/registry.js')
+  const gated = frameworkTemplateFeatures(join(MLCL, 'templates', 'app'), framework)
+  const names = []
+  for (const feature of [...gated].sort()) {
+    const provider = loadRegistry()
+      .filter(
+        (pkg) =>
+          pkg.molecule?.optionalFeature === feature &&
+          (!pkg.molecule.framework || pkg.molecule.framework === framework),
+      )
+      .map((pkg) => pkg.name)
+      .sort()[0]
+    if (!provider) throw new Error(`no package brings the ${feature} feature for ${framework}`)
+    names.push(provider)
+  }
+  return names
+}
 
 /**
  * Runs a command, returning its status and combined output.
@@ -142,7 +173,10 @@ function usePacks(dir, packDir) {
 
 // The project name is the directory name and must be lowercase; mkdtemp's suffix names the parent.
 const parent = mkdtempSync(join(process.env.MLCL_SCAFFOLD_TMP ?? tmpdir(), 'mlcl-scaffold-'))
-const dir = join(parent, `app-${framework}`)
+const name = `${withFeatures ? 'features' : 'app'}-${framework}`
+const dir = join(parent, name)
+// A full-stack project keeps its app under app/; npm installs both halves from the root.
+const appDir = withFeatures ? join(dir, 'app') : dir
 const failures = []
 const ran = []
 try {
@@ -155,9 +189,9 @@ try {
       '--no-interactive',
       '--skip-install',
       '--type',
-      'app',
+      withFeatures ? 'full-stack' : 'app',
       '--packages',
-      '@molecule/app-routing',
+      ['@molecule/app-routing', ...(withFeatures ? await featurePackages() : [])].join(','),
       '--framework',
       framework,
     ],
@@ -167,32 +201,37 @@ try {
   else {
     if (packs) console.log(`packs in place of their pins: ${usePacks(dir, packs).join(', ')}`)
     const installed = run('npm', ['install', '--no-audit', '--no-fund'], dir)
-    const injected = installed.ok
-      ? run(
-          process.execPath,
-          [
-            join(MLCL, 'bin', 'run.js'),
-            'inject',
-            '--force',
-            '--no-install',
-            '--no-ai',
-            '--no-test',
-            '-p',
-            dir,
-          ],
-          dir,
-        )
-      : null
+    const inject = (workspace) =>
+      run(
+        process.execPath,
+        [
+          join(MLCL, 'bin', 'run.js'),
+          'inject',
+          '--force',
+          '--no-install',
+          '--no-ai',
+          '--no-test',
+          '-p',
+          workspace,
+        ],
+        dir,
+      )
+    let injected = null
+    if (installed.ok)
+      for (const workspace of withFeatures ? [join(dir, 'api'), appDir] : [dir]) {
+        injected = inject(workspace)
+        if (!injected.ok) break
+      }
     if (!installed.ok) failures.push({ step: 'install', output: installed.output })
     else if (!injected?.ok) failures.push({ step: 'inject', output: injected?.output ?? '' })
     else {
-      const scripts = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8')).scripts ?? {}
+      const scripts = JSON.parse(readFileSync(join(appDir, 'package.json'), 'utf8')).scripts ?? {}
       const steps = ['typecheck', 'lint', 'format:check', ...(noTest ? [] : ['test']), 'build']
       for (const step of steps.filter((name) => scripts[name])) {
         // A fresh scaffold lints with no warning: the platform's build check runs ESLint with
         // --max-warnings 0, so a warning there fails the user's first build.
         const extra = step === 'lint' ? ['--', '--max-warnings', '0'] : []
-        const result = run('npm', ['run', step, ...extra], dir)
+        const result = run('npm', ['run', step, ...extra], appDir)
         ran.push(step)
         if (!result.ok) failures.push({ step, output: result.output })
       }
@@ -200,12 +239,12 @@ try {
         failures.push({ step: 'build', output: 'the scaffold has no build script' })
       // A web app is judged on the CSS its build wrote, so a failed build has nothing to judge.
       if (!failures.some((failure) => failure.step === 'build')) {
-        const classes = await checkScaffoldClasses(dir)
+        const classes = await checkScaffoldClasses(appDir)
         ran.push('classes')
         if (!classes.ok) failures.push({ step: 'classes', output: classes.output })
       }
       if (scripts.lint) {
-        const unread = unlintedSources(dir)
+        const unread = unlintedSources(appDir)
         ran.push('lint-coverage')
         if (unread.length)
           failures.push({
@@ -220,6 +259,6 @@ try {
   else rmSync(parent, { recursive: true, force: true })
 }
 for (const { step, output } of failures)
-  console.error(`✗ app-${framework} [${step}]\n${output.split('\n').slice(-40).join('\n')}\n`)
+  console.error(`✗ ${name} [${step}]\n${output.split('\n').slice(-40).join('\n')}\n`)
 if (failures.length) process.exit(1)
-console.log(`✓ app-${framework}: a fresh scaffold passes ${ran.join(', ')}`)
+console.log(`✓ ${name}: a fresh scaffold passes ${ran.join(', ')}`)

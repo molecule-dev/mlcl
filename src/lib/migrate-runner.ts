@@ -29,7 +29,7 @@ import { readFile, rm, writeFile } from 'node:fs/promises'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
-import { getMoleculeVersion } from './registry.js'
+import { getMoleculeVersion, loadToolchain } from './registry.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -69,6 +69,8 @@ const POSTGRES_TEMPLATE_PROVIDERS: readonly string[] = [
 ]
 
 const POSTGRES_PACKAGE = '@molecule/api-database-postgresql'
+/** The `pg` driver's types, for a runner that imports the driver (pinned in `toolchain.postgres`). */
+const PG_TYPES = '@types/pg'
 /** The local DuckDB bond — renders its own file-backed runner. */
 const DUCKDB_PACKAGE = '@molecule/api-database-duckdb'
 /** The hosted MotherDuck bond — deploys DuckDB, but connects to a remote database. */
@@ -445,7 +447,10 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
     pgliteBranchReachable ? PGLITE_PACKAGE : null,
     ...importedProviders,
   ].filter((name): name is string => name !== null)
-  if (needed.length === 0 && !existsSync(join(apiDir, 'package.json'))) return []
+  // The Postgres runner imports the `pg` driver itself, which ships no types: a strict `tsc` needs
+  // `@types/pg` (TS7016). No other runner imports it, so no other project is given Postgres types.
+  const needsPgTypes = runner.includes(`from 'pg'`)
+  if (needed.length === 0 && !needsPgTypes && !existsSync(join(apiDir, 'package.json'))) return []
   const manifestPath = join(apiDir, 'package.json')
   let manifestBytes: Buffer
   let manifest: {
@@ -457,7 +462,7 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
     manifestBytes = await readFile(manifestPath)
     manifest = JSON.parse(manifestBytes.toString('utf-8')) as typeof manifest
   } catch (error) {
-    if (needed.length === 0) return []
+    if (needed.length === 0 && !needsPgTypes) return []
     console.warn(
       `[migrate-runner] ${manifestPath} is missing or unparseable — cannot back ` +
         `src/scripts/migrate.ts's imports (${needed.join(', ')}): ` +
@@ -487,6 +492,17 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
   if (pgliteBranchReachable) promote(PGLITE_PACKAGE)
   for (const provider of importedProviders) promote(provider)
 
+  let gainedTypes = false
+  if (needsPgTypes && !deps[PG_TYPES] && !manifest.devDependencies?.[PG_TYPES]) {
+    manifest.devDependencies = Object.fromEntries(
+      Object.entries({
+        ...manifest.devDependencies,
+        [PG_TYPES]: loadToolchain().postgres[PG_TYPES],
+      }).sort(([a], [b]) => a.localeCompare(b)),
+    )
+    gainedTypes = true
+  }
+
   // Only a runner that declares the fresh-file mode may own this build step. Imported/custom
   // runners and other providers keep their own verification contracts.
   const freshCommand = 'node dist/scripts/migrate.js --verify-fresh'
@@ -508,7 +524,7 @@ export async function ensureMigrateRunnerImports(apiDir: string): Promise<string
       scripts.build = scripts.build.slice(0, -freshBuildTail.length)
     changedScripts = true
   }
-  if (gained.length === 0 && !changedScripts) return []
+  if (gained.length === 0 && !changedScripts && !gainedTypes) return []
   if (gained.length > 0)
     manifest.dependencies = Object.fromEntries(
       Object.entries(deps).sort(([a], [b]) => a.localeCompare(b)),

@@ -39,6 +39,7 @@
     "/bin",
     "/dist",
     "/registry.json",
+    "/locks",
     "/templates",
     "/oclif.manifest.json",
     "/docs/AGENTS-AND-HARNESSES.md",

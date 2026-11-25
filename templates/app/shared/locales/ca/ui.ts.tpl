@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Fora de línia',
   'settings.unknown': 'Desconegut',
   'settings.logOut': 'Tanca la sessió',
+  'userMenu.logOut': 'Tanca la sessió',
   'settings.deleteAccount': 'Elimina el compte',
   'settings.changePasswordModal.title': 'Canvia la contrasenya',
   'settings.changePasswordModal.error': "No s'ha pogut canviar la contrasenya.",
@@ -240,4 +241,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': "No s'ha pogut verificar la subscripció.",
   'user.payment.unknownPlan': 'Pla desconegut.',
   'user.payment.invalidWebhookEvent': 'Esdeveniment de webhook no vàlid.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Activat',
+  'settings.twoFactorEnable': 'Activa',
+  'settings.twoFactorDisable': 'Desactiva',
+  'settings.twoFactorEnableTitle': "Activa l'autenticació de dos factors",
+  'settings.twoFactorDisableTitle': "Desactiva l'autenticació de dos factors",
+  'settings.twoFactorScan':
+    "Escaneja aquest codi QR amb l'aplicació d'autenticació i, a continuació, introdueix el codi de 6 dígits.",
+  'settings.twoFactorQrAlt': 'Codi QR de dos factors',
+  'settings.twoFactorCode': "Codi d'autenticació",
+  'settings.twoFactorVerify': 'Verifica i activa',
+  'settings.twoFactorInvalidCode': 'Codi no vàlid',
+  'settings.twoFactorUnavailable':
+    "L'autenticació de dos factors no està disponible per a aquesta aplicació.",
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Actualitza el teu pla',
+  'settings.billing.subscribe': 'Subscriu-te',
+  'settings.billing.checkoutFailed': "No s'ha pogut iniciar el procés de compra.",
+  'settings.billing.cancel': 'Cancel·la',
+  'settings.billing.cancelConfirm': 'Vols cancel·lar la subscripció?',
+  'settings.billing.cancelFailed': "No s'ha pogut cancel·lar.",
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Encara no hem pogut confirmar el vostre pagament.',
+  'planUpdated.retry': 'Torna-ho a intentar',
+{{/feature}}
 }

@@ -1,6 +1,7 @@
 /**
- * A freshly scaffolded project gives `prettier --write` nothing to do — including a
- * `--skip-install` scaffold, which skips mlcl's own formatting pass to stay fast.
+ * A freshly scaffolded project gives `prettier --write` nothing to do. `mlcl create` runs no
+ * formatter over the project (the pass cost 1.5-1.9 s of every installed create), so this check is
+ * what keeps its output formatted.
  *
  * Every later formatter run over the project (an editor's format-on-save, a pre-commit hook,
  * `npm run format:check`, a hosting platform's deploy) otherwise rewrites the files the
@@ -10,8 +11,8 @@
  * project's first deploy.
  *
  * The fix lives at the source (the templates and the code that assembles generated files), so
- * the check drives the REAL `mlcl create --skip-install` and asks the same formatter pass
- * `mlcl create` runs without the flag which files it would change. A failure names them.
+ * the check drives the REAL `mlcl create --skip-install` and asks Prettier which files it would
+ * change. A failure names them.
  *
  * @module
  */
@@ -65,6 +66,8 @@ const CASES: { name: string; argv: string[] }[] = [
   { name: 'app react', argv: ['--type', 'app', '--framework', 'react'] },
   { name: 'api', argv: ['--type', 'api'] },
   { name: 'static react', argv: ['--type', 'static', '--framework', 'react'] },
+  // A template create substitutes the project name into the flagship's files.
+  { name: 'template blog', argv: ['--template', 'blog'] },
   {
     name: 'full-stack with monitoring, sqlite and extra app bonds',
     argv: [

@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Lineaz kanpo',
   'settings.unknown': 'Ezezaguna',
   'settings.logOut': 'Amaitu saioa',
+  'userMenu.logOut': 'Amaitu saioa',
   'settings.deleteAccount': 'Ezabatu kontua',
   'settings.changePasswordModal.title': 'Aldatu pasahitza',
   'settings.changePasswordModal.error': 'Ezin izan da pasahitza aldatu.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Ezin izan da harpidetza egiaztatu.',
   'user.payment.unknownPlan': 'Plan ezezaguna.',
   'user.payment.invalidWebhookEvent': 'Webhook gertaera baliogabea.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Piztuta',
+  'settings.twoFactorEnable': 'Gaitu',
+  'settings.twoFactorDisable': 'Desgaitu',
+  'settings.twoFactorEnableTitle': 'Gaitu bi faktoreko autentifikazioa',
+  'settings.twoFactorDisableTitle': 'Desgaitu bi faktoreko autentifikazioa',
+  'settings.twoFactorScan':
+    'Eskaneatu QR kode hau zure autentifikazio aplikazioarekin eta sartu 6 digituko kodea.',
+  'settings.twoFactorQrAlt': 'Bi faktoreko QR kodea',
+  'settings.twoFactorCode': 'Autentifikazio kodea',
+  'settings.twoFactorVerify': 'Egiaztatu eta gaitu',
+  'settings.twoFactorInvalidCode': 'Kode baliogabea',
+  'settings.twoFactorUnavailable':
+    'Bi faktoreko autentifikazioa ez dago erabilgarri aplikazio honetarako.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Berritu zure plana',
+  'settings.billing.subscribe': 'Harpidetu',
+  'settings.billing.checkoutFailed': 'Ezin izan da ordainketa hasi.',
+  'settings.billing.cancel': 'Utzi',
+  'settings.billing.cancelConfirm': 'Harpidetza bertan behera utzi nahi duzu?',
+  'settings.billing.cancelFailed': 'Ezin izan da bertan behera utzi.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Ezin izan dugu oraindik zure ordainketa baieztatu.',
+  'planUpdated.retry': 'Saiatu berriro',
+{{/feature}}
 }

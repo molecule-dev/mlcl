@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Nepovezan',
   'settings.unknown': 'Neznano',
   'settings.logOut': 'Odjava',
+  'userMenu.logOut': 'Odjava',
   'settings.deleteAccount': 'Izbriši račun',
   'settings.changePasswordModal.title': 'Sprememba gesla',
   'settings.changePasswordModal.error': 'Sprememba gesla ni uspela.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Preverjanje naročnine ni uspelo.',
   'user.payment.unknownPlan': 'Neznan paket.',
   'user.payment.invalidWebhookEvent': 'Neveljaven webhook dogodek.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Vklopljeno',
+  'settings.twoFactorEnable': 'Omogoči',
+  'settings.twoFactorDisable': 'Onemogoči',
+  'settings.twoFactorEnableTitle': 'Omogoči dvofaktorsko preverjanje pristnosti',
+  'settings.twoFactorDisableTitle': 'Onemogoči dvofaktorsko overjanje',
+  'settings.twoFactorScan':
+    'Skenirajte to QR kodo z aplikacijo za preverjanje pristnosti in nato vnesite 6-mestno kodo.',
+  'settings.twoFactorQrAlt': 'Dvofaktorska QR koda',
+  'settings.twoFactorCode': 'Koda za preverjanje pristnosti',
+  'settings.twoFactorVerify': 'Preveri in omogoči',
+  'settings.twoFactorInvalidCode': 'Neveljavna koda',
+  'settings.twoFactorUnavailable': 'Dvofaktorska avtentikacija ni na voljo za to aplikacijo.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Nadgradite svoj paket',
+  'settings.billing.subscribe': 'Naročite se',
+  'settings.billing.checkoutFailed': 'Blagajne ni bilo mogoče začeti.',
+  'settings.billing.cancel': 'Prekliči',
+  'settings.billing.cancelConfirm': 'Želite preklicati naročnino?',
+  'settings.billing.cancelFailed': 'Ni bilo mogoče preklicati.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Vašega plačila še nismo mogli potrditi.',
+  'planUpdated.retry': 'Poskusi znova',
+{{/feature}}
 }

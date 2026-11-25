@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Mhux magħruf',
   'settings.logOut': 'Oħroġ',
+  'userMenu.logOut': 'Oħroġ',
   'settings.deleteAccount': 'Ħassar il-kont',
   'settings.changePasswordModal.title': 'Ibdel il-password',
   'settings.changePasswordModal.error': 'Ma rnexxiex jinbidel il-password.',
@@ -240,4 +241,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Il-verifika tal-abbonament falliet.',
   'user.payment.unknownPlan': 'Pjan mhux maghruf.',
   'user.payment.invalidWebhookEvent': 'Avveniment webhook invalidu.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Mixgħul',
+  'settings.twoFactorEnable': 'Ippermetti',
+  'settings.twoFactorDisable': 'Iddiżattiva',
+  'settings.twoFactorEnableTitle': "Ippermetti l-awtentikazzjoni b'żewġ fatturi",
+  'settings.twoFactorDisableTitle': "Iddiżattiva l-awtentikazzjoni b'żewġ fatturi",
+  'settings.twoFactorScan':
+    "Skennja dan il-kodiċi QR bl-app tal-awtentikatur tiegħek, imbagħad daħħal il-kodiċi ta' 6 ċifri.",
+  'settings.twoFactorQrAlt': "Kodiċi QR b'żewġ fatturi",
+  'settings.twoFactorCode': "Kodiċi ta' awtentikazzjoni",
+  'settings.twoFactorVerify': 'Ivverifika u attiva',
+  'settings.twoFactorInvalidCode': 'Kodiċi invalidu',
+  'settings.twoFactorUnavailable':
+    "L-awtentikazzjoni b'żewġ fatturi mhijiex disponibbli għal din l-app.",
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Aġġorna l-pjan tiegħek',
+  'settings.billing.subscribe': 'Abbona',
+  'settings.billing.checkoutFailed': 'Ma stajtx nibda l-ħlas.',
+  'settings.billing.cancel': 'Ikkanċella',
+  'settings.billing.cancelConfirm': 'Tikkanċella l-abbonament tiegħek?',
+  'settings.billing.cancelFailed': 'Ma stajtx nikkanċella.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Għadna ma stajniex nikkonfermaw il-ħlas tiegħek.',
+  'planUpdated.retry': "Erġa' pprova",
+{{/feature}}
 }

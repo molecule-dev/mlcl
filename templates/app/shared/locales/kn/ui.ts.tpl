@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ಆಫ್‌ಲೈನ್',
   'settings.unknown': 'ತಿಳಿದಿಲ್ಲ',
   'settings.logOut': 'ಲಾಗ್ ಔಟ್',
+  'userMenu.logOut': 'ಲಾಗ್ ಔಟ್',
   'settings.deleteAccount': 'ಖಾತೆ ಅಳಿಸಿ',
   'settings.changePasswordModal.title': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಿ',
   'settings.changePasswordModal.error': 'ಪಾಸ್‌ವರ್ಡ್ ಬದಲಾಯಿಸಲು ವಿಫಲವಾಗಿದೆ.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'ಚಂದಾ ಪರಿಶೀಲಿಸಲು ವಿಫಲ.',
   'user.payment.unknownPlan': 'ಅಜ್ಞಾತ ಯೋಜನೆ.',
   'user.payment.invalidWebhookEvent': 'ಅಮಾನ್ಯ ವೆಬ್‌ಹುಕ್ ಈವೆಂಟ್.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ಆನ್',
+  'settings.twoFactorEnable': 'ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorDisable': 'ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorEnableTitle': 'ಎರಡು-ಅಂಶದ ದೃಢೀಕರಣವನ್ನು ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorDisableTitle': 'ಎರಡು ಅಂಶದ ದೃಢೀಕರಣವನ್ನು ನಿಷ್ಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorScan':
+    'ನಿಮ್ಮ ಅಥೆಂಟಿಕೇಟರ್ ಅಪ್ಲಿಕೇಶನ್‌ನೊಂದಿಗೆ ಈ QR ಕೋಡ್ ಅನ್ನು ಸ್ಕ್ಯಾನ್ ಮಾಡಿ, ನಂತರ 6-ಅಂಕಿಯ ಕೋಡ್ ಅನ್ನು ನಮೂದಿಸಿ.',
+  'settings.twoFactorQrAlt': 'ಎರಡು ಅಂಶಗಳ QR ಕೋಡ್',
+  'settings.twoFactorCode': 'ದೃಢೀಕರಣ ಕೋಡ್',
+  'settings.twoFactorVerify': 'ಪರಿಶೀಲಿಸಿ ಮತ್ತು ಸಕ್ರಿಯಗೊಳಿಸಿ',
+  'settings.twoFactorInvalidCode': 'ಅಮಾನ್ಯ ಕೋಡ್',
+  'settings.twoFactorUnavailable': 'ಈ ಅಪ್ಲಿಕೇಶನ್‌ಗೆ ಎರಡು-ಅಂಶದ ದೃಢೀಕರಣ ಲಭ್ಯವಿಲ್ಲ.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'ನಿಮ್ಮ ಯೋಜನೆಯನ್ನು ಅಪ್‌ಗ್ರೇಡ್ ಮಾಡಿ',
+  'settings.billing.subscribe': 'ಚಂದಾದಾರರಾಗಿ',
+  'settings.billing.checkoutFailed': 'ಚೆಕ್ಔಟ್ ಪ್ರಾರಂಭಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'settings.billing.cancel': 'ರದ್ದುಮಾಡಿ',
+  'settings.billing.cancelConfirm': 'ನಿಮ್ಮ ಚಂದಾದಾರಿಕೆಯನ್ನು ರದ್ದುಗೊಳಿಸುವುದೇ?',
+  'settings.billing.cancelFailed': 'ರದ್ದುಗೊಳಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'ನಿಮ್ಮ ಪಾವತಿಯನ್ನು ನಮಗೆ ಇನ್ನೂ ಖಚಿತಪಡಿಸಲು ಸಾಧ್ಯವಾಗಲಿಲ್ಲ.',
+  'planUpdated.retry': 'ಮತ್ತೆ ಪ್ರಯತ್ನಿಸಿ',
+{{/feature}}
 }

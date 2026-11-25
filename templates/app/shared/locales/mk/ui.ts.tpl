@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Офлајн',
   'settings.unknown': 'Непознато',
   'settings.logOut': 'Одјави се',
+  'userMenu.logOut': 'Одјави се',
   'settings.deleteAccount': 'Избриши сметка',
   'settings.changePasswordModal.title': 'Промена на лозинка',
   'settings.changePasswordModal.error': 'Промената на лозинката не успеа.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Верификацијата на претплатата не успеа.',
   'user.payment.unknownPlan': 'Непознат план.',
   'user.payment.invalidWebhookEvent': 'Невалиден веб-кука настан.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Вклучено',
+  'settings.twoFactorEnable': 'Овозможи',
+  'settings.twoFactorDisable': 'Оневозможи',
+  'settings.twoFactorEnableTitle': 'Овозможи двофакторска автентикација',
+  'settings.twoFactorDisableTitle': 'Оневозможи двофакторска автентикација',
+  'settings.twoFactorScan':
+    'Скенирајте го овој QR-код со вашата апликација за автентикација, а потоа внесете го 6-цифрениот код.',
+  'settings.twoFactorQrAlt': 'Двофакторски QR код',
+  'settings.twoFactorCode': 'Код за автентикација',
+  'settings.twoFactorVerify': 'Потврди и овозможи',
+  'settings.twoFactorInvalidCode': 'Неважечки код',
+  'settings.twoFactorUnavailable': 'Двофакторската автентикација не е достапна за оваа апликација.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Надградете го вашиот план',
+  'settings.billing.subscribe': 'Претплати се',
+  'settings.billing.checkoutFailed': 'Не можеше да се започне со наплатата.',
+  'settings.billing.cancel': 'Откажи',
+  'settings.billing.cancelConfirm': 'Да се откаже претплатата?',
+  'settings.billing.cancelFailed': 'Не можеше да се откаже.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Сè уште не можевме да ја потврдиме вашата уплата.',
+  'planUpdated.retry': 'Обидете се повторно',
+{{/feature}}
 }

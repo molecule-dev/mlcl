@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'آف لائن',
   'settings.unknown': 'نامعلوم',
   'settings.logOut': 'لاگ آؤٹ',
+  'userMenu.logOut': 'لاگ آؤٹ',
   'settings.deleteAccount': 'اکاؤنٹ حذف کریں',
   'settings.changePasswordModal.title': 'پاس ورڈ تبدیل کریں',
   'settings.changePasswordModal.error': 'پاس ورڈ تبدیل کرنے میں ناکامی۔',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'سبسکرپشن کی تصدیق میں ناکامی۔',
   'user.payment.unknownPlan': 'نامعلوم پلان۔',
   'user.payment.invalidWebhookEvent': 'غلط ویب ہک ایونٹ۔',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'فعال',
+  'settings.twoFactorEnable': 'فعال کریں۔',
+  'settings.twoFactorDisable': 'غیر فعال کریں۔',
+  'settings.twoFactorEnableTitle': 'دو عنصر کی توثیق کو فعال کریں۔',
+  'settings.twoFactorDisableTitle': 'دو عنصر کی توثیق کو غیر فعال کریں۔',
+  'settings.twoFactorScan':
+    'اس QR کوڈ کو اپنی تصدیق کنندہ ایپ سے اسکین کریں، پھر 6 ہندسوں کا کوڈ درج کریں۔',
+  'settings.twoFactorQrAlt': 'دو فیکٹر QR کوڈ',
+  'settings.twoFactorCode': 'تصدیقی کوڈ',
+  'settings.twoFactorVerify': 'تصدیق کریں اور فعال کریں۔',
+  'settings.twoFactorInvalidCode': 'غلط کوڈ',
+  'settings.twoFactorUnavailable': 'اس ایپ کے لیے دو عنصر کی توثیق دستیاب نہیں ہے۔',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'اپنا منصوبہ اپ گریڈ کریں۔',
+  'settings.billing.subscribe': 'سبسکرائب کریں۔',
+  'settings.billing.checkoutFailed': 'چیک آؤٹ شروع نہیں کیا جا سکا۔',
+  'settings.billing.cancel': 'منسوخ کریں۔',
+  'settings.billing.cancelConfirm': 'اپنی رکنیت منسوخ کریں؟',
+  'settings.billing.cancelFailed': 'منسوخ نہیں ہو سکا۔',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'ہم ابھی تک آپ کی ادائیگی کی تصدیق نہیں کر سکے۔',
+  'planUpdated.retry': 'دوبارہ کوشش کریں۔',
+{{/feature}}
 }

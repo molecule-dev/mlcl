@@ -30,10 +30,13 @@ const routes: Routes = [
     path: 'signup',
     loadComponent: () => import('./pages/signup.component.js').then((m) => m.SignupComponent),
   },
+{{#feature footer}}
   {
     path: 'about',
     loadComponent: () => import('./pages/about.component.js').then((m) => m.AboutComponent),
   },
+{{/feature}}
+{{#feature emails}}
   {
     path: 'forgot-password',
     loadComponent: () =>
@@ -44,6 +47,7 @@ const routes: Routes = [
     loadComponent: () =>
       import('./pages/reset-password.component.js').then((m) => m.ResetPasswordComponent),
   },
+{{/feature}}
   {
     path: '',
     component: AuthGuardComponent,
@@ -56,16 +60,20 @@ const routes: Routes = [
             path: '',
             loadComponent: () => import('./pages/home.component.js').then((m) => m.HomeComponent),
           },
+{{#feature settings}}
           {
             path: 'settings',
             loadComponent: () =>
               import('./pages/settings.component.js').then((m) => m.SettingsComponent),
           },
+{{/feature}}
+{{#feature payments}}
           {
             path: 'plan-updated',
             loadComponent: () =>
               import('./pages/plan-updated.component.js').then((m) => m.PlanUpdatedComponent),
           },
+{{/feature}}
         ],
       },
     ],

@@ -1,3 +1,4 @@
+{{#feature settings}}
 import { NgComponentOutlet } from '@angular/common'
 import { Component, effect, signal, type Type, viewChild } from '@angular/core'
 
@@ -65,3 +66,51 @@ export class UserMenuComponent {
     })
   }
 }
+{{/feature}}
+{{^feature settings}}
+import { Component } from '@angular/core'
+
+import { useAuth, useTranslation } from '@molecule/app-angular'
+import { Button } from '@molecule/app-ui-angular'
+
+/**
+ * The signed-in user's log-out button. A settings page and drawer come with the settings panel
+ * package (`npx mlcl add @molecule/app-settings-panel-angular --inject`).
+ */
+@Component({
+  selector: 'app-user-menu',
+  // No box of its own, like the React component it stands in for: a flex or grid parent
+  // lays out this component's root element, not a wrapper.
+  host: { style: 'display: contents' },
+  standalone: true,
+  imports: [Button],
+  template: `
+    @if (auth.isAuthenticated()) {
+      <button
+        mol-button
+        type="button"
+        variant="ghost"
+        size="sm"
+        data-mol-id="log-out"
+        (click)="logOut()"
+      >
+        {{ t('userMenu.logOut', undefined, { defaultValue: 'Log out' }) }}
+      </button>
+    }
+  `,
+})
+export class UserMenuComponent {
+  /** The signed-in state and the log-out call. */
+  protected readonly auth = useAuth()
+
+  private readonly i18n = useTranslation()
+
+  /** Translates a key. */
+  protected readonly t = this.i18n.t
+
+  /** Ends the session. */
+  protected logOut(): void {
+    void this.auth.logout()
+  }
+}
+{{/feature}}

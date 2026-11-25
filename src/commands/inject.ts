@@ -1,12 +1,13 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { join, relative } from 'node:path'
 
 import * as p from '@clack/prompts'
 import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
+import { addedDeclarations, afterAddGuidance, declaredNames } from '../lib/add-guidance.js'
 import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT } from '../lib/ddl-exit.js'
@@ -49,6 +50,7 @@ import {
 } from '../lib/migration-dialect.js'
 import { npmInstall } from '../lib/npm-install.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
+import { deriveOptionalFeatures } from '../lib/optional-features.js'
 import {
   detectAppFramework,
   findRegistryPackage,
@@ -72,6 +74,7 @@ import {
 } from '../lib/setup-sql.js'
 import { createSpinner } from '../lib/spinner.js'
 import { validateInjectionOutput } from '../lib/validator.js'
+import { writtenCode } from '../lib/written-code.js'
 
 /**
  * The project name as the `.env` append path may receive it.
@@ -146,6 +149,13 @@ export default class Inject extends Command {
         'Generate wiring code with the Anthropic API, billed to ANTHROPIC_API_KEY (default: the built-in generators)',
       default: false,
       allowNo: true,
+    }),
+    // `mlcl add --inject` passes the packages it added: how to call them is printed before the next
+    // steps, so the steps are the output's last lines (an agent reading `| tail` sees them).
+    guide: Flags.string({
+      description: 'Print how to call these packages before the next steps',
+      multiple: true,
+      hidden: true,
     }),
   }
 
@@ -573,12 +583,37 @@ export default class Inject extends Command {
     }
 
     const registryPackages = loadRegistry()
+    // A named package that brings an optional feature (an email transport brings `emails`) turns
+    // on routes another package of the project marks with it (the user resource's password reset):
+    // that package joins the synthesis, never the execution, so its router mounts them and its
+    // editable router gains their code. An add of an email transport wired the bond and mounted no
+    // reset route.
+    const featurePlans: InjectionPlan[] = []
+    if (flags.molecule?.length && !isAppProject) {
+      const features = deriveOptionalFeatures(molecules, registryPackages)
+      for (const name of Object.keys(projectDeps)) {
+        if (molecules.includes(name)) continue
+        const pkg = registryPackages.find((entry) => entry.name === name)
+        if (!pkg?.routes.some((route) => route.optional && features.has(route.optional))) continue
+        const plan = await planInjection(name, projectPath, sharedSubdir, planOptions(name))
+        if (plan.moleculePackage) featurePlans.push(plan)
+      }
+    }
+    const synthesisPlans = [...plans, ...featurePlans]
+    const synthesisMolecules = [...molecules, ...featurePlans.map((plan) => plan.molecule)]
     const syntheticFiles = isAppProject
       ? synthesizeAppProjectFiles(plans, molecules, projectPath, registryPackages, sharedSubdir)
-      : await synthesizeProjectFiles(plans, molecules, projectPath, registryPackages, undefined, {
-          // existingProjectFiles drops every __tests__/ file of such a project.
-          smokeTests: !existingProject,
-        })
+      : await synthesizeProjectFiles(
+          synthesisPlans,
+          synthesisMolecules,
+          projectPath,
+          registryPackages,
+          undefined,
+          {
+            // existingProjectFiles drops every __tests__/ file of such a project.
+            smokeTests: !existingProject,
+          },
+        )
     // An app loads a companion locale bond in its i18n bond, which is the i18n core's default
     // bond: synthesized from the named packages alone it is not written at all, so an add that
     // brought a locale bond left it unloaded. Render it from every package the project declares,
@@ -634,7 +669,8 @@ export default class Inject extends Command {
     // every provider the project already had.
     const mergeFailures: string[] = []
     const addedWiring = (file: FileOperation): FileOperation[] => {
-      if (!existsSync(file.targetPath)) return [file]
+      // A synthesized `modify` is the project's own file with this inject's additions in it.
+      if (!existsSync(file.targetPath) || file.action === 'modify') return [file]
       const inProject = (path: string): string =>
         existingProject
           ? inLanguage({ action: 'create', targetPath: path, description: '' }, language).targetPath
@@ -691,13 +727,19 @@ export default class Inject extends Command {
 
     spinner.stop(t('commands.inject.spinners.planned'))
 
-    // Step 4: Show preview
-    this.log('')
-    this.log(chalk.bold(t('commands.inject.labels.injectionPlan')))
-    this.log('')
+    // Step 4: Show the plan to someone asked to confirm it, or who asked for it (--dry-run). A run
+    // with no one to ask (--force, or no TTY: agents, CI, the molecule MCP server) reports the files
+    // it wrote once it is done instead: the plan, with absolute paths, was 2.6 KB of a 4.3 KB
+    // `mlcl add --inject` result in the r18 add eval, ahead of the usage the agent needed.
+    const previewing = flags['dry-run'] || (!flags.force && process.stdin.isTTY === true)
+    if (previewing) {
+      this.log('')
+      this.log(chalk.bold(t('commands.inject.labels.injectionPlan')))
+      this.log('')
+    }
 
     // Show per-molecule plans (bond files, middleware files, migrations, deps)
-    for (const plan of plans) {
+    for (const plan of previewing ? plans : []) {
       this.log(chalk.cyan(`  ${plan.molecule}`))
 
       if (plan.moleculePackage) {
@@ -718,7 +760,9 @@ export default class Inject extends Command {
                 ? chalk.yellow('~')
                 : file.action === 'transform'
                   ? chalk.magenta('⟳')
-                  : chalk.blue('→')
+                  : file.action === 'delete'
+                    ? chalk.red('-')
+                    : chalk.blue('→')
           this.log(`      ${icon} ${file.targetPath}`)
           this.log(chalk.gray(`        ${file.description}`))
         }
@@ -764,9 +808,15 @@ export default class Inject extends Command {
       this.log('')
     }
 
+    // A conflict is shown either way: it is what the run will not do.
+    if (!previewing)
+      for (const plan of plans)
+        for (const conflict of plan.conflicts)
+          this.log(`  ${chalk.yellow('!')} ${conflict.path}: ${conflict.message}`)
+
     // Show synthesized holistic files — the ones that will actually be
     // written, so an unresolved request never previews files it will skip.
-    if (filesToWrite.length > 0) {
+    if (previewing && filesToWrite.length > 0) {
       this.log(chalk.cyan(`  ${t('commands.inject.labels.generatedFiles')}`))
       this.log(chalk.gray(`    ${t('commands.inject.labels.files')}`))
       for (const file of filesToWrite) {
@@ -850,12 +900,13 @@ export default class Inject extends Command {
     const installInputsBefore = installInputs(projectPath)
     spinner.start(t('commands.inject.spinners.executing'))
 
-    let totalCreated = 0
-    let totalModified = 0
     const errors: string[] = []
     const warnings: string[] = []
     // What this command wrote: the only files the formatter below may touch.
     const written: string[] = []
+    // The same files, as the closing report names them.
+    const created: string[] = []
+    const modified: string[] = []
 
     // Execute per-molecule plans (bond files, middleware files, migrations, deps)
     for (const plan of plans) {
@@ -865,9 +916,9 @@ export default class Inject extends Command {
         autoInstall: false, // Defer npm install to after all plans
       })
 
-      totalCreated += result.filesCreated.length
-      totalModified += result.filesModified.length
       written.push(...result.filesCreated, ...result.filesModified)
+      created.push(...result.filesCreated)
+      modified.push(...result.filesModified)
       errors.push(...result.errors)
       warnings.push(...result.warnings)
     }
@@ -889,11 +940,15 @@ export default class Inject extends Command {
     // not be resolved, where it narrows to the manifest-derived migration
     // runner — see `holisticSynthesisAllowed`.
     if (errors.length === 0) {
+      const existed = new Set(
+        filesToWrite.filter((file) => existsSync(file.targetPath)).map((file) => file.targetPath),
+      )
       const synthesized = await writeSynthesizedFiles(filesToWrite)
+      if (!synthesized.error)
+        for (const path of synthesized.written) (existed.has(path) ? modified : created).push(path)
       // `written` names the files the loop wrote BEFORE the failing one; on a
-      // failure those were all rolled back (they no longer exist), so they
-      // must not count toward the summary's created total.
-      if (!synthesized.error) totalCreated += synthesized.written.length
+      // failure those were all rolled back (they no longer exist), so they are
+      // not listed (nor counted) in the summary.
       if (!synthesized.error) written.push(...synthesized.written)
       if (synthesized.error) {
         errors.push(synthesized.error)
@@ -1128,11 +1183,47 @@ export default class Inject extends Command {
       this.warn(`Could not update the capability map in AGENTS.md: ${error}`)
     }
 
+    if (flags.guide?.length) {
+      const wired = JSON.parse(readFileSync(join(projectPath, 'package.json'), 'utf8')) as {
+        dependencies?: Record<string, string>
+        devDependencies?: Record<string, string>
+      }
+      for (const name of flags.guide)
+        for (const line of afterAddGuidance(
+          name,
+          declaredNames(wired),
+          undefined,
+          addedDeclarations(name, projectPath),
+        ))
+          this.log(line)
+    }
+
+    // The counts are of the paths listed below: each plan that declares dependencies modifies
+    // package.json, and a per-plan sum said "modified 4 files" above a list of one, which sent an
+    // agent to git status to find the other three (harness eval `add`, 2026-11-25). The list comes
+    // after the guide, next to the steps, so the end of the report (what a `| tail` keeps) says what
+    // was written and what to do with it.
     p.outro(
       chalk.green(
-        t('commands.inject.messages.summary', { created: totalCreated, modified: totalModified }),
+        t('commands.inject.messages.summary', {
+          created: new Set(created).size,
+          modified: new Set(modified).size,
+        }),
       ),
     )
+    if (!previewing) {
+      const shown = (path: string): string => relative(process.cwd(), path) || path
+      const createdPaths = [...new Set(created)]
+      // In a project Molecule did not create, the created files are the only new code: show it.
+      const files = existingProject
+        ? writtenCode(createdPaths, (path) => readFileSync(path, 'utf8'))
+        : createdPaths.map((path) => ({ path, lines: [] }))
+      for (const file of files) {
+        this.log(`  ${chalk.green('+')} ${shown(file.path)}`)
+        for (const line of file.lines) this.log(`      ${chalk.dim(line)}`)
+      }
+      for (const path of [...new Set(modified)]) this.log(`  ${chalk.yellow('~')} ${shown(path)}`)
+    }
 
     this.log('')
     this.log(t('commands.inject.messages.nextSteps'))

@@ -285,6 +285,19 @@ describe('registryChangedPackages — which READMEs a registry edit can change',
     ])
   })
 
+  it('names nothing for a Quick Start the registry copied from the README (OLD MUSTFAIL)', () => {
+    // A Quick Start comes FROM the README: a first scan adds 643 of them, and a check that took
+    // each as a README input would regenerate 643 READMEs for that one commit.
+    const before = registry({ packages: { '@molecule/api-ai': ai } })
+    const after = registry({ packages: { '@molecule/api-ai': { ...ai, quickStart: 'ask()' } } })
+    expect(registryChangedPackages(before, after)).toEqual([])
+    expect(registryChangeAffectsDocs(before, after)).toBe(false)
+    const described = registry({
+      packages: { '@molecule/api-ai': { ...ai, quickStart: 'ask()', description: 'AI' } },
+    })
+    expect(registryChangedPackages(after, described)).toEqual(['@molecule/api-ai'])
+  })
+
   it('can change any README when the framework names or an unknown section change', () => {
     expect(registryChangedPackages(registry(), registry({ appFrameworks: { vue: {} } }))).toBeNull()
     expect(registryChangedPackages(registry(), registry({ newSection: { a: 1 } }))).toBeNull()

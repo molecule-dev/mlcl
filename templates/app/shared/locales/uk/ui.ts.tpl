@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Офлайн',
   'settings.unknown': 'Невідомо',
   'settings.logOut': 'Вийти',
+  'userMenu.logOut': 'Вийти',
   'settings.deleteAccount': 'Видалити обліковий запис',
   'settings.changePasswordModal.title': 'Зміна пароля',
   'settings.changePasswordModal.error': 'Не вдалося змінити пароль.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Не вдалося підтвердити підписку.',
   'user.payment.unknownPlan': 'Невідомий план.',
   'user.payment.invalidWebhookEvent': 'Недійсна подія вебхука.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Увімкнено',
+  'settings.twoFactorEnable': 'Увімкнути',
+  'settings.twoFactorDisable': 'Вимкнути',
+  'settings.twoFactorEnableTitle': 'Увімкнути двофакторну автентифікацію',
+  'settings.twoFactorDisableTitle': 'Вимкнути двофакторну автентифікацію',
+  'settings.twoFactorScan':
+    'Відскануйте цей QR-код за допомогою програми автентифікації, а потім введіть 6-значний код.',
+  'settings.twoFactorQrAlt': 'Двофакторний QR-код',
+  'settings.twoFactorCode': 'Код автентифікації',
+  'settings.twoFactorVerify': 'Перевірити та ввімкнути',
+  'settings.twoFactorInvalidCode': 'Недійсний код',
+  'settings.twoFactorUnavailable': 'Двофакторна автентифікація недоступна для цього додатка.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Оновіть свій план',
+  'settings.billing.subscribe': 'Підписатися',
+  'settings.billing.checkoutFailed': 'Не вдалося розпочати оплату.',
+  'settings.billing.cancel': 'Скасувати',
+  'settings.billing.cancelConfirm': 'Скасувати підписку?',
+  'settings.billing.cancelFailed': 'Не вдалося скасувати.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Нам ще не вдалося підтвердити ваш платіж.',
+  'planUpdated.retry': 'Спробуйте ще раз',
+{{/feature}}
 }

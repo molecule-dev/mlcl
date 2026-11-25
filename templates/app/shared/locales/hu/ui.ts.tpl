@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Ismeretlen',
   'settings.logOut': 'Kijelentkezés',
+  'userMenu.logOut': 'Kijelentkezés',
   'settings.deleteAccount': 'Fiók törlése',
   'settings.changePasswordModal.title': 'Jelszó módosítása',
   'settings.changePasswordModal.error': 'Nem sikerült megváltoztatni a jelszót.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Az előfizetés ellenőrzése sikertelen.',
   'user.payment.unknownPlan': 'Ismeretlen csomag.',
   'user.payment.invalidWebhookEvent': 'Érvénytelen webhook esemény.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Bekapcsolva',
+  'settings.twoFactorEnable': 'Engedélyezés',
+  'settings.twoFactorDisable': 'Letiltás',
+  'settings.twoFactorEnableTitle': 'Kétfaktoros hitelesítés engedélyezése',
+  'settings.twoFactorDisableTitle': 'Kétfaktoros hitelesítés letiltása',
+  'settings.twoFactorScan':
+    'Olvasd be ezt a QR-kódot a hitelesítő alkalmazásoddal, majd add meg a 6 jegyű kódot.',
+  'settings.twoFactorQrAlt': 'Kétfaktoros QR-kód',
+  'settings.twoFactorCode': 'Hitelesítési kód',
+  'settings.twoFactorVerify': 'Ellenőrzés és engedélyezés',
+  'settings.twoFactorInvalidCode': 'Érvénytelen kód',
+  'settings.twoFactorUnavailable':
+    'A kétfaktoros hitelesítés nem érhető el ehhez az alkalmazáshoz.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Frissítse csomagját',
+  'settings.billing.subscribe': 'Feliratkozás',
+  'settings.billing.checkoutFailed': 'Nem sikerült elindítani a fizetést.',
+  'settings.billing.cancel': 'Mégse',
+  'settings.billing.cancelConfirm': 'Lemondja az előfizetését?',
+  'settings.billing.cancelFailed': 'Nem sikerült megszakítani.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Még nem tudtuk megerősíteni a fizetését.',
+  'planUpdated.retry': 'Próbáld újra',
+{{/feature}}
 }

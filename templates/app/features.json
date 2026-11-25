@@ -1,0 +1,4 @@
+{
+  "two-factor": { "inside": "settings" },
+  "billing": { "inside": "settings" }
+}

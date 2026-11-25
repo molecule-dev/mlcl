@@ -1,3 +1,4 @@
+{{#feature settings}}
 import { lazy, Suspense } from 'solid-js'
 
 import { usePanelClose, UserMenu as MoleculeUserMenu } from '@molecule/app-ui-solid'
@@ -27,3 +28,26 @@ export function UserMenu() {
     </MoleculeUserMenu>
   )
 }
+{{/feature}}
+{{^feature settings}}
+import { Show } from 'solid-js'
+
+import { useAuth, useTranslation } from '@molecule/app-solid'
+import { Button } from '@molecule/app-ui-solid'
+
+/**
+ * The signed-in user's log-out button. A settings page and drawer come with the settings panel
+ * package (`npx mlcl add @molecule/app-settings-panel-solid --inject`).
+ */
+export function UserMenu() {
+  const { isAuthenticated, logout } = useAuth()
+  const { t } = useTranslation()
+  return (
+    <Show when={isAuthenticated()}>
+      <Button variant="ghost" size="sm" data-mol-id="log-out" onClick={() => void logout()}>
+        {t('userMenu.logOut', undefined, { defaultValue: 'Log out' })}
+      </Button>
+    </Show>
+  )
+}
+{{/feature}}

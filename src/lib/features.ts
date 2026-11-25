@@ -11,8 +11,9 @@
 import { readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
-import { isOfferedPackage } from './package-search.js'
-import { loadAppFrameworks } from './registry.js'
+import { APP_TEMPLATES_DIR, frameworkTemplateFeatures } from './optional-features.js'
+import { frameworksAcceptedBy, isOfferedPackage } from './package-search.js'
+import { loadAppFrameworks, loadRegistry } from './registry.js'
 import type { InferredPackage, MoleculeSecret } from './schema.js'
 
 /**
@@ -27,6 +28,8 @@ export interface DynamicFeature {
   description: string
   /** Sort order (lower = higher in menu) */
   order: number
+  /** Selected by default in the interactive menu */
+  checked: boolean
   /** Whether provider selection is multi-select */
   multiSelect: boolean
   /** Primary package that defines this feature */
@@ -84,9 +87,10 @@ export function buildFeatureMenu(scannedPackages: InferredPackage[]): {
 
     features.push({
       category,
-      label: primary.molecule!.label,
+      label: primary.molecule!.ui?.label ?? primary.molecule!.label,
       description: primary.molecule!.description ?? '',
       order: primary.molecule!.ui!.order!,
+      checked: primary.molecule!.ui?.checked === true,
       multiSelect,
       primary,
       bundledPackages: bundled,
@@ -447,10 +451,14 @@ export function resolveLocalePackages(
     }
 
     // Prefix match for sub-feature locales (e.g. user-payments → user is selected),
-    // only for a locale bond no package of its own owns.
+    // only for a locale bond no package of its own owns, and only when the stack
+    // has the feature the rest of the name names (a payments package): without
+    // one, the user resource's payment strings are never shown.
     if (ownedSuffixes.get(stack)?.has(suffix)) continue
     for (const s of suffixes) {
-      if (suffix.startsWith(s + '-')) {
+      if (!suffix.startsWith(s + '-')) continue
+      const feature = suffix.slice(s.length + 1)
+      if ([...suffixes].some((other) => other === feature || other.startsWith(feature + '-'))) {
         additions.push(locale.name)
         break
       }
@@ -518,4 +526,51 @@ export function collectSecrets(packages: InferredPackage[]): MoleculeSecret[] {
   }
 
   return [...seen.values()]
+}
+
+/**
+ * The app feature menu `mlcl create` offers a framework: the packages a project of it can import
+ * (a react-native-web project imports React providers too), so a category whose primary is a
+ * framework's own package (the settings panel, the footer) offers that framework's, and only the
+ * packages whose template feature (the settings page) the framework's templates have.
+ *
+ * @param appPackages - The registry's app packages.
+ * @param framework - The app framework, or none to offer every package.
+ * @returns The menu.
+ */
+export function buildAppFeatureMenu(
+  appPackages: InferredPackage[],
+  framework: string | undefined,
+): ReturnType<typeof buildFeatureMenu> {
+  const accepted = framework
+    ? new Set(frameworksAcceptedBy(framework, loadAppFrameworks()))
+    : undefined
+  const importable = appPackages.filter((pkg) => {
+    const pkgFramework = pkg.molecule?.framework
+    return !accepted || !pkgFramework || accepted.has(pkgFramework)
+  })
+  const menu =
+    importable.length > 0 ? buildFeatureMenu(importable) : { alwaysInclude: [], features: [] }
+  if (framework) {
+    const templateFeatures = frameworkTemplateFeatures(APP_TEMPLATES_DIR, framework)
+    menu.features = menu.features.filter((feature) => {
+      const brings = feature.primary.molecule?.optionalFeature
+      return !brings || templateFeatures.has(brings)
+    })
+  }
+  return menu
+}
+
+/**
+ * The app packages the interactive `mlcl create` checks by default for a framework (the settings
+ * page, the footer and about page). A caller that creates projects with `--no-interactive
+ * --packages` and wants the starter a person gets names these.
+ *
+ * @param framework - The app framework.
+ * @returns The packages, by name.
+ */
+export function defaultCheckedAppPackages(framework: string): string[] {
+  return buildAppFeatureMenu(loadRegistry('app'), framework)
+    .features.filter((feature) => feature.checked)
+    .map((feature) => feature.primary.name)
 }

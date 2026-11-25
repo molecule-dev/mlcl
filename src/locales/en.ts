@@ -24,8 +24,6 @@ export const messages: LocaleMessages = {
   'commands.add.labels.intro': 'mlcl add',
   'commands.add.errors.noPackageJson':
     'No package.json found in {dir}. Run mlcl add from your project root (or its api/ or app/ subdirectory).',
-  'commands.add.warnings.versionFromRegistry':
-    'Could not resolve {name} from npm — pinned {version} from the local molecule registry. Adjust the version in package.json if you target a different release.',
   'commands.add.warnings.versionFallback':
     'Could not resolve {name} from npm — using "{version}". Set an exact version in package.json before publishing.',
   'commands.add.warnings.replaced': '{name} was renamed to {replacement}; adding {replacement}.',
@@ -38,25 +36,40 @@ export const messages: LocaleMessages = {
   'commands.add.spinners.installing': 'Installing dependencies...',
   'commands.add.spinners.installed': 'Dependencies installed',
   'commands.add.spinners.installFailed': 'Installation failed',
-  'commands.add.spinners.addFailed': 'Failed to add molecule',
+  'commands.add.spinners.addFailed': 'Failed to add {name}',
   'commands.add.messages.installNote':
     'Note: Run npm install manually to complete the installation',
   'commands.add.messages.success': '{name} added successfully!',
+  'commands.add.messages.featureFiles': 'The app files of {features}:',
+  'commands.add.messages.featureFileConflict':
+    '{path} has edits where these lines go; apply them by hand:',
   'commands.add.messages.nextSteps': 'Next steps:',
   'commands.add.messages.stepInstall': '1. Run {command}',
   'commands.add.messages.stepInject': '{num}. Run {command} to apply the molecule',
   'commands.add.messages.readDocs': 'Read its API before using it: {command}',
   'commands.add.messages.useCore': 'Your code calls it through {core}. Read that API: {command}',
+  'commands.add.messages.useCoreQuickStart':
+    'Your code calls it through {core}, as its Quick Start shows:',
+  'commands.add.messages.quickStart': 'Use it as its Quick Start shows:',
+  'commands.add.messages.fullApi': 'The rest of its API: {command}',
+  'commands.add.messages.declarations': 'What those calls take and return:',
   'commands.add.messages.envVars': 'It reads these environment variables: {names}',
   'commands.add.messages.envVarOptional': '{name} (optional)',
+  'commands.add.messages.needsProvider':
+    'Its calls fail until a provider is bonded to it: {command}, with one of {providers}',
 
   // ─── commands/create ────────────────────────────────────────────
   'commands.create.description': 'Create a new project',
-  'commands.create.flags.skipInstall': 'Skip npm install',
+  'commands.create.flags.skipInstall':
+    'Skip npm install and the integration code, which needs the installed packages: you then run each pendingSetup step yourself. Without it, create installs, wires and checks the project in one step',
+  'commands.create.flags.verify':
+    'After installing, run mlcl check (typecheck, lint, build) and report it. --no-verify skips it',
   'commands.create.flags.requireInject':
     'Fail when the integration code cannot be generated, instead of leaving it for a later mlcl inject (also MLCL_REQUIRE_INJECT=1)',
   'commands.create.flags.idePreview':
     'Add the molecule.dev IDE live-preview bridge scripts to the app (also MLCL_IDE_PREVIEW=1)',
+  'commands.create.flags.activityCapture':
+    'Record the emails, SMS, push and webhooks the API sends in the molecule.dev Activity panel (also MLCL_ACTIVITY_CAPTURE=1)',
   'commands.create.flags.type': 'Project type (api, app, or full-stack)',
   'commands.create.flags.framework': 'Frontend framework (app only)',
   'commands.create.flags.packages': 'Comma-separated list of @molecule package names to include',
@@ -135,10 +148,8 @@ export const messages: LocaleMessages = {
   'commands.create.spinners.reinstalling': 'Reinstalling with resolved paths...',
   'commands.create.spinners.reinstalled': 'Dependencies reinstalled',
   'commands.create.spinners.reinstallFailed': 'Reinstall failed - run npm install manually',
-  'commands.create.spinners.formatting': 'Formatting generated code...',
-  'commands.create.spinners.formatted': 'Code formatted',
-  'commands.create.spinners.formattingSkipped': 'Formatting skipped - run npm run format manually',
   'commands.create.spinners.testing': 'Running smoke tests...',
+  'commands.create.spinners.verifying': 'Running mlcl check (typecheck, lint, build)...',
   'commands.create.spinners.testsPassed': 'Smoke tests passed{summary}',
   'commands.create.spinners.testsFailed': 'Smoke tests failed - run npm test to investigate',
   'commands.create.messages.success': 'Project created!',
@@ -151,6 +162,8 @@ export const messages: LocaleMessages = {
   'commands.create.messages.envGenSingle': 'Generated .env file',
   'commands.create.messages.installingDeclaredLater':
     'Installing {count} packages declared after the first install',
+  'commands.create.messages.starterLock':
+    'Installing from the resolved dependency tree mlcl ships for this stack',
   'commands.create.messages.sqlCopied': 'Copied SQL setup scripts',
   'commands.create.messages.fontsCopied': 'Copied font files to {dir}',
   'commands.create.messages.fontsPending':
@@ -166,13 +179,15 @@ export const messages: LocaleMessages = {
   'commands.create.messages.orientationHandlers':
     'Endpoints: one file per feature in {dir}/, registered in {dir}/index.ts',
   'commands.create.messages.orientationPages': 'Pages: {dir}/',
-  'commands.create.messages.orientationStarter':
-    'It is a working app, not a blank one: its {count} pages in {dir}/ are part of the scaffold, not features you added. Build on them, and remove one only when the user asks for that.',
-  'commands.create.messages.orientationStarterWithApi':
-    'It is a working app, not a blank one: its {count} pages in {dir}/ and the API routes its packages mount are part of the scaffold, not features you added. Build on them, and remove one only when the user asks for that.',
   'commands.create.messages.orientationDocs':
-    'Package docs: npx mlcl docs @molecule/<name> (--section <name> for one function or heading)',
+    'Package docs: npx mlcl docs @molecule/<name> (--section "<heading>" for one function or heading)',
+  'commands.create.messages.orientationInstallScripts':
+    'Install scripts off in package.json allowScripts, none of them needed: {names}. A native one loads the prebuilt binary its package ships',
   'commands.create.messages.orientationCheck': 'Before handing work back: npx mlcl check',
+  'commands.create.messages.orientationRecheck': 'After you change code: npx mlcl check',
+  'commands.create.messages.verified': 'mlcl check passed on the new project: {steps}',
+  'commands.create.messages.verifyFailed':
+    'mlcl check failed on the new project. Fix these before building on it:',
 
   // ─── commands/init ──────────────────────────────────────────────
   'commands.init.description': 'Initialize a new molecule package',

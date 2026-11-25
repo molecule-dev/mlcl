@@ -8,13 +8,16 @@ import { Button, Flex, Form } from '@molecule/app-ui-angular'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/floating-input.component.js'
+{{#feature footer}}
 import { FooterComponent } from '../components/footer.component.js'
+{{/feature}}
+{{#feature oauth}}
 import { OAuthButtonsComponent } from '../components/oauth-buttons.component.js'
+{{/feature}}
 import { ThemeToggle } from '../components/theme-toggle.component.js'
 
 /**
- * Login page: email + password (+ optional two-factor code) over the bonded
- * auth client, with the OAuth provider row beneath the form.
+ * Login page: email and password over the bonded auth client.
  */
 @Component({
   selector: 'app-login',
@@ -22,7 +25,22 @@ import { ThemeToggle } from '../components/theme-toggle.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
+{{#feature oauth}}
+{{#feature footer}}
   imports: [Button, Flex, FloatingInput, FooterComponent, Form, OAuthButtonsComponent, ThemeToggle],
+{{/feature}}
+{{^feature footer}}
+  imports: [Button, Flex, FloatingInput, Form, OAuthButtonsComponent, ThemeToggle],
+{{/feature}}
+{{/feature}}
+{{^feature oauth}}
+{{#feature footer}}
+  imports: [Button, Flex, FloatingInput, FooterComponent, Form, ThemeToggle],
+{{/feature}}
+{{^feature footer}}
+  imports: [Button, Flex, FloatingInput, Form, ThemeToggle],
+{{/feature}}
+{{/feature}}
   template: `
     <div [class]="cm.cn(cm.page, cm.flex({ direction: 'col' }))">
       <header [class]="cm.cn(cm.headerBar, cm.headerFixed)">
@@ -70,6 +88,7 @@ import { ThemeToggle } from '../components/theme-toggle.component.js'
                 [placeholder]="t('auth.login.password')"
               ></span>
             </div>
+{{#feature two-factor}}
             <div [class]="cm.authField">
               <span
                 mol-floating-input
@@ -80,6 +99,7 @@ import { ThemeToggle } from '../components/theme-toggle.component.js'
                 [placeholder]="t('auth.login.twoFactor')"
               ></span>
             </div>
+{{/feature}}
             <div [class]="cm.authButtonRow">
               <button
                 mol-button
@@ -103,6 +123,7 @@ import { ThemeToggle } from '../components/theme-toggle.component.js'
               </button>
             </div>
           </form>
+{{#feature emails}}
           <div [class]="cm.authAfterSubmit">
             <button
               type="button"
@@ -112,10 +133,15 @@ import { ThemeToggle } from '../components/theme-toggle.component.js'
               {{ t('auth.login.forgotPassword') }}
             </button>
           </div>
+{{/feature}}
+{{#feature oauth}}
           <app-oauth-buttons />
+{{/feature}}
         </div>
       </main>
+{{#feature footer}}
       <app-footer />
+{{/feature}}
     </div>
   `,
 })
@@ -144,8 +170,10 @@ export class LoginComponent {
   protected email = ''
   /** The entered password. */
   protected password = ''
+{{#feature two-factor}}
   /** The optional two-factor code. */
   protected twoFactorToken = ''
+{{/feature}}
 
   constructor() {
     // React reads `location.state` in the first render; a component built for
@@ -182,18 +210,25 @@ export class LoginComponent {
    * `<Form>`'s: a rejected handler renders its accessible server-error list,
    * a new submit clears the previous failure, and the controls sit in a
    * fieldset disabled while the handler runs.
+{{#feature two-factor}}
    *
    * The 2FA field is always rendered; only send a token when the user
    * typed one (a 2FA-enabled account gets `twoFactorRequired` back and
    * stays on this page until a valid code is entered).
+{{/feature}}
    */
   protected readonly handleSubmit = async (): Promise<void> => {
+{{#feature two-factor}}
     const result = await this.login.login({
       email: this.email,
       password: this.password,
       ...(this.twoFactorToken.trim() ? { twoFactorToken: this.twoFactorToken.trim() } : {}),
     })
     if (result.twoFactorRequired) return
+{{/feature}}
+{{^feature two-factor}}
+    await this.login.login({ email: this.email, password: this.password })
+{{/feature}}
     this.navigate(this.from, { replace: true })
   }
 
@@ -211,9 +246,11 @@ export class LoginComponent {
   protected navigateToSignup(): void {
     this.navigate('/signup')
   }
+{{#feature emails}}
 
   /** Opens the forgot-password page. */
   protected navigateToForgotPassword(): void {
     this.navigate('/forgot-password')
   }
+{{/feature}}
 }

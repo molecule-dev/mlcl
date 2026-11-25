@@ -5,7 +5,9 @@ import { Button, Flex } from '@molecule/app-ui-react-native'
 import { getClassMap } from '@molecule/app-ui'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
+{{#feature oauth}}
 import { OAuthButtons } from '../components/OAuthButtons.js'
+{{/feature}}
 import { Footer } from '../components/Footer.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
@@ -18,13 +20,28 @@ export function Login() {
   const { status, error, login } = useLogin()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+{{#feature two-factor}}
   const [twoFactorToken, setTwoFactorToken] = useState('')
+{{/feature}}
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     try {
+{{#feature two-factor}}
+      // Only send a code the user typed; an account with two-factor on gets
+      // `twoFactorRequired` back and stays on this page until a valid code is entered.
+      const result = await login({
+        email,
+        password,
+        ...(twoFactorToken.trim() ? { twoFactorToken: twoFactorToken.trim() } : {}),
+      })
+      if (result.twoFactorRequired) return
+      navigate(from, { replace: true })
+{{/feature}}
+{{^feature two-factor}}
       await login({ email, password })
       navigate(from, { replace: true })
+{{/feature}}
     } catch (_error) {
       // Error tracked in hook state
     }
@@ -74,6 +91,7 @@ export function Login() {
                 placeholder={t('auth.login.password')}
               />
             </div>
+{{#feature two-factor}}
             <div className={cm.authField}>
               <FloatingInput
                 type="number"
@@ -83,6 +101,7 @@ export function Login() {
                 placeholder={t('auth.login.twoFactor')}
               />
             </div>
+{{/feature}}
             <div className={cm.authButtonRow}>
               <Button
                 type="button"
@@ -105,6 +124,7 @@ export function Login() {
             </div>
             {error && <div className={cm.authFormError}>{error.message}</div>}
           </form>
+{{#feature emails}}
           <div className={cm.authAfterSubmit}>
             <button
               type="button"
@@ -114,7 +134,10 @@ export function Login() {
               {t('auth.login.forgotPassword')}
             </button>
           </div>
+{{/feature}}
+{{#feature oauth}}
           <OAuthButtons />
+{{/feature}}
         </div>
       </div>
       <Footer />

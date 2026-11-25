@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'غير متصل',
   'settings.unknown': 'غير معروف',
   'settings.logOut': 'تسجيل الخروج',
+  'userMenu.logOut': 'تسجيل الخروج',
   'settings.deleteAccount': 'حذف الحساب',
   'settings.changePasswordModal.title': 'تغيير كلمة المرور',
   'settings.changePasswordModal.error': 'فشل تغيير كلمة المرور.',
@@ -237,4 +238,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'فشل التحقق من الاشتراك.',
   'user.payment.unknownPlan': 'خطة غير معروفة.',
   'user.payment.invalidWebhookEvent': 'حدث خطاف غير صالح.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'مفعّل',
+  'settings.twoFactorEnable': 'يُمكَِن',
+  'settings.twoFactorDisable': 'إبطال',
+  'settings.twoFactorEnableTitle': 'تفعيل المصادقة الثنائية',
+  'settings.twoFactorDisableTitle': 'تعطيل المصادقة الثنائية',
+  'settings.twoFactorScan':
+    'امسح رمز الاستجابة السريعة هذا باستخدام تطبيق المصادقة الخاص بك، ثم أدخل الرمز المكون من 6 أرقام.',
+  'settings.twoFactorQrAlt': 'رمز الاستجابة السريعة ثنائي التحقق',
+  'settings.twoFactorCode': 'رمز المصادقة',
+  'settings.twoFactorVerify': 'التحقق والتفعيل',
+  'settings.twoFactorInvalidCode': 'رمز غير صالح',
+  'settings.twoFactorUnavailable': 'لا تتوفر خاصية المصادقة الثنائية لهذا التطبيق.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'قم بترقية خطتك',
+  'settings.billing.subscribe': 'اشترك',
+  'settings.billing.checkoutFailed': 'تعذّر بدء عملية الدفع.',
+  'settings.billing.cancel': 'إلغاء',
+  'settings.billing.cancelConfirm': 'هل تريد إلغاء اشتراكك؟',
+  'settings.billing.cancelFailed': 'تعذّر الإلغاء.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'لم نتمكن من تأكيد دفعتك بعد.',
+  'planUpdated.retry': 'حاول ثانية',
+{{/feature}}
 }

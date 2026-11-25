@@ -38,13 +38,30 @@ export interface RouteView {
  * Application-owned public access policy. New routes require sign-in until declared
  * here. Add public reader pages here rather than removing the route-tree boundary.
  */
+{{#feature footer}}
 export const publicViews: readonly RouteView[] = [
   { path: '/login' },
   { path: '/signup' },
   { path: '/about' },
+{{#feature emails}}
+  { path: '/forgot-password' },
+  { path: '/reset-password' },
+{{/feature}}
+]
+{{/feature}}
+{{^feature footer}}
+{{#feature emails}}
+export const publicViews: readonly RouteView[] = [
+  { path: '/login' },
+  { path: '/signup' },
   { path: '/forgot-password' },
   { path: '/reset-password' },
 ]
+{{/feature}}
+{{^feature emails}}
+export const publicViews: readonly RouteView[] = [{ path: '/login' }, { path: '/signup' }]
+{{/feature}}
+{{/feature}}
 
 /** Private query-selected views override a matching public path. */
 export const privateViews: readonly RouteView[] = []

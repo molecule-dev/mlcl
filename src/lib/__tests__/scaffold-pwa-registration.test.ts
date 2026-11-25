@@ -18,6 +18,7 @@ import { build, createServer, preview } from 'vite'
 import { describe, expect, it, vi } from 'vitest'
 
 import { isStaticExcluded } from '../../commands/create.js'
+import { serviceWorkerPackageFor } from '../peer-closure.js'
 import { getMoleculeVersion, loadAppFrameworks, loadRegistry, loadToolchain } from '../registry.js'
 import { createAppProject, getTemplateRequiredPackages } from '../scaffold.js'
 import type { InferredPackage } from '../schema.js'
@@ -106,9 +107,12 @@ describe('scaffolded PWA registration', () => {
         PACKAGE_NAME,
       )
     }
+    // Web push brings it when chosen, never through the peer walk: every framework binding
+    // requires the push interface (push-service-worker.test.ts).
     expect(
       registry.find((pkg) => pkg.name === '@molecule/app-push')?.molecule?.moleculePeers,
-    ).toContain(PACKAGE_NAME)
+    ).not.toContain(PACKAGE_NAME)
+    expect(serviceWorkerPackageFor(['@molecule/app-push'])).toBe(PACKAGE_NAME)
 
     const pin = loadToolchain().app['vite-plugin-pwa']
     expect(pin).toMatch(/^\d+\.\d+\.\d+$/)

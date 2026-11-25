@@ -7,9 +7,13 @@ import { useAuth, useRouter, useSignup, useTranslation } from '@molecule/app-vue
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
+{{#feature footer}}
 import Footer from '../components/Footer.vue'
+{{/feature}}
 import { Icon } from '../components/Icon.js'
+{{#feature oauth}}
 import OAuthButtons from '../components/OAuthButtons.vue'
+{{/feature}}
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 const cm = getClassMap()
@@ -119,9 +123,13 @@ async function handleSubmit(): Promise<void> {
             </Button>
           </div>
         </Form>
+{{#feature oauth}}
         <OAuthButtons />
+{{/feature}}
       </div>
     </main>
+{{#feature footer}}
     <Footer />
+{{/feature}}
   </div>
 </template>

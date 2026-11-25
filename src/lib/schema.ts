@@ -363,6 +363,15 @@ export type FontMetadata = z.infer<typeof FontMetadata>
  * Package metadata from the centralized registry (registry.json).
  * This is the authoritative source — the CLI reads it, never hardcodes it.
  */
+/**
+ * A package's own third-party dependencies and required third-party peers, as its package.json
+ * declares them (a version or a range).
+ */
+export const ThirdPartyDependencies = z.object({
+  dependencies: z.record(z.string(), z.string()).default({}),
+  peerDependencies: z.record(z.string(), z.string()).default({}),
+})
+
 export const MoleculeMetadata = z.object({
   type: z.enum([
     'core',
@@ -409,6 +418,11 @@ export const MoleculeMetadata = z.object({
         ' oauth-logos) is always installed; kept in the registry so no molecule' +
         ' source checkout is needed at scaffold time (prod has none).',
     ),
+  thirdPartyDependencies: ThirdPartyDependencies.optional().describe(
+    'The non-molecule dependencies and required peers the package.json declares, with their versions' +
+      ' or ranges, as sync-registry records them: what mlcl inject declares in the app, so mlcl add' +
+      ' --inject declares them before its one install',
+  ),
   sqlCapabilities: SqlCapabilitiesSchema.optional().describe(
     'How THIS database provider handles each semantically significant PostgreSQL' +
       ' construct — the shared provider/resource compatibility contract published by the' +
@@ -436,6 +450,14 @@ export const MoleculeMetadata = z.object({
     .object({
       order: z.number().optional().describe('Sort order in feature menu (lower = higher)'),
       hidden: z.boolean().optional().describe('Hide from create UI'),
+      label: z
+        .string()
+        .optional()
+        .describe('Feature menu label, when it differs from the package label'),
+      checked: z
+        .boolean()
+        .optional()
+        .describe('Selected by default in the interactive create menu'),
     })
     .optional(),
 
@@ -663,7 +685,14 @@ export const MoleculeMetadata = z.object({
       'An async function the API package exports that the generated setupBonds() awaits last, ' +
         'after every provider is bonded, so it can wrap them (setupActivityCapture)',
     ),
-  optionalFeature: z.string().optional().describe('Feature flag name for optional route filtering'),
+  optionalFeature: z
+    .string()
+    .optional()
+    .describe(
+      'The optional feature this package serves (emails, two-factor, payments, oauth): the scaffold ' +
+        'mounts resource routes and writes app pages marked with it only when the stack has such a ' +
+        'package. A capture provider records instead of delivering, so it serves none.',
+    ),
   decisionGuide: DecisionGuide.optional().describe(
     'Decision-time configuration guidance for this package; consumed by the generated capability map.',
   ),
@@ -680,6 +709,13 @@ export const MoleculeMetadata = z.object({
     .describe(
       'Lowercase concept phrases ("social login", "pagination") that map user intent to this package. ' +
         'Consumed by generate-agent-catalog to produce intent-grouped SKILL.md output.',
+    ),
+  quickStart: z
+    .string()
+    .optional()
+    .describe(
+      "The code of the package README's Quick Start, copied by sync-registry --scan-quick-starts for every " +
+        'type but features and locales; search returns it on its first hits.',
     ),
   npmOverrides: z
     .record(z.string(), z.string())
@@ -825,6 +861,11 @@ export const RegistryEntry = z.object({
         ' oauth-logos) is always installed; kept in the registry so no molecule' +
         ' source checkout is needed at scaffold time (prod has none).',
     ),
+  thirdPartyDependencies: ThirdPartyDependencies.optional().describe(
+    'The non-molecule dependencies and required peers the package.json declares, with their versions' +
+      ' or ranges, as sync-registry records them: what mlcl inject declares in the app, so mlcl add' +
+      ' --inject declares them before its one install',
+  ),
   sqlCapabilities: SqlCapabilitiesSchema.optional().describe(
     'How this database provider handles each semantically significant PostgreSQL' +
       ' construct — the shared provider/resource compatibility contract, mirrored from' +
@@ -842,6 +883,14 @@ export const RegistryEntry = z.object({
     .object({
       order: z.number().optional().describe('Sort order in feature menu (lower = higher)'),
       hidden: z.boolean().optional().describe('Hide from create UI'),
+      label: z
+        .string()
+        .optional()
+        .describe('Feature menu label, when it differs from the package label'),
+      checked: z
+        .boolean()
+        .optional()
+        .describe('Selected by default in the interactive create menu'),
     })
     .optional(),
   routes: z.array(InferredRoute).optional().describe('Route definitions'),
@@ -1015,7 +1064,14 @@ export const RegistryEntry = z.object({
       'An async function the API package exports that the generated setupBonds() awaits last, ' +
         'after every provider is bonded, so it can wrap them (setupActivityCapture)',
     ),
-  optionalFeature: z.string().optional().describe('Feature flag name for optional route filtering'),
+  optionalFeature: z
+    .string()
+    .optional()
+    .describe(
+      'The optional feature this package serves (emails, two-factor, payments, oauth): the scaffold ' +
+        'mounts resource routes and writes app pages marked with it only when the stack has such a ' +
+        'package. A capture provider records instead of delivering, so it serves none.',
+    ),
   generates: z
     .array(z.string())
     .optional()
@@ -1150,6 +1206,13 @@ export const RegistryEntry = z.object({
     .describe(
       'Lowercase concept phrases ("social login", "pagination") that map user intent to this package. ' +
         'Consumed by generate-agent-catalog to produce intent-grouped SKILL.md output.',
+    ),
+  quickStart: z
+    .string()
+    .optional()
+    .describe(
+      "The code of the package README's Quick Start, copied by sync-registry --scan-quick-starts for every " +
+        'type but features and locales; search returns it on its first hits.',
     ),
   npmOverrides: z
     .record(z.string(), z.string())
@@ -1439,9 +1502,29 @@ export const Registry = z
           .record(z.string(), z.string())
           .default({})
           .describe('Dev dependencies for scaffolded molecule packages'),
+        postgres: z
+          .record(z.string(), z.string())
+          .default({})
+          .describe(
+            'Dev dependencies of an API whose migration runner imports the pg driver (its types)',
+          ),
       })
       .optional()
       .describe('Pinned toolchain versions for generated projects and packages'),
+    installScripts: z
+      .record(
+        z.string(),
+        z.object({
+          run: z
+            .boolean()
+            .describe('Whether the package needs its install script to work once installed'),
+          reason: z.string().describe('What the script does, as read from the package source'),
+        }),
+      )
+      .optional()
+      .describe(
+        "Third-party packages with an install script that a Molecule project can install, and whether that script must run. npm 11.20 skips dependency install scripts unless the root package.json `allowScripts` names them, and ends each install with a warning listing the rest; every mlcl install writes these decisions there for the packages in the project's lock.",
+      ),
     moleculeVersions: z
       .object({
         default: z

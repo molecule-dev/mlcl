@@ -8,8 +8,12 @@ import { Button, Flex, Form } from '@molecule/app-ui-solid'
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
+{{#feature oauth}}
 import { OAuthButtons } from '../components/OAuthButtons.js'
+{{/feature}}
+{{#feature footer}}
 import { Footer } from '../components/Footer.js'
+{{/feature}}
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 export function Signup() {
@@ -114,10 +118,14 @@ export function Signup() {
               </Button>
             </div>
           </Form>
+{{#feature oauth}}
           <OAuthButtons />
+{{/feature}}
         </div>
       </main>
+{{#feature footer}}
       <Footer />
+{{/feature}}
     </div>
   )
 }

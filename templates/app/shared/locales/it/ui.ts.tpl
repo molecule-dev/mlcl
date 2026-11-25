@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Sconosciuto',
   'settings.logOut': 'Esci',
+  'userMenu.logOut': 'Esci',
   'settings.deleteAccount': 'Elimina account',
   'settings.changePasswordModal.title': 'Cambia password',
   'settings.changePasswordModal.error': 'Impossibile cambiare la password.',
@@ -240,4 +241,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': "Impossibile verificare l'abbonamento.",
   'user.payment.unknownPlan': 'Piano sconosciuto.',
   'user.payment.invalidWebhookEvent': 'Evento webhook non valido.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Attiva',
+  'settings.twoFactorEnable': 'Abilitare',
+  'settings.twoFactorDisable': 'Disabilita',
+  'settings.twoFactorEnableTitle': "Abilita l'autenticazione a due fattori",
+  'settings.twoFactorDisableTitle': "Disabilita l'autenticazione a due fattori",
+  'settings.twoFactorScan':
+    'Scansiona questo codice QR con la tua app di autenticazione, quindi inserisci il codice di 6 cifre.',
+  'settings.twoFactorQrAlt': "Codice QR per l'autenticazione a due fattori",
+  'settings.twoFactorCode': 'Codice di autenticazione',
+  'settings.twoFactorVerify': 'Verifica e abilita',
+  'settings.twoFactorInvalidCode': 'Codice non valido',
+  'settings.twoFactorUnavailable':
+    "L'autenticazione a due fattori non è disponibile per questa app.",
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Passa a un piano superiore',
+  'settings.billing.subscribe': 'Iscriviti',
+  'settings.billing.checkoutFailed': 'Impossibile avviare il pagamento.',
+  'settings.billing.cancel': 'Annulla',
+  'settings.billing.cancelConfirm': "Vuoi annullare l'abbonamento?",
+  'settings.billing.cancelFailed': 'Impossibile annullare.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Non abbiamo ancora potuto confermare il pagamento.',
+  'planUpdated.retry': 'Riprova',
+{{/feature}}
 }

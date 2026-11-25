@@ -66,6 +66,12 @@ describe('rawRegistryAt — a stat failure that is not ENOENT is not "no registr
     process.env.MLCL_REGISTRY_PATH = join(dir, 'absent.json')
 
     expect(Object.keys(getRawRegistry().packages)).toEqual([])
-    expect(loadToolchain()).toEqual({ shared: {}, api: {}, app: {}, moleculePackage: {} })
+    expect(loadToolchain()).toEqual({
+      shared: {},
+      api: {},
+      app: {},
+      moleculePackage: {},
+      postgres: {},
+    })
   })
 })

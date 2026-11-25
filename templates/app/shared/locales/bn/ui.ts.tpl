@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'অফলাইন',
   'settings.unknown': 'অজানা',
   'settings.logOut': 'লগ আউট',
+  'userMenu.logOut': 'লগ আউট',
   'settings.deleteAccount': 'অ্যাকাউন্ট মুছুন',
   'settings.changePasswordModal.title': 'পাসওয়ার্ড পরিবর্তন করুন',
   'settings.changePasswordModal.error': 'পাসওয়ার্ড পরিবর্তন ব্যর্থ হয়েছে।',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'সাবস্ক্রিপশন যাচাই করতে ব্যর্থ।',
   'user.payment.unknownPlan': 'অজানা প্ল্যান।',
   'user.payment.invalidWebhookEvent': 'অবৈধ ওয়েবহুক ইভেন্ট।',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'চালু',
+  'settings.twoFactorEnable': 'সক্ষম করুন',
+  'settings.twoFactorDisable': 'অক্ষম করুন',
+  'settings.twoFactorEnableTitle': 'দ্বি-স্তর প্রমাণীকরণ সক্রিয় করুন',
+  'settings.twoFactorDisableTitle': 'দ্বি-স্তর প্রমাণীকরণ নিষ্ক্রিয় করুন',
+  'settings.twoFactorScan':
+    'আপনার অথেন্টিকেটর অ্যাপ দিয়ে এই কিউআর কোডটি স্ক্যান করুন, তারপর ৬-সংখ্যার কোডটি প্রবেশ করান।',
+  'settings.twoFactorQrAlt': 'দ্বি-স্তরীয় কিউআর কোড',
+  'settings.twoFactorCode': 'প্রমাণীকরণ কোড',
+  'settings.twoFactorVerify': 'যাচাই ও সক্রিয় করুন',
+  'settings.twoFactorInvalidCode': 'অবৈধ কোড',
+  'settings.twoFactorUnavailable': 'এই অ্যাপটির জন্য দ্বি-স্তরীয় প্রমাণীকরণ উপলব্ধ নেই।',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'আপনার প্ল্যান আপগ্রেড করুন',
+  'settings.billing.subscribe': 'সাবস্ক্রাইব করুন',
+  'settings.billing.checkoutFailed': 'চেকআউট শুরু করা যায়নি।',
+  'settings.billing.cancel': 'বাতিল করুন',
+  'settings.billing.cancelConfirm': 'আপনার সাবস্ক্রিপশন বাতিল করবেন?',
+  'settings.billing.cancelFailed': 'বাতিল করা সম্ভব হয়নি।',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'আমরা এখনও আপনার পেমেন্ট নিশ্চিত করতে পারিনি।',
+  'planUpdated.retry': 'আবার চেষ্টা করুন',
+{{/feature}}
 }

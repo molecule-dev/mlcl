@@ -67,6 +67,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ਔਫਲਾਈਨ',
   'settings.unknown': 'ਅਗਿਆਤ',
   'settings.logOut': 'ਲੌਗ ਆਊਟ',
+  'userMenu.logOut': 'ਲੌਗ ਆਊਟ',
   'settings.deleteAccount': 'ਖਾਤਾ ਮਿਟਾਓ',
   'settings.changePasswordModal.title': 'ਪਾਸਵਰਡ ਬਦਲੋ',
   'settings.changePasswordModal.error': 'ਪਾਸਵਰਡ ਬਦਲਣ ਵਿੱਚ ਅਸਫਲ।',
@@ -237,4 +238,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'ਸਬਸਕ੍ਰਿਪਸ਼ਨ ਤਸਦੀਕ ਕਰਨ ਵਿੱਚ ਅਸਫਲ।',
   'user.payment.unknownPlan': 'ਅਣਜਾਣ ਯੋਜਨਾ।',
   'user.payment.invalidWebhookEvent': 'ਅਵੈਧ ਵੈੱਬਹੁੱਕ ਇਵੈਂਟ।',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ਚਾਲੂ',
+  'settings.twoFactorEnable': 'ਯੋਗ ਬਣਾਓ',
+  'settings.twoFactorDisable': 'ਅਯੋਗ ਕਰੋ',
+  'settings.twoFactorEnableTitle': 'ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਨੂੰ ਸਮਰੱਥ ਬਣਾਓ',
+  'settings.twoFactorDisableTitle': 'ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣਿਕਤਾ ਨੂੰ ਅਯੋਗ ਕਰੋ',
+  'settings.twoFactorScan':
+    'ਇਸ QR ਕੋਡ ਨੂੰ ਆਪਣੀ ਪ੍ਰਮਾਣਕ ਐਪ ਨਾਲ ਸਕੈਨ ਕਰੋ, ਫਿਰ 6-ਅੰਕਾਂ ਵਾਲਾ ਕੋਡ ਦਾਖਲ ਕਰੋ।',
+  'settings.twoFactorQrAlt': 'ਦੋ-ਕਾਰਕ QR ਕੋਡ',
+  'settings.twoFactorCode': 'ਪ੍ਰਮਾਣੀਕਰਨ ਕੋਡ',
+  'settings.twoFactorVerify': 'ਪੁਸ਼ਟੀ ਕਰੋ ਅਤੇ ਸਮਰੱਥ ਬਣਾਓ',
+  'settings.twoFactorInvalidCode': 'ਅਵੈਧ ਕੋਡ',
+  'settings.twoFactorUnavailable': 'ਇਸ ਐਪ ਲਈ ਦੋ-ਕਾਰਕ ਪ੍ਰਮਾਣੀਕਰਨ ਉਪਲਬਧ ਨਹੀਂ ਹੈ।',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'ਆਪਣੀ ਯੋਜਨਾ ਨੂੰ ਅੱਪਗ੍ਰੇਡ ਕਰੋ',
+  'settings.billing.subscribe': 'ਸਬਸਕ੍ਰਾਈਬ ਕਰੋ',
+  'settings.billing.checkoutFailed': 'ਚੈੱਕਆਉਟ ਸ਼ੁਰੂ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
+  'settings.billing.cancel': 'ਰੱਦ ਕਰੋ',
+  'settings.billing.cancelConfirm': 'ਕੀ ਆਪਣੀ ਗਾਹਕੀ ਰੱਦ ਕਰਨੀ ਹੈ?',
+  'settings.billing.cancelFailed': 'ਰੱਦ ਨਹੀਂ ਕੀਤਾ ਜਾ ਸਕਿਆ।',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'ਅਸੀਂ ਅਜੇ ਤੁਹਾਡੇ ਭੁਗਤਾਨ ਦੀ ਪੁਸ਼ਟੀ ਨਹੀਂ ਕਰ ਸਕੇ।',
+  'planUpdated.retry': 'ਫਿਰ ਕੋਸ਼ਿਸ਼ ਕਰੋ',
+{{/feature}}
 }

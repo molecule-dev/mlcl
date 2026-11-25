@@ -3,7 +3,9 @@
 
   import { AppShellLayout } from '@molecule/app-shell-layout-svelte'
 
+{{#feature footer}}
   import Footer from './Footer.svelte'
+{{/feature}}
   import Header from './Header.svelte'
 
   let { children }: { children: Snippet } = $props()
@@ -18,8 +20,10 @@
   {#snippet header()}
     <Header />
   {/snippet}
+{{#feature footer}}
   {#snippet footer()}
     <Footer />
   {/snippet}
+{{/feature}}
   {@render children()}
 </AppShellLayout>

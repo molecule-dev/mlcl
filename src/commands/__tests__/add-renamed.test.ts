@@ -15,7 +15,7 @@ import * as prompts from '@clack/prompts'
 import { Config } from '@oclif/core'
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
-import { getRawRegistry } from '../../lib/registry.js'
+import { getMoleculeVersion, getRawRegistry } from '../../lib/registry.js'
 import Add from '../add.js'
 
 vi.mock('@clack/prompts', async (original) => {
@@ -75,5 +75,18 @@ describe('mlcl add of a renamed package', () => {
     const deps = await add(NEW)
     expect(deps).toHaveProperty(NEW)
     expect(prompts.log.warn).not.toHaveBeenCalled()
+  })
+
+  it('pins a registered package at its registry version without a warning (OLD MUSTFAIL)', async () => {
+    // Every add of a @molecule package warned "Could not resolve … from npm", though the registry
+    // pin is chosen first on purpose and npm is never asked (harness eval `add`, 2026-11-24).
+    const config = await Config.load(MLCL_ROOT)
+    const cmd = new Add([NEW, '--no-install'], config)
+    vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+    const warn = vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
+    await cmd.run()
+    expect(warn).not.toHaveBeenCalled()
+    const deps = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8')).dependencies
+    expect(deps[NEW]).toBe(getMoleculeVersion(NEW))
   })
 })

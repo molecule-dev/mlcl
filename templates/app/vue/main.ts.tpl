@@ -12,13 +12,23 @@ import { moleculePlugin } from '@molecule/app-vue'
 import App from './App.vue'
 import { authClient, i18nProvider, setupProviders, themeProvider } from './bonds/index.js'
 import AppLayout from './components/AppLayout.vue'
+{{#feature footer}}
 import About from './pages/About.vue'
+{{/feature}}
+{{#feature emails}}
 import ForgotPassword from './pages/ForgotPassword.vue'
+{{/feature}}
 import Home from './pages/Home.vue'
 import Login from './pages/Login.vue'
+{{#feature payments}}
 import PlanUpdated from './pages/PlanUpdated.vue'
+{{/feature}}
+{{#feature emails}}
 import ResetPassword from './pages/ResetPassword.vue'
+{{/feature}}
+{{#feature settings}}
 import Settings from './pages/Settings.vue'
+{{/feature}}
 import Signup from './pages/Signup.vue'
 
 // Pages are imported STATICALLY, and that is a measured decision, not an
@@ -43,17 +53,36 @@ const router = createRouter({
   routes: [
     { path: '/login', component: Login },
     { path: '/signup', component: Signup },
+{{#feature footer}}
     { path: '/about', component: About },
+{{/feature}}
+{{#feature emails}}
     { path: '/forgot-password', component: ForgotPassword },
     { path: '/reset-password', component: ResetPassword },
+{{/feature}}
     {
       path: '/',
       component: AppLayout,
+{{#feature settings}}
       children: [
         { path: '', component: Home },
         { path: 'settings', component: Settings },
+{{#feature payments}}
+        { path: 'plan-updated', component: PlanUpdated },
+{{/feature}}
+      ],
+{{/feature}}
+{{^feature settings}}
+{{#feature payments}}
+      children: [
+        { path: '', component: Home },
         { path: 'plan-updated', component: PlanUpdated },
       ],
+{{/feature}}
+{{^feature payments}}
+      children: [{ path: '', component: Home }],
+{{/feature}}
+{{/feature}}
     },
   ],
 })

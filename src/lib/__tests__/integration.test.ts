@@ -155,7 +155,13 @@ describe('file synthesis (full molecule set)', () => {
       await writeFile(file.targetPath, `// App edit\n${file.content}`)
     }
     const extended = await synthesizeProjectFiles([account], TEST_MOLECULES, project, registry)
-    expect(extended.some((f) => f.targetPath === auth.targetPath)).toBe(false)
+    // The features the set brings append their routers' code; the edited routes stay as written.
+    const extendedAuth = extended.find((f) => f.targetPath === auth.targetPath)?.content ?? ''
+    const edited = `// App edit\n${auth.content}`
+    expect(extendedAuth.startsWith(edited.slice(0, edited.indexOf('export default router')))).toBe(
+      true,
+    )
+    expect(extendedAuth).toContain('export const paymentsRouter = Router()')
     expect(extended.find((f) => f.targetPath === appRouter.targetPath)?.content).toContain(
       'router.use(resourceUserPaymentsRouter)',
     )
@@ -314,14 +320,14 @@ describe('expected route coverage', () => {
     // Payment routes (generic, provider-parameterized)
     { method: 'get', path: '/users/:id/verify-payment/:provider' },
     { method: 'post', path: '/users/:id/verify-payment/:provider' },
-    // Billing portal + the push public key were added to routes.ts after the
-    // registry's routes copy was written and never reached it — the same
-    // shadowing as [M1-1] above, caught once `sync-registry --scan-routes`
-    // started deriving the registry copy from source.
+    // The billing portal was added to routes.ts after the registry's routes copy
+    // was written and never reached it — the same shadowing as [M1-1] above,
+    // caught once `sync-registry --scan-routes` started deriving the registry
+    // copy from source.
     { method: 'post', path: '/users/:id/billing-portal/:provider' },
     { method: 'post', path: '/users/payment-notification/:provider' },
-    // Device routes
-    { method: 'get', path: '/devices/push/public-key' },
+    // Device routes. The push public key (`optional: 'push'`) comes with a push
+    // provider, which TEST_MOLECULES does not name.
     { method: 'get', path: '/devices' },
     { method: 'get', path: '/devices/:id' },
     { method: 'patch', path: '/devices/:id' },
@@ -341,7 +347,7 @@ describe('expected route coverage', () => {
       // prettier print width and breaks after the open paren otherwise — match
       // both shapes.
       const pattern = new RegExp(
-        `(?:router|oauthRouter|paymentsRouter)\\.${route.method}\\(\\s*['\`]${route.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['\`]`,
+        `(?:router|oauthRouter|emailsRouter|twoFactorRouter|paymentsRouter)\\.${route.method}\\(\\s*['\`]${route.path.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')}['\`]`,
       )
       expect(content).toMatch(pattern)
     }
@@ -355,11 +361,17 @@ describe('expected route coverage', () => {
       .flatMap(
         (f) =>
           f.content?.match(
-            /(?:router|oauthRouter|paymentsRouter)\.(get|post|patch|put|delete)\(/g,
+            /(?:router|oauthRouter|emailsRouter|twoFactorRouter|paymentsRouter)\.(get|post|patch|put|delete)\(/g,
           ) ?? [],
       ).length
 
     expect(routeCount).toBe(EXPECTED_ROUTES.length)
+  })
+
+  // Counterexample: no push provider, no public key to subscribe with.
+  it('mounts no push public key without a push provider', () => {
+    const router = synthesizedFiles.find((f) => f.targetPath.endsWith('router.ts'))?.content
+    expect(router).not.toContain('/devices/push/public-key')
   })
 })
 

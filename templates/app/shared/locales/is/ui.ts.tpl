@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Ónettengdur',
   'settings.unknown': 'Óþekktur',
   'settings.logOut': 'Skrá út',
+  'userMenu.logOut': 'Skrá út',
   'settings.deleteAccount': 'Eyða reikningi',
   'settings.changePasswordModal.title': 'Breyta lykilorði',
   'settings.changePasswordModal.error': 'Ekki tókst að breyta lykilorði.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Mistókst að staðfesta áskrift.',
   'user.payment.unknownPlan': 'Óþekkt áætlun.',
   'user.payment.invalidWebhookEvent': 'Ógilt vefkrókaatvik.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Kveikt',
+  'settings.twoFactorEnable': 'Virkja',
+  'settings.twoFactorDisable': 'Slökkva',
+  'settings.twoFactorEnableTitle': 'Virkja tvíþátta auðkenningu',
+  'settings.twoFactorDisableTitle': 'Slökkva á tveggja þátta auðkenningu',
+  'settings.twoFactorScan':
+    'Skannaðu þennan QR kóða með auðkenningarappinu þínu og sláðu síðan inn sex stafa kóðann.',
+  'settings.twoFactorQrAlt': 'Tvíþátta QR kóði',
+  'settings.twoFactorCode': 'Auðkenningarkóði',
+  'settings.twoFactorVerify': 'Staðfesta og virkja',
+  'settings.twoFactorInvalidCode': 'Ógildur kóði',
+  'settings.twoFactorUnavailable': 'Tvíþátta auðkenning er ekki í boði fyrir þetta forrit.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Uppfærðu áætlunina þína',
+  'settings.billing.subscribe': 'Gerast áskrifandi',
+  'settings.billing.checkoutFailed': 'Gat ekki hafið greiðslu.',
+  'settings.billing.cancel': 'Hætta við',
+  'settings.billing.cancelConfirm': 'Hætta áskriftinni?',
+  'settings.billing.cancelFailed': 'Gat ekki hætt við.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Við gátum ekki staðfest greiðsluna þína ennþá.',
+  'planUpdated.retry': 'Reyndu aftur',
+{{/feature}}
 }

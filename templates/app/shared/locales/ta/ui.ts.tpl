@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ஆஃப்லைன்',
   'settings.unknown': 'தெரியாது',
   'settings.logOut': 'வெளியேறு',
+  'userMenu.logOut': 'வெளியேறு',
   'settings.deleteAccount': 'கணக்கை நீக்கு',
   'settings.changePasswordModal.title': 'கடவுச்சொல்லை மாற்று',
   'settings.changePasswordModal.error': 'கடவுச்சொல்லை மாற்ற இயலவில்லை.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'சந்தாவை சரிபார்க்க இயலவில்லை.',
   'user.payment.unknownPlan': 'தெரியாத திட்டம்.',
   'user.payment.invalidWebhookEvent': 'தவறான வெப்ஹூக் நிகழ்வு.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ஆன்',
+  'settings.twoFactorEnable': 'இயக்கு',
+  'settings.twoFactorDisable': 'முடக்கு',
+  'settings.twoFactorEnableTitle': 'இரு காரணி அங்கீகாரத்தை இயக்கு',
+  'settings.twoFactorDisableTitle': 'இரு காரணி அங்கீகாரத்தை முடக்கு',
+  'settings.twoFactorScan':
+    'இந்த QR குறியீட்டை உங்கள் அங்கீகாரச் செயலி மூலம் ஸ்கேன் செய்து, பின்னர் 6-இலக்கக் குறியீட்டை உள்ளிடவும்.',
+  'settings.twoFactorQrAlt': 'இரு காரணி QR குறியீடு',
+  'settings.twoFactorCode': 'அங்கீகாரக் குறியீடு',
+  'settings.twoFactorVerify': 'சரிபார்த்து இயக்கு',
+  'settings.twoFactorInvalidCode': 'தவறான குறியீடு',
+  'settings.twoFactorUnavailable': 'இந்த செயலியில் இரு காரணி அங்கீகாரம் கிடைக்காது.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'உங்கள் திட்டத்தை மேம்படுத்துங்கள்',
+  'settings.billing.subscribe': 'சந்தா சேருங்கள்',
+  'settings.billing.checkoutFailed': 'பணம் செலுத்துதலைத் தொடங்க முடியவில்லை.',
+  'settings.billing.cancel': 'ரத்துசெய்',
+  'settings.billing.cancelConfirm': 'உங்கள் சந்தாவை ரத்து செய்யவா?',
+  'settings.billing.cancelFailed': 'ரத்து செய்ய முடியவில்லை.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'உங்கள் கட்டணத்தை எங்களால் இன்னும் உறுதிப்படுத்த முடியவில்லை.',
+  'planUpdated.retry': 'மீண்டும் முயற்சிக்கவும்',
+{{/feature}}
 }

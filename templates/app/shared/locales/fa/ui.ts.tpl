@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'آفلاین',
   'settings.unknown': 'نامشخص',
   'settings.logOut': 'خروج',
+  'userMenu.logOut': 'خروج',
   'settings.deleteAccount': 'حذف حساب کاربری',
   'settings.changePasswordModal.title': 'تغییر رمز عبور',
   'settings.changePasswordModal.error': 'تغییر رمز عبور ناموفق بود.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'تأیید اشتراک ناموفق بود.',
   'user.payment.unknownPlan': 'طرح نامشخص.',
   'user.payment.invalidWebhookEvent': 'رویداد وب‌هوک نامعتبر.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'روشن',
+  'settings.twoFactorEnable': 'فعال کردن',
+  'settings.twoFactorDisable': 'غیرفعال کردن',
+  'settings.twoFactorEnableTitle': 'فعال کردن احراز هویت دو مرحله‌ای',
+  'settings.twoFactorDisableTitle': 'غیرفعال کردن احراز هویت دو مرحله‌ای',
+  'settings.twoFactorScan':
+    'این کد QR را با برنامه تأیید هویت خود اسکن کنید، سپس کد 6 رقمی را وارد کنید.',
+  'settings.twoFactorQrAlt': 'کد QR دو عاملی',
+  'settings.twoFactorCode': 'کد احراز هویت',
+  'settings.twoFactorVerify': 'تأیید و فعال کردن',
+  'settings.twoFactorInvalidCode': 'کد نامعتبر',
+  'settings.twoFactorUnavailable': 'احراز هویت دو مرحله‌ای برای این برنامه در دسترس نیست.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'طرح خود را ارتقا دهید',
+  'settings.billing.subscribe': 'اشتراک',
+  'settings.billing.checkoutFailed': 'پرداخت شروع نشد.',
+  'settings.billing.cancel': 'لغو',
+  'settings.billing.cancelConfirm': 'اشتراک خود را لغو کنید؟',
+  'settings.billing.cancelFailed': 'نشد لغو کنیم.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'ما هنوز نتوانستیم پرداخت شما را تأیید کنیم.',
+  'planUpdated.retry': 'دوباره امتحان کنید',
+{{/feature}}
 }

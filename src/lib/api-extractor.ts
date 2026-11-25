@@ -18,6 +18,7 @@ import {
   type JSDocTag,
   Node,
   type ParameterDeclaration,
+  Project,
   type SourceFile,
   type VariableDeclaration,
 } from 'ts-morph'
@@ -162,6 +163,26 @@ export function extractPackageApi(
 // ============================================================================
 // Module-level JSDoc extraction
 // ============================================================================
+
+/** One syntax-only project for {@link extractModuleExamples}: module JSDoc needs no types. */
+let examplesProject: Project | undefined
+
+/**
+ * The module-level `@example` blocks of an `index.ts`, the ones its README's Quick Start shows,
+ * parsed from that file's text alone (no program, no type checker).
+ *
+ * @param indexSource - The text of a package's `src/index.ts`.
+ * @returns The examples in order; empty when the module JSDoc has none.
+ */
+export function extractModuleExamples(indexSource: string): string[] {
+  examplesProject ??= new Project({ useInMemoryFileSystem: true })
+  const file = examplesProject.createSourceFile('/index.ts', indexSource, { overwrite: true })
+  try {
+    return extractModuleJsDoc(file).examples
+  } finally {
+    examplesProject.removeSourceFile(file)
+  }
+}
 
 interface ModuleJsDoc {
   description?: string

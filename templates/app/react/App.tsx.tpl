@@ -5,13 +5,21 @@ import { MoleculeProvider } from '@molecule/app-react'
 import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import type { AppRoute } from './components/AuthGuard.js'
+{{#feature footer}}
 import { About } from './pages/About.js'
+{{/feature}}
+{{#feature emails}}
 import { ForgotPassword } from './pages/ForgotPassword.js'
+import { ResetPassword } from './pages/ResetPassword.js'
+{{/feature}}
 import { Home } from './pages/Home.js'
 import { Login } from './pages/Login.js'
+{{#feature payments}}
 import { PlanUpdated } from './pages/PlanUpdated.js'
-import { ResetPassword } from './pages/ResetPassword.js'
+{{/feature}}
+{{#feature settings}}
 import { Settings } from './pages/Settings.js'
+{{/feature}}
 import { Signup } from './pages/Signup.js'
 
 // Pages are imported STATICALLY, and that is a measured decision, not an
@@ -101,16 +109,35 @@ export function AppRoot({ children }: { children: ReactNode }): ReactNode {
 export const routes: AppRoute[] = [
   { path: '/login', access: 'public', element: <Login /> },
   { path: '/signup', access: 'public', element: <Signup /> },
+{{#feature footer}}
   { path: '/about', access: 'public', element: <About /> },
+{{/feature}}
+{{#feature emails}}
   { path: '/forgot-password', access: 'public', element: <ForgotPassword /> },
   { path: '/reset-password', access: 'public', element: <ResetPassword /> },
+{{/feature}}
   {
     access: 'private',
+{{#feature settings}}
     children: [
       { path: '/', access: 'private', element: <Home /> },
       { path: '/settings', access: 'private', element: <Settings /> },
+{{#feature payments}}
+      { path: '/plan-updated', access: 'private', element: <PlanUpdated /> },
+{{/feature}}
+    ],
+{{/feature}}
+{{^feature settings}}
+{{#feature payments}}
+    children: [
+      { path: '/', access: 'private', element: <Home /> },
       { path: '/plan-updated', access: 'private', element: <PlanUpdated /> },
     ],
+{{/feature}}
+{{^feature payments}}
+    children: [{ path: '/', access: 'private', element: <Home /> }],
+{{/feature}}
+{{/feature}}
   },
 ]
 

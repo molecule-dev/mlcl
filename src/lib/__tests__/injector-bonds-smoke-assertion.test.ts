@@ -66,12 +66,21 @@ function emittedSetupAssertion(): (setupProviders: () => unknown) => Promise<unk
     .map((line) => line.trim())
     .find((line) => line.includes('setupProviders()') && /^(await )?expect\(/.test(line))
   expect(assertion).toBeDefined()
-  const run = new Function('expect', 'setupProviders', `return (async () => { ${assertion} })()`)
-  return (setupProviders) => run(expect, setupProviders) as Promise<unknown>
+  const run = new Function('expect', 'bonds', `return (async () => { ${assertion} })()`)
+  return (setupProviders) => run(expect, { setupProviders }) as Promise<unknown>
 }
 
 describe('generated bonds smoke test: setupProviders assertion', () => {
   const check = emittedSetupAssertion()
+
+  it('loads bonds/index while vitest collects the file, outside a test timeout (OLD MUSTFAIL)', () => {
+    // The first test imported every bond module with `await import()` inside its 5 s timeout and
+    // timed out beside `mlcl check`'s e2e and build (harness eval check, 2026-11-25).
+    const bondsTest = generatedBondsTest()
+    expect(bondsTest).toContain("\nimport * as bonds from '../bonds/index.js'\n")
+    expect(bondsTest).not.toContain("import('../bonds/index.js')")
+    expect(bondsTest).toContain("it('exports setupProviders function', () => {")
+  })
 
   it('passes a synchronous setupProviders, the shape the generator writes', async () => {
     await expect(check(() => undefined)).resolves.toBeUndefined()

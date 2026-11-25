@@ -1,3 +1,4 @@
+{{#feature settings}}
 import { lazy, Suspense } from 'react'
 
 import { UserMenu as MoleculeUserMenu, usePanelClose } from '@molecule/app-ui-react'
@@ -27,3 +28,23 @@ export function UserMenu() {
     </MoleculeUserMenu>
   )
 }
+{{/feature}}
+{{^feature settings}}
+import { useAuth, useTranslation } from '@molecule/app-react'
+import { Button } from '@molecule/app-ui-react'
+
+/**
+ * The signed-in user's log-out button. A settings page and drawer come with the settings panel
+ * package (`npx mlcl add @molecule/app-settings-panel-react --inject`).
+ */
+export function UserMenu() {
+  const { isAuthenticated, logout } = useAuth()
+  const { t } = useTranslation()
+  if (!isAuthenticated) return null
+  return (
+    <Button variant="ghost" size="sm" data-mol-id="log-out" onClick={() => void logout()}>
+      {t('userMenu.logOut', undefined, { defaultValue: 'Log out' })}
+    </Button>
+  )
+}
+{{/feature}}

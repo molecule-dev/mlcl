@@ -1,10 +1,7 @@
 /**
- * `mlcl create` declares the activity-capture packages before its first `npm install`.
- *
- * The capture wiring runs after inject, which needs the install, and it declared its 7 packages
- * (plus the 6 cores they peer on) only then. create saw 13 new names and installed a second time,
- * downloading them (2026-11-23 scaffold eval: "Installing 37 packages declared after the first
- * install"). Declared before the install, the first one fetches them.
+ * `mlcl create --activity-capture` (molecule.dev's create) declares activity capture before its first
+ * `npm install`, as one package: the generated bonds index awaits its setup call last. A create
+ * without the flag declares none of it.
  *
  * Runs the REAL oclif command with `--skip-install`; the manifest is read at the moment inject
  * would run, which is right after the install.
@@ -39,7 +36,8 @@ describe('mlcl create — activity capture packages', () => {
     await rm(dir, { recursive: true, force: true })
   })
 
-  it('are in api/package.json before the install, with the cores they peer on', async () => {
+  /** Create with the real command and return the api dependencies at the moment inject runs. */
+  async function dependenciesAtInject(extra: string[]): Promise<string[]> {
     const config = await Config.load(MLCL_ROOT)
     const cmd = new Create(
       [
@@ -52,6 +50,7 @@ describe('mlcl create — activity capture packages', () => {
         '@molecule/api-resource-user,@molecule/api-database-sqlite,@molecule/app-auth',
         '--no-interactive',
         '--skip-install',
+        ...extra,
       ],
       config,
     )
@@ -75,16 +74,23 @@ describe('mlcl create — activity capture packages', () => {
     } finally {
       write.mockRestore()
     }
+    return atInstall
+  }
 
-    for (const name of [
-      '@molecule/api-activity',
-      '@molecule/api-activity-http',
-      '@molecule/api-emails-capture',
-      '@molecule/api-push-capture',
-      // A capture provider's core, which --legacy-peer-deps would not install.
-      '@molecule/api-emails',
-    ]) {
-      expect(atInstall).toContain(name)
-    }
+  it('is one package in api/package.json before the install, with the cores it peers on', async () => {
+    const atInstall = await dependenciesAtInject(['--activity-capture'])
+    expect(atInstall).toContain('@molecule/api-activity-capture')
+    // A core the package peers on, which --legacy-peer-deps would not install.
+    expect(atInstall).toContain('@molecule/api-bond')
+    // The packages it depends on come with it, not as the project's own.
+    expect(atInstall.filter((name) => /-capture$/.test(name))).toEqual([
+      '@molecule/api-activity-capture',
+    ])
+  })
+
+  // A project made outside molecule.dev records nothing there, so it gets none of them.
+  it('are not declared without --activity-capture', async () => {
+    const atInstall = await dependenciesAtInject([])
+    expect(atInstall.filter((name) => /^@molecule\/api-activity|-capture$/.test(name))).toEqual([])
   })
 })

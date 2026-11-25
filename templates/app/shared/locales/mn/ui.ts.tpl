@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Офлайн',
   'settings.unknown': 'Тодорхойгүй',
   'settings.logOut': 'Гарах',
+  'userMenu.logOut': 'Гарах',
   'settings.deleteAccount': 'Бүртгэл устгах',
   'settings.changePasswordModal.title': 'Нууц үг солих',
   'settings.changePasswordModal.error': 'Нууц үг солиход алдаа гарлаа.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Захиалга баталгаажуулахад алдаа гарлаа.',
   'user.payment.unknownPlan': 'Тодорхойгүй төлөвлөгөө.',
   'user.payment.invalidWebhookEvent': 'Буруу вебхүк үйл явдал.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Асаалттай',
+  'settings.twoFactorEnable': 'Идэвхжүүлэх',
+  'settings.twoFactorDisable': 'Идэвхгүй болгох',
+  'settings.twoFactorEnableTitle': 'Хоёр хүчин зүйлийн баталгаажуулалтыг идэвхжүүлэх',
+  'settings.twoFactorDisableTitle': 'Хоёр хүчин зүйлийн баталгаажуулалтыг идэвхгүй болгох',
+  'settings.twoFactorScan':
+    'Энэ QR кодыг баталгаажуулагч аппаараа уншуулаад, дараа нь 6 оронтой кодыг оруулна уу.',
+  'settings.twoFactorQrAlt': 'Хоёр хүчин зүйлтэй QR код',
+  'settings.twoFactorCode': 'Баталгаажуулах код',
+  'settings.twoFactorVerify': 'Баталгаажуулах ба идэвхжүүлэх',
+  'settings.twoFactorInvalidCode': 'Буруу код',
+  'settings.twoFactorUnavailable':
+    'Энэ аппликейшнд хоёр хүчин зүйлийн баталгаажуулалт боломжгүй байна.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Төлөвлөгөөгөө сайжруулна уу',
+  'settings.billing.subscribe': 'Захиалах',
+  'settings.billing.checkoutFailed': 'Төлбөр тооцоог эхлүүлж чадсангүй.',
+  'settings.billing.cancel': 'Цуцлах',
+  'settings.billing.cancelConfirm': 'Захиалгаа цуцлах уу?',
+  'settings.billing.cancelFailed': 'Цуцлах боломжгүй.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Бид таны төлбөрийг хараахан баталгаажуулж чадсангүй.',
+  'planUpdated.retry': 'Дахин оролдоно уу',
+{{/feature}}
 }

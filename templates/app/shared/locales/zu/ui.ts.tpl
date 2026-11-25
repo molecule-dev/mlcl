@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Ayikho ku-inthanethi',
   'settings.unknown': 'Akwaziwa',
   'settings.logOut': 'Phuma',
+  'userMenu.logOut': 'Phuma',
   'settings.deleteAccount': 'Susa i-akhawunti',
   'settings.changePasswordModal.title': 'Shintsha Iphasiwedi',
   'settings.changePasswordModal.error': 'Yehlulekile ukushintsha iphasiwedi.',
@@ -242,4 +243,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Yehlulekile ukuqinisekisa isithangami.',
   'user.payment.unknownPlan': 'Uhlelo olungaziwa.',
   'user.payment.invalidWebhookEvent': 'Isenzakalo se-webhook esingavumelekile.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Kuvuliwe',
+  'settings.twoFactorEnable': 'Nika amandla',
+  'settings.twoFactorDisable': 'Khubaza',
+  'settings.twoFactorEnableTitle': 'Nika amandla ukuqinisekiswa kwezinto ezimbili',
+  'settings.twoFactorDisableTitle': 'Khubaza ukuqinisekiswa kwezinto ezimbili',
+  'settings.twoFactorScan':
+    'Skena le khodi ye-QR ngohlelo lwakho lokusebenza lokufakazela ubuqiniso, bese ufaka ikhodi enezinombolo ezingu-6.',
+  'settings.twoFactorQrAlt': 'Ikhodi ye-QR enezici ezimbili',
+  'settings.twoFactorCode': 'Ikhodi yokuqinisekisa',
+  'settings.twoFactorVerify': 'Qinisekisa futhi unike amandla',
+  'settings.twoFactorInvalidCode': 'Ikhodi engavumelekile',
+  'settings.twoFactorUnavailable':
+    'Ukuqinisekiswa kwezinto ezimbili akutholakali kulolu hlelo lokusebenza.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Thuthukisa uhlelo lwakho',
+  'settings.billing.subscribe': 'Bhalisa',
+  'settings.billing.checkoutFailed': 'Ayikwazanga ukuqala ukukhokha.',
+  'settings.billing.cancel': 'Khansela',
+  'settings.billing.cancelConfirm': 'Khansela okubhalisele kwakho?',
+  'settings.billing.cancelFailed': 'Ayikwazanga ukukhansela.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Asikwazanga ukuqinisekisa inkokhelo yakho okwamanje.',
+  'planUpdated.retry': 'Zama futhi',
+{{/feature}}
 }

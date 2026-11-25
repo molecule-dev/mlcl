@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ოფლაინ',
   'settings.unknown': 'უცნობი',
   'settings.logOut': 'გასვლა',
+  'userMenu.logOut': 'გასვლა',
   'settings.deleteAccount': 'ანგარიშის წაშლა',
   'settings.changePasswordModal.title': 'პაროლის შეცვლა',
   'settings.changePasswordModal.error': 'პაროლის შეცვლა ვერ მოხერხდა.',
@@ -248,4 +249,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Gamotseris veripikacia ver mokherkhda.',
   'user.payment.unknownPlan': 'Uchnobi gegma.',
   'user.payment.invalidWebhookEvent': 'Aratsvalidi webhook movlena.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ჩართულია',
+  'settings.twoFactorEnable': 'ჩართვა',
+  'settings.twoFactorDisable': 'გამორთვა',
+  'settings.twoFactorEnableTitle': 'ორფაქტორიანი ავტორიზაციის ჩართვა',
+  'settings.twoFactorDisableTitle': 'ორფაქტორიანი ავტორიზაციის გამორთვა',
+  'settings.twoFactorScan':
+    'დაასკანირეთ ეს QR კოდი თქვენი ავტორიზაციის აპლიკაციით, შემდეგ შეიყვანეთ 6-ნიშნა კოდი.',
+  'settings.twoFactorQrAlt': 'ორფაქტორიანი QR კოდი',
+  'settings.twoFactorCode': 'ავტორიზაციის კოდი',
+  'settings.twoFactorVerify': 'დადასტურება და ჩართვა',
+  'settings.twoFactorInvalidCode': 'არასწორი კოდი',
+  'settings.twoFactorUnavailable': 'ორფაქტორიანი ავთენტიფიკაცია ამ აპლიკაციისთვის მიუწვდომელია.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'განაახლეთ თქვენი გეგმა',
+  'settings.billing.subscribe': 'გამოწერა',
+  'settings.billing.checkoutFailed': 'შეკვეთის გაფორმების დაწყება ვერ მოხერხდა.',
+  'settings.billing.cancel': 'გაუქმება',
+  'settings.billing.cancelConfirm': 'გსურთ თქვენი გამოწერის გაუქმება?',
+  'settings.billing.cancelFailed': 'გაუქმება ვერ მოხერხდა.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'თქვენი გადახდის დადასტურება ჯერ ვერ შევძელით.',
+  'planUpdated.retry': 'ხელახლა სცადეთ',
+{{/feature}}
 }

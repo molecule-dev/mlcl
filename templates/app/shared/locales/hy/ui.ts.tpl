@@ -85,6 +85,7 @@ export const ui: UiTranslations = {
   'settings.offline': '\u0531\u0576\u0581\u0561\u0576\u0581',
   'settings.unknown': '\u0531\u0576\u0570\u0561\u0575\u057F',
   'settings.logOut': '\u0534\u0578\u0582\u0580\u057D \u0563\u0561\u056C',
+  'userMenu.logOut': '\u0534\u0578\u0582\u0580\u057D \u0563\u0561\u056C',
   'settings.deleteAccount': '\u054B\u0576\u057B\u0565\u056C \u0570\u0561\u0577\u056B\u057E\u0568',
   'settings.changePasswordModal.title':
     '\u0553\u0578\u056D\u0565\u056C \u0563\u0561\u0572\u057F\u0576\u0561\u0562\u0561\u057C\u0568',
@@ -279,4 +280,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Bajanarordutyuny stugely dzakhogvec.',
   'user.payment.unknownPlan': 'Anhayt plan.',
   'user.payment.invalidWebhookEvent': 'Anvaverakan webhook iradarcutyun.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Միացված է',
+  'settings.twoFactorEnable': 'Միացնել',
+  'settings.twoFactorDisable': 'Անջատել',
+  'settings.twoFactorEnableTitle': 'Միացնել երկփուլանի նույնականացումը',
+  'settings.twoFactorDisableTitle': 'Անջատեք երկփուլանի նույնականացումը',
+  'settings.twoFactorScan':
+    'Սկանավորեք այս QR կոդը ձեր նույնականացման հավելվածով, այնուհետև մուտքագրեք 6-անիշ կոդը։',
+  'settings.twoFactorQrAlt': 'Երկփուլ QR կոդ',
+  'settings.twoFactorCode': 'Հաստատման կոդ',
+  'settings.twoFactorVerify': 'Հաստատել և միացնել',
+  'settings.twoFactorInvalidCode': 'Անվավեր կոդ',
+  'settings.twoFactorUnavailable': 'Երկփուլային նույնականացումը հասանելի չէ այս հավելվածի համար։',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Թարմացրեք ձեր պլանը',
+  'settings.billing.subscribe': 'Բաժանորդագրվել',
+  'settings.billing.checkoutFailed': 'Չհաջողվեց սկսել վճարումը։',
+  'settings.billing.cancel': 'Չեղարկել',
+  'settings.billing.cancelConfirm': 'Չեղարկե՞լ ձեր բաժանորդագրությունը։',
+  'settings.billing.cancelFailed': 'Չհաջողվեց չեղարկել։',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Մենք դեռ չենք կարող հաստատել ձեր վճարումը։',
+  'planUpdated.retry': 'Փորձեք կրկին',
+{{/feature}}
 }

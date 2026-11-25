@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Oflayn',
   'settings.unknown': 'Naməlum',
   'settings.logOut': 'Çıxış',
+  'userMenu.logOut': 'Çıxış',
   'settings.deleteAccount': 'Hesabı sil',
   'settings.changePasswordModal.title': 'Şifrəni dəyiş',
   'settings.changePasswordModal.error': 'Şifrəni dəyişmək alınmadı.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Abunəlik doğrulanması uğursuz oldu.',
   'user.payment.unknownPlan': 'Naməlum plan.',
   'user.payment.invalidWebhookEvent': 'Yanlış webhook hadisəsi.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Aktiv',
+  'settings.twoFactorEnable': 'Aktivləşdirin',
+  'settings.twoFactorDisable': 'Deaktiv edin',
+  'settings.twoFactorEnableTitle': 'İki faktorlu identifikasiyanı aktivləşdirin',
+  'settings.twoFactorDisableTitle': 'İki faktorlu identifikasiyanı deaktiv edin',
+  'settings.twoFactorScan':
+    'Bu QR kodunu identifikasiya tətbiqinizlə skan edin, sonra 6 rəqəmli kodu daxil edin.',
+  'settings.twoFactorQrAlt': 'İki faktorlu QR kodu',
+  'settings.twoFactorCode': 'Doğrulama kodu',
+  'settings.twoFactorVerify': 'Təsdiqləyin və aktivləşdirin',
+  'settings.twoFactorInvalidCode': 'Yanlış kod',
+  'settings.twoFactorUnavailable': 'Bu tətbiq üçün iki faktorlu identifikasiya mövcud deyil.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Planınızı təkmilləşdirin',
+  'settings.billing.subscribe': 'Abunə olun',
+  'settings.billing.checkoutFailed': 'Ödəniş başlaya bilmədi.',
+  'settings.billing.cancel': 'Ləğv et',
+  'settings.billing.cancelConfirm': 'Abunəliyiniz ləğv edilsin?',
+  'settings.billing.cancelFailed': 'Ləğv etmək mümkün olmadı.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Ödənişinizi hələ təsdiqləyə bilmədik.',
+  'planUpdated.retry': 'Yenidən cəhd edin',
+{{/feature}}
 }

@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ઓફલાઈન',
   'settings.unknown': 'અજ્ઞાત',
   'settings.logOut': 'લૉગ આઉટ',
+  'userMenu.logOut': 'લૉગ આઉટ',
   'settings.deleteAccount': 'ખાતું કાઢી નાખો',
   'settings.changePasswordModal.title': 'પાસવર્ડ બદલો',
   'settings.changePasswordModal.error': 'પાસવર્ડ બદલવામાં નિષ્ફળ.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'સબ્સ્ક્રિપ્શન ચકાસવામાં નિષ્ફળ.',
   'user.payment.unknownPlan': 'અજ્ઞાત પ્લાન.',
   'user.payment.invalidWebhookEvent': 'અમાન્ય વેબહૂક ઇવેન્ટ.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ચાલુ',
+  'settings.twoFactorEnable': 'સક્ષમ કરો',
+  'settings.twoFactorDisable': 'અક્ષમ કરો',
+  'settings.twoFactorEnableTitle': 'દ્વિ-પરિબળ પ્રમાણીકરણ સક્ષમ કરો',
+  'settings.twoFactorDisableTitle': 'દ્વિ-પરિબળ પ્રમાણીકરણ અક્ષમ કરો',
+  'settings.twoFactorScan':
+    'તમારી પ્રમાણકર્તા એપ્લિકેશનથી આ QR કોડ સ્કેન કરો, પછી 6-અંકનો કોડ દાખલ કરો.',
+  'settings.twoFactorQrAlt': 'બે-પરિબળ QR કોડ',
+  'settings.twoFactorCode': 'પ્રમાણીકરણ કોડ',
+  'settings.twoFactorVerify': 'ચકાસો અને સક્ષમ કરો',
+  'settings.twoFactorInvalidCode': 'અમાન્ય કોડ',
+  'settings.twoFactorUnavailable': 'આ એપ્લિકેશન માટે દ્વિ-પરિબળ પ્રમાણીકરણ ઉપલબ્ધ નથી.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'તમારા પ્લાનને અપગ્રેડ કરો',
+  'settings.billing.subscribe': 'સબ્સ્ક્રાઇબ કરો',
+  'settings.billing.checkoutFailed': 'ચેકઆઉટ શરૂ કરી શકાયું નથી.',
+  'settings.billing.cancel': 'રદ કરો',
+  'settings.billing.cancelConfirm': 'તમારું સબ્સ્ક્રિપ્શન રદ કરીએ?',
+  'settings.billing.cancelFailed': 'રદ કરી શકાયું નથી.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'અમે હજુ સુધી તમારી ચુકવણીની પુષ્ટિ કરી શક્યા નથી.',
+  'planUpdated.retry': 'ફરી પ્રયાસ કરો',
+{{/feature}}
 }

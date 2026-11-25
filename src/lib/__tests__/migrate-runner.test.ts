@@ -84,7 +84,7 @@ import {
   renderMigrateRunner,
   syncMigrateRunner,
 } from '../migrate-runner.js'
-import { getMoleculeVersion, loadRegistry } from '../registry.js'
+import { getMoleculeVersion, loadRegistry, loadToolchain } from '../registry.js'
 
 /**
  * The PostgreSQL bond's migrator — the implementation this template's
@@ -1270,7 +1270,10 @@ describe('ensureMigrateRunnerImports', () => {
     )
     expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
     expect(manifest.dependencies['@molecule/api-database-postgresql']).toBe('1.0.2')
-    expect(manifest.devDependencies).toEqual({})
+    // Both bonds left devDependencies; the runner imports `pg`, so its types arrived there.
+    expect(manifest.devDependencies).toEqual({
+      '@types/pg': loadToolchain().postgres['@types/pg'],
+    })
   })
 
   it('restores the manifest when its write fails mid-flight — a partial write must not corrupt package.json', async () => {

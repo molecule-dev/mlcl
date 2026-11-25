@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Не в сети',
   'settings.unknown': 'Неизвестно',
   'settings.logOut': 'Выйти',
+  'userMenu.logOut': 'Выйти',
   'settings.deleteAccount': 'Удалить аккаунт',
   'settings.changePasswordModal.title': 'Изменить пароль',
   'settings.changePasswordModal.error': 'Не удалось изменить пароль.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Не удалось подтвердить подписку.',
   'user.payment.unknownPlan': 'Неизвестный план.',
   'user.payment.invalidWebhookEvent': 'Недопустимое событие вебхука.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Включено',
+  'settings.twoFactorEnable': 'Давать возможность',
+  'settings.twoFactorDisable': 'Запрещать',
+  'settings.twoFactorEnableTitle': 'Включите двухфакторную аутентификацию',
+  'settings.twoFactorDisableTitle': 'Отключить двухфакторную аутентификацию',
+  'settings.twoFactorScan':
+    'Отсканируйте этот QR-код с помощью приложения-аутентификатора, затем введите 6-значный код.',
+  'settings.twoFactorQrAlt': 'Двухфакторный QR-код',
+  'settings.twoFactorCode': 'Код аутентификации',
+  'settings.twoFactorVerify': 'Проверить и включить',
+  'settings.twoFactorInvalidCode': 'Неверный код',
+  'settings.twoFactorUnavailable': 'Двухфакторная аутентификация для этого приложения недоступна.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Обновите свой тарифный план',
+  'settings.billing.subscribe': 'Подписаться',
+  'settings.billing.checkoutFailed': 'Не удалось начать оформление заказа.',
+  'settings.billing.cancel': 'Отмена',
+  'settings.billing.cancelConfirm': 'Отменить подписку?',
+  'settings.billing.cancelFailed': 'Отменить не удалось.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Мы пока не можем подтвердить ваш платеж.',
+  'planUpdated.retry': 'Попробуйте еще раз',
+{{/feature}}
 }

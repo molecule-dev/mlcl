@@ -67,6 +67,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'מנותק',
   'settings.unknown': 'לא ידוע',
   'settings.logOut': 'התנתקות',
+  'userMenu.logOut': 'התנתקות',
   'settings.deleteAccount': 'מחיקת חשבון',
   'settings.changePasswordModal.title': 'שינוי סיסמה',
   'settings.changePasswordModal.error': 'שינוי הסיסמה נכשל.',
@@ -235,4 +236,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'אימות המנוי נכשל.',
   'user.payment.unknownPlan': 'תוכנית לא ידועה.',
   'user.payment.invalidWebhookEvent': 'אירוע webhook לא תקין.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'פעיל',
+  'settings.twoFactorEnable': 'לְאַפשֵׁר',
+  'settings.twoFactorDisable': 'השבת',
+  'settings.twoFactorEnableTitle': 'הפעל אימות דו-שלבי',
+  'settings.twoFactorDisableTitle': 'השבתת אימות דו-שלבי',
+  'settings.twoFactorScan':
+    'סרקו את קוד ה-QR הזה באמצעות אפליקציית האימות שלכם, ולאחר מכן הזינו את הקוד בן 6 הספרות.',
+  'settings.twoFactorQrAlt': 'קוד QR דו-שלבי',
+  'settings.twoFactorCode': 'קוד אימות',
+  'settings.twoFactorVerify': 'אימות והפעלה',
+  'settings.twoFactorInvalidCode': 'קוד לא חוקי',
+  'settings.twoFactorUnavailable': 'אימות דו-שלבי אינו זמין עבור אפליקציה זו.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'שדרגו את התוכנית שלכם',
+  'settings.billing.subscribe': 'הירשם',
+  'settings.billing.checkoutFailed': 'לא ניתן היה להתחיל את תהליך התשלום.',
+  'settings.billing.cancel': 'לְבַטֵל',
+  'settings.billing.cancelConfirm': 'לבטל את המנוי שלך?',
+  'settings.billing.cancelFailed': 'לא ניתן היה לבטל.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'עדיין לא הצלחנו לאשר את התשלום שלך.',
+  'planUpdated.retry': 'נסה שוב',
+{{/feature}}
 }

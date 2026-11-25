@@ -5,8 +5,12 @@
   import { getClassMap } from '@molecule/app-ui'
   import { Button, Flex, FloatingInput, Form, Icon, ThemeToggle } from '@molecule/app-ui-svelte'
 
+{{#feature footer}}
   import Footer from '../../components/Footer.svelte'
+{{/feature}}
+{{#feature oauth}}
   import OAuthButtons from '../../components/OAuthButtons.svelte'
+{{/feature}}
   import { LOGO_SRC } from '../../lib/logo.js'
 
   const cm = getClassMap()
@@ -103,8 +107,12 @@
           </Button>
         </div>
       </Form>
+{{#feature oauth}}
       <OAuthButtons />
+{{/feature}}
     </div>
   </main>
+{{#feature footer}}
   <Footer />
+{{/feature}}
 </div>

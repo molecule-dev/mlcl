@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'အော့ဖ်လိုင်း',
   'settings.unknown': 'မသိ',
   'settings.logOut': 'ထွက်ရန်',
+  'userMenu.logOut': 'ထွက်ရန်',
   'settings.deleteAccount': 'အကောင့်ဖျက်ရန်',
   'settings.changePasswordModal.title': 'စကားဝှက်ပြောင်းရန်',
   'settings.changePasswordModal.error': 'စကားဝှက်ပြောင်းလဲခြင်း မအောင်မြင်ပါ။',
@@ -249,4 +250,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'စာရင်းသွင်းမှု အတည်ပြုရန် မအောင်မြင်ပါ။',
   'user.payment.unknownPlan': 'မသိသော အစီအစဉ်။',
   'user.payment.invalidWebhookEvent': 'Webhook event မမှန်ကန်ပါ။',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ဖွင့်ထားသည်',
+  'settings.twoFactorEnable': 'ဖွင့်ပါ',
+  'settings.twoFactorDisable': 'ပိတ်ရန်',
+  'settings.twoFactorEnableTitle': 'နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်းကို ဖွင့်ပါ',
+  'settings.twoFactorDisableTitle': 'နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်းကို ပိတ်ပါ',
+  'settings.twoFactorScan':
+    'ဤ QR ကုဒ်ကို သင်၏ အထောက်အထားစိစစ်ရေးအက်ပ်ဖြင့် စကင်ဖတ်ပြီးနောက် ဂဏန်း ၆ လုံးပါ ကုဒ်ကို ရိုက်ထည့်ပါ။',
+  'settings.twoFactorQrAlt': 'နှစ်ဆင့် QR ကုဒ်',
+  'settings.twoFactorCode': 'အထောက်အထားစိစစ်ရေးကုဒ်',
+  'settings.twoFactorVerify': 'အတည်ပြုပြီး ဖွင့်ပါ',
+  'settings.twoFactorInvalidCode': 'ကုဒ် မမှန်ကန်ပါ',
+  'settings.twoFactorUnavailable': 'ဤအက်ပ်အတွက် နှစ်ဆင့်အထောက်အထားစိစစ်ခြင်း မရရှိနိုင်ပါ။',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'သင့်အစီအစဉ်ကို အဆင့်မြှင့်တင်ပါ',
+  'settings.billing.subscribe': 'စာရင်းသွင်းပါ',
+  'settings.billing.checkoutFailed': 'ငွေရှင်းခြင်းကို စတင်၍မရပါ။',
+  'settings.billing.cancel': 'ပယ်ဖျက်ရန်',
+  'settings.billing.cancelConfirm': 'သင့်စာရင်းသွင်းမှုကို ပယ်ဖျက်မလား။',
+  'settings.billing.cancelFailed': 'ပယ်ဖျက်၍မရပါ။',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'သင့်ငွေပေးချေမှုကို ကျွန်ုပ်တို့ အတည်မပြုနိုင်သေးပါ။',
+  'planUpdated.retry': 'ထပ်ကြိုးစားပါ',
+{{/feature}}
 }

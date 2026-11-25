@@ -27,6 +27,7 @@ import { AuthGuard, LoadErrorBanner } from '@molecule/app-ui-react'
 
 import { createAppProject } from '../scaffold.js'
 import { generatedEntry } from './generated-entry.js'
+import { readAppTemplate } from './helpers/app-templates.js'
 
 interface PrivateView {
   path: string
@@ -91,10 +92,7 @@ function scaffoldDependency(client?: AuthClient<UserProfile>): (name: string) =>
 
 /** Execute the scaffold's shipped component, including its actual router matching. */
 function accessModule(client?: AuthClient<UserProfile>): AccessModule {
-  const source = readFileSync(
-    join(import.meta.dirname, '../../../templates/app/react/components/AuthGuard.tsx.tpl'),
-    'utf8',
-  )
+  const source = readAppTemplate('react', 'components/AuthGuard.tsx.tpl')
   const compiled = ts.transpileModule(source, {
     compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
   })
@@ -241,10 +239,7 @@ describe('scaffold route access before page selection', () => {
   )
 
   it('requires access on both page and nested route declarations at compile time', () => {
-    const source = readFileSync(
-      join(import.meta.dirname, '../../../templates/app/react/components/AuthGuard.tsx.tpl'),
-      'utf8',
-    )
+    const source = readAppTemplate('react', 'components/AuthGuard.tsx.tpl')
     const parsed = ts.createSourceFile('AuthGuard.tsx', source, ts.ScriptTarget.Latest)
     const routeType = parsed.statements.find(
       (statement): statement is ts.TypeAliasDeclaration =>
@@ -543,10 +538,7 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
         useEffect(() => mounted(), [])
         return createElement('p', null, 'Page mounted')
       }
-      const source = readFileSync(
-        join(import.meta.dirname, '../../../templates/app/react/App.tsx.tpl'),
-        'utf8',
-      )
+      const source = readAppTemplate('react', 'App.tsx.tpl')
       const compiled = ts.transpileModule(source, {
         compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
       })
@@ -578,20 +570,12 @@ void [publicPage, privatePage, nested, standalone, invalidLayout, missing, missi
           )
         }
       }
-      const main = ts.transpileModule(
-        readFileSync(
-          join(import.meta.dirname, '../../../templates/app/react/main.tsx.tpl'),
-          'utf8',
-        ),
-        { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX } },
-      )
-      const bootstrap = ts.transpileModule(
-        readFileSync(
-          join(import.meta.dirname, '../../../templates/app/react/bootstrap.tsx.tpl'),
-          'utf8',
-        ),
-        { compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX } },
-      )
+      const main = ts.transpileModule(readAppTemplate('react', 'main.tsx.tpl'), {
+        compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
+      })
+      const bootstrap = ts.transpileModule(readAppTemplate('react', 'bootstrap.tsx.tpl'), {
+        compilerOptions: { module: ts.ModuleKind.CommonJS, jsx: ts.JsxEmit.ReactJSX },
+      })
       const initialized = vi.fn()
       const dependencies = (name: string): unknown => {
         if (name === 'react/jsx-runtime') return jsx

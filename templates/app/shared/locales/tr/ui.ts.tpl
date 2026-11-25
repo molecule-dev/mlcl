@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Çevrimdışı',
   'settings.unknown': 'Bilinmiyor',
   'settings.logOut': 'Çıkış yap',
+  'userMenu.logOut': 'Çıkış yap',
   'settings.deleteAccount': 'Hesabı sil',
   'settings.changePasswordModal.title': 'Şifre değiştir',
   'settings.changePasswordModal.error': 'Şifre değiştirilemedi.',
@@ -238,4 +239,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Abonelik doğrulaması başarısız oldu.',
   'user.payment.unknownPlan': 'Bilinmeyen plan.',
   'user.payment.invalidWebhookEvent': 'Geçersiz webhook olayı.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Açık',
+  'settings.twoFactorEnable': 'Olanak vermek',
+  'settings.twoFactorDisable': 'Devre dışı bırakmak',
+  'settings.twoFactorEnableTitle': 'İki faktörlü kimlik doğrulamayı etkinleştirin',
+  'settings.twoFactorDisableTitle': 'İki faktörlü kimlik doğrulamayı devre dışı bırakın',
+  'settings.twoFactorScan':
+    'Kimlik doğrulama uygulamanızla bu QR kodunu tarayın, ardından 6 haneli kodu girin.',
+  'settings.twoFactorQrAlt': 'İki faktörlü QR kodu',
+  'settings.twoFactorCode': 'Kimlik doğrulama kodu',
+  'settings.twoFactorVerify': 'Doğrula ve etkinleştir',
+  'settings.twoFactorInvalidCode': 'Geçersiz kod',
+  'settings.twoFactorUnavailable':
+    'Bu uygulama için iki faktörlü kimlik doğrulama özelliği mevcut değil.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Planınızı yükseltin',
+  'settings.billing.subscribe': 'Abone ol',
+  'settings.billing.checkoutFailed': 'Ödeme başlatılamadı.',
+  'settings.billing.cancel': 'İptal',
+  'settings.billing.cancelConfirm': 'Aboneliğinizi iptal etmek istiyor musunuz?',
+  'settings.billing.cancelFailed': 'İptal edilemedi.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Ödemenizi henüz onaylayamadık.',
+  'planUpdated.retry': 'Tekrar deneyin',
+{{/feature}}
 }

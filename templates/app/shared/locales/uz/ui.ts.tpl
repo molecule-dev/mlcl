@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Oflayn',
   'settings.unknown': "Noma'lum",
   'settings.logOut': 'Chiqish',
+  'userMenu.logOut': 'Chiqish',
   'settings.deleteAccount': "Hisobni o'chirish",
   'settings.changePasswordModal.title': "Parolni o'zgartirish",
   'settings.changePasswordModal.error': "Parolni o'zgartirib bo'lmadi.",
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': "Obunani tekshirish muvaffaqiyatsiz bo'ldi.",
   'user.payment.unknownPlan': "Noma'lum reja.",
   'user.payment.invalidWebhookEvent': "Noto'g'ri webhook hodisasi.",
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Yoqilgan',
+  'settings.twoFactorEnable': 'Yoqish',
+  'settings.twoFactorDisable': "O'chirish",
+  'settings.twoFactorEnableTitle': 'Ikki faktorli autentifikatsiyani yoqish',
+  'settings.twoFactorDisableTitle': "Ikki faktorli autentifikatsiyani o'chirib qo'ying",
+  'settings.twoFactorScan':
+    'Ushbu QR kodni autentifikator ilovangiz bilan skanerlang, keyin 6 xonali kodni kiriting.',
+  'settings.twoFactorQrAlt': 'Ikki faktorli QR kod',
+  'settings.twoFactorCode': 'Autentifikatsiya kodi',
+  'settings.twoFactorVerify': 'Tasdiqlash va yoqish',
+  'settings.twoFactorInvalidCode': "Noto'g'ri kod",
+  'settings.twoFactorUnavailable': 'Ushbu ilova uchun ikki faktorli autentifikatsiya mavjud emas.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Rejangizni yangilang',
+  'settings.billing.subscribe': "Obuna bo'lish",
+  'settings.billing.checkoutFailed': "To'lovni boshlash imkoni bo'lmadi.",
+  'settings.billing.cancel': 'Bekor qilish',
+  'settings.billing.cancelConfirm': 'Obunangizni bekor qilmoqchimisiz?',
+  'settings.billing.cancelFailed': "Bekor qilib bo'lmadi.",
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': "To'lovingizni hali tasdiqlay olmadik.",
+  'planUpdated.retry': "Qayta urinib ko'ring",
+{{/feature}}
 }

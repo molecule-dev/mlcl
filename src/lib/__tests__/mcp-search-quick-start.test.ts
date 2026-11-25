@@ -6,11 +6,8 @@
  */
 import { describe, expect, it } from 'vitest'
 
-import {
-  QUICK_START_HITS,
-  quickStartOf,
-  withQuickStarts,
-} from '../../../mcp/src/search-quick-start.js'
+import { withQuickStarts } from '../../../mcp/src/search-quick-start.js'
+import { QUICK_START_HITS, quickStartOf } from '../package-search.js'
 
 const readme = (name: string, code: string): string =>
   `# @molecule/${name}\n\nWhat it does.\n\n## Quick Start\n\n\`\`\`ts\n${code}\n\`\`\`\n\n## Type\n\n\`core\`\n`
@@ -59,6 +56,27 @@ describe('withQuickStarts', () => {
       name: '@molecule/api-emails-sendgrid',
       install: 'npx mlcl add @molecule/api-emails-sendgrid',
     })
+  })
+
+  it('reads no README for a hit the registry already gave its Quick Start', async () => {
+    const asked: string[] = []
+    const json = JSON.stringify([
+      { name: '@molecule/api-emails', quickStart: 'from the registry' },
+      { name: '@molecule/api-email-templates' },
+    ])
+    const out = JSON.parse(
+      await withQuickStarts(json, async (short) => {
+        asked.push(short)
+        return readme(short, `call(${short})`)
+      }),
+    ) as { quickStart?: string }[]
+    expect(asked).toEqual(['api-email-templates'])
+    expect(out.map((hit) => hit.quickStart)).toEqual([
+      'from the registry',
+      'call(api-email-templates)',
+    ])
+    const all = JSON.stringify([{ name: '@molecule/api-emails', quickStart: 'x' }])
+    expect(await withQuickStarts(all, () => Promise.reject(new Error('not called')))).toBe(all)
   })
 
   it('answers without a snippet when a README fails or is slower than the bound', async () => {

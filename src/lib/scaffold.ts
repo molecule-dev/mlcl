@@ -65,6 +65,11 @@ import {
   projectDatabasePackage,
   stampMigrationDialect,
 } from './migration-dialect.js'
+import {
+  applyFeatureSections,
+  deriveOptionalFeatures,
+  FEATURE_TEMPLATES_DIR,
+} from './optional-features.js'
 import { missingMoleculePeers } from './peer-closure.js'
 import {
   appEntryModule,
@@ -1904,468 +1909,89 @@ export async function applyPreviewBridges(
 }
 
 // ---------------------------------------------------------------------------
-// IDE8 — activity-capture PRODUCER wiring (docs/BAAS-activity.md §3-4)
+// Activity capture for a molecule.dev project (`mlcl create --activity-capture`)
 //
-// The molecule.dev IDE already DELIVERS the runtime channel: a sandbox boots
-// with `MOLECULE_ACTIVITY_URL` (+ `MOLECULE_VAULT_TOKEN` / `MOLECULE_APP_ID`)
-// in `process.env` (Sandbox `buildSandboxEnv` for cold boots; `materializeProjectEnv`
-// → `.env` → `--env-file` for pooled boots), and the `/v1/activity` ingest +
-// SSE + Activity panel are built. But NOTHING in a scaffolded app ever READ that
-// env: no app called `setSink(createHttpSink())`, and no capture provider was
-// bonded, so `record()` always no-oped and the panel was always empty for real
-// activity. This injects the missing producer half into EVERY scaffolded app's
-// API boot, from one place — both `copyTemplateInstance` (the baked flagship
-// fast path) and the package-driven path (custom builds via `create.ts`) — so
-// it reaches all flagships + custom builds without sweeping N hand-curated
-// `bonds/index.ts` files (the same approach as `injectPreviewNavBridge`).
+// `@molecule/api-activity-capture` records what the API sends in the molecule.dev
+// Activity panel. A generated bonds index awaits its setup call last (the package's
+// registry `setupLast`). A flagship's bonds index is copied, not generated, so the
+// function below adds the import, the call and the dependency to the copy.
 // ---------------------------------------------------------------------------
 
-/**
- * The scaffolded `api/src/bonds/_activity-capture.ts` module written into every
- * app and called LAST in `setupBonds()`. Guarded on `MOLECULE_ACTIVITY_URL` so
- * it is a complete no-op outside the molecule.dev IDE — a standalone build never
- * captures, never POSTs to an assumed endpoint, and keeps its real providers.
- *
- * The platform also chooses HOW a capturable category is captured, via
- * `MOLECULE_ACTIVITY_MODE`: `intercept` (the default, and what a dev sandbox
- * gets) REPLACES the real provider so nothing is delivered, while `tee` (what a
- * production deploy gets) WRAPS it so the side effect is really delivered AND
- * recorded. Reading an explicit env var rather than sniffing `NODE_ENV` keeps
- * the platform the single authority — and the default has to stay `intercept`,
- * because a project scaffolded before tee mode existed carries a module that
- * intercepts unconditionally (see the "Updating this file" section in the
- * generated module, and the deploy-time check in molecule-dev's
- * `runtime/production.ts`).
- *
- * Prettier-clean as written (single quotes, no semicolons, 2-space, trailing
- * commas) because the sandbox scaffold path runs with `--skip-install` and so
- * skips the post-scaffold Prettier pass.
- */
-const ACTIVITY_CAPTURE_BOOT_MODULE = `/**
- * Activity-capture producer wiring (molecule.dev managed sandbox).
- *
- * The PRODUCER half of the activity surface (docs/BAAS-activity.md §3-4). When
- * this app runs inside the molecule.dev IDE, the platform injects
- * \`MOLECULE_ACTIVITY_URL\` (+ \`MOLECULE_VAULT_TOKEN\` / \`MOLECULE_APP_ID\` /
- * \`MOLECULE_ACTIVITY_MODE\`) into the container env. \`setupActivityCapture()\` —
- * called last in \`setupBonds()\` — reads that env and, ONLY when
- * \`MOLECULE_ACTIVITY_URL\` is present:
- *
- *  1. bonds the HTTP activity sink (\`@molecule/api-activity-http\`) so every
- *     \`record()\` POSTs the event to the IDE's \`/v1/activity\` ingest endpoint;
- *  2. routes each ALREADY-bonded capturable provider (email / sms / push /
- *     webhook / channel) through its capture provider — in one of TWO MODES.
- *
- * ## The two modes — \`MOLECULE_ACTIVITY_MODE\`
- *
- * - \`intercept\` (the default): the real provider is REPLACED by the
- *   intercept-only capture provider. A \`sendMail()\` / webhook dispatch / push is
- *   recorded and returns a synthetic success, and NOTHING is actually delivered.
- *   This is the molecule.dev dev experience — "captured, not delivered" — and it
- *   is what a dev sandbox gets.
- * - \`tee\`: the real provider is WRAPPED by the capture provider. The side effect
- *   is really DELIVERED through the app's own provider AND recorded with its
- *   real outcome. This is what a PRODUCTION deploy gets: a deployed app must
- *   really send its emails, so production side effects are teed, never
- *   intercepted.
- *
- * The mode is read from the platform-provided env rather than guessed from
- * \`NODE_ENV\`, so the platform stays the single authority on it. Any unset or
- * unrecognized value means \`intercept\`, which leaves the dev default unchanged.
- *
- * If a category's capture wiring cannot be honoured — the capture package is
- * missing, or too old to expose its tee factory — that category keeps its REAL
- * provider bonded and is simply not captured. Delivering for real always wins
- * over capturing.
- *
- * Outside the IDE (no \`MOLECULE_ACTIVITY_URL\`) this is a complete no-op: the env
- * guard returns before importing anything, so a standalone build never captures,
- * never POSTs to an assumed endpoint, and keeps its real email/webhook
- * providers. Safe to ship in every app.
- *
- * ## Updating this file
- *
- * \`mlcl create\` generates this module, and it is safe to replace wholesale with
- * a newer generated copy. Projects scaffolded BEFORE \`tee\` mode existed carry a
- * version that ignores \`MOLECULE_ACTIVITY_MODE\` and intercepts every send
- * whenever \`MOLECULE_ACTIVITY_URL\` is set — including in production, where real
- * emails were captured instead of delivered. The platform detects that (it looks
- * for the string \`MOLECULE_ACTIVITY_MODE\` in this file) and turns activity
- * capture OFF for such a deploy rather than swallowing real sends, so an old
- * project still delivers — it just gets no production Activity panel entries. To
- * get production capture back, replace this file with the current version: ask
- * Synthase to "update api/src/bonds/_activity-capture.ts to the current version
- * with tee mode", or copy it from a freshly-scaffolded project.
- *
- * @module
- */
+/** The import an older scaffold wrote for the `_activity-capture.ts` module it generated. */
+const LOCAL_CAPTURE_IMPORT = "import { setupActivityCapture } from './_activity-capture.js'\n"
 
 /**
- * Capturable bond categories, each paired with the capture package that records
- * its calls as activity events and the name of that package's factory for
- * WRAPPING a real provider (tee mode). Only categories the app has already
- * bonded are touched at all (see {@link setupActivityCapture}).
- */
-const CAPTURE_PROVIDERS: ReadonlyArray<readonly [string, string, string]> = [
-  ['email', '@molecule/api-emails-capture', 'createEmailCaptureProvider'],
-  ['sms', '@molecule/api-sms-capture', 'createSMSCaptureProvider'],
-  ['push-notifications', '@molecule/api-push-capture', 'createPushCaptureProvider'],
-  ['webhook', '@molecule/api-webhook-capture', 'createWebhookCaptureProvider'],
-  ['channel', '@molecule/api-channel-capture', 'createChannelCaptureProvider'],
-]
-
-/**
- * Wire the activity-capture producer when running inside the molecule.dev IDE.
+ * Wire activity capture into a copied API: import the capture package's setup function, await it
+ * as the last statement of `setupBonds()`, and declare the package (and any core it peers on that
+ * the manifest lacks).
  *
- * MUST be called LAST in \`setupBonds()\`, after the real providers are bonded, so
- * the capturable categories can be swapped (intercept) or wrapped (tee). A no-op
- * when \`MOLECULE_ACTIVITY_URL\` is unset (any standalone build).
- */
-export async function setupActivityCapture(): Promise<void> {
-  if (!process.env.MOLECULE_ACTIVITY_URL) {
-    // Not running inside the molecule.dev IDE — never capture and never POST to
-    // an assumed endpoint. The app's real providers stay bonded.
-    return
-  }
-
-  // Explicit and platform-provided. Anything other than 'tee' — including unset,
-  // which is what an older platform sends — means intercept, so the dev
-  // semantics this module shipped with never change underneath a project.
-  const tee = process.env.MOLECULE_ACTIVITY_MODE === 'tee'
-
-  const [{ setSink }, { createHttpSink }] = await Promise.all([
-    import('@molecule/api-activity'),
-    import('@molecule/api-activity-http'),
-  ])
-  // createHttpSink reads MOLECULE_ACTIVITY_URL / MOLECULE_VAULT_TOKEN /
-  // MOLECULE_APP_ID per request and no-ops if the URL is ever unset.
-  setSink(createHttpSink())
-
-  const { bond, get } = await import('@molecule/api-bond')
-  for (const [category, providerPackage, factoryName] of CAPTURE_PROVIDERS) {
-    // Only touch a category the app actually uses, so capture never introduces a
-    // bond the app never wired itself.
-    const realProvider = get(category)
-    if (realProvider == null) {
-      continue
-    }
-    // Defense in depth: the capture providers are declared as dependencies by the
-    // scaffolder, so this import normally resolves. If one is ever absent, skip
-    // capturing THAT category and keep booting — a missing optional dev-telemetry
-    // provider must never crash the whole API (it once did, ERR_MODULE_NOT_FOUND).
-    try {
-      const captureModule = (await import(providerPackage)) as Record<string, unknown>
-
-      if (tee) {
-        const createCaptureProvider = captureModule[factoryName]
-        if (typeof createCaptureProvider !== 'function') {
-          // An older capture package with no tee factory. Keep the REAL provider:
-          // in tee mode the side effect MUST still be delivered, and losing the
-          // activity record is by far the safer half to lose.
-          console.warn(
-            '[activity-capture] ' +
-              providerPackage +
-              ' exposes no ' +
-              factoryName +
-              '(); delivering ' +
-              category +
-              ' for real without recording it',
-          )
-          continue
-        }
-        bond(category, (createCaptureProvider as (real: unknown) => unknown)(realProvider))
-        continue
-      }
-
-      const { provider } = captureModule as { provider?: unknown }
-      if (provider == null) {
-        console.warn(
-          '[activity-capture] ' +
-            providerPackage +
-            ' exports no provider; not capturing ' +
-            category,
-        )
-        continue
-      }
-      bond(category, provider)
-    } catch (error) {
-      console.warn(
-        '[activity-capture] provider ' +
-          providerPackage +
-          ' unavailable; not capturing ' +
-          category,
-        error,
-      )
-    }
-  }
-}
-`
-
-/**
- * Inject the IDE8 activity-capture producer into a scaffolded API workspace:
- * write \`src/bonds/_activity-capture.ts\` and wire \`await setupActivityCapture()\`
- * as the LAST statement of \`setupBonds()\` (after every real provider is bonded,
- * so the capturable categories can be swapped for their capture decorators).
+ * An index that imports the `./_activity-capture.js` module an older scaffold generated is
+ * repointed to the package, and the module is removed. An index that already imports the package
+ * keeps its wiring and only gets the declaration. A workspace without `src/bonds/index.ts` or
+ * `package.json` is left alone.
  *
- * Called from BOTH scaffold paths so the producer reaches every app from one
- * place: \`copyTemplateInstance\` (the baked flagship fast path) and the
- * package-driven path in \`create.ts\` (custom builds, whose \`bonds/index.ts\` the
- * injector has just generated). Idempotent — a re-run, or a template that bakes
- * the wiring in, is detected via the import sentinel and left untouched. A no-op
- * for app-only projects (no \`bonds/index.ts\`) and for a workspace with no
- * \`package.json\` to declare the producer's imports in (see below).
- *
- * @param apiPath - Absolute path to the API workspace (the dir holding \`src/\`).
- * @returns Whether the wiring was injected (false if absent/already present).
+ * @param apiPath - Absolute path to the API workspace (the dir holding `src/`).
+ * @returns Whether the bonds index changed.
  */
 export async function injectActivityCaptureBoot(apiPath: string): Promise<boolean> {
   const bondsDir = join(apiPath, 'src', 'bonds')
   const indexPath = join(bondsDir, 'index.ts')
-  // App-only / non-standard layouts have no setupBonds to wire into.
-  if (!existsSync(indexPath)) return false
-  // The manifest is where this producer's imports are DECLARED, and a workspace
-  // without one cannot back them: `_activity-capture.ts` imports
-  // `@molecule/api-activity` and `@molecule/api-activity-http` (dynamically, with
-  // literal specifiers — `tsc` resolves their types from those, so a missing
-  // package is a build failure even though nothing runs at boot),
-  // while `addActivityCaptureDependencies` below reports "no manifest" by
-  // returning false rather than throwing — so the wiring would land with no
-  // rollback and no error, in exactly the TS2307 / ERR_MODULE_NOT_FOUND state the
-  // transaction below exists to prevent. Refuse BEFORE any write, the same rule
-  // refreshMigrateRunnerForManifest applies to the manifest its render needs.
-  if (!existsSync(join(apiPath, 'package.json'))) return false
+  const manifestPath = join(apiPath, 'package.json')
+  if (!existsSync(indexPath) || !existsSync(manifestPath)) return false
 
-  const modulePath = join(bondsDir, '_activity-capture.ts')
-  let src = await readFile(indexPath, 'utf-8')
-  // Idempotent: already wired (a re-run, or a future template that bakes it in).
-  // Refresh the module to this mlcl's canonical content and re-declare its
-  // imports — both idempotent — then leave the wiring untouched.
-  if (src.includes("from './_activity-capture.js'")) {
-    // The refresh is the SAME transaction as the wiring branch below: the module
-    // this mlcl writes may import capture packages an older scaffold's manifest
-    // never declared (that is what the declaration step is for), so a failed
-    // declaration must put the module back too. Without the rollback a failed
-    // refresh left the NEW module behind over a manifest that does not back it —
-    // the TS2307 / ERR_MODULE_NOT_FOUND state this step exists to prevent, in a
-    // project that compiled before the refresh ran.
-    let priorModule: Buffer | null
-    try {
-      priorModule = await readFile(modulePath)
-    } catch (error) {
-      // Any read failure other than "not there yet" must not be recorded as
-      // absent — see the wiring branch: that entry is what a rollback deletes.
-      if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
-      priorModule = null
-    }
-    // Guarded like the write further down: this refresh overwrites a module the
-    // index ALREADY imports, so a write that fails mid-flight (a full disk) would
-    // leave a TRUNCATED `_activity-capture.ts` behind — a file server.ts reaches
-    // through `bonds/index.ts` at boot, i.e. a project that no longer starts.
-    await writeGuarded(modulePath, ACTIVITY_CAPTURE_BOOT_MODULE)
-    try {
-      await addActivityCaptureDependencies(apiPath)
-    } catch (error) {
-      try {
-        if (priorModule === null) await rm(modulePath, { force: true })
-        else await writeFile(modulePath, priorModule)
-      } catch (_restoreError) {
-        // Best-effort restore; the primary failure is rethrown below.
-      }
-      throw error
-    }
-    return false
+  const capture = requirePackageByRole('api', 'utility', 'activity')
+  const setup = loadRegistry().find((pkg) => pkg.name === capture)?.molecule?.setupLast
+  if (!setup) throw new Error(`${capture} names no setupLast function in the registry`)
+  const packageImport = `import { ${setup} } from '${capture}'\n`
+
+  const priorIndex = await readFile(indexPath, 'utf-8')
+  let src = priorIndex
+  const repointed = src.includes(LOCAL_CAPTURE_IMPORT)
+  if (repointed) {
+    src = sortImportStatements(src.split(LOCAL_CAPTURE_IMPORT).join(packageImport), indexPath)
+  } else if (!src.includes(`from '${capture}'`)) {
+    // The call goes before setupBonds()'s closing brace: the first column-0 `}` after its
+    // declaration in the Prettier-formatted file every template ships.
+    const firstImport = src.search(/^import /m)
+    const declIdx = src.indexOf('export async function setupBonds(): Promise<void> {')
+    if (firstImport < 0 || declIdx < 0) return false
+    const closeOffset = src.slice(declIdx).search(/\n\}/)
+    if (closeOffset < 0) return false
+    const closeIdx = declIdx + closeOffset
+    src =
+      src.slice(0, closeIdx) +
+      `\n\n  // Last: it wraps the providers bonded above.\n  await ${setup}()` +
+      src.slice(closeIdx)
+    src = sortImportStatements(
+      src.slice(0, firstImport) + packageImport + src.slice(firstImport),
+      indexPath,
+    )
   }
 
-  // 2a. Add the import, then canonicalize the whole import block via the shared
-  //     sorter (same grouping as the project's simple-import-sort) so the new
-  //     line lands in the exact slot the linter expects — no per-file position
-  //     math, no `--max-warnings 0` regression across the template fleet.
-  const firstImport = src.search(/^import /m)
-  if (firstImport < 0) return false
-  src =
-    src.slice(0, firstImport) +
-    "import { setupActivityCapture } from './_activity-capture.js'\n" +
-    src.slice(firstImport)
-  src = sortImportStatements(src, indexPath)
-
-  // 2b. Insert the call as the LAST statement of setupBonds(). The function's
-  //     closing brace is the first column-0 `}` after its declaration in the
-  //     Prettier-formatted file every template ships (nested blocks close
-  //     indented, so `\n}` matches only the function close).
-  const declIdx = src.indexOf('export async function setupBonds(): Promise<void> {')
-  if (declIdx < 0) return false
-  const closeOffset = src.slice(declIdx).search(/\n\}/)
-  if (closeOffset < 0) return false
-  const closeIdx = declIdx + closeOffset
-  const callBlock =
-    '\n\n  // Capture side-effects (email/webhook/push/etc.) to the molecule.dev Activity\n' +
-    '  // panel so read_activity can read them (no-op outside the IDE — see\n' +
-    '  // ./_activity-capture.ts). KEEP THIS CALL LAST: it routes the capturable\n' +
-    '  // providers (email/sms/push/webhook/channel) through capture — replacing\n' +
-    '  // them in intercept mode, wrapping them in tee mode — so any bond added\n' +
-    '  // BELOW re-bonds the real provider AFTER that and is NOT captured — add\n' +
-    '  // new provider bonds ABOVE this line.\n' +
-    '  await setupActivityCapture()'
-  src = src.slice(0, closeIdx) + callBlock + src.slice(closeIdx)
-
-  // 1. Write the producer module (canonical content — overwrite is idempotent)
-  //    — only AFTER the anchors above proved the wiring is possible. Writing it
-  //    first left the module behind on every early-return path above: a file
-  //    importing @molecule/api-activity* whose dependency declaration (step 3
-  //    below) never ran, so the scaffold failed tsc with TS2307 on a project
-  //    that has no producer at all. And if the index write itself fails, roll
-  //    the module back with it — nothing may be left importing undeclared
-  //    packages.
-  //
-  //    Both writes below plus the manifest declaration are ONE transaction: the
-  //    step is only safe if the index, the module and the manifest agree.
-  //    - A failed module write restored the module's own previous bytes (it goes
-  //      through writeGuarded, like the index), so a truncated producer can
-  //      never be left behind.
-  //    - A failed index write restored the index's old bytes (writeGuarded), so
-  //      the module it would have imported is rolled back with it.
-  //    - A failed MANIFEST write (step 3 — a full disk, an unparseable manifest)
-  //      used to leave the wiring in place with the module's
-  //      `@molecule/api-activity*` imports undeclared: exactly the TS2307 the
-  //      step exists to prevent. The index is put back to its pre-injection
-  //      bytes and the module is put back too (removed when this call created
-  //      it, restored to its own bytes when it predated the call), so a failed
-  //      run leaves the project as it was instead of half-wired.
-  const priorIndex = await readFile(indexPath)
-  // The module is written through the SAME guard as the index below: a bare
-  // `writeFile` truncates before it writes, so a write that fails mid-flight
-  // would leave a partial `_activity-capture.ts` — a file the index imports, so
-  // the project stops compiling and never boots. A pre-existing module's bytes
-  // are kept as well, because the rollback below must put it BACK (not delete
-  // it) when a later step of this transaction fails.
-  let priorModule: Buffer | null
-  try {
-    priorModule = await readFile(modulePath)
-  } catch (error) {
-    // Any read failure other than "not there yet" must not be recorded as
-    // absent: that entry is what the rollback deletes, and deleting a file this
-    // call could not read is the "worse than before" shape the guard exists for.
-    if ((error as NodeJS.ErrnoException)?.code !== 'ENOENT') throw error
-    priorModule = null
+  const priorManifest = await readFile(manifestPath, 'utf-8')
+  const manifest = JSON.parse(priorManifest) as { dependencies?: Record<string, string> }
+  const dependencies = { ...manifest.dependencies }
+  dependencies[capture] ??= getMoleculeVersion(capture)
+  // The project installs with --legacy-peer-deps, which adds no peers.
+  for (const name of missingMoleculePeers(Object.keys(dependencies))) {
+    dependencies[name] = getMoleculeVersion(name)
   }
-  await writeGuarded(modulePath, ACTIVITY_CAPTURE_BOOT_MODULE)
+  manifest.dependencies = Object.fromEntries(
+    Object.entries(dependencies).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
+  )
+  const nextManifest = `${JSON.stringify(manifest, null, 2)}\n`
+
+  const indexChanged = src !== priorIndex
+  if (indexChanged) await writeGuarded(indexPath, src)
   try {
-    await writeGuarded(indexPath, src)
-    // 3. DECLARE what the module imports. `_activity-capture.ts` imports
-    //    `@molecule/api-activity` and `@molecule/api-activity-http`; writing the
-    //    file without adding them produced a scaffold that builds INSIDE the
-    //    molecule workspace (where every @molecule/* resolves through workspace
-    //    symlinks) and fails everywhere else with:
-    //
-    //      error TS2307: Cannot find module '@molecule/api-activity'
-    //
-    //    The imports are dynamic and env-guarded, so nothing fails at RUNTIME
-    //    outside the IDE — but `tsc` needs the types at build time regardless, so
-    //    `mlcl create && npm install && npm run build` was broken for every user.
-    //    Caught by scaffolding a flagship outside the workspace (2026-08-05).
-    await addActivityCaptureDependencies(apiPath)
+    if (nextManifest !== priorManifest) await writeGuarded(manifestPath, nextManifest)
   } catch (error) {
-    try {
-      // A module this call CREATED is removed; one that PREDATES it is restored
-      // to the bytes it had — the rollback must leave the project as it found
-      // it, never delete a file the failed step only overwrote.
-      if (priorModule === null) await rm(modulePath, { force: true })
-      else await writeFile(modulePath, priorModule)
-    } catch (_restoreError) {
-      // Best-effort restore; the primary failure is rethrown below.
-    }
-    try {
-      await writeFile(indexPath, priorIndex)
-    } catch (_restoreError) {
-      // Best-effort: writeGuarded has already put the index back for an index
-      // write failure, this covers the manifest-write failure after a
-      // successful index write.
-    }
+    // An index importing an undeclared package fails tsc, so the index goes back with it.
+    if (indexChanged) await writeFile(indexPath, priorIndex)
     throw error
   }
-
-  return true
-}
-
-/**
- * Packages the injected `_activity-capture.ts` module imports and therefore must
- * be declared in the scaffolded API's `package.json`. The first two are the
- * module's own DYNAMIC imports of the activity sink (`import('@molecule/api-activity')`
- * / `-http`, literal specifiers, so `tsc` still resolves their types and a
- * missing package fails the build); the rest are the capture providers it imports
- * DYNAMICALLY per bonded category (must match the module's own
- * `CAPTURE_PROVIDERS` list). Omitting any one crashed the API at boot with
- * ERR_MODULE_NOT_FOUND once a bonded category triggered its import.
- */
-const ACTIVITY_CAPTURE_DEPENDENCIES = [
-  '@molecule/api-activity',
-  '@molecule/api-activity-http',
-  '@molecule/api-emails-capture',
-  '@molecule/api-sms-capture',
-  '@molecule/api-push-capture',
-  '@molecule/api-webhook-capture',
-  '@molecule/api-channel-capture',
-]
-
-/**
- * Add the activity-capture packages to a scaffolded API's `package.json`.
- *
- * Pinned exact, matching the workspace dependency policy (`.npmrc`
- * `save-exact=true`). Idempotent: an existing entry is left at whatever version
- * it already pins rather than being rewritten underneath the project.
- *
- * `mlcl create` calls it before its first `npm install`, so that install fetches them:
- * declared only by {@link injectActivityCaptureBoot}, after the install and the inject
- * that needs it, they made create install a second time for 13 packages (2026-11-23
- * scaffold eval). The wiring step declares them again, which changes nothing.
- *
- * @param apiPath - Absolute path to the API workspace.
- * @returns Whether `package.json` was modified.
- */
-export async function addActivityCaptureDependencies(apiPath: string): Promise<boolean> {
-  const pkgPath = join(apiPath, 'package.json')
-  if (!existsSync(pkgPath)) return false
-
-  const pkg = JSON.parse(await readFile(pkgPath, 'utf-8')) as {
-    dependencies?: Record<string, string>
-  }
-  pkg.dependencies ??= {}
-
-  let changed = false
-  // `@molecule/api-activity[-http]` are imported by the module with literal
-  // `import()` specifiers — dynamic at runtime, but still resolved by `tsc`, so a
-  // missing package is a build error; the CAPTURE_PROVIDERS are imported
-  // DYNAMICALLY at runtime when their category is bonded (see
-  // setupActivityCapture). Declaring only the former shipped a module that
-  // crashed the API with ERR_MODULE_NOT_FOUND the moment a bonded category
-  // (e.g. email) triggered `import('@molecule/api-emails-capture')` — the package
-  // was never installed. Declare the capture providers too so they resolve.
-  for (const name of ACTIVITY_CAPTURE_DEPENDENCIES) {
-    if (pkg.dependencies[name]) continue
-    // The registry is the single source of truth for @molecule/* versions —
-    // hardcoding one here would drift the moment the fleet is republished.
-    pkg.dependencies[name] = getMoleculeVersion(name)
-    changed = true
-  }
-  // ...and the packages THEY require. The capture providers peer on the cores
-  // they wrap (`api-emails`, `api-sms`, `api-channel`, `api-webhook`), and
-  // `mlcl create` closes the manifest's peers BEFORE this step runs, while the
-  // project installs with `--legacy-peer-deps`, which adds no peers: an exported
-  // X1 app (l2171) declared every capture provider and none of those four cores,
-  // so outside the fleet-hoisting sandbox the capture import failed to resolve.
-  for (const name of missingMoleculePeers(Object.keys(pkg.dependencies))) {
-    pkg.dependencies[name] = getMoleculeVersion(name)
-    changed = true
-  }
-  if (!changed) return false
-
-  pkg.dependencies = Object.fromEntries(
-    Object.entries(pkg.dependencies).sort(([a], [b]) => (a < b ? -1 : a > b ? 1 : 0)),
-  )
-  // Guarded: a short write must not leave an unparseable package.json behind
-  // (every later scaffold step, and every later mlcl command, parses it).
-  await writeGuarded(pkgPath, `${JSON.stringify(pkg, null, 2)}\n`)
-  return true
+  if (repointed) await rm(join(bondsDir, '_activity-capture.ts'), { force: true })
+  return indexChanged
 }
 
 /**
@@ -2768,6 +2394,9 @@ async function addHuskyToPackageJson(packageJsonPath: string): Promise<void> {
  *   `create --template` preflighted with. Required whenever the template ships
  *   setup SQL: the copier resolves against the TARGET project and must bind to
  *   the versions the preflight judged, not to whatever a walk-up happens to find.
+ * @param authContract - The auth contract the template's API resource is configured with.
+ * @param options - What only a molecule.dev project gets: `idePreview` (the IDE's live-preview
+ *   bridges) and `activityCapture` (the activity-capture wiring of the API).
  */
 export async function copyTemplateInstance(
   templateDir: string,
@@ -2775,7 +2404,7 @@ export async function copyTemplateInstance(
   projectName: string,
   setupSqlVersions: Readonly<Record<string, string | undefined>>,
   authContract?: AuthContract,
-  options: { idePreview?: boolean } = {},
+  options: { idePreview?: boolean; activityCapture?: boolean } = {},
 ): Promise<void> {
   if (!existsSync(templateDir)) {
     throw new Error(`Template directory not found: ${templateDir}`)
@@ -2991,12 +2620,9 @@ export async function copyTemplateInstance(
   // reaches every flagship; see applyPreviewBridges). Idempotent.
   await applyPreviewBridges(indexHtmlPath, undefined, options.idePreview === true)
 
-  // Wire the IDE8 activity-capture PRODUCER into the copied API boot so a
-  // captured email/webhook/push fired in a molecule.dev sandbox surfaces in the
-  // Activity panel. Flagship templates ship a hand-curated bonds/index.ts that
-  // predates the producer; this is the single place it reaches every one of them.
-  // Idempotent; no-op outside the IDE (guarded on MOLECULE_ACTIVITY_URL).
-  await injectActivityCaptureBoot(join(destDir, 'api'))
+  // A molecule.dev project records what its API sends in the Activity panel (`activityCapture`).
+  // A flagship's bonds index is copied, so the capture package is wired into the copy here.
+  if (options.activityCapture === true) await injectActivityCaptureBoot(join(destDir, 'api'))
 
   // Generate fresh .env files in the user sandbox from package-declared
   // secrets. The monorepo's real .env files were skipped during the tree
@@ -5118,6 +4744,8 @@ export async function createAppProject(
   // Framework-specific config from registry
   const appFrameworks = loadAppFrameworks()
   const fwConfig = appFrameworks[framework] ?? { dependencies: {}, devDependencies: {} }
+  // The optional features the stack brings: their pages, routes and fields are written.
+  const templateFeatures = deriveOptionalFeatures(selectedPackages, loadRegistry())
   if (fontAssetMode === 'module' && (!fwConfig.vitePlugin || fwConfig.htmlTemplate)) {
     throw new Error('Module font assets require a caller-configured Vite index.html project')
   }
@@ -5261,6 +4889,9 @@ export async function createAppProject(
       // Persist the caller's asset contract; inject/swap must not infer it from
       // framework dependencies or recreate public copies on a later sync.
       ...(fontAssetMode === 'module' ? { fontAssetMode } : {}),
+      // The optional features this app's files were written with: `mlcl add` of a package that
+      // brings another one writes that feature's files and its parts of these.
+      templateFeatures: [...templateFeatures].sort(),
     },
   }
 
@@ -5376,7 +5007,7 @@ export async function createAppProject(
   await writeFile(join(projectPath, '.editorconfig'), await loadTemplate('shared/editorconfig.tpl'))
 
   // Framework-specific entry point and App component (from templates)
-  await copyTemplateFiles(projectPath, framework, projectName, extraVars)
+  await copyTemplateFiles(projectPath, framework, projectName, extraVars, templateFeatures)
 
   // Replace the default Molecule glyph at public/logo.svg with a deterministic
   // per-app glyph tinted with the brand color from branding.ts. Skips silently
@@ -5497,15 +5128,21 @@ const LOCALE_CONTENT_MODULE: Record<'vite' | 'metro', string> = {
  * @param framework - The registry app-framework key.
  * @param projectName - The project name written into branding and config.
  * @param extraVars - Extra template variables (e.g. an API auth contract).
+ * @param features - The optional features the stack brings ({@link deriveOptionalFeatures}).
  */
 async function copySharedAppFiles(
   projectPath: string,
   framework: string,
   projectName: string,
   extraVars: Record<string, string> = {},
+  features: ReadonlySet<string> = new Set(),
 ): Promise<void> {
   const templatesDir = join(getTemplatesDir(), 'app')
-  const configContent = await readFile(join(templatesDir, 'shared', 'config.ts.tpl'), 'utf-8')
+  const configContent = applyFeatureSections(
+    await readFile(join(templatesDir, 'shared', 'config.ts.tpl'), 'utf-8'),
+    features,
+    'app/shared/config.ts.tpl',
+  )
   const fwCfg = loadAppFrameworks()[framework] ?? {}
 
   const contract = extraVars.AUTH_CONTRACT_JSON
@@ -5550,17 +5187,31 @@ async function copySharedAppFiles(
   )
 
   // Copy shared locales/ directory (i18n translations)
-  await copyTemplateDir(join(templatesDir, 'shared', 'locales'), join(configDir, 'locales'), vars)
+  await copyTemplateDir(join(templatesDir, 'shared', 'locales'), join(configDir, 'locales'), vars, {
+    features,
+  })
 }
 
 /**
  * Copy template files for app projects (framework-specific entry point, etc.).
+ *
+ * The pages and parts of pages that need an optional feature (password reset needs an email
+ * transport, the plan page payments) are written only when the stack brings that feature:
+ * `templates/app/<framework>/features/<feature>/` holds its whole files, and
+ * `{{#feature <feature>}}` sections its parts of shared files (see `optional-features.ts`).
+ *
+ * @param projectPath - The app workspace.
+ * @param framework - The registry app-framework key.
+ * @param projectName - The project name.
+ * @param extraVars - Extra template variables.
+ * @param features - The optional features the stack brings ({@link deriveOptionalFeatures}).
  */
 export async function copyTemplateFiles(
   projectPath: string,
   framework: string,
   projectName: string,
   extraVars: Record<string, string> = {},
+  features: ReadonlySet<string> = new Set(),
 ): Promise<void> {
   const templatesDir = join(getTemplatesDir(), 'app')
   const vars: Record<string, string> = {
@@ -5569,10 +5220,20 @@ export async function copyTemplateFiles(
     PUBLIC_DIR: loadAppFrameworks()[framework]?.publicDir ?? 'public',
     ...extraVars,
   }
-  await copySharedAppFiles(projectPath, framework, projectName, extraVars)
+  await copySharedAppFiles(projectPath, framework, projectName, extraVars, features)
 
-  // Copy framework-specific files
-  await copyTemplateDir(join(templatesDir, framework), join(projectPath, 'src'), vars)
+  // Copy framework-specific files, then the whole files of each feature the stack brings.
+  const frameworkDir = join(templatesDir, framework)
+  await copyTemplateDir(frameworkDir, join(projectPath, 'src'), vars, {
+    features,
+    skip: [FEATURE_TEMPLATES_DIR],
+  })
+  for (const feature of [...features].sort()) {
+    const featureDir = join(frameworkDir, FEATURE_TEMPLATES_DIR, feature)
+    if (existsSync(featureDir)) {
+      await copyTemplateDir(featureDir, join(projectPath, 'src'), vars, { features })
+    }
+  }
 }
 
 /** Source extensions a scaffold formats: scripts and the component files a framework writes. */
@@ -5647,24 +5308,33 @@ export function withPrettierPlugins(prettierrc: string, plugins: string[] | unde
 
 /**
  * Recursively copy a template directory, processing `.tpl` files.
+ *
+ * @param srcDir - The template directory.
+ * @param destDir - Where its files go.
+ * @param vars - The `{{KEY}}` values.
+ * @param options - `features`: the optional features whose `{{#feature}}` sections are kept
+ *   (none by default); `skip`: entry names at the top of `srcDir` not to copy.
  */
 export async function copyTemplateDir(
   srcDir: string,
   destDir: string,
   vars: Record<string, string>,
+  options: { features?: ReadonlySet<string>; skip?: readonly string[] } = {},
 ): Promise<void> {
   await mkdir(destDir, { recursive: true })
   const entries = await readdir(srcDir, { withFileTypes: true })
+  const features = options.features ?? new Set<string>()
 
   for (const entry of entries) {
+    if (options.skip?.includes(entry.name)) continue
     const srcPath = join(srcDir, entry.name)
 
     if (entry.isDirectory()) {
       const subDestDir = join(destDir, entry.name)
       await mkdir(subDestDir, { recursive: true })
-      await copyTemplateDir(srcPath, subDestDir, vars)
+      await copyTemplateDir(srcPath, subDestDir, vars, { features })
     } else if (entry.name.endsWith('.tpl')) {
-      const content = await readFile(srcPath, 'utf-8')
+      const content = applyFeatureSections(await readFile(srcPath, 'utf-8'), features, srcPath)
       const outputName = entry.name.replace(/\.tpl$/, '')
       let processed = processTemplate(content, vars)
       if (/\.(ts|tsx|js|mjs)\.tpl$/.test(entry.name)) {

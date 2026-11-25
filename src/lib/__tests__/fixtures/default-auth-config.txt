@@ -113,7 +113,9 @@ export const authConfig = {
   profileUpdateMethod: 'PATCH' as const,
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
-  changePasswordEndpoint: '/users/password',
+  changePasswordEndpoint: (user: { id: string }) =>
+    '/users/' + encodeURIComponent(user.id) + '/password',
+  changePasswordMethod: 'PATCH' as const,
   // With the Molecule user resource, `storage: 'memory'` above keeps the bearer token out of
   // script-reachable storage: the API's httpOnly session cookie and its readable `mol_auth=1`
   // hint restore the session on reload (`cookieRestore: 'hint'`, the default). Without a

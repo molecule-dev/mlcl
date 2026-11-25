@@ -4,7 +4,9 @@ import { useAuth, useLogin, useTranslation } from '@molecule/app-react'
 import { Button, Form } from '@molecule/app-ui-react'
 import { getClassMap } from '@molecule/app-ui'
 import { FloatingInput } from '../components/FloatingInput.js'
+{{#feature oauth}}
 import { OAuthButtons } from '../components/OAuthButtons.js'
+{{/feature}}
 
 export function Login() {
   const cm = getClassMap()
@@ -16,7 +18,9 @@ export function Login() {
   const { isAuthenticated } = useAuth()
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
+{{#feature two-factor}}
   const [twoFactorToken, setTwoFactorToken] = useState('')
+{{/feature}}
 
   // Route into the app whenever a session exists — covers the OAuth callback
   // completing on this page (its exchange sets auth state without a submit)
@@ -26,6 +30,7 @@ export function Login() {
   }, [isAuthenticated, from, navigate])
 
   const handleSubmit = async () => {
+{{#feature two-factor}}
     // The 2FA field is always rendered; only send a token when the user
     // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
     // stays on this page until a valid code is entered).
@@ -35,6 +40,10 @@ export function Login() {
       ...(twoFactorToken.trim() ? { twoFactorToken: twoFactorToken.trim() } : {}),
     })
     if (result.twoFactorRequired) return
+{{/feature}}
+{{^feature two-factor}}
+    await login({ email, password })
+{{/feature}}
     navigate(from, { replace: true })
   }
 
@@ -67,6 +76,7 @@ export function Login() {
               placeholder={t('auth.login.password')}
             />
           </div>
+{{#feature two-factor}}
           <div className={cm.authField}>
             <FloatingInput
               type="number"
@@ -76,6 +86,7 @@ export function Login() {
               placeholder={t('auth.login.twoFactor')}
             />
           </div>
+{{/feature}}
           <div className={cm.authButtonRow}>
             <Button
               type="button"
@@ -97,6 +108,7 @@ export function Login() {
             </Button>
           </div>
         </Form>
+{{#feature emails}}
         <div className={cm.authAfterSubmit}>
           <button
             type="button"
@@ -106,7 +118,10 @@ export function Login() {
             {t('auth.login.forgotPassword')}
           </button>
         </div>
+{{/feature}}
+{{#feature oauth}}
         <OAuthButtons />
+{{/feature}}
       </div>
     </section>
   )

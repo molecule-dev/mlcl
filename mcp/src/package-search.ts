@@ -79,6 +79,10 @@ export interface SearchSourceEntry {
   decisionGuide?: {
     configuration?: readonly string[]
   }
+  /** Its README's Quick Start code, as sync-registry records it ({@link quickStartOf}). */
+  quickStart?: string
+  /** The environment variables it reads, as the registry declares them (`required` defaults to true). */
+  secrets?: readonly { name?: unknown; required?: unknown }[]
 }
 
 /**
@@ -96,6 +100,49 @@ export interface SearchHit {
   description: string
   /** Concrete common-shape configuration, when this package declares it. */
   configuration?: string[]
+  /** Its README's Quick Start code (the import and the call), on the first {@link QUICK_START_HITS} hits. */
+  quickStart?: string
+  /**
+   * The environment variables it reads, an optional one marked `(optional)`. Asked which email
+   * package to use, Codex searched and then read the provider's README for these names alone
+   * (harness eval `find`, 2026-11-24).
+   */
+  envVars?: string[]
+}
+
+/**
+ * The environment variable names an entry declares, an optional one marked `(optional)`.
+ *
+ * @param secrets - The entry's `secrets`, unvalidated: an entry without a string name is skipped.
+ * @returns The names, in declared order.
+ */
+export function envVarsOf(secrets: SearchSourceEntry['secrets']): string[] {
+  if (!Array.isArray(secrets)) return []
+  return secrets.flatMap((secret) =>
+    secret && typeof secret.name === 'string' && secret.name
+      ? [secret.required === false ? `${secret.name} (optional)` : secret.name]
+      : [],
+  )
+}
+
+/**
+ * How many of the first hits carry their Quick Start: enough for a capability's core and its first
+ * providers. Asked which package to use and how to call it, both harnesses used to search and then
+ * read one or two READMEs only to copy their Quick Start: a model turn per README (harness eval
+ * `find`, 2026-11-23).
+ */
+export const QUICK_START_HITS = 3
+
+/**
+ * The code of a README's Quick Start: the first fenced block under its `## Quick Start` heading.
+ *
+ * @param readme - A generated package README.
+ * @returns The block's code without its fence, or undefined when the README has none.
+ */
+export function quickStartOf(readme: string): string | undefined {
+  const section = /^## Quick Start\n([\s\S]*?)(?=^## |(?![\s\S]))/m.exec(readme)?.[1]
+  const code = section && /^```[^\n]*\n([\s\S]*?)^```/m.exec(section)?.[1]
+  return code ? code.replace(/\n+$/, '') : undefined
 }
 
 /** What a caller may narrow before ranking and the limit cutoff. */
@@ -294,10 +341,11 @@ export function scoreSearchEntry(entry: SearchSourceEntry, q: string): number {
   }
   // Match the WHOLE symbol, never its prefix/substring; e.g. "use" must not
   // match every hook, and "useProfileFormState" must not match useProfileForm.
-  if (exactSymbol) score += 160
-  // A short query can name both a category and a common export (e.g. query).
-  // Keep that category and its providers ahead of unrelated symbol owners.
-  if (entry.category && phrase(entry.category) === query) score += 160
+  // A short query can name both a category and a common export (e.g. query):
+  // the category keeps its members ahead of unrelated symbol owners, and the two
+  // count once, or a provider exporting an alias named after its category
+  // (`email`) outranks the core it implements.
+  if (exactSymbol || (entry.category && phrase(entry.category) === query)) score += 160
   if (query.includes(' ')) {
     if (hints.includes(query)) score += 120
     else if (
@@ -347,7 +395,7 @@ export function searchPackages(
   const accepted = framework
     ? new Set(appFrameworks ? frameworksAcceptedBy(framework, appFrameworks) : [framework])
     : null
-  const ranked: Array<SearchHit & { score: number }> = []
+  const ranked: Array<SearchHit & { score: number; dependsOn: readonly unknown[] }> = []
   for (const entry of entries) {
     // The rule `loadRegistry(stack)` applies — declared stack equality — kept
     // here so the transport that has no loader (hosted MCP) filters identically.
@@ -368,6 +416,7 @@ export function searchPackages(
           (line): line is string => typeof line === 'string' && line.length > 0,
         )
       : []
+    const envVars = envVarsOf(entry.secrets)
     ranked.push({
       name: entry.name,
       stack: resolveStack(entry),
@@ -375,13 +424,30 @@ export function searchPackages(
       label: entry.label ?? entry.name,
       description: entry.description ?? '',
       ...(configuration.length > 0 ? { configuration } : {}),
+      ...(typeof entry.quickStart === 'string' && entry.quickStart
+        ? { quickStart: entry.quickStart }
+        : {}),
+      ...(envVars.length > 0 ? { envVars } : {}),
       score,
+      dependsOn: Array.isArray(entry.runtimeDependencies) ? entry.runtimeDependencies : [],
     })
   }
-  ranked.sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
+  // Equal relevance goes to the package more of the other matches build on: the core before the
+  // templates, providers and features that require it ("transactional email" tied
+  // @molecule/api-email-templates with @molecule/api-emails, and the name put templates first).
+  const dependents = new Map<string, number>()
+  for (const hit of ranked)
+    for (const name of hit.dependsOn)
+      if (typeof name === 'string') dependents.set(name, (dependents.get(name) ?? 0) + 1)
+  const builtOn = (hit: { name: string }): number => dependents.get(hit.name) ?? 0
+  ranked.sort(
+    (a, b) => b.score - a.score || builtOn(b) - builtOn(a) || a.name.localeCompare(b.name),
+  )
   return (accepted ? ranked : onePlacePerFeature(ranked, Object.keys(appFrameworks ?? {})))
     .slice(0, limit)
-    .map(({ score: _score, ...hit }) => hit)
+    .map(({ score: _score, dependsOn: _dependsOn, quickStart, ...hit }, index) =>
+      index < QUICK_START_HITS && quickStart ? { ...hit, quickStart } : hit,
+    )
 }
 
 /**

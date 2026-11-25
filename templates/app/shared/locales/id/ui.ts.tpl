@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Tidak diketahui',
   'settings.logOut': 'Keluar',
+  'userMenu.logOut': 'Keluar',
   'settings.deleteAccount': 'Hapus akun',
   'settings.changePasswordModal.title': 'Ubah Kata Sandi',
   'settings.changePasswordModal.error': 'Gagal mengubah kata sandi.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Gagal memverifikasi langganan.',
   'user.payment.unknownPlan': 'Paket tidak dikenal.',
   'user.payment.invalidWebhookEvent': 'Event webhook tidak valid.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Aktif',
+  'settings.twoFactorEnable': 'Memungkinkan',
+  'settings.twoFactorDisable': 'Cacat',
+  'settings.twoFactorEnableTitle': 'Aktifkan otentikasi dua faktor.',
+  'settings.twoFactorDisableTitle': 'Nonaktifkan otentikasi dua faktor',
+  'settings.twoFactorScan':
+    'Pindai kode QR ini dengan aplikasi otentikasi Anda, lalu masukkan kode 6 digit.',
+  'settings.twoFactorQrAlt': 'Kode QR otentikasi dua faktor',
+  'settings.twoFactorCode': 'Kode otentikasi',
+  'settings.twoFactorVerify': 'Verifikasi & aktifkan',
+  'settings.twoFactorInvalidCode': 'Kode tidak valid',
+  'settings.twoFactorUnavailable': 'Autentikasi dua faktor tidak tersedia untuk aplikasi ini.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Tingkatkan paket Anda',
+  'settings.billing.subscribe': 'Berlangganan',
+  'settings.billing.checkoutFailed': 'Tidak dapat memulai pembayaran.',
+  'settings.billing.cancel': 'Batal',
+  'settings.billing.cancelConfirm': 'Batalkan langganan Anda?',
+  'settings.billing.cancelFailed': 'Tidak dapat membatalkan.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Kami belum dapat mengkonfirmasi pembayaran Anda.',
+  'planUpdated.retry': 'Coba lagi',
+{{/feature}}
 }

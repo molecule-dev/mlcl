@@ -8,7 +8,7 @@
 
 <!-- The logo <img>, brand link and fixed positioning all render inside the
      shared AppHeader; this wrapper only injects the app's branding and the
-     user menu (the settings drawer). -->
+     user menu. -->
 <AppHeader appName={APP_NAME} logoSize={LOGO_SIZE}>
   {#snippet userMenu()}
     <UserMenu />

@@ -416,7 +416,14 @@ function generateInstallSection(pkg: PackageJson, entry: RegistryEntry): string 
   return `## Installation\n\`\`\`bash\n${parts.join('\n')}\n\`\`\``
 }
 
-function generateUsageSection(examples: string[]): string {
+/**
+ * The README's `## Quick Start` section: each module `@example`, fenced as TypeScript unless it
+ * carries its own fences.
+ *
+ * @param examples - The module examples, in order.
+ * @returns The section's markdown.
+ */
+export function generateUsageSection(examples: string[]): string {
   const blocks = examples.map((example) => {
     // If the example already has code fences, use as-is
     if (example.includes('```')) {

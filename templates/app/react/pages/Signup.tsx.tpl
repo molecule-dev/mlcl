@@ -5,7 +5,9 @@ import { Button, Form } from '@molecule/app-ui-react'
 import { getClassMap } from '@molecule/app-ui'
 import { Icon } from '../components/Icon.js'
 import { FloatingInput } from '../components/FloatingInput.js'
+{{#feature oauth}}
 import { OAuthButtons } from '../components/OAuthButtons.js'
+{{/feature}}
 
 export function Signup() {
   const cm = getClassMap()
@@ -89,7 +91,9 @@ export function Signup() {
             </Button>
           </div>
         </Form>
+{{#feature oauth}}
         <OAuthButtons />
+{{/feature}}
       </div>
     </section>
   )

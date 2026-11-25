@@ -152,6 +152,29 @@ ${body}
     expect(extendApiRouter(merged, generated)).toBe(merged)
   })
 
+  // An add of an email transport mounts the user resource's emails router from the editable router
+  // file the project already imports by its default export. The generated import was added whole,
+  // which declared `resourceUserRouter` twice (OLD MUSTFAIL).
+  it('adds a named import beside the default import of the same module', () => {
+    const mounted = router(
+      '// Mounted here — server.ts mounts this router at /api:\n//   @molecule/api-resource-user (User): POST /users',
+      "import resourceUserRouter from '../handlers/auth.js'",
+      'router.use(resourceUserRouter)',
+    )
+    const withEmails = router(
+      '// Mounted here — server.ts mounts this router at /api:\n//   @molecule/api-resource-user (User): POST /users',
+      "import resourceUserRouter, { emailsRouter as resourceUserEmailsRouter } from '../handlers/auth.js'",
+      'router.use(resourceUserRouter)\n\nrouter.use(resourceUserEmailsRouter)',
+    )
+    const merged = extendApiRouter(mounted, withEmails)
+    expect(merged).toContain(
+      "import resourceUserRouter, { emailsRouter as resourceUserEmailsRouter } from '../handlers/auth.js'",
+    )
+    expect(merged.match(/from '\.\.\/handlers\/auth\.js'/g)).toHaveLength(1)
+    expect(merged).toContain('router.use(resourceUserEmailsRouter)')
+    expect(extendApiRouter(merged, withEmails)).toBe(merged)
+  })
+
   it('changes nothing when the added package mounts nothing', () => {
     const empty = router(
       '// It mounts no package routes: none of the selected packages declares any.',

@@ -7,8 +7,12 @@ import { useAuth, useLocation, useLogin, useRouter, useTranslation } from '@mole
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
+{{#feature footer}}
 import Footer from '../components/Footer.vue'
+{{/feature}}
+{{#feature oauth}}
 import OAuthButtons from '../components/OAuthButtons.vue'
+{{/feature}}
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
 const cm = getClassMap()
@@ -23,7 +27,9 @@ const { status, login } = useLogin()
 const { isAuthenticated } = useAuth()
 const email = ref('')
 const password = ref('')
+{{#feature two-factor}}
 const twoFactorToken = ref('')
+{{/feature}}
 
 const isLoggingIn = computed(() => status.value === 'pending')
 
@@ -38,6 +44,7 @@ watch(
   { immediate: true },
 )
 
+{{#feature two-factor}}
 // The 2FA field is always rendered; only send a token when the user
 // typed one (a 2FA-enabled account gets `twoFactorRequired` back and
 // stays on this page until a valid code is entered).
@@ -50,6 +57,13 @@ async function handleSubmit(): Promise<void> {
   if (result.twoFactorRequired) return
   navigate(from.value, { replace: true })
 }
+{{/feature}}
+{{^feature two-factor}}
+async function handleSubmit(): Promise<void> {
+  await login({ email: email.value, password: password.value })
+  navigate(from.value, { replace: true })
+}
+{{/feature}}
 </script>
 
 <template>
@@ -100,6 +114,7 @@ async function handleSubmit(): Promise<void> {
               @change="password = ($event.target as HTMLInputElement).value"
             />
           </div>
+{{#feature two-factor}}
           <div :class="cm.authField">
             <FloatingInput
               :value="twoFactorToken"
@@ -109,6 +124,7 @@ async function handleSubmit(): Promise<void> {
               @change="twoFactorToken = ($event.target as HTMLInputElement).value"
             />
           </div>
+{{/feature}}
           <div :class="cm.authButtonRow">
             <Button
               type="button"
@@ -130,6 +146,7 @@ async function handleSubmit(): Promise<void> {
             </Button>
           </div>
         </Form>
+{{#feature emails}}
         <div :class="cm.authAfterSubmit">
           <button
             type="button"
@@ -139,9 +156,14 @@ async function handleSubmit(): Promise<void> {
             {{ t('auth.login.forgotPassword') }}
           </button>
         </div>
+{{/feature}}
+{{#feature oauth}}
         <OAuthButtons />
+{{/feature}}
       </div>
     </main>
+{{#feature footer}}
     <Footer />
+{{/feature}}
   </div>
 </template>

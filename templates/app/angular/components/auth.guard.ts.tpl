@@ -35,18 +35,35 @@ export interface RouteView {
  * here. Add public reader pages here rather than removing the route-tree boundary.
  *
  * In this template the policy is applied by the ROUTE TREE in `src/main.ts`:
- * the five public views below are the top-level routes, and every route nested
+ * the public views below are the top-level routes, and every route nested
  * under `AuthGuardComponent` requires sign-in — a new route is private until it
  * is added at the top level, exactly the default-deny rule `publicViews`
  * encodes on the React side.
  */
+{{#feature footer}}
 export const publicViews: readonly RouteView[] = [
   { path: '/login' },
   { path: '/signup' },
   { path: '/about' },
+{{#feature emails}}
+  { path: '/forgot-password' },
+  { path: '/reset-password' },
+{{/feature}}
+]
+{{/feature}}
+{{^feature footer}}
+{{#feature emails}}
+export const publicViews: readonly RouteView[] = [
+  { path: '/login' },
+  { path: '/signup' },
   { path: '/forgot-password' },
   { path: '/reset-password' },
 ]
+{{/feature}}
+{{^feature emails}}
+export const publicViews: readonly RouteView[] = [{ path: '/login' }, { path: '/signup' }]
+{{/feature}}
+{{/feature}}
 
 /** Private query-selected views override a matching public path. */
 export const privateViews: readonly RouteView[] = []

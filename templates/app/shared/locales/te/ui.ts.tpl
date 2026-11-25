@@ -67,6 +67,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ఆఫ్‌లైన్',
   'settings.unknown': 'తెలియదు',
   'settings.logOut': 'లాగ్ అవుట్',
+  'userMenu.logOut': 'లాగ్ అవుట్',
   'settings.deleteAccount': 'ఖాతా తొలగించండి',
   'settings.changePasswordModal.title': 'పాస్‌వర్డ్ మార్చండి',
   'settings.changePasswordModal.error': 'పాస్‌వర్డ్ మార్చడం విఫలమైంది.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'సబ్‌స్క్రిప్షన్ ధృవీకరించడంలో విఫలమైంది.',
   'user.payment.unknownPlan': 'తెలియని ప్లాన్.',
   'user.payment.invalidWebhookEvent': 'చెల్లని వెబ్‌హుక్ ఈవెంట్.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ఆన్',
+  'settings.twoFactorEnable': 'ప్రారంభించండి',
+  'settings.twoFactorDisable': 'నిలిపివేయండి',
+  'settings.twoFactorEnableTitle': 'రెండు-కారకాల ప్రమాణీకరణను ప్రారంభించండి',
+  'settings.twoFactorDisableTitle': 'రెండు-కారకాల ప్రమాణీకరణను నిలిపివేయండి',
+  'settings.twoFactorScan':
+    'మీ అథెంటికేటర్ యాప్‌తో ఈ QR కోడ్‌ను స్కాన్ చేసి, ఆపై 6-అంకెల కోడ్‌ను నమోదు చేయండి.',
+  'settings.twoFactorQrAlt': 'రెండు-కారకాల QR కోడ్',
+  'settings.twoFactorCode': 'ప్రమాణీకరణ కోడ్',
+  'settings.twoFactorVerify': 'ధృవీకరించి, ప్రారంభించండి',
+  'settings.twoFactorInvalidCode': 'చెల్లని కోడ్',
+  'settings.twoFactorUnavailable': 'ఈ యాప్‌కు టూ-ఫ్యాక్టర్ అథెంటికేషన్ అందుబాటులో లేదు.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'మీ ప్లాన్‌ను అప్‌గ్రేడ్ చేసుకోండి',
+  'settings.billing.subscribe': 'సబ్స్క్రయిబ్ చేసుకోండి',
+  'settings.billing.checkoutFailed': 'చెక్అవుట్ ప్రారంభించలేకపోయాము.',
+  'settings.billing.cancel': 'రద్దు చేయండి',
+  'settings.billing.cancelConfirm': 'మీ సభ్యత్వాన్ని రద్దు చేయాలనుకుంటున్నారా?',
+  'settings.billing.cancelFailed': 'రద్దు చేయలేకపోయాను.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'మేము మీ చెల్లింపును ఇంకా ధృవీకరించలేకపోయాము.',
+  'planUpdated.retry': 'మళ్ళీ ప్రయత్నించండి',
+{{/feature}}
 }

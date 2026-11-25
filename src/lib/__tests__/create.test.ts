@@ -19,6 +19,7 @@ import ts from 'typescript'
 import { afterAll, describe, expect, it } from 'vitest'
 
 import { copyTemplateFiles } from '../scaffold.js'
+import { readAppTemplate } from './helpers/app-templates.js'
 
 // ---------------------------------------------------------------------------
 // Paths
@@ -31,8 +32,9 @@ const TEMPLATES = join(ROOT, 'templates', 'app')
 // Helpers
 // ---------------------------------------------------------------------------
 
+/** A template as a scaffold with every optional feature writes it (its feature folder included). */
 async function readTemplate(framework: string, ...path: string[]): Promise<string> {
-  return readFile(join(TEMPLATES, framework, ...path), 'utf-8')
+  return readAppTemplate(framework, path.join('/'))
 }
 
 async function listTemplateFiles(framework: string): Promise<string[]> {
@@ -106,7 +108,7 @@ describe('Template file inventory', () => {
     }
   })
 
-  it('React has 19 template files', async () => {
+  it('React has 20 template files', async () => {
     const files = await listTemplateFiles('react')
     expect(files).toEqual([
       'App.tsx.tpl',
@@ -114,20 +116,20 @@ describe('Template file inventory', () => {
       'components/AppLayout.tsx.tpl',
       'components/AuthGuard.tsx.tpl',
       'components/FloatingInput.tsx.tpl',
-      'components/Footer.tsx.tpl',
       'components/Header.tsx.tpl',
       'components/Icon.tsx.tpl',
-      'components/OAuthButtons.tsx.tpl',
-      'components/SettingsPanel.tsx.tpl',
       'components/UserMenu.tsx.tpl',
+      'features/emails/pages/ForgotPassword.tsx.tpl',
+      'features/emails/pages/ResetPassword.tsx.tpl',
+      'features/footer/components/Footer.tsx.tpl',
+      'features/footer/pages/About.tsx.tpl',
+      'features/oauth/components/OAuthButtons.tsx.tpl',
+      'features/payments/pages/PlanUpdated.tsx.tpl',
+      'features/settings/components/SettingsPanel.tsx.tpl',
+      'features/settings/pages/Settings.tsx.tpl',
       'main.tsx.tpl',
-      'pages/About.tsx.tpl',
-      'pages/ForgotPassword.tsx.tpl',
       'pages/Home.tsx.tpl',
       'pages/Login.tsx.tpl',
-      'pages/PlanUpdated.tsx.tpl',
-      'pages/ResetPassword.tsx.tpl',
-      'pages/Settings.tsx.tpl',
       'pages/Signup.tsx.tpl',
     ])
   })
@@ -141,7 +143,10 @@ describe('Template file inventory', () => {
     expect(start).toBeGreaterThan(-1)
     const removes = scaffold.slice(start, scaffold.indexOf(']', start))
     const staticPages = await readdir(join(ROOT, 'templates', 'static', 'react', 'pages'))
-    const appPages = (await listTemplateFiles('react')).filter((file) => file.startsWith('pages/'))
+    // A feature's pages (`features/<feature>/pages/`) land in `pages/` too.
+    const appPages = (await listTemplateFiles('react'))
+      .map((file) => file.replace(/^features\/[^/]+\//, ''))
+      .filter((file) => file.startsWith('pages/'))
     expect(appPages.length).toBeGreaterThan(0)
     const shipped = appPages.filter(
       (file) =>
@@ -158,21 +163,21 @@ describe('Template file inventory', () => {
       'components/AppLayout.vue.tpl',
       'components/AuthGuard.ts.tpl',
       'components/FloatingInput.ts.tpl',
-      'components/Footer.vue.tpl',
       'components/Header.vue.tpl',
       'components/Icon.ts.tpl',
-      'components/OAuthButtons.vue.tpl',
-      'components/SettingsPanel.vue.tpl',
       'components/ThemeToggle.ts.tpl',
       'components/UserMenu.vue.tpl',
+      'features/emails/pages/ForgotPassword.vue.tpl',
+      'features/emails/pages/ResetPassword.vue.tpl',
+      'features/footer/components/Footer.vue.tpl',
+      'features/footer/pages/About.vue.tpl',
+      'features/oauth/components/OAuthButtons.vue.tpl',
+      'features/payments/pages/PlanUpdated.vue.tpl',
+      'features/settings/components/SettingsPanel.vue.tpl',
+      'features/settings/pages/Settings.vue.tpl',
       'main.ts.tpl',
-      'pages/About.vue.tpl',
-      'pages/ForgotPassword.vue.tpl',
       'pages/Home.vue.tpl',
       'pages/Login.vue.tpl',
-      'pages/PlanUpdated.vue.tpl',
-      'pages/ResetPassword.vue.tpl',
-      'pages/Settings.vue.tpl',
       'pages/Signup.vue.tpl',
     ])
   })
@@ -181,27 +186,23 @@ describe('Template file inventory', () => {
     const files = await listTemplateFiles('svelte')
     expect(files).toEqual([
       'components/AppLayout.svelte.tpl',
-      'components/Footer.svelte.tpl',
       'components/Header.svelte.tpl',
-      'components/OAuthButtons.svelte.tpl',
       'components/RouteAccess.svelte.tpl',
-      'components/SettingsPanel.svelte.tpl',
       'components/UserMenu.svelte.tpl',
+      'features/emails/routes/forgot-password/+page.svelte.tpl',
+      'features/emails/routes/reset-password/+page.svelte.tpl',
+      'features/footer/components/Footer.svelte.tpl',
+      'features/footer/routes/about/+page.svelte.tpl',
+      'features/oauth/components/OAuthButtons.svelte.tpl',
+      'features/payments/routes/plan-updated/+page.svelte.tpl',
+      'features/settings/components/SettingsPanel.svelte.tpl',
+      'features/settings/routes/settings/+page.svelte.tpl',
       'hooks.client.ts.tpl',
-      // Kept only because SvelteKit writes TWO build output directories and
-      // the shared root-relative-assets guard requires the asset in EACH: a
-      // plain '/logo.svg' literal in app source fails the build, so the path
-      // is assembled (lib/logo.ts documents it).
       'lib/logo.ts.tpl',
       'routes/+layout.svelte.tpl',
       'routes/+layout.ts.tpl',
       'routes/+page.svelte.tpl',
-      'routes/about/+page.svelte.tpl',
-      'routes/forgot-password/+page.svelte.tpl',
       'routes/login/+page.svelte.tpl',
-      'routes/plan-updated/+page.svelte.tpl',
-      'routes/reset-password/+page.svelte.tpl',
-      'routes/settings/+page.svelte.tpl',
       'routes/signup/+page.svelte.tpl',
     ])
   })
@@ -217,21 +218,21 @@ describe('Template file inventory', () => {
       'components/AppLayout.tsx.tpl',
       'components/AuthGuard.tsx.tpl',
       'components/FloatingInput.tsx.tpl',
-      'components/Footer.tsx.tpl',
       'components/Header.tsx.tpl',
       'components/Icon.tsx.tpl',
-      'components/OAuthButtons.tsx.tpl',
-      'components/SettingsPanel.tsx.tpl',
       'components/ThemeToggle.tsx.tpl',
       'components/UserMenu.tsx.tpl',
+      'features/emails/pages/ForgotPassword.tsx.tpl',
+      'features/emails/pages/ResetPassword.tsx.tpl',
+      'features/footer/components/Footer.tsx.tpl',
+      'features/footer/pages/About.tsx.tpl',
+      'features/oauth/components/OAuthButtons.tsx.tpl',
+      'features/payments/pages/PlanUpdated.tsx.tpl',
+      'features/settings/components/SettingsPanel.tsx.tpl',
+      'features/settings/pages/Settings.tsx.tpl',
       'main.tsx.tpl',
-      'pages/About.tsx.tpl',
-      'pages/ForgotPassword.tsx.tpl',
       'pages/Home.tsx.tpl',
       'pages/Login.tsx.tpl',
-      'pages/PlanUpdated.tsx.tpl',
-      'pages/ResetPassword.tsx.tpl',
-      'pages/Settings.tsx.tpl',
       'pages/Signup.tsx.tpl',
     ])
   })
@@ -243,21 +244,21 @@ describe('Template file inventory', () => {
       'components/app-layout.component.ts.tpl',
       'components/auth.guard.ts.tpl',
       'components/floating-input.component.ts.tpl',
-      'components/footer.component.ts.tpl',
       'components/header.component.ts.tpl',
       'components/icon.component.ts.tpl',
-      'components/oauth-buttons.component.ts.tpl',
-      'components/settings-panel.component.ts.tpl',
       'components/theme-toggle.component.ts.tpl',
       'components/user-menu.component.ts.tpl',
+      'features/emails/pages/forgot-password.component.ts.tpl',
+      'features/emails/pages/reset-password.component.ts.tpl',
+      'features/footer/components/footer.component.ts.tpl',
+      'features/footer/pages/about.component.ts.tpl',
+      'features/oauth/components/oauth-buttons.component.ts.tpl',
+      'features/payments/pages/plan-updated.component.ts.tpl',
+      'features/settings/components/settings-panel.component.ts.tpl',
+      'features/settings/pages/settings.component.ts.tpl',
       'main.ts.tpl',
-      'pages/about.component.ts.tpl',
-      'pages/forgot-password.component.ts.tpl',
       'pages/home.component.ts.tpl',
       'pages/login.component.ts.tpl',
-      'pages/plan-updated.component.ts.tpl',
-      'pages/reset-password.component.ts.tpl',
-      'pages/settings.component.ts.tpl',
       'pages/signup.component.ts.tpl',
     ])
   })

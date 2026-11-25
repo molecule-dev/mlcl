@@ -1,7 +1,9 @@
 <script setup lang="ts">
 import { AppShellLayout } from '@molecule/app-shell-layout-vue'
 
+{{#feature footer}}
 import Footer from './Footer.vue'
+{{/feature}}
 import Header from './Header.vue'
 </script>
 
@@ -14,9 +16,11 @@ import Header from './Header.vue'
     <template #header>
       <Header />
     </template>
+{{#feature footer}}
     <template #footer>
       <Footer />
     </template>
+{{/feature}}
     <RouterView />
   </AppShellLayout>
 </template>

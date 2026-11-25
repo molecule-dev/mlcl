@@ -6,7 +6,9 @@ import { getClassMap } from '@molecule/app-ui'
 import { Icon } from '../components/Icon.js'
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/FloatingInput.js'
+{{#feature oauth}}
 import { OAuthButtons } from '../components/OAuthButtons.js'
+{{/feature}}
 import { Footer } from '../components/Footer.js'
 import { ThemeToggle } from '../components/ThemeToggle.js'
 
@@ -105,7 +107,9 @@ export function Signup() {
             </div>
             {error && <div className={cm.authFormError}>{error.message}</div>}
           </form>
+{{#feature oauth}}
           <OAuthButtons />
+{{/feature}}
         </div>
       </div>
       <Footer />

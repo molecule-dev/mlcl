@@ -37,3 +37,23 @@ jobs:
       - run: npm ci
       - run: npm run build
       - run: node scripts/check-framework-scaffolds.mjs ${{ matrix.framework }}
+
+  # The same framework's app in a full-stack project with every optional feature its templates
+  # gate: without them a scaffold writes none of their pages.
+  scaffold-features:
+    needs: frameworks
+    runs-on: ubuntu-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        framework: ${{ fromJSON(needs.frameworks.outputs.names) }}
+    name: scaffold with features (${{ matrix.framework }})
+    steps:
+      - uses: actions/checkout@v7
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '22.23.4'
+          cache: npm
+      - run: npm ci
+      - run: npm run build
+      - run: node scripts/check-framework-scaffolds.mjs ${{ matrix.framework }} --with-features

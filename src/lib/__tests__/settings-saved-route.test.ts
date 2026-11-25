@@ -28,7 +28,10 @@ function Settings(): react.ComponentType<{
   onSaved?: (user: UserProfile & { username?: string }) => void
 }> {
   const source = readFileSync(
-    join(import.meta.dirname, '../../../templates/app/react/pages/Settings.tsx.tpl'),
+    join(
+      import.meta.dirname,
+      '../../../templates/app/react/features/settings/pages/Settings.tsx.tpl',
+    ),
     'utf8',
   )
   const result = ts.transpileModule(source, {

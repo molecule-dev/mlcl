@@ -3,7 +3,9 @@ import { matchRoutes, useLocation } from 'react-router'
 
 import { AppShellLayout } from '@molecule/app-shell-layout-react'
 
+{{#feature footer}}
 import { Footer } from './Footer.js'
+{{/feature}}
 import { Header } from './Header.js'
 import type { AppRoute } from './AuthGuard.js'
 
@@ -24,9 +26,14 @@ export function AppLayout({
   const branch = matchRoutes(routes, location)
   if (branch?.some(({ route }) => route.layout === 'none')) return children
 
+{{#feature footer}}
   return (
     <AppShellLayout header={<Header />} footer={<Footer />}>
       {children}
     </AppShellLayout>
   )
+{{/feature}}
+{{^feature footer}}
+  return <AppShellLayout header={<Header />}>{children}</AppShellLayout>
+{{/feature}}
 }

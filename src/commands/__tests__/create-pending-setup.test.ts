@@ -209,7 +209,8 @@ describe('mlcl create — the next steps after an unfinished scaffold', () => {
       "Read AGENTS.md first: this project's conventions, its packages and the skills in .agents/skills/",
       'Endpoints: one file per feature in api/src/handlers/, registered in api/src/handlers/index.ts',
       'Pages: app/src/pages/',
-      'Package docs: npx mlcl docs @molecule/<name> (--section <name> for one function or heading)',
+      'Package docs: npx mlcl docs @molecule/<name> (--section "<heading>" for one function or heading)',
+      'Install scripts off in package.json allowScripts, none of them needed: bcrypt, esbuild, fsevents. A native one loads the prebuilt binary its package ships',
       'Before handing work back: npx mlcl check',
     ])
     expect(json.next).toEqual(orientation(lines))

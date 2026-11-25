@@ -7,6 +7,7 @@ import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
 import { resourceRecordName } from '../lib/app-resource-modules.js'
+import { thirdPartyDependenciesOf } from '../lib/injected-third-party.js'
 import { sharedHintAllowed } from '../lib/intent-hints.js'
 import {
   getMoleculeVersion,
@@ -15,6 +16,7 @@ import {
   writeRegistryFile,
 } from '../lib/registry.js'
 import { registryPinException } from '../lib/registry-pin-exceptions.js'
+import { syncQuickStart } from '../lib/registry-quick-start.js'
 import { scanResourceRouter } from '../lib/resource-router-source.js'
 import { scanResponseRecord } from '../lib/response-record.js'
 import {
@@ -82,6 +84,11 @@ export default class SyncRegistry extends Command {
         "Scan each resource's src/types.ts for the record its API returns and update the registry responseRecord field",
       default: false,
     }),
+    'scan-quick-starts': Flags.boolean({
+      description:
+        "Copy each package README's Quick Start into the registry quickStart field (every type but features and locales)",
+      default: false,
+    }),
     'sync-toolchain': Flags.boolean({
       description:
         'Sync toolchain versions in registry.json from mlcl and molecule package.json files',
@@ -135,6 +142,11 @@ export default class SyncRegistry extends Command {
       return
     }
 
+    if (flags['scan-quick-starts']) {
+      await this.refreshQuickStarts(flags['dry-run'])
+      return
+    }
+
     if (flags['check-intent-hints']) {
       const violations = this.checkIntentHints()
       if (violations > 0) this.exit(1)
@@ -151,13 +163,15 @@ export default class SyncRegistry extends Command {
     const routesUpdated = await this.refreshRoutes(dryRun, false)
     // After the routes: a record is looked up by the name its collection route gives it.
     const recordsUpdated = this.refreshRecords(dryRun, false)
+    const quickStartsUpdated = await this.refreshQuickStarts(dryRun, false)
     const totalUpdated =
       toolchainUpdated +
       frameworksUpdated +
       exportsUpdated +
       tablesUpdated +
       routesUpdated +
-      recordsUpdated
+      recordsUpdated +
+      quickStartsUpdated
 
     if (flags.check) {
       p.outro(
@@ -193,6 +207,7 @@ export default class SyncRegistry extends Command {
       api: {},
       app: {},
       moleculePackage: {},
+      postgres: {},
     }
 
     const __dir = dirname(fileURLToPath(import.meta.url))
@@ -217,12 +232,16 @@ export default class SyncRegistry extends Command {
       moleculeDir,
       Object.keys(toolchain.moleculePackage ?? {}),
     )
+    // The pg driver's types track the driver the Postgres bonds pin, so their own devDependencies are
+    // the reference.
+    const postgresRef = this.scanMoleculeDevDeps(moleculeDir, Object.keys(toolchain.postgres ?? {}))
 
     const sectionRefs: Record<string, Record<string, string>> = {
       shared: mlclAllDeps,
       api: mlclAllDeps,
       app: { ...mlclAllDeps, ...appFrameworkDevDeps },
       moleculePackage: moleculePackageRef,
+      postgres: postgresRef,
     }
 
     let updated = 0
@@ -733,6 +752,18 @@ export default class SyncRegistry extends Command {
             entry.moleculePeers = moleculePeers
             changed = true
           }
+          // The third-party dependencies and required peers with their versions: what `mlcl inject`
+          // declares in the app (it reads the same two maps), so `mlcl add --inject` can declare them
+          // before its one install instead of inject declaring them after it and installing again.
+          const thirdPartyDependencies = thirdPartyDependenciesOf(pkgJson)
+          if (
+            JSON.stringify(entry.thirdPartyDependencies ?? null) !==
+            JSON.stringify(thirdPartyDependencies ?? null)
+          ) {
+            if (thirdPartyDependencies) entry.thirdPartyDependencies = thirdPartyDependencies
+            else delete entry.thirdPartyDependencies
+            changed = true
+          }
         } catch (_error) {
           // safe to skip: package.json unreadable — exports scan above already
           // succeeded, so keep whatever runtimeDependencies the entry had.
@@ -1098,6 +1129,42 @@ export default class SyncRegistry extends Command {
             : chalk.green('All records are up to date'),
       )
     }
+    return updated
+  }
+
+  /**
+   * Copy each package README's Quick Start into its registry entry (../lib/registry-quick-start.ts):
+   * search returns it on its first hits without reading a README. A package whose README is not
+   * here keeps what it has.
+   *
+   * @param dryRun - When true, report changes without writing.
+   * @param standalone - When true, print a standalone summary + outro.
+   * @returns Number of packages whose `quickStart` changed.
+   */
+  private async refreshQuickStarts(dryRun: boolean, standalone = true): Promise<number> {
+    const spinner = createSpinner()
+    spinner.start('Reading README Quick Starts...')
+    const registry = getRawRegistry()
+    const __dir = dirname(fileURLToPath(import.meta.url))
+    const moleculeDir = process.env.MOLECULE_PACKAGES_DIR
+      ? join(process.env.MOLECULE_PACKAGES_DIR, '..')
+      : join(__dir, '..', '..', '..', 'molecule')
+    let updated = 0
+    for (const entry of Object.values(registry.packages)) {
+      if (await syncQuickStart(entry, join(moleculeDir, entry.path))) updated++
+    }
+    if (!dryRun && updated > 0) writeRegistryFile(getRegistryPath(), registry)
+    spinner.stop(
+      updated > 0 ? `Quick Starts: ${updated} updated` : chalk.dim('Quick Starts: up to date'),
+    )
+    if (standalone)
+      p.outro(
+        dryRun
+          ? chalk.yellow('Run without --dry-run to write changes')
+          : chalk.green(
+              updated > 0 ? `Updated ${updated} Quick Starts` : 'All Quick Starts are up to date',
+            ),
+      )
     return updated
   }
 

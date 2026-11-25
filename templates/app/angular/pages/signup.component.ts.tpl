@@ -6,14 +6,17 @@ import { Button, Flex, Form } from '@molecule/app-ui-angular'
 
 import { APP_NAME, LOGO_SIZE } from '../branding.js'
 import { FloatingInput } from '../components/floating-input.component.js'
+{{#feature footer}}
 import { FooterComponent } from '../components/footer.component.js'
+{{/feature}}
 import { Icon } from '../components/icon.component.js'
+{{#feature oauth}}
 import { OAuthButtonsComponent } from '../components/oauth-buttons.component.js'
+{{/feature}}
 import { ThemeToggle } from '../components/theme-toggle.component.js'
 
 /**
- * Signup page: email + password + optional name over the bonded auth client,
- * with the OAuth provider row beneath the form.
+ * Signup page: email + password + optional name over the bonded auth client.
  */
 @Component({
   selector: 'app-signup',
@@ -21,6 +24,8 @@ import { ThemeToggle } from '../components/theme-toggle.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
+{{#feature oauth}}
+{{#feature footer}}
   imports: [
     Button,
     Flex,
@@ -31,6 +36,19 @@ import { ThemeToggle } from '../components/theme-toggle.component.js'
     OAuthButtonsComponent,
     ThemeToggle,
   ],
+{{/feature}}
+{{^feature footer}}
+  imports: [Button, Flex, FloatingInput, Form, Icon, OAuthButtonsComponent, ThemeToggle],
+{{/feature}}
+{{/feature}}
+{{^feature oauth}}
+{{#feature footer}}
+  imports: [Button, Flex, FloatingInput, FooterComponent, Form, Icon, ThemeToggle],
+{{/feature}}
+{{^feature footer}}
+  imports: [Button, Flex, FloatingInput, Form, Icon, ThemeToggle],
+{{/feature}}
+{{/feature}}
   template: `
     <div [class]="cm.cn(cm.page, cm.flex({ direction: 'col' }))">
       <header [class]="cm.cn(cm.headerBar, cm.headerFixed)">
@@ -112,10 +130,14 @@ import { ThemeToggle } from '../components/theme-toggle.component.js'
               </button>
             </div>
           </form>
+{{#feature oauth}}
           <app-oauth-buttons />
+{{/feature}}
         </div>
       </main>
+{{#feature footer}}
       <app-footer />
+{{/feature}}
     </div>
   `,
 })

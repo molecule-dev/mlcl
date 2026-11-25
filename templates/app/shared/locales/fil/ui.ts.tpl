@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Hindi alam',
   'settings.logOut': 'Mag-log out',
+  'userMenu.logOut': 'Mag-log out',
   'settings.deleteAccount': 'I-delete ang account',
   'settings.changePasswordModal.title': 'Palitan ang Password',
   'settings.changePasswordModal.error': 'Hindi nagawa ang pagpapalit ng password.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Nabigo ang pag-verify ng subscription.',
   'user.payment.unknownPlan': 'Hindi kilalang plan.',
   'user.payment.invalidWebhookEvent': 'Hindi valid na webhook event.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Naka-on',
+  'settings.twoFactorEnable': 'Paganahin',
+  'settings.twoFactorDisable': 'Huwag paganahin',
+  'settings.twoFactorEnableTitle': 'Paganahin ang two-factor authentication',
+  'settings.twoFactorDisableTitle': 'Huwag paganahin ang two-factor authentication',
+  'settings.twoFactorScan':
+    'I-scan ang QR code na ito gamit ang iyong authenticator app, pagkatapos ay ilagay ang 6-digit na code.',
+  'settings.twoFactorQrAlt': 'Dalawang-factor na QR code',
+  'settings.twoFactorCode': 'Kodigo ng pagpapatunay',
+  'settings.twoFactorVerify': 'I-verify at paganahin',
+  'settings.twoFactorInvalidCode': 'Hindi wastong code',
+  'settings.twoFactorUnavailable':
+    'Hindi available ang two-factor authentication para sa app na ito.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'I-upgrade ang iyong plano',
+  'settings.billing.subscribe': 'Mag-subscribe',
+  'settings.billing.checkoutFailed': 'Hindi masimulan ang pagbabayad.',
+  'settings.billing.cancel': 'Kanselahin',
+  'settings.billing.cancelConfirm': 'Kanselahin ang iyong subscription?',
+  'settings.billing.cancelFailed': 'Hindi makansela.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Hindi pa namin makumpirma ang iyong bayad.',
+  'planUpdated.retry': 'Subukan muli',
+{{/feature}}
 }

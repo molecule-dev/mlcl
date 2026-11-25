@@ -1373,21 +1373,38 @@ export async function scanDeclarations(
   srcPath: string,
   names: readonly string[],
 ): Promise<Record<string, string>> {
-  const wanted = new Set(names)
-  if (wanted.size === 0) return {}
+  if (names.length === 0) return {}
   const files = (await findTypeScriptFiles(srcPath))
     .filter((file) => !file.includes('__tests__') && !/\.(test|spec)\./.test(file))
     .sort()
-  const printer = ts.createPrinter({ removeComments: true })
-  const found = new Map<string, { overloads: string[]; implementation?: string }>()
+  const sources: { path: string; text: string }[] = []
   for (const file of files) {
-    let text: string
     try {
-      text = await readFile(file, 'utf-8')
+      sources.push({ path: file, text: await readFile(file, 'utf-8') })
     } catch (_error) {
       // Unreadable file: its declarations are absent, which the drift check names.
-      continue
     }
+  }
+  return declarationsIn(sources, names)
+}
+
+/**
+ * {@link scanDeclarations} over files already read: source files, or a built package's
+ * `.d.ts` files (an `export declare function` shows as the signature it is).
+ *
+ * @param sources - Each file's path and text, in the order to search them.
+ * @param names - export names to declare.
+ * @returns name → declaration text, in `names` order, for every name found.
+ */
+export function declarationsIn(
+  sources: readonly { path: string; text: string }[],
+  names: readonly string[],
+): Record<string, string> {
+  const wanted = new Set(names)
+  if (wanted.size === 0) return {}
+  const printer = ts.createPrinter({ removeComments: true })
+  const found = new Map<string, { overloads: string[]; implementation?: string }>()
+  for (const { path: file, text } of sources) {
     const source = ts.createSourceFile(file, text, ts.ScriptTarget.Latest, true)
     const print = (node: ts.Node): string =>
       printer

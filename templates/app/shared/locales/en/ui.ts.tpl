@@ -71,6 +71,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Unknown',
   'settings.logOut': 'Log out',
+  'userMenu.logOut': 'Log out',
   'settings.deleteAccount': 'Delete account',
   'settings.changePasswordModal.title': 'Change Password',
   'settings.changePasswordModal.error': 'Failed to change password.',
@@ -246,4 +247,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Payment verification failed for {{provider}}.',
   'user.payment.unknownPlan': 'Unknown plan.',
   'user.payment.invalidWebhookEvent': 'Invalid webhook event.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'On',
+  'settings.twoFactorEnable': 'Enable',
+  'settings.twoFactorDisable': 'Disable',
+  'settings.twoFactorEnableTitle': 'Enable two-factor authentication',
+  'settings.twoFactorDisableTitle': 'Disable two-factor authentication',
+  'settings.twoFactorScan':
+    'Scan this QR code with your authenticator app, then enter the 6-digit code.',
+  'settings.twoFactorQrAlt': 'Two-factor QR code',
+  'settings.twoFactorCode': 'Authentication code',
+  'settings.twoFactorVerify': 'Verify & enable',
+  'settings.twoFactorInvalidCode': 'Invalid code',
+  'settings.twoFactorUnavailable': 'Two-factor authentication is not available for this app.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Upgrade your plan',
+  'settings.billing.subscribe': 'Subscribe',
+  'settings.billing.checkoutFailed': 'Could not start checkout.',
+  'settings.billing.cancel': 'Cancel',
+  'settings.billing.cancelConfirm': 'Cancel your subscription?',
+  'settings.billing.cancelFailed': 'Could not cancel.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'We could not confirm your payment yet.',
+  'planUpdated.retry': 'Try again',
+{{/feature}}
 }

@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ក្រៅបណ្តាញ',
   'settings.unknown': 'មិនស្គាល់',
   'settings.logOut': 'ចាកចេញ',
+  'userMenu.logOut': 'ចាកចេញ',
   'settings.deleteAccount': 'លុបគណនី',
   'settings.changePasswordModal.title': 'ប្តូរពាក្យសម្ងាត់',
   'settings.changePasswordModal.error': 'ប្តូរពាក្យសម្ងាត់មិនជោគជ័យ។',
@@ -248,4 +249,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'បរាជ័យក្នុងការផ្ទៀងផ្ទាត់ការជាវ។',
   'user.payment.unknownPlan': 'គម្រោងមិនស្គាល់។',
   'user.payment.invalidWebhookEvent': 'ព្រឹត្តិការណ៍ webhook មិនត្រឹមត្រូវ។',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'បើក',
+  'settings.twoFactorEnable': 'បើកដំណើរការ',
+  'settings.twoFactorDisable': 'បិទ',
+  'settings.twoFactorEnableTitle': 'បើកការផ្ទៀងផ្ទាត់ពីរកត្តា',
+  'settings.twoFactorDisableTitle': 'បិទការផ្ទៀងផ្ទាត់ពីរកត្តា',
+  'settings.twoFactorScan':
+    'ស្កេនលេខកូដ QR នេះជាមួយកម្មវិធីផ្ទៀងផ្ទាត់របស់អ្នក បន្ទាប់មកបញ្ចូលលេខកូដ 6 ខ្ទង់។',
+  'settings.twoFactorQrAlt': 'កូដ QR ពីរកត្តា',
+  'settings.twoFactorCode': 'លេខកូដផ្ទៀងផ្ទាត់',
+  'settings.twoFactorVerify': 'ផ្ទៀងផ្ទាត់ និងបើក',
+  'settings.twoFactorInvalidCode': 'លេខកូដមិនត្រឹមត្រូវ',
+  'settings.twoFactorUnavailable': 'ការផ្ទៀងផ្ទាត់ពីរកត្តាមិនអាចប្រើសម្រាប់កម្មវិធីនេះបានទេ។',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'ធ្វើឱ្យប្រសើរឡើងនូវផែនការរបស់អ្នក',
+  'settings.billing.subscribe': 'ជាវ',
+  'settings.billing.checkoutFailed': 'មិនអាចចាប់ផ្តើមទូទាត់ប្រាក់បានទេ។',
+  'settings.billing.cancel': 'បោះបង់',
+  'settings.billing.cancelConfirm': 'បោះបង់ការជាវរបស់អ្នក?',
+  'settings.billing.cancelFailed': 'មិនអាចលុបចោលបានទេ។',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'យើងមិនទាន់អាចបញ្ជាក់ការទូទាត់របស់អ្នកបាននៅឡើយទេ។',
+  'planUpdated.retry': 'ព្យាយាមម្តងទៀត',
+{{/feature}}
 }

@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Okänd',
   'settings.logOut': 'Logga ut',
+  'userMenu.logOut': 'Logga ut',
   'settings.deleteAccount': 'Radera konto',
   'settings.changePasswordModal.title': 'Ändra lösenord',
   'settings.changePasswordModal.error': 'Det gick inte att ändra lösenordet.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Kunde inte verifiera abonnemang.',
   'user.payment.unknownPlan': 'Okänd plan.',
   'user.payment.invalidWebhookEvent': 'Ogiltig webhook-händelse.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'På',
+  'settings.twoFactorEnable': 'Aktivera',
+  'settings.twoFactorDisable': 'Inaktivera',
+  'settings.twoFactorEnableTitle': 'Aktivera tvåfaktorsautentisering',
+  'settings.twoFactorDisableTitle': 'Inaktivera tvåfaktorsautentisering',
+  'settings.twoFactorScan':
+    'Skanna den här QR-koden med din autentiseringsapp och ange sedan den 6-siffriga koden.',
+  'settings.twoFactorQrAlt': 'Tvåfaktors QR-kod',
+  'settings.twoFactorCode': 'Autentiseringskod',
+  'settings.twoFactorVerify': 'Verifiera och aktivera',
+  'settings.twoFactorInvalidCode': 'Ogiltig kod',
+  'settings.twoFactorUnavailable':
+    'Tvåfaktorsautentisering är inte tillgängligt för den här appen.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Uppgradera din plan',
+  'settings.billing.subscribe': 'Prenumerera',
+  'settings.billing.checkoutFailed': 'Kunde inte starta utcheckning.',
+  'settings.billing.cancel': 'Avbryt',
+  'settings.billing.cancelConfirm': 'Säga upp din prenumeration?',
+  'settings.billing.cancelFailed': 'Kunde inte säga upp.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Vi kunde inte bekräfta din betalning ännu.',
+  'planUpdated.retry': 'Försök igen',
+{{/feature}}
 }

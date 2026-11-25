@@ -1,24 +1,110 @@
+import { existsSync, readFileSync } from 'node:fs'
 import { access, readFile, writeFile } from 'node:fs/promises'
-import { join } from 'node:path'
+import { basename, dirname, join, relative } from 'node:path'
 
 import * as p from '@clack/prompts'
-import { Args, Command, Flags } from '@oclif/core'
+import { Args, Command, Errors, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
-import { afterAddGuidance } from '../lib/add-guidance.js'
+import { addedDeclarations, afterAddGuidance, declaredNames } from '../lib/add-guidance.js'
 import { AUTH_PRECONFIGURATION_GUIDANCE } from '../lib/auth-contract.js'
 import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
+import { providerTemplateVars, writeAddedFeatureFiles } from '../lib/feature-files.js'
 import { t } from '../lib/i18n.js'
+import { declareInjectedThirdParty } from '../lib/injected-third-party.js'
 import { type AddVersionSource, parseAddArgument, resolveAddVersion } from '../lib/integrate.js'
 import { databasePackageOf } from '../lib/migration-dialect.js'
 import { npmInstall } from '../lib/npm-install.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
-import { missingMoleculePeers } from '../lib/peer-closure.js'
-import { getMoleculeVersion, getPackageStack, getRawRegistry } from '../lib/registry.js'
+import { deriveOptionalFeatures, featureTemplatePackages } from '../lib/optional-features.js'
+import {
+  missingMoleculePeers,
+  moleculesToInject,
+  serviceWorkerPackageFor,
+} from '../lib/peer-closure.js'
+import {
+  getMoleculeVersion,
+  getPackageStack,
+  getRawRegistry,
+  loadRegistry,
+} from '../lib/registry.js'
+import { getTemplatesDir } from '../lib/scaffold.js'
 import { createSpinner } from '../lib/spinner.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
+
+/** One package named on the command line, after a rename is followed. */
+interface AddRequest {
+  name: string
+  requestedVersion?: string
+  stack: ReturnType<typeof getPackageStack>
+}
+
+/** An app written from the starter templates, which records the features its files have. */
+interface StarterApp {
+  appDir: string
+  /** The project's other half, in a full-stack project. */
+  apiDir?: string
+  framework: string
+  projectName: string
+  features: Set<string>
+  /** The packages the project declared before the add. */
+  declared: string[]
+}
+
+/** The package names a workspace's manifest declares, or none without one. */
+function manifestNames(dir: string | undefined): string[] {
+  if (!dir || !existsSync(join(dir, 'package.json'))) return []
+  const pkg = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8')) as {
+    dependencies?: Record<string, string>
+    devDependencies?: Record<string, string>
+  }
+  return [...Object.keys(pkg.dependencies ?? {}), ...Object.keys(pkg.devDependencies ?? {})]
+}
+
+/** The workspaces a project root declares (`['api', 'app']` for a full-stack one), or none. */
+function rootWorkspaces(dir: string): string[] {
+  if (!existsSync(join(dir, 'package.json'))) return []
+  const { workspaces } = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8')) as {
+    workspaces?: unknown
+  }
+  return Array.isArray(workspaces) ? workspaces.filter((w) => typeof w === 'string') : []
+}
+
+/**
+ * The starter app of the project an add runs in: the app itself, or the app of the project root
+ * the add runs in or in one of whose workspaces it runs. A flagship template or an app made
+ * before the record (`molecule.templateFeatures`) has none.
+ */
+function starterAppOf(cwd: string): StarterApp | undefined {
+  const parent = dirname(cwd)
+  const root = rootWorkspaces(cwd).includes('app')
+    ? cwd
+    : ['app', 'api'].includes(basename(cwd)) && rootWorkspaces(parent).includes(basename(cwd))
+      ? parent
+      : undefined
+  const appDir = root ? join(root, 'app') : cwd
+  const apiDir = root && rootWorkspaces(root).includes('api') ? join(root, 'api') : undefined
+  const file = join(appDir, 'package.json')
+  if (!existsSync(file)) return undefined
+  const pkg = JSON.parse(readFileSync(file, 'utf8')) as {
+    name?: string
+    molecule?: { framework?: string; templateFeatures?: unknown }
+  }
+  const recorded = pkg.molecule?.templateFeatures
+  if (!Array.isArray(recorded) || !pkg.molecule?.framework) return undefined
+  return {
+    appDir,
+    apiDir,
+    framework: pkg.molecule.framework,
+    projectName: pkg.name ?? 'app',
+    features: new Set(recorded.filter((name): name is string => typeof name === 'string')),
+    declared: [...manifestNames(appDir), ...manifestNames(apiDir)],
+  }
+}
+
+type AddFlags = { 'no-install': boolean; dev: boolean; inject: boolean }
 
 export default class Add extends Command {
   static override description = t('commands.add.description')
@@ -27,6 +113,7 @@ export default class Add extends Command {
     '<%= config.bin %> <%= command.id %> @molecule/api-resource-user',
     '<%= config.bin %> <%= command.id %> @molecule/api-oauth-github --no-install',
     '<%= config.bin %> <%= command.id %> @molecule/api-emails-mailgun --inject',
+    '<%= config.bin %> <%= command.id %> @molecule/api-uploads-filesystem @molecule/api-emails-resend --inject',
   ]
 
   static override flags = {
@@ -45,6 +132,10 @@ export default class Add extends Command {
     }),
   }
 
+  // More names may follow the first, as with `npm install a b`: agents write
+  // `mlcl add a b --inject` and it used to exit 2 on the second name (harness eval `add`).
+  static override strict = false
+
   static override args = {
     molecule: Args.string({
       description: t('commands.add.args.molecule'),
@@ -53,53 +144,140 @@ export default class Add extends Command {
   }
 
   public async run(): Promise<void> {
-    const { args, flags } = await this.parse(Add)
-    setTelemetryContext({ packages: args.molecule })
-    // `pkg@1.2.3` names one exact version; a bare name uses the registry pin for
-    // a registered `@molecule/*` package (see `resolveAddVersion`).
-    const parsed = parseAddArgument(args.molecule)
-    const { requestedVersion } = parsed
-    let moleculeName = parsed.name
+    const { argv, flags } = await this.parse(Add)
+    const named = (argv as string[]).filter((argument) => argument.length > 0)
+    setTelemetryContext({ packages: named.join(',') })
 
     p.intro(chalk.bgCyan(` ${t('commands.add.labels.intro')} `))
 
+    // Names that land in one workspace share one install and one inject.
+    const groups = new Map<string, AddRequest[]>()
+    for (const argument of named) {
+      const request = this.request(argument)
+      const workDir = this.workspaceOf(request)
+      if (groups.get(workDir)?.some((other) => other.name === request.name)) continue
+      groups.set(workDir, [...(groups.get(workDir) ?? []), request])
+    }
+    // A package that brings an optional feature to an app made from the starter templates brings
+    // the feature's pages too, and its parts of the app's files (`feature-files.ts`).
+    const starter = flags.inject ? starterAppOf(process.cwd()) : undefined
+    for (const [workDir, requests] of groups) await this.addTo(workDir, requests, flags)
+    if (starter) {
+      const requested = [...groups.values()].flat().map((request) => request.name)
+      await this.addFeatureFiles(starter, requested, flags)
+    }
+  }
+
+  /**
+   * Write the app files of the features the added packages bring: the packages named and the ones
+   * the add declared (a package declared earlier without `--inject` brings its feature when it is
+   * named).
+   */
+  private async addFeatureFiles(
+    app: StarterApp,
+    requested: string[],
+    flags: AddFlags,
+  ): Promise<void> {
+    const registry = loadRegistry()
+    const names = [...manifestNames(app.appDir), ...manifestNames(app.apiDir)]
+    const before = new Set(app.declared)
+    const brought = deriveOptionalFeatures(
+      [...requested, ...names.filter((name) => !before.has(name))],
+      registry,
+    )
+    if (brought.size === 0) return
+    const after = new Set([...app.features, ...brought])
+    const added = [...after].filter((feature) => !app.features.has(feature))
+    const vars = {
+      before: providerTemplateVars(app.declared, registry),
+      after: providerTemplateVars(names, registry),
+    }
+    if (added.length === 0 && JSON.stringify(vars.before) === JSON.stringify(vars.after)) return
+    // The packages only the features' files import (the settings panel brought by billing).
+    const declared = new Set(manifestNames(app.appDir))
+    const missing = featureTemplatePackages(
+      join(getTemplatesDir(), 'app'),
+      app.framework,
+      new Set(added),
+    ).filter((name) => !declared.has(name) && getRawRegistry().packages[name])
+    if (missing.length > 0)
+      await this.addTo(
+        app.appDir,
+        missing.map((name) => this.request(name)),
+        flags,
+      )
+    const changes = await writeAddedFeatureFiles({
+      appDir: app.appDir,
+      framework: app.framework,
+      projectName: app.projectName,
+      before: app.features,
+      after,
+      varsBefore: vars.before,
+      varsAfter: vars.after,
+    })
+    const manifestPath = join(app.appDir, 'package.json')
+    const manifest = JSON.parse(await readFile(manifestPath, 'utf-8'))
+    manifest.molecule = { ...manifest.molecule, templateFeatures: [...after].sort() }
+    await writeFile(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`)
+    const shown = (path: string): string => relative(process.cwd(), join(app.appDir, path))
+    if (changes.created.length + changes.merged.length + changes.conflicted.length === 0) return
+    this.log(t('commands.add.messages.featureFiles', { features: [...brought].sort().join(', ') }))
+    for (const path of changes.created) this.log(`  + ${shown(path)}`)
+    for (const path of changes.merged) this.log(`  ~ ${shown(path)}`)
+    for (const { path, diff } of changes.conflicted) {
+      this.log(`  ! ${t('commands.add.messages.featureFileConflict', { path: shown(path) })}`)
+      this.log(diff)
+    }
+  }
+
+  /** The package a command-line argument names, following a registry rename. */
+  private request(argument: string): AddRequest {
+    // `pkg@1.2.3` names one exact version; a bare name uses the registry pin for
+    // a registered `@molecule/*` package (see `resolveAddVersion`).
+    const parsed = parseAddArgument(argument)
+    const { requestedVersion } = parsed
+    let name = parsed.name
+
     // A renamed package: add the package that replaced it. An exact version asked for
     // (`pkg@1.2.3`) is a version of the old name, so it is installed as asked.
-    const replacement = getRawRegistry().packages[moleculeName]?.replacedBy
+    const replacement = getRawRegistry().packages[name]?.replacedBy
     if (replacement && !requestedVersion) {
-      p.log.warn(t('commands.add.warnings.replaced', { name: moleculeName, replacement }))
-      moleculeName = replacement
+      p.log.warn(t('commands.add.warnings.replaced', { name, replacement }))
+      name = replacement
     }
 
-    // Validate molecule name
-    if (!moleculeName.startsWith('@molecule/')) {
-      this.warn(t('commands.add.warnings.namingConvention', { name: moleculeName }))
+    if (!name.startsWith('@molecule/')) {
+      this.warn(t('commands.add.warnings.namingConvention', { name }))
     }
+    return { name, requestedVersion, stack: getPackageStack(name) }
+  }
 
-    const stack = getPackageStack(moleculeName)
-
-    // A full-stack project keeps its dependencies in `api/` and `app/`, not at the root. Run from the
-    // root, the package used to land in the root package.json and `--inject` scaffolded a phantom
-    // second project there, leaving the real one unwired, with a success exit. Pick the workspace from
-    // the package's own stack, the way `swap` does.
-    let workDir = process.cwd()
-    {
-      const { existsSync } = await import('node:fs')
-      const isFullStackRoot =
-        existsSync(join(workDir, 'api', 'package.json')) &&
-        existsSync(join(workDir, 'app', 'package.json'))
-      if (isFullStackRoot) {
-        if (stack === 'tooling') {
-          p.cancel(t('commands.add.errors.toolingAtRoot', { name: moleculeName }))
-          this.exit(1)
-        }
-        if (stack !== 'api' && stack !== 'app') {
-          p.cancel(t('commands.add.errors.workspaceUnknown', { name: moleculeName }))
-          this.exit(1)
-        }
-        workDir = join(workDir, stack)
-      }
+  /**
+   * The workspace a package belongs in. A full-stack project keeps its dependencies in `api/` and
+   * `app/`, not at the root. Run from the root, the package used to land in the root package.json
+   * and `--inject` scaffolded a phantom second project there, leaving the real one unwired, with a
+   * success exit. Pick the workspace from the package's own stack, the way `swap` does.
+   */
+  private workspaceOf({ name, stack }: AddRequest): string {
+    const root = process.cwd()
+    const isFullStackRoot =
+      existsSync(join(root, 'api', 'package.json')) && existsSync(join(root, 'app', 'package.json'))
+    if (!isFullStackRoot) return root
+    if (stack === 'tooling') {
+      p.cancel(t('commands.add.errors.toolingAtRoot', { name }))
+      this.exit(1)
     }
+    if (stack !== 'api' && stack !== 'app') {
+      p.cancel(t('commands.add.errors.workspaceUnknown', { name }))
+      this.exit(1)
+    }
+    return join(root, stack)
+  }
+
+  /** Pin, install and (with `--inject`) wire the packages that belong in one workspace. */
+  private async addTo(workDir: string, requests: AddRequest[], flags: AddFlags): Promise<void> {
+    const names = requests.map((request) => request.name)
+    const label = names.join(', ')
 
     // Pre-flight: must be run from a directory that has a package.json.
     const packageJsonPath = join(workDir, 'package.json')
@@ -113,12 +291,9 @@ export default class Add extends Command {
     }
 
     const spinner = createSpinner()
-
-    // Add to dependencies
-    spinner.start(t('commands.add.spinners.adding', { name: moleculeName }))
+    spinner.start(t('commands.add.spinners.adding', { name: label }))
 
     try {
-      // Read package.json
       const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
 
       // Resolve the exact version to pin. A registered `@molecule/*` package
@@ -127,33 +302,34 @@ export default class Add extends Command {
       // judges the bytes of the version this command writes. An explicit
       // `pkg@version` must name exactly one version; a third-party package still
       // resolves from npm, and nothing here ever throws an opaque npm error.
-      let resolvedVersion: string
-      let source: AddVersionSource
-      try {
-        ;({ version: resolvedVersion, source } = await resolveAddVersion(
-          moleculeName,
-          async (name) => {
-            // Array form — the package name is never shell-interpolated (same
-            // shape as check-package-upgrades.ts's npmViewFetcher).
-            const { stdout } = await execa('npm', ['view', name, 'version'], {
-              timeout: 20_000,
-              reject: true,
-            })
-            return stdout
-          },
-          { requestedVersion },
-        ))
-      } catch (error) {
-        spinner.stop(t('commands.add.spinners.addFailed'))
-        p.cancel(error instanceof Error ? error.message : String(error))
-        this.exit(1)
-      }
-
-      if (source === 'fallback') {
-        // Neither npm nor the registry knows the name: writing `latest` would break the exact-pin rule
-        // and the next `npm install` would 404.
-        spinner.stop(t('commands.add.spinners.addFailed'))
-        this.error(t('commands.add.errors.notFound', { name: moleculeName }), { exit: 1 })
+      const versions: Record<string, string> = {}
+      for (const { name, requestedVersion } of requests) {
+        let source: AddVersionSource
+        try {
+          ;({ version: versions[name], source } = await resolveAddVersion(
+            name,
+            async (npmName) => {
+              // Array form — the package name is never shell-interpolated (same
+              // shape as check-package-upgrades.ts's npmViewFetcher).
+              const { stdout } = await execa('npm', ['view', npmName, 'version'], {
+                timeout: 20_000,
+                reject: true,
+              })
+              return stdout
+            },
+            { requestedVersion },
+          ))
+        } catch (error) {
+          spinner.stop(t('commands.add.spinners.addFailed', { name: label }))
+          p.cancel(error instanceof Error ? error.message : String(error))
+          this.exit(1)
+        }
+        if (source === 'fallback') {
+          // Neither npm nor the registry knows the name: writing `latest` would break the
+          // exact-pin rule and the next `npm install` would 404.
+          spinner.stop(t('commands.add.spinners.addFailed', { name: label }))
+          this.error(t('commands.add.errors.notFound', { name }), { exit: 1 })
+        }
       }
 
       // --inject hands off to `mlcl inject`, which refuses a database that
@@ -164,7 +340,7 @@ export default class Add extends Command {
       // the only writes `add` performs, so this is the last safe moment.
       //
       // The SQL set is the one the runner replays (`__setup__/` + `migrations/`)
-      // plus the package being added. Its bytes come from the shared resolver
+      // plus the packages being added. Its bytes come from the shared resolver
       // (`resolveSetupSqlSources`): an installed copy, the molecule source tree,
       // or the exact SQL bundled in `registry.json` — so a standalone CLI that
       // has not installed the package YET can still judge it. "Not installed" is
@@ -175,14 +351,14 @@ export default class Add extends Command {
         try {
           await assertDdlCompatibility({
             projectPath: workDir,
-            packageNames: [moleculeName],
-            // The version this command is about to write. A registered package
+            packageNames: names,
+            // The versions this command is about to write. A registered package
             // resolves to the registry pin (the version whose capability/setup
             // metadata ships here); an explicit `pkg@x.y.z` binds to that exact
             // version and refuses when no copy/bundle of it exists.
-            versions: { [moleculeName]: resolvedVersion },
+            versions,
             sqlDirs: [join(workDir, '__setup__'), join(workDir, 'migrations')],
-            database: databasePackageOf([...Object.keys(projectDeps), moleculeName]) ?? undefined,
+            database: databasePackageOf([...Object.keys(projectDeps), ...names]) ?? undefined,
           })
         } catch (error) {
           spinner.stop()
@@ -192,11 +368,31 @@ export default class Add extends Command {
       }
 
       // Dev tooling (stack `tooling`) is a devDependency without `--dev`.
-      const depKey = flags.dev || stack === 'tooling' ? 'devDependencies' : 'dependencies'
-      packageJson[depKey] = packageJson[depKey] ?? {}
-      packageJson[depKey][moleculeName] = resolvedVersion
+      const depKeyOf = (stack: AddRequest['stack']): string =>
+        flags.dev || stack === 'tooling' ? 'devDependencies' : 'dependencies'
+      const added = new Map<string, string[]>()
+      for (const { name, stack } of requests) {
+        const depKey = depKeyOf(stack)
+        packageJson[depKey] = packageJson[depKey] ?? {}
+        packageJson[depKey][name] = versions[name]
+        added.set(depKey, [...(added.get(depKey) ?? []), name])
+      }
+      // Peers go beside the packages that need them: dependencies, unless every one is dev tooling.
+      const peerKey = requests.every(({ stack }) => depKeyOf(stack) === 'devDependencies')
+        ? 'devDependencies'
+        : 'dependencies'
+      packageJson[peerKey] = packageJson[peerKey] ?? {}
 
-      // Declare the required `@molecule/*` peers with it, at their registry pins. A
+      // Web push needs the service worker the PWA package registers, an optional peer of the
+      // push package that the peer closure below leaves out (`serviceWorkerPackageFor`).
+      const worker = serviceWorkerPackageFor(names)
+      const workerAdded =
+        worker !== undefined &&
+        !(worker in (packageJson.dependencies ?? {})) &&
+        !(worker in (packageJson.devDependencies ?? {}))
+      if (workerAdded) packageJson[peerKey][worker] = getMoleculeVersion(worker)
+
+      // Declare the required `@molecule/*` peers with them, at their registry pins. A
       // scaffold installs with `--legacy-peer-deps` (its `.npmrc`), which installs no
       // peers, so a provider added alone left its core out of `node_modules` and the
       // first import of it failed. Closed over BOTH dependency maps so a peer that is
@@ -205,25 +401,32 @@ export default class Add extends Command {
         ...Object.keys(packageJson.dependencies ?? {}),
         ...Object.keys(packageJson.devDependencies ?? {}),
       ])
-      for (const peer of peers) packageJson[depKey][peer] = getMoleculeVersion(peer)
+      for (const peer of peers) packageJson[peerKey][peer] = getMoleculeVersion(peer)
+      if (worker && workerAdded) peers.unshift(worker)
 
-      // Write package.json
+      // The packages --inject wires: the providers and locale bonds declared with them too, or
+      // they sit unbonded. inject declares their own third-party dependencies (`busboy` for the
+      // Express body parser); declared here, before the one install, inject has nothing left to
+      // declare and installs nothing.
+      const toInject = [...new Set(names.flatMap((name) => moleculesToInject(name, peers)))]
+      if (flags.inject) declareInjectedThirdParty(packageJson, toInject)
+
       await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
 
-      spinner.stop(t('commands.add.spinners.addedTo', { name: moleculeName, depKey }))
+      const [first, ...rest] = [...added].map(([depKey, list]) =>
+        t('commands.add.spinners.addedTo', { name: list.join(', '), depKey }),
+      )
+      spinner.stop(first)
+      for (const line of rest) this.log(line)
       if (peers.length > 0) {
-        this.log(t('commands.add.messages.peersAdded', { names: peers.join(', '), depKey }))
-      }
-
-      // Tell the user when the version did not come from npm so they can adjust it.
-      if (source === 'registry') {
-        this.warn(
-          t('commands.add.warnings.versionFromRegistry', {
-            name: moleculeName,
-            version: resolvedVersion,
-          }),
+        this.log(
+          t('commands.add.messages.peersAdded', { names: peers.join(', '), depKey: peerKey }),
         )
       }
+
+      // A registered package is pinned at the registry version on purpose (resolveAddVersion), so
+      // that pin needs no word. It used to be announced as "Could not resolve … from npm", a lookup
+      // that never ran, on every add of a @molecule package.
 
       // Install BEFORE the --inject handoff: inject's plan validation resolves
       // the package through node_modules (it warns "Run 'npm install' first"
@@ -244,25 +447,25 @@ export default class Add extends Command {
         }
       }
 
-      if (moleculeName === '@molecule/app-auth' || moleculeName === '@molecule/api-resource-user') {
+      if (names.includes('@molecule/app-auth') || names.includes('@molecule/api-resource-user')) {
         this.log(AUTH_PRECONFIGURATION_GUIDANCE)
       }
 
-      // --inject: hand off to `mlcl inject`, which wires the package into the
-      // project's bonds. inject prints its own summary and next steps. Its own
+      // --inject: hand off to `mlcl inject`, which wires the packages into the
+      // project's bonds. inject prints its own summary, how to call the added packages (`--guide`),
+      // and the next steps last. Its own
       // `install` flag defaults to true, so `--no-install` must be FORWARDED —
       // otherwise a command that promised not to install started an `npm install`
       // (r6 acceptance review, F11).
       if (flags.inject) {
-        p.outro(chalk.green(`✓ ${t('commands.add.messages.success', { name: moleculeName })}`))
+        p.outro(chalk.green(`✓ ${t('commands.add.messages.success', { name: label })}`))
         await this.config.runCommand('inject', [
-          '--molecule',
-          moleculeName,
+          ...toInject.flatMap((name) => ['--molecule', name]),
           '-p',
           workDir,
           ...(flags['no-install'] ? ['--no-install'] : []),
+          ...names.flatMap((name) => ['--guide', name]),
         ])
-        for (const line of afterAddGuidance(moleculeName)) this.log(line)
         return
       }
 
@@ -275,7 +478,7 @@ export default class Add extends Command {
       } catch (error) {
         this.warn(`Could not update the capability map in AGENTS.md: ${error}`)
       }
-      p.outro(chalk.green(`✓ ${t('commands.add.messages.success', { name: moleculeName })}`))
+      p.outro(chalk.green(`✓ ${t('commands.add.messages.success', { name: label })}`))
 
       this.log('')
       this.log(t('commands.add.messages.nextSteps'))
@@ -291,9 +494,20 @@ export default class Add extends Command {
           `  ${t('commands.add.messages.stepInject', { num: 1, command: chalk.cyan('mlcl inject') })}`,
         )
       }
-      for (const line of afterAddGuidance(moleculeName)) this.log(line)
+      for (const name of names)
+        for (const line of afterAddGuidance(
+          name,
+          declaredNames(packageJson),
+          undefined,
+          flags['no-install'] ? [] : addedDeclarations(name, workDir),
+        ))
+          this.log(line)
     } catch (error) {
-      spinner.stop(t('commands.add.spinners.addFailed'))
+      // A refusal above already stopped the spinner and said why (`this.exit` and `this.error`
+      // throw oclif's CLIError), as does a refusal inside the inject handoff: a line here would
+      // repeat it. Anything else failed unreported.
+      if (!(error instanceof Errors.CLIError))
+        spinner.stop(t('commands.add.spinners.addFailed', { name: label }))
       throw error
     }
   }

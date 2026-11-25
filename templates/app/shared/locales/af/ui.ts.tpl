@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Aflyn',
   'settings.unknown': 'Onbekend',
   'settings.logOut': 'Teken uit',
+  'userMenu.logOut': 'Teken uit',
   'settings.deleteAccount': 'Verwyder rekening',
   'settings.changePasswordModal.title': 'Verander wagwoord',
   'settings.changePasswordModal.error': 'Kon nie wagwoord verander nie.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Kon nie intekening verifieer nie.',
   'user.payment.unknownPlan': 'Onbekende plan.',
   'user.payment.invalidWebhookEvent': 'Ongeldige webhook-gebeurtenis.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Aan',
+  'settings.twoFactorEnable': 'Aktiveer',
+  'settings.twoFactorDisable': 'Deaktiveer',
+  'settings.twoFactorEnableTitle': 'Aktiveer tweefaktor-verifikasie',
+  'settings.twoFactorDisableTitle': 'Deaktiveer tweefaktor-verifikasie',
+  'settings.twoFactorScan':
+    'Skandeer hierdie QR-kode met jou verifikasie-app en voer dan die 6-syferkode in.',
+  'settings.twoFactorQrAlt': 'Twee-faktor QR-kode',
+  'settings.twoFactorCode': 'Verifikasiekode',
+  'settings.twoFactorVerify': 'Verifieer en aktiveer',
+  'settings.twoFactorInvalidCode': 'Ongeldige kode',
+  'settings.twoFactorUnavailable':
+    'Tweefaktor-verifikasie is nie vir hierdie toepassing beskikbaar nie.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Gradeer jou plan op',
+  'settings.billing.subscribe': 'Teken in',
+  'settings.billing.checkoutFailed': 'Kon nie afhandeling begin nie.',
+  'settings.billing.cancel': 'Kanselleer',
+  'settings.billing.cancelConfirm': 'Kanselleer jou intekening?',
+  'settings.billing.cancelFailed': 'Kon nie kanselleer nie.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Ons kon nog nie jou betaling bevestig nie.',
+  'planUpdated.retry': 'Probeer weer',
+{{/feature}}
 }

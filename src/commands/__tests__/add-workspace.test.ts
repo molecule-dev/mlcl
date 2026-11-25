@@ -136,4 +136,70 @@ describe('mlcl add from a full-stack project root', () => {
       expect.arrayContaining(['--molecule', '@molecule/app-auth']),
     )
   })
+
+  it('--inject wires the providers it declared with the package', async () => {
+    const config = await Config.load(MLCL_ROOT)
+    vi.spyOn(config, 'runCommand').mockResolvedValue(undefined)
+    const cmd = new Add(['@molecule/api-uploads-filesystem', '--no-install', '--inject'], config)
+    vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
+    vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+    await cmd.run()
+    const [command, args] = vi.mocked(config.runCommand).mock.calls[0] as [string, string[]]
+    expect(command).toBe('inject')
+    const molecules = args.filter((_arg, i) => args[i - 1] === '--molecule')
+    expect(molecules[0]).toBe('@molecule/api-uploads-filesystem')
+    expect(molecules).toContain('@molecule/api-middleware-body-parser-express')
+    expect(molecules).not.toContain('@molecule/api-uploads')
+    // inject prints how to call the added package before its next steps, so the steps end the output.
+    expect(args.filter((_arg, i) => args[i - 1] === '--guide')).toEqual([
+      '@molecule/api-uploads-filesystem',
+    ])
+  })
+
+  it('adds several packages in one call, with one inject per workspace (OLD MUSTFAIL)', async () => {
+    // `mlcl add a b --inject`, as with `npm install a b`, exited 2 on the second name; agents
+    // then re-ran it one name at a time (harness eval `add`, 3 of 5 Codex runs).
+    const config = await Config.load(MLCL_ROOT)
+    vi.spyOn(config, 'runCommand').mockResolvedValue(undefined)
+    const cmd = new Add(
+      [
+        '@molecule/api-uploads-filesystem',
+        '@molecule/api-emails-resend',
+        '@molecule/app-i18n-default',
+        '--no-install',
+        '--inject',
+      ],
+      config,
+    )
+    vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
+    vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+    await cmd.run()
+    const api = JSON.parse(readFileSync(join(dir, 'api', 'package.json'), 'utf8')).dependencies
+    const app = JSON.parse(readFileSync(join(dir, 'app', 'package.json'), 'utf8')).dependencies
+    expect(api).toHaveProperty('@molecule/api-uploads-filesystem')
+    expect(api).toHaveProperty('@molecule/api-emails-resend')
+    expect(app).toHaveProperty('@molecule/app-i18n-default')
+    expect(app).not.toHaveProperty('@molecule/api-emails-resend')
+    const calls = vi.mocked(config.runCommand).mock.calls as [string, string[]][]
+    expect(calls).toHaveLength(2)
+    const injected = (args: string[]): string[] =>
+      args.filter((_arg, i) => args[i - 1] === '--molecule')
+    const apiCall = calls.find(([, args]) => args.includes(join(dir, 'api')))![1]
+    expect(injected(apiCall)).toEqual(
+      expect.arrayContaining(['@molecule/api-uploads-filesystem', '@molecule/api-emails-resend']),
+    )
+    expect(new Set(injected(apiCall)).size).toBe(injected(apiCall).length)
+    const appCall = calls.find(([, args]) => args.includes(join(dir, 'app')))![1]
+    expect(injected(appCall)[0]).toBe('@molecule/app-i18n-default')
+  })
+
+  it('counterexample: one name still runs exactly one inject', async () => {
+    const config = await Config.load(MLCL_ROOT)
+    vi.spyOn(config, 'runCommand').mockResolvedValue(undefined)
+    const cmd = new Add(['@molecule/api-emails-resend', '--no-install', '--inject'], config)
+    vi.spyOn(cmd, 'warn').mockImplementation((input) => input)
+    vi.spyOn(cmd, 'log').mockImplementation(() => undefined)
+    await cmd.run()
+    expect(vi.mocked(config.runCommand).mock.calls).toHaveLength(1)
+  })
 })

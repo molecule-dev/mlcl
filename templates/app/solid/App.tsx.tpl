@@ -7,13 +7,23 @@ import { getProvider as getStorageProvider } from '@molecule/app-storage'
 import { authClient, i18nProvider, themeProvider } from './bonds/index.js'
 import { RouteAccess } from './components/AuthGuard.js'
 import { AppLayout } from './components/AppLayout.js'
+{{#feature footer}}
 import { About } from './pages/About.js'
+{{/feature}}
+{{#feature emails}}
 import { ForgotPassword } from './pages/ForgotPassword.js'
+{{/feature}}
 import { Home } from './pages/Home.js'
 import { Login } from './pages/Login.js'
+{{#feature payments}}
 import { PlanUpdated } from './pages/PlanUpdated.js'
+{{/feature}}
+{{#feature emails}}
 import { ResetPassword } from './pages/ResetPassword.js'
+{{/feature}}
+{{#feature settings}}
 import { Settings } from './pages/Settings.js'
+{{/feature}}
 import { Signup } from './pages/Signup.js'
 
 // Pages are imported STATICALLY, and that is a deliberate decision, not an
@@ -68,13 +78,21 @@ export function App() {
     <Router root={Root}>
       <Route path="/login" component={Login} />
       <Route path="/signup" component={Signup} />
+{{#feature footer}}
       <Route path="/about" component={About} />
+{{/feature}}
+{{#feature emails}}
       <Route path="/forgot-password" component={ForgotPassword} />
       <Route path="/reset-password" component={ResetPassword} />
+{{/feature}}
       <Route path="/" component={AppLayout}>
         <Route path="/" component={Home} />
+{{#feature settings}}
         <Route path="/settings" component={Settings} />
+{{/feature}}
+{{#feature payments}}
         <Route path="/plan-updated" component={PlanUpdated} />
+{{/feature}}
       </Route>
     </Router>
   )

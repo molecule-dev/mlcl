@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ऑफलाइन',
   'settings.unknown': 'अज्ञात',
   'settings.logOut': 'लॉग आउट',
+  'userMenu.logOut': 'लॉग आउट',
   'settings.deleteAccount': 'खाता हटाएं',
   'settings.changePasswordModal.title': 'पासवर्ड बदलें',
   'settings.changePasswordModal.error': 'पासवर्ड बदलने में विफल।',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'सब्सक्रिप्शन सत्यापित करने में विफल।',
   'user.payment.unknownPlan': 'अज्ञात प्लान।',
   'user.payment.invalidWebhookEvent': 'अमान्य वेबहुक इवेंट।',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'चालू',
+  'settings.twoFactorEnable': 'सक्षम',
+  'settings.twoFactorDisable': 'अक्षम करना',
+  'settings.twoFactorEnableTitle': 'दो-कारक प्रमाणीकरण सक्षम करें',
+  'settings.twoFactorDisableTitle': 'दो-कारक प्रमाणीकरण को अक्षम करें',
+  'settings.twoFactorScan':
+    'अपने ऑथेंटिकेटर ऐप से इस क्यूआर कोड को स्कैन करें, फिर 6 अंकों का कोड दर्ज करें।',
+  'settings.twoFactorQrAlt': 'दो-कारक क्यूआर कोड',
+  'settings.twoFactorCode': 'प्रमाणीकरण कोड',
+  'settings.twoFactorVerify': 'सत्यापित करें और सक्षम करें',
+  'settings.twoFactorInvalidCode': 'अवैध कोड',
+  'settings.twoFactorUnavailable': 'इस ऐप के लिए टू-फैक्टर ऑथेंटिकेशन उपलब्ध नहीं है।',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'अपनी योजना को अपग्रेड करें',
+  'settings.billing.subscribe': 'सदस्यता लें',
+  'settings.billing.checkoutFailed': 'चेकआउट शुरू नहीं किया जा सका।',
+  'settings.billing.cancel': 'रद्द करें',
+  'settings.billing.cancelConfirm': 'क्या आप अपनी सदस्यता रद्द करना चाहते हैं?',
+  'settings.billing.cancelFailed': 'रद्द नहीं किया जा सका।',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'हम अभी तक आपके भुगतान की पुष्टि नहीं कर पाए हैं।',
+  'planUpdated.retry': 'पुनः प्रयास करें',
+{{/feature}}
 }

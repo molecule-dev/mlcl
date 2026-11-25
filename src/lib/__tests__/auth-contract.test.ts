@@ -8,9 +8,11 @@ import { describe, expect, it } from 'vitest'
 import {
   authContractFromOpenApi,
   authContractFromRegistry,
+  configField,
   readOpenApiAuthContract,
   renderAuthContract,
 } from '../auth-contract.js'
+import { formatGeneratedSource } from '../format.js'
 import { loadRegistry } from '../registry.js'
 import { copyTemplateFiles } from '../scaffold.js'
 
@@ -97,7 +99,7 @@ function evaluateConfig(source: string): {
   profileUpdateMethod: string
   forgotPasswordEndpoint: string
   resetPasswordEndpoint: string
-  changePasswordEndpoint: string
+  changePasswordEndpoint: string | ((user: { id: string }) => string)
   requestBody: (kind: 'login' | 'register', payload: Record<string, unknown>) => unknown
   profileRequestBody: (payload: Record<string, unknown>) => unknown
   mapAuthResponse: (data: unknown) => {
@@ -124,7 +126,8 @@ describe('API-derived app-auth configuration', () => {
   it('keeps the default registry contract byte-identical to the previous generated config', async () => {
     const root = await mkdtemp(join(tmpdir(), 'mlcl-default-auth-'))
     try {
-      await copyTemplateFiles(root, 'react', 'default-contract')
+      // With OAuth in the stack, as the golden was generated; without it `oauthConfig` is left out.
+      await copyTemplateFiles(root, 'react', 'default-contract', {}, new Set(['oauth']))
       const actual = await readFile(join(root, 'src/config.ts'), 'utf8')
       const golden = await readFile(
         new URL('./fixtures/default-auth-config.txt', import.meta.url),
@@ -134,6 +137,42 @@ describe('API-derived app-auth configuration', () => {
     } finally {
       await rm(root, { recursive: true, force: true })
     }
+  })
+
+  // r18 eval (2026-11-24): the default change-password endpoint was written as one 106-column line,
+  // so create's Prettier pass, and the user's first format run after it, rewrote config.ts. (A
+  // non-default contract's config.ts is run through Prettier as it is written.)
+  it('writes the default config.ts as Prettier prints it', async () => {
+    const root = await mkdtemp(join(tmpdir(), 'mlcl-auth-config-format-'))
+    try {
+      await copyTemplateFiles(root, 'react', 'format-contract', {}, new Set(['oauth']))
+      const path = join(root, 'src/config.ts')
+      const source = await readFile(path, 'utf8')
+      expect(source).toBe(await formatGeneratedSource(source, path))
+      const config = evaluateConfig(source)
+      const changePassword = config.changePasswordEndpoint
+      expect(
+        typeof changePassword === 'function' ? changePassword({ id: 'a/b' }) : changePassword,
+      ).toBe('/users/a%2Fb/password')
+    } finally {
+      await rm(root, { recursive: true, force: true })
+    }
+  })
+
+  it.each([
+    ['fits on one line', "(user: { id: string }) => '/users/' + encodeURIComponent(user.id)"],
+    [
+      'breaks after its arrow',
+      "(user: { id: string }) => '/users/' + encodeURIComponent(user.id) + '/password'",
+    ],
+    [
+      'breaks at each + when the body still does not fit',
+      "(user: { id: string }) => '/organizations/members/accounts/' + encodeURIComponent(user.id) + '/credentials/password'",
+    ],
+    ['is a plain string', "'/users/password'"],
+  ])('writes a config field Prettier leaves alone when it %s', async (_shape, value) => {
+    const source = `export const authConfig = {\n${configField('changePasswordEndpoint', value)}\n}\n`
+    expect(source).toBe(await formatGeneratedSource(source, join(tmpdir(), 'config.ts')))
   })
 
   it('delivers a non-default OpenAPI contract through the real app template and working adapters', async () => {

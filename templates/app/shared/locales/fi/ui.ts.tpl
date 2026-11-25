@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Ei yhteyttä',
   'settings.unknown': 'Tuntematon',
   'settings.logOut': 'Kirjaudu ulos',
+  'userMenu.logOut': 'Kirjaudu ulos',
   'settings.deleteAccount': 'Poista tili',
   'settings.changePasswordModal.title': 'Vaihda salasana',
   'settings.changePasswordModal.error': 'Salasanan vaihto epäonnistui.',
@@ -240,4 +241,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Tilauksen vahvistus epäonnistui.',
   'user.payment.unknownPlan': 'Tuntematon paketti.',
   'user.payment.invalidWebhookEvent': 'Virheellinen webhook-tapahtuma.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Päällä',
+  'settings.twoFactorEnable': 'Ota käyttöön',
+  'settings.twoFactorDisable': 'Poista käytöstä',
+  'settings.twoFactorEnableTitle': 'Ota käyttöön kaksivaiheinen todennus',
+  'settings.twoFactorDisableTitle': 'Poista kaksivaiheinen todennus käytöstä',
+  'settings.twoFactorScan':
+    'Skannaa tämä QR-koodi todennussovelluksellasi ja syötä sitten 6-numeroinen koodi.',
+  'settings.twoFactorQrAlt': 'Kaksivaiheinen QR-koodi',
+  'settings.twoFactorCode': 'Todennuskoodi',
+  'settings.twoFactorVerify': 'Vahvista ja ota käyttöön',
+  'settings.twoFactorInvalidCode': 'Virheellinen koodi',
+  'settings.twoFactorUnavailable':
+    'Kaksivaiheinen todennus ei ole käytettävissä tälle sovellukselle.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Päivitä sopimuksesi',
+  'settings.billing.subscribe': 'Tilaa',
+  'settings.billing.checkoutFailed': 'Kassan aloittaminen epäonnistui.',
+  'settings.billing.cancel': 'Peruuta',
+  'settings.billing.cancelConfirm': 'Peruutatko tilauksesi?',
+  'settings.billing.cancelFailed': 'Peruutus epäonnistui.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Emme voineet vielä vahvistaa maksuasi.',
+  'planUpdated.retry': 'Yritä uudelleen',
+{{/feature}}
 }

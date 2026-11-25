@@ -67,6 +67,7 @@ export const ui: UiTranslations = {
   'settings.offline': '離線',
   'settings.unknown': '未知',
   'settings.logOut': '登出',
+  'userMenu.logOut': '登出',
   'settings.deleteAccount': '刪除帳號',
   'settings.changePasswordModal.title': '變更密碼',
   'settings.changePasswordModal.error': '密碼變更失敗。',
@@ -235,4 +236,29 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': '訂閱驗證失敗。',
   'user.payment.unknownPlan': '未知的方案。',
   'user.payment.invalidWebhookEvent': '無效的 Webhook 事件。',
+{{#feature two-factor}}
+  'settings.twoFactorOn': '已開啟',
+  'settings.twoFactorEnable': '使能夠',
+  'settings.twoFactorDisable': '停用',
+  'settings.twoFactorEnableTitle': '啟用雙重認證',
+  'settings.twoFactorDisableTitle': '禁用雙重認證',
+  'settings.twoFactorScan': '使用您的身份驗證器應用程式掃描此二維碼，然後輸入 6 位數代碼。',
+  'settings.twoFactorQrAlt': '雙因素二維碼',
+  'settings.twoFactorCode': '驗證碼',
+  'settings.twoFactorVerify': '驗證並啟用',
+  'settings.twoFactorInvalidCode': '無效代碼',
+  'settings.twoFactorUnavailable': '此應用程式不支援雙重身份驗證。',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': '升級您的套餐',
+  'settings.billing.subscribe': '訂閱',
+  'settings.billing.checkoutFailed': '無法開始結帳。',
+  'settings.billing.cancel': '取消',
+  'settings.billing.cancelConfirm': '取消訂閱？',
+  'settings.billing.cancelFailed': '無法取消。',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': '我們目前還無法確認您的付款。',
+  'planUpdated.retry': '再試一次',
+{{/feature}}
 }

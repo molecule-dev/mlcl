@@ -70,8 +70,17 @@ function mergeImports(
       for (const spec of missing)
         if (bound.has(spec.name.text))
           throw new Error(`Cannot extend ${fileName}: ${spec.name.text} is already defined.`)
+      const names = missing.map((spec) => spec.getText(addition)).join(', ')
+      // A default-only import of the module takes the names beside its default: adding the
+      // generated line whole imported the default twice (`resourceUserRouter`, TS2300), when an
+      // add brought a feature router of a file the router already mounted.
+      const priorDefault = prior.importClause?.name
+      if (!priorBindings && priorDefault) {
+        edits.push({ at: priorDefault.end, text: `, { ${names} }` })
+        continue
+      }
       if (!priorBindings || !ts.isNamedImports(priorBindings)) {
-        added.push(node.getText(addition))
+        added.push(`import { ${names} } from '${from}'`)
         continue
       }
       const last = priorBindings.elements.at(-1)

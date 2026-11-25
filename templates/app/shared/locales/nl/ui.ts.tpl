@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'Onbekend',
   'settings.logOut': 'Uitloggen',
+  'userMenu.logOut': 'Uitloggen',
   'settings.deleteAccount': 'Account verwijderen',
   'settings.changePasswordModal.title': 'Wachtwoord wijzigen',
   'settings.changePasswordModal.error': 'Wachtwoord wijzigen mislukt.',
@@ -239,4 +240,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Kon abonnement niet verifiëren.',
   'user.payment.unknownPlan': 'Onbekend plan.',
   'user.payment.invalidWebhookEvent': 'Ongeldig webhook-evenement.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Aan',
+  'settings.twoFactorEnable': 'Inschakelen',
+  'settings.twoFactorDisable': 'Uitzetten',
+  'settings.twoFactorEnableTitle': 'Schakel tweefactorauthenticatie in.',
+  'settings.twoFactorDisableTitle': 'Schakel tweefactorauthenticatie uit.',
+  'settings.twoFactorScan':
+    'Scan deze QR-code met uw authenticatie-app en voer vervolgens de 6-cijferige code in.',
+  'settings.twoFactorQrAlt': 'Twee-factor QR-code',
+  'settings.twoFactorCode': 'Authenticatiecode',
+  'settings.twoFactorVerify': 'Verifiëren en inschakelen',
+  'settings.twoFactorInvalidCode': 'Ongeldige code',
+  'settings.twoFactorUnavailable': 'Tweefactorauthenticatie is niet beschikbaar voor deze app.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Upgrade uw abonnement',
+  'settings.billing.subscribe': 'Abonneren',
+  'settings.billing.checkoutFailed': 'Afrekenen kon niet worden gestart.',
+  'settings.billing.cancel': 'Annuleren',
+  'settings.billing.cancelConfirm': 'Uw abonnement opzeggen?',
+  'settings.billing.cancelFailed': 'Opzeggen mislukt.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'We hebben uw betaling nog niet kunnen bevestigen.',
+  'planUpdated.retry': 'Probeer het opnieuw',
+{{/feature}}
 }

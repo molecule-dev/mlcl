@@ -3,7 +3,9 @@ import { RouterOutlet } from '@angular/router'
 
 import { AppShellLayout } from '@molecule/app-shell-layout-angular'
 
+{{#feature footer}}
 import { FooterComponent } from './footer.component.js'
+{{/feature}}
 import { HeaderComponent } from './header.component.js'
 
 /**
@@ -18,12 +20,19 @@ import { HeaderComponent } from './header.component.js'
   // lays out this component's root element, not a wrapper.
   host: { style: 'display: contents' },
   standalone: true,
+{{#feature footer}}
   imports: [AppShellLayout, RouterOutlet, HeaderComponent, FooterComponent],
+{{/feature}}
+{{^feature footer}}
+  imports: [AppShellLayout, RouterOutlet, HeaderComponent],
+{{/feature}}
   template: `
     <div mol-shell-layout>
       <app-header slot="header"></app-header>
       <router-outlet />
+{{#feature footer}}
       <app-footer slot="footer"></app-footer>
+{{/feature}}
     </div>
   `,
 })

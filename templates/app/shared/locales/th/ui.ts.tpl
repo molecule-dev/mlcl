@@ -67,6 +67,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ออฟไลน์',
   'settings.unknown': 'ไม่ทราบ',
   'settings.logOut': 'ออกจากระบบ',
+  'userMenu.logOut': 'ออกจากระบบ',
   'settings.deleteAccount': 'ลบบัญชี',
   'settings.changePasswordModal.title': 'เปลี่ยนรหัสผ่าน',
   'settings.changePasswordModal.error': 'เปลี่ยนรหัสผ่านไม่สำเร็จ',
@@ -238,4 +239,29 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'ยืนยันการสมัครสมาชิกไม่สำเร็จ',
   'user.payment.unknownPlan': 'แผนที่ไม่รู้จัก',
   'user.payment.invalidWebhookEvent': 'เหตุการณ์ webhook ไม่ถูกต้อง',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'เปิดอยู่',
+  'settings.twoFactorEnable': 'เปิดใช้งาน',
+  'settings.twoFactorDisable': 'ปิดใช้งาน',
+  'settings.twoFactorEnableTitle': 'เปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอน',
+  'settings.twoFactorDisableTitle': 'ปิดใช้งานการตรวจสอบสิทธิ์แบบสองขั้นตอน',
+  'settings.twoFactorScan': 'สแกนคิวอาร์โค้ดนี้ด้วยแอปยืนยันตัวตนของคุณ จากนั้นป้อนรหัส 6 หลัก',
+  'settings.twoFactorQrAlt': 'รหัส QR สองปัจจัย',
+  'settings.twoFactorCode': 'รหัสยืนยันตัวตน',
+  'settings.twoFactorVerify': 'ตรวจสอบและเปิดใช้งาน',
+  'settings.twoFactorInvalidCode': 'รหัสไม่ถูกต้อง',
+  'settings.twoFactorUnavailable': 'แอปนี้ไม่รองรับการยืนยันตัวตนสองขั้นตอน',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'อัปเกรดแพ็กเกจของคุณ',
+  'settings.billing.subscribe': 'สมัครสมาชิก',
+  'settings.billing.checkoutFailed': 'ไม่สามารถเริ่มขั้นตอนการชำระเงินได้',
+  'settings.billing.cancel': 'ยกเลิก',
+  'settings.billing.cancelConfirm': 'ต้องการยกเลิกการสมัครสมาชิกหรือไม่?',
+  'settings.billing.cancelFailed': 'ไม่สามารถยกเลิกได้',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'เรายังไม่สามารถยืนยันการชำระเงินของคุณได้',
+  'planUpdated.retry': 'ลองอีกครั้ง',
+{{/feature}}
 }

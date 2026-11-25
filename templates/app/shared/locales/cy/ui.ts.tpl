@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'All-lein',
   'settings.unknown': 'Anhysbys',
   'settings.logOut': 'Allgofnodi',
+  'userMenu.logOut': 'Allgofnodi',
   'settings.deleteAccount': 'Dileu cyfrif',
   'settings.changePasswordModal.title': 'Newid cyfrinair',
   'settings.changePasswordModal.error': 'Methwyd â newid y cyfrinair.',
@@ -239,4 +240,29 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Methwyd dilysu tanysgrifiad.',
   'user.payment.unknownPlan': 'Cynllun anhysbys.',
   'user.payment.invalidWebhookEvent': 'Digwyddiad bachyn gwe annilys.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Ymlaen',
+  'settings.twoFactorEnable': 'Galluogi',
+  'settings.twoFactorDisable': 'Analluogi',
+  'settings.twoFactorEnableTitle': 'Galluogi dilysu dau ffactor',
+  'settings.twoFactorDisableTitle': 'Analluogi dilysu dau ffactor',
+  'settings.twoFactorScan': "Sganiwch y cod QR hwn gyda'ch ap dilysu, yna nodwch y cod 6 digid.",
+  'settings.twoFactorQrAlt': 'Cod QR dau ffactor',
+  'settings.twoFactorCode': 'Cod dilysu',
+  'settings.twoFactorVerify': 'Dilysu a galluogi',
+  'settings.twoFactorInvalidCode': 'Cod annilys',
+  'settings.twoFactorUnavailable': 'Nid yw dilysu dau ffactor ar gael ar gyfer yr ap hwn.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Uwchraddiwch eich cynllun',
+  'settings.billing.subscribe': 'Tanysgrifiwch',
+  'settings.billing.checkoutFailed': 'Methwyd dechrau talu.',
+  'settings.billing.cancel': 'Canslo',
+  'settings.billing.cancelConfirm': 'Canslo eich tanysgrifiad?',
+  'settings.billing.cancelFailed': 'Methwyd canslo.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Ni allem gadarnhau eich taliad eto.',
+  'planUpdated.retry': 'Rhowch gynnig arall arni',
+{{/feature}}
 }

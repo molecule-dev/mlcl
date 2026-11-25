@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Offline',
   'settings.unknown': 'E panjohur',
   'settings.logOut': 'Dil',
+  'userMenu.logOut': 'Dil',
   'settings.deleteAccount': 'Fshi llogarinë',
   'settings.changePasswordModal.title': 'Ndryshimi i fjalëkalimit',
   'settings.changePasswordModal.error': 'Ndryshimi i fjalëkalimit dështoi.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Verifikimi i abonimit deshtoi.',
   'user.payment.unknownPlan': 'Plan i panjohur.',
   'user.payment.invalidWebhookEvent': 'Ngjarje webhook e pavlefshme.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Aktiv',
+  'settings.twoFactorEnable': 'Aktivizo',
+  'settings.twoFactorDisable': 'Çaktivizo',
+  'settings.twoFactorEnableTitle': 'Aktivizo vërtetimin me dy faktorë',
+  'settings.twoFactorDisableTitle': 'Çaktivizo vërtetimin me dy faktorë',
+  'settings.twoFactorScan':
+    'Skano këtë kod QR me aplikacionin tënd të autentifikimit dhe më pas fut kodin 6-shifror.',
+  'settings.twoFactorQrAlt': 'Kodi QR me dy faktorë',
+  'settings.twoFactorCode': 'Kodi i vërtetimit',
+  'settings.twoFactorVerify': 'Verifiko dhe aktivizo',
+  'settings.twoFactorInvalidCode': 'Kod i pavlefshëm',
+  'settings.twoFactorUnavailable':
+    'Autentifikimi me dy faktorë nuk është i disponueshëm për këtë aplikacion.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Përmirësoni planin tuaj',
+  'settings.billing.subscribe': 'Abonohu',
+  'settings.billing.checkoutFailed': 'Nuk mund të fillohej pagesa.',
+  'settings.billing.cancel': 'Anulo',
+  'settings.billing.cancelConfirm': 'Të anulohet abonimi juaj?',
+  'settings.billing.cancelFailed': 'Nuk mund të anulohej.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Nuk mundëm ta konfirmonim ende pagesën tuaj.',
+  'planUpdated.retry': 'Provo përsëri',
+{{/feature}}
 }

@@ -172,7 +172,7 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
       '--type',
       'api',
       '--packages',
-      '@molecule/api-database-postgresql',
+      '@molecule/api-database-postgresql,@molecule/api-resource-user',
       '--skip-install',
       '--no-interactive',
       '--json',
@@ -189,7 +189,7 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
     const agents = readFileSync(join(projectRoot, 'AGENTS.md'), 'utf8')
     expect(agents).not.toContain('@molecule/app-auth')
     expect(agents).not.toContain('@molecule/app-http')
-    // The map lists the installed backend packages that declare configuration, and no frontend ones.
+    // The result's map lists the named packages that declare configuration, and no frontend ones.
     const result = JSON.parse(output) as {
       capabilityMap?: Array<{ name: string; configuration: string[] }>
     }
@@ -200,6 +200,31 @@ describe('mlcl create delivers the shared skills and package catalog', () => {
     expect(user?.configuration.join('\n')).toContain('getPublicProfiles')
     expect(agents).toMatch(/^## Declared capability map$/m)
     expect(agents).toContain('getPublicProfiles')
+  })
+
+  // r18 eval (2026-11-24): the map was 30 KB of a 34 KB result for a three-package stack, a copy of
+  // what AGENTS.md says. The result now carries the entries of the packages the caller named.
+  it("lists only the named packages in a custom stack's --json map; AGENTS.md has them all", async () => {
+    const output = await runCreate([
+      'proj',
+      '--type',
+      'full-stack',
+      '--framework',
+      'react',
+      '--packages',
+      '@molecule/api-resource-user,@molecule/api-database-sqlite,@molecule/app-auth',
+      '--skip-install',
+      '--no-interactive',
+      '--json',
+    ])
+    const result = JSON.parse(output) as { capabilityMap?: Array<{ name: string }> }
+    expect(result.capabilityMap?.map((entry) => entry.name)).toEqual([
+      '@molecule/api-resource-user',
+      '@molecule/app-auth',
+    ])
+    const agents = readFileSync(join(dir, 'proj', 'AGENTS.md'), 'utf8')
+    expect(agents).toContain('`@molecule/app-http`')
+    expect(agents).toContain('`@molecule/app-state`')
   })
 
   it('leaves a user-owned skill untouched when scaffolding over it', async () => {

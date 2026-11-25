@@ -67,6 +67,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'ऑफलाइन',
   'settings.unknown': 'अज्ञात',
   'settings.logOut': 'लॉग आउट',
+  'userMenu.logOut': 'लॉग आउट',
   'settings.deleteAccount': 'खाते हटवा',
   'settings.changePasswordModal.title': 'पासवर्ड बदला',
   'settings.changePasswordModal.error': 'पासवर्ड बदलण्यात अयशस्वी.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'सबस्क्रिप्शन सत्यापित करण्यात अयशस्वी.',
   'user.payment.unknownPlan': 'अज्ञात प्लॅन.',
   'user.payment.invalidWebhookEvent': 'अवैध वेबहुक इव्हेंट.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'चालू',
+  'settings.twoFactorEnable': 'सक्षम करा',
+  'settings.twoFactorDisable': 'अक्षम करा',
+  'settings.twoFactorEnableTitle': 'द्वि-घटक प्रमाणीकरण सक्षम करा',
+  'settings.twoFactorDisableTitle': 'द्वि-घटक प्रमाणीकरण अक्षम करा',
+  'settings.twoFactorScan':
+    'तुमच्या ऑथेंटिकेटर ॲपने हा QR कोड स्कॅन करा, त्यानंतर ६-अंकी कोड प्रविष्ट करा.',
+  'settings.twoFactorQrAlt': 'दोन-घटक क्यूआर कोड',
+  'settings.twoFactorCode': 'प्रमाणीकरण कोड',
+  'settings.twoFactorVerify': 'पडताळणी करा आणि सक्षम करा',
+  'settings.twoFactorInvalidCode': 'अवैध कोड',
+  'settings.twoFactorUnavailable': 'या ॲपसाठी द्विघटक प्रमाणीकरण उपलब्ध नाही.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'तुमची योजना अपग्रेड करा',
+  'settings.billing.subscribe': 'सदस्यता घ्या',
+  'settings.billing.checkoutFailed': 'चेकआउट सुरू करता आले नाही.',
+  'settings.billing.cancel': 'रद्द करा',
+  'settings.billing.cancelConfirm': 'तुम्ही तुमची सदस्यता रद्द करू इच्छिता का?',
+  'settings.billing.cancelFailed': 'रद्द करता आले नाही.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'आम्ही अद्याप तुमच्या पेमेंटची पुष्टी करू शकलो नाही.',
+  'planUpdated.retry': 'पुन्हा प्रयत्न करा',
+{{/feature}}
 }

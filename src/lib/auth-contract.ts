@@ -161,6 +161,27 @@ function userIdEndpoint(route: Route, role: AuthRole): string {
   return `(user: { id: string }) => ${pieces.join(' + encodeURIComponent(user.id) + ')}`
 }
 
+/** The scaffold's Prettier width: `config.ts` is written formatted, because create runs no formatter. */
+const PRINT_WIDTH = 100
+
+/**
+ * One `config.ts` field as Prettier prints it. A user-id endpoint that does not fit breaks after its
+ * arrow, and its concatenation breaks at each `+` when the body still does not fit, so the user's first
+ * format run changes nothing (`scaffold-format-clean.test.ts`).
+ * @param field - The config key.
+ * @param value - Its rendered value.
+ * @returns The field's line or lines, indented for the config object.
+ */
+export function configField(field: string, value: string): string {
+  const line = `  ${field}: ${value},`
+  const arrow = value.indexOf(' => ')
+  if (line.length <= PRINT_WIDTH || arrow === -1) return line
+  const head = `  ${field}: ${value.slice(0, arrow)} =>`
+  const body = value.slice(arrow + 4)
+  if (`    ${body},`.length <= PRINT_WIDTH) return `${head}\n    ${body},`
+  return `${head}\n    ${body.split(' + ').join(' +\n    ')},`
+}
+
 export function userProfileUpdateConfig(
   routes: readonly Pick<InferredRoute, 'handler' | 'path' | 'method'>[],
 ): string {
@@ -171,7 +192,7 @@ export function userProfileUpdateConfig(
   const method = route.method.toUpperCase()
   if (!['PATCH', 'PUT', 'POST'].includes(method))
     throw new Error('The user profile update route must use a supported method')
-  return `  profileEndpoint: ${userIdEndpoint(route, 'profile')},\n  profileUpdateMethod: '${method}' as const,`
+  return `${configField('profileEndpoint', userIdEndpoint(route, 'profile'))}\n  profileUpdateMethod: '${method}' as const,`
 }
 
 function profileConfig(contract: AuthContract): string {
@@ -326,18 +347,20 @@ export function renderAuthContract(contract: AuthContract): RenderedAuthContract
     .map(([role, field]) => {
       const route = routeFor(contract, role)
       requireMethod(route, role, ['post', 'patch'])
+      // The Molecule user resource changes a password at `PATCH /users/:id/password`, so that
+      // route is written like any other: a user-id endpoint sent with PATCH. (The starter once
+      // wrote `/users/password`, which no route serves, and the client POSTs by default.)
       const legacyPaths: Record<string, string> = {
         forgotPassword: '/users/forgot-password',
         resetPassword: '/users/reset-password',
-        changePassword: '/users/password',
       }
-      const legacy = isLegacyRoute(role, route)
+      const legacy = role in legacyPaths && isLegacyRoute(role, route)
       const value = legacy
         ? quote(legacyPaths[role]!)
         : role === 'changePassword' && route.path.includes(':id')
           ? userIdEndpoint(route, role)
           : endpoint(route, role)
-      const lines = [`  ${field}: ${value},`]
+      const lines = [configField(field, value)]
       if (role === 'changePassword' && !legacy && route.method.toLowerCase() === 'patch') {
         lines.push(`  changePasswordMethod: 'PATCH' as const,`)
       }

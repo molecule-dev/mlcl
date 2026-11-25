@@ -59,11 +59,21 @@ function expected(
   query: string,
   options: { stack?: 'api' | 'app'; limit?: number; frameworks?: string[] } = {},
 ): string[] {
-  const ranked = pool
+  const matched = pool
     .filter((pkg) => !options.stack || pkg.molecule?.stack === options.stack)
-    .map((pkg) => ({ name: pkg.name, score: scorePackage(pkg, query) }))
+    .map((pkg) => ({
+      name: pkg.name,
+      score: scorePackage(pkg, query),
+      dependsOn: pkg.molecule?.runtimeDependencies ?? [],
+    }))
     .filter((hit) => hit.score > 0)
-    .sort((a, b) => b.score - a.score || a.name.localeCompare(b.name))
+  // An equal score goes to the package more of the other matches depend on, then the name.
+  const builtOn = (name: string): number =>
+    matched.filter((hit) => hit.dependsOn.includes(name)).length
+  const ranked = matched.sort(
+    (a, b) =>
+      b.score - a.score || builtOn(b.name) - builtOn(a.name) || a.name.localeCompare(b.name),
+  )
   const frameworks = options.frameworks ?? []
   const keyOf = (name: string): string | undefined =>
     frameworks.filter((key) => name.endsWith(`-${key}`)).sort((a, b) => b.length - a.length)[0]

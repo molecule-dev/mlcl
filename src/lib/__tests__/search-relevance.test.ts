@@ -346,6 +346,70 @@ describe('search capability and symbol relevance', () => {
     ])
   })
 
+  it('counts a query that names a category and an export once, so the core leads its providers', () => {
+    // Mailgun, Sendmail and SES export an alias named `email`: with both bonuses a query for the
+    // category put all three above @molecule/api-emails, and Codex searched again for the core
+    // (harness eval `find`, 2026-11-25).
+    const api = searchPackages(packages.map(toSearchEntry), 'email', { stack: 'api', limit: 6 })
+    expect(api[0]?.name).toBe('@molecule/api-emails')
+    const core = { ...pkg('@molecule/app-widgets'), name: '@molecule/app-widgets' }
+    const provider = pkg('@molecule/app-widgets-acme', [], ['example'])
+    expect(scorePackage(core, 'example')).toBeGreaterThanOrEqual(scorePackage(provider, 'example'))
+    // Counterexample: an export alone still finds its package, and a category member that exports
+    // the name still outranks a package that only exports it.
+    const owner = { ...pkg('@molecule/app-elsewhere', [], ['example']) }
+    owner.molecule = { ...owner.molecule!, category: 'other' }
+    expect(scorePackage(owner, 'example')).toBeGreaterThan(0)
+    expect(scorePackage(provider, 'example')).toBeGreaterThan(scorePackage(owner, 'example'))
+  })
+
+  it('gives an equal score to the package the other matches build on', () => {
+    type Entry = {
+      name: string
+      stack: string
+      category: string
+      label: string
+      description: string
+      runtimeDependencies?: string[]
+    }
+    const entry = (name: string, runtimeDependencies?: string[]): Entry => ({
+      name,
+      stack: 'api',
+      category: 'widgets',
+      label: 'Widgets',
+      description: 'Widgets',
+      ...(runtimeDependencies ? { runtimeDependencies } : {}),
+    })
+    const order = (list: Entry[]): string[] =>
+      searchPackages(list, 'widgets').map((hit) => hit.name)
+    // All three score the same; api-alpha-widgets sorts first by name, api-zeta-widgets builds on
+    // api-widgets.
+    expect(
+      order([
+        entry('@molecule/api-alpha-widgets'),
+        entry('@molecule/api-widgets'),
+        entry('@molecule/api-zeta-widgets', ['@molecule/api-widgets']),
+      ]),
+    ).toEqual([
+      '@molecule/api-widgets',
+      '@molecule/api-alpha-widgets',
+      '@molecule/api-zeta-widgets',
+    ])
+    // Counterexample: with nothing built on any of them, the name decides as before.
+    expect(
+      order([
+        entry('@molecule/api-zeta-widgets'),
+        entry('@molecule/api-widgets'),
+        entry('@molecule/api-alpha-widgets'),
+      ]),
+    ).toEqual([
+      '@molecule/api-alpha-widgets',
+      '@molecule/api-widgets',
+      '@molecule/api-zeta-widgets',
+    ])
+    expect(names('transactional email')[0]).toBe('@molecule/api-emails')
+  })
+
   it('keeps exact package names above incidental symbols and rejects unrelated phrase matches', () => {
     const exact = pkg('@molecule/app-bindings')
     const symbol = pkg('@molecule/app-other', [], ['app-bindings'])

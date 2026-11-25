@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'නොබැඳි',
   'settings.unknown': 'නොදන්නා',
   'settings.logOut': 'පිටවන්න',
+  'userMenu.logOut': 'පිටවන්න',
   'settings.deleteAccount': 'ගිණුම මකන්න',
   'settings.changePasswordModal.title': 'මුරපදය වෙනස් කරන්න',
   'settings.changePasswordModal.error': 'මුරපදය වෙනස් කිරීම අසාර්ථකයි.',
@@ -238,4 +239,30 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'දායකත්වය සත්‍යාපනය කිරීමට අසමත් විය.',
   'user.payment.unknownPlan': 'නොදන්නා සැලැස්ම.',
   'user.payment.invalidWebhookEvent': 'අවලංගු වෙබ්හූක් සිදුවීම.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'ක්‍රියාත්මකයි',
+  'settings.twoFactorEnable': 'සක්‍රීය කරන්න',
+  'settings.twoFactorDisable': 'අබල කරන්න',
+  'settings.twoFactorEnableTitle': 'ද්වි-සාධක සත්‍යාපනය සක්‍රීය කරන්න',
+  'settings.twoFactorDisableTitle': 'ද්වි-සාධක සත්‍යාපනය අක්‍රීය කරන්න',
+  'settings.twoFactorScan':
+    'ඔබගේ සත්‍යාපක යෙදුම සමඟ මෙම QR කේතය ස්කෑන් කරන්න, ඉන්පසු ඉලක්කම් 6 කින් යුත් කේතය ඇතුළත් කරන්න.',
+  'settings.twoFactorQrAlt': 'ද්වි-සාධක QR කේතය',
+  'settings.twoFactorCode': 'සත්‍යාපන කේතය',
+  'settings.twoFactorVerify': 'සත්‍යාපනය කර සබල කරන්න',
+  'settings.twoFactorInvalidCode': 'අවලංගු කේතයකි',
+  'settings.twoFactorUnavailable': 'මෙම යෙදුම සඳහා ද්වි-සාධක සත්‍යාපනය ලබා ගත නොහැක.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'ඔබේ සැලැස්ම උත්ශ්‍රේණි කරන්න',
+  'settings.billing.subscribe': 'දායක වන්න',
+  'settings.billing.checkoutFailed': 'පිටවීම ආරම්භ කිරීමට නොහැකි විය.',
+  'settings.billing.cancel': 'අවලංගු කරන්න',
+  'settings.billing.cancelConfirm': 'ඔබේ දායකත්වය අවලංගු කරන්නද?',
+  'settings.billing.cancelFailed': 'අවලංගු කිරීමට නොහැකි විය.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'අපට තවමත් ඔබගේ ගෙවීම තහවුරු කිරීමට නොහැකි විය.',
+  'planUpdated.retry': 'නැවත උත්සාහ කරන්න',
+{{/feature}}
 }

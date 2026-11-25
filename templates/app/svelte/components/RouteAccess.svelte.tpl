@@ -31,13 +31,30 @@
    * shell (header + footer), exactly as the React scaffold nests them under
    * its AppLayout route element.
    */
+{{#feature footer}}
   const publicViews: readonly RouteView[] = [
     { path: '/login' },
     { path: '/signup' },
     { path: '/about' },
+{{#feature emails}}
+    { path: '/forgot-password' },
+    { path: '/reset-password' },
+{{/feature}}
+  ]
+{{/feature}}
+{{^feature footer}}
+{{#feature emails}}
+  const publicViews: readonly RouteView[] = [
+    { path: '/login' },
+    { path: '/signup' },
     { path: '/forgot-password' },
     { path: '/reset-password' },
   ]
+{{/feature}}
+{{^feature emails}}
+  const publicViews: readonly RouteView[] = [{ path: '/login' }, { path: '/signup' }]
+{{/feature}}
+{{/feature}}
 
   /** Private query-selected views override a matching public path. */
   const privateViews: readonly RouteView[] = []

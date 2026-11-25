@@ -68,6 +68,7 @@ export const ui: UiTranslations = {
   'settings.offline': 'Võrgust väljas',
   'settings.unknown': 'Teadmata',
   'settings.logOut': 'Logi välja',
+  'userMenu.logOut': 'Logi välja',
   'settings.deleteAccount': 'Kustuta konto',
   'settings.changePasswordModal.title': 'Muuda parooli',
   'settings.changePasswordModal.error': 'Parooli muutmine ebaõnnestus.',
@@ -239,4 +240,31 @@ export const ui: UiTranslations = {
   'user.payment.verificationFailed': 'Tellimuse kinnitamine ebaõnnestus.',
   'user.payment.unknownPlan': 'Tundmatu plaan.',
   'user.payment.invalidWebhookEvent': 'Vigane webhooki sündmus.',
+{{#feature two-factor}}
+  'settings.twoFactorOn': 'Sees',
+  'settings.twoFactorEnable': 'Luba',
+  'settings.twoFactorDisable': 'Keela',
+  'settings.twoFactorEnableTitle': 'Kahefaktorilise autentimise lubamine',
+  'settings.twoFactorDisableTitle': 'Kahefaktorilise autentimise keelamine',
+  'settings.twoFactorScan':
+    'Skannige see QR-kood oma autentimisrakendusega ja sisestage seejärel 6-kohaline kood.',
+  'settings.twoFactorQrAlt': 'Kahefaktoriline QR-kood',
+  'settings.twoFactorCode': 'Autentimiskood',
+  'settings.twoFactorVerify': 'Kinnita ja luba',
+  'settings.twoFactorInvalidCode': 'Kehtetu kood',
+  'settings.twoFactorUnavailable':
+    'Kahefaktoriline autentimine pole selle rakenduse jaoks saadaval.',
+{{/feature}}
+{{#feature billing}}
+  'settings.billing.upgradeTitle': 'Uuenda oma paketti',
+  'settings.billing.subscribe': 'Telli',
+  'settings.billing.checkoutFailed': 'Makseprotsessi ei õnnestunud alustada.',
+  'settings.billing.cancel': 'Tühista',
+  'settings.billing.cancelConfirm': 'Tühistada tellimus?',
+  'settings.billing.cancelFailed': 'Tühistamine ebaõnnestus.',
+{{/feature}}
+{{#feature payments}}
+  'planUpdated.verifyFailed': 'Me ei saanud teie makset veel kinnitada.',
+  'planUpdated.retry': 'Proovi uuesti',
+{{/feature}}
 }
