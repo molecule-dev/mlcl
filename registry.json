@@ -37533,11 +37533,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/bias-indicator-react",
       "intentHints": [
@@ -40599,11 +40601,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/class-schedule-react",
       "intentHints": [
@@ -48374,11 +48378,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/chapter-list-react",
       "intentHints": [
@@ -49474,12 +49480,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/thread-tree-react",
       "intentHints": [
@@ -49866,11 +49874,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/transport-bar-react",
       "intentHints": [
@@ -82985,12 +82995,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/muscle-group-badge-react",
       "intentHints": [
@@ -84634,13 +84646,15 @@
         "@molecule/app-notification-feed-react",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-notification-feed-react",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/notifications-page-react",
       "intentHints": [
