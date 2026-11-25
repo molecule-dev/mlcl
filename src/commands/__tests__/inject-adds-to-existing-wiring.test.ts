@@ -315,12 +315,13 @@ describe('mlcl inject in a project Molecule did not create (OLD MUSTFAIL)', () =
     const guidance = at('Your code calls it through @molecule/api-uploads')
     expect(guidance).toBeGreaterThanOrEqual(0)
     expect(at('Next steps')).toBeGreaterThan(guidance)
-    // The last lines are the steps: the setup call, then one check that builds the project, starts it
-    // and calls a route (it has a start script).
+    // The last lines are the steps: the setup call and the build. (A one-call serve check named
+    // here was run in none of 20 harness-eval adds, 2026-11-25: both harnesses start the server
+    // and call the route in a command of their own.)
     const tail = lines.slice(-6).join('\n')
     expect(tail).toContain('await setupBonds()')
-    expect(tail).toContain('npx mlcl check --steps build,serve --ready')
-    expect(tail).not.toContain('npm run build')
+    expect(tail).toContain('npm run build')
+    expect(tail).not.toContain('mlcl check')
   })
 
   it('writes ES modules as .mjs in a CommonJS package and imports them dynamically', async () => {

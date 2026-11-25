@@ -163,26 +163,6 @@ function specifier(from: string, target: string, language: ProjectLanguage): str
 }
 
 /**
- * The one command that builds an existing API, starts it, checks a route and stops it again, for
- * the steps after an add. Without it both harnesses started the server in the background, slept a
- * fixed time, called the route and killed the server by hand (harness eval `add`, 2026-11-25).
- *
- * @param manifest - The project's package.json.
- * @param manifest.scripts - Its scripts.
- * @param app - Whether the project is an app, which serves no API to check.
- * @returns The command, or undefined when no script starts the project.
- */
-export function liveCheckCommand(
-  manifest: { scripts?: Record<string, string> },
-  app: boolean,
-): string | undefined {
-  const scripts = manifest.scripts ?? {}
-  if (app || !(scripts.start || scripts.dev)) return undefined
-  const steps = scripts.build ? 'build,serve' : 'serve'
-  return `npx mlcl check --steps ${steps} --ready http://localhost:<port>/<path> --run "<a command that calls your route>"`
-}
-
-/**
  * The lines that connect the injected packages to a project Molecule did not create: call the
  * setup function from its entry file before it serves (or renders), mount the router, run the
  * migrations. A step the entry file already carries is left out.

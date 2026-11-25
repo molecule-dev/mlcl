@@ -298,8 +298,6 @@ export const messages: LocaleMessages = {
   'commands.inject.messages.summary': 'Created {created} files, modified {modified} files',
   'commands.inject.messages.nextSteps': 'Next steps:',
   'commands.inject.messages.runInstall': '{num}. Run {command} to install new dependencies',
-  'commands.inject.messages.checkLive':
-    '{num}. Check it running, in one call: it builds, starts the server, waits for the URL, runs your command and stops the server (MCP: check_project with the same steps, ready and run):',
   'commands.inject.messages.runBuild': '{num}. Run {command} to verify the build',
   'commands.inject.messages.runTest': '{num}. Run {command} to run tests',
 

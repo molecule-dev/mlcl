@@ -15,7 +15,6 @@ import { appendSecretsToEnvFile, type EnvAppendResult } from '../lib/env-file.js
 import {
   existingProjectFiles,
   inLanguage,
-  liveCheckCommand,
   projectLanguage,
   wiringSteps,
 } from '../lib/existing-project.js'
@@ -1265,11 +1264,7 @@ export default class Inject extends Command {
         for (const line of step.slice(1)) this.log(`       ${chalk.cyan(line)}`)
       }
     }
-    const live = existingProject ? liveCheckCommand(projectPkg, isAppProject) : undefined
-    if (live) {
-      this.log(`  ${t('commands.inject.messages.checkLive', { num: stepNum++ })}`)
-      this.log(`       ${chalk.cyan(live)}`)
-    } else if (!existingProject || projectPkg.scripts?.build)
+    if (!existingProject || projectPkg.scripts?.build)
       this.log(
         `  ${t('commands.inject.messages.runBuild', { num: stepNum++, command: chalk.cyan('npm run build') })}`,
       )
