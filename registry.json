@@ -101166,7 +101166,10 @@
         "RangeFieldProps",
         "MousePressProps",
         "SvgElementProps",
-        "SvgStyle"
+        "SvgStyle",
+        "SelectFieldGroup",
+        "SelectFieldOption",
+        "SelectFieldProps"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -101672,7 +101675,8 @@
           "Anchor",
           "RangeField",
           "RichText",
-          "RichTextProps"
+          "RichTextProps",
+          "SelectField"
         ]
       }
     },
