@@ -208,23 +208,29 @@ vi.mock('@molecule/api-uploads-s3', () => ({}))
 
 vi.mock('@molecule/api-utilities-validation', () => ({}))
 
+// Loaded while vitest collects the file, not inside a test: an import inside a test counts
+// against vitest's 5 s timeout and timed out on a busy machine.
+const serverModule = await import('../server.js')
+const bondsModule = await import('../bonds/index.js')
+const appRouterModule = await import('../App/router.js')
+
 describe('server', () => {
-  it('exports a create function', async () => {
-    const { create } = await import('../server.js')
+  it('exports a create function', () => {
+    const { create } = serverModule
     expect(typeof create).toBe('function')
   })
 })
 
 describe('bonds/index', () => {
-  it('exports setupBonds function', async () => {
-    const bonds = (await import('../bonds/index.js')) as Record<string, unknown>
+  it('exports setupBonds function', () => {
+    const bonds = bondsModule as Record<string, unknown>
     expect(typeof bonds.setupBonds).toBe('function')
   })
 })
 
 describe('router', () => {
-  it('exports a router', async () => {
-    const { router } = await import('../App/router.js')
+  it('exports a router', () => {
+    const { router } = appRouterModule
     expect(router).toBeDefined()
   })
 })

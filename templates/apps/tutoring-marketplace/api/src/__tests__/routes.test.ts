@@ -228,14 +228,25 @@ vi.mock('@molecule/api-uploads-s3', () => ({}))
 
 vi.mock('@molecule/api-utilities-validation', () => ({}))
 
+// Loaded while vitest collects the file, not inside a test: an import inside a test counts
+// against vitest's 5 s timeout and timed out on a busy machine.
+const handlersTutorsModule = await import('../handlers/tutors.js')
+const handlersBookingsModule = await import('../handlers/bookings.js')
+const handlersSessionsModule = await import('../handlers/sessions.js')
+const handlersReviewsModule = await import('../handlers/reviews.js')
+const handlersSubjectsModule = await import('../handlers/subjects.js')
+const handlersMessagesModule = await import('../handlers/messages.js')
+const appResourceDeviceModule = await import('../App/Resource/Device/index.js')
+const appResourceUserModule = await import('../App/Resource/User/index.js')
+
 describe('Resource: Device', () => {
-  it('exports requestHandlerMap', async () => {
-    const mod = await import('../App/Resource/Device/index.js')
+  it('exports requestHandlerMap', () => {
+    const mod = appResourceDeviceModule
     expect(mod.requestHandlerMap).toBeDefined()
   })
 
-  it('requestHandlerMap has expected handlers', async () => {
-    const { requestHandlerMap } = await import('../App/Resource/Device/index.js')
+  it('requestHandlerMap has expected handlers', () => {
+    const { requestHandlerMap } = appResourceDeviceModule
     const keys = Object.keys(requestHandlerMap)
     expect(keys).toContain('auth')
     expect(keys).toContain('query')
@@ -246,13 +257,13 @@ describe('Resource: Device', () => {
 })
 
 describe('Resource: User', () => {
-  it('exports requestHandlerMap', async () => {
-    const mod = await import('../App/Resource/User/index.js')
+  it('exports requestHandlerMap', () => {
+    const mod = appResourceUserModule
     expect(mod.requestHandlerMap).toBeDefined()
   })
 
-  it('requestHandlerMap has expected handlers', async () => {
-    const { requestHandlerMap } = await import('../App/Resource/User/index.js')
+  it('requestHandlerMap has expected handlers', () => {
+    const { requestHandlerMap } = appResourceUserModule
     const keys = Object.keys(requestHandlerMap)
     expect(keys).toContain('create')
     expect(keys).toContain('logIn')
@@ -263,43 +274,43 @@ describe('Resource: User', () => {
 })
 
 describe('handlers/tutors', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/tutors.js')
+  it('exports a router', () => {
+    const mod = handlersTutorsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('handlers/bookings', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/bookings.js')
+  it('exports a router', () => {
+    const mod = handlersBookingsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('handlers/sessions', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/sessions.js')
+  it('exports a router', () => {
+    const mod = handlersSessionsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('handlers/reviews', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/reviews.js')
+  it('exports a router', () => {
+    const mod = handlersReviewsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('handlers/subjects', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/subjects.js')
+  it('exports a router', () => {
+    const mod = handlersSubjectsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('handlers/messages', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/messages.js')
+  it('exports a router', () => {
+    const mod = handlersMessagesModule
     expect(mod.default).toBeDefined()
   })
 })

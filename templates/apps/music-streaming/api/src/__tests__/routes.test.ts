@@ -235,14 +235,23 @@ vi.mock('@molecule/api-two-factor-otplib', () => ({}))
 
 vi.mock('@molecule/api-utilities-validation', () => ({}))
 
+// Loaded while vitest collects the file, not inside a test: an import inside a test counts
+// against vitest's 5 s timeout and timed out on a busy machine.
+const handlersArtistsModule = await import('../handlers/artists.js')
+const handlersAlbumsModule = await import('../handlers/albums.js')
+const handlersTracksModule = await import('../handlers/tracks.js')
+const handlersPlaylistsModule = await import('../handlers/playlists.js')
+const appResourceDeviceModule = await import('../App/Resource/Device/index.js')
+const appResourceUserModule = await import('../App/Resource/User/index.js')
+
 describe('Resource: Device', () => {
-  it('exports requestHandlerMap', async () => {
-    const mod = await import('../App/Resource/Device/index.js')
+  it('exports requestHandlerMap', () => {
+    const mod = appResourceDeviceModule
     expect(mod.requestHandlerMap).toBeDefined()
   })
 
-  it('requestHandlerMap has expected handlers', async () => {
-    const { requestHandlerMap } = await import('../App/Resource/Device/index.js')
+  it('requestHandlerMap has expected handlers', () => {
+    const { requestHandlerMap } = appResourceDeviceModule
     const keys = Object.keys(requestHandlerMap)
     expect(keys).toContain('auth')
     expect(keys).toContain('query')
@@ -253,13 +262,13 @@ describe('Resource: Device', () => {
 })
 
 describe('Resource: User', () => {
-  it('exports requestHandlerMap', async () => {
-    const mod = await import('../App/Resource/User/index.js')
+  it('exports requestHandlerMap', () => {
+    const mod = appResourceUserModule
     expect(mod.requestHandlerMap).toBeDefined()
   })
 
-  it('requestHandlerMap has expected handlers', async () => {
-    const { requestHandlerMap } = await import('../App/Resource/User/index.js')
+  it('requestHandlerMap has expected handlers', () => {
+    const { requestHandlerMap } = appResourceUserModule
     const keys = Object.keys(requestHandlerMap)
     expect(keys).toContain('create')
     expect(keys).toContain('logIn')
@@ -270,29 +279,29 @@ describe('Resource: User', () => {
 })
 
 describe('Handlers: artists', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/artists.js')
+  it('exports a router', () => {
+    const mod = handlersArtistsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('Handlers: albums', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/albums.js')
+  it('exports a router', () => {
+    const mod = handlersAlbumsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('Handlers: tracks', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/tracks.js')
+  it('exports a router', () => {
+    const mod = handlersTracksModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('Handlers: playlists', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/playlists.js')
+  it('exports a router', () => {
+    const mod = handlersPlaylistsModule
     expect(mod.default).toBeDefined()
   })
 })

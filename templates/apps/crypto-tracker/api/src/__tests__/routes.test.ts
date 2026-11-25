@@ -132,14 +132,19 @@ vi.mock('@molecule/api-two-factor-otplib', () => ({}))
 
 vi.mock('@molecule/api-utilities-validation', () => ({}))
 
+// Loaded while vitest collects the file, not inside a test: an import inside a test counts
+// against vitest's 5 s timeout and timed out on a busy machine.
+const appResourceDeviceModule = await import('../App/Resource/Device/index.js')
+const appResourceUserModule = await import('../App/Resource/User/index.js')
+
 describe('Resource: Device', () => {
-  it('exports requestHandlerMap', async () => {
-    const mod = await import('../App/Resource/Device/index.js')
+  it('exports requestHandlerMap', () => {
+    const mod = appResourceDeviceModule
     expect(mod.requestHandlerMap).toBeDefined()
   })
 
-  it('requestHandlerMap has expected handlers', async () => {
-    const { requestHandlerMap } = await import('../App/Resource/Device/index.js')
+  it('requestHandlerMap has expected handlers', () => {
+    const { requestHandlerMap } = appResourceDeviceModule
     const keys = Object.keys(requestHandlerMap)
     expect(keys).toContain('auth')
     expect(keys).toContain('query')
@@ -150,13 +155,13 @@ describe('Resource: Device', () => {
 })
 
 describe('Resource: User', () => {
-  it('exports requestHandlerMap', async () => {
-    const mod = await import('../App/Resource/User/index.js')
+  it('exports requestHandlerMap', () => {
+    const mod = appResourceUserModule
     expect(mod.requestHandlerMap).toBeDefined()
   })
 
-  it('requestHandlerMap has expected handlers', async () => {
-    const { requestHandlerMap } = await import('../App/Resource/User/index.js')
+  it('requestHandlerMap has expected handlers', () => {
+    const { requestHandlerMap } = appResourceUserModule
     const keys = Object.keys(requestHandlerMap)
     expect(keys).toContain('create')
     expect(keys).toContain('logIn')

@@ -305,14 +305,26 @@ vi.mock('@molecule/api-two-factor-otplib', () => ({}))
 
 vi.mock('@molecule/api-utilities-validation', () => ({}))
 
+// Loaded while vitest collects the file, not inside a test: an import inside a test counts
+// against vitest's 5 s timeout and timed out on a busy machine.
+const handlersVideosModule = await import('../handlers/videos.js')
+const handlersChannelsModule = await import('../handlers/channels.js')
+const handlersPlaylistsModule = await import('../handlers/playlists.js')
+const handlersCommentsModule = await import('../handlers/comments.js')
+const handlersFollowsModule = await import('../handlers/follows.js')
+const handlersLibraryModule = await import('../handlers/library.js')
+const handlersNotificationsModule = await import('../handlers/notifications.js')
+const appResourceDeviceModule = await import('../App/Resource/Device/index.js')
+const appResourceUserModule = await import('../App/Resource/User/index.js')
+
 describe('Resource: Device', () => {
-  it('exports requestHandlerMap', async () => {
-    const mod = await import('../App/Resource/Device/index.js')
+  it('exports requestHandlerMap', () => {
+    const mod = appResourceDeviceModule
     expect(mod.requestHandlerMap).toBeDefined()
   })
 
-  it('requestHandlerMap has expected handlers', async () => {
-    const { requestHandlerMap } = await import('../App/Resource/Device/index.js')
+  it('requestHandlerMap has expected handlers', () => {
+    const { requestHandlerMap } = appResourceDeviceModule
     const keys = Object.keys(requestHandlerMap)
     expect(keys).toContain('auth')
     expect(keys).toContain('query')
@@ -323,13 +335,13 @@ describe('Resource: Device', () => {
 })
 
 describe('Resource: User', () => {
-  it('exports requestHandlerMap', async () => {
-    const mod = await import('../App/Resource/User/index.js')
+  it('exports requestHandlerMap', () => {
+    const mod = appResourceUserModule
     expect(mod.requestHandlerMap).toBeDefined()
   })
 
-  it('requestHandlerMap has expected handlers', async () => {
-    const { requestHandlerMap } = await import('../App/Resource/User/index.js')
+  it('requestHandlerMap has expected handlers', () => {
+    const { requestHandlerMap } = appResourceUserModule
     const keys = Object.keys(requestHandlerMap)
     expect(keys).toContain('create')
     expect(keys).toContain('logIn')
@@ -340,50 +352,50 @@ describe('Resource: User', () => {
 })
 
 describe('Handlers: videos', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/videos.js')
+  it('exports a router', () => {
+    const mod = handlersVideosModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('Handlers: channels', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/channels.js')
+  it('exports a router', () => {
+    const mod = handlersChannelsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('Handlers: playlists', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/playlists.js')
+  it('exports a router', () => {
+    const mod = handlersPlaylistsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('Handlers: comments', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/comments.js')
+  it('exports a router', () => {
+    const mod = handlersCommentsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('Handlers: follows', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/follows.js')
+  it('exports a router', () => {
+    const mod = handlersFollowsModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('Handlers: library', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/library.js')
+  it('exports a router', () => {
+    const mod = handlersLibraryModule
     expect(mod.default).toBeDefined()
   })
 })
 
 describe('Handlers: notifications', () => {
-  it('exports a router', async () => {
-    const mod = await import('../handlers/notifications.js')
+  it('exports a router', () => {
+    const mod = handlersNotificationsModule
     expect(mod.default).toBeDefined()
   })
 })
