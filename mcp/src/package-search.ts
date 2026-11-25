@@ -324,6 +324,22 @@ function resolveStack(entry: SearchSourceEntry): 'api' | 'app' {
 }
 
 /**
+ * A query word and, when it is an English plural, its singular forms: `users` → `user`,
+ * `classes` → `class` (`-es` only after s, x, z, ch or sh), `categories` → `category` and
+ * `cookies` → `cookie`. A word of three letters or fewer, or one ending in `ss`, is its own.
+ *
+ * @param word - A lowercase query word.
+ * @returns The word first, then its singular forms.
+ */
+function wordForms(word: string): string[] {
+  if (word.length <= 3 || word.endsWith('ss') || !word.endsWith('s')) return [word]
+  if (word.endsWith('ies')) return [word, `${word.slice(0, -3)}y`, word.slice(0, -1)]
+  const forms = [word, word.slice(0, -1)]
+  if (/(s|x|z|ch|sh)es$/.test(word)) forms.push(word.slice(0, -2))
+  return forms
+}
+
+/**
  * Score a package against the query tokens. Higher = more relevant.
  * Exact names, exported symbols and complete capability phrases outrank
  * incidental name substrings ("form" in "formula"). The existing token scores
@@ -370,6 +386,9 @@ export function scoreSearchEntry(entry: SearchSourceEntry, q: string): number {
   // (`email`) outranks the core it implements.
   if (exactSymbol || (entry.category && phrase(entry.category) === query)) score += 160
   if (query.includes(' ')) {
+    const queryWords = query.split(' ')
+    const sameWord = (a: string, b: string): boolean =>
+      wordForms(a).includes(b) || wordForms(b).includes(a)
     if (hints.includes(query)) score += 120
     else if (
       hints.some(
@@ -384,14 +403,51 @@ export function scoreSearchEntry(entry: SearchSourceEntry, q: string): number {
       )
     )
       score += 60
+    // A hint holding every word of the query, in any order or with words between ("url backed
+    // pagination filters" for "URL pagination filters"), is weaker evidence than the phrase (a
+    // "favorite unfavorite button" hint holds both words of "favorite button") and stronger than
+    // a word of the name: once a plural query word matched its singular in names, the filter-bar
+    // components outranked the router that hint is for.
+    else if (
+      hints.some((hint) =>
+        queryWords.every((word) => hint.split(' ').some((other) => sameWord(word, other))),
+      )
+    )
+      score += 30
+  }
+  // A query spells a word its own way: `users` for the `user` of api-resource-user, `api-users`
+  // for the name itself. Both found nothing, so an agent guessed three more names (harness eval
+  // `scaffold`, 2026-11-25). Each check takes a plural word as its singular too, as the singular
+  // query already matched. A hyphenated token whose words, past the stack prefix (the stack filter's
+  // job), are all words of the name counts as the name, and its words then weigh among the packages
+  // it names as a word of the query does.
+  const nameWords = name.toLowerCase().split('-')
+  const fieldScore = (forms: string[], tok: string): number => {
+    const found = (text: string | undefined): boolean =>
+      text !== undefined && forms.some((form) => text.includes(form))
+    return (
+      (found(entry.category) ? 8 : 0) +
+      (entry.intentHints?.some((h) => found(h) || tok.includes(h)) ? 6 : 0) +
+      (found(entry.description?.toLowerCase()) ? 3 : 0) +
+      (found(entry.label?.toLowerCase()) ? 3 : 0)
+    )
   }
   for (const tok of tokens) {
+    const forms = wordForms(tok)
     if (name === tok) score += 40
-    else if (name.includes(tok)) score += 20
-    if (entry.category?.includes(tok)) score += 8
-    if (entry.intentHints?.some((h) => h.includes(tok) || tok.includes(h))) score += 6
-    if (entry.description?.toLowerCase().includes(tok)) score += 3
-    if (entry.label?.toLowerCase().includes(tok)) score += 3
+    else if (forms.some((form) => name.includes(form))) score += 20
+    else {
+      const words = tok.split(/[^\p{L}\p{N}]+/u).filter(Boolean)
+      if (words[0] === 'molecule') words.shift()
+      if (words.length > 1 && (words[0] === 'api' || words[0] === 'app')) words.shift()
+      if (
+        tok !== words.join('') &&
+        words.length > 0 &&
+        words.every((word) => wordForms(word).some((form) => nameWords.includes(form)))
+      )
+        score += 40 + words.reduce((sum, word) => sum + fieldScore(wordForms(word), word), 0)
+    }
+    score += fieldScore(forms, tok)
   }
   return score
 }

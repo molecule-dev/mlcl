@@ -5,7 +5,7 @@ import { join } from 'node:path'
 import { describe, expect, it } from 'vitest'
 
 import { projectFramework, scorePackage, toSearchEntry } from '../../commands/search.js'
-import { frameworksAcceptedBy, searchPackages } from '../package-search.js'
+import { frameworksAcceptedBy, searchPackages, type SearchSourceEntry } from '../package-search.js'
 import { loadAppFrameworks, loadRegistry } from '../registry.js'
 import type { InferredPackage } from '../schema.js'
 
@@ -329,8 +329,8 @@ describe('search capability and symbol relevance', () => {
 
   it("gives a feature's framework counterparts one place when no framework is named", () => {
     const frameworks = ['react', 'vue', 'svelte', 'solid', 'angular']
-    const entries = [
-      ...frameworks.map((framework) => ({
+    const entries: SearchSourceEntry[] = [
+      ...frameworks.map((framework): SearchSourceEntry => ({
         name: `@molecule/app-feature-wave-${framework}`,
         stack: 'app',
         category: 'audio-waveform',
@@ -387,14 +387,7 @@ describe('search capability and symbol relevance', () => {
   })
 
   it('gives an equal score to the package the other matches build on', () => {
-    type Entry = {
-      name: string
-      stack: string
-      category: string
-      label: string
-      description: string
-      runtimeDependencies?: string[]
-    }
+    type Entry = SearchSourceEntry
     const entry = (name: string, runtimeDependencies?: string[]): Entry => ({
       name,
       stack: 'api',
@@ -431,6 +424,36 @@ describe('search capability and symbol relevance', () => {
       '@molecule/api-zeta-widgets',
     ])
     expect(names('transactional email')[0]).toBe('@molecule/api-emails')
+  })
+
+  // An agent asked for `users`, `api-users` and `api-server-express` in turn: the first ranked
+  // email, feature flags and notifications, the second found nothing, so it guessed more names
+  // before it read the user resource's doc (harness eval `scaffold`, 2026-11-25; OLD MUSTFAIL).
+  it('finds a package by a plural word or a hyphenated name of its words', () => {
+    for (const query of ['users', 'api-users', 'api-user', '@molecule/api-users'])
+      expect(names(query)[0], query).toBe('@molecule/api-resource-user')
+    expect(scorePackage(pkg('@molecule/app-cookie-banner'), 'cookies')).toBeGreaterThan(0)
+    expect(scorePackage(pkg('@molecule/api-category'), 'categories')).toBeGreaterThan(0)
+    expect(scorePackage(pkg('@molecule/app-class-list'), 'classes')).toBeGreaterThan(0)
+    expect(scorePackage(pkg('@molecule/app-auth-ui-react'), 'react-auth')).toBeGreaterThan(0)
+    // Every word of the query in one hint (`url backed pagination filters`) puts the router first.
+    expect(names('URL pagination filters')[0]).toBe('@molecule/app-routing-react-router')
+  })
+
+  it('counterexample: a hyphenated name needs every word, and a word ending in ss stays whole', () => {
+    // The bundle `api-server-express` names is scaffold-only, and no other package has both words.
+    expect(names('api-server-express')).toEqual([])
+    expect(scorePackage(pkg('@molecule/api-middleware-express'), 'api-server-express')).toBe(0)
+    // Prose spellings are not names: `sign-up` does not match a package named `signup`.
+    expect(scorePackage(pkg('@molecule/app-signup-form'), 'sign-up')).toBe(0)
+    expect(scorePackage(pkg('@molecule/app-clas'), 'class')).toBe(0)
+    // A hint holding every query word ranks below one holding the phrase.
+    const phrase = pkg('@molecule/app-one', ['favorite button'])
+    const words = pkg('@molecule/app-two', ['favorite unfavorite button'])
+    expect(scorePackage(phrase, 'favorite button')).toBeGreaterThan(
+      scorePackage(words, 'favorite button'),
+    )
+    expect(scorePackage(words, 'favorite button')).toBeGreaterThan(0)
   })
 
   it('keeps exact package names above incidental symbols and rejects unrelated phrase matches', () => {

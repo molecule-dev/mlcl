@@ -6,7 +6,8 @@ import { join } from 'node:path'
 
 import { afterAll, beforeAll, describe, expect, it } from 'vitest'
 
-import { scorePackage } from '../../commands/search.js'
+import { scorePackage, toSearchEntry } from '../../commands/search.js'
+import { isOfferedPackage } from '../package-search.js'
 import { loadRegistry } from '../registry.js'
 import type { InferredPackage } from '../schema.js'
 
@@ -33,7 +34,8 @@ interface HostedHit {
   description: string
   install: string
 }
-interface CallArgs {
+/** A type, not an interface: the tool call takes it as a `Record<string, unknown>`. */
+type CallArgs = {
   query: string
   stack?: 'api' | 'app'
   limit?: number
@@ -50,6 +52,7 @@ const call = async (query: string): Promise<string[]> =>
 /**
  * The CLI pipeline the hosted transport must reproduce, computed independently
  * of the hosted server: `loadRegistry(<stack>)`'s declared-stack filter, the
+ * offered-package rule (no tooling, renamed or scaffold-only package), the
  * canonical scorer, ranking, one place per feature for framework counterparts
  * (names that differ only in a trailing `appFrameworks` key, when the registry
  * has them), then the limit window.
@@ -61,6 +64,7 @@ function expected(
 ): string[] {
   const matched = pool
     .filter((pkg) => !options.stack || pkg.molecule?.stack === options.stack)
+    .filter((pkg) => isOfferedPackage(toSearchEntry(pkg)))
     .map((pkg) => ({
       name: pkg.name,
       score: scorePackage(pkg, query),
