@@ -33,14 +33,15 @@ their app — DMs, support chat, group threads. The frontend primitives
 ## What you'll install
 
 ```bash
-cd /workspace
-npm install @molecule/app-message-bubble-react --workspace=app
-npm install @molecule/app-typing-indicator-react --workspace=app
-# Real-time delivery transport — pick one:
-npm install @molecule/api-realtime-sse --workspace=api      # simplest
-# OR
-npm install @molecule/api-realtime-socketio --workspace=api # bidirectional
+npx mlcl add @molecule/app-message-bubble-react @molecule/app-typing-indicator-react --inject
+npx mlcl add @molecule/api-realtime-sse --inject
 ```
+
+Run these from the project root when those packages are missing. Adapt the
+generated `api/src/bonds/realtime-sse.ts` with the example's provider options
+and join guard. Keep the setup function name that `api/src/bonds/index.ts`
+calls. The join guard uses the app's session JWT and the device service provided
+by `@molecule/api-resource-device` when you add `@molecule/api-resource-user`.
 
 ## Files in this example
 
@@ -52,11 +53,10 @@ npm install @molecule/api-realtime-socketio --workspace=api # bidirectional
 
 ## Using socket.io instead of SSE
 
-The files above ship the **SSE** transport. Socket.io (bidirectional; what
-every realtime flagship uses) is a drop-in swap of exactly TWO things — the
-`onJoinRequest` guard and the `broadcast('channel:<id>', 'message:created', …)`
-handler code stay **byte-for-byte identical** (both live on the
-transport-agnostic realtime CORE, `@molecule/api-realtime`).
+For bidirectional chat, add the Socket.IO API and app providers with
+`npx mlcl add @molecule/api-realtime-socketio @molecule/app-realtime-socketio --inject`
+when configuring your stack. Keep the join guard and broadcast calls on
+`@molecule/api-realtime`.
 
 **1. The bond** — same as `realtime-sse.ts`, but the provider comes from
 `@molecule/api-realtime-socketio` and takes NO `path` (socket.io answers at
@@ -72,15 +72,15 @@ export function setupRealtime(): void {
   onJoinRequest(async ({ room, auth, headers }) => {
     // ↓ IDENTICAL to the SSE guard — verify the session, allow only channel:<id> rooms.
     if (!/^channel:.+$/.test(room)) return false
-    return verifiedUserId(auth, headers) !== null
+    return (await verifiedUserId(auth, headers)) !== null
   })
 }
 ```
 
 **2. The client** — replace the `EventSource` in `ChatPage.tsx` with a socket.io
 subscription. Socket.io opens ONE connection (`connect('/')`), JOINS a room with
-the `joinRoom(name)` METHOD (not a `?room=` query, not a path segment), listens
-with `on(event, handler)`, and MUST clean up (`off` + `leaveRoom`) on unmount:
+the `joinRoom(name)` method, listens with `on(event, handler)`, and releases the
+dedicated connection on unmount.
 
 ```ts
 import { connect, type RealtimeConnection } from '@molecule/app-realtime'
@@ -100,7 +100,10 @@ useEffect(() => {
   // handshake sends the cookie, and the guard's verifiedUserId reads either.
   connect('/', { auth: { token: authClient.getAccessToken() } })
     .then((c) => {
-      if (!active) return
+      if (!active) {
+        c.disconnect()
+        return
+      }
       conn = c
       c.on('message:created', onCreated)
       return c.joinRoom(room) // ← subscribe AFTER on(); without joinRoom the socket is in no room
@@ -112,7 +115,7 @@ useEffect(() => {
     active = false
     if (conn) {
       conn.off('message:created', onCreated)
-      conn.leaveRoom(room).catch(() => {})
+      conn.disconnect()
     }
   }
 }, [channelId])
@@ -120,7 +123,8 @@ useEffect(() => {
 
 For MULTIPLE pages/components, lift `connect('/')` into a shared
 `getRealtimeConnection()` singleton (cache the promise, drop it on logout) so the
-whole app reuses one socket — see any realtime flagship's `app/src/lib/realtime.ts`.
+whole app reuses one socket. Each consumer removes its listener and leaves
+its room on unmount. The owner of the shared connection disconnects on logout.
 
 **3. The Vite dev proxy** — `/socket.io` (including the WebSocket upgrade) must be
 proxied to the API. `@molecule/app-vite-config-default` already does this, so a

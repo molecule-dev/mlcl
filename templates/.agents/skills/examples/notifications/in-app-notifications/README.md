@@ -18,20 +18,24 @@ order status changes, system alerts.
 ## What you'll install
 
 ```bash
-cd /workspace
-npm install @molecule/api-realtime-sse --workspace=api          # live updates (SSE provider)
-npm install @molecule/app-notification-badge-react --workspace=app  # bell icon + count badge
-npm install @molecule/app-notification-center-react --workspace=app  # dropdown notification panel
+npx mlcl add @molecule/api-realtime-sse --inject
+npx mlcl add @molecule/app-notification-badge-react @molecule/app-notification-center-react --inject
 ```
+
+Run these from the project root when those packages are missing. Adapt the
+generated `api/src/bonds/realtime-sse.ts` with the example's provider options
+and join guard. Keep the setup function name that `api/src/bonds/index.ts`
+calls. The join guard uses the app's session JWT and the device service provided
+by `@molecule/api-resource-device` when you add `@molecule/api-resource-user`.
 
 ## Files in this example
 
-| Path                                  | What it does                                                                                                                                                                                                                                                                                                                                                                                                                                                                  |
-| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api/bonds/realtime-sse.ts`           | Wires SSE as the realtime bond at `path: '/api/realtime'` (deferred, so the API server attaches it to its own port). Call `setupRealtime()` from your `bonds.ts` — without it `/api/realtime` is never mounted and the bell receives nothing. **Registers the `onJoinRequest` guard** so a user can subscribe ONLY to their own `user:<userId>` room — without it any client could `EventSource('/api/realtime?room=user:<anyone>')` and read another user's notifications (a realtime IDOR). |
-| `api/handlers/notifications.ts`       | `GET /notifications`, `POST /notifications/:id/read`, `POST /notifications/mark-all-read`, plus an exported `notify(recipientId, fields)` helper to emit one. Broadcasts to the recipient's `user:<userId>` room.                                                                                                                                                                                                                                                             |
-| `app/components/NotificationBell.tsx` | Bell icon with unread count badge (`NotificationWrapper`) + dropdown panel (`NotificationCenter`). Takes a `userId` prop and subscribes to that user's SSE room for live increments.                                                                                                                                                                                                                                                                                          |
-| `app/locales/en/notifications.ts`     | Empty-state copy + per-type strings ("Alice liked your post").                                                                                                                                                                                                                                                                                                                                                                                                                |
+| Path                                  | What it does                                                                                                                                                                                                      |
+| ------------------------------------- | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api/bonds/realtime-sse.ts`           | Configures the SSE provider to serve `/api/realtime` on the API port. Its `onJoinRequest` guard verifies the session and allows access to the user's own `user:<userId>` room.                                    |
+| `api/handlers/notifications.ts`       | `GET /notifications`, `POST /notifications/:id/read`, `POST /notifications/mark-all-read`, plus an exported `notify(recipientId, fields)` helper to emit one. Broadcasts to the recipient's `user:<userId>` room. |
+| `app/components/NotificationBell.tsx` | Bell icon with unread count badge (`NotificationWrapper`) + dropdown panel (`NotificationCenter`). Takes a `userId` prop and subscribes to that user's SSE room for live increments.                              |
+| `app/locales/en/notifications.ts`     | Empty-state copy + per-type strings ("Alice liked your post").                                                                                                                                                    |
 
 ## Realtime wiring (the part that silently breaks)
 
@@ -42,14 +46,12 @@ then receives every `broadcast(<room>, …)`. A trailing path segment
 name must match on both sides.** For per-user notifications the room is
 `user:<userId>`:
 
-- Handler: `broadcast(`user:${userId}`, 'notification:created', …)`
-- Bell: `new EventSource(`/api/realtime?room=user:${userId}`)` — so `<NotificationBellWidget userId={currentUser.id} />`.
+- Handler broadcasts `notification:created` to the room formed by `user:` and the recipient's ID.
+- `<NotificationBellWidget userId={currentUser.id} />` opens `/api/realtime` with that room in the `room` query parameter.
 
-The API server attaches the bonded provider to its own HTTP server, so `setupRealtime()`
-is the only wiring. Because the bell needs the current user's id to name its room, pass
-it as a prop (the same way the chat example passes `channelId`). A hardcoded
-`?room=me` does NOT work — there is no server-side "me" → session-user resolution; it just
-joins a literal room named `me` that nothing broadcasts to.
+The API server attaches the bonded provider to its own HTTP server. Pass the
+current user's ID as a prop so the bell constructs the same room name as the
+notification handler.
 
 **Emitting a notification** closes the loop. When a feature fires an event
 (someone likes a post, an order ships), call the exported helper from that

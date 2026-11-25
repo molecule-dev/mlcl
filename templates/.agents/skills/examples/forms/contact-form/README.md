@@ -27,6 +27,11 @@ Use the email and rate-limit bonds already wired in your app if available. The
 handler sends through `sendMail()` from `@molecule/api-emails` and throttles
 submissions through `consume()` from `@molecule/api-rate-limit`.
 
+Mount the example router at `/contact` inside `api/src/App/router.ts` so the form
+can send `POST /api/contact`. Load the router after bond setup because the
+handler sets the shared provider's rate-limit policy when imported. To retain
+your app's existing policy, omit that `configure()` call in the copied handler.
+
 ## Files in this example
 
 | Path                          | What it does                                                    |
@@ -55,5 +60,5 @@ CONTACT_TO=hello@your-domain.com
 
 ## Verify
 
-Submit the form → email lands at `CONTACT_TO`. Submit it 20× in
-30 seconds → rate-limit returns 429.
+Submit the form and check that the email reaches `CONTACT_TO`. A request over
+the configured rate limit returns 429.

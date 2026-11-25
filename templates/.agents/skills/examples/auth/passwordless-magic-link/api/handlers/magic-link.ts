@@ -31,14 +31,12 @@ const requestLinkSchema = z.object({
  * POST /auth/magic-link/request
  *
  * Accepts an email address, issues a single-use login token, and emails the link.
- * Always returns 202 so callers cannot enumerate registered addresses.
- *
- * Rate-limited to 3 requests per email per minute.
+ * Returns the same 202 for registered and unknown addresses on success.
+ * The configured rate-limit provider governs the per-email bucket.
  */
 router.post('/request', validateBody(requestLinkSchema), async (req: Request, res: Response) => {
   const { email } = req.body as z.infer<typeof requestLinkSchema>
 
-  // Rate-limit: 3 requests per email per minute.
   const rlKey = `magic-link:${email}`
   const rl = await consume(rlKey)
   if (!rl.allowed) {
@@ -92,7 +90,7 @@ router.post('/request', validateBody(requestLinkSchema), async (req: Request, re
     })
   }
 
-  // Always 202 — do not reveal whether the email is registered.
+  // Give the same response whether an account was found or not.
   res.status(202).json({
     message: t('magicLink.request.sent', undefined, {
       defaultValue: 'If that email is registered, a login link is on its way.',
@@ -123,7 +121,8 @@ router.get('/verify', async (req: MoleculeRequest, res: Response) => {
     limit: 1,
   })) as { id: string; user_id: string; expires_at: string }[]
 
-  if (!tokenRow) {
+  // Only the request that deletes the row may issue a session.
+  if (!tokenRow || (await deleteById('magic_link_tokens', tokenRow.id)).affected !== 1) {
     res.status(404).json({
       error: t('magicLink.verify.notFound', undefined, {
         defaultValue: 'Link not found or already used',
@@ -134,7 +133,6 @@ router.get('/verify', async (req: MoleculeRequest, res: Response) => {
   }
 
   if (new Date(tokenRow.expires_at) < new Date()) {
-    await deleteById('magic_link_tokens', tokenRow.id)
     res.status(410).json({
       error: t('magicLink.verify.expired', undefined, {
         defaultValue: 'Link expired — request a new one',
@@ -143,9 +141,6 @@ router.get('/verify', async (req: MoleculeRequest, res: Response) => {
     })
     return
   }
-
-  // Single-use: delete before issuing session so a second click is rejected.
-  await deleteById('magic_link_tokens', tokenRow.id)
 
   const user = (await findById('users', tokenRow.user_id)) as { id: string; email: string } | null
   if (!user) {
@@ -157,17 +152,15 @@ router.get('/verify', async (req: MoleculeRequest, res: Response) => {
   }
 
   // Log the user in through the same session mechanism as password login: create a device, then
-  // authorization.set() signs the { userId, deviceId } JWT and writes the httpOnly `token` cookie
-  // that verifyMiddleware reads. A cookie signed by hand is not recognized, so the next request
-  // would treat the user as logged out.
-  //
-  // `get<DeviceService>('device')` is the typed accessor, and createOrUpdate resolves to the device
-  // ID string (null when the row could not be written). A hand-typed generic such as
-  // `get<{ createOrUpdate(): … }>('device')` compiles, and `device.id` off it is undefined, which
-  // signs a token every later request answers with 401.
+  // authorization.set() signs the { userId, deviceId } JWT and applies the cookie policy
+  // verifyMiddleware() recorded. A cookie signed by hand is not recognized, so the next request
+  // would treat the user as logged out. `get<DeviceService>('device')` is the typed accessor, and
+  // createOrUpdate resolves to the device ID string (null when the row could not be written); a
+  // hand-typed generic compiles and hands back undefined, which signs a token every later request
+  // answers with 401. set() returns null when signing fails.
   const deviceId = await get<DeviceService>('device')?.createOrUpdate(user.id, 'Magic link')
 
-  if (!deviceId) {
+  if (!deviceId || !authorization.set(req, res, { userId: user.id, deviceId })) {
     res.status(500).json({
       error: t('magicLink.verify.sessionFailed', undefined, {
         defaultValue: 'Could not start your session — request a new link.',
@@ -177,7 +170,6 @@ router.get('/verify', async (req: MoleculeRequest, res: Response) => {
     return
   }
 
-  authorization.set(req, res, { userId: user.id, deviceId })
   res.redirect('/')
 })
 

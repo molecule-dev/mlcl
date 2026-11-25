@@ -36,8 +36,9 @@ The request handler calls `send()` and the worker calls `subscribe()` through
 ## Start the worker
 
 mlcl wires the chosen provider in `api/src/bonds/`. Copy the worker to
-`api/src/lib/worker.ts`. In `api/src/server.ts`, call it once after the existing
-`await setupBonds()` completes.
+`api/src/lib/worker.ts`. In a custom server, start it once after
+`await setupBonds()`. With `createServerFactory()`, pass it as the
+`postBondsSetup` callback, calling `startJobWorker()` inside the callback.
 
 ```typescript
 import { startJobWorker } from './lib/worker.js'

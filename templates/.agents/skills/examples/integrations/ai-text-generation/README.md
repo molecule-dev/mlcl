@@ -31,6 +31,9 @@ provider. The handler looks up the named provider with `getProviderByName()` fro
 generation. Reuse a supported AI provider and rate-limit bond if your flagship
 already wires them.
 
+Mount the example router at `/generate` inside `api/src/App/router.ts` so the
+button can send `POST /api/generate`.
+
 `@molecule/app-ui`, `@molecule/app-i18n-react-i18next`, and `@molecule/api-bond`
 are already present in a scaffolded app.
 

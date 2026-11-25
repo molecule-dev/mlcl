@@ -57,24 +57,25 @@ device service and passes the returned device id to `authorization.set()`.
 
 ## Database migration
 
-Add a `magic_link_tokens` table (example for PostgreSQL / SQLite):
+Add a `magic_link_tokens` migration for PostgreSQL or SQLite. The database
+store supplies the token ID and the handler supplies both timestamps.
 
 ```sql
 CREATE TABLE magic_link_tokens (
-  id         TEXT        PRIMARY KEY DEFAULT gen_random_uuid(),
-  user_id    TEXT        NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  id         UUID        PRIMARY KEY NOT NULL,
+  user_id    UUID        NOT NULL REFERENCES users(id) ON DELETE CASCADE,
   token_hash TEXT        NOT NULL UNIQUE,
   expires_at TIMESTAMPTZ NOT NULL,
-  created_at TIMESTAMPTZ NOT NULL DEFAULT NOW()
+  created_at TIMESTAMPTZ NOT NULL
 );
-CREATE INDEX idx_magic_link_tokens_hash ON magic_link_tokens(token_hash);
 ```
 
 ## Wiring the routes (api/src/App/router.ts)
 
 Copy the handler to `api/src/handlers/magic-link.ts` and mount it after the
 user resource's `authorization.verifyMiddleware()`. The middleware sets the
-session policy and lets anonymous requests reach both public routes.
+session policy and lets anonymous requests reach both public routes. Enable
+cookie sessions for this browser flow so the session survives the redirect.
 
 ```ts
 import magicLinkRouter from '../handlers/magic-link.js'

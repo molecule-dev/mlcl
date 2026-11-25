@@ -23,47 +23,38 @@ npx mlcl add @molecule/api-rate-limit-memory --inject
 ```
 
 Run these from the project root to wire any missing providers in `api/src/bonds/`.
-Reuse the two-factor and rate-limit providers already wired in your app. The
-handler generates the QR data URL with `@molecule/api-two-factor` and uses
-`consume()` from `@molecule/api-rate-limit` to cap attempts on `/2fa/verify` and
-`/2fa/disable`. The page posts credentials and the code to
-`POST /api/users/log-in`, served by `@molecule/api-resource-user`.
+`@molecule/api-resource-user` owns both enrollment and login. With a two-factor
+provider bonded, its generated router mounts `POST /api/users/:id/verify-two-factor`
+behind `authSelf` and `rateLimitTwoFactor`: `{ action: 'setup' }` returns the
+`secret` and `QRImageUrl`, `{ action: 'enable', token }` turns the second factor
+on, and `{ action: 'disable', token }` turns it off. These write the state the
+log-in route reads (`usersSecrets` and `users.twoFactorEnabled`), so this example
+ships no API code.
 
 ## Files in this example
 
-| Path                                | What it does                                                                                              |
-| ----------------------------------- | --------------------------------------------------------------------------------------------------------- |
-| `api/handlers/totp.ts`              | `POST /2fa/enroll` issues secret + QR; `POST /2fa/verify` validates code; `POST /2fa/disable` removes it. |
-| `app/pages/EnableTwoFactorPage.tsx` | Renders QR + asks user to enter a code from their authenticator.                                          |
-| `app/pages/LoginVerifyPage.tsx`     | After password OK, prompt for 6-digit code if 2FA enabled.                                                |
+| Path                                | What it does                                                                                                     |
+| ----------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `app/pages/EnableTwoFactorPage.tsx` | Takes the signed-in user's `userId`, posts `setup`, shows the QR and the manual secret, then posts `enable`. |
+| `app/pages/LoginVerifyPage.tsx`     | After the password is accepted, asks for the 6-digit code and resubmits the log-in with it.                     |
 
 ## Anti-patterns
 
-- Do not store the TOTP secret unencrypted in the database. Encrypt
-  with the `secrets` bond (`@molecule/api-secrets-env` ships an
-  encryption helper) and decrypt at verify time.
+- Do not write your own enroll or verify routes, or keep the secret in other
+  columns: the log-in route checks only `users.twoFactorEnabled` and the secret
+  in `usersSecrets`, so an enrollment stored anywhere else never asks for a code.
 - Do not invent `@molecule/api-auth-totp`, `@molecule/api-2fa`, or
   `@molecule/api-mfa`. The correct packages are `@molecule/api-two-factor`
   (core interface) + `@molecule/api-two-factor-otplib` (provider).
-- Do not use the `qrcode` npm package in the app — `getUrls()` from
-  `@molecule/api-two-factor` already returns a `QRImageUrl` data URL.
-  Render it directly as `<img src={QRImageUrl} />`.
-- Do not skip recovery codes. When users lose their phone, they
-  need backup codes — generate 10 single-use codes at enrollment
-  and let the user download them.
-- Do not leave `/verify` un-rate-limited; a 6-digit code is only ~1M
-  values, so an attacker with a session brute-forces it in a few
-  windows. This example caps attempts per user with `consume()` from
-  `@molecule/api-rate-limit` (tune the window/max on the provider, e.g.
-  ≤5/min) and 429s past the cap.
-- Do not skip replay protection. A TOTP code stays valid for ~30s, so
-  the same code works twice unless you reject reuse. Pass the last
-  accepted `timeStep` as `afterTimeStep` to `verify()` and persist the
-  returned `timeStep` (this example stores `totp_last_time_step`); a
-  `reason: 'replay'` result means the code was already used.
+- Do not use the `qrcode` npm package in the app — the setup response already
+  carries `QRImageUrl`, a data URL. Render it directly as `<img src={QRImageUrl} />`.
+- Show recovery codes only if your API implements both their issuance and
+  single-use redemption. The user resource issues none.
+- Do not send the secret back to the server or read it again after setup: `enable`
+  and the log-in send only the code.
 
 ## Verify
 
-User enables 2FA → scans QR with Google Authenticator → enters code
-→ saved. Next login: password → "Enter code" page → enter the 6
-digits → in. Wrong code → 401 with retry counter.
+After enrollment, `POST /api/users/log-in` with the password returns 206 and
+`twoFactorRequired: true`. Resubmit with `twoFactorToken`. A valid code completes
+the login. The resource's challenge response and rate limit govern retries.

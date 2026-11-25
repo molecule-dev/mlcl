@@ -15,12 +15,14 @@ If you manage your own router, import `authorization` from
 Public routes can serve anonymous requests. Protected handlers should check the
 session and return 401 when it is missing.
 
-**Never `import` a `requireAuth` (or any auth middleware) from a package.** There
-is no `@molecule/api-auth` package and nothing exports one; an invented import
-breaks the build. Gate a route by reading the user in the handler (`getUserId` /
-`requireUser`, below), or by a small `requireAuth` middleware you write locally in
-the handler file, as the example slices do (`find_example`, or
-`npx mlcl examples <query>`).
+For a custom route, read the session with `getUserId` or `requireUser` from
+`@molecule/api-resource`. For a shared Express guard, write a local middleware
+using those helpers. For user resource routes, use `auth` or `authSelf` from
+`createRequestHandlerMap()` in `@molecule/api-resource-user`.
+
+**Never import a `requireAuth` from a package.** There is no `@molecule/api-auth`
+package, and the `requireAuth` in the Express bond bundle is the templates' own
+wiring, which a project's code does not import; an invented import breaks the build.
 
 ## Accessing the Current User — getUserId(res)
 

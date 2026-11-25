@@ -77,7 +77,7 @@ const { LoginVerifyPage } =
 
 const { EnableTwoFactorPage } =
   (await import('../../../templates/.agents/skills/examples/auth/two-factor-auth/app/pages/EnableTwoFactorPage.js')) as {
-    EnableTwoFactorPage: (props: object) => ReactNode
+    EnableTwoFactorPage: (props: { userId: string }) => ReactNode
   }
 
 ;(globalThis as { IS_REACT_ACT_ENVIRONMENT?: boolean }).IS_REACT_ACT_ENVIRONMENT = true
@@ -158,7 +158,8 @@ beforeEach(() => {
     value: locationStub,
   })
   globalThis.fetch = ((input: unknown, init?: { body?: unknown }) =>
-    new Promise((resolve, reject) => {
+    // The double carries only what the example pages read off a response.
+    new Promise<Pick<Response, 'ok' | 'status' | 'json'>>((resolve, reject) => {
       fetches.requests.push({
         url: String(input),
         body: init?.body,
@@ -389,31 +390,30 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
     expect(fetches.requests.filter((r) => r.url.includes('/api/users/log-in'))).toHaveLength(2)
   })
 
-  it('the ENABLE page declares success only on the handler’s own confirmation', async () => {
-    // The enroll half of this page already validates its 2xx body (a body with
-    // no `secret`/`recoveryCodes` is the failed enroll, not a white screen); the
+  it('the ENABLE page declares success only on the route’s own confirmation', async () => {
+    // The setup half of this page already validates its 2xx body (a body with
+    // no `secret` is the failed setup, not a dead page); the
     // verify half took ANY 2xx as "the code was accepted" and announced
     // "Two-factor authentication enabled" over an account where the second
     // factor was still OFF — the shape the mock API server's no-fixture answer
     // (`200 {}`) and a proxy-rewritten failure both produce, and the page offers
-    // no way back from it. The handler's success body is `{ ok: true }`
-    // (api/handlers/totp.ts, the branch that promotes the pending secret).
-    await mount(createElement(EnableTwoFactorPage, {}))
+    // no way back from it. The user resource's success body is `{ twoFactorEnabled: true }`
+    // (`verifyTwoFactor`, the `enable` action that promotes the pending secret).
+    await mount(createElement(EnableTwoFactorPage, { userId: 'user-1' }))
     const start = container.querySelector('button') as HTMLButtonElement
     await act(async () => {
       start.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     })
     await flush()
-    await respond('/api/2fa/enroll', 200, {
+    await respond('/api/users/user-1/verify-two-factor', 200, {
       secret: 'JBSWY3DPEHPK3PXP',
       QRImageUrl: '',
-      recoveryCodes: ['aaaa-bbbb', 'cccc-dddd'],
     })
     expect(text()).toContain('JBSWY3DPEHPK3PXP')
 
     await typeInto('input', '123456')
     await submit()
-    await respond('/api/2fa/verify', 200, {})
+    await respond('/api/users/user-1/verify-two-factor', 200, {})
 
     expect(text(), 'a 2xx carrying no confirmation must not claim 2FA is enabled').not.toContain(
       'Two-factor authentication enabled',
@@ -424,7 +424,7 @@ describe('two-factor-auth — the code step posts to the real log-in route', () 
     // …and the handler’s real answer completes the enrollment.
     await typeInto('input', '123456')
     await submit()
-    await respond('/api/2fa/verify', 200, { ok: true })
+    await respond('/api/users/user-1/verify-two-factor', 200, { twoFactorEnabled: true })
     expect(text()).toContain('Two-factor authentication enabled')
   })
 

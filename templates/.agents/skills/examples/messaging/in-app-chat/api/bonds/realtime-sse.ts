@@ -1,15 +1,15 @@
+import { get } from '@molecule/api-bond'
 import { verify } from '@molecule/api-jwt'
 import { onJoinRequest, setProvider } from '@molecule/api-realtime'
 import { createProvider } from '@molecule/api-realtime-sse'
+import type { DeviceService } from '@molecule/api-resource-device'
 import { authorization } from '@molecule/api-resource-user'
 
 /**
  * Wires SSE as the realtime bond. `createProvider({ deferAttach: true })`
- * does NOT bind a port itself: the API server attaches the bonded provider to
- * its own HTTP server before it listens, so SSE shares the API's port instead
- * of opening a second standalone port a container/proxy may not expose. Call
- * `setupRealtime()` from your bond setup; the server needs no extra code. Same
- * pattern for `-socketio` or `-ws`.
+ * lets the API server attach the provider to its own listener during startup.
+ * Call `setupRealtime()` from your bond setup. SSE, Socket.IO and ws can share
+ * the API's port this way.
  *
  * SECURITY — the join guard below is NOT optional. Without an `onJoinRequest`
  * guard the realtime core lets ANY client subscribe to `?room=channel:<anything>`
@@ -21,11 +21,11 @@ import { authorization } from '@molecule/api-resource-user'
  * join the same way (see the note in the guard).
  */
 
-/** Extract + verify the subscriber's session from the SSE handshake → the user id, or null. */
-function verifiedUserId(
+/** Verify the subscriber's JWT and device, then return the session user ID. */
+async function verifiedUserId(
   auth: Record<string, unknown>,
   headers: Record<string, string | string[] | undefined> | undefined,
-): string | null {
+): Promise<string | null> {
   const fromQuery = typeof auth.token === 'string' ? auth.token : null
   const rawCookie = Array.isArray(headers?.cookie) ? headers.cookie.join('; ') : headers?.cookie
   let fromCookie: string | null = null
@@ -49,14 +49,19 @@ function verifiedUserId(
   try {
     const payload = verify(token)
     if (
-      payload &&
-      typeof payload === 'object' &&
-      typeof (payload as { userId?: unknown }).userId === 'string'
-    ) {
-      return (payload as { userId: string }).userId
-    }
+      !payload ||
+      typeof payload !== 'object' ||
+      typeof payload.userId !== 'string' ||
+      !payload.userId ||
+      typeof payload.deviceId !== 'string' ||
+      !payload.deviceId
+    )
+      return null
+    const devices = get<DeviceService>('device')
+    if (devices && !(await devices.exists(payload.deviceId))) return null
+    return payload.userId
   } catch (_error) {
-    // Invalid/expired/tampered token → deny the join (never an unverified decode).
+    // A failed signature or device check denies the join.
   }
   return null
 }
@@ -72,7 +77,7 @@ export function setupRealtime(): void {
 
   onJoinRequest(async ({ room, auth, headers }) => {
     if (!/^channel:.+$/.test(room)) return false // only channel rooms are joinable
-    const userId = verifiedUserId(auth, headers)
+    const userId = await verifiedUserId(auth, headers)
     if (!userId) return false
     // OPEN channels: any authenticated user may join (mirrors the HTTP list/send,
     // which only require a session). For PRIVATE channels, mirror the read authz:

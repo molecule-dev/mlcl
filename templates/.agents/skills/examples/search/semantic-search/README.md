@@ -52,8 +52,8 @@ DATABASE_URL=...        # pgvector reuses your Postgres (@molecule/api-ai-vector
 
 ## Create the collection at startup
 
-In `api/src/server.ts`, create the collection after the existing
-`await setupBonds()` completes.
+In a custom server, create the collection after `await setupBonds()`. With
+`createServerFactory()`, run the same initialization in `postBondsSetup`.
 
 ```typescript
 import { requireProvider as requireVectorStore } from '@molecule/api-ai-vector-store'

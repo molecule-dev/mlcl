@@ -73,12 +73,21 @@ router.use('/users', resetPasswordRouter)
 ## Required env
 
 ```
-JWT_PRIVATE_KEY=...   # RSA private key (PEM). Generate with: node -e "const {generateKeyPairSync}=require('@molecule/api-jwt');const kp=generateKeyPairSync();console.log(kp.privateKey)"
+JWT_PRIVATE_KEY=...   # RSA private key (PEM)
 JWT_PUBLIC_KEY=...    # Matching RSA public key (PEM)
 MAILGUN_API_KEY=...   # for verification + reset emails
 MAILGUN_DOMAIN=...
 SITE_ORIGIN=...       # the app's public origin; the framework's reset email link uses it
 ```
+
+Generate both keys from the API workspace and put the two lines in `api/.env`.
+
+```bash
+node --input-type=module -e "import { generateKeyPairSync } from '@molecule/api-jwt'; const { privateKey, publicKey } = generateKeyPairSync(); console.log('JWT_PRIVATE_KEY=' + JSON.stringify(privateKey)); console.log('JWT_PUBLIC_KEY=' + JSON.stringify(publicKey));"
+```
+
+Serve a frontend page at `/reset-password` for the emailed link. On submit,
+send the URL's `token` and the new `password` to `POST /api/users/reset-password`.
 
 ## Anti-patterns
 

@@ -32,6 +32,25 @@ resends with `consume()` from `@molecule/api-rate-limit` and sends the link with
 `sendMail()` from `@molecule/api-emails`. Reuse those bonds if your flagship
 already configures them.
 
+## Wiring
+
+Mount the example router at `/verify` under `/api` after session middleware.
+Serve `VerifyEmailPage` at `/verify` on the frontend and set `SITE_ORIGIN` to
+that frontend's public origin. Set `EMAIL_FROM` to a verified sender for the
+email provider. The resend route uses the signed-in user's account.
+
+Add this migration for PostgreSQL or SQLite.
+
+```sql
+CREATE TABLE email_verification_tokens (
+  id UUID PRIMARY KEY NOT NULL,
+  user_id UUID NOT NULL REFERENCES users(id) ON DELETE CASCADE,
+  token_hash TEXT NOT NULL UNIQUE,
+  expires_at TIMESTAMPTZ NOT NULL,
+  created_at TIMESTAMPTZ NOT NULL
+);
+```
+
 ## Files in this example
 
 | Path                            | What it does                                                                                                                                                                               |
@@ -57,8 +76,7 @@ already configures them.
 
 ## Verify
 
-User signs up → receives email with link → clicks → page says
-"Email verified" → `users.emailVerified` is now `true` (the same flag
-login/UI already read). User clicks
-the same link 24h later → page says "Link expired" with a
-Resend button.
+A signed-in user requests a link and opens it. The page shows success, the
+handler sets `users.emailVerified` to `true`, and a second visit normally sees
+an invalid link because the token was removed. Opening an unused link after
+24 hours shows the expired state.

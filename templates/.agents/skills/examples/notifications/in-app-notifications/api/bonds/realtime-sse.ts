@@ -1,15 +1,16 @@
+import { get } from '@molecule/api-bond'
 import { verify } from '@molecule/api-jwt'
 import { onJoinRequest, setProvider } from '@molecule/api-realtime'
 import { createProvider } from '@molecule/api-realtime-sse'
+import type { DeviceService } from '@molecule/api-resource-device'
 import { authorization } from '@molecule/api-resource-user'
 
 /**
  * Wires SSE as the realtime bond so the notification handlers can
  * `broadcast(...)` and the bell's `EventSource` can receive live events.
- * `createProvider({ deferAttach: true })` does NOT bind a port itself: the API
- * server attaches the bonded provider to its own HTTP server before it listens,
- * so SSE shares the API's port instead of opening a second standalone port a
- * container/proxy may not expose. Same pattern for `-socketio` or `-ws`.
+ * `createProvider({ deferAttach: true })` lets the API server attach the SSE
+ * provider to its own listener during startup. SSE, Socket.IO and ws can share
+ * the API's port this way.
  *
  * Room convention: the SSE provider streams ONE path, `/api/realtime` here (under
  * `/api` so the frontend reaches it through the same proxy as every API call; the
@@ -30,11 +31,11 @@ import { authorization } from '@molecule/api-resource-user'
  * needs the same check (mirror the HTTP read authz for that entity).
  */
 
-/** Extract + verify the subscriber's session from the SSE handshake → the user id, or null. */
-function verifiedUserId(
+/** Verify the subscriber's JWT and device, then return the session user ID. */
+async function verifiedUserId(
   auth: Record<string, unknown>,
   headers: Record<string, string | string[] | undefined> | undefined,
-): string | null {
+): Promise<string | null> {
   const fromQuery = typeof auth.token === 'string' ? auth.token : null
   const rawCookie = Array.isArray(headers?.cookie) ? headers.cookie.join('; ') : headers?.cookie
   let fromCookie: string | null = null
@@ -58,14 +59,19 @@ function verifiedUserId(
   try {
     const payload = verify(token)
     if (
-      payload &&
-      typeof payload === 'object' &&
-      typeof (payload as { userId?: unknown }).userId === 'string'
-    ) {
-      return (payload as { userId: string }).userId
-    }
+      !payload ||
+      typeof payload !== 'object' ||
+      typeof payload.userId !== 'string' ||
+      !payload.userId ||
+      typeof payload.deviceId !== 'string' ||
+      !payload.deviceId
+    )
+      return null
+    const devices = get<DeviceService>('device')
+    if (devices && !(await devices.exists(payload.deviceId))) return null
+    return payload.userId
   } catch (_error) {
-    // Invalid/expired/tampered token → deny the join (never an unverified decode).
+    // A failed signature or device check denies the join.
   }
   return null
 }
@@ -77,7 +83,7 @@ export function setupRealtime(): void {
   // A user may join ONLY their own `user:<userId>` room. Without this guard the
   // realtime core allows every join, so any client could read another user's feed.
   onJoinRequest(async ({ room, auth, headers }) => {
-    const userId = verifiedUserId(auth, headers)
+    const userId = await verifiedUserId(auth, headers)
     if (!userId) return false
     return room === `user:${userId}`
   })

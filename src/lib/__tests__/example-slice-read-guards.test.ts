@@ -38,7 +38,7 @@
  *   BODY as well as a 2xx status: an unmatched endpoint answers 200 with an
  *   empty object (the mock API server's `unmatchedFixtureResponse`), the empty
  *   object was installed as the enrollment / the preview, and the next render
- *   ran `enrollment.recoveryCodes.map(...)` / iterated `preview.invalid` — a
+ *   ran `enrollment.secret` past the setup step / iterated `preview.invalid` — a
  *   white screen where a retryable error belongs. `res.ok` is a statement about
  *   the status, never about the shape. `profile-photo-upload` read no `avatar`
  *   out of the same empty body and reported nothing: the upload rendered no
@@ -236,59 +236,59 @@ function httpRequest(method: 'get' | 'post' | 'delete', url: string): Promise<un
 }
 
 const { BlogIndexPage } =
-  (await import('../../../templates/.agents/skills/examples/content/markdown-blog/app/pages/BlogIndexPage')) as {
+  (await import('../../../templates/.agents/skills/examples/content/markdown-blog/app/pages/BlogIndexPage.js')) as {
     BlogIndexPage: (props: object) => ReactNode
   }
 const { NotificationBellWidget } =
-  (await import('../../../templates/.agents/skills/examples/notifications/in-app-notifications/app/components/NotificationBell')) as {
+  (await import('../../../templates/.agents/skills/examples/notifications/in-app-notifications/app/components/NotificationBell.js')) as {
     NotificationBellWidget: (props: { userId: string }) => ReactNode
   }
 const { EnablePushButton } =
-  (await import('../../../templates/.agents/skills/examples/notifications/web-push/app/components/EnablePushButton')) as {
+  (await import('../../../templates/.agents/skills/examples/notifications/web-push/app/components/EnablePushButton.js')) as {
     EnablePushButton: (props: object) => ReactNode
   }
 const { SearchPage } =
-  (await import('../../../templates/.agents/skills/examples/search/full-text-search/app/pages/SearchPage')) as {
+  (await import('../../../templates/.agents/skills/examples/search/full-text-search/app/pages/SearchPage.js')) as {
     SearchPage: (props: { index: string }) => ReactNode
   }
 const { CommentThread } =
-  (await import('../../../templates/.agents/skills/examples/messaging/comment-threads/app/components/CommentThread')) as {
+  (await import('../../../templates/.agents/skills/examples/messaging/comment-threads/app/components/CommentThread.js')) as {
     CommentThread: (props: { resourceType: string; resourceId: string }) => ReactNode
   }
 const { ReactionBar } =
-  (await import('../../../templates/.agents/skills/examples/messaging/emoji-reactions/app/components/ReactionBar')) as {
+  (await import('../../../templates/.agents/skills/examples/messaging/emoji-reactions/app/components/ReactionBar.js')) as {
     ReactionBar: (props: { resourceType: string; resourceId: string }) => ReactNode
   }
 const { DeleteAccountPage } =
-  (await import('../../../templates/.agents/skills/examples/auth/account-deletion/app/pages/DeleteAccountPage')) as {
+  (await import('../../../templates/.agents/skills/examples/auth/account-deletion/app/pages/DeleteAccountPage.js')) as {
     DeleteAccountPage: (props: object) => ReactNode
   }
 const { SettingsPage } =
-  (await import('../../../templates/.agents/skills/examples/forms/settings-page/app/pages/SettingsPage')) as {
+  (await import('../../../templates/.agents/skills/examples/forms/settings-page/app/pages/SettingsPage.js')) as {
     SettingsPage: (props: object) => ReactNode
   }
 const { ProductTour } =
-  (await import('../../../templates/.agents/skills/examples/forms/onboarding-tour/app/components/ProductTour')) as {
+  (await import('../../../templates/.agents/skills/examples/forms/onboarding-tour/app/components/ProductTour.js')) as {
     ProductTour: (props: object) => ReactNode
   }
 const { InviteLink } =
-  (await import('../../../templates/.agents/skills/examples/commerce/referrals/app/components/InviteLink')) as {
+  (await import('../../../templates/.agents/skills/examples/commerce/referrals/app/components/InviteLink.js')) as {
     InviteLink: (props: object) => ReactNode
   }
 const { ChatPage } =
-  (await import('../../../templates/.agents/skills/examples/messaging/in-app-chat/app/pages/ChatPage')) as {
+  (await import('../../../templates/.agents/skills/examples/messaging/in-app-chat/app/pages/ChatPage.js')) as {
     ChatPage: (props: { channelId: string }) => ReactNode
   }
 const { EnableTwoFactorPage } =
-  (await import('../../../templates/.agents/skills/examples/auth/two-factor-auth/app/pages/EnableTwoFactorPage')) as {
-    EnableTwoFactorPage: (props: object) => ReactNode
+  (await import('../../../templates/.agents/skills/examples/auth/two-factor-auth/app/pages/EnableTwoFactorPage.js')) as {
+    EnableTwoFactorPage: (props: { userId: string }) => ReactNode
   }
 const { ImportPage } =
-  (await import('../../../templates/.agents/skills/examples/data-display/csv-import/app/pages/ImportPage')) as {
+  (await import('../../../templates/.agents/skills/examples/data-display/csv-import/app/pages/ImportPage.js')) as {
     ImportPage: (props: object) => ReactNode
   }
 const { ProfilePhotoPage } =
-  (await import('../../../templates/.agents/skills/examples/uploads/profile-photo-upload/app/pages/ProfilePhotoPage')) as {
+  (await import('../../../templates/.agents/skills/examples/uploads/profile-photo-upload/app/pages/ProfilePhotoPage.js')) as {
     ProfilePhotoPage: (props: object) => ReactNode
   }
 
@@ -477,7 +477,8 @@ beforeEach(() => {
   MockEventSource.instances.length = 0
   httpClient = null
   globalThis.fetch = ((input: unknown, init?: { body?: unknown }) =>
-    new Promise((resolve, reject) => {
+    // The double carries only what the example pages read off a response.
+    new Promise<Pick<Response, 'ok' | 'status' | 'json'>>((resolve, reject) => {
       fetches.requests.push({
         url: String(input),
         body: safeJson(init?.body),
@@ -934,15 +935,37 @@ describe('example slices — a 2xx body is validated before it becomes state', (
     await flush()
   }
 
+  /** The user resource's two-factor route for the signed-in user `user-1`. */
+  const TWO_FACTOR_ROUTE = '/api/users/user-1/verify-two-factor'
+
+  it('enrolls through the user resource route that the log-in route reads', async () => {
+    // The page posted to the example's own `/api/2fa/*` handler, which kept the
+    // secret in `totp_*` columns the user resource's log-in never reads: the page
+    // said "Two-factor authentication enabled" and the next login asked for no
+    // code (OLD MUSTFAIL). It now drives `setup` then `enable` on that route.
+    await mount(createElement(EnableTwoFactorPage, { userId: 'user-1' }))
+    await clickOnlyButton()
+    expect(fetches.requests.map((r) => [r.url, r.body])).toEqual([
+      [TWO_FACTOR_ROUTE, { action: 'setup' }],
+    ])
+    await respond(TWO_FACTOR_ROUTE, 200, { secret: 'JBSWY3DPEHPK3PXP', QRImageUrl: '' })
+    await typeIntoInput('input[inputmode="numeric"]', '123456')
+    await submitOnlyForm()
+    expect(fetches.requests.map((r) => [r.url, r.body])).toEqual([
+      [TWO_FACTOR_ROUTE, { action: 'setup' }],
+      [TWO_FACTOR_ROUTE, { action: 'enable', token: '123456' }],
+    ])
+  })
+
   it('reports an enroll answer that carries no enrollment instead of crashing the page', async () => {
-    await mount(createElement(EnableTwoFactorPage, {}))
+    await mount(createElement(EnableTwoFactorPage, { userId: 'user-1' }))
     await clickOnlyButton()
 
     // An endpoint with no fixture answers 200 `{}`. Installed as the
-    // enrollment it moved the page past the "Get started" step, and the next
-    // render's `enrollment.recoveryCodes.map(...)` threw: a blank page instead
-    // of an error the user can retry.
-    await respond('/api/2fa/enroll', 200, {})
+    // enrollment it moved the page past the "Get started" step with no secret to
+    // show and nothing `enable` could confirm: a dead page instead of an error
+    // the user can retry.
+    await respond(TWO_FACTOR_ROUTE, 200, {})
     expect(text()).toContain('Could not enroll')
     // Still on the "Get started" step — the page survived the bad body instead
     // of unmounting on the render below it.
@@ -950,19 +973,18 @@ describe('example slices — a 2xx body is validated before it becomes state', (
   })
 
   it('renders the enrollment a real 200 carries (the positive twin)', async () => {
-    await mount(createElement(EnableTwoFactorPage, {}))
+    await mount(createElement(EnableTwoFactorPage, { userId: 'user-1' }))
     await clickOnlyButton()
 
-    await respond('/api/2fa/enroll', 200, {
+    await respond(TWO_FACTOR_ROUTE, 200, {
       secret: 'JBSWY3DPEHPK3PXP',
       keyUrl: 'otpauth://totp/App?secret=JBSWY3DPEHPK3PXP',
       QRImageUrl: 'data:image/png;base64,AAAA',
-      recoveryCodes: ['recoveryCode-1', 'recoveryCode-2'],
     })
-    // The secret + codes the page exists to show, so the guard above is not
+    // The secret and QR the page exists to show, so the guard above is not
     // satisfied by a page that renders nothing.
     expect(text()).toContain('JBSWY3DPEHPK3PXP')
-    expect(text()).toContain('recoveryCode-1')
+    expect(container.querySelector('img')?.getAttribute('src')).toBe('data:image/png;base64,AAAA')
     expect(text()).not.toContain('Could not enroll')
   })
 
@@ -970,43 +992,44 @@ describe('example slices — a 2xx body is validated before it becomes state', (
     // `setEnabled(true)` and the enabled screen were never rendered by any
     // test — coverage stopped at the error branches, so a dropped success
     // branch (2FA enrollment that never completes) kept every test green.
-    await mount(createElement(EnableTwoFactorPage, {}))
+    await mount(createElement(EnableTwoFactorPage, { userId: 'user-1' }))
     await clickOnlyButton()
-    await respond('/api/2fa/enroll', 200, {
+    await respond(TWO_FACTOR_ROUTE, 200, {
       secret: 'JBSWY3DPEHPK3PXP',
       QRImageUrl: '',
-      recoveryCodes: ['recoveryCode-1'],
     })
 
     await typeIntoInput('input[inputmode="numeric"]', '123456')
     await submitOnlyForm()
-    await respond('/api/2fa/verify', 200, { ok: true })
+    await respond(TWO_FACTOR_ROUTE, 200, { twoFactorEnabled: true })
 
     expect(text()).toContain('Two-factor authentication enabled')
-    expect(text()).toContain('saved your recovery codes')
+    expect(text()).toContain('next login will ask for a code')
   })
 
   it('a REJECTED verify leaves the form usable, never a dead verify button', async () => {
     // verify()'s comment promises the finally: "a rejected fetch must not
     // leave the button disabled forever". No fetch double could reject, so
     // deleting the catch and the finally kept every test green.
-    await mount(createElement(EnableTwoFactorPage, {}))
+    await mount(createElement(EnableTwoFactorPage, { userId: 'user-1' }))
     await clickOnlyButton()
-    await respond('/api/2fa/enroll', 200, {
+    await respond(TWO_FACTOR_ROUTE, 200, {
       secret: 'JBSWY3DPEHPK3PXP',
       QRImageUrl: '',
-      recoveryCodes: ['recoveryCode-1'],
     })
     await typeIntoInput('input[inputmode="numeric"]', '123456')
     await submitOnlyForm()
-    await rejectPending('/api/2fa/verify')
+    await rejectPending(TWO_FACTOR_ROUTE)
 
     expect(text()).toContain('Network error')
     const button = container.querySelector('form button[type="submit"]') as HTMLButtonElement
     expect(button.disabled).toBe(false)
     // A retry goes back out.
     await submitOnlyForm()
-    expect(fetches.requests.filter((r) => r.url.includes('/api/2fa/verify'))).toHaveLength(2)
+    const enables = fetches.requests.filter(
+      (r) => (r.body as { action?: string } | undefined)?.action === 'enable',
+    )
+    expect(enables).toHaveLength(2)
   })
 
   it('reports a preview answer that carries no preview instead of crashing the table', async () => {
@@ -1346,16 +1369,15 @@ describe('example slices — the message a failure deserves', () => {
   })
 
   it('a 429 verify answer is not reported as "Wrong code" — the server says why', async () => {
-    await mount(createElement(EnableTwoFactorPage, {}))
+    await mount(createElement(EnableTwoFactorPage, { userId: 'user-1' }))
     // The enroll control is the page's only button at this point.
     await act(async () => {
       container.querySelector('button')?.dispatchEvent(new MouseEvent('click', { bubbles: true }))
     })
     await flush()
-    await respond('/api/2fa/enroll', 200, {
+    await respond('/api/users/user-1/verify-two-factor', 200, {
       secret: 'JBSWY3DPEHPK3PXP',
       QRImageUrl: 'data:image/png;base64,AAAA',
-      recoveryCodes: ['code-1'],
     })
 
     const codeInput = container.querySelector('input') as HTMLInputElement
@@ -1372,10 +1394,12 @@ describe('example slices — the message a failure deserves', () => {
     })
     await flush()
 
-    // The handler rate-limits /2fa/verify per user; the throttle's 429 body
+    // The user resource rate-limits verify-two-factor per user; the throttle's 429 body
     // names the throttle. Collapsing every non-2xx into "Wrong code — try
     // again" told the user to retype a code that was probably fine.
-    await respond('/api/2fa/verify', 429, { error: 'Too many attempts — try again shortly.' })
+    await respond('/api/users/user-1/verify-two-factor', 429, {
+      error: 'Too many attempts — try again shortly.',
+    })
     expect(text()).toContain('Too many attempts — try again shortly.')
     expect(text()).not.toContain('Wrong code')
   })
