@@ -15,6 +15,7 @@ import { Config } from '@oclif/core'
 import { parse } from 'jsonc-parser'
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
+import { MOLECULE_SECTION_MARKER } from '../../lib/instruction-section.js'
 import McpInstall from '../mcp/install.js'
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
@@ -200,6 +201,24 @@ describe('mlcl mcp install', () => {
     const toml = readFileSync(join(home, '.codex', 'config.toml'), 'utf8')
     expect(toml.match(/\[mcp_servers\.molecule\]/g)).toHaveLength(1)
     expect(toml).toContain('args = ["-y", "molecule-mcp"]')
+  })
+
+  it('gives Codex the conventions in ~/.codex/AGENTS.md, once: it never shows server instructions (OLD MUSTFAIL)', async () => {
+    // Codex connected a stub server, called its tool and saw none of its instructions (nonce probe,
+    // 2026-11-24), so an MCP-only install left Codex with no Molecule guidance at all.
+    mkdirSync(join(home, '.codex'), { recursive: true })
+    writeFileSync(join(home, '.codex', 'AGENTS.md'), '# My own rules\n\nKeep this.\n')
+    await run(['--agent', 'codex'])
+    await run(['--agent', 'codex'])
+    const agents = readFileSync(join(home, '.codex', 'AGENTS.md'), 'utf8')
+    expect(agents).toContain('Keep this.')
+    expect(agents.match(new RegExp(`^${MOLECULE_SECTION_MARKER}`, 'gm'))).toHaveLength(1)
+    expect(agents).toContain('search_packages')
+  })
+
+  it('counterexample: Claude Code, which shows server instructions, gets no CLAUDE.md from it', async () => {
+    await run(['--agent', 'claude-code'])
+    expect(existsSync(join(home, '.claude', 'CLAUDE.md'))).toBe(false)
   })
 
   it('writes Claude Code project config to .mcp.json without the claude CLI', async () => {

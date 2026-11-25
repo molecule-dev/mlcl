@@ -46,8 +46,9 @@ claude mcp add --transport http molecule https://mcp.molecule.dev/mcp
 
 - Submit the URL to Lovable connectors / v0 / bolt.new (see ../docs/LISTINGS.md).
 
-The local stdio server (`npx -y molecule-mcp`, what `mlcl mcp install`
-registers) is published on npm. It runs a global `mlcl` when one is on PATH
+The local stdio server (`molecule-mcp`: `mlcl mcp install` registers
+`node ~/.mlcl/mcp/run.mjs` for the whole machine and `npx -y molecule-mcp` in a project) is
+published on npm. It runs a global `mlcl` when one is on PATH
 (keep it current with `npm install -g mlcl`), and otherwise the latest
 published CLI through npx. Publishing a new server
 version uses the optional `mcp_publish` input in the owned release workflow.

@@ -38,12 +38,15 @@ export type JsonEntryResult =
  * Compute the new file text with `entry` set at `keys` + `name`.
  *
  * An existing entry is never overwritten: only keys it lacks are added, so a
- * user's own settings for the server (an `env`, a pinned version) are kept.
+ * user's own settings for the server (an `env`, a pinned version) are kept. The one exception is
+ * an entry an older setup wrote: when every key of `legacy` holds exactly that value, the keys of
+ * `entry` replace the entry's (its other keys stay).
  *
  * @param text - The file's current text (`''` for a new file).
  * @param keys - The key path the entries live under (`['mcpServers']`).
  * @param name - The entry's name (`molecule`).
  * @param entry - The entry's value.
+ * @param legacy - The keys an older setup wrote, which mark the entry as replaceable.
  * @returns The new text and what changed.
  * @throws When the text does not parse, or a key on the path holds something
  *   other than an object.
@@ -53,6 +56,7 @@ export function renderJsonConfigEntry(
   keys: string[],
   name: string,
   entry: Record<string, unknown>,
+  legacy?: Record<string, unknown>,
 ): { text: string; result: Exclude<JsonEntryResult, 'created'> } {
   const source = text.trim() === '' ? '{}\n' : text
   const errors: ParseError[] = []
@@ -81,9 +85,15 @@ export function renderJsonConfigEntry(
   }
   if (existing.type !== 'object') throw new Error(`"${[...keys, name].join('.')}" is not an object`)
   const current = getNodeValue(existing) as Record<string, unknown>
+  const replace =
+    legacy !== undefined &&
+    Object.entries(legacy).every(
+      ([key, value]) => JSON.stringify(current[key]) === JSON.stringify(value),
+    )
   let out = source
   for (const [key, value] of Object.entries(entry)) {
-    if (key in current) continue
+    if (key in current && (!replace || JSON.stringify(current[key]) === JSON.stringify(value)))
+      continue
     out = applyEdits(out, modify(out, [...keys, name, key], value, { formattingOptions }))
   }
   return { text: out, result: out === source ? 'present' : 'updated' }
@@ -97,6 +107,7 @@ export function renderJsonConfigEntry(
  * @param keys - The key path the entries live under.
  * @param name - The entry's name.
  * @param entry - The entry's value.
+ * @param legacy - The keys an older setup wrote (see {@link renderJsonConfigEntry}).
  * @returns What changed.
  * @throws When the existing file cannot be edited safely (see {@link renderJsonConfigEntry}).
  */
@@ -105,12 +116,42 @@ export function mergeJsonConfigEntry(
   keys: string[],
   name: string,
   entry: Record<string, unknown>,
+  legacy?: Record<string, unknown>,
 ): JsonEntryResult {
   const existed = existsSync(path)
   const before = existed ? readFileSync(path, 'utf8') : ''
-  const { text, result } = renderJsonConfigEntry(before, keys, name, entry)
+  const { text, result } = renderJsonConfigEntry(before, keys, name, entry, legacy)
   if (result === 'present') return result
   mkdirSync(dirname(path), { recursive: true })
   writeFileSync(path, text.endsWith('\n') ? text : `${text}\n`)
   return existed && before.trim() !== '' ? result : 'created'
+}
+
+/**
+ * Whether the entry at `keys` + `name` in a JSON/JSONC file has every key of `match` with
+ * exactly that value. A missing or unreadable file has no such entry.
+ *
+ * @param path - The config file.
+ * @param keys - The key path the entries live under.
+ * @param name - The entry's name.
+ * @param match - The keys and values to compare.
+ * @returns True when the entry matches.
+ */
+export function jsonConfigEntryMatches(
+  path: string,
+  keys: string[],
+  name: string,
+  match: Record<string, unknown>,
+): boolean {
+  if (!existsSync(path)) return false
+  const root = parseTree(readFileSync(path, 'utf8'), [], {
+    allowTrailingComma: true,
+    disallowComments: false,
+  })
+  const node = root && findNodeAtLocation(root, [...keys, name])
+  if (!node || node.type !== 'object') return false
+  const current = getNodeValue(node) as Record<string, unknown>
+  return Object.entries(match).every(
+    ([key, value]) => JSON.stringify(current[key]) === JSON.stringify(value),
+  )
 }

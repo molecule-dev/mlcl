@@ -1,4 +1,4 @@
-import { existsSync } from 'node:fs'
+import { existsSync, readFileSync } from 'node:fs'
 import { join } from 'node:path'
 
 import { Command, Flags } from '@oclif/core'
@@ -16,6 +16,7 @@ import {
   planSetup,
   runAgentCli,
 } from '../../lib/agent-setup.js'
+import { useMachineMcp } from '../../lib/mcp-machine-install.js'
 import { setTelemetryContext } from '../../lib/telemetry.js'
 import { ui } from '../../lib/ui.js'
 
@@ -83,15 +84,31 @@ export default class McpInstall extends Command {
       )
     }
 
+    // An agent that drops the server's instructions gets them through its instruction file, the
+    // section `mlcl setup` writes: without it, nothing of the server's guidance reaches the model.
+    // For the whole machine the agent starts an installed copy of the server (lib/mcp-machine-install.ts).
+    if (scope === 'machine') {
+      const machine = await useMachineMcp(env)
+      this.log(machine.ok ? ui.check(machine.line) : ui.warn(machine.line))
+    }
+
+    const withInstructions = harness.ignoresServerInstructions === true
     const steps = planSetup({
       scope,
       harnesses: [harness],
-      components: new Set(['mcp']),
+      components: new Set(
+        withInstructions ? (['mcp', 'instructions'] as const) : (['mcp'] as const),
+      ),
       env,
       skills: {},
     })
     const results = await applySetup(steps, {
-      instructions: '',
+      instructions: withInstructions
+        ? readFileSync(
+            join(this.config.root, 'templates', 'shared', 'agent-init-section.md.tpl'),
+            'utf8',
+          )
+        : '',
       cwd: env.cwd,
       force: false,
       runCli: runAgentCli,
@@ -104,7 +121,9 @@ export default class McpInstall extends Command {
             : step.target.kind === 'manual'
               ? ''
               : step.target.path
-          : ''
+          : 'path' in step
+            ? step.path
+            : ''
       if (status === 'failed') this.error(`${harness.label}: ${where} failed: ${detail}`)
       else if (status === 'note') this.log(ui.dim(detail ?? ''))
       else if (status === 'manual') {

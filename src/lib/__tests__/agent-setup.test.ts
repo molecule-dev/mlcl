@@ -131,10 +131,12 @@ describe('planSetup', () => {
     const clis = steps.flatMap((s) =>
       s.kind === 'mcp' && s.target.kind === 'cli' ? [s.target] : [],
     )
+    // The installed copy of the server, never npx (lib/mcp-machine-install.ts).
+    const run = join(home, '.mlcl', 'mcp', 'run.mjs')
     expect(clis.map((c) => [c.bin, ...c.args].join(' '))).toEqual([
-      'claude mcp add --scope user molecule -- npx -y molecule-mcp',
-      'codex mcp add molecule -- npx -y molecule-mcp',
-      'gemini mcp add -s user molecule npx -y molecule-mcp',
+      `claude mcp add --scope user molecule -- node ${run}`,
+      `codex mcp add molecule -- node ${run}`,
+      `gemini mcp add -s user molecule node ${run}`,
     ])
     // Cursor keeps user rules in its settings, so the skills are its copy of the guidance; Codex
     // and Gemini read the same ~/.agents/skills, which keeps the skill for Cursor.
@@ -563,7 +565,8 @@ describe('Codex MCP limits', () => {
       .split(/\n(?=\[)/)
       .filter((block) => !block.startsWith('[mcp_servers.molecule]'))
     mkdirSync(codexHome, { recursive: true })
-    const table = '[mcp_servers.molecule]\ncommand = "npx"\nargs = ["-y", "molecule-mcp"]\n'
+    const [command, ...rest] = args.slice(args.indexOf('--') + 1)
+    const table = `[mcp_servers.molecule]\ncommand = "${command}"\nargs = ${JSON.stringify(rest).replace(/","/g, '", "')}\n`
     writeFileSync(config, [...kept.filter((b) => b.trim()), table].join('\n'))
     return { ok: true, output: "Added global MCP server 'molecule'.\n" }
   }
@@ -585,9 +588,11 @@ describe('Codex MCP limits', () => {
     calls.length = 0
   })
 
+  const run = (): string => join(home, '.mlcl', 'mcp', 'run.mjs')
+
   it('runs codex mcp add once, then adds both limits to the table it wrote', async () => {
     expect(await apply(steps(['codex']))).toEqual(['written', 'updated'])
-    expect(calls).toEqual(['codex mcp add molecule -- npx -y molecule-mcp'])
+    expect(calls).toEqual([`codex mcp add molecule -- node ${run()}`])
     expect(limits(readFileSync(config, 'utf8'))).toEqual({
       startup_timeout_sec: 120,
       tool_timeout_sec: 660,
@@ -601,7 +606,8 @@ describe('Codex MCP limits', () => {
     })
   })
 
-  it('adds the limits to an install from an older setup, keeping the user’s values and other tables', async () => {
+  // An older setup registered `npx -y molecule-mcp`: its command becomes the installed launcher.
+  it('moves an install from an older setup to the launcher and adds the limits, keeping the user’s values and other tables', async () => {
     mkdirSync(codexHome, { recursive: true })
     const before = [
       'model = "gpt-6.2-sol"',
@@ -624,17 +630,27 @@ describe('Codex MCP limits', () => {
     const after = readFileSync(config, 'utf8')
     expect(limits(after)).toEqual({ tool_timeout_sec: 900, startup_timeout_sec: 120 })
     expect(after).toBe(
-      before.replace(
-        'tool_timeout_sec = 900\n',
-        'tool_timeout_sec = 900\nstartup_timeout_sec = 120\n',
-      ),
+      before
+        .replace('command = "npx"', 'command = "node"')
+        .replace('args = ["-y", "molecule-mcp"]', `args = ["${run()}"]`)
+        .replace('tool_timeout_sec = 900\n', 'tool_timeout_sec = 900\nstartup_timeout_sec = 120\n'),
     )
+  })
+
+  // Counterexample: a command the user changed is theirs, whatever it names.
+  it('keeps a command the user pinned', async () => {
+    mkdirSync(codexHome, { recursive: true })
+    const before =
+      '[mcp_servers.molecule]\ncommand = "npx"\nargs = ["-y", "molecule-mcp@0.3.0"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n'
+    writeFileSync(config, before)
+    expect(await apply(steps(['codex']))).toEqual(['present', 'present'])
+    expect(readFileSync(config, 'utf8')).toBe(before)
   })
 
   it('writes the same table without the codex CLI', async () => {
     expect(await apply(steps([]))).toEqual(['written'])
     expect(readFileSync(config, 'utf8')).toBe(
-      '[mcp_servers.molecule]\ncommand = "npx"\nargs = ["-y", "molecule-mcp"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n',
+      `[mcp_servers.molecule]\ncommand = "node"\nargs = ["${run()}"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n`,
     )
   })
 

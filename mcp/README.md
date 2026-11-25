@@ -9,7 +9,9 @@ rendering, image generation, …) with no vendor account. It can also start a ne
 app from a custom stack or a template.
 
 > On npm as `molecule-mcp`: the `npx -y molecule-mcp` entries below run as
-> written.
+> written. On a machine where npm cannot reach the registry,
+> `npx -y --fetch-retries=0 --fetch-timeout=5000 molecule-mcp` starts the cached copy within
+> seconds instead of waiting out npm's retries.
 
 Also ships the molecule doctrine as a resource (`molecule://conventions`) and
 an `agent_init` tool that writes the convention files your harness reads — so
@@ -31,7 +33,14 @@ The one command that works everywhere (uses your harness's own installer when it
 npx mlcl mcp install
 ```
 
-Or use your harness's native command / config directly:
+For every project on the machine, it installs the server in `~/.mlcl/mcp` and registers
+`node ~/.mlcl/mcp/run.mjs`, which starts in about 0.1 s. `npx -y molecule-mcp` asks npm for the
+latest version on each start (1–2 s, and over a minute when npm cannot reach the registry), and
+some agents begin a session before a slow server is ready. The installed server checks for a new
+version once a day, in the background (`MOLECULE_MCP_NO_UPDATE=1` turns that off). A project's own
+config keeps `npx -y molecule-mcp`, because the team shares that file.
+
+Or use your harness's native command / config directly (these start the server through npx):
 
 | Harness           | Install                                                                                                 |
 | ----------------- | ------------------------------------------------------------------------------------------------------- |
@@ -53,6 +62,10 @@ Or use your harness's native command / config directly:
 | Continue          | `config.json` → `mcpServers.molecule`                                                                   |
 | Aider             | recent versions support MCP — add `molecule`, command `npx -y molecule-mcp`                             |
 | Any MCP client    | command: `npx`, args: `["-y", "molecule-mcp"]`                                                          |
+
+Codex does not show an MCP server's instructions to the model, so for Codex `mlcl mcp install` also
+writes the Molecule conventions to `~/.codex/AGENTS.md`; after a bare `codex mcp add`, run
+`npx mlcl setup --agent codex` for them.
 
 `mlcl mcp install` writes/merges the JSON-config harnesses (Windsurf, VS Code,
 OpenCode, Amp, Crush, Kiro, Trae, Zed, Cursor-project) idempotently and never

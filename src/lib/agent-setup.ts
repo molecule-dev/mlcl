@@ -34,7 +34,7 @@ import {
   type SetupScope,
 } from './agent-harnesses.js'
 import { CAPABILITY_MAP_MARKER, ensureSection, removeSection } from './instruction-section.js'
-import { mergeJsonConfigEntry } from './json-config-entry.js'
+import { jsonConfigEntryMatches, mergeJsonConfigEntry } from './json-config-entry.js'
 
 /** The three things setup can install. */
 export type SetupComponent = 'mcp' | 'skills' | 'instructions'
@@ -326,13 +326,23 @@ export function tomlDefinesTable(text: string, table: string): boolean {
 const tomlLineKey = (line: string): string | null =>
   /^\s*([A-Za-z0-9_-]+)\s*=/.exec(line.replace(/#.*$/, ''))?.[1] ?? null
 
+/** A TOML line with its comment and every space removed, to compare one value with another. */
+const tomlLineValue = (line: string): string => line.replace(/#.*$/, '').replace(/\s+/g, '')
+
 /**
  * The TOML table Codex reads, holding every key of `lines`. The table is appended when the file
  * does not define it. When it is a `[table]` block, each key of `lines` the block does not set yet
  * goes at the end of the block, and every key it already sets keeps its value: a user's own command
- * or timeout wins. A table defined any other way (dotted keys, an inline table) is left as it is.
+ * or timeout wins. The exception is a block holding every line of `legacyLines` (an older setup's
+ * command): those lines take the value `lines` gives their key. A table defined any other way
+ * (dotted keys, an inline table) is left as it is.
  */
-function ensureTomlTable(path: string, table: string, lines: string[]): SetupStepResult['status'] {
+function ensureTomlTable(
+  path: string,
+  table: string,
+  lines: string[],
+  legacyLines: string[] = [],
+): SetupStepResult['status'] {
   const text = existsSync(path) ? readFileSync(path, 'utf8') : ''
   if (!tomlDefinesTable(text, table)) {
     mkdirSync(dirname(path), { recursive: true })
@@ -349,9 +359,27 @@ function ensureTomlTable(path: string, table: string, lines: string[]): SetupSte
   if (start < 0) return 'present'
   let end = rows.findIndex((row, at) => at > start && heading(row) !== null)
   if (end < 0) end = rows.length
+  const block = rows.slice(start + 1, end)
+  const legacy = new Set(legacyLines.map(tomlLineValue))
+  let replaced = false
+  if (
+    legacy.size > 0 &&
+    [...legacy].every((line) => block.some((row) => tomlLineValue(row) === line))
+  )
+    for (let at = start + 1; at < end; at++) {
+      if (!legacy.has(tomlLineValue(rows[at]))) continue
+      const next = lines.find((line) => tomlLineKey(line) === tomlLineKey(rows[at]))
+      if (next === undefined || tomlLineValue(next) === tomlLineValue(rows[at])) continue
+      rows[at] = next
+      replaced = true
+    }
   const set = new Set(rows.slice(start + 1, end).map(tomlLineKey))
   const missing = lines.filter((line) => !set.has(tomlLineKey(line)))
-  if (missing.length === 0) return 'present'
+  if (missing.length === 0) {
+    if (!replaced) return 'present'
+    writeFileSync(path, rows.join('\n'))
+    return 'updated'
+  }
   let last = end - 1
   while (last > start && rows[last].trim() === '') last--
   rows.splice(last + 1, 0, ...missing)
@@ -387,9 +415,33 @@ async function applyMcp(
         tomlDefinesTable(readFileSync(target.unlessToml.path, 'utf8'), target.unlessToml.table)
       )
         return { status: 'present' }
+      // An entry an older setup made: rewrite it in the file, or remove it with the CLI first
+      // (the CLI refuses to add a name that exists).
+      let replacing = false
+      for (const legacy of target.legacy ?? []) {
+        if (!jsonConfigEntryMatches(legacy.path, legacy.keys, MCP_SERVER_NAME, legacy.match))
+          continue
+        if (!legacy.remove) {
+          mergeJsonConfigEntry(
+            legacy.path,
+            legacy.keys,
+            MCP_SERVER_NAME,
+            legacy.entry,
+            legacy.match,
+          )
+          return { status: 'updated' }
+        }
+        const removed = await runCli(target.bin, legacy.remove)
+        if (!removed.ok)
+          return {
+            status: 'failed',
+            detail: `${target.bin} ${legacy.remove.join(' ')}: ${removed.output.trim().split('\n').pop() || 'failed'}`,
+          }
+        replacing = true
+      }
       const { ok, output } = await runCli(target.bin, target.args)
       const last = output.trim().split('\n').pop() ?? ''
-      if (ok) return { status: 'written', detail: last }
+      if (ok) return { status: replacing ? 'updated' : 'written', detail: last }
       if (/already exists/i.test(output)) return { status: 'present', detail: last }
       return {
         status: 'failed',
@@ -397,13 +449,21 @@ async function applyMcp(
       }
     }
     case 'json': {
-      const result = mergeJsonConfigEntry(target.path, target.keys, MCP_SERVER_NAME, target.entry)
+      const result = mergeJsonConfigEntry(
+        target.path,
+        target.keys,
+        MCP_SERVER_NAME,
+        target.entry,
+        target.legacy,
+      )
       return {
         status: result === 'present' ? 'present' : result === 'updated' ? 'updated' : 'written',
       }
     }
     case 'toml':
-      return { status: ensureTomlTable(target.path, target.table, target.lines) }
+      return {
+        status: ensureTomlTable(target.path, target.table, target.lines, target.legacyLines),
+      }
     case 'manual':
       return { status: 'manual', detail: target.lines.join('\n') }
   }

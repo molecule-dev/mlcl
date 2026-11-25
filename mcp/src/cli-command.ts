@@ -3,7 +3,8 @@
  *
  * Every documented install line starts this server without installing the CLI:
  * `npx -y molecule-mcp` (the one-line `claude mcp add` / `codex mcp add` entries),
- * the entry `mlcl setup` writes, and the Claude Code plugin's `.mcp.json`. On a
+ * the entries `mlcl setup` writes (the installed copy in `~/.mlcl/mcp` for the whole machine,
+ * npx in a project), and the Claude Code plugin's `.mcp.json`. On a
  * machine with no global `mlcl`, every CLI-backed tool (`search_packages`,
  * `list_templates`, `scaffold_project`, `add_package`, …) answered "not found",
  * and an agent that meets that error writes the feature by hand instead

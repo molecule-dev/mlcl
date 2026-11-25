@@ -1,12 +1,14 @@
 /**
  * Start the MCP server once, the way the agents will, and wait for its `initialize` answer.
  *
- * An agent starts `npx -y molecule-mcp` itself. On a machine that has never run it, npx first
- * downloads the server, which took 9.5 s in a fresh home on 2026-11-22, and headless Claude Code
- * (`claude -p`) began its session with the server still "pending": no Molecule tool was offered
- * for the whole run. With the package already in npx's cache the same session connected at once
- * and listed all 74 tools. `mlcl setup` runs this after registering the server, so the first
- * agent session finds the server cached, and the user learns at setup time whether it starts.
+ * An agent starts the server itself, with the command setup registered: the installed copy in
+ * `~/.mlcl/mcp` for the whole machine (`mcp-machine-install.ts`), `npx -y molecule-mcp` in a
+ * project. On a machine that has never run it, npx first downloads the server, which took 9.5 s
+ * in a fresh home on 2026-11-22, and headless Claude Code (`claude -p`) began its session with the
+ * server still "pending": no Molecule tool was offered for the whole run. With the package already
+ * in npx's cache the same session connected at once and listed all 74 tools. `mlcl setup` runs
+ * this after registering the server, so the first agent session finds it ready, and the user
+ * learns at setup time whether it starts.
  *
  * @module
  */

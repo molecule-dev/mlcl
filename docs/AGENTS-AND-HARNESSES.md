@@ -230,7 +230,14 @@ npx mlcl mcp install --agent opencode --project
 npx mlcl setup                       # every agent at once, with the skills and conventions
 ```
 
-Or your harness's native command / config:
+For every project on the machine, it installs the server in `~/.mlcl/mcp` and registers
+`node ~/.mlcl/mcp/run.mjs`, which starts in about 0.1 s. `npx -y molecule-mcp` asks npm for the
+latest version on each start (1–2 s, and over a minute when npm cannot reach the registry), and
+some agents begin a session before a slow server is ready. The installed server checks for a new
+version once a day, in the background (`MOLECULE_MCP_NO_UPDATE=1` turns that off). A project's own
+config keeps `npx -y molecule-mcp`, because the team shares that file.
+
+Or your harness's native command / config (these start the server through npx):
 
 | Harness           | Install                                                                        |
 | ----------------- | ------------------------------------------------------------------------------ |
@@ -252,8 +259,13 @@ Or your harness's native command / config:
 | Continue          | `.continue/mcpServers/molecule.json` in a project                              |
 | Aider             | no MCP support yet: use the `mlcl` CLI directly                                |
 
-The standard entry (what `mlcl mcp install` writes) is
-`{"command": "npx", "args": ["-y", "molecule-mcp"]}` — adjust only if your
+Codex does not show an MCP server's instructions to the model, so for Codex `mlcl mcp install` also
+writes the Molecule conventions to `~/.codex/AGENTS.md` (as `mlcl setup` does). After a bare
+`codex mcp add`, run `npx mlcl setup --agent codex` for them.
+
+The standard entry (what `mlcl mcp install` writes in a project) is
+`{"command": "npx", "args": ["-y", "molecule-mcp"]}`; for the whole machine it is
+`{"command": "node", "args": ["<home>/.mlcl/mcp/run.mjs"]}`. Adjust only if your
 client needs a different shape (OpenCode does; the installer knows).
 
 ## Method 4 — the Claude Code plugin (the deluxe path; repo goes public at launch)

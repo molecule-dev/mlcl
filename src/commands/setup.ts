@@ -10,7 +10,7 @@ import {
   type AgentHarness,
   detectInstalledHarnesses,
   findHarness,
-  MCP_SERVER_COMMAND,
+  mcpServerCommand,
   type SetupScope,
 } from '../lib/agent-harnesses.js'
 import {
@@ -25,6 +25,7 @@ import {
 } from '../lib/agent-setup.js'
 import { loadRetiredSetupSkills, loadSetupSkills } from '../lib/agent-skills.js'
 import { readProjectCapabilityMap, renderCapabilityMap } from '../lib/capability-map.js'
+import { useMachineMcp } from '../lib/mcp-machine-install.js'
 import { warmMcpServer } from '../lib/mcp-warm.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 import { ui } from '../lib/ui.js'
@@ -133,14 +134,16 @@ export default class Setup extends Command {
     setTelemetryContext({ harness: harnesses.map((h) => h.id).join(',') })
 
     const components = new Set(SETUP_COMPONENTS.filter((c) => !flags.skip?.includes(c)))
-    const steps = planSetup({
-      scope,
-      harnesses,
-      components,
-      env,
-      skills: loadSetupSkills(join(this.config.root, 'templates')),
-      retiredSkills: loadRetiredSetupSkills(join(this.config.root, 'templates')),
-    })
+    const plan = (): SetupStep[] =>
+      planSetup({
+        scope: scope!,
+        harnesses,
+        components,
+        env,
+        skills: loadSetupSkills(join(this.config.root, 'templates')),
+        retiredSkills: loadRetiredSetupSkills(join(this.config.root, 'templates')),
+      })
+    let steps = plan()
     const show = (path: string): string => this.displayPath(path, env)
 
     if (flags['dry-run'] || interactive) {
@@ -156,6 +159,14 @@ export default class Setup extends Command {
     if (interactive) {
       const go = await p.confirm({ message: 'Go ahead?', initialValue: true })
       if (p.isCancel(go) || !go) return this.cancelled()
+    }
+
+    // For the whole machine the agents start an installed copy of the server; when it cannot be
+    // installed they get npx, and the plan is made again for that command.
+    if (scope === 'machine' && steps.some((step) => step.kind === 'mcp')) {
+      const machine = await useMachineMcp(env)
+      this.log(`  ${machine.ok ? ui.check(machine.line) : ui.warn(machine.line)}`)
+      if (!machine.ok) steps = plan()
     }
 
     const instructions = readFileSync(
@@ -178,16 +189,17 @@ export default class Setup extends Command {
     let warmFailed = false
     const registered = new Set<SetupStepResult['status']>(['written', 'updated', 'present'])
     if (results.some((r) => r.step.kind === 'mcp' && registered.has(r.status))) {
-      const [command, ...args] = MCP_SERVER_COMMAND
+      const [command, ...args] = mcpServerCommand(scope, env)
+      const shown = [command, ...args.map((arg) => this.displayPath(arg, env))].join(' ')
       try {
         const warm = await warmMcpServer(command, args)
         this.log(
-          `  ${ui.check(`${MCP_SERVER_COMMAND.join(' ')} starts`)} ${ui.dim(`(${warm.version}, ${(warm.ms / 1000).toFixed(1)} s)`)}`,
+          `  ${ui.check(`${shown} starts`)} ${ui.dim(`(${warm.version}, ${(warm.ms / 1000).toFixed(1)} s)`)}`,
         )
       } catch (error) {
         warmFailed = true
         this.log(
-          `  ${ui.cross(`${MCP_SERVER_COMMAND.join(' ')} did not start:`)} ${ui.warn(error instanceof Error ? error.message : String(error))}`,
+          `  ${ui.cross(`${shown} did not start:`)} ${ui.warn(error instanceof Error ? error.message : String(error))}`,
         )
       }
     }

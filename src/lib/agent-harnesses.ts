@@ -27,25 +27,61 @@ export type SetupScope = 'machine' | 'project'
 /** The MCP server every target registers. */
 export const MCP_SERVER_NAME = 'molecule'
 
-/** The command that starts the server. */
-export const MCP_SERVER_COMMAND = ['npx', '-y', 'molecule-mcp'] as const
+/**
+ * The command a project's config starts the server with: a file shared with a team names no home
+ * directory, so it runs the server through npx.
+ */
+export const PROJECT_MCP_COMMAND = ['npx', '-y', 'molecule-mcp'] as const
+
+/**
+ * The command every setup registered before the machine install: an entry that is exactly this is
+ * replaced, and any other is the user's own and stays.
+ */
+export const LEGACY_MCP_COMMAND = ['npx', '-y', 'molecule-mcp'] as const
+
+/** Where the machine install of the server lives (mcp/src/machine-install.ts). */
+export const machineMcpHome = (home: string): string => join(home, '.mlcl', 'mcp')
+
+/**
+ * The command that starts the server at a scope. For the whole machine it is the installed copy's
+ * launcher, `node ~/.mlcl/mcp/run.mjs`: npx asks the registry for `latest` on every start (1.2-1.4 s
+ * in the harness evals, 70 s offline), and headless Claude Code waits about 2 s for its servers
+ * before starting without them. The path uses forward slashes on every OS, which Node accepts
+ * and JSON and TOML need no escaping for. `e.machineMcpCommand` replaces it when the machine
+ * install could not be made.
+ *
+ * @param scope - Machine or project.
+ * @param e - The environment.
+ * @returns The executable and its arguments.
+ */
+export function mcpServerCommand(scope: SetupScope, e: AgentEnvironment): string[] {
+  if (scope === 'project') return [...PROJECT_MCP_COMMAND]
+  if (e.machineMcpCommand) return [...e.machineMcpCommand]
+  return ['node', join(machineMcpHome(e.home), 'run.mjs').split(sep).join('/')]
+}
 
 /**
  * Codex's MCP limits for the server, in the TOML table setup writes. Codex's defaults are a 10 s
- * start and a 60 s tool call; on a machine without the packages yet, `npx -y molecule-mcp`
- * downloads the server before it can answer, and a scaffold or `add_package` call runs the CLI for
- * up to its own 10 min limit (`CLI_TIMEOUT_DEFAULT_MS` in mcp/src/cli-command.ts). Codex cutting
- * the call first hides the CLI's answer, so the tool limit sits a minute above the CLI's.
+ * start and a 60 s tool call; a project's `npx -y molecule-mcp` on a machine without the package
+ * yet downloads the server before it can answer, and a scaffold or `add_package` call runs the CLI
+ * for up to its own 10 min limit (`CLI_TIMEOUT_DEFAULT_MS` in mcp/src/cli-command.ts). Codex
+ * cutting the call first hides the CLI's answer, so the tool limit sits a minute above the CLI's.
  */
 export const CODEX_MCP_TIMEOUT_LINES = [
   'startup_timeout_sec = 120',
   'tool_timeout_sec = 660',
 ] as const
 
-/** The `{command, args}` entry most JSON configs take. */
-export const STANDARD_MCP_ENTRY: Readonly<Record<string, unknown>> = {
-  command: 'npx',
-  args: ['-y', 'molecule-mcp'],
+/**
+ * The `{command, args}` entry most JSON configs take.
+ *
+ * @param scope - Machine or project.
+ * @param e - The environment.
+ * @returns The entry.
+ */
+export function standardMcpEntry(scope: SetupScope, e: AgentEnvironment): Record<string, unknown> {
+  const [command, ...args] = mcpServerCommand(scope, e)
+  return { command, args }
 }
 
 /** What the installer looks at: injectable so tests run against a temp home. */
@@ -58,6 +94,11 @@ export interface AgentEnvironment {
   env: Record<string, string | undefined>
   /** Whether a command is on PATH. */
   onPath: (bin: string) => boolean
+  /**
+   * The command machine-scope targets register instead of the installed launcher: set by setup
+   * when the machine install could not be made, so the agents still get a server that starts.
+   */
+  machineMcpCommand?: readonly string[]
 }
 
 /** One way to register the MCP server with an agent. */
@@ -67,16 +108,51 @@ export type McpTarget =
    * skipped when that file already defines that table: `codex mcp add` rewrites the whole
    * table, so a second run would drop every key added to it since (timeouts, `env`).
    */
-  | { kind: 'cli'; bin: string; args: string[]; unlessToml?: { path: string; table: string } }
-  /** Merge `molecule` into a JSON / JSONC file under `keys`, keeping comments. */
-  | { kind: 'json'; path: string; keys: string[]; entry: Record<string, unknown> }
+  | {
+      kind: 'cli'
+      bin: string
+      args: string[]
+      unlessToml?: { path: string; table: string }
+      /** Where an older setup's entry may be: replaced instead of reported as present. */
+      legacy?: CliLegacyEntry[]
+    }
+  /**
+   * Merge `molecule` into a JSON / JSONC file under `keys`, keeping comments. An existing entry
+   * whose keys match `legacy` (an older setup's command) takes every key of `entry`.
+   */
+  | {
+      kind: 'json'
+      path: string
+      keys: string[]
+      entry: Record<string, unknown>
+      legacy?: Record<string, unknown>
+    }
   /**
    * A `[table]` in a TOML file holding every key of `lines`: appended when the file lacks the
-   * table, and a key the table does not set yet is added to it. A key already set is kept.
+   * table, and a key the table does not set yet is added to it. A key already set is kept, unless
+   * its line is one of `legacyLines` (an older setup's command): that line is replaced.
    */
-  | { kind: 'toml'; path: string; table: string; lines: string[] }
+  | { kind: 'toml'; path: string; table: string; lines: string[]; legacyLines?: string[] }
   /** No safe writer: print what to add by hand. */
   | { kind: 'manual'; lines: string[] }
+
+/**
+ * Where a native `mcp add` writes its entry, to find one an older setup made. A CLI refuses a name
+ * that exists, so that entry would stay. With `remove`, the CLI deletes it first (its file is the
+ * agent's own state, written by running sessions); without, the entry is rewritten in the file.
+ */
+export interface CliLegacyEntry {
+  /** The JSON file the CLI writes. */
+  path: string
+  /** The key path its servers live under. */
+  keys: string[]
+  /** The older entry's keys, as that setup wrote them. */
+  match: Record<string, unknown>
+  /** The keys to write in its place, when there is no `remove`. */
+  entry: Record<string, unknown>
+  /** The CLI's arguments that delete the entry, run before the `mcp add`. */
+  remove?: string[]
+}
 
 /** One place an agent reads always-on instructions from. */
 export type InstructionTarget =
@@ -104,6 +180,13 @@ export interface AgentHarness {
    * `AGENTS.md` beside the file it reads now would replace that file.
    */
   readsFirstFileOnly?: boolean
+  /**
+   * The agent never shows the model an MCP server's `instructions`, so the server's guidance
+   * reaches it only through its instruction file: `mlcl mcp install` writes the conventions there
+   * too. Codex 0.171 connected a stub server, called its tool, and saw none of its instructions
+   * (nonce probe, 2026-11-24); Claude Code showed them to at least 3,000 characters.
+   */
+  ignoresServerInstructions?: boolean
   /** Whether the agent looks installed for this user. */
   installed: (e: AgentEnvironment) => boolean
   /** How to register the MCP server; empty when the agent has no MCP support at this scope. */
@@ -125,11 +208,30 @@ const projectAgentsMd = (e: AgentEnvironment): InstructionTarget => ({
   path: join(e.cwd, 'AGENTS.md'),
 })
 
-const jsonTarget = (
+/**
+ * The keys an older setup wrote for the entry shaped like `entry`: `{command, args}`, or OpenCode's
+ * `command` array.
+ */
+const legacyEntry = (entry: Record<string, unknown>): Record<string, unknown> =>
+  Array.isArray(entry.command)
+    ? { command: [...LEGACY_MCP_COMMAND] }
+    : { command: LEGACY_MCP_COMMAND[0], args: LEGACY_MCP_COMMAND.slice(1) }
+
+const jsonTarget = (path: string, keys: string[], entry: Record<string, unknown>): McpTarget => ({
+  kind: 'json',
+  path,
+  keys,
+  entry,
+  legacy: legacyEntry(entry),
+})
+
+/** A JSON target with the standard `{command, args}` entry under `mcpServers`. */
+const standardJson = (
   path: string,
+  scope: SetupScope,
+  e: AgentEnvironment,
   keys: string[] = ['mcpServers'],
-  entry: Record<string, unknown> = { ...STANDARD_MCP_ENTRY },
-): McpTarget => ({ kind: 'json', path, keys, entry })
+): McpTarget => jsonTarget(path, keys, standardMcpEntry(scope, e))
 
 /** `<dir>/<base>.jsonc` when that file exists, else `<dir>/<base>.json`. */
 const jsonOrJsonc = (dir: string, base: string): string =>
@@ -239,8 +341,19 @@ const CONTINUE_RULE_FRONTMATTER = '---\nname: Molecule\nalwaysApply: true\n---\n
 const cli = (
   bin: string,
   args: string[],
-  unlessToml?: { path: string; table: string },
-): McpTarget => (unlessToml ? { kind: 'cli', bin, args, unlessToml } : { kind: 'cli', bin, args })
+  extra: { unlessToml?: { path: string; table: string }; legacy?: CliLegacyEntry[] } = {},
+): McpTarget => ({ kind: 'cli', bin, args, ...extra })
+
+/** The CLI legacy entry for a `{command, args}` file: rewritten in place. */
+const legacyInFile = (
+  path: string,
+  scope: SetupScope,
+  e: AgentEnvironment,
+  keys: string[] = ['mcpServers'],
+): CliLegacyEntry => {
+  const entry = standardMcpEntry(scope, e)
+  return { path, keys, match: legacyEntry(entry), entry }
+}
 
 const manual = (...lines: string[]): McpTarget => ({ kind: 'manual', lines })
 
@@ -250,11 +363,15 @@ const manual = (...lines: string[]): McpTarget => ({ kind: 'manual', lines })
  * it. A JSON merge adds only the keys an existing entry lacks, so the file
  * ends up the same whichever agent is set up first.
  */
-const STDIO_ENTRY: Readonly<Record<string, unknown>> = {
+const stdioEntry = (scope: SetupScope, e: AgentEnvironment): Record<string, unknown> => ({
   type: 'stdio',
-  ...STANDARD_MCP_ENTRY,
+  ...standardMcpEntry(scope, e),
   tools: ['*'],
-}
+})
+
+/** The command as one line, for an instruction the user follows by hand. */
+const commandLine = (scope: SetupScope, e: AgentEnvironment): string =>
+  mcpServerCommand(scope, e).join(' ')
 
 const xdgConfig = (e: AgentEnvironment): string => e.env.XDG_CONFIG_HOME || join(e.home, '.config')
 
@@ -272,25 +389,38 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     installed: (e) => has(e, ['claude'], ['.claude']),
     // `claude mcp add` defaults to the LOCAL scope (this directory only), so
     // the machine scope names `--scope user`. The project file is the shared
-    // `.mcp.json`, which GitHub Copilot reads too (see STDIO_ENTRY).
+    // `.mcp.json`, which GitHub Copilot reads too (see stdioEntry).
+    // Its user-scope servers live in ~/.claude.json, which running sessions write, so an older
+    // entry is removed with the CLI rather than edited in the file.
     mcp: (scope, e) =>
       scope === 'project'
-        ? [jsonTarget(join(e.cwd, '.mcp.json'), ['mcpServers'], { ...STDIO_ENTRY })]
+        ? [jsonTarget(join(e.cwd, '.mcp.json'), ['mcpServers'], stdioEntry(scope, e))]
         : e.onPath('claude')
           ? [
-              cli('claude', [
-                'mcp',
-                'add',
-                '--scope',
-                'user',
-                MCP_SERVER_NAME,
-                '--',
-                ...MCP_SERVER_COMMAND,
-              ]),
+              cli(
+                'claude',
+                [
+                  'mcp',
+                  'add',
+                  '--scope',
+                  'user',
+                  MCP_SERVER_NAME,
+                  '--',
+                  ...mcpServerCommand(scope, e),
+                ],
+                {
+                  legacy: [
+                    {
+                      ...legacyInFile(join(e.home, '.claude.json'), scope, e),
+                      remove: ['mcp', 'remove', '--scope', 'user', MCP_SERVER_NAME],
+                    },
+                  ],
+                },
+              ),
             ]
           : [
               manual(
-                `Install the claude CLI, then run: claude mcp add --scope user ${MCP_SERVER_NAME} -- ${MCP_SERVER_COMMAND.join(' ')}`,
+                `Install the claude CLI, then run: claude mcp add --scope user ${MCP_SERVER_NAME} -- ${commandLine(scope, e)}`,
               ),
             ],
     skillsDir: (scope, e) =>
@@ -303,6 +433,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
   {
     id: 'codex',
     label: 'Codex',
+    ignoresServerInstructions: true,
     installed: (e) => has(e, ['codex'], ['.codex']) || Boolean(e.env.CODEX_HOME),
     // `codex mcp add` has no scope flag and writes ~/.codex/config.toml; a
     // project's own servers go in .codex/config.toml (trusted projects only).
@@ -310,23 +441,24 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     // added to the table it wrote.
     mcp: (scope, e) => {
       const table = `mcp_servers.${MCP_SERVER_NAME}`
+      const [command, ...args] = mcpServerCommand(scope, e)
+      const commandLines = (bin: string, argv: readonly string[]): string[] => [
+        `command = "${bin}"`,
+        `args = ${JSON.stringify(argv).replace(/","/g, '", "')}`,
+      ]
       const toml = (path: string): McpTarget => ({
         kind: 'toml',
         path,
         table,
-        lines: [
-          `command = "${MCP_SERVER_COMMAND[0]}"`,
-          `args = ${JSON.stringify(MCP_SERVER_COMMAND.slice(1)).replace(/","/g, '", "')}`,
-          ...CODEX_MCP_TIMEOUT_LINES,
-        ],
+        lines: [...commandLines(command, args), ...CODEX_MCP_TIMEOUT_LINES],
+        legacyLines: commandLines(LEGACY_MCP_COMMAND[0], LEGACY_MCP_COMMAND.slice(1)),
       })
       if (scope === 'project') return [toml(join(e.cwd, '.codex', 'config.toml'))]
       const path = join(e.env.CODEX_HOME || join(e.home, '.codex'), 'config.toml')
       if (!e.onPath('codex')) return [toml(path)]
       return [
-        cli('codex', ['mcp', 'add', MCP_SERVER_NAME, '--', ...MCP_SERVER_COMMAND], {
-          path,
-          table,
+        cli('codex', ['mcp', 'add', MCP_SERVER_NAME, '--', command, ...args], {
+          unlessToml: { path, table },
         }),
         toml(path),
       ]
@@ -344,7 +476,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     installed: (e) => has(e, ['cursor', 'cursor-agent'], ['.cursor']),
     // Cursor has no `mcp add` command; its CLI only lists and enables servers.
     mcp: (scope, e) => [
-      jsonTarget(join(scope === 'machine' ? e.home : e.cwd, '.cursor', 'mcp.json')),
+      standardJson(join(scope === 'machine' ? e.home : e.cwd, '.cursor', 'mcp.json'), scope, e),
     ],
     skillsDir: agentsSkills,
     instructions: (scope, e) =>
@@ -362,19 +494,25 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     label: 'Gemini CLI',
     installed: (e) => has(e, ['gemini'], ['.gemini']),
     // `gemini mcp add` defaults to the PROJECT scope; no `--` separator.
-    mcp: (scope, e) =>
-      e.onPath('gemini')
+    mcp: (scope, e) => {
+      const settings = join(scope === 'machine' ? e.home : e.cwd, '.gemini', 'settings.json')
+      return e.onPath('gemini')
         ? [
-            cli('gemini', [
-              'mcp',
-              'add',
-              '-s',
-              scope === 'machine' ? 'user' : 'project',
-              MCP_SERVER_NAME,
-              ...MCP_SERVER_COMMAND,
-            ]),
+            cli(
+              'gemini',
+              [
+                'mcp',
+                'add',
+                '-s',
+                scope === 'machine' ? 'user' : 'project',
+                MCP_SERVER_NAME,
+                ...mcpServerCommand(scope, e),
+              ],
+              { legacy: [legacyInFile(settings, scope, e)] },
+            ),
           ]
-        : [jsonTarget(join(scope === 'machine' ? e.home : e.cwd, '.gemini', 'settings.json'))],
+        : [standardJson(settings, scope, e)]
+    },
     skillsDir: agentsSkills,
     instructions: (scope, e) => [
       {
@@ -396,10 +534,13 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     // Windsurf became Devin Desktop; an install that still has the old
     // ~/.codeium/windsurf config keeps getting it too.
     mcp: (scope, e) => {
-      if (scope === 'project') return [jsonTarget(join(e.cwd, '.devin', 'mcp_config.json'))]
-      const targets = [jsonTarget(join(e.home, '.config', 'devin', 'mcp_config.json'))]
+      if (scope === 'project')
+        return [standardJson(join(e.cwd, '.devin', 'mcp_config.json'), scope, e)]
+      const targets = [standardJson(join(e.home, '.config', 'devin', 'mcp_config.json'), scope, e)]
       if (existsSync(join(e.home, '.codeium', 'windsurf')))
-        targets.push(jsonTarget(join(e.home, '.codeium', 'windsurf', 'mcp_config.json')))
+        targets.push(
+          standardJson(join(e.home, '.codeium', 'windsurf', 'mcp_config.json'), scope, e),
+        )
       return targets
     },
     skillsDir: agentsSkills,
@@ -415,24 +556,32 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     // Current configs nest servers under `mcp.servers`; the CLI writes
     // whichever shape the installed version reads.
     mcp: (scope, e) => {
+      const dir = scope === 'machine' ? join(e.home, '.config', 'opencode') : e.cwd
+      const file = jsonOrJsonc(dir, 'opencode')
+      const entry = { type: 'local', command: mcpServerCommand(scope, e) }
       if (e.onPath('opencode'))
         return [
-          cli('opencode', [
-            'mcp',
-            'add',
-            MCP_SERVER_NAME,
-            ...(scope === 'machine' ? ['--global'] : []),
-            '--',
-            ...MCP_SERVER_COMMAND,
-          ]),
+          cli(
+            'opencode',
+            [
+              'mcp',
+              'add',
+              MCP_SERVER_NAME,
+              ...(scope === 'machine' ? ['--global'] : []),
+              '--',
+              ...mcpServerCommand(scope, e),
+            ],
+            {
+              legacy: [['mcp', 'servers'], ['mcp']].map((keys) => ({
+                path: file,
+                keys,
+                match: legacyEntry(entry),
+                entry: { command: entry.command },
+              })),
+            },
+          ),
         ]
-      const dir = scope === 'machine' ? join(e.home, '.config', 'opencode') : e.cwd
-      return [
-        jsonTarget(jsonOrJsonc(dir, 'opencode'), ['mcp', 'servers'], {
-          type: 'local',
-          command: [...MCP_SERVER_COMMAND],
-        }),
-      ]
+      return [jsonTarget(file, ['mcp', 'servers'], entry)]
     },
     skillsDir: agentsSkills,
     instructions: (scope, e) =>
@@ -446,10 +595,12 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     installed: (e) => has(e, ['amp'], [join('.config', 'amp')]),
     // Amp's settings keys are flat, dotted names: `"amp.mcpServers": {…}`.
     mcp: (scope, e) => [
-      jsonTarget(
+      standardJson(
         scope === 'machine'
           ? join(e.home, '.config', 'amp', 'settings.json')
           : join(e.cwd, '.amp', 'settings.json'),
+        scope,
+        e,
         ['amp.mcpServers'],
       ),
     ],
@@ -468,18 +619,24 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     // user's `$COPILOT_HOME/mcp-config.json` and the project's `.mcp.json`.
     // (`.vscode/mcp.json` and `code --add-mcp` are the deprecated Local
     // harness format, due for removal in February 2027.)
-    mcp: (scope, e) =>
-      scope === 'project'
-        ? [jsonTarget(join(e.cwd, '.mcp.json'), ['mcpServers'], { ...STDIO_ENTRY })]
-        : e.onPath('copilot')
-          ? [cli('copilot', ['mcp', 'add', MCP_SERVER_NAME, '--', ...MCP_SERVER_COMMAND])]
-          : [
-              jsonTarget(join(copilotHome(e), 'mcp-config.json'), ['mcpServers'], {
-                type: 'local',
-                ...STANDARD_MCP_ENTRY,
-                tools: ['*'],
-              }),
-            ],
+    mcp: (scope, e) => {
+      if (scope === 'project')
+        return [jsonTarget(join(e.cwd, '.mcp.json'), ['mcpServers'], stdioEntry(scope, e))]
+      const config = join(copilotHome(e), 'mcp-config.json')
+      return e.onPath('copilot')
+        ? [
+            cli('copilot', ['mcp', 'add', MCP_SERVER_NAME, '--', ...mcpServerCommand(scope, e)], {
+              legacy: [legacyInFile(config, scope, e)],
+            }),
+          ]
+        : [
+            jsonTarget(config, ['mcpServers'], {
+              type: 'local',
+              ...standardMcpEntry(scope, e),
+              tools: ['*'],
+            }),
+          ]
+    },
     skillsDir: (scope, e) =>
       scope === 'machine' ? join(copilotHome(e), 'skills') : join(e.cwd, '.github', 'skills'),
     // `*.instructions.md` files apply only while a matching file is open;
@@ -494,7 +651,11 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     label: 'Kiro',
     installed: (e) => has(e, ['kiro', 'kiro-cli'], ['.kiro']),
     mcp: (scope, e) => [
-      jsonTarget(join(scope === 'machine' ? e.home : e.cwd, '.kiro', 'settings', 'mcp.json')),
+      standardJson(
+        join(scope === 'machine' ? e.home : e.cwd, '.kiro', 'settings', 'mcp.json'),
+        scope,
+        e,
+      ),
     ],
     skillsDir: (scope, e) => join(scope === 'machine' ? e.home : e.cwd, '.kiro', 'skills'),
     instructions: (scope, e) =>
@@ -520,7 +681,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
           ? join(xdgConfig(e), 'zed', 'settings.json')
           : join(e.cwd, '.zed', 'settings.json'),
         ['context_servers'],
-        { ...STANDARD_MCP_ENTRY, env: {} },
+        { ...standardMcpEntry(scope, e), env: {} },
       ),
     ],
     // Zed reads skills from these two folders only (`docs/src/ai/skills.md`).
@@ -544,7 +705,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
             ? join(e.cwd, 'crush.json')
             : join(e.cwd, '.crush.json'),
         ['mcp'],
-        { type: 'stdio', ...STANDARD_MCP_ENTRY },
+        { type: 'stdio', ...standardMcpEntry(scope, e) },
       ),
     ],
     skillsDir: agentsSkills,
@@ -561,11 +722,11 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     installed: (e) => has(e, ['trae'], ['.trae']),
     mcp: (scope, e) =>
       scope === 'project'
-        ? [jsonTarget(join(e.cwd, '.trae', 'mcp.json'))]
+        ? [standardJson(join(e.cwd, '.trae', 'mcp.json'), scope, e)]
         : [
             manual(
               'Trae keeps global MCP servers in its settings: Settings → MCP → Add → Create Manually, then paste:',
-              `  {"mcpServers": {"${MCP_SERVER_NAME}": {"command": "npx", "args": ["-y", "molecule-mcp"]}}}`,
+              `  ${JSON.stringify({ mcpServers: { [MCP_SERVER_NAME]: standardMcpEntry(scope, e) } })}`,
             ),
           ],
     skillsDir: (scope, e) => join(scope === 'machine' ? e.home : e.cwd, '.trae', 'skills'),
@@ -594,16 +755,25 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     installed: (e) => has(e, ['cline'], ['.cline']),
     mcp: (scope, e) => {
       if (scope === 'project') return []
+      const settings =
+        e.env.CLINE_MCP_SETTINGS_PATH ||
+        join(e.home, '.cline', 'data', 'settings', 'cline_mcp_settings.json')
       if (e.onPath('cline'))
-        return [cli('cline', ['mcp', 'add', MCP_SERVER_NAME, '--yes', '--', ...MCP_SERVER_COMMAND])]
-      if (e.env.CLINE_MCP_SETTINGS_PATH) return [jsonTarget(e.env.CLINE_MCP_SETTINGS_PATH)]
+        return [
+          cli(
+            'cline',
+            ['mcp', 'add', MCP_SERVER_NAME, '--yes', '--', ...mcpServerCommand(scope, e)],
+            { legacy: [legacyInFile(settings, scope, e)] },
+          ),
+        ]
+      if (e.env.CLINE_MCP_SETTINGS_PATH) return [standardJson(settings, scope, e)]
       if (e.env.CLINE_DATA_DIR || e.env.CLINE_DIR)
         return [
           manual(
-            `Cline → MCP Servers → Configure, then add mcpServers.${MCP_SERVER_NAME} = {"command": "npx", "args": ["-y", "molecule-mcp"]}`,
+            `Cline → MCP Servers → Configure, then add mcpServers.${MCP_SERVER_NAME} = ${JSON.stringify(standardMcpEntry(scope, e))}`,
           ),
         ]
-      return [jsonTarget(join(e.home, '.cline', 'data', 'settings', 'cline_mcp_settings.json'))]
+      return [standardJson(settings, scope, e)]
     },
     skillsDir: agentsSkills,
     // Cline combines every rules source; a rules file without frontmatter is
@@ -625,7 +795,11 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     readsFirstFileOnly: true,
     installed: (e) => has(e, ['junie'], ['.junie']),
     mcp: (scope, e) => [
-      jsonTarget(join(scope === 'machine' ? e.home : e.cwd, '.junie', 'mcp', 'mcp.json')),
+      standardJson(
+        join(scope === 'machine' ? e.home : e.cwd, '.junie', 'mcp', 'mcp.json'),
+        scope,
+        e,
+      ),
     ],
     skillsDir: agentsSkills,
     instructions: (scope, e) =>
@@ -641,18 +815,22 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     installed: (e) => existsSync(join(e.home, '.continue')),
     // Continue picks up Claude-format JSON files dropped into a project's
     // `.continue/mcpServers/`; its global config is a YAML list.
-    mcp: (scope, e) =>
-      scope === 'project'
-        ? [jsonTarget(join(e.cwd, '.continue', 'mcpServers', `${MCP_SERVER_NAME}.json`))]
-        : [
-            manual(
-              'Add to ~/.continue/config.yaml (it also needs top-level name, version and schema):',
-              'mcpServers:',
-              `  - name: ${MCP_SERVER_NAME}`,
-              '    command: npx',
-              '    args: ["-y", "molecule-mcp"]',
-            ),
-          ],
+    mcp: (scope, e) => {
+      if (scope === 'project')
+        return [
+          standardJson(join(e.cwd, '.continue', 'mcpServers', `${MCP_SERVER_NAME}.json`), scope, e),
+        ]
+      const [command, ...args] = mcpServerCommand(scope, e)
+      return [
+        manual(
+          'Add to ~/.continue/config.yaml (it also needs top-level name, version and schema):',
+          'mcpServers:',
+          `  - name: ${MCP_SERVER_NAME}`,
+          `    command: ${command}`,
+          `    args: ${JSON.stringify(args)}`,
+        ),
+      ]
+    },
     // Continue's IDE extension and CLI both read `.continue/rules` and
     // `.continue/skills`, in the project and in `~/.continue`.
     skillsDir: (scope, e) => join(scope === 'machine' ? e.home : e.cwd, '.continue', 'skills'),
@@ -668,21 +846,22 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     id: 'goose',
     label: 'Goose',
     installed: (e) => e.onPath('goose') || existsSync(join(xdgConfig(e), 'goose')),
-    mcp: (scope) =>
-      scope === 'project'
-        ? []
-        : [
-            manual(
-              'Add to ~/.config/goose/config.yaml under `extensions:` (or run `goose configure`):',
-              `  ${MCP_SERVER_NAME}:`,
-              '    type: stdio',
-              `    name: ${MCP_SERVER_NAME}`,
-              '    enabled: true',
-              '    cmd: npx',
-              '    args: ["-y", "molecule-mcp"]',
-              '    timeout: 300',
-            ),
-          ],
+    mcp: (scope, e) => {
+      if (scope === 'project') return []
+      const [command, ...args] = mcpServerCommand(scope, e)
+      return [
+        manual(
+          'Add to ~/.config/goose/config.yaml under `extensions:` (or run `goose configure`):',
+          `  ${MCP_SERVER_NAME}:`,
+          '    type: stdio',
+          `    name: ${MCP_SERVER_NAME}`,
+          '    enabled: true',
+          `    cmd: ${command}`,
+          `    args: ${JSON.stringify(args)}`,
+          '    timeout: 300',
+        ),
+      ]
+    },
     skillsDir: agentsSkills,
     // Goose loads `.goosehints` and `AGENTS.md` from the project, and
     // `.goosehints` from its config folder for every project
