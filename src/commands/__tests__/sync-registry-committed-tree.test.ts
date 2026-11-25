@@ -140,6 +140,67 @@ describe('sync-registry reads molecule HEAD unless package directories are named
     expect(await exportsOf('@molecule/api-probe-a')).toEqual(['probe'])
   })
 
+  describe('an entry whose package the molecule tree read does not have', () => {
+    const C = 'packages/api/utilities/probe-c'
+    const NAME = '@molecule/api-probe-c'
+    const names = async (): Promise<string[]> =>
+      Object.keys(JSON.parse(await readFile(registryPath, 'utf-8')).packages).sort()
+
+    // The 2026-11-25 shape: another session's new package exists only in the working tree, and a
+    // scoped scan of it put its entry in the registry, which was then committed.
+    beforeEach(async () => {
+      // In sync first, so the entry is the only difference a check could find.
+      await SyncRegistry.run([], config)
+      await mkdir(join(molecule, C, 'src'), { recursive: true })
+      await writeFile(
+        join(molecule, C, 'package.json'),
+        `${JSON.stringify({ name: NAME, version: '1.0.0', description: NAME }, null, 2)}\n`,
+      )
+      await writeFile(join(molecule, C, 'src', 'index.ts'), source('probe'))
+      const registry = JSON.parse(await readFile(registryPath, 'utf-8'))
+      // No exports, as mlcl 2bff9a7307's entry had: a scan of the missing package finds none
+      // either, so no export drift points at it.
+      registry.packages[NAME] = { ...entry(C, 'Probe C'), exports: [] }
+      await writeFile(registryPath, JSON.stringify(Registry.parse(registry), null, 2) + '\n')
+      clearRegistryCache()
+    })
+
+    it('is removed by an unscoped sync', async () => {
+      await SyncRegistry.run([], config)
+      expect(await names()).toEqual(['@molecule/api-probe-a', '@molecule/api-probe-b'])
+    })
+
+    it('fails --check and leaves the registry as it was', async () => {
+      const before = await readFile(registryPath, 'utf-8')
+      await expect(SyncRegistry.run(['--check'], config)).rejects.toThrow(/EEXIT: 1/)
+      expect(await readFile(registryPath, 'utf-8')).toBe(before)
+      await SyncRegistry.run([], config)
+      await SyncRegistry.run(['--check'], config)
+    })
+
+    it('is removed from the declarations awaiting a first release too', async () => {
+      const registry = JSON.parse(await readFile(registryPath, 'utf-8'))
+      registry.pendingPackages = { [NAME]: registry.packages[NAME] }
+      delete registry.packages[NAME]
+      await writeFile(registryPath, JSON.stringify(Registry.parse(registry), null, 2) + '\n')
+      clearRegistryCache()
+      await SyncRegistry.run([], config)
+      expect(JSON.parse(await readFile(registryPath, 'utf-8')).pendingPackages ?? {}).toEqual({})
+    })
+
+    it('counterexample: stays once its package is committed', async () => {
+      git('add', C)
+      git('commit', '-qm', 'probe c')
+      await SyncRegistry.run([], config)
+      expect(await names()).toEqual(['@molecule/api-probe-a', '@molecule/api-probe-b', NAME])
+    })
+
+    it('counterexample: a scoped sync, which reads only the named packages, keeps it', async () => {
+      await SyncRegistry.run([A], config)
+      expect(await names()).toContain(NAME)
+    })
+  })
+
   it('counterexample: reads a tree that is not a git checkout as it is', async () => {
     await rm(join(molecule, '.git'), { recursive: true, force: true })
     await SyncRegistry.run(['--scan-exports'], config)

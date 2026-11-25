@@ -172,7 +172,9 @@ at a pinned commit) then refuses the registry. To record your own uncommitted ed
 commit a molecule package whose registry entry must already match), name your package directories:
 `node bin/run.js sync-registry --scan-exports packages/app/features/<name>`. Only those entries
 change, read from the working tree. `MOLECULE_PACKAGES_DIR` naming a tree that is not a git
-checkout (an export, a fixture) is read as it is.
+checkout (an export, a fixture) is read as it is. An unscoped sync also removes each entry whose
+package directory the tree it reads does not have (a deleted package, or one only someone's working
+tree has), and `--check` fails on one.
 
 Also update the plan doc in the workspace `internal/mlcl/plans/` to mark completed items.
 

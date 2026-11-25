@@ -295,6 +295,8 @@ export default class SyncRegistry extends Command {
     // Named package directories scope the package scans; the version syncs read every package.
     const toolchainUpdated = this.scope ? 0 : this.syncToolchain(dryRun, false)
     const frameworksUpdated = this.scope ? 0 : this.syncFrameworks(dryRun, false)
+    // Only an unscoped run reads every package, so only it can tell that one is gone.
+    const entriesPruned = this.scope ? 0 : this.pruneMissingPackages(dryRun)
     const exportsUpdated = await this.refreshExports(dryRun, false)
     const tablesUpdated = await this.refreshTables(dryRun, false)
     const routesUpdated = await this.refreshRoutes(dryRun, false)
@@ -304,6 +306,7 @@ export default class SyncRegistry extends Command {
     const totalUpdated =
       toolchainUpdated +
       frameworksUpdated +
+      entriesPruned +
       exportsUpdated +
       tablesUpdated +
       routesUpdated +
@@ -1212,6 +1215,42 @@ export default class SyncRegistry extends Command {
     }
 
     return updated
+  }
+
+  /**
+   * Remove each entry whose package directory the molecule tree being read does not have: a
+   * package molecule deleted, or one that exists only in someone's working tree. An unscoped sync
+   * reads molecule at HEAD, so such an entry names a package no commit ships, and the scans skip
+   * it, so nothing else would notice (2026-11-25: mlcl 2bff9a7307 committed an entry for an
+   * uncommitted package and every later sync kept it). Without a molecule tree there is nothing to
+   * judge by, and every entry stays.
+   *
+   * @param dryRun - When true, report the entries without removing them.
+   * @returns Number of entries removed, or that a write would remove.
+   */
+  private pruneMissingPackages(dryRun: boolean): number {
+    const __dir = dirname(fileURLToPath(import.meta.url))
+    const moleculeDir = process.env.MOLECULE_PACKAGES_DIR
+      ? join(process.env.MOLECULE_PACKAGES_DIR, '..')
+      : join(__dir, '..', '..', '..', 'molecule')
+    if (!existsSync(join(moleculeDir, 'packages'))) return 0
+    const registry = getRawRegistry()
+    // A declaration awaiting its first release names a package in this tree like any other.
+    const sections = [registry.packages, registry.pendingPackages ?? {}]
+    const missing = sections.flatMap((section) =>
+      Object.entries(section)
+        .filter(([, entry]) => !existsSync(join(moleculeDir, entry.path, 'package.json')))
+        .map(([name]) => name),
+    )
+    if (missing.length === 0) return 0
+    p.log.warn(
+      `${dryRun ? 'Would remove' : 'Removed'} ${missing.length} entr${missing.length === 1 ? 'y' : 'ies'} whose package molecule does not have: ${missing.join(', ')}`,
+    )
+    if (!dryRun) {
+      for (const section of sections) for (const name of missing) delete section[name]
+      writeRegistryFile(getRegistryPath(), registry)
+    }
+    return missing.length
   }
 
   /**
