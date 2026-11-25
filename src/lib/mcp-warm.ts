@@ -13,12 +13,17 @@
  *
  * It also lists the tools, as a session does next, and setup says so: told only that the server
  * "starts", Codex wrote its own MCP client to confirm the tools were there (harness eval `install`,
- * 2026-11-25: four of five runs, 4-6 steps each).
+ * 2026-11-25: four of five runs, 4-6 steps each). Then it makes one search, as an agent's first
+ * Molecule call would: told the tools were listed, Codex still wrote a client to call
+ * `search_packages` itself, 7-14 s at the end of four of five installs (the same eval, later run).
  *
  * @module
  */
 
 import { spawn } from 'node:child_process'
+
+/** The search setup makes once the tools are listed: the tool, and what it asks. */
+export const WARM_SEARCH = { tool: 'search_packages', query: 'database' } as const
 
 /** What a started server reported. */
 export interface McpWarmResult {
@@ -26,8 +31,37 @@ export interface McpWarmResult {
   version: string
   /** How many tools its `tools/list` answer names. */
   tools: number
-  /** Milliseconds from spawn to the tool list. */
+  /**
+   * Its {@link WARM_SEARCH} and the first package that found; absent when the server lists no such
+   * tool (a server older than this check).
+   */
+  search?: { tool: string; query: string; found: string }
+  /** Milliseconds from spawn to the last answer. */
   ms: number
+}
+
+/**
+ * The first package name in a `search_packages` answer.
+ *
+ * @param result - The `tools/call` result.
+ * @returns The name, or an error saying what the answer was instead.
+ */
+function firstFound(result: unknown): string | Error {
+  const answer = result as { isError?: unknown; content?: { text?: unknown }[] } | undefined
+  const text = (answer?.content ?? [])
+    .map((part) => (typeof part.text === 'string' ? part.text : ''))
+    .join('')
+  if (answer?.isError) return new Error(`${WARM_SEARCH.tool} failed: ${text.slice(0, 200)}`)
+  let hits: unknown
+  try {
+    hits = JSON.parse(text)
+  } catch (_error) {
+    return new Error(`${WARM_SEARCH.tool} answered: ${text.slice(0, 200)}`)
+  }
+  const name = Array.isArray(hits) ? (hits[0] as { name?: unknown } | undefined)?.name : undefined
+  return typeof name === 'string'
+    ? name
+    : new Error(`${WARM_SEARCH.tool} found nothing for "${WARM_SEARCH.query}"`)
 }
 
 /** The child-process surface this needs, so tests run without a network. */
@@ -117,15 +151,17 @@ export function exchangeJsonLines<T>(
 }
 
 /**
- * Spawn the server, send `initialize` and then `tools/list`, and resolve once it has answered both.
+ * Spawn the server, send `initialize` and then `tools/list`, call {@link WARM_SEARCH} when it is
+ * listed, and resolve once it has answered them all.
  *
  * @param command - The executable (`npx`).
  * @param args - Its arguments (`['-y', 'molecule-mcp']`).
  * @param opts - Options.
  * @param opts.timeoutMs - How long to wait for the answer (default 120 s, Codex's start limit).
  * @param opts.spawnImpl - Child-process factory (tests).
- * @returns The server's version, its tool count and how long it took. Rejects when it exits, fails to spawn or
- *   does not answer in time; the child is killed in every case.
+ * @returns The server's version, its tool count, what the search found and how long it took.
+ *   Rejects when it exits, fails to spawn, does not answer in time or its search fails; the child
+ *   is killed in every case.
  */
 export function warmMcpServer(
   command: string,
@@ -134,6 +170,7 @@ export function warmMcpServer(
 ): Promise<McpWarmResult> {
   const started = Date.now()
   let version = ''
+  let tools = 0
   return exchangeJsonLines<McpWarmResult>(
     command,
     args,
@@ -162,12 +199,36 @@ export function warmMcpServer(
           send({ jsonrpc: '2.0', method: 'notifications/initialized' })
           send({ jsonrpc: '2.0', id: 2, method: 'tools/list' })
         } else if (message.id === 2) {
-          const tools = result?.tools
-          if (!Array.isArray(tools) || tools.length === 0) {
+          const listed = result?.tools
+          if (!Array.isArray(listed) || listed.length === 0) {
             finish(new Error('answered tools/list with no tools'))
             return
           }
-          finish(null, { version, tools: tools.length, ms: Date.now() - started })
+          tools = listed.length
+          if (!listed.some((t) => (t as { name?: unknown } | null)?.name === WARM_SEARCH.tool)) {
+            finish(null, { version, tools, ms: Date.now() - started })
+            return
+          }
+          send({
+            jsonrpc: '2.0',
+            id: 3,
+            method: 'tools/call',
+            params: { name: WARM_SEARCH.tool, arguments: { query: WARM_SEARCH.query, limit: 1 } },
+          })
+        } else if (message.id === 3) {
+          const error = (message.error as { message?: unknown } | undefined)?.message
+          const found =
+            error === undefined
+              ? firstFound(message.result)
+              : new Error(`${WARM_SEARCH.tool} failed: ${String(error)}`)
+          if (found instanceof Error) finish(found)
+          else
+            finish(null, {
+              version,
+              tools,
+              search: { ...WARM_SEARCH, found },
+              ms: Date.now() - started,
+            })
         }
       },
     },

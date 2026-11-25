@@ -195,8 +195,11 @@ export default class Setup extends Command {
       try {
         const warm = await warmMcpServer(command, args)
         warmed = true
+        const searched = warm.search
+          ? `; ${warm.search.tool} "${warm.search.query}" found ${warm.search.found}`
+          : ''
         this.log(
-          `  ${ui.check(`${shown} answers as in an agent session: ${warm.tools} tools`)} ${ui.dim(`(${warm.version}, ${(warm.ms / 1000).toFixed(1)} s)`)}`,
+          `  ${ui.check(`${shown} answers as in an agent session: ${warm.tools} tools${searched}`)} ${ui.dim(`(${warm.version}, ${(warm.ms / 1000).toFixed(1)} s)`)}`,
         )
       } catch (error) {
         warmFailed = true

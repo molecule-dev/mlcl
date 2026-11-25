@@ -115,6 +115,22 @@ describe('mlcl setup --scope machine: what each agent sees', () => {
     expect(process.exitCode).toBeUndefined()
   })
 
+  it('says what the server search found, and nothing about a search it did not make (OLD MUSTFAIL)', async () => {
+    mocks.warm.mockImplementationOnce(async () => ({
+      version: '9.9.9',
+      tools: 76,
+      ms: 300,
+      search: { tool: 'search_packages', query: 'database', found: '@molecule/api-database' },
+    }))
+    const out = await run([...machine, '--agent', 'codex'])
+    expect(out).toContain(
+      'answers as in an agent session: 76 tools; search_packages "database" found @molecule/api-database',
+    )
+    const older = await run([...machine, '--agent', 'codex'])
+    expect(older).toContain('answers as in an agent session: 76 tools')
+    expect(older).not.toContain('search_packages')
+  })
+
   it('fails setup when an agent does not see the server', async () => {
     mocks.codex.mockResolvedValue({
       ok: false,
