@@ -44,7 +44,7 @@ const ADD =
 
 const LOCAL = [
   ...WHEN,
-  `- Any project: \`search_packages\` for the capability (a named vendor usually has its own provider), and \`read_package_doc\` before using a package or deciding not to. \`add_package\` installs and wires one. ${ADD} \`swap_provider\` changes its vendor.`,
+  `- Any project: \`search_packages\` for the capability (a named vendor usually has its own provider). Its top hits carry their Quick Start and environment variables, enough to say which package to use and how. \`add_package\` installs and wires one and prints the Quick Start and signatures you need. ${ADD} Use \`read_package_doc\` before rejecting a package, and for what add leaves out. \`swap_provider\` changes its vendor.`,
   '- Tasks you can run directly, with no vendor account: `web_search`, `fetch_url`, `render_pdf`, `generate_image`, `transcribe_audio`, `translate` and more, billed to a molecule.dev project key (`login`, then `create_api_key`). The same services back the @molecule/*-molecule providers in app code.',
   '- New app: `list_templates`, then read the catalog of each strong candidate (its `slug`). Start from a template only when it covers the core of the request and is the right size for it; otherwise build a custom stack from `search_packages`. Then `scaffold_project`.',
   "- In a Molecule project (it wires providers in src/bonds/), follow the project's AGENTS.md. `agent_init` writes these conventions into a project's instruction files; the `molecule://conventions` resource has them in full.",
@@ -52,7 +52,7 @@ const LOCAL = [
 
 const HOSTED = [
   ...WHEN,
-  `- Any project: \`search_packages\` for the capability (a named vendor usually has its own provider), and \`read_package_doc\` before using a package or deciding not to. From a terminal, \`npx mlcl add @molecule/<name> --inject\` installs and wires one. ${ADD} \`npx mlcl swap @molecule/<provider>\` changes its vendor.`,
+  `- Any project: \`search_packages\` for the capability (a named vendor usually has its own provider). Its top hits carry their Quick Start and environment variables, enough to say which package to use and how. From a terminal, \`npx mlcl add @molecule/<name> --inject\` installs and wires one and prints the Quick Start and signatures you need. ${ADD} Use \`read_package_doc\` before rejecting a package, and for what add leaves out. \`npx mlcl swap @molecule/<provider>\` changes its vendor.`,
   '- The local server (`npx mlcl setup` installs it) also scaffolds projects and runs tasks such as web search, page fetching, PDF rendering and image generation with no vendor account.',
   '- New app: `list_templates`, then read the catalog of each strong candidate (its `slug`). Start from a template only when it covers the core of the request and is the right size for it; otherwise build a custom stack from `search_packages`. Scaffold from a terminal: `npx mlcl create <name> --template <slug> --no-interactive`, or `--packages <list>` for a custom stack.',
   "- In a Molecule project (it wires providers in src/bonds/), follow the project's AGENTS.md; the `molecule://conventions` resource has the conventions in full.",

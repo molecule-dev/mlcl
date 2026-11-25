@@ -13,7 +13,7 @@
 
 import { Args, Command, Flags } from '@oclif/core'
 
-import { fetchPublishedReadme, localPackageDoc } from '../lib/package-doc-files.js'
+import { fetchPublishedReadme, localPackageDoc, npmRegistryUrl } from '../lib/package-doc-files.js'
 import { parseDocSearch, searchPackageDoc } from '../lib/package-doc-search.js'
 import { packageDocView } from '../lib/package-doc-view.js'
 
@@ -33,13 +33,62 @@ interface PackageDocResult {
 }
 
 /**
- * A package's published README and latest version, from the npm registry npm is configured with.
+ * A package's published README and latest version, from the registry npm uses in the current
+ * directory ({@link npmRegistryUrl}).
  *
  * @param name - The package name without its scope.
  * @returns The README and version, or null when npm has no README for it.
  */
 async function publishedReadme(name: string): Promise<{ readme: string; version?: string } | null> {
-  return fetchPublishedReadme(name, { timeoutMs: NPM_TIMEOUT_MS })
+  return fetchPublishedReadme(name, {
+    timeoutMs: NPM_TIMEOUT_MS,
+    registry: npmRegistryUrl(process.env, process.cwd()),
+  })
+}
+
+/** npm's name shape, one path segment: a word outside it cannot be a package name. */
+const PACKAGE_NAME = /^[a-z0-9][a-z0-9._-]*$/
+
+/**
+ * A word that names a package: the scope, or npm's name shape with a hyphen, which every
+ * `@molecule/*` name has (`api-database`, `eslint-config`). `translations` in an unquoted
+ * `--section Editing translations` is a word of the heading.
+ *
+ * @param word - One argument.
+ * @returns Whether it names a package.
+ */
+function namesPackage(word: string): boolean {
+  const name = word.replace(/^@molecule\//, '')
+  return PACKAGE_NAME.test(name) && (word.startsWith('@molecule/') || name.includes('-'))
+}
+
+/**
+ * A section name the shell split into words. `mlcl docs api-uploads --section Quick Start` reached
+ * the command as the section `Quick` and a second package `Start`, which it refused (harness eval
+ * `add`, 2026-11-25, Codex). The words right after the section's value that do not name a package
+ * ({@link namesPackage}) continue it.
+ *
+ * @param raw - The command's raw arguments.
+ * @param section - The parsed `--section` value.
+ * @param positional - The parsed package arguments.
+ * @returns The section and the package arguments without the words that belong to it.
+ */
+function joinSplitSection(
+  raw: readonly string[],
+  section: string | undefined,
+  positional: readonly string[],
+): { section: string | undefined; names: string[] } {
+  const names = [...positional]
+  const at = raw.findIndex((arg) => arg === '--section' || arg.startsWith('--section='))
+  if (section === undefined || at < 0) return { section, names }
+  const words: string[] = []
+  for (let i = raw[at] === '--section' ? at + 2 : at + 1; i < raw.length; i++) {
+    const word = raw[i]
+    if (word.startsWith('-') || namesPackage(word)) break
+    words.push(word)
+    names.splice(names.lastIndexOf(word), 1)
+  }
+  return { section: [section, ...words].join(' '), names }
 }
 
 export default class Docs extends Command {
@@ -80,12 +129,18 @@ export default class Docs extends Command {
 
   public async run(): Promise<void> {
     const { argv, flags } = await this.parse(Docs)
-    const names = (argv as string[]).map((name) => name.trim().replace(/^@molecule\//, ''))
+    const split = joinSplitSection(this.argv, flags.section, argv as string[])
+    const section = split.section
+    const names = split.names.map((name) => name.trim().replace(/^@molecule\//, ''))
+    if (names.length === 0)
+      this.error('Name a package to read: npx mlcl docs @molecule/<name> --section "<heading>"', {
+        exit: 2,
+      })
     if (names.length > MAX_PACKAGES)
       this.error(`Read at most ${MAX_PACKAGES} packages at once.`, { exit: 2 })
     for (const name of names) {
       // npm's name shape, one path segment: the name is joined into node_modules paths.
-      if (!/^[a-z0-9][a-z0-9._-]*$/.test(name))
+      if (!PACKAGE_NAME.test(name))
         this.error(`"${name}" is not a @molecule package name.`, { exit: 2 })
     }
     let search: string[] | undefined
@@ -98,7 +153,7 @@ export default class Docs extends Command {
     }
 
     const results: PackageDocResult[] = []
-    for (const name of names) results.push(await this.readOne(name, flags.section, search))
+    for (const name of names) results.push(await this.readOne(name, section, search))
 
     if (flags.json) {
       this.log(JSON.stringify(results, null, 2))

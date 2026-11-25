@@ -39,7 +39,7 @@ import {
   serverInstructions,
 } from './instructions.js'
 import { cliRegistryPath, searchLocalRegistry } from './local-search.js'
-import { localPackageDoc } from './package-doc-files.js'
+import { localPackageDoc, npmRegistryUrl } from './package-doc-files.js'
 import { searchPackageDoc } from './package-doc-search.js'
 import { packageDocView } from './package-doc-view.js'
 import { fetchPackageReadme } from './remote.js'
@@ -626,7 +626,9 @@ server.registerTool(
     return text(
       await withQuickStarts(
         json,
-        async (short) => localPackageDoc(short, process.cwd())?.readme ?? fetchPackageReadme(short),
+        async (short) =>
+          localPackageDoc(short, process.cwd())?.readme ??
+          fetchPackageReadme(short, undefined, npmRegistryUrl(process.env, process.cwd())),
       ),
     )
   }),
@@ -681,14 +683,25 @@ server.registerTool(
     // (harness eval `docs`, 2026-11-23: 4 extra steps and ~7 s per agent).
     let readme = local?.readme
     let note = local?.note
+    // The registry npm uses in the project (a mirror, a local registry), not only the public one.
+    let registry: string | undefined
+    let failure: string | undefined
     if (!readme) {
-      readme = await fetchPackageReadme(short).catch(() => undefined)
+      registry = npmRegistryUrl(process.env, base)
+      readme = await fetchPackageReadme(short, undefined, registry).catch((error: unknown) => {
+        // Reported in the answer below, where the caller reads it.
+        failure = error instanceof Error ? error.message : String(error)
+        return undefined
+      })
       note = 'Published README from npm: the package is not installed here.'
     }
-    if (!readme)
+    if (!readme) {
+      // A registry URL can carry credentials (`https://<user>:<token>@host/`); they stay out of the answer.
+      const shown = (registry ?? '').replace(/\/\/[^/@]*@/, '//')
       return text(
-        `No README found for @molecule/${short}: it is not installed near ${echoOf(base)} and npm did not return one. Run search_packages to find the package, or browse https://www.molecule.dev/packages/${short}`,
+        `No README found for @molecule/${short}: it is not installed near ${echoOf(base)}, and ${failure ? `the registry ${shown} could not be read (${failure})` : `the registry ${shown} has no README for it`}. Run search_packages to find the package, or browse https://www.molecule.dev/packages/${short}`,
       )
+    }
     if (search !== undefined)
       return text(
         searchPackageDoc(
@@ -712,7 +725,7 @@ server.registerTool(
     _meta: LOAD_UP_FRONT,
     title: 'Add a package to this project',
     description:
-      'Install and wire a @molecule/* package into the project at directory (mlcl add --inject: writes the dependency, generates the bond wiring, peers, migrations, routes). SLOW BY DESIGN: it runs a real `npm install` (typically 1–3 minutes) — call it once and wait; a slow response is not a failure, do not retry.',
+      'Install and wire a @molecule/* package into the project at directory (mlcl add --inject: writes the dependency, generates the bond wiring, peers, migrations, routes). It runs a real `npm install`: seconds when the npm cache holds the packages, a few minutes on a first install. Call it once and wait; a slow response is not a failure, do not retry.',
     inputSchema: {
       name: z.string().describe('Full package name, e.g. @molecule/api-emails-mailgun'),
       directory: z
@@ -871,7 +884,7 @@ server.registerTool(
     _meta: LOAD_UP_FRONT,
     title: 'Scaffold a molecule project',
     description:
-      'Create a new project with mlcl: from a flagship template when its catalog (list_templates with its slug) covers the core of the request, otherwise from a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22. SLOW BY DESIGN: with an install it can take several minutes — call it once and wait; a slow response is not a failure, do not retry. `directory` must already exist (it becomes the spawn cwd).',
+      'Create a new project with mlcl: from a flagship template when its catalog (list_templates with its slug) covers the core of the request, otherwise from a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22. With its install it takes seconds when the npm cache holds the packages and a few minutes on a first install. Call it once and wait; a slow response is not a failure, do not retry. `directory` must already exist (it becomes the spawn cwd).',
     inputSchema: {
       name: z.string().describe('Project name (lowercase slug)'),
       template: z
@@ -897,7 +910,12 @@ server.registerTool(
         .describe(
           'Path to an OpenAPI 3.1 JSON document; its auth operations preconfigure the app auth bond',
         ),
-      skip_install: z.boolean().optional(),
+      skip_install: z
+        .boolean()
+        .optional()
+        .describe(
+          'Skip the install and the integration code, which needs it: you then run each pendingSetup step yourself. Leave it off to install, wire and check in one call',
+        ),
       directory: z.string().optional().describe('Directory to scaffold in (default cwd)'),
     },
   },

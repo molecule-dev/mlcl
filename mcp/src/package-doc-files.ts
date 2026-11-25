@@ -5,6 +5,7 @@
 //   node scripts/generate-mcp-package-docs.mjs
 // Drift fails src/lib/__tests__/mcp-doc-owner-drift.test.ts.
 
+import { execFileSync } from 'node:child_process'
 import * as fs from 'node:fs'
 import { dirname, resolve } from 'node:path'
 
@@ -139,16 +140,65 @@ export function localPackageDoc(
 /** The public npm registry, used when npm names no other. */
 const PUBLIC_NPM_REGISTRY = 'https://registry.npmjs.org/'
 
+/** npm's answer per directory, kept for the life of the process (the MCP server asks on every doc read). */
+const configuredRegistries = new Map<string, string | undefined>()
+
 /**
- * The npm registry a package that is not installed is read from: the one npm is configured with
- * when this process runs under npm or npx (`npm_config_registry`), so a company mirror or a local
- * registry serves the doc, otherwise the public registry.
+ * The registry npm itself installs `@molecule/*` packages from in `dir`: its `@molecule:registry`
+ * scope when set, else its `registry`, from every config npm reads (the environment, the project's
+ * and the user's .npmrc, the global config). Asked of npm, which takes about 0.1 s, once per
+ * directory.
+ *
+ * The environment alone is not enough: npm sets `npm_config_registry` only for a process it starts,
+ * and the MCP server runs as `node ~/.mlcl/mcp/run.mjs`. With the environment alone it read every
+ * uninstalled package's doc from the public registry, which a mirror-only network cannot reach
+ * (harness eval add, 2026-11-25: "npm did not return one", then a second read after the install).
+ *
+ * @param dir - The directory npm resolves its project config from.
+ * @returns The URL, or undefined when npm cannot be run there or names none.
+ */
+export function npmConfiguredRegistry(dir: string): string | undefined {
+  if (configuredRegistries.has(dir)) return configuredRegistries.get(dir)
+  let found: string | undefined
+  try {
+    const out = execFileSync(
+      'npm',
+      ['config', 'get', '@molecule:registry', 'registry', '--no-workspaces'],
+      { cwd: dir, encoding: 'utf8', timeout: 10_000, stdio: ['ignore', 'pipe', 'ignore'] },
+    )
+    const values = new Map(
+      out
+        .split('\n')
+        .map((line) => [
+          line.slice(0, line.indexOf('=')),
+          line.slice(line.indexOf('=') + 1).trim(),
+        ]),
+    )
+    found = [values.get('@molecule:registry'), values.get('registry')].find(
+      (value) => value !== undefined && /^https?:\/\//i.test(value),
+    )
+  } catch (_error) {
+    // npm is missing or fails in this directory: the caller reads the public registry, as it does
+    // where npm names no other.
+    found = undefined
+  }
+  configuredRegistries.set(dir, found)
+  return found
+}
+
+/**
+ * The npm registry a package that is not installed is read from: the one npm uses in `dir`
+ * ({@link npmConfiguredRegistry}), else the one npm passed this process (`npm_config_registry`,
+ * under npm or npx), so a company mirror or a local registry serves the doc; otherwise the public
+ * registry. The hosted server passes no directory.
  *
  * @param env - The process environment.
+ * @param dir - The directory being read from, when npm's own config applies there.
  * @returns The registry URL, ending in `/`.
  */
-export function npmRegistryUrl(env: NodeJS.ProcessEnv = process.env): string {
-  const configured = env.npm_config_registry?.trim()
+export function npmRegistryUrl(env: NodeJS.ProcessEnv = process.env, dir?: string): string {
+  const configured =
+    (dir ? npmConfiguredRegistry(dir) : undefined) ?? env.npm_config_registry?.trim()
   const url = configured && /^https?:\/\//i.test(configured) ? configured : PUBLIC_NPM_REGISTRY
   return url.endsWith('/') ? url : `${url}/`
 }

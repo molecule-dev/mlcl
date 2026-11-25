@@ -196,6 +196,27 @@ describe('mlcl agent init', () => {
     expect(agents).toContain('npx mlcl search <capability>')
   })
 
+  // r20 harness eval (2026-11-24): the machine-wide copy said to start with the capability map
+  // "below when present". Nothing follows it in ~/.codex/AGENTS.md, so Codex went looking in an
+  // existing app that has no AGENTS.md (`rg … AGENTS.md`, exit 2). The section is written
+  // machine-wide too, so it names the file that holds the map rather than a place in itself.
+  it('says which file holds the capability map, not that it is below (OLD MUSTFAIL)', async () => {
+    const home = await mkdtemp(join(tmpdir(), 'mlcl-agent-init-home-'))
+    const prevHome = process.env.HOME
+    process.env.HOME = home
+    try {
+      await run(['--agent', 'codex', '--global'])
+      const global = await readFile(join(home, '.codex', 'AGENTS.md'), 'utf8')
+      expect(global).not.toMatch(/## Declared capability map\S*\s+below/)
+      expect(global).toMatch(
+        /A project Molecule created has a `## Declared capability map` in\s+its AGENTS\.md/,
+      )
+    } finally {
+      process.env.HOME = prevHome
+      await rm(home, { recursive: true, force: true })
+    }
+  })
+
   it('the MCP conventions copy is the same text agent init writes', async () => {
     // `molecule-mcp` serves a bundled COPY of the section template, so the two
     // can drift silently: an MCP client would keep reading yesterday's

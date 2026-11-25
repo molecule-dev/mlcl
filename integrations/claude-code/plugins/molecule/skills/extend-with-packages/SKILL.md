@@ -17,8 +17,9 @@ Keep code that already provides a capability unless the user asks to replace it.
    ```bash
    npx mlcl search <capability>       # e.g. "send emails", "payments", "file uploads"
    ```
-   Over MCP: `search_packages`, then `read_package_doc` before using a package or deciding
-   not to.
+   Over MCP: `search_packages`. The top hits carry their Quick Start (which package, its basic
+   call); read the doc (`read_package_doc`) before writing code against a package or deciding
+   not to use it.
 2. **Install + wire.** From the project root (or its `api/`/`app/` subdir):
    ```bash
    npx mlcl add @molecule/<name> --inject

@@ -26,6 +26,7 @@ function readme(size: number): string {
     '',
     '```ts',
     '# not a heading: a comment inside a fence',
+    "await findMany('notes')",
     '```',
     '',
     '## API',
@@ -38,6 +39,16 @@ function readme(size: number): string {
     '#### `DemoRow`',
     '',
     'A demo row.',
+    '',
+    '### Constants',
+    '',
+    '#### `BLOCKED_UPLOAD_TYPES`',
+    '',
+    'The blocked types.',
+    '',
+    '#### `transport` _(deprecated)_',
+    '',
+    'The old transport.',
     '',
     '## Injection Notes',
     '',
@@ -68,6 +79,62 @@ describe('packageDocView', () => {
     expect(text).not.toContain('Finds rows for findMany')
   })
 
+  it('names exports in the index as code imports them, underscores kept (OLD MUSTFAIL)', () => {
+    // The index listed `BLOCKED_UPLOAD_TYPES` as BLOCKEDUPLOADTYPES (harness eval add, 2026-11-25).
+    const doc = readme(DOC_VIEW_MAX_CHARS * 3)
+    const { text } = packageDocView(doc, { sectionHint: HINT })
+    expect(text).toContain('  - Constants\n    BLOCKED_UPLOAD_TYPES, transport\n')
+    const section = packageDocView(doc, { section: 'BLOCKED_UPLOAD_TYPES', sectionHint: HINT })
+    expect(section.found).toBe(true)
+    expect(section.text).toContain('The blocked types.')
+    expect(packageDocView(doc, { section: 'transport', sectionHint: HINT }).text).toContain(
+      'The old transport.',
+    )
+  })
+
+  it('finds a heading asked for with its emphasis badge, as search prints it', () => {
+    // glm-5.4 review, 2026-11-25: `--section "email _(deprecated)_"` stopped matching (107 headings).
+    const doc = readme(DOC_VIEW_MAX_CHARS * 3)
+    for (const section of ['transport _(deprecated)_', '`transport` _(deprecated)_']) {
+      const view = packageDocView(doc, { section, sectionHint: HINT })
+      expect(view.found).toBe(true)
+      expect(view.text).toContain('The old transport.')
+    }
+  })
+
+  it('closes a code fence a cut leaves open, before the note', () => {
+    const doc = `# pkg\n\nOverview.\n\n## Quick Start\n\n\`\`\`ts\n${'const x = 1\n'.repeat(400)}\`\`\`\n\n## API\n\n${'y'.repeat(DOC_VIEW_MAX_CHARS)}\n`
+    const text = packageDocView(doc, { sectionHint: HINT }).text
+    const note = text.indexOf('…(cut at 3000 characters')
+    expect(note).toBeGreaterThan(0)
+    const before = text.slice(0, note)
+    expect(before.match(/^```/gm)?.length).toBe(2)
+    expect(before.trimEnd().endsWith('```')).toBe(true)
+  })
+
+  it("prints a long README's Quick Start in full above the index (OLD MUSTFAIL)", () => {
+    // Every Codex run asked for the Quick Start in a second call (harness eval add, 2026-11-25).
+    const { text } = packageDocView(readme(DOC_VIEW_MAX_CHARS * 3), { sectionHint: HINT })
+    expect(text).toContain(
+      "## Quick Start\n\n```ts\n# not a heading: a comment inside a fence\nawait findMany('notes')\n```",
+    )
+    expect(text.indexOf("await findMany('notes')")).toBeLessThan(text.indexOf('This README is'))
+    expect(text).not.toContain('## API\n')
+  })
+
+  it('counterexample: a long Quick Start is cut and says how to read it whole; none, none printed', () => {
+    const long = `# pkg\n\nOverview.\n\n## Quick Start\n\n${'q'.repeat(5_000)}\n\n## API\n\n${'y'.repeat(DOC_VIEW_MAX_CHARS)}\n`
+    const cut = packageDocView(long, { sectionHint: HINT }).text
+    expect(cut).toContain(
+      'read it whole with npx mlcl docs @molecule/api-demo --section "Quick Start"',
+    )
+    expect(cut.length).toBeLessThan(DOC_VIEW_MAX_CHARS)
+    const none = `# pkg\n\nOverview.\n\n## API\n\n${'y'.repeat(DOC_VIEW_MAX_CHARS)}\n`
+    const view = packageDocView(none, { sectionHint: HINT }).text
+    expect(view).not.toContain('Quick Start')
+    expect(view).not.toContain('yyyy')
+  })
+
   it('reads an exported function by the name the index lists, up to the next heading of its level', () => {
     const { text, found } = packageDocView(readme(DOC_VIEW_MAX_CHARS * 3), {
       section: 'findMany',
@@ -94,6 +161,116 @@ describe('packageDocView', () => {
     expect(found).toBe(false)
     expect(text).toContain('No section "deleteAll"')
     expect(text).toContain('findById, findOne, findMany')
+  })
+
+  it('answers a guessed name with the sections whose names contain it (OLD MUSTFAIL)', () => {
+    // Codex asked the uploads body parser core for `--section uploadParser`, got the index and
+    // exit 1, and asked again (harness eval add, 2026-11-25, 3 of 5 runs).
+    const doc = [
+      '# @molecule/api-middleware-body-parser',
+      '',
+      '## API',
+      '',
+      '### Types',
+      '',
+      '#### `UploadParserFactory`',
+      '',
+      'Makes the upload parser for one route.',
+      '',
+      '### Functions',
+      '',
+      '#### `createUploadParser(options)`',
+      '',
+      'The upload parser the bonded factory makes.',
+      '',
+      '#### `createJsonParser(options)`',
+      '',
+      'The JSON parser.',
+      '',
+    ].join('\n')
+    const view = packageDocView(doc, { section: 'uploadParser', sectionHint: HINT })
+    expect(view.found).toBe(true)
+    expect(view.text).toContain(
+      'No section is named "uploadParser". The sections whose names contain it:',
+    )
+    expect(view.text).toContain('Makes the upload parser for one route.')
+    expect(view.text).toContain('The upload parser the bonded factory makes.')
+    expect(view.text).not.toContain('The JSON parser.')
+  })
+
+  it('answers a name only the prose mentions with the passages that mention it (OLD MUSTFAIL)', () => {
+    // `--section invalidateDeviceExistsCache` on api-resource-user: the name is in a paragraph,
+    // never a heading (harness eval scaffold, 2026-11-25).
+    const doc = [
+      '# @molecule/api-resource-user',
+      '',
+      'The user resource.',
+      '',
+      '## Usage',
+      '',
+      '```ts',
+      "import { invalidateDeviceExistsCache } from '@molecule/api-resource-user'",
+      '',
+      'invalidateDeviceExistsCache(deviceId)',
+      '```',
+      '',
+      '## Injection Notes',
+      '',
+      'Some other note.',
+      '',
+      '**Revoking a session yourself:** the middleware caches "this device exists" for 10 s,',
+      'so call `invalidateDeviceExistsCache(deviceId)` after the delete.',
+      '',
+    ].join('\n')
+    const view = packageDocView(doc, { section: 'invalidateDeviceExistsCache', sectionHint: HINT })
+    expect(view.found).toBe(true)
+    expect(view.text).toContain('The README mentions it here')
+    // A code block comes whole, blank line included; a paragraph comes with all its lines.
+    expect(view.text).toContain(
+      'From "## Usage":\n```ts\nimport { invalidateDeviceExistsCache } from \'@molecule/api-resource-user\'\n\ninvalidateDeviceExistsCache(deviceId)\n```',
+    )
+    expect(view.text).toContain(
+      'From "## Injection Notes":\n**Revoking a session yourself:** the middleware caches "this device exists" for 10 s,\nso call `invalidateDeviceExistsCache(deviceId)` after the delete.',
+    )
+    expect(view.text).not.toContain('Some other note.')
+  })
+
+  it('lists by name the sections named like the request past the bound, each printed once', () => {
+    const big = 'z'.repeat(3_000)
+    const doc = [
+      '# pkg',
+      '',
+      '## Upload parsing',
+      '',
+      '### `uploadParserA`',
+      '',
+      `A. ${big}`,
+      '',
+      '## `uploadParserB`',
+      '',
+      `B. ${big}`,
+      '',
+      '## `uploadParserC`',
+      '',
+      `C. ${big}`,
+      '',
+    ].join('\n')
+    const { text, found } = packageDocView(doc, { section: 'uploadParser', sectionHint: HINT })
+    expect(found).toBe(true)
+    // `uploadParserA` sits inside "Upload parsing", which does not contain the request as typed.
+    expect(text.match(/^A\. /gm)?.length).toBe(1)
+    expect(text).toContain('B. ')
+    expect(text).toContain('Also named like it (ask for one by name): uploadParserC')
+    expect(text.length).toBeLessThan(10_000)
+  })
+
+  it('counterexample: a short request, or the package title, is not looked for in names', () => {
+    const doc = readme(1_000)
+    // `one` is in `findOne`, but three letters match most READMEs; nothing mentions it either.
+    expect(packageDocView(doc, { section: 'one', sectionHint: HINT }).found).toBe(false)
+    const title = packageDocView(doc, { section: 'api-demo', sectionHint: HINT })
+    expect(title.found).toBe(false)
+    expect(title.text).toContain('No section "api-demo"')
   })
 
   it('cuts a section longer than the bound and says how to narrow it', () => {

@@ -60,17 +60,25 @@ on molecule.dev with no vendor account, billed to a molecule.dev project key
 
 **Before you build a capability** — a feature, an integration, a script, a tool:
 
-1. **Inspect.** Start with `## Declared capability map` below when present. Map
-   every feature in the plan to its declared package and configuration; otherwise
-   use `npx mlcl search <capability>` (or `search_packages` over MCP). Read the
-   package's contract with `read_package_doc` or `npx mlcl docs @molecule/<name>`
-   before using it OR deciding not to.
+1. **Inspect.** A project Molecule created has a `## Declared capability map` in
+   its AGENTS.md: map every feature in the plan to its declared package and
+   configuration. Otherwise use `npx mlcl search <capability>` (or `search_packages` over MCP); its top
+   hits carry their Quick Start, enough to say which package fits and show its
+   basic call. Before you write code against a package OR decide not to use it,
+   read its contract with `read_package_doc` or `npx mlcl docs @molecule/<name>`.
+   A question about which package to use or what its basic call looks like is
+   answered from the search hits (their Quick Start and the environment
+   variables they read), with no doc read.
    Write `use @molecule/<name> with <configuration>` or
    `Not using @molecule/<name> because <reason> (doc read)` for each feature. A
    different storage key, header scheme, response envelope or endpoint is
    configuration to look up, not a reason to write a parallel implementation.
 2. **Reuse.** Call that package's API and the provider already wired for it
    rather than re-implementing or copying it.
+   Its doc is the contract: build on what it states (the id it assigns, the
+   `null` it resolves, the types it refuses) without reading its code in
+   `node_modules` to confirm it, and open that code only when a run contradicts
+   the doc.
 3. **Adapt.** If the shared capability is genuinely awkward or missing a piece,
    fix it in the package or bond that owns it, then consume the fixed contract —
    never fork it locally.

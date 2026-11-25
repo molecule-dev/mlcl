@@ -12,7 +12,7 @@ import { chmodSync, existsSync, mkdirSync, mkdtempSync, rmSync, writeFileSync } 
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
 
-import { afterAll, afterEach, describe, expect, it, vi } from 'vitest'
+import { afterAll, afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 
 import { DOC_VIEW_MAX_CHARS } from '../package-doc-view.js'
 import { registryFetch } from './helpers/npm-registry.js'
@@ -104,6 +104,15 @@ describe('read_package_doc', () => {
   // README found" and both Claude Code and Codex went on to fetch molecule.dev pages and unpack npm
   // tarballs for the README that `mlcl docs` reads from npm.
   describe('a package that is not installed', () => {
+    // The server asks npm which registry a directory uses: keep this machine's own npm config out.
+    // Two files: npm refuses to load one file as both the user and the global config.
+    beforeEach(() => {
+      const config = temp()
+      writeFileSync(join(config, 'user-npmrc'), '')
+      writeFileSync(join(config, 'global-npmrc'), '')
+      vi.stubEnv('NPM_CONFIG_USERCONFIG', join(config, 'user-npmrc'))
+      vi.stubEnv('NPM_CONFIG_GLOBALCONFIG', join(config, 'global-npmrc'))
+    })
     afterEach(() => {
       vi.unstubAllGlobals()
       vi.unstubAllEnvs()
@@ -157,12 +166,54 @@ describe('read_package_doc', () => {
       ])
     })
 
+    // Harness eval add, 2026-11-25: the server runs as `node ~/.mlcl/mcp/run.mjs`, so npm passes it
+    // no `npm_config_registry`; it read the public registry, which the project's network cannot
+    // reach, answered "npm did not return one", and the agent read the doc again after installing.
+    it('asks npm which registry the project uses when npm did not start the server (OLD MUSTFAIL)', async (ctx) => {
+      if (skipped(ctx)) return
+      const project = temp()
+      writeFileSync(join(project, 'package.json'), '{"name":"app","private":true}')
+      writeFileSync(join(project, '.npmrc'), '@molecule:registry=https://mirror.example.com/npm/\n')
+      vi.stubEnv('npm_config_registry', undefined)
+      const asked: string[] = []
+      const serve = registryFetch(
+        { readme: '# @molecule/api-scoped\n\nFrom the mirror.\n' },
+        'https://mirror.example.com/npm/',
+      )
+      vi.stubGlobal('fetch', async (url: string) => {
+        asked.push(String(url))
+        return serve(url)
+      })
+      const call = await connect()
+      const doc = textOf(await call('read_package_doc', { name: 'api-scoped', directory: project }))
+      expect(doc).toContain('From the mirror.')
+      expect(asked[0]).toBe('https://mirror.example.com/npm/@molecule%2Fapi-scoped/latest')
+    })
+
+    it('says why when the registry cannot be read', async (ctx) => {
+      if (skipped(ctx)) return
+      vi.stubEnv('npm_config_registry', 'https://reader:<token>@npm.example.com/')
+      vi.stubGlobal('fetch', async () => {
+        throw new TypeError('fetch failed')
+      })
+      const call = await connect()
+      const doc = textOf(
+        await call('read_package_doc', { name: 'api-unreachable', directory: temp() }),
+      )
+      expect(doc).toContain(
+        'the registry https://npm.example.com/ could not be read (fetch failed)',
+      )
+      expect(doc).not.toContain('reader')
+      expect(doc).not.toContain('<token>')
+    })
+
     it('points to search_packages when npm has no README', async (ctx) => {
       if (skipped(ctx)) return
       vi.stubGlobal('fetch', async () => new Response('{"error":"Not found"}', { status: 404 }))
       const call = await connect()
       const doc = textOf(await call('read_package_doc', { name: 'api-nothing', directory: temp() }))
       expect(doc).toContain('No README found for @molecule/api-nothing')
+      expect(doc).toContain('has no README for it')
       expect(doc).toContain('search_packages')
     })
   })

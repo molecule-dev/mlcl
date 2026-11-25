@@ -100,6 +100,8 @@ describe('mlcl docs', () => {
     expect(out).toContain('# @molecule/api-other (npm, 1.2.3)')
     expect(out).toContain('From npm.')
     // Under npm or npx the registry npm is configured with answers (a company mirror, a local one).
+    // A new directory: npm's answer is kept per directory for the life of the process.
+    process.chdir(project(README))
     const local = vi.fn(registryFetch(published, 'http://127.0.0.1:4873/'))
     vi.stubGlobal('fetch', local)
     vi.stubEnv('npm_config_registry', 'http://127.0.0.1:4873')
@@ -122,6 +124,39 @@ describe('mlcl docs', () => {
     expect(exit).toBe(0)
     expect(out).toContain('Past the cut.')
     vi.unstubAllEnvs()
+  })
+
+  it('reads an unquoted section name of several words as one section (OLD MUSTFAIL)', async () => {
+    // `--section Quick Start` without quotes reached the command as a second package "Start", and
+    // it exited 2 (harness eval `add`, 2026-11-25, Codex).
+    process.chdir(project(README))
+    const { out, exit } = await run(Docs, ['@molecule/api-demo', '--section', 'Injection', 'Notes'])
+    expect(exit).toBe(0)
+    expect(out).toContain('Wire it first.')
+    expect(out).not.toContain('Runs the demo query.')
+  })
+
+  it('joins a lowercase word that names no package, and refuses a section with no package', async () => {
+    // glm-5.4 review, 2026-11-25: `--section Editing translations` read a package "translations", and
+    // `mlcl docs --section Quick Start` printed nothing and exited 0.
+    process.chdir(project(README))
+    const lower = await run(Docs, ['api-demo', '--section', 'Injection', 'notes'])
+    expect(lower.exit).toBe(0)
+    expect(lower.out).toContain('Wire it first.')
+    const none = await run(Docs, ['--section', 'Quick', 'Start'])
+    expect(none.exit).toBe(2)
+  })
+
+  it('counterexample: a package name after the section is still a package', async () => {
+    process.chdir(project(README))
+    vi.stubGlobal(
+      'fetch',
+      vi.fn(async () => new Response('{}', { status: 404 })),
+    )
+    const { out, exit } = await run(Docs, ['--section', 'demoQuery', 'api-demo', 'api-missing'])
+    expect(exit).toBe(1)
+    expect(out).toContain('Runs the demo query.')
+    expect(out).toContain('npm has no README')
   })
 
   it('exits 1 for a missing section or package, and 2 for a name that is not a package name', async () => {

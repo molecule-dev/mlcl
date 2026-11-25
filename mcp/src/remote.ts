@@ -165,14 +165,19 @@ export function clearRemoteCaches(): void {
  *
  * @param short - Package name WITHOUT the `@molecule/` scope.
  * @param timeoutMs - Abort bound for the outbound fetch.
+ * @param registry - The registry to read, ending in `/` (default: the public one, or the one npm
+ *   passed this process). The local server passes the one npm uses in the project.
  * @returns The published README, or undefined when the registry has none.
  */
 export async function fetchPackageReadme(
   short: string,
   timeoutMs: number = FETCH_TIMEOUT_MS,
+  registry?: string,
 ): Promise<string | undefined> {
   const generation = cacheGeneration
-  const hit = readmeCache.get(short)
+  // One entry per registry and package: a mirror may serve another version than the public one.
+  const cached = registry ? `${registry} ${short}` : short
+  const hit = readmeCache.get(cached)
   if (hit) {
     if (Date.now() - hit.at < README_CACHE_TTL_MS) {
       // Move the entry to the END of the map's order ("used most recently"),
@@ -183,22 +188,22 @@ export async function fetchPackageReadme(
       // package it had just read, so the very working set the cache exists for
       // (a client asking about the same packages repeatedly) still re-fetched
       // the whole ~270 kB packument per call.
-      readmeCache.delete(short)
-      readmeCache.set(short, hit)
+      readmeCache.delete(cached)
+      readmeCache.set(cached, hit)
       return hit.readme
     }
     // Stale: drop it now so the fresh entry below lands at the end rather than
     // inheriting the old position.
-    readmeCache.delete(short)
+    readmeCache.delete(cached)
   }
   // One outbound fetch per uncached package, however many callers ask at once
   // (see {@link inFlight}) — and only among the callers of THIS generation: work
   // started before a {@link clearRemoteCaches} belongs to the callers of that
   // era, not to this one.
-  const key = `readme:${generation}:${short}`
+  const key = `readme:${generation}:${cached}`
   const pending = inFlight.get(key)
   if (pending) return pending as Promise<string | undefined>
-  const work = fetchPackageReadmeUncached(short, timeoutMs, generation)
+  const work = fetchPackageReadmeUncached(short, timeoutMs, generation, registry, cached)
   inFlight.set(key, work)
   try {
     return await work
@@ -219,24 +224,31 @@ export async function fetchPackageReadme(
  * @param short - Package name WITHOUT the `@molecule/` scope.
  * @param timeoutMs - Abort bound for the outbound fetch.
  * @param generation - The cache generation this fetch belongs to.
+ * @param registry - The registry to read (see {@link fetchPackageReadme}).
+ * @param cached - The cache key of this registry and package.
  * @returns The published README, or undefined when the registry has none.
  */
 async function fetchPackageReadmeUncached(
   short: string,
   timeoutMs: number,
   generation: number,
+  registry: string | undefined,
+  cached: string,
 ): Promise<string | undefined> {
   // A registry error is a FAILURE, not a package without a README (fetchPublishedReadme throws
   // on any non-2xx but a 404): an outage must not read as "doc not fetched" for every package.
-  const published = await fetchPublishedReadme(short, { timeoutMs })
+  const published = await fetchPublishedReadme(short, {
+    timeoutMs,
+    ...(registry ? { registry } : {}),
+  })
   if (!published) return undefined
   const meta = { readme: published.readme }
   if (generation !== cacheGeneration) return meta.readme
-  if (readmeCache.size >= README_CACHE_LIMIT && !readmeCache.has(short)) {
+  if (readmeCache.size >= README_CACHE_LIMIT && !readmeCache.has(cached)) {
     const oldest = readmeCache.keys().next().value
     if (oldest !== undefined) readmeCache.delete(oldest)
   }
-  readmeCache.set(short, { at: Date.now(), readme: meta.readme })
+  readmeCache.set(cached, { at: Date.now(), readme: meta.readme })
   return meta.readme
 }
 
