@@ -39,6 +39,11 @@
  * And for `thirdPartyDependencies` — each package's non-`@molecule` dependencies and required peers
  * with their versions, which `mlcl add --inject` declares in the app before its one install.
  *
+ * And for `quickStart` — the code of each package's README Quick Start, which search returns on its first
+ * hits. It is built from the module `@example` blocks the README's Quick Start is built from
+ * (`src/lib/registry-quick-start.ts`); 2026-11-25: a new entry without one passed this gate and was
+ * refused only by the release's full `sync-registry --check`.
+ *
  * And for `responseRecord` — the record a resource's API returns, read from the interface its
  * package exports (`Article`, not the stored `ArticleRow`). `mlcl create` types the app
  * module it writes for a resource from this copy, because a scaffold in production has only
@@ -52,7 +57,7 @@
  *
  * Usage:
  *   node scripts/check-registry-exports.mjs
- *       → check every registry package (full gate; ~3s — manual / CI).
+ *       → check every registry package (full gate; ~40 s for the fleet — manual / CI).
  *   node scripts/check-registry-exports.mjs packages/app/features/foo packages/api/...
  *       → check only the given package paths (registry-relative `entry.path`);
  *         fast + concurrency-safe — used by molecule's pre-commit hook, which
@@ -79,6 +84,7 @@ import { fileURLToPath } from 'node:url'
 
 import { resourceRecordName } from '../src/lib/app-resource-modules.js'
 import { getRawRegistry, getRegistryPath } from '../src/lib/registry.js'
+import { expectedQuickStart } from '../src/lib/registry-quick-start.js'
 import { scanResponseRecord } from '../src/lib/response-record.js'
 import {
   bondSetterScope,
@@ -175,6 +181,7 @@ const descriptionsDrifted = []
 const dependenciesDrifted = []
 const thirdPartyDrifted = []
 const recordDrifted = []
+const quickStartDrifted = []
 const declarationsDrifted = []
 const bondSetterNames = bondSetterScope(entries)
 const packageSrc = registryPackageSrc(entries, moleculeDir)
@@ -292,6 +299,11 @@ async function checkEntry(name, entry, sink) {
     }
   }
 
+  // quickStart, by sync-registry's own rule (syncQuickStart): null when this tree has no src/ for it.
+  const wantQuickStart = await expectedQuickStart(entry, join(moleculeDir, entry.path))
+  if (wantQuickStart !== null && wantQuickStart !== entry.quickStart)
+    sink.quickStartDrifted.push({ name, have: entry.quickStart, want: wantQuickStart })
+
   // Declarative routes — only the types scanPackage scans (resource,
   // infrastructure), same comparison as sync-registry's refreshRoutes.
   if (ROUTE_SCANNED_TYPES.has(entry.type) && existsSync(srcPath)) {
@@ -366,6 +378,7 @@ const DRIFT_LISTS = [
   'thirdPartyDrifted',
   'recordDrifted',
   'declarationsDrifted',
+  'quickStartDrifted',
 ]
 const newSink = () => Object.fromEntries(DRIFT_LISTS.map((list) => [list, []]))
 const drifts = (sink) => DRIFT_LISTS.some((list) => sink[list].length > 0)
@@ -379,6 +392,7 @@ const totals = {
   thirdPartyDrifted,
   recordDrifted,
   declarationsDrifted,
+  quickStartDrifted,
 }
 // Packages whose entry only the fallback registry agrees with.
 const pairedWithFallback = []
@@ -540,8 +554,24 @@ if (recordDrifted.length > 0) {
   )
 }
 
+if (quickStartDrifted.length > 0) {
+  console.error(
+    `\n✗ registry.json Quick Starts are out of sync (${quickStartDrifted.length} package(s)):\n`,
+  )
+  for (const { name, have, want } of quickStartDrifted)
+    console.error(
+      `  ${name}: registry has ${have === undefined ? 'none' : 'one'}, src/index.ts ${want === undefined ? 'has no @example' : have === undefined ? 'yields one' : 'yields a different one'}`,
+    )
+  console.error(
+    '\nSearch returns this code on its first hits.' +
+      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-quick-starts' +
+      fixScope,
+  )
+}
+
 if (
   unregistered.length > 0 ||
+  quickStartDrifted.length > 0 ||
   recordDrifted.length > 0 ||
   drifted.length > 0 ||
   routeDrifted.length > 0 ||
@@ -562,5 +592,5 @@ if (pairedWithFallback.length > 0)
   )
 const scope = scopePaths.size > 0 ? `${checked} scoped` : `${checked}`
 console.log(
-  `✓ registry exports + routes + bond setters + bond-file declarations + required peers + runtime dependencies + third-party dependencies + descriptions + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
+  `✓ registry exports + routes + bond setters + bond-file declarations + required peers + runtime dependencies + third-party dependencies + descriptions + Quick Starts + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
 )
