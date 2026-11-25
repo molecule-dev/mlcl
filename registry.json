@@ -109345,7 +109345,10 @@
         "AccentTone",
         "UIClassMap",
         "extendClassMap",
-        "ClassMapOverrides"
+        "ClassMapOverrides",
+        "DEFAULT_TYPING_PULSE",
+        "DotPulseMotion",
+        "PulseDotsProps"
       ],
       "secrets": [],
       "runtimeDependencies": [
