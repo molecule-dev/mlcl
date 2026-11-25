@@ -35044,11 +35044,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/annotation-pin-react",
       "intentHints": [
@@ -36151,11 +36153,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/auth-brand-header-react",
       "intentHints": [
@@ -36887,12 +36891,14 @@
         "@molecule/app-oauth-buttons-react",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-oauth-buttons-react",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/auth-ui-react",
       "intentHints": [
@@ -43945,12 +43951,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/day-timeline-react",
       "intentHints": [
@@ -46562,12 +46570,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/exif-panel-react",
       "intentHints": [
@@ -55006,12 +55016,14 @@
         "@molecule/app-auth",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-auth",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/home-page-react",
       "intentHints": [
@@ -80800,12 +80812,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/loyalty-tier-badge-react",
       "intentHints": [
@@ -85220,12 +85234,14 @@
         "@molecule/app-oauth-logos-react",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-oauth-logos-react",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/oauth-buttons-react",
       "intentHints": [
@@ -86521,12 +86537,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/password-strength-meter-react",
       "intentHints": [
@@ -90002,11 +90020,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/reading-progress-bar-react",
       "intentHints": [
@@ -91040,13 +91060,15 @@
         "@molecule/app-logger",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-logger",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/root-error-boundary-react",
       "intentHints": [
@@ -94297,11 +94319,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/sidebar-layout-react",
       "intentHints": [
@@ -95845,12 +95869,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/stage-timeline-react",
       "intentHints": [
@@ -96826,11 +96852,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/status-timeline-react",
       "intentHints": [
@@ -99789,11 +99817,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/top-nav-layout-react",
       "intentHints": [
@@ -103565,12 +103595,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/vote-cluster-react",
       "intentHints": [
