@@ -5,6 +5,8 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
+import { thirdPartyDependenciesOf } from '../third-party-record.js'
+
 const root = join(import.meta.dirname, '..', '..', '..')
 const packagePath = 'packages/api/core/coverage-probe'
 const packageName = '@molecule/api-coverage-probe'
@@ -40,6 +42,18 @@ function manifestDependencies(): string[] {
   ].sort()
 }
 
+/**
+ * The probe manifest's third-party record, as sync-registry writes it (see manifestDependencies).
+ *
+ * @returns The entry field, or none when the probe has no manifest or no third-party dependency.
+ */
+function manifestThirdParty(): { thirdPartyDependencies?: object } {
+  const manifestPath = join(scratch, packagePath, 'package.json')
+  if (!existsSync(manifestPath)) return {}
+  const record = thirdPartyDependenciesOf(JSON.parse(readFileSync(manifestPath, 'utf8')))
+  return record ? { thirdPartyDependencies: record } : {}
+}
+
 function runGate(
   registered: boolean,
   scope: string[] = [packagePath],
@@ -63,6 +77,7 @@ function runGate(
           exports,
           moleculePeers,
           runtimeDependencies: manifestDependencies(),
+          ...manifestThirdParty(),
         },
       }
     : {}

@@ -7,7 +7,6 @@ import { Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
 import { resourceRecordName } from '../lib/app-resource-modules.js'
-import { thirdPartyDependenciesOf } from '../lib/injected-third-party.js'
 import { sharedHintAllowed } from '../lib/intent-hints.js'
 import {
   getMoleculeVersion,
@@ -36,6 +35,7 @@ import {
 import { readPackageVersion } from '../lib/setup-sql.js'
 import { planSetupSqlEntrySync } from '../lib/setup-sql-version.js'
 import { createSpinner } from '../lib/spinner.js'
+import { thirdPartyDependenciesOf } from '../lib/third-party-record.js'
 
 export default class SyncRegistry extends Command {
   // Internal maintenance command — hidden from the public CLI surface (still

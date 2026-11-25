@@ -36,6 +36,9 @@
  * bindings gained their optional routing-bond peers on 2026-11-22) passed this gate and was
  * refused only by the release's full `sync-registry --check`.
  *
+ * And for `thirdPartyDependencies` — each package's non-`@molecule` dependencies and required peers
+ * with their versions, which `mlcl add --inject` declares in the app before its one install.
+ *
  * And for `responseRecord` — the record a resource's API returns, read from the interface its
  * package exports (`Article`, not the stored `ArticleRow`). `mlcl create` types the app
  * module it writes for a resource from this copy, because a scaffold in production has only
@@ -89,6 +92,7 @@ import {
   scanExports,
   scanForRoutes,
 } from '../src/lib/scanner.js'
+import { thirdPartyDependenciesOf } from '../src/lib/third-party-record.js'
 
 const __dir = dirname(fileURLToPath(import.meta.url))
 const mlclRoot = join(__dir, '..')
@@ -169,6 +173,7 @@ const setterDrifted = []
 const peersDrifted = []
 const descriptionsDrifted = []
 const dependenciesDrifted = []
+const thirdPartyDrifted = []
 const recordDrifted = []
 const declarationsDrifted = []
 const bondSetterNames = bondSetterScope(entries)
@@ -265,6 +270,15 @@ async function checkEntry(name, entry, sink) {
           missing: wantDeps.filter((dep) => !haveDeps.includes(dep)),
           extra: haveDeps.filter((dep) => !wantDeps.includes(dep)),
         })
+      // thirdPartyDependencies, by sync-registry's own rule (third-party-record.ts): `mlcl add --inject`
+      // declares these versions before its one install, so a stale copy installs an old range.
+      const wantThirdParty = thirdPartyDependenciesOf(manifest) ?? null
+      if (JSON.stringify(entry.thirdPartyDependencies ?? null) !== JSON.stringify(wantThirdParty))
+        sink.thirdPartyDrifted.push({
+          name,
+          have: entry.thirdPartyDependencies ?? null,
+          want: wantThirdParty,
+        })
       // The description, by sync-registry's own rule: the manifest's text when it has one.
       if (
         typeof manifest.description === 'string' &&
@@ -346,6 +360,7 @@ const DRIFT_LISTS = [
   'peersDrifted',
   'descriptionsDrifted',
   'dependenciesDrifted',
+  'thirdPartyDrifted',
   'recordDrifted',
   'declarationsDrifted',
 ]
@@ -358,6 +373,7 @@ const totals = {
   peersDrifted,
   descriptionsDrifted,
   dependenciesDrifted,
+  thirdPartyDrifted,
   recordDrifted,
   declarationsDrifted,
 }
@@ -488,6 +504,20 @@ if (dependenciesDrifted.length > 0) {
   )
 }
 
+if (thirdPartyDrifted.length > 0) {
+  console.error(
+    `\n✗ registry.json third-party dependencies are out of sync (${thirdPartyDrifted.length} package(s)):\n`,
+  )
+  for (const { name, have, want } of thirdPartyDrifted)
+    console.error(
+      `  ${name}: registry ${JSON.stringify(have)}, package.json ${JSON.stringify(want)}`,
+    )
+  console.error(
+    '\nmlcl add declares these versions before it installs.' +
+      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports',
+  )
+}
+
 if (recordDrifted.length > 0) {
   console.error(
     `\n✗ registry.json response records are out of sync (${recordDrifted.length} package(s)):\n`,
@@ -512,7 +542,8 @@ if (
   declarationsDrifted.length > 0 ||
   peersDrifted.length > 0 ||
   descriptionsDrifted.length > 0 ||
-  dependenciesDrifted.length > 0
+  dependenciesDrifted.length > 0 ||
+  thirdPartyDrifted.length > 0
 ) {
   console.error(`Then commit ${registryPath}\n`)
   process.exit(1)
@@ -524,5 +555,5 @@ if (pairedWithFallback.length > 0)
   )
 const scope = scopePaths.size > 0 ? `${checked} scoped` : `${checked}`
 console.log(
-  `✓ registry exports + routes + bond setters + bond-file declarations + required peers + runtime dependencies + descriptions + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
+  `✓ registry exports + routes + bond setters + bond-file declarations + required peers + runtime dependencies + third-party dependencies + descriptions + response records in sync (${scope} package(s) checked, ${skipped} skipped)`,
 )

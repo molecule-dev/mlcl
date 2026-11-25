@@ -18,6 +18,8 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
+import { thirdPartyDependenciesOf } from '../third-party-record.js'
+
 const root = join(import.meta.dirname, '..', '..', '..')
 const packagePath = 'packages/app/core/dependencies-probe'
 const packageName = '@molecule/app-dependencies-probe'
@@ -41,6 +43,8 @@ function runGate(
     peerDependenciesMeta?: Record<string, { optional?: boolean }>
   },
   runtimeDependencies: string[] | undefined,
+  // The record sync-registry writes from the manifest, unless a case says otherwise.
+  thirdPartyDependencies: object | 'absent' | undefined = thirdPartyDependenciesOf(manifest),
 ): { status: number | null; output: string } {
   writeFileSync(
     join(scratch, packagePath, 'package.json'),
@@ -66,6 +70,9 @@ function runGate(
           exports: ['probe'],
           moleculePeers,
           ...(runtimeDependencies === undefined ? {} : { runtimeDependencies }),
+          ...(thirdPartyDependencies === undefined || thirdPartyDependencies === 'absent'
+            ? {}
+            : { thirdPartyDependencies }),
         },
       },
     }),
@@ -131,5 +138,34 @@ describe('registry runtime dependencies gate', () => {
     const result = runGate({ dependencies: { 'color-mix-lite': '1.0.0' } }, undefined)
     expect(result.status).toBe(1)
     expect(result.output).toContain('missing ["color-mix-lite"]')
+  })
+})
+
+describe('registry third-party dependencies gate', () => {
+  // mlcl add --inject declares these versions in the app before its one install, so a registry
+  // copy older than the manifest installs the old version (OLD MUSTFAIL: the gate did not compare it).
+  const names = ['@molecule/app-routing', '@molecule/app-routing-react-router', 'color-mix-lite']
+
+  it('rejects a recorded version the package.json moved on from', () => {
+    const result = runGate(routingPeers, names, {
+      dependencies: { 'color-mix-lite': '0.9.0' },
+      peerDependencies: {},
+    })
+    expect(result.status).toBe(1)
+    expect(result.output).toContain('third-party dependencies are out of sync')
+    expect(result.output).toContain(
+      '@molecule/app-dependencies-probe: registry {"dependencies":{"color-mix-lite":"0.9.0"},"peerDependencies":{}}',
+    )
+  })
+
+  it('rejects a missing record for a package with a third-party dependency', () => {
+    const result = runGate(routingPeers, names, 'absent')
+    expect(result.status).toBe(1)
+    expect(result.output).toContain('third-party dependencies are out of sync')
+  })
+
+  it('counterexample: a package with only @molecule dependencies records none', () => {
+    const manifest = { peerDependencies: { '@molecule/app-routing': '1.0.0' } }
+    expect(runGate(manifest, ['@molecule/app-routing']).status).toBe(0)
   })
 })
