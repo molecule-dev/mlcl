@@ -342,14 +342,27 @@ describe('runCheckLocal', () => {
     expect(result.results.map((r) => r.kind)).toContain('e2e')
   })
 
+  /**
+   * What `playwright install --only-shell chromium` prints off a terminal (playwright-core 1.64:
+   * `logPolitely` and `getBasicDownloadProgress`, a bar line at each tenth), `from` dimmed.
+   */
+  const INSTALL_OUTPUT = [
+    'Downloading Chromium Headless Shell 141.0.7390.37 (playwright chromium-headless-shell v1194)\u001b[2m from https://cdn.playwright.dev/dbazure/download/playwright/builds/chromium/1194/chromium-headless-shell-linux-arm64.zip\u001b[22m',
+    ...[10, 20, 30, 41, 50, 60, 70, 80, 90, 100].map(
+      (p) => `|${'■'.repeat((p / 10) | 0).padEnd(10)}| ${String(p).padStart(3)}% of 106.5 MiB`,
+    ),
+    'Chromium Headless Shell 141.0.7390.37 (playwright chromium-headless-shell v1194) downloaded to /home/u/.cache/ms-playwright/chromium_headless_shell-1194',
+  ]
+
   /** A project whose `playwright` fails like a real one with no browser until `playwright install` runs. */
   function playwrightProject(failure: string): string {
     const root = fixtureDir({
       'package.json': JSON.stringify({ name: 'e2e-fixture' }),
       'playwright.config.ts': 'export default {}\n',
+      'install-output.txt': `${INSTALL_OUTPUT.join('\n')}\n`,
       'node_modules/.bin/playwright': [
         '#!/bin/sh',
-        'if [ "$1" = install ]; then shift; echo "$*" >> installed.txt; exit 0; fi',
+        'if [ "$1" = install ]; then shift; echo "$*" >> installed.txt; cat install-output.txt; exit 0; fi',
         'if [ -f installed.txt ]; then echo "  2 passed (1.0s)"; exit 0; fi',
         'cat <<"EOF"',
         failure,
@@ -380,9 +393,18 @@ describe('runCheckLocal', () => {
     if ('error' in result) throw new Error(result.error)
     // Said as the install starts, so a caller watching the output knows what the step is doing
     // (OLD MUSTFAIL: an agent saw the install in `ps` and went looking for the browser itself).
+    // Then how far the download got, as Playwright prints it: the start, each fifth and the end
+    // (OLD MUSTFAIL, 2026-11-25: with the install silent an agent probed for the browser three times
+    // in 20 s, and one probe was a failed step).
     expect(events).toEqual([
       'start',
       'has no Playwright browser: installing chromium, then running it again',
+      'downloading Chromium Headless Shell 141.0.7390.37',
+      'downloaded 20% of 106.5 MiB',
+      'downloaded 41% of 106.5 MiB',
+      'downloaded 60% of 106.5 MiB',
+      'downloaded 80% of 106.5 MiB',
+      'downloaded Chromium Headless Shell 141.0.7390.37',
       'finish',
     ])
     const [e2e] = result.results

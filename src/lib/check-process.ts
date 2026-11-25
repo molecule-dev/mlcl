@@ -19,24 +19,38 @@ export interface CheckCommand {
   send: (signal: NodeJS.Signals | 0) => boolean
 }
 
-function capture(stream: Readable, name: string, onOverflow: (error: Error) => void): () => string {
+function capture(
+  stream: Readable,
+  name: string,
+  onOverflow: (error: Error) => void,
+  onLine?: (line: string) => void,
+): () => string {
   let text = ''
   let bytes = 0
+  let partial = ''
   stream.setEncoding('utf8').on('data', (data: string) => {
     const size = Buffer.byteLength(data)
     if (bytes <= MAX_OUTPUT_BYTES && bytes + size > MAX_OUTPUT_BYTES)
       onOverflow(new Error(`Check ${name} exceeded the 16 MiB limit`))
     bytes += size
     if (bytes <= MAX_OUTPUT_BYTES) text += data
+    if (!onLine) return
+    const lines = (partial + data).split('\n')
+    partial = lines.pop() ?? ''
+    for (const line of lines) onLine(line.replace(/\r$/, ''))
   })
   return () => text
 }
 
-/** Run in a private process group so a check owns the shell and its descendants. */
+/**
+ * Run in a private process group so a check owns the shell and its descendants. `onLine` is told
+ * each complete line the command prints on stdout, as it prints it.
+ */
 export function spawnCheckCommand(
   command: string,
   cwd: string,
   onOverflow: (error: Error) => void,
+  onLine?: (line: string) => void,
 ): CheckCommand {
   const grouped = process.platform !== 'win32'
   const child = spawn('/bin/bash', ['-c', command], {
@@ -44,7 +58,7 @@ export function spawnCheckCommand(
     detached: grouped,
     stdio: ['ignore', 'pipe', 'pipe'],
   })
-  const stdout = capture(child.stdout, 'stdout', onOverflow)
+  const stdout = capture(child.stdout, 'stdout', onOverflow, onLine)
   const stderr = capture(child.stderr, 'stderr', onOverflow)
   const exited = new Promise<CommandExit>((resolve) => {
     child.once('exit', (code, signal) => resolve({ code, signal }))

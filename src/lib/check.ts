@@ -25,6 +25,7 @@
 import type { Dirent } from 'node:fs'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
+import { stripVTControlCharacters } from 'node:util'
 
 import { acquireCheckLock } from './check-lock.js'
 import { spawnCheckCommand } from './check-process.js'
@@ -778,6 +779,38 @@ export function missingPlaywrightBrowsers(log: string): string[] | null {
 }
 
 /**
+ * Turns `playwright install` output into progress for a caller watching the check. Off a terminal
+ * Playwright prints `Downloading <browser> (playwright …) from <url>`, a bar at each tenth of the
+ * download (`|■■■■   |  40% of 106.5 MiB`) and `<browser> (playwright …) downloaded to <dir>`; the
+ * download is most of the install, and with none of it shown an agent watching the check went
+ * looking for the browser itself (harness eval `check`, 2026-11-25: three probes in 20 s, one a
+ * failed step).
+ *
+ * @returns A function from one output line to a note (the start, every fifth of the way, the end),
+ *   or null for a line that says neither.
+ */
+export function playwrightInstallProgress(): (line: string) => string | null {
+  let fifth = 0
+  return (line) => {
+    const text = stripVTControlCharacters(line).trim()
+    const start = /^Downloading (.+?)(?: \(playwright [^)]*\))?(?: from \S+)?$/.exec(text)
+    if (start) {
+      fifth = 0
+      return `downloading ${start[1]}`
+    }
+    const bar = /^\|[^|]*\|\s*(\d+)% of (.+)$/.exec(text)
+    if (bar) {
+      const percent = Number(bar[1])
+      if (percent >= 100 || Math.floor(percent / 20) <= fifth) return null
+      fifth = Math.floor(percent / 20)
+      return `downloaded ${percent}% of ${bar[2]}`
+    }
+    const done = /^(.+?)(?: \(playwright [^)]*\))? downloaded to /.exec(text)
+    return done ? `downloaded ${done[1]}` : null
+  }
+}
+
+/**
  * Run one planned step locally and shape its result. An e2e step that fails only because its
  * Playwright browser is not installed installs that browser and runs once more.
  *
@@ -803,10 +836,15 @@ async function runStep(
   if (!install) return first
   const browsers = install.filter((a) => !a.startsWith('-')).join(', ')
   note(`has no Playwright browser: installing ${browsers}, then running it again`)
+  const progress = playwrightInstallProgress()
   try {
     await execCheckCommand(
       { ...step, command: `npx --no-install playwright install ${install.join(' ')}` },
       signal,
+      (line) => {
+        const text = progress(line)
+        if (text) note(text)
+      },
     )
   } catch (_error) {
     // The install failed (offline, no permission): the first run's report says what is missing.
@@ -951,12 +989,13 @@ async function runServeStep(
 async function execCheckCommand(
   step: PlannedCheckStep,
   signal: AbortSignal,
+  onLine?: (line: string) => void,
 ): Promise<{ stdout: string; stderr: string }> {
   const timeout = (): Error & { killed: boolean } =>
     Object.assign(new Error('Check command timed out'), { killed: true })
   if (signal.aborted) throw timeout()
   let failure: Error | undefined
-  const command = spawnCheckCommand(step.command, step.dir, (error) => stop(error))
+  const command = spawnCheckCommand(step.command, step.dir, (error) => stop(error), onLine)
   const stop = (error: Error): void => {
     if (failure) return
     failure = error
