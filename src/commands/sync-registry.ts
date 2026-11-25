@@ -41,6 +41,7 @@ import {
   scanSetupSqlBundle,
   scanSqlCapabilities,
 } from '../lib/scanner.js'
+import { INTENT_HINT_PATTERN } from '../lib/schema.js'
 import { readPackageVersion } from '../lib/setup-sql.js'
 import { planSetupSqlEntrySync } from '../lib/setup-sql-version.js'
 import { createSpinner } from '../lib/spinner.js'
@@ -1415,7 +1416,7 @@ export default class SyncRegistry extends Command {
       }
 
       for (const hint of hints) {
-        if (hint !== hint.toLowerCase() || !/^[\da-z][\d a-z/-]*[\da-z]$/.test(hint)) {
+        if (!INTENT_HINT_PATTERN.test(hint)) {
           violations.push(
             `${chalk.red('✗')} ${chalk.cyan(name)}: invalid hint ${chalk.dim(JSON.stringify(hint))} ` +
               `(lowercase letters/digits/spaces/-//only)`,

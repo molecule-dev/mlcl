@@ -11,6 +11,17 @@ import { z } from 'zod'
 
 import { SQL_FEATURES } from './sql-requirements.js'
 
+/**
+ * The shape of one registry intent hint: a lowercase concept phrase of letters, digits, spaces,
+ * hyphens and slashes that starts and ends with a letter or digit ("social login", "a/b testing").
+ */
+export const INTENT_HINT_PATTERN = /^[\da-z][\d a-z/-]*[\da-z]$/
+
+/** One intent hint; parsing refuses any other shape, so no mlcl write can store one. */
+const IntentHint = z
+  .string()
+  .regex(INTENT_HINT_PATTERN, 'an intent hint is lowercase letters, digits, spaces, - and / only')
+
 // ============================================================================
 // Inferred Package Info (from scanning molecule packages)
 // ============================================================================
@@ -716,7 +727,7 @@ export const MoleculeMetadata = z.object({
     'Auth transport options shared with the app composition root; routes remain in routes.',
   ),
   intentHints: z
-    .array(z.string())
+    .array(IntentHint)
     .optional()
     .describe(
       'Lowercase concept phrases ("social login", "pagination") that map user intent to this package. ' +
@@ -1225,7 +1236,7 @@ export const RegistryEntry = z.object({
     'Auth transport options shared with the app composition root; routes remain in routes.',
   ),
   intentHints: z
-    .array(z.string())
+    .array(IntentHint)
     .optional()
     .describe(
       'Lowercase concept phrases ("social login", "pagination") that map user intent to this package. ' +

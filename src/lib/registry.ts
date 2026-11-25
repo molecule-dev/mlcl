@@ -7,7 +7,15 @@
  */
 
 import { randomUUID } from 'node:crypto'
-import { linkSync, readFileSync, renameSync, rmSync, statSync, writeFileSync } from 'node:fs'
+import {
+  existsSync,
+  linkSync,
+  readFileSync,
+  renameSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs'
 import { dirname, join } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
@@ -771,18 +779,75 @@ export function serializeRegistry(registry: Registry): string {
 }
 
 /**
+ * Every key in a stored registry that this build's schema does not know, as a dotted path
+ * (`packages.@molecule/x.field`). Parsing strips such a key, so storing the parsed registry deletes
+ * it: a build older than the file (a stale `dist/`, an older CLI) would remove a field a newer build
+ * added from every entry, on a write of any other field.
+ *
+ * @param raw - The registry JSON as stored.
+ * @returns The keys parsing would strip, in file order.
+ */
+export function unknownRegistryKeys(raw: unknown): string[] {
+  const found: string[] = []
+  const walk = (stored: unknown, parsed: unknown, at: string): void => {
+    if (Array.isArray(stored)) {
+      if (Array.isArray(parsed)) stored.forEach((item, i) => walk(item, parsed[i], `${at}[${i}]`))
+      return
+    }
+    if (!isRecord(stored) || !isRecord(parsed)) return
+    for (const [key, value] of Object.entries(stored)) {
+      const path = at ? `${at}.${key}` : key
+      if (key in parsed) walk(value, parsed[key], path)
+      else found.push(path)
+    }
+  }
+  walk(raw, RegistrySchema.parse(raw), '')
+  return found
+}
+
+/**
+ * Whether a value is a plain JSON object.
+ *
+ * @param value - Any parsed JSON value.
+ * @returns True for an object that is not an array or null.
+ */
+function isRecord(value: unknown): value is Record<string, unknown> {
+  return typeof value === 'object' && value !== null && !Array.isArray(value)
+}
+
+/**
+ * Refuse to replace a registry file whose keys this build does not all know
+ * ({@link unknownRegistryKeys}): writing it would delete them.
+ *
+ * @param path - The registry file about to be replaced.
+ */
+function refuseDroppingUnknownKeys(path: string): void {
+  if (!existsSync(path)) return
+  const unknown = unknownRegistryKeys(JSON.parse(readFileSync(path, 'utf-8')))
+  if (unknown.length === 0) return
+  const named = unknown.slice(0, 5).join(', ') + (unknown.length > 5 ? ', …' : '')
+  throw new Error(
+    `${path} carries ${unknown.length} key(s) this mlcl build does not know (${named}); ` +
+      'writing it would delete them. Rebuild mlcl (cd mlcl && npm run build) and run the command again.',
+  )
+}
+
+/**
  * Write a registry file in its stored form ({@link serializeRegistry}) and drop the parse cache.
+ * Refuses when the file holds keys this build does not know, which the write would delete.
  *
  * @param path - The registry file to write.
  * @param registry - The registry to store.
  */
 export function writeRegistryFile(path: string, registry: Registry): void {
+  refuseDroppingUnknownKeys(path)
   writeFileSync(path, serializeRegistry(registry), 'utf-8')
   clearRegistryCache()
 }
 
 function writeRegistry(stamp: RegistryStamp | null, registry: Registry): void {
   const contents = serializeRegistry(registry)
+  refuseDroppingUnknownKeys(registryFilePath())
   // Publish by rename from a temp file in the SAME directory, never by an
   // in-place writeFileSync: an in-place write truncates registry.json first
   // and then writes, so a crash (or a full disk) between the two leaves a
