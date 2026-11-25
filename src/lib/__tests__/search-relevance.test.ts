@@ -314,7 +314,11 @@ describe('search capability and symbol relevance', () => {
         .slice(0, 3)
         .every((name) => packages.find((p) => p.name === name)?.molecule?.category === 'query'),
     ).toBe(true)
-    expect(names('payment')[0]).toBe('@molecule/api-payments-capture')
+    // The two packages `payment` names lead; the in-memory capture provider no longer wins a tie.
+    expect(names('payment').slice(0, 2).sort()).toEqual([
+      '@molecule/api-payments',
+      '@molecule/api-resource-payment',
+    ])
     expect(names('waveform')[0]).toBe('@molecule/app-feature-audio-waveform-react')
     // Framework counterparts can occupy every leading unfiltered hit. Exercise
     // the project's framework filter, as the CLI does for a React app.
@@ -399,28 +403,31 @@ describe('search capability and symbol relevance', () => {
     const order = (list: Entry[]): string[] =>
       searchPackages(list, 'widgets').map((hit) => hit.name)
     // All three score the same; api-alpha-widgets sorts first by name, api-zeta-widgets builds on
-    // api-widgets.
+    // api-base-widgets.
     expect(
       order([
         entry('@molecule/api-alpha-widgets'),
-        entry('@molecule/api-widgets'),
-        entry('@molecule/api-zeta-widgets', ['@molecule/api-widgets']),
+        entry('@molecule/api-base-widgets'),
+        entry('@molecule/api-zeta-widgets', ['@molecule/api-base-widgets']),
       ]),
     ).toEqual([
-      '@molecule/api-widgets',
+      '@molecule/api-base-widgets',
       '@molecule/api-alpha-widgets',
       '@molecule/api-zeta-widgets',
     ])
-    // Counterexample: with nothing built on any of them, the name decides as before.
+    // Counterexample: with nothing built on any of them, the shorter name leads (it holds more of
+    // the query), then the name decides as before.
     expect(
       order([
         entry('@molecule/api-zeta-widgets'),
-        entry('@molecule/api-widgets'),
+        entry('@molecule/api-base-widgets'),
         entry('@molecule/api-alpha-widgets'),
+        entry('@molecule/api-widgets'),
       ]),
     ).toEqual([
-      '@molecule/api-alpha-widgets',
       '@molecule/api-widgets',
+      '@molecule/api-alpha-widgets',
+      '@molecule/api-base-widgets',
       '@molecule/api-zeta-widgets',
     ])
     expect(names('transactional email')[0]).toBe('@molecule/api-emails')
@@ -454,6 +461,43 @@ describe('search capability and symbol relevance', () => {
       scorePackage(words, 'favorite button'),
     )
     expect(scorePackage(words, 'favorite button')).toBeGreaterThan(0)
+  })
+
+  // The icon set exports an icon named `user`, and the export alone put it first for `user`;
+  // the locale bond's description holds "user resource", which put it above the resource for
+  // that query (OLD MUSTFAIL).
+  it('leads a word query with the package it names, ahead of an icon export or a locale bond', () => {
+    expect(names('user')[0]).toBe('@molecule/api-resource-user')
+    expect(names('user resource')[0]).toBe('@molecule/api-resource-user')
+    for (const [query, name] of [
+      ['upload', '@molecule/api-uploads'],
+      ['uploads', '@molecule/api-uploads'],
+      ['map', '@molecule/app-maps'],
+      ['vue', '@molecule/app-vue'],
+      // A category's name leads with its core, ahead of the capture provider and the queue backends.
+      ['payments', '@molecule/api-payments'],
+      ['queue', '@molecule/api-queue'],
+      ['cache', '@molecule/api-cache'],
+    ])
+      expect(names(query)[0], query).toBe(name)
+    expect(scorePackage(pkg('@molecule/app-widget'), 'widget')).toBeGreaterThan(160)
+    // Counterexample: a query naming a provider still leads with it.
+    expect(names('stripe')[0]).toBe('@molecule/api-payments-stripe')
+  })
+
+  it('counterexample: a name word, a locale bond and a symbol-cased query get no name credit', () => {
+    const owner = pkg('@molecule/app-widget')
+    const word = pkg('@molecule/app-widget-shelf')
+    const locale = { ...pkg('@molecule/app-locales-widget') }
+    locale.molecule = { ...locale.molecule!, type: 'locales' }
+    // Only the package the word names gets the name's weight (160): the one holding it as one of
+    // its words, the locale bond and a capitalized symbol lookup get their word scores alone.
+    expect(scorePackage(word, 'widget')).toBeLessThan(100)
+    expect(scorePackage(locale, 'widget')).toBeLessThan(100)
+    expect(scorePackage(owner, 'Widget')).toBeLessThan(100)
+    // The core of the category keeps its place: the payments resource holds the word, not the name.
+    expect(names('payments').slice(0, 3)).toContain('@molecule/api-payments')
+    expect(names('User')[0]).toBe('@molecule/app-icons-molecule')
   })
 
   it('keeps exact package names above incidental symbols and rejects unrelated phrase matches', () => {

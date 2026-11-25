@@ -69,14 +69,30 @@ function expected(
       name: pkg.name,
       score: scorePackage(pkg, query),
       dependsOn: pkg.molecule?.runtimeDependencies ?? [],
+      // A query naming a category leads with that category's core.
+      namedCore:
+        pkg.molecule?.type === 'core' &&
+        pkg.molecule.category
+          ?.toLowerCase()
+          .replace(/[^a-z0-9]+/g, ' ')
+          .trim() ===
+          query
+            .toLowerCase()
+            .replace(/[^a-z0-9]+/g, ' ')
+            .trim(),
     }))
     .filter((hit) => hit.score > 0)
-  // An equal score goes to the package more of the other matches depend on, then the name.
+  // An equal score goes to the package more of the other matches depend on, then the shorter
+  // name, then the name.
   const builtOn = (name: string): number =>
     matched.filter((hit) => hit.dependsOn.includes(name)).length
   const ranked = matched.sort(
     (a, b) =>
-      b.score - a.score || builtOn(b.name) - builtOn(a.name) || a.name.localeCompare(b.name),
+      Number(b.namedCore) - Number(a.namedCore) ||
+      b.score - a.score ||
+      builtOn(b.name) - builtOn(a.name) ||
+      a.name.split('-').length - b.name.split('-').length ||
+      a.name.localeCompare(b.name),
   )
   const frameworks = options.frameworks ?? []
   const keyOf = (name: string): string | undefined =>

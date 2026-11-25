@@ -360,6 +360,12 @@ export function scoreSearchEntry(entry: SearchSourceEntry, q: string): number {
   const containsPhrase = (text: string, candidate: string): boolean =>
     ` ${text} `.includes(` ${candidate} `)
   const hints = (entry.intentHints ?? []).map(phrase)
+  const nameWords = name.toLowerCase().split('-')
+  // The words of the name past its stack prefix: `api-resource-user` → resource, user.
+  const capabilityWords =
+    nameWords[0] === 'api' || nameWords[0] === 'app' ? nameWords.slice(1) : nameWords
+  const sameWord = (a: string, b: string): boolean =>
+    wordForms(a).includes(b) || wordForms(b).includes(a)
   if (
     q.trim().toLowerCase() === entry.name.toLowerCase() ||
     q.trim().toLowerCase() === name.toLowerCase()
@@ -372,11 +378,26 @@ export function scoreSearchEntry(entry: SearchSourceEntry, q: string): number {
   // the category keeps its members ahead of unrelated symbol owners, and the two
   // count once, or a provider exporting an alias named after its category
   // (`email`) outranks the core it implements.
-  if (exactSymbol || (entry.category && phrase(entry.category) === query)) score += 160
+  // A lowercase word that names the package counts the same: its name past the stack prefix and
+  // the word of its type (`resource` of api-resource-user). The icon set exports an icon named
+  // `user`, and with only the export weighing that much it led `user`, ahead of
+  // @molecule/api-resource-user. A word that is only one word of a name (`payment` of
+  // api-resource-payment-method) stays a name word, or every package holding it ties the
+  // category's members. A locale bond's name names the package it translates, whose add installs
+  // it, so it gets nothing here. A capitalized or camelCase query (`User`, `findMany`) is a symbol
+  // lookup and leaves names out.
+  const ownWords = capabilityWords.filter(
+    (word, index) => index > 0 || typeof entry.type !== 'string' || !sameWord(word, entry.type),
+  )
+  const namesPackage =
+    entry.type !== 'locales' &&
+    /^[\p{Ll}\p{N}]+$/u.test(q.trim()) &&
+    ownWords.length === 1 &&
+    sameWord(query, ownWords[0])
+  if (exactSymbol || namesPackage || (entry.category && phrase(entry.category) === query))
+    score += 160
   if (query.includes(' ')) {
     const queryWords = query.split(' ')
-    const sameWord = (a: string, b: string): boolean =>
-      wordForms(a).includes(b) || wordForms(b).includes(a)
     if (hints.includes(query)) score += 120
     else if (
       hints.some(
@@ -385,10 +406,14 @@ export function scoreSearchEntry(entry: SearchSourceEntry, q: string): number {
       )
     )
       score += 80
+    // A name holding every word of the query in any order (`resource-user` for "user resource")
+    // is as strong as a field holding the phrase: the user resource's locale bond, whose
+    // description holds "user resource", led that query.
     else if (
       [name, entry.category, entry.label, entry.description].some(
         (field) => field && containsPhrase(phrase(field), query),
-      )
+      ) ||
+      queryWords.every((word) => capabilityWords.some((other) => sameWord(word, other)))
     )
       score += 60
     // A hint holding every word of the query, in any order or with words between ("url backed
@@ -409,7 +434,6 @@ export function scoreSearchEntry(entry: SearchSourceEntry, q: string): number {
   // query already matched. A hyphenated token whose words, past the stack prefix (the stack filter's
   // job), are all words of the name counts as the name, and its words then weigh among the packages
   // it names as a word of the query does.
-  const nameWords = name.toLowerCase().split('-')
   const fieldScore = (forms: string[], tok: string): number => {
     const found = (text: string | undefined): boolean =>
       text !== undefined && forms.some((form) => text.includes(form))
@@ -462,7 +486,13 @@ export function searchPackages(
   const accepted = framework
     ? new Set(appFrameworks ? frameworksAcceptedBy(framework, appFrameworks) : [framework])
     : null
-  const ranked: Array<SearchHit & { score: number; dependsOn: readonly unknown[] }> = []
+  const ranked: Array<
+    SearchHit & { score: number; dependsOn: readonly unknown[]; namedCore: boolean }
+  > = []
+  const named = query
+    .toLowerCase()
+    .replace(/[^\p{L}\p{N}]+/gu, ' ')
+    .trim()
   for (const entry of entries) {
     // The rule `loadRegistry(stack)` applies — declared stack equality — kept
     // here so the transport that has no loader (hosted MCP) filters identically.
@@ -498,6 +528,13 @@ export function searchPackages(
       ...includesOf(entry),
       score,
       dependsOn: Array.isArray(entry.runtimeDependencies) ? entry.runtimeDependencies : [],
+      namedCore:
+        entry.type === 'core' &&
+        typeof entry.category === 'string' &&
+        entry.category
+          .toLowerCase()
+          .replace(/[^\p{L}\p{N}]+/gu, ' ')
+          .trim() === named,
     })
   }
   // Equal relevance goes to the package more of the other matches build on: the core before the
@@ -508,13 +545,26 @@ export function searchPackages(
     for (const name of hit.dependsOn)
       if (typeof name === 'string') dependents.set(name, (dependents.get(name) ?? 0) + 1)
   const builtOn = (hit: { name: string }): number => dependents.get(hit.name) ?? 0
+  // A query that names a category (`payments`) leads with its core, the interface the app codes
+  // against: the category bonus ties it with every provider, and the in-memory capture provider's
+  // field words had put it first, three points ahead. Of two equal matches the shorter name holds
+  // more of the query (`stripe`: api-payments-stripe before api-kyc-stripe-identity).
+  const nameLength = (hit: { name: string }): number => hit.name.split('-').length
   ranked.sort(
-    (a, b) => b.score - a.score || builtOn(b) - builtOn(a) || a.name.localeCompare(b.name),
+    (a, b) =>
+      Number(b.namedCore) - Number(a.namedCore) ||
+      b.score - a.score ||
+      builtOn(b) - builtOn(a) ||
+      nameLength(a) - nameLength(b) ||
+      a.name.localeCompare(b.name),
   )
   return (accepted ? ranked : onePlacePerFeature(ranked, Object.keys(appFrameworks ?? {})))
     .slice(0, limit)
-    .map(({ score: _score, dependsOn: _dependsOn, quickStart, ...hit }, index) =>
-      index < QUICK_START_HITS && quickStart ? { ...hit, quickStart } : hit,
+    .map(
+      (
+        { score: _score, dependsOn: _dependsOn, namedCore: _namedCore, quickStart, ...hit },
+        index,
+      ) => (index < QUICK_START_HITS && quickStart ? { ...hit, quickStart } : hit),
     )
 }
 
