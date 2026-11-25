@@ -116,6 +116,16 @@ describe('scaffold', () => {
       expect(result).toBe(join(root, 'packages', 'api', 'utilities', 'validation'))
     })
 
+    it('places an app utility under the app stack (OLD MUSTFAIL: it went under api/utilities)', () => {
+      const result = resolvePackageDirectory(root, {
+        name: 'app-overlay-dom',
+        type: 'utility',
+        stack: 'app',
+        category: 'overlay',
+      })
+      expect(result).toBe(join(root, 'packages', 'app', 'utilities', 'overlay-dom'))
+    })
+
     it('should resolve infrastructure package', () => {
       const result = resolvePackageDirectory(root, {
         name: 'api-ci',

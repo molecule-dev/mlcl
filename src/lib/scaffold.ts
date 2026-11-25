@@ -6861,7 +6861,7 @@ export function resolvePackageDirectory(
     case 'middleware':
       return containedPackageDir(base, join(base, 'api', 'middleware', shortName))
     case 'utility':
-      return containedPackageDir(base, join(base, 'api', 'utilities', shortName))
+      return containedPackageDir(base, join(base, meta.stack, 'utilities', shortName))
     case 'infrastructure':
       return containedPackageDir(base, join(base, 'api', 'infrastructure', shortName))
     case 'framework':
