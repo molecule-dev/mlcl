@@ -29,7 +29,6 @@
     "@molecule/api-config-env": "1.0.4",
     "@molecule/api-database": "1.2.2",
     "@molecule/api-database-postgresql": "1.4.2",
-    "@molecule/api-email-templates": "1.0.4",
     "@molecule/api-emails": "1.0.3",
     "@molecule/api-emails-capture": "1.0.3",
     "@molecule/api-emails-mailgun": "1.0.10",

@@ -24,7 +24,6 @@
     "@molecule/api-ai-embeddings": "1.1.1",
     "@molecule/api-ai-embeddings-openai": "1.0.6",
     "@molecule/api-ai-rag": "1.0.3",
-    "@molecule/api-ai-rag-llm": "1.0.4",
     "@molecule/api-ai-vector-store": "1.0.3",
     "@molecule/api-ai-vector-store-pgvector": "1.0.3",
     "@molecule/api-bond": "1.0.4",
