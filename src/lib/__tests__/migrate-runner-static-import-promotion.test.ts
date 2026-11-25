@@ -84,10 +84,11 @@ describe('ensureMigrateRunnerImports — a statically imported bond is promoted'
     expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-mysql'])
   })
 
-  it('keeps promoting the PostgreSQL bond and the wrapper the Postgres render imports', async () => {
+  it('keeps promoting the PostgreSQL bond the Postgres render imports, and nothing more', async () => {
     // The pre-existing behaviour the generalization must not lose: the Postgres
-    // runner imports the PostgreSQL bond (`deriveSsl`) AND the bond-setup
-    // wrapper (`createMigratorPglite`) at the top level.
+    // runner imports the PostgreSQL bond (`deriveSsl`) at the top level. It no
+    // longer imports the bond bundle's `createMigratorPglite`, so a bundle pin
+    // in devDependencies is left where it is.
     const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
     const project = await projectWith(runner, {
       devDependencies: {
@@ -99,14 +100,28 @@ describe('ensureMigrateRunnerImports — a statically imported bond is promoted'
     const gained = await ensureMigrateRunnerImports(project)
 
     const manifest = await manifestOf(project)
-    expect(gained).toEqual(
-      expect.arrayContaining([
-        '@molecule/api-database-postgresql',
-        '@molecule/api-bonds-default-express',
-      ]),
-    )
+    expect(gained).toEqual(['@molecule/api-database-postgresql'])
     expect(manifest.dependencies?.['@molecule/api-database-postgresql']).toBe('1.0.5')
-    expect(manifest.dependencies?.['@molecule/api-bonds-default-express']).toBe('1.1.0')
+    expect(manifest.devDependencies?.['@molecule/api-bonds-default-express']).toBe('1.1.0')
+  })
+
+  it('promotes the bond bundle for a runner rendered before, which still imports its wrapper', async () => {
+    const runner = [
+      "import { createMigratorPglite } from '@molecule/api-bonds-default-express'",
+      'export async function runMigrations(): Promise<void> {',
+      '  await createMigratorPglite("migrations")()',
+      '}',
+      '',
+    ].join('\n')
+    const project = await projectWith(runner, {
+      devDependencies: { '@molecule/api-bonds-default-express': '1.1.0' },
+    })
+    expect(await ensureMigrateRunnerImports(project)).toEqual([
+      '@molecule/api-bonds-default-express',
+    ])
+    expect((await manifestOf(project)).dependencies?.['@molecule/api-bonds-default-express']).toBe(
+      '1.1.0',
+    )
   })
 
   it('leaves an out-of-band runner (which imports no bond) untouched', async () => {

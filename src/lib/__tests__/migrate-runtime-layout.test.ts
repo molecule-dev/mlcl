@@ -63,7 +63,10 @@ async function runFixture(
   `
   for (const pkg of [
     'pg',
+    // The checked-in flagship delegates still import their migrator from the bundle.
     '@molecule/api-bonds-default-express',
+    // A PGlite runner imports this bond's `createMigrator` on its browser branch.
+    '@molecule/api-database-pglite',
     '@molecule/api-database-postgresql',
     '@molecule/api-database-sqlite',
     '@molecule/api-database-mysql',

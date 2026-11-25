@@ -1490,6 +1490,9 @@ export default class Create extends Command {
     // Each workspace whose integration code was not generated, relative to the project: the
     // closing next steps name the command that generates it.
     const injectSkipped: string[] = []
+    // Why each skipped workspace's inject failed. `log` prints nothing under --json, so without
+    // this the JSON result named the skipped workspace and never the reason.
+    const injectFailure: Record<string, string> = {}
     if (isFullStack) {
       // Inject both workspaces
       for (const workspace of ['api', 'app']) {
@@ -1529,9 +1532,10 @@ export default class Create extends Command {
             )
           }
           injectSkipped.push(workspace)
+          injectFailure[workspace] = injectFailureDetail(e)
           spinner?.stop(chalk.yellow(t('commands.create.spinners.injectSkipped', { workspace })))
           log(t('commands.create.spinners.injectSkipped', { workspace }))
-          log(`  Inject error: ${injectFailureDetail(e)}`)
+          log(`  Inject error: ${injectFailure[workspace]}`)
         }
       }
     } else {
@@ -1566,10 +1570,12 @@ export default class Create extends Command {
             }),
           )
         }
-        injectSkipped.push(hasAppSubdir ? 'app' : '.')
+        const workspace = hasAppSubdir ? 'app' : '.'
+        injectSkipped.push(workspace)
+        injectFailure[workspace] = injectFailureDetail(e)
         spinner?.stop(chalk.yellow(t('commands.create.spinners.injectSkippedSingle')))
         log(t('commands.create.spinners.injectSkippedSingle'))
-        log(`  Inject error: ${injectFailureDetail(e)}`)
+        log(`  Inject error: ${injectFailure[workspace]}`)
       }
     }
 
@@ -1859,6 +1865,7 @@ export default class Create extends Command {
             installSkipped: flags['skip-install'] === true,
             ...(installFailure ? { installFailure } : {}),
             injectSkipped,
+            ...(Object.keys(injectFailure).length > 0 ? { injectFailure } : {}),
             pendingSetup: pendingSetupSteps({
               installNeeded,
               injectSkipped,

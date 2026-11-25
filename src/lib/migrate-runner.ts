@@ -13,13 +13,12 @@
  * AND `devDependencies` both count: `mlcl swap` writes the new database into
  * the same dep key the old one occupied, which can be `devDependencies`, and a
  * production-only reader would then see NEITHER database — keeping the imports
- * of the very bond the swap just removed. The render only decides
- * REACHABILITY; backing the emitted runner is {@link ensureMigrateRunnerImports}'
- * job — it declares the bond-setup package behind the runner's typed PGlite
- * import and promotes every bond the render emitted on a devDependencies pin
- * (the reachable PGlite branch, and the Postgres machinery's own bond) into
- * `dependencies`, so a live import never rides on a pin that production
- * deploys prune.
+ * of the very bond the swap just removed. A manifest declaring no database
+ * provider gets a runner that imports none. The render decides which branches
+ * exist; backing the emitted runner is {@link ensureMigrateRunnerImports}' job —
+ * it promotes every bond the render emitted on a devDependencies pin (the
+ * PGlite branch, and the Postgres machinery's own bond) into `dependencies`, so
+ * a live import never rides on a pin that production deploys prune.
  *
  * @module
  */
@@ -80,9 +79,13 @@ const MOTHERDUCK_PACKAGE = '@molecule/api-database-motherduck'
 const PGLITE_PACKAGE = '@molecule/api-database-pglite'
 
 /**
- * The bond-setup package the Postgres runner statically imports its PGlite
- * migrator (`createMigratorPglite`) from. Every api manifest that carries that
- * runner must declare it — see {@link ensureMigrateRunnerImports}.
+ * The bond-setup package that runners rendered before 2026-11-25 import their
+ * PGlite migrator (`createMigratorPglite`) from, statically and on every render.
+ * A Postgres app therefore installed the Express bond bundle and every provider
+ * it wires (91 packages for a Postgres + user stack, Stripe and S3 among them).
+ * A runner rendered now imports the PGlite bond itself, on its browser branch
+ * only, and never this package. {@link ensureMigrateRunnerImports} keeps it
+ * declared for an older runner still on disk that imports it.
  */
 export const MIGRATE_RUNNER_BONDS_PACKAGE = '@molecule/api-bonds-default-express'
 
@@ -91,10 +94,10 @@ export interface MigrateRunnerRender {
   /**
    * Whether the manifest declares the PGlite bond (either dependency key — a
    * `mlcl swap` lands the new database in whatever key the old one occupied).
-   * Decides only whether the branch is EMITTED reachable; wherever the runner
-   * lands, {@link ensureMigrateRunnerImports} also promotes the bond to a
-   * production pin so the live branch survives a devDependencies-pruning
-   * production deploy.
+   * Decides whether the browser branch, which imports that bond, is emitted;
+   * wherever the runner lands, {@link ensureMigrateRunnerImports} also promotes
+   * the bond to a production pin so the live branch survives a
+   * devDependencies-pruning production deploy.
    */
   pgliteDeclared: boolean
   /**
@@ -105,33 +108,33 @@ export interface MigrateRunnerRender {
   postgresDeclared?: boolean
 }
 
-/** Opens a block of Postgres-only machinery in the runner template. */
-const SECTION_OPEN = '{{#MIGRATE_POSTGRES}}'
-/** Closes a block of Postgres-only machinery in the runner template. */
-const SECTION_CLOSE = '{{/MIGRATE_POSTGRES}}'
+/**
+ * The runner template's sections: `MIGRATE_POSTGRES` holds the Postgres
+ * machinery (`pg`, `deriveSsl`, `CREATE DATABASE`), `MIGRATE_PGLITE` the
+ * browser-profile branch, which imports the PGlite bond. Each is kept only when
+ * the manifest declares that database, so the runner imports no database
+ * package the project lacks.
+ */
+type RunnerSection = 'MIGRATE_POSTGRES' | 'MIGRATE_PGLITE'
 
 /**
- * Keep or drop the `{{#MIGRATE_POSTGRES}} … {{/MIGRATE_POSTGRES}}` blocks of
- * the runner template. Markers always stand alone on their own line (never
- * nested, never inline), so processing is line-wise: marker lines disappear,
- * body lines survive only when the block is kept.
+ * Keep or drop the `{{#NAME}} … {{/NAME}}` sections of the runner template.
+ * Markers always stand alone on their own line (never nested, never inline), so
+ * processing is line-wise: marker lines disappear, body lines survive only when
+ * their section is kept.
  *
  * @param raw - Template source, section markers intact.
- * @param include - Whether the Postgres machinery should remain in the output.
+ * @param keep - Whether each section remains in the output.
  * @returns The template with every section either kept (markers removed) or
  *   dropped (markers and body removed).
  */
-function renderPostgresSections(raw: string, include: boolean): string {
+function renderSections(raw: string, keep: Record<RunnerSection, boolean>): string {
   const out: string[] = []
   let skipping = false
   for (const line of raw.split('\n')) {
-    const trimmed = line.trim()
-    if (trimmed === SECTION_OPEN) {
-      skipping = !include
-      continue
-    }
-    if (trimmed === SECTION_CLOSE) {
-      skipping = false
+    const marker = /^\{\{([#/])(MIGRATE_POSTGRES|MIGRATE_PGLITE)\}\}$/.exec(line.trim())
+    if (marker) {
+      skipping = marker[1] === '#' && !keep[marker[2] as RunnerSection]
       continue
     }
     if (skipping) continue
@@ -158,11 +161,9 @@ export const BROWSER_PROFILE_GATE = "process.env.MOL_BOND_PROFILE === 'browser'"
  * reachability decision, not a boolean literal:
  *
  * - `false` — the api manifest declares no PGlite bond, so the browser branch
- *   is unreachable code instead of a deferred `ERR_MODULE_NOT_FOUND` (the
- *   browser-profile bonds lazily import the package at call time; see
- *   templates/api/migrate.ts.tpl).
+ *   (the `MIGRATE_PGLITE` section, which imports that bond) is left out.
  * - a bare `true` — the manifest declares PGlite and NOT the PostgreSQL bond,
- *   and the Postgres machinery is stripped ({@link renderPostgresSections}):
+ *   and the Postgres machinery is stripped ({@link renderSections}):
  *   PGlite is that app's only database, so migrations run on it in every
  *   profile. A swapped-in PGlite must not keep importing a PostgreSQL bond the
  *   swap just removed.
@@ -179,11 +180,12 @@ export const BROWSER_PROFILE_GATE = "process.env.MOL_BOND_PROFILE === 'browser'"
  * constant cases render the literal alone and the dual case renders the
  * comparison alone — which is also exactly what `true && gate` USED to mean.
  *
- * The section decision keys on the PostgreSQL declaration itself, never on
- * "is this PGlite-only": a manifest declaring NEITHER database gets the
- * machinery stripped too, so the emitted runner imports no `pg` /
- * postgresql-bond package the manifest does not declare (the module doc's
- * rule — emit the machinery only when the manifest declares the bond).
+ * Each section decision keys on that database's own declaration, never on
+ * "is this PGlite-only", so the emitted runner imports no `pg`, PostgreSQL or
+ * PGlite package the manifest does not declare (the module doc's rule — emit a
+ * database's code only when the manifest declares its bond). A manifest
+ * declaring neither gets the no-provider runner instead
+ * ({@link migrateTemplateFor}).
  *
  * @param raw - Template source, `{{…}}` placeholders intact.
  * @param render - What the target manifest declares.
@@ -196,10 +198,10 @@ export function renderMigrateRunner(raw: string, render: MigrateRunnerRender): s
     : postgresMachinery
       ? BROWSER_PROFILE_GATE
       : 'true'
-  return renderPostgresSections(raw, postgresMachinery).replaceAll(
-    '{{MIGRATE_BROWSER_PROFILE}}',
-    browserProfile,
-  )
+  return renderSections(raw, {
+    MIGRATE_POSTGRES: postgresMachinery,
+    MIGRATE_PGLITE: render.pgliteDeclared,
+  }).replaceAll('{{MIGRATE_BROWSER_PROFILE}}', browserProfile)
 }
 
 /**
@@ -254,7 +256,9 @@ async function manifestDeclaredPackages(manifestPath: string): Promise<Set<strin
  * PGlite half. An out-of-band provider (D1) wins over everything: its bond
  * runs where no filesystem migrator exists, so it must not inherit a runner
  * that opens a local driver. Each of the others delegates to its bond's
- * `createMigrator`.
+ * `createMigrator`. A set with no database provider gets the no-provider
+ * runner, which imports no database package and applies nothing: rendering
+ * the Postgres template for it left a runner with neither database's section.
  *
  * Only the Postgres template carries a SECOND database's branch in one runner
  * (PGlite's, behind the browser-profile gate) — the SQLite/MySQL/D1/DuckDB/
@@ -281,7 +285,8 @@ export function migrateTemplateFor(packageNames: readonly string[]): string {
   if (packageNames.includes('@molecule/api-database-mysql')) return 'api/migrate-mysql.ts.tpl'
   if (packageNames.includes(MOTHERDUCK_PACKAGE)) return 'api/migrate-motherduck.ts.tpl'
   if (packageNames.includes(DUCKDB_PACKAGE)) return 'api/migrate-duckdb.ts.tpl'
-  return 'api/migrate.ts.tpl'
+  if (POSTGRES_TEMPLATE_PROVIDERS.some((p) => packageNames.includes(p))) return 'api/migrate.ts.tpl'
+  return 'api/migrate-none.ts.tpl'
 }
 
 /**
@@ -368,12 +373,12 @@ export async function readMigrateRunnerForManifest(apiDir: string): Promise<stri
  * `dependencies` (production deploys prune `devDependencies` — `--omit=dev` —
  * and the workspace's hoisted node_modules hides exactly this class of hole):
  *
- * - {@link MIGRATE_RUNNER_BONDS_PACKAGE}, which the Postgres-flavor runner
- *   imports `createMigratorPglite` from unconditionally — without it `tsc`
- *   fails TS2307 and `db:setup` dies with ERR_MODULE_NOT_FOUND on a real
- *   install.
+ * - {@link MIGRATE_RUNNER_BONDS_PACKAGE}, only for a runner rendered before
+ *   2026-11-25 that still imports `createMigratorPglite` from it — without it
+ *   `tsc` fails TS2307 and `db:setup` dies with ERR_MODULE_NOT_FOUND on a real
+ *   install. A runner rendered now does not import it.
  * - {@link PGLITE_PACKAGE}, whenever the runner's browser branch is emitted
- *   reachable — the wrapper imports that bond LAZILY at call time, so a
+ *   reachable — the branch imports that bond LAZILY at call time, so a
  *   devDependencies-only pin (from `mlcl add --dev`, or a swap out of
  *   `devDependencies`) leaves a branch that crashes boot-time
  *   `runMigrations()` with ERR_MODULE_NOT_FOUND exactly where it fires, after

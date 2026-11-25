@@ -151,12 +151,7 @@ describe('syncMigrateRunner write guard', () => {
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
     await realWriteFile(
       join(dir, 'package.json'),
-      JSON.stringify({
-        dependencies: {
-          '@molecule/api-bonds-default-express': '1.1.0',
-          '@molecule/api-database-postgresql': '1.0.5',
-        },
-      }),
+      JSON.stringify({ dependencies: { '@molecule/api-database-postgresql': '1.0.5' } }),
     )
     const path = join(dir, 'src', 'scripts', 'migrate.ts')
     await realWriteFile(path, await readMigrateRunnerForManifest(dir))
@@ -185,9 +180,9 @@ describe('syncMigrateRunner failure reporting', () => {
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
     const path = join(dir, 'src', 'scripts', 'migrate.ts')
     // A stale runner (any bytes that differ from the render) and a manifest
-    // that declares PostgreSQL but NOT the bond-setup package the Postgres
-    // render imports unconditionally — so `ensureMigrateRunnerImports` has a
-    // pin to add and its own manifest write is the step under test.
+    // that declares PostgreSQL but NOT `@types/pg`, which the Postgres render's
+    // `pg` import needs — so `ensureMigrateRunnerImports` has a pin to add and
+    // its own manifest write is the step under test.
     await realWriteFile(path, '// stale runner\n')
     const manifestBefore = JSON.stringify({
       dependencies: { '@molecule/api-database-postgresql': '1.0.5' },
@@ -213,7 +208,7 @@ describe('syncMigrateRunner failure reporting', () => {
     // The runner is deliberately NOT rolled back: it was re-rendered from the
     // manifest the swap already rewrote, so the pre-swap bytes would import the
     // database package that same swap removed (see syncMigrateRunner's doc).
-    expect(await readFile(path, 'utf-8')).toContain('createMigratorPglite')
+    expect(await readFile(path, 'utf-8')).toContain("from '@molecule/api-database-postgresql'")
     // The manifest step restored its own bytes: the failure left it parseable,
     // still missing only the pin it could not add.
     expect(JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8'))).toMatchObject({
@@ -228,7 +223,8 @@ describe('refreshMigrateRunnerForManifest', () => {
     const apiDir = join(project, 'api')
     await mkdir(join(apiDir, 'src', 'scripts'), { recursive: true })
     // A stale checked-in copy (the pre-__setup__ shape) plus a manifest that
-    // declares PostgreSQL but not the wrapper the current render imports.
+    // declares PostgreSQL but not the `@types/pg` the current render's `pg`
+    // import needs.
     const stale = '// stale frozen runner\n'
     await realWriteFile(join(apiDir, 'src', 'scripts', 'migrate.ts'), stale)
     await realWriteFile(
@@ -242,15 +238,17 @@ describe('refreshMigrateRunnerForManifest', () => {
     expect(await readFile(join(apiDir, 'src', 'scripts', 'migrate.ts'), 'utf-8')).toBe(
       await readMigrateRunnerForManifest(apiDir),
     )
-    // …and the manifest backs the wrapper that render imports.
+    // …and the manifest backs what that render imports.
     const manifest = JSON.parse(await readFile(join(apiDir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
+      devDependencies: Record<string, string>
     }
     // Presence is not the contract. The pin must be EXACT: a `^`/`~` range here
     // violates the repository's exact-version rule and a `latest`/garbage value
     // breaks a production install — both sailed past the previous
     // `toBeTruthy()`, which a key holding any non-empty string satisfies.
-    expect(manifest.dependencies['@molecule/api-bonds-default-express']).toMatch(/^\d+\.\d+\.\d+$/)
+    expect(manifest.devDependencies['@types/pg']).toMatch(/^\d+\.\d+\.\d+$/)
+    expect(manifest.dependencies).not.toHaveProperty(['@molecule/api-bonds-default-express'])
   })
 
   it('leaves a project with no runner alone', async () => {
@@ -263,8 +261,9 @@ describe('refreshMigrateRunnerForManifest', () => {
 
   it('restores the copied runner when the manifest that must back it cannot be written', async () => {
     // The refresh is TWO writes that must agree: the re-rendered runner imports
-    // `@molecule/api-bonds-default-express` (and, on a PGlite app, the PGlite
-    // bond), and the step right after the runner write is what declares them.
+    // `pg` (whose types it needs) and the PostgreSQL bond (and, on a PGlite app,
+    // the PGlite bond), and the step right after the runner write is what
+    // declares them.
     // When that manifest write fails, the runner that was just refreshed is the
     // one artifact left behind — a boot import whose packages the manifest does
     // not declare (TS2307 / ERR_MODULE_NOT_FOUND on a real install), which is
@@ -294,10 +293,10 @@ describe('refreshMigrateRunnerForManifest', () => {
     // both halves — the current render, and the package it imports declared.
     await refreshMigrateRunnerForManifest(apiDir)
     const manifest = JSON.parse(await readFile(join(apiDir, 'package.json'), 'utf-8')) as {
-      dependencies: Record<string, string>
+      devDependencies: Record<string, string>
     }
-    expect(manifest.dependencies['@molecule/api-bonds-default-express']).toMatch(/^\d+\.\d+\.\d+$/)
-    expect(await readFile(path, 'utf-8')).toContain('createMigratorPglite')
+    expect(manifest.devDependencies['@types/pg']).toMatch(/^\d+\.\d+\.\d+$/)
+    expect(await readFile(path, 'utf-8')).toContain("from '@molecule/api-database-postgresql'")
   })
 
   it('restores the checked-in bytes when the refresh write fails mid-flight', async () => {

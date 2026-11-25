@@ -231,8 +231,8 @@ describe('mlcl inject skips the synthesized files when a plan failed', () => {
       // The manifest-derived runner still lands and is backed — the half a
       // declared-but-uninstalled database needs to boot.
       const runner = await readFile(join(dir, 'src', 'scripts', 'migrate.ts'), 'utf-8')
-      expect(runner).toContain('createMigratorPglite')
-      expect(runner).toContain("from '@molecule/api-bonds-default-express'")
+      expect(runner).toContain("await import('@molecule/api-database-pglite')")
+      expect(runner).not.toContain('@molecule/api-bonds-default-express')
       const manifest = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8')) as {
         dependencies: Record<string, string>
       }

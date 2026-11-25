@@ -1,13 +1,12 @@
 /**
  * The scaffold's server smoke test used to mock every non-resource
  * @molecule/* package as an EMPTY object. Core packages call
- * `expectBond(type)` at module scope, and since the Postgres migration
- * runner statically imports `createMigratorPglite` from
- * `@molecule/api-bonds-default-express` — whose graph loads those cores —
- * importing server.js (which imports the runner) crashed the scaffold's own
- * suite on `No "expectBond" export is defined on the "@molecule/api-bond"
- * mock`. Generated mocks must carry each package's registry export surface,
- * never an empty object.
+ * `expectBond(type)` at module scope, and the migration runner server.js
+ * imports loads database bonds whose graph reaches those cores (until
+ * 2026-11-25 the Postgres runner also imported the Express bond bundle), so
+ * importing server.js crashed the scaffold's own suite on `No "expectBond"
+ * export is defined on the "@molecule/api-bond" mock`. Generated mocks must
+ * carry each package's registry export surface, never an empty object.
  *
  * @module
  */
@@ -113,15 +112,15 @@ describe('generated smoke-test mocks', () => {
     expect(bondMock?.[0]).toContain('isBonded: vi.fn(),')
   })
 
-  it('mocks the migration runner — server.ts imports it, and its wrapper import drags every provider bond graph in', async () => {
+  it('mocks the migration runner — server.ts imports it, and its imports drag database bond graphs in', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-smoke-mocks-'))
     const files = await synthesizeProjectFiles([], ['@molecule/api-database-postgresql'], dir)
     const serverTest = files.find((f) => f.targetPath.endsWith('__tests__/server.test.ts'))
     expect(serverTest).toBeDefined()
-    // Importing server.js pulls the runner, whose
-    // @molecule/api-bonds-default-express import loads provider bonds that
-    // call bond-core functions at module scope — the scaffold's own smoke
-    // suite crashed on that chain before the runner was mocked here.
+    // Importing server.js pulls the runner, whose database bond imports call
+    // bond-core functions at module scope (and whose `pg` would dial a real
+    // database) — the scaffold's own smoke suite crashed on that chain before
+    // the runner was mocked here.
     expect(serverTest!.content).toContain(
       "vi.mock('../scripts/migrate.js', () => ({\n  runMigrations: vi.fn(),\n}))",
     )

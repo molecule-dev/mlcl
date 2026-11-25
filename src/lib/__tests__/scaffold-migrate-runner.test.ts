@@ -10,7 +10,9 @@
  * Pins the two scaffold-side halves of the fix: the skeleton writes NO runner
  * (the injector writes the real one from the real selection), and
  * `copySqlSetupScripts` — the post-inject step every custom build runs —
- * declares the runner's imports in the manifest.
+ * declares the runner's imports in the manifest. Since 2026-11-25 the runner
+ * imports the PGlite bond itself instead of a wrapper from that bond bundle, so
+ * a Postgres project declares no bundle at all.
  *
  * @module
  */
@@ -23,7 +25,6 @@ import { join } from 'node:path'
 import { afterEach, describe, expect, it } from 'vitest'
 
 import { readMigrateRunner } from '../migrate-runner.js'
-import { getMoleculeVersion } from '../registry.js'
 import { copySqlSetupScripts, createApiProject } from '../scaffold.js'
 
 let dir: string | null = null
@@ -33,10 +34,10 @@ afterEach(async () => {
 })
 
 describe('custom-create migration-runner wiring', () => {
-  it('copySqlSetupScripts declares the bond-setup package the injected runner imports', async () => {
+  it('copySqlSetupScripts backs the injected Postgres runner without the bond bundle', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-scaffold-migrate-'))
     // What `mlcl inject` leaves behind for a database selection: the runner,
-    // and a manifest that does NOT declare the wrapper it imports.
+    // and a manifest that does NOT declare the types its `pg` import needs.
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
     await writeFile(
       join(dir, 'src', 'scripts', 'migrate.ts'),
@@ -54,10 +55,10 @@ describe('custom-create migration-runner wiring', () => {
 
     const manifest = JSON.parse(await readFile(join(dir, 'package.json'), 'utf-8')) as {
       dependencies: Record<string, string>
+      devDependencies?: Record<string, string>
     }
-    expect(manifest.dependencies['@molecule/api-bonds-default-express']).toBe(
-      getMoleculeVersion('@molecule/api-bonds-default-express'),
-    )
+    expect(manifest.devDependencies?.['@types/pg']).toMatch(/^\d+\.\d+\.\d+$/)
+    expect(manifest.dependencies).not.toHaveProperty(['@molecule/api-bonds-default-express'])
   })
 
   it('copySqlSetupScripts promotes a reachable PGlite branch out of devDependencies', async () => {
@@ -74,7 +75,7 @@ describe('custom-create migration-runner wiring', () => {
       join(dir, 'package.json'),
       JSON.stringify({
         name: 'demo-api',
-        dependencies: { '@molecule/api-bonds-default-express': '1.1.0' },
+        dependencies: {},
         devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
       }),
     )

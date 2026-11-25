@@ -269,10 +269,10 @@ describe('mlcl swap — MotherDuck’s DuckDB peer does not outrank the swapped-
       const runner = await readFile(join(dir, 'src', 'scripts', 'migrate.ts'), 'utf-8')
       expect(runner).not.toContain(`from '${DUCKDB}'`)
       if (target === PGLITE) {
-        // The PGlite-only render migrates through the bond-setup wrapper's
-        // lazy PGlite branch and carries no Postgres machinery at all — what
-        // proves it is not still the DuckDB runner is its absence plus this.
-        expect(runner).toContain('createMigratorPglite')
+        // The PGlite-only render migrates through the PGlite bond's lazy
+        // import and carries no Postgres machinery at all — what proves it is
+        // not still the DuckDB runner is its absence plus this.
+        expect(runner).toContain(`await import('${PGLITE}')`)
         expect(runner).not.toContain("from 'pg'")
         expect(runner).not.toContain(`from '${POSTGRESQL}'`)
       } else {

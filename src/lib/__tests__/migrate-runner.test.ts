@@ -21,12 +21,16 @@
  * moves that pin into `dependencies` too, or a production prune breaks the
  * boot exactly where it broke the PGlite branch.
  *
- * The manifest tests pin the same-day follow-ups: the runner's typed wrapper
- * import (`createMigratorPglite` from `@molecule/api-bonds-default-express`)
- * must be DECLARED by whatever manifest receives the runner (custom creates
- * and swaps, not just the flagship templates), and a swap onto PGlite must
+ * The manifest tests pin the same-day follow-ups: every bond the runner
+ * imports must be DECLARED by whatever manifest receives it (custom creates and
+ * swaps, not just the flagship templates), and a swap onto PGlite must
  * re-render the runner PGlite-only instead of keeping imports of the
- * PostgreSQL bond the swap removed.
+ * PostgreSQL bond the swap removed. Since 2026-11-25 the runner imports the
+ * PGlite bond itself, on its browser branch, instead of a wrapper from
+ * `@molecule/api-bonds-default-express`: every Postgres runner imported that
+ * wrapper, so a Postgres custom stack installed the bundle and the 45
+ * providers it wires. A runner still on disk that imports the wrapper keeps
+ * the bundle declared.
  *
  * The union tests pin the render-input contract end to end: the runner is
  * rendered from what the target manifest declares (either dependency key —
@@ -343,12 +347,32 @@ describe('readMigrateRunner PGlite gating', () => {
     expect(withPglite).not.toMatch(/BROWSER_PROFILE = (true|false) &&/)
   })
 
-  it('carries no raw variable-specifier @molecule import — only the typed wrapper', async () => {
+  it('a Postgres runner imports neither PGlite nor the Express bond bundle', async () => {
+    // Every Postgres runner imported `createMigratorPglite` from the bundle, so a Postgres custom
+    // stack installed the bundle and every provider it wires (91 packages, Stripe and S3 among them).
     const runner = await readMigrateRunner(['@molecule/api-database-postgresql'])
+    expect(runner).not.toContain('@molecule/api-bonds-default-express')
+    expect(runner).not.toContain('createMigratorPglite')
+    // Only the explanatory comment above BROWSER_PROFILE may name the PGlite bond.
+    expect(runner).not.toContain("import('@molecule/api-database-pglite')")
+    expect(runner).not.toMatch(/from '@molecule\/api-database-pglite'/)
+    expect(runner).not.toContain('if (BROWSER_PROFILE) {')
+  })
+
+  it('a dual runner imports the PGlite bond by its literal name, on the browser branch only', async () => {
+    const runner = await readMigrateRunner([
+      '@molecule/api-database-postgresql',
+      '@molecule/api-database-pglite',
+    ])
+    expect(runner).not.toContain('@molecule/api-bonds-default-express')
+    expect(runner).not.toMatch(/from '@molecule\/api-database-pglite'/)
     expect(runner).toContain(
-      "import { createMigratorPglite } from '@molecule/api-bonds-default-express'",
+      'if (BROWSER_PROFILE) {\n    // The same migrations, then the scaffold-time __setup__/ DDL',
     )
-    expect(runner).toContain('await createMigratorPglite(migrationsDir, setupDir)()')
+    expect(runner).toContain(
+      "const { createMigrator } = await import('@molecule/api-database-pglite')\n    for (const dir of [migrationsDir, setupDir]) await createMigrator(dir)()",
+    )
+    // A variable specifier would be untyped: tsc could not check the call.
     expect(runner).not.toMatch(/import\(\s*\w*[Pp]glite\w*\s*\)/)
   })
 
@@ -381,11 +405,21 @@ describe('readMigrateRunner PGlite gating', () => {
     expect(runner).not.toContain('deriveSsl')
     expect(runner).not.toContain('CREATE DATABASE')
     expect(runner).not.toContain('resolveDatabaseUrl')
-    // the typed wrapper import stays — it is what tsc can always see
-    expect(runner).toContain(
-      "import { createMigratorPglite } from '@molecule/api-bonds-default-express'",
-    )
-    expect(runner).toContain('await createMigratorPglite(migrationsDir, setupDir)()')
+    // …and it migrates through the PGlite bond itself, never the Express bond bundle.
+    expect(runner).not.toContain('@molecule/api-bonds-default-express')
+    expect(runner).toContain("await import('@molecule/api-database-pglite')")
+  })
+
+  it('renders a no-op runner for a project with no database provider', async () => {
+    const runner = await readMigrateRunner([
+      '@molecule/api-database',
+      '@molecule/api-resource-user',
+    ])
+    expect(runner).not.toMatch(/from '@molecule\//)
+    expect(runner).not.toContain('import(')
+    expect(runner).not.toContain("from 'pg'")
+    expect(runner).toContain('export async function runMigrations(): Promise<void> {')
+    expect(runner).toContain('No migrations ran: this project has no database provider.')
   })
 
   it('readMigrateRunnerForManifest follows the manifest, not the caller', async () => {
@@ -1107,7 +1141,10 @@ describe('migration connection lifecycle', () => {
 })
 
 describe('ensureMigrateRunnerImports', () => {
-  it('declares the bond-setup package a runner imports, at the registry pin', async () => {
+  it('declares no bond bundle for a Postgres runner: it imports only the PostgreSQL bond', async () => {
+    // Every Postgres runner imported `createMigratorPglite` from the Express bond bundle, and this
+    // step declared the bundle: a Postgres + user custom stack installed 91 packages, Stripe, S3
+    // and Meilisearch among them (harness eval probe, 2026-11-25).
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
     await writeFile(
@@ -1115,22 +1152,43 @@ describe('ensureMigrateRunnerImports', () => {
       await readMigrateRunner(['@molecule/api-database-postgresql']),
     )
     await writeManifest({ '@molecule/api-database-postgresql': '1.0.5' })
-    const added = await ensureMigrateRunnerImports(dir)
-    expect(added).toEqual(['@molecule/api-bonds-default-express'])
+    expect(await ensureMigrateRunnerImports(dir)).toEqual([])
+    expect(await readManifest()).not.toHaveProperty([
+      'dependencies',
+      '@molecule/api-bonds-default-express',
+    ])
+  })
+
+  it('keeps the bundle declared for a runner rendered before, which still imports its wrapper', async () => {
+    dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
+    await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
+    await writeFile(
+      join(dir, 'src', 'scripts', 'migrate.ts'),
+      [
+        "import { createMigratorPglite } from '@molecule/api-bonds-default-express'",
+        'const BROWSER_PROFILE = false',
+        'export async function runMigrations(): Promise<void> {',
+        '  if (BROWSER_PROFILE) await createMigratorPglite("migrations")()',
+        '}',
+        '',
+      ].join('\n'),
+    )
+    await writeManifest({})
+    expect(await ensureMigrateRunnerImports(dir)).toEqual(['@molecule/api-bonds-default-express'])
     expect((await readManifest()).dependencies['@molecule/api-bonds-default-express']).toBe(
       getMoleculeVersion('@molecule/api-bonds-default-express'),
     )
   })
 
-  it('backs a PGlite-only runner the same way', async () => {
+  it('backs a PGlite-only runner with the PGlite bond alone', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
     await writeFile(
       join(dir, 'src', 'scripts', 'migrate.ts'),
       await readMigrateRunner(['@molecule/api-database-pglite']),
     )
-    await writeManifest({ '@molecule/api-database-pglite': '1.0.0' })
-    expect(await ensureMigrateRunnerImports(dir)).toEqual(['@molecule/api-bonds-default-express'])
+    await writeManifest({})
+    expect(await ensureMigrateRunnerImports(dir)).toEqual(['@molecule/api-database-pglite'])
   })
 
   it('promotes a devDependencies-only PGlite pin when the branch is reachable — a pruned pin is the boot crash', async () => {
@@ -1138,8 +1196,7 @@ describe('ensureMigrateRunnerImports', () => {
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
     // What `mlcl add --dev @molecule/api-database-pglite --inject` (or a swap
     // out of devDependencies) leaves: a runner whose branch fires at boot,
-    // backed by a pin production deploys prune. The wrapper import the runner
-    // also needs is declared here so the assertion isolates the promotion.
+    // backed by a pin production deploys prune.
     await writeFile(
       join(dir, 'src', 'scripts', 'migrate.ts'),
       await readMigrateRunner(['@molecule/api-database-pglite']),
@@ -1147,7 +1204,7 @@ describe('ensureMigrateRunnerImports', () => {
     await writeFile(
       join(dir, 'package.json'),
       JSON.stringify({
-        dependencies: { '@molecule/api-bonds-default-express': '1.1.0' },
+        dependencies: {},
         devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
       }),
     )
@@ -1174,10 +1231,7 @@ describe('ensureMigrateRunnerImports', () => {
     await writeFile(
       join(dir, 'package.json'),
       JSON.stringify({
-        dependencies: {
-          '@molecule/api-bonds-default-express': '1.1.0',
-          '@molecule/api-database-postgresql': '1.0.5',
-        },
+        dependencies: { '@molecule/api-database-postgresql': '1.0.5' },
         devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
       }),
     )
@@ -1196,8 +1250,6 @@ describe('ensureMigrateRunnerImports', () => {
     // machinery (`import pg from 'pg'`, the bond's `deriveSsl`) — machinery a
     // production `--omit=dev` deploy pruned straight into a boot-time
     // ERR_MODULE_NOT_FOUND, the same crash class the PGlite promotion closes.
-    // The wrapper import the runner also needs is declared here so the
-    // assertion isolates the promotion.
     await writeFile(
       join(dir, 'src', 'scripts', 'migrate.ts'),
       await readMigrateRunner(['@molecule/api-database-postgresql']),
@@ -1205,7 +1257,7 @@ describe('ensureMigrateRunnerImports', () => {
     await writeFile(
       join(dir, 'package.json'),
       JSON.stringify({
-        dependencies: { '@molecule/api-bonds-default-express': '1.1.0' },
+        dependencies: {},
         devDependencies: { '@molecule/api-database-postgresql': '1.0.2' },
       }),
     )
@@ -1238,11 +1290,11 @@ describe('ensureMigrateRunnerImports', () => {
     expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-duckdb'])
   })
 
-  it('backs every bond a dual render emitted from devDependencies, wrapper included', async () => {
+  it('backs every bond a dual render emitted from devDependencies', async () => {
     dir = await mkdtemp(join(tmpdir(), 'mlcl-migrate-runner-'))
     await mkdir(join(dir, 'src', 'scripts'), { recursive: true })
-    // Both databases on the pruned key: the wrapper (no pin at all → registry
-    // pin) plus BOTH bonds moved with the versions the manifest carries.
+    // Both databases on the pruned key: BOTH bonds moved with the versions the
+    // manifest carries, and no bond bundle added.
     await writeFile(
       join(dir, 'src', 'scripts', 'migrate.ts'),
       await readMigrateRunner([
@@ -1260,14 +1312,11 @@ describe('ensureMigrateRunnerImports', () => {
       }),
     )
     expect(await ensureMigrateRunnerImports(dir)).toEqual([
-      '@molecule/api-bonds-default-express',
       '@molecule/api-database-pglite',
       '@molecule/api-database-postgresql',
     ])
     const manifest = await readManifest()
-    expect(manifest.dependencies['@molecule/api-bonds-default-express']).toBe(
-      getMoleculeVersion('@molecule/api-bonds-default-express'),
-    )
+    expect(manifest.dependencies).not.toHaveProperty(['@molecule/api-bonds-default-express'])
     expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
     expect(manifest.dependencies['@molecule/api-database-postgresql']).toBe('1.0.2')
     // Both bonds left devDependencies; the runner imports `pg`, so its types arrived there.
@@ -1323,9 +1372,7 @@ describe('ensureMigrateRunnerImports', () => {
     }
     expect(swapped.dependencies['@molecule/api-database-postgresql']).toBe('1.0.5')
     expect(swapped.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-postgresql'])
-    expect(swapped.dependencies['@molecule/api-bonds-default-express']).toBe(
-      getMoleculeVersion('@molecule/api-bonds-default-express'),
-    )
+    expect(swapped.dependencies).not.toHaveProperty(['@molecule/api-bonds-default-express'])
   })
 
   it('adds the registry pin when a reachable branch has no pin at all', async () => {
@@ -1335,7 +1382,7 @@ describe('ensureMigrateRunnerImports', () => {
       join(dir, 'src', 'scripts', 'migrate.ts'),
       await readMigrateRunner(['@molecule/api-database-pglite']),
     )
-    await writeManifest({ '@molecule/api-bonds-default-express': '1.1.0' })
+    await writeManifest({})
     expect(await ensureMigrateRunnerImports(dir)).toEqual(['@molecule/api-database-pglite'])
     expect((await readManifest()).dependencies['@molecule/api-database-pglite']).toBe(
       getMoleculeVersion('@molecule/api-database-pglite'),
@@ -1356,7 +1403,7 @@ describe('ensureMigrateRunnerImports', () => {
     await writeFile(
       join(dir, 'package.json'),
       JSON.stringify({
-        dependencies: { '@molecule/api-bonds-default-express': '1.1.0' },
+        dependencies: {},
         devDependencies: { '@molecule/api-database-pglite': '1.0.3' },
       }),
     )
@@ -1402,7 +1449,7 @@ describe('ensureMigrateRunnerImports', () => {
       // Assert BEFORE mockRestore — restoring resets the recorded calls.
       expect(warnSpy).toHaveBeenCalledWith(expect.stringContaining('missing or unparseable'))
       expect(warnSpy).toHaveBeenCalledWith(
-        expect.stringContaining('@molecule/api-bonds-default-express'),
+        expect.stringContaining('@molecule/api-database-postgresql'),
       )
     } finally {
       warnSpy.mockRestore()
@@ -1440,18 +1487,15 @@ describe('ensureMigrateRunnerImports', () => {
       await readMigrateRunner(['@molecule/api-database-d1']),
     )
     expect(await ensureMigrateRunnerImports(dir)).toEqual([])
-    // Already declared → untouched (the postgres render imports the wrapper
-    // AND the Postgres machinery's bond — both must sit in dependencies).
+    // Already declared → untouched (the postgres render imports the Postgres
+    // machinery's bond, which must sit in dependencies).
     await writeFile(
       join(dir, 'src', 'scripts', 'migrate.ts'),
       await readMigrateRunner(['@molecule/api-database-postgresql']),
     )
-    await writeManifest({
-      '@molecule/api-bonds-default-express': '1.1.0',
-      '@molecule/api-database-postgresql': '1.0.5',
-    })
+    await writeManifest({ '@molecule/api-database-postgresql': '1.0.5' })
     expect(await ensureMigrateRunnerImports(dir)).toEqual([])
-    expect((await readManifest()).dependencies['@molecule/api-bonds-default-express']).toBe('1.1.0')
+    expect((await readManifest()).dependencies['@molecule/api-database-postgresql']).toBe('1.0.5')
   })
 })
 
@@ -1472,7 +1516,7 @@ describe('syncMigrateRunner', () => {
     expect(runner).toContain('@molecule/api-database-mysql')
   })
 
-  it('rewrites a Postgres runner for PGlite: browser profile live, removed Postgres imports gone, wrapper declared', async () => {
+  it('rewrites a Postgres runner for PGlite: browser profile live, removed Postgres imports gone, PGlite backed', async () => {
     const project = await projectWithRunner('@molecule/api-database-postgresql')
     // What applyBondSwap leaves behind on postgresql → pglite: the old bond
     // removed from dependencies, the new one added there.
@@ -1486,21 +1530,24 @@ describe('syncMigrateRunner', () => {
     expect(runner).not.toContain("from '@molecule/api-database-postgresql'")
     expect(runner).not.toContain("from 'pg'")
     expect(runner).not.toContain('deriveSsl')
-    // And the typed wrapper the runner still imports is declared in the
-    // manifest, so a real install resolves it.
-    expect((await readManifest()).dependencies['@molecule/api-bonds-default-express']).toBe(
-      getMoleculeVersion('@molecule/api-bonds-default-express'),
-    )
+    // The runner imports the PGlite bond itself, which the swap declared; no bond bundle is added.
+    expect(runner).not.toContain('@molecule/api-bonds-default-express')
+    const manifest = await readManifest()
+    expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.0')
+    expect(manifest.dependencies).not.toHaveProperty(['@molecule/api-bonds-default-express'])
   })
 
-  it('declares the bond-setup package a SQLite project needs after swapping to Postgres', async () => {
+  it('a SQLite project swapped to Postgres gets the Postgres runner and no bond bundle', async () => {
     const project = await projectWithRunner('@molecule/api-database-sqlite')
     // applyBondSwap removed sqlite and added postgresql in dependencies.
     await writeManifest({ '@molecule/api-database-postgresql': '1.0.5' })
     await syncMigrateRunner(project, '@molecule/api-database-postgresql')
-    expect((await readManifest()).dependencies['@molecule/api-bonds-default-express']).toBe(
-      getMoleculeVersion('@molecule/api-bonds-default-express'),
-    )
+    const runner = await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')
+    expect(runner).toContain("from '@molecule/api-database-postgresql'")
+    expect(runner).not.toContain('@molecule/api-database-sqlite')
+    expect((await readManifest()).dependencies).not.toHaveProperty([
+      '@molecule/api-bonds-default-express',
+    ])
   })
 
   it('follows a swap whose old database sat in devDependencies', async () => {
@@ -1530,9 +1577,7 @@ describe('syncMigrateRunner', () => {
     }
     expect(swapped.dependencies['@molecule/api-database-pglite']).toBe('1.0.0')
     expect(swapped.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-pglite'])
-    expect(swapped.dependencies['@molecule/api-bonds-default-express']).toBe(
-      getMoleculeVersion('@molecule/api-bonds-default-express'),
-    )
+    expect(swapped.dependencies).not.toHaveProperty(['@molecule/api-bonds-default-express'])
   })
 
   it('rewrites a Postgres runner for DuckDB — the removed bond’s machinery is gone and the new import is backed', async () => {

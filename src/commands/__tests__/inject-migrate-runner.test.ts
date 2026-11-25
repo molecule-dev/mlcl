@@ -3,12 +3,14 @@
  * backed what it wrote: `mlcl add --dev <database> --inject` (and a bare
  * `mlcl inject`) rewrite the runner from the project's manifest, and the
  * command returned without declaring the runner's imports — the
- * `@molecule/api-bonds-default-express` wrapper the runner STATICALLY imports
- * (never a peer of a database bond, so no inject plan declares it), and the
  * `@molecule/api-database-pglite` pin behind a reachable browser-profile
  * branch, which a `--dev` add left in devDependencies where production
- * deploys prune it. The create (`copySqlSetupScripts`) and swap paths call
- * `ensureMigrateRunnerImports`; the inject command must too.
+ * deploys prune it, and the `@types/pg` the Postgres machinery's `pg` import
+ * needs. The create (`copySqlSetupScripts`) and swap paths call
+ * `ensureMigrateRunnerImports`; the inject command must too. (Until
+ * 2026-11-25 the runner also imported a wrapper from
+ * `@molecule/api-bonds-default-express`; it now imports the PGlite bond
+ * itself, so no Express bond bundle is declared.)
  *
  * Runs the REAL oclif command against a temp project.
  *
@@ -23,7 +25,7 @@ import { Config } from '@oclif/core'
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
 import { MOLECULE_PACKAGES } from '../../lib/__tests__/create-test-project.js'
-import { clearRegistryCache, getMoleculeVersion } from '../../lib/registry.js'
+import { clearRegistryCache } from '../../lib/registry.js'
 import type * as SetupSql from '../../lib/setup-sql.js'
 import Inject from '../inject.js'
 
@@ -100,9 +102,7 @@ async function writeApiProject(withPgliteInstalled: boolean): Promise<string> {
   dir = await mkdtemp(join(tmpdir(), 'mlcl-inject-migrate-'))
   await mkdir(join(dir, 'src'), { recursive: true })
   // The manifest `mlcl add --dev @molecule/api-database-pglite` leaves: the
-  // injected database pinned in devDependencies only, and (case 1's starting
-  // point) no `@molecule/api-bonds-default-express` behind the runner's
-  // static import of `createMigratorPglite`.
+  // injected database pinned in devDependencies only.
   await writeFile(
     join(dir, 'package.json'),
     JSON.stringify(
@@ -222,12 +222,12 @@ async function readManifest(): Promise<{
 }
 
 describe('mlcl inject backs the migration runner it writes', () => {
-  it('declares the wrapper package the runner statically imports', async () => {
+  it('writes the dual runner and backs its imports, with no bond bundle', async () => {
     const project = await writeApiProject(true)
     expect(await runInject(project)).toBeNull()
 
     // The runner was rewritten as the DUAL render: the manifest's Postgres
-    // bond UNION the injected PGlite. `createMigratorPglite` and a bare
+    // bond UNION the injected PGlite. The PGlite import and a bare
     // `const BROWSER_PROFILE = true` are true of the PGlite-ONLY render too —
     // the historically shipped bug (the manifest's Postgres machinery
     // stripped, the project's real database silently unmigrated) passed every
@@ -237,17 +237,17 @@ describe('mlcl inject backs the migration runner it writes', () => {
     // scaffolded project ships, so a generated runner would fail its own
     // `npm run lint`.
     const runner = await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')
-    expect(runner).toContain('createMigratorPglite')
+    expect(runner).toContain("await import('@molecule/api-database-pglite')")
     expect(runner).toContain("const BROWSER_PROFILE = process.env.MOL_BOND_PROFILE === 'browser'")
     expect(runner).toContain('import pg from')
     expect(runner).toContain('CREATE DATABASE')
-    // …and the manifest now backs its imports: the wrapper is never a peer of
-    // a database bond, so without this the project failed tsc (TS2307) and
-    // `db:setup` (ERR_MODULE_NOT_FOUND) on a real install.
+    expect(runner).not.toContain('@molecule/api-bonds-default-express')
+    // …and the manifest now backs its imports: the live PGlite branch's pin
+    // left devDependencies, and `pg` has its types.
     const manifest = await readManifest()
-    expect(manifest.dependencies['@molecule/api-bonds-default-express']).toBe(
-      getMoleculeVersion('@molecule/api-bonds-default-express'),
-    )
+    expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
+    expect(manifest.devDependencies?.['@types/pg']).toMatch(/^\d+\.\d+\.\d+$/)
+    expect(manifest.dependencies).not.toHaveProperty(['@molecule/api-bonds-default-express'])
   })
 
   it('promotes a devDependencies-only PGlite pin off the pruned key', async () => {
@@ -272,10 +272,8 @@ describe('mlcl inject backs the migration runner it writes', () => {
       // The pin MOVED (keeping the version the manifest carried)…
       expect(manifest.dependencies['@molecule/api-database-pglite']).toBe('1.0.3')
       expect(manifest.devDependencies ?? {}).not.toHaveProperty(['@molecule/api-database-pglite'])
-      // …and the wrapper is declared behind the runner's static import.
-      expect(manifest.dependencies['@molecule/api-bonds-default-express']).toBe(
-        getMoleculeVersion('@molecule/api-bonds-default-express'),
-      )
+      // …and no bond bundle was added behind it.
+      expect(manifest.dependencies).not.toHaveProperty(['@molecule/api-bonds-default-express'])
     } finally {
       if (prevPackagesDir === undefined) delete process.env.MOLECULE_PACKAGES_DIR
       else process.env.MOLECULE_PACKAGES_DIR = prevPackagesDir
@@ -288,8 +286,8 @@ describe('mlcl inject backs the migration runner it writes', () => {
     // that fails mid-flight cannot be undone here — and that write is what
     // declares the packages the runner imports. Warning and carrying on reported
     // SUCCESS (exit 0) over exactly the project this step exists to prevent:
-    // tsc fails TS2307 on the undeclared wrapper and `db:setup` dies
-    // ERR_MODULE_NOT_FOUND on a real install. It is a failed injection.
+    // tsc fails on the undeclared `pg` types and a production `db:setup` dies
+    // ERR_MODULE_NOT_FOUND on the pruned PGlite pin. It is a failed injection.
     const project = await writeApiProject(true)
     intercept.armed = true
     const { outcome, logged } = await runInjectCapturing(project)
@@ -303,10 +301,9 @@ describe('mlcl inject backs the migration runner it writes', () => {
     // The runner it landed is still there (it cannot be taken back), and the
     // manifest write was restored to its pre-write bytes by the guard.
     expect(await readFile(join(project, 'src', 'scripts', 'migrate.ts'), 'utf-8')).toContain(
-      'createMigratorPglite',
+      "await import('@molecule/api-database-pglite')",
     )
-    expect(
-      (await readManifest()).dependencies['@molecule/api-bonds-default-express'],
-    ).toBeUndefined()
+    // The types this step adds are not there: its write was taken back.
+    expect((await readManifest()).devDependencies ?? {}).not.toHaveProperty(['@types/pg'])
   })
 })

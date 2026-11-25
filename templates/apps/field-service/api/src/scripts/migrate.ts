@@ -12,7 +12,6 @@ import { dirname, join } from 'path'
 import pg from 'pg'
 import { fileURLToPath } from 'url'
 
-import { createMigratorPglite } from '@molecule/api-bonds-default-express'
 import { deriveSsl } from '@molecule/api-database-postgresql'
 
 // Resolve assets from the API package, independent of the compiler's rootDir.
@@ -139,8 +138,8 @@ function isBenignMigrationError(err: unknown): boolean {
 // The MIGRATE_BROWSER_PROFILE scaffold placeholder is substituted by mlcl with the COMPLETE right-hand
 // side of the line, so what is emitted is always ONE expression:
 //   - `false` for an app whose api manifest does not declare @molecule/api-database-pglite (either
-//     dependency key) — the browser branch is then unreachable code instead of an
-//     ERR_MODULE_NOT_FOUND crash waiting on an env var;
+//     dependency key) — mlcl then leaves the browser branch out, so the runner imports no PGlite
+//     package the app does not have;
 //   - `process.env.MOL_BOND_PROFILE === 'browser'` for one that declares BOTH databases;
 //   - a bare `true` for one that declares PGlite but NOT @molecule/api-database-postgresql, because
 //     mlcl also strips the whole Postgres machinery at render time for it: PGlite is then the app's
@@ -175,16 +174,6 @@ try {
 }
 
 export async function runMigrations(): Promise<void> {
-  if (BROWSER_PROFILE) {
-    // The same migrations, then the scaffold-time __setup__/ DDL (a missing directory counts as
-    // empty), on the pglite bond's default pool — the one the app is bonded to, so an in-memory
-    // database is shared. createMigratorPglite keeps the lazy @molecule/api-database-pglite import
-    // behind its optional peer, so tsc never demands the package from non-browser scaffolds.
-    await createMigratorPglite(migrationsDir, setupDir)()
-    console.log('Migrations complete (PGlite).')
-    return
-  }
-
   // Step 1: Try to create the database (connects to 'postgres' db as admin).
   // The admin connection is closed on EVERY path (finally): an open socket
   // keeps the Node event loop alive, so a failed pg_database probe or CREATE
