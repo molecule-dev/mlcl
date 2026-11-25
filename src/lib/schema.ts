@@ -442,6 +442,12 @@ export const MoleculeMetadata = z.object({
     .describe(
       'The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and `mlcl add` of this name adds the replacement.',
     ),
+  webOnlyReason: z
+    .string()
+    .optional()
+    .describe(
+      'Why the package renders only in a browser (HTML5 drag-and-drop of files, MediaRecorder, a WebGL canvas, a pan-and-zoom editing surface). `mlcl add` refuses it, and any package that requires it as a peer, in a React Native project, and prints this reason.',
+    ),
   framework: z
     .enum(['react', 'vue', 'svelte', 'solid', 'angular', 'react-native'])
     .optional()
@@ -831,6 +837,12 @@ export const RegistryEntry = z.object({
     .optional()
     .describe(
       'The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and `mlcl add` of this name adds the replacement.',
+    ),
+  webOnlyReason: z
+    .string()
+    .optional()
+    .describe(
+      'Why the package renders only in a browser (HTML5 drag-and-drop of files, MediaRecorder, a WebGL canvas, a pan-and-zoom editing surface). `mlcl add` refuses it, and any package that requires it as a peer, in a React Native project, and prints this reason.',
     ),
   implements: z
     .string()

@@ -69,6 +69,7 @@ import { createSpinner } from '../lib/spinner.js'
 import { applyStarterLock, readStarterLock } from '../lib/starter-lock.js'
 import { writeStopHooks } from '../lib/stop-hooks.js'
 import { ui } from '../lib/ui.js'
+import { describeWebOnlyChains, rendersOnReactNative, webOnlyChains } from '../lib/web-only.js'
 
 /**
  * Package families a `static` site never ships: nobody logs in (auth, OAuth,
@@ -1130,6 +1131,18 @@ export default class Create extends Command {
         } catch (error) {
           this.error(error instanceof Error ? error.message : String(error))
         }
+      }
+    }
+
+    // Step 8c: Refuse a package that renders only in a browser, or one that requires it as a peer,
+    // in a React Native project — before the scaffold writes anything, naming the chain.
+    if (rendersOnReactNative({ molecule: { framework } })) {
+      const refused = webOnlyChains(
+        uniquePackages,
+        new Map(allPackages.map((pkg) => [pkg.name, pkg])),
+      )
+      if (refused.length > 0) {
+        this.error(t('commands.create.errors.webOnly', { list: describeWebOnlyChains(refused) }))
       }
     }
 

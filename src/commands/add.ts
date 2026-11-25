@@ -33,6 +33,7 @@ import {
 import { getTemplatesDir } from '../lib/scaffold.js'
 import { createSpinner } from '../lib/spinner.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
+import { describeWebOnlyChains, rendersOnReactNative, webOnlyChains } from '../lib/web-only.js'
 
 /** One package named on the command line, after a rename is followed. */
 interface AddRequest {
@@ -288,6 +289,16 @@ export default class Add extends Command {
       // ENOENT later. This is the most common external-app misstep.
       p.cancel(t('commands.add.errors.noPackageJson', { dir: workDir }))
       this.exit(1)
+    }
+
+    // A package that renders only in a browser, or one that requires it as a peer, cannot render in a
+    // React Native project: refuse it before anything is written, naming the chain.
+    if (rendersOnReactNative(JSON.parse(readFileSync(packageJsonPath, 'utf-8')))) {
+      const refused = webOnlyChains(names, new Map(loadRegistry().map((pkg) => [pkg.name, pkg])))
+      if (refused.length > 0) {
+        p.cancel(t('commands.add.errors.webOnly', { list: describeWebOnlyChains(refused) }))
+        this.exit(1)
+      }
     }
 
     const spinner = createSpinner()

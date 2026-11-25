@@ -84,6 +84,8 @@ export const messages: LocaleMessages = {
     'The database cannot run the SQL this project needs, so the app would never boot. The project was created but not injected — run {command} to see the exact file and construct.',
   'commands.add.errors.workspaceUnknown':
     'This is a full-stack project root, and {name} is not an api or app package, so it is unclear which of api/ and app/ it belongs in. Run the command from inside that folder.',
+  'commands.add.errors.webOnly':
+    'This project renders with React Native, and these packages render only in a browser, so nothing was added:\n{list}',
   'commands.add.errors.toolingAtRoot':
     '{name} is dev tooling for both api/ and app/. Run `mlcl add {name}` from inside each folder; it goes into devDependencies.',
   'commands.add.errors.notFound':
@@ -117,6 +119,8 @@ export const messages: LocaleMessages = {
   'commands.create.prompts.projectTypeStatic': 'Static site',
   'commands.create.prompts.projectTypeStaticHint':
     'Prerendered React site — no API, no database; deploy dist/ anywhere',
+  'commands.create.errors.webOnly':
+    'This project renders with React Native, and these packages render only in a browser, so the project was not created:\n{list}',
   'commands.create.errors.staticFrameworkReact':
     'static projects support --framework react only (the prerender renders with react-dom/server)',
   'commands.create.prompts.projectTypeStatusPage': 'Status Page',

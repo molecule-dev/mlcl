@@ -37293,6 +37293,7 @@
       "label": "Audio Player React",
       "description": "HTML5 audio player chrome — play/pause, scrub, time, mute toggle, optional visualizer slot",
       "stack": "app",
+      "webOnlyReason": "plays through an HTML `<audio>` element",
       "exports": [
         "AudioPlayerProps",
         "AudioPlayer"
@@ -37488,6 +37489,7 @@
       "label": "Audio Recorder React",
       "description": "Mic permission + MediaRecorder wrapper that emits a Blob — voice notes, meeting capture, AI voice agents",
       "stack": "app",
+      "webOnlyReason": "records with the browser's `MediaRecorder` into a `Blob`",
       "exports": [
         "AudioRecorder",
         "AudioRecorderState",
@@ -51537,6 +51539,7 @@
       "label": "Barcode Scanner React",
       "description": "Browser barcode scanner React component using BarcodeDetector with @zxing/library fallback — for warehouse, inventory, and grocery apps",
       "stack": "app",
+      "webOnlyReason": "scans with the browser's `BarcodeDetector` over a `getUserMedia` camera stream drawn in a `<video>`",
       "exports": [
         "BarcodeDetectorConstructor",
         "BarcodeDetectorLike",
@@ -51823,6 +51826,7 @@
       "label": "Canvas React",
       "description": "Shared pan/zoom/select/transform infrastructure + node/edge primitives + pointer-event utilities for whiteboard / mind-map / design-canvas / presentation slide-canvas wrappers",
       "stack": "app",
+      "webOnlyReason": "a pan-and-zoom editing surface: pointer capture, wheel zoom and hit-testing on DOM nodes",
       "exports": [
         "CanvasEdgeProps",
         "buildEdgePath",
@@ -52867,6 +52871,7 @@
       "label": "Image Canvas React",
       "description": "Canvas2D image-editing surface — accepts an image source, applies a filter chain (brightness, contrast, saturation, hue, sepia, grayscale, blur, sharpen), supports zoom + pan, exports back to data URL",
       "stack": "app",
+      "webOnlyReason": "draws on a 2D `<canvas>` context, with pointer capture",
       "exports": [
         "PanOffset",
         "ImageCanvasFilters",
@@ -54862,6 +54867,7 @@
       "label": "File Dropzone React",
       "description": "Drag-drop file upload area with click-to-browse, accept/size filtering, and a content slot",
       "stack": "app",
+      "webOnlyReason": "takes browser `File` objects from HTML5 drag-and-drop and a file input",
       "exports": [
         "FileDropzoneProps",
         "FileDropzone"
@@ -55823,6 +55829,7 @@
       "label": "Flow Canvas React",
       "description": "React node-and-edge flow canvas — drag nodes, connect ports, pan + zoom, build DAGs / workflows visually",
       "stack": "app",
+      "webOnlyReason": "a pan-and-zoom node editor: pointer capture, wheel zoom and hit-testing on DOM nodes",
       "exports": [
         "FlowCanvasProps",
         "FlowCanvas",
@@ -61312,6 +61319,7 @@
       "label": "IDE React",
       "description": "React IDE components — chat, editor, preview, file-explorer panels for an AI-powered workspace",
       "stack": "app",
+      "webOnlyReason": "an IDE workspace in the DOM: the Monaco code editor, a live-preview iframe and resizable panels",
       "exports": [
         "ACCEPTED_FILE_TYPES",
         "ACTIVITY_TYPES",
@@ -62727,6 +62735,7 @@
       "label": "Image Gallery Editor",
       "description": "Hero drop zone + thumbnail slot grid",
       "stack": "app",
+      "webOnlyReason": "takes a browser `FileList` from HTML5 drag-and-drop and a file input, and previews object URLs",
       "exports": [
         "ImageGalleryEditorProps",
         "ImageGalleryEditor"
@@ -107064,6 +107073,7 @@
       "label": "Three Viewer React",
       "description": "WebGL 3D model viewer wrapping three.js — supports GLTF/GLB, OBJ, STL with orbit controls + lighting presets",
       "stack": "app",
+      "webOnlyReason": "renders a three.js WebGL canvas with OrbitControls on the DOM",
       "exports": [
         "ThreeViewerFormat",
         "ThreeViewerLighting",
@@ -111791,6 +111801,7 @@
       "label": "Video Player React",
       "description": "HTML5 video player chrome — play/pause, scrub, elapsed/total time, mute toggle, fullscreen, optional caption track",
       "stack": "app",
+      "webOnlyReason": "plays through an HTML `<video>` element",
       "exports": [
         "VideoPlayerProps",
         "VideoPlayer"
@@ -113080,6 +113091,7 @@
       "label": "Whiteboard Canvas",
       "description": "React whiteboard canvas — pen / marker / eraser / sticky-note / line / arrow / shape / text tools layered on top of @molecule/app-feature-canvas-react",
       "stack": "app",
+      "webOnlyReason": "a pointer-drawing layer over a DOM canvas surface, with pointer capture and element measurement",
       "exports": [
         "generateWhiteboardId",
         "buildStrokePath",
