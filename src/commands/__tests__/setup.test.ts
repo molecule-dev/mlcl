@@ -22,7 +22,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest'
 import Setup from '../setup.js'
 
 // Setup starts the MCP server once after registering it (lib/mcp-warm.ts); never spawn npx here.
-const warm = vi.hoisted(() => vi.fn(async () => ({ version: '9.9.9', ms: 1234 })))
+const warm = vi.hoisted(() => vi.fn(async () => ({ version: '9.9.9', tools: 76, ms: 1234 })))
 vi.mock('../../lib/mcp-warm.js', () => ({ warmMcpServer: warm }))
 
 const MLCL_ROOT = join(import.meta.dirname, '..', '..', '..')
@@ -244,14 +244,14 @@ describe('mlcl setup', () => {
   describe('starts the registered MCP server once, so the first agent session finds it cached', () => {
     beforeEach(() => {
       warm.mockClear()
-      warm.mockImplementation(async () => ({ version: '9.9.9', ms: 1234 }))
+      warm.mockImplementation(async () => ({ version: '9.9.9', tools: 76, ms: 1234 }))
     })
 
     it('after registering it, and says which version answered', async () => {
       const out = await run(['--yes', '--agent', 'codex', '--skip', 'skills,instructions'])
       expect(warm).toHaveBeenCalledTimes(1)
       expect(warm).toHaveBeenCalledWith('npx', ['-y', 'molecule-mcp'])
-      expect(out).toContain('npx -y molecule-mcp starts')
+      expect(out).toContain('npx -y molecule-mcp answers as in an agent session: 76 tools')
       expect(out).toContain('(9.9.9, 1.2 s)')
       expect(process.exitCode).toBeUndefined()
     })

@@ -64,7 +64,8 @@ const run = (): string => join(mcpHome(), 'run.mjs')
 
 /**
  * A stand-in molecule-mcp version: its bin answers `initialize` with its version and the
- * machine-install directory it was started with; it has the machine-install CLI file too.
+ * machine-install directory it was started with, and `tools/list` with one tool; it has the
+ * machine-install CLI file too.
  */
 function standInVersion(dir: string, version: string): void {
   const pkg = join(dir, 'node_modules', 'molecule-mcp')
@@ -78,7 +79,7 @@ function standInVersion(dir: string, version: string): void {
   for (const line of String(chunk).split('\\n').filter(Boolean)) {
     const { id } = JSON.parse(line)
     const name = process.env.${MACHINE_HOME_ENV} ?? 'no-home'
-    process.stdout.write(JSON.stringify({ jsonrpc: '2.0', id, result: { serverInfo: { name, version: '${version}' } } }) + '\\n')
+    process.stdout.write(JSON.stringify({ jsonrpc: '2.0', id, result: { serverInfo: { name, version: '${version}' }, tools: [{ name: 'stand-in' }] } }) + '\\n')
   }
 })
 `,

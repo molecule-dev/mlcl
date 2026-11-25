@@ -1,7 +1,9 @@
 /**
  * `warmMcpServer`: `mlcl setup` starts `npx -y molecule-mcp` once and waits for its `initialize`
- * answer, so the npx cache is warm before the first agent session (2026-11-22 smoke test: a cold
- * first start left headless Claude Code with no Molecule tools).
+ * answer and its tool list, so the npx cache is warm before the first agent session (2026-11-22
+ * smoke test: a cold first start left headless Claude Code with no Molecule tools), and setup can
+ * say the tools are there (harness eval `install`, 2026-11-25: told only that the server started,
+ * Codex wrote its own MCP client to check).
  *
  * @module
  */
@@ -52,15 +54,29 @@ function fakeChild(): FakeChild {
 }
 
 describe('warmMcpServer', () => {
-  it('sends initialize and resolves with the version the server answers, then stops it', async () => {
+  it('sends initialize, then lists the tools, and resolves with both answers (OLD MUSTFAIL)', async () => {
     const child = fakeChild()
     const pending = warmMcpServer('npx', ['-y', 'molecule-mcp'], { spawnImpl: child.spawnImpl })
     expect(JSON.parse(child.written[0]).method).toBe('initialize')
     child.say('molecule-mcp ready\n') // a log line is not the answer
     child.say('{"jsonrpc":"2.0","id":1,"result":{"serverInfo":{"name":"molecule",')
     child.say('"version":"0.3.4"}}}\n') // the answer can arrive in pieces
-    await expect(pending).resolves.toMatchObject({ version: '0.3.4' })
+    expect(child.written.slice(1).map((line) => JSON.parse(line).method)).toEqual([
+      'notifications/initialized',
+      'tools/list',
+    ])
+    expect(child.killed()).toBe(false)
+    child.say('{"jsonrpc":"2.0","id":2,"result":{"tools":[{"name":"a"},{"name":"b"}]}}\n')
+    await expect(pending).resolves.toMatchObject({ version: '0.3.4', tools: 2 })
     expect(child.killed()).toBe(true)
+  })
+
+  it('rejects a server that lists no tools', async () => {
+    const child = fakeChild()
+    const pending = warmMcpServer('npx', ['-y', 'molecule-mcp'], { spawnImpl: child.spawnImpl })
+    child.say('{"jsonrpc":"2.0","id":1,"result":{"serverInfo":{"version":"0.3.4"}}}\n')
+    child.say('{"jsonrpc":"2.0","id":2,"result":{"tools":[]}}\n')
+    await expect(pending).rejects.toThrow('answered tools/list with no tools')
   })
 
   it('rejects when the server exits before answering', async () => {

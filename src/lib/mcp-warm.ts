@@ -1,5 +1,6 @@
 /**
- * Start the MCP server once, the way the agents will, and wait for its `initialize` answer.
+ * Start the MCP server once, the way the agents will, and wait for its `initialize` answer and its
+ * tool list.
  *
  * An agent starts the server itself, with the command setup registered: the installed copy in
  * `~/.mlcl/mcp` for the whole machine (`mcp-machine-install.ts`), `npx -y molecule-mcp` in a
@@ -10,6 +11,10 @@
  * this after registering the server, so the first agent session finds it ready, and the user
  * learns at setup time whether it starts.
  *
+ * It also lists the tools, as a session does next, and setup says so: told only that the server
+ * "starts", Codex wrote its own MCP client to confirm the tools were there (harness eval `install`,
+ * 2026-11-25: four of five runs, 4-6 steps each).
+ *
  * @module
  */
 
@@ -19,7 +24,9 @@ import { spawn } from 'node:child_process'
 export interface McpWarmResult {
   /** `serverInfo.version` from the `initialize` answer. */
   version: string
-  /** Milliseconds from spawn to the answer. */
+  /** How many tools its `tools/list` answer names. */
+  tools: number
+  /** Milliseconds from spawn to the tool list. */
   ms: number
 }
 
@@ -36,14 +43,14 @@ export type McpSpawn = (
 }
 
 /**
- * Spawn the server, send `initialize`, and resolve with its version once it answers.
+ * Spawn the server, send `initialize` and then `tools/list`, and resolve once it has answered both.
  *
  * @param command - The executable (`npx`).
  * @param args - Its arguments (`['-y', 'molecule-mcp']`).
  * @param opts - Options.
  * @param opts.timeoutMs - How long to wait for the answer (default 120 s, Codex's start limit).
  * @param opts.spawnImpl - Child-process factory (tests).
- * @returns The server's version and how long it took. Rejects when it exits, fails to spawn or
+ * @returns The server's version, its tool count and how long it took. Rejects when it exits, fails to spawn or
  *   does not answer in time; the child is killed in every case.
  */
 export function warmMcpServer(
@@ -59,6 +66,10 @@ export function warmMcpServer(
     const child = spawnImpl(command, args)
     let buffer = ''
     let settled = false
+    let version = ''
+    const send = (message: Record<string, unknown>): void => {
+      child.stdin?.write(`${JSON.stringify(message)}\n`)
+    }
     const finish = (error: Error | null, result?: McpWarmResult): void => {
       if (settled) return
       settled = true
@@ -79,33 +90,44 @@ export function warmMcpServer(
         const line = buffer.slice(0, at).trim()
         buffer = buffer.slice(at + 1)
         if (!line.startsWith('{')) continue
-        let message: { id?: unknown; result?: { serverInfo?: { version?: unknown } } }
+        let message: {
+          id?: unknown
+          result?: { serverInfo?: { version?: unknown }; tools?: unknown }
+        }
         try {
           message = JSON.parse(line)
         } catch (_error) {
           // A non-JSON line on stdout is not the answer; keep reading.
           continue
         }
-        if (message.id !== 1) continue
-        const version = message.result?.serverInfo?.version
-        if (typeof version !== 'string') {
-          finish(new Error('answered initialize without a server version'))
-          return
+        if (message.id === 1) {
+          const answered = message.result?.serverInfo?.version
+          if (typeof answered !== 'string') {
+            finish(new Error('answered initialize without a server version'))
+            return
+          }
+          version = answered
+          send({ jsonrpc: '2.0', method: 'notifications/initialized' })
+          send({ jsonrpc: '2.0', id: 2, method: 'tools/list' })
+        } else if (message.id === 2) {
+          const tools = message.result?.tools
+          if (!Array.isArray(tools) || tools.length === 0) {
+            finish(new Error('answered tools/list with no tools'))
+            return
+          }
+          finish(null, { version, tools: tools.length, ms: Date.now() - started })
         }
-        finish(null, { version, ms: Date.now() - started })
       }
     })
-    child.stdin?.write(
-      `${JSON.stringify({
-        jsonrpc: '2.0',
-        id: 1,
-        method: 'initialize',
-        params: {
-          protocolVersion: '2025-06-18',
-          capabilities: {},
-          clientInfo: { name: 'mlcl-setup', version: '0' },
-        },
-      })}\n`,
-    )
+    send({
+      jsonrpc: '2.0',
+      id: 1,
+      method: 'initialize',
+      params: {
+        protocolVersion: '2025-06-18',
+        capabilities: {},
+        clientInfo: { name: 'mlcl-setup', version: '0' },
+      },
+    })
   })
 }

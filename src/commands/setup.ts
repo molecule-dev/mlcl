@@ -194,7 +194,7 @@ export default class Setup extends Command {
       try {
         const warm = await warmMcpServer(command, args)
         this.log(
-          `  ${ui.check(`${shown} starts`)} ${ui.dim(`(${warm.version}, ${(warm.ms / 1000).toFixed(1)} s)`)}`,
+          `  ${ui.check(`${shown} answers as in an agent session: ${warm.tools} tools`)} ${ui.dim(`(${warm.version}, ${(warm.ms / 1000).toFixed(1)} s)`)}`,
         )
       } catch (error) {
         warmFailed = true
