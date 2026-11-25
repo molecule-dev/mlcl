@@ -92090,6 +92090,38 @@
         "shipment tracking"
       ]
     },
+    "@molecule/app-overlay-dom": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "utility",
+      "category": "ui",
+      "label": "Overlay DOM",
+      "description": "DOM utility for document-scoped overlay focus, dismissal and scroll locking across Molecule web UI kits",
+      "stack": "app",
+      "exports": [
+        "calculateDropdownPosition",
+        "measureDropdownPosition",
+        "isOutsideOverlay",
+        "domElement",
+        "FocusScheduler",
+        "OverlayLayer"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/app-ui"
+      ],
+      "moleculePeers": [
+        "@molecule/app-ui"
+      ],
+      "path": "packages/app/utilities/overlay-dom",
+      "intentHints": [
+        "overlay stack",
+        "modal focus trap",
+        "escape to dismiss",
+        "body scroll lock",
+        "dropdown positioning"
+      ]
+    },
     "@molecule/app-page-chrome-angular": {
       "language": "typescript",
       "runtime": "node",
@@ -94498,11 +94530,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -109572,6 +109606,7 @@
         "@molecule/app-angular",
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-overlay-dom",
         "@molecule/app-ui"
       ],
       "moleculePeers": [
@@ -109795,6 +109830,7 @@
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-overlay-dom",
         "@molecule/app-react",
         "@molecule/app-ui",
         "react",
@@ -110147,6 +110183,7 @@
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-overlay-dom",
         "@molecule/app-solid",
         "@molecule/app-ui",
         "solid-js"
@@ -110594,6 +110631,7 @@
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-overlay-dom",
         "@molecule/app-svelte",
         "@molecule/app-ui",
         "svelte"
@@ -111114,6 +111152,7 @@
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-overlay-dom",
         "@molecule/app-ui",
         "@molecule/app-vue",
         "vue"
