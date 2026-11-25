@@ -2,26 +2,27 @@ import { verify } from '@molecule/api-jwt'
 import { onJoinRequest, setProvider } from '@molecule/api-realtime'
 import { createProvider } from '@molecule/api-realtime-sse'
 import { authorization } from '@molecule/api-resource-user'
-import { registerServerCreatedHook } from '@molecule/api-server-default-express'
 
 /**
  * Wires SSE as the realtime bond so the notification handlers can
  * `broadcast(...)` and the bell's `EventSource` can receive live events.
- * `createProvider({ deferAttach: true })` does NOT bind a port itself — it
- * waits for `attachHttpServer(server)`, called here once the API's own HTTP
- * server exists (via `registerServerCreatedHook`) so SSE shares the API's
- * port instead of opening a second standalone port a container/proxy may not
- * expose. Same pattern for `-socketio` or `-ws`.
+ * `createProvider({ deferAttach: true })` does NOT bind a port itself: the API
+ * server attaches the bonded provider to its own HTTP server before it listens,
+ * so SSE shares the API's port instead of opening a second standalone port a
+ * container/proxy may not expose. Same pattern for `-socketio` or `-ws`.
  *
- * Room convention: a client subscribes to `GET /api/realtime/<room>` (the
- * room is the trailing path segment) and receives every `broadcast(<room>,
- * …)`. The room name MUST match on both sides. Per-user notifications use
- * `user:<userId>` — the bell subscribes to `/api/realtime/user:<userId>` and
- * the handlers broadcast to `user:<userId>`.
+ * Room convention: the SSE provider streams ONE path, `/api/realtime` here (under
+ * `/api` so the frontend reaches it through the same proxy as every API call; the
+ * default `/sse` sits outside it). A client names its room in the `?room=` query
+ * and receives every `broadcast(<room>, …)`; a trailing path segment
+ * (`/api/realtime/user:<id>`) is not the stream path and receives nothing. The
+ * room name MUST match on both sides. Per-user notifications use `user:<userId>`:
+ * the bell opens `/api/realtime?room=user:<userId>` and the handlers broadcast to
+ * `user:<userId>`.
  *
  * SECURITY — the join guard below is NOT optional. `user:<userId>` rooms are
  * PRIVATE: without an `onJoinRequest` guard the realtime core lets ANY client
- * subscribe to `/api/realtime/user:<anyone-else>` and receive that user's live
+ * subscribe to `/api/realtime?room=user:<anyone-else>` and receive that user's live
  * notifications (a realtime IDOR). The guard verifies the subscriber's session
  * — the httpOnly `token` cookie the browser sends with the same-origin
  * EventSource request, or an `?token=` handshake query param — and allows the
@@ -70,9 +71,8 @@ function verifiedUserId(
 }
 
 export function setupRealtime(): void {
-  const provider = createProvider({ deferAttach: true })
-  setProvider(provider)
-  registerServerCreatedHook((server) => provider.attachHttpServer?.(server))
+  // `path` must equal the bell's EventSource URL path (`/api/realtime`).
+  setProvider(createProvider({ deferAttach: true, path: '/api/realtime' }))
 
   // A user may join ONLY their own `user:<userId>` room. Without this guard the
   // realtime core allows every join, so any client could read another user's feed.

@@ -22,18 +22,18 @@ instead. For a one-shot AI action (summarize/rewrite) with no retrieval, use
 ## What you'll install
 
 ```bash
-cd /workspace
-# The RAG pipeline (chunk → embed → store → retrieve → grounded answer):
-npm install @molecule/api-ai-rag-qa --workspace=api
-# Embeddings core + OpenAI provider:
-npm install @molecule/api-ai-embeddings @molecule/api-ai-embeddings-openai --workspace=api
-# Vector store core + pgvector provider (reuses your Postgres):
-npm install @molecule/api-ai-vector-store @molecule/api-ai-vector-store-pgvector --workspace=api
-# The LLM that writes the grounded answer:
-npm install @molecule/api-ai @molecule/api-ai-anthropic --workspace=api
-# Throttle the metered embedding/LLM calls:
-npm install @molecule/api-rate-limit @molecule/api-rate-limit-memory --workspace=api
+npx mlcl add @molecule/api-ai-rag-qa --inject
+npx mlcl add @molecule/api-ai-embeddings-openai --inject
+npx mlcl add @molecule/api-ai-vector-store-pgvector --inject
+npx mlcl add @molecule/api-ai-anthropic --inject
+npx mlcl add @molecule/api-rate-limit-memory --inject
 ```
+
+Run these from the project root to add the RAG pipeline and wire any missing
+providers in `api/src/bonds/`. The embeddings, vector-store, AI and rate-limit
+core APIs are available through those packages. Flagships with equivalent bonds
+can use their existing providers. Keep the collection dimension aligned with the
+selected embedding model.
 
 ## Files in this example
 
@@ -50,28 +50,20 @@ ANTHROPIC_API_KEY=...   # the grounded-answer LLM (@molecule/api-ai-anthropic)
 DATABASE_URL=...        # pgvector reuses your Postgres (@molecule/api-ai-vector-store-pgvector)
 ```
 
-## Bond wiring (api/bonds.ts or api/index.ts)
+## Create the collection at startup
+
+In `api/src/server.ts`, create the collection after the existing
+`await setupBonds()` completes.
 
 ```typescript
-import {
-  setupAiAnthropic,
-  setupAiEmbeddingsOpenai,
-  setupAiVectorStorePgvector,
-  setupRateLimitMemory,
-} from '@molecule/api-bonds-default-express'
-import { getProvider as getVectorStore } from '@molecule/api-ai-vector-store'
+import { requireProvider as requireVectorStore } from '@molecule/api-ai-vector-store'
 
-await setupAiEmbeddingsOpenai() // embeddings (OPENAI_API_KEY)
-await setupAiVectorStorePgvector() // the vector store (DATABASE_URL / pgvector)
-await setupAiAnthropic() // the grounded-answer LLM (ANTHROPIC_API_KEY)
-await setupRateLimitMemory() // a rate-limit provider must be bonded for consume()
-
-// Create the ONE shared collection once. createCollection is idempotent — a
-// no-op when it already exists at the same dimension — so this is safe to run on
-// every boot. 1536 = OpenAI text-embedding-3-small; MATCH your embeddings model's
-// dimension (text-embedding-3-large is 3072), or retrieval returns garbage.
-await getVectorStore()?.createCollection({ name: 'knowledge', dimension: 1536 })
+// Inside startup, after setupBonds(). 1536 matches text-embedding-3-small.
+await requireVectorStore().createCollection({ name: 'knowledge', dimension: 1536 })
 ```
+
+The pgvector provider can reopen the shared collection on each boot. Enable the
+`vector` extension in the Postgres database used by the provider.
 
 Mount the handler under `/api/kb` so the routes are `/api/kb/documents`,
 `/api/kb/ask`, `/api/kb/search`.

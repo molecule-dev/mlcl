@@ -2,16 +2,14 @@ import { verify } from '@molecule/api-jwt'
 import { onJoinRequest, setProvider } from '@molecule/api-realtime'
 import { createProvider } from '@molecule/api-realtime-sse'
 import { authorization } from '@molecule/api-resource-user'
-import { registerServerCreatedHook } from '@molecule/api-server-default-express'
 
 /**
  * Wires SSE as the realtime bond. `createProvider({ deferAttach: true })`
- * does NOT bind a port itself — it waits for `attachHttpServer(server)`,
- * called here once the API's own HTTP server exists (via
- * `registerServerCreatedHook`) so SSE shares the API's port instead of
- * opening a second standalone port a container/proxy may not expose. A
- * zero-config `createProvider()` (no port, no httpServer, no deferAttach)
- * no longer binds anything on its own — same pattern for `-socketio` or `-ws`.
+ * does NOT bind a port itself: the API server attaches the bonded provider to
+ * its own HTTP server before it listens, so SSE shares the API's port instead
+ * of opening a second standalone port a container/proxy may not expose. Call
+ * `setupRealtime()` from your bond setup; the server needs no extra code. Same
+ * pattern for `-socketio` or `-ws`.
  *
  * SECURITY — the join guard below is NOT optional. Without an `onJoinRequest`
  * guard the realtime core lets ANY client subscribe to `?room=channel:<anything>`
@@ -70,9 +68,7 @@ export function setupRealtime(): void {
   // sits at the server root, which the `/api`-only dev proxy would not forward.
   // The client connects with `new EventSource('/api/realtime?room=<room>')`;
   // rooms are joined via the `?room=` query, NOT a path segment.
-  const provider = createProvider({ deferAttach: true, path: '/api/realtime' })
-  setProvider(provider)
-  registerServerCreatedHook((server) => provider.attachHttpServer?.(server))
+  setProvider(createProvider({ deferAttach: true, path: '/api/realtime' }))
 
   onJoinRequest(async ({ room, auth, headers }) => {
     if (!/^channel:.+$/.test(room)) return false // only channel rooms are joinable

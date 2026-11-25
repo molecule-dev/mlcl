@@ -5,31 +5,33 @@ description: Authentication and authorization patterns. Session access, ownershi
 
 # Authentication & Authorization
 
-## Auth Is Already Wired Globally — Never Import a Per-Route Auth Package
+## Session Middleware
 
-When the project includes the default user resource, auth is applied ONCE in
-`api/src/App/router.ts` via `router.use(userAuthorization.verifyMiddleware())`.
-That middleware decodes the JWT and populates `res.locals.session` for every
-request. **Never `import` a `requireAuth` (or any auth middleware) from a
-package** — there is no `@molecule/api-auth` package and nothing that exports
-one; an invented import breaks the build. To gate a route you have two equivalent
-options, both correct: (a) read the current user inside the handler and bail if
-there isn't one (the dominant fleet convention), or (b) define a tiny LOCAL
-`requireAuth` middleware in the handler file and chain it onto routes — this is
-what the example slices do (`find_example`, or `npx mlcl examples <query>`), and it also keeps the handler safe if global
-auth isn't wired. The only hard rule is that `requireAuth` is something you write
-locally, never something you import from `@molecule/*`.
+When the project includes `@molecule/api-resource-user`, mlcl mounts its
+`authorization.verifyMiddleware()` in `api/src/App/router.ts`. It verifies the JWT
+and device session, then sets `res.locals.session` on authenticated requests.
+If you manage your own router, import `authorization` from
+`@molecule/api-resource-user` and mount that middleware once before the routes.
+Public routes can serve anonymous requests. Protected handlers should check the
+session and return 401 when it is missing.
+
+**Never `import` a `requireAuth` (or any auth middleware) from a package.** There
+is no `@molecule/api-auth` package and nothing exports one; an invented import
+breaks the build. Gate a route by reading the user in the handler (`getUserId` /
+`requireUser`, below), or by a small `requireAuth` middleware you write locally in
+the handler file, as the example slices do (`find_example`, or
+`npx mlcl examples <query>`).
 
 ## Accessing the Current User — getUserId(res)
 
 Get the authenticated user's id with `getUserId(res)` from
-`@molecule/api-bonds-default-express` (it reads `res.locals.session.userId`).
-Note it takes `res`, NOT `req`. Returns `string | null`:
+`@molecule/api-resource`. It reads `res.locals.session.userId` and returns
+`string | null`.
 
 ```typescript
 import { Router, type Request, type Response } from 'express'
 import { findMany } from '@molecule/api-database'
-import { getUserId } from '@molecule/api-bonds-default-express'
+import { getUserId } from '@molecule/api-resource'
 
 const router = Router()
 
@@ -53,6 +55,11 @@ This is the canonical handler shape — same as the `api-patterns` skill. Featur
 are Express `Router`s in `api/src/handlers/<name>.ts`, not classes with static
 `list`/`add` methods.
 
+`@molecule/api-resource` also exports `requireUser(res)` for routes that write to
+`res` directly. It sends a 401 and returns `null` when the user id is missing.
+Return from the route immediately in that case. Handlers wrapped by
+`createRequestHandler` can use `getUserId(res)` and return their own response.
+
 ## The Session Object — res.locals.session
 
 `getUserId(res)` reads from `res.locals.session`. Read other session fields the
@@ -72,15 +79,12 @@ load the row and 404 if it isn't owned (404 not 403, so existence isn't leaked):
 
 ```typescript
 import { findById, deleteMany } from '@molecule/api-database'
-import { getUserId } from '@molecule/api-bonds-default-express'
+import { getParamId, requireUser } from '@molecule/api-resource'
 
 router.delete('/:id', async (req: Request, res: Response): Promise<void> => {
-  const userId = getUserId(res)
-  if (!userId) {
-    res.status(401).json({ error: 'Authentication required.' })
-    return
-  }
-  const id = String(req.params.id)
+  const userId = requireUser(res)
+  if (!userId) return
+  const id = getParamId(req)
   const existing = await findById<Record<string, unknown>>('todos', id)
   if (!existing || existing.user_id !== userId) {
     res.status(404).json({ error: 'Todo not found.' })
@@ -151,9 +155,8 @@ ever logged in. Let `useOAuth().redirect()` drive both halves.
 The project uses JWT for stateless sessions. This is auto-configured:
 
 - Tokens are created on login and returned to the client
-- The global `verifyMiddleware` decodes the token and sets `res.locals.session` on each request
+- `verifyMiddleware` verifies the token and checks that its device is active before setting `res.locals.session`
 - Token refresh is automatic based on `JWT_REFRESH_TIME` env var
-- No session store needed — everything is in the JWT
 
 You don't manage JWT directly — just call `getUserId(res)` in your handlers and
 scope every query by the returned `user_id`.

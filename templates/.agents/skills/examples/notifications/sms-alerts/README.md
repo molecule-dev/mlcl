@@ -18,12 +18,13 @@ combine this with `@molecule/api-two-factor` (the OTP round-trip) instead.
 ## What you'll install
 
 ```bash
-cd /workspace
-# SMS core interface + the Twilio provider (swap for @molecule/api-sms-vonage):
-npm install @molecule/api-sms @molecule/api-sms-twilio --workspace=api
-# Throttle the metered send (any bond works; memory is fine for one node):
-npm install @molecule/api-rate-limit @molecule/api-rate-limit-memory --workspace=api
+npx mlcl add @molecule/api-sms-twilio --inject
+npx mlcl add @molecule/api-rate-limit-memory --inject
 ```
+
+Run these from the project root to wire missing providers in `api/src/bonds/`.
+The SMS helper calls `send()` from `@molecule/api-sms` and `consume()` from
+`@molecule/api-rate-limit`. Use an existing rate-limit bond if one is wired.
 
 ## Files in this example
 
@@ -48,16 +49,7 @@ real product — a `phone_verified` flag set only after an OTP round-trip
 (`@molecule/api-two-factor`), and text only verified numbers. The handler reads
 `user.phone` / `user.phone_verified`.
 
-## Bond wiring (api/bonds.ts or api/index.ts)
-
-```typescript
-import { setProvider } from '@molecule/api-sms'
-import { createProvider } from '@molecule/api-sms-twilio'
-import { setupRateLimitMemory } from '@molecule/api-bonds-default-express'
-
-setProvider(createProvider()) // reads TWILIO_* env
-await setupRateLimitMemory() // a rate-limit provider must be bonded for consume()
-```
+## Mount the route
 
 Mount the handler under `/api/sms` so the route is `/api/sms/notify-me`.
 

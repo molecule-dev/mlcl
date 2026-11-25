@@ -12,38 +12,36 @@ Core Interface  ←──  Bond File (wiring)  ──→  Provider Package
 (what you import)    (bonds/ directory)        (implementation)
 ```
 
-## Most Bonds Are Already Written — Don't Re-Author Them
+## Scaffolded Bond Files
 
-In a scaffolded project, almost every bond file in `api/src/bonds/` is a
-**one-line re-export** from `@molecule/api-bonds-default-express` (api side) or
-`@molecule/app-bonds-default-react` (app side). For example:
+A flagship's `api/src/bonds/` files re-export setup functions for its bundled
+providers. The flagship `api/src/bonds/database-postgresql.ts` is one line.
 
 ```typescript
-// api/src/bonds/database-postgresql.ts — the WHOLE file
-export { setupDatabasePostgresql } from '@molecule/api-bonds-default-express'
+export { setupDatabasePostgresql } from '@molecule/api-bonds-default-express' // Flagship API only
 ```
 
-So you do NOT write the setup body yourself for any provider the defaults already
-cover (database, email, logger, cache, etc.). Only write a custom bond body (the
-"Two Wiring Patterns" below) when adding a provider the defaults don't ship.
+A custom stack (`mlcl create --packages …`) holds local `setup*()` functions in
+`api/src/bonds/`, one file per provider. Each imports the selected provider or
+factory and registers it with the core's setter or a named bond. The generated
+`api/src/bonds/index.ts` imports those local functions and runs them from
+`setupBonds()` at startup. Use `npx mlcl add @molecule/<provider> --inject` from the
+project root to install and generate that wiring. Handlers call the core API.
 
-The app side wires everything through one entry point — `app/src/bonds/index.ts`
-calls `setupAllDefaultBonds()` (from `@molecule/app-bonds-default-react`) plus a
-`setupProviders()` for any app-specific bonds. Add app-specific bonds there; the
-defaults already cover the standard stack, so there is no need to wire those by hand.
+On the app side, `app/src/bonds/index.ts` is the wiring entry point. Flagship React
+apps can call `setupAllDefaultBonds()` from `@molecule/app-bonds-default-react` there.
 
 ## Two Wiring Patterns
 
-These show what a bond's setup body looks like under the hood (and what you write
-ONLY when adding a provider the defaults don't cover). For everything the
-scaffold already wired, prefer the one-line re-export above.
+These examples show the setup body for each kind of bond. Use the same shape if
+you manage the wiring for a provider yourself.
 
 ### Singleton Bonds (Setter Functions)
 
 For categories with exactly one provider (database, email, logger, cache):
 
 ```typescript
-// api/src/bonds/database-postgresql.ts (custom-body form — usually a re-export instead)
+// api/src/bonds/database-postgresql.ts in a custom stack
 import { setPool } from '@molecule/api-database'
 import { pool } from '@molecule/api-database-postgresql'
 
@@ -117,7 +115,7 @@ export function setupBonds(): void {
 
 **DO modify bonds/ when:**
 
-- Adding a new provider package (create a new bond file + add to index.ts)
+- Wiring a provider that your project manages manually
 - Swapping a provider (change the import in the existing bond file)
 - Removing a provider (delete the bond file + remove from index.ts)
 
@@ -128,9 +126,9 @@ export function setupBonds(): void {
 
 ## How to Add a New Bond
 
-1. Add the provider package if `package.json` does not list it yet. AGENTS.md says how packages are added in this project.
-2. Read the provider's README.md for the correct imports and setup
-3. Create a bond file:
+Run `npx mlcl add @molecule/<provider> --inject` to add the provider and wire its
+bond. If you manage wiring by hand, read the provider's README for its setup,
+create a bond file, and call it from `src/bonds/index.ts`.
 
 ```typescript
 // api/src/bonds/payments-stripe.ts
@@ -142,7 +140,7 @@ export function setupPaymentsStripe(): void {
 }
 ```
 
-4. Add to bonds/index.ts:
+Call the local setup from the bonds index.
 
 ```typescript
 import { setupPaymentsStripe } from './payments-stripe.js'

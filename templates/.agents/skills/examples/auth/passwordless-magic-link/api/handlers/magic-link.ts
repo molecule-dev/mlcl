@@ -4,7 +4,6 @@ import { type Request, type Response, Router } from 'express'
 import { z } from 'zod'
 
 import { get } from '@molecule/api-bond'
-import { userAuthorization } from '@molecule/api-bonds-default-express'
 import { create, deleteById, findById, findMany } from '@molecule/api-database'
 import { sendMail } from '@molecule/api-emails'
 import { t } from '@molecule/api-i18n'
@@ -12,6 +11,7 @@ import { validateBody } from '@molecule/api-middleware-validation'
 import { consume } from '@molecule/api-rate-limit'
 import type { MoleculeRequest } from '@molecule/api-resource'
 import type { DeviceService } from '@molecule/api-resource-device'
+import { authorization } from '@molecule/api-resource-user'
 
 const router = Router()
 
@@ -156,17 +156,15 @@ router.get('/verify', async (req: MoleculeRequest, res: Response) => {
     return
   }
 
-  // Log the user in via the SAME session mechanism the rest of the app uses:
-  // create a device, then userAuthorization.set() signs the { userId, deviceId }
-  // JWT and writes the httpOnly `token` cookie that the global verifyMiddleware
-  // reads. Signing a bespoke cookie by hand would NOT be recognized — the app
-  // would treat the user as logged out on the very next request.
+  // Log the user in through the same session mechanism as password login: create a device, then
+  // authorization.set() signs the { userId, deviceId } JWT and writes the httpOnly `token` cookie
+  // that verifyMiddleware reads. A cookie signed by hand is not recognized, so the next request
+  // would treat the user as logged out.
   //
-  // `get<DeviceService>('device')` is the TYPED accessor and createOrUpdate
-  // RESOLVES TO THE DEVICE ID STRING (null when the row could not be written) —
-  // never hand-type a `get<{ createOrUpdate(): … }>('device')` generic: a wrong
-  // one compiles, and `device.id` off it is `undefined`, which signs a token
-  // that every later request answers 401.
+  // `get<DeviceService>('device')` is the typed accessor, and createOrUpdate resolves to the device
+  // ID string (null when the row could not be written). A hand-typed generic such as
+  // `get<{ createOrUpdate(): … }>('device')` compiles, and `device.id` off it is undefined, which
+  // signs a token every later request answers with 401.
   const deviceId = await get<DeviceService>('device')?.createOrUpdate(user.id, 'Magic link')
 
   if (!deviceId) {
@@ -179,7 +177,7 @@ router.get('/verify', async (req: MoleculeRequest, res: Response) => {
     return
   }
 
-  userAuthorization.set(req, res, { userId: user.id, deviceId })
+  authorization.set(req, res, { userId: user.id, deviceId })
   res.redirect('/')
 })
 

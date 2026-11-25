@@ -65,12 +65,10 @@ transport-agnostic realtime CORE, `@molecule/api-realtime`).
 ```ts
 import { createProvider } from '@molecule/api-realtime-socketio'
 import { onJoinRequest, setProvider } from '@molecule/api-realtime'
-import { registerServerCreatedHook } from '@molecule/api-server-default-express'
 
 export function setupRealtime(): void {
-  const provider = createProvider({ deferAttach: true }) // shares the API port at /socket.io
-  setProvider(provider)
-  registerServerCreatedHook((server) => provider.attachHttpServer?.(server))
+  // The API server attaches the bonded provider: it shares the API port at /socket.io.
+  setProvider(createProvider({ deferAttach: true }))
   onJoinRequest(async ({ room, auth, headers }) => {
     // ↓ IDENTICAL to the SSE guard — verify the session, allow only channel:<id> rooms.
     if (!/^channel:.+$/.test(room)) return false
@@ -145,8 +143,8 @@ socket.io `connect('/')` reaches the API in dev with zero config change.
   it never — the classic "server broadcasts to nobody" silent no-op. The room
   name in `joinRoom('channel:<id>')` must EXACTLY equal the server's broadcast
   room string (a wrong room or event name is a silent miss, not an error). And a
-  broadcast only works if the API actually BONDED a transport (`setProvider` +
-  `attachHttpServer`, or `setupRealtimeSocketio()`) — a `broadcast(...)` with no
+  broadcast only works if the API actually BONDED a transport (`setProvider` from
+  `@molecule/api-realtime`, as the bond file does) — a `broadcast(...)` with no
   bonded provider is itself a silent no-op.
 - Do not leave `CURRENT_USER_ID = 'me'` in place — it's a placeholder for
   the `isSelf` bubble alignment. Fetch the authenticated user's real id

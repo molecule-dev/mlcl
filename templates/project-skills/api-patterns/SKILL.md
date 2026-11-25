@@ -37,8 +37,8 @@ import { Router, type Request, type Response } from 'express'
 import { z } from 'zod'
 
 import { create, deleteMany, findById, findMany } from '@molecule/api-database'
-import { getUserId } from '@molecule/api-bonds-default-express'
 import { validateBody } from '@molecule/api-middleware-validation'
+import { getParamId, getUserId } from '@molecule/api-resource'
 
 const router = Router()
 
@@ -75,7 +75,7 @@ router.post(
 // DELETE /api/widgets/:id — delete one the user owns
 router.delete('/:id', async (req: Request, res: Response): Promise<void> => {
   const userId = getUserId(res)
-  const id = String(req.params.id)
+  const id = getParamId(req)
   const existing = await findById<Record<string, unknown>>('widgets', id)
   if (!existing || existing.user_id !== userId) {
     res.status(404).json({ error: 'Widget not found.' })
@@ -87,6 +87,10 @@ router.delete('/:id', async (req: Request, res: Response): Promise<void> => {
 
 export default router
 ```
+
+`getParamId(req, name)` defaults to the `id` parameter and takes the first value
+if Express supplies an array. The `idParamSchema` export from
+`@molecule/api-resource` validates a non-empty string `id`.
 
 **A child router mounted at a dynamic path.** When a child router reads a parameter from its mount path (for example `/projects/:projectId/tasks`), construct it with `Router({ mergeParams: true })`; plain `Router()` leaves `req.params.projectId` undefined inside the child, so the route matches and its handler answers 404 about a missing record.
 

@@ -18,25 +18,16 @@ with `auth/email-password-login/` — read that first.
 ## What you'll install
 
 ```bash
-cd /workspace
-npm install @molecule/api-two-factor @molecule/api-two-factor-otplib --workspace=api
-npm install @molecule/api-rate-limit @molecule/api-rate-limit-memory --workspace=api   # brute-force cap on /verify
-# No extra app package needed — the QR code data URL is generated server-side by @molecule/api-two-factor.
-# The page re-posts the credentials + code to `POST /api/users/log-in`, served by
-# @molecule/api-resource-user — already wired in every scaffolded app with login.
+npx mlcl add @molecule/api-two-factor-otplib --inject
+npx mlcl add @molecule/api-rate-limit-memory --inject
 ```
 
-## Bond wiring (api/src/bonds/index.ts — call from setupBonds())
-
-The `two-factor` bond is already wired in every scaffolded app, but a rate-limit
-provider is NOT — wire one so the `consume()` calls on `/2fa/verify` and
-`/2fa/disable` don't throw `Rate-limit provider not configured`:
-
-```ts
-import { setupRateLimitMemory } from '@molecule/api-bonds-default-express'
-
-await setupRateLimitMemory() // a rate-limit provider must be bonded for consume()
-```
+Run these from the project root to wire any missing providers in `api/src/bonds/`.
+Reuse the two-factor and rate-limit providers already wired in your app. The
+handler generates the QR data URL with `@molecule/api-two-factor` and uses
+`consume()` from `@molecule/api-rate-limit` to cap attempts on `/2fa/verify` and
+`/2fa/disable`. The page posts credentials and the code to
+`POST /api/users/log-in`, served by `@molecule/api-resource-user`.
 
 ## Files in this example
 

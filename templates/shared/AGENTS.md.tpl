@@ -36,9 +36,9 @@ const items = await findMany('todos', { where: [...], orderBy: [...], limit: 50 
 
 **Auth** (read `auth` skill for full reference):
 ```typescript
-import { getUserId } from '@molecule/api-bonds-default-express'
+import { getUserId } from '@molecule/api-resource'
 // Auth is applied globally in App/router.ts; each handler just reads the user:
-const userId = getUserId(res) // takes res (not req); return 401 if missing
+const userId = getUserId(res) // takes res (not req); null when anonymous: answer 401
 ```
 
 **Logging — bind every caught error (never a bindingless `} catch {}`):**

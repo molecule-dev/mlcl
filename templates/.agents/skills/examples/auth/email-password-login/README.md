@@ -17,67 +17,58 @@ both — they coexist on the same login page.
 
 ## How it works
 
-There is no single `@molecule/api-auth-email-password` package. Email +
-password auth is composed from three real packages:
-
-| Role                                                | Package                                                              |
-| --------------------------------------------------- | -------------------------------------------------------------------- |
-| User record + signup/login/forgot-password handlers | `@molecule/api-resource-user`                                        |
-| Password hashing (bcrypt)                           | `@molecule/api-password` (provider: `@molecule/api-password-bcrypt`) |
-| JWT signing + verification                          | `@molecule/api-jwt` (provider: `@molecule/api-jwt-jsonwebtoken`)     |
-
-The route-mounting helpers live in `@molecule/api-bonds-default-express`.
+| Role                                           | Package                                                       |
+| ---------------------------------------------- | ------------------------------------------------------------- |
+| User records, signup, login and password reset | `@molecule/api-resource-user`                                 |
+| Password hashing                               | `@molecule/api-password` with `@molecule/api-password-bcrypt` |
+| JWT signing and verification                   | `@molecule/api-jwt` with `@molecule/api-jwt-jsonwebtoken`     |
 
 ## What you'll install
 
+From the root of a custom stack with a database provider, add the pieces your
+API still needs.
+
 ```bash
-cd /workspace
-# The resource + default Express wiring (includes password-bcrypt, jwt-jsonwebtoken)
-npm install @molecule/api-bonds-default-express --workspace=api
-npm install @molecule/api-resource-user --workspace=api
-npm install @molecule/api-password @molecule/api-password-bcrypt --workspace=api
-npm install @molecule/api-jwt @molecule/api-jwt-jsonwebtoken --workspace=api
-npm install @molecule/api-middleware-validation --workspace=api   # validateBody() in the handler
-npm install @molecule/api-emails-mailgun --workspace=api   # for verification + reset emails
+npx mlcl add @molecule/api-resource-user @molecule/api-password-bcrypt @molecule/api-jwt-jsonwebtoken --inject
+npx mlcl add @molecule/api-emails-mailgun --inject
+npx mlcl add @molecule/api-rate-limit-memory --inject
 ```
 
-Run the user resource's `src/__setup__/users.sql` and `src/__setup__/usersSecrets.sql` migrations through the app's migration runner before mounting these routes. A scaffold that already includes the user resource has these migrations; preserve its existing copies.
+Run `npm run db:setup` in the API workspace to apply the user and device resource
+migrations (`users.sql`, `usersSecrets.sql`, and `devices.sql`). A flagship with
+user auth already mounts its user routes. Use its email and rate-limit bonds if
+they are wired.
 
-## Wiring the routes (App/router.ts)
+## Wiring the routes
 
-```ts
-import {
-  mountDefaultUserAuthRoutes,
-  mountDefaultUserCrudRoutes,
-  mountDefaultUserResetPasswordRoute,
-  userAuthorization,
-  userRequestHandlerMap as User,
-} from '@molecule/api-bonds-default-express'
+mlcl mounts `authorization.verifyMiddleware()` and the user resource's routes in
+`api/src/App/router.ts`. The generated signup, login, logout, and profile routes
+come from `@molecule/api-resource-user`. The email transport enables the
+forgot-password and reset-password routes. Use these generated mounts in a
+custom scaffold.
 
-// JWT verification middleware — must run before any authenticated handler
-router.use(userAuthorization.verifyMiddleware())
-
-// Public auth endpoints
-mountDefaultUserAuthRoutes(router, User) // POST /users (signup), /users/log-in, /users/forgot-password
-mountDefaultUserResetPasswordRoute(router, User) // POST /users/reset-password (only if the resource ships it)
-mountDefaultUserCrudRoutes(router, User) // GET /users/:id, PATCH /users/:id, DELETE /users/:id
-```
-
-If the resource does not ship a standalone reset-password handler, add the
-custom one from `api/handlers/auth.ts` in this example:
+If you manage your own router, mount `authorization.verifyMiddleware()` from
+`@molecule/api-resource-user` before the user routes. The resource's
+`createRequestHandlerMap(createRequestHandler)` supplies handlers and guards,
+using the wrapper from `@molecule/api-resource`. Use `rateLimitAuth` on login
+and password-reset routes and `authSelf` on `/users/:id` routes. The example
+below shows how to mount the reset route in a manually managed router that
+needs one. Copy `api/handlers/auth.ts` as `api/src/handlers/reset-password.ts`.
 
 ```ts
-import customResetPasswordRouter from './handlers/auth.js'
-router.use('/users', customResetPasswordRouter)
+// api/src/App/router.ts
+import resetPasswordRouter from '../handlers/reset-password.js'
+
+router.use('/users', resetPasswordRouter)
 ```
 
 ## Files in this example
 
-| Path                      | What it does                                                                                                                                              |
-| ------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api/handlers/auth.ts`    | Custom `POST /users/reset-password` endpoint (token → new password hash). The signup/login/forgot-password routes come from `mountDefaultUserAuthRoutes`. |
-| `app/pages/LoginPage.tsx` | Login form. Posts to `/api/users/log-in`, redirects on success.                                                                                           |
-| `app/locales/en/login.ts` | English locale keys for the login page.                                                                                                                   |
+| Path                      | What it does                                                                                                         |
+| ------------------------- | -------------------------------------------------------------------------------------------------------------------- |
+| `api/handlers/auth.ts`    | Example mount for the resource's rate-limited `POST /users/reset-password` handler in a manually managed API router. |
+| `app/pages/LoginPage.tsx` | Login form. Posts to `/api/users/log-in`, redirects on success.                                                      |
+| `app/locales/en/login.ts` | English locale keys for the login page.                                                                              |
 
 ## Required env
 
@@ -91,17 +82,18 @@ SITE_ORIGIN=...       # the app's public origin; the framework's reset email lin
 
 ## Anti-patterns
 
-- Do not store passwords as plain text. Hash with `hash(password)` from
-  `@molecule/api-password`; compare with `compare(plain, hash)`. Never pass
-  plaintext to `create('users', ...)` directly.
+- Use the user resource to validate and hash passwords and store account
+  credentials. The reset handler verifies the emailed token against its stored
+  hash and consumes it when it changes the password.
 - Do not invent `@molecule/api-auth-email-password`, `@molecule/api-auth-jwt`,
   or `@molecule/api-bcrypt` — none exist. The real packages are
   `@molecule/api-password-bcrypt` and `@molecule/api-jwt-jsonwebtoken`.
 - Do not write your own JWT layer. Sessions are managed by the bonded
   `@molecule/api-jwt` provider + cookie/Bearer middleware in
-  `userAuthorization.verifyMiddleware()`.
+  `authorization.verifyMiddleware()` from `@molecule/api-resource-user`.
 - Do not skip rate-limiting login attempts. Wire `@molecule/api-rate-limit`
-  in front of `/users/log-in` and `/users/forgot-password`.
+  with the chosen provider so the resource's `rateLimitAuth` middleware can
+  throttle login and password-reset requests.
 
 ## Verify
 

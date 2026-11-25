@@ -19,25 +19,18 @@ different purpose).
 
 ## What you'll install
 
+Start with the user and email wiring from `auth/email-password-login`. From the
+project root, add the providers your app still needs.
+
 ```bash
-cd /workspace
-# Auth and email packages are covered by the auth + emails examples.
-mlcl add @molecule/app-routing-react-router
-# The sendMail core (@molecule/api-emails) arrives transitively with whatever
-# emails provider those examples install (e.g. @molecule/api-emails-mailgun).
+npx mlcl add @molecule/api-rate-limit-memory --inject
+npx mlcl add @molecule/app-routing-react-router --inject
 ```
 
-## Bond wiring (api/src/bonds/index.ts — call from setupBonds())
-
-`/verify/request` calls `consume()` to throttle resends, so a rate-limit provider
-must be bonded (it isn't by default) or the route throws `Rate-limit provider not
-configured`:
-
-```ts
-import { setupRateLimitMemory } from '@molecule/api-bonds-default-express'
-
-await setupRateLimitMemory() // a rate-limit provider must be bonded for consume()
-```
+mlcl wires the rate-limit provider in `api/src/bonds/`. The handler throttles
+resends with `consume()` from `@molecule/api-rate-limit` and sends the link with
+`sendMail()` from `@molecule/api-emails`. Reuse those bonds if your flagship
+already configures them.
 
 ## Files in this example
 

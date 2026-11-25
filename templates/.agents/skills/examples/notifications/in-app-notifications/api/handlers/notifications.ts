@@ -21,7 +21,7 @@ const requireAuth = (_req: Request, res: Response, next: NextFunction): void => 
  * like / follow / comment / order-status handler) — NOT from a poller.
  *
  * The broadcast room MUST be `user:<recipientId>` so it matches the room the
- * bell subscribes to (`/api/realtime/user:<userId>`); broadcasting to any
+ * bell subscribes to (`/api/realtime?room=user:<userId>`); broadcasting to any
  * other room persists the row but the badge never updates live.
  */
 export async function notify(

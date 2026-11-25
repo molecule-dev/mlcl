@@ -20,13 +20,13 @@ in. Less friction than email+password, no OAuth dependency.
 There is no single `@molecule/api-auth-magic-link` package. Magic-link
 auth is composed from real packages:
 
-| Role                                 | Package                                                                                                                                                                          |
-| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Token storage (issue + redeem)       | `@molecule/api-database`                                                                                                                                                         |
-| Sending the email                    | `@molecule/api-emails` (provider: `@molecule/api-emails-mailgun`)                                                                                                                |
-| Rate-limiting the request endpoint   | `@molecule/api-rate-limit`                                                                                                                                                       |
-| Logging the user in after redemption | `@molecule/api-bonds-default-express` — `userAuthorization.set()` + the device bond issue the SAME session the rest of the app authenticates (do NOT hand-sign a bespoke cookie) |
-| i18n                                 | `@molecule/api-i18n` (API), `@molecule/app-i18n-react-i18next` (app)                                                                                                             |
+| Role                                 | Package                                                                                                              |
+| ------------------------------------ | -------------------------------------------------------------------------------------------------------------------- |
+| Token storage (issue + redeem)       | `@molecule/api-database`                                                                                             |
+| Sending the email                    | `@molecule/api-emails` (provider: `@molecule/api-emails-mailgun`)                                                    |
+| Rate-limiting the request endpoint   | `@molecule/api-rate-limit`                                                                                           |
+| Logging the user in after redemption | `authorization.set()` from `@molecule/api-resource-user` and the device service from `@molecule/api-resource-device` |
+| i18n                                 | `@molecule/api-i18n` (API), `@molecule/app-i18n-react-i18next` (app)                                                 |
 
 The token is a cryptographically random 32-byte hex string that is
 **SHA-256 hashed before storage** — so a leaked database does not let
@@ -35,20 +35,25 @@ what goes in the URL.
 
 ## What you'll install
 
+Start with a working database and user resource. If your custom stack needs user
+auth, add `@molecule/api-resource-user` and `@molecule/api-jwt-jsonwebtoken` with
+`npx mlcl add @molecule/api-resource-user @molecule/api-jwt-jsonwebtoken --inject`.
+The user resource brings in the device resource and mlcl wires its service. Run
+the API's `npm run db:setup` to apply their resource migrations. Flagships with
+login already have this session wiring.
+
+From the project root, add the email transport, rate limiter and request validator
+if they are missing.
+
 ```bash
-cd /workspace
-npm install @molecule/api-database --workspace=api
-npm install @molecule/api-emails @molecule/api-emails-mailgun --workspace=api
-npm install @molecule/api-rate-limit @molecule/api-rate-limit-memory --workspace=api
-npm install @molecule/api-middleware-validation --workspace=api
+npx mlcl add @molecule/api-emails-mailgun --inject
+npx mlcl add @molecule/api-rate-limit-memory --inject
+npx mlcl add @molecule/api-middleware-validation --inject
 ```
 
-The session itself is issued by the app's existing user-resource auth
-(`@molecule/api-bonds-default-express` + the device bond) — already wired in any
-app with login. The device id is minted through its typed accessor,
-`get<DeviceService>('device')` — the `DeviceService` interface comes from
-`@molecule/api-resource-device`, which the device bond already brings in — so
-there is nothing extra to install for it.
+The handler calls `sendMail()` from `@molecule/api-emails` and `consume()` from
+`@molecule/api-rate-limit`. It uses `get<DeviceService>('device')` to get the
+device service and passes the returned device id to `authorization.set()`.
 
 ## Database migration
 
@@ -65,28 +70,27 @@ CREATE TABLE magic_link_tokens (
 CREATE INDEX idx_magic_link_tokens_hash ON magic_link_tokens(token_hash);
 ```
 
-## Wiring the routes (api/App/router.ts)
+## Wiring the routes (api/src/App/router.ts)
+
+Copy the handler to `api/src/handlers/magic-link.ts` and mount it after the
+user resource's `authorization.verifyMiddleware()`. The middleware sets the
+session policy and lets anonymous requests reach both public routes.
 
 ```ts
-import magicLinkRouter from './handlers/magic-link.js'
+import magicLinkRouter from '../handlers/magic-link.js'
 
-// Mount before verifyMiddleware so unauthenticated users can request a link
 router.use('/auth/magic-link', magicLinkRouter)
 ```
 
-The `verify` route logs the user in through the app's user-resource session
-(the device bond + `userAuthorization.set`), so the default user auth
-(`mountDefaultUserAuthRoutes`) must be wired — it is, in any app with login.
-The emailed link points straight at the API route:
-`${SITE_ORIGIN}/api/auth/magic-link/verify?token=...`.
+The emailed link points to `${SITE_ORIGIN}/api/auth/magic-link/verify?token=...`.
 
 ## Files in this example
 
-| Path                           | What it does                                                                                                                                                                                                                              |
-| ------------------------------ | ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `api/handlers/magic-link.ts`   | `POST /auth/magic-link/request` — issues a hashed token and sends the email. `GET /auth/magic-link/verify?token=...` — validates, deletes (single-use), logs the user in via the app session (`userAuthorization.set`), redirects to `/`. |
-| `app/pages/LoginPage.tsx`      | Email-only form. Submit shows "Check your email" — no password field.                                                                                                                                                                     |
-| `app/locales/en/magic-link.ts` | English locale keys for the login page.                                                                                                                                                                                                   |
+| Path                           | What it does                                                                                                                                                                      |
+| ------------------------------ | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `api/handlers/magic-link.ts`   | `POST /auth/magic-link/request` sends the link and stores its token hash. `GET /auth/magic-link/verify?token=...` redeems the token, sets the user session, and redirects to `/`. |
+| `app/pages/LoginPage.tsx`      | Email-only form. Submit shows "Check your email" — no password field.                                                                                                             |
+| `app/locales/en/magic-link.ts` | English locale keys for the login page.                                                                                                                                           |
 
 ## Required env
 

@@ -20,12 +20,16 @@ instead (do not hand-roll a chat UI).
 ## What you'll install
 
 ```bash
-cd /workspace
-# AI core interface + the Anthropic provider bond:
-npm install @molecule/api-ai @molecule/api-ai-anthropic --workspace=api
-# Throttle the metered LLM call (any provider bond works; memory is fine for one node):
-npm install @molecule/api-rate-limit @molecule/api-rate-limit-memory --workspace=api
+npx mlcl add @molecule/api-ai-anthropic --inject
+npx mlcl add @molecule/api-rate-limit-memory --inject
 ```
+
+Run these from the project root to wire missing providers in `api/src/bonds/`.
+For OpenAI, use `npx mlcl add @molecule/api-ai-openai --inject` as your AI
+provider. The handler looks up the named provider with `getProviderByName()` from
+`@molecule/api-ai` and calls `consume()` from `@molecule/api-rate-limit` before
+generation. Reuse a supported AI provider and rate-limit bond if your flagship
+already wires them.
 
 `@molecule/app-ui`, `@molecule/app-i18n-react-i18next`, and `@molecule/api-bond`
 are already present in a scaffolded app.
@@ -41,25 +45,8 @@ are already present in a scaffolded app.
 
 ```
 ANTHROPIC_API_KEY=...   # server-side, read by @molecule/api-ai-anthropic
-# or OPENAI_API_KEY=... if you wire setupAiOpenai() instead
+# OPENAI_API_KEY=... for @molecule/api-ai-openai
 ```
-
-## Bond wiring (api/bonds.ts or api/index.ts)
-
-```typescript
-import { setupAiAnthropic } from '@molecule/api-bonds-default-express'
-import { setupRateLimitMemory } from '@molecule/api-bonds-default-express'
-
-// Registers @molecule/api-ai-anthropic as the named 'anthropic' AI provider
-// (reads ANTHROPIC_API_KEY). getProviderByName('anthropic') then resolves it.
-await setupAiAnthropic()
-// A rate-limit provider must be bonded for consume() to work.
-await setupRateLimitMemory()
-```
-
-Prefer these setup helpers — they wire the provider under the correct bond name.
-To swap providers, call `setupAiOpenai()` instead; the handler is unchanged
-because it resolves the provider by name through `@molecule/api-ai`.
 
 ## Anti-patterns
 

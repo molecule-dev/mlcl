@@ -18,29 +18,22 @@ Not for arbitrary form-builder UIs — that's a different ask.
 ## What you'll install
 
 ```bash
-cd /workspace
-npm install @molecule/api-emails-mailgun --workspace=api  # or -sendgrid / -ses / -sendmail
-npm install @molecule/api-rate-limit @molecule/api-rate-limit-memory --workspace=api  # block spam
+npx mlcl add @molecule/api-emails-mailgun --inject
+npx mlcl add @molecule/api-rate-limit-memory --inject
 ```
 
-## Bond wiring (api/src/bonds/index.ts — call from setupBonds())
-
-The handler calls `consume()` to throttle submissions, but no rate-limit provider is
-bonded by default — wire one or the route throws `Rate-limit provider not configured`:
-
-```ts
-import { setupRateLimitMemory } from '@molecule/api-bonds-default-express'
-
-await setupRateLimitMemory() // a rate-limit provider must be bonded for consume()
-```
+Run these from the project root to wire missing providers in `api/src/bonds/`.
+Use the email and rate-limit bonds already wired in your app if available. The
+handler sends through `sendMail()` from `@molecule/api-emails` and throttles
+submissions through `consume()` from `@molecule/api-rate-limit`.
 
 ## Files in this example
 
-| Path                          | What it does                                                      |
-| ----------------------------- | ----------------------------------------------------------------- |
-| `api/bonds/emails-mailgun.ts` | Wires email send. Swap to any other provider with the same shape. |
-| `api/handlers/contact.ts`     | `POST /contact` validates with zod, rate-limits, sends email.     |
-| `app/pages/ContactPage.tsx`   | The form itself with name/email/message + success/error UI.       |
+| Path                          | What it does                                                    |
+| ----------------------------- | --------------------------------------------------------------- |
+| `api/bonds/emails-mailgun.ts` | Mailgun wiring reference for an API that manages bonds by hand. |
+| `api/handlers/contact.ts`     | `POST /contact` validates with zod, rate-limits, sends email.   |
+| `app/pages/ContactPage.tsx`   | The form itself with name/email/message + success/error UI.     |
 
 ## Required env
 

@@ -19,13 +19,12 @@ daily digest at 3am), use `jobs/scheduled-tasks` (cron) instead.
 
 ## What you'll install
 
-```bash
-cd /workspace
-# Queue core + the in-memory provider (fine for dev / a single node):
-npm install @molecule/api-queue @molecule/api-queue-memory --workspace=api
-# For production (durable, multi-node), swap to Redis/BullMQ:
-npm install @molecule/api-queue-redis --workspace=api
-```
+From the project root, run `npx mlcl add @molecule/api-queue-memory --inject` for
+an in-memory queue on a single node. For a durable queue shared across nodes,
+run `npx mlcl add @molecule/api-queue-redis --inject` as your choice of provider
+and configure `REDIS_URL`. If your flagship already has a queue bond, reuse it.
+The request handler calls `send()` and the worker calls `subscribe()` through
+`@molecule/api-queue`.
 
 ## Files in this example
 
@@ -34,15 +33,17 @@ npm install @molecule/api-queue-redis --workspace=api
 | `api/handlers/jobs.ts` | `POST /jobs { kind, refId? }` — enqueues work with `send()` and returns **202 immediately** (never awaits the work). Body carries only ids, no secrets.                                         |
 | `api/lib/worker.ts`    | `startJobWorker()` — registers a `subscribe()` consumer that processes each job. Idempotent (at-least-once safe), least-authority, transient-vs-permanent error handling. Call once at startup. |
 
-## Bond wiring (api/bonds.ts or api/index.ts)
+## Start the worker
+
+mlcl wires the chosen provider in `api/src/bonds/`. Copy the worker to
+`api/src/lib/worker.ts`. In `api/src/server.ts`, call it once after the existing
+`await setupBonds()` completes.
 
 ```typescript
-import { setupQueueMemory } from '@molecule/api-bonds-default-express'
-// prod: import { setupQueueRedis } from '@molecule/api-bonds-default-express'
 import { startJobWorker } from './lib/worker.js'
 
-await setupQueueMemory() // wire the queue bond (setupQueueRedis in prod)
-startJobWorker() // register the worker ONCE, AFTER the bond is wired
+// Inside startup, after setupBonds().
+startJobWorker()
 ```
 
 Mount the handler under `/api/jobs`.
