@@ -7,19 +7,25 @@
  * and Codex spent 11 s deciding whether they had to compile. The shipped starter locks are the
  * tree every custom create installs, so each of their scripted packages must carry a decision.
  */
-import { mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { existsSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs'
+import { createRequire } from 'node:module'
 import { tmpdir } from 'node:os'
-import { join } from 'node:path'
+import { dirname, join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import { writeInstallScriptEntries } from '../install-scripts.js'
+import {
+  decideBeforeInstall,
+  pruneUnusedEntries,
+  writeInstallScriptEntries,
+} from '../install-scripts.js'
 import { loadInstallScriptDecisions } from '../registry.js'
 import { readStarterLock } from '../starter-lock.js'
 
 const FRAMEWORKS = ['react', 'vue', 'svelte', 'solid', 'angular', 'react-native-web']
 const decisions = {
   bcrypt: { run: false },
+  'better-sqlite3': { run: false },
   puppeteer: { run: true },
   esbuild: { run: false },
 }
@@ -37,18 +43,25 @@ beforeEach(() => {
 afterEach(() => rmSync(root, { recursive: true, force: true }))
 
 describe('writeInstallScriptEntries', () => {
-  it('writes the decision of each scripted package in the lock, at any depth, by name', () => {
+  it('writes the decision of each decided package in the lock, at any depth, by name', () => {
+    // better-sqlite3's entry names no script (`gypfile: false`), yet an install from the lock
+    // compiles it: the decision goes by name, not by the entry (harness eval scaffold, 2026-11-25).
     writeLock({
       '': { name: 'proj' },
       'node_modules/bcrypt': { version: '6.0.0', hasInstallScript: true },
       'app/node_modules/esbuild': { version: '0.28.2', hasInstallScript: true },
-      'node_modules/puppeteer': { version: '25.16.0' },
+      'node_modules/better-sqlite3': { version: '13.0.3' },
+      'node_modules/react': { version: '19.2.4' },
     })
     expect(writeInstallScriptEntries(root, { decisions })).toEqual({
-      written: ['bcrypt', 'esbuild'],
+      written: ['bcrypt', 'better-sqlite3', 'esbuild'],
       skipped: [],
     })
-    expect(manifest().allowScripts).toEqual({ bcrypt: false, esbuild: false })
+    expect(manifest().allowScripts).toEqual({
+      bcrypt: false,
+      'better-sqlite3': false,
+      esbuild: false,
+    })
   })
 
   it('leaves the user’s entries, for the name or a version of it, and undecided packages alone', () => {
@@ -86,6 +99,45 @@ describe('writeInstallScriptEntries', () => {
   })
 })
 
+describe('decideBeforeInstall and pruneUnusedEntries', () => {
+  it('decide every package before an install, and drop the ones it did not bring', () => {
+    writeLock({ 'node_modules/esbuild': { hasInstallScript: true } })
+    const { written } = decideBeforeInstall(root, { decisions, wholeTree: true })
+    expect(written).toEqual(['bcrypt', 'better-sqlite3', 'esbuild', 'puppeteer'])
+    expect(manifest().allowScripts).toEqual({
+      bcrypt: false,
+      'better-sqlite3': false,
+      esbuild: false,
+      puppeteer: true,
+    })
+    writeLock({
+      'node_modules/esbuild': { hasInstallScript: true },
+      'node_modules/better-sqlite3': { version: '13.0.3' },
+    })
+    expect(pruneUnusedEntries(root, written)).toEqual(['bcrypt', 'puppeteer'])
+    expect(manifest().allowScripts).toEqual({ 'better-sqlite3': false, esbuild: false })
+  })
+
+  it('leave the packages of an app mlcl did not create to it, and its own entries in place', () => {
+    writeFileSync(
+      join(root, 'package.json'),
+      JSON.stringify({ name: 'proj', allowScripts: { sharp: true } }),
+    )
+    writeLock({ 'node_modules/esbuild': { hasInstallScript: true } })
+    const { written } = decideBeforeInstall(root, { decisions })
+    expect(written).not.toContain('esbuild')
+    rmSync(join(root, 'package-lock.json'))
+    expect(pruneUnusedEntries(root, written)).toEqual(written)
+    expect(manifest()).toEqual({ name: 'proj', allowScripts: { sharp: true } })
+  })
+
+  it('remove the field they added once nothing is left in it', () => {
+    const { written } = decideBeforeInstall(root, { decisions, wholeTree: true })
+    pruneUnusedEntries(root, written)
+    expect(manifest()).toEqual({ name: 'proj' })
+  })
+})
+
 describe('the registry decides every install script in the shipped starter locks', () => {
   it.each(FRAMEWORKS)('%s', (framework) => {
     const registry = loadInstallScriptDecisions()
@@ -95,6 +147,39 @@ describe('the registry decides every install script in the shipped starter locks
     expect(scripted.length).toBeGreaterThan(0)
     expect(
       scripted.filter((name) => !registry[name]),
+      'add each to registry.json installScripts with run and the reason, read from its source',
+    ).toEqual([])
+  })
+
+  it('including each native package whose lock entry names no script but which npm compiles', () => {
+    // An install from a lock runs `node-gyp rebuild` for every package with a binding.gyp and no
+    // install script, `gypfile: false` or not. The lock does not say which those are; an installed
+    // copy does, where this checkout has one.
+    const registry = loadInstallScriptDecisions()
+    const require = createRequire(import.meta.url)
+    const names = new Set(
+      FRAMEWORKS.flatMap((framework) =>
+        Object.keys(readStarterLock(framework)?.packages ?? {})
+          .filter((key) => key.includes('node_modules/'))
+          .map((key) => key.slice(key.lastIndexOf('node_modules/') + 'node_modules/'.length)),
+      ),
+    )
+    const native = [...names].filter((name) => {
+      try {
+        const dir = dirname(require.resolve(`${name}/package.json`))
+        const pkg = JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8')) as {
+          scripts?: Record<string, string>
+        }
+        return (
+          existsSync(join(dir, 'binding.gyp')) && !pkg.scripts?.install && !pkg.scripts?.preinstall
+        )
+      } catch (_error) {
+        // Not installed in this checkout, or its exports hide package.json: nothing to read.
+        return false
+      }
+    })
+    expect(
+      native.filter((name) => !registry[name]),
       'add each to registry.json installScripts with run and the reason, read from its source',
     ).toEqual([])
   })

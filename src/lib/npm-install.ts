@@ -12,7 +12,7 @@
 
 import { execa } from 'execa'
 
-import { lockedWithScripts, writeInstallScriptEntries } from './install-scripts.js'
+import { decideBeforeInstall, pruneUnusedEntries } from './install-scripts.js'
 
 /** How one install runs. */
 export interface NpmInstallOptions {
@@ -22,8 +22,8 @@ export interface NpmInstallOptions {
    */
   preferOffline?: boolean
   /**
-   * The project's whole tree is mlcl's to decide: one it just created. Without it, only the
-   * packages this install adds get an `allowScripts` decision.
+   * The project's whole tree is mlcl's to decide: one it just created. Without it, the packages
+   * its lock already holds get no `allowScripts` decision.
    */
   wholeTree?: boolean
 }
@@ -41,11 +41,12 @@ export function npmInstallArgs({ preferOffline = false }: NpmInstallOptions = {}
 /**
  * Run `npm install` in a directory, with npm's output captured.
  *
- * In a project mlcl just created (`wholeTree`), the packages of the lock that have an install
- * script get the registry's decision in `allowScripts` first (`install-scripts.ts`), so npm
- * neither warns about them nor skips one that must run. The install's own lock then names what it
- * added; their decisions are written after it, and an approved script it skipped runs through
- * `npm rebuild`. In any other project only those added packages get one.
+ * Every package the registry decides gets its `allowScripts` entry before npm runs
+ * (`install-scripts.ts`), so npm neither runs a script the registry turned off (better-sqlite3's
+ * `node-gyp rebuild`) nor warns about one; the entries for packages the install did not bring
+ * come back out after it, done or failed. An approved package that was already installed, its
+ * script skipped, runs it through `npm rebuild`. In a project mlcl did not just create
+ * (`wholeTree` unset), the packages its lock already holds get no entry.
  *
  * @param cwd - Where npm runs: the project, or its npm workspace root (`npmInstallRoot`).
  * @param options - How the install runs.
@@ -66,14 +67,55 @@ export async function npmInstallPackage(cwd: string, spec: string): Promise<void
   await npmInstallWithDecisions(cwd, [...npmInstallArgs(), spec], true)
 }
 
+/**
+ * npm's progress, trace and environment lines inside its error output: none says why the install
+ * failed.
+ */
+const NPM_ERROR_NOISE =
+  /\bgyp (?:info|http|WARN|verb|sill)\b|\bgyp ERR! (?:System|command|cwd|node -v|node-gyp -v|not ok)\b|\bat .+:\d+:\d+\)?$|complete log of this run|[\\/]_logs[\\/]/
+
+/** At most this many lines of npm's error output reach the caller. */
+const NPM_ERROR_LINES = 12
+
+/**
+ * Why `npm install` failed, from its execa error: npm's own `npm error` lines (`npm ERR!` before
+ * npm 9), without its progress and stack lines and the pointer to its log.
+ *
+ * mlcl captures npm's output, so an agent told only "npm install failed" read npm's debug logs to
+ * find the reason: a node-gyp build of better-sqlite3 that could not fetch Node's headers (harness
+ * eval scaffold, 2026-11-25, Codex, 2 runs).
+ *
+ * @param error - The thrown value: an execa error (`stderr`, `shortMessage`), or any value.
+ * @returns The reason, one line per line, at most twelve; the error's first line when npm wrote
+ *   none.
+ */
+export function npmFailureDetail(error: unknown): string {
+  const e = (typeof error === 'object' && error !== null ? error : {}) as {
+    stderr?: unknown
+    shortMessage?: unknown
+    message?: unknown
+  }
+  const stderr = typeof e.stderr === 'string' ? e.stderr : ''
+  const lines = stderr
+    .split('\n')
+    .map((line) => line.trimEnd())
+    .filter((line) => /^npm (?:error|ERR!) \S/.test(line) && !NPM_ERROR_NOISE.test(line))
+  if (lines.length > 0) return lines.slice(0, NPM_ERROR_LINES).join('\n')
+  return (String(e.shortMessage ?? e.message ?? error).split('\n')[0] ?? '').trim()
+}
+
 async function npmInstallWithDecisions(
   cwd: string,
   args: string[],
   wholeTree: boolean,
 ): Promise<void> {
-  const except = wholeTree ? undefined : lockedWithScripts(cwd)
-  if (wholeTree) writeInstallScriptEntries(cwd)
-  await execa('npm', args, { cwd, stdio: 'pipe' })
-  const { skipped } = writeInstallScriptEntries(cwd, { except })
-  if (skipped.length) await execa('npm', ['rebuild', ...skipped], { cwd, stdio: 'pipe' })
+  const { written, skipped } = decideBeforeInstall(cwd, { wholeTree })
+  let removed: string[] = []
+  try {
+    await execa('npm', args, { cwd, stdio: 'pipe' })
+  } finally {
+    removed = pruneUnusedEntries(cwd, written)
+  }
+  const rebuild = skipped.filter((name) => !removed.includes(name))
+  if (rebuild.length) await execa('npm', ['rebuild', ...rebuild], { cwd, stdio: 'pipe' })
 }

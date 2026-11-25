@@ -37,7 +37,7 @@ import {
 import { t } from '../lib/i18n.js'
 import { writeInstallScriptEntries } from '../lib/install-scripts.js'
 import { declaredDependencies, newDeclarations } from '../lib/manifest-declarations.js'
-import { npmInstall } from '../lib/npm-install.js'
+import { npmFailureDetail, npmInstall } from '../lib/npm-install.js'
 import { deriveOptionalFeatures, featureTemplatePackages } from '../lib/optional-features.js'
 import { serviceWorkerPackageFor } from '../lib/peer-closure.js'
 import {
@@ -684,6 +684,7 @@ export default class Create extends Command {
           `${ui.check('Scaffolded')} ${ui.id(flags.template)} ${ui.dim('→')} ${ui.id(projectPath)}`,
         )
         let installNeeded = flags['skip-install'] === true
+        let installFailure: string | undefined
         if (!flags['skip-install']) {
           try {
             await this.runSlowStep(
@@ -695,9 +696,8 @@ export default class Create extends Command {
             say(ui.check('Installed dependencies.'))
           } catch (error) {
             installNeeded = true
-            this.warn(
-              `npm install failed — run it manually. ${error instanceof Error ? error.message : String(error)}`,
-            )
+            installFailure = npmFailureDetail(error)
+            this.warn(`npm install failed — run it manually. ${installFailure}`)
           }
         }
         const verification = installNeeded
@@ -737,6 +737,7 @@ export default class Create extends Command {
                   .map((s) => s.trim())
                   .filter(Boolean),
                 installSkipped: flags['skip-install'] === true,
+                ...(installFailure ? { installFailure } : {}),
                 injectSkipped: [],
                 pendingSetup: pendingSetupSteps({
                   installNeeded,
@@ -1295,6 +1296,7 @@ export default class Create extends Command {
     // Edge status page is a standalone Workers project — skip addPackages/inject/env steps
     if (isStatusPageEdge) {
       let installNeeded = flags['skip-install'] === true
+      let installFailure: string | undefined
       if (!flags['skip-install']) {
         try {
           await this.runSlowStep(
@@ -1307,9 +1309,10 @@ export default class Create extends Command {
           log(t('commands.create.spinners.installed'))
         } catch (error) {
           installNeeded = true
+          installFailure = npmFailureDetail(error)
           spinner?.stop(chalk.yellow(t('commands.create.spinners.installFailed')))
           log(t('commands.create.spinners.installFailed'))
-          this.warn(`npm install failed: ${error instanceof Error ? error.message : String(error)}`)
+          this.warn(`npm install failed: ${installFailure}`)
         }
       }
 
@@ -1359,6 +1362,7 @@ export default class Create extends Command {
               template: null,
               packages: uniquePackages,
               installSkipped: flags['skip-install'] === true,
+              ...(installFailure ? { installFailure } : {}),
               injectSkipped: [],
               pendingSetup: pendingSetupSteps({
                 installNeeded,
@@ -1437,6 +1441,8 @@ export default class Create extends Command {
 
     // Step 9: Install dependencies
     let installNeeded = flags['skip-install'] === true
+    // npm's reason when an install below fails: the JSON result carries it.
+    let installFailure: string | undefined
     // What the install below sees, so the steps after it can tell whether they declared more.
     const declaredAtInstall = flags['skip-install']
       ? undefined
@@ -1470,9 +1476,10 @@ export default class Create extends Command {
         log(t('commands.create.spinners.installed'))
       } catch (error) {
         installNeeded = true
+        installFailure = npmFailureDetail(error)
         spinner?.stop(chalk.yellow(t('commands.create.spinners.installFailed')))
         log(t('commands.create.spinners.installFailed'))
-        this.warn(`npm install failed: ${error instanceof Error ? error.message : String(error)}`)
+        this.warn(`npm install failed: ${installFailure}`)
       }
     }
 
@@ -1727,8 +1734,9 @@ export default class Create extends Command {
           spinner?.stop(t('commands.create.spinners.installed'))
         } catch (error) {
           installNeeded = true
+          installFailure = npmFailureDetail(error)
           spinner?.stop(chalk.yellow(t('commands.create.spinners.installFailed')))
-          this.warn(`npm install failed: ${error instanceof Error ? error.message : String(error)}`)
+          this.warn(`npm install failed: ${installFailure}`)
         }
       }
     }
@@ -1849,6 +1857,7 @@ export default class Create extends Command {
             secrets: [...new Set(allSelectedSecrets.map((s) => s.name))],
             envToSet: Object.fromEntries(envFilesToFill),
             installSkipped: flags['skip-install'] === true,
+            ...(installFailure ? { installFailure } : {}),
             injectSkipped,
             pendingSetup: pendingSetupSteps({
               installNeeded,

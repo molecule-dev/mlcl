@@ -210,7 +210,9 @@ describe('mlcl create — the next steps after an unfinished scaffold', () => {
       'Endpoints: one file per feature in api/src/handlers/, registered in api/src/handlers/index.ts',
       'Pages: app/src/pages/',
       'Package docs: npx mlcl docs @molecule/<name> (--section "<heading>" for one function or heading)',
-      'Install scripts off in package.json allowScripts, none of them needed: bcrypt, esbuild, fsevents. A native one loads the prebuilt binary its package ships',
+      // better-sqlite3's starter-lock entry names no script, but the project's own install from
+      // that lock would compile it: it is decided by name (install-scripts.ts).
+      'Install scripts off in package.json allowScripts, none of them needed: bcrypt, better-sqlite3, esbuild, fsevents. A native one loads the prebuilt binary its package ships',
       'Before handing work back: npx mlcl check',
     ])
     expect(json.next).toEqual(orientation(lines))
