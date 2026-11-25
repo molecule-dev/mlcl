@@ -106635,6 +106635,7 @@
         "TagListProps",
         "UseTagInputOptions",
         "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -106690,6 +106691,7 @@
         "useTagInput",
         "UseTagInputOptions",
         "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult"
       ],
       "secrets": [],
@@ -106748,6 +106750,7 @@
         "TagInputProps",
         "UseTagInputOptions",
         "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -106798,6 +106801,7 @@
         "TagInputProps",
         "UseTagInputOptions",
         "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -106848,6 +106852,7 @@
         "TagInputProps",
         "UseTagInputOptions",
         "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
