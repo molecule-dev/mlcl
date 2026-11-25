@@ -1419,7 +1419,7 @@ export default class Create extends Command {
       const agentsMd = join(projectPath, 'AGENTS.md')
       if (!existsSync(agentsMd)) {
         const { ensureAgentsMd } = await import('../lib/scaffold.js')
-        await ensureAgentsMd(projectPath)
+        await ensureAgentsMd(projectPath, undefined, { creating: true })
         earlyAgentsMd = existsSync(agentsMd) ? readFileSync(agentsMd, 'utf8') : null
       }
     }

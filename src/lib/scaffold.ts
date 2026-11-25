@@ -2054,6 +2054,10 @@ export function shouldSkipDuringCopy(name: string): boolean {
  */
 export const ENV_SECRETS_GITIGNORE = '.env*\n!.env.example'
 
+/** The note at the top of the AGENTS.md that `mlcl create` writes before its install. */
+export const AGENTS_MD_CREATING =
+  '**`mlcl create` is still writing this project.** The files it writes after the install (handlers, migrations, bond files, `.env`) may not be here yet; this note goes away when it finishes.'
+
 /**
  * Write the project's AGENTS.md — the conventions file every major coding
  * agent (Claude Code, Codex, Cursor, Pi, …) reads on open. Ships the molecule
@@ -2064,10 +2068,16 @@ export const ENV_SECRETS_GITIGNORE = '.env*\n!.env.example'
  * from a previous scaffold with local edits) is never overwritten.
  *
  * @param projectRoot - Absolute path to the project root.
+ * @param declared - The packages to describe (default: the ones the manifests declare).
+ * @param options - `creating`: `mlcl create` writes this copy before its install and replaces it
+ *   when it finishes, so the copy says the files written after the install may not be there yet. An
+ *   agent reads the project while the install runs: in the r32 eval Codex read the early copy, then
+ *   listed the `api/src/handlers/` it names, which injection had not written yet.
  */
 export async function ensureAgentsMd(
   projectRoot: string,
   declared?: Iterable<DeclaredPackage | string>,
+  options: { creating?: boolean } = {},
 ): Promise<void> {
   const target = join(projectRoot, 'AGENTS.md')
   const declarations = declared ? [...declared] : undefined
@@ -2093,9 +2103,10 @@ export async function ensureAgentsMd(
         ].join('\n')
       : ''
   const sections = [renderSkillIndex(projectRoot), capabilityMap, resourceGuide].filter(Boolean)
+  const text = sections.length ? `${template.trimEnd()}\n\n${sections.join('\n\n')}\n` : template
   await writeFile(
     target,
-    sections.length ? `${template.trimEnd()}\n\n${sections.join('\n\n')}\n` : template,
+    options.creating ? text.replace(/^(# .*\n)/, `$1\n> ${AGENTS_MD_CREATING}\n`) : text,
   )
 }
 

@@ -12,6 +12,7 @@
  * @module
  */
 
+import { existsSync, readFileSync } from 'node:fs'
 import { mkdtemp, rm } from 'node:fs/promises'
 import { tmpdir } from 'node:os'
 import { join } from 'node:path'
@@ -24,11 +25,19 @@ import type { runCheckLocal } from '../../lib/check.js'
 import type * as CheckStopHook from '../../lib/check-stop-hook.js'
 import type * as NpmInstall from '../../lib/npm-install.js'
 
-const check = vi.hoisted(() => ({ result: null as unknown, calls: [] as string[] }))
+const check = vi.hoisted(() => ({
+  result: null as unknown,
+  calls: [] as string[],
+  agentsAtInstall: [] as (string | null)[],
+}))
 
 vi.mock('../../lib/npm-install.js', async (importOriginal) => ({
   ...(await importOriginal<typeof NpmInstall>()),
-  npmInstall: vi.fn(async () => undefined),
+  // What AGENTS.md says while the install runs, when an agent may read it.
+  npmInstall: vi.fn(async (root: string) => {
+    const path = join(root, 'AGENTS.md')
+    check.agentsAtInstall.push(existsSync(path) ? readFileSync(path, 'utf8') : null)
+  }),
 }))
 vi.mock('execa', async (importOriginal) => ({
   ...(await importOriginal<typeof Execa>()),
@@ -87,6 +96,7 @@ beforeEach(async () => {
   prevCwd = process.cwd()
   process.chdir(dir)
   check.calls = []
+  check.agentsAtInstall = []
 })
 
 afterEach(async () => {
@@ -157,6 +167,23 @@ describe('mlcl create checks the project it installed', () => {
     const json = await create(PASSED, ['--skip-install'])
     expect(json.next).not.toContain(INSTALLED)
     expect(json.pendingSetup).toContain('npm install')
+  }, 120_000)
+})
+
+describe('the AGENTS.md an agent reads while create runs', () => {
+  // r32 scaffold eval: Codex read the AGENTS.md create writes before its install, then listed the
+  // api/src/handlers/ it names, which injection had not written yet.
+  it('says create is still writing the project (OLD MUSTFAIL)', async () => {
+    await create(PASSED, ['--no-verify'])
+    expect(check.agentsAtInstall).toHaveLength(1)
+    expect(check.agentsAtInstall[0]).toContain('is still writing this project')
+  }, 120_000)
+
+  it('drops the note once create finishes', async () => {
+    await create(PASSED, ['--no-verify'])
+    const final = readFileSync(join(dir, 'proj', 'AGENTS.md'), 'utf8')
+    expect(final).not.toContain('is still writing this project')
+    expect(final).toContain('api/src/handlers/')
   }, 120_000)
 })
 
