@@ -44390,12 +44390,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -50550,11 +50552,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -51313,11 +51317,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -53149,11 +53155,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -58978,11 +58986,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -91552,9 +91562,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
-      "moleculePeers": [],
+      "moleculePeers": [
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
+      ],
       "thirdPartyDependencies": {
         "dependencies": {},
         "peerDependencies": {
@@ -94888,12 +94903,14 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "qrcode-generator",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {
@@ -109348,7 +109365,22 @@
         "ClassMapOverrides",
         "DEFAULT_TYPING_PULSE",
         "DotPulseMotion",
-        "PulseDotsProps"
+        "PulseDotsProps",
+        "DisclosureProps",
+        "DisclosureSummaryProps",
+        "ElementDrag",
+        "ElementDragPoint",
+        "ElementDragProps",
+        "FieldBounds",
+        "RuleProps",
+        "SvgClipPathProps",
+        "SvgDefsProps",
+        "SvgGradientStop",
+        "SvgImageProps",
+        "SvgLinearGradientProps",
+        "SvgMetadata",
+        "SvgPatternProps",
+        "TextFieldBaseProps"
       ],
       "secrets": [],
       "runtimeDependencies": [
