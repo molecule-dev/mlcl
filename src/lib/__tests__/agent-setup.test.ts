@@ -9,7 +9,12 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import { type AgentEnvironment, CODEX_UP_FRONT_TOOLS, findHarness } from '../agent-harnesses.js'
+import {
+  type AgentEnvironment,
+  CODEX_MCP_ENV_LINE,
+  CODEX_UP_FRONT_TOOLS,
+  findHarness,
+} from '../agent-harnesses.js'
 import {
   applySetup,
   type CliRunner,
@@ -601,6 +606,7 @@ args = ["${run()}"]`,
 ${command}
 startup_timeout_sec = 120
 tool_timeout_sec = 660
+${CODEX_MCP_ENV_LINE}
 disabled_tools = ${tools}
 `,
   }
@@ -618,6 +624,7 @@ command = "node"
 args = ["${run()}"]
 startup_timeout_sec = 120
 tool_timeout_sec = 660
+${CODEX_MCP_ENV_LINE}
 ${split.molecule.join('\n')}
 
 ${split.more()}`,
@@ -660,7 +667,7 @@ ${split.more()}`,
         .replace('args = ["-y", "molecule-mcp"]', `args = ["${run()}"]`)
         .replace(
           'tool_timeout_sec = 900\n',
-          `tool_timeout_sec = 900\nstartup_timeout_sec = 120\n${split.molecule.join('\n')}\n`,
+          `tool_timeout_sec = 900\nstartup_timeout_sec = 120\n${CODEX_MCP_ENV_LINE}\n${split.molecule.join('\n')}\n`,
         )
         .trimEnd()}\n\n${split.more()}`,
     )
@@ -668,19 +675,32 @@ ${split.more()}`,
 
   // Counterexample: a command the user changed is theirs, whatever it names. The split would start
   // setup's server beside theirs, so their table keeps every tool and no second table is added.
+  // It still runs a Molecule server, so it gains the variables that server reads, and only those.
   it('keeps a command the user pinned, without the split', async () => {
     mkdirSync(codexHome, { recursive: true })
     const before =
       '[mcp_servers.molecule]\ncommand = "npx"\nargs = ["-y", "molecule-mcp@0.3.0"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n'
     writeFileSync(config, before)
+    expect(await apply(steps(['codex']))).toEqual(['present', 'updated'])
+    expect(readFileSync(config, 'utf8')).toBe(`${before}${CODEX_MCP_ENV_LINE}\n`)
     expect(await apply(steps(['codex']))).toEqual(['present', 'present'])
-    expect(readFileSync(config, 'utf8')).toBe(before)
+  })
+
+  // A user's own `env_vars` list is theirs: setup adds no second one and leaves it as written.
+  it('keeps the user’s own env_vars', async () => {
+    mkdirSync(codexHome, { recursive: true })
+    const before = `[mcp_servers.molecule]\ncommand = "node"\nargs = ["${run()}"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\nenv_vars = ["HTTPS_PROXY"]\n`
+    writeFileSync(config, before)
+    await apply(steps([]))
+    const molecule = readFileSync(config, 'utf8').split('[mcp_servers.molecule_more]')[0]
+    expect(molecule).toContain('env_vars = ["HTTPS_PROXY"]\n')
+    expect(molecule.match(/^env_vars/gm)).toHaveLength(1)
   })
 
   it('writes the same tables without the codex CLI', async () => {
     expect(await apply(steps([]))).toEqual(['written'])
     expect(readFileSync(config, 'utf8')).toBe(
-      `[mcp_servers.molecule]\ncommand = "node"\nargs = ["${run()}"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n${split.molecule.join('\n')}\n\n${split.more()}`,
+      `[mcp_servers.molecule]\ncommand = "node"\nargs = ["${run()}"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n${CODEX_MCP_ENV_LINE}\n${split.molecule.join('\n')}\n\n${split.more()}`,
     )
     expect(await apply(steps([]))).toEqual(['present'])
   })
@@ -709,7 +729,7 @@ ${split.more()}`,
     expect(await apply(planned)).toEqual(['written'])
     const npx = 'command = "npx"\nargs = ["-y", "molecule-mcp"]'
     expect(readFileSync(join(home, '.codex', 'config.toml'), 'utf8')).toBe(
-      `[mcp_servers.molecule]\n${npx}\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n${split.molecule.join('\n')}\n\n${split.more(npx)}`,
+      `[mcp_servers.molecule]\n${npx}\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n${CODEX_MCP_ENV_LINE}\n${split.molecule.join('\n')}\n\n${split.more(npx)}`,
     )
   })
 

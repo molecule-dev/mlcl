@@ -44,7 +44,7 @@ function fixtureDir(files: Record<string, string>): string {
 
 const BUDGET = 15 * 60_000
 
-function pkg(overrides: Partial<CheckPackage>): CheckPackage {
+function pkg(overrides: Partial<CheckPackage> = {}): CheckPackage {
   return {
     dir: '/proj',
     rel: '.',
@@ -260,6 +260,7 @@ describe('runCheckLocal', () => {
     mkdirSync(join(root, 'node_modules', '.bin'), { recursive: true })
     symlinkSync(join(eslint, 'bin', 'eslint.js'), join(root, 'node_modules', '.bin', 'eslint'))
     const result = await runCheckLocal(root, { steps: ['lint'] }, { budgetMs: 30_000 })
+    if ('error' in result) throw new Error(result.error)
     expect(result.ok).toBe(false)
     expect(readFileSync(join(root, 'prelint-ran'), 'utf8')).toBe('yes')
     expect(result.report).toContain('FAILED')
@@ -354,14 +355,20 @@ describe('runCheckLocal', () => {
     'Chromium Headless Shell 141.0.7390.37 (playwright chromium-headless-shell v1194) downloaded to /home/u/.cache/ms-playwright/chromium_headless_shell-1194',
   ]
 
-  /** A project whose `playwright` fails like a real one with no browser until `playwright install` runs. */
-  function playwrightProject(failure: string): string {
+  /**
+   * A project whose `playwright` fails like a real one with no browser until `playwright install`
+   * runs. With `installFailure`, the install prints it on stderr and exits 1.
+   */
+  function playwrightProject(failure: string, installFailure?: string): string {
     const root = fixtureDir({
       'package.json': JSON.stringify({ name: 'e2e-fixture' }),
       'playwright.config.ts': 'export default {}\n',
       'install-output.txt': `${INSTALL_OUTPUT.join('\n')}\n`,
       'node_modules/.bin/playwright': [
         '#!/bin/sh',
+        ...(installFailure
+          ? [`if [ "$1" = install ]; then echo '${installFailure}' >&2; exit 1; fi`]
+          : []),
         'if [ "$1" = install ]; then shift; echo "$*" >> installed.txt; cat install-output.txt; exit 0; fi',
         'if [ -f installed.txt ]; then echo "  2 passed (1.0s)"; exit 0; fi',
         'cat <<"EOF"',
@@ -411,6 +418,25 @@ describe('runCheckLocal', () => {
     expect(e2e.status).toBe('passed')
     expect(readFileSync(join(root, 'installed.txt'), 'utf8')).toBe('--only-shell chromium\n')
     expect(e2e.summary).toContain('installed the Playwright browser first (chromium)')
+  })
+
+  it('says the browser install failed, and how to run it, when it cannot install', async () => {
+    // The check's process had no route to the network (Codex starts an MCP server without the
+    // proxy variables), the install failed, and the report was the first run's alone: the agent
+    // read "Executable doesn't exist" as a browser the check never tried to install, installed it
+    // from its own shell and ran the check again (harness eval `check`, 2026-11-25; OLD MUSTFAIL).
+    const missing =
+      "  1) [chromium] › e2e/smoke.spec.ts:27 › renders — Error: browserType.launch: Executable doesn't exist at /home/u/.cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell"
+    const root = playwrightProject(missing, 'Error: getaddrinfo EAI_AGAIN cdn.playwright.dev')
+    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    const [e2e] = result.results
+    expect(e2e.status).toBe('failed')
+    expect(e2e.errors[0]).toBe(
+      'could not install the Playwright browser: run `npx --no-install playwright install --only-shell chromium` in . (the install said: Error: getaddrinfo EAI_AGAIN cdn.playwright.dev)',
+    )
+    expect(e2e.errors.slice(1).join('\n')).toContain("Executable doesn't exist")
+    expect(e2e.errorTotal).toBe(e2e.errors.length)
   })
 
   it('leaves an e2e run that failed for another reason alone', async () => {

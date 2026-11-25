@@ -161,7 +161,16 @@ for the same server: `molecule` with the six tools an agent calls first
 (`search_packages`, `read_package_doc`, `list_templates`, `scaffold_project`,
 `add_package`, `check_project`) loaded up front, and `molecule_more` with the
 rest, which Codex still loads on demand. An entry whose command you changed is
-yours: setup leaves it whole and adds no second entry.
+yours: setup keeps its command and every setting it has, adds only the limits
+and variables it lacks, and adds no second entry.
+
+Codex also starts an MCP server with only a few environment variables (`HOME`,
+`PATH` and the like), so setup names the ones the server reads in each entry's
+`env_vars`: your proxy and CA settings, npm's registry and cache settings,
+Playwright's browser path, your Molecule token and the telemetry opt-out
+(`DO_NOT_TRACK`, `MOLECULE_TELEMETRY`). Without them the server's installs and
+its Playwright browser download cannot reach the network behind a proxy. An
+`env_vars` list you wrote yourself is kept.
 
 Zed, Junie and Continue's CLI read only the first instruction file they find, so
 setup adds the section to the file they read now instead of creating an

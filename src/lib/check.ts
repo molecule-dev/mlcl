@@ -837,18 +837,38 @@ async function runStep(
   const browsers = install.filter((a) => !a.startsWith('-')).join(', ')
   note(`has no Playwright browser: installing ${browsers}, then running it again`)
   const progress = playwrightInstallProgress()
+  const command = `npx --no-install playwright install ${install.join(' ')}`
   try {
-    await execCheckCommand(
-      { ...step, command: `npx --no-install playwright install ${install.join(' ')}` },
-      signal,
-      (line) => {
-        const text = progress(line)
-        if (text) note(text)
-      },
-    )
-  } catch (_error) {
-    // The install failed (offline, no permission): the first run's report says what is missing.
-    return first
+    await execCheckCommand({ ...step, command }, signal, (line) => {
+      const text = progress(line)
+      if (text) note(text)
+    })
+  } catch (error) {
+    // The install failed (no network, no permission). Said first, with its last line and the
+    // command: the first run's "Executable doesn't exist" alone reads as a browser the check never
+    // tried to install, and an agent installed it from its own shell and ran the check once more
+    // (harness eval `check`, 2026-11-25, where the check's process had no route to the network).
+    const { stdout, stderr, message } = error as {
+      stdout?: string
+      stderr?: string
+      message: string
+    }
+    const reason =
+      `${stdout ?? ''}\n${stderr ?? ''}`
+        .split('\n')
+        .map((line) => stripVTControlCharacters(line).trim())
+        .filter(Boolean)
+        .at(-1) ?? message
+    return {
+      ...first,
+      errors: [
+        clip(
+          `could not install the Playwright browser: run \`${command}\` in ${relative(root, step.dir) || '.'} (the install said: ${reason})`,
+        ),
+        ...first.errors,
+      ].slice(0, MAX_REPORTED_ERRORS),
+      errorTotal: first.errorTotal + 1,
+    }
   }
   const again = await runStepOnce(root, step, signal)
   const installed = `installed the Playwright browser first (${browsers})`

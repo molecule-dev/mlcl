@@ -75,6 +75,53 @@ export const CODEX_MCP_TIMEOUT_LINES = [
 ] as const
 
 /**
+ * The environment variables the server's work reads, which Codex must hand it. Codex starts an MCP
+ * server with a short list of its own (HOME, LANG, PATH, TERM and TMPDIR of the variables an eval
+ * box sets, Codex 0.166) unless its table names more in `env_vars`, by exact name: a name not set is
+ * skipped, and a pattern (`NPM_CONFIG_*`) matches nothing. Without the list, the proxy that reaches the network is gone, so `check_project`'s
+ * Playwright browser install failed and the agent installed it from its own shell (harness eval
+ * `check`, 2026-11-25), npm installs lose the registry and CA settings, and an opt-out
+ * (`DO_NOT_TRACK=1`, `MOLECULE_TELEMETRY=0`) never reaches the server.
+ */
+export const MCP_SERVER_ENV_VARS = [
+  // Molecule's own: credentials, endpoints, telemetry opt-out, CLI overrides.
+  'MOLECULE_TOKEN',
+  'MOLECULE_API_KEY',
+  'MOLECULE_API_URL',
+  'MOLECULE_SITE_URL',
+  'MOLECULE_ENV',
+  'MOLECULE_TELEMETRY',
+  'MOLECULE_TELEMETRY_URL',
+  'DO_NOT_TRACK',
+  'MLCL_CREDENTIALS_FILE',
+  'MLCL_DEBUG',
+  'MOLECULE_MCP_CLI',
+  'MOLECULE_MCP_CLI_TIMEOUT_MS',
+  'MLCL_REGISTRY_PATH',
+  // The network: a proxy and its CA, which npm, Playwright and Node's fetch read.
+  'HTTPS_PROXY',
+  'HTTP_PROXY',
+  'NO_PROXY',
+  'https_proxy',
+  'http_proxy',
+  'no_proxy',
+  'NODE_USE_ENV_PROXY',
+  'NODE_EXTRA_CA_CERTS',
+  // npm's own settings, in both spellings npm reads.
+  'NPM_CONFIG_REGISTRY',
+  'NPM_CONFIG_USERCONFIG',
+  'NPM_CONFIG_CACHE',
+  'NPM_CONFIG_PREFIX',
+  'npm_config_registry',
+  'npm_config_userconfig',
+  'npm_config_cache',
+  'npm_config_prefix',
+  // Where Playwright keeps and fetches its browsers.
+  'PLAYWRIGHT_BROWSERS_PATH',
+  'PLAYWRIGHT_DOWNLOAD_HOST',
+] as const
+
+/**
  * The tools Codex shows the model before its first turn: the ones a coding agent calls first,
  * as `UP_FRONT_TOOLS` in mcp/src/tool-loading.ts names them for Claude Code (a test keeps the
  * two lists equal).
@@ -101,6 +148,9 @@ export const CODEX_MORE_SERVER_NAME = 'molecule_more'
 /** A TOML array of strings, spaced as Codex writes one. */
 const tomlStrings = (values: readonly string[]): string =>
   JSON.stringify(values).replace(/","/g, '", "')
+
+/** The `env_vars` line of each Codex table setup writes ({@link MCP_SERVER_ENV_VARS}). */
+export const CODEX_MCP_ENV_LINE = `env_vars = ${tomlStrings(MCP_SERVER_ENV_VARS)}`
 
 /**
  * The `{command, args}` entry most JSON configs take.
@@ -503,7 +553,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
         kind: 'toml',
         path,
         table,
-        lines: [...commandLines(command, args), ...CODEX_MCP_TIMEOUT_LINES],
+        lines: [...commandLines(command, args), ...CODEX_MCP_TIMEOUT_LINES, CODEX_MCP_ENV_LINE],
         legacyLines: commandLines(LEGACY_MCP_COMMAND[0], LEGACY_MCP_COMMAND.slice(1)),
         split: {
           command: commandLines(command, args),
@@ -515,6 +565,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
           tableLines: [
             ...commandLines(command, args),
             ...CODEX_MCP_TIMEOUT_LINES,
+            CODEX_MCP_ENV_LINE,
             `disabled_tools = ${tomlStrings(CODEX_UP_FRONT_TOOLS)}`,
           ],
         },
