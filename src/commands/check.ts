@@ -110,7 +110,15 @@ export default class Check extends Command {
     }
     const result = await withHeartbeat(
       // A pass of every step the Stop hook runs is recorded, so the stop that follows skips it.
-      () => runRecordedCheck(root, input, { onProgress: progress, signal: controller.signal }),
+      () =>
+        runRecordedCheck(root, input, {
+          onProgress: progress,
+          signal: controller.signal,
+          onWait: (holder) =>
+            process.stderr.write(
+              `check: waiting for the check already running in this project (pid ${holder})\n`,
+            ),
+        }),
       (elapsed) => {
         if (running.size)
           process.stderr.write(`check: still running ${[...running].join(', ')} (${elapsed}s)\n`)

@@ -26,6 +26,7 @@ import type { Dirent } from 'node:fs'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 
+import { acquireCheckLock } from './check-lock.js'
 import { spawnCheckCommand } from './check-process.js'
 import { runServeCheck } from './check-serve.js'
 
@@ -1074,8 +1075,10 @@ export type CheckProgress =
  * @param root - The project root to check (default cwd).
  * @param input - `steps` (subset; {@link DEFAULT_CHECK_STEPS} when empty, plus e2e when an
  *   `e2e` filter is given), `e2e` (spec filter) and `ready`, `run`, `start` for a service check.
- * @param options - `budgetMs` for the whole call (default 15 min), `signal` for cancellation, and `onProgress`, called as each
- *   step starts and finishes, and when a step starts work besides its command.
+ * @param options - `budgetMs` for the steps (default 15 min, counted once no other check of the
+ *   project runs: see check-lock.ts), `signal` for cancellation, `onProgress`, called as each
+ *   step starts and finishes, and when a step starts work besides its command, and `onWait`, called
+ *   with the other check's pid when this one waits for it.
  * @returns `{ ok, report, results }`, or `{ error }` when nothing could be discovered.
  */
 export async function runCheckLocal(
@@ -1085,9 +1088,9 @@ export async function runCheckLocal(
     budgetMs?: number
     signal?: AbortSignal
     onProgress?: (event: CheckProgress) => void
+    onWait?: (holder: number) => void
   } = {},
 ): Promise<{ ok: boolean; report: string; results: CheckStepResult[] } | { error: string }> {
-  const started = Date.now()
   const budgetMs = options.budgetMs ?? 15 * 60_000
   const selected = selectedCheckSteps(input)
   if ('error' in selected) return selected
@@ -1103,6 +1106,41 @@ export async function runCheckLocal(
   if (serve && !packages.some((pkg) => pkg.rel === '.'))
     return { error: 'The serve step needs a package.json in the project root.' }
 
+  let release: () => Promise<void>
+  try {
+    release = await acquireCheckLock(root, { signal: options.signal, onWait: options.onWait })
+  } catch (error) {
+    return { error: error instanceof Error ? error.message : String(error) }
+  }
+  try {
+    return await runPlannedCheck(root, packages, { steps, e2e, serve, budgetMs }, options)
+  } finally {
+    await release()
+  }
+}
+
+/**
+ * The steps of one check, run while it holds the project's check lock.
+ *
+ * @param root - The project root.
+ * @param packages - The packages {@link discoverPackages} found.
+ * @param selection - The steps, the e2e filter, the serve options and the budget.
+ * @param options - `signal` and `onProgress`, as {@link runCheckLocal} takes them.
+ * @returns `{ ok, report, results }`.
+ */
+async function runPlannedCheck(
+  root: string,
+  packages: CheckPackage[],
+  selection: {
+    steps: CheckStepKind[]
+    e2e: string | undefined
+    serve: Exclude<ReturnType<typeof serveOptions>, { error: string }> | undefined
+    budgetMs: number
+  },
+  options: { signal?: AbortSignal; onProgress?: (event: CheckProgress) => void },
+): Promise<{ ok: boolean; report: string; results: CheckStepResult[] }> {
+  const started = Date.now()
+  const { steps, e2e, serve, budgetMs } = selection
   const plan = planCheckSteps(packages, { steps, e2e, serve, budgetMs })
   const controller = new AbortController()
   const cancel = (): void => controller.abort(new Error('The check was cancelled.'))
