@@ -181,3 +181,55 @@ describe('check_project — the CLI’s answer is the report, whatever shape it 
     expect(text).toContain('build')
   })
 })
+
+describe('check_project — the serve step', () => {
+  /** A stand-in CLI that answers with the arguments it was given, as text that is not a report. */
+  function echoCli(): string {
+    const dir = mkdtempSync(join(tmpdir(), 'mlcl-mcp-check-serve-'))
+    dirs.push(dir)
+    const script = join(dir, 'echo-mlcl.mjs')
+    writeFileSync(
+      script,
+      '#!/usr/bin/env node\nprocess.stdout.write(JSON.stringify(process.argv.slice(2)) + "\\n")\n',
+    )
+    chmodSync(script, 0o755)
+    return script
+  }
+
+  it('passes ready, run and start to mlcl check (OLD MUSTFAIL: the tool dropped them)', async (ctx) => {
+    if (skipped(ctx)) return
+    const { callTool } = await connect(echoCli())
+
+    const text = textOf(
+      await callTool('check_project', {
+        directory: tmpdir(),
+        steps: 'serve',
+        ready: 'http://localhost:3000/health',
+        run: 'curl -fsS http://localhost:3000/api/items',
+        start: 'dev',
+      }),
+    )
+
+    expect(JSON.parse(text)).toEqual([
+      'check',
+      '--steps',
+      'serve',
+      '--ready',
+      'http://localhost:3000/health',
+      '--run',
+      'curl -fsS http://localhost:3000/api/items',
+      '--start',
+      'dev',
+      '--json',
+    ])
+  })
+
+  it('counterexample: a check without serve passes none of them', async (ctx) => {
+    if (skipped(ctx)) return
+    const { callTool } = await connect(echoCli())
+
+    const text = textOf(await callTool('check_project', { directory: tmpdir() }))
+
+    expect(JSON.parse(text)).toEqual(['check', '--json'])
+  })
+})

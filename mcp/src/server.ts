@@ -822,25 +822,47 @@ server.registerTool(
     _meta: LOAD_UP_FRONT,
     title: 'Run the project’s checks',
     description:
-      'Run the project’s own checks — typecheck, lint and build by default; unit tests and e2e with steps: "unit,e2e" — discovered from its package.json scripts, concurrently with e2e after the build, and get ONE compact report back: per step passed/failed with duration, the first actionable errors (tsc/eslint/vitest/Playwright shapes), and the build’s output manifest. The whole verification loop in one call instead of hand-running each script and grepping its output. The full log of a failed step is kept at node_modules/.cache/mlcl-check/.',
+      'Run the project’s own checks — typecheck, lint and build by default; unit tests and e2e with steps: "unit,e2e" — discovered from its package.json scripts, concurrently with e2e after the build, and, with steps: "serve", start the server, wait for `ready` and run the `run` assertion against it, stopping the server after — and get ONE compact report back: per step passed/failed with duration, the first actionable errors (tsc/eslint/vitest/Playwright shapes), and the build’s output manifest. The whole verification loop in one call instead of hand-running each script and grepping its output. The full log of a failed step is kept at node_modules/.cache/mlcl-check/.',
     inputSchema: {
       directory: z.string().optional().describe('Project root (default cwd)'),
       steps: z
         .string()
         .optional()
         .describe(
-          'Only these steps, comma-separated: typecheck, lint, build, unit, e2e (default: typecheck, lint, build)',
+          'Only these steps, comma-separated: typecheck, lint, build, unit, e2e, serve (default: typecheck, lint, build)',
         ),
+      ready: z
+        .string()
+        .max(500)
+        .optional()
+        .describe(
+          'For serve: the URL that answers once the server is up, on localhost or 127.0.0.1',
+        ),
+      run: z
+        .string()
+        .max(4000)
+        .optional()
+        .describe(
+          'For serve: the shell assertion to run from the project root once ready (exit 0 passes)',
+        ),
+      start: z
+        .string()
+        .max(200)
+        .optional()
+        .describe('For serve: the npm script that starts the server (default start, else dev)'),
       e2e: z
         .string()
         .optional()
         .describe('Extra arguments for the e2e run (spec files, `--grep …`)'),
     },
   },
-  tracked('check_project', async ({ directory, steps, e2e }) => {
+  tracked('check_project', async ({ directory, steps, e2e, ready, run, start }) => {
     const args = ['check']
     if (steps) args.push('--steps', steps)
     if (e2e) args.push('--e2e', e2e)
+    if (ready) args.push('--ready', ready)
+    if (run) args.push('--run', run)
+    if (start) args.push('--start', start)
     // The report is read from the CLI's OUTPUT, never from a throw:
     // `mlcl check --json` prints it on stdout and exits 0 even when a step
     // failed, so a non-zero exit only ever carries the text of a CLI that could

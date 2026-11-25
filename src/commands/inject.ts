@@ -1,9 +1,9 @@
 import { existsSync, readFileSync } from 'node:fs'
 import { access, mkdir, readFile, writeFile } from 'node:fs/promises'
-import { join, relative } from 'node:path'
+import { join, relative, resolve } from 'node:path'
 
 import * as p from '@clack/prompts'
-import { Command, Flags } from '@oclif/core'
+import { Command, Flags, type Interfaces } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
@@ -15,6 +15,7 @@ import { appendSecretsToEnvFile, type EnvAppendResult } from '../lib/env-file.js
 import {
   existingProjectFiles,
   inLanguage,
+  liveCheckCommand,
   projectLanguage,
   wiringSteps,
 } from '../lib/existing-project.js'
@@ -51,6 +52,7 @@ import {
 import { npmInstall } from '../lib/npm-install.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { deriveOptionalFeatures } from '../lib/optional-features.js'
+import { withProjectLock } from '../lib/project-lock.js'
 import {
   detectAppFramework,
   findRegistryPackage,
@@ -161,7 +163,18 @@ export default class Inject extends Command {
 
   public async run(): Promise<void> {
     const { flags } = await this.parse(Inject)
+    const target = resolve(flags.path === '.' ? process.cwd() : flags.path)
+    await withProjectLock(npmInstallRoot(target), () => this.injectWith(flags), {
+      onWait: (pid) => this.log(t('commands.add.messages.waitingForLock', { pid })),
+    })
+  }
 
+  /**
+   * Inject, under the project lock.
+   *
+   * @param flags - The command flags.
+   */
+  private async injectWith(flags: Interfaces.InferredFlags<typeof Inject.flags>): Promise<void> {
     // AI code generation only on request: a key in the environment is usually the
     // calling agent's own, and each request is billed to it and slows the injection.
     const { disableAI, enableAI } = await import('../lib/ai.js')
@@ -1251,7 +1264,11 @@ export default class Inject extends Command {
         for (const line of step.slice(1)) this.log(`       ${chalk.cyan(line)}`)
       }
     }
-    if (!existingProject || projectPkg.scripts?.build)
+    const live = existingProject ? liveCheckCommand(projectPkg, isAppProject) : undefined
+    if (live) {
+      this.log(`  ${t('commands.inject.messages.checkLive', { num: stepNum++ })}`)
+      this.log(`       ${chalk.cyan(live)}`)
+    } else if (!existingProject || projectPkg.scripts?.build)
       this.log(
         `  ${t('commands.inject.messages.runBuild', { num: stepNum++, command: chalk.cyan('npm run build') })}`,
       )

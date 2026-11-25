@@ -2,7 +2,7 @@ import { readFile } from 'node:fs/promises'
 import { join, relative } from 'node:path'
 
 import * as p from '@clack/prompts'
-import { Args, Command, Flags } from '@oclif/core'
+import { Args, Command, Flags, type Interfaces } from '@oclif/core'
 import chalk from 'chalk'
 
 import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
@@ -21,6 +21,7 @@ import {
 import { syncMigrateRunner } from '../lib/migrate-runner.js'
 import { npmInstall } from '../lib/npm-install.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
+import { withProjectLock } from '../lib/project-lock.js'
 import { getMoleculeVersion, loadRegistry } from '../lib/registry.js'
 import { syncProjectAssets } from '../lib/scaffold.js'
 import type { InferredPackage } from '../lib/schema.js'
@@ -67,7 +68,21 @@ export default class Swap extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Swap)
+    await withProjectLock(npmInstallRoot(process.cwd()), () => this.swapWith(args, flags), {
+      onWait: (pid) => this.log(t('commands.add.messages.waitingForLock', { pid })),
+    })
+  }
 
+  /**
+   * Swap, under the project lock.
+   *
+   * @param args - The command arguments.
+   * @param flags - The command flags.
+   */
+  private async swapWith(
+    args: Interfaces.InferredArgs<typeof Swap.args>,
+    flags: Interfaces.InferredFlags<typeof Swap.flags>,
+  ): Promise<void> {
     setTelemetryContext({
       swapTo: args.molecule?.slice(0, 80),
       swapFrom: flags.replace?.slice(0, 80),

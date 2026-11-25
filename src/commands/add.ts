@@ -7,7 +7,12 @@ import { Args, Command, Errors, Flags } from '@oclif/core'
 import chalk from 'chalk'
 import { execa } from 'execa'
 
-import { addedDeclarations, afterAddGuidance, declaredNames } from '../lib/add-guidance.js'
+import {
+  addedDeclarations,
+  afterAddGuidance,
+  declaredNames,
+  installedPackageDir,
+} from '../lib/add-guidance.js'
 import { AUTH_PRECONFIGURATION_GUIDANCE } from '../lib/auth-contract.js'
 import { manifestStack, resolveCapability } from '../lib/capability-add.js'
 import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
@@ -26,6 +31,7 @@ import {
   moleculesToInject,
   serviceWorkerPackageFor,
 } from '../lib/peer-closure.js'
+import { withProjectLock } from '../lib/project-lock.js'
 import {
   getMoleculeVersion,
   getPackageStack,
@@ -160,7 +166,18 @@ export default class Add extends Command {
     p.intro(chalk.bgCyan(` ${t('commands.add.labels.intro')} `))
     if (flags.capability) named.unshift(this.capabilityPackage(flags.capability))
     setTelemetryContext({ packages: named.join(',') })
+    await withProjectLock(npmInstallRoot(process.cwd()), () => this.addAll(named, flags), {
+      onWait: (pid) => this.log(t('commands.add.messages.waitingForLock', { pid })),
+    })
+  }
 
+  /**
+   * Add the named packages, each into its workspace, under the project lock.
+   *
+   * @param named - The packages, as given.
+   * @param flags - The command flags.
+   */
+  private async addAll(named: string[], flags: AddFlags): Promise<void> {
     // Names that land in one workspace share one install and one inject.
     const groups = new Map<string, AddRequest[]>()
     for (const argument of named) {
@@ -360,6 +377,7 @@ export default class Add extends Command {
 
     try {
       const packageJson = JSON.parse(await readFile(packageJsonPath, 'utf-8'))
+      const manifestBefore = JSON.stringify(packageJson)
 
       // Resolve the exact version to pin. A registered `@molecule/*` package
       // uses the registry's own lockstep pin (what `create` writes and what the
@@ -476,13 +494,22 @@ export default class Add extends Command {
       const toInject = [...new Set(names.flatMap((name) => moleculesToInject(name, peers)))]
       if (flags.inject) declareInjectedThirdParty(packageJson, toInject)
 
-      await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
-
-      const [first, ...rest] = [...added].map(([depKey, list]) =>
-        t('commands.add.spinners.addedTo', { name: list.join(', '), depKey }),
-      )
-      spinner.stop(first)
-      for (const line of rest) this.log(line)
+      // A package an earlier add already declared and installed (a provider the add of its
+      // interface brought) changes nothing: no write and no second install. Claude added an
+      // interface and its provider in two calls, and the second reinstalled the project (harness
+      // eval `add`, 2026-11-25).
+      const unchanged =
+        JSON.stringify(packageJson) === manifestBefore &&
+        names.every((name) => installedVersion(name, workDir) === versions[name])
+      if (unchanged) spinner.stop(t('commands.add.spinners.alreadyAdded', { name: label }))
+      else {
+        await writeFile(packageJsonPath, JSON.stringify(packageJson, null, 2) + '\n')
+        const [first, ...rest] = [...added].map(([depKey, list]) =>
+          t('commands.add.spinners.addedTo', { name: list.join(', '), depKey }),
+        )
+        spinner.stop(first)
+        for (const line of rest) this.log(line)
+      }
       if (peers.length > 0) {
         this.log(
           t('commands.add.messages.peersAdded', { names: peers.join(', '), depKey: peerKey }),
@@ -497,7 +524,7 @@ export default class Add extends Command {
       // the package through node_modules (it warns "Run 'npm install' first"
       // otherwise), and an unattended `add --inject` (agents, the molecule MCP
       // server) must end with the dependency actually on disk.
-      if (!flags['no-install']) {
+      if (!flags['no-install'] && !unchanged) {
         spinner.start(t('commands.add.spinners.installing'))
 
         try {
@@ -575,5 +602,24 @@ export default class Add extends Command {
         spinner.stop(t('commands.add.spinners.addFailed', { name: label }))
       throw error
     }
+  }
+}
+
+/**
+ * The version of a package installed where a workspace resolves it.
+ *
+ * @param name - The package.
+ * @param workDir - The workspace.
+ * @returns Its installed version, or undefined when it is not installed.
+ */
+function installedVersion(name: string, workDir: string): string | undefined {
+  const dir = installedPackageDir(name, workDir)
+  if (!dir) return undefined
+  try {
+    return (JSON.parse(readFileSync(join(dir, 'package.json'), 'utf8')) as { version?: string })
+      .version
+  } catch (_error) {
+    // An unreadable manifest is not an installed package.
+    return undefined
   }
 }

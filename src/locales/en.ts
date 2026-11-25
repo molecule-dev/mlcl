@@ -23,6 +23,9 @@ export const messages: LocaleMessages = {
   'commands.add.args.molecule': 'Molecule package name',
   'commands.add.flags.capability':
     'Add the package for a capability described in words ("file uploads", "send emails with Resend"): the provider of a vendor the words name, else the interface they name with the project\'s provider for it or its default provider. When the words do not decide, lists the candidates and adds nothing',
+  'commands.add.spinners.alreadyAdded': '{name} is already in package.json and installed',
+  'commands.add.messages.waitingForLock':
+    'Waiting for another mlcl command (pid {pid}) to finish changing this project…',
   'commands.add.messages.capabilityResolved': '"{query}": adding {name} ({because})',
   'commands.add.errors.capabilityUndecided': 'Nothing added: {because}. Add one by name:',
   'commands.add.errors.missingName':
@@ -295,6 +298,8 @@ export const messages: LocaleMessages = {
   'commands.inject.messages.summary': 'Created {created} files, modified {modified} files',
   'commands.inject.messages.nextSteps': 'Next steps:',
   'commands.inject.messages.runInstall': '{num}. Run {command} to install new dependencies',
+  'commands.inject.messages.checkLive':
+    '{num}. Check it running, in one call: it builds, starts the server, waits for the URL, runs your command and stops the server (MCP: check_project with the same steps, ready and run):',
   'commands.inject.messages.runBuild': '{num}. Run {command} to verify the build',
   'commands.inject.messages.runTest': '{num}. Run {command} to run tests',
 
