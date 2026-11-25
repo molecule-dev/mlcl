@@ -9,6 +9,7 @@ import { execa } from 'execa'
 
 import { addedDeclarations, afterAddGuidance, declaredNames } from '../lib/add-guidance.js'
 import { AUTH_PRECONFIGURATION_GUIDANCE } from '../lib/auth-contract.js'
+import { manifestStack, resolveCapability } from '../lib/capability-add.js'
 import { refreshAgentsCapabilityMap } from '../lib/capability-map.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { providerTemplateVars, writeAddedFeatureFiles } from '../lib/feature-files.js'
@@ -19,6 +20,7 @@ import { databasePackageOf } from '../lib/migration-dialect.js'
 import { npmInstall } from '../lib/npm-install.js'
 import { npmInstallRoot } from '../lib/npm-install-root.js'
 import { deriveOptionalFeatures, featureTemplatePackages } from '../lib/optional-features.js'
+import { installCommand } from '../lib/package-search.js'
 import {
   missingMoleculePeers,
   moleculesToInject,
@@ -28,12 +30,14 @@ import {
   getMoleculeVersion,
   getPackageStack,
   getRawRegistry,
+  loadAppFrameworks,
   loadRegistry,
 } from '../lib/registry.js'
 import { getTemplatesDir } from '../lib/scaffold.js'
 import { createSpinner } from '../lib/spinner.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 import { describeWebOnlyChains, rendersOnReactNative, webOnlyChains } from '../lib/web-only.js'
+import { projectFramework, toSearchEntry } from './search.js'
 
 /** One package named on the command line, after a rename is followed. */
 interface AddRequest {
@@ -105,7 +109,7 @@ function starterAppOf(cwd: string): StarterApp | undefined {
   }
 }
 
-type AddFlags = { 'no-install': boolean; dev: boolean; inject: boolean }
+type AddFlags = { 'no-install': boolean; dev: boolean; inject: boolean; capability?: string }
 
 export default class Add extends Command {
   static override description = t('commands.add.description')
@@ -115,6 +119,7 @@ export default class Add extends Command {
     '<%= config.bin %> <%= command.id %> @molecule/api-oauth-github --no-install',
     '<%= config.bin %> <%= command.id %> @molecule/api-emails-mailgun --inject',
     '<%= config.bin %> <%= command.id %> @molecule/api-uploads-filesystem @molecule/api-emails-resend --inject',
+    '<%= config.bin %> <%= command.id %> --capability "file uploads" --inject',
   ]
 
   static override flags = {
@@ -131,6 +136,9 @@ export default class Add extends Command {
       description: t('commands.add.flags.inject'),
       default: false,
     }),
+    capability: Flags.string({
+      description: t('commands.add.flags.capability'),
+    }),
   }
 
   // More names may follow the first, as with `npm install a b`: agents write
@@ -138,18 +146,20 @@ export default class Add extends Command {
   static override strict = false
 
   static override args = {
+    // Not required: `--capability` names the package instead.
     molecule: Args.string({
       description: t('commands.add.args.molecule'),
-      required: true,
     }),
   }
 
   public async run(): Promise<void> {
     const { argv, flags } = await this.parse(Add)
     const named = (argv as string[]).filter((argument) => argument.length > 0)
-    setTelemetryContext({ packages: named.join(',') })
+    if (named.length === 0 && !flags.capability) this.error(t('commands.add.errors.missingName'))
 
     p.intro(chalk.bgCyan(` ${t('commands.add.labels.intro')} `))
+    if (flags.capability) named.unshift(this.capabilityPackage(flags.capability))
+    setTelemetryContext({ packages: named.join(',') })
 
     // Names that land in one workspace share one install and one inject.
     const groups = new Map<string, AddRequest[]>()
@@ -229,6 +239,50 @@ export default class Add extends Command {
       this.log(`  ! ${t('commands.add.messages.featureFileConflict', { path: shown(path) })}`)
       this.log(diff)
     }
+  }
+
+  /**
+   * The package `--capability` adds (`lib/capability-add.ts` has the rule), on the project's stack
+   * and framework. When the words do not decide, it lists the candidates and exits 1, having
+   * written nothing.
+   */
+  private capabilityPackage(query: string): string {
+    const root = process.cwd()
+    const fullStack =
+      existsSync(join(root, 'api', 'package.json')) && existsSync(join(root, 'app', 'package.json'))
+    const manifest = existsSync(join(root, 'package.json'))
+      ? JSON.parse(readFileSync(join(root, 'package.json'), 'utf8'))
+      : {}
+    const resolved = resolveCapability(loadRegistry().map(toSearchEntry), query, {
+      stack: fullStack ? undefined : manifestStack(manifest),
+      framework: projectFramework(root),
+      appFrameworks: loadAppFrameworks(),
+      declared: [
+        ...manifestNames(root),
+        ...(fullStack
+          ? [...manifestNames(join(root, 'api')), ...manifestNames(join(root, 'app'))]
+          : []),
+      ],
+    })
+    if ('name' in resolved) {
+      p.log.info(
+        t('commands.add.messages.capabilityResolved', {
+          query,
+          name: resolved.name,
+          because: resolved.because,
+        }),
+      )
+      return resolved.name
+    }
+    const lines = resolved.choices.map(
+      (hit) => `  ${hit.name}  ${hit.label}\n      ${installCommand(hit.name)}`,
+    )
+    p.cancel(
+      [t('commands.add.errors.capabilityUndecided', { because: resolved.because }), ...lines].join(
+        '\n',
+      ),
+    )
+    return this.exit(1)
   }
 
   /** The package a command-line argument names, following a registry rename. */

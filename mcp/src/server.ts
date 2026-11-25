@@ -725,18 +725,36 @@ server.registerTool(
     _meta: LOAD_UP_FRONT,
     title: 'Add a package to this project',
     description:
-      'Install and wire a @molecule/* package into the project at directory (mlcl add --inject: writes the dependency, generates the bond wiring, peers, migrations, routes). It runs a real `npm install`: seconds when the npm cache holds the packages, a few minutes on a first install. Call it once and wait; a slow response is not a failure, do not retry.',
+      'Install and wire a @molecule/* package into the project at directory (mlcl add --inject: writes the dependency, generates the bond wiring, peers, migrations, routes), by `name`, or by `query`: the capability in words ("file uploads", "send emails with Resend"), which adds the provider of a vendor the words name, else the interface they name with the project’s provider or its default provider, and lists the candidates (adding nothing) when the words do not decide. One add brings a provider’s interface and an interface’s default provider. Its output ends with the call to make and how to use the package, so no separate doc read is needed. It runs a real `npm install`: seconds when the npm cache holds the packages, a few minutes on a first install. Call it once and wait; a slow response is not a failure, do not retry.',
     inputSchema: {
-      name: z.string().describe('Full package name, e.g. @molecule/api-emails-mailgun'),
+      name: z
+        .string()
+        .optional()
+        .describe('Full package name, e.g. @molecule/api-emails-mailgun (or give `query`)'),
+      query: z
+        .string()
+        .max(200)
+        .optional()
+        .describe('The capability in words, e.g. "file uploads" (instead of `name`)'),
       directory: z
         .string()
         .optional()
         .describe('Project root containing package.json (default cwd)'),
     },
   },
-  tracked('add_package', async ({ name, directory }) =>
-    text(await runCli(['add', name, '--inject'], directory)),
-  ),
+  tracked('add_package', async ({ name, query, directory }) => {
+    const args =
+      name !== undefined && query === undefined
+        ? ['add', name, '--inject']
+        : query !== undefined && name === undefined
+          ? ['add', '--capability', query, '--inject']
+          : undefined
+    if (!args)
+      throw new Error(
+        'add_package takes `name` (a package) or `query` (a capability in words), not both or neither.',
+      )
+    return text(await runCli(args, directory))
+  }),
 )
 
 server.registerTool(

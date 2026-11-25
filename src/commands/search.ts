@@ -46,6 +46,11 @@ export function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
     decisionGuide: pkg.molecule?.decisionGuide,
     quickStart: pkg.molecule?.quickStart,
     secrets: pkg.molecule?.secrets,
+    // What one add also installs (a provider's core, an interface's default), as the raw entry has it.
+    type: pkg.molecule?.type,
+    implements: pkg.molecule?.implements,
+    defaultProvider: pkg.molecule?.defaultProvider,
+    moleculePeers: pkg.molecule?.moleculePeers,
   }
 }
 
@@ -159,6 +164,7 @@ export default class Search extends Command {
       this.log(`  ${ui.id(hit.name)}  ${ui.badge(hit.stack, hit.category)}`)
       if (hit.description) this.log(`      ${ui.dim(hit.description)}`)
       this.log(`      ${ui.dim('add with:')} ${ui.cmd(installCommand(hit.name))}`)
+      if (hit.includes) this.log(`      ${ui.dim('includes:')} ${hit.includes}`)
       if (hit.envVars) this.log(`      ${ui.dim('reads:')} ${hit.envVars.join(', ')}`)
       // The first hits' Quick Start (package-search.ts, QUICK_START_HITS): which package and its call.
       if (hit.quickStart)

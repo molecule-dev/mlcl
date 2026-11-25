@@ -632,7 +632,7 @@ export function renderCapabilityMap(entries: readonly CapabilityMapEntry[]): str
   const lines = [
     CAPABILITY_MAP_MARKER,
     '',
-    "Generated from this project's package manifests and `mlcl/registry.json`. Map every feature in the plan to a declared package and its configuration. Read that package's doc before deciding; write `use @molecule/<name> with <configuration>` or `not using @molecule/<name> because <reason>` after the doc read. An API-shape difference is configuration to look up, not a reason to write a parallel implementation.",
+    "Generated from this project's package manifests and `mlcl/registry.json`. Map every feature in the plan to a declared package and its configuration. Read that package's doc before deciding not to use it, then write `not using @molecule/<name> because <reason>`. An API-shape difference is configuration to look up, not a reason to write a parallel implementation.",
     '',
   ]
   for (const entry of entries) {

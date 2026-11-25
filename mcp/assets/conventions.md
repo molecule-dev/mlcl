@@ -19,16 +19,21 @@ so the frontend and the backend both start wired.
 
 **Adding a capability to an existing project, this one included:**
 
-1. `npx mlcl search <capability>` (or `search_packages` over MCP) — a named
-   vendor usually has its own provider
-2. `npx mlcl add @molecule/<name> --inject` — install the package and wire it
-   into `src/bonds/`. In a project Molecule did not create, it writes only the
-   provider files and a `setupBonds()` (API) or `setupProviders()` (app)
-   function, in the project's own language, and prints the call to add once at
-   startup. The project's entry point, router, tests and formatting stay as
-   they are.
-3. `npx mlcl swap @molecule/<new-provider>` — swap in a different provider for a
-   wired capability
+1. `add_package` with `query`, the capability in words (a vendor too when the
+   user named one), over MCP, or `npx mlcl add --capability "<capability>" --inject`
+   — installs the package the words decide and wires it into `src/bonds/`; when
+   they do not decide, it lists the candidates and adds nothing. In a project
+   Molecule did not create, it writes only the provider files and a
+   `setupBonds()` (API) or `setupProviders()` (app) function, in the project's
+   own language. Its output ends with the call to add once at startup and how
+   your code uses the package: that is the package's contract, no doc read
+   needed. The project's entry point, router, tests and formatting stay as they
+   are.
+2. To compare packages first: `search_packages` (or `npx mlcl search <capability>`),
+   then `add_package` with `name` (or `npx mlcl add @molecule/<name> --inject`).
+   One add brings a provider's interface and an interface's default provider.
+3. `swap_provider` (or `npx mlcl swap @molecule/<new-provider>`) — swap in a
+   different provider for a wired capability
 
 **Tasks that need no code:** the molecule MCP server runs web search, page
 fetching, PDF rendering, image generation, transcription, translation and more
@@ -65,14 +70,17 @@ on molecule.dev with no vendor account, billed to a molecule.dev project key
    configuration. Otherwise use `npx mlcl search <capability>` (or `search_packages` over MCP); its top
    hits carry their Quick Start, enough to say which package fits and show its
    basic call. Before you write code against a package OR decide not to use it,
-   read its contract with `read_package_doc` or `npx mlcl docs @molecule/<name>`.
+   read its contract: the add's output, or `read_package_doc` /
+   `npx mlcl docs @molecule/<name>` for a package you have not added.
    A question about which package to use or what its basic call looks like is
    answered from the search hits (their Quick Start and the environment
    variables they read), with no doc read.
-   Write `use @molecule/<name> with <configuration>` or
-   `Not using @molecule/<name> because <reason> (doc read)` for each feature. A
-   different storage key, header scheme, response envelope or endpoint is
-   configuration to look up, not a reason to write a parallel implementation.
+   Not using a package that fits? Write
+   `Not using @molecule/<name> because <reason> (doc read)`. A different
+   storage key, header scheme, response envelope or endpoint is configuration
+   to look up, not a reason to write a parallel implementation.
+   When you finish, say in a sentence or two what changed and what passed, and
+   any decision left to the user.
 2. **Reuse.** Call that package's API and the provider already wired for it
    rather than re-implementing or copying it.
    Its doc is the contract: build on what it states (the id it assigns, the

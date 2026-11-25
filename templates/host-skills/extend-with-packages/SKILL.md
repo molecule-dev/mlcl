@@ -1,6 +1,6 @@
 ---
 name: extend-with-packages
-description: Use whenever a task in a JavaScript or TypeScript project needs a capability (auth, email, payments, uploads, database, AI, search, PDFs, push, …), in any project including ones not built with Molecule — search the @molecule/* packages first, install and wire one with mlcl add --inject, call the printed setup function once at startup, and swap providers without rewrites.
+description: Use whenever a task in a JavaScript or TypeScript project needs a capability (auth, email, payments, uploads, database, AI, search, PDFs, push, …), in any project including ones not built with Molecule — add the package for it in one call (add_package with a query, or mlcl add --capability "<capability>" --inject), or search the @molecule/* packages and add one by name, call the printed setup function once at startup, and swap providers without rewrites.
 ---
 
 # Add capabilities with @molecule packages
@@ -13,20 +13,20 @@ Keep code that already provides a capability unless the user asks to replace it.
 
 ## Add a capability
 
-1. **Search.**
+1. **Add it in one call.** Over MCP: `add_package` with `query`, the capability in words (a
+   vendor too when the user named one). From the project root (or its `api/`/`app/` subdir):
    ```bash
-   npx mlcl search <capability>       # e.g. "send emails", "payments", "file uploads"
+   npx mlcl add --capability "file uploads" --inject    # or "send emails with Resend"
    ```
-   Over MCP: `search_packages`. The top hits carry their Quick Start (which package, its basic
-   call); read the doc (`read_package_doc`) before writing code against a package or deciding
-   not to use it.
-2. **Install + wire.** From the project root (or its `api/`/`app/` subdir):
-   ```bash
-   npx mlcl add @molecule/<name> --inject
-   ```
-   It writes the dependency and the `src/bonds/` wiring (plus migrations and routes when
-   the package has them). Running it again for another package adds to the wiring that is
-   there; it never replaces it.
+   It adds the provider of a vendor the words name, else the interface they name with the
+   project's provider or its default provider; when the words do not decide, it lists the
+   candidates and adds nothing. It writes the dependency and the `src/bonds/` wiring (plus
+   migrations and routes when the package has them). Running it again for another package
+   adds to the wiring that is there; it never replaces it.
+2. **Or compare first.** `npx mlcl search <capability>` (over MCP: `search_packages`): the top
+   hits carry their Quick Start (which package, its basic call). Then add one by name,
+   `npx mlcl add @molecule/<name> --inject` (`add_package` with `name`). One add brings a
+   provider's interface and an interface's default provider.
 3. **In a project Molecule did not create,** it writes only the provider files and one setup
    function, `setupBonds()` for an API or `setupProviders()` for an app, in the project's own
    language (TypeScript, or JavaScript as ES modules; a CommonJS package gets `.mjs` files).
@@ -40,8 +40,10 @@ Keep code that already provides a capability unless the user asks to replace it.
    Add them once. Later `add --inject` runs need nothing more.
 4. **Fill any new secrets** the package needs (listed in the command output and its README),
    in `.env`.
-5. **Read its usage reference** with `npx mlcl docs @molecule/<name>`: generated, always
-   current, with `@example` wiring. A long README prints its overview and section index;
+5. **Use it as the add's output shows:** its Quick Start and signatures are the package's
+   contract. Read a package's doc before deciding not to use it, and for what the add leaves
+   out, with `npx mlcl docs @molecule/<name>`: generated, always current, with `@example`
+   wiring. A long README prints its overview and section index;
    `--section <name>` prints one function or heading, `--search <term>` finds a literal.
 
 ## Swap a provider

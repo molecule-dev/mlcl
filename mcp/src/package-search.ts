@@ -67,6 +67,14 @@ export interface SearchSourceEntry {
   label?: string
   description?: string
   exports?: readonly string[]
+  /** Its kind (`core`, `provider`, …), as the registry records it. */
+  type?: string
+  /** The interface package a provider implements. */
+  implements?: string
+  /** The provider an add of this interface package also declares when the project has none. */
+  defaultProvider?: string
+  /** The `@molecule/*` packages an add declares with this one. */
+  moleculePeers?: readonly string[]
   /**
    * The UI framework the package is written for (`react`, `vue`, `svelte`, `solid`,
    * `angular`, `react-native`); absent for a framework-neutral package.
@@ -108,6 +116,12 @@ export interface SearchHit {
    * (harness eval `find`, 2026-11-24).
    */
   envVars?: string[]
+  /**
+   * The other package one add of this one installs and wires: a provider's core, or an interface's
+   * default provider. Shown on both hits, an agent ran one add for the core and another for its
+   * provider, the second a no-op (harness eval `add`, 2026-11-25: every CLI path ran two).
+   */
+  includes?: string
 }
 
 /**
@@ -428,6 +442,7 @@ export function searchPackages(
         ? { quickStart: entry.quickStart }
         : {}),
       ...(envVars.length > 0 ? { envVars } : {}),
+      ...includesOf(entry),
       score,
       dependsOn: Array.isArray(entry.runtimeDependencies) ? entry.runtimeDependencies : [],
     })
@@ -451,6 +466,27 @@ export function searchPackages(
 }
 
 /**
+ * What one add of an entry also installs and wires: the core a provider implements (when the provider
+ * declares it) and an interface's default provider (declared only when nothing in the project
+ * implements the interface, as `mlcl add` decides).
+ *
+ * @param entry - A registry entry.
+ * @returns `{ includes }`, or nothing when the add brings neither.
+ */
+function includesOf(entry: SearchSourceEntry): { includes?: string } {
+  const peers = Array.isArray(entry.moleculePeers) ? entry.moleculePeers : []
+  if (entry.type === 'provider' && entry.implements && peers.includes(entry.implements))
+    return {
+      includes: `${entry.implements}, its interface (your code imports it): one add installs both`,
+    }
+  if (entry.defaultProvider)
+    return {
+      includes: `${entry.defaultProvider}, its default provider, unless the project has a provider for it: one add installs both`,
+    }
+  return {}
+}
+
+/**
  * The command that installs and wires a hit, as every search surface prints it. `npx mlcl` is how
  * every doc and skill spells the CLI: it runs with or without a global install, where a bare
  * `mlcl add` fails in a home that has none.
@@ -470,7 +506,11 @@ export function installCommand(name: string): string {
  */
 export function searchResultsJson(hits: readonly SearchHit[]): string {
   return JSON.stringify(
-    hits.map((hit) => ({ ...hit, install: installCommand(hit.name) })),
+    hits.map(({ includes, ...hit }) => ({
+      ...hit,
+      install: installCommand(hit.name),
+      ...(includes ? { includes } : {}),
+    })),
     null,
     2,
   )

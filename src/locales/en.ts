@@ -21,6 +21,12 @@ export const messages: LocaleMessages = {
   'commands.add.flags.inject':
     'Run mlcl inject immediately after adding (installs + wires the package)',
   'commands.add.args.molecule': 'Molecule package name',
+  'commands.add.flags.capability':
+    'Add the package for a capability described in words ("file uploads", "send emails with Resend"): the provider of a vendor the words name, else the interface they name with the project\'s provider for it or its default provider. When the words do not decide, lists the candidates and adds nothing',
+  'commands.add.messages.capabilityResolved': '"{query}": adding {name} ({because})',
+  'commands.add.errors.capabilityUndecided': 'Nothing added: {because}. Add one by name:',
+  'commands.add.errors.missingName':
+    'Name a package (mlcl add @molecule/<name> --inject) or describe the capability (mlcl add --capability "file uploads" --inject)',
   'commands.add.labels.intro': 'mlcl add',
   'commands.add.errors.noPackageJson':
     'No package.json found in {dir}. Run mlcl add from your project root (or its api/ or app/ subdirectory).',

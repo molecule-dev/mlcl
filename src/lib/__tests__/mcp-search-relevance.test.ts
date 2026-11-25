@@ -307,6 +307,9 @@ describe.skipIf(!available)('hosted MCP search — actual protocol parity with t
       label: string
       category: string
       description: string
+      quickStart?: string
+      implements?: string
+      moleculePeers?: string[]
     }
     const hits = await callHits({ query: target })
     expect(hits.map((hit) => hit.name)).toEqual([target])
@@ -318,8 +321,15 @@ describe.skipIf(!available)('hosted MCP search — actual protocol parity with t
       description: entry.description,
       install: `npx mlcl add ${target} --inject`,
     })
+    // The first hits carry their Quick Start, and a provider that declares its interface says one add
+    // brings it: both come from the entry, as the CLI's do.
+    const extra = [
+      ...(entry.quickStart ? ['quickStart'] : []),
+      ...(entry.implements && entry.moleculePeers?.includes(entry.implements) ? ['includes'] : []),
+    ]
+    expect(extra).toContain('includes')
     expect(Object.keys(hits[0]).sort()).toEqual(
-      ['name', 'stack', 'category', 'label', 'description', 'install'].sort(),
+      ['name', 'stack', 'category', 'label', 'description', 'install', ...extra].sort(),
     )
   })
 

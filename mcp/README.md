@@ -89,7 +89,7 @@ molecule-dev/molecule-claude-code` then `/plugin install molecule@molecule`
 | ----------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
 | `search_packages`                                                 | Search `@molecule/*` by capability ("payments", "social login"); the top three show their Quick Start |
 | `read_package_doc`                                                | A package's generated usage README (walks up to hoisted node_modules)                  |
-| `add_package`                                                     | Install + wire a package (`mlcl add --inject`)                                         |
+| `add_package`                                                     | Install + wire a package by `name`, or by `query`: a capability in words (`mlcl add --inject`) |
 | `swap_provider`                                                   | Swap a wired provider (`mlcl swap`)                                                    |
 | `find_example`                                                    | A working, tested example of a feature, with where each file goes                      |
 | `check_project`                                                   | Run the project's typecheck, lint, build and tests; one short report                   |
