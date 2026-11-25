@@ -32060,7 +32060,7 @@
         "attachments",
         "profile picture upload"
       ],
-      "quickStart": "import { getProvider, getUploads, receiveUploads, sendUpload } from '@molecule/api-uploads'\n// a bond (e.g. `@molecule/api-uploads-filesystem`) called setProvider() at startup\n\nrouter.post(\n  '/files',\n  requireAuth, // refuse anonymous requests before anything is stored\n  receiveUploads({\n    field: 'file',\n    maxFileBytes: 5 * 1024 * 1024, // optional; 10 MiB when left out\n    types: ['image/png', 'image/jpeg', 'application/pdf', 'text/plain'],\n  }), // refuses: 415 not multipart or another type, 413 too large or too many, 400 no file or another field\n  async (req, res) => {\n    const [file] = getUploads(req, 'file') // fully stored; refusals never reach here\n    await saveFileRow({ id: file.id, userId: getUserId(res), name: file.filename }) // own it\n    res.status(201).json({ id: file.id }) // a throw or a 4xx/5xx answer removes the stored file\n  },\n)\n\nrouter.get('/files/:id', async (req, res) => {\n  const row = await getFileRow(req.params.id)\n  if (!row || row.userId !== getUserId(res)) return res.status(404).end() // ownership → no IDOR\n  const stream = await getProvider().getFile?.(row.id) // null for any id no stored file has, `../x` too\n  if (!stream) return res.status(404).end()\n  await sendUpload(res, stream, { filename: row.name }) // a download; { inline: true, type } shows an image\n})"
+      "quickStart": "import { getProvider, getUploads, receiveUploads, sendUpload } from '@molecule/api-uploads'\n// a bond called setProvider() at startup; the default, `@molecule/api-uploads-filesystem`, stores\n// files under FILE_UPLOAD_PATH (./uploads), a folder that ignores itself in git: no .gitignore entry\n\nrouter.post(\n  '/files',\n  requireAuth, // refuse anonymous requests before anything is stored\n  receiveUploads({\n    field: 'file',\n    maxFileBytes: 5 * 1024 * 1024, // optional; 10 MiB when left out\n    types: ['image/png', 'image/jpeg', 'application/pdf', 'text/plain'],\n  }), // refuses: 415 not multipart or another type, 413 too large or too many, 400 no file or another field\n  async (req, res) => {\n    const [file] = getUploads(req, 'file') // fully stored; refusals never reach here\n    await saveFileRow({ id: file.id, userId: getUserId(res), name: file.filename }) // own it\n    res.status(201).json({ id: file.id }) // a throw or a 4xx/5xx answer removes the stored file\n  },\n)\n\nrouter.get('/files/:id', async (req, res) => {\n  const row = await getFileRow(req.params.id)\n  if (!row || row.userId !== getUserId(res)) return res.status(404).end() // ownership → no IDOR\n  const stream = await getProvider().getFile?.(row.id) // null for any id no stored file has, `../x` too\n  if (!stream) return res.status(404).end()\n  await sendUpload(res, stream, { filename: row.name }) // a download; { inline: true, type } shows an image\n})"
     },
     "@molecule/api-uploads-encrypted": {
       "language": "typescript",
@@ -50818,13 +50818,17 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-drag-drop",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-drag-drop",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -53645,11 +53649,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -54109,11 +54115,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -54383,12 +54391,14 @@
         "@molecule/app-feature-track-lane-react",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-feature-track-lane-react",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -65237,6 +65247,7 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-drag-drop",
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
@@ -65244,6 +65255,7 @@
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-drag-drop",
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
@@ -86450,11 +86462,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -106622,13 +106636,14 @@
       "stack": "app",
       "exports": [
         "TagChip",
-        "TagChipProps",
         "TagInput",
-        "TagInputFieldProps",
-        "TagInputProps",
         "TagList",
+        "TagChipProps",
+        "TagInputProps",
         "TagListProps",
         "UseTagInputOptions",
+        "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -106684,6 +106699,7 @@
         "useTagInput",
         "UseTagInputOptions",
         "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult"
       ],
       "secrets": [],
@@ -106735,13 +106751,14 @@
       "stack": "app",
       "exports": [
         "TagChip",
-        "TagChipProps",
         "TagInput",
-        "TagInputFieldProps",
-        "TagInputProps",
         "TagList",
+        "TagChipProps",
         "TagListProps",
+        "TagInputProps",
         "UseTagInputOptions",
+        "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -106785,13 +106802,14 @@
       "stack": "app",
       "exports": [
         "TagChip",
-        "TagChipProps",
         "TagInput",
-        "TagInputFieldProps",
-        "TagInputProps",
         "TagList",
+        "TagChipProps",
         "TagListProps",
+        "TagInputProps",
         "UseTagInputOptions",
+        "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -106835,13 +106853,14 @@
       "stack": "app",
       "exports": [
         "TagChip",
-        "TagChipProps",
         "TagInput",
-        "TagInputFieldProps",
-        "TagInputProps",
         "TagList",
+        "TagChipProps",
         "TagListProps",
+        "TagInputProps",
         "UseTagInputOptions",
+        "TagInputFieldProps",
+        "TagInputTextFieldProps",
         "UseTagInputResult",
         "useTagInput"
       ],
@@ -109194,6 +109213,11 @@
         "MOL_ID_ATTR",
         "ElementHandle",
         "ElementBox",
+        "ElementViewport",
+        "ElementMeasureTarget",
+        "ElementDragPoint",
+        "ElementDrag",
+        "ElementDragProps",
         "ElementLength",
         "BoxStyle",
         "TextStyle",
@@ -109203,18 +109227,28 @@
         "AriaBoolean",
         "AriaAttributes",
         "ElementProps",
+        "ForwardedElementProps",
         "InteractionProps",
         "MousePressProps",
         "BoxTag",
         "BoxProps",
+        "DisclosureSummaryProps",
+        "DisclosureProps",
+        "RuleProps",
         "InlineKind",
         "GlyphIconProps",
+        "DotPulseMotion",
+        "DEFAULT_TYPING_PULSE",
+        "PulseDotsProps",
         "TextTag",
         "TextProps",
         "PressableTag",
         "PressableProps",
         "ElementLinkProps",
         "AnchorProps",
+        "TextFieldKeyEvent",
+        "TextFieldBaseProps",
+        "FieldBounds",
         "TextFieldProps",
         "RangeFieldProps",
         "SelectFieldOption",
@@ -109231,10 +109265,18 @@
         "TableBoxProps",
         "TableCellProps",
         "ImageProps",
+        "ScrollOffset",
         "ScrollAreaProps",
         "SvgPaintProps",
         "SvgStyle",
         "SvgElementProps",
+        "SvgDefsProps",
+        "SvgClipPathProps",
+        "SvgGradientStop",
+        "SvgLinearGradientProps",
+        "SvgPatternProps",
+        "SvgImageProps",
+        "SvgMetadata",
         "SvgProps",
         "SvgMarkupProps",
         "SvgPathProps",
@@ -109248,6 +109290,7 @@
         "NativeGridClasses",
         "NativeClassSplit",
         "UIClassMapNativeSplit",
+        "fieldLayout",
         "OverlayTarget",
         "OverlayDismissReason",
         "OverlayLayerKind",
@@ -109368,30 +109411,7 @@
         "AccentTone",
         "UIClassMap",
         "extendClassMap",
-        "ClassMapOverrides",
-        "DEFAULT_TYPING_PULSE",
-        "DotPulseMotion",
-        "PulseDotsProps",
-        "DisclosureProps",
-        "DisclosureSummaryProps",
-        "ElementDrag",
-        "ElementDragPoint",
-        "ElementDragProps",
-        "FieldBounds",
-        "RuleProps",
-        "SvgClipPathProps",
-        "SvgDefsProps",
-        "SvgGradientStop",
-        "SvgImageProps",
-        "SvgLinearGradientProps",
-        "SvgMetadata",
-        "SvgPatternProps",
-        "TextFieldBaseProps",
-        "ElementMeasureTarget",
-        "ElementViewport",
-        "ForwardedElementProps",
-        "ScrollOffset",
-        "TextFieldKeyEvent"
+        "ClassMapOverrides"
       ],
       "secrets": [],
       "runtimeDependencies": [
