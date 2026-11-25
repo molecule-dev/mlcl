@@ -18,6 +18,7 @@ import {
   verificationFields,
   verificationLines,
 } from '../lib/create-next.js'
+import { readCreatePackages } from '../lib/create-packages.js'
 import { withHeartbeat } from '../lib/create-progress.js'
 import { assertDdlCompatibility } from '../lib/database-compatibility.js'
 import { DDL_INCOMPATIBLE_EXIT, isDdlCompatibilityFailure } from '../lib/ddl-exit.js'
@@ -305,6 +306,7 @@ export default class Create extends Command {
     }),
     packages: Flags.string({
       description: t('commands.create.flags.packages'),
+      multiple: true,
     }),
     theme: Flags.string({
       description: t('commands.create.flags.theme'),
@@ -333,7 +335,19 @@ export default class Create extends Command {
   }
 
   public async run(): Promise<void> {
-    const { args, flags } = await this.parse(Create)
+    const { args, flags: parsed } = await this.parse(Create)
+    // `--packages` as one comma list, the form the rest of this command reads (create-packages.ts).
+    const named = parsed.packages
+      ? readCreatePackages(parsed.packages, args.name, new Set(loadRegistry().map((p) => p.name)))
+      : undefined
+    if (named && named.unknown.length > 0) {
+      this.error(t('commands.create.errors.packagesUnknown', { names: named.unknown.join(', ') }))
+    }
+    if (named) args.name = named.name
+    const flags = {
+      ...parsed,
+      packages: named && named.packages.length > 0 ? named.packages.join(',') : undefined,
+    }
 
     // Human progress output, suppressed under --json so the result object is
     // the only thing on stdout (agents parse it; humans read the steps).
@@ -979,20 +993,6 @@ export default class Create extends Command {
     log(`Default providers auto-resolved: ${defaultProviders.join(', ') || '(none)'}`)
     selectedPackageNames.push(...defaultProviders)
 
-    if (framework) {
-      // The packages only a feature's pages use (the OAuth buttons' auth-ui package), when the
-      // stack brings that feature: the same derivation the app templates and the API router use.
-      // Read after bundling, since a bundled package can bring a feature (a payments provider
-      // brings the billing routes, and with them the billing section).
-      const featurePackages = featureTemplatePackages(
-        join(getTemplatesDir(), 'app'),
-        framework,
-        deriveOptionalFeatures(selectedPackageNames, allPackages),
-      )
-      log(`Feature template packages: ${featurePackages.join(', ') || '(none)'}`)
-      selectedPackageNames.push(...featurePackages)
-    }
-
     // Theme preset resolution: swap default theme provider + add classMap provider
     const themePresets = loadThemePresets()
     const themeName = flags.theme
@@ -1057,9 +1057,26 @@ export default class Create extends Command {
     if (workerPackage && !selectedPackageNames.includes(workerPackage)) {
       selectedPackageNames.push(workerPackage)
     }
-    const transitivePeers = resolveTransitivePeers(selectedPackageNames, allPackages)
-    log(`Transitive peer companions auto-resolved: ${transitivePeers.join(', ') || '(none)'}`)
-    selectedPackageNames.push(...transitivePeers)
+    // The peers, and the packages only a feature's pages use (the plan page's package with
+    // payments, the OAuth buttons' auth-ui package), until neither adds one. The scaffold writes a
+    // feature's pages for every package it is handed, peers included: the default bonds bundle
+    // peers on the payments providers, so its stack gets the plan page and the settings panel,
+    // and their packages must come with it. A feature's packages can bring peers in turn. Same
+    // derivation as the app templates and the API router.
+    for (;;) {
+      const transitivePeers = resolveTransitivePeers(selectedPackageNames, allPackages)
+      log(`Transitive peer companions auto-resolved: ${transitivePeers.join(', ') || '(none)'}`)
+      selectedPackageNames.push(...transitivePeers)
+      if (!framework) break
+      const featurePackages = featureTemplatePackages(
+        join(getTemplatesDir(), 'app'),
+        framework,
+        deriveOptionalFeatures(selectedPackageNames, allPackages),
+      ).filter((name) => !selectedPackageNames.includes(name))
+      log(`Feature template packages: ${featurePackages.join(', ') || '(none)'}`)
+      if (featurePackages.length === 0) break
+      selectedPackageNames.push(...featurePackages)
+    }
     // Second pass for a static site: a transitive peer may have re-added an
     // excluded family. Runs BEFORE locale resolution so no orphan locale bond
     // is added for a package that is not there.

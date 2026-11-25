@@ -884,8 +884,8 @@ Create a new project
 ```
 USAGE
   $ mlcl create [NAME] [--skip-install] [--require-inject] [--type
-    api|app|full-stack|static|status-page|status-page-edge] [--framework <value>] [--packages <value>] [--theme <value>]
-    [--no-interactive] [--json] [--force] [--template <value>] [--api-contract <value>]
+    api|app|full-stack|static|status-page|status-page-edge] [--framework <value>] [--packages <value>...] [--theme
+    <value>] [--no-interactive] [--json] [--force] [--template <value>] [--api-contract <value>]
 
 ARGUMENTS
   [NAME]  Project name
@@ -896,7 +896,8 @@ FLAGS
   --framework=<value>     Frontend framework (app only)
   --json                  Print a machine-readable JSON result instead of progress output; a slow step still reports on stderr (implies --no-interactive)
   --no-interactive        Run without interactive prompts (requires --type and name arg)
-  --packages=<value>      Comma-separated list of @molecule package names to include
+  --packages=<value>...   @molecule package names to include, separated by commas or spaces (the @molecule/ scope is
+                          optional)
   --require-inject        [env: MLCL_REQUIRE_INJECT] Fail when the integration code cannot be generated, instead of
                           leaving it for a later mlcl inject (also MLCL_REQUIRE_INJECT=1)
   --skip-install          Skip npm install

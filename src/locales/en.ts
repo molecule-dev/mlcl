@@ -81,7 +81,8 @@ export const messages: LocaleMessages = {
     'Record the emails, SMS, push and webhooks the API sends in the molecule.dev Activity panel (also MLCL_ACTIVITY_CAPTURE=1)',
   'commands.create.flags.type': 'Project type (api, app, or full-stack)',
   'commands.create.flags.framework': 'Frontend framework (app only)',
-  'commands.create.flags.packages': 'Comma-separated list of @molecule package names to include',
+  'commands.create.flags.packages':
+    '@molecule package names to include, separated by commas or spaces (the @molecule/ scope is optional)',
   'commands.create.flags.theme': 'Theme preset name (e.g. liquid-glass)',
   'commands.create.flags.force':
     'Scaffold into a directory that already holds a project (existing files are overwritten)',
@@ -106,6 +107,8 @@ export const messages: LocaleMessages = {
   'commands.create.args.name': 'Project name',
   'commands.create.labels.intro': 'mlcl create',
   'commands.create.errors.nameRequired': 'Project name is required in non-interactive mode',
+  'commands.create.errors.packagesUnknown':
+    'Not @molecule packages: {names}. Nothing was created. Check the spelling (`mlcl search <words>` lists real packages).',
   'commands.create.errors.nameInvalid':
     'Invalid project name "{name}" — path segments may not be "..", and the final directory must use lowercase letters, numbers, and hyphens only',
   'commands.create.errors.templateInvalid':
