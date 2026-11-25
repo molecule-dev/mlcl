@@ -110,7 +110,9 @@ fi
 # locale bond the feature now lists), so a registry commit must not leave molecule HEAD's READMEs
 # stale (2026-11-22: 73c34e11fe recorded runtime dependencies for six packages and their READMEs
 # stayed stale until the release's docs gate refused it). Checks only the packages whose entries
-# changed, against molecule HEAD; a pin or toolchain edit checks nothing. Reads the index, so it runs
+# changed, against molecule HEAD; a pin or toolchain edit checks nothing. It also refuses a changed
+# entry that records molecule work HEAD does not have (2026-11-25: 14d45864c4 recorded exports and peers
+# from uncommitted molecule edits; sync-registry reads the working tree). Reads the index, so it runs
 # for a private-index commit too. Skipped without a molecule checkout or tsx.
 if staged_diff --name-only -- registry.json | grep -q . &&
   [ -d ../molecule/.git ] && { [ -d node_modules/tsx ] || [ -d ../node_modules/tsx ]; }; then

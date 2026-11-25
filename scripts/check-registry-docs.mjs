@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * Refuse a registry.json commit that leaves a committed molecule README stale.
+ * Refuse a registry.json commit that leaves a committed molecule README stale, or whose changed
+ * entries describe molecule work that molecule HEAD does not have.
  *
  * A package's README is generated from its molecule source AND its mlcl registry entry, and the
  * two live in separate repos. molecule's pre-commit checks the README of every package a molecule
@@ -17,6 +18,15 @@
  * registry. molecule HEAD is the half a release pins; the molecule working tree may hold other
  * sessions' work. A registry edit that touches no entry (a version pin, the toolchain) checks
  * nothing and exports nothing.
+ *
+ * The same export then runs `check-registry-exports.mjs` over the changed entries (exports, peers,
+ * dependencies, routes, descriptions) with the staged registry, and refuses each finding that the
+ * base registry does not also have. `sync-registry` reads the molecule WORKING tree, which holds
+ * other sessions' uncommitted work: on 2026-11-25 mlcl 14d45864c4 recorded uncommitted exports for
+ * five tag-input packages and `@molecule/app-ui`, and the UI kit peers of six features, and the
+ * release's registry gate (which reads molecule at a pinned commit) would have refused it. A finding
+ * the base registry has too predates this commit (a molecule commit whose registry half has not
+ * landed yet) and is reported, not refused.
  *
  * The fix it names lands the molecule half first: regenerate the READMEs (with the working-tree
  * registry, which holds the staged change), commit them in molecule, then commit registry.json.
@@ -91,6 +101,18 @@ const addPath = (name) => {
   const entry = now.packages[name]
   if (entry?.path) paths.add(entry.path.replace(/\/+$/, ''))
 }
+// The entries themselves, by either side's path (a removed entry is judged where it was), for the
+// entry check; null when this change is not limited to some entries.
+const entryPaths =
+  changed === null
+    ? null
+    : [
+        ...new Set(
+          changed
+            .map((name) => (now.packages[name] ?? old.packages[name])?.path?.replace(/\/+$/, ''))
+            .filter(Boolean),
+        ),
+      ]
 if (changed === null) {
   for (const name of Object.keys(now.packages)) addPath(name)
   console.error(
@@ -120,7 +142,7 @@ if (changed === null) {
     for (const byName of listed) for (const other of byName.get(name) ?? []) addPath(other)
   }
 }
-if (paths.size === 0) process.exit(0)
+if (paths.size === 0 && entryPaths?.length === 0) process.exit(0)
 
 const exportDir = mkdtempSync(join(dirname(moleculeDir), '.precommit-registry-docs-'))
 const cleanup = () => rmSync(exportDir, { recursive: true, force: true })
@@ -153,6 +175,23 @@ try {
   }
   const registryFile = join(exportDir, '.staged-registry.json')
   writeFileSync(registryFile, after)
+  const readmes = checkReadmes(registryFile)
+  const entries = checkEntries(registryFile)
+  if (readmes && entries) status = 0
+} catch (error) {
+  console.error(`✗ check-registry-docs: ${error.message}`)
+} finally {
+  cleanup()
+}
+process.exit(status)
+
+/**
+ * The READMEs in scope, regenerated at molecule HEAD from the staged registry.
+ *
+ * @param {string} registryFile - The staged registry, written into the export.
+ * @returns {boolean} True when every one matches.
+ */
+function checkReadmes(registryFile) {
   // A package molecule HEAD does not carry yet has no committed README; its own molecule commit's
   // hook checks it.
   const scope = [...paths].filter((path) => existsSync(join(exportDir, path))).sort()
@@ -184,7 +223,6 @@ try {
     .map((line) => line.trim())
     .filter((line) => line.endsWith('README.md'))
   if (check.status === 0) {
-    status = 0
     console.error(
       `✓ check-registry-docs: ${scope.length} package README(s) at molecule HEAD match the staged registry.json`,
     )
@@ -202,9 +240,106 @@ try {
     console.error(`✗ check-registry-docs: the README check did not run (exit ${check.status}):`)
     console.error(`${check.stderr}${check.stdout}`.trim().split('\n').slice(-20).join('\n'))
   }
-} catch (error) {
-  console.error(`✗ check-registry-docs: ${error.message}`)
-} finally {
-  cleanup()
+  return check.status === 0
 }
-process.exit(status)
+
+/**
+ * The changed entries, checked against molecule HEAD by `check-registry-exports.mjs` with the staged
+ * registry; a finding the base registry also has predates this commit.
+ *
+ * @param {string} registryFile - The staged registry, written into the export.
+ * @returns {boolean} True unless the staged registry adds a finding, or the check could not run.
+ */
+function checkEntries(registryFile) {
+  // A package molecule HEAD does not carry yet is not judged, as the release's gate skips it.
+  const scope = entryPaths?.filter((path) => existsSync(join(exportDir, path))).sort()
+  if (scope?.length === 0) return true
+  const run = (file) => {
+    const result = spawnSync(
+      process.execPath,
+      [
+        '--import',
+        'tsx',
+        join(mlclRoot, 'scripts', 'check-registry-exports.mjs'),
+        ...(scope ?? []),
+      ],
+      {
+        cwd: mlclRoot,
+        env: {
+          ...moleculeEnv,
+          MOLECULE_PACKAGES_DIR: join(exportDir, 'packages'),
+          MLCL_REGISTRY_PATH: file,
+        },
+        encoding: 'utf8',
+        maxBuffer: 64 * 1024 * 1024,
+      },
+    )
+    return {
+      status: result.status,
+      output: `${result.stdout}${result.stderr}`,
+      found: findings(result),
+    }
+  }
+  const staged = run(registryFile)
+  const count = scope
+    ? `${scope.length} changed registry entr${scope.length === 1 ? 'y' : 'ies'}`
+    : 'the registry'
+  if (staged.status === 0) {
+    console.error(`✓ check-registry-docs: ${count} match molecule HEAD`)
+    return true
+  }
+  if (staged.found.size === 0) {
+    console.error(
+      `✗ check-registry-docs: the registry entry check did not run (exit ${staged.status}):`,
+    )
+    console.error(staged.output.trim().split('\n').slice(-20).join('\n'))
+    return false
+  }
+  let base = new Set()
+  if (before !== null) {
+    const baseFile = join(exportDir, '.base-registry.json')
+    writeFileSync(baseFile, before)
+    const previous = run(baseFile)
+    if (previous.status !== 0 && previous.found.size === 0) {
+      console.error(
+        `✗ check-registry-docs: the registry entry check did not run on the base (exit ${previous.status}):`,
+      )
+      console.error(previous.output.trim().split('\n').slice(-20).join('\n'))
+      return false
+    }
+    base = previous.found
+  }
+  const added = [...staged.found].filter((finding) => !base.has(finding))
+  if (added.length === 0) {
+    console.error(
+      `✓ check-registry-docs: ${count} add nothing molecule HEAD lacks (${staged.found.size} finding(s) predate this commit)`,
+    )
+    return true
+  }
+  console.error(
+    `✗ registry.json records ${added.length} thing(s) that molecule HEAD does not have:`,
+  )
+  for (const finding of added) console.error(`  ${finding.replace('\n', ' ')}`)
+  console.error(
+    'Commit that work in molecule first, or leave those entries as they are at HEAD. sync-registry reads the molecule working tree, which holds uncommitted work; run it on an export of molecule HEAD (MOLECULE_PACKAGES_DIR) or on the package directories you committed.',
+  )
+  return false
+}
+
+/**
+ * The findings in `check-registry-exports.mjs` output: each indented line under a `✗` heading, keyed by
+ * the heading without its package count.
+ *
+ * @param {{ stdout: string, stderr: string }} result - The check's output.
+ * @returns {Set<string>} `<heading>\n<finding>` for each finding.
+ */
+function findings({ stdout, stderr }) {
+  const found = new Set()
+  let heading = null
+  for (const line of `${stdout}\n${stderr}`.split('\n')) {
+    if (line.startsWith('✗ registry.json '))
+      heading = line.replace(/\s*\(\d+ package\(s\)\):?\s*$/, '').slice(2)
+    else if (heading && /^\s+\S/.test(line)) found.add(`${heading}\n${line.trim()}`)
+  }
+  return found
+}

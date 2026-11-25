@@ -1,12 +1,14 @@
 /**
  * The mlcl pre-commit check (`scripts/check-registry-docs.mjs`) that refuses a registry.json
- * commit leaving a committed molecule README stale.
+ * commit leaving a committed molecule README stale, or recording molecule work that molecule HEAD
+ * does not have.
  *
  * A README is generated from the package's molecule source and its mlcl registry entry. On
  * 2026-11-22 `@molecule/app-locales-node-editor-panel` entered the registry, which gives the
  * feature's README a Translations section, and the feature's README stayed stale for two hours
- * until the release's docs gate refused the release. These cases build that shape in a scratch
- * molecule/mlcl pair.
+ * until the release's docs gate refused the release. On 2026-11-25 mlcl 14d45864c4 ran sync-registry
+ * on the molecule working tree and committed exports and peers that only another session's
+ * uncommitted molecule edits had. These cases build both shapes in a scratch molecule/mlcl pair.
  *
  * @module
  */
@@ -31,16 +33,23 @@ const git = (dir: string, ...args: string[]): string =>
     encoding: 'utf8',
   })
 
-function registry(extra: { locale?: boolean; pins?: Record<string, string> } = {}): string {
+function registry(
+  extra: {
+    locale?: boolean
+    pins?: Record<string, string>
+    exports?: string[]
+    label?: string
+  } = {},
+): string {
   const packages: Record<string, unknown> = {
     [feature]: {
       type: 'feature',
       category: 'docs-probe-panel',
       stack: 'app',
-      label: 'Docs probe panel',
+      label: extra.label ?? 'Docs probe panel',
       description: 'A probe panel',
       path: featurePath,
-      exports: ['probe'],
+      exports: extra.exports ?? ['probe'],
       moleculePeers: [],
       runtimeDependencies: [],
     },
@@ -161,6 +170,47 @@ describe('registry docs gate', () => {
     const result = stageAndCheck(registry({ pins: { [feature]: '1.0.1' } }))
     expect(result).toEqual({ status: 0, output: '' })
     expect(leftovers()).toEqual([])
+  }, 180_000)
+
+  it('refuses an export that only the molecule working tree has (the 14d45864c4 shape)', () => {
+    // The working tree gains an export; molecule HEAD does not have it.
+    writeFileSync(
+      join(molecule, featurePath, 'src/index.ts'),
+      '/**\n * A probe panel.\n *\n * @module\n */\n\n/** A probe. */\nexport const probe = 1\n\n/** Uncommitted. */\nexport const later = 2\n',
+    )
+    const result = stageAndCheck(registry({ exports: ['later', 'probe'] }))
+    expect(result.status).toBe(1)
+    expect(result.output).toContain('records 1 thing(s) that molecule HEAD does not have')
+    expect(result.output).toContain(
+      `registry.json exports are out of sync ${feature}: stale ["later"]`,
+    )
+    expect(leftovers()).toEqual([])
+  }, 180_000)
+
+  it('passes the same entry once molecule HEAD has the export', () => {
+    writeFileSync(
+      join(molecule, featurePath, 'src/index.ts'),
+      '/**\n * A probe panel.\n *\n * @module\n */\n\n/** A probe. */\nexport const probe = 1\n\n/** Committed. */\nexport const later = 2\n',
+    )
+    commitReadme(registry({ exports: ['later', 'probe'] }))
+    const result = stageAndCheck(registry({ exports: ['later', 'probe'] }))
+    expect(result.output).toContain('1 changed registry entry match molecule HEAD')
+    expect(result.status).toBe(0)
+  }, 180_000)
+
+  it('reports, and does not refuse, drift the base registry already has', () => {
+    // molecule HEAD gained an export whose registry half has not landed; an unrelated edit to the
+    // same entry is not the commit that has to record it.
+    writeFileSync(
+      join(molecule, featurePath, 'src/index.ts'),
+      '/**\n * A probe panel.\n *\n * @module\n */\n\n/** A probe. */\nexport const probe = 1\n\n/** Committed. */\nexport const later = 2\n',
+    )
+    commitReadme(registry({ label: 'Docs probe panel, renamed' }))
+    const result = stageAndCheck(registry({ label: 'Docs probe panel, renamed' }))
+    expect(result.output).toContain(
+      'add nothing molecule HEAD lacks (1 finding(s) predate this commit)',
+    )
+    expect(result.status).toBe(0)
   }, 180_000)
 
   it('skips a standalone clone with no molecule checkout', () => {
