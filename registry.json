@@ -93603,7 +93603,8 @@
         "dom pointer drag",
         "pointer capture",
         "drag gesture cancellation"
-      ]
+      ],
+      "quickStart": "import { bindWebDrag } from '@molecule/app-pointer-events-dom'\n\nconst host = document.querySelector<HTMLElement>('[data-mol-id=\"drag-handle\"]')\nif (host) {\n  const binding = bindWebDrag(host, { onStart: (point) => console.log(point.x) })\n  // Call binding.update(handlers) on updates and binding.destroy() on unmount.\n}"
     },
     "@molecule/app-presence-indicator-angular": {
       "language": "typescript",
@@ -109425,6 +109426,7 @@
         "NativeGridClasses",
         "NativeClassSplit",
         "UIClassMapNativeSplit",
+        "fieldLayout",
         "OverlayTarget",
         "OverlayDismissReason",
         "OverlayLayerKind",
