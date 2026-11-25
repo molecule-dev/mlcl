@@ -8495,6 +8495,125 @@
         "*.r2.cloudflarestorage.com"
       ]
     },
+    "@molecule/api-document-text": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "core",
+      "category": "pdf",
+      "label": "Document Text",
+      "description": "Abstract document text interface — extract the text of a PDF document (per page and joined) — bond pdf.js or molecule.dev’s hosted service",
+      "stack": "api",
+      "exports": [
+        "setProvider",
+        "getProvider",
+        "hasProvider",
+        "extractDocumentText",
+        "DocumentTextOptions",
+        "DocumentTextPage",
+        "DocumentTextInfo",
+        "DocumentTextResult",
+        "DocumentTextProvider"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "moleculePeers": [
+        "@molecule/api-bond",
+        "@molecule/api-i18n"
+      ],
+      "bondSetter": "setProvider",
+      "path": "packages/api/core/document-text",
+      "intentHints": [
+        "extract text from a pdf",
+        "pdf text extraction",
+        "read a pdf document",
+        "turn a pdf into text",
+        "document text"
+      ]
+    },
+    "@molecule/api-document-text-molecule": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "pdf",
+      "label": "Molecule (hosted)",
+      "description": "molecule.dev hosted document text — extract the text of a PDF document, billed to your molecule project, no vendor account",
+      "stack": "api",
+      "implements": "@molecule/api-document-text",
+      "exports": [
+        "provider",
+        "DEFAULT_SERVICES_URL",
+        "DOCUMENT_TEXT_SERVICE_LIMITS",
+        "MoleculeServiceError",
+        "MoleculeDocumentTextProvider",
+        "createProvider",
+        "documentTextMoleculeSecretDefinitions",
+        "MoleculeDocumentTextConfig"
+      ],
+      "secrets": [
+        {
+          "name": "MOLECULE_API_KEY",
+          "required": true,
+          "label": "molecule.dev project API key",
+          "setupUrl": "https://www.molecule.dev",
+          "instructions": "Create one for your project with `mlcl apikey create --project <id> --name <name>` (keys start with mk_).",
+          "example": "mk_..."
+        }
+      ],
+      "runtimeDependencies": [
+        "@molecule/api-document-text",
+        "@molecule/api-secrets"
+      ],
+      "moleculePeers": [
+        "@molecule/api-document-text",
+        "@molecule/api-secrets"
+      ],
+      "path": "packages/api/bonds/document-text/molecule",
+      "intentHints": [
+        "hosted pdf text extraction",
+        "extract pdf text without an api key",
+        "read a pdf billed to my project",
+        "turn a pdf into text without a vendor account"
+      ],
+      "egressHosts": [
+        "api.molecule.dev"
+      ]
+    },
+    "@molecule/api-document-text-pdfjs": {
+      "language": "typescript",
+      "runtime": "node",
+      "type": "provider",
+      "category": "pdf",
+      "label": "pdf.js (document text)",
+      "description": "pdf.js document text provider for molecule.dev — extract the text of a PDF document in this process",
+      "stack": "api",
+      "implements": "@molecule/api-document-text",
+      "exports": [
+        "provider",
+        "createProvider",
+        "PdfjsDocumentTextProvider",
+        "DOCUMENT_TEXT_LIMITS",
+        "PdfjsDocumentTextConfig"
+      ],
+      "secrets": [],
+      "runtimeDependencies": [
+        "@molecule/api-document-text",
+        "pdfjs-dist",
+        "unpdf"
+      ],
+      "moleculePeers": [
+        "@molecule/api-document-text"
+      ],
+      "path": "packages/api/bonds/document-text/pdfjs",
+      "intentHints": [
+        "self-hosted pdf text extraction",
+        "extract pdf text in-process",
+        "parse a pdf locally",
+        "pdf text without a service"
+      ]
+    },
     "@molecule/api-drug-database": {
       "language": "typescript",
       "runtime": "node",

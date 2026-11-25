@@ -2193,6 +2193,120 @@ server.registerTool(
 )
 
 /**
+ * How much of a PDF's extracted text one `extract_pdf_text` call returns in
+ * chat when no `output_file` was given. The FULL text is never silently cut:
+ * past this cap the response names the cut and says to re-run with
+ * `output_file`, which always carries every character.
+ */
+const PDF_TEXT_CHAT_CAP = 50_000
+
+server.registerTool(
+  'extract_pdf_text',
+  {
+    title: 'Extract the text of a PDF with molecule.dev',
+    description:
+      'Extract the text of a PDF document on molecule.dev (pdf.js in-process, self-hosted, no vendor account; metered per document to the project whose MOLECULE_API_KEY is used). Returns the text per page and joined, with the page count and the document\u2019s declared metadata. Text extraction is NOT OCR: a scanned or image-only page yields empty text \u2014 use extract_text (OCR) on rendered page images for those. Encrypted documents take password. Optional output_file writes the full extracted text (never overwritten); without it the text is returned in chat, capped at 50,000 characters with the cut named. The same service backs @molecule/api-document-text-molecule in app code; @molecule/api-document-text-pdfjs is the self-hosted alternative.',
+    inputSchema: {
+      input_file: z.string().describe('Path of the PDF file'),
+      output_file: z
+        .string()
+        .optional()
+        .describe(
+          'Write the full extracted text here (must not exist yet); omit to get the text in the chat response',
+        ),
+      password: z.string().max(256).optional().describe('Password for an encrypted document'),
+      max_pages: z
+        .number()
+        .int()
+        .min(1)
+        .max(500)
+        .optional()
+        .describe(
+          'Stop the result at the first N pages (the document is still parsed whole; pagesOmitted reports the rest)',
+        ),
+      include_pages: z
+        .boolean()
+        .optional()
+        .describe(
+          'Carry per-page texts in the chat response (default false for chat, true via output_file counts only)',
+        ),
+      directory: z
+        .string()
+        .optional()
+        .describe('Project directory whose .env holds MOLECULE_API_KEY'),
+    },
+  },
+  tracked(
+    'extract_pdf_text',
+    async ({
+      input_file: inputFile,
+      output_file: outputFile,
+      password,
+      max_pages: maxPages,
+      include_pages: includePages,
+      directory,
+    }) =>
+      serviceResult(async () => {
+        const pdf = readCappedFileSync(
+          resolve(inputFile),
+          inputFile,
+          PDF_MAX_INPUT_BYTES,
+          (bytes) => `${inputFile} is ${bytes} bytes; the limit is 8 MB.`,
+        )
+        if (pdf.subarray(0, 5).toString('latin1') !== '%PDF-') {
+          throw new ServiceCallError(`${inputFile} does not look like a PDF (no %PDF- header).`)
+        }
+        const options: Record<string, unknown> = {}
+        if (password !== undefined) options.password = password
+        if (maxPages !== undefined) options.maxPages = maxPages
+        if (includePages !== undefined) options.includePages = includePages
+        const result = (await callHostedService(
+          'pdf',
+          'to-text',
+          { pdf: pdf.toString('base64'), ...(Object.keys(options).length > 0 ? { options } : {}) },
+          directory,
+        )) as {
+          text?: string
+          pages?: Array<{ pageNumber: number; text: string }>
+          pageCount?: number
+          truncated?: boolean
+          pagesOmitted?: number
+          info?: Record<string, string>
+        }
+        const extracted = result.text ?? ''
+        const counts = {
+          pageCount: result.pageCount,
+          pagesOmitted: result.pagesOmitted ?? 0,
+          truncatedInService: result.truncated === true,
+          ...(result.info !== undefined ? { info: result.info } : {}),
+        }
+        if (outputFile !== undefined) {
+          const target = resolve(outputFile)
+          if (existsSync(target)) {
+            throw new ServiceCallError(
+              `${target} already exists. Pick a fresh name — the tool never overwrites.`,
+            )
+          }
+          requireWritableParent(target)
+          writeNewFileSync(target, Buffer.from(extracted, 'utf8'), 0o600)
+          return JSON.stringify({ file: target, textChars: extracted.length, ...counts })
+        }
+        const capped = extracted.length > PDF_TEXT_CHAT_CAP
+        return JSON.stringify({
+          ...counts,
+          contentChars: extracted.length,
+          content: capped
+            ? `${extracted.slice(0, PDF_TEXT_CHAT_CAP)}\n\n[…display capped at ${PDF_TEXT_CHAT_CAP} of ${extracted.length} characters — re-run with output_file to get the full text.]`
+            : extracted,
+          ...(includePages === true && result.pages !== undefined
+            ? { pages: result.pages.map((p) => ({ pageNumber: p.pageNumber, text: p.text })) }
+            : {}),
+        })
+      }),
+  ),
+)
+
+/**
  * How many questions one `ai_decision` call may carry.
  *
  * Every entry is one METERED AI decision, and the record was the one input of
