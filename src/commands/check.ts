@@ -77,7 +77,10 @@ export default class Check extends Command {
       return
     }
     const running = new Set<string>()
+    // The check this one waits for (check-lock.ts) until its own first step starts.
+    let waitingFor: number | undefined
     const progress = (event: CheckProgress): void => {
+      waitingFor = undefined
       if (event.type === 'start') {
         running.add(event.step.name)
         process.stderr.write(`check: ${event.step.name} started\n`)
@@ -114,14 +117,20 @@ export default class Check extends Command {
         runRecordedCheck(root, input, {
           onProgress: progress,
           signal: controller.signal,
-          onWait: (holder) =>
+          onWait: (holder) => {
+            waitingFor = holder
             process.stderr.write(
               `check: waiting for the check already running in this project (pid ${holder})\n`,
-            ),
+            )
+          },
         }),
       (elapsed) => {
         if (running.size)
           process.stderr.write(`check: still running ${[...running].join(', ')} (${elapsed}s)\n`)
+        else if (waitingFor !== undefined)
+          process.stderr.write(
+            `check: still waiting for the check already running in this project (pid ${waitingFor}, ${elapsed}s)\n`,
+          )
       },
     ).finally(() => {
       if (handlesSignals) {
