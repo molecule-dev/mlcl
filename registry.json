@@ -92273,12 +92273,17 @@
       "description": "DOM utility for document-scoped overlay focus, dismissal and scroll locking across Molecule web UI kits",
       "stack": "app",
       "exports": [
-        "OverlayLayer",
-        "FocusScheduler",
-        "domElement",
+        "readOverlayBox",
+        "readOverlayAnchorWidth",
+        "measureOverlayPosition",
+        "measureTooltipPosition",
         "calculateDropdownPosition",
         "measureDropdownPosition",
-        "isOutsideOverlay"
+        "isOutsideOverlay",
+        "domElement",
+        "focusStaysWithin",
+        "FocusScheduler",
+        "OverlayLayer"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -109475,6 +109480,8 @@
         "OverlayFocusOptions",
         "OverlayLayerOptions",
         "OverlayAnchorGeometry",
+        "calculateOverlayPosition",
+        "OverlayPosition",
         "setProvider",
         "getProvider",
         "hasProvider",
@@ -109486,6 +109493,7 @@
         "MoleculeSpinnerTimings",
         "MoleculeSpinnerColors",
         "MoleculeSpinnerMarkOptions",
+        "ToastCountdown",
         "CSSProperties",
         "Children",
         "KitEvent",
