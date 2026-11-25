@@ -1299,7 +1299,6 @@ export const ApiFrameworkConfig = z.object({
   jsonBodyParser: z.string().describe('Expression for built-in JSON body parser middleware'),
   errorHandlerSignature: z.string().describe('Error handler function signature'),
   errorHandlerCast: z.string().describe('Cast expression for the error handler'),
-  serverType: z.string().describe('Type name for the server/app instance'),
   dependencies: z.record(z.string(), z.string()).default({}).describe('Runtime npm dependencies'),
   devDependencies: z.record(z.string(), z.string()).default({}).describe('Dev npm dependencies'),
 })

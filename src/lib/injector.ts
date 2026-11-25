@@ -164,8 +164,6 @@ export interface ApiFrameworkConfig {
   errorHandlerSignature: string
   /** Cast expression for the error handler */
   errorHandlerCast: string
-  /** Type name for the server/app instance */
-  serverType: string
 }
 
 /**
@@ -187,7 +185,6 @@ function getApiFrameworks(): Record<string, ApiFrameworkConfig> {
       jsonBodyParser: fw.jsonBodyParser,
       errorHandlerSignature: fw.errorHandlerSignature,
       errorHandlerCast: fw.errorHandlerCast,
-      serverType: fw.serverType,
     }
   }
   return result
@@ -5105,6 +5102,7 @@ function generateServerContentHeuristic(
   const externalImports = [
     fw.serverImport,
     `import { appendFileSync } from 'fs'`,
+    `import http from 'http'`,
     `import https from 'https'`,
     `import process from 'process'`,
     `import { fileURLToPath } from 'url'`,
@@ -5173,17 +5171,11 @@ function generateServerContentHeuristic(
   lines.push(`})`)
   lines.push('')
 
-  // The create signature: one line when it fits the print width (a short
-  // serverType), otherwise prettier's broken form — parameters one per line
-  // with a trailing comma and no redundant parens around the default value.
-  const createOneLine = `export const create = async (port: number = Number(process.env.PORT) || 4000): Promise<${fw.serverType} | https.Server> => {`
-  if (createOneLine.length <= PRETTIER_PRINT_WIDTH) {
-    lines.push(createOneLine)
-  } else {
-    lines.push(`export const create = async (`)
-    lines.push(`  port: number = Number(process.env.PORT) || 4000,`)
-    lines.push(`): Promise<${fw.serverType} | https.Server> => {`)
-  }
+  // The create signature as prettier prints it: over the print width on one line, so one
+  // parameter per line with a trailing comma.
+  lines.push(`export const create = async (`)
+  lines.push(`  port: number = Number(process.env.PORT) || 4000,`)
+  lines.push(`): Promise<http.Server | https.Server> => {`)
   if (hasDatabase) {
     lines.push(`  await runMigrations()`)
   }
@@ -5291,7 +5283,7 @@ function generateServerContentHeuristic(
   lines.push(`  }) ${fw.errorHandlerCast})`)
   lines.push(``)
 
-  lines.push(`  let server: ${fw.serverType} | https.Server = app`)
+  lines.push(`  let server: http.Server | https.Server = http.createServer(app)`)
   lines.push(`  if (process.env.HTTPS) {`)
   lines.push(`    // Create a self-signed SSL certificate for local HTTPS development.`)
   lines.push(`    // pem is an optional dependency for local HTTPS development.`)
@@ -5312,6 +5304,28 @@ function generateServerContentHeuristic(
   )
   lines.push(`      })`)
   lines.push(`    })`)
+  lines.push(`  }`)
+  lines.push(``)
+  lines.push(`  // A realtime provider bonded with deferAttach (the socketio/ws/sse bond`)
+  lines.push(`  // stubs) binds no port of its own, so it is attached to this server before it`)
+  lines.push(`  // listens: realtime shares the API port (/socket.io, /sse) instead of a`)
+  lines.push(`  // standalone port a container or proxy may not expose. The specifier is a`)
+  lines.push(`  // variable so a project without the package still compiles. Only an absent`)
+  lines.push(`  // package skips the attach; an installed one that fails to load stops startup.`)
+  lines.push(`  const realtimePackage = '@molecule/api-realtime'`)
+  lines.push(`  let realtimeEntry: string | null = null`)
+  lines.push(`  try {`)
+  lines.push(`    realtimeEntry = import.meta.resolve(realtimePackage)`)
+  lines.push(`  } catch (error) {`)
+  lines.push(`    const absent = \`Cannot find package '\${realtimePackage}' imported from \``)
+  lines.push(`    if (!(error instanceof Error && error.message.startsWith(absent))) throw error`)
+  lines.push(`  }`)
+  lines.push(`  if (realtimeEntry) {`)
+  lines.push(`    const realtime = (await import(realtimeEntry)) as {`)
+  lines.push(`      hasProvider(): boolean`)
+  lines.push(`      getProvider(): { attachHttpServer?: (server: unknown) => void }`)
+  lines.push(`    }`)
+  lines.push(`    if (realtime.hasProvider()) realtime.getProvider().attachHttpServer?.(server)`)
   lines.push(`  }`)
   lines.push(``)
   lines.push(`  const listener = server.listen(port, () => {`)
@@ -5335,23 +5349,6 @@ function generateServerContentHeuristic(
     lines.push(`  lifecycle.attachServer(listener)`)
     lines.push(``)
   }
-  lines.push(`  // A realtime provider bonded with deferAttach (the socketio/ws/sse bond`)
-  lines.push(`  // stubs) binds no port of its own — attach it to the API's HTTP server so`)
-  lines.push(`  // realtime shares the API port (e.g. /socket.io, /sse) instead of a`)
-  lines.push(`  // standalone port a container/proxy may not expose. The import specifier is`)
-  lines.push(`  // a variable on purpose: projects WITHOUT a realtime package must compile`)
-  lines.push(`  // (no static dependency) and simply skip the attach at runtime.`)
-  lines.push(`  try {`)
-  lines.push(`    const realtimePackage = '@molecule/api-realtime'`)
-  lines.push(`    const realtime = (await import(realtimePackage)) as {`)
-  lines.push(`      hasProvider(): boolean`)
-  lines.push(`      getProvider(): { attachHttpServer?: (server: unknown) => void }`)
-  lines.push(`    }`)
-  lines.push(`    if (realtime.hasProvider()) realtime.getProvider().attachHttpServer?.(listener)`)
-  lines.push(`  } catch (_error) {`)
-  lines.push(`    // @molecule/api-realtime is not installed in this project — nothing to attach.`)
-  lines.push(`  }`)
-  lines.push(``)
   lines.push(`  return server`)
   lines.push(`}`)
   lines.push(``)

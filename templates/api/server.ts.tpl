@@ -1,4 +1,5 @@
 import { appendFileSync } from 'fs'
+import http from 'http'
 
 import express from 'express'
 import { fileURLToPath } from 'url'
@@ -18,6 +19,23 @@ process.on('uncaughtExceptionMonitor', (err) => {
   }
   console.error(entry)
 })
+
+/**
+ * Import an optional package by a variable specifier, so a project without it still compiles.
+ * Only an absent package returns null; one that is installed but fails to load throws its error,
+ * instead of the server starting without it.
+ */
+async function importIfInstalled<T>(specifier: string): Promise<T | null> {
+  let entry: string
+  try {
+    entry = import.meta.resolve(specifier)
+  } catch (error) {
+    const absent = `Cannot find package '${specifier}' imported from `
+    if (error instanceof Error && error.message.startsWith(absent)) return null
+    throw error
+  }
+  return (await import(entry)) as T
+}
 
 export const create = async (port: number = Number(process.env.PORT) || 4000) => {
   await setupBonds()
@@ -41,23 +59,15 @@ export const create = async (port: number = Number(process.env.PORT) || 4000) =>
   // window must be at least 2 x interval + timeout, or the proxy is still
   // routing here when the listener closes and a rolling restart drops
   // requests. A window that violates it logs one warning at boot.
-  // The import specifier is a variable on purpose: a project scaffolded before
-  // this package was installed must still compile, and simply skips the
-  // lifecycle wiring at runtime.
+  // A project scaffolded before this package was installed skips the lifecycle wiring.
   type LifecycleHandle = {
     markReady(): void
     attachServer(server: unknown): void
   }
-  const lifecyclePackage = '@molecule/api-process-lifecycle-express'
-  let lifecycle: LifecycleHandle | null = null
-  try {
-    const { installExpressLifecycle } = (await import(lifecyclePackage)) as {
-      installExpressLifecycle(options: { app: express.Express }): LifecycleHandle
-    }
-    lifecycle = installExpressLifecycle({ app })
-  } catch (_error) {
-    // @molecule/api-process-lifecycle-express is not installed in this project.
-  }
+  const lifecyclePackage = await importIfInstalled<{
+    installExpressLifecycle(options: { app: express.Express }): LifecycleHandle
+  }>('@molecule/api-process-lifecycle-express')
+  const lifecycle = lifecyclePackage?.installExpressLifecycle({ app }) ?? null
   app.use(express.json())
   app.use('/api', router)
 
@@ -70,10 +80,12 @@ export const create = async (port: number = Number(process.env.PORT) || 4000) =>
   app.use(
     (err: Error, req: express.Request, res: express.Response, _next: express.NextFunction) => {
       const entry = `[${new Date().toISOString()}] ${req.method} ${req.path} 500: ${err.stack || err.message}\n`
-      try {
-        appendFileSync(ERROR_LOG, entry)
-      } catch (_error) {
-        // An unavailable IDE log must not replace the original request error.
+      if (ERROR_LOG) {
+        try {
+          appendFileSync(ERROR_LOG, entry)
+        } catch (_error) {
+          // An unavailable IDE log must not replace the original request error.
+        }
       }
       console.error(entry)
       if (!res.headersSent) {
@@ -82,31 +94,26 @@ export const create = async (port: number = Number(process.env.PORT) || 4000) =>
     },
   )
 
-  const listener = app.listen(port, () => {
-    // Boot is complete and the port is owned: /health/ready answers 200 from here.
-    lifecycle?.markReady()
-    console.log(`Server running on port ${port}`)
-  })
+  const listener = http.createServer(app)
   // Signal handlers are installed before any request is served, so a SIGTERM
   // arriving during boot still drains instead of killing the process mid-boot.
   lifecycle?.attachServer(listener)
 
   // A realtime provider bonded with deferAttach (the socketio/ws/sse bond
-  // stubs) binds no port of its own — attach it to the API's HTTP server so
-  // realtime shares the API port (e.g. /socket.io, /sse) instead of a
-  // standalone port a container/proxy may not expose. The import specifier is
-  // a variable on purpose: projects WITHOUT a realtime package must compile
-  // (no static dependency) and simply skip the attach at runtime.
-  try {
-    const realtimePackage = '@molecule/api-realtime'
-    const realtime = (await import(realtimePackage)) as {
-      hasProvider(): boolean
-      getProvider(): { attachHttpServer?: (server: unknown) => void }
-    }
-    if (realtime.hasProvider()) realtime.getProvider().attachHttpServer?.(listener)
-  } catch (_error) {
-    // @molecule/api-realtime is not installed in this project — nothing to attach.
-  }
+  // stubs) binds no port of its own, so it is attached to this server before it
+  // listens: realtime shares the API port (/socket.io, /sse) instead of a
+  // standalone port a container or proxy may not expose.
+  const realtime = await importIfInstalled<{
+    hasProvider(): boolean
+    getProvider(): { attachHttpServer?: (server: unknown) => void }
+  }>('@molecule/api-realtime')
+  if (realtime?.hasProvider()) realtime.getProvider().attachHttpServer?.(listener)
+
+  listener.listen(port, () => {
+    // Boot is complete and the port is owned: /health/ready answers 200 from here.
+    lifecycle?.markReady()
+    console.log(`Server running on port ${port}`)
+  })
 
   return app
 }
