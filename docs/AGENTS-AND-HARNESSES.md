@@ -163,6 +163,11 @@ Re-running is safe: anything already in place is left alone, and a skill or
 section you edited is kept until you pass `--force`. Restart your agents
 afterwards so they load the tools and skills.
 
+Setup starts the MCP server once to check that it lists its tools. For the
+whole machine it then asks Claude Code (`claude mcp get`) and Codex
+(`codex app-server`) whether they see it, and prints what each one reports;
+setup fails if one of them does not see the server.
+
 ## Method 1 — zero setup (any agent, any harness)
 
 Paste this into Claude Code, Codex, Cursor, Gemini CLI, OpenCode, Cline,
