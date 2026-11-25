@@ -44,13 +44,15 @@ interface CodexServerStatus {
  * @param opts - Options.
  * @param opts.timeoutMs - How long to wait (default 60 s; Codex waits for the server to start).
  * @param opts.spawnImpl - Child-process factory (tests).
+ * @param opts.more - The second registration of the same server, holding the tools Codex defers
+ *   (`molecule_more`): when Codex lists it, its tools count too, and its failure is a failure.
  * @returns Codex's answer: ok with the tool count, or not ok when the server is missing, failed
  *   to start or lists no tools. Rejects when the app-server could not be asked (an older Codex,
  *   or no answer in time).
  */
 export async function codexServerTools(
   server: string,
-  opts: { timeoutMs?: number; spawnImpl?: McpSpawn } = {},
+  opts: { timeoutMs?: number; spawnImpl?: McpSpawn; more?: string } = {},
 ): Promise<AgentToolReport> {
   const started = Date.now()
   const via = 'codex app-server'
@@ -89,11 +91,22 @@ export async function codexServerTools(
   const ms = Date.now() - started
   const found = data.find((entry) => entry.name === server)
   if (!found) return { ok: false, detail: `no ${server} server in its config`, via, ms }
-  if (typeof found.toolsError === 'string' && found.toolsError)
-    return { ok: false, detail: found.toolsError, via, ms }
-  const tools = found.tools && typeof found.tools === 'object' ? Object.keys(found.tools).length : 0
-  if (tools === 0) return { ok: false, detail: `the ${server} server lists no tools`, via, ms }
-  return { ok: true, detail: `${tools} tools`, via, ms }
+  const more = opts.more === undefined ? undefined : data.find((entry) => entry.name === opts.more)
+  const counts: number[] = []
+  for (const [name, entry] of [
+    [server, found] as const,
+    ...(more ? [[opts.more, more] as const] : []),
+  ]) {
+    if (typeof entry.toolsError === 'string' && entry.toolsError)
+      return { ok: false, detail: entry.toolsError, via, ms }
+    const tools =
+      entry.tools && typeof entry.tools === 'object' ? Object.keys(entry.tools).length : 0
+    if (tools === 0) return { ok: false, detail: `the ${name} server lists no tools`, via, ms }
+    counts.push(tools)
+  }
+  const [first, rest = 0] = counts
+  const detail = more ? `${first + rest} tools, ${first} of them up front` : `${first} tools`
+  return { ok: true, detail, via, ms }
 }
 
 /** Runs an agent's CLI; resolves with its exit status and combined output. */

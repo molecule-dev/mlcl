@@ -5,8 +5,10 @@
  * it asks for a schema, so its first Molecule step costs a turn of its own. A tool whose `_meta`
  * carries `anthropic/alwaysLoad: true` is loaded up front instead. In the 2026-11-23 find eval,
  * Claude Code spent a ToolSearch turn on `search_packages` and `read_package_doc` before calling
- * either. Harnesses that read no such field (Codex) list every tool already, so the field changes
- * nothing for them.
+ * either. Codex reads no such field and defers every MCP tool behind its own tool search, so
+ * `mlcl setup` registers this server twice for Codex: one entry exposing these tools up front and
+ * one the rest (`CODEX_UP_FRONT_TOOLS` in mlcl's src/lib/agent-harnesses.ts, kept equal to this list
+ * by a test).
  *
  * The up-front tools are the ones a coding agent calls first for any task: finding a package and
  * reading its doc, then starting an app, adding a package or checking the project. Their schemas

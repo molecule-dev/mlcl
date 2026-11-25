@@ -155,6 +155,14 @@ The skills folders in the table are where they go when an agent gets them.
 | Continue                 | MCP in `~/.continue/config.yaml` (setup prints the entry), `~/.continue/skills`, `~/.continue/rules/molecule.md` | `.continue/mcpServers/molecule.json`, `.continue/skills`, `.continue/rules/molecule.md`     |
 | Goose                    | MCP in `~/.config/goose/config.yaml` (setup prints the entry), `~/.agents/skills`, `~/.config/goose/.goosehints` | `.agents/skills`, `AGENTS.md`                                                               |
 
+Codex keeps every MCP tool behind its tool search, so the model spends a turn
+looking a tool up before it can call it. Setup therefore gives Codex two entries
+for the same server: `molecule` with the six tools an agent calls first
+(`search_packages`, `read_package_doc`, `list_templates`, `scaffold_project`,
+`add_package`, `check_project`) loaded up front, and `molecule_more` with the
+rest, which Codex still loads on demand. An entry whose command you changed is
+yours: setup leaves it whole and adds no second entry.
+
 Zed, Junie and Continue's CLI read only the first instruction file they find, so
 setup adds the section to the file they read now instead of creating an
 `AGENTS.md` that would replace it.
@@ -266,7 +274,8 @@ Or your harness's native command / config (these start the server through npx):
 
 Codex does not show an MCP server's instructions to the model, so for Codex `mlcl mcp install` also
 writes the Molecule conventions to `~/.codex/AGENTS.md` (as `mlcl setup` does). After a bare
-`codex mcp add`, run `npx mlcl setup --agent codex` for them.
+`codex mcp add`, run `npx mlcl setup --agent codex` for them and for the two entries that load the
+first-step tools up front.
 
 The standard entry (what `mlcl mcp install` writes in a project) is
 `{"command": "npx", "args": ["-y", "molecule-mcp"]}`; for the whole machine it is

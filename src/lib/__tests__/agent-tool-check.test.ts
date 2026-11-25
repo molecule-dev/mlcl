@@ -120,6 +120,46 @@ describe('codexServerTools', () => {
     ).toMatchObject({ ok: false, detail: 'the molecule server lists no tools' })
   })
 
+  // Setup registers the server twice for Codex: the first-step tools up front, the rest deferred.
+  it('counts the tools of the second registration and fails on its failure', async () => {
+    const up = {
+      name: 'molecule',
+      tools: { search_packages: tool('search_packages') },
+      toolsError: null,
+    }
+    const more = {
+      name: 'molecule_more',
+      tools: { whoami: tool('whoami'), login: tool('login') },
+      toolsError: null,
+    }
+    expect(
+      await codexServerTools('molecule', {
+        more: 'molecule_more',
+        spawnImpl: fakeAppServer(codexWith([up, more])),
+      }),
+    ).toMatchObject({ ok: true, detail: '3 tools, 1 of them up front' })
+    // A config without the split (a command the user set) reports the one table.
+    expect(
+      await codexServerTools('molecule', {
+        more: 'molecule_more',
+        spawnImpl: fakeAppServer(codexWith([up])),
+      }),
+    ).toMatchObject({ ok: true, detail: '1 tools' })
+    const failed = { name: 'molecule_more', tools: {}, toolsError: 'MCP startup failed' }
+    expect(
+      await codexServerTools('molecule', {
+        more: 'molecule_more',
+        spawnImpl: fakeAppServer(codexWith([up, failed])),
+      }),
+    ).toMatchObject({ ok: false, detail: 'MCP startup failed' })
+    expect(
+      await codexServerTools('molecule', {
+        more: 'molecule_more',
+        spawnImpl: fakeAppServer(codexWith([up, { ...more, tools: {} }])),
+      }),
+    ).toMatchObject({ ok: false, detail: 'the molecule_more server lists no tools' })
+  })
+
   it('rejects when the app-server cannot be asked: an error answer, or no answer', async () => {
     const older = fakeAppServer((message) =>
       message.method === 'initialize'

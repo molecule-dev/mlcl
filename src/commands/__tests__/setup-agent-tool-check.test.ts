@@ -107,7 +107,8 @@ describe('mlcl setup --scope machine: what each agent sees', () => {
   it('says that Codex and Claude Code see the server (OLD MUSTFAIL)', async () => {
     const out = await run([...machine, '--agent', 'claude-code,codex'])
     expect(mocks.codex).toHaveBeenCalledTimes(1)
-    expect(mocks.codex).toHaveBeenCalledWith('molecule')
+    // Both of Codex's registrations: the first-step tools up front, the rest in molecule_more.
+    expect(mocks.codex).toHaveBeenCalledWith('molecule', { more: 'molecule_more' })
     expect(mocks.claude).toHaveBeenCalledWith('molecule')
     expect(out).toContain('Codex sees the molecule server: 76 tools')
     expect(out).toContain('(codex app-server, 0.2 s)')

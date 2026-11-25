@@ -65,7 +65,8 @@ Or use your harness's native command / config directly (these start the server t
 
 Codex does not show an MCP server's instructions to the model, so for Codex `mlcl mcp install` also
 writes the Molecule conventions to `~/.codex/AGENTS.md`; after a bare `codex mcp add`, run
-`npx mlcl setup --agent codex` for them.
+`npx mlcl setup --agent codex` for them and for the two entries that load the first-step tools up
+front.
 
 `mlcl mcp install` writes/merges the JSON-config harnesses (Windsurf, VS Code,
 OpenCode, Amp, Crush, Kiro, Trae, Zed, Cursor-project) idempotently and never

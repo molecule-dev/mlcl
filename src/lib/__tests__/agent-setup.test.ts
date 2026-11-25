@@ -9,7 +9,7 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import { type AgentEnvironment, findHarness } from '../agent-harnesses.js'
+import { type AgentEnvironment, CODEX_UP_FRONT_TOOLS, findHarness } from '../agent-harnesses.js'
 import {
   applySetup,
   type CliRunner,
@@ -589,6 +589,21 @@ describe('Codex MCP limits', () => {
   })
 
   const run = (): string => join(home, '.mlcl', 'mcp', 'run.mjs')
+  const tools = `[${CODEX_UP_FRONT_TOOLS.map((name) => `"${name}"`).join(', ')}]`
+  /** The two tables a split install ends with: the first-step tools up front, the rest deferred. */
+  const split = {
+    molecule: [`enabled_tools = ${tools}`, 'omit_tools_from = ["deferred"]'],
+    more: (
+      command = `command = "node"
+args = ["${run()}"]`,
+    ) =>
+      `[mcp_servers.molecule_more]
+${command}
+startup_timeout_sec = 120
+tool_timeout_sec = 660
+disabled_tools = ${tools}
+`,
+  }
 
   it('runs codex mcp add once, then adds both limits to the table it wrote', async () => {
     expect(await apply(steps(['codex']))).toEqual(['written', 'updated'])
@@ -597,6 +612,16 @@ describe('Codex MCP limits', () => {
       startup_timeout_sec: 120,
       tool_timeout_sec: 660,
     })
+    expect(readFileSync(config, 'utf8')).toBe(
+      `[mcp_servers.molecule]
+command = "node"
+args = ["${run()}"]
+startup_timeout_sec = 120
+tool_timeout_sec = 660
+${split.molecule.join('\n')}
+
+${split.more()}`,
+    )
     // A second setup leaves the table alone: re-running the installer would drop the limits.
     expect(await apply(steps(['codex']))).toEqual(['present', 'present'])
     expect(calls).toHaveLength(1)
@@ -630,15 +655,20 @@ describe('Codex MCP limits', () => {
     const after = readFileSync(config, 'utf8')
     expect(limits(after)).toEqual({ tool_timeout_sec: 900, startup_timeout_sec: 120 })
     expect(after).toBe(
-      before
+      `${before
         .replace('command = "npx"', 'command = "node"')
         .replace('args = ["-y", "molecule-mcp"]', `args = ["${run()}"]`)
-        .replace('tool_timeout_sec = 900\n', 'tool_timeout_sec = 900\nstartup_timeout_sec = 120\n'),
+        .replace(
+          'tool_timeout_sec = 900\n',
+          `tool_timeout_sec = 900\nstartup_timeout_sec = 120\n${split.molecule.join('\n')}\n`,
+        )
+        .trimEnd()}\n\n${split.more()}`,
     )
   })
 
-  // Counterexample: a command the user changed is theirs, whatever it names.
-  it('keeps a command the user pinned', async () => {
+  // Counterexample: a command the user changed is theirs, whatever it names. The split would start
+  // setup's server beside theirs, so their table keeps every tool and no second table is added.
+  it('keeps a command the user pinned, without the split', async () => {
     mkdirSync(codexHome, { recursive: true })
     const before =
       '[mcp_servers.molecule]\ncommand = "npx"\nargs = ["-y", "molecule-mcp@0.3.0"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n'
@@ -647,10 +677,39 @@ describe('Codex MCP limits', () => {
     expect(readFileSync(config, 'utf8')).toBe(before)
   })
 
-  it('writes the same table without the codex CLI', async () => {
+  it('writes the same tables without the codex CLI', async () => {
     expect(await apply(steps([]))).toEqual(['written'])
     expect(readFileSync(config, 'utf8')).toBe(
-      `[mcp_servers.molecule]\ncommand = "node"\nargs = ["${run()}"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n`,
+      `[mcp_servers.molecule]\ncommand = "node"\nargs = ["${run()}"]\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n${split.molecule.join('\n')}\n\n${split.more()}`,
+    )
+    expect(await apply(steps([]))).toEqual(['present'])
+  })
+
+  // A user who narrowed the up-front tools keeps their list; the second table is still added.
+  it('keeps the user’s own enabled_tools on a setup-installed table', async () => {
+    mkdirSync(codexHome, { recursive: true })
+    const before = `[mcp_servers.molecule]\ncommand = "node"\nargs = ["${run()}"]\nenabled_tools = ["search_packages"]\n`
+    writeFileSync(config, before)
+    expect(await apply(steps([]))).toEqual(['updated'])
+    const after = readFileSync(config, 'utf8')
+    expect(after).toContain('enabled_tools = ["search_packages"]\nstartup_timeout_sec = 120')
+    expect(after.match(/^enabled_tools/gm)).toHaveLength(1)
+    expect(after.endsWith(split.more())).toBe(true)
+  })
+
+  it('splits a project config the same way, with its npx command', async () => {
+    const codex = findHarness('codex')!
+    const planned = planSetup({
+      scope: 'project',
+      harnesses: [codex],
+      components: new Set(['mcp']),
+      env: { home, cwd: home, env: {}, onPath: () => false },
+      skills: {},
+    })
+    expect(await apply(planned)).toEqual(['written'])
+    const npx = 'command = "npx"\nargs = ["-y", "molecule-mcp"]'
+    expect(readFileSync(join(home, '.codex', 'config.toml'), 'utf8')).toBe(
+      `[mcp_servers.molecule]\n${npx}\nstartup_timeout_sec = 120\ntool_timeout_sec = 660\n${split.molecule.join('\n')}\n\n${split.more(npx)}`,
     )
   })
 

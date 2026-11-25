@@ -75,6 +75,34 @@ export const CODEX_MCP_TIMEOUT_LINES = [
 ] as const
 
 /**
+ * The tools Codex shows the model before its first turn: the ones a coding agent calls first,
+ * as `UP_FRONT_TOOLS` in mcp/src/tool-loading.ts names them for Claude Code (a test keeps the
+ * two lists equal).
+ *
+ * Codex puts every MCP tool behind its tool search and reads no per-tool hint, so in the
+ * 2026-11-25 find eval it spent a model call looking up `search_packages` before calling it
+ * (3 calls and 52k input tokens, against 2 and 38k for the split below). Codex chooses per
+ * server, so setup registers the server twice: `molecule` exposes only these tools and keeps
+ * them out of the tool search (`omit_tools_from = ["deferred"]`), and {@link CODEX_MORE_SERVER_NAME}
+ * exposes every other tool, where Codex defers them as before.
+ */
+export const CODEX_UP_FRONT_TOOLS = [
+  'search_packages',
+  'read_package_doc',
+  'list_templates',
+  'scaffold_project',
+  'add_package',
+  'check_project',
+] as const
+
+/** The second Codex registration of the server, holding every tool not in {@link CODEX_UP_FRONT_TOOLS}. */
+export const CODEX_MORE_SERVER_NAME = 'molecule_more'
+
+/** A TOML array of strings, spaced as Codex writes one. */
+const tomlStrings = (values: readonly string[]): string =>
+  JSON.stringify(values).replace(/","/g, '", "')
+
+/**
  * The `{command, args}` entry most JSON configs take.
  *
  * @param scope - Machine or project.
@@ -134,7 +162,20 @@ export type McpTarget =
    * table, and a key the table does not set yet is added to it. A key already set is kept, unless
    * its line is one of `legacyLines` (an older setup's command): that line is replaced.
    */
-  | { kind: 'toml'; path: string; table: string; lines: string[]; legacyLines?: string[] }
+  | {
+      kind: 'toml'
+      path: string
+      table: string
+      lines: string[]
+      legacyLines?: string[]
+      /**
+       * A second table that starts the same server, added only while `table` runs setup's own
+       * command (every line of `command`): `lines` then also go in `table`, and `tableLines` make
+       * the second table. A command the user set is theirs, and the split would start a different
+       * server beside it.
+       */
+      split?: { command: string[]; lines: string[]; table: string; tableLines: string[] }
+    }
   /** No safe writer: print what to add by hand. */
   | { kind: 'manual'; lines: string[] }
 
@@ -442,18 +483,21 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     id: 'codex',
     label: 'Codex',
     ignoresServerInstructions: true,
-    serverTools: { bin: 'codex', ask: () => codexServerTools(MCP_SERVER_NAME) },
+    serverTools: {
+      bin: 'codex',
+      ask: () => codexServerTools(MCP_SERVER_NAME, { more: CODEX_MORE_SERVER_NAME }),
+    },
     installed: (e) => has(e, ['codex'], ['.codex']) || Boolean(e.env.CODEX_HOME),
     // `codex mcp add` has no scope flag and writes ~/.codex/config.toml; a
     // project's own servers go in .codex/config.toml (trusted projects only).
     // It has no timeout flag either (`-c` is not saved), so the timeouts are
-    // added to the table it wrote.
+    // added to the table it wrote, with the split of the tools (CODEX_UP_FRONT_TOOLS).
     mcp: (scope, e) => {
       const table = `mcp_servers.${MCP_SERVER_NAME}`
       const [command, ...args] = mcpServerCommand(scope, e)
       const commandLines = (bin: string, argv: readonly string[]): string[] => [
         `command = "${bin}"`,
-        `args = ${JSON.stringify(argv).replace(/","/g, '", "')}`,
+        `args = ${tomlStrings(argv)}`,
       ]
       const toml = (path: string): McpTarget => ({
         kind: 'toml',
@@ -461,6 +505,19 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
         table,
         lines: [...commandLines(command, args), ...CODEX_MCP_TIMEOUT_LINES],
         legacyLines: commandLines(LEGACY_MCP_COMMAND[0], LEGACY_MCP_COMMAND.slice(1)),
+        split: {
+          command: commandLines(command, args),
+          lines: [
+            `enabled_tools = ${tomlStrings(CODEX_UP_FRONT_TOOLS)}`,
+            'omit_tools_from = ["deferred"]',
+          ],
+          table: `mcp_servers.${CODEX_MORE_SERVER_NAME}`,
+          tableLines: [
+            ...commandLines(command, args),
+            ...CODEX_MCP_TIMEOUT_LINES,
+            `disabled_tools = ${tomlStrings(CODEX_UP_FRONT_TOOLS)}`,
+          ],
+        },
       })
       if (scope === 'project') return [toml(join(e.cwd, '.codex', 'config.toml'))]
       const path = join(e.env.CODEX_HOME || join(e.home, '.codex'), 'config.toml')

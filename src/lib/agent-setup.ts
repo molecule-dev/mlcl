@@ -322,6 +322,12 @@ export function tomlDefinesTable(text: string, table: string): boolean {
   return false
 }
 
+/** The dotted name a TOML `[table]` / `[[table]]` heading line opens, or null for any other line. */
+const tomlHeading = (row: string): string | null =>
+  /^\[\[?\s*([^\]]+?)\s*\]\]?$/
+    .exec(row.replace(/#.*$/, '').trim())?.[1]
+    .replace(/\s*\.\s*/g, '.') ?? null
+
 /** The bare key a TOML `key = value` line sets, or null for any other line. */
 const tomlLineKey = (line: string): string | null =>
   /^\s*([A-Za-z0-9_-]+)\s*=/.exec(line.replace(/#.*$/, ''))?.[1] ?? null
@@ -351,13 +357,9 @@ function ensureTomlTable(
     return text === '' ? 'written' : 'updated'
   }
   const rows = text.split('\n')
-  const heading = (row: string): string | null =>
-    /^\[\[?\s*([^\]]+?)\s*\]\]?$/
-      .exec(row.replace(/#.*$/, '').trim())?.[1]
-      .replace(/\s*\.\s*/g, '.') ?? null
-  const start = rows.findIndex((row) => heading(row) === table)
+  const start = rows.findIndex((row) => tomlHeading(row) === table)
   if (start < 0) return 'present'
-  let end = rows.findIndex((row, at) => at > start && heading(row) !== null)
+  let end = rows.findIndex((row, at) => at > start && tomlHeading(row) !== null)
   if (end < 0) end = rows.length
   const block = rows.slice(start + 1, end)
   const legacy = new Set(legacyLines.map(tomlLineValue))
@@ -385,6 +387,41 @@ function ensureTomlTable(
   rows.splice(last + 1, 0, ...missing)
   writeFileSync(path, rows.join('\n'))
   return 'updated'
+}
+
+/**
+ * The lines of a `[table]` block in a TOML file, or null when the file defines no such block
+ * (no table, or one written as dotted keys or an inline table).
+ */
+function tomlTableBlock(path: string, table: string): string[] | null {
+  if (!existsSync(path)) return null
+  const rows = readFileSync(path, 'utf8').split('\n')
+  const start = rows.findIndex((row) => tomlHeading(row) === table)
+  if (start < 0) return null
+  const end = rows.findIndex((row, at) => at > start && tomlHeading(row) !== null)
+  return rows.slice(start + 1, end < 0 ? rows.length : end)
+}
+
+/**
+ * {@link ensureTomlTable}, then the target's split: while the table runs setup's own command, its
+ * split lines go in it and the second table is ensured beside it.
+ */
+function ensureTomlTarget(target: Extract<McpTarget, { kind: 'toml' }>): SetupStepResult['status'] {
+  const first = ensureTomlTable(target.path, target.table, target.lines, target.legacyLines)
+  const split = target.split
+  if (!split) return first
+  const block = tomlTableBlock(target.path, target.table)
+  const own =
+    block !== null &&
+    split.command.every((line) => block.some((row) => tomlLineValue(row) === tomlLineValue(line)))
+  if (!own) return first
+  const statuses = [
+    first,
+    ensureTomlTable(target.path, target.table, split.lines),
+    ensureTomlTable(target.path, split.table, split.tableLines),
+  ]
+  if (first === 'written') return 'written'
+  return statuses.includes('updated') ? 'updated' : 'present'
 }
 
 /**
@@ -461,9 +498,7 @@ async function applyMcp(
       }
     }
     case 'toml':
-      return {
-        status: ensureTomlTable(target.path, target.table, target.lines, target.legacyLines),
-      }
+      return { status: ensureTomlTarget(target) }
     case 'manual':
       return { status: 'manual', detail: target.lines.join('\n') }
   }

@@ -108,3 +108,15 @@ describe('the tools Claude Code loads before the first turn', () => {
     expect(upFront(remoteTools)).toEqual(['list_templates', 'read_package_doc', 'search_packages'])
   })
 })
+
+// Codex reads no per-tool hint: setup registers the server twice, one table exposing these tools up
+// front and one the rest (CODEX_UP_FRONT_TOOLS), so its list must name the same tools.
+describe('the tools Codex loads before the first turn', () => {
+  it('are the tools the stdio server loads up front for Claude Code', async (ctx) => {
+    if (skipped(ctx)) return
+    const { CODEX_UP_FRONT_TOOLS } = await import('../agent-harnesses.js')
+    expect([...CODEX_UP_FRONT_TOOLS].sort()).toEqual(upFront(stdioTools))
+    const names = stdioTools.map((tool) => tool.name)
+    for (const name of CODEX_UP_FRONT_TOOLS) expect(names).toContain(name)
+  })
+})
