@@ -199,6 +199,8 @@ export const messages: LocaleMessages = {
     'Package docs: npx mlcl docs @molecule/<name> (--section "<heading>" for one function or heading)',
   'commands.create.messages.orientationInstallScripts':
     'Install scripts off in package.json allowScripts, none of them needed: {names}. A native one loads the prebuilt binary its package ships',
+  'commands.create.messages.orientationInstalled':
+    'Installed: the dependencies are in the root node_modules. Reinstall only after a dependency changes (npx mlcl add installs what it adds)',
   'commands.create.messages.orientationCheck': 'Before handing work back: npx mlcl check',
   'commands.create.messages.orientationRecheck': 'After you change code: npx mlcl check',
   'commands.create.messages.verified': 'mlcl check passed on the new project: {steps}',

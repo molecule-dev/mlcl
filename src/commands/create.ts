@@ -705,7 +705,10 @@ export default class Create extends Command {
           say(`  ${ui.cmd(step)}`)
         say(`  ${ui.dim('# edit api/.env and app/.env with your credentials')}`)
         say(`  ${ui.cmd('npm run dev')}`)
-        const orientation = projectOrientation(projectPath, verification?.ok === true)
+        const orientation = projectOrientation(projectPath, {
+          checked: verification?.ok === true,
+          installed: !installNeeded,
+        })
         say('')
         say(ui.heading(t('commands.create.messages.orientation')))
         for (const line of orientation) say(`  ${line}`)
@@ -1323,7 +1326,10 @@ export default class Create extends Command {
       }))
         say(`  ${step}`)
       say('  npx wrangler dev')
-      const orientation = projectOrientation(projectPath, verification?.ok === true)
+      const orientation = projectOrientation(projectPath, {
+        checked: verification?.ok === true,
+        installed: !installNeeded,
+      })
       say('')
       say(t('commands.create.messages.orientation'))
       for (const line of orientation) say(`  ${line}`)
@@ -1796,7 +1802,10 @@ export default class Create extends Command {
       say(`  ${t('commands.create.messages.editEnv', { file })}`)
     }
     say(`  npm run dev`)
-    const orientation = projectOrientation(projectPath, verification?.ok === true)
+    const orientation = projectOrientation(projectPath, {
+      checked: verification?.ok === true,
+      installed: !installNeeded,
+    })
     say('')
     say(
       nonInteractive

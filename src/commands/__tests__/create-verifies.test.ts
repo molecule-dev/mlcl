@@ -145,4 +145,20 @@ describe('mlcl create checks the project it installed', () => {
     expect(json.verified).toBeUndefined()
     expect((json.next as string[]).at(-1)).toBe('Before handing work back: npx mlcl check')
   }, 120_000)
+
+  // r32 scaffold eval: Codex created with --no-verify, found no app/node_modules (npm workspaces
+  // hoist to the root) and ran `npm ci && npm run build`, 49 s.
+  it('says the project is installed, so a reinstall is not needed (OLD MUSTFAIL)', async () => {
+    const json = await create(PASSED, ['--no-verify'])
+    expect(json.next).toContain(INSTALLED)
+  }, 120_000)
+
+  it('does not say so when create did not install', async () => {
+    const json = await create(PASSED, ['--skip-install'])
+    expect(json.next).not.toContain(INSTALLED)
+    expect(json.pendingSetup).toContain('npm install')
+  }, 120_000)
 })
+
+const INSTALLED =
+  'Installed: the dependencies are in the root node_modules. Reinstall only after a dependency changes (npx mlcl add installs what it adds)'

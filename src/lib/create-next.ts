@@ -9,7 +9,9 @@
  *
  * An installed create also runs that check itself and says what passed, so the agent does not run
  * it again before changing anything (in the r18 eval Claude ran it in every scaffold run, 3.5-5.2 s
- * plus a model turn each).
+ * plus a model turn each). It says the project is installed, too: in the r32 eval Codex created
+ * with `--no-verify`, found no `app/node_modules` (npm workspaces hoist to the root) and ran
+ * `npm ci && npm run build`, 49 s.
  *
  * @module
  */
@@ -31,10 +33,14 @@ const PAGE_DIRS = ['app/src/pages', 'src/pages']
  * The orientation lines for a scaffolded project, from the files on disk.
  *
  * @param projectPath - The project's root directory.
- * @param checked - Whether create's own check passed: the last line then says to run it after a change.
+ * @param state - `checked`: create's own check passed, so the last line says to run it after a
+ *   change. `installed`: create installed the dependencies, so a line says a reinstall is not needed.
  * @returns The lines, relative to the project root, in reading order.
  */
-export function projectOrientation(projectPath: string, checked = false): string[] {
+export function projectOrientation(
+  projectPath: string,
+  state: { checked?: boolean; installed?: boolean } = {},
+): string[] {
   const has = (path: string): boolean => existsSync(join(projectPath, path))
   const lines: string[] = []
   if (has('AGENTS.md')) lines.push(t('commands.create.messages.orientationAgents'))
@@ -46,9 +52,10 @@ export function projectOrientation(projectPath: string, checked = false): string
   const off = installScriptsOff(projectPath)
   if (off.length)
     lines.push(t('commands.create.messages.orientationInstallScripts', { names: off.join(', ') }))
+  if (state.installed) lines.push(t('commands.create.messages.orientationInstalled'))
   lines.push(
     t(
-      checked
+      state.checked
         ? 'commands.create.messages.orientationRecheck'
         : 'commands.create.messages.orientationCheck',
     ),
