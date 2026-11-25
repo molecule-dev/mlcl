@@ -208,6 +208,9 @@ for (let grew = reexported.size > 0; grew;) {
     }
   }
 }
+// The sync a fix line names: the package directories this run checked, which a scoped sync reads
+// from the working tree (the committer's own edits); unscoped, sync-registry reads molecule HEAD.
+const fixScope = scopePaths.size ? ` ${[...checkPaths].sort().join(' ')}` : ''
 
 /**
  * One package's drift against one registry entry, pushed onto `sink`'s lists.
@@ -420,7 +423,7 @@ if (drifted.length > 0) {
     if (extra.length) parts.push(`stale ${JSON.stringify(extra)}`)
     console.error(`  ${name}: ${parts.join(', ')}`)
   }
-  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
+  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports${fixScope}`)
 }
 
 if (routeDrifted.length > 0) {
@@ -428,7 +431,7 @@ if (routeDrifted.length > 0) {
   for (const { name, have, want } of routeDrifted) {
     console.error(`  ${name}: registry has ${have} route(s), src/routes.ts yields ${want}`)
   }
-  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-routes`)
+  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-routes${fixScope}`)
 }
 
 if (declarationsDrifted.length > 0) {
@@ -444,7 +447,7 @@ if (declarationsDrifted.length > 0) {
       )
     console.error(`  ${name}: ${parts.join(', ')}`)
   }
-  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
+  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports${fixScope}`)
 }
 
 if (setterDrifted.length > 0) {
@@ -457,7 +460,7 @@ if (setterDrifted.length > 0) {
         `${want === null ? 'none' : `"${want}"`}`,
     )
   }
-  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
+  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports${fixScope}`)
 }
 
 if (peersDrifted.length > 0) {
@@ -470,7 +473,7 @@ if (peersDrifted.length > 0) {
         `package.json requires ${JSON.stringify(want)}`,
     )
   }
-  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports`)
+  console.error(`\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports${fixScope}`)
 }
 
 if (descriptionsDrifted.length > 0) {
@@ -484,7 +487,8 @@ if (descriptionsDrifted.length > 0) {
   }
   console.error(
     '\nnpm shows the package.json text and mlcl search ranks by the registry one; they are one text.' +
-      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports',
+      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports' +
+      fixScope,
   )
 }
 
@@ -500,7 +504,8 @@ if (dependenciesDrifted.length > 0) {
   }
   console.error(
     '\nThe registry lists every package.json dependency and peer of a package.' +
-      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports',
+      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports' +
+      fixScope,
   )
 }
 
@@ -514,7 +519,8 @@ if (thirdPartyDrifted.length > 0) {
     )
   console.error(
     '\nmlcl add declares these versions before it installs.' +
-      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports',
+      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-exports' +
+      fixScope,
   )
 }
 
@@ -529,7 +535,8 @@ if (recordDrifted.length > 0) {
   }
   console.error(
     '\nThe app module mlcl writes for a resource is typed from this record.' +
-      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-records',
+      '\nFix: cd mlcl && node bin/run.js sync-registry --scan-records' +
+      fixScope,
   )
 }
 

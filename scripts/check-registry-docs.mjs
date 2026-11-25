@@ -21,10 +21,11 @@
  *
  * The same export then runs `check-registry-exports.mjs` over the changed entries (exports, peers,
  * dependencies, routes, descriptions) with the staged registry, and refuses each finding that the
- * base registry does not also have. `sync-registry` reads the molecule WORKING tree, which holds
- * other sessions' uncommitted work: on 2026-11-25 mlcl 14d45864c4 recorded uncommitted exports for
- * five tag-input packages and `@molecule/app-ui`, and the UI kit peers of six features, and the
- * release's registry gate (which reads molecule at a pinned commit) would have refused it. A finding
+ * base registry does not also have. The molecule working tree holds other sessions' uncommitted
+ * work: on 2026-11-25 mlcl 14d45864c4 recorded uncommitted exports for five tag-input packages and
+ * `@molecule/app-ui`, and the UI kit peers of six features, from an unscoped sync of it, and the
+ * release's registry gate (which reads molecule at a pinned commit) would have refused it.
+ * (`sync-registry` now reads molecule HEAD unless package directories are named.) A finding
  * the base registry has too predates this commit (a molecule commit whose registry half has not
  * landed yet) and is reported, not refused.
  *
@@ -321,7 +322,7 @@ function checkEntries(registryFile) {
   )
   for (const finding of added) console.error(`  ${finding.replace('\n', ' ')}`)
   console.error(
-    'Commit that work in molecule first, or leave those entries as they are at HEAD. sync-registry reads the molecule working tree, which holds uncommitted work; run it on an export of molecule HEAD (MOLECULE_PACKAGES_DIR) or on the package directories you committed.',
+    'Commit that work in molecule first, or leave those entries as they are at HEAD: `cd mlcl && node bin/run.js sync-registry` with no package directories reads molecule HEAD.',
   )
   return false
 }

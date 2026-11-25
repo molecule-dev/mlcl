@@ -165,6 +165,15 @@ node bin/run.js sync-registry    # Sync exports, routes, tables, toolchain, fram
 node bin/run.js sync-docs        # Regenerate/validate all README.md files
 ```
 
+**`sync-registry` reads molecule at HEAD.** With no package directories it exports the molecule
+checkout's HEAD and scans that, never the working tree: other people's uncommitted edits can sit in
+the same working tree, an unscoped sync of it records them, and the release's registry gate (molecule
+at a pinned commit) then refuses the registry. To record your own uncommitted edits (to
+commit a molecule package whose registry entry must already match), name your package directories:
+`node bin/run.js sync-registry --scan-exports packages/app/features/<name>`. Only those entries
+change, read from the working tree. `MOLECULE_PACKAGES_DIR` naming a tree that is not a git
+checkout (an export, a fixture) is read as it is.
+
 Also update the plan doc in the workspace `internal/mlcl/plans/` to mark completed items.
 
 ### Why this is easy to forget — and what guards it
@@ -203,7 +212,9 @@ router. The filter is by map MEMBERSHIP, never by name — grade keys its own
   feature's README now names) runs `scripts/check-registry-docs.mjs`: the READMEs of the changed
   packages and of the packages that list them, at molecule HEAD, must match the staged registry. It
   names the READMEs and the regenerate command; commit those in molecule first, then the registry.
-  A pin, toolchain or framework-version edit checks nothing.
+  The same run refuses a changed entry that records exports, peers or dependencies molecule HEAD
+  does not have, unless the base registry has that difference too. A pin, toolchain or
+  framework-version edit checks nothing.
 - **`npm run verify:registry-exports`** (mlcl or workspace root) — run the same
   check manually over the whole fleet (`mlcl/scripts/check-registry-exports.mjs`,
   via tsx; pass package paths to scope it). Build-independent: the scanner subgraph
@@ -225,9 +236,11 @@ router. The filter is by map MEMBERSHIP, never by name — grade keys its own
   Once a full molecule build works in mlcl CI, this can be upgraded to the
   comprehensive `registry:check`.
 
-When any of these fail, the fix is always: `node bin/run.js sync-registry
---scan-exports` / `--scan-routes` (in mlcl; the failure names which) then commit
-the updated `registry.json`.
+When any of these fail, the fix is the `sync-registry` command the failure prints (in mlcl):
+molecule's pre-commit names the staged package directories, so it reads your working-tree edits;
+an unscoped failure (the release's gate, `verify:registry-exports`) names none, so it reads molecule
+HEAD. Then commit the updated `registry.json` (mlcl's pre-commit refuses an entry that molecule
+HEAD does not match).
 
 ## README.md Generation
 

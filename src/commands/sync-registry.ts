@@ -1,9 +1,18 @@
-import { existsSync, readdirSync, readFileSync } from 'node:fs'
+import { spawnSync } from 'node:child_process'
+import {
+  existsSync,
+  mkdtempSync,
+  readdirSync,
+  readFileSync,
+  realpathSync,
+  rmSync,
+  symlinkSync,
+} from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
 
 import * as p from '@clack/prompts'
-import { Command, Flags } from '@oclif/core'
+import { Args, Command, Flags } from '@oclif/core'
 import chalk from 'chalk'
 
 import { resourceRecordName } from '../lib/app-resource-modules.js'
@@ -43,18 +52,32 @@ export default class SyncRegistry extends Command {
   static override hidden = true
 
   static override description =
-    'Sync registry.json with molecule packages (exports, routes, tables, toolchain, and framework versions)'
+    'Sync registry.json with molecule packages (exports, routes, tables, toolchain, and framework versions). ' +
+    "Reads a molecule git checkout at HEAD, so uncommitted edits (other sessions' work included) never " +
+    'reach the registry; name package directories to update only their entries from the working tree.'
 
   static override examples = [
     '<%= config.bin %> <%= command.id %>',
     '<%= config.bin %> <%= command.id %> --dry-run',
     '<%= config.bin %> <%= command.id %> --check',
     '<%= config.bin %> <%= command.id %> --scan-exports',
+    '<%= config.bin %> <%= command.id %> --scan-exports packages/app/features/tag-input-react',
     '<%= config.bin %> <%= command.id %> --scan-routes',
     '<%= config.bin %> <%= command.id %> --sync-toolchain',
     '<%= config.bin %> <%= command.id %> --sync-frameworks',
     '<%= config.bin %> <%= command.id %> --check-intent-hints',
   ]
+
+  // Package directories, any number of them.
+  static override strict = false
+
+  static override args = {
+    packages: Args.string({
+      description:
+        'Package directories relative to the molecule root (packages/<stack>/<group>/<name>): update only their entries, from the working tree',
+      required: false,
+    }),
+  }
 
   static override flags = {
     'dry-run': Flags.boolean({
@@ -106,11 +129,124 @@ export default class SyncRegistry extends Command {
     }),
   }
 
+  /** The package directories named on the command line, or null for every entry. */
+  private scope: Set<string> | null = null
+
   public async run(): Promise<void> {
-    const { flags } = await this.parse(SyncRegistry)
+    const { argv, flags } = await this.parse(SyncRegistry)
+    const paths = (argv as string[]).map((path) => path.replace(/\/+$/, ''))
+    // The same shape check-registry-exports accepts: a path in another shape matches no entry, so
+    // the sync would update nothing and still report success.
+    const misshapen = paths.filter((path) => {
+      const segments = path.split('/')
+      return (
+        segments[0] !== 'packages' ||
+        segments.length < 2 ||
+        segments.some((x) => x === '' || x === '.' || x === '..')
+      )
+    })
+    if (misshapen.length)
+      this.error(
+        `package directories are relative to the molecule root (packages/<stack>/<group>/<name>), not: ${misshapen.join(', ')}`,
+      )
+    if (paths.length && (flags['sync-toolchain'] || flags['sync-frameworks']))
+      this.error(
+        'package directories scope the package scans; --sync-toolchain and --sync-frameworks read every package',
+      )
+    this.scope = paths.length ? new Set(paths) : null
 
     p.intro(chalk.bgCyan(' sync-registry '))
+    const restore = this.scope || flags['check-intent-hints'] ? null : this.readMoleculeHead()
+    try {
+      await this.sync(flags)
+    } finally {
+      restore?.()
+    }
+  }
 
+  /**
+   * Point the scans at molecule HEAD when they would read a molecule git checkout: the working
+   * tree is shared, and an unscoped sync of it records other sessions' uncommitted exports and
+   * peers, which the release's registry gate (molecule at a pinned commit) then refuses (mlcl
+   * 14d45864c4 and 2762518da2, 2026-11-25). An explicit
+   * `MOLECULE_PACKAGES_DIR` that is not a checkout (an export, a fixture) is read as it is.
+   *
+   * @returns A function that removes the export and restores the environment, or null when the
+   *   scans read their tree as it is.
+   */
+  private readMoleculeHead(): (() => void) | null {
+    const __dir = dirname(fileURLToPath(import.meta.url))
+    const moleculeDir = process.env.MOLECULE_PACKAGES_DIR
+      ? join(process.env.MOLECULE_PACKAGES_DIR, '..')
+      : join(__dir, '..', '..', '..', 'molecule')
+    if (!existsSync(moleculeDir)) return null
+    // A hook's GIT_DIR / GIT_INDEX_FILE name mlcl's repo, never molecule's.
+    const env = Object.fromEntries(
+      Object.entries(process.env).filter(([name]) => !name.startsWith('GIT_')),
+    )
+    const top = spawnSync('git', ['-C', moleculeDir, 'rev-parse', '--show-toplevel', 'HEAD'], {
+      encoding: 'utf8',
+      env,
+    })
+    const [root, head] = top.stdout.trim().split('\n')
+    if (top.status !== 0 || !root || realpathSync(root) !== realpathSync(moleculeDir)) return null
+    // Beside the checkout, so a package's dependencies resolve as they do in it.
+    const exportDir = mkdtempSync(join(dirname(realpathSync(moleculeDir)), '.sync-registry-head-'))
+    const previous = process.env.MOLECULE_PACKAGES_DIR
+    let restored = false
+    const restore = (): void => {
+      if (restored) return
+      restored = true
+      if (previous === undefined) delete process.env.MOLECULE_PACKAGES_DIR
+      else process.env.MOLECULE_PACKAGES_DIR = previous
+      rmSync(exportDir, { recursive: true, force: true })
+    }
+    for (const signal of ['SIGINT', 'SIGTERM', 'SIGHUP'] as const)
+      process.once(signal, () => {
+        restore()
+        process.exit(1)
+      })
+    const archive = spawnSync(
+      'sh',
+      ['-c', 'git -C "$1" archive HEAD | tar -x -C "$2"', 'sh', moleculeDir, exportDir],
+      { encoding: 'utf8', env },
+    )
+    if (archive.status !== 0) {
+      restore()
+      this.error(`could not export molecule HEAD: ${archive.stderr.trim()}`)
+    }
+    if (existsSync(join(moleculeDir, 'node_modules')))
+      symlinkSync(
+        join(realpathSync(moleculeDir), 'node_modules'),
+        join(exportDir, 'node_modules'),
+        'dir',
+      )
+    process.env.MOLECULE_PACKAGES_DIR = join(exportDir, 'packages')
+    this.log(
+      chalk.dim(
+        `Reading molecule at HEAD (${head.slice(0, 10)}); name package directories to update their entries from the working tree.`,
+      ),
+    )
+    return restore
+  }
+
+  /**
+   * Whether a registry entry is in this run's scope.
+   *
+   * @param entry - The entry.
+   * @param entry.path - Its package directory.
+   * @returns True with no package directories named, or when the entry's directory is one of them.
+   */
+  private inScope(entry: { path?: string }): boolean {
+    return !this.scope || this.scope.has((entry.path ?? '').replace(/\/+$/, ''))
+  }
+
+  /**
+   * The syncs the flags select.
+   *
+   * @param flags - The parsed flags.
+   */
+  private async sync(flags: { [K in keyof typeof SyncRegistry.flags]: boolean }): Promise<void> {
     // Individual flag modes
     if (flags['sync-toolchain']) {
       this.syncToolchain(flags['dry-run'])
@@ -156,8 +292,9 @@ export default class SyncRegistry extends Command {
     // Default: run all syncs. --check implies --dry-run.
     const dryRun = flags.check || flags['dry-run']
 
-    const toolchainUpdated = this.syncToolchain(dryRun, false)
-    const frameworksUpdated = this.syncFrameworks(dryRun, false)
+    // Named package directories scope the package scans; the version syncs read every package.
+    const toolchainUpdated = this.scope ? 0 : this.syncToolchain(dryRun, false)
+    const frameworksUpdated = this.scope ? 0 : this.syncFrameworks(dryRun, false)
     const exportsUpdated = await this.refreshExports(dryRun, false)
     const tablesUpdated = await this.refreshTables(dryRun, false)
     const routesUpdated = await this.refreshRoutes(dryRun, false)
@@ -601,7 +738,9 @@ export default class SyncRegistry extends Command {
       ? join(process.env.MOLECULE_PACKAGES_DIR, '..')
       : join(__dir, '..', '..', '..', 'molecule')
 
-    const packageNames = Object.keys(registry.packages)
+    const packageNames = Object.keys(registry.packages).filter((name) =>
+      this.inScope(registry.packages[name]),
+    )
     const packageSrc = registryPackageSrc(registry.packages, moleculeDir)
     const bondSetterNames = bondSetterScope(registry.packages)
     const declared = declarationScope(registry.packages)
@@ -849,7 +988,9 @@ export default class SyncRegistry extends Command {
       ? join(process.env.MOLECULE_PACKAGES_DIR, '..')
       : join(__dir, '..', '..', '..', 'molecule')
 
-    const packageNames = Object.keys(registry.packages)
+    const packageNames = Object.keys(registry.packages).filter((name) =>
+      this.inScope(registry.packages[name]),
+    )
 
     let updated = 0
     let unchanged = 0
@@ -1006,6 +1147,7 @@ export default class SyncRegistry extends Command {
     const changes: string[] = []
 
     for (const [name, entry] of Object.entries(registry.packages)) {
+      if (!this.inScope(entry)) continue
       if (!ROUTE_SCANNED_TYPES.has(entry.type)) continue
       const srcPath = join(moleculeDir, entry.path, 'src')
       if (!existsSync(srcPath)) {
@@ -1099,6 +1241,7 @@ export default class SyncRegistry extends Command {
     let updated = 0
     const changes: string[] = []
     for (const [name, entry] of Object.entries(registry.packages)) {
+      if (!this.inScope(entry)) continue
       if (entry.type !== 'resource') continue
       const typesPath = join(moleculeDir, entry.path, 'src', 'types.ts')
       if (!existsSync(join(moleculeDir, entry.path, 'src'))) continue
@@ -1151,6 +1294,7 @@ export default class SyncRegistry extends Command {
       : join(__dir, '..', '..', '..', 'molecule')
     let updated = 0
     for (const entry of Object.values(registry.packages)) {
+      if (!this.inScope(entry)) continue
       if (await syncQuickStart(entry, join(moleculeDir, entry.path))) updated++
     }
     if (!dryRun && updated > 0) writeRegistryFile(getRegistryPath(), registry)
