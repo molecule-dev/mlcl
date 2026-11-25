@@ -23,6 +23,30 @@ const text = readFileSync(registryPath, 'utf-8')
 const raw = JSON.parse(text)
 
 describe('registry.json schema validation', () => {
+  it('preserves named subpath exports through registry serialization', () => {
+    const name = '@molecule/app-subpath-example'
+    const entry = {
+      ...raw.packages['@molecule/app-ui-react'],
+      exports: ['Button'],
+      subpathExports: { './elements': ['Anchor', 'RangeField'] },
+    }
+    const written = JSON.parse(serializeRegistry({ version: 1, packages: { [name]: entry } }))
+
+    expect(written.packages[name].exports).toEqual(['Button'])
+    expect(written.packages[name].subpathExports).toEqual(entry.subpathExports)
+    expect(
+      RegistryEntry.safeParse({ ...entry, subpathExports: { elements: ['Anchor'] } }).success,
+    ).toBe(false)
+  })
+
+  it('preserves existing CLI command metadata through registry serialization', () => {
+    const name = '@molecule/api-jwt'
+    const entry = { ...raw.packages[name], cliHint: 'generate-jwt-keys' }
+    const written = JSON.parse(serializeRegistry({ version: 1, packages: { [name]: entry } }))
+
+    expect(written.packages[name].cliHint).toBe('generate-jwt-keys')
+  })
+
   it('should conform to the Registry schema', () => {
     const result = Registry.safeParse(raw)
     if (!result.success) {

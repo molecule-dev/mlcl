@@ -969,6 +969,7 @@ export const RegistryEntry = z.object({
     .describe(
       'The setter a provider bond calls to register itself (e.g. setClient) — scanned from source by sync-registry --scan-exports',
     ),
+  cliHint: z.string().optional().describe('CLI command associated with this package'),
   services: z
     .array(
       z.object({
@@ -1175,6 +1176,10 @@ export const RegistryEntry = z.object({
         'whose destination is entirely user-supplied (a self-hosted search node, an arbitrary ' +
         'webhook URL) — those belong in the project allowlist, not here.',
     ),
+  subpathExports: z
+    .record(z.string().startsWith('./').min(3), z.array(z.string()).min(1))
+    .optional()
+    .describe('Named exports recorded at explicit package subpaths, separate from root exports'),
 })
 
 export type RegistryEntry = z.infer<typeof RegistryEntry>
