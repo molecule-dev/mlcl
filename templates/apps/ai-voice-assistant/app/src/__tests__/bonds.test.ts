@@ -1,5 +1,7 @@
 import { describe, expect, it, vi } from 'vitest'
 
+import * as bonds from '../bonds/index.js'
+
 // Mock config to avoid importing real app config
 vi.mock('../config.js', () => ({
   authConfig: {},
@@ -1068,22 +1070,19 @@ const wiredSetups: ReadonlyArray<readonly [file: string, name: string]> = [
 ]
 
 describe('bonds/index', () => {
-  it('exports setupProviders function', async () => {
-    const mod = await import('../bonds/index.js')
-    expect(typeof mod.setupProviders).toBe('function')
+  it('exports setupProviders function', () => {
+    expect(typeof bonds.setupProviders).toBe('function')
   })
 
   it('setupProviders completes without error', async () => {
-    const { setupProviders } = await import('../bonds/index.js')
-    await expect(Promise.resolve().then(() => setupProviders())).resolves.toBeUndefined()
+    await expect(Promise.resolve().then(() => bonds.setupProviders())).resolves.toBeUndefined()
   })
 
   it('calls imported setup boundaries with project providers', async () => {
-    const { setupProviders } = await import('../bonds/index.js')
     const themeBond = await bondFiles['../bonds/app-theme-css-variables.ts']?.()
     const themeCore = await import('@molecule/app-theme')
     vi.clearAllMocks()
-    await setupProviders()
+    await bonds.setupProviders()
     expect(
       (await import('@molecule/app-bonds-default-react')).setupAllDefaultBonds,
     ).toHaveBeenCalledOnce()
@@ -1098,10 +1097,9 @@ describe('bonds/index', () => {
     }
   })
 
-  it('exports provider instances', async () => {
-    const mod = await import('../bonds/index.js')
-    expect(mod.themeProvider).toBeDefined()
-    expect(mod.authClient).toBeDefined()
-    expect(mod.i18nProvider).toBeDefined()
+  it('exports provider instances', () => {
+    expect(bonds.themeProvider).toBeDefined()
+    expect(bonds.authClient).toBeDefined()
+    expect(bonds.i18nProvider).toBeDefined()
   })
 })
