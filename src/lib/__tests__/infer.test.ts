@@ -401,3 +401,122 @@ describe('inferFromDescription', () => {
     })
   })
 })
+
+// The real registry's shapes that the substring matching got wrong (2026-11-25): a provider name several
+// categories use (`database`, `redis`), a short category inside a longer word (`ci` in "Capacitor"), and
+// interfaces owned by native and middleware packages.
+describe('inferFromDescription against the registry’s shared names', () => {
+  const provider = (name: string, category: string, implementsName: string): InferredPackage =>
+    makePackage({
+      name,
+      type: 'bond',
+      molecule: {
+        type: 'provider',
+        category,
+        label: name,
+        implements: implementsName,
+        secrets: [],
+      },
+    })
+  const owner = (
+    name: string,
+    type: 'core' | 'native' | 'middleware',
+    category: string,
+  ): InferredPackage =>
+    makePackage({
+      name,
+      type,
+      molecule: {
+        type,
+        category,
+        label: name,
+        stack: name.startsWith('@molecule/app-') ? 'app' : 'api',
+        secrets: [],
+      },
+    })
+  const registry: InferredPackage[] = [
+    owner('@molecule/api-workflow', 'core', 'workflow'),
+    provider('@molecule/api-workflow-database', 'workflow', '@molecule/api-workflow'),
+    provider('@molecule/api-audit-database', 'audit', '@molecule/api-audit'),
+    owner('@molecule/api-database', 'core', 'database'),
+    owner('@molecule/api-ci', 'core', 'ci'),
+    owner('@molecule/app-clipboard', 'native', 'clipboard'),
+    owner('@molecule/app-camera', 'native', 'camera'),
+    owner('@molecule/api-middleware-cors', 'middleware', 'cors'),
+    owner('@molecule/api-notifications', 'core', 'notifications'),
+    owner('@molecule/api-notification-center', 'core', 'notification-center'),
+    provider(
+      '@molecule/api-notification-center-database',
+      'notification-center',
+      '@molecule/api-notification-center',
+    ),
+    owner('@molecule/api-cache', 'core', 'cache'),
+    provider('@molecule/api-cache-redis', 'cache', '@molecule/api-cache'),
+    owner('@molecule/api-rate-limit', 'core', 'rate-limit'),
+    provider('@molecule/api-rate-limit-redis', 'rate-limit', '@molecule/api-rate-limit'),
+  ]
+  const infer = (
+    description: string,
+  ): Pick<ReturnType<typeof inferFromDescription>, 'name' | 'type' | 'category' | 'implements'> => {
+    const m = inferFromDescription(description, registry)
+    return { name: m.name, type: m.type, category: m.category, implements: m.implements }
+  }
+
+  it('takes the category the description names over a provider name another category uses (OLD MUSTFAIL: api-workflow-database)', () => {
+    expect(infer('A MongoDB database driver implementation')).toEqual({
+      name: 'api-database-mongodb',
+      type: 'provider',
+      category: 'database',
+      implements: '@molecule/api-database',
+    })
+  })
+
+  it('makes a provider of a native core a provider, named after the core (OLD MUSTFAIL: a native core)', () => {
+    expect(infer('An Electron clipboard provider for the app')).toEqual({
+      name: 'app-clipboard-electron',
+      type: 'provider',
+      category: 'clipboard',
+      implements: '@molecule/app-clipboard',
+    })
+  })
+
+  it('matches whole words only (OLD MUSTFAIL: the ci category inside "Capacitor")', () => {
+    expect(infer('A camera provider for Capacitor apps')).toEqual({
+      name: 'app-camera-capacitor',
+      type: 'provider',
+      category: 'camera',
+      implements: '@molecule/app-camera',
+    })
+  })
+
+  it('implements a middleware package’s interface', () => {
+    expect(infer('A Fastify CORS middleware provider')).toEqual({
+      name: 'api-middleware-cors-fastify',
+      type: 'provider',
+      category: 'cors',
+      implements: '@molecule/api-middleware-cors',
+    })
+  })
+
+  it('prefers the longer category it names and ignores a provider name four categories share (OLD MUSTFAIL: rate-limit)', () => {
+    expect(infer('A notification center store backed by Redis on the api')).toEqual({
+      name: 'api-notification-center-redis',
+      type: 'provider',
+      category: 'notification-center',
+      implements: '@molecule/api-notification-center',
+    })
+  })
+
+  it('counterexamples: an interface stays an interface, and a named category keeps its provider', () => {
+    expect(infer('An abstract clipboard interface for the app')).toMatchObject({
+      category: 'clipboard',
+    })
+    expect(infer('An abstract clipboard interface for the app').implements).toBeUndefined()
+    expect(infer('A Redis-backed cache provider')).toEqual({
+      name: 'api-cache-redis',
+      type: 'provider',
+      category: 'cache',
+      implements: '@molecule/api-cache',
+    })
+  })
+})

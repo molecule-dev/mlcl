@@ -161,8 +161,8 @@ const NATIVE_KEYWORDS = [
  * Derives the mapping from provider packages: @molecule/api-{category}-{provider}
  * or @molecule/app-{category}-{provider} -> { provider: category }.
  */
-function buildProviderNames(registry: InferredPackage[]): Record<string, string> {
-  const mapping: Record<string, string> = {}
+function buildProviderNames(registry: InferredPackage[]): Map<string, Set<string>> {
+  const mapping = new Map<string, Set<string>>()
   for (const pkg of registry) {
     const mol = pkg.molecule
     if (mol?.type !== 'provider' || !mol.category) continue
@@ -175,7 +175,9 @@ function buildProviderNames(registry: InferredPackage[]): Record<string, string>
       ? stripped.slice(category.length + 1)
       : stripped
     if (providerName && providerName !== stripped.replace(/-/g, '')) {
-      mapping[providerName] = category
+      const categories = mapping.get(providerName) ?? new Set<string>()
+      categories.add(category)
+      mapping.set(providerName, categories)
     }
   }
   return mapping
@@ -229,6 +231,62 @@ const LABEL_OVERRIDES: Record<string, string> = {
   'rich-text': 'Rich Text',
 }
 
+/** Package types that own an interface a provider implements. */
+const INTERFACE_TYPES = new Set(['core', 'infrastructure', 'native', 'middleware'])
+
+/**
+ * Where the description names a phrase as whole words, a trailing `s` allowed (`status bar` and `status-bar`
+ * alike). Substrings never count: `ide` is not in "provider", nor the `ci` category in "Capacitor".
+ *
+ * @param lower - The lowercased description.
+ * @param phrase - A keyword, category or provider name.
+ * @returns The index of the first mention, or -1.
+ */
+function firstMention(lower: string, phrase: string): number {
+  const words = phrase
+    .toLowerCase()
+    .split(/[^a-z0-9]+/)
+    .filter(Boolean)
+  if (words.length === 0) return -1
+  const match = new RegExp(`(?:^|[^a-z0-9])(${words.join('[^a-z0-9]+')})s?(?=$|[^a-z0-9])`).exec(
+    lower,
+  )
+  return match ? match.index : -1
+}
+
+/**
+ * Whether the description names a phrase as whole words (see {@link firstMention}).
+ *
+ * @param lower - The lowercased description.
+ * @param phrase - A keyword, category or provider name.
+ * @returns Whether it is mentioned.
+ */
+function mentions(lower: string, phrase: string): boolean {
+  return firstMention(lower, phrase) >= 0
+}
+
+/**
+ * The package that owns a category's interface on a stack: a core, or a native or middleware package (their
+ * providers implement them too).
+ *
+ * @param category - The category.
+ * @param stack - `api` or `app`.
+ * @param registry - The loaded registry packages.
+ * @returns The interface package, if the registry has one.
+ */
+function interfaceFor(
+  category: string,
+  stack: string,
+  registry: InferredPackage[],
+): InferredPackage | undefined {
+  return registry.find(
+    (pkg) =>
+      pkg.molecule?.category === category &&
+      INTERFACE_TYPES.has(pkg.molecule?.type ?? '') &&
+      pkg.name.startsWith(`@molecule/${stack}-`),
+  )
+}
+
 // ---------------------------------------------------------------------------
 // Inference logic
 // ---------------------------------------------------------------------------
@@ -261,7 +319,7 @@ export function inferFromDescription(
   const implements_ = inferImplements(type, stack, category, registry)
   const secrets = inferSecrets(type, category, providerName, registry)
   const tables = inferTables(type, category, registry)
-  const name = buildName(stack, type, category, providerName)
+  const name = buildName(stack, type, category, providerName, implements_)
   const label = buildLabel(category, providerName, type)
 
   return {
@@ -278,24 +336,31 @@ export function inferFromDescription(
 }
 
 function inferStack(lower: string): 'api' | 'app' {
-  const apiScore = API_KEYWORDS.filter((kw) => lower.includes(kw)).length
-  const appScore = APP_KEYWORDS.filter((kw) => lower.includes(kw)).length
+  const apiScore = API_KEYWORDS.filter((kw) => mentions(lower, kw)).length
+  const appScore = APP_KEYWORDS.filter((kw) => mentions(lower, kw)).length
   // Default to api if ambiguous
   return appScore > apiScore ? 'app' : 'api'
 }
 
 function inferCategory(lower: string, registry: InferredPackage[]): string {
-  // 1. Check known provider names first (most specific)
-  const providerNames = buildProviderNames(registry)
-  for (const [provider, cat] of Object.entries(providerNames)) {
-    if (lower.includes(provider)) return cat
-  }
+  // 1. A registry category the description names: the one with the most words ("notification center" over
+  //    "notifications"), then the first mentioned.
+  const named = [
+    ...new Set(registry.map((pkg) => pkg.molecule?.category).filter((c): c is string => !!c)),
+  ]
+    .filter((category) => category !== 'general' && mentions(lower, category))
+    .sort(
+      (a, b) =>
+        b.split('-').length - a.split('-').length ||
+        firstMention(lower, a) - firstMention(lower, b),
+    )
+  if (named.length > 0) return named[0]
 
-  // 2. Check category keywords
+  // 2. Category keywords
   let bestCategory = ''
   let bestScore = 0
   for (const [cat, keywords] of Object.entries(CATEGORY_KEYWORDS)) {
-    const score = keywords.filter((kw) => lower.includes(kw)).length
+    const score = keywords.filter((kw) => mentions(lower, kw)).length
     if (score > bestScore) {
       bestScore = score
       bestCategory = cat
@@ -303,16 +368,12 @@ function inferCategory(lower: string, registry: InferredPackage[]): string {
   }
   if (bestCategory) return bestCategory
 
-  // 3. Check against existing registry categories
-  const registryCategories = new Set<string>()
-  for (const pkg of registry) {
-    if (pkg.molecule?.category) registryCategories.add(pkg.molecule.category)
-  }
-  for (const cat of registryCategories) {
-    if (lower.includes(cat)) return cat
+  // 3. A provider name only one category uses (`stripe`; `redis` and `database` name several)
+  for (const [provider, categories] of buildProviderNames(registry)) {
+    if (categories.size === 1 && mentions(lower, provider)) return [...categories][0]
   }
 
-  // 4. Fall back to extracting the most meaningful noun
+  // 4. Fall back to a general category
   return 'general'
 }
 
@@ -323,8 +384,8 @@ function inferProviderName(
 ): string | undefined {
   // Look for a known provider in this category
   const providerNames = buildProviderNames(registry)
-  for (const [provider, cat] of Object.entries(providerNames)) {
-    if (cat === category && lower.includes(provider)) {
+  for (const [provider, categories] of providerNames) {
+    if (categories.has(category) && mentions(lower, provider)) {
       return provider.replace(/\s+/g, '-')
     }
   }
@@ -341,8 +402,9 @@ function extractProviderNameFromText(lower: string, category: string): string | 
 
   const exclude = new Set<string>()
 
-  // Category name + its keyword variants
+  // Category name (each word of a hyphenated one) + its keyword variants
   exclude.add(category)
+  for (const w of category.split('-')) exclude.add(w)
   const categoryKws = CATEGORY_KEYWORDS[category]
   if (categoryKws) {
     for (const kw of categoryKws) {
@@ -419,7 +481,10 @@ function extractProviderNameFromText(lower: string, category: string): string | 
     exclude.add(w)
   }
 
-  const candidates = words.filter((w) => !exclude.has(w))
+  // A platform a provider targets signals a native capability and is also the provider's name.
+  exclude.delete('capacitor')
+
+  const candidates = words.filter((w) => !exclude.has(w) && !exclude.has(w.replace(/s$/, '')))
   return candidates.length > 0 ? candidates[0] : undefined
 }
 
@@ -430,14 +495,20 @@ function inferType(
   stack: string,
   registry: InferredPackage[],
 ): InferredMetadata['type'] {
-  const hasCore = CORE_KEYWORDS.some((kw) => lower.includes(kw))
-  const hasProvider = PROVIDER_KEYWORDS.some((kw) => lower.includes(kw))
-  const hasResource = RESOURCE_KEYWORDS.some((kw) => lower.includes(kw))
-  const hasMiddleware = MIDDLEWARE_KEYWORDS.some((kw) => lower.includes(kw))
-  const hasUtility = UTILITY_KEYWORDS.some((kw) => lower.includes(kw))
-  const hasFramework = FRAMEWORK_KEYWORDS.some((kw) => lower.includes(kw))
-  const hasFeature = FEATURE_KEYWORDS.some((kw) => lower.includes(kw))
-  const hasNative = NATIVE_KEYWORDS.some((kw) => lower.includes(kw))
+  const hasCore = CORE_KEYWORDS.some((kw) => mentions(lower, kw))
+  const hasProvider = PROVIDER_KEYWORDS.some((kw) => mentions(lower, kw))
+  const hasResource = RESOURCE_KEYWORDS.some((kw) => mentions(lower, kw))
+  const hasMiddleware = MIDDLEWARE_KEYWORDS.some((kw) => mentions(lower, kw))
+  const hasUtility = UTILITY_KEYWORDS.some((kw) => mentions(lower, kw))
+  const hasFramework = FRAMEWORK_KEYWORDS.some((kw) => mentions(lower, kw))
+  const hasFeature = FEATURE_KEYWORDS.some((kw) => mentions(lower, kw))
+  const hasNative = NATIVE_KEYWORDS.some((kw) => mentions(lower, kw))
+
+  // A provider of an interface the registry already has ("an Electron clipboard provider" next to the
+  // clipboard core), on either stack
+  if ((providerName || hasProvider) && !hasCore && interfaceFor(category, stack, registry)) {
+    return 'provider'
+  }
 
   // App-specific types take priority when stack is 'app'
   if (stack === 'app') {
@@ -464,9 +535,7 @@ function inferType(
 
   // Check if a core package already exists for this category — if so, likely a provider
   const coreExists = registry.some(
-    (pkg) =>
-      pkg.molecule?.category === category &&
-      (pkg.molecule?.type === 'core' || pkg.molecule?.type === 'infrastructure'),
+    (pkg) => pkg.molecule?.category === category && INTERFACE_TYPES.has(pkg.molecule?.type ?? ''),
   )
   if (coreExists) return 'provider'
 
@@ -482,15 +551,7 @@ function inferImplements(
 ): string | undefined {
   if (type !== 'provider') return undefined
 
-  // Find the core package for this category
-  const corePackage = registry.find(
-    (pkg) =>
-      pkg.molecule?.category === category &&
-      (pkg.molecule?.type === 'core' || pkg.molecule?.type === 'infrastructure') &&
-      pkg.name.startsWith(`@molecule/${stack}-`),
-  )
-
-  return corePackage?.name
+  return interfaceFor(category, stack, registry)?.name
 }
 
 function inferSecrets(
@@ -547,8 +608,12 @@ function buildName(
   type: string,
   category: string,
   providerName: string | undefined,
+  implementsName?: string,
 ): string {
   if (type === 'resource') return `${stack}-resource-${category}`
+  // A provider is named after the package it implements (`api-middleware-cors-fastify`)
+  if (type === 'provider' && providerName && implementsName)
+    return `${implementsName.replace(/^@molecule\//, '')}-${providerName}`
   if (type === 'provider' && providerName) return `${stack}-${category}-${providerName}`
   if (type === 'middleware') return `${stack}-middleware-${category}`
   if (type === 'utility') return `${stack}-utilities-${category}`
