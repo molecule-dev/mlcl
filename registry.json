@@ -100972,7 +100972,17 @@
         "UIClassMap",
         "extendClassMap",
         "ClassMapOverrides",
-        "AriaBoolean"
+        "AriaBoolean",
+        "CheckFieldHandle",
+        "CheckFieldProps",
+        "FieldsetProps",
+        "FormAreaHandle",
+        "FormAreaProps",
+        "FormEntries",
+        "FormEntryValue",
+        "TableBoxProps",
+        "TableBoxTag",
+        "TableCellProps"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -102500,7 +102510,8 @@
         "ThemeColorInput",
         "ColorOperand",
         "ColorToken",
-        "RGBA"
+        "RGBA",
+        "checkMarkPaths"
       ],
       "secrets": [],
       "runtimeDependencies": [
