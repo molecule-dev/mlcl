@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Becsült adó',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Tovább a pénztárhoz',
-  'cartOrderSummary.promoCode': 'Promóciós kód',
-  'cartOrderSummary.promoPlaceholder': 'Írja be a kódot',
   'cartOrderSummary.returnsPolicy': '{{days}} napos visszaküldés',
   'cartOrderSummary.secureSSL': 'Biztonságos SSL',
   'cartOrderSummary.shipping': 'Szállítás',
@@ -435,9 +433,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} év garancia',
   'productStockBadge.inStock': 'Raktáron — Szállításra kész',
   'productStockBadge.outOfStock': 'Nincs raktáron',
-  'promo.applied': 'Kód alkalmazva.',
-  'promo.invalid': 'Érvénytelen vagy lejárt kód.',
-  'promo.placeholder': 'Promóciós kód',
   'recentOrdersTable.empty':
     'Még nincsenek rendelések — a rendelések itt jelennek meg, amint az ügyfelek fizettek.',
   'recentOrdersTable.title': 'Legutóbbi megrendelések',

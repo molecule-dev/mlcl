@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Geschatte belasting',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Doorgaan naar afrekenen',
-  'cartOrderSummary.promoCode': 'Promotiecode',
-  'cartOrderSummary.promoPlaceholder': 'Voer de code in',
   'cartOrderSummary.returnsPolicy': 'Retour binnen {{days}} dagen',
   'cartOrderSummary.secureSSL': 'Beveiligde SSL-verbinding',
   'cartOrderSummary.shipping': 'Verzending',
@@ -436,9 +434,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} jaar garantie',
   'productStockBadge.inStock': 'Op voorraad — Klaar voor verzending',
   'productStockBadge.outOfStock': 'Niet op voorraad',
-  'promo.applied': 'Code toegepast.',
-  'promo.invalid': 'Ongeldige of verlopen code.',
-  'promo.placeholder': 'Promotiecode',
   'recentOrdersTable.empty':
     'Nog geen bestellingen — bestellingen verschijnen hier zodra klanten afrekenen.',
   'recentOrdersTable.title': 'Recente bestellingen',

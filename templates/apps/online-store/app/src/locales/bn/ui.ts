@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'আনুমানিক কর',
   'cartOrderSummary.payPal': 'পেপ্যাল',
   'cartOrderSummary.proceedToCheckout': 'চেকআউটে যান',
-  'cartOrderSummary.promoCode': 'প্রোমো কোড',
-  'cartOrderSummary.promoPlaceholder': 'কোড প্রবেশ করান',
   'cartOrderSummary.returnsPolicy': '{{days}} দিনের রিটার্ন',
   'cartOrderSummary.secureSSL': 'নিরাপদ SSL',
   'cartOrderSummary.shipping': 'শিপিং',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} বছরের ওয়ারেন্টি',
   'productStockBadge.inStock': 'স্টকে আছে — পাঠানোর জন্য প্রস্তুত',
   'productStockBadge.outOfStock': 'স্টক শেষ',
-  'promo.applied': 'কোড প্রয়োগ করা হয়েছে।',
-  'promo.invalid': 'অবৈধ বা মেয়াদোত্তীর্ণ কোড।',
-  'promo.placeholder': 'প্রোমো কোড',
   'recentOrdersTable.empty':
     'এখনো কোনো অর্ডার আসেনি — গ্রাহকরা চেক আউট করলে অর্ডারগুলো এখানে দেখা যাবে।',
   'recentOrdersTable.title': 'সাম্প্রতিক অর্ডার',

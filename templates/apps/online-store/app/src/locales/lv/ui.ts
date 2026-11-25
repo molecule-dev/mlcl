@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Paredzamais nodoklis',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Turpināt norēķināties',
-  'cartOrderSummary.promoCode': 'Reklāmas kods',
-  'cartOrderSummary.promoPlaceholder': 'Ievadiet kodu',
   'cartOrderSummary.returnsPolicy': '{{days}} dienu atgriešana',
   'cartOrderSummary.secureSSL': 'Drošs SSL',
   'cartOrderSummary.shipping': 'Piegāde',
@@ -433,9 +431,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} gadu garantija',
   'productStockBadge.inStock': 'Noliktavā — Gatavs nosūtīšanai',
   'productStockBadge.outOfStock': 'Nav noliktavā',
-  'promo.applied': 'Kods lietots.',
-  'promo.invalid': 'Nederīgs vai beidzies kods.',
-  'promo.placeholder': 'Akcijas kods',
   'recentOrdersTable.empty':
     'Vēl nav pasūtījumu — pasūtījumi parādīsies šeit, kad klienti būs veikuši norēķināšanos.',
   'recentOrdersTable.title': 'Nesenie pasūtījumi',

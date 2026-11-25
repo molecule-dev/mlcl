@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Intela Elinganiselwe',
   'cartOrderSummary.payPal': 'I-PayPal',
   'cartOrderSummary.proceedToCheckout': 'Qhubeka uthenge',
-  'cartOrderSummary.promoCode': 'Ikhodi Yephromoshini',
-  'cartOrderSummary.promoPlaceholder': 'Faka ikhodi',
   'cartOrderSummary.returnsPolicy': 'Ukubuyiselwa Kwezinsuku ezingu-{{days}}',
   'cartOrderSummary.secureSSL': 'I-SSL evikelekile',
   'cartOrderSummary.shipping': 'Ukuthunyelwa',
@@ -436,9 +434,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Iwaranti yeminyaka engu-{{years}}',
   'productStockBadge.inStock': 'Ikhona Esitokweni — Ilungele ukuthunyelwa',
   'productStockBadge.outOfStock': 'Kuphelile',
-  'promo.applied': 'Ikhodi isetshenzisiwe.',
-  'promo.invalid': 'Ikhodi engavumelekile noma ephelelwe yisikhathi.',
-  'promo.placeholder': 'Ikhodi yephromo',
   'recentOrdersTable.empty':
     'Awekho ama-oda okwamanje — ama-oda azovela lapha uma amakhasimende esephumile.',
   'recentOrdersTable.title': 'Ama-oda Akamuva',

@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'अनुमानित कर',
   'cartOrderSummary.payPal': 'पेपैल',
   'cartOrderSummary.proceedToCheckout': 'चेकआउटमा जानुहोस्',
-  'cartOrderSummary.promoCode': 'प्रोमो कोड',
-  'cartOrderSummary.promoPlaceholder': 'कोड प्रविष्ट गर्नुहोस्',
   'cartOrderSummary.returnsPolicy': '{{days}}-दिने फिर्ता',
   'cartOrderSummary.secureSSL': 'सुरक्षित SSL',
   'cartOrderSummary.shipping': 'ढुवानी',
@@ -433,9 +431,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-वर्षे वारेन्टी',
   'productStockBadge.inStock': 'स्टकमा छ — ढुवानीको लागि तयार छ',
   'productStockBadge.outOfStock': 'स्टक सकियो',
-  'promo.applied': 'कोड लागू गरियो।',
-  'promo.invalid': 'अमान्य वा म्याद सकिएको कोड।',
-  'promo.placeholder': 'प्रोमो कोड',
   'recentOrdersTable.empty':
     'अहिलेसम्म कुनै अर्डर छैन — ग्राहकहरूले चेक आउट गरेपछि अर्डरहरू यहाँ देखा पर्नेछन्।',
   'recentOrdersTable.title': 'हालसालैका अर्डरहरू',

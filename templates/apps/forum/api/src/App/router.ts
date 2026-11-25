@@ -7,6 +7,7 @@ import {
   mountDefaultUserCrudRoutes,
   mountDefaultUserResetPasswordRoute,
   mountDefaultUserSecurityRoutes,
+  mountDefaultUserVerifyPaymentRoutes,
 } from '@molecule/api-bonds-default-express'
 
 import bookmarks from '../handlers/bookmarks.js'
@@ -28,6 +29,7 @@ mountDefaultUserResetPasswordRoute(router, User)
 mountDefaultUserCrudRoutes(router, User)
 mountDefaultUserSecurityRoutes(router, User)
 mountDefaultUserBillingRoutes(router, User)
+mountDefaultUserVerifyPaymentRoutes(router, User)
 
 router.use(templateHandlers)
 router.use(bookmarks)

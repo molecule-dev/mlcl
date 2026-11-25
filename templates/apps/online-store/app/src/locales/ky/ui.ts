@@ -151,8 +151,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Болжолдуу салык',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Кассага өтүү',
-  'cartOrderSummary.promoCode': 'Промокод',
-  'cartOrderSummary.promoPlaceholder': 'Кодду киргизиңиз',
   'cartOrderSummary.returnsPolicy': '{{days}} күндүк кайтаруу',
   'cartOrderSummary.secureSSL': 'Коопсуз SSL',
   'cartOrderSummary.shipping': 'Жеткирүү',
@@ -437,9 +435,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} жылдык кепилдик',
   'productStockBadge.inStock': 'Кампада бар — Жөнөтүүгө даяр',
   'productStockBadge.outOfStock': 'Запаста жок',
-  'promo.applied': 'Код колдонулду.',
-  'promo.invalid': 'Жараксыз же мөөнөтү өтүп кеткен код.',
-  'promo.placeholder': 'Промо код',
   'recentOrdersTable.empty':
     'Азырынча буйрутмалар жок — кардарлар эсептен чыккандан кийин буйрутмалар бул жерде пайда болот.',
   'recentOrdersTable.title': 'Акыркы буйрутмалар',

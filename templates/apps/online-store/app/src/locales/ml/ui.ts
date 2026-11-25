@@ -151,8 +151,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'കണക്കാക്കിയ നികുതി',
   'cartOrderSummary.payPal': 'പേപാൽ',
   'cartOrderSummary.proceedToCheckout': 'ചെക്കൗട്ടിനായി മുന്നോട്ടുപോകുക',
-  'cartOrderSummary.promoCode': 'പ്രൊമോ കോഡ്',
-  'cartOrderSummary.promoPlaceholder': 'കോഡ് നൽകുക',
   'cartOrderSummary.returnsPolicy': '{{days}} ദിവസത്തെ റിട്ടേണുകൾ',
   'cartOrderSummary.secureSSL': 'സുരക്ഷിത SSL',
   'cartOrderSummary.shipping': 'ഷിപ്പിംഗ്',
@@ -437,9 +435,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} വർഷത്തെ വാറന്റി',
   'productStockBadge.inStock': 'സ്റ്റോക്കിൽ - ഷിപ്പ് ചെയ്യാൻ തയ്യാറാണ്',
   'productStockBadge.outOfStock': 'സ്റ്റോക്കില്ല',
-  'promo.applied': 'കോഡ് പ്രയോഗിച്ചു.',
-  'promo.invalid': 'കോഡ് അസാധുവാണ് അല്ലെങ്കിൽ കാലഹരണപ്പെട്ടു.',
-  'promo.placeholder': 'പ്രോമോ കോഡ്',
   'recentOrdersTable.empty':
     'ഇതുവരെ ഓർഡറുകളൊന്നുമില്ല — ഉപഭോക്താക്കൾ ചെക്ക് ഔട്ട് ചെയ്തുകഴിഞ്ഞാൽ ഓർഡറുകൾ ഇവിടെ ദൃശ്യമാകും.',
   'recentOrdersTable.title': 'സമീപകാല ഓർഡറുകൾ',

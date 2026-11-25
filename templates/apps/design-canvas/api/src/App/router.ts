@@ -7,6 +7,7 @@ import {
   mountDefaultUserCrudRoutes,
   mountDefaultUserResetPasswordRoute,
   mountDefaultUserSecurityRoutes,
+  mountDefaultUserVerifyPaymentRoutes,
 } from '@molecule/api-bonds-default-express'
 
 import activitiesRouter from '../handlers/activities.js'
@@ -39,6 +40,7 @@ mountDefaultUserResetPasswordRoute(router, User)
 mountDefaultUserCrudRoutes(router, User)
 mountDefaultUserSecurityRoutes(router, User)
 mountDefaultUserBillingRoutes(router, User)
+mountDefaultUserVerifyPaymentRoutes(router, User)
 
 router.use('/projects', projectsRouter)
 router.use('/projects/:projectId/collaborators', collaboratorsRouter)

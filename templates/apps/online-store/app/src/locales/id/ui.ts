@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Cukai taksiran',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Lanjut ke Pembayaran',
-  'cartOrderSummary.promoCode': 'Kode Promo',
-  'cartOrderSummary.promoPlaceholder': 'Masukkan kode',
   'cartOrderSummary.returnsPolicy': 'Pengembalian {{days}} Hari',
   'cartOrderSummary.secureSSL': 'SSL Aman',
   'cartOrderSummary.shipping': 'Pengiriman',
@@ -435,9 +433,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Garansi {{years}} Tahun',
   'productStockBadge.inStock': 'Tersedia — Siap dikirim',
   'productStockBadge.outOfStock': 'Stok Habis',
-  'promo.applied': 'Kode telah diterapkan.',
-  'promo.invalid': 'Kode tidak valid atau sudah kedaluwarsa.',
-  'promo.placeholder': 'Kode promo',
   'recentOrdersTable.empty':
     'Belum ada pesanan — pesanan akan muncul di sini setelah pelanggan menyelesaikan proses pembayaran.',
   'recentOrdersTable.title': 'Pesanan Terbaru',

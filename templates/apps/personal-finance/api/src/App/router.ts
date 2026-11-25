@@ -7,6 +7,7 @@ import {
   mountDefaultUserCrudRoutes,
   mountDefaultUserResetPasswordRoute,
   mountDefaultUserSecurityRoutes,
+  mountDefaultUserVerifyPaymentRoutes,
 } from '@molecule/api-bonds-default-express'
 
 import accountsRouter from '../handlers/accounts.js'
@@ -33,6 +34,7 @@ mountDefaultUserResetPasswordRoute(router, User)
 mountDefaultUserCrudRoutes(router, User)
 mountDefaultUserSecurityRoutes(router, User)
 mountDefaultUserBillingRoutes(router, User)
+mountDefaultUserVerifyPaymentRoutes(router, User)
 
 router.use('/accounts', accountsRouter)
 router.use('/transactions', transactionsRouter)

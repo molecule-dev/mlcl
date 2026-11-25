@@ -9,6 +9,8 @@ export const authConfig = {
   forgotPasswordEndpoint: '/users/forgot-password',
   resetPasswordEndpoint: '/users/reset-password',
   changePasswordEndpoint: '/users/me/password',
+  // The API serves the password change as PATCH /users/:id/password only.
+  changePasswordMethod: 'PATCH' as const,
   // The session-restore call: repoint it with the others when the app serves its own current
   // user, or its 401 signs the user out right after a successful login.
   currentUserEndpoint: '/users/me',

@@ -151,8 +151,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Thuế ước tính',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Tiến hành thanh toán',
-  'cartOrderSummary.promoCode': 'Mã khuyến mãi',
-  'cartOrderSummary.promoPlaceholder': 'Nhập mã',
   'cartOrderSummary.returnsPolicy': 'Đổi trả trong {{days}} ngày',
   'cartOrderSummary.secureSSL': 'SSL an toàn',
   'cartOrderSummary.shipping': 'Vận chuyển',
@@ -436,9 +434,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Bảo hành {{years}} năm',
   'productStockBadge.inStock': 'Còn hàng — Sẵn sàng giao hàng',
   'productStockBadge.outOfStock': 'Hết hàng',
-  'promo.applied': 'Mã đã được áp dụng.',
-  'promo.invalid': 'Mã không hợp lệ hoặc đã hết hạn.',
-  'promo.placeholder': 'Mã khuyến mãi',
   'recentOrdersTable.empty':
     'Chưa có đơn hàng nào — đơn hàng sẽ hiển thị ở đây sau khi khách hàng hoàn tất thanh toán.',
   'recentOrdersTable.title': 'Đơn hàng gần đây',

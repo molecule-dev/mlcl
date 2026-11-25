@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Zerga estimatua',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Jarraitu ordainketa-prozesuarekin',
-  'cartOrderSummary.promoCode': 'Promozio kodea',
-  'cartOrderSummary.promoPlaceholder': 'Sartu kodea',
   'cartOrderSummary.returnsPolicy': '{{days}} eguneko itzulketak',
   'cartOrderSummary.secureSSL': 'SSL segurua',
   'cartOrderSummary.shipping': 'Bidalketa',
@@ -433,9 +431,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} urteko bermea',
   'productStockBadge.inStock': 'Stockean — Bidaltzeko prest',
   'productStockBadge.outOfStock': 'Stockik gabe',
-  'promo.applied': 'Kodea aplikatu da.',
-  'promo.invalid': 'Kode baliogabea edo iraungita.',
-  'promo.placeholder': 'Sustapen-kodea',
   'recentOrdersTable.empty':
     'Oraindik ez dago eskaerarik — eskaerak hemen agertuko dira bezeroek ordainketa amaitu ondoren.',
   'recentOrdersTable.title': 'Azken Eskaerak',

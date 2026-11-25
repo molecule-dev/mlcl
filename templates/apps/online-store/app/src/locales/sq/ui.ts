@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Taksa e parashikuar',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Vazhdoni te Arka',
-  'cartOrderSummary.promoCode': 'Kodi Promocional',
-  'cartOrderSummary.promoPlaceholder': 'Fut kodin',
   'cartOrderSummary.returnsPolicy': 'Kthime brenda {{days}} ditësh',
   'cartOrderSummary.secureSSL': 'SSL i sigurt',
   'cartOrderSummary.shipping': 'Transporti',
@@ -433,9 +431,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Garanci {{years}}-vjeçare',
   'productStockBadge.inStock': "Në Stok — Gati për t'u dërguar",
   'productStockBadge.outOfStock': 'Nuk është në magazinë',
-  'promo.applied': 'Kodi u zbatua.',
-  'promo.invalid': 'Kod i pavlefshëm ose i skaduar.',
-  'promo.placeholder': 'Kodi promocional',
   'recentOrdersTable.empty':
     'Ende nuk ka porosi — porositë do të shfaqen këtu pasi klientët të përfundojnë blerjen.',
   'recentOrdersTable.title': 'Porositë e fundit',

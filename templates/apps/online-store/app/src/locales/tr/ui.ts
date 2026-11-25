@@ -150,8 +150,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Tahmini Vergi',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Ödemeye Geç',
-  'cartOrderSummary.promoCode': 'Promosyon Kodu',
-  'cartOrderSummary.promoPlaceholder': 'Kodu girin',
   'cartOrderSummary.returnsPolicy': '{{days}} Gün İade',
   'cartOrderSummary.secureSSL': 'Güvenli SSL',
   'cartOrderSummary.shipping': 'Gönderim',
@@ -435,9 +433,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} Yıl Garanti',
   'productStockBadge.inStock': 'Stokta mevcut — Gönderime hazır',
   'productStockBadge.outOfStock': 'Stoklar tükendi',
-  'promo.applied': 'Kod uygulandı.',
-  'promo.invalid': 'Geçersiz veya süresi dolmuş kod.',
-  'promo.placeholder': 'Promosyon kodu',
   'recentOrdersTable.empty':
     'Henüz sipariş yok — müşteriler ödeme işlemlerini tamamladıktan sonra siparişler burada görünecektir.',
   'recentOrdersTable.title': 'Son Siparişler',

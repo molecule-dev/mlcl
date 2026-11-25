@@ -146,8 +146,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'مالیات تخمینی',
   'cartOrderSummary.payPal': 'پی‌پال',
   'cartOrderSummary.proceedToCheckout': 'به تسویه حساب بروید',
-  'cartOrderSummary.promoCode': 'کد تخفیف',
-  'cartOrderSummary.promoPlaceholder': 'کد را وارد کنید',
   'cartOrderSummary.returnsPolicy': 'بازگشت {{days}} روزه',
   'cartOrderSummary.secureSSL': 'SSL امن',
   'cartOrderSummary.shipping': 'حمل و نقل',
@@ -431,9 +429,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'گارانتی {{years}} ساله',
   'productStockBadge.inStock': 'موجود در انبار - آماده ارسال',
   'productStockBadge.outOfStock': 'موجود نیست',
-  'promo.applied': 'کد اعمال شد.',
-  'promo.invalid': 'کد نامعتبر یا منقضی شده است.',
-  'promo.placeholder': 'کد تخفیف',
   'recentOrdersTable.empty':
     'هنوز سفارشی ثبت نشده است — سفارشات پس از پرداخت توسط مشتریان، اینجا نمایش داده می‌شوند.',
   'recentOrdersTable.title': 'سفارشات اخیر',

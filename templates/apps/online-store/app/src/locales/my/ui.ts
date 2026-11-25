@@ -150,8 +150,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'ခန့်မှန်းအခွန်',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'ငွေရှင်းရန်ဆက်လုပ်ပါ',
-  'cartOrderSummary.promoCode': 'ကြော်ငြာကုဒ်',
-  'cartOrderSummary.promoPlaceholder': 'ကုဒ်ထည့်ပါ',
   'cartOrderSummary.returnsPolicy': '{{days}} ရက် ပြန်အမ်းခြင်း',
   'cartOrderSummary.secureSSL': 'လုံခြုံသော SSL',
   'cartOrderSummary.shipping': 'သင်္ဘောဖြင့်ကုန်ပစ္စည်းပို့ခြင်း',
@@ -440,9 +438,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} နှစ် အာမခံ',
   'productStockBadge.inStock': 'စတော့ရှယ်ယာရှိပါသည် — ပို့ဆောင်ရန် အသင့်ဖြစ်ပါပြီ',
   'productStockBadge.outOfStock': 'ပစ္စည်းပြတ်တောက်နေသည်',
-  'promo.applied': 'ကုဒ်ကို အသုံးပြုပြီးပါပြီ။',
-  'promo.invalid': 'ကုဒ် မမှန်ကန်ပါ သို့မဟုတ် သက်တမ်းကုန်ဆုံးသွားပါပြီ။',
-  'promo.placeholder': 'ပရိုမိုကုဒ်',
   'recentOrdersTable.empty':
     'မှာယူမှုများ မရှိသေးပါ — ဖောက်သည်များ ငွေရှင်းပြီးသည်နှင့် ဤနေရာတွင် မှာယူမှုများ ပေါ်လာပါမည်။',
   'recentOrdersTable.title': 'မကြာသေးမီက မှာယူမှုများ',

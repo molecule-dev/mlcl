@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'ਅਨੁਮਾਨਿਤ ਟੈਕਸ',
   'cartOrderSummary.payPal': 'ਪੇਪਾਲ',
   'cartOrderSummary.proceedToCheckout': 'ਚੈੱਕਆਉਟ ਲਈ ਅੱਗੇ ਵਧੋ',
-  'cartOrderSummary.promoCode': 'ਪ੍ਰਚਾਰ ਕੋਡ',
-  'cartOrderSummary.promoPlaceholder': 'ਕੋਡ ਦਰਜ ਕਰੋ',
   'cartOrderSummary.returnsPolicy': '{{days}}-ਦਿਨ ਵਾਪਸੀ',
   'cartOrderSummary.secureSSL': 'ਸੁਰੱਖਿਅਤ SSL',
   'cartOrderSummary.shipping': 'ਸ਼ਿਪਿੰਗ',
@@ -432,9 +430,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-ਸਾਲ ਦੀ ਵਾਰੰਟੀ',
   'productStockBadge.inStock': 'ਸਟਾਕ ਵਿੱਚ - ਭੇਜਣ ਲਈ ਤਿਆਰ',
   'productStockBadge.outOfStock': 'ਖਤਮ ਹੈ',
-  'promo.applied': 'ਕੋਡ ਲਾਗੂ ਕੀਤਾ ਗਿਆ।',
-  'promo.invalid': 'ਅਵੈਧ ਜਾਂ ਮਿਆਦ ਪੁੱਗਿਆ ਕੋਡ।',
-  'promo.placeholder': 'ਪ੍ਰੋਮੋ ਕੋਡ',
   'recentOrdersTable.empty':
     'ਹਾਲੇ ਕੋਈ ਆਰਡਰ ਨਹੀਂ ਹਨ — ਗਾਹਕਾਂ ਦੇ ਚੈੱਕ ਆਊਟ ਕਰਨ ਤੋਂ ਬਾਅਦ ਆਰਡਰ ਇੱਥੇ ਦਿਖਾਈ ਦੇਣਗੇ।',
   'recentOrdersTable.title': 'ਹਾਲੀਆ ਆਰਡਰ',

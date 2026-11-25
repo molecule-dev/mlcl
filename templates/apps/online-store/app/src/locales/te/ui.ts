@@ -151,8 +151,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'అంచనా పన్ను',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'చెక్అవుట్‌కు వెళ్లండి',
-  'cartOrderSummary.promoCode': 'ప్రోమో కోడ్',
-  'cartOrderSummary.promoPlaceholder': 'కోడ్ నమోదు చేయండి',
   'cartOrderSummary.returnsPolicy': '{{days}} రోజుల రిటర్న్స్',
   'cartOrderSummary.secureSSL': 'సురక్షిత SSL',
   'cartOrderSummary.shipping': 'షిప్పింగ్',
@@ -436,9 +434,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-సంవత్సరాల వారంటీ',
   'productStockBadge.inStock': 'స్టాక్‌లో ఉంది — రవాణాకు సిద్ధంగా ఉంది',
   'productStockBadge.outOfStock': 'స్టాక్ లేదు',
-  'promo.applied': 'కోడ్ వర్తింపజేయబడింది.',
-  'promo.invalid': 'చెల్లని లేదా గడువు ముగిసిన కోడ్.',
-  'promo.placeholder': 'ప్రోమో కోడ్',
   'recentOrdersTable.empty':
     'ఇంకా ఆర్డర్లు లేవు — కస్టమర్లు చెక్ అవుట్ చేసిన తర్వాత ఆర్డర్లు ఇక్కడ కనిపిస్తాయి.',
   'recentOrdersTable.title': 'ఇటీవలి ఆర్డర్లు',

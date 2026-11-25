@@ -181,8 +181,6 @@ export function CheckoutPage() {
   const [expiryDate, setExpiryDate] = useState('')
   const [cvv, setCvv] = useState('')
   const [sameAsShipping, setSameAsShipping] = useState(true)
-  const [promoCode, setPromoCode] = useState('')
-  const [promoMessage, setPromoMessage] = useState('')
   const [processing, setProcessing] = useState(false)
   const [error, setError] = useState('')
   const [shippingName, setShippingName] = useState('')
@@ -293,17 +291,6 @@ export function CheckoutPage() {
         message ?? t('checkout.error', {}, { defaultValue: 'Order failed. Please try again.' }),
       )
       setProcessing(false)
-    }
-  }
-
-  const handleApplyPromo = async () => {
-    if (!promoCode.trim()) return
-    try {
-      await http.post('/api/cart/promo', { code: promoCode.trim() })
-      setPromoMessage(t('promo.applied', {}, { defaultValue: 'Code applied.' }))
-    } catch (_error) {
-      // No matching promo — surface a clear inline message instead of failing silently
-      setPromoMessage(t('promo.invalid', {}, { defaultValue: 'Invalid or expired code.' }))
     }
   }
 
@@ -1480,69 +1467,10 @@ export function CheckoutPage() {
                 ))}
               </div>
 
-              {/* Promo Code */}
-              <div
-                style={{ display: 'flex', gap: '8px', marginBottom: promoMessage ? '8px' : '32px' }}
-              >
-                <input
-                  type="text"
-                  data-mol-id="input-promo"
-                  value={promoCode}
-                  onChange={(e) => {
-                    setPromoCode(e.target.value)
-                    setPromoMessage('')
-                  }}
-                  placeholder={t('promo.placeholder', {}, { defaultValue: 'Promo code' })}
-                  style={{
-                    flex: 1,
-                    height: '44px',
-                    padding: '0 16px',
-                    fontSize: '14px',
-                    border: '1px solid var(--color-star-empty)',
-                    borderRadius: '6px',
-                    backgroundColor: 'var(--color-surface)',
-                    color: 'var(--mol-color-secondary)',
-                    outline: 'none',
-                    fontFamily:
-                      '"Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
-                  }}
-                />
-                <button
-                  disabled={!promoCode.trim()}
-                  type="button"
-                  data-mol-id="btn-apply-promo"
-                  onClick={handleApplyPromo}
-                  style={{
-                    height: '44px',
-                    padding: '0 24px',
-                    backgroundColor: 'var(--mol-color-secondary)',
-                    color: 'var(--color-surface)',
-                    borderRadius: '6px',
-                    border: 'none',
-                    fontSize: '14px',
-                    fontWeight: 700,
-                    cursor: 'pointer',
-                  }}
-                >
-                  {t('common.apply', {}, { defaultValue: 'Apply' })}
-                </button>
-              </div>
-              {promoMessage && (
-                <p
-                  data-mol-id="promo-message"
-                  style={{
-                    fontSize: '12px',
-                    color: 'var(--color-out-of-stock)',
-                    margin: '0 0 24px 0',
-                  }}
-                >
-                  {promoMessage}
-                </p>
-              )}
-
               {/* Price Breakdown */}
               <div
                 style={{
+                  marginTop: '32px',
                   borderTop: '1px solid var(--color-border-light)',
                   paddingTop: '24px',
                   display: 'flex',

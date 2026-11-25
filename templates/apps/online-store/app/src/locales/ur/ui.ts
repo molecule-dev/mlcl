@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'تخمینی ٹیکس',
   'cartOrderSummary.payPal': 'پے پال',
   'cartOrderSummary.proceedToCheckout': 'چیک آؤٹ پر آگے بڑھیں۔',
-  'cartOrderSummary.promoCode': 'پرومو کوڈ',
-  'cartOrderSummary.promoPlaceholder': 'کوڈ درج کریں۔',
   'cartOrderSummary.returnsPolicy': '{{days}} دن کی واپسی',
   'cartOrderSummary.secureSSL': 'SSL کو محفوظ کریں۔',
   'cartOrderSummary.shipping': 'شپنگ',
@@ -431,9 +429,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} سالہ وارنٹی',
   'productStockBadge.inStock': 'اسٹاک میں - بھیجنے کے لیے تیار',
   'productStockBadge.outOfStock': 'اسٹاک سے باہر',
-  'promo.applied': 'کوڈ لاگو کیا گیا۔',
-  'promo.invalid': 'غلط یا ختم شدہ کوڈ۔',
-  'promo.placeholder': 'پرومو کوڈ',
   'recentOrdersTable.empty':
     'ابھی تک کوئی آرڈر نہیں ہے — کسٹمرز کے چیک آؤٹ کرنے کے بعد آرڈرز یہاں ظاہر ہوں گے۔',
   'recentOrdersTable.title': 'حالیہ احکامات',

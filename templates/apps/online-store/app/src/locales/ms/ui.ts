@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Anggaran Cukai',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Teruskan ke Pembayaran',
-  'cartOrderSummary.promoCode': 'Kod Promosi',
-  'cartOrderSummary.promoPlaceholder': 'Masukkan kod',
   'cartOrderSummary.returnsPolicy': 'Pemulangan {{days}} Hari',
   'cartOrderSummary.secureSSL': 'SSL selamat',
   'cartOrderSummary.shipping': 'Penghantaran',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Waranti {{years}} Tahun',
   'productStockBadge.inStock': 'Dalam Stok — Sedia untuk dihantar',
   'productStockBadge.outOfStock': 'Kehabisan Stok',
-  'promo.applied': 'Kod telah digunakan.',
-  'promo.invalid': 'Kod tidak sah atau telah tamat tempoh.',
-  'promo.placeholder': 'Kod promosi',
   'recentOrdersTable.empty':
     'Tiada pesanan lagi — pesanan akan dipaparkan di sini sebaik sahaja pelanggan membuat pembayaran.',
   'recentOrdersTable.title': 'Pesanan Terkini',

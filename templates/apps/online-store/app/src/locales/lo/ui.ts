@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'ພາສີປະມານ',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'ດຳເນີນການຊຳລະເງິນ',
-  'cartOrderSummary.promoCode': 'ລະຫັດໂປຣໂມຊັນ',
-  'cartOrderSummary.promoPlaceholder': 'ໃສ່ລະຫັດ',
   'cartOrderSummary.returnsPolicy': 'ຄືນສິນຄ້າພາຍໃນ {{days}} ວັນ',
   'cartOrderSummary.secureSSL': 'SSL ທີ່ປອດໄພ',
   'cartOrderSummary.shipping': 'ການຂົນສົ່ງ',
@@ -432,9 +430,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'ການຮັບປະກັນ {{years}} ປີ',
   'productStockBadge.inStock': 'ມີສິນຄ້າຢູ່ໃນສະຕັອກ — ພ້ອມສົ່ງ',
   'productStockBadge.outOfStock': 'ໝົດສະຕັອກ',
-  'promo.applied': 'ລະຫັດຖືກນຳໃຊ້ແລ້ວ.',
-  'promo.invalid': 'ລະຫັດບໍ່ຖືກຕ້ອງ ຫຼື ໝົດອາຍຸ.',
-  'promo.placeholder': 'ລະຫັດໂປຣໂມຊັ່ນ',
   'recentOrdersTable.empty':
     'ຍັງບໍ່ມີຄຳສັ່ງຊື້ເທື່ອ - ຄຳສັ່ງຊື້ຈະປາກົດຢູ່ບ່ອນນີ້ເມື່ອລູກຄ້າຈ່າຍເງິນ.',
   'recentOrdersTable.title': 'ຄຳສັ່ງຊື້ຫຼ້າສຸດ',

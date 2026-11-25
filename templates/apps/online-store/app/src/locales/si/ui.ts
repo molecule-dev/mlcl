@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'ඇස්තමේන්තුගත බද්ද',
   'cartOrderSummary.payPal': 'පේපෑල්',
   'cartOrderSummary.proceedToCheckout': 'පරීක්ෂා කිරීම වෙත යන්න',
-  'cartOrderSummary.promoCode': 'ප්රවර්ධන කේතය',
-  'cartOrderSummary.promoPlaceholder': 'කේතය ඇතුළත් කරන්න',
   'cartOrderSummary.returnsPolicy': '{{days}}-දින ප්‍රතිලාභ',
   'cartOrderSummary.secureSSL': 'ආරක්ෂිත SSL',
   'cartOrderSummary.shipping': 'නැව්ගත කිරීම',
@@ -433,9 +431,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-වසර වගකීම',
   'productStockBadge.inStock': 'තොගයේ ඇත - නැව්ගත කිරීමට සූදානම්',
   'productStockBadge.outOfStock': 'තොග නැති',
-  'promo.applied': 'කේතය යොදන ලදී.',
-  'promo.invalid': 'අවලංගු හෝ කල් ඉකුත් වූ කේතයකි.',
-  'promo.placeholder': 'ප්‍රවර්ධන කේතය',
   'recentOrdersTable.empty':
     'තවම ඇණවුම් නැත — පාරිභෝගිකයින් පරීක්ෂා කළ පසු ඇණවුම් මෙහි දිස්වනු ඇත.',
   'recentOrdersTable.title': 'මෑත කාලීන ඇණවුම්',

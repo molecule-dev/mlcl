@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Arvioitu vero',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Siirry kassalle',
-  'cartOrderSummary.promoCode': 'Kampanjakoodi',
-  'cartOrderSummary.promoPlaceholder': 'Syötä koodi',
   'cartOrderSummary.returnsPolicy': '{{days}} päivän palautus',
   'cartOrderSummary.secureSSL': 'Suojattu SSL',
   'cartOrderSummary.shipping': 'Toimitus',
@@ -431,9 +429,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} vuoden takuu',
   'productStockBadge.inStock': 'Varastossa — Lähetysvalmis',
   'productStockBadge.outOfStock': 'Loppu varastosta',
-  'promo.applied': 'Koodi lisätty.',
-  'promo.invalid': 'Virheellinen tai vanhentunut koodi.',
-  'promo.placeholder': 'Tarjouskoodi',
   'recentOrdersTable.empty':
     'Ei vielä tilauksia — tilaukset näkyvät täällä, kun asiakkaat ovat maksaneet.',
   'recentOrdersTable.title': 'Viimeaikaiset tilaukset',

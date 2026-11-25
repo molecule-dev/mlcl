@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Taxxa Stmata',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Ipproċedi għall-Checkout',
-  'cartOrderSummary.promoCode': 'Kodiċi Promozzjonali',
-  'cartOrderSummary.promoPlaceholder': 'Daħħal il-kodiċi',
   'cartOrderSummary.returnsPolicy': "Ritorn ta' {{days}} Jum",
   'cartOrderSummary.secureSSL': 'SSL Sikur',
   'cartOrderSummary.shipping': 'Tbaħħir',
@@ -435,9 +433,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': "Garanzija ta' {{years}} Sena",
   'productStockBadge.inStock': 'Fl-Istokk — Lest għall-konsenja',
   'productStockBadge.outOfStock': 'Mhux fl-Istokk',
-  'promo.applied': 'Kodiċi applikat.',
-  'promo.invalid': 'Kodiċi invalidu jew skadut.',
-  'promo.placeholder': 'Kodiċi promozzjonali',
   'recentOrdersTable.empty':
     "Għad m'hemm l-ebda ordnijiet — l-ordnijiet se jidhru hawn ladarba l-klijenti jħallsu.",
   'recentOrdersTable.title': 'Ordnijiet Riċenti',

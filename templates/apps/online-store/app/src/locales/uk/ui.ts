@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Орієнтовний податок',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Перейти до оформлення замовлення',
-  'cartOrderSummary.promoCode': 'Промокод',
-  'cartOrderSummary.promoPlaceholder': 'Введіть код',
   'cartOrderSummary.returnsPolicy': 'Повернення протягом {{days}} днів',
   'cartOrderSummary.secureSSL': 'Безпечний SSL-код',
   'cartOrderSummary.shipping': 'Доставка',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Гарантія на {{years}} років',
   'productStockBadge.inStock': 'В наявності — Готово до відправки',
   'productStockBadge.outOfStock': 'Немає в наявності',
-  'promo.applied': 'Код застосовано.',
-  'promo.invalid': 'Недійсний або прострочений код.',
-  'promo.placeholder': 'Промокод',
   'recentOrdersTable.empty':
     'Замовлень поки що немає — замовлення з’являться тут після оформлення замовлення клієнтами.',
   'recentOrdersTable.title': 'Недавні замовлення',

@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Odhadovaná daň',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Pokračovať k pokladni',
-  'cartOrderSummary.promoCode': 'Promo kód',
-  'cartOrderSummary.promoPlaceholder': 'Zadajte kód',
   'cartOrderSummary.returnsPolicy': 'Vrátenie do {{days}} dní',
   'cartOrderSummary.secureSSL': 'Bezpečné SSL',
   'cartOrderSummary.shipping': 'Doprava',
@@ -432,9 +430,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-ročná záruka',
   'productStockBadge.inStock': 'Skladom — Pripravené na odoslanie',
   'productStockBadge.outOfStock': 'Nie je na sklade',
-  'promo.applied': 'Kód bol použitý.',
-  'promo.invalid': 'Neplatný alebo vypršaný kód.',
-  'promo.placeholder': 'Promo kód',
   'recentOrdersTable.empty':
     'Zatiaľ žiadne objednávky – objednávky sa tu zobrazia po dokončení objednávky.',
   'recentOrdersTable.title': 'Nedávne objednávky',

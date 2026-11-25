@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Cáin Mheasta',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Téigh ar aghaidh go dtí an tseiceáil amach',
-  'cartOrderSummary.promoCode': 'Cód Promóisin',
-  'cartOrderSummary.promoPlaceholder': 'Cuir isteach an cód',
   'cartOrderSummary.returnsPolicy': 'Fillteáin {{days}} Lae',
   'cartOrderSummary.secureSSL': 'SSL Slán',
   'cartOrderSummary.shipping': 'Loingseoireacht',
@@ -436,9 +434,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Barántas {{years}} Bliana',
   'productStockBadge.inStock': 'I Stoc — Réidh le seoladh',
   'productStockBadge.outOfStock': 'As Stoc',
-  'promo.applied': 'Cód curtha i bhfeidhm.',
-  'promo.invalid': 'Cód neamhbhailí nó imithe in éag.',
-  'promo.placeholder': 'Cód promóisin',
   'recentOrdersTable.empty':
     'Gan aon orduithe fós — beidh orduithe le feiceáil anseo a luaithe a dhéanfaidh custaiméirí seiceáil amach.',
   'recentOrdersTable.title': 'Orduithe Le Déanaí',

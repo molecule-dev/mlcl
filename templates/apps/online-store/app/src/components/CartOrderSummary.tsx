@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import { Link } from 'react-router'
 
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 interface CartOrderSummaryProps {
@@ -11,24 +10,6 @@ interface CartOrderSummaryProps {
 function CartOrderSummary({ subtotal }: CartOrderSummaryProps) {
   const { t } = useTranslation()
   const cm = getClassMap()
-  const [promoCode, setPromoCode] = useState('')
-  const http = useHttpClient()
-  const [promoLoading, setPromoLoading] = useState(false)
-  const [promoMessage, setPromoMessage] = useState('')
-  const applyPromo = async () => {
-    if (!promoCode) return
-    setPromoLoading(true)
-    setPromoMessage('')
-    try {
-      await http.post('/api/cart/promo', { code: promoCode })
-      setPromoMessage(t('promo.applied', {}, { defaultValue: 'Code applied.' }))
-    } catch (_error) {
-      // No matching promo — surface a clear inline message instead of failing silently
-      setPromoMessage(t('promo.invalid', {}, { defaultValue: 'Invalid or expired code.' }))
-    } finally {
-      setPromoLoading(false)
-    }
-  }
 
   const formatPrice = (cents: number) =>
     new Intl.NumberFormat(undefined, { style: 'currency', currency: 'USD' }).format(cents / 100)
@@ -104,61 +85,6 @@ function CartOrderSummary({ subtotal }: CartOrderSummaryProps) {
               {formatPrice(total)}
             </span>
           </div>
-        </div>
-        {/* Promo Code */}
-        <div className={cm.stack(2)}>
-          <label
-            className={cm.cn(
-              cm.textSize('xs'),
-              cm.fontWeight('bold'),
-              'block uppercase text-text-secondary',
-            )}
-          >
-            {t('cartOrderSummary.promoCode', {}, { defaultValue: 'Promo Code' })}
-          </label>
-          <div className={cm.flex({ gap: 2 })}>
-            <input
-              className={cm.cn(
-                cm.sp('px', 3),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.flex1,
-                'border border-border rounded-md focus:ring-2 focus:ring-primary focus:border-transparent outline-none',
-              )}
-              placeholder={t(
-                'cartOrderSummary.promoPlaceholder',
-                {},
-                { defaultValue: 'Enter code' },
-              )}
-              type="text"
-              value={promoCode}
-              onChange={(e) => setPromoCode(e.target.value)}
-            />
-            <button
-              className={cm.cn(
-                cm.sp('px', 4),
-                cm.sp('py', 2),
-                cm.textSize('sm'),
-                cm.fontWeight('bold'),
-                'bg-foreground text-white rounded-md hover:bg-foreground transition-colors',
-              )}
-              data-mol-id="apply-promo"
-              onClick={applyPromo}
-              disabled={promoLoading || !promoCode}
-            >
-              {promoLoading
-                ? t('common.loading', {}, { defaultValue: '…' })
-                : t('common.apply', {}, { defaultValue: 'Apply' })}
-            </button>
-          </div>
-          {promoMessage && (
-            <p
-              className={cm.cn(cm.textSize('xs'), 'text-text-secondary')}
-              data-mol-id="promo-message"
-            >
-              {promoMessage}
-            </p>
-          )}
         </div>
         {/* Checkout Buttons */}
         <div className={cm.stack(3)}>

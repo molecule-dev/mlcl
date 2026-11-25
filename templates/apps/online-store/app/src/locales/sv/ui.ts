@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Beräknad skatt',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Gå till kassan',
-  'cartOrderSummary.promoCode': 'Kampanjkod',
-  'cartOrderSummary.promoPlaceholder': 'Ange kod',
   'cartOrderSummary.returnsPolicy': '{{days}} dagars returrätt',
   'cartOrderSummary.secureSSL': 'Säker SSL',
   'cartOrderSummary.shipping': 'Frakt',
@@ -432,9 +430,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} års garanti',
   'productStockBadge.inStock': 'I lager — Klar att skickas',
   'productStockBadge.outOfStock': 'Slut i lager',
-  'promo.applied': 'Kod tillämpad.',
-  'promo.invalid': 'Ogiltig eller utgången kod.',
-  'promo.placeholder': 'Rabattkod',
   'recentOrdersTable.empty':
     'Inga beställningar ännu — beställningar kommer att visas här när kunderna har betalat.',
   'recentOrdersTable.title': 'Senaste beställningar',

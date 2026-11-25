@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Treth Amcangyfrifedig',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': "Ewch ymlaen i'r Taliad",
-  'cartOrderSummary.promoCode': 'Cod Hyrwyddo',
-  'cartOrderSummary.promoPlaceholder': 'Rhowch y cod',
   'cartOrderSummary.returnsPolicy': 'Ffyrdd o ddychwelyd o fewn {{days}} diwrnod',
   'cartOrderSummary.secureSSL': 'SSL Diogel',
   'cartOrderSummary.shipping': 'Llongau',
@@ -432,9 +430,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Gwarant {{years}} Blynedd',
   'productStockBadge.inStock': "Mewn Stoc — Yn barod i'w gludo",
   'productStockBadge.outOfStock': 'Allan o Stoc',
-  'promo.applied': "Cod wedi'i gymhwyso.",
-  'promo.invalid': 'Cod annilys neu wedi dod i ben.',
-  'promo.placeholder': 'Cod hyrbuyaeth',
   'recentOrdersTable.empty':
     'Dim archebion eto — bydd archebion yn ymddangos yma unwaith y bydd cwsmeriaid yn talu.',
   'recentOrdersTable.title': 'Archebion Diweddar',

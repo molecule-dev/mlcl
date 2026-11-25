@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Проценета даночна стапка',
   'cartOrderSummary.payPal': 'Пејпал',
   'cartOrderSummary.proceedToCheckout': 'Продолжете кон наплата',
-  'cartOrderSummary.promoCode': 'Промотивен код',
-  'cartOrderSummary.promoPlaceholder': 'Внесете код',
   'cartOrderSummary.returnsPolicy': 'Враќање во рок од {{days}} дена',
   'cartOrderSummary.secureSSL': 'Безбеден SSL',
   'cartOrderSummary.shipping': 'Испорака',
@@ -435,9 +433,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-годишна гаранција',
   'productStockBadge.inStock': 'На залиха — Спремно за испорака',
   'productStockBadge.outOfStock': 'Нема на залиха',
-  'promo.applied': 'Кодот е применет.',
-  'promo.invalid': 'Неважечки или истечен код.',
-  'promo.placeholder': 'Промо код',
   'recentOrdersTable.empty':
     'Сè уште нема нарачки — нарачките ќе се појават тука откако клиентите ќе завршат со плаќање.',
   'recentOrdersTable.title': 'Неодамнешни нарачки',

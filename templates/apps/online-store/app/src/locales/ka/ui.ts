@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'სავარაუდო გადასახადი',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'გადადით გადახდის გვერდზე',
-  'cartOrderSummary.promoCode': 'პრომო კოდი',
-  'cartOrderSummary.promoPlaceholder': 'შეიყვანეთ კოდი',
   'cartOrderSummary.returnsPolicy': '{{days}}-დღიანი დაბრუნება',
   'cartOrderSummary.secureSSL': 'უსაფრთხო SSL',
   'cartOrderSummary.shipping': 'მიწოდება',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-წლიანი გარანტია',
   'productStockBadge.inStock': 'მარაგშია — მზადაა გასაგზავნად',
   'productStockBadge.outOfStock': 'მარაგში არ არის',
-  'promo.applied': 'კოდი გამოყენებულია.',
-  'promo.invalid': 'არასწორი ან ვადაგასული კოდი.',
-  'promo.placeholder': 'პრომო კოდი',
   'recentOrdersTable.empty':
     'შეკვეთები ჯერ არ არის — შეკვეთები აქ გამოჩნდება მომხმარებლების შეკვეთის დასრულების შემდეგ.',
   'recentOrdersTable.title': 'ბოლო შეკვეთები',

@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Մոտավոր հարկ',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Անցնել վճարմանը',
-  'cartOrderSummary.promoCode': 'Պրոմո կոդ',
-  'cartOrderSummary.promoPlaceholder': 'Մուտքագրեք կոդը',
   'cartOrderSummary.returnsPolicy': '{{days}}-օրյա վերադարձ',
   'cartOrderSummary.secureSSL': 'Անվտանգ SSL',
   'cartOrderSummary.shipping': 'Առաքում',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-ամյա երաշխիք',
   'productStockBadge.inStock': 'Պահեստում կա — Պատրաստ է առաքման',
   'productStockBadge.outOfStock': 'Սպառված է',
-  'promo.applied': 'Կոդը կիրառվեց։',
-  'promo.invalid': 'Անվավեր կամ ժամկետանց կոդ։',
-  'promo.placeholder': 'Պրոմո կոդ',
   'recentOrdersTable.empty':
     'Դեռևս պատվերներ չկան. պատվերները կհայտնվեն այստեղ, երբ հաճախորդները կատարեն վճարումը։',
   'recentOrdersTable.title': 'Վերջին պատվերները',

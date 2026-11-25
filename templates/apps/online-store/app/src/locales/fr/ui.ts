@@ -150,8 +150,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Impôt estimé',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Passer à la caisse',
-  'cartOrderSummary.promoCode': 'Code promo',
-  'cartOrderSummary.promoPlaceholder': 'Saisissez le code',
   'cartOrderSummary.returnsPolicy': 'Retours sous {{days}} jours',
   'cartOrderSummary.secureSSL': 'SSL sécurisé',
   'cartOrderSummary.shipping': 'Expédition',
@@ -439,9 +437,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Garantie de {{years}} ans',
   'productStockBadge.inStock': 'En stock — Prêt à être expédié',
   'productStockBadge.outOfStock': 'En rupture de stock',
-  'promo.applied': 'Code appliqué.',
-  'promo.invalid': 'Code invalide ou expiré.',
-  'promo.placeholder': 'Code promo',
   'recentOrdersTable.empty':
     'Aucune commande pour le moment — les commandes apparaîtront ici une fois que les clients auront finalisé leur achat.',
   'recentOrdersTable.title': 'Commandes récentes',

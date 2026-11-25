@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Очакван данък',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Продължете към плащането',
-  'cartOrderSummary.promoCode': 'Промоционален код',
-  'cartOrderSummary.promoPlaceholder': 'Въведете код',
   'cartOrderSummary.returnsPolicy': 'Връщане до {{days}} дни',
   'cartOrderSummary.secureSSL': 'Защитен SSL',
   'cartOrderSummary.shipping': 'Доставка',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-годишна гаранция',
   'productStockBadge.inStock': 'На склад — Готово за изпращане',
   'productStockBadge.outOfStock': 'Няма наличност',
-  'promo.applied': 'Кодът е приложен.',
-  'promo.invalid': 'Невалиден или изтекъл код.',
-  'promo.placeholder': 'Промо код',
   'recentOrdersTable.empty':
     'Все още няма поръчки — поръчките ще се появят тук, след като клиентите приключат с плащането.',
   'recentOrdersTable.title': 'Последни поръчки',

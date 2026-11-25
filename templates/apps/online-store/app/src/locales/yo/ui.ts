@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Owó-orí tí a fojú díwọ̀n',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Sun mo waju lati sanwo',
-  'cartOrderSummary.promoCode': 'Kóòdù ìpolówó',
-  'cartOrderSummary.promoPlaceholder': 'Tẹ koodu sii',
   'cartOrderSummary.returnsPolicy': 'Ìpadà {{days}}-Ọjọ́',
   'cartOrderSummary.secureSSL': 'SSL ti o ni aabo',
   'cartOrderSummary.shipping': 'Gbigbe ọkọ',
@@ -433,9 +431,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Atilẹyin ọdun {{years}}',
   'productStockBadge.inStock': 'Wà ní ọjà — Ṣetán láti fi ránṣẹ́',
   'productStockBadge.outOfStock': 'Ko si ọja',
-  'promo.applied': 'Kóòdù tí a lò.',
-  'promo.invalid': 'Kóòdù tí kò tọ́ tàbí tí ó ti parí.',
-  'promo.placeholder': 'Koodu ipolowo',
   'recentOrdersTable.empty':
     'Kò sí àṣẹ kankan síbẹ̀ — àwọn àṣẹ yóò fara hàn níbí nígbà tí àwọn oníbàárà bá ti sanwó.',
   'recentOrdersTable.title': 'Àwọn Àṣẹ Tuntun',

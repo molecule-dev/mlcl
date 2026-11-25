@@ -146,8 +146,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Áætlaður skattur',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Halda áfram í greiðslu',
-  'cartOrderSummary.promoCode': 'Kynningarkóði',
-  'cartOrderSummary.promoPlaceholder': 'Sláðu inn kóða',
   'cartOrderSummary.returnsPolicy': '{{days}} daga skil',
   'cartOrderSummary.secureSSL': 'Öruggt SSL',
   'cartOrderSummary.shipping': 'Sendingar',
@@ -432,9 +430,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} ára ábyrgð',
   'productStockBadge.inStock': 'Á lager — Tilbúið til sendingar',
   'productStockBadge.outOfStock': 'Uppselt',
-  'promo.applied': 'Kóði notaður.',
-  'promo.invalid': 'Ógildur eða útrunninn kóði.',
-  'promo.placeholder': 'Kynningarkóði',
   'recentOrdersTable.empty':
     'Engar pantanir ennþá — pantanir birtast hér um leið og viðskiptavinir ganga frá greiðslu.',
   'recentOrdersTable.title': 'Nýlegar pantanir',

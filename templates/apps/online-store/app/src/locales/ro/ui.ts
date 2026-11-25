@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Taxă estimată',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Finalizează cumpărăturile',
-  'cartOrderSummary.promoCode': 'Cod promoțional',
-  'cartOrderSummary.promoPlaceholder': 'Introduceți codul',
   'cartOrderSummary.returnsPolicy': 'Retururi în {{days}} zile',
   'cartOrderSummary.secureSSL': 'SSL securizat',
   'cartOrderSummary.shipping': 'Livrare',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Garanție de {{years}} ani',
   'productStockBadge.inStock': 'În stoc — Gata de livrare',
   'productStockBadge.outOfStock': 'Epuizat',
-  'promo.applied': 'Cod aplicat.',
-  'promo.invalid': 'Cod invalid sau expirat.',
-  'promo.placeholder': 'Cod promoțional',
   'recentOrdersTable.empty':
     'Încă nu există comenzi — comenzile vor apărea aici după ce clienții finalizează comanda.',
   'recentOrdersTable.title': 'Comenzi recente',

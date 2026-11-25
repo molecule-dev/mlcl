@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': '予定納税額',
   'cartOrderSummary.payPal': 'ペイパル',
   'cartOrderSummary.proceedToCheckout': 'お会計へ進む',
-  'cartOrderSummary.promoCode': 'プロモーションコード',
-  'cartOrderSummary.promoPlaceholder': 'コードを入力してください',
   'cartOrderSummary.returnsPolicy': '{{days}}日間返品可能',
   'cartOrderSummary.secureSSL': 'セキュアSSL',
   'cartOrderSummary.shipping': '送料',
@@ -432,9 +430,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}年間保証',
   'productStockBadge.inStock': '在庫あり - 即日発送可能',
   'productStockBadge.outOfStock': '在庫切れ',
-  'promo.applied': 'コードが適用されました。',
-  'promo.invalid': '無効または期限切れのコードです。',
-  'promo.placeholder': 'プロモコード',
   'recentOrdersTable.empty':
     'まだ注文はありません。注文は、お客様が決済を完了するとここに表示されます。',
   'recentOrdersTable.title': '最近の注文',

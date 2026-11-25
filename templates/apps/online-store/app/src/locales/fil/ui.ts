@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Tinatayang Buwis',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Magpatuloy sa Pag-checkout',
-  'cartOrderSummary.promoCode': 'Kodigo ng Promosyon',
-  'cartOrderSummary.promoPlaceholder': 'Ilagay ang code',
   'cartOrderSummary.returnsPolicy': '{{days}}-Araw na Pagbabalik',
   'cartOrderSummary.secureSSL': 'Ligtas na SSL',
   'cartOrderSummary.shipping': 'Shipping',
@@ -437,9 +435,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-Taong Warranty',
   'productStockBadge.inStock': 'Nasa Stock — Handa nang ipadala',
   'productStockBadge.outOfStock': 'Wala sa Stock',
-  'promo.applied': 'Nailapat na ang kodigo.',
-  'promo.invalid': 'Hindi wasto o nag-expire na ang code.',
-  'promo.placeholder': 'Promo code',
   'recentOrdersTable.empty':
     'Wala pang order — lalabas dito ang mga order kapag nag-check out na ang mga customer.',
   'recentOrdersTable.title': 'Mga Kamakailang Order',

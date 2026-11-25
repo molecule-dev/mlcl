@@ -26,6 +26,6 @@ export const authConfig = {
 
 export const oauthConfig = {
   baseURL: API_BASE_URL,
-  oauthProviders: ['google', 'linkedin'],
+  oauthProviders: [],
   oauthEndpoint: '/users/oauth',
 }

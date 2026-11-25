@@ -25,6 +25,6 @@ export const authConfig = {
 
 export const oauthConfig = {
   baseURL: API_BASE_URL,
-  oauthProviders: ['github', 'google'],
+  oauthProviders: [],
   oauthEndpoint: '/users/oauth',
 }

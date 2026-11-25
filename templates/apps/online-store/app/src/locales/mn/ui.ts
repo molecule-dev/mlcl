@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Тооцоолсон татвар',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Төлбөр тооцоо руу үргэлжлүүлэх',
-  'cartOrderSummary.promoCode': 'Сурталчилгааны код',
-  'cartOrderSummary.promoPlaceholder': 'Код оруулна уу',
   'cartOrderSummary.returnsPolicy': '{{days}} хоногийн буцаалт',
   'cartOrderSummary.secureSSL': 'Аюулгүй SSL',
   'cartOrderSummary.shipping': 'Тээвэрлэлт',
@@ -435,9 +433,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} жилийн баталгаа',
   'productStockBadge.inStock': 'Бэлэн байгаа — Тээвэрлэхэд бэлэн',
   'productStockBadge.outOfStock': 'Бараа дууссан',
-  'promo.applied': 'Код хэрэглэсэн.',
-  'promo.invalid': 'Хүчингүй эсвэл хугацаа нь дууссан код.',
-  'promo.placeholder': 'Промо код',
   'recentOrdersTable.empty':
     'Захиалга хараахан алга байна — үйлчлүүлэгчид тооцоогоо хийсний дараа захиалга энд харагдах болно.',
   'recentOrdersTable.title': 'Саяхны захиалгууд',

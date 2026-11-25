@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'ภาษีโดยประมาณ',
   'cartOrderSummary.payPal': 'เช็ค',
   'cartOrderSummary.proceedToCheckout': 'ดำเนินการชำระเงิน',
-  'cartOrderSummary.promoCode': 'รหัสโปรโมชั่น',
-  'cartOrderSummary.promoPlaceholder': 'ป้อนรหัส',
   'cartOrderSummary.returnsPolicy': 'คืนสินค้าได้ภายใน {{days}} วัน',
   'cartOrderSummary.secureSSL': 'ปลอดภัยด้วย SSL',
   'cartOrderSummary.shipping': 'การส่งสินค้า',
@@ -433,9 +431,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'รับประกัน {{years}} ปี',
   'productStockBadge.inStock': 'มีสินค้าพร้อมส่ง',
   'productStockBadge.outOfStock': 'สินค้าหมด',
-  'promo.applied': 'ใช้โค้ดแล้ว',
-  'promo.invalid': 'รหัสไม่ถูกต้องหรือหมดอายุแล้ว',
-  'promo.placeholder': 'รหัสโปรโมชัน',
   'recentOrdersTable.empty':
     'ยังไม่มีคำสั่งซื้อใดๆ คำสั่งซื้อจะปรากฏที่นี่เมื่อลูกค้าชำระเงินเรียบร้อยแล้ว',
   'recentOrdersTable.title': 'คำสั่งซื้อล่าสุด',

@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'ពន្ធប៉ាន់ស្មាន',
   'cartOrderSummary.payPal': 'ផេផាយអែល',
   'cartOrderSummary.proceedToCheckout': 'បន្តទៅការទូទាត់ប្រាក់',
-  'cartOrderSummary.promoCode': 'លេខកូដផ្សព្វផ្សាយ',
-  'cartOrderSummary.promoPlaceholder': 'បញ្ចូលលេខកូដ',
   'cartOrderSummary.returnsPolicy': 'ការត្រឡប់វិញក្នុងរយៈពេល {{days}} ថ្ងៃ',
   'cartOrderSummary.secureSSL': 'SSL សុវត្ថិភាព',
   'cartOrderSummary.shipping': 'ការដឹកជញ្ជូន',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'ការធានា {{years}} ឆ្នាំ',
   'productStockBadge.inStock': 'មានស្តុក — ត្រៀមដឹកជញ្ជូន',
   'productStockBadge.outOfStock': 'អស់ស្តុក',
-  'promo.applied': 'កូដត្រូវបានអនុវត្ត។',
-  'promo.invalid': 'លេខកូដមិនត្រឹមត្រូវ ឬផុតកំណត់។',
-  'promo.placeholder': 'កូដប្រូម៉ូសិន',
   'recentOrdersTable.empty':
     'មិនទាន់មានការបញ្ជាទិញនៅឡើយទេ — ការបញ្ជាទិញនឹងបង្ហាញនៅទីនេះ នៅពេលដែលអតិថិជនទូទាត់ប្រាក់។',
   'recentOrdersTable.title': 'ការបញ្ជាទិញថ្មីៗ',

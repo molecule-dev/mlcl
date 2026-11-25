@@ -1,22 +1,12 @@
-import { useState } from 'react'
-
-import { useHttpClient, useTranslation } from '@molecule/app-react'
+import { useTranslation } from '@molecule/app-react'
 import { getClassMap } from '@molecule/app-ui'
 
 function ReportsPageHeader() {
   const cm = getClassMap()
-  const http = useHttpClient()
   const { t } = useTranslation()
-  const [loading, setLoading] = useState(false)
 
-  const handleExportPdf = async () => {
-    setLoading(true)
-    try {
-      await http.post('/api/reports/export-pdf')
-    } finally {
-      setLoading(false)
-    }
-  }
+  // The browser's print dialog saves the report as a PDF ("Save as PDF").
+  const handleExportPdf = () => window.print()
 
   return (
     <header
@@ -61,7 +51,6 @@ function ReportsPageHeader() {
         )}
         data-mol-id="export-pdf-btn"
         onClick={handleExportPdf}
-        disabled={loading}
       >
         <span className={cm.cn('material-symbols-outlined')}>picture_as_pdf</span>
         {t('reportsPageHeader.exportPdf', {}, { defaultValue: 'Export PDF' })}

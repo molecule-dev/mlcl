@@ -152,8 +152,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Taxminiy soliq',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': "Ro'yxatdan o'chirilishda davom etish",
-  'cartOrderSummary.promoCode': 'Kupon kodi',
-  'cartOrderSummary.promoPlaceholder': 'Kodni kiriting',
   'cartOrderSummary.returnsPolicy': '{{days}} kunlik qaytarish',
   'cartOrderSummary.secureSSL': 'Xavfsiz SSL',
   'cartOrderSummary.shipping': 'yuk tashish; yetkazib berish',
@@ -440,9 +438,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} yillik kafolat',
   'productStockBadge.inStock': 'Omborda bor — Yetkazib berishga tayyor',
   'productStockBadge.outOfStock': "Sotuvda yo'q",
-  'promo.applied': "Kod qo'llanildi.",
-  'promo.invalid': "Kod noto'g'ri yoki muddati tugagan.",
-  'promo.placeholder': 'Promo kod',
   'recentOrdersTable.empty':
     "Hali buyurtma yo'q — mijozlar hisob-kitob qilgandan so'ng buyurtmalar shu yerda ko'rsatiladi.",
   'recentOrdersTable.title': "So'nggi buyurtmalar",

@@ -1,5 +1,15 @@
-import { createDefaultAuthClient } from '@molecule/app-bonds-default-react'
+import { createDefaultAuthClientWithFetchClient } from '@molecule/app-bonds-default-react'
 
-import { authConfig } from '../config.js'
+import { API_BASE_URL, authConfig } from '../config.js'
 
-export const { authClient, setupAuthDefault } = createDefaultAuthClient(authConfig)
+// WithFetchClient (not plain WithHttpSync): this ALSO bonds the shared
+// @molecule/app-http client with baseURL '/api'. Molecule-package hooks
+// pass RELATIVE paths — useVerifyPaymentReturn POSTs
+// /users/:id/verify-payment/:provider — and without a bonded baseURL that
+// request hit the Vite SPA origin (404), so the checkout return page never
+// actually confirmed the purchase. App pages that hard-code the `/api`
+// prefix are unaffected: the bonded client never double-prefixes.
+export const { authClient, setupAuthDefault } = createDefaultAuthClientWithFetchClient(authConfig, {
+  baseURL: API_BASE_URL,
+  withCredentials: true,
+})

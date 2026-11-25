@@ -115,7 +115,7 @@ Totals — pages: 23, elements: 178, forms: 11, routes: 30
 | select-regionalpreferencessection-85                   | select   | select at app/src/components/RegionalPreferencesSection.tsx:85  | app/src/components/RegionalPreferencesSection.tsx:85  |
 | select-regionalpreferencessection-117                  | select   | select at app/src/components/RegionalPreferencesSection.tsx:117 | app/src/components/RegionalPreferencesSection.tsx:117 |
 | button-reportsfilterbar-33                             | button   | button at app/src/components/ReportsFilterBar.tsx:33            | app/src/components/ReportsFilterBar.tsx:33            |
-| button-reportspageheader-54                            | button   | button at app/src/components/ReportsPageHeader.tsx:54           | app/src/components/ReportsPageHeader.tsx:54           |
+| button-reportspageheader-44-picture-as-pdf             | button   | picture_as_pdf                                                  | app/src/components/ReportsPageHeader.tsx:44           |
 | button-securityaccesssection-215                       | button   | button at app/src/components/SecurityAccessSection.tsx:215      | app/src/components/SecurityAccessSection.tsx:215      |
 | input-securityaccesssection-243                        | input    | input at app/src/components/SecurityAccessSection.tsx:243       | app/src/components/SecurityAccessSection.tsx:243      |
 | input-securityaccesssection-257                        | input    | input at app/src/components/SecurityAccessSection.tsx:257       | app/src/components/SecurityAccessSection.tsx:257      |

@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Kodi Iliyokadiriwa',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Endelea Kulipa',
-  'cartOrderSummary.promoCode': 'Msimbo wa Ofa',
-  'cartOrderSummary.promoPlaceholder': 'Weka msimbo',
   'cartOrderSummary.returnsPolicy': 'Kurudi kwa Siku {{days}}',
   'cartOrderSummary.secureSSL': 'SSL salama',
   'cartOrderSummary.shipping': 'Usafirishaji',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Dhamana ya Miaka {{years}}',
   'productStockBadge.inStock': 'Inapatikana — Tayari kusafirishwa',
   'productStockBadge.outOfStock': 'Haipo',
-  'promo.applied': 'Nambari imetumika.',
-  'promo.invalid': 'Nambari batili au iliyopitwa na wakati.',
-  'promo.placeholder': 'Msimbo wa ofa',
   'recentOrdersTable.empty':
     'Hakuna maagizo bado — maagizo yataonekana hapa mara tu wateja watakapoondoka.',
   'recentOrdersTable.title': 'Maagizo ya Hivi Karibuni',

@@ -151,8 +151,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'ಅಂದಾಜು ತೆರಿಗೆ',
   'cartOrderSummary.payPal': 'ಪೇಪಾಲ್',
   'cartOrderSummary.proceedToCheckout': 'ಚೆಕ್ಔಟ್‌ಗೆ ಮುಂದುವರಿಯಿರಿ',
-  'cartOrderSummary.promoCode': 'ಪ್ರೋಮೋ ಕೋಡ್',
-  'cartOrderSummary.promoPlaceholder': 'ಕೋಡ್ ನಮೂದಿಸಿ',
   'cartOrderSummary.returnsPolicy': '{{days}}-ದಿನಗಳ ವಾಪಸಾತಿ',
   'cartOrderSummary.secureSSL': 'ಸುರಕ್ಷಿತ SSL',
   'cartOrderSummary.shipping': 'ಶಿಪ್ಪಿಂಗ್',
@@ -436,9 +434,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-ವರ್ಷದ ವಾರಂಟಿ',
   'productStockBadge.inStock': 'ಸ್ಟಾಕ್‌ನಲ್ಲಿದೆ - ಸಾಗಿಸಲು ಸಿದ್ಧವಾಗಿದೆ',
   'productStockBadge.outOfStock': 'ಸ್ಟಾಕ್ ಇಲ್ಲ',
-  'promo.applied': 'ಕೋಡ್ ಅನ್ವಯಿಸಲಾಗಿದೆ.',
-  'promo.invalid': 'ಅಮಾನ್ಯ ಅಥವಾ ಅವಧಿ ಮೀರಿದ ಕೋಡ್.',
-  'promo.placeholder': 'ಪ್ರೊಮೊ ಕೋಡ್',
   'recentOrdersTable.empty':
     'ಇನ್ನೂ ಯಾವುದೇ ಆರ್ಡರ್‌ಗಳಿಲ್ಲ — ಗ್ರಾಹಕರು ಚೆಕ್ ಔಟ್ ಮಾಡಿದ ನಂತರ ಆರ್ಡರ್‌ಗಳು ಇಲ್ಲಿ ಕಾಣಿಸಿಕೊಳ್ಳುತ್ತವೆ.',
   'recentOrdersTable.title': 'ಇತ್ತೀಚಿನ ಆದೇಶಗಳು',

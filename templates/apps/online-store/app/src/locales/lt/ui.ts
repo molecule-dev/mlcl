@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Apskaičiuotas mokestis',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Pereiti prie mokėjimo',
-  'cartOrderSummary.promoCode': 'Reklamos kodas',
-  'cartOrderSummary.promoPlaceholder': 'Įveskite kodą',
   'cartOrderSummary.returnsPolicy': '{{days}} dienų grąžinimas',
   'cartOrderSummary.secureSSL': 'Saugus SSL',
   'cartOrderSummary.shipping': 'Pristatymas',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} metų garantija',
   'productStockBadge.inStock': 'Sandėlyje – paruošta išsiųsti',
   'productStockBadge.outOfStock': 'Nėra sandėlyje',
-  'promo.applied': 'Kodas pritaikytas.',
-  'promo.invalid': 'Neteisingas arba pasibaigęs kodas.',
-  'promo.placeholder': 'Akcijos kodas',
   'recentOrdersTable.empty':
     'Kol kas užsakymų nėra – užsakymai bus rodomi čia, kai klientai atsiskaitys.',
   'recentOrdersTable.title': 'Naujausi užsakymai',

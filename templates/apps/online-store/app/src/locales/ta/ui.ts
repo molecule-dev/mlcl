@@ -153,8 +153,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'மதிப்பிடப்பட்ட வரி',
   'cartOrderSummary.payPal': 'எல்.பி.சி.',
   'cartOrderSummary.proceedToCheckout': 'பணம் செலுத்தும் பகுதிக்குச் செல்லவும்',
-  'cartOrderSummary.promoCode': 'விளம்பரக் குறியீடு',
-  'cartOrderSummary.promoPlaceholder': 'குறியீட்டை உள்ளிடவும்',
   'cartOrderSummary.returnsPolicy': '{{days}}-நாள் வருவாய்',
   'cartOrderSummary.secureSSL': 'பாதுகாப்பான SSL',
   'cartOrderSummary.shipping': 'கப்பல் பயணம்',
@@ -439,9 +437,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}} ஆண்டு உத்தரவாதம்',
   'productStockBadge.inStock': 'கையிருப்பில் உள்ளது — அனுப்பத் தயார்',
   'productStockBadge.outOfStock': 'கையிருப்பு இல்லை',
-  'promo.applied': 'குறியீடு பயன்படுத்தப்பட்டது.',
-  'promo.invalid': 'செல்லாத அல்லது காலாவதியான குறியீடு.',
-  'promo.placeholder': 'விளம்பர குறியீடு',
   'recentOrdersTable.empty':
     'இன்னும் ஆர்டர்கள் எதுவும் வரவில்லை — வாடிக்கையாளர்கள் பணம் செலுத்தி முடித்தவுடன் ஆர்டர்கள் இங்கே தோன்றும்.',
   'recentOrdersTable.title': 'சமீபத்திய ஆர்டர்கள்',

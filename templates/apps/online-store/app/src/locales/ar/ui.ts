@@ -145,8 +145,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'الضريبة المقدرة',
   'cartOrderSummary.payPal': 'باي بال',
   'cartOrderSummary.proceedToCheckout': 'المتابعة إلى الدفع',
-  'cartOrderSummary.promoCode': 'رمز ترويجي',
-  'cartOrderSummary.promoPlaceholder': 'أدخل الرمز',
   'cartOrderSummary.returnsPolicy': 'إرجاع خلال {{days}} يوم',
   'cartOrderSummary.secureSSL': 'بروتوكول SSL الآمن',
   'cartOrderSummary.shipping': 'الشحن',
@@ -426,9 +424,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'ضمان لمدة {{years}} سنة',
   'productStockBadge.inStock': 'متوفر في المخزون - جاهز للشحن',
   'productStockBadge.outOfStock': 'إنتهى من المخزن',
-  'promo.applied': 'تم تطبيق الكود.',
-  'promo.invalid': 'رمز غير صالح أو منتهي الصلاحية.',
-  'promo.placeholder': 'رمز العرض الترويجي',
   'recentOrdersTable.empty':
     'لا توجد طلبات حتى الآن - ستظهر الطلبات هنا بمجرد إتمام عملية الشراء من قبل العملاء.',
   'recentOrdersTable.title': 'الطلبات الأخيرة',

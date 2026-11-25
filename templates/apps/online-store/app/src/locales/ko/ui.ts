@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': '예상 세금',
   'cartOrderSummary.payPal': '페이팔',
   'cartOrderSummary.proceedToCheckout': '결제로 진행하기',
-  'cartOrderSummary.promoCode': '프로모션 코드',
-  'cartOrderSummary.promoPlaceholder': '코드를 입력하세요',
   'cartOrderSummary.returnsPolicy': '{{days}}일 반품',
   'cartOrderSummary.secureSSL': '안전한 SSL',
   'cartOrderSummary.shipping': '배송',
@@ -428,9 +426,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}년 보증',
   'productStockBadge.inStock': '재고 있음 - 즉시 배송 가능',
   'productStockBadge.outOfStock': '품절',
-  'promo.applied': '코드가 적용되었습니다.',
-  'promo.invalid': '유효하지 않거나 만료된 코드입니다.',
-  'promo.placeholder': '프로모션 코드',
   'recentOrdersTable.empty':
     '아직 주문이 없습니다. 고객이 결제를 완료하면 주문 내역이 여기에 표시됩니다.',
   'recentOrdersTable.title': '최근 주문',

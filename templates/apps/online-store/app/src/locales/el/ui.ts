@@ -150,8 +150,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Εκτιμώμενος φόρος',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Προχωρήστε στο Ταμείο',
-  'cartOrderSummary.promoCode': 'Κωδικός προσφοράς',
-  'cartOrderSummary.promoPlaceholder': 'Εισαγάγετε τον κωδικό',
   'cartOrderSummary.returnsPolicy': 'Επιστροφές {{days}} ημερών',
   'cartOrderSummary.secureSSL': 'Ασφαλές SSL',
   'cartOrderSummary.shipping': 'Αποστολή',
@@ -436,9 +434,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Εγγύηση {{years}} ετών',
   'productStockBadge.inStock': 'Σε απόθεμα — Έτοιμο για αποστολή',
   'productStockBadge.outOfStock': 'Εξαντλημένο',
-  'promo.applied': 'Εφαρμόστηκε ο κώδικας.',
-  'promo.invalid': 'Μη έγκυρος ή ληγμένος κωδικός.',
-  'promo.placeholder': 'Κωδικός προσφοράς',
   'recentOrdersTable.empty':
     'Δεν υπάρχουν ακόμη παραγγελίες — οι παραγγελίες θα εμφανιστούν εδώ μόλις οι πελάτες ολοκληρώσουν την αγορά.',
   'recentOrdersTable.title': 'Πρόσφατες παραγγελίες',

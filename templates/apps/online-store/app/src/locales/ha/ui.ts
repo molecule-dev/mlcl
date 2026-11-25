@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Harajin da aka kiyasta',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Ci gaba zuwa wurin biya',
-  'cartOrderSummary.promoCode': 'Lambar kiran kasuwa',
-  'cartOrderSummary.promoPlaceholder': 'Shigar da lambar',
   'cartOrderSummary.returnsPolicy': 'Komawa cikin Kwanaki {{days}}',
   'cartOrderSummary.secureSSL': 'SSL mai aminci',
   'cartOrderSummary.shipping': 'jigilar kaya',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Garanti na Shekaru {{years}}',
   'productStockBadge.inStock': 'A Hannu — A shirye don jigilar kaya',
   'productStockBadge.outOfStock': 'Kare Haja ne',
-  'promo.applied': 'An yi amfani da lambar.',
-  'promo.invalid': 'Lambar da ba ta aiki ko wadda ta ƙare.',
-  'promo.placeholder': 'Lambar talla',
   'recentOrdersTable.empty':
     'Babu oda tukuna — oda za ta bayyana a nan da zarar abokan ciniki sun duba.',
   'recentOrdersTable.title': 'Umarni na Kwanan Nan',

@@ -149,8 +149,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Hinnanguline maks',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Mine kassasse',
-  'cartOrderSummary.promoCode': 'Sooduskood',
-  'cartOrderSummary.promoPlaceholder': 'Sisesta kood',
   'cartOrderSummary.returnsPolicy': '{{days}}-päevane tagastus',
   'cartOrderSummary.secureSSL': 'Turvaline SSL',
   'cartOrderSummary.shipping': 'Saatmine',
@@ -434,9 +432,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-aastane garantii',
   'productStockBadge.inStock': 'Laos — Saatmiseks valmis',
   'productStockBadge.outOfStock': 'Laost otsas',
-  'promo.applied': 'Kood rakendatud.',
-  'promo.invalid': 'Kehtetu või aegunud kood.',
-  'promo.placeholder': 'Sooduskood',
   'recentOrdersTable.empty':
     'Tellimusi veel pole — tellimused kuvatakse siin pärast kliendi kassasse minekut.',
   'recentOrdersTable.title': 'Hiljutised tellimused',

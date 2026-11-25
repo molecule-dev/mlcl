@@ -147,8 +147,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Прыблізны падатак',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Перайсці да афармлення замовы',
-  'cartOrderSummary.promoCode': 'Прома-код',
-  'cartOrderSummary.promoPlaceholder': 'Увядзіце код',
   'cartOrderSummary.returnsPolicy': 'Вяртанне на працягу {{days}} дзён',
   'cartOrderSummary.secureSSL': 'Бяспечны SSL-сертыфікат',
   'cartOrderSummary.shipping': 'Дастаўка',
@@ -432,9 +430,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': 'Гарантыя на {{years}} год',
   'productStockBadge.inStock': 'У наяўнасці — Гатова да адпраўкі',
   'productStockBadge.outOfStock': 'Няма ў наяўнасці',
-  'promo.applied': 'Код ужыты.',
-  'promo.invalid': 'Няправільны або пратэрмінаваны код.',
-  'promo.placeholder': 'Прамакод',
   'recentOrdersTable.empty':
     "Пакуль няма заказаў — заказы з'явяцца тут пасля афармлення замовы кліентамі.",
   'recentOrdersTable.title': 'Нядаўнія заказы',

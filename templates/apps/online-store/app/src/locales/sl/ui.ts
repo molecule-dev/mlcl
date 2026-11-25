@@ -148,8 +148,6 @@ export const ui: UiTranslations = {
   'cartOrderSummary.estimatedTax': 'Ocenjeni davek',
   'cartOrderSummary.payPal': 'PayPal',
   'cartOrderSummary.proceedToCheckout': 'Nadaljuj na blagajno',
-  'cartOrderSummary.promoCode': 'Promocijska koda',
-  'cartOrderSummary.promoPlaceholder': 'Vnesite kodo',
   'cartOrderSummary.returnsPolicy': '{{days}}-dnevno vračilo',
   'cartOrderSummary.secureSSL': 'Varen SSL',
   'cartOrderSummary.shipping': 'Dostava',
@@ -433,9 +431,6 @@ export const ui: UiTranslations = {
   'productShippingBadges.warranty': '{{years}}-letna garancija',
   'productStockBadge.inStock': 'Na zalogi — Pripravljeno za odpremo',
   'productStockBadge.outOfStock': 'Ni na zalogi',
-  'promo.applied': 'Koda je bila uporabljena.',
-  'promo.invalid': 'Neveljavna ali potečena koda.',
-  'promo.placeholder': 'Promocijska koda',
   'recentOrdersTable.empty':
     'Še ni naročil – naročila se bodo prikazala tukaj, ko stranke zaključijo plačilo.',
   'recentOrdersTable.title': 'Nedavna naročila',
