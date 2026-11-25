@@ -307,6 +307,25 @@ function mentioningPassages(readme: string, wants: string[]): string | null {
 }
 
 /**
+ * What a guessed camelCase name acts on: the name without its first word (`useLogout` →
+ * `logout`, `createPropsSchema` → `propsSchema`).
+ *
+ * @param section - The requested section.
+ * @returns The rest of the name, or null for a request that is not one camelCase name or whose
+ *   rest is too short to look for.
+ */
+function guessedNoun(section: string): string | null {
+  const name = section
+    .replace(/`/g, '')
+    .replace(/\(.*\)$/, '')
+    .trim()
+  const first = name.match(/^[a-z]+(?=[A-Z][A-Za-z0-9]*$)/)?.[0]
+  if (!first) return null
+  const rest = name.slice(first.length)
+  return rest.length >= CONTAINS_MIN_CHARS ? rest[0].toLowerCase() + rest.slice(1) : null
+}
+
+/**
  * The README's section index: each `##` and `###` heading on its own line, and the `####`
  * headings under one (the exported functions, types and components the generated READMEs
  * document) as one line of names.
@@ -375,6 +394,15 @@ export function packageDocView(
         return {
           found: true,
           text: `No section is named "${section}". The README mentions it here (read a whole section with ${options.sectionHint}):\n\n${mentioned}`,
+        }
+      // A hook or factory guessed from what it acts on (`useLogout`, where `useAuth()` returns
+      // `logout`): the passages that mention that word.
+      const noun = guessedNoun(section)
+      const nounMentioned = noun ? mentioningPassages(readme, requestForms(noun)) : null
+      if (noun && nounMentioned)
+        return {
+          found: true,
+          text: `No section or mention of "${section}". The README mentions "${noun}" here (read a whole section with ${options.sectionHint}):\n\n${nounMentioned}`,
         }
       return {
         found: false,

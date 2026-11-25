@@ -235,6 +235,36 @@ describe('packageDocView', () => {
     expect(view.text).not.toContain('Some other note.')
   })
 
+  it('answers a hook name nothing mentions with the passages that mention what it acts on (OLD MUSTFAIL)', () => {
+    // Codex asked app-react for `--section useLogout`, got the index and exit 1, and ended its
+    // `&&` chain there; `useAuth()` returns `logout` (harness eval scaffold, 2026-11-25).
+    const doc = [
+      '# @molecule/app-react',
+      '',
+      '## Usage',
+      '',
+      '```tsx',
+      'const { user, logout } = useAuth()',
+      '```',
+      '',
+      '## API',
+      '',
+      '#### `useAuth()`',
+      '',
+      'The signed-in user and the auth actions.',
+      '',
+    ].join('\n')
+    const view = packageDocView(doc, { section: 'useLogout', sectionHint: HINT })
+    expect(view.found).toBe(true)
+    expect(view.text).toContain(
+      'No section or mention of "useLogout". The README mentions "logout" here',
+    )
+    expect(view.text).toContain('From "## Usage":\n```tsx\nconst { user, logout } = useAuth()\n```')
+    // Counterexamples: a noun nothing mentions, and one too short to look for, still miss.
+    expect(packageDocView(doc, { section: 'useSignup', sectionHint: HINT }).found).toBe(false)
+    expect(packageDocView(doc, { section: 'useAll', sectionHint: HINT }).found).toBe(false)
+  })
+
   it('lists by name the sections named like the request past the bound, each printed once', () => {
     const big = 'z'.repeat(3_000)
     const doc = [
