@@ -43451,12 +43451,14 @@
         "@molecule/app-client-search",
         "@molecule/app-react",
         "@molecule/app-storage",
+        "@molecule/app-ui",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-client-search",
         "@molecule/app-react",
-        "@molecule/app-storage"
+        "@molecule/app-storage",
+        "@molecule/app-ui"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
