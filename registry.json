@@ -38652,13 +38652,15 @@
         "@molecule/app-react",
         "@molecule/app-storage",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-logger",
         "@molecule/app-react",
         "@molecule/app-storage",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -103314,13 +103316,15 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-clipboard",
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
         "dependencies": {},
@@ -109382,7 +109386,12 @@
         "SvgLinearGradientProps",
         "SvgMetadata",
         "SvgPatternProps",
-        "TextFieldBaseProps"
+        "TextFieldBaseProps",
+        "ElementMeasureTarget",
+        "ElementViewport",
+        "ForwardedElementProps",
+        "ScrollOffset",
+        "TextFieldKeyEvent"
       ],
       "secrets": [],
       "runtimeDependencies": [
