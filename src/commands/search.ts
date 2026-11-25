@@ -34,6 +34,7 @@ export function toSearchEntry(pkg: RegistryPackage): SearchSourceEntry {
     // Without it search offered a renamed package (app-i18n-default-react) that the hosted
     // server, which passes the raw entry, leaves out.
     replacedBy: pkg.molecule?.replacedBy,
+    selection: pkg.molecule?.selection,
     category: pkg.molecule?.category,
     label: pkg.molecule?.label,
     description: pkg.description,

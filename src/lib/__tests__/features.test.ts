@@ -58,6 +58,29 @@ describe('buildFeatureMenu', () => {
     expect(widget?.bundledPackages.map((p) => p.name)).toEqual([])
   })
 
+  it('leaves out a bundle only the scaffolds choose (OLD MUSTFAIL)', () => {
+    const pkg = (name: string, selection?: 'scaffold-only'): InferredPackage =>
+      mockPackage({
+        name,
+        molecule: {
+          type: 'feature',
+          category: 'bonds-default',
+          label: name,
+          ui: { order: 3 },
+          secrets: [],
+          runtimeDependencies: [],
+          ...(selection ? { selection } : {}),
+        },
+      })
+    const result = buildFeatureMenu([pkg('@molecule/api-bonds-default-express', 'scaffold-only')])
+    expect(result.features.find((f) => f.category === 'bonds-default')).toBeUndefined()
+    // Counterexample: the same entry without the field is offered.
+    const offered = buildFeatureMenu([pkg('@molecule/api-bonds-default-express')])
+    expect(offered.features.find((f) => f.category === 'bonds-default')?.primary.name).toBe(
+      '@molecule/api-bonds-default-express',
+    )
+  })
+
   it('separates alwaysInclude packages from features', () => {
     const always = mockPackage({
       name: '@molecule/api-logger',

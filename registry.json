@@ -5536,6 +5536,7 @@
       "label": "API Bonds Default (Express)",
       "description": "Default API bond setup for Express apps — per-concern setup functions plus a consolidated setup, wiring the byte-identical bond configuration (config-env, database, jwt, middleware, password, secrets, device, two-factor, and more) shared across the molecule fleet.",
       "stack": "api",
+      "selection": "scaffold-only",
       "exports": [
         "createBillingRouter",
         "getUserId",
@@ -30584,6 +30585,7 @@
       "label": "API Server Default (Express)",
       "description": "Default Express server factory: bonds setup, DB migrations, body/cookie/cors middleware, /api router mount, /health endpoint, 401 normalization, optional HTTPS via self-signed pem certs. Extracts 80-line server.ts shipped by 79 fleet apps.",
       "stack": "api",
+      "selection": "scaffold-only",
       "exports": [
         "TaggedError",
         "classifyTaggedError",
@@ -40298,6 +40300,7 @@
       "label": "App Bonds Default",
       "description": "Framework-neutral default app-side bond wirings (auth/http factories, state, fonts, storage, styling, theme, ClassMap, icons, clipboard, optional providers) shared by the per-framework @molecule/app-bonds-default-* packages.",
       "stack": "app",
+      "selection": "scaffold-only",
       "exports": [
         "createDefaultHttpClient",
         "createDefaultHttpClientWithAuthBearer",
@@ -40419,6 +40422,7 @@
       "label": "App Bonds Default (Angular)",
       "description": "Default app-side bond wirings for Angular: the framework-neutral defaults from @molecule/app-bonds-default plus the Angular router setup and bootstrapApp().",
       "stack": "app",
+      "selection": "scaffold-only",
       "exports": [
         "bootstrapApp",
         "setupAppRoutingAngularRouter",
@@ -40530,6 +40534,7 @@
       "label": "App Bonds Default (React)",
       "description": "Default app-side bond wirings for React + Tailwind ClassMap + react-router + localStorage + fonts + icons. Per-concern setup functions plus setupAllDefaultBonds, consolidating the byte-identical per-app bond wiring across the fleet.",
       "stack": "app",
+      "selection": "scaffold-only",
       "exports": [
         "createDefaultHttpClient",
         "createDefaultHttpClientWithAuthBearer",
@@ -40668,6 +40673,7 @@
       "label": "App Bonds Default (Solid)",
       "description": "Default app-side bond wirings for Solid: the framework-neutral defaults from @molecule/app-bonds-default plus the Solid router setup and bootstrapApp().",
       "stack": "app",
+      "selection": "scaffold-only",
       "exports": [
         "bootstrapApp",
         "setupAppRoutingSolidRouter",
@@ -40775,6 +40781,7 @@
       "label": "App Bonds Default (Svelte)",
       "description": "Default app-side bond wirings for Svelte: the framework-neutral defaults from @molecule/app-bonds-default plus the Svelte router setup and bootstrapApp().",
       "stack": "app",
+      "selection": "scaffold-only",
       "exports": [
         "bootstrapApp",
         "setupAppRoutingSvelteKit",
@@ -40880,6 +40887,7 @@
       "label": "App Bonds Default (Vue)",
       "description": "Default app-side bond wirings for Vue: the framework-neutral defaults from @molecule/app-bonds-default plus the Vue router setup and bootstrapApp().",
       "stack": "app",
+      "selection": "scaffold-only",
       "exports": [
         "bootstrapApp",
         "setupAppRoutingVueRouter",

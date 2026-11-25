@@ -31,17 +31,24 @@
  */
 /**
  * Whether a project can be offered this package. Not the dev tooling every scaffold installs
- * (`stack: 'tooling'`, such as the shared ESLint config), and not a package renamed to another
- * (`replacedBy`: projects that installed the old name keep it, nothing offers it again). Search,
+ * (`stack: 'tooling'`, such as the shared ESLint config), not a package renamed to another
+ * (`replacedBy`: projects that installed the old name keep it, nothing offers it again), and not
+ * a package that composes the scaffolds (`selection: 'scaffold-only'`, such as the flagship
+ * templates' bond bundle: naming one in a custom stack installs every provider it wires). Search,
  * the catalogs, the create menu and the role lookups all apply this one rule.
  *
  * @param entry - A registry entry, or a package's registry metadata.
  * @param entry.stack - Its declared stack.
  * @param entry.replacedBy - The package that replaced it, if any.
+ * @param entry.selection - `scaffold-only` for a package only the scaffolds choose.
  * @returns True when it may be offered.
  */
-export function isOfferedPackage(entry: { stack?: string; replacedBy?: string }): boolean {
-  return entry.stack !== 'tooling' && !entry.replacedBy
+export function isOfferedPackage(entry: {
+  stack?: string
+  replacedBy?: string
+  selection?: string
+}): boolean {
+  return entry.stack !== 'tooling' && !entry.replacedBy && entry.selection !== 'scaffold-only'
 }
 
 export interface SearchSourceEntry {
@@ -51,6 +58,8 @@ export interface SearchSourceEntry {
   stack?: 'api' | 'app' | 'tooling'
   /** The package that took this one's place under a new name, when it was renamed. */
   replacedBy?: string
+  /** `scaffold-only` for a package only the scaffolds choose (see {@link isOfferedPackage}). */
+  selection?: string
   category?: string
   label?: string
   description?: string

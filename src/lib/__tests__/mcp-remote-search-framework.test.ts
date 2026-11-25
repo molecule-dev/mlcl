@@ -82,6 +82,8 @@ beforeAll(async () => {
         '@molecule/app-probe-vue': probe('vue'),
         '@molecule/app-probe-react-native': probe('react-native'),
         '@molecule/app-probe': probe(),
+        // A bundle only the scaffolds choose: the raw entry carries the field the hosted server reads.
+        '@molecule/app-probe-bundle': { ...probe(), selection: 'scaffold-only' },
       },
     }),
   )
@@ -132,6 +134,12 @@ describe('hosted search_packages framework filter', () => {
       '@molecule/app-probe-react-native',
     ])
     expect((await names({})).length).toBe(4)
+  })
+
+  it('leaves out a bundle only the scaffolds choose (OLD MUSTFAIL)', async (ctx) => {
+    if (skipped(ctx)) return
+    expect(await names({})).not.toContain('@molecule/app-probe-bundle')
+    expect(await names({ framework: 'react' })).not.toContain('@molecule/app-probe-bundle')
   })
 
   it('names the known frameworks for one the registry does not have', async (ctx) => {

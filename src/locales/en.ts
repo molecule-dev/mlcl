@@ -96,6 +96,8 @@ export const messages: LocaleMessages = {
     'This is a full-stack project root, and {name} is not an api or app package, so it is unclear which of api/ and app/ it belongs in. Run the command from inside that folder.',
   'commands.add.errors.webOnly':
     'This project renders with React Native, and these packages render only in a browser, so nothing was added:\n{list}',
+  'commands.add.errors.scaffoldOnly':
+    'Only the scaffolds choose {names}: naming one installs every provider it wires. Nothing was added. {retry}',
   'commands.add.errors.toolingAtRoot':
     '{name} is dev tooling for both api/ and app/. Run `mlcl add {name}` from inside each folder; it goes into devDependencies.',
   'commands.add.errors.notFound':
@@ -109,6 +111,8 @@ export const messages: LocaleMessages = {
   'commands.create.errors.nameRequired': 'Project name is required in non-interactive mode',
   'commands.create.errors.packagesUnknown':
     'Not @molecule packages: {names}. Nothing was created. Check the spelling (`mlcl search <words>` lists real packages).',
+  'commands.create.errors.packagesScaffoldOnly':
+    'Only the scaffolds choose {names}: a custom stack already has its server and bond wiring, and naming one installs every provider it wires. Nothing was created. Run it again with {retry}.',
   'commands.create.errors.nameInvalid':
     'Invalid project name "{name}" — path segments may not be "..", and the final directory must use lowercase letters, numbers, and hyphens only',
   'commands.create.errors.templateInvalid':

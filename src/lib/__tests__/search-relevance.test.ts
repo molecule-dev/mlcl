@@ -150,6 +150,29 @@ describe('search capability and symbol relevance', () => {
     ])
   })
 
+  // Round 34: Claude's searches ranked the template bundles, it named both in a custom stack, and
+  // the Express bond bundle's required peers added 43 dependencies (Stripe, S3, Meilisearch, ...).
+  it.each([
+    ['express http server', '@molecule/api-server-default-express'],
+    ['api authentication JWT login register', '@molecule/api-bonds-default-express'],
+    ['default express bond setup', '@molecule/api-bonds-default-express'],
+    ['default react bonds', '@molecule/app-bonds-default-react'],
+  ])('never offers a bundle only the scaffolds choose: %s (OLD MUSTFAIL)', (query, bundle) => {
+    const entries = packages.map(toSearchEntry)
+    const stack = bundle.startsWith('@molecule/api-') ? 'api' : 'app'
+    for (const options of [{ limit: 100 }, { stack, limit: 100 } as const])
+      expect(searchPackages(entries, query, options).map((hit) => hit.name)).not.toContain(bundle)
+  })
+
+  it('counterexample: still offers the capabilities those searches are for, a hidden core and the PWA defaults', () => {
+    const entries = packages.map(toSearchEntry)
+    const names = (query: string): string[] =>
+      searchPackages(entries, query, { limit: 10 }).map((hit) => hit.name)
+    expect(names('api authentication JWT login register')).toContain('@molecule/api-resource-user')
+    expect(names('api config')).toContain('@molecule/api-config')
+    expect(names('pwa default')).toContain('@molecule/app-pwa-default')
+  })
+
   it('counterexample: a framework keeps framework-neutral packages', () => {
     const all = searchPackages(packages.map(toSearchEntry), 'payments', { limit: 100 })
     const vue = searchPackages(packages.map(toSearchEntry), 'payments', {

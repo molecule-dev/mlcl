@@ -442,6 +442,12 @@ export const MoleculeMetadata = z.object({
     .describe(
       'The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and `mlcl add` of this name adds the replacement.',
     ),
+  selection: z
+    .literal('scaffold-only')
+    .optional()
+    .describe(
+      'Set on a package that composes the scaffolds (the bond and server bundles the flagship templates call) instead of adding a capability. Search, the catalogs and the create menu leave it out, and `mlcl create --packages` and `mlcl add` refuse it by name and name the packages to choose instead. Templates and the scaffold still declare it.',
+    ),
   webOnlyReason: z
     .string()
     .optional()
@@ -837,6 +843,12 @@ export const RegistryEntry = z.object({
     .optional()
     .describe(
       'The package that took over this one under a new name (a rename). Projects that install this name keep working, but search, the catalogs, the create menu and role lookups offer the replacement, and `mlcl add` of this name adds the replacement.',
+    ),
+  selection: z
+    .literal('scaffold-only')
+    .optional()
+    .describe(
+      'Set on a package that composes the scaffolds (the bond and server bundles the flagship templates call) instead of adding a capability. Search, the catalogs and the create menu leave it out, and `mlcl create --packages` and `mlcl add` refuse it by name and name the packages to choose instead. Templates and the scaffold still declare it.',
     ),
   webOnlyReason: z
     .string()

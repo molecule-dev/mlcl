@@ -65,6 +65,7 @@ import {
   getTemplatesDir,
   scaffoldSecurityWorkflow,
 } from '../lib/scaffold.js'
+import { scaffoldOnlyNames } from '../lib/scaffold-only.js'
 import type { InferredPackage, MoleculeSecret } from '../lib/schema.js'
 import { createSpinner } from '../lib/spinner.js'
 import { applyStarterLock, readStarterLock } from '../lib/starter-lock.js'
@@ -342,6 +343,16 @@ export default class Create extends Command {
       : undefined
     if (named && named.unknown.length > 0) {
       this.error(t('commands.create.errors.packagesUnknown', { names: named.unknown.join(', ') }))
+    }
+    const scaffoldOnly = named ? scaffoldOnlyNames(named.packages) : []
+    if (named && scaffoldOnly.length > 0) {
+      const rest = named.packages.filter((name) => !scaffoldOnly.includes(name))
+      this.error(
+        t('commands.create.errors.packagesScaffoldOnly', {
+          names: scaffoldOnly.join(', '),
+          retry: rest.length > 0 ? `--packages ${rest.join(',')}` : 'no --packages',
+        }),
+      )
     }
     if (named) args.name = named.name
     const flags = {

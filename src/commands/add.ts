@@ -40,6 +40,7 @@ import {
   loadRegistry,
 } from '../lib/registry.js'
 import { getTemplatesDir } from '../lib/scaffold.js'
+import { scaffoldOnlyNames } from '../lib/scaffold-only.js'
 import { createSpinner } from '../lib/spinner.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 import { describeWebOnlyChains, rendersOnReactNative, webOnlyChains } from '../lib/web-only.js'
@@ -165,6 +166,26 @@ export default class Add extends Command {
 
     p.intro(chalk.bgCyan(` ${t('commands.add.labels.intro')} `))
     if (flags.capability) named.unshift(this.capabilityPackage(flags.capability))
+    // A bundle only the scaffolds choose installs every provider it wires: refuse it before
+    // anything is written. Only the names given here; a feature's own packages are added below.
+    const resolved = named.map((argument) => {
+      const { name } = parseAddArgument(argument)
+      return getRawRegistry().packages[name]?.replacedBy ?? name
+    })
+    const scaffoldOnly = scaffoldOnlyNames(resolved)
+    if (scaffoldOnly.length > 0) {
+      const rest = named.filter((_, index) => !scaffoldOnly.includes(resolved[index]))
+      p.cancel(
+        t('commands.add.errors.scaffoldOnly', {
+          names: scaffoldOnly.join(', '),
+          retry:
+            rest.length > 0
+              ? `Run \`mlcl add ${rest.join(' ')}\` for the others.`
+              : 'Add the capability you need instead (`mlcl search <words>` finds it).',
+        }),
+      )
+      return this.exit(1)
+    }
     setTelemetryContext({ packages: named.join(',') })
     // Names that land in one workspace share one install and one inject.
     const groups = new Map<string, AddRequest[]>()
