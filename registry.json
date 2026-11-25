@@ -101101,7 +101101,12 @@
         "FormEntryValue",
         "TableBoxProps",
         "TableBoxTag",
-        "TableCellProps"
+        "TableCellProps",
+        "AnchorProps",
+        "RangeFieldProps",
+        "MousePressProps",
+        "SvgElementProps",
+        "SvgStyle"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -101601,7 +101606,13 @@
         "auth route guard to protect routes",
         "favorite unfavorite button",
         "watch unwatch button with a stateful action label"
-      ]
+      ],
+      "subpathExports": {
+        "./elements": [
+          "Anchor",
+          "RangeField"
+        ]
+      }
     },
     "@molecule/app-ui-react-native": {
       "language": "typescript",
