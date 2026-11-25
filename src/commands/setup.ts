@@ -187,12 +187,14 @@ export default class Setup extends Command {
     // Start the server once now, as the agents will: the first start downloads it, and an agent
     // that does that itself can begin its session before the tools are there (see lib/mcp-warm.ts).
     let warmFailed = false
+    let warmed = false
     const registered = new Set<SetupStepResult['status']>(['written', 'updated', 'present'])
     if (results.some((r) => r.step.kind === 'mcp' && registered.has(r.status))) {
       const [command, ...args] = mcpServerCommand(scope, env)
       const shown = [command, ...args.map((arg) => this.displayPath(arg, env))].join(' ')
       try {
         const warm = await warmMcpServer(command, args)
+        warmed = true
         this.log(
           `  ${ui.check(`${shown} answers as in an agent session: ${warm.tools} tools`)} ${ui.dim(`(${warm.version}, ${(warm.ms / 1000).toFixed(1)} s)`)}`,
         )
@@ -204,7 +206,49 @@ export default class Setup extends Command {
       }
     }
 
-    const failed = results.filter((r) => r.status === 'failed').length + (warmFailed ? 1 : 0)
+    // Then ask each agent that can say whether its next session gets the tools: told only that the
+    // server answers, Codex wrote its own app-server client to check (lib/agent-tool-check.ts).
+    let unseen = 0
+    if (scope === 'machine' && warmed) {
+      const asked = harnesses.filter(
+        (h) =>
+          h.serverTools &&
+          env.onPath(h.serverTools.bin) &&
+          results.some(
+            (r) =>
+              r.step.kind === 'mcp' && r.step.agents.includes(h.label) && registered.has(r.status),
+          ),
+      )
+      const answers = await Promise.all(
+        asked.map(async (h) => {
+          try {
+            return { h, report: await h.serverTools!.ask() }
+          } catch (error) {
+            return { h, error: error instanceof Error ? error.message : String(error) }
+          }
+        }),
+      )
+      for (const { h, report, error } of answers) {
+        if (!report) {
+          this.log(
+            `  ${ui.warn(`Could not ask ${h.label} which tools it sees (${h.serverTools!.bin}): ${error}`)}`,
+          )
+          continue
+        }
+        const took = ui.dim(`(${report.via}, ${(report.ms / 1000).toFixed(1)} s)`)
+        if (report.ok)
+          this.log(`  ${ui.check(`${h.label} sees the molecule server: ${report.detail}`)} ${took}`)
+        else {
+          unseen++
+          this.log(
+            `  ${ui.cross(`${h.label} does not see the molecule server:`)} ${ui.warn(report.detail)} ${took}`,
+          )
+        }
+      }
+    }
+
+    const failed =
+      results.filter((r) => r.status === 'failed').length + (warmFailed ? 1 : 0) + unseen
     const kept = results.some((r) => r.status === 'kept')
     if (kept) this.log(ui.dim('\nKept files you edited; --force replaces them with this version.'))
     if (failed) {

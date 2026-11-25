@@ -21,6 +21,8 @@
 import { existsSync, readFileSync, realpathSync, statSync } from 'node:fs'
 import { dirname, join, relative, sep } from 'node:path'
 
+import { type AgentToolReport, claudeServerStatus, codexServerTools } from './agent-tool-check.js'
+
 /** Machine-wide (every project for this user) or the current project only. */
 export type SetupScope = 'machine' | 'project'
 
@@ -195,6 +197,11 @@ export interface AgentHarness {
   skillsDir: (scope: SetupScope, e: AgentEnvironment) => string | null
   /** Where always-on instructions go; empty when the agent reads none at this scope. */
   instructions: (scope: SetupScope, e: AgentEnvironment) => InstructionTarget[]
+  /**
+   * Ask the agent itself whether its next session gets the molecule server's tools, for an agent
+   * that can say (setup reports it for the whole machine; see agent-tool-check.ts).
+   */
+  serverTools?: { bin: string; ask: () => Promise<AgentToolReport> }
 }
 
 const has = (e: AgentEnvironment, bins: string[], dirs: string[]): boolean =>
@@ -387,6 +394,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     id: 'claude-code',
     label: 'Claude Code',
     installed: (e) => has(e, ['claude'], ['.claude']),
+    serverTools: { bin: 'claude', ask: () => claudeServerStatus(MCP_SERVER_NAME) },
     // `claude mcp add` defaults to the LOCAL scope (this directory only), so
     // the machine scope names `--scope user`. The project file is the shared
     // `.mcp.json`, which GitHub Copilot reads too (see stdioEntry).
@@ -434,6 +442,7 @@ export const AGENT_HARNESSES: readonly AgentHarness[] = [
     id: 'codex',
     label: 'Codex',
     ignoresServerInstructions: true,
+    serverTools: { bin: 'codex', ask: () => codexServerTools(MCP_SERVER_NAME) },
     installed: (e) => has(e, ['codex'], ['.codex']) || Boolean(e.env.CODEX_HOME),
     // `codex mcp add` has no scope flag and writes ~/.codex/config.toml; a
     // project's own servers go in .codex/config.toml (trusted projects only).

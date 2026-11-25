@@ -42,6 +42,80 @@ export type McpSpawn = (
   kill(): unknown
 }
 
+/** Sends one message to the child, as a line of JSON. */
+export type SendJson = (message: Record<string, unknown>) => void
+
+/** Settles an exchange: an error, or its result. */
+export type FinishExchange<T> = (error: Error | null, result?: T) => void
+
+/**
+ * Talk newline-delimited JSON with a child process: `start` sends the first message, and
+ * `onMessage` gets each JSON line the child prints, sends more and finishes. Settles once, and
+ * kills the child in every case.
+ *
+ * @param command - The executable.
+ * @param args - Its arguments.
+ * @param handlers - What to send first, and what to do with each answer.
+ * @param handlers.start - Sends the first message.
+ * @param handlers.onMessage - Handles one message the child printed.
+ * @param opts - Options.
+ * @param opts.timeoutMs - How long to wait for the exchange to finish.
+ * @param opts.spawnImpl - Child-process factory (tests).
+ * @returns What `onMessage` finished with. Rejects when the child exits first, fails to spawn or
+ *   does not finish in time.
+ */
+export function exchangeJsonLines<T>(
+  command: string,
+  args: readonly string[],
+  handlers: {
+    start: (send: SendJson) => void
+    onMessage: (message: Record<string, unknown>, send: SendJson, finish: FinishExchange<T>) => void
+  },
+  opts: { timeoutMs: number; spawnImpl?: McpSpawn },
+): Promise<T> {
+  const spawnImpl: McpSpawn =
+    opts.spawnImpl ?? ((cmd, argv) => spawn(cmd, [...argv], { stdio: ['pipe', 'pipe', 'ignore'] }))
+  return new Promise((resolve, reject) => {
+    const child = spawnImpl(command, args)
+    let buffer = ''
+    let settled = false
+    const send: SendJson = (message) => {
+      child.stdin?.write(`${JSON.stringify(message)}\n`)
+    }
+    const finish: FinishExchange<T> = (error, result) => {
+      if (settled) return
+      settled = true
+      clearTimeout(timer)
+      child.kill()
+      if (error) reject(error)
+      else resolve(result as T)
+    }
+    const timer = setTimeout(
+      () => finish(new Error(`no answer within ${Math.round(opts.timeoutMs / 1000)} s`)),
+      opts.timeoutMs,
+    )
+    child.on('error', (error) => finish(error))
+    child.on('exit', (code) => finish(new Error(`exited with code ${code} before answering`)))
+    child.stdout?.on('data', (chunk) => {
+      buffer += String(chunk)
+      for (let at = buffer.indexOf('\n'); at >= 0; at = buffer.indexOf('\n')) {
+        const line = buffer.slice(0, at).trim()
+        buffer = buffer.slice(at + 1)
+        if (!line.startsWith('{')) continue
+        let message: Record<string, unknown>
+        try {
+          message = JSON.parse(line)
+        } catch (_error) {
+          // A non-JSON line on stdout is not the answer; keep reading.
+          continue
+        }
+        handlers.onMessage(message, send, finish)
+      }
+    })
+    handlers.start(send)
+  })
+}
+
 /**
  * Spawn the server, send `initialize` and then `tools/list`, and resolve once it has answered both.
  *
@@ -58,50 +132,28 @@ export function warmMcpServer(
   args: readonly string[],
   opts: { timeoutMs?: number; spawnImpl?: McpSpawn } = {},
 ): Promise<McpWarmResult> {
-  const timeoutMs = opts.timeoutMs ?? 120_000
-  const spawnImpl: McpSpawn =
-    opts.spawnImpl ?? ((cmd, argv) => spawn(cmd, [...argv], { stdio: ['pipe', 'pipe', 'ignore'] }))
   const started = Date.now()
-  return new Promise((resolve, reject) => {
-    const child = spawnImpl(command, args)
-    let buffer = ''
-    let settled = false
-    let version = ''
-    const send = (message: Record<string, unknown>): void => {
-      child.stdin?.write(`${JSON.stringify(message)}\n`)
-    }
-    const finish = (error: Error | null, result?: McpWarmResult): void => {
-      if (settled) return
-      settled = true
-      clearTimeout(timer)
-      child.kill()
-      if (error) reject(error)
-      else resolve(result!)
-    }
-    const timer = setTimeout(
-      () => finish(new Error(`no answer within ${Math.round(timeoutMs / 1000)} s`)),
-      timeoutMs,
-    )
-    child.on('error', (error) => finish(error))
-    child.on('exit', (code) => finish(new Error(`exited with code ${code} before answering`)))
-    child.stdout?.on('data', (chunk) => {
-      buffer += String(chunk)
-      for (let at = buffer.indexOf('\n'); at >= 0; at = buffer.indexOf('\n')) {
-        const line = buffer.slice(0, at).trim()
-        buffer = buffer.slice(at + 1)
-        if (!line.startsWith('{')) continue
-        let message: {
-          id?: unknown
-          result?: { serverInfo?: { version?: unknown }; tools?: unknown }
-        }
-        try {
-          message = JSON.parse(line)
-        } catch (_error) {
-          // A non-JSON line on stdout is not the answer; keep reading.
-          continue
-        }
+  let version = ''
+  return exchangeJsonLines<McpWarmResult>(
+    command,
+    args,
+    {
+      start: (send) =>
+        send({
+          jsonrpc: '2.0',
+          id: 1,
+          method: 'initialize',
+          params: {
+            protocolVersion: '2025-06-18',
+            capabilities: {},
+            clientInfo: { name: 'mlcl-setup', version: '0' },
+          },
+        }),
+      onMessage: (message, send, finish) => {
+        const result = message.result as
+          { serverInfo?: { version?: unknown }; tools?: unknown } | undefined
         if (message.id === 1) {
-          const answered = message.result?.serverInfo?.version
+          const answered = result?.serverInfo?.version
           if (typeof answered !== 'string') {
             finish(new Error('answered initialize without a server version'))
             return
@@ -110,24 +162,15 @@ export function warmMcpServer(
           send({ jsonrpc: '2.0', method: 'notifications/initialized' })
           send({ jsonrpc: '2.0', id: 2, method: 'tools/list' })
         } else if (message.id === 2) {
-          const tools = message.result?.tools
+          const tools = result?.tools
           if (!Array.isArray(tools) || tools.length === 0) {
             finish(new Error('answered tools/list with no tools'))
             return
           }
           finish(null, { version, tools: tools.length, ms: Date.now() - started })
         }
-      }
-    })
-    send({
-      jsonrpc: '2.0',
-      id: 1,
-      method: 'initialize',
-      params: {
-        protocolVersion: '2025-06-18',
-        capabilities: {},
-        clientInfo: { name: 'mlcl-setup', version: '0' },
       },
-    })
-  })
+    },
+    { timeoutMs: opts.timeoutMs ?? 120_000, spawnImpl: opts.spawnImpl },
+  )
 }
