@@ -841,8 +841,32 @@ describe('synthesizeProjectFiles', () => {
 
     const routeTest = files.find((f) => f.targetPath.includes('routes.test.ts'))
     expect(routeTest).toBeDefined()
-    expect(routeTest!.content).toContain("import('../handlers/auth.js')")
+    expect(routeTest!.content).toContain("import authRouter from '../handlers/auth.js'")
     expect(routeTest!.content).toContain('authorizers: new Proxy')
+  })
+
+  it('loads every module the API smoke tests read while vitest collects the file (OLD MUSTFAIL)', async () => {
+    // r32 check eval: `exports an Express router` imported the auth handlers with `await import()`
+    // inside the test and timed out at vitest's 5 s beside the same check's e2e run.
+    const files = await synthesizeProjectFiles(
+      [userPlan],
+      ['@molecule/api-resource-user', '@molecule/api-resource'],
+      tempDir,
+      registryPackages,
+    )
+    const content = (name: string): string =>
+      files.find((f) => f.targetPath.endsWith(`__tests__/${name}`))?.content ?? ''
+    for (const name of ['server.test.ts', 'routes.test.ts']) {
+      const bodies = content(name)
+        .split(/\n\s*it\(/)
+        .slice(1)
+      expect(bodies.length, `${name} has tests`).toBeGreaterThan(0)
+      for (const body of bodies)
+        expect(body.split('\n  })')[0], name).not.toMatch(/await import\(|vi\.importActual\(/)
+    }
+    expect(content('server.test.ts')).toContain("import { create } from '../server.js'")
+    expect(content('server.test.ts')).toContain("import { router } from '../App/router.js'")
+    expect(content('routes.test.ts')).toContain("import authRouter from '../handlers/auth.js'")
   })
 
   it('opens both generated smoke tests with the GENERATED SCAFFOLDING banner', async () => {

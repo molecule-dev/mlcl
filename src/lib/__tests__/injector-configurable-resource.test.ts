@@ -276,7 +276,7 @@ export default Router()
     )
     expect(
       files.find((file) => file.targetPath.endsWith('/__tests__/routes.test.ts'))?.content,
-    ).toContain("import('../handlers/articles.js')")
+    ).toContain("import articlesRouter from '../handlers/articles.js'")
   })
 
   it('points the declared capability map at the editable article routes', () => {

@@ -5940,8 +5940,15 @@ function generateServerSmokeTest(
 
 import { describe, it, expect, vi } from 'vitest'
 
+// Static imports, loaded while vitest collects the file: an await import()
+// inside a test paid for the module graph within vitest's 5 s and timed out
+// beside the same check's e2e run. The vi.mock() calls below are hoisted
+// above them.
+import { router } from '../App/router.js'
+import { create } from '../server.js'
+
 // Mock bonds to avoid requiring real connections when server.ts is imported
-// below. The bonds/index block further down reads the REAL module through
+// above. The bonds/index block further down reads the REAL module through
 // vi.importActual — this mock exists to shield server.ts's import, not to
 // hide the generated bonds/index.ts from its own smoke test.
 vi.mock('../bonds/index.js', () => ({
@@ -5961,27 +5968,27 @@ ${middlewareMocks.join('\n')}
 
 // Mock all @molecule/* packages
 ${moleculeMocks}
+// The REAL module — the vi.mock above only shields server.ts's import.
+// Asserting against the mock could never fail: a generated bonds/index.ts
+// that did not export setupBonds (or failed to load at all) passed its own
+// smoke suite and crashed the server at boot instead. Read here, while vitest
+// collects the file, for the same reason as the imports above.
+const bonds = (await vi.importActual('../bonds/index.js')) as Record<string, unknown>
+
 describe('server', () => {
-  it('exports a create function', async () => {
-    const { create } = await import('../server.js')
+  it('exports a create function', () => {
     expect(typeof create).toBe('function')
   })
 })
 
 describe('bonds/index', () => {
-  it('exports setupBonds function', async () => {
-    // The REAL module — the vi.mock above only shields server.ts's import.
-    // Asserting against the mock could never fail: a generated bonds/index.ts
-    // that did not export setupBonds (or failed to load at all) passed its own
-    // smoke suite and crashed the server at boot instead.
-    const bonds = (await vi.importActual('../bonds/index.js')) as Record<string, unknown>
+  it('exports setupBonds function', () => {
     expect(typeof bonds.setupBonds).toBe('function')
   })
 })
 
 describe('router', () => {
-  it('exports a router', async () => {
-    const { router } = await import('../App/router.js')
+  it('exports a router', () => {
     expect(router).toBeDefined()
   })
 })
@@ -6006,11 +6013,27 @@ function generateRouteSmokeTest(
   if (resourcePlans.length === 0) return null
 
   const lines: string[] = []
+  // Each module the tests read, imported while vitest collects the file: an `await import()` inside
+  // a test paid for the handler's module graph within vitest's 5 s and timed out beside the same
+  // check's e2e run (r32 check eval, 2026-11-25). The vi.mock() calls below are hoisted above them.
+  const imports: string[] = []
+  const bindings = new Set<string>()
+  const binding = (base: string): string => {
+    const name = base.replace(/[^A-Za-z0-9_$]+(.)?/g, (_match, next?: string) =>
+      next ? next.toUpperCase() : '',
+    )
+    let unique = name
+    for (let n = 2; bindings.has(unique); n++) unique = `${name}${n}`
+    bindings.add(unique)
+    return unique
+  }
+  const tests: string[] = []
 
   lines.push(GENERATED_ROUTES_TEST_BANNER)
   lines.push('')
   lines.push(`import { describe, it, expect, vi } from 'vitest'`)
   lines.push('')
+  const header = lines.length
   lines.push('// Mock bonds and all @molecule/* dependencies')
   lines.push(`vi.mock('../bonds/index.js', () => ({`)
   lines.push(`  setupBonds: vi.fn(),`)
@@ -6023,13 +6046,14 @@ function generateRouteSmokeTest(
     const name = extractResourceName(plan.molecule)
     const resource = resourceRouters.get(plan.molecule)
     if (resource) {
-      lines.push(`describe('Resource: ${name}', () => {`)
-      lines.push(`  it('exports an Express router', async () => {`)
-      lines.push(`    const { default: router } = await import('../handlers/${resource.file}.js')`)
-      lines.push(`    expect(typeof router).toBe('function')`)
-      lines.push(`  })`)
-      lines.push(`})`)
-      lines.push('')
+      const router = binding(`${resource.file}Router`)
+      imports.push(`import ${router} from '../handlers/${resource.file}.js'`)
+      tests.push(`describe('Resource: ${name}', () => {`)
+      tests.push(`  it('exports an Express router', () => {`)
+      tests.push(`    expect(typeof ${router}).toBe('function')`)
+      tests.push(`  })`)
+      tests.push(`})`)
+      tests.push('')
       continue
     }
 
@@ -6040,14 +6064,14 @@ function generateRouteSmokeTest(
       handlerNames.add(route.handler)
     }
 
-    lines.push(`describe('Resource: ${name}', () => {`)
-    lines.push(`  it('exports requestHandlerMap', async () => {`)
-    lines.push(`    const mod = await import('../App/Resource/${name}/index.js')`)
-    lines.push(`    expect(mod.requestHandlerMap).toBeDefined()`)
-    lines.push(`  })`)
-    lines.push('')
-    lines.push(`  it('requestHandlerMap has expected handlers', async () => {`)
-    lines.push(`    const { requestHandlerMap } = await import('../App/Resource/${name}/index.js')`)
+    const mod = binding(`${name.charAt(0).toLowerCase()}${name.slice(1)}Resource`)
+    imports.push(`import * as ${mod} from '../App/Resource/${name}/index.js'`)
+    tests.push(`describe('Resource: ${name}', () => {`)
+    tests.push(`  it('exports requestHandlerMap', () => {`)
+    tests.push(`    expect(${mod}.requestHandlerMap).toBeDefined()`)
+    tests.push(`  })`)
+    tests.push('')
+    tests.push(`  it('requestHandlerMap has expected handlers', () => {`)
 
     // Check core handlers (skip optional ones like payments/oauth)
     const requiredHandlers = [...handlerNames]
@@ -6066,19 +6090,21 @@ function generateRouteSmokeTest(
       .slice(0, 5)
 
     if (requiredHandlers.length > 0) {
-      lines.push(`    const keys = Object.keys(requestHandlerMap)`)
+      tests.push(`    const keys = Object.keys(${mod}.requestHandlerMap)`)
       for (const handler of requiredHandlers) {
-        lines.push(`    expect(keys).toContain('${handler}')`)
+        tests.push(`    expect(keys).toContain('${handler}')`)
       }
     } else {
-      lines.push(`    expect(requestHandlerMap).toBeDefined()`)
+      tests.push(`    expect(${mod}.requestHandlerMap).toBeDefined()`)
     }
 
-    lines.push(`  })`)
-    lines.push(`})`)
-    lines.push('')
+    tests.push(`  })`)
+    tests.push(`})`)
+    tests.push('')
   }
 
+  if (imports.length > 0) lines.splice(header, 0, ...imports, '')
+  lines.push(...tests)
   return lines.join('\n')
 }
 
