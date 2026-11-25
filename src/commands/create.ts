@@ -1727,39 +1727,27 @@ export default class Create extends Command {
     // of every installed create (r18 eval, 2026-11-24). `scaffold-format-clean.test.ts` fails on any
     // file a scaffold leaves for `prettier --write`.
 
-    // Run smoke tests (skip when --skip-install: no deps to test against)
-    if (!flags['skip-install']) {
-      spinner?.start(t('commands.create.spinners.testing'))
-      try {
-        const testCwd = isFullStack
-          ? join(projectPath, 'api')
-          : hasAppSubdir
-            ? join(projectPath, 'app')
-            : projectPath
-        const testResult = await execa('npx', ['vitest', 'run', '--reporter=verbose'], {
+    // The smoke tests run once, here, on the final tree (inject runs with --no-test), and beside the
+    // check: neither reads what the other writes (vitest loads src/, the build writes dist/). In
+    // turn they cost 2.7 s and 6.3 s of an installed create (r33 eval). Skipped under
+    // --skip-install: there are no dependencies to test against.
+    const testCwd = isFullStack
+      ? join(projectPath, 'api')
+      : hasAppSubdir
+        ? join(projectPath, 'app')
+        : projectPath
+    const smoke = flags['skip-install']
+      ? null
+      : execa('npx', ['vitest', 'run', '--reporter=verbose'], {
           cwd: testCwd,
           stdio: 'pipe',
           timeout: 60_000,
-        })
-        const summaryMatch = testResult.stdout.match(/Tests\s+(\d+\s+passed[^)]*\))/)
-        spinner?.stop(
-          chalk.green(
-            t('commands.create.spinners.testsPassed', {
-              summary: summaryMatch ? ` (${summaryMatch[0]})` : '',
-            }),
-          ),
+          // The timeout takes vitest's workers too, not only the npx wrapper (inject.ts runTests).
+          killDescendants: true,
+        }).then(
+          (result) => ({ ok: true as const, stdout: result.stdout }),
+          (error: unknown) => ({ ok: false as const, error }),
         )
-        log(
-          t('commands.create.spinners.testsPassed', {
-            summary: summaryMatch ? ` (${summaryMatch[0]})` : '',
-          }),
-        )
-      } catch (error) {
-        spinner?.stop(chalk.yellow(t('commands.create.spinners.testsFailed')))
-        log(t('commands.create.spinners.testsFailed'))
-        this.warn(`Smoke tests failed: ${error instanceof Error ? error.message : String(error)}`)
-      }
-    }
     const verification =
       flags['skip-install'] || installNeeded
         ? null
@@ -1767,6 +1755,23 @@ export default class Create extends Command {
             json: flags.json === true,
             spinner,
           })
+    if (smoke) {
+      spinner?.start(t('commands.create.spinners.testing'))
+      const tested = await smoke
+      if (tested.ok) {
+        const summaryMatch = tested.stdout.match(/Tests\s+(\d+\s+passed[^)]*\))/)
+        const passed = t('commands.create.spinners.testsPassed', {
+          summary: summaryMatch ? ` (${summaryMatch[0]})` : '',
+        })
+        spinner?.stop(chalk.green(passed))
+        log(passed)
+      } else {
+        spinner?.stop(chalk.yellow(t('commands.create.spinners.testsFailed')))
+        log(t('commands.create.spinners.testsFailed'))
+        const { error } = tested
+        this.warn(`Smoke tests failed: ${error instanceof Error ? error.message : String(error)}`)
+      }
+    }
     if (verification) for (const line of verificationLines(verification)) say(line)
 
     // Done
@@ -1999,9 +2004,10 @@ export default class Create extends Command {
     const { dirname } = await import('node:path')
     const { fileURLToPath } = await import('node:url')
     const mlclPath = join(dirname(fileURLToPath(import.meta.url)), '..', '..', 'bin', 'run.js')
-    const args = [mlclPath, 'inject', '--force', '--no-install', '-p', projectPath]
+    // No smoke tests here: create runs them itself, once, after its last install.
+    const args = [mlclPath, 'inject', '--force', '--no-install', '--no-test', '-p', projectPath]
     if (fast) {
-      args.push('--no-test', '--no-format', '--no-ai')
+      args.push('--no-format', '--no-ai')
     }
     const result = await execa('node', args, {
       stdio: 'pipe',
