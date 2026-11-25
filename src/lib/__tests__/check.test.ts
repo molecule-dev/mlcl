@@ -369,6 +369,8 @@ describe('runCheckLocal', () => {
         ...(installFailure
           ? [`if [ "$1" = install ]; then echo '${installFailure}' >&2; exit 1; fi`]
           : []),
+        // What an agent reading the step log while the browser installs would see.
+        'if [ "$1" = install ]; then cat node_modules/.cache/mlcl-check/*.log > log-during-install.txt; fi',
         'if [ "$1" = install ]; then shift; echo "$*" >> installed.txt; cat install-output.txt; exit 0; fi',
         'if [ -f installed.txt ]; then echo "  2 passed (1.0s)"; exit 0; fi',
         'cat <<"EOF"',
@@ -418,6 +420,15 @@ describe('runCheckLocal', () => {
     expect(e2e.status).toBe('passed')
     expect(readFileSync(join(root, 'installed.txt'), 'utf8')).toBe('--only-shell chromium\n')
     expect(e2e.summary).toContain('installed the Playwright browser first (chromium)')
+    // While it installs, the step log says so above the first run's failure: Codex read that log
+    // beside a pending check, took "Executable doesn't exist" as its own job, installed the browser
+    // and probed for it (harness eval `check`, 2026-11-25; OLD MUSTFAIL). The next run replaces it.
+    const during = readFileSync(join(root, 'log-during-install.txt'), 'utf8')
+    expect(during.split('\n')[0]).toBe(
+      "mlcl check: the Playwright browser (chromium) is not installed. The check is installing it (`npx --no-install playwright install --only-shell chromium`) and will run this step again; this log is replaced when that run ends. The first run's output follows.",
+    )
+    expect(during).toContain("Executable doesn't exist")
+    expect(readFileSync(e2e.logPath, 'utf8')).not.toContain('mlcl check:')
   })
 
   it('says the browser install failed, and how to run it, when it cannot install', async () => {
@@ -433,10 +444,48 @@ describe('runCheckLocal', () => {
     const [e2e] = result.results
     expect(e2e.status).toBe('failed')
     expect(e2e.errors[0]).toBe(
-      'could not install the Playwright browser: run `npx --no-install playwright install --only-shell chromium` in . (the install said: Error: getaddrinfo EAI_AGAIN cdn.playwright.dev)',
+      'Playwright browser install failed. Run `npx --no-install playwright install --only-shell chromium` from the check root. The install reported Error: getaddrinfo EAI_AGAIN cdn.playwright.dev',
     )
     expect(e2e.errors.slice(1).join('\n')).toContain("Executable doesn't exist")
     expect(e2e.errorTotal).toBe(e2e.errors.length)
+    // Counterexample: once the install has failed, the log no longer says the check will run again.
+    expect(readFileSync(e2e.logPath, 'utf8')).not.toContain('will run this step again')
+  })
+
+  it('keeps install stderr in the step log and reports the last diagnostic before the stack', async () => {
+    const root = playwrightProject(
+      "Error: browserType.launch: Executable doesn't exist at /cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell",
+      'Error: unable to verify the first certificate\n    at Socket.onConnect (/local/install.js:9:5)',
+    )
+    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    const [e2e] = result.results
+    expect(e2e.errors[0]).toContain('Error: unable to verify the first certificate')
+    expect(e2e.errors[0]).not.toContain('Socket.onConnect')
+    expect(readFileSync(e2e.logPath, 'utf8')).toContain('Socket.onConnect')
+  })
+
+  it('reports cancellation during browser recovery as a timeout with the install command', async () => {
+    const root = playwrightProject(
+      "Error: browserType.launch: Executable doesn't exist at /cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell",
+    )
+    const controller = new AbortController()
+    const result = await runCheckLocal(
+      root,
+      { steps: ['e2e'] },
+      {
+        budgetMs: 60_000,
+        signal: controller.signal,
+        onProgress: (event) => {
+          if (event.type === 'note') controller.abort()
+        },
+      },
+    )
+    if ('error' in result) throw new Error(result.error)
+    expect(result.results[0]).toMatchObject({ status: 'timeout' })
+    expect(result.results[0].errors[0]).toContain('Playwright browser install stopped')
+    expect(result.results[0].errors[0]).toContain('playwright install --only-shell chromium')
+    expect(result.results[0].errors[0]).toContain('The check was cancelled.')
   })
 
   it('leaves an e2e run that failed for another reason alone', async () => {
@@ -447,6 +496,16 @@ describe('runCheckLocal', () => {
     if ('error' in result) throw new Error(result.error)
     expect(result.results[0].status).toBe('failed')
     expect(existsSync(join(root, 'installed.txt'))).toBe(false)
+  })
+
+  it('recovers browsers stored under a custom cache path with spaces', async () => {
+    const root = playwrightProject(
+      "Error: browserType.launch: Executable doesn't exist at /cache/custom browsers/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell",
+    )
+    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    expect(result.results[0]).toMatchObject({ status: 'passed' })
+    expect(readFileSync(join(root, 'installed.txt'), 'utf8').trim()).toBe('--only-shell chromium')
   })
 
   it('rejects unknown step names before running anything', async () => {

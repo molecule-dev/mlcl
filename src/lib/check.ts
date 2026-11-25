@@ -767,9 +767,11 @@ export function formatCheckReport(results: readonly CheckStepResult[], totalMs: 
  */
 export function missingPlaywrightBrowsers(log: string): string[] | null {
   const missing = new Set(
-    [...log.matchAll(/Executable doesn't exist at \S*?ms-playwright[\\/]([a-z_]+)-\d+[\\/]/g)].map(
-      (m) => m[1],
-    ),
+    [
+      ...log.matchAll(
+        /Executable doesn't exist at [^\r\n]*?[\\/](chromium(?:_headless_shell)?|firefox|webkit|ffmpeg)-\d+[\\/]/g,
+      ),
+    ].map((m) => m[1]),
   )
   const others = ['firefox', 'webkit', 'ffmpeg'].filter((name) => missing.has(name))
   if (missing.has('chromium')) return ['chromium', ...others]
@@ -838,43 +840,63 @@ async function runStep(
   note(`has no Playwright browser: installing ${browsers}, then running it again`)
   const progress = playwrightInstallProgress()
   const command = `npx --no-install playwright install ${install.join(' ')}`
+  // The first run's log names the missing browser, and an agent that read it while the check was
+  // still running installed the browser from its own shell and probed for it (harness eval `check`,
+  // 2026-11-25, Codex reading the log beside a pending `check_project`). Until the next run replaces
+  // it, the log says what the check is doing.
+  const firstLog = readLog(step.logPath)
+  writeLogs(
+    step,
+    `mlcl check: the Playwright browser (${browsers}) is not installed. The check is installing it (\`${command}\`) and will run this step again; this log is replaced when that run ends. The first run's output follows.\n\n${firstLog}`,
+  )
+  const installStarted = Date.now()
   try {
     await execCheckCommand({ ...step, command }, signal, (line) => {
       const text = progress(line)
       if (text) note(text)
     })
   } catch (error) {
-    // The install failed (no network, no permission). Said first, with its last line and the
-    // command: the first run's "Executable doesn't exist" alone reads as a browser the check never
-    // tried to install, and an agent installed it from its own shell and ran the check once more
-    // (harness eval `check`, 2026-11-25, where the check's process had no route to the network).
-    const { stdout, stderr, message } = error as {
+    // The install failed (no network, no permission) or was stopped. Said first, with its last
+    // diagnostic and the command: the first run's "Executable doesn't exist" alone reads as a browser
+    // the check never tried to install, and an agent installed it from its own shell and ran the
+    // check once more (harness eval `check`, 2026-11-25, a check process with no route to the network).
+    const { stdout, stderr, message, killed } = error as {
       stdout?: string
       stderr?: string
       message: string
+      killed?: boolean
     }
-    const reason =
-      `${stdout ?? ''}\n${stderr ?? ''}`
-        .split('\n')
-        .map((line) => stripVTControlCharacters(line).trim())
-        .filter(Boolean)
-        .at(-1) ?? message
+    const output = [stdout, stderr].filter(Boolean).join('\n')
+    writeLogs(step, output ? `${firstLog}\n\n$ ${command}\n${output}` : firstLog)
+    const lastDiagnostic = output
+      .split('\n')
+      .map((line) => stripVTControlCharacters(line).trim())
+      .filter((line) => line && !line.startsWith('at '))
+      .at(-1)
+    const stopReason =
+      signal.aborted && signal.reason instanceof Error ? signal.reason.message : message
+    const reason = killed ? stopReason : (lastDiagnostic ?? message)
+    const dir = relative(root, step.dir)
+    const from = dir ? `from \`${dir}\`` : 'from the check root'
     return {
       ...first,
+      status: killed ? 'timeout' : 'failed',
+      durationMs: first.durationMs + Date.now() - installStarted,
       errors: [
         clip(
-          `could not install the Playwright browser: run \`${command}\` in ${relative(root, step.dir) || '.'} (the install said: ${reason})`,
+          `Playwright browser install ${killed ? 'stopped' : 'failed'}. Run \`${command}\` ${from}. ${killed ? reason : `The install reported ${reason}`}`,
         ),
         ...first.errors,
       ].slice(0, MAX_REPORTED_ERRORS),
       errorTotal: first.errorTotal + 1,
     }
   }
+  const installDurationMs = Date.now() - installStarted
   const again = await runStepOnce(root, step, signal)
   const installed = `installed the Playwright browser first (${browsers})`
   return {
     ...again,
-    durationMs: again.durationMs + first.durationMs,
+    durationMs: again.durationMs + first.durationMs + installDurationMs,
     summary: again.summary ? `${installed}, ${again.summary}` : installed,
   }
 }
