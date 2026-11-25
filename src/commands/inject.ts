@@ -905,7 +905,8 @@ export default class Inject extends Command {
 
       if (p.isCancel(proceed) || !proceed) {
         p.cancel(t('commands.inject.prompts.cancelled'))
-        process.exit(0)
+        // oclif's exit throws, so the project lock this runs under is released on the way out.
+        this.exit(0)
       }
     }
 

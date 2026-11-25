@@ -29,6 +29,17 @@ import { createSpinner } from '../lib/spinner.js'
 import { dropReplacedProviderDependencies } from '../lib/swap-orphans.js'
 import { setTelemetryContext } from '../lib/telemetry.js'
 
+/** The provider a swap installs and the project it goes into. */
+interface SwapTarget {
+  newName: string
+  newPkg: InferredPackage
+  implementsInterface: string
+  stack: 'api' | 'app'
+  projectPath: string
+  spinner: ReturnType<typeof createSpinner>
+  registry: InferredPackage[]
+}
+
 export default class Swap extends Command {
   static override description = t('commands.swap.description')
 
@@ -68,21 +79,25 @@ export default class Swap extends Command {
 
   public async run(): Promise<void> {
     const { args, flags } = await this.parse(Swap)
-    await withProjectLock(npmInstallRoot(process.cwd()), () => this.swapWith(args, flags), {
+    const target = await this.resolveTarget(args, flags)
+    // Lock the directory npm installs into for the project the swap changes.
+    await withProjectLock(npmInstallRoot(target.projectPath), () => this.swapWith(flags, target), {
       onWait: (pid) => this.log(t('commands.add.messages.waitingForLock', { pid })),
     })
   }
 
   /**
-   * Swap, under the project lock.
+   * Resolve the new provider and the project it goes into, before anything is written.
    *
    * @param args - The command arguments.
    * @param flags - The command flags.
+   * @returns The provider, the interface it implements, its stack, the project directory and the
+   *   registry it was read from.
    */
-  private async swapWith(
+  private async resolveTarget(
     args: Interfaces.InferredArgs<typeof Swap.args>,
     flags: Interfaces.InferredFlags<typeof Swap.flags>,
-  ): Promise<void> {
+  ): Promise<SwapTarget> {
     setTelemetryContext({
       swapTo: args.molecule?.slice(0, 80),
       swapFrom: flags.replace?.slice(0, 80),
@@ -132,6 +147,20 @@ export default class Swap extends Command {
       p.cancel(t('commands.swap.errors.noProjectDir', { stack }))
       this.exit(1)
     }
+    return { newName, newPkg, implementsInterface, stack, projectPath, spinner, registry }
+  }
+
+  /**
+   * Swap, under the project lock.
+   *
+   * @param flags - The command flags.
+   * @param target - What {@link resolveTarget} found.
+   */
+  private async swapWith(
+    flags: Interfaces.InferredFlags<typeof Swap.flags>,
+    target: SwapTarget,
+  ): Promise<void> {
+    const { newName, newPkg, implementsInterface, stack, projectPath, spinner, registry } = target
 
     // 3. Find the existing provider for this interface
     spinner.start(t('commands.swap.spinners.findingExisting'))

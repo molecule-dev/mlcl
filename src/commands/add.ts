@@ -31,7 +31,7 @@ import {
   moleculesToInject,
   serviceWorkerPackageFor,
 } from '../lib/peer-closure.js'
-import { withProjectLock } from '../lib/project-lock.js'
+import { withProjectLocks } from '../lib/project-lock.js'
 import {
   getMoleculeVersion,
   getPackageStack,
@@ -166,18 +166,6 @@ export default class Add extends Command {
     p.intro(chalk.bgCyan(` ${t('commands.add.labels.intro')} `))
     if (flags.capability) named.unshift(this.capabilityPackage(flags.capability))
     setTelemetryContext({ packages: named.join(',') })
-    await withProjectLock(npmInstallRoot(process.cwd()), () => this.addAll(named, flags), {
-      onWait: (pid) => this.log(t('commands.add.messages.waitingForLock', { pid })),
-    })
-  }
-
-  /**
-   * Add the named packages, each into its workspace, under the project lock.
-   *
-   * @param named - The packages, as given.
-   * @param flags - The command flags.
-   */
-  private async addAll(named: string[], flags: AddFlags): Promise<void> {
     // Names that land in one workspace share one install and one inject.
     const groups = new Map<string, AddRequest[]>()
     for (const argument of named) {
@@ -186,6 +174,20 @@ export default class Add extends Command {
       if (groups.get(workDir)?.some((other) => other.name === request.name)) continue
       groups.set(workDir, [...(groups.get(workDir) ?? []), request])
     }
+    // Lock each directory npm installs into (the inject handed off with a workspace locks the same).
+    const installRoots = [...groups.keys()].map((workDir) => npmInstallRoot(workDir))
+    await withProjectLocks(installRoots, () => this.addAll(groups, flags), {
+      onWait: (pid) => this.log(t('commands.add.messages.waitingForLock', { pid })),
+    })
+  }
+
+  /**
+   * Add the packages, each group into its workspace, under the project locks.
+   *
+   * @param groups - The requests by workspace.
+   * @param flags - The command flags.
+   */
+  private async addAll(groups: Map<string, AddRequest[]>, flags: AddFlags): Promise<void> {
     // A package that brings an optional feature to an app made from the starter templates brings
     // the feature's pages too, and its parts of the app's files (`feature-files.ts`).
     const starter = flags.inject ? starterAppOf(process.cwd()) : undefined
