@@ -63669,12 +63669,14 @@
       "description": "React-compatible inline style serialization and DOM updates",
       "stack": "app",
       "exports": [
-        "CSSStyle",
-        "InlineStyleBinding",
         "toCssPropertyName",
+        "coverImageStyle",
         "reactStyleText",
         "toStyleProps",
-        "bindInlineStyle"
+        "bindInlineStyle",
+        "CSSStyle",
+        "InlineStyleBinding",
+        "CoverImageStyle"
       ],
       "secrets": [],
       "runtimeDependencies": [],
@@ -86920,6 +86922,7 @@
         "@angular/core",
         "@angular/platform-browser",
         "@molecule/app-angular",
+        "@molecule/app-inline-style-dom",
         "@molecule/app-ui",
         "@molecule/app-ui-angular"
       ],
@@ -87061,6 +87064,7 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-inline-style-dom",
         "@molecule/app-solid",
         "@molecule/app-ui",
         "@molecule/app-ui-solid",
@@ -87110,6 +87114,7 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-inline-style-dom",
         "@molecule/app-svelte",
         "@molecule/app-ui",
         "@molecule/app-ui-svelte",
@@ -87159,6 +87164,7 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-inline-style-dom",
         "@molecule/app-ui",
         "@molecule/app-ui-vue",
         "@molecule/app-vue",
@@ -110074,6 +110080,7 @@
       "runtimeDependencies": [
         "@molecule/app-i18n",
         "@molecule/app-icons",
+        "@molecule/app-inline-style-dom",
         "@molecule/app-overlay-dom",
         "@molecule/app-pointer-events-dom",
         "@molecule/app-react",
