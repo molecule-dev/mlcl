@@ -35040,7 +35040,16 @@
         "useVersion",
         "useWatch",
         "useWorkspace",
-        "useWorkspaceProvider"
+        "useWorkspaceProvider",
+        "useRichTranslation",
+        "MolLazy",
+        "MolSlotCopy",
+        "isElementChild",
+        "isLazySlotAnchor",
+        "isLazySlotContent",
+        "lazySlotTemplate",
+        "rendersNode",
+        "slotElement"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -55674,7 +55683,13 @@
         "TranslateOptions",
         "getNestedValue",
         "deepMerge",
-        "interpolate"
+        "interpolate",
+        "RichTag",
+        "RichNode",
+        "RichTranslateFunction",
+        "parseRichMessage",
+        "createRichTranslator",
+        "tRich"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -89814,7 +89829,8 @@
         "useVersion",
         "useWatch",
         "useWorkspace",
-        "useWorkspaceProvider"
+        "useWorkspaceProvider",
+        "useRichTranslation"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -90090,7 +90106,8 @@
         "useVersion",
         "useWatch",
         "useWorkspace",
-        "useWorkspaceProvider"
+        "useWorkspaceProvider",
+        "useRichTranslation"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -95223,7 +95240,18 @@
         "useVersion",
         "useWatch",
         "useWorkspace",
-        "useWorkspaceProvider"
+        "useWorkspaceProvider",
+        "useRichTranslation",
+        "LazyNode",
+        "NodeItems",
+        "NodePresence",
+        "PresentWhileNode",
+        "PresentWhileNodeProps",
+        "ResolveNode",
+        "ResolveNodeProps",
+        "WithNodes",
+        "createNodePresence",
+        "resolveNode"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -98495,7 +98523,10 @@
         "useVersion",
         "useWatch",
         "useWorkspace",
-        "useWorkspaceProvider"
+        "useWorkspaceProvider",
+        "useRichTranslation",
+        "ContentOrElse",
+        "isContentNode"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -101622,7 +101653,9 @@
       "subpathExports": {
         "./elements": [
           "Anchor",
-          "RangeField"
+          "RangeField",
+          "RichText",
+          "RichTextProps"
         ]
       }
     },
@@ -104127,7 +104160,8 @@
         "useWatch",
         "useWorkspace",
         "useWorkspaceProvider",
-        "toChildArray"
+        "toChildArray",
+        "useRichTranslation"
       ],
       "secrets": [],
       "runtimeDependencies": [
