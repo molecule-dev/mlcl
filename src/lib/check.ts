@@ -1,6 +1,6 @@
 /**
  * `mlcl check` — run the project's own checks (typecheck, lint, build, unit
- * tests, e2e), discovered from its package.json scripts, and return one
+ * tests, e2e, a live service assertion), discovered from its package.json scripts, and return one
  * compact report with the first actionable errors.
  *
  * The policy, error extraction and report format are a local-execution port of
@@ -22,13 +22,18 @@
  * @module
  */
 
-import { spawn } from 'node:child_process'
 import type { Dirent } from 'node:fs'
 import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
-import { join, relative } from 'node:path'
+import { dirname, join, relative } from 'node:path'
+
+import { spawnCheckCommand } from './check-process.js'
+import { runServeCheck } from './check-serve.js'
+
+const SCRIPT_CHECK_STEPS = ['typecheck', 'lint', 'build', 'unit', 'e2e'] as const
+type ScriptCheckStepKind = (typeof SCRIPT_CHECK_STEPS)[number]
 
 /** The kinds of step `check` can run, in report order. */
-export const CHECK_STEP_KINDS = ['typecheck', 'lint', 'build', 'unit', 'e2e'] as const
+export const CHECK_STEP_KINDS = [...SCRIPT_CHECK_STEPS, 'serve'] as const
 
 /**
  * The steps a check with no `steps` runs: the quick pass after an edit. The tests take minutes
@@ -41,7 +46,7 @@ export const DEFAULT_CHECK_STEPS = ['typecheck', 'lint', 'build'] as const
 export type CheckStepKind = (typeof CHECK_STEP_KINDS)[number]
 
 /** Default wall clock per step kind; each is also capped by the whole call's budget. */
-export const CHECK_STEP_TIMEOUT_MS: Readonly<Record<CheckStepKind, number>> = {
+export const CHECK_STEP_TIMEOUT_MS: Readonly<Record<ScriptCheckStepKind, number>> = {
   typecheck: 150_000,
   lint: 120_000,
   build: 240_000,
@@ -80,9 +85,7 @@ export interface CheckPackage {
   playwrightConfig: string | null
 }
 
-/** A step `check` will run. */
-export interface PlannedCheckStep {
-  kind: CheckStepKind
+interface CheckStepCommand {
   /** Display name, e.g. `typecheck (app)`. */
   name: string
   /** Absolute dir the command runs in. */
@@ -93,9 +96,22 @@ export interface PlannedCheckStep {
   timeoutMs: number
   /** Full log path. */
   logPath: string
+}
+
+interface ScriptCheckStep extends CheckStepCommand {
+  kind: ScriptCheckStepKind
   /** Build output dirs to list on success (build steps only). */
   outDirs?: string[]
 }
+
+interface ServeCheckStep extends CheckStepCommand {
+  kind: 'serve'
+  ready: URL
+  run: string
+}
+
+/** A step `check` will run. */
+export type PlannedCheckStep = ScriptCheckStep | ServeCheckStep
 
 /** A step `check` did not run, and why. */
 export interface SkippedCheckStep {
@@ -127,10 +143,12 @@ export interface CheckStepResult {
 
 /** Options for {@link planCheckSteps}. */
 export interface PlanCheckOptions {
-  /** Only these kinds (default: all). */
+  /** Only these kinds (default: all script checks). */
   steps?: readonly CheckStepKind[]
   /** Extra arguments for the e2e run (spec files, `--grep …`). */
   e2e?: string
+  /** Validated inputs for the opt-in service check. */
+  serve?: { ready: URL; run: string; start?: string }
   /** The whole call's budget; no step may exceed it. */
   budgetMs: number
 }
@@ -283,7 +301,7 @@ export function planCheckSteps(
   packages: readonly CheckPackage[],
   options: PlanCheckOptions,
 ): { steps: PlannedCheckStep[]; skipped: SkippedCheckStep[] } {
-  const wanted = new Set<CheckStepKind>(options.steps?.length ? options.steps : CHECK_STEP_KINDS)
+  const wanted = new Set<CheckStepKind>(options.steps?.length ? options.steps : SCRIPT_CHECK_STEPS)
   const root = packages.find((p) => p.rel === '.')
   const members = packages.filter((p) => p.rel !== '.')
   // A workspaces root only orchestrates its members (its `build` is "build
@@ -297,7 +315,12 @@ export function planCheckSteps(
 
   const steps: PlannedCheckStep[] = []
   const skipped: SkippedCheckStep[] = []
-  const add = (kind: CheckStepKind, p: CheckPackage, command: string, extra?: object): void => {
+  const add = (
+    kind: ScriptCheckStepKind,
+    p: CheckPackage,
+    command: string,
+    extra?: object,
+  ): void => {
     const name = label(kind, p)
     steps.push({
       kind,
@@ -375,6 +398,21 @@ export function planCheckSteps(
         add('e2e', p, `npm run --silent ${script} --${e2eArgs(options.e2e)}`)
       }
     } else skip('e2e', 'e2e', 'no playwright.config.* and no e2e script')
+  }
+
+  if (wanted.has('serve') && root && options.serve) {
+    const { ready, run, start } = options.serve
+    const script = start ?? (Object.hasOwn(root.scripts, 'start') ? 'start' : 'dev')
+    steps.push({
+      kind: 'serve',
+      name: 'serve',
+      dir: root.dir,
+      command: `npm run -- ${shellWord(script)}`,
+      timeoutMs: options.budgetMs,
+      logPath: logDir('serve'),
+      ready,
+      run,
+    })
   }
 
   return { steps, skipped }
@@ -711,7 +749,7 @@ export function formatCheckReport(results: readonly CheckStepResult[], totalMs: 
       // been given, twice over: `read_file` refused the path, then a `cat`).
       const omitted = Math.max(0, r.errorTotal - r.errors.length)
       if (omitted > 0) out.push(`  ${omitted} more in the full log: ${r.logPath}`)
-      else if (r.errors.length === 0) out.push(`  full log: ${r.logPath}`)
+      else if (r.errors.length === 0 || r.kind === 'serve') out.push(`  full log: ${r.logPath}`)
     }
   }
   return out.join('\n')
@@ -756,6 +794,7 @@ async function runStep(
   signal: AbortSignal,
   note: (text: string) => void = () => {},
 ): Promise<CheckStepResult> {
+  if (step.kind === 'serve') return runServeStep(root, step, signal)
   const first = await runStepOnce(root, step, signal)
   if (step.kind !== 'e2e' || first.status !== 'failed' || !step.command.includes('playwright'))
     return first
@@ -793,7 +832,7 @@ function readLog(path: string): string {
 
 async function runStepOnce(
   root: string,
-  step: PlannedCheckStep,
+  step: ScriptCheckStep,
   signal: AbortSignal,
 ): Promise<CheckStepResult> {
   const started = Date.now()
@@ -820,7 +859,7 @@ async function runStepOnce(
     if (exitCode === null) {
       // Never spawned (bash missing) or killed by our timeout (killed, no code).
       const timedOut = e.killed === true || /timed ?out/i.test(e.message)
-      writeLogs(step, stdout, stderr)
+      writeLogs(step, `${stdout}${stderr}`)
       return {
         ...base,
         status: timedOut ? 'timeout' : 'error',
@@ -833,8 +872,8 @@ async function runStepOnce(
     }
   }
   const durationMs = Date.now() - started
-  writeLogs(step, stdout, stderr)
   const log = `${stdout}${stderr}`
+  writeLogs(step, log)
   if (step.kind === 'lint' && log.includes('__MOL_NO_CHANGED__')) {
     return {
       ...base,
@@ -883,80 +922,75 @@ async function runStepOnce(
   }
 }
 
+const CHECK_BUDGET_EXPIRED = new Error('The check budget expired.')
+
+async function runServeStep(
+  root: string,
+  step: ServeCheckStep,
+  signal: AbortSignal,
+): Promise<CheckStepResult> {
+  const started = Date.now()
+  const { error, diagnostic, log } = await runServeCheck(step, signal)
+  writeLogs(step, log)
+  const { errors, total } = error
+    ? extractStepErrors('serve', diagnostic, root, step.dir, true)
+    : { errors: [], total: 0 }
+  return {
+    kind: 'serve',
+    name: step.name,
+    status: error === CHECK_BUDGET_EXPIRED ? 'timeout' : error ? 'failed' : 'passed',
+    durationMs: Date.now() - started,
+    errors: error ? [clip(error.message), ...errors.slice(0, MAX_REPORTED_ERRORS - 1)] : [],
+    errorTotal: error ? 1 + total : 0,
+    logPath: step.logPath,
+  }
+}
+
 /** Run and reap a check's shell and descendants before resolving its timeout. */
-function execCheckCommand(
+async function execCheckCommand(
   step: PlannedCheckStep,
   signal: AbortSignal,
 ): Promise<{ stdout: string; stderr: string }> {
-  return new Promise((resolve, reject) => {
-    const timeout = (): Error & { killed: boolean } =>
-      Object.assign(new Error('Check command timed out'), { killed: true })
-    if (signal.aborted) {
-      reject(timeout())
-      return
+  const timeout = (): Error & { killed: boolean } =>
+    Object.assign(new Error('Check command timed out'), { killed: true })
+  if (signal.aborted) throw timeout()
+  let failure: Error | undefined
+  const command = spawnCheckCommand(step.command, step.dir, (error) => stop(error))
+  const stop = (error: Error): void => {
+    if (failure) return
+    failure = error
+    try {
+      command.send('SIGKILL')
+    } catch (cause) {
+      failure = new Error('Could not stop the check command', { cause })
     }
-    const grouped = process.platform !== 'win32'
-    const child = spawn('/bin/bash', ['-c', step.command], {
-      cwd: step.dir,
-      detached: grouped,
-      stdio: ['ignore', 'pipe', 'pipe'],
-    })
-    let stdout = ''
-    let stderr = ''
-    let stdoutBytes = 0
-    let stderrBytes = 0
-    let failure: Error | undefined
-    const stop = (error: Error): void => {
-      if (failure) return
-      failure = error
-      try {
-        if (grouped && child.pid) process.kill(-child.pid, 'SIGKILL')
-        else child.kill('SIGKILL')
-      } catch (cause) {
-        // The process may exit between the deadline and the signal.
-        if ((cause as NodeJS.ErrnoException).code !== 'ESRCH')
-          failure = new Error('Could not stop the check command', { cause })
-      }
-    }
-    const abort = (): void => stop(timeout())
-    const timer = setTimeout(abort, step.timeoutMs)
-    timer.unref?.()
-    signal.addEventListener('abort', abort, { once: true })
-    const maxBuffer = 16 * 1024 * 1024
-    child.stdout.setEncoding('utf8').on('data', (data: string) => {
-      stdoutBytes += Buffer.byteLength(data)
-      if (stdoutBytes > maxBuffer) stop(new Error('Check stdout exceeded the 16 MiB limit'))
-      else stdout += data
-    })
-    child.stderr.setEncoding('utf8').on('data', (data: string) => {
-      stderrBytes += Buffer.byteLength(data)
-      if (stderrBytes > maxBuffer) stop(new Error('Check stderr exceeded the 16 MiB limit'))
-      else stderr += data
-    })
-    child.once('error', (error) => {
-      failure ??= error
-    })
-    child.once('close', (code, terminationSignal) => {
-      clearTimeout(timer)
-      signal.removeEventListener('abort', abort)
-      if (failure) reject(Object.assign(failure, { stdout, stderr }))
-      else if (code !== 0)
-        reject(
-          Object.assign(new Error(`Check command exited with ${code ?? terminationSignal}`), {
-            code,
-            stdout,
-            stderr,
-          }),
-        )
-      else resolve({ stdout, stderr })
-    })
-  })
+  }
+  const abort = (): void => stop(timeout())
+  const timer = setTimeout(abort, step.timeoutMs)
+  timer.unref?.()
+  signal.addEventListener('abort', abort, { once: true })
+  try {
+    await command.closed
+    const exit = await command.exited
+    const output = command.output()
+    const commandError = failure ?? exit.error
+    if (commandError) throw Object.assign(commandError, output)
+    if (exit.code !== 0)
+      throw Object.assign(new Error(`Check command exited with ${exit.code ?? exit.signal}`), {
+        code: exit.code,
+        ...output,
+      })
+    return output
+  } finally {
+    clearTimeout(timer)
+    signal.removeEventListener('abort', abort)
+  }
 }
 
-function writeLogs(step: PlannedCheckStep, stdout: string, stderr: string): void {
+function writeLogs(step: PlannedCheckStep, log: string): void {
   try {
-    mkdirSync(step.logPath.slice(0, step.logPath.lastIndexOf('/')), { recursive: true })
-    writeFileSync(step.logPath, `${stdout}${stderr}`)
+    mkdirSync(dirname(step.logPath), { recursive: true })
+    writeFileSync(step.logPath, log)
   } catch (_error) {
     // The log file is a convenience; the result already carries the errors.
   }
@@ -966,6 +1000,33 @@ function writeLogs(step: PlannedCheckStep, stdout: string, stderr: string): void
 export interface CheckInput {
   steps?: unknown
   e2e?: unknown
+  /** HTTP readiness URL on localhost or 127.0.0.1 for `serve`. */
+  ready?: unknown
+  /** Shell assertion to run in the project root once the service answers. */
+  run?: unknown
+  /** npm script for `serve`; defaults to start if declared, otherwise dev. */
+  start?: unknown
+}
+
+function serveOptions(
+  input: CheckInput,
+): NonNullable<PlanCheckOptions['serve']> | { error: string } {
+  const rawReady = typeof input.ready === 'string' ? input.ready.trim() : ''
+  const run = typeof input.run === 'string' ? input.run : ''
+  if (!rawReady && !run.trim()) return { error: 'The serve step needs ready and run.' }
+  if (!rawReady) return { error: 'The serve step needs a ready URL.' }
+  if (!run.trim()) return { error: 'The serve step needs a run command.' }
+  const ready = URL.canParse(rawReady) ? new URL(rawReady) : undefined
+  if (
+    !ready ||
+    ready.protocol !== 'http:' ||
+    !['localhost', '127.0.0.1'].includes(ready.hostname) ||
+    ready.port === '0'
+  )
+    return { error: 'The serve step needs an HTTP ready URL on localhost or 127.0.0.1.' }
+  if (input.start !== undefined && (typeof input.start !== 'string' || !input.start.trim()))
+    return { error: 'The serve step needs a script name for start.' }
+  return { ready, run, start: input.start }
 }
 
 /**
@@ -1007,20 +1068,24 @@ export type CheckProgress =
   | { type: 'finish'; step: PlannedCheckStep; result: CheckStepResult }
 
 /**
- * Run the project's checks concurrently (e2e once the build is done) and
+ * Run the project's checks concurrently (e2e and serve once the build is done) and
  * return one report — the local twin of the IDE `check` tool's loop.
  *
  * @param root - The project root to check (default cwd).
  * @param input - `steps` (subset; {@link DEFAULT_CHECK_STEPS} when empty, plus e2e when an
- *   `e2e` filter is given) and `e2e` (spec filter).
- * @param options - `budgetMs` for the whole call (default 15 min), and `onProgress`, called as each
+ *   `e2e` filter is given), `e2e` (spec filter) and `ready`, `run`, `start` for a service check.
+ * @param options - `budgetMs` for the whole call (default 15 min), `signal` for cancellation, and `onProgress`, called as each
  *   step starts and finishes, and when a step starts work besides its command.
  * @returns `{ ok, report, results }`, or `{ error }` when nothing could be discovered.
  */
 export async function runCheckLocal(
   root: string,
   input: CheckInput,
-  options: { budgetMs?: number; onProgress?: (event: CheckProgress) => void } = {},
+  options: {
+    budgetMs?: number
+    signal?: AbortSignal
+    onProgress?: (event: CheckProgress) => void
+  } = {},
 ): Promise<{ ok: boolean; report: string; results: CheckStepResult[] } | { error: string }> {
   const started = Date.now()
   const budgetMs = options.budgetMs ?? 15 * 60_000
@@ -1028,29 +1093,36 @@ export async function runCheckLocal(
   if ('error' in selected) return selected
   const { steps } = selected
   const e2e = typeof input.e2e === 'string' ? input.e2e : undefined
+  const serve = steps.includes('serve') ? serveOptions(input) : undefined
+  if (serve && 'error' in serve) return serve
 
   const packages = discoverPackages(root)
   if (packages.length === 0) {
     return { error: `check could not read a package.json under ${root}.` }
   }
+  if (serve && !packages.some((pkg) => pkg.rel === '.'))
+    return { error: 'The serve step needs a package.json in the project root.' }
 
-  const plan = planCheckSteps(packages, { steps, e2e, budgetMs })
+  const plan = planCheckSteps(packages, { steps, e2e, serve, budgetMs })
   const controller = new AbortController()
+  const cancel = (): void => controller.abort(new Error('The check was cancelled.'))
+  if (options.signal?.aborted) cancel()
+  else options.signal?.addEventListener('abort', cancel, { once: true })
   const remaining = budgetMs - (Date.now() - started)
-  const timer = remaining > 0 ? setTimeout(() => controller.abort(), remaining) : undefined
+  const expire = (): void => controller.abort(CHECK_BUDGET_EXPIRED)
+  const timer = remaining > 0 ? setTimeout(expire, remaining) : undefined
   timer?.unref?.()
-  if (remaining <= 0) controller.abort()
+  if (remaining <= 0) expire()
   const results = new Map<PlannedCheckStep, CheckStepResult>()
-  const run = (step: PlannedCheckStep): Promise<void> => {
+  const run = async (step: PlannedCheckStep): Promise<void> => {
     options.onProgress?.({ type: 'start', step })
-    return runStep(root, step, controller.signal, (text) =>
+    const result = await runStep(root, step, controller.signal, (text) =>
       options.onProgress?.({ type: 'note', step, text }),
-    ).then((r) => {
-      results.set(step, r)
-      options.onProgress?.({ type: 'finish', step, result: r })
-    })
+    )
+    results.set(step, result)
+    options.onProgress?.({ type: 'finish', step, result })
   }
-  // e2e waits for the build: specs that read dist/ (or a server that serves
+  // e2e and serve wait for the build: specs that read dist/ (or a server that serves
   // it) otherwise run while the build is rewriting it, and report failures
   // that are gone a second later.
   const builds = plan.steps.filter((s) => s.kind === 'build').map(run)
@@ -1059,11 +1131,14 @@ export async function runCheckLocal(
     ...builds,
     ...plan.steps
       .filter((s) => s.kind !== 'build')
-      .map((step) => (step.kind === 'e2e' ? buildsDone.then(() => run(step)) : run(step))),
+      .map((step) =>
+        step.kind === 'e2e' || step.kind === 'serve' ? buildsDone.then(() => run(step)) : run(step),
+      ),
   ]
   // Cancellation stops each process group. Await close and log writes before the
-  // caller can remove its project, and never start queued e2e after cancellation.
+  // caller can remove its project. Queued steps also see the aborted signal.
   await Promise.allSettled(running)
+  options.signal?.removeEventListener('abort', cancel)
   if (timer) clearTimeout(timer)
 
   const all: CheckStepResult[] = plan.steps.map(

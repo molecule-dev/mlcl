@@ -1,6 +1,12 @@
 import { Command, Flags } from '@oclif/core'
 
-import { CHECK_STEP_KINDS, type CheckProgress, DEFAULT_CHECK_STEPS } from '../lib/check.js'
+import {
+  CHECK_STEP_KINDS,
+  type CheckProgress,
+  DEFAULT_CHECK_STEPS,
+  selectedCheckSteps,
+} from '../lib/check.js'
+import { SERVE_READY_TIMEOUT_MS } from '../lib/check-serve.js'
 import {
   readHookInput,
   runRecordedCheck,
@@ -12,9 +18,9 @@ import { withHeartbeat } from '../lib/create-progress.js'
 import { ui } from '../lib/ui.js'
 
 /**
- * Run the project's own checks — typecheck, lint and build by default, unit tests and e2e when
- * asked for — discovered from its package.json scripts, concurrently (e2e after the build), and
- * print one compact report with the first actionable errors. The local twin of the IDE's `check`
+ * Run the project's own checks — typecheck, lint and build by default, with unit tests, e2e and a
+ * live service check available on request. The e2e and serve steps wait for the build. Print
+ * one compact report with the first actionable errors. The local twin of the IDE's `check`
  * tool: one call instead of hand-running each script and grepping its output.
  *
  * Each step's start and finish, and every 30 s the steps still running, go to stderr, so a caller
@@ -23,13 +29,15 @@ import { ui } from '../lib/ui.js'
  */
 export default class Check extends Command {
   static override description =
-    'Run the project’s checks (typecheck, lint and build; unit and e2e with --steps — discovered from its scripts) and print one compact report with the first errors'
+    'Run the project’s checks and print the first errors. Use --steps serve with --ready and --run to start the app, check its behavior and stop it. Use unit or e2e when an existing test script already manages the service.'
 
   static override examples = [
     '<%= config.bin %> check',
     '<%= config.bin %> check --steps typecheck,lint',
     '<%= config.bin %> check --steps unit,e2e',
     '<%= config.bin %> check --e2e "e2e/auth.spec.ts --grep login"',
+    '<%= config.bin %> check --steps serve --ready http://localhost:3000/health --run "curl -fsS http://localhost:3000/api/items"',
+    '<%= config.bin %> check --steps build,serve --start preview --ready http://127.0.0.1:4173/ --run "curl -fsS http://127.0.0.1:4173/"',
     '<%= config.bin %> check --json',
   ]
 
@@ -41,11 +49,23 @@ export default class Check extends Command {
     e2e: Flags.string({
       description: 'Run e2e too, with these extra arguments (spec files, `--grep …`)',
     }),
+    ready: Flags.string({
+      description: `HTTP URL on localhost or 127.0.0.1 for serve. Any HTTP response within ${SERVE_READY_TIMEOUT_MS / 1000}s counts as ready.`,
+      helpValue: '<url>',
+    }),
+    run: Flags.string({
+      description: 'Shell assertion for serve, run from the project root after the service answers',
+      helpValue: '<command>',
+    }),
+    start: Flags.string({
+      description: 'npm script for serve (defaults to start if declared, otherwise dev)',
+      helpValue: '<script>',
+    }),
     'stop-hook': Flags.string({
       description:
         "Answer this harness's stop hook: type-check and lint when files changed since the last pass, nothing printed on a pass, the errors handed back to the agent on a failure",
       options: [...STOP_HOOK_HARNESSES],
-      exclusive: ['steps', 'e2e', 'json'],
+      exclusive: ['steps', 'e2e', 'json', 'ready', 'run', 'start'],
     }),
   }
 
@@ -69,15 +89,38 @@ export default class Check extends Command {
         process.stderr.write(`check: ${event.step.name} ${event.result.status} (${seconds}s)\n`)
       }
     }
+    const input = {
+      steps: flags.steps,
+      e2e: flags.e2e,
+      ready: flags.ready,
+      run: flags.run,
+      start: flags.start,
+    }
+    const selection = selectedCheckSteps(input)
+    const handlesSignals = 'steps' in selection && selection.steps.includes('serve')
+    const controller = new AbortController()
+    let exitCode: number | undefined
+    const cancel = (signal: NodeJS.Signals): void => {
+      exitCode ??= signal === 'SIGINT' ? 130 : 143
+      controller.abort()
+    }
+    if (handlesSignals) {
+      process.on('SIGINT', cancel)
+      process.on('SIGTERM', cancel)
+    }
     const result = await withHeartbeat(
       // A pass of every step the Stop hook runs is recorded, so the stop that follows skips it.
-      () =>
-        runRecordedCheck(root, { steps: flags.steps, e2e: flags.e2e }, { onProgress: progress }),
+      () => runRecordedCheck(root, input, { onProgress: progress, signal: controller.signal }),
       (elapsed) => {
         if (running.size)
           process.stderr.write(`check: still running ${[...running].join(', ')} (${elapsed}s)\n`)
       },
-    )
+    ).finally(() => {
+      if (handlesSignals) {
+        process.off('SIGINT', cancel)
+        process.off('SIGTERM', cancel)
+      }
+    })
     // The tests run only when asked for; say so, so a pass is not read as "the tests passed".
     const testsSkipped = !flags.steps && !flags.e2e
 
@@ -97,13 +140,14 @@ export default class Check extends Command {
           2,
         ),
       )
+      if (exitCode !== undefined) this.exit(exitCode)
       return
     }
 
     this.log(`\n${ui.heading('Check')} ${ui.dim(root)}`)
     this.log(result.report)
     if (testsSkipped) this.log(ui.dim('Tests did not run: npx mlcl check --steps unit,e2e'))
-    if (!result.ok) this.exit(1)
+    if (exitCode !== undefined || !result.ok) this.exit(exitCode ?? 1)
   }
 
   /**
