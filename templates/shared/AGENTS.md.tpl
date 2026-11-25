@@ -93,7 +93,9 @@ to delete it) — do not "clean it up".
 - `npx mlcl check` runs typecheck, lint and build at once — discovered from
   this project's own scripts — and prints one compact report with the first
   actionable errors. `npx mlcl check --steps unit,e2e` runs the
-  tests. Use both before handing work back.
+  tests. Use both before handing work back. The project is installed: a
+  reinstall (`npm install`, `npm ci`) proves nothing these do not, and is needed
+  only after a dependency changes (`npx mlcl add` installs what it adds).
 - When you stop, the project's stop hook runs typecheck and lint if files
   changed and hands any errors back to you, up to three rounds. Fix them at
   their cause. Claude Code and Cursor run it; Codex runs it only after the user
