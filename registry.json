@@ -33431,11 +33431,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/adjustment-slider-react",
       "intentHints": [
@@ -47566,11 +47568,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/audio-mixer-react",
       "intentHints": [
@@ -48904,11 +48908,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/graph-view-react",
       "intentHints": [
@@ -50679,11 +50685,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/file-card-react",
       "intentHints": [
@@ -59226,12 +59234,14 @@
         "@molecule/app-i18n",
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-i18n",
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/join-code-react",
       "intentHints": [
@@ -84965,11 +84975,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/now-playing-bar-react",
       "intentHints": [
@@ -105037,11 +105049,13 @@
       "runtimeDependencies": [
         "@molecule/app-react",
         "@molecule/app-ui",
+        "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
         "@molecule/app-react",
-        "@molecule/app-ui"
+        "@molecule/app-ui",
+        "@molecule/app-ui-react"
       ],
       "path": "packages/app/features/word-cloud-react",
       "intentHints": [
