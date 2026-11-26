@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest'
 
-import { singlePackResult } from './npm-pack-json.js'
+import { singlePackResult } from '../npm-pack-json.js'
 
 const result = {
   id: 'fx@1.0.0',

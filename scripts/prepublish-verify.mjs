@@ -209,35 +209,78 @@ if (!pack) {
 const files = pack.files.map((f) => f.path)
 // A folder's prepack builds dist. Loading before npm pack would break a fresh
 // checkout's prepublishOnly hook, which runs BEFORE npm's own prepack hook.
-const { readTemplateLocales, TEMPLATE_LOCALES_ARCHIVE } =
+const { decodeTemplateLocales, TEMPLATE_LOCALES_ARCHIVE } =
   await import('../dist/lib/template-locales.js')
+const { decodeTemplateTree, TEMPLATE_TREE_ARCHIVE } = await import('../dist/lib/template-tree.js')
 const { templatePackageIssues } = await import('../dist/lib/template-package.js')
-for (const issue of templatePackageIssues(pack)) fail(issue)
-let structural = true
-for (const p of files) {
+/** @param {string} p - A shipped path, or one inside a template tree manifest. @param {string} where - Where it was found. */
+function structuralIssues(p, where) {
+  let clean = true
   if (isAbsolute(p) || p.split(/[\\/]/).includes('..')) {
-    fail(`tarball contains an escaping path: ${p}`)
-    structural = false
+    fail(`${where} contains an escaping path: ${p}`)
+    clean = false
   }
   if (FORBIDDEN_TARBALL_PATHS.some((re) => re.test(p)) || isForbiddenEnvFile(p)) {
-    fail(`tarball contains internal path: ${p}`)
-    structural = false
+    fail(`${where} contains internal path: ${p}`)
+    clean = false
   }
   if (MACHINE_PATH.test(p)) {
-    fail(`tarball contains machine-specific path: ${p}`)
+    fail(`${where} contains machine-specific path: ${p}`)
+    clean = false
+  }
+  return clean
+}
+let structural = true
+for (const p of files) structural = structuralIssues(p, 'tarball') && structural
+if (!structural) process.exit(1)
+
+tarball ??= join(scratch, pack.filename)
+// npm's own pack manifest above and the standard tar extractor inspect the
+// archived bytes, including files postpack removed from the working tree.
+execFileSync('tar', ['-xzf', tarball, '-C', scratch, '--no-same-owner', '--no-same-permissions'])
+contentRoot = join(scratch, 'package')
+if (!realpathSync(contentRoot).startsWith(`${realpathSync(scratch)}${sep}`))
+  throw new Error('packed package root escapes the extraction directory')
+requiredFiles(contentRoot)
+
+// Each flagship ships as one tree manifest (src/lib/template-tree.ts); every check below reads the
+// files in it as a scaffold sees them.
+/** @type {Map<string, Buffer>} */
+const treeFiles = new Map()
+/** @type {Record<string, string[]>} */
+const trees = {}
+for (const p of files) {
+  const slug = /^templates\/apps\/([^/]+)\/[^/]+$/.exec(p)?.[1]
+  if (!slug || !p.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`)) continue
+  try {
+    const entries = decodeTemplateTree(readFileSync(join(contentRoot, p)), p)
+    trees[slug] = Object.keys(entries)
+    for (const [rel, { data }] of Object.entries(entries)) {
+      const path = `templates/apps/${slug}/${rel}`
+      structural = structuralIssues(path, p) && structural
+      treeFiles.set(path, data)
+    }
+  } catch (error) {
+    fail(
+      `cannot inspect template tree ${p}: ${error instanceof Error ? error.message : String(error)}`,
+    )
     structural = false
   }
 }
+for (const issue of templatePackageIssues(pack, trees)) fail(issue)
 if (structural)
   ok(
-    `${files.length} files, no internal/machine paths (${(pack.unpackedSize / 1e6).toFixed(1)} MB unpacked)`,
+    `${files.length} files (${treeFiles.size} more in ${Object.keys(trees).length} template trees), no internal/machine paths (${(pack.unpackedSize / 1e6).toFixed(1)} MB unpacked)`,
   )
+
+/** A shipped file's bytes: from a template tree, else from the extracted package. @param {string} p - Its path. */
+const shippedBytes = (p) => treeFiles.get(p) ?? readFileSync(join(contentRoot, p))
 
 // npm never packs .gitignore or .npmrc; each flagship carries them in the
 // dotfiles.json prepack writes (src/lib/template-dotfiles.ts). Without it,
 // `mlcl create --template` scaffolds a project whose .env* secrets git tracks.
-const shipped = new Set(files)
-const flagships = files
+const shipped = new Set([...files, ...treeFiles.keys()])
+const flagships = [...shipped]
   .map((p) => /^templates\/apps\/([^/]+)\/app\/package\.json$/.exec(p)?.[1])
   .filter(Boolean)
 const withoutDotfiles = flagships.filter(
@@ -248,29 +291,19 @@ if (withoutDotfiles.length)
     `flagships without dotfiles.json (prepack did not record their .gitignore): ${withoutDotfiles.join(', ')}`,
   )
 else if (flagships.length) ok(`${flagships.length} flagships carry dotfiles.json`)
-
-tarball ??= join(scratch, pack.filename)
-{
-  if (!structural) process.exit(1)
-  // npm's own pack manifest above and the standard tar extractor inspect the
-  // archived bytes, including files postpack removed from the working tree.
-  execFileSync('tar', ['-xzf', tarball, '-C', scratch, '--no-same-owner', '--no-same-permissions'])
-  contentRoot = join(scratch, 'package')
-  if (!realpathSync(contentRoot).startsWith(`${realpathSync(scratch)}${sep}`))
-    throw new Error('packed package root escapes the extraction directory')
-  requiredFiles(contentRoot)
-  const badManifests = []
-  for (const app of flagships) {
-    const manifest = join(contentRoot, 'templates', 'apps', app, 'dotfiles.json')
-    try {
-      if (typeof JSON.parse(readFileSync(manifest, 'utf8')).files?.['.gitignore'] !== 'string')
-        badManifests.push(`${app} (no root .gitignore)`)
-    } catch (error) {
-      badManifests.push(`${app} (${error instanceof Error ? error.message : String(error)})`)
-    }
+const badManifests = []
+for (const app of flagships.filter((a) => !withoutDotfiles.includes(a))) {
+  try {
+    const manifest = JSON.parse(
+      shippedBytes(`templates/apps/${app}/dotfiles.json`).toString('utf8'),
+    )
+    if (typeof manifest.files?.['.gitignore'] !== 'string')
+      badManifests.push(`${app} (no root .gitignore)`)
+  } catch (error) {
+    badManifests.push(`${app} (${error instanceof Error ? error.message : String(error)})`)
   }
-  if (badManifests.length) fail(`packed dotfiles.json unusable: ${badManifests.join(', ')}`)
 }
+if (badManifests.length) fail(`packed dotfiles.json unusable: ${badManifests.join(', ')}`)
 
 // ── 3. content sweep of shipped files ────────────────────────────────────────
 console.log('content sweep:')
@@ -278,11 +311,13 @@ let scanned = 0
 let contentClean = true
 /** Scan one ordinary file or decompressed template at a time, not the whole fleet in RAM. */
 function* shippedTexts() {
-  for (const p of files) {
+  for (const p of [
+    ...files.filter((f) => !f.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`)),
+    ...treeFiles.keys(),
+  ]) {
     if (p.endsWith(`/${TEMPLATE_LOCALES_ARCHIVE}`)) {
       try {
-        const templateDir = join(contentRoot, p, '..')
-        const locales = readTemplateLocales(templateDir)
+        const locales = decodeTemplateLocales(shippedBytes(p), p)
         for (const [rel, text] of Object.entries(locales)) {
           const path = `${p.slice(0, -TEMPLATE_LOCALES_ARCHIVE.length)}app/src/locales/${rel}`
           if (FORBIDDEN_TARBALL_PATHS.some((re) => re.test(path)) || isForbiddenEnvFile(path))
@@ -296,21 +331,22 @@ function* shippedTexts() {
       continue
     }
     if (BINARY_EXT.has(extname(p).toLowerCase())) continue
+    const inTree = treeFiles.get(p)
+    if (inTree) {
+      if (inTree.length <= 3_000_000) yield [p, inTree.toString('latin1')]
+      continue
+    }
     let content
     try {
       const file = join(contentRoot, p)
-      if (tarball && !realpathSync(file).startsWith(`${realpathSync(contentRoot)}${sep}`))
+      if (!realpathSync(file).startsWith(`${realpathSync(contentRoot)}${sep}`))
         throw new Error('packed file escapes the archive')
       const st = statSync(file)
       if (!st.isFile() || st.size > 3_000_000) continue
       content = readFileSync(file, 'latin1')
     } catch (_error) {
-      if (tarball) {
-        fail(`cannot inspect packed file: ${p}`)
-        contentClean = false
-      }
-      // Intentional skip: pack file lists can include directory rows that have
-      // no readable content — nothing to sweep there.
+      fail(`cannot inspect packed file: ${p}`)
+      contentClean = false
       continue
     }
     yield [p, content]

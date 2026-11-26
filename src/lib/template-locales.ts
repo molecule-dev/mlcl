@@ -101,7 +101,19 @@ export function cleanTemplateLocales(templatesDir: string): number {
 export function readTemplateLocales(templateDir: string): Record<string, string> {
   const file = join(templateDir, TEMPLATE_LOCALES_ARCHIVE)
   if (!existsSync(file)) return {}
-  const manifest = JSON.parse(brotliDecompressSync(readFileSync(file)).toString('utf8')) as {
+  return decodeTemplateLocales(readFileSync(file), file)
+}
+
+/**
+ * Decode and validate a locale manifest's bytes (the publish check reads them out of a template's
+ * tree manifest).
+ *
+ * @param bytes - The manifest's bytes.
+ * @param file - The manifest's path, for errors.
+ * @returns Each locale file's text, keyed by its path under `app/src/locales/`.
+ */
+export function decodeTemplateLocales(bytes: Buffer, file: string): Record<string, string> {
+  const manifest = JSON.parse(brotliDecompressSync(bytes).toString('utf8')) as {
     schema?: number
     files?: unknown
   }

@@ -6,7 +6,7 @@ import { fileURLToPath } from 'node:url'
 
 import { describe, expect, it } from 'vitest'
 
-import { singlePackResult } from './npm-pack-json.js'
+import { singlePackResult } from '../npm-pack-json.js'
 
 const NPMIGNORE = fileURLToPath(new URL('../../../templates/.npmignore', import.meta.url))
 

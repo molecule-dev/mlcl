@@ -1,3 +1,5 @@
+import { TEMPLATE_TREE_ARCHIVE, TEMPLATE_TREE_KEPT } from './template-tree.js'
+
 /** The npm template payload budget, checked against npm's actual pack manifest. */
 export interface TemplatePackManifest {
   size: number
@@ -5,11 +7,15 @@ export interface TemplatePackManifest {
   files: { path: string; size: number }[]
 }
 
-/** Leave headroom above the compressed fleet, while rejecting the 2.1.41 layout. */
+/**
+ * Leave headroom above the compressed fleet, while rejecting the 2.1.41 layout and the 2.2.13 one,
+ * whose 29,413 files (27,638 of them flagship files) npm took about 20 s to unpack on a first
+ * `npx mlcl`. Each flagship now ships as its tree manifest (template-tree.ts).
+ */
 export const TEMPLATE_PACKAGE_BUDGET = {
   packedBytes: 85_000_000,
   unpackedBytes: 250_000_000,
-  files: 32_000,
+  files: 4_000,
 } as const
 
 /**
@@ -34,8 +40,18 @@ export const TEMPLATE_SHARED_ESLINT = [
 const WORKSPACE_ESLINT_COPY =
   /^templates\/apps\/[^/]+\/(?:api|app)\/(?:eslint\.config\.js|eslint-rules\/)/
 
-/** Size plus representation checks: exclusion without restoration data cannot pass. */
-export function templatePackageIssues(pack: TemplatePackManifest): string[] {
+/**
+ * Size plus representation checks: exclusion without restoration data cannot pass. The
+ * representation checks read each flagship as a scaffold sees it: the files in its tree manifest.
+ *
+ * @param pack - npm's pack manifest.
+ * @param trees - Each packed flagship's manifest paths, by slug (decodeTemplateTree).
+ * @returns The issues found.
+ */
+export function templatePackageIssues(
+  pack: TemplatePackManifest,
+  trees: Record<string, readonly string[]> = {},
+): string[] {
   const issues: string[] = []
   for (const [label, actual, limit] of [
     ['packed bytes', pack.size, TEMPLATE_PACKAGE_BUDGET.packedBytes],
@@ -45,7 +61,25 @@ export function templatePackageIssues(pack: TemplatePackManifest): string[] {
     if (!Number.isFinite(actual) || actual > limit)
       issues.push(`template package budget: ${actual} ${label} exceeds ${limit}`)
   }
-  const shipped = new Set(pack.files.map((f) => f.path))
+  const plain = new Set([...TEMPLATE_TREE_KEPT, TEMPLATE_TREE_ARCHIVE])
+  const loose = pack.files
+    .map((f) => /^templates\/apps\/[^/]+\/(.+)$/.exec(f.path))
+    .filter((m): m is RegExpExecArray => m !== null && !plain.has(m[1]))
+  if (loose.length)
+    issues.push(
+      `${loose.length} flagship files shipped outside their ${TEMPLATE_TREE_ARCHIVE} (npm unpacks each one on install; prepack's template-trees step writes the manifest), first: ${loose[0][0]}`,
+    )
+  for (const { path } of pack.files) {
+    const slug = /^templates\/apps\/([^/]+)\/[^/]+$/.exec(path)?.[1]
+    if (slug && path.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`) && !trees[slug])
+      issues.push(`template tree manifest not inspected: ${path}`)
+  }
+  const shipped = new Set([
+    ...pack.files.map((f) => f.path).filter((p) => !p.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`)),
+    ...Object.entries(trees).flatMap(([slug, rels]) =>
+      rels.map((rel) => `templates/apps/${slug}/${rel}`),
+    ),
+  ])
   // templates/apps/.npmignore leaves each workspace's ESLint config out; scaffoldEslint
   // writes the shared template into every flagship api/ and app/ instead.
   if ([...shipped].some((f) => /^templates\/apps\/[^/]+\/(api|app)\/package\.json$/.test(f)))

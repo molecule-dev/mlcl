@@ -18,6 +18,7 @@ import { brotliCompressSync } from 'node:zlib'
 
 import { afterEach, describe, expect, it, vi } from 'vitest'
 
+import { singlePackResult } from '../npm-pack-json.js'
 import { copyTemplateInstance, shouldSkipDuringCopy } from '../scaffold.js'
 import * as secretGenerate from '../secret-generate.js'
 import { packTemplateDotfiles } from '../template-dotfiles.js'
@@ -29,7 +30,13 @@ import {
   TEMPLATE_LOCALES_ARCHIVE,
 } from '../template-locales.js'
 import { TEMPLATE_SHARED_ESLINT, templatePackageIssues } from '../template-package.js'
-import { singlePackResult } from './npm-pack-json.js'
+import {
+  cleanTemplateTrees,
+  decodeTemplateTree,
+  packTemplateTrees,
+  resolveTemplateDir,
+  TEMPLATE_TREE_ARCHIVE,
+} from '../template-tree.js'
 
 const ROOT = resolve(import.meta.dirname, '../../..')
 const scratch: string[] = []
@@ -70,6 +77,28 @@ function tree(root: string): Record<string, string> {
   )
 }
 
+/** prepack's last step: each flagship's shipped files into its tree manifest, from npm's own list. */
+function packTrees(dir: string): void {
+  const raw = execFileSync('npm', ['pack', '--dry-run', '--json', '--ignore-scripts'], {
+    cwd: dir,
+    encoding: 'utf8',
+  })
+  packTemplateTrees(
+    dir,
+    singlePackResult(raw).files.map((file) => file.path),
+  )
+}
+
+/** The paths in each packed flagship's tree manifest, by slug. */
+function treesOf(p: { root: string; files: { path: string }[] }): Record<string, string[]> {
+  const trees: Record<string, string[]> = {}
+  for (const { path } of p.files) {
+    const slug = new RegExp(`^templates/apps/([^/]+)/${TEMPLATE_TREE_ARCHIVE}$`).exec(path)?.[1]
+    if (slug) trees[slug] = Object.keys(decodeTemplateTree(readFileSync(join(p.root, path)), path))
+  }
+  return trees
+}
+
 function packed(
   dir: string,
   output = 'unpacked',
@@ -104,24 +133,32 @@ describe('offline npm template locales', () => {
       templates: 1,
       files: 2,
     })
+    packTrees(f.dir)
     const p = packed(f.dir)
-    expect(templatePackageIssues(p)).toEqual([])
-    const installed = join(p.root, 'templates/apps/fixture')
+    expect(templatePackageIssues(p, treesOf(p))).toEqual([])
+    const shippedDir = join(p.root, 'templates/apps/fixture')
+    const shippedBefore = tree(shippedDir)
+    // Extraction must work when npm's package is read-only and no install runs: the tree unpacks
+    // into the user's cache.
+    chmodSync(shippedDir, 0o555)
+    const installed = (() => {
+      try {
+        return resolveTemplateDir(p.root, 'fixture', join(f.dir, 'cache'))
+      } finally {
+        chmodSync(shippedDir, 0o755)
+      }
+    })()
     expect(readFileSync(join(installed, 'app/src/locales/en/ui.ts'), 'utf8')).toBe(en)
     expect(existsSync(join(installed, 'app/src/locales/fr'))).toBe(false)
     const installedBefore = tree(installed)
-    // Extraction must work when npm's package is read-only and no install runs.
-    chmodSync(installed, 0o555)
-    try {
-      await restoreTemplateLocales(installed, join(f.dir, 'project'))
-    } finally {
-      chmodSync(installed, 0o755)
-    }
+    await restoreTemplateLocales(installed, join(f.dir, 'project'))
+    expect(tree(shippedDir)).toEqual(shippedBefore)
     expect(readFileSync(join(f.dir, 'project/app/src/locales/fr/ui.ts'), 'utf8')).toBe(fr)
     expect(readFileSync(join(f.dir, 'project/app/src/locales/zh-TW/nested/ui.ts'), 'utf8')).toBe(
       '中文\n',
     )
     expect(tree(installed)).toEqual(installedBefore)
+    expect(cleanTemplateTrees(f.dir)).toBe(1)
     expect(cleanTemplateLocales(f.templates)).toBe(1)
     expect(tree(f.templates)).toEqual(source)
   })
@@ -150,24 +187,35 @@ describe('offline npm template locales', () => {
         files: [{ path: 'templates/apps/a/app/src/locales/en/ui.ts', size: 1 }],
       }).join('\n'),
     ).toContain('missing restoration archive')
-    const workspace = { path: 'templates/apps/a/api/package.json', size: 1 }
+    // The flagship files are read out of its tree manifest, as the publish check does.
+    const archive = { path: `templates/apps/a/${TEMPLATE_TREE_ARCHIVE}`, size: 1 }
+    const workspace = 'api/package.json'
     const shared = TEMPLATE_SHARED_ESLINT.map((path) => ({ path, size: 1 }))
     expect(
-      templatePackageIssues({ size: 1, unpackedSize: 1, files: [workspace, shared[0]] }),
+      templatePackageIssues(
+        { size: 1, unpackedSize: 1, files: [archive, shared[0]] },
+        { a: [workspace] },
+      ),
     ).toEqual(
       TEMPLATE_SHARED_ESLINT.slice(1).map(
         (path) => `template ESLint copies missing their shared source: ${path}`,
       ),
     )
     expect(
-      templatePackageIssues({ size: 1, unpackedSize: 1, files: [workspace, ...shared] }),
+      templatePackageIssues(
+        { size: 1, unpackedSize: 1, files: [archive, ...shared] },
+        { a: [workspace] },
+      ),
     ).toEqual([])
     // A workspace's rule copy from before @molecule/eslint-config is refused by name, whichever
     // rule it is (2.2.8: two new rules shipped 606 copies and the package passed its 32,000-file
     // budget).
-    const copy = { path: 'templates/apps/a/app/eslint-rules/no-resource-table-writes.mjs', size: 1 }
+    const copy = 'app/eslint-rules/no-resource-table-writes.mjs'
     expect(
-      templatePackageIssues({ size: 1, unpackedSize: 1, files: [workspace, ...shared, copy] }),
+      templatePackageIssues(
+        { size: 1, unpackedSize: 1, files: [archive, ...shared] },
+        { a: [workspace, copy] },
+      ),
     ).toEqual([
       'template workspace ESLint copy shipped (scaffoldEslint writes the config from templates/shared; leave it out in templates/apps/.npmignore): */app/eslint-rules/no-resource-table-writes.mjs',
     ])
@@ -292,9 +340,22 @@ describe('offline npm template locales', () => {
       )
       copyFileSync(join(ROOT, 'templates/apps/.npmignore'), join(f.templates, 'apps/.npmignore'))
       packTemplateLocales(f.templates, shouldSkipDuringCopy)
+      packTrees(f.dir)
       const p = packed(f.dir)
-      expect(templatePackageIssues(p)).toEqual([])
-      const installed = join(p.root, 'templates/apps', slug)
+      expect(templatePackageIssues(p, treesOf(p))).toEqual([])
+      // The package carries the flagship as its listing files and one manifest; the scaffold reads
+      // the tree it unpacks into the user's cache.
+      expect(
+        p.files
+          .map((file) => file.path)
+          .filter((path) => path.startsWith(`templates/apps/${slug}/`)),
+      ).toEqual(
+        ['CATALOG.md', 'template.json', TEMPLATE_TREE_ARCHIVE]
+          .filter((file) => existsSync(join(source, file)) || file === TEMPLATE_TREE_ARCHIVE)
+          .map((file) => `templates/apps/${slug}/${file}`)
+          .sort(),
+      )
+      const installed = resolveTemplateDir(p.root, slug, join(f.dir, 'cache'))
       for (const half of ['app', 'api'])
         expect(readFileSync(join(installed, half, 'package.json'))).toEqual(
           readFileSync(join(source, half, 'package.json')),
@@ -308,7 +369,9 @@ describe('offline npm template locales', () => {
           expect(existsSync(join(installed, half, file)), file).toBe(false)
         }
       const after = join(f.dir, 'after')
-      await copyTemplateInstance(installed, after, 'same-project', versions)
+      await copyTemplateInstance(installed, after, 'same-project', versions, undefined, {
+        templatesRoot: join(p.root, 'templates'),
+      })
       const beforeTree = tree(before)
       const afterTree = tree(after)
       const differences = [...new Set([...Object.keys(beforeTree), ...Object.keys(afterTree)])]

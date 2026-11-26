@@ -95,6 +95,7 @@ import {
 } from './setup-sql.js'
 import { restoreTemplateDotfiles } from './template-dotfiles.js'
 import { restoreTemplateLocales } from './template-locales.js'
+import { resolveTemplateDir } from './template-tree.js'
 
 const __dirname = dirname(fileURLToPath(import.meta.url))
 
@@ -2407,7 +2408,10 @@ async function addHuskyToPackageJson(packageJsonPath: string): Promise<void> {
  *   the versions the preflight judged, not to whatever a walk-up happens to find.
  * @param authContract - The auth contract the template's API resource is configured with.
  * @param options - What only a molecule.dev project gets: `idePreview` (the IDE's live-preview
- *   bridges) and `activityCapture` (the activity-capture wiring of the API).
+ *   bridges) and `activityCapture` (the activity-capture wiring of the API). `templatesRoot` is the
+ *   package's `templates/` directory, which holds the shared fonts and `apps/_e2e-shared/`; it
+ *   defaults to the template's grandparent, which is right only for a source checkout (an installed
+ *   package's template is read from the cache its tree manifest unpacks into, template-tree.ts).
  */
 export async function copyTemplateInstance(
   templateDir: string,
@@ -2415,11 +2419,12 @@ export async function copyTemplateInstance(
   projectName: string,
   setupSqlVersions: Readonly<Record<string, string | undefined>>,
   authContract?: AuthContract,
-  options: { idePreview?: boolean; activityCapture?: boolean } = {},
+  options: { idePreview?: boolean; activityCapture?: boolean; templatesRoot?: string } = {},
 ): Promise<void> {
   if (!existsSync(templateDir)) {
     throw new Error(`Template directory not found: ${templateDir}`)
   }
+  const templatesRoot = options.templatesRoot ?? join(templateDir, '..', '..')
   await mkdir(destDir, { recursive: true })
 
   for (const item of TEMPLATE_USER_COPY) {
@@ -2443,7 +2448,7 @@ export async function copyTemplateInstance(
     const manifestPath = join(templateDir, 'fonts.json')
     if (existsSync(manifestPath)) {
       const fontFiles = JSON.parse(readFileSync(manifestPath, 'utf8')) as string[]
-      const poolDir = join(templateDir, '..', '..', 'shared', 'fonts')
+      const poolDir = join(templatesRoot, 'shared', 'fonts')
       for (const rel of fontFiles) {
         const dst = join(destDir, rel)
         // `rel` is a template-shipped project-relative path, i.e. DATA: it must
@@ -2527,7 +2532,7 @@ export async function copyTemplateInstance(
   // `../_e2e-shared/...` from `<project>/app/`. Vendor the workspace
   // `mlcl/templates/apps/_e2e-shared/` directory into `<project>/_e2e-shared/`
   // so those relative imports resolve in the scaffolded sandbox.
-  const sharedE2eSrcDir = join(templateDir, '..', '_e2e-shared')
+  const sharedE2eSrcDir = resolveTemplateDir(dirname(templatesRoot), '_e2e-shared')
   if (existsSync(sharedE2eSrcDir)) {
     const sharedE2eDestDir = join(destDir, '_e2e-shared')
     await mkdir(sharedE2eDestDir, { recursive: true })
@@ -3973,7 +3978,7 @@ export async function copyTemplateDomainFiles(
   apiPath: string | null,
   cliRoot: string,
 ): Promise<void> {
-  const templateDir = join(cliRoot, 'templates', 'apps', templateName)
+  const templateDir = resolveTemplateDir(cliRoot, templateName)
   if (!existsSync(templateDir)) {
     mlclDebug(`[scaffold] Template directory not found: ${templateDir}`)
     return
@@ -4407,7 +4412,7 @@ export async function applyTemplatePostInjectOverrides(
   appPath: string,
   cliRoot: string,
 ): Promise<void> {
-  const templateDir = join(cliRoot, 'templates', 'apps', templateName)
+  const templateDir = resolveTemplateDir(cliRoot, templateName)
   const bondsDestDir = join(appPath, 'src', 'bonds')
   let totalCount = 0
   for (const overrideDir of [

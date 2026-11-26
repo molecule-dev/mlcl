@@ -49,6 +49,7 @@ function serverSources(): string[] {
       'lib/scaffold.ts',
       'lib/telemetry.ts',
       'lib/telemetry-send.ts',
+      'lib/template-tree.ts',
     ].map((file) => join(MLCL, 'src', file)),
   ]
 }

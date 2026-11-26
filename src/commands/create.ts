@@ -563,7 +563,9 @@ export default class Create extends Command {
     // the project name. Polish/stitch/scaffold artifacts stay in the
     // monorepo and never reach the user sandbox.
     if (flags.template) {
-      const templateInstanceDir = join(this.config.root, 'templates', 'apps', flags.template)
+      // An installed mlcl ships each flagship as one manifest; this is where it is unpacked.
+      const { resolveTemplateDir } = await import('../lib/template-tree.js')
+      const templateInstanceDir = resolveTemplateDir(this.config.root, flags.template)
       const templateAppPkg = join(templateInstanceDir, 'app', 'package.json')
       const { existsSync } = await import('node:fs')
       if (existsSync(templateAppPkg)) {
@@ -632,7 +634,11 @@ export default class Create extends Command {
           projectName,
           setupSqlVersions,
           apiAuthContract,
-          { idePreview: flags['ide-preview'], activityCapture: flags['activity-capture'] },
+          {
+            idePreview: flags['ide-preview'],
+            activityCapture: flags['activity-capture'],
+            templatesRoot: join(this.config.root, 'templates'),
+          },
         )
         await ensureRootFormatterConfig(projectPath)
         // The template is copied as built, so its own shape decides the catalog

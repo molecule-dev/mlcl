@@ -129,6 +129,7 @@ export const MCP_SERVER_ENV_VARS = [
   'MOLECULE_PACKAGES_DIR',
   'MLCL_REGISTRY_PATH',
   'MLCL_REGISTRY_LOCK_WAIT_MS',
+  'MLCL_CACHE_DIR',
   // The network: a proxy and its CA, which npm, Playwright and Node's fetch read.
   'HTTPS_PROXY',
   'HTTP_PROXY',

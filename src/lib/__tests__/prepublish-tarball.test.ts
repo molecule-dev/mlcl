@@ -31,7 +31,7 @@ function fixture(oldHistory = false): {
   fs.mkdirSync(path.join(dir, 'bin'))
   fs.mkdirSync(path.join(dir, 'dist'))
   fs.mkdirSync(path.join(dir, 'build-inputs'))
-  for (const file of ['template-locales', 'template-package']) {
+  for (const file of ['template-locales', 'template-package', 'template-tree']) {
     const source = fs.readFileSync(path.join(ROOT, 'src/lib', `${file}.ts`), 'utf8')
     fs.writeFileSync(
       path.join(dir, 'build-inputs', `${file}.js`),
@@ -277,4 +277,72 @@ describe('the exact prepared npm tarball', () => {
       expect(result.stderr).toContain('app/src/locales/fr/ui.ts')
     },
   )
+
+  it.each(['archive', 'folder'])(
+    "scans the files inside a flagship's tree manifest, nested locale manifests included (%s)",
+    (mode) => {
+      // OLD MUSTFAIL: the gate swept only files npm lists, and a tree manifest is one opaque file.
+      const f = fixture()
+      const template = path.join(f.dir, 'templates/apps/fixture')
+      fs.mkdirSync(template, { recursive: true })
+      const manifestPath = path.join(f.dir, 'package.json')
+      const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+      manifest.files.push('templates')
+      fs.writeFileSync(manifestPath, JSON.stringify(manifest))
+      const locales = brotliCompressSync(
+        Buffer.from(JSON.stringify({ schema: 1, files: { 'de/ui.ts': '/home/y/private' } })),
+      )
+      fs.writeFileSync(
+        path.join(template, 'tree.json.br'),
+        brotliCompressSync(
+          Buffer.from(
+            JSON.stringify({
+              schema: 1,
+              files: {
+                'app/src/config.ts': { mode: 0o644, text: 'const dir = "/home/z/private"\n' },
+                'locales.json.br': { mode: 0o644, base64: locales.toString('base64') },
+              },
+            }),
+          ),
+        ),
+      )
+      const result =
+        mode === 'archive'
+          ? verify(f, pack(f))
+          : f.run([process.execPath, 'scripts/prepublish-verify.mjs'])
+      expect(result.status).not.toBe(0)
+      expect(result.stderr).toContain(
+        'templates/apps/fixture/app/src/config.ts: personal home path',
+      )
+      expect(result.stderr).toContain(
+        'templates/apps/fixture/app/src/locales/de/ui.ts: personal home path',
+      )
+    },
+  )
+
+  it('refuses a tree manifest that leaves its template directory', () => {
+    const f = fixture()
+    const template = path.join(f.dir, 'templates/apps/fixture')
+    fs.mkdirSync(template, { recursive: true })
+    const manifestPath = path.join(f.dir, 'package.json')
+    const manifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'))
+    manifest.files.push('templates')
+    fs.writeFileSync(manifestPath, JSON.stringify(manifest))
+    fs.writeFileSync(
+      path.join(template, 'tree.json.br'),
+      brotliCompressSync(
+        Buffer.from(
+          JSON.stringify({
+            schema: 1,
+            files: { '../../../escape.ts': { mode: 0o644, text: 'x' } },
+          }),
+        ),
+      ),
+    )
+    const result = verify(f, pack(f))
+    expect(result.status).not.toBe(0)
+    expect(result.stderr).toContain(
+      'cannot inspect template tree templates/apps/fixture/tree.json.br',
+    )
+  })
 })
