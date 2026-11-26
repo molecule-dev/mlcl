@@ -2167,12 +2167,20 @@ export async function ensureRootNpmrc(projectRoot: string): Promise<void> {
  * the molecule attribution, quick start, architecture map, growth commands,
  * and the deploy path so every molecule-built project is self-describing.
  * Idempotent: never overwrites an existing README.
+ *
+ * @param projectRoot - The project directory.
+ * @param projectName - The project's name, for the title.
+ * @param projectType - The project type.
+ * @param framework - The app framework, if any.
+ * @param envToSet - Each `.env` the scaffold writes and the variables it leaves empty: the quick
+ *   start names them, and says nothing about the environment when there are none.
  */
 export async function ensureReadmeMd(
   projectRoot: string,
   projectName: string,
   projectType: string,
   framework: string | undefined,
+  envToSet: EnvLeftToSet,
 ): Promise<void> {
   const target = join(projectRoot, 'README.md')
   const { existsSync } = await import('node:fs')
@@ -2181,6 +2189,7 @@ export async function ensureReadmeMd(
     PROJECT_NAME: projectName,
     PROJECT_DESCRIPTION: `${projectName} — built with Molecule.dev`,
     FRAMEWORK: framework ?? 'React',
+    ENV_STEP: readmeEnvStep(envToSet),
   }
   await writeFile(target, await loadTemplate('shared/README.md.tpl', vars))
 }
@@ -2413,6 +2422,7 @@ async function addHuskyToPackageJson(packageJsonPath: string): Promise<void> {
  *   package's `templates/` directory, which holds the shared fonts and `apps/_e2e-shared/`; it
  *   defaults to the template's grandparent, which is right only for a source checkout (an installed
  *   package's template is read from the cache its tree manifest unpacks into, template-tree.ts).
+ * @returns Each `.env` it wrote and the variables that file leaves empty.
  */
 export async function copyTemplateInstance(
   templateDir: string,
@@ -2421,7 +2431,7 @@ export async function copyTemplateInstance(
   setupSqlVersions: Readonly<Record<string, string | undefined>>,
   authContract?: AuthContract,
   options: { idePreview?: boolean; activityCapture?: boolean; templatesRoot?: string } = {},
-): Promise<void> {
+): Promise<EnvLeftToSet> {
   if (!existsSync(templateDir)) {
     throw new Error(`Template directory not found: ${templateDir}`)
   }
@@ -2654,7 +2664,7 @@ export async function copyTemplateInstance(
   // `api/package.json` deps (workspace hoisting makes imports work without
   // it). Without this, secrets like STRIPE_SECRET_KEY / MAILGUN_API_KEY
   // wouldn't surface in the generated .env.
-  await generateEnvFromPackages(destDir, projectName, templateDir)
+  const envLeftToSet = await generateEnvFromPackages(destDir, projectName, templateDir)
 
   // DECLARE the bond list the template says it uses.
   //
@@ -2761,6 +2771,7 @@ export async function copyTemplateInstance(
     await configureTemplateInstanceAuth(destDir, authContract)
   }
   await stampCapabilitySourceHeaders(destDir)
+  return envLeftToSet
 }
 
 /** The `@molecule/*` packages an app's e2e setup imports (see {@link ensureE2EManifest}). */
@@ -3096,12 +3107,14 @@ async function syncIdentityFromBranding(destDir: string, projectName: string): P
  *
  * The end-user sandbox gets exactly the env vars its actual deps need,
  * with declared defaults where present and empty values otherwise.
+ *
+ * @returns Each `.env` written and the variables it leaves empty.
  */
 async function generateEnvFromPackages(
   destDir: string,
   projectName: string,
   templateDir?: string,
-): Promise<void> {
+): Promise<EnvLeftToSet> {
   const registry = loadRegistry()
   const byName = new Map(registry.map((p) => [p.name, p]))
 
@@ -3121,6 +3134,7 @@ async function generateEnvFromPackages(
     ? await readTemplatePackages(templateDir).catch(() => [] as string[])
     : []
 
+  const envLeftToSet: EnvLeftToSet = []
   for (const sub of ['app', 'api'] as const) {
     const pkgJsonPath = join(destDir, sub, 'package.json')
     if (!existsSync(pkgJsonPath)) continue
@@ -3139,8 +3153,12 @@ async function generateEnvFromPackages(
       .map((n) => byName.get(n))
       .filter((p): p is InferredPackage => Boolean(p))
     const secrets = collectSecrets(packages)
-    await generateEnvFile(join(destDir, sub), secrets, sub, projectName)
+    envLeftToSet.push([
+      `${sub}/.env`,
+      await generateEnvFile(join(destDir, sub), secrets, sub, projectName),
+    ])
   }
+  return envLeftToSet
 }
 
 /**
@@ -6721,6 +6739,59 @@ export function detectMonorepoRoot(startDir?: string): string | null {
   return null
 }
 
+/** Each `.env` a scaffold writes, relative to the project (`api/.env`), and the variables it leaves empty. */
+export type EnvLeftToSet = Array<[file: string, names: string[]]>
+
+/** The secrets an `.env` of `projectType` lists: the baseline variables are written separately. */
+const applicableEnvSecrets = (
+  secrets: MoleculeSecret[],
+  projectType: 'api' | 'app',
+  appEnvKey: string,
+): MoleculeSecret[] =>
+  filterEnvSecrets(secrets, projectType, projectType === 'app' ? [appEnvKey] : ['PORT', 'NODE_ENV'])
+
+/**
+ * The required variables an `.env` written from `secrets` leaves empty for the developer to set.
+ * Every other value is generated (`generate`: the JWT and VAPID key pairs, random keys), a registry
+ * default, or optional, and `DATABASE_URL` always gets a local default.
+ *
+ * @param secrets - Secrets aggregated from package metadata (registry).
+ * @param projectType - 'api' or 'app', as {@link generateEnvFile} takes it.
+ * @param appEnvKey - The app's public API-base-URL variable, left empty on purpose.
+ * @returns The variable names, in the order the file lists them.
+ */
+export function envVariablesLeftToSet(
+  secrets: MoleculeSecret[],
+  projectType: 'api' | 'app' = 'api',
+  appEnvKey = 'VITE_API_URL',
+): string[] {
+  return applicableEnvSecrets(secrets, projectType, appEnvKey)
+    .filter(
+      (secret) =>
+        secret.required !== false &&
+        secret.generate === undefined &&
+        !secret.default &&
+        secret.name !== 'DATABASE_URL',
+    )
+    .map((secret) => secret.name)
+}
+
+/**
+ * The README quick start's environment step: a comment naming the variables each `.env` still
+ * needs, or nothing when the scaffold set every required one. A fixed "fill in credentials" line
+ * sent an agent to inspect a complete `.env` and rewrite the README (harness eval `scaffold`,
+ * 2026-11-26).
+ *
+ * @param envToSet - Each `.env` and the variables it leaves empty.
+ * @returns One line per file that needs values, each ending in a newline, or ''.
+ */
+export function readmeEnvStep(envToSet: EnvLeftToSet): string {
+  return envToSet
+    .filter(([, names]) => names.length > 0)
+    .map(([file, names]) => `# set in ${file}: ${names.join(', ')}\n`)
+    .join('')
+}
+
 /**
  * Generate a .env file from package-declared secrets.
  *
@@ -6743,7 +6814,6 @@ export async function generateEnvFile(
   appEnvKey = 'VITE_API_URL',
 ): Promise<string[]> {
   const lines = ['# Environment variables', '# Generated by mlcl create', '']
-  const leftToSet: string[] = []
 
   // Write .env.example alongside .env — key names only, values redacted.
   // This is what a bot sees when it clones the repo (the real .env is gitignored).
@@ -6789,11 +6859,7 @@ export async function generateEnvFile(
   // db slot when a generic placeholder is the registry default. The
   // VITE_-prefix project-type filter + per-secret comment format live in
   // env-file.ts, shared with `mlcl inject`'s .env append path.
-  const applicable = filterEnvSecrets(
-    secrets,
-    projectType,
-    projectType === 'app' ? [appEnvKey] : ['PORT', 'NODE_ENV'],
-  )
+  const applicable = applicableEnvSecrets(secrets, projectType, appEnvKey)
 
   // Secrets marked `generate` in the registry (JWT keypair, VAPID keypair,
   // random keys) never require user setup — generate real values now so the
@@ -6805,7 +6871,6 @@ export async function generateEnvFile(
     if (secret.name === 'DATABASE_URL') {
       value = resolveDatabaseUrlValue(value, projectName)
     }
-    if (!value && secret.required !== false) leftToSet.push(secret.name)
     lines.push(
       ...renderEnvSecretLines(secret, value, {
         generated: generated.has(secret.name),
@@ -6834,7 +6899,7 @@ export async function generateEnvFile(
   const envPath = join(projectPath, '.env')
   await writeFile(envPath, lines.join('\n'), { mode: 0o600 })
   await chmod(envPath, 0o600)
-  return leftToSet
+  return envVariablesLeftToSet(secrets, projectType, appEnvKey)
 }
 
 // ============================================================================

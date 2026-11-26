@@ -8,8 +8,7 @@ Built with **[Molecule.dev](https://molecule.dev)** — a composable `@molecule/
 
 ```bash
 npm install
-# fill in credentials in api/.env and app/.env (see .env.example for the full list)
-npm run dev
+{{ENV_STEP}}npm run dev
 ```
 
 ## Architecture

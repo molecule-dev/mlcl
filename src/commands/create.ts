@@ -60,6 +60,7 @@ import {
   createStaticProject,
   createStatusPageEdgeProject,
   ensureRootFormatterConfig,
+  envVariablesLeftToSet,
   generateEnvFile,
   generateFontHtml,
   getTemplateRequiredPackages,
@@ -630,7 +631,7 @@ export default class Create extends Command {
           }
           apiAuthContract.resourcePackage = resources[0]
         }
-        await copyTemplateInstance(
+        const templateEnvLeftToSet = await copyTemplateInstance(
           templateInstanceDir,
           projectPath,
           projectName,
@@ -653,8 +654,10 @@ export default class Create extends Command {
         writeStopHooks(projectPath)
         await ensureAgentsMd(projectPath)
         await ensureRootNpmrc(projectPath)
-        await ensureReadmeMd(projectPath, projectName, flags.type ?? 'full-stack', flags.framework)
         await stampMoleculeMetadata(projectPath)
+        // The README names what the .env files leave empty: the template's, with api/.env as
+        // rewritten below.
+        let envLeftToSet = templateEnvLeftToSet
         // A template with no api/ workspace (a static site) gets no api .env:
         // writing one into a missing directory failed the scaffold (ENOTDIR,
         // static-site-thin on the platform's host path, 2026-09-26).
@@ -671,13 +674,24 @@ export default class Create extends Command {
           const explicitPkgMetas = selectedNames
             .map((name) => allPackages.find((p) => p.name === name))
             .filter(Boolean)
-          await generateEnvFile(
+          const apiLeftToSet = await generateEnvFile(
             join(projectPath, 'api'),
             collectSecrets(explicitPkgMetas as never[]),
             'api',
             projectName,
           )
+          envLeftToSet = [
+            ['api/.env', apiLeftToSet],
+            ...envLeftToSet.filter(([file]) => file !== 'api/.env'),
+          ]
         }
+        await ensureReadmeMd(
+          projectPath,
+          projectName,
+          flags.type ?? 'full-stack',
+          flags.framework,
+          envLeftToSet,
+        )
         if (requestedFramework && requestedFramework !== templateFramework) {
           this.warn(
             `The ${flags.template} template is built with ${templateFramework ?? 'its own framework'}; --framework ${requestedFramework} was not applied. For another framework, create a custom app: ${CLI_COMMAND} create <name> --type ${flags.type ?? 'full-stack'} --framework ${requestedFramework}.`,
@@ -1261,6 +1275,55 @@ export default class Create extends Command {
     // wrote its own copy inside copyTemplateInstance and returned earlier.
     await scaffoldSecurityWorkflow(projectPath, projectName)
 
+    // The .env files this scaffold writes and the secrets each carries. The README is written now
+    // and the files after the install, both from this list, so the README names the variables the
+    // files leave empty. The app's public API-base-URL variable is the framework's (registry
+    // `apiUrlEnvKey`): Vite reads VITE_API_URL, Expo reads EXPO_PUBLIC_API_URL, the name
+    // config.ts consumes.
+    const appEnvKey = loadAppFrameworks()[framework ?? '']?.apiUrlEnvKey ?? 'VITE_API_URL'
+    const appSecrets = allSelectedSecrets.filter((s) => s.name.startsWith('VITE_'))
+    const envFiles: Array<{
+      file: string
+      dir: string
+      secrets: MoleculeSecret[]
+      type: 'api' | 'app'
+      projectName?: string
+    }> = isFullStack
+      ? [
+          {
+            file: 'api/.env',
+            dir: join(projectPath, 'api'),
+            secrets: allSelectedSecrets.filter((s) => !s.name.startsWith('VITE_')),
+            type: 'api',
+          },
+          {
+            file: 'app/.env',
+            dir: join(projectPath, 'app'),
+            secrets: appSecrets,
+            type: 'app',
+            projectName,
+          },
+        ]
+      : isStatic
+        ? [
+            {
+              file: 'app/.env',
+              dir: join(projectPath, 'app'),
+              secrets: appSecrets,
+              type: 'app',
+              projectName,
+            },
+          ]
+        : [
+            {
+              file: '.env',
+              dir: projectPath,
+              secrets: allSelectedSecrets,
+              type: projectType === 'app' ? 'app' : 'api',
+              projectName,
+            },
+          ]
+
     // AGENTS.md for external coding agents (Claude Code, Codex, Cursor, …) —
     // the molecule conventions in context on project open. The .npmrc carries
     // legacy-peer-deps so a default `npm install` resolves (see its comment).
@@ -1270,7 +1333,13 @@ export default class Create extends Command {
       await ensureAgentSkills(projectPath, { projectType, framework })
       writeStopHooks(projectPath)
       await ensureRootNpmrc(projectPath)
-      await ensureReadmeMd(projectPath, projectName, projectType, framework)
+      await ensureReadmeMd(
+        projectPath,
+        projectName,
+        projectType,
+        framework,
+        envFiles.map((env) => [env.file, envVariablesLeftToSet(env.secrets, env.type, appEnvKey)]),
+      )
       await stampMoleculeMetadata(projectPath)
     }
 
@@ -1648,47 +1717,24 @@ export default class Create extends Command {
       await ensureAgentsMd(projectPath)
     }
 
-    // Generate .env template (from package metadata secrets)
-    // The app's public API-base-URL variable is the framework's (registry `apiUrlEnvKey`):
-    // Vite reads VITE_API_URL, Expo reads EXPO_PUBLIC_API_URL, the name config.ts consumes.
-    const appEnvKey = loadAppFrameworks()[framework ?? '']?.apiUrlEnvKey ?? 'VITE_API_URL'
-    // Each .env file and the required variables it leaves empty. Generated keys (the JWT pair),
-    // registry defaults and optional variables are not listed: telling the developer to set them
-    // sent an agent to generate JWT keys the scaffold had already written (2026-11-23 eval).
+    // Generate the .env files planned above, from package metadata secrets. Each maps to the
+    // required variables it leaves empty. Generated keys (the JWT pair), registry defaults and
+    // optional variables are not listed: telling the developer to set them sent an agent to
+    // generate JWT keys the scaffold had already written (2026-11-23 eval). A static site's
+    // app/ gets only the VITE_ secrets, and no API env.
     const envLeftToSet = new Map<string, string[]>()
-    if (isFullStack) {
-      const apiSecrets = allSelectedSecrets.filter((s) => !s.name.startsWith('VITE_'))
-      const appSecrets = allSelectedSecrets.filter((s) => s.name.startsWith('VITE_'))
+    for (const env of envFiles)
       envLeftToSet.set(
-        'api/.env',
-        await generateEnvFile(join(projectPath, 'api'), apiSecrets, 'api'),
+        env.file,
+        await generateEnvFile(env.dir, env.secrets, env.type, env.projectName, appEnvKey),
       )
-      envLeftToSet.set(
-        'app/.env',
-        await generateEnvFile(join(projectPath, 'app'), appSecrets, 'app', projectName, appEnvKey),
-      )
-      log(t('commands.create.messages.envGenFullStack'))
-    } else if (isStatic) {
-      // App-only site under app/: only the VITE_ secrets apply, no API env.
-      envLeftToSet.set(
-        'app/.env',
-        await generateEnvFile(
-          join(projectPath, 'app'),
-          allSelectedSecrets.filter((s) => s.name.startsWith('VITE_')),
-          'app',
-          projectName,
-          appEnvKey,
-        ),
-      )
-      log(t('commands.create.messages.envGenSingle'))
-    } else {
-      const envType = projectType === 'app' ? 'app' : 'api'
-      envLeftToSet.set(
-        '.env',
-        await generateEnvFile(projectPath, allSelectedSecrets, envType, projectName, appEnvKey),
-      )
-      log(t('commands.create.messages.envGenSingle'))
-    }
+    log(
+      t(
+        isFullStack
+          ? 'commands.create.messages.envGenFullStack'
+          : 'commands.create.messages.envGenSingle',
+      ),
+    )
 
     // Step 11: Copy SQL setup scripts (API and full-stack)
     if (isFullStack) {
