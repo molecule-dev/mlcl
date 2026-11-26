@@ -867,6 +867,30 @@ export function playwrightInstallProgress(): (line: string) => string | null {
 }
 
 /**
+ * Relays a suite's own browser preparation to the check's progress: the line
+ * `Molecule browser setup: playwright install …` that `@molecule/app-e2e-fixtures-default` prints
+ * before the first launch, then the installer's download progress. The step prints nothing else
+ * during that download (about 120 MiB), and an agent watching `check: e2e (app) started` probed for
+ * the browser itself (harness eval `check`, 2026-11-26).
+ *
+ * @returns A function from one output line to the progress text to show, or null.
+ */
+export function suiteBrowserSetupProgress(): (line: string) => string | null {
+  const installer = playwrightInstallProgress()
+  let preparing = false
+  return (line) => {
+    const setup = /^Molecule browser setup: (playwright install .+)$/.exec(
+      stripVTControlCharacters(line).trim(),
+    )
+    if (setup) {
+      preparing = true
+      return `the suite is installing its Playwright browser (\`${setup[1]}\`); the step goes on when it is done`
+    }
+    return preparing ? installer(line) : null
+  }
+}
+
+/**
  * Run one planned step locally and shape its result. An e2e step that fails only because its
  * Playwright browser is not installed installs that browser and runs once more.
  *
@@ -892,7 +916,13 @@ async function runStep(
   // check is about to install: an agent reading the log, or Playwright's own words in it, beside
   // a pending check installed the browser itself and probed for it (harness eval `check`,
   // 2026-11-25 and 2026-11-26).
-  const first = await runStepCapture(root, step, signal)
+  const relay = suiteBrowserSetupProgress()
+  const first = await runStepCapture(root, step, signal, (line) => {
+    const text = relay(line)
+    if (!text) return
+    note(text)
+    appendLog(step, `${text}\n`)
+  })
   const install =
     first.result.status === 'failed' ? await confirmedBrowserInstall(step, first.log, signal) : null
   if (!install) {
@@ -1021,11 +1051,13 @@ async function runStepOnce(
  * Run a step and shape its result without publishing its output: the caller writes `log`.
  * Meanwhile the step's log says the check is running it, so nobody reads the previous check's
  * output as this one's.
+ * `onLine` is told each line the step prints on stdout, as it prints it.
  */
 async function runStepCapture(
   root: string,
   step: ScriptCheckStep,
   signal: AbortSignal,
+  onLine?: (line: string) => void,
 ): Promise<{ result: CheckStepResult; log: string }> {
   writeLogs(
     step,
@@ -1037,7 +1069,7 @@ async function runStepCapture(
   let stderr: string
   let exitCode: number | null
   try {
-    const r = await execCheckCommand(step, signal)
+    const r = await execCheckCommand(step, signal, onLine)
     stdout = r.stdout
     stderr = r.stderr
     exitCode = 0

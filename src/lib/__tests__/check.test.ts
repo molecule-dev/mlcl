@@ -627,6 +627,68 @@ describe('runCheckLocal', () => {
     expect(readFileSync(join(root, 'calls.txt'), 'utf8')).toBe('test\n')
   })
 
+  it("shows the suite's own browser install while the e2e step runs", async () => {
+    // OLD MUSTFAIL: the check said only "e2e (app) started" through the suite's 120 MiB download,
+    // and an agent watching it probed for the browser itself (harness eval `check`, 2026-11-26).
+    const root = fixtureDir({
+      'package.json': JSON.stringify({ scripts: { 'test:e2e': 'sh e2e.sh' } }),
+      'e2e.sh': [
+        'echo "Molecule browser setup: playwright install --only-shell chromium"',
+        "echo 'Downloading Chrome Headless Shell 148.0.7778.5 (playwright chromium-headless-shell v1248) from https://cdn.playwright.dev/x.zip'",
+        "echo '|■■■■■■■■■■■■■■■■                                                                |  40% of 119.9 MiB'",
+        'cat node_modules/.cache/mlcl-check/e2e.log > seen.txt',
+        'echo "  1 passed (1.0s)"',
+        '',
+      ].join('\n'),
+    })
+    const notes: string[] = []
+    const result = await runCheckLocal(
+      root,
+      { steps: ['e2e'] },
+      {
+        budgetMs: 60_000,
+        onProgress: (event) => {
+          if (event.type === 'note') notes.push(event.text)
+        },
+      },
+    )
+    if ('error' in result) throw new Error(result.error)
+    expect(result.results[0]).toMatchObject({ status: 'passed' })
+    const said = [
+      'the suite is installing its Playwright browser (`playwright install --only-shell chromium`); the step goes on when it is done',
+      'downloading Chrome Headless Shell 148.0.7778.5',
+      'downloaded 40% of 119.9 MiB',
+    ]
+    expect(notes).toEqual(said)
+    // The step's log, read while the step ran, says the same.
+    expect(readFileSync(join(root, 'seen.txt'), 'utf8')).toContain(said.join('\n'))
+  })
+
+  it('relays no download progress from a step that did not announce a browser setup', async () => {
+    // Counterexample: a test's own output that looks like a progress bar is not the check's to show.
+    const root = fixtureDir({
+      'package.json': JSON.stringify({
+        scripts: {
+          'test:e2e':
+            "echo '|■■■■■■■■■■■■■■■■                |  40% of 1 MiB' && echo '  1 passed'",
+        },
+      }),
+    })
+    const notes: string[] = []
+    const result = await runCheckLocal(
+      root,
+      { steps: ['e2e'] },
+      {
+        budgetMs: 60_000,
+        onProgress: (event) => {
+          if (event.type === 'note') notes.push(event.text)
+        },
+      },
+    )
+    if ('error' in result) throw new Error(result.error)
+    expect(notes).toEqual([])
+  })
+
   it("says the check is running a step instead of showing the last check's log", async () => {
     // An agent reading the step log mid-check read the previous check's failure as this one's.
     const root = fixtureDir({
