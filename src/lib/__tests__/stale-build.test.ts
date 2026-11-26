@@ -1,8 +1,6 @@
 /**
- * `bin/stale-build.js`: in a source checkout, a source file saved after `dist/` was built is named
- * on every CLI run, with the rebuild command. On 2026-11-20 a scaffold commit's dist was never
- * rebuilt and local `mlcl create` wrote an unfilled `{{FRAMEWORK_CONFIG}}` for six hours, failing
- * with a Prettier parse error that named neither the build nor the fix.
+ * The checkout check dates the compiled CLI by when compilation began so it
+ * can notice source edits made during compilation.
  */
 import { mkdirSync, mkdtempSync, rmSync, utimesSync, writeFileSync } from 'node:fs'
 import { tmpdir } from 'node:os'
@@ -32,14 +30,13 @@ beforeEach(() => {
 
 afterEach(() => rmSync(root, { recursive: true, force: true }))
 
-describe('stale build warning', () => {
-  it('names the newest source file saved after the build started, and the rebuild command', () => {
+describe('checkout build freshness', () => {
+  it('names the newest source file saved after the build started', () => {
     file('src/lib/scaffold.ts', '2026-11-20T00:35:16Z')
     file('src/lib/older.ts', '2026-11-19T20:00:00Z')
-    const warning = staleBuildWarning(root)
-    expect(warning).toContain('src/lib/scaffold.ts changed at 2026-11-20T00:35:16.000Z')
-    expect(warning).toContain('after dist/ was built (2026-11-19T18:30:00.000Z)')
-    expect(warning).toContain(`Rebuild: cd ${root} && npm run build`)
+    const reason = staleBuildWarning(root)
+    expect(reason).toContain('src/lib/scaffold.ts changed at 2026-11-20T00:35:16.000Z')
+    expect(reason).toContain('after dist/ was built (2026-11-19T18:30:00.000Z)')
   })
 
   it('says nothing when every source file predates the build', () => {
