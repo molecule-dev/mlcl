@@ -54866,11 +54866,13 @@
         "@angular/core",
         "@angular/platform-browser",
         "@molecule/app-angular",
+        "@molecule/app-filesystem",
         "@molecule/app-ui",
         "@molecule/app-ui-angular"
       ],
       "moleculePeers": [
         "@molecule/app-angular",
+        "@molecule/app-filesystem",
         "@molecule/app-ui",
         "@molecule/app-ui-angular"
       ],
@@ -54904,12 +54906,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
@@ -54941,12 +54945,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-solid",
         "@molecule/app-ui",
         "@molecule/app-ui-solid",
         "solid-js"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-solid",
         "@molecule/app-ui",
         "@molecule/app-ui-solid"
@@ -54978,12 +54984,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-svelte",
         "@molecule/app-ui",
         "@molecule/app-ui-svelte",
         "svelte"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-svelte",
         "@molecule/app-ui",
         "@molecule/app-ui-svelte"
@@ -55015,12 +55023,14 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-ui",
         "@molecule/app-ui-vue",
         "@molecule/app-vue",
         "vue"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-ui",
         "@molecule/app-ui-vue",
         "@molecule/app-vue"
@@ -55058,14 +55068,17 @@
         "FileUploadEvents",
         "FileUploadOptions",
         "FileUploadInstance",
-        "FileUploadProvider"
+        "FileUploadProvider",
+        "UploadSource"
       ],
       "secrets": [],
       "runtimeDependencies": [
-        "@molecule/app-bond"
+        "@molecule/app-bond",
+        "@molecule/app-filesystem"
       ],
       "moleculePeers": [
-        "@molecule/app-bond"
+        "@molecule/app-bond",
+        "@molecule/app-filesystem"
       ],
       "bondSetter": "setProvider",
       "path": "packages/app/core/file-upload",
@@ -55097,10 +55110,12 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-file-upload",
+        "@molecule/app-filesystem",
         "@molecule/app-i18n"
       ],
       "moleculePeers": [
         "@molecule/app-file-upload",
+        "@molecule/app-filesystem",
         "@molecule/app-i18n"
       ],
       "path": "packages/app/bonds/file-upload/filepond",
@@ -55155,7 +55170,14 @@
         "getBasename",
         "getDirname",
         "joinPath",
-        "getMimeType"
+        "getMimeType",
+        "BrowserFileInputHandlers",
+        "BrowserFileInputOptions",
+        "FileSelectionOptions",
+        "PickedFile",
+        "createBrowserFileInput",
+        "filterPickedFiles",
+        "fromBrowserFile"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -109597,15 +109619,18 @@
         "AccentTone",
         "UIClassMap",
         "extendClassMap",
-        "ClassMapOverrides"
+        "ClassMapOverrides",
+        "FileFieldProps"
       ],
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-bond",
+        "@molecule/app-filesystem",
         "@molecule/app-i18n"
       ],
       "moleculePeers": [
         "@molecule/app-bond",
+        "@molecule/app-filesystem",
         "@molecule/app-i18n"
       ],
       "ui": {
@@ -109853,7 +109878,8 @@
         "cn",
         "WebDragDirective",
         "WebHoverDirective",
-        "WebWheelZoomDirective"
+        "WebWheelZoomDirective",
+        "FileField"
       ],
       "secrets": [],
       "runtimeDependencies": [
@@ -109861,6 +109887,7 @@
         "@angular/core",
         "@angular/platform-browser",
         "@molecule/app-angular",
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-inline-style-dom",
@@ -109870,6 +109897,7 @@
       ],
       "moleculePeers": [
         "@molecule/app-angular",
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-ui"
@@ -110087,6 +110115,7 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-inline-style-dom",
@@ -110098,6 +110127,7 @@
         "react-dom"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-react",
@@ -110443,10 +110473,12 @@
         "cn",
         "reactStyleText",
         "toStyleProps",
-        "webWheelZoom"
+        "webWheelZoom",
+        "FileField"
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-inline-style-dom",
@@ -110457,6 +110489,7 @@
         "solid-js"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-solid",
@@ -110899,10 +110932,12 @@
         "reactStyleText",
         "getIconData",
         "statusIconMap",
-        "webWheelZoom"
+        "webWheelZoom",
+        "FileField"
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-inline-style-dom",
@@ -110913,6 +110948,7 @@
         "svelte"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-svelte",
@@ -111427,10 +111463,12 @@
         "cn",
         "reactStyleProps",
         "VueStyle",
-        "vWebWheelZoom"
+        "vWebWheelZoom",
+        "FileField"
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-inline-style-dom",
@@ -111441,6 +111479,7 @@
         "vue"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-i18n",
         "@molecule/app-icons",
         "@molecule/app-ui",
