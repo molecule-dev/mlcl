@@ -130,6 +130,14 @@ if staged_diff --name-only -- registry.json | grep -q . &&
   run_check check-react-native-refusals node --import tsx scripts/check-react-native-refusals.mjs
 fi
 
+# molecule-dev's API runs byte-identical copies of the modules src/lib/api-mirrored-modules.json lists
+# (package-doc and example search), so a changed one must already be in molecule-dev HEAD: commit the copy
+# there first. mlcl changed package-doc-files.ts three times before the API's release tests found its copy
+# stale. Reads the index and molecule-dev HEAD; skipped in a standalone clone.
+if [ -f ../scripts/check-api-mirrored-modules.mjs ]; then
+  run_check check-api-mirrored-modules node ../scripts/check-api-mirrored-modules.mjs --repo=mlcl
+fi
+
 # The vendored scanner comparison also reads the workspace working tree.
 if [ "${1:-}" = --index-only ]; then exit 0; fi
 
