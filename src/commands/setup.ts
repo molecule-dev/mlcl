@@ -258,7 +258,11 @@ export default class Setup extends Command {
       this.log(ui.warn(`\n${failed} step(s) failed; the rest are done.`))
       process.exitCode = 1
     }
-    const done = 'Restart your agents to load Molecule.'
+    // After a setup run, agents went on to `npm install -g mlcl` to "confirm it works" (a second
+    // download, 34 s in the 2026-11-25 install eval). The conventions and tools need no global copy.
+    const done = failed
+      ? 'Restart your agents to load Molecule.'
+      : 'Restart your agents to load Molecule. Nothing else to install: agents call the molecule tools, or run `npx mlcl <command>`.'
     if (interactive) p.outro(done)
     else this.log(`\n${done}`)
   }

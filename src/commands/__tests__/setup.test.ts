@@ -104,6 +104,14 @@ describe('mlcl setup', () => {
     expect(readdirSync(project)).toEqual([])
   })
 
+  it('says nothing else needs installing once setup succeeds (OLD MUSTFAIL)', async () => {
+    // Agents read a bare "Restart" as "now install the CLI" and fetched mlcl a second time.
+    const out = await run(['--yes', '--scope', 'machine', '--agent', 'cursor'])
+    expect(out).toContain(
+      'Nothing else to install: agents call the molecule tools, or run `npx mlcl <command>`.',
+    )
+  })
+
   it('this project only: files in the project, nothing in HOME', async () => {
     writeFileSync(join(project, 'CLAUDE.md'), '@AGENTS.md\n')
     await run(['--yes', '--scope', 'project', '--agent', 'claude-code,copilot,gemini'])
