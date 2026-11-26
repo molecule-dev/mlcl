@@ -6,6 +6,8 @@ Built with **[Molecule.dev](https://molecule.dev)** — a composable `@molecule/
 
 ## Quick start
 
+Requires Node.js `{{NODE_RANGE}}`.
+
 ```bash
 npm install
 # fill in credentials in api/.env and app/.env (see .env.example for the full list)

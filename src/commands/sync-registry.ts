@@ -7,9 +7,11 @@ import {
   realpathSync,
   rmSync,
   symlinkSync,
+  writeFileSync,
 } from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 import { fileURLToPath } from 'node:url'
+import { isDeepStrictEqual } from 'node:util'
 
 import * as p from '@clack/prompts'
 import { Args, Command, Flags } from '@oclif/core'
@@ -27,6 +29,7 @@ import { registryPinException } from '../lib/registry-pin-exceptions.js'
 import { syncQuickStart } from '../lib/registry-quick-start.js'
 import { scanResourceRouter } from '../lib/resource-router-source.js'
 import { scanResponseRecord } from '../lib/response-record.js'
+import { scaffoldNodeRange } from '../lib/scaffold-node-range.js'
 import {
   bondSetterScope,
   declarationScope,
@@ -294,8 +297,8 @@ export default class SyncRegistry extends Command {
     const dryRun = flags.check || flags['dry-run']
 
     // Named package directories scope the package scans; the version syncs read every package.
-    const toolchainUpdated = this.scope ? 0 : this.syncToolchain(dryRun, false)
     const frameworksUpdated = this.scope ? 0 : this.syncFrameworks(dryRun, false)
+    const toolchainUpdated = this.scope ? 0 : this.syncToolchain(dryRun, false)
     // Only an unscoped run reads every package, so only it can tell that one is gone.
     const entriesPruned = this.scope ? 0 : this.pruneMissingPackages(dryRun)
     const exportsUpdated = await this.refreshExports(dryRun, false)
@@ -343,13 +346,15 @@ export default class SyncRegistry extends Command {
 
     const registry = getRawRegistry()
     const registryPath = getRegistryPath()
-    const toolchain = registry.toolchain ?? {
-      shared: {},
-      api: {},
-      app: {},
-      moleculePackage: {},
-      postgres: {},
-    }
+    const toolchain = structuredClone(
+      registry.toolchain ?? {
+        shared: {},
+        api: {},
+        app: {},
+        moleculePackage: {},
+        postgres: {},
+      },
+    )
 
     const __dir = dirname(fileURLToPath(import.meta.url))
     const mlclDir = join(__dir, '..', '..')
@@ -423,9 +428,40 @@ export default class SyncRegistry extends Command {
       }
     }
 
+    const { node, pins } = scaffoldNodeRange(
+      { ...registry, toolchain },
+      mlclDir,
+      dirname(registryPath),
+      true,
+    )
+    if (registry.toolchainEngines?.node !== node) {
+      updated++
+      changes.push(
+        `${chalk.yellow('↑')} node: ${registry.toolchainEngines?.node ?? 'unset'} → ${chalk.green(node)}`,
+      )
+    }
+    if (!isDeepStrictEqual(registry.toolchainEngines?.pins ?? {}, pins)) {
+      updated++
+      changes.push('Refreshed Node engines for scaffold pins outside the CLI lockfile')
+    }
     if (!dryRun && updated > 0) {
-      registry.toolchain = toolchain
-      writeRegistryFile(registryPath, registry)
+      writeRegistryFile(registryPath, {
+        ...registry,
+        toolchain,
+        toolchainEngines: { node, pins },
+      })
+    }
+
+    // The standalone MCP advertises the same Node requirement before the CLI is resolved.
+    const mcp = join(mlclDir, 'mcp')
+    if (registryPath === join(mlclDir, 'registry.json') && existsSync(join(mcp, 'package.json'))) {
+      const path = join(mcp, 'assets', 'scaffold-node.txt')
+      const contents = `${node}\n`
+      if (!existsSync(path) || readFileSync(path, 'utf8') !== contents) {
+        updated++
+        changes.push('Refreshed the MCP scaffold Node requirement')
+        if (!dryRun) writeFileSync(path, contents)
+      }
     }
 
     const details = changes.length > 0 ? '\n' + changes.join('\n') : ''

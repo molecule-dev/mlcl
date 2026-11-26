@@ -922,8 +922,7 @@ server.registerTool(
   {
     _meta: LOAD_UP_FRONT,
     title: 'Scaffold a molecule project',
-    description:
-      'Create a new project with mlcl: from a flagship template when its catalog (list_templates with its slug) covers the core of the request, otherwise from a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node >= 22. With its install it takes seconds when the npm cache holds the packages and a few minutes on a first install. Call it once and wait; a slow response is not a failure, do not retry. `directory` must already exist (it becomes the spawn cwd).',
+    description: `Create a new project with mlcl: from a flagship template when its catalog (list_templates with its slug) covers the core of the request, otherwise from a custom package stack. Runs fully unattended and returns a JSON result (path, packages, secrets to fill in .env). Requires Node ${readFileSync(new URL('../assets/scaffold-node.txt', import.meta.url), 'utf8').trim()}. With its install it takes seconds when the npm cache holds the packages and a few minutes on a first install. Call it once and wait; a slow response is not a failure, do not retry. \`directory\` must already exist (it becomes the spawn cwd).`,
     inputSchema: {
       name: z.string().describe('Project name (lowercase slug)'),
       template: z

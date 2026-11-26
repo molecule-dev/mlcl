@@ -14,6 +14,8 @@ import { fileURLToPath } from 'node:url'
 import { describe, expect, it } from 'vitest'
 
 import { REGISTRY_PIN_EXCEPTIONS } from '../registry-pin-exceptions.js'
+import { scaffoldNodeRange } from '../scaffold-node-range.js'
+import { Registry } from '../schema.js'
 
 const __dir = dirname(fileURLToPath(import.meta.url))
 const mlclRoot = join(__dir, '..', '..', '..')
@@ -57,6 +59,18 @@ for (const fw of Object.values(registry.appFrameworks ?? {})) {
 }
 
 describe('toolchain version sync', () => {
+  it('records the installed pins’ common Node floor for the CLI and the MCP', () => {
+    const source = Registry.parse(registry)
+    const derived = scaffoldNodeRange(source, mlclRoot)
+    expect(source.toolchainEngines?.node, 'Run: npx mlcl sync-registry --sync-toolchain').toBe(
+      derived.node,
+    )
+    expect(source.toolchainEngines?.pins).toEqual(derived.pins)
+    expect(readFileSync(join(mlclRoot, 'mcp/assets/scaffold-node.txt'), 'utf8')).toBe(
+      `${derived.node}\n`,
+    )
+  })
+
   it('keeps the Angular router aligned with its exact runtime peers', () => {
     const angular = registry.appFrameworks?.angular?.dependencies ?? {}
     expect(angular['@angular/router']).toBeTypeOf('string')
