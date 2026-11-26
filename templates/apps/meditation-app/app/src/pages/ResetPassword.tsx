@@ -71,7 +71,9 @@ export function ResetPassword() {
         <FloatingInput
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={({ currentTarget }) => {
+            if (currentTarget instanceof HTMLInputElement) setEmail(currentTarget.value)
+          }}
           autoComplete="email"
           required
           placeholder={t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
@@ -79,14 +81,18 @@ export function ResetPassword() {
         <FloatingInput
           type="text"
           value={token}
-          onChange={(e) => setToken(e.target.value)}
+          onChange={({ currentTarget }) => {
+            if (currentTarget instanceof HTMLInputElement) setToken(currentTarget.value)
+          }}
           required
           placeholder={t('auth.resetPassword.resetToken', {}, { defaultValue: 'Reset token' })}
         />
         <FloatingInput
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={({ currentTarget }) => {
+            if (currentTarget instanceof HTMLInputElement) setPassword(currentTarget.value)
+          }}
           autoComplete="new-password"
           required
           placeholder={t('stillpoint.reset.newPassword', {}, { defaultValue: 'New password' })}
@@ -94,7 +100,9 @@ export function ResetPassword() {
         <FloatingInput
           type="password"
           value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          onChange={({ currentTarget }) => {
+            if (currentTarget instanceof HTMLInputElement) setConfirmPassword(currentTarget.value)
+          }}
           autoComplete="new-password"
           required
           placeholder={t(

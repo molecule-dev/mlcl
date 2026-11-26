@@ -54,7 +54,7 @@ export function AuthShell({
             cm.flex({ direction: 'col', justify: 'between' }),
             cm.sp('p', 12),
           )}
-          style={{
+          webStyle={{
             background:
               'linear-gradient(135deg, var(--color-sidebar) 0%, var(--mol-color-primary-dark) 50%, var(--color-primary-dark) 100%)',
           }}

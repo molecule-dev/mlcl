@@ -70,7 +70,7 @@ export function AuthShell({
             cm.sp('p', 12),
             'col-span-5 relative overflow-hidden text-white',
           )}
-          style={{
+          webStyle={{
             background:
               'linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 55%, var(--color-canvas-bg-dark) 130%)',
           }}

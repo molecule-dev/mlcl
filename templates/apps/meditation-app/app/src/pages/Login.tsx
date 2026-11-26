@@ -74,7 +74,9 @@ export function Login() {
           required
           placeholder={t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={({ currentTarget }) => {
+            if (currentTarget instanceof HTMLInputElement) setEmail(currentTarget.value)
+          }}
         />
         <FloatingInput
           type="password"
@@ -82,7 +84,9 @@ export function Login() {
           required
           placeholder={t('auth.login.password', {}, { defaultValue: 'Password' })}
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={({ currentTarget }) => {
+            if (currentTarget instanceof HTMLInputElement) setPassword(currentTarget.value)
+          }}
         />
 
         <div className={cm.cn(cm.flex({ align: 'center', justify: 'between' }), 'mt-1')}>

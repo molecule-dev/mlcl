@@ -43,7 +43,7 @@ export function AuthShell({
           cm.sp('p', 12),
           'w-[45%] flex-col justify-between text-white relative overflow-hidden',
         )}
-        style={{
+        webStyle={{
           background:
             'linear-gradient(135deg, var(--mol-color-primary-dark) 0%, var(--mol-color-primary) 50%, var(--color-timer) 100%)',
         }}

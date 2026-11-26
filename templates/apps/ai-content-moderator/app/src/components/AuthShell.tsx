@@ -141,7 +141,7 @@ export function AuthShell({ heading, subheading, children, footer }: AuthShellPr
             cm.sp('p', 8),
             'bg-surface-container-lowest relative z-10 sm:p-12 lg:p-16',
           )}
-          style={{
+          webStyle={{
             boxShadow: '0 0 40px color-mix(in srgb, var(--color-on-background) 5%, transparent)',
           }}
         >

@@ -63,7 +63,9 @@ export function ForgotPassword() {
                   <FloatingInput
                     type="email"
                     value={email}
-                    onChange={(e) => setEmail(e.target.value)}
+                    onChange={({ currentTarget }) => {
+                      if (currentTarget instanceof HTMLInputElement) setEmail(currentTarget.value)
+                    }}
                     autoComplete="email"
                     required
                     placeholder={t('auth.forgotPassword.email')}

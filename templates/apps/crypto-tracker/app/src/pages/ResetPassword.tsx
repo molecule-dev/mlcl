@@ -65,7 +65,9 @@ export function ResetPassword() {
           <FloatingInput
             type="password"
             value={password}
-            onChange={(e) => setPassword(e.target.value)}
+            onChange={({ currentTarget }) => {
+              if (currentTarget instanceof HTMLInputElement) setPassword(currentTarget.value)
+            }}
             autoComplete="new-password"
             required
             placeholder={t(
@@ -77,7 +79,9 @@ export function ResetPassword() {
           <FloatingInput
             type="password"
             value={confirmPassword}
-            onChange={(e) => setConfirmPassword(e.target.value)}
+            onChange={({ currentTarget }) => {
+              if (currentTarget instanceof HTMLInputElement) setConfirmPassword(currentTarget.value)
+            }}
             autoComplete="new-password"
             required
             placeholder={t(

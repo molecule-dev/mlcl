@@ -51,7 +51,7 @@ export function AuthShell({ eyebrow, title, subtitle, children, footnote }: Auth
         <ThemeToggle />
       </header>
 
-      <AuthShellCardColumn as="main" className={cm.cn(cm.flex1)} style={{ padding: '24px' }}>
+      <AuthShellCardColumn as="main" className={cm.cn(cm.flex1)} style={{ padding: 24 }}>
         <div
           style={{
             display: 'grid',

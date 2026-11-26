@@ -66,7 +66,9 @@ export function Signup() {
               <FloatingInput
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setEmail(currentTarget.value)
+                }}
                 autoComplete="email"
                 required
                 placeholder={t('auth.signup.email')}
@@ -76,7 +78,9 @@ export function Signup() {
               <FloatingInput
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setPassword(currentTarget.value)
+                }}
                 autoComplete="new-password"
                 required
                 placeholder={t('auth.signup.password')}
@@ -86,7 +90,9 @@ export function Signup() {
               <FloatingInput
                 type="text"
                 value={name}
-                onChange={(e) => setName(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setName(currentTarget.value)
+                }}
                 autoComplete="name"
                 placeholder={t('auth.signup.name')}
               />

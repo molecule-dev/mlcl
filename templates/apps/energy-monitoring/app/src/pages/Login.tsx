@@ -67,7 +67,9 @@ export function Login() {
               <FloatingInput
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setEmail(currentTarget.value)
+                }}
                 autoComplete="email"
                 required
                 placeholder={t('auth.login.email')}
@@ -77,7 +79,9 @@ export function Login() {
               <FloatingInput
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setPassword(currentTarget.value)
+                }}
                 autoComplete="current-password"
                 required
                 placeholder={t('auth.login.password')}
@@ -87,7 +91,10 @@ export function Login() {
               <FloatingInput
                 type="number"
                 value={twoFactorToken}
-                onChange={(e) => setTwoFactorToken(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement)
+                    setTwoFactorToken(currentTarget.value)
+                }}
                 autoComplete="one-time-code"
                 placeholder={t('auth.login.twoFactor')}
               />

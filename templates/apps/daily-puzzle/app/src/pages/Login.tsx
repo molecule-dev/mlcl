@@ -121,7 +121,9 @@ export function Login() {
               <FloatingInput
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setEmail(currentTarget.value)
+                }}
                 autoComplete="email"
                 required
                 placeholder={t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
@@ -129,7 +131,9 @@ export function Login() {
               <FloatingInput
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setPassword(currentTarget.value)
+                }}
                 autoComplete="current-password"
                 required
                 placeholder={t('auth.login.password', {}, { defaultValue: 'Password' })}

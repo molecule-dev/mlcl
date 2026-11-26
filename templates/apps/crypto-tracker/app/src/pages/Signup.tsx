@@ -81,7 +81,9 @@ export function Signup() {
           <FloatingInput
             type="text"
             value={firstName}
-            onChange={(e) => setFirstName(e.target.value)}
+            onChange={({ currentTarget }) => {
+              if (currentTarget instanceof HTMLInputElement) setFirstName(currentTarget.value)
+            }}
             autoComplete="given-name"
             placeholder={t('form.firstName', {}, { defaultValue: 'First name' })}
             required
@@ -89,7 +91,9 @@ export function Signup() {
           <FloatingInput
             type="text"
             value={lastName}
-            onChange={(e) => setLastName(e.target.value)}
+            onChange={({ currentTarget }) => {
+              if (currentTarget instanceof HTMLInputElement) setLastName(currentTarget.value)
+            }}
             autoComplete="family-name"
             placeholder={t('form.lastName', {}, { defaultValue: 'Last name' })}
             required
@@ -98,7 +102,9 @@ export function Signup() {
         <FloatingInput
           type="email"
           value={email}
-          onChange={(e) => setEmail(e.target.value)}
+          onChange={({ currentTarget }) => {
+            if (currentTarget instanceof HTMLInputElement) setEmail(currentTarget.value)
+          }}
           autoComplete="email"
           required
           placeholder={t('auth.forgotPassword.email', {}, { defaultValue: 'Email' })}
@@ -106,7 +112,9 @@ export function Signup() {
         <FloatingInput
           type="password"
           value={password}
-          onChange={(e) => setPassword(e.target.value)}
+          onChange={({ currentTarget }) => {
+            if (currentTarget instanceof HTMLInputElement) setPassword(currentTarget.value)
+          }}
           autoComplete="new-password"
           required
           placeholder={t('auth.login.password', {}, { defaultValue: 'Password' })}
@@ -114,7 +122,9 @@ export function Signup() {
         <FloatingInput
           type="password"
           value={confirmPassword}
-          onChange={(e) => setConfirmPassword(e.target.value)}
+          onChange={({ currentTarget }) => {
+            if (currentTarget instanceof HTMLInputElement) setConfirmPassword(currentTarget.value)
+          }}
           autoComplete="new-password"
           required
           placeholder={t('auth.signup.confirmPassword', {}, { defaultValue: 'Confirm password' })}

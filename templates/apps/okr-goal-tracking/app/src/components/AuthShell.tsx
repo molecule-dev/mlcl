@@ -42,7 +42,7 @@ export function AuthShell({ heading, subheading, children, footerPrompt }: AuthS
           cm.sp('p', 12),
           'relative w-1/2 overflow-hidden text-white',
         )}
-        style={{
+        webStyle={{
           background:
             'var(--color-auth-hero-grad, linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #0c4a6e 100%))',
         }}

@@ -86,7 +86,9 @@ export function ResetPassword() {
               <FloatingInput
                 type="email"
                 value={email}
-                onChange={(e) => setEmail(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setEmail(currentTarget.value)
+                }}
                 autoComplete="email"
                 required
                 placeholder={t('auth.resetPassword.email')}
@@ -96,7 +98,9 @@ export function ResetPassword() {
               <FloatingInput
                 type="password"
                 value={token}
-                onChange={(e) => setToken(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setToken(currentTarget.value)
+                }}
                 required
                 placeholder={t('auth.resetPassword.token')}
               />
@@ -105,7 +109,9 @@ export function ResetPassword() {
               <FloatingInput
                 type="password"
                 value={password}
-                onChange={(e) => setPassword(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement) setPassword(currentTarget.value)
+                }}
                 autoComplete="new-password"
                 required
                 placeholder={t('auth.resetPassword.newPassword')}
@@ -115,7 +121,10 @@ export function ResetPassword() {
               <FloatingInput
                 type="number"
                 value={twoFactorToken}
-                onChange={(e) => setTwoFactorToken(e.target.value)}
+                onChange={({ currentTarget }) => {
+                  if (currentTarget instanceof HTMLInputElement)
+                    setTwoFactorToken(currentTarget.value)
+                }}
                 autoComplete="one-time-code"
                 placeholder={t('auth.resetPassword.twoFactor')}
               />
