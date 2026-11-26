@@ -30,7 +30,7 @@ import {
   planInjection,
   resolveDefaultProvidersFromPlans,
 } from '../../lib/injector.js'
-import Inject from '../inject.js'
+import Inject, { TRY_SERVER } from '../inject.js'
 
 vi.mock('execa', () => ({ execa: vi.fn() }))
 
@@ -322,6 +322,48 @@ describe('mlcl inject in a project Molecule did not create (OLD MUSTFAIL)', () =
     expect(tail).toContain('await setupBonds()')
     expect(tail).toContain('npm run build')
     expect(tail).not.toContain('mlcl check')
+  })
+
+  // Claude Code tried the route by starting the server in the background, calling it, then
+  // `pkill -f dist/server.js` in the same command: the pattern matched the shell running that
+  // command, which died with exit 144 and lost every command after it (harness eval `add`, 25 of
+  // 25 runs).
+  it('names a way to start and stop the server in one command when the API has a start script (OLD MUSTFAIL)', async () => {
+    const uploads = '@molecule/api-uploads-filesystem'
+    const parser = '@molecule/api-middleware-body-parser-express'
+    const manifest = (scripts: Record<string, string>): object => ({
+      name: 'notes-api',
+      version: '1.0.0',
+      type: 'module',
+      scripts,
+      dependencies: {
+        express: '5.2.1',
+        '@molecule/api-bond': '1.0.0',
+        '@molecule/api-i18n': '1.0.0',
+        '@molecule/api-uploads': '1.0.0',
+        '@molecule/api-middleware-body-parser': '1.0.0',
+        [parser]: '1.0.0',
+        [uploads]: '1.0.0',
+      },
+    })
+    const server = { 'src/server.js': "import express from 'express'\nexpress().listen(3000)\n" }
+    const started = await inject(
+      await project(
+        'mlcl-inject-try-',
+        manifest({ start: 'node src/server.js', build: 'tsc' }),
+        server,
+      ),
+      [uploads, parser],
+    )
+    expect(started).toContain('To try a route, start the server in the command that calls it')
+    expect(started).toContain(TRY_SERVER)
+    await rm(dir!, { recursive: true, force: true })
+    // Counterexample: with no start script there is no server to try.
+    const none = await inject(
+      await project('mlcl-inject-try-', manifest({ build: 'tsc' }), server),
+      [uploads, parser],
+    )
+    expect(none).not.toContain(TRY_SERVER)
   })
 
   it('writes ES modules as .mjs in a CommonJS package and imports them dynamically', async () => {

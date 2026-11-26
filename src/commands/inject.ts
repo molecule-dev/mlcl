@@ -79,6 +79,13 @@ import { validateInjectionOutput } from '../lib/validator.js'
 import { writtenCode } from '../lib/written-code.js'
 
 /**
+ * How to try an API with a start script from one shell command: `set -m` gives the backgrounded
+ * `npm start` its own process group, and the trap stops that group (npm and the listener it
+ * starts) when the command ends.
+ */
+export const TRY_SERVER = `set -m; npm start & server=$!; trap 'kill -- "-$server"' EXIT; sleep 2; curl -fsS localhost:<port>/<route>`
+
+/**
  * The project name as the `.env` append path may receive it.
  *
  * The name comes from the TARGET project's own `package.json` (`name` field,
@@ -1269,6 +1276,15 @@ export default class Inject extends Command {
       this.log(
         `  ${t('commands.inject.messages.runBuild', { num: stepNum++, command: chalk.cyan('npm run build') })}`,
       )
+    // An API with a start script is tried by starting it and calling a route. Stopping a server
+    // started in the background with `pkill -f <pattern>` also matches the shell running that
+    // command, which dies with it and loses every command after the kill (harness eval `add`:
+    // Claude Code, 25 of 25 runs). Job control puts npm and the listener it starts in one process
+    // group, which the trap stops when the command ends; a plain `kill` of npm leaves the listener.
+    if (!isAppProject && projectPkg.scripts?.start) {
+      this.log(`  ${t('commands.inject.messages.tryServer', { num: stepNum++ })}`)
+      this.log(`       ${chalk.cyan(TRY_SERVER)}`)
+    }
     if (!testsPassed && (!existingProject || projectPkg.scripts?.test)) {
       this.log(
         `  ${t('commands.inject.messages.runTest', { num: stepNum, command: chalk.cyan('npm test') })}`,

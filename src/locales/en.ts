@@ -298,6 +298,8 @@ export const messages: LocaleMessages = {
   'commands.inject.messages.runInstall': '{num}. Run {command} to install new dependencies',
   'commands.inject.messages.runBuild': '{num}. Run {command} to verify the build',
   'commands.inject.messages.runTest': '{num}. Run {command} to run tests',
+  'commands.inject.messages.tryServer':
+    '{num}. To try a route, start the server in the command that calls it; the trap stops it when the command ends (a `pkill -f` pattern also kills the shell running the command):',
 
   // ─── commands/swap ──────────────────────────────────────────────
   'commands.swap.description':
