@@ -23,7 +23,15 @@
  */
 
 import type { Dirent } from 'node:fs'
-import { existsSync, mkdirSync, readdirSync, readFileSync, statSync, writeFileSync } from 'node:fs'
+import {
+  appendFileSync,
+  existsSync,
+  mkdirSync,
+  readdirSync,
+  readFileSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs'
 import { dirname, join, relative } from 'node:path'
 import { stripVTControlCharacters } from 'node:util'
 
@@ -843,17 +851,22 @@ async function runStep(
   // The first run's log names the missing browser, and an agent that read it while the check was
   // still running installed the browser from its own shell and probed for it (harness eval `check`,
   // 2026-11-25, Codex reading the log beside a pending `check_project`). Until the next run replaces
-  // it, the log says what the check is doing.
+  // it, the log says only what the check is doing, then how far the download got: with the first
+  // run's output below that note, Codex searched the log for errors, found only Playwright's
+  // "Executable doesn't exist" line and looked for the browser itself (harness eval `check`,
+  // 2026-11-26). The failure path below still reports the first run's output.
   const firstLog = readLog(step.logPath)
   writeLogs(
     step,
-    `mlcl check: the Playwright browser (${browsers}) is not installed. The check is installing it (\`${command}\`) and will run this step again; this log is replaced when that run ends. The first run's output follows.\n\n${firstLog}`,
+    `mlcl check: the Playwright browser (${browsers}) is not installed, so the first e2e run could not launch it. The check is installing it now (\`${command}\`) and will run this step again; nothing needs doing meanwhile. This log is replaced when that run ends.\n`,
   )
   const installStarted = Date.now()
   try {
     await execCheckCommand({ ...step, command }, signal, (line) => {
       const text = progress(line)
-      if (text) note(text)
+      if (!text) return
+      note(text)
+      appendLog(step, `${text}\n`)
     })
   } catch (error) {
     // The install failed (no network, no permission) or was stopped. Said first, with its last
@@ -1075,6 +1088,14 @@ function writeLogs(step: PlannedCheckStep, log: string): void {
     writeFileSync(step.logPath, log)
   } catch (_error) {
     // The log file is a convenience; the result already carries the errors.
+  }
+}
+
+function appendLog(step: PlannedCheckStep, text: string): void {
+  try {
+    appendFileSync(step.logPath, text)
+  } catch (_error) {
+    // The log file is a convenience; the progress also goes to the caller's notes.
   }
 }
 

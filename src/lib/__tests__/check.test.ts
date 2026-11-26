@@ -371,7 +371,8 @@ describe('runCheckLocal', () => {
           : []),
         // What an agent reading the step log while the browser installs would see.
         'if [ "$1" = install ]; then cat node_modules/.cache/mlcl-check/*.log > log-during-install.txt; fi',
-        'if [ "$1" = install ]; then shift; echo "$*" >> installed.txt; cat install-output.txt; exit 0; fi',
+        // And once the download output has been read, what the log says then.
+        'if [ "$1" = install ]; then shift; echo "$*" >> installed.txt; cat install-output.txt; sleep 1; cat node_modules/.cache/mlcl-check/*.log > log-after-download.txt; exit 0; fi',
         'if [ -f installed.txt ]; then echo "  2 passed (1.0s)"; exit 0; fi',
         'cat <<"EOF"',
         failure,
@@ -420,14 +421,21 @@ describe('runCheckLocal', () => {
     expect(e2e.status).toBe('passed')
     expect(readFileSync(join(root, 'installed.txt'), 'utf8')).toBe('--only-shell chromium\n')
     expect(e2e.summary).toContain('installed the Playwright browser first (chromium)')
-    // While it installs, the step log says so above the first run's failure: Codex read that log
-    // beside a pending check, took "Executable doesn't exist" as its own job, installed the browser
-    // and probed for it (harness eval `check`, 2026-11-25; OLD MUSTFAIL). The next run replaces it.
+    // While it installs, the step log says so: Codex read that log beside a pending check, took
+    // "Executable doesn't exist" as its own job, installed the browser and probed for it (harness
+    // eval `check`, 2026-11-25; OLD MUSTFAIL). The next run replaces it.
     const during = readFileSync(join(root, 'log-during-install.txt'), 'utf8')
-    expect(during.split('\n')[0]).toBe(
-      "mlcl check: the Playwright browser (chromium) is not installed. The check is installing it (`npx --no-install playwright install --only-shell chromium`) and will run this step again; this log is replaced when that run ends. The first run's output follows.",
+    expect(during).toBe(
+      'mlcl check: the Playwright browser (chromium) is not installed, so the first e2e run could not launch it. The check is installing it now (`npx --no-install playwright install --only-shell chromium`) and will run this step again; nothing needs doing meanwhile. This log is replaced when that run ends.\n',
     )
-    expect(during).toContain("Executable doesn't exist")
+    // Without the first run's failure under it: with that output kept below the note, Codex searched
+    // the log for errors, found only "Executable doesn't exist" and looked for the browser itself
+    // (harness eval `check`, 2026-11-26; OLD MUSTFAIL).
+    expect(during).not.toContain("Executable doesn't exist")
+    // Then how far the download got, for an agent reading the log instead of the notes.
+    expect(readFileSync(join(root, 'log-after-download.txt'), 'utf8')).toBe(
+      `${during}${events.slice(2, -1).join('\n')}\n`,
+    )
     expect(readFileSync(e2e.logPath, 'utf8')).not.toContain('mlcl check:')
   })
 
