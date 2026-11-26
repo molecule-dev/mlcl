@@ -205,6 +205,60 @@ describe('bin/run.js checkout rebuild', () => {
     expect(existsSync(join(root, lock))).toBe(false)
   })
 
+  it('compiles a failing source once, and again only when its source, config or installed tree changes', async () => {
+    const compiles = (): number =>
+      readFileSync(join(root, 'compiles'), 'utf8').split('\n').filter(Boolean).length
+    file('src/index.ts', 'export const release: string = 42\n')
+    expect((await cli().done).stderr).toMatch(/error TS2322/)
+    expect(compiles()).toBe(1)
+
+    const repeat = await cli().done
+    expect(repeat.stdout).toBe(oldOutput)
+    expect(repeat.stderr).toContain(
+      'the last rebuild of this source failed, so this run uses the previous build',
+    )
+    expect(repeat.stderr).not.toMatch(/error TS/)
+    expect(compiles()).toBe(1)
+
+    // An install rewrites node_modules/.package-lock.json; a missing declaration may now resolve.
+    file('node_modules/.package-lock.json', '{}\n')
+    await cli().done
+    expect(compiles()).toBe(2)
+    await cli().done
+    expect(compiles()).toBe(2)
+
+    const later = new Date(Date.now() + 5_000)
+    utimesSync(join(root, 'tsconfig.json'), later, later)
+    await cli().done
+    expect(compiles()).toBe(3)
+
+    file('src/index.ts', "export const release = 'new'\n")
+    expect((await cli().done).stdout).toBe(newOutput)
+    expect(compiles()).toBe(4)
+    expect(existsSync(join(root, 'dist/.build-failed'))).toBe(false)
+  })
+
+  it('compiles a failing source once for two stale callers', async () => {
+    file('src/index.ts', 'export const release: string = 42\n')
+    const first = cli({ MLCL_TEST_PAUSE_COMPILER: '1' })
+    const second = cli({ MLCL_TEST_PAUSE_COMPILER: '1' })
+    const both = Promise.allSettled([first.done, second.done])
+    try {
+      await expect
+        .poll(() => first.stderr() + second.stderr(), { timeout: 8_000 })
+        .toContain('waiting for build')
+    } finally {
+      file('release-compiler', '')
+      await both
+    }
+    const results = await Promise.all([first.done, second.done])
+    expect(results.map(({ stdout }) => stdout)).toEqual([oldOutput, oldOutput])
+    expect(results.map(({ stderr }) => stderr).join('')).toContain(
+      'the last rebuild of this source failed',
+    )
+    expect(readFileSync(join(root, 'compiles'), 'utf8')).toBe('compile\n')
+  })
+
   it('ignores an unusable lock in fresh and published trees but consults it when stale', async () => {
     file(lock, 'This file prevents taking the build lock.')
     const stale = await cli().done

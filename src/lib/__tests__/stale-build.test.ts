@@ -8,7 +8,13 @@ import { join } from 'node:path'
 
 import { afterEach, beforeEach, describe, expect, it } from 'vitest'
 
-import { BUILD_STAMP, staleBuildWarning } from '../../../bin/stale-build.mjs'
+import {
+  BUILD_STAMP,
+  buildInputs,
+  FAILED_BUILD,
+  lastFailedBuild,
+  staleBuildWarning,
+} from '../../../bin/stale-build.mjs'
 
 let root: string
 const at = (iso: string): Date => new Date(iso)
@@ -58,5 +64,41 @@ describe('checkout build freshness', () => {
   it('does nothing in a published install, which ships no src/', () => {
     rmSync(join(root, 'src'), { recursive: true })
     expect(staleBuildWarning(root)).toBeNull()
+  })
+})
+
+describe('a failed rebuild', () => {
+  const record = (inputs: string): void =>
+    file(
+      `dist/${FAILED_BUILD}`,
+      '2026-11-19T18:40:00Z',
+      `${JSON.stringify({ inputs, status: 2 })}\n`,
+    )
+
+  it('is remembered for the inputs it compiled', () => {
+    record(buildInputs(root))
+    expect(lastFailedBuild(root)).toEqual({ inputs: buildInputs(root), status: 2 })
+  })
+
+  it('is forgotten once a source file changes, is added or is removed', () => {
+    record(buildInputs(root))
+    file('src/lib/added.ts', '2026-11-19T09:00:00Z')
+    expect(lastFailedBuild(root)).toBeNull()
+    record(buildInputs(root))
+    rmSync(join(root, 'src/lib/added.ts'))
+    expect(lastFailedBuild(root)).toBeNull()
+  })
+
+  it('is forgotten once the manifest, tsconfig or an installed tree changes', () => {
+    for (const changed of ['package.json', 'tsconfig.json', 'node_modules/.package-lock.json']) {
+      record(buildInputs(root))
+      file(changed, '2026-11-19T19:00:00Z')
+      expect(lastFailedBuild(root)).toBeNull()
+    }
+  })
+
+  it('is ignored when half-written by a concurrent builder', () => {
+    file(`dist/${FAILED_BUILD}`, '2026-11-19T18:40:00Z', '{"inputs": "')
+    expect(lastFailedBuild(root)).toBeNull()
   })
 })

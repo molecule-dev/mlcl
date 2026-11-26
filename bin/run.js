@@ -5,10 +5,17 @@ import { fileURLToPath, URL } from 'node:url'
 
 import { execute } from '@oclif/core'
 
-import { staleBuildWarning } from './stale-build.mjs'
+import { lastFailedBuild, staleBuildWarning } from './stale-build.mjs'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
-if (staleBuildWarning(root)) {
+const stale = staleBuildWarning(root)
+if (stale && lastFailedBuild(root)) {
+  // Compiling the same source and installed tree again would fail the same way.
+  process.stderr.write(
+    `mlcl: ${stale}, and the last rebuild of this source failed, so this run uses the previous build. ` +
+      `To see the errors: cd ${root} && npm run build\n`,
+  )
+} else if (stale) {
   const { spawnSync } = await import('node:child_process')
   const result = spawnSync(process.execPath, ['scripts/build.mjs', '--if-stale'], {
     cwd: root,

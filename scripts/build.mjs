@@ -24,7 +24,13 @@ import { performance } from 'node:perf_hooks'
 import { setTimeout as delay } from 'node:timers/promises'
 import { fileURLToPath } from 'node:url'
 
-import { BUILD_STAMP, staleBuildWarning } from '../bin/stale-build.mjs'
+import {
+  BUILD_STAMP,
+  buildInputs,
+  FAILED_BUILD,
+  lastFailedBuild,
+  staleBuildWarning,
+} from '../bin/stale-build.mjs'
 
 const root = fileURLToPath(new URL('..', import.meta.url))
 const dist = join(root, 'dist')
@@ -119,6 +125,7 @@ function build() {
   try {
     // A source file saved during compilation can still make this new build stale.
     const startedAt = Date.now()
+    const inputs = buildInputs(root)
     const result = spawnSync(
       process.execPath,
       [tsc, '-p', join(root, 'tsconfig.json'), '--outDir', next],
@@ -129,7 +136,15 @@ function build() {
     )
     if (result.error) throw result.error
     if (result.signal) throw new Error(`TypeScript was terminated by ${result.signal}`)
-    if (result.status !== 0) return result.status ?? 1
+    if (result.status !== 0) {
+      // The CLI then runs the dist/ it kept and does not compile these same inputs again.
+      if (existsSync(dist))
+        writeFileSync(
+          join(dist, FAILED_BUILD),
+          `${JSON.stringify({ inputs, status: result.status })}\n`,
+        )
+      return result.status ?? 1
+    }
 
     writeFileSync(join(next, BUILD_STAMP), `${startedAt}\n`)
     const hadDist = existsSync(dist)
@@ -157,8 +172,14 @@ try {
     if (!existsSync(dist) && existsSync(backup)) renameSync(backup, dist)
     const ifStale = process.argv.includes('--if-stale')
     const reason = ifStale ? staleBuildWarning(root) : null
-    if (reason) process.stderr.write(`mlcl: rebuilding dist/ because ${reason}.\n`)
-    if (!ifStale || reason) process.exitCode = build()
+    if (reason && lastFailedBuild(root)) {
+      // Another caller compiled these inputs while this one waited for the lock, and it failed.
+      process.stderr.write(`mlcl: ${reason}; the last rebuild of this source failed.\n`)
+      process.exitCode = 1
+    } else {
+      if (reason) process.stderr.write(`mlcl: rebuilding dist/ because ${reason}.\n`)
+      if (!ifStale || reason) process.exitCode = build()
+    }
   } finally {
     releaseLock(owner)
   }
