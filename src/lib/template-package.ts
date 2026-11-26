@@ -72,12 +72,17 @@ export function templatePackageIssues(
       `${loose.length} flagship files shipped outside their ${TEMPLATE_TREE_ARCHIVE} (npm unpacks each one on install; prepack's template-trees step writes the manifest), first: ${loose[0][0]}`,
     )
   const outer = new Set(pack.files.map(({ path }) => path))
+  const advertised = new Set(registered)
   for (const path of outer) {
-    const slug = /^templates\/apps\/([^/]+)\/[^/]+$/.exec(path)?.[1]
-    if (slug && path.endsWith(`/${TEMPLATE_TREE_ARCHIVE}`) && !Object.hasOwn(trees, slug))
+    const match = /^templates\/apps\/([^/]+)\/([^/]+)$/.exec(path)
+    if (!match) continue
+    const [, slug, file] = match
+    // create can select a template by its own descriptor without reading the index.
+    if (file === 'template.json' || file === 'CATALOG.md') advertised.add(slug)
+    if (file === TEMPLATE_TREE_ARCHIVE && !Object.hasOwn(trees, slug))
       issues.push(`template tree manifest not inspected: ${path}`)
   }
-  for (const slug of registered) {
+  for (const slug of advertised) {
     const root = `templates/apps/${slug}/`
     for (const file of [...TEMPLATE_TREE_KEPT, TEMPLATE_TREE_ARCHIVE]) {
       if (!outer.has(root + file)) issues.push(`flagship ${slug} missing ${file}`)

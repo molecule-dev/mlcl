@@ -355,6 +355,15 @@ describe('the exact prepared npm tarball', () => {
     },
   )
 
+  it('requires a tree for a descriptor that create can read directly without the index', () => {
+    const f = fixture()
+    listedTemplate(f, 'fixture')
+    fs.writeFileSync(path.join(f.dir, 'templates/apps/registry.json'), '{"templates":{}}')
+    const checked = verify(f, pack(f))
+    expect(checked.status).toBe(1)
+    expect(checked.stderr).toContain('flagship fixture missing tree.json.br')
+  })
+
   it('blocks a tree missing the shipped app workspace and checks the packaged index', () => {
     const f = fixture()
     const dir = listedTemplate(f, 'fixture')
