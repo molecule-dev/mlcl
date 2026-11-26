@@ -29,10 +29,12 @@ import {
   mkdirSync,
   readdirSync,
   readFileSync,
+  renameSync,
+  rmSync,
   statSync,
   writeFileSync,
 } from 'node:fs'
-import { dirname, join, relative } from 'node:path'
+import { dirname, isAbsolute, join, relative, resolve } from 'node:path'
 import { stripVTControlCharacters } from 'node:util'
 
 import { acquireCheckLock } from './check-lock.js'
@@ -399,15 +401,20 @@ export function planCheckSteps(
   if (wanted.has('e2e')) {
     const configured = packages.filter((p) => p.playwrightConfig)
     const scripted = code.filter((p) => p.scripts['test:e2e'] || p.scripts.e2e)
-    if (configured.length > 0) {
-      for (const p of configured)
-        add('e2e', p, `npx --no-install playwright test${e2eArgs(options.e2e)}`)
-    } else if (scripted.length > 0) {
-      for (const p of scripted) {
-        const script = p.scripts['test:e2e'] ? 'test:e2e' : 'e2e'
-        add('e2e', p, `npm run --silent ${script} --${e2eArgs(options.e2e)}`)
-      }
-    } else skip('e2e', 'e2e', 'no playwright.config.* and no e2e script')
+    // A package's own e2e script runs when it declares one, so whatever it does first (a
+    // `pretest:e2e` that installs its browser, a wrapper) runs too; a Playwright config without
+    // a script runs the local Playwright.
+    const declared = (p: (typeof packages)[number]): string | null =>
+      p.scripts['test:e2e'] ? 'test:e2e' : p.scripts.e2e ? 'e2e' : null
+    const run = (p: (typeof packages)[number]): string => {
+      const script = declared(p)
+      return script
+        ? `npm run --silent ${script} --${e2eArgs(options.e2e)}`
+        : `npx --no-install playwright test${e2eArgs(options.e2e)}`
+    }
+    if (configured.length > 0) for (const p of configured) add('e2e', p, run(p))
+    else if (scripted.length > 0) for (const p of scripted) add('e2e', p, run(p))
+    else skip('e2e', 'e2e', 'no playwright.config.* and no e2e script')
   }
 
   if (wanted.has('serve') && root && options.serve) {
@@ -774,18 +781,46 @@ export function formatCheckReport(results: readonly CheckStepResult[], totalMs: 
  * @returns The install arguments, or null.
  */
 export function missingPlaywrightBrowsers(log: string): string[] | null {
-  const missing = new Set(
-    [
-      ...log.matchAll(
-        /Executable doesn't exist at [^\r\n]*?[\\/](chromium(?:_headless_shell)?|firefox|webkit|ffmpeg)-\d+[\\/]/g,
-      ),
-    ].map((m) => m[1]),
-  )
+  const missing = new Set(missingPlaywrightExecutables(log).map((m) => m.browser))
   const others = ['firefox', 'webkit', 'ffmpeg'].filter((name) => missing.has(name))
-  if (missing.has('chromium')) return ['chromium', ...others]
-  // Headless runs launch Chromium's headless shell alone.
-  if (missing.has('chromium_headless_shell')) return ['--only-shell', 'chromium', ...others]
+  const full = missing.has('chromium')
+  const shell = missing.has('chromium_headless_shell')
+  // `playwright install chromium` installs Chromium and its headless shell; a headless run launches
+  // the shell alone, a headed one the full browser alone.
+  if (full && shell) return ['chromium', ...others]
+  if (full) return ['--no-shell', 'chromium', ...others]
+  if (shell) return ['--only-shell', 'chromium', ...others]
   return others.length > 0 ? others : null
+}
+
+/**
+ * The managed browser executables a failed Playwright run reports missing: each path in
+ * `Executable doesn't exist at <path>`, with the browser its install directory names.
+ *
+ * @param log - The run's output.
+ * @returns Each missing executable once.
+ */
+export function missingPlaywrightExecutables(
+  log: string,
+): Array<{ path: string; browser: string }> {
+  const found = new Map<string, string>()
+  for (const m of log.matchAll(
+    /Executable doesn't exist at ([^\r\n]*?[\\/](chromium(?:_headless_shell)?|firefox|webkit|ffmpeg)-\d+[\\/][^\r\n]*?)\s*$/gm,
+  ))
+    found.set(stripVTControlCharacters(m[1]), m[2])
+  return [...found].map(([path, browser]) => ({ path, browser }))
+}
+
+/**
+ * The install directories `playwright install --dry-run <args>` prints (`  Install location:  <dir>`).
+ *
+ * @param output - The dry run's output.
+ * @returns Each directory, in order.
+ */
+export function playwrightInstallLocations(output: string): string[] {
+  return [...stripVTControlCharacters(output).matchAll(/^\s*Install location:\s+(.+?)\s*$/gm)].map(
+    (m) => m[1],
+  )
 }
 
 /**
@@ -839,30 +874,33 @@ async function runStep(
   note: (text: string) => void = () => {},
 ): Promise<CheckStepResult> {
   if (step.kind === 'serve') return runServeStep(root, step, signal)
-  const first = await runStepOnce(root, step, signal)
-  if (step.kind !== 'e2e' || first.status !== 'failed' || !step.command.includes('playwright'))
-    return first
-  const install = missingPlaywrightBrowsers(readLog(step.logPath))
-  if (!install) return first
+  if (step.kind !== 'e2e') return runStepOnce(root, step, signal)
+  const started = Date.now()
+  const remaining = (): number => Math.max(1_000, step.timeoutMs - (Date.now() - started))
+  // The first run's output is published only once it is known not to be a missing browser the
+  // check is about to install: an agent reading the log, or Playwright's own words in it, beside
+  // a pending check installed the browser itself and probed for it (harness eval `check`,
+  // 2026-11-25 and 2026-11-26).
+  const first = await runStepCapture(root, step, signal)
+  const install =
+    first.result.status === 'failed' ? await confirmedBrowserInstall(step, first.log, signal) : null
+  if (!install) {
+    writeLogs(step, first.log)
+    return first.result
+  }
   const browsers = install.filter((a) => !a.startsWith('-')).join(', ')
   note(`has no Playwright browser: installing ${browsers}, then running it again`)
   const progress = playwrightInstallProgress()
   const command = `npx --no-install playwright install ${install.join(' ')}`
-  // The first run's log names the missing browser, and an agent that read it while the check was
-  // still running installed the browser from its own shell and probed for it (harness eval `check`,
-  // 2026-11-25, Codex reading the log beside a pending `check_project`). Until the next run replaces
-  // it, the log says only what the check is doing, then how far the download got: with the first
-  // run's output below that note, Codex searched the log for errors, found only Playwright's
-  // "Executable doesn't exist" line and looked for the browser itself (harness eval `check`,
-  // 2026-11-26). The failure path below still reports the first run's output.
-  const firstLog = readLog(step.logPath)
+  // Until the next run replaces it, the log says only what the check is doing, then how far the
+  // download got.
   writeLogs(
     step,
     `mlcl check: the Playwright browser (${browsers}) is not installed, so the first e2e run could not launch it. The check is installing it now (\`${command}\`) and will run this step again; nothing needs doing meanwhile. This log is replaced when that run ends.\n`,
   )
   const installStarted = Date.now()
   try {
-    await execCheckCommand({ ...step, command }, signal, (line) => {
+    await execCheckCommand({ ...step, command, timeoutMs: remaining() }, signal, (line) => {
       const text = progress(line)
       if (!text) return
       note(text)
@@ -880,7 +918,7 @@ async function runStep(
       killed?: boolean
     }
     const output = [stdout, stderr].filter(Boolean).join('\n')
-    writeLogs(step, output ? `${firstLog}\n\n$ ${command}\n${output}` : firstLog)
+    writeLogs(step, output ? `${first.log}\n\n$ ${command}\n${output}` : first.log)
     const lastDiagnostic = output
       .split('\n')
       .map((line) => stripVTControlCharacters(line).trim())
@@ -892,36 +930,70 @@ async function runStep(
     const dir = relative(root, step.dir)
     const from = dir ? `from \`${dir}\`` : 'from the check root'
     return {
-      ...first,
+      ...first.result,
       status: killed ? 'timeout' : 'failed',
-      durationMs: first.durationMs + Date.now() - installStarted,
+      durationMs: first.result.durationMs + Date.now() - installStarted,
       errors: [
         clip(
           `Playwright browser install ${killed ? 'stopped' : 'failed'}. Run \`${command}\` ${from}. ${killed ? reason : `The install reported ${reason}`}`,
         ),
-        ...first.errors,
+        ...first.result.errors,
       ].slice(0, MAX_REPORTED_ERRORS),
-      errorTotal: first.errorTotal + 1,
+      errorTotal: first.result.errorTotal + 1,
     }
   }
   const installDurationMs = Date.now() - installStarted
-  const again = await runStepOnce(root, step, signal)
+  const again = await runStepOnce(root, { ...step, timeoutMs: remaining() }, signal)
   const installed = `installed the Playwright browser first (${browsers})`
   return {
     ...again,
-    durationMs: again.durationMs + first.durationMs + installDurationMs,
+    durationMs: again.durationMs + first.result.durationMs + installDurationMs,
     summary: again.summary ? `${installed}, ${again.summary}` : installed,
   }
 }
 
-/** A step's full log, or '' when it was not written. */
-function readLog(path: string): string {
+/**
+ * The `playwright install` arguments for a failed run that could not launch a managed browser, once
+ * the step's own Playwright confirms them: `--dry-run` with those arguments must name an install
+ * directory holding every missing executable. That is what keeps the check from installing for an
+ * opaque e2e script (an npm script, a wrapper) whose browser belongs to some other Playwright, and
+ * it refuses flags this Playwright does not have. Null when either fails.
+ *
+ * @param step - The e2e step (its directory and environment run the dry run).
+ * @param log - The failed run's output.
+ * @param signal - Aborts the dry run.
+ * @returns The confirmed install arguments, or null.
+ */
+async function confirmedBrowserInstall(
+  step: ScriptCheckStep,
+  log: string,
+  signal: AbortSignal,
+): Promise<string[] | null> {
+  const install = missingPlaywrightBrowsers(log)
+  if (!install) return null
+  let output: string
   try {
-    return readFileSync(path, 'utf8')
+    const result = await execCheckCommand(
+      {
+        ...step,
+        command: `npx --no-install playwright install --dry-run ${install.join(' ')}`,
+        timeoutMs: 30_000,
+      },
+      signal,
+    )
+    output = `${result.stdout}${result.stderr}`
   } catch (_error) {
-    // Never written (the step did not spawn): nothing to read.
-    return ''
+    // No local Playwright CLI, or one without these flags: the run's own failure stands.
+    return null
   }
+  const locations = playwrightInstallLocations(output).map((dir) => resolve(step.dir, dir))
+  const missing = missingPlaywrightExecutables(log).map((m) => resolve(step.dir, m.path))
+  const inside = (path: string): boolean =>
+    locations.some((dir) => {
+      const rel = relative(dir, path)
+      return rel !== '' && !rel.startsWith('..') && !isAbsolute(rel)
+    })
+  return missing.length > 0 && missing.every(inside) ? install : null
 }
 
 async function runStepOnce(
@@ -929,6 +1001,25 @@ async function runStepOnce(
   step: ScriptCheckStep,
   signal: AbortSignal,
 ): Promise<CheckStepResult> {
+  const { result, log } = await runStepCapture(root, step, signal)
+  writeLogs(step, log)
+  return result
+}
+
+/**
+ * Run a step and shape its result without publishing its output: the caller writes `log`.
+ * Meanwhile the step's log says the check is running it, so nobody reads the previous check's
+ * output as this one's.
+ */
+async function runStepCapture(
+  root: string,
+  step: ScriptCheckStep,
+  signal: AbortSignal,
+): Promise<{ result: CheckStepResult; log: string }> {
+  writeLogs(
+    step,
+    `mlcl check (pid ${process.pid}) is running this step; this log is replaced with its output when it ends.\n`,
+  )
   const started = Date.now()
   const base = { kind: step.kind, name: step.name, logPath: step.logPath }
   let stdout: string
@@ -953,29 +1044,35 @@ async function runStepOnce(
     if (exitCode === null) {
       // Never spawned (bash missing) or killed by our timeout (killed, no code).
       const timedOut = e.killed === true || /timed ?out/i.test(e.message)
-      writeLogs(step, `${stdout}${stderr}`)
       return {
-        ...base,
-        status: timedOut ? 'timeout' : 'error',
-        durationMs: Date.now() - started,
-        errors: [
-          timedOut ? `stopped after ${secs(step.timeoutMs)} — the output so far:` : clip(e.message),
-        ],
-        errorTotal: 1,
+        log: `${stdout}${stderr}`,
+        result: {
+          ...base,
+          status: timedOut ? 'timeout' : 'error',
+          durationMs: Date.now() - started,
+          errors: [
+            timedOut
+              ? `stopped after ${secs(step.timeoutMs)} — the output so far:`
+              : clip(e.message),
+          ],
+          errorTotal: 1,
+        },
       }
     }
   }
   const durationMs = Date.now() - started
   const log = `${stdout}${stderr}`
-  writeLogs(step, log)
   if (step.kind === 'lint' && log.includes('__MOL_NO_CHANGED__')) {
     return {
-      ...base,
-      status: 'skipped',
-      durationMs,
-      errors: [],
-      errorTotal: 0,
-      reason: 'no changed files to lint',
+      log,
+      result: {
+        ...base,
+        status: 'skipped',
+        durationMs,
+        errors: [],
+        errorTotal: 0,
+        reason: 'no changed files to lint',
+      },
     }
   }
   const lintFiles = /__MOL_LINT_FILES__ (\d+)/.exec(log)?.[1]
@@ -998,7 +1095,7 @@ async function runStepOnce(
   const warnings = buildWarnings.slice(0, MAX_REPORTED_ERRORS).map((line) => clip(line))
   if (buildWarnings.length > warnings.length)
     warnings.push(`${buildWarnings.length - warnings.length} more warnings in ${step.logPath}`)
-  return {
+  const result: CheckStepResult = {
     ...base,
     status: failed ? 'failed' : 'passed',
     durationMs,
@@ -1014,6 +1111,7 @@ async function runStepOnce(
     ...(manifest ? { manifest: formatManifest(manifest) } : {}),
     ...(warnings.length ? { buildWarnings: warnings } : {}),
   }
+  return { result, log }
 }
 
 const CHECK_BUDGET_EXPIRED = new Error('The check budget expired.')
@@ -1082,12 +1180,20 @@ async function execCheckCommand(
   }
 }
 
+/** Replace a step's log in one rename, so a reader sees the old text or the new, never a part. */
 function writeLogs(step: PlannedCheckStep, log: string): void {
+  const partial = `${step.logPath}.${process.pid}.partial`
   try {
     mkdirSync(dirname(step.logPath), { recursive: true })
-    writeFileSync(step.logPath, log)
+    writeFileSync(partial, log)
+    renameSync(partial, step.logPath)
   } catch (_error) {
     // The log file is a convenience; the result already carries the errors.
+    try {
+      rmSync(partial, { force: true })
+    } catch (_cleanup) {
+      // Nothing more to do: a leftover partial file is never read as the log.
+    }
   }
 }
 

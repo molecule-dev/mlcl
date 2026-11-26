@@ -108,6 +108,19 @@ describe('planCheckSteps', () => {
       e2e: 'e2e/auth.spec.ts',
     })
     expect(configured.steps[0].command).toBe(`npx --no-install playwright test 'e2e/auth.spec.ts'`)
+    // A configured package that declares its e2e script runs that script, so whatever it runs
+    // first (a `pretest:e2e` that installs its browser) runs too (OLD MUSTFAIL: the check ran
+    // the local Playwright beside the script).
+    const both = planCheckSteps(
+      [
+        pkg({
+          playwrightConfig: 'playwright.config.ts',
+          scripts: { 'test:e2e': 'playwright test' },
+        }),
+      ],
+      { budgetMs: BUDGET, steps: ['e2e'], e2e: 'e2e/auth.spec.ts' },
+    )
+    expect(both.steps[0].command).toBe(`npm run --silent test:e2e -- 'e2e/auth.spec.ts'`)
     const scripted = planCheckSteps([pkg({ scripts: { 'test:e2e': 'playwright test' } })], {
       budgetMs: BUDGET,
       steps: ['e2e'],
@@ -359,13 +372,27 @@ describe('runCheckLocal', () => {
    * A project whose `playwright` fails like a real one with no browser until `playwright install`
    * runs. With `installFailure`, the install prints it on stderr and exits 1.
    */
-  function playwrightProject(failure: string, installFailure?: string): string {
+  function playwrightProject(
+    failure: string,
+    installFailure?: string,
+    installDir?: string,
+  ): string {
+    const dir =
+      installDir ??
+      /Executable doesn't exist at (.*?[\\/](?:chromium_headless_shell|chromium|firefox|webkit|ffmpeg)-\d+)[\\/]/.exec(
+        failure,
+      )?.[1]
     const root = fixtureDir({
       'package.json': JSON.stringify({ name: 'e2e-fixture' }),
       'playwright.config.ts': 'export default {}\n',
       'install-output.txt': `${INSTALL_OUTPUT.join('\n')}\n`,
+      // What `playwright install --dry-run <browser>` prints: where it would install it.
+      'dry-run-output.txt': dir
+        ? `Chrome Headless Shell 141.0.7390.37\n  Install location:    ${dir}\n`
+        : '',
       'node_modules/.bin/playwright': [
         '#!/bin/sh',
+        'if [ "$1" = install ] && [ "$2" = --dry-run ]; then cat dry-run-output.txt; exit 0; fi',
         ...(installFailure
           ? [`if [ "$1" = install ]; then echo '${installFailure}' >&2; exit 1; fi`]
           : []),
@@ -506,6 +533,89 @@ describe('runCheckLocal', () => {
     expect(existsSync(join(root, 'installed.txt'))).toBe(false)
   })
 
+  it("leaves a missing browser alone when the step's own Playwright would not install it there", async () => {
+    // An opaque e2e script can launch some other Playwright's browser: installing with the
+    // project's would fetch a browser that run never uses (OLD MUSTFAIL: the check installed it).
+    const root = playwrightProject(
+      "Error: browserType.launch: Executable doesn't exist at /other/ms-playwright/chromium_headless_shell-1180/chrome-headless-shell-linux64/chrome-headless-shell",
+      undefined,
+      '/home/u/.cache/ms-playwright/chromium_headless_shell-1248',
+    )
+    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    const [e2e] = result.results
+    expect(e2e.status).toBe('failed')
+    expect(existsSync(join(root, 'installed.txt'))).toBe(false)
+    expect(readFileSync(e2e.logPath, 'utf8')).toContain("Executable doesn't exist")
+  })
+
+  /**
+   * A project outside Molecule: a Playwright config, an npm e2e script, and a fake CLI that
+   * records each call and launches a browser only once `install` has run.
+   */
+  function recordingPlaywrightProject(scripts: Record<string, string>, launches: boolean): string {
+    const root = fixtureDir({
+      'package.json': JSON.stringify({ name: 'pw-fixture', scripts }),
+      'playwright.config.ts': 'export default {}\n',
+      'node_modules/.bin/playwright': [
+        '#!/bin/sh',
+        'echo "$*" >> calls.txt',
+        'if [ "$1" = install ] && [ "$2" = --dry-run ]; then echo "  Install location:    /cache/ms-playwright/chromium_headless_shell-1248"; exit 0; fi',
+        'if [ "$1" = install ]; then touch installed; exit 0; fi',
+        ...(launches
+          ? [
+              'if [ ! -f installed ]; then echo "Error: browserType.launch: Executable doesn\'t exist at /cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell"; exit 1; fi',
+            ]
+          : []),
+        'echo "  1 passed (1.0s)"',
+        '',
+      ].join('\n'),
+    })
+    execFileSync('chmod', ['+x', join(root, 'node_modules', '.bin', 'playwright')])
+    return root
+  }
+
+  it("runs the project's e2e script, so its own preparation installs the browser before any run", async () => {
+    // Astra's design review (2026-11-26): a failed first run boots the app's server for nothing
+    // and leaves "Executable doesn't exist" for an agent to find. OLD MUSTFAIL: the check ran
+    // `playwright test` directly, beside the script, and the calls were test → install → test.
+    const root = recordingPlaywrightProject(
+      { 'pretest:e2e': 'playwright install --only-shell chromium', 'test:e2e': 'playwright test' },
+      true,
+    )
+    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    expect(result.results[0]).toMatchObject({ status: 'passed' })
+    expect(readFileSync(join(root, 'calls.txt'), 'utf8')).toBe(
+      'install --only-shell chromium\ntest\n',
+    )
+  })
+
+  it('installs nothing for an e2e run that launches no browser', async () => {
+    // Counterexample: a cold machine, specs that only use `request`.
+    const root = recordingPlaywrightProject({ 'test:e2e': 'playwright test' }, false)
+    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    expect(result.results[0]).toMatchObject({ status: 'passed' })
+    expect(readFileSync(join(root, 'calls.txt'), 'utf8')).toBe('test\n')
+  })
+
+  it("says the check is running a step instead of showing the last check's log", async () => {
+    // An agent reading the step log mid-check read the previous check's failure as this one's.
+    const root = fixtureDir({
+      'package.json': JSON.stringify({
+        scripts: { 'test:e2e': 'cat node_modules/.cache/mlcl-check/e2e.log > seen.txt' },
+      }),
+      'node_modules/.cache/mlcl-check/e2e.log': 'Error: the last check failed\n',
+    })
+    const result = await runCheckLocal(root, { steps: ['e2e'] }, { budgetMs: 60_000 })
+    if ('error' in result) throw new Error(result.error)
+    expect(readFileSync(join(root, 'seen.txt'), 'utf8')).toBe(
+      `mlcl check (pid ${process.pid}) is running this step; this log is replaced with its output when it ends.\n`,
+    )
+    expect(readFileSync(result.results[0].logPath, 'utf8')).toBe('')
+  })
+
   it('recovers browsers stored under a custom cache path with spaces', async () => {
     const root = playwrightProject(
       "Error: browserType.launch: Executable doesn't exist at /cache/custom browsers/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell",
@@ -530,7 +640,16 @@ describe('missingPlaywrightBrowsers', () => {
       '--only-shell',
       'chromium',
     ])
-    expect(missingPlaywrightBrowsers(missing('chromium-1248/x'))).toEqual(['chromium'])
+    // A headed run launches full Chromium alone (OLD MUSTFAIL: it installed the shell too).
+    expect(missingPlaywrightBrowsers(missing('chromium-1248/x'))).toEqual([
+      '--no-shell',
+      'chromium',
+    ])
+    expect(
+      missingPlaywrightBrowsers(
+        `${missing('chromium-1248/x')}\n${missing('chromium_headless_shell-1248/x')}`,
+      ),
+    ).toEqual(['chromium'])
     expect(
       missingPlaywrightBrowsers(
         `${missing('chromium_headless_shell-1248/x')}\n${missing('firefox-1500/x')}`,
