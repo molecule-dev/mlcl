@@ -85,6 +85,23 @@ export function webOnlyChains(
 }
 
 /**
+ * The packages a React Native project could install although they render only in a browser: each
+ * of `names` (packages that still render DOM elements) that neither carries a `webOnlyReason` nor
+ * requires, through its `moleculePeers`, a package that does. `mlcl add` and `mlcl create` refuse
+ * every other one in a React Native project.
+ *
+ * @param names - Package names that render DOM elements.
+ * @param registryPackages - The registry by name.
+ * @returns The names nothing refuses in a React Native project, in the given order.
+ */
+export function unrefusedOnReactNative(
+  names: readonly string[],
+  registryPackages: ReadonlyMap<string, InferredPackage>,
+): string[] {
+  return names.filter((name) => webOnlyChains([name], registryPackages).length === 0)
+}
+
+/**
  * The lines `mlcl add` prints for refused packages: `mind-map-canvas-react → canvas-react: <why>`.
  *
  * @param chains - The chains {@link webOnlyChains} found.

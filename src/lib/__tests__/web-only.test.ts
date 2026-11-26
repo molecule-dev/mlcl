@@ -9,7 +9,12 @@ import { describe, expect, it } from 'vitest'
 
 import { getRawRegistry, serializeRegistry } from '../registry.js'
 import type { InferredPackage } from '../schema.js'
-import { describeWebOnlyChains, rendersOnReactNative, webOnlyChains } from '../web-only.js'
+import {
+  describeWebOnlyChains,
+  rendersOnReactNative,
+  unrefusedOnReactNative,
+  webOnlyChains,
+} from '../web-only.js'
 
 /**
  * A registry package with only the fields the walk reads.
@@ -123,6 +128,29 @@ describe('webOnlyChains', () => {
   it('prints each chain without the scope', () => {
     expect(describeWebOnlyChains(webOnlyChains(['@molecule/app-mind-map'], registry))).toBe(
       '  app-mind-map → app-canvas: a pan-and-zoom editing surface',
+    )
+  })
+})
+
+describe('unrefusedOnReactNative', () => {
+  it('keeps only the packages nothing refuses: no reason of their own and no web-only peer', () => {
+    expect(
+      unrefusedOnReactNative(
+        [
+          '@molecule/app-sparkline',
+          '@molecule/app-canvas',
+          '@molecule/app-mind-map',
+          '@molecule/app-a',
+        ],
+        registry,
+      ),
+    ).toEqual(['@molecule/app-sparkline'])
+  })
+
+  it('judges each package by itself, even after another package reported the same web-only peer', () => {
+    // webOnlyChains reports app-canvas once, for app-mind-map; app-a still reaches it.
+    expect(unrefusedOnReactNative(['@molecule/app-mind-map', '@molecule/app-a'], registry)).toEqual(
+      [],
     )
   })
 })

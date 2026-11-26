@@ -120,6 +120,16 @@ if staged_diff --name-only -- registry.json | grep -q . &&
     ${MOL_PRECOMMIT_BASE:+"--base=$MOL_PRECOMMIT_BASE"}
 fi
 
+# Every React feature that still renders DOM elements (molecule HEAD's
+# eslint-rules/intrinsic-jsx-pending.json) must be refused in a React Native project by the staged
+# registry: its own webOnlyReason, or a required peer that has one. A registry edit is the only way
+# to lose either, and `mlcl add` would then install a feature that cannot render on a device.
+# Reads the index, so it runs for a private-index commit too. Skipped without a molecule checkout or tsx.
+if staged_diff --name-only -- registry.json | grep -q . &&
+  [ -d ../molecule/.git ] && { [ -d node_modules/tsx ] || [ -d ../node_modules/tsx ]; }; then
+  run_check check-react-native-refusals node --import tsx scripts/check-react-native-refusals.mjs
+fi
+
 # The vendored scanner comparison also reads the workspace working tree.
 if [ "${1:-}" = --index-only ]; then exit 0; fi
 
