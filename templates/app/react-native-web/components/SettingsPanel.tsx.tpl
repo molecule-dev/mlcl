@@ -171,7 +171,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
             id="settings-email"
             type="email"
             value={email}
-            onChange={(e) => setEmail((e.target as HTMLInputElement).value)}
+            onValueChange={setEmail}
             onBlur={handleEmailBlur}
             size="sm"
           />
@@ -203,11 +203,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
         <h3 className={cm.cn(cm.sectionHeading, cm.sp('mb', 3))}>{t('settings.notifications')}</h3>
         <Flex align="center" justify="between">
           <span className={cm.textSize('sm')}>{t('settings.pushNotifications')}</span>
-          <Switch
-            checked={pushEnabled}
-            onChange={(e) => handleTogglePush((e.target as HTMLInputElement).checked)}
-            size="sm"
-          />
+          <Switch checked={pushEnabled} onCheckedChange={handleTogglePush} size="sm" />
         </Flex>
       </section>
 
@@ -299,7 +295,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
               id="current-pw"
               type="password"
               value={currentPassword}
-              onChange={(e) => setCurrentPassword((e.target as HTMLInputElement).value)}
+              onValueChange={setCurrentPassword}
               autoComplete="current-password"
               required
             />
@@ -312,7 +308,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
               id="new-pw"
               type="password"
               value={newPassword}
-              onChange={(e) => setNewPassword((e.target as HTMLInputElement).value)}
+              onValueChange={setNewPassword}
               autoComplete="new-password"
               required
             />
@@ -348,7 +344,7 @@ export function SettingsPanel({ onClose }: { onClose: () => void }) {
               id="delete-pw"
               type="password"
               value={deletePassword}
-              onChange={(e) => setDeletePassword((e.target as HTMLInputElement).value)}
+              onValueChange={setDeletePassword}
               required
             />
           </div>

@@ -162,7 +162,7 @@ export function TwoFactorSetting() {
                 id="two-factor-code"
                 type="number"
                 value={token}
-                onChange={(e) => setToken((e.target as HTMLInputElement).value)}
+                onValueChange={setToken}
                 autoComplete="one-time-code"
                 required
               />
