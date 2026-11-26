@@ -32,6 +32,7 @@ const manifest = JSON.parse(readFileSync(join(MLCL, 'package.json'), 'utf8')) as
   devDependencies?: Record<string, string>
   optionalDependencies?: Record<string, string>
   peerDependencies?: Record<string, string>
+  imports?: Record<string, unknown>
 }
 const declared = new Set([
   manifest.name,
@@ -65,12 +66,16 @@ function sourceFiles(dir: string): string[] {
 }
 
 /**
- * The package a bare specifier names (`@scope/name/sub` → `@scope/name`).
+ * The package a bare specifier names (`@scope/name/sub` → `@scope/name`). A `#name` specifier is
+ * one of mlcl's own subpath imports, declared in package.json `imports`; an undeclared one is
+ * reported as itself.
  *
  * @param specifier - An import specifier.
- * @returns The package name, or null for a relative, builtin, URL or alias specifier.
+ * @returns The package name, or null for a relative, builtin, URL, alias or declared subpath
+ *   specifier.
  */
 function packageOf(specifier: string): string | null {
+  if (specifier.startsWith('#')) return specifier in (manifest.imports ?? {}) ? null : specifier
   if (specifier.startsWith('.') || specifier.startsWith('/')) return null
   if (specifier.startsWith('node:') || /^[a-z]+:/.test(specifier)) return null
   const parts = specifier.split('/')

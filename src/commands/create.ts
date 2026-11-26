@@ -1323,7 +1323,10 @@ export default class Create extends Command {
         projectName,
         projectType,
         framework,
-        envFiles.map((env) => [env.file, envVariablesLeftToSet(env.secrets, env.type, appEnvKey)]),
+        envFiles.map((envFile) => [
+          envFile.file,
+          envVariablesLeftToSet(envFile.secrets, envFile.type, appEnvKey),
+        ]),
       )
       await stampMoleculeMetadata(projectPath)
     }
@@ -1715,10 +1718,16 @@ export default class Create extends Command {
     // generate JWT keys the scaffold had already written (2026-11-23 eval). A static site's
     // app/ gets only the VITE_ secrets, and no API env.
     const envLeftToSet = new Map<string, string[]>()
-    for (const env of envFiles)
+    for (const envFile of envFiles)
       envLeftToSet.set(
-        env.file,
-        await generateEnvFile(env.dir, env.secrets, env.type, env.projectName, appEnvKey),
+        envFile.file,
+        await generateEnvFile(
+          envFile.dir,
+          envFile.secrets,
+          envFile.type,
+          envFile.projectName,
+          appEnvKey,
+        ),
       )
     log(
       t(

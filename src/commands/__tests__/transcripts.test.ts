@@ -269,7 +269,7 @@ describe('transcripts + share visibility commands (mock api.molecule.dev)', () =
     })
     sandboxRunning = false
     await expect(run(ShareVisibility, ['-p', 'p_1', '--workspace', 'on'])).rejects.toThrow(
-      /Start the project's sandbox first \(mlcl sandbox start -p p_1\)/,
+      /Start the project's sandbox first \(npx mlcl sandbox start -p p_1\)/,
     )
   })
 
