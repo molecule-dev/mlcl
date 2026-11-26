@@ -34,6 +34,7 @@
     "@molecule/app-command-palette-cmdk": "1.0.3",
     "@molecule/app-data-table": "1.0.4",
     "@molecule/app-device": "1.0.3",
+    "@molecule/app-filesystem": "1.1.0",
     "@molecule/app-fonts": "1.4.1",
     "@molecule/app-fonts-arimo": "1.0.6",
     "@molecule/app-footer-react": "4.3.0",
