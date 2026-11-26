@@ -62758,18 +62758,25 @@
         "@angular/core",
         "@angular/platform-browser",
         "@molecule/app-angular",
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-ui",
-        "@molecule/app-ui-angular"
+        "@molecule/app-ui-angular",
+        "base64-js"
       ],
       "moleculePeers": [
         "@molecule/app-angular",
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-ui",
         "@molecule/app-ui-angular"
       ],
       "thirdPartyDependencies": {
-        "dependencies": {},
+        "dependencies": {
+          "base64-js": "1.5.1"
+        },
         "peerDependencies": {
           "@angular/common": "^22.0.0",
           "@angular/core": "^22.0.0",
@@ -62799,20 +62806,27 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
+        "base64-js",
         "react"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
       ],
       "thirdPartyDependencies": {
-        "dependencies": {},
+        "dependencies": {
+          "base64-js": "1.5.1"
+        },
         "peerDependencies": {
           "react": "^18.0.0 || ^19.0.0"
         }
@@ -62839,20 +62853,27 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-solid",
         "@molecule/app-ui",
         "@molecule/app-ui-solid",
+        "base64-js",
         "solid-js"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-solid",
         "@molecule/app-ui",
         "@molecule/app-ui-solid"
       ],
       "thirdPartyDependencies": {
-        "dependencies": {},
+        "dependencies": {
+          "base64-js": "1.5.1"
+        },
         "peerDependencies": {
           "solid-js": "^1.8.0"
         }
@@ -62879,20 +62900,27 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-svelte",
         "@molecule/app-ui",
         "@molecule/app-ui-svelte",
+        "base64-js",
         "svelte"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-svelte",
         "@molecule/app-ui",
         "@molecule/app-ui-svelte"
       ],
       "thirdPartyDependencies": {
-        "dependencies": {},
+        "dependencies": {
+          "base64-js": "1.5.1"
+        },
         "peerDependencies": {
           "svelte": "^5.0.0"
         }
@@ -62919,20 +62947,27 @@
       ],
       "secrets": [],
       "runtimeDependencies": [
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-ui",
         "@molecule/app-ui-vue",
         "@molecule/app-vue",
+        "base64-js",
         "vue"
       ],
       "moleculePeers": [
+        "@molecule/app-filesystem",
         "@molecule/app-icons",
+        "@molecule/app-logger",
         "@molecule/app-ui",
         "@molecule/app-ui-vue",
         "@molecule/app-vue"
       ],
       "thirdPartyDependencies": {
-        "dependencies": {},
+        "dependencies": {
+          "base64-js": "1.5.1"
+        },
         "peerDependencies": {
           "vue": "^3.4.0"
         }
@@ -106023,12 +106058,14 @@
         "@angular/platform-browser",
         "@molecule/app-angular",
         "@molecule/app-file-dropzone-angular",
+        "@molecule/app-filesystem",
         "@molecule/app-ui",
         "@molecule/app-ui-angular"
       ],
       "moleculePeers": [
         "@molecule/app-angular",
         "@molecule/app-file-dropzone-angular",
+        "@molecule/app-filesystem",
         "@molecule/app-ui",
         "@molecule/app-ui-angular"
       ],
@@ -106082,6 +106119,7 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-file-dropzone-react",
+        "@molecule/app-filesystem",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react",
@@ -106089,6 +106127,7 @@
       ],
       "moleculePeers": [
         "@molecule/app-file-dropzone-react",
+        "@molecule/app-filesystem",
         "@molecule/app-react",
         "@molecule/app-ui",
         "@molecule/app-ui-react"
@@ -106141,6 +106180,7 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-file-dropzone-solid",
+        "@molecule/app-filesystem",
         "@molecule/app-solid",
         "@molecule/app-ui",
         "@molecule/app-ui-solid",
@@ -106148,6 +106188,7 @@
       ],
       "moleculePeers": [
         "@molecule/app-file-dropzone-solid",
+        "@molecule/app-filesystem",
         "@molecule/app-solid",
         "@molecule/app-ui",
         "@molecule/app-ui-solid"
@@ -106200,6 +106241,7 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-file-dropzone-svelte",
+        "@molecule/app-filesystem",
         "@molecule/app-svelte",
         "@molecule/app-ui",
         "@molecule/app-ui-svelte",
@@ -106207,6 +106249,7 @@
       ],
       "moleculePeers": [
         "@molecule/app-file-dropzone-svelte",
+        "@molecule/app-filesystem",
         "@molecule/app-svelte",
         "@molecule/app-ui",
         "@molecule/app-ui-svelte"
@@ -106259,6 +106302,7 @@
       "secrets": [],
       "runtimeDependencies": [
         "@molecule/app-file-dropzone-vue",
+        "@molecule/app-filesystem",
         "@molecule/app-ui",
         "@molecule/app-ui-vue",
         "@molecule/app-vue",
@@ -106266,6 +106310,7 @@
       ],
       "moleculePeers": [
         "@molecule/app-file-dropzone-vue",
+        "@molecule/app-filesystem",
         "@molecule/app-ui",
         "@molecule/app-ui-vue",
         "@molecule/app-vue"
@@ -109459,6 +109504,8 @@
         "FieldBounds",
         "TextFieldProps",
         "RangeFieldProps",
+        "FileFieldHandle",
+        "FileFieldProps",
         "SelectFieldOption",
         "SelectFieldGroup",
         "SelectFieldProps",
@@ -109622,8 +109669,7 @@
         "AccentTone",
         "UIClassMap",
         "extendClassMap",
-        "ClassMapOverrides",
-        "FileFieldProps"
+        "ClassMapOverrides"
       ],
       "secrets": [],
       "runtimeDependencies": [
