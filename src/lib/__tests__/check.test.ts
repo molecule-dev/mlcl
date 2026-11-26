@@ -500,6 +500,33 @@ describe('runCheckLocal', () => {
     expect(readFileSync(e2e.logPath, 'utf8')).toContain('Socket.onConnect')
   })
 
+  it('reports the suite browser setup failure first without invoking recovery', async () => {
+    const diagnostic = 'MOL_E2E_BROWSER_SETUP_FAILED: exit code 7. Error: CDN unavailable'
+    const root = playwrightProject(
+      [
+        '  1) [chromium] › e2e/smoke.spec.ts:27:1 › launches ──────────',
+        "    Error: browserType.launch: Executable doesn't exist at /cache/ms-playwright/chromium_headless_shell-1248/chrome",
+        '  2) [chromium] › e2e/smoke.spec.ts:36:1 › opens settings ──────────',
+        '\x1b[31m    Error: ' + diagnostic + '\x1b[0m',
+        '  2 failed',
+      ].join('\n'),
+    )
+    const notes: string[] = []
+    const result = await runCheckLocal(
+      root,
+      { steps: ['e2e'] },
+      { budgetMs: 60_000, note: (line) => notes.push(line) },
+    )
+    if ('error' in result) throw new Error(result.error)
+    const [e2e] = result.results
+    expect(e2e.status).toBe('failed')
+    expect(e2e.errors[0]).toBe(diagnostic)
+    expect(e2e.summary).toBe('2 failed')
+    expect(notes.join('\n')).not.toContain('installing')
+    expect(existsSync(join(root, 'installed.txt'))).toBe(false)
+    expect(readFileSync(e2e.logPath, 'utf8')).toContain(diagnostic)
+  })
+
   it('reports cancellation during browser recovery as a timeout with the install command', async () => {
     const root = playwrightProject(
       "Error: browserType.launch: Executable doesn't exist at /cache/ms-playwright/chromium_headless_shell-1248/chrome-headless-shell-linux64/chrome-headless-shell",
@@ -658,6 +685,13 @@ describe('missingPlaywrightBrowsers', () => {
   })
   it('returns null for any other failure', () => {
     expect(missingPlaywrightBrowsers('Error: expect(received).toBe(expected)')).toBeNull()
+  })
+  it('does not recover a browser launch if the suite already reported failed setup', () => {
+    expect(
+      missingPlaywrightBrowsers(
+        `${missing('chromium_headless_shell-1248/x')}\nError: MOL_E2E_BROWSER_SETUP_FAILED: exit code 7`,
+      ),
+    ).toBeNull()
   })
 })
 

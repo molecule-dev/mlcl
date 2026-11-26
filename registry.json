@@ -48463,7 +48463,7 @@
       "type": "feature",
       "category": "e2e-fixtures-default",
       "label": "E2E Fixtures Default",
-      "description": "The @playwright/test drop-in for molecule apps: Playwright's test, expect and page with the browser supplied by the bonded e2e provider (live preview or real browsers), a console-error guard on every test, and the Playwright-shaped page adapter for evaluate-only bonds.",
+      "description": "The @playwright/test drop-in for molecule apps: Playwright's test, expect and page with the browser supplied by the bonded e2e provider (live preview or real browsers), a console-error guard on the page fixture, and the Playwright-shaped page adapter for evaluate-only bonds.",
       "stack": "app",
       "exports": [
         "ConsoleErrorEntry",
@@ -48533,6 +48533,7 @@
       "runtimeDependencies": [
         "@molecule/app-bond",
         "@molecule/app-e2e",
+        "@molecule/app-e2e-playwright",
         "@playwright/test"
       ],
       "moleculePeers": [
@@ -48565,6 +48566,7 @@
       "stack": "app",
       "implements": "@molecule/app-e2e",
       "exports": [
+        "installPlaywrightBrowser",
         "connectPlaywright",
         "provider",
         "PlaywrightBrowserName",

@@ -490,6 +490,11 @@ function clip(line: string): string {
   return one.length > MAX_ERROR_LINE_CHARS ? `${one.slice(0, MAX_ERROR_LINE_CHARS - 1)}…` : one
 }
 
+/** The browser setup error emitted by Molecule's Playwright worker fixture, if present. */
+function browserSetupFailure(log: string): string | undefined {
+  return /MOL_E2E_BROWSER_SETUP_FAILED[^\r\n]*/.exec(stripVTControlCharacters(log))?.[0]
+}
+
 /**
  * The first few actionable errors in a step's log, plus a one-line tally when
  * the runner printed one. Tool-shaped patterns first (tsc, eslint, esbuild,
@@ -522,6 +527,8 @@ export function extractStepErrors(
       found.push(c)
     }
   }
+  const setupFailure = kind === 'e2e' && failed ? browserSetupFailure(rawLog) : undefined
+  if (setupFailure) push(setupFailure)
   const nextError = (from: number): string | null => {
     for (let j = from; j < Math.min(lines.length, from + 20); j++) {
       const m = ERROR_LINE.exec(lines[j])
@@ -568,7 +575,8 @@ export function extractStepErrors(
     m = PLAYWRIGHT_FAIL.exec(line)
     if (m) {
       const error = nextError(i + 1)
-      push(`${displayPath(m[1], root, dir)}:${m[2]} › ${m[3]}${error ? ` — ${error}` : ''}`)
+      if (!setupFailure || !error?.includes(setupFailure))
+        push(`${displayPath(m[1], root, dir)}:${m[2]} › ${m[3]}${error ? ` — ${error}` : ''}`)
       continue
     }
     m = VITEST_FAIL.exec(line)
@@ -781,6 +789,7 @@ export function formatCheckReport(results: readonly CheckStepResult[], totalMs: 
  * @returns The install arguments, or null.
  */
 export function missingPlaywrightBrowsers(log: string): string[] | null {
+  if (browserSetupFailure(log)) return null
   const missing = new Set(missingPlaywrightExecutables(log).map((m) => m.browser))
   const others = ['firefox', 'webkit', 'ffmpeg'].filter((name) => missing.has(name))
   const full = missing.has('chromium')
@@ -1044,6 +1053,8 @@ async function runStepCapture(
     if (exitCode === null) {
       // Never spawned (bash missing) or killed by our timeout (killed, no code).
       const timedOut = e.killed === true || /timed ?out/i.test(e.message)
+      const setupFailure =
+        step.kind === 'e2e' ? browserSetupFailure(`${stdout}${stderr}`) : undefined
       return {
         log: `${stdout}${stderr}`,
         result: {
@@ -1051,9 +1062,11 @@ async function runStepCapture(
           status: timedOut ? 'timeout' : 'error',
           durationMs: Date.now() - started,
           errors: [
-            timedOut
-              ? `stopped after ${secs(step.timeoutMs)} — the output so far:`
-              : clip(e.message),
+            setupFailure
+              ? clip(setupFailure)
+              : timedOut
+                ? `stopped after ${secs(step.timeoutMs)} — the output so far:`
+                : clip(e.message),
           ],
           errorTotal: 1,
         },
@@ -1077,7 +1090,7 @@ async function runStepCapture(
   }
   const lintFiles = /__MOL_LINT_FILES__ (\d+)/.exec(log)?.[1]
   const cleanLog = log.replace(/^__MOL_LINT_FILES__ \d+\n?/m, '')
-  const failed = exitCode !== 0
+  const failed = exitCode !== 0 || (step.kind === 'e2e' && Boolean(browserSetupFailure(cleanLog)))
   const { errors, total, summary } = extractStepErrors(step.kind, cleanLog, root, step.dir, failed)
   const manifest =
     step.kind === 'build' && !failed && step.outDirs ? buildManifest(step.dir, step.outDirs) : null
